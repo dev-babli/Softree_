@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "flickity": "^2.3.0",
     "framer-motion": "^12.23.26",
     "lottie-react": "^2.4.1",
     "lucide-react": "^0.562.0",
@@ -18,6 +19,7 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-feather": "^2.0.10",
+    "react-flickity-component": "^5.0.0",
     "react-icons": "^5.5.0",
     "recharts": "^3.6.0",
     "swiper": "^12.0.3"
