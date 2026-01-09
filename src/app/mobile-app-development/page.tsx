@@ -6,8 +6,8 @@ import MobileAppServices from "./mobile-app1";
 import AppDevelopmentProcess from "./app-process";
 import AppDevelopmentServices1 from "./softree-card";
 import WhyChooseSoftree from "./why-chose";
-import Footer from "@/src/components/footer";
-import Navigation from "@/src/components/navigation";
+import Footer from "@/components/footer";
+import Navigation from "@/components/navigation";
 export default function Home() {
   return (
     <main>

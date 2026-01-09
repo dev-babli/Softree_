@@ -1,5 +1,5 @@
-import Footer from "@/src/components/footer";
-import Navigation from "@/src/components/navigation";
+import Footer from "@/components/footer";
+import Navigation from "@/components/navigation";
 import PortfolioCarousel from "./data";
 import Timeline from "./timeline";
 import ServicesSection from "./services-data";

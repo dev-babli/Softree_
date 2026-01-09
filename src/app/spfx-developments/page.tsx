@@ -1,9 +1,9 @@
-import Footer from "@/src/components/footer";
+import Footer from "@/components/footer";
 import SpfxBenefits from "./spfx-benefits";
 import SpfxTabs from "./spfx-tab";
 import SpfxExpertise from "./spfx.expertise";
 import ServicesShowcase from "./show-case";
-import Navigation from "@/src/components/navigation";
+import Navigation from "@/components/navigation";
 export default function Home() {
   return (
     <main>

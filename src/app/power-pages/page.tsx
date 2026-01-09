@@ -1,6 +1,6 @@
 "use client";
-import Footer from "@/src/components/footer";
-import Navigation from "@/src/components/navigation";
+import Footer from "@/components/footer";
+import Navigation from "@/components/navigation";
 import PowerPlatformSection from "./power-platform";
 import PowerPagesSection from "./power-page";
 import PowerPagesIntro from "./power-page1";

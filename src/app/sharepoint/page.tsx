@@ -1,10 +1,10 @@
-import Footer from "@/src/components/footer";
+import Footer from "@/components/footer";
 import TechnologyStack from "./tech";
 import SharePointBenefits from "./sp-benefits";
 import SharePointNeed from "./sharepoint-need";
 import TimelineDemo from "./timeline";
 import SharePointTimeline from "./sp-page";
-import Navigation from "@/src/components/navigation";
+import Navigation from "@/components/navigation";
 import ServiceCards from "./service-cards";
 export default function Home() {
   return (

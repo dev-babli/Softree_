@@ -1,10 +1,10 @@
-import Footer from "@/src/components/footer";
+import Footer from "@/components/footer";
 import PowerBISection from "./power-bi";
 import PowerBIComparison from "./softree-compairision";
 import PowerBIBenefits from "./benefits";
 import PowerBICards from "./power-bi-cards";
 import ServiceFlow from "./service";
-import Navigation from "@/src/components/navigation";
+import Navigation from "@/components/navigation";
 export default function Home() {
   return (
     <main>

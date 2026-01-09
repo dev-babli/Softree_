@@ -5,8 +5,8 @@ import SoftrreeWebServices from "./softree-web";
 import WhyChooseSoftreeWeb from "./why-chose";
 import WebDevelopmentSlider from "./web-process";
 import WebAppImportance from "./web-app";
-import Footer from "@/src/components/footer";
-import Navigation from "@/src/components/navigation";
+import Footer from "@/components/footer";
+import Navigation from "@/components/navigation";
 export default function Home() {
   return (
     <main>

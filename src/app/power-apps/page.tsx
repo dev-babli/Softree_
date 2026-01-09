@@ -3,9 +3,9 @@ import PowerPlatformSlider from "./power-slider";
 import ServicesSection from "./ser-sec";
 import WhoWeServe from "./who-we-ser";
 
-import Footer from "@/src/components/footer";
+import Footer from "@/components/footer";
 import PowerAppsServices from "./tabs";
-import Navigation from "@/src/components/navigation";
+import Navigation from "@/components/navigation";
 import ClientCarousel from "./client-carousel";
 import InnovationAndPowerBI from "./innovation";
 
