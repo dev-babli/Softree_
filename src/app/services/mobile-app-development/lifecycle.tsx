@@ -19,7 +19,7 @@ const steps = [
     angle: -65,
     icon: Lightbulb,
     description:
-      "We analyze business goals, user needs, and technical feasibility to build a strong foundation.",
+      "We analyze the business goals, user needs, and technical feasibility to build a strong foundation.",
   },
   {
     id: "designing",
