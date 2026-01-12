@@ -24,37 +24,6 @@ export default function Footer() {
         <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-white/5 blur-[220px]" />
       </div>
 
-      {/* ================= CTA SECTION ================= */}
-      <div className="border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-28">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h3 className="text-4xl md:text-5xl font-semibold text-white">
-                Build smarter with Softree
-              </h3>
-              <p className="mt-6 text-lg text-gray-400 max-w-2xl">
-                Enterprise-grade SharePoint, Power Platform, and custom software
-                solutions built to modernize collaboration and accelerate
-                digital transformation.
-              </p>
-            </div>
-
-            <div className="flex lg:justify-end">
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-4
-                px-12 py-6 rounded-2xl
-                bg-white text-black text-lg font-semibold
-                hover:bg-gray-200 transition"
-              >
-                Start Your Project
-                <FaArrowRight className="text-xl group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* ================= MAIN FOOTER ================= */}
       <div className="max-w-7xl mx-auto px-6 py-32">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-20">

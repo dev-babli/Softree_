@@ -15,28 +15,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="antialiased">
-        <Script
-          id="orchids-browser-logs"
-          src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
-          strategy="afterInteractive"
-          data-orchids-project-id="f9231059-3647-4f7a-ab8a-965fcb6abfb0"
-        />
-        <ErrorReporter />
-        <Script
-          src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts//route-messenger.js"
-          strategy="afterInteractive"
-          data-target-origin="*"
-          data-message-type="ROUTE_CHANGE"
-          data-include-search-params="true"
-          data-only-in-iframe="true"
-          data-debug="true"
-          data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
-        />
-        {children}
-        <VisualEditsMessenger />
-      </body>
-    </html>
+  <html lang="en" className="bg-transparent">
+  <body className="antialiased bg-transparent">
+    <Script
+      id="orchids-browser-logs"
+      src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
+      strategy="afterInteractive"
+      data-orchids-project-id="f9231059-3647-4f7a-ab8a-965fcb6abfb0"
+    />
+    <ErrorReporter />
+    <Script
+      src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts//route-messenger.js"
+      strategy="afterInteractive"
+      data-target-origin="*"
+      data-message-type="ROUTE_CHANGE"
+      data-include-search-params="true"
+      data-only-in-iframe="true"
+      data-debug="true"
+      data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
+    />
+    {children}
+    <VisualEditsMessenger />
+  </body>
+</html>
+
   );
 }

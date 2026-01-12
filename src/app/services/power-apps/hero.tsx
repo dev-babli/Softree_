@@ -55,35 +55,31 @@ export default function PowerAppsHero() {
           </a>
         </div>
       </div>
-
    {/* MOVING TESTIMONIAL STRIP */}
-<div className="relative z-10 mt-20 overflow-hidden">
-  <div className="flex animate-marquee whitespace-nowrap">
-    {[...testimonials, ...testimonials].map((item, i) => (
-      <div
-        key={i}
-        className="mx-4 min-w-[420px] h-[140px] p-5 rounded-xl border border-white/10 flex flex-col justify-between"
-        style={{
-          background:
-            "linear-gradient(110deg, rgb(2,119,249) 0%, rgba(0,7,67,0) 35%), rgb(1,7,67)",
-        }}
-      >
-        <p className="text-white/80 text-sm md:text-base line-clamp-3">
-          “{item.text}”
-        </p>
+      <div className="relative z-10 mt-20 overflow-hidden">
+       <div className="flex items-stretch animate-marquee">
 
-        <div>
-          <p className="mt-2 text-white font-medium text-sm">
-            {item.name}
-          </p>
-          <p className="text-white/50 text-xs">
-            {item.role}
-          </p>
+          {[...testimonials, ...testimonials].map((item, i) => (
+          <div
+  key={i}
+ className="mx-4 min-w-[420px] max-w-[420px] h-[200px] p-6 rounded-xl border border-white/10 flex flex-col justify-between backdrop-blur"
+
+>
+
+              <p className="text-white/80 text-sm md:text-base leading-relaxed">
+                “{item.text}”
+              </p>
+
+              <div>
+                <p className="mt-2 text-white font-medium text-sm">
+                  {item.name}
+                </p>
+                <p className="text-white/50 text-xs">{item.role}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    ))}
-  </div>
-</div>
 
 
       {/* Animation */}

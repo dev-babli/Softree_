@@ -94,8 +94,7 @@ const menu = [
             label: "Microsoft PowerApps",
             url: "/services/power-apps",
             icon: <FaMicrosoft />,
-            description:
-              "Build low-code apps to streamline business processes",
+            description: "Build low-code apps to streamline business processes",
           },
           {
             label: "Microsoft Power Pages",
@@ -150,18 +149,29 @@ export default function Navigation() {
   }, []);
 
   return (
-    <nav className="bg-black text-white sticky top-0 z-50 shadow-md">
-      <div className="max-w-7xl mx-auto px-6">
-        <ul className="flex justify-center gap-8 py-4 font-semibold">
-          {menu.map((item, index) => (
-            <MenuItem
-              key={index}
-              item={item}
-              isMobile={isMobile}
-              pathname={pathname}
-            />
-          ))}
-        </ul>
+    <nav className="sticky top-0 z-50 w-full">
+      <div
+        className="
+      w-full
+      bg-gradient-to-r
+      from-[#070028]
+      via-[#050016]
+      to-[#03000D]
+      border-b border-white/10
+    "
+      >
+        <div className="max-w-7xl mx-auto px-6">
+          <ul className="flex justify-center gap-8 py-4 font-semibold text-white">
+            {menu.map((item, index) => (
+              <MenuItem
+                key={index}
+                item={item}
+                isMobile={isMobile}
+                pathname={pathname}
+              />
+            ))}
+          </ul>
+        </div>
       </div>
     </nav>
   );

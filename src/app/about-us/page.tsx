@@ -1,28 +1,24 @@
 import Navigation from "@/components/sections/navigation";
-import Link from "next/link";
 import Footer from "@/components/sections/footer";
-import MobileAppLifecycle from "./lifecycle";
-import ServicesShowcase from "./services";
-import Technologies from "./tech-stack";
-import WhyChooseSoftreeMobileApps from "./why-chose";
-import MobileAppCaseStudies from "./case-studies";
-import WhoWeWorkWith from "./who-we";
-import MobileAppHero from "./hero";
-
+import GlobalDelivery from "./global";
+import InspiredByOurValues from "./inspired";
+import EngagementModels from "./model";
+import AgileProcessStack from "./agile";
+import OurStorySection from "./story";
+import AboutUsWithTestimonials from "./hero";
+import Link from "next/link";
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-black">
+    <main>
       <Navigation />
-      <MobileAppHero />
-      <MobileAppCaseStudies />
-      <WhoWeWorkWith />
-      <MobileAppLifecycle />
-      <ServicesShowcase />
-      <Technologies />
-      <WhyChooseSoftreeMobileApps />
-
+      <AboutUsWithTestimonials />
+      <OurStorySection />
+      <AgileProcessStack />
+      <GlobalDelivery />
+      <InspiredByOurValues />
+      <EngagementModels />
       <section className="relative overflow-hidden py-24">
-        {/* TOP DIVIDER (VISIBLE) */}
+        {/* TOP DIVIDER */}
         <div className="absolute top-0 left-0 w-full h-px bg-white/10 z-20" />
 
         {/* Background */}
@@ -34,17 +30,25 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
           <h2 className="text-3xl md:text-4xl lg:text-4xl font-light text-white leading-tight">
-            Ready to Build a{" "}
+            About{" "}
             <span className="font-medium text-green-400">
-              High-Performance Mobile App
+              Softree Technologies
             </span>
-            ?
           </h2>
 
           <p className="mt-6 max-w-3xl mx-auto text-base md:text-lg text-white/70">
-            From idea validation to scalable iOS & Android applications, our
-            team helps you design, build, and launch mobile apps that users love
-            and businesses trust.
+            Softree is a digital technology partner helping organizations build
+            intelligent, scalable, and future-ready solutions. We specialize in
+            modern SharePoint, Power Apps, AI-driven systems, and
+            high-performance web and mobile applications that drive real
+            business impact.
+          </p>
+
+          <p className="mt-4 max-w-3xl mx-auto text-base md:text-lg text-white/70">
+            From enterprise intranets and workflow automation to AI-powered
+            platforms and cross-platform mobile apps, our teams blend strategy,
+            design, and engineering to deliver secure and user-centric digital
+            experiences.
           </p>
 
           {/* CTA Buttons */}
@@ -63,11 +67,11 @@ export default function Home() {
           focus:outline-none focus:ring-2 focus:ring-green-500/40
         "
             >
-              Schedule a Free Mobile App Consultation
+              Talk to Our Experts
             </Link>
 
             <Link
-              href="/services/mobile-app-development"
+              href="/services"
               className="
           inline-flex items-center justify-center
           rounded-xl
@@ -81,13 +85,13 @@ export default function Home() {
           focus:outline-none focus:ring-2 focus:ring-green-500/40
         "
             >
-              Explore Mobile App Development Services
+              Explore Our Services
             </Link>
           </div>
 
           {/* Microcopy */}
           <p className="mt-4 text-sm text-white/50">
-            Free discovery call • MVP to enterprise • iOS & Android
+            SharePoint • Power Apps • AI Solutions • Web & Mobile Development
           </p>
         </div>
       </section>
