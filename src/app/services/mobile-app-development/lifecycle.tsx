@@ -102,19 +102,32 @@ export default function MobileAppLifecycleSection() {
   const activeStep = steps.find((s) => s.id === active)!;
 
   return (
-    <section className="relative bg-black py-36 text-white overflow-hidden">
-      {/* ===== Ambient Glow ===== */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div className="absolute top-[-30%] left-[-20%] w-[600px] h-[600px] bg-cyan-400/15 blur-[200px] rounded-full animate-glow-float-1" />
-        <div className="absolute bottom-[-30%] right-[-20%] w-[600px] h-[600px] bg-purple-500/15 blur-[200px] rounded-full animate-glow-float-2" />
-      </div>
-
+    <section className="relative overflow-hidden bg-gradient-to-br from-black via-[#0B1220] to-[#0F1A2E] pb-24 py-12">
       {/* ===== Header ===== */}
       <div className="max-w-4xl mx-auto px-6 text-center mb-24">
-        <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
+        {/* Eyebrow */}
+        <span
+          className="inline-block mb-4 px-4 py-1.5 rounded-full
+    text-xs uppercase tracking-[0.3em]
+    text-cyan-400
+    bg-cyan-400/10 border border-cyan-400/20"
+        >
+          Process Overview
+        </span>
+
+        {/* Title */}
+        <h2 className="relative text-4xl md:text-5xl font-semibold tracking-tight mb-6">
           Mobile App Development Lifecycle
+          {/* Gradient Underline */}
+          <span
+            className="absolute left-1/2 -bottom-3 w-32 h-[3px]
+      -translate-x-1/2 rounded-full
+      bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500"
+          />
         </h2>
-        <p className="text-gray-400 text-lg leading-relaxed">
+
+        {/* Description */}
+        <p className="text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto">
           A structured, transparent process that ensures scalable, secure, and
           high-performance mobile applications.
         </p>

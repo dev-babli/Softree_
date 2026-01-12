@@ -83,15 +83,33 @@ export default function ServicesShowcaseExactImage() {
   const [active, setActive] = useState(services[0]);
 
   return (
-    <section className="bg-black py-32">
+    <section className="relative overflow-hidden bg-gradient-to-br from-black via-[#0B1220] to-[#0F1A2E] pb-24 py-12">
       {/* ================= SECTION HEADER ================= */}
       <div className="max-w-4xl mx-auto text-center mb-20">
-        <h2 className="text-4xl md:text-5xl font-semibold text-white mb-4">
+        {/* Eyebrow */}
+        <span
+          className="inline-block mb-4 px-4 py-1.5 rounded-full
+    text-xs uppercase tracking-[0.3em]
+    text-cyan-400
+    bg-cyan-400/10 border border-cyan-400/20"
+        >
+          What We Offer
+        </span>
+
+        {/* Title */}
+        <h2 className="relative text-4xl md:text-5xl font-semibold text-white mb-6">
           Mobile App Development Services
+          <span
+            className="absolute left-1/2 -bottom-3 w-28 h-[3px]
+      -translate-x-1/2 rounded-full
+      bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500"
+          />
         </h2>
-        <p className="text-gray-400 text-base md:text-lg">
+
+        {/* Description */}
+        <p className="text-gray-400 text-base md:text-lg max-w-3xl mx-auto">
           Scalable, secure, and high-performance mobile solutions tailored to
-          your business needs
+          your business goals and user expectations.
         </p>
       </div>
 
@@ -196,8 +214,6 @@ export default function ServicesShowcaseExactImage() {
                           </p>
                         </div>
                       </div>
-
-                  
                     </button>
                   </li>
                 );
