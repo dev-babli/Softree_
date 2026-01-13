@@ -1,4 +1,5 @@
 "use client";
+import { CALENDLY_URL } from '@/lib/contactConfig';
 
 const testimonials = [
   {
@@ -42,7 +43,9 @@ export default function PowerAppsHero() {
 
         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="/contact"
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-green-500 hover:bg-green-400 text-black font-semibold px-8 py-4 rounded-xl transition-transform hover:scale-105"
           >
             Talk to Our Expert

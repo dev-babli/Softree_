@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import CTAGroup from '@/components/ui/CTAGroup';
 
 const CTABanner = () => {
   // Asset link from provided list
@@ -35,12 +36,7 @@ const CTABanner = () => {
               We make it easy to kickstart your digital transformation. Schedule a free consultation to discuss your goals, and we'll craft a roadmap that aligns with your vision. From planning to implementation and ongoing optimization, our team ensures your success at every step.
             </p>
             
-            <a
-              href="/contact?utm_source=website_footer_cta&utm_medium=button&utm_content=get_in_touch"
-              className="px-8 py-3 bg-[#1D4ED8] hover:bg-[#1e40af] text-white text-base font-medium rounded-md transition-all duration-300 transform hover:scale-105 inline-block"
-            >
-              Get in Touch
-            </a>
+            <CTAGroup />
           </div>
         </div>
       </div>

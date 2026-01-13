@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { ChevronDown, Search, Menu, X } from "lucide-react";
+import { CALENDLY_URL } from '@/lib/contactConfig';
 
 const servicesData = [
   {
@@ -225,10 +226,12 @@ export default function Header() {
             <Search className="w-5 h-5" />
           </button>
           <a
-            href="/contact?utm_source=website_main_header&utm_medium=button&utm_content=contact_us"
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-4 py-2 bg-[#18285c] text-white font-medium text-[14px] rounded-md hover:bg-[#121e48] transition-colors whitespace-nowrap"
           >
-            Contact Us
+            Book a Free 30-Min Consultation
           </a>
         </div>
 
@@ -250,10 +253,12 @@ export default function Header() {
           <a href="/resources" className="text-white text-xl py-2 border-b border-white/10">Resources</a>
           <a href="/about" className="text-white text-xl py-2 border-b border-white/10">About</a>
           <a
-            href="/contact"
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-[#1D4ED8] text-white text-center py-3 rounded-md font-medium mt-4"
           >
-            Contact Us
+            Book a Free 30-Min Consultation
           </a>
         </div>
       )}

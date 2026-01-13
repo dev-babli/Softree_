@@ -1,6 +1,7 @@
 import Navigation from "@/components/sections/navigation";
 import Link from "next/link";
 import Footer from "@/components/sections/footer";
+import { CALENDLY_URL } from '@/lib/contactConfig';
 import FullStackTeams from "./full-stack";
 import ThreePillars from "./three-pillar";
 import CollaborationTabs from "./collab-tab";
@@ -49,7 +50,9 @@ export default function Home() {
           {/* CTA Buttons */}
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href="/contact"
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="
           inline-flex items-center justify-center
           rounded-xl

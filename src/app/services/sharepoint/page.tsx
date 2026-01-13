@@ -10,6 +10,7 @@ import PowerAppsCaseStudies from "./casestudies";
 import TimelinePage from "./timeline";
 import SharePointHero from "./hero";
 import Link from "next/link";
+import { CALENDLY_URL } from '@/lib/contactConfig';
 export default function Home() {
   return (
     <main>
@@ -51,7 +52,9 @@ export default function Home() {
           {/* CTA Buttons */}
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href="/contact"
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="
           inline-flex items-center justify-center
           rounded-xl
