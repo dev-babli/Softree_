@@ -154,37 +154,56 @@ export default function Navigation() {
     <nav className="sticky top-0 z-50 w-full">
       <div
         className="
-      w-full
-      bg-gradient-to-r
-      from-[#070028]
-      via-[#050016]
-      to-[#03000D]
-      border-b border-white/10
-    "
+    w-full
+    backdrop-blur-xl
+    bg-gradient-to-r
+    from-[#070028]/80
+    via-[#050016]/80
+    to-[#03000D]/80
+    border-b border-white/10
+  "
       >
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-between py-4">
+          <div className="flex items-center justify-between h-20">
             {/* LOGO */}
-            <Link href="/" className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-3 group">
               <img
                 src={LOGO_URL}
                 alt="Softree"
-                className="h-9 w-auto object-contain"
-                loading="lazy"
+                className="h-9 transition-transform duration-300 group-hover:scale-105"
               />
             </Link>
 
             {/* MENU */}
-            <ul className="flex items-center gap-8 font-semibold text-white mt-4">
+            <ul className="hidden md:flex items-center gap-10 font-medium text-white">
               {menu.map((item, index) => (
                 <MenuItem
                   key={index}
                   item={item}
-                  isMobile={isMobile}
+                  isMobile={false}
                   pathname={pathname}
                 />
               ))}
             </ul>
+
+            {/* CTA */}
+            <Link
+              href="/contact"
+              className="
+            hidden md:inline-flex
+            items-center gap-2
+            px-5 py-2.5
+            rounded-full
+            bg-gradient-to-r from-green-400 to-emerald-500
+            text-black font-semibold
+            shadow-lg shadow-green-500/30
+            transition-all
+            hover:scale-105
+            hover:shadow-green-500/50
+          "
+            >
+              Talk to Us
+            </Link>
           </div>
         </div>
       </div>
@@ -199,116 +218,83 @@ function MenuItem({ item, isMobile, pathname }: any) {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLLIElement>(null);
 
-  const isActive = (url: string) => {
-    if (url === "/") return pathname === "/";
-    return pathname.startsWith(url);
-  };
+  const isActive = (url: string) =>
+    url === "/" ? pathname === "/" : pathname.startsWith(url);
 
-  useEffect(() => {
-    if (item.url && pathname.startsWith(item.url)) {
-      setOpen(true);
-    }
-  }, [pathname]);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        wrapperRef.current &&
-        !wrapperRef.current.contains(event.target as Node)
-      ) {
-        setOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
-  /* SIMPLE LINK */
-  if (!item.children && !item.mega) {
-    return (
-      <li>
-        <Link
-          href={item.url}
-          className={`flex items-center gap-2 px-3 py-2 border-b-2 transition-all
-            ${
-              isActive(item.url)
-                ? "text-green-400 border-green-400"
-                : "text-white border-transparent hover:text-green-400 hover:border-green-400"
-            }`}
-        >
-          {item.icon}
-          {item.label}
-        </Link>
-      </li>
-    );
-  }
-
-  /* DROPDOWN / MEGA */
   return (
     <li
       ref={wrapperRef}
-      className="relative"
-      onMouseEnter={!isMobile ? () => setOpen(true) : undefined}
-      onMouseLeave={!isMobile ? () => setOpen(false) : undefined}
+      className="relative group"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
     >
+      {/* NAV LINK */}
       <Link
         href={item.url}
-        className={`flex items-center gap-2 px-3 py-2 border-b-2 transition-all
-    ${
-      isActive(item.url)
-        ? "text-green-400 border-green-400"
-        : "text-white border-transparent hover:text-green-400 hover:border-green-400"
-    }`}
+        className={`
+          relative flex items-center gap-2 py-2
+          transition-all duration-300
+          ${isActive(item.url) ? "text-green-400" : "text-white"}
+        `}
       >
-        {item.icon}
-        {item.label}
-        <FaChevronDown className="text-sm opacity-70" />
-      </Link>
+        <span className="group-hover:text-green-400 transition">
+          {item.icon}
+        </span>
 
-      {/* NORMAL DROPDOWN */}
-      {item.children && !item.mega && open && (
-        <ul className="absolute top-full left-0 mt-2 w-64 bg-black border border-gray-800 rounded-xl shadow-xl">
-          {item.children.map((child: any, idx: number) => (
-            <li key={idx}>
-              <Link
-                href={child.url}
-                onClick={() => isMobile && setOpen(false)}
-                className={`block px-4 py-3 transition-all border-b-2
-                  ${
-                    isActive(child.url)
-                      ? "text-green-400 border-green-400"
-                      : "text-gray-300 border-transparent hover:text-green-400 hover:border-green-400"
-                  }`}
-              >
-                {child.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
+        {item.label}
+
+        {item.children && (
+          <FaChevronDown className="text-xs opacity-70 group-hover:rotate-180 transition" />
+        )}
+
+        {/* Animated underline */}
+        <span
+          className={`
+          absolute -bottom-1 left-0 h-[2px] w-full
+          bg-gradient-to-r from-green-400 to-emerald-500
+          scale-x-0 origin-left
+          transition-transform duration-300
+          ${isActive(item.url) ? "scale-x-100" : "group-hover:scale-x-100"}
+        `}
+        />
+      </Link>
 
       {/* MEGA MENU */}
       {item.mega && open && (
-        <div className="mt-7 absolute top-full left-1/2 -translate-x-1/2 w-[900px] bg-black border border-gray-800 rounded-xl shadow-xl p-6 flex gap-6">
+        <div
+          className="
+          absolute top-full left-1/2 -translate-x-1/2
+          mt-6 w-[900px]
+          rounded-2xl
+          bg-[#050016]/95 backdrop-blur-xl
+          border border-white/10
+          shadow-2xl
+          p-8
+          flex gap-10
+          animate-[fadeIn_0.2s_ease-out]
+        "
+        >
           {item.children.map((col: any, idx: number) => (
             <div key={idx} className="flex-1">
-              <h4 className="font-bold mb-3">{col.title}</h4>
-              <ul className="space-y-2">
+              <h4 className="text-green-400 font-semibold mb-4">{col.title}</h4>
+              <ul className="space-y-3">
                 {col.links.map((link: any, i: number) => (
                   <li key={i}>
                     <Link
                       href={link.url}
-                      onClick={() => isMobile && setOpen(false)}
-                      className={`flex gap-2 p-2 rounded-lg transition-all border-b-2
-                        ${
-                          isActive(link.url)
-                            ? "text-green-400 border-green-400"
-                            : "text-gray-300 border-transparent hover:text-green-400 hover:border-green-400"
-                        }`}
+                      className="
+    flex gap-3 p-3 rounded-xl
+    border border-transparent
+    transition-all duration-300
+    hover:border-white/15
+    hover:backdrop-blur-sm
+  "
                     >
-                      {link.icon}
+                      <span className="text-green-400 mt-1">{link.icon}</span>
                       <div>
-                        <div>{link.label}</div>
+                        <div className="font-medium text-white">
+                          {link.label}
+                        </div>
                         <p className="text-xs text-gray-400">
                           {link.description}
                         </p>
