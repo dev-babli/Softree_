@@ -10,6 +10,8 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+const LOGO_URL =
+  "https://www.softreetechnology.com/wp-content/uploads/elementor/thumbs/white-logo-soft-qt16xqrm9tl34ewl9f9uhep3zaj8m5zkpgualw8uf4.png";
 
 export default function Footer() {
   return (
@@ -29,7 +31,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-20">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <h4 className="text-white text-2xl font-semibold mb-6">Softree</h4>
+            {/* LOGO */}
+            <Link href="/" className="inline-block mb-6">
+              <img
+                src={LOGO_URL}
+                alt="Softree"
+                className="h-10 w-auto object-contain"
+                loading="lazy"
+              />
+            </Link>
+
             <p className="text-base leading-relaxed max-w-md">
               Softree is a Microsoft-focused technology partner delivering
               scalable SharePoint, Power Platform, and cloud-based solutions

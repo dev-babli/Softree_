@@ -180,3 +180,6 @@
 .pause-on-hover:hover {
   animation-play-state: paused;
 }
+.input {
+  @apply w-full border-b border-gray-300 focus:border-cyan-500 outline-none py-2 text-sm;
+}

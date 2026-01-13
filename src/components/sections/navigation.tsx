@@ -19,6 +19,8 @@ import {
   FaPhone,
   FaChevronDown,
 } from "react-icons/fa";
+const LOGO_URL =
+  "https://www.softreetechnology.com/wp-content/uploads/elementor/thumbs/white-logo-soft-qt16xqrm9tl34ewl9f9uhep3zaj8m5zkpgualw8uf4.png";
 
 /* =========================
    MENU CONFIG
@@ -161,16 +163,29 @@ export default function Navigation() {
     "
       >
         <div className="max-w-7xl mx-auto px-6">
-          <ul className="flex justify-center gap-8 py-4 font-semibold text-white">
-            {menu.map((item, index) => (
-              <MenuItem
-                key={index}
-                item={item}
-                isMobile={isMobile}
-                pathname={pathname}
+          <div className="flex items-center justify-between py-4">
+            {/* LOGO */}
+            <Link href="/" className="flex items-center gap-3">
+              <img
+                src={LOGO_URL}
+                alt="Softree"
+                className="h-9 w-auto object-contain"
+                loading="lazy"
               />
-            ))}
-          </ul>
+            </Link>
+
+            {/* MENU */}
+            <ul className="flex items-center gap-8 font-semibold text-white mt-4">
+              {menu.map((item, index) => (
+                <MenuItem
+                  key={index}
+                  item={item}
+                  isMobile={isMobile}
+                  pathname={pathname}
+                />
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
@@ -236,21 +251,19 @@ function MenuItem({ item, isMobile, pathname }: any) {
       onMouseEnter={!isMobile ? () => setOpen(true) : undefined}
       onMouseLeave={!isMobile ? () => setOpen(false) : undefined}
     >
-      <button
-        onClick={isMobile ? () => setOpen(!open) : undefined}
+      <Link
+        href={item.url}
         className={`flex items-center gap-2 px-3 py-2 border-b-2 transition-all
-          ${
-            isActive(item.url)
-              ? "text-green-400 border-green-400"
-              : "text-white border-transparent hover:text-green-400 hover:border-green-400"
-          }`}
+    ${
+      isActive(item.url)
+        ? "text-green-400 border-green-400"
+        : "text-white border-transparent hover:text-green-400 hover:border-green-400"
+    }`}
       >
         {item.icon}
         {item.label}
-        <FaChevronDown
-          className={`transition-transform ${open ? "rotate-180" : ""}`}
-        />
-      </button>
+        <FaChevronDown className="text-sm opacity-70" />
+      </Link>
 
       {/* NORMAL DROPDOWN */}
       {item.children && !item.mega && open && (
@@ -276,7 +289,7 @@ function MenuItem({ item, isMobile, pathname }: any) {
 
       {/* MEGA MENU */}
       {item.mega && open && (
-        <div className="absolute top-full left-1/2 -translate-x-1/2 w-[900px] bg-black border border-gray-800 rounded-xl shadow-xl p-6 flex gap-6">
+        <div className="mt-7 absolute top-full left-1/2 -translate-x-1/2 w-[900px] bg-black border border-gray-800 rounded-xl shadow-xl p-6 flex gap-6">
           {item.children.map((col: any, idx: number) => (
             <div key={idx} className="flex-1">
               <h4 className="font-bold mb-3">{col.title}</h4>

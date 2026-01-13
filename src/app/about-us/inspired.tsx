@@ -45,109 +45,132 @@ const values = [
 
 export default function InspiredByOurValues() {
   return (
-    <section className="bg-black text-white py-24">
-      <div className="container mx-auto px-6">
-        <div className="mb-14">
-          <p className="uppercase tracking-widest text-sm text-cyan-400 mb-3">
+    <section className="bg-black text-white py-28">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* HEADER */}
+        <div className="mb-16 max-w-2xl">
+          <p className="uppercase tracking-widest text-sm text-gray-400 mb-4">
             What drives us
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold">
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight">
             Values That Define Our Work
           </h2>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {values.map((item, i) => {
             const Icon = item.icon;
 
             return (
-              <a
+              <div
                 key={i}
-                href="#"
-                className="group relative overflow-hidden rounded-3xl 
-                   bg-neutral-900/80 backdrop-blur-xl
-                   border border-white/10
-                   p-8
-                   transition-all duration-500
-                   hover:-translate-y-3 hover:scale-[1.02]
-                   hover:shadow-[0_30px_80px_rgba(0,255,255,0.18)]"
+                className="
+                  group
+                  relative
+                  overflow-hidden
+                  rounded-3xl
+                  bg-white/5
+                  backdrop-blur-xl
+                  border border-white/10
+                  p-10
+                  transition-all duration-500
+                  hover:-translate-y-2
+                  hover:shadow-[0_30px_80px_rgba(255,255,255,0.12)]
+                "
               >
-                {/* ===== Gradient Border Glow ===== */}
-                <div
-                  className="absolute inset-0 rounded-3xl 
-                        bg-gradient-to-br from-cyan-500/30 via-transparent to-fuchsia-500/20
-                        opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none"
+                {/* GLASS SHEEN */}
+                <span
+                  className="
+                    pointer-events-none
+                    absolute
+                    inset-0
+                    bg-gradient-to-br
+                    from-white/10
+                    via-transparent
+                    to-transparent
+                    opacity-0
+                    group-hover:opacity-100
+                    transition duration-500
+                  "
                 />
 
-                {/* ===== Animated Noise / Texture ===== */}
-                <div className="absolute inset-0 opacity-[0.04] bg-[url('/noise.png')] pointer-events-none" />
+                {/* STRONG SOLID BOTTOM BORDER */}
+                <span
+                  className="
+    pointer-events-none
+    absolute
+    bottom-0
+    left-0
+    w-full
+    h-[6px]
+    bg-white
+    transition-all
+    duration-300
+    scale-x-0
+    origin-left
+    group-hover:scale-x-100
+  "
+                />
 
-                {/* ===== Icon Badge ===== */}
-                <div className="relative z-10 mb-8">
+                {/* ICON */}
+                <div className="relative z-10 mb-10">
                   <div
-                    className="w-20 h-20 rounded-2xl 
-                          bg-gradient-to-br from-cyan-500/20 to-cyan-500/5
-                          flex items-center justify-center
-                          shadow-[0_0_40px_rgba(0,255,255,0.25)]
-                          group-hover:scale-110 transition duration-500"
+                    className="
+                      w-20 h-20
+                      rounded-2xl
+                      flex items-center justify-center
+                      bg-white/10
+                      border border-white/20
+                      transition duration-500
+                      group-hover:scale-110
+                      shadow-[0_0_30px_rgba(255,255,255,0.15)]
+                    "
                   >
-                    <Icon
-                      size={42}
-                      strokeWidth={1.5}
-                      className="text-cyan-400"
-                    />
+                    <Icon size={40} strokeWidth={1.5} className="text-white" />
                   </div>
                 </div>
 
-                {/* ===== Content ===== */}
+                {/* CONTENT */}
                 <div className="relative z-10">
-                  <h4 className="text-2xl font-semibold mb-4 tracking-tight">
+                  <h4 className="relative text-2xl font-semibold mb-5 tracking-tight">
+                    <span
+                      className="
+        absolute
+        -left-6
+        top-1/2
+        -translate-y-1/2
+        h-6
+        w-[2px]
+        bg-gradient-to-b
+        from-white
+        to-gray-500
+      "
+                    />
                     {item.title}
                   </h4>
 
-                  <p className="text-neutral-400 leading-relaxed mb-10">
-                    {item.desc}
-                  </p>
+                  <p className="text-gray-400 leading-relaxed">{item.desc}</p>
                 </div>
 
-                {/* ===== HOVER BORDERS (LEFT | RIGHT | BOTTOM) ===== */}
-                <div className="pointer-events-none">
-                  {/* Bottom */}
-                  <span
-                    className="absolute bottom-0 left-1/2 h-[2px] w-0
-               bg-gradient-to-r from-cyan-400 via-cyan-300 to-fuchsia-400
-               blur-[1px]
-               transition-all duration-500
-               group-hover:w-full group-hover:left-0"
-                  />
-
-                  {/* Left */}
-                  <span
-                    className="absolute bottom-0 left-0 w-[2px] h-0
-               bg-gradient-to-t from-cyan-400 via-cyan-300 to-transparent
-               blur-[1px]
-               transition-all duration-500
-               group-hover:h-full"
-                  />
-
-                  {/* Right */}
-                  <span
-                    className="absolute bottom-0 right-0 w-[2px] h-0
-               bg-gradient-to-t from-cyan-400 via-cyan-300 to-transparent
-               blur-[1px]
-               transition-all duration-500
-               group-hover:h-full"
-                  />
-                </div>
-
-                {/* ===== Ambient Glow Blob ===== */}
+                {/* AMBIENT SOFT GLOW */}
                 <div
-                  className="absolute -bottom-24 -right-24 w-64 h-64 rounded-full 
-                        bg-cyan-500/20 blur-3xl opacity-0
-                        group-hover:opacity-100 transition duration-700"
+                  className="
+                    pointer-events-none
+                    absolute
+                    -bottom-24
+                    -right-24
+                    w-72
+                    h-72
+                    rounded-full
+                    bg-white/10
+                    blur-3xl
+                    opacity-0
+                    group-hover:opacity-100
+                    transition duration-700
+                  "
                 />
-              </a>
+              </div>
             );
           })}
         </div>
