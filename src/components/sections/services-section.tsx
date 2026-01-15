@@ -21,7 +21,7 @@ export default function PowerPlatformSection() {
   ];
 
   return (
-    <section className="relative w-full px-6 py-28 bg-gradient-to-b from-[#020617] via-[#020d1a] to-black overflow-hidden">
+    <section className="relative w-full px-6 py-28 bg-gradient-to-b from-black via-[#020d1a] to-black overflow-hidden">
       <div
         className="
   relative max-w-7xl mx-auto

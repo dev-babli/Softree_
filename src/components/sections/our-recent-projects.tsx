@@ -41,7 +41,7 @@ const projects = [
 
 export default function OurRecentProjects() {
   return (
-    <section className="relative w-full py-24 bg-gradient-to-b from-[#020617] via-[#020d1a] to-black">
+    <section className="relative w-full py-24 bg-gradient-to-b from-black via-[#020d1a] to-black">
       <div className="max-w-7xl mx-auto px-6">
         {/* ================= HEADING ================= */}
         <div className="text-center mb-16">

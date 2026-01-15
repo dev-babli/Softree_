@@ -62,7 +62,7 @@ const SolutionsDeck = () => {
   const [active, setActive] = useState(2);
 
   return (
-    <section className="relative py-32 overflow-hidden bg-black">
+    <section className="relative py-32 overflow-hidden bg-gradient-to-b from-black via-[#020d1a] to-black">
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <video
@@ -79,34 +79,54 @@ const SolutionsDeck = () => {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-24 space-y-6">
+        {/* ===== Header ===== */}
+        <div className="text-center max-w-4xl mx-auto mb-24 space-y-6">
+          {/* Eyebrow */}
           <span
             className="
-              inline-block text-sm tracking-widest uppercase
-              text-cyan-400
-            "
+      inline-flex items-center gap-2
+      text-sm tracking-[0.3em] uppercase
+      text-cyan-400
+    "
           >
+            <span className="w-8 h-px bg-cyan-400/60" />
             Our Capabilities
+            <span className="w-8 h-px bg-cyan-400/60" />
           </span>
 
+          {/* Heading */}
           <h2
             className="
-              text-4xl md:text-5xl lg:text-6xl
-              leading-tight tracking-tight
-              bg-gradient-to-r from-slate-200 via-white to-slate-300
-              bg-clip-text text-transparent
-            "
+      text-4xl md:text-5xl lg:text-6xl
+      font-semibold leading-tight tracking-tight
+    "
             style={{ fontFamily: "Calibri, serif" }}
           >
-            Technology Solutions
-            <br />
-            Built for Scale
+            <span className="text-slate-200">Technology</span>{" "}
+            <span
+              className="
+        bg-gradient-to-r
+        from-cyan-400
+        via-sky-400
+        to-blue-500
+        bg-clip-text text-transparent
+      "
+            >
+              Solutions
+            </span>
+            
+            <span className="text-slate-400"> Built for</span>{" "}
+            <span className="text-white">Scale</span>
           </h2>
 
-          <p className="text-[#CBD5E1] text-lg leading-relaxed">
-            We engineer secure, scalable digital platforms that help enterprises
-            modernize, innovate, and grow with confidence.
+          {/* Description */}
+          <p className="text-[#CBD5E1] text-lg leading-relaxed max-w-2xl mx-auto">
+            We engineer <span className="text-white font-medium">secure</span>,{" "}
+            <span className="text-cyan-300 font-medium">scalable</span> digital
+            platforms that help enterprises{" "}
+            <span className="text-sky-300">modernize</span>,{" "}
+            <span className="text-sky-300">innovate</span>, and grow with
+            confidence.
           </p>
         </div>
 
