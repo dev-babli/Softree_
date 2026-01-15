@@ -20,7 +20,7 @@ import { SiJavascript, SiHtml5, SiCss3, SiReact } from "react-icons/si";
 const techStacks = [
   {
     title: "Languages",
-    accent: "from-cyan-400 to-blue-500",
+    accent: "from-white/35 via-white/15 to-transparent",
     items: [
       { name: "Power Fx", icon: MdDataObject },
       { name: "JavaScript", icon: SiJavascript },
@@ -31,7 +31,7 @@ const techStacks = [
   },
   {
     title: "Tools",
-    accent: "from-purple-400 to-pink-500",
+    accent: "from-white/30 via-white/12 to-transparent",
     items: [
       { name: "Power Apps Studio", icon: MdDeveloperMode },
       { name: "Power BI", icon: FaLayerGroup },
@@ -42,7 +42,7 @@ const techStacks = [
   },
   {
     title: "Frameworks",
-    accent: "from-emerald-400 to-teal-500",
+    accent: "from-white/25 via-white/5 to-transparent",
     items: [
       { name: "Power Platform", icon: FaLayerGroup },
       { name: "Common Data Model", icon: MdDataObject },
@@ -53,7 +53,7 @@ const techStacks = [
   },
   {
     title: "Databases",
-    accent: "from-orange-400 to-red-500",
+    accent: "from-white/20 via-white/8 to-transparent",
     items: [
       { name: "Microsoft Dataverse", icon: FaDatabase },
       { name: "SQL Server", icon: MdStorage },
@@ -66,7 +66,7 @@ const techStacks = [
 
 export default function TechStack() {
   return (
-    <section className="relative bg-[#040404] py-28 overflow-hidden">
+    <section className="relative bg-[#040404] py-12 overflow-hidden">
       {/* Background glow */}
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.15),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(236,72,153,0.12),transparent_40%)]" />
 
@@ -115,7 +115,7 @@ export default function TechStack() {
       inline-flex items-center
       px-5 py-2
       rounded-full
-      text-sm font-semibold text-black
+      text-sm font-semibold text-white
       bg-gradient-to-r ${stack.accent}
       shadow-[0_0_20px_rgba(255,255,255,0.15)]
     `}
@@ -134,7 +134,7 @@ export default function TechStack() {
                         className="flex items-center gap-4 group/item"
                       >
                         <div
-                          className={`flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br ${stack.accent} text-black shadow-lg`}
+                          className={`flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br ${stack.accent} text-white shadow-lg`}
                         >
                           <Icon size={20} />
                         </div>

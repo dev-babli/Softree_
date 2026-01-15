@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -19,6 +19,7 @@ import {
   FaPhone,
   FaChevronDown,
 } from "react-icons/fa";
+
 const LOGO_URL =
   "https://www.softreetechnology.com/wp-content/uploads/elementor/thumbs/white-logo-soft-qt16xqrm9tl34ewl9f9uhep3zaj8m5zkpgualw8uf4.png";
 
@@ -65,8 +66,7 @@ const menu = [
             label: "SharePoint Development",
             url: "/services/sharepoint",
             icon: <FaShareAlt />,
-            description:
-              "Enterprise SharePoint solutions for intranet & collaboration",
+            description: "Enterprise SharePoint solutions",
           },
           {
             label: "SPFx Developments",
@@ -78,14 +78,13 @@ const menu = [
             label: "PnP PowerShell",
             url: "/services/pnp-powershell",
             icon: <FaDatabase />,
-            description: "Automate SharePoint tasks with PnP PowerShell",
+            description: "Automate SharePoint tasks",
           },
           {
             label: "Teams App Development",
             url: "/services/teams-app-development",
             icon: <FaMicrosoft />,
-            description:
-              "Integrate your business workflow with Microsoft Teams",
+            description: "Microsoft Teams integrations",
           },
         ],
       },
@@ -96,20 +95,19 @@ const menu = [
             label: "Microsoft PowerApps",
             url: "/services/power-apps",
             icon: <FaMicrosoft />,
-            description: "Build low-code apps to streamline business processes",
+            description: "Low-code business apps",
           },
           {
             label: "Microsoft Power Pages",
             url: "/services/power-pages",
             icon: <FaMicrosoft />,
-            description: "Create secure, modern web portals with Power Pages",
+            description: "Secure external portals",
           },
           {
             label: "Microsoft Power BI",
             url: "/services/power-bi",
             icon: <FaChartLine />,
-            description:
-              "Interactive dashboards & analytics for data-driven decisions",
+            description: "Dashboards & analytics",
           },
         ],
       },
@@ -121,14 +119,10 @@ const menu = [
     url: "/case-studies",
     icon: <FaUsers />,
     children: [
-      {
-        label: "Mobile App Case Studies",
-        url: "/case-studies/mobile-app-case-studies",
-      },
-      {
-        label: "PowerApps Case Studies",
-        url: "/case-studies/powerapps-case-studies",
-      },
+      { label: "Mobile App Case Studies", url: "/case-studies/mobile-app-case-studies" },
+      { label: "PowerApps Case Studies", url: "/case-studies/powerapps-case-studies" },
+      { label: "SharePoint Case Studies", url: "/case-studies/sharepoint-case-studies" },
+      { label: "Web Development Case Studies", url: "/case-studies/web-development-case-studies" },
     ],
   },
 
@@ -140,71 +134,56 @@ const menu = [
    NAVIGATION
 ========================= */
 export default function Navigation() {
-  const [isMobile, setIsMobile] = useState(false);
   const pathname = usePathname();
 
+  const [hidden, setHidden] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [mounted, setMounted] = useState(false);
+
+  /* Hydration-safe mount */
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    setMounted(true);
   }, []);
 
+  /* Scroll logic (runs ONLY after mount) */
+  useEffect(() => {
+    if (!mounted) return;
+
+    const handleScroll = () => {
+      setHidden(window.scrollY > lastScrollY && window.scrollY > 80);
+      setLastScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [mounted, lastScrollY]);
+
   return (
-    <nav className="sticky top-0 z-50 w-full">
-      <div
-        className="
-    w-full
-    backdrop-blur-xl
-    bg-gradient-to-r
-    from-[#070028]/80
-    via-[#050016]/80
-    to-[#03000D]/80
-    border-b border-white/10
-  "
-      >
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-between h-20">
-            {/* LOGO */}
-            <Link href="/" className="flex items-center gap-3 group">
-              <img
-                src={LOGO_URL}
-                alt="Softree"
-                className="h-9 transition-transform duration-300 group-hover:scale-105"
-              />
-            </Link>
+    <nav
+      className={`fixed top-4 z-50 w-full flex justify-center transition-transform duration-500 ${
+        mounted && hidden ? "-translate-y-32" : "translate-y-0"
+      }`}
+    >
+      <div className="relative w-[92%] max-w-6xl h-16 px-6 rounded-full backdrop-blur-2xl bg-black/70 border border-white/15 shadow-lg flex items-center">
+        <div className="flex items-center w-full">
+          {/* LOGO */}
+          <Link href="/" className="group flex items-center gap-3">
+            <img
+              src={LOGO_URL}
+              alt="Softree"
+              className="h-8 transition-transform duration-300 group-hover:scale-110"
+            />
+          </Link>
 
-            {/* MENU */}
-            <ul className="hidden md:flex items-center gap-10 font-medium text-white">
-              {menu.map((item, index) => (
-                <MenuItem
-                  key={index}
-                  item={item}
-                  isMobile={false}
-                  pathname={pathname}
-                />
-              ))}
-            </ul>
+          {/* SPACING BETWEEN LOGO & HOME */}
+          <div className="w-10" />
 
-            {/* CTA */}
-            <Link
-              href="/contact"
-              className="
-            hidden md:inline-flex
-            items-center gap-2
-            px-5 py-2.5
-            rounded-full
-            bg-gradient-to-r from-green-400 to-emerald-500
-            text-black font-semibold
-            shadow-lg shadow-green-500/30
-            transition-all
-            hover:scale-105
-            hover:shadow-green-500/50
-          "
-            >
-              Talk to Us
-            </Link>
-          </div>
+          {/* MENU */}
+          <ul className="hidden md:flex items-center gap-2 font-medium text-white">
+            {menu.map((item, index) => (
+              <MenuItem key={index} item={item} pathname={pathname} />
+            ))}
+          </ul>
         </div>
       </div>
     </nav>
@@ -214,90 +193,59 @@ export default function Navigation() {
 /* =========================
    MENU ITEM
 ========================= */
-function MenuItem({ item, isMobile, pathname }: any) {
+function MenuItem({ item, pathname }: any) {
   const [open, setOpen] = useState(false);
-  const wrapperRef = useRef<HTMLLIElement>(null);
 
   const isActive = (url: string) =>
     url === "/" ? pathname === "/" : pathname.startsWith(url);
 
+  const openMenu = () => setOpen(true);
+  const closeMenu = () => setOpen(false);
+
   return (
     <li
-      ref={wrapperRef}
-      className="relative group"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
+      className={`relative px-3 py-1 rounded-full transition-colors duration-300 hover:bg-white/5 ${
+        isActive(item.url) ? "bg-white/10" : ""
+      } before:absolute before:inset-x-0 before:top-full before:h-4 before:content-['']`}
+      onMouseEnter={openMenu}
+      onMouseLeave={closeMenu}
     >
-      {/* NAV LINK */}
-      <Link
-        href={item.url}
-        className={`
-          relative flex items-center gap-2 py-2
-          transition-all duration-300
-          ${isActive(item.url) ? "text-green-400" : "text-white"}
-        `}
-      >
-        <span className="group-hover:text-green-400 transition">
-          {item.icon}
-        </span>
-
+      {/* MAIN LINK */}
+      <Link href={item.url} className="flex items-center gap-2 text-sm">
+        <span className="text-white/70">{item.icon}</span>
         {item.label}
 
         {item.children && (
-          <FaChevronDown className="text-xs opacity-70 group-hover:rotate-180 transition" />
+          <FaChevronDown
+            className={`text-xs opacity-60 transition-transform duration-300 ${
+              open ? "rotate-180" : "rotate-0"
+            }`}
+          />
         )}
-
-        {/* Animated underline */}
-        <span
-          className={`
-          absolute -bottom-1 left-0 h-[2px] w-full
-          bg-gradient-to-r from-green-400 to-emerald-500
-          scale-x-0 origin-left
-          transition-transform duration-300
-          ${isActive(item.url) ? "scale-x-100" : "group-hover:scale-x-100"}
-        `}
-        />
       </Link>
 
-      {/* MEGA MENU */}
+      {/* ================= MEGA MENU (SERVICES) ================= */}
       {item.mega && open && (
         <div
-          className="
-          absolute top-full left-1/2 -translate-x-1/2
-          mt-6 w-[900px]
-          rounded-2xl
-          bg-[#050016]/95 backdrop-blur-xl
-          border border-white/10
-          shadow-2xl
-          p-8
-          flex gap-10
-          animate-[fadeIn_0.2s_ease-out]
-        "
+          onMouseEnter={openMenu}
+          onMouseLeave={closeMenu}
+          className="absolute left-1/2 top-full mt-2 -translate-x-1/2 w-[900px] p-8 rounded-2xl bg-black border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.95)] flex gap-10 z-50"
         >
           {item.children.map((col: any, idx: number) => (
             <div key={idx} className="flex-1">
-              <h4 className="text-green-400 font-semibold mb-4">{col.title}</h4>
+              <h4 className="text-white font-semibold mb-4">{col.title}</h4>
+
               <ul className="space-y-3">
                 {col.links.map((link: any, i: number) => (
                   <li key={i}>
                     <Link
                       href={link.url}
-                      className="
-    flex gap-3 p-3 rounded-xl
-    border border-transparent
-    transition-all duration-300
-    hover:border-white/15
-    hover:backdrop-blur-sm
-  "
+                      className="flex gap-3 p-3 rounded-xl transition-all duration-300 hover:bg-white/5"
                     >
-                      <span className="text-green-400 mt-1">{link.icon}</span>
+                      <span className="text-white/60 mt-1">{link.icon}</span>
                       <div>
-                        <div className="font-medium text-white">
-                          {link.label}
-                        </div>
-                        <p className="text-xs text-gray-400">
-                          {link.description}
-                        </p>
+                        <div className="font-medium text-white/90">{link.label}</div>
+                        <p className="text-xs text-white/50">{link.description}</p>
                       </div>
                     </Link>
                   </li>
@@ -305,6 +253,28 @@ function MenuItem({ item, isMobile, pathname }: any) {
               </ul>
             </div>
           ))}
+        </div>
+      )}
+
+      {/* ================= CASE STUDIES ================= */}
+      {item.children && !item.mega && open && (
+        <div
+          onMouseEnter={openMenu}
+          onMouseLeave={closeMenu}
+          className="absolute left-1/2 top-full mt-2 -translate-x-1/2 w-[900px] p-6 rounded-2xl bg-black border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.95)] z-50"
+        >
+          <ul className="grid grid-cols-2 gap-4">
+            {item.children.map((child: any, i: number) => (
+              <li key={i}>
+                <Link
+                  href={child.url}
+                  className="block p-4 rounded-xl text-white/90 font-medium transition-all duration-300 hover:bg-white/5"
+                >
+                  {child.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
     </li>

@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  DollarSign,
-  Users,
-  Clock,
-  Layers,
-} from "lucide-react";
+import { DollarSign, Users, Clock, Layers } from "lucide-react";
 
 const models = [
   {
@@ -33,60 +28,155 @@ const models = [
 
 export default function EngagementModels() {
   return (
-    <section className="relative bg-gradient-to-b from-[#121212] via-[#0a0a0a] to-black text-white">
-      <div className="container mx-auto px-6 py-24">
+    <section className="relative text-white">
+      <div className="max-w-7xl mx-auto px-6 py-12">
+        {/* ===== HEADER ===== */}
+        <div className="max-w-4xl mx-auto mb-24 text-center">
+          {/* Eyebrow */}
+          <span
+            className="
+          inline-block
+          mb-6
+          px-5 py-2
+          rounded-full
+          bg-cyan-400/10
+          text-cyan-400
+          text-xs
+          font-semibold
+          uppercase
+          tracking-[0.3em]
+        "
+          >
+            Engagement Models
+          </span>
 
-        {/* ===== Heading ===== */}
-        <div className="max-w-4xl mb-20">
-          <h1 className="text-4xl md:text-5xl font-semibold leading-tight mb-6">
+          {/* Title */}
+          <h2 className="text-4xl md:text-5xl font-semibold leading-tight mb-6">
             Engagement Models That Adapt <br />
             to Your Business Vision
-          </h1>
+          </h2>
 
-          <p className="text-lg text-neutral-300 leading-relaxed max-w-3xl">
+          {/* Subheader */}
+          <p className="text-lg text-neutral-300 leading-relaxed max-w-3xl mx-auto">
             Every organization operates differently—and your delivery model
-            should reflect that. Our engagement approaches are designed to align
-            with your strategy, pace, and level of involvement while keeping
-            execution efficient and outcomes measurable.
+            should reflect that. Our engagement approaches align with your
+            strategy, pace, and level of involvement while keeping outcomes
+            measurable.
           </p>
         </div>
 
-        {/* ===== Models Grid ===== */}
-        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {models.map((item, i) => {
-            const Icon = item.icon;
+        {/* ===== MODELS WRAPPER ===== */}
+        <div
+          className="
+    relative
+    rounded-3xl
+    px-4 sm:px-8 lg:px-0
+    py-8
+    overflow-hidden
 
-            return (
-              <div key={i} className="relative text-center px-6">
+  bg-gradient-to-br from-neutral-900 via-neutral-800 to-black
 
-                {/* Divider (desktop only) */}
-                {i !== 0 && (
-                  <span className="hidden lg:block absolute left-0 top-12 h-48 w-px bg-white/20" />
-                )}
+    border border-white/10
+    backdrop-blur-2xl
+    shadow-[0_40px_120px_rgba(0,0,0,0.75)]
+  "
+        >
+          {/* Subtle radial light */}
+          <div
+            className="
+      pointer-events-none
+      absolute -top-1/2 left-1/2
+      h-[600px] w-[600px]
+      -translate-x-1/2
+      rounded-full
+      bg-[radial-gradient(circle,rgba(255,255,255,0.08),transparent_70%)]
+    "
+          />
 
-                {/* Icon */}
-                <div className="flex justify-center mb-6">
-                  <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center">
-                    <Icon size={28} className="text-neutral-800" />
-                  </div>
-                </div>
+          {/* Grid with dividers */}
+          <div
+            className="
+      relative
+      grid
+      grid-cols-1
+      md:grid-cols-2
+      lg:grid-cols-4
+      divide-y
+      md:divide-y-0
+      md:divide-x
+      divide-white/10
+    "
+          >
+            {models.map((item, i) => {
+              const Icon = item.icon;
 
-                {/* Title */}
-                <h3
-                  className={`text-lg font-semibold mb-4 ${
-                    item.active ? "underline underline-offset-4" : ""
-                  }`}
+              return (
+                <div
+                  key={i}
+                  className="
+            group
+            relative
+            px-10
+            py-8
+            text-left
+            transition
+            hover:bg-white/[0.035]
+          "
                 >
-                  {item.title}
-                </h3>
+                  {/* Icon */}
+                  <div className="mb-6">
+                    <div
+                      className="
+                w-14 h-14 rounded-full
+                bg-gradient-to-br from-white to-neutral-200
+                flex items-center justify-center
+                shadow-md
+                group-hover:scale-110
+                transition-transform
+              "
+                    >
+                      <Icon size={24} className="text-neutral-900" />
+                    </div>
+                  </div>
 
-                {/* Description */}
-                <p className="text-sm text-neutral-300 leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-            );
-          })}
+                  {/* Title */}
+                  <h3 className="relative text-lg font-semibold mb-4 pb-3 text-white">
+                    {item.title}
+                    <span
+                      className="
+                absolute left-0 bottom-0
+                h-px w-12
+                bg-gradient-to-r
+                from-cyan-400
+                to-transparent
+              "
+                    />
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-sm text-neutral-300 leading-relaxed">
+                    {item.desc}
+                  </p>
+
+                  {/* Hover glow */}
+                  <div
+                    className="
+              pointer-events-none
+              absolute inset-0
+              opacity-0
+              group-hover:opacity-100
+              transition
+              rounded-3xl
+              bg-gradient-to-br
+              from-cyan-400/10
+              via-transparent
+              to-purple-500/10
+            "
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

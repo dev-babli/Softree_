@@ -1,10 +1,6 @@
 export default function OurStorySection() {
   return (
-    <section className="relative bg-[#05070C] py-36 overflow-hidden">
-      {/* ===== Ambient Glow ===== */}
-      <div className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-sky-500/10 blur-[160px]" />
-      <div className="pointer-events-none absolute bottom-0 -right-40 h-[420px] w-[420px] rounded-full bg-purple-500/10 blur-[160px]" />
-
+    <section className="relative  py-36 overflow-hidden">
       {/* ===== Optional Noise Overlay ===== */}
       <div className="pointer-events-none absolute inset-0 bg-[url('/noise.png')] opacity-[0.025]" />
       {/* ===== CONTENT WRAPPER WITH BG ===== */}

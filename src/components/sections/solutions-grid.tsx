@@ -97,7 +97,7 @@ const SolutionsDeck = () => {
               bg-gradient-to-r from-slate-200 via-white to-slate-300
               bg-clip-text text-transparent
             "
-            style={{ fontFamily: "Times New Roman, serif" }}
+            style={{ fontFamily: "Calibri, serif" }}
           >
             Technology Solutions
             <br />

@@ -21,14 +21,11 @@ export default function WebDevelopmentProcess() {
 
   return (
     <section className="relative bg-black py-28 overflow-hidden">
-      {/* ===== BACKGROUND GLOW ===== */}
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_20%,rgba(59,130,246,0.25),transparent_60%)]" />
-
       <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         <div className="max-w-xl text-left">
           {/* ===== EYEBROW ===== */}
           <div className="mb-5 flex items-center gap-3">
-            <span className="text-xs tracking-[0.3em] uppercase text-teal-400">
+            <span className="text-xs tracking-[0.3em] uppercase text-teal-200">
               Our Process
             </span>
           </div>

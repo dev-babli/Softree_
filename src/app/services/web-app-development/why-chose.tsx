@@ -22,13 +22,7 @@ export default function WhyChooseSoftreeWebDevelopment() {
   ];
 
   return (
-    <section className="relative bg-gradient-to-br from-black via-[#0B1220] to-[#0F1A2E] py-32 text-white overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-[-25%] left-[-15%] w-[500px] h-[500px] bg-cyan-500/20 blur-[140px] rounded-full" />
-        <div className="absolute bottom-[-25%] right-[-15%] w-[500px] h-[500px] bg-purple-600/20 blur-[140px] rounded-full" />
-      </div>
-
+    <section className="relative bg-black py-12 text-white overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col xl:flex-row gap-16">
         {/* LEFT – CONTENT */}
         <div
@@ -37,12 +31,27 @@ export default function WhyChooseSoftreeWebDevelopment() {
           backdrop-blur-2xl
           shadow-[0_30px_90px_rgba(0,0,0,0.4)]"
         >
-          {/* Faded Border */}
+          {/* Faded Border – Extra Bold */}
           <span className="absolute inset-0 pointer-events-none rounded-[28px]">
-            <span className="absolute top-0 left-0 w-2/3 h-[2px] bg-gradient-to-r from-cyan-400/70 via-purple-500/35 to-transparent" />
-            <span className="absolute top-0 left-0 h-2/3 w-[2px] bg-gradient-to-b from-cyan-400/70 via-purple-500/35 to-transparent" />
-            <span className="absolute bottom-0 right-0 w-1/3 h-[1px] bg-gradient-to-l from-purple-500/30 to-transparent" />
-            <span className="absolute bottom-0 right-0 h-1/3 w-[1px] bg-gradient-to-t from-purple-500/30 to-transparent" />
+            <span
+              className="absolute top-0 left-0 w-2/3 h-[4px]
+    bg-gradient-to-r from-white/35 via-white/20 to-transparent"
+            />
+
+            <span
+              className="absolute top-0 left-0 h-2/3 w-[4px]
+    bg-gradient-to-b from-white/35 via-white/20 to-transparent"
+            />
+
+            <span
+              className="absolute bottom-0 right-0 w-1/3 h-[3px]
+    bg-gradient-to-l from-white/22 to-transparent"
+            />
+
+            <span
+              className="absolute bottom-0 right-0 h-1/3 w-[3px]
+    bg-gradient-to-t from-white/22 to-transparent"
+            />
           </span>
 
           {/* Badge */}
@@ -57,7 +66,7 @@ export default function WhyChooseSoftreeWebDevelopment() {
 
           <h2 className="text-4xl xl:text-5xl font-extrabold leading-tight">
             Why Choose{" "}
-            <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-100 via-purple-100 to-pink-100 bg-clip-text text-transparent">
               Softree
             </span>{" "}
             for Web Development?
@@ -78,14 +87,17 @@ export default function WhyChooseSoftreeWebDevelopment() {
           {/* CTA */}
           <div className="mt-8">
             <button
-              className="group inline-flex items-center gap-3 px-8 py-4
-              rounded-xl font-semibold
-              bg-gradient-to-r from-cyan-500 to-purple-600
-              shadow-[0_18px_50px_rgba(56,189,248,0.4)]
-              hover:shadow-[0_22px_70px_rgba(168,85,247,0.55)]
-              transition-all duration-300"
+              className="
+      group inline-flex items-center gap-3 px-8 py-4
+      rounded-xl font-semibold
+      bg-white text-black
+      shadow-[0_20px_60px_rgba(0,0,0,0.6)]
+      hover:bg-gray-200
+      hover:scale-105
+      transition-all duration-300
+    "
             >
-              Talk to a Web Development Expert
+              Talk to a Power Apps Expert
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition" />
             </button>
           </div>
@@ -104,10 +116,27 @@ export default function WhyChooseSoftreeWebDevelopment() {
                 shadow-[0_25px_70px_rgba(0,0,0,0.35)]
                 hover:-translate-y-2 transition-all duration-300"
               >
-                {/* Faded Border */}
-                <span className="absolute inset-0 pointer-events-none rounded-[24px]">
-                  <span className="absolute top-0 left-0 w-2/3 h-[2px] bg-gradient-to-r from-cyan-400/60 via-purple-500/30 to-transparent" />
-                  <span className="absolute top-0 left-0 h-2/3 w-[2px] bg-gradient-to-b from-cyan-400/60 via-purple-500/30 to-transparent" />
+                {/* Faded Border – Extra Bold */}
+                <span className="absolute inset-0 pointer-events-none rounded-[28px]">
+                  <span
+                    className="absolute top-0 left-0 w-2/3 h-[4px]
+    bg-gradient-to-r from-white/35 via-white/20 to-transparent"
+                  />
+
+                  <span
+                    className="absolute top-0 left-0 h-2/3 w-[4px]
+    bg-gradient-to-b from-white/35 via-white/20 to-transparent"
+                  />
+
+                  <span
+                    className="absolute bottom-0 right-0 w-1/3 h-[3px]
+    bg-gradient-to-l from-white/22 to-transparent"
+                  />
+
+                  <span
+                    className="absolute bottom-0 right-0 h-1/3 w-[3px]
+    bg-gradient-to-t from-white/22 to-transparent"
+                  />
                 </span>
 
                 {/* Icon */}
@@ -120,7 +149,7 @@ export default function WhyChooseSoftreeWebDevelopment() {
                   <Icon className="w-6 h-6 text-cyan-400 relative z-10" />
                 </div>
 
-                <h3 className="text-3xl font-extrabold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+                <h3 className="text-3xl font-extrabold bg-gradient-to-r from-cyan-100 to-purple-100 bg-clip-text text-transparent">
                   {item.value}
                 </h3>
 

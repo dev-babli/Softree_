@@ -3,20 +3,35 @@
 import Image from "next/image";
 
 const certifications = [
-  { src: "https://www.softreetechnology.com/wp-content/uploads/2024/12/STPI.webp", alt: "STPI" },
-  { src: "https://www.softreetechnology.com/wp-content/uploads/2024/12/startupindia.webp", alt: "Startup India" },
-  { src: "https://www.softreetechnology.com/wp-content/uploads/2024/12/MCPD.webp", alt: "MCPD" },
-  { src: "https://www.softreetechnology.com/wp-content/uploads/2024/12/MCTS.webp", alt: "MCTS" },
-  { src: "https://www.softreetechnology.com/wp-content/uploads/2024/12/ISO-9001-2015.webp", alt: "ISO 9001" },
-  { src: "https://www.softreetechnology.com/wp-content/uploads/2024/12/ISO-27001-2022.webp", alt: "ISO 27001" },
+  {
+    src: "https://www.softreetechnology.com/wp-content/uploads/2024/12/STPI.webp",
+    alt: "STPI",
+  },
+  {
+    src: "https://www.softreetechnology.com/wp-content/uploads/2024/12/startupindia.webp",
+    alt: "Startup India",
+  },
+  {
+    src: "https://www.softreetechnology.com/wp-content/uploads/2024/12/MCPD.webp",
+    alt: "MCPD",
+  },
+  {
+    src: "https://www.softreetechnology.com/wp-content/uploads/2024/12/MCTS.webp",
+    alt: "MCTS",
+  },
+  {
+    src: "https://www.softreetechnology.com/wp-content/uploads/2024/12/ISO-9001-2015.webp",
+    alt: "ISO 9001",
+  },
+  {
+    src: "https://www.softreetechnology.com/wp-content/uploads/2024/12/ISO-27001-2022.webp",
+    alt: "ISO 27001",
+  },
 ];
 
 export default function Certifications() {
   return (
-    <section className="relative py-24 bg-black overflow-hidden">
-      {/* Ambient background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(99,102,241,0.12),transparent_70%)]" />
-
+    <section className="relative py-24 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-6">
         {/* Heading */}
         <div className="text-center mb-16">
@@ -24,8 +39,8 @@ export default function Certifications() {
             Certifications & Recognitions
           </h2>
           <p className="mt-4 text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            Trusted standards that reinforce our focus on security,
-            compliance, and operational excellence.
+            Trusted standards that reinforce our focus on security, compliance,
+            and operational excellence.
           </p>
         </div>
 

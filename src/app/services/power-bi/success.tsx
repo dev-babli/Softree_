@@ -48,11 +48,7 @@ export default function PowerBISuccessStoriesDark() {
   });
 
   return (
-    <section className="relative bg-[#05070C] py-36 overflow-hidden">
-      {/* Ambient glow */}
-      <div className="absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 bg-sky-500/10 blur-[160px]" />
-      <div className="absolute bottom-0 -right-40 h-[420px] w-[420px] bg-purple-500/10 blur-[160px]" />
-
+    <section className="relative py-36 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-6">
         {/* ===== Heading ===== */}
         <div className="text-center max-w-4xl mx-auto mb-28">
@@ -83,7 +79,6 @@ export default function PowerBISuccessStoriesDark() {
             >
               {/* ===== CARD ===== */}
               <div className="relative rounded-3xl overflow-hidden transition-all duration-700 group-hover:-translate-y-3">
-
                 {/* Aurora glow */}
                 <div className="absolute -inset-10 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.35),transparent_45%)] opacity-70" />
                 <div className="absolute -inset-10 bg-[radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.35),transparent_45%)] opacity-70" />
@@ -95,7 +90,6 @@ export default function PowerBISuccessStoriesDark() {
 
                 {/* Card body */}
                 <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 min-h-[520px] rounded-3xl shadow-[0_40px_140px_rgba(0,0,0,0.65)]">
-
                   {/* Content */}
                   <div className="relative p-14 flex flex-col justify-center">
                     <div className="absolute inset-0 bg-gradient-to-br from-sky-500/15 via-indigo-500/10 to-transparent" />
@@ -151,7 +145,9 @@ export default function PowerBISuccessStoriesDark() {
       {/* ===== Slider Styling ===== */}
       <style jsx global>{`
         .keen-slider__slide {
-          transition: transform 0.6s ease, opacity 0.6s ease;
+          transition:
+            transform 0.6s ease,
+            opacity 0.6s ease;
         }
         .keen-slider__slide:not(.keen-slider__slide--active) {
           transform: scale(0.94);

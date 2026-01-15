@@ -1,5 +1,7 @@
 "use client";
-import { CALENDLY_URL } from '@/lib/contactConfig';
+
+import { useEffect, useState } from "react";
+import { CALENDLY_URL } from "@/lib/contactConfig";
 
 const testimonials = [
   {
@@ -20,86 +22,260 @@ const testimonials = [
 ];
 
 export default function PowerAppsHero() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisible(false);
+
+      setTimeout(() => {
+        setActiveIndex((prev) => (prev + 1) % testimonials.length);
+        setVisible(true);
+      }, 300);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const activeTestimonial = testimonials[activeIndex];
+
   return (
     <section className="relative bg-[#00091A] pt-24 pb-24 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#0D0057]/70 via-black/40 to-[#240F8E]/30" />
 
-      {/* HERO CONTENT */}
-      <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight">
-          Hire a{" "}
-          <span className="text-green-500 font-medium">
-            Dedicated PowerApps Developer
-          </span>{" "}
-          to Build Faster Business Apps
-        </h1>
+   {/* HERO CONTENT */}
+<div className="relative z-10 max-w-6xl mx-auto px-4 text-center mt-4">
+  {/* BACKGROUND ACCENTS */}
+  <div className="absolute -top-24 left-1/2 -translate-x-1/2 h-80 w-80 rounded-full bg-blue-500/20 blur-3xl -z-10" />
+  <div className="absolute top-16 right-0 h-56 w-56 rounded-full bg-indigo-500/15 blur-2xl -z-10" />
 
-        <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-white/70">
-          Build enterprise-grade low-code applications with Microsoft PowerApps.
-          Our experts integrate seamlessly with SharePoint, Office 365, and your
-          existing workflows.
-        </p>
+  {/* EYEBROW */}
+  <div className="mb-6 flex justify-center">
+    <span
+      className="
+        inline-flex items-center gap-2
+        px-5 py-2
+        rounded-full
+        text-xs md:text-sm
+        font-semibold
+        tracking-widest uppercase
+        bg-white/10
+        border border-white/25
+        text-white
+        backdrop-blur-md
+      "
+    >
+      ⚡ Power Apps Development
+    </span>
+  </div>
 
-        <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href={CALENDLY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-green-500 hover:bg-green-400 text-black font-semibold px-8 py-4 rounded-xl transition-transform hover:scale-105"
+  {/* MAIN HEADING */}
+  <h1
+    className="
+      text-3xl md:text-4xl lg:text-5xl xl:text-5xl
+      font-bold
+      leading-[1.25]
+      text-white
+    "
+  >
+    Build{" "}
+    <span className="text-blue-400">
+      Business-Centric
+    </span>{" "}
+    Power Apps
+    <br className="hidden md:block" />
+    for{" "}
+    <span className="relative inline-block pb-3">
+      {/* UNDERLINE */}
+      <span
+        className="
+          absolute
+          left-0 right-0
+          bottom-0
+          h-1.5
+          bg-blue-500/40
+          rounded-full
+        "
+      />
+      <span className="relative text-white/90 font-semibold">
+        Modern Enterprises
+      </span>
+    </span>
+  </h1>
+
+  {/* SUB HEADING */}
+  <p
+    className="
+      mt-8
+      max-w-3xl mx-auto
+      text-lg md:text-xl
+      leading-relaxed
+      text-white/85
+    "
+  >
+    We design and develop{" "}
+    <span className="text-white font-semibold">secure</span>,{" "}
+    <span className="text-white font-semibold">scalable</span>, and{" "}
+    <span className="text-white font-semibold">low-code</span> Power Apps that
+    automate workflows, integrate seamlessly with Microsoft 365 and Dataverse,
+    and accelerate digital transformation — from internal tools to{" "}
+    <span className="text-white font-semibold">
+      enterprise-grade solutions
+    </span>
+    .
+  </p>
+
+  {/* CTA SECTION */}
+  <div className="mt-16 flex justify-center">
+    <div
+      className="
+        relative
+        flex flex-col sm:flex-row
+        gap-6
+        px-8 sm:px-12
+        py-8
+        rounded-3xl
+        bg-white/10
+        border border-white/20
+        backdrop-blur-xl
+        shadow-[0_30px_80px_rgba(0,0,0,0.45)]
+      "
+    >
+      {/* SOFT GLOW BACKGROUND */}
+      <div className="absolute -top-10 -left-10 h-40 w-40 bg-blue-500/20 blur-3xl rounded-full -z-10" />
+      <div className="absolute -bottom-10 -right-10 h-40 w-40 bg-indigo-500/20 blur-3xl rounded-full -z-10" />
+
+      {/* PRIMARY CTA */}
+      <a
+        href={CALENDLY_URL}
+        target="_blank"
+        className="
+          relative
+          inline-flex
+          items-center
+          justify-center
+          px-12
+          py-4
+          rounded-full
+          font-semibold
+          text-white
+          bg-gradient-to-r from-blue-500 via-cyan-400 to-indigo-500
+          shadow-[0_18px_40px_rgba(59,130,246,0.45)]
+          transition-all duration-300
+          hover:scale-105
+          overflow-hidden
+        "
+      >
+        <span
+          className="
+            absolute inset-0
+            bg-white/10
+            backdrop-blur-sm
+            pointer-events-none
+          "
+        />
+        <span className="relative z-10 whitespace-nowrap">
+          Talk to Our Expert
+        </span>
+      </a>
+
+      {/* SECONDARY CTA */}
+      <a
+        href="#services"
+        className="
+          relative
+          inline-flex
+          items-center
+          justify-center
+          px-12
+          py-4
+          rounded-full
+          font-semibold
+          text-white
+          border border-white/35
+          bg-white/10
+          backdrop-blur-sm
+          shadow-[0_12px_30px_rgba(0,0,0,0.25)]
+          transition-all duration-300
+          hover:bg-white/15
+          hover:border-white/60
+          hover:scale-105
+          overflow-hidden
+        "
+      >
+        <span
+          className="
+            absolute inset-0
+            bg-gradient-to-r from-transparent via-white/20 to-transparent
+            opacity-0 hover:opacity-100
+            transition-opacity duration-300
+            pointer-events-none
+          "
+        />
+        <span className="relative z-10 whitespace-nowrap">
+          Explore Services
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+      {/* ================= TESTIMONIAL ================= */}
+      <div className="relative z-10 mt-10 flex justify-center">
+        <div
+          aria-label="Testimonial quote"
+          className={`
+            relative flex gap-6
+            px-10 py-8
+            w-[80%] md:w-[60%] lg:w-[50%]
+            rounded-full
+            backdrop-blur-xl
+            shadow-[0_40px_120px_rgba(0,0,0,0.6)]
+            transition-opacity duration-300
+            ${visible ? "opacity-100" : "opacity-0"}
+          `}
+          style={{
+            background: `
+              linear-gradient(
+                110deg,
+                rgb(2, 119, 249) 0.09%,
+                rgba(0, 7, 67, 0) 26%
+              ),
+              rgb(1, 7, 67)
+            `,
+          }}
+        >
+          {/* Quote Icon */}
+          <svg
+            className="flex-shrink-0 text-white/70"
+            viewBox="0 0 24 24"
+            height="40"
+            width="40"
+            fill="currentColor"
+            aria-hidden="true"
           >
-            Talk to Our Expert
-          </a>
-          <a
-            href="#services"
-            className="border border-green-500 text-green-500 hover:bg-green-500 hover:text-black font-semibold px-8 py-4 rounded-xl transition-transform hover:scale-105"
-          >
-            Explore Services
-          </a>
+            <path d="M6.5 10c-.223 0-.437.034-.65.065..." />
+          </svg>
+
+          {/* Content */}
+          <div className="flex flex-col justify-center">
+            <p className="text-white/80 text-base md:text-lg leading-relaxed mb-2">
+              “{activeTestimonial.text}”
+            </p>
+
+            <p className="text-right text-white/80 text-sm md:text-base font-medium">
+              — {activeTestimonial.name}
+            </p>
+
+            <p className="text-right text-white/50 text-xs">
+              {activeTestimonial.role}
+            </p>
+          </div>
         </div>
       </div>
-   {/* MOVING TESTIMONIAL STRIP */}
-      <div className="relative z-10 mt-20 overflow-hidden">
-       <div className="flex items-stretch animate-marquee">
-
-          {[...testimonials, ...testimonials].map((item, i) => (
-          <div
-  key={i}
- className="mx-4 min-w-[420px] max-w-[420px] h-[200px] p-6 rounded-xl border border-white/10 flex flex-col justify-between backdrop-blur"
-
->
-
-              <p className="text-white/80 text-sm md:text-base leading-relaxed">
-                “{item.text}”
-              </p>
-
-              <div>
-                <p className="mt-2 text-white font-medium text-sm">
-                  {item.name}
-                </p>
-                <p className="text-white/50 text-xs">{item.role}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-
-      {/* Animation */}
-      <style jsx>{`
-        @keyframes marquee {
-          0% {
-            transform: translateX(0%);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-
-        .animate-marquee {
-          animation: marquee 25s linear infinite;
-        }
-      `}</style>
     </section>
   );
 }

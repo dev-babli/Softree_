@@ -83,14 +83,14 @@ export default function ServicesShowcaseExactImage() {
   const [active, setActive] = useState(services[0]);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-black via-[#0B1220] to-[#0F1A2E] pb-24 py-12">
+    <section className="relative overflow-hidden pb-24 py-12">
       {/* ================= SECTION HEADER ================= */}
       <div className="max-w-4xl mx-auto text-center mb-20">
         {/* Eyebrow */}
         <span
           className="inline-block mb-4 px-4 py-1.5 rounded-full
     text-xs uppercase tracking-[0.3em]
-    text-cyan-400
+    text-cyan-100
     bg-cyan-400/10 border border-cyan-400/20"
         >
           What We Offer
@@ -100,9 +100,14 @@ export default function ServicesShowcaseExactImage() {
         <h2 className="relative text-4xl md:text-5xl font-semibold text-white mb-6">
           Mobile App Development Services
           <span
-            className="absolute left-1/2 -bottom-3 w-28 h-[3px]
-      -translate-x-1/2 rounded-full
-      bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500"
+            className="
+    absolute left-0 -bottom-3 w-full h-[5px]
+    bg-gradient-to-r
+    from-transparent
+    via-white/40
+    to-transparent
+    rounded-full
+  "
           />
         </h2>
 
@@ -124,19 +129,22 @@ export default function ServicesShowcaseExactImage() {
       "
         />
 
-        <div className="grid lg:grid-cols-[420px_1fr] items-stretch">
+        <div className="grid lg:grid-cols-[420px_1fr] items-stretch gap-6">
           {/* ================= LEFT PANEL ================= */}
           <div
             className="
-          relative  p-6
-          bg-gradient-to-br from-white/70 via-white/50 to-white/30
-          backdrop-blur-xl
-          border border-white/40
-          shadow-[0_8px_32px_rgba(0,0,0,0.25)]
-        "
+      relative p-6 rounded-3xl
+      bg-gradient-to-br
+        from-[#1b1b1b]
+        via-[#121212]
+        to-[#0b0b0b]
+      backdrop-blur-xl
+      border border-white/10
+      shadow-[0_24px_80px_rgba(0,0,0,0.7)]
+    "
           >
             <ul className="space-y-3">
-              {services.map((service, index) => {
+              {services.map((service) => {
                 const isActive = active.id === service.id;
                 const Icon = service.icon;
 
@@ -145,26 +153,26 @@ export default function ServicesShowcaseExactImage() {
                     <button
                       onClick={() => setActive(service)}
                       className={`
-                    group relative w-full text-left px-6 py-5 rounded-2xl
-                    transition-all duration-300
-                    ${
-                      isActive
-                        ? "bg-gradient-to-r from-black via-gray-900 to-black text-white shadow-lg"
-                        : "hover:bg-gradient-to-r hover:from-gray-100 hover:to-gray-50"
-                    }
-                  `}
+                group relative w-full text-left px-6 py-5 rounded-2xl
+                transition-all duration-300
+                ${
+                  isActive
+                    ? "bg-gradient-to-r from-black via-gray-900 to-black text-white shadow-lg"
+                    : "hover:bg-white/5"
+                }
+              `}
                     >
                       <div className="flex items-start gap-4">
                         {/* ICON */}
                         <div
                           className={`
-                        w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0
-                        ${
-                          isActive
-                            ? "bg-white/10 text-white"
-                            : "bg-black/5 text-gray-600 group-hover:text-black"
-                        }
-                      `}
+                    w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0
+                    ${
+                      isActive
+                        ? "bg-white/10 text-white"
+                        : "bg-white/5 text-gray-400 group-hover:text-white"
+                    }
+                  `}
                         >
                           <Icon size={20} />
                         </div>
@@ -174,41 +182,40 @@ export default function ServicesShowcaseExactImage() {
                           <div className="flex items-center justify-between gap-4">
                             <h4
                               className={`
-                            text-sm font-semibold
-                            ${
-                              isActive
-                                ? "text-white"
-                                : "text-gray-800 group-hover:text-black"
-                            }
-                          `}
+                        text-sm font-semibold
+                        ${
+                          isActive
+                            ? "text-white"
+                            : "text-gray-300 group-hover:text-white"
+                        }
+                      `}
                             >
                               {service.title}
                             </h4>
 
                             <span
                               className={`
-                            text-lg transition-transform
-                            ${
-                              isActive
-                                ? "text-white translate-x-1"
-                                : "text-gray-400 group-hover:translate-x-1"
-                            }
-                          `}
+                        text-lg transition-transform
+                        ${
+                          isActive
+                            ? "text-white translate-x-1"
+                            : "text-gray-500 group-hover:text-white group-hover:translate-x-1"
+                        }
+                      `}
                             >
                               →
                             </span>
                           </div>
 
-                          {/* SHORT DESCRIPTION */}
                           <p
                             className={`
-                          mt-1 text-xs leading-relaxed line-clamp-2
-                          ${
-                            isActive
-                              ? "text-gray-300"
-                              : "text-gray-500 group-hover:text-gray-600"
-                          }
-                        `}
+                      mt-1 text-xs leading-relaxed line-clamp-2
+                      ${
+                        isActive
+                          ? "text-gray-400"
+                          : "text-gray-500 group-hover:text-gray-400"
+                      }
+                    `}
                           >
                             {service.description}
                           </p>
@@ -223,21 +230,25 @@ export default function ServicesShowcaseExactImage() {
 
           {/* ================= RIGHT PANEL ================= */}
           <div
-            className={`
-          relative  overflow-hidden
-          border border-white/10
-          bg-gradient-to-br ${active.gradient}
-        `}
+            className="
+    relative overflow-hidden rounded-3xl
+    border border-white/10
+    bg-gradient-to-br
+      from-[#1b1b1b]
+      via-[#121212]
+      to-[#0b0b0b]
+    shadow-[0_24px_80px_rgba(0,0,0,0.7)]
+  "
           >
             {/* LEFT EDGE GLOW */}
             <div
               className="
-            hidden lg:block
-            absolute left-0 top-1/2 -translate-y-1/2
-            w-6 h-[60%]
-            bg-gradient-to-r from-white/20 to-transparent
-            blur-xl
-          "
+      hidden lg:block
+      absolute left-0 top-1/2 -translate-y-1/2
+      w-6 h-[60%]
+      bg-gradient-to-r from-white/15 to-transparent
+      blur-xl
+    "
             />
 
             {/* IMAGE */}
@@ -251,7 +262,7 @@ export default function ServicesShowcaseExactImage() {
                 className="object-cover"
                 priority
               />
-              <div className="absolute inset-0 bg-black/40" />
+              <div className="absolute inset-0 bg-black/50" />
             </div>
 
             {/* CONTENT */}
@@ -260,19 +271,20 @@ export default function ServicesShowcaseExactImage() {
                 <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
                   <active.icon size={22} className="text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-white uppercase">
+
+                <h3 className="text-xl font-semibold text-white uppercase tracking-wide">
                   {active.title}
                 </h3>
               </div>
 
-              <p className="text-gray-400 mb-6 max-w-xl">
+              <p className="text-gray-400 mb-6 max-w-xl leading-relaxed">
                 {active.description}
               </p>
 
               <ul className="space-y-2 text-gray-300">
                 {active.bullets.map((item, i) => (
                   <li key={i} className="flex gap-2">
-                    <span>•</span>
+                    <span className="text-gray-500">•</span>
                     <span>{item}</span>
                   </li>
                 ))}

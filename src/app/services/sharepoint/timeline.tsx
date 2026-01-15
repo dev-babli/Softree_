@@ -76,12 +76,10 @@ export default function TimelinePage() {
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
-    <main className="bg-black min-h-screen">
+    <main className="min-h-screen">
       <div ref={containerRef} className="relative w-full md:px-10">
         {/* Header */}
         <div className="relative overflow-hidden py-28 px-4 text-center">
-        
-
           {/* Content */}
           <div className="relative max-w-7xl mx-auto">
             <span
@@ -107,7 +105,7 @@ export default function TimelinePage() {
         </div>
 
         {/* Timeline Section */}
-        <div className="relative bg-gradient-to-b from-black via-[#050B1F] to-black py-3">
+        <div className="relative py-3">
           <div className="max-w-6xl mx-auto border border-white/10 rounded-3xl px-6 md:px-12 lg:px-16 relative overflow-hidden">
             {/* Glow */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(99,102,241,0.15),transparent_65%)] pointer-events-none" />

@@ -13,9 +13,8 @@ const certifications = [
 
 export default function Certifications() {
   return (
-    <section className="relative py-24 bg-black overflow-hidden">
-      {/* Ambient background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(99,102,241,0.12),transparent_70%)]" />
+    <section className="relative py-12 overflow-hidden">
+    
 
       <div className="relative max-w-7xl mx-auto px-6">
         {/* Heading */}

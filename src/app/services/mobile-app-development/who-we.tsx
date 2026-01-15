@@ -5,16 +5,8 @@ import Link from "next/link";
 
 export default function WhoWeWorkWith() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-black via-[#0B1220] to-[#0F1A2E] py-28">
-      
-      {/* Background glow */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-indigo-600/20 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[120px]" />
-      </div>
-
+    <section className="relative overflow-hidden py-12">
       <div className="relative max-w-7xl mx-auto px-4">
-
         {/* ===== Heading ===== */}
         <div className="text-center mb-20">
           <span className="inline-block mb-4 px-4 py-1 text-xs font-medium tracking-widest uppercase text-indigo-400 border border-indigo-400/30 rounded-full">
@@ -27,7 +19,7 @@ export default function WhoWeWorkWith() {
 
           {/* Underline */}
           <div className="mt-5 flex justify-center">
-            <span className="h-1 w-24 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400" />
+            <span className="h-1 w-24 rounded-full bg-gradient-to-r from-indigo-100 via-gray-100 to-cyan-100" />
           </div>
 
           <p className="mt-6 text-gray-400 max-w-2xl mx-auto text-lg">
@@ -38,28 +30,24 @@ export default function WhoWeWorkWith() {
 
         {/* ===== Cards ===== */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-
           {[
             {
               title: "Businesses & Brands",
-              desc:
-                "Entrepreneurs, enterprises, and non-profits building mobile apps to engage customers and communities.",
+              desc: "Entrepreneurs, enterprises, and non-profits building mobile apps to engage customers and communities.",
               img: "/images/mobile-app/business.jpg",
               link: "https://buildfire.com/demo/",
               badge: "For Growth",
             },
             {
               title: "App Resellers",
-              desc:
-                "Create once, rebrand endlessly, and sell to multiple clients using one scalable mobile platform.",
+              desc: "Create once, rebrand endlessly, and sell to multiple clients using one scalable mobile platform.",
               img: "/images/mobile-app/1.avif",
               link: "https://buildfire.com/reseller-demo/",
               badge: "White-Label",
             },
             {
               title: "Agencies",
-              desc:
-                "Deliver high-quality mobile apps under your own brand without heavy technical or financial investment.",
+              desc: "Deliver high-quality mobile apps under your own brand without heavy technical or financial investment.",
               img: "/images/mobile-app/agency.jpg",
               link: "https://buildfire.com/demo/",
               badge: "Agency-Ready",
@@ -106,7 +94,6 @@ export default function WhoWeWorkWith() {
               </div>
             </div>
           ))}
-
         </div>
       </div>
     </section>

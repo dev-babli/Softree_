@@ -45,16 +45,55 @@ const values = [
 
 export default function InspiredByOurValues() {
   return (
-    <section className="bg-black text-white py-28">
+    <section className=" text-white py-28">
       <div className="max-w-7xl mx-auto px-6">
         {/* HEADER */}
-        <div className="mb-16 max-w-2xl">
-          <p className="uppercase tracking-widest text-sm text-gray-400 mb-4">
+        <div className="mb-24 max-w-3xl mx-auto text-center">
+          {/* Eyebrow */}
+          <span
+            className="
+      inline-block
+      mb-6
+      px-5 py-2
+      rounded-full
+      bg-cyan-400/10
+      text-cyan-400
+      text-xs
+      font-semibold
+      uppercase
+      tracking-[0.3em]
+    "
+          >
             What drives us
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+          </span>
+
+          {/* Heading */}
+          <h2
+            className="
+      text-4xl md:text-5xl
+      font-semibold
+      leading-snug
+      text-white
+      mb-6
+    "
+          >
             Values That Define Our Work
           </h2>
+
+          {/* Sub-header */}
+          <p
+            className="
+      text-base md:text-lg
+      text-gray-400
+      leading-relaxed
+      max-w-2xl
+      mx-auto
+    "
+          >
+            Our values guide every decision we make—from how we collaborate with
+            clients to how we build, deliver, and support digital solutions at
+            scale.
+          </p>
         </div>
 
         {/* GRID */}
@@ -70,7 +109,7 @@ export default function InspiredByOurValues() {
                   relative
                   overflow-hidden
                   rounded-3xl
-                  bg-white/5
+                  bg-gradient-to-br from-neutral-900 via-neutral-800 to-black
                   backdrop-blur-xl
                   border border-white/10
                   p-10

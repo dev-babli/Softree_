@@ -48,13 +48,7 @@ export default function SharePointFeaturesAdvanced() {
   const activeFeature = features[activeIndex];
 
   return (
-    <section className="relative bg-black py-28 overflow-hidden">
-      {/* Ambient Background */}
-      <div className="absolute inset-0">
-        <div className="absolute -top-40 -left-40 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl" />
-        <div className="absolute top-1/3 -right-40 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl" />
-      </div>
-
+    <section className="relative py-28 overflow-hidden">
       <div className="relative mx-auto max-w-7xl w-[86%]">
         {/* Heading */}
         <div className="text-center max-w-3xl mx-auto mb-20">

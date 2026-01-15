@@ -43,11 +43,11 @@ const processSteps = [
 
 export default function PowerAppsProcessSection() {
   return (
-    <section className="relative bg-[#050505] py-28 overflow-visible">
+    <section className="relative bg-black py-12 overflow-visible">
       {/* Background glow */}
       <div
         className="absolute inset-0 pointer-events-none -z-20
-        bg-[radial-gradient(circle_at_50%_20%,rgba(59,130,246,0.25),transparent_60%)]"
+        bg-[radial-gradient(circle_at_50%_20%,rgba(60, 63, 67, 0.25),transparent_60%)]"
       />
 
       <div className="max-w-7xl mx-auto px-6 relative">
@@ -81,24 +81,28 @@ export default function PowerAppsProcessSection() {
     gap-16 lg:gap-24
     px-8 py-14 lg:px-14 lg:py-20
 
-    /* ✅ Gradient background */
+    /* ✅ Charcoal glass background */
     bg-gradient-to-br
-    from-[#0B1220]
-    via-[#0E1628]
-    to-[#05080F]
+    from-[#141414]
+    via-[#101010]
+    to-[#0b0b0b]
 
-    /* ✅ Rounded & clipped */
+    backdrop-blur-2xl
+    border border-white/10
     rounded-[36px]
-    
+    shadow-[0_40px_120px_rgba(0,0,0,0.6)]
   "
         >
-          {/* LEFT – TRUE STICKY */}
+          {/* ================= LEFT – TRUE STICKY ================= */}
           <div className="lg:sticky lg:top-32 self-start">
             <div className="max-w-xl space-y-6">
               {/* Eyebrow */}
               <span
-                className="inline-flex items-center px-4 py-1.5 rounded-full 
-      bg-white/5 border border-white/10 text-xs tracking-wide text-white/70"
+                className="
+          inline-flex items-center px-4 py-1.5 rounded-full
+          bg-white/5 border border-white/15
+          text-xs tracking-wide text-gray-300
+        "
               >
                 Delivery Framework
               </span>
@@ -108,26 +112,28 @@ export default function PowerAppsProcessSection() {
                 Our Power Apps Development Process for Scalable Solutions
               </h3>
 
-              {/* Divider */}
-              <div className="w-14 h-px bg-gradient-to-r from-blue-400/70 to-purple-500/70" />
+              {/* Divider (neutral) */}
+              <div className="w-14 h-px bg-white/30" />
 
               {/* Description */}
               <p className="text-lg text-gray-400 leading-relaxed">
                 At Softree, we follow a structured and outcome-driven approach
-                to deliver secure, scalable, and enterprise-ready Power
-                Apps—ensuring clarity, consistency, and long-term value
-                throughout the development lifecycle.
+                to deliver secure, scalable, and enterprise-ready Power Apps—
+                ensuring clarity, consistency, and long-term value throughout
+                the development lifecycle.
               </p>
             </div>
           </div>
 
-          {/* RIGHT – TIMELINE */}
+          {/* ================= RIGHT – TIMELINE ================= */}
           <div className="relative">
             <ul className="relative space-y-14">
               {/* Vertical dotted line */}
               <span
-                className="absolute left-[28px] top-[28px] bottom-[28px]
-                w-px border-l border-dashed border-white/25"
+                className="
+          absolute left-[28px] top-[28px] bottom-[28px]
+          w-px border-l border-dashed border-white/25
+        "
               />
 
               {processSteps.map((step, index) => {
@@ -138,13 +144,13 @@ export default function PowerAppsProcessSection() {
                     <div className="relative z-10 flex-shrink-0">
                       <div
                         className="
-                          w-14 h-14 rounded-full
-                          bg-[#0b0b0b]
-                          border border-white/20
-                          flex items-center justify-center
-                          text-blue-400
-                          shadow-[0_0_18px_rgba(59,130,246,0.25)]
-                        "
+                  w-14 h-14 rounded-full
+                  bg-[#141414]
+                  border border-white/20
+                  flex items-center justify-center
+                  text-gray-200
+                  shadow-[0_0_22px_rgba(255,255,255,0.12)]
+                "
                       >
                         <Icon size={22} />
                       </div>

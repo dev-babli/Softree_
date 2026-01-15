@@ -67,8 +67,9 @@ const techData: Record<(typeof TABS)[number], Tech[]> = {
 };
 
 export default function TechnologiesTabs() {
-  const [activeTab, setActiveTab] =
-    useState<(typeof TABS)[number]>("FRONTEND DEVELOPMENT");
+  const [activeTab, setActiveTab] = useState<(typeof TABS)[number]>(
+    "FRONTEND DEVELOPMENT"
+  );
 
   const tabsRef = useRef<HTMLDivElement>(null);
   const indicatorRef = useRef<HTMLDivElement>(null);
@@ -89,12 +90,7 @@ export default function TechnologiesTabs() {
   }, [activeTab]);
 
   return (
-    <section className="relative py-28 px-4 overflow-hidden bg-gradient-to-br from-black via-[#0B1220] to-[#0F1A2E]">
-      {/* Background layers */}
-      <div className="absolute inset-0 -z-10 bg-black" />
-      <div className="absolute inset-0 -z-10 bg-noise opacity-[0.015]" />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-t from-black via-transparent to-black opacity-60" />
-
+    <section className="relative px-4 overflow-hidden bg-black">
       <div className="max-w-7xl mx-auto">
         {/* ================= HEADER ================= */}
         <div className="relative text-center mb-28">
@@ -110,8 +106,8 @@ export default function TechnologiesTabs() {
 
           <p className="mt-10 max-w-xl mx-auto text-sm md:text-base leading-relaxed text-zinc-400">
             Our web development stack is designed for performance, scalability,
-            and long-term maintainability — from frontend experiences to
-            backend systems and cloud infrastructure.
+            and long-term maintainability — from frontend experiences to backend
+            systems and cloud infrastructure.
           </p>
         </div>
 
@@ -144,18 +140,20 @@ export default function TechnologiesTabs() {
             </div>
           </div>
         </div>
-
         {/* ================= TECH CARDS ================= */}
         <div className="flex justify-center">
           <div className="relative w-full max-w-6xl">
             <div className="relative rounded-b-2xl bg-zinc-950/80 border border-white/10 border-t-0">
-              <div className="absolute inset-0 rounded-b-2xl bg-gradient-to-br from-emerald-500/4 to-teal-500/4 pointer-events-none" />
+              {/* Subtle neutral glow */}
+              <div className="absolute inset-0 rounded-b-2xl bg-white/5 pointer-events-none" />
 
               <div className="relative px-6 py-16">
                 <div
                   key={activeTab}
-                  className="grid gap-8 justify-center
-                    [grid-template-columns:repeat(auto-fit,minmax(190px,1fr))]"
+                  className="
+            grid gap-8 justify-center
+            [grid-template-columns:repeat(auto-fit,minmax(190px,1fr))]
+          "
                 >
                   {techData[activeTab].map((tech, i) => {
                     const Icon = tech.icon;
@@ -166,10 +164,27 @@ export default function TechnologiesTabs() {
                         style={{ animationDelay: `${i * 60}ms` }}
                         className="animate-card-in mx-auto w-[190px]"
                       >
-                        <div className="group rounded-2xl p-[1px] bg-zinc-800 hover:bg-gradient-to-br hover:from-emerald-500 hover:to-teal-500 transition-colors">
-                          <div className="rounded-2xl bg-zinc-900/90 p-7 flex flex-col items-center justify-center border border-white/10 transition-transform group-hover:-translate-y-1">
+                        <div
+                          className="
+                    group rounded-2xl p-[1px]
+                    bg-zinc-800 hover:bg-white/30
+                    transition-colors duration-300
+                  "
+                        >
+                          <div
+                            className="
+                      rounded-2xl bg-zinc-900/90 p-7
+                      flex flex-col items-center justify-center
+                      border border-white/10
+                      transition-all duration-300
+                      group-hover:-translate-y-1
+                    "
+                          >
                             <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-white/5">
-                              <Icon className="h-6 w-6 text-emerald-400" strokeWidth={1.8} />
+                              <Icon
+                                className="h-6 w-6 text-white/80"
+                                strokeWidth={1.8}
+                              />
                             </div>
 
                             <span className="text-sm font-medium text-zinc-200 text-center">

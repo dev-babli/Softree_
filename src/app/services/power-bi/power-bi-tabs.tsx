@@ -60,15 +60,7 @@ export default function PowerBIServicesSection() {
   const active = tabs.find((t) => t.id === activeTab)!;
 
   return (
-    <section
-      id="plan-pricing"
-      className="relative overflow-hidden bg-[#05070C] py-36"
-    >
-      {/* ===== Ambient Gradients ===== */}
-      <div className="absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 bg-cyan-500/20 blur-[160px]" />
-      <div className="absolute bottom-0 -right-40 h-[420px] w-[420px] bg-indigo-600/25 blur-[160px]" />
-      <div className="absolute top-1/3 -left-40 h-[420px] w-[420px] bg-purple-600/20 blur-[160px]" />
-
+    <section id="plan-pricing" className="relative overflow-hidden py-36">
       <div className="relative container mx-auto px-4">
         {/* ===== Header ===== */}
         <div className="text-center mb-20">

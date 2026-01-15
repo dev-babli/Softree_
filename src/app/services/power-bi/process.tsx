@@ -1,24 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import {
-  Plug,
-  BrainCircuit,
-  Database,
-  LucideIcon,
-} from "lucide-react";
+import { Plug, BrainCircuit, Database, LucideIcon } from "lucide-react";
 
 export default function PowerPlatformSection() {
   return (
-    <section
-      id="plan-pricing"
-      className="relative overflow-hidden bg-[#05070C] py-36"
-    >
-      {/* ===== Ambient Gradients ===== */}
-      <div className="absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 bg-cyan-500/20 blur-[160px]" />
-      <div className="absolute bottom-0 -right-40 h-[420px] w-[420px] bg-indigo-600/25 blur-[160px]" />
-      <div className="absolute top-1/3 -left-40 h-[420px] w-[420px] bg-purple-600/20 blur-[160px]" />
-
+    <section id="plan-pricing" className="relative overflow-hidden py-36">
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center text-white">
         {/* ===== Heading ===== */}
         <h2 className="text-4xl md:text-5xl font-semibold tracking-tight">
@@ -68,51 +55,50 @@ export default function PowerPlatformSection() {
           </div>
         </div>
 
-      {/* ===== BOTTOM ARCHITECTURE BRANCH ===== */}
-<div className="relative mt-36">
-  {/* ===== CENTRAL HUB ===== */}
-  <div className="hidden md:flex absolute left-1/2 -top-28 -translate-x-1/2 items-center justify-center z-0">
-    <div className="relative w-6 h-6 rounded-full bg-white shadow-md">
-      <span className="absolute inset-0 rounded-full bg-white/40 animate-ping" />
-    </div>
-  </div>
+        {/* ===== BOTTOM ARCHITECTURE BRANCH ===== */}
+        <div className="relative mt-36">
+          {/* ===== CENTRAL HUB ===== */}
+          <div className="hidden md:flex absolute left-1/2 -top-28 -translate-x-1/2 items-center justify-center z-0">
+            <div className="relative w-6 h-6 rounded-full bg-white shadow-md">
+              <span className="absolute inset-0 rounded-full bg-white/40 animate-ping" />
+            </div>
+          </div>
 
-  {/* ===== VERTICAL FROM HUB ===== */}
-  <div className="hidden md:block absolute left-1/2 -top-24 h-24 w-px bg-gradient-to-b from-white/50 to-white/10 z-0" />
+          {/* ===== VERTICAL FROM HUB ===== */}
+          <div className="hidden md:block absolute left-1/2 -top-24 h-24 w-px bg-gradient-to-b from-white/50 to-white/10 z-0" />
 
-  {/* ===== HORIZONTAL BUS ===== */}
-  <div className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent z-0" />
+          {/* ===== HORIZONTAL BUS ===== */}
+          <div className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent z-0" />
 
-  {/* ===== NODE DROPS ===== */}
-  <div className="hidden md:block absolute left-[16.66%] top-0 h-14 w-px bg-gradient-to-b from-white/40 to-white/0 z-0" />
-  <div className="hidden md:block absolute left-1/2 top-0 h-14 w-px bg-gradient-to-b from-white/40 to-white/0 z-0" />
-  <div className="hidden md:block absolute left-[83.33%] top-0 h-14 w-px bg-gradient-to-b from-white/40 to-white/0 z-0" />
+          {/* ===== NODE DROPS ===== */}
+          <div className="hidden md:block absolute left-[16.66%] top-0 h-14 w-px bg-gradient-to-b from-white/40 to-white/0 z-0" />
+          <div className="hidden md:block absolute left-1/2 top-0 h-14 w-px bg-gradient-to-b from-white/40 to-white/0 z-0" />
+          <div className="hidden md:block absolute left-[83.33%] top-0 h-14 w-px bg-gradient-to-b from-white/40 to-white/0 z-0" />
 
-  {/* ===== NODES ===== */}
-  <div className="relative grid grid-cols-1 md:grid-cols-3 gap-28">
-    <AdvancedBottomNode
-      title="Data Connectors"
-      desc="Integrate hundreds of cloud and on-premise data sources securely"
-      icon={Plug}
-      accent="cyan"
-    />
+          {/* ===== NODES ===== */}
+          <div className="relative grid grid-cols-1 md:grid-cols-3 gap-28">
+            <AdvancedBottomNode
+              title="Data Connectors"
+              desc="Integrate hundreds of cloud and on-premise data sources securely"
+              icon={Plug}
+              accent="cyan"
+            />
 
-    <AdvancedBottomNode
-      title="AI Builder"
-      desc="Embed AI capabilities such as prediction, vision, and text analysis"
-      icon={BrainCircuit}
-      accent="purple"
-    />
+            <AdvancedBottomNode
+              title="AI Builder"
+              desc="Embed AI capabilities such as prediction, vision, and text analysis"
+              icon={BrainCircuit}
+              accent="purple"
+            />
 
-    <AdvancedBottomNode
-      title="Dataverse"
-      desc="A scalable and secure data platform for business applications"
-      icon={Database}
-      accent="emerald"
-    />
-  </div>
-</div>
-
+            <AdvancedBottomNode
+              title="Dataverse"
+              desc="A scalable and secure data platform for business applications"
+              icon={Database}
+              accent="emerald"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -158,8 +144,8 @@ function NodeConnector({ align }: { align: "left" | "center" | "right" }) {
     align === "left"
       ? "left-[16.66%]"
       : align === "center"
-      ? "left-1/2"
-      : "left-[83.33%]";
+        ? "left-1/2"
+        : "left-[83.33%]";
 
   return (
     <div
@@ -211,9 +197,7 @@ function AdvancedBottomNode({
         <Icon className={`w-10 h-10 ${styles.icon}`} />
       </div>
 
-      <h4 className="mt-6 text-lg font-semibold text-white z-10">
-        {title}
-      </h4>
+      <h4 className="mt-6 text-lg font-semibold text-white z-10">{title}</h4>
       <p className="mt-2 text-sm text-gray-400 max-w-[240px] text-center z-10">
         {desc}
       </p>

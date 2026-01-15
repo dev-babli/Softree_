@@ -102,27 +102,31 @@ export default function MobileAppLifecycleSection() {
   const activeStep = steps.find((s) => s.id === active)!;
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-black via-[#0B1220] to-[#0F1A2E] pb-24 py-12">
+    <section className="relative overflow-hidden py-12">
       {/* ===== Header ===== */}
       <div className="max-w-4xl mx-auto px-6 text-center mb-24">
         {/* Eyebrow */}
         <span
-          className="inline-block mb-4 px-4 py-1.5 rounded-full
-    text-xs uppercase tracking-[0.3em]
-    text-cyan-400
-    bg-cyan-400/10 border border-cyan-400/20"
+          className="
+        inline-block mb-4 px-4 py-1.5 rounded-full
+        text-xs uppercase tracking-[0.3em]
+        text-white/80
+        bg-white/5 border border-white/10
+      "
         >
           Process Overview
         </span>
 
         {/* Title */}
-        <h2 className="relative text-4xl md:text-5xl font-semibold tracking-tight mb-6">
+        <h2 className="relative text-4xl md:text-5xl font-semibold tracking-tight mb-6 text-white">
           Mobile App Development Lifecycle
-          {/* Gradient Underline */}
+          {/* Underline */}
           <span
-            className="absolute left-1/2 -bottom-3 w-32 h-[3px]
-      -translate-x-1/2 rounded-full
-      bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500"
+            className="
+          absolute left-1/2 -bottom-3 w-32 h-[3px]
+          -translate-x-1/2 rounded-full
+          bg-gradient-to-r from-white/40 via-white/20 to-transparent
+        "
           />
         </h2>
 
@@ -135,19 +139,15 @@ export default function MobileAppLifecycleSection() {
 
       {/* ===== Content ===== */}
       <div className="max-w-7xl mx-auto px-6">
-        {/* Shared container */}
         <div
           className="
-  relative rounded-3xl p-10
-  bg-gradient-to-br
-  from-cyan-500/10
-  via-blue-500/5
-  to-purple-500/10
-  ring-1 ring-white/10
-  backdrop-blur-sm
-"
+        relative rounded-3xl p-10
+        bg-gradient-to-br from-[#1b1b1b] via-[#121212] to-[#0b0b0b]
+        ring-1 ring-white/10
+        backdrop-blur-sm
+      "
         >
-          {/* Subtle vertical divider */}
+          {/* Divider */}
           <span className="hidden lg:block absolute top-10 bottom-10 left-1/2 w-px bg-white/10" />
 
           <div className="grid lg:grid-cols-2 gap-12 items-stretch">
@@ -163,20 +163,20 @@ export default function MobileAppLifecycleSection() {
                         onClick={() => setActive(step.id)}
                         aria-expanded={isActive}
                         className={`w-full flex gap-5 px-5 py-5 rounded-xl text-left transition
-                    ${
-                      isActive
-                        ? "bg-white/8 ring-1 ring-white/10"
-                        : "hover:bg-white/5"
-                    }`}
+                      ${
+                        isActive
+                          ? "bg-white/8 ring-1 ring-white/15"
+                          : "hover:bg-white/5"
+                      }`}
                       >
                         {/* Index */}
                         <span
                           className={`flex h-9 w-9 items-center justify-center rounded-full text-sm font-medium
-                      ${
-                        isActive
-                          ? "bg-blue-500 text-white"
-                          : "bg-white/10 text-gray-400"
-                      }`}
+                        ${
+                          isActive
+                            ? "bg-white text-black"
+                            : "bg-white/10 text-gray-400"
+                        }`}
                         >
                           {index + 1}
                         </span>
@@ -185,7 +185,7 @@ export default function MobileAppLifecycleSection() {
                         <div className="flex-1">
                           <h3
                             className={`text-lg font-medium ${
-                              isActive ? "text-blue-400" : "text-gray-200"
+                              isActive ? "text-white" : "text-gray-300"
                             }`}
                           >
                             {step.label}
@@ -207,9 +207,7 @@ export default function MobileAppLifecycleSection() {
                         {/* Chevron */}
                         <span
                           className={`mt-1 transition-transform ${
-                            isActive
-                              ? "rotate-180 text-blue-400"
-                              : "text-gray-500"
+                            isActive ? "rotate-180 text-white" : "text-gray-500"
                           }`}
                         >
                           ⌄
@@ -223,32 +221,14 @@ export default function MobileAppLifecycleSection() {
 
             {/* ================= RIGHT ================= */}
             <div className="h-full flex items-center justify-center pl-2">
-              <svg
-                width={size}
-                height={size}
-                viewBox={`0 0 ${size} ${size}`}
-                className="overflow-visible"
-              >
-                <defs>
-                  <linearGradient
-                    id="ringGradient"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="0%"
-                  >
-                    <stop offset="0%" stopColor="#22D3EE" />
-                    <stop offset="100%" stopColor="#6366F1" />
-                  </linearGradient>
-                </defs>
-
+              <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
                 {/* Base ring */}
                 <circle
                   cx={center}
                   cy={center}
                   r={radius}
                   fill="none"
-                  stroke="#1E293B"
+                  stroke="#1f2933"
                   strokeWidth="4"
                 />
 
@@ -258,7 +238,7 @@ export default function MobileAppLifecycleSection() {
                   cy={center}
                   r={radius}
                   fill="none"
-                  stroke="url(#ringGradient)"
+                  stroke="#e5e7eb"
                   strokeWidth="3"
                   strokeDasharray={2 * Math.PI * radius}
                   strokeDashoffset={
@@ -288,8 +268,8 @@ export default function MobileAppLifecycleSection() {
                         cx={node.x}
                         cy={node.y}
                         r={isActive ? 26 : 21}
-                        fill={isActive ? "#27282bff" : "#0F172A"}
-                        stroke="#1e2025ff"
+                        fill={isActive ? "#1f1f1f" : "#0f172a"}
+                        stroke="#2a2a2a"
                         strokeWidth={isActive ? 2 : 1}
                       />
 
@@ -301,18 +281,18 @@ export default function MobileAppLifecycleSection() {
                       >
                         <Icon
                           size={30}
-                          className={isActive ? "text-white" : "text-blue-400"}
+                          className={isActive ? "text-white" : "text-gray-400"}
                         />
                       </foreignObject>
 
                       <text
-                        x={label.x + labelOffsetX(step.angle)}
-                        y={label.y + labelOffsetY(step.angle)}
-                        textAnchor={textAnchor(step.angle)}
+                        x={label.x}
+                        y={label.y}
+                        textAnchor="middle"
                         dominantBaseline="middle"
-                        fontSize="16"
+                        fontSize="10"
                         fontWeight={isActive ? "600" : "400"}
-                        fill={isActive ? "#60A5FA" : "#94A3B8"}
+                        fill={isActive ? "#ffffff" : "#9ca3af"}
                       >
                         {step.label}
                       </text>
@@ -327,7 +307,7 @@ export default function MobileAppLifecycleSection() {
                   textAnchor="middle"
                   fontSize="22"
                   fontWeight="600"
-                  fill="#60A5FA"
+                  fill="#ffffff"
                 >
                   SDLC
                 </text>
@@ -337,7 +317,7 @@ export default function MobileAppLifecycleSection() {
                   y={center + 20}
                   textAnchor="middle"
                   fontSize="14"
-                  fill="#94A3B8"
+                  fill="#9ca3af"
                 >
                   {activeStep.label}
                 </text>

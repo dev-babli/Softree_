@@ -40,7 +40,7 @@ export default function PowerAppsCaseStudies() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="relative bg-black py-24 overflow-hidden">
+    <section className="relative py-24 overflow-hidden">
       {/* 🔥 BACKGROUND GLOW (CLICK SAFE) */}
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_20%,rgba(59,130,246,0.25),transparent_60%)]" />
 
@@ -72,7 +72,6 @@ export default function PowerAppsCaseStudies() {
               <SwiperSlide key={index} className="h-full">
                 {/* CONNECTED CARD */}
                 <div className="w-full h-full bg-white/10 backdrop-blur-xl border border-white/15 rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
-                  
                   {/* IMAGE */}
                   <div className="relative md:w-1/2 h-[240px] md:h-full">
                     <img

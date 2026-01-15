@@ -22,12 +22,12 @@ export default function WhyChooseSoftreePowerApps() {
   ];
 
   return (
-    <section className="relative bg-[#0B0F19] py-32 text-white overflow-hidden">
-  {/* Background Glow */}
-  <div className="absolute inset-0 -z-10">
-    <div className="absolute top-[-25%] left-[-15%] w-[500px] h-[500px] bg-cyan-500/20 blur-[140px] rounded-full" />
-    <div className="absolute bottom-[-25%] right-[-15%] w-[500px] h-[500px] bg-purple-600/20 blur-[140px] rounded-full" />
-  </div>
+    <section className="relative #141414 text-white overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-[-25%] left-[-15%] w-[500px] h-[500px] bg-cyan-500/20 blur-[140px] rounded-full" />
+        <div className="absolute bottom-[-25%] right-[-15%] w-[500px] h-[500px] bg-purple-600/20 blur-[140px] rounded-full" />
+      </div>
 
       <div className="max-w-7xl mx-auto flex flex-col xl:flex-row gap-16">
         {/* LEFT – COMPACT FADED PARTIAL BORDER */}
@@ -37,23 +37,26 @@ export default function WhyChooseSoftreePowerApps() {
  backdrop-blur-2xl
                  shadow-[0_30px_90px_rgba(0,0,0,0.4)]"
         >
-          {/* Faded Border */}
+          {/* Faded Border – Extra Bold */}
           <span className="absolute inset-0 pointer-events-none rounded-[28px]">
             <span
-              className="absolute top-0 left-0 w-2/3 h-[2px]
-                         bg-gradient-to-r from-cyan-400/70 via-purple-500/35 to-transparent"
+              className="absolute top-0 left-0 w-2/3 h-[4px]
+    bg-gradient-to-r from-white/35 via-white/20 to-transparent"
             />
+
             <span
-              className="absolute top-0 left-0 h-2/3 w-[2px]
-                         bg-gradient-to-b from-cyan-400/70 via-purple-500/35 to-transparent"
+              className="absolute top-0 left-0 h-2/3 w-[4px]
+    bg-gradient-to-b from-white/35 via-white/20 to-transparent"
             />
+
             <span
-              className="absolute bottom-0 right-0 w-1/3 h-[1px]
-                         bg-gradient-to-l from-purple-500/30 to-transparent"
+              className="absolute bottom-0 right-0 w-1/3 h-[3px]
+    bg-gradient-to-l from-white/22 to-transparent"
             />
+
             <span
-              className="absolute bottom-0 right-0 h-1/3 w-[1px]
-                         bg-gradient-to-t from-purple-500/30 to-transparent"
+              className="absolute bottom-0 right-0 h-1/3 w-[3px]
+    bg-gradient-to-t from-white/22 to-transparent"
             />
           </span>
 
@@ -63,13 +66,13 @@ export default function WhyChooseSoftreePowerApps() {
                    bg-white/10 border border-white/20
                    text-xs uppercase tracking-[0.25em]"
           >
-            <Sparkles className="w-4 h-4 text-cyan-400" />
+            <Sparkles className="w-4 h-4 text-cyan-100" />
             Power Apps Specialists
           </span>
 
           <h2 className="text-4xl xl:text-5xl font-extrabold leading-tight">
             Why Choose{" "}
-            <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-100 via-gray-300 to-pink-100 bg-clip-text text-transparent">
               Softree
             </span>{" "}
             for Power Apps?
@@ -89,12 +92,15 @@ export default function WhyChooseSoftreePowerApps() {
           {/* CTA */}
           <div className="mt-8">
             <button
-              className="group inline-flex items-center gap-3 px-8 py-4
-                     rounded-xl font-semibold
-                     bg-gradient-to-r from-cyan-500 to-purple-600
-                     shadow-[0_18px_50px_rgba(56,189,248,0.4)]
-                     hover:shadow-[0_22px_70px_rgba(168,85,247,0.55)]
-                     transition-all duration-300"
+              className="
+      group inline-flex items-center gap-3 px-8 py-4
+      rounded-xl font-semibold
+      bg-white text-black
+      shadow-[0_20px_60px_rgba(0,0,0,0.6)]
+      hover:bg-gray-200
+      hover:scale-105
+      transition-all duration-300
+    "
             >
               Talk to a Power Apps Expert
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition" />
@@ -115,15 +121,26 @@ backdrop-blur-2xl
                        shadow-[0_25px_70px_rgba(0,0,0,0.35)]
                        hover:-translate-y-2 transition-all duration-300"
               >
-                {/* Faded Border */}
-                <span className="absolute inset-0 pointer-events-none rounded-[24px]">
+                {/* Faded Border – Extra Bold */}
+                <span className="absolute inset-0 pointer-events-none rounded-[28px]">
                   <span
-                    className="absolute top-0 left-0 w-2/3 h-[2px]
-                               bg-gradient-to-r from-cyan-400/60 via-purple-500/30 to-transparent"
+                    className="absolute top-0 left-0 w-2/3 h-[4px]
+    bg-gradient-to-r from-white/35 via-white/20 to-transparent"
                   />
+
                   <span
-                    className="absolute top-0 left-0 h-2/3 w-[2px]
-                               bg-gradient-to-b from-cyan-400/60 via-purple-500/30 to-transparent"
+                    className="absolute top-0 left-0 h-2/3 w-[4px]
+    bg-gradient-to-b from-white/35 via-white/20 to-transparent"
+                  />
+
+                  <span
+                    className="absolute bottom-0 right-0 w-1/3 h-[3px]
+    bg-gradient-to-l from-white/22 to-transparent"
+                  />
+
+                  <span
+                    className="absolute bottom-0 right-0 h-1/3 w-[3px]
+    bg-gradient-to-t from-white/22 to-transparent"
                   />
                 </span>
 
@@ -143,7 +160,7 @@ backdrop-blur-2xl
 
                 <h3
                   className="text-3xl font-extrabold
-                         bg-gradient-to-r from-cyan-400 to-purple-500
+                         bg-gradient-to-r from-cyan-100 to-purple-500
                          bg-clip-text text-transparent"
                 >
                   {item.value}

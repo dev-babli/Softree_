@@ -34,8 +34,8 @@ export default function AIDrivenSharePointMigration() {
   ];
 
   return (
-    <section className="bg-[#040404] py-28">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className=" py-28">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Heading */}
         <div className="mb-20 max-w-4xl">
           {/* Eyebrow */}
@@ -67,12 +67,7 @@ export default function AIDrivenSharePointMigration() {
 
         {/* Table Card */}
         <div className="relative rounded-3xl border border-white/10 bg-[#070707] shadow-[0_0_0_1px_rgba(255,255,255,0.02)]">
-          {/* Subtle inner grid lines */}
-          <div
-            className="absolute inset-0 rounded-3xl pointer-events-none
-            bg-[linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)]
-            bg-[length:100%_64px]"
-          />
+        
 
           <div className="overflow-x-auto relative">
             <table className="w-full border-collapse">

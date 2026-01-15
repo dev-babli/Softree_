@@ -54,10 +54,10 @@ const services: {
 ========================= */
 export default function ServicesHeader() {
   return (
-    <section className="bg-black text-white py-2">
+    <section className="bg-black text-white py-12">
       <div className="max-w-7xl mx-auto px-6">
         {/* HEADER WRAPPER */}
-        <div className="relative mb-20">
+        <div className="relative mb-20 mt-28 md:mt-32">
           {/* BACKGROUND ACCENT */}
           <div className="absolute -top-16 -left-16 h-40 w-40 rounded-full bg-cyan-400/10 blur-3xl" />
           <div className="absolute top-0 right-0 h-32 w-32 rounded-full bg-blue-500/10 blur-2xl" />

@@ -4,7 +4,7 @@ import React from "react";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[700px] bg-[#00091A] overflow-hidden">
+    <section className="relative min-h-[700px] bg-[#00091A] overflow-hidden pt-16 md:pt-20">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <video
@@ -20,6 +20,9 @@ const HeroSection = () => {
 
         {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#00091A]/90 via-[#00091A]/70 to-[#00091A]/40 z-10" />
+
+        {/* Fade below navbar */}
+        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-black/60 to-transparent z-20 pointer-events-none" />
       </div>
 
       {/* Content */}
@@ -29,11 +32,11 @@ const HeroSection = () => {
             {/* Eyebrow */}
             <div
               className="
-      inline-flex items-center gap-3
-      px-4 py-1.5 rounded-full
-      border border-white/20 bg-white/5
-      animate-in fade-in slide-in-from-left-2 duration-700
-    "
+                inline-flex items-center gap-3
+                px-4 py-1.5 rounded-full
+                border border-white/20 bg-white/5
+                animate-in fade-in slide-in-from-left-2 duration-700
+              "
             >
               <span className="h-2 w-2 rounded-full bg-cyber-blue" />
               <span className="text-sm text-white/85 tracking-wide">
@@ -41,27 +44,28 @@ const HeroSection = () => {
               </span>
             </div>
 
+            {/* Heading */}
             <h1
               className="
-    leading-[1.08]
-    text-4xl md:text-5xl lg:text-6xl
-    tracking-tight
-    bg-gradient-to-r from-slate-200 via-slate-100 to-slate-300
-    bg-clip-text text-transparent
-    animate-in fade-in slide-in-from-left-4 duration-1000
-  "
-              style={{ fontFamily: "Times New Roman, serif" }}
+                leading-[1.08]
+                text-4xl md:text-5xl lg:text-6xl
+                tracking-tight
+                bg-gradient-to-r from-slate-200 via-slate-100 to-slate-300
+                bg-clip-text text-transparent
+                animate-in fade-in slide-in-from-left-4 duration-1000
+              "
+              style={{ fontFamily: "Calibri, serif" }}
             >
               Building{" "}
               <span
                 className="
-      font-semibold
-      bg-gradient-to-r
-      from-cyber-blue
-      via-blue-400
-      to-sky-300
-      bg-clip-text text-transparent
-    "
+                  font-semibold
+                  bg-gradient-to-r
+                  from-cyber-blue
+                  via-blue-400
+                  to-sky-300
+                  bg-clip-text text-transparent
+                "
               >
                 Digital Solutions
               </span>{" "}
@@ -71,87 +75,75 @@ const HeroSection = () => {
             {/* Subheading */}
             <p
               className="
-    max-w-3xl
-    text-lg md:text-xl lg:text-2xl
-    leading-relaxed
-    bg-gradient-to-r from-slate-200 via-slate-100 to-slate-300
-    bg-clip-text text-transparent
-    animate-in fade-in slide-in-from-left-6 duration-1000 delay-200
-  "
-              style={{ fontFamily: "Times New Roman, serif" }}
+                max-w-3xl
+                text-lg md:text-xl lg:text-2xl
+                leading-relaxed
+                bg-gradient-to-r from-slate-200 via-slate-100 to-slate-300
+                bg-clip-text text-transparent
+                animate-in fade-in slide-in-from-left-6 duration-1000 delay-200
+              "
+              style={{ fontFamily: "Calibri, serif" }}
             >
               Softree helps enterprises and startups transform ideas into
               secure, scalable products built on{" "}
               <span
                 className="
-      font-semibold
-      bg-gradient-to-r
-      from-cyber-blue
-      via-blue-400
-      to-sky-300
-      bg-clip-text text-transparent
-    "
+                  font-semibold
+                  bg-gradient-to-r
+                  from-cyber-blue
+                  via-blue-400
+                  to-sky-300
+                  bg-clip-text text-transparent
+                "
               >
                 SharePoint, Power Platform, Salesforce, and AI
               </span>
               , delivering modern web and mobile engineering solutions.
             </p>
 
-            {/* Stats Cards */}
-            <div
-              className="
-    grid grid-cols-1 sm:grid-cols-3
-    gap-10 pt-8
-    animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-400
-  "
-            >
+            {/* Stats */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 pt-4">
               {[
-                { value: "15+", label: "Years of Experience" },
-                { value: "500+", label: "Projects Delivered" },
-                { value: "90%", label: "Client Retention" },
+                { value: "15+", label: "Years of Experience", icon: "🚀" },
+                { value: "500+", label: "Projects Delivered", icon: "📦" },
+                { value: "90%", label: "Client Retention", icon: "🤝" },
               ].map((stat, i) => (
                 <div
                   key={i}
                   className="
-        rounded-2xl
-        p-[1px]
-        bg-gradient-to-r
-        from-cyber-blue
-        via-blue-400
-        to-sky-300
+        relative
+        rounded-full
+        px-10 py-8
+        bg-gradient-to-r from-white/10 via-white/5 to-white/10
+        backdrop-blur-xl
+        text-center
+        shadow-[0_20px_60px_rgba(0,0,0,0.45)]
+        transition-all duration-500
+        hover:-translate-y-1
       "
                 >
-                  <div
-                    className="
-          rounded-2xl
-          bg-[#0B1220]
-          px-8 py-8
-        "
-                  >
-                    {/* Value */}
-                    <span
+                  <div className="flex items-center justify-center gap-5">
+                    {/* ICON */}
+                    <div
                       className="
-            block text-4xl md:text-5xl
-            font-semibold tracking-tight
-            bg-gradient-to-r
-            from-cyber-blue via-blue-400 to-sky-300
-            bg-clip-text text-transparent
-          "
-                      style={{ fontFamily: "Times New Roman, serif" }}
+          flex h-14 w-14 items-center justify-center
+          rounded-full
+          bg-gradient-to-br from-blue-500/40 to-cyan-400/30
+          text-2xl
+        "
                     >
-                      {stat.value}
-                    </span>
+                      {stat.icon}
+                    </div>
 
-                    {/* Divider */}
-                    <div className="my-4 h-px bg-white/20" />
-
-                    {/* Label */}
-                    <span
-                      className="block text-white/85 text-sm md:text-base"
-                      style={{ fontFamily: "Times New Roman, serif" }}
-                    >
-                      {stat.label}
-                    </span>
+                    {/* TEXT */}
+                    <div className="text-left">
+                      <span className="block text-4xl font-bold text-white">
+                        {stat.value}
+                      </span>
+                      <span className="block text-white/80 text-sm tracking-wide">
+                        {stat.label}
+                      </span>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -160,25 +152,39 @@ const HeroSection = () => {
             {/* CTA */}
             <div
               className="
-    pt-6
+    pt-2
     animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-600
   "
             >
               <a
                 href="/contact"
                 className="
-      group inline-flex items-center justify-center
-      px-12 py-4 rounded-xl
-      bg-gradient-to-r from-cyber-blue via-blue-500 to-sky-400
-      text-lg font-semibold
-      text-transparent bg-clip-text
-      border border-cyber-blue
-      transition-colors duration-300
-      hover:bg-transparent
+      group relative inline-flex items-center justify-center
+      px-14 py-4
+      rounded-full
+      bg-black/40
+      backdrop-blur-xl
+      border border-white/20
+      transition-all duration-500
+      hover:-translate-y-1
+      hover:border-cyber-blue/50
+      hover:shadow-[0_30px_80px_rgba(56,189,248,0.35)]
     "
-                style={{ fontFamily: "Times New Roman, serif" }}
+                style={{ fontFamily: "Calibri, serif" }}
               >
-                <span className="bg-gradient-to-r from-cyber-blue via-blue-500 to-sky-400 bg-clip-text text-transparent">
+                {/* OUTER GLOW */}
+                <span
+                  className="
+        absolute inset-0 rounded-full
+        bg-gradient-to-r from-cyber-blue via-blue-500 to-sky-400
+        opacity-0 blur-xl
+        transition-opacity duration-500
+        group-hover:opacity-30
+      "
+                />
+
+                {/* TEXT */}
+                <span className="relative z-10 text-lg font-semibold text-white tracking-wide">
                   Talk to Our Experts
                 </span>
               </a>
