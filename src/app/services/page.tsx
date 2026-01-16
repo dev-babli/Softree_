@@ -1,4 +1,4 @@
-import Navigation from "@/components/sections/navigation";
+import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
 import ServicesHeader from "./header";
 import ServicesDetails from "./service-details";
@@ -9,8 +9,7 @@ export default function Home() {
   return (
     <>
       {/* FIXED NAVIGATION */}
-      <Navigation />
-
+      <NavigationClient />
       {/* MAIN CONTENT – space reserved for pill navbar */}
       <main className="pt-32 md:pt-36 bg-black">
         <ServicesHeader />

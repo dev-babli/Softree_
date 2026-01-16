@@ -1,40 +1,95 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import * as React from "react";
+import Image from "next/image";
+import { createPortal } from "react-dom";
+import type { LucideIcon } from "lucide-react";
 import {
-  FaHome,
-  FaInfoCircle,
-  FaCogs,
-  FaUsers,
-  FaMobileAlt,
-  FaLaptopCode,
-  FaShareAlt,
-  FaWpforms,
-  FaMicrosoft,
-  FaDatabase,
-  FaChartLine,
-  FaBlog,
-  FaPhone,
-  FaChevronDown,
-} from "react-icons/fa";
+  Home,
+  Info,
+  Settings,
+  Users,
+  Smartphone,
+  Laptop,
+  Share2,
+  FileText,
+  Database,
+  BarChart3,
+  BookOpen,
+  Phone,
+  Building2,
+} from "lucide-react";
+import Link from "next/link";
 
+import { Button } from "@/components/ui/button";
+import { MenuToggleIcon } from "@/components/ui/menu-toggle-icon";
+import {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuTrigger,
+  NavigationMenuContent,
+  NavigationMenuLink,
+} from "@/components/ui/navigation-menu";
+
+/* =========================
+   LOGO
+========================= */
 const LOGO_URL =
   "https://www.softreetechnology.com/wp-content/uploads/elementor/thumbs/white-logo-soft-qt16xqrm9tl34ewl9f9uhep3zaj8m5zkpgualw8uf4.png";
 
 /* =========================
+   TYPES
+========================= */
+type MenuLink = {
+  label: string;
+  url: string;
+  icon?: LucideIcon;
+  description?: string;
+};
+
+type MegaSection = {
+  title: string;
+  links: MenuLink[];
+};
+
+/* 🔥 DISCRIMINATED UNION */
+type MenuItem =
+  | {
+      label: string;
+      url: string;
+      icon?: LucideIcon;
+      mega: true;
+      children: MegaSection[];
+    }
+  | {
+      label: string;
+      url: string;
+      icon?: LucideIcon;
+      mega?: false;
+      children?: MenuLink[];
+    };
+
+/* =========================
    MENU CONFIG
 ========================= */
-const menu = [
-  { label: "Home", url: "/", icon: <FaHome /> },
-  { label: "About", url: "/about-us", icon: <FaInfoCircle /> },
-
+const menu: MenuItem[] = [
+  {
+    label: "Home",
+    url: "/",
+    icon: Home,
+  },
+  {
+    label: "About",
+    url: "/about-us",
+    icon: Info,
+  },
   {
     label: "Services",
     url: "/services",
+    icon: Settings,
     mega: true,
-    icon: <FaCogs />,
+
     children: [
       {
         title: "App Development",
@@ -42,20 +97,20 @@ const menu = [
           {
             label: "Softree for Startups",
             url: "/services/softree-for-startups",
-            icon: <FaUsers />,
-            description: "Custom app solutions tailored for startup growth",
+            icon: Users,
+            description: "End-to-end product development for startups",
           },
           {
             label: "Mobile App Development",
             url: "/services/mobile-app-development",
-            icon: <FaMobileAlt />,
-            description: "Native and cross-platform apps for iOS & Android",
+            icon: Smartphone,
+            description: "Native and cross-platform mobile applications",
           },
           {
             label: "Web App Development",
             url: "/services/web-app-development",
-            icon: <FaLaptopCode />,
-            description: "Scalable web applications with modern tech stack",
+            icon: Laptop,
+            description: "High-performance and scalable web applications",
           },
         ],
       },
@@ -65,26 +120,26 @@ const menu = [
           {
             label: "SharePoint Development",
             url: "/services/sharepoint",
-            icon: <FaShareAlt />,
-            description: "Enterprise SharePoint solutions",
+            icon: Share2,
+            description: "Enterprise SharePoint solutions and customization",
           },
           {
             label: "SPFx Developments",
             url: "/services/spfx-developments",
-            icon: <FaWpforms />,
-            description: "Custom SPFx web parts & extensions",
+            icon: FileText,
+            description: "Custom SPFx web parts and extensions",
           },
           {
             label: "PnP PowerShell",
             url: "/services/pnp-powershell",
-            icon: <FaDatabase />,
-            description: "Automate SharePoint tasks",
+            icon: Database,
+            description: "Automate and manage SharePoint efficiently",
           },
           {
             label: "Teams App Development",
             url: "/services/teams-app-development",
-            icon: <FaMicrosoft />,
-            description: "Microsoft Teams integrations",
+            icon: Building2,
+            description: "Build powerful apps for Microsoft Teams",
           },
         ],
       },
@@ -92,191 +147,307 @@ const menu = [
         title: "Power Platform",
         links: [
           {
-            label: "Microsoft PowerApps",
+            label: "Power Apps",
             url: "/services/power-apps",
-            icon: <FaMicrosoft />,
-            description: "Low-code business apps",
+            icon: Building2,
+            description: "Low-code apps for rapid business solutions",
           },
           {
-            label: "Microsoft Power Pages",
+            label: "Power Pages",
             url: "/services/power-pages",
-            icon: <FaMicrosoft />,
-            description: "Secure external portals",
+            icon: Building2,
+            description: "Secure external portals for your organization",
           },
           {
-            label: "Microsoft Power BI",
+            label: "Power BI",
             url: "/services/power-bi",
-            icon: <FaChartLine />,
-            description: "Dashboards & analytics",
+            icon: BarChart3,
+            description: "Data visualization and business intelligence",
           },
         ],
       },
     ],
   },
-
   {
-    label: "Case Studies",
-    url: "/case-studies",
-    icon: <FaUsers />,
-    children: [
-      { label: "Mobile App Case Studies", url: "/case-studies/mobile-app-case-studies" },
-      { label: "PowerApps Case Studies", url: "/case-studies/powerapps-case-studies" },
-      { label: "SharePoint Case Studies", url: "/case-studies/sharepoint-case-studies" },
-      { label: "Web Development Case Studies", url: "/case-studies/web-development-case-studies" },
-    ],
+    label: "Blog",
+    url: "/blog/all-posts",
+    icon: BookOpen,
   },
-
-  { label: "Blog", url: "/blog/all-posts", icon: <FaBlog /> },
-  { label: "Contact", url: "/contact", icon: <FaPhone /> },
+  {
+    label: "Contact",
+    url: "/contact",
+    icon: Phone,
+  },
 ];
+const navPillClass = `
+  !flex !flex-row !items-center !justify-center
+  gap-2
+  px-5 py-2.5
+  rounded-full
+
+  text-[15px] font-medium leading-none
+  text-foreground
+
+  !bg-transparent
+  hover:!bg-blue-500/10
+  focus:!bg-blue-500/10
+
+  shadow-[inset_0_-4px_0_0_rgba(0,0,0,0)]
+  hover:shadow-[inset_0_-4px_0_0_rgb(59,130,246)]
+
+  hover:text-blue-500
+
+  transition-all duration-300
+`;
 
 /* =========================
-   NAVIGATION
+   HEADER
 ========================= */
-export default function Navigation() {
-  const pathname = usePathname();
-
-  const [hidden, setHidden] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [mounted, setMounted] = useState(false);
-
-  /* Hydration-safe mount */
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  /* Scroll logic (runs ONLY after mount) */
-  useEffect(() => {
-    if (!mounted) return;
-
-    const handleScroll = () => {
-      setHidden(window.scrollY > lastScrollY && window.scrollY > 80);
-      setLastScrollY(window.scrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [mounted, lastScrollY]);
+export function Navigation() {
+  const [open, setOpen] = React.useState(false);
 
   return (
-    <nav
-      className={`fixed top-4 z-50 w-full flex justify-center transition-transform duration-500 ${
-        mounted && hidden ? "-translate-y-32" : "translate-y-0"
-      }`}
-    >
-      <div className="relative w-[92%] max-w-6xl h-16 px-6 rounded-full backdrop-blur-2xl bg-black/70 border border-white/15 shadow-lg flex items-center">
-        <div className="flex items-center w-full">
-          {/* LOGO */}
-          <Link href="/" className="group flex items-center gap-3">
-            <img
+    <header className="sticky top-0 z-50 w-full bg-background/80   backdrop-blur">
+      <nav className="mx-auto mt-4 flex h-16 max-w-7xl items-center justify-between rounded-full border bg-background/80 px-6 shadow-lg backdrop-blur-xl">
+        {/* LEFT: Logo + Navigation */}
+        <div className="flex items-center gap-8">
+          {/* Logo */}
+          <Link href="/" aria-label="Go to homepage">
+            <Image
               src={LOGO_URL}
               alt="Softree"
-              className="h-8 transition-transform duration-300 group-hover:scale-110"
+              width={130}
+              height={28}
+              priority
+              className="pl-2 cursor-pointer"
             />
           </Link>
 
-          {/* SPACING BETWEEN LOGO & HOME */}
-          <div className="w-10" />
+          {/* Desktop Navigation */}
+          <NavigationMenu className="hidden md:flex">
+            <NavigationMenuList className="flex items-center gap-1">
+              {menu.map((item) => {
+                const Icon = item.icon;
 
-          {/* MENU */}
-          <ul className="hidden md:flex items-center gap-2 font-medium text-white">
-            {menu.map((item, index) => (
-              <MenuItem key={index} item={item} pathname={pathname} />
-            ))}
-          </ul>
+                /* =======================
+         SHARED PILL CLASS
+      ======================= */
+                const navPillClass = `
+        px-5 py-2.5
+        rounded-full
+        overflow-hidden
+
+        text-[15px] font-medium leading-none
+        text-foreground
+
+        !bg-transparent
+        hover:bg-blue-500/10
+        focus:bg-blue-500/10
+
+        shadow-[inset_0_-4px_0_0_rgba(0,0,0,0)]
+        hover:shadow-[inset_0_-4px_0_0_rgb(59,130,246)]
+
+        hover:text-blue-500
+        transition-all duration-300
+      `;
+
+                /* =======================
+         SERVICES (MEGA MENU)
+      ======================= */
+                if (item.mega) {
+                  return (
+                    <NavigationMenuItem key={item.label}>
+                      <NavigationMenuTrigger
+                        className={`
+                ${navPillClass}
+                data-[state=open]:bg-blue-500/10
+                data-[state=open]:shadow-[inset_0_-4px_0_0_rgb(59,130,246)]
+                data-[state=open]:text-blue-500
+              `}
+                      >
+                        {/* Force row layout */}
+                        <span className="flex items-center gap-2">
+                          {Icon && (
+                            <Icon className="h-[18px] w-[18px] shrink-0 opacity-90" />
+                          )}
+                          <span className="whitespace-nowrap">
+                            {item.label}
+                          </span>
+                        </span>
+                      </NavigationMenuTrigger>
+
+                      <NavigationMenuContent>
+                        <div
+                          className="
+                  mt-3 grid w-[980px] grid-cols-3 gap-8
+                  rounded-2xl border p-8 shadow-xl backdrop-blur-lg
+                  bg-gradient-to-br from-black via-zinc-900 to-zinc-800
+                "
+                        >
+                          {item.children.map((section) => (
+                            <div key={section.title}>
+                              <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                                {section.title}
+                              </h4>
+
+                              <ul className="space-y-3">
+                                {section.links.map((link) => {
+                                  const LinkIcon = link.icon;
+                                  return (
+                                    <li key={link.label}>
+                                      <a
+                                        href={link.url}
+                                        className="
+                                group flex items-start gap-4 rounded-xl p-3
+                                border border-transparent
+                                transition-all duration-300
+                                hover:border-foreground/20
+                                hover:shadow-sm
+                                hover:-translate-y-[1px]
+                              "
+                                      >
+                                        {LinkIcon && (
+                                          <div className="flex h-10 w-10 items-center justify-center rounded-lg border bg-background group-hover:border-primary/40 group-hover:bg-primary/5">
+                                            <LinkIcon className="h-4 w-4" />
+                                          </div>
+                                        )}
+                                        <div className="flex flex-col">
+                                          <span className="text-sm font-medium text-foreground/90">
+                                            {link.label}
+                                          </span>
+                                          {link.description && (
+                                            <span className="text-xs text-muted-foreground">
+                                              {link.description}
+                                            </span>
+                                          )}
+                                        </div>
+                                      </a>
+                                    </li>
+                                  );
+                                })}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
+                      </NavigationMenuContent>
+                    </NavigationMenuItem>
+                  );
+                }
+
+                /* =======================
+         NORMAL LINKS
+      ======================= */
+                return (
+                  <NavigationMenuItem key={item.label}>
+                    <NavigationMenuLink asChild>
+                      <a
+                        href={item.url}
+                        className={`
+                ${navPillClass}
+                active:bg-blue-500/10
+                active:shadow-[inset_0_-4px_0_0_rgb(59,130,246)]
+                active:text-blue-500
+              `}
+                      >
+                        <span className="flex items-center gap-2">
+                          {Icon && (
+                            <Icon className="h-[18px] w-[18px] shrink-0 opacity-90" />
+                          )}
+                          <span className="whitespace-nowrap">
+                            {item.label}
+                          </span>
+                        </span>
+                      </a>
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                );
+              })}
+            </NavigationMenuList>
+          </NavigationMenu>
         </div>
-      </div>
-    </nav>
+
+        {/* RIGHT: Actions */}
+        <div className="hidden md:flex items-center gap-2">
+          <Button variant="ghost" className="rounded-full px-5 text-sm">
+            Sign In
+          </Button>
+          <Button className="rounded-full px-6 shadow-md">Get Started</Button>
+        </div>
+
+        {/* Mobile Toggle */}
+        <Button
+          size="icon"
+          variant="outline"
+          className="rounded-full md:hidden"
+          onClick={() => setOpen(!open)}
+        >
+          <MenuToggleIcon open={open} className="h-5 w-5" />
+        </Button>
+      </nav>
+
+      {/* Mobile Menu */}
+      <MobileMenu open={open}>
+        {menu.map((item) => {
+          const Icon = item.icon;
+
+          if (item.mega) {
+            return (
+              <div key={item.label}>
+                <div className="font-semibold">{item.label}</div>
+                <div className="ml-4 mt-2 space-y-4">
+                  {item.children.map((section) => (
+                    <div key={section.title}>
+                      <p className="text-sm text-muted-foreground">
+                        {section.title}
+                      </p>
+                      {section.links.map((link) => (
+                        <a
+                          key={link.label}
+                          href={link.url}
+                          className="block rounded-md p-2 hover:bg-accent"
+                        >
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          }
+
+          return (
+            <a
+              key={item.label}
+              href={item.url}
+              className="flex items-center gap-2 rounded-md p-2 hover:bg-accent"
+            >
+              {Icon && <Icon className="h-4 w-4" />}
+              {item.label}
+            </a>
+          );
+        })}
+      </MobileMenu>
+    </header>
   );
 }
 
 /* =========================
-   MENU ITEM
+   MOBILE MENU
 ========================= */
-function MenuItem({ item, pathname }: any) {
-  const [open, setOpen] = useState(false);
+function MobileMenu({
+  open,
+  children,
+}: {
+  open: boolean;
+  children: React.ReactNode;
+}) {
+  if (!open || typeof window === "undefined") return null;
 
-  const isActive = (url: string) =>
-    url === "/" ? pathname === "/" : pathname.startsWith(url);
-
-  const openMenu = () => setOpen(true);
-  const closeMenu = () => setOpen(false);
-
-  return (
-    <li
-      className={`relative px-3 py-1 rounded-full transition-colors duration-300 hover:bg-white/5 ${
-        isActive(item.url) ? "bg-white/10" : ""
-      } before:absolute before:inset-x-0 before:top-full before:h-4 before:content-['']`}
-      onMouseEnter={openMenu}
-      onMouseLeave={closeMenu}
-    >
-      {/* MAIN LINK */}
-      <Link href={item.url} className="flex items-center gap-2 text-sm">
-        <span className="text-white/70">{item.icon}</span>
-        {item.label}
-
-        {item.children && (
-          <FaChevronDown
-            className={`text-xs opacity-60 transition-transform duration-300 ${
-              open ? "rotate-180" : "rotate-0"
-            }`}
-          />
-        )}
-      </Link>
-
-      {/* ================= MEGA MENU (SERVICES) ================= */}
-      {item.mega && open && (
-        <div
-          onMouseEnter={openMenu}
-          onMouseLeave={closeMenu}
-          className="absolute left-1/2 top-full mt-2 -translate-x-1/2 w-[900px] p-8 rounded-2xl bg-black border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.95)] flex gap-10 z-50"
-        >
-          {item.children.map((col: any, idx: number) => (
-            <div key={idx} className="flex-1">
-              <h4 className="text-white font-semibold mb-4">{col.title}</h4>
-
-              <ul className="space-y-3">
-                {col.links.map((link: any, i: number) => (
-                  <li key={i}>
-                    <Link
-                      href={link.url}
-                      className="flex gap-3 p-3 rounded-xl transition-all duration-300 hover:bg-white/5"
-                    >
-                      <span className="text-white/60 mt-1">{link.icon}</span>
-                      <div>
-                        <div className="font-medium text-white/90">{link.label}</div>
-                        <p className="text-xs text-white/50">{link.description}</p>
-                      </div>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {/* ================= CASE STUDIES ================= */}
-      {item.children && !item.mega && open && (
-        <div
-          onMouseEnter={openMenu}
-          onMouseLeave={closeMenu}
-          className="absolute left-1/2 top-full mt-2 -translate-x-1/2 w-[900px] p-6 rounded-2xl bg-black border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.95)] z-50"
-        >
-          <ul className="grid grid-cols-2 gap-4">
-            {item.children.map((child: any, i: number) => (
-              <li key={i}>
-                <Link
-                  href={child.url}
-                  className="block p-4 rounded-xl text-white/90 font-medium transition-all duration-300 hover:bg-white/5"
-                >
-                  {child.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </li>
+  return createPortal(
+    <div className="fixed inset-0 top-14 z-40 bg-background p-4 md:hidden">
+      <div className="space-y-4">{children}</div>
+    </div>,
+    document.body
   );
 }

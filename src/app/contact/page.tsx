@@ -1,4 +1,4 @@
-import Navigation from "@/components/sections/navigation";
+import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
 import GlobalLocations from "./global";
 import ContactPage from "./form";
@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main>
-      <Navigation />
+      <NavigationClient/>
       <section className="relative min-h-screen text-white overflow-hidden">
         {/* BEAUTIFUL GRADIENT BACKGROUND */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(255,255,255,0.12),_transparent_60%),linear-gradient(135deg,_#0a0a0a,_#111827,_#000000)]" />

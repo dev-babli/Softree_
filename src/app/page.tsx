@@ -1,5 +1,5 @@
 "use client";
-import Navigation from "@/components/sections/navigation";
+import NavigationClient from "@/components/sections/navigation-client";
 import HeroSection from "@/components/sections/hero";
 import SolutionsGrid from "@/components/sections/solutions-grid";
 import SoftreeFAQ from "@/components/sections/faq";
@@ -12,17 +12,21 @@ import TechStackSection from "@/components/sections/tech";
 import SuccessStories from "@/components/sections/success";
 import ChallengesWeSolve from "@/components/sections/testimonial1";
 import ServicesSection from "@/components/sections/o365";
+import Image from "next/image";
+import Link from "next/link";
+import TrustPartnersSection from "@/components/sections/trust";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Navigation />
+      <NavigationClient />
       <main className="flex-grow mt-1">
         <HeroSection />
         <SolutionsGrid />
         <ServicesSection/>
         <PowerPlatformSection />
         <OurRecentProjects />
+    <TrustPartnersSection/>
         <ApplicationApproach />
         <SuccessStories />
         <TechStackSection />

@@ -1,283 +1,330 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import Image from "next/image";
-import { ChevronDown, Search, Menu, X } from "lucide-react";
-import { CALENDLY_URL } from '@/lib/contactConfig';
+import * as React from 'react';
+import Image from 'next/image';
+import { createPortal } from 'react-dom';
+import type { LucideIcon } from 'lucide-react';
+import {
+  Home,
+  Info,
+  Settings,
+  Users,
+  Smartphone,
+  Laptop,
+  Share2,
+  FileText,
+  Database,
+  BarChart3,
+  BookOpen,
+  Phone,
+  Building2,
+} from 'lucide-react';
 
-const servicesData = [
+import { Button } from '@/components/ui/button';
+import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
+import {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuTrigger,
+  NavigationMenuContent,
+  NavigationMenuLink,
+} from '@/components/ui/navigation-menu';
+
+/* =========================
+   LOGO
+========================= */
+const LOGO_URL =
+  'https://www.softreetechnology.com/wp-content/uploads/elementor/thumbs/white-logo-soft-qt16xqrm9tl34ewl9f9uhep3zaj8m5zkpgualw8uf4.png';
+
+/* =========================
+   TYPES
+========================= */
+type MenuLink = {
+  label: string;
+  url: string;
+  icon?: LucideIcon;
+  description?: string;
+};
+
+type MegaSection = {
+  title: string;
+  links: MenuLink[];
+};
+
+/* 🔥 DISCRIMINATED UNION */
+type MenuItem =
+  | {
+      label: string;
+      url: string;
+      icon?: LucideIcon;
+      mega: true;
+      children: MegaSection[];
+    }
+  | {
+      label: string;
+      url: string;
+      icon?: LucideIcon;
+      mega?: false;
+      children?: MenuLink[];
+    };
+
+/* =========================
+   MENU CONFIG
+========================= */
+const menu: MenuItem[] = [
+  { label: 'Home', url: '/', icon: Home },
+  { label: 'About', url: '/about-us', icon: Info },
   {
-    title: "Salesforce",
-    href: "/Salesforce-Development-Services",
-    items: [
-      { name: "Salesforce Consulting", href: "/salesforce-consulting-services" },
-      { name: "Salesforce Customization", href: "/salesforce-customization-services" },
-      { name: "Salesforce Implementation", href: "/salesforce-implementation-services" },
-      { name: "Salesforce Integration & Maintenance", href: "/salesforce-integration-services" },
-      { name: "Salesforce Support and Maintenance", href: "/salesforce-support-and-maintenance-services" },
-      { name: "Salesforce Administration Services", href: "/salesforce-administration-services" },
+    label: 'Services',
+    url: '/services',
+    icon: Settings,
+    mega: true,
+    children: [
+      {
+        title: 'App Development',
+        links: [
+          {
+            label: 'Softree for Startups',
+            url: '/services/softree-for-startups',
+            icon: Users,
+            description: 'Custom app solutions for startups',
+          },
+          {
+            label: 'Mobile App Development',
+            url: '/services/mobile-app-development',
+            icon: Smartphone,
+            description: 'iOS & Android applications',
+          },
+          {
+            label: 'Web App Development',
+            url: '/services/web-app-development',
+            icon: Laptop,
+            description: 'Modern scalable web apps',
+          },
+        ],
+      },
+      {
+        title: 'SharePoint Services',
+        links: [
+          {
+            label: 'SharePoint Development',
+            url: '/services/sharepoint',
+            icon: Share2,
+          },
+          {
+            label: 'SPFx Developments',
+            url: '/services/spfx-developments',
+            icon: FileText,
+          },
+          {
+            label: 'PnP PowerShell',
+            url: '/services/pnp-powershell',
+            icon: Database,
+          },
+          {
+            label: 'Teams App Development',
+            url: '/services/teams-app-development',
+            icon: Building2,
+          },
+        ],
+      },
+      {
+        title: 'Power Platform',
+        links: [
+          {
+            label: 'Power Apps',
+            url: '/services/power-apps',
+            icon: Building2,
+          },
+          {
+            label: 'Power Pages',
+            url: '/services/power-pages',
+            icon: Building2,
+          },
+          {
+            label: 'Power BI',
+            url: '/services/power-bi',
+            icon: BarChart3,
+          },
+        ],
+      },
     ],
   },
-  {
-    title: "Microsoft Dynamics 365",
-    href: "/Dynamics-365-Development-Services",
-    items: [
-      { name: "Dynamics 365 Business Central", href: "/dynamics-365-business-central" },
-      { name: "Microsoft Dynamics 365 Sales", href: "/dynamics-365-for-sales" },
-      { name: "Microsoft Dynamics 365 Marketing", href: "/dynamics-365-for-marketing" },
-      { name: "Microsoft Dynamics 365 Customer Service", href: "/dynamics-365-for-customer-service" },
-      { name: "Microsoft Dynamics 365 Customer Insight", href: "/microsoft-dynamics-365-cutomer-insight" },
-      { name: "Microsoft Dynamics 365 Field Service", href: "/dynamics-365-for-field-service" },
-      { name: "Microsoft Dynamics 365 Project Operation", href: "/dynamics-365-for-project-service-automation" },
-    ],
-  },
-  {
-    title: "Power Platform",
-    href: "/power-platform-Consulting-Services",
-    items: [
-      { name: "Power BI", href: "/power-bi-consulting-services" },
-      { name: "Power Apps", href: "/powerapps-consulting-services" },
-      { name: "Power Automate", href: "/power-automate-consulting-services" },
-      { name: "Microsoft Copilot", href: "/microsoft-copilot-studio-consulting-services" },
-    ],
-  },
-  {
-    title: "Product Engineering",
-    href: "/Product-Engineering-Services",
-    items: [
-      { name: "Web Application Development", href: "/web-application-development" },
-      { name: "Mobile App Development", href: "/mobile-application-development" },
-    ],
-  },
-  {
-    title: "Generative AI",
-    href: "/Generative-AI-Services",
-    items: [],
-  },
+  { label: 'Blog', url: '/blog/all-posts', icon: BookOpen },
+  { label: 'Contact', url: '/contact', icon: Phone },
 ];
 
-const industriesData = [
-  { name: "Retail & E-Commerce", href: "/retail-and-e-commerce-industry" },
-  { name: "IT-Healthcare", href: "/healthcare-industry" },
-  { name: "Media & Entertainment", href: "/media-and-entertainment-solutions" },
-  { name: "Real Estate", href: "/Real-Estate-IT-Services" },
-  { name: "Service Industry", href: "/service-industry" },
-  { name: "Utilities", href: "/utility-industry" },
-];
-
-const resourcesData = [
-  { name: "Blogs", href: "/blog-post" },
-  { name: "Case Studies", href: "/case-study" },
-  { name: "Partners", href: "/partner" },
-];
-
-const aboutData = [
-  { name: "About Us", href: "/about" },
-  { name: "Testimonials", href: "/testimonials" },
-  { name: "Career", href: "/career" },
-];
-
-export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+/* =========================
+   HEADER
+========================= */
+export function Header() {
+  const [open, setOpen] = React.useState(false);
 
   return (
-    <header className="bg-[#051340] relative z-[100] border-b border-white/10">
-      <nav className="h-20 max-w-7xl w-[87%] mx-auto flex justify-between items-center lg:grid lg:grid-cols-12 gap-x-4">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/90 backdrop-blur">
+      <nav className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4">
         {/* Logo */}
-        <div className="col-span-2">
-          <a href="/" className="block w-[164px] h-[32px]">
-            <Image
-              src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/f9231059-3647-4f7a-ab8a-965fcb6abfb0-cynoteck-com/assets/images/logo1-1.png"
-              alt="Cynoteck Technology Solutions Logo"
-              width={164}
-              height={32}
-              className="object-contain"
-              priority
-            />
-          </a>
+        <div className="flex items-center gap-6">
+          <Image src={LOGO_URL} alt="Softree" width={120} height={24} priority />
+
+          {/* Desktop Navigation */}
+          <NavigationMenu className="hidden md:flex">
+            <NavigationMenuList>
+              {menu.map((item) => {
+                const Icon = item.icon;
+
+                if (item.mega) {
+                  return (
+                    <NavigationMenuItem key={item.label}>
+                      <NavigationMenuTrigger className="bg-transparent">
+                        {Icon && <Icon className="mr-2 h-4 w-4" />}
+                        {item.label}
+                      </NavigationMenuTrigger>
+
+                      <NavigationMenuContent>
+                        <div className="grid w-[900px] grid-cols-3 gap-6 p-6">
+                          {item.children.map((section) => (
+                            <div key={section.title}>
+                              <h4 className="mb-3 text-sm font-semibold">
+                                {section.title}
+                              </h4>
+
+                              <ul className="space-y-2">
+                                {section.links.map((link) => {
+                                  const LinkIcon = link.icon;
+                                  return (
+                                    <li key={link.label}>
+                                      <a
+                                        href={link.url}
+                                        className="flex gap-3 rounded-md p-2 hover:bg-accent"
+                                      >
+                                        {LinkIcon && (
+                                          <div className="flex h-9 w-9 items-center justify-center rounded-md border">
+                                            <LinkIcon className="h-4 w-4" />
+                                          </div>
+                                        )}
+                                        <div>
+                                          <div className="text-sm font-medium">
+                                            {link.label}
+                                          </div>
+                                          {link.description && (
+                                            <div className="text-xs text-muted-foreground">
+                                              {link.description}
+                                            </div>
+                                          )}
+                                        </div>
+                                      </a>
+                                    </li>
+                                  );
+                                })}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
+                      </NavigationMenuContent>
+                    </NavigationMenuItem>
+                  );
+                }
+
+                return (
+                  <NavigationMenuItem key={item.label}>
+                    <NavigationMenuLink asChild>
+                      <a
+                        href={item.url}
+                        className="flex items-center gap-2 rounded-md px-4 py-2 hover:bg-accent"
+                      >
+                        {Icon && <Icon className="h-4 w-4" />}
+                        {item.label}
+                      </a>
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                );
+              })}
+            </NavigationMenuList>
+          </NavigationMenu>
         </div>
 
-        {/* Desktop Navigation */}
-        <ul className="hidden lg:flex items-center justify-center space-x-6 col-span-8 h-full">
-          {/* Services Menu */}
-          <li className="group h-full flex items-center">
-            <a href="/services" className="flex items-center text-sm font-normal text-white/80 transition-all hover:text-white group-hover:font-medium">
-              Services
-              <ChevronDown className="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" />
-            </a>
-            {/* Mega Menu */}
-            <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 absolute top-20 left-1/2 -translate-x-1/2 w-[87%] max-w-7xl transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-              <div className="bg-[#051340] border border-white/10 shadow-2xl rounded-md p-10 mt-2 max-h-[78vh] overflow-y-auto custom-scrollbar">
-                <div className="border-b border-white/20 pb-8 flex flex-wrap gap-10">
-                  {servicesData.map((service, idx) => (
-                    <div key={idx} className="flex-1 min-w-[200px]">
-                      <div className="mb-4 p-2">
+        {/* Actions */}
+        <div className="hidden md:flex gap-2">
+          <Button variant="outline">Sign In</Button>
+          <Button>Get Started</Button>
+        </div>
+
+        {/* Mobile Toggle */}
+        <Button
+          size="icon"
+          variant="outline"
+          className="md:hidden"
+          onClick={() => setOpen(!open)}
+        >
+          <MenuToggleIcon open={open} className="h-5 w-5" />
+        </Button>
+      </nav>
+
+      {/* Mobile Menu */}
+      <MobileMenu open={open}>
+        {menu.map((item) => {
+          const Icon = item.icon;
+
+          if (item.mega) {
+            return (
+              <div key={item.label}>
+                <div className="font-semibold">{item.label}</div>
+                <div className="ml-4 mt-2 space-y-4">
+                  {item.children.map((section) => (
+                    <div key={section.title}>
+                      <p className="text-sm text-muted-foreground">
+                        {section.title}
+                      </p>
+                      {section.links.map((link) => (
                         <a
-                          href={service.href}
-                          className="text-[18px] text-white font-semibold hover:underline underline-offset-4 decoration-2"
+                          key={link.label}
+                          href={link.url}
+                          className="block rounded-md p-2 hover:bg-accent"
                         >
-                          {service.title}
-                        </a>
-                      </div>
-                      {service.items.map((item, i) => (
-                        <a
-                          key={i}
-                          href={item.href}
-                          className="block text-[14px] p-2 mt-1 rounded-md text-white/80 hover:text-[#051340] hover:bg-white hover:font-bold transition-all duration-200"
-                        >
-                          {item.name}
+                          {link.label}
                         </a>
                       ))}
                     </div>
                   ))}
                 </div>
-                <div className="mt-6 flex items-center justify-between">
-                  <p className="text-white/80 text-4xl font-normal">Services</p>
-                  <a
-                    href="/services"
-                    className="bg-white/10 hover:bg-white hover:text-[#051340] transition-all duration-300 text-white/70 font-medium text-sm rounded-md py-2 px-6 flex items-center"
-                  >
-                    View All
-                  </a>
-                </div>
               </div>
-            </div>
-          </li>
+            );
+          }
 
-          {/* Industries Menu */}
-          <li className="group h-full flex items-center">
-            <a href="/industries" className="flex items-center text-sm font-normal text-white/80 transition-all hover:text-white group-hover:font-medium">
-              Industries
-              <ChevronDown className="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" />
+          return (
+            <a
+              key={item.label}
+              href={item.url}
+              className="flex items-center gap-2 rounded-md p-2 hover:bg-accent"
+            >
+              {Icon && <Icon className="h-4 w-4" />}
+              {item.label}
             </a>
-            <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 absolute top-20 left-1/2 -translate-x-1/2 w-[87%] max-w-7xl transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-              <div className="bg-[#051340] border border-white/10 shadow-2xl rounded-md p-10 mt-2">
-                <div className="border-b border-white/20 pb-8 flex flex-wrap gap-8">
-                  {industriesData.map((industry, idx) => (
-                    <div key={idx} className="p-2">
-                      <a
-                        href={industry.href}
-                        className="text-[18px] text-white font-semibold hover:underline underline-offset-4 decoration-2"
-                      >
-                        {industry.name}
-                      </a>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-6 flex items-center justify-between">
-                  <p className="text-white/80 text-4xl font-normal">Industries</p>
-                  <a
-                    href="/industries"
-                    className="bg-white/10 hover:bg-white hover:text-[#051340] transition-all duration-300 text-white/70 font-medium text-sm rounded-md py-2 px-6 flex items-center"
-                  >
-                    View All
-                  </a>
-                </div>
-              </div>
-            </div>
-          </li>
-
-          {/* Resources */}
-          <li className="group h-full flex items-center">
-            <a href="#" className="flex items-center text-sm font-normal text-white/80 transition-all hover:text-white group-hover:font-medium">
-              Resources
-              <ChevronDown className="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" />
-            </a>
-            <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 absolute top-20 left-1/2 -translate-x-1/2 w-[87%] max-w-7xl transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-              <div className="bg-[#051340] border border-white/10 shadow-2xl rounded-md p-10 mt-2">
-                <div className="border-b border-white/20 pb-8 flex flex-wrap gap-10">
-                  {resourcesData.map((res, idx) => (
-                    <div key={idx} className="p-2">
-                      <a href={res.href} className="text-[18px] text-white font-semibold hover:underline underline-offset-4">
-                        {res.name}
-                      </a>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </li>
-
-          {/* About */}
-          <li className="group h-full flex items-center">
-            <a href="#" className="flex items-center text-sm font-normal text-white/80 transition-all hover:text-white group-hover:font-medium">
-              About
-              <ChevronDown className="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" />
-            </a>
-            <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 absolute top-20 left-1/2 -translate-x-1/2 w-[87%] max-w-7xl transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-              <div className="bg-[#051340] border border-white/10 shadow-2xl rounded-md p-10 mt-2">
-                <div className="border-b border-white/20 pb-8 flex flex-wrap gap-10">
-                  {aboutData.map((item, idx) => (
-                    <div key={idx} className="p-2">
-                      <a href={item.href} className="text-[18px] text-white font-semibold hover:underline underline-offset-4">
-                        {item.name}
-                      </a>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
-
-        {/* Action Buttons */}
-        <div className="hidden lg:flex items-center justify-end space-x-4 col-span-2">
-          <button className="bg-[#1D4ED8] p-2 rounded-md text-white hover:bg-blue-600 transition-colors">
-            <Search className="w-5 h-5" />
-          </button>
-          <a
-            href={CALENDLY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 bg-[#18285c] text-white font-medium text-[14px] rounded-md hover:bg-[#121e48] transition-colors whitespace-nowrap"
-          >
-            Book a Free 30-Min Consultation
-          </a>
-        </div>
-
-        {/* Mobile Menu Trigger */}
-        <button
-          className="lg:hidden text-white p-2"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </nav>
-
-      {/* Mobile Menu Overlay */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-20 bg-[#051340] z-[90] overflow-y-auto p-6 flex flex-col space-y-4">
-          <a href="/services" className="text-white text-xl py-2 border-b border-white/10">Services</a>
-          <a href="/industries" className="text-white text-xl py-2 border-b border-white/10">Industries</a>
-          <a href="/resources" className="text-white text-xl py-2 border-b border-white/10">Resources</a>
-          <a href="/about" className="text-white text-xl py-2 border-b border-white/10">About</a>
-          <a
-            href={CALENDLY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-[#1D4ED8] text-white text-center py-3 rounded-md font-medium mt-4"
-          >
-            Book a Free 30-Min Consultation
-          </a>
-        </div>
-      )}
-
-      <style jsx global>{`
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: rgba(255, 255, 255, 0.05);
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: rgba(255, 255, 255, 0.2);
-          border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: rgba(255, 255, 255, 0.3);
-        }
-      `}</style>
+          );
+        })}
+      </MobileMenu>
     </header>
+  );
+}
+
+/* =========================
+   MOBILE MENU
+========================= */
+function MobileMenu({
+  open,
+  children,
+}: {
+  open: boolean;
+  children: React.ReactNode;
+}) {
+  if (!open || typeof window === 'undefined') return null;
+
+  return createPortal(
+    <div className="fixed inset-0 top-14 z-40 bg-background p-4 md:hidden">
+      <div className="space-y-4">{children}</div>
+    </div>,
+    document.body
   );
 }
