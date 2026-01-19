@@ -11,7 +11,7 @@ export default function Home() {
       {/* FIXED NAVIGATION */}
       <NavigationClient />
       {/* MAIN CONTENT – space reserved for pill navbar */}
-      <main className="pt-32 md:pt-36 bg-black">
+      <main className="pt-32 md:pt-1 bg-black">
         <ServicesHeader />
         <ServicesDetails />
         <CaseStudiesSlider />

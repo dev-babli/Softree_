@@ -101,53 +101,73 @@ const HeroSection = () => {
               , delivering modern web and mobile engineering solutions.
             </p>
 
-            {/* Stats */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 pt-4">
-              {[
-                { value: "15+", label: "Years of Experience", icon: "🚀" },
-                { value: "500+", label: "Projects Delivered", icon: "📦" },
-                { value: "90%", label: "Client Retention", icon: "🤝" },
-              ].map((stat, i) => (
-                <div
-                  key={i}
-                  className="
-        relative
-        rounded-full
-        px-10 py-8
+         {/* Stats */}
+<div className="grid grid-cols-1 sm:grid-cols-3 gap-10 pt-4">
+  {[
+    {
+      value: "15+",
+      label: "Years of Experience",
+      icon: "🚀",
+      gradient: "from-blue-400 via-cyan-400 to-indigo-400",
+    },
+    {
+      value: "500+",
+      label: "Projects Delivered",
+      icon: "📦",
+      gradient: "from-fuchsia-400 via-pink-400 to-purple-400",
+    },
+    {
+      value: "90%",
+      label: "Client Retention",
+      icon: "🤝",
+      gradient: "from-emerald-400 via-teal-400 to-cyan-400",
+    },
+  ].map((stat, i) => (
+    <div
+      key={i}
+      className="
+        relative rounded-full px-10 py-8
         bg-gradient-to-r from-white/10 via-white/5 to-white/10
-        backdrop-blur-xl
-        text-center
+        backdrop-blur-xl text-center
         shadow-[0_20px_60px_rgba(0,0,0,0.45)]
         transition-all duration-500
         hover:-translate-y-1
       "
-                >
-                  <div className="flex items-center justify-center gap-5">
-                    {/* ICON */}
-                    <div
-                      className="
-          flex h-14 w-14 items-center justify-center
-          rounded-full
-          bg-gradient-to-br from-blue-500/40 to-cyan-400/30
-          text-2xl
-        "
-                    >
-                      {stat.icon}
-                    </div>
+    >
+      <div className="flex items-center justify-center gap-5">
+        {/* ICON */}
+        <div
+          className="
+            flex h-14 w-14 items-center justify-center
+            rounded-full
+            bg-gradient-to-br from-blue-500/40 to-cyan-400/30
+            text-2xl
+          "
+        >
+          {stat.icon}
+        </div>
 
-                    {/* TEXT */}
-                    <div className="text-left">
-                      <span className="block text-4xl font-bold text-white">
-                        {stat.value}
-                      </span>
-                      <span className="block text-white/80 text-sm tracking-wide">
-                        {stat.label}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+        {/* TEXT */}
+        <div className="text-left">
+          {/* MULTI-COLOR NUMBER */}
+          <span
+            className={`
+              block text-4xl font-extrabold
+              bg-gradient-to-r ${stat.gradient}
+              bg-clip-text text-transparent
+            `}
+          >
+            {stat.value}
+          </span>
+
+          <span className="block text-white/80 text-sm tracking-wide">
+            {stat.label}
+          </span>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
 
             {/* CTA */}
             <div

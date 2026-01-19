@@ -95,8 +95,8 @@ const menu: MenuItem[] = [
         title: "App Development",
         links: [
           {
-            label: "Softree for Startups",
-            url: "/services/softree-for-startups",
+            label: "MVP Development Services",
+            url: "/services/mvp",
             icon: Users,
             description: "End-to-end product development for startups",
           },
@@ -179,26 +179,6 @@ const menu: MenuItem[] = [
     icon: Phone,
   },
 ];
-const navPillClass = `
-  !flex !flex-row !items-center !justify-center
-  gap-2
-  px-5 py-2.5
-  rounded-full
-
-  text-[15px] font-medium leading-none
-  text-foreground
-
-  !bg-transparent
-  hover:!bg-blue-500/10
-  focus:!bg-blue-500/10
-
-  shadow-[inset_0_-4px_0_0_rgba(0,0,0,0)]
-  hover:shadow-[inset_0_-4px_0_0_rgb(59,130,246)]
-
-  hover:text-blue-500
-
-  transition-all duration-300
-`;
 
 /* =========================
    HEADER
@@ -208,7 +188,7 @@ export function Navigation() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background/80   backdrop-blur">
-      <nav className="mx-auto mt-4 flex h-16 max-w-7xl items-center justify-between rounded-full border bg-background/80 px-6 shadow-lg backdrop-blur-xl">
+      <nav className="mx-auto  flex h-16 max-w-7xl items-center justify-between rounded-full border bg-background/80 px-6 shadow-lg backdrop-blur-xl">
         {/* LEFT: Logo + Navigation */}
         <div className="flex items-center gap-8">
           {/* Logo */}
@@ -259,30 +239,35 @@ export function Navigation() {
                     <NavigationMenuItem key={item.label}>
                       <NavigationMenuTrigger
                         className={`
-                ${navPillClass}
-                data-[state=open]:bg-blue-500/10
-                data-[state=open]:shadow-[inset_0_-4px_0_0_rgb(59,130,246)]
-                data-[state=open]:text-blue-500
-              `}
+        ${navPillClass}
+        data-[state=open]:bg-blue-500/10
+        data-[state=open]:shadow-[inset_0_-4px_0_0_rgb(59,130,246)]
+        data-[state=open]:text-blue-500
+      `}
                       >
-                        {/* Force row layout */}
                         <span className="flex items-center gap-2">
                           {Icon && (
                             <Icon className="h-[18px] w-[18px] shrink-0 opacity-90" />
                           )}
-                          <span className="whitespace-nowrap">
+
+                          {/* CLICK → /services */}
+                          <Link
+                            href="/services"
+                            className="whitespace-nowrap hover:text-blue-400"
+                            onClick={(e) => e.stopPropagation()}
+                          >
                             {item.label}
-                          </span>
+                          </Link>
                         </span>
                       </NavigationMenuTrigger>
 
                       <NavigationMenuContent>
                         <div
                           className="
-                  mt-3 grid w-[980px] grid-cols-3 gap-8
-                  rounded-2xl border p-8 shadow-xl backdrop-blur-lg
-                  bg-gradient-to-br from-black via-zinc-900 to-zinc-800
-                "
+          mt-3 grid w-[980px] grid-cols-3 gap-8
+          rounded-2xl border p-8 shadow-xl backdrop-blur-lg
+          bg-gradient-to-br from-black via-zinc-900 to-zinc-800
+        "
                         >
                           {item.children.map((section) => (
                             <div key={section.title}>
@@ -298,13 +283,13 @@ export function Navigation() {
                                       <a
                                         href={link.url}
                                         className="
-                                group flex items-start gap-4 rounded-xl p-3
-                                border border-transparent
-                                transition-all duration-300
-                                hover:border-foreground/20
-                                hover:shadow-sm
-                                hover:-translate-y-[1px]
-                              "
+                        group flex items-start gap-4 rounded-xl p-3
+                        border border-transparent
+                        transition-all duration-300
+                        hover:border-foreground/20
+                        hover:shadow-sm
+                        hover:-translate-y-[1px]
+                      "
                                       >
                                         {LinkIcon && (
                                           <div className="flex h-10 w-10 items-center justify-center rounded-lg border bg-background group-hover:border-primary/40 group-hover:bg-primary/5">
@@ -448,6 +433,6 @@ function MobileMenu({
     <div className="fixed inset-0 top-14 z-40 bg-background p-4 md:hidden">
       <div className="space-y-4">{children}</div>
     </div>,
-    document.body
+    document.body,
   );
 }
