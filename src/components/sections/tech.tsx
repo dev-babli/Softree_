@@ -33,8 +33,6 @@ const techStack = [
 export default function TechStack() {
   return (
     <section className="relative py-32 overflow-hidden bg-gradient-to-b from-black via-[#020d1a] to-black">
-    
-
       {/* Content */}
       <div className="relative max-w-7xl mx-auto px-6">
         <div
@@ -50,9 +48,19 @@ export default function TechStack() {
         >
           {/* Heading */}
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-              From MVPs to Enterprise Solutions — Softree Builds It All
+            <h2 className="relative inline-block text-4xl md:text-5xl font-bold leading-tight mb-6">
+              <span className="text-white">
+                From MVPs to Enterprise Solutions
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-500 bg-clip-text text-transparent">
+                Softree Builds It All
+              </span>
+
+              {/* Accent underline */}
+              <span className="absolute left-1/2 -bottom-3 -translate-x-1/2 h-[3px] w-24 rounded-full bg-gradient-to-r from-cyan-400 to-indigo-500" />
             </h2>
+
             <p className="max-w-3xl mx-auto text-lg text-white/80">
               At Softree, we combine modern frontend frameworks, robust backend
               systems, cloud-native architecture, DevOps automation, and AI

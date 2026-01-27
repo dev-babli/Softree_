@@ -2,89 +2,111 @@
 
 import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
+import { useRouter } from "next/navigation";
+
 import "swiper/css";
 
 const caseStudies = [
   {
-    title: "AI-Driven Mobile App for Invoice Processing",
-    image: "/images/mobile-apps/case-study-1.png",
+    title: "Wellkies Doctor Mobile App",
+    category: "Mobile App Development",
     challenge:
-      "Manual invoice handling through emails and PDFs caused delays, data errors, and poor visibility for finance teams.",
+      "Doctors needed a streamlined mobile solution to manage appointments, patient records, and consultations efficiently.",
     solution:
-      "We built a cross-platform mobile app with AI-based data extraction, automated approvals, and real-time notifications.",
-    tech: ["Mobile App", "AI", "Automation", "Cloud Backend"],
+      "Developed a dedicated doctor-facing mobile application with secure access to schedules, patient details, and consultation workflows.",
+    tech: ["Mobile App Development", "Healthcare Solutions", "UI/UX Design"],
+    image:
+      "https://www.softreetechnology.com/wp-content/uploads/2024/10/Wellkies-Doctors-1024x1024.webp",
+    href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-Doctor-Document.pdf",
   },
   {
-    title: "On-Demand Service Management Mobile App",
-    image: "/images/mobile-apps/case-study-2.png",
+    title: "Wellkies Clinic Management App",
+    category: "Mobile App Development",
     challenge:
-      "Field teams relied on calls and spreadsheets, resulting in slow issue resolution and poor customer experience.",
+      "Clinics struggled to coordinate doctors, appointments, and patient data across disconnected systems.",
     solution:
-      "Our team developed a mobile app enabling real-time issue tracking, instant updates, and faster service turnaround.",
-    tech: ["Android", "iOS", "APIs", "Push Notifications"],
+      "Built a clinic management mobile app to handle scheduling, staff coordination, and operational workflows from one platform.",
+    tech: ["Mobile App Development", "Clinic Management", "System Integration"],
+    image:
+      "https://www.softreetechnology.com/wp-content/uploads/2024/10/Wellkies-Clinic-1024x1024.webp",
+    href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-Clinic-App.pdf",
   },
   {
-    title: "Real-Time Analytics Mobile Dashboard",
-    image: "/images/mobile-apps/case-study-3.png",
+    title: "Wellkies User Mobile App",
+    category: "Mobile App Development",
     challenge:
-      "Decision-makers lacked real-time insights due to disconnected systems and delayed reporting.",
+      "Patients lacked a simple way to discover doctors, book appointments, and manage their healthcare digitally.",
     solution:
-      "We delivered a mobile analytics app with live dashboards, giving leadership instant access to business metrics.",
-    tech: ["Mobile Dashboards", "Cloud Integration", "Analytics"],
+      "Designed a user-centric mobile app enabling appointment booking, profile management, and seamless healthcare access.",
+    tech: [
+      "Mobile App Development",
+      "Patient Experience",
+      "Secure Authentication",
+    ],
+    image:
+      "https://www.softreetechnology.com/wp-content/uploads/2024/10/Wellkies-user-1024x1024.webp",
+    href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-User-App.pdf",
+  },
+  {
+    title: "Wellkies Healthcare Website",
+    category: "Web & Mobile Solutions",
+    challenge:
+      "The healthcare platform required a modern, responsive website to support brand presence and user engagement.",
+    solution:
+      "Developed a responsive healthcare website integrated with the Wellkies mobile ecosystem for a unified digital experience.",
+    tech: ["Web Development", "Responsive Design", "Healthcare Platform"],
+    image:
+      "https://www.softreetechnology.com/wp-content/uploads/2024/10/Wellkies-Website-1024x1024.webp",
+    href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-Website.pdf",
+  },
+  {
+    title: "Live Appointment Booking Mobile App",
+    category: "Mobile App Development",
+    challenge:
+      "Users needed a real-time solution to book appointments without delays, manual confirmations, or scheduling conflicts.",
+    solution:
+      "Developed a live appointment booking mobile application with real-time availability, instant confirmations, and streamlined booking flows.",
+    tech: ["Mobile App Development", "Real-Time Booking", "UI/UX Design"],
+    image:
+      "https://www.softreetechnology.com/wp-content/uploads/2024/11/LIVE-appointment-bookings.webp",
+    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/LIVE-appointment-bookings.docx.pdf",
   },
 ];
 
 export default function MobileAppCaseStudies() {
   const swiperRef = useRef<any>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const router = useRouter();
 
   return (
-    <section className="relative bg-black py-24 overflow-hidden">
+    <section className="relative py-12 overflow-hidden">
       <div className="relative w-[86%] max-w-7xl mx-auto text-white">
-        {/* ===== Header ===== */}
-        <div className="max-w-4xl mx-auto px-6 text-center mb-24">
-          {/* Eyebrow */}
-          <span
-            className="inline-block mb-4 px-4 py-1.5 rounded-full
-    text-xs uppercase tracking-[0.3em]
-    text-cyan-400
-    bg-cyan-400/10 border border-cyan-400/20"
-          >
+        {/* HEADER */}
+        <div className="text-center mb-14">
+          <span className="inline-block mb-3 text-xs tracking-widest uppercase text-gray-400">
             Case Studies
           </span>
 
-          {/* Title */}
-          <h2 className="relative text-4xl md:text-4xl font-semibold tracking-tight mb-6">
-            Mobile Apps That Drive Real Business Impact
-            {/* Gradient Underline */}
-            <span
-              className="
-    absolute left-0 -bottom-3 w-full h-[5px]
-    bg-gradient-to-r
-    from-transparent
-    via-white/40
-    to-transparent
-    rounded-full
-  "
-            />
+          <h2 className="text-3xl lg:text-4xl font-normal">
+            Mobile Apps in Action: Real-World Success Stories
           </h2>
 
-          {/* Description */}
-          <p className="text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto">
-            See how our mobile app solutions help businesses improve efficiency,
-            user engagement, and decision-making.
+          <p className="mt-4 max-w-2xl mx-auto text-sm text-white/65">
+            Discover how Softree designs and develops high-performance mobile
+            applications that deliver seamless user experiences and measurable
+            business impact.
           </p>
         </div>
 
         {/* SLIDER */}
         <div className="relative h-[540px] md:h-[580px]">
           <Swiper
-            modules={[Pagination, Autoplay]}
+            modules={[Autoplay]}
             slidesPerView={1}
-            loop={true}
+            loop
             autoplay={{
-              delay: 5000, // ⏱️ 5 seconds
+              delay: 5000,
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
             }}
@@ -94,98 +116,132 @@ export default function MobileAppCaseStudies() {
             className="h-full"
           >
             {caseStudies.map((item, index) => (
-              <SwiperSlide key={index} className="h-full">
-                <div
-                  className="
-                    w-full h-full
-                    bg-gradient-to-br from-white/[0.06] via-[#141414] to-[#0b0b0b]
-                    backdrop-blur-xl
-                    border border-white/12
-                    rounded-2xl
-                    shadow-[0_40px_120px_rgba(0,0,0,0.65)]
-                    overflow-hidden
-                    flex flex-col md:flex-row
-                  "
+              <SwiperSlide key={index} className="h-full flex">
+                <a
+                  href={item.href}
+                  className="relative w-full h-full flex group"
                 >
-                  {/* IMAGE */}
-                  <div className="relative md:w-1/2 h-[240px] md:h-full">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                    <span className="absolute top-4 left-4 text-xs uppercase tracking-widest bg-white/10 border border-white/15 px-3 py-1 rounded-full text-gray-200">
-                      Case Study
-                    </span>
-                  </div>
+                  {/* CARD */}
+                  <div className="relative w-full h-full rounded-3xl bg-gradient-to-br from-white/[0.08] via-[#151515] to-[#090909] backdrop-blur-2xl shadow-[0_60px_140px_rgba(0,0,0,0.75)] flex flex-col md:flex-row">
+                    {/* IMAGE */}
+                    <div className="relative md:w-1/2 h-[240px] md:h-full overflow-hidden rounded-l-3xl">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-tr from-black/75 via-black/30 to-transparent" />
 
-                  {/* DIVIDER */}
-                  <div className="hidden md:block w-px bg-white/10" />
-
-                  {/* CONTENT */}
-                  <div className="md:w-1/2 p-10 flex flex-col h-full">
-                    <div className="flex-1">
-                      <h3 className="text-2xl lg:text-3xl font-medium mb-6">
-                        {item.title}
-                      </h3>
-
-                      <div className="space-y-6">
-                        <div>
-                          <p className="text-xs uppercase tracking-widest text-gray-400 mb-1">
-                            Challenge
-                          </p>
-                          <p className="text-sm text-white/80">
-                            {item.challenge}
-                          </p>
-                        </div>
-
-                        <div>
-                          <p className="text-xs uppercase tracking-widest text-gray-400 mb-1">
-                            Solution
-                          </p>
-                          <p className="text-sm text-white/80">
-                            {item.solution}
-                          </p>
-                        </div>
+                      <div className="absolute top-5 left-5 flex items-center gap-3">
+                        <span className="text-[10px] uppercase tracking-[0.3em] px-4 py-1.5 rounded-full bg-black/70 border border-white/20 text-white">
+                          {item.category}
+                        </span>
+                        <span className="text-[11px] uppercase tracking-widest px-4 py-1.5 rounded-full bg-black border border-white/15 text-white">
+                          View case →
+                        </span>
                       </div>
                     </div>
 
-                    {/* TECH STACK */}
-                    <div className="flex flex-wrap gap-3 pt-6 mt-6 border-t border-white/10">
-                      {item.tech.map((tech, i) => (
-                        <span
-                          key={i}
-                          className="px-4 py-2 text-xs rounded-full bg-white/5 border border-white/15 text-gray-300"
+                    {/* CONTENT */}
+                    <div className="md:w-1/2 p-16 flex flex-col h-full">
+                      <div className="flex-1">
+                        <h3 className="text-2xl lg:text-3xl font-medium mb-8 bg-gradient-to-r from-[#5fb3ff] via-[#7fd7ff] to-[#cbefff] bg-clip-text text-transparent">
+                          {item.title}
+                        </h3>
+
+                        <div className="space-y-12">
+                          <div className="relative pl-6">
+                            <span className="absolute left-0 top-1 h-8 w-[2px] bg-gradient-to-b from-white/50 to-transparent" />
+                            <p className="text-[11px] uppercase tracking-[0.25em] text-white/50 mb-3">
+                              Challenge
+                            </p>
+                            <p className="text-sm text-white/80">
+                              {item.challenge}
+                            </p>
+                          </div>
+
+                          <div className="relative pl-6">
+                            <span className="absolute left-0 top-1 h-8 w-[2px] bg-gradient-to-b from-white/50 to-transparent" />
+                            <p className="text-[11px] uppercase tracking-[0.25em] text-white/50 mb-3">
+                              Solution
+                            </p>
+                            <p className="text-sm text-white/80">
+                              {item.solution}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* TECH */}
+                      <div className="pt-10 mt-12 border-t border-white/10">
+                        <div className="flex flex-wrap gap-3">
+                          {item.tech.map((tech, i) => (
+                            <span
+                              key={i}
+                              className="px-4 py-2 text-xs rounded-full bg-black/70 border border-white/25 text-white/75"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* CTA */}
+                      <div className="mt-auto pt-12 flex justify-center">
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            router.push("/case-studies/mobile");
+                          }}
+                          className="group relative px-8 sm:px-10 py-3 rounded-full bg-black text-[11px] sm:text-xs uppercase tracking-[0.2em] text-white border border-white/20 transition-all duration-300 hover:border-white/40 whitespace-nowrap"
                         >
-                          {tech}
-                        </span>
-                      ))}
+                          <span className="relative flex items-center gap-3">
+                            Explore mobile app solutions
+                            <span className="transition-transform duration-300 group-hover:translate-x-1">
+                              →
+                            </span>
+                          </span>
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </a>
               </SwiperSlide>
             ))}
           </Swiper>
 
           {/* NUMBER PAGINATION */}
-          <div className="absolute bottom-[-48px] left-1/2 -translate-x-1/2 flex items-center gap-6 z-30">
-            {caseStudies.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => swiperRef.current?.slideToLoop(i)}
-                className={`text-sm tracking-widest transition-all ${
-                  activeIndex === i
-                    ? "text-white font-semibold"
-                    : "text-white/40 hover:text-white"
-                }`}
-              >
-                {String(i + 1).padStart(2, "0")}
-              </button>
-            ))}
-            <span className="text-white/40 text-sm">
-              / {String(caseStudies.length).padStart(2, "0")}
-            </span>
+          <div className="absolute bottom-[-56px] left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-30">
+            <div className="flex items-center gap-6">
+              {caseStudies.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => swiperRef.current?.slideToLoop(i)}
+                  className={`relative text-sm tracking-widest transition-all duration-300 ${
+                    activeIndex === i
+                      ? "text-white scale-125 after:absolute after:-bottom-2 after:left-1/2 after:-translate-x-1/2 after:w-6 after:h-px after:bg-white"
+                      : "text-white/40 hover:text-white hover:scale-110"
+                  }`}
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </button>
+              ))}
+
+              <span className="text-sm text-white/40">
+                / {String(caseStudies.length).padStart(2, "0")}
+              </span>
+            </div>
+
+            <div className="relative w-40 h-[2px] bg-white/20 rounded-full overflow-hidden">
+              <div
+                className="absolute left-0 top-0 h-full bg-white transition-all duration-500 ease-out"
+                style={{
+                  width: `${((activeIndex + 1) / caseStudies.length) * 100}%`,
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -68,7 +68,7 @@ const techData: Record<(typeof TABS)[number], Tech[]> = {
 
 export default function TechnologiesTabs() {
   const [activeTab, setActiveTab] = useState<(typeof TABS)[number]>(
-    "FRONTEND DEVELOPMENT"
+    "FRONTEND DEVELOPMENT",
   );
 
   const tabsRef = useRef<HTMLDivElement>(null);
@@ -77,7 +77,7 @@ export default function TechnologiesTabs() {
   /* ===== Smooth indicator alignment ===== */
   useEffect(() => {
     const activeBtn = tabsRef.current?.querySelector<HTMLButtonElement>(
-      `[data-tab="${activeTab}"]`
+      `[data-tab="${activeTab}"]`,
     );
 
     if (!activeBtn || !indicatorRef.current || !tabsRef.current) return;
@@ -90,7 +90,10 @@ export default function TechnologiesTabs() {
   }, [activeTab]);
 
   return (
-    <section className="relative px-4 overflow-hidden bg-black">
+    <section
+      className="relative px-4 bg-gradient-to-b from-black via-[#020d1a] to-black
+  overflow-hidden "
+    >
       <div className="max-w-7xl mx-auto">
         {/* ================= HEADER ================= */}
         <div className="relative text-center mb-28">

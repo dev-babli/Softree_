@@ -1,12 +1,12 @@
 export default function AboutGlassSection() {
   return (
-    <section className=" py-16">
+    <section className=" py-16 ">
       {/* 7XL CONTAINER */}
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
           {/* ================= CORE VALUES ================= */}
           <div className="lg:col-span-2 h-full relative rounded-3xl p-[1px] bg-gradient-to-br from-black via-neutral-500/10 to-transparent">
-            <div className="rounded-3xl bg-gradient-to-br from-neutral-900 via-neutral-800 to-black backdrop-blur-xl p-8 md:p-10 h-full flex flex-col">
+            <div className="rounded-3xl bg-gradient-to-br from-neutral-900 via-neutral-800 to-gray-900 backdrop-blur-xl p-8 md:p-10 h-full flex flex-col">
               <h2 className="text-3xl font-bold text-white mb-6">
                 Core Values
               </h2>

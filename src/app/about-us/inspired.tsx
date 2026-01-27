@@ -45,7 +45,7 @@ const values = [
 
 export default function InspiredByOurValues() {
   return (
-    <section className=" text-white py-28">
+    <section className=" text-white py-28 ">
       <div className="max-w-7xl mx-auto px-6">
         {/* HEADER */}
         <div className="mb-24 max-w-3xl mx-auto text-center">

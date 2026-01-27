@@ -42,10 +42,7 @@
   }
 
   body {
-    body {
-      background: var(--color-background);
-    }
-
+    background: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
@@ -103,17 +100,6 @@
   }
 }
 
-/* ---------------- MOTION SAFETY ---------------- */
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-
 /* ---------------- OPTIONAL BACKGROUNDS ---------------- */
 
 @layer utilities {
@@ -135,32 +121,36 @@
     background-position: 0% 50%;
   }
 }
+
+/* ---------------- MARQUEE (SINGLE SOURCE OF TRUTH) ---------------- */
+
 @keyframes marquee {
-  0% {
-    transform: translate3d(0, 0, 0);
+  from {
+    transform: translateX(0);
   }
-  100% {
-    transform: translate3d(-50%, 0, 0);
+  to {
+    transform: translateX(-50%);
   }
 }
 
-.animate-marquee {
+.marquee-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee-track {
   display: flex;
-  flex-wrap: nowrap; /* NEVER wrap */
-  align-items: flex-start;
+  width: max-content;
   will-change: transform;
-  animation: marquee 18s linear infinite;
+  animation: marquee 22s linear infinite;
 }
 
-.animate-marquee:hover {
+.marquee-track:hover {
   animation-play-state: paused;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .animate-marquee {
-    animation: none;
-  }
-}
+/* ---------------- SMOOTH SLIDE ---------------- */
+
 @keyframes smooth-slide {
   0% {
     transform: translateX(0%);
@@ -180,9 +170,13 @@
 .pause-on-hover:hover {
   animation-play-state: paused;
 }
+
+/* ---------------- FORMS ---------------- */
+
 .input {
   @apply w-full border-b border-gray-300 focus:border-cyan-500 outline-none py-2 text-sm;
 }
+
 @keyframes marquee {
   0% {
     transform: translateX(0);
@@ -192,17 +186,12 @@
   }
 }
 
-.marquee-container {
-  overflow: hidden;
-  width: 100%;
+.animate-marquee {
+  animation: marquee 25s linear infinite;
 }
 
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee 22s linear infinite;
-}
-
-.marquee-track:hover {
-  animation-play-state: paused;
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
 }

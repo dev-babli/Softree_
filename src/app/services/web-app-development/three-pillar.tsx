@@ -34,22 +34,49 @@ const pillars = [
   },
 ];
 
-/* ===================== COMPONENT ===================== */
+/* ===================== SECTION ===================== */
 export default function ThreePillarsOfExcellence() {
   return (
-    <section className="relative bg-black py-36 overflow-hidden">
-    
+    <section
+      className="
+        relative w-full overflow-hidden
+        bg-gradient-to-b from-black via-[#020d1a] to-black
+        py-28
+      "
+    >
+      {/* RIGHT EDGE FADE */}
+      <div
+        className="
+          absolute inset-y-0 right-0 w-40
+          bg-gradient-to-l from-black to-transparent
+          pointer-events-none
+        "
+      />
 
-      <div className="relative max-w-7xl mx-auto px-6">
-        {/* ===== CARD ===== */}
-        <div className="relative rounded-2xl border border-slate-800 bg-[141414] px-14 py-20">
-          {/* INNER GLOW */}
-          <div className="absolute inset-0 rounded-2xl pointer-events-none bg-[radial-gradient(circle_at_top_left,rgba(45,212,191,0.08),transparent_40%)]" />
+      {/* CONTENT WRAPPER */}
+      <div className="relative mx-auto max-w-7xl px-6 sm:px-10 md:px-14 lg:px-20">
+        {/* GLASS CARD */}
+        <div
+          className="
+            relative rounded-3xl
+            bg-gradient-to-br from-white/[0.12] via-[#1f1f1f]/85 to-black
+            backdrop-blur-2xl
+            border border-white/10
+            shadow-[0_30px_120px_rgba(0,0,0,0.75)]
+            px-14 py-20
+          "
+        >
+          {/* INNER GLASS STROKE */}
+          <div
+            className="
+              absolute inset-0 rounded-3xl pointer-events-none
+              shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]
+            "
+          />
 
           {/* ===== HEADER ===== */}
-          <div className="relative flex flex-col items-center text-center gap-6 mb-14">
-            {/* TOP */}
-            <span className="inline-block text-xs tracking-[0.35em] uppercase text-teal-400">
+          <div className="relative flex flex-col items-center text-center gap-6 mb-16">
+            <span className="text-xs tracking-[0.35em] uppercase text-teal-400">
               Softree Web Development Framework
             </span>
 
@@ -59,7 +86,6 @@ export default function ThreePillarsOfExcellence() {
               <span className="font-normal">Delivery Pillars</span>
             </h2>
 
-            {/* BOTTOM */}
             <p className="max-w-2xl text-base text-slate-400 leading-relaxed">
               At Softree, web development is about building secure, scalable,
               and business-driven digital experiences. Our delivery pillars
@@ -67,11 +93,10 @@ export default function ThreePillarsOfExcellence() {
               with real-world business goals.
             </p>
 
-            {/* OPTIONAL ACCENT */}
-            <div className="mt-2 h-px w-24 bg-[141414]" />
+            <div className="mt-2 h-px w-24 bg-[#141414]" />
           </div>
 
-          {/* ===== PILLARS ===== */}
+          {/* ===== PILLARS GRID ===== */}
           <div className="relative grid grid-cols-1 md:grid-cols-3 gap-14">
             {pillars.map((pillar, index) => (
               <Pillar
@@ -109,7 +134,12 @@ function Pillar({
     >
       {/* ICON + TITLE */}
       <div className="flex items-center gap-4 mb-8">
-        <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-teal-100/10">
+        <div
+          className="
+            flex h-14 w-14 items-center justify-center rounded-lg
+            bg-white/10 border border-white/10 backdrop-blur-md
+          "
+        >
           <Icon className="h-8 w-8 text-teal-100" />
         </div>
 
@@ -117,10 +147,10 @@ function Pillar({
       </div>
 
       {/* POINTS */}
-      <ul className="space-y-6 text-sm text-slate-100">
+      <ul className="space-y-6 text-sm text-slate-200">
         {points.map((point, index) => (
           <li key={index} className="flex gap-4">
-            <span className="text-teal-100 font-semibold">{index + 1}.</span>
+            <span className="text-teal-300 font-semibold">{index + 1}.</span>
             <span>{point}</span>
           </li>
         ))}

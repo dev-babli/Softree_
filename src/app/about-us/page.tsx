@@ -16,14 +16,20 @@ const FIXED_WIDTH = "mx-auto max-w-8xl px-8 sm:px-10 md:px-14 lg:px-20";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-[#141414]">
+    <main
+      className="relative min-h-screen bg-gradient-to-b from-black via-[#020d1a] to-black
+ "
+    >
       <NavigationClient />
 
       {/* HERO (can be full-width internally) */}
       <AboutUsWithTestimonials />
 
       {/* MAIN CONTENT – FIXED WIDTH */}
-      <section className="bg-[#141414] py-24">
+      <section
+        className="bg-gradient-to-b from-black via-[#020d1a] to-black
+  py-24"
+      >
         <div className={FIXED_WIDTH}>
           <OurStorySection />
           <AgileProcessStack />

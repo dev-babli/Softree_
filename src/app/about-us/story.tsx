@@ -6,7 +6,7 @@ export default function OurStorySection() {
       {/* ===== CONTENT WRAPPER WITH BG ===== */}
       <div className="relative z-10 max-w-7xl mx-auto px-4">
         <div className="relative rounded-3xl p-[1px] bg-gradient-to-br from-white/10 via-neutral-500/10 to-transparent">
-          <div className="rounded-3xl bg-gradient-to-br from-neutral-900 via-neutral-800 to-black backdrop-blur-xl p-10">
+          <div className="rounded-3xl bg-gradient-to-br from-neutral-900 via-neutral-800 to-gray-900 backdrop-blur-xl p-10">
             {/* ================= HEADER ================= */}
             <div className="mb-14">
               <h2 className="text-sky-400 font-extrabold tracking-widest text-sm mb-4">

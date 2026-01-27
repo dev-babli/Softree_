@@ -1,204 +1,220 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import {
-  Pagination,
-  EffectFade,
-  Autoplay,
-} from "swiper/modules";
-
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/effect-fade";
 
-/* =========================
-   DATA
-========================= */
-const cases = [
+const caseStudies = [
   {
-    id: "moneygram",
-    accent: "#E42313",
-    bg: "https://ckl-website-v4-strapi-prod.s3.us-east-2.amazonaws.com/moneygram_background_fedf7f985e.png",
-    logo:
-      "https://ckl-website-v4-strapi-prod.s3.us-east-2.amazonaws.com/moneygram_logo_default_08c806d234.svg",
-    categories: ["Blockchain", "Mobile"],
-    title: "Global non-custodial wallet bridging cash and USDC on Stellar",
-    image:
-      "https://ckl-website-v4-strapi-prod.s3.us-east-2.amazonaws.com/moneygram_image_f51682e73b.png",
-    link: "/portfolio/moneygram-wallet",
+    id: "wellkies-doctor",
+    accent: "#22C55E",
+    categories: ["Mobile App", "Healthcare"],
+    title: "Wellkies Doctor Mobile App",
+    image: "/images/1.png",
+    link: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-Doctor-Document.pdf",
+    challenge:
+      "Doctors struggled with scattered patient records and inefficient appointment handling.",
+    innovation:
+      "We built a secure mobile-first platform with real-time patient management and smart scheduling.",
+    tech: ["React Native", "Node.js", "MongoDB", "AWS"],
   },
   {
-    id: "knapsack",
-    accent: "#873C35",
-    bg: "https://ckl-website-v4-strapi-prod.s3.us-east-2.amazonaws.com/knapsack_background_6480c35a4b.png",
-    logo:
-      "https://ckl-website-v4-strapi-prod.s3.us-east-2.amazonaws.com/knapsack_logo_default_e50612e023.svg",
-    categories: ["AI", "Mobile"],
-    title: "AI personalized assistant for strict financial environments",
-    image:
-      "https://ckl-website-v4-strapi-prod.s3.us-east-2.amazonaws.com/knapsack_image_18cc660d1e.png",
-    link: "/portfolio/knapsack",
+    id: "wellkies-clinic",
+    accent: "#0EA5E9",
+    categories: ["Mobile App", "Clinic Management"],
+    title: "Wellkies Clinic Management App",
+    image: "/images/2.png",
+    link: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-Clinic-App.pdf",
+    challenge:
+      "Clinic staff relied on manual workflows for billing, appointments, and records.",
+    innovation:
+      "An all-in-one clinic management system with automation and analytics.",
+    tech: ["React", "NestJS", "PostgreSQL", "Azure"],
   },
   {
-    id: "thaw",
-    accent: "#DA540C",
-    bg: "https://ckl-website-v4-strapi-prod.s3.us-east-2.amazonaws.com/thaw_background_bbb38e8682.png",
-    logo:
-      "https://ckl-website-v4-strapi-prod.s3.us-east-2.amazonaws.com/thaw_logo_default_b9be664c0a.svg",
-    categories: ["IoT", "Mobile"],
-    title: "Flutter-powered IoT app for personalized temperature control",
-    image:
-      "https://ckl-website-v4-strapi-prod.s3.us-east-2.amazonaws.com/thaw_image_5ce722fe1f.png",
-    link: "/portfolio/thaw",
+    id: "mern-blog",
+    accent: "#A855F7",
+    categories: ["Web App", "MERN Stack"],
+    title: "Public Blogging Website using MERN Stack",
+    image: "/images/3.png",
+    link: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Public-Blogging-Website-Using-the-MERN-Stack.pdf",
+    challenge:
+      "Content creators needed a fast, scalable, and SEO-friendly blogging platform.",
+    innovation:
+      "A modern MERN-based blog with authentication, comments, and admin controls.",
+    tech: ["MongoDB", "Express", "React", "Node.js"],
   },
 ];
 
-/* =========================
-   COMPONENT
-========================= */
-export default function CaseStudiesAdvanced() {
-  const [activeIndex, setActiveIndex] = useState(0);
-
+export default function CaseStudiesSection() {
   return (
-    <section className="bg-black py-28 overflow-hidden relative">
-      {/* ACCENT GLOW */}
-      <div
-        className="absolute inset-0 pointer-events-none transition-all duration-700"
-        style={{
-          background: `radial-gradient(600px circle at 20% 30%, ${cases[activeIndex].accent}22, transparent 60%)`,
-        }}
-      />
-
-      {/* HEADER */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 mb-16">
-        <div className="flex items-center gap-4 mb-6">
-          <span className="h-px w-12 bg-gradient-to-r from-cyan-400 to-transparent" />
-          <span className="text-sm tracking-widest uppercase text-cyan-400">
-            Case Studies
-          </span>
+    <section className="bg-black text-white py-12">
+      <div className="mx-auto max-w-7xl py-16 w-[86%]">
+        {/* Header */}
+        <div className="text-center">
+          <h2 className="capitalize text-3xl lg:text-4xl leading-snug font-normal text-white">
+            Building Intelligent Digital Experiences
+          </h2>
+          <p className="text-white/70 mx-auto text-sm mt-4 max-w-2xl">
+            From strategy to execution, we help brands grow through smart,
+            future-ready technology solutions.
+          </p>
         </div>
 
-        <h2 className="text-4xl md:text-6xl font-semibold text-white">
-          Our work<span className="text-neutral-400">.</span>
-        </h2>
+        {/* Slider */}
+        <Swiper
+          modules={[Autoplay]}
+          slidesPerView={1}
+          spaceBetween={40}
+          loop={true}
+          autoplay={{
+            delay: 3500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          className="relative mt-10 pb-10"
+        >
+          {caseStudies.map((item) => (
+            <SwiperSlide key={item.id}>
+              <div className="grid md:grid-cols-2 gap-6 items-center">
+                {/* Image */}
+                <div className="h-[260px] md:h-[550px] overflow-hidden rounded-md">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
 
-        <p className="mt-6 max-w-2xl text-lg text-gray-400">
-          A selection of digital products we’ve designed and engineered for
-          global brands and fast-growing companies.
-        </p>
-      </div>
-
-      {/* SLIDER */}
-      <Swiper
-        modules={[Pagination, EffectFade, Autoplay]}
-        effect="fade"
-        slidesPerView={1}
-        pagination={{ clickable: true }}
-        autoplay={{
-          delay: 4500,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: true,
-        }}
-        onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-        className="relative z-10"
-      >
-        {cases.map((item) => (
-          <SwiperSlide key={item.id}>
-            <div
-              className="
-                mx-6
-                rounded-3xl
-                overflow-hidden
-                min-h-[680px]
-                bg-white/5
-                backdrop-blur-xl
-                border border-white/10
-              "
-            >
-              {/* BACKGROUND IMAGE */}
-              <Image
-                src={item.bg}
-                alt=""
-                fill
-                className="object-cover opacity-20"
-              />
-
-              {/* CONTENT */}
-              <div className="relative z-10 max-w-7xl mx-auto px-10 py-20 grid md:grid-cols-2 gap-16 items-center">
-                {/* LEFT */}
-                <div className="space-y-8 text-white">
-                  <Image
-                    src={item.logo}
-                    alt="logo"
-                    width={260}
-                    height={60}
+                {/* Content */}
+                <div
+                  className="group relative rounded-2xl p-8 lg:p-10 overflow-hidden
+             backdrop-blur-xl border border-white/10
+             transition-all duration-500 hover:border-white/20"
+                  style={{
+                    background:
+                      "linear-gradient(160deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.02) 100%)",
+                  }}
+                >
+                  {/* Accent Glow */}
+                  <div
+                    className="absolute -top-24 -right-24 w-72 h-72 rounded-full opacity-30 blur-3xl"
+                    style={{ backgroundColor: item.accent }}
                   />
 
-                  <div className="flex gap-3 text-sm font-medium text-gray-300">
-                    {item.categories.map((cat) => (
-                      <span
-                        key={cat}
-                        className="px-3 py-1 rounded-full border border-white/20"
-                      >
-                        {cat}
-                      </span>
-                    ))}
+                  {/* Title */}
+                  <div className="relative mb-10">
+                    <h2
+                      className="text-3xl lg:text-4xl font-semibold leading-tight
+               bg-clip-text text-transparent"
+                      style={{
+                        backgroundImage: `
+        linear-gradient(
+          135deg,
+          #ffffff 0%,
+          #e5e7eb 35%,
+          ${item.accent} 100%
+        )
+      `,
+                      }}
+                    >
+                      {item.title}
+                    </h2>
+
+                    {/* Accent underline */}
+                    <span
+                      className="absolute left-0 -bottom-3 h-[3px] w-16 rounded-full"
+                      style={{ backgroundColor: item.accent }}
+                    />
+
+                    {/* Soft glow */}
+                    <span
+                      className="absolute left-0 -bottom-6 h-6 w-32 blur-2xl opacity-40"
+                      style={{ backgroundColor: item.accent }}
+                    />
                   </div>
 
-                  <h3 className="text-2xl md:text-3xl font-semibold max-w-xl">
-                    {item.title}
-                  </h3>
+                  {/* Timeline */}
+                  <div className="relative space-y-10 pl-6">
+                    {/* Vertical Line */}
+                    <div className="absolute left-[6px] top-0 bottom-0 w-px bg-white/15" />
 
-                  <Link
+                    {/* Challenge */}
+                    <div className="relative flex gap-6">
+                      <div
+                        className="w-3 h-3 mt-1 rounded-full"
+                        style={{ backgroundColor: item.accent }}
+                      />
+                      <div>
+                        <span className="block text-xs uppercase tracking-widest text-white/60 mb-2">
+                          The Challenge
+                        </span>
+                        <p className="text-white/80 text-sm leading-relaxed max-w-md">
+                          {item.challenge}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Innovation */}
+                    <div className="relative flex gap-6">
+                      <div
+                        className="w-3 h-3 mt-1 rounded-full"
+                        style={{ backgroundColor: item.accent }}
+                      />
+                      <div>
+                        <span className="block text-xs uppercase tracking-widest text-white/60 mb-2">
+                          Our Innovation
+                        </span>
+                        <p className="text-white/80 text-sm leading-relaxed max-w-md">
+                          {item.innovation}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Tech Stack */}
+                  <div className="mt-12">
+                    <span className="block text-xs uppercase tracking-widest text-white/60 mb-4">
+                      Technology Stack
+                    </span>
+
+                    <div className="flex flex-wrap gap-3">
+                      {item.tech.map((tech, i) => (
+                        <span
+                          key={i}
+                          className="px-4 py-2 rounded-full text-xs text-white
+                     bg-white/10 border border-white/10
+                     backdrop-blur-md transition-all duration-300
+                     hover:bg-white/20"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* CTA */}
+                  <a
                     href={item.link}
-                    className="
-                      inline-flex
-                      items-center
-                      gap-2
-                      px-6
-                      py-3
-                      border border-white/30
-                      rounded-full
-                      text-sm
-                      font-medium
-                      hover:border-cyan-400
-                      hover:text-cyan-400
-                      transition
-                    "
+                    target="_blank"
+                    className="relative mt-12 inline-flex items-center gap-3
+               px-7 py-3 rounded-full text-xs uppercase tracking-widest
+               text-black bg-white
+               transition-all duration-300
+               hover:scale-[1.03] hover:bg-black hover:text-white"
                   >
-                    View case study →
-                  </Link>
-                </div>
-
-                {/* RIGHT IMAGE */}
-                <div className="flex justify-center">
-                  <Image
-                    src={item.image}
-                    alt="case"
-                    width={700}
-                    height={900}
-                    className="rounded-2xl shadow-[0_40px_80px_rgba(0,0,0,0.6)]"
-                  />
+                    View Case Study
+                    <span className="transition-transform duration-300 group-hover:translate-x-1">
+                      →
+                    </span>
+                  </a>
                 </div>
               </div>
-            </div>
-          </SwiperSlide>
-        ))}
-
-        {/* PROGRESS BAR */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-[220px] h-[3px] bg-white/20 rounded-full overflow-hidden">
-          <div
-            className="h-full transition-all duration-500"
-            style={{
-              width: `${((activeIndex + 1) / cases.length) * 100}%`,
-              backgroundColor: cases[activeIndex].accent,
-            }}
-          />
-        </div>
-      </Swiper>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </section>
   );
 }

@@ -18,6 +18,10 @@ import {
   BookOpen,
   Phone,
   Building2,
+  Brain,
+  Layers,
+  Globe,
+  AppWindow,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -168,6 +172,66 @@ const menu: MenuItem[] = [
       },
     ],
   },
+  {
+    label: "Case Studies",
+    url: "/case-studies",
+    icon: Layers,
+    mega: true,
+    children: [
+      {
+        title: "Microsoft Power Platform",
+        links: [
+          {
+            label: "Power Apps Case Studies",
+            url: "/case-studies/power-apps",
+            icon: AppWindow,
+            description: "Real-world low-code business solutions",
+          },
+          {
+            label: "AI & Copilot Case Studies",
+            url: "/case-studies/ai",
+            icon: Brain,
+            description: "AI-driven automation and insights",
+          },
+        ],
+      },
+      {
+        title: "Application Development",
+        links: [
+          {
+            label: "Mobile App Case Studies",
+            url: "/case-studies/mobile",
+            icon: Smartphone,
+            description: "Scalable Android & iOS solutions",
+          },
+          {
+            label: "Web App Case Studies",
+            url: "/case-studies/web",
+            icon: Laptop,
+            description: "High-performance web platforms",
+          },
+        ],
+      },
+      {
+        title: "Microsoft 365 & SharePoint",
+        links: [
+          {
+            label: "SharePoint Case Studies",
+            url: "/case-studies/sharepoint",
+            icon: Share2,
+            description: "Enterprise collaboration solutions",
+          },
+          {
+            label: "SPFx Case Studies",
+            url: "/case-studies/spfx",
+            icon: Globe,
+            description: "Custom SPFx web parts & extensions",
+          },
+        ],
+      },
+    ],
+  },
+
   {
     label: "Blog",
     url: "/blog/all-posts",

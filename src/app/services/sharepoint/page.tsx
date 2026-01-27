@@ -24,7 +24,10 @@ export default function Home() {
       <SharePointHero />
 
       {/* MAIN CONTENT – FIXED WIDTH */}
-      <section className="bg-[#141414] py-24">
+      <section
+        className="bg-gradient-to-b from-black via-[#020d1a] to-black
+  py-24"
+      >
         <div className={FIXED_WIDTH}>
           <SharePointFeatures />
           <PowerAppsCaseStudies />

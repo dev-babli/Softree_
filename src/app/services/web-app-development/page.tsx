@@ -1,7 +1,5 @@
 import NavigationClient from "@/components/sections/navigation-client";
-import Link from "next/link";
 import Footer from "@/components/sections/footer";
-import { CALENDLY_URL } from "@/lib/contactConfig";
 
 import FullStackTeams from "./full-stack";
 import ThreePillars from "./three-pillar";
@@ -12,11 +10,12 @@ import WhyChooseSoftreeWebDevelopment from "./why-chose";
 import WebDevelopmentCaseStudies from "./case-studies";
 import WebDevHero from "./hero";
 import CtaWeb from "./cta";
+
 /* ------------------------------------------------------------------ */
-/* Shared Layout Spacing Config                                        */
+/* Shared Layout Config                                                */
 /* ------------------------------------------------------------------ */
-const SECTION_WRAPPER = "mx-auto max-w-8xl px-8 sm:px-10 md:px-14 lg:px-20";
-const SECTION_GAP = "space-y-24 py-24";
+const SECTION_WRAPPER = "mx-auto max-w-full px-8 sm:px-10 md:px-14 lg:px-20";
+const SECTION_GAP = "space-y-24";
 
 export default function Home() {
   return (
@@ -26,17 +25,15 @@ export default function Home() {
       {/* HERO */}
       <WebDevHero />
 
-      {/* MAIN CONTENT */}
-      <section className="bg-black">
-        <div className={`${SECTION_WRAPPER} ${SECTION_GAP}`}>
-          <WebDevelopmentCaseStudies />
-          <WebDevelopmentHero />
-          <FullStackTeams />
-          <ThreePillars />
-          <CollaborationTabs />
-          <QualityBenchmark />
-          <WhyChooseSoftreeWebDevelopment />
-        </div>
+      {/* MAIN CONTENT — COMPONENT BACKGROUND */}
+      <section className="bg-gradient-to-b from-black via-[#020d1a] to-black py-24">
+        <WebDevelopmentCaseStudies />
+        <WebDevelopmentHero />
+        <FullStackTeams />
+        <ThreePillars />
+        <CollaborationTabs />
+        <QualityBenchmark />
+        <WhyChooseSoftreeWebDevelopment />
       </section>
 
       <CtaWeb />

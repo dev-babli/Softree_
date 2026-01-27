@@ -1,41 +1,43 @@
 "use client";
 
+"use client";
+
 const projects = [
   {
-    id: "ai-chatbot",
-    title: "AI Chatbot App Development",
-    image: "/images/newPortfolio/NewChanges/ai_chatbot.png",
-    link: "/ai-chatbot-development-services",
+    id: "wellkies-doctor-app",
+    title: "Wellkies Doctor Mobile App",
+    image: "/images/wellkies.png",
+    link: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-Doctor-Document.pdf",
   },
   {
-    id: "traffic-ai",
-    title: "AI Traffic Management System",
-    image: "/images/newPortfolio/NewChanges/traffic_mgt_ai.png",
-    link: "/traffic-management-system-using-iot",
+    id: "wellkies-clinic-app",
+    title: "Wellkies Clinic App",
+    image: "/images/clinic.png",
+    link: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-Clinic-App.pdf",
   },
   {
-    id: "real-estate",
-    title: "Real Estate App Development",
-    image: "/images/newPortfolio/RealEstate/2.png",
-    link: "/real-estate-app-development-company",
+    id: "food-wine-website",
+    title: "Food & Wine Website",
+    image: "/images/food.png",
+    link: "https://www.softreetechnology.com/wp-content/uploads/2024/11/FOOD-WINE-WEBSITE.pdf",
   },
   {
-    id: "travel-ai",
-    title: "AI Travel App Development",
-    image: "/images/newPortfolio/NewChanges/ai_travel_app.png",
-    link: "/ai-travel-app-development-company",
+    id: "spfx-custom-footer",
+    title: "Custom Footer using SPFx",
+    image: "/images/footer.png",
+    link: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Enhancing-User-Experience-with-a-Custom-Footer-using-SPFx.pdf",
   },
   {
-    id: "recruitment-ai",
-    title: "On Demand AI Recruitment",
-    image: "/images/newPortfolio/NewChanges/talenti_qube.png",
-    link: "/ai-recruitment-software-development",
+    id: "projects-portfolio-management",
+    title: "Projects Portfolio Management",
+    image: "/images/project.png",
+    link: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Projects-Portfolio-ManagementMicrosoft-Dataverse.pdf",
   },
   {
-    id: "car-rental",
-    title: "Car Rental App Development",
-    image: "/images/newPortfolio/Automotive/4.png",
-    link: "/car-rental-application-development",
+    id: "students-portal-app",
+    title: "Students Portal Mobile App",
+    image: "/images/student.png",
+    link: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Students-Portal-Mobile-App.pdf",
   },
 ];
 
@@ -65,7 +67,7 @@ export default function OurRecentProjects() {
               className="group relative block rounded-3xl bg-[#0b0f14] border border-black/5 transition hover:-translate-y-1 overflow-visible"
             >
               {/* IMAGE WRAPPER (ONLY THIS IS CLIPPED) */}
-              <div className="relative overflow-hidden rounded-3xl">
+              <div className="relative overflow-hidden rounded-3xl border border-white/20">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -77,41 +79,43 @@ export default function OurRecentProjects() {
               {/* FLOATING TITLE (HALF IN / HALF OUT) */}
               <div
                 className="
-      absolute
-      left-1/2
-      -translate-x-1/2
-      bottom-0
-      translate-y-1/2
-      bg-white
-      text-slate-900
-      px-6
-      py-3
-      rounded-2xl
-      shadow-[0_10px_30px_rgba(0,0,0,0.25)]
-      text-center
-      w-[90%]
-      z-10
-    "
+    absolute
+    left-1/2
+    -translate-x-1/2
+    bottom-0
+    translate-y-1/2
+    bg-[#14181f]
+    text-slate-100
+    px-6
+    py-3
+    rounded-2xl
+    shadow-[0_12px_30px_rgba(0,0,0,0.55)]
+    text-center
+    w-[90%]
+    z-10
+    border border-white/5
+    backdrop-blur-md
+  "
               >
                 <div
                   className="
-  bg-gradient-to-br
-  from-[#0b0f14]
-  via-[#1a1f27]
-  to-[#0b0f14]
-  px-5 py-3
-  rounded-xl
-  border border-white/10
-  backdrop-blur-md
-  shadow-[0_12px_30px_rgba(0,0,0,0.35)]
-  relative
-  overflow-hidden
-"
+      bg-gradient-to-br
+      from-[#1b2028]
+      via-[#242a33]
+      to-[#1b2028]
+      px-5
+      py-3
+      rounded-xl
+      border border-white/10
+      shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_12px_30px_rgba(0,0,0,0.45)]
+      relative
+      overflow-hidden
+    "
                 >
                   {/* mirror highlight */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/5 to-transparent pointer-events-none" />
 
-                  <p className="relative font-semibold text-base leading-tight text-slate-100 text-center">
+                  <p className="relative font-semibold text-base leading-tight text-slate-100 text-center tracking-wide">
                     {project.title}
                   </p>
                 </div>

@@ -37,7 +37,8 @@ export default function QualityBenchmarkUltra() {
   return (
     <section
       id="plan-pricing"
-      className="relative overflow-hidden bg-black py-36"
+      className="relative overflow-hidden bg-gradient-to-b from-black via-[#020d1a] to-black
+  py-36"
     >
       <div className="relative mx-auto max-w-7xl px-6">
         {/* ===== Heading ===== */}

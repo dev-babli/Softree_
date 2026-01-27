@@ -20,7 +20,10 @@ export default function WebDevelopmentProcess() {
   const radius = 250;
 
   return (
-    <section className="relative bg-black py-28 overflow-hidden">
+    <section
+      className="relative bg-gradient-to-b from-black via-[#020d1a] to-black
+   py-28 overflow-hidden"
+    >
       <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         <div className="max-w-xl text-left">
           {/* ===== EYEBROW ===== */}
