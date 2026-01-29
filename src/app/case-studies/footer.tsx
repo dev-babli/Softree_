@@ -8,6 +8,8 @@ import {
   FaPhoneAlt,
   FaEnvelope,
   FaMapMarkerAlt,
+  FaInstagram,
+  FaYoutube,
 } from "react-icons/fa";
 
 const LOGO_URL =
@@ -34,7 +36,7 @@ export default function CaseFooter() {
           "
         >
           {/* LOGO + SOCIAL */}
-          <div>
+          <div className="lg:col-span-2">
             <Link href="/">
               <div className="inline-flex items-center px-4 py-3 rounded-xl bg-gray-900 shadow-md">
                 <img
@@ -45,15 +47,42 @@ export default function CaseFooter() {
               </div>
             </Link>
 
-            <div className="flex gap-5 mt-6 text-xl text-gray-600">
-              <Link href="#" className="hover:text-black transition">
+            {/* Social Icons */}
+            <div className="flex gap-8 mt-10 text-3xl">
+              <Link
+                href="https://www.linkedin.com/company/softree-technology-pvt-ltd/"
+                target="_blank"
+                className="hover:text-black transition-transform hover:scale-110"
+              >
                 <FaLinkedin />
               </Link>
-              <Link href="#" className="hover:text-black transition">
+              <Link
+                href="https://twitter.com/"
+                target="_blank"
+                className="hover:text-black transition-transform hover:scale-110"
+              >
                 <FaTwitter />
               </Link>
-              <Link href="#" className="hover:text-black transition">
+              <Link
+                href="https://www.facebook.com/softreetechnology"
+                target="_blank"
+                className="hover:text-black transition-transform hover:scale-110"
+              >
                 <FaFacebook />
+              </Link>
+              <Link
+                href="https://www.instagram.com/softreetechnology/"
+                target="_blank"
+                className="hover:text-black transition-transform hover:scale-110"
+              >
+                <FaInstagram />
+              </Link>
+              <Link
+                href="https://www.youtube.com/@softreetechnologypvt.ltd.9452"
+                target="_blank"
+                className="hover:text-black transition-transform hover:scale-110"
+              >
+                <FaYoutube />
               </Link>
             </div>
           </div>
@@ -120,8 +149,10 @@ export default function CaseFooter() {
                     USA
                   </span>
                   <p className="text-[15px] text-gray-700 leading-relaxed">
-                    166 Geary St. STE 1500 #2439,<br />
-                    San Francisco, CA 94108,<br />
+                    166 Geary St. STE 1500 #2439,
+                    <br />
+                    San Francisco, CA 94108,
+                    <br />
                     United States
                   </p>
                 </div>
@@ -135,11 +166,13 @@ export default function CaseFooter() {
                     India
                   </span>
                   <p className="text-[15px] text-gray-700 leading-relaxed">
-                    Plot No. B, 06-1628, CDA Sec-10,<br />
+                    Plot No. B, 06-1628, CDA Sec-10,
+                    <br />
                     Odisha 753014, India
                   </p>
                   <p className="text-[15px] text-gray-700 leading-relaxed mt-1">
-                    Hatha Coco Nest, Flat No. B308,<br />
+                    Hatha Coco Nest, Flat No. B308,
+                    <br />
                     Kempapura, Bengaluru 560037, India
                   </p>
                 </div>
@@ -153,8 +186,10 @@ export default function CaseFooter() {
                     Singapore
                   </span>
                   <p className="text-[15px] text-gray-700 leading-relaxed">
-                    540 Sims Avenue, #03-05,<br />
-                    Sims Avenue Centre PMB 1021,<br />
+                    540 Sims Avenue, #03-05,
+                    <br />
+                    Sims Avenue Centre PMB 1021,
+                    <br />
                     Singapore 387603
                   </p>
                 </div>
@@ -167,7 +202,9 @@ export default function CaseFooter() {
       {/* BOTTOM BAR */}
       <div className="border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between gap-4 text-sm text-gray-600">
-          <span>© {new Date().getFullYear()} Softree. All rights reserved.</span>
+          <span>
+            © {new Date().getFullYear()} Softree. All rights reserved.
+          </span>
           <div className="flex gap-6">
             <Link href="/privacy-policy" className="hover:text-black">
               Privacy Policy

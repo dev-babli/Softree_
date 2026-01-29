@@ -29,11 +29,12 @@ export default function Home() {
       {/* MAIN CONTENT SECTIONS */}
       <section className="bg-black">
         <div className={`${SECTION_WRAPPER} ${SECTION_GAP}`}>
+          <PowerAppsCaseStudies />
           <PowerAppsServices />
           <WhyChooseSoftreePowerApps />
           <TechStackSection />
           <PowerAppsProcess />
-          <PowerAppsCaseStudies />
+
           <Certifications />
         </div>
       </section>
