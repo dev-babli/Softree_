@@ -59,12 +59,12 @@ export default function OurRecentProjects() {
         </div>
 
         {/* ================= PROJECT GRID ================= */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((project) => (
             <a
               key={project.id}
               href={project.link}
-              className="group relative block rounded-3xl bg-[#0b0f14] border border-black/5 transition hover:-translate-y-1 overflow-visible"
+              className="group relative block rounded-4xl bg-[#0b0f14] border border-black/5 transition hover:-translate-y-1 overflow-visible"
             >
               {/* IMAGE WRAPPER (ONLY THIS IS CLIPPED) */}
               <div className="relative overflow-hidden rounded-3xl border border-white/20">

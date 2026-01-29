@@ -17,7 +17,7 @@ const caseStudies = [
       "Developed a comprehensive EdTech management web application to handle academic operations, user management, and analytics.",
     tech: ["Web Application", "EdTech Solutions", "System Management"],
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/11/EdTech-Management-Information-System.webp",
+      "/images/edtech.jpg",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/EdTech-Management-Information-System-.pdf",
   },
   {
@@ -29,7 +29,7 @@ const caseStudies = [
       "Built an admin-focused web portal enabling centralized control over users, content, and system configurations.",
     tech: ["Admin Dashboard", "Web Management", "Role-Based Access"],
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/11/Noteved-Admin-1024x1024.jpg",
+      "/images/education.jpg",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/NotevedAdmin.docx.pdf",
   },
   {
@@ -41,7 +41,7 @@ const caseStudies = [
       "Developed a robust admin web application to manage healthcare workflows, users, and system configurations.",
     tech: ["Web Application", "Admin Panel", "Healthcare Platform"],
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/11/wellkies-admin-1024x1024.jpg",
+      "/images/2.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Website.docx.pdf",
   },
   {
@@ -53,7 +53,7 @@ const caseStudies = [
       "Developed a full-stack public blogging web application using the MERN stack with authentication, content management, and responsive design.",
     tech: ["MongoDB", "Express.js", "React.js", "Node.js"],
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/11/Node.js-Express.js-HTML-editor.webp",
+      "/images/3.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Public-Blogging-Website-Using-the-MERN-Stack.pdf",
   },
   {
@@ -65,7 +65,7 @@ const caseStudies = [
       "Built a modern, responsive food and wine website focusing on aesthetics, performance optimization, and user engagement.",
     tech: ["Web Design", "Responsive UI", "Content Management"],
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/11/FOOD-WINE-WEBSITE.webp",
+      "/images/food.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/FOOD-WINE-WEBSITE.pdf",
   },
 ];
@@ -211,6 +211,45 @@ export default function WebAppCaseStudies() {
               </SwiperSlide>
             ))}
           </Swiper>
+          {/* NUMBER PAGINATION */}
+          <div className="absolute bottom-[-56px] left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-30">
+            <div className="flex items-center gap-6">
+              {caseStudies.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => swiperRef.current?.slideToLoop(i)}
+                  className={`relative text-sm tracking-widest transition-all duration-300 ${
+                    activeIndex === i
+                      ? "text-white scale-125 after:absolute after:-bottom-2 after:left-1/2 after:-translate-x-1/2 after:w-6 after:h-px after:bg-white"
+                      : "text-white/40 hover:text-white hover:scale-110"
+                  }`}
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </button>
+              ))}
+
+              {/* TOTAL — becomes active on last slide */}
+              <span
+                className={`text-sm tracking-widest transition-all duration-300 ${
+                  activeIndex === caseStudies.length - 1
+                    ? "text-white scale-110"
+                    : "text-white/40"
+                }`}
+              >
+                / {String(caseStudies.length).padStart(2, "0")}
+              </span>
+            </div>
+
+            {/* Progress bar */}
+            <div className="relative w-40 h-[2px] bg-white/20 rounded-full overflow-hidden">
+              <div
+                className="absolute left-0 top-0 h-full bg-white transition-all duration-500 ease-out"
+                style={{
+                  width: `${((activeIndex + 1) / caseStudies.length) * 100}%`,
+                }}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>

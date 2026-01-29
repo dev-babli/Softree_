@@ -16,8 +16,7 @@ const caseStudies = [
     solution:
       "Built an SPFx Application Customizer to inject a reusable, branded footer across the tenant.",
     tech: ["SPFx", "SharePoint Online", "TypeScript"],
-    image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/12/Enhancing-User-Experience-with-a-Custom-Footer-using-SPFx.webp",
+    image: "/images/footer.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Enhancing-User-Experience-with-a-Custom-Footer-using-SPFx.pdf",
   },
   {
@@ -28,8 +27,7 @@ const caseStudies = [
     solution:
       "Implemented a global notification banner using SPFx Application Customizer with dynamic content control.",
     tech: ["SPFx", "SharePoint Framework", "Microsoft 365"],
-    image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/12/Implementing-a-Global-Notification-Banner-with-SPFx-Application-Customizer.webp",
+    image: "/images/global.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Implementing-a-Global-Notification-Banner-with-SPFx-Application-Customizer.pdf",
   },
   {
@@ -41,7 +39,7 @@ const caseStudies = [
       "Developed an SPFx solution that opens SharePoint documents inside a panel using file picker integration.",
     tech: ["SPFx", "SharePoint Online", "React"],
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/12/web-app-case-study-mock-copy.webp",
+      "/images/browse.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Inside-a-panel-Browse-Document-From-file-explorer.pdf",
   },
   {
@@ -52,8 +50,7 @@ const caseStudies = [
     solution:
       "Developed a custom SPFx panel using Fluent UI to enable seamless copy and move operations within SharePoint lists.",
     tech: ["SPFx", "Fluent UI", "SharePoint Online"],
-    image:
-      "https://www.softreetechnology.com/wp-content/uploads/2025/03/Enhancing-SharePoint-List-Management-with-a-Custom-Copy-Move-Panel-Using-SPFx-and-Fluent-UI.webp",
+    image: "/images/custom.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2025/03/Enhancing-SharePoint-List-Management-with-a-Custom-Copy-Move-Panel-Using-SPFx-and-Fluent-UI.pdf",
   },
   {
@@ -65,7 +62,7 @@ const caseStudies = [
       "Implemented a Power Apps–driven interface to create, update, and manage SharePoint library folders with automation.",
     tech: ["Power Apps", "SharePoint Online", "Power Automate"],
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2025/03/Managing-SharePoint-Library-Folders-with-Power-Apps.webp",
+      "/images/manage.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2025/03/Managing-SharePoint-Library-Folders-with-Power-Apps-Updated-.pdf",
   },
 ];
@@ -121,19 +118,33 @@ export default function SharePointCaseStudies() {
                   {/* CARD */}
                   <div className="relative w-full h-full rounded-3xl bg-gradient-to-br from-white/[0.08] via-[#151515] to-[#090909] backdrop-blur-2xl shadow-[0_60px_140px_rgba(0,0,0,0.75)] flex flex-col md:flex-row">
                     {/* IMAGE */}
-                    <div className="relative md:w-1/2 h-[240px] md:h-full overflow-hidden rounded-l-3xl">
+                    <div
+                      className="relative md:w-1/2 overflow-hidden rounded-l-3xl min-h-[260px]
+  flex items-center justify-center
+  bg-gradient-to-br from-black via-[#101010] to-[#1f1f1f]"
+                    >
+                      {/* Mirror reflection layer */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-white/10 via-transparent to-black/40" />
+
+                      {/* Subtle glass shine */}
+                      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent" />
+
+                      {/* Image */}
                       <img
                         src={item.image}
                         alt={item.title}
-                        className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
+                        className="relative z-10 max-w-full max-h-full object-contain transition-transform duration-[1200ms] ease-out group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-tr from-black/75 via-black/30 to-transparent" />
 
-                      <div className="absolute top-5 left-5 flex items-center gap-3">
-                        <span className="text-[10px] uppercase tracking-[0.3em] px-4 py-1.5 rounded-full bg-black/70 border border-white/20">
+                      {/* Dark vignette */}
+                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-black/70 via-black/30 to-transparent" />
+
+                      {/* Badges */}
+                      <div className="absolute top-5 left-5 flex items-center gap-3 z-20">
+                        <span className="text-[10px] uppercase tracking-[0.3em] px-4 py-1.5 rounded-full bg-black/70 border border-white/20 text-white">
                           {item.category}
                         </span>
-                        <span className="text-[11px] uppercase tracking-widest px-4 py-1.5 rounded-full bg-black border border-white/15">
+                        <span className="text-[11px] uppercase tracking-widest px-4 py-1.5 rounded-full bg-black border border-white/15 text-white">
                           View case →
                         </span>
                       </div>
@@ -210,7 +221,6 @@ export default function SharePointCaseStudies() {
           </Swiper>
           {/* NUMBER PAGINATION */}
           <div className="absolute bottom-[-56px] left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-30">
-            {/* NUMBERS */}
             <div className="flex items-center gap-6">
               {caseStudies.map((_, i) => (
                 <button
@@ -226,11 +236,11 @@ export default function SharePointCaseStudies() {
                 </button>
               ))}
 
-              {/* TOTAL */}
+              {/* TOTAL — becomes active on last slide */}
               <span
-                className={`text-sm transition-colors duration-300 ${
+                className={`text-sm tracking-widest transition-all duration-300 ${
                   activeIndex === caseStudies.length - 1
-                    ? "text-white font-medium"
+                    ? "text-white scale-110"
                     : "text-white/40"
                 }`}
               >
@@ -238,7 +248,7 @@ export default function SharePointCaseStudies() {
               </span>
             </div>
 
-            {/* PROGRESS BAR */}
+            {/* Progress bar */}
             <div className="relative w-40 h-[2px] bg-white/20 rounded-full overflow-hidden">
               <div
                 className="absolute left-0 top-0 h-full bg-white transition-all duration-500 ease-out"

@@ -16,8 +16,7 @@ const caseStudies = [
     solution:
       "Developed a dedicated doctor-facing mobile application with secure access to schedules, patient details, and consultation workflows.",
     tech: ["Mobile App Development", "Healthcare Solutions", "UI/UX Design"],
-    image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/10/Wellkies-Doctors-1024x1024.webp",
+    image: "/images/1.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-Doctor-Document.pdf",
   },
   {
@@ -28,8 +27,7 @@ const caseStudies = [
     solution:
       "Built a clinic management mobile app to handle scheduling, staff coordination, and operational workflows from one platform.",
     tech: ["Mobile App Development", "Clinic Management", "System Integration"],
-    image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/10/Wellkies-Clinic-1024x1024.webp",
+    image: "/images/2.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-Clinic-App.pdf",
   },
   {
@@ -44,22 +42,24 @@ const caseStudies = [
       "Patient Experience",
       "Secure Authentication",
     ],
-    image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/10/Wellkies-user-1024x1024.webp",
+    image: "/images/wellkies.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-User-App.pdf",
   },
   {
-    title: "Wellkies Healthcare Website",
+    title: "School Stationery Shopping App",
     category: "Web & Mobile Solutions",
     challenge:
-      "The healthcare platform required a modern, responsive website to support brand presence and user engagement.",
+      "The client needed a scalable eCommerce platform to manage school stationery products with smooth ordering and backend operations.",
     solution:
-      "Developed a responsive healthcare website integrated with the Wellkies mobile ecosystem for a unified digital experience.",
-    tech: ["Web Development", "Responsive Design", "Healthcare Platform"],
-    image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/10/Wellkies-Website-1024x1024.webp",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-Website.pdf",
+      "Developed a full-featured shopping application with a robust backend system, enabling efficient product management, order processing, and seamless user experience.",
+    tech: [
+      "Mobile Application Development",
+      "eCommerce Platform",
+    ],
+    image: "/images/school.png",
+    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/School-Stationery-Shopping-App-Backend-Documentation.docx.pdf",
   },
+
   {
     title: "Live Appointment Booking Mobile App",
     category: "Mobile App Development",
@@ -69,7 +69,7 @@ const caseStudies = [
       "Developed a live appointment booking mobile application with real-time availability, instant confirmations, and streamlined booking flows.",
     tech: ["Mobile App Development", "Real-Time Booking", "UI/UX Design"],
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/11/LIVE-appointment-bookings.webp",
+      "/images/appointment.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/LIVE-appointment-bookings.docx.pdf",
   },
 ];
@@ -122,14 +122,18 @@ export default function MobileAppCaseStudies() {
                   className="relative w-full h-full flex group"
                 >
                   {/* CARD */}
-                  <div className="relative w-full h-full rounded-3xl bg-gradient-to-br from-white/[0.08] via-[#151515] to-[#090909] backdrop-blur-2xl shadow-[0_60px_140px_rgba(0,0,0,0.75)] flex flex-col md:flex-row">
+                  <div
+                    className="relative w-full h-full rounded-3xl  bg-gradient-to-br
+                    from-[#0a1a2f]/80 via-[#050b14]/80 to-[#0a1a2f]/80 backdrop-blur-2xl shadow-[0_60px_140px_rgba(0,0,0,0.75)] flex flex-col md:flex-row"
+                  >
                     {/* IMAGE */}
-                    <div className="relative md:w-1/2 h-[240px] md:h-full overflow-hidden rounded-l-3xl">
+                    <div className="relative md:w-1/2 aspect-[16/10] overflow-hidden rounded-l-3xl">
                       <img
                         src={item.image}
                         alt={item.title}
-                        className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
+                        className="w-full h-full object-cover object-center transition-transform duration-[1200ms] ease-out group-hover:scale-110"
                       />
+
                       <div className="absolute inset-0 bg-gradient-to-tr from-black/75 via-black/30 to-transparent" />
 
                       <div className="absolute top-5 left-5 flex items-center gap-3">
@@ -229,11 +233,19 @@ export default function MobileAppCaseStudies() {
                 </button>
               ))}
 
-              <span className="text-sm text-white/40">
+              {/* TOTAL — becomes active on last slide */}
+              <span
+                className={`text-sm tracking-widest transition-all duration-300 ${
+                  activeIndex === caseStudies.length - 1
+                    ? "text-white scale-110"
+                    : "text-white/40"
+                }`}
+              >
                 / {String(caseStudies.length).padStart(2, "0")}
               </span>
             </div>
 
+            {/* Progress bar */}
             <div className="relative w-40 h-[2px] bg-white/20 rounded-full overflow-hidden">
               <div
                 className="absolute left-0 top-0 h-full bg-white transition-all duration-500 ease-out"
