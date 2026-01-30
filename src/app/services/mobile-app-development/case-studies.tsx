@@ -52,10 +52,7 @@ const caseStudies = [
       "The client needed a scalable eCommerce platform to manage school stationery products with smooth ordering and backend operations.",
     solution:
       "Developed a full-featured shopping application with a robust backend system, enabling efficient product management, order processing, and seamless user experience.",
-    tech: [
-      "Mobile Application Development",
-      "eCommerce Platform",
-    ],
+    tech: ["Mobile Application Development", "eCommerce Platform"],
     image: "/images/school.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/School-Stationery-Shopping-App-Backend-Documentation.docx.pdf",
   },
@@ -68,8 +65,7 @@ const caseStudies = [
     solution:
       "Developed a live appointment booking mobile application with real-time availability, instant confirmations, and streamlined booking flows.",
     tech: ["Mobile App Development", "Real-Time Booking", "UI/UX Design"],
-    image:
-      "/images/appointment.png",
+    image: "/images/appointment.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/LIVE-appointment-bookings.docx.pdf",
   },
 ];
@@ -124,25 +120,28 @@ export default function MobileAppCaseStudies() {
                   {/* CARD */}
                   <div
                     className="relative w-full h-full rounded-3xl  bg-gradient-to-br
-                    from-[#0a1a2f]/80 via-[#050b14]/80 to-[#0a1a2f]/80 backdrop-blur-2xl shadow-[0_60px_140px_rgba(0,0,0,0.75)] flex flex-col md:flex-row"
+from-[#0f0f10] via-[#2a2a2d] to-[#0b0b0c] backdrop-blur-2xl shadow-[0_60px_140px_rgba(0,0,0,0.75)] flex flex-col md:flex-row"
                   >
                     {/* IMAGE */}
-                    <div className="relative md:w-1/2 aspect-[16/10] overflow-hidden rounded-l-3xl">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-full object-cover object-center transition-transform duration-[1200ms] ease-out group-hover:scale-110"
-                      />
+                    <div className="relative md:w-1/2 flex items-center justify-center p-10">
+                      {/* IMAGE WRAPPER */}
+                      <div className="relative w-full max-w-md aspect-[4/3] min-h-[490px] rounded-2xl overflow-hidden border border-white/20 shadow-xl group">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                        />
 
-                      <div className="absolute inset-0 bg-gradient-to-tr from-black/75 via-black/30 to-transparent" />
+                        {/* OVERLAY */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-black/50 via-black/20 to-transparent" />
 
-                      <div className="absolute top-5 left-5 flex items-center gap-3">
-                        <span className="text-[10px] uppercase tracking-[0.3em] px-4 py-1.5 rounded-full bg-black/70 border border-white/20 text-white">
-                          {item.category}
-                        </span>
-                        <span className="text-[11px] uppercase tracking-widest px-4 py-1.5 rounded-full bg-black border border-white/15 text-white">
-                          View case →
-                        </span>
+                        {/* BADGES */}
+                        <div className="absolute top-4 left-4 flex items-center gap-2">
+                          <span className="text-[10px] uppercase tracking-[0.3em] px-3 py-1 rounded-full bg-black/70 border border-white/20 text-white">
+                            {item.category}
+                          </span>
+                          
+                        </div>
                       </div>
                     </div>
 

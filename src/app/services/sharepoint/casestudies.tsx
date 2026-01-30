@@ -38,8 +38,7 @@ const caseStudies = [
     solution:
       "Developed an SPFx solution that opens SharePoint documents inside a panel using file picker integration.",
     tech: ["SPFx", "SharePoint Online", "React"],
-    image:
-      "/images/browse.png",
+    image: "/images/browse.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Inside-a-panel-Browse-Document-From-file-explorer.pdf",
   },
   {
@@ -61,8 +60,7 @@ const caseStudies = [
     solution:
       "Implemented a Power Apps–driven interface to create, update, and manage SharePoint library folders with automation.",
     tech: ["Power Apps", "SharePoint Online", "Power Automate"],
-    image:
-      "/images/manage.png",
+    image: "/images/manage.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2025/03/Managing-SharePoint-Library-Folders-with-Power-Apps-Updated-.pdf",
   },
 ];

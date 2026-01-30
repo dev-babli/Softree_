@@ -1,27 +1,35 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
-import { CALENDLY_URL } from "@/lib/contactConfig";
+import Link from "next/link";
+import { FaReact, FaAndroid, FaApple } from "react-icons/fa";
+import { SiFlutter } from "react-icons/si";
 
 const testimonials = [
   {
-    text: "Softree Technology built a high-performance mobile app that scaled seamlessly with our user growth.",
-    name: "Amit Kulkarni",
-    role: "Founder, Startup Tech",
-  },
-  {
-    text: "Their mobile app team delivered an intuitive UI and rock-solid backend integration.",
-    name: "Sneha Patel",
-    role: "Product Manager, SaaS Company",
-  },
-  {
-    text: "From idea to App Store launch, Softree handled everything professionally.",
+    text: "They delivered our mobile app faster than expected with exceptional quality.",
     name: "Rohit Verma",
-    role: "CTO, Digital Solutions",
+    role: "Co-Founder & CTO",
+  },
+  {
+    text: "Outstanding UI/UX and a very smooth development process from start to launch.",
+    name: "Sneha Patel",
+    role: "Product Manager",
+  },
+  {
+    text: "A reliable team that truly understands scalable mobile app development.",
+    name: "Aarav Mehta",
+    role: "Startup Founder",
+  },
+  {
+    text: "Our iOS and Android apps were built with great performance and attention to detail.",
+    name: "Neha Sharma",
+    role: "CEO, Digital Product",
   },
 ];
 
-export default function MobileAppHero() {
+export default function Hero() {
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(true);
 
@@ -33,7 +41,7 @@ export default function MobileAppHero() {
         setIndex((prev) => (prev + 1) % testimonials.length);
         setVisible(true);
       }, 300);
-    }, 5000);
+    }, 3000); // every 3 seconds
 
     return () => clearInterval(interval);
   }, []);
@@ -41,243 +49,275 @@ export default function MobileAppHero() {
   const active = testimonials[index];
 
   return (
-    <section className="relative bg-[#00091A] pt-24 pb-24 overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0D0057]/70 via-black/40 to-[#240F8E]/30" />
-
-      {/* HERO CONTENT */}
-      <div className="relative z-10 max-w-6xl mx-auto px-4 text-center mt-4">
-        {/* BACKGROUND ACCENTS */}
-        <div className="absolute -top-24 left-1/2 -translate-x-1/2 h-80 w-80 rounded-full bg-blue-500/20 blur-3xl -z-10" />
-        <div className="absolute top-16 right-0 h-56 w-56 rounded-full bg-indigo-500/15 blur-2xl -z-10" />
-
-        {/* EYEBROW */}
-        <div className="mb-6 flex justify-center">
-          <span
-            className="
-        inline-flex items-center gap-2
-        px-5 py-2
-        rounded-full
-        text-xs md:text-sm
-        font-semibold
-        tracking-widest uppercase
-        bg-white/10
-        border border-white/25
-        text-white
-        backdrop-blur-md
-      "
-          >
-            🚀 Mobile App Development
-          </span>
-        </div>
-
-       {/* MAIN HEADING */}
-<h1
-  className="
-    text-3xl md:text-4xl lg:text-5xl xl:text-5xl
-    font-bold
-    leading-[1.25]
-    text-white
-  "
->
-  Build{" "}
-  <span className="text-blue-400">
-    High-Performance
-  </span>{" "}
-  Mobile Applications
-  <br className="hidden md:block" />
-  for{" "}
-  <span className="relative inline-block pb-3">
-    {/* UNDERLINE */}
-    <span
+    <section
       className="
-        absolute
-        left-0 right-0
-        bottom-0
-        h-1.5
-        bg-blue-500/40
-        rounded-full
-      "
-    />
-    <span className="relative text-white/90 font-semibold">
-      iOS & Android
-    </span>
-  </span>
-</h1>
-
-        {/* SUB HEADING */}
-        <p
-          className="
-      mt-8
-      max-w-3xl mx-auto
-      text-lg md:text-xl
-      leading-relaxed
-      text-white/85
-    "
-        >
-          We design and develop{" "}
-          <span className="text-white font-semibold">secure</span>,{" "}
-          <span className="text-white font-semibold">scalable</span>, and{" "}
-          <span className="text-white font-semibold">user-friendly</span> mobile
-          applications using React Native, Flutter, and native technologies —
-          delivering everything from MVPs to{" "}
-          <span className="text-white font-semibold">
-            enterprise-grade solutions
-          </span>
-          .
-        </p>
-
-    {/* CTA SECTION */}
-<div className="mt-16 flex justify-center">
-  <div
-    className="
-      relative
-      flex flex-col sm:flex-row
-      gap-6
-      px-8 sm:px-12
-      py-8
-      rounded-3xl
-      bg-white/10
-      border border-white/20
-      backdrop-blur-xl
-      shadow-[0_30px_80px_rgba(0,0,0,0.45)]
-    "
-  >
-    {/* SOFT GLOW BACKGROUND */}
-    <div className="absolute -top-10 -left-10 h-40 w-40 bg-blue-500/20 blur-3xl rounded-full -z-10" />
-    <div className="absolute -bottom-10 -right-10 h-40 w-40 bg-indigo-500/20 blur-3xl rounded-full -z-10" />
-
-  {/* PRIMARY CTA */}
-<a
-  href={CALENDLY_URL}
-  target="_blank"
-  className="
-    relative
-    inline-flex
-    items-center
-    justify-center
-    px-12
-    py-4
-    rounded-full
-    font-semibold
-    text-white
-    bg-gradient-to-r from-blue-500 via-cyan-400 to-indigo-500
-    shadow-[0_18px_40px_rgba(59,130,246,0.45)]
-    transition-all duration-300
-    hover:scale-105
-    overflow-hidden
+    relative min-h-screen overflow-hidden
+    flex items-center justify-center px-6
+    bg-gradient-to-br from-[#2563eb] via-[#3b82f6] to-[#93c5fd]
   "
->
-  {/* SUBTLE GLASS LAYER */}
-  <span
-    className="
-      absolute inset-0
-      bg-white/10
-      backdrop-blur-sm
-      pointer-events-none
-    "
-  />
+    >
+      {/* BACKGROUND FADE */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black" />
 
-  {/* TEXT */}
-  <span className="relative z-10 whitespace-nowrap">
-    Talk to Our Expert
-  </span>
-</a>
-{/* SECONDARY CTA */}
-<a
-  href="#services"
-  className="
-    relative
-    inline-flex
-    items-center
-    justify-center
-    px-12
-    py-4
-    rounded-full
-    font-semibold
-    text-white
-    border border-white/35
-    bg-white/10
-    backdrop-blur-sm
-    shadow-[0_12px_30px_rgba(0,0,0,0.25)]
-    transition-all duration-300
-    hover:bg-white/15
-    hover:border-white/60
-    hover:scale-105
-    overflow-hidden
-  "
->
-  {/* SOFT HOVER SHEEN */}
-  <span
-    className="
-      absolute inset-0
-      bg-gradient-to-r from-transparent via-white/20 to-transparent
-      opacity-0 hover:opacity-100
-      transition-opacity duration-300
-      pointer-events-none
-    "
-  />
+      {/* HERO CARD */}
+      <div className="relative z-10 max-w-6xl w-full rounded-[28px] bg-[#0f131a]/90 backdrop-blur-2xl border border-white/10 shadow-[0_60px_180px_rgba(0,0,0,0.85)] p-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* ================= LEFT ================= */}
+          <div className="text-white space-y-6">
+            <p className="text-sm font-semibold tracking-wide text-cyan-300">
+              + Mobile App Development
+            </p>
 
-  {/* TEXT */}
-  <span className="relative z-10 whitespace-nowrap">
-    Explore Services
-  </span>
-</a>
+            <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
+              <span className="text-slate-100">THE</span> <br />
+              <span className="text-blue-300">FUTURE</span>{" "}
+              <span className="text-slate-200">OF</span> <br />
+              <span className="text-cyan-300">MOBILE</span>{" "}
+              <span className="text-blue-200">APPS</span>
+            </h1>
 
-  </div>
-</div>
+            <p className="text-white/70 max-w-md">
+              We design and build high-performance mobile applications for iOS
+              and Android—crafted for seamless user experiences, scalability,
+              and real business growth.
+            </p>
 
-      </div>
-
-      {/* ================= TESTIMONIAL ================= */}
-      <div className="relative z-10 mt-10 flex justify-center">
-        <div
-          aria-label="Testimonial quote"
-          className="
-      relative flex gap-6
-      px-10 py-8
-      w-[80%] md:w-[60%] lg:w-[50%]
+            <Link href="/contact">
+              <button
+                className="
+      inline-flex items-center gap-3
       rounded-full
-      backdrop-blur-xl
-      shadow-[0_40px_120px_rgba(0,0,0,0.6)]
+      bg-gradient-to-r from-cyan-400 to-blue-400
+      px-7 py-3
+      font-semibold text-slate-900
+      shadow-lg shadow-cyan-500/30
+      transition-all duration-300
+      hover:scale-105 hover:shadow-cyan-400/50
+      active:scale-95
     "
-          style={{
-            background: `
-        linear-gradient(
-          110deg,
-          rgb(2, 119, 249) 0.09%,
-          rgba(0, 7, 67, 0) 26%
-        ),
-        rgb(1, 7, 67)
-      `,
-          }}
-        >
-          {/* Quote Icon */}
-          <svg
-            className="flex-shrink-0 text-white/70"
-            viewBox="0 0 24 24"
-            height="40"
-            width="40"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path d="M6.5 10c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68..."></path>
-          </svg>
+              >
+                Build Your App
+                <span className="text-lg">→</span>
+              </button>
+            </Link>
+            {/* ================= ROTATING TESTIMONIAL ================= */}
+            <div
+              className={`
+    mt-8 flex gap-4 items-start
+    rounded-2xl
+    bg-gradient-to-br from-white/15 to-white/5
+    p-5
+    border border-white/20
+    backdrop-blur-xl
+    max-w-sm
+    shadow-lg shadow-black/20
+    transition-all duration-500 ease-out
+    ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}
+  `}
+            >
+              {/* Quote Icon */}
+              <div className="flex-shrink-0">
+                <div className="w-10 h-10 flex items-center justify-center rounded-full bg-cyan-400/15">
+                  <svg
+                    className="text-cyan-300"
+                    viewBox="0 0 24 24"
+                    width="22"
+                    height="22"
+                    fill="currentColor"
+                  >
+                    <path d="M6.5 10c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.558-.906 1.491-1.385 2.396-1.385V6C6.57 6 5 7.832 5 10c0 1.657.895 3 2 3 1.105 0 2-.895 2-2s-.895-1-2-1zm8 0c-.223 0-.437.034-.65.065.069-.232.140-.468.254-.68.558-.906 1.491-1.385 2.396-1.385V6c-1.93 0-3.5 1.832-3.5 4 0 1.657.895 3 2 3 1.105 0 2-.895 2-2s-.895-1-2-1z" />
+                  </svg>
+                </div>
+              </div>
 
-          {/* Content */}
-          <div className="flex flex-col justify-center">
-            <p className="text-white/80 text-base md:text-lg leading-relaxed mb-2">
-              "{active.text}"
-            </p>
+              {/* Content */}
+              <div>
+                <p className="text-sm text-blue-100 leading-relaxed mb-2">
+                  “{active.text}”
+                </p>
 
-            <p className="text-right text-white/80 text-sm md:text-base font-medium">
-              — {active.name}
-            </p>
+                <div className="flex items-center gap-2">
+                  <p className="text-sm text-white font-semibold">
+                    {active.name}
+                  </p>
+                  <span className="w-1 h-1 rounded-full bg-white/40" />
+                  <p className="text-xs text-white/60">{active.role}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* ================= RIGHT ================= */}
+          <div className="relative flex justify-center items-center">
+            <div
+              className="
+      relative rounded-[28px] p-3
+      bg-gradient-to-br from-[#0b1220] via-[#020617] to-black
+      border border-white/10
+      backdrop-blur-xl
+      shadow-[0_40px_120px_rgba(0,0,0,0.8)]
+    "
+            >
+              {/* IMAGE */}
+              <div
+                className="relative w-[300px] sm:w-[360px] lg:w-[420px]
+      aspect-square overflow-hidden rounded-[32px]"
+                style={{
+                  clipPath:
+                    "path('M 0 40 Q 0 0 40 0 L 320 0 Q 360 0 360 40 L 360 280 Q 360 360 280 360 L 40 360 Q 0 360 0 320 Z')",
+                }}
+              >
+                <Image
+                  src="/images/1.png"
+                  alt="Mobile App UI"
+                  fill
+                  priority
+                  className="object-cover"
+                />
 
-            <p className="text-right text-white/50 text-xs">{active.role}</p>
+                {/* INNER GLASS HIGHLIGHT */}
+                <div
+                  className="pointer-events-none absolute inset-0 rounded-[22px]
+        ring-1 ring-white/20"
+                />
+              </div>
+
+              {/* TECH STACK PILL */}
+              <div className="relative mt-6 flex justify-center isolate z-10">
+                {/* OUTER PILL */}
+                <div
+                  className="
+          rounded-full p-[6px]
+          bg-white/10
+          backdrop-blur-xl
+          border border-white/10
+          shadow-[0_20px_50px_rgba(0,0,0,0.6)]
+        "
+                >
+                  {/* INNER GLASS PILL */}
+                  <div
+                    className="
+            relative flex items-center justify-center gap-10
+            rounded-full px-10 py-5
+            bg-white/5 backdrop-blur-md
+            ring-1 ring-white/10
+          "
+                  >
+                    {/* ICON – React */}
+                    <div className="group relative flex items-center justify-center">
+                      <div
+                        className="absolute -top-12 opacity-0 scale-95
+              group-hover:opacity-100 group-hover:scale-100
+              transition-all duration-200 pointer-events-none hidden md:block z-20"
+                      >
+                        <div
+                          className="px-4 py-1.5 rounded-full text-[12px]
+                bg-black text-white shadow-lg"
+                        >
+                          React
+                        </div>
+                      </div>
+
+                      <div
+                        className="
+              h-12 w-12 rounded-full
+              bg-gradient-to-br from-[#0f172a] via-[#020617] to-black
+              border border-white/10
+              backdrop-blur-md
+              shadow-[0_8px_30px_rgba(34,211,238,0.35)]
+              flex items-center justify-center
+              transition-all duration-300
+              group-hover:-translate-y-1.5
+              group-hover:shadow-[0_12px_40px_rgba(34,211,238,0.55)]
+              text-cyan-400"
+                      >
+                        <FaReact size={34} />
+                      </div>
+                    </div>
+
+                    <span className="h-1 w-1 rounded-full bg-white/30" />
+
+                    {/* Flutter */}
+                    <div className="group relative flex items-center justify-center">
+                      <div
+                        className="
+              h-12 w-12 rounded-full
+              bg-gradient-to-br from-[#0f172a] via-[#020617] to-black
+              border border-white/10
+              backdrop-blur-md
+              shadow-[0_8px_30px_rgba(56,189,248,0.35)]
+              flex items-center justify-center
+              transition-all duration-300
+              group-hover:-translate-y-1.5
+              group-hover:shadow-[0_12px_40px_rgba(56,189,248,0.55)]
+              text-sky-400"
+                      >
+                        <SiFlutter size={34} />
+                      </div>
+                    </div>
+
+                    <span className="h-1 w-1 rounded-full bg-white/30" />
+
+                    {/* Android */}
+                    <div className="group relative flex items-center justify-center">
+                      <div
+                        className="
+              h-12 w-12 rounded-full
+              bg-gradient-to-br from-[#0f172a] via-[#020617] to-black
+              border border-white/10
+              backdrop-blur-md
+              shadow-[0_8px_30px_rgba(74,222,128,0.35)]
+              flex items-center justify-center
+              transition-all duration-300
+              group-hover:-translate-y-1.5
+              group-hover:shadow-[0_12px_40px_rgba(74,222,128,0.55)]
+              text-green-400"
+                      >
+                        <FaAndroid size={34} />
+                      </div>
+                    </div>
+
+                    <span className="h-1 w-1 rounded-full bg-white/30" />
+
+                    {/* iOS */}
+                    <div className="group relative flex items-center justify-center">
+                      <div
+                        className="
+              h-12 w-12 rounded-full
+              bg-gradient-to-br from-[#0f172a] via-[#020617] to-black
+              border border-white/10
+              backdrop-blur-md
+              shadow-[0_8px_30px_rgba(255,255,255,0.25)]
+              flex items-center justify-center
+              transition-all duration-300
+              group-hover:-translate-y-1.5
+              group-hover:shadow-[0_12px_40px_rgba(255,255,255,0.45)]
+              text-white"
+                      >
+                        <FaApple size={34} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* FLOATING ARROW */}
+              <div
+                className="
+        absolute -top-3 -right-3 h-11 w-11 rounded-full
+        bg-white/10 backdrop-blur-md
+        border border-white/20
+        text-white flex items-center justify-center
+        shadow-lg font-semibold
+      "
+              >
+                ↗
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent" />
     </section>
   );
 }

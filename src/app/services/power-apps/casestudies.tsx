@@ -115,23 +115,30 @@ export default function PowerAppsCaseStudies() {
                   className="relative w-full h-full flex group"
                 >
                   {/* CARD */}
-                  <div className="relative w-full h-full rounded-3xl bg-gradient-to-br from-white/[0.08] via-[#151515] to-[#090909] backdrop-blur-2xl shadow-[0_60px_140px_rgba(0,0,0,0.75)] flex flex-col md:flex-row">
+                  <div
+                    className="relative w-full h-full rounded-3xl  bg-gradient-to-br
+from-[#0f0f10] via-[#2a2a2d] to-[#0b0b0c] backdrop-blur-2xl shadow-[0_60px_140px_rgba(0,0,0,0.75)] flex flex-col md:flex-row"
+                  >
                     {/* IMAGE */}
-                    <div className="relative md:w-1/2 h-[240px] md:h-full overflow-hidden rounded-l-3xl">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-tr from-black/75 via-black/30 to-transparent" />
+                    <div className="relative md:w-1/2 flex items-center justify-center p-10">
+                      {/* IMAGE WRAPPER */}
+                      <div className="relative w-full max-w-md aspect-[4/3] min-h-[490px] rounded-2xl overflow-hidden border border-white/20 shadow-xl group">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                        />
 
-                      <div className="absolute top-5 left-5 flex items-center gap-3">
-                        <span className="text-[10px] uppercase tracking-[0.3em] px-4 py-1.5 rounded-full bg-black/70 border border-white/20 text-white">
-                          {item.category}
-                        </span>
-                        <span className="text-[11px] uppercase tracking-widest px-4 py-1.5 rounded-full bg-black border border-white/15 text-white">
-                          View case →
-                        </span>
+                        {/* OVERLAY */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-black/50 via-black/20 to-transparent" />
+
+                        {/* BADGES */}
+                        <div className="absolute top-4 left-4 flex items-center gap-2">
+                          <span className="text-[10px] uppercase tracking-[0.3em] px-3 py-1 rounded-full bg-black/70 border border-white/20 text-white">
+                            {item.category}
+                          </span>
+                          
+                        </div>
                       </div>
                     </div>
 
@@ -186,37 +193,12 @@ export default function PowerAppsCaseStudies() {
                           onClick={(e) => {
                             e.preventDefault();
                             e.stopPropagation();
-                            router.push("/case-studies/power-apps");
+                            router.push("/case-studies/mobile");
                           }}
-                          className="
-      group relative
-      px-8 sm:px-10 py-3
-      rounded-full
-      bg-black
-      text-[11px] sm:text-xs
-      uppercase tracking-[0.2em]
-      text-white
-      border border-white/20
-      transition-all duration-300
-      hover:border-white/40
-      hover:bg-black
-      whitespace-nowrap
-    "
+                          className="group relative px-8 sm:px-10 py-3 rounded-full bg-black text-[11px] sm:text-xs uppercase tracking-[0.2em] text-white border border-white/20 transition-all duration-300 hover:border-white/40 whitespace-nowrap"
                         >
-                          {/* glow ring */}
-                          <span
-                            className="
-        pointer-events-none
-        absolute inset-0 rounded-full
-        opacity-0 group-hover:opacity-100
-        transition-opacity duration-300
-        shadow-[0_0_0_1px_rgba(255,255,255,0.3),0_0_25px_rgba(255,255,255,0.15)]
-      "
-                          />
-
-                          {/* content */}
                           <span className="relative flex items-center gap-3">
-                            Explore real-world Power Apps solutions
+                            Explore mobile app solutions
                             <span className="transition-transform duration-300 group-hover:translate-x-1">
                               →
                             </span>

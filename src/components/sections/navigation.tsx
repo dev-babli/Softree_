@@ -99,6 +99,14 @@ const menu: MenuItem[] = [
         title: "App Development",
         links: [
           {
+            label: "Softree for Startups",
+            url: "/services/softree-for-startups",
+            icon: Laptop,
+            description:
+              "End-to-end product development to help startups launch faster, scale smarter, and succeed",
+          },
+
+          {
             label: "MVP Development Services",
             url: "/services/mvp",
             icon: Users,
