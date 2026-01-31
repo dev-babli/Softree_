@@ -186,7 +186,7 @@ export default function CaseStudyGrid() {
                   <span
                     className="
               pointer-events-none absolute right-4 top-2
-              text-[56px] font-extrabold text-slate-200 select-none
+              text-[26px] font-extrabold text-black select-none
             "
                   >
                     {String(startIndex + index + 1).padStart(2, "0")}

@@ -3,13 +3,6 @@
 export default function ContactPage() {
   return (
     <section className="relative min-h-screen bg-black text-white overflow-hidden">
-      {/* AURORA BACKGROUND */}
-      <div className="absolute inset-0">
-        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-cyan-500/30 rounded-full blur-[120px]" />
-        <div className="absolute top-1/3 -right-40 w-[600px] h-[600px] bg-blue-600/30 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 left-1/3 w-[500px] h-[500px] bg-indigo-600/20 rounded-full blur-[120px]" />
-      </div>
-
       {/* MAIN GRID */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-20 items-stretch">
         {/* LEFT CONTENT */}
@@ -114,38 +107,37 @@ export default function ContactPage() {
                 placeholder="Briefly describe your project goals, scope, or challenges..."
               />
 
-            <label className="group relative cursor-pointer border-2 border-dashed border-gray-300 rounded-xl p-6 flex flex-col items-center justify-center text-center transition hover:border-cyan-500 hover:bg-cyan-50">
-  <input
-    type="file"
-    multiple
-    className="absolute inset-0 opacity-0 cursor-pointer"
-    accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.png,.jpg,.jpeg"
-  />
+              <label className="group relative cursor-pointer border-2 border-dashed border-gray-300 rounded-xl p-6 flex flex-col items-center justify-center text-center transition hover:border-cyan-500 hover:bg-cyan-50">
+                <input
+                  type="file"
+                  multiple
+                  className="absolute inset-0 opacity-0 cursor-pointer"
+                  accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.png,.jpg,.jpeg"
+                />
 
-  {/* Icon */}
-  <svg
-    className="w-8 h-8 mb-3 text-gray-400 group-hover:text-cyan-500 transition"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={1.5}
-    viewBox="0 0 24 24"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M12 16v-8m0 0l-3 3m3-3l3 3M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2"
-    />
-  </svg>
+                {/* Icon */}
+                <svg
+                  className="w-8 h-8 mb-3 text-gray-400 group-hover:text-cyan-500 transition"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={1.5}
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 16v-8m0 0l-3 3m3-3l3 3M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2"
+                  />
+                </svg>
 
-  {/* Text */}
-  <p className="text-sm font-medium text-gray-700">
-    Upload project brief, RFP, or reference files
-  </p>
-  <p className="text-xs text-gray-500 mt-1">
-    PDF, DOCX, PPT, XLS, JPG (Max 10MB)
-  </p>
-</label>
-
+                {/* Text */}
+                <p className="text-sm font-medium text-gray-700">
+                  Upload project brief, RFP, or reference files
+                </p>
+                <p className="text-xs text-gray-500 mt-1">
+                  PDF, DOCX, PPT, XLS, JPG (Max 10MB)
+                </p>
+              </label>
 
               <div className="space-y-3 text-sm text-gray-700">
                 <label className="flex gap-2 items-center">

@@ -176,7 +176,7 @@ export default function CaseStudyGrid() {
                 </motion.div>
 
                 <div className="relative z-10 flex flex-1 flex-col justify-between gap-4 p-6 bg-white border-t border-slate-200">
-                  <span className="pointer-events-none absolute right-4 top-2 text-[56px] font-extrabold text-slate-200 select-none">
+                  <span className="pointer-events-none absolute right-4 top-2 text-[26px] font-extrabold text-black select-none">
                     {String(startIndex + index + 1).padStart(2, "0")}
                   </span>
 

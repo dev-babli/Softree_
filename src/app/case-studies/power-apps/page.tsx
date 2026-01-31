@@ -3,6 +3,7 @@ import CaseFooter from "../footer";
 import CaseStudyGrid from "./case-study-grid";
 import { Factory, AlertTriangle, Workflow, TrendingUp } from "lucide-react";
 import StartProjectSection from "./start-project";
+import Link from "next/link";
 
 export default function PowerAppsCaseStudiesPage() {
   return (
@@ -19,14 +20,19 @@ export default function PowerAppsCaseStudiesPage() {
               Real-world Power Apps solutions driving business success.
             </p>
 
-            <div className="flex gap-4 mt-8">
-              <button className="bg-white text-blue-700 px-6 py-3 rounded-lg font-medium">
-                Talk to a Power Apps Expert
-              </button>
-              <button className="border border-white/40 px-6 py-3 rounded-lg">
-                View Services
-              </button>
-            </div>
+         <div className="flex gap-4 mt-8">
+  <Link href="/contact">
+    <button className="bg-white text-blue-700 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition">
+      Talk to a Power Apps Expert
+    </button>
+  </Link>
+
+  <Link href="/services/power-apps">
+    <button className="border border-white/40 px-6 py-3 rounded-lg hover:bg-white/10 transition">
+      View Services
+    </button>
+  </Link>
+</div>
           </div>
 
           <div className="relative">

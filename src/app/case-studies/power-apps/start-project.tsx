@@ -79,7 +79,7 @@ export default function ProjectProcessSection() {
             <span className="
               absolute -top-16 left-0
               text-[160px] font-bold
-              text-slate-200 leading-none
+              text-slate-300 leading-none
             ">
               01
             </span>
@@ -113,7 +113,7 @@ export default function ProjectProcessSection() {
             <span className="
               absolute -top-16 left-0
               text-[160px] font-bold
-              text-slate-200 leading-none
+              text-slate-300 leading-none
             ">
               02
             </span>
@@ -146,7 +146,7 @@ export default function ProjectProcessSection() {
             <span className="
               absolute -top-16 left-0
               text-[160px] font-bold
-              text-slate-200 leading-none
+              text-slate-300 leading-none
             ">
               03
             </span>

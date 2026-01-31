@@ -1,6 +1,12 @@
 import NavigationClient from "@/components/sections/navigation-client";
 import ProjectProcessSection from "./start-project";
-import { Factory, AlertTriangle, Workflow, TrendingUp } from "lucide-react";
+import {
+  Factory,
+  AlertTriangle,
+  Workflow,
+  TrendingUp,
+  Link,
+} from "lucide-react";
 import CaseFooter from "../footer";
 import CaseStudyGrid from "./case-study-grid";
 export default function webCaseStudiesPage() {
@@ -21,12 +27,19 @@ export default function webCaseStudiesPage() {
             </p>
 
             <div className="flex gap-4 mt-8">
-              <button className="bg-white text-blue-700 px-6 py-3 rounded-lg font-medium">
-                Talk to a Web Expert
-              </button>
-              <button className="border border-white/40 px-6 py-3 rounded-lg">
-                View Web Services
-              </button>
+              <Link
+                href="/contact"
+                className="bg-white text-blue-700 px-6 py-3 rounded-lg font-medium inline-flex items-center justify-center hover:bg-blue-50 transition"
+              >
+                Talk to a Mobile App Expert
+              </Link>
+
+              <Link
+                href="/services/web-app-development"
+                className="border border-white/40 px-6 py-3 rounded-lg inline-flex items-center justify-center hover:bg-white/10 transition"
+              >
+                View Mobile Services
+              </Link>
             </div>
           </div>
 

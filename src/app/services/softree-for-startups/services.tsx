@@ -134,36 +134,74 @@ export default function ServicesSection() {
               </div>
 
               {/* CONTENT */}
-              <div>
-                <p className="text-6xl font-bold text-white/10 mb-4">
-                  {service.id}
-                </p>
+              <div className="relative group">
+                {/* AMBIENT GLOW */}
+                <div
+                  className="absolute -inset-6 rounded-3xl opacity-0 group-hover:opacity-100
+               bg-gradient-to-r from-blue-500/20 via-cyan-400/10 to-blue-500/20
+               blur-3xl transition duration-700"
+                />
 
-                <h3 className="text-3xl font-semibold mb-4">
-                  <a
-                    href={service.url}
-                    className="hover:text-blue-400 transition"
+                {/* CONTENT WRAPPER */}
+                <div
+                  className="relative rounded-3xl p-8
+               bg-white/5 backdrop-blur-xl
+               border border-white/10
+               transition-all duration-500
+               group-hover:border-blue-400/40
+               group-hover:shadow-[0_20px_60px_-15px_rgba(56,189,248,0.35)]"
+                >
+                  {/* INDEX */}
+                  <p
+                    className="text-8xl font-extrabold mb-4
+                 bg-gradient-to-br from-blue-400/30 via-cyan-400/20 to-transparent
+                 bg-clip-text text-transparent
+                 leading-none select-none"
                   >
-                    {service.title}
-                  </a>
-                </h3>
+                    {service.id}
+                  </p>
 
-                <p className="text-gray-300 mb-6 max-w-xl">
-                  {service.description}
-                </p>
+                  <h3 className="text-3xl font-semibold mb-4 tracking-tight">
+                    <a
+                      href={service.url}
+                      className="relative inline-block
+               text-cyan-300/80
+               hover:text-cyan-300
+               after:absolute after:left-0 after:-bottom-2
+               after:h-[2px] after:w-full
+               after:bg-cyan-400/40
+               after:rounded-full
+               transition"
+                    >
+                      {service.title}
+                    </a>
+                  </h3>
 
-                {service.categories && (
-                  <ul className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-gray-400">
-                    {service.categories.map((cat) => (
-                      <li
-                        key={cat}
-                        className="hover:text-white transition cursor-pointer"
-                      >
-                        {cat}
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                  {/* DESCRIPTION */}
+                  <p className="text-white/70 mb-6 max-w-xl leading-relaxed">
+                    {service.description}
+                  </p>
+
+                  {/* CATEGORIES */}
+                  {service.categories && (
+                    <ul className="flex flex-wrap gap-3">
+                      {service.categories.map((cat) => (
+                        <li
+                          key={cat}
+                          className="px-4 py-1.5 text-sm rounded-full
+                       bg-gradient-to-r from-white/5 to-white/0
+                       border border-white/10
+                       text-white/60
+                       hover:text-white
+                       hover:border-cyan-400/40
+                       transition cursor-pointer"
+                        >
+                          {cat}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
               </div>
             </motion.div>
           ))}

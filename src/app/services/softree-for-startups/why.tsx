@@ -9,9 +9,13 @@ export default function WhySoftreeSection() {
       className="relative bg-black text-white py-24 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6">
-        {/* HEADING */}
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-12">
-          Why Softree — Delivering Outcomes That Matter
+          <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            Why Softree
+          </span>{" "}
+          <span className="text-white/90">
+            — Delivering Outcomes That Matter
+          </span>
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -87,7 +91,7 @@ function StatCard({
     >
       <Icon className="w-8 h-8 text-blue-400 mb-4" strokeWidth={1.5} />
 
-      <strong className="block text-4xl font-bold text-white mb-2">
+      <strong className="block text-4xl font-bold text-blue-400 mb-2">
         {value}
       </strong>
 
