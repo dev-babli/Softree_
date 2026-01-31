@@ -20,19 +20,19 @@ export default function PowerAppsCaseStudiesPage() {
               Real-world Power Apps solutions driving business success.
             </p>
 
-         <div className="flex gap-4 mt-8">
-  <Link href="/contact">
-    <button className="bg-white text-blue-700 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition">
-      Talk to a Power Apps Expert
-    </button>
-  </Link>
+            <div className="flex gap-4 mt-8">
+              <Link href="/contact">
+                <button className="bg-white text-blue-700 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition">
+                  Talk to a Power Apps Expert
+                </button>
+              </Link>
 
-  <Link href="/services/power-apps">
-    <button className="border border-white/40 px-6 py-3 rounded-lg hover:bg-white/10 transition">
-      View Services
-    </button>
-  </Link>
-</div>
+              <Link href="/services/power-apps">
+                <button className="border border-white/40 px-6 py-3 rounded-lg hover:bg-white/10 transition">
+                  View Services
+                </button>
+              </Link>
+            </div>
           </div>
 
           <div className="relative">
@@ -106,8 +106,6 @@ export default function PowerAppsCaseStudiesPage() {
           </svg>
         </div>
       </section>
-
-      <CaseStudyGrid />
       <section className="relative bg-gradient-to-b from-white via-slate-50 to-white">
         {/* Ambient top glow */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_55%)]" />
@@ -205,7 +203,7 @@ export default function PowerAppsCaseStudiesPage() {
           </div>
         </div>
       </section>
-
+      <CaseStudyGrid />
       <section className="relative bg-white py-14">
         <div className="mx-auto max-w-7xl px-6">
           {/* GRID */}

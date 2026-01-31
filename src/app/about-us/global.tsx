@@ -15,7 +15,7 @@ export default function GlobalDelivery() {
         <div className="relative w-full h-[600px] rounded-3xl overflow-hidden">
           {/* Background Image */}
           <img
-            src="/images/global.png"
+            src="/images/map.png"
             alt="Global delivery map"
             className="absolute inset-0 w-full h-full object-cover opacity-80"
           />

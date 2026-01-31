@@ -118,7 +118,6 @@ export default function webCaseStudiesPage() {
           </svg>
         </div>
       </section>
-      <CaseStudyGrid />
       <section className="relative bg-gradient-to-b from-white via-slate-50 to-white">
         {/* Ambient top glow */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_55%)]" />
@@ -208,7 +207,7 @@ export default function webCaseStudiesPage() {
           </div>
         </div>
       </section>
-
+      <CaseStudyGrid />
       <section className="relative bg-white py-14">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid lg:grid-cols-[1fr_auto_1fr] gap-24 items-stretch">

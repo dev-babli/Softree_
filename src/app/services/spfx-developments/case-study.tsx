@@ -14,7 +14,7 @@ const caseStudies = [
       "Developed a custom SPFx panel using Fluent UI to enable seamless copy and move operations within SharePoint lists. The solution reduced manual effort, improved accuracy, and delivered a consistent, intuitive user experience across lists and libraries.",
 
     tech: ["SPFx", "Fluent UI", "SharePoint Online"],
-    image: "/images/custom.png",
+    image: "/images/spfx/copy.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2025/03/Enhancing-SharePoint-List-Management-with-a-Custom-Copy-Move-Panel-Using-SPFx-and-Fluent-UI.pdf",
   },
   {
@@ -32,7 +32,7 @@ const caseStudies = [
     solution:
       "Created a parent SPFx panel with radio-based selection to simplify list and library creation for users.",
     tech: ["SPFx", "React", "SharePoint Online"],
-    image: "/images/parent-panel.png",
+    image: "/images/spfx/list.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/SPFx-1.pdf",
   },
 ];

@@ -21,21 +21,21 @@ export default function MobileCaseStudiesPage() {
               Real-world mobile applications delivering performance, scale, and
               measurable business impact.
             </p>
-<div className="flex gap-4 mt-8">
-  <Link
-    href="/contact"
-    className="bg-white text-blue-700 px-6 py-3 rounded-lg font-medium inline-flex items-center justify-center hover:bg-blue-50 transition"
-  >
-    Talk to a Mobile App Expert
-  </Link>
+            <div className="flex gap-4 mt-8">
+              <Link
+                href="/contact"
+                className="bg-white text-blue-700 px-6 py-3 rounded-lg font-medium inline-flex items-center justify-center hover:bg-blue-50 transition"
+              >
+                Talk to a Mobile App Expert
+              </Link>
 
-  <Link
-    href="/services/mobile-app-development"
-    className="border border-white/40 px-6 py-3 rounded-lg inline-flex items-center justify-center hover:bg-white/10 transition"
-  >
-    View Mobile Services
-  </Link>
-</div>
+              <Link
+                href="/services/mobile-app-development"
+                className="border border-white/40 px-6 py-3 rounded-lg inline-flex items-center justify-center hover:bg-white/10 transition"
+              >
+                View Mobile Services
+              </Link>
+            </div>
           </div>
 
           {/* RIGHT GLASS CARD */}
@@ -210,6 +210,7 @@ export default function MobileCaseStudiesPage() {
           </div>
         </div>
       </section>
+
       <section className="relative bg-white py-14">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid lg:grid-cols-[1fr_auto_1fr] gap-24 items-stretch">
