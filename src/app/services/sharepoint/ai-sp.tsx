@@ -37,27 +37,29 @@ export default function AIDrivenSharePointMigration() {
     <section className=" py-28">
       <div className="max-w-7xl mx-auto px-6">
         {/* Heading */}
-        <div className="mb-20 max-w-4xl">
+        <div className="mb-24 max-w-4xl px-4">
           {/* Eyebrow */}
           <span
-            className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full
-    text-xs font-semibold tracking-wide
-    bg-white/[0.06] text-gray-300 border border-white/10"
+            className="
+      inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full
+      text-xs font-semibold tracking-wider uppercase
+      bg-blue-50 text-blue-600 border border-blue-100
+    "
           >
             Intelligent Migration Comparison
           </span>
 
           {/* Title */}
-          <h2 className="text-3xl md:text-4xl lg:text-4.5xl font-semibold text-white leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-900 leading-tight tracking-tight">
             Why AI-Driven SharePoint Migration
             <br />
-            <span className="text-gray-400 font-medium">
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent font-semibold">
               Outperforms Traditional Approaches
             </span>
           </h2>
 
           {/* Description */}
-          <p className="mt-6 text-base md:text-lg text-gray-400 leading-relaxed max-w-3xl">
+          <p className="mt-6 text-base md:text-lg text-gray-600 leading-relaxed max-w-3xl">
             Traditional SharePoint migration relies heavily on manual processes,
             increasing risk, time, and cost. AI-driven migration introduces
             intelligent automation, deep insights, and predictive analysis to
@@ -67,8 +69,6 @@ export default function AIDrivenSharePointMigration() {
 
         {/* Table Card */}
         <div className="relative rounded-3xl border border-white/10 bg-[#070707] shadow-[0_0_0_1px_rgba(255,255,255,0.02)]">
-        
-
           <div className="overflow-x-auto relative">
             <table className="w-full border-collapse">
               <thead>

@@ -36,16 +36,21 @@ export default function Certifications() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(99,102,241,0.12),transparent_70%)]" />
 
       <div className="relative max-w-7xl mx-auto px-6">
-        {/* Heading */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-light text-white tracking-wide">
-            Certifications & Recognitions
+       {/* Heading */}
+        <div className="text-center mb-20 px-4">
+          <h2 className="text-3xl lg:text-5xl font-semibold text-gray-900 tracking-tight">
+            Certifications &{" "}
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              Recognitions
+            </span>
           </h2>
-          <p className="mt-4 text-gray-400 max-w-2xl mx-auto leading-relaxed">
+
+          <p className="mt-5 text-base lg:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Trusted standards that reinforce our focus on security, compliance,
             and operational excellence.
           </p>
         </div>
+
 
         {/* Cards */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-10">

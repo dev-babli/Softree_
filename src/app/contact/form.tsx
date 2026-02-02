@@ -1,157 +1,233 @@
 "use client";
 
+import { useState } from "react";
+import { UploadCloud, Brain, Handshake, Sparkles } from "lucide-react";
+import { User, Mail, Phone, DollarSign, FileText, Send } from "lucide-react";
+
 export default function ContactPage() {
+  const [files, setFiles] = useState<FileList | null>(null);
+
+  const inputStyle =
+    "w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-800 placeholder-gray-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition";
+
   return (
-    <section className="relative min-h-screen bg-black text-white overflow-hidden">
-      {/* MAIN GRID */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-20 items-stretch">
-        {/* LEFT CONTENT */}
-        <div className="h-full flex flex-col justify-between">
-          {/* TOP TEXT */}
+    <section className="relative min-h-screen bg-white text-gray-900 overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-cyan-50 via-white to-blue-50" />
+
+      {/* ================= MAIN GRID ================= */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-10 lg:py-12 grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-stretch">
+        {/* ================= LEFT PANEL ================= */}
+        <div
+          className="
+      h-full
+      flex flex-col gap-12
+      p-8 lg:p-10
+      rounded-[28px]
+      bg-gradient-to-br from-gray-900 via-gray-800 to-black
+      border border-white/10
+      shadow-xl
+      text-white
+    "
+        >
+          {/* TOP CONTENT */}
           <div>
-            <span className="inline-block mb-4 px-4 py-1 text-sm rounded-full bg-white/10 border border-white/20">
+            <span className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 text-xs font-medium rounded-full bg-white/10 border border-white/20 text-gray-200">
+              <Sparkles className="w-4 h-4 text-cyan-400" />
               Trusted Digital Engineering Partner
             </span>
 
-            <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
-              Powering Businesses with <br />
+            <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
+              Powering Businesses with
+              <br />
               <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                Scalable Digital <br /> Engineering Solutions
+                Scalable Digital Engineering
               </span>
             </h1>
 
-            <p className="mt-6 text-lg text-gray-300 max-w-xl">
+            <p className="mt-5 text-base text-gray-300 max-w-lg">
               Softree helps organizations design, develop, and modernize digital
-              platforms with a focus on performance, security, and long-term
-              scalability.
+              platforms with a focus on performance, security, and scalability.
             </p>
           </div>
 
-          {/* FEATURE CARDS */}
-          <div className="mt-16 grid sm:grid-cols-2 gap-10 max-w-4xl">
+          {/* ================= FEATURE CARDS ================= */}
+          <div className="grid sm:grid-cols-2 gap-5">
             {[
               {
                 title: "Share Your Requirements",
-                desc: "Tell us about your business goals, technical needs, and challenges.",
-                icon: "🧠",
+                desc: "Tell us about your goals and challenges.",
+                icon: Brain,
               },
               {
                 title: "Expert Consultation",
-                desc: "Engage with Softree’s solution architects for a focused discussion.",
-                icon: "🤝",
+                desc: "Connect directly with our architects.",
+                icon: Handshake,
               },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="group relative rounded-3xl p-[1px] bg-gradient-to-br from-cyan-400/40 to-blue-600/40 hover:from-cyan-400 hover:to-blue-600 transition-all duration-500"
-              >
-                <div className="relative h-full rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 p-8 overflow-hidden hover:-translate-y-3 transition duration-500 shadow-lg hover:shadow-[0_40px_80px_rgba(0,255,255,0.18)]">
-                  {/* Glow Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-blue-600/10 opacity-0 group-hover:opacity-100 transition" />
+            ].map((item, i) => {
+              const Icon = item.icon;
 
+              return (
+                <div
+                  key={i}
+                  className="
+    group
+    p-5 rounded-xl
+    bg-gray-800
+    border border-gray-700
+    shadow-sm
+    hover:bg-gray-700
+    hover:shadow-lg
+    hover:-translate-y-1
+    transition-all duration-300
+  "
+                >
                   {/* Icon */}
-                  <div className="relative w-12 h-12 mb-6 flex items-center justify-center rounded-xl bg-white/15 border border-white/20 text-xl">
-                    {item.icon}
+                  <div
+                    className="
+      w-10 h-10 mb-3
+      flex items-center justify-center
+      rounded-lg
+      bg-gray-700
+      group-hover:bg-cyan-500/20
+      transition
+    "
+                  >
+                    <Icon className="w-4 h-4 text-gray-300 group-hover:text-cyan-400" />
                   </div>
 
-                  {/* Content */}
-                  <h3 className="relative text-lg font-semibold mb-2">
+                  {/* Title */}
+                  <h3 className="text-sm font-semibold text-white mb-1">
                     {item.title}
                   </h3>
-                  <p className="relative text-sm text-gray-300 leading-relaxed">
+
+                  {/* Description */}
+                  <p className="text-xs text-gray-400 leading-relaxed">
                     {item.desc}
                   </p>
-
-                  {/* Shine sweep */}
-                  <span className="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:left-full transition-all duration-700" />
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
-        {/* RIGHT FORM */}
-        <div className="relative h-full flex flex-col bg-white/95 text-black rounded-[32px] shadow-[0_40px_120px_rgba(0,0,0,0.4)] p-10">
-          <div className="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-full blur-2xl opacity-60" />
-
+        {/* ================= RIGHT PANEL ================= */}
+        <div
+          className="
+    h-full
+    flex flex-col gap-8
+    p-8 lg:p-10
+    rounded-[28px]
+    bg-gradient-to-bl from-gray-900 via-gray-800 to-black
+    border border-white/10
+    shadow-xl
+    text-white
+  "
+        >
           <div>
-            <h3 className="text-2xl font-semibold mb-2">
+            <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
+              <FileText className="w-5 h-5 text-cyan-400" />
               Start Your Digital Transformation
             </h3>
-            <p className="text-sm text-gray-500 mb-8">
-              Share your requirements and our Softree experts will connect with
-              you to discuss the best solution for your business.
+
+            <p className="text-sm text-gray-400 mb-6">
+              Share your requirements and our experts will connect with you.
             </p>
           </div>
 
-          <form className="space-y-6 flex-1 flex flex-col justify-between">
-            <div className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <input className="input" placeholder="Full Name" />
-                <input className="input" placeholder="Business Email" />
+          <form className="space-y-4">
+            {/* ================= Inputs ================= */}
+
+            {/* Name + Email */}
+            <div className="grid sm:grid-cols-2 gap-3">
+              <div className="relative">
+                <User className="absolute left-3 top-3.5 w-4 h-4 text-gray-400" />
+                <input
+                  className={`${inputStyle} pl-9`}
+                  placeholder="Full Name"
+                />
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-4">
-                <select className="input">
-                  <option>Estimated Project Budget</option>
+              <div className="relative">
+                <Mail className="absolute left-3 top-3.5 w-4 h-4 text-gray-400" />
+                <input
+                  className={`${inputStyle} pl-9`}
+                  placeholder="Business Email"
+                />
+              </div>
+            </div>
+
+            {/* Budget + Phone */}
+            <div className="grid sm:grid-cols-2 gap-3">
+              <div className="relative">
+                <DollarSign className="absolute left-3 top-3.5 w-4 h-4 text-gray-400" />
+                <select className={`${inputStyle} pl-9`}>
+                  <option>Estimated Budget</option>
                   <option>$5k – $10k</option>
                   <option>$10k – $25k</option>
                   <option>$25k+</option>
                 </select>
-                <input className="input" placeholder="Contact Number" />
               </div>
 
-              <textarea
-                rows={4}
-                className="input resize-none"
-                placeholder="Briefly describe your project goals, scope, or challenges..."
-              />
-
-              <label className="group relative cursor-pointer border-2 border-dashed border-gray-300 rounded-xl p-6 flex flex-col items-center justify-center text-center transition hover:border-cyan-500 hover:bg-cyan-50">
+              <div className="relative">
+                <Phone className="absolute left-3 top-3.5 w-4 h-4 text-gray-400" />
                 <input
-                  type="file"
-                  multiple
-                  className="absolute inset-0 opacity-0 cursor-pointer"
-                  accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.png,.jpg,.jpeg"
+                  className={`${inputStyle} pl-9`}
+                  placeholder="Contact Number"
                 />
-
-                {/* Icon */}
-                <svg
-                  className="w-8 h-8 mb-3 text-gray-400 group-hover:text-cyan-500 transition"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 16v-8m0 0l-3 3m3-3l3 3M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2"
-                  />
-                </svg>
-
-                {/* Text */}
-                <p className="text-sm font-medium text-gray-700">
-                  Upload project brief, RFP, or reference files
-                </p>
-                <p className="text-xs text-gray-500 mt-1">
-                  PDF, DOCX, PPT, XLS, JPG (Max 10MB)
-                </p>
-              </label>
-
-              <div className="space-y-3 text-sm text-gray-700">
-                <label className="flex gap-2 items-center">
-                  <input type="checkbox" defaultChecked />
-                  Request a confidentiality agreement (NDA)
-                </label>
-                <label className="flex gap-2 items-center">
-                  <input type="checkbox" />
-                  Subscribe to Softree technology insights
-                </label>
               </div>
             </div>
 
-            <button className="w-full mt-6 bg-gradient-to-r from-cyan-500 to-blue-600 hover:opacity-90 text-white py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition">
+            {/* Description */}
+            <div className="relative">
+              <FileText className="absolute left-3 top-3.5 w-4 h-4 text-gray-400" />
+              <textarea
+                rows={3}
+                className={`${inputStyle} pl-9 resize-none`}
+                placeholder="Briefly describe your project..."
+              />
+            </div>
+
+            {/* ================= Upload ================= */}
+            <label
+              className="
+        group flex flex-col items-center justify-center gap-2
+        cursor-pointer border-2 border-dashed border-white/20
+        rounded-xl p-6
+        bg-white/5
+        hover:border-cyan-400 hover:bg-white/10
+        transition-all
+      "
+            >
+              <input
+                type="file"
+                multiple
+                className="hidden"
+                onChange={(e) => setFiles(e.target.files)}
+              />
+
+              <UploadCloud className="w-5 h-5 text-cyan-400" />
+
+              <p className="text-xs text-gray-300">
+                Drag & Drop or browse files
+              </p>
+            </label>
+
+            {/* ================= Submit ================= */}
+            <button
+              type="submit"
+              className="
+        w-full mt-4
+        flex items-center justify-center gap-2
+        bg-gradient-to-r from-cyan-500 to-blue-600
+        hover:scale-[1.02]
+        text-white
+        py-3 rounded-lg
+        font-medium
+        transition
+      "
+            >
+              <Send className="w-4 h-4" />
               Request Consultation
             </button>
           </form>

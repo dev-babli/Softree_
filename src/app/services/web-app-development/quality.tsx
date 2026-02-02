@@ -1,5 +1,8 @@
 "use client";
 
+import { CheckCircle2 } from "lucide-react";
+import { motion } from "framer-motion";
+
 export default function QualityBenchmarkUltra() {
   const steps = [
     {
@@ -37,128 +40,125 @@ export default function QualityBenchmarkUltra() {
   return (
     <section
       id="plan-pricing"
-      className="relative overflow-hidden bg-gradient-to-b from-black via-[#020d1a] to-black
-  py-36"
+      className="relative overflow-hidden py-32 bg-gradient-to-b from-zinc-50 via-white to-zinc-50"
     >
       <div className="relative mx-auto max-w-7xl px-6">
-        {/* ===== Heading ===== */}
-        <div className="mx-auto mb-32 max-w-4xl text-center">
-          {/* Eyebrow */}
-          <span className="relative mb-6 inline-block text-xs uppercase tracking-[0.3em] text-gray-400">
+        {/* ================= Header ================= */}
+        <div className="mx-auto mb-24 max-w-4xl text-center">
+          <span className="text-xs font-semibold tracking-[0.25em] uppercase text-blue-600">
             Quality Framework
-            <span className="absolute left-1/2 top-full mt-2 h-[2px] w-10 -translate-x-1/2 bg-gradient-to-r from-cyan-400 to-emerald-400" />
           </span>
 
-          {/* Main Heading */}
-          <h2 className="mt-6 text-4xl lg:text-4xl font-light leading-tight text-white">
+          <h2 className="mt-6 text-4xl md:text-5xl font-bold text-gray-900">
             Our Standard for Building{" "}
-            <span className="italic text-emerald-400">Reliable, Scalable</span>{" "}
-            <br />
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              Reliable, Scalable
+            </span>{" "}
             Web Experiences
-            <span className="text-cyan-400">.</span>
           </h2>
-          <p className="mx-auto mt-6 max-w-3xl text-center text-base lg:text-lg leading-relaxed text-gray-400">
-            Our development process is built on proven standards that ensure
-            performance, security, and scalability at every stage. From
-            thoughtful design to production-ready engineering, we follow a
-            disciplined framework that delivers reliable, high-impact digital
-            products.
+
+          <p className="mt-6 text-gray-600 leading-relaxed max-w-3xl mx-auto">
+            We follow a disciplined framework that ensures performance,
+            security, and scalability at every stage — from thoughtful design to
+            production-ready engineering.
           </p>
         </div>
-        {/* ===== Timeline ===== */}
+
+        {/* ================= Timeline ================= */}
         <div className="relative">
-          {/* Timeline Line */}
-          <div
-            className="absolute top-7 left-0 right-0 h-px 
-               bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent"
-          />
+          {/* line */}
+          <div className="hidden md:block absolute top-10 left-0 right-0 h-px bg-gray-200" />
 
-          {/* Steps Grid */}
-          <div
-            className="relative grid grid-cols-1 md:grid-cols-3 
-               gap-10 items-stretch"
-          >
-            {steps.map((item, index) => (
-              <div
-                key={index}
-                className="group flex flex-col items-center w-full h-full"
-              >
-                {/* Step Node */}
-                <div className="relative z-10 mb-10 flex h-16 w-16 items-center justify-center rounded-full bg-[#05070C]">
-                  <div className="absolute inset-0 rounded-full bg-cyan-400/30 blur-md opacity-0 group-hover:opacity-100 transition" />
-                  <div
-                    className="flex h-14 w-14 items-center justify-center rounded-full 
-                       border border-white/20 text-sm font-semibold 
-                       tracking-widest text-white backdrop-blur"
-                  >
-                    {item.step}
-                  </div>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {steps.map((item, index) => {
+              const isFeatured = index === 1; // middle card highlighted
 
-                {/* Card */}
-                <div
-                  className="relative flex h-full w-full flex-col 
-                     min-h-[380px] 
-                     rounded-3xl border border-white/10 
-                     bg-gradient-to-br from-white/[0.08] to-white/[0.02] 
-                     p-10 backdrop-blur-xl 
-                     transition-all duration-300 
-                     group-hover:border-cyan-400/40 
-                     group-hover:scale-[1.02]"
+              return (
+                <motion.div
+                  key={index}
+                  whileHover={{ y: -6 }}
+                  className="relative flex flex-col items-center text-center"
                 >
-                  {/* FULL DIV bottom glow */}
-                  <span
-                    className="pointer-events-none absolute inset-0 rounded-3xl 
-                       bg-gradient-to-t from-cyan-400/20 via-cyan-400/10 to-transparent
-                       opacity-60 blur-2xl"
-                  />
+                  {/* ================= Step Number (mirror style) ================= */}
+                  <div
+                    className="
+                      relative z-10 mb-10
+                      flex h-14 w-14 items-center justify-center
+                      rounded-full
+                      bg-gradient-to-br from-white via-gray-100 to-gray-300
+                      border border-gray-200
+                      shadow-lg
+                      before:absolute before:inset-0 before:rounded-full
+                      before:bg-gradient-to-t before:from-white/40 before:to-transparent
+                    "
+                  >
+                    <span className="text-sm font-semibold text-gray-900">
+                      {item.step}
+                    </span>
+                  </div>
 
-                  {/* Title */}
-                  <h3 className="relative z-10 mb-6 text-center">
-                    <span
-                      className="inline-block rounded-full 
-                         bg-cyan-400/10 
-                         px-4 py-1.5
-                         text-xl font-medium text-white
-                         border border-cyan-400/20"
+                  {/* ================= Card ================= */}
+                  <div
+                    className={`
+                      w-full min-h-[340px]
+                      rounded-3xl p-10
+                      transition-all duration-300
+
+                      ${
+                        isFeatured
+                          ? `
+                            bg-gradient-to-br from-blue-600 to-indigo-600
+                            text-white
+                            shadow-2xl scale-[1.04]
+                          `
+                          : `
+                            bg-white/80 backdrop-blur-xl
+                            border border-gray-200
+                            text-gray-900
+                            shadow-md hover:shadow-xl
+                          `
+                      }
+                    `}
+                  >
+                    {/* Title */}
+                    <h3
+                      className={`mb-6 text-lg font-semibold ${
+                        isFeatured ? "text-white" : "text-gray-900"
+                      }`}
                     >
                       {item.title}
-                    </span>
-                  </h3>
+                    </h3>
 
-                  {/* Content */}
-                  <ul
-                    className="relative z-10 mt-auto space-y-4 text-left text-gray-300 
-                       text-[15.5px] leading-relaxed"
-                  >
-                    {item.points.map((point, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        {/* Circle + Tick */}
-                        <span
-                          className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center 
-                             rounded-full border border-cyan-400/40 
-                             bg-cyan-400/10"
-                        >
-                          <svg
-                            className="h-3 w-3 text-cyan-400"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
+                    {/* Points */}
+                    <ul
+                      className={`space-y-4 text-sm text-left ${
+                        isFeatured ? "text-blue-50" : "text-gray-600"
+                      }`}
+                    >
+                      {item.points.map((point, idx) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          {/* aligned icon */}
+                          <span
+                            className={`
+                              flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5
+                              ${isFeatured ? "bg-white/20" : "bg-blue-50"}
+                            `}
                           >
-                            <path d="M5 13l4 4L19 7" />
-                          </svg>
-                        </span>
+                            <CheckCircle2
+                              className={`w-4 h-4 ${
+                                isFeatured ? "text-white" : "text-blue-600"
+                              }`}
+                            />
+                          </span>
 
-                        <span className="break-words">{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>

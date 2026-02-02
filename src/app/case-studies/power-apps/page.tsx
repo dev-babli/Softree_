@@ -99,14 +99,22 @@ export default function PowerAppsCaseStudiesPage() {
             className="w-full h-[120px]"
             preserveAspectRatio="none"
           >
+            <defs>
+              <linearGradient id="softOffWhite" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#FAFAFA" /> {/* zinc-50 */}
+                <stop offset="50%" stopColor="#FFFFFF" /> {/* white */}
+                <stop offset="100%" stopColor="#FAFAFA" /> {/* zinc-50 */}
+              </linearGradient>
+            </defs>
+
             <path
               d="M0,64 C240,96 480,96 720,80 960,64 1200,32 1440,32 L1440,120 L0,120 Z"
-              fill="#ffffff"
+              fill="url(#softOffWhite)"
             />
           </svg>
         </div>
       </section>
-      <section className="relative bg-gradient-to-b from-white via-slate-50 to-white">
+      <section className="relative bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
         {/* Ambient top glow */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_55%)]" />
 
@@ -204,28 +212,29 @@ export default function PowerAppsCaseStudiesPage() {
         </div>
       </section>
       <CaseStudyGrid />
-      <section className="relative bg-white py-14">
+      <section className="relative bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-16">
         <div className="mx-auto max-w-7xl px-6">
-          {/* GRID */}
           <div className="grid lg:grid-cols-[1fr_auto_1fr] gap-24 items-stretch">
             {/* ================= LEFT CARD ================= */}
             <div
               className="
-    h-full
-    rounded-2xl
-    border border-slate-200
-    bg-white
-    p-10
-    shadow-sm
-    flex flex-col
-  "
+        h-full
+        rounded-2xl
+        border border-slate-200/60
+        bg-white/90
+        backdrop-blur-sm
+        p-10
+        flex flex-col
+        shadow-[0_25px_70px_-25px_rgba(15,23,42,0.18)]
+        hover:-translate-y-1
+        hover:shadow-[0_35px_90px_-25px_rgba(15,23,42,0.25)]
+        transition-all duration-300
+      "
             >
-              {/* Heading */}
               <h2 className="text-5xl font-semibold mb-8 text-slate-900">
                 Why Choose Us
               </h2>
 
-              {/* Intro */}
               <div className="relative pl-10 mb-10">
                 <span className="absolute left-2 top-0 h-full w-px bg-slate-300" />
                 <p className="text-lg text-slate-600 leading-relaxed">
@@ -234,7 +243,6 @@ export default function PowerAppsCaseStudiesPage() {
                 </p>
               </div>
 
-              {/* Bullet List */}
               <ul className="space-y-6 text-lg text-slate-600">
                 {[
                   "Power Platform–first architecture strategy",
@@ -245,7 +253,6 @@ export default function PowerAppsCaseStudiesPage() {
                   "Delivery focused on scale & sustainability",
                 ].map((item, i) => (
                   <li key={i} className="group flex items-start gap-4">
-                    {/* SVG BULLET */}
                     <svg
                       width="20"
                       height="20"
@@ -276,8 +283,7 @@ export default function PowerAppsCaseStudiesPage() {
                       />
                     </svg>
 
-                    {/* Text */}
-                    <span className="leading-relaxed">{item}</span>
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
@@ -285,27 +291,29 @@ export default function PowerAppsCaseStudiesPage() {
 
             {/* ================= CENTER AXIS ================= */}
             <div className="hidden lg:flex justify-center">
-              <div className="w-px h-full bg-gradient-to-b from-transparent via-slate-300 to-transparent" />
+              <div className="w-px h-full bg-gradient-to-b from-transparent via-slate-300/60 to-transparent" />
             </div>
 
             {/* ================= RIGHT CARD ================= */}
             <div
               className="
-    h-full
-    rounded-2xl
-    border border-slate-200
-    bg-white
-    p-10
-    shadow-sm
-    flex flex-col
-  "
+  h-full
+  rounded-2xl
+  border border-slate-200/60
+  bg-white
+  p-10
+  flex flex-col
+  shadow-[0_25px_70px_-25px_rgba(15,23,42,0.18)]
+  hover:-translate-y-1
+  hover:shadow-[0_35px_90px_-25px_rgba(15,23,42,0.25)]
+  transition-all duration-300
+"
             >
               <h2 className="text-5xl font-semibold mb-8 text-slate-900">
                 Tech Stack
               </h2>
 
-              {/* REMOVE mt-auto */}
-              <div className="space-y-10 text-lg text-slate-700">
+              <div className="space-y-10 text-lg text-slate-800">
                 {[
                   {
                     label: "Power Platform",
@@ -327,23 +335,22 @@ export default function PowerAppsCaseStudiesPage() {
                   },
                 ].map((item, i) => (
                   <div key={i}>
-                    {/* LABEL — FIXED */}
+                    {/* darker label for visibility */}
                     <span
                       className="
-            inline-block mb-3
-            rounded-full
-            border border-slate-300
-            bg-blue-500
-            px-4 py-1.5
-            text-xs font-medium
-            uppercase tracking-widest
-            text-slate-700
-          "
+          inline-block mb-3
+          rounded-full
+          bg-blue-600
+          px-4 py-1.5
+          text-xs font-semibold
+          uppercase tracking-widest
+          text-white
+        "
                     >
                       {item.label}
                     </span>
 
-                    <p className="leading-relaxed text-slate-700">
+                    <p className="leading-relaxed text-slate-800">
                       {item.value}
                     </p>
                   </div>

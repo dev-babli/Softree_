@@ -6,7 +6,7 @@ import React from "react";
 const steps = [
   { label: "Discovery & Research", angle: -90 },
   { label: "UI / UX Design", angle: -45 },
-  { label: "Frontend Development", angle: 0 },
+  { label: "Frontend", angle: 5 },
   { label: "Backend Development", angle: 45 },
   { label: "Testing & QA", angle: 90 },
   { label: "Deployment", angle: 135 },
@@ -20,109 +20,71 @@ export default function WebDevelopmentProcess() {
   const radius = 250;
 
   return (
-    <section
-      className="relative bg-gradient-to-b from-black via-[#020d1a] to-black
-   py-28 overflow-hidden"
-    >
+    <section className="relative py-32 bg-gradient-to-b from-white via-gray-50 to-white">
       <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-        <div className="max-w-xl text-left">
-          {/* ===== EYEBROW ===== */}
-          <div className="mb-5 flex items-center gap-3">
-            <span className="text-xs tracking-[0.3em] uppercase text-teal-200">
-              Our Process
-            </span>
-          </div>
+        {/* ================= LEFT CONTENT ================= */}
+        <div className="max-w-xl">
+          {/* Eyebrow */}
+          <span className="text-xs tracking-[0.3em] uppercase text-indigo-600 font-semibold">
+            Our Process
+          </span>
 
-          {/* ===== HEADING ===== */}
-          <h2 className="text-4xl sm:text-5xl xl:text-6xl font-light text-white leading-[1.1]">
-            <span className="block text-teal-400">Web development</span>
-            <span className="block mt-2">process that delivers</span>
-            <span className="block mt-2">results</span>
+          {/* Heading */}
+          <h2 className="mt-5 text-4xl sm:text-5xl xl:text-6xl font-bold leading-[1.1] text-gray-900">
+            Web development process
+            <span className="block mt-2 bg-gradient-to-r from-indigo-600 to-cyan-500 bg-clip-text text-transparent">
+              that delivers results
+            </span>
           </h2>
 
-          {/* ===== BULLET POINTS ===== */}
-          <ul className="mt-8 space-y-4 text-slate-400 text-base">
-            <li className="flex items-start gap-3">
-              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-teal-400" />
-              <span>
-                Strategy-driven approach for{" "}
-                <span className="text-slate-200 font-medium">scalable</span>{" "}
-                solutions
-              </span>
-            </li>
-
-            <li className="flex items-start gap-3">
-              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-teal-400" />
-              <span>
-                Secure architecture built with{" "}
-                <span className="text-slate-200 font-medium">
-                  industry best practices
-                </span>
-              </span>
-            </li>
-
-            <li className="flex items-start gap-3">
-              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-teal-400" />
-              <span>
-                High-performance applications optimized for{" "}
-                <span className="text-slate-200 font-medium">
-                  speed & reliability
-                </span>
-              </span>
-            </li>
+          {/* Bullets */}
+          <ul className="mt-10 space-y-5 text-gray-600 text-base">
+            {[
+              "Strategy-driven approach for scalable solutions",
+              "Secure architecture built with industry best practices",
+              "High-performance apps optimized for speed & reliability",
+            ].map((text, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <span className="mt-2 h-2 w-2 rounded-full bg-indigo-600" />
+                <span>{text}</span>
+              </li>
+            ))}
           </ul>
         </div>
 
         {/* ================= RIGHT DIAGRAM ================= */}
-        <div className="relative flex items-center justify-center overflow-visible">
-          <svg
-            viewBox="0 0 600 600"
-            className="w-full max-w-xl overflow-visible"
-          >
-            {/* Rings */}
-            <circle
-              cx={center}
-              cy={center}
-              r="220"
-              stroke="#1F2937"
-              strokeWidth="2"
-              fill="none"
-            />
-            <circle
-              cx={center}
-              cy={center}
-              r="160"
-              stroke="#1F2937"
-              strokeWidth="2"
-              fill="none"
-            />
-            <circle
-              cx={center}
-              cy={center}
-              r="100"
-              stroke="#1F2937"
-              strokeWidth="2"
-              fill="none"
-            />
+        <div className="relative flex items-center justify-center">
+          <svg viewBox="0 0 600 600" className="w-full max-w-xl">
+            {/* ===== Rings (light gray) ===== */}
+            {[220, 160, 100].map((r) => (
+              <circle
+                key={r}
+                cx={center}
+                cy={center}
+                r={r}
+                stroke="#101112"
+                strokeWidth="2"
+                fill="none"
+              />
+            ))}
 
-            {/* Center Card */}
+            {/* ===== Center Card ===== */}
             <rect
               x="200"
               y="260"
               width="200"
               height="80"
               rx="22"
-              fill="#020617"
-              stroke="#334155"
+              fill="#ffffff"
+              stroke="#e5e7eb"
             />
+
             <text
               x={center}
               y={305}
               textAnchor="middle"
-              fill="#E5E7EB"
               fontSize="14"
               fontWeight="600"
-              letterSpacing="1"
             >
               WEB SUCCESS
             </text>
@@ -132,22 +94,23 @@ export default function WebDevelopmentProcess() {
               x={center}
               y="220"
               textAnchor="middle"
-              fill="#2DD4BF"
-              fontSize="12"
+              fill="#6366f1"
+              fontSize="10"
             >
               Strategy & Planning
             </text>
+
             <text
               x={center}
               y="375"
               textAnchor="middle"
-              fill="#94A3B8"
-              fontSize="12"
+              fill="#6b7280"
+              fontSize="10"
             >
               Continuous Improvement
             </text>
 
-            {/* Process Steps */}
+            {/* ===== Process Steps ===== */}
             {steps.map((step, index) => {
               const rad = (step.angle * Math.PI) / 180;
               const x = center + radius * Math.cos(rad);
@@ -176,20 +139,23 @@ function DiagramLabel({
 }) {
   return (
     <g>
+      {/* pill background */}
       <rect
-        x={x - 90}
+        x={x - 95}
         y={y - 18}
-        width="180"
+        width="190"
         height="36"
         rx="18"
-        fill="#020617"
-        stroke="#334155"
+        fill="#ffffff"
+        stroke="#e5e7eb"
       />
+
+      {/* text */}
       <text
         x={x}
         y={y + 5}
         textAnchor="middle"
-        fill="#E5E7EB"
+        fill="#374151"
         fontSize="12"
         fontWeight="500"
       >

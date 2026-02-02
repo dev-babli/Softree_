@@ -18,7 +18,11 @@ const SECTION_GAP = "space-y-24 py-24";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-black">
+    <main
+      className="relative min-h-screen bg-gradient-to-b from-zinc-50 via-white to-zinc-50
+
+ "
+    >
       <NavigationClient />
       <MvpHero />
       <MvpServices />

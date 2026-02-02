@@ -60,37 +60,42 @@ export default function PowerAppsServices() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="relative bg-#141414 overflow-hidden">
+    <section className="relative  overflow-hidden">
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_40%,rgba(0,180,255,0.15),transparent_55%)]" />
 
       <div className="relative w-[86%] max-w-7xl mx-auto py-16 text-white">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4.5xl font-medium text-white/90 leading-snug">
+        <div className="text-center mb-20 px-4">
+          <h2 className="text-3xl lg:text-5xl font-semibold text-gray-900 leading-tight">
             Power Apps{" "}
             <span className="relative inline-block">
-              Consulting & Development
+              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                Consulting & Development
+              </span>
+
+              {/* Premium underline accent */}
               <span
                 className="
-    absolute left-0 -bottom-3 w-full h-[5px]
-    bg-gradient-to-r
-    from-transparent
-    via-white/40
-    to-transparent
-    rounded-full
-  "
+          absolute left-0 -bottom-3 w-full h-[6px]
+          bg-gradient-to-r
+          from-blue-200
+          via-blue-500/60
+          to-blue-200
+          rounded-full blur-[0.5px]
+        "
               />
             </span>{" "}
             Services
           </h2>
 
-          <p className="max-w-[860px] mx-auto mt-6 text-base leading-relaxed text-white/65">
-            At Softree, we help organizations design and build scalable
-            applications using Microsoft Power Apps. Our team delivers
-            end-to-end solutions — including canvas apps, model-driven apps,
-            portals, system integrations, deployment, and long-term support —
-            tailored to modern business workflows.
+          <p className="max-w-[860px] mx-auto mt-7 text-lg leading-relaxed text-gray-600">
+            At <span className="font-semibold text-gray-900">Softree</span>, we
+            help organizations design and build scalable applications using
+            Microsoft Power Apps. Our team delivers end-to-end solutions —
+            including canvas apps, model-driven apps, portals, system
+            integrations, deployment, and long-term support — tailored to modern
+            business workflows.
           </p>
         </div>
 

@@ -26,10 +26,7 @@ export default function Home() {
       <AboutUsWithTestimonials />
 
       {/* MAIN CONTENT – FIXED WIDTH */}
-      <section
-        className="bg-gradient-to-b from-black via-[#020d1a] to-black
-  py-24"
-      >
+      <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-24">
         <div className={FIXED_WIDTH}>
           <OurStorySection />
           <AgileProcessStack />

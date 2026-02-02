@@ -98,7 +98,11 @@ const techStack = [
 
 export default function MvpTechStackCitrusbug() {
   return (
-    <section className="bg-black py-16 text-white">
+    <section
+      className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50
+
+  py-16 text-white"
+    >
       <div
         className="
     mx-auto 
@@ -106,8 +110,7 @@ export default function MvpTechStackCitrusbug() {
     px-6 
     py-16
     rounded-3xl
-    bg-black
-    bg-[radial-gradient(circle_at_30%_20%,rgba(0, 0, 0, 0.18),transparent_55%)]
+  
     relative
     overflow-hidden
   "
@@ -115,7 +118,7 @@ export default function MvpTechStackCitrusbug() {
         {/* Optional subtle overlay for depth */}
         <div className="pointer-events-none absolute inset-0 rounded-3xl bg-white/5" />
 
-        <h2 className="relative mb-14 text-center text-3xl font-semibold text-white">
+        <h2 className="relative mb-14 text-center text-3xl font-semibold text-black">
           Technology Stack Behind Our MVP Solutions
         </h2>
 

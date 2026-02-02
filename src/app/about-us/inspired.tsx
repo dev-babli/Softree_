@@ -45,23 +45,22 @@ const values = [
 
 export default function InspiredByOurValues() {
   return (
-    <section className=" text-white py-28 ">
+    <section className=" text-black py-28 ">
       <div className="max-w-7xl mx-auto px-6">
-        {/* HEADER */}
-        <div className="mb-24 max-w-3xl mx-auto text-center">
+        {/* ===== HEADER ===== */}
+        <div className="relative mb-20 max-w-3xl mx-auto text-center">
           {/* Eyebrow */}
           <span
             className="
-      inline-block
-      mb-6
+      inline-block mb-6
       px-5 py-2
       rounded-full
-      bg-cyan-400/10
+      bg-gradient-to-r from-cyan-500/15 to-blue-500/15
+      border border-cyan-400/20
       text-cyan-400
-      text-xs
-      font-semibold
-      uppercase
-      tracking-[0.3em]
+      text-xs font-semibold
+      uppercase tracking-[0.25em]
+      backdrop-blur-sm
     "
           >
             What drives us
@@ -70,11 +69,9 @@ export default function InspiredByOurValues() {
           {/* Heading */}
           <h2
             className="
-      text-4xl md:text-5xl
-      font-semibold
-      leading-snug
-      text-white
-      mb-6
+      text-4xl md:text-5xl font-bold leading-tight mb-6
+      bg-gradient-to-r from-cyan-600 via-blue-500 to-indigo-600
+      bg-clip-text text-transparent
     "
           >
             Values That Define Our Work
@@ -84,10 +81,9 @@ export default function InspiredByOurValues() {
           <p
             className="
       text-base md:text-lg
-      text-gray-400
+      text-gray-600
       leading-relaxed
-      max-w-2xl
-      mx-auto
+      max-w-2xl mx-auto
     "
           >
             Our values guide every decision we make—from how we collaborate with
@@ -109,9 +105,13 @@ export default function InspiredByOurValues() {
                   relative
                   overflow-hidden
                   rounded-3xl
-                  bg-gradient-to-br from-neutral-900 via-neutral-800 to-black
-                  backdrop-blur-xl
-                  border border-white/10
+                  bg-white
+                    bg-white
+
+    border border-white/10
+    backdrop-blur-2xl
+    shadow-[0_40px_120px_rgba(0,0,0,0.75)]
+                
                   p-10
                   transition-all duration-500
                   hover:-translate-y-2
@@ -153,43 +153,67 @@ export default function InspiredByOurValues() {
                 />
 
                 {/* ICON */}
-                <div className="relative z-10 mb-10">
+                <div className="relative z-10 mb-8">
                   <div
                     className="
-                      w-20 h-20
-                      rounded-2xl
-                      flex items-center justify-center
-                      bg-white/10
-                      border border-white/20
-                      transition duration-500
-                      group-hover:scale-110
-                      shadow-[0_0_30px_rgba(255,255,255,0.15)]
-                    "
+      w-16 h-16
+      rounded-2xl
+      flex items-center justify-center
+
+      bg-gradient-to-br from-cyan-500 to-blue-600
+      text-white
+
+      shadow-[0_10px_25px_rgba(37,99,235,0.35),0_0_35px_rgba(37,99,235,0.25)]
+
+      group-hover:scale-110
+      transition-transform duration-300
+    "
                   >
-                    <Icon size={40} strokeWidth={1.5} className="text-white" />
+                    <Icon size={26} strokeWidth={1.8} />
                   </div>
                 </div>
 
-                {/* CONTENT */}
-                <div className="relative z-10">
-                  <h4 className="relative text-2xl font-semibold mb-5 tracking-tight">
+                {/* ===== CONTENT ===== */}
+                <div className="relative z-10 space-y-3">
+                  {/* TITLE */}
+                  <h4
+                    className="
+      relative
+      text-xl font-semibold
+      text-slate-900
+      tracking-tight
+      pl-5
+    "
+                  >
+                    {/* accent bar */}
                     <span
                       className="
         absolute
-        -left-6
-        top-1/2
+        left-0 top-1/2
         -translate-y-1/2
-        h-6
-        w-[2px]
+        h-5 w-[3px]
+        rounded-full
         bg-gradient-to-b
-        from-white
-        to-gray-500
+        from-cyan-500
+        to-blue-600
       "
                     />
+
                     {item.title}
                   </h4>
 
-                  <p className="text-gray-400 leading-relaxed">{item.desc}</p>
+                  {/* DESCRIPTION */}
+                  <p
+                    className="
+      text-sm
+      text-slate-600
+      leading-relaxed
+      group-hover:text-slate-700
+      transition-colors
+    "
+                  >
+                    {item.desc}
+                  </p>
                 </div>
 
                 {/* AMBIENT SOFT GLOW */}

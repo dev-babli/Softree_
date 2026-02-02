@@ -100,9 +100,7 @@ export default function MvpProcessLeftRight() {
 
   return (
     <section
-      className="relative py-24 text-white bg-gradient-to-b from-black via-[#020d1a] to-black
- "
-    >
+      className="relative py-24 text-white bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
       {/* 7xl BACKGROUND CONTAINER */}
       <div className="absolute inset-0 flex justify-center">
         <div

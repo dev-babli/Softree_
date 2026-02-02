@@ -175,7 +175,10 @@ export default function CaseStudyGrid() {
   const visibleCaseStudies = CASE_STUDIES.slice(startIndex, endIndex);
 
   return (
-    <section className="relative bg-white">
+    <section
+      className="relative bg-gradient-to-b from-zinc-50 via-white to-zinc-50
+"
+    >
       <div className="mx-auto max-w-7xl px-6 py-24">
         {/* ================= HEADER ================= */}
         <div className="mb-20 text-center">
@@ -218,7 +221,7 @@ export default function CaseStudyGrid() {
                 className="
           group relative overflow-hidden rounded-3xl
           bg-white border border-slate-200
-          shadow-[0_20px_40px_-20px_rgba(15,23,42,0.25)]
+              shadow-[0_40px_80px_-40px_rgba(15,23,42,0.25)]
           flex flex-col h-full
           transition-all duration-300
           hover:shadow-[0_30px_60px_-25px_rgba(15,23,42,0.35)]

@@ -1,4 +1,6 @@
 "use client";
+import { MapPin, Phone } from "lucide-react";
+
 
 const locations = [
   {
@@ -62,73 +64,112 @@ const locations = [
 
 export default function GlobalLocations() {
   return (
-    <section className="bg-black py-24 text-white">
+    <section className="bg-white py-24 text-gray-900">
+      {/* subtle background */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-cyan-50 via-white to-blue-50" />
+
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-3xl lg:text-4xl font-bold">Global Locations</h2>
 
-        <p className="max-w-3xl text-gray-300 mb-16">
+        <p className="max-w-3xl text-gray-600 mb-16">
           Softree operates across key global markets to deliver scalable,
           secure, and future-ready digital solutions. Our distributed presence
-          enables us to collaborate closely with clients, ensure faster
-          delivery, and provide localized support worldwide.
+          enables us to collaborate closely with clients, ensure faster delivery,
+          and provide localized support worldwide.
         </p>
 
-        {/* GRID */}
-        <div className="grid lg:grid-cols-2 gap-14">
-          {locations.map((loc, i) => (
-            <div
-              key={i}
-              className={`grid md:grid-cols-2 rounded-2xl overflow-hidden border border-white/10 ${
-                loc.highlight ? "bg-indigo-600" : "bg-white/5 backdrop-blur-xl"
-              }`}
-            >
-              {/* MAP */}
-              <iframe
-                className="w-full h-[320px] grayscale contrast-125"
-                src={loc.map}
-                loading="lazy"
-              />
+{/* ================= LOCATIONS GRID ================= */}
+<div className="grid lg:grid-cols-2 gap-8">
+  {locations.map((loc, i) => (
+    <div
+      key={i}
+      className="
+        group
+        grid md:grid-cols-2
+        rounded-3xl overflow-hidden
+        border border-white/10
+        bg-gradient-to-br from-gray-900 to-gray-800
+        shadow-lg
+        hover:shadow-2xl hover:-translate-y-1
+        transition-all duration-300
+      "
+    >
+      {/* ================= MAP ================= */}
+      <div className="relative h-[320px] md:h-[340px]">
+        <iframe
+          className="w-full h-full grayscale group-hover:grayscale-0 transition duration-500"
+          src={loc.map}
+          loading="lazy"
+        />
 
-              {/* CONTENT */}
-              <div className="p-8 relative">
-                <h3 className="text-xl font-semibold mb-4">{loc.title}</h3>
+        <div className="absolute inset-0 bg-black/10 pointer-events-none" />
+      </div>
 
-                <p
-                  className={`text-sm leading-relaxed ${
-                    loc.highlight ? "opacity-90" : "text-gray-300"
-                  }`}
-                >
-                  {loc.address}
-                </p>
+    {/* ================= CONTENT ================= */}
+<div
+  className="
+    relative
+    p-8
+    flex flex-col justify-between
+    bg-gradient-to-br from-gray-800/90 to-gray-900
+    backdrop-blur
+    text-white
+  "
+>
+  {/* Top info */}
+  <div className="space-y-5">
 
-                <p
-                  className={`mt-6 font-medium ${
-                    loc.highlight ? "text-white" : "text-indigo-400"
-                  }`}
-                >
-                  {loc.phone}
-                </p>
+    {/* Title */}
+    <h3 className="text-lg font-semibold flex items-center gap-2">
+      <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-cyan-500/20">
+        <MapPin className="w-4 h-4 text-cyan-400" />
+      </span>
+      {loc.title}
+    </h3>
 
-                {/* Icon */}
-                <div className="absolute bottom-6 right-6 w-10 h-10 bg-indigo-600 text-white rounded-xl flex items-center justify-center shadow-lg">
-                  📍
-                </div>
+    {/* Address */}
+    <p className="text-sm text-gray-300 leading-relaxed border-l-2 border-cyan-500/30 pl-4">
+      {loc.address}
+    </p>
+  </div>
 
-                {/* Decorative dots for HQ */}
-                {loc.highlight && (
-                  <div className="absolute bottom-6 left-8 flex gap-2">
-                    {Array.from({ length: 6 }).map((_, i) => (
-                      <span
-                        key={i}
-                        className="w-2 h-2 rounded-full bg-white/40"
-                      />
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
+
+  {/* Bottom section */}
+  <div className="mt-8 space-y-4">
+
+    {/* Phone */}
+    <div className="flex items-center gap-3 text-gray-200">
+      <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-gray-700">
+        <Phone className="w-4 h-4 text-cyan-400" />
+      </span>
+      <span className="font-medium">{loc.phone}</span>
+    </div>
+
+    {/* CTA */}
+    <a
+      href={loc.map}
+      target="_blank"
+      className="
+        inline-flex items-center justify-center gap-2
+        text-sm font-medium
+        bg-cyan-500/10
+        hover:bg-cyan-500/20
+        text-cyan-400
+        px-4 py-2 rounded-lg
+        transition
+        w-fit
+      "
+    >
+      <MapPin className="w-4 h-4" />
+      Get Directions
+    </a>
+  </div>
+</div>
+
+    </div>
+  ))}
+</div>
+
       </div>
     </section>
   );

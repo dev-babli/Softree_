@@ -43,7 +43,7 @@ const processSteps = [
 
 export default function PowerAppsProcessSection() {
   return (
-    <section className="relative bg-black py-12 overflow-visible">
+    <section className="relative py-12 overflow-visible">
       {/* Background glow */}
       <div
         className="absolute inset-0 pointer-events-none -z-20

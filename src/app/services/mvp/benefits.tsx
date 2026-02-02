@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { Zap, Users, TrendingUp, Heart } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+
 const items = [
   {
     title: "Faster Time to Market",
@@ -12,19 +14,19 @@ const items = [
   {
     title: "Extended Engineering Power",
     description:
-      "Instantly strengthen your team with the right skills, senior expertise, and scalable resources tailored to your product goals and timelines.",
+      "Instantly strengthen your team with the right skills, senior expertise, and scalable resources tailored to your goals and timelines.",
     icon: Users,
   },
   {
     title: "Built for Long-Term Growth",
     description:
-      "We design MVPs with scalability in mind, ensuring your architecture, tech stack, and decisions support future expansion—not short-term fixes.",
+      "We design MVPs with scalability in mind so your architecture supports future expansion — not temporary fixes.",
     icon: TrendingUp,
   },
   {
     title: "Startup-First Mindset",
     description:
-      "Having built products ourselves, we deeply understand startup constraints, risks, and pressures—allowing us to guide decisions with empathy and clarity.",
+      "Having built products ourselves, we understand startup constraints and guide decisions with empathy and clarity.",
     icon: Heart,
   },
 ];
@@ -33,168 +35,115 @@ export default function MvpBenefitsAccordion() {
   const [active, setActive] = useState<number | null>(0);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-black via-[#020d1a] to-black
-  text-white">
-      <div className="relative mx-auto max-w-7xl px-6 py-28">
-        {/* Header */}
+    <section className="relative py-36 overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white">
+      {/* ===== Background Glows ===== */}
+      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl" />
+      <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-3xl" />
+
+      <div className="relative mx-auto max-w-7xl px-6">
+        {/* ================= HEADER ================= */}
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
-            Benefits of Our MVP { }
-            <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-              Development Services
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-gray-900">
+            Benefits of Our{" "}
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              MVP Development Services
             </span>
           </h2>
 
-          <p className="mt-6 text-base leading-relaxed text-neutral-300">
-            Building an MVP is a critical step toward validating your idea and
-            entering the market. With the right development partner, you can
-            reduce risk, accelerate delivery, and lay a strong foundation for
-            future growth.
+          <p className="mt-6 text-gray-600 leading-relaxed">
+            Reduce risk, accelerate delivery, and build scalable products with a
+            trusted MVP development partner.
           </p>
         </div>
 
-        <div className="mt-20 border-t border-white/10" />
-
-        {/* Accordion */}
-        <ul className="mt-2 divide-y divide-white/10">
+        {/* ================= ACCORDION ================= */}
+        <div className="mt-24 space-y-6">
           {items.map((item, index) => {
             const open = active === index;
             const Icon = item.icon;
 
             return (
-              <li
+              <motion.div
                 key={index}
-                className="relative group transition-transform duration-300 hover:translate-x-[2px]"
+                layout
+                transition={{ type: "spring", stiffness: 120, damping: 20 }}
+                className={`
+                  group relative overflow-hidden rounded-3xl
+                  border border-gray-200/70
+                  bg-white/70 backdrop-blur-xl
+                  shadow-xl
+                  hover:shadow-2xl
+                  transition-all duration-300
+                `}
               >
-                {/* Hover / Active Line */}
-                <span
-                  className={`
-                    pointer-events-none
-                    absolute left-0 right-0 top-0
-                    h-[3px]
-                    bg-blue-500
-                    origin-left
-                    transition-transform duration-300 ease-out
-                    ${open ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}
-                  `}
+                {/* Left animated accent */}
+                <motion.div
+                  animate={{ height: open ? "100%" : "0%" }}
+                  transition={{ duration: 0.4 }}
+                  className="absolute left-0 top-0 w-1 bg-gradient-to-b from-blue-600 to-indigo-600 rounded-l-3xl"
                 />
 
-                {/* Row */}
+                {/* Header */}
                 <button
                   onClick={() => setActive(open ? null : index)}
-                  className="
-                    flex w-full items-center justify-between py-10 text-left
-                    transition-all duration-300
-                    hover:bg-white/[0.035]
-                  "
+                  className="flex w-full items-center justify-between p-8 text-left"
                 >
-                  <div className="flex items-center gap-4">
-                    {/* Number */}
-                    <span
+                  <div className="flex items-center gap-6">
+                    {/* Icon */}
+                    <motion.div
+                      animate={{
+                        scale: open ? 1.15 : 1,
+                      }}
                       className={`
-      flex h-8 w-8 items-center justify-center
-      rounded-full
-      text-sm font-semibold
-      transition-all duration-300
-      ${
-        open
-          ? "bg-blue-500 text-white"
-          : "bg-white/10 text-white/70 group-hover:bg-blue-500/20"
-      }
-    `}
+                        flex h-14 w-14 items-center justify-center rounded-2xl
+                        transition-all duration-300
+                        ${
+                          open
+                            ? "bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-500/30"
+                            : "bg-blue-50 text-blue-600"
+                        }
+                      `}
                     >
-                      {index + 1}
-                    </span>
+                      <Icon className="h-6 w-6" />
+                    </motion.div>
 
                     {/* Title */}
-                    <span className="text-xl font-medium tracking-tight">
+                    <h3 className="text-lg md:text-xl font-semibold text-gray-900">
                       {item.title}
-                    </span>
+                    </h3>
                   </div>
 
-                  {/* Plus / Minus */}
-                  <span
-                    className="
-                      flex h-11 w-11 items-center justify-center
-                      rounded-full
-                      border border-white/25
-                      text-white
-                      transition-all duration-300
-                      hover:bg-blue-500/10 hover:border-blue-400/40
-                    "
+                  {/* Plus */}
+                  <motion.span
+                    animate={{ rotate: open ? 45 : 0 }}
+                    className="text-3xl font-light text-gray-400"
                   >
-                    {open ? (
-                      <svg width="14" height="2" viewBox="0 0 14 2">
-                        <rect
-                          width="14"
-                          height="2"
-                          rx="1"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    ) : (
-                      <svg width="14" height="14" viewBox="0 0 14 14">
-                        <rect
-                          x="6"
-                          width="2"
-                          height="14"
-                          rx="1"
-                          fill="currentColor"
-                        />
-                        <rect
-                          y="6"
-                          width="14"
-                          height="2"
-                          rx="1"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    )}
-                  </span>
+                    +
+                  </motion.span>
                 </button>
 
-                {/* Floating Card */}
-                {open && (
-                  <div className="relative pb-14">
-                    <div
-                      className="
-                        ml-auto mt-6 max-w-xl
-                        rounded-2xl
-                        bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700
-                        p-8
-                        shadow-[0_30px_80px_rgba(59,130,246,0.6)]
-                        border border-blue-300/40
-                        animate-[fadeSlide_0.35s_ease-out]
-                      "
+                {/* Content */}
+                <AnimatePresence>
+                  {open && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.35 }}
+                      className="px-8 pb-8"
                     >
-                      <div className="flex gap-6 items-start">
-                        {/* Icon */}
-                        <div
-                          className="
-                            flex h-12 w-12 shrink-0 items-center justify-center
-                            rounded-xl
-                            bg-white/20
-                            border border-white/40
-                          "
-                        >
-                          <Icon
-                            className="h-6 w-6 text-white"
-                            strokeWidth={1.75}
-                          />
-                        </div>
-
-                        {/* Text */}
-                        <p className="text-sm leading-relaxed text-white">
+                      <div className="border-t pt-6">
+                        <p className="text-gray-600 leading-relaxed max-w-2xl">
                           {item.description}
                         </p>
                       </div>
-                    </div>
-                  </div>
-                )}
-              </li>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             );
           })}
-        </ul>
+        </div>
       </div>
     </section>
   );

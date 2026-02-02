@@ -81,22 +81,28 @@ export default function TimelinePage() {
         {/* Header */}
         <div className="relative overflow-hidden py-28 px-4 text-center">
           {/* Content */}
-          <div className="relative max-w-7xl mx-auto">
+          <div className="relative max-w-7xl mx-auto text-center px-4">
+            {/* Badge */}
             <span
-              className="inline-block mb-6 px-4 py-1.5 text-xs md:text-sm font-medium tracking-wide rounded-full 
-      bg-white/10 text-blue-400 border border-white/10"
+              className="
+      inline-block mb-6 px-4 py-1.5
+      text-xs md:text-sm font-semibold tracking-widest uppercase
+      text-blue-600
+    "
             >
               SharePoint & Microsoft 365 Solutions
             </span>
 
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white mb-6">
+            {/* Heading */}
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900 mb-6">
               SharePoint-Driven{" "}
-              <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                 Digital Transformation
               </span>
             </h2>
 
-            <p className="text-gray-400 text-sm md:text-lg max-w-3xl mx-auto leading-relaxed">
+            {/* Description */}
+            <p className="text-gray-600 text-sm md:text-lg max-w-3xl mx-auto leading-relaxed">
               Exploring Softree’s journey in building secure, scalable
               SharePoint and Microsoft 365 solutions that empower modern
               enterprise collaboration, automation, and governance.
@@ -107,56 +113,82 @@ export default function TimelinePage() {
         {/* Timeline Section */}
         <div className="relative py-3">
           <div className="max-w-6xl mx-auto border border-white/10 rounded-3xl px-6 md:px-12 lg:px-16 relative overflow-hidden">
-            {/* Glow */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(99,102,241,0.15),transparent_65%)] pointer-events-none" />
-
             {/* Timeline */}
-            <div ref={ref} className="relative max-w-5xl mx-auto pb-32 pt-10">
+            <div
+              className="
+    relative max-w-7xl mx-auto pb-32 pt-12 px-6 md:px-10
+
+    rounded-3xl
+    bg-gradient-to-b from-gray-50 via-white to-gray-100
+    backdrop-blur-md
+
+    border border-gray-200
+    shadow-[0_25px_80px_rgba(0,0,0,0.06)]
+  "
+            >
               {data.map((item, index) => (
                 <div
                   key={index}
                   className="flex gap-12 pt-24 md:pt-32 relative"
                 >
-                  {/* Dot + Year */}
+                  {/* ================= Dot + Year ================= */}
                   <div className="relative flex flex-col items-center w-24">
                     <div className="relative z-10 flex items-center justify-center">
-                      <div className="h-5 w-5 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 shadow-[0_0_15px_rgba(99,102,241,0.8)]" />
-                      <div className="absolute h-10 w-10 rounded-full border border-blue-500/30" />
+                      {/* mirror blue dot */}
+                      <div className="h-4 w-4 rounded-full bg-blue-600 shadow-[0_0_12px_rgba(37,99,235,0.45)]" />
+
+                      {/* subtle ring */}
+                      <div className="absolute h-9 w-9 rounded-full border border-blue-200" />
                     </div>
-                    <span className="mt-6 text-gray-400 text-xl font-semibold">
+
+                    <span className="mt-6 text-gray-900 text-xl font-semibold">
                       {item.title}
                     </span>
                   </div>
 
-                  {/* Content Card */}
+                  {/* ================= Content Card ================= */}
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     viewport={{ once: true }}
-                    className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:p-8 text-gray-300 text-sm md:text-base leading-relaxed max-w-xl
-                               hover:border-blue-500/30 hover:shadow-[0_0_30px_rgba(99,102,241,0.15)] transition-all"
+                    className="
+          relative
+
+          bg-white/80 backdrop-blur-lg
+          border border-gray-200
+          rounded-2xl
+
+          p-6 md:p-8
+          text-gray-700
+          text-sm md:text-base
+          leading-relaxed
+          max-w-xl
+
+          shadow-[0_10px_30px_rgba(0,0,0,0.05)]
+          hover:-translate-y-2
+          hover:shadow-[0_25px_70px_rgba(37,99,235,0.12)]
+
+          transition-all duration-300
+        "
                   >
                     {item.content}
                   </motion.div>
                 </div>
               ))}
 
-              {/* Vertical Line */}
+              {/* ================= Vertical Line ================= */}
               <div
                 style={{ height }}
-                className="absolute left-[48px] top-0 w-[2px] overflow-hidden"
+                className="absolute left-[48px] top-0 w-[2px]"
               >
-                {/* Faded base line */}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/20 to-transparent" />
+                {/* base line */}
+                <div className="absolute inset-0 bg-gray-300" />
 
-                {/* Glow layer */}
-                <div className="absolute inset-0 blur-md bg-gradient-to-b from-purple-500/20 via-blue-500/30 to-transparent" />
-
-                {/* Animated fill */}
+                {/* animated fill */}
                 <motion.div
                   style={{ height: heightTransform, opacity: opacityTransform }}
-                  className="absolute top-0 w-[2px] bg-gradient-to-b from-purple-400 via-blue-500 to-transparent rounded-full"
+                  className="absolute top-0 w-[2px] bg-gradient-to-b from-blue-600 to-indigo-600 rounded-full"
                 />
               </div>
             </div>

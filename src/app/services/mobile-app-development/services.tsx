@@ -84,39 +84,51 @@ export default function ServicesShowcaseExactImage() {
 
   return (
     <section className="relative overflow-hidden pb-24 py-12">
-      {/* ================= SECTION HEADER ================= */}
-      <div className="max-w-4xl mx-auto text-center mb-20">
-        {/* Eyebrow */}
-        <span
-          className="inline-block mb-4 px-4 py-1.5 rounded-full
-    text-xs uppercase tracking-[0.3em]
-    text-cyan-100
-    bg-cyan-400/10 border border-cyan-400/20"
-        >
-          What We Offer
-        </span>
+   {/* ================= SECTION HEADER ================= */}
+<div className="max-w-4xl mx-auto text-center mb-24">
 
-        {/* Title */}
-        <h2 className="relative text-4xl md:text-5xl font-semibold text-white mb-6">
-          Mobile App Development Services
-          <span
-            className="
-    absolute left-0 -bottom-3 w-full h-[5px]
-    bg-gradient-to-r
-    from-transparent
-    via-white/40
-    to-transparent
+  {/* Eyebrow */}
+  <span
+    className="
+    inline-flex items-center
+    mb-5 px-4 py-1.5
     rounded-full
-  "
-          />
-        </h2>
+    text-xs font-semibold uppercase tracking-[0.3em]
 
-        {/* Description */}
-        <p className="text-gray-400 text-base md:text-lg max-w-3xl mx-auto">
-          Scalable, secure, and high-performance mobile solutions tailored to
-          your business goals and user expectations.
-        </p>
-      </div>
+    bg-blue-50
+    text-blue-600
+    border border-blue-100
+  "
+  >
+    What We Offer
+  </span>
+
+
+  {/* Title */}
+  <h2 className="relative text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+    Mobile App Development Services
+
+    {/* subtle premium underline */}
+    <span
+      className="
+      absolute left-1/2 -bottom-3
+      -translate-x-1/2
+      w-24 h-[3px]
+      rounded-full
+      bg-gradient-to-r from-blue-600 to-cyan-500
+    "
+    />
+  </h2>
+
+
+  {/* Description */}
+  <p className="text-gray-600 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+    Scalable, secure, and high-performance mobile solutions tailored to your
+    business goals and user expectations.
+  </p>
+
+</div>
+
 
       {/* ================= CONNECTED WRAPPER ================= */}
       <div className="relative max-w-7xl mx-auto px-6">
@@ -134,10 +146,7 @@ export default function ServicesShowcaseExactImage() {
           <div
             className="
       relative p-6 rounded-3xl
-      bg-gradient-to-br
-        from-[#1b1b1b]
-        via-[#121212]
-        to-[#0b0b0b]
+      bg-gray-100
       backdrop-blur-xl
       border border-white/10
       shadow-[0_24px_80px_rgba(0,0,0,0.7)]
@@ -186,7 +195,7 @@ export default function ServicesShowcaseExactImage() {
                         ${
                           isActive
                             ? "text-white"
-                            : "text-gray-300 group-hover:text-white"
+                            : "text-gray-600 group-hover:text-gray-700"
                         }
                       `}
                             >
@@ -199,7 +208,7 @@ export default function ServicesShowcaseExactImage() {
                         ${
                           isActive
                             ? "text-white translate-x-1"
-                            : "text-gray-500 group-hover:text-white group-hover:translate-x-1"
+                            : "text-gray-800 group-hover:text-gray-700 group-hover:translate-x-1"
                         }
                       `}
                             >
@@ -213,7 +222,7 @@ export default function ServicesShowcaseExactImage() {
                       ${
                         isActive
                           ? "text-gray-400"
-                          : "text-gray-500 group-hover:text-gray-400"
+                          : "text-gray-500 group-hover:text-gray-700"
                       }
                     `}
                           >
@@ -233,10 +242,7 @@ export default function ServicesShowcaseExactImage() {
             className="
     relative overflow-hidden rounded-3xl
     border border-white/10
-    bg-gradient-to-br
-      from-[#1b1b1b]
-      via-[#121212]
-      to-[#0b0b0b]
+    bg-gray-100
     shadow-[0_24px_80px_rgba(0,0,0,0.7)]
   "
           >
@@ -264,28 +270,66 @@ export default function ServicesShowcaseExactImage() {
               />
               <div className="absolute inset-0 bg-black/50" />
             </div>
-
             {/* CONTENT */}
             <div className="p-10">
+              {/* Header */}
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
+                {/* Icon */}
+                <div
+                  className="
+      w-11 h-11
+      rounded-xl
+      bg-gradient-to-br from-blue-600 to-cyan-500
+      flex items-center justify-center
+      shadow-md
+    "
+                >
                   <active.icon size={22} className="text-white" />
                 </div>
 
-                <h3 className="text-xl font-semibold text-white uppercase tracking-wide">
+                {/* Title */}
+                <h3 className="text-xl font-semibold text-gray-900 uppercase tracking-wide">
                   {active.title}
                 </h3>
               </div>
 
-              <p className="text-gray-400 mb-6 max-w-xl leading-relaxed">
+              {/* Description */}
+              <p className="text-gray-700 mb-6 max-w-xl leading-relaxed">
                 {active.description}
               </p>
 
-              <ul className="space-y-2 text-gray-300">
+              <ul className="space-y-3">
                 {active.bullets.map((item, i) => (
-                  <li key={i} className="flex gap-2">
-                    <span className="text-gray-500">•</span>
-                    <span>{item}</span>
+                  <li key={i} className="flex gap-3 items-start">
+                    {/* Circle Tick */}
+                    <span
+                      className="
+        mt-1 shrink-0
+        w-5 h-5
+        rounded-full
+        bg-blue-600
+        text-white
+        flex items-center justify-center
+        shadow-sm
+      "
+                    >
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    </span>
+
+                    <span className="text-gray-700 text-sm leading-relaxed">
+                      {item}
+                    </span>
                   </li>
                 ))}
               </ul>

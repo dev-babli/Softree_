@@ -28,36 +28,41 @@ const models = [
 
 export default function EngagementModels() {
   return (
-    <section className="relative text-white">
+    <section className="relative text-black">
       <div className="max-w-7xl mx-auto px-6 py-12">
         {/* ===== HEADER ===== */}
-        <div className="max-w-4xl mx-auto mb-24 text-center">
+        <div className="relative max-w-4xl mx-auto mb-20 text-center">
           {/* Eyebrow */}
           <span
             className="
-          inline-block
-          mb-6
-          px-5 py-2
-          rounded-full
-          bg-cyan-400/10
-          text-cyan-400
-          text-xs
-          font-semibold
-          uppercase
-          tracking-[0.3em]
-        "
+      inline-block mb-6
+      px-5 py-2
+      rounded-full
+      bg-gradient-to-r from-cyan-500/20 to-blue-500/20
+      border border-cyan-400/20
+      text-cyan-400
+      text-xs font-semibold
+      uppercase tracking-[0.3em]
+      backdrop-blur-sm
+    "
           >
             Engagement Models
           </span>
 
           {/* Title */}
-          <h2 className="text-4xl md:text-5xl font-semibold leading-tight mb-6">
+          <h2
+            className="
+      text-4xl md:text-5xl font-bold leading-tight mb-6
+      bg-gradient-to-r from-cyan-500 via-blue-700 to-indigo-500
+      bg-clip-text text-transparent
+    "
+          >
             Engagement Models That Adapt <br />
             to Your Business Vision
           </h2>
 
           {/* Subheader */}
-          <p className="text-lg text-neutral-300 leading-relaxed max-w-3xl mx-auto">
+          <p className="text-lg text-gray-400 leading-relaxed max-w-3xl mx-auto">
             Every organization operates differently—and your delivery model
             should reflect that. Our engagement approaches align with your
             strategy, pace, and level of involvement while keeping outcomes
@@ -74,7 +79,7 @@ export default function EngagementModels() {
     py-8
     overflow-hidden
 
-  bg-gradient-to-br from-neutral-900 via-neutral-800 to-black
+  bg-white
 
     border border-white/10
     backdrop-blur-2xl
@@ -114,65 +119,79 @@ export default function EngagementModels() {
                 <div
                   key={i}
                   className="
-            group
-            relative
-            px-10
-            py-8
-            text-left
-            transition
-            hover:bg-white/[0.035]
-          "
+    group
+    relative
+    px-10
+    py-10
+    text-left
+    rounded-2xl
+    transition-all duration-300
+
+    bg-white
+    border border-slate-200/70
+    shadow-[0_15px_40px_-10px_rgba(15,23,42,0.12)]
+
+    hover:-translate-y-1
+    hover:shadow-[0_25px_60px_-10px_rgba(15,23,42,0.18)]
+    hover:bg-slate-50
+  "
                 >
-                  {/* Icon */}
+                  {/* ===== ICON ===== */}
                   <div className="mb-6">
                     <div
                       className="
-                w-14 h-14 rounded-full
-                bg-gradient-to-br from-white to-neutral-200
-                flex items-center justify-center
-                shadow-md
-                group-hover:scale-110
-                transition-transform
-              "
+        w-14 h-14
+        rounded-xl
+        flex items-center justify-center
+
+        bg-gradient-to-br
+        from-cyan-500
+        to-blue-600
+
+        text-white
+        shadow-[0_10px_25px_rgba(37,99,235,0.35)]
+
+        group-hover:scale-110
+        transition-transform
+      "
                     >
-                      <Icon size={24} className="text-neutral-900" />
+                      <Icon size={22} strokeWidth={1.8} />
                     </div>
                   </div>
 
-                  {/* Title */}
-                  <h3 className="relative text-lg font-semibold mb-4 pb-3 text-white">
+                  {/* ===== TITLE ===== */}
+                  <h3
+                    className="
+      relative
+      text-lg
+      font-semibold
+      mb-4
+      pb-3
+
+      bg-gradient-to-r
+      from-cyan-600
+      to-blue-700
+      bg-clip-text
+      text-transparent
+    "
+                  >
                     {item.title}
+
                     <span
                       className="
-                absolute left-0 bottom-0
-                h-px w-12
-                bg-gradient-to-r
-                from-cyan-400
-                to-transparent
-              "
+        absolute left-0 bottom-0
+        h-[2px] w-12
+        bg-gradient-to-r
+        from-cyan-500
+        to-transparent
+      "
                     />
                   </h3>
 
-                  {/* Description */}
-                  <p className="text-sm text-neutral-300 leading-relaxed">
+                  {/* ===== DESCRIPTION ===== */}
+                  <p className="text-sm text-slate-600 leading-relaxed">
                     {item.desc}
                   </p>
-
-                  {/* Hover glow */}
-                  <div
-                    className="
-              pointer-events-none
-              absolute inset-0
-              opacity-0
-              group-hover:opacity-100
-              transition
-              rounded-3xl
-              bg-gradient-to-br
-              from-cyan-400/10
-              via-transparent
-              to-purple-500/10
-            "
-                  />
                 </div>
               );
             })}

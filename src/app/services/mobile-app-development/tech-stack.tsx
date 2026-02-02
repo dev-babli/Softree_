@@ -70,7 +70,7 @@ export default function TechnologiesTabs() {
   /* ===== Smooth indicator alignment ===== */
   useEffect(() => {
     const activeBtn = tabsRef.current?.querySelector<HTMLButtonElement>(
-      `[data-tab="${activeTab}"]`
+      `[data-tab="${activeTab}"]`,
     );
 
     if (!activeBtn || !indicatorRef.current || !tabsRef.current) return;
@@ -83,7 +83,7 @@ export default function TechnologiesTabs() {
   }, [activeTab]);
 
   return (
-    <section className="relative py-12 px-4 overflow-hidden">
+    <section className="relative px-4 overflow-hidden">
       {/* ===== PURE BLACK BACKGROUND ===== */}
       <div className="absolute inset-0 -z-10 bg-black" />
       <div className="absolute inset-0 -z-10 bg-noise opacity-[0.015]" />
@@ -96,27 +96,55 @@ export default function TechnologiesTabs() {
       />
 
       <div className="max-w-7xl mx-auto">
-        {/* ===== ADVANCED HEADER (FINAL) ===== */}
-        <div className="relative text-center mb-28">
-          {/* Eyebrow */}
-          <span className="block mb-4 text-[11px] tracking-[0.35em] uppercase text-gary-400">
+        {/* ===== ADVANCED HEADER (PREMIUM LIGHT) ===== */}
+        <div className="relative text-center mb-32 max-w-5xl mx-auto px-6">
+          {/* Top soft divider */}
+          <div className="mx-auto mb-10 w-16 h-[2px] bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
+
+          {/* Eyebrow Badge */}
+          <span
+            className="
+    inline-flex items-center
+    px-5 py-2 mb-6
+    rounded-full
+
+    text-[11px] font-semibold
+    tracking-[0.35em] uppercase
+
+    bg-gradient-to-b from-white to-gray-50
+    text-blue-600
+    border border-gray-200
+    shadow-sm
+  "
+          >
             Technology Stack
           </span>
 
           {/* Title */}
-          <h2 className="relative inline-block text-4xl md:text-5xl font-semibold tracking-tight text-white">
-            Built with proven, future-ready {}
-            <span className="text-white">Technologies</span>
-            <span className="absolute left-1/2 -bottom-4 -translate-x-1/2 h-px w-24 bg-gray-100" />
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-tight">
+            Built with proven, future-ready{" "}
+            <span
+              className="
+      bg-gradient-to-r
+      from-blue-600
+      via-cyan-500
+      to-blue-600
+      bg-clip-text
+      text-transparent
+    "
+            >
+              Technologies
+            </span>
           </h2>
 
           {/* Description */}
-          <p className="mt-10 max-w-xl mx-auto text-sm md:text-base leading-relaxed text-zinc-400">
+          <p className="mt-8 max-w-2xl mx-auto text-gray-600 text-base md:text-lg leading-relaxed">
             A carefully curated technology stack that empowers us to build
             high-performance, secure, and scalable digital solutions with
             long-term reliability.
           </p>
         </div>
+
         {/* ================= TABS ================= */}
         <div className="flex justify-center">
           <div className="relative w-full max-w-6xl">
@@ -125,7 +153,7 @@ export default function TechnologiesTabs() {
               className="
         relative flex flex-wrap justify-center gap-4
         rounded-t-2xl px-6 py-4
-        bg-white/5 backdrop-blur-lg
+        bg-black backdrop-blur-lg
         border border-white/10 border-b-0
       "
             >
@@ -150,8 +178,8 @@ export default function TechnologiesTabs() {
         </div>
         {/* ================= CARDS ================= */}
         <div className="flex justify-center">
-          <div className="relative w-full max-w-6xl">
-            <div className="relative rounded-b-2xl bg-zinc-950/80 border border-white/10 border-t-0">
+          <div className="relative w-full max-w-6xl shadow-[0_24px_80px_rgba(0,0,0,0.7)]">
+            <div className="relative rounded-b-2xl bg-gray-100 border border-white/10 border-t-0">
               {/* Subtle inner glow */}
               <div className="absolute inset-0 rounded-b-2xl bg-white/5 pointer-events-none" />
 

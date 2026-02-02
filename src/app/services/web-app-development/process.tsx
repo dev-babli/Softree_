@@ -1,50 +1,115 @@
 "use client";
 
-import { Clock, Users, Headset, CheckCircle2, ArrowRight } from "lucide-react";
+import {
+  Clock,
+  Users,
+  Headset,
+  CheckCircle2,
+  ArrowRight,
+} from "lucide-react";
 
 export default function HireNextJsPricing() {
   return (
     <section
       id="plan-pricing"
-      className="relative overflow-hidden bg-black py-12"
+      className="relative py-28 bg-gradient-to-b from-gray-50 via-white to-gray-50"
     >
-      <div className="relative mx-auto max-w-7xl px-6">
-        {/* Heading */}
-        <h2 className="mb-24 text-center text-4xl lg:text-5xl font-light text-white">
-          Hire <span className="text-cyan-400">Next.js Developers</span> for
-          Scalable & High-Performance Applications
+      <div className="mx-auto max-w-7xl px-6">
+
+        {/* ================= HEADING ================= */}
+        <h2 className="mb-24 text-center text-4xl lg:text-5xl font-semibold text-gray-900">
+          Hire{" "}
+          <span className="bg-gradient-to-r from-indigo-600 to-cyan-500 bg-clip-text text-transparent">
+            Next.js Developers
+          </span>{" "}
+          for Scalable & High-Performance Applications
         </h2>
 
-        {/* Main Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
-          {/* Left Highlights */}
-          <div className="flex flex-col gap-6">
-            {[
-              {
-                icon: Clock,
-                title: "Flexible Engagement",
-              },
-              {
-                icon: Users,
-                title: "Senior Next.js Experts",
-              },
-              {
-                icon: Headset,
-                title: "Dedicated Support",
-              },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.08] to-white/[0.02] p-6 backdrop-blur-xl transition hover:border-cyan-400/40"
-              >
-                <item.icon className="h-8 w-8 text-cyan-100" />
-                <h3 className="text-white font-medium">{item.title}</h3>
-              </div>
-            ))}
-          </div>
 
-          {/* Pricing Cards */}
+
+        {/* ================= MAIN GRID ================= */}
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+
+        {/* ================= LEFT HIGHLIGHTS ================= */}
+<div className="flex flex-col gap-6">
+
+  {[
+    { icon: Clock, title: "Flexible Engagement" },
+    { icon: Users, title: "Senior Next.js Experts" },
+    { icon: Headset, title: "Dedicated Support" },
+  ].map((item, i) => (
+    <div
+      key={i}
+      className="
+        group relative overflow-hidden
+
+        flex items-center gap-5
+        rounded-2xl
+
+        bg-gradient-to-br from-white via-white to-sky-50
+        border border-gray-200
+
+        p-6
+
+        shadow-[0_6px_18px_rgba(0,0,0,0.05)]
+        hover:shadow-[0_14px_40px_rgba(0,0,0,0.10)]
+
+        hover:-translate-y-1
+        transition-all duration-300
+      "
+    >
+
+      {/* ===== Bottom rounded gradient accent ===== */}
+      <span
+        className="
+          absolute inset-x-0 bottom-0
+          h-[4px]
+          rounded-b-2xl
+          bg-gradient-to-r
+          from-indigo-600
+          via-cyan-500
+          to-indigo-600
+          opacity-70
+          group-hover:opacity-100
+          transition
+        "
+      />
+
+      {/* ===== Icon container ===== */}
+      <div
+        className="
+          relative
+          h-11 w-11
+          flex items-center justify-center
+          rounded-xl
+
+          bg-indigo-50
+          text-indigo-600
+
+          group-hover:bg-indigo-600
+          group-hover:text-white
+
+          transition
+        "
+      >
+        <item.icon className="h-5 w-5" />
+      </div>
+
+      {/* ===== Text ===== */}
+      <h3 className="text-gray-900 font-medium tracking-tight">
+        {item.title}
+      </h3>
+
+    </div>
+  ))}
+
+</div>
+
+
+
+          {/* ================= PRICING CARDS ================= */}
           <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-8">
+
             {[
               {
                 title: "Hourly Engagement",
@@ -74,70 +139,101 @@ export default function HireNextJsPricing() {
             ].map((plan, i) => (
               <div
                 key={i}
-                className={`relative rounded-3xl p-10 backdrop-blur-xl transition-all duration-300
-    ${
-      plan.highlight
-        ? `
-          border border-white/30
-          bg-gradient-to-br from-white/[0.12] via-white/[0.06] to-black/40
-          shadow-[0_30px_80px_-30px_rgba(255,255,255,0.35)]
-        `
-        : `
-          border border-white/10
-          bg-gradient-to-br from-white/[0.08] to-white/[0.02]
-          hover:border-white/20
-        `
-    }
-  `}
+                className={`
+                  relative rounded-3xl p-10
+                  transition-all duration-300
+
+                  ${
+                    plan.highlight
+                      ? `
+                        bg-gradient-to-br
+                        from-indigo-600
+                        via-indigo-700
+                        to-cyan-600
+                        text-white
+                        border-transparent
+                        shadow-[0_25px_70px_rgba(79,70,229,0.45)]
+                        scale-[1.06]
+                      `
+                      : `
+                        bg-white
+                        border border-gray-200
+                        shadow-sm
+                        hover:shadow-lg
+                      `
+                  }
+                `}
               >
-                {/* Badge */}
+
+                {/* ===== BADGE ===== */}
                 {plan.highlight && (
-                  <span
-                    className="
-        absolute -top-4 left-1/2 -translate-x-1/2
-        rounded-full
-        bg-white
-        px-4 py-1
-        text-xs font-semibold text-black
-        shadow-md
-      "
-                  >
+                  <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-white text-indigo-700 px-4 py-1 text-xs font-semibold shadow-md">
                     RECOMMENDED
                   </span>
                 )}
 
-                {/* Title */}
-                <h3 className="mb-8 text-xl font-medium text-white">
+
+                {/* ===== TITLE ===== */}
+                <h3
+                  className={`mb-8 text-xl font-semibold ${
+                    plan.highlight ? "text-white" : "text-gray-900"
+                  }`}
+                >
                   {plan.title}
                 </h3>
 
-                {/* Features */}
+
+                {/* ===== FEATURES ===== */}
                 <ul className="space-y-4">
                   {plan.features.map((f, idx) => (
                     <li
                       key={idx}
-                      className="flex gap-3 text-gray-300 leading-relaxed"
+                      className={`flex gap-3 leading-relaxed ${
+                        plan.highlight ? "text-white/90" : "text-gray-600"
+                      }`}
                     >
-                      <CheckCircle2 className="h-5 w-5 text-white/80 shrink-0" />
+                      <CheckCircle2
+                        className={`h-5 w-5 shrink-0 ${
+                          plan.highlight
+                            ? "text-white"
+                            : "text-indigo-600"
+                        }`}
+                      />
                       <span>{f}</span>
                     </li>
                   ))}
                 </ul>
+
               </div>
             ))}
+
           </div>
         </div>
 
-        {/* CTA */}
+
+
+        {/* ================= CTA ================= */}
         <div className="mt-24 text-center">
           <a
             href="#contact-us"
-            className="group inline-flex items-center gap-3 rounded-full bg-cyan-100 px-10 py-4 text-sm font-semibold text-black transition hover:bg-cyan-300"
+            className="
+              inline-flex items-center gap-3
+              rounded-full
+              bg-gradient-to-r from-indigo-600 to-cyan-500
+              px-10 py-4
+              text-sm font-semibold
+              text-white
+              shadow-md
+              hover:shadow-lg
+              hover:scale-105
+              transition
+            "
           >
             Get a Free Consultation
             <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
           </a>
         </div>
+
       </div>
     </section>
   );

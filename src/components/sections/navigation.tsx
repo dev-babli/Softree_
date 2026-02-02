@@ -259,8 +259,24 @@ export function Navigation() {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/80   backdrop-blur">
-      <nav className="mx-auto  flex h-16 max-w-7xl items-center justify-between rounded-full border bg-background/80 px-6 shadow-lg backdrop-blur-xl">
+    <header
+      className="sticky top-0 z-50 w-full 
+  bg-gradient-to-b from-zinc-50 via-white to-zinc-50
+  backdrop-blur-md border-b border-zinc-200/60"
+    >
+      <nav
+        className="
+    mx-auto flex h-16 max-w-7xl items-center justify-between
+    rounded-full
+    px-6
+
+    bg-white/80
+    backdrop-blur-xl
+
+    border border-zinc-200
+    shadow-lg
+  "
+      >
         {/* LEFT: Logo + Navigation */}
         <div className="flex items-center gap-8">
           {/* Logo */}
@@ -285,23 +301,23 @@ export function Navigation() {
          SHARED PILL CLASS
       ======================= */
                 const navPillClass = `
-        px-5 py-2.5
-        rounded-full
-        overflow-hidden
+  px-5 py-2.5
+  rounded-full
+  overflow-hidden
 
-        text-[15px] font-medium leading-none
-        text-foreground
+  text-[15px] font-medium leading-none
+  text-zinc-800
 
-        !bg-transparent
-        hover:bg-blue-500/10
-        focus:bg-blue-500/10
+  bg-transparent
+  hover:bg-blue-500/10
+  focus:bg-blue-500/10
 
-        shadow-[inset_0_-4px_0_0_rgba(0,0,0,0)]
-        hover:shadow-[inset_0_-4px_0_0_rgb(59,130,246)]
+  shadow-[inset_0_-4px_0_0_rgba(0,0,0,0)]
+  hover:shadow-[inset_0_-4px_0_0_rgb(59,130,246)]
 
-        hover:text-blue-500
-        transition-all duration-300
-      `;
+  hover:text-blue-600
+  transition-all duration-300
+`;
 
                 /* =======================
          SERVICES (MEGA MENU)
@@ -336,44 +352,74 @@ export function Navigation() {
                       <NavigationMenuContent>
                         <div
                           className="
-          mt-3 grid w-[980px] grid-cols-3 gap-8
-          rounded-2xl border p-8 shadow-xl backdrop-blur-lg
-          bg-gradient-to-br from-black via-zinc-900 to-zinc-800
-        "
+      relative mt-4
+
+      grid w-[980px] grid-cols-3 gap-10
+      p-10 rounded-3xl
+
+      bg-gradient-to-b from-white via-zinc-50 to-white
+      backdrop-blur-2xl
+
+      border border-zinc-200/70
+      shadow-[0_20px_60px_rgba(0,0,0,0.08)]
+    "
                         >
                           {item.children.map((section) => (
                             <div key={section.title}>
-                              <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                              {/* Section Title */}
+                              <h4 className="mb-5 text-xs font-semibold uppercase tracking-wider text-zinc-500">
                                 {section.title}
                               </h4>
 
                               <ul className="space-y-3">
                                 {section.links.map((link) => {
                                   const LinkIcon = link.icon;
+
                                   return (
                                     <li key={link.label}>
                                       <a
                                         href={link.url}
                                         className="
-                        group flex items-start gap-4 rounded-xl p-3
-                        border border-transparent
-                        transition-all duration-300
-                        hover:border-foreground/20
-                        hover:shadow-sm
-                        hover:-translate-y-[1px]
-                      "
+                    group flex items-start gap-4
+                    rounded-xl p-4
+
+                    bg-white/60
+                    border border-transparent
+
+                    transition-all duration-300 ease-out
+
+                    hover:bg-white
+                    hover:border-zinc-200
+                    hover:shadow-md
+                    hover:-translate-y-1
+                  "
                                       >
+                                        {/* Icon */}
                                         {LinkIcon && (
-                                          <div className="flex h-10 w-10 items-center justify-center rounded-lg border bg-background group-hover:border-primary/40 group-hover:bg-primary/5">
-                                            <LinkIcon className="h-4 w-4" />
+                                          <div
+                                            className="
+                        flex h-10 w-10 items-center justify-center
+                        rounded-lg
+                        border border-zinc-200
+                        bg-zinc-100
+
+                        transition
+                        group-hover:bg-blue-50
+                        group-hover:border-blue-200
+                      "
+                                          >
+                                            <LinkIcon className="h-4 w-4 text-zinc-700 group-hover:text-blue-600" />
                                           </div>
                                         )}
+
+                                        {/* Text */}
                                         <div className="flex flex-col">
-                                          <span className="text-sm font-medium text-foreground/90">
+                                          <span className="text-sm font-medium text-zinc-900 group-hover:text-blue-600 transition">
                                             {link.label}
                                           </span>
+
                                           {link.description && (
-                                            <span className="text-xs text-muted-foreground">
+                                            <span className="text-xs text-zinc-500">
                                               {link.description}
                                             </span>
                                           )}

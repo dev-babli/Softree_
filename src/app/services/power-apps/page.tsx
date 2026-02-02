@@ -27,7 +27,7 @@ export default function Home() {
       <PowerAppsHero />
 
       {/* MAIN CONTENT SECTIONS */}
-      <section className="bg-black">
+      <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
         <div className={`${SECTION_WRAPPER} ${SECTION_GAP}`}>
           <PowerAppsCaseStudies />
           <PowerAppsServices />

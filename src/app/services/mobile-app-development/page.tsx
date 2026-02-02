@@ -28,7 +28,7 @@ export default function Home() {
       <MobileAppHero />
 
       {/* MAIN CONTENT SECTIONS */}
-      <section className="bg-[141414]">
+      <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
         <div className={`${SECTION_WRAPPER} ${SECTION_GAP}`}>
           <MobileAppCaseStudies />
           <WhoWeWorkWith />
