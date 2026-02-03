@@ -83,24 +83,10 @@ export default function TechnologiesTabs() {
   }, [activeTab]);
 
   return (
-    <section className="relative px-4 overflow-hidden">
-      {/* ===== PURE BLACK BACKGROUND ===== */}
-      <div className="absolute inset-0 -z-10 bg-black" />
-      <div className="absolute inset-0 -z-10 bg-noise opacity-[0.015]" />
-
-      {/* Subtle vignette (depth, still black) */}
-      <div
-        className="pointer-events-none absolute inset-0 -z-10
-                   bg-gradient-to-t from-black via-transparent to-black
-                   opacity-60"
-      />
-
+    <section className="relative px-4 overflow-hidden ">
       <div className="max-w-7xl mx-auto">
         {/* ===== ADVANCED HEADER (PREMIUM LIGHT) ===== */}
         <div className="relative text-center mb-32 max-w-5xl mx-auto px-6">
-          {/* Top soft divider */}
-          <div className="mx-auto mb-10 w-16 h-[2px] bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
-
           {/* Eyebrow Badge */}
           <span
             className="
@@ -146,7 +132,7 @@ export default function TechnologiesTabs() {
         </div>
 
         {/* ================= TABS ================= */}
-        <div className="flex justify-center">
+        <div className="flex justify-center shadow-3xl">
           <div className="relative w-full max-w-6xl">
             <div
               ref={tabsRef}
@@ -178,7 +164,7 @@ export default function TechnologiesTabs() {
         </div>
         {/* ================= CARDS ================= */}
         <div className="flex justify-center">
-          <div className="relative w-full max-w-6xl shadow-[0_24px_80px_rgba(0,0,0,0.7)]">
+          <div className="relative w-full max-w-6xl ">
             <div className="relative rounded-b-2xl bg-gray-100 border border-white/10 border-t-0">
               {/* Subtle inner glow */}
               <div className="absolute inset-0 rounded-b-2xl bg-white/5 pointer-events-none" />

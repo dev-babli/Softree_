@@ -65,31 +65,65 @@ const cards = [
 
 export default function SpfxBenefits() {
   return (
-    <section className="relative bg-black py-24 overflow-hidden">
-     
+    <section className="relative bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-24 overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6">
-        {/* Header */}
-        <div className="text-center mb-12">
+        {/* ================= PREMIUM HEADER ================= */}
+        <div className="text-center mb-20 max-w-4xl mx-auto">
+          {/* Eyebrow */}
+          <span
+            className="
+      inline-block mb-5
+      px-4 py-1.5
+      rounded-full
+      text-xs font-semibold tracking-widest uppercase
+      bg-blue-50 text-blue-600
+    "
+          >
+            Benefits
+          </span>
+
+          {/* Title */}
           <motion.h4
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-5xl font-bold text-white mb-4 font-secondary"
+            className="
+      text-4xl md:text-5xl lg:text-6xl
+      font-semibold
+      text-zinc-900
+      leading-tight
+      mb-6
+    "
           >
-            Why SPFx is Essential for Modern SharePoint
+            Why{" "}
+            <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+              SPFx
+            </span>{" "}
+            is Essential for Modern SharePoint
           </motion.h4>
+
+          {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-gray-400 text-sm md:text-base max-w-3xl mx-auto"
+            className="
+      text-zinc-600
+      text-base md:text-lg
+      leading-relaxed
+      max-w-3xl
+      mx-auto
+    "
           >
             The SharePoint Framework enables businesses to build scalable,
             secure, and responsive solutions. Enhance collaboration, streamline
-            workflows, and deliver a modern user experience with SPFx.
+            workflows, and deliver modern digital experiences with confidence.
           </motion.p>
+
+          {/* Accent divider */}
+          <div className="mt-8 h-[2px] w-20 mx-auto bg-gradient-to-r from-blue-600 to-transparent rounded-full" />
         </div>
 
         {/* Cards Grid */}
@@ -104,7 +138,6 @@ export default function SpfxBenefits() {
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               className="group relative rounded-2xl p-1 transition-all"
             >
-          
               {/* Inner card */}
               <div className="bg-[#0B0B1A] rounded-2xl p-6 shadow-lg transform transition-all flex flex-col h-full relative overflow-hidden">
                 {/* Always-on overlay */}

@@ -16,71 +16,103 @@ const tabs = [
     title: "Real-Time Data Visualization",
     icon: BarChart3,
     description:
-      "Monitor KPIs, track trends, and respond instantly with real-time Power BI dashboards that keep your business agile and informed.",
+      "Monitor KPIs, track trends, and respond instantly with real-time dashboards that keep your business agile and informed.",
   },
   {
     id: 2,
     title: "Automated Reporting & Analytics",
     icon: LineChart,
     description:
-      "Eliminate manual reporting with automated analytics workflows that deliver accurate, always up-to-date insights.",
+      "Eliminate manual reporting with automated workflows that deliver accurate, always up-to-date insights.",
   },
   {
     id: 3,
     title: "Seamless Data Integration",
     icon: Layers,
     description:
-      "Unify cloud, on-prem, and third-party data sources into a single Power BI ecosystem for a complete business view.",
+      "Unify cloud, on-prem, and third-party sources into a single ecosystem for a complete business view.",
   },
   {
     id: 4,
     title: "Advanced AI & Predictive Insights",
     icon: Brain,
     description:
-      "Leverage AI-powered forecasting, anomaly detection, and predictive analytics directly inside Power BI dashboards.",
+      "Leverage forecasting, anomaly detection, and predictive analytics directly inside dashboards.",
   },
   {
     id: 5,
     title: "Improved Decision-Making",
     icon: Target,
     description:
-      "Turn complex datasets into intuitive visuals that empower leadership teams to make faster, confident decisions.",
+      "Turn complex datasets into intuitive visuals that empower faster, confident decisions.",
   },
   {
     id: 6,
     title: "Enhanced Data Security & Compliance",
     icon: ShieldCheck,
     description:
-      "Protect sensitive business data with enterprise-grade security, role-based access, and regulatory compliance.",
+      "Protect sensitive business data with enterprise-grade security, role-based access, and compliance controls.",
   },
 ];
 
 export default function PowerBIServicesSection() {
   const [activeTab, setActiveTab] = useState(4);
   const active = tabs.find((t) => t.id === activeTab)!;
+  const ActiveIcon = active.icon;
 
   return (
-    <section id="plan-pricing" className="relative overflow-hidden py-36">
-      <div className="relative container mx-auto px-4">
-        {/* ===== Header ===== */}
-        <div className="text-center mb-20">
-          <h2 className="text-3xl lg:text-4xl font-semibold text-white">
-            How Power BI Services Can Help You Digitalize Your Business
+    <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-28">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* ================= HEADER ================= */}
+        <div className="relative text-center mb-24 max-w-4xl mx-auto">
+          {/* subtle glow background */}
+          <div className="absolute inset-0 -z-10 blur-3xl opacity-40 bg-gradient-to-r from-blue-200/40 via-cyan-200/30 to-transparent" />
+
+          {/* Eyebrow badge */}
+          <span
+            className="
+      inline-block
+      mb-6
+      px-5 py-2
+      rounded-full
+      bg-blue-50
+      text-blue-600
+      text-xs
+      font-semibold
+      uppercase
+      tracking-[0.25em]
+    "
+          >
+            Analytics & Intelligence
+          </span>
+
+          {/* Title */}
+          <h2 className="text-4xl lg:text-5xl font-semibold text-zinc-900 leading-tight">
+            How{" "}
+            <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+              Power BI
+            </span>{" "}
+            Digitalizes Your Business
           </h2>
-          <p className="mt-5 text-gray-400 max-w-3xl mx-auto">
-            Transform raw data into intelligent insights with enterprise-grade
-            Power BI solutions designed for scalability, security, and impact.
+
+          {/* Description */}
+          <p className="mt-6 text-zinc-600 text-lg leading-relaxed max-w-2xl mx-auto">
+            Transform raw data into intelligent insights with scalable, secure,
+            and enterprise-grade analytics solutions designed for smarter
+            decisions and faster growth.
           </p>
+
+          {/* Accent line */}
+          <div className="mt-8 mx-auto h-[2px] w-20 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full" />
         </div>
 
-        {/* ===== MAIN GRID (Equal Height) ===== */}
-        <div className="grid lg:grid-cols-[1fr_1.6fr] gap-14 items-stretch">
-          {/* ================= LEFT: TABS ================= */}
-          <div className="relative h-full rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-7">
-            {/* Subtle panel glow */}
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-cyan-500/6 via-transparent to-transparent pointer-events-none" />
-
-            <div className="relative grid grid-cols-2 gap-6 h-full">
+        {/* ================= MIRROR GRID ================= */}
+        <div className="grid lg:grid-cols-[1fr_1.6fr] gap-0 rounded-[32px] overflow-hidden shadow-xl">
+          {/* ================================================= */}
+          {/* LEFT : DARK PANEL (GRAY/BLACK MIRROR) */}
+          {/* ================================================= */}
+          <div className="bg-gradient-to-b from-zinc-900 via-zinc-950 to-black p-7">
+            <div className="grid grid-cols-2 gap-4">
               {tabs.map((tab) => {
                 const Icon = tab.icon;
                 const isActive = tab.id === activeTab;
@@ -89,94 +121,68 @@ export default function PowerBIServicesSection() {
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`group relative p-6 rounded-2xl border text-left transition-all duration-300
-    ${
-      isActive
-        ? `
-          border-white/10
-          border-l-[3px] border-l-cyan-400
-          bg-gradient-to-br from-cyan-500/12 to-transparent
-          shadow-[0_0_0_1px_rgba(34,211,238,0.35),0_12px_32px_rgba(0,0,0,0.4)]
-        `
-        : `
-          border-white/10
-          bg-white/5
-          hover:bg-white/8
-          hover:-translate-y-[2px]
-        `
-    }
-  `}
-                  >
-                    {isActive && (
-                      <>
-                        <span className="absolute left-3 top-4 bottom-4 w-[2px] rounded-full bg-gradient-to-b from-cyan-300 to-indigo-500 opacity-80" />
-                        <span className="absolute left-3 top-4 bottom-4 w-[6px] bg-cyan-400/20 blur-md rounded-full" />
-                      </>
-                    )}
+                    className={`
+              p-5 rounded-xl text-left border transition-all duration-300
 
-                    {/* Icon Container */}
-                    <div
-                      className={`mb-4 w-11 h-11 flex items-center justify-center rounded-xl transition-colors
               ${
                 isActive
-                  ? "bg-cyan-500/25 text-cyan-300"
-                  : "bg-white/10 text-gray-400 group-hover:text-cyan-300"
+                  ? `
+                    bg-zinc-800
+                    border-cyan-400/40
+                    text-white
+                    shadow-lg
+                  `
+                  : `
+                    bg-zinc-900
+                    border-zinc-800
+                    text-zinc-400
+                    hover:bg-zinc-800
+                    hover:text-white
+                  `
               }
             `}
+                  >
+                    <div
+                      className={`
+                mb-3 w-10 h-10 flex items-center justify-center rounded-lg
+                ${
+                  isActive
+                    ? "bg-cyan-500/20 text-cyan-300"
+                    : "bg-zinc-800 text-zinc-500"
+                }
+              `}
                     >
                       <Icon className="w-5 h-5" />
                     </div>
 
-                    {/* Title */}
-                    <span
-                      className={`text-sm font-medium leading-snug block
-              ${isActive ? "text-cyan-100" : "text-gray-300"}
-            `}
-                    >
-                      {tab.title}
-                    </span>
-
-                    {/* Active underline (micro detail) */}
-                    {isActive && (
-                      <span className="mt-3 block h-px w-8 bg-cyan-400/60 rounded-full" />
-                    )}
+                    <span className="text-sm font-medium">{tab.title}</span>
                   </button>
                 );
               })}
             </div>
           </div>
-          <div className="relative h-full rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl p-12 flex items-center overflow-hidden">
-            {/* Thick Right Accent */}
-            <div className="absolute top-4 bottom-4 right-0 w-[8px] rounded-l-xl bg-gradient-to-b from-cyan-400 via-indigo-500 to-cyan-400 opacity-90" />
-            <div className="absolute top-4 bottom-4 right-0 w-[14px] bg-cyan-400/20 blur-xl pointer-events-none" />
 
-            {/* Soft side glow */}
-            <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-cyan-500/10 to-transparent pointer-events-none" />
-
-            <div className="relative grid lg:grid-cols-[auto_1fr] gap-14 items-center">
-              {/* ICON ZONE */}
-              <div className="relative shrink-0">
-                <div className="absolute inset-0 rounded-2xl bg-cyan-500/25 blur-xl opacity-60" />
-
-                <div className="relative w-24 h-24 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-indigo-500/20 flex items-center justify-center border border-white/10">
-                  <active.icon className="w-12 h-12 text-cyan-300" />
-                </div>
+          {/* ================================================= */}
+          {/* RIGHT : WHITE CONTENT PANEL */}
+          {/* ================================================= */}
+          <div className="bg-white p-12 flex items-center">
+            <div className="grid md:grid-cols-[auto_1fr] gap-10 items-center">
+              {/* Icon */}
+              <div className="w-24 h-24 rounded-2xl bg-blue-50 flex items-center justify-center">
+                <active.icon className="w-12 h-12 text-blue-600" />
               </div>
 
-              {/* CONTENT */}
-              <div className="max-w-2xl">
-                <span className="inline-block mb-4 text-xs tracking-widest uppercase text-cyan-300/80">
+              {/* Text */}
+              <div>
+                <span className="text-xs tracking-widest uppercase text-blue-600 font-medium">
                   Power BI Capability
                 </span>
 
-                <h3 className="relative text-3xl lg:text-4xl font-semibold leading-tight tracking-tight mb-6">
-                  <span className="bg-gradient-to-r from-white via-cyan-200 to-white bg-clip-text text-transparent">
-                    {active.title}
-                  </span>
-                  <span className="absolute -bottom-3 left-0 h-[2px] w-14 bg-gradient-to-r from-cyan-400 to-indigo-500 rounded-full" />
+                <h3 className="mt-3 text-3xl md:text-4xl font-semibold text-zinc-900">
+                  {active.title}
                 </h3>
 
-                <p className="text-gray-300 text-lg leading-relaxed mb-8">
+                <p className="mt-5 text-zinc-600 text-lg leading-relaxed max-w-2xl">
                   {active.description}
                 </p>
               </div>

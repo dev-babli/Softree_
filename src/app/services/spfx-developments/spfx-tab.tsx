@@ -59,32 +59,61 @@ export default function SpfxTabs() {
   const [activeTab, setActiveTab] = useState(tabs[0].id);
 
   return (
-    <section className="bg-black py-24">
+    <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-24">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        {/* Header */}
-        <div className="text-center mb-12">
+        {/* ================= PREMIUM LIGHT HEADER ================= */}
+        <div className="text-center mb-20 max-w-4xl mx-auto">
+          {/* Eyebrow */}
+          <span
+            className="
+      inline-block mb-5
+      px-4 py-1.5
+      rounded-full
+      text-xs font-semibold tracking-widest uppercase
+      bg-blue-50 text-blue-600
+    "
+          >
+            SharePoint Framework
+          </span>
+
+          {/* Title */}
           <motion.h3
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-bold text-white mb-4 font-secondary"
+            className="
+      text-4xl md:text-5xl lg:text-6xl
+      font-semibold
+      text-zinc-900
+      leading-tight
+      mb-6
+    "
           >
-            Modern SPFx Solutions for SharePoint
+            Modern{" "}
+            <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+              SPFx Solutions
+            </span>{" "}
+            for SharePoint
           </motion.h3>
 
+          {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-gray-300 max-w-3xl mx-auto text-sm md:text-base leading-relaxed"
+            className="
+      text-zinc-600
+      text-base md:text-lg
+      leading-relaxed
+      max-w-3xl
+      mx-auto
+    "
           >
             Deliver seamless, scalable, and secure SharePoint experiences with
-            our SPFx services. From building dynamic web parts and custom
-            extensions to integrating with Microsoft 365 and optimizing for
-            mobile, we help you unlock the full potential of your SharePoint
-            environment.
+            custom web parts, extensions, and Microsoft 365 integrations — built
+            for performance, usability, and growth.
           </motion.p>
         </div>
 

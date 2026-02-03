@@ -126,7 +126,7 @@ const services = [
 ========================= */
 export default function ServicesDetails() {
   return (
-    <section className="bg-black text-white">
+    <section className="bg-gradient-to-b from-zinc-100 via-white to-zinc-100 text-white">
       <div className="max-w-7xl mx-auto px-6 py-16 space-y-24">
         {services.map((service) => (
           <Link
@@ -137,7 +137,8 @@ export default function ServicesDetails() {
               block
               relative
               rounded-3xl
-              bg-white/5
+         bg-gradient-to-b from-zinc-700 via-zinc-900 to-zinc-600
+
               backdrop-blur-xl
               border border-white/10
               shadow-[0_0_40px_rgba(255,255,255,0.06)]

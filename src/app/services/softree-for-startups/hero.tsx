@@ -1,87 +1,178 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { useEffect, useState } from "react";
 
-export default function StartupHero() {
+export default function HeroWithTestimonial() {
+  /* ================= TESTIMONIAL DATA ================= */
+  const testimonials = [
+    {
+      text: "Softree helped us launch our MVP in just 6 weeks and onboard our first customers quickly.",
+      name: "Rohit Verma",
+      role: "Startup Founder",
+      avatar: "https://i.pravatar.cc/100?img=11",
+    },
+    {
+      text: "Their team understood startup speed and delivered clean, scalable code from day one.",
+      name: "Sneha Patel",
+      role: "Product Manager",
+      avatar: "https://i.pravatar.cc/100?img=5",
+    },
+    {
+      text: "From idea to launch, Softree handled everything smoothly and professionally.",
+      name: "Aarav Mehta",
+      role: "Co-Founder & CTO",
+      avatar: "https://i.pravatar.cc/100?img=15",
+    },
+    {
+      text: "Reliable engineering partner for fast-moving startups. Highly recommended.",
+      name: "Neha Sharma",
+      role: "CEO, SaaS Startup",
+      avatar: "https://i.pravatar.cc/100?img=32",
+    },
+  ];
+
+  /* ================= STATE ================= */
+  const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  const active = testimonials[index];
+
+  /* ================= AUTO ROTATE ================= */
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisible(false);
+
+      setTimeout(() => {
+        setIndex((prev) => (prev + 1) % testimonials.length);
+        setVisible(true);
+      }, 250);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  /* ================= UI ================= */
   return (
-    <section
-      className="
-  relative isolate overflow-hidden
-  min-h-[70vh]
-  bg-black
-  text-white
-"
-    >
-      {/* CONTENT */}
-      <div className="relative min-h-[70vh] flex items-end">
-        <div className="mx-auto max-w-7xl px-6 w-full mt-16 md:mt-24 mb-16 md:mb-24">
-          <div
-            className="
-              text-center
-              pt-16 md:pt-20
-              pb-16 md:pb-20
-              rounded-[32px]
-              bg-gradient-to-br from-white/10 via-white/5 to-white/10
-              backdrop-blur-2xl
-              border border-white/15
-              shadow-[0_40px_120px_-40px_rgba(0,0,0,0.9)]
-            "
-          >
-            {/* BADGE */}
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm text-gray-300">
-              <Sparkles className="h-4 w-4 text-blue-400" />
-              Softree for Startups
+    <section className="relative overflow-hidden text-white bg-gradient-to-br from-[#0b3ea8] via-[#1557c0] to-[#1e73d8]">
+      {/* glow effects */}
+      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-white/10 blur-[140px] rounded-full" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-cyan-400/10 blur-[140px] rounded-full" />
+
+      {/* SAME HERO HEIGHT + LAYOUT */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 lg:py-20 min-h-[70vh] grid lg:grid-cols-2 gap-10 items-center">
+        {/* ================= LEFT CONTENT ================= */}
+        <div>
+          <span className="inline-block mb-4 px-4 py-2 rounded-full bg-white/10 text-xs tracking-widest uppercase">
+            Softree for Startups
+          </span>
+
+          <h1 className="text-4xl lg:text-5xl xl:text-6xl font-semibold leading-tight">
+            Build • Launch • Scale
+            <br />
+            <span className="text-white/90">Your Startup Faster</span>
+          </h1>
+
+          <p className="mt-5 text-white/80 max-w-xl text-lg">
+            Softree helps startups transform ideas into market-ready products.
+            From MVP development to scalable SaaS platforms, we deliver fast,
+            reliable and cost-effective engineering solutions that accelerate
+            growth.
+          </p>
+
+          {/* CTA */}
+          <div className="flex flex-wrap gap-4 mt-8">
+            <Link href="/contact">
+              <button className="bg-white text-blue-700 px-6 py-3 rounded-xl font-medium shadow-lg hover:scale-105 hover:bg-blue-50 transition">
+                Launch Your Startup
+              </button>
+            </Link>
+
+            <Link href="/services/startups">
+              <button className="border border-white/40 px-6 py-3 rounded-xl hover:bg-white/10 transition">
+                Explore Services
+              </button>
+            </Link>
+          </div>
+
+          {/* Stats */}
+          <div className="flex gap-8 mt-10 text-sm text-white/80">
+            <div>
+              <p className="text-xl font-semibold text-white">50+</p>
+              MVPs Delivered
             </div>
-
-            {/* HEADLINE */}
-            <h1 className="mx-auto max-w-4xl text-5xl md:text-6xl xl:text-5xl font-bold leading-tight text-white">
-              Build Products at{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400">
-                Startup Speed
-              </span>
-              <br />
-              Without Compromising Scale
-            </h1>
-
-            {/* SUBTEXT */}
-            <p className="mt-6 mx-auto max-w-2xl text-lg md:text-xl text-gray-400">
-              From MVP to growth-ready platforms, we help startups ship faster,
-              scale smarter, and build technology investors trust.
-            </p>
-
-            {/* CTA */}
-            <div className="mt-10 flex flex-wrap justify-center items-center gap-6">
-              <Link
-                href="/get-in-touch"
-                className="
-                  inline-flex items-center gap-2 rounded-full
-                  bg-gradient-to-r from-blue-500 to-cyan-500
-                  px-8 py-4 text-white font-semibold
-                  transition hover:scale-105 hover:opacity-90
-                "
-              >
-                Start Your Build
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-
-              <Link
-                href="/case-studies"
-                className="text-gray-300 hover:text-white transition underline underline-offset-4"
-              >
-                View Startup Success Stories
-              </Link>
+            <div>
+              <p className="text-xl font-semibold text-white">4–8 Weeks</p>
+              Avg. Launch Time
             </div>
-
-            {/* SIGNALS */}
-            <div className="mt-14 flex flex-wrap justify-center gap-8 text-sm text-gray-400">
-              <span>⚡ MVP-first approach</span>
-              <span>🧠 Product-focused engineers</span>
-              <span>📈 Built to scale</span>
-              <span>🔐 Security by design</span>
+            <div>
+              <p className="text-xl font-semibold text-white">95%</p>
+              Client Retention
             </div>
           </div>
         </div>
+
+        {/* ================= RIGHT TESTIMONIAL ================= */}
+        <div className="flex justify-center lg:justify-end">
+          <div
+            className={`
+              max-w-sm w-full
+              rounded-3xl
+              border border-white/20
+              bg-gradient-to-br from-white/20 to-white/5
+              backdrop-blur-2xl
+              p-6
+              shadow-2xl shadow-black/30
+              transition-all duration-500
+              ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
+            `}
+          >
+            {/* Quote icon */}
+            <div className="mb-4 w-10 h-10 flex items-center justify-center rounded-xl bg-cyan-400/15">
+              <svg
+                className="text-cyan-300"
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="currentColor"
+              >
+                <path d="M6.5 10c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.558-.906 1.491-1.385 2.396-1.385V6C6.57 6 5 7.832 5 10c0 1.657.895 3 2 3 1.105 0 2-.895 2-2s-.895-1-2-1zm8 0c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.558-.906 1.491-1.385 2.396-1.385V6c-1.93 0-3.5 1.832-3.5 4 0 1.657.895 3 2 3 1.105 0 2-.895 2-2s-.895-1-2-1z" />
+              </svg>
+            </div>
+
+            {/* Text */}
+            <p className="text-sm text-white/90 leading-relaxed mb-5">
+              “{active.text}”
+            </p>
+
+            {/* User */}
+            <div className="flex items-center gap-3">
+              <img
+                src={active.avatar}
+                alt={active.name}
+                className="w-10 h-10 rounded-full object-cover border border-white/20"
+              />
+              <div>
+                <p className="text-sm font-semibold">{active.name}</p>
+                <p className="text-xs text-white/60">{active.role}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* wave bottom */}
+      <div className="absolute bottom-0 left-0 w-full">
+        <svg
+          viewBox="0 0 1440 120"
+          className="w-full h-[120px]"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,64 C240,96 480,96 720,80 960,64 1200,32 1440,32 L1440,120 L0,120 Z"
+            fill="#FAFAFA"
+          />
+        </svg>
       </div>
     </section>
   );

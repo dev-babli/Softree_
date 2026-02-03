@@ -239,16 +239,10 @@ const menu: MenuItem[] = [
       },
     ],
   },
-
   {
     label: "Blog",
-    url: "/blog/all-posts",
-    icon: BookOpen,
-  },
-  {
-    label: "Contact",
-    url: "/contact",
-    icon: Phone,
+    url: "/blog",
+    icon: FileText,
   },
 ];
 
@@ -266,7 +260,13 @@ export function Navigation() {
     >
       <nav
         className="
-    mx-auto flex h-16 max-w-7xl items-center justify-between
+    mx-auto
+    flex
+    h-16
+    max-w-5xl
+    items-center
+    justify-start
+    gap-10
     rounded-full
     px-6
 
@@ -277,96 +277,78 @@ export function Navigation() {
     shadow-lg
   "
       >
-        {/* LEFT: Logo + Navigation */}
-        <div className="flex items-center gap-8">
+        {/* ================= LEFT: Logo + Menu ================= */}
+        <div className="flex items-center gap-3">
           {/* Logo */}
-          <Link href="/" aria-label="Go to homepage">
+          <Link href="/" aria-label="Go to homepage" className="inline-block">
             <Image
-              src={LOGO_URL}
+              src="https://www.softreetechnology.com/wp-content/uploads/elementor/thumbs/white-logo-soft-qt16xqrm9tl34ewl9f9uhep3zaj8m5zkpgualw8uf4.png"
               alt="Softree"
-              width={130}
-              height={28}
+              width={150}
+              height={40}
+              className="invert object-contain cursor-pointer"
               priority
-              className="pl-2 cursor-pointer"
             />
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* ================= DESKTOP NAVIGATION ================= */}
           <NavigationMenu className="hidden md:flex">
             <NavigationMenuList className="flex items-center gap-1">
               {menu.map((item) => {
                 const Icon = item.icon;
 
-                /* =======================
-         SHARED PILL CLASS
-      ======================= */
                 const navPillClass = `
-  px-5 py-2.5
-  rounded-full
-  overflow-hidden
+            px-5 py-2.5
+            rounded-full
+            text-[15px] font-medium
+            text-zinc-800
 
-  text-[15px] font-medium leading-none
-  text-zinc-800
+            bg-transparent
+            hover:bg-blue-500/10
 
-  bg-transparent
-  hover:bg-blue-500/10
-  focus:bg-blue-500/10
+            hover:text-blue-600
+            hover:shadow-[inset_0_-4px_0_0_rgb(59,130,246)]
 
-  shadow-[inset_0_-4px_0_0_rgba(0,0,0,0)]
-  hover:shadow-[inset_0_-4px_0_0_rgb(59,130,246)]
+            transition-all duration-300
+          `;
 
-  hover:text-blue-600
-  transition-all duration-300
-`;
-
-                /* =======================
-         SERVICES (MEGA MENU)
-      ======================= */
+                /* ================= MEGA MENU ================= */
                 if (item.mega) {
                   return (
                     <NavigationMenuItem key={item.label}>
                       <NavigationMenuTrigger
                         className={`
-        ${navPillClass}
-        data-[state=open]:bg-blue-500/10
-        data-[state=open]:shadow-[inset_0_-4px_0_0_rgb(59,130,246)]
-        data-[state=open]:text-blue-500
-      `}
+                    ${navPillClass}
+                    data-[state=open]:bg-blue-500/10
+                    data-[state=open]:text-blue-600
+                    data-[state=open]:shadow-[inset_0_-4px_0_0_rgb(59,130,246)]
+                  `}
                       >
-                        <span className="flex items-center gap-2">
+                        <span className="flex items-center gap-2.5">
                           {Icon && (
-                            <Icon className="h-[18px] w-[18px] shrink-0 opacity-90" />
+                            <Icon className="h-4 w-4 text-zinc-600 group-hover:text-blue-600 transition" />
                           )}
 
-                          {/* CLICK → /services */}
-                          <Link
-                            href="/services"
-                            className="whitespace-nowrap hover:text-blue-400"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            {item.label}
-                          </Link>
+                          <span className="font-semibold">{item.label}</span>
                         </span>
                       </NavigationMenuTrigger>
 
+                      {/* Mega dropdown */}
                       <NavigationMenuContent>
                         <div
                           className="
-      relative mt-4
+                      relative mt-4
+                      grid w-[980px] grid-cols-3 gap-10
+                      p-10 rounded-3xl
 
-      grid w-[980px] grid-cols-3 gap-10
-      p-10 rounded-3xl
-
-      bg-gradient-to-b from-white via-zinc-50 to-white
-      backdrop-blur-2xl
-
-      border border-zinc-200/70
-      shadow-[0_20px_60px_rgba(0,0,0,0.08)]
-    "
+                      bg-gradient-to-b from-white via-zinc-50 to-white
+                      backdrop-blur-2xl
+                      border border-zinc-200/70
+                      shadow-[0_20px_60px_rgba(0,0,0,0.08)]
+                    "
                         >
                           {item.children.map((section) => (
                             <div key={section.title}>
-                              {/* Section Title */}
                               <h4 className="mb-5 text-xs font-semibold uppercase tracking-wider text-zinc-500">
                                 {section.title}
                               </h4>
@@ -380,48 +362,30 @@ export function Navigation() {
                                       <a
                                         href={link.url}
                                         className="
-                    group flex items-start gap-4
-                    rounded-xl p-4
-
-                    bg-white/60
-                    border border-transparent
-
-                    transition-all duration-300 ease-out
-
-                    hover:bg-white
-                    hover:border-zinc-200
-                    hover:shadow-md
-                    hover:-translate-y-1
-                  "
+                                    group flex items-start gap-4
+                                    rounded-xl p-4
+                                    bg-white/60
+                                    hover:bg-white
+                                    hover:shadow-md
+                                    hover:-translate-y-1
+                                    transition
+                                  "
                                       >
-                                        {/* Icon */}
                                         {LinkIcon && (
-                                          <div
-                                            className="
-                        flex h-10 w-10 items-center justify-center
-                        rounded-lg
-                        border border-zinc-200
-                        bg-zinc-100
-
-                        transition
-                        group-hover:bg-blue-50
-                        group-hover:border-blue-200
-                      "
-                                          >
+                                          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-zinc-100 group-hover:bg-blue-50">
                                             <LinkIcon className="h-4 w-4 text-zinc-700 group-hover:text-blue-600" />
                                           </div>
                                         )}
 
-                                        {/* Text */}
-                                        <div className="flex flex-col">
-                                          <span className="text-sm font-medium text-zinc-900 group-hover:text-blue-600 transition">
+                                        <div>
+                                          <p className="text-sm font-medium text-zinc-900 group-hover:text-blue-600">
                                             {link.label}
-                                          </span>
+                                          </p>
 
                                           {link.description && (
-                                            <span className="text-xs text-zinc-500">
+                                            <p className="text-xs text-zinc-500">
                                               {link.description}
-                                            </span>
+                                            </p>
                                           )}
                                         </div>
                                       </a>
@@ -437,28 +401,17 @@ export function Navigation() {
                   );
                 }
 
-                /* =======================
-         NORMAL LINKS
-      ======================= */
+                /* ================= NORMAL LINKS ================= */
                 return (
                   <NavigationMenuItem key={item.label}>
                     <NavigationMenuLink asChild>
-                      <a
-                        href={item.url}
-                        className={`
-                ${navPillClass}
-                active:bg-blue-500/10
-                active:shadow-[inset_0_-4px_0_0_rgb(59,130,246)]
-                active:text-blue-500
-              `}
-                      >
-                        <span className="flex items-center gap-2">
+                      <a href={item.url} className={navPillClass}>
+                        <span className="flex items-center gap-2.5">
                           {Icon && (
-                            <Icon className="h-[18px] w-[18px] shrink-0 opacity-90" />
+                            <Icon className="h-4 w-4 text-zinc-600 group-hover:text-blue-600 transition" />
                           )}
-                          <span className="whitespace-nowrap">
-                            {item.label}
-                          </span>
+
+                          <span className="font-semibold">{item.label}</span>
                         </span>
                       </a>
                     </NavigationMenuLink>
@@ -469,19 +422,33 @@ export function Navigation() {
           </NavigationMenu>
         </div>
 
-        {/* RIGHT: Actions */}
-        <div className="hidden md:flex items-center gap-2">
-          <Button variant="ghost" className="rounded-full px-5 text-sm">
-            Sign In
-          </Button>
-          <Button className="rounded-full px-6 shadow-md">Get Started</Button>
+        {/* ================= RIGHT SIDE CTA (Desktop only) ================= */}
+        <div className="hidden md:flex items-center gap-3 ml-auto">
+          <Link
+            href="/contact"
+            className="
+    inline-flex items-center gap-2
+    px-2 py-1.5
+    rounded-full
+    bg-blue-600
+    text-white
+    text-sm
+    font-medium
+    shadow-md
+    hover:bg-blue-700
+    transition
+  "
+          >
+            <Phone size={16} />
+            Contact Us
+          </Link>
         </div>
 
-        {/* Mobile Toggle */}
+        {/* ================= MOBILE TOGGLE ================= */}
         <Button
           size="icon"
           variant="outline"
-          className="rounded-full md:hidden"
+          className="rounded-full md:hidden ml-auto"
           onClick={() => setOpen(!open)}
         >
           <MenuToggleIcon open={open} className="h-5 w-5" />

@@ -28,7 +28,7 @@ const expertiseItems = [
 
 export default function SoftreeExpertiseTimeline() {
   return (
-    <section className="relative bg-black py-24">
+    <section className="relative bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-24">
       <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-6">
         {/* Header */}
         <motion.div
@@ -38,14 +38,56 @@ export default function SoftreeExpertiseTimeline() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Softree Expertise in SharePoint & SPFx
-          </h2>
-          <p className="text-gray-300 max-w-3xl mx-auto text-base md:text-lg leading-relaxed">
-            Our journey in delivering cutting-edge SharePoint solutions combines
-            innovation, performance, and reliability. Each step showcases our
-            commitment to driving digital transformation.
-          </p>
+          {/* ================= EXPERTISE HEADER ================= */}
+          <div className="text-center mb-20 max-w-8xl mx-auto">
+            {/* Eyebrow */}
+            <span
+              className="
+      inline-block mb-5
+      px-4 py-1.5
+      rounded-full
+      text-xs font-semibold tracking-widest uppercase
+      bg-blue-50 text-blue-600
+    "
+            >
+              Our Expertise
+            </span>
+
+            {/* Title */}
+            <h2
+              className="
+      text-4xl md:text-5xl lg:text-5xl
+      font-semibold
+      text-zinc-900
+      leading-tight
+      mb-6
+    "
+            >
+              Softree Expertise in{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                SharePoint & SPFx
+              </span>
+            </h2>
+
+            {/* Description */}
+            <p
+              className="
+      text-zinc-600
+      text-base md:text-lg
+      leading-relaxed
+      max-w-3xl
+      mx-auto
+    "
+            >
+              Our journey in delivering cutting-edge SharePoint solutions
+              combines innovation, performance, and reliability. Each step
+              reflects our commitment to enabling secure, scalable, and modern
+              digital workplaces.
+            </p>
+
+            {/* Accent divider */}
+            <div className="mt-8 h-[2px] w-20 mx-auto bg-gradient-to-r from-blue-600 to-transparent rounded-full" />
+          </div>
         </motion.div>
 
         {/* Timeline container */}

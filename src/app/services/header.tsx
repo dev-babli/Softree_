@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Smartphone } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { useEffect, useState } from "react";
 
 /* =========================
    SERVICES DATA
@@ -53,110 +54,101 @@ const services: {
    COMPONENT
 ========================= */
 export default function ServicesHeader() {
+  /* ✅ SSR SAFE ACTIVE HASH */
+  const [activeHash, setActiveHash] = useState("");
+
+  useEffect(() => {
+    const updateHash = () => setActiveHash(window.location.hash);
+
+    updateHash(); // on load
+    window.addEventListener("hashchange", updateHash);
+
+    return () => window.removeEventListener("hashchange", updateHash);
+  }, []);
+
   return (
-    <section className="bg-black text-white py-12">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* HEADER WRAPPER */}
-        <div className="relative mb-20 mt-28 md:mt-32">
-          {/* BACKGROUND ACCENT */}
-          <div className="absolute -top-16 -left-16 h-40 w-40 rounded-full bg-cyan-400/10 blur-3xl" />
-          <div className="absolute top-0 right-0 h-32 w-32 rounded-full bg-blue-500/10 blur-2xl" />
+    <section className="relative bg-gradient-to-b from-zinc-100 via-white to-zinc-100 py-24">
+      {/* Soft glow background */}
+      <div className="absolute -top-20 -left-20 h-64 w-64 bg-cyan-400/10 blur-3xl rounded-full" />
+      <div className="absolute bottom-0 right-0 h-64 w-64 bg-blue-500/10 blur-3xl rounded-full" />
 
-          {/* EYEBROW */}
-          <div className="flex items-center gap-4 mb-6">
-            <span className="h-px w-12 bg-gradient-to-r from-cyan-400 to-transparent" />
-            <span className="text-sm uppercase tracking-widest font-medium text-cyan-400">
-              Our Expertise
-            </span>
-          </div>
+      <div className="relative max-w-7xl mx-auto px-6">
+        {/* ================= HEADER ================= */}
+        <div className="mb-20 text-center md:text-left">
+          <span className="text-sm uppercase tracking-widest text-cyan-600 font-semibold">
+            Our Expertise
+          </span>
 
-          {/* MAIN HEADING */}
-          <h2 className="text-4xl md:text-6xl font-semibold leading-tight">
+          <h2 className="mt-4 text-4xl md:text-6xl font-semibold text-black leading-tight">
             Building digital solutions that{" "}
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent">
               scale with you
             </span>
-            <span className="text-neutral-400">.</span>
+            .
           </h2>
 
-          {/* SUBHEADING */}
-          <p className="mt-6 max-w-3xl text-lg md:text-xl text-gray-400 leading-relaxed">
-            From Microsoft SharePoint and Power Platform to modern web, mobile,
-            and AI-driven solutions, we help businesses design, build, and scale
-            technology that delivers real impact.
+          <p className="mt-6 max-w-3xl text-lg text-gray-500">
+            From SharePoint and Power Platform to modern web, mobile, and AI
+            solutions — we design, build, and scale technology that drives real
+            business impact.
           </p>
-
-          {/* DIVIDER */}
-          <div className="mt-10 h-px w-full max-w-xl bg-gradient-to-r from-white/20 via-white/10 to-transparent" />
         </div>
 
-        {/* SHARED BACKGROUND */}
-        <div
-          className="
-    relative
-    rounded-3xl
-    bg-white/5
-    backdrop-blur-xl
-    border border-white/10
-    px-8
-    py-10
-    overflow-hidden
-  "
-        >
-          {/* STRONG MONOCHROME BOTTOM BORDER */}
-          <span
-            className="
-      pointer-events-none
-      absolute
-      bottom-0
-      left-0
-      w-full
-      h-[6px]
+        {/* ================= SERVICES GRID ================= */}
+        <div className="relative rounded-3xl bg-gradient-to-b from-white to-zinc-50 border border-zinc-200 shadow-xl backdrop-blur-xl p-8 md:p-10">
+          {/* soft glows */}
+          <div className="absolute -top-16 -left-16 w-40 h-40 bg-cyan-400/10 blur-3xl rounded-full" />
+          <div className="absolute bottom-0 right-0 w-40 h-40 bg-blue-400/10 blur-3xl rounded-full" />
 
-      bg-gradient-to-r
-      from-white
-      via-gray-400
-      to-black
+          {/* grid */}
+          <div className="relative z-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6">
+            {services.map((service) => {
+              const isActive = activeHash === `#${service.id}`;
 
-      shadow-[0_-4px_18px_rgba(255,255,255,0.35)]
-    "
-          />
+              return (
+                <Link
+                  key={service.id}
+                  href={`/services#${service.id}`}
+                  className={`
+                    group
+                    rounded-2xl
+                    p-6
+                    text-center
+                    transition-all duration-300
 
-          {/* CONTENT */}
-          <div className="relative z-10 grid grid-cols-7 gap-8 items-center">
-            {services.map((service) => (
-              <Link
-                key={service.id}
-                href={`/services#${service.id}`}
-                className="
-          group
-          flex
-          flex-col
-          items-center
-          text-center
-          transition-all
-          duration-300
-          hover:-translate-y-2
-        "
-              >
-                {/* ICON */}
-                {typeof service.icon === "string" ? (
-                  <img
-                    src={service.icon}
-                    alt={service.title}
-                    className="mb-4 h-10 w-auto object-contain"
-                    loading="lazy"
-                  />
-                ) : (
-                  <service.icon className="mb-4 h-10 w-10 text-white" />
-                )}
+                    ${
+                      isActive
+                        ? "bg-white shadow-lg border-2 border-cyan-500 scale-[1.05]"
+                        : "bg-white/70 border border-zinc-200 hover:-translate-y-2 hover:shadow-lg hover:border-cyan-400/40"
+                    }
+                  `}
+                >
+                  {/* ICON */}
+                  <div className="flex justify-center mb-4">
+                    {typeof service.icon === "string" ? (
+                      <img
+                        src={service.icon}
+                        alt={service.title}
+                        className="h-10 w-auto object-contain transition-transform group-hover:scale-110"
+                      />
+                    ) : (
+                      <service.icon className="h-10 w-10 text-cyan-600 transition-transform group-hover:scale-110" />
+                    )}
+                  </div>
 
-                {/* TITLE */}
-                <p className="text-base font-semibold leading-tight whitespace-pre-line text-gray-200 group-hover:text-white transition-colors">
-                  {service.title}
-                </p>
-              </Link>
-            ))}
+                  {/* TITLE */}
+                  <p
+                    className={`text-sm font-semibold whitespace-pre-line transition-colors ${
+                      isActive
+                        ? "text-black"
+                        : "text-gray-600 group-hover:text-black"
+                    }`}
+                  >
+                    {service.title}
+                  </p>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </div>

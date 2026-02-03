@@ -6,21 +6,24 @@ export default function WhySoftreeSection() {
   return (
     <section
       id="HomeWhySoftree"
-      className="relative bg-black text-white py-24 overflow-hidden"
+      className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-24"
     >
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-12">
-          <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+
+        {/* HEADING */}
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-14">
+          <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
             Why Softree
           </span>{" "}
-          <span className="text-white/90">
+          <span className="text-zinc-900">
             — Delivering Outcomes That Matter
           </span>
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+
           {/* LEFT CONTENT */}
-          <div className="space-y-6 text-gray-300 leading-relaxed">
+          <div className="space-y-6 text-zinc-600 leading-relaxed text-base">
             <p>
               Softree helps organizations turn complex challenges into scalable
               digital solutions. We partner with growth-focused companies to
@@ -34,7 +37,7 @@ export default function WhySoftreeSection() {
               cloud, data, AI, and security initiatives.
             </p>
 
-            <ul className="space-y-3 mt-6 list-disc list-inside">
+            <ul className="space-y-3 mt-6 list-disc list-inside text-zinc-700">
               <li>Proven experience delivering complex software platforms</li>
               <li>Scalable, secure, and future-ready engineering practices</li>
               <li>Agile delivery aligned with your product roadmap</li>
@@ -85,17 +88,24 @@ function StatCard({
 }) {
   return (
     <div
-      className="bg-white/5 backdrop-blur-xl
-      border border-white/10 rounded-2xl
-      p-6 transition hover:border-blue-500/40"
+      className="
+        bg-white
+        border border-zinc-200
+        rounded-2xl
+        p-7
+        shadow-sm
+        transition-all duration-300
+        hover:-translate-y-1
+        hover:shadow-lg
+      "
     >
-      <Icon className="w-8 h-8 text-blue-400 mb-4" strokeWidth={1.5} />
+      <Icon className="w-8 h-8 text-blue-600 mb-4" strokeWidth={1.6} />
 
-      <strong className="block text-4xl font-bold text-blue-400 mb-2">
+      <strong className="block text-4xl font-bold text-zinc-900 mb-2">
         {value}
       </strong>
 
-      <span className="text-sm text-gray-300">{label}</span>
+      <span className="text-sm text-zinc-600">{label}</span>
     </div>
   );
 }

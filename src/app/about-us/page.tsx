@@ -6,7 +6,7 @@ import EngagementModels from "./model";
 import AgileProcessStack from "./agile";
 import OurStorySection from "./story";
 import AboutUsWithTestimonials from "./hero";
-import CTABanner from "@/components/sections/cta-banner";
+import ProjectProcessSection from "./start-project";
 import Link from "next/link";
 
 /* ------------------------------------------------------------------ */
@@ -35,7 +35,7 @@ export default function Home() {
           <EngagementModels />
         </div>
       </section>
-      <CTABanner />
+      <ProjectProcessSection />
 
       <Footer />
     </main>

@@ -3,19 +3,18 @@ import Footer from "@/components/sections/footer";
 import ServicesHeader from "./header";
 import ServicesDetails from "./service-details";
 import CaseStudiesSlider from "./cases";
-import CTABanner from "@/components/sections/cta-banner";
-
+import ProjectProcessSection from "./start-project";
 export default function Home() {
   return (
     <>
       {/* FIXED NAVIGATION */}
       <NavigationClient />
       {/* MAIN CONTENT – space reserved for pill navbar */}
-      <main className="pt-32 md:pt-1 bg-black">
+      <main className="pt-32 md:pt-1 bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
         <ServicesHeader />
         <ServicesDetails />
         <CaseStudiesSlider />
-        <CTABanner />
+        <ProjectProcessSection />
       </main>
       {/* FOOTER */}
       <Footer />
