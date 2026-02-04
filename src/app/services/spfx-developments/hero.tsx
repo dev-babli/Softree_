@@ -172,10 +172,7 @@ export default function HeroWithTestimonial() {
             relative
             group
             rounded-2xl
-            p-5
-            bg-white/5
-            backdrop-blur-xl
-            border border-white/10
+            p-5                   
             overflow-hidden
             transition-all duration-300
             hover:-translate-y-2

@@ -67,10 +67,10 @@ export default function HeroWithTestimonial() {
           </h1>
 
           <p className="text-zinc-300 text-lg leading-relaxed max-w-xl">
-            Softree builds modern SharePoint, SPFx, web and business applications
-            that automate workflows, improve collaboration and accelerate your
-            startup’s growth. From intranet portals to custom apps, we turn your
-            ideas into scalable digital products.
+            Softree builds modern SharePoint, SPFx, web and business
+            applications that automate workflows, improve collaboration and
+            accelerate your startup’s growth. From intranet portals to custom
+            apps, we turn your ideas into scalable digital products.
           </p>
 
           {/* CTA */}
@@ -158,10 +158,7 @@ export default function HeroWithTestimonial() {
                   className="
                     group relative
                     flex items-center gap-4
-                    rounded-2xl
-                    border border-white/10
-                    bg-white/5
-                    backdrop-blur-2xl
+                    rounded-2xl              
                     px-6 py-5
                     hover:-translate-y-1
                     hover:bg-white/10
@@ -194,7 +191,11 @@ export default function HeroWithTestimonial() {
 
       {/* wave bottom */}
       <div className="absolute bottom-0 left-0 w-full">
-        <svg viewBox="0 0 1440 120" className="w-full h-[120px]" preserveAspectRatio="none">
+        <svg
+          viewBox="0 0 1440 120"
+          className="w-full h-[120px]"
+          preserveAspectRatio="none"
+        >
           <path
             d="M0,64 C240,96 480,96 720,80 960,64 1200,32 1440,32 L1440,120 L0,120 Z"
             fill="#FAFAFA"

@@ -123,9 +123,7 @@ export default function HeroWithTestimonial() {
       relative
       rounded-3xl
       p-8 lg:p-10
-      bg-white/10
-      backdrop-blur-3xl
-      border border-white/20
+      
       shadow-[0_25px_70px_rgba(0,0,0,0.45)]
       overflow-hidden
       group

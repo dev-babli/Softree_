@@ -165,9 +165,7 @@ export default function HeroWithTestimonial() {
           group relative
           flex items-center gap-4
           rounded-2xl
-          border border-white/10
-          bg-white/5
-          backdrop-blur-2xl
+         
           px-6 py-5
           hover:-translate-y-1
           hover:bg-white/10
