@@ -20,7 +20,7 @@ export default function WebDevelopmentProcess() {
   const radius = 250;
 
   return (
-    <section className="relative py-32 bg-gradient-to-b from-white via-gray-50 to-white">
+    <section className="relative py-12 bg-gradient-to-b from-gray-50 via-white to-gray-50 ">
       <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         {/* ================= LEFT CONTENT ================= */}
         <div className="max-w-xl">

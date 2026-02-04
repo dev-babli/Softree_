@@ -22,12 +22,8 @@ export default function WhyChooseSoftreeMobileAppDevelopment() {
   ];
 
   return (
-    <section className="relative bg #141414 py-12 text-white overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-[-25%] left-[-15%] w-[500px] h-[500px] bg-cyan-500/20 blur-[140px] rounded-full" />
-        <div className="absolute bottom-[-25%] right-[-15%] w-[500px] h-[500px] bg-purple-600/20 blur-[140px] rounded-full" />
-      </div>
+    <section className="relative bg #141414  text-white overflow-hidden">
+     
 
       <div className="max-w-7xl mx-auto flex flex-col xl:flex-row gap-16">
         {/* LEFT – CONTENT */}
@@ -36,7 +32,7 @@ export default function WhyChooseSoftreeMobileAppDevelopment() {
     bg-gradient-to-b from-white to-slate-50
 
     border border-gray-200
-   shadow-[0_24px_80px_rgba(0,0,0,0.7)]    hover:shadow-[0_30px_80px_rgba(0,0,0,0.12)]
+
     transition-all duration-300"
         >
           {/* Badge */}
@@ -98,9 +94,7 @@ export default function WhyChooseSoftreeMobileAppDevelopment() {
                 className="relative p-7 rounded-[24px]
 bg-gradient-to-b from-white via-slate-50 to-sky-50
           border border-gray-200
-      shadow-[0_24px_80px_rgba(0,0,0,0.7)]
-          hover:-translate-y-2
-          hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)]
+    
           transition-all duration-300"
               >
                 {/* Icon */}

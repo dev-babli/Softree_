@@ -35,15 +35,11 @@ export default function MvpBenefitsAccordion() {
   const [active, setActive] = useState<number | null>(0);
 
   return (
-    <section className="relative py-36 overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white">
-      {/* ===== Background Glows ===== */}
-      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl" />
-      <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-3xl" />
-
+    <section className="relative py-7 overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
       <div className="relative mx-auto max-w-7xl px-6">
         {/* ================= HEADER ================= */}
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-gray-900">
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="text-4xl mt-14 md:text-6xl font-semibold tracking-tight text-gray-900">
             Benefits of Our{" "}
             <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
               MVP Development Services
@@ -57,7 +53,7 @@ export default function MvpBenefitsAccordion() {
         </div>
 
         {/* ================= ACCORDION ================= */}
-        <div className="mt-24 space-y-6">
+        <div className="mt-14 space-y-6">
           {items.map((item, index) => {
             const open = active === index;
             const Icon = item.icon;

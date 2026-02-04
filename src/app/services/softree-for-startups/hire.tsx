@@ -41,10 +41,10 @@ const hireItems: HireItem[] = [
 
 export default function HireExperts() {
   return (
-    <section className="relative py-28 bg-gradient-to-b from-zinc-50 via-white to-zinc-50 overflow-hidden">
+    <section className="relative py-10 bg-gradient-to-b from-zinc-50 via-white to-zinc-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         {/* HEADER */}
-        <div className="max-w-3xl mb-20">
+        <div className="max-w-3xl mb-7">
           <h2 className="text-4xl md:text-5xl font-semibold mb-6 leading-tight text-zinc-900">
             <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
               Dedicated Experts

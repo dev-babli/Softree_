@@ -2,139 +2,136 @@
 
 export default function CtaStartup() {
   return (
-    <section className="relative isolate overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
-      {/* ===== BACKGROUND GLOWS ===== */}
-      <div className="absolute -top-32 -left-32 w-[420px] h-[420px] bg-indigo-500/10 blur-[120px] rounded-full" />
-      <div className="absolute bottom-0 right-0 w-[420px] h-[420px] bg-cyan-400/10 blur-[120px] rounded-full" />
+    <section className="relative overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
+      <div className="mx-auto max-w-7xl px-6 py-10">
 
-      <div className="mx-auto max-w-7xl px-6 py-20">
-        {/* ===== MAIN CARD ===== */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-14 items-center rounded-[32px] bg-gradient-to-br from-[#0b3ea8] via-[#1557c0] to-[#1e73d8] p-10 md:p-16 shadow-2xl border border-white/10 text-white">
+        <div
+          className="
+            grid md:grid-cols-2 gap-8 items-center
+            rounded-3xl
+            bg-gradient-to-br from-indigo-900 via-slate-900 to-black
+            p-7 md:p-9
+            text-white
+            shadow-xl
+          "
+        >
 
           {/* ================= LEFT ================= */}
-          <div className="flex flex-col justify-center">
+          <div>
+
             {/* Badge */}
-            <span className="mb-5 inline-flex w-fit items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-medium text-white/80 backdrop-blur">
+            <span className="inline-block mb-3 px-3 py-1 rounded-full bg-white/10 text-xs">
               🚀 Softree for Startups
             </span>
 
             {/* Heading */}
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight">
-              Build • Launch • Scale{" "}
-              <span className="bg-gradient-to-r from-cyan-300 to-indigo-300 bg-clip-text text-transparent">
-                your startup faster
+            <h2 className="text-3xl md:text-4xl font-semibold leading-tight">
+              Launch your
+              <span className="block bg-gradient-to-r from-cyan-300 to-indigo-300 bg-clip-text text-transparent">
+                MVP faster
               </span>
             </h2>
 
             {/* Description */}
-            <p className="mt-6 max-w-xl text-lg text-white/80">
-              From idea validation to market-ready products, Softree helps startups
-              design, build and ship MVPs quickly with scalable architecture and
-              modern tech stacks.
+            <p className="mt-4 text-sm text-white/80 max-w-lg">
+              Turn your idea into a scalable digital product with Softree.
+              We design, build, and launch MVPs, SaaS platforms, and web apps
+              quickly — helping startups validate, grow, and scale with confidence.
             </p>
 
             {/* Benefits */}
-            <ul className="mt-6 space-y-2 text-sm text-white/80">
-              <li>✔ MVP in 4–8 weeks</li>
-              <li>✔ Web & Mobile Apps</li>
-              <li>✔ Lean & Scalable Architecture</li>
-              <li>✔ Dedicated Product Team</li>
+            <ul className="mt-5 space-y-1.5 text-xs text-white/80">
+              <li>✔ MVP in 4–6 weeks</li>
+              <li>✔ React / Next.js / Node / Cloud</li>
+              <li>✔ Cost-effective development</li>
+              <li>✔ Scale-ready architecture</li>
             </ul>
 
             {/* Stats */}
-            <div className="mt-8 flex gap-10">
+            <div className="mt-6 flex gap-8">
               <div>
-                <p className="text-2xl font-semibold">50+</p>
-                <p className="text-xs text-white/60">Startups Served</p>
+                <p className="text-xl font-semibold">50+</p>
+                <p className="text-[11px] text-white/60">Products Launched</p>
               </div>
               <div>
-                <p className="text-2xl font-semibold">4–8 Weeks</p>
-                <p className="text-xs text-white/60">Avg. Launch</p>
+                <p className="text-xl font-semibold">40%</p>
+                <p className="text-[11px] text-white/60">Faster Go-to-Market</p>
               </div>
               <div>
-                <p className="text-2xl font-semibold">95%</p>
-                <p className="text-xs text-white/60">Retention Rate</p>
+                <p className="text-xl font-semibold">3×</p>
+                <p className="text-[11px] text-white/60">Startup Growth</p>
               </div>
             </div>
 
-            {/* CTA Buttons */}
-            <div className="mt-10 flex flex-wrap gap-4">
+            {/* CTA */}
+            <div className="mt-6 flex gap-3 flex-wrap">
               <a
-                href="/book-call"
-                className="rounded-xl bg-white text-blue-700 px-7 py-3 text-sm font-medium shadow-lg hover:scale-105 transition"
+                href="/contact"
+                className="bg-white text-indigo-900 px-6 py-2.5 rounded-lg text-xs font-medium shadow hover:scale-105 transition"
               >
-                Book Free Strategy Call
+                Build My MVP
               </a>
 
               <a
-                href="/contact"
-                className="rounded-xl border border-white/30 bg-white/10 px-7 py-3 text-sm font-medium backdrop-blur hover:bg-white/20 transition"
+                href="/services/startup-development"
+                className="border border-white/30 bg-white/10 px-6 py-2.5 rounded-lg text-xs font-medium backdrop-blur hover:bg-white/20 transition"
               >
-                Talk to Our Team
+                View Startup Services
               </a>
             </div>
           </div>
 
-          {/* ================= RIGHT – FORM ================= */}
-          <div className="relative">
-            {/* glow */}
-            <div className="absolute -inset-2 rounded-3xl bg-white/10 blur-xl" />
 
-            {/* Glass Form */}
-            <div className="relative rounded-3xl border border-white/20 bg-white/10 backdrop-blur-2xl p-8 shadow-2xl">
-              <h3 className="text-xl font-semibold">
-                Get Your Free Startup Plan
+
+          {/* ================= RIGHT – QUICK FORM ================= */}
+          <div className="relative">
+
+            <div className="absolute -inset-2 bg-white/10 blur-xl rounded-3xl" />
+
+            <div className="relative bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 p-5">
+
+              <h3 className="text-lg font-semibold">
+                Get Free MVP Consultation
               </h3>
-              <p className="mb-6 text-sm text-white/70">
-                Tell us about your idea — we’ll get back within 24 hours
+
+              <p className="text-xs text-white/70 mb-4">
+                Share your idea — we’ll guide you within 24 hours
               </p>
 
-              <form className="space-y-4">
+              <form className="space-y-3">
+
                 <input
-                  placeholder="Full Name"
-                  className="w-full rounded-xl bg-black/30 px-4 py-3 text-sm outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-400"
+                  placeholder="Founder Name"
+                  className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300"
                 />
 
                 <input
-                  type="email"
                   placeholder="Work Email"
-                  className="w-full rounded-xl bg-black/30 px-4 py-3 text-sm outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-400"
+                  className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300"
                 />
 
-                <input
-                  placeholder="Startup / Company Name"
-                  className="w-full rounded-xl bg-black/30 px-4 py-3 text-sm outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-400"
-                />
-
-                <select className="w-full rounded-xl bg-black/30 px-4 py-3 text-sm outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-400">
-                  <option>Product Type</option>
-                  <option>Web App</option>
-                  <option>Mobile App</option>
-                  <option>SaaS Platform</option>
-                  <option>Marketplace</option>
-                </select>
-
-                <select className="w-full rounded-xl bg-black/30 px-4 py-3 text-sm outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-400">
-                  <option>Budget Range</option>
-                  <option>Under $10k</option>
-                  <option>$10k – $25k</option>
-                  <option>$25k – $50k</option>
-                  <option>$50k+</option>
+                <select className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300">
+                  <option>Project Stage</option>
+                  <option>Idea Stage</option>
+                  <option>MVP Development</option>
+                  <option>Scaling Product</option>
                 </select>
 
                 <button
                   type="submit"
-                  className="w-full rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-500 py-3 text-sm font-medium shadow-lg hover:scale-[1.03] transition"
+                  className="w-full bg-gradient-to-r from-cyan-400 to-indigo-500 py-2.5 rounded-lg text-xs font-medium shadow hover:scale-[1.03] transition"
                 >
                   Get Free Plan
                 </button>
               </form>
 
-              <p className="mt-4 text-center text-xs text-white/60">
-                🔒 NDA Protected • No Spam • 100% Confidential
+              <p className="mt-3 text-[10px] text-center text-white/60">
+                🔒 NDA Protected • Confidential • No Spam
               </p>
+
             </div>
           </div>
+
         </div>
       </div>
     </section>

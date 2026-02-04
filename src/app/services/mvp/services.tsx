@@ -67,10 +67,6 @@ export default function MvpServices() {
       id="services_sec"
       className="relative overflow-hidden py-28 bg-gradient-to-b from-zinc-50 via-white to-zinc-50"
     >
-      {/* Soft background glow */}
-      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-blue-500/10 blur-3xl rounded-full" />
-      <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-indigo-500/10 blur-3xl rounded-full" />
-
       <div className="relative mx-auto max-w-7xl px-6">
         {/* Header */}
         <div className="mx-auto mb-20 max-w-5xl text-center">

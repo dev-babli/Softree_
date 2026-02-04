@@ -6,11 +6,7 @@ import Link from "next/link";
 const SharePointMigration = () => {
   return (
     <section className="relative overflow-hidden py-28 ">
-
-   
-
       <div className="relative mx-auto max-w-7xl w-[90%] grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
         {/* ================================================= */}
         {/* LEFT CONTENT – GLASS CARD */}
         {/* ================================================= */}
@@ -90,7 +86,6 @@ const SharePointMigration = () => {
         {/* RIGHT – FLOATING IMAGE CARD */}
         {/* ================================================= */}
         <div className="relative">
-
           {/* glow behind card */}
           <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/30 to-purple-500/30 blur-2xl rounded-3xl" />
 
@@ -118,7 +113,6 @@ const SharePointMigration = () => {
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );

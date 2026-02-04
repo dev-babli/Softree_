@@ -34,10 +34,10 @@ export default function AIDrivenSharePointMigration() {
   ];
 
   return (
-    <section className=" py-28">
+    <section className=" py-10">
       <div className="max-w-7xl mx-auto px-6">
         {/* Heading */}
-        <div className="mb-24 max-w-4xl px-4">
+        <div className="mb-3 max-w-4xl px-4">
           {/* Eyebrow */}
           <span
             className="

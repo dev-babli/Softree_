@@ -68,10 +68,10 @@ export default function TechnologiesTabs() {
   );
 
   return (
-    <section className="py-28 bg-gradient-to-b from-white via-gray-50 to-white px-4">
+    <section className=" py-15 bg-gradient-to-b from-gray-50 via-white to-gray-50 px-4">
       <div className="max-w-7xl mx-auto">
         {/* ================= HEADER ================= */}
-        <div className="text-center mb-24">
+        <div className="text-center mb-14">
           <span className="block mb-4 text-[11px] tracking-[0.35em] uppercase text-indigo-600 font-semibold">
             Web Development Stack
           </span>

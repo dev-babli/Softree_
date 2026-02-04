@@ -40,16 +40,16 @@ export default function QualityBenchmarkUltra() {
   return (
     <section
       id="plan-pricing"
-      className="relative overflow-hidden py-32 bg-gradient-to-b from-zinc-50 via-white to-zinc-50"
+      className="relative overflow-hidden py-10 bg-gradient-to-b from-gray-50 via-white to-gray-50"
     >
       <div className="relative mx-auto max-w-7xl px-6">
         {/* ================= Header ================= */}
-        <div className="mx-auto mb-24 max-w-4xl text-center">
+        <div className="mx-auto mb-14 max-w-4xl text-center">
           <span className="text-xs font-semibold tracking-[0.25em] uppercase text-blue-600">
             Quality Framework
           </span>
 
-          <h2 className="mt-6 text-4xl md:text-5xl font-bold text-gray-900">
+          <h2 className="mt-3 text-4xl md:text-5xl font-bold text-gray-900">
             Our Standard for Building{" "}
             <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
               Reliable, Scalable
@@ -57,7 +57,7 @@ export default function QualityBenchmarkUltra() {
             Web Experiences
           </h2>
 
-          <p className="mt-6 text-gray-600 leading-relaxed max-w-3xl mx-auto">
+          <p className="mt-4 text-gray-600 leading-relaxed max-w-3xl mx-auto">
             We follow a disciplined framework that ensures performance,
             security, and scalability at every stage — from thoughtful design to
             production-ready engineering.

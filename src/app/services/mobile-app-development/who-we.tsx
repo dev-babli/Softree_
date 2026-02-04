@@ -5,16 +5,15 @@ import Link from "next/link";
 
 export default function WhoWeWorkWith() {
   return (
-    <section className="relative overflow-hidden py-12">
+    <section className="relative overflow-hidden ">
       <div className="relative max-w-7xl mx-auto px-4">
-      {/* ===== Heading ===== */}
-<div className="text-center mb-28 max-w-4xl mx-auto px-6">
-
-  {/* Badge */}
-  <span
-    className="
+        {/* ===== Heading ===== */}
+        <div className="text-center mb-2 max-w-4xl mx-auto px-6">
+          {/* Badge */}
+          <span
+            className="
     inline-flex items-center
-    mb-6 px-5 py-2
+    mb-2 px-5 py-2
     rounded-full
 
     text-xs font-semibold
@@ -25,34 +24,29 @@ export default function WhoWeWorkWith() {
     border border-blue-100
     shadow-sm
   "
-  >
-    Our Partners
-  </span>
+          >
+            Our Partners
+          </span>
 
+          {/* Title */}
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight">
+            Who We{" "}
+            <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+              Work With
+            </span>
+          </h2>
 
-  {/* Title */}
-  <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight">
-    Who We{" "}
-    <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-      Work With
-    </span>
-  </h2>
+          {/* Underline */}
+          <div className="mt-1 flex justify-center">
+            <span className="h-[3px] w-24 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500" />
+          </div>
 
-
-  {/* Underline */}
-  <div className="mt-6 flex justify-center">
-    <span className="h-[3px] w-24 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500" />
-  </div>
-
-
-  {/* Description */}
-  <p className="mt-8 text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">
-    We help ambitious teams build, scale, and monetize powerful mobile
-    applications with a future-ready platform.
-  </p>
-
-</div>
-
+          {/* Description */}
+          <p className="mt-3 text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed mb-3">
+            We help ambitious teams build, scale, and monetize powerful mobile
+            applications with a future-ready platform.
+          </p>
+        </div>
 
         {/* ===== Cards ===== */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">

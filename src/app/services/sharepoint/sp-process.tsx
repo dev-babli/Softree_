@@ -47,26 +47,26 @@ export default function SharePointMigrationProcess() {
   return (
     <section className="relative py-24  overflow-hidden">
       <div className="container mx-auto px-6">
-    {/* Heading */}
-<div className="text-center max-w-5xl mx-auto mb-24 px-4">
-  {/* Eyebrow badge */}
-  <span className="inline-block mb-4 px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold tracking-widest uppercase border border-blue-400/20">
-    Migration Services
-  </span>
+        {/* Heading */}
+        <div className="text-center max-w-5xl mx-auto mb-24 px-4">
+          {/* Eyebrow badge */}
+          <span className="inline-block mb-4 px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold tracking-widest uppercase border border-blue-400/20">
+            Migration Services
+          </span>
 
-  {/* Title */}
-  <h2 className="text-4xl lg:text-5xl font-semibold tracking-tight bg-gradient-to-r from-blue-600 to-indigo-400 bg-clip-text text-transparent">
-    Our SharePoint Migration Services
-  </h2>
+          {/* Title */}
+          <h2 className="text-4xl lg:text-5xl font-semibold tracking-tight bg-gradient-to-r from-blue-600 to-indigo-400 bg-clip-text text-transparent">
+            Our SharePoint Migration Services
+          </h2>
 
-  {/* Description */}
-  <p className="mt-6 text-gray-900 leading-relaxed text-lg max-w-2xl mx-auto">
-    At <span className="text-black font-medium">Softree</span>, we deliver secure,
-    reliable, and error-free SharePoint migrations that ensure smooth
-    transitions, minimal downtime, and complete data integrity.
-  </p>
-</div>
-
+          {/* Description */}
+          <p className="mt-6 text-gray-900 leading-relaxed text-lg max-w-2xl mx-auto">
+            At <span className="text-black font-medium">Softree</span>, we
+            deliver secure, reliable, and error-free SharePoint migrations that
+            ensure smooth transitions, minimal downtime, and complete data
+            integrity.
+          </p>
+        </div>
 
         {/* Cards Section Wrapper */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

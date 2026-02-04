@@ -33,11 +33,11 @@ export default function AIBannerSection() {
   return (
     <section
       id="Banner"
-      className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-24"
+      className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-10"
     >
       <div className="max-w-7xl mx-auto px-6">
         {/* ================= HEADING ================= */}
-        <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-semibold text-zinc-900 mb-16">
+        <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-semibold text-zinc-900 mb-10">
           Build, Scale, and Secure AI That Delivers Results
         </h2>
 

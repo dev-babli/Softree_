@@ -37,10 +37,10 @@ const pillars = [
 /* ===================== SECTION ===================== */
 export default function ThreePillarsOfExcellence() {
   return (
-    <section className="relative overflow-hidden py-28 ">
+    <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 via-white to-gray-50 py-10">
       <div className="relative mx-auto max-w-7xl px-6 sm:px-10 lg:px-16">
         {/* ===== Header ===== */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-7">
           <span className="text-xs font-semibold tracking-[0.3em] uppercase text-blue-600">
             Softree Web Development Framework
           </span>

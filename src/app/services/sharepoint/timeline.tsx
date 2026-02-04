@@ -79,13 +79,13 @@ export default function TimelinePage() {
     <main className="min-h-screen">
       <div ref={containerRef} className="relative w-full md:px-10">
         {/* Header */}
-        <div className="relative overflow-hidden py-28 px-4 text-center">
+        <div className="relative overflow-hidden  px-4 text-center">
           {/* Content */}
-          <div className="relative max-w-7xl mx-auto text-center px-4">
+          <div className="relative max-w-7xl mt-34 mx-auto text-center px-4">
             {/* Badge */}
             <span
               className="
-      inline-block mb-6 px-4 py-1.5
+      inline-block mb-1 px-4 py-1.5
       text-xs md:text-sm font-semibold tracking-widest uppercase
       text-blue-600
     "
@@ -94,7 +94,7 @@ export default function TimelinePage() {
             </span>
 
             {/* Heading */}
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-5xl lg:text-5xl font-bold leading-tight text-gray-900 mb-6">
               SharePoint-Driven{" "}
               <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                 Digital Transformation
@@ -102,7 +102,7 @@ export default function TimelinePage() {
             </h2>
 
             {/* Description */}
-            <p className="text-gray-600 text-sm md:text-lg max-w-3xl mx-auto leading-relaxed">
+            <p className="text-gray-600 mb-4 text-sm md:text-lg max-w-3xl mx-auto leading-relaxed">
               Exploring Softree’s journey in building secure, scalable
               SharePoint and Microsoft 365 solutions that empower modern
               enterprise collaboration, automation, and governance.
@@ -110,87 +110,83 @@ export default function TimelinePage() {
           </div>
         </div>
 
-        {/* Timeline Section */}
-        <div className="relative py-3">
-          <div className="max-w-6xl mx-auto border border-white/10 rounded-3xl px-6 md:px-12 lg:px-16 relative overflow-hidden">
-            {/* Timeline */}
+        {/* ================= Timeline Section ================= */}
+        <div className="relative ">
+          <div className="max-w-6xl mx-auto border border-white/10 rounded-3xl px-6 md:px-12 lg:px-16">
+            {/* ================= Timeline Wrapper ================= */}
             <div
               className="
-    relative max-w-7xl mx-auto pb-32 pt-12 px-6 md:px-10
+        relative
+        max-w-7xl mx-auto
+        py-16 px-6 md:px-10
 
-    rounded-3xl
-    bg-gradient-to-b from-gray-50 via-white to-gray-100
-    backdrop-blur-md
-
-    border border-gray-200
-    shadow-[0_25px_80px_rgba(0,0,0,0.06)]
-  "
+        rounded-3xl
+        bg-gradient-to-b from-gray-50 via-white to-gray-100
+        border border-gray-200
+        shadow-[0_25px_80px_rgba(0,0,0,0.06)]
+      "
             >
-              {data.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex gap-12 pt-24 md:pt-32 relative"
-                >
-                  {/* ================= Dot + Year ================= */}
-                  <div className="relative flex flex-col items-center w-24">
-                    <div className="relative z-10 flex items-center justify-center">
-                      {/* mirror blue dot */}
-                      <div className="h-4 w-4 rounded-full bg-blue-600 shadow-[0_0_12px_rgba(37,99,235,0.45)]" />
-
-                      {/* subtle ring */}
-                      <div className="absolute h-9 w-9 rounded-full border border-blue-200" />
-                    </div>
-
-                    <span className="mt-6 text-gray-900 text-xl font-semibold">
-                      {item.title}
-                    </span>
-                  </div>
-
-                  {/* ================= Content Card ================= */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    viewport={{ once: true }}
-                    className="
-          relative
-
-          bg-white/80 backdrop-blur-lg
-          border border-gray-200
-          rounded-2xl
-
-          p-6 md:p-8
-          text-gray-700
-          text-sm md:text-base
-          leading-relaxed
-          max-w-xl
-
-          shadow-[0_10px_30px_rgba(0,0,0,0.05)]
-          hover:-translate-y-2
-          hover:shadow-[0_25px_70px_rgba(37,99,235,0.12)]
-
-          transition-all duration-300
-        "
-                  >
-                    {item.content}
-                  </motion.div>
-                </div>
-              ))}
-
-              {/* ================= Vertical Line ================= */}
-              <div
-                style={{ height }}
-                className="absolute left-[48px] top-0 w-[2px]"
-              >
+              {/* ================= Vertical Line (AUTO HEIGHT - FIXED) ================= */}
+              <div className="absolute left-12 top-0 bottom-0 w-[2px] z-0">
                 {/* base line */}
                 <div className="absolute inset-0 bg-gray-300" />
 
                 {/* animated fill */}
                 <motion.div
-                  style={{ height: heightTransform, opacity: opacityTransform }}
-                  className="absolute top-0 w-[2px] bg-gradient-to-b from-blue-600 to-indigo-600 rounded-full"
+                  style={{ scaleY: heightTransform, originY: 0 }}
+                  className="absolute inset-0 bg-gradient-to-b from-blue-600 to-indigo-600 rounded-full"
                 />
               </div>
+
+              {/* ================= Timeline Items ================= */}
+              {data.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex gap-10 pt-16 md:pt-20 relative z-10"
+                >
+                  <div className="relative flex items-center justify-center">
+                    {/* animated dot */}
+                    <motion.div
+                      initial={{ scale: 0.6, opacity: 0.3 }}
+                      whileInView={{ scale: 1.2, opacity: 1 }}
+                      transition={{ duration: 0.4, delay: index * 0.15 }}
+                      viewport={{ once: true }}
+                      className="h-4 w-4 rounded-full bg-blue-600 shadow-[0_0_14px_rgba(37,99,235,0.6)]"
+                    />
+
+                    {/* animated ring */}
+                    <motion.div
+                      initial={{ scale: 0, opacity: 0 }}
+                      whileInView={{ scale: 1.4, opacity: 1 }}
+                      transition={{ duration: 0.5, delay: index * 0.15 }}
+                      viewport={{ once: true }}
+                      className="absolute h-9 w-9 rounded-full border border-blue-200"
+                    />
+                  </div>
+
+                  {/* ===== Card ===== */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="
+              relative z-10
+              bg-white
+              border border-gray-200
+              rounded-2xl
+              p-6 md:p-8
+              text-gray-700
+              max-w-xl
+              shadow-md
+              hover:-translate-y-1
+              transition
+            "
+                  >
+                    {item.content}
+                  </motion.div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

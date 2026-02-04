@@ -1,23 +1,16 @@
 "use client";
 
-import {
-  Clock,
-  Users,
-  Headset,
-  CheckCircle2,
-  ArrowRight,
-} from "lucide-react";
+import { Clock, Users, Headset, CheckCircle2, ArrowRight } from "lucide-react";
 
 export default function HireNextJsPricing() {
   return (
     <section
       id="plan-pricing"
-      className="relative py-28 bg-gradient-to-b from-gray-50 via-white to-gray-50"
+      className="relative bg-gradient-to-b from-gray-50 via-white to-gray-50 py-10"
     >
       <div className="mx-auto max-w-7xl px-6">
-
         {/* ================= HEADING ================= */}
-        <h2 className="mb-24 text-center text-4xl lg:text-5xl font-semibold text-gray-900">
+        <h2 className="mb-14 text-center text-4xl lg:text-4xl font-semibold text-gray-900">
           Hire{" "}
           <span className="bg-gradient-to-r from-indigo-600 to-cyan-500 bg-clip-text text-transparent">
             Next.js Developers
@@ -25,22 +18,18 @@ export default function HireNextJsPricing() {
           for Scalable & High-Performance Applications
         </h2>
 
-
-
         {/* ================= MAIN GRID ================= */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
-
-        {/* ================= LEFT HIGHLIGHTS ================= */}
-<div className="flex flex-col gap-6">
-
-  {[
-    { icon: Clock, title: "Flexible Engagement" },
-    { icon: Users, title: "Senior Next.js Experts" },
-    { icon: Headset, title: "Dedicated Support" },
-  ].map((item, i) => (
-    <div
-      key={i}
-      className="
+          {/* ================= LEFT HIGHLIGHTS ================= */}
+          <div className="flex flex-col gap-6">
+            {[
+              { icon: Clock, title: "Flexible Engagement" },
+              { icon: Users, title: "Senior Next.js Experts" },
+              { icon: Headset, title: "Dedicated Support" },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="
         group relative overflow-hidden
 
         flex items-center gap-5
@@ -57,11 +46,10 @@ export default function HireNextJsPricing() {
         hover:-translate-y-1
         transition-all duration-300
       "
-    >
-
-      {/* ===== Bottom rounded gradient accent ===== */}
-      <span
-        className="
+              >
+                {/* ===== Bottom rounded gradient accent ===== */}
+                <span
+                  className="
           absolute inset-x-0 bottom-0
           h-[4px]
           rounded-b-2xl
@@ -73,11 +61,11 @@ export default function HireNextJsPricing() {
           group-hover:opacity-100
           transition
         "
-      />
+                />
 
-      {/* ===== Icon container ===== */}
-      <div
-        className="
+                {/* ===== Icon container ===== */}
+                <div
+                  className="
           relative
           h-11 w-11
           flex items-center justify-center
@@ -91,25 +79,20 @@ export default function HireNextJsPricing() {
 
           transition
         "
-      >
-        <item.icon className="h-5 w-5" />
-      </div>
+                >
+                  <item.icon className="h-5 w-5" />
+                </div>
 
-      {/* ===== Text ===== */}
-      <h3 className="text-gray-900 font-medium tracking-tight">
-        {item.title}
-      </h3>
-
-    </div>
-  ))}
-
-</div>
-
-
+                {/* ===== Text ===== */}
+                <h3 className="text-gray-900 font-medium tracking-tight">
+                  {item.title}
+                </h3>
+              </div>
+            ))}
+          </div>
 
           {/* ================= PRICING CARDS ================= */}
           <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-8">
-
             {[
               {
                 title: "Hourly Engagement",
@@ -164,14 +147,12 @@ export default function HireNextJsPricing() {
                   }
                 `}
               >
-
                 {/* ===== BADGE ===== */}
                 {plan.highlight && (
                   <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-white text-indigo-700 px-4 py-1 text-xs font-semibold shadow-md">
                     RECOMMENDED
                   </span>
                 )}
-
 
                 {/* ===== TITLE ===== */}
                 <h3
@@ -181,7 +162,6 @@ export default function HireNextJsPricing() {
                 >
                   {plan.title}
                 </h3>
-
 
                 {/* ===== FEATURES ===== */}
                 <ul className="space-y-4">
@@ -194,26 +174,20 @@ export default function HireNextJsPricing() {
                     >
                       <CheckCircle2
                         className={`h-5 w-5 shrink-0 ${
-                          plan.highlight
-                            ? "text-white"
-                            : "text-indigo-600"
+                          plan.highlight ? "text-white" : "text-indigo-600"
                         }`}
                       />
                       <span>{f}</span>
                     </li>
                   ))}
                 </ul>
-
               </div>
             ))}
-
           </div>
         </div>
 
-
-
         {/* ================= CTA ================= */}
-        <div className="mt-24 text-center">
+        <div className="mt-8 text-center">
           <a
             href="#contact-us"
             className="
@@ -233,7 +207,6 @@ export default function HireNextJsPricing() {
             <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
           </a>
         </div>
-
       </div>
     </section>
   );

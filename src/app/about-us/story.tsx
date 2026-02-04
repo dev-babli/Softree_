@@ -1,6 +1,6 @@
 export default function OurStorySection() {
   return (
-    <section className="relative  py-36 overflow-hidden">
+    <section className="relative  py-10 overflow-hidden">
       {/* ===== CONTENT WRAPPER WITH BG ===== */}
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* subtle gradient border */}

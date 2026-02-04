@@ -86,12 +86,12 @@ export default function TechnologiesTabs() {
     <section className="relative px-4 overflow-hidden ">
       <div className="max-w-7xl mx-auto">
         {/* ===== ADVANCED HEADER (PREMIUM LIGHT) ===== */}
-        <div className="relative text-center mb-32 max-w-5xl mx-auto px-6">
+        <div className="relative text-center mb-10 max-w-5xl mx-auto px-6">
           {/* Eyebrow Badge */}
           <span
             className="
     inline-flex items-center
-    px-5 py-2 mb-6
+    px-5 py-2 mb-2
     rounded-full
 
     text-[11px] font-semibold
@@ -124,7 +124,7 @@ export default function TechnologiesTabs() {
           </h2>
 
           {/* Description */}
-          <p className="mt-8 max-w-2xl mx-auto text-gray-600 text-base md:text-lg leading-relaxed">
+          <p className="mt-2 max-w-2xl mx-auto text-gray-600 text-base md:text-lg leading-relaxed">
             A carefully curated technology stack that empowers us to build
             high-performance, secure, and scalable digital solutions with
             long-term reliability.

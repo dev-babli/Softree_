@@ -71,15 +71,15 @@ const CASE_STUDIES: CaseStudy[] = [
     description:
       "A secure authentication system for travel agencies supporting multiple login mechanisms to enhance security and user access control.",
     image:
-      "/images/case-study/power-apps/travel-agency-multiple-authentication-system.webp",
+      "/images/case-study/power-apps/travel.jpeg",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Travel-Agency-Multiple-Authentication-System.pdf",
     category: "Power Apps",
   },
   {
-    title: "Interview Managing System",
+    title: "Interview Management System",
     description:
       "An interview management solution that automates scheduling, candidate tracking, and feedback collection for HR teams.",
-    image: "/images/case-study/power-apps/interview-managing-system.webp",
+    image: "/images/case-study/power-apps/interview.jpeg",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Interview-Managing-System.pdf",
     category: "Power Apps",
   },
@@ -88,7 +88,7 @@ const CASE_STUDIES: CaseStudy[] = [
     description:
       "A workflow-driven approval system requiring multiple digital signatures to ensure compliance, accountability, and audit readiness.",
     image:
-      "/images/case-study/power-apps/multiple-signature-approval-process.webp",
+      "/images/case-study/power-apps/multiple.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Multiple-Signature-Approval-Process.pdf",
     category: "Power Apps",
   },

@@ -56,10 +56,10 @@ export default function CaseStudiesSection() {
   }, []);
 
   return (
-    <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-28">
+    <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-10">
       <div className="max-w-7xl mx-auto px-6">
         {/* ================= PREMIUM HEADER ================= */}
-        <div className="mb-28 max-w-7xl mx-auto">
+        <div className="mb-7 max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* LEFT SIDE */}
             <div>

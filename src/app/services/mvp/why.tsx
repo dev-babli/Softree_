@@ -23,7 +23,7 @@ export default function WhyChooseSoftreeMvpDevelopment() {
   ];
 
   return (
-    <section className="relative overflow-hidden py-28 bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
+    <section className="relative overflow-hidden py-10 bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
       <div className="relative max-w-7xl mx-auto flex flex-col xl:flex-row gap-16 px-6">
         {/* ================= LEFT ================= */}
         <motion.div

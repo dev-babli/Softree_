@@ -54,146 +54,90 @@ export default function AboutHeroWithTestimonial() {
 
   /* ================= UI ================= */
   return (
-    <section className="relative overflow-hidden text-white bg-gradient-to-br from-[#0b3ea8] via-[#1557c0] to-[#1e73d8]">
-      {/* background glow */}
-      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-white/10 blur-[140px] rounded-full" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-cyan-400/10 blur-[140px] rounded-full" />
+  <section className="relative overflow-hidden bg-gradient-to-br from-[#0b3ea8] via-[#1557c0] to-[#1e73d8] text-white">
+  {/* Glow accents */}
+  <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-blue-600/20 blur-[160px] rounded-full" />
+  <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-cyan-500/20 blur-[140px] rounded-full" />
 
-      {/* layout */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 lg:py-20 min-h-[70vh] grid lg:grid-cols-2 gap-10 items-center">
-        {/* ================= LEFT CONTENT ================= */}
+  {/* ================= CONTENT ================= */}
+  <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-12 text-center">
+    {/* Badge */}
+    <span className="inline-block mb-5 px-4 py-2 rounded-full bg-white/10 backdrop-blur text-xs tracking-widest uppercase">
+      About Softree
+    </span>
+
+    {/* Heading */}
+    <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight">
+      Empowering Businesses with
+      <br />
+      <span className="bg-gradient-to-r from-cyan-300 to-white bg-clip-text text-transparent">
+        Smart Digital Solutions
+      </span>
+    </h1>
+
+    {/* Description */}
+    <p className="mt-5 text-lg text-white/75 max-w-3xl mx-auto">
+      Softree is a modern technology startup focused on SharePoint, SPFx,
+      automation and custom web applications. We help organizations simplify
+      workflows, improve collaboration and build scalable digital products that
+      accelerate growth.
+    </p>
+
+    {/* ================= GLASS INFO PANEL ================= */}
+    <div className="mt-10 mx-auto max-w-2xl rounded-3xl border border-white/20 bg-white/10 backdrop-blur-2xl p-7 shadow-2xl">
+      {/* Buttons */}
+      <div className="flex flex-wrap justify-center gap-4">
+        <button className="px-7 py-3 rounded-xl bg-white text-blue-700 font-medium shadow-lg hover:scale-105 transition">
+          Our Services
+        </button>
+
+        <button className="px-7 py-3 rounded-xl border border-white/30 hover:bg-white/10 transition">
+          Meet Our Team
+        </button>
+      </div>
+
+      {/* Divider */}
+      <div className="my-6 h-px bg-white/15" />
+
+      {/* Trust Stats */}
+      <div className="grid grid-cols-3 gap-4 text-center text-sm">
         <div>
-          {/* Badge */}
-          <span className="inline-block mb-4 px-4 py-2 rounded-full bg-white/10 text-xs tracking-widest uppercase">
-            About Softree
-          </span>
-
-          {/* Heading */}
-          <h1 className="text-4xl lg:text-5xl xl:text-6xl font-semibold leading-tight">
-            We Build Digital
-            <br />
-            <span className="text-white/90">Solutions That Scale</span>
-          </h1>
-
-          {/* Description */}
-          <p className="mt-5 text-white/80 max-w-xl text-lg">
-            We are a technology partner helping startups and enterprises design,
-            build, and scale modern SharePoint, Power Platform, web, and mobile
-            solutions that drive real business impact.
-          </p>
-
-          {/* CTA */}
-          <div className="flex flex-wrap gap-4 mt-8">
-            <Link href="/contact">
-              <button className="bg-white text-blue-700 px-6 py-3 rounded-xl font-medium shadow-lg hover:scale-105 hover:bg-blue-50 transition">
-                Talk With Us
-              </button>
-            </Link>
-
-            <Link href="/services">
-              <button className="border border-white/40 px-6 py-3 rounded-xl hover:bg-white/10 transition">
-                Explore Services
-              </button>
-            </Link>
-          </div>
-
-          {/* ================= STATS ================= */}
-          <div className="mt-12 grid grid-cols-3 gap-4 max-w-lg">
-            {[
-              { value: "10+", label: "Years Experience" },
-              { value: "150+", label: "Clients Worldwide" },
-              { value: "300+", label: "Projects Delivered" },
-            ].map((stat, i) => (
-              <div
-                key={i}
-                className="
-        group
-        rounded-2xl
-        bg-white/10
-        backdrop-blur-xl
-        border border-white/15
-        py-5
-        text-center
-        transition-all duration-300
-        hover:bg-white/15
-        hover:-translate-y-1
-        hover:shadow-lg
-      "
-              >
-                <p className="text-2xl lg:text-3xl font-bold text-white tracking-tight">
-                  {stat.value}
-                </p>
-
-                <p className="text-xs uppercase tracking-wider text-white/70 mt-1">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
+          <p className="text-xl font-bold">200+</p>
+          <p className="text-white/60">Projects Delivered</p>
         </div>
-
-        {/* ================= RIGHT TESTIMONIAL ================= */}
-        <div className="flex justify-center lg:justify-end">
-          <div
-            className={`
-              max-w-sm w-full
-              rounded-3xl
-              border border-white/20
-              bg-gradient-to-br from-white/20 to-white/5
-              backdrop-blur-2xl
-              p-6
-              shadow-2xl shadow-black/30
-              transition-all duration-500
-              ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
-            `}
-          >
-            {/* Quote Icon */}
-            <div className="mb-4 w-10 h-10 flex items-center justify-center rounded-xl bg-cyan-400/15">
-              <svg
-                className="text-cyan-300"
-                viewBox="0 0 24 24"
-                width="18"
-                height="18"
-                fill="currentColor"
-              >
-                <path d="M6.5 10c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.558-.906 1.491-1.385 2.396-1.385V6C6.57 6 5 7.832 5 10c0 1.657.895 3 2 3 1.105 0 2-.895 2-2s-.895-1-2-1zm8 0c-.223 0-.437.034-.65.065.069-.232.140-.468.254-.68.558-.906 1.491-1.385 2.396-1.385V6c-1.93 0-3.5 1.832-3.5 4 0 1.657.895 3 2 3 1.105 0 2-.895 2-2s-.895-1-2-1z" />
-              </svg>
-            </div>
-
-            {/* Text */}
-            <p className="text-sm text-white/90 leading-relaxed mb-5">
-              “{active.text}”
-            </p>
-
-            {/* User */}
-            <div className="flex items-center gap-3">
-              <img
-                src={active.avatar}
-                alt={active.name}
-                className="w-10 h-10 rounded-full object-cover border border-white/20"
-              />
-              <div>
-                <p className="text-sm font-semibold">{active.name}</p>
-                <p className="text-xs text-white/60">{active.role}</p>
-              </div>
-            </div>
-          </div>
+        <div>
+          <p className="text-xl font-bold">5+</p>
+          <p className="text-white/60">Years Experience</p>
+        </div>
+        <div>
+          <p className="text-xl font-bold">98%</p>
+          <p className="text-white/60">Client Satisfaction</p>
         </div>
       </div>
+    </div>
+  </div>
 
-      {/* wave bottom */}
-      <div className="absolute bottom-0 left-0 w-full">
-        <svg
-          viewBox="0 0 1440 120"
-          className="w-full h-[120px]"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M0,64 C240,96 480,96 720,80 960,64 1200,32 1440,32 L1440,120 L0,120 Z"
-            fill="#FAFAFA"
-          />
-        </svg>
-      </div>
-    </section>
+  {/* ================= PREMIUM SOFT WAVE ================= */}
+  <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+    <svg
+      viewBox="0 0 1440 160"
+      className="w-full h-[120px]"
+      preserveAspectRatio="none"
+    >
+      <defs>
+        <linearGradient id="contactFade" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.15" />
+          <stop offset="100%" stopColor="#FAFAFA" />
+        </linearGradient>
+      </defs>
+
+      <path
+        d="M0,90 C300,140 900,140 1440,90 L1440,160 L0,160 Z"
+        fill="url(#contactFade)"
+      />
+    </svg>
+  </div>
+</section>
+
   );
 }

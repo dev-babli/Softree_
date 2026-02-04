@@ -48,10 +48,10 @@ export default function SharePointFeaturesAdvanced() {
   const activeFeature = features[activeIndex];
 
   return (
-    <section className="relative py-28 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+    <section className="relative bg-gradient-to-b from-gray-50 to-white overflow-hidden">
       <div className="mx-auto max-w-7xl w-[90%]">
         {/* ================= HEADER ================= */}
-        <div className="text-center max-w-3xl mx-auto mb-24 px-4">
+        <div className="text-center max-w-6xl mx-auto mb-4 px-4">
           <h2 className="text-4xl lg:text-5xl font-semibold tracking-tight bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 bg-clip-text text-transparent">
             Microsoft SharePoint Features
           </h2>

@@ -32,12 +32,9 @@ const certifications = [
 export default function Certifications() {
   return (
     <section className="relative py-24 overflow-hidden">
-      {/* Ambient background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(99,102,241,0.12),transparent_70%)]" />
-
       <div className="relative max-w-7xl mx-auto px-6">
-       {/* Heading */}
-        <div className="text-center mb-20 px-4">
+        {/* Heading */}
+        <div className="text-center mb-7 px-4">
           <h2 className="text-3xl lg:text-5xl font-semibold text-gray-900 tracking-tight">
             Certifications &{" "}
             <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
@@ -50,7 +47,6 @@ export default function Certifications() {
             and operational excellence.
           </p>
         </div>
-
 
         {/* Cards */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-10">

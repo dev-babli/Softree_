@@ -1,159 +1,143 @@
 "use client";
 
-import { useState } from "react";
-
-export default function CtaSharePoint() {
-  const [step] = useState(3);
-
+export default function CtaSPFx() {
   return (
-    <section className="relative isolate overflow-hidden bg-black">
-      {/* ===== Background ===== */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute left-1/2 top-[-30%] h-[700px] w-[1000px] -translate-x-1/2 rounded-full bg-gradient-to-r from-violet-600/40 via-indigo-500/40 to-fuchsia-600/40 blur-[140px]" />
-        <div className="absolute right-[-15%] bottom-[-35%] h-[600px] w-[600px] rounded-full bg-violet-500/30 blur-[140px]" />
-      </div>
+    <section className="relative overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
 
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-14 px-6 py-28 md:grid-cols-2">
-        {/* ================= LEFT ================= */}
-        <div className="flex flex-col justify-center">
-          <span className="mb-4 inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium text-white/80 backdrop-blur">
-            🧩 SharePoint Framework (SPFx) Experts
-          </span>
+   
 
-          <h1 className="text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-6xl">
-            We build{" "}
-            <span className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
-              scalable SPFx solutions
-            </span>{" "}
-            for modern SharePoint
-          </h1>
+      <div className="mx-auto max-w-7xl px-6 py-12">
 
-          <p className="mt-6 max-w-xl text-lg text-white/70">
-            From custom SPFx web parts and extensions to tenant-wide application
-            customizers — we help organizations enhance SharePoint Online with
-            performant, reusable, and future-ready solutions.
-          </p>
+        <div
+          className="
+            grid md:grid-cols-2 gap-10 items-center
+            rounded-3xl
+            bg-gradient-to-br from-blue-800 via-indigo-800 to-slate-900
+            p-8 md:p-10
+            text-white
+            shadow-xl
+          "
+        >
 
-          {/* Social Proof */}
-          <div className="mt-8 grid grid-cols-3 gap-6 max-w-md text-white">
-            <div>
-              <p className="text-2xl font-semibold">150+</p>
-              <p className="text-sm text-white/60">SPFx Implementations</p>
-            </div>
-            <div>
-              <p className="text-2xl font-semibold">6+ yrs</p>
-              <p className="text-sm text-white/60">SPFx Experience</p>
-            </div>
-            <div>
-              <p className="text-2xl font-semibold">99%</p>
-              <p className="text-sm text-white/60">Client Satisfaction</p>
-            </div>
-          </div>
+          {/* ================= LEFT ================= */}
+          <div>
 
-          {/* CTAs */}
-          <div className="mt-10 flex flex-wrap gap-4">
-            <a
-              href="/book-call"
-              className="rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-600 px-7 py-3 text-sm font-medium text-white transition hover:scale-[1.05]"
-            >
-              Book Free SPFx Consultation
-            </a>
+            {/* badge */}
+            <span className="inline-block mb-3 px-3 py-1 rounded-full bg-white/10 text-xs">
+              ⚙️ SharePoint Framework (SPFx)
+            </span>
 
-            <a
-              href="https://wa.me/91XXXXXXXXXX"
-              className="rounded-full border border-white/20 bg-white/5 px-7 py-3 text-sm font-medium text-white backdrop-blur transition hover:bg-white/10"
-            >
-              WhatsApp Our SPFx Team
-            </a>
-          </div>
-        </div>
+            {/* heading */}
+            <h2 className="text-3xl md:text-4xl font-semibold leading-tight">
+              Build custom
+              <span className="block bg-gradient-to-r from-cyan-300 to-indigo-300 bg-clip-text text-transparent">
+                SPFx Web Parts & Extensions
+              </span>
+            </h2>
 
-        {/* ================= RIGHT ================= */}
-        <div className="relative">
-          <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-violet-600/40 to-fuchsia-600/40 blur-[1px]" />
-
-          <div className="relative rounded-3xl border border-white/15 bg-white/5 p-6 backdrop-blur-xl">
-            <h3 className="text-xl font-semibold text-white">
-              Get Your SPFx Project Estimate
-            </h3>
-            <p className="mb-6 text-sm text-white/60">
-              Tell us about your SharePoint Framework requirement
+            {/* description */}
+            <p className="mt-4 text-sm text-white/85 max-w-lg">
+              Extend SharePoint with modern React-based web parts, command bars,
+              dashboards, and enterprise solutions that integrate seamlessly with
+              Microsoft 365 and Teams.
             </p>
 
-            {step === 3 && (
-              <form className="space-y-5">
-                {/* Row 1 */}
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                  <input
-                    placeholder="Full Name"
-                    className="w-full rounded-xl bg-black/40 px-4 py-3 text-sm text-white ring-1 ring-white/15 focus:ring-2 focus:ring-violet-500"
-                  />
-                  <input
-                    placeholder="Work Email"
-                    className="w-full rounded-xl bg-black/40 px-4 py-3 text-sm text-white ring-1 ring-white/15 focus:ring-2 focus:ring-violet-500"
-                  />
-                </div>
+            {/* benefits */}
+            <ul className="mt-5 space-y-1.5 text-xs text-white/85">
+              <li>✔ SPFx Web Parts & Extensions</li>
+              <li>✔ React + TypeScript Development</li>
+              <li>✔ Microsoft Graph & API Integration</li>
+              <li>✔ Modern UI & Performance Optimized</li>
+            </ul>
 
-                {/* Row 2 */}
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                  <input
-                    placeholder="Phone / Microsoft Teams"
-                    className="w-full rounded-xl bg-black/40 px-4 py-3 text-sm text-white ring-1 ring-white/15 focus:ring-2 focus:ring-violet-500"
-                  />
+            {/* stats */}
+            <div className="mt-6 flex gap-8">
+              <div>
+                <p className="text-xl font-semibold">120+</p>
+                <p className="text-[11px] text-white/70">Web Parts Built</p>
+              </div>
+              <div>
+                <p className="text-xl font-semibold">95%</p>
+                <p className="text-[11px] text-white/70">Faster Workflows</p>
+              </div>
+              <div>
+                <p className="text-xl font-semibold">100%</p>
+                <p className="text-[11px] text-white/70">Cloud Ready</p>
+              </div>
+            </div>
 
-                  <select className="w-full rounded-xl bg-black/40 px-4 py-3 text-sm text-white ring-1 ring-white/15 focus:ring-2 focus:ring-violet-500">
-                    <option>SPFx Service Type</option>
-                    <option>Custom SPFx Web Parts</option>
-                    <option>SPFx Extensions</option>
-                    <option>Application Customizers</option>
-                    <option>Tenant-wide Branding</option>
-                    <option>Microsoft Graph Integration</option>
-                    <option>Support & Enhancements</option>
-                  </select>
-                </div>
+            {/* CTA buttons */}
+            <div className="mt-6 flex gap-3 flex-wrap">
+              <a
+                href="/contact"
+                className="bg-white text-indigo-900 px-6 py-2.5 rounded-lg text-xs font-medium shadow hover:scale-105 transition"
+              >
+                Talk to SPFx Expert
+              </a>
 
-                {/* Row 3 */}
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                  <select className="w-full rounded-xl bg-black/40 px-4 py-3 text-sm text-white ring-1 ring-white/15 focus:ring-2 focus:ring-violet-500">
-                    <option>SPFx Use Case</option>
-                    <option>Intranet Components</option>
-                    <option>List / Library Customization</option>
-                    <option>Header / Footer Extensions</option>
-                    <option>Workflow UI Enhancements</option>
-                    <option>Custom Business Interfaces</option>
-                  </select>
+              <a
+                href="/services/spfx-development"
+                className="border border-white/30 bg-white/10 px-6 py-2.5 rounded-lg text-xs font-medium backdrop-blur hover:bg-white/20 transition"
+              >
+                View Services
+              </a>
+            </div>
+          </div>
 
-                  <select className="w-full rounded-xl bg-black/40 px-4 py-3 text-sm text-white ring-1 ring-white/15 focus:ring-2 focus:ring-violet-500">
-                    <option>Company Size</option>
-                    <option>Startup (1–10)</option>
-                    <option>SMB (11–50)</option>
-                    <option>Mid-size (51–200)</option>
-                    <option>Enterprise (200+)</option>
-                  </select>
-                </div>
 
-                {/* Row 4 */}
-                <select className="w-full md:w-1/2 rounded-xl bg-black/40 px-4 py-3 text-sm text-white ring-1 ring-white/15 focus:ring-2 focus:ring-violet-500">
-                  <option>Estimated Budget</option>
-                  <option>Under $5k</option>
-                  <option>$5k – $15k</option>
-                  <option>$15k – $30k</option>
-                  <option>$30k+</option>
+          {/* ================= RIGHT – FORM ================= */}
+          <div className="relative">
+
+            <div className="absolute -inset-2 bg-white/10 blur-xl rounded-3xl" />
+
+            <div className="relative bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 p-6">
+
+              <h3 className="text-lg font-semibold">
+                Get Free SPFx Estimate
+              </h3>
+
+              <p className="text-xs text-white/70 mb-4">
+                Share your customization needs — we’ll reply within 24 hours
+              </p>
+
+              <form className="space-y-3">
+
+                <input
+                  placeholder="Full Name"
+                  className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300"
+                />
+
+                <input
+                  type="email"
+                  placeholder="Work Email"
+                  className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300"
+                />
+
+                <select
+                  className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300"
+                >
+                  <option>Requirement Type</option>
+                  <option>Custom Web Part</option>
+                  <option>Application Customizer</option>
+                  <option>Dashboard / Portal</option>
+                  <option>Migration / Upgrade</option>
                 </select>
 
                 <button
                   type="submit"
-                  className="w-full rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 py-3 text-sm font-medium text-white shadow-lg transition hover:scale-[1.03]"
+                  className="w-full bg-gradient-to-r from-cyan-400 to-indigo-500 py-2.5 rounded-lg text-xs font-medium shadow hover:scale-[1.03] transition"
                 >
-                  Get Free SPFx Estimate
+                  Get Free Estimate
                 </button>
               </form>
-            )}
 
-            <p className="mt-4 text-center text-xs text-white/50">
-              🔒 NDA Protected • SPFx Specialists • No Spam
-            </p>
+              <p className="mt-3 text-[10px] text-center text-white/60">
+                🔒 Secure • NDA Protected • No Spam
+              </p>
+
+            </div>
           </div>
+
         </div>
       </div>
     </section>

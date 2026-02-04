@@ -6,7 +6,7 @@ export default function WhySoftreeSection() {
   return (
     <section
       id="HomeWhySoftree"
-      className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-24"
+      className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-14"
     >
       <div className="max-w-7xl mx-auto px-6">
 

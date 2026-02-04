@@ -83,13 +83,12 @@ export default function ServicesShowcaseExactImage() {
   const [active, setActive] = useState(services[0]);
 
   return (
-    <section className="relative overflow-hidden pb-24 py-12">
-   {/* ================= SECTION HEADER ================= */}
-<div className="max-w-4xl mx-auto text-center mb-24">
-
-  {/* Eyebrow */}
-  <span
-    className="
+    <section className="relative overflow-hidden pb-12">
+      {/* ================= SECTION HEADER ================= */}
+      <div className="max-w-4xl mx-auto text-center mb-4">
+        {/* Eyebrow */}
+        <span
+          className="
     inline-flex items-center
     mb-5 px-4 py-1.5
     rounded-full
@@ -99,36 +98,31 @@ export default function ServicesShowcaseExactImage() {
     text-blue-600
     border border-blue-100
   "
-  >
-    What We Offer
-  </span>
+        >
+          What We Offer
+        </span>
 
-
-  {/* Title */}
-  <h2 className="relative text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-    Mobile App Development Services
-
-    {/* subtle premium underline */}
-    <span
-      className="
+        {/* Title */}
+        <h2 className="relative text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          Mobile App Development Services
+          {/* subtle premium underline */}
+          <span
+            className="
       absolute left-1/2 -bottom-3
       -translate-x-1/2
       w-24 h-[3px]
       rounded-full
       bg-gradient-to-r from-blue-600 to-cyan-500
     "
-    />
-  </h2>
+          />
+        </h2>
 
-
-  {/* Description */}
-  <p className="text-gray-600 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
-    Scalable, secure, and high-performance mobile solutions tailored to your
-    business goals and user expectations.
-  </p>
-
-</div>
-
+        {/* Description */}
+        <p className="text-gray-600 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+          Scalable, secure, and high-performance mobile solutions tailored to
+          your business goals and user expectations.
+        </p>
+      </div>
 
       {/* ================= CONNECTED WRAPPER ================= */}
       <div className="relative max-w-7xl mx-auto px-6">
