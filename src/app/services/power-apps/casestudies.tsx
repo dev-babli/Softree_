@@ -194,11 +194,6 @@ export default function PowerAppsCaseStudies() {
                         {item.title}
                       </h3>
 
-                      {/* SUMMARY */}
-                      <p className="text-sm text-gray-500 mb-6">
-                        {item.summary}
-                      </p>
-
                       {/* DETAILS */}
                       <div className="space-y-4 text-sm">
                         {/* Challenge */}
