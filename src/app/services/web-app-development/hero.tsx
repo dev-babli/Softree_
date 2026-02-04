@@ -89,68 +89,78 @@ export default function HeroWithTestimonial() {
           </div>
         </div>
 
-        {/* ================= RIGHT SIDE ================= */}
-        <div className="w-full flex flex-col gap-10">
-          {/* ---------- Testimonial Card ---------- */}
+        {/* ================= RIGHT SIDE (ADVANCED PREMIUM) ================= */}
+        <div className="relative w-full flex flex-col gap-8">
+          {/* ================= FLOATING BACKGROUND GLOW ================= */}
+          <div className="absolute -top-10 -right-10 w-56 h-56 bg-cyan-500/20 blur-[120px] rounded-full pointer-events-none" />
+          <div className="absolute bottom-0 -left-10 w-56 h-56 bg-blue-600/20 blur-[120px] rounded-full pointer-events-none" />
+
+          {/* ================= TESTIMONIAL CARD ================= */}
           <div
             className={`
-              relative w-full
-              rounded-3xl
-              p-9 lg:p-11
-              backdrop-blur-3xl
-              bg-white/10
-              border border-white/20
-              shadow-[0_20px_60px_rgba(0,0,0,0.35)]
-              hover:-translate-y-1
-              transition-all duration-500
-              ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
-            `}
+      relative
+      rounded-3xl
+      p-8 lg:p-10
+      bg-white/10
+      backdrop-blur-3xl
+      border border-white/20
+      shadow-[0_25px_70px_rgba(0,0,0,0.45)]
+      overflow-hidden
+      group
+      transition-all duration-500
+      hover:-translate-y-2
+      hover:shadow-[0_35px_90px_rgba(0,0,0,0.6)]
+      ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
+    `}
           >
-            {/* gradient glow */}
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-cyan-400/10 to-blue-600/10 pointer-events-none" />
+            {/* animated gradient border glow */}
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-cyan-400/20 via-blue-500/10 to-indigo-500/20 opacity-0 group-hover:opacity-100 transition duration-500" />
 
-            {/* quote */}
-            <p className="relative text-lg lg:text-xl text-white/90 leading-relaxed mb-2">
-              “{active.text}”
+            {/* text */}
+            <p className="relative text-lg lg:text-xl text-white/90 leading-relaxed mb-6 z-10">
+              "{active.text}"
             </p>
 
-            {/* user */}
-            <div className="relative flex items-center gap-4">
+            {/* profile */}
+            <div className="relative flex items-center gap-4 z-10">
               <img
                 src={active.avatar}
                 alt={active.name}
-                className="w-14 h-14 rounded-full object-cover border border-white/20"
+                className="
+          w-14 h-14 rounded-full
+          object-cover
+          ring-2 ring-cyan-400/40
+          shadow-lg
+        "
               />
+
               <div>
-                <p className="text-base font-semibold">{active.name}</p>
+                <p className="font-semibold text-white">{active.name}</p>
                 <p className="text-sm text-white/60">{active.role}</p>
               </div>
             </div>
           </div>
 
-          {/* ---------- Stats Cards (WEB) ---------- */}
+          {/* ================= STATS GRID ================= */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             {[
               {
-                value: "120+",
-                label: "Web Apps Built",
+                value: "60+",
+                label: "Apps Built",
                 icon: Rocket,
-                color: "text-cyan-300",
-                gradient: "from-cyan-400/20 to-blue-500/20",
+                gradient: "from-cyan-500 to-blue-600",
               },
               {
-                value: "99.9%",
-                label: "Uptime",
+                value: "65%",
+                label: "Automation",
                 icon: Workflow,
-                color: "text-indigo-300",
-                gradient: "from-cyan-400/20 to-blue-500/20",
+                gradient: "from-indigo-500 to-blue-600",
               },
               {
-                value: "40%",
-                label: "Performance Boost",
+                value: "50%",
+                label: "Productivity",
                 icon: TrendingUp,
-                color: "text-cyan-300",
-                gradient: "from-cyan-400/20 to-blue-500/20",
+                gradient: "from-cyan-400 to-indigo-500",
               },
             ].map((stat) => {
               const Icon = stat.icon;
@@ -159,34 +169,52 @@ export default function HeroWithTestimonial() {
                 <div
                   key={stat.label}
                   className="
-                    group relative
-                    flex items-center gap-4
-                    rounded-2xl
-                    border border-white/10
-                    bg-white/5
-                    backdrop-blur-2xl
-                    px-6 py-5
-                    hover:-translate-y-1
-                    hover:bg-white/10
-                    transition-all duration-300
-                  "
+            relative
+            group
+            rounded-2xl
+            p-5
+            bg-white/5
+            backdrop-blur-xl
+            border border-white/10
+            overflow-hidden
+            transition-all duration-300
+            hover:-translate-y-2
+            hover:border-cyan-400/40
+            hover:bg-white/10
+          "
                 >
+                  {/* gradient hover glow */}
                   <div
                     className={`
-                      w-12 h-12
-                      flex items-center justify-center
-                      rounded-xl
-                      bg-gradient-to-br ${stat.gradient}
-                    `}
-                  >
-                    <Icon className={`w-5 h-5 ${stat.color}`} />
-                  </div>
+              absolute inset-0 opacity-0 group-hover:opacity-20
+              bg-gradient-to-br ${stat.gradient}
+              transition duration-500
+            `}
+                  />
 
-                  <div className="flex flex-col leading-tight">
-                    <span className={`text-2xl font-semibold ${stat.color}`}>
-                      {stat.value}
-                    </span>
-                    <span className="text-sm text-zinc-300">{stat.label}</span>
+                  <div className="relative flex items-center gap-4">
+                    {/* icon */}
+                    <div
+                      className={`
+                w-11 h-11
+                flex items-center justify-center
+                rounded-xl
+                bg-gradient-to-br ${stat.gradient}
+                shadow-lg
+              `}
+                    >
+                      <Icon className="w-5 h-5 text-white" />
+                    </div>
+
+                    {/* text */}
+                    <div className="flex flex-col">
+                      <span className="text-xl font-bold text-white">
+                        {stat.value}
+                      </span>
+                      <span className="text-xs uppercase tracking-wide text-white/60">
+                        {stat.label}
+                      </span>
+                    </div>
                   </div>
                 </div>
               );

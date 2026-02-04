@@ -75,8 +75,8 @@ export default function HeroWithTestimonial() {
 
           <p className="mt-5 text-white/80 max-w-xl text-lg">
             We design and build Minimum Viable Products that help startups and
-            businesses validate ideas quickly, reduce risks, and reach the market
-            faster with scalable, production-ready solutions.
+            businesses validate ideas quickly, reduce risks, and reach the
+            market faster with scalable, production-ready solutions.
           </p>
 
           {/* CTA */}
@@ -111,49 +111,54 @@ export default function HeroWithTestimonial() {
           </div>
         </div>
 
-        {/* ================= RIGHT TESTIMONIAL ================= */}
-        <div className="flex justify-center lg:justify-end">
+        {/* ================= RIGHT SIDE (ADVANCED PREMIUM) ================= */}
+        <div className="relative w-full flex flex-col gap-8">
+          {/* ================= FLOATING BACKGROUND GLOW ================= */}
+          <div className="absolute -top-10 -right-10 w-56 h-56 bg-cyan-500/20 blur-[120px] rounded-full pointer-events-none" />
+          <div className="absolute bottom-0 -left-10 w-56 h-56 bg-blue-600/20 blur-[120px] rounded-full pointer-events-none" />
+
+          {/* ================= TESTIMONIAL CARD ================= */}
           <div
             className={`
-              max-w-sm w-full
-              rounded-3xl
-              border border-white/20
-              bg-gradient-to-br from-white/20 to-white/5
-              backdrop-blur-2xl
-              p-6
-              shadow-2xl shadow-black/30
-              transition-all duration-500
-              ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
-            `}
+      relative
+      rounded-3xl
+      p-8 lg:p-10
+      bg-white/10
+      backdrop-blur-3xl
+      border border-white/20
+      shadow-[0_25px_70px_rgba(0,0,0,0.45)]
+      overflow-hidden
+      group
+      transition-all duration-500
+      hover:-translate-y-2
+      hover:shadow-[0_35px_90px_rgba(0,0,0,0.6)]
+      ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
+    `}
           >
-            {/* Quote Icon */}
-            <div className="mb-4 w-10 h-10 flex items-center justify-center rounded-xl bg-cyan-400/15">
-              <svg
-                className="text-cyan-300"
-                viewBox="0 0 24 24"
-                width="18"
-                height="18"
-                fill="currentColor"
-              >
-                <path d="M6.5 10c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.558-.906 1.491-1.385 2.396-1.385V6C6.57 6 5 7.832 5 10c0 1.657.895 3 2 3 1.105 0 2-.895 2-2s-.895-1-2-1zm8 0c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.558-.906 1.491-1.385 2.396-1.385V6c-1.93 0-3.5 1.832-3.5 4 0 1.657.895 3 2 3 1.105 0 2-.895 2-2s-.895-1-2-1z" />
-              </svg>
-            </div>
+            {/* animated gradient border glow */}
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-cyan-400/20 via-blue-500/10 to-indigo-500/20 opacity-0 group-hover:opacity-100 transition duration-500" />
 
-            {/* Text */}
-            <p className="text-sm text-white/90 leading-relaxed mb-5">
-              “{active.text}”
+            {/* text */}
+            <p className="relative text-lg lg:text-xl text-white/90 leading-relaxed mb-6 z-10">
+              "{active.text}"
             </p>
 
-            {/* User */}
-            <div className="flex items-center gap-3">
+            {/* profile */}
+            <div className="relative flex items-center gap-4 z-10">
               <img
                 src={active.avatar}
                 alt={active.name}
-                className="w-10 h-10 rounded-full object-cover border border-white/20"
+                className="
+          w-14 h-14 rounded-full
+          object-cover
+          ring-2 ring-cyan-400/40
+          shadow-lg
+        "
               />
+
               <div>
-                <p className="text-sm font-semibold">{active.name}</p>
-                <p className="text-xs text-white/60">{active.role}</p>
+                <p className="font-semibold text-white">{active.name}</p>
+                <p className="text-sm text-white/60">{active.role}</p>
               </div>
             </div>
           </div>
@@ -162,7 +167,11 @@ export default function HeroWithTestimonial() {
 
       {/* wave bottom */}
       <div className="absolute bottom-0 left-0 w-full">
-        <svg viewBox="0 0 1440 120" className="w-full h-[120px]" preserveAspectRatio="none">
+        <svg
+          viewBox="0 0 1440 120"
+          className="w-full h-[120px]"
+          preserveAspectRatio="none"
+        >
           <path
             d="M0,64 C240,96 480,96 720,80 960,64 1200,32 1440,32 L1440,120 L0,120 Z"
             fill="#FAFAFA"
