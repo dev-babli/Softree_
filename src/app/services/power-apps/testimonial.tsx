@@ -1,134 +1,206 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { Star, Quote } from "lucide-react";
+
 export default function TestimonialsSplitSlider() {
+  /* ================= DATA ================= */
   const testimonials = [
     {
       name: "Rachel Green",
       role: "HR Manager",
-      text: "Softree automated our HR workflows using Power Platform, reducing manual tasks and saving hours every week.",
+      company: "Accenture",
+      rating: 5,
+      logo: "https://cdn.simpleicons.org/accenture",
+      text: "Softree automated our HR workflows using Power Platform and Dataverse. Manual approvals were eliminated and productivity increased significantly. Our HR operations are now faster, smarter, and fully digital.",
     },
+
     {
       name: "Olivia Carter",
       role: "UX Designer",
-      text: "Their SharePoint and Power Apps solutions improved collaboration and centralized content across teams.",
+      company: "Infosys",
+      rating: 5,
+      logo: "https://cdn.simpleicons.org/infosys",
+      text: "Their SharePoint and Power Apps solutions improved collaboration across global teams. Content is centralized, searchable, and workflows are streamlined. The overall experience feels seamless and efficient.",
+    },
+
+    {
+      name: "Amit Sharma",
+      role: "Digital Transformation Lead",
+      company: "Wipro",
+      rating: 5,
+      logo: "https://cdn.simpleicons.org/wipro",
+      text: "Softree helped us modernize internal tools with Power Apps and automation. Approval cycles became faster and manual processes were drastically reduced. The solution scaled perfectly across departments.",
+    },
+
+    {
+      name: "Priya Nair",
+      role: "System Administrator",
+      company: "HCLTech",
+      rating: 5,
+      logo: "https://cdn.simpleicons.org/hcl",
+      text: "With Dataverse and Power Automate, we built secure enterprise workflows integrated with Microsoft 365. Reporting accuracy improved and compliance became easier. Their implementation was smooth and reliable.",
     },
     {
-      name: "Allison Lee",
-      role: "Operations Lead",
-      text: "Power Automate flows built by Softree streamlined approvals and boosted efficiency across departments.",
+      name: "Rohit Mehta",
+      role: "IT Operations Head",
+      company: "TCS",
+      rating: 5,
+      logo: "https://cdn.simpleicons.org/tcs",
+      text: "Softree built scalable SharePoint and Power Platform solutions that automated our service desk and internal processes. Ticket resolution time reduced drastically and reporting became fully real-time. The deployment was smooth across multiple teams.",
+    },
+
+    {
+      name: "Elena Martin",
+      role: "Digital Solutions Manager",
+      company: "Sanofi",
+      rating: 5,
+      logo: "/images/logo/sanofi.jpg",
+      text: "Their Power Apps and Dataverse implementation helped us digitize compliance workflows and regulatory documentation. Data is now centralized, secure, and easy to track. Productivity improved across our healthcare operations.",
     },
   ];
 
-  return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-4">
-      {/* Blue wrapper ONLY around 7xl */}
-      <div className="max-w-7xl mx-auto bg-gradient-to-r from-blue-950 via-blue-900 to-blue-950 text-white rounded-3xl px-8 py-12 shadow-2xl">
-        <div className="flex flex-col items-center gap-12">
-          {/* ================= TOP PANEL ================= */}
-          <div className="relative space-y-4 text-center max-w-2xl">
-            {/* quote circle */}
-            <div className="mx-auto w-14 h-14 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-2xl font-bold shadow">
-              "
-            </div>
+  /* ================= SLIDER ================= */
+  const [page, setPage] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
-            {/* heading */}
-            <h2 className="text-3xl md:text-4xl font-semibold leading-snug">
+  const cardsPerPage = 2;
+  const totalPages = Math.ceil(testimonials.length / cardsPerPage);
+
+  useEffect(() => {
+    if (isPaused) return;
+
+    const timer = setInterval(() => {
+      setPage((p) => (p + 1) % totalPages);
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, [totalPages, isPaused]);
+
+  /* ================= UI ================= */
+  return (
+    <section className="relative py-14 overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
+      {/* ===== DARK PREMIUM WRAPPER ===== */}
+      <div className="relative max-w-7xl mx-auto rounded-3xl px-10 py-10 text-white bg-gradient-to-r from-black via-[#0f2f7a] to-black overflow-hidden">
+        {/* Glow background */}
+        <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-blue-600/30 blur-[120px] rounded-full" />
+        <div className="absolute -bottom-32 -right-32 w-[400px] h-[400px] bg-indigo-600/30 blur-[120px] rounded-full" />
+
+        <div className="relative flex flex-col items-center gap-10">
+          {/* ================= HEADER ================= */}
+          <div className="text-center space-y-3">
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
               What Our Clients Say
             </h2>
 
-            {/* description */}
-            <p className="text-blue-100 text-sm md:text-base leading-relaxed">
-              Trusted by enterprises worldwide. Discover how our Power Platform,
-              SharePoint and automation solutions transform businesses.
+            <p className="text-blue-200 text-sm max-w-xl">
+              Trusted by enterprises worldwide. See how our Power Platform
+              solutions transform business productivity.
             </p>
-
-            {/* rating */}
-            <div className="flex items-center justify-center gap-3 text-sm">
-              <div className="text-yellow-400">★★★★★</div>
-              <span className="text-blue-200">4.9/5 • 200+ reviews</span>
-            </div>
-
-            {/* CTA */}
-            <button
-              className="
-            mt-2 px-5 py-2.5
-            bg-white text-blue-900
-            rounded-xl font-medium
-            shadow-md
-            hover:shadow-xl hover:-translate-y-0.5
-            transition
-          "
-            >
-              Contact Us →
-            </button>
           </div>
 
-          {/* ================= BOTTOM SLIDER ================= */}
-          <div className="relative overflow-hidden w-full">
-            <div className="mask-fade">
-              <div className="flex gap-6 w-max animate-marquee hover:[animation-play-state:paused]">
-                {[...Array(2)].map((_, i) => (
-                  <div key={i} className="flex gap-6">
-                    {testimonials.map((t, index) => (
+          {/* ================= SLIDER ================= */}
+          <div
+            className="relative overflow-hidden w-full"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            {/* TRACK */}
+            <div
+              className="flex transition-transform duration-700 ease-in-out"
+              style={{ transform: `translateX(-${page * 100}%)` }}
+            >
+              {Array.from({ length: totalPages }).map((_, pageIndex) => (
+                <div
+                  key={pageIndex}
+                  className="min-w-full grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto"
+                >
+                  {testimonials
+                    .slice(
+                      pageIndex * cardsPerPage,
+                      pageIndex * cardsPerPage + cardsPerPage,
+                    )
+                    .map((t, i) => (
                       <div
-                        key={index + i}
+                        key={i}
                         className="
-                group relative
-                w-[300px]
-                rounded-2xl
-                p-6 space-y-4
-                bg-gradient-to-br from-zinc-900/90 via-white/80 to-blue-100/80
-                backdrop-blur-xl
-                border border-white/40
-                shadow-lg
-                transition-all duration-300
-                hover:-translate-y-2
-                hover:shadow-2xl
-              "
+    group
+    h-full
+    rounded-2xl
+    p-6
+
+    bg-white/10
+    backdrop-blur-xl
+    border border-white/20
+
+    flex flex-col
+
+    hover:-translate-y-2 hover:bg-white/15
+    transition-all duration-300
+  "
                       >
-                        {/* mirror shine */}
-                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-white/40 via-transparent to-transparent opacity-60 pointer-events-none" />
+                        {/* ⭐ Quote */}
+                        <Quote className="w-6 h-6 text-blue-300 mb-4" />
 
-                        <div className="relative space-y-4 text-zinc-800">
-                          {/* top row */}
-                          <div className="flex items-center justify-between">
-                            <span className="text-blue-600 text-2xl font-bold">
-                              "
-                            </span>
-                            <div className="text-yellow-400 text-xs">★★★★★</div>
+                        {/* ================= USER INFO ================= */}
+                        <div className="flex items-center gap-3 mb-4">
+                          <img
+                            src={t.logo}
+                            alt={t.company}
+                            className="
+    w-16 h-16
+    rounded-xl
+    bg-white
+    p-2
+    object-contain
+    shadow-md
+    group-hover:scale-110
+    transition-transform duration-300
+  "
+                          />
+
+                          <div>
+                            <p className="text-sm font-semibold text-white">
+                              {t.name}
+                            </p>
+                            <p className="text-xs text-blue-300">
+                              {t.role} • {t.company}
+                            </p>
                           </div>
+                        </div>
 
-                          {/* text */}
-                          <p className="text-sm text-zinc-700 leading-relaxed">
-                            {t.text}
-                          </p>
-
-                          {/* ================= USER ================= */}
-                          <div className="pt-3">
-                            {/* ✅ FIXED WIDTH DIVIDER */}
-                            <div className="w-16 h-px bg-zinc-400/60 mb-3 rounded-full" />
-
-                            <div className="flex items-center gap-3">
-                              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 text-white flex items-center justify-center font-semibold shadow-md text-sm">
-                                {t.name.charAt(0)}
-                              </div>
-
-                              <div>
-                                <p className="font-semibold text-sm">
-                                  {t.name}
-                                </p>
-                                <p className="text-xs text-zinc-500">
-                                  {t.role}
-                                </p>
-                              </div>
-                            </div>
-                          </div>
+                        {/* ================= TEXT BELOW USER ================= */}
+                        <p className="text-sm leading-relaxed text-blue-100 line-clamp-4">
+                          {t.text}
+                        </p>
+                        {/* ⭐ Stars */}
+                        <div className="flex gap-1 mb-3">
+                          {Array.from({ length: t.rating }).map((_, idx) => (
+                            <Star
+                              key={idx}
+                              className="w-4 h-4 fill-yellow-400 stroke-none"
+                            />
+                          ))}
                         </div>
                       </div>
                     ))}
-                  </div>
-                ))}
-              </div>
+                </div>
+              ))}
+            </div>
+
+            {/* DOTS */}
+            <div className="flex justify-center gap-3 mt-8">
+              {Array.from({ length: totalPages }).map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setPage(i)}
+                  className={`h-2 rounded-full transition-all ${
+                    page === i
+                      ? "w-8 bg-white"
+                      : "w-3 bg-white/40 hover:bg-white/70"
+                  }`}
+                />
+              ))}
             </div>
           </div>
         </div>

@@ -71,7 +71,7 @@ const CASE_STUDIES: CaseStudy[] = [
     description:
       "A secure authentication system for travel agencies supporting multiple login mechanisms to enhance security and user access control.",
     image:
-      "/images/case-study/power-apps/travel.jpeg",
+      "/images/case-study/power-apps/car.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Travel-Agency-Multiple-Authentication-System.pdf",
     category: "Power Apps",
   },
@@ -88,7 +88,7 @@ const CASE_STUDIES: CaseStudy[] = [
     description:
       "A workflow-driven approval system requiring multiple digital signatures to ensure compliance, accountability, and audit readiness.",
     image:
-      "/images/case-study/power-apps/multiple.png",
+      "/images/case-study/power-apps/multiple.jpeg",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Multiple-Signature-Approval-Process.pdf",
     category: "Power Apps",
   },
@@ -96,7 +96,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "Car Rental System",
     description:
       "A Power Apps–based car rental management system that streamlines vehicle booking, availability tracking, and rental operations.",
-    image: "/images/case-study/power-apps/car-rental-system.webp",
+    image: "/images/case-study/power-apps/car.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Car-Rental-System-doc.pdf",
     category: "Power Apps",
   },
@@ -104,7 +104,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "Automated Request Submission & Approval Workflow",
     description:
       "A Power Apps workflow solution that automates request submission, approval routing, and status tracking to improve operational efficiency.",
-    image: "/images/case-study/power-apps/automated-request-submission.webp",
+    image: "/images/case-study/power-apps/automated.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Automated-Request-Submission-and-Approval-Workflow-in-Power-Apps.pdf",
     category: "Power Apps",
   },
@@ -112,7 +112,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "Claim Request Management",
     description:
       "A claim management application that enables users to submit, track, and approve claims with structured workflows and centralized data handling.",
-    image: "/images/case-study/power-apps/claim-request-management.webp",
+    image: "/images/case-study/power-apps/claim.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Claim-Request-Management.pdf",
     category: "Power Apps",
   },

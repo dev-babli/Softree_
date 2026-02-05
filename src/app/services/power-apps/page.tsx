@@ -10,6 +10,7 @@ import Certifications from "./certification";
 import CtaPowerApps from "./cta";
 import TrustedBrandsMarquee from "./trust";
 import TestimonialsSplitSlider from "./testimonial";
+import PowerAppsService from "./services";
 
 import Link from "next/link";
 import { CALENDLY_URL } from "@/lib/contactConfig";
@@ -18,7 +19,7 @@ import { CALENDLY_URL } from "@/lib/contactConfig";
 /* Shared Layout Spacing Config                                        */
 /* ------------------------------------------------------------------ */
 const SECTION_WRAPPER = "mx-auto max-w-8xl px-8 sm:px-10 md:px-14 lg:px-20";
-const SECTION_GAP = "space-y-24 py-14";
+const SECTION_GAP = "space-y-24 py-8";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
       {/* HERO (full width but aligned content internally) */}
       <PowerAppsHero />
       <TrustedBrandsMarquee />
+      <PowerAppsService/>
       {/* MAIN CONTENT SECTIONS */}
       <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
         <div className={`${SECTION_WRAPPER} ${SECTION_GAP}`}>
