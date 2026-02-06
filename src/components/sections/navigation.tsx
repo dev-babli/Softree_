@@ -318,18 +318,27 @@ export function Navigation() {
                     <NavigationMenuItem key={item.label}>
                       <NavigationMenuTrigger
                         className={`
-                    ${navPillClass}
-                    data-[state=open]:bg-blue-500/10
-                    data-[state=open]:text-blue-600
-                    data-[state=open]:shadow-[inset_0_-4px_0_0_rgb(59,130,246)]
-                  `}
+    ${navPillClass}
+    data-[state=open]:bg-blue-500/10
+    data-[state=open]:text-blue-600
+    data-[state=open]:shadow-[inset_0_-4px_0_0_rgb(59,130,246)]
+  `}
                       >
                         <span className="flex items-center gap-2.5">
                           {Icon && (
                             <Icon className="h-4 w-4 text-zinc-600 group-hover:text-blue-600 transition" />
                           )}
 
-                          <span className="font-semibold">{item.label}</span>
+                          {/* CLICK → /services */}
+                          <a
+                            href="/services"
+                            className="font-semibold"
+                            onClick={(e) => {
+                              e.stopPropagation(); // ✅ allow navigation
+                            }}
+                          >
+                            {item.label}
+                          </a>
                         </span>
                       </NavigationMenuTrigger>
 

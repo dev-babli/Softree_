@@ -18,11 +18,19 @@ export default function TrustedBrandsMarquee() {
 
   return (
     <section className="relative py-2 overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
-      {/* heading */}
-      <div className="text-center mb-10">
-        <p className="text-xs tracking-[0.4em] uppercase text-black font-medium">
-          Trusted by Leading Brands Worldwide
-        </p>
+      <div className="relative w-full py-16 text-center">
+        {/* soft glow */}
+        <div className="absolute inset-0 flex justify-center">
+          <div className="h-24 w-96 rounded-full bg-blue-100/60 blur-3xl" />
+        </div>
+
+        <div className="relative flex items-center justify-center gap-5">
+          <span className="h-px w-16 bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
+          <h2 className="text-4xl md:text-4xl font-bold text-blue-900">
+            Trusted by Leading Brands Worldwide
+          </h2>
+          <span className="h-px w-16 bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
+        </div>
       </div>
 
       {/* marquee container */}

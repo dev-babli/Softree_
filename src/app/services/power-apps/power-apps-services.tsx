@@ -95,7 +95,7 @@ export default function PowerAppsServices() {
             <div
               className="
       relative
-      bg-[#141414]/90
+  bg-gradient-to-r from-black via-[#0f2f7a] to-black
       backdrop-blur-xl
       p-5
       rounded-2xl
@@ -174,7 +174,7 @@ export default function PowerAppsServices() {
             <div
               className="
         relative
-        bg-[#141414]/90
+      bg-gradient-to-r from-black via-[#0f2f7a] to-black
         backdrop-blur-xl
         p-6
         rounded-2xl
@@ -199,14 +199,14 @@ export default function PowerAppsServices() {
                 src={tabs[active].image}
                 alt={tabs[active].title}
                 width={1000}
-                height={520}
+                height={590}
                 priority
                 className="
           w-full
           h-[200px]
           md:h-[260px]
           lg:h-[300px]
-          xl:h-[340px]
+          xl:h-[390px]
           rounded-xl
           object-cover
           shadow-lg

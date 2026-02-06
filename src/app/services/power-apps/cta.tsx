@@ -18,62 +18,65 @@ export default function CtaPowerApps() {
         >
           {/* ================= LEFT ================= */}
           <div className="flex flex-col justify-center">
-            <span className="mb-3 inline-flex w-fit items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs text-white/80">
-              ⚡ Power Apps Development Services
+            {/* Badge */}
+            <span className="mb-2 inline-flex w-fit items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs text-white/80">
+              👨‍💻 Hire Power Apps Developers
             </span>
 
-            {/* Smaller heading */}
+            {/* Heading */}
             <h2 className="text-3xl md:text-4xl font-semibold leading-tight">
-              Automate workflows with{" "}
+              Hire expert{" "}
               <span className="bg-gradient-to-r from-cyan-300 to-indigo-300 bg-clip-text text-transparent">
-                custom Power Apps
-              </span>
+                Power Apps developers
+              </span>{" "}
+              to build smarter business apps
             </h2>
 
-            <p className="mt-4 max-w-xl text-sm text-white/80">
-              Build secure, scalable business applications that digitize
-              processes and integrate seamlessly with Microsoft 365 &
-              SharePoint.
+            {/* Description */}
+            <p className="mt-2 max-w-xl text-sm text-white/80">
+              Accelerate your digital transformation with certified Power Apps
+              developers who build secure, scalable, and high-performance
+              applications tailored to your business needs.
             </p>
 
-            {/* Benefits compact */}
+            {/* Benefits */}
             <ul className="mt-4 space-y-1.5 text-xs text-white/80">
-              <li>✔ Custom Business Apps</li>
-              <li>✔ Workflow Automation</li>
-              <li>✔ SharePoint Integration</li>
-              <li>✔ Fast Deployment</li>
+              <li>✔ Dedicated Power Apps Developers</li>
+              <li>✔ Custom Canvas & Model-Driven Apps</li>
+              <li>✔ Power Automate & SharePoint Integration</li>
+              <li>✔ Flexible Hiring Models</li>
             </ul>
 
-            {/* Stats compact */}
-            <div className="mt-6 flex gap-8">
+            {/* Stats */}
+            <div className="mt-3 flex gap-8">
               <div>
-                <p className="text-xl font-semibold">60+</p>
+                <p className="text-xl font-semibold">70+</p>
                 <p className="text-[11px] text-white/60">Apps Delivered</p>
               </div>
               <div>
-                <p className="text-xl font-semibold">65%</p>
-                <p className="text-[11px] text-white/60">Automation Boost</p>
+                <p className="text-xl font-semibold">98%</p>
+                <p className="text-[11px] text-white/60">Client Satisfaction</p>
               </div>
               <div>
-                <p className="text-xl font-semibold">50%</p>
-                <p className="text-[11px] text-white/60">Time Saved</p>
+                <p className="text-xl font-semibold">2×</p>
+                <p className="text-[11px] text-white/60">Faster Delivery</p>
               </div>
             </div>
 
             {/* CTA */}
-            <div className="mt-6 flex gap-3">
+            <div className="mt-3 flex gap-3">
               <a
-                href="/book-call"
+                href="/hire-power-apps-developers"
                 className="rounded-lg bg-white text-blue-700 px-6 py-2.5 text-xs font-medium shadow hover:scale-105 transition"
               >
-                Talk to Expert
+                Hire Developers
               </a>
 
               <a
-                href="/services/power-apps"
+                href="/contact-us"
                 className="rounded-lg border border-white/30 bg-white/10 px-6 py-2.5 text-xs font-medium backdrop-blur hover:bg-white/20 transition"
               >
-                View Services
+                Free Consultation
               </a>
             </div>
           </div>

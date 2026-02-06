@@ -11,9 +11,10 @@ import CtaPowerApps from "./cta";
 import TrustedBrandsMarquee from "./trust";
 import TestimonialsSplitSlider from "./testimonial";
 import PowerAppsService from "./services";
-
+import HirePowerAppsPricing from "./pricing-card";
 import Link from "next/link";
 import { CALENDLY_URL } from "@/lib/contactConfig";
+import PowerAppsFAQ from "./faq";
 
 /* ------------------------------------------------------------------ */
 /* Shared Layout Spacing Config                                        */
@@ -29,16 +30,18 @@ export default function Home() {
       {/* HERO (full width but aligned content internally) */}
       <PowerAppsHero />
       <TrustedBrandsMarquee />
-      <PowerAppsService/>
+      <PowerAppsService />
       {/* MAIN CONTENT SECTIONS */}
       <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
         <div className={`${SECTION_WRAPPER} ${SECTION_GAP}`}>
           <PowerAppsCaseStudies />
           <PowerAppsServices />
+          <HirePowerAppsPricing />
           <WhyChooseSoftreePowerApps />
           <TechStackSection />
           <PowerAppsProcess />
           <TestimonialsSplitSlider />
+          <PowerAppsFAQ />
           <Certifications />
         </div>
       </section>

@@ -1,156 +1,213 @@
 "use client";
 
+import { useState } from "react";
 import {
-  FaCode,
-  FaDatabase,
-  FaCloud,
-  FaCogs,
-  FaLayerGroup,
-} from "react-icons/fa";
+  LayoutGrid,
+  Workflow,
+  Database,
+  Cloud,
+  ShieldCheck,
+  Share2,
+  Plug,
+  Server,
+  Settings,
+  Bug,
+  Layers,
+} from "lucide-react";
 
-import {
-  MdDataObject,
-  MdDeveloperMode,
-  MdStorage,
-  MdAutoAwesome,
-} from "react-icons/md";
+/* ================= TYPES ================= */
+type Tech = {
+  name: string;
+  icon: React.ElementType;
+};
 
-import { SiJavascript, SiHtml5, SiCss3, SiReact } from "react-icons/si";
+const TABS = [
+  "POWER APPS",
+  "POWER AUTOMATE",
+  "DATA & STORAGE",
+  "INTEGRATIONS",
+  "SECURITY & GOVERNANCE",
+] as const;
 
-const techStacks = [
-  {
-    title: "Languages",
-    accent: "from-white/35 via-white/15 to-transparent",
-    items: [
-      { name: "Power Fx", icon: MdDataObject },
-      { name: "JavaScript", icon: SiJavascript },
-      { name: "C#", icon: FaCode },
-      { name: "HTML", icon: SiHtml5 },
-      { name: "CSS", icon: SiCss3 },
-    ],
-  },
-  {
-    title: "Tools",
-    accent: "from-white/30 via-white/12 to-transparent",
-    items: [
-      { name: "Power Apps Studio", icon: MdDeveloperMode },
-      { name: "Power BI", icon: FaLayerGroup },
-      { name: "Power Automate", icon: FaCogs },
-      { name: "Microsoft Dataverse", icon: FaDatabase },
-      { name: "Visual Studio Code", icon: MdDeveloperMode },
-    ],
-  },
-  {
-    title: "Frameworks",
-    accent: "from-white/25 via-white/5 to-transparent",
-    items: [
-      { name: "Power Platform", icon: FaLayerGroup },
-      { name: "Common Data Model", icon: MdDataObject },
-      { name: ".NET Framework", icon: FaCode },
-      { name: "React Native", icon: SiReact },
-      { name: "Model-Driven Apps", icon: MdAutoAwesome },
-    ],
-  },
-  {
-    title: "Databases",
-    accent: "from-white/20 via-white/8 to-transparent",
-    items: [
-      { name: "Microsoft Dataverse", icon: FaDatabase },
-      { name: "SQL Server", icon: MdStorage },
-      { name: "Azure SQL Database", icon: FaCloud },
-      { name: "SharePoint", icon: FaCloud },
-      { name: "Common Data Service", icon: FaDatabase },
-    ],
-  },
-];
+/* ================= DATA ================= */
+const techData: Record<(typeof TABS)[number], Tech[]> = {
+  "POWER APPS": [
+    { name: "Canvas Apps", icon: LayoutGrid },
+    { name: "Model-Driven Apps", icon: LayoutGrid },
+    { name: "Responsive UI", icon: Settings },
+    { name: "Custom Components (PCF)", icon: Plug },
+    { name: "Offline Capabilities", icon: Cloud },
+    { name: "Role-Based UI", icon: ShieldCheck },
+  ],
 
-export default function TechStack() {
+  "POWER AUTOMATE": [
+    { name: "Cloud Flows", icon: Workflow },
+    { name: "Approval Workflows", icon: ShieldCheck },
+    { name: "Scheduled Flows", icon: Settings },
+    { name: "Business Process Flows", icon: Workflow },
+    { name: "Desktop Flows (RPA)", icon: Server },
+    { name: "Error Handling & Retry", icon: Bug },
+  ],
+
+  "DATA & STORAGE": [
+    { name: "Dataverse", icon: Database },
+    { name: "SharePoint Lists", icon: Share2 },
+    { name: "SQL Server", icon: Server },
+    { name: "Excel & OneDrive", icon: Database },
+    { name: "Azure Blob Storage", icon: Cloud },
+    { name: "Data Modeling", icon: Layers },
+  ],
+
+  INTEGRATIONS: [
+    { name: "Standard Connectors", icon: Plug },
+    { name: "Custom Connectors", icon: Settings },
+    { name: "Microsoft Graph", icon: Cloud },
+    { name: "REST APIs", icon: Server },
+    { name: "Azure Functions", icon: Cloud },
+    { name: "Webhook Integrations", icon: Workflow },
+  ],
+
+  "SECURITY & GOVERNANCE": [
+    { name: "Role-Based Access", icon: ShieldCheck },
+    { name: "Environment Strategy", icon: Cloud },
+    { name: "DLP Policies", icon: ShieldCheck },
+    { name: "Audit & Monitoring", icon: Settings },
+    { name: "Conditional Access", icon: ShieldCheck },
+    { name: "Compliance & Logging", icon: Database },
+  ],
+};
+
+export default function PowerAppsTechnologies() {
+  const [activeTab, setActiveTab] =
+    useState<(typeof TABS)[number]>("POWER APPS");
+
   return (
-    <section className="relative overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.15),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(236,72,153,0.12),transparent_40%)]" />
-
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center max-w-4xl mx-auto mb-28 px-4">
-          {/* Eyebrow */}
-          <span
-            className="
-      inline-flex items-center gap-2 px-5 py-2 rounded-full
-      bg-blue-50
-      border border-blue-100
-      text-sm font-medium text-blue-600
-    "
-          >
-            <MdAutoAwesome className="text-blue-600" />
-            Power Platform Technology Stack
+    <section className="px-4 ">
+      <div className="max-w-7xl mx-auto">
+        {/* ================= HEADER ================= */}
+        <div className="mb-10 text-center">
+          <span className="mb-4 block text-[11px] font-semibold uppercase tracking-[0.35em] text-indigo-600">
+            Microsoft Power Platform
           </span>
 
-          {/* Heading */}
-          <h2 className="mt-8 text-4xl lg:text-5xl font-semibold text-gray-900 leading-tight tracking-tight">
-            Built on a Modern, <br />
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-              Scalable Power Apps Ecosystem
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+            Technologies powering{" "}
+            <span className="bg-gradient-to-r from-indigo-600 to-cyan-500 bg-clip-text text-transparent">
+              Power Apps Solutions
             </span>
           </h2>
 
-          {/* Description */}
-          <p className="mt-6 text-lg leading-relaxed text-gray-600 max-w-3xl mx-auto">
-            Our technology stack supports secure application development,
-            seamless system integration, and long-term scalability across the
-            Microsoft Power Platform — enabling businesses to automate workflows
-            and deliver data-driven experiences with confidence.
+          <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-gray-600">
+            We build scalable, secure, and automation-driven business solutions
+            using Microsoft Power Platform — from apps and workflows to data and
+            governance.
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10">
-          {techStacks.map((stack, idx) => (
-            <div
-              key={idx}
-              className="relative group rounded-[28px] p-[1px] bg-gradient-to-br from-white/10 to-white/0 hover:from-blue-500/40 transition-all duration-500"
-            >
-              <div className="h-full rounded-[28px] bg-[#070707] p-7">
-                {/* Card title */}
-                {/* Card title */}
-                <div className="mb-8">
-                  <span
-                    className={`
-      inline-flex items-center
-      px-5 py-2
-      rounded-full
-      text-sm font-semibold text-white
-      bg-gradient-to-r ${stack.accent}
-      shadow-[0_0_20px_rgba(255,255,255,0.15)]
-    `}
-                  >
-                    {stack.title}
-                  </span>
-                </div>
+        {/* ================= TABS ================= */}
+        <div className="mb-10 flex justify-center">
+          <div className="flex gap-8 border-b border-gray-200">
+            {TABS.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`relative pb-3 text-sm font-medium transition ${
+                  activeTab === tab
+                    ? "text-indigo-600"
+                    : "text-gray-800 hover:text-gray-700"
+                }`}
+              >
+                {tab}
 
-                {/* Items */}
-                <ul className="space-y-5">
-                  {stack.items.map((item, i) => {
-                    const Icon = item.icon;
-                    return (
-                      <li
-                        key={i}
-                        className="flex items-center gap-4 group/item"
-                      >
-                        <div
-                          className={`flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br ${stack.accent} text-white shadow-lg`}
-                        >
-                          <Icon size={20} />
-                        </div>
-                        <span className="text-gray-300 font-medium group-hover/item:text-white transition-colors">
-                          {item.name}
-                        </span>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            </div>
-          ))}
+                {activeTab === tab && (
+                  <span className="absolute bottom-0 left-0 h-[3px] w-full rounded-full bg-indigo-900" />
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* ================= TECH CARDS ================= */}
+        <div
+          className="relative rounded-[32px] border border-white/10 7a] bg-gradient-to-r from-black via-[#0f2f7a] to-black
+ px-10 py-12 shadow-2xl"
+        >
+          {/* ambient glow */}
+          <div className="pointer-events-none absolute inset-0 flex justify-center">
+            <div className="h-40 w-[520px] rounded-full bg-indigo-600/20 blur-[120px]" />
+          </div>
+
+          <div
+            key={activeTab}
+            className="
+      relative z-10
+      grid gap-8
+      grid-cols-2
+      sm:grid-cols-3
+      lg:grid-cols-6
+    "
+          >
+            {techData[activeTab].map((tech) => {
+              const Icon = tech.icon;
+
+              return (
+                <div
+                  key={tech.name}
+                  className="
+            group
+            relative
+            flex flex-col items-center justify-center
+            rounded-2xl
+            border border-white/10
+            bg-white/5
+            p-7
+
+            backdrop-blur-xl
+            transition-all duration-300 ease-out
+
+            hover:-translate-y-2
+            hover:bg-white/10
+            hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)]
+          "
+                >
+                  {/* icon container */}
+                  <div
+                    className="
+            mb-4
+            flex h-12 w-12 items-center justify-center
+            rounded-xl
+            bg-indigo-600/10
+            ring-1 ring-indigo-600/20
+
+            transition
+            group-hover:bg-indigo-600
+            group-hover:ring-indigo-600
+          "
+                  >
+                    <Icon className="h-6 w-6 text-indigo-400 group-hover:text-white transition" />
+                  </div>
+
+                  {/* name */}
+                  <span className="text-center text-sm font-medium text-gray-200 tracking-wide">
+                    {tech.name}
+                  </span>
+
+                  {/* hover glow */}
+                  <span
+                    className="
+            pointer-events-none
+            absolute inset-0
+            rounded-2xl
+            bg-gradient-to-br from-indigo-600/10 via-transparent to-cyan-500/10
+            opacity-0
+            transition-opacity duration-300
+            group-hover:opacity-100
+          "
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

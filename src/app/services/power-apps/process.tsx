@@ -47,7 +47,7 @@ export default function PowerAppsProcessSection() {
       {/* Background glow */}
       <div
         className="absolute inset-0 pointer-events-none -z-20
-        bg-[radial-gradient(circle_at_50%_20%,rgba(60, 63, 67, 0.25),transparent_60%)]"
+        bg-gradient-to-r from-black via-[#0f2f7a] to-black"
       />
 
       <div className="max-w-7xl mx-auto px-6 relative">
@@ -56,7 +56,7 @@ export default function PowerAppsProcessSection() {
           className="
             absolute inset-0
             rounded-[40px]
-            bg-[#0B1220]/80
+             bg-gradient-to-r from-black via-[#0f2f7a] to-black
             backdrop-blur-xl
             border border-white/10
             -z-10
@@ -82,11 +82,7 @@ export default function PowerAppsProcessSection() {
     px-8 py-14 lg:px-14 lg:py-20
 
     /* ✅ Charcoal glass background */
-    bg-gradient-to-br
-    from-[#141414]
-    via-[#101010]
-    to-[#0b0b0b]
-
+     bg-gradient-to-r from-black via-[#0f2f7a] to-black
     backdrop-blur-2xl
     border border-white/10
     rounded-[36px]

@@ -4,116 +4,13 @@ import CaseStudyGrid from "./case-study-grid";
 import { Factory, AlertTriangle, Workflow, TrendingUp } from "lucide-react";
 import StartProjectSection from "./start-project";
 import Link from "next/link";
+import HeroWithTestimonial from "./hero";
 
 export default function PowerAppsCaseStudiesPage() {
   return (
     <>
       <NavigationClient />
-      <section className="relative bg-gradient-to-br from-[#0b3ea8] to-[#1e73d8] text-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-10 items-center relative z-10">
-          <div>
-            <h1 className="text-4xl lg:text-5xl font-semibold">
-              PowerApps Case Studies
-            </h1>
-
-            <p className="mt-4 text-white/80">
-              Real-world Power Apps solutions driving business success.
-            </p>
-
-            <div className="flex gap-4 mt-8">
-              <Link href="/contact">
-                <button className="bg-white text-blue-700 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition">
-                  Talk to a Power Apps Expert
-                </button>
-              </Link>
-
-              <Link href="/services/power-apps">
-                <button className="border border-white/40 px-6 py-3 rounded-lg hover:bg-white/10 transition">
-                  View Services
-                </button>
-              </Link>
-            </div>
-          </div>
-
-          <div className="relative">
-            {/* Outer glow */}
-            <div className="absolute -inset-2 rounded-2xl bg-white/20 blur-xl"></div>
-
-            {/* Glass box */}
-            <div className="relative rounded-2xl border border-white/20 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-xl shadow-2xl p-6 text-white">
-              {/* Top bar */}
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-red-400" />
-                  <span className="w-3 h-3 rounded-full bg-yellow-400" />
-                  <span className="w-3 h-3 rounded-full bg-green-400" />
-                </div>
-                <span className="text-xs text-white/70">
-                  PowerApps Dashboard
-                </span>
-              </div>
-
-              {/* Title */}
-              <h3 className="text-lg font-semibold mb-1">
-                Operations Overview
-              </h3>
-              <p className="text-sm text-white/70 mb-6">
-                Real-time insights powered by Microsoft Power Platform
-              </p>
-
-              {/* KPIs */}
-              <div className="grid grid-cols-3 gap-4 mb-6">
-                <div className="bg-white/10 rounded-lg p-3 text-center">
-                  <p className="text-xs text-white/60">Apps Built</p>
-                  <p className="text-xl font-semibold">42+</p>
-                </div>
-                <div className="bg-white/10 rounded-lg p-3 text-center">
-                  <p className="text-xs text-white/60">Automation</p>
-                  <p className="text-xl font-semibold">65%</p>
-                </div>
-                <div className="bg-white/10 rounded-lg p-3 text-center">
-                  <p className="text-xs text-white/60">Efficiency</p>
-                  <p className="text-xl font-semibold">+50%</p>
-                </div>
-              </div>
-
-              {/* Chart mock */}
-              <div>
-                <p className="text-xs text-white/60 mb-3">Productivity Trend</p>
-                <div className="grid grid-cols-5 gap-2 items-end h-28">
-                  <div className="bg-white/40 rounded h-12" />
-                  <div className="bg-white/50 rounded h-20" />
-                  <div className="bg-white/70 rounded h-28" />
-                  <div className="bg-white/45 rounded h-16" />
-                  <div className="bg-white/35 rounded h-10" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* 🌊 WAVE BOTTOM */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
-          <svg
-            viewBox="0 0 1440 120"
-            className="w-full h-[120px]"
-            preserveAspectRatio="none"
-          >
-            <defs>
-              <linearGradient id="softOffWhite" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#FAFAFA" /> {/* zinc-50 */}
-                <stop offset="50%" stopColor="#FFFFFF" /> {/* white */}
-                <stop offset="100%" stopColor="#FAFAFA" /> {/* zinc-50 */}
-              </linearGradient>
-            </defs>
-
-            <path
-              d="M0,64 C240,96 480,96 720,80 960,64 1200,32 1440,32 L1440,120 L0,120 Z"
-              fill="url(#softOffWhite)"
-            />
-          </svg>
-        </div>
-      </section>
+      <HeroWithTestimonial />
       <section className="relative bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
         {/* Ambient top glow */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_55%)]" />

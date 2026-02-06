@@ -81,9 +81,9 @@ export default function HeroWithTestimonial() {
               </button>
             </Link>
 
-            <Link href="/services/power-apps">
+            <Link href="/case-studies/power-apps">
               <button className="border border-zinc-400/30 text-zinc-200 px-7 py-3.5 rounded-xl hover:bg-white/10 transition">
-                View Services
+                View Case Studies
               </button>
             </Link>
           </div>
