@@ -17,63 +17,63 @@ export default function CtaMVP() {
           {/* ================= LEFT ================= */}
           <div>
             {/* badge */}
-            <span className="inline-block mb-3 px-3 py-1 rounded-full bg-white/10 text-xs">
-              🏆 Microsoft MVP Consulting
+            <span className="inline-block mb-2 px-3 py-1 rounded-full bg-white/15 text-xs">
+              🚀 MVP Development Services
             </span>
 
             {/* heading */}
             <h2 className="text-3xl md:text-4xl font-semibold leading-tight">
-              Get guidance from
-              <span className="block bg-gradient-to-r from-cyan-300 to-indigo-300 bg-clip-text text-transparent">
-                Microsoft MVP Experts
+              Build & launch your
+              <span className="block bg-gradient-to-r from-cyan-200 to-white bg-clip-text text-transparent">
+                MVP Faster & Smarter
               </span>
             </h2>
 
-            {/* description */}
-            <p className="mt-4 text-sm text-white/85 max-w-lg">
-              Work directly with experienced Microsoft MVPs for architecture
-              design, SharePoint & Power Platform strategy, performance
-              optimization, and enterprise best practices.
+            {/* desc */}
+            <p className="mt-1 text-sm text-white/85 max-w-lg">
+              Validate your idea quickly with a scalable MVP built by
+              experienced product engineers. We help startups and enterprises
+              turn concepts into market-ready products with speed and precision.
             </p>
 
             {/* benefits */}
-            <ul className="mt-5 space-y-1.5 text-xs text-white/85">
-              <li>✔ Architecture & Solution Design</li>
-              <li>✔ SPFx / Power Platform Code Reviews</li>
-              <li>✔ Performance Optimization</li>
-              <li>✔ Governance & Security Best Practices</li>
+            <ul className="mt-3 space-y-1.5 text-xs text-white/85">
+              <li>✔ Rapid MVP Design & Development</li>
+              <li>✔ Web, Mobile & Power Platform MVPs</li>
+              <li>✔ Cloud, API & Database Integration</li>
+              <li>✔ Iterative Delivery & Product Scaling</li>
             </ul>
 
-            {/* credibility stats */}
-            <div className="mt-6 flex gap-8">
+            {/* stats */}
+            <div className="mt-3 flex gap-8">
               <div>
-                <p className="text-xl font-semibold">15+</p>
-                <p className="text-[11px] text-white/70">Years Experience</p>
+                <p className="text-xl font-semibold">50+</p>
+                <p className="text-[11px] text-white/70">MVPs Launched</p>
               </div>
               <div>
-                <p className="text-xl font-semibold">200+</p>
-                <p className="text-[11px] text-white/70">Projects Delivered</p>
+                <p className="text-xl font-semibold">90%</p>
+                <p className="text-[11px] text-white/70">Ideas Validated</p>
               </div>
               <div>
-                <p className="text-xl font-semibold">Global</p>
-                <p className="text-[11px] text-white/70">Enterprise Clients</p>
+                <p className="text-xl font-semibold">4–6 Weeks</p>
+                <p className="text-[11px] text-white/70">Go-to-Market</p>
               </div>
             </div>
 
-            {/* CTA buttons */}
-            <div className="mt-6 flex gap-3 flex-wrap">
+            {/* buttons */}
+            <div className="mt-3 flex gap-3 flex-wrap">
               <a
-                href="/book-call"
-                className="bg-white text-indigo-900 px-6 py-2.5 rounded-lg text-xs font-medium shadow hover:scale-105 transition"
+                href="/contact"
+                className="bg-white text-indigo-700 px-6 py-2.5 rounded-lg text-xs font-medium shadow hover:scale-105 transition"
               >
-                Book Free Consultation
+                Build My MVP
               </a>
 
               <a
-                href="/services/mvp-consulting"
+                href="/services/mvp-development"
                 className="border border-white/30 bg-white/10 px-6 py-2.5 rounded-lg text-xs font-medium backdrop-blur hover:bg-white/20 transition"
               >
-                View Expertise
+                View MVP Approach
               </a>
             </div>
           </div>

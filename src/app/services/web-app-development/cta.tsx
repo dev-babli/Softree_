@@ -15,65 +15,68 @@ export default function CtaWebApps() {
           "
         >
           {/* ================= LEFT ================= */}
+          {/* ================= LEFT ================= */}
           <div>
             {/* badge */}
-            <span className="inline-block mb-3 px-3 py-1 rounded-full bg-white/10 text-xs">
-              🌐 Web Application Development
+            <span className="inline-block mb-2 px-3 py-1 rounded-full bg-white/15 text-xs">
+              👨‍💻 Hire Web Developers
             </span>
 
             {/* heading */}
             <h2 className="text-3xl md:text-4xl font-semibold leading-tight">
-              Build scalable
-              <span className="block bg-gradient-to-r from-cyan-300 to-indigo-300 bg-clip-text text-transparent">
-                modern web apps
+              Hire expert developers for
+              <span className="block bg-gradient-to-r from-cyan-200 to-white bg-clip-text text-transparent">
+                Modern Web Applications
               </span>
             </h2>
 
-            {/* description */}
-            <p className="mt-4 text-sm text-white/80 max-w-lg">
-              We design and develop fast, secure, and responsive web
-              applications including portals, dashboards, SaaS platforms, and
-              enterprise systems tailored to your business needs.
+            {/* desc */}
+            <p className="mt-1 text-sm text-white/85 max-w-lg">
+              Strengthen your digital presence by hiring skilled web developers
+              who build fast, secure, and scalable web applications tailored to
+              your business needs.
             </p>
 
             {/* benefits */}
-            <ul className="mt-5 space-y-1.5 text-xs text-white/80">
-              <li>✔ React / Next.js / SPFx / .NET</li>
-              <li>✔ Custom Dashboards & Portals</li>
-              <li>✔ API & Database Integration</li>
-              <li>✔ Cloud Deployment & Scaling</li>
+            <ul className="mt-3 space-y-1.5 text-xs text-white/85">
+              <li>✔ Frontend & Backend Web Developers</li>
+              <li>✔ React, Next.js, Angular & Vue Expertise</li>
+              <li>✔ API, Cloud & Database Integration</li>
+              <li>✔ Flexible Engagement & Hiring Models</li>
             </ul>
 
             {/* stats */}
-            <div className="mt-6 flex gap-8">
+            <div className="mt-3 flex gap-8">
               <div>
-                <p className="text-xl font-semibold">80+</p>
-                <p className="text-[11px] text-white/60">Web Apps Delivered</p>
+                <p className="text-xl font-semibold">70+</p>
+                <p className="text-[11px] text-white/70">
+                  Web Developers Available
+                </p>
               </div>
               <div>
-                <p className="text-xl font-semibold">99.9%</p>
-                <p className="text-[11px] text-white/60">Uptime</p>
+                <p className="text-xl font-semibold">96%</p>
+                <p className="text-[11px] text-white/70">Client Retention</p>
               </div>
               <div>
-                <p className="text-xl font-semibold">3×</p>
-                <p className="text-[11px] text-white/60">Performance Boost</p>
+                <p className="text-xl font-semibold">48 Hrs</p>
+                <p className="text-[11px] text-white/70">Team Onboarding</p>
               </div>
             </div>
 
-            {/* CTA buttons */}
-            <div className="mt-6 flex gap-3 flex-wrap">
+            {/* buttons */}
+            <div className="mt-3 flex gap-3 flex-wrap">
               <a
                 href="/contact"
-                className="bg-white text-indigo-900 px-6 py-2.5 rounded-lg text-xs font-medium shadow hover:scale-105 transition"
+                className="bg-white text-indigo-700 px-6 py-2.5 rounded-lg text-xs font-medium shadow hover:scale-105 transition"
               >
-                Talk to Expert
+                Hire Web Developers
               </a>
 
               <a
                 href="/services/web-development"
                 className="border border-white/30 bg-white/10 px-6 py-2.5 rounded-lg text-xs font-medium backdrop-blur hover:bg-white/20 transition"
               >
-                View Services
+                View Hiring Models
               </a>
             </div>
           </div>

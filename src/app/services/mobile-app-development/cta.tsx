@@ -2,7 +2,7 @@
 
 export default function CtaMobileApps() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
+    <section className="py-4 relative overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
       <div className="mx-auto max-w-7xl px-6">
         <div
           className="
@@ -17,62 +17,65 @@ export default function CtaMobileApps() {
           {/* ================= LEFT ================= */}
           <div>
             {/* badge */}
-            <span className="inline-block mb-3 px-3 py-1 rounded-full bg-white/15 text-xs">
-              📱 Mobile App Development
+            <span className="inline-block mb-2 px-3 py-1 rounded-full bg-white/15 text-xs">
+              👨‍💻 Hire Mobile App Developers
             </span>
 
             {/* heading */}
             <h2 className="text-3xl md:text-4xl font-semibold leading-tight">
-              Launch powerful
+              Hire expert developers for
               <span className="block bg-gradient-to-r from-cyan-200 to-white bg-clip-text text-transparent">
-                iOS & Android Apps
+                iOS & Android Applications
               </span>
             </h2>
 
             {/* desc */}
-            <p className="mt-4 text-sm text-white/85 max-w-lg">
-              We design and build scalable mobile apps that improve customer
-              engagement, automate workflows, and accelerate business growth.
+            <p className="mt-1 text-sm text-white/85 max-w-lg">
+              Scale your development team with experienced mobile app developers
+              who build secure, high-performance applications aligned with your
+              business goals.
             </p>
 
             {/* benefits */}
-            <ul className="mt-5 space-y-1.5 text-xs text-white/85">
-              <li>✔ Native & Cross-Platform Apps</li>
-              <li>✔ Flutter / React Native / Power Apps</li>
-              <li>✔ API & Backend Integration</li>
-              <li>✔ App Store Deployment</li>
+            <ul className="mt-3 space-y-1.5 text-xs text-white/85">
+              <li>✔ Dedicated iOS & Android Developers</li>
+              <li>✔ Flutter, React Native & Power Apps Expertise</li>
+              <li>✔ API, Backend & Cloud Integration</li>
+              <li>✔ Flexible Hiring Models</li>
             </ul>
 
             {/* stats */}
-            <div className="mt-6 flex gap-8">
+            <div className="mt-3 flex gap-8">
               <div>
-                <p className="text-xl font-semibold">45+</p>
-                <p className="text-[11px] text-white/70">Apps Built</p>
+                <p className="text-xl font-semibold">60+</p>
+                <p className="text-[11px] text-white/70">
+                  Developers Available
+                </p>
               </div>
               <div>
-                <p className="text-xl font-semibold">99%</p>
-                <p className="text-[11px] text-white/70">Client Satisfaction</p>
+                <p className="text-xl font-semibold">95%</p>
+                <p className="text-[11px] text-white/70">Client Retention</p>
               </div>
               <div>
-                <p className="text-xl font-semibold">2×</p>
-                <p className="text-[11px] text-white/70">Faster Delivery</p>
+                <p className="text-xl font-semibold">48 Hrs</p>
+                <p className="text-[11px] text-white/70">Team Onboarding</p>
               </div>
             </div>
 
             {/* buttons */}
-            <div className="mt-6 flex gap-3 flex-wrap">
+            <div className="mt-3 flex gap-3 flex-wrap">
               <a
                 href="/contact"
                 className="bg-white text-indigo-700 px-6 py-2.5 rounded-lg text-xs font-medium shadow hover:scale-105 transition"
               >
-                Talk to Expert
+                Hire Developers
               </a>
 
               <a
                 href="/services/mobile-app-development"
                 className="border border-white/30 bg-white/10 px-6 py-2.5 rounded-lg text-xs font-medium backdrop-blur hover:bg-white/20 transition"
               >
-                View Services
+                View Hiring Models
               </a>
             </div>
           </div>

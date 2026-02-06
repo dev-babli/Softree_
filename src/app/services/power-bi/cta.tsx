@@ -10,67 +10,68 @@ export default function CtaPowerBI() {
       <div className="mx-auto max-w-7xl px-6 py-20">
         {/* ===== MAIN CARD ===== */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-14 items-center rounded-[32px] bg-gradient-to-br from-[#0b3ea8] via-[#1557c0] to-[#1e73d8] p-10 md:p-16 shadow-2xl border border-white/10 text-white">
-
           {/* ================= LEFT ================= */}
-          <div className="flex flex-col justify-center">
-            {/* Badge */}
-            <span className="mb-5 inline-flex w-fit items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-medium text-white/80 backdrop-blur">
-              📊 Power BI Development & Consulting
+          <div>
+            {/* badge */}
+            <span className="inline-block mb-2 px-3 py-1 rounded-full bg-white/15 text-xs">
+              📊 Hire Power BI Developers
             </span>
 
-            {/* Heading */}
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight">
-              Turn your data into{" "}
-              <span className="bg-gradient-to-r from-cyan-300 to-indigo-300 bg-clip-text text-transparent">
-                actionable insights
+            {/* heading */}
+            <h2 className="text-3xl md:text-4xl font-semibold leading-tight">
+              Hire experts for
+              <span className="block bg-gradient-to-r from-cyan-200 to-white bg-clip-text text-transparent">
+                Power BI Analytics & Dashboards
               </span>
             </h2>
 
-            {/* Description */}
-            <p className="mt-6 max-w-xl text-lg text-white/80">
-              Build interactive dashboards, automated reports, and real-time
-              analytics that help leaders make smarter business decisions faster.
-              We design scalable BI solutions tailored to your organization.
+            {/* desc */}
+            <p className="mt-1 text-sm text-white/85 max-w-lg">
+              Turn raw data into actionable insights by hiring experienced Power
+              BI developers who design secure, scalable dashboards and analytics
+              solutions for data-driven decision making.
             </p>
 
-            {/* Benefits */}
-            <ul className="mt-6 space-y-2 text-sm text-white/80">
-              <li>✔ Interactive Dashboards & KPIs</li>
-              <li>✔ Real-time Reporting</li>
-              <li>✔ Data Integration & ETL</li>
-              <li>✔ Secure Enterprise BI</li>
+            {/* benefits */}
+            <ul className="mt-3 space-y-1.5 text-xs text-white/85">
+              <li>✔ Interactive Dashboards & Reports</li>
+              <li>✔ DAX, Power Query & Data Modeling</li>
+              <li>✔ Power BI with SharePoint, SQL & Azure</li>
+              <li>✔ Flexible Hiring & Engagement Models</li>
             </ul>
 
-            {/* Stats */}
-            <div className="mt-8 flex gap-10">
+            {/* stats */}
+            <div className="mt-3 flex gap-8">
               <div>
-                <p className="text-2xl font-semibold">100+</p>
-                <p className="text-xs text-white/60">Dashboards Built</p>
+                <p className="text-xl font-semibold">80+</p>
+                <p className="text-[11px] text-white/70">
+                  Power BI Experts Available
+                </p>
               </div>
               <div>
-                <p className="text-2xl font-semibold">70%</p>
-                <p className="text-xs text-white/60">Reporting Time Saved</p>
+                <p className="text-xl font-semibold">98%</p>
+                <p className="text-[11px] text-white/70">Client Satisfaction</p>
               </div>
               <div>
-                <p className="text-2xl font-semibold">99%</p>
-                <p className="text-xs text-white/60">Accuracy</p>
+                <p className="text-xl font-semibold">48 Hrs</p>
+                <p className="text-[11px] text-white/70">Quick Onboarding</p>
               </div>
             </div>
 
-            {/* CTA Buttons */}
-            <div className="mt-10 flex flex-wrap gap-4">
+            {/* buttons */}
+            <div className="mt-3 flex gap-3 flex-wrap">
               <a
-                href="/book-call"
-                className="rounded-xl bg-white text-blue-700 px-7 py-3 text-sm font-medium shadow-lg hover:scale-105 transition"
+                href="/contact"
+                className="bg-white text-indigo-700 px-6 py-2.5 rounded-lg text-xs font-medium shadow hover:scale-105 transition"
               >
-                Book Free BI Consultation
+                Hire Power BI Developers
               </a>
 
               <a
                 href="/services/power-bi"
-                className="rounded-xl border border-white/30 bg-white/10 px-7 py-3 text-sm font-medium backdrop-blur hover:bg-white/20 transition"
+                className="border border-white/30 bg-white/10 px-6 py-2.5 rounded-lg text-xs font-medium backdrop-blur hover:bg-white/20 transition"
               >
-                View Services
+                View Hiring Models
               </a>
             </div>
           </div>

@@ -17,63 +17,65 @@ export default function CtaSharePoint() {
           {/* ================= LEFT ================= */}
           <div>
             {/* badge */}
-            <span className="inline-block mb-3 px-3 py-1 rounded-full bg-white/10 text-xs">
-              🟢 SharePoint Development Services
+            <span className="inline-block mb-2 px-3 py-1 rounded-full bg-white/15 text-xs">
+              👨‍💻 Hire SharePoint Developers
             </span>
 
             {/* heading */}
             <h2 className="text-3xl md:text-4xl font-semibold leading-tight">
-              Transform teamwork with
+              Hire expert developers for
               <span className="block bg-gradient-to-r from-cyan-200 to-white bg-clip-text text-transparent">
-                modern SharePoint solutions
+                Microsoft SharePoint Solutions
               </span>
             </h2>
 
-            {/* description */}
-            <p className="mt-4 text-sm text-white/85 max-w-lg">
-              Build secure intranets, automate workflows, and create custom SPFx
-              web parts that improve collaboration and productivity across your
-              organization.
+            {/* desc */}
+            <p className="mt-1 text-sm text-white/85 max-w-lg">
+              Empower your digital workplace by hiring experienced SharePoint
+              developers who build secure, scalable intranets, portals, and
+              business solutions on Microsoft 365.
             </p>
 
             {/* benefits */}
-            <ul className="mt-5 space-y-1.5 text-xs text-white/85">
-              <li>✔ Intranet & Portal Development</li>
-              <li>✔ SPFx Web Parts & Extensions</li>
-              <li>✔ Workflow Automation</li>
-              <li>✔ Migration & Modernization</li>
+            <ul className="mt-3 space-y-1.5 text-xs text-white/85">
+              <li>✔ SharePoint Online & On-Premise Expertise</li>
+              <li>✔ SPFx, Power Apps & Power Automate</li>
+              <li>✔ Custom Intranets & Document Management</li>
+              <li>✔ Flexible Hiring & Engagement Models</li>
             </ul>
 
             {/* stats */}
-            <div className="mt-6 flex gap-8">
+            <div className="mt-3 flex gap-8">
               <div>
-                <p className="text-xl font-semibold">100+</p>
-                <p className="text-[11px] text-white/70">Sites Built</p>
+                <p className="text-xl font-semibold">65+</p>
+                <p className="text-[11px] text-white/70">
+                  SharePoint Experts Available
+                </p>
               </div>
               <div>
-                <p className="text-xl font-semibold">70%</p>
-                <p className="text-[11px] text-white/70">Process Automation</p>
+                <p className="text-xl font-semibold">97%</p>
+                <p className="text-[11px] text-white/70">Client Satisfaction</p>
               </div>
               <div>
-                <p className="text-xl font-semibold">40%</p>
-                <p className="text-[11px] text-white/70">Productivity Boost</p>
+                <p className="text-xl font-semibold">48 Hrs</p>
+                <p className="text-[11px] text-white/70">Quick Onboarding</p>
               </div>
             </div>
 
             {/* buttons */}
-            <div className="mt-6 flex gap-3 flex-wrap">
+            <div className="mt-3 flex gap-3 flex-wrap">
               <a
                 href="/contact"
-                className="bg-white text-teal-800 px-6 py-2.5 rounded-lg text-xs font-medium shadow hover:scale-105 transition"
+                className="bg-white text-indigo-700 px-6 py-2.5 rounded-lg text-xs font-medium shadow hover:scale-105 transition"
               >
-                Talk to Expert
+                Hire SharePoint Developers
               </a>
 
               <a
                 href="/services/sharepoint-development"
                 className="border border-white/30 bg-white/10 px-6 py-2.5 rounded-lg text-xs font-medium backdrop-blur hover:bg-white/20 transition"
               >
-                View Services
+                View Hiring Models
               </a>
             </div>
           </div>

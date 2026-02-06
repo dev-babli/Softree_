@@ -24,6 +24,27 @@ const faqs = [
     answer:
       "Security is built into every solution. We follow Microsoft best practices including role-based access, Dataverse security roles, environment-level governance, and compliance standards.",
   },
+  {
+    question: "How long does it take to develop a Power App?",
+    answer:
+      "The development timeline depends on the complexity of the solution. Simple Power Apps can be delivered in 1–2 weeks, while enterprise-grade applications with integrations and automation typically take 4–6 weeks.",
+  },
+  {
+    question: "Can Power Apps be used on mobile devices?",
+    answer:
+      "Yes. Power Apps are responsive by design and work seamlessly across mobile phones, tablets, and web browsers, enabling users to access business applications anytime, anywhere.",
+  },
+  {
+    question: "Do you provide support and maintenance after deployment?",
+    answer:
+      "Yes. Softree offers ongoing support, maintenance, performance optimization, and enhancements to ensure your Power Apps continue to meet evolving business needs.",
+  },
+  {
+    question:
+      "Can you modernize existing legacy applications using Power Apps?",
+    answer:
+      "Absolutely. We help organizations replace or modernize legacy systems and manual processes by building scalable Power Apps solutions integrated with Dataverse and Power Automate.",
+  },
 ];
 
 export default function PowerAppsFAQ() {
@@ -42,7 +63,7 @@ export default function PowerAppsFAQ() {
             Power Apps Services – FAQs
           </h2>
 
-          <p className="mt-2 text-gray-600 max-w-3xl mx-auto">
+          <p className=" text-gray-600 max-w-4xl mx-auto">
             Clear answers to common questions about Softree’s Power Apps
             consulting, development, and ongoing support services.
           </p>

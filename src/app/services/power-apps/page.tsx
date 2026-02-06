@@ -15,6 +15,7 @@ import HirePowerAppsPricing from "./pricing-card";
 import Link from "next/link";
 import { CALENDLY_URL } from "@/lib/contactConfig";
 import PowerAppsFAQ from "./faq";
+import AiInsightsBlog from "./ai-insights-blog";
 
 /* ------------------------------------------------------------------ */
 /* Shared Layout Spacing Config                                        */
@@ -35,6 +36,7 @@ export default function Home() {
       <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
         <div className={`${SECTION_WRAPPER} ${SECTION_GAP}`}>
           <PowerAppsCaseStudies />
+          <AiInsightsBlog />
           <PowerAppsServices />
           <HirePowerAppsPricing />
           <WhyChooseSoftreePowerApps />
