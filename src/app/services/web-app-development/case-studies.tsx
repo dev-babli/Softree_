@@ -148,16 +148,15 @@ export default function WebAppCaseStudies() {
           </p>
         </div>
 
-        {/* ================= SLIDER ================= */}
         <div
           className="
-             h-[70vh] max-h-[680px]
-             bg-white
-             rounded-[32px]
-             border border-slate-200
-             shadow-xl
-             p-6
-           "
+                 h-[70vh] max-h-[680px]    
+                 bg-gradient-to-r from-[#eef2f7] via-[#dbe3ff] to-[#eef2f7]
+                 rounded-[32px]
+                 border border-slate-200
+                 shadow-xl
+                 p-6
+               "
         >
           <Swiper
             modules={[Autoplay]}
@@ -174,81 +173,145 @@ export default function WebAppCaseStudies() {
             className="h-full"
           >
             {caseStudies.map((item, index) => (
-              <SwiperSlide key={index} className="h-full">
-                <a href={item.href} className="h-full flex group">
-                  <div className="h-full w-full rounded-3xl bg-white border border-slate-200 shadow-md flex flex-col md:flex-row overflow-hidden transition group-hover:-translate-y-1">
-                    {/* ================= IMAGE ================= */}
-                    <div className="md:w-1/2 p-8 bg-black flex items-center justify-center">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="rounded-2xl object-cover w-full h-full"
-                      />
-                    </div>
+              <SwiperSlide
+                key={index}
+                className="h-full flex items-center justify-center overflow-visible"
+              >
+                {/* ===== OUTER CLIP WRAPPER (IMPORTANT) ===== */}
+                <div
+                  className="relative w-full max-w-6xl rounded-[48px] overflow-hidden
+                               "
+                >
+                  {/* ===== BORDER / GLOW ===== */}
+                  <div
+                    className="pointer-events-none absolute inset-0 rounded-[48px]
+                                 ring-1 ring-white/15"
+                  />
 
-                    {/* ================= CONTENT ================= */}
-                    <div className="md:w-1/2 p-10 flex flex-col">
-                      {/* TITLE */}
-                      <h3 className="text-2xl font-bold text-black mb-2">
-                        {item.title}
+                  {/* ===== CARD BODY ===== */}
+                  <div
+                    className="relative rounded-[48px]
+                                 bg-gradient-to-r from-black via-[#0f2f7a] to-black
+                                 p-10"
+                  >
+                    {/* ===== Header ===== */}
+                    <div className="text-center mb-6">
+                      <h3 className="text-2xl font-semibold text-white">
+                        {item.title} — Case Study
                       </h3>
 
-                      {/* DETAILS */}
-                      <div className="space-y-4 text-sm">
-                        {/* Challenge */}
-                        <div>
-                          <p className="text-xs font-semibold uppercase tracking-wider text-indigo-600 mb-1">
-                            Challenge
-                          </p>
-                          <p className="text-gray-700">{item.challenge}</p>
-                        </div>
+                      <p className="mt-2 text-sm text-slate-300 flex items-center justify-center gap-2">
+                        📍 Client Country
+                        <span className="font-medium text-white">
+                          United States 🇺🇸
+                        </span>
+                      </p>
+                    </div>
 
-                        {/* Impact (highlight box) */}
-                        <div className="p-3 rounded-lg bg-indigo-700 border border-indigo-100">
-                          <p className="text-M font-semibold uppercase tracking-wider text-indigo-100 mb-1">
-                            Impact
-                          </p>
-                          <p className="text-indigo-100 font-medium">
-                            {item.impact}
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* TECH */}
-                      <div className="mt-6 flex flex-wrap gap-2">
-                        {item.tech.map((tech, i) => (
-                          <span
-                            key={i}
-                            className="px-3 py-1 text-xs rounded-full bg-indigo-50 text-indigo-700 border border-indigo-100"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-
-                      {/* ================= CTA BUTTON ================= */}
-                      <div className="mt-auto pt-8">
-                        <button
-                          onClick={(e) => {
-                            e.preventDefault();
-                            router.push("/case-studies/mobile");
-                          }}
+                    {/* ===== Main Content ===== */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                      {/* ===== Image ===== */}
+                      <div className="flex justify-center">
+                        <img
+                          src={item.image}
+                          alt={item.title}
                           className="
-                     px-8 py-3
-                     rounded-full
-                     bg-gradient-to-r from-indigo-600 to-cyan-500
-                     text-white text-xs font-semibold uppercase tracking-widest
-                     shadow-md
-                     hover:scale-105
-                     transition
-                   "
+                           rounded-2xl
+                           shadow-lg
+                           max-h-[320px]
+                           object-contain
+                           ring-1 ring-white/10
+                         "
+                        />
+                      </div>
+
+                      {/* ===== Text Content ===== */}
+                      <div className="space-y-6">
+                        {/* Problem */}
+                        <div>
+                          <h4 className="flex items-center gap-2 font-semibold text-white">
+                            💡 Problem
+                          </h4>
+                          <p className=" text-sm text-slate-300 leading-relaxed">
+                            {item.challenge}
+                          </p>
+                        </div>
+
+                        {/* Solution */}
+                        <div>
+                          <h4 className="flex items-center gap-2 font-semibold text-white">
+                            💡 Solution
+                          </h4>
+                          <p className="text-sm text-slate-300 leading-relaxed">
+                            {item.solution}
+                          </p>
+                        </div>
+
+                        {/* ===== Impact ===== */}
+                        <div
+                          className="
+                         relative
+                         rounded-2xl
+                         px-7 py-5
+                         flex flex-col gap-4
+                         sm:flex-row sm:items-center sm:justify-between
+                         bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600
+                         text-white
+                         shadow-[0_18px_40px_rgba(79,70,229,0.45)]
+                         overflow-hidden
+                       "
                         >
-                          Explore power app solutions →
-                        </button>
+                          {/* Glow */}
+                          <div className="absolute -top-10 -left-10 w-40 h-40 bg-white/10 blur-3xl rounded-full" />
+
+                          {/* Impact text */}
+                          <div className="relative z-10">
+                            <p className="text-[10px] uppercase tracking-widest text-white/70 ">
+                              Impact
+                            </p>
+                            <p className="text-sm sm:text-base font-semibold leading-snug">
+                              {item.impact}
+                            </p>
+                          </div>
+
+                          {/* Separator */}
+                          <div
+                            className="
+                           relative z-10
+                           w-full h-px
+                           sm:w-px sm:h-10
+                           bg-white/30
+                           rounded-full
+                         "
+                          />
+
+                          {/* CTA */}
+                          <a
+                            href={item.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="
+                             relative z-10
+                             inline-flex items-center gap-2
+                             px-5 py-2.5
+                             text-xs font-semibold uppercase tracking-wider
+                             whitespace-nowrap
+                             rounded-full
+                             bg-white text-indigo-700
+                             shadow-md
+                             hover:scale-105
+                             hover:shadow-lg
+                             transition
+                           "
+                          >
+                            View Case Study
+                            <span className="text-sm">→</span>
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </a>
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -263,12 +326,12 @@ export default function WebAppCaseStudies() {
                   key={i}
                   onClick={() => swiperRef.current?.slideToLoop(i)}
                   className={`text-xs font-medium tracking-widest transition
-                     ${
-                       activeIndex === i
-                         ? "text-indigo-600 scale-125"
-                         : "text-gray-400 hover:text-gray-700"
-                     }
-                   `}
+                         ${
+                           activeIndex === i
+                             ? "text-indigo-600 scale-125"
+                             : "text-gray-400 hover:text-gray-700"
+                         }
+                       `}
                 >
                   {String(i + 1).padStart(2, "0")}
                 </button>

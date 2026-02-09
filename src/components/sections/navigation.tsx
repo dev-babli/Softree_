@@ -22,6 +22,9 @@ import {
   Layers,
   Globe,
   AppWindow,
+  Bot,
+  Sparkles,
+  MessageSquare,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -105,7 +108,6 @@ const menu: MenuItem[] = [
             description:
               "End-to-end product development to help startups launch faster, scale smarter, and succeed",
           },
-
           {
             label: "MVP Development Services",
             url: "/services/mvp",
@@ -142,39 +144,45 @@ const menu: MenuItem[] = [
             description: "Custom SPFx web parts and extensions",
           },
           {
-            label: "PnP PowerShell",
-            url: "/services/pnp-powershell",
-            icon: Database,
-            description: "Automate and manage SharePoint efficiently",
-          },
-          {
-            label: "Teams App Development",
-            url: "/services/teams-app-development",
-            icon: Building2,
-            description: "Build powerful apps for Microsoft Teams",
-          },
-        ],
-      },
-      {
-        title: "Power Platform",
-        links: [
-          {
             label: "Power Apps",
             url: "/services/power-apps",
             icon: Building2,
             description: "Low-code apps for rapid business solutions",
           },
-          {
-            label: "Power Pages",
-            url: "/services/power-pages",
-            icon: Building2,
-            description: "Secure external portals for your organization",
-          },
+
           {
             label: "Power BI",
             url: "/services/power-bi",
             icon: BarChart3,
             description: "Data visualization and business intelligence",
+          },
+        ],
+      },
+
+      // ⭐ NEW SECTION
+      {
+        title: "AI Services",
+        links: [
+          {
+            label: "Agentic AI Solutions",
+            url: "/services/agentic-ai",
+            icon: Bot,
+            description:
+              "Autonomous AI agents that plan, act, and execute complex business workflows",
+          },
+          {
+            label: "Generative AI",
+            url: "/services/generative-ai",
+            icon: Sparkles,
+            description:
+              "LLM-powered solutions for content generation, automation, and intelligence",
+          },
+          {
+            label: "AI Chatbot Development",
+            url: "/services/ai-chatbot",
+            icon: MessageSquare,
+            description:
+              "Smart conversational bots for customer support, sales, and operations",
           },
         ],
       },

@@ -139,72 +139,102 @@ export default function CaseStudyGrid() {
           <div className="mx-auto mt-8 h-[2px] w-28 bg-gradient-to-r from-transparent via-blue-500/40 to-transparent" />
         </div>
 
-        {/* ================= CARD CONTAINER ================= */}
-        <section className="relative mt-24 rounded-[48px] px-6">
-          <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+         {/* ================= CARD CONTAINER ================= */}
+        <section
+          className="
+    relative mt-3 rounded-[48px]  
+    px-6 "
+        >
+          {/* ================= GRID ================= */}
+          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {visibleCaseStudies.slice(0, 6).map((item, index) => (
               <motion.article
-                key={item.title}
-                initial={{ opacity: 0, y: 30 }}
+                key={item.href}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{
-                  duration: 0.5,
+                  duration: 0.45,
                   ease: "easeOut",
-                  delay: index * 0.08,
+                  delay: index * 0.06,
                 }}
-                whileHover={{ y: -6 }}
+                whileHover={{ y: -4 }}
                 className="
-                  group relative overflow-hidden rounded-3xl
-                  bg-white border border-slate-200
-                  shadow-[0_20px_40px_-20px_rgba(15,23,42,0.25)]
-                  flex flex-col h-full
-                  transition-all duration-300
-                  hover:shadow-[0_30px_60px_-25px_rgba(15,23,42,0.35)]
-                "
+        group relative flex flex-col h-full
+        bg-white
+        border border-slate-200
+        shadow-[0_20px_50px_-30px_rgba(15,23,42,0.25)]
+        transition-all duration-300
+        hover:shadow-[0_30px_70px_-40px_rgba(15,23,42,0.35)]
+      "
               >
+                {/* ===== IMAGE ===== */}
                 <motion.div
-                  className="relative overflow-hidden h-[220px]"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="relative h-[180px] overflow-hidden"
+                  whileHover={{ scale: 1.04 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
                 >
+                  {/* subtle image base */}
+                  <div className="absolute inset-0 bg-slate-100" />
+
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="h-full w-full object-cover"
+                    className="relative h-full w-full object-cover"
                   />
+
+                  {/* light overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
                 </motion.div>
 
-                <div className="relative z-10 flex flex-1 flex-col justify-between gap-4 p-6 bg-white border-t border-slate-200">
-                  <span className="pointer-events-none absolute right-4 top-2 text-[26px] font-extrabold text-black select-none">
+                {/* ===== CONTENT ===== */}
+                <div className="relative z-10 flex flex-1 flex-col justify-between gap-4 px-5 py-4">
+                  {/* INDEX */}
+                  <span
+                    className="
+            pointer-events-none absolute right-4 top-2
+            text-[22px] font-extrabold text-slate-300
+            select-none
+          "
+                  >
                     {String(startIndex + index + 1).padStart(2, "0")}
                   </span>
 
-                  <div className="flex flex-col gap-4">
-                    <span className="w-fit rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700">
+                  {/* TEXT */}
+                  <div className="flex flex-col gap-3">
+                    <span
+                      className="
+            w-fit
+            bg-blue-50 text-blue-700
+            px-3 text-[11px] font-medium
+          "
+                    >
                       {item.category}
                     </span>
 
-                    <h3 className="text-xl font-semibold leading-snug tracking-tight text-slate-900">
+                    <h3 className="text-lg font-semibold leading-snug text-slate-900">
                       {item.title}
                     </h3>
 
-                    <p className="line-clamp-3 leading-relaxed text-slate-600 text-sm">
+                    <p className="line-clamp-2 text-sm leading-relaxed text-slate-600">
                       {item.description}
                     </p>
                   </div>
 
+                  {/* CTA */}
                   <Link
                     href={item.href}
+                    target="_blank"
                     className="
-                      mt-4 inline-flex items-center justify-between
-                      rounded-xl bg-blue-600
-                      px-4 py-3 text-sm font-semibold text-white
-                      transition-all duration-300
-                      hover:bg-blue-700 hover:shadow-lg
-                    "
+           inline-flex items-center justify-between
+            bg-blue-600
+            px-4 py-2.5
+            text-sm font-semibold text-white
+            transition-all duration-300
+            hover:bg-blue-700
+          "
                   >
-                    View Web Case Study
+                    View Case Study
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>
@@ -212,42 +242,49 @@ export default function CaseStudyGrid() {
             ))}
           </div>
 
-          <div className="mt-20 flex items-center justify-center gap-6">
+          {/* ================= PAGINATION ================= */}
+          <div className="mt-4 flex items-center justify-center gap-6">
+            {/* PREV */}
             <button
               onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
               disabled={currentPage === 1}
-              className={`group flex items-center gap-2 rounded-xl border px-5 py-3
-                text-sm font-semibold transition-all duration-300
-                ${
-                  currentPage === 1
-                    ? "cursor-not-allowed border-slate-200 text-slate-400"
-                    : "border-slate-300 text-slate-700 hover:border-blue-500 hover:text-blue-600 hover:shadow-md"
-                }`}
+              className={`
+      group flex items-center gap-2 rounded-xl px-5 py-3
+      text-sm font-semibold transition-all duration-300
+      ${
+        currentPage === 1
+          ? "cursor-not-allowed bg-slate-100 text-slate-400"
+          : "bg-blue-50 text-blue-700 hover:bg-blue-600 hover:text-white shadow-sm hover:shadow-md"
+      }
+    `}
             >
               <ChevronLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
               Prev
             </button>
 
+            {/* PAGE INFO */}
             <span className="text-sm text-slate-600">
               Page{" "}
               <span className="font-semibold text-slate-900">
                 {currentPage}
               </span>{" "}
               of{" "}
-              <span className="font-semibold text-slate-900">{totalPages}</span>{" "}
-              — Web Case Studies
+              <span className="font-semibold text-slate-900">{totalPages}</span>
             </span>
 
+            {/* NEXT */}
             <button
               onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
               disabled={currentPage === totalPages}
-              className={`group flex items-center gap-2 rounded-xl border px-5 py-3
-                text-sm font-semibold transition-all duration-300
-                ${
-                  currentPage === totalPages
-                    ? "cursor-not-allowed border-slate-200 text-slate-400"
-                    : "border-slate-300 text-slate-700 hover:border-blue-500 hover:text-blue-600 hover:shadow-md"
-                }`}
+              className={`
+      group flex items-center gap-2 rounded-xl px-5 py-3
+      text-sm font-semibold transition-all duration-300
+      ${
+        currentPage === totalPages
+          ? "cursor-not-allowed bg-slate-100 text-slate-400"
+          : "bg-blue-50 text-blue-700 hover:bg-blue-600 hover:text-white shadow-sm hover:shadow-md"
+      }
+    `}
             >
               Next
               <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
