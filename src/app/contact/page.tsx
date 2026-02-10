@@ -15,14 +15,14 @@ export default function Home() {
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-cyan-500/20 blur-[140px] rounded-full" />
 
         {/* ================= CONTENT ================= */}
-        <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-12 text-center">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 pt-12 pb-8 text-center">
           {/* Badge */}
-          <span className="inline-block mb-5 px-4 py-2 rounded-full bg-white/10 backdrop-blur text-xs tracking-widest uppercase">
+          <span className="inline-block mb-4 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur text-xs tracking-widest uppercase">
             Contact Softree
           </span>
 
           {/* Heading */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight">
             Let’s Build Something
             <br />
             <span className="bg-gradient-to-r from-cyan-300 to-white bg-clip-text text-transparent">
@@ -31,40 +31,40 @@ export default function Home() {
           </h1>
 
           {/* Description */}
-          <p className="mt-5 text-lg text-white/75 max-w-3xl mx-auto">
+          <p className="mt-4 text-base text-white/75 max-w-2xl mx-auto">
             Have a question, idea, or challenge? Our team is ready to help you
             design, build, and scale modern digital solutions that move your
             business forward.
           </p>
 
           {/* ================= GLASS CTA PANEL ================= */}
-          <div className="mt-10 mx-auto max-w-2xl rounded-3xl border border-white/20 bg-white/10 backdrop-blur-2xl p-7 shadow-2xl">
+          <div className="mt-8 mx-auto max-w-xl rounded-3xl border border-white/20 bg-white/10 backdrop-blur-2xl p-5 shadow-2xl">
             {/* Buttons */}
-            <div className="flex flex-wrap justify-center gap-4">
-              <button className="px-7 py-3 rounded-xl bg-white text-blue-700 font-medium shadow-lg hover:scale-105 transition">
+            <div className="flex flex-wrap justify-center gap-3">
+              <button className="px-6 py-2.5 rounded-xl bg-white text-blue-700 font-medium shadow-lg hover:scale-105 transition">
                 Get in Touch
               </button>
 
-              <button className="px-7 py-3 rounded-xl border border-white/30 hover:bg-white/10 transition">
+              <button className="px-6 py-2.5 rounded-xl border border-white/30 hover:bg-white/10 transition">
                 Book a Call
               </button>
             </div>
 
             {/* Divider */}
-            <div className="my-6 h-px bg-white/15" />
+            <div className="my-5 h-px bg-white/15" />
 
             {/* Trust Stats */}
-            <div className="grid grid-cols-3 gap-4 text-center text-sm">
+            <div className="grid grid-cols-3 gap-4 text-center text-xs">
               <div>
-                <p className="text-xl font-bold">24h</p>
+                <p className="text-lg font-bold">24h</p>
                 <p className="text-white/60">Response</p>
               </div>
               <div>
-                <p className="text-xl font-bold">150+</p>
+                <p className="text-lg font-bold">150+</p>
                 <p className="text-white/60">Clients</p>
               </div>
               <div>
-                <p className="text-xl font-bold">98%</p>
+                <p className="text-lg font-bold">98%</p>
                 <p className="text-white/60">Satisfaction</p>
               </div>
             </div>
@@ -75,11 +75,10 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
           <svg
             viewBox="0 0 1440 160"
-            className="w-full h-[120px]"
+            className="w-full h-[90px]"
             preserveAspectRatio="none"
           >
             <defs>
-              {/* soft gradient fade */}
               <linearGradient id="contactFade" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor="#ffffff" stopOpacity="0.15" />
                 <stop offset="100%" stopColor="#FAFAFA" />

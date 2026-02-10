@@ -7,19 +7,19 @@ export default function HeroWithTestimonial() {
   /* ================= TESTIMONIAL DATA ================= */
   const testimonials = [
     {
-      text: "The AI agents streamlined our operations and reduced manual effort across departments.",
+      text: "Generative AI transformed how our teams access knowledge and create content across the organization.",
       name: "Sneha Patel",
       role: "Head of Operations",
       avatar: "https://i.pravatar.cc/100?img=5",
     },
     {
-      text: "From prototype to production, the autonomous workflows delivered immediate business value.",
+      text: "From pilot to production, our AI copilots delivered measurable gains in productivity within weeks.",
       name: "Aarav Mehta",
       role: "Chief Technology Officer",
       avatar: "https://i.pravatar.cc/100?img=15",
     },
     {
-      text: "We now make faster, smarter decisions with AI systems working alongside our teams.",
+      text: "We now empower employees with intelligent assistants that summarize, recommend, and accelerate decisions.",
       name: "Neha Sharma",
       role: "Director of Digital Strategy",
       avatar: "https://i.pravatar.cc/100?img=32",
@@ -58,31 +58,30 @@ export default function HeroWithTestimonial() {
         {/* ================= LEFT CONTENT ================= */}
         <div className="w-full space-y-7">
           <h1 className="max-w-4xl text-4xl lg:text-5xl xl:text-4xl font-semibold leading-tight tracking-tight">
-            Build Autonomous{" "}
+            Build Intelligent{" "}
             <span className="bg-gradient-to-r from-sky-400 via-cyan-300 to-teal-300 bg-clip-text text-transparent">
-              Agentic AI Systems
+              Generative AI Systems
             </span>{" "}
             for Enterprise Scale
           </h1>
 
           <p className="text-zinc-300 text-lg leading-relaxed max-w-xl">
-            We design, deploy, and scale intelligent AI agents that reason, act,
-            and collaborate across your business. Automate complex workflows,
-            enhance decision-making, and unlock productivity with secure,
-            enterprise-ready architectures.
+            We design, deploy, and scale AI copilots and knowledge-driven
+            platforms that reason over your data, automate workflows, and help
+            teams move faster with trusted, contextual intelligence.
           </p>
 
           {/* CTA */}
           <div className="flex flex-wrap gap-4 pt-2">
             <Link href="/contact">
               <button className="bg-cyan-400 text-slate-900 px-7 py-3.5 rounded-xl font-medium shadow-xl hover:scale-105 hover:bg-cyan-300 transition">
-                Talk to an AI Expert
+                Talk to a GenAI Expert
               </button>
             </Link>
 
-            <Link href="/services/agentic-ai">
+            <Link href="/services/generative-ai">
               <button className="border border-zinc-400/30 text-zinc-200 px-7 py-3.5 rounded-xl hover:bg-white/10 transition">
-                Explore Agentic AI Services
+                Explore Generative AI Services
               </button>
             </Link>
           </div>

@@ -64,14 +64,14 @@ const locations = [
 
 export default function GlobalLocations() {
   return (
-    <section className="bg-white py-24 text-gray-900">
+    <section className="bg-white text-gray-900">
       {/* subtle background */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-cyan-50 via-white to-blue-50" />
 
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-3xl lg:text-4xl font-bold">Global Locations</h2>
 
-        <p className="max-w-3xl text-gray-600 mb-16">
+        <p className="max-w-3xl text-gray-600 mb-10">
           Softree operates across key global markets to deliver scalable,
           secure, and future-ready digital solutions. Our distributed presence
           enables us to collaborate closely with clients, ensure faster delivery,
@@ -135,7 +135,7 @@ export default function GlobalLocations() {
 
 
   {/* Bottom section */}
-  <div className="mt-8 space-y-4">
+  <div className="mt-4 space-y-4">
 
     {/* Phone */}
     <div className="flex items-center gap-3 text-gray-200">
