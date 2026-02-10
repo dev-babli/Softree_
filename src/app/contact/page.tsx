@@ -15,7 +15,7 @@ export default function Home() {
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-cyan-500/20 blur-[140px] rounded-full" />
 
         {/* ================= CONTENT ================= */}
-        <div className="relative z-10 max-w-6xl mx-auto px-6 pt-12 pb-8 text-center">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 pt-12 pb-8 text-center mt-8">
           {/* Badge */}
           <span className="inline-block mb-4 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur text-xs tracking-widest uppercase">
             Contact Softree

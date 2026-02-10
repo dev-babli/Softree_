@@ -1,102 +1,58 @@
 "use client";
 
-import * as React from "react";
+import Link from "next/link";
 import Image from "next/image";
-import { createPortal } from "react-dom";
-import type { LucideIcon } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
+
 import {
   Home,
   Info,
   Settings,
+  Laptop,
   Users,
   Smartphone,
-  Laptop,
   Share2,
   FileText,
-  Database,
-  BarChart3,
-  BookOpen,
-  Phone,
   Building2,
-  Brain,
-  Layers,
-  Globe,
-  AppWindow,
+  BarChart3,
   Bot,
   Sparkles,
   MessageSquare,
+  Layers,
+  AppWindow,
+  Brain,
+  Globe,
+  ChevronDown,
+  ArrowRight,
 } from "lucide-react";
-import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
-import { MenuToggleIcon } from "@/components/ui/menu-toggle-icon";
-import {
-  NavigationMenu,
-  NavigationMenuList,
-  NavigationMenuItem,
-  NavigationMenuTrigger,
-  NavigationMenuContent,
-  NavigationMenuLink,
-} from "@/components/ui/navigation-menu";
-
-/* =========================
-   LOGO
-========================= */
-const LOGO_URL =
-  "https://www.softreetechnology.com/wp-content/uploads/elementor/thumbs/white-logo-soft-qt16xqrm9tl34ewl9f9uhep3zaj8m5zkpgualw8uf4.png";
-
-/* =========================
-   TYPES
-========================= */
-type MenuLink = {
+type MenuItem = {
   label: string;
-  url: string;
-  icon?: LucideIcon;
-  description?: string;
-};
-
-type MegaSection = {
-  title: string;
-  links: MenuLink[];
-};
-
-/* 🔥 DISCRIMINATED UNION */
-type MenuItem =
-  | {
+  url?: string;
+  icon?: any;
+  mega?: boolean;
+  children?: {
+    title: string;
+    links: {
       label: string;
       url: string;
-      icon?: LucideIcon;
-      mega: true;
-      children: MegaSection[];
-    }
-  | {
-      label: string;
-      url: string;
-      icon?: LucideIcon;
-      mega?: false;
-      children?: MenuLink[];
-    };
+      icon?: any;
+      description?: string;
+    }[];
+  }[];
+};
 
-/* =========================
-   MENU CONFIG
-========================= */
 const menu: MenuItem[] = [
-  {
-    label: "Home",
-    url: "/",
-    icon: Home,
-  },
-  {
-    label: "About",
-    url: "/about-us",
-    icon: Info,
-  },
+  { label: "Home", url: "/", icon: Home },
+  { label: "About", url: "/about-us", icon: Info },
+
   {
     label: "Services",
     url: "/services",
     icon: Settings,
     mega: true,
-
     children: [
       {
         title: "App Development",
@@ -106,7 +62,7 @@ const menu: MenuItem[] = [
             url: "/services/softree-for-startups",
             icon: Laptop,
             description:
-              "End-to-end product development to help startups launch faster, scale smarter, and succeed",
+              "End-to-end product development to help startups launch faster",
           },
           {
             label: "MVP Development Services",
@@ -135,7 +91,7 @@ const menu: MenuItem[] = [
             label: "SharePoint Development",
             url: "/services/sharepoint",
             icon: Share2,
-            description: "Enterprise SharePoint solutions and customization",
+            description: "Enterprise SharePoint solutions",
           },
           {
             label: "SPFx Developments",
@@ -147,19 +103,16 @@ const menu: MenuItem[] = [
             label: "Power Apps",
             url: "/services/power-apps",
             icon: Building2,
-            description: "Low-code apps for rapid business solutions",
+            description: "Low-code apps for business solutions",
           },
-
           {
             label: "Power BI",
             url: "/services/power-bi",
             icon: BarChart3,
-            description: "Data visualization and business intelligence",
+            description: "Data visualization & BI",
           },
         ],
       },
-
-      // ⭐ NEW SECTION
       {
         title: "AI Services",
         links: [
@@ -167,27 +120,25 @@ const menu: MenuItem[] = [
             label: "Agentic AI Solutions",
             url: "/services/agentic-ai",
             icon: Bot,
-            description:
-              "Autonomous AI agents that plan, act, and execute complex business workflows",
+            description: "Autonomous AI agents",
           },
           {
             label: "Generative AI",
             url: "/services/generative-ai",
             icon: Sparkles,
-            description:
-              "LLM-powered solutions for content generation, automation, and intelligence",
+            description: "LLM-powered solutions",
           },
           {
             label: "AI Chatbot Development",
             url: "/services/ai-chatbot",
             icon: MessageSquare,
-            description:
-              "Smart conversational bots for customer support, sales, and operations",
+            description: "Smart conversational bots",
           },
         ],
       },
     ],
   },
+
   {
     label: "Case Studies",
     url: "/case-studies",
@@ -201,13 +152,13 @@ const menu: MenuItem[] = [
             label: "Power Apps Case Studies",
             url: "/case-studies/power-apps",
             icon: AppWindow,
-            description: "Real-world low-code business solutions",
+            description: "Real-world low-code solutions",
           },
           {
             label: "AI & Copilot Case Studies",
             url: "/case-studies/ai",
             icon: Brain,
-            description: "AI-driven automation and insights",
+            description: "AI-driven automation",
           },
         ],
       },
@@ -218,13 +169,13 @@ const menu: MenuItem[] = [
             label: "Mobile App Case Studies",
             url: "/case-studies/mobile",
             icon: Smartphone,
-            description: "Scalable Android & iOS solutions",
+            description: "Android & iOS solutions",
           },
           {
             label: "Web App Case Studies",
             url: "/case-studies/web",
             icon: Laptop,
-            description: "High-performance web platforms",
+            description: "High-performance platforms",
           },
         ],
       },
@@ -235,306 +186,250 @@ const menu: MenuItem[] = [
             label: "SharePoint Case Studies",
             url: "/case-studies/sharepoint",
             icon: Share2,
-            description: "Enterprise collaboration solutions",
+            description: "Enterprise collaboration",
           },
           {
             label: "SPFx Case Studies",
             url: "/case-studies/spfx",
             icon: Globe,
-            description: "Custom SPFx web parts & extensions",
+            description: "Custom SPFx solutions",
           },
         ],
       },
     ],
   },
-  {
-    label: "Blog",
-    url: "/blog",
-    icon: FileText,
-  },
+
+  { label: "Blog", url: "/blog", icon: FileText },
 ];
 
-/* =========================
-   HEADER
-========================= */
-export function Navigation() {
-  const [open, setOpen] = React.useState(false);
+export default function Navigation() {
+  const [open, setOpen] = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header
-      className="sticky top-0 z-50 w-full 
-  bg-gradient-to-b from-zinc-50 via-white to-zinc-50
-  backdrop-blur-md border-b border-zinc-200/60"
-    >
+    <header className="fixed top-1 left-0 w-full z-50 flex justify-center px-4">
       <nav
         className="
-    mx-auto
-    flex
-    h-16
-    max-w-5xl
-    items-center
-    justify-start
-    gap-10
-    rounded-full
-    px-6
-
-    bg-white/80
-    backdrop-blur-xl
-
-    border border-zinc-200
-    shadow-lg
-  "
+      w-full max-w-5xl
+      px-6 lg:px-10
+      h-16
+      flex items-center justify-between
+      rounded-full
+      bg-white backdrop-blur-2xl
+      border border-black/5
+      shadow-[0_10px_40px_rgba(0,0,0,0.08)]
+    "
       >
-        {/* ================= LEFT: Logo + Menu ================= */}
-        <div className="flex items-center gap-3">
-          {/* Logo */}
-          <Link href="/" aria-label="Go to homepage" className="inline-block">
-            <Image
-              src="https://www.softreetechnology.com/wp-content/uploads/elementor/thumbs/white-logo-soft-qt16xqrm9tl34ewl9f9uhep3zaj8m5zkpgualw8uf4.png"
-              alt="Softree"
-              width={150}
-              height={40}
-              className="invert object-contain cursor-pointer"
-              priority
-            />
-          </Link>
+        <Link
+          href="/"
+          className="flex items-center bg-black px-3 py-1 rounded-lg"
+        >
+          <Image
+            src="https://www.softreetechnology.com/wp-content/uploads/elementor/thumbs/white-logo-soft-qt16xqrm9tl34ewl9f9uhep3zaj8m5zkpgualw8uf4.png"
+            alt="Softree"
+            width={150}
+            height={40}
+            className="object-contain"
+            priority
+          />
+        </Link>
 
-          {/* ================= DESKTOP NAVIGATION ================= */}
-          <NavigationMenu className="hidden md:flex">
-            <NavigationMenuList className="flex items-center gap-1">
-              {menu.map((item) => {
-                const Icon = item.icon;
+        {/* ================= DESKTOP ================= */}
+        <div className="hidden lg:flex items-center gap-8">
+          {menu.map((item) => {
+            if (!item.mega) {
+              return (
+                <Link
+                  key={item.label}
+                  href={item.url || "#"}
+                  className="group relative px-4 py-2 text-sm font-semibold text-gray-700"
+                >
+                  {/* Dark mirror pill */}
+                  <span
+                    className="
+      absolute inset-0
+      rounded-full
+      bg-gradient-to-r from-zinc-700 via-zinc-900 to-black
+      opacity-0 scale-90
+      transition-all duration-300
+      group-hover:opacity-100 group-hover:scale-100
+    "
+                  />
 
-                const navPillClass = `
-            px-5 py-2.5
-            rounded-full
-            text-[15px] font-medium
-            text-zinc-800
+                  {/* TEXT */}
+                  <span className="relative z-10 transition-colors group-hover:text-white">
+                    {item.label}
+                  </span>
+                </Link>
+              );
+            }
 
-            bg-transparent
-            hover:bg-blue-500/10
+            return (
+              <div
+                key={item.label}
+                className="relative group"
+                onMouseEnter={() => setOpen(item.label)}
+                onMouseLeave={() => setOpen(null)}
+              >
+                <Link
+                  href={item.url || "#"}
+                  className="group relative inline-flex items-center gap-1 px-4 py-2 text-sm font-semibold text-gray-700"
+                >
+                  {/* pill */}
+                  <span
+                    className={`
+      absolute inset-0
+      rounded-full
+      bg-gradient-to-r from-gray-500 via-gray-700 to-black
+      transition-all duration-300
+      ${open === item.label ? "opacity-100 scale-100" : "opacity-0 scale-75"}
+      group-hover:opacity-100 group-hover:scale-100
+    `}
+                  />
 
-            hover:text-blue-600
-            hover:shadow-[inset_0_-4px_0_0_rgb(59,130,246)]
+                  {/* label */}
+                  <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
+                    {item.label}
+                  </span>
 
-            transition-all duration-300
-          `;
+                  {/* icon */}
+                  <ChevronDown
+                    size={16}
+                    className={`
+      relative z-10 mt-[1px]
+      transition-all duration-300
+      group-hover:text-white
+      ${open === item.label ? "rotate-180 text-white" : ""}
+    `}
+                  />
+                </Link>
 
-                /* ================= MEGA MENU ================= */
-                if (item.mega) {
-                  return (
-                    <NavigationMenuItem key={item.label}>
-                      <NavigationMenuTrigger
-                        className={`
-    ${navPillClass}
-    data-[state=open]:bg-blue-500/10
-    data-[state=open]:text-blue-600
-    data-[state=open]:shadow-[inset_0_-4px_0_0_rgb(59,130,246)]
-  `}
-                      >
-                        <span className="flex items-center gap-2.5">
-                          {Icon && (
-                            <Icon className="h-4 w-4 text-zinc-600 group-hover:text-blue-600 transition" />
-                          )}
+                {/* ================= MEGA ================= */}
+                <AnimatePresence>
+                  {open === item.label && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 6 }}
+                      transition={{ duration: 0.18, ease: "easeOut" }}
+                      className="
+    fixed top-18 left-1/2 -translate-x-1/2
+    w-[1100px]
+    bg-white
+    rounded-3xl
+    border border-black/5
+    shadow-[0_20px_70px_rgba(0,0,0,0.15)]
+    p-10
+    grid grid-cols-3 gap-10
+  "
+                    >
+                      {item.children?.map((group) => (
+                        <div key={group.title}>
+                          <h4 className="text-sm font-bold text-gray-900 mb-4">
+                            {group.title}
+                          </h4>
 
-                          {/* CLICK → /services */}
-                          <a
-                            href="/services"
-                            className="font-semibold"
-                            onClick={(e) => {
-                              e.stopPropagation(); // ✅ allow navigation
-                            }}
-                          >
-                            {item.label}
-                          </a>
-                        </span>
-                      </NavigationMenuTrigger>
+                          <div className="space-y-3">
+                            {group.links.map((link) => {
+                              const Icon = link.icon;
 
-                      {/* Mega dropdown */}
-                      <NavigationMenuContent>
-                        <div
-                          className="
-                      relative mt-4
-                      grid w-[980px] grid-cols-3 gap-10
-                      p-10 rounded-3xl
-
-                      bg-gradient-to-b from-white via-zinc-50 to-white
-                      backdrop-blur-2xl
-                      border border-zinc-200/70
-                      shadow-[0_20px_60px_rgba(0,0,0,0.08)]
-                    "
-                        >
-                          {item.children.map((section) => (
-                            <div key={section.title}>
-                              <h4 className="mb-5 text-xs font-semibold uppercase tracking-wider text-zinc-500">
-                                {section.title}
-                              </h4>
-
-                              <ul className="space-y-3">
-                                {section.links.map((link) => {
-                                  const LinkIcon = link.icon;
-
-                                  return (
-                                    <li key={link.label}>
-                                      <a
-                                        href={link.url}
+                              return (
+                                <Link
+                                  key={link.label}
+                                  href={link.url}
+                                  className="
+    group relative flex items-start gap-3
+    p-3 rounded-xl
+    border border-transparent
+    hover:border-zinc-300
+    hover:bg-zinc-50
+    hover:-translate-y-0.5
+    transition-all duration-200
+  "
+                                >
+                                  {/* icon */}
+                                  {Icon && (
+                                    <div
+                                      className="
+        w-10 h-10 flex items-center justify-center
+        rounded-lg bg-white
+        border border-zinc-200
+        transition-all duration-200
+        group-hover:bg-black
+      "
+                                    >
+                                      <Icon
+                                        size={18}
                                         className="
-                                    group flex items-start gap-4
-                                    rounded-xl p-4
-                                    bg-white/60
-                                    hover:bg-white
-                                    hover:shadow-md
-                                    hover:-translate-y-1
-                                    transition
-                                  "
-                                      >
-                                        {LinkIcon && (
-                                          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-zinc-100 group-hover:bg-blue-50">
-                                            <LinkIcon className="h-4 w-4 text-zinc-700 group-hover:text-blue-600" />
-                                          </div>
-                                        )}
+          text-zinc-700
+          group-hover:text-white
+          transition-colors
+        "
+                                      />
+                                    </div>
+                                  )}
 
-                                        <div>
-                                          <p className="text-sm font-medium text-zinc-900 group-hover:text-blue-600">
-                                            {link.label}
-                                          </p>
+                                  {/* text */}
+                                  <div className="pr-6">
+                                    <p className="text-sm font-semibold text-zinc-900">
+                                      {link.label}
+                                    </p>
 
-                                          {link.description && (
-                                            <p className="text-xs text-zinc-500">
-                                              {link.description}
-                                            </p>
-                                          )}
-                                        </div>
-                                      </a>
-                                    </li>
-                                  );
-                                })}
-                              </ul>
-                            </div>
-                          ))}
+                                    <p className="text-xs text-zinc-500 mt-1 group-hover:text-zinc-700">
+                                      {link.description}
+                                    </p>
+                                  </div>
+
+                                  {/* arrow */}
+                                  <ArrowRight
+                                    size={16}
+                                    className="
+      absolute right-3 top-4
+      opacity-0 -translate-x-1
+      group-hover:opacity-100 group-hover:translate-x-0
+      transition-all duration-200
+      text-zinc-400
+    "
+                                  />
+                                </Link>
+                              );
+                            })}
+                          </div>
                         </div>
-                      </NavigationMenuContent>
-                    </NavigationMenuItem>
-                  );
-                }
-
-                /* ================= NORMAL LINKS ================= */
-                return (
-                  <NavigationMenuItem key={item.label}>
-                    <NavigationMenuLink asChild>
-                      <a href={item.url} className={navPillClass}>
-                        <span className="flex items-center gap-2.5">
-                          {Icon && (
-                            <Icon className="h-4 w-4 text-zinc-600 group-hover:text-blue-600 transition" />
-                          )}
-
-                          <span className="font-semibold">{item.label}</span>
-                        </span>
-                      </a>
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-                );
-              })}
-            </NavigationMenuList>
-          </NavigationMenu>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
         </div>
 
-        {/* ================= RIGHT SIDE CTA (Desktop only) ================= */}
-        <div className="hidden md:flex items-center gap-3 ml-auto">
+        {/* ================= CTA ================= */}
+        <div className="hidden lg:flex items-center gap-3">
           <Link
             href="/contact"
             className="
-    inline-flex items-center gap-2
-    px-2 py-1.5
-    rounded-full
-    bg-blue-600
-    text-white
-    text-sm
-    font-medium
-    shadow-md
-    hover:bg-blue-700
-    transition
-  "
+          px-5 py-2.5
+          text-sm font-semibold
+          text-white bg-black
+          rounded-full
+          hover:scale-105 hover:shadow-lg
+          transition
+        "
           >
-            <Phone size={16} />
-            Contact Us
+            Get Started
           </Link>
         </div>
 
-        {/* ================= MOBILE TOGGLE ================= */}
-        <Button
-          size="icon"
-          variant="outline"
-          className="rounded-full md:hidden ml-auto"
-          onClick={() => setOpen(!open)}
+        {/* ================= MOBILE ================= */}
+        <button
+          className="lg:hidden"
+          onClick={() => setMobileOpen(!mobileOpen)}
         >
-          <MenuToggleIcon open={open} className="h-5 w-5" />
-        </Button>
+          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
       </nav>
-
-      {/* Mobile Menu */}
-      <MobileMenu open={open}>
-        {menu.map((item) => {
-          const Icon = item.icon;
-
-          if (item.mega) {
-            return (
-              <div key={item.label}>
-                <div className="font-semibold">{item.label}</div>
-                <div className="ml-4 mt-2 space-y-4">
-                  {item.children.map((section) => (
-                    <div key={section.title}>
-                      <p className="text-sm text-muted-foreground">
-                        {section.title}
-                      </p>
-                      {section.links.map((link) => (
-                        <a
-                          key={link.label}
-                          href={link.url}
-                          className="block rounded-md p-2 hover:bg-accent"
-                        >
-                          {link.label}
-                        </a>
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            );
-          }
-
-          return (
-            <a
-              key={item.label}
-              href={item.url}
-              className="flex items-center gap-2 rounded-md p-2 hover:bg-accent"
-            >
-              {Icon && <Icon className="h-4 w-4" />}
-              {item.label}
-            </a>
-          );
-        })}
-      </MobileMenu>
     </header>
-  );
-}
-
-/* =========================
-   MOBILE MENU
-========================= */
-function MobileMenu({
-  open,
-  children,
-}: {
-  open: boolean;
-  children: React.ReactNode;
-}) {
-  if (!open || typeof window === "undefined") return null;
-
-  return createPortal(
-    <div className="fixed inset-0 top-14 z-40 bg-background p-4 md:hidden">
-      <div className="space-y-4">{children}</div>
-    </div>,
-    document.body,
   );
 }

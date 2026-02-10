@@ -60,7 +60,7 @@ export default function AboutHeroWithTestimonial() {
   <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-cyan-500/20 blur-[140px] rounded-full" />
 
   {/* ================= CONTENT ================= */}
-  <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-12 text-center">
+  <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-12 text-center mt-5">
     {/* Badge */}
     <span className="inline-block mb-5 px-4 py-2 rounded-full bg-white/10 backdrop-blur text-xs tracking-widest uppercase">
       About Softree
