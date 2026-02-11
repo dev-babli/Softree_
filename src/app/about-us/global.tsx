@@ -111,29 +111,8 @@ export default function GlobalDelivery() {
                       <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.9)]" />
                       <span className="font-medium">{place}</span>
                     </div>
-                  )
+                  ),
                 )}
-              </div>
-
-              {/* CTA */}
-              <div className="mt-12">
-                <a
-                  href="/who-we-are/global-delivery"
-                  className="
-                inline-flex items-center justify-center
-                px-8 py-3
-                rounded-full
-                bg-cyan-500
-                text-black
-                font-semibold
-                hover:bg-cyan-400
-                hover:scale-105
-                transition-all
-                shadow-[0_20px_40px_rgba(34,211,238,0.35)]
-              "
-                >
-                  Explore Global Delivery
-                </a>
               </div>
             </div>
 

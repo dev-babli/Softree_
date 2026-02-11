@@ -36,39 +36,6 @@ export default function Home() {
             design, build, and scale modern digital solutions that move your
             business forward.
           </p>
-
-          {/* ================= GLASS CTA PANEL ================= */}
-          <div className="mt-8 mx-auto max-w-xl rounded-3xl border border-white/20 bg-white/10 backdrop-blur-2xl p-5 shadow-2xl">
-            {/* Buttons */}
-            <div className="flex flex-wrap justify-center gap-3">
-              <button className="px-6 py-2.5 rounded-xl bg-white text-blue-700 font-medium shadow-lg hover:scale-105 transition">
-                Get in Touch
-              </button>
-
-              <button className="px-6 py-2.5 rounded-xl border border-white/30 hover:bg-white/10 transition">
-                Book a Call
-              </button>
-            </div>
-
-            {/* Divider */}
-            <div className="my-5 h-px bg-white/15" />
-
-            {/* Trust Stats */}
-            <div className="grid grid-cols-3 gap-4 text-center text-xs">
-              <div>
-                <p className="text-lg font-bold">24h</p>
-                <p className="text-white/60">Response</p>
-              </div>
-              <div>
-                <p className="text-lg font-bold">150+</p>
-                <p className="text-white/60">Clients</p>
-              </div>
-              <div>
-                <p className="text-lg font-bold">98%</p>
-                <p className="text-white/60">Satisfaction</p>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* ================= PREMIUM SOFT WAVE ================= */}

@@ -41,10 +41,6 @@ export default function ThreePillarsOfExcellence() {
       <div className="relative mx-auto max-w-7xl px-6 sm:px-10 lg:px-16">
         {/* ===== Header ===== */}
         <div className="text-center max-w-3xl mx-auto mb-7">
-          <span className="text-xs font-semibold tracking-[0.3em] uppercase text-blue-600">
-            Softree Web Development Framework
-          </span>
-
           <h2 className="mt-6 text-4xl md:text-5xl font-bold text-gray-900">
             Our Web Development{" "}
             <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">

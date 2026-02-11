@@ -79,12 +79,6 @@ export default function HeroWithTestimonial() {
                 Talk to an AI Expert
               </button>
             </Link>
-
-            <Link href="/services/agentic-ai">
-              <button className="border border-zinc-400/30 text-zinc-200 px-7 py-3.5 rounded-xl hover:bg-white/10 transition">
-                Explore Agentic AI Services
-              </button>
-            </Link>
           </div>
         </div>
 

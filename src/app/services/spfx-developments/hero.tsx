@@ -55,7 +55,7 @@ export default function HeroWithTestimonial() {
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-cyan-400/10 blur-[140px] rounded-full" />
 
       {/* ================= HERO LAYOUT ================= */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-14 lg:py-16 min-h-[65vh] grid lg:grid-cols-2 gap-14 items-start">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-14 lg:py-16 min-h-[65vh] grid lg:grid-cols-2 gap-14 items-start mt-6">
         {/* ================= LEFT CONTENT ================= */}
         <div className="w-full space-y-7">
           <h1 className="text-4xl lg:text-5xl xl:text-5xl font-semibold leading-tight tracking-tight">
@@ -80,10 +80,9 @@ export default function HeroWithTestimonial() {
                 Talk to an SPFx Expert
               </button>
             </Link>
-
-            <Link href="/services/spfx-development">
-              <button className="border border-zinc-400/30 text-zinc-200 px-7 py-3.5 rounded-xl hover:bg-white/10 transition">
-                View SPFx Services
+            <Link href="/case-studies/sharepoint">
+              <button className="border border-zinc-50/30 text-zinc-200 px-7 py-3.5 rounded-xl hover:bg-white/10 transition">
+                View Case Studies
               </button>
             </Link>
           </div>

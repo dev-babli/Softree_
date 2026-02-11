@@ -1,116 +1,122 @@
-"use client";
-
+import React from "react";
 import {
-  Award,
-  Globe,
+  ClipboardCheck,
+  Puzzle,
   Users,
-  Settings,
-  Briefcase,
-  Smile,
-  Sparkles,
-  ArrowRight,
+  Lightbulb,
+  ShieldCheck,
+  Rocket,
+  LucideIcon,
 } from "lucide-react";
 
-export default function WhyChooseSoftreeWebDevelopment() {
-  const stats = [
-    { value: "10+", label: "Years of Web Development Expertise", icon: Award },
-    { value: "200+", label: "Web Projects Delivered", icon: Globe },
-    { value: "50+", label: "Skilled Web Engineers", icon: Users },
-    { value: "400+", label: "Advanced Features Implemented", icon: Settings },
-    { value: "25+", label: "Industries Served Worldwide", icon: Briefcase },
-    { value: "98%", label: "Client Satisfaction Rate", icon: Smile },
-  ];
+/* ================= TYPES ================= */
 
+type FeatureCardProps = {
+  icon: LucideIcon;
+  title: string;
+  desc: string;
+};
+
+/* ================= DATA ================= */
+
+const topCards: FeatureCardProps[] = [
+  {
+    icon: ClipboardCheck,
+    title: "Faster Time to Launch",
+    desc: "Turn ideas into production-ready digital products at speed. Our structured delivery model, modern frameworks, and proven engineering discipline reduce implementation risk while accelerating measurable business outcomes and early user value.",
+  },
+  {
+    icon: Puzzle,
+    title: "Seamless System Integration",
+    desc: "Unify your web platforms with enterprise tools, APIs, and data ecosystems. We design secure, scalable architectures that enable interoperability today while providing the flexibility to evolve with future business needs.",
+  },
+];
+
+const bottomCards: FeatureCardProps[] = [
+  {
+    icon: Users,
+    title: "Collaborative Delivery",
+    desc: "Designers, developers, and stakeholders work together in transparent workflows, ensuring alignment from discovery through deployment.",
+  },
+  {
+    icon: Lightbulb,
+    title: "Experience-Driven Design",
+    desc: "Create intuitive, high-impact digital experiences that engage users, strengthen your brand, and increase conversion.",
+  },
+  {
+    icon: Rocket,
+    title: "Performance & Scalability",
+    desc: "Build fast, resilient platforms optimized for growth, capable of supporting enterprise traffic and evolving business demands.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Security & Reliability",
+    desc: "Protect your digital assets with modern security standards, governance models, and continuous monitoring.",
+  },
+];
+
+/* ================= COMPONENT ================= */
+
+export default function WhyChooseUs() {
   return (
-    <section className="relative overflow-hidden py-10 bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
-      <div className="relative max-w-7xl mx-auto flex flex-col xl:flex-row gap-16 px-6">
-        {/* ================= LEFT – CONTENT ================= */}
-        <div
-          className="
-            flex-1 p-12 rounded-3xl
-            bg-white/80 backdrop-blur-xl
-            border border-gray-200
-            shadow-xl
-          "
-        >
-          {/* Badge */}
-          <span className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold tracking-wider">
-            <Sparkles className="w-4 h-4" />
-            Web Development Experts
-          </span>
+    <section className="py-15 bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* ================= TOP SECTION ================= */}
+        <div className="grid lg:grid-cols-3 gap-12 items-stretch">
+          {/* LEFT HEADING */}
+          <div className="flex">
+            <div className="my-auto max-w-xl">
+              {/* eyebrow */}
+              <p className="text-sm font-semibold uppercase tracking-widest text-purple-600 mb-4">
+                Why Leading Enterprises Choose Us
+              </p>
 
-          <h2 className="text-4xl xl:text-5xl font-bold leading-tight text-gray-900">
-            Why Choose{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-              Softree
-            </span>{" "}
-            for Web Development?
-          </h2>
+              {/* headline */}
+              <h2 className="text-3xl md:text-5xl font-semibold leading-tight text-slate-900">
+                Your Trusted Partner for{" "}
+                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent font-bold">
+                  Modern Web Development
+                </span>
+              </h2>
 
-          <p className="mt-6 text-gray-600 text-lg leading-relaxed max-w-xl">
-            Softree builds high-performance, scalable web applications that help
-            businesses grow, engage users, and stand out in competitive markets.
-          </p>
+              {/* description */}
+              <p className="mt-5 text-lg text-slate-600">
+                We design, build, and scale modern web platforms aligned with
+                your business goals — improving user engagement, streamlining
+                operations, and driving sustainable digital growth.
+              </p>
+            </div>
+          </div>
 
-          <p className="mt-3 text-gray-500 leading-relaxed max-w-xl">
-            Our team combines modern technologies, clean architecture, and
-            user-centric design to deliver secure, future-ready solutions that
-            are easy to scale and maintain.
-          </p>
-
-          {/* CTA */}
-          <div className="mt-8">
-            <button
-              className="
-                group inline-flex items-center gap-3 px-8 py-4
-                rounded-xl font-semibold
-                bg-gradient-to-r from-blue-600 to-indigo-600
-                text-white
-                shadow-lg hover:shadow-xl
-                hover:scale-105
-                transition-all duration-300
-              "
-            >
-              Talk to a Web Expert
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition" />
-            </button>
+          {/* RIGHT TWO CARDS */}
+          <div className="lg:col-span-2 grid md:grid-cols-2 gap-8 h-full">
+            {topCards.map((item, i) => (
+              <FeatureCard key={i} {...item} />
+            ))}
           </div>
         </div>
 
-        {/* ================= RIGHT – STATS ================= */}
-        <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-8">
-          {stats.map((item, index) => {
-            const Icon = item.icon;
-
-            return (
-              <div
-                key={index}
-                className="
-                  relative p-8 rounded-3xl
-                  bg-white/80 backdrop-blur-xl
-                  border border-gray-200
-                  shadow-md hover:shadow-xl
-                  hover:-translate-y-1
-                  transition-all duration-300
-                "
-              >
-                {/* Icon */}
-                <div className="mb-5 w-12 h-12 rounded-xl flex items-center justify-center bg-blue-50 text-blue-600">
-                  <Icon className="w-6 h-6" />
-                </div>
-
-                {/* Number */}
-                <h3 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                  {item.value}
-                </h3>
-
-                {/* Label */}
-                <p className="mt-2 text-gray-600 text-sm">{item.label}</p>
-              </div>
-            );
-          })}
+        {/* ================= BOTTOM SECTION ================= */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
+          {bottomCards.map((item, i) => (
+            <FeatureCard key={i} {...item} />
+          ))}
         </div>
       </div>
     </section>
+  );
+}
+
+/* ================= REUSABLE CARD ================= */
+
+function FeatureCard({ icon: Icon, title, desc }: FeatureCardProps) {
+  return (
+    <div className="group rounded-3xl p-8 text-white bg-gradient-to-br from-emerald-900 to-teal-800 shadow-lg hover:-translate-y-2 transition duration-300">
+      <Icon className="w-8 h-8 text-emerald-300 mb-6" />
+
+      <h3 className="text-xl font-semibold mb-3">{title}</h3>
+
+      <p className="text-emerald-100/80 leading-relaxed">{desc}</p>
+    </div>
   );
 }

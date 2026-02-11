@@ -78,12 +78,6 @@ export default function HeroWithTestimonial() {
                 Talk to a GenAI Expert
               </button>
             </Link>
-
-            <Link href="/services/generative-ai">
-              <button className="border border-zinc-400/30 text-zinc-200 px-7 py-3.5 rounded-xl hover:bg-white/10 transition">
-                Explore Generative AI Services
-              </button>
-            </Link>
           </div>
         </div>
 

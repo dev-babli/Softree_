@@ -54,6 +54,29 @@ const menu: MenuItem[] = [
     icon: Settings,
     mega: true,
     children: [
+           {
+        title: "AI Services",
+        links: [
+          {
+            label: "Agentic AI Solutions",
+            url: "/services/agentic-ai",
+            icon: Bot,
+            description: "Autonomous AI agents",
+          },
+          {
+            label: "Generative AI",
+            url: "/services/generative-ai",
+            icon: Sparkles,
+            description: "LLM-powered solutions",
+          },
+          {
+            label: "AI Chatbot Development",
+            url: "/services/ai-chatbot",
+            icon: MessageSquare,
+            description: "Smart conversational bots",
+          },
+        ],
+      },
       {
         title: "App Development",
         links: [
@@ -85,7 +108,7 @@ const menu: MenuItem[] = [
         ],
       },
       {
-        title: "SharePoint Services",
+        title: "SharePoint & Power Platform Engineering",
         links: [
           {
             label: "SharePoint Development",
@@ -113,29 +136,7 @@ const menu: MenuItem[] = [
           },
         ],
       },
-      {
-        title: "AI Services",
-        links: [
-          {
-            label: "Agentic AI Solutions",
-            url: "/services/agentic-ai",
-            icon: Bot,
-            description: "Autonomous AI agents",
-          },
-          {
-            label: "Generative AI",
-            url: "/services/generative-ai",
-            icon: Sparkles,
-            description: "LLM-powered solutions",
-          },
-          {
-            label: "AI Chatbot Development",
-            url: "/services/ai-chatbot",
-            icon: MessageSquare,
-            description: "Smart conversational bots",
-          },
-        ],
-      },
+ 
     ],
   },
 

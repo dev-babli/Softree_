@@ -1,121 +1,122 @@
-"use client";
-
+import React from "react";
 import {
-  Award,
-  AppWindow,
+  ClipboardCheck,
+  Puzzle,
   Users,
-  Settings,
-  Briefcase,
-  Smile,
-  Sparkles,
-  ArrowRight,
+  Lightbulb,
+  ShieldCheck,
+  Rocket,
+  LucideIcon,
 } from "lucide-react";
 
-export default function WhyChooseSoftreeMobileAppDevelopment() {
-  const stats = [
-    { value: "10+", label: "Years of Mobile App Experience", icon: Award },
-    { value: "150+", label: "Mobile Apps Delivered", icon: AppWindow },
-    { value: "45+", label: "Certified Mobile Developers", icon: Users },
-    { value: "300+", label: "App Features Implemented", icon: Settings },
-    { value: "20+", label: "Industries Served", icon: Briefcase },
-    { value: "98%", label: "Client Satisfaction Rate", icon: Smile },
-  ];
+/* ================= TYPES ================= */
 
+type FeatureCardProps = {
+  icon: LucideIcon;
+  title: string;
+  desc: string;
+};
+
+/* ================= DATA ================= */
+
+const topCards: FeatureCardProps[] = [
+  {
+    icon: ClipboardCheck,
+    title: "Accelerated App Delivery",
+    desc: "Launch high-quality mobile applications quickly using agile execution, rapid prototyping, and proven delivery frameworks that reduce risk and speed up results.",
+  },
+  {
+    icon: Puzzle,
+    title: "Seamless Platform Integration",
+    desc: "Integrate your mobile apps with enterprise systems, APIs, and cloud services through secure, scalable architectures designed for long-term growth.",
+  },
+];
+
+const bottomCards: FeatureCardProps[] = [
+  {
+    icon: Users,
+    title: "Collaborative Product Teams",
+    desc: "Designers, engineers, and business stakeholders align from strategy to release, ensuring transparency and successful outcomes.",
+  },
+  {
+    icon: Lightbulb,
+    title: "User-Centric Experiences",
+    desc: "Deliver intuitive, engaging mobile journeys that delight users, strengthen loyalty, and drive higher retention.",
+  },
+  {
+    icon: Rocket,
+    title: "Performance at Scale",
+    desc: "Build fast, reliable apps engineered to handle growth, heavy usage, and evolving business requirements.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Security & Compliance",
+    desc: "Protect user data with modern security practices, governance standards, and continuous monitoring across devices.",
+  },
+];
+
+/* ================= COMPONENT ================= */
+
+export default function WhyChooseUs() {
   return (
-    <section className="relative bg #141414  text-white overflow-hidden">
-     
+    <section className="py-15 bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* ================= TOP SECTION ================= */}
+        <div className="grid lg:grid-cols-3 gap-12 items-stretch">
+          {/* LEFT HEADING */}
+          <div className="flex">
+            <div className="my-auto max-w-xl">
+              {/* eyebrow */}
+              <p className="text-sm font-semibold uppercase tracking-widest text-purple-600 mb-4">
+                Why Enterprises Trust Our Mobile Expertise
+              </p>
 
-      <div className="max-w-7xl mx-auto flex flex-col xl:flex-row gap-16">
-        {/* LEFT – CONTENT */}
-        <div
-          className="relative flex-1 p-9 rounded-[28px]
-    bg-gradient-to-b from-white to-slate-50
+              {/* headline */}
+              <h2 className="text-3xl md:text-5xl font-semibold leading-tight text-slate-900">
+                Your Partner for{" "}
+                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent font-bold">
+                  Mobile App Innovation
+                </span>
+              </h2>
 
-    border border-gray-200
+              {/* description */}
+              <p className="mt-5 text-lg text-slate-600">
+                We design, develop, and scale mobile applications that align
+                with your strategy — enhancing engagement, enabling mobility,
+                and accelerating digital growth.
+              </p>
+            </div>
+          </div>
 
-    transition-all duration-300"
-        >
-          {/* Badge */}
-          <span
-            className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full
-      bg-gray-100 border border-gray-200
-      text-xs uppercase tracking-[0.25em] text-gray-700"
-          >
-            <Sparkles className="w-4 h-4 text-cyan-500" />
-            Mobile App Specialists
-          </span>
-
-          <h2 className="text-4xl xl:text-5xl font-extrabold leading-tight text-black">
-            Why Choose{" "}
-            <span className="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
-              Softree
-            </span>{" "}
-            for Mobile App Development?
-          </h2>
-
-          <p className="mt-6 text-gray-700 text-lg leading-relaxed max-w-xl">
-            Softree helps businesses build high-performance mobile applications
-            that deliver seamless user experiences across Android and iOS
-            platforms.
-          </p>
-
-          <p className="mt-3 text-gray-600 text-base leading-relaxed max-w-xl">
-            Our expert team designs secure, scalable, and user-centric mobile
-            apps using modern frameworks, ensuring long-term performance and
-            easy maintenance.
-          </p>
-
-          {/* CTA */}
-          <div className="mt-8">
-            <button
-              className="
-        group inline-flex items-center gap-3 px-8 py-4
-        rounded-xl font-semibold
-        bg-black text-white
-        shadow-[0_12px_35px_rgba(0,0,0,0.15)]
-        hover:bg-gray-900 hover:scale-105
-        transition-all duration-300
-      "
-            >
-              Talk to a Power Apps Expert
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition" />
-            </button>
+          {/* RIGHT TWO CARDS */}
+          <div className="lg:col-span-2 grid md:grid-cols-2 gap-8 h-full">
+            {topCards.map((item, i) => (
+              <FeatureCard key={i} {...item} />
+            ))}
           </div>
         </div>
 
-        {/* RIGHT – STATS */}
-        <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-8">
-          {stats.map((item, index) => {
-            const Icon = item.icon;
-
-            return (
-              <div
-                key={index}
-                className="relative p-7 rounded-[24px]
-bg-gradient-to-b from-white via-slate-50 to-sky-50
-          border border-gray-200
-    
-          transition-all duration-300"
-              >
-                {/* Icon */}
-                <div
-                  className="mb-4 w-12 h-12 rounded-xl
-            flex items-center justify-center
-            bg-gray-100 border border-gray-200"
-                >
-                  <Icon className="w-6 h-6 text-cyan-600" />
-                </div>
-
-                <h3 className="text-3xl font-extrabold text-black">
-                  {item.value}
-                </h3>
-
-                <p className="mt-2 text-gray-600 text-base">{item.label}</p>
-              </div>
-            );
-          })}
+        {/* ================= BOTTOM SECTION ================= */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
+          {bottomCards.map((item, i) => (
+            <FeatureCard key={i} {...item} />
+          ))}
         </div>
       </div>
     </section>
+  );
+}
+
+/* ================= REUSABLE CARD ================= */
+
+function FeatureCard({ icon: Icon, title, desc }: FeatureCardProps) {
+  return (
+    <div className="group rounded-3xl p-8 text-white bg-gradient-to-br from-emerald-900 to-teal-800 shadow-lg hover:-translate-y-2 transition duration-300">
+      <Icon className="w-8 h-8 text-emerald-300 mb-6" />
+
+      <h3 className="text-xl font-semibold mb-3">{title}</h3>
+
+      <p className="text-emerald-100/80 leading-relaxed">{desc}</p>
+    </div>
   );
 }

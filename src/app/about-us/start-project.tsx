@@ -1,4 +1,5 @@
 import { Phone, Lightbulb, Rocket } from "lucide-react";
+import Link from "next/link";
 
 export default function ProjectProcessSection() {
   return (
@@ -13,30 +14,31 @@ py-24"
           Software with Softree
         </h2>
 
-        <p className="mt-4 mx-auto max-w-3xl text-slate-600">
+        <p className="mt-1 mx-auto max-w-3xl text-slate-600">
           Partner with a team that understands your vision and delivers
           measurable results. Our proven engagement process ensures clarity,
           speed, and success from day one.
         </p>
 
         {/* CTA */}
-        <div className="mt-8">
-          <button
+        <div className="mt-3">
+          <Link
+            href="/contact"
             className="
-        inline-flex items-center gap-2 rounded-full
-        bg-blue-600 px-8 py-4
-        text-white font-semibold
-        transition hover:scale-105 hover:bg-blue-700
-      "
+      inline-flex items-center gap-2 rounded-full
+      bg-blue-600 px-8 py-4
+      text-white font-semibold
+      transition hover:scale-105 hover:bg-blue-700
+    "
           >
             Book a Free Consultation →
-          </button>
+          </Link>
         </div>
 
         {/* ================= GLASS STEPS WRAPPER ================= */}
         <div
           className="
-        relative mt-20 mx-auto max-w-7xl rounded-[32px] p-[1px]
+        relative mt-10 mx-auto max-w-7xl rounded-[32px] p-[1px]
         bg-gradient-to-br
         from-slate-200
         via-white

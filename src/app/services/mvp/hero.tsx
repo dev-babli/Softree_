@@ -86,12 +86,6 @@ export default function HeroWithTestimonial() {
                 Start Your MVP
               </button>
             </Link>
-
-            <Link href="/services/mvp-development">
-              <button className="border border-white/40 px-6 py-3 rounded-xl hover:bg-white/10 transition">
-                View Services
-              </button>
-            </Link>
           </div>
 
           {/* Stats */}
