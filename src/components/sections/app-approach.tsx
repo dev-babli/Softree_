@@ -41,7 +41,7 @@ export default function ApplicationApproachAdvanced() {
         </p>
 
         {/* Flow */}
-        <div className="relative mt-28">
+        <div className="relative mt-20">
           <svg
             className="absolute top-1/2 left-0 w-full -translate-y-1/2"
             height="200"

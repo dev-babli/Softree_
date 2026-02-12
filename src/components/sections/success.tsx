@@ -46,15 +46,15 @@ export default function SuccessStories() {
   const rightStory = stories[(index + 1) % stories.length];
 
   return (
-    <section className="relative py-28 bg-gradient-to-b from-black via-[#020d1a] to-black text-white">
+    <section className="relative py-20 bg-gradient-to-b from-black via-[#020d1a] to-black text-white">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="mb-12 max-w-4xl">
+        <div className="mb-8 max-w-4xl">
           <span className="inline-block mb-4 text-sm font-semibold tracking-widest uppercase text-cyan-300">
             Case Studies
           </span>
 
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-2">
+          <h2 className="text-4xl md:text-4xl font-bold leading-tight mb-2">
             Success Stories That Drive
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
               Real Business Impact
@@ -118,7 +118,7 @@ export default function SuccessStories() {
         </div>
 
         {/* Slider Controls */}
-        <div className="flex justify-end gap-4 mt-10">
+        <div className="flex justify-end gap-4 mt-4">
           <button
             onClick={prev}
             className="w-12 h-12 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-black transition"

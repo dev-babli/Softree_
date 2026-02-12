@@ -12,9 +12,9 @@ import TechStackSection from "@/components/sections/tech";
 import SuccessStories from "@/components/sections/success";
 import ChallengesWeSolve from "@/components/sections/testimonial1";
 import ServicesSection from "@/components/sections/o365";
-import Image from "next/image";
-import Link from "next/link";
+import TechnologySlider from "@/components/sections/technology-slider";
 import TrustPartnersSection from "@/components/sections/trust";
+
 
 export default function Home() {
   return (
@@ -22,6 +22,7 @@ export default function Home() {
       <NavigationClient />
       <main className="flex-grow mt-1">
         <HeroSection />
+        <TechnologySlider/>
         <SolutionsGrid />
         <ServicesSection />
         <PowerPlatformSection />

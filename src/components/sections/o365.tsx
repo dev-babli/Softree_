@@ -64,10 +64,10 @@ export default function ServicesSection() {
     <section className="bg-gradient-to-b from-black via-[#020d1a] to-black py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-10">
           <div className="max-w-3xl">
             {/* Eyebrow */}
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-blue-400">
+            <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-blue-400">
               Our Services
             </p>
 
@@ -76,7 +76,7 @@ export default function ServicesSection() {
             </h2>
 
             {/* Optional sub text */}
-            <p className="mt-4 text-base text-white/70">
+            <p className="mt-2 text-base text-white/70">
               We help organisations modernise, automate, and scale using proven
               Microsoft technologies.
             </p>

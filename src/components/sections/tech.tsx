@@ -32,7 +32,7 @@ const techStack = [
 
 export default function TechStack() {
   return (
-    <section className="relative py-32 overflow-hidden bg-gradient-to-b from-black via-[#020d1a] to-black">
+    <section className="relative py-12 overflow-hidden bg-gradient-to-b from-black via-[#020d1a] to-black">
       {/* Content */}
       <div className="relative max-w-7xl mx-auto px-6">
         <div

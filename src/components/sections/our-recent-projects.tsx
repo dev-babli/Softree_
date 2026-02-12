@@ -43,10 +43,10 @@ const projects = [
 
 export default function OurRecentProjects() {
   return (
-    <section className="relative w-full py-24 bg-gradient-to-b from-black via-[#020d1a] to-black">
+    <section className="relative w-full py-4 bg-gradient-to-b from-black via-[#020d1a] to-black">
       <div className="max-w-7xl mx-auto px-6">
         {/* ================= HEADING ================= */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="text-4xl font-semibold text-slate-100">
             Proven <span className="text-cyan-500">Project Excellence</span>
           </h2>
@@ -122,16 +122,6 @@ export default function OurRecentProjects() {
               </div>
             </a>
           ))}
-        </div>
-
-        {/* ================= VIEW ALL ================= */}
-        <div className="text-center mt-20">
-          <a
-            href="/portfolio"
-            className="inline-block px-10 py-4 rounded-xl bg-cyan-500 text-white font-medium hover:scale-105 transition"
-          >
-            View All
-          </a>
         </div>
       </div>
     </section>

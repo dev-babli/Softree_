@@ -21,7 +21,7 @@ export default function PowerPlatformSection() {
   ];
 
   return (
-    <section className="relative w-full px-6 py-28 bg-gradient-to-b from-black via-[#020d1a] to-black overflow-hidden">
+    <section className="relative w-full px-6 py-15 bg-gradient-to-b from-black via-[#020d1a] to-black overflow-hidden">
       <div
         className="
   relative max-w-7xl mx-auto
@@ -194,7 +194,7 @@ export default function PowerPlatformSection() {
 
         {/* ================= RIGHT : CONTENT ================= */}
         <div>
-          <h2 className="text-4xl font-semibold text-white mb-8">
+          <h2 className="text-4xl font-semibold text-white mb-4">
             Enterprise Digital Platform
           </h2>
 
@@ -211,10 +211,6 @@ export default function PowerPlatformSection() {
             decision-making, and accelerate digital transformation while
             ensuring security, performance, and long-term scalability.
           </p>
-
-          <button className="mt-12 inline-flex items-center gap-3 px-9 py-4 rounded-xl bg-cyan-200 text-slate-900 font-medium hover:scale-105 transition">
-            Explore Power Platform →
-          </button>
         </div>
       </div>
     </section>
