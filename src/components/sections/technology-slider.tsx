@@ -109,6 +109,11 @@ const serviceHighlights: Record<number, string[]> = {
     "Executive-ready dashboards",
     "Smarter business decisions",
   ],
+  7: [
+    "Enterprise-grade security",
+    "Compliance and risk management",
+    "Identity and access control",
+  ],
 };
 
 export default function TechnologySlider() {
@@ -184,9 +189,9 @@ export default function TechnologySlider() {
                     className="
       absolute bottom-10 left-1/2 -translate-x-1/2
       text-3xl font-bold
-      text-white/10
+      text-white
       transition-all duration-300
-      group-hover:text-white/30
+      group-hover:text-white
     "
                   >
                     0{item.id}
