@@ -52,6 +52,15 @@ const initialRecent: Article[] = [
     description:
       "A unified student experience platform for accessing academic data, profiles, and institutional services.",
   },
+  {
+    imageUrl: "/images/case-study/power-apps/shopping-cart.webp",
+    title: "Power Apps Shopping Cart",
+    date: "Power Apps",
+    readTime: "Case Study",
+    href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Power-Apps-Shopping-Cart.pdf",
+    description:
+      "A shopping cart application built using Power Apps that enables product selection, cart management, and order processing for business scenarios.",
+  },
 ];
 
 export default function AiInsightsBlog() {
@@ -88,12 +97,12 @@ export default function AiInsightsBlog() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-stretch">
           {/* ================= LEFT FEATURED ================= */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 h-full">
             <div
-              className="relative aspect-[16/10] rounded-[32px] overflow-hidden
-  shadow-[0_20px_50px_rgba(0,0,0,0.35)]"
+              className="relative h-full min-h-[520px] rounded-[32px] overflow-hidden
+      shadow-[0_20px_50px_rgba(0,0,0,0.35)]"
             >
               {/* Background frame */}
               <div className="absolute inset-0 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900" />
@@ -127,6 +136,7 @@ export default function AiInsightsBlog() {
               </div>
             </div>
           </div>
+
           {/* ================= RIGHT LIST ================= */}
           <div className="lg:col-span-2 flex flex-col gap-3 h-full">
             {recent.map((article, index) => (
@@ -134,22 +144,22 @@ export default function AiInsightsBlog() {
                 key={index}
                 onClick={() => handleSelect(article, index)}
                 className="
-        group relative flex items-center gap-4
-        flex-1
-        p-5 rounded-2xl text-left
-        bg-white/5
-        border border-white/10
-        hover:bg-white/10 hover:border-white/20
-        transition-all duration-300
-      "
+          group relative flex items-center gap-4
+          flex-1
+          p-5 rounded-2xl text-left
+          bg-white/5
+          border border-white/10
+          hover:bg-white/10 hover:border-white/20
+          transition-all duration-300
+        "
               >
                 {/* Accent bar */}
                 <span
                   className="
-          absolute left-0 top-1/2 -translate-y-1/2
-          h-0 w-1 bg-blue-500 rounded-full
-          group-hover:h-10 transition-all duration-300
-        "
+            absolute left-0 top-1/2 -translate-y-1/2
+            h-0 w-1 bg-blue-500 rounded-full
+            group-hover:h-10 transition-all duration-300
+          "
                 />
 
                 {/* Thumbnail */}

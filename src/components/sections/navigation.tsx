@@ -54,7 +54,7 @@ const menu: MenuItem[] = [
     icon: Settings,
     mega: true,
     children: [
-           {
+      {
         title: "AI Services",
         links: [
           {
@@ -68,12 +68,6 @@ const menu: MenuItem[] = [
             url: "/services/generative-ai",
             icon: Sparkles,
             description: "LLM-powered solutions",
-          },
-          {
-            label: "AI Chatbot Development",
-            url: "/services/ai-chatbot",
-            icon: MessageSquare,
-            description: "Smart conversational bots",
           },
         ],
       },
@@ -136,7 +130,6 @@ const menu: MenuItem[] = [
           },
         ],
       },
- 
     ],
   },
 
@@ -206,9 +199,11 @@ const menu: MenuItem[] = [
 export default function Navigation() {
   const [open, setOpen] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const LOGO_URL =
+    "https://www.softreetechnology.com/wp-content/uploads/elementor/thumbs/white-logo-soft-qt16xqrm9tl34ewl9f9uhep3zaj8m5zkpgualw8uf4.png";
 
   return (
-    <header className="fixed top-1 left-0 w-full z-50 flex justify-center px-4">
+    <header className="relative w-full flex justify-center px-4 mt-1">
       <nav
         className="
       w-full max-w-5xl
@@ -221,17 +216,11 @@ export default function Navigation() {
       shadow-[0_10px_40px_rgba(0,0,0,0.08)]
     "
       >
-        <Link
-          href="/"
-          className="flex items-center bg-black px-3 py-1 rounded-lg"
-        >
-          <Image
-            src="https://www.softreetechnology.com/wp-content/uploads/elementor/thumbs/white-logo-soft-qt16xqrm9tl34ewl9f9uhep3zaj8m5zkpgualw8uf4.png"
+        <Link href="/" className="inline-block mt-1">
+          <img
+            src={LOGO_URL}
             alt="Softree"
-            width={150}
-            height={40}
-            className="object-contain"
-            priority
+            className="h-10 w-auto object-contain invert"
           />
         </Link>
 
@@ -243,7 +232,7 @@ export default function Navigation() {
                 <Link
                   key={item.label}
                   href={item.url || "#"}
-                  className="group relative px-4 py-2 text-sm font-semibold text-gray-700"
+                  className="group relative px-4 py-2 text-base font-semibold text-gray-700"
                 >
                   {/* Dark mirror pill */}
                   <span
@@ -274,7 +263,7 @@ export default function Navigation() {
               >
                 <Link
                   href={item.url || "#"}
-                  className="group relative inline-flex items-center gap-1 px-4 py-2 text-sm font-semibold text-gray-700"
+                  className="group relative inline-flex items-center gap-1 px-4 py-2 text-base font-semibold text-gray-700"
                 >
                   {/* pill */}
                   <span

@@ -15,6 +15,7 @@ import ServicesSection from "@/components/sections/o365";
 import TechnologySlider from "@/components/sections/technology-slider";
 import TrustPartnersSection from "@/components/sections/trust";
 import AiInsightsBlog from "@/components/sections/ai-insights-blog";
+import WhyChooseUs from "@/components/sections/why-choose-us";
 
 export default function Home() {
   return (
@@ -31,6 +32,7 @@ export default function Home() {
         <ApplicationApproach />
         <AiInsightsBlog />
         <TechStackSection />
+        <WhyChooseUs/>
         <ChallengesWeSolve />
         <SoftreeFAQ />
         <CTABanner />

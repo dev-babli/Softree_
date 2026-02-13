@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { Star, Pause, Play, ChevronLeft, ChevronRight } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { Star, ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 
+/* ================= TYPES ================= */
 type Review = {
   name: string;
   rating: number;
@@ -12,6 +13,7 @@ type Review = {
   comment: string;
 };
 
+/* ================= DATA ================= */
 const reviews: Review[] = [
   {
     name: "Rajesh Kumar",
@@ -78,23 +80,30 @@ const reviews: Review[] = [
   },
 ];
 
+/* ================= MAIN COMPONENT ================= */
 export default function ReviewsCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [paused, setPaused] = useState(false);
   const [index, setIndex] = useState(0);
 
   const CARD_WIDTH = 320;
+  const VISIBLE_CARDS = 2;
 
+  /* ================= AUTOPLAY ================= */
   useEffect(() => {
     if (paused) return;
 
     const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % reviews.length);
+      setIndex((prev) => {
+        const maxIndex = reviews.length - VISIBLE_CARDS;
+        return prev >= maxIndex ? 0 : prev + VISIBLE_CARDS;
+      });
     }, 4000);
 
     return () => clearInterval(interval);
   }, [paused]);
 
+  /* ================= MOVE TRACK ================= */
   useEffect(() => {
     if (!trackRef.current) return;
     trackRef.current.style.transform = `translateX(-${index * CARD_WIDTH}px)`;
@@ -104,10 +113,9 @@ export default function ReviewsCarousel() {
     <section className="bg-gradient-to-b from-black via-[#020d1a] to-black">
       <div className="py-2">
         <div className="max-w-7xl mx-auto px-6">
-          {/* BACKGROUND BOX (7xl width only) */}
           <div className="bg-gradient-to-br from-[#0f172a] via-[#020617] to-black rounded-2xl p-10">
             <div className="grid grid-cols-12 gap-10 items-start">
-              {/* LEFT SUMMARY */}
+              {/* ================= LEFT ================= */}
               <div className="col-span-12 md:col-span-3 text-white">
                 <h3 className="text-xl font-semibold mb-3">
                   Trusted by Enterprise Teams
@@ -138,12 +146,14 @@ export default function ReviewsCarousel() {
                 </div>
               </div>
 
-              {/* RIGHT SLIDER */}
-              <div className="col-span-12 md:col-span-9 relative overflow-hidden">
-                {/* Track */}
+              {/* ================= RIGHT SLIDER ================= */}
+              <div
+                className="col-span-12 md:col-span-9 relative overflow-hidden"
+                style={{ width: `${CARD_WIDTH * VISIBLE_CARDS}px` }}
+              >
                 <div
                   ref={trackRef}
-                  className="flex transition-transform duration-700 ease-in-out"
+                  className="flex gap-10 transition-transform duration-700 ease-in-out"
                   style={{ width: reviews.length * CARD_WIDTH }}
                 >
                   {reviews.map((review, i) => (
@@ -151,10 +161,12 @@ export default function ReviewsCarousel() {
                   ))}
                 </div>
 
-                {/* Controls */}
+                {/* ================= CONTROLS ================= */}
                 <div className="flex justify-end items-center gap-6 mt-6 text-gray-300">
                   <button
-                    onClick={() => setIndex((i) => Math.max(i - 1, 0))}
+                    onClick={() =>
+                      setIndex((i) => Math.max(i - VISIBLE_CARDS, 0))
+                    }
                     className="hover:text-white transition"
                   >
                     <ChevronLeft size={18} />
@@ -169,7 +181,12 @@ export default function ReviewsCarousel() {
                   </button>
 
                   <button
-                    onClick={() => setIndex((i) => (i + 1) % reviews.length)}
+                    onClick={() =>
+                      setIndex((i) => {
+                        const maxIndex = reviews.length - VISIBLE_CARDS;
+                        return i >= maxIndex ? 0 : i + VISIBLE_CARDS;
+                      })
+                    }
                     className="hover:text-white transition"
                   >
                     <ChevronRight size={18} />
@@ -184,14 +201,17 @@ export default function ReviewsCarousel() {
   );
 }
 
+/* ================= CARD ================= */
 function ReviewCard({ review }: { review: Review }) {
   return (
-    <div className="w-[320px] pr-8">
+    <div className="w-[390px] pr-10">
       <div className="text-sm font-semibold text-white mb-1">{review.name}</div>
 
-      <div className="flex items-center gap-2 text-xs text-gray-400 mb-2">
-        ✔ Verified Customer
-      </div>
+      {review.verified && (
+        <div className="flex items-center gap-2 text-xs text-gray-400 mb-2">
+          ✔ Verified Customer
+        </div>
+      )}
 
       <div className="flex gap-1 mb-3">
         {Array.from({ length: 5 }).map((_, i) => (

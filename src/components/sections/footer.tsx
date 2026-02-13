@@ -7,7 +7,6 @@ import {
   FaFacebook,
   FaPhoneAlt,
   FaEnvelope,
-  FaMapMarkerAlt,
   FaInstagram,
   FaYoutube,
 } from "react-icons/fa";
@@ -17,17 +16,10 @@ const LOGO_URL =
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50 border-t border-gray-200 text-gray-600">
-
-      {/* Soft background glow */}
-      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-blue-500/10 blur-3xl rounded-full" />
-      <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-indigo-500/10 blur-3xl rounded-full" />
-
-      {/* ================= MAIN FOOTER ================= */}
-      <div className="relative max-w-7xl mx-auto px-6 py-24">
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-16">
-
+    <footer className="bg-white border-t border-gray-200 text-gray-600">
+      {/* ================= MAIN ================= */}
+      <div className="max-w-7xl mx-auto px-6 py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12">
           {/* ================= BRAND ================= */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block mb-6">
@@ -37,26 +29,35 @@ export default function Footer() {
                 className="h-10 w-auto object-contain invert"
               />
             </Link>
-
-            <p className="text-gray-500 text-sm max-w-xs">
+            <p className="text-gray-500 text-sm max-w-xs leading-relaxed">
               Building scalable, secure and modern digital experiences for
               startups and enterprises worldwide.
             </p>
 
-            <div className="flex gap-6 mt-8 text-xl text-gray-500">
-              <SocialLink href="https://www.linkedin.com/company/softree-technology-pvt-ltd/"><FaLinkedin /></SocialLink>
-              <SocialLink href="https://twitter.com/"><FaTwitter /></SocialLink>
-              <SocialLink href="https://www.facebook.com/softreetechnology"><FaFacebook /></SocialLink>
-              <SocialLink href="https://www.instagram.com/softreetechnology/"><FaInstagram /></SocialLink>
-              <SocialLink href="https://www.youtube.com/@softreetechnologypvt.ltd.9452"><FaYoutube /></SocialLink>
+            {/* Social */}
+            <div className="flex gap-5 mt-8 text-xl text-gray-500">
+              <SocialLink href="https://www.linkedin.com/company/softree-technology-pvt-ltd/">
+                <FaLinkedin />
+              </SocialLink>
+              <SocialLink href="https://twitter.com/">
+                <FaTwitter />
+              </SocialLink>
+              <SocialLink href="https://www.facebook.com/softreetechnology">
+                <FaFacebook />
+              </SocialLink>
+              <SocialLink href="https://www.instagram.com/softreetechnology/">
+                <FaInstagram />
+              </SocialLink>
+              <SocialLink href="https://www.youtube.com/@softreetechnologypvt.ltd.9452">
+                <FaYoutube />
+              </SocialLink>
             </div>
           </div>
 
           {/* ================= SERVICES ================= */}
           <FooterColumn
-            title="Services"
+            title="Digital Engineering"
             links={[
-              ["Softree for Startups", "/services/softree-for-startups"],
               ["Web App Development", "/services/web-app-development"],
               ["Mobile App Development", "/services/mobile-app-development"],
             ]}
@@ -68,8 +69,6 @@ export default function Footer() {
             links={[
               ["SharePoint Development", "/services/sharepoint"],
               ["SPFx Solutions", "/services/spfx-developments"],
-              ["PnP PowerShell", "/services/pnp-powershell"],
-              ["Teams Apps", "/services/teams-app-development"],
             ]}
           />
 
@@ -83,66 +82,50 @@ export default function Footer() {
             ]}
           />
 
+          {/* ================= AI SERVICES ================= */}
+          <FooterColumn
+            title="AI Services"
+            links={[
+              ["Agentic AI Solutions", "/services/agentic-ai"],
+              ["Generative AI", "/services/generative-ai"],
+            ]}
+          />
+
           {/* ================= CONTACT ================= */}
           <div>
-            <h5 className="text-gray-900 text-base font-semibold mb-5">
-              Contact
-            </h5>
+            <h5 className="text-gray-900 text-xl font-bold mb-6">Contact</h5>
 
-            <ul className="space-y-4 text-sm">
+            <ul className="space-y-5 text-base">
               <li className="flex items-start gap-3">
-                <FaPhoneAlt className="text-blue-600 mt-1 shrink-0" />
-                <span>+919876543210</span>
+                <FaPhoneAlt className="text-blue-600 mt-1 shrink-0 text-lg" />
+                <a
+                  href="tel:+917008699927"
+                  className="font-medium hover:text-blue-600 transition-colors"
+                >
+                  +91 70086 99927
+                </a>
               </li>
 
               <li className="flex items-start gap-3">
-                <FaEnvelope className="text-blue-600 mt-1 shrink-0" />
-                <span>info@softree.com</span>
+                <FaEnvelope className="text-blue-600 mt-1 shrink-0 text-lg" />
+                <a
+                  href="mailto:sales@softreetechnology.com"
+                  className="font-medium hover:text-blue-600 transition-colors"
+                >
+                  sales@softreetechnology.com
+                </a>
               </li>
-            </ul>
-          </div>
-
-          {/* ================= PRESENCE ================= */}
-          <div>
-            <h5 className="text-gray-900 text-base font-semibold mb-5">
-              Presence
-            </h5>
-
-            <ul className="space-y-5 text-sm">
-              <PresenceItem
-                country="USA"
-                address={[
-                  "166 Geary St. STE 1500 #2439",
-                  "San Francisco, CA 94108",
-                  "United States",
-                ]}
-              />
-
-              <PresenceItem
-                country="India"
-                address={[
-                  "Plot No. B, 06-1628, CDA Sec-10",
-                  "Odisha 753014",
-                  "Bengaluru 560037",
-                ]}
-              />
-
-              <PresenceItem
-                country="Singapore"
-                address={[
-                  "540 Sims Avenue, #03-05",
-                  "Singapore 387603",
-                ]}
-              />
             </ul>
           </div>
         </div>
       </div>
 
-      {/* ================= BOTTOM BAR ================= */}
+      {/* ================= BOTTOM ================= */}
       <div className="border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between gap-4 text-sm text-gray-500">
-          <span>© {new Date().getFullYear()} Softree. All rights reserved.</span>
+          <span>
+            © {new Date().getFullYear()} Softree. All rights reserved.
+          </span>
 
           <div className="flex gap-6">
             <Link href="/privacy-policy" className="hover:text-blue-600">
@@ -168,14 +151,45 @@ function FooterColumn({
   links: [string, string][];
 }) {
   return (
-    <div>
-      <h5 className="text-gray-900 text-base font-semibold mb-5">{title}</h5>
+    <div className="min-w-[160px]">
+      {/* TITLE */}
+      <h5
+        className="
+        text-gray-900 text-lg font-semibold
+        mb-7 tracking-tight
+      "
+      >
+        {title}
+      </h5>
 
-      <ul className="space-y-3 text-sm">
+      {/* LINKS */}
+      <ul className="space-y-4">
         {links.map(([label, href]) => (
           <li key={label}>
-            <Link href={href} className="hover:text-blue-600 transition">
-              {label}
+            <Link
+              href={href}
+              className="
+                group relative inline-flex items-center
+                text-base text-gray-500
+                transition-all duration-300
+                hover:text-blue-600
+              "
+            >
+              {/* text */}
+              <span className="transition-transform duration-300 group-hover:translate-x-1">
+                {label}
+              </span>
+
+              {/* animated underline */}
+              <span
+                className="
+                  absolute left-0 -bottom-1
+                  h-[2px] w-0
+                  bg-blue-600
+                  transition-all duration-300
+                  group-hover:w-full
+                "
+              />
             </Link>
           </li>
         ))}
@@ -196,31 +210,20 @@ function SocialLink({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="hover:text-blue-600 transition-transform hover:scale-110"
+      className="
+        group inline-flex items-center justify-center
+        w-10 h-10 rounded-full
+        bg-gray-800 border border-gray-600
+        text-white
+        hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-600
+        hover:border-transparent
+        hover:-translate-y-1 hover:shadow-lg
+        transition-all duration-300
+      "
     >
-      {children}
+      <span className="transition-transform duration-300 group-hover:scale-110">
+        {children}
+      </span>
     </Link>
-  );
-}
-
-function PresenceItem({
-  country,
-  address,
-}: {
-  country: string;
-  address: string[];
-}) {
-  return (
-    <li className="flex items-start gap-3">
-      <FaMapMarkerAlt className="text-blue-600 mt-1 shrink-0" />
-      <div>
-        <span className="block font-medium text-gray-900">{country}</span>
-        {address.map((line) => (
-          <p key={line} className="text-gray-500">
-            {line}
-          </p>
-        ))}
-      </div>
-    </li>
   );
 }

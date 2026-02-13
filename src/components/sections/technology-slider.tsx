@@ -1,4 +1,6 @@
 "use client";
+import { Briefcase, BarChart3, Brain, Monitor } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 
 import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
@@ -9,110 +11,89 @@ interface TechItem {
   title: string;
   description: string;
   bgImage: string;
+  partnerValue: string;
   link: string;
+  icon: LucideIcon;
 }
 
 const techData: TechItem[] = [
   {
     id: 1,
-    title: "AI & Automation",
+    title: "Business Applications Delivery Support",
     description:
-      "Unlock the power of AI-driven innovation with intelligent copilots, automation pipelines, and data-powered decision systems. We help organizations reduce effort, improve accuracy, and create smarter digital experiences.",
+      "Helping partners execute Power Platform and Dynamics implementations. We operate as your extended Power Platform engineering team, ensuring successful delivery, scalability, and consistency across projects.",
     bgImage:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2000&auto=format&fit=crop",
-    link: "/agentic-ai",
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop",
+    link: "/services/business-applications",
+    partnerValue:
+      "We operate as your extended Power Platform engineering team.",
+    icon: Briefcase,
   },
   {
     id: 2,
-    title: "SharePoint Solutions",
+    title: "Data & Analytics Execution",
     description:
-      "We design intelligent intranets, collaboration hubs, and document management systems that empower teams to work smarter. From migration and governance to automation and integrations, our SharePoint solutions enhance productivity while ensuring security and compliance at scale.",
+      "Strengthening BI and transformation initiatives with reliable engineering and modern platforms. From data architecture to dashboard deployment, we deliver under your brand.",
     bgImage:
-      "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2000&auto=format&fit=crop",
-    link: "/services/sharepoint",
+      "/images/data-1.jpg",
+    link: "/services/data-analytics",
+    partnerValue:
+      "From data architecture to dashboard deployment — we deliver reliably under your brand.",
+    icon: BarChart3,
   },
   {
     id: 3,
-    title: "Power Automate",
+    title: "AI & Intelligent Automation Enablement",
     description:
-      "Streamline repetitive tasks and connect systems with intelligent workflows. We build scalable automations that reduce manual effort, improve consistency, and accelerate business operations.",
+      "Supporting AI integration across client engagements. We help partners introduce advanced intelligence, automation, and modern AI frameworks into enterprise environments with confidence.",
     bgImage:
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop",
-    link: "/services/power-automate",
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2000&auto=format&fit=crop",
+    link: "/services/ai-automation",
+    partnerValue:
+      "We help you integrate AI capabilities confidently into enterprise environments.",
+    icon: Brain,
   },
   {
     id: 4,
-    title: "Power Apps Development",
+    title: "Digital Workspace & Custom Application Engineering",
     description:
-      "Transform manual processes into efficient digital workflows with custom Power Apps. We create low-code applications that connect your data, automate operations, and deliver rapid business value with enterprise-grade reliability.",
+      "Enhancing Microsoft 365 and custom application capabilities. We build secure, scalable solutions that align with your consulting strategy.",
     bgImage:
       "https://images.unsplash.com/photo-1559027615-cd4628902d4a?q=80&w=2000&auto=format&fit=crop",
-    link: "/services/power-apps",
-  },
-  {
-    id: 5,
-    title: "Power BI & Analytics",
-    description:
-      "Turn complex data into meaningful insights through interactive dashboards and advanced analytics. We enable leaders to make informed decisions with real-time visibility and powerful reporting capabilities.",
-    bgImage:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop",
-    link: "/services/power-bi",
-  },
-  {
-    id: 6,
-    title: "Mobile App Development",
-    description:
-      "Build secure, scalable, and intuitive mobile applications designed for performance and growth. From strategy and UX to deployment and support, we deliver seamless cross-platform experiences your users will love.",
-    bgImage:
-      "https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=2000&auto=format&fit=crop",
-    link: "/services/mobile-app-development",
-  },
-  {
-    id: 7,
-    title: "Web Application Development",
-    description:
-      "We engineer modern web applications using robust architectures, cloud-native practices, and cutting-edge frameworks. Our solutions are built for speed, security, and long-term scalability.",
-    bgImage:
-      "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=2000&auto=format&fit=crop",
-    link: "/services/web-app/development",
+    link: "/services/digital-workspace",
+    partnerValue: "Custom solutions that complement your consulting strategy.",
+    icon: Monitor,
   },
 ];
 
 const serviceHighlights: Record<number, string[]> = {
   1: [
-    "Secure & compliant collaboration",
-    "Automated governance workflows",
-    "Deep Microsoft 365 integration",
+    "Power Apps",
+    "Power Automate",
+    "Dataverse",
+    "Dynamics 365 F&O",
+    "SharePoint Integration",
   ],
   2: [
-    "Rapid low-code implementation",
-    "Unified data connectivity",
-    "Operational efficiency at scale",
+    "Power BI",
+    "Microsoft Fabric",
+    "Databricks",
+    "Snowflake",
+    "Data Modeling & Pipelines",
   ],
   3: [
-    "AI-powered decision support",
-    "Process intelligence & automation",
-    "Future-ready digital innovation",
+    "Azure AI Foundry",
+    "Copilot Integration",
+    "AI Agents",
+    "RAG Systems",
+    "Workflow Automation",
   ],
   4: [
-    "Cross-platform performance",
-    "User-centric design",
-    "Built for growth & security",
-  ],
-  5: [
-    "Cloud-native architecture",
-    "High availability & speed",
-    "Scalable for enterprise demand",
-  ],
-  6: [
-    "Real-time data visibility",
-    "Executive-ready dashboards",
-    "Smarter business decisions",
-  ],
-  7: [
-    "Enterprise-grade security",
-    "Compliance and risk management",
-    "Identity and access control",
+    "SharePoint Intranets",
+    "Teams Governance",
+    "Web Applications (React / .NET)",
+    "Mobile Applications",
+    "API Integrations",
   ],
 };
 
@@ -198,63 +179,124 @@ export default function TechnologySlider() {
                   </span>
                 </>
               )}
-
               {/* ============ EXPANDED ============ */}
               {isActive && (
-                <div className="relative w-full p-12 flex flex-col justify-center">
-                  {/* blue divider */}
-                  <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#2563eb]" />
+                <div className="relative w-full px-14 py-10 flex flex-col">
+                  {/* vertical divider */}
+                  <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-blue-500 via-cyan-400 to-transparent" />
 
-                  <span className="text-[50px] font-bold text-[#2563eb] mb-4">
-                    0{item.id}
-                  </span>
-                  <h3 className="group relative inline-block text-[28px] font-semibold tracking-tight mb-5">
-                    <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 bg-clip-text text-transparent">
-                      {item.title}
+                  {/* ================= HEADER ================= */}
+                  <div className="mb-4">
+                    <span className="text-[52px] font-extrabold text-blue-500 tracking-tight">
+                      0{item.id}
                     </span>
+                  </div>
 
-                    <span
+                  {/* ================= TITLE WITH ICON ================= */}
+                  <div className="flex items-center gap-4 mb-2 max-w-2xl">
+                    {/* icon */}
+                    <div
                       className="
-      absolute left-0 -bottom-2 h-[3px]
-      w-0 group-hover:w-full
-      transition-all duration-500
-      rounded-full
-      bg-gradient-to-r from-blue-500 via-cyan-400 to-indigo-400
+      flex h-10 w-10 items-center justify-center
+      rounded-xl
+      bg-gradient-to-br from-blue-500 to-cyan-400
+      shadow-[0_0_15px_rgba(56,189,248,0.6)]
     "
-                    />
-                  </h3>
+                    >
+                      <item.icon size={18} className="text-white" />
+                    </div>
 
-                  <p className="text-white/70 text-[15px] leading-relaxed max-w-md mb-5">
+                    {/* title */}
+                    <h3 className="relative text-[30px] font-semibold tracking-tight group/title">
+                      <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 bg-clip-text text-transparent">
+                        {item.title}
+                      </span>
+
+                      {/* underline */}
+                      <span
+                        className="
+        absolute left-0 -bottom-2 h-[3px]
+        w-0 group-hover/title:w-full
+        transition-all duration-500
+        rounded-full
+        bg-gradient-to-r from-blue-500 via-cyan-400 to-indigo-400
+      "
+                      />
+                    </h3>
+                  </div>
+
+                  {/* ================= DESCRIPTION ================= */}
+                  <p className="text-white/70 text-[16px] leading-relaxed max-w-xl mb-2">
                     {item.description}
                   </p>
-                  {/* ===== HIGHLIGHTS ===== */}
-                  <ul className="space-y-3 mb-7">
+
+                  {/* ================= HIGHLIGHTS ================= */}
+                  <ul className="grid grid-cols-2 gap-x-8 gap-y-4 mb-3 max-w-xl">
                     {serviceHighlights[item.id]?.map((point, idx) => (
                       <li
                         key={idx}
-                        className="flex items-start gap-3 text-sm text-white/75"
+                        className="flex items-start gap-3 text-sm text-white/80"
                       >
-                        {/* BULLET */}
-                        <span className="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 shadow-[0_0_10px_rgba(56,189,248,0.6)]">
+                        <span className="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 shadow-[0_0_12px_rgba(56,189,248,0.6)]">
                           <span className="text-[11px] font-bold text-white">
                             ✓
                           </span>
                         </span>
-
                         {point}
                       </li>
                     ))}
                   </ul>
 
+                  {/* ================= PARTNER VALUE ================= */}
+                  <div
+                    className="
+        relative mb-5 max-w-xl
+        rounded-2xl
+        border border-cyan-400/20
+        bg-gradient-to-br from-cyan-500/10 via-blue-500/5 to-transparent
+        p-5
+      "
+                  >
+                    <div className="absolute inset-0 rounded-2xl bg-cyan-400/5 blur-xl pointer-events-none" />
+
+                    <div className="relative flex items-start gap-3">
+                      <div
+                        className="
+            mt-1 flex h-8 w-8 items-center justify-center
+            rounded-lg
+            bg-gradient-to-br from-cyan-400 to-blue-500
+            text-white text-xl font-bold
+            shadow-[0_0_15px_rgba(56,189,248,0.6)]
+          "
+                      >
+                        ★
+                      </div>
+
+                      <div>
+                        <p className="text-l font-bold tracking-wide text-cyan-300 uppercase mb-1">
+                          Partner Value
+                        </p>
+
+                        <p className="text-m text-white/90 leading-relaxed">
+                          {item.partnerValue}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* ================= CTA ================= */}
                   <Link
                     href={item.link}
                     className="
-        self-start
-        bg-[#2563eb]
-        px-6 py-3
+        inline-flex items-center justify-center
+        bg-gradient-to-r from-blue-600 to-cyan-500
+        px-7 py-2
         rounded-full
-        hover:bg-[#3b82f6]
-        transition
+        text-white text-sm font-semibold
+        hover:scale-105
+        hover:shadow-[0_10px_25px_rgba(59,130,246,0.5)]
+        transition-all duration-300
+        w-fit
       "
                   >
                     Learn More →
