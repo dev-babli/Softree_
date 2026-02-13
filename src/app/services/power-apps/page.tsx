@@ -36,7 +36,6 @@ export default function Home() {
       <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
         <div className={`${SECTION_WRAPPER} ${SECTION_GAP}`}>
           <PowerAppsCaseStudies />
-          <AiInsightsBlog />
           <PowerAppsServices />
           <HirePowerAppsPricing />
           <WhyChooseSoftreePowerApps />

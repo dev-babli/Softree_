@@ -15,24 +15,6 @@ interface TechItem {
 const techData: TechItem[] = [
   {
     id: 1,
-    title: "SharePoint Solutions",
-    description:
-      "We design intelligent intranets, collaboration hubs, and document management systems that empower teams to work smarter. From migration and governance to automation and integrations, our SharePoint solutions enhance productivity while ensuring security and compliance at scale.",
-    bgImage:
-      "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2000&auto=format&fit=crop",
-    link: "/services/sharepoint",
-  },
-  {
-    id: 2,
-    title: "Power Apps Development",
-    description:
-      "Transform manual processes into efficient digital workflows with custom Power Apps. We create low-code applications that connect your data, automate operations, and deliver rapid business value with enterprise-grade reliability.",
-    bgImage:
-      "https://images.unsplash.com/photo-1559027615-cd4628902d4a?q=80&w=2000&auto=format&fit=crop",
-    link: "/services/power-apps",
-  },
-  {
-    id: 3,
     title: "AI & Automation",
     description:
       "Unlock the power of AI-driven innovation with intelligent copilots, automation pipelines, and data-powered decision systems. We help organizations reduce effort, improve accuracy, and create smarter digital experiences.",
@@ -41,7 +23,43 @@ const techData: TechItem[] = [
     link: "/agentic-ai",
   },
   {
+    id: 2,
+    title: "SharePoint Solutions",
+    description:
+      "We design intelligent intranets, collaboration hubs, and document management systems that empower teams to work smarter. From migration and governance to automation and integrations, our SharePoint solutions enhance productivity while ensuring security and compliance at scale.",
+    bgImage:
+      "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2000&auto=format&fit=crop",
+    link: "/services/sharepoint",
+  },
+  {
+    id: 3,
+    title: "Power Automate",
+    description:
+      "Streamline repetitive tasks and connect systems with intelligent workflows. We build scalable automations that reduce manual effort, improve consistency, and accelerate business operations.",
+    bgImage:
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop",
+    link: "/services/power-automate",
+  },
+  {
     id: 4,
+    title: "Power Apps Development",
+    description:
+      "Transform manual processes into efficient digital workflows with custom Power Apps. We create low-code applications that connect your data, automate operations, and deliver rapid business value with enterprise-grade reliability.",
+    bgImage:
+      "https://images.unsplash.com/photo-1559027615-cd4628902d4a?q=80&w=2000&auto=format&fit=crop",
+    link: "/services/power-apps",
+  },
+  {
+    id: 5,
+    title: "Power BI & Analytics",
+    description:
+      "Turn complex data into meaningful insights through interactive dashboards and advanced analytics. We enable leaders to make informed decisions with real-time visibility and powerful reporting capabilities.",
+    bgImage:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop",
+    link: "/services/power-bi",
+  },
+  {
+    id: 6,
     title: "Mobile App Development",
     description:
       "Build secure, scalable, and intuitive mobile applications designed for performance and growth. From strategy and UX to deployment and support, we deliver seamless cross-platform experiences your users will love.",
@@ -50,7 +68,7 @@ const techData: TechItem[] = [
     link: "/services/mobile-app-development",
   },
   {
-    id: 5,
+    id: 7,
     title: "Web Application Development",
     description:
       "We engineer modern web applications using robust architectures, cloud-native practices, and cutting-edge frameworks. Our solutions are built for speed, security, and long-term scalability.",
@@ -58,16 +76,8 @@ const techData: TechItem[] = [
       "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=2000&auto=format&fit=crop",
     link: "/services/web-app/development",
   },
-  {
-    id: 6,
-    title: "Power BI & Analytics",
-    description:
-      "Turn complex data into meaningful insights through interactive dashboards and advanced analytics. We enable leaders to make informed decisions with real-time visibility and powerful reporting capabilities.",
-    bgImage:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop",
-    link: "/services/power-bi",
-  },
 ];
+
 const serviceHighlights: Record<number, string[]> = {
   1: [
     "Secure & compliant collaboration",
@@ -115,7 +125,7 @@ export default function TechnologySlider() {
   }, [isHovering]);
 
   return (
-    <section className="relative h-[800px] w-full overflow-hidden bg-black text-white flex">
+    <section className="relative h-[600px] w-full overflow-hidden bg-black text-white flex">
       {/* ================= BACKGROUND ================= */}
       {techData.map((item, i) => (
         <div
@@ -155,14 +165,31 @@ export default function TechnologySlider() {
               {/* ============ COLLAPSED ============ */}
               {!isActive && (
                 <>
-                  <div className="flex items-center justify-center w-full">
-                    <div className="transform -rotate-90 whitespace-nowrap text-sm font-medium text-white/70">
+                  <div className="group flex items-center justify-center w-full cursor-pointer transition-all duration-300">
+                    <div
+                      className="
+        -rotate-90 whitespace-nowrap
+        text-base font-semibold tracking-wider
+        text-white/70
+        transition-all duration-300
+        group-hover:text-white group-hover:scale-105
+      "
+                    >
                       {item.title}
                     </div>
                   </div>
 
-                  <span className="absolute bottom-10 left-1/2 -translate-x-1/2 text-xl text-white/40">
-                    {item.id}
+                  {/* BIG ID */}
+                  <span
+                    className="
+      absolute bottom-10 left-1/2 -translate-x-1/2
+      text-3xl font-bold
+      text-white/10
+      transition-all duration-300
+      group-hover:text-white/30
+    "
+                  >
+                    0{item.id}
                   </span>
                 </>
               )}
@@ -195,10 +222,9 @@ export default function TechnologySlider() {
                   <p className="text-white/70 text-[15px] leading-relaxed max-w-md mb-5">
                     {item.description}
                   </p>
-
                   {/* ===== HIGHLIGHTS ===== */}
                   <ul className="space-y-3 mb-7">
-                    {serviceHighlights[item.id].map((point, idx) => (
+                    {serviceHighlights[item.id]?.map((point, idx) => (
                       <li
                         key={idx}
                         className="flex items-start gap-3 text-sm text-white/75"

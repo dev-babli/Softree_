@@ -4,7 +4,7 @@ const techStack = [
   // Languages
   { name: "Python", img: "https://cdn.simpleicons.org/python" },
 
-  { name: "C#", img: "https://cdn.simpleicons.org/csharp" },
+  { name: "C#", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" },
 
   // Backend / Frameworks
   { name: "Node.js", img: "https://cdn.simpleicons.org/nodedotjs" },

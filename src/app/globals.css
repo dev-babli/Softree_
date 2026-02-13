@@ -10,8 +10,8 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
   /* Core colors */
-  --color-background: #00091a;
-  --color-foreground: #ffffff;
+  --color-background: #ffffff;
+  --color-foreground: #0a0a0a;
 
   --color-card: rgba(255, 255, 255, 0.04);
   --color-card-foreground: #ffffff;
@@ -42,7 +42,7 @@
   }
 
   body {
-    background: var(--color-background);
+    background: linear-gradient(to bottom, #fafafa, #ffffff, #fafafa);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;

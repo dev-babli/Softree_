@@ -17,8 +17,7 @@ const FIXED_WIDTH = "mx-auto max-w-8xl px-8 sm:px-10 md:px-14 lg:px-20";
 export default function Home() {
   return (
     <main
-      className="relative min-h-screen bg-gradient-to-b from-black via-[#020d1a] to-black
- "
+      className="relative min-h-screen"
     >
       <NavigationClient />
 

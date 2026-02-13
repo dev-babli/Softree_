@@ -8,14 +8,13 @@ export default function Home() {
   return (
     <main>
       <NavigationClient />
-      {/* ================= HERO ================= */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#0b3ea8] via-[#1557c0] to-[#1e73d8] text-white">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#0b3ea8] via-[#1557c0] to-[#1e73d8] text-white min-h-[520px] flex items-center">
         {/* Glow accents */}
         <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-blue-600/20 blur-[160px] rounded-full" />
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-cyan-500/20 blur-[140px] rounded-full" />
 
         {/* ================= CONTENT ================= */}
-        <div className="relative z-10 max-w-6xl mx-auto px-6 pt-12 pb-8 text-center mt-8">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
           {/* Badge */}
           <span className="inline-block mb-4 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur text-xs tracking-widest uppercase">
             Contact Softree

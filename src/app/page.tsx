@@ -14,7 +14,7 @@ import ChallengesWeSolve from "@/components/sections/testimonial1";
 import ServicesSection from "@/components/sections/o365";
 import TechnologySlider from "@/components/sections/technology-slider";
 import TrustPartnersSection from "@/components/sections/trust";
-
+import AiInsightsBlog from "@/components/sections/ai-insights-blog";
 
 export default function Home() {
   return (
@@ -22,14 +22,14 @@ export default function Home() {
       <NavigationClient />
       <main className="flex-grow mt-1">
         <HeroSection />
-        <TechnologySlider/>
-        <SolutionsGrid />
+        <TechnologySlider />
+
         <ServicesSection />
         <PowerPlatformSection />
         <OurRecentProjects />
         <TrustPartnersSection />
         <ApplicationApproach />
-        <SuccessStories />
+        <AiInsightsBlog />
         <TechStackSection />
         <ChallengesWeSolve />
         <SoftreeFAQ />
