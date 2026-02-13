@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
@@ -68,6 +68,12 @@ const menu: MenuItem[] = [
             url: "/services/generative-ai",
             icon: Sparkles,
             description: "LLM-powered solutions",
+          },
+          {
+            label: "AI Chatbot Development",
+            url: "/services/ai-chatbot",
+            icon: MessageSquare,
+            description: "Smart conversational bots",
           },
         ],
       },
@@ -199,11 +205,29 @@ const menu: MenuItem[] = [
 export default function Navigation() {
   const [open, setOpen] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [showNav, setShowNav] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setShowNav(false); // hide
+      } else {
+        setShowNav(true); // show
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   const LOGO_URL =
-    "https://www.softreetechnology.com/wp-content/uploads/elementor/thumbs/white-logo-soft-qt16xqrm9tl34ewl9f9uhep3zaj8m5zkpgualw8uf4.png";
+    "https://www.softreetechnology.com/wp-content/uploads/elementor/thumbs/white-logo-soft-qt16xqrm9tl34ewl9f9uhep3zaj8m5zkpgualw8uf4.png%22";
 
   return (
-    <header className="relative w-full flex justify-center px-4 mt-1">
+    <header
+      className={`fixed top-0 left-0 w-full z-50 flex justify-center transition-transform duration-300 ${
+        showNav ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       <nav
         className="
       w-full max-w-5xl
@@ -211,7 +235,7 @@ export default function Navigation() {
       h-16
       flex items-center justify-between
       rounded-full
-      bg-white backdrop-blur-2xl
+      bg-white
       border border-black/5
       shadow-[0_10px_40px_rgba(0,0,0,0.08)]
     "
@@ -232,7 +256,7 @@ export default function Navigation() {
                 <Link
                   key={item.label}
                   href={item.url || "#"}
-                  className="group relative px-4 py-2 text-base font-semibold text-gray-700"
+                  className="group relative px-4 py-2 text-l font-semibold text-gray-700"
                 >
                   {/* Dark mirror pill */}
                   <span
@@ -263,7 +287,7 @@ export default function Navigation() {
               >
                 <Link
                   href={item.url || "#"}
-                  className="group relative inline-flex items-center gap-1 px-4 py-2 text-base font-semibold text-gray-700"
+                  className="group relative inline-flex items-center gap-1 px-4 py-2 text-l font-semibold text-gray-700"
                 >
                   {/* pill */}
                   <span
