@@ -8,6 +8,7 @@ import ProjectProcessSection from "./start-project";
 import StartupHero from "./hero";
 import HireExperts from "./hire";
 import ProcessTimeline from "./process";
+import PowerPlatformSection from "./services-section";
 export default function Page() {
   return (
     <div className="min-h-screen">
@@ -16,6 +17,7 @@ export default function Page() {
       <ServicesSection />
       <IndustriesSection />   
       <AIBannerSection />
+      <PowerPlatformSection/>
       <ProcessTimeline/>
       <HireExperts />
       <WhySoftreeSection />

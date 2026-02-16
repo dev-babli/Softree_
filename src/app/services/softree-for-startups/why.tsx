@@ -87,25 +87,28 @@ function StatCard({
   label: string;
 }) {
   return (
-    <div
-      className="
-        bg-white
-        border border-zinc-200
-        rounded-2xl
-        p-7
-        shadow-sm
-        transition-all duration-300
-        hover:-translate-y-1
-        hover:shadow-lg
-      "
-    >
-      <Icon className="w-8 h-8 text-blue-600 mb-4" strokeWidth={1.6} />
+   <div
+  className="
+    bg-white
+    border border-zinc-200
+    rounded-2xl
+    p-7
+    shadow-sm
+    transition-all duration-300
+    hover:-translate-y-1
+    hover:shadow-lg
+    hover:border-2
+    hover:border-blue-400
+  "
+>
+  <Icon className="w-8 h-8 text-blue-600 mb-4" strokeWidth={1.6} />
 
-      <strong className="block text-4xl font-bold text-zinc-900 mb-2">
-        {value}
-      </strong>
+  <strong className="block text-4xl font-bold text-zinc-900 mb-2">
+    {value}
+  </strong>
 
-      <span className="text-sm text-zinc-600">{label}</span>
-    </div>
+  <span className="text-sm text-zinc-600">{label}</span>
+</div>
+
   );
 }

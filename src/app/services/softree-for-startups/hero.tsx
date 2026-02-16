@@ -124,68 +124,6 @@ export default function HeroWithTestimonial() {
               </div>
             </div>
           </div>
-
-          {/* ---------- Stats Cards (SOFTREE) ---------- */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-            {[
-              {
-                value: "200+",
-                label: "Projects Delivered",
-                icon: Rocket,
-                color: "text-cyan-300",
-                gradient: "from-cyan-400/20 to-blue-500/20",
-              },
-              {
-                value: "75%",
-                label: "Process Automation",
-                icon: Workflow,
-                color: "text-indigo-300",
-                gradient: "from-cyan-400/20 to-blue-500/20",
-              },
-              {
-                value: "2x",
-                label: "Accelerated",
-                icon: TrendingUp,
-                color: "text-cyan-300",
-                gradient: "from-cyan-400/20 to-blue-500/20",
-              },
-            ].map((stat) => {
-              const Icon = stat.icon;
-
-              return (
-                <div
-                  key={stat.label}
-                  className="
-                    group relative
-                    flex items-center gap-4
-                    rounded-2xl              
-                    px-6 py-5
-                    hover:-translate-y-1
-                    hover:bg-white/10
-                    transition-all duration-300
-                  "
-                >
-                  <div
-                    className={`
-                      w-12 h-12
-                      flex items-center justify-center
-                      rounded-xl
-                      bg-gradient-to-br ${stat.gradient}
-                    `}
-                  >
-                    <Icon className={`w-5 h-5 ${stat.color}`} />
-                  </div>
-
-                  <div className="flex flex-col leading-tight">
-                    <span className={`text-2xl font-semibold ${stat.color}`}>
-                      {stat.value}
-                    </span>
-                    <span className="text-sm text-zinc-300">{stat.label}</span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
         </div>
       </div>
 

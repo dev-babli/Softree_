@@ -115,111 +115,77 @@ export default function ServicesSection() {
         </div>
 
         {/* SERVICES */}
-        <div className="space-y-24">
+        <div className="relative space-y-24">
           {services.map((service, index) => (
             <motion.div
               key={service.id}
-              initial={{ opacity: 0, y: 60 }}
+              initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.05 }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"
+              className="sticky top-24"
+              style={{
+                zIndex: index + 1,
+              }}
             >
-              {/* IMAGE */}
-              <div className="relative w-full h-[360px] rounded-3xl overflow-hidden shadow-md border border-zinc-200">
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
+              {/* CARD */}
+              <div className="bg-white rounded-3xl shadow-xl border border-zinc-200 overflow-hidden">
+                <div className="grid grid-cols-1 lg:grid-cols-2">
+                  {/* IMAGE */}
+                  <div className="relative min-h-[420px]">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
 
-              {/* CONTENT CARD */}
-              <div className="group relative">
-                <div
-                  className="
-      relative
-      rounded-3xl
-      p-10
+                  {/* CONTENT */}
+                  <div className="relative p-10">
+                    {/* ACCENT */}
+                    <span className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-blue-500 to-cyan-500" />
 
-      /* better default surface */
-      bg-gradient-to-b from-white to-zinc-50
-      border border-zinc-200
-      shadow-md
+                    {/* INDEX */}
+                    <p className="text-7xl font-extrabold text-zinc-200 leading-none mb-3">
+                      {service.id}
+                    </p>
 
-      /* smooth interaction */
-      transition-all duration-300
-      hover:-translate-y-2
-      hover:shadow-2xl
-      hover:border-blue-200
-      overflow-hidden
-    "
-                >
-                  {/* SOFT LEFT ACCENT (visible by default) */}
-                  <span
-                    className="
-        absolute left-0 top-0 bottom-0 w-1.5
-        rounded-l-3xl
-        bg-gradient-to-b from-blue-500/70 to-cyan-500/60
-      "
-                  />
+                    {/* TITLE */}
+                    <h3 className="text-2xl font-semibold text-zinc-900 mb-4">
+                      {service.title}
+                    </h3>
 
-                  {/* INDEX */}
-                  <p
-                    className="
-        text-7xl font-extrabold
-        text-zinc-200   /* softer but visible */
-        leading-none
-        select-none
-        mb-3
-      "
-                  >
-                    {service.id}
-                  </p>
+                    {/* DESCRIPTION */}
+                    <p className="text-zinc-600 mb-6 leading-relaxed">
+                      {service.description}
+                    </p>
 
-                  {/* TITLE */}
-                  <h3 className="text-2xl font-semibold text-zinc-900 mb-4">
-                    {service.title}
-                  </h3>
+                    {/* CATEGORIES */}
+                    {service.categories && (
+                      <ul className="flex flex-wrap gap-3 mb-6">
+                        {service.categories.map((cat) => (
+                          <li
+                            key={cat}
+                            className="px-4 py-1.5 text-sm rounded-full bg-zinc-50 border border-zinc-200 text-zinc-700"
+                          >
+                            {cat}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
 
-                  {/* DESCRIPTION */}
-                  <p className="text-zinc-600 mb-6 leading-relaxed">
-                    {service.description}
-                  </p>
-
-                  {/* CATEGORIES */}
-                  {service.categories && (
-                    <ul className="flex flex-wrap gap-3 mb-6">
-                      {service.categories.map((cat) => (
-                        <li
-                          key={cat}
-                          className="
-              px-4 py-1.5 text-sm rounded-full
-              bg-white
-              border border-zinc-200
-              text-zinc-700
-              shadow-sm
-              hover:bg-blue-50
-              hover:border-blue-200
-              hover:text-blue-600
-              transition
-            "
-                        >
-                          {cat}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-
-                  {/* CTA */}
-                  <div className="text-sm font-medium text-blue-600">
-                    Learn more →
+                    {/* CTA */}
+                    <div className="text-sm font-medium text-blue-600">
+                      Learn more →
+                    </div>
                   </div>
                 </div>
               </div>
             </motion.div>
           ))}
+          {/* spacer for last card */}
+          <div className="h-[60vh]" />
         </div>
       </div>
     </section>
