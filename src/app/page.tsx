@@ -27,11 +27,6 @@ export default function Home() {
         <SupportPartners />
         <SelectedEngagements />
         <TrustedBy />
-        <ServicesSection />
-
-        <OurRecentProjects />
-        <TrustPartnersSection />
-        <ApplicationApproach />
         <AiInsightsBlog />
         <TechStackSection />
         <WhyChooseUs />
