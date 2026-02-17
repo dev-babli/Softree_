@@ -30,15 +30,15 @@ export default function ContactPage() {
     "w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-800 placeholder-gray-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition";
 
   return (
-    <section className="relative min-h-screen bg-white text-gray-900 overflow-hidden">
+    <section className="relative min-h-[85vh] bg-white text-gray-900 overflow-hidden py-19">
       {/* Background gradient */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-cyan-50 via-white to-blue-50" />
 
       {/* ================= MAIN GRID ================= */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-5 lg:py-6 grid lg:grid-cols-[0.9fr_1.1fr] gap-6 items-stretch min-h-[620px]">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-4 lg:py-5 grid lg:grid-cols-[0.9fr_1.1fr] gap-6 items-stretch min-h-[540px]">
         {/* ================= LEFT PANEL ================= */}
-        <div className="h-full flex flex-col gap-6 p-5 lg:p-6 rounded-[28px] bg-gradient-to-br from-gray-900 via-gray-800 to-black border border-white/10 shadow-xl text-white">
-          {/* ================= TOP CONTENT ================= */}
+        <div className="h-full flex flex-col gap-5 p-5 lg:p-6 rounded-[28px] bg-gradient-to-br from-gray-900 via-gray-800 to-black border border-white/10 shadow-xl text-white">
+          {/* TOP CONTENT */}
           <div>
             <span className="inline-flex items-center gap-2 mb-3 px-4 py-1.5 text-xs font-medium rounded-full bg-white/10 border border-white/20 text-gray-200">
               <Sparkles className="w-4 h-4 text-cyan-400" />
@@ -59,7 +59,7 @@ export default function ContactPage() {
             </p>
           </div>
 
-          {/* ================= FEATURE CARDS ================= */}
+          {/* FEATURE CARDS */}
           <div className="grid sm:grid-cols-2 gap-3">
             {[
               {
@@ -96,7 +96,7 @@ export default function ContactPage() {
             })}
           </div>
 
-          {/* ================= WHY CHOOSE US ================= */}
+          {/* WHY CHOOSE US */}
           <div className="space-y-3">
             <h4 className="text-sm font-semibold text-cyan-400 tracking-wide uppercase">
               Why Choose Softree
@@ -118,7 +118,7 @@ export default function ContactPage() {
             </ul>
           </div>
 
-          {/* ================= TRUST STATS ================= */}
+          {/* TRUST STATS */}
           <div className="grid grid-cols-3 gap-3">
             {[
               { value: "150+", label: "Projects" },
@@ -137,7 +137,7 @@ export default function ContactPage() {
             ))}
           </div>
 
-          {/* ================= FOOT NOTE ================= */}
+          {/* FOOT NOTE */}
           <div className="text-xs text-gray-400 border-t border-white/10 pt-3">
             Our consultants typically respond within one business day. All
             information shared will remain confidential.
