@@ -55,7 +55,7 @@ export default function ContactPage() {
 
             <p className="mt-3 text-base text-gray-300 max-w-lg">
               Softree helps organizations design, develop, and modernize digital
-              platforms with a focus on performance, security, and scalability.
+              platforms with a focus on performance, security and scalability.
             </p>
           </div>
 
