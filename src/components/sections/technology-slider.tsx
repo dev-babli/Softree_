@@ -23,7 +23,7 @@ const techData: TechItem[] = [
     description:
       "Helping partners execute Power Platform and Dynamics implementations. We operate as your extended Power Platform engineering team, ensuring successful delivery, scalability, and consistency across projects.",
     bgImage:
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop",
+      "/images/business.png",
     link: "/services/business-applications",
     partnerValue:
       "We operate as your extended Power Platform engineering team.",
@@ -35,7 +35,7 @@ const techData: TechItem[] = [
     description:
       "Strengthening BI and transformation initiatives with reliable engineering and modern platforms. From data architecture to dashboard deployment, we deliver under your brand.",
     bgImage:
-      "/images/data-1.jpg",
+      "/images/data.png",
     link: "/services/data-analytics",
     partnerValue:
       "From data architecture to dashboard deployment — we deliver reliably under your brand.",
@@ -59,7 +59,7 @@ const techData: TechItem[] = [
     description:
       "Enhancing Microsoft 365 and custom application capabilities. We build secure, scalable solutions that align with your consulting strategy.",
     bgImage:
-      "https://images.unsplash.com/photo-1559027615-cd4628902d4a?q=80&w=2000&auto=format&fit=crop",
+      "/images/digital.png",
     link: "/services/digital-workspace",
     partnerValue: "Custom solutions that complement your consulting strategy.",
     icon: Monitor,

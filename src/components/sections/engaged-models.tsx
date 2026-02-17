@@ -1,114 +1,180 @@
-import React from "react";
+"use client";
 
-export default function SelectedEngagements() {
-  const engagements = [
-    {
-      title: "Power Platform Automation Suite",
-      tech: "Power Apps | Power Automate",
-      result: "Processing reduced manual effort by 60%",
-      icon: "⚙️",
-    },
-    {
-      title: "Enterprise Data Modernization",
-      tech: "Microsoft Fabric | Databricks | Power BI",
-      result: "Delivering BI at scale analytics environment",
-      icon: "📊",
-    },
-    {
-      title: "AI Powered Support Agent",
-      tech: "Azure AI | Dynamics 365 | Copilot Studio",
-      result: "Improving response accuracy by 40%",
-      icon: "🤖",
-    },
-  ];
+import { Clock, Users, Headset, CheckCircle2, ArrowRight } from "lucide-react";
 
+export default function FlexibleEngagementModels() {
   return (
-    <section className="py-14 px-6 bg-gradient-to-b from-black via-[#020d1a] to-black text-white">
-      {/* ================= HEADING ================= */}
-      <div className="text-center mb-12">
-        <h2
-          className="
-    text-3xl md:text-4xl
-    font-semibold
-    bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400
-    bg-clip-text text-transparent
-  "
-        >
-          Selected Engagements
+    <section
+      id="flexible-engagement-models"
+      className="relative py-24 bg-gradient-to-b from-black via-[#020d1a] to-black"
+    >
+      <div className="mx-auto max-w-7xl px-6">
+        {/* ================= HEADING ================= */}
+        <h2 className="mb-6 text-center text-4xl font-semibold text-gray-100">
+          Flexible Engagement Models for{" "}
+          <span className="bg-gradient-to-r from-indigo-600 to-cyan-500 bg-clip-text text-transparent">
+            Consulting Partners
+          </span>
         </h2>
 
-        {/* subtle divider */}
-        <div className="mt-4 flex justify-center">
-          <div className="h-px w-24 bg-gradient-to-r from-transparent via-blue-400/60 to-transparent" />
-        </div>
-      </div>
-      {/* ================= CARDS ================= */}
-      <div className="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto">
-        {engagements.map((item, i) => (
-          <div
-            key={i}
-            className="
-        group relative
-        w-[380px]
+        <p className="mb-16 text-center text-gray-400 max-w-2xl mx-auto">
+          Structured to align with your delivery strategy and project lifecycle.
+        </p>
+
+        {/* ================= MAIN GRID ================= */}
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-4">
+          {/* ================= LEFT HIGHLIGHTS ================= */}
+          <div className="h-full flex flex-col gap-6">
+            {[
+              { icon: Users, title: "Dedicated Engineering Teams" },
+              { icon: Clock, title: "Project-Based Delivery" },
+              { icon: Headset, title: "On-Demand Technical Support" },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="
+        group relative overflow-hidden
+        flex items-center gap-5
         rounded-2xl
-        p-7
+        bg-white/5
+        backdrop-blur-md
         border border-white/10
-        bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.15),transparent_40%),linear-gradient(145deg,rgba(255,255,255,0.10),rgba(255,255,255,0.03)_40%,rgba(0,0,0,0.4))]
-        backdrop-blur-xl
-        transition-all duration-500
-        hover:-translate-y-3
-        hover:border-blue-400/40
-        hover:shadow-[0_20px_60px_rgba(59,130,246,0.25)]
+        p-6
+        transition-all duration-300
+        hover:bg-white/10
+        hover:border-cyan-400/40
+        hover:shadow-[0_0_25px_rgba(56,189,248,0.15)]
       "
-          >
-            {/* shine overlay */}
-            <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-40" />
+              >
+                {/* Left Accent Line */}
+                <span className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-indigo-600 to-cyan-500 opacity-80 group-hover:opacity-100 transition" />
 
-            {/* TOP */}
-            <div className="flex items-start gap-4">
-              {/* icon container */}
-              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-blue-500/15 border border-blue-400/20 text-2xl">
-                {item.icon}
-              </div>
-
-              <div className="flex-1">
-                <h3
+                {/* Icon */}
+                <div
                   className="
-  text-lg font-semibold leading-snug
-  whitespace-nowrap overflow-hidden text-ellipsis
-  bg-gradient-to-r from-blue-400 to-cyan-300
-  bg-clip-text text-transparent
-"
+        flex h-12 w-12 items-center justify-center
+        rounded-xl
+        bg-gradient-to-br from-indigo-600 to-cyan-500
+        text-white
+        shadow-md
+        group-hover:scale-110
+        transition
+      "
                 >
+                  <item.icon className="h-6 w-6" />
+                </div>
+
+                {/* Text */}
+                <h3 className="text-base font-bold tracking-tight text-white">
                   {item.title}
                 </h3>
-
-                {/* tech */}
-                <div className="mt-2">
-                  <span className="text-xs px-3 py-1 rounded-full bg-blue-500 border border-white/10 text-white/70">
-                    {item.tech}
-                  </span>
-                </div>
               </div>
-            </div>
-
-            {/* divider */}
-            <div className="h-px bg-white/10 my-5" />
-
-            {/* RESULT */}
-            <p className="text-sm text-blue-300 font-medium leading-relaxed">
-              {item.result}
-            </p>
-
-            {/* learn more */}
-            <div className="mt-5 flex items-center text-xs text-white/60 group-hover:text-white transition">
-              View Case Study
-              <span className="ml-2 transition-transform group-hover:translate-x-1">
-                →
-              </span>
-            </div>
+            ))}
           </div>
-        ))}
+
+          {/* ================= ENGAGEMENT CARDS ================= */}
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:col-span-3 items-stretch">
+            {[
+              {
+                title: "Dedicated Engineering Teams",
+                highlight: true,
+                features: [
+                  "White-label support",
+                  "Direct PM collaboration",
+                  "Scalable team structure",
+                  "Microsoft & modern engineering expertise","Long-term delivery continuity & knowledge retention",
+                ],
+              },
+              {
+                title: "Project-Based Delivery",
+                features: [
+                  "Defined scope & SLAs",
+                  "Architecture-to-deployment delivery",
+                  "Transparent reporting",
+                  "On-time implementation",
+                  " Risk-managed execution with governance controls",
+                ],
+              },
+              {
+                title: "On-Demand Technical Support",
+                features: [
+                  "Architecture advisory",
+                  "Code audits & optimization",
+                  "Performance tuning",
+                  "Production support",
+                  "Rapid issue resolution & expert escalation support",
+                ],
+              },
+            ].map((plan, i) => (
+              <div
+                key={i}
+                className={`relative group h-full ${plan.highlight ? "scale-[1.04]" : ""}`}
+              >
+                {!plan.highlight ? (
+                  /* ================= NORMAL CARDS ================= */
+                  <div className="h-full rounded-[28px] p-[1.5px] bg-gradient-to-br from-indigo-500/40 via-cyan-400/40 to-indigo-600/40 transition duration-500 group-hover:from-indigo-500 group-hover:to-cyan-400">
+                    <div className="h-full rounded-[28px] bg-[#0b1220] p-8 border border-white/10 backdrop-blur-md transition-all duration-500 group-hover:border-cyan-400/40 group-hover:shadow-[0_0_35px_rgba(56,189,248,0.15)] flex flex-col">
+                      <h3 className="mb-6 text-xl font-bold text-white tracking-tight">
+                        {plan.title}
+                      </h3>
+
+                      <ul className="space-y-4 text-sm text-gray-300 flex-grow">
+                        {plan.features.map((f, idx) => (
+                          <li key={idx} className="flex gap-3 leading-relaxed">
+                            <CheckCircle2 className="h-5 w-5 shrink-0 text-cyan-400" />
+                            <span>{f}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ) : (
+                  /* ================= HIGHLIGHT CARD ================= */
+                  <div className="h-full relative rounded-[28px] p-8 bg-gradient-to-br from-indigo-600 via-indigo-700 to-cyan-600 text-white shadow-[0_25px_70px_rgba(79,70,229,0.45)] flex flex-col">
+                    <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-white px-5 py-1 text-xs font-bold text-indigo-700 shadow-lg tracking-wide">
+                      RECOMMENDED
+                    </span>
+
+                    <h3 className="mb-6 text-xl font-bold tracking-tight">
+                      {plan.title}
+                    </h3>
+
+                    <ul className="space-y-4 text-sm text-white/90 flex-grow">
+                      {plan.features.map((f, idx) => (
+                        <li key={idx} className="flex gap-3 leading-relaxed">
+                          <CheckCircle2 className="h-5 w-5 shrink-0 text-white" />
+                          <span>{f}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ================= CTA ================= */}
+        <div className="mt-14 text-center">
+          <a
+            href="#contact-us"
+            className="
+              inline-flex items-center gap-3
+              rounded-full
+              bg-gradient-to-r from-indigo-600 to-cyan-500
+              px-10 py-4
+              text-sm font-semibold
+              text-white
+              shadow-md
+              hover:shadow-lg
+              hover:scale-105
+              transition
+            "
+          >
+            Discuss Your Engagement Model
+            <ArrowRight className="h-4 w-4" />
+          </a>
+        </div>
       </div>
     </section>
   );

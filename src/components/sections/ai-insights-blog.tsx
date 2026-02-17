@@ -52,15 +52,6 @@ const initialRecent: Article[] = [
     description:
       "A unified student experience platform for accessing academic data, profiles, and institutional services.",
   },
-  {
-    imageUrl: "/images/case-study/power-apps/shopping-cart.webp",
-    title: "Power Apps Shopping Cart",
-    date: "Power Apps",
-    readTime: "Case Study",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Power-Apps-Shopping-Cart.pdf",
-    description:
-      "A shopping cart application built using Power Apps that enables product selection, cart management, and order processing for business scenarios.",
-  },
 ];
 
 export default function AiInsightsBlog() {

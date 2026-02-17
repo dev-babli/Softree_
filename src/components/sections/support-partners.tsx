@@ -128,15 +128,14 @@ export default function SupportPartners() {
     relative
     rounded-xl
     p-5
-    border border-white/10
-    bg-gradient-to-br from-white/10 to-white/5
-    backdrop-blur-sm
+    border border-blue-400/30   /* always visible light border */
+    bg-[linear-gradient(145deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02)_40%,rgba(0,0,0,0.25))]
     transition-all duration-300
-    hover:border-blue-400/40
+    hover:shadow-[0_0_20px_rgba(59,130,246,0.25)]
   "
               >
-                {/* label */}
-                <p className="text-[11px] tracking-wider uppercase text-blue-300 mb-2">
+                <p className="text-[16px] tracking-wider uppercase text-blue-300 mb-2 flex items-center gap-1 font-bold">
+                  <span className="text-blue-400 font-bold">*</span>
                   Partner Value
                 </p>
 
