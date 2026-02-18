@@ -5,7 +5,7 @@ import { Factory, AlertTriangle, Workflow, TrendingUp } from "lucide-react";
 import CaseFooter from "../footer";
 import Link from "next/link";
 import WhyChooseUs from "./why-chose";
-import TechnologiesTabs from "./tech-stack";
+
 export default function MobileCaseStudiesPage() {
   return (
     <div>
@@ -212,7 +212,7 @@ export default function MobileCaseStudiesPage() {
       </section>
       <MobileCaseStudyGrid />
       <WhyChooseUs />
-      <TechnologiesTabs />
+     
 
       <ProjectProcessSection />
       <CaseFooter />
