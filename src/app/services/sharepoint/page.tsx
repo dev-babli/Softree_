@@ -29,7 +29,7 @@ export default function Home() {
   py-24"
       >
         <div className={FIXED_WIDTH}>
-          <SharePointFeatures />
+          {/* <SharePointFeatures /> */}
           <PowerAppsCaseStudies />
           <SharePointMigration />
           <SharePointMigrationProcess />
