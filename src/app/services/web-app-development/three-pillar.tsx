@@ -92,7 +92,7 @@ function Pillar({
 }: {
   title: string;
   points: string[];
-  icon: React.ElementType;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   bordered?: boolean;
 }) {
   return (

@@ -15,7 +15,7 @@ import {
 /* ================= TYPES ================= */
 type Tech = {
   name: string;
-  icon: React.ElementType;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 };
 
 const TABS = [

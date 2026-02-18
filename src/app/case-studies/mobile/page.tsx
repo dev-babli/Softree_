@@ -212,7 +212,6 @@ export default function MobileCaseStudiesPage() {
       </section>
       <MobileCaseStudyGrid />
       <WhyChooseUs />
-     
 
       <ProjectProcessSection />
       <CaseFooter />
