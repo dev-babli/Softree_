@@ -25,13 +25,12 @@ export default function Home() {
         <HeroSection />
         <TechnologySlider />
         <SupportPartners />
-        <SelectedEngagements />
         <TrustedBy />
         <AiInsightsBlog />
         <TechStackSection />
         <WhyChooseUs />
-        <ChallengesWeSolve />
         <SoftreeFAQ />
+        <SelectedEngagements />
         <CTABanner />
       </main>
       <Footer />

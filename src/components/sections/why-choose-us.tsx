@@ -1,123 +1,304 @@
 "use client";
 
+import React, { useEffect, useRef, useState } from "react";
 import {
-  Calendar,
-  Handshake,
+  Star,
+  ChevronLeft,
+  ChevronRight,
+  Pause,
+  Play,
   Rocket,
   Users,
+  ShieldCheck,
+  User,
+  MapPin,
   Sliders,
-  RefreshCcw,
 } from "lucide-react";
 
-const timeline = [
-  {
-    icon: Calendar,
-    title: "Since 2013",
-    desc: "A decade of proven delivery across industries, technologies, and global clients.",
-  },
-  {
-    icon: Handshake,
-    title: "White-Label Friendly Delivery",
-    desc: "We work behind the scenes as your trusted execution partner while you own the spotlight.",
-  },
+/* ================= WHY CHOOSE DATA ================= */
+const whyChoose = [
   {
     icon: Rocket,
     title: "Agile Engineering",
-    desc: "Rapid iterations, continuous delivery, and fast adaptation to change.",
+    desc: "Rapid iterations and modern delivery practices.",
   },
   {
     icon: Users,
-    title: "Direct Leadership Access",
-    desc: "Stay connected with decision-makers for faster communication and alignment.",
+    title: "Leadership Access",
+    desc: "Direct communication with decision-makers.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Trusted Since 2013",
+    desc: "A decade of proven enterprise delivery.",
   },
   {
     icon: Sliders,
     title: "Flexible Engagement",
-    desc: "Team structures and models that scale as your business evolves.",
-  },
-  {
-    icon: RefreshCcw,
-    title: "Long-Term Partnership",
-    desc: "We stay beyond launch with optimization, innovation, and support.",
+    desc: "Scalable teams and adaptable delivery models aligned to your business goals.",
   },
 ];
 
-export default function WhyChooseUsTimeline() {
-  return (
-    <section className="relative py-24 text-white bg-gradient-to-b from-black via-[#020d1a] to-black overflow-hidden">
-      {/* glow lights */}
-      <div className="absolute top-24 left-10 w-72 h-72 bg-blue-600/20 blur-[120px] rounded-full" />
-      <div className="absolute bottom-24 right-10 w-72 h-72 bg-indigo-600/20 blur-[120px] rounded-full" />
+/* ================= REVIEWS DATA ================= */
+const reviews = [
+  {
+    name: "Rajesh Kumar",
+    rating: 5,
+    comment:
+      "Softree delivered a well-architected SharePoint and Power Platform solution that significantly improved our internal workflows.",
+    location: "India",
+  },
+  {
+    name: "Sarah Thompson",
+    rating: 5,
+    comment:
+      "Their consultants clearly understood our requirements and delivered high-quality results on time.",
+    location: "United Kingdom",
+  },
+  {
+    name: "Michael Roberts",
+    rating: 5,
+    comment:
+      "Strong technical expertise and clear communication throughout the project.",
+    location: "Canada",
+  },
+  {
+    name: "Neha Sharma",
+    rating: 5,
+    comment:
+      "Softree’s Power BI and analytics implementation gave our leadership clear visibility into performance metrics. The dashboards are intuitive and highly impactful.",
+    location: "India",
+  },
+  {
+    name: "David Wilson",
+    rating: 5,
+    comment:
+      "We engaged Softree for an Azure cloud migration project. The transition was smooth, secure, and completed within the expected timeline.",
+    location: "United States",
+  },
+  {
+    name: "Emma Clarke",
+    rating: 4,
+    comment:
+      "The team demonstrated strong technical depth in Microsoft 365 and SharePoint customization. Communication was consistent and delivery was dependable.",
+    location: "Australia",
+  },
+];
 
-      <div className="relative max-w-5xl mx-auto px-6">
-        <div className="relative text-center max-w-4xl mx-auto mb-14">
-          {/* small top label */}
-          <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-sm text-blue-400 tracking-wide mb-6">
-            Our Difference
+export default function WhyChooseWithTestimonials() {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  const CARD_WIDTH = 350;
+
+  /* AUTOPLAY */
+  useEffect(() => {
+    if (paused) return;
+
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev >= reviews.length - 1 ? 0 : prev + 1));
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [paused]);
+
+  useEffect(() => {
+    if (!trackRef.current) return;
+    trackRef.current.style.transform = `translateX(-${index * 100}%)`;
+  }, [index]);
+
+  return (
+    <section className="relative py-28 bg-gradient-to-b from-black via-[#020d1a] to-black text-white overflow-hidden">
+      {/* Glow */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-600/20 blur-[120px] rounded-full" />
+      <div className="absolute bottom-20 right-10 w-72 h-72 bg-indigo-600/20 blur-[120px] rounded-full" />
+
+      <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        {/* ================= LEFT : WHY CHOOSE ================= */}
+        <div className="relative">
+          {/* Small Label */}
+          <div className="text-blue-400 text-xs uppercase tracking-[0.15em] mb-3">
+            Why Choose Softree
           </div>
 
-          {/* main heading */}
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight">
-            Why{" "}
+          {/* Heading */}
+          <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-8 max-w-xl">
+            Built for{" "}
             <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-blue-600 bg-clip-text text-transparent">
-              Softree
+              Long-Term Impact
             </span>
           </h2>
 
-          {/* description */}
-          <p className="mt-6 text-lg md:text-xl text-white/70 leading-relaxed max-w-2xl mx-auto">
-            Delivering reliable software through proven expertise, agile
-            execution, and direct leadership involvement in every engagement.
-          </p>
+          {/* Vertical Accent Line */}
+          <div className="absolute left-4 top-[120px] bottom-0 w-px bg-gradient-to-b from-blue-600/40 to-transparent hidden md:block" />
 
-          {/* divider line */}
-          <div className="mt-10 h-px w-24 mx-auto bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-60" />
-        </div>
-
-        {/* vertical line */}
-        <div className="relative">
-          <div className="absolute left-6 top-0 bottom-0 w-[2px] bg-gradient-to-b from-blue-600 via-indigo-600 to-transparent" />
-
-          {/* items */}
-          <div className="space-y-14">
-            {timeline.map((item, i) => {
+          {/* Features */}
+          <div className="space-y-8">
+            {whyChoose.map((item, i) => {
               const Icon = item.icon;
 
               return (
-                <div key={i} className="relative flex gap-6 group items-start">
-                  {/* icon */}
-                  <div
-                    className="relative z-10 flex items-center justify-center w-12 h-12 rounded-xl 
-  bg-gradient-to-br from-blue-600 to-indigo-600 shadow-lg
-  transition-all duration-300 group-hover:scale-105 group-hover:shadow-blue-500/40"
-                  >
-                    <Icon size={20} />
+                <div key={i} className="relative flex gap-6 items-start group">
+                  {/* Number */}
+                  <div className="relative z-10 flex items-center justify-center w-8 h-8 text-xs font-semibold text-blue-400">
+                    {String(i + 1).padStart(2, "0")}
                   </div>
 
-                  {/* content */}
-                  <div
-                    className="flex-1 relative p-7 rounded-2xl border border-white/10 
-    bg-gradient-to-b from-white/5 to-white/[0.03] 
-    backdrop-blur-md
-    transition-all duration-300
-    group-hover:border-white/20 group-hover:from-white/10 group-hover:to-white/5"
-                  >
-                    {/* subtle hover glow */}
-                    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition pointer-events-none bg-gradient-to-r from-blue-600/10 to-indigo-600/10" />
+                  {/* Content */}
+                  <div className="flex-1">
+                    {/* Icon + Title */}
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-8 h-8 flex items-center justify-center rounded-md bg-blue-600/20 text-blue-400">
+                        <Icon size={16} />
+                      </div>
 
-                    {/* title */}
-                    <h3 className="relative text-xl md:text-2xl font-semibold tracking-tight mb-3 text-white">
-                      {item.title}
-                    </h3>
+                      <h3 className="text-lg md:text-xl font-semibold tracking-tight">
+                        {item.title}
+                      </h3>
+                    </div>
 
-                    {/* description */}
-                    <p className="relative text-white/65 leading-relaxed text-[15px] md:text-base">
+                    {/* Description */}
+                    <p className="text-white/70 text-sm leading-relaxed max-w-md">
                       {item.desc}
                     </p>
                   </div>
                 </div>
               );
             })}
+          </div>
+        </div>
+
+        {/* ================= RIGHT : TESTIMONIALS ================= */}
+        <div
+          className="relative rounded-2xl p-10
+  bg-gradient-to-br from-[#0b1220] via-[#0f172a] to-[#020617]
+  border border-white/10
+  backdrop-blur-xl
+  shadow-[0_0_40px_rgba(59,130,246,0.15)]
+  overflow-hidden"
+        >
+          {/* subtle glow overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-indigo-600/5 pointer-events-none rounded-2xl" />
+
+          {/* Header Section */}
+          <div className="relative z-10 mb-10">
+            {/* Top Label */}
+            <div className="text-blue-400 text-xs uppercase tracking-widest mb-3">
+              Softree Client Feedback
+            </div>
+
+            {/* Main Heading */}
+            <h3 className="text-3xl font-semibold mb-6">
+              Trusted by Enterprise Teams
+            </h3>
+
+            {/* Rating Row */}
+            <div className="flex items-center gap-4 mb-2">
+              {/* Stars */}
+              <div className="flex gap-1">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star
+                    key={i}
+                    className="w-4 h-4 fill-yellow-400 text-yellow-400"
+                  />
+                ))}
+              </div>
+
+              {/* Rating Text */}
+              <p className="text-white font-semibold">4.9 / 5</p>
+
+              <p className="text-white/60 text-sm">average rating</p>
+            </div>
+
+            {/* Review Count */}
+            <p className="text-sm text-white/60">
+              Based on{" "}
+              <span className="text-white font-medium">
+                150+ client reviews
+              </span>
+            </p>
+          </div>
+
+          {/* Slider Wrapper */}
+          <div className="overflow-hidden relative z-10 w-full">
+            <div
+              ref={trackRef}
+              className="flex transition-transform duration-700 ease-in-out"
+            >
+              {reviews.map((review, i) => (
+                <div key={i} className="w-full shrink-0">
+                  <div className="relative max-w-2xl">
+                    {/* Stars */}
+                    <div className="mb-3 flex items-center gap-1">
+                      {Array.from({ length: 5 }).map((_, idx) => (
+                        <Star
+                          key={idx}
+                          className={`w-4 h-4 ${
+                            idx < review.rating
+                              ? "fill-yellow-400 text-yellow-400"
+                              : "text-gray-600"
+                          }`}
+                        />
+                      ))}
+                    </div>
+
+                    {/* Comment */}
+                    <p className="text-white/80 text-base leading-relaxed mb-5">
+                      “{review.comment}”
+                    </p>
+
+                    <div className="flex items-center justify-between">
+                      <div className="space-y-1">
+                        {/* Name */}
+                        <div className="flex items-center gap-2">
+                          <User size={14} className="text-blue-400" />
+                          <p className="text-white font-semibold text-sm">
+                            {review.name}
+                          </p>
+                        </div>
+
+                        {/* Location */}
+                        <div className="flex items-center gap-2">
+                          <MapPin size={13} className="text-white/50" />
+                          <p className="text-xs text-white/50">
+                            {review.location}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Controls */}
+          <div className="flex items-center gap-6 mt-8 text-gray-400 relative z-10">
+            <button
+              onClick={() =>
+                setIndex((i) => (i === 0 ? reviews.length - 1 : i - 1))
+              }
+              className="hover:text-white transition"
+            >
+              <ChevronLeft size={18} />
+            </button>
+
+            <button
+              onClick={() => setPaused(!paused)}
+              className="hover:text-white transition"
+            >
+              {paused ? <Play size={16} /> : <Pause size={16} />}
+            </button>
+
+            <button
+              onClick={() =>
+                setIndex((i) => (i >= reviews.length - 1 ? 0 : i + 1))
+              }
+              className="hover:text-white transition"
+            >
+              <ChevronRight size={18} />
+            </button>
           </div>
         </div>
       </div>
