@@ -67,9 +67,6 @@ const techStacks = [
 export default function TechStack() {
   return (
     <section className="relative overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.15),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(236,72,153,0.12),transparent_40%)]" />
-
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-4xl mx-auto mb-4 px-4">
           {/* Eyebrow */}

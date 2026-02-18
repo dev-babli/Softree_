@@ -68,7 +68,7 @@ export default function TechnologiesTabs() {
   );
 
   return (
-    <section className=" py-15 bg-gradient-to-b from-gray-50 via-white to-gray-50 px-4">
+    <section className=" py-15  px-4">
       <div className="max-w-7xl mx-auto">
         {/* ================= HEADER ================= */}
         <div className="text-center mb-14">
