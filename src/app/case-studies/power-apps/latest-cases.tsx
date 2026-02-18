@@ -96,17 +96,23 @@ export default function SharePointCaseStudies() {
         onMouseLeave={() => setIsHovered(false)}
       >
         {/* ================= HEADER ================= */}
-        <div className="text-center mb-3">
+        <div className="mb-6 text-left max-w-3xl">
           <span className="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold uppercase tracking-wider border border-blue-500/20">
             Featured
           </span>
 
-          <h2 className="mt-6 text-3xl md:text-4xl lg:text-5xl font-semibold text-black">
-            Faetured Power Apps{" "}
+          <h2 className="mt-4 text-3xl md:text-4xl lg:text-4xl font-semibold text-black leading-tight">
+            Featured Power Apps{" "}
             <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
               Success Stories
             </span>
           </h2>
+
+          <p className="mt-4 text-gray-600 text-base leading-relaxed">
+            Explore how we leverage Microsoft Power Apps to build scalable,
+            secure, and high-performance business solutions that streamline
+            operations, improve productivity, and drive measurable growth.
+          </p>
         </div>
 
         {/* ================= SLIDER ================= */}

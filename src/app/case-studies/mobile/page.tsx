@@ -4,7 +4,8 @@ import ProjectProcessSection from "./start-project";
 import { Factory, AlertTriangle, Workflow, TrendingUp } from "lucide-react";
 import CaseFooter from "../footer";
 import Link from "next/link";
-
+import WhyChooseUs from "./why-chose";
+import TechnologiesTabs from "./tech-stack";
 export default function MobileCaseStudiesPage() {
   return (
     <div>
@@ -112,7 +113,6 @@ export default function MobileCaseStudiesPage() {
           </svg>
         </div>
       </section>
-      <MobileCaseStudyGrid />
       <section className="relative bg-gradient-to-b from-white via-slate-50 to-white">
         {/* Ambient top glow */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_55%)]" />
@@ -210,119 +210,9 @@ export default function MobileCaseStudiesPage() {
           </div>
         </div>
       </section>
-
-      <section className="relative bg-white py-14">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid lg:grid-cols-[1fr_auto_1fr] gap-24 items-stretch">
-            {/* LEFT CARD */}
-            <div className="h-full rounded-2xl border border-slate-200 bg-white p-10 shadow-sm flex flex-col">
-              <h2 className="text-5xl font-semibold mb-8 text-slate-900">
-                Why Choose Us
-              </h2>
-
-              <div className="relative pl-10 mb-10">
-                <span className="absolute left-2 top-0 h-full w-px bg-slate-300" />
-                <p className="text-lg text-slate-600 leading-relaxed">
-                  We build mobile applications as scalable digital products —
-                  engineered for performance, usability, and long-term growth.
-                </p>
-              </div>
-
-              <ul className="space-y-6 text-lg text-slate-600">
-                {[
-                  "Mobile-first UX & performance-driven architecture",
-                  "Cross-platform development (iOS & Android)",
-                  "Secure authentication & data protection",
-                  "Offline-first & real-time sync capabilities",
-                  "Scalable backend & API integrations",
-                  "App lifecycle support & continuous optimization",
-                ].map((item, i) => (
-                  <li key={i} className="group flex items-start gap-4">
-                    {/* SVG BULLET */}
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      className="mt-1.5 shrink-0 transition-transform duration-300 group-hover:scale-110"
-                    >
-                      <circle
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="#3b82f6"
-                        strokeWidth="1.5"
-                      />
-                      <circle
-                        cx="12"
-                        cy="12"
-                        r="6"
-                        fill="#3b82f6"
-                        opacity="0.15"
-                      />
-                      <path
-                        d="M8.5 12.5L11 15L16 9.5"
-                        stroke="#3b82f6"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-
-                    <span className="leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* CENTER AXIS */}
-            <div className="hidden lg:flex justify-center">
-              <div className="w-px h-full bg-gradient-to-b from-transparent via-slate-300 to-transparent" />
-            </div>
-
-            {/* RIGHT CARD */}
-            <div className="h-full rounded-2xl border border-slate-200 bg-white p-10 shadow-sm flex flex-col">
-              <h2 className="text-5xl font-semibold mb-8 text-slate-900">
-                Tech Stack
-              </h2>
-
-              <div className="space-y-10 text-lg text-slate-700">
-                {[
-                  {
-                    label: "Mobile Frameworks",
-                    value:
-                      "React Native · Flutter · Native iOS · Native Android",
-                  },
-                  {
-                    label: "Backend Services",
-                    value:
-                      "Node.js · .NET APIs · Firebase · Serverless Functions",
-                  },
-                  {
-                    label: "Data & Storage",
-                    value: "PostgreSQL · MongoDB · Firebase · Cloud Storage",
-                  },
-                  {
-                    label: "DevOps & Delivery",
-                    value:
-                      "CI/CD · App Store Deployment · Play Store Publishing",
-                  },
-                ].map((item, i) => (
-                  <div key={i}>
-                    <span className="inline-block mb-3 rounded-full border border-slate-300 bg-blue-500 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-slate-700">
-                      {item.label}
-                    </span>
-
-                    <p className="leading-relaxed text-slate-700">
-                      {item.value}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <MobileCaseStudyGrid />
+      <WhyChooseUs />
+      <TechnologiesTabs />
 
       <ProjectProcessSection />
       <CaseFooter />

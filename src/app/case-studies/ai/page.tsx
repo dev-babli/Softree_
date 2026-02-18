@@ -4,6 +4,8 @@ import Link from "next/link";
 import { Factory, AlertTriangle, Workflow, TrendingUp } from "lucide-react";
 import ProjectProcessSection from "./start-project";
 import CaseStudyGrid from "./case-study";
+import WhyChooseUs from "./why";
+import AgenticToolsOverview from "./tools";
 export default function Page() {
   return (
     <div>
@@ -214,117 +216,8 @@ export default function Page() {
         </div>
       </section>
       <CaseStudyGrid />
-      <section className="relative bg-white py-14">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid lg:grid-cols-[1fr_auto_1fr] gap-24 items-stretch">
-            {/* LEFT CARD */}
-            <div className="h-full rounded-2xl border border-slate-200 bg-white p-10 shadow-sm flex flex-col">
-              <h2 className="text-5xl font-semibold mb-8 text-slate-900">
-                Why Choose Us
-              </h2>
-
-              <div className="relative pl-10 mb-10">
-                <span className="absolute left-2 top-0 h-full w-px bg-slate-300" />
-                <p className="text-lg text-slate-600 leading-relaxed">
-                  We design and deploy AI systems as intelligent digital assets
-                  — secure, scalable, and built to deliver real business
-                  outcomes.
-                </p>
-              </div>
-
-              <ul className="space-y-6 text-lg text-slate-600">
-                {[
-                  "Production-grade AI & Generative AI solutions",
-                  "LLM, RAG & automation-driven workflows",
-                  "Secure, enterprise-ready AI architecture",
-                  "Data privacy, governance & compliance by design",
-                  "Scalable AI pipelines with real-time insights",
-                  "Continuous model improvement & long-term support",
-                ].map((item, i) => (
-                  <li key={i} className="group flex items-start gap-4">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      className="mt-1.5 shrink-0 transition-transform duration-300 group-hover:scale-110"
-                    >
-                      <circle
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="#3b82f6"
-                        strokeWidth="1.5"
-                      />
-                      <circle
-                        cx="12"
-                        cy="12"
-                        r="6"
-                        fill="#3b82f6"
-                        opacity="0.15"
-                      />
-                      <path
-                        d="M8.5 12.5L11 15L16 9.5"
-                        stroke="#3b82f6"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-
-                    <span className="leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* CENTER AXIS */}
-            <div className="hidden lg:flex justify-center">
-              <div className="w-px h-full bg-gradient-to-b from-transparent via-slate-300 to-transparent" />
-            </div>
-
-            {/* RIGHT CARD */}
-            <div className="h-full rounded-2xl border border-slate-200 bg-white p-10 shadow-sm flex flex-col">
-              <h2 className="text-5xl font-semibold mb-8 text-slate-900">
-                AI Tech Stack
-              </h2>
-
-              <div className="space-y-10 text-lg text-slate-700">
-                {[
-                  {
-                    label: "AI & ML",
-                    value:
-                      "OpenAI · Azure AI · Hugging Face · Custom ML Models",
-                  },
-                  {
-                    label: "Application Layer",
-                    value: "Next.js · React · TypeScript · API-First Design",
-                  },
-                  {
-                    label: "Data & Cloud",
-                    value: "Vector Databases · PostgreSQL · Azure · AWS",
-                  },
-                  {
-                    label: "MLOps & Security",
-                    value:
-                      "CI/CD · Model Monitoring · Access Control · Compliance",
-                  },
-                ].map((item, i) => (
-                  <div key={i}>
-                    <span className="inline-block mb-3 rounded-full border border-slate-300 bg-blue-500 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-slate-700">
-                      {item.label}
-                    </span>
-
-                    <p className="leading-relaxed text-slate-700">
-                      {item.value}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <WhyChooseUs />
+      <AgenticToolsOverview />
       <ProjectProcessSection />
       <CaseFooter />
     </div>

@@ -4,6 +4,7 @@ import { Factory, AlertTriangle, Workflow, TrendingUp } from "lucide-react";
 import Link from "next/link";
 import CaseFooter from "../footer";
 import CaseStudyGrid from "./case-study";
+import TechStack from "./tech-stack";
 
 export default function webCaseStudiesPage() {
   return (
@@ -213,115 +214,7 @@ export default function webCaseStudiesPage() {
         </div>
       </section>
       <CaseStudyGrid />
-      <section className="relative bg-white py-14">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid lg:grid-cols-[1fr_auto_1fr] gap-24 items-stretch">
-            {/* LEFT CARD */}
-            <div className="h-full rounded-2xl border border-slate-200 bg-white p-10 shadow-sm flex flex-col">
-              <h2 className="text-5xl font-semibold mb-8 text-slate-900">
-                Why Choose Us
-              </h2>
-
-              <div className="relative pl-10 mb-10">
-                <span className="absolute left-2 top-0 h-full w-px bg-slate-300" />
-                <p className="text-lg text-slate-600 leading-relaxed">
-                  We design SharePoint solutions as enterprise-grade digital
-                  workplaces — secure, governed, and built for long-term
-                  adoption.
-                </p>
-              </div>
-
-              <ul className="space-y-6 text-lg text-slate-600">
-                {[
-                  "SharePoint Online & Microsoft 365 expertise",
-                  "Custom intranet, portals & document management",
-                  "Power Automate & Power Apps integration",
-                  "Security, governance & compliance best practices",
-                  "SPFx extensions & modern UI customization",
-                  "Scalable architecture with long-term support",
-                ].map((item, i) => (
-                  <li key={i} className="group flex items-start gap-4">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      className="mt-1.5 shrink-0 transition-transform duration-300 group-hover:scale-110"
-                    >
-                      <circle
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="#3b82f6"
-                        strokeWidth="1.5"
-                      />
-                      <circle
-                        cx="12"
-                        cy="12"
-                        r="6"
-                        fill="#3b82f6"
-                        opacity="0.15"
-                      />
-                      <path
-                        d="M8.5 12.5L11 15L16 9.5"
-                        stroke="#3b82f6"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                    <span className="leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* CENTER AXIS */}
-            <div className="hidden lg:flex justify-center">
-              <div className="w-px h-full bg-gradient-to-b from-transparent via-slate-300 to-transparent" />
-            </div>
-
-            {/* RIGHT CARD */}
-            <div className="h-full rounded-2xl border border-slate-200 bg-white p-10 shadow-sm flex flex-col">
-              <h2 className="text-5xl font-semibold mb-8 text-slate-900">
-                Tech Stack
-              </h2>
-
-              <div className="space-y-10 text-lg text-slate-700">
-                {[
-                  {
-                    label: "Platform",
-                    value: "SharePoint Online · Microsoft 365 · OneDrive",
-                  },
-                  {
-                    label: "Customization",
-                    value: "SPFx · React · TypeScript · Fluent UI",
-                  },
-                  {
-                    label: "Automation",
-                    value: "Power Automate · Power Apps · Dataverse",
-                  },
-                  {
-                    label: "Security & DevOps",
-                    value: "Azure AD · Permissions · CI/CD Pipelines",
-                  },
-                ].map((item, i) => (
-                  <div key={i}>
-                    <span className="inline-block mb-3 rounded-full border border-slate-300 bg-blue-500 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-slate-700">
-                      {item.label}
-                    </span>
-
-                    <p className="leading-relaxed text-slate-700">
-                      {item.value}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <TechStack />
       <ProjectProcessSection />
       <CaseFooter />
     </div>

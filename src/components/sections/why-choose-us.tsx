@@ -57,7 +57,7 @@ export default function WhyChooseUsTimeline() {
           </div>
 
           {/* main heading */}
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight">
             Why{" "}
             <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-blue-600 bg-clip-text text-transparent">
               Softree

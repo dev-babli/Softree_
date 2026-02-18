@@ -46,7 +46,7 @@ export default function SuccessStories() {
   const rightStory = stories[(index + 1) % stories.length];
 
   return (
-    <section className="relative py-20 bg-gradient-to-b from-black via-[#020d1a] to-black text-white">
+    <section className="relative py-28 bg-gradient-to-b from-black via-[#020d1a] to-black text-white">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="mb-8 max-w-4xl">

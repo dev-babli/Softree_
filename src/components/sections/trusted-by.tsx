@@ -13,7 +13,7 @@ export default function TrustedBy() {
   ];
 
   return (
-    <section className="relative pt-24 bg-gradient-to-b from-black via-[#020d1a] to-black text-white">
+    <section className="relative pt-24 bg-gradient-to-b from-black via-[#020d1a] to-black text-white py-10">
       {/* ================= FLOATING WHITE SURFACE ================= */}
       <div className="relative max-w-7xl mx-auto">
         <div

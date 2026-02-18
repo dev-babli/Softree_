@@ -69,7 +69,7 @@ export default function AiInsightsBlog() {
   };
 
   return (
-    <section className="sm:py-12 bg-gradient-to-b from-black via-[#020d1a] to-black text-white">
+    <section className="sm:py-27 bg-gradient-to-b from-black via-[#020d1a] to-black text-white">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="mb-12 max-w-3xl">
