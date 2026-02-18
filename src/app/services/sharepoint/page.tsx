@@ -9,9 +9,9 @@ import Certifications from "./certification";
 import PowerAppsCaseStudies from "./casestudies";
 import TimelinePage from "./timeline";
 import SharePointHero from "./hero";
-import Link from "next/link";
-import { CALENDLY_URL } from "@/lib/contactConfig";
+import HireSharePointPricing from "./pricing-cards";
 import CtaSharePoint from "./cta";
+import WhyChooseUs from "./why-chose";
 
 const FIXED_WIDTH = "mx-auto max-w-8xl px-8 sm:px-10 md:px-14 lg:px-20";
 
@@ -34,7 +34,9 @@ export default function Home() {
           <SharePointMigration />
           <SharePointMigrationProcess />
           <AIDrivenSharePointMigration />
+          <WhyChooseUs />
           <TechStack />
+          <HireSharePointPricing />
           <TimelinePage />
           <Certifications />
         </div>
