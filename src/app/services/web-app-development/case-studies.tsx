@@ -13,18 +13,17 @@ const caseStudies = [
     category: "Web App Development",
 
     summary:
-      "A centralized academic platform to manage students, courses, and institutional operations.",
+      "Centralized platform for managing students, courses, and operations.",
 
     challenge:
-      "Educational institutions lacked a centralized system to manage students, courses, administration, and reporting efficiently.",
+      "Institutions lacked a unified system for academic and admin management.",
 
     solution:
-      "Developed a comprehensive EdTech management web application to handle academic operations, user management, and analytics.",
+      "Built a web-based MIS to manage academics, users, and reporting.",
 
-    impact:
-      "Reduced manual administrative work by 60% and improved reporting accuracy with real-time dashboards.",
+    impact: "Reduced manual work by 60% and enabled real-time reporting.",
 
-    tech: ["Web Application", "EdTech Solutions", "System Management"],
+    tech: ["Web Application", "EdTech", "System Management"],
 
     image: "/images/edtech.jpg",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/EdTech-Management-Information-System-.pdf",
@@ -34,19 +33,15 @@ const caseStudies = [
     title: "Noteved Admin Web Portal",
     category: "Web App Development",
 
-    summary:
-      "A secure admin dashboard for managing users, content, and platform operations from one place.",
+    summary: "Secure admin dashboard for centralized platform control.",
 
-    challenge:
-      "Administrators needed a secure platform to manage users, content, and platform operations efficiently.",
+    challenge: "Admins needed better control over users and content.",
 
-    solution:
-      "Built an admin-focused web portal enabling centralized control over users, content, and system configurations.",
+    solution: "Developed a role-based admin portal for system management.",
 
-    impact:
-      "Improved operational efficiency by 45% with faster management and reduced manual processes.",
+    impact: "Improved efficiency by 45% with faster operations.",
 
-    tech: ["Admin Dashboard", "Web Management", "Role-Based Access"],
+    tech: ["Admin Dashboard", "Web Management", "RBAC"],
 
     image: "/images/education.jpg",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/NotevedAdmin.docx.pdf",
@@ -56,17 +51,13 @@ const caseStudies = [
     title: "Wellkies Admin Web Application",
     category: "Web App Development",
 
-    summary:
-      "An internal healthcare admin system for managing workflows, users, and services securely.",
+    summary: "Internal healthcare admin system for secure workflow management.",
 
-    challenge:
-      "Healthcare platforms required an internal admin system to manage users, services, and operational data securely.",
+    challenge: "Healthcare teams lacked centralized workflow control.",
 
-    solution:
-      "Developed a robust admin web application to manage healthcare workflows, users, and system configurations.",
+    solution: "Built a secure admin app for managing users and services.",
 
-    impact:
-      "Enabled centralized control and reduced operational delays by 50% across departments.",
+    impact: "Reduced operational delays by 50%.",
 
     tech: ["Web Application", "Admin Panel", "Healthcare Platform"],
 
@@ -75,20 +66,16 @@ const caseStudies = [
   },
 
   {
-    title: "Public Blogging Website using MERN Stack",
+    title: "Public Blogging Website (MERN Stack)",
     category: "Web App Development",
 
-    summary:
-      "A scalable full-stack blogging platform with authentication and content management.",
+    summary: "Scalable blogging platform with authentication and CMS.",
 
-    challenge:
-      "Content creators needed a scalable platform to publish, manage, and engage users with blog content securely.",
+    challenge: "Creators needed a secure and scalable publishing platform.",
 
-    solution:
-      "Developed a full-stack public blogging web application using the MERN stack with authentication, content management, and responsive design.",
+    solution: "Built a full-stack MERN app with authentication and CMS.",
 
-    impact:
-      "Handled thousands of concurrent users with optimized performance and increased engagement by 3×.",
+    impact: "Handled high traffic and increased engagement 3×.",
 
     tech: ["MongoDB", "Express.js", "React.js", "Node.js"],
 
@@ -100,19 +87,15 @@ const caseStudies = [
     title: "Food & Wine Website",
     category: "Web App Development",
 
-    summary:
-      "A visually rich content-driven website delivering immersive food and wine experiences.",
+    summary: "Modern content-driven website with immersive UI.",
 
-    challenge:
-      "The client required a visually rich platform to showcase food and wine content with smooth navigation and performance.",
+    challenge: "Needed a visually rich platform with strong performance.",
 
-    solution:
-      "Built a modern, responsive food and wine website focusing on aesthetics, performance optimization, and user engagement.",
+    solution: "Developed a responsive, performance-optimized website.",
 
-    impact:
-      "Improved page speed by 40% and boosted user engagement with higher session durations.",
+    impact: "Improved page speed by 40% and boosted engagement.",
 
-    tech: ["Web Design", "Responsive UI", "Content Management"],
+    tech: ["Web Design", "Responsive UI", "CMS"],
 
     image: "/images/food.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/FOOD-WINE-WEBSITE.pdf",
@@ -150,13 +133,14 @@ export default function WebAppCaseStudies() {
 
         <div
           className="
-                 h-[70vh] max-h-[680px]    
-                 bg-gradient-to-r from-[#eef2f7] via-[#dbe3ff] to-[#eef2f7]
-                 rounded-[32px]
-                 border border-slate-200
-                 shadow-xl
-                 p-6
-               "
+    w-full
+    h-[70vh] max-h-[680px]
+    bg-gradient-to-r from-[#eef2f7] via-[#dbe3ff] to-[#eef2f7]
+    rounded-[32px]
+    border border-slate-200
+    shadow-xl
+    overflow-hidden
+  "
         >
           <Swiper
             modules={[Autoplay]}
@@ -170,31 +154,26 @@ export default function WebAppCaseStudies() {
             speed={900}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-            className="h-full"
+            className="h-full w-full overflow-hidden"
           >
             {caseStudies.map((item, index) => (
-              <SwiperSlide
-                key={index}
-                className="h-full flex items-center justify-center overflow-visible"
-              >
-                {/* ===== OUTER CLIP WRAPPER (IMPORTANT) ===== */}
-                <div
-                  className="relative w-full max-w-6xl rounded-[48px] overflow-hidden
-                               "
-                >
-                  {/* ===== BORDER / GLOW ===== */}
-                  <div
-                    className="pointer-events-none absolute inset-0 rounded-[48px]
-                                 ring-1 ring-white/15"
-                  />
+              <SwiperSlide key={index} className="h-full w-full">
+                {/* FULL WIDTH CARD */}
+                <div className="relative w-full h-full overflow-hidden rounded-[32px]">
+                  {/* Border */}
+                  <div className="pointer-events-none absolute inset-0 rounded-[32px] ring-1 ring-white/15" />
 
-                  {/* ===== CARD BODY ===== */}
+                  {/* CARD BODY */}
                   <div
-                    className="relative rounded-[48px]
-                                 bg-gradient-to-r from-black via-[#0f2f7a] to-black
-                                 p-10"
+                    className="
+              w-full
+              h-full
+              bg-gradient-to-r from-black via-[#0f2f7a] to-black
+              p-10
+              flex flex-col justify-center
+            "
                   >
-                    {/* ===== Header ===== */}
+                    {/* Header */}
                     <div className="text-center mb-6">
                       <h3 className="text-2xl font-semibold text-white">
                         {item.title} — Case Study
@@ -208,38 +187,36 @@ export default function WebAppCaseStudies() {
                       </p>
                     </div>
 
-                    {/* ===== Main Content ===== */}
+                    {/* Content */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-                      {/* ===== Image ===== */}
+                      {/* Image */}
                       <div className="flex justify-center">
                         <img
                           src={item.image}
                           alt={item.title}
                           className="
-                           rounded-2xl
-                           shadow-lg
-                           max-h-[320px]
-                           object-contain
-                           ring-1 ring-white/10
-                         "
+                    rounded-2xl
+                    shadow-lg
+                    max-h-[320px]
+                    object-contain
+                    ring-1 ring-white/10
+                  "
                         />
                       </div>
 
-                      {/* ===== Text Content ===== */}
+                      {/* Text */}
                       <div className="space-y-6">
-                        {/* Problem */}
                         <div>
-                          <h4 className="flex items-center gap-2 font-semibold text-white">
+                          <h4 className="font-semibold text-white">
                             💡 Problem
                           </h4>
-                          <p className=" text-sm text-slate-300 leading-relaxed">
+                          <p className="text-sm text-slate-300 leading-relaxed">
                             {item.challenge}
                           </p>
                         </div>
 
-                        {/* Solution */}
                         <div>
-                          <h4 className="flex items-center gap-2 font-semibold text-white">
+                          <h4 className="font-semibold text-white">
                             💡 Solution
                           </h4>
                           <p className="text-sm text-slate-300 leading-relaxed">
@@ -247,26 +224,24 @@ export default function WebAppCaseStudies() {
                           </p>
                         </div>
 
-                        {/* ===== Impact ===== */}
+                        {/* Impact Box */}
                         <div
                           className="
-                         relative
-                         rounded-2xl
-                         px-7 py-5
-                         flex flex-col gap-4
-                         sm:flex-row sm:items-center sm:justify-between
-                         bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600
-                         text-white
-                         shadow-[0_18px_40px_rgba(79,70,229,0.45)]
-                         overflow-hidden
-                       "
+                    relative
+                    rounded-2xl
+                    px-7 py-5
+                    flex flex-col gap-4
+                    sm:flex-row sm:items-center sm:justify-between
+                    bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600
+                    text-white
+                    shadow-[0_18px_40px_rgba(79,70,229,0.45)]
+                    overflow-hidden
+                  "
                         >
-                          {/* Glow */}
                           <div className="absolute -top-10 -left-10 w-40 h-40 bg-white/10 blur-3xl rounded-full" />
 
-                          {/* Impact text */}
                           <div className="relative z-10">
-                            <p className="text-[10px] uppercase tracking-widest text-white/70 ">
+                            <p className="text-[10px] uppercase tracking-widest text-white/70">
                               Impact
                             </p>
                             <p className="text-sm sm:text-base font-semibold leading-snug">
@@ -274,38 +249,26 @@ export default function WebAppCaseStudies() {
                             </p>
                           </div>
 
-                          {/* Separator */}
-                          <div
-                            className="
-                           relative z-10
-                           w-full h-px
-                           sm:w-px sm:h-10
-                           bg-white/30
-                           rounded-full
-                         "
-                          />
+                          <div className="relative z-10 w-full h-px sm:w-px sm:h-10 bg-white/30 rounded-full" />
 
-                          {/* CTA */}
                           <a
                             href={item.href}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="
-                             relative z-10
-                             inline-flex items-center gap-2
-                             px-5 py-2.5
-                             text-xs font-semibold uppercase tracking-wider
-                             whitespace-nowrap
-                             rounded-full
-                             bg-white text-indigo-700
-                             shadow-md
-                             hover:scale-105
-                             hover:shadow-lg
-                             transition
-                           "
+                      relative z-10
+                      inline-flex items-center gap-2
+                      px-5 py-2.5
+                      text-xs font-semibold uppercase tracking-wider
+                      whitespace-nowrap
+                      rounded-full
+                      bg-white text-indigo-700
+                      shadow-md
+                      hover:scale-105
+                      transition
+                    "
                           >
-                            View Case Study
-                            <span className="text-sm">→</span>
+                            View Case Study →
                           </a>
                         </div>
                       </div>

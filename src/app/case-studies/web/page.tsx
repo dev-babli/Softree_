@@ -5,8 +5,9 @@ import {
   AlertTriangle,
   Workflow,
   TrendingUp,
-  Link,
+  
 } from "lucide-react";
+import Link from "next/link";
 import CaseFooter from "../footer";
 import CaseStudyGrid from "./case-study-grid";
 export default function webCaseStudiesPage() {
@@ -31,14 +32,14 @@ export default function webCaseStudiesPage() {
                 href="/contact"
                 className="bg-white text-blue-700 px-6 py-3 rounded-lg font-medium inline-flex items-center justify-center hover:bg-blue-50 transition"
               >
-                Talk to a Mobile App Expert
+                Talk to a Web App Expert
               </Link>
 
               <Link
                 href="/services/web-app-development"
                 className="border border-white/40 px-6 py-3 rounded-lg inline-flex items-center justify-center hover:bg-white/10 transition"
               >
-                View Mobile Services
+                View Web App Services
               </Link>
             </div>
           </div>

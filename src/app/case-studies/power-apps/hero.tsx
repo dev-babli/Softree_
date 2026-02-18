@@ -53,7 +53,7 @@ export default function HeroWithTestimonial() {
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-cyan-400/10 blur-[140px] rounded-full" />
 
       {/* ================= HERO LAYOUT ================= */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-14 lg:py-16 min-h-[65vh] grid lg:grid-cols-2 gap-14 items-start">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-14 lg:py-16 min-h-[65vh] grid lg:grid-cols-2 gap-14 items-start mt-8">
         {/* ================= LEFT CONTENT ================= */}
         <div className="w-full space-y-7">
           <span className="inline-flex w-fit items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs text-white/80">
@@ -67,63 +67,76 @@ export default function HeroWithTestimonial() {
             </span>
           </h1>
 
-          {/* CTA */}
-          <div className="flex flex-wrap gap-4 pt-2">
-            <Link href="#case-study-details">
-              <button className="bg-cyan-400 text-slate-900 px-7 py-3.5 rounded-xl font-medium shadow-xl hover:scale-105 hover:bg-cyan-300 transition">
-                View Case Study Details
-              </button>
+          <div className="flex gap-4 mt-8">
+            <Link
+              href="/contact"
+              className="bg-white text-blue-700 px-6 py-3 rounded-lg font-medium inline-flex items-center justify-center hover:bg-blue-50 transition"
+            >
+              Talk to a Power App Expert
             </Link>
 
-            <Link href="/contact">
-              <button className="border border-zinc-400/30 text-zinc-200 px-7 py-3.5 rounded-xl hover:bg-white/10 transition">
-                Discuss a Similar Project
-              </button>
+            <Link
+              href="/services/power-apps"
+              className="border border-white/40 px-6 py-3 rounded-lg inline-flex items-center justify-center hover:bg-white/10 transition"
+            >
+              View Power App Services
             </Link>
           </div>
         </div>
+        {/* RIGHT GLASS CARD */}
+        <div className="relative">
+          {/* Outer glow */}
+          <div className="absolute -inset-2 rounded-2xl bg-cyan-400/20 blur-xl"></div>
 
-        {/* ================= RIGHT CONTENT ================= */}
-        <div className="relative w-full flex flex-col gap-8">
-          {/* Floating glows */}
-          <div className="absolute -top-10 -right-10 w-56 h-56 bg-cyan-500/20 blur-[120px] rounded-full pointer-events-none" />
-          <div className="absolute bottom-0 -left-10 w-56 h-56 bg-blue-600/20 blur-[120px] rounded-full pointer-events-none" />
+          {/* Glass box */}
+          <div className="relative rounded-2xl border border-white/20 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-xl shadow-2xl p-5 text-white">
+            {/* Top bar */}
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-2">
+                <span className="w-3 h-3 rounded-full bg-red-400" />
+                <span className="w-3 h-3 rounded-full bg-yellow-400" />
+                <span className="w-3 h-3 rounded-full bg-green-400" />
+              </div>
+              <span className="text-xs text-white/70">
+                Power Platform Dashboard
+              </span>
+            </div>
 
-          {/* Testimonial card */}
-          <div
-            className={`
-              relative
-              rounded-3xl
-              p-8 lg:p-10
-              bg-white/10
-              backdrop-blur-3xl
-              border border-white/20
-              shadow-[0_25px_70px_rgba(0,0,0,0.45)]
-              overflow-hidden
-              group
-              transition-all duration-500
-              hover:-translate-y-2
-              hover:shadow-[0_35px_90px_rgba(0,0,0,0.6)]
-              ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
-            `}
-          >
-            {/* Animated gradient glow */}
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-cyan-400/20 via-blue-500/10 to-indigo-500/20 opacity-0 group-hover:opacity-100 transition duration-500" />
-
-            <p className="relative text-lg lg:text-xl text-white/90 leading-relaxed mb-6 z-10">
-              "{active.text}"
+            {/* Title */}
+            <h3 className="text-base font-semibold mb-1">
+              Power Apps Performance Overview
+            </h3>
+            <p className="text-xs text-white/70 mb-4">
+              Real-time insights from enterprise Power Apps & Dataverse
             </p>
 
-            <div className="relative flex items-center gap-4 z-10">
-              <img
-                src={active.avatar}
-                alt={active.name}
-                className="w-14 h-14 rounded-full object-cover ring-2 ring-cyan-400/40 shadow-lg"
-              />
+            {/* KPIs */}
+            <div className="grid grid-cols-3 gap-3 mb-4">
+              <div className="bg-white/10 rounded-lg p-2 text-center">
+                <p className="text-[10px] text-white/60">Apps Deployed</p>
+                <p className="text-lg font-semibold">52+</p>
+              </div>
+              <div className="bg-white/10 rounded-lg p-2 text-center">
+                <p className="text-[10px] text-white/60">Active Users</p>
+                <p className="text-lg font-semibold">85K+</p>
+              </div>
+              <div className="bg-white/10 rounded-lg p-2 text-center">
+                <p className="text-[10px] text-white/60">Automation Gain</p>
+                <p className="text-lg font-semibold">+60%</p>
+              </div>
+            </div>
 
-              <div>
-                <p className="font-semibold text-white">{active.name}</p>
-                <p className="text-sm text-white/60">{active.role}</p>
+            {/* Chart mock */}
+            <div>
+              <p className="text-[10px] text-white/60 mb-2">
+                Workflow Automation Trend
+              </p>
+              <div className="grid grid-cols-5 gap-2 items-end h-20">
+                <div className="bg-cyan-400/40 rounded h-8" />
+                <div className="bg-cyan-400/60 rounded h-14" />
+                <div className="bg-cyan-400/80 rounded h-20" />
+                <div className="bg-cyan-400/50 rounded h-12" />
+                <div className="bg-cyan-400/35 rounded h-6" />
               </div>
             </div>
           </div>

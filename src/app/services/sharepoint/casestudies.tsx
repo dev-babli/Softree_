@@ -12,16 +12,14 @@ const caseStudies = [
     title: "Custom Footer using SPFx",
     category: "SharePoint",
 
-    summary:
-      "Tenant-wide branded footer for consistent navigation across sites.",
+    summary: "Tenant-wide branded footer for consistent site navigation.",
 
-    challenge: "Needed a unified footer without editing pages individually.",
+    challenge: "Needed a unified footer without manual page updates.",
 
-    solution:
-      "Built an SPFx Application Customizer to deploy a reusable footer.",
+    solution: "Built an SPFx Application Customizer for reusable deployment.",
 
     impact:
-      "Standardized branding across 100+ pages and cut manual effort by 80%.",
+      "Standardized branding across 100+ pages and reduced effort by 80%.",
 
     tech: ["SPFx", "SharePoint Online", "TypeScript"],
     image: "/images/footer.png",
@@ -32,11 +30,11 @@ const caseStudies = [
     title: "Global Notification Banner with SPFx",
     category: "SharePoint",
 
-    summary: "Centralized banner for broadcasting updates across sites.",
+    summary: "Centralized banner for tenant-wide announcements.",
 
-    challenge: "No simple way to push announcements tenant-wide.",
+    challenge: "No simple way to broadcast updates across sites.",
 
-    solution: "Implemented a dynamic SPFx banner with centralized control.",
+    solution: "Developed a dynamic SPFx banner with centralized control.",
 
     impact: "Improved communication reach and reduced misses by 60%.",
 
@@ -49,13 +47,13 @@ const caseStudies = [
     title: "Browse Documents in Panel using SPFx",
     category: "SharePoint",
 
-    summary: "View and pick documents without leaving the page.",
+    summary: "Access and select documents without page redirects.",
 
-    challenge: "Users needed faster document access with fewer redirects.",
+    challenge: "Users needed faster document access within workflows.",
 
     solution: "Built an SPFx panel with integrated file browsing.",
 
-    impact: "Reduced navigation time by 40% and improved efficiency.",
+    impact: "Reduced navigation time by 40% and improved productivity.",
 
     tech: ["SPFx", "SharePoint Online", "React"],
     image: "/images/browse.png",
@@ -63,16 +61,16 @@ const caseStudies = [
   },
 
   {
-    title: "Custom Copy & Move Panel for SharePoint Lists",
+    title: "Custom Copy & Move Panel",
     category: "SharePoint",
 
-    summary: "Simplified way to copy or move list items.",
+    summary: "Streamlined copy and move actions for list items.",
 
     challenge: "Traditional operations required multiple manual steps.",
 
-    solution: "Created a Fluent UI–based SPFx panel for quick actions.",
+    solution: "Built a Fluent UI–based SPFx quick-action panel.",
 
-    impact: "Cut manual work by 70% and improved daily productivity.",
+    impact: "Reduced manual effort by 70% and improved efficiency.",
 
     tech: ["SPFx", "Fluent UI", "SharePoint Online"],
     image: "/images/custom.png",
@@ -80,12 +78,12 @@ const caseStudies = [
   },
 
   {
-    title: "Managing SharePoint Library Folders with Power Apps",
+    title: "Library Management with Power Apps",
     category: "SharePoint",
 
-    summary: "Simplified folder and metadata management via Power Apps.",
+    summary: "Simplified folder and metadata management interface.",
 
-    challenge: "Managing libraries and metadata was slow and complex.",
+    challenge: "Library configuration and metadata updates were complex.",
 
     solution: "Delivered a Power Apps interface with automation support.",
 
@@ -131,13 +129,14 @@ export default function SharePointCaseStudies() {
 
         <div
           className="
-                     h-[70vh] max-h-[680px]    
-                     bg-gradient-to-r from-[#eef2f7] via-[#dbe3ff] to-[#eef2f7]
-                     rounded-[32px]
-                     border border-slate-200
-                     shadow-xl
-                     p-6
-                   "
+    w-full
+    h-[70vh] max-h-[680px]
+    bg-gradient-to-r from-[#eef2f7] via-[#dbe3ff] to-[#eef2f7]
+    rounded-[32px]
+    border border-slate-200
+    shadow-xl
+    overflow-hidden
+  "
         >
           <Swiper
             modules={[Autoplay]}
@@ -151,31 +150,26 @@ export default function SharePointCaseStudies() {
             speed={900}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-            className="h-full"
+            className="h-full w-full overflow-hidden"
           >
             {caseStudies.map((item, index) => (
-              <SwiperSlide
-                key={index}
-                className="h-full flex items-center justify-center overflow-visible"
-              >
-                {/* ===== OUTER CLIP WRAPPER (IMPORTANT) ===== */}
-                <div
-                  className="relative w-full max-w-6xl rounded-[48px] overflow-hidden
-                                   "
-                >
-                  {/* ===== BORDER / GLOW ===== */}
-                  <div
-                    className="pointer-events-none absolute inset-0 rounded-[48px]
-                                     ring-1 ring-white/15"
-                  />
+              <SwiperSlide key={index} className="h-full w-full">
+                {/* FULL WIDTH CARD */}
+                <div className="relative w-full h-full overflow-hidden rounded-[32px]">
+                  {/* Border */}
+                  <div className="pointer-events-none absolute inset-0 rounded-[32px] ring-1 ring-white/15" />
 
-                  {/* ===== CARD BODY ===== */}
+                  {/* CARD BODY */}
                   <div
-                    className="relative rounded-[48px]
-                                     bg-gradient-to-r from-black via-[#0f2f7a] to-black
-                                     p-10"
+                    className="
+              w-full
+              h-full
+              bg-gradient-to-r from-black via-[#0f2f7a] to-black
+              p-10
+              flex flex-col justify-center
+            "
                   >
-                    {/* ===== Header ===== */}
+                    {/* Header */}
                     <div className="text-center mb-6">
                       <h3 className="text-2xl font-semibold text-white">
                         {item.title} — Case Study
@@ -189,38 +183,36 @@ export default function SharePointCaseStudies() {
                       </p>
                     </div>
 
-                    {/* ===== Main Content ===== */}
+                    {/* Content */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-                      {/* ===== Image ===== */}
+                      {/* Image */}
                       <div className="flex justify-center">
                         <img
                           src={item.image}
                           alt={item.title}
                           className="
-                               rounded-2xl
-                               shadow-lg
-                               max-h-[320px]
-                               object-contain
-                               ring-1 ring-white/10
-                             "
+                    rounded-2xl
+                    shadow-lg
+                    max-h-[320px]
+                    object-contain
+                    ring-1 ring-white/10
+                  "
                         />
                       </div>
 
-                      {/* ===== Text Content ===== */}
+                      {/* Text */}
                       <div className="space-y-6">
-                        {/* Problem */}
                         <div>
-                          <h4 className="flex items-center gap-2 font-semibold text-white">
+                          <h4 className="font-semibold text-white">
                             💡 Problem
                           </h4>
-                          <p className=" text-sm text-slate-300 leading-relaxed">
+                          <p className="text-sm text-slate-300 leading-relaxed">
                             {item.challenge}
                           </p>
                         </div>
 
-                        {/* Solution */}
                         <div>
-                          <h4 className="flex items-center gap-2 font-semibold text-white">
+                          <h4 className="font-semibold text-white">
                             💡 Solution
                           </h4>
                           <p className="text-sm text-slate-300 leading-relaxed">
@@ -228,26 +220,24 @@ export default function SharePointCaseStudies() {
                           </p>
                         </div>
 
-                        {/* ===== Impact ===== */}
+                        {/* Impact Box */}
                         <div
                           className="
-                             relative
-                             rounded-2xl
-                             px-7 py-5
-                             flex flex-col gap-4
-                             sm:flex-row sm:items-center sm:justify-between
-                             bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600
-                             text-white
-                             shadow-[0_18px_40px_rgba(79,70,229,0.45)]
-                             overflow-hidden
-                           "
+                    relative
+                    rounded-2xl
+                    px-7 py-5
+                    flex flex-col gap-4
+                    sm:flex-row sm:items-center sm:justify-between
+                    bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600
+                    text-white
+                    shadow-[0_18px_40px_rgba(79,70,229,0.45)]
+                    overflow-hidden
+                  "
                         >
-                          {/* Glow */}
                           <div className="absolute -top-10 -left-10 w-40 h-40 bg-white/10 blur-3xl rounded-full" />
 
-                          {/* Impact text */}
                           <div className="relative z-10">
-                            <p className="text-[10px] uppercase tracking-widest text-white/70 ">
+                            <p className="text-[10px] uppercase tracking-widest text-white/70">
                               Impact
                             </p>
                             <p className="text-sm sm:text-base font-semibold leading-snug">
@@ -255,38 +245,26 @@ export default function SharePointCaseStudies() {
                             </p>
                           </div>
 
-                          {/* Separator */}
-                          <div
-                            className="
-                               relative z-10
-                               w-full h-px
-                               sm:w-px sm:h-10
-                               bg-white/30
-                               rounded-full
-                             "
-                          />
+                          <div className="relative z-10 w-full h-px sm:w-px sm:h-10 bg-white/30 rounded-full" />
 
-                          {/* CTA */}
                           <a
                             href={item.href}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="
-                                 relative z-10
-                                 inline-flex items-center gap-2
-                                 px-5 py-2.5
-                                 text-xs font-semibold uppercase tracking-wider
-                                 whitespace-nowrap
-                                 rounded-full
-                                 bg-white text-indigo-700
-                                 shadow-md
-                                 hover:scale-105
-                                 hover:shadow-lg
-                                 transition
-                               "
+                      relative z-10
+                      inline-flex items-center gap-2
+                      px-5 py-2.5
+                      text-xs font-semibold uppercase tracking-wider
+                      whitespace-nowrap
+                      rounded-full
+                      bg-white text-indigo-700
+                      shadow-md
+                      hover:scale-105
+                      transition
+                    "
                           >
-                            View Case Study
-                            <span className="text-sm">→</span>
+                            View Case Study →
                           </a>
                         </div>
                       </div>

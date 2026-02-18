@@ -5,12 +5,14 @@ import { Factory, AlertTriangle, Workflow, TrendingUp } from "lucide-react";
 import StartProjectSection from "./start-project";
 import Link from "next/link";
 import HeroWithTestimonial from "./hero";
+import PowerAppsCaseStudies from "./latest-cases";
 
 export default function PowerAppsCaseStudiesPage() {
   return (
     <>
       <NavigationClient />
       <HeroWithTestimonial />
+      <PowerAppsCaseStudies/>
       <section className="relative bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
         {/* Ambient top glow */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_55%)]" />

@@ -11,17 +11,16 @@ import "swiper/css/pagination";
 const caseStudies = [
   {
     title: "Model Driven App",
-    summary:
-      "Enterprise-grade business process automation using Microsoft Dataverse.",
+
+    summary: "Enterprise automation built on Microsoft Dataverse.",
 
     challenge:
-      "Manual business processes and fragmented data caused inefficiencies, duplicate work, and limited visibility across teams.",
+      "Manual processes and scattered data reduced efficiency and visibility.",
 
     solution:
-      "Built a Power Apps model-driven solution using Microsoft Dataverse with role-based access, automated approvals, and centralized records.",
+      "Developed a model-driven app with role-based access and automated workflows.",
 
-    impact:
-      "Reduced manual effort by 60% and improved reporting with real-time dashboards.",
+    impact: "Reduced manual work by 60% with real-time dashboards.",
 
     tech: ["Power Apps", "Dataverse", "Power Automate"],
 
@@ -34,17 +33,15 @@ const caseStudies = [
 
   {
     title: "Employee Details Tracking System",
-    summary:
-      "Centralized HR management platform replacing scattered spreadsheets.",
+
+    summary: "Centralized HR platform replacing spreadsheets.",
 
     challenge:
-      "Employee records were maintained across spreadsheets, leading to duplication, errors, and inconsistent data updates.",
+      "Employee data was scattered across spreadsheets causing errors.",
 
-    solution:
-      "Developed a centralized Power Apps solution to manage employee data with secure access, automated onboarding, and workflow approvals.",
+    solution: "Built a secure Power Apps system with automated HR workflows.",
 
-    impact:
-      "Improved data accuracy by 80% and reduced administrative workload.",
+    impact: "Improved data accuracy by 80% and reduced admin workload.",
 
     tech: ["Power Apps", "SharePoint", "Power Automate"],
 
@@ -57,17 +54,15 @@ const caseStudies = [
 
   {
     title: "Health Selector Mobile Application",
-    summary:
-      "Mobile-first healthcare comparison app for faster and smarter decisions.",
 
-    challenge:
-      "Users found it difficult to compare multiple health plans based on eligibility, benefits, and coverage criteria.",
+    summary: "Mobile app for easy health plan comparison.",
+
+    challenge: "Users struggled to compare plans and eligibility options.",
 
     solution:
-      "Designed a mobile-first Power Apps application with guided plan comparison, dynamic filters, and simplified eligibility logic.",
+      "Designed a mobile-first app with guided comparisons and filters.",
 
-    impact:
-      "Helped users select plans 3x faster while improving decision confidence.",
+    impact: "Enabled users to choose plans 3x faster.",
 
     tech: ["Power Apps", "Dataverse", "Power Fx"],
 
@@ -80,17 +75,14 @@ const caseStudies = [
 
   {
     title: "Projects Portfolio Management",
-    summary:
-      "End-to-end project visibility and KPI tracking for leadership teams.",
 
-    challenge:
-      "Lack of centralized project tracking resulted in poor visibility, missed deadlines, and delayed decision-making.",
+    summary: "Centralized project tracking with KPI dashboards.",
 
-    solution:
-      "Built a Dataverse-backed portfolio management app to monitor projects, budgets, risks, and KPIs with automated reports.",
+    challenge: "No unified system for tracking projects and risks.",
 
-    impact:
-      "Enabled real-time insights and improved project delivery timelines by 40%.",
+    solution: "Built a Dataverse-powered portfolio management app.",
+
+    impact: "Improved project delivery timelines by 40%.",
 
     tech: ["Power Apps", "Dataverse", "Power BI"],
 
@@ -103,16 +95,14 @@ const caseStudies = [
 
   {
     title: "Students Portal Mobile App",
-    summary:
-      "Unified digital campus experience for students on mobile devices.",
 
-    challenge:
-      "Students had to access multiple disconnected systems for academic information, schedules, and profile management.",
+    summary: "Unified mobile app for campus services.",
 
-    solution:
-      "Created a unified mobile app allowing students to manage profiles, view schedules, receive updates, and access services in one place.",
+    challenge: "Students used multiple disconnected systems.",
 
-    impact: "Increased student engagement and reduced support queries by 50%.",
+    solution: "Developed a single app for profiles, schedules, and updates.",
+
+    impact: "Increased engagement and reduced support queries by 50%.",
 
     tech: ["Power Apps", "Dataverse", "Power Automate"],
 
@@ -149,16 +139,16 @@ export default function PowerAppsCaseStudies() {
           </p>
         </div>
 
-        {/* ================= SLIDER ================= */}
         <div
           className="
-        h-[70vh] max-h-[680px]    
-        bg-gradient-to-r from-[#eef2f7] via-[#dbe3ff] to-[#eef2f7]
-        rounded-[32px]
-        border border-slate-200
-        shadow-xl
-        p-6
-      "
+    w-full
+    h-[70vh] max-h-[680px]
+    bg-gradient-to-r from-[#eef2f7] via-[#dbe3ff] to-[#eef2f7]
+    rounded-[32px]
+    border border-slate-200
+    shadow-xl
+    overflow-hidden
+  "
         >
           <Swiper
             modules={[Autoplay]}
@@ -172,31 +162,26 @@ export default function PowerAppsCaseStudies() {
             speed={900}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-            className="h-full"
+            className="h-full w-full overflow-hidden"
           >
             {caseStudies.map((item, index) => (
-              <SwiperSlide
-                key={index}
-                className="h-full flex items-center justify-center overflow-visible"
-              >
-                {/* ===== OUTER CLIP WRAPPER (IMPORTANT) ===== */}
-                <div
-                  className="relative w-full max-w-6xl rounded-[48px] overflow-hidden
-                      "
-                >
-                  {/* ===== BORDER / GLOW ===== */}
-                  <div
-                    className="pointer-events-none absolute inset-0 rounded-[48px]
-                        ring-1 ring-white/15"
-                  />
+              <SwiperSlide key={index} className="h-full w-full">
+                {/* FULL WIDTH CARD */}
+                <div className="relative w-full h-full overflow-hidden rounded-[32px]">
+                  {/* Border */}
+                  <div className="pointer-events-none absolute inset-0 rounded-[32px] ring-1 ring-white/15" />
 
-                  {/* ===== CARD BODY ===== */}
+                  {/* CARD BODY */}
                   <div
-                    className="relative rounded-[48px]
-                        bg-gradient-to-r from-black via-[#0f2f7a] to-black
-                        p-10"
+                    className="
+              w-full
+              h-full
+              bg-gradient-to-r from-black via-[#0f2f7a] to-black
+              p-10
+              flex flex-col justify-center
+            "
                   >
-                    {/* ===== Header ===== */}
+                    {/* Header */}
                     <div className="text-center mb-6">
                       <h3 className="text-2xl font-semibold text-white">
                         {item.title} — Case Study
@@ -210,65 +195,61 @@ export default function PowerAppsCaseStudies() {
                       </p>
                     </div>
 
-                    {/* ===== Main Content ===== */}
+                    {/* Content */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-                      {/* ===== Image ===== */}
+                      {/* Image */}
                       <div className="flex justify-center">
                         <img
                           src={item.image}
                           alt={item.title}
                           className="
-                  rounded-2xl
-                  shadow-lg
-                  max-h-[320px]
-                  object-contain
-                  ring-1 ring-white/10
-                "
+                    rounded-2xl
+                    shadow-lg
+                    max-h-[320px]
+                    object-contain
+                    ring-1 ring-white/10
+                  "
                         />
                       </div>
 
-                      {/* ===== Text Content ===== */}
+                      {/* Text */}
                       <div className="space-y-6">
-                        {/* Problem */}
                         <div>
-                          <h4 className="flex items-center gap-2 font-semibold text-white">
+                          <h4 className="font-semibold text-white">
                             💡 Problem
                           </h4>
-                          <p className="mt-2 text-sm text-slate-300 leading-relaxed">
+                          <p className="text-sm text-slate-300 leading-relaxed">
                             {item.challenge}
                           </p>
                         </div>
 
-                        {/* Solution */}
                         <div>
-                          <h4 className="flex items-center gap-2 font-semibold text-white">
+                          <h4 className="font-semibold text-white">
                             💡 Solution
                           </h4>
-                          <p className="mt-2 text-sm text-slate-300 leading-relaxed">
+                          <p className="text-sm text-slate-300 leading-relaxed">
                             {item.solution}
                           </p>
                         </div>
 
-                        {/* ===== Impact ===== */}
+                        {/* Impact Box */}
                         <div
                           className="
-                relative
-                rounded-2xl
-                px-7 py-5
-                flex flex-col gap-4
-                sm:flex-row sm:items-center sm:justify-between
-                bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600
-                text-white
-                shadow-[0_18px_40px_rgba(79,70,229,0.45)]
-                overflow-hidden
-              "
+                    relative
+                    rounded-2xl
+                    px-7 py-5
+                    flex flex-col gap-4
+                    sm:flex-row sm:items-center sm:justify-between
+                    bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600
+                    text-white
+                    shadow-[0_18px_40px_rgba(79,70,229,0.45)]
+                    overflow-hidden
+                  "
                         >
-                          {/* Glow */}
                           <div className="absolute -top-10 -left-10 w-40 h-40 bg-white/10 blur-3xl rounded-full" />
 
-                          {/* Impact text */}
                           <div className="relative z-10">
-                            <p className="text-[11px] uppercase tracking-widest text-white/70 mb-1">
+                            <p className="text-[10px] uppercase tracking-widest text-white/70">
                               Impact
                             </p>
                             <p className="text-sm sm:text-base font-semibold leading-snug">
@@ -276,38 +257,26 @@ export default function PowerAppsCaseStudies() {
                             </p>
                           </div>
 
-                          {/* Separator */}
-                          <div
-                            className="
-                  relative z-10
-                  w-full h-px
-                  sm:w-px sm:h-10
-                  bg-white/30
-                  rounded-full
-                "
-                          />
+                          <div className="relative z-10 w-full h-px sm:w-px sm:h-10 bg-white/30 rounded-full" />
 
-                          {/* CTA */}
                           <a
                             href={item.href}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="
-                    relative z-10
-                    inline-flex items-center gap-2
-                    px-5 py-2.5
-                    text-xs font-semibold uppercase tracking-wider
-                    whitespace-nowrap
-                    rounded-full
-                    bg-white text-indigo-700
-                    shadow-md
-                    hover:scale-105
-                    hover:shadow-lg
-                    transition
-                  "
+                      relative z-10
+                      inline-flex items-center gap-2
+                      px-5 py-2.5
+                      text-xs font-semibold uppercase tracking-wider
+                      whitespace-nowrap
+                      rounded-full
+                      bg-white text-indigo-700
+                      shadow-md
+                      hover:scale-105
+                      transition
+                    "
                           >
-                            View Case Study
-                            <span className="text-sm">→</span>
+                            View Case Study →
                           </a>
                         </div>
                       </div>
@@ -318,7 +287,6 @@ export default function PowerAppsCaseStudies() {
             ))}
           </Swiper>
         </div>
-
         {/* ================= PAGINATION (clean spacing) ================= */}
         <div className="flex justify-center">
           <div className="flex flex-col items-center gap-2 px-6 py-3 rounded-full bg-white border border-gray-200 shadow-md">

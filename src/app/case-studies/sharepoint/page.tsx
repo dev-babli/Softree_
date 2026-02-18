@@ -1,12 +1,7 @@
 import NavigationClient from "@/components/sections/navigation-client";
 import ProjectProcessSection from "./start-project";
-import {
-  Factory,
-  AlertTriangle,
-  Workflow,
-  TrendingUp,
-  Link,
-} from "lucide-react";
+import { Factory, AlertTriangle, Workflow, TrendingUp } from "lucide-react";
+import Link from "next/link";
 import CaseFooter from "../footer";
 import CaseStudyGrid from "./case-study";
 
@@ -15,100 +10,109 @@ export default function webCaseStudiesPage() {
     <div>
       <NavigationClient />
       <section className="relative bg-gradient-to-br from-[#0b3ea8] to-[#1e73d8] text-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-10 items-center relative z-10">
+        <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center relative z-10">
           {/* LEFT CONTENT */}
-          <div>
-            <h1 className="text-4xl lg:text-5xl font-semibold">
-              SharePoint Case Studies
+          <div className="mt-4">
+            <h1 className="text-4xl lg:text-5xl font-semibold leading-tight">
+              Enterprise SharePoint Case Studies
             </h1>
 
-            <p className="mt-4 text-white/80">
-              Real-world SharePoint solutions delivering secure collaboration,
-              automated workflows, and scalable enterprise content management.
+            <p className="mt-4 text-white/85 max-w-lg">
+              Discover how we design and deliver modern SharePoint intranet
+              portals, document management systems, and workflow automation
+              solutions that drive collaboration and operational efficiency.
             </p>
 
+            {/* CTA */}
             <div className="flex gap-4 mt-8">
               <Link
                 href="/contact"
                 className="bg-white text-blue-700 px-6 py-3 rounded-lg font-medium inline-flex items-center justify-center hover:bg-blue-50 transition"
               >
-                Talk to a Mobile App Expert
+                Talk to a SharePoint Expert
               </Link>
 
               <Link
                 href="/services/sharepoint"
                 className="border border-white/40 px-6 py-3 rounded-lg inline-flex items-center justify-center hover:bg-white/10 transition"
               >
-                View Mobile Services
+                View SharePoint Services
               </Link>
             </div>
           </div>
 
           {/* RIGHT GLASS CARD */}
           <div className="relative">
-            {/* Outer glow */}
-            <div className="absolute -inset-2 rounded-2xl bg-white/20 blur-xl"></div>
+            {/* Glow */}
+            <div className="absolute -inset-3 rounded-2xl bg-white/20 blur-2xl"></div>
 
-            {/* Glass box */}
-            <div className="relative rounded-2xl border border-white/20 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-xl shadow-2xl p-6 text-white">
-              {/* Top bar */}
-              <div className="flex items-center justify-between mb-6">
+            {/* Glass Card */}
+            <div className="relative rounded-2xl border border-white/20 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-xl shadow-2xl p-5">
+              {/* Top Bar */}
+              <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
                   <span className="w-3 h-3 rounded-full bg-red-400" />
                   <span className="w-3 h-3 rounded-full bg-yellow-400" />
                   <span className="w-3 h-3 rounded-full bg-green-400" />
                 </div>
                 <span className="text-xs text-white/70">
-                  SharePoint Admin Dashboard
+                  SharePoint Online Admin Center
                 </span>
               </div>
 
               {/* Title */}
-              <h3 className="text-lg font-semibold mb-1">
-                SharePoint Performance Overview
+              <h3 className="text-base font-semibold mb-1">
+                SharePoint Deployment Overview
               </h3>
-              <p className="text-sm text-white/70 mb-6">
-                Live insights from SharePoint Online & Microsoft 365
+
+              <p className="text-xs text-white/70 mb-4">
+                Real-time insights across Microsoft 365 & SharePoint
+                environments
               </p>
 
               {/* KPIs */}
-              <div className="grid grid-cols-3 gap-4 mb-6">
-                <div className="bg-white/10 rounded-lg p-3 text-center">
-                  <p className="text-xs text-white/60">Sites Delivered</p>
-                  <p className="text-xl font-semibold">70+</p>
+              <div className="grid grid-cols-3 gap-3 mb-4">
+                <div className="bg-white/10 rounded-lg p-2 text-center">
+                  <p className="text-[10px] text-white/60">Intranet Portals</p>
+                  <p className="text-lg font-semibold">45+</p>
                 </div>
-                <div className="bg-white/10 rounded-lg p-3 text-center">
-                  <p className="text-xs text-white/60">Active Users</p>
-                  <p className="text-xl font-semibold">300K+</p>
+
+                <div className="bg-white/10 rounded-lg p-2 text-center">
+                  <p className="text-[10px] text-white/60">Enterprise Users</p>
+                  <p className="text-lg font-semibold">300K+</p>
                 </div>
-                <div className="bg-white/10 rounded-lg p-3 text-center">
-                  <p className="text-xs text-white/60">Process Automation</p>
-                  <p className="text-xl font-semibold">+65%</p>
+
+                <div className="bg-white/10 rounded-lg p-2 text-center">
+                  <p className="text-[10px] text-white/60">
+                    Workflow Automation
+                  </p>
+                  <p className="text-lg font-semibold">+65%</p>
                 </div>
               </div>
 
-              {/* Chart mock */}
+              {/* Chart */}
               <div>
-                <p className="text-xs text-white/60 mb-3">
-                  Adoption & Workflow Efficiency
+                <p className="text-[10px] text-white/60 mb-2">
+                  Adoption & Productivity Growth
                 </p>
-                <div className="grid grid-cols-5 gap-2 items-end h-28">
-                  <div className="bg-white/40 rounded h-12" />
-                  <div className="bg-white/50 rounded h-20" />
-                  <div className="bg-white/70 rounded h-28" />
-                  <div className="bg-white/45 rounded h-16" />
-                  <div className="bg-white/35 rounded h-10" />
+
+                <div className="grid grid-cols-5 gap-2 items-end h-20">
+                  <div className="bg-white/40 rounded h-8" />
+                  <div className="bg-white/50 rounded h-14" />
+                  <div className="bg-white/70 rounded h-20" />
+                  <div className="bg-white/45 rounded h-12" />
+                  <div className="bg-white/35 rounded h-6" />
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* 🌊 WAVE BOTTOM */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+        {/* Wave Bottom */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none pointer-events-none">
           <svg
             viewBox="0 0 1440 120"
-            className="w-full h-[120px]"
+            className="w-full h-[90px]"
             preserveAspectRatio="none"
           >
             <path
@@ -118,6 +122,7 @@ export default function webCaseStudiesPage() {
           </svg>
         </div>
       </section>
+
       <section className="relative bg-gradient-to-b from-white via-slate-50 to-white">
         {/* Ambient top glow */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_55%)]" />
