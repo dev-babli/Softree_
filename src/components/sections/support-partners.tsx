@@ -143,23 +143,6 @@ export default function SupportPartners() {
                 <p className="text-sm text-gray-200 leading-relaxed">
                   {card.partner}
                 </p>
-
-                {/* CTA */}
-                <button
-                  className="
-      mt-4
-      inline-flex items-center gap-2
-      text-sm font-medium
-      text-blue-400
-      hover:text-blue-300
-      transition-colors
-    "
-                >
-                  Learn More
-                  <span className="transition-transform group-hover:translate-x-1">
-                    →
-                  </span>
-                </button>
               </div>
             </div>
           </div>

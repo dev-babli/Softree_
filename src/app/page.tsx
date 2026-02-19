@@ -11,14 +11,16 @@ import AiInsightsBlog from "@/components/sections/ai-insights-blog";
 import WhyChooseUs from "@/components/sections/why-choose-us";
 import SupportPartners from "@/components/sections/support-partners";
 import TrustedBy from "@/components/sections/trusted-by";
-
+import ResponsiveHeroBanner from "@/components/sections/responsive-hero-banner";
+import GlobeScrollDemo from "@/components/ui/landing-page";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <NavigationClient />
       <main className="flex-grow mt-1">
-        <HeroSection />
+        {/* <HeroSection /> */}
+        <ResponsiveHeroBanner />
         <TechnologySlider />
         <SupportPartners />
         <TrustedBy />

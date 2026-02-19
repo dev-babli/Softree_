@@ -11,41 +11,60 @@ import { motion, AnimatePresence } from "framer-motion";
 ========================= */
 const caseStudies = [
   {
-    title: "Enterprise Intranet Portal",
+    title: "Model-Driven App for Business Process Automation",
     description:
-      "A centralized SharePoint Online intranet designed to streamline communication and enhance document accessibility across departments.",
+      "A Microsoft Power Apps model-driven application built on Dataverse to automate structured business processes and deliver scalable workflows.",
+    image: "/images/case-study/power-apps/model.png",
+    href: "https://www.softreetechnology.com/wp-content/uploads/2025/03/Model-Driven-App-1.pdf",
+    category: "Power Apps",
     challenge:
-      "Disconnected systems and poor content discoverability slowed internal collaboration.",
+      "Manual and disconnected business processes were causing inefficiencies, data duplication, and limited visibility across departments.",
     solution:
-      "Implemented structured navigation, metadata tagging, and Power Automate workflows.",
+      "Developed a model-driven app using Dataverse with role-based access, automated workflows, and structured data architecture.",
     result:
-      "Improved collaboration efficiency by 60% and reduced search time significantly.",
-    image: "/images/sharepoint/case1.png",
-    href: "/case-studies/sharepoint/intranet-portal",
+      "Improved process efficiency, reduced manual errors, and enabled real-time operational insights across teams.",
   },
   {
-    title: "Document Management System",
+    title: "Employee Details Tracking System",
     description:
-      "Enterprise-grade document lifecycle management with governance and compliance controls.",
+      "A centralized employee management solution built using Power Apps for improved visibility and data accuracy.",
+    image: "/images/case-study/power-apps/emp.jpg",
+    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Employee-Details-tracking-System.pdf",
+    category: "Power Apps",
     challenge:
-      "Unstructured file storage created duplication and compliance risks.",
+      "Employee data was scattered across spreadsheets and systems, leading to inconsistencies and reporting delays.",
     solution:
-      "Built metadata architecture, approval workflows, and retention policies.",
+      "Built a centralized Power Apps solution to manage employee records, departments, and roles with secure access control.",
     result:
-      "Achieved secure, compliant document governance across departments.",
-    image: "/images/sharepoint/case2.png",
-    href: "/case-studies/sharepoint/document-management",
+      "Enhanced data accuracy, improved reporting speed, and streamlined HR operations across the organization.",
   },
   {
-    title: "HR Automation Portal",
+    title: "Health Plan Selector Mobile Application",
     description:
-      "Automated onboarding and HR processes integrated with SharePoint & Power Automate.",
-    challenge: "Manual HR processes delayed productivity and increased errors.",
+      "A mobile-first Power Apps solution for comparing and selecting health plans.",
+    image: "/images/case-study/power-apps/health.jpg",
+    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Health-Plan-Selector-Mobile-Application.pdf",
+    category: "Power Apps",
+    challenge:
+      "Users struggled to compare complex health plans due to fragmented and unclear eligibility information.",
     solution:
-      "Developed automated approval workflows and centralized employee records.",
-    result: "Reduced onboarding time by 40%.",
-    image: "/images/sharepoint/case3.png",
-    href: "/case-studies/sharepoint/hr-automation",
+      "Created a mobile-friendly Power Apps solution enabling dynamic filtering, eligibility validation, and side-by-side comparisons.",
+    result:
+      "Improved user decision-making experience and reduced plan selection time significantly.",
+  },
+  {
+    title: "Project Portfolio Management on Dataverse",
+    description:
+      "A portfolio management solution built on Microsoft Dataverse to centralize project tracking.",
+    image: "/images/case-study/power-apps/project.avif",
+    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Projects-Portfolio-ManagementMicrosoft-Dataverse.pdf",
+    category: "Power Apps",
+    challenge:
+      "Lack of centralized project visibility made tracking progress and resource allocation difficult.",
+    solution:
+      "Implemented a Dataverse-based portfolio management system with dashboards, milestone tracking, and reporting.",
+    result:
+      "Enabled data-driven decision-making and improved overall project delivery performance.",
   },
 ];
 
@@ -132,29 +151,29 @@ export default function SharePointCaseStudies() {
                 className="absolute inset-0 grid md:grid-cols-2 gap-10 items-center bg-gradient-to-br from-black via-zinc-900 to-gray-800 rounded-3xl border border-slate-200 shadow-[0_40px_80px_-40px_rgba(15,23,42,0.25)] p-10"
               >
                 {/* LEFT CONTENT */}
-                <div className="space-y-4 md:pr-8 md:border-r md:border-white/10">
-                  <span className="inline-block text-[10px] uppercase tracking-wider text-blue-400 font-semibold">
-                    Power App Case Study
+                <div className="space-y-6 md:pr-10 md:border-r md:border-white/10">
+                  {/* Label */}
+                  <span className="inline-block text-[11px] uppercase tracking-widest text-blue-400 font-semibold">
+                    Power Apps Case Study
                   </span>
 
-                  <h2 className="text-2xl md:text-3xl font-semibold text-white leading-tight">
+                  {/* Title */}
+                  <h2 className="text-2xl md:text-3xl font-semibold text-white leading-snug">
                     {study.title}
                   </h2>
 
-                  <p className="text-white/70 text-sm leading-relaxed">
-                    {study.description}
-                  </p>
+                  {/* Divider */}
+                  <div className="w-14 h-px bg-gradient-to-r from-blue-500 via-blue-400/40 to-transparent"></div>
 
-                  <div className="w-12 h-px bg-gradient-to-r from-blue-500 to-transparent"></div>
-
-                  <div className="space-y-4 pt-1">
+                  {/* Challenge • Solution • Result */}
+                  <div className="space-y-5 pt-2">
                     {/* Challenge */}
                     <div className="flex gap-3">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-md bg-red-500/10 text-red-400">
-                        <AlertTriangle size={14} />
+                      <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-red-500/10 text-red-400">
+                        <AlertTriangle size={15} />
                       </div>
                       <div>
-                        <h4 className="text-[10px] font-semibold text-red-400 uppercase tracking-wider">
+                        <h4 className="text-[11px] font-semibold text-red-400 uppercase tracking-wider">
                           Challenge
                         </h4>
                         <p className="text-white/70 text-xs mt-1 leading-relaxed">
@@ -163,29 +182,14 @@ export default function SharePointCaseStudies() {
                       </div>
                     </div>
 
-                    {/* Solution */}
-                    <div className="flex gap-3">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-md bg-blue-500/10 text-blue-400">
-                        <Wrench size={14} />
-                      </div>
-                      <div>
-                        <h4 className="text-[10px] font-semibold text-blue-400 uppercase tracking-wider">
-                          Solution
-                        </h4>
-                        <p className="text-white/70 text-xs mt-1 leading-relaxed">
-                          {study.solution}
-                        </p>
-                      </div>
-                    </div>
-
                     {/* Result */}
                     <div className="flex gap-3">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-md bg-green-500/10 text-green-400">
-                        <TrendingUp size={14} />
+                      <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-green-500/10 text-green-400">
+                        <TrendingUp size={15} />
                       </div>
                       <div>
-                        <h4 className="text-[10px] font-semibold text-green-400 uppercase tracking-wider">
-                          Result
+                        <h4 className="text-[11px] font-semibold text-green-400 uppercase tracking-wider">
+                          Results
                         </h4>
                         <p className="text-white/70 text-xs mt-1 leading-relaxed">
                           {study.result}
@@ -194,11 +198,15 @@ export default function SharePointCaseStudies() {
                     </div>
                   </div>
 
+                  {/* CTA */}
                   <Link
                     href={study.href}
-                    className="inline-block mt-4 bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition shadow-md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 mt-6 bg-blue-600 text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-blue-600/30"
                   >
-                    View Case Study →
+                    View Full Case Study
+                    <span className="text-lg">→</span>
                   </Link>
                 </div>
 

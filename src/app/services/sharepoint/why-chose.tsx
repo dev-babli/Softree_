@@ -74,7 +74,7 @@ export default function WhyChooseUs() {
 
               {/* headline */}
               <h2 className="text-3xl md:text-4xl font-semibold leading-tight text-slate-900">
-                Your Trusted Partner for { }
+                Your Trusted Partner for {}
                 <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent font-bold">
                   SharePoint Solutions & Modern Workplace
                 </span>
@@ -112,7 +112,10 @@ export default function WhyChooseUs() {
 
 function FeatureCard({ icon: Icon, title, desc }: FeatureCardProps) {
   return (
-    <div className="group rounded-3xl p-8 text-white bg-gradient-to-br from-emerald-900 to-teal-800 shadow-lg hover:-translate-y-2 transition duration-300">
+    <div
+      className="group rounded-3xl p-8 text-white bg-gradient-to-br from-blue-900 to-indigo-800
+ shadow-lg hover:-translate-y-2 transition duration-300"
+    >
       <Icon className="w-8 h-8 text-emerald-300 mb-6" />
 
       <h3 className="text-xl font-semibold mb-3">{title}</h3>

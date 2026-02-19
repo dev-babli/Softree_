@@ -1,11 +1,12 @@
 "use client";
 
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { OrbitControls, Stars, useTexture } from "@react-three/drei";
-import { useEffect, useRef, useState } from "react";
+import { Stars, useTexture, Html } from "@react-three/drei";
+import { Suspense, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 
-const RADIUS = 2;
+// ✅ Reduced size
+const RADIUS = 1.1;
 
 const locations = [
   { name: "USA", lat: 38, lng: -97 },
@@ -25,9 +26,7 @@ function latLngToVector3(lat: number, lng: number, radius: number) {
 }
 
 function Earth() {
-  const texture = useTexture(
-    "https://threejs.org/examples/textures/land_ocean_ice_cloud_2048.jpg",
-  );
+  const texture = useTexture("/earth.jpg");
 
   return (
     <mesh>
@@ -37,41 +36,30 @@ function Earth() {
   );
 }
 
-import { Html, Billboard } from "@react-three/drei";
-
 function Marker({ data, active }: any) {
   const position = latLngToVector3(data.lat, data.lng, RADIUS + 0.05);
 
   return (
     <group position={position}>
-      {/* Pin Head */}
       <mesh>
-        <sphereGeometry args={[0.07, 32, 32]} />
+        <sphereGeometry args={[0.06, 32, 32]} />
         <meshStandardMaterial color={active ? "#ff4d4d" : "#666"} />
       </mesh>
 
-      {/* Pin Tail */}
-      <mesh position={[0, -0.15, 0]}>
-        <coneGeometry args={[0.035, 0.18, 32]} />
+      <mesh position={[0, -0.12, 0]}>
+        <coneGeometry args={[0.03, 0.15, 32]} />
         <meshStandardMaterial color={active ? "#ff4d4d" : "#666"} />
       </mesh>
 
-      {/* Only ONE label */}
       {active && (
-        <Html
-          position={[0, 0.25, 0]}
-          center
-          style={{
-            pointerEvents: "none",
-          }}
-        >
+        <Html position={[0, 0.2, 0]} center>
           <div
             style={{
               background: "white",
               color: "black",
-              padding: "6px 14px",
+              padding: "5px 12px",
               borderRadius: "8px",
-              fontSize: "14px",
+              fontSize: "13px",
               fontWeight: 600,
               whiteSpace: "nowrap",
               boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
@@ -92,12 +80,12 @@ function AutoFocus({ activeIndex, setActiveIndex }: any) {
 
   useEffect(() => {
     const loc = locations[activeIndex];
-    targetPosition.current = latLngToVector3(loc.lat, loc.lng, RADIUS + 3);
+    targetPosition.current = latLngToVector3(loc.lat, loc.lng, RADIUS + 2.5);
     timer.current = 0;
   }, [activeIndex]);
 
   useFrame((_, delta) => {
-    camera.position.lerp(targetPosition.current, 0.04);
+    camera.position.lerp(targetPosition.current, 0.03);
     camera.lookAt(0, 0, 0);
 
     if (camera.position.distanceTo(targetPosition.current) < 0.1) {
@@ -116,22 +104,35 @@ export default function GlobeScene() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="w-full h-full">
-      <Canvas camera={{ position: [0, 0, 6] }}>
-        <color attach="background" args={["#000000"]} />
-        <ambientLight intensity={0.4} />
-        <directionalLight position={[5, 3, 5]} intensity={1.2} />
-        <Stars radius={100} depth={50} count={5000} factor={4} />
+    <div className="w-full h-full absolute inset-0">
+      <Canvas
+        camera={{ position: [0, 0, 7], fov: 45 }} // ✅ moved back (smaller look)
+        style={{ background: "transparent" }}
+        gl={{ alpha: true }}
+      >
+        <Suspense fallback={null}>
+          {/* Lights */}
+          <ambientLight intensity={0.4} />
+          <directionalLight position={[5, 3, 5]} intensity={1.2} />
 
-        <Earth />
+          {/* Stars */}
+          <Stars radius={100} depth={50} count={2500} factor={4} />
 
-        {locations.map((loc, i) => (
-          <Marker key={i} data={loc} active={i === activeIndex} />
-        ))}
+          {/* Earth */}
+          <Earth />
 
-        <AutoFocus activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
+          {/* Markers */}
+          {locations.map((loc, i) => (
+            <Marker key={i} data={loc} active={i === activeIndex} />
+          ))}
+
+          {/* Camera animation */}
+          <AutoFocus
+            activeIndex={activeIndex}
+            setActiveIndex={setActiveIndex}
+          />
+        </Suspense>
       </Canvas>
     </div>
   );
 }
-
