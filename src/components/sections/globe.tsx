@@ -12,6 +12,14 @@ const locations = [
   { name: "USA", lat: 38, lng: -97 },
   { name: "India", lat: 20, lng: 78 },
   { name: "Canada", lat: 56, lng: -106 },
+  { name: "Brazil", lat: -14, lng: -51 },
+  { name: "UK", lat: 55, lng: -3 },
+  { name: "Germany", lat: 51, lng: 10 },
+  { name: "UAE", lat: 24, lng: 54 },
+  { name: "Singapore", lat: 1.3, lng: 103.8 },
+  { name: "Australia", lat: -25, lng: 133 },
+  { name: "Japan", lat: 36, lng: 138 },
+  { name: "South Africa", lat: -30, lng: 25 },
 ];
 
 function latLngToVector3(lat: number, lng: number, radius: number) {
@@ -121,10 +129,7 @@ export default function GlobeScene() {
           {/* Earth */}
           <Earth />
 
-          {/* Markers */}
-          {locations.map((loc, i) => (
-            <Marker key={i} data={loc} active={i === activeIndex} />
-          ))}
+          <Marker data={locations[activeIndex]} active={true} />
 
           {/* Camera animation */}
           <AutoFocus
