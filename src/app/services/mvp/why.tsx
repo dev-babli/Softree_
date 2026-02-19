@@ -62,24 +62,6 @@ export default function WhyChooseSoftreeMvpDevelopment() {
             reducing risk, accelerating time-to-market, and laying a strong
             foundation for scalability.
           </p>
-
-          {/* CTA */}
-          <div className="mt-8">
-            <button
-              className="
-                group inline-flex items-center gap-3 px-8 py-4
-                rounded-xl font-semibold
-                bg-gradient-to-r from-blue-600 to-indigo-600
-                text-white
-                shadow-lg hover:shadow-xl
-                hover:scale-105
-                transition-all duration-300
-              "
-            >
-              Validate Your MVP Idea
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition" />
-            </button>
-          </div>
         </motion.div>
 
         {/* ================= RIGHT ================= */}

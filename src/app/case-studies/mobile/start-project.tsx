@@ -2,7 +2,7 @@
 
 export default function CtaMobileApps() {
   return (
-    <section className="py-4 relative overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
+    <section className="py-4 relative overflow-hidden ">
       <div className="mx-auto max-w-7xl px-6">
         <div
           className="
@@ -69,13 +69,6 @@ export default function CtaMobileApps() {
                 className="bg-white text-indigo-700 px-6 py-2.5 rounded-lg text-xs font-medium shadow hover:scale-105 transition"
               >
                 Hire Developers
-              </a>
-
-              <a
-                href="/services/mobile-app-development"
-                className="border border-white/30 bg-white/10 px-6 py-2.5 rounded-lg text-xs font-medium backdrop-blur hover:bg-white/20 transition"
-              >
-                View Hiring Models
               </a>
             </div>
           </div>

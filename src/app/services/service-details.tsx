@@ -117,7 +117,7 @@ const services = [
       "AI Integration with Apps",
       "Responsible AI Practices",
     ],
-    learnMoreUrl: "/services/ai-solutions",
+    learnMoreUrl: "/services/agentic-ai",
   },
 ];
 

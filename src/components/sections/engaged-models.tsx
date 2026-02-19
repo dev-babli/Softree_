@@ -82,7 +82,8 @@ export default function FlexibleEngagementModels() {
                   "White-label support",
                   "Direct PM collaboration",
                   "Scalable team structure",
-                  "Microsoft & modern engineering expertise","Long-term delivery continuity & knowledge retention",
+                  "Microsoft & modern engineering expertise",
+                  "Long-term delivery continuity & knowledge retention",
                 ],
               },
               {
@@ -157,7 +158,7 @@ export default function FlexibleEngagementModels() {
         {/* ================= CTA ================= */}
         <div className="mt-14 text-center">
           <a
-            href="#contact-us"
+            href="/contact"
             className="
               inline-flex items-center gap-3
               rounded-full

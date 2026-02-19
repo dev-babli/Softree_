@@ -3,11 +3,7 @@
 export default function CtaSPFx() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
-
-   
-
       <div className="mx-auto max-w-7xl px-6 py-12">
-
         <div
           className="
             grid md:grid-cols-2 gap-10 items-center
@@ -18,10 +14,8 @@ export default function CtaSPFx() {
             shadow-xl
           "
         >
-
           {/* ================= LEFT ================= */}
           <div>
-
             {/* badge */}
             <span className="inline-block mb-3 px-3 py-1 rounded-full bg-white/10 text-xs">
               ⚙️ SharePoint Framework (SPFx)
@@ -38,8 +32,8 @@ export default function CtaSPFx() {
             {/* description */}
             <p className="mt-4 text-sm text-white/85 max-w-lg">
               Extend SharePoint with modern React-based web parts, command bars,
-              dashboards, and enterprise solutions that integrate seamlessly with
-              Microsoft 365 and Teams.
+              dashboards, and enterprise solutions that integrate seamlessly
+              with Microsoft 365 and Teams.
             </p>
 
             {/* benefits */}
@@ -74,34 +68,21 @@ export default function CtaSPFx() {
               >
                 Talk to SPFx Expert
               </a>
-
-              <a
-                href="/services/spfx-development"
-                className="border border-white/30 bg-white/10 px-6 py-2.5 rounded-lg text-xs font-medium backdrop-blur hover:bg-white/20 transition"
-              >
-                View Services
-              </a>
             </div>
           </div>
 
-
           {/* ================= RIGHT – FORM ================= */}
           <div className="relative">
-
             <div className="absolute -inset-2 bg-white/10 blur-xl rounded-3xl" />
 
             <div className="relative bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 p-6">
-
-              <h3 className="text-lg font-semibold">
-                Get Free SPFx Estimate
-              </h3>
+              <h3 className="text-lg font-semibold">Get Free SPFx Estimate</h3>
 
               <p className="text-xs text-white/70 mb-4">
                 Share your customization needs — we’ll reply within 24 hours
               </p>
 
               <form className="space-y-3">
-
                 <input
                   placeholder="Full Name"
                   className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300"
@@ -113,9 +94,7 @@ export default function CtaSPFx() {
                   className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300"
                 />
 
-                <select
-                  className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300"
-                >
+                <select className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300">
                   <option>Requirement Type</option>
                   <option>Custom Web Part</option>
                   <option>Application Customizer</option>
@@ -134,10 +113,8 @@ export default function CtaSPFx() {
               <p className="mt-3 text-[10px] text-center text-white/60">
                 🔒 Secure • NDA Protected • No Spam
               </p>
-
             </div>
           </div>
-
         </div>
       </div>
     </section>

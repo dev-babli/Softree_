@@ -150,7 +150,7 @@ export default function HireSharePointPricing() {
         {/* ================= CTA ================= */}
         <div className="mt-14 text-center">
           <a
-            href="#contact-us"
+            href="/contact"
             className="
               inline-flex items-center gap-3
               rounded-full

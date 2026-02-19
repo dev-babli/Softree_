@@ -174,11 +174,6 @@ export default function ServicesSection() {
                         ))}
                       </ul>
                     )}
-
-                    {/* CTA */}
-                    <div className="text-sm font-medium text-blue-600">
-                      Learn more →
-                    </div>
                   </div>
                 </div>
               </div>

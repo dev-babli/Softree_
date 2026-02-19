@@ -189,7 +189,7 @@ export default function HireNextJsPricing() {
         {/* ================= CTA ================= */}
         <div className="mt-8 text-center">
           <a
-            href="#contact-us"
+            href="/contact"
             className="
               inline-flex items-center gap-3
               rounded-full

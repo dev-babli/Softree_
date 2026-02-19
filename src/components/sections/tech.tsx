@@ -101,7 +101,7 @@ export default function TechStack() {
           {/* CTA */}
           <div className="text-center mt-20">
             <a
-              href="/technologies"
+              href="/services/mvp"
               className="
                 inline-flex items-center justify-center
                 px-10 py-4 rounded-full font-semibold

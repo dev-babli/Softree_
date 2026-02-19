@@ -59,7 +59,7 @@ const bottomCards: FeatureCardProps[] = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-10">
+    <section className="py-10 bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
       <div className="max-w-7xl mx-auto px-6">
         {/* ================= TOP SECTION ================= */}
         <div className="grid lg:grid-cols-3 gap-12 items-stretch">

@@ -55,21 +55,21 @@ export default function WhoWeWorkWith() {
               title: "Businesses & Brands",
               desc: "Entrepreneurs, enterprises, and non-profits building mobile apps to engage customers and communities.",
               img: "/images/mobile-app/business.jpg",
-              link: "https://buildfire.com/demo/",
+
               badge: "For Growth",
             },
             {
               title: "App Resellers",
               desc: "Create once, rebrand endlessly, and sell to multiple clients using one scalable mobile platform.",
               img: "/images/mobile-app/1.avif",
-              link: "https://buildfire.com/reseller-demo/",
+
               badge: "White-Label",
             },
             {
               title: "Agencies",
               desc: "Deliver high-quality mobile apps under your own brand without heavy technical or financial investment.",
               img: "/images/mobile-app/agency.jpg",
-              link: "https://buildfire.com/demo/",
+
               badge: "Agency-Ready",
             },
           ].map((item, i) => (
@@ -103,14 +103,6 @@ export default function WhoWeWorkWith() {
                 <p className="text-gray-300 mb-6 leading-relaxed">
                   {item.desc}
                 </p>
-
-                <Link
-                  href={item.link}
-                  className="inline-flex items-center gap-2 w-fit text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-indigo-500 px-6 py-3 rounded-xl hover:opacity-90 transition"
-                >
-                  Book a Demo
-                  <span className="text-lg">→</span>
-                </Link>
               </div>
             </div>
           ))}

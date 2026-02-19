@@ -70,13 +70,6 @@ export default function CtaGenAI() {
               >
                 Talk to GenAI Experts
               </a>
-
-              <a
-                href="/services/generative-ai"
-                className="border border-white/30 bg-white/10 px-6 py-2.5 rounded-lg text-xs font-medium backdrop-blur hover:bg-white/20 transition"
-              >
-                Explore Solutions
-              </a>
             </div>
           </div>
 
@@ -90,8 +83,8 @@ export default function CtaGenAI() {
               </h3>
 
               <p className="text-xs text-white/70 mb-4">
-                Tell us your use case — our specialists will reach out within
-                24 hours.
+                Tell us your use case — our specialists will reach out within 24
+                hours.
               </p>
 
               <form className="space-y-3">

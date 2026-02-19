@@ -61,10 +61,10 @@ export default function PowerBIServicesSection() {
   const ActiveIcon = active.icon;
 
   return (
-    <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-28">
+    <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
       <div className="max-w-7xl mx-auto px-6">
         {/* ================= HEADER ================= */}
-        <div className="relative text-center mb-24 max-w-4xl mx-auto">
+        <div className="relative text-center mb-10 max-w-4xl mx-auto">
           {/* subtle glow background */}
           <div className="absolute inset-0 -z-10 blur-3xl opacity-40 bg-gradient-to-r from-blue-200/40 via-cyan-200/30 to-transparent" />
 
@@ -72,7 +72,7 @@ export default function PowerBIServicesSection() {
           <span
             className="
       inline-block
-      mb-6
+      mb-2
       px-5 py-2
       rounded-full
       bg-blue-50
@@ -87,7 +87,7 @@ export default function PowerBIServicesSection() {
           </span>
 
           {/* Title */}
-          <h2 className="text-4xl lg:text-5xl font-semibold text-zinc-900 leading-tight">
+          <h2 className="text-4xl lg:text-4xl font-semibold text-zinc-900 leading-tight">
             How{" "}
             <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
               Power BI
@@ -96,7 +96,7 @@ export default function PowerBIServicesSection() {
           </h2>
 
           {/* Description */}
-          <p className="mt-6 text-zinc-600 text-lg leading-relaxed max-w-2xl mx-auto">
+          <p className=" text-zinc-600 text-lg leading-relaxed max-w-2xl mx-auto">
             Transform raw data into intelligent insights with scalable, secure,
             and enterprise-grade analytics solutions designed for smarter
             decisions and faster growth.

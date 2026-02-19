@@ -69,12 +69,6 @@ const menu: MenuItem[] = [
             icon: Sparkles,
             description: "LLM-powered solutions",
           },
-          {
-            label: "AI Chatbot Development",
-            url: "/services/ai-chatbot",
-            icon: MessageSquare,
-            description: "Smart conversational bots",
-          },
         ],
       },
       {
@@ -155,7 +149,7 @@ const menu: MenuItem[] = [
             description: "Real-world low-code solutions",
           },
           {
-            label: "AI & Copilot Case Studies",
+            label: "AI Case Studies",
             url: "/case-studies/ai",
             icon: Brain,
             description: "AI-driven automation",
@@ -187,12 +181,6 @@ const menu: MenuItem[] = [
             url: "/case-studies/sharepoint",
             icon: Share2,
             description: "Enterprise collaboration",
-          },
-          {
-            label: "SPFx Case Studies",
-            url: "/case-studies/spfx",
-            icon: Globe,
-            description: "Custom SPFx solutions",
           },
         ],
       },

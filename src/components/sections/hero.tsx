@@ -1,4 +1,5 @@
 import GlobeScene from "./globe";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -35,15 +36,20 @@ export default function Hero() {
 
           {/* Buttons */}
           <div className="flex flex-wrap gap-4">
-            <button className="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 transition">
+            <Link
+              href="/contact"
+              className="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 transition inline-block"
+            >
               Partner With Us
-            </button>
+            </Link>
 
-            <button className="px-6 py-3 rounded-lg border border-white/30 hover:bg-white/10 transition">
+            <Link
+              href="/contact"
+              className="px-6 py-3 rounded-lg border border-white/30 hover:bg-white/10 transition inline-block"
+            >
               Schedule a Strategy Call
-            </button>
+            </Link>
           </div>
-
           {/* Bottom line */}
           <div className="mt-8 flex items-center text-sm text-white/60 flex-wrap">
             <span>White-Label Friendly</span>

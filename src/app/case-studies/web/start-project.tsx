@@ -71,13 +71,6 @@ export default function CtaWebApps() {
               >
                 Hire Web Developers
               </a>
-
-              <a
-                href="/services/web-development"
-                className="border border-white/30 bg-white/10 px-6 py-2.5 rounded-lg text-xs font-medium backdrop-blur hover:bg-white/20 transition"
-              >
-                View Hiring Models
-              </a>
             </div>
           </div>
 

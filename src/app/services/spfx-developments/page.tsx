@@ -1,6 +1,6 @@
 import NavigationClient from "@/components/sections/navigation-client";
 import SharePointHero from "./hero";
-import Footer from "@/components/footer";
+import Footer from "@/components/sections/footer";
 import SpfxBenefits from "./spfx-benefits";
 import SpfxTabs from "./spfx-tab";
 import Certifications from "./certification";

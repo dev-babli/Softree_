@@ -3,10 +3,6 @@
 export default function CtaPowerBI() {
   return (
     <section className="relative isolate overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
-      {/* ===== BACKGROUND GLOW ===== */}
-      <div className="absolute -top-32 -left-32 w-[420px] h-[420px] bg-indigo-500/10 blur-[120px] rounded-full" />
-      <div className="absolute bottom-0 right-0 w-[420px] h-[420px] bg-cyan-400/10 blur-[120px] rounded-full" />
-
       <div className="mx-auto max-w-7xl px-6 py-20">
         {/* ===== MAIN CARD ===== */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-14 items-center rounded-[32px] bg-gradient-to-br from-[#0b3ea8] via-[#1557c0] to-[#1e73d8] p-10 md:p-16 shadow-2xl border border-white/10 text-white">
@@ -65,13 +61,6 @@ export default function CtaPowerBI() {
                 className="bg-white text-indigo-700 px-6 py-2.5 rounded-lg text-xs font-medium shadow hover:scale-105 transition"
               >
                 Hire Power BI Developers
-              </a>
-
-              <a
-                href="/services/power-bi"
-                className="border border-white/30 bg-white/10 px-6 py-2.5 rounded-lg text-xs font-medium backdrop-blur hover:bg-white/20 transition"
-              >
-                View Hiring Models
               </a>
             </div>
           </div>

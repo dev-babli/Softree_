@@ -66,17 +66,10 @@ export default function CtaPowerApps() {
             {/* CTA */}
             <div className="mt-3 flex gap-3">
               <a
-                href="/hire-power-apps-developers"
+                href="/contact"
                 className="rounded-lg bg-white text-blue-700 px-6 py-2.5 text-xs font-medium shadow hover:scale-105 transition"
               >
                 Hire Developers
-              </a>
-
-              <a
-                href="/contact-us"
-                className="rounded-lg border border-white/30 bg-white/10 px-6 py-2.5 text-xs font-medium backdrop-blur hover:bg-white/20 transition"
-              >
-                Free Consultation
               </a>
             </div>
           </div>

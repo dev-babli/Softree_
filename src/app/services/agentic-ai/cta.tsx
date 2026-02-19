@@ -31,9 +31,8 @@ export default function CtaAgenticAI() {
 
             {/* desc */}
             <p className="mt-1 text-sm text-white/85 max-w-lg">
-              Move beyond copilots. Build intelligent agents that plan,
-              decide, act, and continuously improve across your enterprise
-              workflows.
+              Move beyond copilots. Build intelligent agents that plan, decide,
+              act, and continuously improve across your enterprise workflows.
             </p>
 
             {/* benefits */}
@@ -69,13 +68,6 @@ export default function CtaAgenticAI() {
                 className="bg-white text-indigo-700 px-6 py-2.5 rounded-lg text-xs font-medium shadow hover:scale-105 transition"
               >
                 Talk to AI Experts
-              </a>
-
-              <a
-                href="/services/agentic-ai"
-                className="border border-white/30 bg-white/10 px-6 py-2.5 rounded-lg text-xs font-medium backdrop-blur hover:bg-white/20 transition"
-              >
-                Explore Solutions
               </a>
             </div>
           </div>

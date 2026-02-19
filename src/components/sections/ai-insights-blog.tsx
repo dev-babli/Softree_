@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 
 type Article = {
   imageUrl: string;
@@ -91,67 +90,54 @@ export default function AiInsightsBlog() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-stretch">
           {/* ================= LEFT FEATURED ================= */}
           <div className="lg:col-span-3 h-full">
-            <div
-              className="relative h-full min-h-[520px] rounded-[32px] overflow-hidden
-      shadow-[0_20px_50px_rgba(0,0,0,0.35)]"
-            >
-              {/* Background frame */}
-              <div className="absolute inset-0 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900" />
+            <Link href={featured.href} target="_blank" className="block h-full">
+              <div className="relative h-full min-h-[520px] rounded-[32px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.35)] transition-all duration-500 hover:scale-[1.01]">
+                {/* Background frame */}
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900" />
 
-              {/* Image inset */}
-              <div className="absolute inset-2 rounded-[24px] overflow-hidden">
-                <Image
-                  src={featured.imageUrl}
-                  alt={featured.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-
-              {/* Overlay */}
-              <div className="absolute inset-2 rounded-[24px] bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-
-              {/* Content */}
-              <div className="absolute bottom-0 left-0 right-0 p-8 z-10">
-                <div className="text-xs text-white/70 tracking-widest font-semibold uppercase">
-                  {featured.date} • {featured.readTime}
+                {/* Image inset */}
+                <div className="absolute inset-2 rounded-[24px] overflow-hidden">
+                  <Image
+                    src={featured.imageUrl}
+                    alt={featured.title}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
 
-                <h3 className="mt-2 text-white text-3xl font-semibold leading-snug">
-                  {featured.title}
-                </h3>
+                {/* Overlay */}
+                <div className="absolute inset-2 rounded-[24px] bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 
-                <p className="mt-3 text-white/70 text-sm max-w-xl">
-                  {featured.description}
-                </p>
+                {/* Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-8 z-10">
+                  <div className="text-xs text-white/70 tracking-widest font-semibold uppercase">
+                    {featured.date} • {featured.readTime}
+                  </div>
+
+                  <h3 className="mt-2 text-white text-3xl font-semibold leading-snug">
+                    {featured.title}
+                  </h3>
+
+                  <p className="mt-3 text-white/70 text-sm max-w-xl">
+                    {featured.description}
+                  </p>
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
 
           {/* ================= RIGHT LIST ================= */}
           <div className="lg:col-span-2 flex flex-col gap-3 h-full">
             {recent.map((article, index) => (
-              <button
+              <Link
                 key={index}
-                onClick={() => handleSelect(article, index)}
-                className="
-          group relative flex items-center gap-4
-          flex-1
-          p-5 rounded-2xl text-left
-          bg-white/5
-          border border-white/10
-          hover:bg-white/10 hover:border-white/20
-          transition-all duration-300
-        "
+                href={article.href}
+                target="_blank"
+                className="group relative flex items-center gap-4 flex-1 p-5 rounded-2xl text-left bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                onMouseEnter={() => handleSelect(article, index)}
               >
                 {/* Accent bar */}
-                <span
-                  className="
-            absolute left-0 top-1/2 -translate-y-1/2
-            h-0 w-1 bg-blue-500 rounded-full
-            group-hover:h-10 transition-all duration-300
-          "
-                />
+                <span className="absolute left-0 top-1/2 -translate-y-1/2 h-0 w-1 bg-blue-500 rounded-full group-hover:h-10 transition-all duration-300" />
 
                 {/* Thumbnail */}
                 <div className="relative w-36 h-[100px] flex-shrink-0 rounded-xl overflow-hidden">
@@ -177,7 +163,7 @@ export default function AiInsightsBlog() {
                     {article.date} • {article.readTime}
                   </p>
                 </div>
-              </button>
+              </Link>
             ))}
           </div>
         </div>

@@ -70,13 +70,6 @@ export default function CtaSharePoint() {
               >
                 Hire SharePoint Developers
               </a>
-
-              <a
-                href="/services/sharepoint-development"
-                className="border border-white/30 bg-white/10 px-6 py-2.5 rounded-lg text-xs font-medium backdrop-blur hover:bg-white/20 transition"
-              >
-                View Hiring Models
-              </a>
             </div>
           </div>
 

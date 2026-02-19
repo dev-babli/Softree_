@@ -66,14 +66,7 @@ export default function CtaMVP() {
                 href="/contact"
                 className="bg-white text-indigo-700 px-6 py-2.5 rounded-lg text-xs font-medium shadow hover:scale-105 transition"
               >
-                Build My MVP
-              </a>
-
-              <a
-                href="/services/mvp-development"
-                className="border border-white/30 bg-white/10 px-6 py-2.5 rounded-lg text-xs font-medium backdrop-blur hover:bg-white/20 transition"
-              >
-                View MVP Approach
+                Contact Us
               </a>
             </div>
           </div>

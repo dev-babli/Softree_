@@ -51,35 +51,6 @@ const SharePointMigration = () => {
             specialists help organizations unlock modern collaboration and
             scalable business processes.
           </p>
-
-          {/* CTA */}
-          <div className="mt-9 flex flex-wrap gap-4">
-            <Link
-              href="https://www.synapseindia.com/technology/sharepoint-migration.html"
-              className="
-                px-7 py-3 rounded-xl text-sm font-semibold
-                bg-blue-600 text-white
-                hover:bg-blue-700
-                hover:-translate-y-1
-                hover:shadow-[0_18px_45px_rgba(59,130,246,0.45)]
-                transition-all
-              "
-            >
-              Explore Solutions
-            </Link>
-
-            <Link
-              href="#contact"
-              className="
-                px-7 py-3 rounded-xl text-sm font-medium
-                border border-white/20 text-gray-200
-                hover:bg-white/10 hover:text-white
-                transition
-              "
-            >
-              Talk to an Expert
-            </Link>
-          </div>
         </div>
 
         {/* ================================================= */}

@@ -32,7 +32,7 @@ export default function Page() {
               </Link>
 
               <Link
-                href="/services/ai-development"
+                href="/services/agentic-ai"
                 className="border border-white/40 px-6 py-3 rounded-lg inline-flex items-center justify-center hover:bg-white/10 transition"
               >
                 View AI Services
