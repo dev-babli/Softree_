@@ -7,6 +7,8 @@ import PowerBICaseStudies from "./cases";
 import CtaAbout from "./cta";
 import WhyChooseUs from "./why";
 import PowerBIStackOverview from "./tools";
+import PowerBIBenefits from "./benefits";
+import RelatedServices from "./related";
 /* ------------------------------------------------------------------ */
 /* Fixed Width Config                                                  */
 /* ------------------------------------------------------------------ */
@@ -19,7 +21,9 @@ export default function Home() {
 
       {/* HERO (can stay full-width internally) */}
       <PowerBIHero />
-      <PowerBICaseStudies />
+      {/* <PowerBICaseStudies /> */}
+      <PowerBIBenefits/>
+      <RelatedServices/>
       <PowerBIServicesTabs />
       <PowerBIStackOverview />
       <WhyChooseUs />

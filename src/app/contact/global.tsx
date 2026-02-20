@@ -38,19 +38,21 @@ const locations = [
   },
   {
     title: "USA Office",
-    map: "https://www.google.com/maps?q=New%20York%20United%20States&output=embed",
+    map: "https://www.google.com/maps?q=166+Geary+St+STE+1500+San+Francisco+CA+94108+USA&output=embed",
     address: (
       <>
         Softree Technology Pvt. Ltd.
         <br />
-        New York, NY,
+        166 Geary St. STE 1500 #2439
+        <br />
+        San Francisco, CA 94108,
         <br />
         United States
       </>
     ),
-    phone: "+1 (309) 791-4105",
-    salesPerson: "Emily Carter",
-    mail: "emily.carter@softreetechnology.com",
+    phone: "+1 628-800-5447",
+    salesPerson: "Sophie Lynn",
+    mail: "sophie.lynn@softreetechnology.com",
   },
 ];
 

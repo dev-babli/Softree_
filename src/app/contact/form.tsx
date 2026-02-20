@@ -121,7 +121,7 @@ export default function ContactPage() {
           {/* TRUST STATS */}
           <div className="grid grid-cols-3 gap-3">
             {[
-              { value: "150+", label: "Projects" },
+              { value: "200+", label: "Projects" },
               { value: "98%", label: "Client Satisfaction" },
               { value: "24h", label: "Response" },
             ].map((item, i) => (

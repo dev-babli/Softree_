@@ -112,12 +112,12 @@ export default function CaseStudiesSection() {
               {/* stats */}
               <div className="flex gap-12 mt-8">
                 <div>
-                  <p className="text-blue-600 font-semibold text-2xl">20+</p>
+                  <p className="text-blue-600 font-semibold text-2xl">200+</p>
                   <p className="text-sm text-zinc-500">Projects Delivered</p>
                 </div>
 
                 <div>
-                  <p className="text-blue-600 font-semibold text-2xl">99%</p>
+                  <p className="text-blue-600 font-semibold text-2xl">98%</p>
                   <p className="text-sm text-zinc-500">Client Satisfaction</p>
                 </div>
               </div>

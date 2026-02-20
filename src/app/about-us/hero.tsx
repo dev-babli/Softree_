@@ -59,69 +59,89 @@ export default function AboutHeroWithTestimonial() {
       <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-blue-600/20 blur-[160px] rounded-full" />
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-cyan-500/20 blur-[140px] rounded-full" />
 
-      {/* ================= CONTENT ================= */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-12 text-center mt-5">
-        {/* Badge */}
-        <span className="inline-block mb-5 px-4 py-2 rounded-full bg-white/10 backdrop-blur text-xs tracking-widest uppercase">
-          About Softree
-        </span>
+   {/* ================= CONTENT ================= */}
+<div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-12 text-center mt-5">
+  {/* Badge */}
+  <span className="inline-block mb-5 px-4 py-2 rounded-full bg-white/10 backdrop-blur text-xs tracking-widest uppercase">
+    About Softree
+  </span>
 
-        {/* Heading */}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight">
-          Empowering Businesses with
-          <br />
-          <span className="bg-gradient-to-r from-cyan-300 to-white bg-clip-text text-transparent">
-            Smart Digital Solutions
-          </span>
-        </h1>
+  {/* Heading */}
+  <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight">
+    Building Intelligent Solutions for a
+    <br />
+    <span className="bg-gradient-to-r from-cyan-300 to-white bg-clip-text text-transparent">
+      Digital-First World
+    </span>
+  </h1>
 
-        {/* Description */}
-        <p className="mt-5 text-lg text-white/75 max-w-3xl mx-auto">
-          Softree is a modern technology startup focused on SharePoint, SPFx,
-          automation and custom web applications. We help organizations simplify
-          workflows, improve collaboration and build scalable digital products
-          that accelerate growth.
-        </p>
+  {/* Description */}
+  <p className="mt-5 text-lg text-white/75 max-w-3xl mx-auto">
+    Softree is a fast-growing software startup specializing in AI-driven
+    solutions, SharePoint, Power Platform, mobile apps, and modern web
+    development. We help businesses automate processes, unlock insights,
+    and create seamless digital experiences.
+  </p>
 
-        {/* ================= GLASS INFO PANEL ================= */}
-        <div className="mt-10 mx-auto max-w-2xl rounded-3xl border border-white/20 bg-white/10 backdrop-blur-2xl p-7 shadow-2xl">
-          {/* Buttons */}
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              href="/services"
-              className="px-7 py-3 rounded-xl bg-white text-blue-700 font-medium shadow-lg hover:scale-105 transition inline-block"
-            >
-              Our Services
-            </Link>
+  {/* ================= GLASS INFO PANEL ================= */}
+  <div className="mt-10 mx-auto max-w-3xl rounded-3xl border border-white/20 bg-white/10 backdrop-blur-2xl p-7 shadow-2xl">
 
-            <Link
-              href="/contact"
-              className="px-7 py-3 rounded-xl border border-white/30 hover:bg-white/10 transition inline-block text-white"
-            >
-              Contact Us
-            </Link>
-          </div>
+    {/* Tech Focus Pills */}
+    <div className="flex flex-wrap justify-center gap-3 text-xs text-white/70 mb-6">
+      <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10">
+        AI Solutions
+      </span>
+      <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10">
+        SharePoint & SPFx
+      </span>
+      <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10">
+        Power Apps & Automate
+      </span>
+      <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10">
+        Mobile & Web Apps
+      </span>
+      <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10">
+        Power BI & Data
+      </span>
+    </div>
 
-          {/* Divider */}
-          <div className="my-6 h-px bg-white/15" />
+    {/* Buttons */}
+    <div className="flex flex-wrap justify-center gap-4">
+      <Link
+        href="/contact"
+        className="px-7 py-3 rounded-xl bg-white text-blue-700 font-medium shadow-lg hover:scale-105 transition inline-block"
+      >
+        Start a Conversation
+      </Link>
 
-          {/* Trust Stats */}
-          <div className="grid grid-cols-3 gap-4 text-center text-sm">
-            <div>
-              <p className="text-xl font-bold">200+</p>
-              <p className="text-white/60">Projects Delivered</p>
-            </div>
-            <div>
-              <p className="text-xl font-bold">5+</p>
-              <p className="text-white/60">Years Experience</p>
-            </div>
-            <div>
-              <p className="text-xl font-bold">98%</p>
-              <p className="text-white/60">Client Satisfaction</p>
-            </div>
-          </div>
-        </div>
+      <Link
+        href="/services"
+        className="px-7 py-3 rounded-xl border border-white/30 hover:bg-white/10 transition inline-block text-white"
+      >
+        View Our Services
+      </Link>
+    </div>
+
+    {/* Divider */}
+    <div className="my-6 h-px bg-white/15" />
+
+    {/* Trust Stats */}
+    <div className="grid grid-cols-3 gap-4 text-center text-sm">
+      <div>
+        <p className="text-xl font-bold">200+</p>
+        <p className="text-white/60">Projects Delivered</p>
       </div>
+      <div>
+        <p className="text-xl font-bold">13+</p>
+        <p className="text-white/60">Years Experience</p>
+      </div>
+      <div>
+        <p className="text-xl font-bold">98%</p>
+        <p className="text-white/60">Client Satisfaction</p>
+      </div>
+    </div>
+  </div>
+</div>
 
       {/* ================= PREMIUM SOFT WAVE ================= */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">

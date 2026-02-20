@@ -108,8 +108,8 @@ export default function OurStorySection() {
                 {/* STATS */}
                 <div className="grid grid-cols-3 gap-6 pt-8 border-t border-slate-200">
                   <StatItem value="200+" label="Projects Delivered" />
-                  <StatItem value="120+" label="Global Clients" />
-                  <StatItem value="10+" label="Years of Experience" />
+                  <StatItem value="98%" label="Client Satisfaction" />
+                  <StatItem value="13+" label="Years of Experience" />
                 </div>
               </div>
             </div>

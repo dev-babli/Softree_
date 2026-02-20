@@ -129,30 +129,33 @@ export default function ServicesSection() {
               }}
             >
               {/* CARD */}
-              <div className="bg-white rounded-3xl shadow-xl border border-zinc-200 overflow-hidden">
+              <div className="group relative bg-white rounded-3xl overflow-hidden border border-zinc-200 shadow-xl hover:shadow-2xl transition-all duration-500">
+                {/* RIGHT GLOW BORDER */}
+                <span className="absolute right-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-blue-500 via-cyan-400 to-blue-500 opacity-70 group-hover:opacity-100 transition" />
+
                 <div className="grid grid-cols-1 lg:grid-cols-2">
                   {/* IMAGE */}
-                  <div className="relative min-h-[420px]">
+                  <div className="relative min-h-[420px] overflow-hidden">
                     <Image
                       src={service.image}
                       alt={service.title}
                       fill
-                      className="object-cover"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
+
+                    {/* DARK OVERLAY */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
                   </div>
 
                   {/* CONTENT */}
-                  <div className="relative p-10">
-                    {/* ACCENT */}
-                    <span className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-blue-500 to-cyan-500" />
-
-                    {/* INDEX */}
-                    <p className="text-7xl font-extrabold text-zinc-200 leading-none mb-3">
+                  <div className="relative p-10 flex flex-col justify-center">
+                    {/* FLOATING INDEX */}
+                    <p className="absolute top-6 right-6 text-6xl font-extrabold text-zinc-100 group-hover:text-cyan-100 transition">
                       {service.id}
                     </p>
 
                     {/* TITLE */}
-                    <h3 className="text-2xl font-semibold text-zinc-900 mb-4">
+                    <h3 className="text-2xl font-semibold text-zinc-900 mb-4 group-hover:text-cyan-600 transition">
                       {service.title}
                     </h3>
 
@@ -160,14 +163,25 @@ export default function ServicesSection() {
                     <p className="text-zinc-600 mb-6 leading-relaxed">
                       {service.description}
                     </p>
-
                     {/* CATEGORIES */}
                     {service.categories && (
                       <ul className="flex flex-wrap gap-3 mb-6">
                         {service.categories.map((cat) => (
                           <li
                             key={cat}
-                            className="px-4 py-1.5 text-sm rounded-full bg-zinc-50 border border-zinc-200 text-zinc-700"
+                            className="
+          relative px-4 py-1.5 text-sm font-medium rounded-full
+          bg-gradient-to-r from-zinc-100 to-zinc-50
+          border border-zinc-200 text-zinc-700
+          shadow-sm
+          transition-all duration-300 ease-out
+          hover:scale-105 hover:-translate-y-0.5
+          hover:text-cyan-700
+          hover:border-cyan-300
+          hover:from-cyan-50 hover:to-blue-50
+          hover:shadow-[0_5px_15px_rgba(56,189,248,0.25)]
+          cursor-default
+        "
                           >
                             {cat}
                           </li>
@@ -176,6 +190,9 @@ export default function ServicesSection() {
                     )}
                   </div>
                 </div>
+
+                {/* HOVER GLOW BACKGROUND */}
+                <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-cyan-500/5 via-transparent to-blue-500/5" />
               </div>
             </motion.div>
           ))}

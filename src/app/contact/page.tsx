@@ -17,26 +17,26 @@ export default function Home() {
         <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
           {/* Badge */}
           <span className="inline-block mb-4 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur text-xs tracking-widest uppercase">
-            Contact Softree
+            Get In Touch
           </span>
 
           {/* Heading */}
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight">
-            Let’s Build Something
+            Start Your Next
             <br />
             <span className="bg-gradient-to-r from-cyan-300 to-white bg-clip-text text-transparent">
-              Great Together
+              Digital Transformation
             </span>
           </h1>
 
           {/* Description */}
           <p className="mt-4 text-base text-white/75 max-w-2xl mx-auto">
-            Have a question, idea, or challenge? Our team is ready to help you
-            design, build, and scale modern digital solutions that move your
-            business forward.
+            Partner with Softree to build intelligent solutions across AI,
+            SharePoint, Power Platform, and modern applications. Let’s discuss
+            how we can transform your ideas into scalable, high-impact digital
+            products.
           </p>
         </div>
-
         {/* ================= PREMIUM SOFT WAVE ================= */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
           <svg

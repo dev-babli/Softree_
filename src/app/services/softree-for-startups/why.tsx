@@ -51,12 +51,12 @@ export default function WhySoftreeSection() {
           <div className="grid grid-cols-2 gap-6">
             <StatCard
               icon={Briefcase}
-              value="250+"
+              value="200+"
               label="Successful Client Engagements"
             />
             <StatCard
               icon={TrendingUp}
-              value="99%"
+              value="98%"
               label="Projects Meeting or Exceeding Goals"
             />
             <StatCard

@@ -138,37 +138,37 @@ export default function PowerBIStackOverview() {
               <div
                 key={i}
                 className="
-                  group
-                  relative
-                  rounded-2xl
-                  p-[1px]
-                  bg-gradient-to-br from-amber-400/40 via-yellow-500/30 to-transparent
-                  hover:from-amber-500 hover:via-yellow-500
-                  transition duration-500
-                "
+          group
+          relative
+          rounded-2xl
+          p-[1px]
+          bg-gradient-to-br from-blue-500/40 via-blue-400/30 to-transparent
+          hover:from-blue-600 hover:via-blue-500
+          transition duration-500
+        "
               >
                 {/* inner */}
                 <div
                   className="
-                    relative
-                    h-full
-                    rounded-2xl
-                    bg-white/90
-                    backdrop-blur
-                    p-6
-                    shadow-sm
-                    hover:shadow-2xl
-                    hover:-translate-y-2
-                    transition duration-300
-                    overflow-hidden
-                  "
+            relative
+            h-full
+            rounded-2xl
+            bg-white/90
+            backdrop-blur
+            p-6
+            shadow-sm
+            hover:shadow-2xl
+            hover:-translate-y-2
+            transition duration-300
+            overflow-hidden
+          "
                 >
                   {/* spotlight */}
-                  <div className="absolute -top-20 -right-20 w-40 h-40 bg-amber-400/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition" />
+                  <div className="absolute -top-20 -right-20 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition" />
 
                   {/* icon */}
                   <div className="relative mb-5">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500 to-yellow-500 flex items-center justify-center shadow-lg">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-600 to-blue-500 flex items-center justify-center shadow-lg">
                       <Icon className="w-7 h-7 text-white" />
                     </div>
                   </div>
@@ -184,17 +184,17 @@ export default function PowerBIStackOverview() {
                       <span
                         key={idx}
                         className="
-                          text-xs
-                          px-3 py-1
-                          rounded-full
-                          bg-white
-                          text-slate-700
-                          border border-slate-200
-                          shadow-sm
-                          group-hover:border-amber-300
-                          group-hover:text-amber-700
-                          transition
-                        "
+                  text-xs
+                  px-3 py-1
+                  rounded-full
+                  bg-white
+                  text-slate-700
+                  border border-slate-200
+                  shadow-sm
+                  group-hover:border-blue-300
+                  group-hover:text-blue-700
+                  transition
+                "
                       >
                         {tag}
                       </span>

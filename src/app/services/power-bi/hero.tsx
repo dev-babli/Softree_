@@ -54,7 +54,6 @@ export default function HeroWithTestimonial() {
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-400/10 blur-[140px] rounded-full" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-14 lg:py-16 min-h-[65vh] grid lg:grid-cols-2 gap-14 items-start mt-6">
-        
         {/* ================= LEFT CONTENT ================= */}
         <div className="w-full space-y-7">
           <h1 className="text-4xl lg:text-5xl xl:text-5xl font-semibold leading-tight tracking-tight">
@@ -66,8 +65,8 @@ export default function HeroWithTestimonial() {
           </h1>
 
           <p className="text-zinc-300 text-m leading-relaxed max-w-xl">
-            Build interactive dashboards, automate reporting, and enable real-time
-            analytics using Power BI, Azure, and Microsoft 365.
+            Build interactive dashboards, automate reporting, and enable
+            real-time analytics using Power BI, Azure, and Microsoft 365.
           </p>
 
           {/* CTA */}
@@ -75,12 +74,6 @@ export default function HeroWithTestimonial() {
             <Link href="/contact">
               <button className="bg-yellow-400 text-slate-900 px-7 py-3.5 rounded-xl font-medium shadow-xl hover:scale-105 hover:bg-yellow-300 transition">
                 Talk to a Power BI Expert
-              </button>
-            </Link>
-
-            <Link href="/case-studies/power-bi">
-              <button className="border border-zinc-400/30 text-zinc-200 px-7 py-3.5 rounded-xl hover:bg-white/10 transition">
-                View Case Studies
               </button>
             </Link>
           </div>
@@ -127,7 +120,11 @@ export default function HeroWithTestimonial() {
 
       {/* wave bottom */}
       <div className="absolute bottom-0 left-0 w-full">
-        <svg viewBox="0 0 1440 120" className="w-full h-[120px]" preserveAspectRatio="none">
+        <svg
+          viewBox="0 0 1440 120"
+          className="w-full h-[120px]"
+          preserveAspectRatio="none"
+        >
           <path
             d="M0,64 C240,96 480,96 720,80 960,64 1200,32 1440,32 L1440,120 L0,120 Z"
             fill="#FAFAFA"
