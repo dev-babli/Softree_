@@ -120,7 +120,7 @@ export default function SpfxTabs() {
         {/* ================= ULTRA ADVANCED TABS ================= */}
         <div
           className="
-    bg-gradient-to-br from-white/10 via-white/5 to-white/10
+    bg-gradient-to-r from-black via-[#0f2f7a] to-black
     p-[1px] rounded-3xl overflow-hidden
   "
         >

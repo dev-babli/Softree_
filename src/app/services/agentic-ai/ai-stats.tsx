@@ -63,7 +63,7 @@ export default function AIStats() {
                     p-6
                     overflow-hidden
                     text-white
-                    bg-gradient-to-br from-purple-600 via-indigo-600 to-violet-700
+                   bg-gradient-to-r from-black via-[#0f2f7a] to-black
                     shadow-lg
                     hover:-translate-y-1
                     hover:shadow-2xl

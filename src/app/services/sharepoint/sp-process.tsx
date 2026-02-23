@@ -77,14 +77,14 @@ export default function SharePointMigrationProcess() {
                 key={index}
                 className="
           relative group rounded-3xl p-[1px]
-          bg-gradient-to-br from-white/10 to-white/0
+       bg-gradient-to-r from-black via-[#0f2f7a] to-black
           overflow-hidden
         "
               >
                 <div
                   className="
             relative h-full rounded-3xl p-8 overflow-hidden
-            bg-gradient-to-b from-[#0b1220] via-[#0e1628] to-[#050814]
+         bg-gradient-to-r from-black via-[#0f2f7a] to-black
             border-b-4 border-white/10
           "
                 >

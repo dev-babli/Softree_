@@ -60,7 +60,7 @@ export default function AIBannerSection() {
             isFeatured
               ? `
               lg:col-span-2
-              bg-gradient-to-br from-blue-600 via-blue-600 to-cyan-600
+              bg-gradient-to-r from-black via-[#0f2f7a] to-black 
               text-white
               shadow-[0_25px_70px_-15px_rgba(37,99,235,0.55)]
               hover:-translate-y-2
@@ -80,7 +80,7 @@ export default function AIBannerSection() {
                   <div
                     className="
               absolute inset-0
-              bg-gradient-to-t from-blue-600 to-cyan-500
+             bg-gradient-to-r from-black via-[#0f2f7a] to-black
               scale-y-0 group-hover:scale-y-100
               origin-bottom
               transition-transform duration-500 ease-out

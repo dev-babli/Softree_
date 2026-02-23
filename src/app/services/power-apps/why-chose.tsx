@@ -59,7 +59,7 @@ const bottomCards: FeatureCardProps[] = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-15 bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
+    <section className="py-15 ">
       <div className="max-w-7xl mx-auto px-6">
         {/* ================= TOP SECTION ================= */}
         <div className="grid lg:grid-cols-3 gap-12 items-stretch">
@@ -67,14 +67,14 @@ export default function WhyChooseUs() {
           <div className="flex">
             <div className="my-auto max-w-xl">
               {/* eyebrow */}
-              <p className="text-sm font-semibold uppercase tracking-widest text-purple-600 mb-4">
+              <p className="text-sm font-semibold uppercase tracking-widest text-blue-600 mb-4">
                 Why Organizations Choose Us
               </p>
 
               {/* headline */}
               <h2 className="text-3xl md:text-5xl font-semibold leading-tight text-slate-900">
                 Your Trusted Partner for{" "}
-                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent font-bold">
+                <span className="bg-gradient-to-r from-indigo-600 to-cyan-500 bg-clip-text text-transparent font-bold">
                   Power Apps Transformation
                 </span>
               </h2>
@@ -112,7 +112,7 @@ export default function WhyChooseUs() {
 function FeatureCard({ icon: Icon, title, desc }: FeatureCardProps) {
   return (
     <div
-      className="group rounded-3xl p-8 text-white bg-gradient-to-br from-blue-900 to-indigo-800
+      className="group rounded-3xl p-8 text-white   bg-gradient-to-r from-black via-[#0f2f7a] to-black
  shadow-lg hover:-translate-y-2 transition duration-300"
     >
       <Icon className="w-8 h-8 text-emerald-300 mb-6" />

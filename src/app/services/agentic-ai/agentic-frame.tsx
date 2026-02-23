@@ -45,24 +45,24 @@ export default function AgenticFramework() {
         {/* Timeline */}
         <div className="relative">
           {/* connector line */}
-          <div className="hidden md:block absolute top-8 left-0 right-0 h-[3px] bg-gradient-to-r from-emerald-400 via-teal-500 to-emerald-400 rounded-full" />
+          <div className="hidden md:block absolute top-8 left-0 right-0 h-[3px]   bg-gradient-to-r from-black via-[#0f2f7a] to-black rounded-full" />
 
           {/* steps */}
           <div className="grid md:grid-cols-4 gap-10">
             {steps.map((step) => (
               <div key={step.id} className="relative text-center group">
                 {/* number circle */}
-                <div className="mx-auto w-16 h-16 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center text-lg font-semibold border-4 border-white shadow-xl relative z-10 group-hover:scale-110 transition">
+                <div className="mx-auto w-16 h-16 rounded-full   bg-gradient-to-r from-black via-[#0f2f7a] to-black text-white flex items-center justify-center text-lg font-semibold border-4 border-white shadow-xl relative z-10 group-hover:scale-110 transition">
                   {step.id}
                 </div>
 
                 {/* card */}
-                <div className="mt-8 rounded-2xl p-6 bg-gradient-to-b from-white to-emerald-50 border border-emerald-100 shadow-md group-hover:shadow-xl transition-all duration-300">
-                  <h3 className="font-semibold mb-3 text-zinc-900">
+                <div className="mt-8 rounded-2xl p-6  bg-gradient-to-r from-black via-[#0f2f7a] to-black border border-emerald-100 shadow-md group-hover:shadow-xl transition-all duration-300">
+                  <h3 className="font-semibold mb-3 text-zinc-100">
                     {step.title}
                   </h3>
 
-                  <p className="text-sm text-zinc-600 leading-relaxed">
+                  <p className="text-sm text-zinc-300 leading-relaxed">
                     {step.desc}
                   </p>
                 </div>

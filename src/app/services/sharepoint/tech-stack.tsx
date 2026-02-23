@@ -106,9 +106,9 @@ export default function TechStack() {
           {techStacks.map((stack, idx) => (
             <div
               key={idx}
-              className="relative group rounded-[28px] p-[1px] bg-gradient-to-br from-white/10 to-white/0 hover:from-blue-500/40 transition-all duration-500"
+              className="relative group rounded-[28px] p-[1px] bg-gradient-to-r from-black via-[#0f2f7a] to-black hover:from-blue-500/40 transition-all duration-500"
             >
-              <div className="h-full rounded-[28px] bg-[#070707] p-7">
+              <div className="h-full rounded-[28px] bg-gradient-to-r from-black via-[#0f2f7a] to-black p-7">
                 {/* Card title */}
                 {/* Card title */}
                 <div className="mb-8">

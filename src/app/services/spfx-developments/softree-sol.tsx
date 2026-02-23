@@ -20,7 +20,7 @@ export default function SoftreeSolutions() {
   return (
     <section className="relative bg-black py-32 overflow-hidden">
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0D0057]/80 via-black/20 to-[#240F8E]/60 pointer-events-none"></div>
+      <div className="absolute inset-0   bg-gradient-to-r from-black via-[#0f2f7a] to-black pointer-events-none"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6">
         {/* Header */}

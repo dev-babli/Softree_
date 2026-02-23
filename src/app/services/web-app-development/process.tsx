@@ -129,10 +129,7 @@ export default function HireNextJsPricing() {
                   ${
                     plan.highlight
                       ? `
-                        bg-gradient-to-br
-                        from-indigo-600
-                        via-indigo-700
-                        to-cyan-600
+                      bg-gradient-to-r from-black via-[#0f2f7a] to-black
                         text-white
                         border-transparent
                         shadow-[0_25px_70px_rgba(79,70,229,0.45)]

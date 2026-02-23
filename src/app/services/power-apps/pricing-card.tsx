@@ -47,7 +47,7 @@ export default function HirePowerAppsPricing() {
         transition-all duration-300
       "
               >
-                <span className="absolute inset-x-0 bottom-0 h-[3px] rounded-b-2xl bg-gradient-to-r from-indigo-600 via-cyan-500 to-indigo-600 opacity-80" />
+                <span className="absolute inset-x-0 bottom-0 h-[3px] rounded-b-2xl bg-gradient-to-r from-black via-[#0f2f7a] to-black opacity-80" />
 
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 transition group-hover:bg-indigo-600 group-hover:text-white">
                   <item.icon className="h-5 w-5" />
@@ -94,10 +94,7 @@ export default function HirePowerAppsPricing() {
                 className={`relative rounded-3xl p-8 transition-all duration-300 ${
                   plan.highlight
                     ? `
-              bg-gradient-to-br
-              from-indigo-600
-              via-indigo-700
-              to-cyan-600
+              bg-gradient-to-r from-black via-[#0f2f7a] to-black
               text-white
               shadow-[0_18px_50px_rgba(79,70,229,0.4)]
               scale-[1.03]

@@ -119,7 +119,7 @@ export default function TechnologiesTabs() {
         </div>
 
         {/* ================= TECH CARDS ================= */}
-        <div className="bg-black border border-gray-800 rounded-3xl shadow-sm px-8 py-14">
+        <div className="bg-gradient-to-r from-black via-[#0f2f7a] to-black border border-gray-800 rounded-3xl shadow-sm px-8 py-14">
           <div
             key={activeTab}
             className="

@@ -68,7 +68,7 @@ export default function AIDrivenSharePointMigration() {
         </div>
 
         {/* Table Card */}
-        <div className="relative rounded-3xl border border-white/10 bg-[#070707] shadow-[0_0_0_1px_rgba(255,255,255,0.02)]">
+        <div className="relative rounded-3xl border border-white/10 bg-gradient-to-r from-black via-[#0f2f7a] to-black">
           <div className="overflow-x-auto relative">
             <table className="w-full border-collapse">
               <thead>

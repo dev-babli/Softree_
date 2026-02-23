@@ -79,7 +79,7 @@ export default function IndustriesSection() {
                 className="group flex items-center gap-3 rounded-full border border-zinc-200 bg-white px-5 py-3 shadow-sm transition hover:shadow-md hover:border-fuchsia-400"
               >
                 <div className="flex h-9 w-9 items-center justify-center rounded-full bg-fuchsia-50 border border-fuchsia-200 group-hover:bg-fuchsia-100">
-                  <Icon size={18} className="text-fuchsia-600" />
+                  <Icon size={18} className="text-blue-600" />
                 </div>
 
                 <span className="text-sm md:text-base text-zinc-800">

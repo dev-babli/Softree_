@@ -26,7 +26,7 @@ export default function PowerPlatformSection() {
         className="
   relative max-w-7xl mx-auto
   rounded-3xl
-  bg-gradient-to-br from-[#0b0f14] via-[#141922] to-[#0b0f14]
+   bg-gradient-to-r from-black via-[#0f2f7a] to-black
   border border-white/10
   p-14
   grid grid-cols-1 lg:grid-cols-2

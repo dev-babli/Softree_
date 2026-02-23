@@ -72,7 +72,7 @@ export default function HeroWithTestimonial() {
           {/* CTA */}
           <div className="flex flex-wrap gap-4 pt-2">
             <Link href="/contact">
-              <button className="bg-yellow-400 text-slate-900 px-7 py-3.5 rounded-xl font-medium shadow-xl hover:scale-105 hover:bg-yellow-300 transition">
+              <button className="bg-blue-400 text-slate-900 px-7 py-3.5 rounded-xl font-medium shadow-xl hover:scale-105 hover:bg-yellow-300 transition">
                 Talk to a Power BI Expert
               </button>
             </Link>

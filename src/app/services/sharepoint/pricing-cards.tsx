@@ -95,10 +95,7 @@ export default function HireSharePointPricing() {
                 className={`relative rounded-3xl p-8 transition-all duration-300 ${
                   plan.highlight
                     ? `
-              bg-gradient-to-br
-              from-indigo-600
-              via-indigo-700
-              to-cyan-600
+          bg-gradient-to-r from-black via-[#0f2f7a] to-black
               text-white
               shadow-[0_18px_50px_rgba(79,70,229,0.4)]
               scale-[1.03]

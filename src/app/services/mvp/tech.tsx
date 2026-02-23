@@ -140,15 +140,15 @@ export default function MvpTechStackCitrusbug() {
       rounded-xl 
       px-5 py-3 
       shadow-lg
-      bg-black
-      border-l-4 border-orange-500/70
+    bg-gradient-to-r from-black via-[#0f2f7a] to-black
+      border-l-4 border-white
     "
                   >
                     {/* subtle inner depth */}
                     <div className="absolute inset-0 rounded-xl ring-1 ring-white/5" />
 
                     <div className="relative flex h-8 w-8 items-center justify-center rounded-md bg-orange-500/10">
-                      <CategoryIcon className="text-orange-500 text-base" />
+                      <CategoryIcon className="text-white text-base" />
                     </div>
 
                     <span className="relative text-base font-semibold text-white">
@@ -160,11 +160,8 @@ export default function MvpTechStackCitrusbug() {
                 {/* RIGHT */}
                 <div className="md:w-[72%]">
                   <div
-                    className="rounded-xl px-6 py-4 shadow-inner marquee-container"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, #000000 0%, #000000 100%)",
-                    }}
+                    className="rounded-xl px-6 py-4 shadow-inner marquee-container   bg-gradient-to-r from-black via-[#0f2f7a] to-black"
+                  
                   >
                     <div className="marquee-track gap-5">
                       {[...stack.items, ...stack.items].map((item, i) => {
@@ -175,7 +172,7 @@ export default function MvpTechStackCitrusbug() {
                             className="flex min-w-[160px] items-center gap-3 rounded-lg border border-white/10 bg-black px-3 py-2"
                           >
                             <div className="flex h-8 w-8 items-center justify-center rounded-md bg-orange-500/10">
-                              <Icon className="text-orange-500 text-base" />
+                              <Icon className="text-white text-base" />
                             </div>
 
                             <span className="text-sm font-medium text-white whitespace-nowrap">

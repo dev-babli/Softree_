@@ -107,11 +107,11 @@ export default function PowerBIServicesSection() {
         </div>
 
         {/* ================= MIRROR GRID ================= */}
-        <div className="grid lg:grid-cols-[1fr_1.6fr] gap-0 rounded-[32px] overflow-hidden shadow-xl">
+        <div className="grid lg:grid-cols-[1fr_1.6fr] rounded-[32px] overflow-hidden shadow-2xl border border-slate-800">
           {/* ================================================= */}
-          {/* LEFT : DARK PANEL (GRAY/BLACK MIRROR) */}
+          {/* LEFT : DARK PANEL */}
           {/* ================================================= */}
-          <div className="bg-gradient-to-b from-zinc-900 via-zinc-950 to-black p-7">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 p-8">
             <div className="grid grid-cols-2 gap-4">
               {tabs.map((tab) => {
                 const Icon = tab.icon;
@@ -123,21 +123,21 @@ export default function PowerBIServicesSection() {
                     onClick={() => setActiveTab(tab.id)}
                     className={`
               p-5 rounded-xl text-left border transition-all duration-300
-
               ${
                 isActive
                   ? `
-                    bg-zinc-800
-                    border-cyan-400/40
+                    bg-gradient-to-br from-blue-600/20 to-cyan-500/10
+                    border-blue-400/40
                     text-white
-                    shadow-lg
+                    shadow-md shadow-blue-500/20
                   `
                   : `
-                    bg-zinc-900
-                    border-zinc-800
-                    text-zinc-400
-                    hover:bg-zinc-800
+                    bg-slate-900
+                    border-slate-800
+                    text-slate-400
+                    hover:bg-slate-800
                     hover:text-white
+                    hover:border-blue-500/30
                   `
               }
             `}
@@ -147,8 +147,8 @@ export default function PowerBIServicesSection() {
                 mb-3 w-10 h-10 flex items-center justify-center rounded-lg
                 ${
                   isActive
-                    ? "bg-cyan-500/20 text-cyan-300"
-                    : "bg-zinc-800 text-zinc-500"
+                    ? "bg-blue-500/20 text-blue-300"
+                    : "bg-slate-800 text-slate-500"
                 }
               `}
                     >
@@ -163,26 +163,26 @@ export default function PowerBIServicesSection() {
           </div>
 
           {/* ================================================= */}
-          {/* RIGHT : WHITE CONTENT PANEL */}
+          {/* RIGHT : CONTENT PANEL */}
           {/* ================================================= */}
-          <div className="bg-white p-12 flex items-center">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 p-12 flex items-center border-l border-blue-900/40">
             <div className="grid md:grid-cols-[auto_1fr] gap-10 items-center">
               {/* Icon */}
-              <div className="w-24 h-24 rounded-2xl bg-blue-50 flex items-center justify-center">
-                <active.icon className="w-12 h-12 text-blue-600" />
+              <div className="w-24 h-24 rounded-2xl bg-blue-500/10 border border-blue-400/20 flex items-center justify-center shadow-lg shadow-blue-500/10">
+                <active.icon className="w-12 h-12 text-blue-400" />
               </div>
 
               {/* Text */}
               <div>
-                <span className="text-xs tracking-widest uppercase text-blue-600 font-medium">
+                <span className="text-xs tracking-widest uppercase text-blue-400 font-semibold">
                   Power BI Capability
                 </span>
 
-                <h3 className="mt-3 text-3xl md:text-4xl font-semibold text-zinc-900">
+                <h3 className="mt-3 text-3xl md:text-4xl font-bold text-white">
                   {active.title}
                 </h3>
 
-                <p className="mt-5 text-zinc-600 text-lg leading-relaxed max-w-2xl">
+                <p className="mt-5 text-slate-300 text-lg leading-relaxed max-w-2xl">
                   {active.description}
                 </p>
               </div>

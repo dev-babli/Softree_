@@ -26,9 +26,9 @@ export default function Home() {
         <TrustedBy />
         <AiInsightsBlog />
         <TechStackSection />
-        <WhyChooseUs />
-        <SoftreeFAQ />
+        <WhyChooseUs />     
         <SelectedEngagements />
+        <SoftreeFAQ />
         <CTABanner />
       </main>
       <Footer />

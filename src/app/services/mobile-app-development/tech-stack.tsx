@@ -139,7 +139,7 @@ export default function TechnologiesTabs() {
               className="
         relative flex flex-wrap justify-center gap-4
         rounded-t-2xl px-6 py-4
-        bg-black backdrop-blur-lg
+      bg-gradient-to-r from-black via-[#0f2f7a] to-black backdrop-blur-lg
         border border-white/10 border-b-0
       "
             >
@@ -165,7 +165,7 @@ export default function TechnologiesTabs() {
         {/* ================= CARDS ================= */}
         <div className="flex justify-center">
           <div className="relative w-full max-w-6xl ">
-            <div className="relative rounded-b-2xl bg-gray-100 border border-white/10 border-t-0">
+            <div className="relative rounded-b-2xl bg-gradient-to-r from-black via-[#0f2f7a] to-black border border-white/10 border-t-0">
               {/* Subtle inner glow */}
               <div className="absolute inset-0 rounded-b-2xl bg-white/5 pointer-events-none" />
 

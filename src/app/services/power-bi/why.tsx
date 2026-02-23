@@ -111,7 +111,7 @@ export default function WhyChooseUs() {
 
 function FeatureCard({ icon: Icon, title, desc }: FeatureCardProps) {
   return (
-    <div className="group rounded-3xl p-8 text-white bg-gradient-to-br from-blue-950 via-blue-900 to-blue-700 shadow-lg hover:-translate-y-2 transition duration-300">
+    <div className="group rounded-3xl p-8 text-white bg-gradient-to-r from-black via-[#0f2f7a] to-black shadow-lg hover:-translate-y-2 transition duration-300">
       <Icon className="w-8 h-8 text-blue-400 mb-6" />
 
       <h3 className="text-xl font-semibold mb-3">{title}</h3>

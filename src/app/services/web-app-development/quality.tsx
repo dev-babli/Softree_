@@ -107,7 +107,7 @@ export default function QualityBenchmarkUltra() {
                       ${
                         isFeatured
                           ? `
-                            bg-gradient-to-br from-blue-600 to-indigo-600
+                            bg-gradient-to-r from-black via-[#0f2f7a] to-black
                             text-white
                             shadow-2xl scale-[1.04]
                           `

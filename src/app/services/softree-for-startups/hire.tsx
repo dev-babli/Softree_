@@ -87,7 +87,7 @@ export default function HireExperts() {
               <div
                 className="
           absolute inset-0
-          bg-gradient-to-t from-blue-600 to-cyan-500
+   bg-gradient-to-r from-black via-[#0f2f7a] to-black
           scale-y-0 group-hover:scale-y-100
           origin-bottom
           transition-transform duration-500
@@ -134,7 +134,7 @@ export default function HireExperts() {
                 <div
                   className="
             mt-4 h-[2px] w-12
-            bg-gradient-to-r from-blue-500 to-transparent
+         bg-gradient-to-r from-black via-[#0f2f7a] to-black
             group-hover:from-white group-hover:w-24
             transition-all
           "
