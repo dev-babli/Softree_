@@ -19,13 +19,30 @@ const ITEMS_PER_PAGE = 6;
 
 const CASE_STUDIES: CaseStudy[] = [
   {
-    title: "Model Driven App",
+    title: "Barcode Scanner App",
     description:
-      "A Power Apps model-driven application designed to streamline business processes with structured data, role-based access, and scalable workflows.",
-    image: "/images/case-study/power-apps/model.png",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2025/03/Model-Driven-App-1.pdf",
+      "A Power Apps barcode scanner application designed to simplify inventory management by enabling real-time product scanning, automated data capture, and seamless integration with SharePoint and Dataverse.",
+    image: "/images/case-study/power-apps/barcode-scanner.png",
+    href: "/pdf/Barcode Scanner App.pdf",
     category: "Power Apps",
   },
+  {
+  title: "ES Speaks and Travel Requests Management System",
+  description:
+    "A Power Platform-based internal communication application designed to enhance employee engagement by enabling announcements, feedback collection, event updates, and leadership messages with seamless integration to SharePoint and Microsoft Teams.",
+  image: "/images/case-study/power-apps/es-speaks.png",
+  href: "/pdf/ES Speaks and Travel Requests Management System.pdf",
+  category: "Power Platform",
+},
+
+{
+  title: "New Store Opening Process",
+  description:
+    "A centralized New Store Opening Process solution developed using Power Apps and Power Automate to manage store setup activities, task assignments, approval workflows, vendor coordination, and progress tracking with seamless SharePoint integration.",
+  image: "/images/case-study/power-apps/new-store-opening.png",
+  href: "/pdf/New Store Opening Process.pdf",
+  category: "Power Platform",
+},
   {
     title: "Employee Details Tracking System",
     description:
