@@ -15,7 +15,7 @@ const caseStudies = [
     title: "Custom Copy & Move Panel for Lists",
     description:
       "A custom SPFx solution built using Fluent UI to enable seamless copy and move operations for SharePoint list items with enhanced user experience.",
-    image: "/images/case-study/sharepoint/copy-move-panel.webp",
+    image: "/images/case-study/sharepoint/copy.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2025/03/Enhancing-SharePoint-List-Management-with-a-Custom-Copy-Move-Panel-Using-SPFx-and-Fluent-UI.pdf",
     challenge:
       "Manual list item transfers caused inefficiencies and data duplication.",
@@ -28,7 +28,7 @@ const caseStudies = [
     title: "Enable & Disable MFA Using PowerShell",
     description:
       "A PowerShell automation approach to manage Multi-Factor Authentication (MFA) settings for Microsoft 365 users securely.",
-    image: "/images/case-study/sharepoint/mfa-powershell.webp",
+    image: "/images/case-study/sharepoint/mfa.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/How-To-Enable-And-Disable-MFA-Using-PowerShell-1.pdf",
     challenge: "Managing MFA manually for multiple users was time-consuming.",
     solution:
@@ -41,7 +41,7 @@ const caseStudies = [
     title: "Dynamic Navigation Bar Using SPFx Application Customizer",
     description:
       "An SPFx Application Customizer that delivers a dynamic, role-based navigation bar across modern SharePoint sites.",
-    image: "/images/case-study/sharepoint/navigation-bar.webp",
+    image: "/images/case-study/sharepoint/dynamic.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Creating-a-Dynamic-Navigation-Bar-using-SPFx-Application-Customizer.pdf",
     challenge:
       "Lack of centralized navigation created inconsistent user experience.",
@@ -55,7 +55,7 @@ const caseStudies = [
     title: "Custom Footer for SharePoint Online",
     description:
       "A reusable SPFx footer component designed to enhance branding and accessibility.",
-    image: "/images/case-study/sharepoint/custom-footer.webp",
+    image: "/images/case-study/sharepoint/footer.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Enhancing-User-Experience-with-a-Custom-Footer-using-SPFx.pdf",
     challenge:
       "Maintaining consistent branding across SharePoint sites was difficult.",
@@ -68,7 +68,7 @@ const caseStudies = [
     title: "Global Notification Banner in SharePoint",
     description:
       "A SharePoint-wide notification banner using SPFx Application Customizer.",
-    image: "/images/case-study/sharepoint/notification-banner.webp",
+    image: "/images/case-study/sharepoint/global.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Implementing-a-Global-Notification-Banner-with-SPFx-Application-Customizer.pdf",
     challenge:
       "Organizations lacked an efficient way to broadcast urgent updates.",

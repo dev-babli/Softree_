@@ -1,7 +1,7 @@
 import NavigationClient from "@/components/sections/navigation-client";
 import CaseFooter from "../footer";
 import CaseStudyGrid from "./case-study-grid";
-import { Factory, AlertTriangle, Workflow, TrendingUp } from "lucide-react";
+import Certifications from "@/app/services/power-apps/certification";
 import StartProjectSection from "./start-project";
 import Link from "next/link";
 import HeroWithTestimonial from "./hero";
@@ -18,6 +18,7 @@ export default function PowerAppsCaseStudiesPage() {
       <CaseStudyGrid />
       <WhyChooseUs />
       <PowerAppsTechnologies />
+      <Certifications />
       <StartProjectSection />
       <CaseFooter />
     </>

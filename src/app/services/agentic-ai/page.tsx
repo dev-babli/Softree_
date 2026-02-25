@@ -10,11 +10,14 @@ import HeroWithTestimonial from "./hero";
 import IndustriesSection from "./industry";
 import AgenticFramework from "./agentic-frame";
 import CtaAgenticAI from "./cta";
+import TrustedBrandsMarquee from "../power-apps/trust";
+import Certifications from "../power-apps/certification";
 export default function AgenticAIPage() {
   return (
     <div>
       <NavigationClient />
       <HeroWithTestimonial />
+      <TrustedBrandsMarquee />
       <StackedSlider />
       <EnterpriseAIBenefits />
       <AgenticToolsOverview />
@@ -23,6 +26,7 @@ export default function AgenticAIPage() {
       <WhyChooseUs />
       <AIStats />
       <AgenticSection />
+      <Certifications />
       <CtaAgenticAI />
       <Footer />
     </div>

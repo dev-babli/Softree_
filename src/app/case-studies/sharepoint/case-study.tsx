@@ -118,9 +118,9 @@ export default function CaseStudyGrid() {
 
   return (
     <section className="relative bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-24">
+      <div className="mx-auto max-w-7xl px-6 py-14">
         {/* HEADER */}
-        <div className="mb-20 text-center">
+        <div className="mb-10 text-center">
           <span className="mb-4 inline-block text-xs font-semibold uppercase tracking-widest text-blue-600">
             Microsoft SharePoint • SPFx • Power Platform
           </span>
@@ -129,13 +129,13 @@ export default function CaseStudyGrid() {
             SharePoint Case Studies
           </h2>
 
-          <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
+          <p className="mx-auto mt-2 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
             Explore real-world SharePoint solutions built using SPFx, Power
             Apps, Power Automate, and Microsoft 365 to modernize collaboration,
             improve governance, and enhance user experience.
           </p>
 
-          <div className="mx-auto mt-8 h-[2px] w-28 bg-gradient-to-r from-transparent via-blue-500/40 to-transparent" />
+          <div className="mx-auto mt-2 h-[2px] w-28 bg-gradient-to-r from-transparent via-blue-500/40 to-transparent" />
         </div>
 
         {/* ================= CARD CONTAINER ================= */}

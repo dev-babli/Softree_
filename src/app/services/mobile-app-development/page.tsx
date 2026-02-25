@@ -1,9 +1,8 @@
 "use client";
 import NavigationClient from "@/components/sections/navigation-client";
-import Link from "next/link";
-import { CALENDLY_URL } from "@/lib/contactConfig";
+import Certifications from "../power-apps/certification";
 import Footer from "@/components/sections/footer";
-
+import TrustedBrandsMarquee from "../power-apps/trust";
 import MobileAppHero from "./hero";
 import MobileAppCaseStudies from "./case-studies";
 import WhoWeWorkWith from "./who-we";
@@ -29,6 +28,7 @@ export default function Home() {
 
       {/* MAIN CONTENT SECTIONS */}
       <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
+        <TrustedBrandsMarquee />
         <div className={`${SECTION_WRAPPER} ${SECTION_GAP}`}>
           <MobileAppCaseStudies />
           <WhoWeWorkWith />
@@ -37,6 +37,7 @@ export default function Home() {
           <Technologies />
           <WhyChooseSoftreeMobileApps />
         </div>
+        <Certifications />
       </section>
 
       <CtaMobile />

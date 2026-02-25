@@ -1,6 +1,6 @@
 import NavigationClient from "@/components/sections/navigation-client";
 import ProjectProcessSection from "./start-project";
-import { Factory, AlertTriangle, Workflow, TrendingUp } from "lucide-react";
+import Certifications from "@/app/services/power-apps/certification"; 
 import Link from "next/link";
 import CaseFooter from "../footer";
 import CaseStudyGrid from "./case-study-grid";
@@ -120,7 +120,7 @@ export default function webCaseStudiesPage() {
       <CaseStudyGrid />
       <WhyChooseUs />
       <TechnologiesTabs />
-
+      <Certifications />
       <ProjectProcessSection />
       <CaseFooter />
     </div>

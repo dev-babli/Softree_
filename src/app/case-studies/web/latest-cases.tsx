@@ -15,7 +15,7 @@ const caseStudies = [
     description:
       "A scalable e-commerce web platform with product management, secure payments, and optimized checkout flow.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/12/Shopping-E-Commerce.webp",
+      "/images/case-study/web/shopping.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/ShoppingEcommerce.pdf",
     challenge:
       "The client needed a scalable online store capable of handling high traffic, secure transactions, and smooth product management without performance issues.",
@@ -30,7 +30,7 @@ const caseStudies = [
     description:
       "A web-based system for managing pet care services, bookings, and customer interactions.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/12/Pet-care.webp",
+      "/images/case-study/web/pet.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/PET_CARE.pdf",
     challenge:
       "Manual appointment scheduling and fragmented customer records were causing operational inefficiencies and missed bookings.",
@@ -39,28 +39,12 @@ const caseStudies = [
     result:
       "Reduced booking errors by 50% and improved customer satisfaction with streamlined service management.",
   },
-
-  {
-    title: "Business Consultation Platform",
-    description:
-      "A professional consultation platform enabling client management, scheduling, and service tracking.",
-    image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/12/Business-Consultation-App.webp",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Business-Consultation-App-case-study-1.pdf",
-    challenge:
-      "Consultants struggled with managing appointments, tracking services, and maintaining organized client records.",
-    solution:
-      "Created a structured consultation platform with automated scheduling, CRM features, and service tracking dashboards.",
-    result:
-      "Improved workflow efficiency by 40% and enhanced overall client engagement.",
-  },
-
   {
     title: "Public Blogging Website",
     description:
       "A full-stack blogging platform built with MERN stack supporting publishing, comments, and user authentication.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/11/Node.js-Express.js-HTML-editor.webp",
+      "/images/case-study/web/blog.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Public-Blogging-Website-Using-the-MERN-Stack.pdf",
     challenge:
       "The platform required secure authentication, scalable backend, and real-time content updates for public users.",
@@ -75,7 +59,7 @@ const caseStudies = [
     description:
       "A visually rich marketing website designed for food and beverage brands with content-focused UX.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/11/FOOD-WINE-WEBSITE.webp",
+      "/images/case-study/web/food.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/FOOD-WINE-WEBSITE.pdf",
     challenge:
       "The brand needed a visually appealing website that showcased products while maintaining performance and SEO optimization.",

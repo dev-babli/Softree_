@@ -1,6 +1,6 @@
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
-
+import Certifications from "../power-apps/certification";
 import FullStackTeams from "./full-stack";
 import ThreePillars from "./three-pillar";
 import CollaborationTabs from "./collab-tab";
@@ -10,6 +10,7 @@ import WhyChooseSoftreeWebDevelopment from "./why-chose";
 import WebDevelopmentCaseStudies from "./case-studies";
 import WebDevHero from "./hero";
 import CtaWeb from "./cta";
+import TrustedBrandsMarquee from "../power-apps/trust";
 
 /* ------------------------------------------------------------------ */
 /* Shared Layout Config                                                */
@@ -27,6 +28,7 @@ export default function Home() {
 
       {/* MAIN CONTENT — COMPONENT BACKGROUND */}
       <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
+        <TrustedBrandsMarquee />
         <WebDevelopmentCaseStudies />
         <WebDevelopmentHero />
         <FullStackTeams />
@@ -34,6 +36,7 @@ export default function Home() {
         <CollaborationTabs />
         <QualityBenchmark />
         <WhyChooseSoftreeWebDevelopment />
+        <Certifications />
       </section>
 
       <CtaWeb />

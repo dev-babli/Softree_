@@ -42,7 +42,6 @@ export default function Home() {
           <TechStackSection />
           <PowerAppsProcess />
           <TestimonialsSplitSlider />
-          <PowerAppsFAQ />
           <Certifications />
         </div>
       </section>

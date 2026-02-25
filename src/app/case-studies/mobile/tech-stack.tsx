@@ -83,7 +83,7 @@ export default function TechnologiesTabs() {
   }, [activeTab]);
 
   return (
-    <section className="relative px-4  bg-white overflow-hidden ">
+    <section className="relative px-4 py-19  bg-white overflow-hidden ">
       <div className="max-w-7xl mx-auto">
         {/* ===== ADVANCED HEADER (PREMIUM LIGHT) ===== */}
         <div className="relative text-center mb-10 max-w-5xl mx-auto px-6">

@@ -1,6 +1,6 @@
 "use client";
 import NavigationClient from "@/components/sections/navigation-client";
-import HeroSection from "@/components/sections/hero";
+import Certifications from "@/components/sections/certification";
 import SoftreeFAQ from "@/components/sections/faq";
 import CTABanner from "@/components/sections/cta-banner";
 import Footer from "@/components/sections/footer";
@@ -29,6 +29,7 @@ export default function Home() {
         <WhyChooseUs />     
         <SelectedEngagements />
         <SoftreeFAQ />
+        <Certifications />  
         <CTABanner />
       </main>
       <Footer />

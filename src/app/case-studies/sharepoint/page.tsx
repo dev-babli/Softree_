@@ -7,6 +7,7 @@ import CaseStudyGrid from "./case-study";
 import TechStack from "./tech-stack";
 import WhyChooseWithTestimonials from "./why";
 import SharePointCaseStudies from "./latest-cases";
+import Certifications from "@/app/services/power-apps/certification";
 export default function webCaseStudiesPage() {
   return (
     <div>
@@ -128,6 +129,7 @@ export default function webCaseStudiesPage() {
       <CaseStudyGrid />
       <WhyChooseWithTestimonials />
       <TechStack />
+      <Certifications />
       <ProjectProcessSection />
       <CaseFooter />
     </div>

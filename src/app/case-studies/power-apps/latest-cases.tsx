@@ -14,7 +14,7 @@ const caseStudies = [
     title: "Barcode Scanner App",
     description:
       "A Power Apps barcode scanner solution designed to simplify inventory management with real-time scanning and automated data capture.",
-    image: "/images/case-study/power-apps/barcode-scanner.png",
+    image: "/images/case-study/power-apps/barcode.png",
     href: "/pdf/Barcode Scanner App.pdf",
     challenge:
       "Manual inventory tracking caused delays and frequent stock inaccuracies.",
@@ -28,7 +28,7 @@ const caseStudies = [
     title: "ES Speaks & Travel Requests System",
     description:
       "A Power Platform-based internal communication and travel request management application integrated with SharePoint and Microsoft Teams.",
-    image: "/images/case-study/power-apps/es-speaks.png",
+    image: "/images/case-study/power-apps/travel.png",
     href: "/pdf/ES Speaks and Travel Requests Management System.pdf",
     challenge:
       "Employee communication and travel approvals were fragmented and inefficient.",
@@ -42,7 +42,7 @@ const caseStudies = [
     title: "New Store Opening Process",
     description:
       "A centralized Power Platform solution to manage store setup tasks, approvals, vendor coordination, and progress tracking.",
-    image: "/images/case-study/power-apps/new-store-opening.png",
+    image: "/images/case-study/power-apps/store.png",
     href: "/pdf/New Store Opening Process.pdf",
     challenge:
       "Coordinating store launch activities across teams lacked visibility and control.",

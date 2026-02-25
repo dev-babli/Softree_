@@ -12,6 +12,7 @@ import SharePointHero from "./hero";
 import HireSharePointPricing from "./pricing-cards";
 import CtaSharePoint from "./cta";
 import WhyChooseUs from "./why-chose";
+import TrustedBrandsMarquee from "../power-apps/trust";
 
 const FIXED_WIDTH = "mx-auto max-w-8xl px-8 sm:px-10 md:px-14 lg:px-20";
 
@@ -30,6 +31,7 @@ export default function Home() {
       >
         <div className={FIXED_WIDTH}>
           {/* <SharePointFeatures /> */}
+          <TrustedBrandsMarquee />  
           <PowerAppsCaseStudies />
           <SharePointMigration />
           <SharePointMigrationProcess />

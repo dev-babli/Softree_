@@ -9,6 +9,7 @@ import MvpTechStack from "./tech";
 import WhyChooseUsMVP from "./why";
 import MvpServices from "./services";
 import CtaMvp from "./cta";
+import Certifications from "../power-bi/certification";
 
 /* ------------------------------------------------------------------ */
 /* Shared Layout Spacing Config                                        */
@@ -30,7 +31,7 @@ export default function Home() {
       <MvpProcessTimeline />
       <MvpTechStack />
       <WhyChooseUsMVP />
-
+      <Certifications />
       <CtaMvp />
       <Footer />
     </main>

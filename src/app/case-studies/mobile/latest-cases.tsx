@@ -16,7 +16,7 @@ const caseStudies = [
     description:
       "A mobile application enabling patients to book appointments, manage schedules, and receive real-time notifications.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/11/Building-a-Doctor-Appointment.webp",
+      "/images/case-study/mobile/doctor.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Building-a-Doctor-Appointment-Booking-System-with-React.pdf",
     category: "Healthcare App",
     challenge:
@@ -31,7 +31,7 @@ const caseStudies = [
     description:
       "A scalable backend system powering mobile education platforms with secure APIs and real-time data access.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/11/Developing-Backend-for-Education-App.webp",
+      "/images/case-study/mobile/education.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Behind-the-Scenes-of-E.pdf",
     category: "Education App",
     challenge:
@@ -46,7 +46,7 @@ const caseStudies = [
     description:
       "A mobile ticket booking application with seat selection, payment processing, and booking confirmation.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/11/Movie-Ticket-Booking-App.webp",
+      "/images/case-study/mobile/movie.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Movie-Ticket-Booking-App-Backend-Documentation.pdf",
     category: "Entertainment App",
     challenge:
@@ -56,27 +56,13 @@ const caseStudies = [
     result:
       "Improved booking efficiency, minimized double bookings, and enhanced overall user experience.",
   },
-  {
-    title: "Payment Gateway Integration",
-    description:
-      "A secure payment gateway integration enabling seamless online transactions across mobile platforms.",
-    image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/11/Payment-Gateway.webp",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Payment-Gateway-1.pdf",
-    category: "Fintech App",
-    challenge:
-      "Businesses needed a secure and reliable payment system that supported multiple transaction methods and ensured data security compliance.",
-    solution:
-      "Integrated a PCI-compliant payment gateway with encryption protocols, fraud detection mechanisms, and multi-currency support.",
-    result:
-      "Enhanced transaction security, reduced payment failures, and improved customer trust.",
-  },
+  
   {
     title: "Education Mobile App",
     description:
       "A student-focused mobile application providing access to courses, learning material, and assessments.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/10/Education-App-1024x1024.webp",
+      "/images/case-study/mobile/education.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Education-App.pdf",
     category: "Education App",
     challenge:

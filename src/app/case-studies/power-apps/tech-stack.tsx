@@ -82,7 +82,7 @@ export default function PowerAppsTechnologies() {
     useState<(typeof TABS)[number]>("POWER APPS");
 
   return (
-    <section className="px-4 py-12 bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
+    <section className="px-4 py-18 bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
       <div className="max-w-7xl mx-auto">
         {/* ================= HEADER ================= */}
         <div className="mb-10 text-center">
