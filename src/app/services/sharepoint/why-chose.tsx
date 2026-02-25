@@ -1,126 +1,257 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useRef, useState } from "react";
 import {
-  ClipboardCheck,
-  Puzzle,
-  Users,
-  Lightbulb,
-  ShieldCheck,
+  Star,
+  ChevronLeft,
+  ChevronRight,
+  Pause,
+  Play,
   Rocket,
-  LucideIcon,
+  Users,
+  ShieldCheck,
+  User,
+  MapPin,
+  Sliders,
 } from "lucide-react";
 
-/* ================= TYPES ================= */
-
-type FeatureCardProps = {
-  icon: LucideIcon;
-  title: string;
-  desc: string;
-};
-
-/* ================= DATA ================= */
-/* ================= DATA ================= */
-
-const topCards: FeatureCardProps[] = [
-  {
-    icon: ClipboardCheck,
-    title: "Modern SharePoint Intranet Solutions",
-    desc: "Design and deploy engaging, user-friendly SharePoint intranet portals that centralize communication, improve collaboration, and enhance employee experience. We build structured, scalable digital workplaces aligned with your business goals.",
-  },
-  {
-    icon: Puzzle,
-    title: "Seamless Microsoft 365 Integration",
-    desc: "Extend SharePoint capabilities by integrating with Microsoft Teams, Power Platform, OneDrive, and Dynamics 365. We create connected digital ecosystems that unify content, automate workflows, and streamline enterprise collaboration.",
-  },
-];
-
-const bottomCards: FeatureCardProps[] = [
-  {
-    icon: Users,
-    title: "Collaboration & Communication",
-    desc: "Enable secure document sharing, team sites, and communication hubs that improve cross-department collaboration and knowledge management.",
-  },
-  {
-    icon: Lightbulb,
-    title: "Workflow Automation",
-    desc: "Automate document approvals, task management, and business processes using SharePoint workflows and Power Automate to reduce manual effort.",
-  },
+/* ================= WHY CHOOSE DATA ================= */
+const whyChoose = [
   {
     icon: Rocket,
-    title: "Scalable & Structured Architecture",
-    desc: "Implement well-structured site architecture, metadata management, and governance models that support long-term scalability and performance.",
+    title: "Agile Engineering",
+    desc: "Rapid iterations and modern delivery practices.",
+  },
+  {
+    icon: Users,
+    title: "Leadership Access",
+    desc: "Direct communication with decision-makers.",
   },
   {
     icon: ShieldCheck,
-    title: "Security & Governance",
-    desc: "Ensure enterprise-grade security, compliance policies, role-based access control, and data protection aligned with Microsoft best practices.",
+    title: "Trusted Since 2013",
+    desc: "A decade of proven enterprise delivery.",
+  },
+  {
+    icon: Sliders,
+    title: "Flexible Engagement",
+    desc: "Scalable teams and adaptable delivery models aligned to your business goals.",
   },
 ];
 
-/* ================= COMPONENT ================= */
+/* ================= REVIEWS DATA ================= */
+const reviews = [
+  {
+    name: "Rajesh Kumar",
+    rating: 5,
+    comment:
+      "Softree delivered a well-architected SharePoint and Power Platform solution that significantly improved our internal workflows.",
+    location: "India",
+  },
+  {
+    name: "Sarah Thompson",
+    rating: 5,
+    comment:
+      "Their consultants clearly understood our requirements and delivered high-quality results on time.",
+    location: "United Kingdom",
+  },
+  {
+    name: "Michael Roberts",
+    rating: 5,
+    comment:
+      "Strong technical expertise and clear communication throughout the project.",
+    location: "Canada",
+  },
+  {
+    name: "Neha Sharma",
+    rating: 5,
+    comment: "Softree’s Power BI dashboards are intuitive and impactful.",
+    location: "India",
+  },
+];
 
-export default function WhyChooseUs() {
+export default function WhyChooseWithTestimonials() {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  /* AUTOPLAY */
+  useEffect(() => {
+    if (paused) return;
+
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev >= reviews.length - 1 ? 0 : prev + 1));
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [paused]);
+
   return (
-    <section className="py-15 bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* ================= TOP SECTION ================= */}
-        <div className="grid lg:grid-cols-3 gap-12 items-stretch">
-          {/* LEFT HEADING */}
-          <div className="flex">
-            <div className="my-auto max-w-xl">
-              {/* eyebrow */}
-              <p className="text-sm font-semibold uppercase tracking-widest text-purple-600 mb-4">
-                Why Organizations Choose Us
-              </p>
+    <section className="py-28  text-gray-900">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        {/* ================= LEFT : WHY CHOOSE ================= */}
+        <div className="relative">
+          {/* Small Label */}
+          <div className="text-blue-600 text-xs uppercase tracking-[0.15em] mb-3">
+            Why Choose Softree
+          </div>
 
-              {/* headline */}
-              <h2 className="text-3xl md:text-4xl font-semibold leading-tight text-slate-900">
-                Your Trusted Partner for {}
-                <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent font-bold">
-                  SharePoint Solutions & Modern Workplace
-                </span>
-              </h2>
+          {/* Heading */}
+          <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-10">
+            Built for{" "}
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              Long-Term Impact
+            </span>
+          </h2>
 
-              {/* description */}
-              <p className="mt-5 text-lg text-slate-600">
-                We design, build, and scale low-code solutions that modernize
-                operations, empower teams, and unlock productivity across the
-                Microsoft platform.
-              </p>
+          {/* ✅ Vertical Accent Line (Light Version) */}
+          <div className="absolute left-4 top-[120px] bottom-0 w-px bg-gradient-to-b from-blue-500/40 via-blue-400/20 to-transparent hidden md:block" />
+
+          {/* Features */}
+          <div className="space-y-10">
+            {whyChoose.map((item, i) => {
+              const Icon = item.icon;
+
+              return (
+                <div key={i} className="relative flex gap-6 items-start">
+                  {/* Number */}
+                  <div className="relative z-10 flex items-center justify-center w-8 h-8 text-xs font-semibold text-blue-600">
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+
+                  {/* Content */}
+                  <div>
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-9 h-9 flex items-center justify-center rounded-md bg-blue-50 text-blue-600">
+                        <Icon size={18} />
+                      </div>
+
+                      <h3 className="text-lg font-semibold">{item.title}</h3>
+                    </div>
+
+                    <p className="text-gray-600 text-sm leading-relaxed max-w-md">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* ================= RIGHT : TESTIMONIALS ================= */}
+        <div className="rounded-2xl p-10 bg-gradient-to-r from-black via-[#0f2f7a] to-black border border-white/10 shadow-2xl">
+          {/* Header */}
+          <div className="mb-10">
+            <div className="text-white text-xs uppercase tracking-widest mb-3">
+              Client Feedback
+            </div>
+
+            <h3 className="text-2xl font-semibold mb-6 text-white">
+              Trusted by Enterprise Teams
+            </h3>
+
+            <div className="flex items-center gap-4 mb-2">
+              <div className="flex gap-1">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star
+                    key={i}
+                    className="w-4 h-4 fill-yellow-400 text-yellow-400"
+                  />
+                ))}
+              </div>
+
+              <p className="font-semibold text-white">4.9 / 5</p>
+              <p className="text-gray-300 text-sm">average rating</p>
+            </div>
+
+            <p className="text-sm text-gray-400">
+              Based on{" "}
+              <span className="font-medium text-white">
+                150+ client reviews
+              </span>
+            </p>
+          </div>
+
+          {/* Reviews Slider */}
+          <div className="overflow-hidden relative w-full">
+            <div
+              className="flex transition-transform duration-700 ease-in-out"
+              style={{ transform: `translateX(-${index * 100}%)` }}
+            >
+              {reviews.map((review, i) => (
+                <div key={i} className="w-full shrink-0">
+                  <div className="max-w-xl">
+                    {/* Rating Stars */}
+                    <div className="mb-3 flex items-center gap-1">
+                      {Array.from({ length: 5 }).map((_, idx) => (
+                        <Star
+                          key={idx}
+                          className={`w-4 h-4 ${
+                            idx < review.rating
+                              ? "fill-yellow-400 text-yellow-400"
+                              : "text-gray-500"
+                          }`}
+                        />
+                      ))}
+                    </div>
+
+                    {/* Review Comment */}
+                    <p className="text-gray-200 text-base leading-relaxed mb-6">
+                      “{review.comment}”
+                    </p>
+
+                    {/* Reviewer Info */}
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-2">
+                        <User size={14} className="text-blue-400" />
+                        <p className="font-semibold text-white text-sm">
+                          {review.name}
+                        </p>
+                      </div>
+
+                      <div className="flex items-center gap-2">
+                        <MapPin size={13} className="text-gray-400" />
+                        <p className="text-xs text-gray-400">
+                          {review.location}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* RIGHT TWO CARDS */}
-          <div className="lg:col-span-2 grid md:grid-cols-2 gap-8 h-full">
-            {topCards.map((item, i) => (
-              <FeatureCard key={i} {...item} />
-            ))}
-          </div>
-        </div>
+          {/* Controls */}
+          <div className="flex items-center gap-6 mt-8 text-gray-400">
+            <button
+              onClick={() =>
+                setIndex((i) => (i === 0 ? reviews.length - 1 : i - 1))
+              }
+              className="hover:text-white transition"
+            >
+              <ChevronLeft size={18} />
+            </button>
 
-        {/* ================= BOTTOM SECTION ================= */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
-          {bottomCards.map((item, i) => (
-            <FeatureCard key={i} {...item} />
-          ))}
+            <button
+              onClick={() => setPaused(!paused)}
+              className="hover:text-white transition"
+            >
+              {paused ? <Play size={16} /> : <Pause size={16} />}
+            </button>
+
+            <button
+              onClick={() =>
+                setIndex((i) => (i >= reviews.length - 1 ? 0 : i + 1))
+              }
+              className="hover:text-white transition"
+            >
+              <ChevronRight size={18} />
+            </button>
+          </div>
         </div>
       </div>
     </section>
-  );
-}
-
-/* ================= REUSABLE CARD ================= */
-
-function FeatureCard({ icon: Icon, title, desc }: FeatureCardProps) {
-  return (
-    <div
-      className="group rounded-3xl p-8 text-white bg-gradient-to-r from-black via-[#0f2f7a] to-black
- shadow-lg hover:-translate-y-2 transition duration-300"
-    >
-      <Icon className="w-8 h-8 text-emerald-300 mb-6" />
-
-      <h3 className="text-xl font-semibold mb-3">{title}</h3>
-
-      <p className="text-emerald-100/80 leading-relaxed">{desc}</p>
-    </div>
   );
 }

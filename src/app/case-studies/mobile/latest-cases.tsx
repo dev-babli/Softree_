@@ -3,68 +3,95 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { AlertTriangle, TrendingUp ,Lightbulb} from "lucide-react";
+import { AlertTriangle, TrendingUp,Lightbulb } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 /* =========================
    CASE STUDIES DATA
 ========================= */
+
 const caseStudies = [
   {
-    title: "Barcode Scanner App",
+    title: "Doctor Appointment System",
     description:
-      "A Power Apps barcode scanner solution designed to simplify inventory management with real-time scanning and automated data capture.",
-    image: "/images/case-study/power-apps/barcode-scanner.png",
-    href: "/pdf/Barcode Scanner App.pdf",
-    challenge: "Manual inventory tracking caused delays and frequent stock inaccuracies.",
-    solution: "Built a real-time barcode scanning Power App integrated with SharePoint and Dataverse.",
-    result: "Improved inventory accuracy and reduced stock processing time significantly.",
-  },
-
-  {
-    title: "ES Speaks & Travel Requests System",
-    description:
-      "A Power Platform-based internal communication and travel request management application integrated with SharePoint and Microsoft Teams.",
-    image: "/images/case-study/power-apps/es-speaks.png",
-    href: "/pdf/ES Speaks and Travel Requests Management System.pdf",
-    challenge: "Employee communication and travel approvals were fragmented and inefficient.",
-    solution: "Developed a centralized Power Apps solution with automated approval workflows and Teams integration.",
-    result: "Enhanced employee engagement and streamlined travel request processing.",
-  },
-
-  {
-    title: "New Store Opening Process",
-    description:
-      "A centralized Power Platform solution to manage store setup tasks, approvals, vendor coordination, and progress tracking.",
-    image: "/images/case-study/power-apps/new-store-opening.png",
-    href: "/pdf/New Store Opening Process.pdf",
-    challenge: "Coordinating store launch activities across teams lacked visibility and control.",
-    solution: "Created a Power Apps & Power Automate workflow system integrated with SharePoint.",
-    result: "Improved project tracking efficiency and accelerated new store launch timelines.",
-  },
-  {
-    title: "Project Portfolio Management",
-    description:
-      "A portfolio management solution built on Microsoft Dataverse to centralize project tracking.",
-    image: "/images/case-study/power-apps/project.avif",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Projects-Portfolio-ManagementMicrosoft-Dataverse.pdf",
-    category: "Power Apps",
+      "A mobile application enabling patients to book appointments, manage schedules, and receive real-time notifications.",
+    image:
+      "https://www.softreetechnology.com/wp-content/uploads/2024/11/Building-a-Doctor-Appointment.webp",
+    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Building-a-Doctor-Appointment-Booking-System-with-React.pdf",
+    category: "Healthcare App",
     challenge:
-      "Lack of centralized project visibility made tracking progress and resource allocation difficult.",
+      "Patients faced difficulties scheduling appointments due to manual processes, limited doctor availability visibility, and lack of automated reminders.",
     solution:
-      "Implemented a Dataverse-based portfolio management system with dashboards, milestone tracking, and reporting.",
+      "Developed a responsive mobile application with real-time appointment scheduling, calendar integration, push notifications, and admin dashboard for doctors.",
     result:
-      "Enabled data-driven decision-making and improved overall project delivery performance.",
+      "Reduced booking time by 60%, improved patient engagement, and streamlined clinic scheduling operations.",
+  },
+  {
+    title: "Education App Backend",
+    description:
+      "A scalable backend system powering mobile education platforms with secure APIs and real-time data access.",
+    image:
+      "https://www.softreetechnology.com/wp-content/uploads/2024/11/Developing-Backend-for-Education-App.webp",
+    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Behind-the-Scenes-of-E.pdf",
+    category: "Education App",
+    challenge:
+      "The education platform required a robust backend capable of handling large user traffic, secure authentication, and real-time data updates.",
+    solution:
+      "Designed a scalable backend architecture using secure REST APIs, role-based access control, and optimized database management for high performance.",
+    result:
+      "Enabled seamless real-time learning access, improved platform reliability, and supported thousands of concurrent users.",
+  },
+  {
+    title: "Movie Ticket Booking App",
+    description:
+      "A mobile ticket booking application with seat selection, payment processing, and booking confirmation.",
+    image:
+      "https://www.softreetechnology.com/wp-content/uploads/2024/11/Movie-Ticket-Booking-App.webp",
+    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Movie-Ticket-Booking-App-Backend-Documentation.pdf",
+    category: "Entertainment App",
+    challenge:
+      "Users experienced booking conflicts and seat availability issues due to lack of real-time synchronization across theaters.",
+    solution:
+      "Built a real-time booking engine with dynamic seat mapping, secure payment integration, and automated confirmation system.",
+    result:
+      "Improved booking efficiency, minimized double bookings, and enhanced overall user experience.",
+  },
+  {
+    title: "Payment Gateway Integration",
+    description:
+      "A secure payment gateway integration enabling seamless online transactions across mobile platforms.",
+    image:
+      "https://www.softreetechnology.com/wp-content/uploads/2024/11/Payment-Gateway.webp",
+    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Payment-Gateway-1.pdf",
+    category: "Fintech App",
+    challenge:
+      "Businesses needed a secure and reliable payment system that supported multiple transaction methods and ensured data security compliance.",
+    solution:
+      "Integrated a PCI-compliant payment gateway with encryption protocols, fraud detection mechanisms, and multi-currency support.",
+    result:
+      "Enhanced transaction security, reduced payment failures, and improved customer trust.",
+  },
+  {
+    title: "Education Mobile App",
+    description:
+      "A student-focused mobile application providing access to courses, learning material, and assessments.",
+    image:
+      "https://www.softreetechnology.com/wp-content/uploads/2024/10/Education-App-1024x1024.webp",
+    href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Education-App.pdf",
+    category: "Education App",
+    challenge:
+      "Students lacked a centralized digital platform for accessing study materials, assignments, and performance tracking.",
+    solution:
+      "Developed a mobile learning application with interactive content modules, assessment tracking, and personalized dashboards.",
+    result:
+      "Improved student engagement, increased course completion rates, and streamlined digital learning delivery.",
   },
 ];
 
-export default function SharePointCaseStudies() {
+export default function MobileCaseStudies() {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(1);
 
-  /* =========================
-     AUTO SLIDER (5s)
-  ========================= */
   useEffect(() => {
     const interval = setInterval(() => {
       setDirection(1);
@@ -77,29 +104,28 @@ export default function SharePointCaseStudies() {
   const study = caseStudies[index];
 
   return (
-    <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-20">
+    <section className="bg-white py-20">
       <div className="max-w-7xl mx-auto px-6">
-        {/* ================= HEADER ================= */}
+        {/* Header */}
         <div className="mb-6 text-left max-w-3xl">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold uppercase tracking-wider border border-blue-500/20">
+          <span className="inline-block px-4 py-1.5 rounded-full bbg-blue-500/10 text-blue-400 text-xs font-semibold uppercase tracking-wider border border-purple-500/20">
             Featured
           </span>
 
-          <h2 className="mt-4 text-3xl md:text-4xl lg:text-4xl font-semibold text-black leading-tight">
-            Featured Power Apps{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+          <h2 className="mt-4 text-3xl md:text-4xl font-semibold text-black leading-tight">
+            Featured Mobile App{" "}
+            <span className="bg-blue-500/10 text-blue-400 bg-clip-text ">
               Success Stories
             </span>
           </h2>
 
           <p className="mt-4 text-gray-600 text-base leading-relaxed">
-            Explore how we leverage Microsoft Power Apps to build scalable,
-            secure, and high-performance business solutions that streamline
-            operations, improve productivity, and drive measurable growth.
+            Discover how we design and develop powerful mobile applications that
+            deliver seamless user experiences, real-time performance, and
+            scalable backend systems across healthcare, fintech, education, and
+            entertainment.
           </p>
         </div>
-
-        {/* ================= SLIDER ================= */}
         {/* ================= SLIDER ================= */}
         <div className="relative overflow-hidden">
           <div className="relative h-[520px]">
@@ -119,7 +145,7 @@ export default function SharePointCaseStudies() {
                 {/* LEFT CONTENT */}
                 <div className="space-y-6 md:pr-10 md:border-r md:border-white/10">
                   <span className="inline-block text-[11px] uppercase tracking-widest text-blue-400 font-semibold">
-                    SharePoint Case Study
+                    Mobile App Case Study
                   </span>
 
                   <h2 className="text-2xl md:text-3xl font-semibold text-white leading-snug">

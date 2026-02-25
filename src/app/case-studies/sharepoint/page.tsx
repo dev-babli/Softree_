@@ -5,7 +5,8 @@ import Link from "next/link";
 import CaseFooter from "../footer";
 import CaseStudyGrid from "./case-study";
 import TechStack from "./tech-stack";
-
+import WhyChooseWithTestimonials from "./why";
+import SharePointCaseStudies from "./latest-cases";
 export default function webCaseStudiesPage() {
   return (
     <div>
@@ -123,97 +124,9 @@ export default function webCaseStudiesPage() {
           </svg>
         </div>
       </section>
-
-      <section className="relative bg-gradient-to-b from-white via-slate-50 to-white">
-        {/* Ambient top glow */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_55%)]" />
-
-        <div className="relative mx-auto max-w-7xl px-6 py-24">
-          {/* Section Title */}
-          <div className="mb-12">
-            <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-              Featured SharePoint Case Study
-            </p>
-            <h3 className="mt-2 text-2xl md:text-3xl font-semibold text-slate-900">
-              Enterprise SharePoint Intranet Portal
-            </h3>
-          </div>
-
-          {/* Card */}
-          <div className="relative grid grid-cols-1 md:grid-cols-2 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_40px_80px_-40px_rgba(15,23,42,0.25)]">
-            {/* LEFT CONTENT */}
-            <div className="relative z-10 p-8 md:p-10">
-              <span className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700">
-                <Factory size={16} />
-                SharePoint • Microsoft 365
-              </span>
-
-              <h3 className="mt-4 text-2xl md:text-3xl font-semibold text-slate-900">
-                Enterprise SharePoint Intranet Portal
-              </h3>
-
-              <p className="mt-3 max-w-xl text-sm md:text-base leading-relaxed text-slate-600">
-                A modern SharePoint Online intranet designed to centralize
-                content, streamline collaboration, and automate business
-                workflows across departments using Microsoft 365.
-              </p>
-
-              <div className="mt-8 space-y-6">
-                {[
-                  {
-                    title: "Challenge",
-                    icon: <AlertTriangle size={20} />,
-                    text: "Disconnected document repositories, manual processes, and low employee engagement across teams.",
-                  },
-                  {
-                    title: "Solution",
-                    icon: <Workflow size={20} />,
-                    text: "A centralized SharePoint intranet with custom site templates, Power Automate workflows, and role-based access.",
-                  },
-                  {
-                    title: "Result",
-                    icon: <TrendingUp size={20} />,
-                    text: "65% improvement in content discoverability and faster internal collaboration across the organization.",
-                  },
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-100 text-blue-600">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-blue-600">
-                        {item.title}
-                      </p>
-                      <p className="mt-1 text-sm leading-relaxed text-slate-600">
-                        {item.text}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* RIGHT IMAGE */}
-            <div className="relative min-h-[300px]">
-              <img
-                src="/images/sharepoint/document.png"
-                alt="SharePoint Intranet Portal"
-                className="h-full w-full object-cover"
-              />
-
-              <div className="absolute bottom-4 right-4 rounded-xl bg-white px-3 py-2 shadow-md">
-                <p className="text-[11px] font-medium text-slate-600">
-                  SharePoint Online
-                </p>
-                <p className="text-[11px] font-semibold text-slate-900">
-                  Secure & Scalable
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <SharePointCaseStudies />
       <CaseStudyGrid />
+      <WhyChooseWithTestimonials />
       <TechStack />
       <ProjectProcessSection />
       <CaseFooter />

@@ -1,114 +1,257 @@
 "use client";
 
-import { Briefcase, TrendingUp, Layers, Globe } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import {
+  Star,
+  ChevronLeft,
+  ChevronRight,
+  Pause,
+  Play,
+  Rocket,
+  Users,
+  ShieldCheck,
+  User,
+  MapPin,
+  Sliders,
+} from "lucide-react";
 
-export default function WhySoftreeSection() {
+/* ================= WHY CHOOSE DATA ================= */
+const whyChoose = [
+  {
+    icon: Rocket,
+    title: "Agile Engineering",
+    desc: "Rapid iterations and modern delivery practices.",
+  },
+  {
+    icon: Users,
+    title: "Leadership Access",
+    desc: "Direct communication with decision-makers.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Trusted Since 2013",
+    desc: "A decade of proven enterprise delivery.",
+  },
+  {
+    icon: Sliders,
+    title: "Flexible Engagement",
+    desc: "Scalable teams and adaptable delivery models aligned to your business goals.",
+  },
+];
+
+/* ================= REVIEWS DATA ================= */
+const reviews = [
+  {
+    name: "Rajesh Kumar",
+    rating: 5,
+    comment:
+      "Softree delivered a well-architected SharePoint and Power Platform solution that significantly improved our internal workflows.",
+    location: "India",
+  },
+  {
+    name: "Sarah Thompson",
+    rating: 5,
+    comment:
+      "Their consultants clearly understood our requirements and delivered high-quality results on time.",
+    location: "United Kingdom",
+  },
+  {
+    name: "Michael Roberts",
+    rating: 5,
+    comment:
+      "Strong technical expertise and clear communication throughout the project.",
+    location: "Canada",
+  },
+  {
+    name: "Neha Sharma",
+    rating: 5,
+    comment: "Softree’s Power BI dashboards are intuitive and impactful.",
+    location: "India",
+  },
+];
+
+export default function WhyChooseWithTestimonials() {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  /* AUTOPLAY */
+  useEffect(() => {
+    if (paused) return;
+
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev >= reviews.length - 1 ? 0 : prev + 1));
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [paused]);
+
   return (
-    <section
-      id="HomeWhySoftree"
-      className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-14"
-    >
-      <div className="max-w-7xl mx-auto px-6">
-
-        {/* HEADING */}
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-14">
-          <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-            Why Softree
-          </span>{" "}
-          <span className="text-zinc-900">
-            — Delivering Outcomes That Matter
-          </span>
-        </h2>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-
-          {/* LEFT CONTENT */}
-          <div className="space-y-6 text-zinc-600 leading-relaxed text-base">
-            <p>
-              Softree helps organizations turn complex challenges into scalable
-              digital solutions. We partner with growth-focused companies to
-              design, build, and modernize software using proven engineering
-              practices and emerging technologies.
-            </p>
-
-            <p>
-              With a global delivery model and deep technical expertise, we
-              support startups and enterprises across product engineering,
-              cloud, data, AI, and security initiatives.
-            </p>
-
-            <ul className="space-y-3 mt-6 list-disc list-inside text-zinc-700">
-              <li>Proven experience delivering complex software platforms</li>
-              <li>Scalable, secure, and future-ready engineering practices</li>
-              <li>Agile delivery aligned with your product roadmap</li>
-              <li>Experienced teams operating across time zones</li>
-              <li>Reusable accelerators to reduce delivery risk</li>
-              <li>Clear communication and transparent processes</li>
-            </ul>
+    <section className="py-28  text-gray-900">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        {/* ================= LEFT : WHY CHOOSE ================= */}
+        <div className="relative">
+          {/* Small Label */}
+          <div className="text-blue-600 text-xs uppercase tracking-[0.15em] mb-3">
+            Why Choose Softree
           </div>
 
-          {/* RIGHT STATS */}
-          <div className="grid grid-cols-2 gap-6">
-            <StatCard
-              icon={Briefcase}
-              value="200+"
-              label="Successful Client Engagements"
-            />
-            <StatCard
-              icon={TrendingUp}
-              value="98%"
-              label="Projects Meeting or Exceeding Goals"
-            />
-            <StatCard
-              icon={Layers}
-              value="12+"
-              label="Industries Served Globally"
-            />
-            <StatCard
-              icon={Globe}
-              value="24/7"
-              label="Global Delivery & Support Coverage"
-            />
+          {/* Heading */}
+          <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-10">
+            Built for{" "}
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              Long-Term Impact
+            </span>
+          </h2>
+
+          {/* ✅ Vertical Accent Line (Light Version) */}
+          <div className="absolute left-4 top-[120px] bottom-0 w-px bg-gradient-to-b from-blue-500/40 via-blue-400/20 to-transparent hidden md:block" />
+
+          {/* Features */}
+          <div className="space-y-10">
+            {whyChoose.map((item, i) => {
+              const Icon = item.icon;
+
+              return (
+                <div key={i} className="relative flex gap-6 items-start">
+                  {/* Number */}
+                  <div className="relative z-10 flex items-center justify-center w-8 h-8 text-xs font-semibold text-blue-600">
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+
+                  {/* Content */}
+                  <div>
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-9 h-9 flex items-center justify-center rounded-md bg-blue-50 text-blue-600">
+                        <Icon size={18} />
+                      </div>
+
+                      <h3 className="text-lg font-semibold">{item.title}</h3>
+                    </div>
+
+                    <p className="text-gray-600 text-sm leading-relaxed max-w-md">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* ================= RIGHT : TESTIMONIALS ================= */}
+        <div className="rounded-2xl p-10 bg-gradient-to-r from-black via-[#0f2f7a] to-black border border-white/10 shadow-2xl">
+          {/* Header */}
+          <div className="mb-10">
+            <div className="text-white text-xs uppercase tracking-widest mb-3">
+              Client Feedback
+            </div>
+
+            <h3 className="text-2xl font-semibold mb-6 text-white">
+              Trusted by Enterprise Teams
+            </h3>
+
+            <div className="flex items-center gap-4 mb-2">
+              <div className="flex gap-1">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star
+                    key={i}
+                    className="w-4 h-4 fill-yellow-400 text-yellow-400"
+                  />
+                ))}
+              </div>
+
+              <p className="font-semibold text-white">4.9 / 5</p>
+              <p className="text-gray-300 text-sm">average rating</p>
+            </div>
+
+            <p className="text-sm text-gray-400">
+              Based on{" "}
+              <span className="font-medium text-white">
+                150+ client reviews
+              </span>
+            </p>
+          </div>
+
+          {/* Reviews Slider */}
+          <div className="overflow-hidden relative w-full">
+            <div
+              className="flex transition-transform duration-700 ease-in-out"
+              style={{ transform: `translateX(-${index * 100}%)` }}
+            >
+              {reviews.map((review, i) => (
+                <div key={i} className="w-full shrink-0">
+                  <div className="max-w-xl">
+                    {/* Rating Stars */}
+                    <div className="mb-3 flex items-center gap-1">
+                      {Array.from({ length: 5 }).map((_, idx) => (
+                        <Star
+                          key={idx}
+                          className={`w-4 h-4 ${
+                            idx < review.rating
+                              ? "fill-yellow-400 text-yellow-400"
+                              : "text-gray-500"
+                          }`}
+                        />
+                      ))}
+                    </div>
+
+                    {/* Review Comment */}
+                    <p className="text-gray-200 text-base leading-relaxed mb-6">
+                      “{review.comment}”
+                    </p>
+
+                    {/* Reviewer Info */}
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-2">
+                        <User size={14} className="text-blue-400" />
+                        <p className="font-semibold text-white text-sm">
+                          {review.name}
+                        </p>
+                      </div>
+
+                      <div className="flex items-center gap-2">
+                        <MapPin size={13} className="text-gray-400" />
+                        <p className="text-xs text-gray-400">
+                          {review.location}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Controls */}
+          <div className="flex items-center gap-6 mt-8 text-gray-400">
+            <button
+              onClick={() =>
+                setIndex((i) => (i === 0 ? reviews.length - 1 : i - 1))
+              }
+              className="hover:text-white transition"
+            >
+              <ChevronLeft size={18} />
+            </button>
+
+            <button
+              onClick={() => setPaused(!paused)}
+              className="hover:text-white transition"
+            >
+              {paused ? <Play size={16} /> : <Pause size={16} />}
+            </button>
+
+            <button
+              onClick={() =>
+                setIndex((i) => (i >= reviews.length - 1 ? 0 : i + 1))
+              }
+              className="hover:text-white transition"
+            >
+              <ChevronRight size={18} />
+            </button>
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-/* STAT CARD */
-function StatCard({
-  icon: Icon,
-  value,
-  label,
-}: {
-  icon: any;
-  value: string;
-  label: string;
-}) {
-  return (
-   <div
-  className="
-    bg-white
-    border border-zinc-200
-    rounded-2xl
-    p-7
-    shadow-sm
-    transition-all duration-300
-    hover:-translate-y-1
-    hover:shadow-lg
-    hover:border-2
-    hover:border-blue-400
-  "
->
-  <Icon className="w-8 h-8 text-blue-600 mb-4" strokeWidth={1.6} />
-
-  <strong className="block text-4xl font-bold text-zinc-900 mb-2">
-    {value}
-  </strong>
-
-  <span className="text-sm text-zinc-600">{label}</span>
-</div>
-
   );
 }

@@ -6,6 +6,7 @@ import CaseFooter from "../footer";
 import CaseStudyGrid from "./case-study-grid";
 import WhyChooseUs from "./why-chose";
 import TechnologiesTabs from "./collab-tab";
+import WebCaseStudies from "./latest-cases";
 export default function webCaseStudiesPage() {
   return (
     <div>
@@ -114,103 +115,8 @@ export default function webCaseStudiesPage() {
           </svg>
         </div>
       </section>
-      <section className="relative bg-gradient-to-b from-white via-slate-50 to-white">
-        {/* Ambient top glow */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_55%)]" />
+      <WebCaseStudies />
 
-        <div className="relative mx-auto max-w-7xl px-6 py-24">
-          {/* Section Title */}
-          <div className="mb-12">
-            <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-              Featured Web Development Case Study
-            </p>
-            <h3 className="mt-2 text-2xl md:text-3xl font-semibold text-slate-900">
-              Smart Manufacturing Web Platform
-            </h3>
-          </div>
-
-          {/* Card */}
-          <div
-            className="
-        relative grid grid-cols-1 md:grid-cols-2
-        overflow-hidden rounded-3xl
-        border border-slate-200
-        bg-white
-        shadow-[0_40px_80px_-40px_rgba(15,23,42,0.25)]
-      "
-          >
-            {/* LEFT CONTENT */}
-            <div className="relative z-10 p-8 md:p-10">
-              <span className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700">
-                <Factory size={16} />
-                Web Platform • Manufacturing
-              </span>
-
-              <h3 className="mt-4 text-2xl md:text-3xl font-semibold text-slate-900">
-                Smart Manufacturing Web Platform
-              </h3>
-
-              <p className="mt-3 max-w-xl text-sm md:text-base leading-relaxed text-slate-600">
-                A scalable web-based platform designed to monitor manufacturing
-                operations, manage workflows, and provide real-time insights
-                through modern browser-based dashboards.
-              </p>
-
-              <div className="mt-8 space-y-6">
-                {[
-                  {
-                    title: "Challenge",
-                    icon: <AlertTriangle size={20} />,
-                    text: "Fragmented systems and delayed reporting across multiple manufacturing facilities.",
-                  },
-                  {
-                    title: "Solution",
-                    icon: <Workflow size={20} />,
-                    text: "A centralized web application with real-time dashboards, role-based access, and automated workflows.",
-                  },
-                  {
-                    title: "Result",
-                    icon: <TrendingUp size={20} />,
-                    text: "60% faster reporting and significantly improved operational visibility for leadership teams.",
-                  },
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-100 text-blue-600">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-blue-600">
-                        {item.title}
-                      </p>
-                      <p className="mt-1 text-sm leading-relaxed text-slate-600">
-                        {item.text}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* RIGHT IMAGE */}
-            <div className="relative min-h-[300px]">
-              <img
-                src="/images/web.png"
-                alt="Manufacturing Web Platform"
-                className="h-full w-full object-cover"
-              />
-
-              <div className="absolute bottom-4 right-4 rounded-xl bg-white px-3 py-2 shadow-md">
-                <p className="text-[11px] font-medium text-slate-600">
-                  Web Platform
-                </p>
-                <p className="text-[11px] font-semibold text-slate-900">
-                  Responsive & Cloud-Ready
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       <CaseStudyGrid />
       <WhyChooseUs />
       <TechnologiesTabs />

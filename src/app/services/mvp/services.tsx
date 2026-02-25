@@ -72,7 +72,7 @@ export default function MvpServices() {
         <div className="mx-auto mb-20 max-w-5xl text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
             <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-              BUILD
+              Build
             </span>{" "}
             MVPs That Scale Into Products
           </h2>

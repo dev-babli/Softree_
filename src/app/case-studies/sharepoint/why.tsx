@@ -42,31 +42,30 @@ const whyChoose = [
 /* ================= REVIEWS DATA ================= */
 const reviews = [
   {
-    name: "Ethan Clarke",
+    name: "Rajesh Kumar",
     rating: 5,
     comment:
-      "Softree’s Agentic AI solution transformed our operations with autonomous decision-making and intelligent workflow automation. The impact on efficiency was immediate.",
-    location: "United States",
+      "Softree delivered a well-architected SharePoint and Power Platform solution that significantly improved our internal workflows.",
+    location: "India",
   },
   {
-    name: "Isabella Turner",
+    name: "Sarah Thompson",
     rating: 5,
     comment:
-      "Their AI agents seamlessly integrated with our existing systems and handled complex processes with minimal human intervention. Truly next-generation technology.",
+      "Their consultants clearly understood our requirements and delivered high-quality results on time.",
     location: "United Kingdom",
   },
   {
-    name: "Noah Fischer",
+    name: "Michael Roberts",
     rating: 5,
     comment:
-      "The multi-agent architecture they designed improved response time, data accuracy, and operational scalability across departments.",
-    location: "Germany",
+      "Strong technical expertise and clear communication throughout the project.",
+    location: "Canada",
   },
   {
-    name: "Aarav Mehta",
+    name: "Neha Sharma",
     rating: 5,
-    comment:
-      "Softree delivered an intelligent AI-driven platform that continuously learns and optimizes workflows. Exceptional expertise in advanced AI systems.",
+    comment: "Softree’s Power BI dashboards are intuitive and impactful.",
     location: "India",
   },
 ];

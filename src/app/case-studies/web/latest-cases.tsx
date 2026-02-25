@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { AlertTriangle, TrendingUp ,Lightbulb} from "lucide-react";
+import { AlertTriangle, TrendingUp, Lightbulb } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 /* =========================
@@ -11,60 +11,84 @@ import { motion, AnimatePresence } from "framer-motion";
 ========================= */
 const caseStudies = [
   {
-    title: "Barcode Scanner App",
+    title: "Shopping E-Commerce Platform",
     description:
-      "A Power Apps barcode scanner solution designed to simplify inventory management with real-time scanning and automated data capture.",
-    image: "/images/case-study/power-apps/barcode-scanner.png",
-    href: "/pdf/Barcode Scanner App.pdf",
-    challenge: "Manual inventory tracking caused delays and frequent stock inaccuracies.",
-    solution: "Built a real-time barcode scanning Power App integrated with SharePoint and Dataverse.",
-    result: "Improved inventory accuracy and reduced stock processing time significantly.",
-  },
-
-  {
-    title: "ES Speaks & Travel Requests System",
-    description:
-      "A Power Platform-based internal communication and travel request management application integrated with SharePoint and Microsoft Teams.",
-    image: "/images/case-study/power-apps/es-speaks.png",
-    href: "/pdf/ES Speaks and Travel Requests Management System.pdf",
-    challenge: "Employee communication and travel approvals were fragmented and inefficient.",
-    solution: "Developed a centralized Power Apps solution with automated approval workflows and Teams integration.",
-    result: "Enhanced employee engagement and streamlined travel request processing.",
-  },
-
-  {
-    title: "New Store Opening Process",
-    description:
-      "A centralized Power Platform solution to manage store setup tasks, approvals, vendor coordination, and progress tracking.",
-    image: "/images/case-study/power-apps/new-store-opening.png",
-    href: "/pdf/New Store Opening Process.pdf",
-    challenge: "Coordinating store launch activities across teams lacked visibility and control.",
-    solution: "Created a Power Apps & Power Automate workflow system integrated with SharePoint.",
-    result: "Improved project tracking efficiency and accelerated new store launch timelines.",
-  },
-  {
-    title: "Project Portfolio Management",
-    description:
-      "A portfolio management solution built on Microsoft Dataverse to centralize project tracking.",
-    image: "/images/case-study/power-apps/project.avif",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Projects-Portfolio-ManagementMicrosoft-Dataverse.pdf",
-    category: "Power Apps",
+      "A scalable e-commerce web platform with product management, secure payments, and optimized checkout flow.",
+    image:
+      "https://www.softreetechnology.com/wp-content/uploads/2024/12/Shopping-E-Commerce.webp",
+    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/ShoppingEcommerce.pdf",
     challenge:
-      "Lack of centralized project visibility made tracking progress and resource allocation difficult.",
+      "The client needed a scalable online store capable of handling high traffic, secure transactions, and smooth product management without performance issues.",
     solution:
-      "Implemented a Dataverse-based portfolio management system with dashboards, milestone tracking, and reporting.",
+      "Built a high-performance e-commerce platform with optimized checkout flow, secure payment gateway integration, and advanced product management system.",
     result:
-      "Enabled data-driven decision-making and improved overall project delivery performance.",
+      "Increased conversion rates by 35%, improved checkout speed, and delivered a seamless shopping experience across devices.",
+  },
+
+  {
+    title: "Pet Care Management Platform",
+    description:
+      "A web-based system for managing pet care services, bookings, and customer interactions.",
+    image:
+      "https://www.softreetechnology.com/wp-content/uploads/2024/12/Pet-care.webp",
+    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/PET_CARE.pdf",
+    challenge:
+      "Manual appointment scheduling and fragmented customer records were causing operational inefficiencies and missed bookings.",
+    solution:
+      "Developed a centralized platform with online booking, customer management system, and automated notifications.",
+    result:
+      "Reduced booking errors by 50% and improved customer satisfaction with streamlined service management.",
+  },
+
+  {
+    title: "Business Consultation Platform",
+    description:
+      "A professional consultation platform enabling client management, scheduling, and service tracking.",
+    image:
+      "https://www.softreetechnology.com/wp-content/uploads/2024/12/Business-Consultation-App.webp",
+    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Business-Consultation-App-case-study-1.pdf",
+    challenge:
+      "Consultants struggled with managing appointments, tracking services, and maintaining organized client records.",
+    solution:
+      "Created a structured consultation platform with automated scheduling, CRM features, and service tracking dashboards.",
+    result:
+      "Improved workflow efficiency by 40% and enhanced overall client engagement.",
+  },
+
+  {
+    title: "Public Blogging Website",
+    description:
+      "A full-stack blogging platform built with MERN stack supporting publishing, comments, and user authentication.",
+    image:
+      "https://www.softreetechnology.com/wp-content/uploads/2024/11/Node.js-Express.js-HTML-editor.webp",
+    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Public-Blogging-Website-Using-the-MERN-Stack.pdf",
+    challenge:
+      "The platform required secure authentication, scalable backend, and real-time content updates for public users.",
+    solution:
+      "Developed a MERN-based full-stack blogging system with JWT authentication, dynamic content rendering, and optimized APIs.",
+    result:
+      "Achieved high user engagement and scalable performance for concurrent users.",
+  },
+
+  {
+    title: "Food & Wine Website",
+    description:
+      "A visually rich marketing website designed for food and beverage brands with content-focused UX.",
+    image:
+      "https://www.softreetechnology.com/wp-content/uploads/2024/11/FOOD-WINE-WEBSITE.webp",
+    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/FOOD-WINE-WEBSITE.pdf",
+    challenge:
+      "The brand needed a visually appealing website that showcased products while maintaining performance and SEO optimization.",
+    solution:
+      "Designed a responsive, content-focused website with high-quality visuals, optimized performance, and SEO-friendly structure.",
+    result:
+      "Increased online brand visibility and boosted user engagement through immersive design.",
   },
 ];
-
-export default function SharePointCaseStudies() {
+export default function WebCaseStudies() {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(1);
 
-  /* =========================
-     AUTO SLIDER (5s)
-  ========================= */
   useEffect(() => {
     const interval = setInterval(() => {
       setDirection(1);
@@ -77,29 +101,28 @@ export default function SharePointCaseStudies() {
   const study = caseStudies[index];
 
   return (
-    <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-20">
+    <section className="bg-white py-20">
       <div className="max-w-7xl mx-auto px-6">
-        {/* ================= HEADER ================= */}
+        {/* Header */}
         <div className="mb-6 text-left max-w-3xl">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold uppercase tracking-wider border border-blue-500/20">
+          <span className="inline-block px-4 py-1.5 rounded-full bbg-blue-500/10 text-blue-400 text-xs font-semibold uppercase tracking-wider border border-purple-500/20">
             Featured
           </span>
 
-          <h2 className="mt-4 text-3xl md:text-4xl lg:text-4xl font-semibold text-black leading-tight">
-            Featured Power Apps{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+          <h2 className="mt-4 text-3xl md:text-4xl font-semibold text-black leading-tight">
+            Featured Web App{" "}
+            <span className="bg-blue-500/10 text-blue-400 bg-clip-text ">
               Success Stories
             </span>
           </h2>
 
           <p className="mt-4 text-gray-600 text-base leading-relaxed">
-            Explore how we leverage Microsoft Power Apps to build scalable,
-            secure, and high-performance business solutions that streamline
-            operations, improve productivity, and drive measurable growth.
+            Discover how we design and develop powerful web applications that
+            deliver seamless user experiences, real-time performance, and
+            scalable backend systems across healthcare, fintech, education, and
+            entertainment.
           </p>
         </div>
-
-        {/* ================= SLIDER ================= */}
         {/* ================= SLIDER ================= */}
         <div className="relative overflow-hidden">
           <div className="relative h-[520px]">
@@ -119,7 +142,7 @@ export default function SharePointCaseStudies() {
                 {/* LEFT CONTENT */}
                 <div className="space-y-6 md:pr-10 md:border-r md:border-white/10">
                   <span className="inline-block text-[11px] uppercase tracking-widest text-blue-400 font-semibold">
-                    SharePoint Case Study
+                    Web App Case Study
                   </span>
 
                   <h2 className="text-2xl md:text-3xl font-semibold text-white leading-snug">

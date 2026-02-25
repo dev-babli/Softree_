@@ -27,22 +27,22 @@ const CASE_STUDIES: CaseStudy[] = [
     category: "Power Apps",
   },
   {
-  title: "ES Speaks and Travel Requests Management System",
-  description:
-    "A Power Platform-based internal communication application designed to enhance employee engagement by enabling announcements, feedback collection, event updates, and leadership messages with seamless integration to SharePoint and Microsoft Teams.",
-  image: "/images/case-study/power-apps/es-speaks.png",
-  href: "/pdf/ES Speaks and Travel Requests Management System.pdf",
-  category: "Power Platform",
-},
+    title: "ES Speaks and Travel Requests Management System",
+    description:
+      "A Power Platform-based internal communication application designed to enhance employee engagement by enabling announcements, feedback collection, event updates, and leadership messages with seamless integration to SharePoint and Microsoft Teams.",
+    image: "/images/case-study/power-apps/es-speaks.png",
+    href: "/pdf/ES Speaks and Travel Requests Management System.pdf",
+    category: "Power Platform",
+  },
 
-{
-  title: "New Store Opening Process",
-  description:
-    "A centralized New Store Opening Process solution developed using Power Apps and Power Automate to manage store setup activities, task assignments, approval workflows, vendor coordination, and progress tracking with seamless SharePoint integration.",
-  image: "/images/case-study/power-apps/new-store-opening.png",
-  href: "/pdf/New Store Opening Process.pdf",
-  category: "Power Platform",
-},
+  {
+    title: "New Store Opening Process",
+    description:
+      "A centralized New Store Opening Process solution developed using Power Apps and Power Automate to manage store setup activities, task assignments, approval workflows, vendor coordination, and progress tracking with seamless SharePoint integration.",
+    image: "/images/case-study/power-apps/new-store-opening.png",
+    href: "/pdf/New Store Opening Process.pdf",
+    category: "Power Platform",
+  },
   {
     title: "Employee Details Tracking System",
     description:
@@ -202,9 +202,8 @@ export default function CaseStudyGrid() {
           </span>
 
           <h2 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
-            Power Apps Case Studies: Delivering Measurable Business Outcomes
+            Power Apps Case Studies: Real Business Impact
           </h2>
-
           <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
             Discover how organizations leverage custom Power Apps solutions to
             modernize business processes, automate operations, and drive
@@ -243,24 +242,21 @@ export default function CaseStudyGrid() {
       "
               >
                 {/* ===== IMAGE ===== */}
-                <motion.div
-                  className="relative h-[180px] overflow-hidden"
-                  whileHover={{ scale: 1.04 }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                >
+                <div className="relative h-[180px] overflow-hidden group">
                   {/* subtle image base */}
                   <div className="absolute inset-0 bg-slate-100" />
 
-                  <img
+                  <motion.img
                     src={item.image}
                     alt={item.title}
                     className="relative h-full w-full object-cover"
+                    whileHover={{ scale: 1.08 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
                   />
 
                   {/* light overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
-                </motion.div>
-
+                </div>
                 {/* ===== CONTENT ===== */}
                 <div className="relative z-10 flex flex-1 flex-col justify-between gap-4 px-5 py-4">
                   {/* INDEX */}

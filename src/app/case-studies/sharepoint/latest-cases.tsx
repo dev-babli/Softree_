@@ -3,68 +3,84 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { AlertTriangle, TrendingUp ,Lightbulb} from "lucide-react";
+import { AlertTriangle, TrendingUp, Lightbulb } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 /* =========================
    CASE STUDIES DATA
 ========================= */
+
 const caseStudies = [
   {
-    title: "Barcode Scanner App",
+    title: "Custom Copy & Move Panel for Lists",
     description:
-      "A Power Apps barcode scanner solution designed to simplify inventory management with real-time scanning and automated data capture.",
-    image: "/images/case-study/power-apps/barcode-scanner.png",
-    href: "/pdf/Barcode Scanner App.pdf",
-    challenge: "Manual inventory tracking caused delays and frequent stock inaccuracies.",
-    solution: "Built a real-time barcode scanning Power App integrated with SharePoint and Dataverse.",
-    result: "Improved inventory accuracy and reduced stock processing time significantly.",
-  },
-
-  {
-    title: "ES Speaks & Travel Requests System",
-    description:
-      "A Power Platform-based internal communication and travel request management application integrated with SharePoint and Microsoft Teams.",
-    image: "/images/case-study/power-apps/es-speaks.png",
-    href: "/pdf/ES Speaks and Travel Requests Management System.pdf",
-    challenge: "Employee communication and travel approvals were fragmented and inefficient.",
-    solution: "Developed a centralized Power Apps solution with automated approval workflows and Teams integration.",
-    result: "Enhanced employee engagement and streamlined travel request processing.",
-  },
-
-  {
-    title: "New Store Opening Process",
-    description:
-      "A centralized Power Platform solution to manage store setup tasks, approvals, vendor coordination, and progress tracking.",
-    image: "/images/case-study/power-apps/new-store-opening.png",
-    href: "/pdf/New Store Opening Process.pdf",
-    challenge: "Coordinating store launch activities across teams lacked visibility and control.",
-    solution: "Created a Power Apps & Power Automate workflow system integrated with SharePoint.",
-    result: "Improved project tracking efficiency and accelerated new store launch timelines.",
-  },
-  {
-    title: "Project Portfolio Management",
-    description:
-      "A portfolio management solution built on Microsoft Dataverse to centralize project tracking.",
-    image: "/images/case-study/power-apps/project.avif",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Projects-Portfolio-ManagementMicrosoft-Dataverse.pdf",
-    category: "Power Apps",
+      "A custom SPFx solution built using Fluent UI to enable seamless copy and move operations for SharePoint list items with enhanced user experience.",
+    image: "/images/case-study/sharepoint/copy-move-panel.webp",
+    href: "https://www.softreetechnology.com/wp-content/uploads/2025/03/Enhancing-SharePoint-List-Management-with-a-Custom-Copy-Move-Panel-Using-SPFx-and-Fluent-UI.pdf",
     challenge:
-      "Lack of centralized project visibility made tracking progress and resource allocation difficult.",
+      "Manual list item transfers caused inefficiencies and data duplication.",
     solution:
-      "Implemented a Dataverse-based portfolio management system with dashboards, milestone tracking, and reporting.",
+      "Built a custom SPFx panel with structured copy/move logic and metadata retention.",
+    result: "Improved list management efficiency and reduced manual errors.",
+  },
+
+  {
+    title: "Enable & Disable MFA Using PowerShell",
+    description:
+      "A PowerShell automation approach to manage Multi-Factor Authentication (MFA) settings for Microsoft 365 users securely.",
+    image: "/images/case-study/sharepoint/mfa-powershell.webp",
+    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/How-To-Enable-And-Disable-MFA-Using-PowerShell-1.pdf",
+    challenge: "Managing MFA manually for multiple users was time-consuming.",
+    solution:
+      "Created a secure PowerShell script to enable and disable MFA in bulk.",
     result:
-      "Enabled data-driven decision-making and improved overall project delivery performance.",
+      "Reduced admin effort and improved Microsoft 365 security compliance.",
+  },
+
+  {
+    title: "Dynamic Navigation Bar Using SPFx Application Customizer",
+    description:
+      "An SPFx Application Customizer that delivers a dynamic, role-based navigation bar across modern SharePoint sites.",
+    image: "/images/case-study/sharepoint/navigation-bar.webp",
+    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Creating-a-Dynamic-Navigation-Bar-using-SPFx-Application-Customizer.pdf",
+    challenge:
+      "Lack of centralized navigation created inconsistent user experience.",
+    solution:
+      "Implemented role-based dynamic navigation using SPFx Application Customizer.",
+    result:
+      "Enhanced usability and improved cross-site navigation consistency.",
+  },
+
+  {
+    title: "Custom Footer for SharePoint Online",
+    description:
+      "A reusable SPFx footer component designed to enhance branding and accessibility.",
+    image: "/images/case-study/sharepoint/custom-footer.webp",
+    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Enhancing-User-Experience-with-a-Custom-Footer-using-SPFx.pdf",
+    challenge:
+      "Maintaining consistent branding across SharePoint sites was difficult.",
+    solution:
+      "Developed a reusable SPFx footer extension with centralized configuration.",
+    result: "Achieved consistent branding and improved user experience.",
+  },
+
+  {
+    title: "Global Notification Banner in SharePoint",
+    description:
+      "A SharePoint-wide notification banner using SPFx Application Customizer.",
+    image: "/images/case-study/sharepoint/notification-banner.webp",
+    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Implementing-a-Global-Notification-Banner-with-SPFx-Application-Customizer.pdf",
+    challenge:
+      "Organizations lacked an efficient way to broadcast urgent updates.",
+    solution:
+      "Built a centralized SPFx banner with configurable messaging controls.",
+    result: "Improved internal communication and ensured timely announcements.",
   },
 ];
-
 export default function SharePointCaseStudies() {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(1);
 
-  /* =========================
-     AUTO SLIDER (5s)
-  ========================= */
   useEffect(() => {
     const interval = setInterval(() => {
       setDirection(1);
@@ -77,29 +93,30 @@ export default function SharePointCaseStudies() {
   const study = caseStudies[index];
 
   return (
-    <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-20">
+    <section className="bg-white py-20">
       <div className="max-w-7xl mx-auto px-6">
-        {/* ================= HEADER ================= */}
+        {/* Header */}
         <div className="mb-6 text-left max-w-3xl">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold uppercase tracking-wider border border-blue-500/20">
+          <span className="inline-block px-4 py-1.5 rounded-full bbg-blue-500/10 text-blue-400 text-xs font-semibold uppercase tracking-wider border border-purple-500/20">
             Featured
           </span>
 
-          <h2 className="mt-4 text-3xl md:text-4xl lg:text-4xl font-semibold text-black leading-tight">
-            Featured Power Apps{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+          <h2 className="mt-4 text-3xl md:text-4xl font-semibold text-black leading-tight">
+            Featured SharePoint{" "}
+            <span className="bg-blue-500/10 text-blue-400 bg-clip-text ">
               Success Stories
             </span>
           </h2>
 
-          <p className="mt-4 text-gray-600 text-base leading-relaxed">
-            Explore how we leverage Microsoft Power Apps to build scalable,
-            secure, and high-performance business solutions that streamline
-            operations, improve productivity, and drive measurable growth.
+          <p className="mt-2 text-gray-600 text-base leading-relaxed">
+            Discover how we design and implement powerful SharePoint solutions
+            that streamline collaboration, automate business processes, and
+            enhance document management across enterprises. From intranet
+            portals and workflow automation to SPFx development and seamless
+            Microsoft 365 integration, we build secure, scalable, and
+            productivity-driven SharePoint ecosystems.
           </p>
         </div>
-
-        {/* ================= SLIDER ================= */}
         {/* ================= SLIDER ================= */}
         <div className="relative overflow-hidden">
           <div className="relative h-[520px]">

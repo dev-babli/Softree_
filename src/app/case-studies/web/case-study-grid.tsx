@@ -139,7 +139,7 @@ export default function CaseStudyGrid() {
           <div className="mx-auto mt-8 h-[2px] w-28 bg-gradient-to-r from-transparent via-blue-500/40 to-transparent" />
         </div>
 
-         {/* ================= CARD CONTAINER ================= */}
+        {/* ================= CARD CONTAINER ================= */}
         <section
           className="
     relative mt-3 rounded-[48px]  
@@ -169,23 +169,21 @@ export default function CaseStudyGrid() {
       "
               >
                 {/* ===== IMAGE ===== */}
-                <motion.div
-                  className="relative h-[180px] overflow-hidden"
-                  whileHover={{ scale: 1.04 }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                >
+                <div className="relative h-[180px] overflow-hidden group">
                   {/* subtle image base */}
                   <div className="absolute inset-0 bg-slate-100" />
 
-                  <img
+                  <motion.img
                     src={item.image}
                     alt={item.title}
                     className="relative h-full w-full object-cover"
+                    whileHover={{ scale: 1.08 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
                   />
 
                   {/* light overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
-                </motion.div>
+                </div>
 
                 {/* ===== CONTENT ===== */}
                 <div className="relative z-10 flex flex-1 flex-col justify-between gap-4 px-5 py-4">
