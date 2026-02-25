@@ -97,24 +97,25 @@ export default function SharePointCaseStudies() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="mb-6 text-left max-w-3xl">
-          <span className="inline-block px-4 py-1.5 rounded-full bbg-blue-500/10 text-blue-400 text-xs font-semibold uppercase tracking-wider border border-purple-500/20">
+          <span
+            className="inline-block px-4 py-1.5 rounded-full  bg-gradient-to-r
+      from-blue-600
+      via-cyan-500
+      to-blue-600
+      bg-clip-text
+      text-transparent text-xs font-semibold uppercase tracking-wider border border-purple-500/20"
+          >
             Featured
           </span>
 
           <h2 className="mt-4 text-3xl md:text-4xl font-semibold text-black leading-tight">
             Featured SharePoint{" "}
-            <span className="bg-blue-500/10 text-blue-400 bg-clip-text ">
+            <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 bg-clip-text text-transparent">
               Success Stories
             </span>
           </h2>
-
-          <p className="mt-2 text-gray-600 text-base leading-relaxed">
-            Discover how we design and implement powerful SharePoint solutions
-            that streamline collaboration, automate business processes, and
-            enhance document management across enterprises. From intranet
-            portals and workflow automation to SPFx development and seamless
-            Microsoft 365 integration, we build secure, scalable, and
-            productivity-driven SharePoint ecosystems.
+             <p className="mt-4 text-gray-600 text-base leading-relaxed">
+         Discover how we design and develop powerful SharePoint solutions that streamline collaboration, automate business processes, and deliver secure, scalable digital workplaces.
           </p>
         </div>
         {/* ================= SLIDER ================= */}

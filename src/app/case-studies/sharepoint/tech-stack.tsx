@@ -66,7 +66,7 @@ const techStacks = [
 
 export default function TechStack() {
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-4xl mx-auto mb-4 px-4">
           {/* Eyebrow */}

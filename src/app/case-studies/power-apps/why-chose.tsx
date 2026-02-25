@@ -99,7 +99,14 @@ export default function WhyChooseWithTestimonials() {
           {/* Heading */}
           <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-10">
             Built for{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span
+              className=" bg-gradient-to-r
+      from-blue-600
+      via-cyan-500
+      to-blue-600
+      bg-clip-text
+      text-transparent"
+            >
               Long-Term Impact
             </span>
           </h2>

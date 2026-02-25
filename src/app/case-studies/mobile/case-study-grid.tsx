@@ -171,8 +171,8 @@ export default function CaseStudyGrid() {
             Mobile Development • iOS & Android
           </span>
 
-          <h2 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
-            Mobile App Case Studies: Driving Growth Through Innovation
+          <h2 className="text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl">
+            Mobile App Case Studies
           </h2>
 
           <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">

@@ -105,13 +105,18 @@ export default function WebCaseStudies() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="mb-6 text-left max-w-3xl">
-          <span className="inline-block px-4 py-1.5 rounded-full bbg-blue-500/10 text-blue-400 text-xs font-semibold uppercase tracking-wider border border-purple-500/20">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r
+      from-blue-600
+      via-cyan-500
+      to-blue-600
+      bg-clip-text
+      text-transparent text-xs font-semibold uppercase tracking-wider border border-purple-500/20">
             Featured
           </span>
 
           <h2 className="mt-4 text-3xl md:text-4xl font-semibold text-black leading-tight">
             Featured Web App{" "}
-            <span className="bg-blue-500/10 text-blue-400 bg-clip-text ">
+            <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 bg-clip-text text-transparent">
               Success Stories
             </span>
           </h2>

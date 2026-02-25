@@ -127,7 +127,7 @@ export default function CaseStudyGrid() {
           </span>
 
           <h2 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
-            Web Development Case Studies: Building Scalable Digital Platforms
+            Web Development Case Studies
           </h2>
 
           <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">

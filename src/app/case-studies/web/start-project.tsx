@@ -2,7 +2,7 @@
 
 export default function CtaWebApps() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
+    <section className="relative overflow-hidden bg-white">
       <div className="mx-auto max-w-7xl px-6 py-12">
         <div
           className="

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { AlertTriangle, TrendingUp ,Lightbulb} from "lucide-react";
+import { AlertTriangle, TrendingUp, Lightbulb } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 /* =========================
@@ -16,9 +16,12 @@ const caseStudies = [
       "A Power Apps barcode scanner solution designed to simplify inventory management with real-time scanning and automated data capture.",
     image: "/images/case-study/power-apps/barcode-scanner.png",
     href: "/pdf/Barcode Scanner App.pdf",
-    challenge: "Manual inventory tracking caused delays and frequent stock inaccuracies.",
-    solution: "Built a real-time barcode scanning Power App integrated with SharePoint and Dataverse.",
-    result: "Improved inventory accuracy and reduced stock processing time significantly.",
+    challenge:
+      "Manual inventory tracking caused delays and frequent stock inaccuracies.",
+    solution:
+      "Built a real-time barcode scanning Power App integrated with SharePoint and Dataverse.",
+    result:
+      "Improved inventory accuracy and reduced stock processing time significantly.",
   },
 
   {
@@ -27,9 +30,12 @@ const caseStudies = [
       "A Power Platform-based internal communication and travel request management application integrated with SharePoint and Microsoft Teams.",
     image: "/images/case-study/power-apps/es-speaks.png",
     href: "/pdf/ES Speaks and Travel Requests Management System.pdf",
-    challenge: "Employee communication and travel approvals were fragmented and inefficient.",
-    solution: "Developed a centralized Power Apps solution with automated approval workflows and Teams integration.",
-    result: "Enhanced employee engagement and streamlined travel request processing.",
+    challenge:
+      "Employee communication and travel approvals were fragmented and inefficient.",
+    solution:
+      "Developed a centralized Power Apps solution with automated approval workflows and Teams integration.",
+    result:
+      "Enhanced employee engagement and streamlined travel request processing.",
   },
 
   {
@@ -38,9 +44,12 @@ const caseStudies = [
       "A centralized Power Platform solution to manage store setup tasks, approvals, vendor coordination, and progress tracking.",
     image: "/images/case-study/power-apps/new-store-opening.png",
     href: "/pdf/New Store Opening Process.pdf",
-    challenge: "Coordinating store launch activities across teams lacked visibility and control.",
-    solution: "Created a Power Apps & Power Automate workflow system integrated with SharePoint.",
-    result: "Improved project tracking efficiency and accelerated new store launch timelines.",
+    challenge:
+      "Coordinating store launch activities across teams lacked visibility and control.",
+    solution:
+      "Created a Power Apps & Power Automate workflow system integrated with SharePoint.",
+    result:
+      "Improved project tracking efficiency and accelerated new store launch timelines.",
   },
   {
     title: "Project Portfolio Management",
@@ -81,13 +90,27 @@ export default function SharePointCaseStudies() {
       <div className="max-w-7xl mx-auto px-6">
         {/* ================= HEADER ================= */}
         <div className="mb-6 text-left max-w-3xl">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold uppercase tracking-wider border border-blue-500/20">
+          <span
+            className="inline-block px-4 py-1.5 rounded-full  bg-gradient-to-r
+      from-blue-600
+      via-cyan-500
+      to-blue-600
+      bg-clip-text
+      text-transparent text-xs font-semibold uppercase tracking-wider border border-blue-500/20"
+          >
             Featured
           </span>
 
           <h2 className="mt-4 text-3xl md:text-4xl lg:text-4xl font-semibold text-black leading-tight">
             Featured Power Apps{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+            <span
+              className=" bg-gradient-to-r
+      from-blue-600
+      via-cyan-500
+      to-blue-600
+      bg-clip-text
+      text-transparent"
+            >
               Success Stories
             </span>
           </h2>

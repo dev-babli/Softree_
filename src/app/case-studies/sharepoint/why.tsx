@@ -39,33 +39,34 @@ const whyChoose = [
   },
 ];
 
-/* ================= REVIEWS DATA ================= */
+/* ================= SHAREPOINT REVIEWS DATA ================= */
 const reviews = [
   {
     name: "Rajesh Kumar",
     rating: 5,
     comment:
-      "Softree delivered a well-architected SharePoint and Power Platform solution that significantly improved our internal workflows.",
+      "Softree delivered a scalable SharePoint Online solution that streamlined our document management and automated approval workflows.",
     location: "India",
   },
   {
     name: "Sarah Thompson",
     rating: 5,
     comment:
-      "Their consultants clearly understood our requirements and delivered high-quality results on time.",
+      "Their SharePoint intranet implementation improved collaboration across departments and enhanced internal communication.",
     location: "United Kingdom",
   },
   {
     name: "Michael Roberts",
     rating: 5,
     comment:
-      "Strong technical expertise and clear communication throughout the project.",
+      "The SharePoint migration from on-prem to SharePoint Online was seamless, with zero data loss and minimal downtime.",
     location: "Canada",
   },
   {
     name: "Neha Sharma",
     rating: 5,
-    comment: "Softree’s Power BI dashboards are intuitive and impactful.",
+    comment:
+      "Softree built custom SharePoint workflows and permissions that perfectly matched our business requirements.",
     location: "India",
   },
 ];

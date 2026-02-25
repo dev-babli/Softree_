@@ -107,7 +107,7 @@ export default function TechnologiesTabs() {
           </span>
 
           {/* Title */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-5xl font-bold tracking-tight text-gray-900 leading-tight">
             Built with proven, future-ready{" "}
             <span
               className="
