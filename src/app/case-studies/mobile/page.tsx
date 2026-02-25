@@ -6,6 +6,7 @@ import CaseFooter from "../footer";
 import Link from "next/link";
 import WhyChooseUs from "./why-chose";
 import MobileCaseStudies from "./latest-cases";
+import TechnologiesTabs from "./tech-stack";
 
 export default function MobileCaseStudiesPage() {
   return (
@@ -118,7 +119,7 @@ export default function MobileCaseStudiesPage() {
 
       <MobileCaseStudyGrid />
       <WhyChooseUs />
-
+      <TechnologiesTabs />
       <ProjectProcessSection />
       <CaseFooter />
     </div>

@@ -2,7 +2,7 @@
 
 export default function CtaMobileApps() {
   return (
-    <section className="py-4 relative overflow-hidden ">
+    <section className="py-24 relative overflow-hidden ">
       <div className="mx-auto max-w-7xl px-6">
         <div
           className="
