@@ -141,91 +141,84 @@ export default function CaseStudyGrid() {
             {visibleCaseStudies.slice(0, 6).map((item, index) => (
               <motion.article
                 key={item.href}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.45,
-                  ease: "easeOut",
-                  delay: index * 0.06,
-                }}
-                whileHover={{ y: -4 }}
+                initial="initial"
+                whileHover="hover"
                 className="
-        group relative flex flex-col h-full
-        bg-white
-        border border-slate-200
-        shadow-[0_20px_50px_-30px_rgba(15,23,42,0.25)]
-        transition-all duration-300
-        hover:shadow-[0_30px_70px_-40px_rgba(15,23,42,0.35)]
-      "
+               group relative h-[420px]
+               overflow-hidden
+               flex flex-col
+               bg-white
+               border border-slate-200
+               shadow-md
+               rounded-2xl
+               transition-all duration-300
+               hover:bg-slate-50
+               hover:border-blue-500
+               hover:shadow-2xl
+             "
               >
-                {/* ===== IMAGE ===== */}
-                <div className="relative h-[180px] overflow-hidden group">
-                  {/* subtle image base */}
-                  <div className="absolute inset-0 bg-slate-100" />
-
-                  <motion.img
+                {/* IMAGE — BIGGER */}
+                <motion.div
+                  variants={{
+                    initial: { height: 300, opacity: 1 },
+                    hover: { height: 0, opacity: 0 },
+                  }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="overflow-hidden"
+                >
+                  <img
                     src={item.image}
                     alt={item.title}
-                    className="relative h-full w-full object-cover"
-                    whileHover={{ scale: 1.08 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="w-full h-full object-cover"
                   />
+                </motion.div>
 
-                  {/* light overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
-                </div>
-
-                {/* ===== CONTENT ===== */}
-                <div className="relative z-10 flex flex-1 flex-col justify-between gap-4 px-5 py-4">
-                  {/* INDEX */}
-                  <span
-                    className="
-            pointer-events-none absolute right-4 top-2
-            text-[22px] font-extrabold text-slate-300
-            select-none
-          "
+                {/* CONTENT */}
+                <div className="flex flex-col flex-1 px-5 py-4">
+                  <motion.div
+                    variants={{
+                      initial: { y: 0 },
+                      hover: { y: -10 },
+                    }}
+                    transition={{ duration: 0.3 }}
+                    className="flex flex-col"
                   >
-                    {String(startIndex + index + 1).padStart(2, "0")}
-                  </span>
-
-                  {/* TEXT */}
-                  <div className="flex flex-col gap-3">
-                    <span
-                      className="
-            w-fit
-            bg-blue-50 text-blue-700
-            px-3 text-[11px] font-medium
-          "
-                    >
+                    <span className="text-[11px] font-medium bg-blue-50 text-blue-700 px-3 py-1 w-fit rounded-md mb-3">
                       {item.category}
                     </span>
 
-                    <h3 className="text-lg font-semibold leading-snug text-slate-900">
+                    <h3 className="text-base font-semibold text-slate-900 leading-snug mb-3">
                       {item.title}
                     </h3>
 
-                    <p className="line-clamp-2 text-sm leading-relaxed text-slate-600">
+                    <p
+                      className="
+                 text-sm text-slate-600
+                 line-clamp-2
+                 group-hover:line-clamp-none
+                 transition-all duration-300
+               "
+                    >
                       {item.description}
                     </p>
-                  </div>
+                  </motion.div>
 
-                  {/* CTA */}
-                  <Link
-                    href={item.href}
-                    target="_blank"
-                    className="
-           inline-flex items-center justify-between
-            bg-blue-600
-            px-4 py-2.5
-            text-sm font-semibold text-white
-            transition-all duration-300
-            hover:bg-blue-700
-          "
-                  >
-                    View Case Study
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Link>
+                  {/* CTA — FIXED BOTTOM */}
+                  <div className="mt-auto pt-4">
+                    <Link
+                      href={item.href}
+                      target="_blank"
+                      className="
+                     inline-flex items-center gap-2
+                     text-sm font-semibold text-blue-600
+                     transition-all duration-300
+                     group-hover:text-blue-700
+                   "
+                    >
+                      View Case Study
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </Link>
+                  </div>
                 </div>
               </motion.article>
             ))}

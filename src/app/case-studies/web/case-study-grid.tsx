@@ -20,90 +20,80 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Shopping E-Commerce Platform",
     description:
-      "A scalable e-commerce web platform with product management, secure payments, and optimized checkout flow.",
-    image:
-      "/images/case-study/web/shopping.png",
+      "A scalable and high-performance e-commerce web platform featuring advanced product management, secure payment gateway integration, inventory tracking, and an optimized checkout experience to maximize conversions and user satisfaction.",
+    image: "/images/case-study/web/shopping.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/ShoppingEcommerce.pdf",
     category: "E-Commerce Website",
   },
   {
     title: "Pet Care Management Platform",
     description:
-      "A web-based system for managing pet care services, bookings, and customer interactions.",
-    image:
-      "/images/case-study/web/pet.png",
+      "A comprehensive web-based solution for managing pet care services, online bookings, customer profiles, and service history. The platform streamlines operations while enhancing customer engagement and appointment tracking.",
+    image: "/images/case-study/web/pet.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/PET_CARE.pdf",
     category: "Business Platform",
   },
   {
     title: "Business Consultation Platform",
     description:
-      "A professional consultation platform enabling client management, scheduling, and service tracking.",
-    image:
-      "/images/case-study/web/business.avif",
+      "A professional consultation management platform designed to handle client onboarding, appointment scheduling, service tracking, and communication workflows, enabling businesses to operate efficiently and deliver premium services.",
+    image: "/images/case-study/web/business.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Business-Consultation-App-case-study-1.pdf",
     category: "Enterprise Website",
   },
   {
     title: "Public Blogging Website (MERN Stack)",
     description:
-      "A full-stack blogging platform built with MERN stack supporting publishing, comments, and user authentication.",
-    image:
-      "/images/case-study/web/blog.png",
+      "A full-stack blogging platform developed using the MERN stack, supporting content publishing, role-based authentication, comment management, and responsive design for seamless cross-device user experience.",
+    image: "/images/case-study/web/blog.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Public-Blogging-Website-Using-the-MERN-Stack.pdf",
     category: "Web Application",
   },
   {
     title: "Food & Wine Website",
     description:
-      "A visually rich marketing website designed for food and beverage brands with content-focused UX.",
-    image:
-      "/images/case-study/web/food.png",
+      "A visually engaging marketing website crafted for food and beverage brands, focusing on immersive storytelling, rich media presentation, and a content-driven user experience to elevate brand identity.",
+    image: "/images/case-study/web/food.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/FOOD-WINE-WEBSITE.pdf",
     category: "Marketing Website",
   },
   {
     title: "Auto Repair Pro Website",
     description:
-      "A service-based business website for automotive repair companies with appointment booking features.",
-    image:
-      "/images/case-study/web/auto.avif",
+      "A service-oriented business website tailored for automotive repair companies, featuring service listings, online appointment booking, customer inquiry forms, and responsive design for local customer acquisition.",
+    image: "/images/case-study/web/auto.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/AUTOREPAIR-PRO.pdf",
     category: "Service Website",
   },
   {
     title: "EdTech Management Information System",
     description:
-      "A centralized web platform for managing educational data, reporting, and administration workflows.",
-    image:
-      "/images/case-study/web/edtech.avif",
+      "A centralized education management platform designed to handle student records, performance analytics, reporting, and administrative workflows, enabling institutions to streamline academic and operational processes.",
+    image: "/images/case-study/web/edtech.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/EdTech-Management-Information-System-.pdf",
     category: "Education Platform",
   },
   {
     title: "Noteved Admin Dashboard",
     description:
-      "An admin dashboard for managing users, content, and analytics within an education ecosystem.",
-    image:
-      "/images/case-study/web/noteved.png",
+      "A powerful admin dashboard built for managing users, educational content, analytics, and system configurations within a digital learning ecosystem, providing real-time insights and operational control.",
+    image: "/images/case-study/web/noteved.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/NotevedAdmin.docx.pdf",
     category: "Admin Dashboard",
   },
   {
     title: "Wellkies Admin Website",
     description:
-      "A healthcare admin web portal for managing clinics, doctors, and platform configurations.",
-    image:
-      "/images/case-study/web/admin.png",
+      "A healthcare administration portal developed to manage clinics, doctors, appointments, and platform settings. The system enhances operational efficiency and ensures secure data management within the healthcare ecosystem.",
+    image: "/images/case-study/web/admin.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Website.docx.pdf",
     category: "Healthcare Platform",
   },
   {
     title: "Live Appointment Booking Web System",
     description:
-      "A real-time web-based appointment booking system built for healthcare services.",
-    image:
-      "/images/case-study/web/appointment.avif",
+      "A real-time web-based appointment scheduling system built for healthcare providers, enabling patients to book, reschedule, and manage appointments seamlessly while offering administrative control and automated notifications.",
+    image: "/images/case-study/web/appointment.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/LIVE-appointment-bookings.docx.pdf",
     category: "Healthcare Platform",
   },
@@ -150,91 +140,84 @@ export default function CaseStudyGrid() {
             {visibleCaseStudies.slice(0, 6).map((item, index) => (
               <motion.article
                 key={item.href}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.45,
-                  ease: "easeOut",
-                  delay: index * 0.06,
-                }}
-                whileHover={{ y: -4 }}
+                initial="initial"
+                whileHover="hover"
                 className="
-        group relative flex flex-col h-full
-        bg-white
-        border border-slate-200
-        shadow-[0_20px_50px_-30px_rgba(15,23,42,0.25)]
-        transition-all duration-300
-        hover:shadow-[0_30px_70px_-40px_rgba(15,23,42,0.35)]
-      "
+          group relative h-[420px]
+          overflow-hidden
+          flex flex-col
+          bg-white
+          border border-slate-200
+          shadow-md
+          rounded-2xl
+          transition-all duration-300
+          hover:bg-slate-50
+          hover:border-blue-500
+          hover:shadow-2xl
+        "
               >
-                {/* ===== IMAGE ===== */}
-                <div className="relative h-[180px] overflow-hidden group">
-                  {/* subtle image base */}
-                  <div className="absolute inset-0 bg-slate-100" />
-
-                  <motion.img
+                {/* IMAGE — BIGGER */}
+                <motion.div
+                  variants={{
+                    initial: { height: 300, opacity: 1 },
+                    hover: { height: 0, opacity: 0 },
+                  }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="overflow-hidden"
+                >
+                  <img
                     src={item.image}
                     alt={item.title}
-                    className="relative h-full w-full object-cover"
-                    whileHover={{ scale: 1.08 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="w-full h-full object-cover"
                   />
+                </motion.div>
 
-                  {/* light overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
-                </div>
-
-                {/* ===== CONTENT ===== */}
-                <div className="relative z-10 flex flex-1 flex-col justify-between gap-4 px-5 py-4">
-                  {/* INDEX */}
-                  <span
-                    className="
-            pointer-events-none absolute right-4 top-2
-            text-[22px] font-extrabold text-slate-300
-            select-none
-          "
+                {/* CONTENT */}
+                <div className="flex flex-col flex-1 px-5 py-4">
+                  <motion.div
+                    variants={{
+                      initial: { y: 0 },
+                      hover: { y: -10 },
+                    }}
+                    transition={{ duration: 0.3 }}
+                    className="flex flex-col"
                   >
-                    {String(startIndex + index + 1).padStart(2, "0")}
-                  </span>
-
-                  {/* TEXT */}
-                  <div className="flex flex-col gap-3">
-                    <span
-                      className="
-            w-fit
-            bg-blue-50 text-blue-700
-            px-3 text-[11px] font-medium
-          "
-                    >
+                    <span className="text-[11px] font-medium bg-blue-50 text-blue-700 px-3 py-1 w-fit rounded-md mb-3">
                       {item.category}
                     </span>
 
-                    <h3 className="text-lg font-semibold leading-snug text-slate-900">
+                    <h3 className="text-base font-semibold text-slate-900 leading-snug mb-3">
                       {item.title}
                     </h3>
 
-                    <p className="line-clamp-2 text-sm leading-relaxed text-slate-600">
+                    <p
+                      className="
+            text-sm text-slate-600
+            line-clamp-2
+            group-hover:line-clamp-none
+            transition-all duration-300
+          "
+                    >
                       {item.description}
                     </p>
-                  </div>
+                  </motion.div>
 
-                  {/* CTA */}
-                  <Link
-                    href={item.href}
-                    target="_blank"
-                    className="
-           inline-flex items-center justify-between
-            bg-blue-600
-            px-4 py-2.5
-            text-sm font-semibold text-white
-            transition-all duration-300
-            hover:bg-blue-700
-          "
-                  >
-                    View Case Study
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Link>
+                  {/* CTA — FIXED BOTTOM */}
+                  <div className="mt-auto pt-4">
+                    <Link
+                      href={item.href}
+                      target="_blank"
+                      className="
+                inline-flex items-center gap-2
+                text-sm font-semibold text-blue-600
+                transition-all duration-300
+                group-hover:text-blue-700
+              "
+                    >
+                      View Case Study
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </Link>
+                  </div>
                 </div>
               </motion.article>
             ))}

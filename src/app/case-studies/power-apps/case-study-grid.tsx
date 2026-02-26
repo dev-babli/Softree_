@@ -21,7 +21,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Barcode Scanner App",
     description:
-      "A Power Apps barcode scanner application designed to simplify inventory management by enabling real-time product scanning, automated data capture, and seamless integration with SharePoint and Dataverse.",
+      "A Power Apps barcode scanner solution built to streamline inventory and asset management through real-time product scanning, automated data capture, and seamless integration with SharePoint and Dataverse. The app improves operational accuracy while reducing manual entry errors.",
     image: "/images/case-study/power-apps/barcode.png",
     href: "/pdf/Barcode Scanner App.pdf",
     category: "Power Apps",
@@ -29,16 +29,15 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "ES Speaks and Travel Requests Management System",
     description:
-      "A Power Platform-based internal communication application designed to enhance employee engagement by enabling announcements, feedback collection, event updates, and leadership messages with seamless integration to SharePoint and Microsoft Teams.",
+      "A Power Platform–based internal communication and travel request management solution that enhances employee engagement through announcements, structured request workflows, feedback collection, and seamless integration with SharePoint and Microsoft Teams.",
     image: "/images/case-study/power-apps/travel.png",
     href: "/pdf/ES Speaks and Travel Requests Management System.pdf",
     category: "Power Platform",
   },
-
   {
     title: "New Store Opening Process",
     description:
-      "A centralized New Store Opening Process solution developed using Power Apps and Power Automate to manage store setup activities, task assignments, approval workflows, vendor coordination, and progress tracking with seamless SharePoint integration.",
+      "A centralized Power Apps and Power Automate solution designed to manage new store setup activities, task assignments, approval workflows, vendor coordination, and real-time progress tracking with structured SharePoint integration.",
     image: "/images/case-study/power-apps/store.png",
     href: "/pdf/New Store Opening Process.pdf",
     category: "Power Platform",
@@ -46,7 +45,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Employee Details Tracking System",
     description:
-      "A centralized employee management solution to track employee details, roles, and organizational data with improved visibility and accuracy.",
+      "A centralized employee management system developed using Power Apps to maintain employee records, roles, and organizational hierarchies with improved data visibility, validation, and reporting capabilities.",
     image: "/images/case-study/power-apps/emp.jpg",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Employee-Details-tracking-System.pdf",
     category: "Power Apps",
@@ -54,7 +53,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Health Plan Selector Mobile Application",
     description:
-      "A mobile-first Power Apps solution that allows users to compare and select health plans based on eligibility, coverage, and preferences.",
+      "A mobile-first Power Apps application that enables users to compare, filter, and select health plans based on eligibility, coverage benefits, and preferences, offering an intuitive and guided decision-making experience.",
     image: "/images/case-study/power-apps/health.jpg",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Health-Plan-Selector-Mobile-Application.pdf",
     category: "Power Apps",
@@ -62,7 +61,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Projects Portfolio Management",
     description:
-      "A portfolio management application built on Microsoft Dataverse to manage projects, track progress, and improve decision-making across teams.",
+      "A portfolio management solution built on Microsoft Dataverse that enables organizations to manage projects, track milestones, monitor KPIs, and improve strategic decision-making through centralized dashboards.",
     image: "/images/case-study/power-apps/project.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Projects-Portfolio-ManagementMicrosoft-Dataverse.pdf",
     category: "Power Apps",
@@ -70,7 +69,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Students Portal Mobile App",
     description:
-      "A mobile application for students to access academic information, manage profiles, and interact with institutional services in one place.",
+      "A student-focused mobile application built using Power Apps that centralizes academic information, profile management, attendance tracking, and communication with institutional services in one unified interface.",
     image: "/images/case-study/power-apps/student.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Students-Portal-Mobile-App.pdf",
     category: "Power Apps",
@@ -78,7 +77,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Ticket Generation Mobile App",
     description:
-      "A ticket generation and tracking application enabling efficient issue reporting, prioritization, and resolution through mobile devices.",
+      "A mobile ticketing and issue tracking solution that allows users to log incidents, prioritize requests, assign tasks, and monitor resolution status through structured workflows and centralized reporting.",
     image: "/images/case-study/power-apps/ticket.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Ticket-Generation-Mobile-App.pdf",
     category: "Power Apps",
@@ -86,7 +85,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Travel Agency Multiple Authentication System",
     description:
-      "A secure authentication system for travel agencies supporting multiple login mechanisms to enhance security and user access control.",
+      "A secure authentication and access control system designed for travel agencies, supporting multiple login mechanisms and role-based permissions to enhance data protection and system security.",
     image: "/images/case-study/power-apps/travel.jpg",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Travel-Agency-Multiple-Authentication-System.pdf",
     category: "Power Apps",
@@ -94,7 +93,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Interview Management System",
     description:
-      "An interview management solution that automates scheduling, candidate tracking, and feedback collection for HR teams.",
+      "An end-to-end interview management solution that automates candidate scheduling, interviewer coordination, evaluation tracking, and feedback consolidation for streamlined HR operations.",
     image: "/images/case-study/power-apps/interview.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Interview-Managing-System.pdf",
     category: "Power Apps",
@@ -102,7 +101,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Multiple Signature Approval Process",
     description:
-      "A workflow-driven approval system requiring multiple digital signatures to ensure compliance, accountability, and audit readiness.",
+      "A workflow-driven approval system built using Power Apps and Power Automate that supports multi-level digital signatures, ensuring compliance, accountability, and complete audit traceability.",
     image: "/images/case-study/power-apps/sign.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Multiple-Signature-Approval-Process.pdf",
     category: "Power Apps",
@@ -110,7 +109,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Car Rental System",
     description:
-      "A Power Apps–based car rental management system that streamlines vehicle booking, availability tracking, and rental operations.",
+      "A Power Apps–based vehicle rental management solution that streamlines booking, vehicle availability tracking, customer management, billing, and operational reporting within a unified system.",
     image: "/images/case-study/power-apps/car.jpg",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Car-Rental-System-doc.pdf",
     category: "Power Apps",
@@ -118,7 +117,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Automated Request Submission & Approval Workflow",
     description:
-      "A Power Apps workflow solution that automates request submission, approval routing, and status tracking to improve operational efficiency.",
+      "A structured Power Apps and Power Automate workflow that automates request submissions, approval routing, notifications, and status tracking to enhance transparency and reduce manual processing delays.",
     image: "/images/case-study/power-apps/automated.jpg",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Automated-Request-Submission-and-Approval-Workflow-in-Power-Apps.pdf",
     category: "Power Apps",
@@ -126,7 +125,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Claim Request Management",
     description:
-      "A claim management application that enables users to submit, track, and approve claims with structured workflows and centralized data handling.",
+      "A claims processing application that enables users to submit, validate, track, and approve claims through structured workflows, centralized documentation, and real-time status visibility.",
     image: "/images/case-study/power-apps/claim.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Claim-Request-Management.pdf",
     category: "Power Apps",
@@ -134,7 +133,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Power Apps – Working with List Relationships",
     description:
-      "A Power Apps solution demonstrating how to work with SharePoint list relationships to manage related data efficiently and build scalable business apps.",
+      "A Power Apps solution demonstrating how to build scalable applications using SharePoint list relationships to manage related datasets, enforce referential logic, and improve data consistency across business processes.",
     image: "/images/case-study/power-apps/list.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Power-App-Working-with-List-Relationships.pdf",
     category: "Power Apps",
@@ -142,7 +141,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Project Management System",
     description:
-      "A project management application that helps teams plan, track, and manage projects with structured workflows, timelines, and centralized data.",
+      "A structured project management application that helps teams plan tasks, track milestones, manage dependencies, and monitor performance using centralized dashboards and automated workflows.",
     image: "/images/case-study/power-apps/projectm.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Project-Management-For-Blog.pdf",
     category: "Power Apps",
@@ -150,7 +149,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Reservation Booking System for Events",
     description:
-      "An event reservation and booking system that enables users to create events, manage reservations, and track attendee bookings efficiently.",
+      "An event management and reservation solution that enables event creation, attendee registration, booking management, and real-time tracking through a user-friendly Power Apps interface.",
     image: "/images/case-study/power-apps/reservation.jpg",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Reservation-booking-system-for-an-event-For-Blog.pdf",
     category: "Power Apps",
@@ -158,7 +157,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Sales Invoice Management",
     description:
-      "A Power Apps–based sales invoice solution that helps generate, manage, and track invoices with structured data and improved financial visibility.",
+      "A Power Apps–based invoicing system designed to generate, manage, and track sales invoices with automated calculations, structured data storage, and improved financial visibility for businesses.",
     image: "/images/case-study/power-apps/invoice.jpg",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Sales-Invoice.pdf",
     category: "Power Apps",
@@ -166,7 +165,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Power Apps Shopping Cart",
     description:
-      "A shopping cart application built using Power Apps that enables product selection, cart management, and order processing for business scenarios.",
+      "A dynamic shopping cart application built using Power Apps that supports product browsing, cart management, order submission, and workflow-driven approval for internal business purchasing scenarios.",
     image: "/images/case-study/power-apps/shopping1.jpg",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Power-Apps-Shopping-Cart.pdf",
     category: "Power Apps",
@@ -174,7 +173,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Time Sheet Management System",
     description:
-      "A time sheet management application that allows employees to log work hours, track productivity, and simplify approval workflows.",
+      "A time sheet management solution that allows employees to log work hours, submit timesheets for approval, track productivity metrics, and streamline payroll-related workflows through automation.",
     image: "/images/case-study/power-apps/time.jpg",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/TimeSheet.pdf",
     category: "Power Apps",
@@ -223,90 +222,84 @@ export default function CaseStudyGrid() {
             {visibleCaseStudies.slice(0, 6).map((item, index) => (
               <motion.article
                 key={item.href}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.45,
-                  ease: "easeOut",
-                  delay: index * 0.06,
-                }}
-                whileHover={{ y: -4 }}
+                initial="initial"
+                whileHover="hover"
                 className="
-        group relative flex flex-col h-full
-        bg-white
-        border border-slate-200
-        shadow-[0_20px_50px_-30px_rgba(15,23,42,0.25)]
-        transition-all duration-300
-        hover:shadow-[0_30px_70px_-40px_rgba(15,23,42,0.35)]
-      "
+         group relative h-[420px]
+         overflow-hidden
+         flex flex-col
+         bg-white
+         border border-slate-200
+         shadow-md
+         rounded-2xl
+         transition-all duration-300
+         hover:bg-slate-50
+         hover:border-blue-500
+         hover:shadow-2xl
+       "
               >
-                {/* ===== IMAGE ===== */}
-                <div className="relative h-[180px] overflow-hidden group">
-                  {/* subtle image base */}
-                  <div className="absolute inset-0 bg-slate-100" />
-
-                  <motion.img
+                {/* IMAGE — BIGGER */}
+                <motion.div
+                  variants={{
+                    initial: { height: 300, opacity: 1 },
+                    hover: { height: 0, opacity: 0 },
+                  }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="overflow-hidden"
+                >
+                  <img
                     src={item.image}
                     alt={item.title}
-                    className="relative h-full w-full object-cover"
-                    whileHover={{ scale: 1.08 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="w-full h-full object-cover"
                   />
+                </motion.div>
 
-                  {/* light overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
-                </div>
-                {/* ===== CONTENT ===== */}
-                <div className="relative z-10 flex flex-1 flex-col justify-between gap-4 px-5 py-4">
-                  {/* INDEX */}
-                  <span
-                    className="
-            pointer-events-none absolute right-4 top-2
-            text-[22px] font-extrabold text-slate-300
-            select-none
-          "
+                {/* CONTENT */}
+                <div className="flex flex-col flex-1 px-5 py-4">
+                  <motion.div
+                    variants={{
+                      initial: { y: 0 },
+                      hover: { y: -10 },
+                    }}
+                    transition={{ duration: 0.3 }}
+                    className="flex flex-col"
                   >
-                    {String(startIndex + index + 1).padStart(2, "0")}
-                  </span>
-
-                  {/* TEXT */}
-                  <div className="flex flex-col gap-3">
-                    <span
-                      className="
-            w-fit
-            bg-blue-50 text-blue-700
-            px-3 text-[11px] font-medium
-          "
-                    >
+                    <span className="text-[11px] font-medium bg-blue-50 text-blue-700 px-3 py-1 w-fit rounded-md mb-3">
                       {item.category}
                     </span>
 
-                    <h3 className="text-lg font-semibold leading-snug text-slate-900">
+                    <h3 className="text-base font-semibold text-slate-900 leading-snug mb-3">
                       {item.title}
                     </h3>
 
-                    <p className="line-clamp-2 text-sm leading-relaxed text-slate-600">
+                    <p
+                      className="
+           text-sm text-slate-600
+           line-clamp-2
+           group-hover:line-clamp-none
+           transition-all duration-300
+         "
+                    >
                       {item.description}
                     </p>
-                  </div>
+                  </motion.div>
 
-                  {/* CTA */}
-                  <Link
-                    href={item.href}
-                    target="_blank"
-                    className="
-           inline-flex items-center justify-between
-            bg-blue-600
-            px-4 py-2.5
-            text-sm font-semibold text-white
-            transition-all duration-300
-            hover:bg-blue-700
-          "
-                  >
-                    View Case Study
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Link>
+                  {/* CTA — FIXED BOTTOM */}
+                  <div className="mt-auto pt-4">
+                    <Link
+                      href={item.href}
+                      target="_blank"
+                      className="
+               inline-flex items-center gap-2
+               text-sm font-semibold text-blue-600
+               transition-all duration-300
+               group-hover:text-blue-700
+             "
+                    >
+                      View Case Study
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </Link>
+                  </div>
                 </div>
               </motion.article>
             ))}

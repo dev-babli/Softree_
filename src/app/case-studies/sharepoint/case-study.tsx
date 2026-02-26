@@ -19,7 +19,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Custom Copy & Move Panel for SharePoint Lists",
     description:
-      "A custom SPFx solution built using Fluent UI to enable seamless copy and move operations for SharePoint list items with enhanced user experience.",
+      "A custom SPFx solution built using Fluent UI to enable seamless copy and move operations for SharePoint list items with an enhanced user experience. The solution provides intuitive panel-based interactions, validation handling, and supports large list structures while maintaining performance and usability.",
     image: "/images/case-study/sharepoint/copy.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2025/03/Enhancing-SharePoint-List-Management-with-a-Custom-Copy-Move-Panel-Using-SPFx-and-Fluent-UI.pdf",
     category: "SPFx Extension",
@@ -27,7 +27,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Managing SharePoint Library Folders with Power Apps",
     description:
-      "A Power Apps–based solution that allows users to create, manage, and organize SharePoint document library folders through a user-friendly interface.",
+      "A Power Apps–based solution that allows users to create, manage, and organize SharePoint document library folders through a user-friendly interface. The app simplifies folder management, applies structured naming conventions, and ensures secure access control through SharePoint permissions.",
     image: "/images/case-study/sharepoint/folders.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2025/03/Managing-SharePoint-Library-Folders-with-Power-Apps-Updated-.pdf",
     category: "Power Apps + SharePoint",
@@ -35,7 +35,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Dynamic Navigation Bar Using SPFx Application Customizer",
     description:
-      "An SPFx Application Customizer that delivers a dynamic, role-based navigation bar across modern SharePoint sites for improved usability.",
+      "An SPFx Application Customizer that delivers a dynamic, role-based navigation bar across modern SharePoint sites for improved usability. It centralizes navigation management, adapts based on user roles, and enhances the overall site experience without modifying individual pages.",
     image: "/images/case-study/sharepoint/dynamic.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Creating-a-Dynamic-Navigation-Bar-using-SPFx-Application-Customizer.pdf",
     category: "SPFx Application Customizer",
@@ -43,7 +43,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Custom Footer for SharePoint Online",
     description:
-      "A reusable SPFx footer component designed to enhance branding, accessibility, and user experience across SharePoint Online pages.",
+      "A reusable SPFx footer component designed to enhance branding, accessibility, and user experience across SharePoint Online pages. The solution supports dynamic links, organizational branding elements, and centralized configuration for consistent implementation.",
     image: "/images/case-study/sharepoint/footer.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Enhancing-User-Experience-with-a-Custom-Footer-using-SPFx.pdf",
     category: "SPFx UI Customization",
@@ -51,7 +51,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Global Notification Banner in SharePoint",
     description:
-      "A SharePoint-wide notification banner implemented using SPFx Application Customizer to broadcast alerts, announcements, and system updates.",
+      "A SharePoint-wide notification banner implemented using SPFx Application Customizer to broadcast alerts, announcements, and system updates. The solution ensures organization-wide visibility, configurable display settings, and minimal performance impact.",
     image: "/images/case-study/sharepoint/global.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Implementing-a-Global-Notification-Banner-with-SPFx-Application-Customizer.pdf",
     category: "SPFx Application Customizer",
@@ -59,7 +59,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Browse Documents Panel Inside SharePoint",
     description:
-      "A custom SPFx panel that allows users to browse and select documents directly from SharePoint libraries without leaving the current context.",
+      "A custom SPFx panel that allows users to browse and select documents directly from SharePoint libraries without leaving the current context. It improves workflow efficiency by integrating document selection, filtering, and preview capabilities within a single interface.",
     image: "/images/case-study/sharepoint/browse.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Inside-a-panel-Browse-Document-From-file-explorer.pdf",
     category: "SPFx Web Part",
@@ -67,7 +67,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Parent Panel for List & Library Creation",
     description:
-      "An SPFx solution providing a guided parent panel to create SharePoint lists or libraries using radio-button driven workflows.",
+      "An SPFx solution providing a guided parent panel to create SharePoint lists or libraries using radio-button driven workflows. The interface simplifies configuration, enforces governance standards, and ensures consistent structure across the tenant.",
     image: "/images/case-study/sharepoint/panel.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/SPFx-1.pdf",
     category: "SPFx Web Part",
@@ -75,7 +75,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Custom Command Extension in SharePoint Framework",
     description:
-      "A SharePoint command extension that adds contextual actions to list and library toolbars, improving productivity and user efficiency.",
+      "A SharePoint command extension that adds contextual actions to list and library toolbars, improving productivity and user efficiency. It integrates seamlessly with modern SharePoint UI and supports dynamic visibility based on item selection and user permissions.",
     image: "/images/case-study/sharepoint/custom.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2025/03/The-Implementation-of-a-Custom-Command-Extension-in-the-SharePoint-Framework-1.pdf",
     category: "SPFx Command Extension",
@@ -83,7 +83,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "PnP PowerShell – Manage Modern Page Web Parts",
     description:
-      "An automation solution using PnP PowerShell to add, remove, and retrieve web parts from SharePoint modern pages efficiently.",
+      "An automation solution using PnP PowerShell to add, remove, and retrieve web parts from SharePoint modern pages efficiently. The script-based approach enhances administrative control, reduces manual effort, and ensures consistent web part deployment.",
     image: "/images/case-study/sharepoint/pnp.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Add-Remove-And-Get-All-Web-Parts-From-Modern-Site-Page-Using-PnP-PowerShell.pdf",
     category: "PnP PowerShell",
@@ -91,7 +91,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Enable & Disable MFA Using PowerShell",
     description:
-      "A PowerShell automation approach to manage Multi-Factor Authentication (MFA) settings for Microsoft 365 users securely.",
+      "A PowerShell automation approach to manage Multi-Factor Authentication (MFA) settings for Microsoft 365 users securely. The solution supports bulk operations, improves administrative efficiency, and enhances tenant-wide security governance.",
     image: "/images/case-study/sharepoint/mfa.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/How-To-Enable-And-Disable-MFA-Using-PowerShell-1.pdf",
     category: "Microsoft 365 Automation",
@@ -99,7 +99,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Fetch SharePoint List Items in Power Apps",
     description:
-      "A Power Apps implementation demonstrating how to retrieve, calculate, and display SharePoint list data dynamically in galleries.",
+      "A Power Apps implementation demonstrating how to retrieve, calculate, and display SharePoint list data dynamically in galleries. The solution includes filtering, aggregation logic, and real-time data interaction to create responsive business applications.",
     image: "/images/case-study/sharepoint/fetch.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/How-To-Fetch-Items-From-SharePoint-List-To-PowerApps-Gallery-Calculate.pdf",
     category: "Power Apps + SharePoint",
@@ -149,90 +149,84 @@ export default function CaseStudyGrid() {
             {visibleCaseStudies.slice(0, 6).map((item, index) => (
               <motion.article
                 key={item.href}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.45,
-                  ease: "easeOut",
-                  delay: index * 0.06,
-                }}
-                whileHover={{ y: -4 }}
+                initial="initial"
+                whileHover="hover"
                 className="
-        group relative flex flex-col h-full
-        bg-white
-        border border-slate-200
-        shadow-[0_20px_50px_-30px_rgba(15,23,42,0.25)]
-        transition-all duration-300
-        hover:shadow-[0_30px_70px_-40px_rgba(15,23,42,0.35)]
-      "
+    group relative h-[420px]
+    overflow-hidden
+    flex flex-col
+    bg-white
+    border border-slate-200
+    shadow-md
+    rounded-2xl
+    transition-all duration-300
+    hover:bg-slate-50
+    hover:border-blue-500
+    hover:shadow-2xl
+  "
               >
-                {/* ===== IMAGE ===== */}
-                <div className="relative h-[180px] overflow-hidden group">
-                  {/* subtle image base */}
-                  <div className="absolute inset-0 bg-slate-100" />
-
-                  <motion.img
+                {/* IMAGE — BIGGER */}
+                <motion.div
+                  variants={{
+                    initial: { height: 300, opacity: 1 },
+                    hover: { height: 0, opacity: 0 },
+                  }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="overflow-hidden"
+                >
+                  <img
                     src={item.image}
                     alt={item.title}
-                    className="relative h-full w-full object-cover"
-                    whileHover={{ scale: 1.08 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="w-full h-full object-cover"
                   />
+                </motion.div>
 
-                  {/* light overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
-                </div>
-                {/* ===== CONTENT ===== */}
-                <div className="relative z-10 flex flex-1 flex-col justify-between gap-4 px-5 py-4">
-                  {/* INDEX */}
-                  <span
-                    className="
-            pointer-events-none absolute right-4 top-2
-            text-[22px] font-extrabold text-slate-300
-            select-none
-          "
+                {/* CONTENT */}
+                <div className="flex flex-col flex-1 px-5 py-4">
+                  <motion.div
+                    variants={{
+                      initial: { y: 0 },
+                      hover: { y: -10 },
+                    }}
+                    transition={{ duration: 0.3 }}
+                    className="flex flex-col"
                   >
-                    {String(startIndex + index + 1).padStart(2, "0")}
-                  </span>
-
-                  {/* TEXT */}
-                  <div className="flex flex-col gap-3">
-                    <span
-                      className="
-            w-fit
-            bg-blue-50 text-blue-700
-            px-3 text-[11px] font-medium
-          "
-                    >
+                    <span className="text-[11px] font-medium bg-blue-50 text-blue-700 px-3 py-1 w-fit rounded-md mb-3">
                       {item.category}
                     </span>
 
-                    <h3 className="text-lg font-semibold leading-snug text-slate-900">
+                    <h3 className="text-base font-semibold text-slate-900 leading-snug mb-3">
                       {item.title}
                     </h3>
 
-                    <p className="line-clamp-2 text-sm leading-relaxed text-slate-600">
+                    <p
+                      className="
+      text-sm text-slate-600
+      line-clamp-2
+      group-hover:line-clamp-none
+      transition-all duration-300
+    "
+                    >
                       {item.description}
                     </p>
-                  </div>
+                  </motion.div>
 
-                  {/* CTA */}
-                  <Link
-                    href={item.href}
-                    target="_blank"
-                    className="
-           inline-flex items-center justify-between
-            bg-blue-600
-            px-4 py-2.5
-            text-sm font-semibold text-white
-            transition-all duration-300
-            hover:bg-blue-700
-          "
-                  >
-                    View Case Study
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Link>
+                  {/* CTA — FIXED BOTTOM */}
+                  <div className="mt-auto pt-4">
+                    <Link
+                      href={item.href}
+                      target="_blank"
+                      className="
+          inline-flex items-center gap-2
+          text-sm font-semibold text-blue-600
+          transition-all duration-300
+          group-hover:text-blue-700
+        "
+                    >
+                      View Case Study
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </Link>
+                  </div>
                 </div>
               </motion.article>
             ))}
