@@ -7,6 +7,8 @@ import AgileProcessStack from "./agile";
 import OurStorySection from "./story";
 import AboutUsWithTestimonials from "./hero";
 import ProjectProcessSection from "./start-project";
+import Certifications from "@/app/services/power-apps/certification";
+
 import Link from "next/link";
 
 /* ------------------------------------------------------------------ */
@@ -16,9 +18,7 @@ const FIXED_WIDTH = "mx-auto max-w-8xl px-8 sm:px-10 md:px-14 lg:px-20";
 
 export default function Home() {
   return (
-    <main
-      className="relative min-h-screen"
-    >
+    <main className="relative min-h-screen">
       <NavigationClient />
 
       {/* HERO (can be full-width internally) */}
@@ -32,6 +32,7 @@ export default function Home() {
           <GlobalDelivery />
           <InspiredByOurValues />
           <EngagementModels />
+          <Certifications />
         </div>
       </section>
       <ProjectProcessSection />

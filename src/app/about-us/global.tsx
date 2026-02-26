@@ -32,7 +32,7 @@ export default function GlobalDelivery() {
             w-3 h-3
             rounded-full
             bg-cyan-400
-            shadow-[0_0_15px_rgba(34,211,238,0.9)]
+        
             animate-pulse
           "
               style={{ top: loc.top, left: loc.left }}

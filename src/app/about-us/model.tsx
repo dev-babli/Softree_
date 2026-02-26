@@ -83,7 +83,7 @@ export default function EngagementModels() {
 
     border border-white/10
     backdrop-blur-2xl
-    shadow-[0_40px_120px_rgba(0,0,0,0.75)]
+    shadow-3xl
   "
         >
           {/* Subtle radial light */}

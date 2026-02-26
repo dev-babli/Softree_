@@ -147,14 +147,14 @@ export default function WhyChooseWithTestimonials() {
         </div>
 
         {/* ================= RIGHT : TESTIMONIALS ================= */}
-        <div className="rounded-2xl p-10 bg-white border border-gray-200 shadow-lg">
+        <div className="rounded-2xl p-10 bg-gradient-to-r from-black via-[#0f2f7a] to-black border border-white/10 shadow-2xl">
           {/* Header */}
           <div className="mb-10">
-            <div className="text-blue-600 text-xs uppercase tracking-widest mb-3">
+            <div className="text-white text-xs uppercase tracking-widest mb-3">
               Client Feedback
             </div>
 
-            <h3 className="text-2xl font-semibold mb-6">
+            <h3 className="text-2xl font-semibold mb-6 text-white">
               Trusted by Enterprise Teams
             </h3>
 
@@ -168,18 +168,19 @@ export default function WhyChooseWithTestimonials() {
                 ))}
               </div>
 
-              <p className="font-semibold">4.9 / 5</p>
-              <p className="text-gray-500 text-sm">average rating</p>
+              <p className="font-semibold text-white">4.9 / 5</p>
+              <p className="text-gray-300 text-sm">average rating</p>
             </div>
 
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-400">
               Based on{" "}
-              <span className="font-medium text-gray-800">
+              <span className="font-medium text-white">
                 150+ client reviews
               </span>
             </p>
           </div>
 
+          {/* Reviews Slider */}
           <div className="overflow-hidden relative w-full">
             <div
               className="flex transition-transform duration-700 ease-in-out"
@@ -188,6 +189,7 @@ export default function WhyChooseWithTestimonials() {
               {reviews.map((review, i) => (
                 <div key={i} className="w-full shrink-0">
                   <div className="max-w-xl">
+                    {/* Rating Stars */}
                     <div className="mb-3 flex items-center gap-1">
                       {Array.from({ length: 5 }).map((_, idx) => (
                         <Star
@@ -195,25 +197,29 @@ export default function WhyChooseWithTestimonials() {
                           className={`w-4 h-4 ${
                             idx < review.rating
                               ? "fill-yellow-400 text-yellow-400"
-                              : "text-gray-300"
+                              : "text-gray-500"
                           }`}
                         />
                       ))}
                     </div>
 
-                    <p className="text-gray-700 text-base leading-relaxed mb-6">
+                    {/* Review Comment */}
+                    <p className="text-gray-200 text-base leading-relaxed mb-6">
                       “{review.comment}”
                     </p>
 
+                    {/* Reviewer Info */}
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
-                        <User size={14} className="text-blue-600" />
-                        <p className="font-semibold text-sm">{review.name}</p>
+                        <User size={14} className="text-blue-400" />
+                        <p className="font-semibold text-white text-sm">
+                          {review.name}
+                        </p>
                       </div>
 
                       <div className="flex items-center gap-2">
                         <MapPin size={13} className="text-gray-400" />
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-gray-400">
                           {review.location}
                         </p>
                       </div>
@@ -225,19 +231,19 @@ export default function WhyChooseWithTestimonials() {
           </div>
 
           {/* Controls */}
-          <div className="flex items-center gap-6 mt-8 text-gray-500">
+          <div className="flex items-center gap-6 mt-8 text-gray-400">
             <button
               onClick={() =>
                 setIndex((i) => (i === 0 ? reviews.length - 1 : i - 1))
               }
-              className="hover:text-gray-900 transition"
+              className="hover:text-white transition"
             >
               <ChevronLeft size={18} />
             </button>
 
             <button
               onClick={() => setPaused(!paused)}
-              className="hover:text-gray-900 transition"
+              className="hover:text-white transition"
             >
               {paused ? <Play size={16} /> : <Pause size={16} />}
             </button>
@@ -246,7 +252,7 @@ export default function WhyChooseWithTestimonials() {
               onClick={() =>
                 setIndex((i) => (i >= reviews.length - 1 ? 0 : i + 1))
               }
-              className="hover:text-gray-900 transition"
+              className="hover:text-white transition"
             >
               <ChevronRight size={18} />
             </button>

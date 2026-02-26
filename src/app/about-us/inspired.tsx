@@ -101,138 +101,88 @@ export default function InspiredByOurValues() {
               <div
                 key={i}
                 className="
-                  group
-                  relative
-                  overflow-hidden
-                  rounded-3xl
-                  bg-white
-                    bg-white
-
-    border border-white/10
-    backdrop-blur-2xl
-    shadow-[0_40px_120px_rgba(0,0,0,0.75)]
-                
-                  p-10
-                  transition-all duration-500
-                  hover:-translate-y-2
-                  hover:shadow-[0_30px_80px_rgba(255,255,255,0.12)]
-                "
-              >
-                {/* GLASS SHEEN */}
-                <span
-                  className="
-                    pointer-events-none
-                    absolute
-                    inset-0
-                    bg-gradient-to-br
-                    from-white/10
-                    via-transparent
-                    to-transparent
-                    opacity-0
-                    group-hover:opacity-100
-                    transition duration-500
-                  "
-                />
-
-                {/* STRONG SOLID BOTTOM BORDER */}
-                <span
-                  className="
-    pointer-events-none
-    absolute
-    bottom-0
-    left-0
-    w-full
-    h-[6px]
-    bg-white
+    group
+    relative
+    rounded-3xl
+    p-[1px]
+    bg-gradient-to-br
+    from-slate-200
+    via-slate-100
+    to-slate-200
     transition-all
-    duration-300
-    scale-x-0
-    origin-left
-    group-hover:scale-x-100
+    duration-700
+    hover:from-cyan-500/60
+    hover:via-blue-500/60
+    hover:to-indigo-500/60
   "
-                />
-
-                {/* ICON */}
-                <div className="relative z-10 mb-8">
-                  <div
-                    className="
-      w-16 h-16
-      rounded-2xl
-      flex items-center justify-center
-
-      bg-gradient-to-br from-cyan-500 to-blue-600
-      text-white
-
-      shadow-[0_10px_25px_rgba(37,99,235,0.35),0_0_35px_rgba(37,99,235,0.25)]
-
-      group-hover:scale-110
-      transition-transform duration-300
-    "
-                  >
-                    <Icon size={26} strokeWidth={1.8} />
-                  </div>
-                </div>
-
-                {/* ===== CONTENT ===== */}
-                <div className="relative z-10 space-y-3">
-                  {/* TITLE */}
-                  <h4
-                    className="
-      relative
-      text-xl font-semibold
-      text-slate-900
-      tracking-tight
-      pl-5
-    "
-                  >
-                    {/* accent bar */}
-                    <span
-                      className="
-        absolute
-        left-0 top-1/2
-        -translate-y-1/2
-        h-5 w-[3px]
-        rounded-full
-        bg-gradient-to-b
-        from-cyan-500
-        to-blue-600
-      "
-                    />
-
-                    {item.title}
-                  </h4>
-
-                  {/* DESCRIPTION */}
-                  <p
-                    className="
-      text-sm
-      text-slate-600
-      leading-relaxed
-      group-hover:text-slate-700
-      transition-colors
-    "
-                  >
-                    {item.desc}
-                  </p>
-                </div>
-
-                {/* AMBIENT SOFT GLOW */}
+              >
+                {/* INNER CARD */}
                 <div
                   className="
-                    pointer-events-none
-                    absolute
-                    -bottom-24
-                    -right-24
-                    w-72
-                    h-72
-                    rounded-full
-                    bg-white/10
-                    blur-3xl
-                    opacity-0
-                    group-hover:opacity-100
-                    transition duration-700
-                  "
-                />
+      relative
+      h-full
+      rounded-3xl
+      bg-white/80
+      backdrop-blur-xl
+      border border-white/40
+      p-10
+      overflow-hidden
+      shadow-[0_15px_40px_rgba(0,0,0,0.06)]
+      transition-all
+      duration-500
+      group-hover:-translate-y-3
+      group-hover:shadow-[0_35px_80px_rgba(0,0,0,0.15)]
+    "
+                >
+                  {/* Subtle Default Ambient Glow */}
+                  <div
+                    className="
+        pointer-events-none
+        absolute
+        -bottom-20
+        -right-20
+        w-72
+        h-72
+        rounded-full
+        bg-blue-100/40
+        blur-3xl
+        opacity-60
+        transition
+        duration-700
+        group-hover:opacity-100
+      "
+                  />
+
+                  {/* ICON */}
+                  <div className="relative z-10 mb-8">
+                    <div
+                      className="
+          w-16 h-16
+          rounded-2xl
+          flex items-center justify-center
+          bg-gradient-to-br from-cyan-500 to-blue-600
+          text-white
+          shadow-[0_12px_30px_rgba(37,99,235,0.30)]
+          transition-all duration-500
+          group-hover:scale-110
+          group-hover:rotate-3
+        "
+                    >
+                      <Icon size={26} strokeWidth={1.8} />
+                    </div>
+                  </div>
+
+                  {/* CONTENT */}
+                  <div className="relative z-10 space-y-4">
+                    <h4 className="text-xl font-semibold text-slate-900 tracking-tight transition duration-300 group-hover:text-blue-700">
+                      {item.title}
+                    </h4>
+
+                    <p className="text-sm text-slate-600 leading-relaxed transition duration-300 group-hover:text-slate-700">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
               </div>
             );
           })}

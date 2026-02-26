@@ -2,6 +2,7 @@ import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
 import GlobalLocations from "./global";
 import ContactPage from "./form";
+import Certifications from "@/app/services/power-apps/certification";
 
 import Link from "next/link";
 export default function Home() {
@@ -61,6 +62,7 @@ export default function Home() {
 
       <ContactPage />
       <GlobalLocations />
+      <Certifications />
 
       <Footer />
     </main>

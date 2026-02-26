@@ -30,7 +30,7 @@ export default function ContactPage() {
     "w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-800 placeholder-gray-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition";
 
   return (
-    <section className="relative min-h-[85vh] bg-white text-gray-900 overflow-hidden py-19">
+    <section className="relative min-h-[85vh]  text-gray-900 overflow-hidden py-19">
       {/* Background gradient */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-cyan-50 via-white to-blue-50" />
 

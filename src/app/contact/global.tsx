@@ -58,7 +58,7 @@ const locations = [
 
 export default function GlobalLocations() {
   return (
-    <section className="bg-white text-gray-900 py-18">
+    <section className="text-gray-900 py-18">
       {/* subtle background */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-cyan-50 via-white to-blue-50" />
 

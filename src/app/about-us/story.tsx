@@ -11,10 +11,6 @@ export default function OurStorySection() {
       rounded-3xl
       bg-gradient-to-br from-neutral-50 via-white to-gray-50
       p-12
-
-      /* ===== STRONG PREMIUM SHADOW ===== */
-      shadow-[0_10px_30px_rgba(15,23,42,0.08),0_40px_120px_-20px_rgba(15,23,42,0.18)]
-
       transition-all duration-300
       hover:-translate-y-1
       hover:shadow-[0_15px_40px_rgba(15,23,42,0.10),0_60px_160px_-20px_rgba(15,23,42,0.25)]

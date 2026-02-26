@@ -8,22 +8,30 @@ export default function AboutGlassSection() {
           <div className="lg:col-span-2">
             <div
               className="
-                rounded-3xl
-                bg-white
-                p-10
-                h-full
-                flex flex-col
-
-               border border-white/10
-    backdrop-blur-2xl
-    shadow-[0_40px_120px_rgba(0,0,0,0.75)]
-              "
+      group
+      relative
+      rounded-3xl
+      bg-gradient-to-br from-white to-slate-50
+      p-10
+      h-full
+      flex
+      flex-col
+      border
+      border-slate-200
+      shadow-sm
+      hover:shadow-xl
+      hover:-translate-y-1
+      transition-all
+      duration-500
+    "
             >
-              <h2 className="text-3xl font-bold text-slate-900 mb-8">
+              {/* Section Title */}
+              <h2 className="text-3xl font-bold text-slate-900 mb-10">
                 Core Values
               </h2>
 
-              <div className="space-y-6 text-slate-600 leading-relaxed flex-1">
+              {/* Values List */}
+              <div className="space-y-6 flex-1">
                 <ValueItem
                   title="Agility"
                   desc="Embracing change and swiftly adapting to evolving market demands. Our customer-centric solutions are built on robust, scalable frameworks."
@@ -86,23 +94,44 @@ function LightCard({
   return (
     <div
       className="
-        rounded-3xl
-        bg-white
-        p-8
-        h-full
-        flex flex-col gap-5
-
-       border border-white/10
-    backdrop-blur-2xl
-    shadow-[0_40px_120px_rgba(0,0,0,0.75)]
-        transition-all duration-300
-        hover:-translate-y-1
-        hover:shadow-[0_30px_80px_-15px_rgba(15,23,42,0.18)]
-      "
+    group
+    relative
+    rounded-3xl
+    bg-gradient-to-br from-white to-slate-50
+    p-8
+    h-full
+    flex
+    flex-col
+    gap-6
+    border
+    border-transparent
+    hover:border-indigo-500
+    shadow-sm
+    hover:shadow-xl
+    hover:shadow-indigo-500/10
+    transition-all
+    duration-500
+    hover:-translate-y-2
+    overflow-hidden
+  "
     >
-      <h3 className="text-xl font-semibold text-slate-900">{title}</h3>
+      {/* Decorative Gradient Glow */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none">
+        <div className="absolute -top-10 -right-10 w-40 h-40 bg-indigo-500/10 rounded-full blur-3xl"></div>
+      </div>
 
-      <div className="flex items-start gap-4 flex-1">{children}</div>
+      {/* Title */}
+      <h3 className="text-xl font-semibold text-slate-900 relative z-10">
+        {title}
+      </h3>
+
+      {/* Content */}
+      <div className="flex items-start gap-4 flex-1 text-slate-600 relative z-10">
+        {children}
+      </div>
+
+      {/* Bottom Accent Line */}
+      <div className="h-1 w-12 bg-indigo-600 rounded-full mt-4 group-hover:w-20 transition-all duration-300"></div>
     </div>
   );
 }
