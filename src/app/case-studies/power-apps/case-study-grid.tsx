@@ -22,7 +22,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "Barcode Scanner App",
     description:
       "A Power Apps barcode scanner application designed to simplify inventory management by enabling real-time product scanning, automated data capture, and seamless integration with SharePoint and Dataverse.",
-    image: "/images/case-study/power-apps/barcode-scanner.png",
+    image: "/images/case-study/power-apps/barcode.png",
     href: "/pdf/Barcode Scanner App.pdf",
     category: "Power Apps",
   },
@@ -30,7 +30,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "ES Speaks and Travel Requests Management System",
     description:
       "A Power Platform-based internal communication application designed to enhance employee engagement by enabling announcements, feedback collection, event updates, and leadership messages with seamless integration to SharePoint and Microsoft Teams.",
-    image: "/images/case-study/power-apps/es-speaks.png",
+    image: "/images/case-study/power-apps/travel.png",
     href: "/pdf/ES Speaks and Travel Requests Management System.pdf",
     category: "Power Platform",
   },
@@ -39,7 +39,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "New Store Opening Process",
     description:
       "A centralized New Store Opening Process solution developed using Power Apps and Power Automate to manage store setup activities, task assignments, approval workflows, vendor coordination, and progress tracking with seamless SharePoint integration.",
-    image: "/images/case-study/power-apps/new-store-opening.png",
+    image: "/images/case-study/power-apps/store.png",
     href: "/pdf/New Store Opening Process.pdf",
     category: "Power Platform",
   },
@@ -87,7 +87,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "Travel Agency Multiple Authentication System",
     description:
       "A secure authentication system for travel agencies supporting multiple login mechanisms to enhance security and user access control.",
-    image: "/images/case-study/power-apps/car.png",
+    image: "/images/case-study/power-apps/travel.jpg",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Travel-Agency-Multiple-Authentication-System.pdf",
     category: "Power Apps",
   },
@@ -95,7 +95,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "Interview Management System",
     description:
       "An interview management solution that automates scheduling, candidate tracking, and feedback collection for HR teams.",
-    image: "/images/case-study/power-apps/interview.jpeg",
+    image: "/images/case-study/power-apps/interview.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Interview-Managing-System.pdf",
     category: "Power Apps",
   },
@@ -103,7 +103,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "Multiple Signature Approval Process",
     description:
       "A workflow-driven approval system requiring multiple digital signatures to ensure compliance, accountability, and audit readiness.",
-    image: "/images/case-study/power-apps/multiple.jpeg",
+    image: "/images/case-study/power-apps/sign.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Multiple-Signature-Approval-Process.pdf",
     category: "Power Apps",
   },
@@ -111,7 +111,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "Car Rental System",
     description:
       "A Power Apps–based car rental management system that streamlines vehicle booking, availability tracking, and rental operations.",
-    image: "/images/case-study/power-apps/car.png",
+    image: "/images/case-study/power-apps/car.jpg",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Car-Rental-System-doc.pdf",
     category: "Power Apps",
   },
@@ -119,7 +119,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "Automated Request Submission & Approval Workflow",
     description:
       "A Power Apps workflow solution that automates request submission, approval routing, and status tracking to improve operational efficiency.",
-    image: "/images/case-study/power-apps/automated.png",
+    image: "/images/case-study/power-apps/automated.jpg",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Automated-Request-Submission-and-Approval-Workflow-in-Power-Apps.pdf",
     category: "Power Apps",
   },
@@ -127,7 +127,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "Claim Request Management",
     description:
       "A claim management application that enables users to submit, track, and approve claims with structured workflows and centralized data handling.",
-    image: "/images/case-study/power-apps/claim.png",
+    image: "/images/case-study/power-apps/claim.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Claim-Request-Management.pdf",
     category: "Power Apps",
   },
@@ -135,7 +135,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "Power Apps – Working with List Relationships",
     description:
       "A Power Apps solution demonstrating how to work with SharePoint list relationships to manage related data efficiently and build scalable business apps.",
-    image: "/images/case-study/power-apps/list-relationships.webp",
+    image: "/images/case-study/power-apps/list.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Power-App-Working-with-List-Relationships.pdf",
     category: "Power Apps",
   },
@@ -143,7 +143,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "Project Management System",
     description:
       "A project management application that helps teams plan, track, and manage projects with structured workflows, timelines, and centralized data.",
-    image: "/images/case-study/power-apps/project-management-system.webp",
+    image: "/images/case-study/power-apps/projectm.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Project-Management-For-Blog.pdf",
     category: "Power Apps",
   },
@@ -151,7 +151,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "Reservation Booking System for Events",
     description:
       "An event reservation and booking system that enables users to create events, manage reservations, and track attendee bookings efficiently.",
-    image: "/images/case-study/power-apps/reservation-booking-system.webp",
+    image: "/images/case-study/power-apps/reservation.jpg",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Reservation-booking-system-for-an-event-For-Blog.pdf",
     category: "Power Apps",
   },
@@ -159,7 +159,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "Sales Invoice Management",
     description:
       "A Power Apps–based sales invoice solution that helps generate, manage, and track invoices with structured data and improved financial visibility.",
-    image: "/images/case-study/power-apps/sales-invoice-management.webp",
+    image: "/images/case-study/power-apps/invoice.jpg",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Sales-Invoice.pdf",
     category: "Power Apps",
   },
@@ -167,7 +167,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "Power Apps Shopping Cart",
     description:
       "A shopping cart application built using Power Apps that enables product selection, cart management, and order processing for business scenarios.",
-    image: "/images/case-study/power-apps/shopping-cart.webp",
+    image: "/images/case-study/power-apps/shopping1.jpg",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Power-Apps-Shopping-Cart.pdf",
     category: "Power Apps",
   },
@@ -175,7 +175,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "Time Sheet Management System",
     description:
       "A time sheet management application that allows employees to log work hours, track productivity, and simplify approval workflows.",
-    image: "/images/case-study/power-apps/time-sheet-management.webp",
+    image: "/images/case-study/power-apps/time.jpg",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/TimeSheet.pdf",
     category: "Power Apps",
   },

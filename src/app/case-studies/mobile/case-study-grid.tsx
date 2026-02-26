@@ -22,7 +22,7 @@ const CASE_STUDIES: CaseStudy[] = [
     description:
       "A mobile application enabling patients to book appointments, manage schedules, and receive real-time notifications.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/11/Building-a-Doctor-Appointment.webp",
+      "/images/case-study/mobile/doctor.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Building-a-Doctor-Appointment-Booking-System-with-React.pdf",
     category: "Healthcare App",
   },
@@ -31,7 +31,7 @@ const CASE_STUDIES: CaseStudy[] = [
     description:
       "A scalable backend system powering mobile education platforms with secure APIs and real-time data access.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/11/Developing-Backend-for-Education-App.webp",
+      "/images/case-study/mobile/education.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Behind-the-Scenes-of-E.pdf",
     category: "Education App",
   },
@@ -40,7 +40,7 @@ const CASE_STUDIES: CaseStudy[] = [
     description:
       "A mobile ticket booking application with seat selection, payment processing, and booking confirmation.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/11/Movie-Ticket-Booking-App.webp",
+      "/images/case-study/mobile/movie.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Movie-Ticket-Booking-App-Backend-Documentation.pdf",
     category: "Entertainment App",
   },
@@ -49,7 +49,7 @@ const CASE_STUDIES: CaseStudy[] = [
     description:
       "A secure payment gateway integration enabling seamless online transactions across mobile platforms.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/11/Payment-Gateway.webp",
+      "/images/case-study/mobile/payment.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Payment-Gateway-1.pdf",
     category: "Fintech App",
   },
@@ -58,7 +58,7 @@ const CASE_STUDIES: CaseStudy[] = [
     description:
       "A student-focused mobile application providing access to courses, learning material, and assessments.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/10/Education-App-1024x1024.webp",
+      "/images/case-study/mobile/education.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Education-App.pdf",
     category: "Education App",
   },
@@ -67,7 +67,7 @@ const CASE_STUDIES: CaseStudy[] = [
     description:
       "A hospitality mobile app for managing reservations, guest services, and resort operations.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/10/Resort-Management-1024x1024.webp",
+      "/images/case-study/mobile/resort.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Resort-Management-.pdf",
     category: "Hospitality App",
   },
@@ -76,7 +76,7 @@ const CASE_STUDIES: CaseStudy[] = [
     description:
       "A mobile rental platform allowing users to search, book, and manage short-term accommodations.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/10/Room-Rental-App-1024x1024.webp",
+      "/images/case-study/mobile/room.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Homi-App.pdf",
     category: "Real Estate App",
   },
@@ -85,7 +85,7 @@ const CASE_STUDIES: CaseStudy[] = [
     description:
       "A mobile application to track teacher performance, schedules, and academic reporting.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/10/Teacher-Tracking-App-1024x1024.webp",
+      "/images/case-study/mobile/teacher.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Teacher-and-Student-Report-Generation-Website.pdf",
     category: "Education App",
   },
@@ -94,7 +94,7 @@ const CASE_STUDIES: CaseStudy[] = [
     description:
       "A healthcare mobile app enabling doctors to manage appointments, patients, and digital consultations.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/10/Wellkies-Doctors-1024x1024.webp",
+      "/images/case-study/mobile/doctor.jpg",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-Doctor-Document.pdf",
     category: "Healthcare App",
   },
@@ -103,7 +103,7 @@ const CASE_STUDIES: CaseStudy[] = [
     description:
       "A clinic management mobile app designed to streamline operations and patient interactions.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/10/Wellkies-Clinic-1024x1024.webp",
+      "/images/case-study/mobile/clinic.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-Clinic-App.pdf",
     category: "Healthcare App",
   },
@@ -112,25 +112,17 @@ const CASE_STUDIES: CaseStudy[] = [
     description:
       "A user-facing healthcare app allowing patients to book appointments and manage health records.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/10/Wellkies-user-1024x1024.webp",
+      "/images/case-study/mobile/user.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-User-App.pdf",
     category: "Healthcare App",
   },
-  {
-    title: "Wellkies – Website",
-    description:
-      "A responsive healthcare website integrated with mobile applications and backend systems.",
-    image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/10/Wellkies-Website-1024x1024.webp",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-Website.pdf",
-    category: "Web Platform",
-  },
+ 
   {
     title: "Live Appointment Booking",
     description:
       "A real-time appointment booking system optimized for mobile users.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/11/LIVE-appointment-bookings.webp",
+      "/images/case-study/mobile/appointment.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/LIVE-appointment-bookings.docx.pdf",
     category: "Healthcare App",
   },
@@ -139,7 +131,7 @@ const CASE_STUDIES: CaseStudy[] = [
     description:
       "A mobile commerce application for purchasing school stationery with secure checkout.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/11/school.webp",
+      "/images/case-study/mobile/school.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/School-Stationery-Shopping-App-Backend-Documentation.docx.pdf",
     category: "E-Commerce App",
   },
@@ -148,7 +140,7 @@ const CASE_STUDIES: CaseStudy[] = [
     description:
       "A mobile app for managing pet care services, appointments, and health records.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/11/Petcare-management-app.webp",
+      "/images/case-study/mobile/pet.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Pet-Care-Management-App.pdf",
     category: "Lifestyle App",
   },

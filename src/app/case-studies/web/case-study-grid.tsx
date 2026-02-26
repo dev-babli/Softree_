@@ -22,7 +22,7 @@ const CASE_STUDIES: CaseStudy[] = [
     description:
       "A scalable e-commerce web platform with product management, secure payments, and optimized checkout flow.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/12/Shopping-E-Commerce.webp",
+      "/images/case-study/web/shopping.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/ShoppingEcommerce.pdf",
     category: "E-Commerce Website",
   },
@@ -31,7 +31,7 @@ const CASE_STUDIES: CaseStudy[] = [
     description:
       "A web-based system for managing pet care services, bookings, and customer interactions.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/12/Pet-care.webp",
+      "/images/case-study/web/pet.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/PET_CARE.pdf",
     category: "Business Platform",
   },
@@ -40,7 +40,7 @@ const CASE_STUDIES: CaseStudy[] = [
     description:
       "A professional consultation platform enabling client management, scheduling, and service tracking.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/12/Business-Consultation-App.webp",
+      "/images/case-study/web/business.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Business-Consultation-App-case-study-1.pdf",
     category: "Enterprise Website",
   },
@@ -49,7 +49,7 @@ const CASE_STUDIES: CaseStudy[] = [
     description:
       "A full-stack blogging platform built with MERN stack supporting publishing, comments, and user authentication.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/11/Node.js-Express.js-HTML-editor.webp",
+      "/images/case-study/web/blog.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Public-Blogging-Website-Using-the-MERN-Stack.pdf",
     category: "Web Application",
   },
@@ -58,7 +58,7 @@ const CASE_STUDIES: CaseStudy[] = [
     description:
       "A visually rich marketing website designed for food and beverage brands with content-focused UX.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/11/FOOD-WINE-WEBSITE.webp",
+      "/images/case-study/web/food.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/FOOD-WINE-WEBSITE.pdf",
     category: "Marketing Website",
   },
@@ -67,7 +67,7 @@ const CASE_STUDIES: CaseStudy[] = [
     description:
       "A service-based business website for automotive repair companies with appointment booking features.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/11/AUTOREPAIR-PRO.webp",
+      "/images/case-study/web/auto.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/AUTOREPAIR-PRO.pdf",
     category: "Service Website",
   },
@@ -76,7 +76,7 @@ const CASE_STUDIES: CaseStudy[] = [
     description:
       "A centralized web platform for managing educational data, reporting, and administration workflows.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/11/EdTech-Management-Information-System.webp",
+      "/images/case-study/web/edtech.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/EdTech-Management-Information-System-.pdf",
     category: "Education Platform",
   },
@@ -85,7 +85,7 @@ const CASE_STUDIES: CaseStudy[] = [
     description:
       "An admin dashboard for managing users, content, and analytics within an education ecosystem.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/11/Noteved-Admin-1024x1024.jpg",
+      "/images/case-study/web/noteved.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/NotevedAdmin.docx.pdf",
     category: "Admin Dashboard",
   },
@@ -94,7 +94,7 @@ const CASE_STUDIES: CaseStudy[] = [
     description:
       "A healthcare admin web portal for managing clinics, doctors, and platform configurations.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/11/wellkies-admin-1024x1024.jpg",
+      "/images/case-study/web/admin.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Website.docx.pdf",
     category: "Healthcare Platform",
   },
@@ -103,7 +103,7 @@ const CASE_STUDIES: CaseStudy[] = [
     description:
       "A real-time web-based appointment booking system built for healthcare services.",
     image:
-      "https://www.softreetechnology.com/wp-content/uploads/2024/11/LIVE-appointment-bookings-web.webp",
+      "/images/case-study/web/appointment.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/LIVE-appointment-bookings.docx.pdf",
     category: "Healthcare Platform",
   },

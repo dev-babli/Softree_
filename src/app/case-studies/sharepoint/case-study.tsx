@@ -20,7 +20,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "Custom Copy & Move Panel for SharePoint Lists",
     description:
       "A custom SPFx solution built using Fluent UI to enable seamless copy and move operations for SharePoint list items with enhanced user experience.",
-    image: "/images/case-study/sharepoint/copy-move-panel.webp",
+    image: "/images/case-study/sharepoint/copy.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2025/03/Enhancing-SharePoint-List-Management-with-a-Custom-Copy-Move-Panel-Using-SPFx-and-Fluent-UI.pdf",
     category: "SPFx Extension",
   },
@@ -28,7 +28,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "Managing SharePoint Library Folders with Power Apps",
     description:
       "A Power Apps–based solution that allows users to create, manage, and organize SharePoint document library folders through a user-friendly interface.",
-    image: "/images/case-study/sharepoint/library-folders.webp",
+    image: "/images/case-study/sharepoint/folders.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2025/03/Managing-SharePoint-Library-Folders-with-Power-Apps-Updated-.pdf",
     category: "Power Apps + SharePoint",
   },
@@ -36,7 +36,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "Dynamic Navigation Bar Using SPFx Application Customizer",
     description:
       "An SPFx Application Customizer that delivers a dynamic, role-based navigation bar across modern SharePoint sites for improved usability.",
-    image: "/images/case-study/sharepoint/navigation-bar.webp",
+    image: "/images/case-study/sharepoint/dynamic.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Creating-a-Dynamic-Navigation-Bar-using-SPFx-Application-Customizer.pdf",
     category: "SPFx Application Customizer",
   },
@@ -44,7 +44,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "Custom Footer for SharePoint Online",
     description:
       "A reusable SPFx footer component designed to enhance branding, accessibility, and user experience across SharePoint Online pages.",
-    image: "/images/case-study/sharepoint/custom-footer.webp",
+    image: "/images/case-study/sharepoint/footer.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Enhancing-User-Experience-with-a-Custom-Footer-using-SPFx.pdf",
     category: "SPFx UI Customization",
   },
@@ -52,7 +52,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "Global Notification Banner in SharePoint",
     description:
       "A SharePoint-wide notification banner implemented using SPFx Application Customizer to broadcast alerts, announcements, and system updates.",
-    image: "/images/case-study/sharepoint/notification-banner.webp",
+    image: "/images/case-study/sharepoint/global.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Implementing-a-Global-Notification-Banner-with-SPFx-Application-Customizer.pdf",
     category: "SPFx Application Customizer",
   },
@@ -60,7 +60,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "Browse Documents Panel Inside SharePoint",
     description:
       "A custom SPFx panel that allows users to browse and select documents directly from SharePoint libraries without leaving the current context.",
-    image: "/images/case-study/sharepoint/browse-documents.webp",
+    image: "/images/case-study/sharepoint/browse.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Inside-a-panel-Browse-Document-From-file-explorer.pdf",
     category: "SPFx Web Part",
   },
@@ -68,7 +68,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "Parent Panel for List & Library Creation",
     description:
       "An SPFx solution providing a guided parent panel to create SharePoint lists or libraries using radio-button driven workflows.",
-    image: "/images/case-study/sharepoint/list-library-panel.webp",
+    image: "/images/case-study/sharepoint/panel.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/SPFx-1.pdf",
     category: "SPFx Web Part",
   },
@@ -76,7 +76,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "Custom Command Extension in SharePoint Framework",
     description:
       "A SharePoint command extension that adds contextual actions to list and library toolbars, improving productivity and user efficiency.",
-    image: "/images/case-study/sharepoint/command-extension.webp",
+    image: "/images/case-study/sharepoint/custom.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2025/03/The-Implementation-of-a-Custom-Command-Extension-in-the-SharePoint-Framework-1.pdf",
     category: "SPFx Command Extension",
   },
@@ -84,7 +84,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "PnP PowerShell – Manage Modern Page Web Parts",
     description:
       "An automation solution using PnP PowerShell to add, remove, and retrieve web parts from SharePoint modern pages efficiently.",
-    image: "/images/case-study/sharepoint/pnp-webparts.webp",
+    image: "/images/case-study/sharepoint/pnp.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Add-Remove-And-Get-All-Web-Parts-From-Modern-Site-Page-Using-PnP-PowerShell.pdf",
     category: "PnP PowerShell",
   },
@@ -92,7 +92,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "Enable & Disable MFA Using PowerShell",
     description:
       "A PowerShell automation approach to manage Multi-Factor Authentication (MFA) settings for Microsoft 365 users securely.",
-    image: "/images/case-study/sharepoint/mfa-powershell.webp",
+    image: "/images/case-study/sharepoint/mfa.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/How-To-Enable-And-Disable-MFA-Using-PowerShell-1.pdf",
     category: "Microsoft 365 Automation",
   },
@@ -100,7 +100,7 @@ const CASE_STUDIES: CaseStudy[] = [
     title: "Fetch SharePoint List Items in Power Apps",
     description:
       "A Power Apps implementation demonstrating how to retrieve, calculate, and display SharePoint list data dynamically in galleries.",
-    image: "/images/case-study/sharepoint/powerapps-gallery.webp",
+    image: "/images/case-study/sharepoint/fetch.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/How-To-Fetch-Items-From-SharePoint-List-To-PowerApps-Gallery-Calculate.pdf",
     category: "Power Apps + SharePoint",
   },
