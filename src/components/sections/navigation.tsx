@@ -19,11 +19,10 @@ import {
   BarChart3,
   Bot,
   Sparkles,
-  MessageSquare,
+  BookOpen,
   Layers,
   AppWindow,
   Brain,
-  Globe,
   ChevronDown,
   ArrowRight,
 } from "lucide-react";
@@ -186,8 +185,6 @@ const menu: MenuItem[] = [
       },
     ],
   },
-
-  { label: "Blog", url: "/blog", icon: FileText },
 ];
 
 export default function Navigation() {
@@ -218,7 +215,7 @@ export default function Navigation() {
     >
       <nav
         className="
-      w-full max-w-5xl
+      w-full max-w-4xl
       px-6 lg:px-10
       h-16
       flex items-center justify-between

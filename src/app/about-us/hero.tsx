@@ -67,20 +67,17 @@ export default function AboutHeroWithTestimonial() {
   </span>
 
   {/* Heading */}
-  <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight">
-    Building Intelligent Solutions for a
+  <h1 className="text-4xl md:text-4xl lg:text-5xl font-semibold leading-tight">
+    Building Intelligent Microsoft Solutions &
     <br />
     <span className="bg-gradient-to-r from-cyan-300 to-white bg-clip-text text-transparent">
-      Digital-First World
+    Modern Digital Application
     </span>
   </h1>
 
   {/* Description */}
   <p className="mt-5 text-lg text-white/75 max-w-3xl mx-auto">
-    Softree is a fast-growing software startup specializing in AI-driven
-    solutions, SharePoint, Power Platform, mobile apps, and modern web
-    development. We help businesses automate processes, unlock insights,
-    and create seamless digital experiences.
+    Softree is a global technology delivery partner specializing in Microsoft ecosystem solutions and modern full-stack application engineering.
   </p>
 
   {/* ================= GLASS INFO PANEL ================= */}

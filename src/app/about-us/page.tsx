@@ -8,6 +8,10 @@ import OurStorySection from "./story";
 import AboutUsWithTestimonials from "./hero";
 import ProjectProcessSection from "./start-project";
 import Certifications from "@/app/services/power-apps/certification";
+import WhoWeAre from "./who";
+import CoreCapabilities from "./core";
+import ProcessTimeline from "./process";
+import StatsBar from "./stats";
 
 import Link from "next/link";
 
@@ -27,9 +31,10 @@ export default function Home() {
       {/* MAIN CONTENT – FIXED WIDTH */}
       <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-24">
         <div className={FIXED_WIDTH}>
-          <OurStorySection />
-          <AgileProcessStack />
-          <GlobalDelivery />
+          <WhoWeAre />
+          <CoreCapabilities />
+          <ProcessTimeline />
+          <StatsBar />
           <InspiredByOurValues />
           <EngagementModels />
           <Certifications />
