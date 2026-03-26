@@ -191,6 +191,7 @@ export default function Navigation() {
   const [open, setOpen] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [showNav, setShowNav] = useState(true);
+  const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -422,12 +423,105 @@ export default function Navigation() {
         </div>
 
         {/* ================= MOBILE ================= */}
+        {/* ================= MOBILE ================= */}
         <button
-          className="lg:hidden"
+          className="lg:hidden relative z-[60] text-black"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
+
+        {/* ================= MOBILE MENU PANEL ================= */}
+        {/* ================= MOBILE MENU ================= */}
+        <AnimatePresence>
+          {mobileOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.25 }}
+              className="
+        fixed top-0 left-0 w-full h-screen
+        bg-white
+        z-40
+        px-6 pt-24 pb-10
+        overflow-y-auto
+        lg:hidden
+      "
+            >
+              <div className="flex flex-col gap-4">
+                {menu.map((item) => (
+                  <div key={item.label}>
+                    {/* MAIN ROW */}
+                    <button
+                      onClick={() => {
+                        if (item.mega) {
+                          setMobileDropdown(
+                            mobileDropdown === item.label ? null : item.label,
+                          );
+                        } else {
+                          setMobileOpen(false);
+                        }
+                      }}
+                      className="w-full flex items-center justify-between py-4 border-b text-left"
+                    >
+                      <span className="text-lg font-semibold text-gray-900">
+                        {item.label}
+                      </span>
+
+                      {item.mega && (
+                        <ChevronDown
+                          size={20}
+                          className={`transition-transform ${
+                            mobileDropdown === item.label ? "rotate-180" : ""
+                          }`}
+                        />
+                      )}
+                    </button>
+
+                    {/* DROPDOWN */}
+                    {item.mega && mobileDropdown === item.label && (
+                      <div className="pl-4 mt-3 space-y-3">
+                        {item.children?.map((group) =>
+                          group.links.map((link) => (
+                            <Link
+                              key={link.label}
+                              href={link.url}
+                              onClick={() => setMobileOpen(false)}
+                              className="
+                        block py-2
+                        text-sm font-medium
+                        text-gray-600
+                        hover:text-black
+                      "
+                            >
+                              {link.label}
+                            </Link>
+                          )),
+                        )}
+                      </div>
+                    )}
+                  </div>
+                ))}
+
+                {/* CTA */}
+                <Link
+                  href="/contact"
+                  onClick={() => setMobileOpen(false)}
+                  className="
+            mt-6 text-center
+            px-5 py-3
+            bg-black text-white
+            rounded-full
+            font-semibold
+          "
+                >
+                  Get Started
+                </Link>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
     </header>
   );

@@ -182,10 +182,10 @@ export default function SharePointCaseStudies() {
                     </div>
 
                     {/* Content */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
                       {/* Image */}
                       <div className="flex justify-center">
-                        <div className="w-[430px] h-[350px] overflow-hidden rounded-2xl shadow-lg ring-1 ring-white/10">
+                        <div className="w-[380px] h-[300px] overflow-hidden rounded-xl shadow-md ring-1 ring-white/10">
                           <img
                             src={item.image}
                             alt={item.title}
@@ -195,42 +195,42 @@ export default function SharePointCaseStudies() {
                       </div>
 
                       {/* Text */}
-                      <div className="space-y-8">
+                      <div className="space-y-5">
                         {/* SUMMARY */}
-                        <div className="space-y-3">
+                        <div className="space-y-2">
                           <div className="flex items-center gap-2">
                             <FileText className="w-4 h-4 text-indigo-400" />
-                            <h4 className="text-sm font-semibold tracking-wide text-indigo-400 uppercase">
+                            <h4 className="text-xs font-semibold tracking-wide text-indigo-400 uppercase">
                               Summary
                             </h4>
                           </div>
-                          <p className="text-sm text-slate-300 leading-relaxed">
+                          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                             {item.summary}
                           </p>
                         </div>
 
                         {/* PROBLEM */}
-                        <div className="space-y-3">
+                        <div className="space-y-2">
                           <div className="flex items-center gap-2">
                             <AlertTriangle className="w-4 h-4 text-rose-400" />
-                            <h4 className="text-sm font-semibold tracking-wide text-rose-400 uppercase">
+                            <h4 className="text-xs font-semibold tracking-wide text-rose-400 uppercase">
                               Problem
                             </h4>
                           </div>
-                          <p className="text-sm text-slate-300 leading-relaxed">
+                          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                             {item.challenge}
                           </p>
                         </div>
 
                         {/* SOLUTION */}
-                        <div className="space-y-3">
+                        <div className="space-y-2">
                           <div className="flex items-center gap-2">
                             <Lightbulb className="w-4 h-4 text-cyan-400" />
-                            <h4 className="text-sm font-semibold tracking-wide text-cyan-400 uppercase">
+                            <h4 className="text-xs font-semibold tracking-wide text-cyan-400 uppercase">
                               Solution
                             </h4>
                           </div>
-                          <p className="text-sm text-slate-300 leading-relaxed">
+                          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                             {item.solution}
                           </p>
                         </div>
@@ -238,50 +238,42 @@ export default function SharePointCaseStudies() {
                         {/* IMPACT BOX */}
                         <div
                           className="
-                                     relative
-                                     rounded-2xl
-                                     px-7 py-6
-                                     flex flex-col gap-5
-                                     sm:flex-row sm:items-center sm:justify-between
-                                     bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600
-                                     text-white
-                                     shadow-[0_18px_40px_rgba(79,70,229,0.45)]
-                                     overflow-hidden
-                                   "
+        relative
+        rounded-xl
+        px-5 py-4
+        flex flex-col gap-3
+        sm:flex-row sm:items-center sm:justify-between
+        bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600
+        text-white
+        shadow-lg
+        overflow-hidden
+      "
                         >
-                          {/* Glow Effect */}
-                          <div className="absolute -top-10 -left-10 w-40 h-40 bg-white/10 blur-3xl rounded-full" />
-
-                          {/* Impact Content */}
-                          <div className="relative z-10 space-y-1">
-                            <p className="text-[15px] uppercase tracking-widest text-white/70">
+                          <div className="relative z-10 space-y-0.5">
+                            <p className="text-xs uppercase tracking-wider text-white/70">
                               Impact
                             </p>
-                            <p className="text-sm sm:text-base font-semibold leading-snug">
+                            <p className="text-sm font-semibold leading-snug">
                               {item.impact}
                             </p>
                           </div>
 
-                          {/* Divider */}
-                          <div className="relative z-10 w-full h-px sm:w-px sm:h-10 bg-white/30 rounded-full" />
-
-                          {/* CTA */}
                           <a
                             href={item.href}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="
-                                       relative z-10
-                                       inline-flex items-center gap-2
-                                       px-6 py-3
-                                       text-xs font-semibold uppercase tracking-wider
-                                       whitespace-nowrap
-                                       rounded-full
-                                       bg-white text-indigo-700
-                                       shadow-md
-                                       hover:scale-105 hover:shadow-lg
-                                       transition-all duration-300
-                                     "
+    relative z-10
+    inline-flex items-center justify-center
+    px-4 py-2
+    text-xs font-semibold uppercase tracking-wide
+    rounded-full
+    bg-white text-indigo-700
+    hover:scale-105
+    transition-all duration-300
+    whitespace-nowrap
+    flex-shrink-0
+  "
                           >
                             View Case Study →
                           </a>

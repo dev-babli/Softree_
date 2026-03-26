@@ -56,7 +56,7 @@ const capabilities = [
 
 export default function CoreCapabilities() {
   return (
-    <section className="py-20 bg-gradient-to-b from-slate-50 to-white">
+    <section className="py-20">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Heading */}

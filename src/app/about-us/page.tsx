@@ -12,7 +12,8 @@ import WhoWeAre from "./who";
 import CoreCapabilities from "./core";
 import ProcessTimeline from "./process";
 import StatsBar from "./stats";
-
+import OriginalSVGStepper from "./process1";
+import ConsultingApproach from "./approach";
 import Link from "next/link";
 
 /* ------------------------------------------------------------------ */
@@ -27,21 +28,18 @@ export default function Home() {
 
       {/* HERO (can be full-width internally) */}
       <AboutUsWithTestimonials />
-
       {/* MAIN CONTENT – FIXED WIDTH */}
       <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-24">
         <div className={FIXED_WIDTH}>
           <WhoWeAre />
           <CoreCapabilities />
           <ProcessTimeline />
-          <StatsBar />
+          <OriginalSVGStepper />
           <InspiredByOurValues />
           <EngagementModels />
           <Certifications />
         </div>
       </section>
-      <ProjectProcessSection />
-
       <Footer />
     </main>
   );
