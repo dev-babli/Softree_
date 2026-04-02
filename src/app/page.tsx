@@ -13,6 +13,7 @@ import SupportPartners from "@/components/sections/support-partners";
 import TrustedBy from "@/components/sections/trusted-by";
 import ResponsiveHeroBanner from "@/components/sections/responsive-hero-banner";
 import GlobeScrollDemo from "@/components/ui/landing-page";
+import AISolutions from "@/components/sections/strategy";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
         <ResponsiveHeroBanner />
         <TechnologySlider />
         <SupportPartners />
+        <AISolutions/>
         <TrustedBy />
         <AiInsightsBlog />
         <TechStackSection />

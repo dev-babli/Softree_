@@ -22,8 +22,7 @@ const techData: TechItem[] = [
     title: "Business Applications Delivery Support",
     description:
       "Helping partners execute Power Platform and Dynamics implementations. We operate as your extended Power Platform engineering team, ensuring successful delivery, scalability, and consistency across projects.",
-    bgImage:
-      "/images/business.png",
+    bgImage: "/images/business.png",
     link: "/services/power-apps",
     partnerValue:
       "We operate as your extended Power Platform engineering team.",
@@ -34,8 +33,7 @@ const techData: TechItem[] = [
     title: "Data & Analytics Execution",
     description:
       "Strengthening BI and transformation initiatives with reliable engineering and modern platforms. From data architecture to dashboard deployment, we deliver under your brand.",
-    bgImage:
-      "/images/data.png",
+    bgImage: "/images/data.png",
     link: "/services/power-bi",
     partnerValue:
       "From data architecture to dashboard deployment — we deliver reliably under your brand.",
@@ -58,8 +56,7 @@ const techData: TechItem[] = [
     title: "Digital Workspace & Custom Application Engineering",
     description:
       "Enhancing Microsoft 365 and custom application capabilities. We build secure, scalable solutions that align with your consulting strategy.",
-    bgImage:
-      "/images/digital.png",
+    bgImage: "/images/digital.jpg",
     link: "/services/mobile-app-development",
     partnerValue: "Custom solutions that complement your consulting strategy.",
     icon: Monitor,
@@ -112,25 +109,28 @@ export default function TechnologySlider() {
 
   return (
     <section className="relative h-[600px] w-full overflow-hidden bg-black text-white flex">
-      {/* ================= BACKGROUND ================= */}
-      {techData.map((item, i) => (
-        <div
-          key={item.id}
-          className={cn(
-            "absolute inset-0 transition-opacity duration-700",
-            activeIndex === i ? "opacity-100" : "opacity-0",
-          )}
-          style={{
-            backgroundImage: `url(${item.bgImage})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <div className="absolute inset-0 bg-black/60" />
-        </div>
-      ))}
+     {/* ================= BACKGROUND ================= */}
+{techData.map((item, i) => (
+  <div
+    key={item.id}
+    className={`absolute inset-0 transition-opacity duration-700 ${
+      activeIndex === i ? "opacity-100" : "opacity-0"
+    }`}
+  >
+    {/* Softer Background Blur */}
+    <div
+      className="absolute inset-0 bg-cover bg-center blur-[1.5px] scale-105 brightness-95"
+      style={{
+        backgroundImage: `url(${item.bgImage})`,
+      }}
+    />
 
-      {/* ================= ACCORDION TABS ================= */}
+    {/* Single Overlay (clean) */}
+    <div className="absolute inset-0 bg-black/40" />
+  </div>
+))}
+
+      {/* ================= ACCORDION ================= */}
       <div className="relative h-full flex w-full z-20">
         {techData.map((item, i) => {
           const isActive = activeIndex === i;
@@ -143,95 +143,57 @@ export default function TechnologySlider() {
                 setActiveIndex(i);
               }}
               onMouseLeave={() => setIsHovering(false)}
-              className={cn(
-                "relative border-l border-white/10 overflow-hidden transition-all duration-500 flex",
-                isActive ? "flex-[7]" : "flex-[1]",
-              )}
+              className={`relative border-l border-white/10 overflow-hidden transition-all duration-500 flex ${
+                isActive ? "flex-[7]" : "flex-[1]"
+              }`}
             >
-              {/* ============ COLLAPSED ============ */}
+              {/* ================= COLLAPSED ================= */}
               {!isActive && (
                 <>
-                  <div className="group flex items-center justify-center w-full cursor-pointer transition-all duration-300">
-                    <div
-                      className="
-        -rotate-90 whitespace-nowrap
-        text-base font-semibold tracking-wider
-        text-white/70
-        transition-all duration-300
-        group-hover:text-white group-hover:scale-105
-      "
-                    >
+                  <div className="group flex items-center justify-center w-full cursor-pointer">
+                    <div className="-rotate-90 whitespace-nowrap text-base font-semibold tracking-wider text-white/70 group-hover:text-white transition">
                       {item.title}
                     </div>
                   </div>
 
-                  {/* BIG ID */}
-                  <span
-                    className="
-      absolute bottom-10 left-1/2 -translate-x-1/2
-      text-3xl font-bold
-      text-white
-      transition-all duration-300
-      group-hover:text-white
-    "
-                  >
+                  <span className="absolute bottom-10 left-1/2 -translate-x-1/2 text-3xl font-bold text-white">
                     0{item.id}
                   </span>
                 </>
               )}
-              {/* ============ EXPANDED ============ */}
+
+              {/* ================= EXPANDED ================= */}
               {isActive && (
-                <div className="relative w-full px-14 py-10 flex flex-col">
-                  {/* vertical divider */}
-                  <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-blue-500 via-cyan-400 to-transparent" />
+                <div
+                  className="
+                relative w-full px-14 py-10 flex flex-col
+                bg-white/5 backdrop-blur-md
+                border border-white/10
+                rounded-2xl
+                shadow-[0_0_40px_rgba(0,0,0,0.6)]
+              "
+                >
+                  
 
-                  {/* ================= HEADER ================= */}
-                  <div className="mb-4">
-                    <span className="text-[52px] font-extrabold text-blue-500 tracking-tight">
-                      0{item.id}
+                  {/* ID */}
+                  <span className="text-[52px] font-extrabold text-blue-500 mb-2">
+                    0{item.id}
+                  </span>
+
+                  {/* TITLE */}
+                  <h3 className="text-[32px] font-semibold tracking-tight mb-2">
+                    <span className="bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-400 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(59,130,246,0.6)]">
+                      {item.title}
                     </span>
-                  </div>
+                  </h3>
 
-                  {/* ================= TITLE WITH ICON ================= */}
-                  <div className="flex items-center gap-4 mb-2 max-w-2xl">
-                    {/* icon */}
-                    <div
-                      className="
-      flex h-10 w-10 items-center justify-center
-      rounded-xl
-      bg-gradient-to-br from-blue-500 to-cyan-400
-      shadow-[0_0_15px_rgba(56,189,248,0.6)]
-    "
-                    >
-                      <item.icon size={18} className="text-white" />
-                    </div>
-
-                    {/* title */}
-                    <h3 className="relative text-[30px] font-semibold tracking-tight group/title">
-                      <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 bg-clip-text text-transparent">
-                        {item.title}
-                      </span>
-
-                      {/* underline */}
-                      <span
-                        className="
-        absolute left-0 -bottom-2 h-[3px]
-        w-0 group-hover/title:w-full
-        transition-all duration-500
-        rounded-full
-        bg-gradient-to-r from-blue-500 via-cyan-400 to-indigo-400
-      "
-                      />
-                    </h3>
-                  </div>
-
-                  {/* ================= DESCRIPTION ================= */}
-                  <p className="text-white/70 text-[16px] leading-relaxed max-w-xl mb-2">
+                  {/* DESCRIPTION */}
+                  <p className="text-white/90 text-[16px] leading-relaxed max-w-xl mb-4">
                     {item.description}
                   </p>
 
-                  {/* ================= HIGHLIGHTS ================= */}
-                  <ul className="grid grid-cols-2 gap-x-8 gap-y-4 mb-3 max-w-xl">
+                  {/* HIGHLIGHTS */}
+                  <ul className="grid grid-cols-2 gap-x-8 gap-y-4 mb-6 max-w-xl">
                     {serviceHighlights[item.id]?.map((point, idx) => (
                       <li
                         key={idx}
@@ -247,60 +209,33 @@ export default function TechnologySlider() {
                     ))}
                   </ul>
 
-                  {/* ================= PARTNER VALUE ================= */}
-                  <div
-                    className="
-        relative mb-5 max-w-xl
-        rounded-2xl
-        border border-cyan-400/20
-        bg-gradient-to-br from-cyan-500/10 via-blue-500/5 to-transparent
-        p-5
-      "
-                  >
+                  {/* PARTNER VALUE */}
+                  <div className="relative mb-6 max-w-xl rounded-2xl border border-cyan-400/20 bg-gradient-to-br from-cyan-500/10 via-blue-500/5 to-transparent p-5">
                     <div className="absolute inset-0 rounded-2xl bg-cyan-400/5 blur-xl pointer-events-none" />
 
                     <div className="relative flex items-start gap-3">
-                      <div
-                        className="
-            mt-1 flex h-8 w-8 items-center justify-center
-            rounded-lg
-            bg-gradient-to-br from-cyan-400 to-blue-500
-            text-white text-xl font-bold
-            shadow-[0_0_15px_rgba(56,189,248,0.6)]
-          "
-                      >
+                      <div className="mt-1 flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-400 to-blue-500 text-white font-bold shadow-[0_0_15px_rgba(56,189,248,0.6)]">
                         ★
                       </div>
 
                       <div>
-                        <p className="text-l font-bold tracking-wide text-cyan-300 uppercase mb-1">
+                        <p className="text-sm font-bold tracking-wide text-cyan-300 uppercase mb-1">
                           Partner Value
                         </p>
-
-                        <p className="text-m text-white/90 leading-relaxed">
+                        <p className="text-sm text-white/90 leading-relaxed">
                           {item.partnerValue}
                         </p>
                       </div>
                     </div>
                   </div>
 
-                  {/* ================= CTA ================= */}
-                  <Link
+                  {/* BUTTON */}
+                  <a
                     href={item.link}
-                    className="
-        inline-flex items-center justify-center
-        bg-gradient-to-r from-blue-600 to-cyan-500
-        px-7 py-2
-        rounded-full
-        text-white text-sm font-semibold
-        hover:scale-105
-        hover:shadow-[0_10px_25px_rgba(59,130,246,0.5)]
-        transition-all duration-300
-        w-fit
-      "
+                    className="inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-cyan-500 px-7 py-2 rounded-full text-white text-sm font-semibold hover:scale-105 hover:shadow-[0_10px_25px_rgba(59,130,246,0.5)] transition-all duration-300 w-fit"
                   >
                     Learn More →
-                  </Link>
+                  </a>
                 </div>
               )}
             </div>
