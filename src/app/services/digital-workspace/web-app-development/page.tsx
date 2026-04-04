@@ -36,7 +36,7 @@ export default function Home() {
         <CollaborationTabs />
         <QualityBenchmark />
         <WhyChooseSoftreeWebDevelopment />
-        <Certifications />
+        {/* <Certifications /> */}
       </section>
 
       <CtaWeb />

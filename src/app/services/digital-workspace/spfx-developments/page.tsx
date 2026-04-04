@@ -15,7 +15,7 @@ export default function Page() {
      <SpfxShowcase />
      <SpfxBenefits />
      <SoftreeExpertiseTimeline    />
-     <Certifications />
+     {/* <Certifications /> */}
       <CtaSharePoint />
      <Footer />
   </div>;

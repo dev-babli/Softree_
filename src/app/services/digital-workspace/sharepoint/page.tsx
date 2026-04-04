@@ -40,7 +40,7 @@ export default function Home() {
           <TechStack />
           <HireSharePointPricing />
           <TimelinePage />
-          <Certifications />
+          {/* <Certifications /> */}
         </div>
       </section>
 
