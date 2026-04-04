@@ -12,7 +12,7 @@ export default function FlexibleEngagementModels() {
         {/* ================= HEADING ================= */}
         <h2 className="mb-6 text-center text-4xl font-semibold text-gray-100">
           Flexible Engagement Models for{" "}
-          <span className="bg-gradient-to-r from-indigo-600 to-cyan-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-red-600 to-red-900 bg-clip-text text-transparent">
             Consulting Partners
           </span>
         </h2>
@@ -47,14 +47,14 @@ export default function FlexibleEngagementModels() {
       "
               >
                 {/* Left Accent Line */}
-                <span className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-indigo-600 to-cyan-500 opacity-80 group-hover:opacity-100 transition" />
+                <span className="absolute left-0 top-0 h-full w-1 bg-gradient-to-r from-red-600 to-red-900 opacity-80 group-hover:opacity-100 transition" />
 
                 {/* Icon */}
                 <div
                   className="
         flex h-12 w-12 items-center justify-center
         rounded-xl
-        bg-gradient-to-br from-indigo-600 to-cyan-500
+        bg-gradient-to-br from-red-800 to-red-900
         text-white
         shadow-md
         group-hover:scale-110
@@ -113,26 +113,28 @@ export default function FlexibleEngagementModels() {
               >
                 {!plan.highlight ? (
                   /* ================= NORMAL CARDS ================= */
-                  <div className="h-full rounded-[28px] p-[1.5px] bg-gradient-to-br from-indigo-500/40 via-cyan-400/40 to-indigo-600/40 transition duration-500 group-hover:from-indigo-500 group-hover:to-cyan-400">
-                    <div className="h-full rounded-[28px] bg-[#0b1220] p-8 border border-white/10 backdrop-blur-md transition-all duration-500 group-hover:border-cyan-400/40 group-hover:shadow-[0_0_35px_rgba(56,189,248,0.15)] flex flex-col">
-                      <h3 className="mb-6 text-xl font-bold text-white tracking-tight">
-                        {plan.title}
-                      </h3>
+               <div className="h-full rounded-[28px] p-[1.5px] bg-gradient-to-br from-red-500 via-red-600 to-red-800 transition duration-500 group-hover:from-red-600 group-hover:to-red-400">
+  <div className="h-full rounded-[28px] bg-[#0b1220] p-8 border border-red-500/40 backdrop-blur-md transition-all duration-500 group-hover:border-red-400 group-hover:shadow-[0_0_35px_rgba(239,68,68,0.25)] flex flex-col">
+    
+    <h3 className="mb-6 text-xl font-bold text-white tracking-tight">
+      {plan.title}
+    </h3>
 
-                      <ul className="space-y-4 text-sm text-gray-300 flex-grow">
-                        {plan.features.map((f, idx) => (
-                          <li key={idx} className="flex gap-3 leading-relaxed">
-                            <CheckCircle2 className="h-5 w-5 shrink-0 text-cyan-400" />
-                            <span>{f}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
+    <ul className="space-y-4 text-sm text-gray-300 flex-grow">
+      {plan.features.map((f, idx) => (
+        <li key={idx} className="flex gap-3 leading-relaxed">
+          <CheckCircle2 className="h-5 w-5 shrink-0 text-red-400" />
+          <span>{f}</span>
+        </li>
+      ))}
+    </ul>
+
+  </div>
+</div>
                 ) : (
                   /* ================= HIGHLIGHT CARD ================= */
-                  <div className="h-full relative rounded-[28px] p-8 bg-gradient-to-br from-indigo-600 via-indigo-700 to-cyan-600 text-white shadow-[0_25px_70px_rgba(79,70,229,0.45)] flex flex-col">
-                    <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-white px-5 py-1 text-xs font-bold text-indigo-700 shadow-lg tracking-wide">
+                  <div className="h-full relative rounded-[28px] p-8 bg-gradient-to-r from-red-800 to-red-900 text-white shadow-[0_25px_70px_rgba(79,70,229,0.45)] flex flex-col">
+                    <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-white px-5 py-1 text-xs font-bold text-black shadow-lg tracking-wide">
                       RECOMMENDED
                     </span>
 
@@ -162,7 +164,7 @@ export default function FlexibleEngagementModels() {
             className="
               inline-flex items-center gap-3
               rounded-full
-              bg-gradient-to-r from-indigo-600 to-cyan-500
+            bg-gradient-to-r from-red-600 to-red-900
               px-10 py-4
               text-sm font-semibold
               text-white

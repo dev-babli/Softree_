@@ -38,7 +38,7 @@ export default function CTASection() {
   const t = testimonials[index];
 
   return (
-    <section className="relative py-14 px-4  text-white">
+    <section className="relative py-14 px-4 bg-gradient-to-b from-zinc-50 via-white to-zinc-50 text-white">
       <div className="absolute inset-0" />
 
       {/* 🔥 MAIN CARD */}

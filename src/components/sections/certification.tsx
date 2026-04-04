@@ -32,10 +32,7 @@ export default function Certifications() {
         {/* Heading */}
         <div className="text-center mb-12 px-4">
           <h2 className="text-3xl lg:text-5xl font-semibold tracking-tight">
-            Certifications &{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
-              Recognitions
-            </span>
+            Certifications & Recognitions
           </h2>
 
           <p className="mt-5 text-base lg:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">

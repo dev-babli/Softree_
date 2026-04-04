@@ -7,7 +7,7 @@ import AgileProcessStack from "./agile";
 import OurStorySection from "./story";
 import AboutUsWithTestimonials from "./hero";
 import ProjectProcessSection from "./start-project";
-import Certifications from "@/app/services/power-apps/certification";
+import Certifications from "@/app/services/business-applications/power-apps/certification";
 import WhoWeAre from "./who";
 import CoreCapabilities from "./core";
 import ProcessTimeline from "./process";
@@ -15,6 +15,7 @@ import StatsBar from "./stats";
 import OriginalSVGStepper from "./process1";
 import ConsultingApproach from "./approach";
 import Link from "next/link";
+import CTASection from "./cta";
 
 /* ------------------------------------------------------------------ */
 /* Fixed Width Config                                                  */
@@ -38,6 +39,7 @@ export default function Home() {
           <InspiredByOurValues />
           <EngagementModels />
           <Certifications />
+          <CTASection/>
         </div>
       </section>
       <Footer />

@@ -44,9 +44,12 @@ export default function SupportPartners() {
   return (
     <section className="py-16 px-6 bg-gradient-to-b from-black via-[#020d1a] to-black text-white">
       {/* ================= HEADING ================= */}
-      <h2 className="text-center text-3xl font-semibold mb-6 bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-        How We Support Microsoft & Consulting Partners
-      </h2>
+    <h2 className="text-center text-3xl font-semibold mb-6">
+  How We Support{" "}
+  <span className="bg-gradient-to-r from-red-600 to-red-900 bg-clip-text text-transparent">
+    Microsoft & Consulting Partners
+  </span>
+</h2>
 
       <p className="text-center text-white/70 max-w-3xl mx-auto">
         We collaborate with Microsoft partners and consulting firms to extend
@@ -77,7 +80,7 @@ export default function SupportPartners() {
               <div className="text-2xl">{card.icon}</div>
 
               <div>
-                <h3 className="text-lg font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                <h3 className="text-lg font-bold bg-white to-cyan-300 bg-clip-text text-transparent">
                   {card.title}
                 </h3>
 
@@ -134,13 +137,13 @@ export default function SupportPartners() {
     hover:shadow-[0_0_20px_rgba(59,130,246,0.25)]
   "
               >
-                <p className="text-[16px] tracking-wider uppercase text-blue-300 mb-2 flex items-center gap-1 font-bold">
-                  <span className="text-blue-400 font-bold">*</span>
+                <p className="text-[16px] tracking-wider uppercase text-white mb-2 flex items-center gap-1 font-bold">
+                  <span className="text-white font-bold">*</span>
                   Partner Value
                 </p>
 
                 {/* description */}
-                <p className="text-sm text-gray-200 leading-relaxed">
+                <p className="text-sm text-gray-400 leading-relaxed">
                   {card.partner}
                 </p>
               </div>

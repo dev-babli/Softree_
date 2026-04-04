@@ -53,7 +53,7 @@ export default function TechStack() {
                 From MVPs to Enterprise Solutions
               </span>
               <br />
-              <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-red-600 to-red-900 bg-clip-text text-transparent">
                 Softree Builds It All
               </span>
 
@@ -105,7 +105,7 @@ export default function TechStack() {
               className="
                 inline-flex items-center justify-center
                 px-10 py-4 rounded-full font-semibold
-                bg-gradient-to-r from-cyan-400 to-violet-500
+                bg-gradient-to-r from-red-600 to-red-900
                 text-black transition-transform duration-300
                 hover:-translate-y-1
               "

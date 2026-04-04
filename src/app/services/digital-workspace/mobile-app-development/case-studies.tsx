@@ -6,7 +6,7 @@ import { Autoplay } from "swiper/modules";
 import { useRouter } from "next/navigation";
 import { FileText, AlertTriangle, Lightbulb, TrendingUp } from "lucide-react";
 
-import "swiper/css";
+import 'swiper/css';
 const caseStudies = [
   {
     title: "Wellkies Doctor Mobile App",

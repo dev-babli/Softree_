@@ -1,6 +1,6 @@
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
-import Certifications from "../power-apps/certification";
+import Certifications from "../../business-applications/power-apps/certification";
 import FullStackTeams from "./full-stack";
 import ThreePillars from "./three-pillar";
 import CollaborationTabs from "./collab-tab";
@@ -10,7 +10,7 @@ import WhyChooseSoftreeWebDevelopment from "./why-chose";
 import WebDevelopmentCaseStudies from "./case-studies";
 import WebDevHero from "./hero";
 import CtaWeb from "./cta";
-import TrustedBrandsMarquee from "../power-apps/trust";
+import TrustedBrandsMarquee from "../../business-applications/power-apps/trust";
 
 /* ------------------------------------------------------------------ */
 /* Shared Layout Config                                                */

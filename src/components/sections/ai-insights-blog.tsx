@@ -34,13 +34,13 @@ const initialRecent: Article[] = [
       "An integrated clinic platform to manage appointments, staff coordination, and operational activities efficiently.",
   },
   {
-    imageUrl: "/images/case-study/power-apps/project.avif",
-    title: "Projects Portfolio Management",
+    imageUrl: "/images/case-study/power-apps/barcode.png",
+    title: "Barcode Scanner App",
     date: "Power Apps",
     readTime: "Case Study",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Projects-Portfolio-ManagementMicrosoft-Dataverse.pdf",
+    href: "/pdf/Barcode Scanner App.pdf",
     description:
-      "Built on Microsoft Dataverse, this system enables organizations to track projects, resources, and outcomes in real time.",
+      "A Microsoft Dataverse-based barcode scanning app that automates real-time inventory tracking and reduces manual data entry.",
   },
   {
     imageUrl: "/images/case-study/power-apps/student.avif",
@@ -72,7 +72,7 @@ export default function AiInsightsBlog() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="mb-12 max-w-3xl">
-          <span className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 text-blue-400 px-4 py-1 text-xs font-semibold tracking-widest uppercase border border-blue-500/20">
+          <span className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 text-blue-white px-4 py-1 text-xs font-semibold tracking-widest uppercase border border-blue-500/20">
             Case Studies
           </span>
 
@@ -121,6 +121,9 @@ export default function AiInsightsBlog() {
                   <p className="mt-3 text-white/70 text-sm max-w-xl">
                     {featured.description}
                   </p>
+                  <button className="mt-5 inline-flex items-center gap-2 px-5 py-2 text-sm font-semibold text-white  rounded-full hover:bg-blue-600 transition-all duration-300">
+                    Read More →
+                  </button>
                 </div>
               </div>
             </Link>
@@ -162,6 +165,9 @@ export default function AiInsightsBlog() {
                   <p className="mt-2 text-xs text-white/60">
                     {article.date} • {article.readTime}
                   </p>
+                  <button className="mt-2 inline-flex items-center gap-2 px-5 py-2 text-sm font-semibold text-white rounded-full hover:bg-blue-600 transition-all duration-300">
+                    Read More →
+                  </button>
                 </div>
               </Link>
             ))}

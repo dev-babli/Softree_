@@ -4,7 +4,7 @@ import ServicesHeader from "./header";
 import ServicesDetails from "./service-details";
 import CaseStudiesSlider from "./cases";
 import ProjectProcessSection from "./start-project";
-import Certifications from "./power-apps/certification";
+import Certifications from "./business-applications/power-apps/certification";
 export default function Home() {
   return (
     <>

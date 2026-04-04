@@ -56,7 +56,7 @@ export default function SoftreeFAQ() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-15">
-          <p className="text-sm uppercase tracking-widest text-cyan-400 font-semibold mb-3">
+          <p className="text-sm uppercase tracking-widest text-red-400 font-semibold mb-3">
             Softree FAQ
           </p>
 

@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 export default function CTASection() {
   const testimonials = [
     {
-      text: "Softree Technology helped us transform our digital presence with a seamless and scalable solution. Their team understood our vision and delivered beyond expectations.",
+      text: "Softree Technology helped us transform our digital presence with a seamless and scalable solution. Their team understood our vision and expectations.",
       name: "Rahul Sharma",
       role: "Founder & CEO, FinEdge Solutions",
       img: "https://randomuser.me/api/portraits/men/32.jpg",
@@ -38,29 +38,31 @@ export default function CTASection() {
   const t = testimonials[index];
 
   return (
-    <section className="relative py-20 px-4 bg-gradient-to-b from-black via-[#020d1a] to-black text-white">
+    <section className="relative py-14 px-4 bg-gradient-to-b from-black via-[#020d1a] to-black text-white">
       <div className="absolute inset-0" />
 
       {/* 🔥 MAIN CARD */}
-      <div className="relative z-10 max-w-6xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+      <div className="relative z-10 max-w-7xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-white/10">
         {/* INNER BG */}
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-orange-500/20" />
 
-        {/* CONTENT */}
-        <div className="relative grid md:grid-cols-2">
+        <div className="relative grid md:grid-cols-[1.3fr_1fr]">
           {/* ================= LEFT ================= */}
-          <div className="p-8 md:p-10 text-white bg-gradient-to-br from-black via-red-950 to-black">
-            <h2 className="text-2xl font-semibold mb-4">
+          <div
+            className="p-6 md:p-8 text-white bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: "url('/images/cta.png')" }}
+          >
+            <h2 className="text-3xl font-bold mb-4 text-white">
               Wait — Let’s Build Something Great Together
             </h2>
 
-            <p className="text-gray-300 text-sm mb-10">
+            <p className="text-gray-300 text-sm mb-6">
               Discover why growing businesses trust Softree Technology for
               reliable, scalable, and impactful digital solutions.
             </p>
 
             {/* 🏆 Awards */}
-            <div className="flex flex-wrap gap-3 mb-15">
+            <div className="flex flex-wrap gap-3 mb-10">
               <div className="px-3 py-2 bg-white/10 border border-white/10 rounded-lg text-xs">
                 🏆 Top Software Company 2025
               </div>
@@ -73,51 +75,50 @@ export default function CTASection() {
             </div>
 
             {/* 🔥 Testimonial Slider */}
-            {/* 🔥 Testimonial Slider */}
-            <div className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6">
-              {/* ❝ Quote Icon */}
-              <span className="absolute top-4 left-4 text-5xl text-white font-serif">
-                “
-              </span>
+          <div className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-3">
+  {/* ❝ Quote */}
+  <span className="absolute top-2 left-2 text-2xl text-white font-serif">
+    “
+  </span>
 
-              <p className="text-sm leading-relaxed mb-6 pl-6">{t.text}</p>
+  <p className="text-m leading-relaxed mb-3 pl-4">{t.text}</p>
 
-              <div className="flex items-center gap-3 mb-6">
-                <img
-                  src={t.img}
-                  className="w-10 h-10 rounded-full"
-                  alt={t.name}
-                />
+  <div className="flex items-center gap-2 mb-3">
+    <img
+      src={t.img}
+      className="w-7 h-7 rounded-full"
+      alt={t.name}
+    />
 
-                <div>
-                  <p className="text-sm font-medium">{t.name}</p>
-                  <p className="text-xs text-gray-400">{t.role}</p>
-                </div>
-              </div>
+    <div>
+      <p className="text-xs font-medium">{t.name}</p>
+      <p className="text-[10px] text-gray-400">{t.role}</p>
+    </div>
+  </div>
 
-              {/* Arrows */}
-              <div className="flex justify-center gap-4">
-                <button
-                  onClick={prevSlide}
-                  className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition"
-                >
-                  <ChevronLeft size={18} />
-                </button>
+  {/* Arrows */}
+  <div className="flex justify-center gap-2">
+    <button
+      onClick={prevSlide}
+      className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 transition"
+    >
+      <ChevronLeft size={17} />
+    </button>
 
-                <button
-                  onClick={nextSlide}
-                  className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition"
-                >
-                  <ChevronRight size={18} />
-                </button>
-              </div>
-            </div>
+    <button
+      onClick={nextSlide}
+      className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 transition"
+    >
+      <ChevronRight size={17} />
+    </button>
+  </div>
+</div>
           </div>
 
           {/* ================= RIGHT ================= */}
-          <div className="bg-white p-8 md:p-10 w-full max-w-xl rounded-2xl border border-gray-100 shadow-sm">
+          <div className="bg-white p-6 md:p-8 w-full rounded-2xl border border-gray-100 shadow-sm">
             {/* Header */}
-            <div className="flex justify-between items-start mb-8">
+            <div className="flex justify-between items-start mb-6">
               <p className="text-sm text-gray-600 leading-relaxed max-w-md">
                 Share your requirements so our experts can understand your goals
                 and craft a tailored solution.
@@ -125,15 +126,15 @@ export default function CTASection() {
             </div>
 
             {/* FORM */}
-            <form className="space-y-6 text-gray-900">
+            <form className="space-y-4 text-gray-900">
               {/* Row 1 */}
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-1">
                   <label className="text-xs text-gray-500">First Name</label>
                   <input
                     type="text"
                     placeholder="John"
-                    className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-4 py-3 text-sm outline-none transition"
+                    className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-3 py-2 text-sm outline-none transition"
                   />
                 </div>
 
@@ -142,18 +143,18 @@ export default function CTASection() {
                   <input
                     type="email"
                     placeholder="john@company.com"
-                    className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-4 py-3 text-sm outline-none transition"
+                    className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-3 py-2 text-sm outline-none transition"
                   />
                 </div>
               </div>
 
               {/* Row 2 */}
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-1">
                   <label className="text-xs text-gray-500">
                     Contact Number
                   </label>
-                  <div className="flex items-center border border-gray-200 bg-gray-50 focus-within:bg-white focus-within:border-black rounded-lg px-4 py-3">
+                  <div className="flex items-center border border-gray-200 bg-gray-50 focus-within:bg-white focus-within:border-black rounded-lg px-3 py-2">
                     <span className="text-sm text-gray-500 mr-2">+91</span>
                     <input
                       type="text"
@@ -170,7 +171,7 @@ export default function CTASection() {
                   <input
                     type="email"
                     placeholder="john@work.com"
-                    className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-4 py-3 text-sm outline-none transition"
+                    className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-3 py-2 text-sm outline-none transition"
                   />
                 </div>
               </div>
@@ -179,14 +180,14 @@ export default function CTASection() {
               <div className="space-y-1">
                 <label className="text-xs text-gray-500">Project Details</label>
                 <textarea
-                  rows={4}
+                  rows={3}
                   placeholder="Describe your project"
-                  className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-4 py-3 text-sm outline-none resize-none transition"
+                  className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-3 py-2 text-sm outline-none resize-none transition"
                 />
               </div>
 
               {/* Info Box */}
-              <div className="flex items-start gap-3 bg-yellow-50 border border-yellow-200 rounded-lg px-4 py-3">
+              <div className="flex items-start gap-3 bg-yellow-50 border border-yellow-200 rounded-lg px-3 py-2">
                 <span>🛡️</span>
                 <p className="text-sm text-gray-800">
                   Fast 2-minute response. NDA-protected.
@@ -194,7 +195,7 @@ export default function CTASection() {
               </div>
 
               {/* Captcha */}
-              <div className="flex items-center justify-between gap-4 bg-gray-50 border border-gray-200 rounded-lg px-4 py-3">
+              <div className="flex items-center justify-between gap-3 bg-gray-50 border border-gray-200 rounded-lg px-3 py-2">
                 <span className="text-sm text-gray-700 font-medium">
                   2 + 1 = ?
                 </span>
@@ -202,12 +203,12 @@ export default function CTASection() {
                 <input
                   type="text"
                   placeholder="3"
-                  className="w-24 bg-white border border-gray-300 rounded-md px-3 py-2 text-sm outline-none focus:border-black transition"
+                  className="w-20 bg-white border border-gray-300 rounded-md px-2 py-1 text-sm outline-none focus:border-black transition"
                 />
               </div>
 
               {/* Button */}
-              <button className="w-full bg-black text-white py-3 rounded-full">
+              <button className="w-full bg-black text-white py-2.5 rounded-full text-sm">
                 Submit Request →
               </button>
             </form>

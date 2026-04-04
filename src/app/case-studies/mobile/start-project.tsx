@@ -1,121 +1,217 @@
 "use client";
 
-export default function CtaMobileApps() {
-  return (
-    <section className="py-24 relative overflow-hidden ">
-      <div className="mx-auto max-w-7xl px-6">
-        <div
-          className="
-            grid md:grid-cols-2 gap-10 items-center
-            rounded-3xl
-            bg-gradient-to-br from-indigo-600 via-blue-600 to-cyan-500
-            p-8 md:p-10
-            text-white
-            shadow-xl
-          "
-        >
-          {/* ================= LEFT ================= */}
-          <div>
-            {/* badge */}
-            <span className="inline-block mb-2 px-3 py-1 rounded-full bg-white/15 text-xs">
-              👨‍💻 Hire Mobile App Developers
-            </span>
+import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-            {/* heading */}
-            <h2 className="text-3xl md:text-4xl font-semibold leading-tight">
-              Hire expert developers for
-              <span className="block bg-gradient-to-r from-cyan-200 to-white bg-clip-text text-transparent">
-                iOS & Android Applications
-              </span>
+export default function CTASection() {
+  const testimonials = [
+    {
+      text: "Softree Technology helped us transform our digital presence with a seamless and scalable solution. Their team understood our vision and expectations.",
+      name: "Rahul Sharma",
+      role: "Founder & CEO, FinEdge Solutions",
+      img: "https://randomuser.me/api/portraits/men/32.jpg",
+    },
+    {
+      text: "Amazing experience working with Softree. Their technical expertise and commitment helped us scale faster than expected.",
+      name: "Ankit Verma",
+      role: "CTO, NexaTech",
+      img: "https://randomuser.me/api/portraits/men/45.jpg",
+    },
+    {
+      text: "From idea to execution, Softree delivered everything perfectly. The team is highly professional and responsive.",
+      name: "Priya Mehta",
+      role: "Product Head, ScaleUp Labs",
+      img: "https://randomuser.me/api/portraits/women/44.jpg",
+    },
+  ];
+
+  const [index, setIndex] = useState(0);
+
+  const prevSlide = () => {
+    setIndex(index === 0 ? testimonials.length - 1 : index - 1);
+  };
+
+  const nextSlide = () => {
+    setIndex(index === testimonials.length - 1 ? 0 : index + 1);
+  };
+
+  const t = testimonials[index];
+
+  return (
+    <section className="relative py-14 px-4 bg-white text-white">
+      <div className="absolute inset-0" />
+
+      {/* 🔥 MAIN CARD */}
+      <div className="relative z-10 max-w-7xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+        {/* INNER BG */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-orange-500/20" />
+
+        <div className="relative grid md:grid-cols-[1.3fr_1fr]">
+          {/* ================= LEFT ================= */}
+          <div
+            className="p-6 md:p-8 text-white bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: "url('/images/cta.png')" }}
+          >
+            <h2 className="text-3xl font-bold mb-4 text-white">
+              Wait — Let’s Build Something Great Together
             </h2>
 
-            {/* desc */}
-            <p className="mt-1 text-sm text-white/85 max-w-lg">
-              Scale your development team with experienced mobile app developers
-              who build secure, high-performance applications aligned with your
-              business goals.
+            <p className="text-gray-300 text-sm mb-6">
+              Discover why growing businesses trust Softree Technology for
+              reliable, scalable, and impactful digital solutions.
             </p>
 
-            {/* benefits */}
-            <ul className="mt-3 space-y-1.5 text-xs text-white/85">
-              <li>✔ Dedicated iOS & Android Developers</li>
-              <li>✔ Flutter, React Native & Power Apps Expertise</li>
-              <li>✔ API, Backend & Cloud Integration</li>
-              <li>✔ Flexible Hiring Models</li>
-            </ul>
-
-            {/* stats */}
-            <div className="mt-3 flex gap-8">
-              <div>
-                <p className="text-xl font-semibold">60+</p>
-                <p className="text-[11px] text-white/70">
-                  Developers Available
-                </p>
+            {/* 🏆 Awards */}
+            <div className="flex flex-wrap gap-3 mb-10">
+              <div className="px-3 py-2 bg-white/10 border border-white/10 rounded-lg text-xs">
+                🏆 Top Software Company 2025
               </div>
-              <div>
-                <p className="text-xl font-semibold">95%</p>
-                <p className="text-[11px] text-white/70">Client Retention</p>
+              <div className="px-3 py-2 bg-white/10 border border-white/10 rounded-lg text-xs">
+                ⭐ 4.9 Client Rating
               </div>
-              <div>
-                <p className="text-xl font-semibold">48 Hrs</p>
-                <p className="text-[11px] text-white/70">Team Onboarding</p>
+              <div className="px-3 py-2 bg-white/10 border border-white/10 rounded-lg text-xs">
+                🚀 3000+ Projects Delivered
               </div>
             </div>
 
-            {/* buttons */}
-            <div className="mt-3 flex gap-3 flex-wrap">
-              <a
-                href="/contact"
-                className="bg-white text-indigo-700 px-6 py-2.5 rounded-lg text-xs font-medium shadow hover:scale-105 transition"
-              >
-                Hire Developers
-              </a>
+            {/* 🔥 Testimonial Slider */}
+            <div className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-3">
+              {/* ❝ Quote */}
+              <span className="absolute top-2 left-2 text-2xl text-white font-serif">
+                “
+              </span>
+
+              <p className="text-m leading-relaxed mb-3 pl-4">{t.text}</p>
+
+              <div className="flex items-center gap-2 mb-3">
+                <img
+                  src={t.img}
+                  className="w-7 h-7 rounded-full"
+                  alt={t.name}
+                />
+
+                <div>
+                  <p className="text-xs font-medium">{t.name}</p>
+                  <p className="text-[10px] text-gray-400">{t.role}</p>
+                </div>
+              </div>
+
+              {/* Arrows */}
+              <div className="flex justify-center gap-2">
+                <button
+                  onClick={prevSlide}
+                  className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 transition"
+                >
+                  <ChevronLeft size={17} />
+                </button>
+
+                <button
+                  onClick={nextSlide}
+                  className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 transition"
+                >
+                  <ChevronRight size={17} />
+                </button>
+              </div>
             </div>
           </div>
 
-          {/* ================= RIGHT – MINI FORM ================= */}
-          <div className="relative">
-            <div className="absolute -inset-2 bg-white/10 blur-xl rounded-3xl" />
-
-            <div className="relative bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 p-6">
-              <h3 className="text-lg font-semibold">
-                Get Free App Consultation
-              </h3>
-
-              <p className="text-xs text-white/70 mb-4">
-                Share your idea — we’ll reply within 24 hours
-              </p>
-
-              <form className="space-y-3">
-                <input
-                  placeholder="Full Name"
-                  className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300"
-                />
-
-                <input
-                  placeholder="Work Email"
-                  className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300"
-                />
-
-                <select className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300">
-                  <option>Platform</option>
-                  <option>iOS</option>
-                  <option>Android</option>
-                  <option>Both</option>
-                </select>
-
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-cyan-400 to-indigo-500 py-2.5 rounded-lg text-xs font-medium shadow hover:scale-[1.03] transition"
-                >
-                  Get Free Estimate
-                </button>
-              </form>
-
-              <p className="mt-3 text-[10px] text-center text-white/60">
-                🔒 100% Confidential
+          {/* ================= RIGHT ================= */}
+          <div className="bg-white p-6 md:p-8 w-full rounded-2xl border border-gray-100 shadow-sm">
+            {/* Header */}
+            <div className="flex justify-between items-start mb-6">
+              <p className="text-sm text-gray-600 leading-relaxed max-w-md">
+                Share your requirements so our experts can understand your goals
+                and craft a tailored solution.
               </p>
             </div>
+
+            {/* FORM */}
+            <form className="space-y-4 text-gray-900">
+              {/* Row 1 */}
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <label className="text-xs text-gray-500">First Name</label>
+                  <input
+                    type="text"
+                    placeholder="John"
+                    className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-3 py-2 text-sm outline-none transition"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-xs text-gray-500">Company Email</label>
+                  <input
+                    type="email"
+                    placeholder="john@company.com"
+                    className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-3 py-2 text-sm outline-none transition"
+                  />
+                </div>
+              </div>
+
+              {/* Row 2 */}
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <label className="text-xs text-gray-500">
+                    Contact Number
+                  </label>
+                  <div className="flex items-center border border-gray-200 bg-gray-50 focus-within:bg-white focus-within:border-black rounded-lg px-3 py-2">
+                    <span className="text-sm text-gray-500 mr-2">+91</span>
+                    <input
+                      type="text"
+                      placeholder="9876543210"
+                      className="w-full text-sm outline-none bg-transparent"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-xs text-gray-500">
+                    Work Email (Optional)
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="john@work.com"
+                    className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-3 py-2 text-sm outline-none transition"
+                  />
+                </div>
+              </div>
+
+              {/* Textarea */}
+              <div className="space-y-1">
+                <label className="text-xs text-gray-500">Project Details</label>
+                <textarea
+                  rows={3}
+                  placeholder="Describe your project"
+                  className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-3 py-2 text-sm outline-none resize-none transition"
+                />
+              </div>
+
+              {/* Info Box */}
+              <div className="flex items-start gap-3 bg-yellow-50 border border-yellow-200 rounded-lg px-3 py-2">
+                <span>🛡️</span>
+                <p className="text-sm text-gray-800">
+                  Fast 2-minute response. NDA-protected.
+                </p>
+              </div>
+
+              {/* Captcha */}
+              <div className="flex items-center justify-between gap-3 bg-gray-50 border border-gray-200 rounded-lg px-3 py-2">
+                <span className="text-sm text-gray-700 font-medium">
+                  2 + 1 = ?
+                </span>
+
+                <input
+                  type="text"
+                  placeholder="3"
+                  className="w-20 bg-white border border-gray-300 rounded-md px-2 py-1 text-sm outline-none focus:border-black transition"
+                />
+              </div>
+
+              {/* Button */}
+              <button className="w-full bg-black text-white py-2.5 rounded-full text-sm">
+                Submit Request →
+              </button>
+            </form>
           </div>
         </div>
       </div>

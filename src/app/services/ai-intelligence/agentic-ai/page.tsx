@@ -10,8 +10,9 @@ import HeroWithTestimonial from "./hero";
 import IndustriesSection from "./industry";
 import AgenticFramework from "./agentic-frame";
 import CtaAgenticAI from "./cta";
-import TrustedBrandsMarquee from "../power-apps/trust";
-import Certifications from "../power-apps/certification";
+import TrustedBrandsMarquee from "../../business-applications/power-apps/trust";
+import Certifications from "../../business-applications/power-apps/certification";
+import AIServicesSection from "./strategy";
 export default function AgenticAIPage() {
   return (
     <div>
@@ -23,8 +24,9 @@ export default function AgenticAIPage() {
       <AgenticToolsOverview />
       <IndustriesSection />
       <AgenticFramework />
+      <AIServicesSection />
       <WhyChooseUs />
-      <AIStats />
+
       <AgenticSection />
       <Certifications />
       <CtaAgenticAI />

@@ -45,7 +45,7 @@ export default function TrustedBy() {
           <div className="flex items-center gap-6 mb-12">
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-zinc-300 to-transparent" />
 
-            <p className="text-2xl font-semibold tracking-widest uppercase bg-gradient-to-r from-blue-700 via-blue-500 to-sky-400 bg-clip-text text-transparent">
+            <p className="text-2xl font-semibold tracking-widest uppercase bg-red-500 bg-clip-text text-transparent">
               Trusted by Partners & Clients
             </p>
 

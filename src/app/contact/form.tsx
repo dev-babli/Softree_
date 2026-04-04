@@ -59,63 +59,62 @@ export default function ContactPage() {
             </p>
           </div>
 
-          {/* FEATURE CARDS */}
-          <div className="grid sm:grid-cols-2 gap-3">
-            {[
-              {
-                title: "Share Your Requirements",
-                desc: "Tell us about your goals and challenges.",
-                icon: Brain,
-              },
-              {
-                title: "Expert Consultation",
-                desc: "Connect directly with our architects.",
-                icon: Handshake,
-              },
-            ].map((item, i) => {
-              const Icon = item.icon;
-
-              return (
-                <div
-                  key={i}
-                  className="group p-4 rounded-xl bg-gray-800 border border-gray-700 shadow-sm hover:bg-gray-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-                >
-                  <div className="w-9 h-9 mb-2 flex items-center justify-center rounded-lg bg-gray-700 group-hover:bg-cyan-500/20 transition">
-                    <Icon className="w-4 h-4 text-gray-300 group-hover:text-cyan-400" />
-                  </div>
-
-                  <h3 className="text-sm font-semibold text-white mb-1">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-xs text-gray-400 leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-
           {/* WHY CHOOSE US */}
-          <div className="space-y-3">
-            <h4 className="text-sm font-semibold text-cyan-400 tracking-wide uppercase">
-              Why Choose Softree
-            </h4>
+          <div className="space-y-6">
+            {/* Header */}
+            <div className="flex justify-center">
+              <h4 className="text-lg font-semibold uppercase tracking-widest bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent relative inline-block">
+                Why Choose Softree
+                <span className="block h-[2px] w-20 bg-gradient-to-r from-cyan-300 to-blue-400 mx-auto mt-2 rounded-full"></span>
+              </h4>
+            </div>
 
-            <ul className="space-y-2 text-sm text-gray-300">
-              <li className="flex items-start gap-2">
-                <span className="text-cyan-400 mt-1">✔</span>
-                Deep Microsoft, cloud & AI expertise
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-cyan-400 mt-1">✔</span>
-                Secure, compliant, enterprise-ready delivery
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-cyan-400 mt-1">✔</span>
-                Faster implementation using proven accelerators
-              </li>
-            </ul>
+            {/* Content Card */}
+            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-5 shadow-lg">
+              <div className="grid grid-cols-2 gap-6 text-sm text-gray-300">
+                {/* Left */}
+                <ul className="space-y-3">
+                  {[
+                    "Agile Engineering",
+                    "Leadership Access",
+                    "Trusted Since 2013",
+                  ].map((item, index) => (
+                    <li
+                      key={index}
+                      className="flex items-center gap-3 group transition duration-300 hover:translate-x-1"
+                    >
+                      <span className="flex items-center justify-center w-5 h-5 rounded-full bg-cyan-400/20 text-cyan-300 text-xs group-hover:bg-cyan-400 group-hover:text-white transition">
+                        ✓
+                      </span>
+                      <span className="group-hover:text-white transition">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Right */}
+                <ul className="space-y-3">
+                  {[
+                    "Scalable Solutions",
+                    "Client-Centric Approach",
+                    "Continuous Innovation",
+                  ].map((item, index) => (
+                    <li
+                      key={index}
+                      className="flex items-center gap-3 group transition duration-300 hover:translate-x-1"
+                    >
+                      <span className="flex items-center justify-center w-5 h-5 rounded-full bg-cyan-400/20 text-cyan-300 text-xs group-hover:bg-cyan-400 group-hover:text-white transition">
+                        ✓
+                      </span>
+                      <span className="group-hover:text-white transition">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
 
           {/* TRUST STATS */}

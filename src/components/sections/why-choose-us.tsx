@@ -118,14 +118,14 @@ export default function WhyChooseWithTestimonials() {
         {/* ================= LEFT : WHY CHOOSE ================= */}
         <div className="relative">
           {/* Small Label */}
-          <div className="text-blue-400 text-xs uppercase tracking-[0.15em] mb-3">
+          <div className="text-red-400 text-xs uppercase tracking-[0.15em] mb-3">
             Why Choose Softree
           </div>
 
           {/* Heading */}
           <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-8 max-w-xl">
             Built for{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-blue-600 bg-clip-text text-transparent">
+            <span className="bg-white bg-clip-text text-transparent">
               Long-Term Impact
             </span>
           </h2>
@@ -184,7 +184,7 @@ export default function WhyChooseWithTestimonials() {
           {/* Header Section */}
           <div className="relative z-10 mb-10">
             {/* Top Label */}
-            <div className="text-blue-400 text-xs uppercase tracking-widest mb-3">
+            <div className="text-red-400 text-xs uppercase tracking-widest mb-3">
               Softree Client Feedback
             </div>
 

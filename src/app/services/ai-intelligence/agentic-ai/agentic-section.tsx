@@ -35,7 +35,7 @@ export default function AgenticProcessFlow() {
   ];
 
   return (
-    <div className="relative bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-24">
+    <div className="relative py-24">
       {/* HEADER */}
       <div className="text-center max-w-3xl mx-auto mb-12">
         <h2 className="text-3xl md:text-4xl font-semibold text-zinc-900">

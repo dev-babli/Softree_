@@ -24,15 +24,15 @@ export default function Home() {
         <ResponsiveHeroBanner />
         <TechnologySlider />
         <SupportPartners />
-        <AISolutions/>
+
         <TrustedBy />
         <AiInsightsBlog />
         <TechStackSection />
-        <WhyChooseUs />     
+        <WhyChooseUs />
         <SelectedEngagements />
-        <SoftreeFAQ />
-        <Certifications />  
+        <Certifications />
         <CTABanner />
+        <SoftreeFAQ />
       </main>
       <Footer />
     </div>
