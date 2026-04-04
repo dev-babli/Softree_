@@ -2,7 +2,7 @@
 
 export default function CtaMobileApps() {
   return (
-    <section className="py-4 relative overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
+    <section className="relative overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
       <div className="mx-auto max-w-7xl px-6">
         <div
           className="

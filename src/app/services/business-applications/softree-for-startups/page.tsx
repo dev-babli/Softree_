@@ -9,8 +9,8 @@ import StartupHero from "./hero";
 import HireExperts from "./hire";
 import ProcessTimeline from "./process";
 import PowerPlatformSection from "./services-section";
-import TrustedBrandsMarquee from "../trust";
-import Certifications from "../certification";
+import TrustedBrandsMarquee from "../power-apps/trust";
+import Certifications from "../power-apps/certification";
 export default function Page() {
   return (
     <div className="min-h-screen">
