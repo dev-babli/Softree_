@@ -32,7 +32,7 @@ export default function PowerBIBenefits() {
   ];
 
   return (
-    <section className="py-12 bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
+    <section className="py-12 ">
       <div className="max-w-7xl mx-auto px-6">
         <div className="space-y-3">
           <p className="text-sm font-semibold tracking-wider uppercase text-purple-600">

@@ -3,13 +3,16 @@ import Footer from "@/components/sections/footer";
 import PowerBIServicesTabs from "./power-bi-tabs";
 import Certifications from "./certification";
 import PowerBIHero from "./hero";
-import PowerBICaseStudies from "./cases";
 import CtaAbout from "./cta";
 import WhyChooseUs from "./why";
 import PowerBIStackOverview from "./tools";
 import PowerBIBenefits from "./benefits";
-import RelatedServices from "./related";
-
+import TrustedBrandsMarquee from "./trust";
+import StackedSlider from "./stach-slider";
+import PowerBICaseStudies from "./case-studies";
+import HirePowerBIPricing from "./pricing";
+import PowerBIProcessSection from "./process";
+import TestimonialsSplitSlider from "./testimonials";
 /* ------------------------------------------------------------------ */
 /* Fixed Width Config                                                  */
 /* ------------------------------------------------------------------ */
@@ -23,11 +26,16 @@ export default function Home() {
       {/* HERO (can stay full-width internally) */}
       <PowerBIHero />
       {/* <PowerBICaseStudies /> */}
-      <PowerBIBenefits/>
-      <RelatedServices/>
+      <TrustedBrandsMarquee />
+      <StackedSlider />
+      <PowerBICaseStudies />
       <PowerBIServicesTabs />
+      <PowerBIBenefits />
       <PowerBIStackOverview />
+      <HirePowerBIPricing />
+      <PowerBIProcessSection />
       <WhyChooseUs />
+      <TestimonialsSplitSlider/>
       <Certifications />
 
       <CtaAbout />

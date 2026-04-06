@@ -115,7 +115,7 @@ const tools: ToolCard[] = [
 
 export default function PowerBIStackOverview() {
   return (
-    <section className="py-24 bg-slate-50">
+    <section className="py-24">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-4xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-semibold text-slate-900">

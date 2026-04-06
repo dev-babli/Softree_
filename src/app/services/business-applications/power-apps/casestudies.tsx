@@ -61,27 +61,6 @@ const caseStudies = [
   },
 
   {
-    title: "Health Selector Mobile Application",
-
-    summary: "Mobile app for easy health plan comparison.",
-
-    challenge: "Users struggled to compare plans and eligibility options.",
-
-    solution:
-      "Designed a mobile-first app with guided comparisons and filters.",
-
-    impact: "Enabled users to choose plans 3x faster.",
-
-    tech: ["Power Apps", "Dataverse", "Power Fx"],
-
-    image: "/images/case-study/power-apps/health.jpg",
-
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Health-Plan-Selector-Mobile-Application.pdf",
-
-    category: "Power Apps",
-  },
-
-  {
     title: "Projects Portfolio Management",
 
     summary: "Centralized project tracking with KPI dashboards.",
@@ -129,7 +108,7 @@ export default function PowerAppsCaseStudies() {
 
   return (
     <section className="relative min-h-screen flex items-center ">
-      <div className="w-[86%] max-w-7xl mx-auto space-y-8">
+      <div className=" max-w-7xl mx-auto space-y-8">
         {/* ================= HEADER ================= */}
         <div className="text-center">
           <span className="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold tracking-[0.18em] uppercase">

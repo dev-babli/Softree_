@@ -171,7 +171,7 @@ const menu: MenuItem[] = [
         },
         {
           label: "Microsoft Fabric",
-          url: "/services/data-analytics/power-bi", // fixed
+          url: "/services/data-analytics/microsoft-fabric", // fixed
           icon: Boxes, // updated
           description: "Unified analytics platform",
         },
