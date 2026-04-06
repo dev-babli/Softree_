@@ -83,12 +83,6 @@ export default function HeroWithTestimonial() {
                 Talk to a Mobile App Expert
               </button>
             </Link>
-
-            <Link href="/case-studies/mobile">
-              <button className="border border-zinc-50/30 text-zinc-200 px-7 py-3.5 rounded-xl hover:bg-white/10 transition">
-                View Case Studies
-              </button>
-            </Link>
           </div>
         </div>
 

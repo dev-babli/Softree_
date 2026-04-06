@@ -80,12 +80,6 @@ export default function HeroWithTestimonial() {
                 Talk to a Power Apps Expert
               </button>
             </Link>
-
-            <Link href="/case-studies/power-apps">
-              <button className="border border-zinc-400/30 text-zinc-200 px-7 py-3.5 rounded-xl hover:bg-white/10 transition">
-                View Case Studies
-              </button>
-            </Link>
           </div>
         </div>
 

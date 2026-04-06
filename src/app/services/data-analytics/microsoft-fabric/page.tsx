@@ -7,9 +7,12 @@ import WhyChooseWithTestimonials from "./why";
 import TrustedBrandsMarquee from "./trust";
 import CtaFabric from "./cta";
 import UseCasesSection from "./use-cases";
+import NavigationClient from "@/components/sections/navigation-client";
+import Footer from "@/components/sections/footer";
 export default function Home() {
   return (
     <>
+    <NavigationClient/>
       <HeroWithTestimonial />
       <TrustedBrandsMarquee/>
       <FabricTabs/>
@@ -19,6 +22,7 @@ export default function Home() {
       <HireFabricPricing/>
       <WhyChooseWithTestimonials/>      
       <CtaFabric/>
+      <Footer/>
     </>
   );
 }
