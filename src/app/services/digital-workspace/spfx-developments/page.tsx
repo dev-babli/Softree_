@@ -7,16 +7,21 @@ import Certifications from "./certification";
 import SoftreeExpertiseTimeline from "./spfx.expertise";
 import SpfxShowcase from "./case-study";
 import CtaSharePoint from "./cta";
+import TrustedBrandsMarquee from "../../business-applications/power-apps/trust";
 export default function Page() {
-  return <div>
-     <NavigationClient />
-     <SharePointHero />
-     <SpfxTabs />
-     <SpfxShowcase />
-     <SpfxBenefits />
-     <SoftreeExpertiseTimeline    />
-     {/* <Certifications /> */}
+  return (
+    <div>
+      <NavigationClient />
+      <SharePointHero />
+      <TrustedBrandsMarquee />
+
+      <SpfxTabs />
+      <SpfxShowcase />
+      <SpfxBenefits />
+      <SoftreeExpertiseTimeline />
+      {/* <Certifications /> */}
       <CtaSharePoint />
-     <Footer />
-  </div>;
+      <Footer />
+    </div>
+  );
 }

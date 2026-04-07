@@ -42,18 +42,18 @@ const whyChoose = [
 /* ================= REVIEWS DATA ================= */
 const reviews = [
   {
-    name: "Rajesh Kumar",
+    name: "Arkady Fedorovtsjev",
     rating: 5,
     comment:
-      "Softree delivered a well-architected SharePoint and Power Platform solution that significantly improved our internal workflows.",
-    location: "India",
+      "Overall, we are satisfied with our collaboration in the past and your last action and response to our reported issue, really makes a difference.",
+    location: "Nederland",
   },
   {
-    name: "Sarah Thompson",
+    name: "Darrell Trimble",
     rating: 5,
     comment:
-      "Their consultants clearly understood our requirements and delivered high-quality results on time.",
-    location: "United Kingdom",
+      "SOFTREE staff worked with us to learn our installation automation technology...",
+    location: "Penn Valley, CA",
   },
   {
     name: "Michael Roberts",

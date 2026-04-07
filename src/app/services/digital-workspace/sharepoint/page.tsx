@@ -25,13 +25,10 @@ export default function Home() {
       <SharePointHero />
 
       {/* MAIN CONTENT – FIXED WIDTH */}
-      <section
-        className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50
-  py-24"
-      >
+      <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
         <div className={FIXED_WIDTH}>
           {/* <SharePointFeatures /> */}
-          <TrustedBrandsMarquee />  
+          <TrustedBrandsMarquee />
           <PowerAppsCaseStudies />
           <SharePointMigration />
           <SharePointMigrationProcess />

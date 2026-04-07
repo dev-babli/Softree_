@@ -8,11 +8,11 @@ import PowerAppsProcess from "./process";
 import PowerAppsCaseStudies from "./casestudies";
 import Certifications from "./certification";
 import CtaPowerApps from "./cta";
-import TrustedBrandsMarquee from "./trust";
 import TestimonialsSplitSlider from "./testimonial";
 import PowerAppsService from "./services";
 import HirePowerAppsPricing from "./pricing-card";
 import StackedSlider from "./stack-slidr";
+import TrustedBrandsMarquee from "./trust";
 /* ------------------------------------------------------------------ */
 /* Shared Layout Spacing Config                                        */
 /* ------------------------------------------------------------------ */
@@ -26,8 +26,8 @@ export default function Home() {
 
       {/* HERO (full width but aligned content internally) */}
       <PowerAppsHero />
-      <TrustedBrandsMarquee />
       {/* <PowerAppsService /> */}
+      <TrustedBrandsMarquee/>
       <StackedSlider/>
       {/* MAIN CONTENT SECTIONS */}
       <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50">

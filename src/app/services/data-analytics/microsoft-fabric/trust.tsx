@@ -4,15 +4,15 @@ import Image from "next/image";
 
 export default function TrustedBrandsMarquee() {
   const logos = [
-    { name: "Bayer", src: "/images/logo/bayer.svg" },
-    { name: "Sanofi", src: "/images/logo/sanofi.jpg" },
-    { name: "Deloitte", src: "/images/logo/deloitte.png" },
+    { name: "GO ERP", src: "/images/logo/goerp1.jpg" },
+    { name: "Nuvento", src: "/images/logo/nuvento.jpg" },
+    { name: "Snapon", src: "/images/logo/snapon.jpg" },
     {
-      name: "Google",
-      src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/google/google-original.svg",
+      name: "Jonians",
+      src: "/images/logo/jonians.jpg",
     },
-    { name: "Microsoft", src: "/images/logo/microsoft.png" },
-    { name: "Netflix", src: "/images/logo/netflix.jpg" },
+    { name: "Export Control Group", src: "/images/logo/ecg.png" },
+    { name: "SP Marketplace", src: "/images/logo/1.jpg" },
     { name: "Bosch", src: "/images/logo/bosch.png" },
   ];
 
@@ -34,37 +34,35 @@ export default function TrustedBrandsMarquee() {
       </div>
 
       {/* marquee container */}
-      <div className="relative max-w-7xl mx-auto overflow-hidden">
-        {/* gradient edge mask (clean fade) */}
+      <div className="relative max-w-7xl mx-auto overflow-hidden py-10">
         <div className="mask-fade">
-          <div className="flex w-max gap-24 animate-marquee hover:[animation-play-state:paused]">
+          <div className="flex w-max gap-20 animate-marquee hover:[animation-play-state:paused]">
             {[...Array(2)].map((_, i) => (
-              <div key={i} className="flex items-center gap-14">
+              <div key={i} className="flex items-center gap-20">
                 {logos.map((logo) => (
                   <div
                     key={logo.name + i}
                     className="
-              flex items-center justify-center
-              min-w-[160px]
-              py-6
-              transition
-              hover:-translate-y-1 hover:scale-105
-            "
+                flex items-center justify-center
+                min-w-[260px]
+                py-6
+                transition-all duration-300
+                hover:scale-110
+              "
                   >
                     <Image
                       src={logo.src}
                       alt={logo.name}
-                      width={150}
-                      height={80}
+                      width={220}
+                      height={120}
                       className="
-                h-auto
-                max-h-12 md:max-h-14
-                w-auto
-                object-contain
-                opacity-90
-                hover:opacity-100
-                transition-all duration-300
-              "
+                  h-24 md:h-28   /* ⬅️ BIG FIX */
+                  w-auto
+                  object-contain
+                  opacity-200
+                 
+                  transition-all duration-300
+                "
                     />
                   </div>
                 ))}

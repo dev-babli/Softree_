@@ -219,15 +219,6 @@ export default function WhyFabricSection() {
             );
           })}
         </div>
-
-        {/* CTA */}
-        <div className="text-center">
-          <Link href="/contact">
-            <button className="px-8 py-3 rounded-full font-semibold bg-gradient-to-r from-cyan-100 to-blue-100 text-black shadow-md hover:scale-105 transition">
-              Schedule A Meeting →
-            </button>
-          </Link>
-        </div>
       </div>
     </div>
   );

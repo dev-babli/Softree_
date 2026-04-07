@@ -9,20 +9,23 @@ import CtaFabric from "./cta";
 import UseCasesSection from "./use-cases";
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
+import FabricPartner from "./fabric-partner";
 export default function Home() {
   return (
     <>
-    <NavigationClient/>
+      <NavigationClient />
       <HeroWithTestimonial />
-      <TrustedBrandsMarquee/>
-      <FabricTabs/>
-      <ProwessSection/>
-      <UseCasesSection/>
-      <WhyFabricSection/>
-      <HireFabricPricing/>
-      <WhyChooseWithTestimonials/>      
-      <CtaFabric/>
-      <Footer/>
+      <TrustedBrandsMarquee />
+      <FabricTabs />
+      <ProwessSection />
+
+      <UseCasesSection />
+      <WhyFabricSection />
+      <FabricPartner />
+      <HireFabricPricing />
+      <WhyChooseWithTestimonials />
+      <CtaFabric />
+      <Footer />
     </>
   );
 }

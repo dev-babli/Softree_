@@ -12,10 +12,10 @@ import {
 
 export default function HireFabricPricing() {
   return (
-    <section id="plan-pricing" className="relative py-14">
+    <section id="plan-pricing" className="relative py-14 mt-20">
       <div className="mx-auto max-w-7xl px-6">
         {/* ================= HEADING ================= */}
-        <h2 className="mb-16 text-center text-4xl font-semibold text-gray-900">
+        <h2 className="mb-10 text-center text-4xl font-semibold text-gray-900">
           Hire Microsoft Fabric Experts for Unified Data & AI Solutions
         </h2>
 
