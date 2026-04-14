@@ -3,7 +3,6 @@ import "./globals.css";
 import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
-import Chatbot from "./contact/chat";
 export const metadata: Metadata = {
   title: "Softree Technology",
   description: "Enterprise-grade digital solutions and software services",
@@ -16,7 +15,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      
       {/* ✅ GTM Script (HEAD equivalent in Next.js) */}
       <Script
         id="gtm-script"
@@ -36,7 +34,6 @@ export default function RootLayout({
       />
 
       <body className="antialiased bg-[#141414] text-white">
-        
         {/* ✅ GTM NoScript (IMPORTANT - must be first inside body) */}
         <noscript>
           <iframe
@@ -46,7 +43,6 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-
         {/* Browser log script */}
         <Script
           id="orchids-browser-logs"
@@ -54,10 +50,8 @@ export default function RootLayout({
           strategy="afterInteractive"
           data-orchids-project-id="f9231059-3647-4f7a-ab8a-965fcb6abfb0"
         />
-
         {/* Global error reporter */}
         <ErrorReporter />
-
         {/* Route messenger */}
         <Script
           id="route-messenger"
@@ -70,14 +64,12 @@ export default function RootLayout({
           data-debug="true"
           data-custom-data='{"appName":"Softree","version":"1.0.0"}'
         />
-
         {children}
         /* ✅ Tidio Chatbot */
-<Script
-  src="//code.tidio.co/wt0gzqlmxpfwlnsv7aculpsflifbbv7v.js"
-  strategy="afterInteractive"
-/>
-
+        <Script
+          src="//code.tidio.co/wt0gzqlmxpfwlnsv7aculpsflifbbv7v.js"
+          strategy="afterInteractive"
+        />
         {/* Visual editor bridge */}
         <VisualEditsMessenger />
       </body>
