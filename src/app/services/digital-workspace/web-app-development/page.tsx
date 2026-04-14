@@ -11,6 +11,7 @@ import WebDevelopmentCaseStudies from "./case-studies";
 import WebDevHero from "./hero";
 import CtaWeb from "./cta";
 import TrustedBrandsMarquee from "../../business-applications/power-apps/trust";
+import { WebFaq } from "./faq";
 
 /* ------------------------------------------------------------------ */
 /* Shared Layout Config                                                */
@@ -40,6 +41,8 @@ export default function Home() {
       </section>
 
       <CtaWeb />
+      <WebFaq />
+
       <Footer />
     </main>
   );

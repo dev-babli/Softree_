@@ -13,6 +13,7 @@ import PowerAppsService from "./services";
 import HirePowerAppsPricing from "./pricing-card";
 import StackedSlider from "./stack-slidr";
 import TrustedBrandsMarquee from "./trust";
+import { AgenticAIFAQSection } from "./faq";
 /* ------------------------------------------------------------------ */
 /* Shared Layout Spacing Config                                        */
 /* ------------------------------------------------------------------ */
@@ -27,8 +28,8 @@ export default function Home() {
       {/* HERO (full width but aligned content internally) */}
       <PowerAppsHero />
       {/* <PowerAppsService /> */}
-      <TrustedBrandsMarquee/>
-      <StackedSlider/>
+      <TrustedBrandsMarquee />
+      <StackedSlider />
       {/* MAIN CONTENT SECTIONS */}
       <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
         <div className={`${SECTION_WRAPPER} ${SECTION_GAP}`}>
@@ -44,6 +45,7 @@ export default function Home() {
       </section>
 
       <CtaPowerApps />
+      <AgenticAIFAQSection />
       <Footer />
     </main>
   );

@@ -10,7 +10,7 @@ import CtaGenAI from "./cta";
 import HeroWithTestimonial from "./hero";
 import TrustedBrandsMarquee from "../../business-applications/power-apps/trust";
 import Certifications from "../../business-applications/power-apps/certification";
-import { AccordionComponent } from "./faq";
+import { GenAIFaq } from "./faq";
 export default function GenerativeAI() {
   return (
     <div>
@@ -25,6 +25,8 @@ export default function GenerativeAI() {
       <WhyChooseUs />
       <Certifications />
       <CtaGenAI />
+      <GenAIFaq />
+
       <Footer />
     </div>
   );

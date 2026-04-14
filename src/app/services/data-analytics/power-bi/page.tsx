@@ -13,6 +13,7 @@ import PowerBICaseStudies from "./case-studies";
 import HirePowerBIPricing from "./pricing";
 import PowerBIProcessSection from "./process";
 import TestimonialsSplitSlider from "./testimonials";
+import { PowerBIFaq } from "./faq";
 /* ------------------------------------------------------------------ */
 /* Fixed Width Config                                                  */
 /* ------------------------------------------------------------------ */
@@ -35,10 +36,11 @@ export default function Home() {
       <HirePowerBIPricing />
       <PowerBIProcessSection />
       <WhyChooseUs />
-      <TestimonialsSplitSlider/>
+      <TestimonialsSplitSlider />
       <Certifications />
 
       <CtaAbout />
+      <PowerBIFaq />
       <Footer />
     </main>
   );

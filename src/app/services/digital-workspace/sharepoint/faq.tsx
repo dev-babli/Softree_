@@ -12,55 +12,54 @@ import { Plus, Minus } from "lucide-react";
 // -----------------------------------------
 // Agentic AI FAQ Content
 // -----------------------------------------
-export const powerAppsFaqsLeft = [
+export const sharepointFaqsLeft = [
   {
-    question: "What is Microsoft Power Apps?",
+    question: "What is Microsoft SharePoint?",
     answer:
-      "Microsoft Power Apps is a low-code platform that allows businesses to build custom applications quickly with minimal coding. It helps automate processes, connect to data sources, and create scalable business solutions.",
+      "Microsoft SharePoint is a web-based collaboration and document management platform that helps organizations store, organize, share, and access information securely from anywhere.",
   },
   {
-    question: "What types of apps can be built using Power Apps?",
+    question: "What can you build using SharePoint?",
     answer:
-      "You can build canvas apps, model-driven apps, and portal apps. These can be used for internal tools, workflow automation, dashboards, mobile apps, and customer-facing applications.",
+      "With SharePoint, you can build intranet portals, document management systems, team collaboration sites, workflows, and custom business applications.",
   },
   {
-    question: "Is Power Apps suitable for enterprise use?",
+    question: "Is SharePoint suitable for enterprise use?",
     answer:
-      "Absolutely. Power Apps supports enterprise-grade security, governance, compliance, and scalability, making it ideal for large organizations and complex business environments.",
+      "Yes. SharePoint offers enterprise-grade security, compliance, scalability, and governance, making it ideal for large organizations and complex business environments.",
   },
   {
-    question: "Can Power Apps integrate with existing systems?",
+    question: "Can SharePoint integrate with other systems?",
     answer:
-      "Yes. Power Apps integrates seamlessly with Microsoft services like SharePoint, Dynamics 365, and Teams, as well as third-party APIs, SQL databases, and cloud platforms.",
+      "SharePoint integrates seamlessly with Microsoft 365 tools like Teams, Power Apps, and Power Automate, as well as third-party APIs and enterprise systems.",
   },
 ];
-
-export const powerAppsFaqsRight = [
+export const sharepointFaqsRight = [
   {
-    question: "Do I need coding skills to use Power Apps?",
+    question: "What are the benefits of using SharePoint?",
     answer:
-      "No. Power Apps is designed for both developers and non-developers. Its low-code interface allows users to build applications using drag-and-drop components and simple formulas.",
+      "SharePoint improves collaboration, centralizes document management, enhances productivity, and enables secure information sharing across teams.",
   },
   {
-    question: "What are the benefits of using Power Apps?",
+    question: "Do I need technical skills to use SharePoint?",
     answer:
-      "Power Apps helps reduce development time, automate workflows, improve productivity, and enable faster digital transformation with cost-effective solutions.",
+      "No. SharePoint provides a user-friendly interface for content management, while advanced customization can be handled by developers if needed.",
   },
   {
-    question: "Can Power Apps be used on mobile devices?",
+    question: "Can SharePoint automate business processes?",
     answer:
-      "Yes. Apps built with Power Apps are responsive and can run on web browsers, tablets, and mobile devices, ensuring accessibility across platforms.",
+      "Yes. SharePoint, combined with Power Automate, allows you to automate workflows such as approvals, notifications, and document processing.",
   },
   {
-    question: "How scalable is Power Apps for growing businesses?",
+    question: "How scalable is SharePoint?",
     answer:
-      "Power Apps is highly scalable. It supports integration with enterprise systems, handles increasing data loads, and allows businesses to expand applications as their needs grow.",
+      "SharePoint is highly scalable and can support growing data, users, and business needs, making it suitable for organizations of all sizes.",
   },
 ];
 // -----------------------------------------
 // Component
 // -----------------------------------------
-export function AgenticAIFAQSection() {
+export function SPFaq() {
   return (
     <section className="w-full py-24 px-4 md:px-6 bg-gradient-to-b from-zinc-50 via-white to-zinc-50 text-black">
       {/* Container */}
@@ -68,26 +67,27 @@ export function AgenticAIFAQSection() {
         {/* Header */}
         <div className="text-center mb-16">
           <p className="inline-block text-sm md:text-base text-gray-600 font-semibold tracking-wide mb-3 uppercase px-4 py-1 rounded-full border border-gray-300 bg-gray-50">
-            Power Apps FAQ
+            SharePoint FAQ
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-5 leading-tight">
-            Everything You Need to Know About Power Apps
+            Everything You Need to Know SharePoint
           </h2>
 
           <p className="text-gray-600 max-w-2xl mx-auto mb-8 text-[16px] md:text-lg leading-relaxed">
-            Discover how Power Apps streamlines business processes, improves
-            productivity, and helps organizations build custom applications
-            faster with low-code solutions.
+            Discover how SharePoint enables secure collaboration, streamlines
+            document management, and empowers teams to work efficiently across
+            your organization.
           </p>
         </div>
 
         {/* FAQ Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {[powerAppsFaqsLeft, powerAppsFaqsRight].map((faqColumn, idx) => (
+          {[sharepointFaqsLeft, sharepointFaqsRight].map((faqColumn, idx) => (
             <Accordion
               key={idx}
               type="single"
               collapsible
+              defaultValue={`item-${idx}-0`}
               className="space-y-5"
             >
               {faqColumn.map((faq, i) => (

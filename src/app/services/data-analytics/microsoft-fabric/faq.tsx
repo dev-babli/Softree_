@@ -12,82 +12,82 @@ import { Plus, Minus } from "lucide-react";
 // -----------------------------------------
 // Agentic AI FAQ Content
 // -----------------------------------------
-export const powerAppsFaqsLeft = [
+export const fabricFaqsLeft = [
   {
-    question: "What is Microsoft Power Apps?",
+    question: "What is Microsoft Fabric?",
     answer:
-      "Microsoft Power Apps is a low-code platform that allows businesses to build custom applications quickly with minimal coding. It helps automate processes, connect to data sources, and create scalable business solutions.",
+      "Microsoft Fabric is an end-to-end data analytics platform that unifies data engineering, data integration, data science, real-time analytics, and business intelligence into a single integrated solution.",
   },
   {
-    question: "What types of apps can be built using Power Apps?",
+    question: "What can you build using Microsoft Fabric?",
     answer:
-      "You can build canvas apps, model-driven apps, and portal apps. These can be used for internal tools, workflow automation, dashboards, mobile apps, and customer-facing applications.",
+      "With Microsoft Fabric, you can build data pipelines, analytics solutions, machine learning models, real-time dashboards, and unified data platforms to manage and analyze data efficiently.",
   },
   {
-    question: "Is Power Apps suitable for enterprise use?",
+    question: "Is Microsoft Fabric suitable for enterprise use?",
     answer:
-      "Absolutely. Power Apps supports enterprise-grade security, governance, compliance, and scalability, making it ideal for large organizations and complex business environments.",
+      "Yes. Microsoft Fabric offers enterprise-grade security, governance, scalability, and compliance, making it ideal for large organizations handling complex data workloads.",
   },
   {
-    question: "Can Power Apps integrate with existing systems?",
+    question: "Can Microsoft Fabric integrate with other systems?",
     answer:
-      "Yes. Power Apps integrates seamlessly with Microsoft services like SharePoint, Dynamics 365, and Teams, as well as third-party APIs, SQL databases, and cloud platforms.",
+      "Microsoft Fabric integrates seamlessly with Azure services, Power BI, data lakes, and third-party data sources, enabling unified data management and analytics across platforms.",
   },
 ];
-
-export const powerAppsFaqsRight = [
+export const fabricFaqsRight = [
   {
-    question: "Do I need coding skills to use Power Apps?",
+    question: "What are the benefits of using Microsoft Fabric?",
     answer:
-      "No. Power Apps is designed for both developers and non-developers. Its low-code interface allows users to build applications using drag-and-drop components and simple formulas.",
+      "Microsoft Fabric simplifies data management, reduces tool fragmentation, enables real-time analytics, and helps organizations make faster, data-driven decisions.",
   },
   {
-    question: "What are the benefits of using Power Apps?",
+    question: "Does Microsoft Fabric support real-time analytics?",
     answer:
-      "Power Apps helps reduce development time, automate workflows, improve productivity, and enable faster digital transformation with cost-effective solutions.",
+      "Yes. Microsoft Fabric includes real-time analytics capabilities that allow organizations to process and analyze streaming data for immediate insights and actions.",
   },
   {
-    question: "Can Power Apps be used on mobile devices?",
+    question: "How scalable is Microsoft Fabric?",
     answer:
-      "Yes. Apps built with Power Apps are responsive and can run on web browsers, tablets, and mobile devices, ensuring accessibility across platforms.",
+      "Microsoft Fabric is highly scalable, allowing businesses to handle large volumes of data, integrate multiple data sources, and expand analytics capabilities as their needs grow.",
   },
   {
-    question: "How scalable is Power Apps for growing businesses?",
+    question: "Do I need technical expertise to use Microsoft Fabric?",
     answer:
-      "Power Apps is highly scalable. It supports integration with enterprise systems, handles increasing data loads, and allows businesses to expand applications as their needs grow.",
+      "Microsoft Fabric supports both technical and non-technical users. While advanced features may require expertise, it provides user-friendly tools and interfaces for data analysis and reporting.",
   },
 ];
 // -----------------------------------------
 // Component
 // -----------------------------------------
-export function AgenticAIFAQSection() {
+export function FabricFaq() {
   return (
-    <section className="w-full py-24 px-4 md:px-6 bg-gradient-to-b from-zinc-50 via-white to-zinc-50 text-black">
+    <section className="w-full py-24 px-4 md:px-6 text-black">
       {/* Container */}
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <p className="inline-block text-sm md:text-base text-gray-600 font-semibold tracking-wide mb-3 uppercase px-4 py-1 rounded-full border border-gray-300 bg-gray-50">
-            Power Apps FAQ
+            Microsoft Fabric FAQ
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-5 leading-tight">
-            Everything You Need to Know About Power Apps
+            Everything You Need to Know About Microsoft Fabric
           </h2>
 
           <p className="text-gray-600 max-w-2xl mx-auto mb-8 text-[16px] md:text-lg leading-relaxed">
-            Discover how Power Apps streamlines business processes, improves
-            productivity, and helps organizations build custom applications
-            faster with low-code solutions.
+            Discover how Microsoft Fabric unifies data, analytics, and business
+            intelligence to deliver real-time insights, improve decision-making,
+            and streamline data operations across your organization.
           </p>
         </div>
 
         {/* FAQ Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {[powerAppsFaqsLeft, powerAppsFaqsRight].map((faqColumn, idx) => (
+          {[fabricFaqsLeft, fabricFaqsRight].map((faqColumn, idx) => (
             <Accordion
               key={idx}
               type="single"
               collapsible
+              defaultValue={`item-${idx}-0`}
               className="space-y-5"
             >
               {faqColumn.map((faq, i) => (

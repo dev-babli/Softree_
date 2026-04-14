@@ -3,7 +3,7 @@ import "./globals.css";
 import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
-
+import Chatbot from "./contact/chat";
 export const metadata: Metadata = {
   title: "Softree Technology",
   description: "Enterprise-grade digital solutions and software services",
@@ -72,6 +72,11 @@ export default function RootLayout({
         />
 
         {children}
+        /* ✅ Tidio Chatbot */
+<Script
+  src="//code.tidio.co/wt0gzqlmxpfwlnsv7aculpsflifbbv7v.js"
+  strategy="afterInteractive"
+/>
 
         {/* Visual editor bridge */}
         <VisualEditsMessenger />

@@ -13,6 +13,7 @@ import CtaAgenticAI from "./cta";
 import TrustedBrandsMarquee from "../../business-applications/power-apps/trust";
 import Certifications from "../../business-applications/power-apps/certification";
 import AIServicesSection from "./strategy";
+import { AgenticFaq } from "./faq";
 export default function AgenticAIPage() {
   return (
     <div>
@@ -30,6 +31,8 @@ export default function AgenticAIPage() {
       <AgenticSection />
       <Certifications />
       <CtaAgenticAI />
+      <AgenticFaq />
+
       <Footer />
     </div>
   );

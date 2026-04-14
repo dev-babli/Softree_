@@ -10,6 +10,7 @@ import UseCasesSection from "./use-cases";
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
 import FabricPartner from "./fabric-partner";
+import { FabricFaq } from "./faq";
 export default function Home() {
   return (
     <>
@@ -25,6 +26,8 @@ export default function Home() {
       <HireFabricPricing />
       <WhyChooseWithTestimonials />
       <CtaFabric />
+      <FabricFaq />
+
       <Footer />
     </>
   );

@@ -5,7 +5,6 @@ import TechStack from "./tech-stack";
 import SharePointMigrationProcess from "./sp-process";
 import AIDrivenSharePointMigration from "./ai-sp";
 import Footer from "@/components/sections/footer";
-import Certifications from "./certification";
 import PowerAppsCaseStudies from "./casestudies";
 import TimelinePage from "./timeline";
 import SharePointHero from "./hero";
@@ -13,7 +12,7 @@ import HireSharePointPricing from "./pricing-cards";
 import CtaSharePoint from "./cta";
 import WhyChooseUs from "./why-chose";
 import TrustedBrandsMarquee from "../../business-applications/power-apps/trust";
-
+import { SPFaq } from "./faq";
 const FIXED_WIDTH = "mx-auto max-w-8xl px-8 sm:px-10 md:px-14 lg:px-20";
 
 export default function Home() {
@@ -42,6 +41,7 @@ export default function Home() {
       </section>
 
       <CtaSharePoint />
+      <SPFaq />
 
       <Footer />
     </main>

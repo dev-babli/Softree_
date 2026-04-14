@@ -1,134 +1,124 @@
 "use client";
 
-import * as React from "react";
-import { HelpCircle, MessageCircle, ChevronDown } from "lucide-react";
-import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import { cn } from "@/lib/utils";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
+import { Plus, Minus } from "lucide-react";
 
-/* ================= ACCORDION CORE ================= */
-
-const CustomAccordion = AccordionPrimitive.Root;
-
-const CustomAccordionItem = React.forwardRef<
-  React.ElementRef<typeof AccordionPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
->(({ className, ...props }, ref) => (
-  <AccordionPrimitive.Item ref={ref} className={cn("", className)} {...props} />
-));
-CustomAccordionItem.displayName = "CustomAccordionItem";
-
-const CustomAccordionTrigger = React.forwardRef<
-  React.ElementRef<typeof AccordionPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
->(({ className, children, ...props }, ref) => (
-  <AccordionPrimitive.Header className="flex justify-center">
-    <AccordionPrimitive.Trigger
-      ref={ref}
-      className={cn(
-        "group flex flex-1 items-center justify-between gap-4 rounded-3xl p-6 text-left w-full max-w-3xl",
-        "bg-[#0a0a0a] text-white shadow-lg transition-all focus-visible:outline-none focus-visible:ring-2",
-        "data-[state=open] data-[state=open]:shadow-2xl",
-        className
-      )}
-      {...props}
-    >
-      <div className="flex items-center gap-4">
-        <HelpCircle className="h-5 w-5 text-white" />
-        <span className="text-lg font-medium tracking-wide">{children}</span>
-      </div>
-
-      <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-gray-800 transition-transform group-hover:scale-105 group-data-[state=open]:rotate-180">
-        <ChevronDown className="h-4 w-4 text-white" />
-      </div>
-    </AccordionPrimitive.Trigger>
-  </AccordionPrimitive.Header>
-));
-CustomAccordionTrigger.displayName = "CustomAccordionTrigger";
-
-const CustomAccordionContent = React.forwardRef<
-  React.ElementRef<typeof AccordionPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
->(({ className, children, ...props }, ref) => (
-  <AccordionPrimitive.Content
-    ref={ref}
-    className={cn(
-      "overflow-hidden text-white",
-      "data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down pb-4",
-      className
-    )}
-    {...props}
-  >
-    <div className="mt-4 flex justify-center">
-      <div className="flex items-start gap-4 rounded-3xl bg-[#111111] p-6 shadow-lg w-full max-w-3xl transition-all">
-        <span className="flex-1 text-md leading-relaxed">{children}</span>
-        <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-gray-800 transition-transform hover:scale-105">
-          <MessageCircle className="h-5 w-5 text-white" />
-        </div>
-      </div>
-    </div>
-  </AccordionPrimitive.Content>
-));
-CustomAccordionContent.displayName = "CustomAccordionContent";
-
-/* ================= FAQ DATA ================= */
-
-const faqs = [
+// -----------------------------------------
+// Agentic AI FAQ Content
+// -----------------------------------------
+export const generativeAIFaqsLeft = [
   {
-    question: "How can Softree help us adopt Generative AI?",
+    question: "What is Generative AI?",
     answer:
-      "Softree delivers end-to-end generative AI solutions — from identifying the right use cases to building, integrating, and scaling copilots, knowledge assistants, and automation systems within your enterprise ecosystem.",
+      "Generative AI refers to artificial intelligence systems that can create content such as text, images, code, and videos based on patterns learned from data.",
   },
   {
-    question: "What types of Generative AI solutions do you build?",
+    question: "What can Generative AI do?",
     answer:
-      "We design AI copilots, enterprise search with retrieval-augmented generation (RAG), document intelligence, workflow automation, and custom LLM-powered applications aligned with your business priorities.",
+      "Generative AI can generate content, assist in coding, create designs, automate writing tasks, summarize information, and enhance creativity across various applications.",
   },
   {
-    question: "Can Softree integrate AI with our existing platforms?",
+    question: "Is Generative AI suitable for enterprise use?",
     answer:
-      "Yes. Our experts connect generative AI with your applications, APIs, and data sources while maintaining security, performance, and compatibility with your current technology landscape.",
+      "Yes. Generative AI can be securely deployed in enterprise environments with proper governance, data protection, and compliance measures.",
   },
   {
-    question: "How do you manage security, privacy, and governance?",
+    question: "Can Generative AI integrate with existing systems?",
     answer:
-      "We apply strict access controls, responsible AI practices, monitoring frameworks, and guardrails to ensure outputs remain compliant, explainable, and enterprise-ready.",
-  },
-  {
-    question: "Do you provide support after deployment?",
-    answer:
-      "Absolutely. Softree provides continuous optimization, monitoring, model improvements, and scaling strategies so your AI investment keeps delivering value over time.",
+      "Generative AI can integrate with APIs, CRMs, databases, and enterprise tools to enhance workflows and automate content-driven processes.",
   },
 ];
-
-/* ================= COMPONENT ================= */
-
-export function AccordionComponent() {
+export const generativeAIFaqsRight = [
+  {
+    question: "What are the benefits of Generative AI?",
+    answer:
+      "Generative AI improves productivity, accelerates content creation, enhances creativity, and reduces manual effort across business processes.",
+  },
+  {
+    question: "Do I need technical skills to use Generative AI?",
+    answer:
+      "No. Many Generative AI tools provide simple interfaces and natural language prompts, making them accessible to both technical and non-technical users.",
+  },
+  {
+    question: "How accurate and reliable is Generative AI?",
+    answer:
+      "Generative AI produces high-quality outputs but may require validation. Using prompts, guardrails, and human review improves reliability and accuracy.",
+  },
+  {
+    question: "Can Generative AI scale with business needs?",
+    answer:
+      "Yes. Generative AI solutions can scale across teams and workflows, supporting increased demand for content, automation, and innovation.",
+  },
+];
+// -----------------------------------------
+// Component
+// -----------------------------------------
+export function GenAIFaq() {
   return (
-    <main className="min-h-screen w-full p-4 flex flex-col items-center justify-center md:p-8 bg-black">
-      <div className="w-full">
-        <h2 className="mb-12 text-center text-3xl font-bold text-white md:text-4xl">
-          Frequently Asked Questions About Generative AI
-        </h2>
+    <section className="w-full py-24 px-4 md:px-6 text-black">
+      {/* Container */}
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <p className="inline-block text-sm md:text-base text-gray-600 font-semibold tracking-wide mb-3 uppercase px-4 py-1 rounded-full border border-gray-300 bg-gray-50">
+            Generative AI FAQ
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-5 leading-tight">
+            Everything You Need to Know About Generative AI
+          </h2>
 
-        <CustomAccordion
-          type="single"
-          collapsible
-          defaultValue="item-0"
-          className="space-y-8"
-        >
-          {faqs.map((faq, index) => (
-            <CustomAccordionItem key={index} value={`item-${index}`}>
-              <CustomAccordionTrigger>
-                {faq.question}
-              </CustomAccordionTrigger>
+          <p className="text-gray-600 max-w-2xl mx-auto mb-8 text-[16px] md:text-lg leading-relaxed">
+            Discover how Generative AI enables autonomous decision-making,
+            automates complex workflows, and helps businesses operate more
+            efficiently with intelligent digital agents.
+          </p>
+        </div>
 
-              <CustomAccordionContent>
-                {faq.answer}
-              </CustomAccordionContent>
-            </CustomAccordionItem>
-          ))}
-        </CustomAccordion>
+        {/* FAQ Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          {[generativeAIFaqsLeft, generativeAIFaqsRight].map(
+            (faqColumn, idx) => (
+              <Accordion
+                key={idx}
+                type="single"
+                collapsible
+                defaultValue={`item-${idx}-0`}
+                className="space-y-5"
+              >
+                {faqColumn.map((faq, i) => (
+                  <AccordionItem
+                    key={i}
+                    value={`item-${idx}-${i}`}
+                    className="border-b border-gray-200 py-5"
+                  >
+                    <AccordionTrigger className="group [&>svg]:hidden flex w-full items-center justify-between text-left">
+                      {/* Question */}
+                      <span className="flex-1 text-lg md:text-l font-semibold text-black">
+                        {faq.question}
+                      </span>
+
+                      {/* Icon */}
+                      <span className="ml-4 flex h-6 w-6 items-center justify-center">
+                        <Plus className="h-4 w-4 text-gray-500 group-data-[state=open]:hidden" />
+                        <Minus className="h-4 w-4 text-gray-500 hidden group-data-[state=open]:block" />
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-[15px] md:text-base text-gray-600 leading-relaxed mt-2">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            ),
+          )}
+        </div>
       </div>
-    </main>
+    </section>
   );
 }

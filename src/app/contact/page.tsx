@@ -3,6 +3,7 @@ import Footer from "@/components/sections/footer";
 import GlobalLocations from "./global";
 import ContactPage from "./form";
 import Certifications from "@/app/services/business-applications/power-apps/certification";
+import Chatbot from "./chat";
 
 import Link from "next/link";
 export default function Home() {
@@ -62,6 +63,7 @@ export default function Home() {
 
       <ContactPage />
       <GlobalLocations />
+      <Chatbot/>
       <Certifications />
 
       <Footer />

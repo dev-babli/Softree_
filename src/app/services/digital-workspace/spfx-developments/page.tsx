@@ -3,11 +3,11 @@ import SharePointHero from "./hero";
 import Footer from "@/components/sections/footer";
 import SpfxBenefits from "./spfx-benefits";
 import SpfxTabs from "./spfx-tab";
-import Certifications from "./certification";
 import SoftreeExpertiseTimeline from "./spfx.expertise";
 import SpfxShowcase from "./case-study";
 import CtaSharePoint from "./cta";
 import TrustedBrandsMarquee from "../../business-applications/power-apps/trust";
+import { SPFaq } from "./faq";
 export default function Page() {
   return (
     <div>
@@ -21,6 +21,8 @@ export default function Page() {
       <SoftreeExpertiseTimeline />
       {/* <Certifications /> */}
       <CtaSharePoint />
+      <SPFaq />
+
       <Footer />
     </div>
   );

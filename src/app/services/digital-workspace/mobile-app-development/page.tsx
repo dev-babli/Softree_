@@ -11,7 +11,7 @@ import ServicesShowcase from "./services";
 import Technologies from "./tech-stack";
 import WhyChooseSoftreeMobileApps from "./why-chose";
 import CtaMobile from "./cta";
-
+import { MobileFaq } from "./faq";
 /* ------------------------------------------------------------------ */
 /* Shared Layout Spacing Config                                        */
 /* ------------------------------------------------------------------ */
@@ -37,10 +37,10 @@ export default function Home() {
           <Technologies />
           <WhyChooseSoftreeMobileApps />
         </div>
-      
       </section>
 
       <CtaMobile />
+      <MobileFaq />
 
       <Footer />
     </main>

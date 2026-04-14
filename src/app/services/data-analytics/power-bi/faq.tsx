@@ -12,55 +12,55 @@ import { Plus, Minus } from "lucide-react";
 // -----------------------------------------
 // Agentic AI FAQ Content
 // -----------------------------------------
-export const powerAppsFaqsLeft = [
+export const powerBIFaqsLeft = [
   {
-    question: "What is Microsoft Power Apps?",
+    question: "What is Microsoft Power BI?",
     answer:
-      "Microsoft Power Apps is a low-code platform that allows businesses to build custom applications quickly with minimal coding. It helps automate processes, connect to data sources, and create scalable business solutions.",
+      "Microsoft Power BI is a business analytics and data visualization platform that helps organizations turn raw data into interactive dashboards and insightful reports for better decision-making.",
   },
   {
-    question: "What types of apps can be built using Power Apps?",
+    question: "What can you build using Power BI?",
     answer:
-      "You can build canvas apps, model-driven apps, and portal apps. These can be used for internal tools, workflow automation, dashboards, mobile apps, and customer-facing applications.",
+      "With Power BI, you can create dashboards, reports, data models, and real-time analytics solutions to monitor performance, track KPIs, and visualize business data effectively.",
   },
   {
-    question: "Is Power Apps suitable for enterprise use?",
+    question: "Is Power BI suitable for enterprise use?",
     answer:
-      "Absolutely. Power Apps supports enterprise-grade security, governance, compliance, and scalability, making it ideal for large organizations and complex business environments.",
+      "Yes. Power BI offers enterprise-grade security, data governance, compliance features, and scalability, making it suitable for organizations of all sizes.",
   },
   {
-    question: "Can Power Apps integrate with existing systems?",
+    question: "Can Power BI integrate with other systems?",
     answer:
-      "Yes. Power Apps integrates seamlessly with Microsoft services like SharePoint, Dynamics 365, and Teams, as well as third-party APIs, SQL databases, and cloud platforms.",
+      "Power BI integrates seamlessly with Microsoft tools like Excel, Azure, and Dynamics 365, as well as third-party databases, APIs, and cloud services for comprehensive data analysis.",
   },
 ];
 
-export const powerAppsFaqsRight = [
+export const powerBIFaqsRight = [
   {
-    question: "Do I need coding skills to use Power Apps?",
+    question: "Do I need technical skills to use Power BI?",
     answer:
-      "No. Power Apps is designed for both developers and non-developers. Its low-code interface allows users to build applications using drag-and-drop components and simple formulas.",
+      "Basic knowledge of data is helpful, but Power BI is designed to be user-friendly. It provides drag-and-drop features and pre-built visuals, making it accessible for both technical and non-technical users.",
   },
   {
-    question: "What are the benefits of using Power Apps?",
+    question: "What are the benefits of using Power BI?",
     answer:
-      "Power Apps helps reduce development time, automate workflows, improve productivity, and enable faster digital transformation with cost-effective solutions.",
+      "Power BI helps businesses make data-driven decisions, improves reporting efficiency, provides real-time insights, and enables better visualization of complex data.",
   },
   {
-    question: "Can Power Apps be used on mobile devices?",
+    question: "Can Power BI handle real-time data?",
     answer:
-      "Yes. Apps built with Power Apps are responsive and can run on web browsers, tablets, and mobile devices, ensuring accessibility across platforms.",
+      "Yes. Power BI supports real-time data streaming and dashboards, allowing businesses to monitor live data and respond quickly to changes.",
   },
   {
-    question: "How scalable is Power Apps for growing businesses?",
+    question: "How scalable is Power BI for growing businesses?",
     answer:
-      "Power Apps is highly scalable. It supports integration with enterprise systems, handles increasing data loads, and allows businesses to expand applications as their needs grow.",
+      "Power BI is highly scalable. It can handle large datasets, integrate with enterprise systems, and grow with your organization’s data and analytics needs.",
   },
 ];
 // -----------------------------------------
 // Component
 // -----------------------------------------
-export function AgenticAIFAQSection() {
+export function PowerBIFaq() {
   return (
     <section className="w-full py-24 px-4 md:px-6 bg-gradient-to-b from-zinc-50 via-white to-zinc-50 text-black">
       {/* Container */}
@@ -68,26 +68,27 @@ export function AgenticAIFAQSection() {
         {/* Header */}
         <div className="text-center mb-16">
           <p className="inline-block text-sm md:text-base text-gray-600 font-semibold tracking-wide mb-3 uppercase px-4 py-1 rounded-full border border-gray-300 bg-gray-50">
-            Power Apps FAQ
+            Power BI FAQ
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-5 leading-tight">
-            Everything You Need to Know About Power Apps
+            Everything You Need to Know About Power BI
           </h2>
 
           <p className="text-gray-600 max-w-2xl mx-auto mb-8 text-[16px] md:text-lg leading-relaxed">
-            Discover how Power Apps streamlines business processes, improves
-            productivity, and helps organizations build custom applications
-            faster with low-code solutions.
+            Discover how Power BI transforms data into actionable insights,
+            improves decision-making, and enables organizations to visualize and
+            analyze business performance effectively.
           </p>
         </div>
 
         {/* FAQ Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {[powerAppsFaqsLeft, powerAppsFaqsRight].map((faqColumn, idx) => (
+          {[powerBIFaqsLeft, powerBIFaqsRight].map((faqColumn, idx) => (
             <Accordion
               key={idx}
               type="single"
               collapsible
+              defaultValue={`item-${idx}-0`}
               className="space-y-5"
             >
               {faqColumn.map((faq, i) => (

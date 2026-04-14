@@ -12,82 +12,82 @@ import { Plus, Minus } from "lucide-react";
 // -----------------------------------------
 // Agentic AI FAQ Content
 // -----------------------------------------
-export const powerAppsFaqsLeft = [
+export const agenticAIFaqsLeft = [
   {
-    question: "What is Microsoft Power Apps?",
+    question: "What is Agentic AI?",
     answer:
-      "Microsoft Power Apps is a low-code platform that allows businesses to build custom applications quickly with minimal coding. It helps automate processes, connect to data sources, and create scalable business solutions.",
+      "Agentic AI refers to intelligent AI systems that can autonomously reason, plan, and take actions to complete tasks without continuous human input, acting like digital teammates.",
   },
   {
-    question: "What types of apps can be built using Power Apps?",
+    question: "What can Agentic AI do?",
     answer:
-      "You can build canvas apps, model-driven apps, and portal apps. These can be used for internal tools, workflow automation, dashboards, mobile apps, and customer-facing applications.",
+      "Agentic AI can automate workflows, perform research, analyze data, generate content, interact with APIs, and execute multi-step tasks across different systems.",
   },
   {
-    question: "Is Power Apps suitable for enterprise use?",
+    question: "Is Agentic AI suitable for enterprise use?",
     answer:
-      "Absolutely. Power Apps supports enterprise-grade security, governance, compliance, and scalability, making it ideal for large organizations and complex business environments.",
+      "Yes. Agentic AI supports enterprise-grade security, governance, and scalability, making it suitable for automating complex business operations.",
   },
   {
-    question: "Can Power Apps integrate with existing systems?",
+    question: "Can Agentic AI integrate with existing systems?",
     answer:
-      "Yes. Power Apps integrates seamlessly with Microsoft services like SharePoint, Dynamics 365, and Teams, as well as third-party APIs, SQL databases, and cloud platforms.",
+      "Agentic AI integrates with CRMs, ERPs, APIs, databases, and enterprise tools, enabling seamless automation of real-world business workflows.",
   },
 ];
-
-export const powerAppsFaqsRight = [
+export const agenticAIFaqsRight = [
   {
-    question: "Do I need coding skills to use Power Apps?",
+    question: "What are the benefits of Agentic AI?",
     answer:
-      "No. Power Apps is designed for both developers and non-developers. Its low-code interface allows users to build applications using drag-and-drop components and simple formulas.",
+      "Agentic AI improves efficiency, reduces manual effort, enhances decision-making, and enables businesses to automate complex tasks with higher accuracy.",
   },
   {
-    question: "What are the benefits of using Power Apps?",
+    question: "Do I need technical skills to use Agentic AI?",
     answer:
-      "Power Apps helps reduce development time, automate workflows, improve productivity, and enable faster digital transformation with cost-effective solutions.",
+      "No. Many Agentic AI solutions provide user-friendly interfaces, dashboards, and natural language interactions, making them accessible to non-technical users.",
   },
   {
-    question: "Can Power Apps be used on mobile devices?",
+    question: "How accurate and reliable is Agentic AI?",
     answer:
-      "Yes. Apps built with Power Apps are responsive and can run on web browsers, tablets, and mobile devices, ensuring accessibility across platforms.",
+      "Agentic AI uses reasoning, validation loops, and tool integrations to improve accuracy, while built-in guardrails ensure safe and reliable outputs.",
   },
   {
-    question: "How scalable is Power Apps for growing businesses?",
+    question: "Can Agentic AI scale with business needs?",
     answer:
-      "Power Apps is highly scalable. It supports integration with enterprise systems, handles increasing data loads, and allows businesses to expand applications as their needs grow.",
+      "Yes. Agentic AI can scale by deploying multiple agents, automating parallel workflows, and integrating with enterprise systems as business requirements grow.",
   },
 ];
 // -----------------------------------------
 // Component
 // -----------------------------------------
-export function AgenticAIFAQSection() {
+export function AgenticFaq() {
   return (
-    <section className="w-full py-24 px-4 md:px-6 bg-gradient-to-b from-zinc-50 via-white to-zinc-50 text-black">
+    <section className="w-full py-24 px-4 md:px-6 bg-white text-black">
       {/* Container */}
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <p className="inline-block text-sm md:text-base text-gray-600 font-semibold tracking-wide mb-3 uppercase px-4 py-1 rounded-full border border-gray-300 bg-gray-50">
-            Power Apps FAQ
+            Agentic AI FAQ
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-5 leading-tight">
-            Everything You Need to Know About Power Apps
+            Everything You Need to Know About Agentic AI
           </h2>
 
           <p className="text-gray-600 max-w-2xl mx-auto mb-8 text-[16px] md:text-lg leading-relaxed">
-            Discover how Power Apps streamlines business processes, improves
-            productivity, and helps organizations build custom applications
-            faster with low-code solutions.
+            Discover how Agentic AI enables autonomous decision-making,
+            automates complex workflows, and helps businesses operate more
+            efficiently with intelligent digital agents.
           </p>
         </div>
 
         {/* FAQ Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {[powerAppsFaqsLeft, powerAppsFaqsRight].map((faqColumn, idx) => (
+          {[agenticAIFaqsLeft, agenticAIFaqsRight].map((faqColumn, idx) => (
             <Accordion
               key={idx}
               type="single"
               collapsible
+              defaultValue={`item-${idx}-0`}
               className="space-y-5"
             >
               {faqColumn.map((faq, i) => (

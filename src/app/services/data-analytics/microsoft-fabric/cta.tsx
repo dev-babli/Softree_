@@ -2,7 +2,7 @@
 
 export default function CtaFabric() {
   return (
-    <section className="relative isolate overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
+    <section className="relative isolate overflow-hidden ">
       <div className="mx-auto max-w-7xl px-6 py-20">
         {/* ===== MAIN CARD ===== */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-14 items-center rounded-[32px] bg-gradient-to-br from-[#0b3ea8] via-[#1557c0] to-[#1e73d8] p-10 md:p-16 shadow-2xl border border-white/10 text-white">
