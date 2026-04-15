@@ -39,7 +39,7 @@ export default function Home() {
           <WhyChooseSoftreePowerApps />
           <TechStackSection />
           <PowerAppsProcess />
-          <TestimonialsSplitSlider />
+          {/* <TestimonialsSplitSlider /> */}
           {/* <Certifications /> */}
         </div>
       </section>

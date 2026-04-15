@@ -1,155 +1,631 @@
 "use client";
 
+import { useState, useEffect, useRef, useCallback, CSSProperties } from "react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { Rocket, Workflow, TrendingUp } from "lucide-react";
+interface Testimonial {
+  text: string;
+  name: string;
+  role: string;
+  location: string;
+  company: string;
+}
 
-export default function HeroWithTestimonial() {
-  /* ================= TESTIMONIAL DATA (WEB) ================= */
-  const testimonials = [
-    {
-      text: "Their web platform streamlined our operations and improved team productivity instantly.",
-      name: "Sneha Patel",
-      role: "Operations Manager",
-      avatar: "https://i.pravatar.cc/100?img=5",
-    },
-    {
-      text: "Fast, scalable and beautifully designed web apps delivered ahead of schedule.",
-      name: "Aarav Mehta",
-      role: "Startup Founder",
-      avatar: "https://i.pravatar.cc/100?img=15",
-    },
-    {
-      text: "Our customers love the speed and seamless experience of the new web application.",
-      name: "Neha Sharma",
-      role: "Product Director",
-      avatar: "https://i.pravatar.cc/100?img=32",
-    },
-  ];
+interface ArrowRightProps {
+  stroke?: string;
+}
 
-  /* ================= STATE ================= */
-  const [index, setIndex] = useState(0);
-  const [visible, setVisible] = useState(true);
+interface TestimonialSlideProps {
+  testimonial: Testimonial;
+}
 
-  const active = testimonials[index];
+const testimonials: Testimonial[] = [
+  {
+    text: "SOFTREE staff worked with us to learn our installation automation technology and built exactly what we needed.",
+    name: "Darrell Trimble",
+    role: "CEO",
+    location: "California",
+    company: "SP Marketplace",
+  },
+  {
+    text: "We had a very positive experience working with Softree Technology. The developers were responsive and delivery was on time. We appreciate the attention they gave our project and their great communication. The final product was exactly what we wanted and we look forward to working with Softree in the future.",
+    name: "Natasha Adams",
+    role: "Partner",
+    location: "Virginia",
+    company: "Wicked Point LLC",
+  },
+  {
+    text: "Overall, we are satisfied with our collaboration in the past and your last action and response to our reported issue, really makes a difference.",
+    name: "Arkady Fedorovtsjev",
+    role: "IT Specialist",
+    location: "Nederlands",
+    company: "ECG International",
+  },
+];
 
-  /* ================= AUTO ROTATE ================= */
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setVisible(false);
+const INTERVAL = 4000;
+const PROGRESS_STEP = 50;
 
-      setTimeout(() => {
-        setIndex((prev) => (prev + 1) % testimonials.length);
-        setVisible(true);
-      }, 250);
-    }, 4000);
+function initials(name: string): string {
+  return name
+    .split(" ")
+    .map((w) => w[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+}
 
-    return () => clearInterval(interval);
-  }, []);
-
-  /* ================= UI ================= */
+function PinIcon() {
   return (
-    <section className="relative overflow-hidden text-white bg-gradient-to-br from-[#0b3ea8] via-[#1557c0] to-[#1e73d8]">
-      {/* background glow */}
-      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-white/10 blur-[140px] rounded-full" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-cyan-400/10 blur-[140px] rounded-full" />
+    <svg
+      width="11"
+      height="11"
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M8 1C5.24 1 3 3.24 3 6c0 4 5 9 5 9s5-5 5-9c0-2.76-2.24-5-5-5zm0 6.75a1.75 1.75 0 110-3.5 1.75 1.75 0 010 3.5z"
+        fill="#7dd3fc"
+      />
+    </svg>
+  );
+}
 
-      {/* ================= HERO LAYOUT ================= */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-14 lg:py-16 min-h-[65vh] grid lg:grid-cols-2 gap-14 items-start mt-6">
-        {/* ================= LEFT CONTENT ================= */}
-        <div className="w-full space-y-7">
-          <h1 className="text-4xl lg:text-5xl xl:text-5xl font-semibold leading-tight tracking-tight">
-            Build Business-Centric
-            <br />
-            <span className="bg-gradient-to-r from-sky-400 via-cyan-300 to-teal-300 bg-clip-text text-transparent">
-              Web Apps for Enterprise
-            </span>
-          </h1>
+function ArrowRight({ stroke = "#071b4d" }: ArrowRightProps) {
+  return (
+    <svg
+      width="15"
+      height="15"
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M3 8h10M9 4l4 4-4 4"
+        stroke={stroke}
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
-          <p className="text-zinc-300 text-lg leading-relaxed max-w-xl">
-            We design and develop secure, scalable and high-performance web
-            applications that streamline operations, automate workflows and
-            seamlessly integrate with your business systems using modern
-            technologies like React, Next.js and cloud platforms.
-          </p>
+function ChevronLeft() {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M10 4L6 8l4 4"
+        stroke="white"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
-          {/* CTA */}
-          <div className="flex flex-wrap gap-4 pt-2">
-            <Link href="/contact">
-              <button className="bg-cyan-400 text-slate-900 px-7 py-3.5 rounded-xl font-medium shadow-xl hover:scale-105 hover:bg-cyan-300 transition">
-                Talk to a Web Expert
-              </button>
-            </Link>
+function ChevronRight() {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M6 4l4 4-4 4"
+        stroke="white"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function TestimonialSlide({ testimonial }: TestimonialSlideProps) {
+  return (
+    <div style={styles.slide}>
+      <div style={styles.slideTopLine} />
+      <span style={styles.quoteMark}>&ldquo;</span>
+
+      <p style={styles.quoteText}>{testimonial.text}&rdquo;</p>
+
+      <div style={styles.authorRow}>
+        <div style={styles.avatar}>{initials(testimonial.name)}</div>
+
+        <div>
+          <div style={styles.authorName}>{testimonial.name}</div>
+
+          {/* ✅ UPDATED */}
+          <div style={styles.authorRole}>
+            {testimonial.role} • {testimonial.company}
+          </div>
+
+          <div style={styles.authorLoc}>
+            <PinIcon />
+            {testimonial.location}
           </div>
         </div>
+      </div>
+    </div>
+  );
+}
 
-        {/* ================= RIGHT SIDE (ADVANCED PREMIUM) ================= */}
-        <div className="relative w-full flex flex-col gap-8">
-          {/* ================= FLOATING BACKGROUND GLOW ================= */}
-          <div className="absolute -top-10 -right-10 w-56 h-56 bg-cyan-500/20 blur-[120px] rounded-full pointer-events-none" />
-          <div className="absolute bottom-0 -left-10 w-56 h-56 bg-blue-600/20 blur-[120px] rounded-full pointer-events-none" />
+export default function HeroPowerApps() {
+  const [idx, setIdx] = useState<number>(0);
+  const [elapsed, setElapsed] = useState<number>(0);
 
-          {/* ================= TESTIMONIAL CARD ================= */}
-          <div
-            className={`
-      relative
-      rounded-3xl
-      p-8 lg:p-10
-      bg-white/10
-      backdrop-blur-3xl
-      border border-white/20
-      shadow-[0_25px_70px_rgba(0,0,0,0.45)]
-      overflow-hidden
-      group
-      transition-all duration-500
-      hover:-translate-y-2
-      hover:shadow-[0_35px_90px_rgba(0,0,0,0.6)]
-      ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
-    `}
-          >
-            {/* animated gradient border glow */}
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-cyan-400/20 via-blue-500/10 to-indigo-500/20 opacity-0 group-hover:opacity-100 transition duration-500" />
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const progressRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-            {/* text */}
-            <p className="relative text-lg lg:text-xl text-white/90 leading-relaxed mb-6 z-10">
-              "{active.text}"
+  const goTo = useCallback((i: number): void => {
+    setIdx(i);
+    setElapsed(0);
+  }, []);
+
+  useEffect(() => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    if (progressRef.current) clearInterval(progressRef.current);
+
+    progressRef.current = setInterval(() => {
+      setElapsed((e) => e + PROGRESS_STEP);
+    }, PROGRESS_STEP);
+
+    timerRef.current = setInterval(() => {
+      setIdx((prev) => (prev + 1) % testimonials.length);
+      setElapsed(0);
+    }, INTERVAL);
+
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+      if (progressRef.current) clearInterval(progressRef.current);
+    };
+  }, [idx]);
+
+  const handlePrev = (): void =>
+    goTo((idx - 1 + testimonials.length) % testimonials.length);
+  const handleNext = (): void => goTo((idx + 1) % testimonials.length);
+
+  const progressWidth: number = Math.min((elapsed / INTERVAL) * 100, 100);
+
+  return (
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=DM+Sans:wght@400;500&display=swap');
+        .cta-btn:hover { background: #7dd3fc !important; transform: translateY(-2px); box-shadow: 0 12px 40px rgba(56,189,248,0.45) !important; }
+        .cta-btn:hover .cta-arrow { transform: translateX(3px); }
+        .cta-arrow { transition: transform 0.2s; }
+        .nav-btn:hover { background: rgba(56,189,248,0.2) !important; border-color: rgba(56,189,248,0.4) !important; transform: scale(1.08); }
+        @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.7)} }
+        .eyebrow-dot { animation: pulse 2s ease-in-out infinite; }
+      `}</style>
+
+      <section style={styles.hero} role="banner">
+        <div style={styles.noise} />
+        <div style={styles.gridLines} />
+        <div style={styles.orb1} />
+        <div style={styles.orb2} />
+
+        <div style={styles.inner}>
+          {/* LEFT */}
+          <div style={styles.left}>
+            <div style={styles.eyebrow}>
+              <div className="eyebrow-dot" style={styles.eyebrowDot} />
+              Web App development
+            </div>
+
+            <h1 style={styles.headline}>
+              Build
+              <br />
+              <span style={styles.headlineGradient}>
+                Web Applications for Enterprise
+              </span>
+            </h1>
+
+            <p style={styles.subtext}>
+              Build and streamline web applications with modern technologies.
+              Ship faster, scale confidently.
             </p>
 
-            {/* profile */}
-            <div className="relative flex items-center gap-4 z-10">
-              <img
-                src={active.avatar}
-                alt={active.name}
-                className="
-          w-14 h-14 rounded-full
-          object-cover
-          ring-2 ring-cyan-400/40
-          shadow-lg
-        "
-              />
+            <Link href="/contact" className="cta-btn" style={styles.ctaBtn}>
+              Talk to our Expert
+              <span className="cta-arrow">
+                <ArrowRight stroke="#071b4d" />
+              </span>
+            </Link>
 
+            <div style={styles.stats}>
               <div>
-                <p className="font-semibold text-white">{active.name}</p>
-                <p className="text-sm text-white/60">{active.role}</p>
+                <div style={styles.statNum}>150+</div>
+                <div style={styles.statLbl}>Enterprise clients</div>
+              </div>
+              <div>
+                <div style={styles.statNum}>98%</div>
+                <div style={styles.statLbl}>Satisfaction rate</div>
+              </div>
+              <div>
+                <div style={styles.statNum}>12yr</div>
+                <div style={styles.statLbl}>Platform expertise</div>
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT — Slider */}
+          <div style={styles.right}>
+            <div style={styles.sliderViewport}>
+              <div
+                style={{
+                  ...styles.sliderTrack,
+                  transform: `translateX(-${idx * 100}%)`,
+                }}
+              >
+                {testimonials.map((t, i) => (
+                  <TestimonialSlide key={i} testimonial={t} />
+                ))}
+              </div>
+            </div>
+
+            <div style={styles.progressBar}>
+              <div
+                style={{
+                  ...styles.progressFill,
+                  width: `${progressWidth}%`,
+                }}
+              />
+            </div>
+
+            <div style={styles.controls}>
+              <div style={styles.dots}>
+                {testimonials.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => goTo(i)}
+                    aria-label={`Go to slide ${i + 1}`}
+                    style={{
+                      ...styles.dot,
+                      ...(i === idx ? styles.dotActive : {}),
+                    }}
+                  />
+                ))}
+              </div>
+              <div style={styles.navBtns}>
+                <button
+                  className="nav-btn"
+                  onClick={handlePrev}
+                  aria-label="Previous"
+                  style={styles.navBtn}
+                >
+                  <ChevronLeft />
+                </button>
+                <button
+                  className="nav-btn"
+                  onClick={handleNext}
+                  aria-label="Next"
+                  style={styles.navBtn}
+                >
+                  <ChevronRight />
+                </button>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* wave bottom */}
-      <div className="absolute bottom-0 left-0 w-full">
         <svg
-          viewBox="0 0 1440 120"
-          className="w-full h-[120px]"
+          style={styles.wave}
+          viewBox="0 0 1440 90"
           preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
         >
           <path
-            d="M0,64 C240,96 480,96 720,80 960,64 1200,32 1440,32 L1440,120 L0,120 Z"
+            d="M0,50 C320,90 700,10 1080,55 C1260,75 1380,50 1440,40 L1440,90 L0,90 Z"
             fill="#FAFAFA"
           />
         </svg>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
+
+const styles: Record<string, CSSProperties> = {
+  hero: {
+    position: "relative",
+    overflow: "hidden",
+    background: "#071b4d",
+    color: "white",
+    fontFamily: "'DM Sans', sans-serif",
+    minHeight: "580px",
+  },
+  noise: {
+    position: "absolute",
+    inset: 0,
+    backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E")`,
+    opacity: 0.5,
+    pointerEvents: "none",
+    zIndex: 0,
+  },
+  orb1: {
+    position: "absolute",
+    top: "-100px",
+    left: "-120px",
+    width: "480px",
+    height: "480px",
+    background:
+      "radial-gradient(circle, rgba(56,189,248,0.18) 0%, transparent 70%)",
+    pointerEvents: "none",
+    zIndex: 0,
+  },
+  orb2: {
+    position: "absolute",
+    bottom: "-60px",
+    right: "-80px",
+    width: "420px",
+    height: "420px",
+    background:
+      "radial-gradient(circle, rgba(99,102,241,0.16) 0%, transparent 70%)",
+    pointerEvents: "none",
+    zIndex: 0,
+  },
+  gridLines: {
+    position: "absolute",
+    inset: 0,
+    backgroundImage:
+      "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
+    backgroundSize: "60px 60px",
+    pointerEvents: "none",
+    zIndex: 0,
+  },
+  inner: {
+    position: "relative",
+    zIndex: 1,
+    maxWidth: "1100px",
+    margin: "0 auto",
+    padding: "72px 48px 100px",
+    display: "flex",
+    alignItems: "center",
+    gap: 0,
+  },
+  left: {
+    flex: 1,
+    paddingRight: "56px",
+    borderRight: "1px solid rgba(255,255,255,0.08)",
+  },
+  right: {
+    flex: 1,
+    paddingLeft: "56px",
+    display: "flex",
+    flexDirection: "column",
+  },
+  eyebrow: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "8px",
+    background: "rgba(56,189,248,0.12)",
+    border: "1px solid rgba(56,189,248,0.25)",
+    color: "#7dd3fc",
+    fontSize: "12px",
+    fontWeight: 500,
+    letterSpacing: "0.08em",
+    textTransform: "uppercase",
+    padding: "5px 12px",
+    borderRadius: "100px",
+    marginBottom: "22px",
+  },
+  eyebrowDot: {
+    width: "6px",
+    height: "6px",
+    borderRadius: "50%",
+    background: "#38bdf8",
+  },
+  headline: {
+    fontFamily: "'Syne', sans-serif",
+    fontSize: "clamp(28px, 3.5vw, 46px)",
+    fontWeight: 700,
+    lineHeight: 1.05, // 🔥 reduced spacing between lines
+    letterSpacing: "-0.02em",
+    marginBottom: "8px", // 🔥 reduced bottom gap
+    color: "#f0f6ff",
+  },
+
+  headlineGradient: {
+    background: "linear-gradient(135deg, #38bdf8 0%, #818cf8 100%)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    backgroundClip: "text",
+  },
+  subtext: {
+    color: "rgba(200,220,255,0.65)",
+    fontSize: "15px",
+    lineHeight: 1.7,
+    marginBottom: "12px",
+  },
+  ctaBtn: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "10px",
+    background: "#38bdf8",
+    color: "#071b4d",
+    fontFamily: "'DM Sans', sans-serif",
+    fontSize: "15px",
+    fontWeight: 500,
+    padding: "13px 24px",
+    borderRadius: "12px",
+    border: "none",
+    cursor: "pointer",
+    textDecoration: "none",
+    transition: "transform 0.2s, background 0.2s, box-shadow 0.2s",
+    boxShadow: "0 8px 32px rgba(56,189,248,0.3)",
+  },
+  stats: {
+    display: "flex",
+    gap: "28px",
+    marginTop: "10px",
+    paddingTop: "12px",
+    borderTop: "1px solid rgba(255,255,255,0.08)",
+  },
+  statNum: {
+    fontFamily: "'Syne', sans-serif",
+    fontSize: "22px",
+    fontWeight: 700,
+    color: "#f0f6ff",
+  },
+  statLbl: {
+    fontSize: "12px",
+    color: "rgba(200,220,255,0.5)",
+    marginTop: "2px",
+  },
+  sliderViewport: {
+    overflow: "hidden",
+    width: "100%",
+    borderRadius: "20px",
+  },
+  sliderTrack: {
+    display: "flex",
+    transition: "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
+  },
+  slide: {
+    minWidth: "100%",
+    background: "rgba(255,255,255,0.07)",
+    border: "1px solid rgba(255,255,255,0.12)",
+    borderRadius: "20px",
+    padding: "32px 28px",
+    position: "relative",
+    overflow: "hidden",
+  },
+  slideTopLine: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    height: "1px",
+    background:
+      "linear-gradient(90deg, transparent, rgba(56,189,248,0.5), transparent)",
+  },
+  quoteMark: {
+    fontFamily: "'Syne', sans-serif",
+    fontSize: "56px",
+    lineHeight: 0.8,
+    color: "rgba(56,189,248,0.25)",
+    marginBottom: "10px",
+    display: "block",
+  },
+  quoteText: {
+    fontSize: "16px",
+    lineHeight: 1.65,
+    color: "rgba(240,246,255,0.88)",
+    marginBottom: "24px",
+  },
+  authorRow: {
+    display: "flex",
+    alignItems: "center",
+    gap: "12px",
+  },
+  avatar: {
+    width: "42px",
+    height: "42px",
+    borderRadius: "50%",
+    background:
+      "linear-gradient(135deg, rgba(56,189,248,0.25), rgba(99,102,241,0.25))",
+    border: "1px solid rgba(56,189,248,0.3)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontFamily: "'Syne', sans-serif",
+    fontSize: "13px",
+    fontWeight: 600,
+    color: "#7dd3fc",
+    flexShrink: 0,
+  },
+  authorName: {
+    fontSize: "14px",
+    fontWeight: 500,
+    color: "#f0f6ff",
+  },
+  authorRole: {
+    fontSize: "12px",
+    color: "rgba(200,220,255,0.5)",
+    marginTop: "1px",
+  },
+  authorLoc: {
+    display: "flex",
+    alignItems: "center",
+    gap: "4px",
+    fontSize: "11px",
+    color: "#7dd3fc",
+    marginTop: "4px",
+  },
+  progressBar: {
+    width: "100%",
+    height: "2px",
+    background: "rgba(255,255,255,0.08)",
+    borderRadius: "2px",
+    marginTop: "16px",
+    overflow: "hidden",
+  },
+  progressFill: {
+    height: "100%",
+    background: "#38bdf8",
+    borderRadius: "2px",
+    transition: "width 0.1s linear",
+  },
+  controls: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginTop: "20px",
+  },
+  dots: {
+    display: "flex",
+    gap: "7px",
+    alignItems: "center",
+  },
+  dot: {
+    width: "7px",
+    height: "7px",
+    borderRadius: "50%",
+    background: "rgba(255,255,255,0.2)",
+    cursor: "pointer",
+    transition: "background 0.3s, transform 0.3s, width 0.3s",
+    border: "none",
+    padding: 0,
+  },
+  dotActive: {
+    background: "#38bdf8",
+    width: "22px",
+    borderRadius: "4px",
+  },
+  navBtns: {
+    display: "flex",
+    gap: "8px",
+  },
+  navBtn: {
+    width: "36px",
+    height: "36px",
+    borderRadius: "50%",
+    background: "rgba(255,255,255,0.08)",
+    border: "1px solid rgba(255,255,255,0.12)",
+    color: "white",
+    cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    transition: "background 0.2s, transform 0.2s",
+  },
+  wave: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    width: "100%",
+    pointerEvents: "none",
+    zIndex: 1,
+  },
+};

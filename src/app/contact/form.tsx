@@ -2,15 +2,7 @@
 
 import { useState } from "react";
 import { UploadCloud, Brain, Handshake, Sparkles } from "lucide-react";
-import {
-  User,
-  Mail,
-  Phone,
-  DollarSign,
-  FileText,
-  Send,
-  MapPin,
-} from "lucide-react";
+import { User, Mail, FileText, Send } from "lucide-react";
 
 export default function ContactPage() {
   const [files, setFiles] = useState<FileList | null>(null);
@@ -24,6 +16,8 @@ export default function ContactPage() {
     desc: "",
     company: "",
     country: "",
+    service: "",
+    timeline: "",
   });
 
   const inputStyle =
@@ -144,147 +138,142 @@ export default function ContactPage() {
         </div>
 
         {/* ================= RIGHT PANEL ================= */}
+        {/* RIGHT PANEL */}
         <div className="h-full flex flex-col p-5 lg:p-6 rounded-[28px] bg-gradient-to-bl from-gray-900 via-gray-800 to-black border border-white/10 shadow-xl text-white">
-          {/* HEADER */}
           <div>
             <h3 className="text-2xl font-semibold mb-2 flex items-center gap-2">
               <FileText className="w-5 h-5 text-cyan-400" />
               Start Your Digital Transformation
             </h3>
-
             <p className="text-sm text-gray-400 mb-4">
               Share your requirements and our experts will connect with you.
             </p>
           </div>
 
-          {/* FORM */}
-          <form className="flex flex-col flex-1 space-y-5">
+          {/* ✅ FORM START */}
+          <form
+            action="https://formspree.io/f/myklkyya"
+            method="POST"
+            encType="multipart/form-data"
+            className="flex flex-col flex-1 space-y-5"
+          >
+            {/* Hidden fields */}
+            <input type="hidden" name="_subject" value="New Softree Lead 🚀" />
+            <input type="hidden" name="_captcha" value="false" />
+
             {/* Name + Email */}
             <div className="grid sm:grid-cols-2 gap-3">
               <div className="relative">
                 <User className="absolute left-3 top-3.5 w-4 h-4 text-gray-400" />
                 <input
+                  name="name"
                   className={`${inputStyle} pl-9`}
                   placeholder="Full Name"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  required
                 />
               </div>
 
               <div className="relative">
                 <Mail className="absolute left-3 top-3.5 w-4 h-4 text-gray-400" />
                 <input
+                  name="email"
+                  type="email"
                   className={`${inputStyle} pl-9`}
                   placeholder="Business Email"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  required
                 />
               </div>
             </div>
 
             {/* Company + Country */}
             <div className="grid sm:grid-cols-2 gap-3">
-              <div className="relative">
-                <FileText className="absolute left-3 top-3.5 w-4 h-4 text-gray-400" />
-                <input
-                  className={`${inputStyle} pl-9`}
-                  placeholder="Company Name"
-                  value={form.company}
-                  onChange={(e) =>
-                    setForm({ ...form, company: e.target.value })
-                  }
-                />
-              </div>
-
-              <div className="relative">
-                <MapPin className="absolute left-3 top-3.5 w-4 h-4 text-gray-400" />
-                <input
-                  className={`${inputStyle} pl-9`}
-                  placeholder="Country / Location"
-                  value={form.country}
-                  onChange={(e) =>
-                    setForm({ ...form, country: e.target.value })
-                  }
-                />
-              </div>
+              <input
+                name="company"
+                className={inputStyle}
+                placeholder="Company Name"
+                value={form.company}
+                onChange={(e) => setForm({ ...form, company: e.target.value })}
+              />
+              <input
+                name="country"
+                className={inputStyle}
+                placeholder="Country / Location"
+                value={form.country}
+                onChange={(e) => setForm({ ...form, country: e.target.value })}
+              />
             </div>
 
             {/* Budget + Phone */}
             <div className="grid sm:grid-cols-2 gap-3">
-              <div className="relative">
-                <DollarSign className="absolute left-3 top-3.5 w-4 h-4 text-gray-400" />
-                <select
-                  className={`${inputStyle} pl-9`}
-                  value={form.budget}
-                  onChange={(e) => setForm({ ...form, budget: e.target.value })}
-                >
-                  <option>Estimated Budget</option>
-                  <option>$5k – $10k</option>
-                  <option>$10k – $25k</option>
-                  <option>$25k+</option>
-                </select>
-              </div>
+              <select
+                name="budget"
+                className={inputStyle}
+                value={form.budget}
+                onChange={(e) => setForm({ ...form, budget: e.target.value })}
+              >
+                <option value="">Estimated Budget</option>
+                <option>$5k – $10k</option>
+                <option>$10k – $25k</option>
+                <option>$25k+</option>
+              </select>
 
-              <div className="relative">
-                <Phone className="absolute left-3 top-3.5 w-4 h-4 text-gray-400" />
-                <input
-                  className={`${inputStyle} pl-9`}
-                  placeholder="Contact Number"
-                  value={form.phone}
-                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                />
-              </div>
+              <input
+                name="phone"
+                className={inputStyle}
+                placeholder="Contact Number"
+                value={form.phone}
+                onChange={(e) => setForm({ ...form, phone: e.target.value })}
+              />
             </div>
 
             {/* Description */}
-            <div className="relative">
-              <FileText className="absolute left-3 top-3.5 w-4 h-4 text-gray-400" />
-              <textarea
-                rows={2}
-                className={`${inputStyle} pl-9 resize-none`}
-                placeholder="Briefly describe your project..."
-                value={form.desc}
-                onChange={(e) => setForm({ ...form, desc: e.target.value })}
-              />
+
+            {/* Service + Timeline */}
+            <div className="grid sm:grid-cols-2 gap-3">
+              <select
+                name="service"
+                className={inputStyle}
+                value={form.service}
+                onChange={(e) => setForm({ ...form, service: e.target.value })}
+              >
+                <option value="">Service Interested In</option>
+                <option>Web Development</option>
+                <option>Mobile App Development</option>
+                <option>Power BI / Data Analytics</option>
+                <option>AI / Automation</option>
+                <option>Other</option>
+              </select>
+
+              <select
+                name="timeline"
+                className={inputStyle}
+                value={form.timeline}
+                onChange={(e) => setForm({ ...form, timeline: e.target.value })}
+              >
+                <option value="">Project Timeline</option>
+                <option>Immediately</option>
+                <option>Within 1 Month</option>
+                <option>1–3 Months</option>
+                <option>3+ Months</option>
+              </select>
             </div>
+            <textarea
+              name="message"
+              rows={3}
+              className={inputStyle}
+              placeholder="Briefly describe your project..."
+              value={form.desc}
+              onChange={(e) => setForm({ ...form, desc: e.target.value })}
+            />
 
-            {/* Upload */}
-            <label className="group flex flex-col items-center justify-center gap-2 cursor-pointer border-2 border-dashed border-white/20 rounded-xl p-4 bg-white/5 hover:border-cyan-400 hover:bg-white/10 transition-all">
-              <input
-                type="file"
-                multiple
-                className="hidden"
-                onChange={(e) => setFiles(e.target.files)}
-              />
-              <UploadCloud className="w-5 h-5 text-cyan-400" />
-              <p className="text-xs text-gray-300">
-                Drag & Drop or browse files
-              </p>
-            </label>
-
-            {/* BUTTON */}
+            {/* Submit */}
             <div className="mt-auto">
               <button
-                type="button"
-                onClick={() => {
-                  const subject = "New Consultation Request";
-
-                  const body = `
-Name: ${form.name}
-Email: ${form.email}
-Company: ${form.company}
-Country: ${form.country}
-Phone: ${form.phone}
-Budget: ${form.budget}
-
-Project Details:
-${form.desc}
-            `;
-
-                  window.location.href = `mailto:srikantb@softreetechnology.com,sales@softreetechnology.com?subject=${encodeURIComponent(
-                    subject,
-                  )}&body=${encodeURIComponent(body)}`;
-                }}
+                type="submit"
                 className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:scale-[1.02] text-white py-3 rounded-lg font-medium transition"
               >
                 <Send className="w-4 h-4" />
@@ -292,6 +281,7 @@ ${form.desc}
               </button>
             </div>
           </form>
+          {/* ✅ FORM END */}
         </div>
       </div>
     </section>

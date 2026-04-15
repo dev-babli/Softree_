@@ -28,7 +28,9 @@ import {
   Info,
   AppWindow,
   ArrowRight,
-  ChevronDown,Laptop,Share2
+  ChevronDown,
+  Laptop,
+  Share2,
 } from "lucide-react";
 
 type MenuItem = {
@@ -122,136 +124,136 @@ const menu: MenuItem[] = [
   { label: "Home", url: "/", icon: Home },
   { label: "About", url: "/about-us", icon: Info },
 
- {
-  label: "Services",
-  url: "/services",
-  icon: Settings,
-  mega: true,
-  children: [
-    {
-      title: "Business Applications Delivery Support",
-      description:
-        "Scalable Power Platform solutions built for enterprise delivery.",
-      links: [
-        {
-          label: "Power Apps",
-          url: "/services/business-applications/power-apps",
-          icon: LayoutDashboard, // updated
-          description: "Low-code app development",
-        },
-        {
-          label: "Power Automate",
-          url: "/services/business-applications/power-apps", // fixed
-          icon: Workflow, // updated
-          description: "Workflow automation",
-        },
-        {
-          label: "Dataverse",
-          url: "/services/business-applications/power-apps", // fixed
-          icon: Server, // updated
-          description: "Unified data platform",
-        },
-        {
-          label: "MVP Development",
-          url: "/services/business-applications/mvp",
-          icon: Rocket,
-          description: "Build and launch your product",
-        },
-      ],
-    },
-    {
-      title: "Data & Analytics Execution",
-      description: "Turn raw data into strategic intelligence at any scale.",
-      links: [
-        {
-          label: "Power BI",
-          url: "/services/data-analytics/power-bi",
-          icon: LineChart, // updated
-          description: "Business dashboards",
-        },
-        {
-          label: "Microsoft Fabric",
-          url: "/services/data-analytics/microsoft-fabric", // fixed
-          icon: Boxes, // updated
-          description: "Unified analytics platform",
-        },
-        {
-          label: "Databricks",
-          url: "/services/data-analytics/power-bi", // fixed
-          icon: Cpu, // updated
-          description: "Big data & ML pipelines",
-        },
-        {
-          label: "Snowflake",
-          url: "/services/data-analytics/power-bi", // fixed
-          icon: CloudSnow, // 🔥 best match
-          description: "Cloud data warehousing",
-        },
-      ],
-    },
-    {
-      title: "AI & Intelligent Automation",
-      description: "Embed intelligence into every process and workflow.",
-      links: [
-        {
-          label: "Azure AI Foundry",
-          url: "/services/ai-intelligence/agentic-ai", // fixed
-          icon: BrainCircuit, // updated
-          description: "Enterprise AI platform",
-        },
-        {
-          label: "Copilot Integration",
-          url: "/services/ai-intelligence/agentic-ai", // fixed
-          icon: Sparkles, // updated
-          description: "Intelligent assistant embedding",
-        },
-        {
-          label: "AI Agents",
-          url: "/services/ai-intelligence/agentic-ai", // fixed
-          icon: Bot,
-          description: "Autonomous task execution",
-        },
-        {
-          label: "Generative AI",
-          url: "/services/ai-intelligence/generative-ai",
-          icon: WandSparkles, // updated
-          description: "Retrieval-augmented generation",
-        },
-      ],
-    },
-    {
-      title: "Digital Workspace & App Engineering",
-      description:
-        "Modern digital experiences for connected, productive teams.",
-      links: [
-        {
-          label: "SharePoint Online",
-          url: "/services/digital-workspace/sharepoint",
-          icon: Building2, // updated
-          description: "Intranet & collaboration",
-        },
-        {
-          label: "SPFx Development",
-          url: "/services/digital-workspace/spfx-developments", // fixed
-          icon: Code2, // updated
-          description: "Custom SharePoint Framework solutions",
-        },
-        {
-          label: "Web Applications",
-          url: "/services/digital-workspace/web-app-development",
-          icon: Globe2, // updated
-          description: "Custom web portals & apps",
-        },
-        {
-          label: "Mobile Applications",
-          url: "/services/digital-workspace/mobile-app-development",
-          icon: Smartphone,
-          description: "Cross-platform mobile apps",
-        },
-      ],
-    },
-  ],
-},
+  {
+    label: "Services",
+    url: "/services",
+    icon: Settings,
+    mega: true,
+    children: [
+      {
+        title: "Business Applications Delivery Support",
+        description:
+          "Scalable Power Platform solutions built for enterprise delivery.",
+        links: [
+          {
+            label: "Power Apps",
+            url: "/services/business-applications/power-apps",
+            icon: LayoutDashboard, // updated
+            description: "Low-code app development",
+          },
+          {
+            label: "Power Automate",
+            url: "/services/business-applications/power-apps", // fixed
+            icon: Workflow, // updated
+            description: "Workflow automation",
+          },
+          {
+            label: "Dataverse",
+            url: "/services/business-applications/power-apps", // fixed
+            icon: Server, // updated
+            description: "Unified data platform",
+          },
+          {
+            label: "MVP Development",
+            url: "/services/business-applications/mvp",
+            icon: Rocket,
+            description: "Build and launch your product",
+          },
+        ],
+      },
+      {
+        title: "Data & Analytics Execution",
+        description: "Turn raw data into strategic intelligence at any scale.",
+        links: [
+          {
+            label: "Power BI",
+            url: "/services/data-analytics/power-bi",
+            icon: LineChart, // updated
+            description: "Business dashboards",
+          },
+          {
+            label: "Microsoft Fabric",
+            url: "/services/data-analytics/microsoft-fabric", // fixed
+            icon: Boxes, // updated
+            description: "Unified analytics platform",
+          },
+          {
+            label: "Databricks",
+            url: "/services/data-analytics/power-bi", // fixed
+            icon: Cpu, // updated
+            description: "Big data & ML pipelines",
+          },
+          {
+            label: "Snowflake",
+            url: "/services/data-analytics/power-bi", // fixed
+            icon: CloudSnow, // 🔥 best match
+            description: "Cloud data warehousing",
+          },
+        ],
+      },
+      {
+        title: "AI & Intelligent Automation",
+        description: "Embed intelligence into every process and workflow.",
+        links: [
+          {
+            label: "Azure AI Foundry",
+            url: "/services/ai-intelligence/agentic-ai", // fixed
+            icon: BrainCircuit, // updated
+            description: "Enterprise AI platform",
+          },
+          {
+            label: "Copilot Integration",
+            url: "/services/ai-intelligence/agentic-ai", // fixed
+            icon: Sparkles, // updated
+            description: "Intelligent assistant embedding",
+          },
+          {
+            label: "AI Agents",
+            url: "/services/ai-intelligence/agentic-ai", // fixed
+            icon: Bot,
+            description: "Autonomous task execution",
+          },
+          {
+            label: "Generative AI",
+            url: "/services/ai-intelligence/generative-ai",
+            icon: WandSparkles, // updated
+            description: "Retrieval-augmented generation",
+          },
+        ],
+      },
+      {
+        title: "Digital Workspace & App Engineering",
+        description:
+          "Modern digital experiences for connected, productive teams.",
+        links: [
+          {
+            label: "SharePoint Online",
+            url: "/services/digital-workspace/sharepoint",
+            icon: Building2, // updated
+            description: "Intranet & collaboration",
+          },
+          {
+            label: "SPFx Development",
+            url: "/services/digital-workspace/spfx-developments", // fixed
+            icon: Code2, // updated
+            description: "Custom SharePoint Framework solutions",
+          },
+          {
+            label: "Web Applications",
+            url: "/services/digital-workspace/web-app-development",
+            icon: Globe2, // updated
+            description: "Custom web portals & apps",
+          },
+          {
+            label: "Mobile Applications",
+            url: "/services/digital-workspace/mobile-app-development",
+            icon: Smartphone,
+            description: "Cross-platform mobile apps",
+          },
+        ],
+      },
+    ],
+  },
   {
     label: "Case Studies",
     url: "/case-studies",
