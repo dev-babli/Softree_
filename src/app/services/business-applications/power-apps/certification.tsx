@@ -31,15 +31,12 @@ const certifications = [
 
 export default function Certifications() {
   return (
-    <section className="relative py-4 overflow-hidden">
+    <section className="relative py-20 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-6">
         {/* Heading */}
         <div className="text-center mb-7 px-4">
           <h2 className="text-3xl lg:text-5xl font-semibold text-gray-900 tracking-tight">
-            Certifications &{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-              Recognitions
-            </span>
+            Certifications & Recognitions
           </h2>
 
           <p className="mt-5 text-base lg:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">

@@ -40,24 +40,9 @@ export default function WhoWeAre() {
                   ].map((service, index) => (
                     <li
                       key={index}
-                      className="
-              group relative
-              flex items-center gap-4
-              py-4
-              border-b border-slate-200
-              cursor-pointer
-            "
+                      className="group relative flex items-center gap-4 py-4 border-b border-slate-200 cursor-pointer"
                     >
-                      <span
-                        className="
-              flex items-center justify-center
-              w-6 h-6 rounded-full
-              bg-indigo-50 text-indigo-600
-              transition duration-300
-              group-hover:bg-indigo-600
-              group-hover:text-white
-            "
-                      >
+                      <span className="flex items-center justify-center w-6 h-6 rounded-full bg-indigo-50 text-indigo-600 transition duration-300 group-hover:bg-indigo-600 group-hover:text-white">
                         <svg
                           className="w-3.5 h-3.5"
                           fill="none"
@@ -73,91 +58,49 @@ export default function WhoWeAre() {
                         </svg>
                       </span>
 
-                      <span
-                        className="
-              text-slate-700 font-medium
-              transition duration-300
-              group-hover:text-indigo-600
-            "
-                      >
+                      <span className="text-slate-700 font-medium transition duration-300 group-hover:text-indigo-600">
                         {service}
                       </span>
 
-                      {/* Animated Hover Border */}
-                      <span
-                        className="
-                absolute bottom-0 left-0
-                h-[2px] w-0
-                bg-indigo-600
-                transition-all duration-300
-                group-hover:w-full
-              "
-                      ></span>
+                      <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-indigo-600 transition-all duration-300 group-hover:w-full"></span>
                     </li>
                   ))}
                 </ul>
 
                 {/* Column 2 */}
                 <ul>
-                  {["Cloud & DevOps Solutions", "Intelligent Automation"].map(
-                    (service, index) => (
-                      <li
-                        key={index}
-                        className="
-              group relative
-              flex items-center gap-4
-              py-4
-              border-b border-slate-200
-              cursor-pointer
-            "
-                      >
-                        <span
-                          className="
-              flex items-center justify-center
-              w-6 h-6 rounded-full
-              bg-indigo-50 text-indigo-600
-              transition duration-300
-              group-hover:bg-indigo-600
-              group-hover:text-white
-            "
+                  {[
+                    "Cloud & DevOps Solutions",
+                    "Intelligent Automation",
+                    "Enterprise Integration & APIs", // ✅ NEW
+                  ].map((service, index) => (
+                    <li
+                      key={index}
+                      className="group relative flex items-center gap-4 py-4 border-b border-slate-200 cursor-pointer"
+                    >
+                      <span className="flex items-center justify-center w-6 h-6 rounded-full bg-indigo-50 text-indigo-600 transition duration-300 group-hover:bg-indigo-600 group-hover:text-white">
+                        <svg
+                          className="w-3.5 h-3.5"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="3"
+                          viewBox="0 0 24 24"
                         >
-                          <svg
-                            className="w-3.5 h-3.5"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="3"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M5 13l4 4L19 7"
-                            />
-                          </svg>
-                        </span>
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      </span>
 
-                        <span
-                          className="
-              text-slate-700 font-medium
-              transition duration-300
-              group-hover:text-indigo-600
-            "
-                        >
-                          {service}
-                        </span>
+                      <span className="text-slate-700 font-medium transition duration-300 group-hover:text-indigo-600">
+                        {service}
+                      </span>
 
-                        <span
-                          className="
-                absolute bottom-0 left-0
-                h-[2px] w-0
-                bg-indigo-600
-                transition-all duration-300
-                group-hover:w-full
-              "
-                        ></span>
-                      </li>
-                    ),
-                  )}
+                      <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-indigo-600 transition-all duration-300 group-hover:w-full"></span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
