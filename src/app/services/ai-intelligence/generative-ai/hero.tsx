@@ -137,7 +137,7 @@ function TestimonialSlide({ testimonial }: TestimonialSlideProps) {
       <div style={styles.slideTopLine} />
       <span style={styles.quoteMark}>&ldquo;</span>
 
-      <p style={styles.quoteText}>{testimonial.text}&rdquo;</p>
+      <p style={styles.quoteText}>{testimonial.text}</p>
 
       <div style={styles.authorRow}>
         <div style={styles.avatar}>{initials(testimonial.name)}</div>
@@ -220,7 +220,7 @@ export default function HeroPowerApps() {
           <div style={styles.left}>
             <div style={styles.eyebrow}>
               <div className="eyebrow-dot" style={styles.eyebrowDot} />
-            Generative AI
+              Generative AI
             </div>
             <h1 style={styles.headline}>
               Build
@@ -231,8 +231,8 @@ export default function HeroPowerApps() {
             </h1>
 
             <p style={styles.subtext}>
-              Design intelligent, autonomous systems with generative AI and modern
-              technologies. Ship faster, scale confidently.
+              Design intelligent, autonomous systems with generative AI and
+              modern technologies. Ship faster, scale confidently.
             </p>
             <Link href="/contact" className="cta-btn" style={styles.ctaBtn}>
               Talk to our Expert

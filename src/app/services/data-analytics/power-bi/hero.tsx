@@ -137,7 +137,7 @@ function TestimonialSlide({ testimonial }: TestimonialSlideProps) {
       <div style={styles.slideTopLine} />
       <span style={styles.quoteMark}>&ldquo;</span>
 
-      <p style={styles.quoteText}>{testimonial.text}&rdquo;</p>
+      <p style={styles.quoteText}>{testimonial.text}</p>
 
       <div style={styles.authorRow}>
         <div style={styles.avatar}>{initials(testimonial.name)}</div>
