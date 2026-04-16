@@ -515,6 +515,7 @@ export default function Navigation() {
             className="px-5 py-2.5 text-sm font-semibold text-white bg-black rounded-full hover:scale-105 hover:shadow-lg transition"
           >
             Get Started
+            
           </Link>
         </div>
 

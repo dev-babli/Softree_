@@ -53,16 +53,6 @@ export default function CtaPowerBI() {
                 <p className="text-[11px] text-white/70">Quick Onboarding</p>
               </div>
             </div>
-
-            {/* buttons */}
-            <div className="mt-3 flex gap-3 flex-wrap">
-              <a
-                href="/contact"
-                className="bg-white text-indigo-700 px-6 py-2.5 rounded-lg text-xs font-medium shadow hover:scale-105 transition"
-              >
-                Hire Power BI Developers
-              </a>
-            </div>
           </div>
 
           {/* ================= RIGHT – FORM ================= */}
@@ -78,47 +68,42 @@ export default function CtaPowerBI() {
               <p className="mb-6 text-sm text-white/70">
                 Tell us your reporting needs — we’ll respond within 24 hours
               </p>
-
-              <form className="space-y-4">
+              <form
+                action="https://formspree.io/f/myklkyya"
+                method="POST"
+                className="space-y-3"
+              >
                 <input
+                  type="text"
+                  name="name"
                   placeholder="Full Name"
-                  className="w-full rounded-xl bg-black/30 px-4 py-3 text-sm outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-400"
+                  className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300"
+                  required
                 />
 
                 <input
                   type="email"
+                  name="email"
                   placeholder="Work Email"
-                  className="w-full rounded-xl bg-black/30 px-4 py-3 text-sm outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-400"
+                  className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300"
+                  required
                 />
 
-                <input
-                  placeholder="Company Name"
-                  className="w-full rounded-xl bg-black/30 px-4 py-3 text-sm outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-400"
+                {/* NEW TEXTAREA */}
+                <textarea
+                  name="project_details"
+                  placeholder="Brief about your project..."
+                  rows={3}
+                  className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300 resize-none"
                 />
-
-                <select className="w-full rounded-xl bg-black/30 px-4 py-3 text-sm outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-400">
-                  <option>Primary Need</option>
-                  <option>Dashboards</option>
-                  <option>Automated Reports</option>
-                  <option>Data Integration</option>
-                  <option>Full BI Setup</option>
-                </select>
-
-                <select className="w-full rounded-xl bg-black/30 px-4 py-3 text-sm outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-400">
-                  <option>Project Size</option>
-                  <option>Small Team</option>
-                  <option>Department Level</option>
-                  <option>Enterprise Wide</option>
-                </select>
 
                 <button
                   type="submit"
-                  className="w-full rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-500 py-3 text-sm font-medium shadow-lg hover:scale-[1.03] transition"
+                  className="w-full bg-gradient-to-r from-cyan-400 to-indigo-500 py-2.5 rounded-lg text-xs font-medium shadow hover:scale-[1.03] transition"
                 >
                   Get Free Estimate
                 </button>
               </form>
-
               <p className="mt-4 text-center text-xs text-white/60">
                 🔒 NDA Protected • No Spam • 100% Confidential
               </p>

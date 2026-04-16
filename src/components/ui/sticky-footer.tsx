@@ -57,34 +57,35 @@ const footerLinkGroups: FooterLinkGroup[] = [
   {
     label: "Digital Engineering",
     links: [
-      { title: "Web App Development", href: "/services/web-app-development" },
+      { title: "Web App Development", href: "/services/digital-workspace/web-app-development" },
       {
         title: "Mobile App Development",
-        href: "/services/mobile-app-development",
+        href: "/services/digital-workspace/mobile-app-development",
       },
-      { title: "Softree for Startups", href: "/services/softree-for-startups" },
-      { title: "MVP Development", href: "/services/mvp" },
+      // { title: "Softree for Startups", href: "/services/softree-for-startups" },
+      { title: "MVP Development", href: "/services/business-applications/mvp" },
     ],
   },
   {
     label: "SharePoint & M365",
     links: [
-      { title: "SharePoint Development", href: "/services/sharepoint" },
-      { title: "SPFx Solutions", href: "/services/spfx-developments" },
+      { title: "SharePoint Development", href: "/services/digital-workspace/sharepoint" },
+      { title: "SPFx Solutions", href: "/services/digital-workspace/spfx-developments" },
     ],
   },
   {
     label: "Power Platform",
     links: [
-      { title: "Power Apps", href: "/services/power-apps" },
-      { title: "Power BI", href: "/services/power-bi" },
+      { title: "Power Apps", href: "/services/business-applications/power-apps" },
+      { title: "Power BI", href: "/services/data-analytics/power-bi" },
+       { title: "Microsoft Fabric", href: "/services/data-analytics/microsoft-fabric" },
     ],
   },
   {
     label: "AI Services",
     links: [
-      { title: "Agentic AI", href: "/services/agentic-ai" },
-      { title: "Generative AI", href: "/services/generative-ai" },
+      { title: "Agentic AI", href: "/services/ai-intelligence/agentic-ai" },
+      { title: "Generative AI", href: "/services/ai-intelligence/generative-ai" },
     ],
   },
   {

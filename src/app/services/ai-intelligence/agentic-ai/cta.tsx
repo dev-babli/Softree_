@@ -86,24 +86,34 @@ export default function CtaAgenticAI() {
                 hours.
               </p>
 
-              <form className="space-y-3">
+              <form
+                action="https://formspree.io/f/myklkyya"
+                method="POST"
+                className="space-y-3"
+              >
                 <input
+                  type="text"
+                  name="name"
                   placeholder="Full Name"
                   className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300"
+                  required
                 />
 
                 <input
+                  type="email"
+                  name="email"
                   placeholder="Work Email"
                   className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300"
+                  required
                 />
 
-                <select className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300">
-                  <option>Project Goal</option>
-                  <option>Build AI Copilot</option>
-                  <option>Multi-Agent Workflow</option>
-                  <option>Automation & Integration</option>
-                  <option>Modernize Legacy Processes</option>
-                </select>
+                {/* NEW TEXTAREA */}
+                <textarea
+                  name="project_details"
+                  placeholder="Brief about your project..."
+                  rows={3}
+                  className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300 resize-none"
+                />
 
                 <button
                   type="submit"

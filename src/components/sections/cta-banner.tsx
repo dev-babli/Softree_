@@ -75,44 +75,44 @@ export default function CTASection() {
             </div>
 
             {/* 🔥 Testimonial Slider */}
-          <div className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-3">
-  {/* ❝ Quote */}
-  <span className="absolute top-2 left-2 text-2xl text-white font-serif">
-    “
-  </span>
+            <div className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-3">
+              {/* ❝ Quote */}
+              <span className="absolute top-2 left-2 text-2xl text-white font-serif">
+                “
+              </span>
 
-  <p className="text-m leading-relaxed mb-3 pl-4">{t.text}</p>
+              <p className="text-m leading-relaxed mb-3 pl-4">{t.text}</p>
 
-  <div className="flex items-center gap-2 mb-3">
-    <img
-      src={t.img}
-      className="w-7 h-7 rounded-full"
-      alt={t.name}
-    />
+              <div className="flex items-center gap-2 mb-3">
+                <img
+                  src={t.img}
+                  className="w-7 h-7 rounded-full"
+                  alt={t.name}
+                />
 
-    <div>
-      <p className="text-xs font-medium">{t.name}</p>
-      <p className="text-[10px] text-gray-400">{t.role}</p>
-    </div>
-  </div>
+                <div>
+                  <p className="text-xs font-medium">{t.name}</p>
+                  <p className="text-[10px] text-gray-400">{t.role}</p>
+                </div>
+              </div>
 
-  {/* Arrows */}
-  <div className="flex justify-center gap-2">
-    <button
-      onClick={prevSlide}
-      className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 transition"
-    >
-      <ChevronLeft size={17} />
-    </button>
+              {/* Arrows */}
+              <div className="flex justify-center gap-2">
+                <button
+                  onClick={prevSlide}
+                  className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 transition"
+                >
+                  <ChevronLeft size={17} />
+                </button>
 
-    <button
-      onClick={nextSlide}
-      className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 transition"
-    >
-      <ChevronRight size={17} />
-    </button>
-  </div>
-</div>
+                <button
+                  onClick={nextSlide}
+                  className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 transition"
+                >
+                  <ChevronRight size={17} />
+                </button>
+              </div>
+            </div>
           </div>
 
           {/* ================= RIGHT ================= */}
@@ -125,16 +125,29 @@ export default function CTASection() {
               </p>
             </div>
 
-            {/* FORM */}
-            <form className="space-y-4 text-gray-900">
+            <form
+              action="https://formspree.io/f/myklkyya"
+              method="POST"
+              className="space-y-4 text-gray-900"
+            >
+              {/* Hidden */}
+              <input
+                type="hidden"
+                name="_subject"
+                value="New Softree Lead 🚀"
+              />
+              <input type="hidden" name="_captcha" value="false" />
+
               {/* Row 1 */}
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <label className="text-xs text-gray-500">First Name</label>
+                  <label className="text-xs text-gray-500">Full Name</label>
                   <input
                     type="text"
+                    name="first_name" // ⭐ required
                     placeholder="John"
                     className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-3 py-2 text-sm outline-none transition"
+                    required
                   />
                 </div>
 
@@ -142,8 +155,10 @@ export default function CTASection() {
                   <label className="text-xs text-gray-500">Company Email</label>
                   <input
                     type="email"
+                    name="company_email" // ⭐ required
                     placeholder="john@company.com"
                     className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-3 py-2 text-sm outline-none transition"
+                    required
                   />
                 </div>
               </div>
@@ -158,6 +173,7 @@ export default function CTASection() {
                     <span className="text-sm text-gray-500 mr-2">+91</span>
                     <input
                       type="text"
+                      name="phone"
                       placeholder="9876543210"
                       className="w-full text-sm outline-none bg-transparent"
                     />
@@ -170,6 +186,7 @@ export default function CTASection() {
                   </label>
                   <input
                     type="email"
+                    name="work_email"
                     placeholder="john@work.com"
                     className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-3 py-2 text-sm outline-none transition"
                   />
@@ -180,7 +197,8 @@ export default function CTASection() {
               <div className="space-y-1">
                 <label className="text-xs text-gray-500">Project Details</label>
                 <textarea
-                  rows={3}
+                  name="message" // ⭐ required
+                  rows={4}
                   placeholder="Describe your project"
                   className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-3 py-2 text-sm outline-none resize-none transition"
                 />
@@ -194,7 +212,7 @@ export default function CTASection() {
                 </p>
               </div>
 
-              {/* Captcha */}
+              {/* Simple CAPTCHA */}
               <div className="flex items-center justify-between gap-3 bg-gray-50 border border-gray-200 rounded-lg px-3 py-2">
                 <span className="text-sm text-gray-700 font-medium">
                   2 + 1 = ?
@@ -202,13 +220,21 @@ export default function CTASection() {
 
                 <input
                   type="text"
+                  name="captcha"
                   placeholder="3"
                   className="w-20 bg-white border border-gray-300 rounded-md px-2 py-1 text-sm outline-none focus:border-black transition"
+                  required
                 />
               </div>
 
+              {/* Honeypot */}
+              <input type="text" name="_gotcha" style={{ display: "none" }} />
+
               {/* Button */}
-              <button className="w-full bg-black text-white py-2.5 rounded-full text-sm">
+              <button
+                type="submit"
+                className="w-full bg-black text-white py-2.5 rounded-full text-sm"
+              >
                 Submit Request →
               </button>
             </form>

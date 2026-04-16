@@ -18,56 +18,45 @@ export default function TrustedBrandsMarquee() {
 
   return (
     <section className="relative py-2 overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
-      <div className="relative w-full py-16 text-center">
-        {/* soft glow */}
-        <div className="absolute inset-0 flex justify-center">
-          <div className="h-24 w-96 rounded-full bg-blue-100/60 blur-3xl" />
-        </div>
+      <div className="relative max-w-7xl mx-auto">
+        <div
+          className="
+            relative
+          bg-gradient-to-r from-black via-[#0f2f7a] to-black
+            rounded-t-[80px]
+     
+            px-6 py-16
+            overflow-hidden
+          "
+        >
+          {/* Heading */}
+          <div className="flex items-center gap-6 mb-12">
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-zinc-300 to-transparent" />
 
-        <div className="relative flex items-center justify-center gap-5">
-          <span className="h-px w-16 bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
-          <h2 className="text-4xl md:text-4xl font-bold text-blue-900">
-            Trusted by Leading Brands Worldwide
-          </h2>
-          <span className="h-px w-16 bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
-        </div>
-      </div>
+            <p className="text-2xl font-semibold tracking-widest uppercase bg-white bg-clip-text text-transparent">
+              Trusted by Partners & Clients
+            </p>
 
-      {/* marquee container */}
-      <div className="relative max-w-7xl mx-auto overflow-hidden py-10">
-        <div className="mask-fade">
-          <div className="flex w-max gap-20 animate-marquee hover:[animation-play-state:paused]">
-            {[...Array(2)].map((_, i) => (
-              <div key={i} className="flex items-center gap-20">
-                {logos.map((logo) => (
-                  <div
-                    key={logo.name + i}
-                    className="
-                flex items-center justify-center
-                min-w-[260px]
-                py-6
-                transition-all duration-300
-                hover:scale-110
-              "
-                  >
-                    <Image
-                      src={logo.src}
-                      alt={logo.name}
-                      width={220}
-                      height={120}
-                      className="
-                  h-24 md:h-28   /* ⬅️ BIG FIX */
-                  w-auto
-                  object-contain
-                  opacity-200
-                 
-                  transition-all duration-300
-                "
-                    />
-                  </div>
-                ))}
-              </div>
-            ))}
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-zinc-400 to-transparent" />
+          </div>
+
+          {/* Infinite Scrolling Logos */}
+          <div className="relative overflow-hidden">
+            <div
+              className="flex gap-16 items-center animate-scroll"
+              style={{
+                animation: "scrollLeft 5s linear infinite",
+              }}
+            >
+              {[...logos, ...logos].map((logo, index) => (
+                <img
+                  key={index}
+                  src={logo.src}
+                  alt={logo.name}
+                  className="h-18 w-auto object-contain opacity-100 hover:opacity-150 transition"
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

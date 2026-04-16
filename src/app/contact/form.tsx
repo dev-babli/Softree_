@@ -2,10 +2,7 @@
 
 import { useState } from "react";
 import { UploadCloud, Brain, Handshake, Sparkles } from "lucide-react";
-import { User, Mail, FileText, Send } from "lucide-react";
-
 export default function ContactPage() {
-  const [files, setFiles] = useState<FileList | null>(null);
 
   /* ================= FORM STATE ================= */
   const [form, setForm] = useState({
@@ -21,13 +18,11 @@ export default function ContactPage() {
   });
 
   const inputStyle =
-    "w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-800 placeholder-gray-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition";
+    "w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-800 placeholder-gray-400 focus";
 
   return (
-    <section className="relative min-h-[85vh]  text-gray-900 overflow-hidden py-19">
-      {/* Background gradient */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-cyan-50 via-white to-blue-50" />
-
+    <section className="relative min-h-[85vh]  text-gray-900 overflow-hidden py-5">
+   
       {/* ================= MAIN GRID ================= */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-4 lg:py-5 grid lg:grid-cols-[0.9fr_1.1fr] gap-6 items-stretch min-h-[540px]">
         {/* ================= LEFT PANEL ================= */}
@@ -137,152 +132,124 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* ================= RIGHT PANEL ================= */}
-        {/* RIGHT PANEL */}
-        <div className="h-full flex flex-col p-5 lg:p-6 rounded-[28px] bg-gradient-to-bl from-gray-900 via-gray-800 to-black border border-white/10 shadow-xl text-white">
-          <div>
-            <h3 className="text-2xl font-semibold mb-2 flex items-center gap-2">
-              <FileText className="w-5 h-5 text-cyan-400" />
-              Start Your Digital Transformation
-            </h3>
-            <p className="text-sm text-gray-400 mb-4">
-              Share your requirements and our experts will connect with you.
-            </p>
-          </div>
+      {/* ================= RIGHT ================= */}
+          <div className="bg-white p-6 md:p-8 w-full rounded-2xl border border-gray-100">
+            {/* Header */}
+            <div className="flex justify-between items-start mb-6">
+              <p className="text-sm text-gray-600 leading-relaxed max-w-md">
+                Share your requirements so our experts can understand your goals
+                and craft a tailored solution.
+              </p>
+            </div>
 
-          {/* ✅ FORM START */}
           <form
-            action="https://formspree.io/f/myklkyya"
-            method="POST"
-            encType="multipart/form-data"
-            className="flex flex-col flex-1 space-y-5"
-          >
-            {/* Hidden fields */}
-            <input type="hidden" name="_subject" value="New Softree Lead 🚀" />
-            <input type="hidden" name="_captcha" value="false" />
+  action="https://formspree.io/f/myklkyya"
+  method="POST"
+  className="space-y-4 text-gray-900"
+>
+  {/* Hidden */}
+  <input type="hidden" name="_subject" value="New Softree Lead 🚀" />
+  <input type="hidden" name="_captcha" value="false" />
 
-            {/* Name + Email */}
-            <div className="grid sm:grid-cols-2 gap-3">
-              <div className="relative">
-                <User className="absolute left-3 top-3.5 w-4 h-4 text-gray-400" />
-                <input
-                  name="name"
-                  className={`${inputStyle} pl-9`}
-                  placeholder="Full Name"
-                  value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  required
-                />
-              </div>
+  {/* Row 1 */}
+  <div className="grid md:grid-cols-2 gap-4">
+    <div className="space-y-1">
+      <label className="text-xs text-gray-500">Full Name</label>
+      <input
+        type="text"
+        name="first_name" // ⭐ required
+        placeholder="John"
+        className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-3 py-2 text-sm outline-none transition"
+        required
+      />
+    </div>
 
-              <div className="relative">
-                <Mail className="absolute left-3 top-3.5 w-4 h-4 text-gray-400" />
-                <input
-                  name="email"
-                  type="email"
-                  className={`${inputStyle} pl-9`}
-                  placeholder="Business Email"
-                  value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  required
-                />
-              </div>
-            </div>
+    <div className="space-y-1">
+      <label className="text-xs text-gray-500">Company Email</label>
+      <input
+        type="email"
+        name="company_email" // ⭐ required
+        placeholder="john@company.com"
+        className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-3 py-2 text-sm outline-none transition"
+        required
+      />
+    </div>
+  </div>
 
-            {/* Company + Country */}
-            <div className="grid sm:grid-cols-2 gap-3">
-              <input
-                name="company"
-                className={inputStyle}
-                placeholder="Company Name"
-                value={form.company}
-                onChange={(e) => setForm({ ...form, company: e.target.value })}
-              />
-              <input
-                name="country"
-                className={inputStyle}
-                placeholder="Country / Location"
-                value={form.country}
-                onChange={(e) => setForm({ ...form, country: e.target.value })}
-              />
-            </div>
+  {/* Row 2 */}
+  <div className="grid md:grid-cols-2 gap-4">
+    <div className="space-y-1">
+      <label className="text-xs text-gray-500">Contact Number</label>
+      <div className="flex items-center border border-gray-200 bg-gray-50 focus-within:bg-white focus-within:border-black rounded-lg px-3 py-2">
+        <span className="text-sm text-gray-500 mr-2">+91</span>
+        <input
+          type="text"
+          name="phone"
+          placeholder="9876543210"
+          className="w-full text-sm outline-none bg-transparent"
+        />
+      </div>
+    </div>
 
-            {/* Budget + Phone */}
-            <div className="grid sm:grid-cols-2 gap-3">
-              <select
-                name="budget"
-                className={inputStyle}
-                value={form.budget}
-                onChange={(e) => setForm({ ...form, budget: e.target.value })}
-              >
-                <option value="">Estimated Budget</option>
-                <option>$5k – $10k</option>
-                <option>$10k – $25k</option>
-                <option>$25k+</option>
-              </select>
+    <div className="space-y-1">
+      <label className="text-xs text-gray-500">
+        Work Email (Optional)
+      </label>
+      <input
+        type="email"
+        name="work_email"
+        placeholder="john@work.com"
+        className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-3 py-2 text-sm outline-none transition"
+      />
+    </div>
+  </div>
 
-              <input
-                name="phone"
-                className={inputStyle}
-                placeholder="Contact Number"
-                value={form.phone}
-                onChange={(e) => setForm({ ...form, phone: e.target.value })}
-              />
-            </div>
+  {/* Textarea */}
+  <div className="space-y-1">
+    <label className="text-xs text-gray-500">Project Details</label>
+    <textarea
+      name="message" // ⭐ required
+      rows={4}
+      placeholder="Describe your project"
+      className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-3 py-2 text-sm outline-none resize-none transition"
+    />
+  </div>
 
-            {/* Description */}
+  {/* Info Box */}
+  <div className="flex items-start gap-3 bg-yellow-50 border border-yellow-200 rounded-lg px-3 py-2">
+    <span>🛡️</span>
+    <p className="text-sm text-gray-800">
+      Fast 2-minute response. NDA-protected.
+    </p>
+  </div>
 
-            {/* Service + Timeline */}
-            <div className="grid sm:grid-cols-2 gap-3">
-              <select
-                name="service"
-                className={inputStyle}
-                value={form.service}
-                onChange={(e) => setForm({ ...form, service: e.target.value })}
-              >
-                <option value="">Service Interested In</option>
-                <option>Web Development</option>
-                <option>Mobile App Development</option>
-                <option>Power BI / Data Analytics</option>
-                <option>AI / Automation</option>
-                <option>Other</option>
-              </select>
+  {/* Simple CAPTCHA */}
+  <div className="flex items-center justify-between gap-3 bg-gray-50 border border-gray-200 rounded-lg px-3 py-2">
+    <span className="text-sm text-gray-700 font-medium">
+      2 + 1 = ?
+    </span>
 
-              <select
-                name="timeline"
-                className={inputStyle}
-                value={form.timeline}
-                onChange={(e) => setForm({ ...form, timeline: e.target.value })}
-              >
-                <option value="">Project Timeline</option>
-                <option>Immediately</option>
-                <option>Within 1 Month</option>
-                <option>1–3 Months</option>
-                <option>3+ Months</option>
-              </select>
-            </div>
-            <textarea
-              name="message"
-              rows={3}
-              className={inputStyle}
-              placeholder="Briefly describe your project..."
-              value={form.desc}
-              onChange={(e) => setForm({ ...form, desc: e.target.value })}
-            />
+    <input
+      type="text"
+      name="captcha"
+      placeholder="3"
+      className="w-20 bg-white border border-gray-300 rounded-md px-2 py-1 text-sm outline-none focus:border-black transition"
+      required
+    />
+  </div>
 
-            {/* Submit */}
-            <div className="mt-auto">
-              <button
-                type="submit"
-                className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:scale-[1.02] text-white py-3 rounded-lg font-medium transition"
-              >
-                <Send className="w-4 h-4" />
-                Request Consultation
-              </button>
-            </div>
-          </form>
-          {/* ✅ FORM END */}
-        </div>
+  {/* Honeypot */}
+  <input type="text" name="_gotcha" style={{ display: "none" }} />
+
+  {/* Button */}
+  <button
+    type="submit"
+    className="w-full bg-black text-white py-2.5 rounded-full text-sm"
+  >
+    Submit Request →
+  </button>
+</form>
+          </div>
       </div>
     </section>
   );

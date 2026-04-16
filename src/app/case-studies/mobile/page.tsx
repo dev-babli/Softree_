@@ -8,6 +8,7 @@ import WhyChooseUs from "./why-chose";
 import MobileCaseStudies from "./latest-cases";
 import TechnologiesTabs from "./tech-stack";
 import Certifications from "@/app/services/business-applications/power-apps/certification";
+import CtaMobileApps from "@/app/services/digital-workspace/mobile-app-development/cta";
 
 export default function MobileCaseStudiesPage() {
   return (
@@ -117,12 +118,11 @@ export default function MobileCaseStudiesPage() {
         </div>
       </section>
       <MobileCaseStudies />
-
       <MobileCaseStudyGrid />
       <WhyChooseUs />
       <TechnologiesTabs />
       <Certifications />
-      <ProjectProcessSection />
+      <CtaMobileApps />
       <CaseFooter />
     </div>
   );

@@ -3,9 +3,7 @@
 import React from "react";
 import dynamic from "next/dynamic";
 
-const GlobeScene = dynamic(() => import("@/components/sections/globe"), {
-  ssr: false,
-});
+
 
 interface Partner {
   logoUrl: string;
@@ -99,7 +97,6 @@ const ResponsiveHeroBanner: React.FC<ResponsiveHeroBannerProps> = ({
       <div className="pointer-events-none absolute inset-0 ring-1 ring-black/30 z-0" />
       <div className="hidden lg:block absolute left-0 top-0 h-full w-1/2 z-[1] pointer-events-none overflow-hidden">
         <div className="h-full w-full mask-gradient-left">
-          <GlobeScene />
         </div>
       </div>
 

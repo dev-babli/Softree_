@@ -8,7 +8,7 @@ export default function CtaSharePoint() {
           className="
             grid md:grid-cols-2 gap-10 items-center
             rounded-3xl
-            bg-gradient-to-br from-emerald-700 via-teal-700 to-cyan-700
+            bg-gradient-to-br from-blue-800 via-indigo-800 to-slate-900
             p-8 md:p-10
             text-white
             shadow-xl
@@ -61,16 +61,6 @@ export default function CtaSharePoint() {
                 <p className="text-[11px] text-white/70">Quick Onboarding</p>
               </div>
             </div>
-
-            {/* buttons */}
-            <div className="mt-3 flex gap-3 flex-wrap">
-              <a
-                href="/contact"
-                className="bg-white text-indigo-700 px-6 py-2.5 rounded-lg text-xs font-medium shadow hover:scale-105 transition"
-              >
-                Hire SharePoint Developers
-              </a>
-            </div>
           </div>
 
           {/* ================= RIGHT – MINI FORM ================= */}
@@ -85,34 +75,42 @@ export default function CtaSharePoint() {
               <p className="text-xs text-white/70 mb-4">
                 Tell us your requirement — we’ll reply within 24 hours
               </p>
-
-              <form className="space-y-3">
+              <form
+                action="https://formspree.io/f/myklkyya"
+                method="POST"
+                className="space-y-3"
+              >
                 <input
+                  type="text"
+                  name="name"
                   placeholder="Full Name"
                   className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300"
+                  required
                 />
 
                 <input
+                  type="email"
+                  name="email"
                   placeholder="Work Email"
                   className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300"
+                  required
                 />
 
-                <select className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300">
-                  <option>Requirement Type</option>
-                  <option>Intranet Portal</option>
-                  <option>SPFx Web Parts</option>
-                  <option>Workflow Automation</option>
-                  <option>Migration</option>
-                </select>
+                {/* NEW TEXTAREA */}
+                <textarea
+                  name="project_details"
+                  placeholder="Brief about your project..."
+                  rows={3}
+                  className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300 resize-none"
+                />
 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-cyan-400 to-emerald-500 py-2.5 rounded-lg text-xs font-medium shadow hover:scale-[1.03] transition"
+                  className="w-full bg-gradient-to-r from-cyan-400 to-indigo-500 py-2.5 rounded-lg text-xs font-medium shadow hover:scale-[1.03] transition"
                 >
                   Get Free Estimate
                 </button>
               </form>
-
               <p className="mt-3 text-[10px] text-center text-white/60">
                 🔒 Secure • NDA Protected • No Spam
               </p>

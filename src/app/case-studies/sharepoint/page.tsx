@@ -8,6 +8,7 @@ import TechStack from "./tech-stack";
 import WhyChooseWithTestimonials from "./why";
 import SharePointCaseStudies from "./latest-cases";
 import Certifications from "@/app/services/business-applications/power-apps/certification";
+import CtaSharePoint from "@/app/services/digital-workspace/sharepoint/cta";
 export default function webCaseStudiesPage() {
   return (
     <div>
@@ -125,12 +126,12 @@ export default function webCaseStudiesPage() {
           </svg>
         </div>
       </section>
-    <SharePointCaseStudies />
+      <SharePointCaseStudies />
       <CaseStudyGrid />
       <WhyChooseWithTestimonials />
       <TechStack />
       <Certifications />
-      <ProjectProcessSection />
+      <CtaSharePoint />
       <CaseFooter />
     </div>
   );

@@ -258,62 +258,21 @@ export default function HeroPowerApps() {
             </div>
           </div>
 
-          {/* RIGHT — Slider */}
           <div style={styles.right}>
             <div style={styles.sliderViewport}>
-              <div
-                style={{
-                  ...styles.sliderTrack,
-                  transform: `translateX(-${idx * 100}%)`,
-                }}
-              >
-                {testimonials.map((t, i) => (
-                  <TestimonialSlide key={i} testimonial={t} />
-                ))}
-              </div>
-            </div>
-
-            <div style={styles.progressBar}>
-              <div
-                style={{
-                  ...styles.progressFill,
-                  width: `${progressWidth}%`,
-                }}
-              />
-            </div>
-
-            <div style={styles.controls}>
-              <div style={styles.dots}>
-                {testimonials.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => goTo(i)}
-                    aria-label={`Go to slide ${i + 1}`}
-                    style={{
-                      ...styles.dot,
-                      ...(i === idx ? styles.dotActive : {}),
-                    }}
-                  />
-                ))}
-              </div>
-              <div style={styles.navBtns}>
-                <button
-                  className="nav-btn"
-                  onClick={handlePrev}
-                  aria-label="Previous"
-                  style={styles.navBtn}
+              {testimonials.map((t, i) => (
+                <div
+                  key={i}
+                  style={{
+                    position: "absolute",
+                    width: "100%",
+                    opacity: i === idx ? 1 : 0,
+                    transition: "opacity 0.6s ease-in-out",
+                  }}
                 >
-                  <ChevronLeft />
-                </button>
-                <button
-                  className="nav-btn"
-                  onClick={handleNext}
-                  aria-label="Next"
-                  style={styles.navBtn}
-                >
-                  <ChevronRight />
-                </button>
-              </div>
+                  <TestimonialSlide testimonial={t} />
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -483,10 +442,13 @@ const styles: Record<string, CSSProperties> = {
     marginTop: "2px",
   },
   sliderViewport: {
+    position: "relative",
     overflow: "hidden",
-    width: "100%",
+    width: "130%",
     borderRadius: "20px",
+    minHeight: "305px", // ⭐ IMPORTANT (adjust as needed)
   },
+
   sliderTrack: {
     display: "flex",
     transition: "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -514,14 +476,13 @@ const styles: Record<string, CSSProperties> = {
     fontSize: "56px",
     lineHeight: 0.8,
     color: "rgba(56,189,248,0.25)",
-    marginBottom: "10px",
     display: "block",
   },
   quoteText: {
     fontSize: "16px",
     lineHeight: 1.65,
     color: "rgba(240,246,255,0.88)",
-    marginBottom: "24px",
+    marginBottom: "10px",
   },
   authorRow: {
     display: "flex",

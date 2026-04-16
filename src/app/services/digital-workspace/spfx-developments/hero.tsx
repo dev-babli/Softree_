@@ -261,69 +261,31 @@ export default function HeroPowerApps() {
           {/* RIGHT — Slider */}
           <div style={styles.right}>
             <div style={styles.sliderViewport}>
-              <div
-                style={{
-                  ...styles.sliderTrack,
-                  transform: `translateX(-${idx * 100}%)`,
-                }}
-              >
-                {testimonials.map((t, i) => (
-                  <TestimonialSlide key={i} testimonial={t} />
-                ))}
-              </div>
-            </div>
-
-            <div style={styles.progressBar}>
-              <div
-                style={{
-                  ...styles.progressFill,
-                  width: `${progressWidth}%`,
-                }}
-              />
-            </div>
-
-            <div style={styles.controls}>
-              <div style={styles.dots}>
-                {testimonials.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => goTo(i)}
-                    aria-label={`Go to slide ${i + 1}`}
-                    style={{
-                      ...styles.dot,
-                      ...(i === idx ? styles.dotActive : {}),
-                    }}
-                  />
-                ))}
-              </div>
-              <div style={styles.navBtns}>
-                <button
-                  className="nav-btn"
-                  onClick={handlePrev}
-                  aria-label="Previous"
-                  style={styles.navBtn}
+              {testimonials.map((t, i) => (
+                <div
+                  key={i}
+                  style={{
+                    position: "absolute",
+                    width: "100%",
+                    opacity: i === idx ? 1 : 0,
+                    transition: "opacity 0.6s ease-in-out",
+                  }}
                 >
-                  <ChevronLeft />
-                </button>
-                <button
-                  className="nav-btn"
-                  onClick={handleNext}
-                  aria-label="Next"
-                  style={styles.navBtn}
-                >
-                  <ChevronRight />
-                </button>
-              </div>
+                  <TestimonialSlide testimonial={t} />
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
         <svg
-          style={styles.wave}
+          style={{
+            ...styles.wave,
+            display: "block",
+            marginTop: "-1px", // ⭐ fixes the line
+          }}
           viewBox="0 0 1440 90"
           preserveAspectRatio="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
         >
           <path
             d="M0,50 C320,90 700,10 1080,55 C1260,75 1380,50 1440,40 L1440,90 L0,90 Z"
@@ -483,10 +445,13 @@ const styles: Record<string, CSSProperties> = {
     marginTop: "2px",
   },
   sliderViewport: {
+    position: "relative",
     overflow: "hidden",
-    width: "100%",
+    width: "130%",
     borderRadius: "20px",
+    minHeight: "305px", // ⭐ IMPORTANT (adjust as needed)
   },
+
   sliderTrack: {
     display: "flex",
     transition: "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -514,14 +479,13 @@ const styles: Record<string, CSSProperties> = {
     fontSize: "56px",
     lineHeight: 0.8,
     color: "rgba(56,189,248,0.25)",
-    marginBottom: "10px",
     display: "block",
   },
   quoteText: {
     fontSize: "16px",
     lineHeight: 1.65,
     color: "rgba(240,246,255,0.88)",
-    marginBottom: "24px",
+    marginBottom: "10px",
   },
   authorRow: {
     display: "flex",
@@ -620,11 +584,8 @@ const styles: Record<string, CSSProperties> = {
     transition: "background 0.2s, transform 0.2s",
   },
   wave: {
-    position: "absolute",
-    bottom: 0,
-    left: 0,
     width: "100%",
-    pointerEvents: "none",
-    zIndex: 1,
+    display: "block",
+    lineHeight: 0,
   },
 };

@@ -6,6 +6,7 @@ import ProjectProcessSection from "./start-project";
 import CaseStudyGrid from "./case-study";
 import WhyChooseUs from "./why";
 import AgenticToolsOverview from "./tools";
+import CtaAgenticAI from "./start-project";
 export default function Page() {
   return (
     <div>
@@ -116,12 +117,11 @@ export default function Page() {
           </svg>
         </div>
       </section>
-
       <CaseStudyGrid />
       <WhyChooseUs />
       <AgenticToolsOverview />
-      <ProjectProcessSection />
-      <CaseFooter />
+      <CtaAgenticAI />
+       <CaseFooter />
     </div>
   );
 }

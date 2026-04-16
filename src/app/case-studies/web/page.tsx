@@ -1,12 +1,13 @@
 import NavigationClient from "@/components/sections/navigation-client";
 import ProjectProcessSection from "./start-project";
-import Certifications from "@/app/services/business-applications/power-apps/certification"; 
+import Certifications from "@/app/services/business-applications/power-apps/certification";
 import Link from "next/link";
 import CaseFooter from "../footer";
 import CaseStudyGrid from "./case-study-grid";
 import WhyChooseUs from "./why-chose";
 import TechnologiesTabs from "./collab-tab";
 import WebCaseStudies from "./latest-cases";
+import CtaWebApps from "@/app/services/digital-workspace/web-app-development/cta";
 export default function webCaseStudiesPage() {
   return (
     <div>
@@ -116,13 +117,12 @@ export default function webCaseStudiesPage() {
         </div>
       </section>
       <WebCaseStudies />
-
       <CaseStudyGrid />
       <WhyChooseUs />
       <TechnologiesTabs />
       <Certifications />
-      <ProjectProcessSection />
-      <CaseFooter />
+      <CtaWebApps />
+       <CaseFooter />
     </div>
   );
 }

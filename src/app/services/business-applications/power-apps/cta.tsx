@@ -62,16 +62,6 @@ export default function CtaPowerApps() {
                 <p className="text-[11px] text-white/60">Faster Delivery</p>
               </div>
             </div>
-
-            {/* CTA */}
-            <div className="mt-3 flex gap-3">
-              <a
-                href="/hire-power-apps-developers"
-                className="rounded-lg bg-white text-blue-700 px-6 py-2.5 text-xs font-medium shadow hover:scale-105 transition"
-              >
-                Hire Developers
-              </a>
-            </div>
           </div>
 
           {/* ================= RIGHT – FORM ================= */}
@@ -87,33 +77,38 @@ export default function CtaPowerApps() {
                 We reply within 24 hours
               </p>
 
-              {/* Compact form */}
-              <form className="space-y-3">
+              <form
+                action="https://formspree.io/f/myklkyya"
+                method="POST"
+                className="space-y-3"
+              >
                 <input
+                  type="text"
+                  name="name"
                   placeholder="Full Name"
-                  className="w-full rounded-lg bg-black/30 px-3 py-2.5 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-400"
+                  className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300"
+                  required
                 />
 
                 <input
                   type="email"
+                  name="email"
                   placeholder="Work Email"
-                  className="w-full rounded-lg bg-black/30 px-3 py-2.5 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-400"
+                  className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300"
+                  required
                 />
 
-                <input
-                  placeholder="Organization"
-                  className="w-full rounded-lg bg-black/30 px-3 py-2.5 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-400"
+                {/* NEW TEXTAREA */}
+                <textarea
+                  name="project_details"
+                  placeholder="Brief about your project..."
+                  rows={3}
+                  className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300 resize-none"
                 />
-
-                <select className="w-full rounded-lg bg-black/30 px-3 py-2.5 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-400">
-                  <option>Use Case</option>
-                  <option>Business App</option>
-                  <option>Automation</option>
-                </select>
 
                 <button
                   type="submit"
-                  className="w-full rounded-lg bg-gradient-to-r from-cyan-500 to-indigo-500 py-2.5 text-xs font-medium shadow hover:scale-[1.03] transition"
+                  className="w-full bg-gradient-to-r from-cyan-400 to-indigo-500 py-2.5 rounded-lg text-xs font-medium shadow hover:scale-[1.03] transition"
                 >
                   Get Free Estimate
                 </button>
