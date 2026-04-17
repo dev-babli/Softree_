@@ -17,7 +17,7 @@ import { AgenticAIFAQSection } from "./faq";
 /* ------------------------------------------------------------------ */
 /* Shared Layout Spacing Config                                        */
 /* ------------------------------------------------------------------ */
-const SECTION_WRAPPER = "mx-auto max-w-8xl px-8 sm:px-10 md:px-14 lg:px-20";
+const SECTION_WRAPPER = "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8";
 const SECTION_GAP = "space-y-24 py-8";
 
 export default function Home() {

@@ -12,103 +12,61 @@ import "swiper/css/pagination";
 const caseStudies = [
   {
     title: "Barcode Scanner Model-Driven App",
-
-    summary:
-      "A Microsoft Dataverse-based barcode scanning app that automates real-time inventory tracking and reduces manual data entry.",
-
-    challenge:
-      "Manual inventory processes caused data inaccuracies and operational delays.",
-
-    solution:
-      "Built a model-driven Power App with integrated barcode scanning and automated workflows.",
-
-    impact:
-      "Increased inventory accuracy and reduced manual effort significantly.",
-
-    tech: [
-      "Power Apps (Model-Driven)",
-      "Dataverse",
-      "Power Automate",
-      "Barcode Scanner Control",
-    ],
-
+    summary: "A Dataverse-based barcode app for real-time inventory tracking.",
+    challenge: "Manual inventory caused inaccuracies and delays.",
+    solution: "Built a model-driven Power App with barcode scanning.",
+    impact: "Improved accuracy and reduced manual effort.",
+    tech: ["Power Apps", "Dataverse", "Power Automate", "Barcode Scanner"],
     image: "/images/case-study/power-apps/barcode.png",
-
     href: "/pdf/Barcode Scanner App.pdf",
-
     category: "Power Apps",
   },
 
   {
     title: "Employee Details Tracking System",
-
     summary: "Centralized HR platform replacing spreadsheets.",
-
-    challenge:
-      "Employee data was scattered across spreadsheets causing errors.",
-
-    solution: "Built a secure Power Apps system with automated HR workflows.",
-
-    impact: "Improved data accuracy by 80% and reduced admin workload.",
-
+    challenge: "Employee data scattered across multiple sheets.",
+    solution: "Built a secure Power Apps HR system with automation.",
+    impact: "Improved accuracy by 80% and reduced workload.",
     tech: ["Power Apps", "SharePoint", "Power Automate"],
-
     image: "/images/case-study/power-apps/emp.jpg",
-
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Employee-Details-tracking-System.pdf",
-
     category: "Power Apps",
   },
 
   {
     title: "Projects Portfolio Management",
-
-    summary: "Centralized project tracking with KPI dashboards.",
-
-    challenge: "No unified system for tracking projects and risks.",
-
-    solution: "Built a Dataverse-powered portfolio management app.",
-
-    impact: "Improved project delivery timelines by 40%.",
-
+    summary: "Centralized tracking with KPI dashboards.",
+    challenge: "No unified system for projects and risks.",
+    solution: "Built a Dataverse-powered portfolio app.",
+    impact: "Improved delivery timelines by 40%.",
     tech: ["Power Apps", "Dataverse", "Power BI"],
-
     image: "/images/case-study/power-apps/project.avif",
-
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Projects-Portfolio-ManagementMicrosoft-Dataverse.pdf",
-
     category: "Power Apps",
   },
 
   {
     title: "Students Portal Mobile App",
-
-    summary: "Unified mobile app for campus services.",
-
+    summary: "Unified app for campus services.",
     challenge: "Students used multiple disconnected systems.",
-
-    solution: "Developed a single app for profiles, schedules, and updates.",
-
-    impact: "Increased engagement and reduced support queries by 50%.",
-
+    solution: "Built a single app for profiles and schedules.",
+    impact: "Reduced queries by 50% and increased engagement.",
     tech: ["Power Apps", "Dataverse", "Power Automate"],
-
     image: "/images/case-study/power-apps/student.avif",
-
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Students-Portal-Mobile-App.pdf",
-
     category: "Power Apps",
   },
 ];
 
-export default function PowerBICaseStudies() {
+export default function PowerAppsCaseStudies() {
   const swiperRef = useRef<any>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const router = useRouter();
 
   return (
     <section className="relative min-h-screen flex items-center ">
-      <div className="w-[86%] max-w-7xl mx-auto space-y-8">
+      <div className="max-w-7xl mx-auto px-4 lg:px-8 space-y-8 w-full">
         {/* ================= HEADER ================= */}
         <div className="text-center">
           <span className="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold tracking-[0.18em] uppercase">
@@ -128,19 +86,21 @@ export default function PowerBICaseStudies() {
 
         <div
           className="
-    w-full
-    h-[70vh] max-h-[680px]
-    bg-gradient-to-r from-[#eef2f7] via-[#dbe3ff] to-[#eef2f7]
-    rounded-[32px]
-    border border-slate-200
-    shadow-xl
-    overflow-hidden
-  "
+                w-full
+                h-auto min-h-[680px] md:h-[70vh] md:max-h-[680px]
+                bg-gradient-to-r from-[#eef2f7] via-[#dbe3ff] to-[#eef2f7]
+                rounded-[32px]
+                border border-slate-200
+                shadow-xl
+                overflow-hidden
+              "
         >
           <Swiper
             modules={[Autoplay]}
             slidesPerView={1}
             loop
+            observer={true}
+            observeParents={true}
             autoplay={{
               delay: 5000,
               disableOnInteraction: false,
@@ -161,12 +121,12 @@ export default function PowerBICaseStudies() {
                   {/* CARD BODY */}
                   <div
                     className="
-              w-full
-              h-full
-              bg-gradient-to-r from-black via-[#0f2f7a] to-black
-              p-10
-              flex flex-col justify-center
-            "
+                          w-full
+                          h-full
+                          bg-gradient-to-r from-black via-[#0f2f7a] to-black
+                          p-10
+                          flex flex-col justify-center
+                        "
                   >
                     {/* Header */}
                     <div className="text-center mb-6">
@@ -185,8 +145,8 @@ export default function PowerBICaseStudies() {
                     {/* Content */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
                       {/* Image */}
-                      <div className="flex justify-center">
-                        <div className="w-[380px] h-[300px] overflow-hidden rounded-xl shadow-md ring-1 ring-white/10">
+                      <div className="flex justify-center w-full min-w-0 max-w-sm mx-auto lg:max-w-none">
+                        <div className="w-full aspect-video sm:aspect-[4/3] overflow-hidden rounded-xl shadow-md ring-1 ring-white/10 shrink-0">
                           <img
                             src={item.image}
                             alt={item.title}
@@ -196,7 +156,7 @@ export default function PowerBICaseStudies() {
                       </div>
 
                       {/* Text */}
-                      <div className="space-y-5">
+                      <div className="space-y-5 min-w-0 w-full">
                         {/* SUMMARY */}
                         <div className="space-y-2">
                           <div className="flex items-center gap-2">
@@ -239,22 +199,23 @@ export default function PowerBICaseStudies() {
                         {/* IMPACT BOX */}
                         <div
                           className="
-        relative
-        rounded-xl
-        px-5 py-4
-        flex flex-col gap-3
-        sm:flex-row sm:items-center sm:justify-between
-        bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600
-        text-white
-        shadow-lg
-        overflow-hidden
-      "
+                    relative
+                    rounded-xl
+                    px-5 py-4
+                    flex flex-col gap-4
+                    xl:flex-row xl:items-center xl:justify-between
+                    bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600
+                    text-white
+                    shadow-lg
+                    overflow-hidden
+                    w-full
+                  "
                         >
-                          <div className="relative z-10 space-y-0.5">
-                            <p className="text-xs uppercase tracking-wider text-white/70">
+                          <div className="relative z-10 space-y-0.5 flex-1 min-w-0 pr-3">
+                            <p className="text-xs uppercase tracking-wider text-white/70 truncate">
                               Impact
                             </p>
-                            <p className="text-sm font-semibold leading-snug">
+                            <p className="text-sm font-semibold leading-snug break-words">
                               {item.impact}
                             </p>
                           </div>
@@ -264,17 +225,17 @@ export default function PowerBICaseStudies() {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="
-    relative z-10
-    inline-flex items-center justify-center
-    px-4 py-2
-    text-xs font-semibold uppercase tracking-wide
-    rounded-full
-    bg-white text-indigo-700
-    hover:scale-105
-    transition-all duration-300
-    whitespace-nowrap
-    flex-shrink-0
-  "
+                relative z-10
+                inline-flex items-center justify-center
+                px-4 py-2
+                text-xs font-semibold uppercase tracking-wide
+                rounded-full
+                bg-white text-indigo-700
+                hover:scale-105
+                transition-all duration-300
+                whitespace-nowrap
+                flex-shrink-0
+              "
                           >
                             View Case Study →
                           </a>

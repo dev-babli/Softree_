@@ -76,7 +76,7 @@ export default function PremiumSlider() {
 
   return (
     <section className="relative py-10 overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         {/* ========= HEADER ========= */}
         <div className="text-center mb-1">
           <h2 className="text-4xl md:text-5xl font-bold text-blue-900">

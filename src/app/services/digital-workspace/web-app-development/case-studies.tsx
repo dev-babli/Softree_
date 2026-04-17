@@ -134,14 +134,14 @@ export default function WebAppCaseStudies() {
 
         <div
           className="
-    w-full
-    h-[70vh] max-h-[680px]
-    bg-gradient-to-r from-[#eef2f7] via-[#dbe3ff] to-[#eef2f7]
-    rounded-[32px]
-    border border-slate-200
-    shadow-xl
-    overflow-hidden
-  "
+        w-full
+        h-auto min-h-[680px] md:h-[70vh] md:max-h-[680px]
+        bg-gradient-to-r from-[#eef2f7] via-[#dbe3ff] to-[#eef2f7]
+        rounded-[32px]
+        border border-slate-200
+        shadow-xl
+        overflow-hidden
+      "
         >
           <Swiper
             modules={[Autoplay]}
@@ -167,12 +167,12 @@ export default function WebAppCaseStudies() {
                   {/* CARD BODY */}
                   <div
                     className="
-              w-full
-              h-full
-              bg-gradient-to-r from-black via-[#0f2f7a] to-black
-              p-10
-              flex flex-col justify-center
-            "
+                  w-full
+                  h-full
+                  bg-gradient-to-r from-black via-[#0f2f7a] to-black
+                  p-10
+                  flex flex-col justify-center
+                "
                   >
                     {/* Header */}
                     <div className="text-center mb-6">
@@ -191,8 +191,8 @@ export default function WebAppCaseStudies() {
                     {/* Content */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
                       {/* Image */}
-                      <div className="flex justify-center">
-                        <div className="w-[400px] h-[300px] overflow-hidden rounded-xl shadow-md ring-1 ring-white/10">
+                      <div className="flex justify-center w-full min-w-0">
+                        <div className="w-full max-w-[380px] h-[200px] sm:h-[250px] lg:h-[300px] overflow-hidden rounded-xl shadow-md ring-1 ring-white/10 shrink-0">
                           <img
                             src={item.image}
                             alt={item.title}
@@ -202,7 +202,7 @@ export default function WebAppCaseStudies() {
                       </div>
 
                       {/* Text */}
-                      <div className="space-y-5">
+                      <div className="space-y-5 min-w-0 w-full">
                         {/* SUMMARY */}
                         <div className="space-y-2">
                           <div className="flex items-center gap-2">
@@ -245,22 +245,22 @@ export default function WebAppCaseStudies() {
                         {/* IMPACT BOX */}
                         <div
                           className="
-        relative
-        rounded-xl
-        px-5 py-4
-        flex flex-col gap-3
-        sm:flex-row sm:items-center sm:justify-between
-        bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600
-        text-white
-        shadow-lg
-        overflow-hidden
-      "
+            relative
+            rounded-xl
+            px-5 py-4
+            flex flex-col gap-3
+            sm:flex-row sm:items-center sm:justify-between
+            bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600
+            text-white
+            shadow-lg
+            overflow-hidden
+          "
                         >
-                          <div className="relative z-10 space-y-0.5">
-                            <p className="text-xs uppercase tracking-wider text-white/70">
+                          <div className="relative z-10 space-y-0.5 flex-1 min-w-0 pr-3">
+                            <p className="text-xs uppercase tracking-wider text-white/70 truncate">
                               Impact
                             </p>
-                            <p className="text-sm font-semibold leading-snug">
+                            <p className="text-sm font-semibold leading-snug break-words">
                               {item.impact}
                             </p>
                           </div>
@@ -270,17 +270,17 @@ export default function WebAppCaseStudies() {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="
-    relative z-10
-    inline-flex items-center justify-center
-    px-4 py-2
-    text-xs font-semibold uppercase tracking-wide
-    rounded-full
-    bg-white text-indigo-700
-    hover:scale-105
-    transition-all duration-300
-    whitespace-nowrap
-    flex-shrink-0
-  "
+        relative z-10
+        inline-flex items-center justify-center
+        px-4 py-2
+        text-xs font-semibold uppercase tracking-wide
+        rounded-full
+        bg-white text-indigo-700
+        hover:scale-105
+        transition-all duration-300
+        whitespace-nowrap
+        flex-shrink-0
+      "
                           >
                             View Case Study →
                           </a>

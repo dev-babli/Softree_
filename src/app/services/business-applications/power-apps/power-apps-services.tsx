@@ -70,7 +70,7 @@ export default function PowerAppsServices() {
 
   return (
     <section className="relative overflow-hidden">
-      <div className="relative w-[86%] max-w-7xl mx-auto py-6">
+      <div className="relative w-full px-6 max-w-7xl mx-auto py-6">
         {/* ================= HEADER ================= */}
         <div className="text-center mb-5 px-4">
           <h2 className="text-3xl lg:text-4xl font-semibold text-gray-900 leading-tight">
@@ -89,7 +89,7 @@ export default function PowerAppsServices() {
         </div>
 
         {/* ================= MAIN GRID ================= */}
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+        <div className="max-w-7xl w-full mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           {/* ================= LEFT PANEL ================= */}
           <div className="md:col-span-1 md:sticky top-20 flex">
             <div

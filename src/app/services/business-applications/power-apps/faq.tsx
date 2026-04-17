@@ -64,7 +64,7 @@ export function AgenticAIFAQSection() {
   return (
     <section className="w-full py-24 px-4 md:px-6 bg-gradient-to-b from-zinc-50 via-white to-zinc-50 text-black">
       {/* Container */}
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <p className="inline-block text-sm md:text-base text-gray-600 font-semibold tracking-wide mb-3 uppercase px-4 py-1 rounded-full border border-gray-300 bg-gray-50">
