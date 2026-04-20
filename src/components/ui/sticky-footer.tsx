@@ -92,8 +92,6 @@ const footerLinkGroups: FooterLinkGroup[] = [
     label: "Company",
     links: [
       { title: "About Us", href: "/about-us" },
-      { title: "Case Studies", href: "/case-studies" },
-      { title: "Blog", href: "/blog" },
       { title: "Contact", href: "/contact" },
       { title: "Privacy Policy", href: "/privacy-policy" },
       { title: "Terms", href: "/terms" },

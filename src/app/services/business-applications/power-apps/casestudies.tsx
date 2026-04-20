@@ -144,7 +144,7 @@ export default function PowerAppsCaseStudies() {
                     {/* Content */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
                       {/* Image */}
-                      <div className="flex justify-center w-full min-w-0 max-w-sm mx-auto lg:max-w-none">
+                      <div className="flex justify-center w-full min-w-0 max-w-md mx-auto lg:max-w-none">
                         <div className="w-full aspect-video sm:aspect-[4/3] overflow-hidden rounded-xl shadow-md ring-1 ring-white/10 shrink-0">
                           <img
                             src={item.image}

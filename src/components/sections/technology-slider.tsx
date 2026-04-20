@@ -53,7 +53,7 @@ const techData: TechItem[] = [
   },
   {
     id: 4,
-    title: "Digital Workspace & Custom Application Engineering",
+    title: "Digital Workspace & Custom Application",
     description:
       "Secure Microsoft 365 and custom app solutions aligned to your strategy.",
     bgImage: "/images/digital.jpg",

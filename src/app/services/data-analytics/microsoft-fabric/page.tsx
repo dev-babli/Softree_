@@ -4,7 +4,7 @@ import ProwessSection from "./process";
 import WhyFabricSection from "./business";
 import HireFabricPricing from "./pricing";
 import WhyChooseWithTestimonials from "./why";
-import TrustedBrandsMarquee from "./trust";
+import TrustedBrandsMarquee from "../../business-applications/power-apps/trust";
 import CtaFabric from "./cta";
 import UseCasesSection from "./use-cases";
 import NavigationClient from "@/components/sections/navigation-client";

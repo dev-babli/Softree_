@@ -7,13 +7,13 @@ import CtaAbout from "./cta";
 import WhyChooseUs from "./why";
 import PowerBIStackOverview from "./tools";
 import PowerBIBenefits from "./benefits";
-import TrustedBrandsMarquee from "./trust";
 import StackedSlider from "./stach-slider";
 import PowerBICaseStudies from "./case-studies";
 import HirePowerBIPricing from "./pricing";
 import PowerBIProcessSection from "./process";
 import TestimonialsSplitSlider from "./testimonials";
 import { PowerBIFaq } from "./faq";
+import TrustedBrandsMarquee from "../../business-applications/power-apps/trust";
 /* ------------------------------------------------------------------ */
 /* Fixed Width Config                                                  */
 /* ------------------------------------------------------------------ */
