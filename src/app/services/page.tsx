@@ -4,7 +4,9 @@ import ServicesHeader from "./header";
 import ServicesDetails from "./service-details";
 import CaseStudiesSlider from "./cases";
 import ProjectProcessSection from "./start-project";
-import Certifications from "./business-applications/power-apps/certification";
+import Certifications from "./business-applications/power-platform/certification";
+import CTASection from "../about-us/cta";
+
 export default function Home() {
   return (
     <>
@@ -16,7 +18,7 @@ export default function Home() {
         <ServicesDetails />
         <CaseStudiesSlider />
         <Certifications />
-        <ProjectProcessSection />
+        <CTASection />
       </main>
       {/* FOOTER */}
       <Footer />

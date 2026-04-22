@@ -39,35 +39,32 @@ const whyChoose = [
   },
 ];
 
+<meta
+  name="google-site-verification"
+  content="CBKqqECDJRj5OGKmASLx9E8oM6XET_LWY_4_mWL5A3k"
+/>;
 /* ================= REVIEWS DATA ================= */
 const reviews = [
   {
-    name: "Alexander Brooks",
+    name: "Natasha Adams",
     rating: 5,
     comment:
-      "Softree’s Generative AI solution helped us automate content creation and improve customer engagement with intelligent, human-like responses.",
-    location: "United States",
+      "We had a very positive experience working with Softree Technology. The developers were responsive and delivery was on time. We appreciate the attention they gave our project and their great communication. The final product was exactly what we wanted and we look forward to working with Softree in the future.",
+    location: "Virginial",
   },
   {
-    name: "Charlotte Evans",
+    name: "Arkady Fedorovtsjev",
     rating: 5,
     comment:
-      "Their team built a powerful Gen AI application tailored to our business needs. The accuracy and contextual understanding exceeded our expectations.",
-    location: "United Kingdom",
+      "Overall, we are satisfied with our collaboration in the past and your last action and response to our reported issue, really makes a difference.",
+    location: "Netherlands",
   },
   {
-    name: "Benjamin Scott",
+    name: "Darrell Trimble",
     rating: 5,
     comment:
-      "The AI-powered chatbot and document generation system significantly reduced manual workload and improved turnaround time.",
-    location: "Australia",
-  },
-  {
-    name: "Ishita Rao",
-    rating: 5,
-    comment:
-      "Softree delivered a scalable Generative AI platform that integrates seamlessly with our existing tools. Outstanding technical expertise.",
-    location: "India",
+      "SOFTREE staff worked with us to learn our installation automation technology and built exactly what we needed.",
+    location: "California",
   },
 ];
 

@@ -32,21 +32,6 @@ type StickyFooterProps = React.ComponentProps<"footer">;
 
 const socialLinks = [
   {
-    title: "Facebook",
-    href: "https://www.facebook.com/softreetechnology",
-    icon: Facebook,
-  },
-  {
-    title: "Instagram",
-    href: "https://www.instagram.com/softreetechnology/",
-    icon: Instagram,
-  },
-  {
-    title: "Youtube",
-    href: "https://www.youtube.com/@softreetechnologypvt.ltd.9452",
-    icon: Youtube,
-  },
-  {
     title: "LinkedIn",
     href: "https://www.linkedin.com/company/softree-technology-pvt-ltd/",
     icon: Linkedin,
@@ -57,7 +42,10 @@ const footerLinkGroups: FooterLinkGroup[] = [
   {
     label: "Digital Engineering",
     links: [
-      { title: "Web App Development", href: "/services/digital-workspace/web-app-development" },
+      {
+        title: "Web App Development",
+        href: "/services/digital-workspace/web-app-development",
+      },
       {
         title: "Mobile App Development",
         href: "/services/digital-workspace/mobile-app-development",
@@ -69,23 +57,38 @@ const footerLinkGroups: FooterLinkGroup[] = [
   {
     label: "SharePoint & M365",
     links: [
-      { title: "SharePoint Development", href: "/services/digital-workspace/sharepoint" },
-      { title: "SPFx Solutions", href: "/services/digital-workspace/spfx-developments" },
+      {
+        title: "SharePoint Development",
+        href: "/services/digital-workspace/sharepoint",
+      },
+      {
+        title: "SPFx Solutions",
+        href: "/services/digital-workspace/spfx-developments",
+      },
     ],
   },
   {
     label: "Power Platform",
     links: [
-      { title: "Power Apps", href: "/services/business-applications/power-apps" },
+      {
+        title: "Power Apps",
+        href: "/services/business-applications/power-apps",
+      },
       { title: "Power BI", href: "/services/data-analytics/power-bi" },
-       { title: "Microsoft Fabric", href: "/services/data-analytics/microsoft-fabric" },
+      {
+        title: "Microsoft Fabric",
+        href: "/services/data-analytics/microsoft-fabric",
+      },
     ],
   },
   {
     label: "AI Services",
     links: [
       { title: "Agentic AI", href: "/services/ai-intelligence/agentic-ai" },
-      { title: "Generative AI", href: "/services/ai-intelligence/generative-ai" },
+      {
+        title: "Generative AI",
+        href: "/services/ai-intelligence/generative-ai",
+      },
     ],
   },
   {
@@ -156,7 +159,7 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
                 enterprises worldwide. Expert engineering across Power Platform,
                 Data, AI & Modern Applications.
               </p>
-              <div className="flex gap-2">
+              <div className="mt-2 flex flex-wrap gap-3">
                 {socialLinks.map((link) => (
                   <Link
                     key={link.title}
@@ -164,9 +167,14 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={link.title}
-                    className="flex size-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-500 transition-all hover:border-blue-200 hover:bg-blue-50 hover:text-blue-600"
+                    className="group flex w-fit items-center gap-3 rounded-full bg-blue-600 p-1.5 pr-6 text-sm font-medium text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-md hover:shadow-blue-600/20"
                   >
-                    <link.icon className="size-4" />
+                    <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/20 text-white transition-colors duration-300 group-hover:bg-white/30 group-hover:scale-105">
+                      <link.icon className="size-4" />
+                    </span>
+                    <span className="whitespace-nowrap">
+                      Follow on {link.title}
+                    </span>
                   </Link>
                 ))}
               </div>

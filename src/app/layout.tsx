@@ -3,9 +3,74 @@ import "./globals.css";
 import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
+
 export const metadata: Metadata = {
-  title: "Softree Technology",
-  description: "Enterprise-grade digital solutions and software services",
+  metadataBase: new URL("https://softree-2.vercel.app"), // change later
+
+  title: {
+    default: "Softree | Power Platform, AI, Data & Modern App Development",
+    template: "%s | Softree",
+  },
+
+  description:
+    "Softree delivers Power Platform solutions, AI-driven applications, data engineering, and modern web development using React, Next.js, and cloud technologies.",
+
+  keywords: [
+    "Power Platform services",
+    "AI development company",
+    "Data engineering services",
+    "Next.js development company",
+    "React development services",
+    "enterprise software solutions",
+    "modern web applications",
+  ],
+
+  authors: [{ name: "Softree" }],
+  creator: "Softree",
+  publisher: "Softree",
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  verification: {
+    google: "CBKqqECDJRj5OGKmASLx9E8oM6XET_LWY_4_mWL5A3k",
+  },
+
+  alternates: {
+    canonical: "/",
+  },
+
+  openGraph: {
+    title: "Softree | AI & Modern Application Development",
+    description:
+      "Build scalable AI-powered and modern web applications with Softree using Power Platform, React, Next.js, and cloud technologies.",
+    url: "https://softree-2.vercel.app",
+    siteName: "Softree",
+    images: [
+      {
+        url: "/og-image.png", // add this image
+        width: 1200,
+        height: 630,
+        alt: "Softree - AI Development Company",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Softree | AI, Data & Web Development",
+    description:
+      "Power Platform, AI solutions, and modern web development services.",
+    images: ["/og-image.png"],
+  },
+
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -15,7 +80,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      {/* ✅ GTM Script (HEAD equivalent in Next.js) */}
+      {/* ✅ Google Tag Manager */}
       <Script
         id="gtm-script"
         strategy="afterInteractive"
@@ -34,7 +99,7 @@ export default function RootLayout({
       />
 
       <body className="antialiased bg-[#141414] text-white">
-        {/* ✅ GTM NoScript (IMPORTANT - must be first inside body) */}
+        {/* ✅ GTM NoScript */}
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-KDMTPWS8"
@@ -43,6 +108,22 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
+
+        {/* ✅ Structured Data (SEO BOOST 🚀) */}
+        <Script
+          id="ld-json"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Softree",
+              url: "https://softree-2.vercel.app",
+              logo: "https://softree-2.vercel.app/logo.png",
+            }),
+          }}
+        />
+
         {/* Browser log script */}
         <Script
           id="orchids-browser-logs"
@@ -50,8 +131,10 @@ export default function RootLayout({
           strategy="afterInteractive"
           data-orchids-project-id="f9231059-3647-4f7a-ab8a-965fcb6abfb0"
         />
+
         {/* Global error reporter */}
         <ErrorReporter />
+
         {/* Route messenger */}
         <Script
           id="route-messenger"
@@ -64,13 +147,16 @@ export default function RootLayout({
           data-debug="true"
           data-custom-data='{"appName":"Softree","version":"1.0.0"}'
         />
+
         {children}
-        /* ✅ Tidio Chatbot */
+
+        {/* ✅ Tidio Chatbot (FIXED COMMENT) */}
         <Script
           src="//code.tidio.co/wt0gzqlmxpfwlnsv7aculpsflifbbv7v.js"
           strategy="afterInteractive"
         />
-        {/* Visual editor bridge */}
+
+        {/* Visual editor */}
         <VisualEditsMessenger />
       </body>
     </html>

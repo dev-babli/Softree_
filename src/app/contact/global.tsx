@@ -14,9 +14,9 @@ const locations = [
         Odisha, India
       </>
     ),
-    phone: "+91 91786 65408",
-    mail: "soumyap@softreetechnology.com",
-    salesPerson: "Soumya Priyadarshini",
+    phone: "+91 70086 99927",
+    mail: "srikantb@softreetechnology.com",
+    salesPerson: "Srikanta Barik",
     highlight: true,
   },
 
@@ -139,7 +139,7 @@ export default function GlobalLocations() {
                         </div>
                       </div>
 
-                      {/* Sales */}
+                      {/* Contact */}
                       {loc.salesPerson && (
                         <div className="flex items-start gap-3">
                           <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-gray-800 ring-1 ring-white/10">
@@ -148,7 +148,7 @@ export default function GlobalLocations() {
 
                           <div className="flex flex-col">
                             <span className="text-xs text-gray-400">
-                              Sales Contact
+                              CEO
                             </span>
                             <span className="font-semibold">
                               {loc.salesPerson}

@@ -39,38 +39,31 @@ const whyChoose = [
   },
 ];
 
-/* ================= SHAREPOINT REVIEWS DATA ================= */
+/* ================= REVIEWS DATA ================= */
 const reviews = [
   {
-    name: "Rajesh Kumar",
+    name: "Natasha Adams",
     rating: 5,
     comment:
-      "Softree delivered a scalable SharePoint Online solution that streamlined our document management and automated approval workflows.",
-    location: "India",
+      "We had a very positive experience working with Softree Technology. The developers were responsive and delivery was on time. We appreciate the attention they gave our project and their great communication. The final product was exactly what we wanted and we look forward to working with Softree in the future.",
+    location: "Virginial",
   },
-  {
-    name: "Sarah Thompson",
+   {
+    name: "Arkady Fedorovtsjev",
     rating: 5,
     comment:
-      "Their SharePoint intranet implementation improved collaboration across departments and enhanced internal communication.",
-    location: "United Kingdom",
+      "Overall, we are satisfied with our collaboration in the past and your last action and response to our reported issue, really makes a difference.",
+    location: "Netherlands",
   },
-  {
-    name: "Michael Roberts",
+   {
+    name: "Darrell Trimble",
     rating: 5,
     comment:
-      "The SharePoint migration from on-prem to SharePoint Online was seamless, with zero data loss and minimal downtime.",
-    location: "Canada",
+      "SOFTREE staff worked with us to learn our installation automation technology and built exactly what we needed.",
+    location: "California",
   },
-  {
-    name: "Neha Sharma",
-    rating: 5,
-    comment:
-      "Softree built custom SharePoint workflows and permissions that perfectly matched our business requirements.",
-    location: "India",
-  },
+  
 ];
-
 export default function WhyChooseWithTestimonials() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
@@ -88,7 +81,7 @@ export default function WhyChooseWithTestimonials() {
   }, [paused]);
 
   return (
-    <section className="py-18 bg-white text-gray-900">
+    <section className="py-14 bg-gradient-to-b from-zinc-50 via-white to-zinc-50 text-gray-900">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         {/* ================= LEFT : WHY CHOOSE ================= */}
         <div className="relative">
@@ -100,7 +93,14 @@ export default function WhyChooseWithTestimonials() {
           {/* Heading */}
           <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-10">
             Built for{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span
+              className=" bg-gradient-to-r
+      from-blue-600
+      via-cyan-500
+      to-blue-600
+      bg-clip-text
+      text-transparent"
+            >
               Long-Term Impact
             </span>
           </h2>

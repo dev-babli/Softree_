@@ -7,7 +7,7 @@ import CaseStudyGrid from "./case-study";
 import TechStack from "./tech-stack";
 import WhyChooseWithTestimonials from "./why";
 import SharePointCaseStudies from "./latest-cases";
-import Certifications from "@/app/services/business-applications/power-apps/certification";
+import Certifications from "@/app/services/business-applications/power-platform/certification";
 import CtaSharePoint from "@/app/services/digital-workspace/sharepoint/cta";
 export default function webCaseStudiesPage() {
   return (

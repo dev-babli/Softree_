@@ -39,35 +39,32 @@ const whyChoose = [
   },
 ];
 
+<meta
+  name="google-site-verification"
+  content="CBKqqECDJRj5OGKmASLx9E8oM6XET_LWY_4_mWL5A3k"
+/>;
 /* ================= REVIEWS DATA ================= */
 const reviews = [
   {
-    name: "Jonathan Reed",
+    name: "Natasha Adams",
     rating: 5,
     comment:
-      "Softree built a custom Power Apps solution that automated our manual processes and improved operational efficiency across departments.",
-    location: "United States",
+      "We had a very positive experience working with Softree Technology. The developers were responsive and delivery was on time. We appreciate the attention they gave our project and their great communication. The final product was exactly what we wanted and we look forward to working with Softree in the future.",
+    location: "Virginial",
   },
   {
-    name: "Priya Nair",
+    name: "Arkady Fedorovtsjev",
     rating: 5,
     comment:
-      "Their expertise in Power Apps and Power Automate helped us streamline approvals and data management with a user-friendly interface.",
-    location: "India",
+      "Overall, we are satisfied with our collaboration in the past and your last action and response to our reported issue, really makes a difference.",
+    location: "Netherlands",
   },
   {
-    name: "Daniel Hughes",
+    name: "Darrell Trimble",
     rating: 5,
     comment:
-      "The Power Apps application integrates seamlessly with SharePoint and Dataverse, providing real-time insights and improved collaboration.",
-    location: "United Kingdom",
-  },
-  {
-    name: "Olivia Chen",
-    rating: 5,
-    comment:
-      "Softree delivered a scalable Power Platform solution that reduced development time and significantly increased productivity.",
-    location: "Singapore",
+      "SOFTREE staff worked with us to learn our installation automation technology and built exactly what we needed.",
+    location: "California",
   },
 ];
 export default function WhyChooseWithTestimonials() {
@@ -87,7 +84,7 @@ export default function WhyChooseWithTestimonials() {
   }, [paused]);
 
   return (
-    <section className="py-14 bg-gradient-to-b from-zinc-50 via-white to-zinc-50 text-gray-900">
+    <section className="text-gray-900">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         {/* ================= LEFT : WHY CHOOSE ================= */}
         <div className="relative">
@@ -99,14 +96,7 @@ export default function WhyChooseWithTestimonials() {
           {/* Heading */}
           <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-10">
             Built for{" "}
-            <span
-              className=" bg-gradient-to-r
-      from-blue-600
-      via-cyan-500
-      to-blue-600
-      bg-clip-text
-      text-transparent"
-            >
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
               Long-Term Impact
             </span>
           </h2>

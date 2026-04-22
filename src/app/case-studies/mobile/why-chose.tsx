@@ -42,35 +42,28 @@ const whyChoose = [
 /* ================= REVIEWS DATA ================= */
 const reviews = [
   {
-    name: "Daniel Carter",
+    name: "Natasha Adams",
     rating: 5,
     comment:
-      "The mobile app developed by Softree streamlined our operations with real-time data access and a smooth user experience. Performance and stability are excellent.",
-    location: "United States",
+      "We had a very positive experience working with Softree Technology. The developers were responsive and delivery was on time. We appreciate the attention they gave our project and their great communication. The final product was exactly what we wanted and we look forward to working with Softree in the future.",
+    location: "Virginial",
   },
-  {
-    name: "Emma Wilson",
+   {
+    name: "Arkady Fedorovtsjev",
     rating: 5,
     comment:
-      "Their team built a highly responsive and intuitive mobile application that perfectly matched our business requirements. Delivery was on time and well-executed.",
-    location: "Australia",
+      "Overall, we are satisfied with our collaboration in the past and your last action and response to our reported issue, really makes a difference.",
+    location: "Netherlands",
   },
-  {
-    name: "Liam Anderson",
+   {
+    name: "Darrell Trimble",
     rating: 5,
     comment:
-      "Impressive mobile app architecture with seamless backend integration. The UI/UX design is clean, modern, and user-friendly.",
-    location: "Germany",
+      "SOFTREE staff worked with us to learn our installation automation technology and built exactly what we needed.",
+    location: "California",
   },
-  {
-    name: "Olivia Martinez",
-    rating: 5,
-    comment:
-      "The cross-platform mobile solution helped our team stay connected and productive on the go. Excellent support and technical expertise.",
-    location: "Singapore",
-  },
+  
 ];
-
 export default function WhyChooseWithTestimonials() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
@@ -88,7 +81,7 @@ export default function WhyChooseWithTestimonials() {
   }, [paused]);
 
   return (
-    <section className="py-8 bg-white text-gray-900">
+    <section className="py-14 bg-gradient-to-b from-zinc-50 via-white to-zinc-50 text-gray-900">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         {/* ================= LEFT : WHY CHOOSE ================= */}
         <div className="relative">

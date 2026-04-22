@@ -7,7 +7,7 @@ import AgileProcessStack from "./agile";
 import OurStorySection from "./story";
 import AboutUsWithTestimonials from "./hero";
 import ProjectProcessSection from "./start-project";
-import Certifications from "@/app/services/business-applications/power-apps/certification";
+import Certifications from "@/app/services/business-applications/power-platform/certification";
 import WhoWeAre from "./who";
 import CoreCapabilities from "./core";
 import ProcessTimeline from "./process";
@@ -39,7 +39,7 @@ export default function Home() {
           <InspiredByOurValues />
           <EngagementModels />
           <Certifications />
-          <CTASection/>
+          <CTASection />
         </div>
       </section>
       <Footer />

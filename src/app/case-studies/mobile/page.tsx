@@ -7,7 +7,7 @@ import Link from "next/link";
 import WhyChooseUs from "./why-chose";
 import MobileCaseStudies from "./latest-cases";
 import TechnologiesTabs from "./tech-stack";
-import Certifications from "@/app/services/business-applications/power-apps/certification";
+import Certifications from "@/app/services/business-applications/power-platform/certification";
 import CtaMobileApps from "@/app/services/digital-workspace/mobile-app-development/cta";
 
 export default function MobileCaseStudiesPage() {

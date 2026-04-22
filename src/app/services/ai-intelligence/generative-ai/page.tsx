@@ -8,8 +8,8 @@ import WhyChooseUs from "./why-gen-ai";
 import GenAIFramework from "./gen-frame";
 import CtaGenAI from "./cta";
 import HeroWithTestimonial from "./hero";
-import TrustedBrandsMarquee from "../../business-applications/power-apps/trust";
-import Certifications from "../../business-applications/power-apps/certification";
+import TrustedBrandsMarquee from "../../business-applications/power-platform/trust";
+import Certifications from "../../business-applications/power-platform/certification";
 import { GenAIFaq } from "./faq";
 export default function GenerativeAI() {
   return (

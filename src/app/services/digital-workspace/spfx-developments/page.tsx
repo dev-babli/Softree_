@@ -6,7 +6,7 @@ import SpfxTabs from "./spfx-tab";
 import SoftreeExpertiseTimeline from "./spfx.expertise";
 import SpfxShowcase from "./case-study";
 import CtaSharePoint from "./cta";
-import TrustedBrandsMarquee from "../../business-applications/power-apps/trust";
+import TrustedBrandsMarquee from "../../business-applications/power-platform/trust";
 import { SPFaq } from "./faq";
 export default function Page() {
   return (

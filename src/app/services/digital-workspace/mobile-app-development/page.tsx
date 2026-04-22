@@ -1,8 +1,8 @@
 "use client";
 import NavigationClient from "@/components/sections/navigation-client";
-import Certifications from "../../business-applications/power-apps/certification";
+import Certifications from "../../business-applications/power-platform/certification";
 import Footer from "@/components/sections/footer";
-import TrustedBrandsMarquee from "../../business-applications/power-apps/trust";
+import TrustedBrandsMarquee from "../../business-applications/power-platform/trust";
 import MobileAppHero from "./hero";
 import MobileAppCaseStudies from "./case-studies";
 import WhoWeWorkWith from "./who-we";

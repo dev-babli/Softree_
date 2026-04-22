@@ -137,19 +137,19 @@ const menu: MenuItem[] = [
         links: [
           {
             label: "Power Apps",
-            url: "/services/business-applications/power-apps",
+            url: "/services/business-applications/power-platform",
             icon: LayoutDashboard, // updated
             description: "Low-code app development",
           },
           {
             label: "Power Automate",
-            url: "/services/business-applications/power-apps", // fixed
+            url: "/services/business-applications/power-platform", // fixed
             icon: Workflow, // updated
             description: "Workflow automation",
           },
           {
             label: "Dataverse",
-            url: "/services/business-applications/power-apps", // fixed
+            url: "/services/business-applications/power-platform", // fixed
             icon: Server, // updated
             description: "Unified data platform",
           },
@@ -265,7 +265,7 @@ const menu: MenuItem[] = [
         links: [
           {
             label: "Power Apps Case Studies",
-            url: "/case-studies/power-apps",
+            url: "/case-studies/power-platform",
             icon: AppWindow,
             description: "Real-world low-code solutions",
           },
@@ -515,7 +515,6 @@ export default function Navigation() {
             className="px-5 py-2.5 text-sm font-semibold text-white bg-black rounded-full hover:scale-105 hover:shadow-lg transition"
           >
             Get Started
-            
           </Link>
         </div>
 

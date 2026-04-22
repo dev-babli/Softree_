@@ -1,6 +1,6 @@
 import NavigationClient from "@/components/sections/navigation-client";
 import ProjectProcessSection from "./start-project";
-import Certifications from "@/app/services/business-applications/power-apps/certification";
+import Certifications from "@/app/services/business-applications/power-platform/certification";
 import Link from "next/link";
 import CaseFooter from "../footer";
 import CaseStudyGrid from "./case-study-grid";
@@ -122,7 +122,7 @@ export default function webCaseStudiesPage() {
       <TechnologiesTabs />
       <Certifications />
       <CtaWebApps />
-       <CaseFooter />
+      <CaseFooter />
     </div>
   );
 }

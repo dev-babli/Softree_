@@ -39,35 +39,31 @@ const whyChoose = [
   },
 ];
 
+<meta name="google-site-verification" content="CBKqqECDJRj5OGKmASLx9E8oM6XET_LWY_4_mWL5A3k" />
 /* ================= REVIEWS DATA ================= */
 const reviews = [
   {
-    name: "Rajesh Kumar",
+    name: "Natasha Adams",
     rating: 5,
     comment:
-      "Softree delivered a well-architected SharePoint and Power Platform solution that significantly improved our internal workflows.",
-    location: "India",
+      "We had a very positive experience working with Softree Technology. The developers were responsive and delivery was on time. We appreciate the attention they gave our project and their great communication. The final product was exactly what we wanted and we look forward to working with Softree in the future.",
+    location: "Virginial",
   },
-  {
-    name: "Sarah Thompson",
+   {
+    name: "Arkady Fedorovtsjev",
     rating: 5,
     comment:
-      "Their consultants clearly understood our requirements and delivered high-quality results on time.",
-    location: "United Kingdom",
+      "Overall, we are satisfied with our collaboration in the past and your last action and response to our reported issue, really makes a difference.",
+    location: "Netherlands",
   },
-  {
-    name: "Michael Roberts",
+   {
+    name: "Darrell Trimble",
     rating: 5,
     comment:
-      "Strong technical expertise and clear communication throughout the project.",
-    location: "Canada",
+      "SOFTREE staff worked with us to learn our installation automation technology and built exactly what we needed.",
+    location: "California",
   },
-  {
-    name: "Neha Sharma",
-    rating: 5,
-    comment: "Softree’s Power BI dashboards are intuitive and impactful.",
-    location: "India",
-  },
+  
 ];
 
 export default function WhyChooseWithTestimonials() {

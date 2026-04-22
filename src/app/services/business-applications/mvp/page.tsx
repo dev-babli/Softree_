@@ -9,7 +9,7 @@ import MvpTechStack from "./tech";
 import WhyChooseUsMVP from "./why";
 import MvpServices from "./services";
 import CtaMvp from "./cta";
-import Certifications from "../power-apps/certification";
+import Certifications from "../power-platform/certification";
 
 /* ------------------------------------------------------------------ */
 /* Shared Layout Spacing Config                                        */

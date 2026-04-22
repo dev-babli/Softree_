@@ -39,35 +39,32 @@ const whyChoose = [
   },
 ];
 
+<meta
+  name="google-site-verification"
+  content="CBKqqECDJRj5OGKmASLx9E8oM6XET_LWY_4_mWL5A3k"
+/>;
 /* ================= REVIEWS DATA ================= */
 const reviews = [
   {
-    name: "David Reynolds",
+    name: "Natasha Adams",
     rating: 5,
     comment:
-      "Softree delivered a modern, high-performance website that significantly improved our online presence and user engagement.",
-    location: "United States",
+      "We had a very positive experience working with Softree Technology. The developers were responsive and delivery was on time. We appreciate the attention they gave our project and their great communication. The final product was exactly what we wanted and we look forward to working with Softree in the future.",
+    location: "Virginial",
   },
   {
-    name: "Sophie Bennett",
+    name: "Arkady Fedorovtsjev",
     rating: 5,
     comment:
-      "Their web development team understood our vision clearly and built a responsive, visually appealing website tailored to our brand.",
-    location: "United Kingdom",
+      "Overall, we are satisfied with our collaboration in the past and your last action and response to our reported issue, really makes a difference.",
+    location: "Netherlands",
   },
   {
-    name: "Lucas Martin",
+    name: "Darrell Trimble",
     rating: 5,
     comment:
-      "Excellent frontend and backend expertise. The website is fast, secure, and optimized for SEO.",
-    location: "France",
-  },
-  {
-    name: "Ananya Verma",
-    rating: 5,
-    comment:
-      "Our new corporate website is clean, professional, and easy to manage. The entire process was smooth and well-structured.",
-    location: "India",
+      "SOFTREE staff worked with us to learn our installation automation technology and built exactly what we needed.",
+    location: "California",
   },
 ];
 

@@ -13,7 +13,7 @@ import HirePowerBIPricing from "./pricing";
 import PowerBIProcessSection from "./process";
 import TestimonialsSplitSlider from "./testimonials";
 import { PowerBIFaq } from "./faq";
-import TrustedBrandsMarquee from "../../business-applications/power-apps/trust";
+import TrustedBrandsMarquee from "../../business-applications/power-platform/trust";
 /* ------------------------------------------------------------------ */
 /* Fixed Width Config                                                  */
 /* ------------------------------------------------------------------ */
