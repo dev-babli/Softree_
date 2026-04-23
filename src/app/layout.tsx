@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     template: "%s | Softree",
   },
 
+
   description:
     "Softree delivers Power Platform solutions, AI-driven applications, data engineering, and modern web development using React, Next.js, and cloud technologies.",
 
@@ -69,7 +70,7 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: "/favicon.ico",
+    icon: "https://www.softreetechnology.com/wp-content/uploads/2024/08/cropped-Screenshot-2024-08-02-195851-32x32.png",
   },
 };
 

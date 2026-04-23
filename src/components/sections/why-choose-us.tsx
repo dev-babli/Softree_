@@ -42,46 +42,28 @@ const whyChoose = [
 /* ================= REVIEWS DATA ================= */
 const reviews = [
   {
+    name: "Natasha Adams",
+    company: "Wicked Point LLC",
+    rating: 5,
+    comment:
+      "We had a very positive experience working with Softree Technology. The developers were responsive and delivery was on time. We appreciate the attention they gave our project and their great communication. The final product was exactly what we wanted and we look forward to working with Softree in the future.",
+    location: "Virginia",
+  },
+  {
     name: "Arkady Fedorovtsjev",
+    company: "ECG Group",
     rating: 5,
     comment:
       "Overall, we are satisfied with our collaboration in the past and your last action and response to our reported issue, really makes a difference.",
-    location: "Nederland",
+    location: "Netherlands",
   },
   {
     name: "Darrell Trimble",
+    company: "SP Marketplace",
     rating: 5,
     comment:
-      "SOFTREE staff worked with us to learn our installation automation technology...",
-    location: "Penn Valley, CA",
-  },
-  {
-    name: "Michael Roberts",
-    rating: 5,
-    comment:
-      "Strong technical expertise and clear communication throughout the project.",
-    location: "Canada",
-  },
-  {
-    name: "Neha Sharma",
-    rating: 5,
-    comment:
-      "Softree’s Power BI and analytics implementation gave our leadership clear visibility into performance metrics. The dashboards are intuitive and highly impactful.",
-    location: "India",
-  },
-  {
-    name: "David Wilson",
-    rating: 5,
-    comment:
-      "We engaged Softree for an Azure cloud migration project. The transition was smooth, secure, and completed within the expected timeline.",
-    location: "United States",
-  },
-  {
-    name: "Emma Clarke",
-    rating: 4,
-    comment:
-      "The team demonstrated strong technical depth in Microsoft 365 and SharePoint customization. Communication was consistent and delivery was dependable.",
-    location: "Australia",
+      "SOFTREE staff worked with us to learn our installation automation technology and built exactly what we needed.",
+    location: "California",
   },
 ];
 
@@ -228,8 +210,8 @@ export default function WhyChooseWithTestimonials() {
             >
               {reviews.map((review, i) => (
                 <div key={i} className="w-full shrink-0">
-                  <div className="relative max-w-2xl">
-                    {/* Stars */}
+                  <div className="max-w-xl">
+                    {/* Rating Stars */}
                     <div className="mb-3 flex items-center gap-1">
                       {Array.from({ length: 5 }).map((_, idx) => (
                         <Star
@@ -237,34 +219,38 @@ export default function WhyChooseWithTestimonials() {
                           className={`w-4 h-4 ${
                             idx < review.rating
                               ? "fill-yellow-400 text-yellow-400"
-                              : "text-gray-600"
+                              : "text-gray-500"
                           }`}
                         />
                       ))}
                     </div>
 
-                    {/* Comment */}
-                    <p className="text-white/80 text-base leading-relaxed mb-5">
+                    {/* Review Comment */}
+                    <p className="text-gray-200 text-base leading-relaxed mb-6">
                       “{review.comment}”
                     </p>
 
-                    <div className="flex items-center justify-between">
-                      <div className="space-y-1">
-                        {/* Name */}
-                        <div className="flex items-center gap-2">
-                          <User size={14} className="text-blue-400" />
-                          <p className="text-white font-semibold text-sm">
+                    {/* Reviewer Info */}
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-2">
+                        <User size={14} className="text-blue-400" />
+                        <div>
+                          <p className="font-semibold text-white text-sm">
                             {review.name}
                           </p>
-                        </div>
 
-                        {/* Location */}
-                        <div className="flex items-center gap-2">
-                          <MapPin size={13} className="text-white/50" />
-                          <p className="text-xs text-white/50">
-                            {review.location}
+                          {/* ✅ Company added here */}
+                          <p className="text-xs text-gray-400">
+                            {review.company}
                           </p>
                         </div>
+                      </div>
+
+                      <div className="flex items-center gap-2">
+                        <MapPin size={13} className="text-gray-400" />
+                        <p className="text-xs text-gray-400">
+                          {review.location}
+                        </p>
                       </div>
                     </div>
                   </div>

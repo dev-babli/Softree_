@@ -39,30 +39,36 @@ const whyChoose = [
   },
 ];
 
+<meta
+  name="google-site-verification"
+  content="CBKqqECDJRj5OGKmASLx9E8oM6XET_LWY_4_mWL5A3k"
+/>;
 /* ================= REVIEWS DATA ================= */
 const reviews = [
   {
     name: "Natasha Adams",
+    company: "Wicked Point LLC",
     rating: 5,
     comment:
       "We had a very positive experience working with Softree Technology. The developers were responsive and delivery was on time. We appreciate the attention they gave our project and their great communication. The final product was exactly what we wanted and we look forward to working with Softree in the future.",
-    location: "Virginial",
+    location: "Virginia",
   },
-   {
+  {
     name: "Arkady Fedorovtsjev",
+    company: "ECG Group",
     rating: 5,
     comment:
       "Overall, we are satisfied with our collaboration in the past and your last action and response to our reported issue, really makes a difference.",
     location: "Netherlands",
   },
-   {
+  {
     name: "Darrell Trimble",
+    company: "SP Marketplace",
     rating: 5,
     comment:
       "SOFTREE staff worked with us to learn our installation automation technology and built exactly what we needed.",
     location: "California",
   },
-  
 ];
 export default function WhyChooseWithTestimonials() {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -81,7 +87,7 @@ export default function WhyChooseWithTestimonials() {
   }, [paused]);
 
   return (
-    <section className="py-14 bg-gradient-to-b from-zinc-50 via-white to-zinc-50 text-gray-900">
+    <section className="text-gray-900">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         {/* ================= LEFT : WHY CHOOSE ================= */}
         <div className="relative">
@@ -93,14 +99,7 @@ export default function WhyChooseWithTestimonials() {
           {/* Heading */}
           <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-10">
             Built for{" "}
-            <span
-              className=" bg-gradient-to-r
-      from-blue-600
-      via-cyan-500
-      to-blue-600
-      bg-clip-text
-      text-transparent"
-            >
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
               Long-Term Impact
             </span>
           </h2>
@@ -206,9 +205,16 @@ export default function WhyChooseWithTestimonials() {
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
                         <User size={14} className="text-blue-400" />
-                        <p className="font-semibold text-white text-sm">
-                          {review.name}
-                        </p>
+                        <div>
+                          <p className="font-semibold text-white text-sm">
+                            {review.name}
+                          </p>
+
+                          {/* ✅ Company added here */}
+                          <p className="text-xs text-gray-400">
+                            {review.company}
+                          </p>
+                        </div>
                       </div>
 
                       <div className="flex items-center gap-2">

@@ -39,35 +39,35 @@ const whyChoose = [
   },
 ];
 
+<meta
+  name="google-site-verification"
+  content="CBKqqECDJRj5OGKmASLx9E8oM6XET_LWY_4_mWL5A3k"
+/>;
 /* ================= REVIEWS DATA ================= */
 const reviews = [
   {
-    name: "Jason Miller",
+    name: "Natasha Adams",
+    company: "Wicked Point LLC",
     rating: 5,
     comment:
-      "Softree helped us launch our MVP in record time. Their structured approach allowed us to validate our idea quickly and attract early investors.",
-    location: "United States",
+      "We had a very positive experience working with Softree Technology. The developers were responsive and delivery was on time. We appreciate the attention they gave our project and their great communication. The final product was exactly what we wanted and we look forward to working with Softree in the future.",
+    location: "Virginia",
   },
   {
-    name: "Emily Carter",
+    name: "Arkady Fedorovtsjev",
+    company: "ECG Group",
     rating: 5,
     comment:
-      "The team transformed our concept into a functional MVP with core features perfectly aligned to our business goals.",
-    location: "Canada",
+      "Overall, we are satisfied with our collaboration in the past and your last action and response to our reported issue, really makes a difference.",
+    location: "Netherlands",
   },
   {
-    name: "Arjun Patel",
+    name: "Darrell Trimble",
+    company: "SP Marketplace",
     rating: 5,
     comment:
-      "They focused on essential functionality without overengineering. Our MVP was scalable, user-friendly, and market-ready.",
-    location: "India",
-  },
-  {
-    name: "Sophia Nguyen",
-    rating: 5,
-    comment:
-      "Softree’s MVP development strategy helped us test product-market fit efficiently while staying within budget.",
-    location: "Australia",
+      "SOFTREE staff worked with us to learn our installation automation technology and built exactly what we needed.",
+    location: "California",
   },
 ];
 export default function WhyChooseWithTestimonials() {
@@ -87,7 +87,7 @@ export default function WhyChooseWithTestimonials() {
   }, [paused]);
 
   return (
-    <section className="py-28  text-gray-900">
+    <section className="text-gray-900">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         {/* ================= LEFT : WHY CHOOSE ================= */}
         <div className="relative">
@@ -205,9 +205,16 @@ export default function WhyChooseWithTestimonials() {
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
                         <User size={14} className="text-blue-400" />
-                        <p className="font-semibold text-white text-sm">
-                          {review.name}
-                        </p>
+                        <div>
+                          <p className="font-semibold text-white text-sm">
+                            {review.name}
+                          </p>
+
+                          {/* ✅ Company added here */}
+                          <p className="text-xs text-gray-400">
+                            {review.company}
+                          </p>
+                        </div>
                       </div>
 
                       <div className="flex items-center gap-2">

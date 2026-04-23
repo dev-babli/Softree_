@@ -133,7 +133,7 @@ export default function ContactPage() {
         </div>
 
       {/* ================= RIGHT ================= */}
-          <div className="bg-white p-6 md:p-8 w-full rounded-2xl border border-gray-100">
+             <div className="bg-white p-6 md:p-8 w-full rounded-2xl border border-gray-100 shadow-sm">
             {/* Header */}
             <div className="flex justify-between items-start mb-6">
               <p className="text-sm text-gray-600 leading-relaxed max-w-md">
@@ -142,113 +142,151 @@ export default function ContactPage() {
               </p>
             </div>
 
-          <form
-  action="https://formspree.io/f/myklkyya"
-  method="POST"
-  className="space-y-4 text-gray-900"
->
-  {/* Hidden */}
-  <input type="hidden" name="_subject" value="New Softree Lead 🚀" />
-  <input type="hidden" name="_captcha" value="false" />
+            <form
+              action="https://formspree.io/f/myklkyya"
+              method="POST"
+              onSubmit={async (e) => {
+                e.preventDefault();
+                const form = e.currentTarget;
+                const formData = new FormData(form);
+                const captcha = formData.get("captcha")?.toString().trim();
 
-  {/* Row 1 */}
-  <div className="grid md:grid-cols-2 gap-4">
-    <div className="space-y-1">
-      <label className="text-xs text-gray-500">Full Name</label>
-      <input
-        type="text"
-        name="first_name" // ⭐ required
-        placeholder="John"
-        className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-3 py-2 text-sm outline-none transition"
-        required
-      />
-    </div>
+                if (captcha !== "3") {
+                  alert("❌ Incorrect captcha. Please try again.");
+                  return;
+                }
 
-    <div className="space-y-1">
-      <label className="text-xs text-gray-500">Company Email</label>
-      <input
-        type="email"
-        name="company_email" // ⭐ required
-        placeholder="john@company.com"
-        className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-3 py-2 text-sm outline-none transition"
-        required
-      />
-    </div>
-  </div>
+                try {
+                  const response = await fetch(form.action, {
+                    method: form.method,
+                    body: formData,
+                    headers: {
+                      Accept: "application/json",
+                    },
+                  });
 
-  {/* Row 2 */}
-  <div className="grid md:grid-cols-2 gap-4">
-    <div className="space-y-1">
-      <label className="text-xs text-gray-500">Contact Number</label>
-      <div className="flex items-center border border-gray-200 bg-gray-50 focus-within:bg-white focus-within:border-black rounded-lg px-3 py-2">
-        <span className="text-sm text-gray-500 mr-2">+91</span>
-        <input
-          type="text"
-          name="phone"
-          placeholder="9876543210"
-          className="w-full text-sm outline-none bg-transparent"
-        />
-      </div>
-    </div>
+                  if (response.ok) {
+                    alert("✅ Request submitted successfully! We will get back to you shortly.");
+                    form.reset();
+                  } else {
+                    alert("❌ Something went wrong. Please try again.");
+                  }
+                } catch (error) {
+                  alert("❌ Something went wrong. Please try again.");
+                }
+              }}
+              className="space-y-4 text-gray-900"
+            >
+              {/* Hidden */}
+              <input
+                type="hidden"
+                name="_subject"
+                value="New Softree Lead 🚀"
+              />
 
-    <div className="space-y-1">
-      <label className="text-xs text-gray-500">
-        Work Email (Optional)
-      </label>
-      <input
-        type="email"
-        name="work_email"
-        placeholder="john@work.com"
-        className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-3 py-2 text-sm outline-none transition"
-      />
-    </div>
-  </div>
+              {/* Row 1 */}
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <label className="text-xs text-gray-500">Full Name</label>
+                  <input
+                    type="text"
+                    name="first_name"
+                    placeholder="John"
+                    className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-3 py-2 text-sm outline-none transition"
+                    required
+                  />
+                </div>
 
-  {/* Textarea */}
-  <div className="space-y-1">
-    <label className="text-xs text-gray-500">Project Details</label>
-    <textarea
-      name="message" // ⭐ required
-      rows={4}
-      placeholder="Describe your project"
-      className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-3 py-2 text-sm outline-none resize-none transition"
-    />
-  </div>
+                <div className="space-y-1">
+                  <label className="text-xs text-gray-500">Company Email</label>
+                  <input
+                    type="email"
+                    name="company_email"
+                    placeholder="john@company.com"
+                    className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-3 py-2 text-sm outline-none transition"
+                    required
+                  />
+                </div>
+              </div>
 
-  {/* Info Box */}
-  <div className="flex items-start gap-3 bg-yellow-50 border border-yellow-200 rounded-lg px-3 py-2">
-    <span>🛡️</span>
-    <p className="text-sm text-gray-800">
-      Fast 2-minute response. NDA-protected.
-    </p>
-  </div>
+              {/* Row 2 */}
+              <div className="grid md:grid-cols-2 gap-4">
+                {/* Contact Number */}
+                <div className="space-y-1">
+                  <label className="text-xs text-gray-500">
+                    Contact Number
+                  </label>
+                  <div className="flex items-center border border-gray-200 bg-gray-50 focus-within:bg-white focus-within:border-black rounded-lg px-3 py-2">
+                    <span className="text-sm text-gray-500 mr-2">+91</span>
+                    <input
+                      type="text"
+                      name="phone"
+                      placeholder="9876543210"
+                      className="w-full text-sm outline-none bg-transparent"
+                      required
+                    />
+                  </div>
+                </div>
 
-  {/* Simple CAPTCHA */}
-  <div className="flex items-center justify-between gap-3 bg-gray-50 border border-gray-200 rounded-lg px-3 py-2">
-    <span className="text-sm text-gray-700 font-medium">
-      2 + 1 = ?
-    </span>
+                {/* Company Name */}
+                <div className="space-y-1">
+                  <label className="text-xs text-gray-500">Company Name</label>
+                  <input
+                    type="text"
+                    name="company"
+                    placeholder="Your company"
+                    className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-3 py-2 text-sm outline-none transition"
+                    required
+                  />
+                </div>
+              </div>
 
-    <input
-      type="text"
-      name="captcha"
-      placeholder="3"
-      className="w-20 bg-white border border-gray-300 rounded-md px-2 py-1 text-sm outline-none focus:border-black transition"
-      required
-    />
-  </div>
+              {/* Textarea */}
+              <div className="space-y-1">
+                <label className="text-xs text-gray-500">Project Details</label>
+                <textarea
+                  name="message"
+                  rows={4}
+                  placeholder="Describe your project"
+                  className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-3 py-2 text-sm outline-none resize-none transition"
+                  required
+                />
+              </div>
 
-  {/* Honeypot */}
-  <input type="text" name="_gotcha" style={{ display: "none" }} />
+              {/* Info Box */}
+              <div className="flex items-start gap-3 bg-yellow-50 border border-yellow-200 rounded-lg px-3 py-2">
+                <span>🛡️</span>
+                <p className="text-sm text-gray-800">
+                  Fast 2-minute response. NDA-protected.
+                </p>
+              </div>
 
-  {/* Button */}
-  <button
-    type="submit"
-    className="w-full bg-black text-white py-2.5 rounded-full text-sm"
-  >
-    Submit Request →
-  </button>
-</form>
+              {/* CAPTCHA */}
+              <div className="flex items-center justify-between gap-3 bg-gray-50 border border-gray-200 rounded-lg px-3 py-2">
+                <span className="text-sm text-gray-700 font-medium">
+                  2 + 1 = ?
+                </span>
+
+                <input
+                  type="text"
+                  name="captcha"
+                  placeholder="Enter answer"
+                  className="w-28 bg-white border border-gray-300 rounded-md px-2 py-1 text-sm outline-none focus:border-black transition"
+                  required
+                />
+              </div>
+
+              {/* Honeypot */}
+              <input type="text" name="_gotcha" style={{ display: "none" }} />
+
+              {/* Button */}
+              <button
+                type="submit"
+                className="w-full bg-black text-white py-2.5 rounded-full text-sm hover:bg-gray-900 transition"
+              >
+                Submit Request →
+              </button>
+            </form>
           </div>
       </div>
     </section>

@@ -47,13 +47,15 @@ const whyChoose = [
 const reviews = [
   {
     name: "Natasha Adams",
+    company: "Wicked Point LLC",
     rating: 5,
     comment:
       "We had a very positive experience working with Softree Technology. The developers were responsive and delivery was on time. We appreciate the attention they gave our project and their great communication. The final product was exactly what we wanted and we look forward to working with Softree in the future.",
-    location: "Virginial",
+    location: "Virginia",
   },
   {
     name: "Arkady Fedorovtsjev",
+    company: "ECG Group",
     rating: 5,
     comment:
       "Overall, we are satisfied with our collaboration in the past and your last action and response to our reported issue, really makes a difference.",
@@ -61,6 +63,7 @@ const reviews = [
   },
   {
     name: "Darrell Trimble",
+    company: "SP Marketplace",
     rating: 5,
     comment:
       "SOFTREE staff worked with us to learn our installation automation technology and built exactly what we needed.",
@@ -202,9 +205,16 @@ export default function WhyChooseWithTestimonials() {
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
                         <User size={14} className="text-blue-400" />
-                        <p className="font-semibold text-white text-sm">
-                          {review.name}
-                        </p>
+                        <div>
+                          <p className="font-semibold text-white text-sm">
+                            {review.name}
+                          </p>
+
+                          {/* ✅ Company added here */}
+                          <p className="text-xs text-gray-400">
+                            {review.company}
+                          </p>
+                        </div>
                       </div>
 
                       <div className="flex items-center gap-2">

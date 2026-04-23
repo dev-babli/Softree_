@@ -1,31 +1,15 @@
 export default function TrustedBy() {
   const logos = [
-    { name: "Accenture", src: "https://cdn.simpleicons.org/accenture" },
-    { name: "Infosys", src: "https://cdn.simpleicons.org/infosys" },
-    { name: "Wipro", src: "https://cdn.simpleicons.org/wipro" },
-    { name: "HCL", src: "https://cdn.simpleicons.org/hcl" },
-    { name: "TCS", src: "https://cdn.simpleicons.org/tcs" },
-    { name: "Sanofi", src: "/images/logo/sanofi.jpg" },
+    { name: "GO ERP", src: "/images/logo/goerp1.jpg" },
+    { name: "Nuvento", src: "/images/logo/nuvento.jpg" },
+    { name: "Snapon", src: "/images/logo/snapon.jpg" },
     {
-      name: "Microsoft",
-      src: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+      name: "Jonians",
+      src: "/images/logo/jonians.jpg",
     },
-    {
-      name: "IBM",
-      src: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
-    },
-    {
-      name: "Capgemini",
-      src: "https://upload.wikimedia.org/wikipedia/commons/9/9d/Capgemini_201x_logo.svg",
-    },
-    {
-      name: "Cognizant",
-      src: "https://upload.wikimedia.org/wikipedia/commons/4/43/Cognizant_logo_2022.svg",
-    },
-    {
-      name: "Oracle",
-      src: "https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg",
-    },
+    { name: "Export Control Group", src: "/images/logo/ecg.png" },
+    { name: "SP Marketplace", src: "/images/logo/1.jpg" },
+    { name: "Bosch", src: "/images/logo/bosch.png" },
   ];
 
   return (
