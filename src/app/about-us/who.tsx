@@ -34,9 +34,9 @@ export default function WhoWeAre() {
                 {/* Column 1 */}
                 <ul>
                   {[
-                    "Microsoft Business Applications",
-                    "Data & AI Platforms",
                     "Modern Web & Mobile Engineering",
+                    "Data & AI Platforms",
+                    "Cloud Consulting & Strategy Services"
                   ].map((service, index) => (
                     <li
                       key={index}
@@ -70,7 +70,7 @@ export default function WhoWeAre() {
                 {/* Column 2 */}
                 <ul>
                   {[
-                    "Cloud & DevOps Solutions",
+                    "Microsoft Business Applications",
                     "Intelligent Automation",
                     "Enterprise Integration & APIs", // ✅ NEW
                   ].map((service, index) => (
