@@ -40,34 +40,28 @@ const whyChoose = [
 ];
 
 /* ================= REVIEWS DATA ================= */
+/* ================= REVIEWS DATA ================= */
 const reviews = [
   {
-    name: "Ethan Clarke",
+    name: "Natasha Adams",
     rating: 5,
     comment:
-      "Softree’s Agentic AI solution transformed our operations with autonomous decision-making and intelligent workflow automation. The impact on efficiency was immediate.",
-    location: "United States",
+      "We had a very positive experience working with Softree Technology. The developers were responsive and delivery was on time. We appreciate the attention they gave our project and their great communication. The final product was exactly what we wanted and we look forward to working with Softree in the future.",
+    location: "Virginial",
   },
   {
-    name: "Isabella Turner",
+    name: "Arkady Fedorovtsjev",
     rating: 5,
     comment:
-      "Their AI agents seamlessly integrated with our existing systems and handled complex processes with minimal human intervention. Truly next-generation technology.",
-    location: "United Kingdom",
+      "Overall, we are satisfied with our collaboration in the past and your last action and response to our reported issue, really makes a difference.",
+    location: "Netherlands",
   },
   {
-    name: "Noah Fischer",
+    name: "Darrell Trimble",
     rating: 5,
     comment:
-      "The multi-agent architecture they designed improved response time, data accuracy, and operational scalability across departments.",
-    location: "Germany",
-  },
-  {
-    name: "Aarav Mehta",
-    rating: 5,
-    comment:
-      "Softree delivered an intelligent AI-driven platform that continuously learns and optimizes workflows. Exceptional expertise in advanced AI systems.",
-    location: "India",
+      "SOFTREE staff worked with us to learn our installation automation technology and built exactly what we needed.",
+    location: "California",
   },
 ];
 
