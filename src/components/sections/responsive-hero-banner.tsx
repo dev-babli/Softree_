@@ -33,8 +33,10 @@ interface ResponsiveHeroBannerProps {
 const HERO_IMAGES = {
   desktop:
     "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/0e2dbea0-c0a9-413f-a57b-af279633c0df_3840w.jpg",
-  tablet: "/images/hero/hero.jpg",
-  mobile: "/images/hero/Gemini_Generated_Image_6xmckl6xmckl6xmc.png",
+  tablet:
+    "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/0e2dbea0-c0a9-413f-a57b-af279633c0df_3840w.jpg",
+  mobile:
+    "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/0e2dbea0-c0a9-413f-a57b-af279633c0df_3840w.jpg",
 };
 
 const ResponsiveHeroBanner: React.FC<ResponsiveHeroBannerProps> = ({
@@ -65,7 +67,7 @@ const ResponsiveHeroBanner: React.FC<ResponsiveHeroBannerProps> = ({
   const useSingleImage = Boolean(backgroundImageUrl);
 
   return (
-    <section className="w-full isolate min-h-screen overflow-hidden relative">
+    <section className="w-full bg-black isolate min-h-screen overflow-hidden relative">
       {/* ================= BACKGROUND ================= */}
       {useSingleImage ? (
         <img
