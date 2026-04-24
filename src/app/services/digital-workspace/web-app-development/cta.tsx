@@ -72,7 +72,7 @@ export default function CtaWebApps() {
               <li>✔ Flexible Engagement & Hiring Models</li>
             </ul>
 
-            <div className="mt-3 flex gap-8">
+            <div className="mt-3 flex flex-wrap gap-4 sm:gap-8">
               <div>
                 <p className="text-xl font-semibold">70+</p>
                 <p className="text-[11px] text-white/70">

@@ -92,7 +92,7 @@ export default function TechnologiesTabs() {
 
         {/* ================= TABS ================= */}
         <div className="flex justify-center mb-14">
-          <div className="flex gap-8 border-b border-gray-200">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-8 border-b border-gray-200">
             {TABS.map((tab) => (
               <button
                 key={tab}
