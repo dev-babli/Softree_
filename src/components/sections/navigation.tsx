@@ -332,7 +332,7 @@ export default function Navigation() {
         showNav ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <nav className="w-full max-w-4xl px-6 lg:px-10 h-16 flex items-center justify-between rounded-full bg-white border border-black/5 shadow-[0_10px_40px_rgba(0,0,0,0.08)]">
+      <nav className="w-[calc(100%-2rem)] lg:w-full  lg:mt-0 max-w-4xl px-5 lg:px-10 h-16 flex items-center justify-between rounded-full bg-white border border-black/5 shadow-[0_10px_40px_rgba(0,0,0,0.08)]">
         <Link href="/" className="inline-block mt-1">
           <img
             src={LOGO_URL}
@@ -520,7 +520,7 @@ export default function Navigation() {
 
         {/* ── MOBILE TOGGLE ── */}
         <button
-          className="lg:hidden relative z-[60] text-black"
+          className="lg:hidden relative z-[60] text-black shrink-0 p-2 -mr-2"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -539,30 +539,36 @@ export default function Navigation() {
               <div className="flex flex-col gap-4">
                 {menu.map((item) => (
                   <div key={item.label}>
-                    <button
-                      onClick={() => {
-                        if (item.mega) {
+                    {item.mega ? (
+                      <button
+                        onClick={() => {
                           setMobileDropdown(
                             mobileDropdown === item.label ? null : item.label,
                           );
-                        } else {
-                          setMobileOpen(false);
-                        }
-                      }}
-                      className="w-full flex items-center justify-between py-4 border-b text-left"
-                    >
-                      <span className="text-lg font-semibold text-gray-900">
-                        {item.label}
-                      </span>
-                      {item.mega && (
+                        }}
+                        className="w-full flex items-center justify-between py-4 border-b text-left"
+                      >
+                        <span className="text-lg font-semibold text-gray-900">
+                          {item.label}
+                        </span>
                         <ChevronDown
                           size={20}
                           className={`transition-transform ${
                             mobileDropdown === item.label ? "rotate-180" : ""
                           }`}
                         />
-                      )}
-                    </button>
+                      </button>
+                    ) : (
+                      <Link
+                        href={item.url || "#"}
+                        onClick={() => setMobileOpen(false)}
+                        className="w-full flex items-center justify-between py-4 border-b text-left"
+                      >
+                        <span className="text-lg font-semibold text-gray-900">
+                          {item.label}
+                        </span>
+                      </Link>
+                    )}
 
                     {item.mega && mobileDropdown === item.label && (
                       <div className="pl-4 mt-3 space-y-3">
