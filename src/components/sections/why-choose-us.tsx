@@ -100,9 +100,17 @@ export default function WhyChooseWithTestimonials() {
         {/* ================= LEFT : WHY CHOOSE ================= */}
         <div className="relative">
           {/* Small Label */}
-          <div className="text-red-400 text-xs uppercase tracking-[0.15em] mb-3">
-            Why Choose Softree
-          </div>
+         <p
+              className="text-xs uppercase tracking-[0.15em] mb-3 inline-block bg-clip-text text-transparent"
+              style={{
+                backgroundImage:
+                  "linear-gradient(90deg, #ff7a2f 0%, #c75a2a 35%, #b98817ff 70%, #ff7500ff 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              Why Choose Softree
+            </p>
 
           {/* Heading */}
           <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-8 max-w-xl">
@@ -166,7 +174,15 @@ export default function WhyChooseWithTestimonials() {
           {/* Header Section */}
           <div className="relative z-10 mb-10">
             {/* Top Label */}
-            <div className="text-red-400 text-xs uppercase tracking-widest mb-3">
+            <div
+              className="text-xs uppercase tracking-widest mb-3 inline-block bg-clip-text text-transparent"
+              style={{
+                backgroundImage:
+                  "linear-gradient(90deg, #ff7a2f 0%, #c75a2a 35%, #b98817ff 70%, #ff7500ff 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
               Softree Client Feedback
             </div>
 

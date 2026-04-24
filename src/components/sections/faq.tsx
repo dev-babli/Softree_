@@ -56,7 +56,15 @@ export default function SoftreeFAQ() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-15">
-          <p className="text-sm uppercase tracking-widest text-red-400 font-semibold mb-3">
+          <p
+            className="text-sm uppercase tracking-widest font-semibold mb-3 inline-block bg-clip-text text-transparent"
+            style={{
+              backgroundImage:
+                "linear-gradient(90deg, #ff7a2f 0%, #c75a2a 35%, #6b5b5b 70%, #3a3a3a 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
             Softree FAQ
           </p>
 

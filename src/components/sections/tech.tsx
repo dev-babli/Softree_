@@ -48,18 +48,22 @@ export default function TechStack() {
         >
           {/* Heading */}
           <div className="text-center mb-20">
-            <h2 className="relative inline-block text-4xl md:text-5xl font-bold leading-tight mb-6">
-              <span className="text-white">
-                From MVPs to Enterprise Solutions
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-red-600 to-red-900 bg-clip-text text-transparent">
-                Softree Builds It All
-              </span>
-
-              {/* Accent underline */}
-              <span className="absolute left-1/2 -bottom-3 -translate-x-1/2 h-[3px] w-24 rounded-full bg-gradient-to-r from-cyan-400 to-indigo-500" />
-            </h2>
+          <h2 className="relative inline-block text-4xl md:text-5xl font-bold leading-tight mb-6">
+  <span className="text-white">
+    From MVPs to Enterprise Solutions
+  </span>
+  <br />
+ <span
+  className="inline-block bg-clip-text text-transparent"
+  style={{
+    backgroundImage:
+      "linear-gradient(90deg, #ff7a2f 0%, #c75a2a 35%, #6b5b5b 70%, #3a3a3a 100%)"
+  }}
+>
+  Softree Builds It All
+</span>
+ 
+</h2>
 
             <p className="max-w-3xl mx-auto text-lg text-white/80">
               At Softree, we combine modern frontend frameworks, robust backend
@@ -98,21 +102,28 @@ export default function TechStack() {
             </div>
           </div>
 
-          {/* CTA */}
-          <div className="text-center mt-20">
-            <a
-              href="/services/mvp"
-              className="
-                inline-flex items-center justify-center
-                px-10 py-4 rounded-full font-semibold
-                bg-gradient-to-r from-red-600 to-red-900
-                text-black transition-transform duration-300
-                hover:-translate-y-1
-              "
-            >
-              Explore all Technologies
-            </a>
-          </div>
+      <div className="text-center mt-20">
+  <a
+    href="/services/mvp"
+    className="
+      group inline-flex items-center justify-center gap-2
+      px-10 py-4 rounded-full font-semibold
+      text-white transition-all duration-300
+      hover:-translate-y-1
+    "
+    style={{
+      background:
+        "linear-gradient(90deg, #ff7a2f 0%, #c75a2a 35%, #6b5b5b 70%, #3a3a3a 100%)"
+    }}
+  >
+    Explore all Technologies
+
+    {/* Arrow */}
+    <span className="text-xl transition-transform duration-300 group-hover:translate-x-2">
+      →
+    </span>
+  </a>
+</div>
         </div>
       </div>
     </section>

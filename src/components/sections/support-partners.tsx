@@ -44,13 +44,20 @@ export default function SupportPartners() {
   return (
     <section className="py-16 px-6 bg-gradient-to-b from-black via-[#020d1a] to-black text-white">
       {/* ================= HEADING ================= */}
-    <h2 className="text-center text-3xl font-semibold mb-6">
-  How We Support{" "}
-  <span className="bg-gradient-to-r from-red-600 to-red-900 bg-clip-text text-transparent">
-    Microsoft & Consulting Partners
-  </span>
-</h2>
-
+      <h2 className="text-center text-3xl font-semibold mb-6">
+        How We Support{" "}
+        <span
+          className="inline-block bg-clip-text text-transparent"
+          style={{
+            backgroundImage:
+              "linear-gradient(90deg, #ff7a2f 0%, #c75a2a 35%, #6b5b5b 70%, #3a3a3a 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
+          Microsoft & Consulting Partners
+        </span>
+      </h2>
       <p className="text-center text-white/70 max-w-3xl mx-auto">
         We collaborate with Microsoft partners and consulting firms to extend
         delivery capacity, accelerate implementations, and provide deep
@@ -92,35 +99,23 @@ export default function SupportPartners() {
 
             <div className="h-px w-full bg-white/10 mb-4" />
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-6">
               {/* TECH LIST */}
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 {card.tech.map((t) => (
                   <li
                     key={t}
-                    className="flex items-center gap-3 text-sm text-blue-100"
+                    className="flex items-center gap-3 text-sm text-gray-600 group transition"
                   >
-                    <svg
-                      className="w-5 h-5 shrink-0"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                    >
-                      <circle
-                        cx="12"
-                        cy="12"
-                        r="12"
-                        className="fill-blue-500/15"
-                      />
-                      <path
-                        d="M7 12.5l3.2 3.2L17 9"
-                        stroke="rgb(96 165 250)"
-                        strokeWidth="2.2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                    {/* TICK ICON */}
+                    <div className="flex items-center justify-center w-7 h-7 rounded-full  bg-blue-900 group-hover:bg-orange-600 transition text-white text-xs font-bold">
+                      ✓
+                    </div>
 
-                    {t}
+                    {/* TEXT */}
+                    <span className="group-hover:text-gray-900 transition font-medium">
+                      {t}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -128,22 +123,31 @@ export default function SupportPartners() {
               {/* PARTNER VALUE */}
               <div
                 className="
-    relative
-    rounded-xl
-    p-5
-    border border-blue-400/30   /* always visible light border */
-    bg-[linear-gradient(145deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02)_40%,rgba(0,0,0,0.25))]
-    transition-all duration-300
-    hover:shadow-[0_0_20px_rgba(59,130,246,0.25)]
-  "
+      relative
+      rounded-2xl
+      p-6
+      bg-white
+      border border-gray-200
+      shadow-[0_4px_20px_rgba(0,0,0,0.04)]
+      transition-all duration-300
+      hover:shadow-[0_10px_40px_rgba(0,0,0,0.08)]
+      hover:-translate-y-1
+      hover:border-orange-300
+    "
               >
-                <p className="text-[16px] tracking-wider uppercase text-white mb-2 flex items-center gap-1 font-bold">
-                  <span className="text-white font-bold">*</span>
-                  Partner Value
+                {/* TOP ACCENT LINE */}
+                <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-orange-400 via-orange-300 to-transparent rounded-t-2xl" />
+
+                {/* TITLE */}
+                <p className="text-xs tracking-[0.25em] uppercase text-gray-400 mb-3 flex items-center gap-2">
+                  <span className="text-orange-500 text-base">*</span>
+                  <span className="font-semibold text-gray-900">
+                    Partner Value
+                  </span>
                 </p>
 
-                {/* description */}
-                <p className="text-sm text-gray-400 leading-relaxed">
+                {/* DESCRIPTION */}
+                <p className="text-sm text-gray-600 leading-relaxed">
                   {card.partner}
                 </p>
               </div>

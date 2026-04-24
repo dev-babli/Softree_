@@ -44,60 +44,235 @@ export default function CTASection() {
         {/* INNER BG */}
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-orange-500/20" />
         <div className="relative grid lg:grid-cols-[1.5fr_1fr] md:grid-cols-[1.3fr_1fr]">
-          {/* ================= LEFT ================= */}
           <div
-            className="p-6 md:p-8 text-white bg-cover bg-center bg-no-repeat overflow-hidden"
-            style={{ backgroundImage: "url('/images/cta.png')" }}
+            className="p-[2px] rounded-[20px] relative overflow-hidden h-full"
+            style={{ background: "#1a1210" }}
           >
-            <h2 className="text-3xl font-bold mb-3 text-white leading-snug">
-              Wait — Let's Build Something
-              <br />
-              Great Together
-            </h2>
+            {/* Conic gradient border ring */}
+            <div
+              className="absolute inset-0 rounded-[20px] opacity-35"
+              style={{
+                background:
+                  "conic-gradient(from 200deg at 30% 20%, #ff7a2f 0deg, #c75a2a 60deg, #6b3a2a 120deg, #1a1210 200deg, #1a1210 360deg)",
+              }}
+            />
 
-            <p className="text-gray-300 text-sm mb-5 leading-relaxed">
-              Discover why growing businesses trust Softree Technology for
-              reliable, scalable, and impactful digital solutions.
-            </p>
+            {/* Inner panel */}
+            <div
+              className="relative rounded-[18px] overflow-hidden h-full"
+              style={{
+                background:
+                  "linear-gradient(145deg, #1e1210 0%, #1a1010 40%, #151010 100%)",
+              }}
+            >
+              {/* Ambient glow top-right */}
+              <div
+                className="absolute pointer-events-none"
+                style={{
+                  top: -60,
+                  right: -40,
+                  width: 220,
+                  height: 220,
+                  background:
+                    "radial-gradient(circle, rgba(255,122,47,0.18) 0%, transparent 70%)",
+                }}
+              />
+              {/* Ambient glow bottom-left */}
+              <div
+                className="absolute pointer-events-none"
+                style={{
+                  bottom: -40,
+                  left: -20,
+                  width: 160,
+                  height: 160,
+                  background:
+                    "radial-gradient(circle, rgba(199,90,42,0.12) 0%, transparent 70%)",
+                }}
+              />
 
-            {/* 🏆 Award Badges */}
-            <div className="flex flex-wrap gap-2 mb-3">
-              <div className="px-3 py-1.5 bg-white/10 border border-white/10 rounded-lg text-xs whitespace-nowrap">
-                🏆 Top Software Company 2025
-              </div>
-              <div className="px-3 py-1.5 bg-white/10 border border-white/10 rounded-lg text-xs whitespace-nowrap">
-                ⭐ 4.9 Client Rating
-              </div>
-              <div className="px-3 py-1.5 bg-white/10 border border-white/10 rounded-lg text-xs whitespace-nowrap">
-                🚀 3000+ Projects Delivered
-              </div>
-            </div>
-
-            {/* 🔥 Testimonial Card */}
-            <div className="relative bg-black/40 backdrop-blur-md border border-white/10 rounded-xl p-4 pt-2">
-              {/* ❝ Quote mark */}
-              <span className="absolute top-2 left-3 text-3xl text-orange-400 font-serif leading-none">
-                "
-              </span>
-
-              <p className="text-sm text-gray-200 leading-relaxed mb-2 pl-2">
-                {t.text}
-              </p>
-
-              <div className="flex items-center gap-3">
-                {/* Avatar */}
-                <div className="w-9 h-9 rounded-full bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center text-white font-bold text-sm uppercase shrink-0">
-                  {t.name?.charAt(0)}
+              {/* ⬇️ Reduced padding and gap here */}
+              <div className="relative p-5 flex flex-col gap-4">
+                {/* Trust chip */}
+                <div
+                  className="inline-flex items-center gap-2 self-start px-3 py-1 rounded-full border text-[11px] font-medium tracking-wide"
+                  style={{
+                    background: "rgba(255,122,47,0.15)",
+                    borderColor: "rgba(255,122,47,0.3)",
+                    color: "#ff9a5f",
+                  }}
+                >
+                  <span
+                    className="w-1.5 h-1.5 rounded-full"
+                    style={{
+                      background: "#ff7a2f",
+                      boxShadow: "0 0 6px #ff7a2f",
+                    }}
+                  />
+                  Trusted by 500+ Companies
                 </div>
 
-                <div>
-                  <p className="text-xs font-semibold text-white">{t.name}</p>
-                  <p className="text-[10px] text-gray-400">{t.role}</p>
+                {/* Heading */}
+                <h2 className="text-[24px] font-semibold leading-snug tracking-tight text-white m-0">
+                  Wait — Let's Build Something{" "}
+                  <span
+                    style={{
+                      background: "linear-gradient(90deg, #ff7a2f, #ffaa70)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    }}
+                  >
+                    Great Together
+                  </span>
+                </h2>
+
+                {/* Description */}
+                <p
+                  className="text-[13px] leading-relaxed max-w-3xl m-0"
+                  style={{ color: "rgba(255,255,255,0.5)" }}
+                >
+                  Discover why growing businesses trust Softree Technology for
+                  reliable, scalable, and impactful digital solutions.
+                </p>
+
+                {/* Badges */}
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    {
+                      icon: "star",
+                      color: "#fbbf24",
+                      label: "Top Software Co. 2025",
+                    },
+                    {
+                      icon: "star",
+                      color: "#34d399",
+                      label: "4.9 Client Rating",
+                    },
+                    { icon: "bolt", color: "#818cf8", label: "3000+ Projects" },
+                  ].map(({ icon, color, label }) => (
+                    <div
+                      key={label}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-[11px]"
+                      style={{
+                        background: "rgba(255,255,255,0.05)",
+                        borderColor: "rgba(255,255,255,0.1)",
+                        color: "rgba(255,255,255,0.75)",
+                      }}
+                    >
+                      {icon === "bolt" ? (
+                        <svg
+                          width="11"
+                          height="11"
+                          viewBox="0 0 24 24"
+                          fill={color}
+                        >
+                          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                        </svg>
+                      ) : (
+                        <svg
+                          width="11"
+                          height="11"
+                          viewBox="0 0 24 24"
+                          fill={color}
+                        >
+                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                      )}
+                      {label}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Divider */}
+                <div
+                  className="h-px"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, rgba(255,122,47,0.4), transparent)",
+                  }}
+                />
+
+                {/* Testimonial card — mt-auto pushes it to bottom if space allows */}
+                <div
+                  className="relative rounded-2xl p-4 overflow-hidden"
+                  style={{
+                    background: "rgba(255,255,255,0.04)",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                  }}
+                >
+                  {/* Left accent stripe */}
+                  <div
+                    className="absolute top-0 left-0 w-[3px] h-full"
+                    style={{
+                      background: "linear-gradient(180deg, #ff7a2f, #c75a2a)",
+                    }}
+                  />
+
+                  {/* Watermark quote SVG */}
+                  <svg
+                    className="absolute top-2 right-3 opacity-[0.06]"
+                    width="36"
+                    height="28"
+                    viewBox="0 0 46 32"
+                    fill="white"
+                  >
+                    <path d="M0 32V20C0 8.955 7.865 2.347 23.594 0L25 3.065C18.005 4.593 14.507 7.443 14.507 11.615H19V32H0ZM21 32V20C21 8.955 28.865 2.347 44.594 0L46 3.065C39.005 4.593 35.507 7.443 35.507 11.615H40V32H21Z" />
+                  </svg>
+
+                  {/* Quote text — clamp to 3 lines */}
+                  <p
+                    className="text-[12.5px] leading-relaxed pl-2 mb-3 italic mt-6"
+                    style={{
+                      color: "rgba(255,255,255,0.7)",
+                      display: "-webkit-box",
+                      WebkitLineClamp: 3,
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
+                    }}
+                  >
+                    {t.text}
+                  </p>
+
+                  {/* Author row */}
+                  <div className="flex items-center gap-2.5 pl-2">
+                    <div
+                      className="w-8 h-8 rounded-full flex items-center justify-center text-[12px] font-semibold text-white shrink-0"
+                      style={{
+                        background: "linear-gradient(135deg, #ff7a2f, #c75a2a)",
+                        border: "1px solid rgba(255,122,47,0.5)",
+                      }}
+                    >
+                      {t.name?.charAt(0)}
+                    </div>
+                    <div>
+                      <p className="text-[12px] font-medium text-white leading-tight m-0">
+                        {t.name}
+                      </p>
+                      <p
+                        className="text-[10px] m-0"
+                        style={{ color: "rgba(255,255,255,0.4)" }}
+                      >
+                        {t.role}
+                      </p>
+                    </div>
+                    <div className="ml-auto flex gap-0.5">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <svg
+                          key={i}
+                          width="11"
+                          height="11"
+                          viewBox="0 0 24 24"
+                          fill="#fbbf24"
+                        >
+                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
           {/* ================= RIGHT ================= */}
           <div className="bg-white p-6 md:p-8 w-full rounded-2xl border border-gray-100 shadow-sm">
             {/* Header */}

@@ -200,7 +200,7 @@ export default function TechnologySlider() {
                         key={idx}
                         className="flex items-start gap-3 text-sm text-white/80"
                       >
-                        <span className="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 shadow-[0_0_12px_rgba(56,189,248,0.6)]">
+                        <span className="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-black-100 to-cyan-100 shadow-[0_0_12px_rgba(56,189,248,0.6)]">
                           <span className="text-[11px] font-bold text-white">
                             ✓
                           </span>
@@ -215,7 +215,7 @@ export default function TechnologySlider() {
                     <div className="absolute inset-0 rounded-2xl bg-cyan-400/5 blur-xl pointer-events-none" />
 
                     <div className="relative flex items-start gap-3">
-                      <div className=" flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-400 to-blue-500 text-white font-bold shadow-[0_0_15px_rgba(56,189,248,0.6)]">
+                      <div className=" flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-black-100 to-cyan-100 text-white font-bold shadow-[0_0_15px_rgba(56,189,248,0.6)]">
                         ★
                       </div>
 

@@ -29,10 +29,17 @@ export default function TrustedBy() {
           <div className="flex items-center gap-6 mb-12">
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-zinc-300 to-transparent" />
 
-            <p className="text-2xl font-semibold tracking-widest uppercase bg-red-500 bg-clip-text text-transparent">
-              Trusted by Partners & Clients
-            </p>
-
+           <p
+  className="text-2xl font-semibold tracking-widest uppercase inline-block bg-clip-text text-transparent"
+  style={{
+    backgroundImage:
+      "linear-gradient(90deg, #ff7a2f 0%, #c75a2a 35%, #6b5b5b 70%, #3a3a3a 100%)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+  }}
+>
+  Trusted by Partners & Clients
+</p>
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-zinc-400 to-transparent" />
           </div>
 
