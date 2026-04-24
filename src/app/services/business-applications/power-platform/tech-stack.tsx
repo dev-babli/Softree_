@@ -106,7 +106,7 @@ export default function PowerAppsTechnologies() {
 
         {/* ================= TABS ================= */}
         <div className="mb-10 flex justify-center">
-          <div className="flex gap-8 border-b border-gray-200">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-8 border-b border-gray-200">
             {TABS.map((tab) => (
               <button
                 key={tab}
@@ -130,11 +130,11 @@ export default function PowerAppsTechnologies() {
         {/* ================= TECH CARDS ================= */}
         <div
           className="relative rounded-[32px] border border-white/10 7a] bg-gradient-to-r from-black via-[#0f2f7a] to-black
- px-10 py-12 shadow-2xl"
+ px-4 sm:px-10 py-12 shadow-2xl"
         >
           {/* ambient glow */}
-          <div className="pointer-events-none absolute inset-0 flex justify-center">
-            <div className="h-40 w-[520px] rounded-full bg-indigo-600/20 blur-[120px]" />
+          <div className="pointer-events-none absolute inset-0 flex justify-center overflow-hidden rounded-[32px]">
+            <div className="h-40 w-full max-w-[520px] rounded-full bg-indigo-600/20 blur-[120px]" />
           </div>
 
           <div

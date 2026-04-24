@@ -332,7 +332,7 @@ export default function Navigation() {
         showNav ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <nav className="w-[calc(100%-2rem)] lg:w-full  lg:mt-0 max-w-4xl px-5 lg:px-10 h-16 flex items-center justify-between rounded-full bg-white border border-black/5 shadow-[0_10px_40px_rgba(0,0,0,0.08)]">
+      <nav className="relative w-full max-w-4xl px-6 lg:px-10 h-16 flex items-center justify-between rounded-full bg-white border border-black/5 shadow-[0_10px_40px_rgba(0,0,0,0.08)]">
         <Link href="/" className="inline-block mt-1">
           <img
             src={LOGO_URL}
@@ -520,7 +520,7 @@ export default function Navigation() {
 
         {/* ── MOBILE TOGGLE ── */}
         <button
-          className="lg:hidden relative z-[60] text-black shrink-0 p-2 -mr-2"
+          className="lg:hidden absolute right-6 top-1/2 -translate-y-1/2 z-[60] text-black shrink-0 p-2"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}

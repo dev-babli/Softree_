@@ -207,6 +207,26 @@ export default function HeroPowerApps() {
         .nav-btn:hover { background: rgba(56,189,248,0.2) !important; border-color: rgba(56,189,248,0.4) !important; transform: scale(1.08); }
         @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.7)} }
         .eyebrow-dot { animation: pulse 2s ease-in-out infinite; }
+
+        @media (max-width: 991px) {
+          .hero-inner {
+            flex-direction: column !important;
+            padding: 100px 24px 60px !important;
+            gap: 40px !important;
+          }
+          .hero-left {
+            padding-right: 0 !important;
+            border-right: none !important;
+            width: 100% !important;
+          }
+          .hero-right {
+            padding-left: 0 !important;
+            width: 100% !important;
+          }
+          .hero-slider-viewport {
+            width: 100% !important;
+          }
+        }
       `}</style>
 
       <section style={styles.hero} role="banner">
@@ -215,9 +235,9 @@ export default function HeroPowerApps() {
         <div style={styles.orb1} />
         <div style={styles.orb2} />
 
-        <div style={styles.inner}>
+        <div style={styles.inner} className="hero-inner">
           {/* LEFT */}
-          <div style={styles.left}>
+          <div style={styles.left} className="hero-left">
             <div style={styles.eyebrow}>
               <div className="eyebrow-dot" style={styles.eyebrowDot} />
               Microsoft Power Platform
@@ -259,8 +279,8 @@ export default function HeroPowerApps() {
             </div>
           </div>
 
-          <div style={styles.right}>
-            <div style={styles.sliderViewport}>
+          <div style={styles.right} className="hero-right">
+            <div style={styles.sliderViewport} className="hero-slider-viewport">
               {testimonials.map((t, i) => (
                 <div
                   key={i}

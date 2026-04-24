@@ -14,11 +14,7 @@ import HirePowerAppsPricing from "./pricing-card";
 import StackedSlider from "./stack-slidr";
 import TrustedBrandsMarquee from "./trust";
 import { AgenticAIFAQSection } from "./faq";
-/* ------------------------------------------------------------------ */
-/* Shared Layout Spacing Config                                        */
-/* ------------------------------------------------------------------ */
-const SECTION_WRAPPER = "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8";
-const SECTION_GAP = "space-y-24 py-8";
+
 
 export default function Home() {
   return (
@@ -32,7 +28,7 @@ export default function Home() {
       <StackedSlider />
       {/* MAIN CONTENT SECTIONS */}
       <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
-        <div className={`${SECTION_WRAPPER} ${SECTION_GAP}`}>
+        <div >
           <PowerAppsCaseStudies />
           <PowerAppsServices />
           <HirePowerAppsPricing />
