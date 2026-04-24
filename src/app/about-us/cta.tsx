@@ -158,13 +158,12 @@ export default function CTASection() {
                     required
                   />
                 </div>
-
                 <div className="space-y-1">
-                  <label className="text-xs text-gray-500">Company Email</label>
+                  <label className="text-xs text-gray-500">Company Name</label>
                   <input
-                    type="email"
-                    name="company_email"
-                    placeholder="john@company.com"
+                    type="text"
+                    name="company_name"
+                    placeholder="Enter your company name"
                     className="w-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-black rounded-lg px-3 py-2 text-sm outline-none transition"
                     required
                   />

@@ -1,6 +1,38 @@
 "use client";
 
+import { useState } from "react";
+
 export default function CtaSharePoint() {
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch("https://formspree.io/f/myklkyya", {
+        method: "POST",
+        body: data,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (res.ok) {
+        setStatus("SUCCESS");
+        form.reset();
+
+        setTimeout(() => setStatus(""), 3000);
+      } else {
+        setStatus("ERROR");
+      }
+    } catch {
+      setStatus("ERROR");
+    }
+  };
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
       <div className="mx-auto max-w-7xl px-6 py-12">
@@ -16,12 +48,10 @@ export default function CtaSharePoint() {
         >
           {/* ================= LEFT ================= */}
           <div>
-            {/* badge */}
             <span className="inline-block mb-2 px-3 py-1 rounded-full bg-white/15 text-xs">
               👨‍💻 Hire SharePoint Developers
             </span>
 
-            {/* heading */}
             <h2 className="text-3xl md:text-4xl font-semibold leading-tight">
               Hire expert developers for
               <span className="block bg-gradient-to-r from-cyan-200 to-white bg-clip-text text-transparent">
@@ -29,14 +59,12 @@ export default function CtaSharePoint() {
               </span>
             </h2>
 
-            {/* desc */}
             <p className="mt-1 text-sm text-white/85 max-w-lg">
               Empower your digital workplace by hiring experienced SharePoint
               developers who build secure, scalable intranets, portals, and
               business solutions on Microsoft 365.
             </p>
 
-            {/* benefits */}
             <ul className="mt-3 space-y-1.5 text-xs text-white/85">
               <li>✔ SharePoint Online & On-Premise Expertise</li>
               <li>✔ SPFx, Power Apps & Power Automate</li>
@@ -44,7 +72,6 @@ export default function CtaSharePoint() {
               <li>✔ Flexible Hiring & Engagement Models</li>
             </ul>
 
-            {/* stats */}
             <div className="mt-3 flex gap-8">
               <div>
                 <p className="text-xl font-semibold">65+</p>
@@ -63,7 +90,7 @@ export default function CtaSharePoint() {
             </div>
           </div>
 
-          {/* ================= RIGHT – MINI FORM ================= */}
+          {/* ================= RIGHT – FORM ================= */}
           <div className="relative">
             <div className="absolute -inset-2 bg-white/10 blur-xl rounded-3xl" />
 
@@ -75,11 +102,8 @@ export default function CtaSharePoint() {
               <p className="text-xs text-white/70 mb-4">
                 Tell us your requirement — we’ll reply within 24 hours
               </p>
-              <form
-                action="https://formspree.io/f/myklkyya"
-                method="POST"
-                className="space-y-3"
-              >
+
+              <form onSubmit={handleSubmit} className="space-y-3">
                 <input
                   type="text"
                   name="name"
@@ -96,7 +120,6 @@ export default function CtaSharePoint() {
                   required
                 />
 
-                {/* NEW TEXTAREA */}
                 <textarea
                   name="project_details"
                   placeholder="Brief about your project..."
@@ -104,6 +127,7 @@ export default function CtaSharePoint() {
                   className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300 resize-none"
                 />
 
+                {/* ✅ BUTTON UNCHANGED */}
                 <button
                   type="submit"
                   className="w-full bg-gradient-to-r from-cyan-400 to-indigo-500 py-2.5 rounded-lg text-xs font-medium shadow hover:scale-[1.03] transition"
@@ -111,6 +135,20 @@ export default function CtaSharePoint() {
                   Get Free Estimate
                 </button>
               </form>
+
+              {/* ✅ SUCCESS / ERROR MESSAGE */}
+              {status === "SUCCESS" && (
+                <p className="mt-3 text-green-400 text-xs text-center">
+                  ✅ Message sent successfully!
+                </p>
+              )}
+
+              {status === "ERROR" && (
+                <p className="mt-3 text-red-400 text-xs text-center">
+                  ❌ Something went wrong. Try again.
+                </p>
+              )}
+
               <p className="mt-3 text-[10px] text-center text-white/60">
                 🔒 Secure • NDA Protected • No Spam
               </p>
