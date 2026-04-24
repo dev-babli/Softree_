@@ -82,7 +82,7 @@ export default function PowerAppsTechnologies() {
     useState<(typeof TABS)[number]>("POWER APPS");
 
   return (
-    <section className="px-4 ">
+    <section className="px-4">
       <div className="max-w-7xl mx-auto">
         {/* ================= HEADER ================= */}
         <div className="mb-10 text-center">
