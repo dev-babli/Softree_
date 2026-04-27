@@ -571,19 +571,26 @@ export default function Navigation() {
                     )}
 
                     {item.mega && mobileDropdown === item.label && (
-                      <div className="pl-4 mt-3 space-y-3">
-                        {item.children?.map((group) =>
-                          group.links.map((link) => (
-                            <Link
-                              key={link.label}
-                              href={link.url}
-                              onClick={() => setMobileOpen(false)}
-                              className="block py-2 text-sm font-medium text-gray-600 hover:text-black"
-                            >
-                              {link.label}
-                            </Link>
-                          )),
-                        )}
+                      <div className="pl-4 mt-3 space-y-6 pb-2">
+                        {item.children?.map((group, idx) => (
+                          <div key={idx} className="space-y-3">
+                            <h4 className="text-sm font-bold text-gray-900 tracking-wide uppercase">
+                              {group.title}
+                            </h4>
+                            <div className="flex flex-col gap-3 pl-2 border-l-2 border-gray-100">
+                              {group.links.map((link) => (
+                                <Link
+                                  key={link.label}
+                                  href={link.url}
+                                  onClick={() => setMobileOpen(false)}
+                                  className="block py-1 text-sm font-medium text-gray-600 hover:text-black transition-colors"
+                                >
+                                  {link.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
                       </div>
                     )}
                   </div>

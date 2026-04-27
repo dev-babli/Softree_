@@ -109,7 +109,7 @@ export default function TechnologySlider() {
   }, [isHovering]);
 
   return (
-    <section className="relative h-[520px] w-full overflow-hidden bg-black text-white flex">
+    <section className="relative h-[650px] md:h-[520px] w-full overflow-hidden bg-black text-white flex">
      {/* ================= BACKGROUND ================= */}
 {techData.map((item, i) => (
   <div
@@ -132,7 +132,7 @@ export default function TechnologySlider() {
 ))}
 
       {/* ================= ACCORDION ================= */}
-      <div className="relative h-full flex w-full z-20">
+      <div className="relative h-full flex flex-col md:flex-row w-full z-20">
         {techData.map((item, i) => {
           const isActive = activeIndex === i;
 
@@ -144,20 +144,23 @@ export default function TechnologySlider() {
                 setActiveIndex(i);
               }}
               onMouseLeave={() => setIsHovering(false)}
-              className={`relative border-l border-white/10 overflow-hidden transition-all duration-500 flex ${
+              className={`relative border-t md:border-t-0 md:border-l border-white/10 overflow-hidden transition-all duration-500 flex ${
                 isActive ? "flex-[7]" : "flex-[1]"
               }`}
             >
               {/* ================= COLLAPSED ================= */}
               {!isActive && (
                 <>
-                  <div className="group flex items-center justify-center w-full cursor-pointer">
-                    <div className="-rotate-90 whitespace-nowrap text-base font-semibold tracking-wider text-white/70 group-hover:text-white transition">
+                  <div className="group flex items-center justify-center w-full h-full cursor-pointer py-4 md:py-0">
+                    <div className="text-center px-4 pr-12 md:px-0 md:pr-0 whitespace-normal md:whitespace-nowrap text-sm md:text-base font-semibold tracking-wider text-white/70 group-hover:text-white transition md:-rotate-90">
                       {item.title}
                     </div>
                   </div>
 
-                  <span className="absolute bottom-10 left-1/2 -translate-x-1/2 text-3xl font-bold text-white">
+                  <span className="hidden md:block absolute bottom-10 left-1/2 -translate-x-1/2 text-3xl font-bold text-white">
+                    0{item.id}
+                  </span>
+                  <span className="md:hidden absolute right-6 top-1/2 -translate-y-1/2 text-xl font-bold text-white/30">
                     0{item.id}
                   </span>
                 </>
@@ -167,7 +170,7 @@ export default function TechnologySlider() {
               {isActive && (
                 <div
                   className="
-                relative w-full px-14 py-10 flex flex-col
+                relative w-full h-full overflow-y-auto px-6 py-6 md:px-14 md:py-10 flex flex-col justify-center
                 bg-white/5 backdrop-blur-md
                 border border-white/10
                 rounded-2xl
@@ -177,24 +180,24 @@ export default function TechnologySlider() {
                   
 
                   {/* ID */}
-                  <span className="text-[52px] font-extrabold text-white ">
+                  <span className="text-[40px] md:text-[52px] font-extrabold text-white leading-none mb-2 md:mb-0">
                     0{item.id}
                   </span>
 
                   {/* TITLE */}
-                  <h3 className="text-[32px] font-semibold tracking-tight mb-2">
+                  <h3 className="text-[24px] md:text-[32px] font-semibold tracking-tight mb-2">
                     <span className="bg-white bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(59,130,246,0.6)]">
                       {item.title}
                     </span>
                   </h3>
 
                   {/* DESCRIPTION */}
-                  <p className="text-white/90 text-[16px] leading-relaxed max-w-xl mb-4">
+                  <p className="text-white/90 text-[14px] md:text-[16px] leading-relaxed max-w-xl mb-4">
                     {item.description}
                   </p>
 
                   {/* HIGHLIGHTS */}
-                  <ul className="grid grid-cols-2 gap-x-8 gap-y-4 mb-6 max-w-xl">
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 md:gap-x-8 gap-y-2 md:gap-y-4 mb-6 max-w-xl">
                     {serviceHighlights[item.id]?.map((point, idx) => (
                       <li
                         key={idx}
@@ -211,7 +214,7 @@ export default function TechnologySlider() {
                   </ul>
 
                   {/* PARTNER VALUE */}
-                  <div className="relative mb-1 max-w-xl rounded-2xl border border-cyan-400/20 bg-gradient-to-br from-cyan-500/10 via-blue-500/5 to-transparent p-5">
+                  <div className="relative mb-4 md:mb-1 max-w-xl rounded-2xl border border-cyan-400/20 bg-gradient-to-br from-cyan-500/10 via-blue-500/5 to-transparent p-4 md:p-5 flex-shrink-0">
                     <div className="absolute inset-0 rounded-2xl bg-cyan-400/5 blur-xl pointer-events-none" />
 
                     <div className="relative flex items-start gap-3">
@@ -233,7 +236,7 @@ export default function TechnologySlider() {
                   {/* BUTTON */}
                   <a
                     href={item.link}
-                    className="mt-1 inline-flex items-center justify-center hover:bg-gradient-to-r from-blue-600 to-cyan-500 px-7 py-2 rounded-full text-white text-sm font-semibold hover:scale-105 hover:shadow-[0_10px_25px_rgba(59,130,246,0.5)] transition-all duration-300 w-fit"
+                    className="mt-auto md:mt-1 inline-flex items-center justify-center hover:bg-gradient-to-r from-blue-600 to-cyan-500 px-7 py-2 rounded-full text-white text-sm font-semibold hover:scale-105 hover:shadow-[0_10px_25px_rgba(59,130,246,0.5)] transition-all duration-300 w-fit flex-shrink-0"
                   >
                     Learn More →
                   </a>
