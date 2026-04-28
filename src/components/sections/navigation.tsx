@@ -512,9 +512,22 @@ export default function Navigation() {
         <div className="hidden lg:flex items-center gap-3">
           <Link
             href="/contact"
-            className="px-5 py-2.5 text-sm font-semibold text-white bg-black rounded-full hover:scale-105 hover:shadow-lg transition"
+            className="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-black rounded-full hover:scale-105 hover:shadow-lg transition"
           >
             Get Started
+            <svg
+              viewBox="0 0 16 16"
+              fill="none"
+              style={{ width: 16, height: 16 }}
+            >
+              <path
+                d="M4 12L12 4M12 4H7M12 4v5"
+                stroke="rgba(255,255,255,0.8)"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </Link>
         </div>
 
@@ -546,14 +559,14 @@ export default function Navigation() {
                             mobileDropdown === item.label ? null : item.label,
                           );
                         }}
-                        className="w-full flex items-center justify-between py-4 border-b text-left"
+                        className="w-full flex items-center justify-between py-4 border-b border-gray-200 text-left"
                       >
                         <span className="text-lg font-semibold text-gray-900">
                           {item.label}
                         </span>
                         <ChevronDown
                           size={20}
-                          className={`transition-transform ${
+                          className={`text-gray-900 transition-transform ${
                             mobileDropdown === item.label ? "rotate-180" : ""
                           }`}
                         />
@@ -562,7 +575,7 @@ export default function Navigation() {
                       <Link
                         href={item.url || "#"}
                         onClick={() => setMobileOpen(false)}
-                        className="w-full flex items-center justify-between py-4 border-b text-left"
+                        className="w-full flex items-center justify-between py-4 border-b border-gray-200 text-left"
                       >
                         <span className="text-lg font-semibold text-gray-900">
                           {item.label}
@@ -599,9 +612,22 @@ export default function Navigation() {
                 <Link
                   href="/contact"
                   onClick={() => setMobileOpen(false)}
-                  className="mt-6 text-center px-5 py-3 bg-black text-white rounded-full font-semibold"
+                  className="mt-6 flex items-center justify-center gap-2 px-5 py-3 bg-black text-white rounded-full font-semibold"
                 >
                   Get Started
+                  <svg
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    style={{ width: 16, height: 16 }}
+                  >
+                    <path
+                      d="M4 12L12 4M12 4H7M12 4v5"
+                      stroke="rgba(255,255,255,0.8)"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </Link>
               </div>
             </motion.div>

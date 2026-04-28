@@ -18,6 +18,7 @@ import {
   BookOpen,
   Phone,
   Building2,
+  ChevronDown,
 } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -160,6 +161,7 @@ const menu: MenuItem[] = [
 ========================= */
 export function Header() {
   const [open, setOpen] = React.useState(false);
+  const [mobileDropdown, setMobileDropdown] = React.useState<string | null>(null);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/90 backdrop-blur">
@@ -270,25 +272,44 @@ export function Header() {
           if (item.mega) {
             return (
               <div key={item.label}>
-                <div className="font-semibold">{item.label}</div>
-                <div className="ml-4 mt-2 space-y-4">
-                  {item.children.map((section) => (
-                    <div key={section.title}>
-                      <p className="text-sm text-muted-foreground">
-                        {section.title}
-                      </p>
-                      {section.links.map((link) => (
-                        <a
-                          key={link.label}
-                          href={link.url}
-                          className="block rounded-md p-2 hover:bg-accent"
-                        >
-                          {link.label}
-                        </a>
-                      ))}
-                    </div>
-                  ))}
-                </div>
+                <button
+                  onClick={() =>
+                    setMobileDropdown(
+                      mobileDropdown === item.label ? null : item.label
+                    )
+                  }
+                  className="w-full flex items-center justify-between font-semibold p-2 rounded-md hover:bg-accent"
+                >
+                  <div className="flex items-center gap-2">
+                    {Icon && <Icon className="h-4 w-4" />}
+                    {item.label}
+                  </div>
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform ${
+                      mobileDropdown === item.label ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+                {mobileDropdown === item.label && (
+                  <div className="ml-4 mt-2 space-y-4">
+                    {item.children.map((section) => (
+                      <div key={section.title}>
+                        <p className="text-sm text-muted-foreground">
+                          {section.title}
+                        </p>
+                        {section.links.map((link) => (
+                          <a
+                            key={link.label}
+                            href={link.url}
+                            className="block rounded-md p-2 hover:bg-accent"
+                          >
+                            {link.label}
+                          </a>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             );
           }
