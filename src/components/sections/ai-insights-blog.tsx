@@ -14,24 +14,24 @@ type Article = {
 };
 
 const initialFeatured: Article = {
-  imageUrl: "/images/1.png",
-  title: "Wellkies Doctor Mobile App",
-  date: "Healthcare",
+  imageUrl: "/images/case-study/power-apps/hr.png",
+  title: "HR Assistant Copilot Agent",
+  date: "AI Agent",
   readTime: "Case Study",
-  href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-Doctor-Document.pdf",
+  href: "/pdf/HR-Assistant-Copilot-Agent.pptx",
   description:
-    "A secure doctor-focused mobile solution providing access to schedules, patient records, and streamlined consultation workflows.",
+    "A comprehensive HR copilot agent that streamlines onboarding, employee assistance, and policy management workflows.",
 };
 
 const initialRecent: Article[] = [
   {
-    imageUrl: "/images/2.png",
-    title: "Wellkies Clinic Management App",
-    date: "Healthcare",
+   imageUrl: "/images/case-study/power-apps/travel.png",
+   title: "ES Speaks and Travel Requests Management System",
+    date: "AI Agent",
     readTime: "Case Study",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-Clinic-App.pdf",
+    href: "/pdf/ES Speaks and Travel Requests Management System.pdf",
     description:
-      "An integrated clinic platform to manage appointments, staff coordination, and operational activities efficiently.",
+      "A Power Platform–based internal communication and travel request management solution that enhances employee engagement through announcements, structured request workflows, feedback collection, and seamless integration with SharePoint and Microsoft Teams.",
   },
   {
     imageUrl: "/images/case-study/power-apps/barcode.png",
@@ -43,11 +43,11 @@ const initialRecent: Article[] = [
       "A Microsoft Dataverse-based barcode scanning app that automates real-time inventory tracking and reduces manual data entry.",
   },
   {
-    imageUrl: "/images/case-study/power-apps/student.avif",
-    title: "Students Portal Mobile App",
-    date: "Power Apps",
+    imageUrl: "/images/case-study/power-apps/copilot.png",
+    title: "AI-Powered Task Automation using Copilot in Power Apps",
+    date: "AI",
     readTime: "Case Study",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Students-Portal-Mobile-App.pdf",
+    href: "/pdf/AI-Powered-Task-Automation-using-Copilot-in-Power-Apps.pptx",
     description:
       "A unified student experience platform for accessing academic data, profiles, and institutional services.",
   },
