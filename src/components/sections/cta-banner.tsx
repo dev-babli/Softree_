@@ -90,7 +90,6 @@ export default function CTASection() {
                 }}
               />
 
-              {/* ⬇️ Reduced padding and gap here */}
               <div className="relative p-5 flex flex-col gap-4">
                 {/* Trust chip */}
                 <div
@@ -192,22 +191,13 @@ export default function CTASection() {
                   }}
                 />
 
-                {/* Testimonial card — mt-auto pushes it to bottom if space allows */}
                 <div
                   className="relative rounded-2xl p-4 overflow-hidden"
                   style={{
-                    background: "rgba(255,255,255,0.04)",
-                    border: "1px solid rgba(255,255,255,0.08)",
+                    background: "rgba(255, 122, 47, 0.08)",
+                    border: "1px solid rgba(255, 122, 47, 0.15)",
                   }}
                 >
-                  {/* Left accent stripe */}
-                  <div
-                    className="absolute top-0 left-0 w-[3px] h-full"
-                    style={{
-                      background: "linear-gradient(180deg, #ff7a2f, #c75a2a)",
-                    }}
-                  />
-
                   {/* Watermark quote SVG */}
                   <svg
                     className="absolute top-2 right-3 opacity-[0.06]"
@@ -219,7 +209,7 @@ export default function CTASection() {
                     <path d="M0 32V20C0 8.955 7.865 2.347 23.594 0L25 3.065C18.005 4.593 14.507 7.443 14.507 11.615H19V32H0ZM21 32V20C21 8.955 28.865 2.347 44.594 0L46 3.065C39.005 4.593 35.507 7.443 35.507 11.615H40V32H21Z" />
                   </svg>
 
-                  {/* Quote text — clamp to 3 lines */}
+                  {/* Quote text */}
                   <p
                     className="text-[12.5px] leading-relaxed pl-2 mb-3 italic mt-6"
                     style={{
@@ -267,6 +257,227 @@ export default function CTASection() {
                           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" />
                         </svg>
                       ))}
+                    </div>
+                  </div>
+
+                  {/* Testimonial navigation dots */}
+                  <div className="flex justify-center gap-1.5 mt-3">
+                    {testimonials.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setIndex(i)}
+                        style={{
+                          width: i === index ? 16 : 6,
+                          height: 6,
+                          borderRadius: 999,
+                          background:
+                            i === index ? "#ff7a2f" : "rgba(255,255,255,0.2)",
+                          border: "none",
+                          cursor: "pointer",
+                          padding: 0,
+                          transition: "all 0.3s ease",
+                        }}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                {/* ISO Certificates */}
+                <div className="mt-2 pt-4 border-t border-[rgba(255,255,255,0.08)]">
+                  <p
+                    className="text-[11px] mb-3 m-0"
+                    style={{ color: "rgba(255,255,255,0.5)" }}
+                  >
+                    Certified & Trusted
+                  </p>
+                  <div className="flex items-center gap-3 flex-wrap">
+                    {/* ISO 9001 */}
+                    <div
+                      className="flex items-center gap-2 px-3 py-1.5 rounded-lg border text-[11px]"
+                      style={{
+                        background: "rgba(255,255,255,0.05)",
+                        borderColor: "rgba(255,255,255,0.1)",
+                      }}
+                    >
+                      <div
+                        className="w-[27px] h-[27px] rounded flex items-center justify-center flex-shrink-0"
+                        style={{ background: "#1e3a5f" }}
+                      >
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="#60a5fa"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                        >
+                          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <span
+                          className="block text-[12px] font-semibold"
+                          style={{ color: "rgba(255,255,255,0.85)" }}
+                        >
+                          ISO 9001
+                        </span>
+                        <span style={{ color: "rgba(255,255,255,0.45)" }}>
+                          Quality mgmt.
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* ISO 27001 */}
+                    <div
+                      className="flex items-center gap-2 px-3 py-1.5 rounded-lg border text-[11px]"
+                      style={{
+                        background: "rgba(255,255,255,0.05)",
+                        borderColor: "rgba(255,255,255,0.1)",
+                      }}
+                    >
+                      <div
+                        className="w-[22px] h-[22px] rounded flex items-center justify-center flex-shrink-0"
+                        style={{ background: "#1a3a2a" }}
+                      >
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="#4ade80"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                        >
+                          <rect x="3" y="11" width="18" height="11" rx="2" />
+                          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                        </svg>
+                      </div>
+                      <div>
+                        <span
+                          className="block text-[12px] font-semibold"
+                          style={{ color: "rgba(255,255,255,0.85)" }}
+                        >
+                          ISO 27001
+                        </span>
+                        <span style={{ color: "rgba(255,255,255,0.45)" }}>
+                          Info security
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* SOC 2 Type II */}
+                    <div
+                      className="flex items-center gap-2 px-3 py-1.5 rounded-lg border text-[11px]"
+                      style={{
+                        background: "rgba(255,255,255,0.05)",
+                        borderColor: "rgba(255,255,255,0.1)",
+                      }}
+                    >
+                      <div
+                        className="w-[22px] h-[22px] rounded flex items-center justify-center flex-shrink-0"
+                        style={{ background: "#2e1065" }}
+                      >
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="#a855f7"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                        >
+                          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                          <path d="M9 12l2 2 4-4" />
+                        </svg>
+                      </div>
+                      <div>
+                        <span
+                          className="block text-[12px] font-semibold"
+                          style={{ color: "rgba(255,255,255,0.85)" }}
+                        >
+                          SOC 2 Type II
+                        </span>
+                        <span style={{ color: "rgba(255,255,255,0.45)" }}>
+                          Data privacy
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* CMMI Level 3 */}
+                    <div
+                      className="flex items-center gap-2 px-3 py-1.5 rounded-lg border text-[11px]"
+                      style={{
+                        background: "rgba(255,255,255,0.05)",
+                        borderColor: "rgba(255,255,255,0.1)",
+                      }}
+                    >
+                      <div
+                        className="w-[22px] h-[22px] rounded flex items-center justify-center flex-shrink-0"
+                        style={{ background: "#451a03" }}
+                      >
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="#f59e0b"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                        >
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21 12 17.77 5.82 21 7 14.14 2 9.27 8.91 8.26 12 2" />
+                        </svg>
+                      </div>
+                      <div>
+                        <span
+                          className="block text-[12px] font-semibold"
+                          style={{ color: "rgba(255,255,255,0.85)" }}
+                        >
+                          CMMI Level 3
+                        </span>
+                        <span style={{ color: "rgba(255,255,255,0.45)" }}>
+                          Process maturity
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* GDPR Compliant */}
+                    <div
+                      className="flex items-center gap-2 px-3 py-1.5 rounded-lg border text-[11px]"
+                      style={{
+                        background: "rgba(255,255,255,0.05)",
+                        borderColor: "rgba(255,255,255,0.1)",
+                      }}
+                    >
+                      <div
+                        className="w-[22px] h-[22px] rounded flex items-center justify-center flex-shrink-0"
+                        style={{ background: "#082f49" }}
+                      >
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="#38bdf8"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                        >
+                          <circle cx="12" cy="12" r="10" />
+                          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                          <path d="M2 12h20" />
+                        </svg>
+                      </div>
+                      <div>
+                        <span
+                          className="block text-[12px] font-semibold"
+                          style={{ color: "rgba(255,255,255,0.85)" }}
+                        >
+                          GDPR Ready
+                        </span>
+                        <span style={{ color: "rgba(255,255,255,0.45)" }}>
+                          Data protection
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>

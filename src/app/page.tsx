@@ -14,6 +14,7 @@ import TrustedBy from "@/components/sections/trusted-by";
 import ResponsiveHeroBanner from "@/components/sections/responsive-hero-banner";
 import GlobeScrollDemo from "@/components/ui/landing-page";
 import AISolutions from "@/components/sections/strategy";
+import ServicesStackedSlides from "@/components/sections/ServicesStackedSlides";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <main className="flex-grow mt-1">
         {/* <HeroSection /> */}
         <ResponsiveHeroBanner />
+        <ServicesStackedSlides />
         <TechnologySlider />
         <SupportPartners />
 
