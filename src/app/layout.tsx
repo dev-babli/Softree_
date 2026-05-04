@@ -151,7 +151,7 @@ export default function RootLayout({
 
         {children}
 
-        {/* ✅ Tidio Chatbot (FIXED COMMENT) */}
+        {/* ✅ Tidio Chatbot*/}
         <Script
           src="//code.tidio.co/wt0gzqlmxpfwlnsv7aculpsflifbbv7v.js"
           strategy="afterInteractive"
