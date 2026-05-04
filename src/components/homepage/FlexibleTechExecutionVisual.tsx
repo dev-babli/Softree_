@@ -189,9 +189,21 @@ export function FlexibleTechExecutionVisual({ isActive, className = "" }: Props)
       } else {
         stRef.current = ScrollTrigger.create({
           trigger: root,
-          start: "top 70%",
-          once: true,
-          onEnter: playOnce,
+          start: "top 90%",
+          end: "bottom 10%",
+          onEnter: () => {
+            playOnce()
+            loopsRef.current.forEach((t) => t.resume())
+          },
+          onLeave: () => {
+            loopsRef.current.forEach((t) => t.pause())
+          },
+          onEnterBack: () => {
+            loopsRef.current.forEach((t) => t.resume())
+          },
+          onLeaveBack: () => {
+            loopsRef.current.forEach((t) => t.pause())
+          },
         })
       }
 

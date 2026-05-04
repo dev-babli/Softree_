@@ -23,10 +23,9 @@ export default function Home() {
       <main className="flex-grow mt-1">
         {/* <HeroSection /> */}
         <ResponsiveHeroBanner />
+        <SupportPartners />
         <ServicesStackedSlides />
         <TechnologySlider />
-        <SupportPartners />
-
         <TrustedBy />
         <AiInsightsBlog />
         <TechStackSection />

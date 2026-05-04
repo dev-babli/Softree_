@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import { Search, Pencil, Code2, TrendingUp } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -72,8 +73,12 @@ function pathTx(delay: number, dur = 1.1) {
 // ── Component ─────────────────────────────────────────────────────────────────
 
 export function DeliveryProcessDiagram() {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref);
+
   return (
     <div
+      ref={ref}
       className="relative w-full h-full overflow-hidden"
       style={{
         // Phase 02 dawn cream: sky→cream→warm-sand gradient (Image 3 reference)
@@ -201,7 +206,7 @@ export function DeliveryProcessDiagram() {
                 cx={cx} cy={BY} r="2.6"
                 fill="none" stroke="#F97316" strokeWidth="0.55" strokeOpacity="0.28"
                 vectorEffect="non-scaling-stroke"
-                animate={{ scale: [1, 1.65, 1], opacity: [0.45, 0, 0.45] }}
+                animate={isInView ? { scale: [1, 1.65, 1], opacity: [0.45, 0, 0.45] } : { scale: 1, opacity: 0 }}
                 transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: i * 0.65 }}
                 style={{ transformBox: "fill-box", transformOrigin: "center" }}
               />

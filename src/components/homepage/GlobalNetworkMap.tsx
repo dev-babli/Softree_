@@ -336,10 +336,27 @@ export function GlobalNetworkMap() {
       raf = requestAnimationFrame(draw);
     }
 
-    raf = requestAnimationFrame(draw);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          if (!raf) {
+            t0 = 0; // Reset time to avoid jump on resume
+            raf = requestAnimationFrame(draw);
+          }
+        } else {
+          if (raf) {
+            cancelAnimationFrame(raf);
+            raf = 0;
+          }
+        }
+      },
+      { threshold: 0 }
+    );
+    observer.observe(canvas);
 
     return () => {
-      cancelAnimationFrame(raf);
+      observer.disconnect();
+      if (raf) cancelAnimationFrame(raf);
       ro.disconnect();
       canvas.removeEventListener("mousemove", onMove);
       canvas.removeEventListener("mouseleave", onLeave);

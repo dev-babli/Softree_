@@ -1,6 +1,7 @@
 "use client"
 
-import { motion, useReducedMotion } from "framer-motion"
+import { motion, useReducedMotion, useInView } from "framer-motion"
+import { useRef } from "react"
 import {
   Users,
   BarChart3,
@@ -206,10 +207,13 @@ function OrbitGraphic({ reduce }: { reduce: boolean }) {
 }
 
 export function LongTermDeliveryVisual({ className = "" }: { className?: string }) {
-  const reduce = !!useReducedMotion()
+  const ref = useRef<HTMLElement>(null)
+  const isInView = useInView(ref)
+  const reduce = !!useReducedMotion() || !isInView
 
   return (
     <motion.section
+      ref={ref}
       aria-label="Long-term delivery partnership visual"
       className={[
         "relative w-full overflow-hidden",
