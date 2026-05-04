@@ -123,7 +123,7 @@ export default function AiInsightsBlog() {
             </Link>
           </div>
 
-          {/* ================= RIGHT LIST ================= */}
+          {/* ================= RIGHT LIST RIGHT ================= */}
           <div className="lg:col-span-2 flex flex-col gap-3 h-full">
             {recent.map((article, index) => (
               <Link
