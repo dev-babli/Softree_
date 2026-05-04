@@ -31,7 +31,7 @@ const SERVICE_SLIDES: ServiceSlide[] = [
     phase: "PHASE 01",
     index: "01",
     title: "Scale",
-    headline: "A global delivery network with its epicenter in India.",
+    headline: "A global delivery network with epicenter in India.",
     description:
       "Our distributed model connects specialized technical hubs across London, Tokyo, Sydney, San Francisco, and São Paulo to ensure round-the-clock progress.",
     outcomes: ["Global Hubs", "24/7 Operations", "Distributed Teams"],
