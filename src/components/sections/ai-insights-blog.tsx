@@ -57,13 +57,7 @@ export default function AiInsightsBlog() {
   const [featured, setFeatured] = useState<Article>(initialFeatured);
   const [recent, setRecent] = useState<Article[]>(initialRecent);
 
-  const handleSelect = (article: Article, index: number) => {
-    setRecent((prev) => {
-      const updated = [...prev];
-      updated[index] = featured;
-      return updated;
-    });
-
+  const handleSelect = (article: Article) => {
     setFeatured(article);
   };
 
@@ -137,7 +131,7 @@ export default function AiInsightsBlog() {
                 href={article.href}
                 target="_blank"
                 className="group relative flex items-center gap-4 flex-1 p-5 rounded-2xl text-left bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
-                onMouseEnter={() => handleSelect(article, index)}
+                onMouseEnter={() => handleSelect(article)}
               >
                 {/* Accent bar */}
                 <span className="absolute left-0 top-1/2 -translate-y-1/2 h-0 w-1 bg-blue-500 rounded-full group-hover:h-10 transition-all duration-300" />

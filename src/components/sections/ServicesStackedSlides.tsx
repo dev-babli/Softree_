@@ -116,7 +116,7 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
               end: () => (getFakeScrollRatio() ? `+=${innerPanel.scrollHeight}` : "bottom top"),
               pin: true,
               pinSpacing: false,
-              scrub: true,
+              scrub: 1,
               anticipatePin: 1,
               invalidateOnRefresh: true,
               onRefreshInit: setPanelSpacing,
@@ -531,7 +531,6 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
           text-transform: uppercase;
           text-align: left;
           overflow-wrap: anywhere;
-          backdrop-filter: blur(18px);
         }
 
         .ssx-actions {
