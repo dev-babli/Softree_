@@ -111,11 +111,11 @@ const services = [
 
 function PowerPlatformBackground({ hovered }: { hovered: boolean }) {
   const tools = [
-    { id: "apps",      label: "Power Apps",        x: 350, y: 90,  r: 22, color: "#FB923C", fill: "#FFEDD5", textColor: "#9A3412" },
-    { id: "automate",  label: "Power Automate",     x: 350, y: 175, r: 22, color: "#F97316", fill: "#FFF7ED", textColor: "#C2410C" },
-    { id: "dataverse", label: "Dataverse",          x: 430, y: 138, r: 30, color: "#EA580C", fill: "#FFEDD5", textColor: "#7C2D12" },
-    { id: "fo",        label: "Dynamics 365",   x: 510, y: 90,  r: 22, color: "#F97316", fill: "#FFF7ED", textColor: "#9A3412" },
-    { id: "ce",        label: "D365 CE",            x: 510, y: 185, r: 22, color: "#FB923C", fill: "#FFEDD5", textColor: "#C2410C" },
+    { id: "apps",      label: "Power Apps",    x: 200, y: 80,  r: 22, color: "#FB923C", fill: "#FFEDD5", textColor: "#9A3412" },
+    { id: "automate",  label: "Power Automate",x: 200, y: 180, r: 22, color: "#F97316", fill: "#FFF7ED", textColor: "#C2410C" },
+    { id: "dataverse", label: "Dataverse",     x: 320, y: 130, r: 30, color: "#EA580C", fill: "#FFEDD5", textColor: "#7C2D12" },
+    { id: "fo",        label: "Dynamics 365",  x: 440, y: 80,  r: 22, color: "#F97316", fill: "#FFF7ED", textColor: "#9A3412" },
+    { id: "ce",        label: "D365 CE",       x: 440, y: 180, r: 22, color: "#FB923C", fill: "#FFEDD5", textColor: "#C2410C" },
   ];
 
   const connections = [
@@ -128,37 +128,37 @@ function PowerPlatformBackground({ hovered }: { hovered: boolean }) {
 
   const icons: Record<string, ReactNode> = {
     apps: (
-      <g transform="translate(195, 0)">
-        <rect x={143} y={80} width={24} height={18} rx={2} fill="none" stroke="#EA580C" strokeWidth={1.5} />
-        <line x1={143} y1={85} x2={167} y2={85} stroke="#EA580C" strokeWidth={1} />
-        <rect x={146} y={88} width={7} height={7} rx={1} fill="#EA580C" opacity={0.6} />
-        <rect x={155} y={88} width={9} height={3} rx={1} fill="#EA580C" opacity={0.35} />
-        <rect x={155} y={93} width={6} height={2} rx={1} fill="#EA580C" opacity={0.25} />
-      </g>
+      <>
+        <rect x={189} y={71} width={22} height={17} rx={2} fill="none" stroke="#EA580C" strokeWidth={1.5} />
+        <line x1={189} y1={76} x2={211} y2={76} stroke="#EA580C" strokeWidth={1} />
+        <rect x={192} y={79} width={6} height={6} rx={1} fill="#EA580C" opacity={0.6} />
+        <rect x={200} y={79} width={8} height={3} rx={1} fill="#EA580C" opacity={0.35} />
+        <rect x={200} y={84} width={5} height={2} rx={1} fill="#EA580C" opacity={0.25} />
+      </>
     ),
     automate: (
-      <g transform="translate(195, 0)">
-        <polygon points="161,163 153,175 158,175 149,187 162,174 157,174" fill="#EA580C" opacity={0.75} />
-      </g>
+      <>
+        <polygon points="208,168 200,180 205,180 196,192 209,179 204,179" fill="#EA580C" opacity={0.75} />
+      </>
     ),
     dataverse: (
-      <g transform="translate(60, 0)">
-        <ellipse cx={370} cy={126} rx={12} ry={4} fill="none" stroke="#C2410C" strokeWidth={1.3} />
-        <line x1={358} y1={126} x2={358} y2={138} stroke="#C2410C" strokeWidth={1.3} />
-        <line x1={382} y1={126} x2={382} y2={138} stroke="#C2410C" strokeWidth={1.3} />
-        <ellipse cx={370} cy={138} rx={12} ry={4} fill="#FFEDD5" stroke="#C2410C" strokeWidth={1.3} />
-      </g>
+      <>
+        <ellipse cx={320} cy={118} rx={12} ry={4} fill="none" stroke="#C2410C" strokeWidth={1.3} />
+        <line x1={308} y1={118} x2={308} y2={130} stroke="#C2410C" strokeWidth={1.3} />
+        <line x1={332} y1={118} x2={332} y2={130} stroke="#C2410C" strokeWidth={1.3} />
+        <ellipse cx={320} cy={130} rx={12} ry={4} fill="#FFEDD5" stroke="#C2410C" strokeWidth={1.3} />
+      </>
     ),
     fo: (
       <>
-        <circle cx={510} cy={90} r={8} fill="none" stroke="#C2410C" strokeWidth={1.5} />
-        <circle cx={510} cy={90} r={3} fill="#C2410C" opacity={0.5} />
+        <circle cx={440} cy={80} r={8} fill="none" stroke="#C2410C" strokeWidth={1.5} />
+        <circle cx={440} cy={80} r={3} fill="#C2410C" opacity={0.5} />
         {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => {
           const rad = (angle * Math.PI) / 180;
           return (
             <line key={i}
-              x1={510 + Math.cos(rad) * 8}  y1={90 + Math.sin(rad) * 8}
-              x2={510 + Math.cos(rad) * 12} y2={90 + Math.sin(rad) * 12}
+              x1={440 + Math.cos(rad) * 8}  y1={80 + Math.sin(rad) * 8}
+              x2={440 + Math.cos(rad) * 12} y2={80 + Math.sin(rad) * 12}
               stroke="#C2410C" strokeWidth={1.5} strokeLinecap="round"
             />
           );
@@ -167,23 +167,26 @@ function PowerPlatformBackground({ hovered }: { hovered: boolean }) {
     ),
     ce: (
       <>
-        <rect x={500} y={188} width={5} height={8}  rx={1} fill="#C2410C" opacity={0.7} />
-        <rect x={507} y={183} width={5} height={13} rx={1} fill="#C2410C" opacity={0.55} />
-        <rect x={514} y={180} width={5} height={16} rx={1} fill="#C2410C" opacity={0.4} />
-        <line x1={498} y1={196} x2={522} y2={196} stroke="#C2410C" strokeWidth={1} opacity={0.6} />
+        <rect x={430} y={183} width={5} height={8}  rx={1} fill="#C2410C" opacity={0.7} />
+        <rect x={437} y={178} width={5} height={13} rx={1} fill="#C2410C" opacity={0.55} />
+        <rect x={444} y={175} width={5} height={16} rx={1} fill="#C2410C" opacity={0.4} />
+        <line x1={428} y1={191} x2={452} y2={191} stroke="#C2410C" strokeWidth={1} opacity={0.6} />
       </>
     ),
   };
 
   return (
     <svg
-      className="absolute right-0 bottom-0 pointer-events-none z-0"
-      viewBox="320 60 220 170"
-      preserveAspectRatio="xMaxYMax meet"
+      className="absolute inset-0 pointer-events-none z-0"
+      viewBox="120 30 400 230"
+      preserveAspectRatio="xMidYMid meet"
       aria-hidden="true"
       style={{
-        width: "35%",
-        height: "60%",
+        width: "100%",
+        height: "100%",
+        filter: "blur(2.5px)",
+        opacity: hovered ? 0.65 : 0.3,
+        transition: "opacity 0.5s ease",
       }}
     >
       <defs>
@@ -198,7 +201,7 @@ function PowerPlatformBackground({ hovered }: { hovered: boolean }) {
       </defs>
 
       {/* Scatter dots */}
-      {[[60,50],[100,30],[80,80],[40,120],[620,50],[600,80],[640,120],[620,220],[250,220],[300,240],[430,230]].map(([x,y],i) => (
+      {[[140,45],[170,35],[155,75],[135,115],[500,45],[490,75],[505,115],[495,210],[230,215],[280,230],[390,220]].map(([x,y],i) => (
         <circle key={i} cx={x} cy={y} r={1.2} fill="#888780"
           style={{ opacity: hovered ? 0.25 : 0.1, transition: "opacity 0.5s" }}
         />
@@ -213,7 +216,7 @@ function PowerPlatformBackground({ hovered }: { hovered: boolean }) {
             d={`M${f.x},${f.y} Q${mx},${my} ${t.x},${t.y}`}
             fill="none" stroke={color} strokeWidth={1} strokeDasharray="5 4"
             markerEnd="url(#pp-arrow)"
-            style={{ opacity: hovered ? 0.6 : 0.3, transition: "opacity 0.4s" }}
+            style={{ opacity: hovered ? 0.8 : 0.5, transition: "opacity 0.4s" }}
           />
         );
       })}
@@ -230,9 +233,9 @@ function PowerPlatformBackground({ hovered }: { hovered: boolean }) {
 
       {/* Pulse rings */}
       {tools.map(({ x, y, r, color, id }) => (
-        <circle key={`pulse-${id}`} cx={x} cy={y} r={r + 8} fill="none" stroke={color} strokeWidth={1}
+        <circle key={`pulse-${id}`} cx={x} cy={y} r={r + 10} fill="none" stroke={color} strokeWidth={1}
           style={{
-            opacity: hovered ? 0.3 : 0,
+            opacity: hovered ? 0.35 : 0,
             transform: hovered ? "scale(1)" : "scale(0.85)",
             transformOrigin: `${x}px ${y}px`,
             transition: "opacity 0.5s, transform 0.5s",
@@ -244,11 +247,11 @@ function PowerPlatformBackground({ hovered }: { hovered: boolean }) {
       {tools.map(({ id, x, y, r, color, fill, textColor, label }) => (
         <g key={id}>
           <circle cx={x} cy={y} r={r} fill={fill} stroke={color} strokeWidth={1.5}
-            style={{ opacity: hovered ? 1 : 0.75, transition: "opacity 0.4s" }}
+            style={{ opacity: hovered ? 1 : 0.85, transition: "opacity 0.4s" }}
           />
           {icons[id]}
           <text x={x} y={y + r + 14} textAnchor="middle" fontSize={10} fontWeight={500} fill={textColor}
-            style={{ opacity: hovered ? 1 : 0.6, transition: "opacity 0.4s", fontFamily: "sans-serif" }}
+            style={{ opacity: hovered ? 1 : 0.7, transition: "opacity 0.4s", fontFamily: "sans-serif" }}
           >
             {label}
           </text>
@@ -257,74 +260,89 @@ function PowerPlatformBackground({ hovered }: { hovered: boolean }) {
     </svg>
   );
 }
-// Code watermark deco
-function CodeBackground({ hovered }: { hovered: boolean }) {
+
+// Animated bar chart deco — centered
+function BarsBackground({ hovered }: { hovered: boolean }) {
+  const heights = [40, 65, 50, 90, 70, 110, 85, 130, 100];
   return (
-    <>
-      <div
-        className="absolute right-8 top-1/2 -translate-y-1/2 font-mono font-black text-white pointer-events-none select-none leading-tight text-right"
-        style={{
-          fontSize: 52,
-          opacity: hovered ? 0.12 : 0.05,
-          transform: `translateY(-50%) scale(${hovered ? 1.08 : 1})`,
-          transition: "opacity 0.4s ease, transform 0.4s ease",
-          letterSpacing: "-0.02em",
-        }}
-      >
-        {"</>"}
-      </div>
-      <div
-        className="absolute right-16 top-8 font-mono text-white pointer-events-none select-none"
-        style={{
-          fontSize: 13,
-          opacity: hovered ? 0.08 : 0.03,
-          transition: "opacity 0.5s ease",
-          color: "#ff7a2f",
-        }}
-      >
-        {"div.app { }"}
-        <br />
-        {"const x = ai;"}
-      </div>
-    </>
+    <svg
+      className="absolute inset-0 pointer-events-none z-0"
+      viewBox="0 0 640 240"
+      preserveAspectRatio="xMidYMid meet"
+      aria-hidden="true"
+      style={{
+        width: "100%",
+        height: "100%",
+        filter: "blur(2px)",
+        opacity: hovered ? 0.6 : 0.25,
+        transition: "opacity 0.4s ease",
+      }}
+    >
+      {heights.map((h, i) => {
+        const x = 200 + i * 28;
+        const barH = hovered ? h : h * 0.4;
+        return (
+          <rect
+            key={i}
+            x={x}
+            y={240 - barH - 20}
+            width={14}
+            height={barH}
+            rx={3}
+            fill={`rgba(255,255,255,${hovered ? 0.12 + i * 0.01 : 0.06})`}
+            style={{
+              transition: `height ${0.3 + i * 0.05}s ease, y ${0.3 + i * 0.05}s ease`,
+              transitionDelay: `${i * 0.04}s`,
+            }}
+          />
+        );
+      })}
+    </svg>
   );
 }
 
-// Concentric circles deco
+// Concentric circles deco — centered
 function CirclesBackground({ hovered }: { hovered: boolean }) {
   return (
     <svg
-      className="absolute inset-0 w-full h-full pointer-events-none"
+      className="absolute inset-0 pointer-events-none z-0"
       viewBox="0 0 640 240"
-      preserveAspectRatio="xMidYMid slice"
+      preserveAspectRatio="xMidYMid meet"
+      aria-hidden="true"
+      style={{
+        width: "100%",
+        height: "100%",
+        filter: "blur(2px)",
+        opacity: hovered ? 0.65 : 0.25,
+        transition: "opacity 0.4s ease",
+      }}
     >
-      {[200, 160, 120, 80].map((r, i) => (
+      {[180, 140, 100, 60].map((r, i) => (
         <circle
           key={i}
-          cx={160}
-          cy={200}
+          cx={320}
+          cy={120}
           r={r}
           fill="none"
-          stroke="rgba(255,122,47,0.18)"
-          strokeWidth="1"
+          stroke="rgba(255,122,47,0.5)"
+          strokeWidth="1.5"
           style={{
-            transition: `transform ${0.5 + i * 0.1}s ease, opacity 0.4s ease, r 0.5s ease`,
-            transformOrigin: "160px 200px",
-            transform: hovered ? `scale(${1.1 + i * 0.05})` : "scale(1)",
-            opacity: hovered ? 0.6 : 0.25,
+            transition: `transform ${0.5 + i * 0.1}s ease, opacity 0.4s ease`,
+            transformOrigin: "320px 120px",
+            transform: hovered ? `scale(${1.12 + i * 0.04})` : "scale(1)",
+            opacity: hovered ? 0.9 : 0.5,
           }}
         />
       ))}
-      {/* Mesh lines */}
       {hovered &&
-        [0, 45, 90, 135].map((angle, i) => (
+        [0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => (
           <line
             key={i}
-            x1={160}
-            y1={200}
-            x2={160 + Math.cos((angle * Math.PI) / 180) * 200}
-            y2={200 + Math.sin((angle * Math.PI) / 180) * 200}
-            stroke="rgba(255,122,47,0.08)"
+            x1={320}
+            y1={120}
+            x2={320 + Math.cos((angle * Math.PI) / 180) * 180}
+            y2={120 + Math.sin((angle * Math.PI) / 180) * 180}
+            stroke="rgba(255,122,47,0.15)"
             strokeWidth="1"
             style={{ transition: "opacity 0.3s ease" }}
           />
@@ -333,25 +351,58 @@ function CirclesBackground({ hovered }: { hovered: boolean }) {
   );
 }
 
-// Animated bar chart deco
-function BarsBackground({ hovered }: { hovered: boolean }) {
-  const heights = [40, 65, 50, 90, 70, 110, 85, 130, 100];
+// Code watermark deco — centered SVG
+function CodeBackground({ hovered }: { hovered: boolean }) {
   return (
-    <div className="absolute bottom-0 right-0 flex items-end gap-2 p-6 pointer-events-none">
-      {heights.map((h, i) => (
-        <div
-          key={i}
-          className="rounded-sm"
-          style={{
-            width: 14,
-            height: hovered ? h : h * 0.4,
-            background: `rgba(255,255,255,${hovered ? 0.12 + i * 0.01 : 0.06})`,
-            transition: `height ${0.3 + i * 0.05}s ease, background 0.3s ease`,
-            transitionDelay: `${i * 0.04}s`,
-          }}
-        />
-      ))}
-    </div>
+    <svg
+      className="absolute inset-0 pointer-events-none z-0"
+      viewBox="0 0 640 240"
+      preserveAspectRatio="xMidYMid meet"
+      aria-hidden="true"
+      style={{
+        width: "100%",
+        height: "100%",
+        filter: "blur(2px)",
+        opacity: hovered ? 0.55 : 0.2,
+        transition: "opacity 0.4s ease",
+      }}
+    >
+      <text
+        x="320"
+        y="145"
+        textAnchor="middle"
+        fontSize={110}
+        fontWeight="900"
+        fontFamily="monospace"
+        fill="white"
+        letterSpacing="-2"
+        style={{ userSelect: "none" }}
+      >
+        {"</>"}
+      </text>
+      <text
+        x="320"
+        y="60"
+        textAnchor="middle"
+        fontSize={16}
+        fontFamily="monospace"
+        fill="#ff7a2f"
+        style={{ userSelect: "none" }}
+      >
+        {"div.app { }"}
+      </text>
+      <text
+        x="320"
+        y="82"
+        textAnchor="middle"
+        fontSize={16}
+        fontFamily="monospace"
+        fill="#ff7a2f"
+        style={{ userSelect: "none" }}
+      >
+        {"const x = ai;"}
+      </text>
+    </svg>
   );
 }
 
@@ -369,7 +420,7 @@ function ServiceCard({ service }: { service: (typeof services)[0] }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Animated backgrounds */}
+      {/* Animated SVG backgrounds — all centered & blurred */}
       {deco === "dots" && <PowerPlatformBackground hovered={hovered} />}
       {deco === "bars" && <BarsBackground hovered={hovered} />}
       {deco === "circles" && <CirclesBackground hovered={hovered} />}
@@ -380,7 +431,7 @@ function ServiceCard({ service }: { service: (typeof services)[0] }) {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at 80% 20%, rgba(255,122,47,0.06) 0%, transparent 60%)",
+            "radial-gradient(ellipse at 50% 50%, rgba(255,122,47,0.07) 0%, transparent 70%)",
           opacity: hovered ? 1 : 0,
           transition: "opacity 0.4s ease",
         }}
@@ -496,7 +547,7 @@ function ServiceCard({ service }: { service: (typeof services)[0] }) {
 
 export default function CoreEngineeringServices() {
   return (
-    <section className="bg-gradient-to-b from-black via-[#020d1a] to-black px-10 py-12 font-sans ">
+    <section className="bg-gradient-to-b from-black via-[#020d1a] to-black px-10 py-12 font-sans">
       <div className="max-w-7xl mx-auto w-full">
         {/* Heading */}
         <h2 className="text-[36px] font-extrabold tracking-tight leading-tight mb-8 m-0">

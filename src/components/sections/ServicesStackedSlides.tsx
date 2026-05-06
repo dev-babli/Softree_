@@ -170,7 +170,7 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
             <span className="ssx-kicker-line" />
             <span className="ssx-kicker">What We Deliver</span>
           </div>
-          <h2>Services Built For Real Pipeline, Not Pageviews</h2>
+          <h2>From Strategy to Production — We Own Every Layer.</h2>
         </div>
         <Link href="/contact" className="ssx-intro-action">
           <span>Book a Fit Call</span>
