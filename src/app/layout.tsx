@@ -3,6 +3,9 @@ import "./globals.css";
 import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
+import { Suspense } from "react";
+import { PostHogProvider } from "@/components/PostHogProvider";
+import { PostHogPageView } from "@/components/PostHogPageView";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://softree-2.vercel.app"), // change later
@@ -100,6 +103,8 @@ export default function RootLayout({
       />
 
       <body className="antialiased bg-[#141414] text-white">
+        <PostHogProvider>
+        <Suspense fallback={null}><PostHogPageView /></Suspense>
         {/* ✅ GTM NoScript */}
         <noscript>
           <iframe
@@ -159,6 +164,7 @@ export default function RootLayout({
 
         {/* Visual editor */}
         <VisualEditsMessenger />
+        </PostHogProvider>
       </body>
     </html>
   );
