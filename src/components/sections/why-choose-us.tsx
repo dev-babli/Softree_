@@ -1,307 +1,445 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import {
-  Star,
-  ChevronLeft,
-  ChevronRight,
-  Pause,
-  Play,
-  Rocket,
-  Users,
-  ShieldCheck,
-  User,
-  MapPin,
-  Sliders,
-} from "lucide-react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Star, Quote, ArrowLeft, ArrowRight, Zap, Users, ShieldCheck, Layers } from "lucide-react";
 
-/* ================= WHY CHOOSE DATA ================= */
-const whyChoose = [
+gsap.registerPlugin(ScrollTrigger);
+
+/* ================= DATA ================= */
+const pillars = [
   {
-    icon: Rocket,
+    icon: Zap,
+    number: "01",
     title: "Agile Engineering",
-    desc: "Rapid iterations and modern delivery practices.",
+    desc: "Rapid sprint cycles, CI/CD pipelines, and battle-tested delivery practices that ship features without breaking production.",
+    stat: "3×",
+    statLabel: "Faster delivery",
   },
   {
     icon: Users,
-    title: "Leadership Access",
-    desc: "Direct communication with decision-makers.",
+    number: "02",
+    title: "Direct Leadership Access",
+    desc: "You work with senior engineers and decision-makers from day one — no account managers, no communication layers.",
+    stat: "100%",
+    statLabel: "Senior team",
   },
   {
     icon: ShieldCheck,
+    number: "03",
     title: "Trusted Since 2013",
-    desc: "A decade of proven enterprise delivery.",
+    desc: "Over a decade of building robust enterprise software. Our track record speaks through 150+ delivered projects across 4 continents.",
+    stat: "12+",
+    statLabel: "Years of craft",
   },
   {
-    icon: Sliders,
+    icon: Layers,
+    number: "04",
     title: "Flexible Engagement",
-    desc: "Scalable teams and adaptable delivery models aligned to your business goals.",
+    desc: "Staff augmentation, dedicated squads, or full-project ownership — our models adapt to your roadmap, not the other way around.",
+    stat: "47+",
+    statLabel: "Active clients",
   },
 ];
 
-/* ================= REVIEWS DATA ================= */
 const reviews = [
   {
     name: "Natasha Adams",
     company: "Wicked Point LLC",
+    role: "Founder & CEO",
     rating: 5,
     comment:
-      "We had a very positive experience working with Softree Technology. The developers were responsive and delivery was on time. We appreciate the attention they gave our project and their great communication. The final product was exactly what we wanted and we look forward to working with Softree in the future.",
-    location: "Virginia",
+      "We had a very positive experience working with Softree Technology. The developers were responsive and delivery was on time. The final product was exactly what we wanted and we look forward to working with Softree in the future.",
+    location: "Virginia, USA",
+    initials: "NA",
   },
   {
     name: "Arkady Fedorovtsjev",
     company: "ECG Group",
+    role: "Head of Engineering",
     rating: 5,
     comment:
-      "Overall, we are satisfied with our collaboration in the past and your last action and response to our reported issue, really makes a difference.",
+      "We are thoroughly satisfied with our collaboration. Your last action and response to our reported issue really makes a difference — it shows genuine commitment to quality.",
     location: "Netherlands",
+    initials: "AF",
   },
   {
     name: "Darrell Trimble",
     company: "SP Marketplace",
+    role: "VP of Product",
     rating: 5,
     comment:
-      "SOFTREE staff worked with us to learn our installation automation technology and built exactly what we needed.",
-    location: "California",
+      "Softree staff took the time to deeply understand our installation automation technology and built precisely what we needed. Exceptional technical depth.",
+    location: "California, USA",
+    initials: "DT",
   },
 ];
 
-export default function WhyChooseWithTestimonials() {
-  const trackRef = useRef<HTMLDivElement>(null);
+/* ================= STAT COUNTER ================= */
+function StatCounter({ value, label }: { value: string; label: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const hasRun = useRef(false);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    const el = ref.current;
+    const numMatch = value.match(/[\d.]+/);
+    if (!numMatch) return;
+    const target = parseFloat(numMatch[0]);
+    const suffix = value.replace(numMatch[0], "");
+
+    const trigger = ScrollTrigger.create({
+      trigger: el,
+      start: "top 85%",
+      onEnter: () => {
+        if (hasRun.current) return;
+        hasRun.current = true;
+        const proxy = { val: 0 };
+        gsap.fromTo(
+          proxy,
+          { val: 0 },
+          {
+            val: target,
+            duration: 1.6,
+            ease: "power2.out",
+            onUpdate: () => {
+              el.textContent =
+                (Number.isInteger(target)
+                  ? Math.round(proxy.val)
+                  : proxy.val.toFixed(1)) + suffix;
+            },
+          }
+        );
+      },
+    });
+
+    return () => trigger.kill();
+  }, [value]);
+
+  return (
+    <div className="text-center">
+      <span ref={ref} className="block text-2xl font-bold text-[#ff7a2f] tabular-nums">
+        {value}
+      </span>
+      <span className="text-[11px] uppercase tracking-widest text-white/40 mt-0.5 block">
+        {label}
+      </span>
+    </div>
+  );
+}
+
+/* ================= MAIN COMPONENT ================= */
+export default function WhyChooseUs() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLDivElement>(null);
+  const pillarsRef = useRef<HTMLDivElement>(null);
+  const testimonialsRef = useRef<HTMLDivElement>(null);
+
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [animating, setAnimating] = useState(false);
 
-  const CARD_WIDTH = 350; // eslint-disable-line @typescript-eslint/no-unused-vars
+  const prev = useCallback(() => {
+    if (animating) return;
+    setAnimating(true);
+    setIndex((i) => (i === 0 ? reviews.length - 1 : i - 1));
+    setTimeout(() => setAnimating(false), 500);
+  }, [animating]);
+
+  const next = useCallback(() => {
+    if (animating) return;
+    setAnimating(true);
+    setIndex((i) => (i >= reviews.length - 1 ? 0 : i + 1));
+    setTimeout(() => setAnimating(false), 500);
+  }, [animating]);
 
   /* AUTOPLAY */
   useEffect(() => {
     if (paused) return;
+    const id = setInterval(next, 5000);
+    return () => clearInterval(id);
+  }, [paused, next]);
 
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev >= reviews.length - 1 ? 0 : prev + 1));
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [paused]);
-
+  /* GSAP SCROLL ANIMATIONS */
   useEffect(() => {
-    if (!trackRef.current) return;
-    trackRef.current.style.transform = `translateX(-${index * 100}%)`;
-  }, [index]);
+    const ctx = gsap.context(() => {
+      /* Heading fade-up */
+      gsap.from(headingRef.current, {
+        y: 40,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: headingRef.current,
+          start: "top 80%",
+        },
+      });
+
+      /* Pillar cards stagger */
+      const cards = pillarsRef.current?.querySelectorAll(".pillar-card");
+      if (cards) {
+        gsap.from(cards, {
+          y: 50,
+          opacity: 0,
+          duration: 0.7,
+          stagger: 0.12,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: pillarsRef.current,
+            start: "top 78%",
+          },
+        });
+      }
+
+      /* Testimonials panel slide-in */
+      gsap.from(testimonialsRef.current, {
+        x: 60,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: testimonialsRef.current,
+          start: "top 75%",
+        },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  const review = reviews[index];
 
   return (
-    <section className="relative py-28 bg-[#0a0a0a] text-white overflow-hidden">
-      {/* Glow */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-[#ff7a2f]/10 blur-[120px] rounded-full" />
-      <div className="absolute bottom-20 right-10 w-72 h-72 bg-[#ff7a2f]/8 blur-[120px] rounded-full" />
+    <section
+      ref={sectionRef}
+      className="relative py-32 bg-[#0a0a0a] text-white overflow-hidden"
+    >
+      {/* ── Ambient glows ── */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-[#ff7a2f]/6 blur-[140px]" />
+        <div className="absolute bottom-0 right-1/5 w-[400px] h-[400px] rounded-full bg-[#ff7a2f]/4 blur-[120px]" />
+      </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-        {/* ================= LEFT : WHY CHOOSE ================= */}
-        <div className="relative">
-          {/* Small Label */}
-          <p
-            className="text-xs uppercase tracking-[0.15em] mb-3 inline-block bg-clip-text text-transparent"
-            style={{
-              backgroundImage:
-                "linear-gradient(90deg, #ff7a2f 0%, #c75a2a 35%, #b98817ff 70%, #ff7500ff 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-          >
-            Why Choose Softree
+      {/* ── Grain texture ── */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")",
+          backgroundRepeat: "repeat",
+          backgroundSize: "128px 128px",
+        }}
+      />
+
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+
+        {/* ── Section heading ── */}
+        <div ref={headingRef} className="mb-20">
+          <p className="text-xs uppercase tracking-[0.2em] text-[#ff7a2f] mb-4 font-medium">
+            Why Softree
           </p>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] max-w-xl">
+              Built for{" "}
+              <span
+                className="bg-clip-text text-transparent"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(120deg, #ff7a2f 0%, #ffb347 50%, #ff7500 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                long-term impact,
+              </span>{" "}
+              not short-term wins.
+            </h2>
+            <p className="text-white/50 text-sm md:text-base leading-relaxed max-w-xs md:text-right">
+              Four core principles that define how we build, collaborate, and deliver — consistently.
+            </p>
+          </div>
+        </div>
 
-          {/* Heading */}
-          <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-8 max-w-xl">
-            Built for{" "}
-            <span className="bg-white bg-clip-text text-transparent">
-              Long-Term Impact
-            </span>
-          </h2>
+        {/* ── Main grid: Pillars left + Testimonials right ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] xl:grid-cols-[1fr_460px] gap-8 items-start">
 
-          {/* Vertical Accent Line */}
-          <div className="absolute left-4 top-[120px] bottom-0 w-px bg-gradient-to-b from-[#ff7a2f]/40 to-transparent hidden md:block" />
-
-          {/* Features */}
-          <div className="space-y-8">
-            {whyChoose.map((item, i) => {
-              const Icon = item.icon;
-
+          {/* ── LEFT: Pillars ── */}
+          <div ref={pillarsRef} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {pillars.map((p) => {
+              const Icon = p.icon;
               return (
-                <div key={i} className="relative flex gap-6 items-start group">
-                  {/* Number */}
-                  <div className="relative z-10 flex items-center justify-center w-8 h-8 text-xs font-semibold text-[#ff7a2f]">
-                    {String(i + 1).padStart(2, "0")}
+                <div
+                  key={p.number}
+                  className="pillar-card group relative rounded-2xl border border-white/[0.07] bg-white/[0.03] p-6
+                    hover:border-[#ff7a2f]/30 hover:bg-[#ff7a2f]/[0.04]
+                    transition-all duration-300 cursor-default"
+                >
+                  {/* Top row */}
+                  <div className="flex items-start justify-between mb-5">
+                    <div
+                      className="w-10 h-10 rounded-xl flex items-center justify-center
+                        bg-[#ff7a2f]/10 text-[#ff7a2f]
+                        group-hover:bg-[#ff7a2f]/20 transition-colors duration-300"
+                    >
+                      <Icon size={18} />
+                    </div>
+                    <span className="text-[11px] font-mono text-white/20 group-hover:text-[#ff7a2f]/50 transition-colors">
+                      {p.number}
+                    </span>
                   </div>
 
                   {/* Content */}
-                  <div className="flex-1">
-                    {/* Icon + Title */}
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="w-8 h-8 flex items-center justify-center rounded-md bg-[#ff7a2f]/15 text-[#ff7a2f]">
-                        <Icon size={16} />
-                      </div>
+                  <h3 className="text-base font-semibold tracking-tight mb-2 text-white/90">
+                    {p.title}
+                  </h3>
+                  <p className="text-sm text-white/45 leading-relaxed mb-5">
+                    {p.desc}
+                  </p>
 
-                      <h3 className="text-lg md:text-xl font-semibold tracking-tight">
-                        {item.title}
-                      </h3>
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-white/70 text-sm leading-relaxed max-w-md">
-                      {item.desc}
-                    </p>
+                  {/* Stat */}
+                  <div className="pt-4 border-t border-white/[0.06]">
+                    <StatCounter value={p.stat} label={p.statLabel} />
                   </div>
+
+                  {/* Hover line accent */}
+                  <div className="absolute bottom-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-[#ff7a2f]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
               );
             })}
           </div>
-        </div>
 
-        {/* ================= RIGHT : TESTIMONIALS ================= */}
-        <div
-          className="relative rounded-2xl p-10
-  bg-gradient-to-br from-[#111111] via-[#0e0e0e] to-[#0a0a0a]
-  border border-white/8
-  shadow-[0_0_40px_rgba(255,122,47,0.08)]
-  overflow-hidden"
-        >
-          {/* subtle glow overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#ff7a2f]/3 to-transparent pointer-events-none rounded-2xl" />
+          {/* ── RIGHT: Testimonials ── */}
+          <div
+            ref={testimonialsRef}
+            className="relative rounded-2xl border border-white/[0.07] bg-white/[0.03] overflow-hidden"
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+          >
+            {/* Inner glow */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#ff7a2f]/5 via-transparent to-transparent pointer-events-none" />
 
-          {/* Header Section */}
-          <div className="relative z-10 mb-10">
-            {/* Top Label */}
-            <div
-              className="text-xs uppercase tracking-widest mb-3 inline-block bg-clip-text text-transparent"
-              style={{
-                backgroundImage:
-                  "linear-gradient(90deg, #ff7a2f 0%, #c75a2a 35%, #b98817ff 70%, #ff7500ff 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              Softree Client Feedback
+            {/* Header */}
+            <div className="relative z-10 px-7 pt-7 pb-6 border-b border-white/[0.06]">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-[#ff7a2f] mb-3 font-medium">
+                Client Feedback
+              </p>
+              <h3 className="text-xl font-semibold text-white/90 mb-4 tracking-tight">
+                Trusted by enterprise teams worldwide
+              </h3>
+              <div className="flex items-center gap-3">
+                <div className="flex gap-0.5">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5 fill-[#ff7a2f] text-[#ff7a2f]" />
+                  ))}
+                </div>
+                <span className="text-sm font-semibold text-white">4.9</span>
+                <span className="text-white/40 text-xs">·</span>
+                <span className="text-xs text-white/40">150+ reviews</span>
+              </div>
             </div>
 
-            {/* Main Heading */}
-            <h3 className="text-3xl font-semibold mb-6">
-              Trusted by Enterprise Teams
-            </h3>
+            {/* Review card */}
+            <div className="relative z-10 px-7 py-7 min-h-[260px]">
+              {/* Quote icon */}
+              <Quote
+                size={28}
+                className="text-[#ff7a2f]/25 mb-4 fill-[#ff7a2f]/10"
+              />
 
-            {/* Rating Row */}
-            <div className="flex items-center gap-4 mb-2">
-              {/* Stars */}
-              <div className="flex gap-1">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star
+              {/* Stars for review */}
+              <div className="flex gap-0.5 mb-4">
+                {Array.from({ length: review.rating }).map((_, i) => (
+                  <Star key={i} className="w-3 h-3 fill-[#ff7a2f] text-[#ff7a2f]" />
+                ))}
+              </div>
+
+              {/* Comment */}
+              <p
+                key={index}
+                className="text-white/75 text-sm leading-[1.75] mb-7"
+                style={{ animation: "fadeSlideIn 0.45s ease forwards" }}
+              >
+                &ldquo;{review.comment}&rdquo;
+              </p>
+
+              {/* Author */}
+              <div
+                key={`author-${index}`}
+                className="flex items-center gap-3"
+                style={{ animation: "fadeSlideIn 0.45s 0.08s ease forwards", opacity: 0 }}
+              >
+                <div
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold text-[#ff7a2f]"
+                  style={{ background: "rgba(255,122,47,0.12)" }}
+                >
+                  {review.initials}
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-white leading-none mb-0.5">
+                    {review.name}
+                  </p>
+                  <p className="text-xs text-white/40">
+                    {review.role} · {review.company}
+                  </p>
+                </div>
+                <span className="ml-auto text-[11px] text-white/25">
+                  {review.location}
+                </span>
+              </div>
+            </div>
+
+            {/* Controls */}
+            <div className="relative z-10 px-7 pb-6 flex items-center justify-between">
+              {/* Dots */}
+              <div className="flex gap-1.5">
+                {reviews.map((_, i) => (
+                  <button
                     key={i}
-                    className="w-4 h-4 fill-yellow-400 text-yellow-400"
+                    onClick={() => setIndex(i)}
+                    aria-label={`Go to review ${i + 1}`}
+                    className={`rounded-full transition-all duration-300 ${i === index
+                        ? "w-5 h-1.5 bg-[#ff7a2f]"
+                        : "w-1.5 h-1.5 bg-white/20 hover:bg-white/40"
+                      }`}
                   />
                 ))}
               </div>
 
-              {/* Rating Text */}
-              <p className="text-white font-semibold">4.9 / 5</p>
-
-              <p className="text-white/60 text-sm">average rating</p>
-            </div>
-
-            {/* Review Count */}
-            <p className="text-sm text-white/60">
-              Based on{" "}
-              <span className="text-white font-medium">
-                150+ client reviews
-              </span>
-            </p>
-          </div>
-
-          {/* Slider Wrapper */}
-          <div className="overflow-hidden relative z-10 w-full">
-            <div
-              ref={trackRef}
-              className="flex transition-transform duration-700 ease-in-out"
-            >
-              {reviews.map((review, i) => (
-                <div key={i} className="w-full shrink-0">
-                  <div className="max-w-xl">
-                    {/* Rating Stars */}
-                    <div className="mb-3 flex items-center gap-1">
-                      {Array.from({ length: 5 }).map((_, idx) => (
-                        <Star
-                          key={idx}
-                          className={`w-4 h-4 ${idx < review.rating
-                            ? "fill-yellow-400 text-yellow-400"
-                            : "text-gray-500"
-                            }`}
-                        />
-                      ))}
-                    </div>
-
-                    {/* Review Comment */}
-                    <p className="text-gray-200 text-base leading-relaxed mb-6">
-                      “{review.comment}”
-                    </p>
-
-                    {/* Reviewer Info */}
-                    <div className="space-y-1">
-                      <div className="flex items-center gap-2">
-                        <User size={14} className="text-[#ff7a2f]" />
-                        <div>
-                          <p className="font-semibold text-white text-sm">
-                            {review.name}
-                          </p>
-
-                          {/* ✅ Company added here */}
-                          <p className="text-xs text-gray-400">
-                            {review.company}
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center gap-2">
-                        <MapPin size={13} className="text-gray-400" />
-                        <p className="text-xs text-gray-400">
-                          {review.location}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
+              {/* Arrows */}
+              <div className="flex gap-2">
+                <button
+                  onClick={prev}
+                  aria-label="Previous review"
+                  className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center
+                    text-white/40 hover:text-white hover:border-white/30 transition-all duration-200
+                    active:scale-95"
+                >
+                  <ArrowLeft size={14} />
+                </button>
+                <button
+                  onClick={next}
+                  aria-label="Next review"
+                  className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center
+                    text-white/40 hover:text-white hover:border-white/30 transition-all duration-200
+                    active:scale-95"
+                >
+                  <ArrowRight size={14} />
+                </button>
+              </div>
             </div>
           </div>
 
-          {/* Controls */}
-          <div className="flex items-center gap-6 mt-8 text-gray-400 relative z-10">
-            <button
-              onClick={() =>
-                setIndex((i) => (i === 0 ? reviews.length - 1 : i - 1))
-              }
-              className="hover:text-white transition"
-            >
-              <ChevronLeft size={18} />
-            </button>
-
-            <button
-              onClick={() => setPaused(!paused)}
-              className="hover:text-white transition"
-            >
-              {paused ? <Play size={16} /> : <Pause size={16} />}
-            </button>
-
-            <button
-              onClick={() =>
-                setIndex((i) => (i >= reviews.length - 1 ? 0 : i + 1))
-              }
-              className="hover:text-white transition"
-            >
-              <ChevronRight size={18} />
-            </button>
-          </div>
         </div>
       </div>
+
+      {/* ── Keyframe animations ── */}
+      <style>{`
+        @keyframes fadeSlideIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </section>
   );
 }
