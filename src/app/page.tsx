@@ -3,11 +3,9 @@
 import dynamic from "next/dynamic";
 import NavigationClient from "@/components/sections/navigation-client";
 import Certifications from "@/components/sections/certification";
-import CTABanner from "@/components/sections/cta-banner";
 import Footer from "@/components/sections/footer";
 import TechStackSection from "@/components/sections/tech";
 import AiInsightsBlog from "@/components/sections/ai-insights-blog";
-import WhyChooseUs from "@/components/sections/why-choose-us";
 import SupportPartners from "@/components/sections/support-partners";
 import TrustedBy from "@/components/sections/trusted-by";
 import ServicesStackedSlides from "@/components/sections/ServicesStackedSlides";
@@ -51,10 +49,8 @@ export default function Home() {
         <AiInsightsBlog />
         <TechStackSection />
         <LightServicesStickyListLazy />
-        <WhyChooseUs />
         <LightEngagementModelsLazy />
         <Certifications />
-        <CTABanner />
         <LightFAQExactLazy />
         <LightContactSectionLazy />
       </main>
