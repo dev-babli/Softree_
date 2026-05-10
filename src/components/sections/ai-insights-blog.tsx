@@ -25,8 +25,8 @@ const initialFeatured: Article = {
 
 const initialRecent: Article[] = [
   {
-   imageUrl: "/images/case-study/power-apps/travel.png",
-   title: "ES Speaks and Travel Requests Management System",
+    imageUrl: "/images/case-study/power-apps/travel.png",
+    title: "ES Speaks and Travel Requests Management System",
     date: "AI Agent",
     readTime: "Case Study",
     href: "/pdf/ES Speaks and Travel Requests Management System.pdf",
@@ -55,18 +55,18 @@ const initialRecent: Article[] = [
 
 export default function AiInsightsBlog() {
   const [featured, setFeatured] = useState<Article>(initialFeatured);
-  const [recent, setRecent] = useState<Article[]>(initialRecent);
+  const [recent] = useState<Article[]>(initialRecent);
 
   const handleSelect = (article: Article) => {
     setFeatured(article);
   };
 
   return (
-    <section className="sm:py-27 bg-gradient-to-b from-black via-[#020d1a] to-black text-white">
+    <section className="sm:py-27 bg-[#0a0a0a] text-white">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="mb-12 max-w-3xl">
-          <span className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 text-blue-white px-4 py-1 text-xs font-semibold tracking-widest uppercase border border-blue-500/20">
+          <span className="inline-flex items-center gap-2 rounded-full bg-[#ff7a2f]/10 text-[#ff7a2f] px-4 py-1 text-xs font-semibold tracking-widest uppercase border border-[#ff7a2f]/20">
             Case Studies
           </span>
 
@@ -87,7 +87,7 @@ export default function AiInsightsBlog() {
             <Link href={featured.href} target="_blank" className="block h-full">
               <div className="relative h-full min-h-[520px] rounded-[32px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.35)] transition-all duration-500 hover:scale-[1.01]">
                 {/* Background frame */}
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] via-[#111111] to-[#0a0a0a]" />
 
                 {/* Image inset */}
                 <div className="absolute inset-2 rounded-[24px] overflow-hidden">
@@ -115,7 +115,7 @@ export default function AiInsightsBlog() {
                   <p className="mt-3 text-white/70 text-sm max-w-xl">
                     {featured.description}
                   </p>
-                  <button className="mt-5 inline-flex items-center gap-2 px-5 py-2 text-sm font-semibold text-white  rounded-full hover:bg-blue-600 transition-all duration-300">
+                  <button className="mt-5 inline-flex items-center gap-2 px-5 py-2 text-sm font-semibold text-white rounded-full hover:bg-[#ff7a2f]/20 transition-all duration-300">
                     Read More →
                   </button>
                 </div>
@@ -134,7 +134,7 @@ export default function AiInsightsBlog() {
                 onMouseEnter={() => handleSelect(article)}
               >
                 {/* Accent bar */}
-                <span className="absolute left-0 top-1/2 -translate-y-1/2 h-0 w-1 bg-blue-500 rounded-full group-hover:h-10 transition-all duration-300" />
+                <span className="absolute left-0 top-1/2 -translate-y-1/2 h-0 w-1 bg-[#ff7a2f] rounded-full group-hover:h-10 transition-all duration-300" />
 
                 {/* Thumbnail */}
                 <div className="relative w-36 h-[100px] flex-shrink-0 rounded-xl overflow-hidden">
@@ -148,7 +148,7 @@ export default function AiInsightsBlog() {
 
                 {/* Text */}
                 <div className="flex-1">
-                  <h4 className="font-semibold text-white leading-snug group-hover:text-blue-400 transition-colors">
+                  <h4 className="font-semibold text-white leading-snug group-hover:text-[#ff7a2f] transition-colors">
                     {article.title}
                   </h4>
 
@@ -159,7 +159,7 @@ export default function AiInsightsBlog() {
                   <p className="mt-2 text-xs text-white/60">
                     {article.date} • {article.readTime}
                   </p>
-                  <button className="mt-2 inline-flex items-center gap-2 px-5 py-2 text-sm font-semibold text-white rounded-full hover:bg-blue-600 transition-all duration-300">
+                  <button className="mt-2 inline-flex items-center gap-2 px-5 py-2 text-sm font-semibold text-white rounded-full hover:bg-[#ff7a2f]/20 transition-all duration-300">
                     Read More →
                   </button>
                 </div>

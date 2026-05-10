@@ -27,7 +27,7 @@ const certifications = [
 ];
 export default function Certifications() {
   return (
-    <section className="relative py-20 overflow-hidden bg-gradient-to-b from-black via-[#020d1a] to-black text-white">
+    <section className="relative py-20 overflow-hidden bg-[#0a0a0a] text-white">
       <div className="relative max-w-7xl mx-auto px-6">
         {/* Heading */}
         <div className="text-center mb-12 px-4">
@@ -48,7 +48,7 @@ export default function Certifications() {
               key={index}
               className="
                 group relative rounded-3xl p-[1px]
-                bg-gradient-to-br from-indigo-500/30 via-transparent to-violet-500/30
+                bg-gradient-to-br from-[#ff7a2f]/15 via-transparent to-[#ff7a2f]/10
                 transition-all duration-500
               "
             >
@@ -61,7 +61,7 @@ export default function Certifications() {
                   border border-white/10
                   transition-all duration-500 ease-out
                   group-hover:-translate-y-1.5
-                  group-hover:shadow-[0_20px_60px_rgba(79,70,229,0.35)]
+                  group-hover:shadow-[0_20px_60px_rgba(255,122,47,0.15)]
                 "
               >
                 {/* Glow */}

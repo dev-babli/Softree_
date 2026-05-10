@@ -389,14 +389,14 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
         }
 
         .ssx-tone-light {
-          background: #f7f4ee;
-          color: #101010;
+          background: #0e0e0e;
+          color: #fff;
         }
 
         .ssx-tone-light::before {
           background:
-            radial-gradient(900px 520px at 18% 86%, rgba(255, 107, 0, 0.16), transparent 68%),
-            radial-gradient(700px 420px at 82% 12%, rgba(0, 0, 0, 0.08), transparent 62%);
+            radial-gradient(900px 520px at 18% 86%, rgba(255, 107, 0, 0.12), transparent 68%),
+            radial-gradient(700px 420px at 82% 12%, rgba(255, 255, 255, 0.04), transparent 62%);
         }
 
         .ssx-tone-ember {
@@ -422,14 +422,14 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
         }
 
         .ssx-tone-violet {
-          background: #16121e;
+          background: #0c0c0e;
           color: #fff;
         }
 
         .ssx-tone-violet::before {
           background:
             radial-gradient(860px 540px at 22% 82%, rgba(255, 107, 0, 0.13), transparent 68%),
-            radial-gradient(760px 460px at 82% 20%, rgba(170, 136, 255, 0.18), transparent 68%);
+            radial-gradient(760px 460px at 82% 20%, rgba(255, 255, 255, 0.06), transparent 68%);
         }
 
         .ssx-section-content {
@@ -604,7 +604,7 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
         }
 
         .ssx-action-secondary::before {
-          background: linear-gradient(135deg, rgba(132, 152, 230, 0.5) 0%, transparent 50%, rgba(56, 189, 248, 0.3) 100%);
+          background: linear-gradient(135deg, rgba(255, 122, 47, 0.35) 0%, transparent 50%, rgba(255, 255, 255, 0.15) 100%);
         }
 
         .ssx-action-primary::after,
@@ -638,21 +638,21 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
           box-shadow:
             inset 0 1px 2px rgba(255, 255, 255, 0.45),
             inset 0 -1px 3px rgba(0, 0, 0, 0.3),
-            0 12px 36px rgba(56, 189, 248, 0.16);
+            0 12px 36px rgba(255, 122, 47, 0.1);
         }
 
         .ssx-tone-light .ssx-action-secondary {
-          color: #141414;
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.58) 0%, rgba(255, 255, 255, 0.2) 100%);
-          border-color: rgba(10, 10, 10, 0.08);
+          color: rgba(255, 255, 255, 0.9);
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+          border-color: rgba(255, 255, 255, 0.08);
           box-shadow:
-            inset 0 1px 2px rgba(255, 255, 255, 0.72),
-            inset 0 -1px 3px rgba(0, 0, 0, 0.1),
-            0 10px 28px rgba(0, 0, 0, 0.12);
+            inset 0 1px 2px rgba(255, 255, 255, 0.4),
+            inset 0 -1px 3px rgba(0, 0, 0, 0.3),
+            0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .ssx-tone-light .ssx-action-secondary:hover {
-          color: #000000;
+          color: #ffffff;
         }
 
         .ssx-action-icon {
