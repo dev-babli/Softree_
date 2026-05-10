@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { AnimatePresence, motion } from "framer-motion";
 import { Star, Quote, ArrowLeft, ArrowRight, Zap, Users, ShieldCheck, Layers } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -347,46 +348,48 @@ export default function WhyChooseUs() {
                 className="text-[#ff7a2f]/25 mb-4 fill-[#ff7a2f]/10"
               />
 
-              {/* Stars for review */}
-              <div className="flex gap-0.5 mb-4">
-                {Array.from({ length: review.rating }).map((_, i) => (
-                  <Star key={i} className="w-3 h-3 fill-[#ff7a2f] text-[#ff7a2f]" />
-                ))}
-              </div>
-
-              {/* Comment */}
-              <p
-                key={index}
-                className="text-white/75 text-sm leading-[1.75] mb-7"
-                style={{ animation: "fadeSlideIn 0.45s ease forwards" }}
-              >
-                &ldquo;{review.comment}&rdquo;
-              </p>
-
-              {/* Author */}
-              <div
-                key={`author-${index}`}
-                className="flex items-center gap-3"
-                style={{ animation: "fadeSlideIn 0.45s 0.08s ease forwards", opacity: 0 }}
-              >
-                <div
-                  className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold text-[#ff7a2f]"
-                  style={{ background: "rgba(255,122,47,0.12)" }}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 8, filter: "blur(4px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  exit={{ opacity: 0, y: -6, filter: "blur(4px)" }}
+                  transition={{ type: "spring", duration: 0.45, bounce: 0 }}
                 >
-                  {review.initials}
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-white leading-none mb-0.5">
-                    {review.name}
+                  {/* Stars for review */}
+                  <div className="flex gap-0.5 mb-4">
+                    {Array.from({ length: review.rating }).map((_, i) => (
+                      <Star key={i} className="w-3 h-3 fill-[#ff7a2f] text-[#ff7a2f]" />
+                    ))}
+                  </div>
+
+                  {/* Comment */}
+                  <p className="text-white/75 text-sm leading-[1.75] mb-7">
+                    &ldquo;{review.comment}&rdquo;
                   </p>
-                  <p className="text-xs text-white/40">
-                    {review.role} · {review.company}
-                  </p>
-                </div>
-                <span className="ml-auto text-[11px] text-white/25">
-                  {review.location}
-                </span>
-              </div>
+
+                  {/* Author */}
+                  <div className="flex items-center gap-3">
+                    <div
+                      className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold text-[#ff7a2f]"
+                      style={{ background: "rgba(255,122,47,0.12)" }}
+                    >
+                      {review.initials}
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-white leading-none mb-0.5">
+                        {review.name}
+                      </p>
+                      <p className="text-xs text-white/40">
+                        {review.role} · {review.company}
+                      </p>
+                    </div>
+                    <span className="ml-auto text-[11px] text-white/25">
+                      {review.location}
+                    </span>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
             </div>
 
             {/* Controls */}
@@ -399,8 +402,8 @@ export default function WhyChooseUs() {
                     onClick={() => setIndex(i)}
                     aria-label={`Go to review ${i + 1}`}
                     className={`rounded-full transition-all duration-300 ${i === index
-                        ? "w-5 h-1.5 bg-[#ff7a2f]"
-                        : "w-1.5 h-1.5 bg-white/20 hover:bg-white/40"
+                      ? "w-5 h-1.5 bg-[#ff7a2f]"
+                      : "w-1.5 h-1.5 bg-white/20 hover:bg-white/40"
                       }`}
                   />
                 ))}

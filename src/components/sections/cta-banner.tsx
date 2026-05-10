@@ -1,6 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+
+type FormStatus = "idle" | "submitting" | "success" | "error" | "captcha";
 
 export default function CTASection() {
   const testimonials = [
@@ -17,10 +20,14 @@ export default function CTASection() {
   ];
 
   const [index, setIndex] = useState(0);
+  const paused = useRef(false);
+  const [formStatus, setFormStatus] = useState<FormStatus>("idle");
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
+      if (!paused.current) {
+        setIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
+      }
     }, 3000);
     return () => clearInterval(interval);
   }, [testimonials.length]);
@@ -201,56 +208,68 @@ export default function CTASection() {
                     <path d="M0 32V20C0 8.955 7.865 2.347 23.594 0L25 3.065C18.005 4.593 14.507 7.443 14.507 11.615H19V32H0ZM21 32V20C21 8.955 28.865 2.347 44.594 0L46 3.065C39.005 4.593 35.507 7.443 35.507 11.615H40V32H21Z" />
                   </svg>
 
-                  {/* Quote text */}
-                  <p
-                    className="text-[12.5px] leading-relaxed pl-2 mb-3 italic mt-6"
-                    style={{
-                      color: "rgba(255,255,255,0.7)",
-                      display: "-webkit-box",
-                      WebkitLineClamp: 3,
-                      WebkitBoxOrient: "vertical",
-                      overflow: "hidden",
-                    }}
-                  >
-                    {t.text}
-                  </p>
-
-                  {/* Author row */}
-                  <div className="flex items-center gap-2.5 pl-2">
-                    <div
-                      className="w-8 h-8 rounded-full flex items-center justify-center text-[12px] font-semibold text-white shrink-0"
-                      style={{
-                        background: "linear-gradient(135deg, #ff7a2f, #c75a2a)",
-                        border: "1px solid rgba(255,122,47,0.5)",
-                      }}
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 8, filter: "blur(4px)" }}
+                      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                      exit={{ opacity: 0, y: -6, filter: "blur(4px)" }}
+                      transition={{ type: "spring", duration: 0.45, bounce: 0 }}
+                      onMouseEnter={() => { paused.current = true; }}
+                      onMouseLeave={() => { paused.current = false; }}
                     >
-                      {t.name?.charAt(0)}
-                    </div>
-                    <div>
-                      <p className="text-[12px] font-medium text-white leading-tight m-0">
-                        {t.name}
-                      </p>
+                      {/* Quote text */}
                       <p
-                        className="text-[10px] m-0"
-                        style={{ color: "rgba(255,255,255,0.4)" }}
+                        className="text-[12.5px] leading-relaxed pl-2 mb-3 italic mt-6"
+                        style={{
+                          color: "rgba(255,255,255,0.7)",
+                          display: "-webkit-box",
+                          WebkitLineClamp: 3,
+                          WebkitBoxOrient: "vertical",
+                          overflow: "hidden",
+                        }}
                       >
-                        {t.role}
+                        {t.text}
                       </p>
-                    </div>
-                    <div className="ml-auto flex gap-0.5">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <svg
-                          key={i}
-                          width="11"
-                          height="11"
-                          viewBox="0 0 24 24"
-                          fill="#fbbf24"
+
+                      {/* Author row */}
+                      <div className="flex items-center gap-2.5 pl-2">
+                        <div
+                          className="w-8 h-8 rounded-full flex items-center justify-center text-[12px] font-semibold text-white shrink-0"
+                          style={{
+                            background: "linear-gradient(135deg, #ff7a2f, #c75a2a)",
+                            border: "1px solid rgba(255,122,47,0.5)",
+                          }}
                         >
-                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                      ))}
-                    </div>
-                  </div>
+                          {t.name?.charAt(0)}
+                        </div>
+                        <div>
+                          <p className="text-[12px] font-medium text-white leading-tight m-0">
+                            {t.name}
+                          </p>
+                          <p
+                            className="text-[10px] m-0"
+                            style={{ color: "rgba(255,255,255,0.4)" }}
+                          >
+                            {t.role}
+                          </p>
+                        </div>
+                        <div className="ml-auto flex gap-0.5">
+                          {Array.from({ length: 5 }).map((_, i) => (
+                            <svg
+                              key={i}
+                              width="11"
+                              height="11"
+                              viewBox="0 0 24 24"
+                              fill="#fbbf24"
+                            >
+                              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
 
                   {/* Testimonial navigation dots */}
                   <div className="flex justify-center gap-1.5 mt-3">
@@ -497,29 +516,26 @@ export default function CTASection() {
                 const captcha = formData.get("captcha")?.toString().trim();
 
                 if (captcha !== "3") {
-                  alert("Incorrect captcha. Please try again.");
+                  setFormStatus("captcha");
                   return;
                 }
 
+                setFormStatus("submitting");
                 try {
                   const response = await fetch(form.action, {
                     method: form.method,
                     body: formData,
-                    headers: {
-                      Accept: "application/json",
-                    },
+                    headers: { Accept: "application/json" },
                   });
 
                   if (response.ok) {
-                    alert(
-                      "Request submitted successfully. We will get back to you shortly.",
-                    );
+                    setFormStatus("success");
                     form.reset();
                   } else {
-                    alert("Something went wrong. Please try again.");
+                    setFormStatus("error");
                   }
                 } catch {
-                  alert("Something went wrong. Please try again.");
+                  setFormStatus("error");
                 }
               }}
               className="space-y-4 text-white"
@@ -624,12 +640,53 @@ export default function CTASection() {
               {/* Honeypot */}
               <input type="text" name="_gotcha" style={{ display: "none" }} />
 
+              {/* Inline form status */}
+              <AnimatePresence mode="wait">
+                {formStatus === "captcha" && (
+                  <motion.p
+                    key="captcha"
+                    initial={{ opacity: 0, y: -6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-xs text-red-400 px-1"
+                  >
+                    Incorrect captcha answer. Please try again.
+                  </motion.p>
+                )}
+                {formStatus === "error" && (
+                  <motion.p
+                    key="error"
+                    initial={{ opacity: 0, y: -6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-xs text-red-400 px-1"
+                  >
+                    Something went wrong. Please try again.
+                  </motion.p>
+                )}
+                {formStatus === "success" && (
+                  <motion.p
+                    key="success"
+                    initial={{ opacity: 0, y: -6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-xs text-green-400 px-1"
+                  >
+                    ✓ Request submitted. We&apos;ll be in touch shortly.
+                  </motion.p>
+                )}
+              </AnimatePresence>
+
               {/* Button */}
               <button
                 type="submit"
-                className="w-full bg-[#ff7a2f] text-white py-2.5 rounded-full text-sm font-medium hover:bg-[#e56a20] transition-colors duration-200 active:scale-[0.98]"
+                disabled={formStatus === "submitting" || formStatus === "success"}
+                className="w-full bg-[#ff7a2f] text-white py-2.5 rounded-full text-sm font-medium hover:bg-[#e56a20] transition-all duration-200 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Submit Request
+                {formStatus === "submitting" ? "Submitting…" : formStatus === "success" ? "Submitted ✓" : "Submit Request"}
               </button>
             </form>
           </div>

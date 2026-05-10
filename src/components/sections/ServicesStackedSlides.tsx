@@ -87,6 +87,21 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
       const media = gsap.matchMedia()
 
       media.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
+        const introCopy = root.querySelector(".ssx-intro-copy")
+        const introAction = root.querySelector(".ssx-intro-action")
+        if (introCopy) {
+          gsap.from(introCopy, {
+            opacity: 0, y: 32, duration: 0.8, ease: "power3.out",
+            scrollTrigger: { trigger: introCopy, start: "top 88%" },
+          })
+        }
+        if (introAction) {
+          gsap.from(introAction, {
+            opacity: 0, y: 20, duration: 0.6, ease: "power3.out", delay: 0.15,
+            scrollTrigger: { trigger: introCopy ?? introAction, start: "top 88%" },
+          })
+        }
+
         const panels = gsap.utils.toArray<HTMLElement>(".ssx-section")
         const panelsToPin = panels.slice(0, -1)
 

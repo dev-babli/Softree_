@@ -57,7 +57,7 @@ export default function TechStack() {
                 className="inline-block bg-clip-text text-transparent"
                 style={{
                   backgroundImage:
-                    "linear-gradient(90deg, #ff7a2f 0%, #c75a2a 35%, #6b5b5b 70%, #3a3a3a 100%)"
+                    "linear-gradient(90deg, #3a3a3a 0%, #6b5b5b 30%, #c75a2a 65%, #ff7a2f 100%)"
                 }}
               >
                 Softree Builds It All
@@ -75,7 +75,17 @@ export default function TechStack() {
 
           {/* Marquee */}
           <div className="relative overflow-hidden">
-            <div className="flex gap-10 w-max animate-marquee hover:[animation-play-state:paused]">
+            <style>{`
+              @media (prefers-reduced-motion: no-preference) {
+                .tech-marquee { animation: techScroll 28s linear infinite; }
+                .tech-marquee:hover { animation-play-state: paused; }
+                @keyframes techScroll {
+                  0% { transform: translateX(0); }
+                  100% { transform: translateX(-50%); }
+                }
+              }
+            `}</style>
+            <div className="tech-marquee flex gap-10 w-max">
               {[...techStack, ...techStack].map((tech, i) => (
                 <div
                   key={i}
@@ -94,7 +104,7 @@ export default function TechStack() {
                   <img
                     src={tech.img}
                     alt={tech.name}
-                    className="w-12 h-12 object-contain invert brightness-0"
+                    className="w-12 h-12 object-contain invert"
                   />
                   <span className="text-sm text-white/90">{tech.name}</span>
                 </div>
@@ -109,11 +119,11 @@ export default function TechStack() {
       group inline-flex items-center justify-center gap-2
       px-10 py-4 rounded-full font-semibold
       text-white transition-all duration-300
-      hover:-translate-y-1
+      hover:-translate-y-1 active:scale-[0.97]
     "
               style={{
                 background:
-                  "linear-gradient(90deg, #ff7a2f 0%, #c75a2a 35%, #6b5b5b 70%, #3a3a3a 100%)"
+                  "linear-gradient(90deg, #3a3a3a 0%, #6b5b5b 30%, #c75a2a 65%, #ff7a2f 100%)"
               }}
             >
               Explore all Technologies

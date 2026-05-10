@@ -1,4 +1,28 @@
+"use client";
+import { useRef, useEffect } from "react";
+
 export default function TrustedBy() {
+  const headingRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = headingRef.current;
+    if (!el) return;
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mq.matches) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+          el.style.opacity = "1";
+          el.style.transform = "translateY(0)";
+          io.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
   const logos = [
     { name: "GO ERP", src: "/images/logo/goerp1.jpg" },
     { name: "Nuvento", src: "/images/logo/nuvento.jpg" },
@@ -42,11 +66,18 @@ export default function TrustedBy() {
           display: flex;
           gap: 48px;
           width: max-content;
-          animation: marqueeScroll 30s linear infinite;
         }
-        @keyframes marqueeScroll {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+        @media (prefers-reduced-motion: no-preference) {
+          .logo-marquee-track {
+            animation: marqueeScroll 30s linear infinite;
+          }
+          .logo-marquee-track:hover {
+            animation-play-state: paused;
+          }
+          @keyframes marqueeScroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
         }
         .logo-marquee-item {
           display: flex;
@@ -72,7 +103,11 @@ export default function TrustedBy() {
 
       <div className="max-w-7xl mx-auto px-6">
         {/* Heading */}
-        <div className="flex items-center gap-6 mb-12">
+        <div
+          ref={headingRef}
+          className="flex items-center gap-6 mb-12"
+          style={{ opacity: 0, transform: "translateY(16px)" }}
+        >
           <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
           <p className="shrink-0 text-[11px] font-semibold tracking-[0.2em] uppercase text-white/40">
             Trusted by partners and clients

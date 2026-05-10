@@ -26,20 +26,20 @@ const AE_EASE = {
 // ═══════════════════════════════════════════════════════════════════════════════
 function ParticleBurst({ active, color = "#FF7A2F" }: { active: boolean; color?: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  
+
   useEffect(() => {
     if (!canvasRef.current || !active) return;
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-    
+
     const dpr = window.devicePixelRatio || 1;
     const w = canvas.offsetWidth;
     const h = canvas.offsetHeight;
     canvas.width = w * dpr;
     canvas.height = h * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    
+
     interface Particle {
       x: number;
       y: number;
@@ -49,11 +49,11 @@ function ParticleBurst({ active, color = "#FF7A2F" }: { active: boolean; color?:
       maxLife: number;
       size: number;
     }
-    
+
     const particles: Particle[] = [];
     const cx = w / 2;
     const cy = h / 2;
-    
+
     for (let i = 0; i < 30; i++) {
       const angle = (Math.PI * 2 * i) / 30 + Math.random() * 0.5;
       const speed = 2 + Math.random() * 4;
@@ -67,12 +67,12 @@ function ParticleBurst({ active, color = "#FF7A2F" }: { active: boolean; color?:
         size: 2 + Math.random() * 3,
       });
     }
-    
+
     let raf: number;
     const animate = () => {
       ctx.clearRect(0, 0, w, h);
       let activeCount = 0;
-      
+
       particles.forEach(p => {
         if (p.life > 0) {
           p.x += p.vx;
@@ -80,7 +80,7 @@ function ParticleBurst({ active, color = "#FF7A2F" }: { active: boolean; color?:
           p.vx *= 0.98;
           p.vy *= 0.98;
           p.life -= 0.015;
-          
+
           const alpha = p.life / p.maxLife;
           const r = parseInt(color.slice(1, 3), 16);
           const g = parseInt(color.slice(3, 5), 16);
@@ -92,19 +92,19 @@ function ParticleBurst({ active, color = "#FF7A2F" }: { active: boolean; color?:
           activeCount++;
         }
       });
-      
+
       if (activeCount > 0) {
         raf = requestAnimationFrame(animate);
       }
     };
-    
+
     animate();
     return () => cancelAnimationFrame(raf);
   }, [active, color]);
-  
+
   return (
-    <canvas 
-      ref={canvasRef} 
+    <canvas
+      ref={canvasRef}
       className="absolute inset-0 w-full h-full pointer-events-none z-20"
       style={{ opacity: active ? 1 : 0, transition: "opacity 0.3s" }}
     />
@@ -122,6 +122,7 @@ function useCanvas(
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
@@ -129,6 +130,7 @@ function useCanvas(
     let t = 0;
     let w = 0;
     let h = 0;
+    let visible = false;
 
     const resize = () => {
       const dpr = window.devicePixelRatio || 1;
@@ -140,20 +142,35 @@ function useCanvas(
     };
 
     const tick = () => {
+      if (!visible) return;
       t += 1;
       ctx.clearRect(0, 0, w, h);
       if (w > 0 && h > 0) drawFn(ctx, w, h, t);
       raf = requestAnimationFrame(tick);
     };
 
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        visible = entry.isIntersecting;
+        if (visible) {
+          cancelAnimationFrame(raf);
+          tick();
+        } else {
+          cancelAnimationFrame(raf);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
     const ro = new ResizeObserver(resize);
     ro.observe(canvas);
+    io.observe(canvas);
     resize();
-    tick();
 
     return () => {
       cancelAnimationFrame(raf);
       ro.disconnect();
+      io.disconnect();
     };
   }, [drawFn]);
 
@@ -402,31 +419,33 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
     if (!cardRef.current) return;
 
     const ctx = gsap.context(() => {
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: cardRef.current,
           start: "top 85%",
-          toggleActions: "play none none reverse",
+          toggleActions: "play none none none",
         },
-        delay: index * 0.2,
+        delay: prefersReduced ? 0 : index * 0.2,
       });
 
       tl.fromTo(cardRef.current,
-        { opacity: 0, scale: 0.8, y: 60 },
-        { opacity: 1, scale: 1, y: 0, duration: 0.9, ease: AE_EASE.backOut }
+        { opacity: 0, scale: prefersReduced ? 1 : 0.94, y: prefersReduced ? 0 : 30 },
+        { opacity: 1, scale: 1, y: 0, duration: prefersReduced ? 0.01 : 0.7, ease: AE_EASE.easeOut }
       );
 
       const elements = contentRef.current?.querySelectorAll('.ae-element');
       if (elements) {
         tl.fromTo(elements,
           { opacity: 0, y: 20, scale: 0.95 },
-          { 
-            opacity: 1, 
-            y: 0, 
+          {
+            opacity: 1,
+            y: 0,
             scale: 1,
             duration: 0.4,
             stagger: 0.06,
-            ease: AE_EASE.easeOut 
+            ease: AE_EASE.easeOut
           },
           "-=0.3"
         );
@@ -452,11 +471,11 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
 
       <div className="absolute inset-0 z-20 pointer-events-none border border-white/10 group-hover:border-white/30 transition-all duration-500 [mask-image:linear-gradient(to_bottom,white,transparent)]" />
 
-      <div 
+      <div
         className="absolute top-0 left-0 w-72 h-72 bg-gradient-to-br from-[#FF7A2F]/30 to-transparent opacity-40 mix-blend-screen rounded-full blur-[100px] pointer-events-none transition-all duration-700 group-hover:opacity-70"
       />
 
-      <div 
+      <div
         className="absolute bottom-0 right-0 w-48 h-48 bg-gradient-to-tl from-[#FF9A5F]/20 to-transparent opacity-0 mix-blend-screen rounded-full blur-[60px] pointer-events-none transition-opacity duration-500"
         style={{ opacity: hovered ? 0.5 : 0 }}
       />

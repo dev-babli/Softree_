@@ -226,7 +226,7 @@ export function TransferredSoftreeHero() {
             {/* CTA */}
             <Link
               href="/services"
-              className="hero-btn mt-8 inline-flex items-center gap-2 rounded-full bg-zinc-950 px-7 py-3.5 text-[14px] font-semibold text-white shadow-xl transition-colors hover:bg-zinc-800"
+              className="hero-btn mt-8 inline-flex items-center gap-2 rounded-full bg-zinc-950 px-7 py-3.5 text-[14px] font-semibold text-white shadow-xl transition-all hover:bg-zinc-800 active:scale-[0.97]"
               style={{ willChange: "transform, opacity" }}
             >
               Get Started Free

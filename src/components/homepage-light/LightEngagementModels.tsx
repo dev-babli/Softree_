@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { useState } from "react"
 import Image from "next/image"
 
@@ -113,45 +113,55 @@ export default function LightEngagementModels() {
                 </div>
 
                 {/* --- EXPANDED CONTENT --- */}
-                <div
-                  className={`relative z-10 flex h-full flex-col px-8 pt-[76px] pb-8 transition-opacity duration-500 ${isExpanded ? "opacity-100" : "opacity-0 pointer-events-none"
-                    }`}
-                >
-                  {/* Image */}
-                  <div className="relative mb-8 w-full shrink-0 overflow-hidden rounded-2xl bg-white/5 shadow-sm" style={{ aspectRatio: '16/9' }}>
-                    <Image
-                      src={model.image}
-                      alt={model.title}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 40vw"
-                      priority={model.id === "01"}
-                    />
-                  </div>
-
-                  {/* Text Content */}
-                  <div className="flex flex-col mt-auto">
-                    <h3 className="mb-4 text-[34px] font-bold tracking-tight text-white leading-tight">
-                      {model.title}
-                    </h3>
-                    <p className="mb-7 text-[15px] leading-relaxed text-white/55 max-w-[90%]">
-                      {model.description}
-                    </p>
-
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2.5">
-                      {model.tags.map((tag) => (
-                        <div
-                          key={tag}
-                          className="rounded-[4px] border border-white/10 bg-white/5 px-3.5 py-2 shadow-sm"
-                        >
-                          <span className="text-[11px] font-medium text-white/60">
-                            {tag}
-                          </span>
+                <div className="relative z-10 flex h-full flex-col px-8 pt-[76px] pb-8">
+                  <AnimatePresence mode="wait">
+                    {isExpanded && (
+                      <motion.div
+                        key={model.id}
+                        className="flex h-full flex-col"
+                        initial={{ opacity: 0, y: 10, filter: "blur(6px)" }}
+                        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                        exit={{ opacity: 0, y: -6, filter: "blur(4px)" }}
+                        transition={{ type: "spring", duration: 0.5, bounce: 0 }}
+                      >
+                        {/* Image */}
+                        <div className="relative mb-8 w-full shrink-0 overflow-hidden rounded-2xl bg-white/5 shadow-sm" style={{ aspectRatio: '16/9' }}>
+                          <Image
+                            src={model.image}
+                            alt={model.title}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 1024px) 100vw, 40vw"
+                            priority={model.id === "01"}
+                          />
                         </div>
-                      ))}
-                    </div>
-                  </div>
+
+                        {/* Text Content */}
+                        <div className="flex flex-col mt-auto">
+                          <h3 className="mb-4 text-[34px] font-bold tracking-tight text-white leading-tight">
+                            {model.title}
+                          </h3>
+                          <p className="mb-7 text-[15px] leading-relaxed text-white/55 max-w-[90%]">
+                            {model.description}
+                          </p>
+
+                          {/* Tags */}
+                          <div className="flex flex-wrap gap-2.5">
+                            {model.tags.map((tag) => (
+                              <div
+                                key={tag}
+                                className="rounded-[4px] border border-white/10 bg-white/5 px-3.5 py-2 shadow-sm"
+                              >
+                                <span className="text-[11px] font-medium text-white/60">
+                                  {tag}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
 
                 {/* --- COLLAPSED BACKGROUND STATE --- */}

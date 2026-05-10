@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef } from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion"
 import Image from "next/image"
 
 /* ====================================================================
@@ -78,33 +78,31 @@ function ServiceCard({
   total: number
 }) {
   const ref = useRef<HTMLDivElement>(null)
+  const prefersReduced = useReducedMotion()
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   })
 
   const isLast = index === total - 1
-  // Cover effect — card recedes (scale + slight darken) as next slides over.
-  // Front-loaded curve so the recede feels firm, not slushy.
   const scale = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    [1, 0.97, isLast ? 1 : 0.92],
+    prefersReduced ? [1, 1, 1] : [1, 0.97, isLast ? 1 : 0.92],
   )
   const opacity = useTransform(
     scrollYProgress,
     [0, 0.55, 1],
-    [1, 0.92, isLast ? 1 : 0.55],
+    prefersReduced ? [1, 1, 1] : [1, 0.92, isLast ? 1 : 0.55],
   )
-  const y = useTransform(scrollYProgress, [0, 1], [0, isLast ? 0 : -16])
+  const y = useTransform(scrollYProgress, [0, 1], [0, isLast ? 0 : (prefersReduced ? 0 : -16)])
 
-  // Image reveal — wider scroll range = smoother wipe, no abrupt snap
   const overlayRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress: enterProgress } = useScroll({
     target: overlayRef,
     offset: ["start 0.98", "start 0.35"],
   })
-  const overlayHeight = useTransform(enterProgress, [0, 1], ["100%", "0%"])
+  const overlayHeight = useTransform(enterProgress, [0, 1], prefersReduced ? ["0%", "0%"] : ["100%", "0%"])
 
   // Progressive sticky top — each card sits a hair lower than the previous,
   // so the stack is physically visible (not all pinned at the same y).

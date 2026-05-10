@@ -1,4 +1,11 @@
+"use client";
 import Image from "next/image";
+import { useRef, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 const certifications = [
   {
     src: "https://www.softreetechnology.com/wp-content/uploads/2024/12/STPI.webp",
@@ -26,11 +33,44 @@ const certifications = [
   },
 ];
 export default function Certifications() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) return;
+
+    const ctx = gsap.context(() => {
+      gsap.from(headingRef.current, {
+        opacity: 0,
+        y: 30,
+        duration: 0.7,
+        ease: "power3.out",
+        scrollTrigger: { trigger: headingRef.current, start: "top 85%" },
+      });
+
+      const cards = gridRef.current?.children;
+      if (cards) {
+        gsap.from(Array.from(cards), {
+          opacity: 0,
+          y: 24,
+          duration: 0.55,
+          stagger: 0.08,
+          ease: "power3.out",
+          scrollTrigger: { trigger: gridRef.current, start: "top 85%" },
+        });
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="relative py-20 overflow-hidden bg-[#0a0a0a] text-white">
+    <section ref={sectionRef} className="relative py-20 overflow-hidden bg-[#0a0a0a] text-white">
       <div className="relative max-w-7xl mx-auto px-6">
         {/* Heading */}
-        <div className="text-center mb-12 px-4">
+        <div ref={headingRef} className="text-center mb-12 px-4">
           <h2 className="text-3xl lg:text-5xl font-semibold tracking-tight">
             Certifications & Recognitions
           </h2>
@@ -42,7 +82,7 @@ export default function Certifications() {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-10">
+        <div ref={gridRef} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-10">
           {certifications.map((item, index) => (
             <div
               key={index}
@@ -59,6 +99,7 @@ export default function Certifications() {
                   h-[220px] rounded-3xl
                   bg-white/[0.05] backdrop-blur-xl
                   border border-white/10
+                  shadow-[0_4px_20px_rgba(0,0,0,0.3)]
                   transition-all duration-500 ease-out
                   group-hover:-translate-y-1.5
                   group-hover:shadow-[0_20px_60px_rgba(255,122,47,0.15)]
