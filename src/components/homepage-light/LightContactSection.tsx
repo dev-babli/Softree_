@@ -9,14 +9,6 @@ type Status = "idle" | "submitting" | "success" | "error"
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1]
 
-const services = [
-  "UI UX Design",
-  "Web Development",
-  "Brand Identity",
-  "Growth Ops",
-  "Content Strategy",
-]
-
 function SocialIcon({
   href,
   label,
@@ -145,21 +137,18 @@ export default function LightContactSection() {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, margin: "-12%" }}
           transition={{ duration: 0.75, ease: EASE }}
-          className="mb-10 text-center sm:mb-12"
+          className="mb-6 text-center sm:mb-8"
         >
           <h2
-            aria-label="Let's Talk"
-            className="text-[clamp(4.5rem,15vw,14rem)] font-semibold leading-[0.82] tracking-[-0.075em]"
+            aria-label="Build faster with a reliable offshore engineering partner"
+            className="text-[clamp(2rem,5vw,4rem)] font-semibold leading-[1.1] tracking-[-0.02em] max-w-4xl mx-auto"
           >
-            Let&apos;s{" "}
-            <span className="relative inline-block text-[#ff7a2f]">
-              Talk
-              <span
-                aria-hidden
-                className="absolute -bottom-2 left-1/2 h-2 w-[82%] -translate-x-1/2 rounded-full bg-[#ff7a2f]/20"
-              />
-            </span>
+            Build faster with a reliable{" "}
+            <span className="text-[#6366f1]">offshore engineering partner</span>.
           </h2>
+          <p className="mt-4 text-white/60 text-lg max-w-2xl mx-auto">
+            Partner with Softree to accelerate product delivery, modernize enterprise systems, and scale with confidence.
+          </p>
         </motion.div>
 
         <motion.div
@@ -216,12 +205,18 @@ export default function LightContactSection() {
                       What we offer
                     </p>
                     <div className="mt-5 flex flex-col gap-2">
-                      {services.map((service) => (
+                      {[
+                        "Enterprise Integration",
+                        "Cloud Architecture",
+                        "AI & Automation",
+                        "Microsoft Solutions",
+                        "Offshore Engineering",
+                      ].map((service) => (
                         <div
                           key={service}
                           className="group flex items-center gap-3 border-b border-white/10 py-3"
                         >
-                          <span className="h-2 w-2 rounded-full bg-[#ff7a2f] transition-transform duration-300 group-hover:scale-[1.45]" />
+                          <span className="h-2 w-2 rounded-full bg-[#6366f1] transition-transform duration-300 group-hover:scale-[1.45]" />
                           <span className="text-sm leading-none text-white/72 transition-colors group-hover:text-white">
                             {service}
                           </span>
@@ -296,9 +291,9 @@ export default function LightContactSection() {
                   <button
                     type="submit"
                     disabled={status === "submitting"}
-                    className="group mt-8 inline-flex h-14 w-full items-center justify-between rounded-full bg-[#ff7a2f] px-6 text-[13px] font-semibold uppercase tracking-[0.16em] text-white transition duration-300 hover:bg-white hover:text-[#09090d] disabled:cursor-not-allowed disabled:opacity-65"
+                    className="group mt-8 inline-flex h-14 w-full items-center justify-between rounded-full bg-[#6366f1] px-6 text-[13px] font-semibold uppercase tracking-[0.16em] text-white transition duration-300 hover:bg-white hover:text-[#09090d] disabled:cursor-not-allowed disabled:opacity-65"
                   >
-                    <span>{status === "submitting" ? "Please wait..." : "Submit"}</span>
+                    <span>{status === "submitting" ? "Please wait..." : "Start a Project"}</span>
                     <ArrowUpRight
                       className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45"
                       strokeWidth={2}

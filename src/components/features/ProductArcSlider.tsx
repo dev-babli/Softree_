@@ -5,40 +5,58 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 
 const BASE_CARDS = [
   {
-    id: "engineering",
-    title: "Dedicated Pods",
-    description: "Elite engineering teams integrated directly into your agile workflows for maximum velocity.",
-    tag: "DELIVERY MODEL",
+    id: "offshore-scale",
+    title: "Offshore Scale",
+    description: "Access experienced offshore engineering teams that integrate seamlessly with your organization and delivery workflows. Faster team scaling, lower operational cost, dedicated delivery capacity, global collaboration.",
+    tag: "OFFSHORE DELIVERY",
+    bgColor: "#1a1a2e",
+    textColor: "#ffffff",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    id: "enterprise-execution",
+    title: "Enterprise Execution",
+    description: "Structured delivery built for reliability. Enterprise-grade engineering workflows designed for predictable execution, release stability, and long-term maintainability.",
+    tag: "DELIVERY EXCELLENCE",
+    bgColor: "#16213e",
+    textColor: "#ffffff",
+    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    id: "microsoft-expertise",
+    title: "Microsoft Expertise",
+    description: "Deep Microsoft ecosystem capability. Modern enterprise solutions powered by SharePoint, Power Platform, Azure, Microsoft 365, and Copilot technologies.",
+    tag: "TECHNOLOGY",
+    bgColor: "#0f3460",
+    textColor: "#ffffff",
+    image: "https://images.unsplash.com/photo-1633419461186-7d40a38105ec?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    id: "ai-enablement",
+    title: "AI Enablement",
+    description: "AI integrated into business operations. AI-powered automation and intelligent workflows that improve operational efficiency and accelerate business processes.",
+    tag: "AI & AUTOMATION",
     bgColor: "#1a1a1a",
     textColor: "#ffffff",
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800"
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800"
   },
   {
-    id: "ai-systems",
-    title: "AI Integration",
-    description: "Production-ready AI workflows, agentic automation, and LLM implementation.",
-    tag: "CAPABILITY",
-    bgColor: "#141413",
+    id: "long-term-partnership",
+    title: "Long-Term Partnership",
+    description: "Partnerships designed for long-term growth. We work as an extension of your organization with dedicated collaboration, continuous optimization, and scalable support models.",
+    tag: "PARTNERSHIP",
+    bgColor: "#141414",
     textColor: "#ffffff",
-    image: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?auto=format&fit=crop&q=80&w=800"
+    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=800"
   },
   {
-    id: "cloud-scale",
-    title: "Cloud Native",
-    description: "Scalable, resilient architecture built on Azure, AWS, and modern cloud primitives.",
-    tag: "CAPABILITY",
-    bgColor: "#111111",
+    id: "engineering-velocity",
+    title: "Engineering Velocity",
+    description: "Accelerate delivery with modern engineering. Cloud-native architectures, scalable systems, and modern engineering practices designed for speed and performance.",
+    tag: "VELOCITY",
+    bgColor: "#1f2937",
     textColor: "#ffffff",
-    image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=800"
-  },
-  {
-    id: "ux-ui",
-    title: "Premium Design",
-    description: "High-fidelity interfaces engineered to convert, engage, and dominate your market.",
-    tag: "CAPABILITY",
-    bgColor: "#ff7a2f",
-    textColor: "#ffffff",
-    image: "https://images.unsplash.com/photo-1604871000636-074fa5117945?auto=format&fit=crop&q=80&w=800"
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"
   }
 ];
 
@@ -115,11 +133,11 @@ export default function ProductArcSlider() {
       </div>
 
       <div className="relative z-30 mx-auto max-w-[1400px] px-6 md:px-12 pointer-events-none flex flex-col items-start text-left">
-        <h2 className="text-[clamp(28px,4.4vw,58px)] font-semibold leading-[1.06] tracking-[-0.02em] text-white mb-6 max-w-[800px]">
-          A growing ecosystem for enterprise scale
+        <h2 className="text-[clamp(28px,4.4vw,58px)] font-semibold leading-[1.06] tracking-[-0.02em] text-white mb-6 max-w-[900px]">
+          Built for global engineering partnerships
         </h2>
-        <p className="text-[18px] md:text-[22px] text-white/60 leading-relaxed mb-10 max-w-[600px]">
-          Accelerate development with our core services:
+        <p className="text-[18px] md:text-[22px] text-white/60 leading-relaxed mb-10 max-w-[700px]">
+          Softree combines offshore scalability, enterprise engineering, Microsoft expertise, and AI-driven delivery into one integrated execution model.
         </p>
 
         <div className="flex flex-wrap items-center gap-2 max-w-[800px] pointer-events-auto">
@@ -128,8 +146,8 @@ export default function ProductArcSlider() {
               key={pill}
               onClick={() => handlePillClick(idx)}
               className={`whitespace-nowrap px-6 py-3 rounded-full text-[15px] font-medium transition-all duration-300 ${idx === activeIndex
-                  ? "bg-white text-[#0a0a0a] shadow-md"
-                  : "bg-white/10 text-white/80 hover:bg-white/15"
+                ? "bg-white text-[#0a0a0a] shadow-md"
+                : "bg-white/10 text-white/80 hover:bg-white/15"
                 }`}
             >
               {pill}

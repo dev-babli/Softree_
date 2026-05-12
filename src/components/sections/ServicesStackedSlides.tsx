@@ -27,50 +27,50 @@ type ServiceSlide = {
 
 const SERVICE_SLIDES: ServiceSlide[] = [
   {
-    key: "discover",
+    key: "global-delivery",
     phase: "PHASE 01",
     index: "01",
-    title: "Scale",
-    headline: "A global delivery network with epicenter in India.",
+    title: "GLOBAL DELIVERY",
+    headline: "Distributed teams built for continuous delivery.",
     description:
-      "Our distributed model connects specialized technical hubs across London, Tokyo, Sydney, San Francisco, and São Paulo to ensure round-the-clock progress.",
-    outcomes: ["Global Hubs", "24/7 Operations", "Distributed Teams"],
+      "Our India-based engineering teams collaborate across time zones to provide scalable delivery capacity, faster execution, and reliable project continuity for global businesses.",
+    outcomes: ["Offshore Engineering", "Global Collaboration", "Scalable Teams"],
     media: "",
     tone: "light",
   },
   {
-    key: "architect",
+    key: "delivery-framework",
     phase: "PHASE 02",
     index: "02",
-    title: "Method",
-    headline: "A structured approach to guarantee predictability.",
+    title: "DELIVERY FRAMEWORK",
+    headline: "A proven process designed for predictable outcomes.",
     description:
-      "We follow a rigorous process from start to finish: Discover your goals, Design the architecture, Build with precision, and Scale for long-term success.",
-    outcomes: ["01 Discover", "02 Design", "03 Build / 04 Scale"],
+      "We align business goals, architecture, and delivery planning through a structured framework that reduces risk and accelerates execution.",
+    outcomes: ["Discovery", "Solution Design", "Agile Delivery", "Scale & Support"],
     media: "",
     tone: "ember",
   },
   {
-    key: "engineer",
+    key: "engineering-execution",
     phase: "PHASE 03",
     index: "03",
-    title: "Execute",
-    headline: "Flexible technology integration for complex stacks.",
+    title: "ENGINEERING EXECUTION",
+    headline: "Modern engineering for enterprise systems.",
     description:
-      "We orchestrate your diverse inputs—Cloud Services, Databases, SaaS Tools, and Legacy Systems—through a centralized Solution Hub to deliver impactful web and mobile experiences.",
-    outcomes: ["Customer Portals", "Workflow Engines", "API Layers"],
+      "From cloud platforms and Microsoft ecosystems to AI automation and custom applications, we integrate complex technologies into scalable production-ready solutions.",
+    outcomes: ["Cloud Platforms", "Microsoft Stack", "AI Automation", "Enterprise Integration"],
     media: "",
     tone: "dark",
   },
   {
-    key: "launch",
+    key: "long-term-partnership",
     phase: "PHASE 04",
     index: "04",
-    title: "Partner",
-    headline: "A relationship that scales with your vision.",
+    title: "LONG-TERM PARTNERSHIP",
+    headline: "A delivery partner focused on long-term growth.",
     description:
-      "Our commitment goes beyond launch. We provide dedicated teams, ongoing support, and continuous performance optimization to fuel your long-term growth.",
-    outcomes: ["Ongoing Support", "Performance & Optimization", "Dedicated Team"],
+      "Beyond launch, we provide ongoing engineering support, optimization, and dedicated teams to help businesses continuously evolve and scale.",
+    outcomes: ["Dedicated Teams", "Ongoing Support", "Performance Optimization"],
     media: "",
     tone: "violet",
   },
@@ -179,16 +179,19 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
 
   return (
     <div ref={rootRef} className={`ssx-root ${className}`}>
-      <header className="ssx-intro" aria-label="Services delivery model">
+      <header className="ssx-intro" aria-label="Delivery lifecycle">
         <div className="ssx-intro-copy">
           <div className="ssx-kicker-row">
             <span className="ssx-kicker-line" />
-            <span className="ssx-kicker">What We Deliver</span>
+            <span className="ssx-kicker">Delivery Lifecycle</span>
           </div>
           <h2>From Strategy to Production — We Own Every Layer.</h2>
+          <p className="ssx-subheadline mt-4 text-white/60 max-w-2xl">
+            A structured offshore delivery model designed for speed, scalability, and long-term business impact.
+          </p>
         </div>
         <Link href="/contact" className="ssx-intro-action">
-          <span>Book a Fit Call</span>
+          <span>Start a Project</span>
           <ArrowRight className="ssx-action-icon" aria-hidden />
         </Link>
       </header>

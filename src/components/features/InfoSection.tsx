@@ -10,20 +10,32 @@ const EASE = EASE_T.silk;
 
 const FEATURES = [
   {
-    title: "Applied AI Systems",
-    body: "We architect production-ready AI that embeds directly into your operations—moving past demos to deliver actual business intelligence.",
+    title: "Security & Governance",
+    body: "Enterprise-grade controls, compliance practices, access management, and delivery governance integrated into every engagement.",
   },
   {
-    title: "Microsoft Ecosystems",
-    body: "Unify SharePoint, Azure, and Power Platform into a seamless digital workplace engineered to scale with your growing enterprise.",
+    title: "Documentation Discipline",
+    body: "Structured documentation, knowledge transfer, and maintainable engineering practices designed for long-term continuity.",
   },
   {
-    title: "Global Delivery Pods",
-    body: "Dedicated cross-timezone engineering pods shipping code in weekly increments with zero handoff friction.",
+    title: "Scalable Architecture",
+    body: "Modern architectures engineered for performance, extensibility, and future business growth.",
+  },
+  {
+    title: "Cross-Team Collaboration",
+    body: "Transparent communication and coordinated execution across stakeholders, engineering teams, and business units.",
+  },
+  {
+    title: "AI-Enhanced Productivity",
+    body: "AI-assisted workflows that accelerate development, automation, testing, and operational efficiency.",
+  },
+  {
+    title: "Transparent Delivery",
+    body: "Clear sprint visibility, milestone tracking, reporting, and accountability throughout the delivery lifecycle.",
   },
 ];
 
-const HEADLINE = "Ship production-grade software with an engineering partner built for scale.";
+const HEADLINE = "Engineered for enterprise delivery at scale.";
 
 const MARQUEE_ITEMS = [
   { node: <span className="text-3xl font-bold tracking-tighter text-white/70">fintech</span>, title: "Fintech" },
@@ -55,13 +67,13 @@ export default function InfoSection() {
           transition={{ duration: 0.8, ease: EASE }}
         >
           <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 shadow-sm">
-            <span className="h-2 w-2 rounded-xs bg-[#ff7a2f]" />
+            <span className="h-2 w-2 rounded-xs bg-[#6366f1]" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/80">
-              Global Scale
+              Operational Standards
             </span>
           </div>
           <p className="text-[15px] leading-relaxed text-white/50 max-w-[280px]">
-            Softree bridges the gap between vision and execution. We provide the infrastructure, talent, and processes required to build software that defines industries.
+            The operational standards behind every Softree engagement — maturity, operational excellence, enterprise readiness, delivery reliability.
           </p>
         </motion.div>
 
@@ -103,12 +115,12 @@ export default function InfoSection() {
                 transition={{ duration: 0.7, delay: 0.5 + i * 0.12, ease: EASE }}
               >
                 <div className="w-full lg:w-[40%]">
-                  <h3 className="relative text-[18px] md:text-[22px] font-semibold tracking-tight text-white transition-colors duration-300 group-hover/row:text-[#ff7a2f]">
+                  <h3 className="relative text-[18px] md:text-[22px] font-semibold tracking-tight text-white transition-colors duration-300 group-hover/row:text-[#6366f1]">
                     <span className="relative">
                       {feat.title}
                       <span
                         aria-hidden
-                        className="absolute -bottom-1 left-0 h-[2px] w-0 bg-[#ff7a2f] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover/row:w-full"
+                        className="absolute -bottom-1 left-0 h-[2px] w-0 bg-[#6366f1] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover/row:w-full"
                       />
                     </span>
                   </h3>

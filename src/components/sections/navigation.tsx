@@ -323,22 +323,14 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const LOGO_URL =
-    "https://www.softreetechnology.com/wp-content/uploads/elementor/thumbs/white-logo-soft-qt16xqrm9tl34ewl9f9uhep3zaj8m5zkpgualw8uf4.png";
-
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 flex justify-center transition-transform duration-300 ${
-        showNav ? "translate-y-0" : "-translate-y-full"
-      }`}
+      className={`fixed top-0 left-0 w-full z-50 flex justify-center transition-transform duration-300 ${showNav ? "translate-y-0" : "-translate-y-full"
+        }`}
     >
       <nav className="relative w-full max-w-4xl px-6 lg:px-10 h-16 flex items-center justify-between rounded-full bg-white border border-black/5 shadow-[0_10px_40px_rgba(0,0,0,0.08)]">
-        <Link href="/" className="inline-block mt-1">
-          <img
-            src={LOGO_URL}
-            alt="Softree"
-            className="h-10 w-auto object-contain invert"
-          />
+        <Link href="/" className="inline-block">
+          <span className="text-xl font-bold tracking-tight text-zinc-900">Softree</span>
         </Link>
 
         {/* ── DESKTOP ── */}
@@ -371,20 +363,18 @@ export default function Navigation() {
                   className="group relative inline-flex items-center gap-1 px-4 py-2 text-l font-semibold text-gray-700"
                 >
                   <span
-                    className={`absolute inset-0 rounded-full bg-gradient-to-r from-gray-500 via-gray-700 to-black transition-all duration-300 ${
-                      open === item.label
+                    className={`absolute inset-0 rounded-full bg-gradient-to-r from-gray-500 via-gray-700 to-black transition-all duration-300 ${open === item.label
                         ? "opacity-100 scale-100"
                         : "opacity-0 scale-75"
-                    } group-hover:opacity-100 group-hover:scale-100`}
+                      } group-hover:opacity-100 group-hover:scale-100`}
                   />
                   <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
                     {item.label}
                   </span>
                   <ChevronDown
                     size={16}
-                    className={`relative z-10 mt-[1px] transition-all duration-300 group-hover:text-white ${
-                      open === item.label ? "rotate-180 text-white" : ""
-                    }`}
+                    className={`relative z-10 mt-[1px] transition-all duration-300 group-hover:text-white ${open === item.label ? "rotate-180 text-white" : ""
+                      }`}
                   />
                 </Link>
 
@@ -410,11 +400,10 @@ export default function Navigation() {
                           return (
                             <div
                               key={group.title}
-                              className={`px-[22px] py-6 ${
-                                idx < item.children!.length - 1
+                              className={`px-[22px] py-6 ${idx < item.children!.length - 1
                                   ? "border-r border-black/[0.06]"
                                   : ""
-                              }`}
+                                }`}
                             >
                               {/* column header */}
                               <div className="flex items-left border-b border-black/[0.05]">
@@ -566,9 +555,8 @@ export default function Navigation() {
                         </span>
                         <ChevronDown
                           size={20}
-                          className={`text-gray-900 transition-transform ${
-                            mobileDropdown === item.label ? "rotate-180" : ""
-                          }`}
+                          className={`text-gray-900 transition-transform ${mobileDropdown === item.label ? "rotate-180" : ""
+                            }`}
                         />
                       </button>
                     ) : (

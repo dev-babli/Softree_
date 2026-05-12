@@ -6,6 +6,7 @@ import Image from "next/image"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { Calendar, Layers, Shield, TrendingUp, ArrowRight } from "lucide-react"
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
@@ -203,59 +204,88 @@ export function TransferredSoftreeHero() {
           </div>
         </div>
 
-        {/* ================= 3. HERO TEXT (Single left column — Revolut style) ================= */}
-        <div className="hero-text-cluster absolute inset-0 z-20 flex flex-col justify-center pt-[12vh] pb-[20vh] pl-[8vw] pr-[4vw] pointer-events-none">
-          <div className="max-w-[640px] text-left pointer-events-auto">
+        {/* ================= 3. HERO TEXT ================= */}
+        <div className="hero-text-cluster absolute inset-0 z-20 flex flex-col justify-center pt-[8vh] pb-[18vh] pl-[7vw] pr-[4vw] pointer-events-none">
+          <div className="max-w-[600px] text-left pointer-events-auto">
+
+            {/* Badge */}
+            <div className="mb-6 flex items-center gap-2">
+              <svg className="w-4 h-4 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+              </svg>
+              <span className="text-[10px] uppercase tracking-[0.2em] text-white/60 font-semibold">Global Delivery. Local Commitment.</span>
+            </div>
 
             {/* Headline */}
             <h1
-              className="hero-title text-white text-[clamp(36px,5.8vw,104px)] font-semibold leading-[0.95] tracking-[-0.04em]"
+              className="hero-title text-white text-[clamp(40px,5vw,80px)] font-semibold leading-[1.05] tracking-[-0.03em]"
               style={{ willChange: "transform, opacity" }}
             >
-              Build. Ship. Scale.
+              Your Offshore Engineering Partner
+              <span className="text-indigo-400">.</span>
             </h1>
 
-            {/* Description */}
-            <p
-              className="hero-p mt-6 max-w-[380px] text-white/80 text-[15px] leading-[1.55] font-normal"
-              style={{ willChange: "transform, opacity" }}
-            >
-              Simplify your enterprise tech. Our senior engineers ship production-grade AI, web, and Microsoft solutions — fast.
+            {/* Subheadline */}
+            <p className="hero-sub mt-4 text-white/70 text-[clamp(16px,1.4vw,22px)] font-normal leading-relaxed max-w-[520px]">
+              Scalable teams. Microsoft experts. AI-powered solutions. Delivered for global impact.
             </p>
 
-            {/* CTA */}
-            <Link
-              href="/services"
-              className="hero-btn mt-8 inline-flex items-center gap-2 rounded-full bg-zinc-950 px-7 py-3.5 text-[14px] font-semibold text-white shadow-xl transition-all hover:bg-zinc-800 active:scale-[0.97]"
-              style={{ willChange: "transform, opacity" }}
-            >
-              Get Started Free
-            </Link>
+            {/* CTAs - Primary dominant, Secondary subtle */}
+            <div className="hero-btn mt-8 flex flex-wrap items-center gap-3" style={{ willChange: "transform, opacity" }}>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[14px] font-semibold text-zinc-900 shadow-lg shadow-white/10 transition-all hover:bg-white/90 hover:scale-[1.02] active:scale-[0.97]"
+              >
+                Partner With Us
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-full bg-white/5 border border-white/20 px-6 py-3.5 text-[14px] font-semibold text-white transition-all hover:bg-white/10 hover:border-white/30 active:scale-[0.97]"
+              >
+                <Calendar className="w-4 h-4" />
+                Schedule a Strategy Call
+              </Link>
+            </div>
 
-            {/* 2.3M+ stat row */}
-            <div className="mt-10 flex items-center gap-3">
-              <div className="flex -space-x-2">
+            {/* Badges - Pill style with subtle backgrounds */}
+            <div className="mt-10 flex flex-wrap items-center gap-3">
+              {[
+                { icon: Layers, label: "White-Label" },
+                { icon: Shield, label: "NDA-Driven" },
+                { icon: TrendingUp, label: "Flexible Scaling" },
+              ].map(({ icon: Icon, label }) => (
                 <span
-                  className="h-8 w-8 rounded-full border-2 border-white bg-cover bg-center"
-                  style={{ backgroundImage: "url(https://i.pravatar.cc/64?img=14)" }}
-                  aria-hidden
-                />
-                <span
-                  className="h-8 w-8 rounded-full border-2 border-white bg-cover bg-center"
-                  style={{ backgroundImage: "url(https://i.pravatar.cc/64?img=32)" }}
-                  aria-hidden
-                />
-                <span
-                  className="h-8 w-8 rounded-full border-2 border-white bg-cover bg-center"
-                  style={{ backgroundImage: "url(https://i.pravatar.cc/64?img=47)" }}
-                  aria-hidden
-                />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-white text-[26px] font-semibold tracking-[-0.02em] leading-none">2.3M+</span>
-                <span className="mt-1 text-white/60 text-[11px] leading-[1.4]">
-                  Trusted by 140+ enterprises worldwide
+                  key={label}
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/70 text-xs font-medium"
+                >
+                  <Icon className="w-3.5 h-3.5" />
+                  {label}
                 </span>
+              ))}
+            </div>
+
+            {/* Footer - Stats row */}
+            <div className="mt-10 pt-6 border-t border-white/10 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs">
+              <div className="flex items-baseline gap-1.5">
+                <span className="text-white font-semibold text-base">12+</span>
+                <span className="text-white/40">Years</span>
+              </div>
+              <div className="flex items-baseline gap-1.5">
+                <span className="text-white font-semibold text-base">140+</span>
+                <span className="text-white/40">Clients</span>
+              </div>
+              <div className="flex items-baseline gap-1.5">
+                <span className="text-white font-semibold text-base">50+</span>
+                <span className="text-white/40">Engineers</span>
+              </div>
+              <div className="ml-auto flex items-center gap-2 text-white/30">
+                <span>Offshore</span>
+                <span className="w-1 h-1 rounded-full bg-white/20" />
+                <span>Global</span>
+                <span className="w-1 h-1 rounded-full bg-white/20" />
+                <span>Reliable</span>
               </div>
             </div>
 
@@ -280,7 +310,7 @@ export function TransferredSoftreeHero() {
         {/* ================= 5. VISUAL CLUSTER (The Carousel & Frame) ================= */}
         <div className="absolute inset-x-0 bottom-0 z-30 flex items-end justify-center pointer-events-none">
 
-          {/* Left Card — Websites (glassmorphic) */}
+          {/* Left Card — OFFSHORE DELIVERY */}
           <div
             className={`left-card absolute ${CARD_SIZE} rounded-2xl overflow-hidden scale-[0.9] opacity-0 z-[2]`}
             style={{
@@ -291,18 +321,18 @@ export function TransferredSoftreeHero() {
               willChange: "transform, opacity",
             }}
           >
-            <Image src="/whysoftree/web dev.webp" alt="Websites & Apps" fill className="object-cover" />
+            <Image src="/whysoftree/web dev.webp" alt="Offshore Delivery" fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             <div className="absolute bottom-0 inset-x-0 p-5 flex flex-col">
-              <p className="text-white/60 text-[10px] font-bold tracking-[0.2em] uppercase">Web &amp; Apps</p>
-              <p className="text-white text-base font-bold leading-tight mt-1.5">Websites that convert</p>
-              <Link href="/services/digital-workspace/web-app-development" className="mt-3 self-start inline-flex items-center gap-1.5 bg-white/90 text-zinc-900 text-xs font-bold px-4 py-2 rounded-full transition-all hover:bg-white pointer-events-auto shadow-sm">
-                View work <span className="text-[10px]">→</span>
+              <p className="text-indigo-400 text-[10px] font-bold tracking-[0.2em] uppercase">Offshore Delivery</p>
+              <p className="text-white text-base font-bold leading-tight mt-1.5">Engineering teams that scale fast</p>
+              <Link href="/services/digital-workspace/web-app-development" className="mt-3 self-start inline-flex items-center gap-1.5 bg-white text-zinc-900 text-xs font-semibold px-4 py-2 rounded-full transition-all hover:bg-white/90 pointer-events-auto shadow-sm">
+                Build with us <span className="text-[10px]">→</span>
               </Link>
             </div>
           </div>
 
-          {/* Right Card — AI (glassmorphic) */}
+          {/* Right Card — AI AUTOMATION */}
           <div
             className={`right-card absolute ${CARD_SIZE} rounded-2xl overflow-hidden scale-[0.9] opacity-0 z-[2]`}
             style={{
@@ -313,13 +343,13 @@ export function TransferredSoftreeHero() {
               willChange: "transform, opacity",
             }}
           >
-            <Image src="/whysoftree/ai.webp" alt="AI Agent" fill className="object-cover" />
+            <Image src="/whysoftree/ai.webp" alt="AI Automation" fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             <div className="absolute bottom-0 inset-x-0 p-5 flex flex-col">
-              <p className="text-white/60 text-[10px] font-bold tracking-[0.2em] uppercase">AI Agents</p>
-              <p className="text-white text-base font-bold leading-tight mt-1.5">Agents that never stop</p>
-              <Link href="/services/ai-intelligence/agentic-ai" className="mt-3 self-start inline-flex items-center gap-1.5 bg-white/90 text-zinc-900 text-xs font-bold px-4 py-2 rounded-full transition-all hover:bg-white pointer-events-auto shadow-sm">
-                Meet agents <span className="text-[10px]">→</span>
+              <p className="text-indigo-400 text-[10px] font-bold tracking-[0.2em] uppercase">AI Automation</p>
+              <p className="text-white text-base font-bold leading-tight mt-1.5">AI agents that work around the clock</p>
+              <Link href="/services/ai-intelligence/agentic-ai" className="mt-3 self-start inline-flex items-center gap-1.5 bg-white text-zinc-900 text-xs font-semibold px-4 py-2 rounded-full transition-all hover:bg-white/90 pointer-events-auto shadow-sm">
+                See AI solutions <span className="text-[10px]">→</span>
               </Link>
             </div>
           </div>
@@ -350,10 +380,10 @@ export function TransferredSoftreeHero() {
             {/* Card UI */}
             <div className="card-ui absolute inset-x-0 bottom-0 z-[4] opacity-0 pointer-events-none" style={{ willChange: "opacity" }}>
               <div className="bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-b-xl p-5 flex flex-col">
-                <p className="text-white/60 text-[10px] font-bold tracking-[0.2em] uppercase">Microsoft</p>
-                <p className="text-white text-base font-bold leading-tight mt-1.5">Enterprise solutions</p>
-                <Link href="/services/business-applications" className="mt-3 self-start inline-flex items-center gap-1.5 bg-white/90 text-zinc-900 text-xs font-bold px-4 py-2 rounded-full transition-all hover:bg-white pointer-events-auto shadow-sm">
-                  Learn more <span className="text-[10px]">→</span>
+                <p className="text-indigo-400 text-[10px] font-bold tracking-[0.2em] uppercase">Microsoft & AI</p>
+                <p className="text-white text-base font-bold leading-tight mt-1.5">Enterprise solutions for modern business</p>
+                <Link href="/services/business-applications" className="mt-3 self-start inline-flex items-center gap-1.5 bg-white text-zinc-900 text-xs font-semibold px-4 py-2 rounded-full transition-all hover:bg-white/90 pointer-events-auto shadow-sm">
+                  Explore services <span className="text-[10px]">→</span>
                 </Link>
               </div>
             </div>
