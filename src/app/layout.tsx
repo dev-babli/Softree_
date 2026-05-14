@@ -73,7 +73,17 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: "https://www.softreetechnology.com/wp-content/uploads/2024/08/cropped-Screenshot-2024-08-02-195851-32x32.png",
+    icon: [
+      { url: "/favicon_io/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon_io/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon_io/favicon.ico", sizes: "48x48" },
+    ],
+    apple: [
+      { url: "/favicon_io/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      { rel: "manifest", url: "/favicon_io/site.webmanifest" },
+    ],
   },
 };
 
@@ -104,66 +114,66 @@ export default function RootLayout({
 
       <body className="antialiased bg-[#141414] text-white">
         <PostHogProvider>
-        <Suspense fallback={null}><PostHogPageView /></Suspense>
-        {/* ✅ GTM NoScript */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-KDMTPWS8"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
+          <Suspense fallback={null}><PostHogPageView /></Suspense>
+          {/* ✅ GTM NoScript */}
+          <noscript>
+            <iframe
+              src="https://www.googletagmanager.com/ns.html?id=GTM-KDMTPWS8"
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+            />
+          </noscript>
+
+          {/* ✅ Structured Data (SEO BOOST 🚀) */}
+          <Script
+            id="ld-json"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                name: "Softree",
+                url: "https://softree-2.vercel.app",
+                logo: "https://softree-2.vercel.app/logo.png",
+              }),
+            }}
           />
-        </noscript>
 
-        {/* ✅ Structured Data (SEO BOOST 🚀) */}
-        <Script
-          id="ld-json"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Softree",
-              url: "https://softree-2.vercel.app",
-              logo: "https://softree-2.vercel.app/logo.png",
-            }),
-          }}
-        />
+          {/* Browser log script */}
+          <Script
+            id="orchids-browser-logs"
+            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
+            strategy="afterInteractive"
+            data-orchids-project-id="f9231059-3647-4f7a-ab8a-965fcb6abfb0"
+          />
 
-        {/* Browser log script */}
-        <Script
-          id="orchids-browser-logs"
-          src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
-          strategy="afterInteractive"
-          data-orchids-project-id="f9231059-3647-4f7a-ab8a-965fcb6abfb0"
-        />
+          {/* Global error reporter */}
+          <ErrorReporter />
 
-        {/* Global error reporter */}
-        <ErrorReporter />
+          {/* Route messenger */}
+          <Script
+            id="route-messenger"
+            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/route-messenger.js"
+            strategy="afterInteractive"
+            data-target-origin="*"
+            data-message-type="ROUTE_CHANGE"
+            data-include-search-params="true"
+            data-only-in-iframe="true"
+            data-debug="true"
+            data-custom-data='{"appName":"Softree","version":"1.0.0"}'
+          />
 
-        {/* Route messenger */}
-        <Script
-          id="route-messenger"
-          src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/route-messenger.js"
-          strategy="afterInteractive"
-          data-target-origin="*"
-          data-message-type="ROUTE_CHANGE"
-          data-include-search-params="true"
-          data-only-in-iframe="true"
-          data-debug="true"
-          data-custom-data='{"appName":"Softree","version":"1.0.0"}'
-        />
+          {children}
 
-        {children}
+          {/* ✅ Tidio Chatbot*/}
+          <Script
+            src="//code.tidio.co/wt0gzqlmxpfwlnsv7aculpsflifbbv7v.js"
+            strategy="afterInteractive"
+          />
 
-        {/* ✅ Tidio Chatbot*/}
-        <Script
-          src="//code.tidio.co/wt0gzqlmxpfwlnsv7aculpsflifbbv7v.js"
-          strategy="afterInteractive"
-        />
-
-        {/* Visual editor */}
-        <VisualEditsMessenger />
+          {/* Visual editor */}
+          <VisualEditsMessenger />
         </PostHogProvider>
       </body>
     </html>
