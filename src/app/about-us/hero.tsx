@@ -1,232 +1,191 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import { useEffect, useState, useRef } from "react";
+import { useRef } from "react"
+import { useGSAP } from "@gsap/react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import Link from "next/link"
 
-export default function AboutHeroWithTestimonial() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const hero = canvas.parentElement!;
-    const ctx = canvas.getContext("2d")!;
+if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger, useGSAP)
 
-    const resize = () => {
-      canvas.width = hero.offsetWidth;
-      canvas.height = hero.offsetHeight;
-    };
-    resize();
+// Design tokens matching homepage
+const color = {
+  canvas: "#F3F0EE",
+  lifted: "#FCFBFA",
+  white: "#FFFFFF",
+  ink: "#141413",
+  charcoal: "#262627",
+  slate: "#696969",
+  mistral: "#fa520f",
+  flame: "#fb6424",
+  sunshine: "#ffa110",
+  gold: "#ffe295",
+  cream: "#fff0c2",
+  signalLight: "#F37338",
+}
 
-    const pts = Array.from({ length: 48 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      r: Math.random() * 1.6 + 0.4,
-      vx: (Math.random() - 0.5) * 0.35,
-      vy: (Math.random() - 0.5) * 0.35,
-      o: Math.random() * 0.35 + 0.08,
-    }));
+const H1 = [
+  [{ t: "Global", g: false }, { t: "delivery", g: true }],
+  [{ t: "partner", g: true }, { t: "for", g: false }, { t: "modern", g: false }],
+  [{ t: "enterprises.", g: true }],
+]
 
-    let raf: number;
+const STATS = [
+  { v: 12, s: "+", l: "Years", d: "Of proven excellence" },
+  { v: 200, s: "+", l: "Projects", d: "Delivered successfully" },
+  { v: 50, s: "+", l: "Clients", d: "Across 4 continents" },
+  { v: 4, s: "", l: "Global Hubs", d: "India UK US Dubai" },
+]
 
-    const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+const GLOBAL_HUBS = [
+  { city: "Kolkata", country: "India", role: "HQ", timezone: "IST +5:30" },
+  { city: "London", country: "UK", role: "Europe", timezone: "GMT +0" },
+  { city: "New York", country: "USA", role: "Americas", timezone: "EST -5" },
+  { city: "Dubai", country: "UAE", role: "MEA", timezone: "GST +4" },
+]
 
-      pts.forEach((p) => {
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.x < 0) p.x = canvas.width;
-        if (p.x > canvas.width) p.x = 0;
-        if (p.y < 0) p.y = canvas.height;
-        if (p.y > canvas.height) p.y = 0;
+export default function AboutHero() {
+  const sRef = useRef<HTMLElement>(null)
 
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(165,243,252,${p.o})`;
-        ctx.fill();
-      });
+  useGSAP(() => {
+    const root = sRef.current
+    if (!root) return
+    const mm = gsap.matchMedia()
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } })
 
-      for (let i = 0; i < pts.length; i++) {
-        for (let j = i + 1; j < pts.length; j++) {
-          const dx = pts[i].x - pts[j].x;
-          const dy = pts[i].y - pts[j].y;
-          const d = Math.sqrt(dx * dx + dy * dy);
-          if (d < 110) {
-            ctx.beginPath();
-            ctx.moveTo(pts[i].x, pts[i].y);
-            ctx.lineTo(pts[j].x, pts[j].y);
-            ctx.strokeStyle = `rgba(165,243,252,${0.09 * (1 - d / 110)})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        }
-      }
+      const eyebrow = root.querySelector<HTMLElement>("[data-h-eyebrow]")
+      if (eyebrow) { gsap.set(eyebrow, { scale: 0.9, opacity: 0 }); tl.to(eyebrow, { scale: 1, opacity: 1, duration: 0.5 }, 0) }
 
-      raf = requestAnimationFrame(draw);
-    };
+      const words = root.querySelectorAll<HTMLElement>("[data-h-word]")
+      if (words.length) { gsap.set(words, { y: 30, opacity: 0 }); tl.to(words, { y: 0, opacity: 1, duration: 0.9, stagger: 0.07 }, 0.1) }
 
-    draw();
-    window.addEventListener("resize", resize);
-    return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener("resize", resize);
-    };
-  }, []);
+      const sub = root.querySelector<HTMLElement>("[data-h-sub]")
+      if (sub) { gsap.set(sub, { y: 16, opacity: 0 }); tl.to(sub, { y: 0, opacity: 1, duration: 0.7 }, 0.55) }
 
-  /* ================= UI ================= */
+      const stats = root.querySelectorAll<HTMLElement>("[data-h-stat]")
+      if (stats.length) { gsap.set(stats, { y: 12, opacity: 0 }); tl.to(stats, { y: 0, opacity: 1, duration: 0.5, stagger: 0.1 }, 0.75) }
+
+      const ctas = root.querySelectorAll<HTMLElement>("[data-h-cta]")
+      if (ctas.length) { gsap.set(ctas, { scale: 0.96, opacity: 0 }); tl.to(ctas, { scale: 1, opacity: 1, duration: 0.5, stagger: 0.08 }, 0.9) }
+
+      const hubs = root.querySelectorAll<HTMLElement>("[data-h-hub]")
+      if (hubs.length) { gsap.set(hubs, { scale: 0.8, opacity: 0 }); tl.to(hubs, { scale: 1, opacity: 1, duration: 0.6, stagger: 0.08 }, 0.6) }
+
+      return () => { tl.kill() }
+    })
+    return () => mm.revert()
+  }, { scope: sRef })
+
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#0b3ea8] via-[#1557c0] to-[#1e73d8] text-white">
-      {/* Grid overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px)",
-          backgroundSize: "48px 48px",
-        }}
-      />
-      {/* Glow orbs */}
-      <div
-        className="absolute pointer-events-none rounded-full"
-        style={{
-          width: 420,
-          height: 420,
-          top: -120,
-          left: -120,
-          background:
-            "radial-gradient(circle,rgba(99,179,237,0.22) 0%,transparent 65%)",
-        }}
-      />
-      <div
-        className="absolute pointer-events-none rounded-full"
-        style={{
-          width: 360,
-          height: 360,
-          top: -60,
-          right: -80,
-          background:
-            "radial-gradient(circle,rgba(6,182,212,0.18) 0%,transparent 65%)",
-        }}
-      />
-      <div
-        className="absolute pointer-events-none rounded-full"
-        style={{
-          width: 280,
-          height: 280,
-          bottom: 60,
-          left: "33%",
-          background:
-            "radial-gradient(circle,rgba(139,92,246,0.12) 0%,transparent 65%)",
-        }}
-      />
+    <section ref={sRef} className="relative w-full overflow-hidden" style={{ background: color.canvas, minHeight: "100vh" }}>
+      {/* Soft blur orbs */}
+      <div className="pointer-events-none absolute" style={{ width: 600, height: 600, right: -200, top: -180, background: `radial-gradient(circle,${color.sunshine}30 0%,transparent 60%)`, filter: "blur(120px)", opacity: 0.3 }} />
+      <div className="pointer-events-none absolute" style={{ width: 420, height: 420, left: -140, bottom: -100, background: `radial-gradient(circle,${color.cream}50 0%,transparent 60%)`, filter: "blur(90px)", opacity: 0.45 }} />
 
-      {/* Particle canvas */}
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 pointer-events-none"
-      />
-
-      {/* ================= CONTENT ================= */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-12 text-center mt-5">
-        {/* Badge */}
-        <span className="inline-block mb-5 px-4 py-2 rounded-full bg-white/10 backdrop-blur text-xs tracking-widest uppercase">
-          About Softree
-        </span>
-
-        {/* Heading */}
-        <h1 className="text-4xl md:text-4xl lg:text-5xl font-semibold leading-tight">
-          Building Intelligent Microsoft Solutions &
-          <br />
-          <span className="bg-gradient-to-r from-cyan-300 to-white bg-clip-text text-transparent">
-            Modern Digital Application
-          </span>
-        </h1>
-
-        {/* Description */}
-        <p className="mt-5 text-lg text-white/75 max-w-3xl mx-auto">
-          Softree is a global technology delivery partner specializing in
-          Microsoft ecosystem solutions and modern full-stack application
-          engineering.
-        </p>
-
-        {/* ================= GLASS INFO PANEL ================= */}
-        <div className="mt-5 mx-auto max-w-3xl rounded-3xl border border-white/20 bg-white/10 backdrop-blur-2xl p-7 shadow-2xl">
-          {/* Tech Focus Pills */}
-          <div className="flex flex-wrap justify-center gap-3 text-xs text-white/70 mb-6">
-            <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10">
-              AI Solutions
-            </span>
-            <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10">
-              SharePoint & SPFx
-            </span>
-            <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10">
-              Power Apps & Automate
-            </span>
-            <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10">
-              Mobile & Web Apps
-            </span>
-            <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10">
-              Power BI & Data
+      <div className="relative z-10 mx-auto grid w-full max-w-[1320px] grid-cols-1 gap-12 px-6 pb-20 pt-24 md:px-10 md:pb-28 md:pt-32 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-8">
+        {/* LEFT - Content */}
+        <div className="relative z-10">
+          {/* Eyebrow */}
+          <div data-h-eyebrow className="mb-8 inline-flex items-center gap-3" style={{ opacity: 0 }}>
+            <span className="inline-flex items-center gap-2" style={{ padding: "6px 14px", borderRadius: 999, background: color.ink, color: color.canvas, fontSize: 12, fontWeight: 700, letterSpacing: "0.56px", textTransform: "uppercase" }}>
+              <span className="inline-block" style={{ width: 8, height: 8, borderRadius: 999, background: color.signalLight, boxShadow: `0 0 8px ${color.signalLight}` }} />
+              About Softree
             </span>
           </div>
 
-          {/* Buttons */}
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              href="/contact"
-              className="px-7 py-3 rounded-xl bg-white text-blue-700 font-medium shadow-lg hover:scale-105 transition inline-block"
-            >
-              Start a Conversation
-            </Link>
+          {/* Headline */}
+          <h1 style={{ fontFamily: "inherit", fontSize: "clamp(42px,7vw,96px)", fontWeight: 500, lineHeight: 0.96, letterSpacing: "-0.032em", color: color.ink, textWrap: "balance" }}>
+            {H1.map((line, li) => (
+              <span key={li} className="block">
+                {line.map((w, wi) => (
+                  <span key={wi} data-h-word className="inline-block" style={{ marginRight: "0.28em", backgroundImage: w.g ? `linear-gradient(92deg,${color.mistral} 0%,${color.flame} 40%,${color.sunshine} 75%,${color.gold} 100%)` : undefined, backgroundClip: w.g ? "text" : undefined, WebkitBackgroundClip: w.g ? "text" : undefined, color: w.g ? "transparent" : color.ink }}>{w.t}</span>
+                ))}
+              </span>
+            ))}
+          </h1>
 
-            <Link
-              href="/services"
-              className="px-7 py-3 rounded-xl border border-white/30 hover:bg-white/10 transition inline-block text-white"
-            >
-              View Our Services
-            </Link>
+          <p data-h-sub className="mt-8 max-w-[560px]" style={{ fontSize: 18, fontWeight: 450, lineHeight: 1.5, color: color.charcoal, opacity: 0 }}>
+            We bridge global talent with enterprise outcomes. From our India headquarters
+            to hubs in London, New York, and Dubai — one unified team delivering excellence.
+          </p>
+
+          {/* Stats */}
+          <div className="mt-10 grid grid-cols-2 gap-x-8 gap-y-4 md:grid-cols-4">
+            {STATS.map((st) => (
+              <div key={st.l} data-h-stat style={{ opacity: 0 }}>
+                <div style={{ fontFamily: "inherit", fontSize: "clamp(28px,3.5vw,40px)", fontWeight: 500, lineHeight: 1, letterSpacing: "-1.5px", color: color.ink }}>
+                  {st.v}{st.s}
+                </div>
+                <div className="mt-1.5" style={{ fontSize: 14, fontWeight: 500, color: color.ink, letterSpacing: "-0.3px" }}>{st.l}</div>
+                <div style={{ fontSize: 12, fontWeight: 450, color: color.slate, marginTop: 2 }}>{st.d}</div>
+              </div>
+            ))}
           </div>
 
-          {/* Divider */}
-          <div className="my-3 h-px bg-white/15" />
-
-          {/* Trust Stats */}
-          <div className="grid grid-cols-3 gap-4 text-center text-sm">
-            <div>
-              <p className="text-xl font-bold">200+</p>
-              <p className="text-white/60">Projects Delivered</p>
+          {/* CTAs */}
+          <div className="mt-10 flex flex-wrap items-center gap-3">
+            <div data-h-cta style={{ opacity: 0 }}>
+              <Link href="/contact" className="group inline-flex items-center gap-2 hover:-translate-y-px transition-all duration-220" style={{ padding: "14px 32px", borderRadius: 20, background: color.ink, color: color.canvas, fontSize: 16, fontWeight: 500, letterSpacing: "-0.32px", textDecoration: "none", boxShadow: "0 0 0 0 transparent" }}>
+                Start Your Project
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-0.5">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg>
+              </Link>
             </div>
-            <div>
-              <p className="text-xl font-bold">13+</p>
-              <p className="text-white/60">Years Experience</p>
-            </div>
-            <div>
-              <p className="text-xl font-bold">98%</p>
-              <p className="text-white/60">Client Satisfaction</p>
+            <div data-h-cta style={{ opacity: 0 }}>
+              <Link href="/services" className="group inline-flex items-center gap-2 hover:-translate-y-px transition-all duration-220" style={{ padding: "14px 32px", borderRadius: 20, background: color.cream, color: color.ink, fontSize: 16, fontWeight: 500, letterSpacing: "-0.32px", textDecoration: "none", border: `1.5px solid ${color.cream}` }}>
+                Explore Services
+              </Link>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* ================= PREMIUM SOFT WAVE ================= */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
-        <svg
-          viewBox="0 0 1440 160"
-          className="w-full h-[120px]"
-          preserveAspectRatio="none"
-        >
-          <defs>
-            <linearGradient id="contactFade" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#ffffff" stopOpacity="0.15" />
-              <stop offset="100%" stopColor="#FAFAFA" />
-            </linearGradient>
-          </defs>
+        {/* RIGHT - Global Hubs Map */}
+        <div className="relative mx-auto hidden lg:block" style={{ width: 520, height: 520 }}>
+          {/* Orbit ring */}
+          <svg className="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 520 520">
+            <circle cx="260" cy="260" r="180" fill="none" stroke={`${color.ink}10`} strokeWidth="1" strokeDasharray="6 6" />
+            {GLOBAL_HUBS.map((hub, i) => {
+              const angle = (i * 90 * Math.PI) / 180
+              const cx = 260 + 180 * Math.cos(angle)
+              const cy = 260 + 180 * Math.sin(angle)
+              return <line key={hub.city} x1="260" y1="260" x2={cx} y2={cy} stroke={`${color.ink}15`} strokeWidth="1" />
+            })}
+          </svg>
 
-          <path
-            d="M0,90 C300,140 900,140 1440,90 L1440,160 L0,160 Z"
-            fill="url(#contactFade)"
-          />
-        </svg>
+          {/* Center - India HQ */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" style={{ width: 100, height: 100, borderRadius: "50%", background: `radial-gradient(circle,${color.white} 0%,${color.cream} 40%,${color.gold}88 70%,transparent 100%)`, boxShadow: `0 0 60px ${color.sunshine}40`, display: "grid", placeItems: "center" }}>
+            <div className="text-center">
+              <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.48px", textTransform: "uppercase", color: color.ink }}>India HQ</div>
+              <div style={{ fontSize: 11, color: color.slate }}>Kolkata</div>
+            </div>
+          </div>
+
+          {/* Satellite hubs */}
+          {GLOBAL_HUBS.map((hub, i) => {
+            const angle = (i * 90 * Math.PI) / 180
+            const nx = 260 + 180 * Math.cos(angle)
+            const ny = 260 + 180 * Math.sin(angle)
+            return (
+              <div key={hub.city} data-h-hub className="absolute" style={{ left: nx, top: ny, transform: "translate(-50%,-50%)", opacity: 0 }}>
+                <div className="flex flex-col items-center gap-2 rounded-xl p-3" style={{ background: color.white, border: `1px solid ${color.ink}12`, boxShadow: "rgba(0, 0, 0, 0.04) 0px 4px 24px 0px" }}>
+                  <div className="grid h-9 w-9 place-items-center rounded-full" style={{ background: color.cream, color: color.mistral }}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                  </div>
+                  <div className="text-center">
+                    <div style={{ fontSize: 12, fontWeight: 600, color: color.ink, letterSpacing: "-0.2px" }}>{hub.city}</div>
+                    <div style={{ fontSize: 11, fontWeight: 450, color: color.slate, marginTop: 1 }}>{hub.timezone}</div>
+                  </div>
+                </div>
+              </div>
+            )
+          })}
+        </div>
       </div>
     </section>
-  );
+  )
 }

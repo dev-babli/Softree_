@@ -6,7 +6,6 @@ import Image from "next/image"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Calendar, Layers, Shield, TrendingUp, ArrowRight } from "lucide-react"
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
@@ -205,12 +204,12 @@ export function TransferredSoftreeHero() {
         </div>
 
         {/* ================= 3. HERO TEXT ================= */}
-        <div className="hero-text-cluster absolute inset-0 z-20 flex flex-col justify-center pt-[calc(64px+4vh)] sm:pt-[calc(64px+6vh)] pb-[18vh] pl-[7vw] pr-[4vw] pointer-events-none">
+        <div className="hero-text-cluster absolute inset-0 z-20 flex flex-col justify-center pt-[16vh] pb-[22vh] pl-[7vw] pr-[4vw] pointer-events-none">
           <div className="max-w-[600px] text-left pointer-events-auto">
 
             {/* Badge */}
             <div className="mb-6 flex items-center gap-2">
-              <svg className="w-4 h-4 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <svg className="w-4 h-4" style={{ color: "#FF7A2F" }} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <circle cx="12" cy="12" r="10" />
                 <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
               </svg>
@@ -219,74 +218,130 @@ export function TransferredSoftreeHero() {
 
             {/* Headline */}
             <h1
-              className="hero-title text-white text-[clamp(40px,5vw,80px)] font-semibold leading-[1.05] tracking-[-0.03em]"
+              className="hero-title text-white text-[clamp(36px,4.5vw,72px)] font-semibold leading-[1.05] tracking-[-0.03em]"
               style={{ willChange: "transform, opacity" }}
             >
               Your Offshore Engineering Partner
-              <span className="text-indigo-400">.</span>
+              <span style={{ color: "#FF7A2F" }}>.</span>
             </h1>
 
             {/* Subheadline */}
-            <p className="hero-sub mt-4 text-white/70 text-[clamp(16px,1.4vw,22px)] font-normal leading-relaxed max-w-[520px]">
+            <p className="hero-sub mt-6 text-white/70 text-[clamp(15px,1.3vw,20px)] font-normal leading-relaxed max-w-[520px]">
               Scalable teams. Microsoft experts. AI-powered solutions. Delivered for global impact.
             </p>
 
-            {/* CTAs - Primary dominant, Secondary subtle */}
-            <div className="hero-btn mt-8 flex flex-wrap items-center gap-3" style={{ willChange: "transform, opacity" }}>
+            {/* CTAs — hyper-glass effect */}
+            <style dangerouslySetInnerHTML={{
+              __html: `
+              @keyframes hero-glare {
+                0% { left: -100%; }
+                15% { left: 200%; }
+                100% { left: 200%; }
+              }
+              .hero-glass-primary::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                border-radius: inherit;
+                background: linear-gradient(135deg, rgba(255, 180, 120, 0.5) 0%, transparent 40%, transparent 60%, rgba(255, 255, 255, 0.2) 100%);
+                mix-blend-mode: screen;
+                pointer-events: none;
+              }
+              .hero-glass-primary::after {
+                content: "";
+                position: absolute;
+                top: 0; left: -100%;
+                width: 50%; height: 100%;
+                background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.25) 50%, transparent 100%);
+                transform: skewX(-20deg);
+                animation: hero-glare 5s infinite ease-in-out;
+                pointer-events: none;
+              }
+              .hero-glass-primary:hover {
+                transform: scale(1.05) !important;
+                box-shadow:
+                  0 20px 50px 0 rgba(255, 122, 47, 0.5),
+                  0 8px 24px 0 rgba(0, 0, 0, 0.3),
+                  inset 0 1px 4px 0 rgba(255, 255, 255, 0.5),
+                  inset 0 -1px 3px 0 rgba(0, 0, 0, 0.15) !important;
+              }
+              .hero-glass-secondary::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                border-radius: inherit;
+                background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, transparent 50%, rgba(255, 255, 255, 0.08) 100%);
+                mix-blend-mode: screen;
+                pointer-events: none;
+              }
+              .hero-glass-secondary::after {
+                content: "";
+                position: absolute;
+                top: 0; left: -100%;
+                width: 50%; height: 100%;
+                background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+                transform: skewX(-20deg);
+                animation: hero-glare 6s infinite ease-in-out;
+                animation-delay: 1.5s;
+                pointer-events: none;
+              }
+              .hero-glass-secondary:hover {
+                transform: scale(1.05) !important;
+                border-color: rgba(255, 255, 255, 0.3) !important;
+                background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.65) 100%) !important;
+              }
+            `}} />
+            <div className="hero-btn mt-8 flex flex-wrap items-center gap-4 relative z-10" style={{ willChange: "transform, opacity" }}>
+              {/* PRIMARY — hyper-glass orange pill */}
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[14px] font-semibold text-zinc-900 shadow-lg shadow-white/10 transition-all hover:bg-white/90 hover:scale-[1.02] active:scale-[0.97]"
+                className="hero-glass-primary inline-flex items-center gap-2 transition-all duration-300 ease-out active:scale-95"
+                style={{
+                  background: "linear-gradient(135deg, rgba(255, 122, 47, 0.95) 0%, rgba(200, 80, 20, 0.85) 100%)",
+                  backdropFilter: "blur(28px) saturate(180%)",
+                  WebkitBackdropFilter: "blur(28px) saturate(180%)",
+                  border: "1px solid rgba(255, 255, 255, 0.25)",
+                  borderTopColor: "rgba(255, 200, 160, 0.6)",
+                  borderLeftColor: "rgba(255, 255, 255, 0.35)",
+                  boxShadow: "0 14px 40px 0 rgba(255,122,47,0.35), 0 4px 16px 0 rgba(0,0,0,0.3), inset 0 1px 4px 0 rgba(255,255,255,0.4), inset 0 -1px 3px 0 rgba(0,0,0,0.15)",
+                  position: "relative",
+                  overflow: "hidden",
+                  borderRadius: "9999px",
+                  height: "56px",
+                  padding: "0 32px",
+                  fontSize: "16px",
+                  fontWeight: 600,
+                  color: "#fff",
+                }}
               >
                 Partner With Us
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                <svg className="ml-1 h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
               </Link>
+
+              {/* SECONDARY — dark glass pill */}
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-white/5 border border-white/20 px-6 py-3.5 text-[14px] font-semibold text-white transition-all hover:bg-white/10 hover:border-white/30 active:scale-[0.97]"
+                className="hero-glass-secondary inline-flex items-center gap-2 transition-all duration-300 ease-out active:scale-95"
+                style={{
+                  background: "linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.55) 100%)",
+                  backdropFilter: "blur(40px) saturate(200%)",
+                  WebkitBackdropFilter: "blur(40px) saturate(200%)",
+                  boxShadow: "inset 0 1px 2px rgba(255,255,255,0.2), inset 0 -1px 3px rgba(0,0,0,0.3), 0 8px 32px rgba(0,0,0,0.3)",
+                  position: "relative",
+                  overflow: "hidden",
+                  borderRadius: "9999px",
+                  border: "1px solid rgba(255, 255, 255, 0.18)",
+                  height: "56px",
+                  padding: "0 32px",
+                  fontSize: "16px",
+                  fontWeight: 600,
+                  color: "rgba(255, 255, 255, 0.9)",
+                }}
               >
-                <Calendar className="w-4 h-4" />
-                Schedule a Strategy Call
+                Schedule a Call
               </Link>
-            </div>
-
-            {/* Badges - Pill style with subtle backgrounds */}
-            <div className="mt-10 flex flex-wrap items-center gap-3">
-              {[
-                { icon: Layers, label: "White-Label" },
-                { icon: Shield, label: "NDA-Driven" },
-                { icon: TrendingUp, label: "Flexible Scaling" },
-              ].map(({ icon: Icon, label }) => (
-                <span
-                  key={label}
-                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/70 text-xs font-medium"
-                >
-                  <Icon className="w-3.5 h-3.5" />
-                  {label}
-                </span>
-              ))}
-            </div>
-
-            {/* Footer - Stats row */}
-            <div className="mt-10 pt-6 border-t border-white/10 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs">
-              <div className="flex items-baseline gap-1.5">
-                <span className="text-white font-semibold text-base">12+</span>
-                <span className="text-white/40">Years</span>
-              </div>
-              <div className="flex items-baseline gap-1.5">
-                <span className="text-white font-semibold text-base">140+</span>
-                <span className="text-white/40">Clients</span>
-              </div>
-              <div className="flex items-baseline gap-1.5">
-                <span className="text-white font-semibold text-base">50+</span>
-                <span className="text-white/40">Engineers</span>
-              </div>
-              <div className="ml-auto flex items-center gap-2 text-white/30">
-                <span>Offshore</span>
-                <span className="w-1 h-1 rounded-full bg-white/20" />
-                <span>Global</span>
-                <span className="w-1 h-1 rounded-full bg-white/20" />
-                <span>Reliable</span>
-              </div>
             </div>
 
           </div>
