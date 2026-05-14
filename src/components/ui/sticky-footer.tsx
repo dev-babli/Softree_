@@ -15,8 +15,7 @@ import {
 } from "lucide-react";
 import { CenterUnderline } from "../sections/underline-animation";
 
-const LOGO_URL =
-  "https://www.softreetechnology.com/wp-content/uploads/elementor/thumbs/white-logo-soft-qt16xqrm9tl34ewl9f9uhep3zaj8m5zkpgualw8uf4.png";
+const LOGO_URL = "/logo/Softree-Technology-Final-Logo.png";
 
 interface FooterLink {
   title: string;
@@ -151,7 +150,7 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
                   alt="Softree Technology"
                   width={140}
                   height={36}
-                  className="h-9 w-auto object-contain invert opacity-90 hover:opacity-100 transition-opacity"
+                  className="h-9 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
                 />
               </Link>
               <p className="text-slate-600 text-sm leading-relaxed max-w-sm">

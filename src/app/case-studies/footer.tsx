@@ -11,8 +11,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 
-const LOGO_URL =
-  "https://www.softreetechnology.com/wp-content/uploads/elementor/thumbs/white-logo-soft-qt16xqrm9tl34ewl9f9uhep3zaj8m5zkpgualw8uf4.png";
+const LOGO_URL = "/logo/Softree-Technology-Final-Logo.png";
 
 export default function Footer() {
   return (
