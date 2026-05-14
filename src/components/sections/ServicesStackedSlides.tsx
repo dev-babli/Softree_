@@ -86,26 +86,33 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
 
       const media = gsap.matchMedia()
 
-      media.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
+      /* HYBRID APPROACH:
+       * - Modern browsers (Chrome 115+, Edge, Safari 17.4+): CSS scroll-driven animations handle stacking
+       * - Older browsers / Firefox: GSAP ScrollTrigger provides the same effect
+       * - Mobile / Reduced motion: Static layout, no animations
+       * This ensures best performance everywhere - CSS runs at 120fps on compositor,
+       * GSAP provides smooth fallback for unsupported browsers.
+       */
+      media.add("(min-width: 768px) and (prefers-reduced-motion: no-preference) and (not (animation-timeline: scroll()))", () => {
         const introCopy = root.querySelector(".ssx-intro-copy")
         const introAction = root.querySelector(".ssx-intro-action")
         if (introCopy) {
           gsap.from(introCopy, {
-            opacity: 0, y: 32, duration: 0.8, ease: "power3.out",
-            scrollTrigger: { trigger: introCopy, start: "top 88%" },
+            opacity: 0, y: 32, duration: 0.8, ease: "power3.out", force3D: true,
+            scrollTrigger: { trigger: introCopy, start: "top 88%", fastScrollEnd: true },
           })
         }
         if (introAction) {
           gsap.from(introAction, {
-            opacity: 0, y: 20, duration: 0.6, ease: "power3.out", delay: 0.15,
-            scrollTrigger: { trigger: introCopy ?? introAction, start: "top 88%" },
+            opacity: 0, y: 20, duration: 0.6, ease: "power3.out", delay: 0.15, force3D: true,
+            scrollTrigger: { trigger: introCopy ?? introAction, start: "top 88%", fastScrollEnd: true },
           })
         }
 
         const panels = gsap.utils.toArray<HTMLElement>(".ssx-section")
         const panelsToPin = panels.slice(0, -1)
 
-        const timelines = panelsToPin.map((panel) => {
+        const timelines = panelsToPin.map((panel, index) => {
           const innerPanel = panel.querySelector<HTMLElement>(".ssx-section-inner")
           if (!innerPanel) return null
 
@@ -131,10 +138,16 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
               end: () => (getFakeScrollRatio() ? `+=${innerPanel.scrollHeight}` : "bottom top"),
               pin: true,
               pinSpacing: false,
-              scrub: 1,
+              scrub: 0.5,
               anticipatePin: 1,
               invalidateOnRefresh: true,
               onRefreshInit: setPanelSpacing,
+              // PERFORMANCE: Skip animation if user scrolls fast (prevents overlap glitches)
+              fastScrollEnd: 2000,
+              // PERFORMANCE: Force previous animations to complete before starting this one
+              preventOverlaps: "stackedCards",
+              // PERFORMANCE: Lower refresh priority for later cards (process in order)
+              refreshPriority: index,
             },
           })
 
@@ -143,6 +156,7 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
               y: () => -getOverflow(),
               duration: 1 / (1 - fakeScrollRatio) - 1,
               ease: "none",
+              force3D: true,
             })
           }
 
@@ -150,7 +164,7 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
             .fromTo(
               panel,
               { scale: 1, autoAlpha: 1 },
-              { scale: 0.78, autoAlpha: 0.5, duration: 0.9, ease: "none" }
+              { scale: 0.78, autoAlpha: 0.5, duration: 0.9, ease: "none", force3D: true }
             )
             .to(panel, { autoAlpha: 0, duration: 0.1, ease: "none" })
 
@@ -229,19 +243,19 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
                 </div>
 
                 <div className="ssx-media-block">
-                  {slide.key === "discover" ? (
+                  {slide.key === "global-delivery" ? (
                     <div className="ssx-map-wrap">
                       <GlobalNetworkMap />
                     </div>
-                  ) : slide.key === "architect" ? (
+                  ) : slide.key === "delivery-framework" ? (
                     <div className="ssx-map-wrap ssx-map-wrap--diagram">
                       <DeliveryProcessDiagram />
                     </div>
-                  ) : slide.key === "engineer" ? (
+                  ) : slide.key === "engineering-execution" ? (
                     <div className="ssx-map-wrap ssx-map-wrap--ftx">
                       <FlexibleTechExecutionVisual />
                     </div>
-                  ) : slide.key === "launch" ? (
+                  ) : slide.key === "long-term-partnership" ? (
                     <div className="ssx-map-wrap ssx-map-wrap--ltd">
                       <LongTermDeliveryVisual />
                     </div>
@@ -392,6 +406,40 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
           isolation: isolate;
           transform-origin: center top;
           will-change: transform, opacity;
+          /* PERFORMANCE: GPU layer containment - prevents layout recalculation */
+          contain: layout style paint;
+          /* PERFORMANCE: Skip rendering when offscreen (2025+ browsers) */
+          content-visibility: auto;
+          contain-intrinsic-size: 0 500px;
+        }
+
+        /* PROGRESSIVE ENHANCEMENT: CSS scroll-driven animations for modern browsers */
+        /* These run on the compositor thread at 120fps with zero main-thread blocking */
+        @supports (animation-timeline: scroll()) and (animation-range: entry exit) {
+          .ssx-section {
+            /* Let CSS handle the stacking for modern browsers */
+            view-timeline-name: --stacked-section;
+            view-timeline-axis: block;
+          }
+
+          @media (prefers-reduced-motion: no-preference) {
+            .ssx-section {
+              animation: stacked-scale linear both;
+              animation-timeline: view();
+              animation-range: entry 80% exit 10%;
+            }
+
+            @keyframes stacked-scale {
+              entry 80% {
+                transform: scale(1);
+                opacity: 1;
+              }
+              exit 10% {
+                transform: scale(0.85);
+                opacity: 0.3;
+              }
+            }
+          }
         }
 
         .ssx-section + .ssx-section {
@@ -457,6 +505,14 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
           height: 100%;
         }
 
+        /* ACCESSIBILITY: Respect user motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+          .ssx-section {
+            content-visibility: visible !important;
+            animation: none !important;
+          }
+        }
+
         .ssx-section-inner {
           min-height: 100%;
           box-sizing: border-box;
@@ -464,6 +520,10 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
           grid-template-columns: minmax(340px, 0.86fr) minmax(420px, 1.14fr);
           gap: clamp(2rem, 4.5vw, 4.75rem);
           align-items: center;
+          /* PERFORMANCE: GPU acceleration for inner content */
+          will-change: transform;
+          transform: translateZ(0);
+          backface-visibility: hidden;
           padding: clamp(2rem, 4vw, 4.5rem);
         }
 
