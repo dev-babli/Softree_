@@ -24,7 +24,6 @@ import {
   Globe2,
   Smartphone,
   Layers,
-  Home,
   Info,
   AppWindow,
   ArrowRight,
@@ -114,14 +113,13 @@ function ColIcon({ idx, accent }: { idx: number; accent: string | null }) {
 }
 
 const colConfig = [
-  { accent: "#185FA5", bg: "#E6F1FB", label: "Business Apps" },
-  { accent: "#185FA5", bg: "#EAF3DE", label: "Data & Analytics" },
-  { accent: "#185FA5", bg: "#FAEEDA", label: "AI & Automation" },
-  { accent: "#185FA5", bg: "#FAEEDA", label: "Digital Workspace" },
+  { accent: "#FF7A2F", bg: "#E6F1FB", label: "Business Apps" },
+  { accent: "#FF7A2F", bg: "#EAF3DE", label: "Data & Analytics" },
+  { accent: "#FF7A2F", bg: "#FAEEDA", label: "AI & Automation" },
+  { accent: "#FF7A2F", bg: "#FAEEDA", label: "Digital Workspace" },
 ];
 
 const menu: MenuItem[] = [
-  { label: "Home", url: "/", icon: Home },
   { label: "About", url: "/about-us", icon: Info },
 
   {
@@ -328,13 +326,17 @@ export default function Navigation() {
       className={`fixed top-0 left-0 w-full z-50 flex justify-center transition-transform duration-300 ${showNav ? "translate-y-0" : "-translate-y-full"
         }`}
     >
-      <nav className="relative w-full max-w-4xl px-6 lg:px-10 h-16 flex items-center justify-between rounded-full bg-white border border-black/5 shadow-[0_10px_40px_rgba(0,0,0,0.08)]">
-        <Link href="/" className="inline-block">
-          <span className="text-xl font-bold tracking-tight text-zinc-900">Softree</span>
+      <nav className="relative w-full max-w-4xl px-5 lg:px-6 h-16 flex items-center justify-between rounded-full bg-white border border-black/5 shadow-[0_10px_40px_rgba(0,0,0,0.08)]">
+        <Link href="/" className="inline-block shrink-0">
+          <img
+            src="/logo/Softree-Technology-Final-Logo.png"
+            alt="Softree"
+            className="h-9 w-auto object-contain"
+          />
         </Link>
 
         {/* ── DESKTOP ── */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-1">
           {menu.map((item) => {
             if (!item.mega) {
               return (
@@ -364,8 +366,8 @@ export default function Navigation() {
                 >
                   <span
                     className={`absolute inset-0 rounded-full bg-gradient-to-r from-gray-500 via-gray-700 to-black transition-all duration-300 ${open === item.label
-                        ? "opacity-100 scale-100"
-                        : "opacity-0 scale-75"
+                      ? "opacity-100 scale-100"
+                      : "opacity-0 scale-75"
                       } group-hover:opacity-100 group-hover:scale-100`}
                   />
                   <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
@@ -401,8 +403,8 @@ export default function Navigation() {
                             <div
                               key={group.title}
                               className={`px-[22px] py-6 ${idx < item.children!.length - 1
-                                  ? "border-r border-black/[0.06]"
-                                  : ""
+                                ? "border-r border-black/[0.06]"
+                                : ""
                                 }`}
                             >
                               {/* column header */}
@@ -498,25 +500,64 @@ export default function Navigation() {
         </div>
 
         {/* ── CTA ── */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+          @keyframes nav-glare {
+            0% { left: -100%; }
+            15% { left: 200%; }
+            100% { left: 200%; }
+          }
+          .nav-glass-cta::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: linear-gradient(135deg, rgba(255, 180, 120, 0.5) 0%, transparent 40%, transparent 60%, rgba(255, 255, 255, 0.2) 100%);
+            mix-blend-mode: screen;
+            pointer-events: none;
+          }
+          .nav-glass-cta::after {
+            content: "";
+            position: absolute;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.25) 50%, transparent 100%);
+            transform: skewX(-20deg);
+            animation: nav-glare 5s infinite ease-in-out;
+            pointer-events: none;
+          }
+          .nav-glass-cta:hover {
+            transform: scale(1.05) !important;
+            box-shadow:
+              0 12px 32px 0 rgba(255, 122, 47, 0.45),
+              0 4px 12px 0 rgba(0, 0, 0, 0.2),
+              inset 0 1px 4px 0 rgba(255, 255, 255, 0.5),
+              inset 0 -1px 3px 0 rgba(0, 0, 0, 0.15) !important;
+          }
+        `}} />
         <div className="hidden lg:flex items-center gap-3">
           <Link
             href="/contact"
-            className="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-black rounded-full hover:scale-105 hover:shadow-lg transition"
+            className="nav-glass-cta inline-flex items-center transition-all duration-300 ease-out active:scale-95"
+            style={{
+              background: "linear-gradient(135deg, rgba(255, 122, 47, 0.95) 0%, rgba(200, 80, 20, 0.85) 100%)",
+              backdropFilter: "blur(28px) saturate(180%)",
+              WebkitBackdropFilter: "blur(28px) saturate(180%)",
+              border: "1px solid rgba(255, 255, 255, 0.25)",
+              borderTopColor: "rgba(255, 200, 160, 0.6)",
+              borderLeftColor: "rgba(255, 255, 255, 0.35)",
+              boxShadow: "0 8px 24px 0 rgba(255,122,47,0.3), 0 2px 8px 0 rgba(0,0,0,0.2), inset 0 1px 4px 0 rgba(255,255,255,0.4), inset 0 -1px 3px 0 rgba(0,0,0,0.15)",
+              position: "relative" as const,
+              overflow: "hidden" as const,
+              borderRadius: "9999px",
+              height: "40px",
+              padding: "0 24px",
+              fontSize: "14px",
+              fontWeight: 600,
+              color: "#fff",
+            }}
           >
             Get Started
-            <svg
-              viewBox="0 0 16 16"
-              fill="none"
-              style={{ width: 16, height: 16 }}
-            >
-              <path
-                d="M4 12L12 4M12 4H7M12 4v5"
-                stroke="rgba(255,255,255,0.8)"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
           </Link>
         </div>
 
@@ -600,7 +641,11 @@ export default function Navigation() {
                 <Link
                   href="/contact"
                   onClick={() => setMobileOpen(false)}
-                  className="mt-6 flex items-center justify-center gap-2 px-5 py-3 bg-black text-white rounded-full font-semibold"
+                  style={{
+                    backgroundColor: "#FF7759",
+                    boxShadow: "0 6px 20px -4px rgba(255,119,89,0.5)",
+                  }}
+                  className="mt-6 flex items-center justify-center gap-2 px-5 py-3 text-white rounded-full font-semibold"
                 >
                   Get Started
                   <svg

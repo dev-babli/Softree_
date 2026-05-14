@@ -35,8 +35,7 @@ import {
 /* =========================
    LOGO
 ========================= */
-const LOGO_URL =
-  'https://www.softreetechnology.com/wp-content/uploads/elementor/thumbs/white-logo-soft-qt16xqrm9tl34ewl9f9uhep3zaj8m5zkpgualw8uf4.png';
+const LOGO_URL = '/logo/Softree-Technology-Final-Logo.png';
 
 /* =========================
    TYPES
@@ -56,19 +55,19 @@ type MegaSection = {
 /* 🔥 DISCRIMINATED UNION */
 type MenuItem =
   | {
-      label: string;
-      url: string;
-      icon?: LucideIcon;
-      mega: true;
-      children: MegaSection[];
-    }
+    label: string;
+    url: string;
+    icon?: LucideIcon;
+    mega: true;
+    children: MegaSection[];
+  }
   | {
-      label: string;
-      url: string;
-      icon?: LucideIcon;
-      mega?: false;
-      children?: MenuLink[];
-    };
+    label: string;
+    url: string;
+    icon?: LucideIcon;
+    mega?: false;
+    children?: MenuLink[];
+  };
 
 /* =========================
    MENU CONFIG
@@ -285,9 +284,8 @@ export function Header() {
                     {item.label}
                   </div>
                   <ChevronDown
-                    className={`h-4 w-4 transition-transform ${
-                      mobileDropdown === item.label ? 'rotate-180' : ''
-                    }`}
+                    className={`h-4 w-4 transition-transform ${mobileDropdown === item.label ? 'rotate-180' : ''
+                      }`}
                   />
                 </button>
                 {mobileDropdown === item.label && (
