@@ -205,7 +205,7 @@ export function TransferredSoftreeHero() {
         </div>
 
         {/* ================= 3. HERO TEXT ================= */}
-        <div className="hero-text-cluster absolute inset-0 z-20 flex flex-col justify-center pt-[8vh] pb-[18vh] pl-[7vw] pr-[4vw] pointer-events-none">
+        <div className="hero-text-cluster absolute inset-0 z-20 flex flex-col justify-center pt-[calc(64px+4vh)] sm:pt-[calc(64px+6vh)] pb-[18vh] pl-[7vw] pr-[4vw] pointer-events-none">
           <div className="max-w-[600px] text-left pointer-events-auto">
 
             {/* Badge */}
