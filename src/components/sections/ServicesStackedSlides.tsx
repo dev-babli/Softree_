@@ -1,17 +1,51 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useState, useEffect, lazy, Suspense } from "react"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { useGSAP } from "@gsap/react"
-import { GlobalNetworkMap } from "@/components/homepage/GlobalNetworkMap"
-import { DeliveryProcessDiagram } from "@/components/homepage/DeliveryProcessDiagram"
-import { FlexibleTechExecutionVisual } from "@/components/homepage/FlexibleTechExecutionVisual"
-import { LongTermDeliveryVisual } from "@/components/homepage/LongTermDeliveryVisual"
 
-gsap.registerPlugin(ScrollTrigger, useGSAP)
+// MEDIA OPTIMIZATION: lazy-imported = each heavy visual is a separate JS chunk
+const GlobalNetworkMap = lazy(() =>
+  import("@/components/homepage/GlobalNetworkMap").then((m) => ({ default: m.GlobalNetworkMap })),
+)
+const DeliveryProcessDiagram = lazy(() =>
+  import("@/components/homepage/DeliveryProcessDiagram").then((m) => ({ default: m.DeliveryProcessDiagram })),
+)
+const FlexibleTechExecutionVisual = lazy(() =>
+  import("@/components/homepage/FlexibleTechExecutionVisual").then((m) => ({ default: m.FlexibleTechExecutionVisual })),
+)
+const LongTermDeliveryVisual = lazy(() =>
+  import("@/components/homepage/LongTermDeliveryVisual").then((m) => ({ default: m.LongTermDeliveryVisual })),
+)
+
+// Viewport-gated: returns true once the section is within 2x viewport. One-shot.
+function useNearViewport(ref: React.RefObject<HTMLElement | null>) {
+  const [active, setActive] = useState(false)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setActive(true)
+          io.disconnect()
+        }
+      },
+      { rootMargin: "200% 0px 200% 0px", threshold: 0 },
+    )
+    io.observe(el)
+    return () => io.disconnect()
+  }, [ref])
+  return active
+}
+
+function MediaSkeleton() {
+  return (
+    <div className="ssx-skeleton">
+      <div className="ssx-skeleton-dot" />
+    </div>
+  )
+}
 
 type ServiceSlide = {
   key: string
@@ -33,8 +67,8 @@ const SERVICE_SLIDES: ServiceSlide[] = [
     title: "GLOBAL DELIVERY",
     headline: "Distributed teams built for continuous delivery.",
     description:
-      "Our India-based engineering teams collaborate across time zones to provide scalable delivery capacity, faster execution, and reliable project continuity for global businesses.",
-    outcomes: ["Offshore Engineering", "Global Collaboration", "Scalable Teams"],
+      "India-based engineering teams across time zones — scalable capacity, reliable continuity.",
+    outcomes: ["Offshore Teams", "Global Reach", "Always-On"],
     media: "",
     tone: "light",
   },
@@ -45,8 +79,8 @@ const SERVICE_SLIDES: ServiceSlide[] = [
     title: "DELIVERY FRAMEWORK",
     headline: "A proven process designed for predictable outcomes.",
     description:
-      "We align business goals, architecture, and delivery planning through a structured framework that reduces risk and accelerates execution.",
-    outcomes: ["Discovery", "Solution Design", "Agile Delivery", "Scale & Support"],
+      "A structured framework aligning goals, architecture, and planning to reduce risk and accelerate execution.",
+    outcomes: ["Discovery", "Design", "Agile Delivery"],
     media: "",
     tone: "ember",
   },
@@ -57,8 +91,8 @@ const SERVICE_SLIDES: ServiceSlide[] = [
     title: "ENGINEERING EXECUTION",
     headline: "Modern engineering for enterprise systems.",
     description:
-      "From cloud platforms and Microsoft ecosystems to AI automation and custom applications, we integrate complex technologies into scalable production-ready solutions.",
-    outcomes: ["Cloud Platforms", "Microsoft Stack", "AI Automation", "Enterprise Integration"],
+      "Cloud platforms, Microsoft ecosystems, AI automation, custom apps — shipped to production.",
+    outcomes: ["Cloud", "Microsoft", "AI Automation"],
     media: "",
     tone: "dark",
   },
@@ -69,8 +103,8 @@ const SERVICE_SLIDES: ServiceSlide[] = [
     title: "LONG-TERM PARTNERSHIP",
     headline: "A delivery partner focused on long-term growth.",
     description:
-      "Beyond launch, we provide ongoing engineering support, optimization, and dedicated teams to help businesses continuously evolve and scale.",
-    outcomes: ["Dedicated Teams", "Ongoing Support", "Performance Optimization"],
+      "Dedicated teams, ongoing optimization, and reliable support that scales with your business.",
+    outcomes: ["Dedicated Teams", "Support", "Optimization"],
     media: "",
     tone: "violet",
   },
@@ -78,118 +112,13 @@ const SERVICE_SLIDES: ServiceSlide[] = [
 
 export function ServicesStackedSlides({ className = "" }: { className?: string }) {
   const rootRef = useRef<HTMLDivElement>(null)
+  // MEDIA OPTIMIZATION: mount heavy visualizations only when section is near viewport
+  const mediaActive = useNearViewport(rootRef)
 
-  useGSAP(
-    () => {
-      const root = rootRef.current
-      if (!root) return
-
-      const media = gsap.matchMedia()
-
-      /* HYBRID APPROACH:
-       * - Modern browsers (Chrome 115+, Edge, Safari 17.4+): CSS scroll-driven animations handle stacking
-       * - Older browsers / Firefox: GSAP ScrollTrigger provides the same effect
-       * - Mobile / Reduced motion: Static layout, no animations
-       * This ensures best performance everywhere - CSS runs at 120fps on compositor,
-       * GSAP provides smooth fallback for unsupported browsers.
-       */
-      media.add("(min-width: 768px) and (prefers-reduced-motion: no-preference) and (not (animation-timeline: scroll()))", () => {
-        const introCopy = root.querySelector(".ssx-intro-copy")
-        const introAction = root.querySelector(".ssx-intro-action")
-        if (introCopy) {
-          gsap.from(introCopy, {
-            opacity: 0, y: 32, duration: 0.8, ease: "power3.out", force3D: true,
-            scrollTrigger: { trigger: introCopy, start: "top 88%", fastScrollEnd: true },
-          })
-        }
-        if (introAction) {
-          gsap.from(introAction, {
-            opacity: 0, y: 20, duration: 0.6, ease: "power3.out", delay: 0.15, force3D: true,
-            scrollTrigger: { trigger: introCopy ?? introAction, start: "top 88%", fastScrollEnd: true },
-          })
-        }
-
-        const panels = gsap.utils.toArray<HTMLElement>(".ssx-section")
-        const panelsToPin = panels.slice(0, -1)
-
-        const timelines = panelsToPin.map((panel, index) => {
-          const innerPanel = panel.querySelector<HTMLElement>(".ssx-section-inner")
-          if (!innerPanel) return null
-
-          const getOverflow = () => Math.max(0, innerPanel.scrollHeight - panel.clientHeight)
-          const getFakeScrollRatio = () => {
-            const overflow = getOverflow()
-            const panelHeight = panel.clientHeight || window.innerHeight
-
-            return overflow > 0 ? overflow / (overflow + panelHeight) : 0
-          }
-          const setPanelSpacing = () => {
-            const ratio = getFakeScrollRatio()
-            panel.style.marginBottom = ratio ? `${innerPanel.scrollHeight * ratio}px` : ""
-          }
-
-          setPanelSpacing()
-
-          const fakeScrollRatio = getFakeScrollRatio()
-          const timeline = gsap.timeline({
-            scrollTrigger: {
-              trigger: panel,
-              start: "bottom bottom",
-              end: () => (getFakeScrollRatio() ? `+=${innerPanel.scrollHeight}` : "bottom top"),
-              pin: true,
-              pinSpacing: false,
-              scrub: 0.5,
-              anticipatePin: 1,
-              invalidateOnRefresh: true,
-              onRefreshInit: setPanelSpacing,
-              // PERFORMANCE: Skip animation if user scrolls fast (prevents overlap glitches)
-              fastScrollEnd: 2000,
-              // PERFORMANCE: Force previous animations to complete before starting this one
-              preventOverlaps: "stackedCards",
-              // PERFORMANCE: Lower refresh priority for later cards (process in order)
-              refreshPriority: index,
-            },
-          })
-
-          if (fakeScrollRatio) {
-            timeline.to(innerPanel, {
-              y: () => -getOverflow(),
-              duration: 1 / (1 - fakeScrollRatio) - 1,
-              ease: "none",
-              force3D: true,
-            })
-          }
-
-          timeline
-            .fromTo(
-              panel,
-              { scale: 1, autoAlpha: 1 },
-              { scale: 0.78, autoAlpha: 0.5, duration: 0.9, ease: "none", force3D: true }
-            )
-            .to(panel, { autoAlpha: 0, duration: 0.1, ease: "none" })
-
-          return timeline
-        })
-
-        requestAnimationFrame(() => ScrollTrigger.refresh())
-
-        return () => {
-          timelines.forEach((timeline) => timeline?.kill())
-          panels.forEach((panel) => {
-            panel.style.marginBottom = ""
-          })
-        }
-      })
-
-      media.add("(max-width: 767px), (prefers-reduced-motion: reduce)", () => {
-        gsap.set(".ssx-section", { clearProps: "transform,opacity,visibility" })
-        gsap.set(".ssx-section-inner", { clearProps: "transform" })
-      })
-
-      return () => media.revert()
-    },
-    { scope: rootRef }
-  )
+  /* INTENTIONAL SIMPLIFICATION (matching stack.html):
+   * No GSAP. No ScrollTrigger. No animation-timeline. No scroll listeners.
+   * Cards stack via pure CSS `position: sticky; top: 0`. Later sibling paints
+   * on top of earlier one — no fade needed, no bleed-through possible. */
 
   return (
     <div ref={rootRef} className={`ssx-root ${className}`}>
@@ -211,10 +140,10 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
       </header>
 
       <div className="ssx-slides-wrapper">
-        {SERVICE_SLIDES.map((slide) => (
+        {SERVICE_SLIDES.map((slide, i) => (
           <section
             key={slide.key}
-            className={`ssx-section ssx-section-${slide.key} ssx-tone-${slide.tone}`}
+            className={`ssx-section ssx-section-${slide.key} ssx-tone-${slide.tone}${i % 2 === 1 ? " ssx-section--reverse" : ""}`}
           >
             <div className="ssx-section-content">
               <div className="ssx-section-inner">
@@ -245,19 +174,47 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
                 <div className="ssx-media-block">
                   {slide.key === "global-delivery" ? (
                     <div className="ssx-map-wrap">
-                      <GlobalNetworkMap />
+                      {mediaActive ? (
+                        <Suspense fallback={<MediaSkeleton />}>
+                          <GlobalNetworkMap />
+                        </Suspense>
+                      ) : (
+                        <MediaSkeleton />
+                      )}
                     </div>
                   ) : slide.key === "delivery-framework" ? (
                     <div className="ssx-map-wrap ssx-map-wrap--diagram">
-                      <DeliveryProcessDiagram />
+                      {mediaActive ? (
+                        <Suspense fallback={<MediaSkeleton />}>
+                          <DeliveryProcessDiagram />
+                        </Suspense>
+                      ) : (
+                        <MediaSkeleton />
+                      )}
                     </div>
                   ) : slide.key === "engineering-execution" ? (
                     <div className="ssx-map-wrap ssx-map-wrap--ftx">
-                      <FlexibleTechExecutionVisual />
+                      {mediaActive ? (
+                        <Suspense fallback={<MediaSkeleton />}>
+                          {/* isActive bypasses the component's internal ScrollTrigger,
+                              which mis-calculates start/end positions inside sticky-pinned
+                              parents and never fires onEnter. With isActive=true the
+                              entrance timeline plays immediately when mediaActive flips. */}
+                          <FlexibleTechExecutionVisual isActive />
+                        </Suspense>
+                      ) : (
+                        <MediaSkeleton />
+                      )}
                     </div>
                   ) : slide.key === "long-term-partnership" ? (
                     <div className="ssx-map-wrap ssx-map-wrap--ltd">
-                      <LongTermDeliveryVisual />
+                      {mediaActive ? (
+                        <Suspense fallback={<MediaSkeleton />}>
+                          <LongTermDeliveryVisual />
+                        </Suspense>
+                      ) : (
+                        <MediaSkeleton />
+                      )}
                     </div>
                   ) : null}
                 </div>
@@ -312,44 +269,55 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
         }
 
         .ssx-intro h2 {
-          max-width: 780px;
+          max-width: 700px;
           margin: 0;
-          font-size: clamp(2.1rem, 5vw, 5.75rem);
+          font-size: clamp(1.7rem, 3.6vw, 3rem);
           font-weight: 900;
-          line-height: 0.94;
-          letter-spacing: 0;
+          line-height: 1;
+          letter-spacing: -0.02em;
           text-wrap: balance;
+        }
+
+        .ssx-skeleton {
+          display: flex;
+          width: 100%;
+          height: 100%;
+          align-items: center;
+          justify-content: center;
+        }
+        .ssx-skeleton-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 999px;
+          background: rgba(255, 255, 255, 0.18);
+          animation: ssx-pulse 1.4s ease-in-out infinite;
+        }
+        @keyframes ssx-pulse {
+          0%, 100% { opacity: 0.3; }
+          50% { opacity: 1; }
         }
 
         .ssx-intro-action {
           flex: 0 0 auto;
-          min-height: 3.5rem;
+          min-height: 2.6rem;
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          gap: 0.5rem;
-          padding: 0.9rem 1.75rem;
+          gap: 0.4rem;
+          padding: 0.6rem 1.2rem;
           border-radius: 9999px;
-          border: 1px solid rgba(255, 255, 255, 0.15);
-          border-top-color: rgba(255, 87, 34, 0.5);
-          border-left-color: rgba(255, 255, 255, 0.3);
-          background: linear-gradient(135deg, rgba(255, 87, 34, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%);
-          box-shadow:
-            0 14px 40px rgba(0, 0, 0, 0.5),
-            inset 0 1px 4px rgba(255, 255, 255, 0.4),
-            inset 0 -1px 3px rgba(0, 0, 0, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          background: linear-gradient(135deg, #ff6b00 0%, #c8501c 100%);
+          box-shadow: 0 8px 24px rgba(255, 107, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.22);
           color: #ffffff;
-          font-size: 0.95rem;
+          font-size: 0.8rem;
           font-weight: 700;
           letter-spacing: 0;
           overflow: hidden;
           position: relative;
           text-decoration: none;
           touch-action: manipulation;
-          transition:
-            transform 300ms ease,
-            box-shadow 300ms ease,
-            border-color 300ms ease;
+          transition: transform 220ms ease, box-shadow 220ms ease;
         }
 
         .ssx-intro-action::before {
@@ -362,25 +330,11 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
           pointer-events: none;
         }
 
-        .ssx-intro-action::after {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 50%;
-          height: 100%;
-          background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.25) 50%, transparent 100%);
-          transform: skewX(-20deg);
-          animation: ssx-hyper-glare 5s infinite ease-in-out;
-          pointer-events: none;
-        }
+        /* PERF: dropped infinite glare animation on intro CTA */
 
         .ssx-intro-action:hover {
-          transform: scale(1.05);
-          box-shadow:
-            0 18px 48px rgba(0, 0, 0, 0.52),
-            0 0 40px rgba(255, 107, 0, 0.18),
-            inset 0 1px 4px rgba(255, 255, 255, 0.42);
+          transform: scale(1.03);
+          box-shadow: 0 12px 32px rgba(255, 107, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.28);
         }
 
         .ssx-intro-action:focus-visible {
@@ -393,53 +347,22 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
           padding: 0 clamp(0.75rem, 1.5vw, 1.25rem) clamp(0.75rem, 1.5vw, 1.25rem);
         }
 
+        /* PURE STICKY STACK (matching stack.html). No animation-timeline,
+           no @keyframes, no JS. Cards pin at viewport top; the next card in
+           DOM order slides up and PAINTS OVER the previous one. Browser
+           handles compositing natively at 120fps with zero main-thread cost. */
         .ssx-section {
-          position: relative;
+          position: sticky;
+          top: 0;
           width: 100%;
           height: 100svh;
-          min-height: 680px;
+          min-height: 520px;
           display: flex;
           justify-content: center;
           box-sizing: border-box;
           overflow: hidden;
           border-radius: 10px;
           isolation: isolate;
-          transform-origin: center top;
-          will-change: transform, opacity;
-          /* PERFORMANCE: GPU layer containment - prevents layout recalculation */
-          contain: layout style paint;
-          /* PERFORMANCE: Skip rendering when offscreen (2025+ browsers) */
-          content-visibility: auto;
-          contain-intrinsic-size: 0 500px;
-        }
-
-        /* PROGRESSIVE ENHANCEMENT: CSS scroll-driven animations for modern browsers */
-        /* These run on the compositor thread at 120fps with zero main-thread blocking */
-        @supports (animation-timeline: scroll()) and (animation-range: entry exit) {
-          .ssx-section {
-            /* Let CSS handle the stacking for modern browsers */
-            view-timeline-name: --stacked-section;
-            view-timeline-axis: block;
-          }
-
-          @media (prefers-reduced-motion: no-preference) {
-            .ssx-section {
-              animation: stacked-scale linear both;
-              animation-timeline: view();
-              animation-range: entry 80% exit 10%;
-            }
-
-            @keyframes stacked-scale {
-              entry 80% {
-                transform: scale(1);
-                opacity: 1;
-              }
-              exit 10% {
-                transform: scale(0.85);
-                opacity: 0.3;
-              }
-            }
-          }
         }
 
         .ssx-section + .ssx-section {
@@ -520,11 +443,21 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
           grid-template-columns: minmax(340px, 0.86fr) minmax(420px, 1.14fr);
           gap: clamp(2rem, 4.5vw, 4.75rem);
           align-items: center;
-          /* PERFORMANCE: GPU acceleration for inner content */
-          will-change: transform;
-          transform: translateZ(0);
-          backface-visibility: hidden;
           padding: clamp(2rem, 4vw, 4.5rem);
+        }
+
+        /* ALTERNATING DIRECTION (matching stack.html data-direction="right"):
+           even-indexed cards flip text and media sides. */
+        .ssx-section--reverse .ssx-section-inner {
+          grid-template-columns: minmax(420px, 1.14fr) minmax(340px, 0.86fr);
+        }
+        .ssx-section--reverse .ssx-copy {
+          order: 2;
+          align-items: flex-start;
+        }
+        .ssx-section--reverse .ssx-media-block {
+          order: 1;
+          justify-self: start;
         }
 
         .ssx-copy {
@@ -549,37 +482,37 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
 
         .ssx-index {
           color: #ff6b00;
-          font-size: clamp(1.25rem, 2vw, 1.85rem);
+          font-size: clamp(0.85rem, 1.1vw, 1rem);
           letter-spacing: -0.02em;
         }
 
         .ssx-copy h3 {
           max-width: 100%;
           margin: 0;
-          font-size: clamp(3.4rem, 8vw, 8.75rem);
+          font-size: clamp(1.6rem, 3vw, 2.6rem);
           font-weight: 900;
-          line-height: 0.88;
-          letter-spacing: 0;
+          line-height: 0.96;
+          letter-spacing: -0.02em;
           overflow-wrap: normal;
           text-wrap: balance;
         }
 
         .ssx-headline {
-          max-width: 24ch;
+          max-width: 30ch;
           margin: 0;
-          font-size: clamp(1.35rem, 2vw, 2.35rem);
-          font-weight: 800;
-          line-height: 1.08;
+          font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+          font-weight: 700;
+          line-height: 1.25;
           letter-spacing: 0;
           text-wrap: balance;
         }
 
         .ssx-description {
-          max-width: 47ch;
+          max-width: 48ch;
           margin: 0;
-          font-size: clamp(0.96rem, 1vw, 1.05rem);
-          line-height: 1.58;
-          color: color-mix(in srgb, currentColor 66%, transparent);
+          font-size: clamp(0.8rem, 0.85vw, 0.88rem);
+          line-height: 1.55;
+          color: color-mix(in srgb, currentColor 60%, transparent);
           text-wrap: pretty;
         }
 
@@ -596,16 +529,16 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
         .ssx-outcomes li {
           display: inline-flex;
           align-items: center;
-          min-height: 2.1rem;
-          padding: 0.45rem 0.75rem;
+          min-height: 1.65rem;
+          padding: 0.32rem 0.6rem;
           min-width: 0;
           border: 1px solid color-mix(in srgb, currentColor 14%, transparent);
-          border-radius: 6px;
-          background: color-mix(in srgb, currentColor 6%, transparent);
-          color: color-mix(in srgb, currentColor 74%, transparent);
-          font-size: 0.74rem;
-          font-weight: 800;
-          letter-spacing: 0.06em;
+          border-radius: 999px;
+          background: color-mix(in srgb, currentColor 5%, transparent);
+          color: color-mix(in srgb, currentColor 70%, transparent);
+          font-size: 0.62rem;
+          font-weight: 700;
+          letter-spacing: 0.08em;
           text-transform: uppercase;
           text-align: left;
           overflow-wrap: anywhere;
@@ -620,51 +553,36 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
 
         .ssx-action-primary,
         .ssx-action-secondary {
-          min-height: 3.5rem;
+          min-height: 2.5rem;
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          gap: 0.5rem;
-          padding: 0.9rem 1.75rem;
+          gap: 0.4rem;
+          padding: 0.55rem 1.1rem;
           border-radius: 9999px;
-          font-size: 0.95rem;
+          font-size: 0.78rem;
           font-weight: 700;
           letter-spacing: 0;
           text-decoration: none;
           touch-action: manipulation;
           position: relative;
           overflow: hidden;
-          transition:
-            transform 300ms ease,
-            box-shadow 300ms ease,
-            border-color 300ms ease,
-            color 300ms ease;
+          transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, color 220ms ease;
         }
 
+        /* PERF: removed backdrop-filter blur — was THE #1 scroll-jank source.
+           GPU was re-blurring behind every button on every scroll frame. */
         .ssx-action-primary {
-          background: linear-gradient(135deg, rgba(255, 87, 34, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%);
-          backdrop-filter: blur(28px) saturate(180%);
-          -webkit-backdrop-filter: blur(28px) saturate(180%);
-          border: 1px solid rgba(255, 255, 255, 0.15);
-          border-top-color: rgba(255, 87, 34, 0.5);
-          border-left-color: rgba(255, 255, 255, 0.3);
-          box-shadow:
-            0 14px 40px rgba(0, 0, 0, 0.5),
-            inset 0 1px 4px rgba(255, 255, 255, 0.4),
-            inset 0 -1px 3px rgba(0, 0, 0, 0.1);
+          background: linear-gradient(135deg, #ff6b00 0%, #c8501c 100%);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          box-shadow: 0 8px 22px rgba(255, 107, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.22);
           color: #ffffff;
         }
 
         .ssx-action-secondary {
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
-          backdrop-filter: blur(40px) saturate(200%);
-          -webkit-backdrop-filter: blur(40px) saturate(200%);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          box-shadow:
-            inset 0 1px 2px rgba(255, 255, 255, 0.4),
-            inset 0 -1px 3px rgba(0, 0, 0, 0.3),
-            0 8px 32px rgba(0, 0, 0, 0.3);
-          color: rgba(255, 255, 255, 0.9);
+          background: rgba(255, 255, 255, 0.04);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          color: rgba(255, 255, 255, 0.78);
         }
 
         .ssx-action-primary::before,
@@ -685,61 +603,29 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
           background: linear-gradient(135deg, rgba(255, 122, 47, 0.35) 0%, transparent 50%, rgba(255, 255, 255, 0.15) 100%);
         }
 
-        .ssx-action-primary::after,
-        .ssx-action-secondary::after {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 50%;
-          height: 100%;
-          background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.28) 50%, transparent 100%);
-          transform: skewX(-20deg);
-          animation: ssx-hyper-glare 5s infinite ease-in-out;
-          pointer-events: none;
-        }
+        /* PERF: removed infinite hyper-glare animation (8 perpetual compositor anims). */
 
         .ssx-action-primary:hover,
         .ssx-action-secondary:hover {
-          transform: scale(1.05);
+          transform: scale(1.03);
         }
 
         .ssx-action-primary:hover {
-          box-shadow:
-            0 18px 48px rgba(0, 0, 0, 0.52),
-            0 0 40px rgba(255, 107, 0, 0.18),
-            inset 0 1px 4px rgba(255, 255, 255, 0.42);
+          box-shadow: 0 12px 32px rgba(255, 107, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.28);
         }
 
         .ssx-action-secondary:hover {
           color: #ffffff;
-          box-shadow:
-            inset 0 1px 2px rgba(255, 255, 255, 0.45),
-            inset 0 -1px 3px rgba(0, 0, 0, 0.3),
-            0 12px 36px rgba(255, 122, 47, 0.1);
-        }
-
-        .ssx-tone-light .ssx-action-secondary {
-          color: rgba(255, 255, 255, 0.9);
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
-          border-color: rgba(255, 255, 255, 0.08);
-          box-shadow:
-            inset 0 1px 2px rgba(255, 255, 255, 0.4),
-            inset 0 -1px 3px rgba(0, 0, 0, 0.3),
-            0 8px 32px rgba(0, 0, 0, 0.3);
-        }
-
-        .ssx-tone-light .ssx-action-secondary:hover {
-          color: #ffffff;
+          border-color: rgba(255, 255, 255, 0.22);
         }
 
         .ssx-action-icon {
-          width: 1.15rem;
-          height: 1.15rem;
+          width: 0.85rem;
+          height: 0.85rem;
           position: relative;
           z-index: 1;
           flex: 0 0 auto;
-          transition: transform 300ms ease;
+          transition: transform 220ms ease;
         }
 
         .ssx-action-primary span,
@@ -882,7 +768,7 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
           }
 
           .ssx-copy h3 {
-            font-size: clamp(3.25rem, 12vw, 7.25rem);
+            font-size: clamp(1.5rem, 4vw, 2.4rem);
           }
 
           .ssx-media-frame {
@@ -916,8 +802,8 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
           }
 
           .ssx-intro h2 {
-            font-size: clamp(2rem, 11vw, 3.5rem);
-            line-height: 1;
+            font-size: clamp(1.55rem, 7vw, 2.2rem);
+            line-height: 1.02;
           }
 
           .ssx-slides-wrapper {
@@ -944,19 +830,19 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
           }
 
           .ssx-copy h3 {
-            font-size: clamp(3rem, 17vw, 5.2rem);
-            line-height: 0.92;
+            font-size: clamp(1.5rem, 7vw, 2rem);
+            line-height: 0.98;
           }
 
           .ssx-headline {
             max-width: 100%;
-            font-size: clamp(1.25rem, 6vw, 1.85rem);
-            line-height: 1.12;
+            font-size: clamp(0.95rem, 3.6vw, 1.1rem);
+            line-height: 1.25;
           }
 
           .ssx-description {
-            font-size: 0.95rem;
-            line-height: 1.58;
+            font-size: 0.82rem;
+            line-height: 1.55;
           }
 
           .ssx-outcomes {
