@@ -5,62 +5,62 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 
 const BASE_CARDS = [
   {
-    id: "offshore-scale",
-    title: "Offshore Scale",
-    description: "Access experienced offshore engineering teams that integrate seamlessly with your organization and delivery workflows. Faster team scaling, lower operational cost, dedicated delivery capacity, global collaboration.",
-    tag: "OFFSHORE DELIVERY",
-    bgColor: "#1a1a2e",
-    textColor: "#ffffff",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800"
+    id: "security-governance",
+    title: "Security & Governance",
+    description: "Enterprise-grade controls, compliance practices, access management, and delivery governance integrated into every engagement.",
+    tag: "CAPABILITY",
+    bgColor: "#FFFFFF",
+    textColor: "#141413",
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800"
   },
   {
-    id: "enterprise-execution",
-    title: "Enterprise Execution",
-    description: "Structured delivery built for reliability. Enterprise-grade engineering workflows designed for predictable execution, release stability, and long-term maintainability.",
-    tag: "DELIVERY EXCELLENCE",
-    bgColor: "#16213e",
+    id: "documentation-discipline",
+    title: "Documentation Discipline",
+    description: "Structured documentation, knowledge transfer, and maintainable engineering practices designed for long-term continuity.",
+    tag: "CAPABILITY",
+    bgColor: "#141413",
     textColor: "#ffffff",
-    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800"
+    image: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?auto=format&fit=crop&q=80&w=800"
   },
   {
-    id: "microsoft-expertise",
-    title: "Microsoft Expertise",
-    description: "Deep Microsoft ecosystem capability. Modern enterprise solutions powered by SharePoint, Power Platform, Azure, Microsoft 365, and Copilot technologies.",
-    tag: "TECHNOLOGY",
-    bgColor: "#0f3460",
-    textColor: "#ffffff",
-    image: "https://images.unsplash.com/photo-1633419461186-7d40a38105ec?auto=format&fit=crop&q=80&w=800"
+    id: "scalable-architecture",
+    title: "Scalable Architecture",
+    description: "Modern architectures engineered for performance, extensibility, and future business growth.",
+    tag: "CAPABILITY",
+    bgColor: "#F3F0EE",
+    textColor: "#141413",
+    image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=800"
   },
   {
-    id: "ai-enablement",
-    title: "AI Enablement",
-    description: "AI integrated into business operations. AI-powered automation and intelligent workflows that improve operational efficiency and accelerate business processes.",
-    tag: "AI & AUTOMATION",
-    bgColor: "#1a1a1a",
+    id: "cross-team-collaboration",
+    title: "Cross-Team Collaboration",
+    description: "Transparent communication and coordinated execution across stakeholders, engineering teams, and business units.",
+    tag: "CAPABILITY",
+    bgColor: "#FF5812",
     textColor: "#ffffff",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800"
+    image: "https://images.unsplash.com/photo-1604871000636-074fa5117945?auto=format&fit=crop&q=80&w=800"
   },
   {
-    id: "long-term-partnership",
-    title: "Long-Term Partnership",
-    description: "Partnerships designed for long-term growth. We work as an extension of your organization with dedicated collaboration, continuous optimization, and scalable support models.",
-    tag: "PARTNERSHIP",
-    bgColor: "#141414",
+    id: "ai-enhanced-productivity",
+    title: "AI-Enhanced Productivity",
+    description: "AI-assisted workflows that accelerate development, automation, testing, and operational efficiency.",
+    tag: "CAPABILITY",
+    bgColor: "#141413",
     textColor: "#ffffff",
-    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=800"
+    image: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?auto=format&fit=crop&q=80&w=800"
   },
   {
-    id: "engineering-velocity",
-    title: "Engineering Velocity",
-    description: "Accelerate delivery with modern engineering. Cloud-native architectures, scalable systems, and modern engineering practices designed for speed and performance.",
-    tag: "VELOCITY",
-    bgColor: "#1f2937",
-    textColor: "#ffffff",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"
+    id: "transparent-delivery",
+    title: "Transparent Delivery",
+    description: "Clear sprint visibility, milestone tracking, reporting, and accountability throughout the delivery lifecycle.",
+    tag: "CAPABILITY",
+    bgColor: "#F3F0EE",
+    textColor: "#141413",
+    image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=800"
   }
 ];
 
-const TOTAL_CARDS = 24;
+const TOTAL_CARDS = 18;
 const DEG_PER_CARD = 360 / TOTAL_CARDS;
 
 const CARDS = Array.from({ length: TOTAL_CARDS }).map((_, i) => {
@@ -74,11 +74,95 @@ const CARDS = Array.from({ length: TOTAL_CARDS }).map((_, i) => {
 
 const PILLS = BASE_CARDS.map(c => c.title);
 
+type SizeConfig = {
+  radius: number;
+  cardWidth: number;
+  cardHeight: number;
+  sectionHeight: number;
+  carouselTop: string;
+  circleTop: string;
+  panSensitivity: number;
+  cardPadding: string;
+  cardRadius: string;
+  titleSize: string;
+  descSize: string;
+  btnPx: string;
+  btnPy: string;
+  btnText: string;
+};
+
+const SIZES: Record<"sm" | "md" | "lg", SizeConfig> = {
+  sm: {
+    radius: 900,
+    cardWidth: 260,
+    cardHeight: 400,
+    sectionHeight: 780,
+    carouselTop: "300px",
+    circleTop: "180px",
+    panSensitivity: 0.12,
+    cardPadding: "24px",
+    cardRadius: "24px",
+    titleSize: "18px",
+    descSize: "13px",
+    btnPx: "px-5",
+    btnPy: "py-2",
+    btnText: "text-[12px]",
+  },
+  md: {
+    radius: 1400,
+    cardWidth: 340,
+    cardHeight: 520,
+    sectionHeight: 960,
+    carouselTop: "380px",
+    circleTop: "220px",
+    panSensitivity: 0.08,
+    cardPadding: "32px",
+    cardRadius: "28px",
+    titleSize: "22px",
+    descSize: "14px",
+    btnPx: "px-7",
+    btnPy: "py-2.5",
+    btnText: "text-[13px]",
+  },
+  lg: {
+    radius: 2000,
+    cardWidth: 440,
+    cardHeight: 660,
+    sectionHeight: 1140,
+    carouselTop: "480px",
+    circleTop: "260px",
+    panSensitivity: 0.05,
+    cardPadding: "40px",
+    cardRadius: "32px",
+    titleSize: "28px",
+    descSize: "15px",
+    btnPx: "px-8",
+    btnPy: "py-3",
+    btnText: "text-[14px]",
+  },
+};
+
+function useBreakpoint(): "sm" | "md" | "lg" {
+  const [bp, setBp] = useState<"sm" | "md" | "lg">("lg");
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+      setBp(w < 640 ? "sm" : w < 1024 ? "md" : "lg");
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+  return bp;
+}
+
 export default function ProductArcSlider() {
-  const radius = 2000;
+  const bp = useBreakpoint();
+  const sz = SIZES[bp];
+  const radius = sz.radius;
   const diameter = radius * 2;
-  const cardWidth = 420;
-  const cardHeight = 620;
+  const cardWidth = sz.cardWidth;
+  const cardHeight = sz.cardHeight;
 
   const rotationMV = useMotionValue(0);
   const smoothRotation = useSpring(rotationMV, { damping: 50, stiffness: 200 });
@@ -115,16 +199,16 @@ export default function ProductArcSlider() {
 
   const handlePan = (e: any, info: any) => {
     // Unbounded rotation for infinite looping
-    const newRot = rotationMV.get() + info.delta.x * 0.05;
+    const newRot = rotationMV.get() + info.delta.x * sz.panSensitivity;
     rotationMV.set(newRot);
   };
 
   return (
     <section
-      className="relative w-full bg-[#0a0a0a] pt-16 md:pt-24 pb-0 overflow-visible touch-none z-30"
-      style={{ height: "950px" }}
+      className="relative w-full bg-[#0a0a0a] pt-16 sm:pt-20 md:pt-32 pb-0 overflow-visible touch-none z-30"
+      style={{ height: `${sz.sectionHeight}px` }}
     >
-      <div className="absolute top-[180px] left-1/2 -translate-x-1/2 w-[1600px] pointer-events-none opacity-30 z-0">
+      <div className="absolute left-1/2 -translate-x-1/2 w-[1600px] pointer-events-none opacity-20 z-0" style={{ top: sz.circleTop }}>
         <img
           src="https://osmo.b-cdn.net/website/svg/product-slider-circle-deco.svg"
           alt=""
@@ -132,22 +216,26 @@ export default function ProductArcSlider() {
         />
       </div>
 
-      <div className="relative z-30 mx-auto max-w-[1400px] px-6 md:px-12 pointer-events-none flex flex-col items-start text-left">
-        <h2 className="text-[clamp(28px,4.4vw,58px)] font-semibold leading-[1.06] tracking-[-0.02em] text-white mb-6 max-w-[900px]">
-          Built for global engineering partnerships
-        </h2>
-        <p className="text-[18px] md:text-[22px] text-white/60 leading-relaxed mb-10 max-w-[700px]">
-          Softree combines offshore scalability, enterprise engineering, Microsoft expertise, and AI-driven delivery into one integrated execution model.
-        </p>
+      <div className="relative z-30 mx-auto max-w-[1400px] px-5 sm:px-8 md:px-12 pointer-events-none">
+        {/* ── Text row: title left, subtitle right ── */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-16 mb-10 sm:mb-12 md:mb-16">
+          <h2 className="text-[clamp(26px,4vw,54px)] font-semibold leading-[1.06] tracking-[-0.025em] text-white max-w-[680px]">
+            Built for global engineering partnerships
+          </h2>
+          <p className="text-[14px] sm:text-[16px] md:text-[18px] text-white/45 leading-[1.65] max-w-[380px] md:text-right shrink-0">
+            Access everything with a single partnership — offshore scalability, enterprise engineering, and AI-driven delivery.
+          </p>
+        </div>
 
-        <div className="flex flex-wrap items-center gap-2 max-w-[800px] pointer-events-auto">
+        {/* ── Nav pills ── */}
+        <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 pointer-events-auto">
           {PILLS.map((pill, idx) => (
             <button
               key={pill}
               onClick={() => handlePillClick(idx)}
-              className={`whitespace-nowrap px-6 py-3 rounded-full text-[15px] font-medium transition-all duration-300 ${idx === activeIndex
-                ? "bg-white text-[#0a0a0a] shadow-md"
-                : "bg-white/10 text-white/80 hover:bg-white/15"
+              className={`whitespace-nowrap px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-[12px] sm:text-[14px] font-medium tracking-[-0.01em] transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${idx === activeIndex
+                ? "bg-white text-[#0a0a0a] shadow-[0_2px_12px_rgba(255,255,255,0.12)]"
+                : "bg-white/6 text-white/60 hover:bg-white/10 hover:text-white/80"
                 }`}
             >
               {pill}
@@ -160,8 +248,8 @@ export default function ProductArcSlider() {
         onPan={handlePan}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="absolute inset-0 top-[260px] z-20 cursor-grab active:cursor-grabbing"
-        style={{ overflow: 'visible' }}
+        className="absolute inset-0 z-20 cursor-grab active:cursor-grabbing"
+        style={{ top: bp === "sm" ? "320px" : bp === "md" ? "380px" : "420px", overflow: "visible" }}
       >
         <motion.div
           style={{
@@ -170,7 +258,7 @@ export default function ProductArcSlider() {
             rotate: smoothRotation,
             position: "absolute",
             left: "50%",
-            top: "400px",
+            top: sz.carouselTop,
             x: "-50%",
           }}
           className="pointer-events-none"
@@ -182,7 +270,7 @@ export default function ProductArcSlider() {
               style={{ transform: `rotate(${card.angle}deg)` }}
             >
               <div
-                className="absolute flex flex-col items-center text-center transition-transform hover:scale-[1.01] pointer-events-auto"
+                className="absolute flex flex-col items-center text-center pointer-events-auto transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:scale-[1.015]"
                 style={{
                   top: `-${cardHeight / 2}px`,
                   left: "50%",
@@ -191,34 +279,41 @@ export default function ProductArcSlider() {
                   height: `${cardHeight}px`,
                   backgroundColor: card.bgColor,
                   color: card.textColor,
-                  borderRadius: "32px",
-                  padding: "40px",
-                  boxShadow: "0 20px 40px -10px rgba(0,0,0,0.2)"
+                  borderRadius: sz.cardRadius,
+                  padding: sz.cardPadding,
+                  boxShadow: "0 24px 48px -12px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.06) inset"
                 }}
               >
+                {/* Tag */}
                 <div
-                  className="text-[11px] font-bold tracking-widest uppercase mb-10 px-3 py-1 rounded-md border border-current/20 mix-blend-overlay"
+                  className="text-[10px] font-semibold tracking-[0.12em] uppercase mb-auto px-3 py-1.5 rounded-full border border-current/10"
+                  style={{ opacity: 0.6 }}
                 >
                   {card.tag}
                 </div>
 
-                <div className="mb-4 text-4xl">✳</div>
-                <h3 className="text-[28px] md:text-[32px] font-semibold tracking-[-0.02em] leading-none mb-6">
-                  {card.title}
-                </h3>
-                <p className="text-[15px] leading-relaxed mb-8 max-w-[280px] opacity-80">
-                  {card.description}
-                </p>
+                {/* Icon + Title + Description */}
+                <div className="flex flex-col items-center mt-auto mb-auto">
+                  <div className={`${bp === "sm" ? "mb-3 text-xl" : "mb-5 text-3xl"} opacity-40`}>✳</div>
+                  <h3 style={{ fontSize: sz.titleSize }} className="font-semibold tracking-[-0.02em] leading-[1.1] mb-3 sm:mb-4">
+                    {card.title}
+                  </h3>
+                  <p style={{ fontSize: sz.descSize }} className="leading-[1.6] max-w-[260px] opacity-55">
+                    {card.description}
+                  </p>
+                </div>
 
-                <div className="w-full flex-1 rounded-[16px] overflow-hidden mb-0 flex items-center justify-center relative pointer-events-none shadow-2xl">
+                {/* Image */}
+                <div className="w-full flex-1 min-h-0 rounded-[12px] overflow-hidden mt-auto relative pointer-events-none">
                   <div
                     className="absolute inset-0 bg-cover bg-center"
                     style={{ backgroundImage: `url('${card.image}')` }}
                   />
                 </div>
 
-                <div className="absolute bottom-12 left-1/2 -translate-x-1/2">
-                  <button className="px-10 py-4 bg-white text-[#111] rounded-none font-medium text-[16px] hover:scale-105 transition-transform shadow-xl">
+                {/* CTA */}
+                <div className="mt-auto pt-4 sm:pt-6">
+                  <button className={`${sz.btnPx} ${sz.btnPy} rounded-full font-medium ${sz.btnText} tracking-[-0.01em] transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:scale-[1.03] active:scale-[0.98] ${card.textColor === "#ffffff" ? "bg-white text-[#111] shadow-[0_2px_8px_rgba(255,255,255,0.1)]" : "bg-[#141413] text-white shadow-[0_2px_8px_rgba(0,0,0,0.1)]"}`}>
                     Discover
                   </button>
                 </div>
