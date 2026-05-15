@@ -4,8 +4,8 @@ import dynamic from "next/dynamic";
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
 import ContactHero from "./ContactHero";
-import LightContactSection from "@/qualitycomponents/components/homepage-light/LightContactSection";
-import LightEngagementModels from "@/qualitycomponents/components/homepage-light/LightEngagementModels";
+import LightContactSection from "@/components/qc/homepage-light/LightContactSection";
+import LightEngagementModels from "@/components/qc/homepage-light/LightEngagementModels";
 import TestimonialsGlobe from "@/components/sections/TestimonialsGlobe";
 
 const LightFAQExactLazy = dynamic(

@@ -1,13 +1,13 @@
 "use client";
 
 import NavigationClient from "@/components/sections/navigation-client";
-import AvooraHero from "@/qualitycomponents/components/homepage-light/AvooraHero";
-import AboutClientLogos from "@/qualitycomponents/components/homepage-light/AboutClientLogos";
-import LightAboutMerged from "@/qualitycomponents/components/homepage-light/LightAboutMerged";
-import AboutTeamSection from "@/qualitycomponents/components/homepage-light/AboutTeamSection";
-import AwardsMarqueeSection from "@/qualitycomponents/components/homepage-light/AwardsMarqueeSection";
-import LightEngagementModels from "@/qualitycomponents/components/homepage-light/LightEngagementModels";
-import LightContactSection from "@/qualitycomponents/components/homepage-light/LightContactSection";
+import AvooraHero from "@/components/qc/homepage-light/AvooraHero";
+import AboutClientLogos from "@/components/qc/homepage-light/AboutClientLogos";
+import LightAboutMerged from "@/components/qc/homepage-light/LightAboutMerged";
+import AboutTeamSection from "@/components/qc/homepage-light/AboutTeamSection";
+import AwardsMarqueeSection from "@/components/qc/homepage-light/AwardsMarqueeSection";
+import LightEngagementModels from "@/components/qc/homepage-light/LightEngagementModels";
+import LightContactSection from "@/components/qc/homepage-light/LightContactSection";
 import TestimonialsGlobe from "@/components/sections/TestimonialsGlobe";
 import Footer from "@/components/sections/footer";
 

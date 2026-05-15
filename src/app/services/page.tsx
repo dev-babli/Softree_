@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
 import { TransferredSoftreeHero } from "@/components/sections/TransferredSoftreeHero";
-import TrustedByStrip from "@/qualitycomponents/components/homepage/TrustedByStrip";
+import TrustedByStrip from "@/components/qc/homepage/TrustedByStrip";
 
 /* Heavy below-the-fold sections lazy-loaded for performance */
 const LightServicesStickyListLazy = dynamic(
@@ -16,11 +16,11 @@ const ServicesStackedSlidesLazy = dynamic(
   { loading: () => <div className="min-h-[300vh] w-full bg-[#f6f6f6]" aria-hidden /> }
 );
 const LightWhyChooseUsLazy = dynamic(
-  () => import("@/qualitycomponents/components/homepage-light/LightWhyChooseUs"),
+  () => import("@/components/qc/homepage-light/LightWhyChooseUs"),
   { loading: () => <div className="min-h-[100vh] w-full bg-[#f6f6f6]" aria-hidden /> }
 );
 const LightTestimonialGridLazy = dynamic(
-  () => import("@/qualitycomponents/components/homepage-light/LightTestimonialGrid"),
+  () => import("@/components/qc/homepage-light/LightTestimonialGrid"),
   { loading: () => <div className="min-h-[80vh] w-full bg-[#f6f6f6]" aria-hidden /> }
 );
 const LightEngagementModelsLazy = dynamic(
