@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import Lenis from "lenis";
-import Orb from "./components/Orb";
+import dynamic from "next/dynamic";
 import CustomCursor from "./components/CustomCursor";
 import Preloader from "./components/Preloader";
 import ThemeToggle from "./components/ThemeToggle";
 import ContactHero from "./components/ContactHero";
 import ContactFooter from "./components/ContactFooter";
+
+const Orb = dynamic(() => import("./components/Orb"), { ssr: false });
 
 export default function ContactPage() {
   const [dark, setDark] = useState(true);
@@ -26,20 +27,25 @@ export default function ContactPage() {
     };
   }, [dark]);
 
-  // Lenis smooth scroll
+  // Lenis smooth scroll (dynamic import to avoid SSR issues)
   useEffect(() => {
     if (!loaded) return;
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
+    let cleanup: (() => void) | undefined;
+    import("lenis").then(({ default: Lenis }) => {
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+      });
+      let rafId: number;
+      function raf(time: number) {
+        lenis.raf(time);
+        rafId = requestAnimationFrame(raf);
+      }
+      rafId = requestAnimationFrame(raf);
+      cleanup = () => { lenis.destroy(); cancelAnimationFrame(rafId); };
     });
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-    return () => { lenis.destroy(); };
+    return () => { cleanup?.(); };
   }, [loaded]);
 
   return (
