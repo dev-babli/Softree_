@@ -3,12 +3,12 @@
 import { useRef, useState } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { 
-  ArrowUpRight, 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Clock, 
+import {
+  ArrowUpRight,
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
   Send,
   MessageSquare,
   Building2
@@ -88,7 +88,7 @@ export default function ContactHeroSplit() {
             <span className="font-semibold">something great</span>
           </h1>
           <p className="mx-auto max-w-xl text-lg text-white/50">
-            Ready to transform your enterprise? We&apos;re here to help you navigate 
+            Ready to transform your enterprise? We&apos;re here to help you navigate
             the complexities of modern technology.
           </p>
         </motion.div>
@@ -104,7 +104,7 @@ export default function ContactHeroSplit() {
               <h2 className="mb-6 text-xl font-semibold text-white">
                 Send us a message
               </h2>
-              
+
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid gap-5 md:grid-cols-2">
                   <div>
@@ -189,7 +189,7 @@ export default function ContactHeroSplit() {
             {/* Quick Contact Options */}
             <div className="grid gap-4 md:grid-cols-2">
               <Link
-                href="mailto:sales@softree.com"
+                href="mailto:sales@softreetechnology.com"
                 className="group flex items-center gap-4 rounded-xl border border-white/10 bg-white/[0.02] p-4 transition-all hover:border-cyan-400/50 hover:bg-white/[0.04]"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-cyan-400/10 text-cyan-400">
@@ -197,12 +197,12 @@ export default function ContactHeroSplit() {
                 </div>
                 <div>
                   <p className="text-sm text-white/50">Sales</p>
-                  <p className="text-sm font-medium text-white group-hover:text-cyan-400">sales@softree.com</p>
+                  <p className="text-sm font-medium text-white group-hover:text-cyan-400">sales@softreetechnology.com</p>
                 </div>
               </Link>
 
               <Link
-                href="mailto:support@softree.com"
+                href="mailto:sales@softreetechnology.com"
                 className="group flex items-center gap-4 rounded-xl border border-white/10 bg-white/[0.02] p-4 transition-all hover:border-cyan-400/50 hover:bg-white/[0.04]"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-purple-400/10 text-purple-400">
@@ -210,12 +210,12 @@ export default function ContactHeroSplit() {
                 </div>
                 <div>
                   <p className="text-sm text-white/50">Support</p>
-                  <p className="text-sm font-medium text-white group-hover:text-purple-400">support@softree.com</p>
+                  <p className="text-sm font-medium text-white group-hover:text-purple-400">sales@softreetechnology.com</p>
                 </div>
               </Link>
 
               <Link
-                href="tel:+1234567890"
+                href="tel:+917008699927"
                 className="group flex items-center gap-4 rounded-xl border border-white/10 bg-white/[0.02] p-4 transition-all hover:border-cyan-400/50 hover:bg-white/[0.04]"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-400/10 text-emerald-400">
@@ -223,7 +223,7 @@ export default function ContactHeroSplit() {
                 </div>
                 <div>
                   <p className="text-sm text-white/50">Phone</p>
-                  <p className="text-sm font-medium text-white group-hover:text-emerald-400">+1 (234) 567-890</p>
+                  <p className="text-sm font-medium text-white group-hover:text-emerald-400">+91 70086 99927</p>
                 </div>
               </Link>
 

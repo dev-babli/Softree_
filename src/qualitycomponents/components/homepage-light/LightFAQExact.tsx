@@ -1,0 +1,377 @@
+"use client"
+
+import { useState, useRef } from "react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useGSAP } from "@gsap/react"
+import Image from "next/image"
+import Link from "next/link"
+import { ArrowUpRight } from "lucide-react"
+import Grainient from "./Grainient"
+
+gsap.registerPlugin(useGSAP, ScrollTrigger)
+
+const faqs = [
+  {
+    id: 1,
+    serial: "question 01",
+    question: "What does Softree actually build?",
+    answer:
+      "Softree builds production-grade software for enterprise teams: AI agents, web apps, Microsoft Power Platform automations, SharePoint intranets, and Power BI dashboards. We are Microsoft Gold Partners. Median project ship time is 47 days.",
+  },
+  {
+    id: 2,
+    serial: "question 02",
+    question: "How long does a typical Softree project take?",
+    answer:
+      "Most Softree projects ship in 6 to 12 weeks. Power Apps MVPs take 6 weeks. Web app MVPs take 12 weeks. SharePoint migrations take 4 to 8 weeks. We provide a fixed scope and fixed timeline during discovery, before any contract is signed.",
+  },
+  {
+    id: 3,
+    serial: "question 03",
+    question: "What if the project takes longer than estimated?",
+    answer:
+      "Softree contracts are fixed-scope and fixed-price. If we miss the timeline, we absorb the cost — not the client. We mitigate risk through weekly demos, fortnightly milestone reviews, and direct Slack access to the engineering squad working on your project.",
+  },
+  {
+    id: 4,
+    serial: "question 04",
+    question: "How do you handle code ownership and IP?",
+    answer:
+      "You own the code, designs, and IP from day one. Softree commits directly to your GitHub or Azure DevOps repository. Source code, infrastructure, and credentials transfer to your team at project handoff. No vendor lock-in.",
+  },
+  {
+    id: 5,
+    serial: "question 05",
+    question: "What is Softree's security and compliance posture?",
+    answer:
+      "Softree follows Microsoft Gold Partner security standards: SOC 2 controls, GDPR compliance, NDAs, data isolation per client, and signed BAAs for healthcare. Engineers work from secured devices. We can provide a security questionnaire response within 5 business days.",
+  },
+  {
+    id: 6,
+    serial: "question 06",
+    question: "What does a 15-min call actually cover?",
+    answer:
+      "We spend 15 minutes learning your project scope, timeline, and constraints. You leave with a written next step — a discovery brief or a fixed-price quote. No commitment required.",
+  },
+  {
+    id: 7,
+    serial: "question 07",
+    question: "How do you price projects?",
+    answer:
+      "Fixed scope, fixed price — quoted after a discovery sprint. You know the full cost before signing. No mid-project surprise invoices.",
+  },
+  {
+    id: 8,
+    serial: "question 08",
+    question: "Can you augment our existing in-house team?",
+    answer:
+      "Yes. Staff Augmentation is one of our five engagement models. We embed certified engineers for as little as one sprint. No long-term commitment required.",
+  },
+]
+
+const grainientColors = [
+  { from: "#f0f4ff", via: "#e8f0ff", to: "#f5f7fb", accent: "#1852FF" },
+  { from: "#f5f0ff", via: "#efe8ff", to: "#f7f5fb", accent: "#7c3aed" },
+  { from: "#f0fff4", via: "#e8fff0", to: "#f5fbf7", accent: "#10b981" },
+  { from: "#fff0f5", via: "#ffe8f0", to: "#fbf5f7", accent: "#ec4899" },
+  { from: "#fff5f0", via: "#fff0e8", to: "#fbf7f5", accent: "#f59e0b" },
+]
+
+const activeGrainientPalette = [
+  { c1: "#E8F0FF", c2: "#1852FF", c3: "#020510" },
+  { c1: "#F0E8FF", c2: "#7C3AED", c3: "#0A0210" },
+  { c1: "#E8FFF0", c2: "#10B981", c3: "#021008" },
+  { c1: "#FFE8F0", c2: "#EC4899", c3: "#100208" },
+  { c1: "#FFF0E8", c2: "#F59E0B", c3: "#100802" },
+]
+
+export default function LightFAQExact() {
+  const [activeIndex, setActiveIndex] = useState(4)
+  const sectionRef = useRef<HTMLElement>(null)
+  const titleRef = useRef<HTMLDivElement>(null)
+  const faqsRef = useRef<HTMLDivElement>(null)
+
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 80%",
+        end: "top 30%",
+        toggleActions: "play none none none",
+      },
+    })
+
+    tl.from(titleRef.current, {
+      y: 60,
+      opacity: 0,
+      filter: "blur(10px)",
+      duration: 0.8,
+      ease: "power3.out",
+    })
+
+    tl.from(faqsRef.current, {
+      y: 80,
+      opacity: 0,
+      filter: "blur(8px)",
+      duration: 0.8,
+      ease: "power3.out",
+    }, "-=0.4")
+  }, { scope: sectionRef })
+
+  const handleClick = (index: number) => {
+    setActiveIndex(activeIndex === index ? -1 : index)
+  }
+
+  return (
+    <section ref={sectionRef} className="relative w-full bg-white py-20 md:py-32">
+      {/* FAQPage JSON-LD — enables AI Overview, ChatGPT/Claude/Gemini citation,
+         and Google rich results. Each answer is 30-50 words for optimal
+         AEO extraction (the LLM sweet spot). */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            dateModified: "2026-05-09",
+            mainEntity: faqs.map((f) => ({
+              "@type": "Question",
+              name: f.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: f.answer,
+              },
+            })),
+          }),
+        }}
+      />
+      {/* SVG Grain Filter Definition */}
+      <svg className="pointer-events-none absolute h-0 w-0 overflow-hidden" aria-hidden="true" style={{ display: 'none' }}>
+        <defs>
+          <filter id="faq-grain" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.8"
+              numOctaves="4"
+              stitchTiles="stitch"
+              result="noise"
+            />
+            <feColorMatrix
+              type="saturate"
+              values="0"
+              in="noise"
+              result="mono"
+            />
+            <feBlend in="SourceGraphic" in2="mono" mode="multiply" />
+          </filter>
+          <filter id="faq-grain-dark" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.65"
+              numOctaves="4"
+              stitchTiles="stitch"
+              result="noise"
+            />
+            <feColorMatrix
+              type="saturate"
+              values="0"
+              in="noise"
+              result="mono"
+            />
+            <feBlend in="SourceGraphic" in2="mono" mode="soft-light" />
+          </filter>
+        </defs>
+      </svg>
+      <div className="mx-auto max-w-[1400px] px-6 md:px-12">
+        {/* Section Title */}
+        <div ref={titleRef} className="mb-12 md:mb-16">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#1852FF]/20 bg-[#eef4ff] px-4 py-2">
+            <Image
+              src="https://cdn.prod.website-files.com/68dbb9a72b91c794d0cdd10c/690f9e158664fc7bd2753513_Subtitle-Icon.svg"
+              alt=""
+              width={16}
+              height={16}
+              className="h-4 w-4"
+            />
+            <span className="text-sm font-medium text-[#1852FF]">FAQ</span>
+          </div>
+          <h2 className="text-3xl font-bold tracking-tight text-[#0a0a1a] md:text-5xl lg:text-6xl">
+            Frequently Asked{" "}
+            <span className="text-[#1852FF]">Questions.</span>
+          </h2>
+        </div>
+
+        {/* FAQ Accordion — vertical on mobile, horizontal on desktop */}
+        <div ref={faqsRef} className="flex flex-col lg:flex-row lg:h-[600px] gap-2">
+          {faqs.map((faq, index) => {
+            const isActive = index === activeIndex
+
+            return (
+              <button
+                key={faq.id}
+                type="button"
+                onClick={() => {
+                  handleClick(index)
+                  if (typeof window !== 'undefined') (window as unknown as { dataLayer?: object[] }).dataLayer?.push({ event: 'faq_open', faq_question: faq.question })
+                }}
+                aria-expanded={isActive}
+                aria-controls={`faq-panel-${faq.id}`}
+                className={`group/card relative cursor-pointer overflow-hidden rounded-2xl text-left transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1852FF]/60 focus-visible:ring-offset-2 ${isActive
+                  ? "bg-[#0a0a1a]"
+                  : ""
+                  }`}
+                style={{
+                  width: isActive ? "37%" : "15%",
+                  minHeight: isActive ? "420px" : "80px",
+                }}
+              >
+                {/* Grainient Background for Inactive Cards */}
+                {!isActive && (
+                  <>
+                    {/* Base Gradient */}
+                    <div
+                      className="absolute inset-0 transition-all duration-500 group-hover/card:opacity-90"
+                      style={{
+                        background: `linear-gradient(135deg, ${grainientColors[index].from} 0%, ${grainientColors[index].via} 50%, ${grainientColors[index].to} 100%)`,
+                      }}
+                    />
+                    {/* Accent Glow */}
+                    <div
+                      className="absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-20 blur-3xl transition-all duration-500 group-hover/card:opacity-40 group-hover/card:scale-125"
+                      style={{ backgroundColor: grainientColors[index].accent }}
+                    />
+                    <div
+                      className="absolute -bottom-10 -left-10 h-32 w-32 rounded-full opacity-10 blur-2xl transition-all duration-500 group-hover/card:opacity-30"
+                      style={{ backgroundColor: grainientColors[index].accent }}
+                    />
+                    {/* Grain Overlay */}
+                    <div
+                      className="absolute inset-0 opacity-[0.35] mix-blend-overlay"
+                      style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+                        backgroundRepeat: "repeat",
+                      }}
+                    />
+                    {/* Subtle Border Glow */}
+                    <div
+                      className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover/card:opacity-100"
+                      style={{
+                        boxShadow: `inset 0 0 0 1px ${grainientColors[index].accent}20, 0 0 30px ${grainientColors[index].accent}10`,
+                      }}
+                    />
+                  </>
+                )}
+
+                {/* Grainient Background for Active Card */}
+                {isActive && (
+                  <div className="absolute inset-0">
+                    <Grainient
+                      color1={activeGrainientPalette[index].c1}
+                      color2={activeGrainientPalette[index].c2}
+                      color3={activeGrainientPalette[index].c3}
+                      timeSpeed={0.15}
+                      grainAmount={0.08}
+                      grainScale={2.5}
+                      grainAnimated={false}
+                      warpStrength={0.6}
+                      warpFrequency={4.0}
+                      warpSpeed={1.5}
+                      warpAmplitude={60.0}
+                      rotationAmount={350.0}
+                      noiseScale={1.8}
+                      contrast={1.35}
+                      saturation={1.15}
+                      blendSoftness={0.08}
+                      zoom={0.85}
+                    />
+                    {/* Subtle vignette overlay for text readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
+                  </div>
+                )}
+
+                {/* Content */}
+                <div id={`faq-panel-${faq.id}`} role="region" aria-labelledby={`faq-trigger-${faq.id}`} className="relative flex h-full flex-col p-5 md:p-6">
+                  {/* Top - Serial & Icon */}
+                  <div className="mb-auto flex items-start justify-between">
+                    <span
+                      className={`text-xs font-medium uppercase tracking-wider transition-colors duration-500 ${isActive ? "text-white/60" : "text-[#111827]"
+                        }`}
+                    >
+                      {faq.serial}
+                    </span>
+                    <div className="relative h-6 w-6">
+                      {/* Plus Icon */}
+                      <Image
+                        src="https://cdn.prod.website-files.com/68dbb9a72b91c794d0cdd10c/6918c248f9814be60b14699f_FAQ-Plus.svg"
+                        alt="Plus"
+                        width={24}
+                        height={24}
+                        className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${isActive
+                          ? "scale-0 opacity-0"
+                          : "scale-100 opacity-100"
+                          } ${isActive ? "invert" : ""}`}
+                      />
+                      {/* Minus Icon */}
+                      <Image
+                        src="https://cdn.prod.website-files.com/68dbb9a72b91c794d0cdd10c/6918c248c089ceee5ca1daae_FAQ-Minus.svg"
+                        alt="Minus"
+                        width={24}
+                        height={24}
+                        className={`absolute inset-0 h-6 w-6 invert transition-all duration-500 ${isActive
+                          ? "scale-100 opacity-100"
+                          : "scale-0 opacity-0"
+                          }`}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Bottom Content */}
+                  <div className="mt-auto">
+                    {/* Question */}
+                    <div className="mb-4">
+                      <h3
+                        className={`text-lg font-semibold leading-snug transition-colors duration-500 md:text-xl ${isActive ? "text-white" : "text-[#0a0a1a]"
+                          }`}
+                      >
+                        {faq.question}
+                      </h3>
+                    </div>
+
+                    {/* Answer - Only visible when active */}
+                    <div
+                      className="overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                      style={{
+                        width: isActive ? "100%" : "0%",
+                        opacity: isActive ? 1 : 0,
+                      }}
+                    >
+                      <div className="pt-4">
+                        <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-white/60">
+                          Question Answer:
+                        </h4>
+                        <div className="mb-4 h-px w-16 bg-white/20" />
+                        <p className="mb-6 text-sm leading-relaxed text-white/80 md:text-base">
+                          {faq.answer}
+                        </p>
+                        <Link
+                          href="/about-us"
+                          className="group inline-flex items-center gap-3 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-[#0a0a1a] transition-all hover:bg-[#1852FF] hover:text-white"
+                        >
+                          <span>More About Us</span>
+                          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#1852FF] text-white transition-all group-hover:bg-white group-hover:text-[#1852FF]">
+                            <ArrowUpRight className="h-3 w-3" />
+                          </span>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </button>
+            )
+          })}
+        </div>
+      </div>
+    </section>
+  )
+}

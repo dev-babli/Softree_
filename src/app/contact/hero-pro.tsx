@@ -8,31 +8,31 @@ import Link from "next/link"
 const Icons = {
   ArrowUp: () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M7 17L17 7M17 7H7M17 7V17"/>
+      <path d="M7 17L17 7M17 7H7M17 7V17" />
     </svg>
   ),
   Mail: () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-      <polyline points="22,6 12,13 2,6"/>
+      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+      <polyline points="22,6 12,13 2,6" />
     </svg>
   ),
   Location: () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-      <circle cx="12" cy="10" r="3"/>
+      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+      <circle cx="12" cy="10" r="3" />
     </svg>
   ),
   Clock: () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="10"/>
-      <polyline points="12 6 12 12 16 14"/>
+      <circle cx="12" cy="12" r="10" />
+      <polyline points="12 6 12 12 16 14" />
     </svg>
   ),
   Send: () => (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="22" y1="2" x2="11" y2="13"/>
-      <polygon points="22 2 15 22 11 13 2 9"/>
+      <line x1="22" y1="2" x2="11" y2="13" />
+      <polygon points="22 2 15 22 11 13 2 9" />
     </svg>
   ),
 }
@@ -89,16 +89,16 @@ export default function ContactHeroPro() {
       />
 
       <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-[1400px] flex-col px-6 pt-32 md:px-12 lg:flex-row lg:items-center lg:gap-16 lg:px-16 lg:pt-0">
-        
+
         {/* ── LEFT: CONTENT ── */}
-        <motion.div 
+        <motion.div
           className="flex flex-1 flex-col justify-center"
           variants={staggerContainer}
           initial="initial"
           animate="animate"
         >
           {/* EYEBROW */}
-          <motion.span 
+          <motion.span
             variants={enterAnimation}
             className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.02] px-3 py-1.5 backdrop-blur-sm"
           >
@@ -109,7 +109,7 @@ export default function ContactHeroPro() {
           </motion.span>
 
           {/* MASSIVE HEADLINE */}
-          <motion.h1 
+          <motion.h1
             variants={enterAnimation}
             className="mb-6 text-[clamp(42px,6vw,80px)] font-light leading-[0.95] tracking-[-0.03em] text-white"
           >
@@ -122,11 +122,11 @@ export default function ContactHeroPro() {
             extraordinary
           </motion.h1>
 
-          <motion.p 
+          <motion.p
             variants={enterAnimation}
             className="mb-12 max-w-md text-lg font-light leading-relaxed text-white/40"
           >
-            Ready to transform your enterprise? Our global team is here to 
+            Ready to transform your enterprise? Our global team is here to
             help you navigate the complexities of modern technology.
           </motion.p>
 
@@ -140,7 +140,7 @@ export default function ContactHeroPro() {
                   </div>
                   <div>
                     <div className="text-xs uppercase tracking-[0.15em] text-white/40">Sales</div>
-                    <div className="text-sm font-medium text-white transition-colors group-hover:text-cyan-400">sales@softree.com</div>
+                    <div className="text-sm font-medium text-white transition-colors group-hover:text-cyan-400">sales@softreetechnology.com</div>
                   </div>
                 </div>
               </div>
@@ -154,7 +154,7 @@ export default function ContactHeroPro() {
                   </div>
                   <div>
                     <div className="text-xs uppercase tracking-[0.15em] text-white/40">Support</div>
-                    <div className="text-sm font-medium text-white transition-colors group-hover:text-purple-400">support@softree.com</div>
+                    <div className="text-sm font-medium text-white transition-colors group-hover:text-purple-400">sales@softreetechnology.com</div>
                   </div>
                 </div>
               </div>
@@ -162,7 +162,7 @@ export default function ContactHeroPro() {
           </motion.div>
 
           {/* ── GLOBAL LOCATIONS ── */}
-          <motion.div 
+          <motion.div
             variants={enterAnimation}
             className="mt-10"
           >
@@ -210,7 +210,7 @@ export default function ContactHeroPro() {
                     {/* Name Input */}
                     <div className="relative">
                       <label className="mb-2 block text-[11px] uppercase tracking-[0.15em] text-white/40">Name</label>
-                      <motion.div 
+                      <motion.div
                         className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-1 transition-all duration-200"
                         animate={{ borderColor: focusedField === 'name' ? 'rgba(0,217,255,0.3)' : 'rgba(255,255,255,0.06)' }}
                       >
@@ -229,7 +229,7 @@ export default function ContactHeroPro() {
                     {/* Email Input */}
                     <div className="relative">
                       <label className="mb-2 block text-[11px] uppercase tracking-[0.15em] text-white/40">Email</label>
-                      <motion.div 
+                      <motion.div
                         className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-1 transition-all duration-200"
                         animate={{ borderColor: focusedField === 'email' ? 'rgba(0,217,255,0.3)' : 'rgba(255,255,255,0.06)' }}
                       >
@@ -249,7 +249,7 @@ export default function ContactHeroPro() {
                   {/* Company */}
                   <div>
                     <label className="mb-2 block text-[11px] uppercase tracking-[0.15em] text-white/40">Company</label>
-                    <motion.div 
+                    <motion.div
                       className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-1 transition-all duration-200"
                       animate={{ borderColor: focusedField === 'company' ? 'rgba(0,217,255,0.3)' : 'rgba(255,255,255,0.06)' }}
                     >
@@ -268,7 +268,7 @@ export default function ContactHeroPro() {
                   {/* Service Select */}
                   <div>
                     <label className="mb-2 block text-[11px] uppercase tracking-[0.15em] text-white/40">Service Interest</label>
-                    <motion.div 
+                    <motion.div
                       className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-1 transition-all duration-200"
                       animate={{ borderColor: focusedField === 'service' ? 'rgba(0,217,255,0.3)' : 'rgba(255,255,255,0.06)' }}
                     >
@@ -292,7 +292,7 @@ export default function ContactHeroPro() {
                   {/* Message */}
                   <div>
                     <label className="mb-2 block text-[11px] uppercase tracking-[0.15em] text-white/40">Message</label>
-                    <motion.div 
+                    <motion.div
                       className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-1 transition-all duration-200"
                       animate={{ borderColor: focusedField === 'message' ? 'rgba(0,217,255,0.3)' : 'rgba(255,255,255,0.06)' }}
                     >

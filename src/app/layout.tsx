@@ -135,7 +135,7 @@ export default function RootLayout({
                 "@type": "Organization",
                 name: "Softree",
                 url: "https://softree-2.vercel.app",
-                logo: "https://softree-2.vercel.app/logo.png",
+                logo: "https://softree-2.vercel.app/logo/Softree-Technology-Final-Logo.png",
               }),
             }}
           />

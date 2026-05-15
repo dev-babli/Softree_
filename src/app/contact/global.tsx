@@ -9,13 +9,13 @@ const locations = [
       <>
         Softree Technology Pvt. Ltd.
         <br />
-        PLOT 5C/1283, SECTOR-10, CDA Cuttack, Odisha 753014
+        PLOT 5C/1283, SECTOR-10, CDA
         <br />
-        Odisha, India
+        Cuttack, Odisha 753014, India
       </>
     ),
     phone: "+91 70086 99927",
-    mail: "srikantb@softreetechnology.com",
+    mail: "sales@softreetechnology.com",
     salesPerson: "Srikanta Barik",
     highlight: true,
   },
@@ -58,19 +58,22 @@ const locations = [
 
 export default function GlobalLocations() {
   return (
-    <section className="text-gray-900 py-2">
-      {/* subtle background */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-cyan-50 via-white to-blue-50" />
-
+    <section className="text-gray-900 py-20 bg-gradient-to-br from-gray-50 via-white to-orange-50/30">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl lg:text-4xl font-bold">Global Locations</h2>
-
-        <p className="max-w-3xl text-gray-600 mb-10">
-          Softree operates across key global markets to deliver scalable,
-          secure, and future-ready digital solutions. Our distributed presence
-          enables us to collaborate closely with clients, ensure faster
-          delivery, and provide localized support worldwide.
-        </p>
+        {/* Section Header */}
+        <div className="mb-12">
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-orange-600 text-xs font-semibold uppercase tracking-wider mb-4">
+            <MapPin className="w-3 h-3" />
+            Our Offices
+          </span>
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            Global Presence, Local Expertise
+          </h2>
+          <p className="max-w-2xl text-gray-600 text-lg">
+            With offices across three continents, we combine global delivery capabilities
+            with local market understanding to serve you better.
+          </p>
+        </div>
         {/* ================= LOCATIONS GRID ================= */}
         <div className="space-y-10">
           {/* ================= HQ ================= */}
@@ -83,7 +86,7 @@ export default function GlobalLocations() {
         group
         grid md:grid-cols-2
         rounded-3xl overflow-hidden
-        border border-cyan-400/40
+        border border-orange-400/40
         bg-gradient-to-br from-gray-900 to-gray-800
         shadow-2xl
       "
@@ -109,13 +112,13 @@ export default function GlobalLocations() {
                     {/* TOP */}
                     <div className="space-y-6">
                       <h3 className="text-2xl font-bold flex items-center gap-3">
-                        <span className="flex items-center justify-center w-12 h-12 rounded-xl bg-cyan-500/20 ring-1 ring-cyan-400/30">
-                          <MapPin className="w-5 h-5 text-cyan-400" />
+                        <span className="flex items-center justify-center w-12 h-12 rounded-xl bg-orange-500/20 ring-1 ring-orange-400/30">
+                          <MapPin className="w-5 h-5 text-orange-500" />
                         </span>
                         {loc.title}
                       </h3>
 
-                      <p className="text-gray-300 leading-relaxed border-l-2 border-cyan-400/40 pl-4">
+                      <p className="text-gray-300 leading-relaxed border-l-2 border-orange-400/40 pl-4">
                         {loc.address}
                       </p>
                     </div>
@@ -125,14 +128,14 @@ export default function GlobalLocations() {
                       {/* Phone */}
                       <div className="flex items-start gap-3">
                         <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-gray-800 ring-1 ring-white/10">
-                          <Phone className="w-4 h-4 text-cyan-400" />
+                          <Phone className="w-4 h-4 text-orange-500" />
                         </span>
 
                         <div className="flex flex-col">
                           <span className="text-xs text-gray-400">Phone</span>
                           <a
                             href={`tel:${loc.phone}`}
-                            className="font-semibold hover:text-cyan-400 transition"
+                            className="font-semibold hover:text-orange-500 transition"
                           >
                             {loc.phone}
                           </a>
@@ -161,14 +164,14 @@ export default function GlobalLocations() {
                       {loc.mail && (
                         <div className="flex items-start gap-3">
                           <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-gray-800 ring-1 ring-white/10">
-                            <Mail className="w-4 h-4 text-cyan-400" />
+                            <Mail className="w-4 h-4 text-orange-500" />
                           </span>
 
                           <div className="flex flex-col min-w-0">
                             <span className="text-xs text-gray-400">Email</span>
                             <a
                               href={`mailto:${loc.mail}`}
-                              className="font-semibold hover:text-cyan-400 transition break-all"
+                              className="font-semibold hover:text-orange-500 transition break-all"
                             >
                               {loc.mail}
                             </a>
@@ -213,13 +216,13 @@ export default function GlobalLocations() {
                     {/* TOP */}
                     <div className="space-y-6">
                       <h3 className="text-xl font-semibold flex items-center gap-3">
-                        <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-cyan-500/20">
-                          <MapPin className="w-4 h-4 text-cyan-400" />
+                        <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-orange-500/20">
+                          <MapPin className="w-4 h-4 text-orange-500" />
                         </span>
                         {loc.title}
                       </h3>
 
-                      <p className="text-sm text-gray-300 leading-relaxed border-l-2 border-cyan-400/40 pl-4">
+                      <p className="text-sm text-gray-300 leading-relaxed border-l-2 border-orange-400/40 pl-4">
                         {loc.address}
                       </p>
                     </div>
@@ -229,14 +232,14 @@ export default function GlobalLocations() {
                       {/* Phone */}
                       <div className="flex items-start gap-3">
                         <span className="flex items-center justify-center w-9 h-9 rounded-xl bg-gray-800">
-                          <Phone className="w-4 h-4 text-cyan-400" />
+                          <Phone className="w-4 h-4 text-orange-500" />
                         </span>
 
                         <div className="flex flex-col">
                           <span className="text-xs text-gray-400">Phone</span>
                           <a
                             href={`tel:${loc.phone}`}
-                            className="font-semibold hover:text-cyan-400 transition"
+                            className="font-semibold hover:text-orange-500 transition"
                           >
                             {loc.phone}
                           </a>
@@ -265,14 +268,14 @@ export default function GlobalLocations() {
                       {loc.mail && (
                         <div className="flex items-start gap-3">
                           <span className="flex items-center justify-center w-9 h-9 rounded-xl bg-gray-800">
-                            <Mail className="w-4 h-4 text-cyan-400" />
+                            <Mail className="w-4 h-4 text-orange-500" />
                           </span>
 
                           <div className="flex flex-col min-w-0">
                             <span className="text-xs text-gray-400">Email</span>
                             <a
                               href={`mailto:${loc.mail}`}
-                              className="font-semibold hover:text-cyan-400 transition break-all"
+                              className="font-semibold hover:text-orange-500 transition break-all"
                             >
                               {loc.mail}
                             </a>

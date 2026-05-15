@@ -8,41 +8,41 @@ import Link from "next/link"
 const Icons = {
   ArrowUp: () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M7 17L17 7M17 7H7M17 7V17"/>
+      <path d="M7 17L17 7M17 7H7M17 7V17" />
     </svg>
   ),
   Mail: () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-      <polyline points="22,6 12,13 2,6"/>
+      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+      <polyline points="22,6 12,13 2,6" />
     </svg>
   ),
   Phone: () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
     </svg>
   ),
   Location: () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-      <circle cx="12" cy="10" r="3"/>
+      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+      <circle cx="12" cy="10" r="3" />
     </svg>
   ),
   Clock: () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="10"/>
-      <polyline points="12 6 12 12 16 14"/>
+      <circle cx="12" cy="12" r="10" />
+      <polyline points="12 6 12 12 16 14" />
     </svg>
   ),
   Send: () => (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="22" y1="2" x2="11" y2="13"/>
-      <polygon points="22 2 15 22 11 13 2 9"/>
+      <line x1="22" y1="2" x2="11" y2="13" />
+      <polygon points="22 2 15 22 11 13 2 9" />
     </svg>
   ),
   Shield: () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
     </svg>
   ),
 }
@@ -88,7 +88,7 @@ export default function ContactHeroElite() {
       />
 
       <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-[1400px] flex-col px-6 pt-32 md:px-12 lg:flex-row lg:items-center lg:gap-16 lg:px-16 lg:pt-0">
-        
+
         {/* ── LEFT: CONTENT ── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -116,7 +116,7 @@ export default function ContactHeroElite() {
           </h1>
 
           <p className="mb-12 max-w-md text-lg font-light leading-relaxed text-white/40">
-            Ready to transform your enterprise? Our global team is here to 
+            Ready to transform your enterprise? Our global team is here to
             help you navigate the complexities of modern technology.
           </p>
 
@@ -135,7 +135,7 @@ export default function ContactHeroElite() {
                   </div>
                   <div>
                     <div className="text-xs uppercase tracking-[0.15em] text-white/40">Sales</div>
-                    <div className="text-sm font-medium text-white transition-colors group-hover:text-cyan-400">sales@softree.com</div>
+                    <div className="text-sm font-medium text-white transition-colors group-hover:text-cyan-400">sales@softreetechnology.com</div>
                   </div>
                 </div>
               </div>
@@ -152,7 +152,7 @@ export default function ContactHeroElite() {
                   </div>
                   <div>
                     <div className="text-xs uppercase tracking-[0.15em] text-white/40">Support</div>
-                    <div className="text-sm font-medium text-white transition-colors group-hover:text-purple-400">support@softree.com</div>
+                    <div className="text-sm font-medium text-white transition-colors group-hover:text-purple-400">sales@softreetechnology.com</div>
                   </div>
                 </div>
               </div>

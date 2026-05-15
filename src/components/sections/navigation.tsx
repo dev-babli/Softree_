@@ -49,68 +49,13 @@ type MenuItem = {
   }[];
 };
 
-const COL_ICONS = [
-  (accent: string) => (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke={accent}
-      strokeWidth="2"
-    >
-      <rect x="3" y="3" width="7" height="7" rx="1" />
-      <rect x="14" y="3" width="7" height="7" rx="1" />
-      <rect x="14" y="14" width="7" height="7" rx="1" />
-      <rect x="3" y="14" width="7" height="7" rx="1" />
-    </svg>
-  ),
-  (accent: string) => (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke={accent}
-      strokeWidth="2"
-    >
-      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-    </svg>
-  ),
-  (accent: string) => (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke={accent}
-      strokeWidth="2"
-    >
-      <circle cx="12" cy="12" r="3" />
-      <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
-    </svg>
-  ),
-  (_accent: string) => (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="#888780"
-      strokeWidth="2"
-    >
-      <rect x="2" y="3" width="20" height="14" rx="2" />
-      <line x1="8" y1="21" x2="16" y2="21" />
-      <line x1="12" y1="17" x2="12" y2="21" />
-    </svg>
-  ),
+// Images for dropdown columns
+const dropdownImages = [
+  "/images/case-study/power-apps/automated.jpg",  // Business Apps
+  "/images/ai/analytics.jpg",                       // Data & Analytics
+  "/images/ai/ai-agent.jpg",                        // AI & Automation
+  "/images/case-study/mobile/education.png",        // Digital Workspace
 ];
-
-function ColIcon({ idx, accent }: { idx: number; accent: string | null }) {
-  const render = COL_ICONS[idx];
-  if (!render) return null;
-  return render(accent ?? "#888780");
-}
 
 const colConfig = [
   { accent: "#FF7A2F", bg: "#E6F1FB", label: "Business Apps" },
@@ -323,10 +268,10 @@ export default function Navigation() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 flex justify-center transition-transform duration-300 ${showNav ? "translate-y-0" : "-translate-y-full"
+      className={`fixed top-0 left-0 w-full z-50 flex justify-center transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${showNav ? "translate-y-0" : "-translate-y-full"
         }`}
     >
-      <nav className="relative w-full max-w-4xl px-5 lg:px-6 h-16 flex items-center justify-between rounded-full bg-white border border-black/5 shadow-[0_10px_40px_rgba(0,0,0,0.08)]">
+      <nav className="relative w-full max-w-7xl mx-6 lg:mx-12 mt-4 px-8 lg:px-12 h-[72px] flex items-center justify-between rounded-2xl bg-white/80 backdrop-blur-xl border border-gray-200/60 shadow-[0_4px_24px_rgba(0,0,0,0.06)]">
         <Link href="/" className="inline-block shrink-0">
           <img
             src="/logo/Softree-Technology-Final-Logo.png"
@@ -343,12 +288,9 @@ export default function Navigation() {
                 <Link
                   key={item.label}
                   href={item.url || "#"}
-                  className="group relative px-4 py-2 text-l font-semibold text-gray-700"
+                  className="group relative px-4 py-2 text-sm font-medium text-gray-600 rounded-lg transition-all duration-200 hover:text-gray-900 hover:bg-gray-100/50"
                 >
-                  <span className="absolute inset-0 rounded-full bg-gradient-to-r from-zinc-700 via-zinc-900 to-black opacity-0 scale-90 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100" />
-                  <span className="relative z-10 transition-colors group-hover:text-white">
-                    {item.label}
-                  </span>
+                  {item.label}
                 </Link>
               );
             }
@@ -362,21 +304,12 @@ export default function Navigation() {
               >
                 <Link
                   href={item.url || "#"}
-                  className="group relative inline-flex items-center gap-1 px-4 py-2 text-l font-semibold text-gray-700"
+                  className="group relative inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-gray-600 rounded-lg transition-all duration-200 hover:text-orange-600 hover:bg-orange-50/50"
                 >
-                  <span
-                    className={`absolute inset-0 rounded-full bg-gradient-to-r from-gray-500 via-gray-700 to-black transition-all duration-300 ${open === item.label
-                      ? "opacity-100 scale-100"
-                      : "opacity-0 scale-75"
-                      } group-hover:opacity-100 group-hover:scale-100`}
-                  />
-                  <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
-                    {item.label}
-                  </span>
+                  {item.label}
                   <ChevronDown
-                    size={16}
-                    className={`relative z-10 mt-[1px] transition-all duration-300 group-hover:text-white ${open === item.label ? "rotate-180 text-white" : ""
-                      }`}
+                    size={14}
+                    className={`transition-transform duration-200 ${open === item.label ? "rotate-180 text-orange-600" : "text-gray-400 group-hover:text-orange-500"}`}
                   />
                 </Link>
 
@@ -388,8 +321,16 @@ export default function Navigation() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 6 }}
                       transition={{ duration: 0.18, ease: "easeOut" }}
-                      className="fixed top-18 left-1/2 -translate-x-1/2 w-[960px] bg-white rounded-3xl border border-black/5 shadow-[0_20px_70px_rgba(0,0,0,0.15)] overflow-hidden"
+                      className="fixed top-[95px] left-1/2 -translate-x-1/2 w-[1100px] bg-white rounded-3xl border border-gray-100 shadow-[0_24px_80px_rgba(0,0,0,0.15),0_8px_24px_rgba(0,0,0,0.08)] overflow-hidden"
                     >
+                      {/* Header */}
+                      <div className="px-8 pt-5 pb-4 border-b border-gray-100">
+                        <Link href={item.url || "#"} className="group/drawer-title flex items-center gap-x-2">
+                          <span className="text-xl font-semibold text-gray-900">{item.label}</span>
+                          <ArrowRight size={18} className="text-gray-400 transition-transform group-hover/drawer-title:translate-x-1" />
+                        </Link>
+                      </div>
+
                       {/* columns */}
                       <div className="grid grid-cols-4 gap-0">
                         {item.children?.map((group, idx) => {
@@ -402,62 +343,57 @@ export default function Navigation() {
                           return (
                             <div
                               key={group.title}
-                              className={`px-[22px] py-6 ${idx < item.children!.length - 1
-                                ? "border-r border-black/[0.06]"
+                              className={`px-5 py-5 ${idx < item.children!.length - 1
+                                ? "border-r border-gray-100"
                                 : ""
                                 }`}
                             >
-                              {/* column header */}
-                              <div className="flex items-left border-b border-black/[0.05]">
-                                <div className="w-[30px] h-[30px] rounded-[9px] flex items-center justify-center shrink-0 "></div>
-                                <span
-                                  className="text-[14px] font-medium tracking-[0.055em] uppercase"
-                                  style={{ color: cfg.accent ?? "#888780" }}
-                                >
+                              {/* Service Visual - Image at top */}
+                              <div className="relative h-[110px] overflow-hidden rounded-xl border border-gray-200 bg-gray-900 mb-4 group/image">
+                                <img
+                                  alt={cfg.label}
+                                  className="h-full w-full object-cover object-center opacity-95 transition-all duration-500 group-hover/image:scale-105"
+                                  src={dropdownImages[idx]}
+                                  onError={(e) => {
+                                    // Fallback: hide image and show gradient background
+                                    (e.target as HTMLImageElement).style.display = 'none';
+                                    (e.target as HTMLImageElement).parentElement!.style.background = `linear-gradient(135deg, ${cfg.bg} 0%, ${cfg.accent}20 100%)`;
+                                  }}
+                                />
+                                <div className="absolute inset-x-0 bottom-0 h-14 bg-linear-to-t from-black/60 via-black/20 to-transparent" />
+                                <span className="absolute bottom-2.5 left-3 rounded-full bg-white/95 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-gray-900 shadow-sm">
                                   {cfg.label}
                                 </span>
                               </div>
 
                               {/* links */}
-                              <div className="flex flex-col gap-[3px]">
+                              <div className="flex flex-col gap-0.5">
                                 {group.links.map((link) => {
                                   const Icon = link.icon;
                                   return (
                                     <Link
                                       key={link.label}
                                       href={link.url}
-                                      className="group/link flex items-center gap-2.5 px-2.5 py-2 rounded-[9px] border border-transparent hover:border-black/[0.1] hover:bg-zinc-50/80 transition-all duration-150"
+                                      className="group/link flex items-center gap-3 px-2 py-2 rounded-lg hover:bg-gray-50 transition-all duration-150"
                                     >
-                                      <div
-                                        className="w-8 h-8 rounded-[7px] flex items-center justify-center shrink-0
-  bg-gradient-to-br from-gray-900 via-gray-900 to-transparent
-  backdrop-blur-md
-  border border-gray-300
-  shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_1px_3px_rgba(0,0,0,0.08)]
-  transition-all duration-200
-  group-hover/link:from-gray-300/50 group-hover/link:via-gray-200/40 group-hover/link:border-gray-400/40"
-                                      >
+                                      <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-gray-100 group-hover/link:bg-orange-500 transition-all duration-200">
                                         {Icon && (
                                           <Icon
-                                            size={20}
-                                            className="text-gray-100 group-hover/link:text-gray-900"
+                                            size={17}
+                                            className="text-gray-600 group-hover/link:text-white transition-colors"
                                           />
                                         )}
                                       </div>
                                       <div className="flex-1 min-w-0">
-                                        <p className="text-[13px] font-medium text-zinc-900 leading-tight">
+                                        <p className="text-[13px] font-medium text-gray-900 leading-snug">
                                           {link.label}
                                         </p>
                                         {link.description && (
-                                          <p className="text-[11px] text-zinc-700 mt-[1px] leading-tight">
+                                          <p className="text-[11px] text-gray-500 mt-0.5 leading-snug">
                                             {link.description}
                                           </p>
                                         )}
                                       </div>
-                                      <ArrowRight
-                                        size={13}
-                                        className="text-zinc-400 opacity-0 -translate-x-1 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all duration-150 shrink-0"
-                                      />
                                     </Link>
                                   );
                                 })}
@@ -468,24 +404,34 @@ export default function Navigation() {
                       </div>
 
                       {/* footer */}
-                      <div className="border-t border-black/[0.06] bg-zinc-50/60 px-[22px] py-3.5 flex items-center justify-between">
-                        <p className="text-[12px] text-zinc-400">
+                      <div className="border-t border-gray-100 bg-gray-50/80 px-6 py-4 flex items-center justify-between">
+                        <p className="text-[13px] text-gray-500">
                           Need guidance?{" "}
                           <Link
                             href="/contact"
-                            className="text-zinc-700 font-medium underline underline-offset-2 hover:text-black transition-colors"
+                            className="text-gray-900 font-semibold hover:text-orange-600 transition-colors"
                           >
-                            Talk to a specialist
+                            Talk to a specialist →
                           </Link>
                         </p>
-                        <div className="flex items-center gap-5">
+                        <div className="flex items-center gap-6">
                           <Link
                             href="/services"
-                            className="text-[12px] font-medium text-zinc-700 hover:text-black flex items-center gap-1 transition-colors group/f"
+                            className="text-[13px] font-medium text-gray-600 hover:text-gray-900 flex items-center gap-1.5 transition-colors group/f"
                           >
-                            All services
+                            Explore all services
                             <ArrowRight
-                              size={11}
+                              size={14}
+                              className="group-hover/f:translate-x-0.5 transition-transform"
+                            />
+                          </Link>
+                          <Link
+                            href="/contact"
+                            className="text-[13px] font-medium text-gray-600 hover:text-gray-900 flex items-center gap-1.5 transition-colors group/f"
+                          >
+                            Get a quote
+                            <ArrowRight
+                              size={14}
                               className="group-hover/f:translate-x-0.5 transition-transform"
                             />
                           </Link>
@@ -500,58 +446,15 @@ export default function Navigation() {
         </div>
 
         {/* ── CTA ── */}
-        <style dangerouslySetInnerHTML={{
-          __html: `
-          @keyframes nav-glare {
-            0% { left: -100%; }
-            15% { left: 200%; }
-            100% { left: 200%; }
-          }
-          .nav-glass-cta::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            background: linear-gradient(135deg, rgba(255, 180, 120, 0.5) 0%, transparent 40%, transparent 60%, rgba(255, 255, 255, 0.2) 100%);
-            mix-blend-mode: screen;
-            pointer-events: none;
-          }
-          .nav-glass-cta::after {
-            content: "";
-            position: absolute;
-            top: 0; left: -100%;
-            width: 50%; height: 100%;
-            background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.25) 50%, transparent 100%);
-            transform: skewX(-20deg);
-            animation: nav-glare 5s infinite ease-in-out;
-            pointer-events: none;
-          }
-          .nav-glass-cta:hover {
-            transform: scale(1.05) !important;
-            box-shadow:
-              0 12px 32px 0 rgba(255, 122, 47, 0.45),
-              0 4px 12px 0 rgba(0, 0, 0, 0.2),
-              inset 0 1px 4px 0 rgba(255, 255, 255, 0.5),
-              inset 0 -1px 3px 0 rgba(0, 0, 0, 0.15) !important;
-          }
-        `}} />
         <div className="hidden lg:flex items-center gap-3">
           <Link
             href="/contact"
-            className="nav-glass-cta inline-flex items-center transition-all duration-300 ease-out active:scale-95"
+            className="inline-flex items-center transition-all duration-300 ease-out active:scale-95 hover:shadow-lg"
             style={{
-              background: "linear-gradient(135deg, rgba(255, 122, 47, 0.95) 0%, rgba(200, 80, 20, 0.85) 100%)",
-              backdropFilter: "blur(28px) saturate(180%)",
-              WebkitBackdropFilter: "blur(28px) saturate(180%)",
-              border: "1px solid rgba(255, 255, 255, 0.25)",
-              borderTopColor: "rgba(255, 200, 160, 0.6)",
-              borderLeftColor: "rgba(255, 255, 255, 0.35)",
-              boxShadow: "0 8px 24px 0 rgba(255,122,47,0.3), 0 2px 8px 0 rgba(0,0,0,0.2), inset 0 1px 4px 0 rgba(255,255,255,0.4), inset 0 -1px 3px 0 rgba(0,0,0,0.15)",
-              position: "relative" as const,
-              overflow: "hidden" as const,
-              borderRadius: "9999px",
-              height: "40px",
-              padding: "0 24px",
+              background: "linear-gradient(135deg, #FF7A2F 0%, #E85A1F 100%)",
+              borderRadius: "10px",
+              boxShadow: "0 4px 14px 0 rgba(255, 122, 47, 0.35)",
+              padding: "12px 28px",
               fontSize: "14px",
               fontWeight: 600,
               color: "#fff",
@@ -563,10 +466,17 @@ export default function Navigation() {
 
         {/* ── MOBILE TOGGLE ── */}
         <button
-          className="lg:hidden absolute right-6 top-1/2 -translate-y-1/2 z-[60] text-black shrink-0 p-2"
+          className="lg:hidden relative z-[60] text-gray-700 shrink-0 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
         >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          <motion.div
+            initial={false}
+            animate={{ rotate: mobileOpen ? 90 : 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          </motion.div>
         </button>
 
         {/* ── MOBILE PANEL ── */}
@@ -645,7 +555,7 @@ export default function Navigation() {
                     backgroundColor: "#FF7759",
                     boxShadow: "0 6px 20px -4px rgba(255,119,89,0.5)",
                   }}
-                  className="mt-6 flex items-center justify-center gap-2 px-5 py-3 text-white rounded-full font-semibold"
+                  className="mt-6 flex items-center justify-center gap-2 px-6 py-3.5 text-white rounded-xl font-semibold"
                 >
                   Get Started
                   <svg

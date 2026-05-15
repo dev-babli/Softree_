@@ -1,128 +1,96 @@
-export default function OurStorySection() {
+"use client"
+
+import { useRef } from "react"
+import { useGSAP } from "@gsap/react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger, useGSAP)
+
+const color = {
+  canvas: "#F3F0EE",
+  lifted: "#FCFBFA",
+  white: "#FFFFFF",
+  ink: "#141413",
+  charcoal: "#262627",
+  slate: "#696969",
+  mistral: "#fa520f",
+  flame: "#fb6424",
+  sunshine: "#ffa110",
+  gold: "#ffe295",
+  cream: "#fff0c2",
+  signalLight: "#F37338",
+}
+
+const MILESTONES = [
+  { year: "2012", title: "Founded", desc: "Started in Kolkata with a vision" },
+  { year: "2015", title: "Microsoft Partner", desc: "Became certified solutions partner" },
+  { year: "2018", title: "Global Expansion", desc: "Opened London and New York offices" },
+  { year: "2021", title: "AI Division", desc: "Launched AI/ML practice" },
+  { year: "2024", title: "Enterprise Scale", desc: "200+ projects across 4 continents" },
+]
+
+export default function AboutStory() {
+  const sRef = useRef<HTMLElement>(null)
+
+  useGSAP(() => {
+    const root = sRef.current
+    if (!root) return
+    const mm = gsap.matchMedia()
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
+      const items = root.querySelectorAll<HTMLElement>("[data-story-item]")
+      gsap.set(items, { y: 24, opacity: 0 })
+      items.forEach((item, i) => {
+        ScrollTrigger.create({
+          trigger: item,
+          start: "top 85%",
+          once: true,
+          onEnter: () => gsap.to(item, { y: 0, opacity: 1, duration: 0.6, delay: i * 0.08, ease: "power2.out" }),
+        })
+      })
+      return () => { ScrollTrigger.getAll().forEach(st => st.kill()) }
+    })
+    return () => mm.revert()
+  }, { scope: sRef })
+
   return (
-    <section className="relative  py-10 overflow-hidden">
-      {/* ===== CONTENT WRAPPER WITH BG ===== */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-        {/* subtle gradient border */}
-        <div className="relative rounded-3xl p-[1px] bg-gradient-to-br from-white/20 via-neutral-300/20 to-transparent">
-          {/* MAIN CARD */}
-          <div
-            className="
-      rounded-3xl
-      bg-gradient-to-br from-neutral-50 via-white to-gray-50
-      p-12
-      transition-all duration-300
-      hover:-translate-y-1
-      hover:shadow-[0_15px_40px_rgba(15,23,42,0.10),0_60px_160px_-20px_rgba(15,23,42,0.25)]
-    "
-          >
-            {/* ================= HEADER ================= */}
-            <div className="mb-14">
-              <h2 className="text-sky-500 font-extrabold tracking-widest text-sm mb-4">
-                OUR STORY
-              </h2>
+    <section ref={sRef} className="relative w-full overflow-hidden py-24" style={{ background: color.lifted }}>
+      <div className="relative z-10 mx-auto max-w-[1320px] px-6 md:px-10">
+        {/* Header */}
+        <div className="mb-16">
+          <div className="mb-6 inline-flex items-center gap-2" style={{ padding: "6px 14px", borderRadius: 999, background: color.ink, color: color.canvas, fontSize: 12, fontWeight: 700, letterSpacing: "0.56px", textTransform: "uppercase" }}>
+            <span style={{ width: 8, height: 8, borderRadius: 999, background: color.signalLight, boxShadow: `0 0 8px ${color.signalLight}` }} />
+            Our Journey
+          </div>
+          <h2 style={{ fontFamily: "inherit", fontSize: "clamp(32px,4vw,56px)", fontWeight: 500, lineHeight: 1.05, letterSpacing: "-0.028em", color: color.ink, textWrap: "balance" }}>
+            <span style={{ backgroundImage: `linear-gradient(92deg,${color.mistral} 0%,${color.flame} 40%,${color.sunshine} 75%)`, backgroundClip: "text", WebkitBackgroundClip: "text", color: "transparent" }}>12 years</span> of building
+            <br />enterprise technology
+          </h2>
+        </div>
 
-              <p className="text-3xl md:text-4xl font-semibold leading-snug max-w-3xl text-slate-900">
-                Your challenges. Our technology. Real impact. We help businesses{" "}
-                <span className="font-bold text-sky-500">
-                  build scalable software, streamline operations, and accelerate
-                  growth.
-                </span>
-              </p>
-            </div>
+        {/* Timeline */}
+        <div className="relative">
+          {/* Line */}
+          <div className="absolute left-0 top-0 bottom-0 w-px" style={{ background: `linear-gradient(to bottom, ${color.ink}20, ${color.ink}10, transparent)` }} />
 
-            {/* ================= CONTENT GRID ================= */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
-              {/* LEFT BIG IMAGE */}
-              <div
-                className="
-          h-full
-          rounded-3xl
-          overflow-hidden
-          shadow-[0_20px_60px_-25px_rgba(15,23,42,0.20)]
-        "
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1556761175-4b46a572b786"
-                  alt="Softree team collaboration"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+          <div className="space-y-12">
+            {MILESTONES.map((m, i) => (
+              <div key={m.year} data-story-item style={{ opacity: 0 }} className="relative pl-12">
+                {/* Dot */}
+                <div className="absolute left-0 top-1 -translate-x-1/2" style={{ width: 12, height: 12, borderRadius: 999, background: i === MILESTONES.length - 1 ? color.signalLight : color.white, border: `2px solid ${i === MILESTONES.length - 1 ? color.signalLight : color.ink}30` }} />
 
-              {/* RIGHT CONTENT */}
-              <div className="flex flex-col gap-10 h-full">
-                {/* TOP SMALL IMAGES */}
-                <div className="grid grid-cols-2 gap-6">
-                  <div
-                    className="
-            rounded-2xl
-            overflow-hidden
-            shadow-[0_15px_40px_-10px_rgba(15,23,42,0.15)]
-          "
-                  >
-                    <img
-                      src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
-                      alt="Software planning session"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-
-                  <div
-                    className="
-            rounded-2xl
-            overflow-hidden
-            shadow-[0_15px_40px_-10px_rgba(15,23,42,0.15)]
-          "
-                  >
-                    <img
-                      src="https://images.unsplash.com/photo-1557804506-669a67965ba0"
-                      alt="Product discussion"
-                      className="w-full h-full object-cover"
-                    />
+                <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:gap-6">
+                  <span style={{ fontFamily: "inherit", fontSize: 28, fontWeight: 500, letterSpacing: "-1px", color: color.ink }}>{m.year}</span>
+                  <div>
+                    <h3 style={{ fontSize: 18, fontWeight: 600, color: color.ink, marginBottom: 4 }}>{m.title}</h3>
+                    <p style={{ fontSize: 15, fontWeight: 450, color: color.slate }}>{m.desc}</p>
                   </div>
                 </div>
-
-                {/* STORY TEXT */}
-                <div className="text-slate-900 leading-relaxed space-y-5 max-w-xl text-lg">
-                  <p>
-                    Softree was founded with a clear vision: to build reliable,
-                    high-performance software solutions that solve real business
-                    challenges. In an ever-evolving digital world, we focus on
-                    engineering technology that is secure, scalable, and
-                    future-ready.
-                  </p>
-
-                  <p>
-                    From custom software development and cloud-native
-                    applications to enterprise platforms and digital
-                    transformation, everything we create is designed to improve
-                    efficiency, enhance user experience, and deliver measurable
-                    business value.
-                  </p>
-                </div>
-
-                {/* STATS */}
-                <div className="grid grid-cols-3 gap-6 pt-8 border-t border-slate-200">
-                  <StatItem value="200+" label="Projects Delivered" />
-                  <StatItem value="98%" label="Client Satisfaction" />
-                  <StatItem value="13+" label="Years of Experience" />
-                </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-/* ================= STATS ITEM ================= */
-
-function StatItem({ value, label }: { value: string; label: string }) {
-  return (
-    <div>
-      <p className="text-3xl font-extrabold text-sky-500">{value}</p>
-      <p className="text-gray-900 text-sm mt-1">{label}</p>
-    </div>
-  );
+  )
 }

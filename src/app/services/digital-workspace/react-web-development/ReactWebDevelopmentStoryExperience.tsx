@@ -15,7 +15,7 @@ import { ReactWebDevelopmentPerformanceProof } from "./_components/ReactWebDevel
 import { ReactWebDevelopmentProblemSolution } from "./_components/ReactWebDevelopmentProblemSolution"
 import { ReactWebDevelopmentProofStrip } from "./_components/ReactWebDevelopmentProofStrip"
 import { ReactWebDevelopmentServicesMatrix } from "./_components/ReactWebDevelopmentServicesMatrix"
-import { ReactWebDevelopmentHeroStory } from "./_components/ReactWebDevelopmentHeroStory"
+import VisionHero from "./_components/VisionHeroOriginal"
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
@@ -147,7 +147,7 @@ export default function ReactWebDevelopmentStoryExperience() {
 
   return (
     <main ref={rootRef} className="rw-page">
-      <ReactWebDevelopmentHeroStory />
+      <VisionHero />
       <ReactWebDevelopmentProofStrip />
       <ReactWebDevelopmentProblemSolution />
       <ReactWebDevelopmentBeforeAfterScroll />

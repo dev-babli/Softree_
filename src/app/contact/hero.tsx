@@ -24,16 +24,16 @@ const color = {
 }
 
 const H1 = [
-  [{ t: "Let's", g: false }, { t: "build", g: true }],
-  [{ t: "something", g: true }],
-  [{ t: "extraordinary.", g: true }],
+  [{ t: "Let's", g: false }, { t: "start", g: true }],
+  [{ t: "your", g: false }],
+  [{ t: "project", g: true }],
 ]
 
 const LOCATIONS = [
-  { city: "Kolkata", timezone: "IST +5:30", email: "india@softree.com" },
-  { city: "London", timezone: "GMT +0", email: "uk@softree.com" },
-  { city: "New York", timezone: "EST -5", email: "us@softree.com" },
-  { city: "Dubai", timezone: "GST +4", email: "mea@softree.com" },
+  { city: "Cuttack", timezone: "IST +5:30", email: "sales@softreetechnology.com" },
+  { city: "London", timezone: "GMT +0", email: "sales@softreetechnology.com" },
+  { city: "New York", timezone: "EST -5", email: "sales@softreetechnology.com" },
+  { city: "Dubai", timezone: "GST +4", email: "sales@softreetechnology.com" },
 ]
 
 export default function ContactHero() {
@@ -96,7 +96,7 @@ export default function ContactHero() {
           </h1>
 
           <p data-h-sub className="mt-8 max-w-[480px]" style={{ fontSize: 18, fontWeight: 450, lineHeight: 1.5, color: color.charcoal, opacity: 0 }}>
-            Ready to transform your enterprise? Our global team is here to help you navigate the complexities of modern technology.
+            Have a project in mind? Tell us what you need. Our team will get back to you within 24 hours with a tailored solution.
           </p>
 
           {/* Locations */}
@@ -133,8 +133,13 @@ export default function ContactHero() {
                 <label style={{ fontSize: 12, fontWeight: 500, color: color.ink, textTransform: "uppercase", letterSpacing: "0.5px", display: "block", marginBottom: 6 }}>Message</label>
                 <textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} rows={4} className="w-full resize-none rounded-lg px-4 py-3 outline-none transition-all focus:ring-2" style={{ background: color.canvas, border: `1px solid ${color.ink}10`, fontSize: 15, color: color.ink }} placeholder="Tell us about your project..." />
               </div>
-              <button type="submit" className="w-full rounded-xl py-4 font-medium transition-all hover:-translate-y-px" style={{ background: color.ink, color: color.canvas, fontSize: 16 }}>
-                Send Message
+              <button type="submit" className="group relative w-full overflow-hidden rounded-xl py-4 font-medium transition-all hover:-translate-y-px" style={{ background: color.mistral, color: color.white, fontSize: 16 }}>
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  Start Your Project
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-1">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </span>
               </button>
             </form>
           </div>

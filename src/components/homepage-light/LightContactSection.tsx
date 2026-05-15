@@ -24,7 +24,7 @@ function SocialIcon({
       aria-label={label}
       target="_blank"
       rel="noreferrer"
-      className="grid h-11 w-11 place-items-center rounded-full border border-white/16 bg-white/[0.055] text-white transition duration-300 hover:-translate-y-1 hover:border-white/35 hover:bg-white hover:text-[#09090d] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ff7a2f]/70"
+      className="grid h-11 w-11 place-items-center rounded-full border border-white/16 bg-white/[0.055] text-white transition duration-300 hover:-translate-y-1 hover:border-white/35 hover:bg-white hover:text-[#09090d] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5812]/70"
     >
       <span className="h-[22px] w-[22px]">{children}</span>
     </a>
@@ -216,7 +216,7 @@ export default function LightContactSection() {
                           key={service}
                           className="group flex items-center gap-3 border-b border-white/10 py-3"
                         >
-                          <span className="h-2 w-2 rounded-full bg-[#6366f1] transition-transform duration-300 group-hover:scale-[1.45]" />
+                          <span className="h-2 w-2 rounded-full bg-[#ff5812] transition-transform duration-300 group-hover:scale-[1.45]" />
                           <span className="text-sm leading-none text-white/72 transition-colors group-hover:text-white">
                             {service}
                           </span>
@@ -232,10 +232,10 @@ export default function LightContactSection() {
                       E-Mail
                     </p>
                     <a
-                      href="mailto:contact@softreetechnology.com"
-                      className="mt-2 block text-[14px] leading-6 text-white/58 transition-colors hover:text-[#ff7a2f]"
+                      href="mailto:sales@softreetechnology.com"
+                      className="mt-2 block text-[14px] leading-6 text-white/58 transition-colors hover:text-[#ff5812]"
                     >
-                      contact@softreetechnology.com
+                      sales@softreetechnology.com
                     </a>
                   </div>
                   <div>
@@ -243,9 +243,9 @@ export default function LightContactSection() {
                       Office
                     </p>
                     <p className="mt-2 text-[14px] leading-6 text-white/58">
-                      Kolkata, West Bengal
+                      PLOT 5C/1283, SECTOR-10, CDA
                       <br />
-                      India
+                      Cuttack, Odisha 753014, India
                     </p>
                   </div>
                 </div>
@@ -283,7 +283,7 @@ export default function LightContactSection() {
                         name="field"
                         placeholder="Test Message"
                         maxLength={5000}
-                        className="min-h-[142px] w-full resize-none rounded-none border-0 border-b border-white/14 bg-transparent px-0 py-4 text-[15px] font-medium text-white outline-none transition-colors duration-300 placeholder:text-white/40 focus:border-[#ff7a2f]"
+                        className="min-h-[142px] w-full resize-none rounded-none border-0 border-b border-white/14 bg-transparent px-0 py-4 text-[15px] font-medium text-white outline-none transition-colors duration-300 placeholder:text-white/40 focus:border-[#ff5812]"
                       />
                     </label>
                   </div>
@@ -291,7 +291,7 @@ export default function LightContactSection() {
                   <button
                     type="submit"
                     disabled={status === "submitting"}
-                    className="group mt-8 inline-flex h-14 w-full items-center justify-between rounded-full bg-[#6366f1] px-6 text-[13px] font-semibold uppercase tracking-[0.16em] text-white transition duration-300 hover:bg-white hover:text-[#09090d] disabled:cursor-not-allowed disabled:opacity-65"
+                    className="group mt-8 inline-flex h-14 w-full items-center justify-between rounded-full bg-[#ff5812] px-6 text-[13px] font-semibold uppercase tracking-[0.16em] text-white transition duration-300 hover:bg-white hover:text-[#09090d] disabled:cursor-not-allowed disabled:opacity-65"
                   >
                     <span>{status === "submitting" ? "Please wait..." : "Start a Project"}</span>
                     <ArrowUpRight
