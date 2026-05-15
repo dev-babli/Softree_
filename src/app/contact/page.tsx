@@ -1,67 +1,50 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
 import dynamic from "next/dynamic";
-import CustomCursor from "./components/CustomCursor";
-import Preloader from "./components/Preloader";
-import ThemeToggle from "./components/ThemeToggle";
-import ContactHero from "./components/ContactHero";
-import ContactFooter from "./components/ContactFooter";
+import NavigationClient from "@/components/sections/navigation-client";
+import Footer from "@/components/sections/footer";
+import ContactHero from "./ContactHero";
+import LightContactSection from "@/qualitycomponents/components/homepage-light/LightContactSection";
+import LightEngagementModels from "@/qualitycomponents/components/homepage-light/LightEngagementModels";
+import TestimonialsGlobe from "@/components/sections/TestimonialsGlobe";
 
-const Orb = dynamic(() => import("./components/Orb"), { ssr: false });
+const LightFAQExactLazy = dynamic(
+  () => import("@/components/homepage-light/LightFAQExact"),
+  { loading: () => <div className="min-h-[60vh] w-full bg-[#f6f6f6]" aria-hidden /> }
+);
 
+/**
+ * CONTACT — Restructured to mirror the About Us flow.
+ *
+ *  1. ContactHero            — Editorial hero with live office clocks + email
+ *  2. LightContactSection    — CTA / contact form (from About Us)
+ *  3. TestimonialsGlobe      — Global voices on world map
+ *  4. LightFAQExact          — Pre-empt common questions
+ *  5. LightEngagementModels  — How to work with us
+ *  6. Footer
+ */
 export default function ContactPage() {
-  const [dark, setDark] = useState(true);
-  const [loaded, setLoaded] = useState(false);
-
-  const toggleTheme = useCallback(() => setDark((d) => !d), []);
-
-  // Apply theme class to html element
-  useEffect(() => {
-    const html = document.documentElement;
-    html.classList.add("contact-theme");
-    if (dark) html.classList.add("dark");
-    else html.classList.remove("dark");
-    return () => {
-      html.classList.remove("contact-theme", "dark");
-    };
-  }, [dark]);
-
-  // Lenis smooth scroll (dynamic import to avoid SSR issues)
-  useEffect(() => {
-    if (!loaded) return;
-    let cleanup: (() => void) | undefined;
-    import("lenis").then(({ default: Lenis }) => {
-      const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        smoothWheel: true,
-      });
-      let rafId: number;
-      function raf(time: number) {
-        lenis.raf(time);
-        rafId = requestAnimationFrame(raf);
-      }
-      rafId = requestAnimationFrame(raf);
-      cleanup = () => { lenis.destroy(); cancelAnimationFrame(rafId); };
-    });
-    return () => { cleanup?.(); };
-  }, [loaded]);
-
   return (
-    <>
-      <Preloader onDone={() => setLoaded(true)} />
-      {loaded && (
-        <>
-          <CustomCursor />
-          <Orb />
-          <ThemeToggle dark={dark} onToggle={toggleTheme} />
-          <main className="relative z-10 min-h-screen">
-            <ContactHero />
-            <ContactFooter />
-          </main>
-        </>
-      )}
-    </>
+    <div className="min-h-screen pt-[100px]">
+      <NavigationClient />
+
+      {/* 1. Hero — editorial with live clocks */}
+      <ContactHero />
+
+      {/* 2. CTA — contact form */}
+      <LightContactSection />
+
+      {/* 3. Testimonials — global voices */}
+      <TestimonialsGlobe />
+
+      {/* 4. FAQs */}
+      <LightFAQExactLazy />
+
+      {/* 5. Engagement Models */}
+      <LightEngagementModels />
+
+      {/* 6. Footer */}
+      <Footer />
+    </div>
   );
 }

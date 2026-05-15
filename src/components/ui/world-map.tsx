@@ -12,22 +12,25 @@ interface MapProps {
     end: { lat: number; lng: number; label?: string };
   }>;
   lineColor?: string;
+  variant?: "light" | "dark";
 }
 
 export default function WorldMap({
   dots = [],
   lineColor = "#0ea5e9",
+  variant,
 }: MapProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const map = new DottedMap({ height: 100, grid: "diagonal" });
 
   const { theme } = useTheme();
+  const isDark = variant ? variant === "dark" : theme === "dark";
 
   const svgMap = map.getSVG({
     radius: 0.22,
-    color: theme === "dark" ? "#FFFFFF40" : "#00000040",
+    color: isDark ? "#FFFFFF4D" : "#00000040",
     shape: "circle",
-    backgroundColor: theme === "dark" ? "black" : "white",
+    backgroundColor: isDark ? "#0a0a0a" : "white",
   });
 
   const projectPoint = (lat: number, lng: number) => {
@@ -46,7 +49,7 @@ export default function WorldMap({
   };
 
   return (
-    <div className="w-full aspect-[2/1] dark:bg-black bg-white rounded-lg  relative font-sans">
+    <div className={`w-full aspect-[2/1] rounded-lg relative font-sans ${isDark ? "bg-[#0a0a0a]" : "bg-white"}`}>
       <img
         src={`data:image/svg+xml;utf8,${encodeURIComponent(svgMap)}`}
         className="h-full w-full [mask-image:linear-gradient(to_bottom,transparent,white_10%,white_90%,transparent)] pointer-events-none select-none"

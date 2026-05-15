@@ -47,7 +47,7 @@ export default function Home() {
         <ServicesStackedSlides />
         <FeaturesShowcaseLazy />
         <TrustedBy />
-        <TestimonialsGlobe />
+        <TestimonialsGlobe variant="dark" />
         <AiInsightsBlog />
         <TechStackSection />
         <LightServicesStickyListLazy />
