@@ -160,9 +160,7 @@ export default function RootLayout({
         </noscript>
 
         <PostHogProvider>
-          <Suspense fallback={null}>
-            <PostHogPageView />
-          </Suspense>
+        <PostHogPageView />
 
           {/* Browser log script */}
           <Script
