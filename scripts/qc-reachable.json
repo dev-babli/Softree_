@@ -1,0 +1,14 @@
+[
+  "qualitycomponents/components/homepage-light/AboutClientLogos.tsx",
+  "qualitycomponents/components/homepage-light/AboutTeamSection.tsx",
+  "qualitycomponents/components/homepage-light/AvooraHero.tsx",
+  "qualitycomponents/components/homepage-light/AwardsMarqueeSection.tsx",
+  "qualitycomponents/components/homepage-light/Grainient.tsx",
+  "qualitycomponents/components/homepage-light/LightAboutMerged.tsx",
+  "qualitycomponents/components/homepage-light/LightContactSection.tsx",
+  "qualitycomponents/components/homepage-light/LightEngagementModels.tsx",
+  "qualitycomponents/components/homepage-light/LightTestimonialGrid.tsx",
+  "qualitycomponents/components/homepage-light/LightWhyChooseUs.tsx",
+  "qualitycomponents/components/homepage/TrustedByStrip.tsx",
+  "qualitycomponents/components/shared/SpotlightCard.tsx"
+]
