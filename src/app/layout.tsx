@@ -10,99 +10,6 @@ import GoogleAnalytics from "@/components/sections/google-analytics";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.softreetechnology.com"),
-
-  title: {
-    default: "Softree | Power Platform, AI, Data & Modern App Development",
-    template: "%s | Softree",
-  },
-
-  description:
-    "Softree delivers Power Platform solutions, AI-driven applications, data engineering, and modern web development using React, Next.js, and cloud technologies.",
-
-  keywords: [
-    "Power Platform services",
-    "AI development company",
-    "Data engineering services",
-    "Next.js development company",
-    "React development services",
-    "enterprise software solutions",
-    "modern web applications",
-  ],
-
-  authors: [{ name: "Softree" }],
-  creator: "Softree",
-  publisher: "Softree",
-
-  robots: {
-    index: true,
-    follow: true,
-  },
-
-  verification: {
-    google: "CBKqqECDJRj5OGKmASLx9E8oM6XET_LWY_4_mWL5A3k",
-  },
-
-  alternates: {
-    canonical: "https://www.softreetechnology.com/",
-  },
-
-  openGraph: {
-    title: "Softree | AI & Modern Application Development",
-    description:
-      "Build scalable AI-powered and modern web applications with Softree using Power Platform, React, Next.js, and cloud technologies.",
-    url: "https://www.softreetechnology.com",
-    siteName: "Softree",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Softree - AI Development Company",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: "Softree | AI, Data & Web Development",
-    description:
-      "Power Platform, AI solutions, and modern web development services.",
-    images: ["/og-image.png"],
-  },
-
-  icons: {
-    icon: [
-      {
-        url: "/favicon_io/favicon-16x16.png",
-        sizes: "16x16",
-        type: "image/png",
-      },
-      {
-        url: "/favicon_io/favicon-32x32.png",
-        sizes: "32x32",
-        type: "image/png",
-      },
-      {
-        url: "/favicon_io/favicon.ico",
-        sizes: "48x48",
-      },
-    ],
-    apple: [
-      {
-        url: "/favicon_io/apple-touch-icon.png",
-        sizes: "180x180",
-        type: "image/png",
-      },
-    ],
-    other: [
-      {
-        rel: "manifest",
-        url: "/favicon_io/site.webmanifest",
-      },
-    ],
-  },
 };
 
 export default function RootLayout({
@@ -160,7 +67,7 @@ export default function RootLayout({
         </noscript>
 
         <PostHogProvider>
-        <PostHogPageView />
+          <PostHogPageView />
 
           {/* Browser log script */}
           <Script

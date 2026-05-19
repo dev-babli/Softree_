@@ -244,16 +244,14 @@ export default function HeroPowerApps() {
             </div>
 
             <h1 style={styles.headline}>
-              Build
-              <br />
-              <span style={styles.headlineGradient}>
-                Web Applications for Enterprise
-              </span>
+              Enterprise Web Application Development Services
             </h1>
 
             <p style={styles.subtext}>
-              Build and streamline web applications with modern technologies.
-              Ship faster, scale confidently.
+              Build scalable enterprise web applications using modern
+              technologies, cloud-native architecture, responsive UI/UX, and
+              secure development practices to accelerate digital transformation
+              and business growth.
             </p>
 
             <Link href="/contact" className="cta-btn" style={styles.ctaBtn}>
@@ -397,7 +395,7 @@ const styles: Record<string, CSSProperties> = {
     textTransform: "uppercase",
     padding: "5px 12px",
     borderRadius: "100px",
-    marginBottom: "22px",
+
     marginTop: "22px",
   },
   eyebrowDot: {
@@ -408,12 +406,13 @@ const styles: Record<string, CSSProperties> = {
   },
   headline: {
     fontFamily: "'Syne', sans-serif",
-    fontSize: "clamp(28px, 3.5vw, 46px)",
+    fontSize: "clamp(18px, 3vw, 42px)",
     fontWeight: 700,
-    lineHeight: 1.05, // 🔥 reduced spacing between lines
+    lineHeight: 1.05,
     letterSpacing: "-0.02em",
-    marginBottom: "8px", // 🔥 reduced bottom gap
+    marginBottom: "4px",
     color: "#f0f6ff",
+    wordBreak: "keep-all",
   },
 
   headlineGradient: {
@@ -432,7 +431,7 @@ const styles: Record<string, CSSProperties> = {
     display: "inline-flex",
     alignItems: "center",
     gap: "10px",
-    background: "#38bdf8",
+    background: "#d8dce3ff",
     color: "#071b4d",
     fontFamily: "'DM Sans', sans-serif",
     fontSize: "15px",
@@ -445,6 +444,7 @@ const styles: Record<string, CSSProperties> = {
     transition: "transform 0.2s, background 0.2s, box-shadow 0.2s",
     boxShadow: "0 8px 32px rgba(56,189,248,0.3)",
   },
+
   stats: {
     display: "flex",
     gap: "28px",

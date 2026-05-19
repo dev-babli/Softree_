@@ -153,6 +153,7 @@ export default function ServicesHero() {
         flexDirection: "column",
         justifyContent: "center",
         padding: "0 32px",
+        marginTop:"12px"
       }}
     >
       {/* Background grid */}
@@ -237,6 +238,7 @@ export default function ServicesHero() {
               height: "1px",
               background: "#f59e0b",
               opacity: 0.7,
+              
             }}
           />
           <span

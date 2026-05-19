@@ -1,5 +1,4 @@
 "use client";
-
 import NavigationClient from "@/components/sections/navigation-client";
 import AvooraHero from "@/components/qc/homepage-light/AvooraHero";
 import AboutClientLogos from "@/components/qc/homepage-light/AboutClientLogos";
@@ -10,7 +9,7 @@ import LightEngagementModels from "@/components/qc/homepage-light/LightEngagemen
 import LightContactSection from "@/components/qc/homepage-light/LightContactSection";
 import TestimonialsGlobe from "@/components/sections/TestimonialsGlobe";
 import Footer from "@/components/sections/footer";
-
+import { Metadata } from "next";
 /**
  * ABOUT US — Complete Component Stack
  *
@@ -24,6 +23,52 @@ import Footer from "@/components/sections/footer";
  *  8. LightContactSection     → Contact form CTA
  *  9. Footer                  → Homepage footer
  */
+
+export const metadata: Metadata = {
+  title: "About Us | Softree Technology - AI & Enterprise Solutions",
+
+  description:
+    "Learn about Softree Technology, a leader in AI, cloud, and custom software development with a global presence and proven expertise.",
+
+  keywords: [
+    "About Softree Technology",
+    "AI development company",
+    "enterprise software development",
+    "cloud solutions India",
+    "software company profile",
+    "IT consulting firm",
+  ],
+
+  alternates: {
+    canonical: "https://www.softreetechnology.com/about-us",
+  },
+
+  openGraph: {
+    title: "About Us | Softree Technology",
+    description:
+      "Learn about Softree Technology's journey, expertise, and commitment to delivering cutting-edge AI and enterprise solutions worldwide.",
+    url: "https://www.softreetechnology.com/about-us",
+    siteName: "Softree Technology",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Softree Technology",
+      },
+    ],
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "About Us | Softree Technology",
+    description:
+      "Learn about Softree Technology, a leader in AI, cloud, and custom software development with a global presence.",
+    images: ["/og-image.png"],
+  },
+};
+
 export default function AboutUsPage() {
   return (
     <div className="min-h-screen pt-[100px]">

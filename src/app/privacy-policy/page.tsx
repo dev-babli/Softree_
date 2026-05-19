@@ -1,4 +1,41 @@
 import Footer from "@/components/sections/footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | Softree Technology",
+  description:
+    "Read Softree Technology’s Privacy Policy to understand how we collect, use, and protect your information.",
+  keywords: [
+    "Privacy Policy",
+    "Softree Technology Privacy",
+    "data protection",
+    "privacy policy India",
+  ],
+  alternates: {
+    canonical: "https://www.softreetechnology.com/privacy-policy",
+  },
+  openGraph: {
+    title: "Privacy Policy | Softree Technology",
+    description: "Learn how Softree Technology protects your data and privacy.",
+    url: "https://www.softreetechnology.com/privacy-policy",
+    siteName: "Softree Technology",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Softree Technology",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | Softree Technology",
+    description: "Learn how Softree Technology protects your data and privacy.",
+    images: ["/og-image.png"],
+  },
+};
 
 export default function PrivacyPolicy() {
   const sections = [
@@ -9,7 +46,8 @@ export default function PrivacyPolicy() {
         <>
           <p>
             This Privacy Policy explains how Softree Technology collects, uses,
-            discloses, and safeguards your information when you visit our website.
+            discloses, and safeguards your information when you visit our
+            website.
           </p>
           <p>
             By using our website, you agree to the terms of this Privacy Policy.
@@ -42,7 +80,9 @@ export default function PrivacyPolicy() {
             <li>Time spent on pages</li>
             <li>Referral sources</li>
           </ul>
-          <h3 className="subsection-title">d. Cookies &amp; Tracking Technologies</h3>
+          <h3 className="subsection-title">
+            d. Cookies &amp; Tracking Technologies
+          </h3>
           <p>
             We use cookies and similar technologies to enhance user experience
             and analyze website traffic.
@@ -59,7 +99,8 @@ export default function PrivacyPolicy() {
           <li>Improve website performance and user experience</li>
           <li>Respond to inquiries and customer support requests</li>
           <li>
-            Send updates, newsletters, or marketing communications (with consent)
+            Send updates, newsletters, or marketing communications (with
+            consent)
           </li>
           <li>Ensure website security and prevent fraud</li>
         </ul>
@@ -70,9 +111,13 @@ export default function PrivacyPolicy() {
       title: "Sharing of Information",
       content: (
         <>
-          <p>We do not sell or rent your personal data. We may share it with:</p>
+          <p>
+            We do not sell or rent your personal data. We may share it with:
+          </p>
           <ul>
-            <li>Trusted third-party service providers (e.g., analytics, hosting)</li>
+            <li>
+              Trusted third-party service providers (e.g., analytics, hosting)
+            </li>
             <li>Legal authorities when required by law</li>
             <li>Business partners in case of mergers or acquisitions</li>
           </ul>
@@ -85,8 +130,8 @@ export default function PrivacyPolicy() {
       content: (
         <p>
           We implement appropriate technical and organizational measures to
-          protect your data. However, no method of transmission over the Internet
-          is 100% secure.
+          protect your data. However, no method of transmission over the
+          Internet is 100% secure.
         </p>
       ),
     },
@@ -95,8 +140,8 @@ export default function PrivacyPolicy() {
       title: "Data Retention",
       content: (
         <p>
-          We retain your personal data only as long as necessary for the purposes
-          outlined in this policy or as required by law.
+          We retain your personal data only as long as necessary for the
+          purposes outlined in this policy or as required by law.
         </p>
       ),
     },
@@ -132,52 +177,52 @@ export default function PrivacyPolicy() {
         </p>
       ),
     },
-   {
-  id: 10,
-  title: "Contact Us",
-  content: (
-    <>
-      <p>
-        If you have any questions about this Privacy Policy, please contact us:
-      </p>
+    {
+      id: 10,
+      title: "Contact Us",
+      content: (
+        <>
+          <p>
+            If you have any questions about this Privacy Policy, please contact
+            us:
+          </p>
 
-      <p className="contact-line">
-        📧 Email:{" "}
-        <a href="mailto:sales@softreetechnology.com">
-          sales@softreetechnology.com
-        </a>
-      </p>
+          <p className="contact-line">
+            📧 Email:{" "}
+            <a href="mailto:sales@softreetechnology.com">
+              sales@softreetechnology.com
+            </a>
+          </p>
 
-      <p className="contact-line">
-        🌐 Website:{" "}
-        <a
-          href="https://www.softreetechnology.com"
-          target="_blank"
-          rel="noreferrer"
-        >
-          www.softreetechnology.com
-        </a>
-      </p>
+          <p className="contact-line">
+            🌐 Website:{" "}
+            <a
+              href="https://www.softreetechnology.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              www.softreetechnology.com
+            </a>
+          </p>
 
-      <p >
-        📞 Phone:{" "}
-        <a href="tel:+917008699927">+91 70086 99927</a>
-      </p>
+          <p>
+            📞 Phone: <a href="tel:+917008699927">+91 70086 99927</a>
+          </p>
 
-      <p>
-        📍 Address:
-        <br />
-        Softree Technology Pvt. Ltd.
-        <br />
-        PLOT 5C/1283, SECTOR-10
-        <br />
-        CDA, Cuttack, Odisha - 753014
-        <br />
-        India
-      </p>
-    </>
-  ),
-}
+          <p>
+            📍 Address:
+            <br />
+            Softree Technology Pvt. Ltd.
+            <br />
+            PLOT 5C/1283, SECTOR-10
+            <br />
+            CDA, Cuttack, Odisha - 753014
+            <br />
+            India
+          </p>
+        </>
+      ),
+    },
   ];
 
   return (
@@ -384,7 +429,6 @@ export default function PrivacyPolicy() {
           <p className="pp-eyebrow">Softree Technology — Legal</p>
           <h1 className="pp-title">Privacy Policy</h1>
           <div className="pp-meta-row">
-         
             <span className="pp-meta-item">
               <strong>Last Updated:</strong> 20/04/2026
             </span>
@@ -422,10 +466,8 @@ export default function PrivacyPolicy() {
             </div>
           </div>
         ))}
-
       </div>
-     <Footer/>
-
+      <Footer />
     </>
   );
 }

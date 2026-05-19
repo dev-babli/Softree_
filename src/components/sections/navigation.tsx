@@ -139,8 +139,8 @@ const menu: MenuItem[] = [
         description: "Embed intelligence into every process and workflow.",
         links: [
           {
-            label: "Azure AI Foundry",
-            url: "/services/offshore-ai-development", // fixed
+            label: "AI Powered Test Automation",
+            url: "/services/ai-powered-test-automation",
             icon: BrainCircuit, // updated
             description: "Enterprise AI platform",
           },

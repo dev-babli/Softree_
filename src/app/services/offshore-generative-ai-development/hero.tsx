@@ -223,16 +223,14 @@ export default function HeroPowerApps() {
               Generative AI
             </div>
             <h1 style={styles.headline}>
-              Build
-              <br />
-              <span style={styles.headlineGradient}>
-                Generative AI Solutions for Enterprise
-              </span>
+              Enterprise Generative AI Solutions & AI Automation Services
             </h1>
 
             <p style={styles.subtext}>
-              Design intelligent, autonomous systems with generative AI and
-              modern technologies. Ship faster, scale confidently.
+              Build scalable generative AI solutions for enterprises using LLMs,
+              AI automation, intelligent chatbots, copilots, and modern cloud
+              technologies to streamline operations and accelerate business
+              growth.
             </p>
             <Link href="/contact" className="cta-btn" style={styles.ctaBtn}>
               Talk to our Expert
@@ -375,6 +373,7 @@ const styles: Record<string, CSSProperties> = {
     textTransform: "uppercase",
     padding: "5px 12px",
     borderRadius: "100px",
+    marginTop: "22px",
     marginBottom: "22px",
   },
   eyebrowDot: {
@@ -385,12 +384,13 @@ const styles: Record<string, CSSProperties> = {
   },
   headline: {
     fontFamily: "'Syne', sans-serif",
-    fontSize: "clamp(28px, 3.5vw, 46px)",
+    fontSize: "clamp(18px, 3vw, 42px)",
     fontWeight: 700,
-    lineHeight: 1.05, // 🔥 reduced spacing between lines
+    lineHeight: 1.05,
     letterSpacing: "-0.02em",
-    marginBottom: "8px", // 🔥 reduced bottom gap
+    marginBottom: "4px",
     color: "#f0f6ff",
+    wordBreak: "keep-all",
   },
 
   headlineGradient: {
@@ -408,13 +408,13 @@ const styles: Record<string, CSSProperties> = {
   ctaBtn: {
     display: "inline-flex",
     alignItems: "center",
-    gap: "5px",
-    background: "#38bdf8",
+    gap: "10px",
+    background: "#d8dce3ff",
     color: "#071b4d",
     fontFamily: "'DM Sans', sans-serif",
     fontSize: "15px",
     fontWeight: 500,
-    padding: "10px 24px",
+    padding: "13px 24px",
     borderRadius: "12px",
     border: "none",
     cursor: "pointer",
@@ -422,6 +422,7 @@ const styles: Record<string, CSSProperties> = {
     transition: "transform 0.2s, background 0.2s, box-shadow 0.2s",
     boxShadow: "0 8px 32px rgba(56,189,248,0.3)",
   },
+
   stats: {
     display: "flex",
     gap: "28px",
