@@ -2,12 +2,51 @@ import NavigationClient from "@/components/sections/navigation-client";
 import ProjectProcessSection from "./start-project";
 import Certifications from "@/app/services/business-applications/power-platform/certification";
 import Link from "next/link";
-import CaseFooter from "../footer";
+import Footer from "@/components/sections/footer";
 import CaseStudyGrid from "./case-study-grid";
 import WhyChooseUs from "./why-chose";
 import TechnologiesTabs from "./collab-tab";
 import WebCaseStudies from "./latest-cases";
-import CtaWebApps from "@/app/services/digital-workspace/web-app-development/cta";
+import LightContactSection from "@/components/homepage-light/LightContactSection";
+import LightFAQExact from "@/components/homepage-light/LightFAQExact";
+
+const webCaseStudyFAQs = [
+  {
+    id: 1,
+    serial: "question 01",
+    question: "What types of web application case studies do you feature?",
+    answer:
+      "Our web case studies showcase enterprise web applications, SaaS platforms, e-commerce solutions, and custom web portals. We highlight the challenges, solutions, and results for each project.",
+  },
+  {
+    id: 2,
+    serial: "question 02",
+    question: "What technologies are used in your web application projects?",
+    answer:
+      "We use modern web technologies including React.js, Next.js, Node.js, TypeScript, and cloud platforms like AWS and Azure. Each case study details the specific technology stack used.",
+  },
+  {
+    id: 3,
+    serial: "question 03",
+    question: "How do you measure success in your web application projects?",
+    answer:
+      "We measure success through metrics like performance improvements, user adoption rates, cost savings, and business impact. Our case studies include quantitative results and client testimonials.",
+  },
+  {
+    id: 4,
+    serial: "question 04",
+    question: "Can you build similar web applications for my business?",
+    answer:
+      "Yes, we can build similar solutions tailored to your specific business requirements. Contact us to discuss your project and we can provide a detailed proposal based on our experience.",
+  },
+  {
+    id: 5,
+    serial: "question 05",
+    question: "What industries do you serve with web application development?",
+    answer:
+      "We serve various industries including healthcare, finance, e-commerce, education, and manufacturing. Our case studies demonstrate our expertise across different sectors.",
+  },
+]
 export default function webCaseStudiesPage() {
   return (
     <div>
@@ -121,8 +160,9 @@ export default function webCaseStudiesPage() {
       <WhyChooseUs />
       <TechnologiesTabs />
       <Certifications />
-      <CtaWebApps />
-      <CaseFooter />
+      <LightContactSection />
+      <LightFAQExact faqs={webCaseStudyFAQs} />
+      <Footer />
     </div>
   );
 }

@@ -2,13 +2,52 @@ import NavigationClient from "@/components/sections/navigation-client";
 import MobileCaseStudyGrid from "./case-study-grid";
 import ProjectProcessSection from "./start-project";
 import { Factory, AlertTriangle, Workflow, TrendingUp } from "lucide-react";
-import CaseFooter from "../footer";
+import Footer from "@/components/sections/footer";
 import Link from "next/link";
 import WhyChooseUs from "./why-chose";
 import MobileCaseStudies from "./latest-cases";
 import TechnologiesTabs from "./tech-stack";
 import Certifications from "@/app/services/business-applications/power-platform/certification";
-import CtaMobileApps from "@/app/services/digital-workspace/mobile-app-development/cta";
+import LightContactSection from "@/components/homepage-light/LightContactSection";
+import LightFAQExact from "@/components/homepage-light/LightFAQExact";
+
+const mobileCaseStudyFAQs = [
+  {
+    id: 1,
+    serial: "question 01",
+    question: "What mobile app projects are featured in your case studies?",
+    answer:
+      "Our mobile case studies showcase iOS and Android apps, cross-platform solutions, and enterprise mobile applications. We highlight the challenges, technical solutions, and measurable results for each project.",
+  },
+  {
+    id: 2,
+    serial: "question 02",
+    question: "What technologies do you use for mobile app development?",
+    answer:
+      "We use React Native and Flutter for cross-platform development, and native technologies (Swift, Kotlin) for platform-specific needs. Each case study details the technology stack and rationale.",
+  },
+  {
+    id: 3,
+    serial: "question 03",
+    question: "How do you measure success in mobile app projects?",
+    answer:
+      "We measure success through app store ratings, user engagement, download numbers, and business impact. Our case studies include quantitative metrics and user feedback on app performance.",
+  },
+  {
+    id: 4,
+    serial: "question 04",
+    question: "Can you build similar mobile apps for my business?",
+    answer:
+      "Yes, we can build similar mobile solutions tailored to your business requirements. Contact us to discuss your project and we can provide a detailed proposal based on our proven expertise.",
+  },
+  {
+    id: 5,
+    serial: "question 05",
+    question: "What industries do you serve with mobile app development?",
+    answer:
+      "We serve various industries including healthcare, finance, retail, and logistics. Our case studies demonstrate our experience delivering mobile solutions across different sectors.",
+  },
+]
 
 export default function MobileCaseStudiesPage() {
   return (
@@ -122,8 +161,9 @@ export default function MobileCaseStudiesPage() {
       <WhyChooseUs />
       <TechnologiesTabs />
       <Certifications />
-      <CtaMobileApps />
-      <CaseFooter />
+      <LightContactSection />
+      <LightFAQExact faqs={mobileCaseStudyFAQs} />
+      <Footer />
     </div>
   );
 }

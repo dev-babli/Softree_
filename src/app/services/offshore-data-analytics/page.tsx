@@ -14,7 +14,47 @@ import PowerBIProcessSection from "./process";
 import TestimonialsSplitSlider from "./testimonials";
 import { PowerBIFaq } from "./faq";
 import TrustedBrandsMarquee from "../offshore-power-platform-development/trust";
+import LightContactSection from "@/components/homepage-light/LightContactSection";
+import LightFAQExact from "@/components/homepage-light/LightFAQExact";
 import type { Metadata } from "next";
+
+const powerBIFAQs = [
+  {
+    id: 1,
+    serial: "question 01",
+    question: "What Power BI development services do you offer?",
+    answer:
+      "We provide comprehensive Power BI development: interactive dashboards, data modeling, ETL processes, real-time analytics, reporting solutions, and enterprise BI systems. We help transform raw data into actionable insights.",
+  },
+  {
+    id: 2,
+    serial: "question 02",
+    question: "How long does it take to build a Power BI dashboard?",
+    answer:
+      "Simple dashboards take 2-4 weeks. Complex enterprise BI solutions with multiple data sources and advanced analytics take 6-12 weeks. We provide detailed timelines based on data complexity and requirements.",
+  },
+  {
+    id: 3,
+    serial: "question 03",
+    question: "Can you integrate Power BI with various data sources?",
+    answer:
+      "Yes, we integrate Power BI with SQL databases, Excel, SharePoint, Dynamics 365, Azure services, APIs, and third-party applications. We ensure seamless data connectivity and real-time updates.",
+  },
+  {
+    id: 4,
+    serial: "question 04",
+    question: "Do you provide Power BI training for teams?",
+    answer:
+      "We offer comprehensive training for business users, analysts, and administrators. We cover dashboard creation, data modeling, DAX formulas, and best practices to empower your team to leverage Power BI effectively.",
+  },
+  {
+    id: 5,
+    serial: "question 05",
+    question: "How do you handle Power BI security and governance?",
+    answer:
+      "We implement Row-Level Security (RLS), role-based access control, data encryption, and compliance with your governance policies. We follow Microsoft best practices and Microsoft Gold Partner security standards.",
+  },
+]
 /* ------------------------------------------------------------------ */
 /* Fixed Width Config                                                  */
 /* ------------------------------------------------------------------ */
@@ -80,8 +120,8 @@ export default function Home() {
 
       <Certifications />
 
-      <CtaAbout />
-      <PowerBIFaq />
+      <LightContactSection />
+      <LightFAQExact faqs={powerBIFAQs} />
       <Footer />
     </main>
   );

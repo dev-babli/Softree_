@@ -11,7 +11,18 @@ import Grainient from "./Grainient"
 
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
-const faqs = [
+interface FAQItem {
+  id: number
+  serial: string
+  question: string
+  answer: string
+}
+
+interface LightFAQExactProps {
+  faqs?: FAQItem[]
+}
+
+const defaultFaqs: FAQItem[] = [
   {
     id: 1,
     serial: "question 01",
@@ -65,7 +76,8 @@ const activeGrainientPalette = [
   { c1: "#FFF0E8", c2: "#F59E0B", c3: "#100802" },
 ]
 
-export default function LightFAQExact() {
+export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) {
+  const faqs = customFaqs || defaultFaqs
   const [activeIndex, setActiveIndex] = useState(4)
   const sectionRef = useRef<HTMLElement>(null)
   const titleRef = useRef<HTMLDivElement>(null)

@@ -2,13 +2,52 @@ import NavigationClient from "@/components/sections/navigation-client";
 import ProjectProcessSection from "./start-project";
 import { Factory, AlertTriangle, Workflow, TrendingUp } from "lucide-react";
 import Link from "next/link";
-import CaseFooter from "../footer";
+import Footer from "@/components/sections/footer";
 import CaseStudyGrid from "./case-study";
 import TechStack from "./tech-stack";
 import WhyChooseWithTestimonials from "./why";
 import SharePointCaseStudies from "./latest-cases";
 import Certifications from "@/app/services/business-applications/power-platform/certification";
-import CtaSharePoint from "@/app/services/digital-workspace/sharepoint/cta";
+import LightContactSection from "@/components/homepage-light/LightContactSection";
+import LightFAQExact from "@/components/homepage-light/LightFAQExact";
+
+const sharePointCaseStudyFAQs = [
+  {
+    id: 1,
+    serial: "question 01",
+    question: "What SharePoint solutions are featured in your case studies?",
+    answer:
+      "Our SharePoint case studies showcase intranet portals, document management systems, migration projects, and custom SharePoint solutions. We highlight the challenges, solutions, and measurable results for each project.",
+  },
+  {
+    id: 2,
+    serial: "question 02",
+    question: "What types of SharePoint migrations have you completed?",
+    answer:
+      "We have migrated from on-premises SharePoint to SharePoint Online, legacy file shares to SharePoint, and older SharePoint versions to modern platforms. Our case studies detail the migration strategies and outcomes.",
+  },
+  {
+    id: 3,
+    serial: "question 03",
+    question: "How do you measure success in SharePoint projects?",
+    answer:
+      "We measure success through user adoption rates, productivity improvements, cost savings, and system performance. Our case studies include quantitative metrics and client feedback on project outcomes.",
+  },
+  {
+    id: 4,
+    serial: "question 04",
+    question: "Can you help with similar SharePoint projects for my organization?",
+    answer:
+      "Yes, we can deliver similar SharePoint solutions tailored to your organization's needs. Contact us to discuss your requirements and we can provide a detailed proposal based on our proven expertise.",
+  },
+  {
+    id: 5,
+    serial: "question 05",
+    question: "What industries do you serve with SharePoint solutions?",
+    answer:
+      "We serve various industries including healthcare, finance, manufacturing, and government. Our case studies demonstrate our experience delivering SharePoint solutions across different sectors.",
+  },
+]
 export default function webCaseStudiesPage() {
   return (
     <div>
@@ -131,8 +170,9 @@ export default function webCaseStudiesPage() {
       <WhyChooseWithTestimonials />
       <TechStack />
       <Certifications />
-      <CtaSharePoint />
-      <CaseFooter />
+      <LightContactSection />
+      <LightFAQExact faqs={sharePointCaseStudyFAQs} />
+      <Footer />
     </div>
   );
 }

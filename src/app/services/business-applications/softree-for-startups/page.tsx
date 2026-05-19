@@ -11,6 +11,8 @@ import ProcessTimeline from "./process";
 import PowerPlatformSection from "./services-section";
 import TrustedBrandsMarquee from "../power-platform/trust";
 import Certifications from "../power-platform/certification";
+import LightContactSection from "@/components/homepage-light/LightContactSection";
+import LightFAQExact from "@/components/homepage-light/LightFAQExact";
 export default function Page() {
   return (
     <div className="min-h-screen">
@@ -26,6 +28,8 @@ export default function Page() {
       <WhySoftreeSection />
       <Certifications />
       <ProjectProcessSection />
+      <LightContactSection />
+      <LightFAQExact />
       <Footer />
     </div>
   );

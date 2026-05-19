@@ -8,8 +8,9 @@ import MvpProcessTimeline from "./mvp-timeline";
 import MvpTechStack from "./tech";
 import WhyChooseUsMVP from "./why";
 import MvpServices from "./services";
-import CtaMvp from "./cta";
 import Certifications from "../offshore-power-platform-development/certification";
+import LightContactSection from "@/components/homepage-light/LightContactSection";
+import LightFAQExact from "@/components/homepage-light/LightFAQExact";
 import { Metadata } from "next";
 
 /* ------------------------------------------------------------------ */
@@ -90,7 +91,8 @@ export default function Home() {
       <MvpTechStack />
       <WhyChooseUsMVP />
       <Certifications />
-      <CtaMvp />
+      <LightContactSection />
+      <LightFAQExact />
       <Footer />
     </main>
   );

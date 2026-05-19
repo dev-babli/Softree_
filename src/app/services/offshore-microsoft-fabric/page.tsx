@@ -5,13 +5,51 @@ import WhyFabricSection from "./business";
 import HireFabricPricing from "./pricing";
 import WhyChooseWithTestimonials from "./why";
 import TrustedBrandsMarquee from "../offshore-power-platform-development/trust";
-import CtaFabric from "./cta";
 import UseCasesSection from "./use-cases";
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
 import FabricPartner from "./fabric-partner";
-import { FabricFaq } from "./faq";
+import LightContactSection from "@/components/homepage-light/LightContactSection";
+import LightFAQExact from "@/components/homepage-light/LightFAQExact";
 import type { Metadata } from "next";
+
+const fabricFAQs = [
+  {
+    id: 1,
+    serial: "question 01",
+    question: "What Microsoft Fabric services do you offer?",
+    answer:
+      "We provide end-to-end Microsoft Fabric consulting: data engineering, data warehousing, real-time analytics, Power BI integration, data science, and AI implementation. We help organizations build unified analytics platforms.",
+  },
+  {
+    id: 2,
+    serial: "question 02",
+    question: "How does Microsoft Fabric differ from Power BI?",
+    answer:
+      "Microsoft Fabric is a unified analytics platform that includes Power BI, Synapse, and Data Factory in one SaaS solution. It provides data engineering, data science, and real-time analytics capabilities beyond traditional BI reporting.",
+  },
+  {
+    id: 3,
+    serial: "question 03",
+    question: "Can you help migrate from legacy data platforms to Fabric?",
+    answer:
+      "Yes, we specialize in migrating from legacy systems, on-premises data warehouses, and other cloud platforms to Microsoft Fabric. We ensure data integrity, minimal downtime, and optimized performance during migration.",
+  },
+  {
+    id: 4,
+    serial: "question 04",
+    question: "How long does a Fabric implementation typically take?",
+    answer:
+      "Fabric implementations vary from 6-16 weeks depending on complexity. Simple data lake setups take 6-8 weeks, while enterprise-wide analytics platforms with multiple data sources take 12-16 weeks.",
+  },
+  {
+    id: 5,
+    serial: "question 05",
+    question: "Do you provide training for Microsoft Fabric?",
+    answer:
+      "We provide comprehensive training for data engineers, analysts, and business users. We cover data modeling, Power BI integration, data science tools, and governance to ensure your team can effectively use Fabric.",
+  },
+]
 
 export const metadata: Metadata = {
   title: "Microsoft Fabric Consulting Services | Data Analytics & AI Solutions",
@@ -67,8 +105,8 @@ export default function Home() {
       <FabricPartner />
       <HireFabricPricing />
       <WhyChooseWithTestimonials />
-      <CtaFabric />
-      <FabricFaq />
+      <LightContactSection />
+      <LightFAQExact faqs={fabricFAQs} />
 
       <Footer />
     </>

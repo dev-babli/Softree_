@@ -5,10 +5,48 @@ import SpfxBenefits from "./spfx-benefits";
 import SpfxTabs from "./spfx-tab";
 import SoftreeExpertiseTimeline from "./spfx.expertise";
 import SpfxShowcase from "./case-study";
-import CtaSharePoint from "./cta";
 import TrustedBrandsMarquee from "../offshore-power-platform-development/trust";
-import { SPFaq } from "./faq";
+import LightContactSection from "@/components/homepage-light/LightContactSection";
+import LightFAQExact from "@/components/homepage-light/LightFAQExact";
 import type { Metadata } from "next";
+
+const spfxFAQs = [
+  {
+    id: 1,
+    serial: "question 01",
+    question: "What SPFX development services do you offer?",
+    answer:
+      "We build custom SharePoint Framework web parts, extensions, and modern intranet solutions using React, TypeScript, and Microsoft 365 best practices. We create responsive, performant, and secure SPFX solutions.",
+  },
+  {
+    id: 2,
+    serial: "question 02",
+    question: "How long does it take to develop an SPFX web part?",
+    answer:
+      "Simple web parts take 2-4 weeks. Complex SPFX solutions with multiple web parts, integrations, and custom features take 6-10 weeks. We provide detailed timelines based on requirements.",
+  },
+  {
+    id: 3,
+    serial: "question 03",
+    question: "Do you support both SharePoint Online and On-Premises?",
+    answer:
+      "We primarily develop for SharePoint Online (Microsoft 365), which is the modern platform for SPFX. For On-Premises environments, we can help with migration strategies to SharePoint Online.",
+  },
+  {
+    id: 4,
+    serial: "question 04",
+    question: "Can SPFX solutions integrate with Microsoft Graph and other M365 services?",
+    answer:
+      "Yes, we integrate SPFX solutions with Microsoft Graph API, Power Automate, Power BI, Teams, and other Microsoft 365 services to create comprehensive enterprise solutions.",
+  },
+  {
+    id: 5,
+    serial: "question 05",
+    question: "What testing and deployment support do you provide?",
+    answer:
+      "We provide comprehensive testing, deployment to SharePoint App Catalog, version management, and documentation. We ensure smooth deployment across development, staging, and production environments.",
+  },
+]
 
 export const metadata: Metadata = {
   title: "SharePoint Framework (SPFX) Development Services | Custom Web Parts",
@@ -63,8 +101,8 @@ export default function Page() {
       <SpfxBenefits />
       <SoftreeExpertiseTimeline />
       {/* <Certifications /> */}
-      <CtaSharePoint />
-      <SPFaq />
+      <LightContactSection />
+      <LightFAQExact faqs={spfxFAQs} />
 
       <Footer />
     </div>

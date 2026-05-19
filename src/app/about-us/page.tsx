@@ -7,6 +7,7 @@ import AboutTeamSection from "@/components/qc/homepage-light/AboutTeamSection";
 import AwardsMarqueeSection from "@/components/qc/homepage-light/AwardsMarqueeSection";
 import LightEngagementModels from "@/components/qc/homepage-light/LightEngagementModels";
 import LightContactSection from "@/components/qc/homepage-light/LightContactSection";
+import LightFAQExact from "@/components/homepage-light/LightFAQExact";
 import TestimonialsGlobe from "@/components/sections/TestimonialsGlobe";
 import Footer from "@/components/sections/footer";
 /**
@@ -53,7 +54,10 @@ export default function AboutUsPage() {
       {/* 8. Contact — Get in touch */}
       <LightContactSection />
 
-      {/* 9. Footer — Homepage footer */}
+      {/* 9. FAQ */}
+      <LightFAQExact />
+
+      {/* 10. Footer — Homepage footer */}
       <Footer />
     </div>
   );

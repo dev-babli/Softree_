@@ -9,11 +9,49 @@ import PowerAppsCaseStudies from "./casestudies";
 import TimelinePage from "./timeline";
 import SharePointHero from "./hero";
 import HireSharePointPricing from "./pricing-cards";
-import CtaSharePoint from "./cta";
 import WhyChooseUs from "./why-chose";
 import TrustedBrandsMarquee from "../offshore-power-platform-development/trust";
-import { SPFaq } from "./faq";
+import LightContactSection from "@/components/homepage-light/LightContactSection";
+import LightFAQExact from "@/components/homepage-light/LightFAQExact";
 import type { Metadata } from "next";
+
+const sharePointFAQs = [
+  {
+    id: 1,
+    serial: "question 01",
+    question: "What SharePoint services do you offer?",
+    answer:
+      "We provide comprehensive SharePoint development: custom intranets, document management systems, workflow automation, SharePoint Online migration, custom web parts, Power Apps integration, and enterprise portal solutions.",
+  },
+  {
+    id: 2,
+    serial: "question 02",
+    question: "How long does a SharePoint migration typically take?",
+    answer:
+      "SharePoint migrations typically take 4-12 weeks depending on data volume, complexity, and custom requirements. We perform detailed assessment before migration and provide phased rollout with minimal business disruption.",
+  },
+  {
+    id: 3,
+    serial: "question 03",
+    question: "Do you support both SharePoint On-Premises and Online?",
+    answer:
+      "Yes, we work with both SharePoint On-Premises and SharePoint Online. We can help migrate from On-Premises to Online, maintain hybrid environments, or develop solutions for either platform based on your needs.",
+  },
+  {
+    id: 4,
+    serial: "question 04",
+    question: "Can you integrate SharePoint with other Microsoft 365 tools?",
+    answer:
+      "Absolutely. We integrate SharePoint with Power Apps, Power Automate, Teams, Power BI, and other Microsoft 365 services to create seamless collaboration and automation solutions for your organization.",
+  },
+  {
+    id: 5,
+    serial: "question 05",
+    question: "What post-migration support do you provide?",
+    answer:
+      "We offer comprehensive post-migration support including user training, system monitoring, performance optimization, security updates, and ongoing maintenance to ensure your SharePoint environment runs smoothly.",
+  },
+]
 
 export const metadata: Metadata = {
   title: "SharePoint Development Services | Custom Intranet & Solutions",
@@ -82,8 +120,8 @@ export default function Home() {
         </div>
       </section>
 
-      <CtaSharePoint />
-      <SPFaq />
+      <LightContactSection />
+      <LightFAQExact faqs={sharePointFAQs} />
 
       <Footer />
     </main>

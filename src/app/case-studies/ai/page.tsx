@@ -1,12 +1,51 @@
 import NavigationClient from "@/components/sections/navigation-client";
-import CaseFooter from "../footer";
+import Footer from "@/components/sections/footer";
 import Link from "next/link";
 import { Factory, AlertTriangle, Workflow, TrendingUp } from "lucide-react";
 import ProjectProcessSection from "./start-project";
 import CaseStudyGrid from "./case-study";
 import WhyChooseUs from "./why";
 import AgenticToolsOverview from "./tools";
-import CtaAgenticAI from "./start-project";
+import LightContactSection from "@/components/homepage-light/LightContactSection";
+import LightFAQExact from "@/components/homepage-light/LightFAQExact";
+
+const aiCaseStudyFAQs = [
+  {
+    id: 1,
+    serial: "question 01",
+    question: "What AI projects are featured in your case studies?",
+    answer:
+      "Our AI case studies showcase generative AI solutions, AI agents, intelligent automation, and machine learning applications. We highlight the challenges, technical approaches, and measurable business outcomes for each project.",
+  },
+  {
+    id: 2,
+    serial: "question 02",
+    question: "What AI technologies do you use in your projects?",
+    answer:
+      "We use OpenAI, Azure OpenAI, custom LLMs, and machine learning frameworks. Each case study details the specific AI technologies, models, and architectures used to solve business problems.",
+  },
+  {
+    id: 3,
+    serial: "question 03",
+    question: "How do you measure success in AI projects?",
+    answer:
+      "We measure success through accuracy improvements, efficiency gains, cost savings, and user satisfaction. Our case studies include quantitative metrics and qualitative feedback on AI solution performance.",
+  },
+  {
+    id: 4,
+    serial: "question 04",
+    question: "Can you build similar AI solutions for my organization?",
+    answer:
+      "Yes, we can build similar AI solutions tailored to your business needs. Contact us to discuss your requirements and we can provide a detailed proposal based on our proven AI expertise.",
+  },
+  {
+    id: 5,
+    serial: "question 05",
+    question: "What industries do you serve with AI solutions?",
+    answer:
+      "We serve various industries including healthcare, finance, customer service, and operations. Our case studies demonstrate our experience delivering AI solutions across different business sectors.",
+  },
+]
 export default function Page() {
   return (
     <div>
@@ -120,8 +159,9 @@ export default function Page() {
       <CaseStudyGrid />
       <WhyChooseUs />
       <AgenticToolsOverview />
-      <CtaAgenticAI />
-       <CaseFooter />
+      <LightContactSection />
+      <LightFAQExact faqs={aiCaseStudyFAQs} />
+      <Footer />
     </div>
   );
 }

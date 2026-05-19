@@ -9,9 +9,47 @@ import QualityBenchmark from "./quality";
 import WhyChooseSoftreeWebDevelopment from "./why-chose";
 import WebDevelopmentCaseStudies from "./case-studies";
 import WebDevHero from "./hero";
-import CtaWeb from "./cta";
 import TrustedBrandsMarquee from "../offshore-power-platform-development/trust";
-import { WebFaq } from "./faq";
+import LightContactSection from "@/components/homepage-light/LightContactSection";
+import LightFAQExact from "@/components/homepage-light/LightFAQExact";
+
+const webAppFAQs = [
+  {
+    id: 1,
+    serial: "question 01",
+    question: "What technologies do you use for web app development?",
+    answer:
+      "We specialize in modern web technologies: React.js, Next.js, Node.js, TypeScript, and cloud platforms like AWS and Azure. We choose the right tech stack based on your project requirements, scalability needs, and performance goals.",
+  },
+  {
+    id: 2,
+    serial: "question 02",
+    question: "How long does it take to build a custom web application?",
+    answer:
+      "Typical web app MVPs take 8-12 weeks. Complex enterprise portals may take 12-16 weeks. We provide a detailed timeline during discovery phase with milestone checkpoints to ensure transparent delivery.",
+  },
+  {
+    id: 3,
+    serial: "question 03",
+    question: "Do you provide ongoing maintenance and support?",
+    answer:
+      "Yes, we offer flexible maintenance packages including bug fixes, security updates, performance optimization, and feature enhancements. Our support team ensures your web application stays secure and up-to-date.",
+  },
+  {
+    id: 4,
+    serial: "question 04",
+    question: "How do you ensure web application security?",
+    answer:
+      "We implement industry-standard security practices: OWASP compliance, data encryption, secure authentication, regular security audits, and penetration testing. We follow Microsoft Gold Partner security standards.",
+  },
+  {
+    id: 5,
+    serial: "question 05",
+    question: "Can you integrate with existing systems and APIs?",
+    answer:
+      "Absolutely. We have extensive experience integrating web applications with third-party APIs, legacy systems, databases, CRMs, ERPs, and other enterprise software. We ensure seamless data flow and system interoperability.",
+  },
+]
 
 /* ------------------------------------------------------------------ */
 /* Shared Layout Config                                                */
@@ -82,8 +120,8 @@ export default function Home() {
         {/* <Certifications /> */}
       </section>
 
-      <CtaWeb />
-      <WebFaq />
+      <LightContactSection />
+      <LightFAQExact faqs={webAppFAQs} />
 
       <Footer />
     </main>
