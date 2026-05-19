@@ -1,15 +1,18 @@
-/**
- * Sanity Schema Configuration
- * 
- * This file exports schemas for use with Sanity Studio.
- * The Studio itself is managed separately via the CLI at:
- * studio-softree-technology/ (created with npm create sanity@latest)
- * 
- * @see https://www.sanity.io/docs/configuration
- */
-
+import { defineConfig } from 'sanity'
+import { structureTool } from 'sanity/structure'
+import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './sanity/schemas'
 
-export const schema = {
-  types: schemaTypes,
-}
+export default defineConfig({
+  name: 'default',
+  title: 'Softree Technology',
+
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '1zmh4sfw',
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+
+  plugins: [structureTool(), visionTool()],
+
+  schema: {
+    types: schemaTypes,
+  },
+})
