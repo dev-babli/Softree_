@@ -26,7 +26,7 @@ const steps = [
 
 export default function AgenticFramework() {
   return (
-    <section className="w-full py-24 bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
+    <section className="w-full py-24 ">
       <div className="max-w-6xl mx-auto px-4">
         {/* Heading */}
         <div className="text-center max-w-3xl mx-auto mb-12">

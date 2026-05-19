@@ -13,6 +13,48 @@ import CtaSharePoint from "./cta";
 import WhyChooseUs from "./why-chose";
 import TrustedBrandsMarquee from "../offshore-power-platform-development/trust";
 import { SPFaq } from "./faq";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "SharePoint Development Services | Custom Intranet & Solutions",
+
+  description:
+    "Professional SharePoint development services. We build custom SharePoint intranets, document management systems, and enterprise portals with migration, customization, and support.",
+
+  keywords: [
+    "SharePoint development",
+    "SharePoint customization",
+    "SharePoint migration",
+    "SharePoint intranet development",
+    "Microsoft 365 development",
+    "SharePoint consulting services",
+    "SharePoint solutions",
+    "enterprise portal development",
+    "document management system",
+    "SharePoint development company",
+  ],
+
+  openGraph: {
+    title: "SharePoint Development Services | Custom Intranet & Solutions",
+    description:
+      "Professional SharePoint development services for custom intranets, document management, and enterprise portals.",
+    url: "https://www.softreetechnology.com/services/offshore-sharepoint-development",
+    siteName: "Softree Technology",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "SharePoint Development Services",
+    description:
+      "Custom SharePoint development, migration, and enterprise portal solutions.",
+  },
+
+  alternates: {
+    canonical:
+      "https://www.softreetechnology.com/services/offshore-sharepoint-development",
+  },
+};
 const FIXED_WIDTH = "mx-auto max-w-8xl px-8 sm:px-10 md:px-14 lg:px-20";
 
 export default function Home() {

@@ -160,7 +160,7 @@ function TestimonialSlide({ testimonial }: TestimonialSlideProps) {
   );
 }
 
-export default function HeroPowerApps() {
+export default function HeroAIAutomation() {
   const [idx, setIdx] = useState<number>(0);
   const [elapsed, setElapsed] = useState<number>(0);
 
@@ -200,33 +200,12 @@ export default function HeroPowerApps() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=DM+Sans:wght@400;500&display=swap');
         .cta-btn:hover { background: #7dd3fc !important; transform: translateY(-2px); box-shadow: 0 12px 40px rgba(56,189,248,0.45) !important; }
         .cta-btn:hover .cta-arrow { transform: translateX(3px); }
         .cta-arrow { transition: transform 0.2s; }
         .nav-btn:hover { background: rgba(56,189,248,0.2) !important; border-color: rgba(56,189,248,0.4) !important; transform: scale(1.08); }
         @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.7)} }
         .eyebrow-dot { animation: pulse 2s ease-in-out infinite; }
-
-        @media (max-width: 991px) {
-          .hero-inner {
-            flex-direction: column !important;
-            padding: 100px 24px 60px !important;
-            gap: 40px !important;
-          }
-          .hero-left {
-            padding-right: 0 !important;
-            border-right: none !important;
-            width: 100% !important;
-          }
-          .hero-right {
-            padding-left: 0 !important;
-            width: 100% !important;
-          }
-          .hero-slider-viewport {
-            width: 100% !important;
-          }
-        }
       `}</style>
 
       <section style={styles.hero} role="banner">
@@ -235,34 +214,39 @@ export default function HeroPowerApps() {
         <div style={styles.orb1} />
         <div style={styles.orb2} />
 
-        <div style={styles.inner} className="hero-inner">
+        <div style={styles.inner}>
           {/* LEFT */}
-          <div style={styles.left} className="hero-left">
+          <div style={styles.left}>
             <div style={styles.eyebrow}>
               <div className="eyebrow-dot" style={styles.eyebrowDot} />
-              Microsoft Power Platform
+              AI-Powered Test Automation
             </div>
-
             <h1 style={styles.headline}>
-              Enterprise Power Platform
-              <br />
-              <span style={styles.headlineGradient}>Development Services</span>
+              Accelerate Software Delivery with Intelligent QA Automation
             </h1>
 
             <p style={styles.subtext}>
-              Build scalable Microsoft Power Apps solutions to automate
-              workflows, streamline business operations, integrate Microsoft
-              365, and improve enterprise productivity with modern low-code
-              development.
+              Deliver faster releases, reduce regression cycles, and improve
+              software quality with scalable AI-powered automation testing
+              solutions built for modern enterprises.
             </p>
 
-            <Link href="/contact" className="cta-btn" style={styles.ctaBtn}>
-              Talk to a Power Apps Expert
-              <span className="cta-arrow">
-                <ArrowRight stroke="#071b4d" />
-              </span>
-            </Link>
+            <div style={styles.ctaWrapper}>
+              <Link href="/contact" className="cta-btn" style={styles.ctaBtn}>
+                Schedule Consultation
+                <span className="cta-arrow">
+                  <ArrowRight stroke="#071b4d" />
+                </span>
+              </Link>
 
+              <Link
+                href="/contact"
+                className="cta-btn secondary"
+                style={styles.secondaryBtn}
+              >
+                Request Automation Assessment
+              </Link>
+            </div>
             <div style={styles.stats}>
               <div>
                 <div style={styles.statNum}>150+</div>
@@ -279,8 +263,8 @@ export default function HeroPowerApps() {
             </div>
           </div>
 
-          <div style={styles.right} className="hero-right">
-            <div style={styles.sliderViewport} className="hero-slider-viewport">
+          <div style={styles.right}>
+            <div style={styles.sliderViewport}>
               {testimonials.map((t, i) => (
                 <div
                   key={i}
@@ -321,7 +305,6 @@ const styles: Record<string, CSSProperties> = {
     overflow: "hidden",
     background: "#071b4d",
     color: "white",
-    fontFamily: "'DM Sans', sans-serif",
     minHeight: "580px",
   },
   noise: {
@@ -397,7 +380,7 @@ const styles: Record<string, CSSProperties> = {
     textTransform: "uppercase",
     padding: "5px 12px",
     borderRadius: "100px",
-
+    marginBottom: "22px",
     marginTop: "22px",
   },
   eyebrowDot: {
@@ -407,7 +390,6 @@ const styles: Record<string, CSSProperties> = {
     background: "#38bdf8",
   },
   headline: {
-    fontFamily: "'Syne', sans-serif",
     fontSize: "clamp(18px, 3vw, 42px)",
     fontWeight: 700,
     lineHeight: 1.05,
@@ -416,6 +398,7 @@ const styles: Record<string, CSSProperties> = {
     color: "#f0f6ff",
     wordBreak: "keep-all",
   },
+
   headlineGradient: {
     background: "linear-gradient(135deg, #38bdf8 0%, #818cf8 100%)",
     WebkitBackgroundClip: "text",
@@ -426,35 +409,61 @@ const styles: Record<string, CSSProperties> = {
     color: "rgba(200,220,255,0.65)",
     fontSize: "15px",
     lineHeight: 1.7,
-    marginBottom: "2px",
+    marginBottom: "12px",
   },
+  ctaWrapper: {
+    display: "flex",
+    alignItems: "center",
+    gap: "14px",
+    marginTop: "28px",
+    flexWrap: "nowrap",
+  },
+
   ctaBtn: {
     display: "inline-flex",
     alignItems: "center",
+    justifyContent: "center",
     gap: "10px",
     background: "#d8dce3ff",
     color: "#071b4d",
-    fontFamily: "'DM Sans', sans-serif",
-    fontSize: "15px",
-    fontWeight: 500,
-    padding: "13px 24px",
+    fontSize: "14px",
+    fontWeight: 600,
+    padding: "12px 20px",
     borderRadius: "12px",
     border: "none",
     cursor: "pointer",
     textDecoration: "none",
-    transition: "transform 0.2s, background 0.2s, box-shadow 0.2s",
+    transition: "all 0.25s ease",
     boxShadow: "0 8px 32px rgba(56,189,248,0.3)",
+    whiteSpace: "nowrap",
+  },
+
+  secondaryBtn: {
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    background: "transparent",
+    color: "#ffffff",
+    fontSize: "14px",
+    fontWeight: 600,
+    padding: "12px 20px",
+    borderRadius: "12px",
+    border: "1px solid rgba(255,255,255,0.18)",
+    cursor: "pointer",
+    textDecoration: "none",
+    transition: "all 0.25s ease",
+    backdropFilter: "blur(10px)",
+    whiteSpace: "nowrap",
   },
 
   stats: {
     display: "flex",
     gap: "28px",
-    marginTop: "4px",
+    marginTop: "10px",
     paddingTop: "12px",
     borderTop: "1px solid rgba(255,255,255,0.08)",
   },
   statNum: {
-    fontFamily: "'Syne', sans-serif",
     fontSize: "22px",
     fontWeight: 700,
     color: "#f0f6ff",
@@ -471,6 +480,7 @@ const styles: Record<string, CSSProperties> = {
     borderRadius: "20px",
     minHeight: "305px", // ⭐ IMPORTANT (adjust as needed)
   },
+
   sliderTrack: {
     display: "flex",
     transition: "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -494,7 +504,6 @@ const styles: Record<string, CSSProperties> = {
       "linear-gradient(90deg, transparent, rgba(56,189,248,0.5), transparent)",
   },
   quoteMark: {
-    fontFamily: "'Syne', sans-serif",
     fontSize: "56px",
     lineHeight: 0.8,
     color: "rgba(56,189,248,0.25)",
@@ -521,7 +530,6 @@ const styles: Record<string, CSSProperties> = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    fontFamily: "'Syne', sans-serif",
     fontSize: "13px",
     fontWeight: 600,
     color: "#7dd3fc",

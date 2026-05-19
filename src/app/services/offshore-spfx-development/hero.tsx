@@ -224,16 +224,14 @@ export default function HeroPowerApps() {
             </div>
 
             <h1 style={styles.headline}>
-              Build
-              <br />
-              <span style={styles.headlineGradient}>
-                SPFx Solutions for Enterprise
-              </span>
+              Enterprise SPFx Development & SharePoint Solutions
             </h1>
 
             <p style={styles.subtext}>
-              Build and streamline SpFx solutions with modern Microsoft
-              technologies. Ship faster, scale confidently.
+              Build scalable SPFx solutions and modern SharePoint applications
+              using Microsoft 365, React, and enterprise-grade technologies to
+              improve collaboration, automate workflows, and accelerate digital
+              transformation.
             </p>
             <Link href="/contact" className="cta-btn" style={styles.ctaBtn}>
               Talk to our Expert
@@ -390,12 +388,13 @@ const styles: Record<string, CSSProperties> = {
   },
   headline: {
     fontFamily: "'Syne', sans-serif",
-    fontSize: "clamp(28px, 3.5vw, 46px)",
+    fontSize: "clamp(18px, 3vw, 42px)",
     fontWeight: 700,
-    lineHeight: 1.05, // 🔥 reduced spacing between lines
+    lineHeight: 1.05,
     letterSpacing: "-0.02em",
-    marginBottom: "8px", // 🔥 reduced bottom gap
+    marginBottom: "4px",
     color: "#f0f6ff",
+    wordBreak: "keep-all",
   },
 
   headlineGradient: {
@@ -413,13 +412,13 @@ const styles: Record<string, CSSProperties> = {
   ctaBtn: {
     display: "inline-flex",
     alignItems: "center",
-    gap: "5px",
-    background: "#38bdf8",
+    gap: "10px",
+    background: "#d8dce3ff",
     color: "#071b4d",
     fontFamily: "'DM Sans', sans-serif",
     fontSize: "15px",
     fontWeight: 500,
-    padding: "10px 24px",
+    padding: "13px 24px",
     borderRadius: "12px",
     border: "none",
     cursor: "pointer",
@@ -427,6 +426,7 @@ const styles: Record<string, CSSProperties> = {
     transition: "transform 0.2s, background 0.2s, box-shadow 0.2s",
     boxShadow: "0 8px 32px rgba(56,189,248,0.3)",
   },
+
   stats: {
     display: "flex",
     gap: "28px",

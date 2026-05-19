@@ -1,4 +1,45 @@
 import Footer from "@/components/sections/footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms of Use | Softree Technology",
+  description:
+    "Read Softree Technology’s Terms of Use to understand the rules and guidelines for using our website and services.",
+  keywords: [
+    "Terms of Use",
+    "Terms and Conditions",
+    "Softree Technology Terms",
+    "website terms",
+    "service terms",
+  ],
+  alternates: {
+    canonical: "https://www.softreetechnology.com/terms",
+  },
+  openGraph: {
+    title: "Terms of Use | Softree Technology",
+    description:
+      "Understand the terms and conditions for using Softree Technology services.",
+    url: "https://www.softreetechnology.com/terms",
+    siteName: "Softree Technology",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Softree Technology",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms of Use | Softree Technology",
+    description:
+      "Understand the terms and conditions for using Softree Technology services.",
+    images: ["/og-image.png"],
+  },
+};
+
 export default function TermsOfUse() {
   const sections = [
     {
