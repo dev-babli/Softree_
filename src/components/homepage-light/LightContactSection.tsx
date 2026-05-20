@@ -115,10 +115,31 @@ function Field({
 export default function LightContactSection() {
   const [status, setStatus] = useState<Status>("idle")
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     setStatus("submitting")
-    window.setTimeout(() => setStatus("success"), 700)
+
+    const form = event.currentTarget
+    const formData = new FormData(form)
+
+    try {
+      const response = await fetch("https://formspree.io/f/mbdwbkad", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      })
+
+      if (response.ok) {
+        setStatus("success")
+        form.reset()
+      } else {
+        setStatus("error")
+      }
+    } catch (err) {
+      setStatus("error")
+    }
   }
 
   return (

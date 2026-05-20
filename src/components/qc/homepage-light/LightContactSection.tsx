@@ -135,7 +135,7 @@ export default function LightContactSection() {
     if (fd.get("_gotcha")) return
     setStatus("submitting")
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://formspree.io/f/mbdwbkad", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(Object.fromEntries(fd)),
