@@ -1,0 +1,21 @@
+{
+  "createdAt": "2026-05-19T18:51:26.081Z",
+  "studioVersion": "5.26.0",
+  "version": 3,
+  "workspaces": [
+    {
+      "basePath": "/",
+      "dataset": "production",
+      "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\"><rect width=\"32\" height=\"32\" rx=\"2\" fill=\"#015133\"></rect><text x=\"50%\" y=\"50%\" text-anchor=\"middle\" alignment-baseline=\"middle\" fill=\"hsla(158, 98%, 56%, 1)\" style=\"font-family:Inter, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, &quot;Liberation Sans&quot;, Helvetica, Arial, system-ui, sans-serif;font-weight:500;font-size:13px;transform:translateY(1px)\">ST</text></svg>",
+      "mediaLibrary": {
+        "enabled": false,
+        "__internal": {}
+      },
+      "name": "default",
+      "projectId": "1zmh4sfw",
+      "schema": "0a7cf638.create-schema.json",
+      "title": "Softree Technology",
+      "tools": "ef87c8fe.create-tools.json"
+    }
+  ]
+}
