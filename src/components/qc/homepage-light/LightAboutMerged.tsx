@@ -8,6 +8,7 @@ import { ArrowUpRight } from "lucide-react"
 import Grainient from "./Grainient"
 import { EASE_T } from "@/lib/motion"
 import { SpotlightCard } from "@/components/qc/shared/SpotlightCard"
+import { Globe } from "@/registry/magicui/globe"
 
 const EASE_OUT = EASE_T.silk
 
@@ -198,9 +199,22 @@ export default function LightAboutMerged() {
             </motion.div>
 
             {/* Award Count */}
-            <div className="relative">
+            <div className="relative flex items-center justify-center min-h-60 md:min-h-80 lg:min-h-[360px]">
+              {/* Background Globe - Behind the 40+ */}
+              <motion.div
+                className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={isInView ? { opacity: 0.6, scale: 1 } : {}}
+                transition={{ duration: 1.2, delay: 0.4, ease: EASE_OUT }}
+              >
+                <div className="relative h-60 w-60 md:h-80 md:w-80 lg:h-[380px] lg:w-[380px]">
+                  <Globe className="top-0" />
+                </div>
+              </motion.div>
+
+              {/* 40+ Number - On top of globe */}
               <motion.span
-                className="text-[120px] font-bold leading-none tracking-tighter tabular-nums text-[#0a0a1a] md:text-[160px] lg:text-[180px]"
+                className="relative z-10 text-[120px] font-bold leading-none tracking-tighter tabular-nums text-[#0a0a1a] md:text-[160px] lg:text-[180px] drop-shadow-[0_2px_10px_rgba(255,255,255,0.8)]"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.8, delay: 0.3, ease: EASE_OUT }}

@@ -314,13 +314,13 @@ function IndustriesPanel() {
     <div className="relative w-full px-5 py-5 lg:px-6">
       <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)_288px] gap-x-6">
         <div className="min-w-0">
-          <p className="text-xs font-semibold uppercase tracking-wider relative mb-4 text-[#787878]">Selected Work</p>
+          <p className="text-xs font-semibold uppercase tracking-wider relative mb-4 text-[#787878]">Case Studies</p>
           <ul className="flex list-none flex-col gap-y-1">
-            <LinkItem href="/services/digital-workspace/web-app-development" label="Web Platforms" />
-            <LinkItem href="/services/digital-workspace/mobile-app-development" label="Mobile Products" />
-            <LinkItem href="/services/ai-intelligence/agentic-ai" label="AI Systems" />
-            <LinkItem href="/services/business-applications/power-apps" label="Power Apps" />
-            <LinkItem href="/services/digital-workspace/sharepoint" label="SharePoint" />
+            <LinkItem href="/case-studies/web" label="Web Platforms" />
+            <LinkItem href="/case-studies/mobile" label="Mobile Products" />
+            <LinkItem href="/case-studies/ai" label="AI Systems" />
+            <LinkItem href="/case-studies/power-platform" label="Power Apps" />
+            <LinkItem href="/case-studies/sharepoint" label="SharePoint" />
           </ul>
         </div>
         <div className="min-w-0">
@@ -384,15 +384,16 @@ function ResourcesPanel() {
           </ul>
         </div>
         <div className="min-w-0">
-          <p className="text-xs font-semibold uppercase tracking-wider relative mb-4 text-[#787878]">Popular Services</p>
+          <p className="text-xs font-semibold uppercase tracking-wider relative mb-4 text-[#787878]">Blog & Insights</p>
           <ul className="flex list-none flex-col gap-y-1">
-            <LinkItem href="/services/digital-workspace/web-app-development" label="Web App Development" />
-            <LinkItem href="/services/ai-intelligence/agentic-ai" label="Agentic AI" />
-            <LinkItem href="/services/data-analytics/power-bi" label="Power BI" />
-            <LinkItem href="/services/business-applications/power-apps" label="Power Apps" />
+            <LinkItem href="/blog" label="All Articles" />
+            <LinkItem href="/blog/best-agentic-ai-services" label="Best Agentic AI Services" />
+            <LinkItem href="/blog/best-ai-services" label="Best AI Services" />
+            <LinkItem href="/blog/best-sharepoint-development-services" label="Best SharePoint Services" />
+            <LinkItem href="/blog/best-web-app-development-services" label="Best Web App Services" />
           </ul>
         </div>
-        <FullImageCard href="/contact" imgSrc={SRCSET.customerStories.src} imgSrcSet={SRCSET.customerStories.srcSet} title="Talk To Softree" desc="Bring a roadmap, a rough idea, or a stuck project. We will help shape the next step." />
+        <FullImageCard href="/blog" imgSrc={SRCSET.customerStories.src} imgSrcSet={SRCSET.customerStories.srcSet} title="Read The Blog" desc="Strategy, engineering insights, and industry guides curated by the Softree team." />
       </div>
     </div>
   )
@@ -414,8 +415,8 @@ function CompanyPanel() {
           <p className="text-xs font-semibold uppercase tracking-wider relative mb-4 text-[#787878]">Connect</p>
           <ul className="flex list-none flex-col gap-y-1">
             <LinkItem href="/contact" label="Start a Project" />
-            <LinkItem href="/services" label="Explore Services" />
-            <LinkItem href="/services" label="View Services" />
+            <LinkItem href="/case-studies/web" label="View Case Studies" />
+            <LinkItem href="/blog" label="Read the Blog" />
           </ul>
         </div>
       </div>
@@ -491,7 +492,7 @@ function MobSoftreeWork() {
         <LinkItem href="/case-studies/web" label="Web Platforms" />
         <LinkItem href="/case-studies/mobile" label="Mobile Products" />
         <LinkItem href="/case-studies/ai" label="AI Systems" />
-        <LinkItem href="/case-studies/power-apps" label="Power Apps" />
+        <LinkItem href="/case-studies/power-platform" label="Power Apps" />
         <LinkItem href="/case-studies/sharepoint" label="SharePoint" />
       </MobileLinkGroup>
       <div className="flex w-full flex-col justify-end gap-y-4 border-t border-[#e0e0e0] pb-2 pl-2 pt-5">
@@ -530,6 +531,12 @@ function MobSoftreeResources() {
         <LinkItem href="/case-studies/ai" label="AI Case Study" />
         <LinkItem href="/about-us" label="About Softree" />
       </MobileLinkGroup>
+      <MobileLinkGroup title="Blog & Insights">
+        <LinkItem href="/blog" label="All Articles" />
+        <LinkItem href="/blog/best-agentic-ai-services" label="Best Agentic AI Services" />
+        <LinkItem href="/blog/best-ai-services" label="Best AI Services" />
+        <LinkItem href="/blog/best-sharepoint-development-services" label="Best SharePoint Services" />
+      </MobileLinkGroup>
       <MobileLinkGroup title="Popular Services">
         <LinkItem href="/services/digital-workspace/web-app-development" label="Web App Development" />
         <LinkItem href="/services/ai-intelligence/agentic-ai" label="Agentic AI" />
@@ -550,8 +557,8 @@ function MobSoftreeCompany() {
       </MobileLinkGroup>
       <MobileLinkGroup title="Connect">
         <LinkItem href="/contact" label="Start a Project" />
-        <LinkItem href="/services" label="Explore Services" />
-        <LinkItem href="/case-studies/web" label="View Work" />
+        <LinkItem href="/case-studies/web" label="View Case Studies" />
+        <LinkItem href="/blog" label="Read the Blog" />
       </MobileLinkGroup>
     </div>
   )

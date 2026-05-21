@@ -249,6 +249,7 @@ const menu: MenuItem[] = [
       },
     ],
   },
+  { label: "Blog", url: "/blog" },
 ];
 
 export default function Navigation() {
@@ -267,9 +268,8 @@ export default function Navigation() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 flex justify-center transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${
-        showNav ? "translate-y-0" : "-translate-y-full"
-      }`}
+      className={`fixed top-0 left-0 w-full z-50 flex justify-center transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${showNav ? "translate-y-0" : "-translate-y-full"
+        }`}
     >
       <nav className="relative w-full max-w-7xl mx-6 lg:mx-12 mt-2 px-6 lg:px-12 h-[72px] flex items-center justify-between rounded-2xl bg-white/80 backdrop-blur-xl border border-gray-200/60 shadow-[0_4px_24px_rgba(0,0,0,0.06)]">
         <Link href="/" className="inline-block shrink-0">
@@ -351,11 +351,10 @@ export default function Navigation() {
                           return (
                             <div
                               key={group.title}
-                              className={`px-5 py-5 ${
-                                idx < item.children!.length - 1
+                              className={`px-5 py-5 ${idx < item.children!.length - 1
                                   ? "border-r border-gray-100"
                                   : ""
-                              }`}
+                                }`}
                             >
                               {/* Service Visual - Image at top */}
                               <div className="relative h-[110px] overflow-hidden rounded-xl border border-gray-200 bg-gray-900 mb-4 group/image">
@@ -520,9 +519,8 @@ export default function Navigation() {
                         </span>
                         <ChevronDown
                           size={20}
-                          className={`text-gray-900 transition-transform ${
-                            mobileDropdown === item.label ? "rotate-180" : ""
-                          }`}
+                          className={`text-gray-900 transition-transform ${mobileDropdown === item.label ? "rotate-180" : ""
+                            }`}
                         />
                       </button>
                     ) : (

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation"; 
+import { usePathname } from "next/navigation";
 import {
   FaHome,
   FaInfoCircle,
@@ -111,14 +111,17 @@ const menu = [
   },
   {
     label: "Case Studies",
-    url: "/case-studies",
+    url: "/case-studies/web",
     icon: <FaUsers />,
     children: [
-      { label: "Mobile App Case Studies", url: "/mobile-app-case-studies" },
-      { label: "PowerApps Case Studies", url: "/powerapps-case-studies" },
+      { label: "Web App Case Studies", url: "/case-studies/web" },
+      { label: "Mobile App Case Studies", url: "/case-studies/mobile" },
+      { label: "AI Case Studies", url: "/case-studies/ai" },
+      { label: "Power Platform Case Studies", url: "/case-studies/power-platform" },
+      { label: "SharePoint Case Studies", url: "/case-studies/sharepoint" },
     ],
   },
-  { label: "Blog", url: "/blog/all-posts", icon: <FaBlog /> },
+  { label: "Blog", url: "/blog", icon: <FaBlog /> },
   { label: "Contact", url: "/contact", icon: <FaPhone /> },
 ];
 
@@ -131,7 +134,7 @@ export default function Navigation() {
     handleResize();
     window.addEventListener("resize", handleResize);
 
-   
+
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
