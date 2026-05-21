@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import NavigationClient from "@/components/sections/navigation-client";
+import Footer from "@/components/sections/footer";
 import Hero from "./hero";
 import JobBoard from "./job-card";
 import FutureForm from "./future-form";
@@ -18,6 +19,7 @@ export default function CareersPage() {
             <HiringProcess />
             <JobBoard searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
             <FutureForm />
+            <Footer />
         </main>
     );
 }

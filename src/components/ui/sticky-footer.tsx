@@ -21,7 +21,7 @@ const footerColumns = [
       { title: "Home", href: "/" },
       { title: "About Us", href: "/about-us" },
       { title: "Case Studies", href: "/case-studies" },
-      { title: "Careers", href: "https://www.softreetechnology.com/careers/", external: true },
+      { title: "Careers", href: "/careers" },
       { title: "Contact", href: "/contact" },
     ],
   },
