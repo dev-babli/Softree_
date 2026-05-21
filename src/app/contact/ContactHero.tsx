@@ -124,19 +124,6 @@ export default function ContactHero() {
         <CornerTick className="absolute left-6 top-0" />
         <CornerTick className="absolute right-6 top-0 rotate-90" />
 
-        {/* Tiny eyebrow */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: [0.21, 1.02, 0.73, 1] }}
-          className="flex items-center gap-2.5"
-        >
-          <span className="pulse-dot relative inline-block h-1.5 w-1.5 rounded-full bg-[#F5B947]" />
-          <span className="text-[10.5px] font-medium uppercase tracking-[0.24em] text-neutral-500">
-            Get in touch&nbsp;&nbsp;·&nbsp;&nbsp;hello@softree.com
-          </span>
-        </motion.div>
-
         {/* ── MASSIVE display headline ── */}
         <motion.h1
           initial={{ opacity: 0, y: 40, filter: "blur(12px)" }}

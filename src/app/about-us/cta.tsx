@@ -278,7 +278,7 @@ export default function CTASection() {
 
             {/* FORM */}
             <form
-              action="https://formspree.io/f/myklkyya"
+              action="https://formspree.io/f/mbdwbkad"
               method="POST"
               onSubmit={async (e) => {
                 e.preventDefault();
