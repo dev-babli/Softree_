@@ -11,7 +11,7 @@ const WEB_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Shopping E-Commerce Platform",
     description: "Scalable e-commerce platform — advanced product management, secure payments, and optimized checkout that lifted conversions by 38%.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/ShoppingEcommerce.pdf",
+    href: "/pdf/web/ShoppingEcommerce.pdf",
     category: "E-Commerce",
     image: "/images/case-study/web/shopping.png",
     industry: "Retail & E-Commerce",
@@ -20,7 +20,7 @@ const WEB_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Pet Care Management Platform",
     description: "Online booking and client management system that increased appointment efficiency 65% and improved retention by 29%.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/PET_CARE.pdf",
+    href: "/pdf/web/PET_CARE.pdf",
     category: "Business Platform",
     image: "/images/case-study/web/pet.png",
     industry: "Pet Services",
@@ -29,7 +29,7 @@ const WEB_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Business Consultation Platform",
     description: "Client onboarding and scheduling platform that cut onboarding time by 70% and saved $85K in operational costs.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Business-Consultation-App-case-study-1.pdf",
+    href: "/pdf/web/Business-Consultation-App-case-study-1.pdf",
     category: "Enterprise",
     image: "/images/case-study/web/business.avif",
     industry: "Professional Services",
@@ -38,7 +38,7 @@ const WEB_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Public Blogging Website (MERN Stack)",
     description: "Full-stack blogging platform with content publishing and role-based auth — grew SEO traffic 85% and active users 120%.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Public-Blogging-Website-Using-the-MERN-Stack.pdf",
+    href: "/pdf/web/Public-Blogging-Website-MERN.pdf",
     category: "Web App",
     image: "/images/case-study/web/blog.png",
     industry: "Media & Publishing",
@@ -47,7 +47,7 @@ const WEB_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Food & Wine Website",
     description: "Immersive marketing website for food and beverage brands — boosted engagement 92% and reduced bounce rate by 48%.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/FOOD-WINE-WEBSITE.pdf",
+    href: "/pdf/web/FOOD-WINE-WEBSITE.pdf",
     category: "Marketing",
     image: "/images/case-study/web/food.png",
     industry: "Food & Beverage",
@@ -56,7 +56,7 @@ const WEB_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Auto Repair Pro Website",
     description: "Service website for automotive repair with online booking and local SEO — online bookings jumped 210% and reached local top 3 ranking.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/AUTOREPAIR-PRO.pdf",
+    href: "/pdf/web/AUTOREPAIR-PRO.pdf",
     category: "Service Website",
     image: "/images/case-study/web/auto.avif",
     industry: "Automotive Services",
@@ -65,7 +65,7 @@ const WEB_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "EdTech Management Information System",
     description: "Education management platform for student records and admin workflows — saved 30 admin hours per week at 99.8% data accuracy.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/EdTech-Management-Information-System-.pdf",
+    href: "/pdf/web/EdTech-Management-Information-System.pdf",
     category: "Education",
     image: "/images/case-study/web/edtech.avif",
     industry: "Education Technology",
@@ -74,7 +74,7 @@ const WEB_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Noteved Admin Dashboard",
     description: "Powerful admin dashboard for educational content and analytics — under 1.2s load time and 4x content output improvement.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/NotevedAdmin.docx.pdf",
+    href: "/pdf/web/NotevedAdmin.pdf",
     category: "Dashboard",
     image: "/images/case-study/web/noteved.png",
     industry: "EdTech Platform",
@@ -83,7 +83,7 @@ const WEB_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Wellkies Admin Website",
     description: "Healthcare administration portal for clinics and appointments — improved operational efficiency 55% and reduced errors by 91%.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Website.docx.pdf",
+    href: "/pdf/web/Wellkies-Admin-Website.pdf",
     category: "Healthcare",
     image: "/images/case-study/web/admin.png",
     industry: "Healthcare Administration",

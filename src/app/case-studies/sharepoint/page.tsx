@@ -11,7 +11,7 @@ const SP_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Custom Copy & Move Panel for SharePoint Lists",
     description: "SPFx solution with Fluent UI for seamless copy and move operations — reduced list management time by 78% and eliminated manual copy errors.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2025/03/Enhancing-SharePoint-List-Management-with-a-Custom-Copy-Move-Panel-Using-SPFx-and-Fluent-UI.pdf",
+    href: "/pdf/sharepoint/Custom-Copy-Move-Panel-SPFx.pdf",
     category: "SPFx Extension",
     industry: "Intranet & Collaboration",
     metrics: [{ label: "Task Time Saved", value: "-78%" }, { label: "Copy Errors", value: "0" }],
@@ -19,7 +19,7 @@ const SP_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "SharePoint Library Folders with Power Apps",
     description: "Power Apps solution for managing SharePoint document library folders — cut folder setup time from 20 minutes to under 2 minutes.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2025/03/Managing-SharePoint-Library-Folders-with-Power-Apps-Updated-.pdf",
+    href: "/pdf/sharepoint/Managing-SharePoint-Folders-PowerApps.pdf",
     category: "Power Apps + SharePoint",
     industry: "Document Management",
     metrics: [{ label: "Folder Setup Time", value: "20min → 2min" }, { label: "User Adoption", value: "100%" }],
@@ -27,7 +27,7 @@ const SP_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Dynamic Navigation Bar Using SPFx",
     description: "SPFx Application Customizer delivering role-based navigation across SharePoint — improved site findability by 65% and reduced support tickets by 40%.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Creating-a-Dynamic-Navigation-Bar-using-SPFx-Application-Customizer.pdf",
+    href: "/pdf/sharepoint/Dynamic-Navigation-Bar-SPFx.pdf",
     category: "SPFx Customizer",
     industry: "Intranet Design",
     metrics: [{ label: "Findability", value: "+65%" }, { label: "Support Tickets", value: "-40%" }],
@@ -35,7 +35,7 @@ const SP_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Custom Footer for SharePoint Online",
     description: "Reusable SPFx footer enhancing branding and accessibility across all SharePoint pages — deployed site-wide in under 2 hours with zero re-training.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Enhancing-User-Experience-with-a-Custom-Footer-using-SPFx.pdf",
+    href: "/pdf/sharepoint/Custom-Footer-SPFx.pdf",
     category: "SPFx UI",
     industry: "Corporate Intranet",
     metrics: [{ label: "Deploy Time", value: "<2hrs" }, { label: "Re-training", value: "0" }],
@@ -43,7 +43,7 @@ const SP_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Global Notification Banner",
     description: "SharePoint-wide notification banner via SPFx Application Customizer — critical alerts now reach 100% of users within seconds, replacing email chains.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Implementing-a-Global-Notification-Banner-with-SPFx-Application-Customizer.pdf",
+    href: "/pdf/sharepoint/Global-Notification-Banner-SPFx.pdf",
     category: "SPFx Customizer",
     industry: "Internal Communications",
     metrics: [{ label: "Alert Reach", value: "100%" }, { label: "Email Chains Replaced", value: "Yes" }],
@@ -51,7 +51,7 @@ const SP_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Browse Documents Panel",
     description: "Custom SPFx panel for browsing documents in SharePoint libraries without context switching — reduced document retrieval time by 60%.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Inside-a-panel-Browse-Document-From-file-explorer.pdf",
+    href: "/pdf/sharepoint/Browse-Documents-Panel-SPFx.pdf",
     category: "SPFx Web Part",
     industry: "Document Management",
     metrics: [{ label: "Retrieval Time", value: "-60%" }, { label: "Context Switches", value: "Eliminated" }],
@@ -59,7 +59,7 @@ const SP_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Parent Panel for List & Library Creation",
     description: "Guided SPFx panel for creating SharePoint lists or libraries with governance standards — ensured 100% governance compliance across new sites.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/SPFx-1.pdf",
+    href: "/pdf/sharepoint/Parent-Panel-List-Library-Creation.pdf",
     category: "SPFx Web Part",
     industry: "Governance & Compliance",
     metrics: [{ label: "Governance Compliance", value: "100%" }, { label: "Setup Errors", value: "0" }],
@@ -67,7 +67,7 @@ const SP_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Custom Command Extension",
     description: "SharePoint command extension adding contextual toolbar actions — reduced multi-step operations to single clicks, saving 8 hours per user per month.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2025/03/The-Implementation-of-a-Custom-Command-Extension-in-the-SharePoint-Framework-1.pdf",
+    href: "/pdf/sharepoint/Custom-Command-Extension-SPFx.pdf",
     category: "SPFx Command",
     industry: "Productivity Tools",
     metrics: [{ label: "Time Saved", value: "8hrs/user/mo" }, { label: "Clicks Reduced", value: "1-click" }],

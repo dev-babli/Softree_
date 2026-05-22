@@ -11,7 +11,7 @@ const MOBILE_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Doctor Appointment Booking System",
     description: "Healthcare mobile app enabling patients to book appointments with real-time notifications — reduced no-shows by 54% and cut booking time by 80%.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Building-a-Doctor-Appointment-Booking-System-with-React.pdf",
+    href: "/pdf/mobile/Doctor-Appointment-Booking.pdf",
     category: "Healthcare",
     image: "/images/case-study/mobile/appointment.avif",
     industry: "Healthcare",
@@ -20,7 +20,7 @@ const MOBILE_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Education App Backend",
     description: "Scalable backend powering mobile education platforms with RESTful APIs and real-time data sync — supporting 10,000+ concurrent users at 99.9% uptime.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Behind-the-Scenes-of-E.pdf",
+    href: "/pdf/mobile/Education-App-Backend.pdf",
     category: "Education",
     image: "/images/case-study/mobile/education.avif",
     industry: "Education Technology",
@@ -29,7 +29,7 @@ const MOBILE_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Movie Ticket Booking App",
     description: "High-performance ticket booking app with seat selection and real-time availability — processed 50K+ bookings in launch month with zero payment failures.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Movie-Ticket-Booking-App-Backend-Documentation.pdf",
+    href: "/pdf/mobile/Movie-Ticket-Booking-App.pdf",
     category: "Entertainment",
     image: "/images/case-study/mobile/movie.png",
     industry: "Entertainment",
@@ -38,7 +38,7 @@ const MOBILE_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Payment Gateway Integration",
     description: "Secure multi-payment gateway enabling encrypted transactions across mobile platforms — reduced payment friction 62% and chargebacks by 91%.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Payment-Gateway-1.pdf",
+    href: "/pdf/mobile/Payment-Gateway-Integration.pdf",
     category: "Fintech",
     image: "/images/case-study/mobile/payment.avif",
     industry: "Financial Technology",
@@ -47,7 +47,7 @@ const MOBILE_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Education Mobile App",
     description: "Student-centric app providing courses, assessments, and progress tracking — improved course completion rates by 47% and daily active users by 3x.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Education-App.pdf",
+    href: "/pdf/mobile/Education-Mobile-App.pdf",
     category: "Education",
     image: "/images/case-study/mobile/school.avif",
     industry: "E-Learning",
@@ -56,7 +56,7 @@ const MOBILE_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Resort Management App",
     description: "Hospitality mobile solution for reservations and guest check-ins — cut front-desk wait time by 70% and lifted guest satisfaction scores by 34%.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Resort-Management-.pdf",
+    href: "/pdf/mobile/Resort-Management-App.pdf",
     category: "Hospitality",
     image: "/images/case-study/mobile/resort.avif",
     industry: "Hospitality",
@@ -65,7 +65,7 @@ const MOBILE_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Room Rental App",
     description: "Real estate rental platform enabling property search and booking — grew listings by 120% and reduced time-to-booking by 65%.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Homi-App.pdf",
+    href: "/pdf/mobile/Homi-Room-Rental-App.pdf",
     category: "Real Estate",
     image: "/images/case-study/mobile/room.avif",
     industry: "Real Estate",
@@ -74,7 +74,7 @@ const MOBILE_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Wellkies — Doctors App",
     description: "Healthcare app empowering doctors to manage appointments and digital consultations — reduced admin overhead 55% and improved consultation efficiency by 40%.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-Doctor-Document.pdf",
+    href: "/pdf/mobile/Wellkies-Doctors-App.pdf",
     category: "Healthcare",
     image: "/images/case-study/mobile/doctor.jpg",
     industry: "Healthcare",
@@ -83,7 +83,7 @@ const MOBILE_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Wellkies — Clinic App",
     description: "Clinic management app optimizing patient handling, scheduling, and billing — reduced operational errors by 88% and billing cycle time by 3 days.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-Clinic-App.pdf",
+    href: "/pdf/mobile/Wellkies-Clinic-App.pdf",
     category: "Healthcare",
     image: "/images/case-study/mobile/clinic.png",
     industry: "Healthcare Administration",

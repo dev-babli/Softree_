@@ -11,7 +11,7 @@ const AI_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "AI-Powered E-Commerce Recommendation Engine",
     description: "ML-driven recommendation system that personalizes product discovery and lifted conversion rates by 28% and average order value by $42.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/ShoppingEcommerce.pdf",
+    href: "/pdf/web/ShoppingEcommerce.pdf",
     category: "AI Recommendation",
     image: "/images/case-study/web/shopping.png",
     industry: "Retail & E-Commerce",
@@ -25,7 +25,7 @@ const AI_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "AI-Based Customer Support Automation",
     description: "LLM-powered chatbot and automated ticket routing that cut support costs 47% and response time by 89%.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/PET_CARE.pdf",
+    href: "/pdf/web/PET_CARE.pdf",
     category: "Generative AI",
     image: "/images/case-study/web/business.avif",
     industry: "Customer Service",
@@ -39,7 +39,7 @@ const AI_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Enterprise AI Decision Intelligence Platform",
     description: "AI analytics platform delivering predictive insights 10x faster with 93% accuracy, delivering 412% ROI within the first year.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Business-Consultation-App-case-study-1.pdf",
+    href: "/pdf/web/Business-Consultation-App-case-study-1.pdf",
     category: "Enterprise AI",
     image: "/images/case-study/web/noteved.png",
     industry: "Enterprise Analytics",
@@ -53,7 +53,7 @@ const AI_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "AI Knowledge Assistant (RAG Architecture)",
     description: "Retrieval-augmented generation system enabling natural-language search across enterprise knowledge bases, reducing search time by 74%.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Public-Blogging-Website-Using-the-MERN-Stack.pdf",
+    href: "/pdf/web/Public-Blogging-Website-MERN.pdf",
     category: "RAG & LLM",
     image: "/images/case-study/web/blog.png",
     industry: "Knowledge Management",
@@ -62,7 +62,7 @@ const AI_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "AI Marketing Intelligence Platform",
     description: "AI that analyzes customer behavior and auto-optimizes campaigns — delivered $2.3M campaign ROI and cut CPC by 56%.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/FOOD-WINE-WEBSITE.pdf",
+    href: "/pdf/web/FOOD-WINE-WEBSITE.pdf",
     category: "AI Analytics",
     image: "/images/case-study/web/food.png",
     industry: "Marketing & AdTech",
@@ -76,7 +76,7 @@ const AI_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Predictive Maintenance AI System",
     description: "ML solution predicting equipment failures before they happen, reducing industrial downtime by 68% and maintenance costs by 41%.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/AUTOREPAIR-PRO.pdf",
+    href: "/pdf/web/AUTOREPAIR-PRO.pdf",
     category: "Machine Learning",
     image: "/images/case-study/web/auto.avif",
     industry: "Industrial / Manufacturing",
@@ -85,7 +85,7 @@ const AI_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "AI-Driven Education Intelligence Platform",
     description: "AI education platform with performance analytics and adaptive learning — improved student outcomes by 38% and instructor efficiency by 52%.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/EdTech-Management-Information-System-.pdf",
+    href: "/pdf/web/EdTech-Management-Information-System.pdf",
     category: "AI for Education",
     image: "/images/case-study/web/edtech.avif",
     industry: "Education Technology",
@@ -94,7 +94,7 @@ const AI_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "AI Operations & Monitoring Dashboard",
     description: "Centralized dashboard for monitoring AI models and pipelines in production, with real-time alerting cutting incident response by 80%.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/NotevedAdmin.docx.pdf",
+    href: "/pdf/web/NotevedAdmin.pdf",
     category: "AI Ops",
     image: "/images/case-study/web/admin.png",
     industry: "MLOps & DevOps",
@@ -103,7 +103,7 @@ const AI_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Healthcare AI Appointment Intelligence",
     description: "AI scheduling that predicts no-shows and optimizes availability — cut no-shows by 62% and recovered $890K in lost revenue.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/LIVE-appointment-bookings.docx.pdf",
+    href: "/pdf/web/LIVE-appointment-bookings.pdf",
     category: "Healthcare AI",
     image: "/images/case-study/web/appointment.avif",
     industry: "Healthcare",

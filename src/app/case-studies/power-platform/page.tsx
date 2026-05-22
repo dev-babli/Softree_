@@ -38,7 +38,7 @@ const PP_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Employee Details Tracking System",
     description: "Centralized employee management with org hierarchy and reporting — saved 12 hours per week in HR admin and reduced data discrepancies by 95%.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Employee-Details-tracking-System.pdf",
+    href: "/pdf/power-platform/Employee-Details-Tracking-System.pdf",
     category: "Power Apps",
     image: "/images/case-study/power-apps/emp.jpg",
     industry: "Human Resources",
@@ -47,7 +47,7 @@ const PP_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Health Plan Selector Mobile App",
     description: "Mobile-first app enabling employees to compare and select health plans by eligibility — reduced HR support calls by 68% and improved enrollment completion by 44%.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Health-Plan-Selector-Mobile-Application.pdf",
+    href: "/pdf/power-platform/Health-Plan-Selector.pdf",
     category: "Power Apps",
     image: "/images/case-study/power-apps/health.jpg",
     industry: "Healthcare Benefits",
@@ -56,7 +56,7 @@ const PP_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Projects Portfolio Management",
     description: "Dataverse-based portfolio tracker for projects and KPIs — gave leadership real-time visibility across 50+ projects and reduced reporting time by 75%.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Projects-Portfolio-ManagementMicrosoft-Dataverse.pdf",
+    href: "/pdf/power-platform/Projects-Portfolio-Management.pdf",
     category: "Power Apps",
     image: "/images/case-study/power-apps/projectm.avif",
     industry: "Project Management",
@@ -65,7 +65,7 @@ const PP_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Students Portal Mobile App",
     description: "Student portal centralizing academic info and attendance — improved student engagement by 52% and reduced admin queries to institution staff by 60%.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Students-Portal-Mobile-App.pdf",
+    href: "/pdf/power-platform/Students-Portal-Mobile-App.pdf",
     category: "Power Apps",
     image: "/images/case-study/power-apps/student.avif",
     industry: "Education",
@@ -74,7 +74,7 @@ const PP_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Ticket Generation Mobile App",
     description: "Mobile ticketing for incident logging and resolution monitoring — cut average resolution time by 58% and improved SLA compliance to 99%.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Ticket-Generation-Mobile-App.pdf",
+    href: "/pdf/power-platform/Ticket-Generation-Mobile-App.pdf",
     category: "Power Apps",
     image: "/images/case-study/power-apps/ticket.avif",
     industry: "IT Service Management",
@@ -83,7 +83,7 @@ const PP_CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Interview Management System",
     description: "End-to-end interview automation for scheduling, evaluation, and feedback consolidation — reduced hiring cycle by 35% and eliminated scheduling conflicts entirely.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Interview-Managing-System.pdf",
+    href: "/pdf/power-platform/Interview-Managing-System.pdf",
     category: "Power Apps",
     image: "/images/case-study/power-apps/interview.avif",
     industry: "Human Resources",
