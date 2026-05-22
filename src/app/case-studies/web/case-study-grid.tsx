@@ -1,16 +1,10 @@
 "use client";
 
 import { useState } from "react";
-<<<<<<< HEAD
 import { ArrowRight, ChevronLeft, ChevronRight, Lock, X, Download, TrendingUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 type ROIMetric = { label: string; value: string };
-=======
-import Link from "next/link";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import { motion } from "framer-motion";
->>>>>>> origin/satabdi
 
 type CaseStudy = {
   title: string;
@@ -19,10 +13,7 @@ type CaseStudy = {
   href: string;
   highlight?: string;
   category: string;
-<<<<<<< HEAD
   roiMetrics: ROIMetric[];
-=======
->>>>>>> origin/satabdi
 };
 
 const ITEMS_PER_PAGE = 6;
@@ -35,14 +26,11 @@ const CASE_STUDIES: CaseStudy[] = [
     image: "/images/case-study/web/shopping.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/ShoppingEcommerce.pdf",
     category: "E-Commerce Website",
-<<<<<<< HEAD
     roiMetrics: [
       { label: "Conversion Rate Lift", value: "+38%" },
       { label: "Checkout Drop-off Reduced", value: "52%" },
       { label: "Revenue Growth", value: "$1.2M" },
     ],
-=======
->>>>>>> origin/satabdi
   },
   {
     title: "Pet Care Management Platform",
@@ -51,14 +39,11 @@ const CASE_STUDIES: CaseStudy[] = [
     image: "/images/case-study/web/pet.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/PET_CARE.pdf",
     category: "Business Platform",
-<<<<<<< HEAD
     roiMetrics: [
       { label: "Booking Efficiency", value: "+65%" },
       { label: "Manual Work Eliminated", value: "40hrs/mo" },
       { label: "Customer Retention", value: "+29%" },
     ],
-=======
->>>>>>> origin/satabdi
   },
   {
     title: "Business Consultation Platform",
@@ -67,14 +52,11 @@ const CASE_STUDIES: CaseStudy[] = [
     image: "/images/case-study/web/business.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Business-Consultation-App-case-study-1.pdf",
     category: "Enterprise Website",
-<<<<<<< HEAD
     roiMetrics: [
       { label: "Client Onboarding Time", value: "-70%" },
       { label: "Operational Cost Saved", value: "$85K" },
       { label: "Staff Productivity", value: "+44%" },
     ],
-=======
->>>>>>> origin/satabdi
   },
   {
     title: "Public Blogging Website (MERN Stack)",
@@ -83,14 +65,11 @@ const CASE_STUDIES: CaseStudy[] = [
     image: "/images/case-study/web/blog.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Public-Blogging-Website-Using-the-MERN-Stack.pdf",
     category: "Web Application",
-<<<<<<< HEAD
     roiMetrics: [
       { label: "Page Load Speed", value: "-60%" },
       { label: "Monthly Active Users", value: "+120%" },
       { label: "SEO Traffic Growth", value: "+85%" },
     ],
-=======
->>>>>>> origin/satabdi
   },
   {
     title: "Food & Wine Website",
@@ -99,14 +78,11 @@ const CASE_STUDIES: CaseStudy[] = [
     image: "/images/case-study/web/food.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/FOOD-WINE-WEBSITE.pdf",
     category: "Marketing Website",
-<<<<<<< HEAD
     roiMetrics: [
       { label: "Brand Engagement", value: "+92%" },
       { label: "Bounce Rate Reduced", value: "48%" },
       { label: "Online Inquiries", value: "+3.2x" },
     ],
-=======
->>>>>>> origin/satabdi
   },
   {
     title: "Auto Repair Pro Website",
@@ -115,14 +91,11 @@ const CASE_STUDIES: CaseStudy[] = [
     image: "/images/case-study/web/auto.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/AUTOREPAIR-PRO.pdf",
     category: "Service Website",
-<<<<<<< HEAD
     roiMetrics: [
       { label: "Online Bookings", value: "+210%" },
       { label: "Local Search Rank", value: "Top 3" },
       { label: "Revenue Uplift", value: "$45K" },
     ],
-=======
->>>>>>> origin/satabdi
   },
   {
     title: "EdTech Management Information System",
@@ -131,14 +104,11 @@ const CASE_STUDIES: CaseStudy[] = [
     image: "/images/case-study/web/edtech.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/EdTech-Management-Information-System-.pdf",
     category: "Education Platform",
-<<<<<<< HEAD
     roiMetrics: [
       { label: "Admin Time Saved", value: "30hrs/wk" },
       { label: "Report Generation", value: "-80%" },
       { label: "Data Accuracy", value: "99.8%" },
     ],
-=======
->>>>>>> origin/satabdi
   },
   {
     title: "Noteved Admin Dashboard",
@@ -147,14 +117,11 @@ const CASE_STUDIES: CaseStudy[] = [
     image: "/images/case-study/web/noteved.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/NotevedAdmin.docx.pdf",
     category: "Admin Dashboard",
-<<<<<<< HEAD
     roiMetrics: [
       { label: "Dashboard Load Time", value: "<1.2s" },
       { label: "User Management Ops", value: "-65%" },
       { label: "Content Published", value: "+4x" },
     ],
-=======
->>>>>>> origin/satabdi
   },
   {
     title: "Wellkies Admin Website",
@@ -163,14 +130,11 @@ const CASE_STUDIES: CaseStudy[] = [
     image: "/images/case-study/web/admin.png",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Website.docx.pdf",
     category: "Healthcare Platform",
-<<<<<<< HEAD
     roiMetrics: [
       { label: "Clinic Ops Efficiency", value: "+55%" },
       { label: "Data Errors Reduced", value: "91%" },
       { label: "Patient Wait Time", value: "-35%" },
     ],
-=======
->>>>>>> origin/satabdi
   },
   {
     title: "Live Appointment Booking Web System",
@@ -179,7 +143,6 @@ const CASE_STUDIES: CaseStudy[] = [
     image: "/images/case-study/web/appointment.avif",
     href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/LIVE-appointment-bookings.docx.pdf",
     category: "Healthcare Platform",
-<<<<<<< HEAD
     roiMetrics: [
       { label: "No-show Rate", value: "-42%" },
       { label: "Booking Time", value: "<2 min" },
@@ -293,13 +256,6 @@ function ROIUnlockModal({ study, onClose }: { study: CaseStudy; onClose: () => v
 export default function CaseStudyGrid() {
   const [currentPage, setCurrentPage] = useState(1);
   const [unlockStudy, setUnlockStudy] = useState<CaseStudy | null>(null);
-=======
-  },
-];
-
-export default function CaseStudyGrid() {
-  const [currentPage, setCurrentPage] = useState(1);
->>>>>>> origin/satabdi
 
   const totalPages = Math.ceil(CASE_STUDIES.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -308,12 +264,9 @@ export default function CaseStudyGrid() {
 
   return (
     <section className="relative bg-white">
-<<<<<<< HEAD
       <AnimatePresence>
         {unlockStudy && <ROIUnlockModal study={unlockStudy} onClose={() => setUnlockStudy(null)} />}
       </AnimatePresence>
-=======
->>>>>>> origin/satabdi
       <div className="mx-auto max-w-7xl px-6 py-14">
         {/* ================= HEADER ================= */}
         <div className="mb-10 text-center">
@@ -342,11 +295,7 @@ export default function CaseStudyGrid() {
         >
           {/* ================= GRID ================= */}
           <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-<<<<<<< HEAD
             {visibleCaseStudies.slice(0, 6).map((item) => (
-=======
-            {visibleCaseStudies.slice(0, 6).map((item, index) => (
->>>>>>> origin/satabdi
               <motion.article
                 key={item.href}
                 initial="initial"
@@ -411,7 +360,6 @@ export default function CaseStudyGrid() {
                     </p>
                   </motion.div>
 
-<<<<<<< HEAD
                   {/* ROI Teaser */}
                   <div className="mt-3 grid grid-cols-3 gap-1.5">
                     {item.roiMetrics.map((m, i) => (
@@ -426,13 +374,6 @@ export default function CaseStudyGrid() {
                   <div className="mt-auto pt-4 flex items-center gap-3">
                     <button
                       onClick={() => setUnlockStudy(item)}
-=======
-                  {/* CTA — FIXED BOTTOM */}
-                  <div className="mt-auto pt-4">
-                    <Link
-                      href={item.href}
-                      target="_blank"
->>>>>>> origin/satabdi
                       className="
                 inline-flex items-center gap-2
                 text-sm font-semibold text-blue-600
@@ -440,16 +381,10 @@ export default function CaseStudyGrid() {
                 group-hover:text-blue-700
               "
                     >
-<<<<<<< HEAD
                       <Lock className="h-3.5 w-3.5" />
                       Unlock Full Report
                       <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </button>
-=======
-                      View Case Study
-                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
->>>>>>> origin/satabdi
                   </div>
                 </div>
               </motion.article>
@@ -465,18 +400,10 @@ export default function CaseStudyGrid() {
               className={`
       group flex items-center gap-2 rounded-xl px-5 py-3
       text-sm font-semibold transition-all duration-300
-<<<<<<< HEAD
       ${currentPage === 1
                   ? "cursor-not-allowed bg-slate-100 text-slate-400"
                   : "bg-blue-50 text-blue-700 hover:bg-blue-600 hover:text-white shadow-sm hover:shadow-md"
                 }
-=======
-      ${
-        currentPage === 1
-          ? "cursor-not-allowed bg-slate-100 text-slate-400"
-          : "bg-blue-50 text-blue-700 hover:bg-blue-600 hover:text-white shadow-sm hover:shadow-md"
-      }
->>>>>>> origin/satabdi
     `}
             >
               <ChevronLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
@@ -500,18 +427,10 @@ export default function CaseStudyGrid() {
               className={`
       group flex items-center gap-2 rounded-xl px-5 py-3
       text-sm font-semibold transition-all duration-300
-<<<<<<< HEAD
       ${currentPage === totalPages
                   ? "cursor-not-allowed bg-slate-100 text-slate-400"
                   : "bg-blue-50 text-blue-700 hover:bg-blue-600 hover:text-white shadow-sm hover:shadow-md"
                 }
-=======
-      ${
-        currentPage === totalPages
-          ? "cursor-not-allowed bg-slate-100 text-slate-400"
-          : "bg-blue-50 text-blue-700 hover:bg-blue-600 hover:text-white shadow-sm hover:shadow-md"
-      }
->>>>>>> origin/satabdi
     `}
             >
               Next

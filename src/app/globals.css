@@ -31,13 +31,10 @@
 /* ---------------- BASE RESET ---------------- */
 
 @layer base {
-<<<<<<< HEAD
   html {
     scroll-behavior: smooth;
   }
 
-=======
->>>>>>> origin/satabdi
   body {
     background: linear-gradient(to bottom, #fafafa, #ffffff, #fafafa);
     color: var(--color-foreground);
