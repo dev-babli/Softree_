@@ -6,8 +6,14 @@ import { useEffect } from 'react'
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
-      api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
+    const apiKey = process.env.NEXT_PUBLIC_POSTHOG_KEY
+    if (!apiKey) {
+      console.warn('[PostHog] Missing NEXT_PUBLIC_POSTHOG_KEY - analytics disabled')
+      return
+    }
+
+    posthog.init(apiKey, {
+      api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com',
       ui_host: 'https://us.posthog.com',
       capture_pageview: false, // handled by PostHogPageView
       capture_pageleave: true,

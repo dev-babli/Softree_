@@ -95,12 +95,6 @@ export default function RootLayout({
 
           {children}
 
-          {/* ✅ Tidio Chatbot */}
-          {/* <Script
-            src="//code.tidio.co/wt0gzqlmxpfwlnsv7aculpsflifbbv7v.js"
-            strategy="afterInteractive"
-          /> */}
-
           {/* Visual editor */}
           <VisualEditsMessenger />
         </PostHogProvider>
