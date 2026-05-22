@@ -7,6 +7,7 @@ import { Suspense } from "react";
 import { PostHogProvider } from "@/components/PostHogProvider";
 import { PostHogPageView } from "@/components/PostHogPageView";
 import GoogleAnalytics from "@/components/sections/google-analytics";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.softreetechnology.com"),
@@ -94,6 +95,9 @@ export default function RootLayout({
           />
 
           {children}
+
+          {/* Vercel Speed Insights – Core Web Vitals RUM */}
+          <SpeedInsights />
 
           {/* Visual editor */}
           <VisualEditsMessenger />

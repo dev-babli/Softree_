@@ -9,7 +9,7 @@ import AiInsightsBlog from "@/components/sections/ai-insights-blog";
 import SupportPartners from "@/components/sections/support-partners";
 import TrustedBy from "@/components/sections/trusted-by";
 import ServicesStackedSlides from "@/components/sections/ServicesStackedSlides";
-import TestimonialsGlobe from "@/components/sections/TestimonialsGlobe";
+import OffshoreTestimonialsGlobe from "@/components/sections/OffshoreTestimonialsGlobe";
 import { TransferredSoftreeHero } from "@/components/sections/TransferredSoftreeHero";
 
 /* ── Lazy-loaded transferred components ── */
@@ -47,7 +47,7 @@ export default function Home() {
         <ServicesStackedSlides />
         <FeaturesShowcaseLazy />
         <TrustedBy />
-        <TestimonialsGlobe variant="dark" />
+        <OffshoreTestimonialsGlobe />
         <AiInsightsBlog />
         <TechStackSection />
         <LightServicesStickyListLazy />

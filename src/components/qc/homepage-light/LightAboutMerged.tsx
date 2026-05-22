@@ -5,6 +5,7 @@ import { motion, useInView, useSpring, useTransform } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
+import { Globe } from "@/registry/magicui/globe"
 import Grainient from "./Grainient"
 import { EASE_T } from "@/lib/motion"
 import { SpotlightCard } from "@/components/qc/shared/SpotlightCard"
@@ -197,10 +198,15 @@ export default function LightAboutMerged() {
               <span className="text-sm font-medium text-[#1852FF]">About Us</span>
             </motion.div>
 
-            {/* Award Count */}
-            <div className="relative">
+            {/* Award Count with Globe Background */}
+            <div className="relative isolate">
+              {/* WebGL Globe behind the 40+ */}
+              <div className="pointer-events-none absolute -inset-16 -z-10 flex items-center justify-center opacity-50 md:-inset-24">
+                <Globe />
+              </div>
+
               <motion.span
-                className="text-[120px] font-bold leading-none tracking-tighter tabular-nums text-[#0a0a1a] md:text-[160px] lg:text-[180px]"
+                className="relative z-10 block text-[120px] font-bold leading-none tracking-tighter tabular-nums text-[#0a0a1a] md:text-[160px] lg:text-[180px]"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.8, delay: 0.3, ease: EASE_OUT }}
@@ -251,17 +257,17 @@ export default function LightAboutMerged() {
           >
             <TextReveal delay={0.3}>
               <h3 className="mb-6 text-2xl font-bold leading-tight tracking-tight text-[#0a0a1a] md:text-3xl lg:text-4xl">
-                Enterprise software that delivers measurable outcomes.
+                Your global offshore development partner.
               </h3>
             </TextReveal>
             <WordReveal
-              text="We are a team of Microsoft-certified engineers, solution architects, and delivery specialists focused on one goal — turning complex business operations into scalable software systems."
+              text="40+ countries served. 200+ projects delivered. One dedicated offshore team — working as an extension of yours."
               delay={0.4}
               className="mb-6 text-2xl font-semibold leading-tight text-[#1852FF] md:text-3xl"
             />
             <TextReveal delay={0.6}>
               <p className="mb-8 text-base leading-relaxed text-[#0a0a1a]/70">
-                Founded in 2020, Softree has grown from a small engineering team to a trusted technology partner for enterprises worldwide. We specialize in Microsoft platforms, AI integration, and cloud-native solutions that drive real business transformation.
+                Softree is a Microsoft-certified offshore development company with delivery centers in India and presence across UK, US, Middle East, and APAC. We embed senior engineers into your workflows — no handoffs, no gaps, just seamless execution from day one.
               </p>
             </TextReveal>
             <motion.div
@@ -273,7 +279,7 @@ export default function LightAboutMerged() {
                 href="/case-studies"
                 className="group relative inline-flex items-center gap-2 overflow-hidden rounded-lg bg-[#1a1a1a] px-5 py-2.5 shadow-[0_8px_24px_-8px_rgba(26,26,26,0.4)] transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-px hover:shadow-[0_14px_30px_-10px_rgba(26,26,26,0.55)] active:scale-[0.97]"
               >
-                <span className="text-sm font-medium text-white">View our client success stories</span>
+                <span className="text-sm font-medium text-white">Explore offshore engagement models</span>
                 <ArrowUpRight className="h-4 w-4 text-white transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
             </motion.div>

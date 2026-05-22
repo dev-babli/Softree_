@@ -24,6 +24,10 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import createGlobe, { type COBEOptions } from "cobe";
 import { useEffect, useMemo, useRef, useState } from "react";
 
+interface OffshoreTestimonialsGlobeProps {
+  variant?: "dark" | "light";
+}
+
 /* ── Real client testimonials (provided by Softree) ────────────── */
 type Review = {
   name: string;
@@ -77,19 +81,19 @@ const HQ: { name: string; coords: [number, number] } = {
 };
 
 /* ── Globe configuration (cobe) ────────────────────────────────── */
-const GLOBE_BASE: Omit<COBEOptions, "width" | "height" | "onRender"> = {
+const getGlobeConfig = (variant: "dark" | "light"): Omit<COBEOptions, "width" | "height" | "onRender"> => ({
   devicePixelRatio: 2,
   phi: 0,
   theta: 0.25,
-  dark: 1,
+  dark: variant === "dark" ? 1 : 0,
   diffuse: 1.15,
   mapSamples: 16000,
-  mapBrightness: 5.2,
-  baseColor: [0.18, 0.18, 0.2],
-  markerColor: [255 / 255, 122 / 255, 47 / 255], // #ff7a2f
-  glowColor: [1.0, 0.55, 0.25],
+  mapBrightness: variant === "dark" ? 5.2 : 4.5,
+  baseColor: variant === "dark" ? [0.18, 0.18, 0.2] : [0.95, 0.95, 0.97],
+  markerColor: variant === "dark" ? [255 / 255, 122 / 255, 47 / 255] : [24 / 255, 82 / 255, 255 / 255], // orange vs blue
+  glowColor: variant === "dark" ? [1.0, 0.55, 0.25] : [0.09, 0.32, 1.0],
   markers: [], // populated per-frame
-};
+});
 
 /* ── Helper: format coords for cobe markers (expects [lat, lng]) ─ */
 function buildMarkers(activeIndex: number) {
@@ -123,7 +127,7 @@ function StarRow({ count = 5 }: { count?: number }) {
   );
 }
 
-export default function OffshoreTestimonialsGlobe() {
+export default function OffshoreTestimonialsGlobe({ variant = "dark" }: OffshoreTestimonialsGlobeProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const wrapRef = useRef<HTMLDivElement | null>(null);
   const phiRef = useRef(0);
@@ -172,7 +176,7 @@ export default function OffshoreTestimonialsGlobe() {
     let width = computeSize();
 
     const globe = createGlobe(canvasRef.current, {
-      ...GLOBE_BASE,
+      ...getGlobeConfig(variant),
       width,
       height: width,
       onRender: (state) => {
@@ -229,22 +233,23 @@ export default function OffshoreTestimonialsGlobe() {
       window.removeEventListener("pointermove", onPointerMove);
       c.removeEventListener("pointerdown", onPointerDown);
     };
-  }, [reduceMotion]);
+  }, [reduceMotion, variant]);
 
   const activeReview = useMemo(() => REVIEWS[active], [active]);
 
   return (
     <section
       aria-labelledby="offshore-heading"
-      className="relative w-full overflow-hidden bg-[#0a0a0a] py-20 sm:py-24 text-white"
+      className={`relative w-full overflow-hidden py-20 sm:py-24 ${variant === "dark" ? "bg-[#0a0a0a] text-white" : "bg-[#F8F9FC] text-[#0a0a1a]"}`}
     >
-      {/* Cinematic ambient orange wash */}
+      {/* Cinematic ambient wash */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
-          background:
-            "radial-gradient(ellipse 70% 55% at 30% 45%, rgba(255,122,47,0.07), transparent 60%)",
+          background: variant === "dark"
+            ? "radial-gradient(ellipse 70% 55% at 30% 45%, rgba(255,122,47,0.07), transparent 60%)"
+            : "radial-gradient(ellipse 70% 55% at 30% 45%, rgba(24,82,255,0.07), transparent 60%)",
         }}
       />
       {/* Grain */}
@@ -265,16 +270,16 @@ export default function OffshoreTestimonialsGlobe() {
           transition={{ duration: 0.7, ease: [0.21, 1.02, 0.73, 1] }}
           className="max-w-3xl"
         >
-          <span className="inline-flex items-center gap-2 rounded-full bg-[#ff7a2f]/10 text-[#ff7a2f] px-4 py-1 text-xs font-semibold tracking-widest uppercase border border-[#ff7a2f]/20">
+          <span className={`inline-flex items-center gap-2 rounded-full px-4 py-1 text-xs font-semibold tracking-widest uppercase border ${variant === "dark" ? "bg-[#ff7a2f]/10 text-[#ff7a2f] border-[#ff7a2f]/20" : "bg-[#1852FF]/10 text-[#1852FF] border-[#1852FF]/20"}`}>
             Offshore Testimonials
           </span>
           <h2
             id="offshore-heading"
-            className="mt-4 text-4xl font-bold text-white"
+            className={`mt-4 text-4xl font-bold ${variant === "dark" ? "text-white" : "text-[#0a0a1a]"}`}
           >
             Trusted across three continents
           </h2>
-          <p className="mt-4 text-base text-white/70 leading-relaxed">
+          <p className={`mt-4 text-base leading-relaxed ${variant === "dark" ? "text-white/70" : "text-[#0a0a1a]/70"}`}>
             From Virginia to Amsterdam to the Bay Area — real teams, real
             ship-dates, written in their own words.
           </p>
@@ -295,11 +300,11 @@ export default function OffshoreTestimonialsGlobe() {
               {/* Concentric guide rings — stay centered (no offset) */}
               <div
                 aria-hidden
-                className="pointer-events-none absolute inset-[12%] rounded-full border border-white/[0.04]"
+                className={`pointer-events-none absolute inset-[12%] rounded-full border ${variant === "dark" ? "border-white/[0.04]" : "border-[#0a0a1a]/[0.04]"}`}
               />
               <div
                 aria-hidden
-                className="pointer-events-none absolute inset-[22%] rounded-full border border-white/[0.06]"
+                className={`pointer-events-none absolute inset-[22%] rounded-full border ${variant === "dark" ? "border-white/[0.06]" : "border-[#0a0a1a]/[0.06]"}`}
               />
 
               {/* Globe wrapper — this moves up and right */}
@@ -328,9 +333,9 @@ export default function OffshoreTestimonialsGlobe() {
                 />
 
                 {/* Origin label (HQ) */}
-                <div className="pointer-events-none absolute bottom-3 left-3 flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-3 py-1.5 backdrop-blur-sm">
-                  <span className="block h-1.5 w-1.5 rounded-full bg-[#ff7a2f] shadow-[0_0_12px_2px_rgba(255,122,47,0.7)]" />
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/70">
+                <div className={`pointer-events-none absolute bottom-3 left-3 flex items-center gap-2 rounded-full px-3 py-1.5 backdrop-blur-sm ${variant === "dark" ? "bg-white/5 border border-white/10" : "bg-white border border-[#0a0a1a]/10 shadow-lg"}`}>
+                  <span className={`block h-1.5 w-1.5 rounded-full ${variant === "dark" ? "bg-[#ff7a2f] shadow-[0_0_12px_2px_rgba(255,122,47,0.7)]" : "bg-[#1852FF] shadow-[0_0_12px_2px_rgba(24,82,255,0.5)]"}`} />
+                  <span className={`text-[10px] font-semibold uppercase tracking-[0.22em] ${variant === "dark" ? "text-white/70" : "text-[#0a0a1a]/70"}`}>
                     HQ · Bengaluru, IN
                   </span>
                 </div>
@@ -348,14 +353,14 @@ export default function OffshoreTestimonialsGlobe() {
                     onClick={() => setActive(i)}
                     aria-pressed={isActive}
                     className={`group relative inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-[11px] font-semibold uppercase tracking-widest transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] ${isActive
-                      ? "border-[#ff7a2f]/40 bg-[#ff7a2f]/10 text-[#ff7a2f]"
-                      : "border-white/10 bg-white/5 text-white/60 hover:bg-white/10 hover:border-white/20 hover:text-white"
+                      ? variant === "dark" ? "border-[#ff7a2f]/40 bg-[#ff7a2f]/10 text-[#ff7a2f]" : "border-[#1852FF]/40 bg-[#1852FF]/10 text-[#1852FF]"
+                      : variant === "dark" ? "border-white/10 bg-white/5 text-white/60 hover:bg-white/10 hover:border-white/20 hover:text-white" : "border-[#0a0a1a]/10 bg-white text-[#0a0a1a]/60 hover:bg-[#1852FF]/5 hover:border-[#1852FF]/20 hover:text-[#0a0a1a]"
                       }`}
                   >
                     <span
                       className={`block h-1.5 w-1.5 rounded-full transition-all ${isActive
-                        ? "bg-[#ff7a2f] shadow-[0_0_10px_2px_rgba(255,122,47,0.6)]"
-                        : "bg-white/30 group-hover:bg-white/70"
+                        ? variant === "dark" ? "bg-[#ff7a2f] shadow-[0_0_10px_2px_rgba(255,122,47,0.6)]" : "bg-[#1852FF] shadow-[0_0_10px_2px_rgba(24,82,255,0.5)]"
+                        : variant === "dark" ? "bg-white/30 group-hover:bg-white/70" : "bg-[#0a0a1a]/30 group-hover:bg-[#1852FF]"
                         }`}
                     />
                     {r.tag}
@@ -367,13 +372,13 @@ export default function OffshoreTestimonialsGlobe() {
 
           {/* Quote column — card matching homepage language */}
           <div className="relative order-2">
-            <div className="relative rounded-[32px] bg-white/5 border border-white/10 p-8 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.35)] overflow-hidden">
+            <div className={`relative rounded-[32px] p-8 sm:p-10 overflow-hidden ${variant === "dark" ? "bg-white/5 border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.35)]" : "bg-white border border-[#0a0a1a]/10 shadow-[0_20px_50px_rgba(0,0,0,0.1)]"}`}>
               {/* Accent stripe */}
-              <span className="absolute left-0 top-8 h-12 w-1 rounded-r-full bg-[#ff7a2f]" aria-hidden />
+              <span className={`absolute left-0 top-8 h-12 w-1 rounded-r-full ${variant === "dark" ? "bg-[#ff7a2f]" : "bg-[#1852FF]"}`} aria-hidden />
               {/* Big quote mark */}
               <span
                 aria-hidden
-                className="absolute right-6 top-2 select-none font-serif text-[7rem] leading-none text-[#ff7a2f]/15"
+                className={`absolute right-6 top-2 select-none font-serif text-[7rem] leading-none ${variant === "dark" ? "text-[#ff7a2f]/15" : "text-[#1852FF]/10"}`}
               >
                 &ldquo;
               </span>
@@ -388,8 +393,8 @@ export default function OffshoreTestimonialsGlobe() {
                   className="relative"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-widest uppercase text-white/50">
-                      <svg viewBox="0 0 10 10" className="h-2 w-2 fill-[#ff7a2f]" aria-hidden>
+                    <span className={`inline-flex items-center gap-2 text-[11px] font-semibold tracking-widest uppercase ${variant === "dark" ? "text-white/50" : "text-[#0a0a1a]/50"}`}>
+                      <svg viewBox="0 0 10 10" className={`h-2 w-2 ${variant === "dark" ? "fill-[#ff7a2f]" : "fill-[#1852FF]"}`} aria-hidden>
                         <circle cx="5" cy="5" r="2.5" />
                       </svg>
                       {activeReview.location}
@@ -397,21 +402,21 @@ export default function OffshoreTestimonialsGlobe() {
                     <StarRow count={activeReview.rating} />
                   </div>
 
-                  <blockquote className="relative mt-6 text-lg sm:text-xl font-medium leading-relaxed text-white/90">
+                  <blockquote className={`relative mt-6 text-lg sm:text-xl font-medium leading-relaxed ${variant === "dark" ? "text-white/90" : "text-[#0a0a1a]/90"}`}>
                     &ldquo;{activeReview.comment}&rdquo;
                   </blockquote>
 
-                  <figcaption className="mt-8 flex items-center justify-between gap-6 border-t border-white/10 pt-6">
+                  <figcaption className={`mt-8 flex items-center justify-between gap-6 border-t pt-6 ${variant === "dark" ? "border-white/10" : "border-[#0a0a1a]/10"}`}>
                     <div>
-                      <p className="text-base font-semibold leading-tight text-white">
+                      <p className={`text-base font-semibold leading-tight ${variant === "dark" ? "text-white" : "text-[#0a0a1a]"}`}>
                         {activeReview.name}
                       </p>
-                      <p className="mt-1 text-sm leading-tight text-white/60">
+                      <p className={`mt-1 text-sm leading-tight ${variant === "dark" ? "text-white/60" : "text-[#0a0a1a]/60"}`}>
                         {activeReview.company}
                       </p>
                     </div>
-                    <span className="shrink-0 inline-flex items-center gap-1.5 rounded-full bg-[#ff7a2f]/10 border border-[#ff7a2f]/20 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-[#ff7a2f]">
-                      <svg viewBox="0 0 12 12" className="h-2.5 w-2.5 fill-[#ff7a2f]" aria-hidden>
+                    <span className={`shrink-0 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-widest ${variant === "dark" ? "bg-[#ff7a2f]/10 border border-[#ff7a2f]/20 text-[#ff7a2f]" : "bg-[#1852FF]/10 border border-[#1852FF]/20 text-[#1852FF]"}`}>
+                      <svg viewBox="0 0 12 12" className={`h-2.5 w-2.5 ${variant === "dark" ? "fill-[#ff7a2f]" : "fill-[#1852FF]"}`} aria-hidden>
                         <path d="M5 8.5L2.5 6l1-1L5 6.5 8.5 3l1 1z" />
                       </svg>
                       Verified
@@ -439,15 +444,15 @@ export default function OffshoreTestimonialsGlobe() {
           ].map((s) => (
             <div
               key={s.label}
-              className="rounded-2xl bg-white/5 border border-white/10 px-5 py-6 text-center transition-colors hover:bg-white/[0.07] hover:border-white/20"
+              className={`rounded-2xl px-5 py-6 text-center transition-colors ${variant === "dark" ? "bg-white/5 border border-white/10 hover:bg-white/[0.07] hover:border-white/20" : "bg-white border border-[#0a0a1a]/10 hover:border-[#1852FF]/30"}`}
             >
               <p
-                className="text-3xl sm:text-4xl font-bold text-white tabular-nums"
+                className={`text-3xl sm:text-4xl font-bold tabular-nums ${variant === "dark" ? "text-white" : "text-[#0a0a1a]"}`}
                 style={{ fontVariantNumeric: "tabular-nums" }}
               >
                 {s.value}
               </p>
-              <p className="mt-2 text-[11px] font-semibold uppercase tracking-widest text-white/50">
+              <p className={`mt-2 text-[11px] font-semibold uppercase tracking-widest ${variant === "dark" ? "text-white/50" : "text-[#0a0a1a]/50"}`}>
                 {s.label}
               </p>
             </div>
