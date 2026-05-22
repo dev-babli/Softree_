@@ -1,51 +1,9 @@
 "use client"
 
-import { useRef, useState, useEffect, lazy, Suspense } from "react"
+import { useRef } from "react"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-
-// MEDIA OPTIMIZATION: lazy-imported = each heavy visual is a separate JS chunk
-const GlobalNetworkMap = lazy(() =>
-  import("@/components/homepage/GlobalNetworkMap").then((m) => ({ default: m.GlobalNetworkMap })),
-)
-const DeliveryProcessDiagram = lazy(() =>
-  import("@/components/homepage/DeliveryProcessDiagram").then((m) => ({ default: m.DeliveryProcessDiagram })),
-)
-const FlexibleTechExecutionVisual = lazy(() =>
-  import("@/components/homepage/FlexibleTechExecutionVisual").then((m) => ({ default: m.FlexibleTechExecutionVisual })),
-)
-const LongTermDeliveryVisual = lazy(() =>
-  import("@/components/homepage/LongTermDeliveryVisual").then((m) => ({ default: m.LongTermDeliveryVisual })),
-)
-
-// Viewport-gated: returns true once the section is within 2x viewport. One-shot.
-function useNearViewport(ref: React.RefObject<HTMLElement | null>) {
-  const [active, setActive] = useState(false)
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setActive(true)
-          io.disconnect()
-        }
-      },
-      { rootMargin: "200% 0px 200% 0px", threshold: 0 },
-    )
-    io.observe(el)
-    return () => io.disconnect()
-  }, [ref])
-  return active
-}
-
-function MediaSkeleton() {
-  return (
-    <div className="ssx-skeleton">
-      <div className="ssx-skeleton-dot" />
-    </div>
-  )
-}
+import Image from "next/image"
 
 type ServiceSlide = {
   key: string
@@ -112,8 +70,6 @@ const SERVICE_SLIDES: ServiceSlide[] = [
 
 export function ServicesStackedSlides({ className = "" }: { className?: string }) {
   const rootRef = useRef<HTMLDivElement>(null)
-  // MEDIA OPTIMIZATION: mount heavy visualizations only when section is near viewport
-  const mediaActive = useNearViewport(rootRef)
 
   /* INTENTIONAL SIMPLIFICATION (matching stack.html):
    * No GSAP. No ScrollTrigger. No animation-timeline. No scroll listeners.
@@ -172,51 +128,15 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
                 </div>
 
                 <div className="ssx-media-block">
-                  {slide.key === "global-delivery" ? (
-                    <div className="ssx-map-wrap">
-                      {mediaActive ? (
-                        <Suspense fallback={<MediaSkeleton />}>
-                          <GlobalNetworkMap />
-                        </Suspense>
-                      ) : (
-                        <MediaSkeleton />
-                      )}
-                    </div>
-                  ) : slide.key === "delivery-framework" ? (
-                    <div className="ssx-map-wrap ssx-map-wrap--diagram">
-                      {mediaActive ? (
-                        <Suspense fallback={<MediaSkeleton />}>
-                          <DeliveryProcessDiagram />
-                        </Suspense>
-                      ) : (
-                        <MediaSkeleton />
-                      )}
-                    </div>
-                  ) : slide.key === "engineering-execution" ? (
-                    <div className="ssx-map-wrap ssx-map-wrap--ftx">
-                      {mediaActive ? (
-                        <Suspense fallback={<MediaSkeleton />}>
-                          {/* isActive bypasses the component's internal ScrollTrigger,
-                              which mis-calculates start/end positions inside sticky-pinned
-                              parents and never fires onEnter. With isActive=true the
-                              entrance timeline plays immediately when mediaActive flips. */}
-                          <FlexibleTechExecutionVisual isActive />
-                        </Suspense>
-                      ) : (
-                        <MediaSkeleton />
-                      )}
-                    </div>
-                  ) : slide.key === "long-term-partnership" ? (
-                    <div className="ssx-map-wrap ssx-map-wrap--ltd">
-                      {mediaActive ? (
-                        <Suspense fallback={<MediaSkeleton />}>
-                          <LongTermDeliveryVisual />
-                        </Suspense>
-                      ) : (
-                        <MediaSkeleton />
-                      )}
-                    </div>
-                  ) : null}
+                  <div className="ssx-map-wrap ssx-map-wrap--webp">
+                    <Image
+                      src={`/images/slides/${slide.key}.webp`}
+                      alt={slide.title}
+                      fill
+                      unoptimized
+                      className="ssx-slide-img"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -687,22 +607,16 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
           aspect-ratio: 16 / 9;
         }
 
-        .ssx-map-wrap--ftx {
-          aspect-ratio: auto;
-          max-height: min(72svh, 660px);
-          background: transparent;
-          border: 0;
-          box-shadow: none;
-          overflow: visible;
+        .ssx-map-wrap--webp {
+          position: relative;
+          aspect-ratio: 16 / 10;
+          max-height: min(66svh, 620px);
         }
 
-        .ssx-map-wrap--ltd {
-          aspect-ratio: auto;
-          max-height: min(74svh, 700px);
-          background: transparent;
-          border: 0;
-          box-shadow: none;
-          overflow: visible;
+        .ssx-slide-img {
+          object-fit: cover;
+          object-position: center;
+          border-radius: 12px;
         }
 
         .ssx-media-frame {
