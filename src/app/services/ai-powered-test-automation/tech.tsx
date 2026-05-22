@@ -349,6 +349,17 @@ export default function TechStack() {
       <style>{`
         @keyframes tsSlide { from{opacity:0;transform:translateX(10px)} to{opacity:1;transform:translateX(0)} }
         @keyframes tsPulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.7)} }
+        @media (max-width: 768px) {
+          .tech-tools-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .tech-stats-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 10px !important;
+          }
+        }
       `}</style>
 
       <div style={{ maxWidth: 1280, margin: "0 auto", position: "relative", zIndex: 2 }}>
@@ -423,7 +434,7 @@ export default function TechStack() {
           <div style={{ height:1,background:"#f4f4f5",margin:"14px 0" }} />
 
           {/* Tools grid */}
-          <div style={{
+          <div className="tech-tools-grid" style={{
             padding:"0 14px 16px",
             display:"grid",
             gridTemplateColumns: tab.tools.length === 4 ? "1fr 1fr" : "1fr",
@@ -436,7 +447,7 @@ export default function TechStack() {
         </div>
 
         {/* Stats */}
-        <div style={{ display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:8, ...fu(240) }}>
+        <div className="tech-stats-grid" style={{ display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:8, ...fu(240) }}>
           {STATS.map((s) => (
             <div key={s.label} style={{
               background:"#ffffff",border:"1px solid #e5e7eb",

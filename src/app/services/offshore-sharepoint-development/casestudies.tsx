@@ -102,7 +102,7 @@ export default function SharePointCaseStudies() {
   const router = useRouter();
 
   return (
-    <section className="relative min-h-screen flex items-center py-10 ">
+    <section className="relative py-24 sm:py-32">
       <div className="w-[86%] max-w-7xl mx-auto space-y-8">
         <div className="text-center">
           {/* Badge */}

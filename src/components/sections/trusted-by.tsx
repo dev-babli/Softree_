@@ -26,7 +26,7 @@ export default function TrustedBy() {
   const logos = [
     { name: "GO ERP", src: "/images/logo/goerp1.jpg" },
     { name: "Nuvento", src: "/images/logo/nuvento.jpg" },
-    { name: "Snapon", src: "/images/logo/snapon.jpg" },
+    { name: "Kwiz", src: "/images/logo/kwiz.png" },
     { name: "Jonians", src: "/images/logo/jonians.jpg" },
     { name: "Export Control Group", src: "/images/logo/ecg.png" },
     { name: "SP Marketplace", src: "/images/logo/1.jpg" },

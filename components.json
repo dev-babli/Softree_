@@ -18,7 +18,11 @@
     "lib": "@/lib",
     "hooks": "@/hooks"
   },
+<<<<<<< HEAD
   "registries": {
     "@magicui": "https://magicui.design/r/{name}"
   }
+=======
+  "registries": {}
+>>>>>>> origin/satabdi
 }

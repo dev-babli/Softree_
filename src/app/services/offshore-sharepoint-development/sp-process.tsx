@@ -45,7 +45,7 @@ export default function SharePointMigrationProcess() {
   ];
 
   return (
-    <section className="relative py-24  overflow-hidden">
+    <section className="relative py-24 sm:py-32 overflow-hidden">
       <div className="container mx-auto px-6">
         {/* Heading */}
         <div className="text-center max-w-5xl mx-auto mb-24 px-4">

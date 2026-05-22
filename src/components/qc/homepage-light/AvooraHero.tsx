@@ -425,7 +425,7 @@ export default function AvooraHero() {
               <span>Softree</span>
               <span className="ml-2 font-medium text-gray-400" style={{ fontSize: "clamp(24px, 4vw, 50px)", verticalAlign: "super" }}>®</span>
               <br />
-              <span className="bg-gradient-to-r from-gray-900 to-gray-400 bg-clip-text text-transparent">Technologies</span>
+              <span className="bg-gradient-to-r from-gray-900 to-gray-400 bg-clip-text text-transparent">Technology</span>
             </h1>
           </div>
 
@@ -526,7 +526,7 @@ export default function AvooraHero() {
             <div className="flex flex-col gap-6 sm:gap-8 md:flex-row md:items-end md:justify-between md:gap-6">
               {/* Bottom tagline */}
               <div className="bottom-profile flex flex-col gap-1.5 text-left text-white">
-                <div className="text-[13px] sm:text-[14px] font-medium">Softree Technologies</div>
+                <div className="text-[13px] sm:text-[14px] font-medium">Softree Technology</div>
                 <div className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.18em] text-white/60">
                   AI · Web · Microsoft · Cloud
                 </div>

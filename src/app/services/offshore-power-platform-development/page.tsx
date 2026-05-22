@@ -6,8 +6,11 @@ import WhyChooseSoftreePowerApps from "./why-chose";
 import TechStackSection from "./tech-stack";
 import PowerAppsProcess from "./process";
 import PowerAppsCaseStudies from "./casestudies";
+<<<<<<< HEAD
 import Certifications from "./certification";
 import TestimonialsSplitSlider from "./testimonial";
+=======
+>>>>>>> origin/satabdi
 import PowerAppsService from "./services";
 import HirePowerAppsPricing from "./pricing-card";
 import StackedSlider from "./stack-slidr";
@@ -22,7 +25,11 @@ const powerPlatformFAQs = [
     serial: "question 01",
     question: "What Microsoft Power Platform services do you offer?",
     answer:
+<<<<<<< HEAD
       "We specialize in Power Apps (canvas and model-driven), Power Automate workflows, Power BI dashboards, Power Pages, and Dataverse integration. We build end-to-end solutions connecting the entire Power Platform ecosystem.",
+=======
+      "We specialize in Power Apps (canvas and model-driven app), Power Automate workflows, Power BI dashboards, Power Pages, and Dataverse integration. We build end-to-end solutions connecting the entire Power Platform ecosystem.",
+>>>>>>> origin/satabdi
   },
   {
     id: 2,

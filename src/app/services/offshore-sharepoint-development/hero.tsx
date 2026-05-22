@@ -238,17 +238,6 @@ export default function HeroPowerApps() {
               </span>
             </Link>
 
-            <p style={styles.subtext}>
-              Build and streamline SharePoint solutions with modern Microsoft
-              technologies. Ship faster, scale confidently.
-            </p>
-            <Link href="/contact" className="cta-btn" style={styles.ctaBtn}>
-              Talk to our Expert
-              <span className="cta-arrow">
-                <ArrowRight stroke="#071b4d" />
-              </span>
-            </Link>
-
             <div style={styles.stats}>
               <div>
                 <div style={styles.statNum}>150+</div>

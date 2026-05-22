@@ -34,7 +34,7 @@ export default function AIDrivenSharePointMigration() {
   ];
 
   return (
-    <section className=" py-10">
+    <section className="py-24 sm:py-32">
       <div className="max-w-7xl mx-auto px-6">
         {/* Heading */}
         <div className="mb-3 max-w-4xl px-4">

@@ -79,20 +79,16 @@ function ModelRow({ model, index }: { model: typeof models[0]; index: number }) 
       ref={ref}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      className="model-row-grid"
       style={{
-        display: "grid",
-        gridTemplateColumns: "80px 1fr 1px 1fr",
-        gap: 0,
-        borderBottom: "1px solid #ebebeb",
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(20px)",
         transition: `opacity 0.6s ease ${index * 0.12}s, transform 0.6s cubic-bezier(.16,1,.3,1) ${index * 0.12}s`,
         background: hovered ? "#fafafa" : "transparent",
-        cursor: "default",
       }}
     >
       {/* Number col */}
-      <div style={{ padding: "40px 0 36px 0", display: "flex", alignItems: "flex-start" }}>
+      <div className="model-row-num-col">
         <span style={{
           fontSize: 11, fontWeight: 500,
           color: model.accent, letterSpacing: "0.08em", opacity: 0.9,
@@ -100,7 +96,7 @@ function ModelRow({ model, index }: { model: typeof models[0]; index: number }) 
       </div>
 
       {/* Left: title + desc */}
-      <div style={{ padding: "36px 40px 36px 16px" }}>
+      <div className="model-row-left-col">
         <div style={{
           display: "inline-flex", alignItems: "center", gap: 6,
           background: `${model.accent}10`,
@@ -124,10 +120,10 @@ function ModelRow({ model, index }: { model: typeof models[0]; index: number }) 
       </div>
 
       {/* Divider */}
-      <div style={{ background: "#ebebeb", margin: "28px 0" }} />
+      <div className="model-row-divider" />
 
       {/* Right: features */}
-      <div style={{ padding: "36px 0 36px 40px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+      <div className="model-row-right-col">
         {model.features.map((f, i) => (
           <div key={i} style={{
             display: "flex", alignItems: "center", gap: 12,
@@ -167,16 +163,11 @@ function ImpactRow({ item, index }: { item: typeof impacts[0]; index: number }) 
       ref={ref}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      className="impact-row-grid"
       style={{
-        display: "grid",
-        gridTemplateColumns: "1fr 200px 52px",
-        alignItems: "center", gap: 24,
-        padding: "20px 0",
-        borderBottom: "1px solid #ebebeb",
         opacity: visible ? 1 : 0,
         transform: visible ? "translateX(0)" : "translateX(-16px)",
         transition: `opacity 0.5s ease ${index * 0.08}s, transform 0.5s ease ${index * 0.08}s`,
-        cursor: "default",
       }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
@@ -192,7 +183,7 @@ function ImpactRow({ item, index }: { item: typeof impacts[0]; index: number }) 
         </span>
       </div>
 
-      <div style={{ height: 3, background: "#efefef", borderRadius: 2, overflow: "hidden" }}>
+      <div className="impact-bar-container" style={{ height: 3, background: "#efefef", borderRadius: 2, overflow: "hidden" }}>
         <div style={{
           height: "100%", width: `${barW}%`,
           background: "linear-gradient(90deg, #e8621a, #f59542)",
@@ -218,20 +209,189 @@ export default function EngagementModels() {
 
   return (
     <div style={{
-      
       background: "linear-gradient(to bottom, #fafafa, #ffffff, #fafafa)",
       minHeight: "100vh",
     }}>
+      <style>{`
+        .models-inner {
+          max-width: 1280px;
+          margin: 0 auto;
+          padding: 80px 32px 100px;
+        }
+        .models-header-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          align-items: flex-end;
+          margin-bottom: 48px;
+          border-bottom: 2px solid #0e0c0a;
+          padding-bottom: 20px;
+          gap: 32px;
+        }
+        .models-header-p {
+          font-size: 13px;
+          color: #8a837c;
+          line-height: 1.7;
+          max-width: 360px;
+          text-align: right;
+          margin-left: auto;
+        }
+        .models-labels-grid {
+          display: grid;
+          grid-template-columns: 80px 1fr 1px 1fr;
+          padding-bottom: 10px;
+        }
+        .model-row-grid {
+          display: grid;
+          grid-template-columns: 80px 1fr 1px 1fr;
+          gap: 0;
+          border-bottom: 1px solid #ebebeb;
+          cursor: default;
+        }
+        .model-row-num-col {
+          padding: 40px 0 36px 0;
+          display: flex;
+          align-items: flex-start;
+        }
+        .model-row-left-col {
+          padding: 36px 40px 36px 16px;
+        }
+        .model-row-divider {
+          background: #ebebeb;
+          margin: 28px 0;
+        }
+        .model-row-right-col {
+          padding: 36px 0 36px 40px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
 
+        .impact-header-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          align-items: flex-end;
+          margin-bottom: 48px;
+          border-bottom: 2px solid #0e0c0a;
+          padding-bottom: 20px;
+          gap: 32px;
+        }
+        .impact-header-p {
+          font-size: 13px;
+          color: #8a837c;
+          line-height: 1.7;
+          max-width: 360px;
+          text-align: right;
+          margin-left: auto;
+        }
+        .impact-labels-grid {
+          display: grid;
+          grid-template-columns: 1fr 200px 52px;
+          gap: 24px;
+          padding-bottom: 10px;
+        }
+        .impact-row-grid {
+          display: grid;
+          grid-template-columns: 1fr 200px 52px;
+          align-items: center;
+          gap: 24px;
+          padding: 20px 0;
+          border-bottom: 1px solid #ebebeb;
+          cursor: default;
+        }
 
-      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "80px 32px 100px" }}>
+        .models-cta-grid {
+          margin-top: 72px;
+          display: grid;
+          grid-template-columns: 1fr auto;
+          align-items: center;
+          gap: 32px;
+          padding: 36px 40px;
+          background: #0e0c0a;
+          border-radius: 16px;
+          position: relative;
+          overflow: hidden;
+        }
+
+        @media (max-width: 991px) {
+          .models-inner {
+            padding: 56px 20px 80px;
+          }
+          .model-row-grid {
+            grid-template-columns: 1fr;
+            padding: 16px 0;
+          }
+          .model-row-num-col {
+            padding: 12px 0 4px 0;
+          }
+          .model-row-left-col {
+            padding: 12px 0;
+          }
+          .model-row-right-col {
+            padding: 16px 0;
+          }
+          .model-row-divider {
+            display: none !important;
+          }
+          .models-labels-grid {
+            display: none !important;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .models-header-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+          }
+          .models-header-grid p {
+            text-align: left !important;
+          }
+          .models-header-p {
+            text-align: left !important;
+            max-width: 100% !important;
+            margin-left: 0 !important;
+          }
+          .impact-header-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+          }
+          .impact-header-grid p {
+            text-align: left !important;
+          }
+          .impact-header-p {
+            text-align: left !important;
+            max-width: 100% !important;
+            margin-left: 0 !important;
+          }
+          .impact-labels-grid {
+            display: none !important;
+          }
+          .impact-row-grid {
+            grid-template-columns: 1fr auto;
+            gap: 12px;
+            padding: 16px 0;
+          }
+          .impact-bar-container {
+            grid-column: span 2;
+            margin: 4px 0 8px 0;
+            width: 100%;
+          }
+          .models-cta-grid {
+            grid-template-columns: 1fr;
+            gap: 24px;
+            padding: 32px 24px;
+          }
+          .models-cta-grid a {
+            width: 100%;
+            text-align: center;
+          }
+        }
+      `}</style>
+
+      <div className="models-inner">
 
         {/* ══ SECTION 1: ENGAGEMENT MODELS ══ */}
         <div ref={s1Ref}>
-          <div style={{
-            display: "grid", gridTemplateColumns: "1fr auto",
-            alignItems: "flex-end", marginBottom: 48,
-            borderBottom: "2px solid #0e0c0a", paddingBottom: 20,
+          <div className="models-header-grid" style={{
             opacity: s1Visible ? 1 : 0,
             transform: s1Visible ? "translateY(0)" : "translateY(16px)",
             transition: "opacity 0.6s ease, transform 0.6s ease",
@@ -255,15 +415,13 @@ export default function EngagementModels() {
                 }}>Models</span>
               </h2>
             </div>
-            <p style={{ fontSize: 13, color: "#8a837c", lineHeight: 1.7, maxWidth: 220, textAlign: "right" }}>
+            <p className="models-header-p">
               Pick the engagement that fits your team and transformation goals.
             </p>
           </div>
 
           {/* Column labels */}
-          <div style={{
-            display: "grid", gridTemplateColumns: "80px 1fr 1px 1fr",
-            paddingBottom: 10,
+          <div className="models-labels-grid" style={{
             opacity: s1Visible ? 1 : 0,
             transition: "opacity 0.6s ease 0.1s",
           }}>
@@ -287,14 +445,10 @@ export default function EngagementModels() {
 
         {/* ══ SECTION 2: BUSINESS IMPACT ══ */}
         <div ref={s2Ref}>
-          <div style={{
-            display: "grid", gridTemplateColumns: "1fr 1fr",
-            alignItems: "flex-end", marginBottom: 48,
-            borderBottom: "2px solid #0e0c0a", paddingBottom: 20,
+          <div className="impact-header-grid" style={{
             opacity: s2Visible ? 1 : 0,
             transform: s2Visible ? "translateY(0)" : "translateY(16px)",
             transition: "opacity 0.6s ease, transform 0.6s ease",
-            gap: 32,
           }}>
             <div>
               <div style={{
@@ -315,15 +469,13 @@ export default function EngagementModels() {
                 }}>Impact</span>
               </h2>
             </div>
-            <p style={{ fontSize: 13, color: "#8a837c", lineHeight: 1.7 }}>
+            <p className="impact-header-p">
               Measurable outcomes across every delivery metric — from release confidence to operational scale.
             </p>
           </div>
 
           {/* Column labels */}
-          <div style={{
-            display: "grid", gridTemplateColumns: "1fr 200px 52px",
-            gap: 24, paddingBottom: 10,
+          <div className="impact-labels-grid" style={{
             opacity: s2Visible ? 1 : 0,
             transition: "opacity 0.6s ease 0.1s",
           }}>
@@ -338,15 +490,7 @@ export default function EngagementModels() {
         </div>
 
         {/* ══ CTA ══ */}
-        <div style={{
-          marginTop: 72,
-          display: "grid", gridTemplateColumns: "1fr auto",
-          alignItems: "center", gap: 32,
-          padding: "36px 40px",
-          background: "#0e0c0a",
-          borderRadius: 16,
-          position: "relative", overflow: "hidden",
-        }}>
+        <div className="models-cta-grid">
           <div style={{
             position: "absolute", top: "-50%", right: "-5%",
             width: 300, height: 300, borderRadius: "50%",

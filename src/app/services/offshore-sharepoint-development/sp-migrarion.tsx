@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const SharePointMigration = () => {
   return (
-    <section className="relative overflow-hidden py-28 ">
+    <section className="relative overflow-hidden py-24 sm:py-32">
       <div className="relative mx-auto max-w-7xl w-[90%] grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* ================================================= */}
         {/* LEFT CONTENT – GLASS CARD */}
