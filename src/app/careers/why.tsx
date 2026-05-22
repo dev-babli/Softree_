@@ -291,7 +291,9 @@ const s: Record<string, React.CSSProperties> = {
 
   card: {
     background: DARK2,
-    border: `1px solid ${BORDER}`,
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderColor: BORDER,
     borderRadius: 16,
     padding: "28px 24px 22px",
     display: "flex",
@@ -324,7 +326,9 @@ const s: Record<string, React.CSSProperties> = {
     height: 48,
     borderRadius: 12,
     background: DARK3,
-    border: `1px solid ${BORDER2}`,
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderColor: BORDER2,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -372,11 +376,13 @@ const s: Record<string, React.CSSProperties> = {
     alignItems: "baseline",
     gap: 8,
     paddingTop: 14,
-    borderTop: `1px solid ${BORDER}`,
+    borderTopWidth: 1,
+    borderTopStyle: "solid",
+    borderTopColor: BORDER,
     transition: "border-color 0.2s",
   },
   statRowHovered: {
-    borderColor: "#3A2A10",
+    borderTopColor: "#3A2A10",
   },
   statNum: {
     fontFamily: "'Syne', sans-serif",

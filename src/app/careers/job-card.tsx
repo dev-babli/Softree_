@@ -113,23 +113,27 @@ export default function JobBoard({
 
       {/* Categories */}
       <div style={styles.catRow}>
-        {CATEGORIES.map((cat) => (
-          <button
-            key={cat.label}
-            style={
-              activeCategory === cat.label
-                ? { ...styles.catPill, ...styles.catPillActive }
-                : styles.catPill
-            }
-            onClick={() => {
-              setActiveCategory(cat.label);
-              setSearchQuery("");
-            }}
-          >
-            <span style={styles.catIcon}>{cat.icon}</span>
-            {cat.label}
-          </button>
-        ))}
+        {CATEGORIES.map((cat) => {
+          const isActive = activeCategory === cat.label;
+          return (
+            <button
+              key={cat.label}
+              style={{
+                ...styles.catPill,
+                borderColor: isActive ? ORANGE : BORDER,
+                background: isActive ? ORANGE : "transparent",
+                color: isActive ? WHITE : GRAY_LIGHT,
+              }}
+              onClick={() => {
+                setActiveCategory(cat.label);
+                setSearchQuery("");
+              }}
+            >
+              <span style={styles.catIcon}>{cat.icon}</span>
+              {cat.label}
+            </button>
+          );
+        })}
       </div>
 
       {/* Section label */}
@@ -383,7 +387,9 @@ const styles: Record<string, React.CSSProperties> = {
     fontWeight: 500,
     padding: "7px 14px",
     borderRadius: 999,
-    border: `1px solid ${BORDER}`,
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderColor: BORDER,
     background: "transparent",
     color: GRAY_LIGHT,
     cursor: "pointer",
@@ -391,11 +397,6 @@ const styles: Record<string, React.CSSProperties> = {
     alignItems: "center",
     gap: 5,
     transition: "all 0.15s",
-  },
-  catPillActive: {
-    background: ORANGE,
-    color: WHITE,
-    borderColor: ORANGE,
   },
   catIcon: { fontSize: 13 },
 
@@ -426,7 +427,9 @@ const styles: Record<string, React.CSSProperties> = {
   card: {
     display: "flex",
     borderRadius: 14,
-    border: `1px solid ${BORDER}`,
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderColor: BORDER,
     background: DARK,
     overflow: "hidden",
     cursor: "pointer",

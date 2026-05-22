@@ -15,10 +15,12 @@ export default function CareersPage() {
         <main style={{ background: "#080808" }}>
             <NavigationClient />
             <Hero searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-            <WhyJoinUs />
-            <HiringProcess />
             <JobBoard searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
             <FutureForm />
+            <WhyJoinUs />
+            <HiringProcess />
+
+
             <Footer />
         </main>
     );
