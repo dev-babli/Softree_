@@ -4,10 +4,10 @@ export default function TrustedBrandsMarquee() {
   const logos = [
     { name: "GO ERP", src: "/images/logo/goerp1.jpg" },
     { name: "Nuvento", src: "/images/logo/nuvento.jpg" },
-    { name: "Snapon", src: "/images/logo/snapon.jpg" },
+    { name: "Kwiz Com", src: "/images/logo/kwiz.png" },
     { name: "Jonians", src: "/images/logo/jonians.jpg" },
     { name: "Export Control Group", src: "/images/logo/ecg.png" },
-    { name: "SP Marketplace", src: "/images/logo/1.jpg" },
+    { name: "SP Marketplace", src: "/images/logo/sp-marketplace.png" },
     { name: "Bosch", src: "/images/logo/bosch.png" },
 
     // New Logos
