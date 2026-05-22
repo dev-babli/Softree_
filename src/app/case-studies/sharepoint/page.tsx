@@ -72,30 +72,6 @@ const SP_CASE_STUDIES: CaseStudyItem[] = [
     industry: "Productivity Tools",
     metrics: [{ label: "Time Saved", value: "8hrs/user/mo" }, { label: "Clicks Reduced", value: "1-click" }],
   },
-  {
-    title: "PnP PowerShell — Manage Web Parts",
-    description: "PnP PowerShell automation for adding, removing, and retrieving web parts from modern pages — cut page maintenance overhead by 90%.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Add-Remove-And-Get-All-Web-Parts-From-Modern-Site-Page-Using-PnP-PowerShell.pdf",
-    category: "PnP PowerShell",
-    industry: "SharePoint Administration",
-    metrics: [{ label: "Maintenance Overhead", value: "-90%" }, { label: "Automation Rate", value: "100%" }],
-  },
-  {
-    title: "Enable & Disable MFA Using PowerShell",
-    description: "PowerShell automation for managing MFA settings for Microsoft 365 users — reduced IT admin time for MFA changes from 30 minutes to under 1 minute.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/How-To-Enable-And-Disable-MFA-Using-PowerShell-1.pdf",
-    category: "M365 Automation",
-    industry: "IT Security",
-    metrics: [{ label: "MFA Change Time", value: "30min → 1min" }, { label: "Manual Errors", value: "0" }],
-  },
-  {
-    title: "Fetch SharePoint List Items in Power Apps",
-    description: "Power Apps implementation for dynamically retrieving and displaying SharePoint data — replaced a manual Excel report workflow saving 6 hours per week.",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/How-To-Fetch-Items-From-SharePoint-List-To-PowerApps-Gallery-Calculate.pdf",
-    category: "Power Apps + SharePoint",
-    industry: "Business Reporting",
-    metrics: [{ label: "Weekly Time Saved", value: "6hrs" }, { label: "Manual Reports", value: "Eliminated" }],
-  },
 ]
 
 const spFAQs = [
