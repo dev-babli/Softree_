@@ -11,7 +11,7 @@ on:
       site_base:
         description: "Base URL to audit (overrides default)"
         required: false
-        default: "https://softree.technology"
+        default: "https://softreetechnology.com"
 
 jobs:
   psi-audit:
@@ -31,5 +31,5 @@ jobs:
       - name: Run PageSpeed Insights checks
         env:
           PSI_API_KEY: ${{ secrets.PSI_API_KEY }}
-          PSI_SITE_BASE: ${{ inputs.site_base || 'https://softree.technology' }}
+          PSI_SITE_BASE: ${{ inputs.site_base || 'https://softreetechnology.com' }}
         run: node scripts/psi-check.mjs

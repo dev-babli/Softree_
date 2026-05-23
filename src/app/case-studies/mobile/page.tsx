@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import NavigationClient from "@/components/sections/navigation-client"
 import Footer from "@/components/sections/footer"
 import LightContactSection from "@/components/qc/homepage-light/LightContactSection"
@@ -6,6 +7,21 @@ import CaseStudyHero from "../CaseStudyHero"
 import CaseStudyGridNew from "../CaseStudyGrid"
 import type { CaseStudyItem } from "../CaseStudyGrid"
 import CaseStudyProofCTA from "../CaseStudyProofCTA"
+
+export const metadata: Metadata = {
+  title: "Mobile App Case Studies",
+  description:
+    "Discover how Softree Technology delivers high-performance iOS, Android, and cross-platform mobile applications with measurable business impact.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/case-studies/mobile",
+  },
+  openGraph: {
+    title: "Mobile App Case Studies | Softree Technology",
+    description: "Real-world mobile development projects — iOS, Android, and React Native apps.",
+    url: "https://www.softreetechnology.com/case-studies/mobile",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Mobile Case Studies" }],
+  },
+};
 
 const MOBILE_CASE_STUDIES: CaseStudyItem[] = [
   {

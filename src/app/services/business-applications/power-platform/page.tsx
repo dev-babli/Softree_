@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
 import PowerAppsHero from "./hero";
@@ -15,6 +16,31 @@ import StackedSlider from "./stack-slidr";
 import TrustedBrandsMarquee from "./trust";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import LightFAQExact from "@/components/homepage-light/LightFAQExact";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+
+export const metadata: Metadata = {
+  title: "Power Platform Development Services | Softree Technology",
+  description:
+    "Microsoft Power Platform solutions — Power Apps, Power Automate, Power BI, and Copilot Studio. Custom low-code enterprise apps built by Softree Technology.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/services/business-applications/power-platform",
+  },
+  openGraph: {
+    title: "Power Platform Development | Softree Technology",
+    description:
+      "Custom Power Apps, Power Automate workflows, and Power BI dashboards for enterprise digital transformation.",
+    url: "https://www.softreetechnology.com/services/business-applications/power-platform",
+    siteName: "Softree Technology",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Power Platform Services" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Power Platform Development | Softree Technology",
+    description: "Microsoft Power Platform — Power Apps, Power Automate, and Power BI solutions.",
+    images: ["/og-image.png"],
+  },
+};
 
 const businessAppsPowerPlatformFAQs = [
   {
@@ -58,6 +84,14 @@ const businessAppsPowerPlatformFAQs = [
 export default function Home() {
   return (
     <main className="relative min-h-screen bg-black">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "https://www.softreetechnology.com" },
+          { name: "Services", url: "https://www.softreetechnology.com/services" },
+          { name: "Business Applications", url: "https://www.softreetechnology.com/services/business-applications/power-platform" },
+          { name: "Power Platform", url: "https://www.softreetechnology.com/services/business-applications/power-platform" },
+        ]}
+      />
       <NavigationClient />
 
       {/* HERO (full width but aligned content internally) */}

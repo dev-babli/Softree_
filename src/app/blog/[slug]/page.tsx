@@ -40,6 +40,7 @@ const portableTextComponents: PortableTextComponents = {
 const postQuery = groq`
   *[_type == "post" && slug.current == $slug][0] {
     _id,
+    _updatedAt,
     title,
     slug,
     excerpt,
@@ -91,12 +92,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title,
     description,
     keywords,
+    alternates: {
+      canonical: `https://www.softreetechnology.com/blog/${slug}`,
+    },
     openGraph: {
       title,
       description,
       type: 'article',
+      url: `https://www.softreetechnology.com/blog/${slug}`,
       publishedTime: post.publishedAt,
-      images: post.ogImage?.asset?.url ? [{ url: post.ogImage.asset.url, width: 1200, height: 630 }] : [],
+      authors: post.author?.name ? [post.author.name] : ['Softree Technology'],
+      images: post.ogImage?.asset?.url
+        ? [{ url: post.ogImage.asset.url, width: 1200, height: 630 }]
+        : [{ url: '/og-image.png', width: 1200, height: 630 }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -134,17 +142,22 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             '@type': 'Article',
             headline: post.title,
             description: excerpt,
+            url: `https://www.softreetechnology.com/blog/${slug}`,
             author: {
-              '@type': 'Organization',
+              '@type': 'Person',
               name: post.author?.name || 'Softree Technology',
-              url: 'https://www.softreetechnology.com',
             },
             publisher: {
               '@type': 'Organization',
               name: 'Softree Technology',
-              url: 'https://www.softreetechnology.com',
+              '@id': 'https://www.softreetechnology.com/#organization',
+              logo: {
+                '@type': 'ImageObject',
+                url: 'https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo.png',
+              },
             },
             datePublished: post.publishedAt,
+            dateModified: post._updatedAt || post.publishedAt,
             keywords: [post.focusKeyword, ...(post.secondaryKeywords || [])].filter(Boolean).join(', '),
             ...(post.mainImage?.asset?.url && { image: post.mainImage.asset.url }),
           }),

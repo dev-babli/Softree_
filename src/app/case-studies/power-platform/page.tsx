@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import NavigationClient from "@/components/sections/navigation-client"
 import Footer from "@/components/sections/footer"
 import LightContactSection from "@/components/qc/homepage-light/LightContactSection"
@@ -6,6 +7,21 @@ import CaseStudyHero from "../CaseStudyHero"
 import CaseStudyGridNew from "../CaseStudyGrid"
 import type { CaseStudyItem } from "../CaseStudyGrid"
 import CaseStudyProofCTA from "../CaseStudyProofCTA"
+
+export const metadata: Metadata = {
+  title: "Power Platform Case Studies",
+  description:
+    "See how Softree Technology automates business processes with Microsoft Power Platform — Power Apps, Power Automate, and Power BI success stories.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/case-studies/power-platform",
+  },
+  openGraph: {
+    title: "Power Platform Case Studies | Softree Technology",
+    description: "Enterprise automation case studies — Power Apps, Power Automate, and Power BI projects.",
+    url: "https://www.softreetechnology.com/case-studies/power-platform",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Power Platform Case Studies" }],
+  },
+};
 
 const PP_CASE_STUDIES: CaseStudyItem[] = [
   {

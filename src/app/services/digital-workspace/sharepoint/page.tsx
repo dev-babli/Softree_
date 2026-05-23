@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import NavigationClient from "@/components/sections/navigation-client";
 import SharePointMigration from "./sp-migrarion";
 import SharePointFeatures from "./feature";
@@ -13,6 +14,31 @@ import WhyChooseUs from "./why-chose";
 import TrustedBrandsMarquee from "../../business-applications/power-platform/trust";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import LightFAQExact from "@/components/homepage-light/LightFAQExact";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+
+export const metadata: Metadata = {
+  title: "SharePoint Development & Migration Services | Softree Technology",
+  description:
+    "SharePoint Online development, migration, and customization services. Modern intranets, document management, and collaboration solutions by Softree Technology.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/services/digital-workspace/sharepoint",
+  },
+  openGraph: {
+    title: "SharePoint Development & Migration | Softree Technology",
+    description:
+      "Modern SharePoint intranets, migration services, and custom solutions for enterprise collaboration.",
+    url: "https://www.softreetechnology.com/services/digital-workspace/sharepoint",
+    siteName: "Softree Technology",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "SharePoint Services" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SharePoint Development | Softree Technology",
+    description: "SharePoint Online development, migration, and modern intranet solutions.",
+    images: ["/og-image.png"],
+  },
+};
 const FIXED_WIDTH = "mx-auto max-w-8xl px-8 sm:px-10 md:px-14 lg:px-20";
 
 const digitalWorkspaceSharePointFAQs = [
@@ -56,6 +82,14 @@ const digitalWorkspaceSharePointFAQs = [
 export default function Home() {
   return (
     <main className="relative min-h-screen bg-[#141414]">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "https://www.softreetechnology.com" },
+          { name: "Services", url: "https://www.softreetechnology.com/services" },
+          { name: "Digital Workspace", url: "https://www.softreetechnology.com/services/digital-workspace/sharepoint" },
+          { name: "SharePoint", url: "https://www.softreetechnology.com/services/digital-workspace/sharepoint" },
+        ]}
+      />
       <NavigationClient />
 
       {/* HERO (can stay full-width or internally centered) */}

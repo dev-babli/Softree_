@@ -13,7 +13,11 @@
         "sanity:import": "tsx scripts/migrate-to-sanity.ts",
         "sanity:export": "tsx scripts/export-content.ts",
         "sanity:typegen": "sanity typegen generate",
-        "psi": "node scripts/psi-check.mjs"
+        "psi": "node scripts/psi-check.mjs",
+        "audit:site": "npx unlighthouse --site https://softreetechnology.com",
+        "audit:local": "npx lighthouse http://localhost:3000 --only-categories=performance,accessibility,seo,best-practices --view",
+        "analyze": "cross-env ANALYZE=true npm run build",
+        "generate:og": "node scripts/generate-og-image.mjs"
     },
     "dependencies": {
         "@anthropic-ai/sdk": "^0.88.0",
@@ -59,6 +63,7 @@
         "@sanity/icons": "^3.7.4",
         "@sanity/image-url": "^2.1.1",
         "@sanity/vision": "^5.26.0",
+        "@sentry/nextjs": "^10.53.1",
         "@tabler/icons-react": "^3.35.0",
         "@tailwindcss/typography": "^0.5.19",
         "@tsparticles/engine": "^3.8.1",
@@ -128,11 +133,14 @@
         "three": "^0.178.0",
         "three-globe": "^2.45.0",
         "vaul": "^1.1.2",
+        "web-vitals": "^5.2.0",
         "zod": "^4.1.12"
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3.3.1",
         "@ffmpeg-installer/ffmpeg": "^1.1.0",
+        "@next/bundle-analyzer": "^16.2.6",
+        "@resvg/resvg-js": "^2.6.2",
         "@sanity/blueprints": "0.18.0",
         "@tailwindcss/postcss": "^4",
         "@types/node": "^20",
@@ -140,6 +148,7 @@
         "@types/react-dom": "^19",
         "@types/react-syntax-highlighter": "^15.5.13",
         "@types/three": "^0.178.0",
+        "cross-env": "^10.1.0",
         "eslint": "^9.38.0",
         "eslint-config-next": "^16.0.1",
         "fluent-ffmpeg": "^2.1.3",
