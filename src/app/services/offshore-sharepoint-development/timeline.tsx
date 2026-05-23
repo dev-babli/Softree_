@@ -76,12 +76,12 @@ export default function TimelinePage() {
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
-    <main className="min-h-screen">
+    <section className="relative py-24 sm:py-32">
       <div ref={containerRef} className="relative w-full md:px-10">
         {/* Header */}
-        <div className="relative overflow-hidden  px-4 text-center">
+        <div className="relative overflow-hidden px-4 text-center">
           {/* Content */}
-          <div className="relative max-w-7xl mt-34 mx-auto text-center px-4">
+          <div className="relative max-w-7xl mx-auto text-center px-4">
             {/* Badge */}
             <span
               className="
@@ -191,6 +191,6 @@ export default function TimelinePage() {
           </div>
         </div>
       </div>
-    </main>
+    </section>
   );
 }

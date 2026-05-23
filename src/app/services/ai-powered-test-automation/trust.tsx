@@ -184,6 +184,54 @@ export default function QAForgeLandingPage() {
         href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"
       />
 
+      <style>{`
+        @media (max-width: 991px) {
+          .trust-hero {
+            grid-template-columns: 1fr !important;
+            gap: 2.5rem !important;
+          }
+          .trust-metrics {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 16px !important;
+          }
+          .trust-features {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .trust-twocol {
+            grid-template-columns: 1fr !important;
+            gap: 2.5rem !important;
+          }
+          .trust-bottom-strip {
+            grid-template-columns: 1fr !important;
+            gap: 1.5rem !important;
+            text-align: center !important;
+            padding: 1.5rem !important;
+          }
+          .trust-strip-meta {
+            justify-content: center !important;
+            flex-wrap: wrap;
+          }
+          .trust-strip-cta {
+            align-items: center !important;
+          }
+          .trust-strip-note {
+            text-align: center !important;
+          }
+        }
+        @media (max-width: 600px) {
+          .trust-features {
+            grid-template-columns: 1fr !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .trust-metrics {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
+
       <div style={styles.body}>
         <div style={styles.page}>
           {/* ── NAV ── */}
@@ -196,13 +244,13 @@ export default function QAForgeLandingPage() {
           </nav>
 
           {/* ── HERO ── */}
-          <section style={styles.hero}>
+          <section className="trust-hero" style={styles.hero}>
             <div>
               <div style={styles.heroEyebrow}>
                 <span style={styles.eyebrowPill}>TRUSTED PARTNER</span>
                 <span style={styles.eyebrowLine} />
               </div>
-              <h1 style={styles.heroTitle}>
+              <h1 style={{ ...styles.heroTitle, fontSize: "clamp(26px, 6vw, 2.4rem)" }}>
                 Automation for
                 <br />
                 <em style={{ fontStyle: "normal", color: "var(--zinc-400)" }}>
@@ -270,7 +318,7 @@ export default function QAForgeLandingPage() {
           </section>
 
           {/* ── METRICS ROW ── */}
-          <div style={styles.metricsRow}>
+          <div className="trust-metrics" style={styles.metricsRow}>
             <MetricCard
               num="2.1k"
               label="Tests automated"
@@ -287,7 +335,7 @@ export default function QAForgeLandingPage() {
 
           {/* ── FEATURES GRID ── */}
           <div style={styles.sectionLabel}>Core Capabilities</div>
-          <div style={styles.featuresGrid}>
+          <div className="trust-features" style={styles.featuresGrid}>
             <FeatureCard
               icon="ti-robot"
               title="AI-Assisted Testing"
@@ -328,7 +376,7 @@ export default function QAForgeLandingPage() {
           </div>
 
           {/* ── PROGRESS + TIMELINE ── */}
-          <div style={styles.twoColGrid}>
+          <div className="trust-twocol" style={styles.twoColGrid}>
             {/* Progress */}
             <div style={styles.progSection}>
               <div style={{ ...styles.sectionLabel, marginBottom: 20 }}>
@@ -374,7 +422,7 @@ export default function QAForgeLandingPage() {
           </div>
 
           {/* ── BOTTOM STRIP ── */}
-          <div style={styles.bottomStrip}>
+          <div className="trust-bottom-strip" style={styles.bottomStrip}>
             <div>
               <div style={styles.stripTitle}>
                 Trusted Automation Partner for Modern Enterprises
@@ -382,7 +430,7 @@ export default function QAForgeLandingPage() {
               <div style={styles.stripSub}>
                 Join 340+ engineering teams shipping faster with QAForge.
               </div>
-              <div style={styles.stripMeta}>
+              <div className="trust-strip-meta" style={styles.stripMeta}>
                 <i
                   className="ti ti-shield-check"
                   style={{ fontSize: 13 }}
@@ -409,9 +457,9 @@ export default function QAForgeLandingPage() {
                 99% Uptime SLA
               </div>
             </div>
-            <div style={styles.stripCta}>
+            <div className="trust-strip-cta" style={styles.stripCta}>
               <Link href="/contact" style={{...styles.btnInvert, textDecoration: "none"}}>Start free trial</Link>
-              <div style={styles.stripNote}>No credit card required</div>
+              <div className="trust-strip-note" style={styles.stripNote}>No credit card required</div>
             </div>
           </div>
         </div>

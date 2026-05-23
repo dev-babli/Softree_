@@ -39,3 +39,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .env.local
+
+# Sanity Functions
+functions/**/.env*
+functions/**/.build/
+functions/**/node_modules/
+
+# Sentry Config File
+.env.sentry-build-plugin

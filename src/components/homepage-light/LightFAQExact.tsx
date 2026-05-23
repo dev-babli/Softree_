@@ -115,7 +115,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
   }
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-[#0a0a0a] py-20 md:py-32">
+    <section ref={sectionRef} className="relative w-full bg-[#F8F9FC] py-20 md:py-32">
       {/* FAQPage JSON-LD — enables AI Overview, ChatGPT/Claude/Gemini citation,
          and Google rich results. Each answer is 30-50 words for optimal
          AEO extraction (the LLM sweet spot). */}
@@ -177,7 +177,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
         {/* Section Title */}
         <div ref={titleRef} className="mb-12 md:mb-16">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#ff7a2f]/20 bg-[#ff7a2f]/10 px-4 py-2">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#1852FF]/20 bg-[#1852FF]/10 px-4 py-2">
             <Image
               src="https://cdn.prod.website-files.com/68dbb9a72b91c794d0cdd10c/690f9e158664fc7bd2753513_Subtitle-Icon.svg"
               alt=""
@@ -185,11 +185,11 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
               height={16}
               className="h-4 w-4"
             />
-            <span className="text-sm font-medium text-[#ff7a2f]">FAQ</span>
+            <span className="text-sm font-medium text-[#1852FF]">FAQ</span>
           </div>
-          <h2 className="text-3xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
+          <h2 className="text-3xl font-bold tracking-tight text-[#0a0a1a] md:text-5xl lg:text-6xl">
             Frequently Asked{" "}
-            <span className="text-[#ff7a2f]">Questions.</span>
+            <span className="text-[#1852FF]">Questions.</span>
           </h2>
         </div>
 
@@ -203,9 +203,9 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
               <div
                 key={faq.id}
                 onClick={() => handleClick(index)}
-                className={`group/card relative cursor-pointer overflow-hidden rounded-2xl transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${isActive
-                  ? "bg-[#0a0a1a]"
-                  : ""
+                className={`group/card relative cursor-pointer overflow-hidden rounded-2xl border border-[#0a0a1a]/10 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${isActive
+                  ? "bg-white shadow-xl"
+                  : "bg-white/80"
                   }`}
                 style={{
                   width: isActive ? "37%" : isCollapsed ? "15%" : "15%",
@@ -272,7 +272,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                       zoom={0.85}
                     />
                     {/* Subtle vignette overlay for text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1852FF]/10 via-transparent to-[#1852FF]/5" />
                   </div>
                 )}
 
@@ -281,7 +281,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                   {/* Top - Serial & Icon */}
                   <div className="mb-auto flex items-start justify-between">
                     <span
-                      className={`text-xs font-medium uppercase tracking-wider transition-colors duration-500 ${isActive ? "text-white/60" : "text-[#111827]/90"
+                      className={`text-xs font-medium uppercase tracking-wider transition-colors duration-500 ${isActive ? "text-[#0a0a1a]/60" : "text-[#111827]/90"
                         }`}
                     >
                       {faq.serial}
@@ -296,7 +296,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                         className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${isActive
                           ? "scale-0 opacity-0"
                           : "scale-100 opacity-100"
-                          } ${isActive ? "invert" : ""}`}
+                          }`}
                       />
                       {/* Minus Icon */}
                       <Image
@@ -304,7 +304,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                         alt="Minus"
                         width={24}
                         height={24}
-                        className={`absolute inset-0 h-6 w-6 invert transition-all duration-500 ${isActive
+                        className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${isActive
                           ? "scale-100 opacity-100"
                           : "scale-0 opacity-0"
                           }`}
@@ -317,8 +317,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                     {/* Question */}
                     <div className="mb-4">
                       <h3
-                        className={`text-lg font-semibold leading-snug transition-colors duration-500 md:text-xl ${isActive ? "text-white" : "text-[#0a0a1a]"
-                          }`}
+                        className={`text-lg font-semibold leading-snug transition-colors duration-500 md:text-xl text-[#0a0a1a]`}
                       >
                         {faq.question}
                       </h3>
@@ -333,19 +332,19 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                       }}
                     >
                       <div className="pt-4">
-                        <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-white/60">
+                        <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-[#0a0a1a]/60">
                           Question Answer:
                         </h4>
-                        <div className="mb-4 h-px w-16 bg-white/20" />
-                        <p className="mb-6 text-sm leading-relaxed text-white/80 md:text-base">
+                        <div className="mb-4 h-px w-16 bg-[#0a0a1a]/20" />
+                        <p className="mb-6 text-sm leading-relaxed text-[#0a0a1a]/80 md:text-base">
                           {faq.answer}
                         </p>
                         <Link
                           href="/about-us"
-                          className="group inline-flex items-center gap-3 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-[#0a0a1a] transition-all hover:bg-[#ff7a2f] hover:text-white"
+                          className="group inline-flex items-center gap-3 rounded-full bg-[#1852FF] px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-[#0a0a1a]"
                         >
                           <span>More About Us</span>
-                          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#ff7a2f] text-white transition-all group-hover:bg-white group-hover:text-[#ff7a2f]">
+                          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-[#1852FF] transition-all group-hover:bg-[#1852FF] group-hover:text-white">
                             <ArrowUpRight className="h-3 w-3" />
                           </span>
                         </Link>

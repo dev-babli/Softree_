@@ -1,168 +1,152 @@
-import NavigationClient from "@/components/sections/navigation-client";
-import ProjectProcessSection from "./start-project";
-import Certifications from "@/app/services/business-applications/power-platform/certification";
-import Link from "next/link";
-import Footer from "@/components/sections/footer";
-import CaseStudyGrid from "./case-study-grid";
-import WhyChooseUs from "./why-chose";
-import TechnologiesTabs from "./collab-tab";
-import WebCaseStudies from "./latest-cases";
-import LightContactSection from "@/components/homepage-light/LightContactSection";
-import LightFAQExact from "@/components/homepage-light/LightFAQExact";
+import type { Metadata } from "next";
+import NavigationClient from "@/components/sections/navigation-client"
+import Footer from "@/components/sections/footer"
+import LightContactSection from "@/components/qc/homepage-light/LightContactSection"
+import LightFAQExact from "@/components/homepage-light/LightFAQExact"
+import CaseStudyHero from "../CaseStudyHero"
+import CaseStudyGridNew from "../CaseStudyGrid"
+import type { CaseStudyItem } from "../CaseStudyGrid"
+import CaseStudyProofCTA from "../CaseStudyProofCTA"
 
-const webCaseStudyFAQs = [
+export const metadata: Metadata = {
+  title: "Web Development Case Studies",
+  description:
+    "See how Softree Technology builds high-performance web applications — React, Next.js, and full-stack solutions delivering real business outcomes.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/case-studies/web",
+  },
+  openGraph: {
+    title: "Web Development Case Studies | Softree Technology",
+    description: "Real-world web development projects — React, Next.js, and enterprise web applications.",
+    url: "https://www.softreetechnology.com/case-studies/web",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Web Case Studies" }],
+  },
+};
+
+const WEB_CASE_STUDIES: CaseStudyItem[] = [
   {
-    id: 1,
-    serial: "question 01",
-    question: "What types of web application case studies do you feature?",
-    answer:
-      "Our web case studies showcase enterprise web applications, SaaS platforms, e-commerce solutions, and custom web portals. We highlight the challenges, solutions, and results for each project.",
+    title: "Shopping E-Commerce Platform",
+    description: "Scalable e-commerce platform — advanced product management, secure payments, and optimized checkout that lifted conversions by 38%.",
+    href: "/pdf/web/ShoppingEcommerce.pdf",
+    category: "E-Commerce",
+    image: "/images/case-study/web/shopping.png",
+    industry: "Retail & E-Commerce",
+    metrics: [{ label: "Conversion Lift", value: "+38%" }, { label: "Revenue Growth", value: "$1.2M" }],
   },
   {
-    id: 2,
-    serial: "question 02",
-    question: "What technologies are used in your web application projects?",
-    answer:
-      "We use modern web technologies including React.js, Next.js, Node.js, TypeScript, and cloud platforms like AWS and Azure. Each case study details the specific technology stack used.",
+    title: "Pet Care Management Platform",
+    description: "Online booking and client management system that increased appointment efficiency 65% and improved retention by 29%.",
+    href: "/pdf/web/PET_CARE.pdf",
+    category: "Business Platform",
+    image: "/images/case-study/web/pet.png",
+    industry: "Pet Services",
+    metrics: [{ label: "Booking Efficiency", value: "+65%" }, { label: "Retention", value: "+29%" }],
   },
   {
-    id: 3,
-    serial: "question 03",
-    question: "How do you measure success in your web application projects?",
-    answer:
-      "We measure success through metrics like performance improvements, user adoption rates, cost savings, and business impact. Our case studies include quantitative results and client testimonials.",
+    title: "Business Consultation Platform",
+    description: "Client onboarding and scheduling platform that cut onboarding time by 70% and saved $85K in operational costs.",
+    href: "/pdf/web/Business-Consultation-App-case-study-1.pdf",
+    category: "Enterprise",
+    image: "/images/case-study/web/business.avif",
+    industry: "Professional Services",
+    metrics: [{ label: "Onboarding Time", value: "-70%" }, { label: "Cost Saved", value: "$85K" }],
   },
   {
-    id: 4,
-    serial: "question 04",
-    question: "Can you build similar web applications for my business?",
-    answer:
-      "Yes, we can build similar solutions tailored to your specific business requirements. Contact us to discuss your project and we can provide a detailed proposal based on our experience.",
+    title: "Public Blogging Website (MERN Stack)",
+    description: "Full-stack blogging platform with content publishing and role-based auth — grew SEO traffic 85% and active users 120%.",
+    href: "/pdf/web/Public-Blogging-Website-MERN.pdf",
+    category: "Web App",
+    image: "/images/case-study/web/blog.png",
+    industry: "Media & Publishing",
+    metrics: [{ label: "SEO Traffic", value: "+85%" }, { label: "Active Users", value: "+120%" }],
   },
   {
-    id: 5,
-    serial: "question 05",
-    question: "What industries do you serve with web application development?",
-    answer:
-      "We serve various industries including healthcare, finance, e-commerce, education, and manufacturing. Our case studies demonstrate our expertise across different sectors.",
+    title: "Food & Wine Website",
+    description: "Immersive marketing website for food and beverage brands — boosted engagement 92% and reduced bounce rate by 48%.",
+    href: "/pdf/web/FOOD-WINE-WEBSITE.pdf",
+    category: "Marketing",
+    image: "/images/case-study/web/food.png",
+    industry: "Food & Beverage",
+    metrics: [{ label: "Engagement", value: "+92%" }, { label: "Bounce Rate", value: "-48%" }],
+  },
+  {
+    title: "Auto Repair Pro Website",
+    description: "Service website for automotive repair with online booking and local SEO — online bookings jumped 210% and reached local top 3 ranking.",
+    href: "/pdf/web/AUTOREPAIR-PRO.pdf",
+    category: "Service Website",
+    image: "/images/case-study/web/auto.avif",
+    industry: "Automotive Services",
+    metrics: [{ label: "Online Bookings", value: "+210%" }, { label: "Local Rank", value: "Top 3" }],
+  },
+  {
+    title: "EdTech Management Information System",
+    description: "Education management platform for student records and admin workflows — saved 30 admin hours per week at 99.8% data accuracy.",
+    href: "/pdf/web/EdTech-Management-Information-System.pdf",
+    category: "Education",
+    image: "/images/case-study/web/edtech.avif",
+    industry: "Education Technology",
+    metrics: [{ label: "Admin Time Saved", value: "30hrs/wk" }, { label: "Data Accuracy", value: "99.8%" }],
+  },
+  {
+    title: "Noteved Admin Dashboard",
+    description: "Powerful admin dashboard for educational content and analytics — under 1.2s load time and 4x content output improvement.",
+    href: "/pdf/web/NotevedAdmin.pdf",
+    category: "Dashboard",
+    image: "/images/case-study/web/noteved.png",
+    industry: "EdTech Platform",
+    metrics: [{ label: "Load Time", value: "<1.2s" }, { label: "Content Output", value: "+4x" }],
+  },
+  {
+    title: "Wellkies Admin Website",
+    description: "Healthcare administration portal for clinics and appointments — improved operational efficiency 55% and reduced errors by 91%.",
+    href: "/pdf/web/Wellkies-Admin-Website.pdf",
+    category: "Healthcare",
+    image: "/images/case-study/web/admin.png",
+    industry: "Healthcare Administration",
+    metrics: [{ label: "Ops Efficiency", value: "+55%" }, { label: "Errors Reduced", value: "91%" }],
   },
 ]
-export default function webCaseStudiesPage() {
+
+const webFAQs = [
+  { id: 1, serial: "question 01", question: "What types of web application case studies do you feature?", answer: "Our web case studies showcase enterprise web applications, SaaS platforms, e-commerce solutions, and custom web portals. We highlight the challenges, solutions, and results for each project." },
+  { id: 2, serial: "question 02", question: "What technologies are used in your web application projects?", answer: "We use modern web technologies including React.js, Next.js, Node.js, TypeScript, and cloud platforms like AWS and Azure. Each case study details the specific technology stack used." },
+  { id: 3, serial: "question 03", question: "How do you measure success in your web application projects?", answer: "We measure success through metrics like performance improvements, user adoption rates, cost savings, and business impact. Our case studies include quantitative results and client testimonials." },
+  { id: 4, serial: "question 04", question: "Can you build similar web applications for my business?", answer: "Yes, we can build similar solutions tailored to your specific business requirements. Contact us to discuss your project and we can provide a detailed proposal based on our experience." },
+  { id: 5, serial: "question 05", question: "What industries do you serve with web application development?", answer: "We serve various industries including healthcare, finance, e-commerce, education, and manufacturing. Our case studies demonstrate our expertise across different sectors." },
+]
+
+/**
+ * WEB CASE STUDIES — Redesigned to match About Us / Contact / Blog design language.
+ */
+export default function WebCaseStudiesPage() {
   return (
-    <div>
+    <div className="min-h-screen pt-[100px]">
       <NavigationClient />
-      <section className="relative bg-gradient-to-br from-[#0b3ea8] to-[#1e73d8] text-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-10 items-center relative z-10">
-          {/* LEFT CONTENT */}
-          <div>
-            <h1 className="text-4xl lg:text-5xl font-semibold">
-              Web Development Case Studies
-            </h1>
-
-            <p className="mt-4 text-white/80">
-              Real-world web platforms engineered for performance, scalability,
-              and measurable business growth.
-            </p>
-
-            <div className="flex gap-4 mt-8">
-              <Link
-                href="/contact"
-                className="bg-white text-blue-700 px-6 py-3 rounded-lg font-medium inline-flex items-center justify-center hover:bg-blue-50 transition"
-              >
-                Talk to a Web App Expert
-              </Link>
-
-              <Link
-                href="/services/offshore-web-app-development"
-                className="border border-white/40 px-6 py-3 rounded-lg inline-flex items-center justify-center hover:bg-white/10 transition"
-              >
-                View Web App Services
-              </Link>
-            </div>
-          </div>
-
-          {/* RIGHT GLASS CARD */}
-          <div className="relative">
-            {/* Outer glow */}
-            <div className="absolute -inset-2 rounded-2xl bg-white/20 blur-xl"></div>
-
-            {/* Glass box */}
-            <div className="relative rounded-2xl border border-white/20 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-xl shadow-2xl p-6 text-white">
-              {/* Top bar */}
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-red-400" />
-                  <span className="w-3 h-3 rounded-full bg-yellow-400" />
-                  <span className="w-3 h-3 rounded-full bg-green-400" />
-                </div>
-                <span className="text-xs text-white/70">
-                  Web Analytics Dashboard
-                </span>
-              </div>
-
-              {/* Title */}
-              <h3 className="text-lg font-semibold mb-1">
-                Website Performance Overview
-              </h3>
-              <p className="text-sm text-white/70 mb-6">
-                Live metrics from modern web applications
-              </p>
-
-              {/* KPIs */}
-              <div className="grid grid-cols-3 gap-4 mb-6">
-                <div className="bg-white/10 rounded-lg p-3 text-center">
-                  <p className="text-xs text-white/60">Web Apps Built</p>
-                  <p className="text-xl font-semibold">55+</p>
-                </div>
-                <div className="bg-white/10 rounded-lg p-3 text-center">
-                  <p className="text-xs text-white/60">Monthly Users</p>
-                  <p className="text-xl font-semibold">250K+</p>
-                </div>
-                <div className="bg-white/10 rounded-lg p-3 text-center">
-                  <p className="text-xs text-white/60">Speed Improvement</p>
-                  <p className="text-xl font-semibold">+60%</p>
-                </div>
-              </div>
-
-              {/* Chart mock */}
-              <div>
-                <p className="text-xs text-white/60 mb-3">
-                  Traffic & Engagement Trend
-                </p>
-                <div className="grid grid-cols-5 gap-2 items-end h-28">
-                  <div className="bg-white/40 rounded h-12" />
-                  <div className="bg-white/50 rounded h-20" />
-                  <div className="bg-white/70 rounded h-28" />
-                  <div className="bg-white/45 rounded h-16" />
-                  <div className="bg-white/35 rounded h-10" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* 🌊 WAVE BOTTOM */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
-          <svg
-            viewBox="0 0 1440 120"
-            className="w-full h-[120px]"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M0,64 C240,96 480,96 720,80 960,64 1200,32 1440,32 L1440,120 L0,120 Z"
-              fill="#ffffff"
-            />
-          </svg>
-        </div>
-      </section>
-      <WebCaseStudies />
-      <CaseStudyGrid />
-      <WhyChooseUs />
-      <TechnologiesTabs />
-      <Certifications />
+      <CaseStudyHero
+        title="Web"
+        titleItalic="case studies"
+        eyebrow="Web Development&nbsp;&nbsp;&middot;&nbsp;&nbsp;Modern Platforms"
+        description="Real-world web platforms engineered for performance, scalability, and measurable business growth. Explore how we build digital experiences that drive results."
+        heroStat="+210%"
+        heroStatLabel="online bookings for Auto Repair Pro"
+        projectCount={40}
+      />
+      <CaseStudyGridNew
+        items={WEB_CASE_STUDIES}
+        sectionTitle="Web development projects"
+        sectionSubtitle="Enterprise platforms, SaaS apps, and marketing websites delivering real business outcomes."
+      />
+      <CaseStudyProofCTA
+        challengeText="Need a web platform that actually moves the numbers?"
+        solutionText="Every project above started with a free consultation. We scope, build, and deliver — then show you the metrics that matter."
+        accentColor="#1852FF"
+        quote="Our online bookings jumped 210% in the first quarter. The ROI paid for the project in 6 weeks."
+        quoteName="Auto Repair Pro"
+        quoteRole="Service Business · United States"
+      />
       <LightContactSection />
-      <LightFAQExact faqs={webCaseStudyFAQs} />
+      <LightFAQExact faqs={webFAQs} />
       <Footer />
     </div>
-  );
+  )
 }

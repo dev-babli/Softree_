@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
 import StackedSlider from "./stack-slider";
@@ -14,6 +15,31 @@ import Certifications from "../../business-applications/power-platform/certifica
 import AIServicesSection from "./strategy";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import LightFAQExact from "@/components/homepage-light/LightFAQExact";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+
+export const metadata: Metadata = {
+  title: "Agentic AI Development Services | Softree Technology",
+  description:
+    "Build autonomous AI agents with Softree Technology. Our agentic AI solutions automate complex workflows, reasoning, and decision-making for enterprises.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/services/ai-intelligence/agentic-ai",
+  },
+  openGraph: {
+    title: "Agentic AI Development Services | Softree Technology",
+    description:
+      "Enterprise agentic AI development — autonomous agents that reason, plan, and execute complex business workflows.",
+    url: "https://www.softreetechnology.com/services/ai-intelligence/agentic-ai",
+    siteName: "Softree Technology",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Agentic AI Services" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Agentic AI Development | Softree Technology",
+    description: "Autonomous AI agents for enterprise workflows — planning, reasoning, and execution at scale.",
+    images: ["/og-image.png"],
+  },
+};
 
 const aiIntelligenceAgenticAIFAQs = [
   {
@@ -55,6 +81,14 @@ const aiIntelligenceAgenticAIFAQs = [
 export default function AgenticAIPage() {
   return (
     <div>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "https://www.softreetechnology.com" },
+          { name: "Services", url: "https://www.softreetechnology.com/services" },
+          { name: "AI Intelligence", url: "https://www.softreetechnology.com/services/ai-intelligence/agentic-ai" },
+          { name: "Agentic AI", url: "https://www.softreetechnology.com/services/ai-intelligence/agentic-ai" },
+        ]}
+      />
       <NavigationClient />
       <HeroWithTestimonial />
       <TrustedBrandsMarquee />

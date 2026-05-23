@@ -7,9 +7,34 @@ import { Suspense } from "react";
 import { PostHogProvider } from "@/components/PostHogProvider";
 import { PostHogPageView } from "@/components/PostHogPageView";
 import GoogleAnalytics from "@/components/sections/google-analytics";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.softreetechnology.com"),
+  title: {
+    default: "Softree Technology | AI, Power Platform & Web Development",
+    template: "%s | Softree Technology",
+  },
+  description:
+    "Softree Technology delivers enterprise AI, Power Platform, SharePoint, and modern web development solutions. Trusted by companies across the US, UK, and India.",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large", "max-video-preview": -1 },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "Softree Technology",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Softree Technology" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@softreetech",
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+  },
 };
 
 export default function RootLayout({
@@ -38,17 +63,53 @@ export default function RootLayout({
           }}
         />
 
-        {/* ✅ Structured Data */}
+        {/* ✅ Structured Data — Organization + WebSite */}
         <Script
           id="ld-json"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Softree",
-              url: "https://www.softreetechnology.com",
-              logo: "https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo.png",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://www.softreetechnology.com/#organization",
+                  name: "Softree Technology",
+                  url: "https://www.softreetechnology.com",
+                  logo: {
+                    "@type": "ImageObject",
+                    url: "https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo.png",
+                  },
+                  description:
+                    "Softree Technology is an enterprise software development company specializing in AI, Power Platform, SharePoint, and modern web development.",
+                  foundingDate: "2018",
+                  sameAs: [
+                    "https://www.linkedin.com/company/softree-technology",
+                    "https://twitter.com/softreetech",
+                  ],
+                  contactPoint: {
+                    "@type": "ContactPoint",
+                    contactType: "customer service",
+                    email: "hello@softreetechnology.com",
+                    availableLanguage: "English",
+                  },
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://www.softreetechnology.com/#website",
+                  url: "https://www.softreetechnology.com",
+                  name: "Softree Technology",
+                  publisher: { "@id": "https://www.softreetechnology.com/#organization" },
+                  potentialAction: {
+                    "@type": "SearchAction",
+                    target: {
+                      "@type": "EntryPoint",
+                      urlTemplate: "https://www.softreetechnology.com/blog?q={search_term_string}",
+                    },
+                    "query-input": "required name=search_term_string",
+                  },
+                },
+              ],
             }),
           }}
         />
@@ -95,11 +156,8 @@ export default function RootLayout({
 
           {children}
 
-          {/* ✅ Tidio Chatbot */}
-          <Script
-            src="//code.tidio.co/wt0gzqlmxpfwlnsv7aculpsflifbbv7v.js"
-            strategy="afterInteractive"
-          />
+          {/* Vercel Speed Insights – Core Web Vitals RUM */}
+          <SpeedInsights />
 
           {/* Visual editor */}
           <VisualEditsMessenger />

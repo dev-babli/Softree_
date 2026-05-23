@@ -1,167 +1,179 @@
-import NavigationClient from "@/components/sections/navigation-client";
-import Footer from "@/components/sections/footer";
-import Link from "next/link";
-import { Factory, AlertTriangle, Workflow, TrendingUp } from "lucide-react";
-import ProjectProcessSection from "./start-project";
-import CaseStudyGrid from "./case-study";
-import WhyChooseUs from "./why";
-import AgenticToolsOverview from "./tools";
-import LightContactSection from "@/components/homepage-light/LightContactSection";
-import LightFAQExact from "@/components/homepage-light/LightFAQExact";
+import type { Metadata } from "next";
+import NavigationClient from "@/components/sections/navigation-client"
+import Footer from "@/components/sections/footer"
+import LightContactSection from "@/components/qc/homepage-light/LightContactSection"
+import LightFAQExact from "@/components/homepage-light/LightFAQExact"
+import CaseStudyHero from "../CaseStudyHero"
+import CaseStudyGridNew from "../CaseStudyGrid"
+import type { CaseStudyItem } from "../CaseStudyGrid"
+import CaseStudyProofCTA from "../CaseStudyProofCTA"
 
-const aiCaseStudyFAQs = [
+export const metadata: Metadata = {
+  title: "AI Case Studies",
+  description:
+    "Explore how Softree Technology delivers AI-powered solutions — recommendation engines, chatbots, computer vision, and intelligent automation driving measurable ROI.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/case-studies/ai",
+  },
+  openGraph: {
+    title: "AI Case Studies | Softree Technology",
+    description: "Real-world AI project results — ML, NLP, generative AI, and automation case studies.",
+    url: "https://www.softreetechnology.com/case-studies/ai",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "AI Case Studies" }],
+  },
+};
+
+const AI_CASE_STUDIES: CaseStudyItem[] = [
   {
-    id: 1,
-    serial: "question 01",
-    question: "What AI projects are featured in your case studies?",
-    answer:
-      "Our AI case studies showcase generative AI solutions, AI agents, intelligent automation, and machine learning applications. We highlight the challenges, technical approaches, and measurable business outcomes for each project.",
+    title: "AI-Powered E-Commerce Recommendation Engine",
+    description: "ML-driven recommendation system that personalizes product discovery and lifted conversion rates by 28% and average order value by $42.",
+    href: "/pdf/web/ShoppingEcommerce.pdf",
+    category: "AI Recommendation",
+    image: "/images/case-study/web/shopping.png",
+    industry: "Retail & E-Commerce",
+    locked: true,
+    teaserMetrics: [
+      { label: "Revenue lift", value: "34%", isBlurred: true },
+      { label: "Conversion boost", value: "28%", isBlurred: true },
+      { label: "Avg order value", value: "+$42", isBlurred: true },
+    ],
   },
   {
-    id: 2,
-    serial: "question 02",
-    question: "What AI technologies do you use in your projects?",
-    answer:
-      "We use OpenAI, Azure OpenAI, custom LLMs, and machine learning frameworks. Each case study details the specific AI technologies, models, and architectures used to solve business problems.",
+    title: "AI-Based Customer Support Automation",
+    description: "LLM-powered chatbot and automated ticket routing that cut support costs 47% and response time by 89%.",
+    href: "/pdf/web/PET_CARE.pdf",
+    category: "Generative AI",
+    image: "/images/case-study/web/business.avif",
+    industry: "Customer Service",
+    locked: true,
+    teaserMetrics: [
+      { label: "Cost reduction", value: "47%", isBlurred: true },
+      { label: "Response time", value: "-89%", isBlurred: true },
+      { label: "CSAT score", value: "4.8/5", isBlurred: true },
+    ],
   },
   {
-    id: 3,
-    serial: "question 03",
-    question: "How do you measure success in AI projects?",
-    answer:
-      "We measure success through accuracy improvements, efficiency gains, cost savings, and user satisfaction. Our case studies include quantitative metrics and qualitative feedback on AI solution performance.",
+    title: "Enterprise AI Decision Intelligence Platform",
+    description: "AI analytics platform delivering predictive insights 10x faster with 93% accuracy, delivering 412% ROI within the first year.",
+    href: "/pdf/web/Business-Consultation-App-case-study-1.pdf",
+    category: "Enterprise AI",
+    image: "/images/case-study/web/noteved.png",
+    industry: "Enterprise Analytics",
+    locked: true,
+    teaserMetrics: [
+      { label: "Decision speed", value: "10x", isBlurred: true },
+      { label: "Accuracy gain", value: "93%", isBlurred: true },
+      { label: "ROI achieved", value: "412%", isBlurred: true },
+    ],
   },
   {
-    id: 4,
-    serial: "question 04",
-    question: "Can you build similar AI solutions for my organization?",
-    answer:
-      "Yes, we can build similar AI solutions tailored to your business needs. Contact us to discuss your requirements and we can provide a detailed proposal based on our proven AI expertise.",
+    title: "AI Knowledge Assistant (RAG Architecture)",
+    description: "Retrieval-augmented generation system enabling natural-language search across enterprise knowledge bases, reducing search time by 74%.",
+    href: "/pdf/web/Public-Blogging-Website-MERN.pdf",
+    category: "RAG & LLM",
+    image: "/images/case-study/web/blog.png",
+    industry: "Knowledge Management",
+    metrics: [{ label: "Search Time Reduced", value: "-74%" }, { label: "Query Accuracy", value: "96%" }],
   },
   {
-    id: 5,
-    serial: "question 05",
-    question: "What industries do you serve with AI solutions?",
-    answer:
-      "We serve various industries including healthcare, finance, customer service, and operations. Our case studies demonstrate our experience delivering AI solutions across different business sectors.",
+    title: "AI Marketing Intelligence Platform",
+    description: "AI that analyzes customer behavior and auto-optimizes campaigns — delivered $2.3M campaign ROI and cut CPC by 56%.",
+    href: "/pdf/web/FOOD-WINE-WEBSITE.pdf",
+    category: "AI Analytics",
+    image: "/images/case-study/web/food.png",
+    industry: "Marketing & AdTech",
+    locked: true,
+    teaserMetrics: [
+      { label: "Campaign ROI", value: "$2.3M", isBlurred: true },
+      { label: "CPC reduction", value: "-56%", isBlurred: true },
+      { label: "Lead quality", value: "+78%", isBlurred: true },
+    ],
+  },
+  {
+    title: "Predictive Maintenance AI System",
+    description: "ML solution predicting equipment failures before they happen, reducing industrial downtime by 68% and maintenance costs by 41%.",
+    href: "/pdf/web/AUTOREPAIR-PRO.pdf",
+    category: "Machine Learning",
+    image: "/images/case-study/web/auto.avif",
+    industry: "Industrial / Manufacturing",
+    metrics: [{ label: "Downtime Reduced", value: "-68%" }, { label: "Maintenance Cost", value: "-41%" }],
+  },
+  {
+    title: "AI-Driven Education Intelligence Platform",
+    description: "AI education platform with performance analytics and adaptive learning — improved student outcomes by 38% and instructor efficiency by 52%.",
+    href: "/pdf/web/EdTech-Management-Information-System.pdf",
+    category: "AI for Education",
+    image: "/images/case-study/web/edtech.avif",
+    industry: "Education Technology",
+    metrics: [{ label: "Student Outcomes", value: "+38%" }, { label: "Instructor Efficiency", value: "+52%" }],
+  },
+  {
+    title: "AI Operations & Monitoring Dashboard",
+    description: "Centralized dashboard for monitoring AI models and pipelines in production, with real-time alerting cutting incident response by 80%.",
+    href: "/pdf/web/NotevedAdmin.pdf",
+    category: "AI Ops",
+    image: "/images/case-study/web/admin.png",
+    industry: "MLOps & DevOps",
+    metrics: [{ label: "Incident Response", value: "-80%" }, { label: "Model Uptime", value: "99.9%" }],
+  },
+  {
+    title: "Healthcare AI Appointment Intelligence",
+    description: "AI scheduling that predicts no-shows and optimizes availability — cut no-shows by 62% and recovered $890K in lost revenue.",
+    href: "/pdf/web/LIVE-appointment-bookings.pdf",
+    category: "Healthcare AI",
+    image: "/images/case-study/web/appointment.avif",
+    industry: "Healthcare",
+    locked: true,
+    teaserMetrics: [
+      { label: "No-show reduction", value: "-62%", isBlurred: true },
+      { label: "Utilization up", value: "+41%", isBlurred: true },
+      { label: "Revenue recovered", value: "$890K", isBlurred: true },
+    ],
   },
 ]
-export default function Page() {
+
+const aiFAQs = [
+  { id: 1, serial: "question 01", question: "What AI projects are featured in your case studies?", answer: "Our AI case studies showcase generative AI solutions, AI agents, intelligent automation, and machine learning applications. We highlight the challenges, technical approaches, and measurable business outcomes for each project." },
+  { id: 2, serial: "question 02", question: "What AI technologies do you use in your projects?", answer: "We use OpenAI, Azure OpenAI, custom LLMs, and machine learning frameworks. Each case study details the specific AI technologies, models, and architectures used to solve business problems." },
+  { id: 3, serial: "question 03", question: "How do you measure success in AI projects?", answer: "We measure success through accuracy improvements, efficiency gains, cost savings, and user satisfaction. Our case studies include quantitative metrics and qualitative feedback on AI solution performance." },
+  { id: 4, serial: "question 04", question: "Can you build similar AI solutions for my organization?", answer: "Yes, we can build similar AI solutions tailored to your business needs. Contact us to discuss your requirements and we can provide a detailed proposal based on our proven AI expertise." },
+  { id: 5, serial: "question 05", question: "What industries do you serve with AI solutions?", answer: "We serve various industries including healthcare, finance, customer service, and operations. Our case studies demonstrate our experience delivering AI solutions across different business sectors." },
+]
+
+/**
+ * AI CASE STUDIES — Redesigned to match About Us / Contact / Blog design language.
+ */
+export default function AICaseStudiesPage() {
   return (
-    <div>
+    <div className="min-h-screen pt-[100px]">
       <NavigationClient />
-      <section className="relative bg-gradient-to-br from-[#0b3ea8] to-[#1e73d8] text-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-10 items-center relative z-10">
-          {/* LEFT CONTENT */}
-          <div>
-            <h1 className="text-4xl lg:text-5xl font-semibold">
-              AI & Generative AI Case Studies
-            </h1>
-
-            <p className="mt-4 text-white/80">
-              Real-world AI solutions engineered to automate workflows, enhance
-              decision-making, and drive measurable business impact.
-            </p>
-
-            <div className="flex gap-4 mt-8">
-              <Link
-                href="/contact"
-                className="bg-white text-blue-700 px-6 py-3 rounded-lg font-medium inline-flex items-center justify-center hover:bg-blue-50 transition"
-              >
-                Talk to an AI Expert
-              </Link>
-
-              <Link
-                href="/services/agentic-ai"
-                className="border border-white/40 px-6 py-3 rounded-lg inline-flex items-center justify-center hover:bg-white/10 transition"
-              >
-                View AI Services
-              </Link>
-            </div>
-          </div>
-
-          {/* RIGHT GLASS CARD */}
-          <div className="relative">
-            {/* Outer glow */}
-            <div className="absolute -inset-2 rounded-2xl bg-white/20 blur-xl"></div>
-
-            {/* Glass box */}
-            <div className="relative rounded-2xl border border-white/20 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-xl shadow-2xl p-6 text-white">
-              {/* Top bar */}
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-red-400" />
-                  <span className="w-3 h-3 rounded-full bg-yellow-400" />
-                  <span className="w-3 h-3 rounded-full bg-green-400" />
-                </div>
-                <span className="text-xs text-white/70">
-                  AI Insights Dashboard
-                </span>
-              </div>
-
-              {/* Title */}
-              <h3 className="text-lg font-semibold mb-1">
-                AI Model Performance Overview
-              </h3>
-              <p className="text-sm text-white/70 mb-6">
-                Live metrics from production-grade AI systems
-              </p>
-
-              {/* KPIs */}
-              <div className="grid grid-cols-3 gap-4 mb-6">
-                <div className="bg-white/10 rounded-lg p-3 text-center">
-                  <p className="text-xs text-white/60">AI Models Deployed</p>
-                  <p className="text-xl font-semibold">40+</p>
-                </div>
-                <div className="bg-white/10 rounded-lg p-3 text-center">
-                  <p className="text-xs text-white/60">
-                    Automated Tasks / Month
-                  </p>
-                  <p className="text-xl font-semibold">1.2M+</p>
-                </div>
-                <div className="bg-white/10 rounded-lg p-3 text-center">
-                  <p className="text-xs text-white/60">Accuracy Improvement</p>
-                  <p className="text-xl font-semibold">+72%</p>
-                </div>
-              </div>
-
-              {/* Chart mock */}
-              <div>
-                <p className="text-xs text-white/60 mb-3">
-                  Model Accuracy & Adoption Trend
-                </p>
-                <div className="grid grid-cols-5 gap-2 items-end h-28">
-                  <div className="bg-white/40 rounded h-14" />
-                  <div className="bg-white/50 rounded h-20" />
-                  <div className="bg-white/70 rounded h-28" />
-                  <div className="bg-white/45 rounded h-18" />
-                  <div className="bg-white/35 rounded h-12" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* 🌊 WAVE BOTTOM */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
-          <svg
-            viewBox="0 0 1440 120"
-            className="w-full h-[120px]"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M0,64 C240,96 480,96 720,80 960,64 1200,32 1440,32 L1440,120 L0,120 Z"
-              fill="#ffffff"
-            />
-          </svg>
-        </div>
-      </section>
-      <CaseStudyGrid />
-      <WhyChooseUs />
-      <AgenticToolsOverview />
+      <CaseStudyHero
+        title="AI"
+        titleItalic="case studies"
+        eyebrow="Artificial Intelligence&nbsp;&nbsp;&middot;&nbsp;&nbsp;Machine Learning"
+        description="Real-world AI solutions engineered to automate workflows, enhance decision-making, and drive measurable business impact across industries."
+        accentColor="#8B5CF6"
+        heroStat="412%"
+        heroStatLabel="ROI achieved for Enterprise AI Decision Platform"
+        projectCount={25}
+      />
+      <CaseStudyGridNew
+        items={AI_CASE_STUDIES}
+        sectionTitle="AI & machine learning projects"
+        sectionSubtitle="Generative AI, predictive analytics, and intelligent automation delivering transformative results."
+        accentColor="#8B5CF6"
+      />
+      <CaseStudyProofCTA
+        challengeText="Ready to turn your data into a competitive advantage?"
+        solutionText="Every AI project above started with understanding a specific business problem — not a technology. Let’s find yours."
+        accentColor="#8B5CF6"
+        quote="The AI decision platform delivered 412% ROI in year one. We now make faster, more accurate decisions at every level."
+        quoteName="Chief Analytics Officer"
+        quoteRole="Enterprise Client · Financial Services"
+      />
       <LightContactSection />
-      <LightFAQExact faqs={aiCaseStudyFAQs} />
+      <LightFAQExact faqs={aiFAQs} />
       <Footer />
     </div>
-  );
+  )
 }

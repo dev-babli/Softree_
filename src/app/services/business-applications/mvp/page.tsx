@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
 import MvpHero from "./hero";
@@ -11,6 +12,31 @@ import MvpServices from "./services";
 import Certifications from "../power-platform/certification";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import LightFAQExact from "@/components/homepage-light/LightFAQExact";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+
+export const metadata: Metadata = {
+  title: "MVP Development Services | Softree Technology",
+  description:
+    "Rapid MVP development for startups and enterprises. Validate your product idea fast with Softree Technology's full-stack engineering, AI integration, and scalable architecture.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/services/business-applications/mvp",
+  },
+  openGraph: {
+    title: "MVP Development Services | Softree Technology",
+    description:
+      "Launch your MVP faster — full-stack development, AI integration, and scalable product architecture.",
+    url: "https://www.softreetechnology.com/services/business-applications/mvp",
+    siteName: "Softree Technology",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "MVP Development" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MVP Development | Softree Technology",
+    description: "Rapid MVP builds with AI integration and scalable architecture for startups.",
+    images: ["/og-image.png"],
+  },
+};
 
 /* ------------------------------------------------------------------ */
 /* Shared Layout Spacing Config                                        */
@@ -63,6 +89,14 @@ export default function Home() {
 
  "
     >
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "https://www.softreetechnology.com" },
+          { name: "Services", url: "https://www.softreetechnology.com/services" },
+          { name: "Business Applications", url: "https://www.softreetechnology.com/services/business-applications/mvp" },
+          { name: "MVP Development", url: "https://www.softreetechnology.com/services/business-applications/mvp" },
+        ]}
+      />
       <NavigationClient />
       <MvpHero />
       <MvpServices />

@@ -452,6 +452,18 @@ export default function AutomationTestingServices() {
           .panel-left, .panel-right { padding: 32px 24px; }
           .stats { gap: 20px; flex-wrap: wrap; }
         }
+        @media (max-width: 480px) {
+          .stat {
+            flex: 1 1 100% !important;
+            min-width: unset !important;
+          }
+        }
+        @media (min-width: 481px) and (max-width: 680px) {
+          .stat {
+            flex: 1 1 calc(50% - 10px) !important;
+            min-width: unset !important;
+          }
+        }
       `}</style>
 
       <div className="wrapper">

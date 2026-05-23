@@ -206,6 +206,54 @@ export default function HeroAIAutomation() {
         .nav-btn:hover { background: rgba(56,189,248,0.2) !important; border-color: rgba(56,189,248,0.4) !important; transform: scale(1.08); }
         @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.7)} }
         .eyebrow-dot { animation: pulse 2s ease-in-out infinite; }
+        @media (max-width: 991px) {
+          .hero-inner {
+            flex-direction: column !important;
+            padding: 48px 24px 80px !important;
+            gap: 40px !important;
+          }
+          .hero-left {
+            padding-right: 0 !important;
+            border-right: none !important;
+            border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+            padding-bottom: 40px !important;
+            width: 100% !important;
+          }
+          .hero-right {
+            padding-left: 0 !important;
+            width: 100% !important;
+          }
+          .hero-slider-viewport {
+            width: 100% !important;
+            min-height: 280px !important;
+          }
+        }
+        @media (max-width: 600px) {
+          .hero-cta-wrapper {
+            flex-direction: column !important;
+            align-items: stretch !important;
+            gap: 12px !important;
+          }
+          .hero-cta-wrapper a {
+            width: 100% !important;
+            text-align: center;
+          }
+        }
+        @media (max-width: 480px) {
+          .hero-stats {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 16px !important;
+          }
+          .hero-stats > div {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+          }
+          .hero-stats > div > div {
+            margin: 0 !important;
+          }
+        }
       `}</style>
 
       <section style={styles.hero} role="banner">
@@ -214,14 +262,14 @@ export default function HeroAIAutomation() {
         <div style={styles.orb1} />
         <div style={styles.orb2} />
 
-        <div style={styles.inner}>
+        <div className="hero-inner" style={styles.inner}>
           {/* LEFT */}
-          <div style={styles.left}>
+          <div className="hero-left" style={styles.left}>
             <div style={styles.eyebrow}>
               <div className="eyebrow-dot" style={styles.eyebrowDot} />
               AI-Powered Test Automation
             </div>
-            <h1 style={styles.headline}>
+            <h1 style={{ ...styles.headline, fontSize: "clamp(24px, 5.5vw, 42px)" }}>
               Accelerate Software Delivery with Intelligent QA Automation
             </h1>
 
@@ -231,7 +279,7 @@ export default function HeroAIAutomation() {
               solutions built for modern enterprises.
             </p>
 
-            <div style={styles.ctaWrapper}>
+            <div className="hero-cta-wrapper" style={styles.ctaWrapper}>
               <Link href="/contact" className="cta-btn" style={styles.ctaBtn}>
                 Schedule Consultation
                 <span className="cta-arrow">
@@ -247,7 +295,7 @@ export default function HeroAIAutomation() {
                 Request Automation Assessment
               </Link>
             </div>
-            <div style={styles.stats}>
+            <div className="hero-stats" style={styles.stats}>
               <div>
                 <div style={styles.statNum}>150+</div>
                 <div style={styles.statLbl}>Enterprise clients</div>
@@ -263,8 +311,8 @@ export default function HeroAIAutomation() {
             </div>
           </div>
 
-          <div style={styles.right}>
-            <div style={styles.sliderViewport}>
+          <div className="hero-right" style={styles.right}>
+            <div className="hero-slider-viewport" style={styles.sliderViewport}>
               {testimonials.map((t, i) => (
                 <div
                   key={i}

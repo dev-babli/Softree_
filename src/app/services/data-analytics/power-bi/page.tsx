@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
 import PowerBIServicesTabs from "./power-bi-tabs";
@@ -15,6 +16,31 @@ import TestimonialsSplitSlider from "./testimonials";
 import TrustedBrandsMarquee from "../../business-applications/power-platform/trust";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import LightFAQExact from "@/components/homepage-light/LightFAQExact";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+
+export const metadata: Metadata = {
+  title: "Power BI Development & Consulting Services | Softree Technology",
+  description:
+    "Expert Power BI consulting — custom dashboards, data modeling, DAX optimization, and enterprise BI solutions by Softree Technology.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/services/data-analytics/power-bi",
+  },
+  openGraph: {
+    title: "Power BI Development & Consulting | Softree Technology",
+    description:
+      "Custom Power BI dashboards, data modeling, and enterprise analytics solutions.",
+    url: "https://www.softreetechnology.com/services/data-analytics/power-bi",
+    siteName: "Softree Technology",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Power BI Services" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Power BI Development | Softree Technology",
+    description: "Enterprise Power BI dashboards, data modeling, and analytics consulting.",
+    images: ["/og-image.png"],
+  },
+};
 /* ------------------------------------------------------------------ */
 /* Fixed Width Config                                                  */
 /* ------------------------------------------------------------------ */
@@ -61,6 +87,14 @@ const FIXED_WIDTH = "mx-auto max-w-8xl px-8 sm:px-10 md:px-14 lg:px-20";
 export default function Home() {
   return (
     <main className="relative min-h-screen">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "https://www.softreetechnology.com" },
+          { name: "Services", url: "https://www.softreetechnology.com/services" },
+          { name: "Data Analytics", url: "https://www.softreetechnology.com/services/data-analytics/power-bi" },
+          { name: "Power BI", url: "https://www.softreetechnology.com/services/data-analytics/power-bi" },
+        ]}
+      />
       <NavigationClient />
 
       {/* HERO (can stay full-width internally) */}

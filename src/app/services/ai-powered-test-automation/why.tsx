@@ -91,6 +91,7 @@ function Pillar({
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      className="why-pillar"
       style={{
         flex: 1,
         padding: "32px 28px 28px",
@@ -173,6 +174,7 @@ function StatCard({ stat }: { stat: (typeof stats)[0] }) {
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      className="why-stat-card"
       style={{
         flex: 1,
         background: "#ffffff",
@@ -211,11 +213,41 @@ export default function WhySoftree() {
     <div
       style={{
         background: "linear-gradient(to bottom, #fafafa, #ffffff, #fafafa)",
-        padding: "72px 40px 80px",
+        padding: "60px 24px 80px",
         position: "relative",
         overflow: "hidden",
       }}
     >
+      <style>{`
+        @media (max-width: 768px) {
+          .why-header {
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+          }
+          .why-pillars-container {
+            flex-direction: column !important;
+          }
+          .why-pillar {
+            border-right: none !important;
+            border-bottom: 1px solid #e8e4e0 !important;
+          }
+          .why-pillar:last-child {
+            border-bottom: none !important;
+          }
+          .why-stats-container {
+            flex-direction: column !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .why-stat-card {
+            padding: 16px !important;
+            gap: 16px !important;
+          }
+          .why-stat-card > div:first-child {
+            font-size: 32px !important;
+          }
+        }
+      `}</style>
       {/* Background glows */}
       <div
         style={{
@@ -255,6 +287,7 @@ export default function WhySoftree() {
       >
         {/* Header */}
         <div
+          className="why-header"
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
@@ -314,6 +347,7 @@ export default function WhySoftree() {
 
         {/* Three pillars — joined panel */}
         <div
+          className="why-pillars-container"
           style={{
             display: "flex",
             border: "1px solid #e8e4e0",
@@ -344,7 +378,7 @@ export default function WhySoftree() {
         </div>
 
         {/* Stat cards */}
-        <div style={{ display: "flex", gap: 16 }}>
+        <div className="why-stats-container" style={{ display: "flex", gap: 16 }}>
           {stats.map((s, i) => (
             <StatCard key={i} stat={s} />
           ))}

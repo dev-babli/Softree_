@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
 import GenerativeServices from "./services";
@@ -11,6 +12,31 @@ import TrustedBrandsMarquee from "../../business-applications/power-platform/tru
 import Certifications from "../../business-applications/power-platform/certification";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import LightFAQExact from "@/components/homepage-light/LightFAQExact";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+
+export const metadata: Metadata = {
+  title: "Generative AI Development Services | Softree Technology",
+  description:
+    "Custom generative AI solutions — LLM integration, content generation, AI copilots, and intelligent automation built by Softree Technology for enterprises.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/services/ai-intelligence/generative-ai",
+  },
+  openGraph: {
+    title: "Generative AI Development | Softree Technology",
+    description:
+      "LLM-powered solutions, AI copilots, and generative AI applications for enterprise digital transformation.",
+    url: "https://www.softreetechnology.com/services/ai-intelligence/generative-ai",
+    siteName: "Softree Technology",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Generative AI Services" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Generative AI Development | Softree Technology",
+    description: "Custom LLM solutions, AI copilots, and generative AI applications for business.",
+    images: ["/og-image.png"],
+  },
+};
 
 const aiIntelligenceGenAIFAQs = [
   {
@@ -52,6 +78,14 @@ const aiIntelligenceGenAIFAQs = [
 export default function GenerativeAI() {
   return (
     <div>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "https://www.softreetechnology.com" },
+          { name: "Services", url: "https://www.softreetechnology.com/services" },
+          { name: "AI Intelligence", url: "https://www.softreetechnology.com/services/ai-intelligence/generative-ai" },
+          { name: "Generative AI", url: "https://www.softreetechnology.com/services/ai-intelligence/generative-ai" },
+        ]}
+      />
       <NavigationClient />
       <HeroWithTestimonial />
       <TrustedBrandsMarquee />

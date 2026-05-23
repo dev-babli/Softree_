@@ -92,8 +92,29 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: servicesMainFAQs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+    })),
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.softreetechnology.com" },
+      { "@type": "ListItem", position: 2, name: "Services", item: "https://www.softreetechnology.com/services" },
+    ],
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       {/* FIXED NAVIGATION */}
       <NavigationClient />
       {/* MAIN CONTENT – space reserved for pill navbar */}

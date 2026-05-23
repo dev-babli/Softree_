@@ -90,6 +90,14 @@ export default function AutomationTestingSolutions() {
         background: "#fafafa",
         }}
     >
+      <style>{`
+        @media (max-width: 768px) {
+          .solutions-title {
+            font-size: clamp(28px, 8vw, 3.2rem) !important;
+          }
+        }
+      `}</style>
+
       {/* Header */}
       <div
         className="text-center mb-16"
@@ -113,6 +121,7 @@ export default function AutomationTestingSolutions() {
         </div>
 
         <h1
+          className="solutions-title"
           style={{
             fontSize: "4rem",
             fontWeight: 800,

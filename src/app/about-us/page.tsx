@@ -8,7 +8,7 @@ import AwardsMarqueeSection from "@/components/qc/homepage-light/AwardsMarqueeSe
 import LightEngagementModels from "@/components/qc/homepage-light/LightEngagementModels";
 import LightContactSection from "@/components/qc/homepage-light/LightContactSection";
 import LightFAQExact from "@/components/homepage-light/LightFAQExact";
-import TestimonialsGlobe from "@/components/sections/TestimonialsGlobe";
+import OffshoreTestimonialsGlobe from "@/components/sections/OffshoreTestimonialsGlobe";
 import Footer from "@/components/sections/footer";
 /**
  * ABOUT US — Complete Component Stack
@@ -49,7 +49,7 @@ export default function AboutUsPage() {
       <AwardsMarqueeSection />
 
       {/* 7. Testimonials — Global voices on world map */}
-      <TestimonialsGlobe />
+      <OffshoreTestimonialsGlobe variant="light" />
 
       {/* 8. Contact — Get in touch */}
       <LightContactSection />

@@ -12,7 +12,7 @@ import {
 
 export default function HireSharePointPricing() {
   return (
-    <section id="plan-pricing" className="relative py-26">
+    <section id="plan-pricing" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
         {/* ================= HEADING ================= */}
         <h2 className="mb-10 text-center text-4xl font-semibold text-gray-900">

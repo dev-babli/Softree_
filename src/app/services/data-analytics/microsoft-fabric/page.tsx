@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import HeroWithTestimonial from "./hero";
 import FabricTabs from "./fabric-tabs";
 import ProwessSection from "./process";
@@ -11,6 +12,31 @@ import Footer from "@/components/sections/footer";
 import FabricPartner from "./fabric-partner";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import LightFAQExact from "@/components/homepage-light/LightFAQExact";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+
+export const metadata: Metadata = {
+  title: "Microsoft Fabric Development & Consulting | Softree Technology",
+  description:
+    "Microsoft Fabric consulting and development — unified analytics, data lakehouse, real-time intelligence, and enterprise data solutions by Softree Technology.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/services/data-analytics/microsoft-fabric",
+  },
+  openGraph: {
+    title: "Microsoft Fabric Development | Softree Technology",
+    description:
+      "Unified data analytics platform — Microsoft Fabric consulting, implementation, and custom solutions.",
+    url: "https://www.softreetechnology.com/services/data-analytics/microsoft-fabric",
+    siteName: "Softree Technology",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Microsoft Fabric Services" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Microsoft Fabric Development | Softree Technology",
+    description: "Enterprise data analytics with Microsoft Fabric — lakehouse, real-time intelligence, and BI.",
+    images: ["/og-image.png"],
+  },
+};
 
 const dataAnalyticsFabricFAQs = [
   {
@@ -52,6 +78,14 @@ const dataAnalyticsFabricFAQs = [
 export default function Home() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "https://www.softreetechnology.com" },
+          { name: "Services", url: "https://www.softreetechnology.com/services" },
+          { name: "Data Analytics", url: "https://www.softreetechnology.com/services/data-analytics/microsoft-fabric" },
+          { name: "Microsoft Fabric", url: "https://www.softreetechnology.com/services/data-analytics/microsoft-fabric" },
+        ]}
+      />
       <NavigationClient />
       <HeroWithTestimonial />
       <TrustedBrandsMarquee />

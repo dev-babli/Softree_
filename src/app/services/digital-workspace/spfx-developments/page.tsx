@@ -8,6 +8,29 @@ import SpfxShowcase from "./case-study";
 import TrustedBrandsMarquee from "../../business-applications/power-platform/trust";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import LightFAQExact from "@/components/homepage-light/LightFAQExact";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "SPFx Development | SharePoint Framework Solutions",
+  description:
+    "Expert SharePoint Framework (SPFx) development services. Custom web parts, extensions, and Microsoft 365 integrations for modern digital workspaces by Softree Technology.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/services/digital-workspace/spfx-developments",
+  },
+  openGraph: {
+    title: "SPFx Development | SharePoint Framework Solutions",
+    description:
+      "Custom SharePoint Framework web parts and extensions for Microsoft 365 digital workspaces by Softree Technology.",
+    url: "https://www.softreetechnology.com/services/digital-workspace/spfx-developments",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "SPFx Development" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SPFx Development | SharePoint Framework Solutions",
+    description: "Custom SharePoint Framework solutions for Microsoft 365 by Softree Technology.",
+  },
+};
 
 const digitalWorkspaceSpfxFAQs = [
   {
