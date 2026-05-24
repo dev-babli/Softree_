@@ -1,0 +1,119 @@
+﻿
+> app@0.1.0 build
+> next build
+
+Γû▓ Next.js 16.2.6 (Turbopack)
+- Environments: .env.local
+- Experiments (use with caution):
+  ┬╖ clientTraceMetadata
+
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 29.4s
+  Running next.config.js provided runAfterProductionCompile ...
+Γ£ô Completed runAfterProductionCompile in 65s
+  Running TypeScript ...
+  Finished TypeScript in 25.1s ...
+  Collecting page data using 11 workers ...
+node.exe : ΓÜá Using edge runtime on a page currently disables static 
+generation for that page
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Users\Soumeet Kumar 
+Barik\Ap ...
++ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (ΓÜá Using edge ...n for  
+   that page:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+(node:25800) Warning: `--localstorage-file` was provided without a 
+valid path
+(Use `node --trace-warnings ...` to show where the warning was 
+created)
+(node:3988) Warning: `--localstorage-file` was provided without a 
+valid path
+(Use `node --trace-warnings ...` to show where the warning was 
+created)
+(node:27840) Warning: `--localstorage-file` was provided without a 
+valid path
+(Use `node --trace-warnings ...` to show where the warning was 
+created)
+  Generating static pages using 11 workers (0/68) ...
+(node:18924) Warning: `--localstorage-file` was provided without a 
+valid path
+(Use `node --trace-warnings ...` to show where the warning was 
+created)
+(node:28436) Warning: `--localstorage-file` was provided without a 
+valid path
+(Use `node --trace-warnings ...` to show where the warning was 
+created)
+  Generating static pages using 11 workers (17/68) 
+  Generating static pages using 11 workers (34/68) 
+  Generating static pages using 11 workers (51/68) 
+Γ£ô Generating static pages using 11 workers (68/68) in 4.1s
+  Finalizing page optimization ...
+
+Route (app)
+Γöî Γùï /
+Γö£ Γùï /_not-found
+Γö£ Γùï /about-us
+Γö£ ╞Æ /api/case-study-lead
+Γö£ ╞Æ /api/draft-mode/disable
+Γö£ ╞Æ /api/draft-mode/enable
+Γö£ ╞Æ /api/sanity/exit-preview
+Γö£ ╞Æ /api/sanity/preview
+Γö£ ╞Æ /api/sentry-example-api
+Γö£ Γùï /avoora
+Γö£ Γùï /blog
+Γö£ ΓùÅ /blog/[slug]
+Γöé Γö£ /blog/ai-enterprise-transformation
+Γöé Γö£ /blog/nextjs-14-modern-development
+Γöé Γö£ /blog/data-engineering-trends-2024
+Γöé Γöö [+13 more paths]
+Γö£ Γùï /careers
+Γö£ Γùï /case-studies/ai
+Γö£ Γùï /case-studies/mobile
+Γö£ Γùï /case-studies/power-platform
+Γö£ Γùï /case-studies/sharepoint
+Γö£ Γùï /case-studies/web
+Γö£ Γùï /contact
+Γö£ ╞Æ /opengraph-image
+Γö£ Γùï /privacy-policy
+Γö£ Γùï /record-slides
+Γö£ Γùï /sentry-example-page
+Γö£ Γùï /servicepage_new
+Γö£ Γùï /services
+Γö£ Γùï /services/ai-intelligence/agentic-ai
+Γö£ Γùï /services/ai-intelligence/generative-ai
+Γö£ Γùï /services/ai-powered-test-automation
+Γö£ Γùï /services/business-applications/mvp
+Γö£ Γùï /services/business-applications/power-platform
+Γö£ Γùï /services/business-applications/softree-for-startups
+Γö£ Γùï /services/data-analytics/microsoft-fabric
+Γö£ Γùï /services/data-analytics/power-bi
+Γö£ Γùï /services/digital-workspace/mobile-app-development
+Γö£ Γùï /services/digital-workspace/react-web-development
+Γö£ Γùï /services/digital-workspace/sharepoint
+Γö£ Γùï /services/digital-workspace/spfx-developments
+Γö£ Γùï /services/digital-workspace/web-app-development
+Γö£ Γùï /services/mvp
+Γö£ Γùï /services/offshore-ai-development
+Γö£ Γùï /services/offshore-data-analytics
+Γö£ Γùï /services/offshore-generative-ai-development
+Γö£ Γùï /services/offshore-microsoft-fabric
+Γö£ Γùï /services/offshore-mobile-app-development
+Γö£ Γùï /services/offshore-power-platform-development
+Γö£ Γùï /services/offshore-sharepoint-development
+Γö£ Γùï /services/offshore-spfx-development
+Γö£ Γùï /services/offshore-web-app-development
+Γö£ Γùï /showcase
+Γö£ Γùï /sitemap.xml
+Γö£ Γùï /studio/[[...tool]]
+Γö£ Γùï /terms
+Γö£ Γùï /timeline-component-05
+Γöö Γùï /wireframe
+
+
+Γùï  (Static)   prerendered as static content
+ΓùÅ  (SSG)      prerendered as static HTML (uses generateStaticParams)
+╞Æ  (Dynamic)  server-rendered on demand
+
