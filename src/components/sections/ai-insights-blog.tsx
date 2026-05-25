@@ -6,8 +6,6 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { client } from "@/sanity/client";
-import { groq } from "next-sanity";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -60,70 +58,10 @@ const initialRecent: Article[] = [
   },
 ];
 
-const homePostsQuery = groq`
-  *[_type == "post"] | order(publishedAt desc)[0...4] {
-    _id,
-    title,
-    slug,
-    publishedAt,
-    mainImage { asset->{ url }, alt },
-    excerpt,
-    body[0]{
-      ...,
-      children[0]{ text }
-    }
-  }
-`;
-
 export default function AiInsightsBlog() {
   const [featured, setFeatured] = useState<Article>(initialFeatured);
   const [recent, setRecent] = useState<Article[]>(initialRecent);
   const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    async function fetchLatestPosts() {
-      try {
-        const posts = await client.fetch(homePostsQuery);
-        if (posts && posts.length > 0) {
-          interface SanityPost {
-            _id: string;
-            title: string;
-            slug?: { current?: string };
-            publishedAt?: string;
-            mainImage?: { asset?: { url?: string }; alt?: string };
-            excerpt?: string;
-            body?: { children?: { text?: string }[] };
-          }
-          const formattedArticles: Article[] = posts.map((post: SanityPost) => {
-            const bodySnippet = post.body?.children?.[0]?.text?.substring(0, 160) || "";
-            return {
-              imageUrl: post.mainImage?.asset?.url || "/og-image.png",
-              title: post.title,
-              date: post.publishedAt
-                ? new Date(post.publishedAt).toLocaleDateString("en-US", {
-                  month: "short",
-                  day: "numeric",
-                  year: "numeric",
-                })
-                : "Recent Post",
-              readTime: "Blog Post",
-              href: `/blog/${post.slug?.current || ""}`,
-              description: post.excerpt || bodySnippet || "Read our latest technology insights.",
-            };
-          });
-
-          // Set the first post as featured, and the next 3 as recent list items
-          if (formattedArticles.length > 0) {
-            setFeatured(formattedArticles[0]);
-            setRecent(formattedArticles.slice(1));
-          }
-        }
-      } catch (err) {
-        console.error("Error fetching homepage posts from Sanity:", err);
-      }
-    }
-    fetchLatestPosts();
-  }, []);
 
   useEffect(() => {
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
