@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { COUNTRIES_SERVED } from "@/lib/constants";
 
 const PERKS = [
     {
@@ -33,7 +34,7 @@ const PERKS = [
         icon: "◉",
         title: "Global Client Exposure",
         desc: "Work directly with clients across the US, UK, Europe and Asia. Build a truly international portfolio.",
-        stat: "20+",
+        stat: COUNTRIES_SERVED,
         statLabel: "countries served",
     },
     {

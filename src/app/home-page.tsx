@@ -7,11 +7,9 @@ import SupportPartners from "@/components/sections/support-partners";
 import TrustedBy from "@/components/sections/trusted-by";
 import { TransferredSoftreeHero } from "@/components/sections/TransferredSoftreeHero";
 
+import ServicesStackedSlides from "@/components/sections/ServicesStackedSlides";
+
 /* ── Lazy-loaded transferred components ── */
-const ServicesStackedSlidesLazy = dynamic(
-  () => import("@/components/sections/ServicesStackedSlides"),
-  { loading: () => <div className="min-h-[100vh] w-full bg-[#141414]" aria-hidden /> }
-);
 const FeaturesShowcaseLazy = dynamic(
   () => import("@/components/features/FeaturesShowcase"),
   { loading: () => <div className="min-h-[100vh] w-full bg-[#141414]" aria-hidden /> }
@@ -59,7 +57,7 @@ export default function Home() {
 
         {/* ── Core sections ── */}
         <SupportPartners />
-        <ServicesStackedSlidesLazy />
+        <ServicesStackedSlides />
         <FeaturesShowcaseLazy />
         <TrustedBy />
         <OffshoreTestimonialsGlobeLazy />

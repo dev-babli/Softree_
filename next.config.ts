@@ -6,7 +6,7 @@ const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 });
 
-const nextConfig: NextConfig = {
+const nextConfig: any = {
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "**" }, // allow all https external images (catch-all)

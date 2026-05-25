@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { COUNTRIES_SERVED } from "@/lib/constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -481,7 +482,7 @@ export function TransferredSoftreeHeroToolkit() {
                   </span>
 
                   <span className="mt-1 text-[11px] leading-[1.4] text-white/60">
-                    Trusted by millions across 140 countries
+                    Trusted by millions across {COUNTRIES_SERVED} countries
                   </span>
                 </div>
               </div>

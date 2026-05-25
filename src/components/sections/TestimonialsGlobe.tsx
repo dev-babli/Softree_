@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import WorldMap from "@/components/ui/world-map";
+import { COUNTRIES_SERVED_SPELL } from "@/lib/constants";
 
 const floatStyles = `
   @keyframes float-a { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-7px)} }
@@ -293,7 +294,7 @@ export default function TestimonialsGlobe({ variant = "light" }: TestimonialsGlo
             <span className="h-px w-8 bg-[#F5B947]" />
           </div>
           <h2 className={`mt-6 text-[2rem] font-semibold leading-[1.05] tracking-[-0.035em] sm:text-[2.75rem] lg:text-[3.25rem] ${t.text}`}>
-            Built with teams in <span className="font-serif italic font-normal text-[#F5B947]">forty-three</span> countries
+            Built with teams in <span className="font-serif italic font-normal text-[#F5B947]">{COUNTRIES_SERVED_SPELL}</span> countries
           </h2>
           <p className={`mx-auto mt-5 max-w-md text-[0.9375rem] leading-[1.7] ${t.textBody}`}>
             From Stockholm startups to Tokyo enterprise floors, we ship product alongside teams who refuse to settle.

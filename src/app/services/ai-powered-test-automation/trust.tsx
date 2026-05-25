@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { COUNTRIES_SERVED } from "@/lib/constants";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -329,7 +330,7 @@ export default function QAForgeLandingPage() {
             <MetricCard
               num="340+"
               label="Enterprises served"
-              delta="Across 42 countries"
+              delta={`Across ${COUNTRIES_SERVED} countries`}
             />
           </div>
 
