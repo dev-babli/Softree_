@@ -366,10 +366,7 @@ const menu: MenuItem[] = [
     url: "/careers",
     icon: Briefcase,
   },
-  {
-    label: "Contact",
-    url: "/contact",
-  },
+ 
 ];
 
 export default function Navigation() {

@@ -32,57 +32,24 @@ function LogoCard({ logo }: { logo: Logo }) {
     if (fallbackRef.current) fallbackRef.current.style.display = "flex";
   };
 
-  const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
-    const el = e.currentTarget;
-    el.style.borderColor = "#f9731699";
-    el.style.boxShadow = "0 0 28px #f9731630, 0 0 8px #f9731620, inset 0 0 30px #f9731615";
-    el.style.transform = "translateY(-5px) scale(1.04)";
-    const img = el.querySelector("img") as HTMLImageElement | null;
-    if (img) img.style.filter = "grayscale(0) brightness(1.1)";
-    const name = el.querySelector(".card-name") as HTMLElement | null;
-    if (name) { name.style.color = "#f97316"; name.style.textShadow = "0 0 8px #f9731688"; }
-    const line = el.querySelector(".card-line") as HTMLElement | null;
-    if (line) line.style.transform = "scaleX(1)";
-    const glow = el.querySelector(".card-glow") as HTMLElement | null;
-    if (glow) glow.style.opacity = "1";
-  };
-
-  const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
-    const el = e.currentTarget;
-    el.style.borderColor = "#f9731630";
-    el.style.boxShadow = "0 0 12px #f9731610, inset 0 0 20px #f9731608";
-    el.style.transform = "translateY(0) scale(1)";
-    const img = el.querySelector("img") as HTMLImageElement | null;
-    if (img) img.style.filter = "grayscale(1) invert(1) brightness(0.55)";
-    const name = el.querySelector(".card-name") as HTMLElement | null;
-    if (name) { name.style.color = "#4a3a2a"; name.style.textShadow = "none"; }
-    const line = el.querySelector(".card-line") as HTMLElement | null;
-    if (line) line.style.transform = "scaleX(0)";
-    const glow = el.querySelector(".card-glow") as HTMLElement | null;
-    if (glow) glow.style.opacity = "0";
-  };
-
   return (
     <div
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
       style={{
         position: "relative",
         width: 160,
-        height: 80,
+        height: 85,
         borderRadius: 10,
-        border: "0.5px solid #f9731630",
+        border: "0.5px solid #f9731666",
         background: "linear-gradient(135deg, #141414 0%, #0f0f0f 100%)",
-        boxShadow: "0 0 12px #f9731610, inset 0 0 20px #f9731608",
+        boxShadow: "0 0 15px #f9731615, inset 0 0 15px #f9731608",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        gap: 8,
+        gap: 6,
         flexShrink: 0,
         overflow: "hidden",
         cursor: "default",
-        transition: "transform 0.3s cubic-bezier(.34,1.56,.64,1), border-color 0.3s, box-shadow 0.3s",
       }}
     >
       {/* Radial glow overlay */}
@@ -91,11 +58,10 @@ function LogoCard({ logo }: { logo: Logo }) {
         style={{
           position: "absolute",
           inset: 0,
-          opacity: 0,
-          transition: "opacity 0.4s",
+          opacity: 0.8,
           borderRadius: 10,
           pointerEvents: "none",
-          background: "radial-gradient(ellipse at 50% 100%, #f9731620 0%, transparent 65%)",
+          background: "radial-gradient(ellipse at 50% 100%, #f9731612 0%, transparent 65%)",
         }}
       />
 
@@ -109,10 +75,9 @@ function LogoCard({ logo }: { logo: Logo }) {
           right: 0,
           height: 1.5,
           background: "#f97316",
-          boxShadow: "0 0 8px #f97316",
-          transform: "scaleX(0)",
+          boxShadow: "0 0 4px #f97316",
+          transform: "scaleX(1)",
           transformOrigin: "left",
-          transition: "transform 0.35s ease",
           pointerEvents: "none",
         }}
       />
@@ -120,8 +85,8 @@ function LogoCard({ logo }: { logo: Logo }) {
       {/* Logo image */}
       <div
         style={{
-          width: 90,
-          height: 30,
+          width: 120,
+          height: 40,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -139,7 +104,7 @@ function LogoCard({ logo }: { logo: Logo }) {
             maxWidth: "100%",
             maxHeight: "100%",
             objectFit: "contain",
-            filter: "grayscale(1) invert(1) brightness(0.55)",
+            filter: "grayscale(0) brightness(1.1)",
             transition: "filter 0.3s",
           }}
         />
@@ -147,15 +112,15 @@ function LogoCard({ logo }: { logo: Logo }) {
           ref={fallbackRef}
           style={{
             display: "none",
-            width: 38,
-            height: 38,
+            width: 44,
+            height: 44,
             borderRadius: "50%",
             background: `${logo.accent}18`,
             border: `1px solid ${logo.accent}44`,
             alignItems: "center",
             justifyContent: "center",
             fontFamily: "'Bebas Neue', sans-serif",
-            fontSize: 15,
+            fontSize: 16,
             letterSpacing: "0.06em",
             color: logo.accent,
           }}
@@ -174,8 +139,7 @@ function LogoCard({ logo }: { logo: Logo }) {
           fontWeight: 500,
           letterSpacing: "0.12em",
           textTransform: "uppercase",
-          color: "#4a3a2a",
-          transition: "color 0.3s",
+          color: "#f97316",
         }}
       >
         {logo.name}
