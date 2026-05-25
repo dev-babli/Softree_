@@ -15,7 +15,7 @@ import {
   MdAutoAwesome,
 } from "react-icons/md";
 
-import { SiJavascript, SiHtml5, SiCss as SiCss3, SiReact } from "react-icons/si";
+import { SiJavascript, SiHtml5, SiCss, SiReact } from "react-icons/si";
 
 const techStacks = [
   {
@@ -26,7 +26,7 @@ const techStacks = [
       { name: "JavaScript", icon: SiJavascript },
       { name: "C#", icon: FaCode },
       { name: "HTML", icon: SiHtml5 },
-      { name: "CSS / SCSS", icon: SiCss3 },
+      { name: "CSS / SCSS", icon: SiCss },
     ],
   },
   {

@@ -134,7 +134,7 @@ export default function RootLayout({
           <Script
             id="orchids-browser-logs"
             src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
-            strategy="afterInteractive"
+            strategy="lazyOnload"
             data-orchids-project-id="f9231059-3647-4f7a-ab8a-965fcb6abfb0"
           />
 
@@ -145,7 +145,7 @@ export default function RootLayout({
           <Script
             id="route-messenger"
             src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/route-messenger.js"
-            strategy="afterInteractive"
+            strategy="lazyOnload"
             data-target-origin="*"
             data-message-type="ROUTE_CHANGE"
             data-include-search-params="true"

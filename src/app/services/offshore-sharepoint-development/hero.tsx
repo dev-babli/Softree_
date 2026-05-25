@@ -220,7 +220,7 @@ export default function HeroPowerApps() {
           <div style={styles.left}>
             <div style={styles.eyebrow}>
               <div className="eyebrow-dot" style={styles.eyebrowDot} />
-              Sahrepoint solutions
+              SharePoint Solutions
             </div>
 
             <h1 style={styles.headline}>

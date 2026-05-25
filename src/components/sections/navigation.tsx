@@ -30,6 +30,8 @@ import {
   ChevronDown,
   Laptop,
   Share2,
+  BookOpen,
+  Briefcase,
 } from "lucide-react";
 
 type MenuItem = {
@@ -39,6 +41,7 @@ type MenuItem = {
   mega?: boolean;
   children?: {
     title: string;
+    image?: string;
     description?: string;
     links: {
       label: string;
@@ -252,6 +255,115 @@ const menu: MenuItem[] = [
   {
     label: "Blog",
     url: "/blog",
+    icon: BookOpen,
+    mega: true,
+    children: [
+      {
+        title: "Business Applications",
+        description: "Enterprise Power Platform solutions and SharePoint intranet strategies.",
+        image: "/images/case-study/power-apps/automated.jpg",
+        links: [
+          {
+            label: "Power Platform Development",
+            url: "/blog/best-power-platform-development-services",
+            icon: LayoutDashboard,
+            description: "Enterprise low-code guides",
+          },
+          {
+            label: "SharePoint Online Solutions",
+            url: "/blog/best-sharepoint-development-services",
+            icon: Building2,
+            description: "Intranet & collaboration guide",
+          },
+          {
+            label: "SPFx Modern Extensions",
+            url: "/blog/best-spfx-development-services",
+            icon: Code2,
+            description: "Custom SPFx component guide",
+          },
+        ],
+      },
+      {
+        title: "Data & Analytics",
+        description: "Unified analytics capabilities, BI dashboards, and cloud engineering.",
+        image: "/images/ai/analytics.jpg",
+        links: [
+          {
+            label: "Data Engineering Trends",
+            url: "/blog/data-engineering-trends-2024",
+            icon: LineChart,
+            description: "Latest trends for 2024",
+          },
+          {
+            label: "Microsoft Fabric Guide",
+            url: "/blog/best-microsoft-fabric-services",
+            icon: Boxes,
+            description: "Modern unified analytics guide",
+          },
+          {
+            label: "Data Analytics Services",
+            url: "/blog/best-data-analytics-services",
+            icon: Cpu,
+            description: "Enterprise decision intelligence",
+          },
+        ],
+      },
+      {
+        title: "AI & Automation",
+        description: "Autonomous AI agents, generative model architectures, and LLM integrations.",
+        image: "/images/ai/ai-agent.jpg",
+        links: [
+          {
+            label: "Enterprise AI Transformation",
+            url: "/blog/ai-enterprise-transformation",
+            icon: BrainCircuit,
+            description: "Enterprise AI implementations",
+          },
+          {
+            label: "Agentic AI Services",
+            url: "/blog/best-agentic-ai-services",
+            icon: Bot,
+            description: "Custom autonomous AI agents",
+          },
+          {
+            label: "AI Service Providers Guide",
+            url: "/blog/best-ai-services-providers",
+            icon: Sparkles,
+            description: "Choosing your AI delivery partner",
+          },
+        ],
+      },
+      {
+        title: "Web Engineering",
+        description: "High-performance frontend and custom full-stack web architectures.",
+        image: "/images/case-study/mobile/education.png",
+        links: [
+          {
+            label: "Next.js Modern Dev",
+            url: "/blog/nextjs-14-modern-development",
+            icon: Globe2,
+            description: "Routing, rendering & core vitals",
+          },
+          {
+            label: "React Custom Engineering",
+            url: "/blog/best-react-development-services",
+            icon: Laptop,
+            description: "Interactive browser experiences",
+          },
+          {
+            label: "Enterprise Web Apps",
+            url: "/blog/best-web-app-development-services",
+            icon: AppWindow,
+            description: "Scale & performance blueprints",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: "Careers",
+    url: "/careers",
+    icon: Briefcase,
   },
   {
     label: "Contact",
@@ -368,7 +480,7 @@ export default function Navigation() {
                                 <img
                                   alt={cfg.label}
                                   className="h-full w-full object-cover object-center opacity-95 transition-all duration-500 group-hover/image:scale-105"
-                                  src={dropdownImages[idx]}
+                                  src={group.image || dropdownImages[idx]}
                                   onError={(e) => {
                                     // Fallback: hide image and show gradient background
                                     (

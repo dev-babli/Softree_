@@ -15,7 +15,7 @@ import {
   MdAutoAwesome,
 } from "react-icons/md";
 
-import { SiJavascript, SiHtml5, SiCss as SiCss3, SiReact } from "react-icons/si";
+import { SiJavascript, SiHtml5, SiCss, SiReact } from "react-icons/si";
 
 const techStacks = [
   {
@@ -26,7 +26,7 @@ const techStacks = [
       { name: "JavaScript", icon: SiJavascript },
       { name: "C#", icon: FaCode },
       { name: "HTML", icon: SiHtml5 },
-      { name: "CSS / SCSS", icon: SiCss3 },
+      { name: "CSS / SCSS", icon: SiCss },
     ],
   },
   {
@@ -66,7 +66,7 @@ const techStacks = [
 
 export default function TechStack() {
   return (
-    <section className="relative overflow-hidden py-24 sm:py-32">
+    <section className="relative overflow-hidden py-12">
       {/* Background glow */}
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.15),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(236,72,153,0.12),transparent_40%)]" />
 
