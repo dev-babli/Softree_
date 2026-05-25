@@ -23,6 +23,8 @@ const postsQuery = groq`
   }
 `
 
+export const revalidate = 60
+
 /**
  * BLOG — Redesigned to match About Us / Contact design language.
  *
