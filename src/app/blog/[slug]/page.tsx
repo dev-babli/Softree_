@@ -4,36 +4,91 @@ import { PortableText, type PortableTextComponents } from '@portabletext/react'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { Calendar, Clock, ArrowLeft } from 'lucide-react'
+import Image from 'next/image'
+import { Calendar, Clock, ArrowLeft, User } from 'lucide-react'
+import NavigationClient from '@/components/sections/navigation-client'
+import Footer from '@/components/sections/footer'
 
 const portableTextComponents: PortableTextComponents = {
   block: {
-    h2: ({ children }) => <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mt-10 mb-4">{children}</h2>,
-    h3: ({ children }) => <h3 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-3">{children}</h3>,
-    h4: ({ children }) => <h4 className="text-lg font-semibold text-slate-800 mt-6 mb-2">{children}</h4>,
-    normal: ({ children }) => <p className="text-slate-700 leading-relaxed mb-4">{children}</p>,
+    h2: ({ children }) => (
+      <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mt-12 mb-6 scroll-m-20 border-b border-slate-100 pb-2">
+        {children}
+      </h2>
+    ),
+    h3: ({ children }) => (
+      <h3 className="text-xl md:text-2xl font-bold text-slate-900 mt-8 mb-4">
+        {children}
+      </h3>
+    ),
+    h4: ({ children }) => (
+      <h4 className="text-lg font-bold text-slate-900 mt-6 mb-2">
+        {children}
+      </h4>
+    ),
+    normal: ({ children }) => (
+      <p className="text-slate-700 leading-relaxed mb-6 text-base md:text-lg">
+        {children}
+      </p>
+    ),
     blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-blue-500 pl-6 py-2 my-6 bg-blue-50 rounded-r-lg">
-        <p className="text-slate-700 italic">{children}</p>
+      <blockquote className="border-l-4 border-[#ff7a2f] pl-6 py-2 my-8 bg-slate-50 rounded-r-xl italic text-slate-800">
+        {children}
       </blockquote>
     ),
   },
   list: {
-    bullet: ({ children }) => <ul className="list-disc list-inside space-y-2 mb-6 text-slate-700 ml-4">{children}</ul>,
-    number: ({ children }) => <ol className="list-decimal list-inside space-y-2 mb-6 text-slate-700 ml-4">{children}</ol>,
+    bullet: ({ children }) => (
+      <ul className="list-disc pl-6 space-y-3 mb-8 text-slate-700 text-base md:text-lg">
+        {children}
+      </ul>
+    ),
+    number: ({ children }) => (
+      <ol className="list-decimal pl-6 space-y-3 mb-8 text-slate-700 text-base md:text-lg">
+        {children}
+      </ol>
+    ),
   },
   listItem: {
     bullet: ({ children }) => <li className="leading-relaxed">{children}</li>,
     number: ({ children }) => <li className="leading-relaxed">{children}</li>,
   },
   marks: {
-    strong: ({ children }) => <strong className="font-semibold text-slate-900">{children}</strong>,
+    strong: ({ children }) => <strong className="font-bold text-slate-900">{children}</strong>,
     em: ({ children }) => <em className="italic text-slate-700">{children}</em>,
     link: ({ value, children }) => (
-      <a href={value?.href} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline underline-offset-2">
+      <a
+        href={value?.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-[#ff7a2f] hover:text-[#e05e1a] font-medium underline underline-offset-4 decoration-2 transition-colors"
+      >
         {children}
       </a>
     ),
+  },
+  types: {
+    image: ({ value }) => {
+      if (!value?.asset?.url) return null;
+      return (
+        <figure className="my-10 overflow-hidden rounded-3xl border border-slate-100 shadow-sm">
+          <div className="relative w-full aspect-[16/9]">
+            <Image
+              src={value.asset.url}
+              alt={value.alt || "Article illustration"}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 896px"
+            />
+          </div>
+          {value.caption && (
+            <figcaption className="mt-3 text-center text-xs text-slate-500 font-medium px-4">
+              {value.caption}
+            </figcaption>
+          )}
+        </figure>
+      );
+    },
   },
 }
 
@@ -132,7 +187,9 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   } : null
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-slate-50/50">
+      <NavigationClient />
+
       {/* Article JSON-LD */}
       <script
         type="application/ld+json"
@@ -172,106 +229,136 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       )}
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-16 md:py-24">
-        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
+      <section className="relative bg-slate-950 pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden">
+        {/* Subtle grid accent */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30" />
+
         <div className="relative container mx-auto px-6 max-w-4xl">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-slate-400 hover:text-white mb-8 transition-colors"
+            className="inline-flex items-center gap-2 text-slate-400 hover:text-white mb-8 transition-colors text-sm font-medium group"
           >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Blog
+            <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+            Back to Articles
           </Link>
 
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex flex-wrap items-center gap-2 mb-6">
             {post.categories?.map((cat: { title: string }, i: number) => (
-              <span key={i} className="text-xs font-semibold px-3 py-1 rounded-full bg-blue-500/20 text-blue-400">
+              <span key={i} className="text-xs font-semibold px-3.5 py-1 rounded-full bg-white/10 text-white backdrop-blur-sm border border-white/5 uppercase tracking-wider">
                 {cat.title}
               </span>
             ))}
           </div>
 
-          <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight tracking-tight">
             {post.title}
           </h1>
 
-          <p className="text-lg text-slate-300 mb-8 leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed font-light">
             {excerpt}
           </p>
 
-          <div className="flex flex-wrap items-center gap-6 text-sm text-slate-400">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center">
-                <span className="text-white text-xs font-bold">ST</span>
+          <div className="flex flex-wrap items-center gap-y-4 gap-x-6 text-sm text-slate-400 border-t border-white/10 pt-6">
+            <div className="flex items-center gap-2.5">
+              <div className="w-9 h-9 rounded-full bg-slate-800 border border-white/10 flex items-center justify-center">
+                <User className="w-4 h-4 text-[#ff7a2f]" />
               </div>
-              <span>{post.author?.name || 'Softree Technology'}</span>
+              <span className="font-medium text-slate-200">{post.author?.name || 'Softree Team'}</span>
             </div>
             <span className="flex items-center gap-2">
-              <Calendar className="w-4 h-4" />
+              <Calendar className="w-4 h-4 text-slate-500" />
               {post.publishedAt ? new Date(post.publishedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : 'Recent'}
             </span>
             <span className="flex items-center gap-2">
-              <Clock className="w-4 h-4" />
+              <Clock className="w-4 h-4 text-slate-500" />
               8 min read
             </span>
           </div>
         </div>
       </section>
 
-      {/* Content */}
-      <section className="container mx-auto px-6 max-w-4xl py-16 md:py-24">
-        <article className="max-w-none">
-          {post.body && <PortableText value={post.body} components={portableTextComponents} />}
-        </article>
+      {/* Main Content Area */}
+      <section className="container mx-auto px-6 max-w-4xl py-12 md:py-20">
+        <div className="bg-white rounded-[32px] border border-slate-100 shadow-[0_4px_30px_rgba(0,0,0,0.03)] p-6 md:p-12">
 
-        {/* FAQ Section - AEO */}
-        {post.faqSchema && post.faqSchema.length > 0 && (
-          <div className="mt-12 border-t border-slate-200 pt-10">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">Frequently Asked Questions</h2>
-            <div className="space-y-4">
-              {post.faqSchema.map((faq: { question: string; answer: string }, i: number) => (
-                <details key={i} className="group border border-slate-200 rounded-xl overflow-hidden">
-                  <summary className="flex items-center justify-between p-5 cursor-pointer bg-slate-50 hover:bg-slate-100 transition-colors font-semibold text-slate-900">
-                    {faq.question}
-                    <span className="ml-4 text-blue-500 group-open:rotate-180 transition-transform">▼</span>
-                  </summary>
-                  <div className="p-5 text-slate-700 leading-relaxed">{faq.answer}</div>
-                </details>
-              ))}
+          {/* Featured Banner Image */}
+          {post.mainImage?.asset?.url && (
+            <div className="relative w-full aspect-[16/9] mb-12 rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
+              <Image
+                src={post.mainImage.asset.url}
+                alt={post.mainImage.alt || post.title}
+                fill
+                priority
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 896px"
+              />
+            </div>
+          )}
+
+          {/* Article Rich Text Body */}
+          <article className="prose prose-slate prose-lg md:prose-xl max-w-none prose-headings:font-bold prose-headings:text-slate-900 prose-headings:tracking-tight prose-p:text-slate-700 prose-li:text-slate-700">
+            {post.body && <PortableText value={post.body} components={portableTextComponents} />}
+          </article>
+
+          {/* FAQ Section - AEO */}
+          {post.faqSchema && post.faqSchema.length > 0 && (
+            <div className="mt-16 border-t border-slate-100 pt-12">
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-950 mb-8 tracking-tight">Frequently Asked Questions</h2>
+              <div className="space-y-4">
+                {post.faqSchema.map((faq: { question: string; answer: string }, i: number) => (
+                  <details key={i} className="group border border-slate-100 rounded-2xl overflow-hidden bg-slate-50/50 transition-all duration-300 open:bg-white open:ring-1 open:ring-slate-100">
+                    <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-slate-50 transition-colors font-semibold text-slate-900 list-none [&::-webkit-details-marker]:hidden">
+                      <span className="pr-4">{faq.question}</span>
+                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-white border border-slate-200 flex items-center justify-center text-xs text-slate-500 group-open:rotate-180 group-open:text-[#ff7a2f] group-open:border-[#ff7a2f]/20 transition-all duration-300">▼</span>
+                    </summary>
+                    <div className="px-6 pb-6 pt-2 text-slate-600 leading-relaxed border-t border-slate-50">{faq.answer}</div>
+                  </details>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Author Bio */}
+          <div className="mt-16 p-6 md:p-8 bg-slate-50 rounded-2xl border border-slate-100 flex flex-col sm:flex-row items-center sm:items-start gap-6">
+            <div className="w-14 h-14 rounded-full bg-slate-200 border border-slate-300 flex items-center justify-center flex-shrink-0 text-slate-600 font-bold text-lg">
+              ST
+            </div>
+            <div className="text-center sm:text-left">
+              <h3 className="text-lg font-bold text-slate-900 mb-1">{post.author?.name || 'Softree Team'}</h3>
+              <p className="text-xs text-[#ff7a2f] font-semibold mb-3 uppercase tracking-wider">Enterprise Delivery Partner</p>
+              <p className="text-slate-600 text-sm leading-relaxed">{post.author?.bio || 'Leading technology and app delivery partner specializing in Microsoft 365, Power Platform, custom full-stack solutions, and enterprise AI automation.'}</p>
             </div>
           </div>
-        )}
 
-        {/* Author Bio */}
-        <div className="mt-12 p-8 bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl border border-slate-200">
-          <div className="flex items-start gap-6">
-            <div className="w-20 h-20 rounded-full bg-slate-300 flex items-center justify-center flex-shrink-0">
-              <span className="text-slate-600 font-bold text-xl">ST</span>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">{post.author?.name || 'Softree Technology'}</h3>
-              <p className="text-sm text-slate-600 mb-2">Technology Solutions Provider</p>
-              <p className="text-slate-700">Leading provider of AI, Microsoft 365, and web development solutions.</p>
-            </div>
-          </div>
         </div>
       </section>
 
       {/* Related Posts */}
-      <section className="container mx-auto px-6 max-w-4xl pb-16">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl font-bold text-slate-900">Related Articles</h2>
-          <Link href="/blog" className="text-blue-600 hover:text-blue-700 font-medium">
-            View All
-          </Link>
-        </div>
-        <div className="grid md:grid-cols-2 gap-6">
-          <Link href="/blog" className="p-6 bg-slate-50 rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all">
-            <p className="text-sm text-slate-600 mb-2">Explore more articles</p>
-            <p className="font-semibold text-slate-900">Browse our blog for more insights</p>
-          </Link>
+      <section className="bg-slate-100/30 border-t border-slate-100 py-16 md:py-24">
+        <div className="container mx-auto px-6 max-w-4xl">
+          <div className="flex items-center justify-between mb-10">
+            <h2 className="text-2xl font-bold text-slate-950 tracking-tight">Continue Reading</h2>
+            <Link href="/blog" className="text-sm font-semibold text-[#ff7a2f] hover:text-[#e05e1a] transition-colors flex items-center gap-1.5">
+              Explore All Articles &rarr;
+            </Link>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <Link href="/blog" className="group p-8 bg-white rounded-3xl border border-slate-100 shadow-[0_4px_24px_rgba(0,0,0,0.02)] hover:shadow-lg hover:border-slate-200 transition-all duration-300 flex flex-col justify-between h-full">
+              <div>
+                <p className="text-xs text-[#ff7a2f] font-bold uppercase tracking-wider mb-2">Explore insights</p>
+                <h3 className="font-bold text-slate-900 text-lg leading-snug group-hover:text-[#ff7a2f] transition-colors">
+                  Discover more engineering, platform, and intelligence insights in our primary blog grid.
+                </h3>
+              </div>
+              <span className="mt-6 text-sm font-semibold text-slate-500 group-hover:text-slate-900 transition-colors inline-flex items-center gap-1">
+                Browse Blog &rarr;
+              </span>
+            </Link>
+          </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   )
 }
