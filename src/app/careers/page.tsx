@@ -18,9 +18,6 @@ export default function CareersPage() {
             <JobBoard searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
             <FutureForm />
             <WhyJoinUs />
-            <HiringProcess />
-
-
             <Footer />
         </main>
     );

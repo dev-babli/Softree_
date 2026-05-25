@@ -420,7 +420,7 @@ export default function AvooraHero() {
                 Enterprise Software &amp; AI Solutions
               </span>
             </div>
-            
+
             <h1 className="font-semibold leading-[0.9] tracking-[-0.04em] text-gray-900" style={{ fontSize: "clamp(48px, 8vw, 110px)" }}>
               <span>Softree</span>
               <span className="ml-2 font-medium text-gray-400" style={{ fontSize: "clamp(24px, 4vw, 50px)", verticalAlign: "super" }}>®</span>
