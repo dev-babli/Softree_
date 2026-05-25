@@ -202,6 +202,7 @@ const menu: MenuItem[] = [
   },
   {
     label: "Case Studies",
+    url: "/case-studies",
     icon: Layers,
     mega: true,
     children: [
