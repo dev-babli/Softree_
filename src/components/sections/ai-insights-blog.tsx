@@ -157,24 +157,27 @@ export default function AiInsightsBlog() {
         {/* Header */}
         <div className="blog-header mb-12 max-w-3xl">
           <span className="inline-flex items-center gap-2 rounded-full bg-[#ff7a2f]/10 text-[#ff7a2f] px-4 py-1 text-xs font-semibold tracking-widest uppercase border border-[#ff7a2f]/20">
-            Case Studies
+            Latest Blogs
           </span>
 
           <h2 className="mt-4 text-4xl font-bold text-white">
-            Our Recent Success Stories
+            Our Recent Insights & Articles
           </h2>
 
           <p className="mt-4 text-base text-white/70 leading-relaxed">
-            Discover how we help organizations streamline operations, enhance
-            user experiences, and deliver measurable outcomes through innovative
-            digital solutions.
+            Stay ahead of the curve with engineering insights, platform capabilities,
+            and automation breakthroughs compiled directly by our delivery experts.
           </p>
         </div>
 
         <div className="blog-grid grid grid-cols-1 lg:grid-cols-5 gap-10 items-stretch">
           {/* ================= LEFT FEATURED ================= */}
           <div className="lg:col-span-3 h-full">
-            <Link href={featured.href} target="_blank" className="block h-full">
+            <Link
+              href={featured.href}
+              target={featured.href.endsWith(".pdf") || featured.href.endsWith(".pptx") ? "_blank" : undefined}
+              className="block h-full"
+            >
               <div className="relative h-full min-h-[520px] rounded-[32px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.35)] transition-all duration-500 hover:scale-[1.01]">
                 {/* Background frame */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] via-[#111111] to-[#0a0a0a]" />
@@ -237,7 +240,7 @@ export default function AiInsightsBlog() {
               <Link
                 key={index}
                 href={article.href}
-                target="_blank"
+                target={article.href.endsWith(".pdf") || article.href.endsWith(".pptx") ? "_blank" : undefined}
                 className="group relative flex items-center gap-4 flex-1 p-5 rounded-2xl text-left bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
                 onMouseEnter={() => handleSelect(article)}
               >

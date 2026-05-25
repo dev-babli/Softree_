@@ -335,8 +335,8 @@ export default function OffshoreTestimonialsGlobe({ variant = "dark" }: Offshore
                 {/* Origin label (HQ) */}
                 <div className={`pointer-events-none absolute bottom-3 left-3 flex items-center gap-2 rounded-full px-3 py-1.5 backdrop-blur-sm ${variant === "dark" ? "bg-white/5 border border-white/10" : "bg-white border border-[#0a0a1a]/10 shadow-lg"}`}>
                   <span className={`block h-1.5 w-1.5 rounded-full ${variant === "dark" ? "bg-[#ff7a2f] shadow-[0_0_12px_2px_rgba(255,122,47,0.7)]" : "bg-[#1852FF] shadow-[0_0_12px_2px_rgba(24,82,255,0.5)]"}`} />
-                  <span className={`text-[10px] font-semibold uppercase tracking-[0.22em] ${variant === "dark" ? "text-white/70" : "text-[#0a0a1a]/70"}`}>
-                    HQ · Bengaluru, IN
+                  <span className={`text-[10px] font-semibold uppercase tracking-[0.12em] sm:tracking-[0.22em] whitespace-nowrap ${variant === "dark" ? "text-white/70" : "text-[#0a0a1a]/70"}`}>
+                    HQ · Bengaluru, IN → {activeReview.tag}
                   </span>
                 </div>
               </div>
