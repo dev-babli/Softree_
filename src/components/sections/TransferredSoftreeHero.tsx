@@ -27,7 +27,7 @@ const CARD_SIZE = "w-[clamp(240px,22vw,380px)] aspect-[0.8]";
 const SUBJECT_LEFT = "-3%";
 const SUBJECT_BOTTOM = "0%";
 const SUBJECT_WIDTH = "104vw";
-const SUBJECT_HEIGHT = "1115%";
+const SUBJECT_HEIGHT = "115%";
 
 export function TransferredSoftreeHero() {
   const containerRef = useRef<HTMLElement>(null);

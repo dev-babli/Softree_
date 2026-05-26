@@ -148,10 +148,10 @@ const menu: MenuItem[] = [
             description: "Enterprise AI platform",
           },
           {
-            label: "Copilot Integration",
-            url: "/services/offshore-ai-development", // fixed
+            label: "Legacy Modernization",
+            url: "/services/legacy-application-modernization", // fixed
             icon: Sparkles, // updated
-            description: "Intelligent assistant embedding",
+            description: "Transform outdated systems with modern architecture and AI-driven enhancements.",
           },
           {
             label: "AI Agents",

@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { COUNTRIES_SERVED_NUMBER } from "@/lib/constants";
 
 /* ─────────────────────────────────────────────────────────────────────
    DESIGN SYSTEM — Editorial Luxury · Light Theme
@@ -275,7 +276,7 @@ export default function ChannelCard() {
               <div className="hidden md:flex items-end gap-7">
                 {[
                   { val: "200+", label: "Projects" },
-                  { val: "12", label: "Countries" },
+                  { val: COUNTRIES_SERVED_NUMBER.toString(), label: "Countries" },
                   { val: "98%", label: "Retention" },
                 ].map((s) => (
                   <div key={s.label} className="flex flex-col items-start">

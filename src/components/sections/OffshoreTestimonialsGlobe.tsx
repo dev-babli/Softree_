@@ -3,6 +3,7 @@
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import createGlobe, { type COBEOptions } from "cobe";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { COUNTRIES_SERVED } from "@/lib/constants";
 
 interface OffshoreTestimonialsGlobeProps {
   variant?: "dark" | "light";
@@ -476,7 +477,7 @@ export default function OffshoreTestimonialsGlobe({ variant = "dark" }: Offshore
           className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-4"
         >
           {[
-            { value: "15+",  label: "Countries served" },
+            { value: COUNTRIES_SERVED,  label: "Countries served" },
             { value: "100%", label: "On-time delivery" },
             { value: "8h",   label: "Timezone overlap" },
             { value: "4.9",  label: "Avg client rating" },

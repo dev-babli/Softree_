@@ -1,5 +1,6 @@
 import React from "react";
 import { Users, Brain, Globe, Trophy, LucideIcon } from "lucide-react";
+import { COUNTRIES_SERVED } from "@/lib/constants";
 
 /* ================= TYPES ================= */
 
@@ -14,7 +15,7 @@ type Stat = {
 const stats: Stat[] = [
   { value: "100+", label: "AI and Data Engineers", icon: Users },
   { value: "75+", label: "AI / ML Models Delivered", icon: Brain },
-  { value: "70+", label: "Countries Served", icon: Globe },
+  { value: COUNTRIES_SERVED, label: "Countries Served", icon: Globe },
   { value: "18+", label: "Years of Innovation", icon: Trophy },
 ];
 
