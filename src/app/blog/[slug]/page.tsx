@@ -126,13 +126,11 @@ const postQuery = groq`
   }
 `
 
-export const revalidate = 0
 export const dynamic = 'force-dynamic'
-export const fetchCache = 'force-no-store'
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
-  const post = await client.fetch(postQuery, { slug }, { next: { revalidate: 0 } })
+  const post = await client.fetch(postQuery, { slug })
 
   if (!post) return { title: 'Blog Post Not Found' }
 
@@ -168,7 +166,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const post = await client.fetch(postQuery, { slug }, { next: { revalidate: 0 } })
+  const post = await client.fetch(postQuery, { slug })
 
   if (!post) notFound()
 

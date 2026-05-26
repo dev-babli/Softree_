@@ -23,9 +23,7 @@ const postsQuery = groq`
   }
 `
 
-export const revalidate = 60
 export const dynamic = "force-dynamic"
-export const fetchCache = "force-no-store"
 
 /**
  * BLOG — Redesigned to match About Us / Contact design language.
@@ -39,7 +37,7 @@ export const fetchCache = "force-no-store"
  */
 
 export default async function BlogPage() {
-  const posts = await client.fetch(postsQuery, {}, { next: { revalidate: 0 } })
+  const posts = await client.fetch(postsQuery)
 
   return (
     <div className="min-h-screen pt-[100px]">

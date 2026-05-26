@@ -164,6 +164,7 @@ export default function CaseStudiesSection() {
                   <a
                     href={item.link}
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="
                       mt-10 inline-flex items-center gap-2
                       px-6 py-3

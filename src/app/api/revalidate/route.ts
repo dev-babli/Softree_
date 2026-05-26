@@ -32,7 +32,15 @@ export async function POST(request: NextRequest) {
       if (slug?.current) {
         revalidatePath(`/blog/${slug.current}`, "page");
       }
-      // Also revalidate sitemap since it lists blog posts
+      revalidatePath("/sitemap.xml");
+    }
+
+    // Revalidate case study pages
+    if (_type === "caseStudy") {
+      revalidatePath("/case-studies", "page");
+      if (slug?.current) {
+        revalidatePath(`/case-studies/${slug.current}`, "page");
+      }
       revalidatePath("/sitemap.xml");
     }
 

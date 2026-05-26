@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
@@ -264,12 +264,19 @@ export default function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [showNav, setShowNav] = useState(true);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setShowNav(window.scrollY <= 20);
+      const currentScrollY = window.scrollY;
+      if (currentScrollY < 20 || currentScrollY < lastScrollY.current) {
+        setShowNav(true);
+      } else {
+        setShowNav(false);
+      }
+      lastScrollY.current = currentScrollY;
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -359,8 +366,8 @@ export default function Navigation() {
                             <div
                               key={group.title}
                               className={`px-5 py-5 ${idx < item.children!.length - 1
-                                  ? "border-r border-gray-100"
-                                  : ""
+                                ? "border-r border-gray-100"
+                                : ""
                                 }`}
                             >
                               {/* Service Visual - Image at top */}

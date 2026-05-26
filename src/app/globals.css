@@ -149,8 +149,6 @@
   @apply w-full border-b border-gray-300 focus:border-cyan-500 outline-none py-2 text-sm;
 }
 
-/* Removed duplicate @keyframes marquee - already defined at line 126 */
-
 .animate-marquee {
   animation: marquee 25s linear infinite;
 }
@@ -159,13 +157,10 @@
   .animate-marquee {
     animation: none;
   }
-}
-
-@keyframes scrollLeft {
-  0% {
-    transform: translateX(0);
+  .marquee-track {
+    animation: none;
   }
-  100% {
-    transform: translateX(-50%);
+  .animate-smooth-slide {
+    animation: none;
   }
 }

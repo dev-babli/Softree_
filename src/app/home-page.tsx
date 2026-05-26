@@ -15,23 +15,23 @@ import { TransferredSoftreeHero } from "@/components/sections/TransferredSoftree
 /* ── Lazy-loaded transferred components ── */
 const FeaturesShowcaseLazy = dynamic(
   () => import("@/components/features/FeaturesShowcase"),
-  { loading: () => <div className="min-h-[100vh] w-full bg-[#141414]" aria-hidden /> }
+  { loading: () => <div className="min-h-[100vh] w-full bg-[#141414]" aria-hidden="true" /> }
 );
 const LightServicesStickyListLazy = dynamic(
   () => import("@/components/homepage-light/LightServicesStickyList"),
-  { loading: () => <div className="min-h-[420vh] w-full bg-[#141414]" aria-hidden /> }
+  { loading: () => <div className="min-h-[420vh] w-full bg-[#141414]" aria-hidden="true" /> }
 );
 const LightEngagementModelsLazy = dynamic(
   () => import("@/components/homepage-light/LightEngagementModels"),
-  { loading: () => <div className="min-h-[80vh] w-full bg-[#141414]" aria-hidden /> }
+  { loading: () => <div className="min-h-[80vh] w-full bg-[#141414]" aria-hidden="true" /> }
 );
 const LightFAQExactLazy = dynamic(
   () => import("@/components/homepage-light/LightFAQExact"),
-  { loading: () => <div className="min-h-[60vh] w-full bg-[#141414]" aria-hidden /> }
+  { loading: () => <div className="min-h-[60vh] w-full bg-[#141414]" aria-hidden="true" /> }
 );
 const LightContactSectionLazy = dynamic(
   () => import("@/components/homepage-light/LightContactSection"),
-  { loading: () => <div className="min-h-[100vh] w-full bg-[#141414]" aria-hidden /> }
+  { loading: () => <div className="min-h-[100vh] w-full bg-[#141414]" aria-hidden="true" /> }
 );
 
 export default function Home() {
