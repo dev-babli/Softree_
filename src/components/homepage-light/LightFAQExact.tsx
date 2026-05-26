@@ -25,37 +25,37 @@ const defaultFaqs: FAQItem[] = [
   {
     id: 1,
     serial: "question 01",
-    question: "What does Softree actually build?",
+    question: "What kind of technology solutions does Softree Technology specialize in?",
     answer:
-      "Softree builds production-grade software for enterprise teams: AI agents, web apps, Microsoft Power Platform automations, SharePoint intranets, and Power BI dashboards. We are Microsoft Gold Partners. Median project ship time is 47 days.",
+      "Softree Technology specializes in enterprise Microsoft solutions, AI-powered automation, modern application engineering, and offshore development services. Our core expertise includes SharePoint + PowerApps, Power Automate, Power BI, Dynamics 365, Microsoft Fabric, Azure AI, AI agents, custom web and mobile applications, and enterprise workflow automation solutions designed to help businesses modernize operations and scale efficiently.",
   },
   {
     id: 2,
     serial: "question 02",
-    question: "How long does a typical Softree project take?",
+    question: "Can Softree help businesses replace manual processes and spreadsheet-based operations?",
     answer:
-      "Most Softree projects ship in 6 to 12 weeks. Power Apps MVPs take 6 weeks. Web app MVPs take 12 weeks. SharePoint migrations take 4 to 8 weeks. We provide a fixed scope and fixed timeline during discovery, before any contract is signed.",
+      "Yes. Many organizations still manage approvals, reporting, employee requests, and operational workflows through spreadsheets, emails, and disconnected systems. Softree helps businesses modernize these processes using SharePoint + PowerApps, Power Automate, Dynamics 365, and AI-powered workflow automation solutions that improve operational visibility, reduce manual effort, minimize process delays, and increase efficiency across departments.",
   },
   {
     id: 3,
     serial: "question 03",
-    question: "What if the project takes longer than estimated?",
+    question: "Does Softree work with companies that already use Microsoft 365?",
     answer:
-      "Softree contracts are fixed-scope and fixed-price. If we miss the timeline, we absorb the cost — not the client. We mitigate risk through weekly demos, fortnightly milestone reviews, and direct Slack access to the engineering squad working on your project.",
+      "Absolutely. Softree primarily works with businesses already operating within the Microsoft ecosystem. We help organizations extend and optimize Microsoft 365 environments using SharePoint, Teams, Power Platform, Dynamics 365, Power BI, Azure AI, and Microsoft Copilot integrations without disrupting existing operations or requiring large-scale infrastructure changes.",
   },
   {
     id: 4,
     serial: "question 04",
-    question: "How do you handle code ownership and IP?",
+    question: "How does Softree support enterprise digital transformation initiatives?",
     answer:
-      "You own the code, designs, and IP from day one. Softree commits directly to your GitHub or Azure DevOps repository. Source code, infrastructure, and credentials transfer to your team at project handoff. No vendor lock-in.",
+      "Softree supports enterprise digital transformation by modernizing legacy systems, automating workflows, improving collaboration, implementing AI-driven business solutions, and building scalable enterprise applications. Our delivery model combines Microsoft technologies, cloud architecture, AI automation, and agile engineering practices to help organizations improve operational agility, accelerate delivery timelines, and reduce dependency on fragmented manual processes.",
   },
   {
     id: 5,
     serial: "question 05",
-    question: "What is Softree's security and compliance posture?",
+    question: "Can Softree build custom AI solutions for enterprise operations?",
     answer:
-      "Softree follows Microsoft Gold Partner security standards: SOC 2 controls, GDPR compliance, NDAs, data isolation per client, and signed BAAs for healthcare. Engineers work from secured devices. We can provide a security questionnaire response within 5 business days.",
+      "Yes. Softree develops AI-powered enterprise solutions including AI agents, Copilot integrations, intelligent automation systems, document AI, AI-assisted workflows, and Retrieval-Augmented Generation (RAG) solutions. These systems are designed to improve productivity, automate repetitive business operations, streamline knowledge access, and support faster operational decision-making across enterprise environments.",
   },
 ]
 
@@ -77,7 +77,8 @@ const activeGrainientPalette = [
 
 export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) {
   const faqs = customFaqs || defaultFaqs
-  const [activeIndex, setActiveIndex] = useState(faqs.length > 0 ? Math.min(4, faqs.length - 1) : -1)
+  // Set default active index to the last one or -1 depending on length
+  const [activeIndex, setActiveIndex] = useState(faqs.length > 0 ? 0 : -1)
   const sectionRef = useRef<HTMLElement>(null)
   const titleRef = useRef<HTMLDivElement>(null)
   const faqsRef = useRef<HTMLDivElement>(null)
@@ -116,15 +117,14 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
   return (
     <section ref={sectionRef} className="relative w-full bg-[#fffbf7] py-20 md:py-32">
       {/* FAQPage JSON-LD — enables AI Overview, ChatGPT/Claude/Gemini citation,
-         and Google rich results. Each answer is 30-50 words for optimal
-         AEO extraction (the LLM sweet spot). */}
+         and Google rich results. Each answer is designed for optimal AEO extraction. */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            dateModified: "2026-05-09",
+            dateModified: "2026-05-26",
             mainEntity: faqs.map((f) => ({
               "@type": "Question",
               name: f.question,
@@ -186,161 +186,301 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
           </h2>
         </div>
 
-        {/* FAQ Horizontal Accordion */}
-        <div ref={faqsRef} className="flex h-[600px] gap-2">
-          {faqs.map((faq, index) => {
-            const isActive = index === activeIndex
-            const isCollapsed = activeIndex !== -1 && !isActive
-            const paletteIndex = index % grainientColors.length
+        {/* FAQ Container with double responsive rendering */}
+        <div ref={faqsRef} className="w-full">
+          
+          {/* 1. Desktop Accordion (Horizontal) */}
+          <div className="hidden lg:flex h-[600px] gap-2 w-full">
+            {faqs.map((faq, index) => {
+              const isActive = index === activeIndex
+              const isAnyActive = activeIndex !== -1
+              const showVertical = isAnyActive && !isActive
+              const paletteIndex = index % grainientColors.length
 
-            return (
-              <div
-                key={faq.id}
-                onClick={() => handleClick(index)}
-                className={`group/card relative cursor-pointer overflow-hidden rounded-2xl border border-[#f97316]/20 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${isActive
-                  ? "bg-white shadow-[0_10px_30px_rgba(249,115,22,0.12)] border-[#f97316]/30"
-                  : "bg-white/80"
-                  }`}
-                style={{
-                  width: isActive ? "37%" : isCollapsed ? "15%" : "15%",
-                  height: "600px",
-                }}
-              >
-                {/* Grainient Background for Inactive Cards */}
-                {!isActive && (
-                  <>
-                    {/* Base Gradient */}
-                    <div
-                      className="absolute inset-0 transition-all duration-500 group-hover/card:opacity-90"
-                      style={{
-                        background: `linear-gradient(135deg, ${grainientColors[paletteIndex].from} 0%, ${grainientColors[paletteIndex].via} 50%, ${grainientColors[paletteIndex].to} 100%)`,
-                      }}
-                    />
-                    {/* Accent Glow */}
-                    <div
-                      className="absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-20 blur-3xl transition-all duration-500 group-hover/card:opacity-40 group-hover/card:scale-125"
-                      style={{ backgroundColor: grainientColors[paletteIndex].accent }}
-                    />
-                    <div
-                      className="absolute -bottom-10 -left-10 h-32 w-32 rounded-full opacity-10 blur-2xl transition-all duration-500 group-hover/card:opacity-30"
-                      style={{ backgroundColor: grainientColors[paletteIndex].accent }}
-                    />
-                    {/* Grain Overlay */}
-                    <div
-                      className="absolute inset-0 opacity-[0.35] mix-blend-overlay"
-                      style={{
-                        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-                        backgroundRepeat: "repeat",
-                      }}
-                    />
-                    {/* Subtle Border Glow */}
-                    <div
-                      className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover/card:opacity-100"
-                      style={{
-                        boxShadow: `inset 0 0 0 1px ${grainientColors[paletteIndex].accent}20, 0 0 30px ${grainientColors[paletteIndex].accent}10`,
-                      }}
-                    />
-                  </>
-                )}
-
-                {/* Grainient Background for Active Card */}
-                {isActive && (
-                  <div className="absolute inset-0">
-                    <Grainient
-                      color1={activeGrainientPalette[paletteIndex].c1}
-                      color2={activeGrainientPalette[paletteIndex].c2}
-                      color3={activeGrainientPalette[paletteIndex].c3}
-                      timeSpeed={0.15}
-                      grainAmount={0.08}
-                      grainScale={2.5}
-                      grainAnimated={false}
-                      warpStrength={0.6}
-                      warpFrequency={4.0}
-                      warpSpeed={1.5}
-                      warpAmplitude={60.0}
-                      rotationAmount={350.0}
-                      noiseScale={1.8}
-                      contrast={1.35}
-                      saturation={1.15}
-                      blendSoftness={0.08}
-                      zoom={0.85}
-                    />
-                    {/* Subtle vignette overlay for text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#f97316]/10 via-transparent to-[#f97316]/5" />
-                  </div>
-                )}
-
-                {/* Content */}
-                <div className="relative flex h-full flex-col p-5 md:p-6">
-                  {/* Top - Serial & Icon */}
-                  <div className="mb-auto flex items-start justify-between">
-                    <span
-                      className={`text-xs font-medium uppercase tracking-wider transition-colors duration-500 ${isActive ? "text-[#7c2d12]/80" : "text-[#451a03]/90"
-                        }`}
-                    >
-                      {faq.serial}
-                    </span>
-                    <div className="relative h-6 w-6">
-                      {/* Plus Icon */}
-                      <Plus
-                        className={`absolute inset-0 h-6 w-6 text-[#ea580c] transition-all duration-500 ${isActive
-                          ? "scale-0 opacity-0 rotate-90"
-                          : "scale-100 opacity-100 rotate-0"
-                          }`}
+              return (
+                <div
+                  key={faq.id}
+                  onClick={() => handleClick(index)}
+                  className={`group/card relative cursor-pointer overflow-hidden rounded-2xl border transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] shrink basis-0 ${isActive
+                    ? "bg-white shadow-[0_10px_30px_rgba(249,115,22,0.12)] border-[#f97316]/30"
+                    : "bg-white/80 border-[#f97316]/20"
+                    }`}
+                  style={{
+                    flexGrow: isActive ? 4.5 : 0.7,
+                    height: "600px",
+                  }}
+                >
+                  {/* Grainient Background for Inactive Cards */}
+                  {!isActive && (
+                    <>
+                      {/* Base Gradient */}
+                      <div
+                        className="absolute inset-0 transition-all duration-500 group-hover/card:opacity-90"
+                        style={{
+                          background: `linear-gradient(135deg, ${grainientColors[paletteIndex].from} 0%, ${grainientColors[paletteIndex].via} 50%, ${grainientColors[paletteIndex].to} 100%)`,
+                        }}
                       />
-                      {/* Minus Icon */}
-                      <Minus
-                        className={`absolute inset-0 h-6 w-6 text-[#ea580c] transition-all duration-500 ${isActive
-                          ? "scale-100 opacity-100 rotate-0"
-                          : "scale-0 opacity-0 -rotate-90"
-                          }`}
+                      {/* Accent Glow */}
+                      <div
+                        className="absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-20 blur-3xl transition-all duration-500 group-hover/card:opacity-40 group-hover/card:scale-125"
+                        style={{ backgroundColor: grainientColors[paletteIndex].accent }}
                       />
+                      <div
+                        className="absolute -bottom-10 -left-10 h-32 w-32 rounded-full opacity-10 blur-2xl transition-all duration-500 group-hover/card:opacity-30"
+                        style={{ backgroundColor: grainientColors[paletteIndex].accent }}
+                      />
+                      {/* Grain Overlay */}
+                      <div
+                        className="absolute inset-0 opacity-[0.35] mix-blend-overlay"
+                        style={{
+                          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+                          backgroundRepeat: "repeat",
+                        }}
+                      />
+                      {/* Subtle Border Glow */}
+                      <div
+                        className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover/card:opacity-100"
+                        style={{
+                          boxShadow: `inset 0 0 0 1px ${grainientColors[paletteIndex].accent}20, 0 0 30px ${grainientColors[paletteIndex].accent}10`,
+                        }}
+                      />
+                    </>
+                  )}
+
+                  {/* Grainient Background for Active Card */}
+                  {isActive && (
+                    <div className="absolute inset-0">
+                      <Grainient
+                        color1={activeGrainientPalette[paletteIndex].c1}
+                        color2={activeGrainientPalette[paletteIndex].c2}
+                        color3={activeGrainientPalette[paletteIndex].c3}
+                        timeSpeed={0.15}
+                        grainAmount={0.08}
+                        grainScale={2.5}
+                        grainAnimated={false}
+                        warpStrength={0.6}
+                        warpFrequency={4.0}
+                        warpSpeed={1.5}
+                        warpAmplitude={60.0}
+                        rotationAmount={350.0}
+                        noiseScale={1.8}
+                        contrast={1.35}
+                        saturation={1.15}
+                        blendSoftness={0.08}
+                        zoom={0.85}
+                      />
+                      {/* Subtle vignette overlay for text readability */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#f97316]/10 via-transparent to-[#f97316]/5" />
                     </div>
-                  </div>
+                  )}
 
-                  {/* Bottom Content */}
-                  <div className="mt-auto">
-                    {/* Question */}
-                    <div className="mb-4">
-                      <h3
-                        className={`text-lg font-semibold leading-snug transition-colors duration-500 md:text-xl text-[#451a03]`}
+                  {/* Content */}
+                  <div className="relative flex h-full flex-col p-5 md:p-6 justify-between select-none">
+                    {/* Top - Serial & Icon */}
+                    <div className="flex items-start justify-between w-full">
+                      <span
+                        className={`text-xs font-semibold uppercase tracking-wider transition-colors duration-500 ${isActive ? "text-[#7c2d12]/80" : "text-[#451a03]/90"
+                          }`}
                       >
-                        {faq.question}
-                      </h3>
+                        {faq.serial}
+                      </span>
+                      <div className="relative h-6 w-6 flex-shrink-0">
+                        <Plus
+                          className={`absolute inset-0 h-6 w-6 text-[#ea580c] transition-all duration-500 ${isActive
+                            ? "scale-0 opacity-0 rotate-90"
+                            : "scale-100 opacity-100 rotate-0"
+                            }`}
+                        />
+                        <Minus
+                          className={`absolute inset-0 h-6 w-6 text-[#ea580c] transition-all duration-500 ${isActive
+                            ? "scale-100 opacity-100 rotate-0"
+                            : "scale-0 opacity-0 -rotate-90"
+                            }`}
+                        />
+                      </div>
                     </div>
 
-                    {/* Answer - Only visible when active */}
-                    <div
-                      className="overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"
-                      style={{
-                        width: isActive ? "100%" : "0%",
-                        opacity: isActive ? 1 : 0,
-                      }}
-                    >
-                      <div className="pt-4">
-                        <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-[#7c2d12]/60">
-                          Question Answer:
-                        </h4>
-                        <div className="mb-4 h-px w-16 bg-[#ea580c]/20" />
-                        <p className="mb-6 text-sm leading-relaxed text-[#451a03]/85 md:text-base">
-                          {faq.answer}
-                        </p>
-                        <Link
-                          href="/about-us"
-                          className="group inline-flex items-center gap-3 rounded-full bg-[#ea580c] px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-[#7c2d12]"
+                    {/* Middle/Bottom Question and Answer */}
+                    <div className={`flex flex-col w-full ${isActive ? "mt-4" : showVertical ? "mt-auto h-[420px] items-center justify-end" : "mt-auto"}`}>
+                      {/* Inactive & Collapsed Question: Rotated and elegant */}
+                      {showVertical ? (
+                        <h3
+                          className="text-base md:text-lg font-bold text-[#451a03] tracking-tight whitespace-nowrap transition-all duration-500"
+                          style={{
+                            writingMode: "vertical-rl",
+                            transform: "rotate(180deg)",
+                            maxHeight: "380px",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                          }}
                         >
-                          <span>More About Us</span>
-                          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-[#ea580c] transition-all group-hover:bg-[#ea580c] group-hover:text-white">
-                            <ArrowUpRight className="h-3 w-3" />
-                          </span>
-                        </Link>
-                      </div>
+                          {faq.question}
+                        </h3>
+                      ) : (
+                        // Active OR All Collapsed Question: Standard horizontal layout
+                        <div className="w-full">
+                          <h3 className="text-xl font-bold leading-snug text-[#451a03] md:text-2xl mb-4">
+                            {faq.question}
+                          </h3>
+                          {isActive && (
+                            <div 
+                              onClick={(e) => e.stopPropagation()} 
+                              className="overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] w-full opacity-100"
+                            >
+                              <div className="pt-2">
+                                <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-[#7c2d12]/60">
+                                  Question Answer:
+                                </h4>
+                                <div className="mb-4 h-px w-16 bg-[#ea580c]/20" />
+                                <p className="mb-6 text-sm leading-relaxed text-[#451a03]/85 md:text-[15px]">
+                                  {faq.answer}
+                                </p>
+                                <Link
+                                  href="/about-us"
+                                  className="group inline-flex items-center gap-3 rounded-full bg-[#ea580c] px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-[#7c2d12]"
+                                >
+                                  <span>More About Us</span>
+                                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-[#ea580c] transition-all group-hover:bg-[#ea580c] group-hover:text-white">
+                                    <ArrowUpRight className="h-3 w-3" />
+                                  </span>
+                                </Link>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
-              </div>
-            )
-          })}
+              )
+            })}
+          </div>
+
+          {/* 2. Mobile Accordion (Vertical Stack) */}
+          <div className="flex lg:hidden flex-col gap-4 w-full">
+            {faqs.map((faq, index) => {
+              const isActive = index === activeIndex
+              const paletteIndex = index % grainientColors.length
+
+              return (
+                <div
+                  key={faq.id}
+                  onClick={() => handleClick(index)}
+                  className={`group/card relative cursor-pointer overflow-hidden rounded-2xl border transition-all duration-500 ease-in-out p-6 ${isActive
+                    ? "bg-white shadow-[0_10px_30px_rgba(249,115,22,0.12)] border-[#f97316]/30"
+                    : "bg-white/80 border-[#f97316]/20"
+                    }`}
+                >
+                  {/* Grainient Background for Inactive Cards */}
+                  {!isActive && (
+                    <>
+                      <div
+                        className="absolute inset-0 transition-all duration-500 group-hover/card:opacity-90"
+                        style={{
+                          background: `linear-gradient(135deg, ${grainientColors[paletteIndex].from} 0%, ${grainientColors[paletteIndex].via} 50%, ${grainientColors[paletteIndex].to} 100%)`,
+                        }}
+                      />
+                      <div
+                        className="absolute -right-10 -top-10 h-32 w-32 rounded-full opacity-10 blur-2xl transition-all duration-500 group-hover/card:opacity-20"
+                        style={{ backgroundColor: grainientColors[paletteIndex].accent }}
+                      />
+                      <div
+                        className="absolute inset-0 opacity-[0.25] mix-blend-overlay"
+                        style={{
+                          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+                          backgroundRepeat: "repeat",
+                        }}
+                      />
+                    </>
+                  )}
+
+                  {/* Grainient Background for Active Card */}
+                  {isActive && (
+                    <div className="absolute inset-0">
+                      <Grainient
+                        color1={activeGrainientPalette[paletteIndex].c1}
+                        color2={activeGrainientPalette[paletteIndex].c2}
+                        color3={activeGrainientPalette[paletteIndex].c3}
+                        timeSpeed={0.15}
+                        grainAmount={0.08}
+                        grainScale={2.5}
+                        grainAnimated={false}
+                        warpStrength={0.6}
+                        warpFrequency={4.0}
+                        warpSpeed={1.5}
+                        warpAmplitude={60.0}
+                        rotationAmount={350.0}
+                        noiseScale={1.8}
+                        contrast={1.35}
+                        saturation={1.15}
+                        blendSoftness={0.08}
+                        zoom={0.85}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#f97316]/10 via-transparent to-[#f97316]/5" />
+                    </div>
+                  )}
+
+                  {/* Content */}
+                  <div className="relative flex flex-col z-10 select-none">
+                    {/* Top - Serial & Icon */}
+                    <div className="flex items-center justify-between w-full mb-3">
+                      <span
+                        className={`text-xs font-semibold uppercase tracking-wider transition-colors duration-500 ${isActive ? "text-[#7c2d12]/80" : "text-[#451a03]/90"
+                          }`}
+                      >
+                        {faq.serial}
+                      </span>
+                      <div className="relative h-6 w-6 flex-shrink-0">
+                        <Plus
+                          className={`absolute inset-0 h-6 w-6 text-[#ea580c] transition-all duration-500 ${isActive
+                            ? "scale-0 opacity-0 rotate-90"
+                            : "scale-100 opacity-100 rotate-0"
+                            }`}
+                        />
+                        <Minus
+                          className={`absolute inset-0 h-6 w-6 text-[#ea580c] transition-all duration-500 ${isActive
+                            ? "scale-100 opacity-100 rotate-0"
+                            : "scale-0 opacity-0 -rotate-90"
+                            }`}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Question */}
+                    <h3 className="text-base md:text-lg font-bold leading-snug text-[#451a03]">
+                      {faq.question}
+                    </h3>
+
+                    {/* Answer (expanding) */}
+                    <div
+                      onClick={(e) => e.stopPropagation()}
+                      className="overflow-hidden transition-all duration-500 ease-in-out"
+                      style={{
+                        maxHeight: isActive ? "600px" : "0px",
+                        opacity: isActive ? 1 : 0,
+                        marginTop: isActive ? "16px" : "0px",
+                      }}
+                    >
+                      <div className="mb-3 h-px w-16 bg-[#ea580c]/20" />
+                      <p className="mb-4 text-[14px] leading-relaxed text-[#451a03]/85">
+                        {faq.answer}
+                      </p>
+                      <Link
+                        href="/about-us"
+                        className="group inline-flex items-center gap-3 rounded-full bg-[#ea580c] px-4 py-2 text-xs font-medium text-white transition-all hover:bg-[#7c2d12] w-fit"
+                      >
+                        <span>More About Us</span>
+                        <span className="flex h-4 w-4 items-center justify-center rounded-full bg-white text-[#ea580c] transition-all group-hover:bg-[#ea580c] group-hover:text-white">
+                          <ArrowUpRight className="h-2.5 w-2.5" />
+                        </span>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+
         </div>
       </div>
     </section>
