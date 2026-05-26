@@ -227,18 +227,19 @@ export default function AvooraHero() {
   const videoStageRef = useRef<HTMLDivElement>(null)
   const marqueeRef = useRef<HTMLDivElement>(null)
 
+  const [videoLoaded, setVideoLoaded] = useState(false)
+  useEffect(() => {
+    // Only load the video sources after hydration/mount is complete to keep page load extremely fast
+    const timer = setTimeout(() => setVideoLoaded(true), 800)
+    return () => clearTimeout(timer)
+  }, [])
+
   useGSAP(
     () => {
       if (!containerRef.current) return
 
       const tl = gsap.timeline({
         defaults: { duration: 0.8, ease: "power3.out" },
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 80%",
-          end: "bottom 20%",
-          toggleActions: "play none none reverse",
-        },
       })
 
       // Header animations
@@ -285,7 +286,7 @@ export default function AvooraHero() {
         )
       }
 
-      const avatarSpans = videoStageRef.current?.querySelectorAll(".avatar-stack > span")
+      const avatarSpans = videoStageRef.current?.querySelectorAll(".avatar-stack span")
       if (avatarSpans) {
         tl.from(
           avatarSpans,
@@ -420,7 +421,7 @@ export default function AvooraHero() {
                 Enterprise Software &amp; AI Solutions
               </span>
             </div>
-            
+
             <h1 className="font-semibold leading-[0.9] tracking-[-0.04em] text-gray-900" style={{ fontSize: "clamp(48px, 8vw, 110px)" }}>
               <span>Softree</span>
               <span className="ml-2 font-medium text-gray-400" style={{ fontSize: "clamp(24px, 4vw, 50px)", verticalAlign: "super" }}>®</span>
@@ -455,8 +456,12 @@ export default function AvooraHero() {
             className="absolute inset-0 h-full w-full object-cover"
             style={{ backgroundImage: `url(${ASSETS.video.poster})`, backgroundSize: "cover" }}
           >
-            <source src={ASSETS.video.mp4} type="video/mp4" />
-            <source src={ASSETS.video.webm} type="video/webm" />
+            {videoLoaded && (
+              <>
+                <source src={ASSETS.video.mp4} type="video/mp4" />
+                <source src={ASSETS.video.webm} type="video/webm" />
+              </>
+            )}
           </video>
 
           {/* Dark overlay for legibility */}
@@ -475,11 +480,8 @@ export default function AvooraHero() {
             <div className="avatar-stack flex items-start justify-between">
               <div className="flex -space-x-3">
                 {ASSETS.avatars.map((src, i) => (
-                  <motion.span
+                  <span
                     key={i}
-                    initial={{ opacity: 0, y: 10, scale: 0.8 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    transition={{ duration: 0.6, delay: 0.2 + i * 0.08, ease: [0.22, 1, 0.36, 1] as const }}
                     className="block h-11 w-11 overflow-hidden rounded-full border-2 border-white/90 ring-1 ring-black/10 sm:h-14 sm:w-14"
                     style={{ zIndex: 5 - i }}
                   >
@@ -490,7 +492,7 @@ export default function AvooraHero() {
                       height={56}
                       className="h-full w-full object-cover"
                     />
-                  </motion.span>
+                  </span>
                 ))}
               </div>
             </div>
@@ -531,7 +533,7 @@ export default function AvooraHero() {
                   AI · Web · Microsoft · Cloud
                 </div>
                 <div className="mt-1 text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.18em] text-white/75">
-                  Shipping production-grade software since 2020
+                  Shipping production-grade software since 2013
                 </div>
               </div>
 

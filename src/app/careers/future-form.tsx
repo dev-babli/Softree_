@@ -97,7 +97,7 @@ export default function FutureForm() {
     data.append("email", formData.email);
     data.append("department", formData.department);
     data.append("message", formData.message || "");
-    data.append("jobTitle", `Spontaneous Application - ${formData.department}`);
+    data.append("jobTitle", `JOIN OUR TALENT POOL - ${formData.department}`);
     if (resumeFile) {
       data.append("resume", resumeFile);
     }
@@ -347,7 +347,7 @@ export default function FutureForm() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} style={s.form}>
-              <h3 style={s.formTitle}>Spontaneous Application</h3>
+              <h3 style={s.formTitle}>JOIN OUR TALENT POOL</h3>
 
               <div style={s.formGroup}>
                 <label style={s.label}>Full Name *</label>
@@ -520,10 +520,10 @@ const s: Record<string, React.CSSProperties> = {
     gap: "12px",
   },
   formTitle: {
-    fontFamily: "'Syne', sans-serif",
+    fontFamily: "'Outfit', 'DM Sans', sans-serif",
     fontSize: "20px",
     fontWeight: 700,
-    color: WHITE,
+    color: ORANGE,
     margin: "0 0 8px 0",
   },
   formGroup: {

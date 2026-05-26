@@ -37,7 +37,7 @@ const testimonials: Testimonial[] = [
     text: "Overall, we are satisfied with our collaboration in the past and your last action and response to our reported issue, really makes a difference.",
     name: "Arkady Fedorovtsjev",
     role: "IT Specialist",
-    location: "Nederlands",
+    location: "Netherlands",
     company: "ECG International",
   },
 ];

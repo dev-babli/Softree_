@@ -87,7 +87,7 @@ export default function WhyChooseWithTestimonials() {
   }, [paused]);
 
   return (
-    <section className="text-gray-900 py-24 sm:py-32">
+    <section className="text-gray-900 py-30">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         {/* ================= LEFT : WHY CHOOSE ================= */}
         <div className="relative">
@@ -187,11 +187,10 @@ export default function WhyChooseWithTestimonials() {
                       {Array.from({ length: 5 }).map((_, idx) => (
                         <Star
                           key={idx}
-                          className={`w-4 h-4 ${
-                            idx < review.rating
-                              ? "fill-yellow-400 text-yellow-400"
-                              : "text-gray-500"
-                          }`}
+                          className={`w-4 h-4 ${idx < review.rating
+                            ? "fill-yellow-400 text-yellow-400"
+                            : "text-gray-500"
+                            }`}
                         />
                       ))}
                     </div>

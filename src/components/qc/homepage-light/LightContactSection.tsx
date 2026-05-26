@@ -119,7 +119,7 @@ function Field({
         required={required}
         autoComplete={autoComplete}
         placeholder=""
-        className="h-[3.25rem] w-full rounded-none border-0 border-b border-white/14 bg-transparent px-0 text-[15px] font-medium text-white outline-none transition-colors duration-300 placeholder:text-white/40 focus:border-[#ff5812]"
+        className="h-11 w-full rounded-none border-0 border-b border-white/14 bg-transparent px-0 text-[15px] font-medium text-white outline-none transition-colors duration-300 placeholder:text-white/40 focus:border-[#ff5812]"
       />
     </label>
   )
@@ -157,7 +157,7 @@ export default function LightContactSection() {
   return (
     <section
       id="contact"
-      className="relative isolate overflow-hidden bg-[#f6f4f0] px-4 py-20 text-[#111] sm:px-6 sm:py-24 lg:px-8 lg:py-28"
+      className="relative isolate overflow-hidden bg-[#f6f4f0] px-4 py-8 text-[#111] sm:px-6 sm:py-12 lg:px-8 lg:py-16"
     >
       <div
         aria-hidden
@@ -170,11 +170,11 @@ export default function LightContactSection() {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, margin: "-12%" }}
           transition={{ duration: 0.75, ease: EASE }}
-          className="mb-10 text-center sm:mb-12"
+          className="mb-4 text-center sm:mb-6"
         >
           <h2
             aria-label="Let's Talk"
-            className="text-[clamp(4.5rem,15vw,14rem)] font-semibold leading-[0.82] tracking-[-0.075em]"
+            className="text-[clamp(2.5rem,6vw,4.5rem)] font-semibold leading-[0.82] tracking-[-0.075em]"
           >
             Let&apos;s{" "}
             <span className="relative inline-block text-[#ff5812]">
@@ -194,13 +194,13 @@ export default function LightContactSection() {
           transition={{ duration: 0.85, ease: EASE, delay: 0.05 }}
           className="overflow-hidden rounded-[8px] bg-[#09090d] text-white shadow-[0_34px_100px_-50px_rgba(0,0,0,0.75)]"
         >
-          <div className="grid min-h-[680px] grid-cols-1 lg:grid-cols-[0.32fr_1.12fr_1fr]">
-            <aside className="flex flex-col justify-between border-b border-white/10 p-6 sm:p-8 lg:border-b-0 lg:border-r">
+          <div className="grid md:min-h-[500px] grid-cols-1 md:grid-cols-[0.32fr_1.12fr_1fr]">
+            <aside className="flex flex-col justify-between border-b border-white/10 p-5 sm:p-6 md:border-b-0 md:border-r">
               <div>
                 <p className="text-[13px] font-semibold tracking-[-0.01em] text-white">
                   Follow us
                 </p>
-                <div className="mt-5 flex flex-wrap gap-3 lg:flex-col">
+                <div className="mt-5 flex flex-wrap gap-3 md:flex-col">
                   <SocialIcon href="https://www.instagram.com/" label="Instagram">
                     <InstagramIcon />
                   </SocialIcon>
@@ -216,117 +216,115 @@ export default function LightContactSection() {
                 </div>
               </div>
 
-              <div className="mt-10 hidden h-px w-full bg-white/10 lg:block" />
+              <div className="mt-10 hidden h-px w-full bg-white/10 md:block" />
             </aside>
 
-            <div className="border-b border-white/10 p-6 sm:p-8 lg:border-b-0 lg:border-r">
-              <div className="flex h-full flex-col justify-between gap-8">
-                <div className="grid gap-6 xl:grid-cols-[0.86fr_1fr]">
-                  <div className="relative min-h-[300px] overflow-hidden rounded-[6px] bg-white/8">
-                    <Image
-                      src="https://cdn.prod.website-files.com/69a0a45220c8336fe957ccba/69ce260749d7110937223c7f_CTA%20Picture.webp"
-                      alt="Person wearing a white hooded jacket and virtual reality headset against a shimmering abstract background."
-                      fill
-                      sizes="(min-width: 1280px) 320px, (min-width: 1024px) 42vw, 100vw"
-                      className="object-cover"
-                    />
-                    <div
-                      aria-hidden
-                      className="absolute inset-0 bg-[linear-gradient(180deg,transparent_35%,rgba(9,9,13,0.58)_100%)]"
-                    />
-                  </div>
-
-                  <div>
-                    <p className="text-[18px] font-medium tracking-[-0.02em]">
-                      What we offer
-                    </p>
-                    <div className="mt-5 flex flex-col gap-2">
-                      {services.map((service) => (
-                        <div
-                          key={service}
-                          className="group flex items-center gap-3 border-b border-white/10 py-3"
-                        >
-                          <span className="h-2 w-2 rounded-full bg-[#ff5812] transition-transform duration-300 group-hover:scale-[1.45]" />
-                          <span className="text-sm leading-none text-white/72 transition-colors group-hover:text-white">
-                            {service}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+            <div className="flex flex-col justify-between gap-8 border-b border-white/10 p-5 sm:p-6 md:border-b-0 md:border-r">
+              <div className="grid gap-6 xl:grid-cols-[0.86fr_1fr]">
+                <div className="relative min-h-[140px] sm:min-h-[180px] md:min-h-[240px] overflow-hidden rounded-[6px] bg-white/8">
+                  <Image
+                    src="https://cdn.prod.website-files.com/69a0a45220c8336fe957ccba/69ce260749d7110937223c7f_CTA%20Picture.webp"
+                    alt="Person wearing a white hooded jacket and virtual reality headset against a shimmering abstract background."
+                    fill
+                    sizes="(min-width: 1280px) 320px, (min-width: 1024px) 42vw, 100vw"
+                    className="object-cover"
+                  />
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 bg-[linear-gradient(180deg,transparent_35%,rgba(9,9,13,0.58)_100%)]"
+                  />
                 </div>
 
-                <div className="grid gap-4 border-t border-white/10 pt-6 sm:grid-cols-2">
-                  <div>
-                    <p className="text-[18px] font-medium tracking-[-0.02em]">
-                      E-Mail
-                    </p>
-                    <a
-                      href="mailto:sales@softreetechnology.com"
-                      className="mt-2 block text-[14px] leading-6 text-white/58 transition-colors hover:text-[#ff5812]"
-                    >
-                      sales@softreetechnology.com
-                    </a>
+                <div>
+                  <p className="text-[18px] font-medium tracking-[-0.02em]">
+                    What we offer
+                  </p>
+                  <div className="mt-5 flex flex-col gap-2">
+                    {services.map((service) => (
+                      <div
+                        key={service}
+                        className="group flex items-center gap-3 border-b border-white/10 py-3"
+                      >
+                        <span className="h-2 w-2 rounded-full bg-[#ff5812] transition-transform duration-300 group-hover:scale-[1.45]" />
+                        <span className="text-sm leading-none text-white/72 transition-colors group-hover:text-white">
+                          {service}
+                        </span>
+                      </div>
+                    ))}
                   </div>
-                  <div>
-                    <p className="text-[18px] font-medium tracking-[-0.02em]">
-                      Office
-                    </p>
-                    <p className="mt-2 text-[14px] leading-6 text-white/58">
-                      PLOT 5C/1283, SECTOR-10, CDA
-                      <br />
-                      Cuttack, Odisha 753014, India
-                    </p>
-                  </div>
+                </div>
+              </div>
+
+              <div className="grid gap-4 border-t border-white/10 pt-6 sm:grid-cols-2">
+                <div>
+                  <p className="text-[18px] font-medium tracking-[-0.02em]">
+                    E-Mail
+                  </p>
+                  <a
+                    href="mailto:sales@softreetechnology.com"
+                    className="mt-2 block text-[14px] leading-6 text-white/58 transition-colors hover:text-[#ff5812]"
+                  >
+                    sales@softreetechnology.com
+                  </a>
+                </div>
+                <div>
+                  <p className="text-[18px] font-medium tracking-[-0.02em]">
+                    Office
+                  </p>
+                  <p className="mt-2 text-[14px] leading-6 text-white/58">
+                    PLOT 5C/1283, SECTOR-10, CDA
+                    <br />
+                    Cuttack, Odisha 753014, India
+                  </p>
                 </div>
               </div>
             </div>
 
-            <div className="p-6 sm:p-8">
-              <div className="flex h-full flex-col">
-                <div>
-                  <p className="text-[18px] font-medium tracking-[-0.02em]">
-                    Got a question, challenge, or idea?
-                  </p>
-                  <p className="mt-2 max-w-sm text-sm leading-6 text-white/52">
-                    Fill out the form. We&apos;ll get back to you shortly.
-                  </p>
+            <div className="flex flex-col p-5 sm:p-6">
+              <div>
+                <p className="text-[18px] font-medium tracking-[-0.02em]">
+                  Got a question, challenge, or idea?
+                </p>
+                <p className="mt-2 max-w-sm text-sm leading-6 text-white/52">
+                  Fill out the form. We&apos;ll get back to you shortly.
+                </p>
+              </div>
+
+              <div className="my-5 sm:my-7 h-px w-full bg-white/10" />
+
+              <form
+                ref={formRef}
+                id="email-form"
+                name="email-form"
+                aria-label="Contact Form"
+                onSubmit={handleSubmit}
+                className="flex flex-1 flex-col justify-between"
+              >
+                <div className="grid gap-4 sm:gap-5">
+                  <Field id="CTA-Name" name="name" placeholder="Full Name" autoComplete="name" />
+                  <Field id="email" name="email" type="email" placeholder="E-Mail" required autoComplete="email" />
+                  <Field id="company-name" name="company" placeholder="Company Name" autoComplete="organization" />
+                  <label className="block" htmlFor="field">
+                    <span className="mb-1.5 block text-[11px] font-semibold uppercase tracking-widest text-white/50">
+                      Tell us about your project
+                    </span>
+                    <textarea
+                      id="field"
+                      name="field"
+                      placeholder="Timeline, scope, budget — the more detail, the better we can help."
+                      maxLength={5000}
+                      className="min-h-[80px] sm:min-h-[110px] w-full resize-none rounded-none border-0 border-b border-white/14 bg-transparent px-0 py-4 text-[15px] font-medium text-white outline-none transition-colors duration-300 placeholder:text-white/65 focus:border-[#ff5812]"
+                      onFocus={() => { if (status === 'idle' && typeof window !== 'undefined') (window as unknown as { dataLayer?: object[] }).dataLayer?.push({ event: 'form_start', form_name: 'contact' }) }}
+                    />
+                  </label>
                 </div>
 
-                <div className="my-7 h-px w-full bg-white/10" />
-
-                <form
-                  ref={formRef}
-                  id="email-form"
-                  name="email-form"
-                  aria-label="Contact Form"
-                  onSubmit={handleSubmit}
-                  className="flex flex-1 flex-col"
-                >
-                  <div className="grid gap-5">
-                    <Field id="CTA-Name" name="name" placeholder="Full Name" autoComplete="name" />
-                    <Field id="email" name="email" type="email" placeholder="E-Mail" required autoComplete="email" />
-                    <Field id="company-name" name="company" placeholder="Company Name" autoComplete="organization" />
-                    <label className="block" htmlFor="field">
-                      <span className="mb-1.5 block text-[11px] font-semibold uppercase tracking-widest text-white/50">
-                        Tell us about your project
-                      </span>
-                      <textarea
-                        id="field"
-                        name="field"
-                        placeholder="Timeline, scope, budget — the more detail, the better we can help."
-                        maxLength={5000}
-                        className="min-h-[142px] w-full resize-none rounded-none border-0 border-b border-white/14 bg-transparent px-0 py-4 text-[15px] font-medium text-white outline-none transition-colors duration-300 placeholder:text-white/65 focus:border-[#ff5812]"
-                        onFocus={() => { if (status === 'idle' && typeof window !== 'undefined') (window as unknown as { dataLayer?: object[] }).dataLayer?.push({ event: 'form_start', form_name: 'contact' }) }}
-                      />
-                    </label>
-                  </div>
-
+                <div>
                   <input name="_gotcha" type="text" className="sr-only" tabIndex={-1} autoComplete="off" aria-hidden="true" />
                   <button
                     type="submit"
                     disabled={status === "submitting"}
-                    className="group mt-8 inline-flex h-14 w-full items-center justify-between rounded-full bg-[#ff5812] px-6 text-[13px] font-semibold uppercase tracking-[0.16em] text-white transition duration-300 hover:bg-white hover:text-[#09090d] disabled:cursor-not-allowed disabled:opacity-65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5812]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090d]"
+                    className="group mt-6 sm:mt-8 inline-flex h-11 sm:h-12 w-full sm:w-fit sm:px-8 gap-4 items-center justify-between rounded-full bg-[#ff5812] px-6 text-[13px] font-semibold uppercase tracking-[0.16em] text-white transition duration-300 hover:bg-white hover:text-[#09090d] disabled:cursor-not-allowed disabled:opacity-65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5812]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090d]"
                   >
                     <span>{status === "submitting" ? "Please wait..." : "Send message & book a call"}</span>
                     <ArrowUpRight
@@ -360,8 +358,8 @@ export default function LightContactSection() {
                       Submission failed. Please try again in a moment.
                     </p>
                   )}
-                </form>
-              </div>
+                </div>
+              </form>
             </div>
           </div>
         </motion.div>

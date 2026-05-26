@@ -1,7 +1,5 @@
-"use client";
-
 import React, { useEffect, useState } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform, useMotionValueEvent } from "framer-motion";
 
 const BASE_CARDS = [
   {
@@ -99,7 +97,7 @@ const SIZES: Record<"sm" | "md" | "lg", SizeConfig> = {
     sectionHeight: 780,
     carouselTop: "300px",
     circleTop: "180px",
-    panSensitivity: 0.12,
+    panSensitivity: 0.14,
     cardPadding: "24px",
     cardRadius: "24px",
     titleSize: "18px",
@@ -110,12 +108,12 @@ const SIZES: Record<"sm" | "md" | "lg", SizeConfig> = {
   },
   md: {
     radius: 1400,
-    cardWidth: 340,
-    cardHeight: 520,
-    sectionHeight: 960,
+    cardWidth: 320,
+    cardHeight: 490,
+    sectionHeight: 920,
     carouselTop: "380px",
     circleTop: "220px",
-    panSensitivity: 0.08,
+    panSensitivity: 0.10,
     cardPadding: "32px",
     cardRadius: "28px",
     titleSize: "22px",
@@ -126,16 +124,16 @@ const SIZES: Record<"sm" | "md" | "lg", SizeConfig> = {
   },
   lg: {
     radius: 2000,
-    cardWidth: 440,
-    cardHeight: 660,
-    sectionHeight: 1140,
+    cardWidth: 380,
+    cardHeight: 560,
+    sectionHeight: 1040,
     carouselTop: "480px",
     circleTop: "260px",
-    panSensitivity: 0.05,
-    cardPadding: "40px",
+    panSensitivity: 0.08,
+    cardPadding: "36px",
     cardRadius: "32px",
-    titleSize: "28px",
-    descSize: "15px",
+    titleSize: "26px",
+    descSize: "14.5px",
     btnPx: "px-8",
     btnPy: "py-3",
     btnText: "text-[14px]",
@@ -156,34 +154,183 @@ function useBreakpoint(): "sm" | "md" | "lg" {
   return bp;
 }
 
+function CardWrapper({
+  card,
+  smoothRotation,
+  radius,
+  cardWidth,
+  cardHeight,
+  sz,
+  bp,
+}: {
+  card: any;
+  smoothRotation: any;
+  radius: number;
+  cardWidth: number;
+  cardHeight: number;
+  sz: SizeConfig;
+  bp: "sm" | "md" | "lg";
+}) {
+  const relativeAngle = useTransform(smoothRotation, (r: number) => {
+    // Elegant infinite wrapping bounds
+    const diff = ((card.angle - r) % 360 + 540) % 360 - 180;
+    return diff;
+  });
+
+  // Calculate high-performance layout transforms using spring-smoothed angles
+  const x = useTransform(relativeAngle, (diff: number) => {
+    const rad = (diff * Math.PI) / 180;
+    return Math.sin(rad) * radius;
+  });
+
+  const y = useTransform(relativeAngle, (diff: number) => {
+    const rad = (diff * Math.PI) / 180;
+    // Curves dip downwards on the sides
+    return (1 - Math.cos(rad)) * radius;
+  });
+
+  const rotate = useTransform(relativeAngle, (diff: number) => {
+    const tiltFactor = bp === "sm" ? 0.35 : bp === "md" ? 0.45 : 0.5;
+    return diff * tiltFactor;
+  });
+
+  const scale = useTransform(relativeAngle, (diff: number) => {
+    const absDiff = Math.abs(diff);
+    // Standard scaling transition for non-active cards
+    return Math.max(0.65, 1 - absDiff * 0.0045);
+  });
+
+  const opacity = useTransform(relativeAngle, (diff: number) => {
+    const absDiff = Math.abs(diff);
+    const fadeStart = bp === "sm" ? 18 : bp === "md" ? 22 : 26;
+    const fadeRate = bp === "sm" ? 0.055 : bp === "md" ? 0.045 : 0.035;
+    if (absDiff < fadeStart) return 1;
+    return Math.max(0, 1 - (absDiff - fadeStart) * fadeRate);
+  });
+
+  const zIndex = useTransform(relativeAngle, (diff: number) => {
+    return Math.round(100 - Math.abs(diff));
+  });
+
+  const display = useTransform(relativeAngle, (diff: number) => {
+    // Hide totally invisible cards to conserve browser rendering capacity
+    return Math.abs(diff) > 55 ? "none" : "flex";
+  });
+
+  return (
+    <motion.div
+      style={{
+        x,
+        y,
+        rotate,
+        scale,
+        opacity,
+        zIndex,
+        display,
+        width: cardWidth,
+        height: cardHeight,
+        position: "absolute",
+        left: "50%",
+        top: 0,
+        marginLeft: -cardWidth / 2,
+      }}
+      className="pointer-events-none"
+    >
+      <div
+        className="w-full h-full flex flex-col items-center text-center pointer-events-auto transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:scale-[1.015]"
+        style={{
+          backgroundColor: card.bgColor,
+          color: card.textColor,
+          borderRadius: sz.cardRadius,
+          padding: sz.cardPadding,
+          boxShadow: "0 24px 48px -12px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.06) inset"
+        }}
+      >
+        {/* Tag */}
+        <div
+          className="text-[10px] font-semibold tracking-[0.12em] uppercase mb-auto px-3 py-1.5 rounded-full border border-current/10"
+          style={{ opacity: 0.6 }}
+        >
+          {card.tag}
+        </div>
+
+        {/* Icon + Title + Description */}
+        <div className="flex flex-col items-center mt-auto mb-auto">
+          <div className={`${bp === "sm" ? "mb-3 text-xl" : "mb-5 text-3xl"} opacity-40`}>✳</div>
+          <h3 style={{ fontSize: sz.titleSize }} className="font-semibold tracking-[-0.02em] leading-[1.1] mb-3 sm:mb-4">
+            {card.title}
+          </h3>
+          <p style={{ fontSize: sz.descSize }} className="leading-[1.6] max-w-[260px] opacity-55">
+            {card.description}
+          </p>
+        </div>
+
+        {/* Image */}
+        <div className="w-full flex-1 min-h-0 rounded-[12px] overflow-hidden mt-auto mb-2 relative pointer-events-none">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url('${card.image}')` }}
+          />
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function ProductArcSlider() {
   const bp = useBreakpoint();
   const sz = SIZES[bp];
-  const radius = sz.radius;
-  const diameter = radius * 2;
   const cardWidth = sz.cardWidth;
   const cardHeight = sz.cardHeight;
+
+  const [windowWidth, setWindowWidth] = useState(1200);
+  useEffect(() => {
+    const updateSize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    updateSize();
+    window.addEventListener("resize", updateSize);
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+
+  // Compute fully responsive radius ensuring perfect, non-overlapping spacing on any device width
+  const radius = bp === "sm"
+    ? Math.min(900, windowWidth * 1.3)
+    : bp === "md"
+      ? Math.min(1400, windowWidth * 1.15)
+      : Math.min(2000, windowWidth * 1.05);
 
   const rotationMV = useMotionValue(0);
   const smoothRotation = useSpring(rotationMV, { damping: 50, stiffness: 200 });
   const [activeIndex, setActiveIndex] = useState(0);
 
-  useEffect(() => {
-    const unsubscribe = rotationMV.onChange((val) => {
-      const targetAngle = -val;
-      let idx = Math.round(targetAngle / DEG_PER_CARD) % TOTAL_CARDS;
-      if (idx < 0) idx += TOTAL_CARDS;
-      setActiveIndex(idx % BASE_CARDS.length);
-    });
-    return unsubscribe;
-  }, [rotationMV]);
+  // Synchronize tab switching with the active spring animation for ultra-fluid feedback
+  useMotionValueEvent(smoothRotation, "change", (val: number) => {
+    const targetAngle = -val;
+    let idx = Math.round(targetAngle / DEG_PER_CARD) % TOTAL_CARDS;
+    if (idx < 0) idx += TOTAL_CARDS;
+    setActiveIndex(idx % BASE_CARDS.length);
+  });
 
   const handlePillClick = (idx: number) => {
     const currentRot = rotationMV.get();
-    const targetBase = -idx * DEG_PER_CARD;
-    const diff = ((targetBase - currentRot) % 360 + 360) % 360;
-    const shortestDiff = diff > 180 ? diff - 360 : diff;
-    rotationMV.set(currentRot + shortestDiff);
+    const currentCardIdx = Math.round(-currentRot / DEG_PER_CARD);
+    
+    // Find the closest card index on our infinite wheel that maps to this pill
+    let bestCardIdx = idx;
+    let minDistance = Infinity;
+    
+    for (let k = -3; k <= 3; k++) {
+      const candidateIdx = idx + k * BASE_CARDS.length;
+      const distance = Math.abs(candidateIdx - currentCardIdx);
+      if (distance < minDistance) {
+        minDistance = distance;
+        bestCardIdx = candidateIdx;
+      }
+    }
+    
+    const targetRot = -bestCardIdx * DEG_PER_CARD;
+    rotationMV.set(targetRot);
   };
 
   const [isHovered, setIsHovered] = useState(false);
@@ -198,17 +345,23 @@ export default function ProductArcSlider() {
   }, [isHovered, rotationMV]);
 
   const handlePan = (e: any, info: any) => {
-    // Unbounded rotation for infinite looping
     const newRot = rotationMV.get() + info.delta.x * sz.panSensitivity;
     rotationMV.set(newRot);
   };
 
+  const handlePanEnd = (e: any, info: any) => {
+    const currentRot = rotationMV.get();
+    // Snap cleanly to the nearest card on finger release
+    const snappedRot = Math.round(currentRot / DEG_PER_CARD) * DEG_PER_CARD;
+    rotationMV.set(snappedRot);
+  };
+
   return (
     <section
-      className="relative w-full bg-[#0a0a0a] pt-16 sm:pt-20 md:pt-32 pb-0 overflow-visible touch-none z-30"
+      className="relative w-full bg-[#0a0a0a] pt-16 sm:pt-20 md:pt-32 pb-0 overflow-hidden touch-none z-30"
       style={{ height: `${sz.sectionHeight}px` }}
     >
-      <div className="absolute left-1/2 -translate-x-1/2 w-[1600px] pointer-events-none opacity-20 z-0" style={{ top: sz.circleTop }}>
+      <div className="absolute left-1/2 -translate-x-1/2 w-[90vw] md:w-[1200px] lg:w-[1600px] pointer-events-none opacity-20 z-0" style={{ top: sz.circleTop }}>
         <img
           src="https://osmo.b-cdn.net/website/svg/product-slider-circle-deco.svg"
           alt=""
@@ -246,81 +399,29 @@ export default function ProductArcSlider() {
 
       <motion.div
         onPan={handlePan}
+        onPanEnd={handlePanEnd}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="absolute inset-0 z-20 cursor-grab active:cursor-grabbing"
-        style={{ top: bp === "sm" ? "320px" : bp === "md" ? "380px" : "420px", overflow: "visible" }}
+        className="absolute inset-x-0 bottom-0 z-20 cursor-grab active:cursor-grabbing overflow-hidden"
+        style={{
+          top: bp === "sm" ? "290px" : bp === "md" ? "340px" : "380px",
+          height: `${cardHeight + 80}px`
+        }}
       >
-        <motion.div
-          style={{
-            width: diameter,
-            height: diameter,
-            rotate: smoothRotation,
-            position: "absolute",
-            left: "50%",
-            top: sz.carouselTop,
-            x: "-50%",
-          }}
-          className="pointer-events-none"
-        >
+        <div className="relative w-full h-full max-w-[1400px] mx-auto pointer-events-none">
           {CARDS.map((card) => (
-            <div
+            <CardWrapper
               key={card.uniqueId}
-              className="absolute top-0 left-0 w-full h-full"
-              style={{ transform: `rotate(${card.angle}deg)` }}
-            >
-              <div
-                className="absolute flex flex-col items-center text-center pointer-events-auto transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:scale-[1.015]"
-                style={{
-                  top: `-${cardHeight / 2}px`,
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  width: `${cardWidth}px`,
-                  height: `${cardHeight}px`,
-                  backgroundColor: card.bgColor,
-                  color: card.textColor,
-                  borderRadius: sz.cardRadius,
-                  padding: sz.cardPadding,
-                  boxShadow: "0 24px 48px -12px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.06) inset"
-                }}
-              >
-                {/* Tag */}
-                <div
-                  className="text-[10px] font-semibold tracking-[0.12em] uppercase mb-auto px-3 py-1.5 rounded-full border border-current/10"
-                  style={{ opacity: 0.6 }}
-                >
-                  {card.tag}
-                </div>
-
-                {/* Icon + Title + Description */}
-                <div className="flex flex-col items-center mt-auto mb-auto">
-                  <div className={`${bp === "sm" ? "mb-3 text-xl" : "mb-5 text-3xl"} opacity-40`}>✳</div>
-                  <h3 style={{ fontSize: sz.titleSize }} className="font-semibold tracking-[-0.02em] leading-[1.1] mb-3 sm:mb-4">
-                    {card.title}
-                  </h3>
-                  <p style={{ fontSize: sz.descSize }} className="leading-[1.6] max-w-[260px] opacity-55">
-                    {card.description}
-                  </p>
-                </div>
-
-                {/* Image */}
-                <div className="w-full flex-1 min-h-0 rounded-[12px] overflow-hidden mt-auto relative pointer-events-none">
-                  <div
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: `url('${card.image}')` }}
-                  />
-                </div>
-
-                {/* CTA */}
-                <div className="mt-auto pt-4 sm:pt-6">
-                  <button className={`${sz.btnPx} ${sz.btnPy} rounded-full font-medium ${sz.btnText} tracking-[-0.01em] transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:scale-[1.03] active:scale-[0.98] ${card.textColor === "#ffffff" ? "bg-white text-[#111] shadow-[0_2px_8px_rgba(255,255,255,0.1)]" : "bg-[#141413] text-white shadow-[0_2px_8px_rgba(0,0,0,0.1)]"}`}>
-                    Discover
-                  </button>
-                </div>
-              </div>
-            </div>
+              card={card}
+              smoothRotation={smoothRotation}
+              radius={radius}
+              cardWidth={cardWidth}
+              cardHeight={cardHeight}
+              sz={sz}
+              bp={bp}
+            />
           ))}
-        </motion.div>
+        </div>
       </motion.div>
     </section>
   );

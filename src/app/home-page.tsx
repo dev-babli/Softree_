@@ -2,20 +2,29 @@
 
 import dynamic from "next/dynamic";
 import NavigationClient from "@/components/sections/navigation-client";
-import Certifications from "@/components/sections/certification";
 import Footer from "@/components/sections/footer";
-import TechStackSection from "@/components/sections/tech";
-import AiInsightsBlog from "@/components/sections/ai-insights-blog";
 import SupportPartners from "@/components/sections/support-partners";
 import TrustedBy from "@/components/sections/trusted-by";
-import ServicesStackedSlides from "@/components/sections/ServicesStackedSlides";
-import OffshoreTestimonialsGlobe from "@/components/sections/OffshoreTestimonialsGlobe";
 import { TransferredSoftreeHero } from "@/components/sections/TransferredSoftreeHero";
+
+import ServicesStackedSlides from "@/components/sections/ServicesStackedSlides";
 
 /* ── Lazy-loaded transferred components ── */
 const FeaturesShowcaseLazy = dynamic(
   () => import("@/components/features/FeaturesShowcase"),
   { loading: () => <div className="min-h-[100vh] w-full bg-[#141414]" aria-hidden="true" /> }
+);
+const OffshoreTestimonialsGlobeLazy = dynamic(
+  () => import("@/components/sections/OffshoreTestimonialsGlobe"),
+  { ssr: false, loading: () => <div className="min-h-[60vh] w-full bg-[#141414]" aria-hidden /> }
+);
+const AiInsightsBlogLazy = dynamic(
+  () => import("@/components/sections/ai-insights-blog"),
+  { loading: () => <div className="min-h-[60vh] w-full bg-[#141414]" aria-hidden /> }
+);
+const TechStackSectionLazy = dynamic(
+  () => import("@/components/sections/tech"),
+  { loading: () => <div className="min-h-[50vh] w-full bg-[#141414]" aria-hidden /> }
 );
 const LightServicesStickyListLazy = dynamic(
   () => import("@/components/homepage-light/LightServicesStickyList"),
@@ -24,6 +33,10 @@ const LightServicesStickyListLazy = dynamic(
 const LightEngagementModelsLazy = dynamic(
   () => import("@/components/homepage-light/LightEngagementModels"),
   { loading: () => <div className="min-h-[80vh] w-full bg-[#141414]" aria-hidden="true" /> }
+);
+const CertificationsLazy = dynamic(
+  () => import("@/components/sections/certification"),
+  { loading: () => <div className="min-h-[30vh] w-full bg-[#141414]" aria-hidden /> }
 );
 const LightFAQExactLazy = dynamic(
   () => import("@/components/homepage-light/LightFAQExact"),
@@ -47,12 +60,12 @@ export default function Home() {
         <ServicesStackedSlides />
         <FeaturesShowcaseLazy />
         <TrustedBy />
-        <OffshoreTestimonialsGlobe />
-        <AiInsightsBlog />
-        <TechStackSection />
+        <OffshoreTestimonialsGlobeLazy />
+        <AiInsightsBlogLazy />
+        <TechStackSectionLazy />
         <LightServicesStickyListLazy />
         <LightEngagementModelsLazy />
-        <Certifications />
+        <CertificationsLazy />
         <LightFAQExactLazy />
         <LightContactSectionLazy />
       </main>

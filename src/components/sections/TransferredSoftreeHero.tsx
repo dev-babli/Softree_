@@ -10,9 +10,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 /* ──────────────────────────── Assets ──────────────────────────── */
-const ASSET_BG = "/hero/hero_BG.png";
-const ASSET_SUBJECT = "/hero/hero_subject_wide.png";
-const ASSET_REF = "/hero/reference.png";
+const ASSET_BG = "/hero/hero_BG.webp";
+const ASSET_SUBJECT = "/hero/hero_subject_wide.webp";
+const ASSET_REF = "/hero/reference.webp";
 
 /* Uniform card size */
 const CARD_SIZE = "w-[clamp(240px,22vw,380px)] aspect-[0.8]";
@@ -27,7 +27,7 @@ const CARD_SIZE = "w-[clamp(240px,22vw,380px)] aspect-[0.8]";
 const SUBJECT_LEFT = "-3%";
 const SUBJECT_BOTTOM = "0%";
 const SUBJECT_WIDTH = "104vw";
-const SUBJECT_HEIGHT = "1115%";
+const SUBJECT_HEIGHT = "115%";
 
 export function TransferredSoftreeHero() {
   const containerRef = useRef<HTMLElement>(null);

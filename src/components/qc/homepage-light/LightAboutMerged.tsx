@@ -9,6 +9,7 @@ import { Globe } from "@/registry/magicui/globe"
 import Grainient from "./Grainient"
 import { EASE_T } from "@/lib/motion"
 import { SpotlightCard } from "@/components/qc/shared/SpotlightCard"
+import { COUNTRIES_SERVED, COUNTRIES_SERVED_NUMBER } from "@/lib/constants"
 
 const EASE_OUT = EASE_T.silk
 
@@ -172,7 +173,7 @@ export default function LightAboutMerged() {
     { value: 200, prefix: "+", suffix: "", label: "Enterprise clients across 15+ industries" },
     { value: 98, suffix: "%", label: "Client retention rate year over year" },
     { value: 50, prefix: "+", suffix: "", label: "Microsoft-certified engineers on staff" },
-    { value: 12, suffix: "", label: "Countries with active client deployments" },
+    { value: COUNTRIES_SERVED_NUMBER, prefix: "+", label: "Countries with active client deployments" },
   ]
 
   return (
@@ -211,7 +212,7 @@ export default function LightAboutMerged() {
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.8, delay: 0.3, ease: EASE_OUT }}
               >
-                <AnimatedNumber value={40} delay={0.5} />
+                <AnimatedNumber value={COUNTRIES_SERVED_NUMBER} delay={0.5} />
                 <span className="text-[#1852FF]">+</span>
               </motion.span>
 
@@ -260,8 +261,8 @@ export default function LightAboutMerged() {
                 Your global offshore development partner.
               </h3>
             </TextReveal>
-            <WordReveal
-              text="40+ countries served. 200+ projects delivered. One dedicated offshore team — working as an extension of yours."
+             <WordReveal
+              text={`${COUNTRIES_SERVED} countries served. 200+ projects delivered. One dedicated offshore team — working as an extension of yours.`}
               delay={0.4}
               className="mb-6 text-2xl font-semibold leading-tight text-[#1852FF] md:text-3xl"
             />

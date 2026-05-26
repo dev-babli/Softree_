@@ -4,9 +4,8 @@ import { useState, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
-import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, Plus, Minus, HelpCircle } from "lucide-react"
 import Grainient from "./Grainient"
 
 gsap.registerPlugin(useGSAP, ScrollTrigger)
@@ -61,24 +60,24 @@ const defaultFaqs: FAQItem[] = [
 ]
 
 const grainientColors = [
-  { from: "#f0f4ff", via: "#e8f0ff", to: "#f5f7fb", accent: "#1852FF" },
-  { from: "#f5f0ff", via: "#efe8ff", to: "#f7f5fb", accent: "#7c3aed" },
-  { from: "#f0fff4", via: "#e8fff0", to: "#f5fbf7", accent: "#10b981" },
-  { from: "#fff0f5", via: "#ffe8f0", to: "#fbf5f7", accent: "#ec4899" },
-  { from: "#fff5f0", via: "#fff0e8", to: "#fbf7f5", accent: "#f59e0b" },
+  { from: "#fffaf5", via: "#fff3e6", to: "#ffe4cc", accent: "#f97316" },
+  { from: "#fffbf7", via: "#fff4ea", to: "#ffe8d6", accent: "#ea580c" },
+  { from: "#fffcf9", via: "#fff6ed", to: "#ffecd6", accent: "#ff822d" },
+  { from: "#fff9f2", via: "#fff0e0", to: "#ffe0c2", accent: "#e05300" },
+  { from: "#fffbf5", via: "#fff2e6", to: "#ffebd6", accent: "#ff7300" },
 ]
 
 const activeGrainientPalette = [
-  { c1: "#E8F0FF", c2: "#1852FF", c3: "#020510" },
-  { c1: "#F0E8FF", c2: "#7C3AED", c3: "#0A0210" },
-  { c1: "#E8FFF0", c2: "#10B981", c3: "#021008" },
-  { c1: "#FFE8F0", c2: "#EC4899", c3: "#100208" },
-  { c1: "#FFF0E8", c2: "#F59E0B", c3: "#100802" },
+  { c1: "#fff7ed", c2: "#ff822d", c3: "#fdbb74" },
+  { c1: "#ffedd5", c2: "#f97316", c3: "#fed7aa" },
+  { c1: "#ffe8d6", c2: "#ea580c", c3: "#fdba74" },
+  { c1: "#fff2e6", c2: "#ff781f", c3: "#ffc294" },
+  { c1: "#ffebd6", c2: "#e05300", c3: "#ffe4cc" },
 ]
 
 export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) {
   const faqs = customFaqs || defaultFaqs
-  const [activeIndex, setActiveIndex] = useState(4)
+  const [activeIndex, setActiveIndex] = useState(faqs.length > 0 ? Math.min(4, faqs.length - 1) : -1)
   const sectionRef = useRef<HTMLElement>(null)
   const titleRef = useRef<HTMLDivElement>(null)
   const faqsRef = useRef<HTMLDivElement>(null)
@@ -115,7 +114,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
   }
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-[#F8F9FC] py-20 md:py-32">
+    <section ref={sectionRef} className="relative w-full bg-[#fffbf7] py-20 md:py-32">
       {/* FAQPage JSON-LD — enables AI Overview, ChatGPT/Claude/Gemini citation,
          and Google rich results. Each answer is 30-50 words for optimal
          AEO extraction (the LLM sweet spot). */}
@@ -177,19 +176,13 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
         {/* Section Title */}
         <div ref={titleRef} className="mb-12 md:mb-16">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#1852FF]/20 bg-[#1852FF]/10 px-4 py-2">
-            <Image
-              src="https://cdn.prod.website-files.com/68dbb9a72b91c794d0cdd10c/690f9e158664fc7bd2753513_Subtitle-Icon.svg"
-              alt=""
-              width={16}
-              height={16}
-              className="h-4 w-4"
-            />
-            <span className="text-sm font-medium text-[#1852FF]">FAQ</span>
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#f97316]/20 bg-[#f97316]/10 px-4 py-2">
+            <HelpCircle className="h-4 w-4 text-[#ea580c]" />
+            <span className="text-sm font-medium text-[#ea580c]">FAQ</span>
           </div>
-          <h2 className="text-3xl font-bold tracking-tight text-[#0a0a1a] md:text-5xl lg:text-6xl">
+          <h2 className="text-3xl font-bold tracking-tight text-[#451a03] md:text-5xl lg:text-6xl">
             Frequently Asked{" "}
-            <span className="text-[#1852FF]">Questions.</span>
+            <span className="text-[#ea580c]">Questions.</span>
           </h2>
         </div>
 
@@ -198,13 +191,14 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
           {faqs.map((faq, index) => {
             const isActive = index === activeIndex
             const isCollapsed = activeIndex !== -1 && !isActive
+            const paletteIndex = index % grainientColors.length
 
             return (
               <div
                 key={faq.id}
                 onClick={() => handleClick(index)}
-                className={`group/card relative cursor-pointer overflow-hidden rounded-2xl border border-[#0a0a1a]/10 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${isActive
-                  ? "bg-white shadow-xl"
+                className={`group/card relative cursor-pointer overflow-hidden rounded-2xl border border-[#f97316]/20 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${isActive
+                  ? "bg-white shadow-[0_10px_30px_rgba(249,115,22,0.12)] border-[#f97316]/30"
                   : "bg-white/80"
                   }`}
                 style={{
@@ -219,17 +213,17 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                     <div
                       className="absolute inset-0 transition-all duration-500 group-hover/card:opacity-90"
                       style={{
-                        background: `linear-gradient(135deg, ${grainientColors[index].from} 0%, ${grainientColors[index].via} 50%, ${grainientColors[index].to} 100%)`,
+                        background: `linear-gradient(135deg, ${grainientColors[paletteIndex].from} 0%, ${grainientColors[paletteIndex].via} 50%, ${grainientColors[paletteIndex].to} 100%)`,
                       }}
                     />
                     {/* Accent Glow */}
                     <div
                       className="absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-20 blur-3xl transition-all duration-500 group-hover/card:opacity-40 group-hover/card:scale-125"
-                      style={{ backgroundColor: grainientColors[index].accent }}
+                      style={{ backgroundColor: grainientColors[paletteIndex].accent }}
                     />
                     <div
                       className="absolute -bottom-10 -left-10 h-32 w-32 rounded-full opacity-10 blur-2xl transition-all duration-500 group-hover/card:opacity-30"
-                      style={{ backgroundColor: grainientColors[index].accent }}
+                      style={{ backgroundColor: grainientColors[paletteIndex].accent }}
                     />
                     {/* Grain Overlay */}
                     <div
@@ -243,7 +237,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                     <div
                       className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover/card:opacity-100"
                       style={{
-                        boxShadow: `inset 0 0 0 1px ${grainientColors[index].accent}20, 0 0 30px ${grainientColors[index].accent}10`,
+                        boxShadow: `inset 0 0 0 1px ${grainientColors[paletteIndex].accent}20, 0 0 30px ${grainientColors[paletteIndex].accent}10`,
                       }}
                     />
                   </>
@@ -253,9 +247,9 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                 {isActive && (
                   <div className="absolute inset-0">
                     <Grainient
-                      color1={activeGrainientPalette[index].c1}
-                      color2={activeGrainientPalette[index].c2}
-                      color3={activeGrainientPalette[index].c3}
+                      color1={activeGrainientPalette[paletteIndex].c1}
+                      color2={activeGrainientPalette[paletteIndex].c2}
+                      color3={activeGrainientPalette[paletteIndex].c3}
                       timeSpeed={0.15}
                       grainAmount={0.08}
                       grainScale={2.5}
@@ -272,7 +266,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                       zoom={0.85}
                     />
                     {/* Subtle vignette overlay for text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1852FF]/10 via-transparent to-[#1852FF]/5" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#f97316]/10 via-transparent to-[#f97316]/5" />
                   </div>
                 )}
 
@@ -281,32 +275,24 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                   {/* Top - Serial & Icon */}
                   <div className="mb-auto flex items-start justify-between">
                     <span
-                      className={`text-xs font-medium uppercase tracking-wider transition-colors duration-500 ${isActive ? "text-[#0a0a1a]/60" : "text-[#111827]/90"
+                      className={`text-xs font-medium uppercase tracking-wider transition-colors duration-500 ${isActive ? "text-[#7c2d12]/80" : "text-[#451a03]/90"
                         }`}
                     >
                       {faq.serial}
                     </span>
                     <div className="relative h-6 w-6">
                       {/* Plus Icon */}
-                      <Image
-                        src="https://cdn.prod.website-files.com/68dbb9a72b91c794d0cdd10c/6918c248f9814be60b14699f_FAQ-Plus.svg"
-                        alt="Plus"
-                        width={24}
-                        height={24}
-                        className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${isActive
-                          ? "scale-0 opacity-0"
-                          : "scale-100 opacity-100"
+                      <Plus
+                        className={`absolute inset-0 h-6 w-6 text-[#ea580c] transition-all duration-500 ${isActive
+                          ? "scale-0 opacity-0 rotate-90"
+                          : "scale-100 opacity-100 rotate-0"
                           }`}
                       />
                       {/* Minus Icon */}
-                      <Image
-                        src="https://cdn.prod.website-files.com/68dbb9a72b91c794d0cdd10c/6918c248c089ceee5ca1daae_FAQ-Minus.svg"
-                        alt="Minus"
-                        width={24}
-                        height={24}
-                        className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${isActive
-                          ? "scale-100 opacity-100"
-                          : "scale-0 opacity-0"
+                      <Minus
+                        className={`absolute inset-0 h-6 w-6 text-[#ea580c] transition-all duration-500 ${isActive
+                          ? "scale-100 opacity-100 rotate-0"
+                          : "scale-0 opacity-0 -rotate-90"
                           }`}
                       />
                     </div>
@@ -317,7 +303,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                     {/* Question */}
                     <div className="mb-4">
                       <h3
-                        className={`text-lg font-semibold leading-snug transition-colors duration-500 md:text-xl text-[#0a0a1a]`}
+                        className={`text-lg font-semibold leading-snug transition-colors duration-500 md:text-xl text-[#451a03]`}
                       >
                         {faq.question}
                       </h3>
@@ -332,19 +318,19 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                       }}
                     >
                       <div className="pt-4">
-                        <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-[#0a0a1a]/60">
+                        <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-[#7c2d12]/60">
                           Question Answer:
                         </h4>
-                        <div className="mb-4 h-px w-16 bg-[#0a0a1a]/20" />
-                        <p className="mb-6 text-sm leading-relaxed text-[#0a0a1a]/80 md:text-base">
+                        <div className="mb-4 h-px w-16 bg-[#ea580c]/20" />
+                        <p className="mb-6 text-sm leading-relaxed text-[#451a03]/85 md:text-base">
                           {faq.answer}
                         </p>
                         <Link
                           href="/about-us"
-                          className="group inline-flex items-center gap-3 rounded-full bg-[#1852FF] px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-[#0a0a1a]"
+                          className="group inline-flex items-center gap-3 rounded-full bg-[#ea580c] px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-[#7c2d12]"
                         >
                           <span>More About Us</span>
-                          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-[#1852FF] transition-all group-hover:bg-[#1852FF] group-hover:text-white">
+                          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-[#ea580c] transition-all group-hover:bg-[#ea580c] group-hover:text-white">
                             <ArrowUpRight className="h-3 w-3" />
                           </span>
                         </Link>

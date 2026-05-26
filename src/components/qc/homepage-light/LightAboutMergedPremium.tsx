@@ -7,6 +7,7 @@ import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import Grainient from "./Grainient"
 import { EASE_T } from "@/lib/motion"
+import { COUNTRIES_SERVED, COUNTRIES_SERVED_NUMBER } from "@/lib/constants"
 
 const CUSTOM_EASE = [0.32, 0.72, 0, 1] as [number, number, number, number]
 
@@ -131,7 +132,7 @@ export default function LightAboutMergedPremium() {
     { value: 200, prefix: "+", suffix: "", label: "Enterprise clients across 15+ industries" },
     { value: 98, suffix: "%", label: "Client retention rate year over year" },
     { value: 50, prefix: "+", suffix: "", label: "Microsoft-certified engineers on staff" },
-    { value: 12, suffix: "", label: "Countries with active client deployments" },
+    { value: COUNTRIES_SERVED_NUMBER, prefix: "+", label: "Countries with active client deployments" },
   ]
 
   return (
@@ -217,7 +218,7 @@ export default function LightAboutMergedPremium() {
                     animate={isInView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ duration: 1, delay: 0.4, ease: CUSTOM_EASE as any }}
                   >
-                    <AnimatedNumber value={40} delay={0.6} />
+                    <AnimatedNumber value={COUNTRIES_SERVED_NUMBER} delay={0.6} />
                     <motion.span
                       className="text-[#1852FF]"
                       animate={{
