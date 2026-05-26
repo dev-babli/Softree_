@@ -140,7 +140,7 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
         </Link>
       </header>
 
-      <div className="ssx-slides-wrapper">
+      <div className="ssx-slides-wrapper max-w-7xl mx-auto">
         {SERVICE_SLIDES.map((slide, i) => (
           <section
             key={slide.key}

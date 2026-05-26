@@ -55,10 +55,19 @@ const SERVICES: Service[] = [
     n: "04",
     title: "Stand up Data + BI",
     href: "/services/data-analytics/microsoft-fabric",
-    desc: "Microsoft Fabric, Power BI dashboards, and data engineering pipelines that surface revenue signals \u2014 not 60-page decks.",
+    desc: "Microsoft Fabric, Power BI dashboards, and data engineering pipelines that surface revenue signals — not 60-page decks.",
     tags: ["Microsoft Fabric", "Power BI", "Data Engineering", "Analytics"],
     img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80",
     price: "From ₹10L · 8-week pilot",
+  },
+  {
+    n: "05",
+    title: "Modernize Legacy Applications",
+    href: "/services/legacy-application-modernization",
+    desc: "Transform outdated systems, desktop applications, or legacy databases into secure, cloud-native platforms. Modern codebase architectures, seamless integrations.",
+    tags: ["Legacy Migration", "Cloud Native", "React", "Next.js"],
+    img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80",
+    price: "From ₹15L · 12-week MVP",
   },
 ]
 
@@ -111,7 +120,7 @@ function ServiceCard({
   return (
     <div
       ref={ref}
-      className="sticky w-full"
+      className="sticky w-full px-4 sm:px-6 py-3"
       style={{ top: stickyOffset }}
     >
       <motion.article
@@ -119,19 +128,27 @@ function ServiceCard({
           scale,
           opacity,
           y,
-          boxShadow: isLast
-            ? "none"
-            : "0 -28px 56px -36px rgba(0,0,0,0.5)",
         }}
-        className="relative w-full bg-[#111111]"
+        className="relative mx-auto w-full max-w-[1280px] rounded-xl border-2 border-[#ff6b00]/40 bg-[#111111] overflow-hidden shadow-[0_30px_100px_-30px_rgba(0,0,0,0.85),_inset_0_1.5px_2px_rgba(255,107,0,0.12)]"
       >
-        <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10">
-          {/* hairline divider above each card */}
+        {/* Radial dotted grid texture overlay */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-[0.05]"
+          style={{
+            backgroundImage: "radial-gradient(#ff6b00 0.8px, transparent 0.8px)",
+            backgroundSize: "22px 22px",
+            zIndex: 0,
+          }}
+        />
+
+        <div className="relative z-10 mx-auto w-full px-6 md:px-10">
+          {/* hairline divider above each card content */}
           <div className="h-px w-full bg-white/10" />
 
           <div
             ref={overlayRef}
-            className="grid min-h-[100svh] grid-cols-1 items-center gap-10 py-14 md:py-20 lg:grid-cols-[1fr_1.05fr] lg:gap-16"
+            className="grid min-h-[85svh] grid-cols-1 items-center gap-10 py-10 md:py-14 lg:grid-cols-[1fr_1.05fr] lg:gap-16"
           >
             {/* LEFT — copy block */}
             <div className="flex flex-col">
