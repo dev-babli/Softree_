@@ -54,14 +54,14 @@ export default function BlogResults() {
   const smallPosts = posts.filter(p => p.type === 'small');
 
   return (
-    <section className="bg-[#EFF9FF] py-20 px-4 md:px-0">
+    <section className="bg-[var(--legacy-eff9ff)] py-20 px-4 md:px-0">
       <div className="max-w-7xl mx-auto w-[87%]">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <p className="text-[#1D4ED8]/80 text-sm font-medium mb-3 uppercase tracking-wider">
+          <p className="text-[var(--legacy-1d4ed8)]/80 text-sm font-medium mb-3 uppercase tracking-wider">
             Real-World Results
           </p>
-          <h2 className="text-[#00091A] text-[40px] font-normal leading-tight">
+          <h2 className="text-[var(--legacy-00091a)] text-[40px] font-normal leading-tight">
             Discover How We Deliver Results
           </h2>
         </div>
@@ -84,16 +84,16 @@ export default function BlogResults() {
                 </div>
               </div>
               <div className="space-y-3">
-                <p className="text-[#18285C] text-[14px] font-medium opacity-80">
+                <p className="text-[var(--legacy-18285c)] text-[14px] font-medium opacity-80">
                   {featured.author}
                 </p>
                 <div className="flex justify-between items-start gap-4">
-                  <h3 className="text-[#00091A] text-2xl font-bold leading-snug group-hover:text-[#1D4ED8] transition-colors">
+                  <h3 className="text-[var(--legacy-00091a)] text-2xl font-bold leading-snug group-hover:text-[var(--legacy-1d4ed8)] transition-colors">
                     {featured.title}
                   </h3>
-                  <ArrowUpRight className="w-6 h-6 text-[#00091A] shrink-0 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  <ArrowUpRight className="w-6 h-6 text-[var(--legacy-00091a)] shrink-0 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </div>
-                <p className="text-[#00091A]/72 text-[16px] leading-relaxed">
+                <p className="text-[var(--legacy-00091a)]/72 text-[16px] leading-relaxed">
                   {featured.excerpt}
                 </p>
               </div>
@@ -116,16 +116,16 @@ export default function BlogResults() {
                   </div>
                 </div>
                 <div className="flex-1 space-y-2">
-                  <p className="text-[#18285C] text-[13px] font-medium opacity-80">
+                  <p className="text-[var(--legacy-18285c)] text-[13px] font-medium opacity-80">
                     {post.author}
                   </p>
                   <div className="flex justify-between items-start gap-2">
-                    <h4 className="text-[#00091A] text-[17px] font-bold leading-snug group-hover:text-[#1D4ED8] transition-colors line-clamp-2">
+                    <h4 className="text-[var(--legacy-00091a)] text-[17px] font-bold leading-snug group-hover:text-[var(--legacy-1d4ed8)] transition-colors line-clamp-2">
                       {post.title}
                     </h4>
-                    <ArrowUpRight className="w-4 h-4 text-[#00091A] shrink-0 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    <ArrowUpRight className="w-4 h-4 text-[var(--legacy-00091a)] shrink-0 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </div>
-                  <p className="text-[#00091A]/72 text-[14px] leading-relaxed line-clamp-2">
+                  <p className="text-[var(--legacy-00091a)]/72 text-[14px] leading-relaxed line-clamp-2">
                     {post.excerpt}
                   </p>
                 </div>

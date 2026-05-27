@@ -65,7 +65,7 @@ export default function EliteHero() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-[100dvh] w-full overflow-hidden bg-[#050505]"
+      className="relative min-h-[100dvh] w-full overflow-hidden bg-[var(--legacy-050505)]"
     >
       {/* ─── AMBIENT BACKDROP ─── */}
       {/* Mesh gradient orbs - subtle, slow movement */}
@@ -178,9 +178,9 @@ export default function EliteHero() {
               href="/contact"
               className="group relative inline-flex items-center gap-3"
             >
-              <span className="relative inline-flex items-center gap-3 bg-white text-[#050505] px-7 py-4 rounded-full font-semibold text-[15px] tracking-[-0.01em] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.02] active:scale-[0.98] shadow-[0_0_40px_rgba(255,255,255,0.15)] hover:shadow-[0_0_60px_rgba(255,255,255,0.25)]">
+              <span className="relative inline-flex items-center gap-3 bg-white text-[var(--legacy-050505)] px-7 py-4 rounded-full font-semibold text-[15px] tracking-[-0.01em] transition-all duration-300 ease-[var(--legacy-ease-0_16_1_0_3_1)] hover:scale-[1.02] active:scale-[0.98] shadow-[0_0_40px_rgba(255,255,255,0.15)] hover:shadow-[0_0_60px_rgba(255,255,255,0.25)]">
                 Partner With Us
-                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[#050505]/10 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[var(--legacy-050505)]/10 transition-transform duration-300 ease-[var(--legacy-ease-0_16_1_0_3_1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
@@ -191,7 +191,7 @@ export default function EliteHero() {
             {/* Secondary CTA - Ghost button */}
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-3 px-6 py-4 rounded-full text-white/70 font-medium text-[15px] tracking-[-0.01em] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-white hover:bg-white/5 active:scale-[0.98]"
+              className="group inline-flex items-center gap-3 px-6 py-4 rounded-full text-white/70 font-medium text-[15px] tracking-[-0.01em] transition-all duration-300 ease-[var(--legacy-ease-0_16_1_0_3_1)] hover:text-white hover:bg-white/5 active:scale-[0.98]"
             >
               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-white/5 transition-colors duration-300 group-hover:bg-white/10">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -242,7 +242,7 @@ export default function EliteHero() {
                   key={i}
                   className="relative p-1 rounded-2xl bg-white/[0.03] backdrop-blur-sm"
                 >
-                  <div className="relative flex items-center gap-4 p-4 rounded-xl bg-[#0a0a0a]/80 border border-white/[0.06]">
+                  <div className="relative flex items-center gap-4 p-4 rounded-xl bg-[var(--legacy-0a0a0a)]/80 border border-white/[0.06]">
                     <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/[0.03] text-white/60">
                       {item.icon}
                     </span>

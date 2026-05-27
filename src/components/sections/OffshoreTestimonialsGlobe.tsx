@@ -70,10 +70,10 @@ const getGlobeConfig = (variant: "dark" | "light"): Omit<COBEOptions, "width" | 
   dark: variant === "dark" ? 1 : 0,
   diffuse: 1.15,
   mapSamples: 16000,
-  mapBrightness: variant === "dark" ? 5.2 : 4.5,
-  baseColor: variant === "dark" ? [0.18, 0.18, 0.2] : [0.95, 0.95, 0.97],
-  markerColor: variant === "dark" ? [255 / 255, 122 / 255, 47 / 255] : [24 / 255, 82 / 255, 255 / 255],
-  glowColor: variant === "dark" ? [1.0, 0.55, 0.25] : [0.09, 0.32, 1.0],
+  mapBrightness: variant === "dark" ? 5.7 : 4.5,
+  baseColor: variant === "dark" ? [0.14, 0.14, 0.17] : [0.95, 0.95, 0.97],
+  markerColor: variant === "dark" ? [1, 0.58, 0.26] : [24 / 255, 82 / 255, 255 / 255],
+  glowColor: variant === "dark" ? [1.0, 0.62, 0.34] : [0.09, 0.32, 1.0],
   markers: [],
 });
 
@@ -87,7 +87,6 @@ function buildMarkers(activeIndex: number) {
   ];
 }
 
-/* Convert lat/lng + current phi to projected canvas x/y (approximate) */
 function projectToCanvas(
   lat: number,
   lng: number,
@@ -97,29 +96,44 @@ function projectToCanvas(
   const latRad = (lat * Math.PI) / 180;
   const lngRad = (lng * Math.PI) / 180;
 
-  // World-space point on unit sphere
   const x = Math.cos(latRad) * Math.cos(lngRad);
   const y = Math.sin(latRad);
   const z = Math.cos(latRad) * Math.sin(lngRad);
 
-  // Rotate around Y axis by -phi
   const cosP = Math.cos(-phi);
   const sinP = Math.sin(-phi);
   const rx = x * cosP - z * sinP;
   const rz = x * sinP + z * cosP;
 
-  // Project (orthographic)
   const screenX = (rx * 0.5 + 0.5) * canvasSize;
   const screenY = (-y * 0.5 + 0.5) * canvasSize;
 
-  return { x: screenX, y: screenY, visible: rz > 0.05 };
+  return { x: screenX, y: screenY, visible: rz > 0.06 };
+}
+
+function getPointerPlacement(
+  projection: { x: number; y: number },
+  canvasSize: number
+): { left: string; top: string; xClass: string; yClass: string } {
+  const xPercent = (projection.x / canvasSize) * 100;
+  const yPercent = (projection.y / canvasSize) * 100;
+
+  const xClass = xPercent > 78 ? "-translate-x-full" : xPercent < 22 ? "translate-x-0" : "-translate-x-1/2";
+  const yClass = yPercent < 18 ? "translate-y-1" : "-translate-y-1/2";
+
+  return {
+    left: `${xPercent}%`,
+    top: `${yPercent}%`,
+    xClass,
+    yClass,
+  };
 }
 
 function StarRow({ count = 5 }: { count?: number }) {
   return (
     <span className="inline-flex items-center gap-[3px]" aria-label={`${count} out of 5 stars`}>
       {Array.from({ length: count }).map((_, i) => (
-        <svg key={i} viewBox="0 0 12 12" className="h-[11px] w-[11px] fill-[#ff7a2f]" aria-hidden>
+        <svg key={i} viewBox="0 0 12 12" className="h-[11px] w-[11px] fill-[var(--legacy-ff7a2f)]" aria-hidden>
           <path d="M6 1l1.39 2.81L10.5 4.3l-2.25 2.19.53 3.1L6 8.07 3.22 9.59l.53-3.1L1.5 4.3l3.11-.49z" />
         </svg>
       ))}
@@ -137,8 +151,10 @@ export default function OffshoreTestimonialsGlobe({ variant = "dark" }: Offshore
   const [active, setActive] = useState(0);
   const activeRef = useRef(0);
   const reduceMotion = useReducedMotion();
-  const [canvasSize, setCanvasSize] = useState(600);
-  const [currentPhi, setCurrentPhi] = useState(0);
+  const [, setCanvasSize] = useState(600);
+  const [autoRotatePaused, setAutoRotatePaused] = useState(false);
+  const [canvasSizePx, setCanvasSizePx] = useState(600);
+  const [phiForLabels, setPhiForLabels] = useState(0);
 
   useEffect(() => { activeRef.current = active; }, [active]);
 
@@ -148,12 +164,12 @@ export default function OffshoreTestimonialsGlobe({ variant = "dark" }: Offshore
   }, [active]);
 
   useEffect(() => {
-    if (reduceMotion) return;
+    if (reduceMotion || autoRotatePaused) return;
     const id = window.setInterval(() => {
       setActive((p) => (p + 1) % REVIEWS.length);
     }, 6200);
     return () => window.clearInterval(id);
-  }, [reduceMotion]);
+  }, [reduceMotion, autoRotatePaused]);
 
   useEffect(() => {
     if (!canvasRef.current || !wrapRef.current) return;
@@ -165,6 +181,7 @@ export default function OffshoreTestimonialsGlobe({ variant = "dark" }: Offshore
     };
     let width = computeSize();
     setCanvasSize(width / dpr);
+    setCanvasSizePx(width / dpr);
 
     const globe = createGlobe(canvasRef.current, {
       ...getGlobeConfig(variant),
@@ -179,16 +196,20 @@ export default function OffshoreTestimonialsGlobe({ variant = "dark" }: Offshore
         state.width = width;
         state.height = width;
         state.markers = buildMarkers(activeRef.current);
-        setCurrentPhi(state.phi);
       },
     });
 
     const ro = new ResizeObserver(() => {
       width = computeSize();
       setCanvasSize(width / dpr);
+      setCanvasSizePx(width / dpr);
     });
     ro.observe(wrap);
-    const onResize = () => { width = computeSize(); setCanvasSize(width / dpr); };
+    const onResize = () => {
+      width = computeSize();
+      setCanvasSize(width / dpr);
+      setCanvasSizePx(width / dpr);
+    };
     window.addEventListener("resize", onResize);
 
     const onPointerDown = (e: PointerEvent) => {
@@ -220,17 +241,40 @@ export default function OffshoreTestimonialsGlobe({ variant = "dark" }: Offshore
     };
   }, [reduceMotion, variant]);
 
+  useEffect(() => {
+    let raf = 0;
+    let lastTs = 0;
+    const tick = (ts: number) => {
+      if (ts - lastTs > 80) {
+        setPhiForLabels(phiRef.current + pointerDeltaRef.current);
+        lastTs = ts;
+      }
+      raf = window.requestAnimationFrame(tick);
+    };
+    raf = window.requestAnimationFrame(tick);
+    return () => window.cancelAnimationFrame(raf);
+  }, []);
+
   const activeReview = useMemo(() => REVIEWS[active], [active]);
 
   const accentColor = variant === "dark" ? "#ff7a2f" : "#1852FF";
   const accentBg    = variant === "dark" ? "rgba(255,122,47,0.12)" : "rgba(24,82,255,0.1)";
   const accentBorder = variant === "dark" ? "rgba(255,122,47,0.25)" : "rgba(24,82,255,0.25)";
+  const activeCountryProjection = projectToCanvas(
+    activeReview.coords[0],
+    activeReview.coords[1],
+    phiForLabels,
+    canvasSizePx
+  );
+  const hqProjection = projectToCanvas(HQ.coords[0], HQ.coords[1], phiForLabels, canvasSizePx);
+  const activePointerPlacement = getPointerPlacement(activeCountryProjection, canvasSizePx);
+  const hqPointerPlacement = getPointerPlacement(hqProjection, canvasSizePx);
 
   return (
     <section
       aria-labelledby="offshore-heading"
       className={`relative w-full overflow-hidden py-20 sm:py-24 ${
-        variant === "dark" ? "bg-[#0a0a0a] text-white" : "bg-[#F8F9FC] text-[#0a0a1a]"
+        variant === "dark" ? "bg-[var(--legacy-0a0a0a)] text-white" : "bg-[#F8F9FC] text-[#0a0a1a]"
       }`}
     >
       {/* Ambient wash */}
@@ -270,7 +314,7 @@ export default function OffshoreTestimonialsGlobe({ variant = "dark" }: Offshore
           </span>
           <h2
             id="offshore-heading"
-            className={`mt-4 text-4xl font-bold ${variant === "dark" ? "text-white" : "text-[#0a0a1a]"}`}
+            className={`mt-4 text-4xl font-bold leading-[1.05] tracking-[-0.02em] text-balance ${variant === "dark" ? "text-white" : "text-[#0a0a1a]"}`}
           >
             Trusted across three continents
           </h2>
@@ -280,7 +324,11 @@ export default function OffshoreTestimonialsGlobe({ variant = "dark" }: Offshore
         </motion.header>
 
         {/* Stage */}
-        <div className="relative mt-12 grid grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-16">
+        <div
+          className="relative mt-12 grid grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-16"
+          onMouseEnter={() => setAutoRotatePaused(true)}
+          onMouseLeave={() => setAutoRotatePaused(false)}
+        >
 
           {/* Globe column */}
           <motion.div
@@ -308,13 +356,23 @@ export default function OffshoreTestimonialsGlobe({ variant = "dark" }: Offshore
               {/* Globe wrapper */}
               <div
                 ref={wrapRef}
-                className="absolute inset-0 lg:-translate-y-32 lg:translate-x-32"
+                className="absolute inset-0 rounded-[32px] border border-white/10 bg-white/[0.02] lg:-translate-y-32 lg:translate-x-32"
               >
                 {/* Warm glow */}
                 <div
                   aria-hidden
                   className="pointer-events-none absolute inset-[6%] rounded-full blur-[90px]"
                   style={{ background: "radial-gradient(circle, rgba(255,122,47,0.22), transparent 70%)" }}
+                />
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 rounded-[32px]"
+                  style={{
+                    background:
+                      variant === "dark"
+                        ? "radial-gradient(circle at 32% 28%, rgba(255,255,255,0.08), transparent 52%)"
+                        : "radial-gradient(circle at 32% 28%, rgba(24,82,255,0.08), transparent 52%)",
+                  }}
                 />
 
                 <canvas
@@ -324,29 +382,55 @@ export default function OffshoreTestimonialsGlobe({ variant = "dark" }: Offshore
                   aria-label="Interactive globe showing Softree client locations"
                 />
 
-                {/* HQ label */}
-                <div
-                  className={`pointer-events-none absolute bottom-3 left-3 flex items-center gap-2 rounded-full px-3 py-1.5 backdrop-blur-sm ${
-                    variant === "dark"
-                      ? "bg-white/5 border border-white/10"
-                      : "bg-white border border-[#0a0a1a]/10 shadow-lg"
-                  }`}
-                >
-                  <span
-                    className="block h-1.5 w-1.5 rounded-full"
+                {activeCountryProjection.visible && (
+                  <div
+                    className={`pointer-events-none absolute z-20 ${activePointerPlacement.xClass} ${activePointerPlacement.yClass}`}
                     style={{
-                      background: accentColor,
-                      boxShadow: `0 0 12px 2px ${accentColor}aa`,
+                      left: activePointerPlacement.left,
+                      top: activePointerPlacement.top,
                     }}
-                  />
-                  <span
-                    className={`text-[10px] font-semibold uppercase tracking-[0.22em] ${
-                      variant === "dark" ? "text-white/70" : "text-[#0a0a1a]/70"
-                    }`}
                   >
-                    HQ · Cuttack, INDIA
-                  </span>
-                </div>
+                    <span
+                      className="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] backdrop-blur-sm"
+                      style={{
+                        color: accentColor,
+                        borderColor: accentBorder,
+                        background: variant === "dark" ? "rgba(7, 7, 10, 0.7)" : "rgba(255, 255, 255, 0.92)",
+                        boxShadow: `0 8px 22px -12px ${accentColor}99`,
+                      }}
+                    >
+                      <span
+                        className="h-1.5 w-1.5 rounded-full"
+                        style={{ background: accentColor, boxShadow: `0 0 10px 2px ${accentColor}99` }}
+                      />
+                      {activeReview.country}
+                    </span>
+                  </div>
+                )}
+
+                {hqProjection.visible && (
+                  <div
+                    className={`pointer-events-none absolute z-20 ${hqPointerPlacement.xClass} ${hqPointerPlacement.yClass}`}
+                    style={{
+                      left: hqPointerPlacement.left,
+                      top: hqPointerPlacement.top,
+                    }}
+                  >
+                    <span
+                      className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] backdrop-blur-sm ${
+                        variant === "dark"
+                          ? "bg-[rgba(7,7,10,0.72)] border-white/15 text-white/80"
+                          : "bg-white/90 border-[#0a0a1a]/10 text-[#0a0a1a]/70"
+                      }`}
+                    >
+                      <span
+                        className="h-1.5 w-1.5 rounded-full"
+                        style={{ background: accentColor, boxShadow: `0 0 10px 2px ${accentColor}99` }}
+                      />
+                      India · HQ
+                    </span>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -360,11 +444,15 @@ export default function OffshoreTestimonialsGlobe({ variant = "dark" }: Offshore
                     type="button"
                     onClick={() => setActive(i)}
                     aria-pressed={isActive}
-                    className="group relative inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-[11px] font-semibold uppercase tracking-widest transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)]"
+                    onFocus={() => setAutoRotatePaused(true)}
+                    onBlur={() => setAutoRotatePaused(false)}
+                    aria-label={`Show testimonial from ${r.location}`}
+                    className="group relative inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-[11px] font-semibold uppercase tracking-widest transition-[transform,background-color,border-color,color,box-shadow] duration-300 ease-[var(--legacy-ease-0_32_0_72_0_1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 active:scale-[0.98]"
                     style={{
                       borderColor: isActive ? accentBorder : variant === "dark" ? "rgba(255,255,255,0.1)" : "rgba(10,10,26,0.1)",
                       background:  isActive ? accentBg    : variant === "dark" ? "rgba(255,255,255,0.05)" : "#fff",
                       color:       isActive ? accentColor : variant === "dark" ? "rgba(255,255,255,0.6)"  : "rgba(10,10,26,0.6)",
+                      boxShadow:   isActive ? `0 0 0 1px ${accentBorder}` : "none",
                     }}
                   >
                     <span
@@ -389,6 +477,8 @@ export default function OffshoreTestimonialsGlobe({ variant = "dark" }: Offshore
                   ? "bg-white/5 border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.35)]"
                   : "bg-white border border-[#0a0a1a]/10 shadow-[0_20px_50px_rgba(0,0,0,0.1)]"
               }`}
+              onMouseEnter={() => setAutoRotatePaused(true)}
+              onMouseLeave={() => setAutoRotatePaused(false)}
             >
               {/* Accent stripe */}
               <span
@@ -411,24 +501,37 @@ export default function OffshoreTestimonialsGlobe({ variant = "dark" }: Offshore
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -6 }}
-                  transition={{ type: "spring", duration: 0.5, bounce: 0 }}
+                  transition={reduceMotion ? { duration: 0 } : { type: "spring", duration: 0.5, bounce: 0 }}
                   className="relative"
+                  aria-live="polite"
                 >
-                  <div className="flex items-center justify-between">
-                    <span
-                      className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-widest uppercase"
-                      style={{ color: variant === "dark" ? "rgba(255,255,255,0.5)" : "rgba(10,10,26,0.5)" }}
-                    >
-                      <svg viewBox="0 0 10 10" className="h-2 w-2" style={{ fill: accentColor }} aria-hidden>
-                        <circle cx="5" cy="5" r="2.5" />
-                      </svg>
-                      {activeReview.location}
-                    </span>
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <div className="inline-flex items-center gap-2">
+                      <span
+                        className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-widest uppercase"
+                        style={{ color: variant === "dark" ? "rgba(255,255,255,0.5)" : "rgba(10,10,26,0.5)" }}
+                      >
+                        <svg viewBox="0 0 10 10" className="h-2 w-2" style={{ fill: accentColor }} aria-hidden>
+                          <circle cx="5" cy="5" r="2.5" />
+                        </svg>
+                        {activeReview.location}
+                      </span>
+                      <span
+                        className="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em]"
+                        style={{
+                          color: accentColor,
+                          border: `1px solid ${accentBorder}`,
+                          background: accentBg,
+                        }}
+                      >
+                        {activeReview.country}
+                      </span>
+                    </div>
                     <StarRow count={activeReview.rating} />
                   </div>
 
                   <blockquote
-                    className="relative mt-6 text-lg sm:text-xl font-medium leading-relaxed"
+                    className="relative mt-6 text-lg sm:text-xl font-medium leading-relaxed text-pretty"
                     style={{ color: variant === "dark" ? "rgba(255,255,255,0.9)" : "rgba(10,10,26,0.9)" }}
                   >
                     &ldquo;{activeReview.comment}&rdquo;

@@ -120,7 +120,7 @@ function StatCounter({ value, label }: { value: string; label: string }) {
 
   return (
     <div className="text-center">
-      <span ref={ref} className="block text-2xl font-bold text-[#ff7a2f] tabular-nums">
+      <span ref={ref} className="block text-2xl font-bold text-[var(--legacy-ff7a2f)] tabular-nums">
         {value}
       </span>
       <span className="text-[11px] uppercase tracking-widest text-white/40 mt-0.5 block">
@@ -214,12 +214,12 @@ export default function WhyChooseUs() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-32 bg-[#0a0a0a] text-white overflow-hidden"
+      className="relative py-32 bg-[var(--legacy-0a0a0a)] text-white overflow-hidden"
     >
       {/* ── Ambient glows ── */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-[#ff7a2f]/6 blur-[140px]" />
-        <div className="absolute bottom-0 right-1/5 w-[400px] h-[400px] rounded-full bg-[#ff7a2f]/4 blur-[120px]" />
+        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-[var(--legacy-ff7a2f)]/6 blur-[140px]" />
+        <div className="absolute bottom-0 right-1/5 w-[400px] h-[400px] rounded-full bg-[var(--legacy-ff7a2f)]/4 blur-[120px]" />
       </div>
 
       {/* ── Grain texture ── */}
@@ -237,7 +237,7 @@ export default function WhyChooseUs() {
 
         {/* ── Section heading ── */}
         <div ref={headingRef} className="mb-20">
-          <p className="text-xs uppercase tracking-[0.2em] text-[#ff7a2f] mb-4 font-medium">
+          <p className="text-xs uppercase tracking-[0.2em] text-[var(--legacy-ff7a2f)] mb-4 font-medium">
             Why Softree
           </p>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
@@ -273,19 +273,19 @@ export default function WhyChooseUs() {
                 <div
                   key={p.number}
                   className="pillar-card group relative rounded-2xl border border-white/[0.07] bg-white/[0.03] p-6
-                    hover:border-[#ff7a2f]/30 hover:bg-[#ff7a2f]/[0.04]
+                    hover:border-[var(--legacy-ff7a2f)]/30 hover:bg-[var(--legacy-ff7a2f)]/[0.04]
                     transition-all duration-300 cursor-default"
                 >
                   {/* Top row */}
                   <div className="flex items-start justify-between mb-5">
                     <div
                       className="w-10 h-10 rounded-xl flex items-center justify-center
-                        bg-[#ff7a2f]/10 text-[#ff7a2f]
-                        group-hover:bg-[#ff7a2f]/20 transition-colors duration-300"
+                        bg-[var(--legacy-ff7a2f)]/10 text-[var(--legacy-ff7a2f)]
+                        group-hover:bg-[var(--legacy-ff7a2f)]/20 transition-colors duration-300"
                     >
                       <Icon size={18} />
                     </div>
-                    <span className="text-[11px] font-mono text-white/20 group-hover:text-[#ff7a2f]/50 transition-colors">
+                    <span className="text-[11px] font-mono text-white/20 group-hover:text-[var(--legacy-ff7a2f)]/50 transition-colors">
                       {p.number}
                     </span>
                   </div>
@@ -304,7 +304,7 @@ export default function WhyChooseUs() {
                   </div>
 
                   {/* Hover line accent */}
-                  <div className="absolute bottom-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-[#ff7a2f]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-[var(--legacy-ff7a2f)]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
               );
             })}
@@ -318,11 +318,11 @@ export default function WhyChooseUs() {
             onMouseLeave={() => setPaused(false)}
           >
             {/* Inner glow */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#ff7a2f]/5 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[var(--legacy-ff7a2f)]/5 via-transparent to-transparent pointer-events-none" />
 
             {/* Header */}
             <div className="relative z-10 px-7 pt-7 pb-6 border-b border-white/[0.06]">
-              <p className="text-[11px] uppercase tracking-[0.2em] text-[#ff7a2f] mb-3 font-medium">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-[var(--legacy-ff7a2f)] mb-3 font-medium">
                 Client Feedback
               </p>
               <h3 className="text-xl font-semibold text-white/90 mb-4 tracking-tight">
@@ -331,7 +331,7 @@ export default function WhyChooseUs() {
               <div className="flex items-center gap-3">
                 <div className="flex gap-0.5">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-[#ff7a2f] text-[#ff7a2f]" />
+                    <Star key={i} className="w-3.5 h-3.5 fill-[var(--legacy-ff7a2f)] text-[var(--legacy-ff7a2f)]" />
                   ))}
                 </div>
                 <span className="text-sm font-semibold text-white">4.9</span>
@@ -345,7 +345,7 @@ export default function WhyChooseUs() {
               {/* Quote icon */}
               <Quote
                 size={28}
-                className="text-[#ff7a2f]/25 mb-4 fill-[#ff7a2f]/10"
+                className="text-[var(--legacy-ff7a2f)]/25 mb-4 fill-[var(--legacy-ff7a2f)]/10"
               />
 
               <AnimatePresence mode="wait">
@@ -359,7 +359,7 @@ export default function WhyChooseUs() {
                   {/* Stars for review */}
                   <div className="flex gap-0.5 mb-4">
                     {Array.from({ length: review.rating }).map((_, i) => (
-                      <Star key={i} className="w-3 h-3 fill-[#ff7a2f] text-[#ff7a2f]" />
+                      <Star key={i} className="w-3 h-3 fill-[var(--legacy-ff7a2f)] text-[var(--legacy-ff7a2f)]" />
                     ))}
                   </div>
 
@@ -371,7 +371,7 @@ export default function WhyChooseUs() {
                   {/* Author */}
                   <div className="flex items-center gap-3">
                     <div
-                      className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold text-[#ff7a2f]"
+                      className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold text-[var(--legacy-ff7a2f)]"
                       style={{ background: "rgba(255,122,47,0.12)" }}
                     >
                       {review.initials}
@@ -402,7 +402,7 @@ export default function WhyChooseUs() {
                     onClick={() => setIndex(i)}
                     aria-label={`Go to review ${i + 1}`}
                     className={`rounded-full transition-all duration-300 ${i === index
-                      ? "w-5 h-1.5 bg-[#ff7a2f]"
+                      ? "w-5 h-1.5 bg-[var(--legacy-ff7a2f)]"
                       : "w-1.5 h-1.5 bg-white/20 hover:bg-white/40"
                       }`}
                   />

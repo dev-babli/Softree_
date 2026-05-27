@@ -49,13 +49,13 @@ const marqueeStyles = `
   .logo-card-glow {
     filter: blur(28px);
     opacity: 0.08;
-    transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.45s var(--legacy-ease-0_16_1_0_3_1);
   }
   .group:hover .logo-card-glow {
     opacity: 0.22;
   }
   .partner-logo-card {
-    transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.45s var(--legacy-ease-0_16_1_0_3_1);
   }
   .partner-logo-card:hover {
     border-color: var(--partner-accent) !important;
@@ -100,7 +100,7 @@ function PartnerLogo({ partner }: { partner: Logo }) {
           alt={`${partner.name} Brand Logo`}
           width={160}
           height={48}
-          className="max-h-[44px] w-auto object-contain transition-transform duration-[450ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-108 relative z-10"
+          className="max-h-[44px] w-auto object-contain transition-transform duration-[450ms] ease-[var(--legacy-ease-0_16_1_0_3_1)] group-hover:scale-108 relative z-10"
           onError={() => setError(true)}
           unoptimized
         />
@@ -121,7 +121,7 @@ export default function AboutClientLogos() {
     <section
       ref={ref}
       id="coengineered-logos"
-      className="relative w-full overflow-hidden bg-[#FAFAF9] py-24 md:py-32"
+      className="relative w-full overflow-hidden bg-[var(--legacy-fafaf9)] py-24 md:py-32"
     >
       <style>{marqueeStyles}</style>
 
@@ -154,7 +154,7 @@ export default function AboutClientLogos() {
             </span>
           </div>
 
-          <h2 className="mt-6 text-[1.875rem] font-semibold leading-tight tracking-[-0.035em] text-[#141413] sm:text-[2.5rem] lg:text-[2.85rem]">
+          <h2 className="mt-6 text-[1.875rem] font-semibold leading-tight tracking-[-0.035em] text-[var(--legacy-141413)] sm:text-[2.5rem] lg:text-[2.85rem]">
             Engineered alongside technology leaders.
           </h2>
           
@@ -171,8 +171,8 @@ export default function AboutClientLogos() {
           transition={{ duration: 0.8, delay: 0.15 }}
         >
           {/* Glass edge gradients for luxurious fade out */}
-          <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-20 w-20 sm:w-44 bg-gradient-to-r from-[#FAFAF9] via-[#FAFAF9]/80 to-transparent" />
-          <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-20 w-20 sm:w-44 bg-gradient-to-l from-[#FAFAF9] via-[#FAFAF9]/80 to-transparent" />
+          <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-20 w-20 sm:w-44 bg-gradient-to-r from-[var(--legacy-fafaf9)] via-[var(--legacy-fafaf9)]/80 to-transparent" />
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-20 w-20 sm:w-44 bg-gradient-to-l from-[var(--legacy-fafaf9)] via-[var(--legacy-fafaf9)]/80 to-transparent" />
 
           {/* Lane 1: Scrolling Left */}
           <div className="relative flex w-full overflow-hidden">
@@ -203,7 +203,7 @@ export default function AboutClientLogos() {
 
           {/* Border grid box */}
           <motion.div
-            className="grid grid-cols-1 divide-y divide-neutral-900/[0.06] border border-neutral-900/[0.06] bg-[#FCFCFB]/40 backdrop-blur-sm sm:grid-cols-3 sm:divide-x sm:divide-y-0 rounded-xl overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.01)]"
+            className="grid grid-cols-1 divide-y divide-neutral-900/[0.06] border border-neutral-900/[0.06] bg-[var(--legacy-fcfcfb)]/40 backdrop-blur-sm sm:grid-cols-3 sm:divide-x sm:divide-y-0 rounded-xl overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.01)]"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
@@ -215,18 +215,18 @@ export default function AboutClientLogos() {
             ].map((stat, i) => (
               <div 
                 key={stat.label} 
-                className="group relative flex flex-col justify-center px-8 py-10 text-center transition-all duration-500 hover:bg-[#FCFCFB]"
+                className="group relative flex flex-col justify-center px-8 py-10 text-center transition-all duration-500 hover:bg-[var(--legacy-fcfcfb)]"
               >
                 {/* Micro accent highlight bar on stat cards */}
                 <div 
-                  className="absolute inset-x-0 bottom-0 h-0.5 scale-x-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100" 
+                  className="absolute inset-x-0 bottom-0 h-0.5 scale-x-0 transition-transform duration-500 ease-[var(--legacy-ease-0_16_1_0_3_1)] group-hover:scale-x-100" 
                   style={{
                     background: i === 0 ? "linear-gradient(to right, #3b82f6, #6366f1)" : i === 1 ? "linear-gradient(to right, #06b6d4, #3b82f6)" : "linear-gradient(to right, #6366f1, #ec4899)"
                   }}
                 />
                 
                 {/* Beautiful text gradient for numbers */}
-                <span className={`font-serif text-[3.25rem] font-medium tracking-tight bg-clip-text text-transparent bg-gradient-to-r ${stat.gradient} transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04] sm:text-[3.75rem]`}>
+                <span className={`font-serif text-[3.25rem] font-medium tracking-tight bg-clip-text text-transparent bg-gradient-to-r ${stat.gradient} transition-transform duration-500 ease-[var(--legacy-ease-0_16_1_0_3_1)] group-hover:scale-[1.04] sm:text-[3.75rem]`}>
                   {stat.value}
                 </span>
                 
@@ -234,7 +234,7 @@ export default function AboutClientLogos() {
                   {stat.label}
                 </span>
 
-                <span className="mt-2 text-xs text-neutral-400 font-normal leading-relaxed opacity-0 max-h-0 translate-y-2 overflow-hidden transition-all duration-[450ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 group-hover:max-h-12 group-hover:translate-y-0">
+                <span className="mt-2 text-xs text-neutral-400 font-normal leading-relaxed opacity-0 max-h-0 translate-y-2 overflow-hidden transition-all duration-[450ms] ease-[var(--legacy-ease-0_16_1_0_3_1)] group-hover:opacity-100 group-hover:max-h-12 group-hover:translate-y-0">
                   {stat.desc}
                 </span>
               </div>

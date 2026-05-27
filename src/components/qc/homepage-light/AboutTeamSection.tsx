@@ -44,11 +44,11 @@ export default function AboutTeamSection() {
         >
           <div className="mb-4 flex items-center justify-center gap-2">
             <span className="h-2 w-2 rounded-full bg-[#FF5812]" />
-            <span className="text-xs font-medium tracking-wider text-[#141413]/70 uppercase">
+            <span className="text-xs font-medium tracking-wider text-[var(--legacy-141413)]/70 uppercase">
               Our Team
             </span>
           </div>
-          <h2 className="text-[clamp(32px,4.5vw,56px)] font-semibold leading-[1.1] tracking-[-0.02em] text-[#141413]">
+          <h2 className="text-[clamp(32px,4.5vw,56px)] font-semibold leading-[1.1] tracking-[-0.02em] text-[var(--legacy-141413)]">
             The Team Behind
             <span className="block text-[#FF5812]">Every Solution</span>
           </h2>
@@ -72,18 +72,18 @@ export default function AboutTeamSection() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#141413]/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--legacy-141413)]/60 via-transparent to-transparent" />
               </div>
 
               {/* Info */}
               <div className="p-6">
-                <h3 className="mb-1 text-xl font-semibold text-[#141413]">
+                <h3 className="mb-1 text-xl font-semibold text-[var(--legacy-141413)]">
                   {member.name}
                 </h3>
                 <p className="mb-2 text-sm font-medium text-[#FF5812]">
                   {member.role}
                 </p>
-                <p className="text-sm text-[#141413]/60">
+                <p className="text-sm text-[var(--legacy-141413)]/60">
                   {member.description}
                 </p>
               </div>

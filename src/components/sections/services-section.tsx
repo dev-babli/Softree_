@@ -21,12 +21,12 @@ export default function PowerPlatformSection() {
   ];
 
   return (
-    <section className="relative w-full px-6 py-15 bg-gradient-to-b from-black via-[#020d1a] to-black overflow-hidden">
+    <section className="relative w-full px-6 py-15 bg-gradient-to-b from-black via-[var(--legacy-020d1a)] to-black overflow-hidden">
       <div
         className="
   relative max-w-7xl mx-auto
   rounded-3xl
-  bg-gradient-to-br from-[#0b0f14] via-[#141922] to-[#0b0f14]
+  bg-gradient-to-br from-[var(--legacy-0b0f14)] via-[var(--legacy-141922)] to-[var(--legacy-0b0f14)]
   border border-white/10
   p-14
   grid grid-cols-1 lg:grid-cols-2

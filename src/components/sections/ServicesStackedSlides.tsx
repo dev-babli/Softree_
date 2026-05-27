@@ -1,23 +1,9 @@
 "use client"
 
-import { useRef, useState, useEffect, lazy, Suspense } from "react"
+import { useRef, useState, useEffect, type SyntheticEvent } from "react"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import "./ServicesStackedSlides.css"
-
-// MEDIA OPTIMIZATION: lazy-imported = each heavy visual is a separate JS chunk
-const GlobalNetworkMap = lazy(() =>
-  import("@/components/homepage/GlobalNetworkMap").then((m) => ({ default: m.GlobalNetworkMap })),
-)
-const DeliveryProcessDiagram = lazy(() =>
-  import("@/components/homepage/DeliveryProcessDiagram").then((m) => ({ default: m.DeliveryProcessDiagram })),
-)
-const FlexibleTechExecutionVisual = lazy(() =>
-  import("@/components/homepage/FlexibleTechExecutionVisual").then((m) => ({ default: m.FlexibleTechExecutionVisual })),
-)
-const LongTermDeliveryVisual = lazy(() =>
-  import("@/components/homepage/LongTermDeliveryVisual").then((m) => ({ default: m.LongTermDeliveryVisual })),
-)
 
 // Viewport-gated: returns true once the section is within 2x viewport. One-shot.
 function useNearViewport(ref: React.RefObject<HTMLElement | null>) {
@@ -111,10 +97,26 @@ const SERVICE_SLIDES: ServiceSlide[] = [
   },
 ]
 
+const STACKED_SERVICE_VIDEOS: Partial<Record<ServiceSlide["key"], string>> = {
+  "global-delivery": "/stacked_services/fine_tune_it_202605271049.webm",
+  "delivery-framework": "/stacked_services/2ndcard.webm",
+  "engineering-execution": "/stacked_services/3rdcard.webm",
+  "long-term-partnership": "/stacked_services/4thcard.webm",
+}
+
 export function ServicesStackedSlides({ className = "" }: { className?: string }) {
   const rootRef = useRef<HTMLDivElement>(null)
   // MEDIA OPTIMIZATION: mount heavy visualizations only when section is near viewport
   const mediaActive = useNearViewport(rootRef)
+  const handleFirstVideoTimeUpdate = (event: SyntheticEvent<HTMLVideoElement>) => {
+    const video = event.currentTarget
+    if (video.currentTime >= 3) {
+      video.currentTime = 0
+      if (video.paused) {
+        void video.play()
+      }
+    }
+  }
 
   /* INTENTIONAL SIMPLIFICATION (matching stack.html):
    * No GSAP. No ScrollTrigger. No animation-timeline. No scroll listeners.
@@ -173,46 +175,20 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
                 </div>
 
                 <div className="ssx-media-block">
-                  {slide.key === "global-delivery" ? (
+                  {STACKED_SERVICE_VIDEOS[slide.key] ? (
                     <div className="ssx-map-wrap">
                       {mediaActive ? (
-                        <Suspense fallback={<MediaSkeleton />}>
-                          <GlobalNetworkMap />
-                        </Suspense>
-                      ) : (
-                        <MediaSkeleton />
-                      )}
-                    </div>
-                  ) : slide.key === "delivery-framework" ? (
-                    <div className="ssx-map-wrap ssx-map-wrap--diagram">
-                      {mediaActive ? (
-                        <Suspense fallback={<MediaSkeleton />}>
-                          <DeliveryProcessDiagram />
-                        </Suspense>
-                      ) : (
-                        <MediaSkeleton />
-                      )}
-                    </div>
-                  ) : slide.key === "engineering-execution" ? (
-                    <div className="ssx-map-wrap ssx-map-wrap--ftx">
-                      {mediaActive ? (
-                        <Suspense fallback={<MediaSkeleton />}>
-                          {/* isActive bypasses the component's internal ScrollTrigger,
-                              which mis-calculates start/end positions inside sticky-pinned
-                              parents and never fires onEnter. With isActive=true the
-                              entrance timeline plays immediately when mediaActive flips. */}
-                          <FlexibleTechExecutionVisual isActive />
-                        </Suspense>
-                      ) : (
-                        <MediaSkeleton />
-                      )}
-                    </div>
-                  ) : slide.key === "long-term-partnership" ? (
-                    <div className="ssx-map-wrap ssx-map-wrap--ltd">
-                      {mediaActive ? (
-                        <Suspense fallback={<MediaSkeleton />}>
-                          <LongTermDeliveryVisual />
-                        </Suspense>
+                        <video
+                          className="ssx-media-video"
+                          src={STACKED_SERVICE_VIDEOS[slide.key]}
+                          autoPlay
+                          muted
+                          loop={slide.key === "global-delivery"}
+                          playsInline
+                          preload="metadata"
+                          aria-label={`${slide.title} showcase video`}
+                          onTimeUpdate={slide.key === "global-delivery" ? handleFirstVideoTimeUpdate : undefined}
+                        />
                       ) : (
                         <MediaSkeleton />
                       )}

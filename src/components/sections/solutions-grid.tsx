@@ -62,7 +62,7 @@ const SolutionsDeck = () => {
   const [active, setActive] = useState(2);
 
   return (
-    <section className="relative py-32 overflow-hidden bg-gradient-to-b from-black via-[#020d1a] to-black">
+    <section className="relative py-32 overflow-hidden bg-gradient-to-b from-black via-[var(--legacy-020d1a)] to-black">
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <video
@@ -74,7 +74,7 @@ const SolutionsDeck = () => {
         >
           <source src="/images/service.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#00091A]/90 via-[#00091A]/80 to-[#00091A]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--legacy-00091a)]/90 via-[var(--legacy-00091a)]/80 to-[var(--legacy-00091a)]" />
       </div>
 
       {/* Content */}
@@ -120,7 +120,7 @@ const SolutionsDeck = () => {
           </h2>
 
           {/* Description */}
-          <p className="text-[#CBD5E1] text-lg leading-relaxed max-w-2xl mx-auto">
+          <p className="text-[var(--legacy-cbd5e1)] text-lg leading-relaxed max-w-2xl mx-auto">
             We engineer <span className="text-white font-medium">secure</span>,{" "}
             <span className="text-cyan-300 font-medium">scalable</span> digital
             platforms that help enterprises{" "}
@@ -157,9 +157,9 @@ const SolutionsDeck = () => {
                     rounded-2xl overflow-hidden
                     border border-white/10
                     bg-gradient-to-b
-                    from-[#0B0F14]
-                    via-[#161B22]
-                    to-[#1F2933]
+                    from-[var(--legacy-0b0f14)]
+                    via-[var(--legacy-161b22)]
+                    to-[var(--legacy-1f2933)]
                   "
                 >
                   {/* Image */}
@@ -178,9 +178,9 @@ const SolutionsDeck = () => {
     relative p-7
     border-t border-white/10
     bg-gradient-to-br
-    from-[#0A0F14]
-    via-[#111827]
-    to-[#1F2937]
+    from-[var(--legacy-0a0f14)]
+    via-[var(--legacy-111827)]
+    to-[var(--legacy-1f2937)]
   "
                   >
                     {/* Mirror highlight strip */}

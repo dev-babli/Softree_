@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 interface Logo {
   name: string;
@@ -119,7 +119,8 @@ function LogoCard({ logo }: { logo: Logo }) {
             border: `1px solid ${logo.accent}44`,
             alignItems: "center",
             justifyContent: "center",
-            fontFamily: "'Bebas Neue', sans-serif",
+            fontFamily: "var(--font-sans), 'Inter', sans-serif",
+            fontWeight: 700,
             fontSize: 16,
             letterSpacing: "0.06em",
             color: logo.accent,
@@ -160,10 +161,32 @@ function MarqueeRow({
   duration?: string;
 }) {
   const repeated = [...items, ...items, ...items, ...items];
+  /* MOTION AUDIT FIX (MO-5): pause marquee animation when off-screen.
+   * A 35s linear infinite animation runs forever, painting each frame even
+   * when invisible — battery drain on mobile, GPU heat on desktop. */
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = wrapperRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const track = el.querySelector<HTMLElement>(".softree-marquee-track");
+        if (!track) return;
+        track.style.animationPlayState = entry.isIntersecting
+          ? "running"
+          : "paused";
+      },
+      { threshold: 0 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <div style={{ overflow: "hidden" }}>
+    <div ref={wrapperRef} style={{ overflow: "hidden" }}>
       <div
+        className="softree-marquee-track"
         style={{
           display: "flex",
           gap: 10,
@@ -171,6 +194,7 @@ function MarqueeRow({
           padding: "10px 0 14px",
           animation: `marqueeScroll ${duration} linear infinite`,
           animationDirection: reverse ? "reverse" : "normal",
+          willChange: "transform",
         }}
         onMouseEnter={(e) =>
           ((e.currentTarget as HTMLElement).style.animationPlayState = "paused")
@@ -210,8 +234,6 @@ export default function LogoMarquee() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap');
-
         @keyframes marqueeScroll {
           from { transform: translateX(0); }
           to   { transform: translateX(-50%); }
@@ -221,6 +243,15 @@ export default function LogoMarquee() {
           0%, 100% { opacity: 1; transform: scale(1); }
           50%       { opacity: 0.4; transform: scale(0.7); }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+          .softree-marquee-track {
+            animation: none !important;
+          }
+          .softree-pulse-dot {
+            animation: none !important;
+          }
+        }
       `}</style>
 
       <section
@@ -228,8 +259,8 @@ export default function LogoMarquee() {
           position: "relative",
           overflow: "hidden",
           paddingBottom: "3rem",
-          background: "#0a0a0a",
-          fontFamily: "'DM Sans', sans-serif",
+          background: "var(--legacy-0a0a0a)",
+          fontFamily: "var(--font-sans), 'Inter', sans-serif",
         }}
       >
 
@@ -283,10 +314,11 @@ export default function LogoMarquee() {
           {/* Heading */}
           <h2
             style={{
-              fontFamily: "'Bebas Neue', sans-serif",
+              fontFamily: "var(--font-sans), 'Inter', sans-serif",
+              fontWeight: 700,
               fontSize: 52,
-              letterSpacing: "0.06em",
-              lineHeight: 1,
+              letterSpacing: "-0.02em",
+              lineHeight: 1.05,
               color: "#fff",
               marginBottom: "0.5rem",
             }}
@@ -415,9 +447,10 @@ export default function LogoMarquee() {
             >
               <div
                 style={{
-                  fontFamily: "'Bebas Neue', sans-serif",
+                  fontFamily: "var(--font-sans), 'Inter', sans-serif",
+                  fontWeight: 700,
                   fontSize: 36,
-                  letterSpacing: "0.06em",
+                  letterSpacing: "-0.02em",
                   color: "#f97316",
                   lineHeight: 1,
                   textShadow: "0 0 30px #f9731488, 0 0 60px #f9731444",

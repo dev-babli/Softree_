@@ -158,7 +158,7 @@ function WhyCard({
       whileInView={{ y: 0, opacity: 1 }}
       viewport={{ once: true, margin: "-15%" }}
       transition={{ duration: 0.75, ease: EASE, delay: index * 0.08 }}
-      className={`relative w-full max-w-[340px] rounded-3xl border border-white/10 bg-[#13142a]/85 p-5 backdrop-blur-2xl ${className}`}
+      className={`relative w-full max-w-[340px] rounded-3xl border border-white/10 bg-[var(--legacy-13142a)]/85 p-5 backdrop-blur-2xl ${className}`}
       style={{
         boxShadow:
           "inset 0 1px 0 rgba(255,255,255,0.08), 0 24px 60px -28px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.02)",
@@ -168,7 +168,7 @@ function WhyCard({
       <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1">
         <span
           aria-hidden
-          className="h-1.5 w-1.5 rounded-full bg-[#6C42F5]"
+          className="h-1.5 w-1.5 rounded-full bg-[var(--legacy-6c42f5)]"
           style={{ boxShadow: "0 0 6px rgba(108,66,245,0.9)" }}
         />
         <span className="text-[10.5px] font-medium uppercase tracking-[0.16em] text-white/65">
@@ -236,7 +236,7 @@ function WhyCard({
 
 export default function LightWhyChooseUs() {
   return (
-    <section className="relative isolate w-full overflow-hidden bg-[#08081a]">
+    <section className="relative isolate w-full overflow-hidden bg-[var(--legacy-08081a)]">
       {/* ── Background layers ─────────────────────────────────────── */}
       {/* faint grid */}
       <div
@@ -289,7 +289,7 @@ export default function LightWhyChooseUs() {
           <div className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 backdrop-blur-md">
             <span
               aria-hidden
-              className="h-2 w-2 rounded-full bg-[#6C42F5]"
+              className="h-2 w-2 rounded-full bg-[var(--legacy-6c42f5)]"
               style={{ boxShadow: "0 0 8px rgba(108,66,245,0.9)" }}
             />
             <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/70">

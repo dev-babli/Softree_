@@ -68,7 +68,7 @@ function GradientSuccess() {
 /* ── Card shells ───────────────────────────────────────────────────── */
 
 const cardShell =
-  "relative overflow-hidden rounded-2xl border border-[#111]/[0.08] bg-white"
+  "relative overflow-hidden rounded-2xl border border-[var(--legacy-111)]/[0.08] bg-white"
 const cardShadow =
   "inset 0 1px 0 rgba(255,255,255,1), 0 1px 0 rgba(17,17,17,0.04), 0 20px 50px -28px rgba(17,17,17,0.18)"
 
@@ -100,19 +100,19 @@ function ClientRow({
           {initial}
         </div>
         <div>
-          <div className="text-[13.5px] font-semibold tracking-tight text-[#111]">
+          <div className="text-[13.5px] font-semibold tracking-tight text-[var(--legacy-111)]">
             {name}
           </div>
-          <div className="text-[11.5px] text-[#111]/55">{role}</div>
+          <div className="text-[11.5px] text-[var(--legacy-111)]/55">{role}</div>
         </div>
       </div>
       <div className="flex items-center gap-1.5">
-        <span className="text-[10.5px] font-medium text-[#111]/65">4.9</span>
+        <span className="text-[10.5px] font-medium text-[var(--legacy-111)]/65">4.9</span>
         <Star
           className="h-3 w-3 fill-[#1852FF] text-[#1852FF]"
           strokeWidth={0}
         />
-        <span className="text-[10.5px] font-medium text-[#111]/65">Rating</span>
+        <span className="text-[10.5px] font-medium text-[var(--legacy-111)]/65">Rating</span>
       </div>
     </div>
   )
@@ -152,7 +152,7 @@ function BigStatCard() {
         >
           100K+
         </div>
-        <p className="mt-3 max-w-[280px] text-[15px] leading-[1.5] text-[#111]/65">
+        <p className="mt-3 max-w-[280px] text-[15px] leading-[1.5] text-[var(--legacy-111)]/65">
           Helping Businesses Automate and Streamline with AI
         </p>
       </div>
@@ -165,8 +165,8 @@ function BigStatCard() {
           gradientFrom="#ff8a5b"
           gradientTo="#c73d1a"
         />
-        <div className="mt-4 rounded-lg border border-[#111]/[0.06] bg-[#f6f6f6] p-4">
-          <p className="text-[13px] leading-[1.55] text-[#111]/65">
+        <div className="mt-4 rounded-lg border border-[var(--legacy-111)]/[0.06] bg-[var(--legacy-f6f6f6)] p-4">
+          <p className="text-[13px] leading-[1.55] text-[var(--legacy-111)]/65">
             Easy to use, incredibly powerful, and made to scale — helping teams
             move quicker and perform at their best.
           </p>
@@ -231,12 +231,12 @@ function StatCard({
           >
             {value}
           </div>
-          <div className="mt-1 text-[13px] font-medium text-[#111]/70">
+          <div className="mt-1 text-[13px] font-medium text-[var(--legacy-111)]/70">
             {label}
           </div>
         </div>
       </div>
-      <p className="relative mt-5 text-[12.5px] text-[#111]/55">{sub}</p>
+      <p className="relative mt-5 text-[12.5px] text-[var(--legacy-111)]/55">{sub}</p>
     </motion.div>
   )
 }
@@ -274,7 +274,7 @@ function QuoteCard({
         gradientFrom={gradientFrom}
         gradientTo={gradientTo}
       />
-      <p className="mt-5 text-[13px] leading-[1.55] text-[#111]/65">{quote}</p>
+      <p className="mt-5 text-[13px] leading-[1.55] text-[var(--legacy-111)]/65">{quote}</p>
     </motion.div>
   )
 }
@@ -283,7 +283,7 @@ function QuoteCard({
 
 export default function LightTestimonialGrid() {
   return (
-    <section className="relative isolate w-full overflow-hidden bg-[#f6f6f6] py-24 sm:py-32 md:py-36">
+    <section className="relative isolate w-full overflow-hidden bg-[var(--legacy-f6f6f6)] py-24 sm:py-32 md:py-36">
       {/* Ambient glow */}
       <div
         aria-hidden
@@ -312,10 +312,10 @@ export default function LightTestimonialGrid() {
           >
             Testimonial
           </span>
-          <h2 className="max-w-[820px] text-[clamp(32px,5vw,54px)] font-semibold leading-[1.1] tracking-[-0.02em] text-[#111]">
+          <h2 className="max-w-[820px] text-[clamp(32px,5vw,54px)] font-semibold leading-[1.1] tracking-[-0.02em] text-[var(--legacy-111)]">
             Real Results. Real <GradientClient /> <GradientSuccess />
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-[14.5px] leading-[1.6] text-[#111]/55">
+          <p className="mx-auto mt-4 max-w-lg text-[14.5px] leading-[1.6] text-[var(--legacy-111)]/55">
             Authentic experiences from the people we serve.
           </p>
         </motion.div>

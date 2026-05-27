@@ -136,7 +136,7 @@ export default function LightAboutMergedPremium() {
   ]
 
   return (
-    <section ref={containerRef} id="about-us" className="relative w-full bg-[#050505] py-32 md:py-40 lg:py-48 overflow-hidden">
+    <section ref={containerRef} id="about-us" className="relative w-full bg-[var(--legacy-050505)] py-32 md:py-40 lg:py-48 overflow-hidden">
       {/* Ambient Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
@@ -152,7 +152,7 @@ export default function LightAboutMergedPremium() {
           }}
         />
         <motion.div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#C86E4B]/10 rounded-full blur-[120px]"
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[var(--legacy-c86e4b)]/10 rounded-full blur-[120px]"
           animate={{
             scale: [1, 1.15, 1],
             opacity: [0.5, 0.65, 0.5],
@@ -658,7 +658,7 @@ export default function LightAboutMergedPremium() {
               transition={{ duration: 0.8, delay: 0.5, ease: CUSTOM_EASE }}
             >
               {/* Outer Shell */}
-              <div className="relative bg-white/5 rounded-[2rem] p-1 ring-1 ring-white/10 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-white/10 hover:shadow-[0_30px_70px_-20px_rgba(24,82,255,0.2)]">
+              <div className="relative bg-white/5 rounded-[2rem] p-1 ring-1 ring-white/10 transition-all duration-700 ease-[var(--legacy-ease-0_32_0_72_0_1)] hover:bg-white/10 hover:shadow-[0_30px_70px_-20px_rgba(24,82,255,0.2)]">
                 {/* Inner Core */}
                 <div className="relative rounded-[calc(2rem-0.25rem)] bg-[#0a0a1a]/80 p-8 backdrop-blur-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
                   <div className="mb-3 flex items-baseline tabular-nums">
@@ -680,7 +680,7 @@ export default function LightAboutMergedPremium() {
               transition={{ duration: 0.8, delay: 0.6, ease: CUSTOM_EASE }}
             >
               {/* Outer Shell */}
-              <div className="relative bg-white/5 rounded-[2rem] p-1 ring-1 ring-white/10 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-white/10 hover:shadow-[0_30px_70px_-20px_rgba(24,82,255,0.2)]">
+              <div className="relative bg-white/5 rounded-[2rem] p-1 ring-1 ring-white/10 transition-all duration-700 ease-[var(--legacy-ease-0_32_0_72_0_1)] hover:bg-white/10 hover:shadow-[0_30px_70px_-20px_rgba(24,82,255,0.2)]">
                 {/* Inner Core */}
                 <div className="relative rounded-[calc(2rem-0.25rem)] bg-[#0a0a1a]/80 p-8 backdrop-blur-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
                   <div className="mb-3 flex items-baseline tabular-nums">

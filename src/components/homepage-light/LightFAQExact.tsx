@@ -114,7 +114,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
   }
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-[#fffbf7] py-20 md:py-32">
+    <section ref={sectionRef} className="relative w-full bg-[var(--legacy-fffbf7)] py-20 md:py-32">
       {/* FAQPage JSON-LD — enables AI Overview, ChatGPT/Claude/Gemini citation,
          and Google rich results. Each answer is 30-50 words for optimal
          AEO extraction (the LLM sweet spot). */}
@@ -176,13 +176,13 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
         {/* Section Title */}
         <div ref={titleRef} className="mb-12 md:mb-16">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#f97316]/20 bg-[#f97316]/10 px-4 py-2">
-            <HelpCircle className="h-4 w-4 text-[#ea580c]" />
-            <span className="text-sm font-medium text-[#ea580c]">FAQ</span>
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--legacy-f97316)]/20 bg-[var(--legacy-f97316)]/10 px-4 py-2">
+            <HelpCircle className="h-4 w-4 text-[var(--legacy-ea580c)]" />
+            <span className="text-sm font-medium text-[var(--legacy-ea580c)]">FAQ</span>
           </div>
-          <h2 className="text-3xl font-bold tracking-tight text-[#451a03] md:text-5xl lg:text-6xl">
+          <h2 className="text-3xl font-bold tracking-tight text-[var(--legacy-451a03)] md:text-5xl lg:text-6xl">
             Frequently Asked{" "}
-            <span className="text-[#ea580c]">Questions.</span>
+            <span className="text-[var(--legacy-ea580c)]">Questions.</span>
           </h2>
         </div>
 
@@ -197,8 +197,8 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
               <div
                 key={faq.id}
                 onClick={() => handleClick(index)}
-                className={`group/card relative cursor-pointer overflow-hidden rounded-2xl border border-[#f97316]/20 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${isActive
-                  ? "bg-white shadow-[0_10px_30px_rgba(249,115,22,0.12)] border-[#f97316]/30"
+                className={`group/card relative cursor-pointer overflow-hidden rounded-2xl border border-[var(--legacy-f97316)]/20 transition-all duration-700 ease-[var(--legacy-ease-0_4_0_0_2_1)] ${isActive
+                  ? "bg-white shadow-[0_10px_30px_rgba(249,115,22,0.12)] border-[var(--legacy-f97316)]/30"
                   : "bg-white/80"
                   }`}
                 style={{
@@ -266,7 +266,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                       zoom={0.85}
                     />
                     {/* Subtle vignette overlay for text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#f97316]/10 via-transparent to-[#f97316]/5" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--legacy-f97316)]/10 via-transparent to-[var(--legacy-f97316)]/5" />
                   </div>
                 )}
 
@@ -275,7 +275,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                   {/* Top - Serial & Icon */}
                   <div className="mb-auto flex items-start justify-between">
                     <span
-                      className={`text-xs font-medium uppercase tracking-wider transition-colors duration-500 ${isActive ? "text-[#7c2d12]/80" : "text-[#451a03]/90"
+                      className={`text-xs font-medium uppercase tracking-wider transition-colors duration-500 ${isActive ? "text-[var(--legacy-7c2d12)]/80" : "text-[var(--legacy-451a03)]/90"
                         }`}
                     >
                       {faq.serial}
@@ -283,14 +283,14 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                     <div className="relative h-6 w-6">
                       {/* Plus Icon */}
                       <Plus
-                        className={`absolute inset-0 h-6 w-6 text-[#ea580c] transition-all duration-500 ${isActive
+                        className={`absolute inset-0 h-6 w-6 text-[var(--legacy-ea580c)] transition-all duration-500 ${isActive
                           ? "scale-0 opacity-0 rotate-90"
                           : "scale-100 opacity-100 rotate-0"
                           }`}
                       />
                       {/* Minus Icon */}
                       <Minus
-                        className={`absolute inset-0 h-6 w-6 text-[#ea580c] transition-all duration-500 ${isActive
+                        className={`absolute inset-0 h-6 w-6 text-[var(--legacy-ea580c)] transition-all duration-500 ${isActive
                           ? "scale-100 opacity-100 rotate-0"
                           : "scale-0 opacity-0 -rotate-90"
                           }`}
@@ -303,7 +303,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                     {/* Question */}
                     <div className="mb-4">
                       <h3
-                        className={`text-lg font-semibold leading-snug transition-colors duration-500 md:text-xl text-[#451a03]`}
+                        className={`text-lg font-semibold leading-snug transition-colors duration-500 md:text-xl text-[var(--legacy-451a03)]`}
                       >
                         {faq.question}
                       </h3>
@@ -311,26 +311,26 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
 
                     {/* Answer - Only visible when active */}
                     <div
-                      className="overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                      className="overflow-hidden transition-all duration-700 ease-[var(--legacy-ease-0_4_0_0_2_1)]"
                       style={{
                         width: isActive ? "100%" : "0%",
                         opacity: isActive ? 1 : 0,
                       }}
                     >
                       <div className="pt-4">
-                        <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-[#7c2d12]/60">
+                        <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-[var(--legacy-7c2d12)]/60">
                           Question Answer:
                         </h4>
-                        <div className="mb-4 h-px w-16 bg-[#ea580c]/20" />
-                        <p className="mb-6 text-sm leading-relaxed text-[#451a03]/85 md:text-base">
+                        <div className="mb-4 h-px w-16 bg-[var(--legacy-ea580c)]/20" />
+                        <p className="mb-6 text-sm leading-relaxed text-[var(--legacy-451a03)]/85 md:text-base">
                           {faq.answer}
                         </p>
                         <Link
                           href="/about-us"
-                          className="group inline-flex items-center gap-3 rounded-full bg-[#ea580c] px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-[#7c2d12]"
+                          className="group inline-flex items-center gap-3 rounded-full bg-[var(--legacy-ea580c)] px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-[var(--legacy-7c2d12)]"
                         >
                           <span>More About Us</span>
-                          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-[#ea580c] transition-all group-hover:bg-[#ea580c] group-hover:text-white">
+                          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-[var(--legacy-ea580c)] transition-all group-hover:bg-[var(--legacy-ea580c)] group-hover:text-white">
                             <ArrowUpRight className="h-3 w-3" />
                           </span>
                         </Link>

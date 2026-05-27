@@ -83,27 +83,27 @@ export default function LightEngagementModels() {
 
         {/* Header Section */}
         <div className="mb-14 flex flex-col md:flex-row md:items-center">
-          <h2 className="text-[clamp(2rem,4.5vw,52px)] font-bold tracking-[-0.04em] text-[#111] leading-none">
+          <h2 className="text-[clamp(2rem,4.5vw,52px)] font-bold tracking-[-0.04em] text-[var(--legacy-111)] leading-none">
             How We Partner With You
           </h2>
-          <div className="my-6 h-[1px] w-full bg-[#EAEAEA] md:mx-8 md:my-0 md:h-[40px] md:w-[1px]"></div>
+          <div className="my-6 h-[1px] w-full bg-[var(--legacy-eaeaea)] md:mx-8 md:my-0 md:h-[40px] md:w-[1px]"></div>
           <div className="flex items-center gap-2.5">
-            <div className="h-1.5 w-1.5 bg-[#FF4500]"></div>
-            <span className="text-[12px] font-bold uppercase tracking-[0.1em] text-[#555]">
+            <div className="h-1.5 w-1.5 bg-[var(--legacy-ff4500)]"></div>
+            <span className="text-[12px] font-bold uppercase tracking-[0.1em] text-[var(--legacy-555)]">
               MODEL
             </span>
           </div>
         </div>
 
         {/* Accordion Wrapper */}
-        <div className="flex w-full flex-col lg:flex-row bg-[#F9F9F9] border border-[#EAEAEA]">
+        <div className="flex w-full flex-col lg:flex-row bg-[var(--legacy-f9f9f9)] border border-[var(--legacy-eaeaea)]">
           {MODELS.map((model) => {
             const isExpanded = expandedId === model.id
 
             return (
               <motion.div
                 key={model.id}
-                className="relative flex cursor-pointer flex-col overflow-hidden border-b border-[#EAEAEA] lg:border-b-0 lg:border-r lg:last:border-r-0"
+                className="relative flex cursor-pointer flex-col overflow-hidden border-b border-[var(--legacy-eaeaea)] lg:border-b-0 lg:border-r lg:last:border-r-0"
                 initial={false}
                 animate={{
                   flex: isExpanded ? 4 : 1.3,
@@ -119,11 +119,11 @@ export default function LightEngagementModels() {
               >
                 {/* --- TOP HEADER LINE (Always Visible) --- */}
                 <div className="absolute left-0 right-0 top-0 z-20 flex items-center justify-between px-8 pt-8">
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.05em] text-[#888]">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.05em] text-[var(--legacy-888)]">
                     MODEL
                   </span>
-                  <div className="mx-4 flex-1 h-[1px] bg-[#EAEAEA]"></div>
-                  <span className="text-[11px] font-medium text-[#888]">
+                  <div className="mx-4 flex-1 h-[1px] bg-[var(--legacy-eaeaea)]"></div>
+                  <span className="text-[11px] font-medium text-[var(--legacy-888)]">
                     {model.number}
                   </span>
                 </div>
@@ -147,10 +147,10 @@ export default function LightEngagementModels() {
 
                   {/* Text Content */}
                   <div className="flex flex-col mt-auto">
-                    <h3 className="mb-4 text-[34px] font-bold tracking-tight text-[#111] leading-tight">
+                    <h3 className="mb-4 text-[34px] font-bold tracking-tight text-[var(--legacy-111)] leading-tight">
                       {model.title}
                     </h3>
-                    <p className="mb-7 text-[15px] leading-relaxed text-[#666] max-w-[90%]">
+                    <p className="mb-7 text-[15px] leading-relaxed text-[var(--legacy-666)] max-w-[90%]">
                       {model.description}
                     </p>
 
@@ -159,9 +159,9 @@ export default function LightEngagementModels() {
                       {model.tags.map((tag) => (
                         <div
                           key={tag}
-                          className="rounded-[4px] border border-[#EAEAEA] bg-white px-3.5 py-2 shadow-sm"
+                          className="rounded-[4px] border border-[var(--legacy-eaeaea)] bg-white px-3.5 py-2 shadow-sm"
                         >
-                          <span className="text-[11px] font-medium text-[#666]">
+                          <span className="text-[11px] font-medium text-[var(--legacy-666)]">
                             {tag}
                           </span>
                         </div>
@@ -183,13 +183,13 @@ export default function LightEngagementModels() {
                       fill
                       className="object-cover object-top opacity-20 saturate-[1.2]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#F9F9F9]"></div>
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--legacy-f9f9f9)]"></div>
                   </div>
 
                   {/* Vertical Text */}
                   <div className="absolute bottom-12 left-0 right-0 flex justify-center">
                     <h3
-                      className="text-[34px] font-bold text-[#555] tracking-tight whitespace-nowrap"
+                      className="text-[34px] font-bold text-[var(--legacy-555)] tracking-tight whitespace-nowrap"
                       style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
                     >
                       {model.title}

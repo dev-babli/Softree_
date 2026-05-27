@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import type { SanityNavCategory } from "@/sanity/types";
 
 import {
   Settings,
@@ -32,6 +33,7 @@ import {
   Share2,
   BookOpen,
   Briefcase,
+  FileText,
 } from "lucide-react";
 
 type MenuItem = {
@@ -253,128 +255,58 @@ const menu: MenuItem[] = [
       },
     ],
   },
+  // Blog menu item — children are dynamically populated from Sanity
   {
     label: "Blog",
     url: "/blog",
     icon: BookOpen,
     mega: true,
-    children: [
-      {
-        title: "Business Applications",
-        description: "Enterprise Power Platform solutions and SharePoint intranet strategies.",
-        image: "/images/case-study/power-apps/automated.jpg",
-        links: [
-          {
-            label: "Power Platform Development",
-            url: "/blog/best-power-platform-development-services",
-            icon: LayoutDashboard,
-            description: "Enterprise low-code guides",
-          },
-          {
-            label: "SharePoint Online Solutions",
-            url: "/blog/best-sharepoint-development-services",
-            icon: Building2,
-            description: "Intranet & collaboration guide",
-          },
-          {
-            label: "SPFx Modern Extensions",
-            url: "/blog/best-spfx-development-services",
-            icon: Code2,
-            description: "Custom SPFx component guide",
-          },
-        ],
-      },
-      {
-        title: "Data & Analytics",
-        description: "Unified analytics capabilities, BI dashboards, and cloud engineering.",
-        image: "/images/ai/analytics.jpg",
-        links: [
-          {
-            label: "Data Engineering Trends",
-            url: "/blog/data-engineering-trends-2024",
-            icon: LineChart,
-            description: "Latest trends for 2024",
-          },
-          {
-            label: "Microsoft Fabric Guide",
-            url: "/blog/best-microsoft-fabric-services",
-            icon: Boxes,
-            description: "Modern unified analytics guide",
-          },
-          {
-            label: "Data Analytics Services",
-            url: "/blog/best-data-analytics-services",
-            icon: Cpu,
-            description: "Enterprise decision intelligence",
-          },
-        ],
-      },
-      {
-        title: "AI & Automation",
-        description: "Autonomous AI agents, generative model architectures, and LLM integrations.",
-        image: "/images/ai/ai-agent.jpg",
-        links: [
-          {
-            label: "Enterprise AI Transformation",
-            url: "/blog/ai-enterprise-transformation",
-            icon: BrainCircuit,
-            description: "Enterprise AI implementations",
-          },
-          {
-            label: "Agentic AI Services",
-            url: "/blog/best-agentic-ai-services",
-            icon: Bot,
-            description: "Custom autonomous AI agents",
-          },
-          {
-            label: "AI Service Providers Guide",
-            url: "/blog/best-ai-services-providers",
-            icon: Sparkles,
-            description: "Choosing your AI delivery partner",
-          },
-        ],
-      },
-      {
-        title: "Web Engineering",
-        description: "High-performance frontend and custom full-stack web architectures.",
-        image: "/images/case-study/mobile/education.png",
-        links: [
-          {
-            label: "Next.js Modern Dev",
-            url: "/blog/nextjs-14-modern-development",
-            icon: Globe2,
-            description: "Routing, rendering & core vitals",
-          },
-          {
-            label: "React Custom Engineering",
-            url: "/blog/best-react-development-services",
-            icon: Laptop,
-            description: "Interactive browser experiences",
-          },
-          {
-            label: "Enterprise Web Apps",
-            url: "/blog/best-web-app-development-services",
-            icon: AppWindow,
-            description: "Scale & performance blueprints",
-          },
-        ],
-      },
-    ],
+    children: [], // populated at runtime from blogCategories prop
   },
   {
     label: "Careers",
     url: "/careers",
     icon: Briefcase,
   },
- 
+
 ];
 
-export default function Navigation() {
+export default function Navigation({
+  blogCategories,
+}: {
+  blogCategories?: SanityNavCategory[];
+}) {
   const [open, setOpen] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [showNav, setShowNav] = useState(true);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
   const lastScrollY = useRef(0);
+
+  // Build the dynamic Blog menu children from Sanity categories
+  const dynamicMenu = useMemo(() => {
+    if (!blogCategories || blogCategories.length === 0) return menu;
+
+    return menu.map((item) => {
+      if (item.label !== "Blog") return item;
+
+      // Convert Sanity categories into mega menu columns (max 4)
+      const children = blogCategories
+        .filter((cat) => cat.posts && cat.posts.length > 0)
+        .slice(0, 4)
+        .map((cat) => ({
+          title: cat.title,
+          description: `Latest ${cat.title.toLowerCase()} articles`,
+          links: cat.posts.map((post) => ({
+            label: post.title,
+            url: `/blog/${post.slug.current}`,
+            icon: FileText,
+            description: post.excerpt || "",
+          })),
+        }));
+
+      return { ...item, children };
+    });
+  }, [blogCategories]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -392,7 +324,7 @@ export default function Navigation() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 flex justify-center transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${showNav ? "translate-y-0" : "-translate-y-full"
+      className={`fixed top-0 left-0 w-full z-50 flex justify-center transition-all duration-500 ease-[var(--legacy-ease-0_23_1_0_32_1)] ${showNav ? "translate-y-0" : "-translate-y-full"
         }`}
     >
       <nav className="relative w-full max-w-7xl mx-6 lg:mx-12 mt-2 px-6 lg:px-12 h-[72px] flex items-center justify-between rounded-2xl bg-white/80 backdrop-blur-xl border border-gray-200/60 shadow-[0_4px_24px_rgba(0,0,0,0.06)]">
@@ -406,7 +338,7 @@ export default function Navigation() {
 
         {/* ── DESKTOP ── */}
         <div className="hidden lg:flex items-center gap-1">
-          {menu.map((item) => {
+          {dynamicMenu.map((item) => {
             if (!item.mega) {
               return (
                 <Link
@@ -627,7 +559,7 @@ export default function Navigation() {
               className="fixed top-0 left-0 w-full h-screen bg-white z-40 px-6 pt-24 pb-10 overflow-y-auto lg:hidden"
             >
               <div className="flex flex-col gap-4">
-                {menu.map((item) => (
+                {dynamicMenu.map((item) => (
                   <div key={item.label}>
                     {item.mega ? (
                       <button

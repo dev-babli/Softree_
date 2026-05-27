@@ -7,3 +7,11 @@ export const client = createClient({
   apiVersion,
   useCdn: true,
 });
+
+/** Client without CDN — required for real-time listeners (.listen()) */
+export const liveClient = createClient({
+  projectId,
+  dataset,
+  apiVersion,
+  useCdn: false,
+});

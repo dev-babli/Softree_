@@ -51,7 +51,7 @@ function AwardCard({ award }: { award: typeof AWARDS[0] }) {
   return (
     <div className="home-2-award-card relative flex-shrink-0 w-[280px] md:w-[320px]">
       {/* Award Image */}
-      <div className="relative h-[200px] md:h-[240px] w-full overflow-hidden rounded-t-2xl bg-[#f5f5f5]">
+      <div className="relative h-[200px] md:h-[240px] w-full overflow-hidden rounded-t-2xl bg-[var(--legacy-f5f5f5)]">
         <Image
           src={award.image}
           alt={award.title}
@@ -62,7 +62,7 @@ function AwardCard({ award }: { award: typeof AWARDS[0] }) {
       </div>
 
       {/* Card Shadow / Content */}
-      <div className="award-card-shadow rounded-b-2xl border border-t-0 border-[#e5e5e5] bg-white p-4">
+      <div className="award-card-shadow rounded-b-2xl border border-t-0 border-[var(--legacy-e5e5e5)] bg-white p-4">
         <div className="home-2-award-content-wrapper flex items-center gap-3">
           {/* Icon */}
           <div className="home-2-award-icon-wrapper h-10 w-10 flex-shrink-0 overflow-hidden rounded-lg">
@@ -77,10 +77,10 @@ function AwardCard({ award }: { award: typeof AWARDS[0] }) {
 
           {/* Header */}
           <div className="home-2-award-header-wrapper flex-1 min-w-0">
-            <div className="home-1-award-heading text-sm font-semibold text-[#1a1a1a] truncate leading-tight">
+            <div className="home-1-award-heading text-sm font-semibold text-[var(--legacy-1a1a1a)] truncate leading-tight">
               {award.title}
             </div>
-            <div className="text-xs text-[#666] mt-0.5">
+            <div className="text-xs text-[var(--legacy-666)] mt-0.5">
               {award.subtitle}
             </div>
           </div>
@@ -88,7 +88,7 @@ function AwardCard({ award }: { award: typeof AWARDS[0] }) {
 
         {/* Count Tag */}
         <div className="home-2-award-tag-wrapper mt-3 flex justify-end">
-          <div className="text-base font-bold text-[#1a1a1a]">{award.count}</div>
+          <div className="text-base font-bold text-[var(--legacy-1a1a1a)]">{award.count}</div>
         </div>
       </div>
     </div>
@@ -116,20 +116,20 @@ export default function AwardsMarqueeSection() {
             <div className="flex items-center gap-4 mb-4">
               {/* Tag */}
               <div className="home-2-header-tag-wrapper flex items-center gap-2">
-                <div className="brand-circle h-2 w-2 rounded-full bg-[#ff6b35]" />
-                <div className="section-tag text-xs font-semibold tracking-wider uppercase text-[#666]">
+                <div className="brand-circle h-2 w-2 rounded-full bg-[var(--legacy-ff6b35)]" />
+                <div className="section-tag text-xs font-semibold tracking-wider uppercase text-[var(--legacy-666)]">
                   AWARDS
                 </div>
               </div>
 
               {/* Divider */}
               <div className="section-header-divider-wrapper flex-1">
-                <div className="section-header-divider h-px bg-[#e5e5e5]" />
+                <div className="section-header-divider h-px bg-[var(--legacy-e5e5e5)]" />
               </div>
             </div>
 
             {/* Heading */}
-            <h2 className="section-heading text-[clamp(32px,5vw,56px)] font-bold tracking-tight text-[#1a1a1a]">
+            <h2 className="section-heading text-[clamp(32px,5vw,56px)] font-bold tracking-tight text-[var(--legacy-1a1a1a)]">
               Industry Recognition
             </h2>
           </motion.div>

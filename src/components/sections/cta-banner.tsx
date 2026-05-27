@@ -35,7 +35,7 @@ export default function CTASection() {
   const t = testimonials[index];
 
   return (
-    <section className="relative py-14 px-4 sm:px-6 bg-[#0a0a0a] text-white">
+    <section className="relative py-14 px-4 sm:px-6 bg-[var(--legacy-0a0a0a)] text-white">
       <div className="absolute inset-0" />
 
       {/* 🔥 MAIN CARD */}
@@ -496,7 +496,7 @@ export default function CTASection() {
             </div>
           </div>
           {/* ================= RIGHT ================= */}
-          <div className="bg-[#111111] p-6 md:p-8 w-full rounded-2xl border border-white/8">
+          <div className="bg-[var(--legacy-111111)] p-6 md:p-8 w-full rounded-2xl border border-white/8">
             {/* Header */}
             <div className="flex justify-between items-start mb-6">
               <p className="text-sm text-white/50 leading-relaxed max-w-md">
@@ -555,7 +555,7 @@ export default function CTASection() {
                     type="text"
                     name="first_name"
                     placeholder="Your name"
-                    className="w-full border border-white/10 bg-white/5 focus:bg-white/8 focus:border-[#ff7a2f]/50 rounded-lg px-3 py-2 text-sm text-white placeholder:text-white/30 outline-none transition"
+                    className="w-full border border-white/10 bg-white/5 focus:bg-white/8 focus:border-[var(--legacy-ff7a2f)]/50 rounded-lg px-3 py-2 text-sm text-white placeholder:text-white/30 outline-none transition"
                     required
                   />
                 </div>
@@ -565,7 +565,7 @@ export default function CTASection() {
                     type="text"
                     name="company_name"
                     placeholder="Your company"
-                    className="w-full border border-white/10 bg-white/5 focus:bg-white/8 focus:border-[#ff7a2f]/50 rounded-lg px-3 py-2 text-sm text-white placeholder:text-white/30 outline-none transition"
+                    className="w-full border border-white/10 bg-white/5 focus:bg-white/8 focus:border-[var(--legacy-ff7a2f)]/50 rounded-lg px-3 py-2 text-sm text-white placeholder:text-white/30 outline-none transition"
                     required
                   />
                 </div>
@@ -577,7 +577,7 @@ export default function CTASection() {
                   <label className="text-xs text-white/45">
                     Contact Number
                   </label>
-                  <div className="flex items-center border border-white/10 bg-white/5 focus-within:bg-white/8 focus-within:border-[#ff7a2f]/50 rounded-lg px-3 py-2">
+                  <div className="flex items-center border border-white/10 bg-white/5 focus-within:bg-white/8 focus-within:border-[var(--legacy-ff7a2f)]/50 rounded-lg px-3 py-2">
                     <span className="text-sm text-white/40 mr-2">+91</span>
                     <input
                       type="text"
@@ -597,7 +597,7 @@ export default function CTASection() {
                     type="email"
                     name="work_email"
                     placeholder="you@work.com"
-                    className="w-full border border-white/10 bg-white/5 focus:bg-white/8 focus:border-[#ff7a2f]/50 rounded-lg px-3 py-2 text-sm text-white placeholder:text-white/30 outline-none transition"
+                    className="w-full border border-white/10 bg-white/5 focus:bg-white/8 focus:border-[var(--legacy-ff7a2f)]/50 rounded-lg px-3 py-2 text-sm text-white placeholder:text-white/30 outline-none transition"
                   />
                 </div>
               </div>
@@ -609,13 +609,13 @@ export default function CTASection() {
                   name="message"
                   rows={3}
                   placeholder="Describe your project"
-                  className="w-full border border-white/10 bg-white/5 focus:bg-white/8 focus:border-[#ff7a2f]/50 rounded-lg px-3 py-2 text-sm text-white placeholder:text-white/30 outline-none resize-none transition"
+                  className="w-full border border-white/10 bg-white/5 focus:bg-white/8 focus:border-[var(--legacy-ff7a2f)]/50 rounded-lg px-3 py-2 text-sm text-white placeholder:text-white/30 outline-none resize-none transition"
                   required
                 />
               </div>
 
               {/* Info Box */}
-              <div className="flex items-start gap-3 bg-[#ff7a2f]/8 border border-[#ff7a2f]/15 rounded-lg px-3 py-2">
+              <div className="flex items-start gap-3 bg-[var(--legacy-ff7a2f)]/8 border border-[var(--legacy-ff7a2f)]/15 rounded-lg px-3 py-2">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff7a2f" strokeWidth="2" strokeLinecap="round" className="mt-0.5 shrink-0"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
                 <p className="text-sm text-white/65">
                   Fast 2-minute response. NDA-protected.
@@ -632,7 +632,7 @@ export default function CTASection() {
                   type="text"
                   name="captcha"
                   placeholder="3"
-                  className="w-20 bg-white/5 border border-white/15 rounded-md px-2 py-1 text-sm text-white placeholder:text-white/30 outline-none focus:border-[#ff7a2f]/50 transition"
+                  className="w-20 bg-white/5 border border-white/15 rounded-md px-2 py-1 text-sm text-white placeholder:text-white/30 outline-none focus:border-[var(--legacy-ff7a2f)]/50 transition"
                   required
                 />
               </div>
@@ -684,7 +684,7 @@ export default function CTASection() {
               <button
                 type="submit"
                 disabled={formStatus === "submitting" || formStatus === "success"}
-                className="w-full bg-[#ff7a2f] text-white py-2.5 rounded-full text-sm font-medium hover:bg-[#e56a20] transition-all duration-200 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed"
+                className="w-full bg-[var(--legacy-ff7a2f)] text-white py-2.5 rounded-full text-sm font-medium hover:bg-[var(--legacy-e56a20)] transition-all duration-200 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {formStatus === "submitting" ? "Submitting…" : formStatus === "success" ? "Submitted ✓" : "Submit Request"}
               </button>

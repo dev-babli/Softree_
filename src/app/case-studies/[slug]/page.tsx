@@ -126,7 +126,54 @@ const caseStudyQuery = groq`
   }
 `
 
+const allCaseStudySlugsQuery = groq`
+  *[_type == "caseStudy" && defined(slug.current)][].slug.current
+`
+
 export const dynamic = "force-dynamic"
+
+type PortableTextLike = {
+    _type?: string
+    children?: Array<{ text?: string }>
+}
+
+function asPlainText(value: unknown): string {
+    if (typeof value === "string") return value
+    if (Array.isArray(value)) {
+        return value
+            .map((item) => {
+                if (typeof item === "string") return item
+                if (item && typeof item === "object" && "children" in item) {
+                    const block = item as PortableTextLike
+                    return (block.children || []).map((child) => child?.text || "").join(" ")
+                }
+                return ""
+            })
+            .join(" ")
+            .replace(/\s+/g, " ")
+            .trim()
+    }
+    if (value && typeof value === "object" && "children" in value) {
+        const block = value as PortableTextLike
+        return (block.children || [])
+            .map((child) => child?.text || "")
+            .join(" ")
+            .replace(/\s+/g, " ")
+            .trim()
+    }
+    return ""
+}
+
+function asPortableTextArray(value: unknown): unknown[] {
+    if (Array.isArray(value)) return value
+    if (value && typeof value === "object") return [value]
+    return []
+}
+
+export async function generateStaticParams() {
+    const slugs = await client.fetch<string[]>(allCaseStudySlugsQuery)
+    return slugs.map((slug) => ({ slug }))
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const { slug } = await params
@@ -135,7 +182,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     if (!study) return { title: "Case Study Not Found" }
 
     const title = study.metaTitle || `${study.title} | Case Study`
-    const description = study.metaDescription || study.excerpt || ""
+    const description = study.metaDescription || asPlainText(study.excerpt) || ""
 
     return {
         title,
@@ -162,6 +209,8 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
     if (!study) notFound()
 
     const categoryLabel = CATEGORY_LABELS[study.category] || study.category
+    const excerptText = asPlainText(study.excerpt)
+    const bodyBlocks = asPortableTextArray(study.body)
 
     return (
         <div className="min-h-screen bg-slate-50/50">
@@ -175,7 +224,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
                         "@context": "https://schema.org",
                         "@type": "Article",
                         headline: study.title,
-                        description: study.excerpt,
+                        description: excerptText,
                         url: `https://www.softreetechnology.com/case-studies/${slug}`,
                         author: {
                             "@type": "Organization",
@@ -226,7 +275,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
                     </h1>
 
                     <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed font-light">
-                        {study.excerpt}
+                        {excerptText}
                     </p>
 
                     <div className="flex flex-wrap items-center gap-y-4 gap-x-6 text-sm text-slate-400 border-t border-white/10 pt-6">
@@ -305,7 +354,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
 
                     {/* Body Content */}
                     <article className="prose prose-slate prose-lg md:prose-xl max-w-none prose-headings:font-bold prose-headings:text-slate-900 prose-headings:tracking-tight prose-p:text-slate-700 prose-li:text-slate-700">
-                        {study.body && <PortableText value={study.body} components={portableTextComponents} />}
+                        {bodyBlocks.length > 0 && <PortableText value={bodyBlocks} components={portableTextComponents} />}
                     </article>
 
                     {/* Testimonial */}

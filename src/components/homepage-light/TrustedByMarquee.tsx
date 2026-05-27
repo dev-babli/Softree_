@@ -91,15 +91,15 @@ export function TrustedByMarquee() {
   const doubled = [...logos, ...logos, ...logos, ...logos];
 
   return (
-    <section className="w-full bg-[#f6f6f6] py-10 sm:py-14 md:py-16 overflow-hidden">
+    <section className="w-full bg-[var(--legacy-f6f6f6)] py-10 sm:py-14 md:py-16 overflow-hidden">
       {/* Tag row */}
       <div className="flex items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-10 px-4">
         <div className="h-px flex-1 max-w-[120px] bg-black/10" />
         <div className="flex items-center gap-2 sm:gap-3">
-          <span className="inline-flex items-center rounded-full bg-[#eaeaea] px-3 py-1 sm:px-4 sm:py-1.5">
-            <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-[#111]">Trusted by</span>
+          <span className="inline-flex items-center rounded-full bg-[var(--legacy-eaeaea)] px-3 py-1 sm:px-4 sm:py-1.5">
+            <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-[var(--legacy-111)]">Trusted by</span>
           </span>
-          <span className="inline-flex items-center rounded-full bg-[#1a1a1a] px-3 py-1 sm:px-4 sm:py-1.5">
+          <span className="inline-flex items-center rounded-full bg-[var(--legacy-1a1a1a)] px-3 py-1 sm:px-4 sm:py-1.5">
             <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-white">Industry Giants</span>
           </span>
         </div>
@@ -109,8 +109,8 @@ export function TrustedByMarquee() {
       {/* Marquee */}
       <div className="relative w-full overflow-hidden">
         {/* Fade edges */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 sm:w-24 bg-linear-to-r from-[#f6f6f6] to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 sm:w-24 bg-linear-to-l from-[#f6f6f6] to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 sm:w-24 bg-linear-to-r from-[var(--legacy-f6f6f6)] to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 sm:w-24 bg-linear-to-l from-[var(--legacy-f6f6f6)] to-transparent" />
 
         <div className="flex w-max animate-marquee items-center gap-10 sm:gap-14 md:gap-16">
           {doubled.map((logo, i) => (

@@ -18,8 +18,8 @@ const OffshoreTestimonialsGlobeLazy = dynamic(
   () => import("@/components/sections/OffshoreTestimonialsGlobe"),
   { ssr: false, loading: () => <div className="min-h-[60vh] w-full bg-[#141414]" aria-hidden /> }
 );
-const AiInsightsBlogLazy = dynamic(
-  () => import("@/components/sections/ai-insights-blog"),
+const LatestBlogsClientLazy = dynamic(
+  () => import("@/components/sections/latest-blogs-client"),
   { loading: () => <div className="min-h-[60vh] w-full bg-[#141414]" aria-hidden /> }
 );
 const TechStackSectionLazy = dynamic(
@@ -61,7 +61,7 @@ export default function Home() {
         <FeaturesShowcaseLazy />
         <TrustedBy />
         <OffshoreTestimonialsGlobeLazy />
-        <AiInsightsBlogLazy />
+        <LatestBlogsClientLazy />
         <TechStackSectionLazy />
         <LightServicesStickyListLazy />
         <LightEngagementModelsLazy />
