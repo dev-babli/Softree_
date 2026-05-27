@@ -147,12 +147,7 @@ const menu: MenuItem[] = [
             icon: BrainCircuit, // updated
             description: "Enterprise AI platform",
           },
-          {
-            label: "Legacy Modernization",
-            url: "/services/legacy-application-modernization", // fixed
-            icon: Sparkles, // updated
-            description: "Transform outdated systems with modern architecture and AI-driven enhancements.",
-          },
+
           {
             label: "AI Agents",
             url: "/services/offshore-ai-development", // fixed
@@ -172,6 +167,12 @@ const menu: MenuItem[] = [
         description:
           "Modern digital experiences for connected, productive teams.",
         links: [
+          {
+            label: "Legacy Modernization",
+            url: "/services/legacy-application-modernization", // fixed
+            icon: Sparkles, // updated
+            description: "Transform outdated systems with modern architecture.",
+          },
           {
             label: "SharePoint Online",
             url: "/services/offshore-sharepoint-development",
@@ -366,7 +367,7 @@ const menu: MenuItem[] = [
     url: "/careers",
     icon: Briefcase,
   },
- 
+
 ];
 
 export default function Navigation() {
@@ -469,8 +470,8 @@ export default function Navigation() {
                             <div
                               key={group.title}
                               className={`px-5 py-5 ${idx < item.children!.length - 1
-                                  ? "border-r border-gray-100"
-                                  : ""
+                                ? "border-r border-gray-100"
+                                : ""
                                 }`}
                             >
                               {/* Service Visual - Image at top */}

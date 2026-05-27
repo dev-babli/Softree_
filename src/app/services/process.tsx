@@ -74,7 +74,6 @@ export default function ProcessTimeline() {
     const style = document.createElement("style");
     style.id = styleId;
     style.textContent = `
-      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap');
       @keyframes ptUp {
         from { opacity: 0; transform: translateY(14px); }
         to   { opacity: 1; transform: translateY(0); }
@@ -86,7 +85,6 @@ export default function ProcessTimeline() {
   return (
     <section
       style={{
-        fontFamily: "'DM Sans', sans-serif",
         background: "#09090f",
         padding: "72px 40px 80px",
         position: "relative",
@@ -167,7 +165,6 @@ export default function ProcessTimeline() {
         {/* Heading */}
         <h2
           style={{
-            fontFamily: "'Playfair Display', serif",
             fontSize: "clamp(30px, 4vw, 48px)",
             fontWeight: 900,
             color: "#f0f0f4",
@@ -178,9 +175,15 @@ export default function ProcessTimeline() {
           }}
         >
           Deliver{" "}
-          <em style={{ fontStyle: "italic", fontWeight: 400, color: "#888899" }}>
+          <span style={{
+            fontStyle: "normal",
+            background: "linear-gradient(135deg, #ff8f3d 0%, #f97316 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            fontWeight: 900
+          }}>
             exceptional
-          </em>{" "}
+          </span>{" "}
           quality
           <br />
           that{" "}
@@ -276,7 +279,6 @@ function StepCard({
         {/* Number */}
         <span
           style={{
-            fontFamily: "'Playfair Display', serif",
             fontSize: "11px",
             fontWeight: 700,
             color: "#f97316",
@@ -294,7 +296,6 @@ function StepCard({
       {/* Title */}
       <h3
         style={{
-          fontFamily: "'Playfair Display', serif",
           fontSize: "14px",
           fontWeight: 700,
           color: "#c8c8d8",

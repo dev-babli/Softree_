@@ -46,11 +46,11 @@ const ASSETS = {
       "https://cdn.prod.website-files.com/69a0a45220c8336fe957ccba%2F69d2095642a31660d0b048ee_Video%202_poster.0000000.jpg",
   },
   services: [
-    { n: "01", label: "AI & Automation", href: "/services/ai-intelligence", img: "/whysoftree/ai.webp" },
-    { n: "02", label: "Web Development", href: "/services/digital-workspace/web-app-development", img: "/whysoftree/web dev.webp" },
-    { n: "03", label: "Microsoft Solutions", href: "/services/business-applications/power-apps", img: "/whysoftree/Micorosft.webp" },
-    { n: "04", label: "Data & Analytics", href: "/services/data-analytics/power-bi", img: "/whysoftree/data.webp" },
-    { n: "05", label: "Digital Workspace", href: "/services/digital-workspace/sharepoint", img: "/whysoftree/web.webp" },
+    { n: "01", label: "AI & Automation", href: "/services/offshore-ai-developemnt", img: "/whysoftree/ai.png" },
+    { n: "02", label: "Web Development", href: "/services/offshore-web-app-development", img: "/whysoftree/modern.png" },
+    { n: "03", label: "Microsoft Solutions", href: "/services/offshore-power-platform-development", img: "/whysoftree/powe-pltform.png" },
+    { n: "04", label: "Data & Analytics", href: "/services/offshore-data-analytics", img: "/whysoftree/data-analytics.jpg" },
+    { n: "05", label: "SharePoint", href: "/services/offshore-sharepoint-developemnt", img: "/whysoftree/sp.png" },
   ],
 }
 
@@ -407,6 +407,21 @@ export default function AvooraHero() {
   )
   return (
     <section ref={containerRef} className="relative isolate w-full overflow-hidden bg-white">
+      <style>{`
+        @keyframes avooraMarquee {
+          0% { transform: translate3d(0, 0, 0); }
+          100% { transform: translate3d(-50%, 0, 0); }
+        }
+        .avoora-marquee-track {
+          display: flex;
+          width: max-content;
+          will-change: transform;
+          animation: avooraMarquee 45s linear infinite;
+        }
+        .avoora-marquee-track:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
       <div className="mx-auto w-full max-w-[1440px] px-4 pt-6 pb-12 md:pb-16 sm:px-5 sm:pt-8 md:px-8 md:pt-10 lg:px-10 lg:pt-12 xl:pt-14">
         {/* ═══════════════════════════════════════════════════════════
              1) TOP HEADER ROW
@@ -574,11 +589,7 @@ export default function AvooraHero() {
             style={{ background: "linear-gradient(270deg, #fff 0%, transparent 100%)" }}
           />
 
-          <motion.div
-            className="flex min-w-max items-center gap-4 sm:gap-6"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-          >
+          <div className="avoora-marquee-track flex min-w-max items-center gap-4 sm:gap-6">
             {[...Array(2)].map((_, setIdx) => (
               <div key={setIdx} className="flex items-center gap-4 sm:gap-6">
                 {ASSETS.services.map((s, i) => (
@@ -588,7 +599,7 @@ export default function AvooraHero() {
                 ))}
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

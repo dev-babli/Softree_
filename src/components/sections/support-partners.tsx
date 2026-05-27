@@ -295,6 +295,122 @@ function drawAI(ctx: CanvasRenderingContext2D, w: number, h: number, t: number) 
   }
 }
 
+function drawTestAutomation(ctx: CanvasRenderingContext2D, w: number, h: number, t: number) {
+  // ── Pipeline stages ──────────────────────────────────────────────────────────
+  const stages = ["commit", "build", "test", "deploy"];
+  const stageCount = stages.length;
+  const stageW = w / stageCount;
+  const pipeY = h * 0.38;
+  const nodeR = 5;
+
+  // Connector track
+  ctx.beginPath();
+  ctx.moveTo(stageW * 0.5, pipeY);
+  ctx.lineTo(stageW * (stageCount - 0.5), pipeY);
+  ctx.strokeStyle = "rgba(255,122,47,0.12)";
+  ctx.lineWidth = 1;
+  ctx.stroke();
+
+  // Animated packet travelling the pipeline
+  const packetPos = ((t * 0.008) % 1) * (stageCount - 1);
+  const packetX = stageW * 0.5 + packetPos * stageW;
+  ctx.beginPath();
+  ctx.arc(packetX, pipeY, 2.5, 0, Math.PI * 2);
+  ctx.fillStyle = "#FF7A2F";
+  ctx.fill();
+
+  // Stage nodes
+  for (let i = 0; i < stageCount; i++) {
+    const cx = stageW * (i + 0.5);
+    const pulse = (Math.sin(t * 0.05 + i * 1.6) + 1) / 2;
+    const isActive = Math.abs(packetPos - i) < 0.5;
+
+    // Outer ring when active
+    if (isActive) {
+      ctx.beginPath();
+      ctx.arc(cx, pipeY, nodeR + 4 + pulse * 3, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(255,122,47,${0.15 + pulse * 0.15})`;
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+
+    ctx.beginPath();
+    ctx.arc(cx, pipeY, nodeR, 0, Math.PI * 2);
+    ctx.fillStyle = isActive
+      ? `rgba(255,122,47,${0.5 + pulse * 0.4})`
+      : "rgba(255,122,47,0.2)";
+    ctx.fill();
+    ctx.strokeStyle = `rgba(255,122,47,${isActive ? 0.8 : 0.25})`;
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+
+  // ── Floating test result rows ─────────────────────────────────────────────
+  const tests = [
+    { label: "auth.login", pass: true,  col: 0 },
+    { label: "api.GET",    pass: true,  col: 0 },
+    { label: "db.write",   pass: false, col: 1 },
+    { label: "ui.render",  pass: true,  col: 1 },
+    { label: "e2e.flow",   pass: true,  col: 2 },
+    { label: "rate.limit", pass: true,  col: 2 },
+  ];
+
+  const colX   = [w * 0.08, w * 0.42, w * 0.68];
+  const rowStart = pipeY + 28;
+  const rowGap   = 18;
+
+  const rowsPerCol: number[] = [0, 0, 0];
+
+  tests.forEach((test) => {
+    const row  = rowsPerCol[test.col]++;
+    const tx   = colX[test.col];
+    const ty   = rowStart + row * rowGap;
+    const blink = (Math.sin(t * 0.07 + test.label.length * 0.4) + 1) / 2;
+
+    // Status dot
+    const dotColor = test.pass
+      ? `rgba(74,222,128,${0.55 + blink * 0.35})`
+      : `rgba(248,113,113,${0.55 + blink * 0.35})`;
+    ctx.beginPath();
+    ctx.arc(tx, ty, 2.5, 0, Math.PI * 2);
+    ctx.fillStyle = dotColor;
+    ctx.fill();
+
+    // Label — monospace feel via measured spacing
+    ctx.font = `10px monospace`;
+    ctx.fillStyle = `rgba(255,255,255,${test.pass ? 0.25 : 0.45})`;
+    ctx.fillText(test.label, tx + 8, ty + 3.5);
+  });
+
+  // ── Coverage arc (bottom-right) ───────────────────────────────────────────
+  const arcCX  = w * 0.82;
+  const arcCY  = h * 0.72;
+  const arcR   = Math.min(w, h) * 0.1;
+  const pct    = 0.84 + Math.sin(t * 0.02) * 0.04;
+  const startA = -Math.PI / 2;
+  const endA   = startA + Math.PI * 2 * pct;
+
+  ctx.beginPath();
+  ctx.arc(arcCX, arcCY, arcR, 0, Math.PI * 2);
+  ctx.strokeStyle = "rgba(255,122,47,0.1)";
+  ctx.lineWidth = 3;
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.arc(arcCX, arcCY, arcR, startA, endA);
+  ctx.strokeStyle = `rgba(255,122,47,${0.45 + Math.sin(t * 0.04) * 0.15})`;
+  ctx.lineWidth = 3;
+  ctx.lineCap = "round";
+  ctx.stroke();
+  ctx.lineCap = "butt";
+
+  ctx.font = "bold 10px monospace";
+  ctx.fillStyle = "rgba(255,122,47,0.55)";
+  ctx.textAlign = "center";
+  ctx.fillText(`${Math.round(pct * 100)}%`, arcCX, arcCY + 3.5);
+  ctx.textAlign = "left";
+}
+
 function drawWorkspace(ctx: CanvasRenderingContext2D, w: number, h: number, t: number) {
   const cx = w / 2, cy = h / 2;
   ctx.strokeStyle = "rgba(255,122,47,0.18)";
@@ -315,6 +431,131 @@ function drawWorkspace(ctx: CanvasRenderingContext2D, w: number, h: number, t: n
   ctx.font = `bold ${fs}px monospace`;
   ctx.fillStyle = "rgba(255,122,47,0.25)";
   ctx.fillText("</>", cx + w * 0.08 + Math.sin(t * 0.03) * 4, cy - h * 0.06);
+}
+
+function drawLegacyModernization(ctx: CanvasRenderingContext2D, w: number, h: number, t: number) {
+  const cycleDur = 520;
+  const prog = (t % cycleDur) / cycleDur;
+
+  // ── LEFT: Monolith (fades + cracks as prog advances) ─────────────────────
+  const monoX = w * 0.08, monoY = h * 0.18;
+  const monoW = w * 0.22, monoH = h * 0.62;
+  const monoAlpha = Math.max(0, 1 - prog * 2.2);
+  const crackProg = Math.min(1, prog * 2.5);
+
+  ctx.fillStyle = `rgba(255,122,47,${0.07 * monoAlpha})`;
+  ctx.fillRect(monoX, monoY, monoW, monoH);
+  ctx.strokeStyle = `rgba(255,122,47,${0.3 * monoAlpha})`;
+  ctx.lineWidth = 1;
+  ctx.strokeRect(monoX, monoY, monoW, monoH);
+
+  for (let i = 1; i < 4; i++) {
+    const ly = monoY + (monoH / 4) * i;
+    ctx.beginPath();
+    ctx.moveTo(monoX + 4, ly);
+    ctx.lineTo(monoX + monoW - 4, ly);
+    ctx.strokeStyle = `rgba(255,122,47,${0.15 * monoAlpha})`;
+    ctx.lineWidth = 0.5;
+    ctx.stroke();
+  }
+
+  if (crackProg > 0.1) {
+    const cracks: [number, number, number, number][] = [
+      [0.5, 0.3, 0.2, 0.0], [0.5, 0.3, 0.8, 0.1],
+      [0.5, 0.6, 0.15, 1.0], [0.5, 0.6, 0.85, 0.95],
+      [0.5, 0.45, 0.0, 0.5],
+    ];
+    cracks.forEach(([x1r, y1r, x2r, y2r]) => {
+      const x1 = monoX + x1r * monoW, y1 = monoY + y1r * monoH;
+      const x2 = monoX + x2r * monoW, y2 = monoY + y2r * monoH;
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x1 + (x2 - x1) * crackProg, y1 + (y2 - y1) * crackProg);
+      ctx.strokeStyle = `rgba(248,113,113,${0.55 * monoAlpha * crackProg})`;
+      ctx.lineWidth = 0.75;
+      ctx.stroke();
+    });
+  }
+
+  ctx.font = "9px monospace";
+  ctx.fillStyle = `rgba(255,122,47,${0.4 * monoAlpha})`;
+  ctx.textAlign = "center";
+  ctx.fillText("monolith", monoX + monoW / 2, monoY + monoH + 12);
+  ctx.textAlign = "left";
+
+  // ── CENTRE: Particle migration stream ────────────────────────────────────
+  const arrowX0 = monoX + monoW + 8;
+  const arrowX1 = w * 0.68 - 8;
+  const arrowMidY = h * 0.5;
+  const arrowAlpha = Math.min(1, prog * 3) * Math.min(1, (1 - prog) * 8);
+
+  ctx.beginPath();
+  ctx.moveTo(arrowX0, arrowMidY);
+  ctx.lineTo(arrowX1, arrowMidY);
+  ctx.strokeStyle = `rgba(255,122,47,${0.12 * arrowAlpha})`;
+  ctx.lineWidth = 1;
+  ctx.setLineDash([4, 4]);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  for (let p = 0; p < 5; p++) {
+    const offset = ((prog * 3 + p * 0.2) % 1);
+    const px = arrowX0 + (arrowX1 - arrowX0) * offset;
+    const jitter = Math.sin(p * 2.4 + t * 0.08) * 4;
+    ctx.beginPath();
+    ctx.arc(px, arrowMidY + jitter, 1.8, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255,122,47,${0.55 * arrowAlpha})`;
+    ctx.fill();
+  }
+
+  // ── RIGHT: Microservices cloud (appears progressively) ───────────────────
+  const servicesList = [
+    { label: "auth",    rx: 0.72, ry: 0.18 },
+    { label: "api",     rx: 0.88, ry: 0.28 },
+    { label: "billing", rx: 0.70, ry: 0.44 },
+    { label: "storage", rx: 0.86, ry: 0.55 },
+    { label: "worker",  rx: 0.74, ry: 0.68 },
+    { label: "gateway", rx: 0.90, ry: 0.75 },
+  ];
+
+  const connections = [
+    [0, 1], [0, 2], [1, 3], [2, 3], [2, 4], [3, 5], [4, 5]
+  ];
+
+  connections.forEach(([fromIdx, toIdx]) => {
+    const fromS = servicesList[fromIdx];
+    const toS = servicesList[toIdx];
+    const sAlpha = Math.min(1, Math.max(0, (prog - 0.2) * 1.8));
+
+    ctx.beginPath();
+    ctx.moveTo(fromS.rx * w, fromS.ry * h);
+    ctx.lineTo(toS.rx * w, toS.ry * h);
+    ctx.strokeStyle = `rgba(255,122,47,${0.08 * sAlpha})`;
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  });
+
+  servicesList.forEach((s) => {
+    const sx = s.rx * w;
+    const sy = s.ry * h;
+    const sAlpha = Math.min(1, Math.max(0, (prog - 0.15) * 1.8));
+    const pulse = (Math.sin(t * 0.06 + s.label.length) + 1) / 2;
+
+    ctx.beginPath();
+    ctx.arc(sx, sy, 3, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255,122,47,${(0.55 + pulse * 0.35) * sAlpha})`;
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(sx, sy, 5.5 + pulse * 2.5, 0, Math.PI * 2);
+    ctx.strokeStyle = `rgba(255,122,47,${0.18 * sAlpha})`;
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    ctx.font = "9px monospace";
+    ctx.fillStyle = `rgba(255,255,255,${0.35 * sAlpha})`;
+    ctx.fillText(s.label, sx + 8, sy + 3);
+  });
 }
 
 const services = [
@@ -379,6 +620,37 @@ const services = [
       </svg>
     ),
   },
+  {
+    badge: "AI Automation",
+    title: "AI Powered Test Automation",
+    desc: "Accelerating release cycles and software quality using intelligent automated test suites.",
+    tech: ["Selenium", "Playwright", "CI/CD Integration", "Visual AI Testing"],
+    partner: "Achieve continuous quality with modern AI testing workflows.",
+    deco: "test",
+    href: "/services/ai-powered-test-automation",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff7a2f" strokeWidth="1.5" strokeLinecap="round">
+        <circle cx="12" cy="12" r="10" />
+        <polyline points="12 6 12 12 16 14" />
+      </svg>
+    ),
+  },
+  {
+    badge: "Legacy",
+    title: "Legacy Application Modernization",
+    desc: "Transforming outdated monolithic architectures into secure, scalable, cloud-native systems.",
+    tech: ["Microservices", "Cloud Migration", "API Refactoring", "System Rewrites"],
+    partner: "Safely de-risk and rebuild systems for modern scale.",
+    deco: "legacy",
+    href: "/services/legacy-application-modernization",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff7a2f" strokeWidth="1.5" strokeLinecap="round">
+        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+        <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+        <line x1="12" y1="22.08" x2="12" y2="12" />
+      </svg>
+    ),
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -397,6 +669,8 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       case "dots": return drawPowerPlatform;
       case "bars": return drawDataBI;
       case "circles": return drawAI;
+      case "test": return drawTestAutomation;
+      case "legacy": return drawLegacyModernization;
       case "code": return drawWorkspace;
       default: return drawPowerPlatform;
     }
@@ -619,14 +893,14 @@ export default function CoreEngineeringServices() {
             Core Engineering Services
           </h2>
           <p className="text-[15px] text-white/45 max-w-[500px] leading-relaxed">
-            Four verticals, one delivery standard. Enterprise-grade engineering across Microsoft and modern web stacks.
+            Six verticals, one delivery standard. Enterprise-grade engineering across Microsoft and modern web stacks.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 border border-white/8 rounded-2xl overflow-hidden" style={{ perspective: "1000px" }}>
           {services.map((service, idx) => (
             <div key={service.title}
-              className={`${idx === 0 ? "md:border-r border-b border-white/8" : ""} ${idx === 1 ? "border-b border-white/8" : ""} ${idx === 2 ? "md:border-r border-b md:border-b-0 border-white/8" : ""}`}>
+              className={`border-white/8 border-b ${idx === 5 ? "border-b-0" : ""} ${idx >= 4 ? "md:border-b-0" : ""} ${idx % 2 === 0 ? "md:border-r" : ""}`}>
               <ServiceCard service={service} index={idx} />
             </div>
           ))}

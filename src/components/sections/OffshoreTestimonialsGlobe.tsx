@@ -138,7 +138,6 @@ export default function OffshoreTestimonialsGlobe({ variant = "dark" }: Offshore
   const activeRef = useRef(0);
   const reduceMotion = useReducedMotion();
   const [canvasSize, setCanvasSize] = useState(600);
-  const [currentPhi, setCurrentPhi] = useState(0);
 
   useEffect(() => { activeRef.current = active; }, [active]);
 
@@ -179,7 +178,6 @@ export default function OffshoreTestimonialsGlobe({ variant = "dark" }: Offshore
         state.width = width;
         state.height = width;
         state.markers = buildMarkers(activeRef.current);
-        setCurrentPhi(state.phi);
       },
     });
 

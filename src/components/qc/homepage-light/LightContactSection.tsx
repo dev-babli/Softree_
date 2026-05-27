@@ -194,13 +194,13 @@ export default function LightContactSection() {
           transition={{ duration: 0.85, ease: EASE, delay: 0.05 }}
           className="overflow-hidden rounded-[8px] bg-[#09090d] text-white shadow-[0_34px_100px_-50px_rgba(0,0,0,0.75)]"
         >
-          <div className="grid md:min-h-[500px] grid-cols-1 md:grid-cols-[0.32fr_1.12fr_1fr]">
-            <aside className="flex flex-col justify-between border-b border-white/10 p-5 sm:p-6 md:border-b-0 md:border-r">
+          <div className="grid lg:min-h-[420px] grid-cols-1 lg:grid-cols-[0.32fr_1.12fr_1fr]">
+            <aside className="flex flex-col justify-between border-b border-white/10 p-4 sm:p-5 lg:border-b-0 lg:border-r">
               <div>
                 <p className="text-[13px] font-semibold tracking-[-0.01em] text-white">
                   Follow us
                 </p>
-                <div className="mt-5 flex flex-wrap gap-3 md:flex-col">
+                <div className="mt-5 flex flex-wrap gap-3 lg:flex-col">
                   <SocialIcon href="https://www.instagram.com/" label="Instagram">
                     <InstagramIcon />
                   </SocialIcon>
@@ -216,12 +216,12 @@ export default function LightContactSection() {
                 </div>
               </div>
 
-              <div className="mt-10 hidden h-px w-full bg-white/10 md:block" />
+              <div className="mt-10 hidden h-px w-full bg-white/10 lg:block" />
             </aside>
 
-            <div className="flex flex-col justify-between gap-8 border-b border-white/10 p-5 sm:p-6 md:border-b-0 md:border-r">
-              <div className="grid gap-6 xl:grid-cols-[0.86fr_1fr]">
-                <div className="relative min-h-[140px] sm:min-h-[180px] md:min-h-[240px] overflow-hidden rounded-[6px] bg-white/8">
+            <div className="flex flex-col justify-between gap-5 border-b border-white/10 p-4 sm:p-5 lg:border-b-0 lg:border-r">
+              <div className="grid gap-4 xl:grid-cols-[0.86fr_1fr]">
+                <div className="relative min-h-[100px] sm:min-h-[120px] md:min-h-[160px] overflow-hidden rounded-[6px] bg-white/8">
                   <Image
                     src="https://cdn.prod.website-files.com/69a0a45220c8336fe957ccba/69ce260749d7110937223c7f_CTA%20Picture.webp"
                     alt="Person wearing a white hooded jacket and virtual reality headset against a shimmering abstract background."
@@ -239,11 +239,11 @@ export default function LightContactSection() {
                   <p className="text-[18px] font-medium tracking-[-0.02em]">
                     What we offer
                   </p>
-                  <div className="mt-5 flex flex-col gap-2">
+                  <div className="mt-4 flex flex-col gap-2">
                     {services.map((service) => (
                       <div
                         key={service}
-                        className="group flex items-center gap-3 border-b border-white/10 py-3"
+                        className="group flex items-center gap-3 border-b border-white/10 py-2"
                       >
                         <span className="h-2 w-2 rounded-full bg-[#ff5812] transition-transform duration-300 group-hover:scale-[1.45]" />
                         <span className="text-sm leading-none text-white/72 transition-colors group-hover:text-white">
@@ -255,7 +255,7 @@ export default function LightContactSection() {
                 </div>
               </div>
 
-              <div className="grid gap-4 border-t border-white/10 pt-6 sm:grid-cols-2">
+              <div className="grid gap-3 border-t border-white/10 pt-4 sm:grid-cols-2">
                 <div>
                   <p className="text-[18px] font-medium tracking-[-0.02em]">
                     E-Mail
@@ -280,7 +280,7 @@ export default function LightContactSection() {
               </div>
             </div>
 
-            <div className="flex flex-col p-5 sm:p-6">
+            <div className="flex flex-col p-4 sm:p-5">
               <div>
                 <p className="text-[18px] font-medium tracking-[-0.02em]">
                   Got a question, challenge, or idea?
@@ -290,7 +290,7 @@ export default function LightContactSection() {
                 </p>
               </div>
 
-              <div className="my-5 sm:my-7 h-px w-full bg-white/10" />
+              <div className="my-4 sm:my-5 h-px w-full bg-white/10" />
 
               <form
                 ref={formRef}
@@ -298,9 +298,9 @@ export default function LightContactSection() {
                 name="email-form"
                 aria-label="Contact Form"
                 onSubmit={handleSubmit}
-                className="flex flex-1 flex-col justify-between"
+                className="flex flex-1 flex-col justify-start gap-8"
               >
-                <div className="grid gap-4 sm:gap-5">
+                <div className="flex flex-col gap-5 sm:gap-6">
                   <Field id="CTA-Name" name="name" placeholder="Full Name" autoComplete="name" />
                   <Field id="email" name="email" type="email" placeholder="E-Mail" required autoComplete="email" />
                   <Field id="company-name" name="company" placeholder="Company Name" autoComplete="organization" />
