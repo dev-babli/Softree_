@@ -34,28 +34,26 @@ export default function AIDrivenSharePointMigration() {
   ];
 
   return (
-    <section className="py-24 sm:py-32">
+    <section className="py-16">
       <div className="max-w-7xl mx-auto px-6">
         {/* Heading */}
         <div className="mb-3 max-w-4xl px-4">
           {/* Eyebrow */}
           <span
             className="
-      inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full
-      text-xs font-semibold tracking-wider uppercase
-      bg-blue-50 text-blue-600 border border-blue-100
-    "
+              inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full
+              text-xs font-semibold tracking-wider uppercase
+              bg-orange-50 text-orange-600 border border-orange-100
+            "
           >
             Intelligent Migration Comparison
           </span>
 
           {/* Title */}
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-900 leading-tight tracking-tight">
-            Why AI-Driven SharePoint Migration
+            Why <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent font-semibold">AI-Driven SharePoint</span> Migration
             <br />
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent font-semibold">
-              Outperforms Traditional Approaches
-            </span>
+            Outperforms Traditional Approaches
           </h2>
 
           {/* Description */}
@@ -68,7 +66,7 @@ export default function AIDrivenSharePointMigration() {
         </div>
 
         {/* Table Card */}
-        <div className="relative rounded-3xl border border-white/10 bg-gradient-to-r from-black via-[#0f2f7a] to-black">
+        <div className="relative rounded-3xl border border-white/10 bg-gradient-to-r from-black via-[#4c1c02] to-black">
           <div className="overflow-x-auto relative">
             <table className="w-full border-collapse">
               <thead>
@@ -108,7 +106,7 @@ export default function AIDrivenSharePointMigration() {
                     {/* AI */}
                     <td className="px-8 py-6 text-gray-200 bg-white/[0.07]">
                       <div className="flex items-start gap-3">
-                        <Check className="w-4 h-4 text-blue-400 mt-1 shrink-0" />
+                        <Check className="w-4 h-4 text-orange-400 mt-1 shrink-0" />
                         <span>{row.ai}</span>
                       </div>
                     </td>

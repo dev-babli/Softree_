@@ -45,18 +45,18 @@ export default function SharePointMigrationProcess() {
   ];
 
   return (
-    <section className="relative py-24 sm:py-32 overflow-hidden">
+    <section className="relative py-16 overflow-hidden">
       <div className="container mx-auto px-6">
         {/* Heading */}
-        <div className="text-center max-w-5xl mx-auto mb-24 px-4">
+        <div className="text-center max-w-5xl mx-auto mb-16 px-4">
           {/* Eyebrow badge */}
-          <span className="inline-block mb-4 px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold tracking-widest uppercase border border-blue-400/20">
+          <span className="inline-block mb-4 px-4 py-1.5 rounded-full bg-orange-500/10 text-orange-400 text-xs font-semibold tracking-widest uppercase border border-orange-400/20">
             Migration Services
           </span>
 
           {/* Title */}
-          <h2 className="text-4xl lg:text-5xl font-semibold tracking-tight bg-gradient-to-r from-blue-600 to-indigo-400 bg-clip-text text-transparent">
-            Our SharePoint Migration Services
+          <h2 className="text-4xl lg:text-5xl font-semibold tracking-tight text-gray-900">
+            Our <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">SharePoint Migration</span> Services
           </h2>
 
           {/* Description */}
@@ -76,42 +76,42 @@ export default function SharePointMigrationProcess() {
               <div
                 key={index}
                 className="
-          relative group rounded-3xl p-[1px]
-       bg-gradient-to-r from-black via-[#0f2f7a] to-black
-          overflow-hidden
-        "
+                  relative group rounded-3xl p-[1px]
+                  bg-gradient-to-r from-black via-[#4c1c02] to-black
+                  overflow-hidden
+                "
               >
                 <div
                   className="
-            relative h-full rounded-3xl p-8 overflow-hidden
-         bg-gradient-to-r from-black via-[#0f2f7a] to-black
-            border-b-4 border-white/10
-          "
+                    relative h-full rounded-3xl p-8 overflow-hidden
+                    bg-gradient-to-r from-black via-[#4c1c02] to-black
+                    border-b-4 border-white/10
+                  "
                 >
                   {/* Hover Background Animation */}
                   <div
                     className="
-              absolute inset-0 z-0
-              bg-gradient-to-t from-blue-500/40 via-purple-500/30 to-transparent
-              translate-y-full
-              group-hover:translate-y-0
-              transition-transform duration-700 ease-out
-            "
+                      absolute inset-0 z-0
+                      bg-gradient-to-t from-orange-500/40 via-amber-500/30 to-transparent
+                      translate-y-full
+                      group-hover:translate-y-0
+                      transition-transform duration-700 ease-out
+                    "
                   />
 
                   {/* Content */}
                   <div className="relative z-10">
                     {/* Step Number */}
-                    <span className="text-sm font-semibold text-blue-400">
+                    <span className="text-sm font-semibold text-orange-400">
                       {step.step}
                     </span>
 
                     {/* Icon */}
                     <div
                       className="
-                mt-6 w-18 h-18 flex items-center justify-center rounded-2xl
-                bg-gradient-to-br from-blue-400 to-purple-500 shadow-xl
-              "
+                        mt-6 w-18 h-18 flex items-center justify-center rounded-2xl
+                        bg-gradient-to-br from-orange-400 to-amber-500 shadow-xl
+                      "
                     >
                       <img
                         src={step.icon}

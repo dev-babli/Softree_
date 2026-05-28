@@ -54,6 +54,28 @@ const REVIEWS: Review[] = [
     comment:
       "SOFTREE staff worked with us to learn our installation automation technology and built exactly what we needed.",
   },
+  {
+    name: "Asif Mohamed",
+    company: "Adiva Information Technology LLC",
+    rating: 5,
+    location: "UAE",
+    tag: "UAE",
+    country: "UAE",
+    coords: [24.4539, 54.3773],
+    comment:
+      "A trusted technology solutions provider with strong expertise in security, compliance, and enterprise delivery.",
+  },
+  {
+    name: "Rahi Radhakrishnan",
+    company: "Nuvento",
+    rating: 5,
+    location: "Texas, USA",
+    tag: "Texas",
+    country: "United States",
+    coords: [31.9686, -99.9018],
+    comment:
+      "Softree demonstrated strong expertise in PowerApps development and delivered the project with excellent communication, responsiveness, and coordination throughout the engagement.",
+  },
 ];
 
 /* Softree HQ — Cuttack, Odisha, India */
@@ -221,15 +243,14 @@ export default function OffshoreTestimonialsGlobe({ variant = "dark" }: Offshore
   const activeReview = useMemo(() => REVIEWS[active], [active]);
 
   const accentColor = variant === "dark" ? "#ff7a2f" : "#1852FF";
-  const accentBg    = variant === "dark" ? "rgba(255,122,47,0.12)" : "rgba(24,82,255,0.1)";
+  const accentBg = variant === "dark" ? "rgba(255,122,47,0.12)" : "rgba(24,82,255,0.1)";
   const accentBorder = variant === "dark" ? "rgba(255,122,47,0.25)" : "rgba(24,82,255,0.25)";
 
   return (
     <section
       aria-labelledby="offshore-heading"
-      className={`relative w-full overflow-hidden py-20 sm:py-24 ${
-        variant === "dark" ? "bg-[#0a0a0a] text-white" : "bg-[#F8F9FC] text-[#0a0a1a]"
-      }`}
+      className={`relative w-full overflow-hidden py-20 sm:py-24 ${variant === "dark" ? "bg-[#0a0a0a] text-white" : "bg-[#F8F9FC] text-[#0a0a1a]"
+        }`}
     >
       {/* Ambient wash */}
       <div
@@ -270,10 +291,10 @@ export default function OffshoreTestimonialsGlobe({ variant = "dark" }: Offshore
             id="offshore-heading"
             className={`mt-4 text-4xl font-bold ${variant === "dark" ? "text-white" : "text-[#0a0a1a]"}`}
           >
-            Trusted across three continents
+            Trusted by growing businesses across the globe
           </h2>
           <p className={`mt-4 text-base leading-relaxed ${variant === "dark" ? "text-white/70" : "text-[#0a0a1a]/70"}`}>
-            From Virginia to Amsterdam to the Bay Area — real teams, real ship-dates, written in their own words.
+            We collaborate with businesses worldwide to build scalable, modern, and impactful technology experiences.
           </p>
         </motion.header>
 
@@ -292,15 +313,13 @@ export default function OffshoreTestimonialsGlobe({ variant = "dark" }: Offshore
               {/* Guide rings */}
               <div
                 aria-hidden
-                className={`pointer-events-none absolute inset-[12%] rounded-full border ${
-                  variant === "dark" ? "border-white/[0.04]" : "border-[#0a0a1a]/[0.04]"
-                }`}
+                className={`pointer-events-none absolute inset-[12%] rounded-full border ${variant === "dark" ? "border-white/[0.04]" : "border-[#0a0a1a]/[0.04]"
+                  }`}
               />
               <div
                 aria-hidden
-                className={`pointer-events-none absolute inset-[22%] rounded-full border ${
-                  variant === "dark" ? "border-white/[0.06]" : "border-[#0a0a1a]/[0.06]"
-                }`}
+                className={`pointer-events-none absolute inset-[22%] rounded-full border ${variant === "dark" ? "border-white/[0.06]" : "border-[#0a0a1a]/[0.06]"
+                  }`}
               />
 
               {/* Globe wrapper */}
@@ -324,11 +343,10 @@ export default function OffshoreTestimonialsGlobe({ variant = "dark" }: Offshore
 
                 {/* HQ label */}
                 <div
-                  className={`pointer-events-none absolute bottom-3 left-3 flex items-center gap-2 rounded-full px-3 py-1.5 backdrop-blur-sm ${
-                    variant === "dark"
-                      ? "bg-white/5 border border-white/10"
-                      : "bg-white border border-[#0a0a1a]/10 shadow-lg"
-                  }`}
+                  className={`pointer-events-none absolute bottom-3 left-3 flex items-center gap-2 rounded-full px-3 py-1.5 backdrop-blur-sm ${variant === "dark"
+                    ? "bg-white/5 border border-white/10"
+                    : "bg-white border border-[#0a0a1a]/10 shadow-lg"
+                    }`}
                 >
                   <span
                     className="block h-1.5 w-1.5 rounded-full"
@@ -338,9 +356,8 @@ export default function OffshoreTestimonialsGlobe({ variant = "dark" }: Offshore
                     }}
                   />
                   <span
-                    className={`text-[10px] font-semibold uppercase tracking-[0.22em] ${
-                      variant === "dark" ? "text-white/70" : "text-[#0a0a1a]/70"
-                    }`}
+                    className={`text-[10px] font-semibold uppercase tracking-[0.22em] ${variant === "dark" ? "text-white/70" : "text-[#0a0a1a]/70"
+                      }`}
                   >
                     HQ · Cuttack, INDIA
                   </span>
@@ -361,15 +378,15 @@ export default function OffshoreTestimonialsGlobe({ variant = "dark" }: Offshore
                     className="group relative inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-[11px] font-semibold uppercase tracking-widest transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)]"
                     style={{
                       borderColor: isActive ? accentBorder : variant === "dark" ? "rgba(255,255,255,0.1)" : "rgba(10,10,26,0.1)",
-                      background:  isActive ? accentBg    : variant === "dark" ? "rgba(255,255,255,0.05)" : "#fff",
-                      color:       isActive ? accentColor : variant === "dark" ? "rgba(255,255,255,0.6)"  : "rgba(10,10,26,0.6)",
+                      background: isActive ? accentBg : variant === "dark" ? "rgba(255,255,255,0.05)" : "#fff",
+                      color: isActive ? accentColor : variant === "dark" ? "rgba(255,255,255,0.6)" : "rgba(10,10,26,0.6)",
                     }}
                   >
                     <span
                       className="block h-1.5 w-1.5 rounded-full transition-all"
                       style={{
-                        background:  isActive ? accentColor : variant === "dark" ? "rgba(255,255,255,0.3)" : "rgba(10,10,26,0.3)",
-                        boxShadow:   isActive ? `0 0 10px 2px ${accentColor}99` : "none",
+                        background: isActive ? accentColor : variant === "dark" ? "rgba(255,255,255,0.3)" : "rgba(10,10,26,0.3)",
+                        boxShadow: isActive ? `0 0 10px 2px ${accentColor}99` : "none",
                       }}
                     />
                     {r.tag}
@@ -382,11 +399,10 @@ export default function OffshoreTestimonialsGlobe({ variant = "dark" }: Offshore
           {/* Quote column */}
           <div className="relative order-2">
             <div
-              className={`relative rounded-[32px] p-8 sm:p-10 overflow-hidden ${
-                variant === "dark"
-                  ? "bg-white/5 border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.35)]"
-                  : "bg-white border border-[#0a0a1a]/10 shadow-[0_20px_50px_rgba(0,0,0,0.1)]"
-              }`}
+              className={`relative rounded-[32px] p-8 sm:p-10 overflow-hidden ${variant === "dark"
+                ? "bg-white/5 border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.35)]"
+                : "bg-white border border-[#0a0a1a]/10 shadow-[0_20px_50px_rgba(0,0,0,0.1)]"
+                }`}
             >
               {/* Accent stripe */}
               <span
@@ -475,10 +491,10 @@ export default function OffshoreTestimonialsGlobe({ variant = "dark" }: Offshore
           className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-4"
         >
           {[
-            { value: COUNTRIES_SERVED,  label: "Countries served" },
+            { value: COUNTRIES_SERVED, label: "Countries served" },
             { value: "100%", label: "On-time delivery" },
-            { value: "8h",   label: "Timezone overlap" },
-            { value: "4.9",  label: "Avg client rating" },
+            { value: "8h", label: "Timezone overlap" },
+            { value: "4.9", label: "Avg client rating" },
           ].map((s) => (
             <div
               key={s.label}

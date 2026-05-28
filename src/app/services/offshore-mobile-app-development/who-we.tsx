@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function WhoWeWorkWith() {
   return (
-    <section className="relative overflow-hidden ">
+    <section className="relative overflow-hidden py-16">
       <div className="relative max-w-7xl mx-auto px-4">
         {/* ===== Heading ===== */}
         <div className="text-center mb-2 max-w-4xl mx-auto px-6">
@@ -19,9 +19,9 @@ export default function WhoWeWorkWith() {
     text-xs font-semibold
     tracking-widest uppercase
 
-    bg-blue-50
-    text-blue-600
-    border border-blue-100
+    bg-orange-50
+    text-orange-600
+    border border-orange-100
     shadow-sm
   "
           >
@@ -31,14 +31,14 @@ export default function WhoWeWorkWith() {
           {/* Title */}
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight">
             Who We{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
               Work With
             </span>
           </h2>
 
           {/* Underline */}
           <div className="mt-1 flex justify-center">
-            <span className="h-[3px] w-24 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500" />
+            <span className="h-[3px] w-24 rounded-full bg-gradient-to-r from-orange-600 to-amber-500" />
           </div>
 
           {/* Description */}
@@ -75,7 +75,7 @@ export default function WhoWeWorkWith() {
           ].map((item, i) => (
             <div
               key={i}
-              className="group relative h-[440px] rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-xl hover:border-indigo-500/40 transition-all duration-500"
+              className="group relative h-[440px] rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-xl hover:border-orange-500/40 transition-all duration-500"
             >
               {/* Image */}
               <Image
@@ -90,7 +90,7 @@ export default function WhoWeWorkWith() {
 
               {/* Badge */}
               <div className="absolute top-6 left-6">
-                <span className="px-4 py-1 text-xs font-semibold text-white bg-indigo-600/90 rounded-full backdrop-blur">
+                <span className="px-4 py-1 text-xs font-semibold text-white bg-orange-600/90 rounded-full backdrop-blur">
                   {item.badge}
                 </span>
               </div>

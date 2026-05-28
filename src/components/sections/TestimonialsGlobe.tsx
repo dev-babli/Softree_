@@ -50,6 +50,7 @@ type Avatar = {
   name: string;
   role: string;
   quote: string;
+  location: string;
   /** Real-world coordinates — used to compute % position over the map */
   lat: number;
   lng: number;
@@ -57,6 +58,48 @@ type Avatar = {
   size: number;
   /** Float animation delay in seconds */
   delay: number;
+};
+
+/** Beautiful gradient options for client initials avatar placeholders */
+const GRADIENTS = [
+  "from-[#FF7A2F] to-[#F5B947]", // Warm orange/yellow
+  "from-[#1852FF] to-[#00D4FF]", // Electric blue
+  "from-[#8E2DE2] to-[#4A00E0]", // Violet
+  "from-[#11998E] to-[#38EF7D]", // Emerald
+  "from-[#FF512F] to-[#DD2476]", // Sunset pink/red
+  "from-[#4776E6] to-[#8E54E9]", // Royal purple
+  "from-[#00B4DB] to-[#0083B0]"  // Teal
+];
+
+const getGradient = (id: number) => {
+  return GRADIENTS[id % GRADIENTS.length];
+};
+
+const getInitials = (name: string) => {
+  const parts = name.trim().split(/\s+/);
+  if (parts.length >= 2) {
+    return `${parts[0][0]}${parts[parts.length - 1][0]}`.toUpperCase();
+  }
+  return name.slice(0, 2).toUpperCase();
+};
+
+const MapPinIcon = ({ className = "w-5 h-5 text-white", style }: { className?: string; style?: React.CSSProperties }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      style={style}
+      aria-hidden="true"
+    >
+      <path
+        fillRule="evenodd"
+        d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
 };
 
 /**
@@ -70,96 +113,70 @@ function toPercent(lat: number, lng: number) {
   return { left: `${(xPx / 800) * 100}%`, top: `${(yPx / 400) * 100}%` };
 }
 
+// Set src to empty string so it automatically falls back to beautiful gradient initials,
+// but keep the field so the user can easily add client pictures in the future.
 const AVATARS: Avatar[] = [
   {
     id: 1,
-    src: "https://randomuser.me/api/portraits/men/32.jpg",
-    name: "Daniel Kim",
-    role: "CTO, NorthStack",
-    quote: "Softree shipped our platform 2x faster than the previous vendor.",
-    lat: 45.4215,   // Ottawa, Canada
-    lng: -75.6972,
-    size: 52,
-    delay: 0.2,
+    src: "",
+    name: "Arkady Fedorovtsjev",
+    role: "ECG Group",
+    quote: "Overall, we are satisfied with our collaboration in the past and your last action and response to our reported issue, really makes a difference.",
+    location: "Netherlands",
+    lat: 52.3676,   // Netherlands
+    lng: 4.9041,
+    size: 38,
+    delay: 0.3,
   },
   {
     id: 2,
-    src: "https://randomuser.me/api/portraits/women/44.jpg",
-    name: "Sara Lindqvist",
-    role: "Head of Product, Lumen",
-    quote: "The team’s design sense is unmatched — clean, fast, on-brand.",
-    lat: 59.3293,   // Stockholm
-    lng: 18.0686,
-    size: 48,
+    src: "",
+    name: "Darrell Trimble",
+    role: "SP Marketplace",
+    quote: "SOFTREE staff worked with us to learn our installation automation technology and built exactly what we needed.",
+    location: "California, USA",
+    lat: 37.7749,   // California, USA
+    lng: -122.4194,
+    size: 38,
     delay: 0.6,
   },
   {
     id: 3,
-    src: "https://randomuser.me/api/portraits/women/68.jpg",
-    name: "Aiko Tanaka",
-    role: "Founder, Hinode",
-    quote: "Best engineering partner we’ve worked with in Asia.",
-    lat: 35.6762,   // Tokyo
-    lng: 139.6503,
-    size: 44,
-    delay: 1.1,
-  },
-  {
-    id: 4,
-    src: "https://randomuser.me/api/portraits/men/75.jpg",
-    name: "Marco Rossi",
-    role: "VP Engineering, Vela",
-    quote: "From discovery to launch in six weeks. Remarkable.",
-    lat: 41.9028,   // Rome
-    lng: 12.4964,
-    size: 48,
+    src: "",
+    name: "Asif Mohamed",
+    role: "Adiva Information Technology LLC",
+    quote: "A trusted technology solutions provider with strong expertise in security, compliance, and enterprise delivery.",
+    location: "UAE",
+    lat: 24.4539,   // UAE
+    lng: 54.3773,
+    size: 38,
     delay: 0.9,
   },
   {
-    id: 5,
-    src: "https://randomuser.me/api/portraits/men/46.jpg",
-    name: "Rahul Verma",
-    role: "CEO, Pixelboard",
-    quote: "They cut our infra costs by 40% in the first quarter.",
-    lat: 28.6139,   // New Delhi
-    lng: 77.2090,
-    size: 44,
-    delay: 1.4,
-  },
-  {
-    id: 6,
-    src: "https://randomuser.me/api/portraits/women/26.jpg",
-    name: "Emma Carter",
-    role: "Director, Northwind",
-    quote: "Polished, responsive, and proactive — every single sprint.",
-    lat: -33.8688,  // Sydney
-    lng: 151.2093,
-    size: 48,
-    delay: 0.4,
-  },
-  {
-    id: 7,
-    src: "https://randomuser.me/api/portraits/men/55.jpg",
-    name: "Carlos Mendez",
-    role: "CTO, Vitalia",
-    quote: "Softree’s team moved with the urgency of a co-founder.",
-    lat: -23.5505,  // São Paulo
-    lng: -46.6333,
-    size: 44,
-    delay: 1.8,
+    id: 4,
+    src: "",
+    name: "Rahi Radhakrishnan",
+    role: "Nuvento",
+    quote: "Softree demonstrated strong expertise in PowerApps development and delivered the project with excellent communication, responsiveness, and coordination throughout the engagement.",
+    location: "Texas, USA",
+    lat: 31.9686,   // Texas, USA
+    lng: -99.9018,
+    size: 38,
+    delay: 1.2,
   },
 ];
 
 const CENTER: Avatar = {
   id: 0,
-  src: "https://randomuser.me/api/portraits/women/65.jpg",
-  name: "Olivia Bennett",
-  role: "Chief Design Officer, Arcadia",
+  src: "",
+  name: "Natasha Adams",
+  role: "Wicked Point LLC",
   quote:
-    "Working with Softree felt like adding a senior product team overnight — strategic, fast, and obsessed with craft.",
-  lat: 51.5074,   // London — centre of the map visually
-  lng: -0.1278,
-  size: 76,
+    "We had a very positive experience working with Softree Technology. The developers were responsive and delivery was on time. We appreciate the attention they gave our project and their great communication. The final product was exactly what we wanted and we look forward to working with Softree in the future.",
+  location: "Virginia, USA",
+  lat: 37.5407,   // Virginia, USA
+  lng: -77.436,
+  size: 46,
   delay: 0,
 };
 
@@ -201,14 +218,21 @@ function AvatarPin({ avatar, active, onActivate, floatClass }: {
         <div className="pointer-events-none absolute bottom-full left-1/2 z-30 mb-2.5 -translate-x-1/2 whitespace-nowrap opacity-0 translate-y-1 transition-all duration-[220ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:opacity-100 group-hover:translate-y-0">
           <div className="rounded-md border border-white/[0.08] bg-[#141414] px-2.5 py-1.5 shadow-[0_8px_24px_-4px_rgba(0,0,0,0.6)] backdrop-blur-sm">
             <p className="text-[10.5px] font-medium leading-tight text-white tracking-[-0.005em]">{avatar.name}</p>
-            <p className="mt-0.5 text-[9.5px] leading-tight text-neutral-500">{avatar.role}</p>
+            <p className="mt-0.5 text-[9.5px] leading-tight text-neutral-500">{avatar.role} · {avatar.location}</p>
           </div>
         </div>
 
         {/* Active pulsing ring */}
         {active && <span className="active-ring absolute inset-0 rounded-full" />}
 
-        {/* Avatar image */}
+        {/* Location tag under the map pin circle */}
+        <span className={`absolute top-[calc(100%+6px)] left-1/2 -translate-x-1/2 text-[9px] font-semibold tracking-wide bg-[#0A0A0A]/70 backdrop-blur-[2px] px-2 py-0.5 rounded-full whitespace-nowrap shadow-sm border border-white/[0.05] pointer-events-none transition-all duration-200
+          ${active ? "text-[#F5B947] border-[#F5B947]/30 scale-[1.05]" : "text-neutral-400 group-hover:text-white"}`}
+        >
+          {avatar.location}
+        </span>
+
+        {/* Avatar content */}
         <div
           className={`overflow-hidden rounded-full ring-2 transition-all duration-[280ms] ease-[cubic-bezier(0.32,0.72,0,1)]
             group-hover:scale-[1.18] group-hover:ring-[#F5B947] group-hover:shadow-[0_6px_24px_-4px_rgba(245,185,71,0.5)]
@@ -218,14 +242,23 @@ function AvatarPin({ avatar, active, onActivate, floatClass }: {
               : "ring-white/30"}`}
           style={{ width: avatar.size, height: avatar.size }}
         >
-          <Image
-            src={avatar.src}
-            alt={avatar.name}
-            width={avatar.size * 2}
-            height={avatar.size * 2}
-            className="h-full w-full object-cover"
-            unoptimized
-          />
+          {avatar.src ? (
+            <Image
+              src={avatar.src}
+              alt={avatar.name}
+              width={avatar.size * 2}
+              height={avatar.size * 2}
+              className="h-full w-full object-cover"
+              unoptimized
+            />
+          ) : (
+            <div className={`h-full w-full bg-gradient-to-br ${getGradient(avatar.id)} flex items-center justify-center text-white select-none`}>
+              <MapPinIcon
+                className={`w-5.5 h-5.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.2)] transition-transform duration-300 group-hover:scale-110 ${active ? "animate-bounce" : ""}`}
+                style={{ animationDuration: "2s" }}
+              />
+            </div>
+          )}
         </div>
       </div>
     </motion.div>
@@ -293,11 +326,11 @@ export default function TestimonialsGlobe({ variant = "light" }: TestimonialsGlo
             </span>
             <span className="h-px w-8 bg-[#F5B947]" />
           </div>
-          <h2 className={`mt-6 text-[2rem] font-semibold leading-[1.05] tracking-[-0.035em] sm:text-[2.75rem] lg:text-[3.25rem] ${t.text}`}>
-            Built with teams in <span className="font-serif italic font-normal text-[#F5B947]">{COUNTRIES_SERVED_SPELL}</span> countries
+          <h2 className={`mt-6 text-[2rem] font-semibold leading-[1.1] tracking-[-0.035em] sm:text-[2.75rem] lg:text-[3.25rem] ${t.text}`}>
+            Trusted by <span className="font-serif italic font-normal text-[#F5B947]">growing businesses</span> across the globe
           </h2>
           <p className={`mx-auto mt-5 max-w-md text-[0.9375rem] leading-[1.7] ${t.textBody}`}>
-            From Stockholm startups to Tokyo enterprise floors, we ship product alongside teams who refuse to settle.
+          We collaborate with businesses worldwide to build scalable, modern, and impactful technology experiences.
           </p>
         </motion.div>
 
@@ -359,9 +392,16 @@ export default function TestimonialsGlobe({ variant = "light" }: TestimonialsGlo
                   <div className="pointer-events-none absolute bottom-full left-1/2 z-30 mb-3 -translate-x-1/2 whitespace-nowrap opacity-0 translate-y-1 transition-all duration-[220ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:opacity-100 group-hover:translate-y-0">
                     <div className="rounded-md border border-white/[0.08] bg-[#141414] px-3 py-2 shadow-[0_8px_24px_-4px_rgba(0,0,0,0.6)]">
                       <p className="text-[11px] font-medium leading-tight text-white tracking-[-0.005em]">{CENTER.name}</p>
-                      <p className="mt-0.5 text-[10px] leading-tight text-neutral-500">{CENTER.role}</p>
+                      <p className="mt-0.5 text-[10px] leading-tight text-neutral-500">{CENTER.role} · {CENTER.location}</p>
                     </div>
                   </div>
+
+                  {/* Location tag under the center map pin */}
+                  <span className={`absolute top-[calc(100%+6px)] left-1/2 -translate-x-1/2 text-[9px] font-semibold tracking-wide bg-[#0A0A0A]/70 backdrop-blur-[2px] px-2 py-0.5 rounded-full whitespace-nowrap shadow-sm border border-white/[0.05] pointer-events-none transition-all duration-200
+                    ${active.id === CENTER.id ? "text-[#F5B947] border-[#F5B947]/30 scale-[1.05]" : "text-neutral-400 group-hover:text-white"}`}
+                  >
+                    {CENTER.location}
+                  </span>
 
                   <div
                     className={`relative overflow-hidden rounded-full ring-[2.5px] shadow-[0_8px_28px_-6px_rgba(0,0,0,0.55)]
@@ -370,7 +410,16 @@ export default function TestimonialsGlobe({ variant = "light" }: TestimonialsGlo
                       ${active.id === CENTER.id ? "ring-[#F5B947] scale-[1.04]" : "ring-white/40"}`}
                     style={{ width: CENTER.size, height: CENTER.size }}
                   >
-                    <Image src={CENTER.src} alt={CENTER.name} width={CENTER.size * 2} height={CENTER.size * 2} className="h-full w-full object-cover" unoptimized />
+                    {CENTER.src ? (
+                      <Image src={CENTER.src} alt={CENTER.name} width={CENTER.size * 2} height={CENTER.size * 2} className="h-full w-full object-cover" unoptimized />
+                    ) : (
+                      <div className={`h-full w-full bg-gradient-to-br ${getGradient(CENTER.id)} flex items-center justify-center text-white select-none`}>
+                        <MapPinIcon
+                          className={`w-9 h-9 drop-shadow-[0_2px_6px_rgba(0,0,0,0.25)] ${active.id === CENTER.id ? "animate-bounce" : ""}`}
+                          style={{ animationDuration: "2.5s" }}
+                        />
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -414,11 +463,17 @@ export default function TestimonialsGlobe({ variant = "light" }: TestimonialsGlo
                   className="relative overflow-hidden rounded-full ring-2 ring-white/20 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.6)]"
                   style={{ width: 56, height: 56 }}
                 >
-                  <Image src={active.src} alt={active.name} width={112} height={112} className="h-full w-full object-cover" unoptimized />
+                  {active.src ? (
+                    <Image src={active.src} alt={active.name} width={112} height={112} className="h-full w-full object-cover" unoptimized />
+                  ) : (
+                    <div className={`h-full w-full bg-gradient-to-br ${getGradient(active.id)} flex items-center justify-center text-white font-bold select-none text-[14px] tracking-wide`}>
+                      {getInitials(active.name)}
+                    </div>
+                  )}
                 </div>
                 <div className="md:mt-1">
                   <p className={`text-[14px] font-semibold leading-tight tracking-[-0.01em] ${t.text}`}>{active.name}</p>
-                  <p className={`mt-1 text-[12px] leading-tight ${t.textMuted}`}>{active.role}</p>
+                  <p className={`mt-1 text-[12px] leading-tight ${t.textMuted}`}>{active.role} · {active.location}</p>
                   <div className="mt-2.5"><StarRating /></div>
                 </div>
               </figcaption>

@@ -69,6 +69,14 @@ const reviews = [
       "SOFTREE staff worked with us to learn our installation automation technology and built exactly what we needed.",
     location: "California",
   },
+  {
+    name: "Rahi Radhakrishnan",
+    company: "Nuvento",
+    rating: 5,
+    comment:
+      "Softree demonstrated strong expertise in PowerApps development and delivered the project with excellent communication, responsiveness, and coordination throughout the engagement.",
+    location: "USA",
+  },
 ];
 export default function WhyChooseWithTestimonials() {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -92,20 +100,20 @@ export default function WhyChooseWithTestimonials() {
         {/* ================= LEFT : WHY CHOOSE ================= */}
         <div className="relative">
           {/* Small Label */}
-          <div className="text-blue-600 text-xs uppercase tracking-[0.15em] mb-3">
+          <div className="text-orange-600 text-xs uppercase tracking-[0.15em] mb-3">
             Why Choose Softree
           </div>
 
           {/* Heading */}
           <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-10">
             Built for{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
               Long-Term Impact
             </span>
           </h2>
 
           {/* ✅ Vertical Accent Line (Light Version) */}
-          <div className="absolute left-4 top-[120px] bottom-0 w-px bg-gradient-to-b from-blue-500/40 via-blue-400/20 to-transparent hidden md:block" />
+          <div className="absolute left-4 top-[120px] bottom-0 w-px bg-gradient-to-b from-orange-500/40 via-orange-400/20 to-transparent hidden md:block" />
 
           {/* Features */}
           <div className="space-y-10">
@@ -115,14 +123,14 @@ export default function WhyChooseWithTestimonials() {
               return (
                 <div key={i} className="relative flex gap-6 items-start">
                   {/* Number */}
-                  <div className="relative z-10 flex items-center justify-center w-8 h-8 text-xs font-semibold text-blue-600">
+                  <div className="relative z-10 flex items-center justify-center w-8 h-8 text-xs font-semibold text-orange-600">
                     {String(i + 1).padStart(2, "0")}
                   </div>
 
                   {/* Content */}
                   <div>
                     <div className="flex items-center gap-3 mb-2">
-                      <div className="w-9 h-9 flex items-center justify-center rounded-md bg-blue-50 text-blue-600">
+                      <div className="w-9 h-9 flex items-center justify-center rounded-md bg-orange-50 text-orange-600">
                         <Icon size={18} />
                       </div>
 
@@ -140,7 +148,7 @@ export default function WhyChooseWithTestimonials() {
         </div>
 
         {/* ================= RIGHT : TESTIMONIALS ================= */}
-        <div className="rounded-2xl p-10 bg-gradient-to-r from-black via-[#0f2f7a] to-black border border-white/10 shadow-2xl">
+        <div className="rounded-2xl p-10 bg-gradient-to-r from-black via-[#4c1c02] to-black border border-white/10 shadow-2xl">
           {/* Header */}
           <div className="mb-10">
             <div className="text-white text-xs uppercase tracking-widest mb-3">
@@ -168,7 +176,7 @@ export default function WhyChooseWithTestimonials() {
             <p className="text-sm text-gray-400">
               Based on{" "}
               <span className="font-medium text-white">
-                150+ client reviews
+                50+ client reviews
               </span>
             </p>
           </div>
@@ -204,7 +212,7 @@ export default function WhyChooseWithTestimonials() {
                     {/* Reviewer Info */}
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
-                        <User size={14} className="text-blue-400" />
+                        <User size={14} className="text-orange-400" />
                         <div>
                           <p className="font-semibold text-white text-sm">
                             {review.name}

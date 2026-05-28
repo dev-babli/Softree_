@@ -47,7 +47,7 @@ export default function PowerAppsProcessSection() {
       {/* Background glow */}
       <div
         className="absolute inset-0 pointer-events-none -z-20
-        bg-gradient-to-r from-black via-[#0f2f7a] to-black"
+        bg-gradient-to-r from-black via-[#4c1c02] to-black"
       />
 
       <div className="max-w-7xl mx-auto px-6 relative">
@@ -56,7 +56,7 @@ export default function PowerAppsProcessSection() {
           className="
             absolute inset-0
             rounded-[40px]
-             bg-gradient-to-r from-black via-[#0f2f7a] to-black
+              bg-gradient-to-r from-black via-[#4c1c02] to-black
             backdrop-blur-xl
             border border-white/10
             -z-10
@@ -68,7 +68,7 @@ export default function PowerAppsProcessSection() {
           className="
             absolute inset-0
             rounded-[40px]
-            bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10
+            bg-gradient-to-br from-orange-500/10 via-transparent to-amber-500/10
             pointer-events-none
             -z-10
           "
@@ -82,7 +82,7 @@ export default function PowerAppsProcessSection() {
     px-8 py-14 lg:px-14 lg:py-20
 
     /* ✅ Charcoal glass background */
-     bg-gradient-to-r from-black via-[#0f2f7a] to-black
+     bg-gradient-to-r from-black via-[#4c1c02] to-black
     backdrop-blur-2xl
     border border-white/10
     rounded-[36px]
@@ -105,7 +105,7 @@ export default function PowerAppsProcessSection() {
 
               {/* Heading */}
               <h3 className="text-3xl lg:text-4xl font-semibold text-white leading-tight">
-                Our Power Apps Development Process for Scalable Solutions
+                Our <span className="text-orange-500">Power Apps</span> Development Process for Scalable Solutions
               </h3>
 
               {/* Divider (neutral) */}

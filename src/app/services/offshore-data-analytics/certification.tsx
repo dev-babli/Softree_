@@ -10,7 +10,7 @@ export default function Certifications() {
         <div className="text-center mb-20 px-4">
           <h2 className="text-3xl lg:text-5xl font-semibold text-gray-900 tracking-tight">
             Certifications &{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
               Recognitions
             </span>
           </h2>

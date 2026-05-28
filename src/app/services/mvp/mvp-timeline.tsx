@@ -63,22 +63,22 @@ function StepTile({ active }: { active: boolean }) {
     >
       <path
         d="M130 0L260 43L130 86L0 43L130 0Z"
-        fill={active ? "#2563EB" : "#E5E7EB"}
+        fill={active ? "#ea580c" : "#E5E7EB"}
       />
       <path
         d="M0 43V55L130 98V86L0 43Z"
-        fill={active ? "#1E40AF" : "#D1D5DB"}
+        fill={active ? "#b45309" : "#D1D5DB"}
       />
       <path
         d="M260 43V55L130 98V86L260 43Z"
-        fill={active ? "#3B82F6" : "#D1D5DB"}
+        fill={active ? "#f59e0b" : "#D1D5DB"}
       />
     </svg>
   );
 }
 
 const TickIcon = () => (
-  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 shrink-0" />
+  <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 shrink-0" />
 );
 
 /* -------------------- MAIN COMPONENT -------------------- */
@@ -86,19 +86,19 @@ export default function MvpProcessLeftRight() {
   const [active, setActive] = useState(1);
 
   return (
-    <section className="relative py-14 bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
-      <div className="relative mx-auto max-w-7xl px-6">
+    <section className="relative">
+      <div className="relative w-full">
         {/* ================= HEADER ================= */}
         <div className="mx-auto max-w-3xl text-center mb-10">
           {/* Badge */}
-          <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold tracking-[0.18em] uppercase">
+          <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-orange-50 text-orange-600 border border-orange-100/50 shadow-sm text-xs font-semibold tracking-[0.18em] uppercase">
             How We Work
           </span>
 
           {/* Title */}
           <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 leading-tight">
             From Idea to Launch —
-            <span className="text-blue-600"> Faster & Smarter</span>
+            <span className="text-orange-600"> Faster & Smarter</span>
           </h2>
 
           {/* Description */}
@@ -160,7 +160,7 @@ export default function MvpProcessLeftRight() {
 
                   {/* CARD */}
                   <div className="max-w-lg rounded-xl bg-white border border-gray-200 p-5 shadow-md">
-                    <span className="text-xs font-semibold text-blue-600">
+                    <span className="text-xs font-semibold text-orange-600">
                       Step {step.id}
                     </span>
 

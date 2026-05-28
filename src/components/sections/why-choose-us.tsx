@@ -39,7 +39,7 @@ const pillars = [
     number: "04",
     title: "Flexible Engagement",
     desc: "Staff augmentation, dedicated squads, or full-project ownership — our models adapt to your roadmap, not the other way around.",
-    stat: "47+",
+    stat: "50+",
     statLabel: "Active clients",
   },
 ];

@@ -99,21 +99,16 @@ const techStack = [
 export default function MvpTechStackCitrusbug() {
   return (
     <section
-      className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50
-
-  py-16 text-white"
+      className="relative text-white"
     >
       <div
         className="
-    mx-auto 
-    max-w-7xl 
-    px-6 
-    py-16
-    rounded-3xl
-  
-    relative
-    overflow-hidden
-  "
+          w-full 
+          py-6
+          rounded-3xl
+          relative
+          overflow-hidden
+        "
       >
         {/* Optional subtle overlay for depth */}
         <div className="pointer-events-none absolute inset-0 rounded-3xl bg-white/5" />
@@ -135,14 +130,14 @@ export default function MvpTechStackCitrusbug() {
                 <div className="md:w-[28%] flex">
                   <div
                     className="
-      relative 
-      flex w-full items-center gap-3 
-      rounded-xl 
-      px-5 py-3 
-      shadow-lg
-    bg-gradient-to-r from-black via-[#0f2f7a] to-black
-      border-l-4 border-white
-    "
+                      relative 
+                      flex w-full items-center gap-3 
+                      rounded-xl 
+                      px-5 py-3 
+                      shadow-lg
+                      bg-gradient-to-r from-black via-[#4c1c02] to-black
+                      border-l-4 border-white
+                    "
                   >
                     {/* subtle inner depth */}
                     <div className="absolute inset-0 rounded-xl ring-1 ring-white/5" />
@@ -160,7 +155,7 @@ export default function MvpTechStackCitrusbug() {
                 {/* RIGHT */}
                 <div className="md:w-[72%]">
                   <div
-                    className="rounded-xl px-6 py-4 shadow-inner marquee-container   bg-gradient-to-r from-black via-[#0f2f7a] to-black"
+                    className="rounded-xl px-6 py-4 shadow-inner marquee-container bg-gradient-to-r from-black via-[#4c1c02] to-black"
                   
                   >
                     <div className="marquee-track gap-5">

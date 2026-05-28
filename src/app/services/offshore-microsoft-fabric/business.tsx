@@ -176,12 +176,12 @@ const cards = [
 
 export default function WhyFabricSection() {
   return (
-    <div className="py-20 px-4 ">
+    <div className="py-16 px-4 ">
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-black leading-tight">
-            Why Is Microsoft Fabric Essential for Your Business
+            Why Is <span className="text-orange-600">Microsoft Fabric</span> Essential for Your Business
           </h2>
         </div>
 
@@ -194,7 +194,7 @@ export default function WhyFabricSection() {
                 key={i}
                 className="
   relative rounded-2xl p-6 text-center
-  bg-gradient-to-r from-black via-[#0f2f7a] to-black
+  bg-gradient-to-r from-black via-[#4c1c02] to-black
   border border-white/10
   shadow-lg hover:shadow-2xl
   transition-all duration-300

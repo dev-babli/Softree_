@@ -170,7 +170,7 @@ export default function LightAboutMerged() {
   const [hoveredImage, setHoveredImage] = useState<number | null>(null)
 
   const stats = [
-    { value: 200, prefix: "+", suffix: "", label: "Enterprise clients across 15+ industries" },
+    { value: 50, prefix: "+", suffix: "", label: "Enterprise clients across 15+ industries" },
     { value: 98, suffix: "%", label: "Client retention rate year over year" },
     { value: 50, prefix: "+", suffix: "", label: "Microsoft-certified engineers on staff" },
     { value: COUNTRIES_SERVED_NUMBER, prefix: "+", label: "Countries with active client deployments" },

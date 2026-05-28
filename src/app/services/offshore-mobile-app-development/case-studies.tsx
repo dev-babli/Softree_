@@ -105,18 +105,18 @@ export default function MobileAppCaseStudies() {
   const router = useRouter();
 
   return (
-    <section className="relative min-h-screen flex items-center py-10 ">
+    <section className="relative flex items-center py-16 bg-white overflow-hidden">
       <div className="w-[86%] max-w-7xl mx-auto space-y-8">
         <div className="text-center">
           {/* Badge */}
-          <span className="inline-block mb-2 px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-600 text-xs font-semibold tracking-[0.18em] uppercase">
+          <span className="inline-block mb-2 px-4 py-1.5 rounded-full bg-orange-50 text-orange-600 border border-orange-100 text-xs font-semibold tracking-[0.18em] uppercase">
             Mobile App Case Studies
           </span>
 
           {/* Title */}
           <h2 className="text-3xl lg:text-4xl font-semibold text-gray-900">
             Mobile Apps in Action:
-            <span className="text-indigo-600"> Real-World Success Stories</span>
+            <span className="text-orange-600"> Real-World Success Stories</span>
           </h2>
 
           {/* Description */}
@@ -132,7 +132,7 @@ export default function MobileAppCaseStudies() {
             className="
       w-full
       h-auto min-h-[680px] md:h-[70vh] md:max-h-[680px]
-      bg-gradient-to-r from-[#eef2f7] via-[#dbe3ff] to-[#eef2f7]
+      bg-gradient-to-r from-[#fafafb] via-[#ffebe0] to-[#fafafb]
       rounded-[32px]
       border border-slate-200
       shadow-xl
@@ -165,7 +165,7 @@ export default function MobileAppCaseStudies() {
                       className="
                 w-full
                 h-full
-                bg-gradient-to-r from-black via-[#0f2f7a] to-black
+                bg-gradient-to-r from-black via-[#4c1c02] to-black
                 p-10
                 flex flex-col justify-center
               "
@@ -202,8 +202,8 @@ export default function MobileAppCaseStudies() {
                           {/* SUMMARY */}
                           <div className="space-y-2">
                             <div className="flex items-center gap-2">
-                              <FileText className="w-4 h-4 text-indigo-400" />
-                              <h4 className="text-xs font-semibold tracking-wide text-indigo-400 uppercase">
+                              <FileText className="w-4 h-4 text-orange-400" />
+                              <h4 className="text-xs font-semibold tracking-wide text-orange-400 uppercase">
                                 Summary
                               </h4>
                             </div>
@@ -246,7 +246,7 @@ export default function MobileAppCaseStudies() {
           px-5 py-4
           flex flex-col gap-3
           sm:flex-row sm:items-center sm:justify-between
-          bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600
+          bg-gradient-to-r from-orange-600 via-orange-700 to-amber-500
           text-white
           shadow-lg
           overflow-hidden
@@ -271,7 +271,7 @@ export default function MobileAppCaseStudies() {
       px-4 py-2
       text-xs font-semibold uppercase tracking-wide
       rounded-full
-      bg-white text-indigo-700
+      bg-white text-orange-700
       hover:scale-105
       transition-all duration-300
       whitespace-nowrap
@@ -301,7 +301,7 @@ export default function MobileAppCaseStudies() {
                   className={`text-xs font-medium tracking-widest transition
                      ${
                        activeIndex === i
-                         ? "text-indigo-600 scale-125"
+                         ? "text-orange-600 scale-125"
                          : "text-gray-400 hover:text-gray-700"
                      }
                    `}
@@ -313,7 +313,7 @@ export default function MobileAppCaseStudies() {
 
             <div className="w-36 h-[3px] bg-gray-200 rounded-full overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-indigo-600 to-cyan-500 transition-all duration-500"
+                className="h-full bg-gradient-to-r from-orange-600 to-amber-500 transition-all duration-500"
                 style={{
                   width: `${((activeIndex + 1) / caseStudies.length) * 100}%`,
                 }}

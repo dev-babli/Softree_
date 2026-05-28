@@ -40,6 +40,13 @@ const testimonials: Testimonial[] = [
     location: "Netherlands",
     company: "ECG International",
   },
+  {
+    text: "Softree demonstrated strong expertise in PowerApps development and delivered the project with excellent communication, responsiveness, and coordination throughout the engagement.",
+    name: "Rahi Radhakrishnan",
+    role: "Director of Delivery",
+    location: "USA",
+    company: "Nuvento",
+  },
 ];
 
 const INTERVAL = 4000;
@@ -65,7 +72,7 @@ function PinIcon() {
     >
       <path
         d="M8 1C5.24 1 3 3.24 3 6c0 4 5 9 5 9s5-5 5-9c0-2.76-2.24-5-5-5zm0 6.75a1.75 1.75 0 110-3.5 1.75 1.75 0 010 3.5z"
-        fill="#7dd3fc"
+        fill="#fdba74"
       />
     </svg>
   );
@@ -201,10 +208,10 @@ export default function HeroPowerApps() {
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=DM+Sans:wght@400;500&display=swap');
-        .cta-btn:hover { background: #7dd3fc !important; transform: translateY(-2px); box-shadow: 0 12px 40px rgba(56,189,248,0.45) !important; }
+        .cta-btn:hover { background: #fdba74 !important; transform: translateY(-2px); box-shadow: 0 12px 40px rgba(249,115,22,0.45) !important; }
         .cta-btn:hover .cta-arrow { transform: translateX(3px); }
         .cta-arrow { transition: transform 0.2s; }
-        .nav-btn:hover { background: rgba(56,189,248,0.2) !important; border-color: rgba(56,189,248,0.4) !important; transform: scale(1.08); }
+        .nav-btn:hover { background: rgba(249,115,22,0.2) !important; border-color: rgba(249,115,22,0.4) !important; transform: scale(1.08); }
         @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.7)} }
         .eyebrow-dot { animation: pulse 2s ease-in-out infinite; }
 
@@ -236,7 +243,6 @@ export default function HeroPowerApps() {
         <div style={styles.orb2} />
 
         <div style={styles.inner} className="hero-inner">
-          {/* LEFT */}
           <div style={styles.left} className="hero-left">
             <div style={styles.eyebrow}>
               <div className="eyebrow-dot" style={styles.eyebrowDot} />
@@ -265,7 +271,7 @@ export default function HeroPowerApps() {
 
             <div style={styles.stats}>
               <div>
-                <div style={styles.statNum}>150+</div>
+                <div style={styles.statNum}>50+</div>
                 <div style={styles.statLbl}>Enterprise clients</div>
               </div>
               <div>
@@ -339,7 +345,7 @@ const styles: Record<string, CSSProperties> = {
     width: "480px",
     height: "480px",
     background:
-      "radial-gradient(circle, rgba(56,189,248,0.18) 0%, transparent 70%)",
+      "radial-gradient(circle, rgba(249,115,22,0.18) 0%, transparent 70%)",
     pointerEvents: "none",
     zIndex: 0,
   },
@@ -350,7 +356,7 @@ const styles: Record<string, CSSProperties> = {
     width: "420px",
     height: "420px",
     background:
-      "radial-gradient(circle, rgba(99,102,241,0.16) 0%, transparent 70%)",
+      "radial-gradient(circle, rgba(245,185,71,0.16) 0%, transparent 70%)",
     pointerEvents: "none",
     zIndex: 0,
   },
@@ -388,23 +394,22 @@ const styles: Record<string, CSSProperties> = {
     display: "inline-flex",
     alignItems: "center",
     gap: "8px",
-    background: "rgba(56,189,248,0.12)",
-    border: "1px solid rgba(56,189,248,0.25)",
-    color: "#7dd3fc",
+    background: "rgba(249,115,22,0.12)",
+    border: "1px solid rgba(249,115,22,0.25)",
+    color: "#fdba74",
     fontSize: "12px",
     fontWeight: 500,
     letterSpacing: "0.08em",
     textTransform: "uppercase",
     padding: "5px 12px",
     borderRadius: "100px",
-
     marginTop: "22px",
   },
   eyebrowDot: {
     width: "6px",
     height: "6px",
     borderRadius: "50%",
-    background: "#38bdf8",
+    background: "#f97316",
   },
   headline: {
     fontFamily: "'Syne', sans-serif",
@@ -417,7 +422,7 @@ const styles: Record<string, CSSProperties> = {
     wordBreak: "keep-all",
   },
   headlineGradient: {
-    background: "linear-gradient(135deg, #38bdf8 0%, #818cf8 100%)",
+    background: "linear-gradient(135deg, #f97316 0%, #f5b947 100%)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
     backgroundClip: "text",
@@ -432,8 +437,8 @@ const styles: Record<string, CSSProperties> = {
     display: "inline-flex",
     alignItems: "center",
     gap: "10px",
-    background: "#d8dce3ff",
-    color: "#071b4d",
+    background: "linear-gradient(135deg, #f97316 0%, #ea580c 100%)",
+    color: "#4c1c02",
     fontFamily: "'DM Sans', sans-serif",
     fontSize: "15px",
     fontWeight: 500,
@@ -443,7 +448,7 @@ const styles: Record<string, CSSProperties> = {
     cursor: "pointer",
     textDecoration: "none",
     transition: "transform 0.2s, background 0.2s, box-shadow 0.2s",
-    boxShadow: "0 8px 32px rgba(56,189,248,0.3)",
+    boxShadow: "0 8px 32px rgba(249,115,22,0.3)",
   },
 
   stats: {
@@ -491,13 +496,13 @@ const styles: Record<string, CSSProperties> = {
     right: 0,
     height: "1px",
     background:
-      "linear-gradient(90deg, transparent, rgba(56,189,248,0.5), transparent)",
+      "linear-gradient(90deg, transparent, rgba(249,115,22,0.5), transparent)",
   },
   quoteMark: {
     fontFamily: "'Syne', sans-serif",
     fontSize: "56px",
     lineHeight: 0.8,
-    color: "rgba(56,189,248,0.25)",
+    color: "rgba(249,115,22,0.25)",
     display: "block",
   },
   quoteText: {
@@ -516,15 +521,15 @@ const styles: Record<string, CSSProperties> = {
     height: "42px",
     borderRadius: "50%",
     background:
-      "linear-gradient(135deg, rgba(56,189,248,0.25), rgba(99,102,241,0.25))",
-    border: "1px solid rgba(56,189,248,0.3)",
+      "linear-gradient(135deg, rgba(249,115,22,0.25), rgba(245,185,71,0.25))",
+    border: "1px solid rgba(249,115,22,0.3)",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     fontFamily: "'Syne', sans-serif",
     fontSize: "13px",
     fontWeight: 600,
-    color: "#7dd3fc",
+    color: "#fdba74",
     flexShrink: 0,
   },
   authorName: {
@@ -542,7 +547,7 @@ const styles: Record<string, CSSProperties> = {
     alignItems: "center",
     gap: "4px",
     fontSize: "11px",
-    color: "#7dd3fc",
+    color: "#fdba74",
     marginTop: "4px",
   },
   progressBar: {
@@ -555,7 +560,7 @@ const styles: Record<string, CSSProperties> = {
   },
   progressFill: {
     height: "100%",
-    background: "#38bdf8",
+    background: "#f97316",
     borderRadius: "2px",
     transition: "width 0.1s linear",
   },
@@ -581,7 +586,7 @@ const styles: Record<string, CSSProperties> = {
     padding: 0,
   },
   dotActive: {
-    background: "#38bdf8",
+    background: "#f97316",
     width: "22px",
     borderRadius: "4px",
   },

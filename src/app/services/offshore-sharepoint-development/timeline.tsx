@@ -76,7 +76,7 @@ export default function TimelinePage() {
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
-    <section className="relative py-24 sm:py-32">
+    <section className="relative py-16">
       <div ref={containerRef} className="relative w-full md:px-10">
         {/* Header */}
         <div className="relative overflow-hidden px-4 text-center">
@@ -85,10 +85,10 @@ export default function TimelinePage() {
             {/* Badge */}
             <span
               className="
-      inline-block mb-1 px-4 py-1.5
-      text-xs md:text-sm font-semibold tracking-widest uppercase
-      text-blue-600
-    "
+                inline-block mb-1 px-4 py-1.5
+                text-xs md:text-sm font-semibold tracking-widest uppercase
+                text-orange-600
+              "
             >
               SharePoint & Microsoft 365 Solutions
             </span>
@@ -96,7 +96,7 @@ export default function TimelinePage() {
             {/* Heading */}
             <h2 className="text-3xl md:text-5xl lg:text-5xl font-bold leading-tight text-gray-900 mb-6">
               SharePoint-Driven{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
                 Digital Transformation
               </span>
             </h2>
@@ -116,15 +116,14 @@ export default function TimelinePage() {
             {/* ================= Timeline Wrapper ================= */}
             <div
               className="
-        relative
-        max-w-7xl mx-auto
-        py-16 px-6 md:px-10
-
-        rounded-3xl
-        bg-gradient-to-b from-gray-50 via-white to-gray-100
-        border border-gray-200
-        shadow-[0_25px_80px_rgba(0,0,0,0.06)]
-      "
+                relative
+                max-w-7xl mx-auto
+                py-16 px-6 md:px-10
+                rounded-3xl
+                bg-gradient-to-b from-gray-50 via-white to-gray-100
+                border border-gray-200
+                shadow-[0_25px_80px_rgba(0,0,0,0.06)]
+              "
             >
               {/* ================= Vertical Line (AUTO HEIGHT - FIXED) ================= */}
               <div className="absolute left-12 top-0 bottom-0 w-[2px] z-0">
@@ -134,7 +133,7 @@ export default function TimelinePage() {
                 {/* animated fill */}
                 <motion.div
                   style={{ scaleY: heightTransform, originY: 0 }}
-                  className="absolute inset-0 bg-gradient-to-b from-blue-600 to-indigo-600 rounded-full"
+                  className="absolute inset-0 bg-gradient-to-b from-orange-600 to-amber-500 rounded-full"
                 />
               </div>
 
@@ -151,7 +150,7 @@ export default function TimelinePage() {
                       whileInView={{ scale: 1.2, opacity: 1 }}
                       transition={{ duration: 0.4, delay: index * 0.15 }}
                       viewport={{ once: true }}
-                      className="h-4 w-4 rounded-full bg-blue-600 shadow-[0_0_14px_rgba(37,99,235,0.6)]"
+                      className="h-4 w-4 rounded-full bg-orange-600 shadow-[0_0_14px_rgba(249,115,22,0.6)]"
                     />
 
                     {/* animated ring */}
@@ -160,7 +159,7 @@ export default function TimelinePage() {
                       whileInView={{ scale: 1.4, opacity: 1 }}
                       transition={{ duration: 0.5, delay: index * 0.15 }}
                       viewport={{ once: true }}
-                      className="absolute h-9 w-9 rounded-full border border-blue-200"
+                      className="absolute h-9 w-9 rounded-full border border-orange-200"
                     />
                   </div>
 
@@ -171,17 +170,17 @@ export default function TimelinePage() {
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                     className="
-              relative z-10
-              bg-white
-              border border-gray-200
-              rounded-2xl
-              p-6 md:p-8
-              text-gray-700
-              max-w-xl
-              shadow-md
-              hover:-translate-y-1
-              transition
-            "
+                      relative z-10
+                      bg-white
+                      border border-gray-200
+                      rounded-2xl
+                      p-6 md:p-8
+                      text-gray-700
+                      max-w-xl
+                      shadow-md
+                      hover:-translate-y-1
+                      transition
+                    "
                   >
                     {item.content}
                   </motion.div>

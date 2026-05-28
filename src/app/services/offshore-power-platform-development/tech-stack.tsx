@@ -86,13 +86,13 @@ export default function PowerAppsTechnologies() {
       <div className="max-w-7xl mx-auto">
         {/* ================= HEADER ================= */}
         <div className="mb-10 text-center">
-          <span className="mb-4 block text-[11px] font-semibold uppercase tracking-[0.35em] text-indigo-600">
+          <span className="mb-4 block text-[11px] font-semibold uppercase tracking-[0.35em] text-orange-600">
             Microsoft Power Platform
           </span>
 
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
             Technologies powering{" "}
-            <span className="bg-gradient-to-r from-indigo-600 to-cyan-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
               Power Apps Solutions
             </span>
           </h2>
@@ -113,14 +113,14 @@ export default function PowerAppsTechnologies() {
                 onClick={() => setActiveTab(tab)}
                 className={`relative pb-3 text-sm font-medium transition ${
                   activeTab === tab
-                    ? "text-indigo-600"
+                    ? "text-orange-600"
                     : "text-gray-800 hover:text-gray-700"
                 }`}
               >
                 {tab}
 
                 {activeTab === tab && (
-                  <span className="absolute bottom-0 left-0 h-[3px] w-full rounded-full bg-indigo-900" />
+                  <span className="absolute bottom-0 left-0 h-[3px] w-full rounded-full bg-orange-600" />
                 )}
               </button>
             ))}
@@ -129,12 +129,12 @@ export default function PowerAppsTechnologies() {
 
         {/* ================= TECH CARDS ================= */}
         <div
-          className="relative rounded-[32px] border border-white/10 7a] bg-gradient-to-r from-black via-[#0f2f7a] to-black
+          className="relative rounded-[32px] border border-white/10 bg-gradient-to-r from-black via-[#4c1c02] to-black
  px-4 sm:px-10 py-12 shadow-2xl"
         >
           {/* ambient glow */}
           <div className="pointer-events-none absolute inset-0 flex justify-center overflow-hidden rounded-[32px]">
-            <div className="h-40 w-full max-w-[520px] rounded-full bg-indigo-600/20 blur-[120px]" />
+            <div className="h-40 w-full max-w-[520px] rounded-full bg-orange-600/20 blur-[120px]" />
           </div>
 
           <div
@@ -176,15 +176,15 @@ export default function PowerAppsTechnologies() {
             mb-4
             flex h-12 w-12 items-center justify-center
             rounded-xl
-            bg-indigo-600/10
-            ring-1 ring-indigo-600/20
+            bg-orange-600/10
+            ring-1 ring-orange-600/20
 
             transition
-            group-hover:bg-indigo-600
-            group-hover:ring-indigo-600
+            group-hover:bg-orange-600
+            group-hover:ring-orange-600
           "
                   >
-                    <Icon className="h-6 w-6 text-indigo-400 group-hover:text-white transition" />
+                    <Icon className="h-6 w-6 text-orange-400 group-hover:text-white transition" />
                   </div>
 
                   {/* name */}
@@ -198,7 +198,7 @@ export default function PowerAppsTechnologies() {
             pointer-events-none
             absolute inset-0
             rounded-2xl
-            bg-gradient-to-br from-indigo-600/10 via-transparent to-cyan-500/10
+            bg-gradient-to-br from-orange-600/10 via-transparent to-amber-500/10
             opacity-0
             transition-opacity duration-300
             group-hover:opacity-100
