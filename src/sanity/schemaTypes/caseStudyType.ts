@@ -8,9 +8,11 @@ export const caseStudyType = defineType({
     icon: CaseIcon,
     groups: [
         { name: 'content', title: 'Content', default: true },
+        { name: 'header', title: 'Header & Hero' },
         { name: 'story', title: 'Story (Challenge / Approach / Outcome)' },
         { name: 'metrics', title: 'Metrics & Testimonials' },
         { name: 'media', title: 'Gallery & Assets' },
+        { name: 'related', title: 'Related Stories' },
         { name: 'seo', title: 'SEO' },
     ],
     fields: [
@@ -37,6 +39,75 @@ export const caseStudyType = defineType({
             group: 'content',
             description: 'Short summary shown in case study listings (120–200 chars)',
             validation: (Rule) => Rule.max(300),
+        }),
+        defineField({
+            name: 'headerTitle',
+            title: 'Header Title (long form)',
+            type: 'string',
+            group: 'header',
+            description:
+                'The descriptive title shown next to the hero image. e.g. "JetBrains Centralizes Developer Support at Scale With Rasa". The "Client Name" field is used as the giant H1 above this.',
+            validation: (Rule) => Rule.max(180),
+        }),
+        defineField({
+            name: 'highlights',
+            title: 'Hero Highlights (max 3)',
+            description:
+                'Stat row shown in the hero next to the image. e.g. value: "75-80%" / label: "CSAT". Use exactly 3 for best layout.',
+            type: 'array',
+            group: 'header',
+            validation: (Rule) => Rule.max(3),
+            of: [
+                defineArrayMember({
+                    type: 'object',
+                    name: 'highlight',
+                    fields: [
+                        defineField({
+                            name: 'value',
+                            title: 'Value',
+                            type: 'string',
+                            description: 'e.g. 75-80% or 100% or 35x',
+                            validation: (Rule) => Rule.required(),
+                        }),
+                        defineField({
+                            name: 'label',
+                            title: 'Label',
+                            type: 'string',
+                            description: 'e.g. CSAT, products supported, deflection rate',
+                            validation: (Rule) => Rule.required(),
+                        }),
+                    ],
+                    preview: { select: { title: 'value', subtitle: 'label' } },
+                }),
+            ],
+        }),
+        defineField({
+            name: 'pullQuoteImage',
+            title: 'Pull-Quote / Highlight Image',
+            description: 'Optional inline highlight image rendered between body sections.',
+            type: 'image',
+            group: 'header',
+            options: { hotspot: true },
+            fields: [
+                defineField({ name: 'alt', type: 'string', title: 'Alt Text' }),
+                defineField({ name: 'caption', type: 'string', title: 'Caption' }),
+            ],
+        }),
+        defineField({
+            name: 'status',
+            title: 'Status',
+            type: 'string',
+            group: 'content',
+            description: 'Set to Archived to hide this case study from the website while keeping it in Sanity.',
+            options: {
+                list: [
+                    { title: 'Published', value: 'published' },
+                    { title: 'Archived', value: 'archived' },
+                ],
+                layout: 'radio',
+            },
+            initialValue: 'published',
+            validation: (Rule) => Rule.required(),
         }),
         defineField({
             name: 'category',
@@ -67,7 +138,29 @@ export const caseStudyType = defineType({
             title: 'Client Name',
             type: 'string',
             group: 'content',
-            description: 'Client name (or anonymized label like "Fortune 500 Retailer")',
+            description: 'Client name (or anonymized label like "Fortune 500 Retailer"). Shown as the large H1 on the detail page hero.',
+        }),
+        defineField({
+            name: 'location',
+            title: 'Client Location',
+            type: 'string',
+            group: 'content',
+            description: 'e.g. "Amsterdam, The Netherlands" — shown in the case study summary block.',
+        }),
+        defineField({
+            name: 'employees',
+            title: 'Company Employees',
+            type: 'string',
+            group: 'content',
+            description: 'Company headcount, e.g. "2,800" — shown in the case study summary block.',
+        }),
+        defineField({
+            name: 'scaleOfOperation',
+            title: 'Scale of Operation',
+            type: 'text',
+            rows: 2,
+            group: 'content',
+            description: 'Brief scale statement, e.g. "Used by over 12.8M professionals and 92 of the Fortune Global Top 100" — shown in the case study summary block.',
         }),
         defineField({
             name: 'projectDuration',
@@ -81,7 +174,7 @@ export const caseStudyType = defineType({
             title: 'Team Size',
             type: 'string',
             group: 'content',
-            description: 'e.g. "5 engineers + 1 designer"',
+            description: 'Engagement team size, e.g. "5 engineers + 1 designer" (kept separate from company-wide Employees).',
         }),
         defineField({
             name: 'mainImage',
@@ -269,6 +362,22 @@ export const caseStudyType = defineType({
             title: 'Live Project URL (optional)',
             type: 'url',
             group: 'media',
+        }),
+
+        // ───── RELATED ─────
+        defineField({
+            name: 'relatedCaseStudies',
+            title: 'Related Case Studies',
+            type: 'array',
+            group: 'related',
+            description: 'Up to 3 manually-curated related stories. If empty, the latest 3 other case studies are shown automatically.',
+            validation: (Rule) => Rule.max(3),
+            of: [
+                defineArrayMember({
+                    type: 'reference',
+                    to: [{ type: 'caseStudy' }],
+                }),
+            ],
         }),
 
         // ───── SEO ─────

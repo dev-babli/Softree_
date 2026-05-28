@@ -51,7 +51,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
 async function getBlogSlugs(): Promise<{ slug: string; updatedAt: string | null }[]> {
   try {
     return await client.fetch(
-      `*[_type == "post" && !(_id in path("drafts.**"))]{ "slug": slug.current, "updatedAt": coalesce(_updatedAt, publishedAt) }`
+      `*[_type == "post" && !(_id in path("drafts.**")) && coalesce(status, "published") == "published"]{ "slug": slug.current, "updatedAt": coalesce(_updatedAt, publishedAt) }`
     )
   } catch {
     return []
@@ -61,7 +61,7 @@ async function getBlogSlugs(): Promise<{ slug: string; updatedAt: string | null 
 async function getCaseStudySlugs(): Promise<{ slug: string; updatedAt: string | null }[]> {
   try {
     return await client.fetch(
-      `*[_type == "caseStudy" && !(_id in path("drafts.**"))]{ "slug": slug.current, "updatedAt": coalesce(_updatedAt, publishedAt) }`
+      `*[_type == "caseStudy" && !(_id in path("drafts.**")) && coalesce(status, "published") == "published"]{ "slug": slug.current, "updatedAt": coalesce(_updatedAt, publishedAt) }`
     )
   } catch {
     return []

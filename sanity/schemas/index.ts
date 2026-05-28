@@ -1,5 +1,4 @@
 import { service } from './service'
-import { caseStudy } from './caseStudy'
 import { blogPost } from './blogPost'
 import { testimonial } from './testimonial'
 import { teamMember } from './teamMember'
@@ -11,7 +10,6 @@ import { tag } from './tag'
 
 export const schemaTypes = [
   service,
-  caseStudy,
   blogPost,
   testimonial,
   teamMember,

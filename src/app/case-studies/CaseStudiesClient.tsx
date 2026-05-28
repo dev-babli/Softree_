@@ -224,8 +224,8 @@ export default function CaseStudiesClient({ caseStudies }: { caseStudies: CaseSt
                             key={filter}
                             onClick={() => setActiveFilter(filter)}
                             className={`px-5 py-2.5 text-[12px] font-semibold uppercase tracking-[0.15em] transition-all duration-300 ${activeFilter === filter
-                                    ? "bg-[#1E1E1E] text-[#E4E2DD]"
-                                    : "bg-transparent border border-[#1E1E1E]/20 text-[#1E1E1E]/70 hover:border-[#1E1E1E]/50 hover:text-[#1E1E1E]"
+                                ? "bg-[#1E1E1E] text-[#E4E2DD]"
+                                : "bg-transparent border border-[#1E1E1E]/20 text-[#1E1E1E]/70 hover:border-[#1E1E1E]/50 hover:text-[#1E1E1E]"
                                 }`}
                         >
                             {filter === "All" ? "All" : CATEGORY_LABELS[filter] || filter}

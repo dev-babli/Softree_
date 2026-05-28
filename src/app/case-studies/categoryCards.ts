@@ -1,6 +1,7 @@
 import { groq } from "next-sanity"
 import { client } from "@/sanity/client"
 import type { CaseStudyItem } from "./CaseStudyGrid"
+import type { CaseStudyListingItem } from "./types"
 
 type CaseStudyCategory =
   | "ai"
@@ -12,12 +13,18 @@ type CaseStudyCategory =
 
 type SanityCaseStudyCard = {
   title: string
+  client?: string
   slug?: { current?: string }
   excerpt?: string
   industry?: string
-  mainImage?: { asset?: { url?: string } }
+  category?: CaseStudyCategory
+  mainImage?: { asset?: { url?: string }; alt?: string }
+  mainImageUrl?: string
   metrics?: { label?: string; value?: string }[]
+  featured?: boolean
 }
+
+export type { CaseStudyListingItem } from "./types"
 
 type PortableTextLike = {
   children?: Array<{ text?: string }>
@@ -51,13 +58,30 @@ function asPlainText(value: unknown): string {
 }
 
 const caseStudiesByCategoryQuery = groq`
-  *[_type == "caseStudy" && category == $category] | order(publishedAt desc) {
+  *[_type == "caseStudy" && category == $category && coalesce(status, "published") == "published"] | order(publishedAt desc) {
     title,
+    client,
     slug,
     excerpt,
     industry,
-    mainImage { asset->{ url } },
+    mainImage { asset->{ url }, alt },
+    mainImageUrl,
     metrics
+  }
+`
+
+const caseStudyListingQuery = groq`
+  *[_type == "caseStudy" && coalesce(status, "published") == "published" && defined(slug.current)] | order(publishedAt desc) {
+    title,
+    client,
+    slug,
+    excerpt,
+    industry,
+    category,
+    mainImage { asset->{ url }, alt },
+    mainImageUrl,
+    metrics,
+    featured
   }
 `
 
@@ -80,20 +104,59 @@ export async function getCaseStudyItemsByCategory(
 
   return studies
     .filter((study) => Boolean(study.slug?.current))
-    .map((study) => ({
-      title: study.title,
-      description:
-        asPlainText(study.excerpt) || "Read the full case study to see outcomes and implementation details.",
-      href: `/case-studies/${study.slug?.current}`,
-      category: study.industry || CATEGORY_LABELS[category],
-      image: study.mainImage?.asset?.url,
-      industry: study.industry,
-      metrics: (study.metrics || [])
-        .filter((metric) => metric?.label && metric?.value)
-        .slice(0, 2)
-        .map((metric) => ({
-          label: metric.label as string,
-          value: metric.value as string,
-        })),
-    }))
+    .map((study) => mapSanityCaseStudyToItem(study, category))
+}
+
+function mapSanityCaseStudyToItem(
+  study: SanityCaseStudyCard,
+  fallbackCategory?: CaseStudyCategory
+): CaseStudyItem {
+  const categoryLabel =
+    study.industry ||
+    (study.category ? CATEGORY_LABELS[study.category] : undefined) ||
+    (fallbackCategory ? CATEGORY_LABELS[fallbackCategory] : "Case Study")
+
+  return {
+    title: study.client || study.title,
+    description:
+      asPlainText(study.excerpt) || "Read the full case study to see outcomes and implementation details.",
+    href: `/case-studies/${study.slug?.current}`,
+    category: categoryLabel,
+    image: study.mainImage?.asset?.url || study.mainImageUrl,
+    industry: study.industry,
+    metrics: (study.metrics || [])
+      .filter((metric) => metric?.label && metric?.value)
+      .slice(0, 2)
+      .map((metric) => ({
+        label: metric.label as string,
+        value: metric.value as string,
+      })),
+  }
+}
+
+function mapSanityCaseStudyToListingItem(study: SanityCaseStudyCard): CaseStudyListingItem {
+  const image = study.mainImage?.asset?.url || study.mainImageUrl
+  const title = study.client || study.title
+  const categoryLabel =
+    study.industry ||
+    (study.category ? CATEGORY_LABELS[study.category] : undefined) ||
+    "Case Study"
+
+  return {
+    category: categoryLabel,
+    title,
+    description:
+      asPlainText(study.excerpt) || "Read the full case study to see outcomes and implementation details.",
+    href: `/case-studies/${study.slug?.current}`,
+    image,
+    imageAlt: study.mainImage?.alt || `${title} case study`,
+    imageFit: image?.includes("_chat.svg") ? "contain" : "cover",
+  }
+}
+
+export async function getCaseStudyListingItems(): Promise<CaseStudyListingItem[]> {
+  const studies = await client.fetch<SanityCaseStudyCard[]>(caseStudyListingQuery)
+  return studies
+    .filter((study) => Boolean(study.slug?.current))
+    .map(mapSanityCaseStudyToListingItem)
 }

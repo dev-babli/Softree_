@@ -7,6 +7,15 @@ const withBundleAnalyzer = bundleAnalyzer({
 });
 
 const nextConfig: any = {
+  async redirects() {
+    return [
+      {
+        source: "/customers/:slug",
+        destination: "/case-studies/:slug",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "**" },
@@ -45,7 +54,8 @@ export default withSentryConfig(withBundleAnalyzer(nextConfig), {
   // This can increase your server load as well as your hosting bill.
   // Note: Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-
   // side errors will fail.
-  tunnelRoute: "/monitoring",
+  // Avoid local-dev tunnel proxy noise/timeouts to Sentry ingest.
+  tunnelRoute: process.env.NODE_ENV === "production" ? "/monitoring" : undefined,
 
   webpack: {
     // Enables automatic instrumentation of Vercel Cron Monitors. (Does not yet work with App Router route handlers.)

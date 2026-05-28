@@ -8,15 +8,20 @@ import TrustedBy from "@/components/sections/trusted-by";
 import { TransferredSoftreeHero } from "@/components/sections/TransferredSoftreeHero";
 
 import ServicesStackedSlides from "@/components/sections/ServicesStackedSlides";
+import KoreEnterpriseCarousel from "@/components/sections/KoreEnterpriseCarousel";
 
 /* ── Lazy-loaded transferred components ── */
 const FeaturesShowcaseLazy = dynamic(
   () => import("@/components/features/FeaturesShowcase"),
   { loading: () => <div className="min-h-[100vh] w-full bg-[#141414]" aria-hidden="true" /> }
 );
-const OffshoreTestimonialsGlobeLazy = dynamic(
-  () => import("@/components/sections/OffshoreTestimonialsGlobe"),
-  { ssr: false, loading: () => <div className="min-h-[60vh] w-full bg-[#141414]" aria-hidden /> }
+const OffshoreCoreFeaturesLazy = dynamic(
+  () => import("@/components/sections/OffshoreCoreFeatures"),
+  { loading: () => <div className="min-h-[100vh] w-full bg-[#070708]" aria-hidden /> }
+);
+const RasaCustomerStoriesCarouselLazy = dynamic(
+  () => import("@/components/sections/RasaCustomerStoriesCarousel"),
+  { loading: () => <div className="min-h-[60vh] w-full bg-black" aria-hidden /> }
 );
 const LatestBlogsClientLazy = dynamic(
   () => import("@/components/sections/latest-blogs-client"),
@@ -60,7 +65,9 @@ export default function Home() {
         <ServicesStackedSlides />
         <FeaturesShowcaseLazy />
         <TrustedBy />
-        <OffshoreTestimonialsGlobeLazy />
+        <KoreEnterpriseCarousel />
+        <OffshoreCoreFeaturesLazy />
+        <RasaCustomerStoriesCarouselLazy />
         <LatestBlogsClientLazy />
         <TechStackSectionLazy />
         <LightServicesStickyListLazy />

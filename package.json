@@ -13,6 +13,7 @@
         "sanity:import": "tsx scripts/migrate-to-sanity.ts",
         "sanity:export": "tsx scripts/export-content.ts",
         "sanity:migrate-case-studies-from-pdf": "tsx scripts/migrate-case-studies-from-pdf.ts",
+        "sanity:import-jetbrains": "tsx scripts/import-jetbrains-case-study.ts",
         "sanity:typegen": "sanity typegen generate",
         "psi": "node scripts/psi-check.mjs",
         "audit:site": "npx unlighthouse --site https://softreetechnology.com",

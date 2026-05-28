@@ -155,11 +155,21 @@ const Grainient: React.FC<GrainientProps> = ({
     if (!containerRef.current) return
 
     const container = containerRef.current
+    const contextProbe = document.createElement("canvas")
+    const supportsWebGL2 = !!contextProbe.getContext("webgl2")
+    const supportsWebGL1 =
+      !!contextProbe.getContext("webgl") ||
+      !!contextProbe.getContext("experimental-webgl")
+
+    if (!supportsWebGL2 && !supportsWebGL1) {
+      // No GPU context available on this device/browser; keep a static background.
+      return
+    }
 
     let renderer: Renderer
     try {
       renderer = new Renderer({
-        webgl: 2,
+        webgl: supportsWebGL2 ? 2 : 1,
         alpha: true,
         antialias: false,
         dpr: Math.min(window.devicePixelRatio || 1, 2),

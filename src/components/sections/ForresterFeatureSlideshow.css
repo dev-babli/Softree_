@@ -1,0 +1,281 @@
+.forrester-section {
+  background: #f8f4ea;
+}
+
+.forrester-padding {
+  padding: 6.5rem 1.5rem;
+}
+
+.forrester-container {
+  width: 100%;
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.forrester-feature {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  min-height: 620px;
+  display: flex;
+  align-items: stretch;
+  border: 1px solid rgba(136, 127, 173, 0.22);
+}
+
+.forrester-swiper-wrap .swiper,
+.forrester-swiper {
+  width: 100%;
+}
+
+.forrester-swiper-wrap .swiper-slide {
+  height: auto;
+}
+
+.forrester-bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+  pointer-events: none;
+}
+
+.forrester-layout-2-col {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+  gap: 2.25rem;
+  padding: 3rem;
+}
+
+.forrester-heading-content-wrapper {
+  max-width: 54ch;
+  color: #ffffff;
+}
+
+.forrester-logo {
+  width: 132px;
+  height: auto;
+  margin-bottom: 0.55rem;
+  filter: brightness(0) invert(1);
+}
+
+.forrester-company {
+  font-size: 0.67rem;
+  line-height: 1.2;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.78);
+  margin-bottom: 0.4rem;
+}
+
+.forrester-eyebrow {
+  font-size: 0.7rem;
+  line-height: 1.2;
+  letter-spacing: 0.11em;
+  font-weight: 600;
+  text-transform: uppercase;
+  opacity: 0.92;
+}
+
+.forrester-heading {
+  margin: 0.55rem 0 0;
+  font-size: clamp(2.35rem, 4.2vw, 3.8rem);
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+  color: #fff;
+}
+
+.forrester-copy-wrap {
+  max-width: 42ch;
+}
+
+.forrester-copy {
+  margin: 0.95rem 0 0;
+  font-size: 1.18rem;
+  line-height: 1.32;
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.forrester-spacer {
+  height: 0.65rem;
+}
+
+.forrester-feature-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.forrester-feature-stats-tile {
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.11);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(2px);
+  padding: 0.7rem 0.8rem;
+}
+
+.forrester-stat-text {
+  display: flex;
+  align-items: baseline;
+  gap: 0.08rem;
+  font-size: 2.35rem;
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+  color: #fff;
+}
+
+.forrester-stat-suffix {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.forrester-stat-label {
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
+  line-height: 1.15;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.forrester-button-group {
+  margin-top: 0.9rem;
+}
+
+.forrester-button {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #2a1f82;
+  text-decoration: none;
+  text-transform: lowercase;
+  letter-spacing: 0.03em;
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding: 0.63rem 1.22rem;
+  transition: background-color 0.2s ease;
+}
+
+.forrester-button:hover {
+  background: #f1edff;
+}
+
+.forrester-media-col {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.forrester-lp-feature-image {
+  width: 100%;
+  max-width: 530px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 1rem;
+  position: relative;
+}
+
+.forrester-chart-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.forrester-badge-image {
+  position: absolute;
+  width: 19%;
+  min-width: 78px;
+  max-width: 114px;
+  right: -6px;
+  top: -7px;
+  height: auto;
+}
+
+.forrester-controls {
+  margin-top: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.forrester-nav-btn {
+  border: 1px solid rgba(70, 57, 137, 0.24);
+  background: #fff;
+  color: #251b86;
+  font-size: 0.69rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.42rem 0.76rem;
+  transition: background-color 0.2s ease;
+}
+
+.forrester-nav-btn:hover {
+  background: #ece7ff;
+}
+
+.forrester-swiper-pagination {
+  margin-left: 0.3rem;
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
+
+.forrester-swiper-wrap .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: rgba(68, 56, 131, 0.35);
+  opacity: 1;
+  margin: 0 4px !important;
+  border-radius: 999px;
+  transition: all 0.25s ease;
+}
+
+.forrester-swiper-wrap .swiper-pagination-bullet-active {
+  width: 20px;
+  background: #2a1f82;
+}
+
+@media (max-width: 991px) {
+  .forrester-padding {
+    padding: 4.5rem 1.1rem;
+  }
+
+  .forrester-layout-2-col {
+    grid-template-columns: 1fr;
+    padding: 2rem 1.4rem;
+  }
+
+  .forrester-feature {
+    min-height: 0;
+  }
+
+  .forrester-heading-content-wrapper {
+    max-width: 100%;
+  }
+
+  .forrester-copy-wrap {
+    max-width: 100%;
+  }
+
+  .forrester-feature-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .forrester-lp-feature-image {
+    max-width: 100%;
+  }
+
+  .forrester-controls {
+    flex-wrap: wrap;
+    margin-top: 0.75rem;
+  }
+}
