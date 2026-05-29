@@ -168,3 +168,26 @@ export function prefersReducedMotion(): boolean {
   if (typeof window === "undefined") return false
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches
 }
+
+/**
+ * Subscribe to changes of the user's `prefers-reduced-motion` setting.
+ *
+ * Use this together with `useSyncExternalStore` (or a manual effect) when
+ * a component needs to react to runtime toggles of the OS-level
+ * reduced-motion preference, e.g. the homepage hero's cycling word.
+ * Centralising the `matchMedia` call here keeps the
+ * `no-untokenized-design-literals` ESLint rule satisfied at the
+ * component level — components must consume `prefersReducedMotion()`
+ * and `subscribePrefersReducedMotion()` from this module rather than
+ * declaring inline `matchMedia("(prefers-reduced-motion: reduce)")`
+ * checks of their own.
+ *
+ * @param onChange Invoked every time the media query result flips.
+ * @returns Cleanup function that detaches the listener.
+ */
+export function subscribePrefersReducedMotion(onChange: () => void): () => void {
+  if (typeof window === "undefined") return () => { }
+  const mq = window.matchMedia("(prefers-reduced-motion: reduce)")
+  mq.addEventListener("change", onChange)
+  return () => mq.removeEventListener("change", onChange)
+}

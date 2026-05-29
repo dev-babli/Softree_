@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
-import { Suspense } from "react";
 import { PostHogProvider } from "@/components/PostHogProvider";
 import { PostHogPageView } from "@/components/PostHogPageView";
 import GoogleAnalytics from "@/components/sections/google-analytics";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { draftMode } from "next/headers";
+import { VisualEditing } from "next-sanity/visual-editing";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.softreetechnology.com"),
@@ -37,11 +37,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const { isEnabled: isDraftMode } = await draftMode();
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -159,8 +161,8 @@ export default function RootLayout({
           {/* Vercel Speed Insights – Core Web Vitals RUM */}
           <SpeedInsights />
 
-          {/* Visual editor */}
-          <VisualEditsMessenger />
+          {/* Sanity Visual Editing bridge (required for Presentation tool) */}
+          {isDraftMode ? <VisualEditing /> : null}
         </PostHogProvider>
       </body>
     </html>

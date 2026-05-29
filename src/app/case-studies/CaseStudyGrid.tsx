@@ -97,19 +97,35 @@ export default function CaseStudyGrid({
   accentColor = "#1852FF",
   filterLabels,
 }: CaseStudyGridProps) {
+  const getInitialUnlockedStudies = () => {
+    if (typeof window === "undefined") {
+      return new Set<string>()
+    }
+
+    const saved = localStorage.getItem("unlockedCaseStudies")
+    if (!saved) {
+      return new Set<string>()
+    }
+
+    try {
+      return new Set<string>(JSON.parse(saved))
+    } catch {
+      return new Set<string>()
+    }
+  }
+
   const containerRef = useRef<HTMLDivElement>(null)
   const sectionRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(containerRef, { once: true, margin: "-100px" })
   const proofBarRef = useRef<HTMLDivElement>(null)
   const isProofInView = useInView(proofBarRef, { once: true, margin: "-60px" })
 
-  const [unlockedStudies, setUnlockedStudies] = useState<Set<string>>(new Set())
+  const [unlockedStudies, setUnlockedStudies] = useState<Set<string>>(getInitialUnlockedStudies)
   const [modalOpen, setModalOpen] = useState(false)
   const [selectedStudy, setSelectedStudy] = useState<CaseStudyItem | null>(null)
   const [email, setEmail] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
-  const [mounted, setMounted] = useState(false)
   const [activeFilter, setActiveFilter] = useState("All")
   const [stickyVisible, setStickyVisible] = useState(false)
 
@@ -125,19 +141,10 @@ export default function CaseStudyGrid({
     setStickyVisible(rect.top < -120 && rect.bottom > 200)
   })
 
-  // Load unlocked studies from localStorage on mount (setMounted is a hydration guard)
-  useEffect(() => {
-    const saved = localStorage.getItem('unlockedCaseStudies')
-    if (saved) {
-      setUnlockedStudies(new Set(JSON.parse(saved)))
-    }
-    setMounted(true)
-  }, [])
-
   const handleUnlockClick = (study: CaseStudyItem) => {
     if (unlockedStudies.has(study.title)) {
-      // Already unlocked, open PDF directly
-      window.open(study.href, '_blank')
+      // Already unlocked, open case study directly
+      window.location.assign(study.href)
     } else {
       // Show unlock modal
       setSelectedStudy(study)
@@ -194,7 +201,7 @@ export default function CaseStudyGrid({
     >
       {/* ═══════ STICKY PROOF BAR ═══════ */}
       <AnimatePresence>
-        {stickyVisible && mounted && (
+        {stickyVisible && (
           <motion.div
             initial={{ opacity: 0, y: -48 }}
             animate={{ opacity: 1, y: 0 }}
@@ -241,7 +248,7 @@ export default function CaseStudyGrid({
         <motion.div
           className="mb-10"
           initial={{ opacity: 0, y: 30 }}
-          animate={mounted && isInView ? { opacity: 1, y: 0 } : {}}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: EASE }}
         >
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#1852FF]/20 bg-[#eef4ff] px-4 py-2">
@@ -261,7 +268,7 @@ export default function CaseStudyGrid({
         <motion.div
           className="mb-10 flex flex-wrap gap-2"
           initial={{ opacity: 0, y: 16 }}
-          animate={mounted && isInView ? { opacity: 1, y: 0 } : {}}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
         >
           {allFilters.map(filter => (
@@ -284,7 +291,7 @@ export default function CaseStudyGrid({
           ref={proofBarRef}
           className="mb-12 grid grid-cols-2 gap-3 sm:grid-cols-4"
           initial={{ opacity: 0, y: 20 }}
-          animate={mounted && isInView ? { opacity: 1, y: 0 } : {}}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
         >
           {[
@@ -361,7 +368,7 @@ export default function CaseStudyGrid({
                         <div className="absolute bottom-4 right-4">
                           <span className={`flex items-center gap-1 rounded-full border px-2.5 py-1 text-[10px] font-medium backdrop-blur-md transition-all ${isUnlocked ? 'border-white/20 bg-white/10 text-white/80' : 'border-orange-400/50 bg-orange-500/30 text-orange-100'}`}>
                             {isUnlocked ? (
-                              <><ArrowUpRight className="h-3 w-3" /> PDF</>
+                              <><ArrowUpRight className="h-3 w-3" /> Case Study</>
                             ) : (
                               <><Lock className="h-3 w-3" /> Unlock</>
                             )}
@@ -428,7 +435,7 @@ export default function CaseStudyGrid({
                             <span className="text-xs text-[#0a0a1a]/50">Softree Technology</span>
                           </div>
                           <span className={`inline-flex items-center gap-1 text-xs font-semibold transition-transform duration-300 group-hover:translate-x-0.5 ${isUnlocked ? 'text-[#1852FF]' : 'text-orange-600'}`}>
-                            {isUnlocked ? 'View PDF' : 'Unlock PDF'}
+                            {isUnlocked ? 'View Case Study' : 'Unlock Case Study'}
                             <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5" />
                           </span>
                         </div>
@@ -485,10 +492,10 @@ export default function CaseStudyGrid({
                 {!isSuccess ? (
                   <>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">
-                      Unlock the ROI Report
+                      Unlock the Full Case Study
                     </h3>
                     <p className="text-sm text-gray-600 mb-6 leading-relaxed">
-                      Get the complete <strong>{selectedStudy.title}</strong> case study PDF with full metrics, implementation details, and ROI analysis.
+                      Get the complete <strong>{selectedStudy.title}</strong> case study with full metrics, implementation details, and ROI analysis.
                     </p>
 
                     {/* Teaser metrics preview */}
@@ -550,14 +557,14 @@ export default function CaseStudyGrid({
                         ) : (
                           <>
                             <Download className="h-4 w-4" />
-                            Unlock & Download PDF
+                            Unlock & View Case Study
                           </>
                         )}
                       </button>
                     </form>
 
                     <p className="mt-4 text-[11px] text-gray-400 text-center">
-                      We&apos;ll send the PDF to your email. No spam, unsubscribe anytime.
+                      We&apos;ll send you access details by email. No spam, unsubscribe anytime.
                     </p>
                   </>
                 ) : (
@@ -567,17 +574,15 @@ export default function CaseStudyGrid({
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">Unlocked! 🎉</h3>
                     <p className="text-sm text-gray-600 mb-6">
-                      Check your inbox for the PDF. The case study is now unlocked on this device.
+                      Check your inbox for confirmation. This case study is now unlocked on this device.
                     </p>
                     <a
                       href={selectedStudy.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
                       onClick={closeModal}
                       className="inline-flex items-center gap-2 py-3 px-6 rounded-xl bg-gradient-to-r from-violet-600 to-purple-700 text-white font-semibold text-sm shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all"
                     >
                       <Download className="h-4 w-4" />
-                      Download Now
+                      Open Case Study
                     </a>
                   </div>
                 )}

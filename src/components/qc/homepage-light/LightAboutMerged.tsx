@@ -133,7 +133,7 @@ function AnimatedButton({ href = "/about-us" }: { href?: string }) {
   return (
     <Link
       href={href}
-      className="group relative inline-flex items-center gap-2 overflow-hidden rounded-lg bg-[#1a1a1a] px-5 py-2.5 shadow-[0_8px_24px_-8px_rgba(26,26,26,0.4)] transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-px hover:shadow-[0_14px_30px_-10px_rgba(26,26,26,0.55)] active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1852FF]/40"
+      className="group relative inline-flex items-center gap-2 overflow-hidden rounded-lg bg-[var(--legacy-1a1a1a)] px-5 py-2.5 shadow-[0_8px_24px_-8px_rgba(26,26,26,0.4)] transition-all duration-300 ease-[var(--legacy-ease-0_23_1_0_32_1)] hover:-translate-y-px hover:shadow-[0_14px_30px_-10px_rgba(26,26,26,0.55)] active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1852FF]/40"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -190,7 +190,7 @@ export default function LightAboutMerged() {
           >
             {/* Badge */}
             <motion.div
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#1852FF]/20 bg-[#eef4ff] px-4 py-2"
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#1852FF]/20 bg-[var(--legacy-eef4ff)] px-4 py-2"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -278,7 +278,7 @@ export default function LightAboutMerged() {
             >
               <Link
                 href="/case-studies"
-                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-lg bg-[#1a1a1a] px-5 py-2.5 shadow-[0_8px_24px_-8px_rgba(26,26,26,0.4)] transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-px hover:shadow-[0_14px_30px_-10px_rgba(26,26,26,0.55)] active:scale-[0.97]"
+                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-lg bg-[var(--legacy-1a1a1a)] px-5 py-2.5 shadow-[0_8px_24px_-8px_rgba(26,26,26,0.4)] transition-all duration-300 ease-[var(--legacy-ease-0_23_1_0_32_1)] hover:-translate-y-px hover:shadow-[0_14px_30px_-10px_rgba(26,26,26,0.55)] active:scale-[0.97]"
               >
                 <span className="text-sm font-medium text-white">Explore offshore engagement models</span>
                 <ArrowUpRight className="h-4 w-4 text-white transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -521,7 +521,7 @@ export default function LightAboutMerged() {
                 color="rgba(24, 82, 255, 0.55)"
                 intensity={0.6}
                 radius={280}
-                className="rounded-2xl border border-[#0a0a1a]/5 bg-white p-6 shadow-[0_8px_28px_-12px_rgba(10,10,26,0.12)] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-1 hover:shadow-[0_24px_50px_-14px_rgba(24,82,255,0.25)]"
+                className="rounded-2xl border border-[#0a0a1a]/5 bg-white p-6 shadow-[0_8px_28px_-12px_rgba(10,10,26,0.12)] transition-all duration-500 ease-[var(--legacy-ease-0_23_1_0_32_1)] hover:-translate-y-1 hover:shadow-[0_24px_50px_-14px_rgba(24,82,255,0.25)]"
               >
                 <div className="mb-2 flex items-baseline tabular-nums">
                   <span className="text-5xl font-bold text-[#1852FF] md:text-6xl">
@@ -544,7 +544,7 @@ export default function LightAboutMerged() {
                 color="rgba(24, 82, 255, 0.55)"
                 intensity={0.6}
                 radius={280}
-                className="rounded-2xl border border-[#0a0a1a]/5 bg-white p-6 shadow-[0_8px_28px_-12px_rgba(10,10,26,0.12)] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-1 hover:shadow-[0_24px_50px_-14px_rgba(24,82,255,0.25)]"
+                className="rounded-2xl border border-[#0a0a1a]/5 bg-white p-6 shadow-[0_8px_28px_-12px_rgba(10,10,26,0.12)] transition-all duration-500 ease-[var(--legacy-ease-0_23_1_0_32_1)] hover:-translate-y-1 hover:shadow-[0_24px_50px_-14px_rgba(24,82,255,0.25)]"
               >
                 <div className="mb-2 flex items-baseline tabular-nums">
                   <span className="text-5xl font-bold text-[#0a0a1a] md:text-6xl">

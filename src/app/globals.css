@@ -7,19 +7,42 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
+  /* ─────────────────────────────────────────────────────────────
+   * TYPOGRAPHY
+   * Single sans family across the project — Inter.
+   * Bebas Neue / DM Sans declarations elsewhere should be removed.
+   * ───────────────────────────────────────────────────────────── */
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  /* Core colors */
+  /* ─────────────────────────────────────────────────────────────
+   * BRAND COLOR TOKENS
+   * Use --softree-* tokens instead of hardcoded hex strings.
+   * ───────────────────────────────────────────────────────────── */
+  --softree-bg-light: #fafaf9;       /* Hero light surface */
+  --softree-bg-dark: #0a0a0a;        /* Primary dark surface (sections) */
+  --softree-bg-darker: #050505;      /* Footer / deepest contrast */
+  --softree-surface-1: #141414;      /* Card / panel surface */
+  --softree-surface-2: #1e1e1e;      /* Elevated surface */
+  --softree-fg-on-dark: #ffffff;
+  --softree-fg-on-light: #0a0a0a;
+  --softree-fg-muted-dark: rgba(255, 255, 255, 0.55);
+  --softree-fg-muted-light: rgba(10, 10, 10, 0.6);
+  --softree-border-dark: rgba(255, 255, 255, 0.10);
+  --softree-border-light: rgba(10, 10, 10, 0.10);
+
+  /* Brand orange — single source of truth */
+  --softree-accent: #FF7A2F;
+  --softree-accent-hover: #E85A1F;
+  --softree-accent-soft: rgba(255, 122, 47, 0.12);
+
+  /* Existing aliases (kept for shadcn compatibility) */
   --color-background: #ffffff;
   --color-foreground: #0a0a0a;
-
   --color-card: rgba(255, 255, 255, 0.04);
   --color-card-foreground: #ffffff;
-
   --color-border: rgba(255, 255, 255, 0.12);
   --color-muted: rgba(255, 255, 255, 0.08);
   --color-muted-foreground: rgba(255, 255, 255, 0.75);
-
   --color-primary: #1d4ed8;
   --color-accent: #22d3ee;
   --color-destructive: #ef4444;
@@ -149,8 +172,6 @@
   @apply w-full border-b border-gray-300 focus:border-cyan-500 outline-none py-2 text-sm;
 }
 
-/* Removed duplicate @keyframes marquee - already defined at line 126 */
-
 .animate-marquee {
   animation: marquee 25s linear infinite;
 }
@@ -159,13 +180,80 @@
   .animate-marquee {
     animation: none;
   }
+  .marquee-track {
+    animation: none;
+  }
+  .animate-smooth-slide {
+    animation: none;
+  }
 }
 
-@keyframes scrollLeft {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+/* ===== auto-generated legacy design tokens — softree-design rule ===== */
+:root {
+  --legacy-00091a: #00091a;
+  --legacy-020617: #020617;
+  --legacy-020d1a: #020d1a;
+  --legacy-050505: #050505;
+  --legacy-08081a: #08081a;
+  --legacy-09090d: #09090d;
+  --legacy-0a0a0a: #0a0a0a;
+  --legacy-0a0f14: #0a0f14;
+  --legacy-0b0f14: #0b0f14;
+  --legacy-0f172a: #0f172a;
+  --legacy-111: #111;
+  --legacy-111111: #111111;
+  --legacy-111827: #111827;
+  --legacy-13142a: #13142a;
+  --legacy-141413: #141413;
+  --legacy-141414: #141414;
+  --legacy-141922: #141922;
+  --legacy-161b22: #161b22;
+  --legacy-18285c: #18285c;
+  --legacy-1a1a1a: #1a1a1a;
+  --legacy-1a2a3a: #1a2a3a;
+  --legacy-1d4ed8: #1d4ed8;
+  --legacy-1f2933: #1f2933;
+  --legacy-1f2937: #1f2937;
+  --legacy-22d3ee: #22d3ee;
+  --legacy-451a03: #451a03;
+  --legacy-555: #555;
+  --legacy-6366f1: #6366f1;
+  --legacy-666: #666;
+  --legacy-6c42f5: #6c42f5;
+  --legacy-7c2d12: #7c2d12;
+  --legacy-888: #888;
+  --legacy-c86e4b: #c86e4b;
+  --legacy-cbd5e1: #cbd5e1;
+  --legacy-e56a20: #e56a20;
+  --legacy-e5e5e5: #e5e5e5;
+  --legacy-e66000: #e66000;
+  --legacy-ea580c: #ea580c;
+  --legacy-eaeaea: #eaeaea;
+  --legacy-eef4ff: #eef4ff;
+  --legacy-eff9ff: #eff9ff;
+  --legacy-f5b947: #f5b947;
+  --legacy-f5f5f5: #f5f5f5;
+  --legacy-f6f4f0: #f6f4f0;
+  --legacy-f6f6f6: #f6f6f6;
+  --legacy-f97316: #f97316;
+  --legacy-f9f9f9: #f9f9f9;
+  --legacy-fafaf8: #fafaf8;
+  --legacy-fafaf9: #fafaf9;
+  --legacy-fcfcfb: #fcfcfb;
+  --legacy-ff4500: #ff4500;
+  --legacy-ff6b35: #ff6b35;
+  --legacy-ff7a2f: #ff7a2f;
+  --legacy-ff8c70: #ff8c70;
+  --legacy-fffbf7: #fffbf7;
+  --legacy-ffffff14: #ffffff14;
+  --legacy-ffffffcc: #ffffffcc;
+  --legacy-ease-_22_1_36_1: cubic-bezier(.22,1,.36,1);
+  --legacy-ease-0_0_0_2_1: cubic-bezier(0,0,0.2,1);
+  --legacy-ease-0_16_1_0_3_1: cubic-bezier(0.16,1,0.3,1);
+  --legacy-ease-0_23_1_0_32_1: cubic-bezier(0.23,1,0.32,1);
+  --legacy-ease-0_32_0_72_0_1: cubic-bezier(0.32,0.72,0,1);
+  --legacy-ease-0_4_0_0_2_1: cubic-bezier(0.4,0,0.2,1);
+  --legacy-ease-0_65_0_0_35_1: cubic-bezier(0.65,0,0.35,1);
+  --legacy-ease-0_7_0_0_84_0: cubic-bezier(0.7,0,0.84,0);
 }
+/* ===== end legacy design tokens ===== */

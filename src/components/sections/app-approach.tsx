@@ -23,7 +23,7 @@ const steps = [
 
 export default function ApplicationApproachAdvanced() {
   return (
-    <section className="relative py-32 bg-gradient-to-b from-black via-[#020d1a] to-black text-white overflow-hidden">
+    <section className="relative py-32 bg-gradient-to-b from-black via-[var(--legacy-020d1a)] to-black text-white overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#f59e0b20,transparent_60%)]" />

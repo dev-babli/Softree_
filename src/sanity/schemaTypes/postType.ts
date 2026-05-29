@@ -34,6 +34,22 @@ export const postType = defineType({
       validation: (Rule) => Rule.max(200),
     }),
     defineField({
+      name: 'status',
+      title: 'Status',
+      type: 'string',
+      group: 'content',
+      description: 'Set to Archived to hide this post from the website while keeping it in Sanity.',
+      options: {
+        list: [
+          {title: 'Published', value: 'published'},
+          {title: 'Archived', value: 'archived'},
+        ],
+        layout: 'radio',
+      },
+      initialValue: 'published',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'author',
       type: 'reference',
       to: {type: 'author'},

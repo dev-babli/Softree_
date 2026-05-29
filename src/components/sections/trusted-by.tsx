@@ -1,28 +1,30 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 interface Logo {
   name: string;
   src: string;
-  accent: string;
 }
 
-const logos: Logo[] = [
-  { name: "GO ERP", src: "/images/logo/goerp1.jpg", accent: "#3b82f6" },
-  { name: "Nuvento", src: "/images/logo/nuvento.jpg", accent: "#06b6d4" },
-  { name: "Kwiz", src: "/images/logo/kwiz.png", accent: "#8b5cf6" },
-  { name: "Jonians", src: "/images/logo/jonians.jpg", accent: "#10b981" },
-  { name: "Export Control", src: "/images/logo/ecg.png", accent: "#ef4444" },
-  { name: "SP Marketplace", src: "/images/logo/sp-marketplace.png", accent: "#f59e0b" },
-  { name: "Bosch", src: "/images/logo/bosch.png", accent: "#ef4444" },
-  { name: "Emscale", src: "/images/logo/emscale_logo.png", accent: "#22c55e" },
-  { name: "Link Innovation", src: "/images/logo/link-innovation.png", accent: "#0ea5e9" },
-  { name: "Intellectt", src: "/images/logo/Intellectt_logo.png", accent: "#a855f7" },
+const LOGOS: Logo[] = [
+  { name: "GO ERP", src: "/images/logo/goerp1.jpg" },
+  { name: "Nuvento", src: "/images/logo/nuvento.jpg" },
+  { name: "Kwiz", src: "/images/logo/kwiz.png" },
+  { name: "Jonians", src: "/images/logo/jonians.jpg" },
+  { name: "Export Control", src: "/images/logo/ecg.png" },
+  { name: "SP Marketplace", src: "/images/logo/sp-marketplace.png" },
+  { name: "Bosch", src: "/images/logo/bosch.png" },
+  { name: "Emscale", src: "/images/logo/emscale_logo.png" },
+  { name: "Link Innovation", src: "/images/logo/link-innovation.png" },
+  { name: "Intellectt", src: "/images/logo/Intellectt_logo.png" },
 ];
 
-// ─── Logo Card Component ───────────────────────────────────────────────────────
-
+/* ---------------------------------------------------------------------------
+ * LogoCard
+ * White tile keeps mixed JPG/PNG logos legible and on-brand.
+ * Apple/Stripe trust-grid convention with Jhey's dynamic spotlight border tracking.
+ * ------------------------------------------------------------------------- */
 function LogoCard({ logo }: { logo: Logo }) {
   const imgRef = useRef<HTMLImageElement>(null);
   const fallbackRef = useRef<HTMLDivElement>(null);
@@ -177,15 +179,15 @@ function LogoCard({ logo }: { logo: Logo }) {
               height: 44,
               borderRadius: "50%",
               background: "linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 100%)",
-              border: `1.5px solid ${logo.accent}55`,
-              boxShadow: `0 0 10px ${logo.accent}22`,
+              border: `1.5px solid #f9731655`,
+              boxShadow: `0 0 10px #f9731622`,
               alignItems: "center",
               justifyContent: "center",
               fontSize: 16,
               fontWeight: 700,
               letterSpacing: "0.06em",
               color: "#fff",
-              textShadow: `0 0 8px ${logo.accent}`,
+              textShadow: `0 0 8px #f97316`,
             }}
           >
             {logo.name.slice(0, 2).toUpperCase()}
@@ -213,21 +215,43 @@ function LogoCard({ logo }: { logo: Logo }) {
   );
 }
 
-// ─── Marquee Row Component ─────────────────────────────────────────────────────
-
+/* ---------------------------------------------------------------------------
+ * MarqueeRow
+ * - Pauses when off-screen (battery / GPU)
+ * - Pauses on hover so users can read a logo
+ * - Honors prefers-reduced-motion
+ * ------------------------------------------------------------------------- */
 function MarqueeRow({
   items,
   reverse = false,
-  duration = "35s",
+  duration = "60s",
 }: {
   items: Logo[];
   reverse?: boolean;
   duration?: string;
 }) {
   const repeated = [...items, ...items, ...items, ...items];
+  const wrapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const track = el.querySelector<HTMLElement>(".marquee-row-anim");
+        if (!track) return;
+        track.style.animationPlayState = entry.isIntersecting
+          ? "running"
+          : "paused";
+      },
+      { threshold: 0 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <div style={{ overflow: "hidden" }}>
+    <div ref={wrapRef} className="overflow-hidden">
       <div
         className="marquee-row-anim"
         style={{
@@ -240,12 +264,12 @@ function MarqueeRow({
           willChange: "transform",
           transform: "translate3d(0, 0, 0)", // Promotion to GPU composite layer
         }}
-        onMouseEnter={(e) =>
-          ((e.currentTarget as HTMLElement).style.animationPlayState = "paused")
-        }
-        onMouseLeave={(e) =>
-          ((e.currentTarget as HTMLElement).style.animationPlayState = "running")
-        }
+        onMouseEnter={(e) => {
+          (e.currentTarget as HTMLElement).style.animationPlayState = "paused";
+        }}
+        onMouseLeave={(e) => {
+          (e.currentTarget as HTMLElement).style.animationPlayState = "running";
+        }}
       >
         {repeated.map((logo, i) => (
           <LogoCard key={`${logo.name}-${i}`} logo={logo} />
@@ -256,7 +280,6 @@ function MarqueeRow({
 }
 
 // ─── Star Icon Component ───────────────────────────────────────────────────────
-
 function StarIcon() {
   return (
     <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" width={13} height={13}>
@@ -270,10 +293,9 @@ function StarIcon() {
 }
 
 // ─── Main Component ────────────────────────────────────────────────────────────
-
-export default function LogoMarquee() {
-  const row1 = logos.slice(0, 5);
-  const row2 = logos.slice(5);
+export default function TrustedBy() {
+  const row1 = LOGOS.slice(0, 5);
+  const row2 = LOGOS.slice(5);
 
   return (
     <>
@@ -282,11 +304,6 @@ export default function LogoMarquee() {
         @keyframes marqueeScroll {
           from { transform: translate3d(0, 0, 0); }
           to   { transform: translate3d(-50%, 0, 0); }
-        }
-
-        @keyframes pulseDot {
-          0%, 100% { opacity: 1; transform: scale(1); }
-          50%       { opacity: 0.4; transform: scale(0.7); }
         }
 
         /* Separator Star Breathing Glow */
@@ -369,7 +386,6 @@ export default function LogoMarquee() {
                 borderRadius: "50%",
                 background: "#f97316",
                 boxShadow: "0 0 8px #f97316, 0 0 14px rgba(249, 115, 22, 0.6)",
-                animation: "pulseDot 2.2s ease-in-out infinite",
                 display: "inline-block",
               }}
             />

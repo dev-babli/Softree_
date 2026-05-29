@@ -32,7 +32,7 @@ function SocialIcon({
       aria-label={label}
       target="_blank"
       rel="noreferrer"
-      className="grid h-11 w-11 place-items-center rounded-full border border-white/16 bg-white/[0.055] text-white transition duration-300 hover:-translate-y-1 hover:border-white/35 hover:bg-white hover:text-[#09090d] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5812]/70"
+      className="grid h-11 w-11 place-items-center rounded-full border border-white/16 bg-white/[0.055] text-white transition duration-300 hover:-translate-y-1 hover:border-white/35 hover:bg-white hover:text-[var(--legacy-09090d)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5812]/70"
     >
       <span className="h-[22px] w-[22px]">{children}</span>
     </a>
@@ -157,7 +157,7 @@ export default function LightContactSection() {
   return (
     <section
       id="contact"
-      className="relative isolate overflow-hidden bg-[#f6f4f0] px-4 py-8 text-[#111] sm:px-6 sm:py-12 lg:px-8 lg:py-16"
+      className="relative isolate overflow-hidden bg-[var(--legacy-f6f4f0)] px-4 py-8 text-[var(--legacy-111)] sm:px-6 sm:py-12 lg:px-8 lg:py-16"
     >
       <div
         aria-hidden
@@ -192,7 +192,7 @@ export default function LightContactSection() {
           whileInView={{ y: 0, opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-10%" }}
           transition={{ duration: 0.85, ease: EASE, delay: 0.05 }}
-          className="overflow-hidden rounded-[8px] bg-[#09090d] text-white shadow-[0_34px_100px_-50px_rgba(0,0,0,0.75)]"
+          className="overflow-hidden rounded-[8px] bg-[var(--legacy-09090d)] text-white shadow-[0_34px_100px_-50px_rgba(0,0,0,0.75)]"
         >
           <div className="grid lg:min-h-[420px] grid-cols-1 lg:grid-cols-[0.32fr_1.12fr_1fr]">
             <aside className="flex flex-col justify-between border-b border-white/10 p-4 sm:p-5 lg:border-b-0 lg:border-r">
@@ -324,7 +324,7 @@ export default function LightContactSection() {
                   <button
                     type="submit"
                     disabled={status === "submitting"}
-                    className="group mt-6 sm:mt-8 inline-flex h-11 sm:h-12 w-full sm:w-fit sm:px-8 gap-4 items-center justify-between rounded-full bg-[#ff5812] px-6 text-[13px] font-semibold uppercase tracking-[0.16em] text-white transition duration-300 hover:bg-white hover:text-[#09090d] disabled:cursor-not-allowed disabled:opacity-65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5812]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090d]"
+                    className="group mt-6 sm:mt-8 inline-flex h-11 sm:h-12 w-full sm:w-fit sm:px-8 gap-4 items-center justify-between rounded-full bg-[#ff5812] px-6 text-[13px] font-semibold uppercase tracking-[0.16em] text-white transition duration-300 hover:bg-white hover:text-[var(--legacy-09090d)] disabled:cursor-not-allowed disabled:opacity-65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5812]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090d]"
                   >
                     <span>{status === "submitting" ? "Please wait..." : "Send message & book a call"}</span>
                     <ArrowUpRight
@@ -353,7 +353,7 @@ export default function LightContactSection() {
                     <p
                       role="region"
                       aria-label="Email Form failure"
-                      className="mt-5 text-sm leading-6 text-[#ff8c70]"
+                      className="mt-5 text-sm leading-6 text-[var(--legacy-ff8c70)]"
                     >
                       Submission failed. Please try again in a moment.
                     </p>

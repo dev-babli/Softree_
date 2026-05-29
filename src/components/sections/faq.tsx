@@ -49,7 +49,7 @@ export default function SoftreeFAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative w-full py-12 px-4 md:px-6 bg-gradient-to-b from-black via-[#020d1a] to-black">
+    <section className="relative w-full py-12 px-4 md:px-6 bg-gradient-to-b from-black via-[var(--legacy-020d1a)] to-black">
       {/* Background Glow */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-cyan-500/5 via-transparent to-transparent" />
 

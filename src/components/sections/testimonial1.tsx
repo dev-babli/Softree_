@@ -110,10 +110,10 @@ export default function ReviewsCarousel() {
   }, [index]);
 
   return (
-    <section className="bg-gradient-to-b from-black via-[#020d1a] to-black">
+    <section className="bg-gradient-to-b from-black via-[var(--legacy-020d1a)] to-black">
       <div className="py-2">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="bg-gradient-to-br from-[#0f172a] via-[#020617] to-black rounded-2xl p-10">
+          <div className="bg-gradient-to-br from-[var(--legacy-0f172a)] via-[var(--legacy-020617)] to-black rounded-2xl p-10">
             <div className="grid grid-cols-12 gap-10 items-start">
               {/* ================= LEFT ================= */}
               <div className="col-span-12 md:col-span-3 text-white">

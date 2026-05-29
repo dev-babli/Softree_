@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
           <ul className="space-y-2">
             <li>
               <a
-                href="https://www.softreetechnology.com/about/"
+                href="/about-us"
                 className="hover:underline"
               >
                 About Softree Technology
@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
             </li>
             <li>
               <a
-                href="https://www.softreetechnology.com/team/"
+                href="/about-us"
                 className="hover:underline"
               >
                 Meet Our Team
@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
             </li>
             <li>
               <a
-                href="https://www.softreetechnology.com/case-studies/"
+                href="/case-studies/power-platform"
                 className="hover:underline"
               >
                 Case Studies
@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
             </li>
             <li>
               <a
-                href="https://www.softreetechnology.com/blog"
+                href="/blog"
                 className="hover:underline"
               >
                 Tech Blog
@@ -64,7 +64,7 @@ const Footer: React.FC = () => {
             </li>
             <li>
               <a
-                href="https://www.softreetechnology.com/contact/"
+                href="/contact"
                 className="hover:underline"
               >
                 Contact Us
@@ -72,7 +72,7 @@ const Footer: React.FC = () => {
             </li>
             <li>
               <a
-                href="https://www.softreetechnology.com/get-a-quote/"
+                href="/contact"
                 className="hover:underline"
               >
                 Get a Quote
@@ -87,7 +87,7 @@ const Footer: React.FC = () => {
           <ul className="space-y-2">
             <li>
               <a
-                href="https://www.softreetechnology.com/mobile-app-development/"
+                href="/services/offshore-mobile-app-development"
                 className="hover:underline"
               >
                 Looking for MERN Developers?
@@ -95,7 +95,7 @@ const Footer: React.FC = () => {
             </li>
             <li>
               <a
-                href="https://www.softreetechnology.com/full-stack-development/"
+                href="/services/offshore-web-app-development"
                 className="hover:underline"
               >
                 Looking for Full Stack Developers?
@@ -103,7 +103,7 @@ const Footer: React.FC = () => {
             </li>
             <li>
               <a
-                href="https://www.softreetechnology.com/react-development/"
+                href="/services/offshore-web-app-development"
                 className="hover:underline"
               >
                 Looking for React Developers?
@@ -111,7 +111,7 @@ const Footer: React.FC = () => {
             </li>
             <li>
               <a
-                href="https://www.softreetechnology.com/flutter-development/"
+                href="/services/offshore-mobile-app-development"
                 className="hover:underline"
               >
                 Looking for Flutter Developers?
@@ -119,7 +119,7 @@ const Footer: React.FC = () => {
             </li>
             <li>
               <a
-                href="https://www.softreetechnology.com/ios-development/"
+                href="/services/offshore-mobile-app-development"
                 className="hover:underline"
               >
                 Looking for iOS Developers?
@@ -127,7 +127,7 @@ const Footer: React.FC = () => {
             </li>
             <li>
               <a
-                href="https://www.softreetechnology.com/angular-development/"
+                href="/services/offshore-web-app-development"
                 className="hover:underline"
               >
                 Looking for Angular Developers?
@@ -142,7 +142,7 @@ const Footer: React.FC = () => {
           <ul className="space-y-2">
             <li>
               <a
-                href="https://www.softreetechnology.com/sharepoint-development/"
+                href="/services/offshore-sharepoint-development"
                 className="hover:underline"
               >
                 Looking for SharePoint Developers?
@@ -150,7 +150,7 @@ const Footer: React.FC = () => {
             </li>
             <li>
               <a
-                href="https://www.softreetechnology.com/powerapps-development/"
+                href="/services/offshore-power-platform-development"
                 className="hover:underline"
               >
                 Looking for Power Apps Developers?
@@ -158,7 +158,7 @@ const Footer: React.FC = () => {
             </li>
             <li>
               <a
-                href="https://www.softreetechnology.com/power-automate-development/"
+                href="/services/offshore-power-platform-development"
                 className="hover:underline"
               >
                 Looking for Power Automate Developers?
@@ -166,7 +166,7 @@ const Footer: React.FC = () => {
             </li>
             <li>
               <a
-                href="https://www.softreetechnology.com/sharepoint-migration/"
+                href="/services/offshore-sharepoint-development"
                 className="hover:underline"
               >
                 Looking for SP Migration Expert?
@@ -174,7 +174,7 @@ const Footer: React.FC = () => {
             </li>
             <li>
               <a
-                href="https://www.softreetechnology.com/spfx-development/"
+                href="/services/offshore-spfx-development"
                 className="hover:underline"
               >
                 Looking for SPFx & React Developers?
@@ -182,7 +182,7 @@ const Footer: React.FC = () => {
             </li>
             <li>
               <a
-                href="https://www.softreetechnology.com/power-pages/"
+                href="/services/offshore-power-platform-development"
                 className="hover:underline"
               >
                 Looking for Power Pages Developers?
@@ -190,7 +190,7 @@ const Footer: React.FC = () => {
             </li>
             <li>
               <a
-                href="https://www.softreetechnology.com/power-bi/"
+                href="/services/offshore-data-analytics"
                 className="hover:underline"
               >
                 Looking for Power BI Developers?
@@ -215,6 +215,7 @@ const Footer: React.FC = () => {
             <a
               href="https://www.facebook.com/softreetechnology"
               target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-white transition"
             >
               <FaFacebookF />
@@ -222,6 +223,7 @@ const Footer: React.FC = () => {
             <a
               href="https://www.instagram.com/softreetechnology/"
               target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-white transition"
             >
               <FaInstagram />
@@ -229,6 +231,7 @@ const Footer: React.FC = () => {
             <a
               href="https://www.linkedin.com/company/softree-technology-pvt-ltd/"
               target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-white transition"
             >
               <FaLinkedinIn />
@@ -236,6 +239,7 @@ const Footer: React.FC = () => {
             <a
               href="https://www.youtube.com/@softreetechnologypvt.ltd.9452"
               target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-white transition"
             >
               <FaYoutube />
@@ -248,12 +252,12 @@ const Footer: React.FC = () => {
       <div className="border-t border-gray-700 mt-8 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
           <div className="mb-4 md:mb-0">
-            © 2024 Softree Technology, All rights reserved.
+            © {new Date().getFullYear()} Softree Technology, All rights reserved.
           </div>
           <ul className="flex space-x-4">
             <li>
               <a
-                href="https://www.softreetechnology.com/privacy-policy/"
+                href="/terms"
                 className="hover:underline"
               >
                 Term of Use - Softree Technology
@@ -261,7 +265,7 @@ const Footer: React.FC = () => {
             </li>
             <li>
               <a
-                href="https://www.softreetechnology.com/privacy-policy/"
+                href="/privacy-policy"
                 className="hover:underline"
               >
                 Privacy Policy - Softree Technology
@@ -269,7 +273,7 @@ const Footer: React.FC = () => {
             </li>
             <li>
               <a
-                href="https://www.softreetechnology.com/privacy-policy/"
+                href="/privacy-policy"
                 className="hover:underline"
               >
                 Cookie Policy - Softree Technology

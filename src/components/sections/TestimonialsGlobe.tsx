@@ -23,7 +23,7 @@ const floatStyles = `
     inset: -4px;
     border-radius: 9999px;
     border: 1.5px solid #F5B947;
-    animation: ping-ring 1.6s cubic-bezier(0,0,0.2,1) infinite;
+    animation: ping-ring 1.6s var(--legacy-ease-0_0_0_2_1) infinite;
     pointer-events: none;
   }
   @keyframes ambient-pulse {
@@ -215,8 +215,8 @@ function AvatarPin({ avatar, active, onActivate, floatClass }: {
         aria-pressed={active}
       >
         {/* Tooltip */}
-        <div className="pointer-events-none absolute bottom-full left-1/2 z-30 mb-2.5 -translate-x-1/2 whitespace-nowrap opacity-0 translate-y-1 transition-all duration-[220ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:opacity-100 group-hover:translate-y-0">
-          <div className="rounded-md border border-white/[0.08] bg-[#141414] px-2.5 py-1.5 shadow-[0_8px_24px_-4px_rgba(0,0,0,0.6)] backdrop-blur-sm">
+        <div className="pointer-events-none absolute bottom-full left-1/2 z-30 mb-2.5 -translate-x-1/2 whitespace-nowrap opacity-0 translate-y-1 transition-all duration-[220ms] ease-[var(--legacy-ease-0_32_0_72_0_1)] group-hover:opacity-100 group-hover:translate-y-0">
+          <div className="rounded-md border border-white/[0.08] bg-[var(--legacy-141414)] px-2.5 py-1.5 shadow-[0_8px_24px_-4px_rgba(0,0,0,0.6)] backdrop-blur-sm">
             <p className="text-[10.5px] font-medium leading-tight text-white tracking-[-0.005em]">{avatar.name}</p>
             <p className="mt-0.5 text-[9.5px] leading-tight text-neutral-500">{avatar.role} · {avatar.location}</p>
           </div>
@@ -234,11 +234,11 @@ function AvatarPin({ avatar, active, onActivate, floatClass }: {
 
         {/* Avatar content */}
         <div
-          className={`overflow-hidden rounded-full ring-2 transition-all duration-[280ms] ease-[cubic-bezier(0.32,0.72,0,1)]
-            group-hover:scale-[1.18] group-hover:ring-[#F5B947] group-hover:shadow-[0_6px_24px_-4px_rgba(245,185,71,0.5)]
+          className={`overflow-hidden rounded-full ring-2 transition-all duration-[280ms] ease-[var(--legacy-ease-0_32_0_72_0_1)]
+            group-hover:scale-[1.18] group-hover:ring-[var(--legacy-f5b947)] group-hover:shadow-[0_6px_24px_-4px_rgba(245,185,71,0.5)]
             shadow-[0_3px_14px_-2px_rgba(0,0,0,0.6)]
             ${active
-              ? "ring-[#F5B947] scale-[1.1] shadow-[0_6px_24px_-4px_rgba(245,185,71,0.5)]"
+              ? "ring-[var(--legacy-f5b947)] scale-[1.1] shadow-[0_6px_24px_-4px_rgba(245,185,71,0.5)]"
               : "ring-white/30"}`}
           style={{ width: avatar.size, height: avatar.size }}
         >
@@ -276,7 +276,7 @@ export default function TestimonialsGlobe({ variant = "light" }: TestimonialsGlo
 
   // Theme tokens — keep all conditionals in one place
   const t = {
-    bg: isDark ? "bg-[#0A0A0A]" : "bg-[#FAFAF8]",
+    bg: isDark ? "bg-[var(--legacy-0a0a0a)]" : "bg-[var(--legacy-fafaf8)]",
     bgSolid: isDark ? "#0A0A0A" : "#FAFAF8",
     text: isDark ? "text-white" : "text-neutral-950",
     textMuted: isDark ? "text-neutral-500" : "text-neutral-500",
@@ -320,14 +320,14 @@ export default function TestimonialsGlobe({ variant = "light" }: TestimonialsGlo
           transition={{ duration: 0.75, ease: [0.21, 1.02, 0.73, 1] }}
         >
           <div className="inline-flex items-center gap-2.5">
-            <span className="h-px w-8 bg-[#F5B947]" />
-            <span className={`text-[10.5px] font-medium uppercase tracking-[0.24em] ${isDark ? "text-[#F5B947]" : "text-amber-700"}`}>
+            <span className="h-px w-8 bg-[var(--legacy-f5b947)]" />
+            <span className={`text-[10.5px] font-medium uppercase tracking-[0.24em] ${isDark ? "text-[var(--legacy-f5b947)]" : "text-amber-700"}`}>
               Voices from the network
             </span>
-            <span className="h-px w-8 bg-[#F5B947]" />
+            <span className="h-px w-8 bg-[var(--legacy-f5b947)]" />
           </div>
-          <h2 className={`mt-6 text-[2rem] font-semibold leading-[1.1] tracking-[-0.035em] sm:text-[2.75rem] lg:text-[3.25rem] ${t.text}`}>
-            Trusted by <span className="font-serif italic font-normal text-[#F5B947]">growing businesses</span> across the globe
+          <h2 className={`mt-6 text-[2rem] font-semibold leading-[1.05] tracking-[-0.035em] sm:text-[2.75rem] lg:text-[3.25rem] ${t.text}`}>
+            Built with teams in <span className="font-serif italic font-normal text-[var(--legacy-f5b947)]">{COUNTRIES_SERVED_SPELL}</span> countries
           </h2>
           <p className={`mx-auto mt-5 max-w-md text-[0.9375rem] leading-[1.7] ${t.textBody}`}>
           We collaborate with businesses worldwide to build scalable, modern, and impactful technology experiences.
@@ -389,8 +389,8 @@ export default function TestimonialsGlobe({ variant = "light" }: TestimonialsGlo
                   {active.id === CENTER.id && <span className="active-ring absolute inset-0 rounded-full" />}
 
                   {/* Tooltip */}
-                  <div className="pointer-events-none absolute bottom-full left-1/2 z-30 mb-3 -translate-x-1/2 whitespace-nowrap opacity-0 translate-y-1 transition-all duration-[220ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:opacity-100 group-hover:translate-y-0">
-                    <div className="rounded-md border border-white/[0.08] bg-[#141414] px-3 py-2 shadow-[0_8px_24px_-4px_rgba(0,0,0,0.6)]">
+                  <div className="pointer-events-none absolute bottom-full left-1/2 z-30 mb-3 -translate-x-1/2 whitespace-nowrap opacity-0 translate-y-1 transition-all duration-[220ms] ease-[var(--legacy-ease-0_32_0_72_0_1)] group-hover:opacity-100 group-hover:translate-y-0">
+                    <div className="rounded-md border border-white/[0.08] bg-[var(--legacy-141414)] px-3 py-2 shadow-[0_8px_24px_-4px_rgba(0,0,0,0.6)]">
                       <p className="text-[11px] font-medium leading-tight text-white tracking-[-0.005em]">{CENTER.name}</p>
                       <p className="mt-0.5 text-[10px] leading-tight text-neutral-500">{CENTER.role} · {CENTER.location}</p>
                     </div>
@@ -405,9 +405,9 @@ export default function TestimonialsGlobe({ variant = "light" }: TestimonialsGlo
 
                   <div
                     className={`relative overflow-hidden rounded-full ring-[2.5px] shadow-[0_8px_28px_-6px_rgba(0,0,0,0.55)]
-                      transition-all duration-[280ms] ease-[cubic-bezier(0.32,0.72,0,1)]
-                      group-hover:scale-[1.08] group-hover:ring-[#F5B947]
-                      ${active.id === CENTER.id ? "ring-[#F5B947] scale-[1.04]" : "ring-white/40"}`}
+                      transition-all duration-[280ms] ease-[var(--legacy-ease-0_32_0_72_0_1)]
+                      group-hover:scale-[1.08] group-hover:ring-[var(--legacy-f5b947)]
+                      ${active.id === CENTER.id ? "ring-[var(--legacy-f5b947)] scale-[1.04]" : "ring-white/40"}`}
                     style={{ width: CENTER.size, height: CENTER.size }}
                   >
                     {CENTER.src ? (
@@ -451,7 +451,7 @@ export default function TestimonialsGlobe({ variant = "light" }: TestimonialsGlo
             >
               {/* Large editorial quote */}
               <div className="relative">
-                <span className="absolute -left-1 -top-6 font-serif text-[5rem] leading-none text-[#F5B947]/40 select-none" aria-hidden>&ldquo;</span>
+                <span className="absolute -left-1 -top-6 font-serif text-[5rem] leading-none text-[var(--legacy-f5b947)]/40 select-none" aria-hidden>&ldquo;</span>
                 <blockquote className={`relative font-serif text-[1.5rem] font-normal italic leading-[1.4] tracking-[-0.015em] sm:text-[1.875rem] sm:leading-[1.35] ${t.text}`}>
                   {active.quote}
                 </blockquote>

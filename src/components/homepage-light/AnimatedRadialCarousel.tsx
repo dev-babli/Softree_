@@ -139,7 +139,7 @@ export function AnimatedRadialCarousel({ active }: Props) {
 
   return (
     <div
-      className="relative mt-4 flex w-full justify-center overflow-hidden pointer-events-none bg-gradient-to-b from-black via-[#020d1a] to-black"
+      className="relative mt-4 flex w-full justify-center overflow-hidden pointer-events-none bg-gradient-to-b from-black via-[var(--legacy-020d1a)] to-black"
       style={{ height: `${containerH}px` }}
     >
       <motion.div
@@ -153,7 +153,7 @@ export function AnimatedRadialCarousel({ active }: Props) {
           border: rotationStarted
             ? "1px dashed rgba(255,255,255,0.12)"
             : "1px dashed rgba(255,255,255,0)",
-          transition: "border-color 0.6s cubic-bezier(0.23, 1, 0.32, 1)",
+          transition: "border-color 0.6s var(--legacy-ease-0_23_1_0_32_1)",
         }}
       >
         {cards.map((card, i) => {

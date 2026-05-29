@@ -3,12 +3,12 @@ import Image from 'next/image';
 
 const Testimonials = () => {
   return (
-    <section className="bg-[#00091A] py-20 overflow-hidden">
+    <section className="bg-[var(--legacy-00091a)] py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column: Header Content */}
           <div className="lg:col-span-5 flex flex-col justify-center h-full">
-            <div className="inline-block px-3 py-1 bg-[#ffffff14] text-[#22d3ee] text-xs font-medium rounded-sm mb-6 w-fit">
+            <div className="inline-block px-3 py-1 bg-[var(--legacy-ffffff14)] text-[var(--legacy-22d3ee)] text-xs font-medium rounded-sm mb-6 w-fit">
               Testimonials
             </div>
             <h2 className="text-[40px] leading-[1.2] font-normal text-white mb-6">
@@ -19,7 +19,7 @@ const Testimonials = () => {
             </p>
             <a
               href="/testimonials"
-              className="w-fit px-6 py-2 bg-[#1d4ed8] hover:bg-[#1d4ed8]/90 text-white font-medium text-sm rounded-md transition-colors"
+              className="w-fit px-6 py-2 bg-[var(--legacy-1d4ed8)] hover:bg-[var(--legacy-1d4ed8)]/90 text-white font-medium text-sm rounded-md transition-colors"
             >
               View All
             </a>
@@ -55,7 +55,7 @@ const Testimonials = () => {
                 </div>
                 <div>
                   <h4 className="text-white font-bold text-base leading-tight">Baylee Gilley</h4>
-                  <p className="text-[#ffffffcc] text-sm font-normal">COO, Hallman Industries</p>
+                  <p className="text-[var(--legacy-ffffffcc)] text-sm font-normal">COO, Hallman Industries</p>
                 </div>
               </div>
             </div>

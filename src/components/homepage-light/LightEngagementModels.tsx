@@ -65,7 +65,7 @@ export default function LightEngagementModels() {
   const [expandedId, setExpandedId] = useState<string>("01")
 
   return (
-    <section className="w-full bg-[#0a0a0a] py-24">
+    <section className="w-full bg-[var(--legacy-0a0a0a)] py-24">
       <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-12">
 
         {/* Header Section */}
@@ -75,7 +75,7 @@ export default function LightEngagementModels() {
           </h2>
           <div className="my-6 h-[1px] w-full bg-white/10 md:mx-8 md:my-0 md:h-[40px] md:w-[1px]"></div>
           <div className="flex items-center gap-2.5">
-            <div className="h-1.5 w-1.5 bg-[#ff7a2f]"></div>
+            <div className="h-1.5 w-1.5 bg-[var(--legacy-ff7a2f)]"></div>
             <span className="text-[12px] font-bold uppercase tracking-[0.1em] text-white/50">
               MODEL
             </span>
@@ -83,7 +83,7 @@ export default function LightEngagementModels() {
         </div>
 
         {/* Accordion Wrapper */}
-        <div className="flex w-full flex-col lg:flex-row bg-[#111111] border border-white/8">
+        <div className="flex w-full flex-col lg:flex-row bg-[var(--legacy-111111)] border border-white/8">
           {MODELS.map((model) => {
             const isExpanded = expandedId === model.id
 
@@ -177,7 +177,7 @@ export default function LightEngagementModels() {
                       fill
                       className="object-cover object-top opacity-20 saturate-[1.2]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#111111]"></div>
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--legacy-111111)]"></div>
                   </div>
 
                   {/* Vertical Text */}

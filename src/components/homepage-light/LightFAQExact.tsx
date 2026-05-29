@@ -115,7 +115,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
   }
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-[#fffbf7] py-20 md:py-32">
+    <section ref={sectionRef} className="relative w-full bg-[var(--legacy-fffbf7)] py-20 md:py-32">
       {/* FAQPage JSON-LD — enables AI Overview, ChatGPT/Claude/Gemini citation,
          and Google rich results. Each answer is designed for optimal AEO extraction. */}
       <script
@@ -176,20 +176,19 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
         {/* Section Title */}
         <div ref={titleRef} className="mb-12 md:mb-16">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#f97316]/20 bg-[#f97316]/10 px-4 py-2">
-            <HelpCircle className="h-4 w-4 text-[#ea580c]" />
-            <span className="text-sm font-medium text-[#ea580c]">FAQ</span>
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--legacy-f97316)]/20 bg-[var(--legacy-f97316)]/10 px-4 py-2">
+            <HelpCircle className="h-4 w-4 text-[var(--legacy-ea580c)]" />
+            <span className="text-sm font-medium text-[var(--legacy-ea580c)]">FAQ</span>
           </div>
-          <h2 className="text-3xl font-bold tracking-tight text-[#451a03] md:text-5xl lg:text-6xl">
+          <h2 className="text-3xl font-bold tracking-tight text-[var(--legacy-451a03)] md:text-5xl lg:text-6xl">
             Frequently Asked{" "}
-            <span className="text-[#ea580c]">Questions.</span>
+            <span className="text-[var(--legacy-ea580c)]">Questions.</span>
           </h2>
         </div>
 
         {/* FAQ Container with double responsive rendering */}
         <div ref={faqsRef} className="w-full">
           
-          {/* 1. Desktop Accordion (Horizontal) */}
           <div className="hidden lg:flex h-[600px] gap-2 w-full">
             {faqs.map((faq, index) => {
               const isActive = index === activeIndex
@@ -210,17 +209,14 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                     height: "600px",
                   }}
                 >
-                  {/* Grainient Background for Inactive Cards */}
                   {!isActive && (
                     <>
-                      {/* Base Gradient */}
                       <div
                         className="absolute inset-0 transition-all duration-500 group-hover/card:opacity-90"
                         style={{
                           background: `linear-gradient(135deg, ${grainientColors[paletteIndex].from} 0%, ${grainientColors[paletteIndex].via} 50%, ${grainientColors[paletteIndex].to} 100%)`,
                         }}
                       />
-                      {/* Accent Glow */}
                       <div
                         className="absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-20 blur-3xl transition-all duration-500 group-hover/card:opacity-40 group-hover/card:scale-125"
                         style={{ backgroundColor: grainientColors[paletteIndex].accent }}
@@ -229,7 +225,6 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                         className="absolute -bottom-10 -left-10 h-32 w-32 rounded-full opacity-10 blur-2xl transition-all duration-500 group-hover/card:opacity-30"
                         style={{ backgroundColor: grainientColors[paletteIndex].accent }}
                       />
-                      {/* Grain Overlay */}
                       <div
                         className="absolute inset-0 opacity-[0.35] mix-blend-overlay"
                         style={{
@@ -237,7 +232,6 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                           backgroundRepeat: "repeat",
                         }}
                       />
-                      {/* Subtle Border Glow */}
                       <div
                         className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover/card:opacity-100"
                         style={{
@@ -247,7 +241,6 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                     </>
                   )}
 
-                  {/* Grainient Background for Active Card */}
                   {isActive && (
                     <div className="absolute inset-0">
                       <Grainient
@@ -269,14 +262,11 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                         blendSoftness={0.08}
                         zoom={0.85}
                       />
-                      {/* Subtle vignette overlay for text readability */}
                       <div className="absolute inset-0 bg-gradient-to-t from-[#f97316]/10 via-transparent to-[#f97316]/5" />
                     </div>
                   )}
 
-                  {/* Content */}
                   <div className="relative flex h-full flex-col p-5 md:p-6 justify-between select-none">
-                    {/* Top - Serial & Icon */}
                     <div className="flex items-start justify-between w-full">
                       <span
                         className={`text-xs font-semibold uppercase tracking-wider transition-colors duration-500 ${isActive ? "text-[#7c2d12]/80" : "text-[#451a03]/90"
@@ -300,9 +290,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                       </div>
                     </div>
 
-                    {/* Middle/Bottom Question and Answer */}
                     <div className={`flex flex-col w-full ${isActive ? "mt-4" : showVertical ? "mt-auto h-[420px] items-center justify-end" : "mt-auto"}`}>
-                      {/* Inactive & Collapsed Question: Rotated and elegant */}
                       {showVertical ? (
                         <h3
                           className="text-base md:text-lg font-bold text-[#451a03] tracking-tight whitespace-nowrap transition-all duration-500"
@@ -317,7 +305,6 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                           {faq.question}
                         </h3>
                       ) : (
-                        // Active OR All Collapsed Question: Standard horizontal layout
                         <div className="w-full">
                           <h3 className="text-xl font-bold leading-snug text-[#451a03] md:text-2xl mb-4">
                             {faq.question}

@@ -17,7 +17,7 @@ interface PreviewBarProps {
 }
 
 export function PreviewBar({ slug, type }: PreviewBarProps) {
-  const studioUrl = type && slug 
+  const studioUrl = type && slug
     ? `/studio/desk/${type};${slug}`
     : '/studio'
 
@@ -29,16 +29,17 @@ export function PreviewBar({ slug, type }: PreviewBarProps) {
           Viewing draft content
         </span>
       </div>
-      
+
       <div className="flex items-center gap-3">
         <Link
           href={studioUrl}
           target="_blank"
+          rel="noopener noreferrer"
           className="bg-black text-white px-4 py-1.5 rounded text-sm font-medium hover:bg-gray-800 transition"
         >
           Edit in Studio
         </Link>
-        
+
         <Link
           href="/api/sanity/exit-preview"
           className="bg-white text-black px-4 py-1.5 rounded text-sm font-medium hover:bg-gray-100 transition"

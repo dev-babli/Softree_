@@ -154,20 +154,29 @@ const Grainient: React.FC<GrainientProps> = ({
   useEffect(() => {
     if (!containerRef.current) return
 
-    const renderer = new Renderer({
-      webgl: 2,
-      alpha: true,
-      antialias: false,
-      dpr: Math.min(window.devicePixelRatio || 1, 2),
-    })
+    const container = containerRef.current
+
+    let renderer: Renderer
+    try {
+      renderer = new Renderer({
+        webgl: 2,
+        alpha: true,
+        antialias: false,
+        dpr: Math.min(window.devicePixelRatio || 1, 2),
+      })
+    } catch {
+      // Graceful fallback: skip effect when WebGL can't be created.
+      return
+    }
 
     const gl = renderer.gl
+    if (!gl) return
+
     const canvas = gl.canvas as HTMLCanvasElement
     canvas.style.width = "100%"
     canvas.style.height = "100%"
     canvas.style.display = "block"
 
-    const container = containerRef.current
     container.appendChild(canvas)
 
     const geometry = new Triangle(gl)
@@ -230,6 +239,7 @@ const Grainient: React.FC<GrainientProps> = ({
     return () => {
       cancelAnimationFrame(raf)
       ro.disconnect()
+      gl.getExtension("WEBGL_lose_context")?.loseContext()
       try {
         container.removeChild(canvas)
       } catch {

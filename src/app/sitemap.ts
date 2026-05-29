@@ -51,7 +51,17 @@ const staticRoutes: MetadataRoute.Sitemap = [
 async function getBlogSlugs(): Promise<{ slug: string; updatedAt: string | null }[]> {
   try {
     return await client.fetch(
-      `*[_type == "blogPost" && isDraft != true]{ "slug": slug.current, "updatedAt": coalesce(updatedAt, publishedAt) }`
+      `*[_type == "post" && !(_id in path("drafts.**")) && coalesce(status, "published") == "published"]{ "slug": slug.current, "updatedAt": coalesce(_updatedAt, publishedAt) }`
+    )
+  } catch {
+    return []
+  }
+}
+
+async function getCaseStudySlugs(): Promise<{ slug: string; updatedAt: string | null }[]> {
+  try {
+    return await client.fetch(
+      `*[_type == "caseStudy" && !(_id in path("drafts.**")) && coalesce(status, "published") == "published"]{ "slug": slug.current, "updatedAt": coalesce(_updatedAt, publishedAt) }`
     )
   } catch {
     return []
@@ -60,6 +70,7 @@ async function getBlogSlugs(): Promise<{ slug: string; updatedAt: string | null 
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const blogPosts = await getBlogSlugs()
+  const caseStudies = await getCaseStudySlugs()
 
   const blogRoutes: MetadataRoute.Sitemap = blogPosts.map(({ slug, updatedAt }) => ({
     url: `${BASE_URL}/blog/${slug}`,
@@ -68,5 +79,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }))
 
-  return [...staticRoutes, ...blogRoutes]
+  const caseStudyRoutes: MetadataRoute.Sitemap = caseStudies.map(({ slug, updatedAt }) => ({
+    url: `${BASE_URL}/case-studies/${slug}`,
+    lastModified: updatedAt ? new Date(updatedAt) : new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  }))
+
+  return [...staticRoutes, ...blogRoutes, ...caseStudyRoutes]
 }

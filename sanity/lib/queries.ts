@@ -80,69 +80,121 @@ export const servicesByCategoryQuery = defineQuery(`
 // =============================================================================
 
 export const allCaseStudiesQuery = defineQuery(`
-  *[_type == "caseStudy"] | order(publishedAt desc) {
+  *[_type == "caseStudy" && coalesce(status, "published") == "published"] | order(publishedAt desc) {
     _id,
     title,
     slug,
     category,
-    clientName,
-    clientIndustry,
-    clientLogo,
-    heroImage,
-    challenge,
-    solution,
+    industry,
+    client,
+    excerpt,
+    mainImage { asset->{ url }, alt },
+    mainImageUrl,
     technologies,
-    results,
-    isFeatured,
+    metrics[] { label, value, description },
+    featured,
     publishedAt
   }
 `)
 
 export const featuredCaseStudiesQuery = defineQuery(`
-  *[_type == "caseStudy" && isFeatured == true] | order(publishedAt desc)[0...6] {
+  *[_type == "caseStudy" && featured == true && coalesce(status, "published") == "published"] | order(publishedAt desc)[0...6] {
     _id,
     title,
     slug,
     category,
-    clientName,
-    clientLogo,
-    heroImage,
-    challenge,
-    results[0...3],
-    testimonial->
+    client,
+    industry,
+    excerpt,
+    mainImage { asset->{ url }, alt },
+    mainImageUrl,
+    metrics[0...3] { label, value, description },
+    testimonial { quote, name, role }
   }
 `)
 
 export const caseStudyBySlugQuery = defineQuery(`
-  *[_type == "caseStudy" && slug.current == $slug][0] {
+  *[_type == "caseStudy" && slug.current == $slug && coalesce(status, "published") == "published"][0] {
     _id,
+    _updatedAt,
     title,
     slug,
+    headerTitle,
+    "excerpt": coalesce(excerpt, description),
     category,
-    clientName,
-    clientIndustry,
-    clientLogo,
-    heroImage,
-    challenge,
-    solution,
+    industry,
+    client,
+    location,
+    employees,
+    scaleOfOperation,
+    projectDuration,
+    teamSize,
+    accentColor,
+    mainImage { asset->{ url, metadata }, alt },
+    "mainImageUrl": coalesce(mainImageUrl, imageUrl),
+    pdfUrl,
+    liveUrl,
     technologies,
-    results,
-    gallery[] {
-      asset->,
-      caption,
-      alt
-    },
-    testimonial-> {
+    highlights[] { value, label },
+    "rawResults": results,
+    pullQuoteImage { asset->{ url, metadata }, alt, caption },
+    challengeSummary,
+    challenge,
+    approachSummary,
+    approach,
+    outcomeSummary,
+    outcome,
+    body,
+    metrics[] { label, value, description },
+    testimonial {
       quote,
-      author,
-      authorTitle,
-      company,
-      rating
+      name,
+      role,
+      avatar { asset->{ url } }
+    },
+    gallery[] {
+      asset->{ url, metadata },
+      alt,
+      caption
+    },
+    galleryUrls[] { url, alt, caption },
+    relatedCaseStudies[]-> {
+      _id,
+      title,
+      slug,
+      category,
+      industry,
+      "excerpt": coalesce(excerpt, description),
+      mainImage { asset->{ url } },
+      "mainImageUrl": coalesce(mainImageUrl, imageUrl),
+      client
     },
     metaTitle,
     metaDescription,
     publishedAt
   }
+`)
+
+export const relatedCaseStudiesFallbackQuery = defineQuery(`
+  *[_type == "caseStudy"
+    && slug.current != $slug
+    && defined(slug.current)
+    && coalesce(status, "published") == "published"
+  ] | order(publishedAt desc)[0...3] {
+    _id,
+    title,
+    slug,
+    category,
+    industry,
+    "excerpt": coalesce(excerpt, description),
+    mainImage { asset->{ url } },
+    "mainImageUrl": coalesce(mainImageUrl, imageUrl),
+    client
+  }
+`)
+
+export const allCaseStudySlugsQuery = defineQuery(`
+  *[_type == "caseStudy" && defined(slug.current) && coalesce(status, "published") == "published"][].slug.current
 `)
 
 // =============================================================================

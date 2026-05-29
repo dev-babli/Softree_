@@ -6,6 +6,7 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
 import Image from "next/image"
+import LetsTalkButton from "@/components/qc/shared/LetsTalkButton"
 
 /* ====================================================================
  *  AVOORA HERO — 1:1 replica of the Webflow .section.hero-1 block
@@ -28,8 +29,6 @@ import Image from "next/image"
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger)
 }
-
-const ACCENT = "#FF6B00"
 
 const ASSETS = {
   avatars: [
@@ -129,44 +128,6 @@ const XIcon = () => (
   </svg>
 )
 
-/* ── Orange arrow (LET'S TALK icon) ───────────────────────────────── */
-const ArrowIcon = () => (
-  <svg width="10" height="12" viewBox="0 0 10 12" fill="none">
-    <path
-      d="M9.61648 5.8006L0.360093 0.0358623C0.250469 -0.0329162 0.105835 0.000195883 0.0370565 0.109843C0.0155525 0.144118 0.00328985 0.183378 0.0014624 0.223799C-0.000365041 0.264221 0.00830504 0.304427 0.0266285 0.340503L2.85674 5.99955L0.0254568 11.6595C-0.0331514 11.7749 0.0128727 11.916 0.128261 11.9746C0.164336 11.9929 0.204543 12.0016 0.244965 11.9998C0.285387 11.998 0.324647 11.9857 0.358921 11.9642L9.61531 6.19944C9.7253 6.13127 9.75924 5.98683 9.69104 5.87681C9.67198 5.84605 9.64606 5.82013 9.61531 5.80107L9.61648 5.8006Z"
-      fill={ACCENT}
-    />
-  </svg>
-)
-
-/* ── LET'S TALK button (rollup text + arrow reveal) ────────────────── */
-function LetsTalkButton({ compact = false }: { compact?: boolean }) {
-  return (
-    <a
-      href="/contact"
-      className="group/btn relative inline-flex items-center gap-4 overflow-hidden rounded-full bg-[#0a0a0a] pl-5 pr-1.5 py-1.5 text-white"
-      style={{ paddingTop: compact ? 4 : 6, paddingBottom: compact ? 4 : 6 }}
-    >
-      <span className="relative block h-[14px] overflow-hidden">
-        <span className="block text-[11px] font-semibold uppercase tracking-[0.18em] transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)] group-hover/btn:-translate-y-full">
-          LET&rsquo;S TALK
-        </span>
-        <span className="absolute inset-x-0 top-full block text-[11px] font-semibold uppercase tracking-[0.18em] transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)] group-hover/btn:-translate-y-full">
-          LET&rsquo;S TALK
-        </span>
-      </span>
-      <span className="relative grid h-[26px] w-[26px] place-items-center overflow-hidden rounded-full bg-white">
-        <span className="absolute inset-0 grid place-items-center transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)] group-hover/btn:translate-x-[250%]">
-          <ArrowIcon />
-        </span>
-        <span className="absolute inset-0 grid -translate-x-[250%] place-items-center transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)] group-hover/btn:translate-x-0">
-          <ArrowIcon />
-        </span>
-      </span>
-    </a>
-  )
-}
-
 /* ── Service card with stacked shadow depth ────────────────────────── */
 
 function ServiceCard({ n, label, href, img, index }: { n: string; label: string; href: string; img: string; index: number }) {
@@ -183,7 +144,7 @@ function ServiceCard({ n, label, href, img, index }: { n: string; label: string;
           {[0, 1, 2, 3, 4].map((i) => (
             <span
               key={i}
-              className="shadow-layer absolute inset-0 rounded-2xl border border-gray-900/10 bg-gray-900/5 backdrop-blur-sm transition-all duration-500 ease-[cubic-bezier(.22,1,.36,1)]"
+              className="shadow-layer absolute inset-0 rounded-2xl border border-gray-900/10 bg-gray-900/5 backdrop-blur-sm transition-all duration-500 ease-[var(--legacy-ease-_22_1_36_1)]"
               style={{
                 transform: `translateY(${(i + 1) * 8}px) scale(${1 - (i + 1) * 0.035})`,
                 opacity: 1 - (i + 1) * 0.15,
@@ -194,7 +155,7 @@ function ServiceCard({ n, label, href, img, index }: { n: string; label: string;
         </div>
         {/* Main image */}
         <div
-          className="main-image relative z-10 aspect-4/5 w-full overflow-hidden rounded-2xl border border-gray-900/10 transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)] group-hover/srv:-translate-y-1"
+          className="main-image relative z-10 aspect-4/5 w-full overflow-hidden rounded-2xl border border-gray-900/10 transition-transform duration-500 ease-[var(--legacy-ease-_22_1_36_1)] group-hover/srv:-translate-y-1"
           style={{ animationDelay: `${index * 80}ms`, willChange: "transform" }}
         >
           <Image
@@ -202,7 +163,7 @@ function ServiceCard({ n, label, href, img, index }: { n: string; label: string;
             alt={label}
             width={400}
             height={500}
-            className="h-full w-full object-cover duration-900 transition-transform ease-[cubic-bezier(.22,1,.36,1)] group-hover/srv:scale-[1.05]"
+            className="h-full w-full object-cover duration-900 transition-transform ease-[var(--legacy-ease-_22_1_36_1)] group-hover/srv:scale-[1.05]"
             style={{ willChange: "transform" }}
           />
         </div>
@@ -210,7 +171,7 @@ function ServiceCard({ n, label, href, img, index }: { n: string; label: string;
       <div className="relative z-10 mt-4 flex items-center gap-3">
         <span className="text-[10.5px] font-medium text-gray-900/55">({n})</span>
         <span className="overflow-hidden">
-          <span className="block text-[13px] font-medium text-gray-900 transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)] group-hover/srv:-translate-y-full">
+          <span className="block text-[13px] font-medium text-gray-900 transition-transform duration-500 ease-[var(--legacy-ease-_22_1_36_1)] group-hover/srv:-translate-y-full">
             {label}
           </span>
         </span>
@@ -530,7 +491,7 @@ export default function AvooraHero() {
 
               {/* Added Buttons */}
               <div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
-                <a href="/contact" className="rounded-full bg-[#FF6B00] px-8 py-3.5 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-[#e66000] hover:scale-105">
+                <a href="/contact" className="rounded-full bg-[#FF6B00] px-8 py-3.5 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-[var(--legacy-e66000)] hover:scale-105">
                   Start Your Project
                 </a>
                 <a href="/services" className="rounded-full bg-white/10 px-8 py-3.5 text-sm font-semibold text-white backdrop-blur-md border border-white/20 transition-all duration-300 hover:bg-white/20 hover:scale-105">

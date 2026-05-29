@@ -61,7 +61,7 @@ export default function ServicesSection() {
   const prev = () => setIndex((i) => Math.max(i - cardsPerView, 0));
 
   return (
-    <section className="bg-gradient-to-b from-black via-[#020d1a] to-black py-24 overflow-hidden">
+    <section className="bg-gradient-to-b from-black via-[var(--legacy-020d1a)] to-black py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-10">

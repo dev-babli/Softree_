@@ -26,9 +26,9 @@ const industries = [
 
 const IndustryCards = () => {
   return (
-    <section className="bg-[#EFF9FF] py-[56px] lg:py-[80px]">
+    <section className="bg-[var(--legacy-eff9ff)] py-[56px] lg:py-[80px]">
       <div className="container mx-auto px-6 max-w-[1280px] w-full lg:w-[87%]">
-        <h2 className="text-[36px] md:text-[40px] font-normal text-[#00091A] text-center mb-12">
+        <h2 className="text-[36px] md:text-[40px] font-normal text-[var(--legacy-00091a)] text-center mb-12">
           Our Solutions Were Made for Every Industry
         </h2>
 
