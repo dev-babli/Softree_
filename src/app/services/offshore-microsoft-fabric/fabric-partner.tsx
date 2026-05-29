@@ -8,7 +8,7 @@ const cards = [
     desc: "Local support with worldwide reach.",
   },
   {
-    title: "2,200+ Clients",
+    title: "50+ Clients",
     desc: "Trusted Microsoft Solutions Partner.",
   },
   {
@@ -50,9 +50,9 @@ export default function FabricPartner() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-[#f8f9fc] pt-20 pb-10 px-8 text-center">
+      <section className="bg-[#f8f9fc] pt-16 pb-8 px-8 text-center">
         <h1 className="text-4xl font-bold text-black leading-tight max-w-5xl mx-auto mb-3">
-          Microsoft Fabric Expertise by Softree
+          <span className="text-orange-600">Microsoft Fabric</span> Expertise by Softree
         </h1>
         <p className="text-gray-500 max-w-xl mx-auto leading-relaxed text-base">
           Softree helps businesses connect data, build insights, and make
@@ -61,13 +61,13 @@ export default function FabricPartner() {
       </section>
 
       {/* Cards Section */}
-      <section className="bg-[#f8f9fc] pb-32 px-8">
+      <section className="bg-[#f8f9fc] pb-16 px-8">
         <div className="grid grid-cols-4 gap-6 max-w-7xl mx-auto">
           {cards.map((card) => (
             <div
               key={card.title}
               className="flex flex-col items-center text-center gap-5 pt-8 px-6 pb-8
-              bg-gradient-to-r from-black via-[#0f2f7a] to-black
+              bg-gradient-to-r from-black via-[#4c1c02] to-black
               rounded-xl shadow-lg
               hover:scale-105 transition-transform duration-300"
             >

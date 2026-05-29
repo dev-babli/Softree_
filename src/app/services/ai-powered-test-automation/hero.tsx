@@ -297,7 +297,7 @@ export default function HeroAIAutomation() {
             </div>
             <div className="hero-stats" style={styles.stats}>
               <div>
-                <div style={styles.statNum}>150+</div>
+                <div style={styles.statNum}>50+</div>
                 <div style={styles.statLbl}>Enterprise clients</div>
               </div>
               <div>

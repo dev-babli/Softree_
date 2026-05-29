@@ -35,7 +35,7 @@ export default function PowerBIBenefits() {
     <section className="py-12 ">
       <div className="max-w-7xl mx-auto px-6">
         <div className="space-y-3">
-          <p className="text-sm font-semibold tracking-wider uppercase text-purple-600">
+          <p className="text-sm font-semibold tracking-wider uppercase text-orange-600">
             Business Impact
           </p>
 
@@ -58,7 +58,7 @@ export default function PowerBIBenefits() {
           <div className="space-y-6">
             {left.map((item, i) => (
               <div key={i} className="flex gap-4">
-                <Play className="w-8 h-8 mt-1 text-gray-600 fill-gray-600" />
+                <Play className="w-3.5 h-3.5 mt-1.5 text-orange-500 fill-orange-500 shrink-0" />
 
                 <p className="text-slate-700 leading-relaxed">
                   <span className="font-semibold">{item.title}</span> –{" "}
@@ -72,7 +72,7 @@ export default function PowerBIBenefits() {
           <div className="space-y-6">
             {right.map((item, i) => (
               <div key={i} className="flex gap-4">
-                <Play className="w-8 h-8 mt-1 text-gray-600 fill-gray-600" />
+                <Play className="w-3.5 h-3.5 mt-1.5 text-orange-500 fill-orange-500 shrink-0" />
 
                 <p className="text-slate-700 leading-relaxed">
                   <span className="font-semibold">{item.title}</span> –{" "}

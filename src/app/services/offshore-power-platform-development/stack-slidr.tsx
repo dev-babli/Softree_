@@ -55,7 +55,7 @@ export default function StackedSlider() {
     <div className="relative w-full overflow-hidden py-14 bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
       {/* HEADER */}
       <div className="text-center mb-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl md:text-5xl font-bold text-blue-900">
+        <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
           What We Do with Power Apps
         </h2>
         <p className="text-gray-600 mt-2 text-lg">

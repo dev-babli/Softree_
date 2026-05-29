@@ -79,7 +79,7 @@ export default function PremiumSlider() {
       <div className="max-w-7xl mx-auto px-6">
         {/* ========= HEADER ========= */}
         <div className="text-center mb-1">
-          <h2 className="text-4xl md:text-5xl font-bold text-blue-900">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
             What We Do with Power Apps
           </h2>
 
@@ -113,7 +113,7 @@ export default function PremiumSlider() {
     rounded-[28px]
     min-h-[120px]
 
-bg-gradient-to-r from-black via-[#0f2f7a] to-black
+ bg-gradient-to-r from-black via-[#4c1c02] to-black
 
     border border-white/10
     backdrop-blur-xl
@@ -122,7 +122,7 @@ bg-gradient-to-r from-black via-[#0f2f7a] to-black
     overflow-hidden
     transition-all duration-500
     hover:-translate-y-1
-    hover:shadow-2xl hover:shadow-blue-900/40
+    hover:shadow-2xl hover:shadow-orange-950/40
   "
                   >
                     {/* ================= LEFT CONTENT ================= */}
@@ -132,19 +132,19 @@ bg-gradient-to-r from-black via-[#0f2f7a] to-black
                           <Icon className="w-7 h-7 text-white" />
                         </div>
 
-                        <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-white drop-shadow-[0_2px_8px_rgba(59,130,246,0.35)]">
+                        <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-white drop-shadow-[0_2px_8px_rgba(249,115,22,0.35)]">
                           {item.title}
                         </h3>
                       </div>
 
-                      <p className="text-blue-100/90 text-base mb-8 leading-relaxed max-w-md">
+                      <p className="text-orange-100/90 text-base mb-8 leading-relaxed max-w-md">
                         {item.desc}
                       </p>
 
                       <div className="grid grid-cols-2 gap-8">
                         {/* SOLUTIONS */}
                         <div>
-                          <p className="text-xs uppercase tracking-wide text-blue-200 mb-3">
+                          <p className="text-xs uppercase tracking-wide text-orange-200 mb-3">
                             Solutions
                           </p>
 
@@ -164,7 +164,7 @@ bg-gradient-to-r from-black via-[#0f2f7a] to-black
                         {/* CHALLENGES */}
                         {item.challenges && (
                           <div>
-                            <p className="text-xs uppercase tracking-wide text-blue-200 mb-3">
+                            <p className="text-xs uppercase tracking-wide text-orange-200 mb-3">
                               Challenges
                             </p>
 
@@ -214,8 +214,8 @@ bg-gradient-to-r from-black via-[#0f2f7a] to-black
                 onClick={() => setIndex(i)}
                 className={`transition-all rounded-full ${
                   index === i
-                    ? "w-8 h-2 bg-blue-700"
-                    : "w-2 h-2 bg-blue-300 hover:bg-blue-500"
+                    ? "w-8 h-2 bg-orange-600"
+                    : "w-2 h-2 bg-orange-300 hover:bg-orange-500"
                 }`}
               />
             ))}

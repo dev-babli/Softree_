@@ -34,13 +34,13 @@ export default function CtaSPFx() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
-      <div className="mx-auto max-w-7xl px-6 py-12">
+    <section className="relative overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-16">
+      <div className="mx-auto max-w-7xl px-6">
         <div
           className="
             grid md:grid-cols-2 gap-10 items-center
             rounded-3xl
-            bg-gradient-to-br from-blue-800 via-indigo-800 to-slate-900
+            bg-gradient-to-br from-black via-[#4c1c02] to-black
             p-8 md:p-10
             text-white
             shadow-xl
@@ -54,7 +54,7 @@ export default function CtaSPFx() {
 
             <h2 className="text-3xl md:text-4xl font-semibold leading-tight">
               Build custom
-              <span className="block bg-gradient-to-r from-cyan-300 to-indigo-300 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-orange-400 to-white bg-clip-text text-transparent">
                 SPFx Web Parts & Extensions
               </span>
             </h2>
@@ -104,7 +104,7 @@ export default function CtaSPFx() {
                   type="text"
                   name="name"
                   placeholder="Full Name"
-                  className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300"
+                  className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-orange-300"
                   required
                 />
 
@@ -112,7 +112,7 @@ export default function CtaSPFx() {
                   type="email"
                   name="email"
                   placeholder="Work Email"
-                  className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300"
+                  className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-orange-300"
                   required
                 />
 
@@ -120,13 +120,13 @@ export default function CtaSPFx() {
                   name="project_details"
                   placeholder="Brief about your project..."
                   rows={3}
-                  className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-cyan-300 resize-none"
+                  className="w-full px-3 py-2.5 rounded-lg bg-black/30 text-xs outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-orange-300 resize-none"
                 />
 
                 {/* ✅ BUTTON UNCHANGED */}
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-cyan-400 to-indigo-500 py-2.5 rounded-lg text-xs font-medium shadow hover:scale-[1.03] transition"
+                  className="w-full bg-gradient-to-r from-orange-500 to-amber-500 py-2.5 rounded-lg text-xs font-medium shadow hover:scale-[1.03] transition"
                 >
                   Get Free Estimate
                 </button>

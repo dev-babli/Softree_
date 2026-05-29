@@ -27,10 +27,6 @@ const nextConfig: any = {
     // Skip type checking during production builds to avoid OOM / spawn UNKNOWN errors
     ignoreBuildErrors: true,
   },
-  eslint: {
-    // Skip ESLint during production builds to avoid extra memory/process overhead
-    ignoreDuringBuilds: true,
-  },
 };
 
 export default withSentryConfig(withBundleAnalyzer(nextConfig), {

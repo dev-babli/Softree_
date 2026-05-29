@@ -149,12 +149,7 @@ const menu: MenuItem[] = [
             icon: BrainCircuit, // updated
             description: "Enterprise AI platform",
           },
-          {
-            label: "Legacy Modernization",
-            url: "/services/legacy-application-modernization", // fixed
-            icon: Sparkles, // updated
-            description: "Transform outdated systems with modern architecture and AI-driven enhancements.",
-          },
+
           {
             label: "AI Agents",
             url: "/services/offshore-ai-development", // fixed
@@ -174,6 +169,12 @@ const menu: MenuItem[] = [
         description:
           "Modern digital experiences for connected, productive teams.",
         links: [
+          {
+            label: "Legacy Modernization",
+            url: "/services/legacy-application-modernization", // fixed
+            icon: Sparkles, // updated
+            description: "Transform outdated systems with modern architecture.",
+          },
           {
             label: "SharePoint Online",
             url: "/services/offshore-sharepoint-development",

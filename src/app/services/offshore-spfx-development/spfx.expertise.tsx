@@ -28,8 +28,8 @@ const expertiseItems = [
 
 export default function SoftreeExpertiseTimeline() {
   return (
-    <section className="relative bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-24">
-      <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-6">
+    <section className="relative overflow-hidden">
+      <div className="relative z-10 w-full">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -39,16 +39,16 @@ export default function SoftreeExpertiseTimeline() {
           className="text-center mb-16"
         >
           {/* ================= EXPERTISE HEADER ================= */}
-          <div className="text-center mb-20 max-w-8xl mx-auto">
+          <div className="text-center mb-12 max-w-4xl mx-auto">
             {/* Eyebrow */}
             <span
               className="
-      inline-block mb-5
-      px-4 py-1.5
-      rounded-full
-      text-xs font-semibold tracking-widest uppercase
-      bg-blue-50 text-blue-600
-    "
+                inline-block mb-5
+                px-4 py-1.5
+                rounded-full
+                text-xs font-semibold tracking-widest uppercase
+                bg-orange-50 text-orange-600 border border-orange-100/50 shadow-sm
+              "
             >
               Our Expertise
             </span>
@@ -56,15 +56,16 @@ export default function SoftreeExpertiseTimeline() {
             {/* Title */}
             <h2
               className="
-      text-4xl md:text-5xl lg:text-5xl
-      font-semibold
-      text-zinc-900
-      leading-tight
-      mb-6
-    "
+                text-4xl md:text-5xl lg:text-5xl
+                font-semibold
+                text-zinc-900
+                tracking-tight
+                leading-tight
+                mb-6
+              "
             >
               Softree Expertise in{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
                 SharePoint & SPFx
               </span>
             </h2>
@@ -72,12 +73,12 @@ export default function SoftreeExpertiseTimeline() {
             {/* Description */}
             <p
               className="
-      text-zinc-600
-      text-base md:text-lg
-      leading-relaxed
-      max-w-3xl
-      mx-auto
-    "
+                text-zinc-600
+                text-base md:text-lg
+                leading-relaxed
+                max-w-3xl
+                mx-auto
+              "
             >
               Our journey in delivering cutting-edge SharePoint solutions
               combines innovation, performance, and reliability. Each step
@@ -86,14 +87,14 @@ export default function SoftreeExpertiseTimeline() {
             </p>
 
             {/* Accent divider */}
-            <div className="mt-8 h-[2px] w-20 mx-auto bg-gradient-to-r from-blue-600 to-transparent rounded-full" />
+            <div className="mt-8 h-[2px] w-20 mx-auto bg-gradient-to-r from-orange-600 to-amber-500 rounded-full" />
           </div>
         </motion.div>
 
         {/* Timeline container */}
         <div className="relative">
           {/* Vertical Line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full border-l-2 border-gray-700"></div>
+          <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 h-full border-l-2 border-zinc-200/80"></div>
 
           {/* Timeline Items */}
           <div className="flex flex-col gap-12">
@@ -102,35 +103,47 @@ export default function SoftreeExpertiseTimeline() {
               return (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: idx * 0.15 }}
-                  className={`relative flex w-full items-start ${
-                    isLeft ? "justify-start md:pr-16" : "justify-end md:pl-16"
-                  }`}
+                  transition={{ duration: 0.6, delay: idx * 0.12 }}
+                  className={`relative flex w-full items-center ${
+                    isLeft ? "md:flex-row" : "md:flex-row-reverse"
+                  } flex-row pl-8 md:pl-0`}
                 >
                   {/* Dot */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-5 h-5 bg-green-500 rounded-full border-2 border-gray-900 z-10"></div>
+                  <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-r from-orange-600 to-amber-500 rounded-full border-4 border-white z-10 shadow-md hover:scale-125 transition-transform duration-300"></div>
 
                   {/* Card */}
                   <div
-                    className={`bg-gray-900 border border-gray-700 rounded-xl p-6 shadow-lg w-full md:w-1/2 hover:scale-105 transition-transform ${
-                      isLeft ? "ml-6 md:ml-0" : "mr-6 md:mr-0"
+                    className={`w-full md:w-1/2 ${
+                      isLeft ? "md:pr-12 md:text-right" : "md:pl-12"
                     }`}
                   >
-                    <div className="flex gap-3 items-start">
-                      <CheckIcon className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
-                      <div>
-                        <h3 className="text-white font-semibold">
+                    <div
+                      className={`bg-white/90 backdrop-blur-md border border-orange-100/60 rounded-2xl p-6 shadow-xl hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_15px_30px_rgba(249,115,22,0.08)] flex gap-4 items-start ${
+                        isLeft ? "md:flex-row-reverse" : "flex-row"
+                      }`}
+                    >
+                      {/* Check Icon Wrapper */}
+                      <div className="flex-shrink-0 flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-orange-500/10 to-amber-500/10 border border-orange-500/20 text-orange-600 shadow-inner">
+                        <CheckIcon className="w-5 h-5" />
+                      </div>
+
+                      {/* Content Text */}
+                      <div className="flex-1">
+                        <h3 className="text-zinc-900 font-semibold text-lg tracking-tight">
                           {item.title}
                         </h3>
-                        <p className="text-gray-300 text-sm mt-1">
+                        <p className="text-zinc-600 text-sm mt-1.5 leading-relaxed">
                           {item.desc}
                         </p>
                       </div>
                     </div>
                   </div>
+
+                  {/* Spacer Column */}
+                  <div className="hidden md:block w-1/2"></div>
                 </motion.div>
               );
             })}
@@ -140,3 +153,4 @@ export default function SoftreeExpertiseTimeline() {
     </section>
   );
 }
+

@@ -89,22 +89,30 @@ export const metadata: Metadata = {
   },
 };
 
+const SECTION_WRAPPER = "mx-auto max-w-8xl px-8 sm:px-10 md:px-14 lg:px-20";
+const SECTION_GAP = "space-y-24 py-24";
+
 export default function Page() {
   return (
-    <div>
+    <main className="relative min-h-screen bg-black">
       <NavigationClient />
       <SharePointHero />
-      <TrustedBrandsMarquee />
 
-      <SpfxTabs />
-      <SpfxShowcase />
-      <SpfxBenefits />
-      <SoftreeExpertiseTimeline />
-      {/* <Certifications /> */}
+      {/* CORE WHITE LAYOUT CANVAS */}
+      <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
+        <TrustedBrandsMarquee />
+        <div className={`${SECTION_WRAPPER} ${SECTION_GAP}`}>
+          <SpfxTabs />
+          <SpfxShowcase />
+          <SpfxBenefits />
+          <SoftreeExpertiseTimeline />
+        </div>
+      </section>
+
       <LightContactSection />
       <LightFAQExact faqs={spfxFAQs} />
 
       <Footer />
-    </div>
+    </main>
   );
 }

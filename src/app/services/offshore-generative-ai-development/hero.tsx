@@ -241,7 +241,7 @@ export default function HeroPowerApps() {
 
             <div style={styles.stats}>
               <div>
-                <div style={styles.statNum}>150+</div>
+                <div style={styles.statNum}>50+</div>
                 <div style={styles.statLbl}>Enterprise clients</div>
               </div>
               <div>

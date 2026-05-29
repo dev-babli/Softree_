@@ -142,8 +142,8 @@ export default function PowerBIStackOverview() {
           relative
           rounded-2xl
           p-[1px]
-          bg-gradient-to-br from-blue-500/40 via-blue-400/30 to-transparent
-          hover:from-blue-600 hover:via-blue-500
+          bg-gradient-to-br from-orange-500/40 via-orange-400/30 to-transparent
+          hover:from-orange-600 hover:via-orange-500
           transition duration-500
         "
               >
@@ -164,11 +164,11 @@ export default function PowerBIStackOverview() {
           "
                 >
                   {/* spotlight */}
-                  <div className="absolute -top-20 -right-20 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition" />
+                  <div className="absolute -top-20 -right-20 w-40 h-40 bg-orange-500/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition" />
 
                   {/* icon */}
                   <div className="relative mb-5">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-600 to-blue-500 flex items-center justify-center shadow-lg">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-600 to-orange-500 flex items-center justify-center shadow-lg">
                       <Icon className="w-7 h-7 text-white" />
                     </div>
                   </div>
@@ -191,8 +191,8 @@ export default function PowerBIStackOverview() {
                   text-slate-700
                   border border-slate-200
                   shadow-sm
-                  group-hover:border-blue-300
-                  group-hover:text-blue-700
+                  group-hover:border-orange-300
+                  group-hover:text-orange-700
                   transition
                 "
                       >

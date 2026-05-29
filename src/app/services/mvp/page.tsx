@@ -78,19 +78,22 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main
-      className="relative min-h-screen bg-gradient-to-b from-zinc-50 via-white to-zinc-50
-
- "
-    >
+    <main className="relative min-h-screen bg-black">
       <NavigationClient />
       <MvpHero />
-      <MvpServices />
-      <BenefitsSection />
-      <MvpProcessTimeline />
-      <MvpTechStack />
-      <WhyChooseUsMVP />
-      <Certifications />
+
+      {/* CORE WHITE LAYOUT CANVAS */}
+      <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
+        <div className={`${SECTION_WRAPPER} ${SECTION_GAP}`}>
+          <MvpServices />
+          <BenefitsSection />
+          <MvpProcessTimeline />
+          <MvpTechStack />
+          <WhyChooseUsMVP />
+          <Certifications />
+        </div>
+      </section>
+
       <LightContactSection />
       <LightFAQExact />
       <Footer />

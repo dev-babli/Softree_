@@ -54,11 +54,11 @@ export default function ProwessSection() {
           gap: 0;
           border-radius: 20px;
           overflow: hidden;
-          box-shadow: 0 20px 60px rgba(15,47,122,0.12), 0 2px 8px rgba(0,0,0,0.06);
+          box-shadow: 0 20px 60px rgba(249,115,22,0.12), 0 2px 8px rgba(0,0,0,0.06);
         }
 
         .pw-card {
-          background: linear-gradient(to right, #000000 0%, #0f2f7a 50%, #000000 100%);
+          background: linear-gradient(to right, #000000 0%, #4c1c02 50%, #000000 100%);
           padding: 40px 36px;
           position: relative;
           overflow: hidden;
@@ -77,13 +77,13 @@ export default function ProwessSection() {
           right: -60px;
           width: 240px;
           height: 240px;
-          background: radial-gradient(circle, rgba(99,120,255,0.18) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(249,115,22,0.18) 0%, transparent 70%);
           pointer-events: none;
         }
         .pw-card:last-child::before {
           left: -60px;
           right: auto;
-          background: radial-gradient(circle, rgba(56,189,248,0.12) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(245,158,11,0.12) 0%, transparent 70%);
         }
 
         /* Subtle grid */
@@ -108,7 +108,7 @@ export default function ProwessSection() {
         .pw-accent-bar {
           width: 36px;
           height: 3px;
-          background: linear-gradient(90deg, #a5b4fc, #38bdf8);
+          background: linear-gradient(90deg, #fdba74, #f97316);
           border-radius: 2px;
           margin-bottom: 20px;
         }
@@ -129,7 +129,7 @@ export default function ProwessSection() {
           right: 36px;
           width: 20px;
           height: 2px;
-          background: rgba(165,180,252,0.5);
+          background: rgba(253,186,116,0.5);
           border-radius: 2px;
         }
 
@@ -147,7 +147,7 @@ export default function ProwessSection() {
           align-items: flex-start;
           gap: 10px;
           font-size: 13.5px;
-          color: rgba(200,215,255,0.7);
+          color: rgba(254,215,170,0.7);
           line-height: 1.5;
         }
         .pw-bullet {
@@ -156,8 +156,8 @@ export default function ProwessSection() {
           width: 5px;
           height: 5px;
           border-radius: 50%;
-          background: #818cf8;
-          box-shadow: 0 0 6px rgba(129,140,248,0.6);
+          background: #f97316;
+          box-shadow: 0 0 6px rgba(249,115,22,0.6);
         }
 
         @media (max-width: 768px) {
@@ -173,8 +173,8 @@ export default function ProwessSection() {
 
           {/* Column headings */}
           <div className="pw-heads">
-            <div className="pw-head">Softree’s Expertise Across Modern Tools</div>
-            <div className="pw-head">Targeted Data Source Apps</div>
+            <div className="pw-head">Softree’s <span className="text-orange-500">Expertise</span> Across Modern Tools</div>
+            <div className="pw-head">Targeted <span className="text-orange-500">Data Source</span> Apps</div>
           </div>
 
           {/* Cards */}

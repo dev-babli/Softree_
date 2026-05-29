@@ -102,7 +102,7 @@ export default function MobileAppLifecycleSection() {
   const activeStep = steps.find((s) => s.id === active)!;
 
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden py-16">
       {/* ===== Header ===== */}
       <div className="max-w-4xl mx-auto px-6 text-center mb-4">
         {/* Eyebrow */}
@@ -113,9 +113,9 @@ export default function MobileAppLifecycleSection() {
     rounded-full
     text-xs font-semibold uppercase tracking-[0.3em]
 
-    bg-slate-100
-    text-slate-600
-    border border-slate-200
+    bg-orange-50
+    text-orange-600
+    border border-orange-200
   "
         >
           Process Overview
@@ -129,7 +129,7 @@ export default function MobileAppLifecycleSection() {
             className="
       absolute left-1/2 -bottom-3 w-28 h-[3px]
       -translate-x-1/2 rounded-full
-      bg-gradient-to-r from-cyan-500 to-blue-600
+      bg-gradient-to-r from-orange-600 to-amber-500
     "
           />
         </h2>
@@ -190,7 +190,7 @@ export default function MobileAppLifecycleSection() {
                   `}
                       >
                         {isActive && (
-                          <span className="absolute left-0 top-2 bottom-2 w-[3px] bg-indigo-600 rounded-full" />
+                          <span className="absolute left-0 top-2 bottom-2 w-[3px] bg-orange-500 rounded-full" />
                         )}
 
                         {/* Step number */}
@@ -200,7 +200,7 @@ export default function MobileAppLifecycleSection() {
                       rounded-full text-xs font-semibold
                       ${
                         isActive
-                          ? "bg-indigo-600 text-white"
+                          ? "bg-orange-600 text-white"
                           : "bg-gray-100 text-gray-600"
                       }
                     `}
@@ -260,7 +260,7 @@ export default function MobileAppLifecycleSection() {
                     cy={center}
                     r={radius}
                     fill="none"
-                    stroke="#06b6d4"
+                    stroke="#f97316"
                     strokeWidth="5"
                     strokeLinecap="round"
                     strokeDasharray={2 * Math.PI * radius}

@@ -65,7 +65,7 @@ function PinIcon() {
     >
       <path
         d="M8 1C5.24 1 3 3.24 3 6c0 4 5 9 5 9s5-5 5-9c0-2.76-2.24-5-5-5zm0 6.75a1.75 1.75 0 110-3.5 1.75 1.75 0 010 3.5z"
-        fill="#7dd3fc"
+        fill="#f97316"
       />
     </svg>
   );
@@ -201,10 +201,10 @@ export default function HeroPowerApps() {
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=DM+Sans:wght@400;500&display=swap');
-        .cta-btn:hover { background: #7dd3fc !important; transform: translateY(-2px); box-shadow: 0 12px 40px rgba(56,189,248,0.45) !important; }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(249,115,22,0.45) !important; filter: brightness(1.1); }
         .cta-btn:hover .cta-arrow { transform: translateX(3px); }
         .cta-arrow { transition: transform 0.2s; }
-        .nav-btn:hover { background: rgba(56,189,248,0.2) !important; border-color: rgba(56,189,248,0.4) !important; transform: scale(1.08); }
+        .nav-btn:hover { background: rgba(249,115,22,0.2) !important; border-color: rgba(249,115,22,0.4) !important; transform: scale(1.08); }
         @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.7)} }
         .eyebrow-dot { animation: pulse 2s ease-in-out infinite; }
 
@@ -257,7 +257,7 @@ export default function HeroPowerApps() {
             <Link href="/contact" className="cta-btn" style={styles.ctaBtn}>
               Talk to our Expert
               <span className="cta-arrow">
-                <ArrowRight stroke="#071b4d" />
+                <ArrowRight stroke="#ffffff" />
               </span>
             </Link>
 
@@ -386,9 +386,9 @@ const styles: Record<string, CSSProperties> = {
     display: "inline-flex",
     alignItems: "center",
     gap: "8px",
-    background: "rgba(56,189,248,0.12)",
-    border: "1px solid rgba(56,189,248,0.25)",
-    color: "#7dd3fc",
+    background: "rgba(249,115,22,0.12)",
+    border: "1px solid rgba(249,115,22,0.25)",
+    color: "#f97316",
     fontSize: "12px",
     fontWeight: 500,
     letterSpacing: "0.08em",
@@ -402,7 +402,7 @@ const styles: Record<string, CSSProperties> = {
     width: "6px",
     height: "6px",
     borderRadius: "50%",
-    background: "#38bdf8",
+    background: "#f97316",
   },
   headline: {
     fontFamily: "'Syne', sans-serif",
@@ -431,18 +431,18 @@ const styles: Record<string, CSSProperties> = {
     display: "inline-flex",
     alignItems: "center",
     gap: "10px",
-    background: "#d8dce3ff",
-    color: "#071b4d",
+    background: "linear-gradient(135deg, #f97316 0%, #ea580c 100%)",
+    color: "#ffffff",
     fontFamily: "'DM Sans', sans-serif",
     fontSize: "15px",
-    fontWeight: 500,
+    fontWeight: 600,
     padding: "13px 24px",
     borderRadius: "12px",
     border: "none",
     cursor: "pointer",
     textDecoration: "none",
     transition: "transform 0.2s, background 0.2s, box-shadow 0.2s",
-    boxShadow: "0 8px 32px rgba(56,189,248,0.3)",
+    boxShadow: "0 8px 32px rgba(249,115,22,0.3)",
   },
 
   stats: {
@@ -491,13 +491,13 @@ const styles: Record<string, CSSProperties> = {
     right: 0,
     height: "1px",
     background:
-      "linear-gradient(90deg, transparent, rgba(56,189,248,0.5), transparent)",
+      "linear-gradient(90deg, transparent, rgba(249,115,22,0.5), transparent)",
   },
   quoteMark: {
     fontFamily: "'Syne', sans-serif",
     fontSize: "56px",
     lineHeight: 0.8,
-    color: "rgba(56,189,248,0.25)",
+    color: "rgba(249,115,22,0.25)",
     display: "block",
   },
   quoteText: {
@@ -516,15 +516,15 @@ const styles: Record<string, CSSProperties> = {
     height: "42px",
     borderRadius: "50%",
     background:
-      "linear-gradient(135deg, rgba(56,189,248,0.25), rgba(99,102,241,0.25))",
-    border: "1px solid rgba(56,189,248,0.3)",
+      "linear-gradient(135deg, rgba(249,115,22,0.25), rgba(234,88,12,0.25))",
+    border: "1px solid rgba(249,115,22,0.3)",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     fontFamily: "'Syne', sans-serif",
     fontSize: "13px",
     fontWeight: 600,
-    color: "#7dd3fc",
+    color: "#f97316",
     flexShrink: 0,
   },
   authorName: {
@@ -542,7 +542,7 @@ const styles: Record<string, CSSProperties> = {
     alignItems: "center",
     gap: "4px",
     fontSize: "11px",
-    color: "#7dd3fc",
+    color: "#f97316",
     marginTop: "4px",
   },
   progressBar: {
@@ -555,7 +555,7 @@ const styles: Record<string, CSSProperties> = {
   },
   progressFill: {
     height: "100%",
-    background: "#38bdf8",
+    background: "#f97316",
     borderRadius: "2px",
     transition: "width 0.1s linear",
   },
@@ -581,7 +581,7 @@ const styles: Record<string, CSSProperties> = {
     padding: 0,
   },
   dotActive: {
-    background: "#38bdf8",
+    background: "#f97316",
     width: "22px",
     borderRadius: "4px",
   },

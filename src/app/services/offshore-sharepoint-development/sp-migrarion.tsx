@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const SharePointMigration = () => {
   return (
-    <section className="relative overflow-hidden py-24 sm:py-32">
+    <section className="relative overflow-hidden py-16">
       <div className="relative mx-auto max-w-7xl w-[90%] grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* ================================================= */}
         {/* LEFT CONTENT – GLASS CARD */}
@@ -18,21 +18,21 @@ const SharePointMigration = () => {
             border border-white/10
 
             shadow-[0_30px_90px_rgba(0,0,0,0.6)]
-            hover:shadow-[0_40px_120px_rgba(59,130,246,0.25)]
+            hover:shadow-[0_40px_120px_rgba(249,115,22,0.25)]
             hover:-translate-y-2
 
             transition-all duration-500
           "
         >
           {/* Badge */}
-          <span className="inline-block mb-5 px-4 py-1.5 text-xs tracking-widest uppercase text-blue-800 bg-blue-500/10 border border-blue-400/20 rounded-full">
+          <span className="inline-block mb-5 px-4 py-1.5 text-xs tracking-widest uppercase text-orange-600 bg-orange-500/10 border border-orange-400/20 rounded-full">
             SharePoint Expertise
           </span>
 
           {/* Heading */}
           <h2 className="text-3xl lg:text-4xl font-semibold leading-tight text-black">
             Seamless{" "}
-            <span className="bg-gradient-to-r from-blue-700 to-indigo-900 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
               SharePoint Migration
             </span>{" "}
             Solutions
@@ -58,7 +58,7 @@ const SharePointMigration = () => {
         {/* ================================================= */}
         <div className="relative">
           {/* glow behind card */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/30 to-purple-500/30 blur-2xl rounded-3xl" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/30 to-amber-500/30 blur-2xl rounded-3xl" />
 
           <div
             className="
@@ -68,7 +68,7 @@ const SharePointMigration = () => {
 
               shadow-[0_30px_100px_rgba(0,0,0,0.65)]
               hover:-translate-y-3
-              hover:shadow-[0_45px_140px_rgba(59,130,246,0.35)]
+              hover:shadow-[0_45px_140px_rgba(249,115,22,0.35)]
 
               transition-all duration-500 group
             "

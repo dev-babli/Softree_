@@ -83,7 +83,7 @@ export default function ServicesShowcaseExactImage() {
   const [active, setActive] = useState(services[0]);
 
   return (
-    <section className="relative overflow-hidden pb-12">
+    <section className="relative overflow-hidden py-16">
       {/* ================= SECTION HEADER ================= */}
       <div className="max-w-4xl mx-auto text-center mb-4">
         {/* Eyebrow */}
@@ -94,9 +94,9 @@ export default function ServicesShowcaseExactImage() {
     rounded-full
     text-xs font-semibold uppercase tracking-[0.3em]
 
-    bg-blue-50
-    text-blue-600
-    border border-blue-100
+    bg-orange-50
+    text-orange-600
+    border border-orange-100
   "
         >
           What We Offer
@@ -112,7 +112,7 @@ export default function ServicesShowcaseExactImage() {
       -translate-x-1/2
       w-24 h-[3px]
       rounded-full
-      bg-gradient-to-r from-blue-600 to-cyan-500
+      bg-gradient-to-r from-orange-600 to-amber-500
     "
           />
         </h2>
@@ -273,7 +273,7 @@ export default function ServicesShowcaseExactImage() {
                   className="
       w-11 h-11
       rounded-xl
-      bg-gradient-to-br from-blue-600 to-cyan-500
+      bg-gradient-to-br from-orange-600 to-amber-500
       flex items-center justify-center
       shadow-md
     "
@@ -301,7 +301,7 @@ export default function ServicesShowcaseExactImage() {
         mt-1 shrink-0
         w-5 h-5
         rounded-full
-        bg-blue-600
+        bg-orange-600
         text-white
         flex items-center justify-center
         shadow-sm
