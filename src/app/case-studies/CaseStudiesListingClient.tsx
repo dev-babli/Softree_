@@ -3,18 +3,23 @@
 import Image from "next/image";
 import Link from "next/link";
 import GeneralHeaderHero from "@/components/sections/GeneralHeaderHero";
-import type { CaseStudyListingItem } from "./types";
+import type { CaseStudyHeroSlide, CaseStudyListingItem } from "./types";
 
 type CaseStudiesListingClientProps = {
   caseStudies: CaseStudyListingItem[];
+  heroSlides: CaseStudyHeroSlide[];
 };
 
-export default function CaseStudiesListingClient({ caseStudies }: CaseStudiesListingClientProps) {
+export default function CaseStudiesListingClient({
+  caseStudies,
+  heroSlides,
+}: CaseStudiesListingClientProps) {
   return (
     <div>
       <GeneralHeaderHero
         title="Customer Stories"
         description="We help the world's leading companies create the best AI agents. Here are a few stories from customers who run Rasa in production."
+        slides={heroSlides}
       />
 
       <section className="bg-[#f8f4ea] py-20 md:py-28">

@@ -1,0 +1,1 @@
+export { SynqLabProductStoryPage } from "./SynqLabProductStoryPage"

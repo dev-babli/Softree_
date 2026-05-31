@@ -4,15 +4,17 @@ import React from "react";
 import ProductArcSlider from "./ProductArcSlider";
 import InfoSection from "./InfoSection";
 
+/**
+ * FeaturesShowcase
+ *
+ * Two stacked sections (`ProductArcSlider` + `InfoSection`) sharing one
+ * continuous cream `#F3F0EE` canvas.
+ */
 export default function FeaturesShowcase() {
   return (
-    <div className="relative w-full bg-[#0a0a0a] flex flex-col overflow-hidden">
-      <div className="relative z-30">
-        <ProductArcSlider />
-      </div>
-      <div className="relative z-10 -mt-8 md:-mt-12">
-        <InfoSection />
-      </div>
+    <div className="relative w-full" style={{ backgroundColor: "#F3F0EE" }}>
+      <ProductArcSlider />
+      <InfoSection />
     </div>
   );
 }
