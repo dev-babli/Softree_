@@ -1,0 +1,1 @@
+export { SplitHeroMockupPage } from "./SplitHeroMockupPage"

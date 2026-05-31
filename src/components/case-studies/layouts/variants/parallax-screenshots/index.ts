@@ -1,0 +1,1 @@
+export { ParallaxScreenshotsPage } from "./ParallaxScreenshotsPage"

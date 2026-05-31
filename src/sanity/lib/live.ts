@@ -1,8 +1,10 @@
 "use client";
 
-// Placeholder SanityLive component
-// Live Content API requires next-sanity v5+ with defineLive
-// For now, this is a no-op component that satisfies the import
+/**
+ * Live content bridge placeholder.
+ * Upgrade to next-sanity v5+ and wire defineLive when ready.
+ * Until then, listing components use sanityFetch + webhook revalidation.
+ */
 export function SanityLive() {
   return null;
 }

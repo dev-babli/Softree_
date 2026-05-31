@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, AnimatePresence } from "framer-motion"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 
 /* ====================================================================
@@ -64,6 +64,19 @@ const MODELS: DeliveryModel[] = [
 export default function LightEngagementModels() {
   const [expandedId, setExpandedId] = useState<string>("01")
 
+  /* `isMobile` is hydration-safe: it starts `false` on both SSR and the
+   * first client render (matching desktop layout), then a `useEffect` updates
+   * to the real value after mount. Listening to `resize` keeps it accurate
+   * if the viewport changes (e.g. dev tools, rotation). */
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(() => {
+    const mql = window.matchMedia("(max-width: 1023.98px)")
+    const update = () => setIsMobile(mql.matches)
+    update()
+    mql.addEventListener?.("change", update)
+    return () => mql.removeEventListener?.("change", update)
+  }, [])
+
   return (
     <section className="w-full bg-[var(--legacy-0a0a0a)] py-24">
       <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-12">
@@ -94,7 +107,7 @@ export default function LightEngagementModels() {
                 initial={false}
                 animate={{
                   flex: isExpanded ? 4 : 1.3,
-                  height: typeof window !== "undefined" && window.innerWidth < 1024
+                  height: isMobile
                     ? (isExpanded ? "auto" : "80px")
                     : "700px",
                 }}

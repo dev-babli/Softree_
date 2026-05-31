@@ -54,9 +54,6 @@ const FEATURES: Feature[] = [
     },
 ];
 
-const CHART_LIGHT =
-    "https://cdn.prod.website-files.com/69b11728ded32396d2900c12/69b271891fcd45632a3206ca_light.png";
-
 const EARTH_IMAGE =
     "https://cdn.prod.website-files.com/69b11728ded32396d2900c12/69b271b658018bac4d6873ce_Earth.png";
 
@@ -104,8 +101,8 @@ function FeatureCard({
             className="
         group absolute left-1/2 top-1/2 block w-[clamp(300px,46vw,560px)]
         -translate-x-1/2 -translate-y-1/2 cursor-pointer
-        focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ff8a3a]/60
-        focus-visible:ring-offset-4 focus-visible:ring-offset-[#070708]
+        focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/60
+        focus-visible:ring-offset-4 focus-visible:ring-offset-white
       "
             style={{ zIndex: t.z }}
             animate={{
@@ -120,9 +117,9 @@ function FeatureCard({
             <div
                 className="
           relative overflow-hidden rounded-[28px]
-          border border-white/[0.07]
-          bg-gradient-to-b from-[#13131a]/90 to-[#0c0c10]/95
-          shadow-[0_30px_80px_-30px_rgba(0,0,0,0.85),0_0_0_1px_rgba(255,255,255,0.04)_inset]
+          border border-[#0a0a1a]/[0.07]
+          bg-white
+          shadow-[0_30px_80px_-30px_rgba(0,0,0,0.15),0_0_0_1px_rgba(0,0,0,0.04)_inset]
         "
             >
                 {/* card background — subtle warm bloom from upper-left */}
@@ -131,74 +128,50 @@ function FeatureCard({
                     className="pointer-events-none absolute inset-0"
                     style={{
                         background:
-                            "radial-gradient(70% 50% at 30% 10%, rgba(255,138,58,0.12), transparent 65%)",
+                            "radial-gradient(70% 50% at 30% 10%, rgba(24,82,255,0.12), transparent 65%)",
                     }}
                 />
                 {/* top hairline */}
                 <span
                     aria-hidden
-                    className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
+                    className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[#0a0a1a]/15 to-transparent"
                 />
 
                 {/* title */}
                 <div className="relative px-7 pt-7">
                     <div className="flex items-start justify-between gap-6">
                         <div className="min-w-0">
-                            <div className="flex items-baseline gap-2 text-[#ff8a3a]">
-                                <span className="font-mono text-[12px] font-medium tracking-[0.18em] text-[#ff8a3a]/90">
+                            <div className="flex items-baseline gap-2 text-[#FF5812]">
+                                <span className="font-mono text-[12px] font-medium tracking-[0.18em] text-[#FF5812]/90">
                                     {feature.index}
                                 </span>
-                                <span className="h-px w-6 translate-y-[-3px] bg-[#ff8a3a]/40" />
+                                <span className="h-px w-6 translate-y-[-3px] bg-[#FF5812]/40" />
                             </div>
-                            <h3 className="mt-3 text-balance text-[1.45rem] font-medium leading-[1.1] tracking-[-0.022em] text-white sm:text-[1.65rem]">
+                            <h3 className="mt-3 text-balance text-[1.45rem] font-medium leading-[1.1] tracking-[-0.022em] text-[#0a0a1a] sm:text-[1.65rem]">
                                 {feature.title}
                             </h3>
                         </div>
                     </div>
 
-                    {/* image area — chart-image + chart-light overlay */}
-                    <div className="relative mt-5 h-[210px] w-full overflow-hidden rounded-[18px] border border-white/[0.05] bg-gradient-to-br from-white/[0.03] via-transparent to-white/[0.02]">
-                        {/* base */}
+                    {/* image area */}
+                    <div className="relative mt-5 h-[210px] w-full overflow-hidden rounded-[18px] border border-[#0a0a1a]/[0.05] bg-white">
                         <img
                             src={feature.image}
                             alt=""
                             loading="lazy"
                             decoding="async"
                             draggable={false}
-                            className="absolute inset-0 h-full w-full select-none object-contain"
-                        />
-                        {/* light overlay */}
-                        <img
-                            src={CHART_LIGHT}
-                            alt=""
-                            aria-hidden
-                            loading="lazy"
-                            decoding="async"
-                            draggable={false}
-                            className="
-                pointer-events-none absolute inset-0 h-full w-full select-none object-cover
-                opacity-80 mix-blend-screen
-              "
-                        />
-                        {/* bottom warm bloom */}
-                        <div
-                            aria-hidden
-                            className="pointer-events-none absolute inset-x-0 -bottom-12 h-40"
-                            style={{
-                                background:
-                                    "radial-gradient(60% 80% at 50% 100%, rgba(255,138,58,0.32), transparent 70%)",
-                                filter: "blur(20px)",
-                            }}
+                            className="h-full w-full select-none object-contain"
                         />
                     </div>
                 </div>
 
                 {/* divider line */}
-                <div className="mx-7 mt-6 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-50" />
+                <div className="mx-7 mt-6 h-px bg-gradient-to-r from-transparent via-[#0a0a1a]/15 to-transparent opacity-50" />
 
                 {/* copy */}
                 <div className="px-7 pb-7 pt-5">
-                    <p className="text-[14px] leading-[1.65] text-white/60 [text-wrap:pretty]">
+                    <p className="text-[14px] leading-[1.65] text-[#0a0a1a]/70 [text-wrap:pretty]">
                         {feature.copy}
                     </p>
                 </div>
@@ -218,7 +191,7 @@ function Heading() {
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ type: "spring", duration: 0.85, bounce: 0 }}
-            className="text-balance text-center text-[2.6rem] font-medium leading-[1.04] tracking-[-0.028em] text-white sm:text-[3.6rem] lg:text-[4.4rem]"
+            className="text-balance text-center text-[2.6rem] font-medium leading-[1.04] tracking-[-0.028em] text-[#0a0a1a] sm:text-[3.6rem] lg:text-[4.4rem]"
         >
             Your offshore tech partner.
         </motion.h2>
@@ -231,8 +204,8 @@ function Subhead() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.55, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="mx-auto -mt-1 max-w-[42rem] text-center text-[15.5px] leading-[1.6] text-white/55 [text-wrap:pretty] sm:text-[16px]"
+            transition={{ duration: 0.55, delay: 0.15 }}
+            className="mx-auto -mt-1 max-w-[42rem] text-center text-[15.5px] leading-[1.6] text-[#0a0a1a]/70 [text-wrap:pretty] sm:text-[16px]"
         >
             A senior engineering team that ships, scales, and stays accountable
             &mdash; across continents and timezones.
@@ -293,15 +266,15 @@ function GlobeNetworkOverlay() {
             <defs>
                 {/* Soft amber glow for nodes */}
                 <radialGradient id="globe-node-glow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="rgba(255,166,99,0.85)" />
-                    <stop offset="60%" stopColor="rgba(255,138,58,0.25)" />
-                    <stop offset="100%" stopColor="rgba(255,138,58,0)" />
+                    <stop offset="0%" stopColor="rgba(24,82,255,0.85)" />
+                    <stop offset="60%" stopColor="rgba(255,88,18,0.25)" />
+                    <stop offset="100%" stopColor="rgba(255,88,18,0)" />
                 </radialGradient>
                 {/* Soft white core for HQ */}
                 <radialGradient id="globe-hq-core" cx="50%" cy="50%" r="50%">
                     <stop offset="0%" stopColor="#ffffff" />
                     <stop offset="60%" stopColor="#ffd6b3" />
-                    <stop offset="100%" stopColor="#ff8a3a" />
+                    <stop offset="100%" stopColor="#FF5812" />
                 </radialGradient>
                 {/* Path gradient — strong in the middle, fades at endpoints */}
                 <linearGradient id="globe-arc-base" x1="0" x2="1">
@@ -403,7 +376,7 @@ function GlobeNetworkOverlay() {
                         cx={s.x}
                         cy={s.y}
                         r="0.7"
-                        fill="#ff8a3a"
+                        fill="#FF5812"
                         filter="url(#globe-soft-glow)"
                     />
                     {/* breathing pulse */}
@@ -513,7 +486,7 @@ function EarthWrapper({ paused }: { paused: boolean }) {
                 className="absolute bottom-[-22%] left-1/2 h-[120%] w-[120%] -translate-x-1/2 rounded-full"
                 style={{
                     background:
-                        "radial-gradient(circle, rgba(255,138,58,0.20) 0%, rgba(255,122,47,0.08) 40%, transparent 60%)",
+                        "radial-gradient(circle, rgba(24,82,255,0.20) 0%, rgba(255,88,18,0.08) 40%, transparent 60%)",
                     filter: "blur(40px)",
                 }}
             />
@@ -524,7 +497,7 @@ function EarthWrapper({ paused }: { paused: boolean }) {
                 className="absolute bottom-[36%] left-1/2 h-[180px] w-[130%] -translate-x-1/2"
                 style={{
                     background:
-                        "linear-gradient(to right, transparent, rgba(255,138,58,0.18), transparent)",
+                        "linear-gradient(to right, transparent, rgba(24,82,255,0.18), transparent)",
                     filter: "blur(36px)",
                 }}
             />
@@ -534,7 +507,7 @@ function EarthWrapper({ paused }: { paused: boolean }) {
                 className="absolute bottom-[26%] left-1/2 h-[120px] w-[110%] -translate-x-1/2"
                 style={{
                     background:
-                        "linear-gradient(to right, transparent, rgba(255,255,255,0.07), transparent)",
+                        "linear-gradient(to right, transparent, rgba(10,10,26,0.07), transparent)",
                     filter: "blur(22px)",
                 }}
             />
@@ -544,7 +517,7 @@ function EarthWrapper({ paused }: { paused: boolean }) {
                 className="absolute bottom-[18%] left-1/2 h-[60px] w-[80%] -translate-x-1/2"
                 style={{
                     background:
-                        "linear-gradient(to right, transparent, rgba(255,138,58,0.32), transparent)",
+                        "linear-gradient(to right, transparent, rgba(255,88,18,0.32), transparent)",
                     filter: "blur(14px)",
                 }}
             />
@@ -554,7 +527,7 @@ function EarthWrapper({ paused }: { paused: boolean }) {
                 className="absolute -bottom-1 left-0 right-0 h-[140px]"
                 style={{
                     background:
-                        "linear-gradient(to top, #070708 30%, transparent)",
+                        "linear-gradient(to top, #F3F0EE 30%, transparent)",
                 }}
             />
 
@@ -580,7 +553,7 @@ function EarthWrapper({ paused }: { paused: boolean }) {
                         className="h-full w-full select-none object-contain opacity-90"
                         style={{
                             filter:
-                                "drop-shadow(0 0 80px rgba(255,138,58,0.18)) brightness(0.95)",
+                                "drop-shadow(0 0 80px rgba(24,82,255,0.18)) brightness(1.05)",
                         }}
                     />
                 </div>
@@ -662,7 +635,7 @@ export default function OffshoreCoreFeatures() {
                 onMouseLeave={() => setPaused(false)}
                 onFocus={() => setPaused(true)}
                 onBlur={() => setPaused(false)}
-                className="relative overflow-hidden bg-[#070708] py-28 sm:py-32 lg:py-36"
+                className="relative overflow-hidden bg-white py-28 sm:py-32 lg:py-36"
             >
                 {/* Top horizon seam */}
                 <div
@@ -670,7 +643,7 @@ export default function OffshoreCoreFeatures() {
                     className="pointer-events-none absolute inset-x-0 top-0 h-32"
                     style={{
                         background:
-                            "linear-gradient(to bottom, rgba(0,0,0,0.65), transparent)",
+                            "linear-gradient(to bottom, rgba(255,255,255,0.65), transparent)",
                     }}
                 />
 
@@ -680,7 +653,7 @@ export default function OffshoreCoreFeatures() {
                     className="pointer-events-none absolute inset-0"
                     style={{
                         background:
-                            "radial-gradient(48% 38% at 22% 28%, rgba(255,138,58,0.10), transparent 60%), radial-gradient(42% 36% at 80% 18%, rgba(86,128,255,0.07), transparent 65%)",
+                            "radial-gradient(48% 38% at 22% 28%, rgba(24,82,255,0.10), transparent 60%), radial-gradient(42% 36% at 80% 18%, rgba(255,88,18,0.07), transparent 65%)",
                     }}
                 />
 
@@ -699,8 +672,8 @@ export default function OffshoreCoreFeatures() {
                     <div className="relative mx-auto flex flex-col items-center gap-7">
                         <div className="relative inline-flex items-center justify-center">
                             <div className="relative inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1 backdrop-blur">
-                                <span className="relative inline-block h-1.5 w-1.5 rounded-full bg-[#ff8a3a]">
-                                    <span className="absolute inset-0 animate-ping rounded-full bg-[#ff8a3a]/60" />
+                                <span className="relative inline-block h-1.5 w-1.5 rounded-full bg-[#FF5812]">
+                                    <span className="absolute inset-0 animate-ping rounded-full bg-[#FF5812]/60" />
                                 </span>
                                 <span className="text-[10.5px] font-medium uppercase tracking-[0.22em] text-white/65">
                                     Offshore Engineering
@@ -741,7 +714,7 @@ export default function OffshoreCoreFeatures() {
                         {/* glowing accent segment that grows to the active dot */}
                         <span
                             aria-hidden
-                            className="pointer-events-none absolute left-[18px] top-1/2 h-px -translate-y-1/2 origin-left bg-gradient-to-r from-[#ff8a3a]/0 via-[#ff8a3a]/80 to-[#ff8a3a]/0 transition-[width] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+                            className="pointer-events-none absolute left-[18px] top-1/2 h-px -translate-y-1/2 origin-left bg-gradient-to-r from-[#FF5812]/0 via-[#FF5812]/80 to-[#FF5812]/0 transition-[width] duration-700"
                             style={{
                                 width: `calc(${active} * (36px + 12px))`,
                                 boxShadow: "0 0 12px rgba(255,138,58,0.55)",
@@ -757,16 +730,16 @@ export default function OffshoreCoreFeatures() {
                                         onClick={() => setActive(i)}
                                         aria-label={`Show ${f.title}`}
                                         aria-pressed={isActive}
-                                        className="group relative h-9 w-9 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ff8a3a]/60"
+                                        className="group relative h-9 w-9 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/60"
                                     >
                                         <span
                                             className={`absolute inset-0 rounded-full border backdrop-blur transition-colors duration-300 ${isActive
-                                                ? "border-[#ff8a3a]/60 bg-[#ff8a3a]/10"
-                                                : "border-white/10 bg-[#070708]/80 group-hover:border-white/20"
+                                                ? "border-[#FF5812]/60 bg-[#FF5812]/10"
+                                                : "border-white/10 bg-[#0a0a1a]/80 group-hover:border-white/20"
                                                 }`}
                                         />
                                         <span
-                                            className={`absolute left-1/2 top-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full transition-colors duration-300 ${isActive ? "bg-[#ff8a3a]" : "bg-white/40"
+                                            className={`absolute left-1/2 top-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full transition-colors duration-300 ${isActive ? "bg-[#FF5812]" : "bg-white/40"
                                                 }`}
                                             style={
                                                 isActive
@@ -777,7 +750,7 @@ export default function OffshoreCoreFeatures() {
                                         {isActive ? (
                                             <motion.span
                                                 layoutId="offshore-core-dot-ring"
-                                                className="absolute inset-[-3px] rounded-full border border-[#ff8a3a]/40"
+                                                className="absolute inset-[-3px] rounded-full border border-[#FF5812]/40"
                                                 transition={{
                                                     type: "spring",
                                                     duration: 0.55,

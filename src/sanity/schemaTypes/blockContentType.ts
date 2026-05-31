@@ -1,79 +1,88 @@
-import {defineType, defineArrayMember} from 'sanity'
-import {ImageIcon} from '@sanity/icons'
+import { defineType, defineArrayMember, defineField } from 'sanity'
+import { ImageIcon } from '@sanity/icons'
+import { blockContentInsertMenu } from '../lib/blockContentOptions'
+import { calloutBlockType, ctaButtonBlockType, statHighlightBlockType } from './blockObjectTypes'
+
+export { calloutBlockType, ctaButtonBlockType, statHighlightBlockType }
 
 /**
- * This is the schema type for block content used in the post document type
- * Importing this type into the studio configuration's `schema` property
- * lets you reuse it in other document types with:
- *  {
- *    name: 'someName',
- *    title: 'Some title',
- *    type: 'blockContent'
- *  }
+ * Shared rich text schema used by blog posts and case studies.
+ * Configured for a Word-like editing experience in Sanity Studio.
  */
-
 export const blockContentType = defineType({
-  title: 'Block Content',
+  title: 'Rich Text',
   name: 'blockContent',
   type: 'array',
+  options: { ...blockContentInsertMenu },
   of: [
     defineArrayMember({
       type: 'block',
-      // Styles let you define what blocks can be marked up as. The default
-      // set corresponds with HTML tags, but you can set any title or value
-      // you want, and decide how you want to deal with it where you want to
-      // use your content.
       styles: [
-        {title: 'Normal', value: 'normal'},
-        {title: 'H1', value: 'h1'},
-        {title: 'H2', value: 'h2'},
-        {title: 'H3', value: 'h3'},
-        {title: 'H4', value: 'h4'},
-        {title: 'Quote', value: 'blockquote'},
+        { title: 'Paragraph', value: 'normal' },
+        { title: 'Heading 2', value: 'h2' },
+        { title: 'Heading 3', value: 'h3' },
+        { title: 'Heading 4', value: 'h4' },
+        { title: 'Quote', value: 'blockquote' },
       ],
       lists: [
-        {title: 'Bullet', value: 'bullet'},
-        {title: 'Numbered', value: 'number'},
+        { title: 'Bullet list', value: 'bullet' },
+        { title: 'Numbered list', value: 'number' },
       ],
-      // Marks let you mark up inline text in the Portable Text Editor
       marks: {
-        // Decorators usually describe a single property – e.g. a typographic
-        // preference or highlighting
         decorators: [
-          {title: 'Strong', value: 'strong'},
-          {title: 'Emphasis', value: 'em'},
+          { title: 'Bold', value: 'strong' },
+          { title: 'Italic', value: 'em' },
+          { title: 'Underline', value: 'underline' },
+          { title: 'Code', value: 'code' },
+          { title: 'Strike', value: 'strike-through' },
         ],
-        // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
           {
-            title: 'URL',
+            title: 'Link',
             name: 'link',
             type: 'object',
             fields: [
-              {
+              defineField({
                 title: 'URL',
                 name: 'href',
                 type: 'url',
-              },
+                validation: (Rule) =>
+                  Rule.uri({
+                    allowRelative: true,
+                    scheme: ['http', 'https', 'mailto', 'tel'],
+                  }),
+              }),
+              defineField({
+                title: 'Open in new tab',
+                name: 'blank',
+                type: 'boolean',
+                initialValue: false,
+              }),
             ],
           },
         ],
       },
     }),
-    // You can add additional types here. Note that you can't use
-    // primitive types such as 'string' and 'number' in the same array
-    // as a block type.
     defineArrayMember({
       type: 'image',
       icon: ImageIcon,
-      options: {hotspot: true},
+      options: { hotspot: true },
       fields: [
-        {
+        defineField({
           name: 'alt',
           type: 'string',
-          title: 'Alternative Text',
-        }
-      ]
+          title: 'Alternative text',
+          validation: (Rule) => Rule.required().warning('Alt text improves accessibility and SEO'),
+        }),
+        defineField({
+          name: 'caption',
+          type: 'string',
+          title: 'Caption',
+        }),
+      ],
     }),
+    defineArrayMember({ type: 'callout' }),
+    defineArrayMember({ type: 'ctaButton' }),
+    defineArrayMember({ type: 'statHighlight' }),
   ],
 })

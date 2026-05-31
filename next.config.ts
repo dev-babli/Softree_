@@ -14,6 +14,16 @@ const nextConfig: any = {
         destination: "/case-studies/:slug",
         permanent: true,
       },
+      {
+        source: "/case-studies/power-apps",
+        destination: "/case-studies/power-platform",
+        permanent: true,
+      },
+      {
+        source: "/case-studies/power-apps/:path*",
+        destination: "/case-studies/power-platform/:path*",
+        permanent: true,
+      },
     ];
   },
   images: {

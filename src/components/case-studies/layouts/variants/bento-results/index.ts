@@ -1,0 +1,1 @@
+export { BentoResultsPage } from "./BentoResultsPage"

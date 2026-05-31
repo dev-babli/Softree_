@@ -114,7 +114,7 @@ export const featuredCaseStudiesQuery = defineQuery(`
 `)
 
 export const caseStudyBySlugQuery = defineQuery(`
-  *[_type == "caseStudy" && slug.current == $slug && coalesce(status, "published") == "published"][0] {
+  *[_type == "caseStudy" && slug.current == $slug && ($preview == true || coalesce(status, "published") == "published")][0] {
     _id,
     _updatedAt,
     title,
@@ -140,16 +140,21 @@ export const caseStudyBySlugQuery = defineQuery(`
     pullQuoteImage { asset->{ url, metadata }, alt, caption },
     challengeSummary,
     challenge,
+    challengeContent,
     approachSummary,
     approach,
+    approachContent,
     outcomeSummary,
     outcome,
+    outcomeContent,
     body,
     metrics[] { label, value, description },
     testimonial {
       quote,
       name,
       role,
+      company,
+      location,
       avatar { asset->{ url } }
     },
     gallery[] {

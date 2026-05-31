@@ -7,3 +7,16 @@ export type CaseStudyListingItem = {
   imageAlt: string
   imageFit?: "cover" | "contain"
 }
+
+export type CaseStudyHeroSlide = {
+  company: string
+  eyebrow: string
+  title: string
+  description: string
+  ctaText: string
+  ctaHref: string
+  image: string
+  imageAlt: string
+  imageFit?: "cover" | "contain"
+  stats: { score: string; label: string }[]
+}

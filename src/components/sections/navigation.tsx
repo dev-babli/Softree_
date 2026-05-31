@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState, useEffect, useRef, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import type { SanityNavCategory } from "@/sanity/types";
+import type { SanityNavCategory, SanityNavCaseStudyCategory } from "@/sanity/types";
 
 import {
   Settings,
@@ -207,53 +207,7 @@ const menu: MenuItem[] = [
     url: "/case-studies",
     icon: Layers,
     mega: true,
-    children: [
-      {
-        title: "Microsoft Power Platform",
-        links: [
-          {
-            label: "Power Apps Case Studies",
-            url: "/case-studies/power-platform",
-            icon: AppWindow,
-            description: "Real-world low-code solutions",
-          },
-          // {
-          //   label: "AI Case Studies",
-          //   url: "/case-studies/ai",
-          //   icon: Brain,
-          //   description: "AI-driven automation",
-          // },
-        ],
-      },
-      {
-        title: "Application Development",
-        links: [
-          {
-            label: "Mobile App Case Studies",
-            url: "/case-studies/mobile",
-            icon: Smartphone,
-            description: "Android & iOS solutions",
-          },
-          {
-            label: "Web App Case Studies",
-            url: "/case-studies/web",
-            icon: Laptop,
-            description: "High-performance platforms",
-          },
-        ],
-      },
-      {
-        title: "Microsoft 365 & SharePoint",
-        links: [
-          {
-            label: "SharePoint Case Studies",
-            url: "/case-studies/sharepoint",
-            icon: Share2,
-            description: "Enterprise collaboration",
-          },
-        ],
-      },
-    ],
+    children: [], // populated at runtime from caseStudyCategories prop
   },
   // Blog menu item — children are dynamically populated from Sanity
   {
@@ -271,10 +225,45 @@ const menu: MenuItem[] = [
 
 ];
 
+const caseStudyCategoryIcons: Record<string, typeof AppWindow> = {
+  "power-platform": AppWindow,
+  ai: BrainCircuit,
+  mobile: Smartphone,
+  web: Laptop,
+  sharepoint: Share2,
+  "data-analytics": LineChart,
+};
+
+function getMegaMenuFooter(itemLabel: string) {
+  if (itemLabel === "Case Studies") {
+    return {
+      hint: "Need guidance?",
+      primary: { label: "View all case studies", href: "/case-studies" },
+      secondary: { label: "Talk to a specialist", href: "/contact" },
+    };
+  }
+
+  if (itemLabel === "Blog") {
+    return {
+      hint: "Stay in the loop.",
+      primary: { label: "View all articles", href: "/blog" },
+      secondary: { label: "Talk to a specialist", href: "/contact" },
+    };
+  }
+
+  return {
+    hint: "Need guidance?",
+    primary: { label: "Explore all services", href: "/services" },
+    secondary: { label: "Get a quote", href: "/contact" },
+  };
+}
+
 export default function Navigation({
   blogCategories,
+  caseStudyCategories,
 }: {
   blogCategories?: SanityNavCategory[];
+  caseStudyCategories?: SanityNavCaseStudyCategory[];
 }) {
   const [open, setOpen] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -284,29 +273,96 @@ export default function Navigation({
 
   // Build the dynamic Blog menu children from Sanity categories
   const dynamicMenu = useMemo(() => {
-    if (!blogCategories || blogCategories.length === 0) return menu;
-
     return menu.map((item) => {
-      if (item.label !== "Blog") return item;
+      if (item.label === "Blog") {
+        if (blogCategories && blogCategories.length > 0) {
+          const children = blogCategories
+            .filter((cat) => cat.posts && cat.posts.length > 0)
+            .slice(0, 4)
+            .map((cat) => ({
+              title: cat.title,
+              description: `Latest ${cat.title.toLowerCase()} articles`,
+              links: cat.posts.map((post) => ({
+                label: post.title,
+                url: `/blog/${post.slug.current}`,
+                icon: FileText,
+                description: post.excerpt || "",
+              })),
+            }));
 
-      // Convert Sanity categories into mega menu columns (max 4)
-      const children = blogCategories
-        .filter((cat) => cat.posts && cat.posts.length > 0)
-        .slice(0, 4)
-        .map((cat) => ({
-          title: cat.title,
-          description: `Latest ${cat.title.toLowerCase()} articles`,
-          links: cat.posts.map((post) => ({
-            label: post.title,
-            url: `/blog/${post.slug.current}`,
-            icon: FileText,
-            description: post.excerpt || "",
-          })),
-        }));
+          return { ...item, children };
+        }
 
-      return { ...item, children };
+        return {
+          ...item,
+          children: [
+            {
+              title: "Latest articles",
+              description: "Insights on AI, Power Platform, and modern engineering",
+              links: [
+                {
+                  label: "View all blog posts",
+                  url: "/blog",
+                  icon: BookOpen,
+                  description: "Browse every published article",
+                },
+              ],
+            },
+          ],
+        };
+      }
+
+      if (item.label === "Case Studies") {
+        if (caseStudyCategories && caseStudyCategories.length > 0) {
+          const children = caseStudyCategories.map((cat) => {
+            const CategoryIcon = caseStudyCategoryIcons[cat.key] || Layers;
+
+            return {
+              title: cat.title,
+              description: cat.description,
+              image: cat.image,
+              links: [
+                ...cat.caseStudies.map((study) => ({
+                  label: study.client || study.title,
+                  url: `/case-studies/${study.slug.current}`,
+                  icon: CategoryIcon,
+                  description: study.excerpt || study.industry || "",
+                })),
+                {
+                  label: `View all ${cat.title}`,
+                  url: cat.viewAllUrl,
+                  icon: ArrowRight,
+                  description: `Browse every ${cat.title.toLowerCase()} story`,
+                },
+              ],
+            };
+          });
+
+          return { ...item, children };
+        }
+
+        return {
+          ...item,
+          children: [
+            {
+              title: "Customer Stories",
+              description: "Explore outcomes from recent client work",
+              links: [
+                {
+                  label: "View all case studies",
+                  url: "/case-studies",
+                  icon: Layers,
+                  description: "Browse every published customer story",
+                },
+              ],
+            },
+          ],
+        };
+      }
+
+      return item;
     });
-  }, [blogCategories]);
+  }, [blogCategories, caseStudyCategories]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -396,11 +452,16 @@ export default function Navigation({
                       </div>
 
                       {/* columns */}
-                      <div className="grid grid-cols-4 gap-0">
+                      <div
+                        className="grid gap-0"
+                        style={{
+                          gridTemplateColumns: `repeat(${Math.min(4, Math.max(1, item.children?.length || 1))}, minmax(0, 1fr))`,
+                        }}
+                      >
                         {item.children?.map((group, idx) => {
                           const cfg = colConfig[idx] ?? {
-                            accent: null,
-                            bg: null,
+                            accent: "#FF7A2F",
+                            bg: "#E6F1FB",
                             label: group.title,
                           };
 
@@ -417,7 +478,7 @@ export default function Navigation({
                                 <img
                                   alt={cfg.label}
                                   className="h-full w-full object-cover object-center opacity-95 transition-all duration-500 group-hover/image:scale-105"
-                                  src={group.image || dropdownImages[idx]}
+                                  src={group.image || dropdownImages[idx % dropdownImages.length]}
                                   onError={(e) => {
                                     // Fallback: hide image and show gradient background
                                     (
@@ -473,9 +534,12 @@ export default function Navigation({
                       </div>
 
                       {/* footer */}
+                      {(() => {
+                        const footer = getMegaMenuFooter(item.label);
+                        return (
                       <div className="border-t border-gray-100 bg-gray-50/80 px-6 py-4 flex items-center justify-between">
                         <p className="text-[13px] text-gray-500">
-                          Need guidance?{" "}
+                          {footer.hint}{" "}
                           <Link
                             href="/contact"
                             className="text-gray-900 font-semibold hover:text-orange-600 transition-colors"
@@ -485,20 +549,20 @@ export default function Navigation({
                         </p>
                         <div className="flex items-center gap-6">
                           <Link
-                            href="/services"
+                            href={footer.primary.href}
                             className="text-[13px] font-medium text-gray-600 hover:text-gray-900 flex items-center gap-1.5 transition-colors group/f"
                           >
-                            Explore all services
+                            {footer.primary.label}
                             <ArrowRight
                               size={14}
                               className="group-hover/f:translate-x-0.5 transition-transform"
                             />
                           </Link>
                           <Link
-                            href="/contact"
+                            href={footer.secondary.href}
                             className="text-[13px] font-medium text-gray-600 hover:text-gray-900 flex items-center gap-1.5 transition-colors group/f"
                           >
-                            Get a quote
+                            {footer.secondary.label}
                             <ArrowRight
                               size={14}
                               className="group-hover/f:translate-x-0.5 transition-transform"
@@ -506,6 +570,8 @@ export default function Navigation({
                           </Link>
                         </div>
                       </div>
+                        );
+                      })()}
                     </motion.div>
                   )}
                 </AnimatePresence>

@@ -7,18 +7,7 @@ export const homepageCaseStudySliderType = defineType({
   initialValue: {
     title: "Homepage Case Study Slider",
     sectionEnabled: true,
-    slides: [
-      {
-        company: "Sample Enterprise",
-        eyebrow: "Featured client story",
-        title: "Modernized operations with AI workflow automation",
-        description:
-          "Replace this starter content with your real homepage case study slide details.",
-        ctaText: "Read case study",
-        ctaHref: "/case-studies",
-        stats: [{ value: "35%", label: "Efficiency gain" }],
-      },
-    ],
+    slides: [],
   },
   fields: [
     defineField({
@@ -38,57 +27,76 @@ export const homepageCaseStudySliderType = defineType({
       name: "slides",
       title: "Slides",
       type: "array",
-      validation: (Rule) => Rule.min(1).warning("Add at least one slide for homepage showcase."),
+      description:
+        "Each slide references a published case study. Text, image, and stats are pulled from the case study unless you add manual overrides below.",
+      validation: (Rule) =>
+        Rule.custom((slides) => {
+          if (!slides?.length) return true
+          const invalid = slides.some(
+            (slide: { caseStudy?: unknown; title?: string; company?: string }) =>
+              !slide?.caseStudy && !slide?.title && !slide?.company,
+          )
+          return invalid
+            ? "Each slide needs either a case study reference or legacy manual title/company fields."
+            : true
+        }).warning(),
       of: [
         defineArrayMember({
           type: "object",
+          name: "homepageSlide",
           fields: [
             defineField({
+              name: "caseStudy",
+              title: "Case study",
+              type: "reference",
+              to: [{ type: "caseStudy" }],
+              description:
+                "Preferred source — text, image, and stats auto-populate from the referenced case study. Legacy manual-only slides still work when this is empty.",
+            }),
+            defineField({
               name: "company",
-              title: "Company Name",
+              title: "Company name override",
               type: "string",
-              validation: (Rule) => Rule.required().max(80),
+              description: "Defaults to the referenced case study client name.",
             }),
             defineField({
               name: "eyebrow",
-              title: "Eyebrow",
+              title: "Eyebrow override",
               type: "string",
-              validation: (Rule) => Rule.required().max(180),
+              description: "Defaults to hero eyebrow on the case study.",
             }),
             defineField({
               name: "title",
-              title: "Heading",
+              title: "Heading override",
               type: "string",
-              validation: (Rule) => Rule.required().max(80),
+              description: "Defaults to hero headline or header title on the case study.",
             }),
             defineField({
               name: "description",
-              title: "Description",
+              title: "Description override",
               type: "text",
               rows: 3,
-              validation: (Rule) => Rule.required().max(260),
+              description: "Defaults to the case study excerpt.",
             }),
             defineField({
               name: "ctaText",
-              title: "CTA Text",
+              title: "CTA Text override",
               type: "string",
               initialValue: "Read case study",
-              validation: (Rule) => Rule.required().max(36),
             }),
             defineField({
               name: "ctaHref",
-              title: "CTA Link",
+              title: "CTA Link override",
               type: "string",
-              description: 'Use relative URL like "/case-studies/slug" or full URL.',
-              validation: (Rule) => Rule.required(),
+              description: 'Defaults to "/case-studies/{slug}".',
             }),
             defineField({
               name: "image",
-              title: "Right Image",
+              title: "Image override",
               type: "image",
               options: { hotspot: true },
               fields: [defineField({ name: "alt", title: "Alt Text", type: "string" })],
-              validation: (Rule) => Rule.required(),
+              description: "Defaults to the case study cover image.",
             }),
             defineField({
               name: "badgeImage",
@@ -99,9 +107,10 @@ export const homepageCaseStudySliderType = defineType({
             }),
             defineField({
               name: "stats",
-              title: "Stats",
+              title: "Stats override",
               type: "array",
-              validation: (Rule) => Rule.min(1).max(3),
+              description: "Defaults to hero highlights or key metrics on the case study.",
+              validation: (Rule) => Rule.max(3),
               of: [
                 defineArrayMember({
                   type: "object",
@@ -131,9 +140,17 @@ export const homepageCaseStudySliderType = defineType({
           ],
           preview: {
             select: {
-              title: "company",
-              subtitle: "title",
-              media: "image",
+              client: "caseStudy.client",
+              headline: "caseStudy.heroHeadline",
+              media: "caseStudy.mainImage",
+              overrideTitle: "title",
+            },
+            prepare({ client, headline, media, overrideTitle }) {
+              return {
+                title: overrideTitle || headline || client || "Homepage slide",
+                subtitle: client || "Case study slide",
+                media,
+              };
             },
           },
         }),

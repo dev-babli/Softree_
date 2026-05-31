@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
@@ -81,6 +81,18 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
   const sectionRef = useRef<HTMLElement>(null)
   const titleRef = useRef<HTMLDivElement>(null)
   const faqsRef = useRef<HTMLDivElement>(null)
+
+  /* `isDesktop` is hydration-safe — starts false on SSR + first render, then
+   * resolves to the real value once mounted. Drives the layout switch
+   * between vertical stack (mobile/tablet) and horizontal accordion (≥lg). */
+  const [isDesktop, setIsDesktop] = useState(false)
+  useEffect(() => {
+    const mql = window.matchMedia("(min-width: 1024px)")
+    const update = () => setIsDesktop(mql.matches)
+    update()
+    mql.addEventListener?.("change", update)
+    return () => mql.removeEventListener?.("change", update)
+  }, [])
 
   useGSAP(() => {
     const tl = gsap.timeline({
@@ -186,8 +198,14 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
           </h2>
         </div>
 
-        {/* FAQ Horizontal Accordion */}
-        <div ref={faqsRef} className="flex h-[600px] gap-2">
+        {/* FAQ Accordion
+         *  • Mobile / tablet (<lg)  : vertical stack — each card full width,
+         *    `auto` height when active, `64px` when collapsed.
+         *  • Desktop (≥lg)         : original horizontal slot accordion. */}
+        <div
+          ref={faqsRef}
+          className="flex flex-col lg:flex-row gap-2 lg:h-[600px]"
+        >
           {faqs.map((faq, index) => {
             const isActive = index === activeIndex
             const isCollapsed = activeIndex !== -1 && !isActive
@@ -197,14 +215,22 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
               <div
                 key={faq.id}
                 onClick={() => handleClick(index)}
-                className={`group/card relative cursor-pointer overflow-hidden rounded-2xl border border-[var(--legacy-f97316)]/20 transition-all duration-700 ease-[var(--legacy-ease-0_4_0_0_2_1)] ${isActive
+                className={`group/card relative cursor-pointer overflow-hidden rounded-2xl border border-[var(--legacy-f97316)]/20 transition-all duration-700 ease-[var(--legacy-ease-0_4_0_0_2_1)] w-full ${isActive
                   ? "bg-white shadow-[0_10px_30px_rgba(249,115,22,0.12)] border-[var(--legacy-f97316)]/30"
                   : "bg-white/80"
                   }`}
-                style={{
-                  width: isActive ? "37%" : isCollapsed ? "15%" : "15%",
-                  height: "600px",
-                }}
+                style={
+                  isDesktop
+                    ? {
+                      /* Desktop horizontal slot accordion. */
+                      width: isActive ? "37%" : isCollapsed ? "15%" : "15%",
+                      height: "600px",
+                    }
+                    : {
+                      /* Mobile / tablet vertical stack. */
+                      minHeight: isActive ? "320px" : "64px",
+                    }
+                }
               >
                 {/* Grainient Background for Inactive Cards */}
                 {!isActive && (

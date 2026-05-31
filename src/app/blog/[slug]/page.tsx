@@ -1,4 +1,3 @@
-import { client } from '@/sanity/client'
 import { groq } from 'next-sanity'
 import { PortableText, type PortableTextComponents } from '@portabletext/react'
 import { Metadata } from 'next'
@@ -8,6 +7,9 @@ import Image from 'next/image'
 import { ArrowLeft, CalendarDays, Clock3, Facebook, Linkedin, Link2, Twitter } from 'lucide-react'
 import NavigationClient from '@/components/sections/navigation-client'
 import Footer from '@/components/sections/footer'
+import { sharedPortableTextTypes } from '@/components/portable-text/contentBlockTypes'
+import { sanityFetch } from '@/sanity/lib/fetch'
+import { buildArticleJsonLd } from '@/lib/structured-data'
 
 function toPlainText(value: unknown): string {
   if (!value) return ''
@@ -47,6 +49,9 @@ function toPlainText(value: unknown): string {
 
 const portableTextComponents: PortableTextComponents = {
   block: {
+    h1: ({ children }) => (
+      <h1 className="mt-10 mb-6 text-3xl font-bold tracking-tight text-zinc-950 md:text-4xl">{children}</h1>
+    ),
     h2: ({ children }) => (
       <h2 className="mt-12 border-b border-zinc-200 pb-2 text-2xl font-bold tracking-tight text-zinc-950 md:text-3xl">
         {children}
@@ -84,11 +89,16 @@ const portableTextComponents: PortableTextComponents = {
   marks: {
     strong: ({ children }) => <strong className="font-bold text-zinc-950">{children}</strong>,
     em: ({ children }) => <em className="italic text-zinc-700">{children}</em>,
+    underline: ({ children }) => <span className="underline underline-offset-2">{children}</span>,
+    code: ({ children }) => (
+      <code className="rounded bg-zinc-100 px-1.5 py-0.5 font-mono text-[0.92em] text-zinc-900">{children}</code>
+    ),
+    'strike-through': ({ children }) => <s className="text-zinc-500">{children}</s>,
     link: ({ value, children }) => (
       <a
         href={value?.href}
-        target="_blank"
-        rel="noopener noreferrer"
+        target={value?.blank ? '_blank' : undefined}
+        rel={value?.blank ? 'noopener noreferrer' : undefined}
         className="font-medium text-[#0f5cc0] underline decoration-2 underline-offset-4 transition-colors hover:text-[#0a428b]"
       >
         {children}
@@ -96,6 +106,7 @@ const portableTextComponents: PortableTextComponents = {
     ),
   },
   types: {
+    ...sharedPortableTextTypes,
     image: ({ value }) => {
       if (!value?.asset?.url) return null
       return (
@@ -121,7 +132,7 @@ const portableTextComponents: PortableTextComponents = {
 }
 
 const postQuery = groq`
-  *[_type == "post" && slug.current == $slug && coalesce(status, "published") == "published"][0] {
+  *[_type == "post" && slug.current == $slug && ($preview == true || coalesce(status, "published") == "published")][0] {
     _id,
     _updatedAt,
     title,
@@ -158,7 +169,7 @@ export const dynamic = 'force-dynamic'
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
-  const post = await client.fetch(postQuery, { slug })
+  const post = await sanityFetch<any>(postQuery, { slug })
 
   if (!post) return { title: 'Blog Post Not Found' }
 
@@ -198,7 +209,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const post = await client.fetch(postQuery, { slug })
+  const post = await sanityFetch<any>(postQuery, { slug })
 
   if (!post) notFound()
 
@@ -235,30 +246,17 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'Article',
-            headline: post.title,
-            description: excerpt,
-            url: `https://www.softreetechnology.com/blog/${slug}`,
-            author: {
-              '@type': 'Person',
-              name: post.author?.name || 'Softree Technology',
-            },
-            publisher: {
-              '@type': 'Organization',
-              name: 'Softree Technology',
-              '@id': 'https://www.softreetechnology.com/#organization',
-              logo: {
-                '@type': 'ImageObject',
-                url: 'https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo.png',
-              },
-            },
-            datePublished: post.publishedAt,
-            dateModified: post._updatedAt || post.publishedAt,
-            keywords: [post.focusKeyword, ...(post.secondaryKeywords || [])].filter(Boolean).join(', '),
-            ...(post.mainImage?.asset?.url && { image: post.mainImage.asset.url }),
-          }),
+          __html: JSON.stringify(
+            buildArticleJsonLd({
+              headline: post.title,
+              description: excerpt,
+              url: pageUrl,
+              datePublished: post.publishedAt,
+              dateModified: post._updatedAt,
+              image: post.mainImage?.asset?.url,
+              authorName: post.author?.name,
+            }),
+          ),
         }}
       />
       {/* FAQ JSON-LD for AEO */}

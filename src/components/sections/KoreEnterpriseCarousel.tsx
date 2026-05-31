@@ -289,41 +289,41 @@ export default function KoreEnterpriseCarousel() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-[#070708] py-20 md:py-24">
+    <section className="relative overflow-hidden bg-white py-20 md:py-24">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(50% 40% at 20% 20%, rgba(255,122,47,0.06), transparent 65%), radial-gradient(40% 35% at 85% 75%, rgba(24,82,255,0.05), transparent 60%)",
+            "radial-gradient(50% 40% at 20% 20%, rgba(24,82,255,0.06), transparent 65%), radial-gradient(40% 35% at 85% 75%, rgba(255,88,18,0.05), transparent 60%)",
         }}
       />
 
       <div className="relative mx-auto w-full max-w-[1320px] px-4 md:px-8">
         <div className="grid gap-8 lg:grid-cols-[320px_minmax(0,1fr)] xl:gap-10">
-          <div className="flex flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-6 backdrop-blur-sm md:px-8 md:py-8">
+          <div className="flex flex-col justify-between rounded-2xl border border-[#0a0a1a]/10 bg-white px-5 py-6 backdrop-blur-sm md:px-8 md:py-8">
             <div className="space-y-5">
-              <h2 className="max-w-[18ch] text-[2.05rem] font-semibold leading-[1.05] tracking-[-0.03em] text-white">
+              <h2 className="max-w-[18ch] text-[2.05rem] font-semibold leading-[1.05] tracking-[-0.03em] text-[#0a0a1a]">
                 We&apos;ve built our business by serving global enterprises
               </h2>
-              <p className="text-[1rem] text-white/65">
+              <p className="text-[1rem] text-[#0a0a1a]/70">
                 Across banking, healthcare, retail, telecom, and B2B sectors.
               </p>
             </div>
-            <div className="mt-10 border-t border-dotted border-white/15 pt-6">
-              <p className="max-w-[26ch] text-[0.95rem] leading-relaxed text-white/50">
+            <div className="mt-10 border-t border-dotted border-[#0a0a1a]/15 pt-6">
+              <p className="max-w-[26ch] text-[0.95rem] leading-relaxed text-[#0a0a1a]/60">
                 Discover how teams partner with Softree across regulated and complex industries.
               </p>
               <div className="mt-5 flex flex-wrap items-center gap-3">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center rounded-[4px] bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-black transition hover:bg-white/90"
+                  className="inline-flex items-center justify-center rounded-[4px] bg-[#FF5812] px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-[#FF5812]/90"
                 >
                   Start a project
                 </Link>
                 <Link
                   href="/case-studies"
-                  className="inline-flex items-center justify-center rounded-[4px] border border-white/25 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white transition hover:border-white/50 hover:bg-white/5"
+                  className="inline-flex items-center justify-center rounded-[4px] border border-[#0a0a1a]/25 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-[#0a0a1a] transition hover:border-[#0a0a1a]/50 hover:bg-[#0a0a1a]/5"
                 >
                   See case studies
                 </Link>
@@ -338,11 +338,10 @@ export default function KoreEnterpriseCarousel() {
                   key={panel.id}
                   type="button"
                   onClick={() => activateTab(index)}
-                  className={`rounded-full border px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.11em] transition ${
-                    activeIndex === index
-                      ? "border-white bg-white text-black"
-                      : "border-white/15 bg-white/[0.04] text-white/60 hover:border-white/30 hover:text-white/85"
-                  }`}
+                  className={`rounded-full border px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.11em] transition ${activeIndex === index
+                    ? "border-[#FF5812] bg-[#FF5812] text-white"
+                    : "border-[#0a0a1a]/15 bg-white/90 text-[#0a0a1a]/60 hover:border-[#FF5812]/30 hover:text-[#0a0a1a]/85"
+                    }`}
                 >
                   {panel.tab}
                 </button>
@@ -359,36 +358,35 @@ export default function KoreEnterpriseCarousel() {
                   ref={(node) => {
                     cardRefs.current[index] = node;
                   }}
-                  className="relative h-[440px] w-[86%] min-w-[86%] snap-start overflow-hidden rounded-[10px] ring-1 ring-white/10 md:h-[470px] md:w-[76%] md:min-w-[76%]"
+                  className="relative h-[440px] w-[86%] min-w-[86%] snap-start overflow-hidden rounded-[10px] ring-1 ring-[#0a0a1a]/10 md:h-[470px] md:w-[76%] md:min-w-[76%]"
                 >
                   <img
                     src={panel.bg}
                     alt={panel.title}
-                    className="absolute inset-0 h-full w-full object-cover brightness-[0.82] saturate-[0.95]"
+                    className="absolute inset-0 h-full w-full object-cover"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/85" />
 
                   <div className="relative z-10 flex h-full flex-col justify-between p-6 md:p-7">
                     <div>
-                      <h3 className="max-w-[20ch] text-[2rem] font-semibold leading-[1.04] tracking-[-0.03em] text-white md:text-[2.35rem]">
+                      <h3 className="max-w-[20ch] text-[2rem] font-semibold leading-[1.04] tracking-[-0.03em] text-[#0a0a1a] md:text-[2.35rem]">
                         {panel.title}
                       </h3>
                       {panel.subtitle ? (
-                        <p className="mt-3 max-w-[58ch] text-sm text-white/88">{panel.subtitle}</p>
+                        <p className="mt-3 max-w-[58ch] text-sm text-[#0a0a1a]/88">{panel.subtitle}</p>
                       ) : null}
                     </div>
 
                     <div>
-                      <p className="mb-3 text-xs font-semibold uppercase tracking-[0.1em] text-white/90">
+                      <p className="mb-3 text-xs font-semibold uppercase tracking-[0.1em] text-[#0a0a1a]/90">
                         {panel.trustedLabel}
                       </p>
-                      <div className="overflow-hidden rounded-md border border-white/10 bg-black/35 p-2 backdrop-blur-sm">
+                      <div className="overflow-hidden rounded-md border border-[#0a0a1a]/10 bg-white/35 p-2 backdrop-blur-sm">
                         <div className="kore-marquee-track">
                           {panel.marquee.map((logo, logoIndex) => (
                             <div
                               key={`${logo.src}-${logoIndex}`}
-                              className="inline-flex h-10 min-w-[128px] items-center justify-center rounded-md bg-white/10 px-3 backdrop-blur-[2px]"
+                              className="inline-flex h-10 min-w-[128px] items-center justify-center rounded-md bg-white/90 px-3 backdrop-blur-[2px]"
                             >
                               <img src={logo.src} alt={logo.alt} className="max-h-5 w-auto object-contain" loading="lazy" />
                             </div>

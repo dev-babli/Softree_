@@ -13,8 +13,9 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${BASE_URL}/showcase`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
   { url: `${BASE_URL}/privacy-policy`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
   { url: `${BASE_URL}/terms`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
-  // Case study category pages
+  { url: `${BASE_URL}/case-studies`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/case-studies/ai`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+  { url: `${BASE_URL}/case-studies/data-analytics`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
   { url: `${BASE_URL}/case-studies/mobile`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
   { url: `${BASE_URL}/case-studies/power-platform`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
   { url: `${BASE_URL}/case-studies/sharepoint`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
@@ -68,9 +69,20 @@ async function getCaseStudySlugs(): Promise<{ slug: string; updatedAt: string | 
   }
 }
 
+async function getMarketingPageSlugs(): Promise<{ slug: string; updatedAt: string | null }[]> {
+  try {
+    return await client.fetch(
+      `*[_type == "marketingPage" && status == "published" && defined(slug.current)]{ "slug": slug.current, "updatedAt": _updatedAt }`,
+    )
+  } catch {
+    return []
+  }
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const blogPosts = await getBlogSlugs()
   const caseStudies = await getCaseStudySlugs()
+  const marketingPages = await getMarketingPageSlugs()
 
   const blogRoutes: MetadataRoute.Sitemap = blogPosts.map(({ slug, updatedAt }) => ({
     url: `${BASE_URL}/blog/${slug}`,
@@ -86,5 +98,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }))
 
-  return [...staticRoutes, ...blogRoutes, ...caseStudyRoutes]
+  const marketingRoutes: MetadataRoute.Sitemap = marketingPages.map(({ slug, updatedAt }) => ({
+    url: `${BASE_URL}/p/${slug}`,
+    lastModified: updatedAt ? new Date(updatedAt) : new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }))
+
+  return [...staticRoutes, ...blogRoutes, ...caseStudyRoutes, ...marketingRoutes]
 }

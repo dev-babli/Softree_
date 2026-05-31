@@ -260,13 +260,21 @@ export default function LightContactSection() {
                 </div>
                 <div>
                   <p className="text-[18px] font-medium tracking-[-0.02em]">
-                    Office
+                    Offices
                   </p>
-                  <p className="mt-2 text-[14px] leading-6 text-white/58">
-                    PLOT 5C/1283, SECTOR-10, CDA
-                    <br />
-                    Cuttack, Odisha 753014, India
-                  </p>
+                  <div className="mt-2 space-y-4 text-[14px] leading-6 text-white/58">
+                    <p>
+                      <span className="block text-white/72">HQ — Cuttack</span>
+                      PLOT 5C/1283, SECTOR-10, CDA
+                      <br />
+                      Cuttack, Odisha 753014, India
+                    </p>
+                    <p>
+                      <span className="block text-white/72">Bengaluru</span>
+                      11th Floor, Prestige Tech Park, Platina 2, Outer Ring Rd,
+                      Kadubeesanahalli, Bengaluru, Karnataka 560087
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

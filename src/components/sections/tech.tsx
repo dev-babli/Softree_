@@ -1,33 +1,34 @@
 "use client";
 
 const techStack = [
-  // Languages
-  { name: "Python", img: "https://cdn.simpleicons.org/python" },
+  // Languages — simpleicons SVGs are monochrome black; need invert on dark bg
+  { name: "Python", img: "https://cdn.simpleicons.org/python", invert: true },
 
-  { name: "C#", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" },
+  { name: "C#", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg", invert: false },
 
   // Backend / Frameworks
-  { name: "Node.js", img: "https://cdn.simpleicons.org/nodedotjs" },
-  { name: ".NET", img: "https://cdn.simpleicons.org/dotnet" },
+  { name: "Node.js", img: "https://cdn.simpleicons.org/nodedotjs", invert: true },
+  { name: ".NET", img: "https://cdn.simpleicons.org/dotnet", invert: true },
 
-  { name: "Django", img: "https://cdn.simpleicons.org/django" },
-  { name: "GraphQL", img: "https://cdn.simpleicons.org/graphql" },
+  { name: "Django", img: "https://cdn.simpleicons.org/django", invert: true },
+  { name: "GraphQL", img: "https://cdn.simpleicons.org/graphql", invert: true },
 
   // Frontend
-  { name: "React", img: "https://cdn.simpleicons.org/react" },
-  { name: "Next.js", img: "https://cdn.simpleicons.org/nextdotjs" },
-  { name: "Vue.js", img: "https://cdn.simpleicons.org/vuedotjs" },
+  { name: "React", img: "https://cdn.simpleicons.org/react", invert: true },
+  { name: "Next.js", img: "https://cdn.simpleicons.org/nextdotjs", invert: true },
+  { name: "Vue.js", img: "https://cdn.simpleicons.org/vuedotjs", invert: true },
 
   // Mobile
-  { name: "React Native", img: "https://cdn.simpleicons.org/react" },
+  { name: "React Native", img: "https://cdn.simpleicons.org/react", invert: true },
 
-  // Microsoft Ecosystem
+  // Microsoft Ecosystem — full-colour brand WEBPs; do NOT invert
   {
     name: "SharePoint",
     img: "/images/sharepoint.webp",
+    invert: false,
   },
-  { name: "Power Apps", img: "/images/power-apps.webp" },
-  { name: "Power Automate", img: "/images/power-auto.webp" },
+  { name: "Power Apps", img: "/images/power-apps.webp", invert: false },
+  { name: "Power Automate", img: "/images/power-auto.webp", invert: false },
 ];
 
 export default function TechStack() {
@@ -104,7 +105,9 @@ export default function TechStack() {
                   <img
                     src={tech.img}
                     alt={tech.name}
-                    className="w-12 h-12 object-contain invert"
+                    /* Conditional invert — monochrome simpleicons need it on
+                     * a dark canvas; full-colour brand WEBPs do not. */
+                    className={`w-12 h-12 object-contain ${tech.invert ? "invert" : ""}`}
                   />
                   <span className="text-sm text-white/90">{tech.name}</span>
                 </div>

@@ -132,7 +132,7 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
             <span className="ssx-kicker">Delivery Lifecycle</span>
           </div>
           <h2>From Strategy to Production — We Own Every Layer.</h2>
-          <p className="ssx-subheadline mt-4 text-white/60 max-w-2xl">
+          <p className="ssx-subheadline mt-4 text-[#0a0a1a]/70 max-w-2xl">
             A structured offshore delivery model designed for speed, scalability, and long-term business impact.
           </p>
         </div>

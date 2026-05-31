@@ -1,7 +1,7 @@
 import { groq } from "next-sanity"
 import { client } from "@/sanity/client"
 import type { CaseStudyItem } from "./CaseStudyGrid"
-import type { CaseStudyListingItem } from "./types"
+import type { CaseStudyListingItem, CaseStudyHeroSlide } from "./types"
 
 type CaseStudyCategory =
   | "ai"
@@ -18,13 +18,15 @@ type SanityCaseStudyCard = {
   excerpt?: string
   industry?: string
   category?: CaseStudyCategory
+  heroHeadline?: string
+  heroEyebrow?: string
   mainImage?: { asset?: { url?: string }; alt?: string }
   mainImageUrl?: string
   metrics?: { label?: string; value?: string }[]
   featured?: boolean
 }
 
-export type { CaseStudyListingItem } from "./types"
+export type { CaseStudyListingItem, CaseStudyHeroSlide } from "./types"
 
 type PortableTextLike = {
   children?: Array<{ text?: string }>
@@ -82,6 +84,22 @@ const caseStudyListingQuery = groq`
     mainImageUrl,
     metrics,
     featured
+  }
+`
+
+const caseStudyHeroSlidesQuery = groq`
+  *[_type == "caseStudy" && coalesce(status, "published") == "published" && featured == true && defined(slug.current)] | order(publishedAt desc) {
+    title,
+    client,
+    slug,
+    excerpt,
+    industry,
+    category,
+    heroHeadline,
+    heroEyebrow,
+    mainImage { asset->{ url }, alt },
+    mainImageUrl,
+    metrics
   }
 `
 
@@ -159,4 +177,50 @@ export async function getCaseStudyListingItems(): Promise<CaseStudyListingItem[]
   return studies
     .filter((study) => Boolean(study.slug?.current))
     .map(mapSanityCaseStudyToListingItem)
+}
+
+function getCategoryLabel(study: SanityCaseStudyCard, fallbackCategory?: CaseStudyCategory): string {
+  return (
+    study.industry ||
+    (study.category ? CATEGORY_LABELS[study.category] : undefined) ||
+    (fallbackCategory ? CATEGORY_LABELS[fallbackCategory] : undefined) ||
+    "Case Study"
+  )
+}
+
+function mapSanityCaseStudyToHeroSlide(study: SanityCaseStudyCard): CaseStudyHeroSlide | null {
+  const image = study.mainImage?.asset?.url || study.mainImageUrl
+  const slug = study.slug?.current
+  if (!image || !slug) return null
+
+  const company = study.client || study.title
+  const categoryLabel = getCategoryLabel(study)
+  const stats = (study.metrics || [])
+    .filter((metric) => metric?.label && metric?.value)
+    .slice(0, 3)
+    .map((metric) => ({
+      score: metric.value as string,
+      label: metric.label as string,
+    }))
+
+  return {
+    company,
+    eyebrow: study.heroEyebrow || `Customer Story — ${categoryLabel}`,
+    title: study.heroHeadline || study.title,
+    description:
+      asPlainText(study.excerpt) || "Read the full case study to see outcomes and implementation details.",
+    ctaText: "Read case study",
+    ctaHref: `/case-studies/${slug}`,
+    image,
+    imageAlt: study.mainImage?.alt || `${company} customer story visual`,
+    imageFit: image.endsWith(".svg") ? "contain" : "cover",
+    stats: stats.length > 0 ? stats : [{ score: "—", label: "Customer story" }],
+  }
+}
+
+export async function getCaseStudyHeroSlides(): Promise<CaseStudyHeroSlide[]> {
+  const studies = await client.fetch<SanityCaseStudyCard[]>(caseStudyHeroSlidesQuery)
+  return studies
+    .map(mapSanityCaseStudyToHeroSlide)
+    .filter((slide): slide is CaseStudyHeroSlide => slide !== null)
 }
