@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import NavigationClient from "@/components/sections/navigation-client"
 import Footer from "@/components/sections/footer"
 import CaseStudiesListingClient from "./CaseStudiesListingClient"
-import { getCaseStudyListingItems } from "./categoryCards"
+import { getCaseStudyHeroSlides, getCaseStudyListingItems } from "./categoryCards"
 
 export const metadata: Metadata = {
   title: "Case Studies | Softree Technology",
@@ -16,12 +16,15 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic"
 
 export default async function CaseStudiesPage() {
-  const caseStudies = await getCaseStudyListingItems()
+  const [caseStudies, heroSlides] = await Promise.all([
+    getCaseStudyListingItems(),
+    getCaseStudyHeroSlides(),
+  ])
 
   return (
     <div className="min-h-screen">
       <NavigationClient />
-      <CaseStudiesListingClient caseStudies={caseStudies} />
+      <CaseStudiesListingClient caseStudies={caseStudies} heroSlides={heroSlides} />
       <Footer />
     </div>
   )

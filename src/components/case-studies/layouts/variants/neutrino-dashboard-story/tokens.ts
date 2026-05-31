@@ -1,0 +1,82 @@
+/** Design tokens — Neutrino AI dashboard stepper story (reference: indigo/purple SaaS) */
+export const DASHBOARD_TOKENS = {
+  bg: "#F8F9FC",
+  bgAmbient:
+    "radial-gradient(ellipse 120% 80% at 0% 0%, rgba(99, 102, 241, 0.06) 0%, transparent 55%), radial-gradient(ellipse 90% 60% at 100% 20%, rgba(139, 92, 246, 0.05) 0%, transparent 50%)",
+  primary: "#6366F1",
+  primaryLight: "#818CF8",
+  primaryMuted: "rgba(99, 102, 241, 0.10)",
+  primaryBorder: "rgba(99, 102, 241, 0.35)",
+  primaryGlow: "rgba(99, 102, 241, 0.22)",
+  navy: "#0B1020",
+  textMuted: "#64748B",
+  textLight: "#94A3B8",
+  white: "#FFFFFF",
+  surface: "#FFFFFF",
+  surfaceMuted: "#F8F9FC",
+  border: "rgba(148, 163, 184, 0.25)",
+  borderStrong: "rgba(148, 163, 184, 0.40)",
+  editorBg: "#FAFBFD",
+  editorGutter: "#F1F3F9",
+  editorBorder: "#E8ECF4",
+  editorLine: "#CBD5E1",
+  liveGreen: "#22C55E",
+  liveGreenMuted: "rgba(34, 197, 94, 0.12)",
+  warningRed: "#EF4444",
+  warningRedMuted: "rgba(239, 68, 68, 0.10)",
+  architectureBlue: "#3B82F6",
+  architectureBlueMuted: "rgba(59, 130, 246, 0.10)",
+  teal: "#14B8A6",
+  orange: "#F97316",
+  radius: 16,
+  radiusMd: 14,
+  radiusSm: 12,
+  radiusXs: 10,
+  sidebarWidth: 300,
+  miniSidebarWidth: 52,
+  easeOut: "cubic-bezier(0.23, 1, 0.32, 1)",
+  dashboardShadow:
+    "0 1px 0 rgba(255,255,255,0.8) inset, 0 24px 64px rgba(15, 23, 42, 0.08), 0 8px 24px rgba(15, 23, 42, 0.04)",
+  cardShadow: "0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px rgba(15, 23, 42, 0.05)",
+  widgetShadow: "0 1px 2px rgba(15, 23, 42, 0.05), 0 2px 8px rgba(15, 23, 42, 0.03)",
+} as const
+
+export const STEPPER_STEPS = [
+  {
+    id: 0,
+    number: "01",
+    title: "The Problem",
+    description: "Fragmented automation and manual bottlenecks",
+    theme: "red" as const,
+  },
+  {
+    id: 1,
+    number: "02",
+    title: "Architecture",
+    description: "Layered platform design for enterprise scale",
+    theme: "blue" as const,
+  },
+  {
+    id: 2,
+    number: "03",
+    title: "Agent System",
+    description: "AI router orchestrating autonomous agents",
+    theme: "purple" as const,
+  },
+  {
+    id: 3,
+    number: "04",
+    title: "Infrastructure",
+    description: "Cloud-native deployment and monitoring",
+    theme: "blue" as const,
+  },
+  {
+    id: 4,
+    number: "05",
+    title: "Production Impact",
+    description: "Measurable outcomes at enterprise scale",
+    theme: "blue" as const,
+  },
+] as const
+
+export type StepTheme = (typeof STEPPER_STEPS)[number]["theme"]

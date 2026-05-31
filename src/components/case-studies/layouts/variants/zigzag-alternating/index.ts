@@ -1,0 +1,1 @@
+export { ZigzagAlternatingPage } from "./ZigzagAlternatingPage"

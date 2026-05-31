@@ -3,7 +3,9 @@ import {
   caseStudyBySlugQuery,
   relatedCaseStudiesFallbackQuery,
   allCaseStudySlugsQuery,
-} from "../../../../sanity/lib/queries"
+} from "@/sanity/queries"
+import { isPreviewMode, sanityFetch } from "@/sanity/lib/fetch"
+import { CLASSIC_LAYOUT_VALUE } from "@/sanity/lib/layoutPreview"
 import { PortableText, type PortableTextComponents } from "@portabletext/react"
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
@@ -11,6 +13,14 @@ import Link from "next/link"
 import Image from "next/image"
 import NavigationClient from "@/components/sections/navigation-client"
 import Footer from "@/components/sections/footer"
+import { sharedPortableTextTypes } from "@/components/portable-text/contentBlockTypes"
+import CaseStudyDownloadButton from "@/components/case-studies/CaseStudyDownloadButton"
+import {
+  CaseStudyPremiumLayout,
+  isPremiumLayout,
+  type CaseStudyDetailLayout,
+} from "@/components/case-studies/layouts/CaseStudyPremiumLayout"
+import { buildCaseStudyJsonLd } from "@/lib/structured-data"
 
 /* ------------------------------------------------------------------ */
 /* Helpers                                                            */
@@ -132,6 +142,18 @@ type CaseStudyDoc = {
   projectDuration?: string
   teamSize?: string
   accentColor?: string
+  detailLayout?: CaseStudyDetailLayout | string
+  projectType?: string
+  region?: string
+  endUsers?: string
+  videoUrl?: string
+  challengeCards?: Array<{ title: string; description: string }>
+  solutionArchitecture?: Array<{ title: string; description: string }>
+  deliverables?: Array<{ title: string; description: string }>
+  beforeAfter?: Array<{ metric: string; before: string; after: string }>
+  ctaHeadline?: string
+  ctaSubtext?: string
+  ctaButtonText?: string
   mainImage?: SanityImage
   mainImageUrl?: string
   pdfUrl?: string
@@ -141,10 +163,13 @@ type CaseStudyDoc = {
   pullQuoteImage?: SanityImage
   challengeSummary?: string
   challenge?: PortableTextLike[] | string
+  challengeContent?: PortableTextLike[]
   approachSummary?: string
   approach?: PortableTextLike[] | string
+  approachContent?: PortableTextLike[]
   outcomeSummary?: string
   outcome?: PortableTextLike[] | string
+  outcomeContent?: PortableTextLike[]
   // Legacy fields produced by `scripts/seed-sanity-content.ts`
   solution?: PortableTextLike[] | string
   result?: string
@@ -157,6 +182,7 @@ type CaseStudyDoc = {
   relatedCaseStudies?: RelatedStudy[]
   metaTitle?: string
   metaDescription?: string
+  ogImage?: SanityImage
   publishedAt?: string
 }
 
@@ -171,7 +197,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
-  const study = await client.fetch<CaseStudyDoc | null>(caseStudyBySlugQuery, { slug })
+  const study = await sanityFetch<CaseStudyDoc | null>(caseStudyBySlugQuery, { slug })
 
   if (!study) return { title: "Case Study Not Found" }
 
@@ -181,7 +207,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     study.excerpt ||
     `Read how ${study.client || study.title} partnered with Softree Technology.`
 
-  const ogImage = study.mainImage?.asset?.url || study.mainImageUrl
+  const ogImage = study.ogImage?.asset?.url || study.mainImage?.asset?.url || study.mainImageUrl
 
   return {
     title,
@@ -209,6 +235,11 @@ const createPortableTextComponents = (
   registerHeading: (id: string, text: string) => void
 ): PortableTextComponents => ({
   block: {
+    h1: ({ children }) => (
+      <h1 className="mt-12 mb-6 text-[2rem] md:text-[2.4rem] font-bold tracking-[-0.03em] text-[#0d0a23]">
+        {children}
+      </h1>
+    ),
     h2: ({ children, value }) => {
       const text = getHeadingText(value as PortableTextLike)
       const id = slugify(text || "section")
@@ -256,11 +287,16 @@ const createPortableTextComponents = (
   marks: {
     strong: ({ children }) => <strong className="font-bold text-[#0d0a23]">{children}</strong>,
     em: ({ children }) => <em className="italic">{children}</em>,
+    underline: ({ children }) => <span className="underline underline-offset-2">{children}</span>,
+    code: ({ children }) => (
+      <code className="rounded bg-[#f3f4f8] px-1.5 py-0.5 font-mono text-[0.92em] text-[#0d0a23]">{children}</code>
+    ),
+    "strike-through": ({ children }) => <s className="text-[#6b7694]">{children}</s>,
     link: ({ value, children }) => (
       <a
         href={value?.href}
-        target="_blank"
-        rel="noopener noreferrer"
+        target={value?.blank ? "_blank" : undefined}
+        rel={value?.blank ? "noopener noreferrer" : undefined}
         className="font-medium text-[#5a17ee] underline underline-offset-4 decoration-[#5a17ee]/40 transition-colors hover:decoration-[#5a17ee]"
       >
         {children}
@@ -268,6 +304,7 @@ const createPortableTextComponents = (
     ),
   },
   types: {
+    ...sharedPortableTextTypes,
     image: ({ value }) => {
       const url = value?.asset?.url
       if (!url) return null
@@ -363,10 +400,28 @@ function RelatedCard({ study }: { study: RelatedStudy }) {
 /* Page                                                               */
 /* ------------------------------------------------------------------ */
 
-export default async function CaseStudyDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function CaseStudyDetailPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ slug: string }>
+  searchParams: Promise<{ layout?: string }>
+}) {
   const { slug } = await params
-  const study = await client.fetch<CaseStudyDoc | null>(caseStudyBySlugQuery, { slug })
+  const { layout: layoutOverride } = await searchParams
+  const previewActive = await isPreviewMode()
+  const study = await sanityFetch<CaseStudyDoc | null>(caseStudyBySlugQuery, { slug })
   if (!study) notFound()
+
+  let effectiveLayout = study.detailLayout
+  const allowLayoutOverride = previewActive || process.env.NODE_ENV === "development"
+  if (allowLayoutOverride && layoutOverride) {
+    if (layoutOverride === CLASSIC_LAYOUT_VALUE) {
+      effectiveLayout = undefined
+    } else if (isPremiumLayout(layoutOverride)) {
+      effectiveLayout = layoutOverride
+    }
+  }
 
   // Pull related: prefer manually-curated, fall back to latest 3 others.
   let related: RelatedStudy[] = study.relatedCaseStudies || []
@@ -394,9 +449,9 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
     return asPortableTextArray(input)
   }
 
-  const challenge = toPT(study.challenge)
-  const approach = toPT(study.approach ?? study.solution)
-  const outcomeSource = study.outcome ?? study.result
+  const challenge = toPT(study.challengeContent ?? study.challenge)
+  const approach = toPT(study.approachContent ?? study.approach ?? study.solution)
+  const outcomeSource = study.outcomeContent ?? study.outcome ?? study.result
   const outcome = toPT(outcomeSource)
   const extra = asPortableTextArray(study.body)
 
@@ -501,6 +556,16 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
   const excerptText = study.excerpt || ""
   const downloadUrl = study.pdfUrl
 
+  if (isPremiumLayout(effectiveLayout)) {
+    return (
+      <CaseStudyPremiumLayout
+        study={study}
+        related={related}
+        layout={effectiveLayout}
+      />
+    )
+  }
+
   return (
     <div className="min-h-screen bg-white text-[#0d0a23]">
       <NavigationClient />
@@ -509,29 +574,17 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            headline: study.title,
-            description: excerptText,
-            url: `https://www.softreetechnology.com/case-studies/${slug}`,
-            author: {
-              "@type": "Organization",
-              name: "Softree Technology",
-              "@id": "https://www.softreetechnology.com/#organization",
-            },
-            publisher: {
-              "@type": "Organization",
-              name: "Softree Technology",
-              logo: {
-                "@type": "ImageObject",
-                url: "https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo.png",
-              },
-            },
-            datePublished: study.publishedAt,
-            dateModified: study._updatedAt || study.publishedAt,
-            ...(heroImageUrl && { image: heroImageUrl }),
-          }),
+          __html: JSON.stringify(
+            buildCaseStudyJsonLd({
+              headline: study.title,
+              description: excerptText,
+              url: `https://www.softreetechnology.com/case-studies/${slug}`,
+              datePublished: study.publishedAt,
+              dateModified: study._updatedAt,
+              image: heroImageUrl,
+              clientName: study.client,
+            }),
+          ),
         }}
       />
 
@@ -624,13 +677,15 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
             {/* Main column */}
             <div>
               {/* Summary grid */}
-              <div className="grid grid-cols-2 gap-x-8 gap-y-7 border-b border-[#e6e1f2] pb-10 md:grid-cols-4">
+              <div className="grid grid-cols-2 gap-x-8 gap-y-7 border-b border-[#e6e1f2] pb-10 md:grid-cols-3 lg:grid-cols-6">
                 <SummaryItem
                   label="Industry"
                   value={study.industry || categoryLabel(study.category) || ""}
                 />
                 <SummaryItem label="Location" value={study.location || ""} />
                 <SummaryItem label="Employees" value={study.employees || ""} />
+                <SummaryItem label="Project duration" value={study.projectDuration || ""} />
+                <SummaryItem label="Team size" value={study.teamSize || ""} />
                 <SummaryItem
                   label="Scale of Operation"
                   value={study.scaleOfOperation || (clientName ? `Trusted by ${clientName}` : "")}
@@ -724,17 +779,67 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
                 </div>
               ) : null}
 
+              {/* Gallery */}
+              {(() => {
+                const galleryItems = [
+                  ...(study.gallery || [])
+                    .filter((g) => g?.asset?.url)
+                    .map((g) => ({
+                      url: g.asset!.url!,
+                      alt: g.alt,
+                      caption: g.caption,
+                    })),
+                  ...(study.galleryUrls || [])
+                    .filter((g) => g?.url)
+                    .map((g) => ({ url: g.url!, alt: g.alt, caption: g.caption })),
+                ]
+                if (galleryItems.length === 0) return null
+                return (
+                  <div className="mt-14">
+                    <h3 className="text-[0.75rem] font-bold uppercase tracking-[0.18em] text-[#6b7694]">
+                      Project gallery
+                    </h3>
+                    <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
+                      {galleryItems.map((item, i) => (
+                        <figure
+                          key={`${item.url}-${i}`}
+                          className="overflow-hidden rounded-[14px] border border-[#e6e1f2] bg-white"
+                        >
+                          <div className="relative aspect-[16/10] w-full">
+                            <Image
+                              src={item.url}
+                              alt={item.alt || `Gallery image ${i + 1}`}
+                              fill
+                              unoptimized
+                              className="object-cover"
+                              sizes="(max-width: 640px) 100vw, 400px"
+                            />
+                          </div>
+                          {item.caption ? (
+                            <figcaption className="px-4 py-3 text-center text-xs font-medium text-[#6b7694]">
+                              {item.caption}
+                            </figcaption>
+                          ) : null}
+                        </figure>
+                      ))}
+                    </div>
+                  </div>
+                )
+              })()}
+
               {/* Download CTA */}
-              <div className="mt-14">
+              <div className="mt-14 flex flex-wrap items-center gap-4">
                 {downloadUrl ? (
-                  <a
+                  <CaseStudyDownloadButton
                     href={downloadUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    slug={slug}
+                    title={study.title}
+                    client={study.client}
+                    category={study.category}
                     className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#4FC3F7] via-[#2196F3] to-[#5B4FE9] px-12 py-4 text-[0.9rem] font-semibold uppercase tracking-[0.16em] text-white shadow-[0_4px_15px_rgba(91,79,233,0.3)] transition-transform duration-200 ease-out hover:-translate-y-[1px] hover:shadow-[0_6px_20px_rgba(91,79,233,0.4)]"
                   >
                     Download Customer Story
-                  </a>
+                  </CaseStudyDownloadButton>
                 ) : (
                   <Link
                     href="/contact"
@@ -743,6 +848,16 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
                     Talk to our team
                   </Link>
                 )}
+                {study.liveUrl ? (
+                  <Link
+                    href={study.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-full border border-[#5a17ee] px-8 py-4 text-[0.9rem] font-semibold uppercase tracking-[0.14em] text-[#5a17ee] transition-colors hover:bg-[#5a17ee] hover:text-white"
+                  >
+                    View live project
+                  </Link>
+                ) : null}
               </div>
             </div>
           </div>

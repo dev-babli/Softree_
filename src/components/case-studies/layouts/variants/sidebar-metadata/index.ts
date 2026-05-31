@@ -1,0 +1,1 @@
+export { SidebarMetadataPage } from "./SidebarMetadataPage"

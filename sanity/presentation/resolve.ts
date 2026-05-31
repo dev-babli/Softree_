@@ -1,131 +1,88 @@
 import { defineLocations, PresentationPluginOptions } from 'sanity/presentation'
+import { CASE_STUDY_LAYOUTS } from '../../src/lib/case-study-layouts'
+import { CLASSIC_LAYOUT_VALUE } from '../../src/sanity/lib/layoutPreview'
 
-/**
- * Document Locations for Sanity Presentation Tool
- * 
- * Defines where documents appear in the front-end.
- * Enables quick navigation between Structure and Presentation tools.
- * 
- * @see https://www.sanity.io/docs/presentation
- */
 export const resolve: PresentationPluginOptions['resolve'] = {
   locations: {
-    // Service documents
-    service: defineLocations({
-      select: {
-        title: 'title',
-        slug: 'slug.current',
-        category: 'serviceCategory',
-      },
-      resolve: (doc) => {
-        const slug = doc?.slug
-        const category = doc?.category
-        return {
-          locations: [
-            {
-              title: doc?.title || 'Untitled Service',
-              href: slug ? `/services/${slug}` : '/services',
-            },
-            {
-              title: 'Services Index',
-              href: '/services',
-            },
-          ],
-        }
-      },
+    post: defineLocations({
+      select: { title: 'title', slug: 'slug.current' },
+      resolve: (doc) => ({
+        locations: [
+          { title: doc?.title || 'Blog post', href: doc?.slug ? `/blog/${doc.slug}` : '/blog' },
+          { title: 'Blog index', href: '/blog' },
+        ],
+      }),
     }),
 
-    // Case study documents
     caseStudy: defineLocations({
-      select: {
-        title: 'title',
-        slug: 'slug.current',
+      select: { title: 'title', slug: 'slug.current', category: 'category' },
+      resolve: (doc) => {
+        const slugPath = doc?.slug ? `/case-studies/${doc.slug}` : '/case-studies'
+        const locations = [
+          {
+            title: doc?.title || 'Case study',
+            href: slugPath,
+          },
+          { title: 'Case studies index', href: '/case-studies' },
+        ]
+        if (doc?.category) {
+          locations.push({
+            title: `${doc.category} category`,
+            href: `/case-studies/${doc.category}`,
+          })
+        }
+        if (doc?.slug) {
+          locations.push({
+            title: 'Layout preview: Classic (light)',
+            href: `${slugPath}?layout=${CLASSIC_LAYOUT_VALUE}`,
+          })
+          for (const layout of CASE_STUDY_LAYOUTS) {
+            locations.push({
+              title: `Layout preview: ${layout.title}`,
+              href: `${slugPath}?layout=${layout.value}`,
+            })
+          }
+        }
+        return { locations }
       },
+    }),
+
+    marketingPage: defineLocations({
+      select: { title: 'title', slug: 'slug.current' },
       resolve: (doc) => ({
         locations: [
-          {
-            title: doc?.title || 'Untitled Case Study',
-            href: doc?.slug ? `/case-studies/${doc.slug}` : '/case-studies',
-          },
-          {
-            title: 'Case Studies Index',
-            href: '/case-studies',
-          },
+          { title: doc?.title || 'Marketing page', href: doc?.slug ? `/p/${doc.slug}` : '/' },
         ],
       }),
     }),
 
-    // Blog post documents
-    blogPost: defineLocations({
-      select: {
-        title: 'title',
-        slug: 'slug.current',
-      },
+    homepageCaseStudySlider: defineLocations({
+      select: { title: 'title' },
+      resolve: (doc) => ({
+        locations: [{ title: doc?.title || 'Homepage slider', href: '/' }],
+      }),
+    }),
+
+    globalSettings: defineLocations({
+      select: { siteName: 'siteName' },
+      resolve: (doc) => ({
+        locations: [{ title: doc?.siteName || 'Global settings', href: '/' }],
+      }),
+    }),
+
+    category: defineLocations({
+      select: { title: 'title', slug: 'slug.current' },
       resolve: (doc) => ({
         locations: [
-          {
-            title: doc?.title || 'Untitled Post',
-            href: doc?.slug ? `/blog/${doc.slug}` : '/blog',
-          },
-          {
-            title: 'Blog Index',
-            href: '/blog',
-          },
+          { title: doc?.title || 'Category', href: '/blog' },
         ],
       }),
     }),
 
-    // Team member documents
-    teamMember: defineLocations({
-      select: {
-        name: 'name',
-        slug: 'slug.current',
-      },
+    author: defineLocations({
+      select: { name: 'name' },
       resolve: (doc) => ({
-        locations: [
-          {
-            title: doc?.name || 'Untitled Team Member',
-            href: doc?.slug ? `/about-us/team/${doc.slug}` : '/about-us',
-          },
-          {
-            title: 'About Us',
-            href: '/about-us',
-          },
-        ],
-      }),
-    }),
-
-    // FAQ documents
-    faq: defineLocations({
-      select: {
-        question: 'question',
-      },
-      resolve: (doc) => ({
-        locations: [
-          {
-            title: 'FAQ Page',
-            href: '/faq',
-          },
-        ],
-      }),
-    }),
-
-    // Testimonial documents
-    testimonial: defineLocations({
-      select: {
-        author: 'author',
-      },
-      resolve: (doc) => ({
-        locations: [
-          {
-            title: 'Homepage (Testimonials)',
-            href: '/',
-          },
-          {
-            title: 'Services (Testimonials)',
-            href: '/services',
-          },
-        ],
+        locations: [{ title: doc?.name || 'Author', href: '/blog' }],
       }),
     }),
   },
