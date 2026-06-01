@@ -201,7 +201,7 @@ export default function HeroPowerApps() {
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=DM+Sans:wght@400;500&display=swap');
-        .cta-btn:hover { background: #7dd3fc !important; transform: translateY(-2px); box-shadow: 0 12px 40px rgba(56,189,248,0.45) !important; }
+        .cta-btn:hover { background: #fdba74 !important; transform: translateY(-2px); box-shadow: 0 12px 40px rgba(249,115,22,0.45) !important; }
         .cta-btn:hover .cta-arrow { transform: translateX(3px); }
         .cta-arrow { transition: transform 0.2s; }
         .nav-btn:hover { background: rgba(56,189,248,0.2) !important; border-color: rgba(56,189,248,0.4) !important; transform: scale(1.08); }
@@ -235,7 +235,7 @@ export default function HeroPowerApps() {
             <Link href="/contact" className="cta-btn" style={styles.ctaBtn}>
               Talk to our Expert
               <span className="cta-arrow">
-                <ArrowRight stroke="#071b4d" />
+                <ArrowRight stroke="#4c1c02" />
               </span>
             </Link>
 
@@ -409,8 +409,8 @@ const styles: Record<string, CSSProperties> = {
     display: "inline-flex",
     alignItems: "center",
     gap: "10px",
-    background: "#d8dce3ff",
-    color: "#071b4d",
+    background: "linear-gradient(135deg, #f97316 0%, #ea580c 100%)",
+    color: "#4c1c02",
     fontFamily: "'DM Sans', sans-serif",
     fontSize: "15px",
     fontWeight: 500,
@@ -420,7 +420,7 @@ const styles: Record<string, CSSProperties> = {
     cursor: "pointer",
     textDecoration: "none",
     transition: "transform 0.2s, background 0.2s, box-shadow 0.2s",
-    boxShadow: "0 8px 32px rgba(56,189,248,0.3)",
+    boxShadow: "0 8px 32px rgba(249,115,22,0.3)",
   },
 
   stats: {

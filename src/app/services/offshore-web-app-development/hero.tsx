@@ -395,8 +395,8 @@ const styles: Record<string, CSSProperties> = {
     textTransform: "uppercase",
     padding: "5px 12px",
     borderRadius: "100px",
-
     marginTop: "22px",
+    marginBottom: "22px",
   },
   eyebrowDot: {
     width: "6px",
@@ -425,7 +425,7 @@ const styles: Record<string, CSSProperties> = {
     color: "rgba(200,220,255,0.65)",
     fontSize: "15px",
     lineHeight: 1.7,
-    marginBottom: "12px",
+    marginBottom: "28px",
   },
   ctaBtn: {
     display: "inline-flex",

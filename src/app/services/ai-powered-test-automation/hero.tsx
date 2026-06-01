@@ -200,7 +200,7 @@ export default function HeroAIAutomation() {
   return (
     <>
       <style>{`
-        .cta-btn:hover { background: #7dd3fc !important; transform: translateY(-2px); box-shadow: 0 12px 40px rgba(56,189,248,0.45) !important; }
+         .cta-btn:hover { background: #fdba74 !important; transform: translateY(-2px); box-shadow: 0 12px 40px rgba(249,115,22,0.45) !important; }
         .cta-btn:hover .cta-arrow { transform: translateX(3px); }
         .cta-arrow { transition: transform 0.2s; }
         .nav-btn:hover { background: rgba(56,189,248,0.2) !important; border-color: rgba(56,189,248,0.4) !important; transform: scale(1.08); }
@@ -280,10 +280,10 @@ export default function HeroAIAutomation() {
             </p>
 
             <div className="hero-cta-wrapper" style={styles.ctaWrapper}>
-              <Link href="/contact" className="cta-btn" style={styles.ctaBtn}>
+               <Link href="/contact" className="cta-btn" style={styles.ctaBtn}>
                 Schedule Consultation
                 <span className="cta-arrow">
-                  <ArrowRight stroke="#071b4d" />
+                  <ArrowRight stroke="#4c1c02" />
                 </span>
               </Link>
 
@@ -472,8 +472,8 @@ const styles: Record<string, CSSProperties> = {
     alignItems: "center",
     justifyContent: "center",
     gap: "10px",
-    background: "#d8dce3ff",
-    color: "#071b4d",
+    background: "linear-gradient(135deg, #f97316 0%, #ea580c 100%)",
+    color: "#4c1c02",
     fontSize: "14px",
     fontWeight: 600,
     padding: "12px 20px",
@@ -482,7 +482,7 @@ const styles: Record<string, CSSProperties> = {
     cursor: "pointer",
     textDecoration: "none",
     transition: "all 0.25s ease",
-    boxShadow: "0 8px 32px rgba(56,189,248,0.3)",
+    boxShadow: "0 8px 32px rgba(249,115,22,0.3)",
     whiteSpace: "nowrap",
   },
 
