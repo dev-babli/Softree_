@@ -326,11 +326,13 @@ export default function TestimonialsGlobe({ variant = "light" }: TestimonialsGlo
             </span>
             <span className="h-px w-8 bg-[var(--legacy-f5b947)]" />
           </div>
-          <h2 className={`mt-6 text-[2rem] font-semibold leading-[1.05] tracking-[-0.035em] sm:text-[2.75rem] lg:text-[3.25rem] ${t.text}`}>
-            Built with teams in <span className="font-serif italic font-normal text-[var(--legacy-f5b947)]">{COUNTRIES_SERVED_SPELL}</span> countries
+          <h2
+            className={`mt-6 text-[2rem] font-semibold leading-[1.05] tracking-[-0.035em] sm:text-[2.75rem] lg:text-[3.25rem] ${t.text}`}
+          >
+            Trusted by teams <span className="font-serif italic font-normal text-[var(--legacy-f5b947)]">worldwide</span>
           </h2>
           <p className={`mx-auto mt-5 max-w-md text-[0.9375rem] leading-[1.7] ${t.textBody}`}>
-          We collaborate with businesses worldwide to build scalable, modern, and impactful technology experiences.
+            We collaborate with businesses worldwide to build scalable, modern, and impactful technology experiences.
           </p>
         </motion.div>
 

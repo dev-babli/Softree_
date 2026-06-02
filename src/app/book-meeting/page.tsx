@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState, useRef, Fragment } from "react";
+import NavigationClient from "@/components/sections/navigation-client";
+import Footer from "@/components/sections/footer";
 
 declare global {
   interface Window {
@@ -29,25 +31,25 @@ const meetingTypes = [
 
 const testimonials = [
   {
-    initials: "JM",
+    initials: "AM",
     gradient: "from-orange-500 to-rose-600",
-    name: "James M.",
-    role: "CTO, GO ERP",
-    text: "Booked a discovery call and within 30 minutes the Softree team had mapped out our entire integration architecture. Incredibly prepared.",
+    name: "Asif Mohamed",
+    role: "Adiva Information Technology LLC, UAE",
+    text: "A trusted technology solutions provider with strong expertise in security, compliance, and enterprise delivery.",
   },
   {
-    initials: "PR",
+    initials: "RR",
     gradient: "from-amber-500 to-orange-600",
-    name: "Priya R.",
-    role: "Product Lead, FinServ Co.",
-    text: "The first call felt less like sales and more like consulting. They challenged our assumptions and gave us a better solution than we'd planned.",
+    name: "Rahi Radhakrishnan",
+    role: "Nuvento, USA",
+    text: "Softree demonstrated strong expertise in PowerApps development and delivered the project with excellent communication, responsiveness, and coordination throughout the engagement.",
   },
   {
-    initials: "AK",
+    initials: "DT",
     gradient: "from-orange-600 to-red-700",
-    name: "Arjun K.",
-    role: "Founder, LogiStack",
-    text: "Easy to book, zero friction. Got a real calendar invite immediately, and the engineer who joined knew our domain inside out.",
+    name: "Darrell Trimble",
+    role: "CEO, SP Marketplace, California",
+    text: "SOFTREE staff worked with us to learn our installation automation technology and built exactly what we needed.",
   },
 ];
 
@@ -64,24 +66,40 @@ export default function BookMeeting() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const heroRef = useRef<HTMLDivElement>(null);
   const [calendlyUrl, setCalendlyUrl] = useState(
-    "https://calendly.com/shradhabhagat/new-meeting?hide_gdpr_banner=1"
+    "https://calendly.com/shradhabhagat/new-meeting?hide_gdpr_banner=1&hide_landing_page_details=1"
   );
 
   const initCalendly = () => {
-    if (typeof window !== "undefined" && window.Calendly && typeof window.Calendly.initInlineWidget === "function") {
-      const container = document.getElementById("calendly-container");
-      if (container) {
-        container.innerHTML = "";
-        window.Calendly.initInlineWidget({
-          url: calendlyUrl,
-          parentElement: container,
-          prefill: {},
-          pageSettings: {
-            backgroundColor: "0c0a08",
-            textColor: "f5e6d3",
-            primaryColor: "f97316",
+    if (typeof window !== "undefined") {
+      const run = () => {
+        if (window.Calendly && typeof window.Calendly.initInlineWidget === "function") {
+          const container = document.getElementById("calendly-container");
+          if (container) {
+            container.innerHTML = "";
+            window.Calendly.initInlineWidget({
+              url: calendlyUrl,
+              parentElement: container,
+              prefill: {},
+              pageSettings: {
+                backgroundColor: "0c0a08",
+                textColor: "f5e6d3",
+                primaryColor: "f97316",
+              }
+            });
+            return true;
           }
-        });
+        }
+        return false;
+      };
+
+      if (!run()) {
+        let attempts = 0;
+        const interval = setInterval(() => {
+          if (run() || attempts > 50) {
+            clearInterval(interval);
+          }
+          attempts++;
+        }, 100);
       }
     }
   };
@@ -89,7 +107,7 @@ export default function BookMeeting() {
   useEffect(() => {
     setLoaded(true);
     const existingScript = document.getElementById("calendly-script");
-    
+
     const onLoad = () => {
       initCalendly();
     };
@@ -127,11 +145,12 @@ export default function BookMeeting() {
 
   const handleSelectType = (index: number, url: string) => {
     setActiveIndex(index);
-    setCalendlyUrl(`${url}?hide_gdpr_banner=1`);
+    setCalendlyUrl(`${url}?hide_gdpr_banner=1&hide_landing_page_details=1`);
   };
 
   return (
     <>
+      <NavigationClient />
       <title>Book a Meeting | Softree Technology</title>
       <meta name="description" content="Book a free consultation with Softree Technology's engineering team." />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -141,9 +160,22 @@ export default function BookMeeting() {
         rel="stylesheet"
       />
       <style>{`
-          /* Hide scrollbar globally */
-          * { scrollbar-width: none; -ms-overflow-style: none; }
-          *::-webkit-scrollbar { display: none; }
+          /* Premium Custom Scrollbars */
+          ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+          }
+          ::-webkit-scrollbar-track {
+            background: #0c0a08;
+          }
+          ::-webkit-scrollbar-thumb {
+            background: rgba(249, 115, 22, 0.3);
+            border-radius: 99px;
+            border: 2px solid #0c0a08;
+          }
+          ::-webkit-scrollbar-thumb:hover {
+            background: rgba(249, 115, 22, 0.6);
+          }
 
           body {
             background: #0c0a08;
@@ -209,15 +241,16 @@ export default function BookMeeting() {
           }
 
           .glow-card {
-            background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
-            border: 1px solid rgba(255,255,255,0.07);
-            box-shadow: 0 24px 64px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
-            transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.005) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(249, 115, 22, 0.15);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
           }
           .glow-card:hover {
-            border-color: rgba(249,115,22,0.2);
-            box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 40px rgba(249,115,22,0.06), inset 0 1px 0 rgba(255,255,255,0.07);
-            transform: translateY(-2px);
+            border-color: rgba(249, 115, 22, 0.4);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 40px rgba(249, 115, 22, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            transform: translateY(-6px) scale(1.015);
           }
 
           .noise-bg::before {
@@ -380,11 +413,11 @@ export default function BookMeeting() {
         }} />
 
         {/* ─── HERO ────────────────────────────────────── */}
-        <section ref={heroRef} className="relative z-10" style={{ paddingTop: "4rem", paddingBottom: "2rem" }}>
+        <section ref={heroRef} className="relative z-10" style={{ paddingTop: "8rem", paddingBottom: "2rem" }}>
 
           {/* Decorative horizontal rule */}
           <div style={{
-            position: "absolute", top: 80, left: 0, right: 0, height: 1,
+            position: "absolute", top: 135, left: 0, right: 0, height: 1,
             background: "linear-gradient(90deg, transparent, rgba(249,115,22,0.15), transparent)",
             pointerEvents: "none",
           }} />
@@ -685,17 +718,30 @@ export default function BookMeeting() {
         </section>
 
         {/* ─── CALENDLY EMBED ──────────────────────────── */}
-        <div className="relative z-10 max-w-5xl mx-auto px-4 md:px-8 pb-12">
-          <div className="fade-up fade-up-6 glow-card" style={{ borderRadius: 20, overflow: "hidden" }}>
-            {/* Top accent bar */}
+        <div className="relative z-10 max-w-[850px] mx-auto px-4 md:px-6 pb-10">
+          <div className="fade-up fade-up-6" style={{
+            position: "relative",
+            borderRadius: "24px",
+            padding: "1px",
+            background: "linear-gradient(135deg, rgba(249, 115, 22, 0.4) 0%, rgba(251, 191, 36, 0.15) 40%, rgba(255, 255, 255, 0.05) 100%)",
+            boxShadow: "0 30px 70px -15px rgba(0, 0, 0, 0.9), 0 0 40px rgba(249, 115, 22, 0.12)",
+          }}>
             <div style={{
-              height: 3,
-              background: "linear-gradient(90deg, #f97316, #fbbf24, #fb923c)",
-            }} />
-            <div
-              id="calendly-container"
-              style={{ minWidth: 320, height: 980, background: "#0c0a08" }}
-            />
+              borderRadius: "23px",
+              overflow: "hidden",
+              background: "#ffffff",
+              position: "relative",
+            }}>
+              {/* Top accent bar */}
+              <div style={{
+                height: 4,
+                background: "linear-gradient(90deg, #f97316, #fbbf24, #fb923c)",
+              }} />
+              <div
+                id="calendly-container"
+                style={{ minWidth: 320, height: 700, background: "#ffffff" }}
+              />
+            </div>
           </div>
         </div>
 
@@ -749,40 +795,106 @@ export default function BookMeeting() {
         </div>
 
         {/* ─── TESTIMONIALS ────────────────────────────── */}
-        <div className="relative z-10 max-w-5xl mx-auto px-4 md:px-8 pb-24 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 pb-28 grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
-            <div key={i} className="glow-card" style={{ borderRadius: 18, padding: 24 }}>
-              {/* Stars */}
-              <div style={{ display: "flex", gap: 2, marginBottom: 12 }}>
-                {[...Array(5)].map((_, s) => (
-                  <span key={s} style={{ color: "#f97316", fontSize: "0.8rem" }}>★</span>
-                ))}
-              </div>
-              {/* Quote mark */}
+            <div
+              key={i}
+              className="glow-card relative overflow-hidden flex flex-col justify-between"
+              style={{
+                borderRadius: "24px",
+                padding: "32px 28px",
+                minHeight: "310px",
+              }}
+            >
+              {/* Card top gradient accent glow matching avatar */}
               <div style={{
-                fontSize: "3rem", lineHeight: 1,
-                color: "rgba(249,115,22,0.15)",
-                fontFamily: "'Instrument Serif', serif",
-                marginBottom: -8,
-              }}>"</div>
-              <p style={{
-                fontSize: "0.875rem", color: "rgba(255,255,255,0.55)",
-                lineHeight: 1.65, fontStyle: "italic",
-                marginBottom: 16, marginTop: 0,
-              }}>{t.text}</p>
-              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                <div style={{
-                  width: 36, height: 36, borderRadius: "50%",
-                  background: `linear-gradient(135deg, var(--from), var(--to))`,
-                  backgroundImage: `linear-gradient(135deg, ${t.gradient.includes("orange-500") ? "#f97316" : t.gradient.includes("amber-500") ? "#f59e0b" : "#ea580c"}, ${t.gradient.includes("rose-600") ? "#e11d48" : t.gradient.includes("orange-600") ? "#ea580c" : "#b91c1c"})`,
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  color: "#fff", fontSize: "0.75rem", fontWeight: 800, flexShrink: 0,
-                }}>
-                  {t.initials}
+                position: "absolute", top: 0, left: 0, right: 0, height: "3px",
+                backgroundImage: `linear-gradient(90deg, transparent 15%, ${t.gradient.includes("orange-500") ? "#f97316" : t.gradient.includes("amber-500") ? "#f59e0b" : "#ea580c"} 50%, transparent 85%)`,
+                opacity: 0.8,
+              }} />
+
+              <div>
+                {/* Header row: Stars */}
+                <div style={{ display: "flex", alignItems: "center", marginBottom: "18px" }}>
+                  {/* Glowing gold stars */}
+                  <div style={{ display: "flex", gap: "4px" }}>
+                    {[...Array(5)].map((_, s) => (
+                      <svg key={s} viewBox="0 0 24 24" fill="#f59e0b" style={{ width: "16px", height: "16px", filter: "drop-shadow(0 0 5px rgba(245, 158, 11, 0.45))" }}>
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                      </svg>
+                    ))}
+                  </div>
                 </div>
-                <div>
-                  <div style={{ fontSize: "0.875rem", fontWeight: 700, color: "#fff" }}>{t.name}</div>
-                  <div style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.35)", marginTop: 1 }}>{t.role}</div>
+
+                {/* Elegant serif quote icon with gradient fill */}
+                <svg viewBox="0 0 24 24" style={{ width: "32px", height: "32px", marginBottom: "16px", display: "block" }}>
+                  <defs>
+                    <linearGradient id={`quote-grad-${i}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#f97316" />
+                      <stop offset="100%" stopColor="#fbbf24" />
+                    </linearGradient>
+                  </defs>
+                  <path 
+                    fill={`url(#quote-grad-${i})`}
+                    style={{ filter: "drop-shadow(0 2px 5px rgba(249, 115, 22, 0.25))" }}
+                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.987z" 
+                  />
+                </svg>
+
+                {/* Testimonial Quote Text */}
+                <p style={{
+                  fontSize: "0.92rem",
+                  color: "rgba(255, 255, 255, 0.82)",
+                  lineHeight: "1.75",
+                  fontWeight: 450,
+                  marginBottom: "28px",
+                  marginTop: 0,
+                  letterSpacing: "0.01em",
+                }}>
+                  {t.text}
+                </p>
+              </div>
+
+              {/* Author footer */}
+              <div style={{ display: "flex", alignItems: "center", gap: "14px", marginTop: "auto" }}>
+                {/* Avatar with gradient border & glow */}
+                <div style={{ position: "relative", flexShrink: 0 }}>
+                  {/* Subtle pulsing glow behind avatar */}
+                  <div style={{
+                    position: "absolute", inset: "-3px", borderRadius: "50%",
+                    backgroundImage: `linear-gradient(135deg, ${t.gradient.includes("orange-500") ? "#f97316" : t.gradient.includes("amber-500") ? "#f59e0b" : "#ea580c"}, ${t.gradient.includes("rose-600") ? "#e11d48" : t.gradient.includes("orange-600") ? "#ea580c" : "#b91c1c"})`,
+                    filter: "blur(6px)", opacity: 0.45,
+                  }} />
+                  {/* Avatar Circle */}
+                  <div style={{
+                    position: "relative",
+                    width: "42px", height: "42px", borderRadius: "50%",
+                    backgroundImage: `linear-gradient(135deg, ${t.gradient.includes("orange-500") ? "#f97316" : t.gradient.includes("amber-500") ? "#f59e0b" : "#ea580c"}, ${t.gradient.includes("rose-600") ? "#e11d48" : t.gradient.includes("orange-600") ? "#ea580c" : "#b91c1c"})`,
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    color: "#fff", fontSize: "0.85rem", fontWeight: 800,
+                    boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.2)",
+                  }}>
+                    {t.initials}
+                  </div>
+                </div>
+
+                {/* Author Name & Info */}
+                <div style={{ overflow: "hidden" }}>
+                  <div style={{ fontSize: "0.95rem", fontWeight: 700, color: "#fff", letterSpacing: "0.01em" }}>
+                    {t.name}
+                  </div>
+                  <div style={{
+                    fontSize: "0.72rem",
+                    color: "rgba(255, 255, 255, 0.4)",
+                    marginTop: "3px",
+                    fontWeight: 500,
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    letterSpacing: "0.02em"
+                  }}>
+                    {t.role}
+                  </div>
                 </div>
               </div>
             </div>
@@ -791,6 +903,7 @@ export default function BookMeeting() {
 
 
 
+        <Footer />
       </div>
     </>
   );

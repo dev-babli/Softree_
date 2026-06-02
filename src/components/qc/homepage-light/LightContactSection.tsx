@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
 import { useState, useRef, type FormEvent, type ReactNode } from "react"
@@ -321,17 +322,32 @@ export default function LightContactSection() {
 
                 <div>
                   <input name="_gotcha" type="text" className="sr-only" tabIndex={-1} autoComplete="off" aria-hidden="true" />
-                  <button
-                    type="submit"
-                    disabled={status === "submitting"}
-                    className="group mt-6 sm:mt-8 inline-flex h-11 sm:h-12 w-full sm:w-fit sm:px-8 gap-4 items-center justify-between rounded-full bg-[#ff5812] px-6 text-[13px] font-semibold uppercase tracking-[0.16em] text-white transition duration-300 hover:bg-white hover:text-[#09090d] disabled:cursor-not-allowed disabled:opacity-65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5812]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090d]"
-                  >
-                    <span>{status === "submitting" ? "Please wait..." : "Send message & book a call"}</span>
-                    <ArrowUpRight
-                      className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45"
-                      strokeWidth={2}
-                    />
-                  </button>
+                  <div className="flex flex-col sm:flex-row gap-4 mt-6 sm:mt-8 w-full sm:w-auto">
+                    {/* Button 1: Send Message */}
+                    <button
+                      type="submit"
+                      disabled={status === "submitting"}
+                      className="group inline-flex h-11 sm:h-12 w-full sm:w-fit sm:px-8 gap-3 items-center justify-center rounded-full bg-[#ff5812] px-6 text-[13px] font-semibold uppercase tracking-[0.16em] text-white transition duration-300 hover:bg-white hover:text-[#09090d] disabled:cursor-not-allowed disabled:opacity-65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5812]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090d]"
+                    >
+                      <span>{status === "submitting" ? "Sending..." : "Send Message"}</span>
+                      <ArrowUpRight
+                        className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45"
+                        strokeWidth={2}
+                      />
+                    </button>
+
+                    {/* Button 2: Book a Call */}
+                    <Link
+                      href="/book-meeting"
+                      className="group inline-flex h-11 sm:h-12 w-full sm:w-fit sm:px-8 gap-3 items-center justify-center rounded-full border border-white/20 hover:border-[#ff5812] px-6 text-[13px] font-semibold uppercase tracking-[0.16em] text-white transition duration-300 hover:bg-[#ff5812] disabled:cursor-not-allowed focus-visible:outline-none"
+                    >
+                      <span>Book a Call</span>
+                      <ArrowUpRight
+                        className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45"
+                        strokeWidth={2}
+                      />
+                    </Link>
+                  </div>
 
                   <p className="mt-3 text-[11px] text-white/35 leading-5">
                     By submitting, you agree to our{" "}

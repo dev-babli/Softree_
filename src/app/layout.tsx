@@ -60,7 +60,7 @@ export default async function RootLayout({
               j.async=true;j.src=
               'https://www.googletagmanager.com/gtm.js?id='+i+dl;
               f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-TQ7JWSNQ');
+              })(window,document,'script','dataLayer','GTM-KDMTPWS8');
             `,
           }}
         />
@@ -122,7 +122,7 @@ export default async function RootLayout({
         {/* ✅ GTM NoScript */}
         <noscript>
           <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-TQ7JWSNQ"
+            src="https://www.googletagmanager.com/ns.html?id=GTM-KDMTPWS8"
             height="0"
             width="0"
             style={{ display: "none", visibility: "hidden" }}

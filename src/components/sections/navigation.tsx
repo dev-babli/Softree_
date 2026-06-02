@@ -418,7 +418,7 @@ export default function Navigation({
                                 <img
                                   alt={cfg.label}
                                   className="h-full w-full object-cover object-center opacity-95 transition-all duration-500 group-hover/image:scale-105"
-                                  src={group.image || dropdownImages[idx]}
+                                  src={(group as any).image || dropdownImages[idx]}
                                   onError={(e) => {
                                     // Fallback: hide image and show gradient background
                                     (
@@ -478,10 +478,10 @@ export default function Navigation({
                         <p className="text-[13px] text-gray-500">
                           Need guidance?{" "}
                           <Link
-                            href="/contact"
+                            href="/book-meeting"
                             className="text-gray-900 font-semibold hover:text-orange-600 transition-colors"
                           >
-                            Talk to a specialist →
+                            Book a discovery call →
                           </Link>
                         </p>
                         <div className="flex items-center gap-6">
@@ -518,8 +518,37 @@ export default function Navigation({
         {/* ── CTA ── */}
         <div className="hidden lg:flex items-center gap-3">
           <Link
+            href="/book-meeting"
+            className="group inline-flex items-center gap-1.5 transition-all duration-300 ease-out active:scale-95 hover:shadow-lg"
+            style={{
+              background: "linear-gradient(135deg, #FF7A2F 0%, #E85A1F 100%)",
+              borderRadius: "10px",
+              boxShadow: "0 4px 14px 0 rgba(255, 122, 47, 0.35)",
+              padding: "12px 28px",
+              fontSize: "14px",
+              fontWeight: 600,
+              color: "#fff",
+            }}
+          >
+            Book a Call
+            <svg
+              viewBox="0 0 16 16"
+              fill="none"
+              className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              style={{ width: 14, height: 14 }}
+            >
+              <path
+                d="M4 12L12 4M12 4H7M12 4v5"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </Link>
+          <Link
             href="/contact"
-            className="inline-flex items-center transition-all duration-300 ease-out active:scale-95 hover:shadow-lg"
+            className="group inline-flex items-center gap-1.5 transition-all duration-300 ease-out active:scale-95 hover:shadow-lg"
             style={{
               background: "linear-gradient(135deg, #FF7A2F 0%, #E85A1F 100%)",
               borderRadius: "10px",
@@ -531,6 +560,20 @@ export default function Navigation({
             }}
           >
             Get Started
+            <svg
+              viewBox="0 0 16 16"
+              fill="none"
+              className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              style={{ width: 14, height: 14 }}
+            >
+              <path
+                d="M4 12L12 4M12 4H7M12 4v5"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </Link>
         </div>
 
@@ -619,24 +662,47 @@ export default function Navigation({
                 ))}
 
                 <Link
+                  href="/book-meeting"
+                  onClick={() => setMobileOpen(false)}
+                  className="group mt-6 flex items-center justify-center gap-1.5 px-6 py-3.5 border border-gray-200 text-gray-800 rounded-xl font-semibold hover:bg-gray-50 transition"
+                >
+                  Book a Call
+                  <svg
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    style={{ width: 14, height: 14 }}
+                  >
+                    <path
+                      d="M4 12L12 4M12 4H7M12 4v5"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Link>
+
+                <Link
                   href="/contact"
                   onClick={() => setMobileOpen(false)}
                   style={{
                     backgroundColor: "#FF7759",
                     boxShadow: "0 6px 20px -4px rgba(255,119,89,0.5)",
                   }}
-                  className="mt-6 flex items-center justify-center gap-2 px-6 py-3.5 text-white rounded-xl font-semibold"
+                  className="group mt-2 flex items-center justify-center gap-1.5 px-6 py-3.5 text-white rounded-xl font-semibold"
                 >
                   Get Started
                   <svg
                     viewBox="0 0 16 16"
                     fill="none"
-                    style={{ width: 16, height: 16 }}
+                    className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    style={{ width: 14, height: 14 }}
                   >
                     <path
                       d="M4 12L12 4M12 4H7M12 4v5"
-                      stroke="rgba(255,255,255,0.8)"
-                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     />

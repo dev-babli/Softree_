@@ -390,6 +390,42 @@ export function TransferredSoftreeHero() {
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </Link>
+
+              {/* SECONDARY — hyper-glass dark-charcoal orange-bordered pill */}
+              <Link
+                href="/book-meeting"
+                className="hero-glass-secondary inline-flex items-center gap-2 transition-all duration-300 ease-out active:scale-95"
+                style={{
+                  background: "linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(15, 10, 8, 0.95) 100%)",
+                  backdropFilter: "blur(28px) saturate(180%)",
+                  WebkitBackdropFilter: "blur(28px) saturate(180%)",
+                  border: "1px solid rgba(255, 122, 47, 0.4)",
+                  borderTopColor: "rgba(255, 190, 150, 0.65)",
+                  position: "relative",
+                  overflow: "hidden",
+                  borderRadius: "9999px",
+                  height: "56px",
+                  padding: "0 32px",
+                  fontSize: "16px",
+                  fontWeight: 600,
+                  color: "#ffffff",
+                  boxShadow: "0 10px 30px 0 rgba(0,0,0,0.5), inset 0 1px 1px 0 rgba(255,255,255,0.1)",
+                }}
+              >
+                Schedule a Call
+                <svg
+                  className="ml-1 h-5 w-5 text-white/80"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 6v6l4 2" />
+                </svg>
+              </Link>
             </div>
           </div>
         </div>
