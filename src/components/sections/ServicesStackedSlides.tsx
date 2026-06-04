@@ -3,6 +3,9 @@
 import { useRef, useState, useEffect, type SyntheticEvent } from "react"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+import { motion, useInView } from "framer-motion"
+import SectionHeader from "@/components/homepage-light/SectionHeader"
+import { DUR, EASE_T } from "@/lib/motion"
 import "./ServicesStackedSlides.css"
 
 // Viewport-gated: returns true once the section is within 2x viewport. One-shot.
@@ -105,7 +108,9 @@ const STACKED_SERVICE_VIDEOS: Partial<Record<ServiceSlide["key"], string>> = {
 }
 
 export function ServicesStackedSlides({ className = "" }: { className?: string }) {
-  const rootRef = useRef<HTMLDivElement>(null)
+  const rootRef = useRef<HTMLElement>(null)
+  const introRef = useRef<HTMLDivElement>(null)
+  const introInView = useInView(introRef, { once: true, margin: "-15%" })
   // MEDIA OPTIMIZATION: mount heavy visualizations only when section is near viewport
   const mediaActive = useNearViewport(rootRef)
   const handleFirstVideoTimeUpdate = (event: SyntheticEvent<HTMLVideoElement>) => {
@@ -124,18 +129,32 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
    * on top of earlier one — no fade needed, no bleed-through possible. */
 
   return (
-    <div ref={rootRef} className={`ssx-root ${className}`}>
-      <header className="ssx-intro" aria-label="Delivery lifecycle">
-        <div className="ssx-intro-copy">
-          <div className="ssx-kicker-row">
-            <span className="ssx-kicker-line" />
-            <span className="ssx-kicker">Delivery Lifecycle</span>
-          </div>
-          <h2>From Strategy to Production — We Own Every Layer.</h2>
-          <p className="ssx-subheadline mt-4 text-white/60 max-w-2xl">
-            A structured offshore delivery model designed for speed, scalability, and long-term business impact.
-          </p>
-        </div>
+    <section
+      ref={rootRef}
+      data-section="services-stacked-slides"
+      data-theme-section="light"
+      className={`ssx-root ${className}`}
+      aria-labelledby="services-stacked-heading"
+    >
+      <header className="ssx-intro">
+        <motion.div
+          ref={introRef}
+          className="ssx-intro-main"
+          initial={{ opacity: 0, y: 12 }}
+          animate={introInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: DUR.panel, ease: EASE_T.silk }}
+        >
+          <SectionHeader
+            badge="Delivery lifecycle"
+            accent="#FF5812"
+            headline={
+              <span id="services-stacked-heading">
+                From Strategy to Production — We Own Every Layer.
+              </span>
+            }
+            body="A structured offshore delivery model designed for speed, scalability, and long-term business impact."
+          />
+        </motion.div>
         <Link href="/contact" className="ssx-intro-action">
           <span>Start a Project</span>
           <ArrowRight className="ssx-action-icon" aria-hidden />
@@ -200,7 +219,7 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
           </section>
         ))}
       </div>
-    </div>
+    </section>
   )
 }
 

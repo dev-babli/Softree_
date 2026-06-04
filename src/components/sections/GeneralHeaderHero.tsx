@@ -10,21 +10,9 @@ import Grainient from "@/components/homepage-light/Grainient"
 import "swiper/css"
 import "swiper/css/pagination"
 import "./GeneralHeaderHero.css"
+import type { CaseStudyHeroSlide } from "@/app/case-studies/types"
 
 type Stat = { score: string; label: string }
-
-type HeroSlide = {
-  company: string
-  eyebrow: string
-  title: string
-  description: string
-  ctaText: string
-  ctaHref: string
-  image: string
-  imageAlt: string
-  imageFit?: "cover" | "contain"
-  stats: Stat[]
-}
 
 type CustomerLogo = {
   src: string
@@ -37,85 +25,10 @@ type GeneralHeaderHeroProps = {
   title: string
   description: string
   eyebrow?: string
-  slides?: HeroSlide[]
+  slides?: CaseStudyHeroSlide[]
   customerLogos?: CustomerLogo[]
   trustLabel?: string
 }
-
-const DEFAULT_SLIDES: HeroSlide[] = [
-  {
-    company: "JetBrains",
-    eyebrow: "Customer Story — Developer Tools",
-    title: "From 100+ support forms to one AI agent.",
-    description:
-      "JetBrains replaced a fragmented support stack with a single Rasa-powered AI agent — and held a 75–80% CSAT score across millions of users.",
-    ctaText: "Read case study",
-    ctaHref: "/case-studies/jetbrains",
-    image:
-      "https://cdn.prod.website-files.com/68e69c204ba0666edacc94b1/6a028f0d8623f5b80fadbefc_jetbrains-cs-share-image.png",
-    imageAlt: "JetBrains customer story visual",
-    imageFit: "cover",
-    stats: [
-      { score: "80%", label: "Peak CSAT" },
-      { score: "100+", label: "Forms Replaced" },
-      { score: "1", label: "Unified Agent" },
-    ],
-  },
-  {
-    company: "Albert Heijn",
-    eyebrow: "Customer Story — Retail",
-    title: "Cut customer service contacts in half.",
-    description:
-      "Albert Heijn used a Rasa agent to automate routine grocery service journeys — reducing service contacts by 50% while keeping customer experience consistent at national scale.",
-    ctaText: "View case study",
-    ctaHref: "/case-studies/albert-heijn",
-    image:
-      "https://cdn.prod.website-files.com/68e69c204ba0666edacc94b1/69838670265fbb8fee358af8_Logo_Rectangle_AlbertHeijn.png",
-    imageAlt: "Albert Heijn customer story visual",
-    imageFit: "cover",
-    stats: [
-      { score: "50%", label: "Contacts Deflected" },
-      { score: "24/7", label: "Coverage" },
-      { score: "NL", label: "Nationwide" },
-    ],
-  },
-  {
-    company: "Deutsche Telekom",
-    eyebrow: "Customer Story — Telecom",
-    title: "30% lighter agent workload with CALM.",
-    description:
-      "Deutsche Telekom deployed Rasa CALM to automate complex service flows, dropping agent workload by 30% and lifting chat solution rate to 40% across regions.",
-    ctaText: "Explore the outcome",
-    ctaHref: "/case-studies/deutsche-telekom-ee",
-    image:
-      "https://cdn.prod.website-files.com/68e69c204ba0666edacc94b1/690276aa0b8f31119422cb58_febc118ba0b693b48264fa2cccdd78d7_dt.svg",
-    imageAlt: "Deutsche Telekom customer story visual",
-    imageFit: "contain",
-    stats: [
-      { score: "30%", label: "Workload Drop" },
-      { score: "40%", label: "Chat Solve Rate" },
-      { score: "EU", label: "Multi-region" },
-    ],
-  },
-  {
-    company: "Providence Health",
-    eyebrow: "Customer Story — Healthcare",
-    title: "59% goal completion across patient journeys.",
-    description:
-      "Providence Health used Rasa CALM to deliver continuous, compliant patient conversations — driving a 59% goal completion rate per conversation.",
-    ctaText: "Read case study",
-    ctaHref: "/case-studies/providence-health",
-    image:
-      "https://cdn.prod.website-files.com/68e69c204ba0666edacc94b1/690361746b99a3c162af206f_cs%20logo.svg",
-    imageAlt: "Providence customer story visual",
-    imageFit: "contain",
-    stats: [
-      { score: "59%", label: "Goal Completion" },
-      { score: "HIPAA", label: "Compliant" },
-      { score: "Multi", label: "Care Lines" },
-    ],
-  },
-]
 
 const DEFAULT_LOGOS: CustomerLogo[] = [
   {
@@ -168,12 +81,12 @@ export default function GeneralHeaderHero({
   title,
   description,
   eyebrow = "Customer Stories",
-  slides = DEFAULT_SLIDES,
+  slides = [],
   customerLogos = DEFAULT_LOGOS,
   trustLabel = "Top enterprises trust Softree",
 }: GeneralHeaderHeroProps) {
   const swiperRef = useRef<SwiperType | null>(null)
-  const safeSlides = slides.length > 0 ? slides : DEFAULT_SLIDES
+  const hasSlides = slides.length > 0
 
   return (
     <section className="gh-hero" aria-label="Customer stories hero">
@@ -211,21 +124,22 @@ export default function GeneralHeaderHero({
           <p className="gh-hero-desc">{description}</p>
         </header>
 
-        <div className="gh-slider-wrap">
-          <Swiper
-            modules={[Pagination, Autoplay, A11y, Keyboard]}
-            onSwiper={(swiper) => {
-              swiperRef.current = swiper
-            }}
-            slidesPerView={1}
-            loop
-            speed={750}
-            autoplay={{ delay: 6000, disableOnInteraction: false, pauseOnMouseEnter: true }}
-            keyboard={{ enabled: true }}
-            pagination={{ clickable: true, el: ".gh-pagination" }}
-            a11y={{ enabled: true }}
-          >
-            {safeSlides.map((slide, index) => {
+        {hasSlides ? (
+          <div className="gh-slider-wrap">
+            <Swiper
+              modules={[Pagination, Autoplay, A11y, Keyboard]}
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper
+              }}
+              slidesPerView={1}
+              loop={slides.length > 1}
+              speed={750}
+              autoplay={{ delay: 6000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+              keyboard={{ enabled: true }}
+              pagination={{ clickable: true, el: ".gh-pagination" }}
+              a11y={{ enabled: true }}
+            >
+              {slides.map((slide, index) => {
               const fit: "cover" | "contain" =
                 slide.imageFit ?? (slide.image.endsWith(".svg") ? "contain" : "cover")
               return (
@@ -317,7 +231,8 @@ export default function GeneralHeaderHero({
               </button>
             </div>
           </div>
-        </div>
+          </div>
+        ) : null}
 
         <div className="gh-trust">
           <span className="gh-trust-label">{trustLabel}</span>

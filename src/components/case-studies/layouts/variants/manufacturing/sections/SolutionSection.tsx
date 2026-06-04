@@ -1,24 +1,28 @@
 "use client"
 
 import Image from "next/image"
+import { stockPackForSlug } from "@/lib/case-study-stock-images"
 import type { CaseStudyLayoutData } from "../../../types"
 import { PageContainer, Reveal, SectionLabel, SectionTitle } from "../shared"
 import { csLightClasses } from "../../../design-system/caseStudyLightTokens"
 
 export function SolutionSection({ data }: { data: CaseStudyLayoutData }) {
   const dashboardSrc =
-    data.sectionImages?.solutionDashboard || "/Gallery/Prestige Bangalore-3.webp"
+    data.sectionImages?.solutionDashboard || stockPackForSlug(data.slug).solution
 
   return (
     <section id="solution" className="scroll-mt-24 bg-white py-16 md:py-24">
       <PageContainer>
         <Reveal className="max-w-3xl">
           <SectionLabel>Solution overview</SectionLabel>
-          <SectionTitle>{data.solutionHeading}</SectionTitle>
-          <p className="mt-5 text-[1.0625rem] leading-[1.65] text-[var(--cs-text-secondary,#334155)]">
-            A governed Microsoft Power Platform stack connects plant teams, automated workflows, and
-            executive analytics — without replacing existing ERP and MES investments.
-          </p>
+          <SectionTitle>
+            {data.solutionTitle || data.solutionHeading}
+          </SectionTitle>
+          {(data.solutionSummary || data.approachSummary) ? (
+            <p className="mt-5 text-[1.0625rem] leading-[1.65] text-[var(--cs-text-secondary,#334155)]">
+              {data.solutionSummary || data.approachSummary}
+            </p>
+          ) : null}
         </Reveal>
 
         <div className="mt-14 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">

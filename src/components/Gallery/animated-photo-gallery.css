@@ -1,0 +1,49 @@
+@keyframes softree-gallery-marquee-left {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes softree-gallery-marquee-right {
+  from {
+    transform: translate3d(-50%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.softree-gallery-track {
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+  will-change: transform;
+}
+
+@media (min-width: 768px) {
+  .softree-gallery-track {
+    gap: 1.25rem;
+  }
+}
+
+.softree-gallery-track--left {
+  animation: softree-gallery-marquee-left 52s linear infinite;
+}
+
+.softree-gallery-track--right {
+  animation: softree-gallery-marquee-right 64s linear infinite;
+}
+
+.softree-gallery-rail:hover .softree-gallery-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .softree-gallery-track--left,
+  .softree-gallery-track--right {
+    animation: none !important;
+  }
+}

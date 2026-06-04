@@ -1,6 +1,10 @@
 import type { Template } from 'sanity'
 
-import { CASE_STUDY_LAYOUTS } from '@/lib/case-study-layouts'
+const STORY_TYPES = [
+  { value: 'standard', title: 'Standard Story' },
+  { value: 'transformation', title: 'Transformation Epic' },
+  { value: 'product-showcase', title: 'Product Showcase' },
+]
 
 const block = (style: string, text: string) => ({
   _type: 'block' as const,
@@ -74,10 +78,12 @@ const caseStudySections = {
   ],
 }
 
-const caseStudyBase = (category: string, technologies: string[] = []) => ({
+const caseStudyBase = (industry: string, technologies: string[] = []) => ({
   status: 'published' as const,
-  featured: false,
-  category,
+  featuredRank: 0,
+  storyType: 'standard' as const,
+  heroLayout: 'centered' as const,
+  industry,
   technologies,
   challengeContent: caseStudySections.challenge,
   approachContent: caseStudySections.approach,
@@ -116,9 +122,9 @@ const marketingLandingSections = [
   },
 ]
 
-const premiumLayoutTemplate = (layout: string, category = 'web') => ({
-  ...caseStudyBase(category),
-  detailLayout: layout,
+const storyTypeTemplate = (storyType: string, industry = 'Technology') => ({
+  ...caseStudyBase(industry),
+  storyType,
   status: 'draft' as const,
 })
 
@@ -198,20 +204,11 @@ export const documentTemplates: Template[] = [
       sections: marketingLandingSections,
     },
   },
-  ...CASE_STUDY_LAYOUTS.map((layout) => ({
-    id: `caseStudy-layout-${layout.value}`,
-    title: `Case study — ${layout.title}`,
+  ...STORY_TYPES.map((type) => ({
+    id: `caseStudy-${type.value}`,
+    title: `Case study — ${type.title}`,
     schemaType: 'caseStudy' as const,
-    value: premiumLayoutTemplate(layout.value),
+    value: storyTypeTemplate(type.value),
   })),
 ]
 
-/** Map category value → preferred case study template id for structure shortcuts. */
-export const caseStudyTemplateByCategory: Record<string, string> = {
-  ai: 'caseStudy-ai',
-  'power-platform': 'caseStudy-power-platform',
-  sharepoint: 'caseStudy-sharepoint',
-  web: 'caseStudy-web',
-  mobile: 'caseStudy-mobile',
-  'data-analytics': 'caseStudy-data-analytics',
-}

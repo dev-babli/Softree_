@@ -6,25 +6,26 @@ export const resolve: PresentationPluginOptions['resolve'] = {
   locations: {
     post: defineLocations({
       select: { title: 'title', slug: 'slug.current' },
-      resolve: (doc) => ({
-        locations: [
-          { title: doc?.title || 'Blog post', href: doc?.slug ? `/blog/${doc.slug}` : '/blog' },
-          { title: 'Blog index', href: '/blog' },
-        ],
-      }),
+        locations: doc?.slug
+          ? [
+              { title: doc?.title || 'Blog post', href: `/blog/${doc.slug}` },
+              { title: 'Blog index', href: '/blog' },
+            ]
+          : [{ title: 'Blog index', href: '/blog' }],
     }),
 
-    caseStudy: defineLocations({
       select: { title: 'title', slug: 'slug.current', category: 'category' },
       resolve: (doc) => {
         const slugPath = doc?.slug ? `/case-studies/${doc.slug}` : '/case-studies'
-        const locations = [
-          {
-            title: doc?.title || 'Case study',
-            href: slugPath,
-          },
-          { title: 'Case studies index', href: '/case-studies' },
-        ]
+        const locations = doc?.slug
+          ? [
+              { title: doc?.title || 'Case study', href: slugPath },
+              { title: 'Case studies index', href: '/case-studies' },
+            ]
+          : [
+              { title: doc?.title || 'Case study (draft)', href: '/case-studies/preview' },
+              { title: 'Case studies index', href: '/case-studies' },
+            ]
         if (doc?.category) {
           locations.push({
             title: `${doc.category} category`,

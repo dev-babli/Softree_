@@ -491,7 +491,7 @@ function MobSoftreeWork() {
         <LinkItem href="/case-studies/web" label="Web Platforms" />
         <LinkItem href="/case-studies/mobile" label="Mobile Products" />
         <LinkItem href="/case-studies/ai" label="AI Systems" />
-        <LinkItem href="/case-studies/power-apps" label="Power Apps" />
+        <LinkItem href="/case-studies/power-platform" label="Power Platform" />
         <LinkItem href="/case-studies/sharepoint" label="SharePoint" />
       </MobileLinkGroup>
       <div className="flex w-full flex-col justify-end gap-y-4 border-t border-[#e0e0e0] pb-2 pl-2 pt-5">

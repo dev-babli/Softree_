@@ -79,7 +79,7 @@ export default function LatestBlogsSection({ posts }: Props) {
   }
 
   return (
-    <section ref={sectionRef} className="sm:py-27 bg-[#0a0a0a] text-white">
+    <section ref={sectionRef} className="py-20 sm:py-28 bg-[#0a0a0a] text-white">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="blog-header mb-12 max-w-3xl">

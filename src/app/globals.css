@@ -18,21 +18,21 @@
    * BRAND COLOR TOKENS
    * Use --softree-* tokens instead of hardcoded hex strings.
    * ───────────────────────────────────────────────────────────── */
-  --softree-bg-light: #fafaf9;       /* Hero light surface */
-  --softree-bg-dark: #0a0a0a;        /* Primary dark surface (sections) */
-  --softree-bg-darker: #050505;      /* Footer / deepest contrast */
-  --softree-surface-1: #141414;      /* Card / panel surface */
-  --softree-surface-2: #1e1e1e;      /* Elevated surface */
+  --softree-bg-light: #fafaf9; /* Hero light surface */
+  --softree-bg-dark: #0a0a0a; /* Primary dark surface (sections) */
+  --softree-bg-darker: #050505; /* Footer / deepest contrast */
+  --softree-surface-1: #141414; /* Card / panel surface */
+  --softree-surface-2: #1e1e1e; /* Elevated surface */
   --softree-fg-on-dark: #ffffff;
   --softree-fg-on-light: #0a0a0a;
   --softree-fg-muted-dark: rgba(255, 255, 255, 0.55);
   --softree-fg-muted-light: rgba(10, 10, 10, 0.6);
-  --softree-border-dark: rgba(255, 255, 255, 0.10);
-  --softree-border-light: rgba(10, 10, 10, 0.10);
+  --softree-border-dark: rgba(255, 255, 255, 0.1);
+  --softree-border-light: rgba(10, 10, 10, 0.1);
 
   /* Brand orange — single source of truth */
-  --softree-accent: #FF7A2F;
-  --softree-accent-hover: #E85A1F;
+  --softree-accent: #ff7a2f;
+  --softree-accent-hover: #e85a1f;
   --softree-accent-soft: rgba(255, 122, 47, 0.12);
 
   /* Existing aliases (kept for shadcn compatibility) */
@@ -247,13 +247,31 @@
   --legacy-fffbf7: #fffbf7;
   --legacy-ffffff14: #ffffff14;
   --legacy-ffffffcc: #ffffffcc;
-  --legacy-ease-_22_1_36_1: cubic-bezier(.22,1,.36,1);
-  --legacy-ease-0_0_0_2_1: cubic-bezier(0,0,0.2,1);
-  --legacy-ease-0_16_1_0_3_1: cubic-bezier(0.16,1,0.3,1);
-  --legacy-ease-0_23_1_0_32_1: cubic-bezier(0.23,1,0.32,1);
-  --legacy-ease-0_32_0_72_0_1: cubic-bezier(0.32,0.72,0,1);
-  --legacy-ease-0_4_0_0_2_1: cubic-bezier(0.4,0,0.2,1);
-  --legacy-ease-0_65_0_0_35_1: cubic-bezier(0.65,0,0.35,1);
-  --legacy-ease-0_7_0_0_84_0: cubic-bezier(0.7,0,0.84,0);
+  --legacy-ease-_22_1_36_1: cubic-bezier(0.22, 1, 0.36, 1);
+  --legacy-ease-0_0_0_2_1: cubic-bezier(0, 0, 0.2, 1);
+  --legacy-ease-0_16_1_0_3_1: cubic-bezier(0.16, 1, 0.3, 1);
+  --legacy-ease-0_23_1_0_32_1: cubic-bezier(0.23, 1, 0.32, 1);
+  --legacy-ease-0_32_0_72_0_1: cubic-bezier(0.32, 0.72, 0, 1);
+  --legacy-ease-0_4_0_0_2_1: cubic-bezier(0.4, 0, 0.2, 1);
+  --legacy-ease-0_65_0_0_35_1: cubic-bezier(0.65, 0, 0.35, 1);
+  --legacy-ease-0_7_0_0_84_0: cubic-bezier(0.7, 0, 0.84, 0);
 }
 /* ===== end legacy design tokens ===== */
+
+/* Why Us — project showcase marquee */
+.why-us-project-marquee {
+  animation: why-us-marquee 42s linear infinite;
+}
+@keyframes why-us-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .why-us-project-marquee {
+    animation: none;
+  }
+}

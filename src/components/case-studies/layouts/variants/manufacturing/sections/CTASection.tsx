@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { motion } from "framer-motion"
+import { stockHeroUrl } from "@/lib/case-study-stock-images"
 import type { CaseStudyLayoutData } from "../../../types"
 import { PageContainer, Reveal } from "../shared"
 
@@ -59,8 +60,8 @@ export function CTASection({ data }: { data: CaseStudyLayoutData }) {
                 className="relative min-h-[240px] md:min-h-full"
               >
                 <Image
-                  src="/Gallery/Prestige Bangalore-6.webp"
-                  alt="Manufacturing team reviewing digital operations dashboard"
+                  src={data.sectionImages?.hero || data.heroImageUrl || stockHeroUrl(data.slug)}
+                  alt={data.client ? `${data.client} engagement` : "Case study"}
                   fill
                   className="object-cover"
                   sizes="(min-width: 768px) 50vw, 100vw"

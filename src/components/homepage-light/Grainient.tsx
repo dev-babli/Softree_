@@ -1,7 +1,12 @@
 "use client"
 
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { Renderer, Program, Mesh, Triangle } from "ogl"
+import {
+  acquireGrainientWebGL,
+  probeWebGLAvailable,
+  releaseGrainientWebGL,
+} from "@/lib/grainient-webgl-slot"
 
 interface GrainientProps {
   timeSpeed?: number
@@ -150,21 +155,31 @@ const Grainient: React.FC<GrainientProps> = ({
   className = "",
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null)
+  const [useCssFallback, setUseCssFallback] = useState(false)
+
+  const fallbackStyle: React.CSSProperties = {
+    background: `linear-gradient(${blendAngle}deg, ${color1} 0%, ${color2} 48%, ${color3} 100%)`,
+  }
 
   useEffect(() => {
-    if (!containerRef.current) return
+    if (!containerRef.current || useCssFallback) return
 
-    const container = containerRef.current
-    const contextProbe = document.createElement("canvas")
-    const supportsWebGL2 = !!contextProbe.getContext("webgl2")
-    const supportsWebGL1 =
-      !!contextProbe.getContext("webgl") ||
-      !!contextProbe.getContext("experimental-webgl")
-
-    if (!supportsWebGL2 && !supportsWebGL1) {
-      // No GPU context available on this device/browser; keep a static background.
+    if (!probeWebGLAvailable() || !acquireGrainientWebGL()) {
+      setUseCssFallback(true)
       return
     }
+
+    const container = containerRef.current
+    let released = false
+    const releaseSlot = () => {
+      if (!released) {
+        released = true
+        releaseGrainientWebGL()
+      }
+    }
+
+    const contextProbe = document.createElement("canvas")
+    const supportsWebGL2 = !!contextProbe.getContext("webgl2")
 
     let renderer: Renderer
     try {
@@ -175,12 +190,17 @@ const Grainient: React.FC<GrainientProps> = ({
         dpr: Math.min(window.devicePixelRatio || 1, 2),
       })
     } catch {
-      // Graceful fallback: skip effect when WebGL can't be created.
+      releaseSlot()
+      setUseCssFallback(true)
       return
     }
 
     const gl = renderer.gl
-    if (!gl) return
+    if (!gl) {
+      releaseSlot()
+      setUseCssFallback(true)
+      return
+    }
 
     const canvas = gl.canvas as HTMLCanvasElement
     canvas.style.width = "100%"
@@ -247,6 +267,7 @@ const Grainient: React.FC<GrainientProps> = ({
     raf = requestAnimationFrame(loop)
 
     return () => {
+      releaseSlot()
       cancelAnimationFrame(raf)
       ro.disconnect()
       gl.getExtension("WEBGL_lose_context")?.loseContext()
@@ -279,12 +300,15 @@ const Grainient: React.FC<GrainientProps> = ({
     color1,
     color2,
     color3,
+    useCssFallback,
   ])
 
   return (
     <div
       ref={containerRef}
       className={`relative h-full w-full overflow-hidden ${className}`.trim()}
+      style={useCssFallback ? fallbackStyle : undefined}
+      aria-hidden={useCssFallback ? true : undefined}
     />
   )
 }

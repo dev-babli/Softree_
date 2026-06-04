@@ -6,7 +6,13 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import type { UserViewComponent } from "sanity/structure"
 
 import { hydrateCaseStudyForPreview } from "@/sanity/lib/hydrateCaseStudyPreview"
-import { CLASSIC_LAYOUT_VALUE, getSiteOrigin, LAYOUT_PREVIEW_OPTIONS } from "@/sanity/lib/layoutPreview"
+import { getSiteOrigin } from "@/sanity/lib/layoutPreview"
+
+const STORY_TYPE_OPTIONS = [
+  { value: "standard", title: "Standard Story" },
+  { value: "transformation", title: "Transformation Epic" },
+  { value: "product-showcase", title: "Product Showcase" },
+]
 
 const DEBOUNCE_MS = 400
 
@@ -21,9 +27,9 @@ export const CaseStudyLivePreviewPane: UserViewComponent = (props) => {
   const previewSrc = `${previewOrigin}/case-studies/preview`
 
   const displayed = props.document?.displayed as Record<string, unknown> | undefined
-  const layout = (displayed?.detailLayout as string | undefined) || CLASSIC_LAYOUT_VALUE
+  const layout = (displayed?.storyType as string | undefined) || "standard"
   const layoutTitle =
-    LAYOUT_PREVIEW_OPTIONS.find((option) => option.value === layout)?.title || layout
+    STORY_TYPE_OPTIONS.find((option) => option.value === layout)?.title || layout
 
   const payload = useMemo(() => {
     if (!displayed) return null
@@ -44,8 +50,11 @@ export const CaseStudyLivePreviewPane: UserViewComponent = (props) => {
   }, [frameReady, payload, layout, previewOrigin])
 
   useEffect(() => {
+    const allowedOrigins = [new URL(previewOrigin).origin, window.location.origin].filter(
+      (o, i, arr) => arr.indexOf(o) === i
+    )
     const onMessage = (event: MessageEvent) => {
-      if (event.origin !== new URL(previewOrigin).origin) return
+      if (!allowedOrigins.includes(event.origin)) return
       if (event.data?.type === "CASE_STUDY_PREVIEW_READY") {
         setFrameReady(true)
       }

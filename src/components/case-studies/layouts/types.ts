@@ -73,6 +73,8 @@ export type CaseStudyLayoutData = {
   layout: CaseStudyDetailLayout
   title: string
   headerTitle: string
+  heroEyebrow?: string
+  clientLogoUrl?: string
   excerpt: string
   client: string
   category?: string
@@ -109,6 +111,8 @@ export type CaseStudyLayoutData = {
   deliverablesHeading: string
   deliverables: CardItem[]
   gallery: GalleryItem[]
+  galleryHeading?: string
+  gallerySubheading?: string
   impactHeading: string
   impactMetrics: Highlight[]
   technologies: string[]

@@ -73,7 +73,12 @@ export const postType = defineType({
       name: 'mainImage',
       type: 'image',
       group: 'content',
-      options: {hotspot: true},
+      options: {
+        hotspot: true,
+        aiAssist: {
+          imageInstructionField: 'featuredImagePrompt',
+        },
+      },
       fields: [
         defineField({
           name: 'alt',
@@ -82,6 +87,15 @@ export const postType = defineType({
           validation: (Rule) => Rule.required(),
         }),
       ],
+    }),
+    defineField({
+      name: 'featuredImagePrompt',
+      title: 'Featured Image AI Prompt',
+      type: 'text',
+      rows: 3,
+      group: 'content',
+      description: 'Describe the featured image you want AI to generate. Leave empty to use the title and excerpt as context.',
+      hidden: ({document}) => !!document?.mainImage?.asset,
     }),
     defineField({
       name: 'categories',

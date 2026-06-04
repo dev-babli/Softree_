@@ -5,6 +5,7 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
 import { useState, useRef, type FormEvent, type ReactNode } from "react"
+import { SOFTREE_OFFICES_CONTACT } from "@/data/softree-offices"
 
 type Status = "idle" | "submitting" | "success" | "error"
 
@@ -270,13 +271,25 @@ export default function LightContactSection() {
                 </div>
                 <div>
                   <p className="text-[18px] font-medium tracking-[-0.02em]">
-                    Office
+                    Offices
                   </p>
-                  <p className="mt-2 text-[14px] leading-6 text-white/58">
-                    PLOT 5C/1283, SECTOR-10, CDA
-                    <br />
-                    Cuttack, Odisha 753014, India
-                  </p>
+                  <div className="mt-3 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                    {SOFTREE_OFFICES_CONTACT.map((office) => (
+                      <address
+                        key={office.city}
+                        className="not-italic text-[13px] leading-[1.55] text-white/58"
+                      >
+                        <span className="mb-1.5 block text-[14px] font-medium text-white/80">
+                          {office.city}
+                        </span>
+                        {office.lines.map((line) => (
+                          <span key={line} className="block">
+                            {line}
+                          </span>
+                        ))}
+                      </address>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>

@@ -1,0 +1,282 @@
+/* About V1 — reference: image left | copy right | 2×2 stat grid */
+
+.stuxen-about-v1 {
+  --ink: #0a0a0a;
+  --muted: #737373;
+  --purple: #5b42f3;
+  --border: rgba(10, 10, 10, 0.08);
+  --surface: #f5f5f5;
+  --radius: 20px;
+  --pad: 26px;
+  --gap: 12px;
+  --counter-size: 40px;
+  --counter-line: 48px;
+  background: var(--surface);
+  padding-bottom: 80px;
+}
+
+.stuxen-about-v1 .container {
+  max-width: 940px;
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+/* Main: image | content */
+.stuxen-about-v1 .about-v1-grid {
+  display: grid;
+  gap: 40px;
+}
+
+@media (min-width: 992px) {
+  .stuxen-about-v1 .about-v1-grid {
+    grid-template-columns: 420px 1fr;
+    column-gap: 44px;
+    align-items: start;
+  }
+}
+
+.stuxen-about-v1 .about-v1-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 24px;
+  object-fit: cover;
+  aspect-ratio: 4 / 5;
+}
+
+@media (min-width: 992px) {
+  .stuxen-about-v1 .about-v1-img {
+    height: 100%;
+    min-height: 520px;
+    aspect-ratio: auto;
+  }
+}
+
+.stuxen-about-v1 .about-v1-wrapper {
+  text-align: left;
+}
+
+.stuxen-about-v1 .sub-title-wrap.margin-bottom-24 {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  padding: 8px 16px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.stuxen-about-v1 .sub-title-dot {
+  background: var(--purple) !important;
+}
+
+.stuxen-about-v1 .about-title {
+  margin: 0 0 30px;
+  max-width: 15.5em;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+.stuxen-about-v1 .primary-button {
+  background: var(--purple);
+}
+
+.stuxen-about-v1 .primary-btn-arrow-wrapper {
+  background: #fff;
+}
+
+.stuxen-about-v1 .primary-btn-arrow {
+  filter: brightness(0) saturate(100%) invert(32%) sepia(89%) saturate(2476%)
+    hue-rotate(234deg) brightness(98%) contrast(93%);
+}
+
+/* Stats: exactly like screenshot — 2 cols × 2 rows */
+.stuxen-about-v1 .about-v1-card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap);
+  margin-top: 40px;
+}
+
+@media (min-width: 768px) {
+  .stuxen-about-v1 .about-v1-card-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "tall exp"
+      "tall cust";
+  }
+
+  .stuxen-about-v1 .about-v1-card-wrap:first-child {
+    grid-area: tall;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .stuxen-about-v1 .about-card--slot-tr {
+    grid-area: exp;
+  }
+
+  .stuxen-about-v1 .about-card--slot-br {
+    grid-area: cust;
+  }
+}
+
+/* Tall left card — single shell */
+.stuxen-about-v1 .about-v1-card-wrap .about-card.v1._02 {
+  flex: 1;
+  border: none;
+  border-radius: 0;
+  padding: var(--pad);
+  padding-bottom: 20px;
+  background: transparent;
+}
+
+.stuxen-about-v1 .about-v1-card-wrap .about-card-content {
+  border: none;
+  border-radius: 0;
+  border-top: 1px solid var(--border);
+  padding: 22px var(--pad) var(--pad);
+  background: transparent;
+}
+
+.stuxen-about-v1 .about-v1-card-wrap .regular-text {
+  display: none;
+}
+
+/* Small stat cards */
+.stuxen-about-v1 .about-card.v1 {
+  height: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--pad);
+  background: #fff;
+}
+
+.stuxen-about-v1 .about-counter-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.stuxen-about-v1 .about-icon-wrap {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(91, 66, 243, 0.1);
+}
+
+.stuxen-about-v1 .about-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.stuxen-about-v1 .about-counter-wrap {
+  flex: 1;
+  min-width: 0;
+  overflow: visible;
+  text-align: left;
+}
+
+.stuxen-about-v1 .about-counter-number-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap: 2px;
+  overflow: visible;
+  min-height: var(--counter-line);
+}
+
+/* One digit visible — fixed height so odometer strip is not clipped */
+.stuxen-about-v1 .about-counter-number-wrap {
+  height: var(--counter-line);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.stuxen-about-v1 .about-counter-number-strip {
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+}
+
+.stuxen-about-v1 .about-counter-number-strip .about-counter-number {
+  height: var(--counter-line);
+  min-height: var(--counter-line);
+  line-height: var(--counter-line);
+  display: block;
+  flex-shrink: 0;
+}
+
+.stuxen-about-v1 .about-counter-number-wrapper > .about-counter-number {
+  height: var(--counter-line);
+  line-height: var(--counter-line);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.stuxen-about-v1 .about-counter-number {
+  margin: 0;
+  padding: 0;
+  font-size: var(--counter-size);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.stuxen-about-v1 .about-counter-text {
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--muted);
+  text-transform: capitalize;
+}
+
+.stuxen-about-v1 .about-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0;
+}
+
+/* Webflow-only nodes */
+.stuxen-about-v1 .about-v1-html-extra {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .stuxen-about-v1 .about-title {
+    font-size: 28px;
+  }
+
+  .stuxen-about-v1 .about-v1-card-wrap:first-child {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .stuxen-about-v1 {
+    --counter-size: 34px;
+    --counter-line: 42px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stuxen-about-v1 .about-counter-number-strip {
+    transform: none !important;
+  }
+}

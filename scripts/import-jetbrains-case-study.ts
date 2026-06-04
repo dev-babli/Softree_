@@ -226,6 +226,8 @@ async function run() {
       "Used by over 12.8 million professionals and 92 of the Fortune Global Top 100",
     mainImage: coverImage,
     mainImageUrl: COVER_IMAGE_URL,
+    heroHeadline: "From 100+ support forms to one AI agent.",
+    heroEyebrow: "Customer Story — Software",
     accentColor: "#1852FF",
     featured: true,
     technologies: ["Rasa", "Rasa Studio", "AI Agents", "Conversational AI"],

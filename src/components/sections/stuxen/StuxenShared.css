@@ -1,0 +1,121 @@
+/* Shared Stuxen Webflow template primitives */
+
+.stuxen-ui .sub-title-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stuxen-ui .sub-title-wrap.margin-bottom-24 {
+  margin-bottom: 24px;
+}
+
+.stuxen-ui .sub-title-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: #ff4d00;
+  flex-shrink: 0;
+}
+
+.stuxen-ui .sub-title {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #5c5c5c;
+}
+
+.stuxen-ui .primary-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  padding: 6px 6px 6px 22px;
+  border-radius: 9999px;
+  background: #0a0a0a;
+  color: #fff;
+  text-decoration: none;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: box-shadow 0.35s ease;
+}
+
+.stuxen-ui .primary-button:hover {
+  box-shadow: 0 12px 32px -12px rgba(10, 10, 10, 0.45);
+}
+
+.stuxen-ui .primary-btn-text-wrap {
+  position: relative;
+  height: 20px;
+  overflow: hidden;
+}
+
+.stuxen-ui .primary-btn-text {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  white-space: nowrap;
+  transition: transform 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.stuxen-ui .primary-btn-text._01 {
+  transform: translateY(0);
+}
+
+.stuxen-ui .primary-btn-text._02 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateY(110%);
+}
+
+.stuxen-ui .primary-button:hover .primary-btn-text._01 {
+  transform: translateY(-110%);
+}
+
+.stuxen-ui .primary-button:hover .primary-btn-text._02 {
+  transform: translateY(0);
+}
+
+.stuxen-ui .primary-btn-arrow-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-left: 14px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.stuxen-ui .primary-btn-arrow-wrap {
+  position: relative;
+  width: 18px;
+  height: 18px;
+}
+
+.stuxen-ui .primary-btn-arrow {
+  position: absolute;
+  inset: 0;
+  width: 18px;
+  height: 18px;
+  transition: transform 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.stuxen-ui .primary-btn-arrow._01 {
+  transform: translateX(0);
+}
+
+.stuxen-ui .primary-btn-arrow._02 {
+  transform: translateX(-110%);
+}
+
+.stuxen-ui .primary-button:hover .primary-btn-arrow._01 {
+  transform: translateX(110%);
+}
+
+.stuxen-ui .primary-button:hover .primary-btn-arrow._02 {
+  transform: translateX(0);
+}

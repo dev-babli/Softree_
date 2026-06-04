@@ -1,9 +1,11 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
 import { useState, type FormEvent, type ReactNode } from "react"
+import { SOFTREE_OFFICES_CONTACT } from "@/data/softree-offices"
 
 type Status = "idle" | "submitting" | "success" | "error"
 
@@ -260,13 +262,25 @@ export default function LightContactSection() {
                 </div>
                 <div>
                   <p className="text-[18px] font-medium tracking-[-0.02em]">
-                    Office
+                    Offices
                   </p>
-                  <p className="mt-2 text-[14px] leading-6 text-white/58">
-                    PLOT 5C/1283, SECTOR-10, CDA
-                    <br />
-                    Cuttack, Odisha 753014, India
-                  </p>
+                  <div className="mt-3 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                    {SOFTREE_OFFICES_CONTACT.map((office) => (
+                      <address
+                        key={office.city}
+                        className="not-italic text-[13px] leading-[1.55] text-white/58"
+                      >
+                        <span className="mb-1.5 block text-[14px] font-medium text-white/80">
+                          {office.city}
+                        </span>
+                        {office.lines.map((line) => (
+                          <span key={line} className="block">
+                            {line}
+                          </span>
+                        ))}
+                      </address>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -307,17 +321,29 @@ export default function LightContactSection() {
                 </div>
 
                 <div>
-                  <button
-                    type="submit"
-                    disabled={status === "submitting"}
-                    className="group mt-6 sm:mt-8 inline-flex h-11 sm:h-12 w-full sm:w-fit sm:px-8 gap-4 items-center justify-between rounded-full bg-[#ff5812] px-6 text-[13px] font-semibold uppercase tracking-[0.16em] text-white transition duration-300 hover:bg-white hover:text-[#09090d] disabled:cursor-not-allowed disabled:opacity-65"
-                  >
-                    <span>{status === "submitting" ? "Please wait..." : "Start a Project"}</span>
-                    <ArrowUpRight
-                      className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45"
-                      strokeWidth={2}
-                    />
-                  </button>
+                  <div className="flex flex-col sm:flex-row gap-4 mt-6 sm:mt-8 w-full sm:w-auto">
+                    <button
+                      type="submit"
+                      disabled={status === "submitting"}
+                      className="group inline-flex h-11 sm:h-12 w-full sm:w-fit sm:px-8 gap-3 items-center justify-center rounded-full bg-[#ff5812] px-6 text-[13px] font-semibold uppercase tracking-[0.16em] text-white transition duration-300 hover:bg-white hover:text-[#09090d] disabled:cursor-not-allowed disabled:opacity-65"
+                    >
+                      <span>{status === "submitting" ? "Please wait..." : "Start a Project"}</span>
+                      <ArrowUpRight
+                        className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45"
+                        strokeWidth={2}
+                      />
+                    </button>
+                    <Link
+                      href="/book-meeting"
+                      className="group inline-flex h-11 sm:h-12 w-full sm:w-fit sm:px-8 gap-3 items-center justify-center rounded-full border border-white/20 hover:border-[#ff5812] px-6 text-[13px] font-semibold uppercase tracking-[0.16em] text-white transition duration-300 hover:bg-[#ff5812]"
+                    >
+                      <span>Book a Call</span>
+                      <ArrowUpRight
+                        className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45"
+                        strokeWidth={2}
+                      />
+                    </Link>
+                  </div>
 
                   {status === "success" && (
                     <p

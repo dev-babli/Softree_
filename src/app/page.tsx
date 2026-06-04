@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Home from "./home-page";
+import { getHomepageCaseStudies } from "@/lib/homepage-case-studies";
 
 export const metadata: Metadata = {
   title: "Softree | Power Platform, AI, Data & Modern App Development",
@@ -30,6 +31,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Page() {
-  return <Home />;
+export default async function Page() {
+  const homepageCaseStudies = await getHomepageCaseStudies();
+  return <Home homepageCaseStudies={homepageCaseStudies} />;
 }

@@ -3,6 +3,11 @@
 import { useRef } from "react"
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion"
 import Image from "next/image"
+import SectionHeader from "@/components/homepage-light/SectionHeader"
+import { EASE_T, DUR } from "@/lib/motion"
+
+const SURFACE = "#F3F0EE"
+const ACCENT_ORANGE = "#FF5812"
 
 /* ====================================================================
  *  SERVICES — sticky list with hover image reveal
@@ -129,22 +134,18 @@ function ServiceCard({
           opacity,
           y,
         }}
-        className="relative mx-auto w-full max-w-[1280px] rounded-xl border-2 border-[#ff6b00]/40 bg-[#111111] overflow-hidden shadow-[0_30px_100px_-30px_rgba(0,0,0,0.85),_inset_0_1.5px_2px_rgba(255,107,0,0.12)]"
+        className="relative mx-auto w-full max-w-[1280px] overflow-hidden rounded-[18px] border border-[#0a0a1a]/[0.08] bg-white shadow-[0_1px_2px_rgba(10,10,26,0.04),0_20px_50px_-28px_rgba(10,10,26,0.14)] ring-1 ring-[#FF5812]/10"
       >
-        {/* Radial dotted grid texture overlay */}
         <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-[0.05]"
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.35]"
           style={{
-            backgroundImage: "radial-gradient(#ff6b00 0.8px, transparent 0.8px)",
-            backgroundSize: "22px 22px",
-            zIndex: 0,
+            background: `radial-gradient(70% 55% at 18% 0%, rgba(24,82,255,0.06), transparent 65%), radial-gradient(50% 40% at 88% 100%, rgba(255,88,18,0.05), transparent 60%)`,
           }}
         />
 
         <div className="relative z-10 mx-auto w-full px-6 md:px-10">
-          {/* hairline divider above each card content */}
-          <div className="h-px w-full bg-white/10" />
+          <div className="h-px w-full bg-[#0a0a1a]/[0.06]" />
 
           <div
             ref={overlayRef}
@@ -157,7 +158,7 @@ function ServiceCard({
                 className="group/title inline-flex items-baseline gap-3"
               >
                 <h3
-                  className="font-semibold text-white transition-colors duration-500 group-hover/title:text-white/70"
+                  className="font-semibold text-[#0a0a1a] transition-colors duration-500 group-hover/title:text-[#0a0a1a]/65"
                   style={{
                     fontSize: "clamp(48px, 7.4vw, 108px)",
                     lineHeight: 0.95,
@@ -167,7 +168,7 @@ function ServiceCard({
                   {s.title}
                 </h3>
                 <span
-                  className="flex items-baseline font-medium text-white/40"
+                  className="flex items-baseline font-medium text-[#FF5812]/55"
                   style={{
                     fontSize: "clamp(16px, 1.4vw, 22px)",
                     letterSpacing: "-0.01em",
@@ -181,20 +182,20 @@ function ServiceCard({
                 </span>
               </a>
 
-              <p className="mt-6 max-w-[480px] text-[15px] leading-[1.55] text-white/60 md:text-[16px]">
+              <p className="mt-6 max-w-[480px] text-[15px] leading-[1.55] text-[#0a0a1a]/62 md:text-[16px]">
                 {s.desc}
               </p>
 
               {/* Pricing/timeline transparency — buyers self-qualify */}
               <div
-                className="mt-5 inline-flex items-center gap-2 self-start rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 backdrop-blur-md"
+                className="mt-5 inline-flex items-center gap-2 self-start rounded-full border border-[#0a0a1a]/10 bg-[#F3F0EE]/80 px-3.5 py-1.5"
                 style={{ fontVariantNumeric: "tabular-nums" }}
               >
                 <span
                   aria-hidden
-                  className="h-1.5 w-1.5 rounded-full bg-[#FF6B00]"
+                  className="h-1.5 w-1.5 rounded-full bg-[#FF5812]"
                 />
-                <span className="text-[11.5px] font-semibold uppercase tracking-[0.16em] text-white/80">
+                <span className="text-[11.5px] font-semibold uppercase tracking-[0.16em] text-[#0a0a1a]/72">
                   {s.price}
                 </span>
               </div>
@@ -208,7 +209,7 @@ function ServiceCard({
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-10%" }}
                     transition={{ duration: 0.5, ease: EASE, delay: 0.1 + i * 0.06 }}
-                    className="rounded-full border border-white/15 px-4 py-1.5 text-[12px] font-medium tracking-wide text-white/70"
+                    className="rounded-full border border-[#0a0a1a]/10 bg-[#F3F0EE]/60 px-4 py-1.5 text-[12px] font-medium tracking-wide text-[#0a0a1a]/65"
                   >
                     {t}
                   </motion.span>
@@ -243,7 +244,7 @@ function ServiceCard({
               </motion.div>
               <motion.div
                 style={{ height: overlayHeight }}
-                className="pointer-events-none absolute inset-x-0 bottom-0 bg-[#ff7a2f]"
+                className="pointer-events-none absolute inset-x-0 bottom-0 bg-[#FF5812]/85"
                 aria-hidden
               />
             </a>
@@ -260,23 +261,39 @@ function ServiceCard({
  * ==================================================================== */
 export default function LightServicesStickyList() {
   return (
-    <section className="relative w-full bg-[#0a0a0a]">
-      {/* Heading band */}
-      <div className="mx-auto w-full max-w-[1280px] px-6 pb-10 pt-24 md:px-10 md:pb-14 md:pt-32">
-        <motion.h2
-          initial={{ opacity: 0, y: 24 }}
+    <section
+      data-section="services-sticky"
+      data-theme-section="light"
+      className="relative w-full border-t border-[#0a0a1a]/[0.06]"
+      style={{ backgroundColor: SURFACE }}
+      aria-labelledby="services-sticky-heading"
+    >
+      <div className="mx-auto w-full max-w-[1280px] px-6 pb-8 pt-20 md:px-10 md:pb-10 md:pt-28">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-10%" }}
-          transition={{ duration: 0.8, ease: EASE }}
-          className="font-semibold text-white"
-          style={{
-            fontSize: "clamp(56px, 9vw, 132px)",
-            lineHeight: 0.92,
-            letterSpacing: "-0.045em",
-          }}
+          transition={{ duration: DUR.section, ease: EASE_T.silk }}
         >
-          Services
-        </motion.h2>
+          <SectionHeader
+            badge="Services"
+            accent={ACCENT_ORANGE}
+            headline={
+              <span
+                id="services-sticky-heading"
+                className="text-balance"
+                style={{
+                  fontSize: "clamp(40px, 7vw, 88px)",
+                  lineHeight: 0.94,
+                  letterSpacing: "-0.04em",
+                }}
+              >
+                What we build for you
+              </span>
+            }
+            body="Scroll the stack — each card is a delivery lane with scope, timeline, and a path to the right practice page."
+          />
+        </motion.div>
       </div>
 
       {/* Sticky stack track */}
@@ -286,9 +303,8 @@ export default function LightServicesStickyList() {
         ))}
       </div>
 
-      {/* Closing hairline */}
-      <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10">
-        <div className="h-px w-full bg-white/10" />
+      <div className="mx-auto w-full max-w-[1280px] px-6 pb-16 md:px-10 md:pb-20">
+        <div className="h-px w-full bg-[#0a0a1a]/[0.08]" />
       </div>
     </section>
   )

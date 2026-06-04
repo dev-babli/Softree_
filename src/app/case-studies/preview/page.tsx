@@ -3,11 +3,10 @@
 import { useEffect, useState } from "react"
 
 import CaseStudyDraftPreview from "@/components/case-studies/preview/CaseStudyDraftPreview"
-import type { SanityCaseStudyDoc } from "@/components/case-studies/layouts/mapCaseStudyData"
-import { CLASSIC_LAYOUT_VALUE } from "@/sanity/lib/layoutPreview"
 
 type PreviewState = {
-  study: SanityCaseStudyDoc
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  study: any
   layout: string
 }
 
@@ -19,8 +18,9 @@ export default function CaseStudyPreviewPage() {
 
     const onMessage = (event: MessageEvent) => {
       if (event.data?.type !== "CASE_STUDY_PREVIEW_UPDATE") return
-      const study = event.data.study as SanityCaseStudyDoc
-      const layout = (event.data.layout as string) || CLASSIC_LAYOUT_VALUE
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const study = event.data.study as any
+      const layout = (event.data.layout as string) || "standard"
       setState({ study, layout })
     }
 

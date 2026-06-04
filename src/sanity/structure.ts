@@ -1,7 +1,6 @@
 import type { DefaultDocumentNodeResolver, StructureResolver } from 'sanity/structure'
 import { CaseStudyLivePreviewPane } from './components/CaseStudyLivePreviewPane'
 import MigrationScriptsNote from './components/MigrationScriptsNote'
-import { caseStudyTemplateByCategory } from './templates'
 
 const API = '2026-05-21'
 
@@ -81,13 +80,10 @@ function needsWorkList(S: Parameters<StructureResolver>[0], schemaType: string, 
     .defaultOrdering([{ field: '_updatedAt', direction: 'desc' }])
 }
 
-const CASE_CATEGORIES: Array<{ title: string; value: string }> = [
-  { title: 'AI & ML', value: 'ai' },
-  { title: 'Power Platform', value: 'power-platform' },
-  { title: 'SharePoint', value: 'sharepoint' },
-  { title: 'Web', value: 'web' },
-  { title: 'Mobile', value: 'mobile' },
-  { title: 'Data analytics', value: 'data-analytics' },
+const CASE_STUDY_ARCHETYPES: Array<{ title: string; value: string; template: string }> = [
+  { title: 'Standard Story', value: 'standard', template: 'caseStudy-standard' },
+  { title: 'Transformation Epic', value: 'transformation', template: 'caseStudy-transformation' },
+  { title: 'Product Showcase', value: 'product-showcase', template: 'caseStudy-product-showcase' },
 ]
 
 function editorialLists(
@@ -150,15 +146,13 @@ export const structure: StructureResolver = (S) =>
                   S.list()
                     .title('Case study templates')
                     .items(
-                      CASE_CATEGORIES.map(({ title, value }) =>
+                      CASE_STUDY_ARCHETYPES.map(({ title, template }) =>
                         S.listItem()
                           .title(title)
                           .child(
                             S.document()
                               .schemaType('caseStudy')
-                              .initialValueTemplate(
-                                caseStudyTemplateByCategory[value] || 'caseStudy-article',
-                              ),
+                              .initialValueTemplate(template),
                           ),
                       ),
                     ),
@@ -217,12 +211,12 @@ export const structure: StructureResolver = (S) =>
               ),
               S.divider(),
               S.listItem()
-                .title('By category')
+                .title('By archetype')
                 .child(
                   S.list()
-                    .title('By category')
+                    .title('By archetype')
                     .items(
-                      CASE_CATEGORIES.map(({ title, value }) =>
+                      CASE_STUDY_ARCHETYPES.map(({ title, value, template }) =>
                         S.listItem()
                           .title(title)
                           .child(
@@ -231,12 +225,12 @@ export const structure: StructureResolver = (S) =>
                               .schemaType('caseStudy')
                               .apiVersion(API)
                               .filter(
-                                `_type == "caseStudy" && category == "${value}" && coalesce(status, "published") == "published"`,
+                                `_type == "caseStudy" && storyType == "${value}" && coalesce(status, "published") == "published"`,
                               )
                               .initialValueTemplates([
                                 S.initialValueTemplateItem(
-                                  caseStudyTemplateByCategory[value] || 'caseStudy-article',
-                                  (item) => item.title(`New ${title} case study`),
+                                  template,
+                                  (item: { title: (t: string) => { title: string } }) => item.title(`New ${title} case study`),
                                 ),
                               ])
                               .defaultOrdering([{ field: 'publishedAt', direction: 'desc' }]),

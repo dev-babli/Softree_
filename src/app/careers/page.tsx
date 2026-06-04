@@ -34,6 +34,7 @@ import CareersProcessLight from "./process-light";
 import CareersPerksLight from "./perks-light";
 import CareersCultureLight from "./culture-light";
 import CareersTalentPoolLight from "./talent-pool-light";
+import AnimatedPhotoGallery from "@/components/Gallery/AnimatedPhotoGallery";
 import type { CareersPageData } from "./types";
 
 // FAQ component is heavy (GSAP, large grainient) — defer to keep TTFB low.
@@ -155,6 +156,16 @@ export default async function CareersPage() {
                 heading={data.perksHeading}
                 subheading={data.perksSubheading}
                 perks={data.perks}
+            />
+
+            {/* 6b. Workspace gallery — animated rails from /public/Gallery */}
+            <AnimatedPhotoGallery
+                eyebrow="Our workspaces"
+                title="Life at Softree,"
+                titleAccent="in motion."
+                description="From Prestige Tech Park in Bengaluru to our delivery hubs — see the rooms, desks, and teams you will work alongside."
+                ctaLabel="Explore careers"
+                ctaHref="#open-roles"
             />
 
             {/* 7. Culture / Life at Softree */}

@@ -10,7 +10,7 @@ import { TechLogo } from "../../shared/PowerPlatformLogos"
 
 /** Magazine editorial — full-bleed alternating chapters, serif headings, pull quotes */
 export function ZigzagAlternatingPage({ data }: { data: CaseStudyLayoutData }) {
-  const imgs = galleryOrFallback(data.gallery, 5)
+  const imgs = galleryOrFallback(data.slug, data.gallery, 5)
   const chapters = [
     { title: data.challengeHeading, sub: data.challengeSubheading, items: data.challengeCards, img: imgs[0]?.url },
     { title: data.solutionHeading, sub: "How we transformed the operation", items: data.solutionNodes, img: imgs[1]?.url },

@@ -1,4 +1,5 @@
 import { CATEGORY_LABELS, type CaseStudyDetailLayout } from "@/lib/case-study-layouts"
+import { stockPackForSlug } from "@/lib/case-study-stock-images"
 import type {
   ApproachStep,
   BeforeAfterRow,
@@ -69,6 +70,7 @@ export type SanityCaseStudyDoc = {
     company?: string
     location?: string
     avatar?: { asset?: { url?: string } } | null
+    headshot?: { asset?: { url?: string } } | null
   } | null
   gallery?: Array<{ asset?: { url?: string }; alt?: string; caption?: string }>
   galleryUrls?: Array<{ url?: string; alt?: string; caption?: string }>
@@ -78,6 +80,9 @@ export type SanityCaseStudyDoc = {
   ctaButtonText?: string
   faqs?: CaseStudyFAQ[]
   publishedAt?: string
+  heroEyebrow?: string
+  heroHeadline?: string
+  clientLogo?: { asset?: { url?: string } } | null
 }
 
 function categoryLabel(value?: string): string {
@@ -161,24 +166,6 @@ const MANUFACTURING_IMPACT_METRICS: Highlight[] = [
   { value: "99.9%", label: "System availability", icon: "shield" },
 ]
 
-const MANUFACTURING_HERO_IMAGE = "/Gallery/Prestige Bangalore-1.webp"
-
-const MANUFACTURING_SECTION_IMAGES = {
-  hero: MANUFACTURING_HERO_IMAGE,
-  heroAlt: "Softree operations and digital workspace",
-  challenge: "/Gallery/Prestige Bangalore-2.webp",
-  solutionDashboard: "/Gallery/Prestige Bangalore-3.webp",
-  impactBackground: "/Gallery/Prestige Bangalore-5.webp",
-  testimonial: "/Gallery/Prestige Bangalore-1.webp",
-} as const
-
-const MANUFACTURING_DELIVERABLE_IMAGES = [
-  "/Gallery/Prestige Bangalore-4.webp",
-  "/Gallery/Prestige Bangalore-5.webp",
-  "/Gallery/Prestige Bangalore-6.webp",
-  "/Gallery/Prestige Bangalore-7.webp",
-]
-
 const MANUFACTURING_DEFAULT_FAQS: CaseStudyFAQ[] = [
   {
     question: "How long does a Power Platform manufacturing rollout typically take?",
@@ -214,8 +201,13 @@ function buildFaqs(study: SanityCaseStudyDoc, layout: CaseStudyDetailLayout): Ca
 }
 
 function buildHighlights(study: SanityCaseStudyDoc, layout: CaseStudyDetailLayout): Highlight[] {
+  if (study.highlights?.length) {
+    return study.highlights.slice(0, 3).map((h, i) => ({
+      ...h,
+      icon: h.icon || MANUFACTURING_HERO_HIGHLIGHTS[i]?.icon,
+    }))
+  }
   if (layout === "manufacturing-power-platform") return MANUFACTURING_HERO_HIGHLIGHTS
-  if (study.highlights?.length) return study.highlights.slice(0, 3)
   if (study.metrics?.length) {
     return study.metrics.slice(0, 3).map((m, i) => ({
       value: m.value || "",
@@ -231,6 +223,16 @@ function buildHighlights(study: SanityCaseStudyDoc, layout: CaseStudyDetailLayou
 }
 
 function buildImpactMetrics(study: SanityCaseStudyDoc, layout: CaseStudyDetailLayout): Highlight[] {
+  if (study.metrics?.length) {
+    return study.metrics.slice(0, 5).map((m, i) => ({
+      value: m.value || "",
+      label: m.label || m.description || "",
+      icon:
+        MANUFACTURING_IMPACT_METRICS[i]?.icon ||
+        PAYFLOW_IMPACT_METRICS[i]?.icon ||
+        AI_HORIZONTAL_IMPACT_METRICS[i]?.icon,
+    }))
+  }
   if (layout === "manufacturing-power-platform") return MANUFACTURING_IMPACT_METRICS
   if (layout === "nexora-product-story") {
     if (study.metrics?.length) {
@@ -315,60 +317,22 @@ function buildGallery(study: SanityCaseStudyDoc, layout?: CaseStudyDetailLayout)
     .map((g) => ({ url: g.url!, alt: g.alt, caption: g.caption }))
   let items = [...fromAssets, ...fromUrls]
   if (layout === "manufacturing-power-platform" && items.length > 0) {
-    items = items.slice(0, 4).map((item, i) => ({
+    return items.slice(0, 5).map((item, i) => ({
       ...item,
-      caption: MANUFACTURING_GALLERY_CAPTIONS[i] || item.caption,
+      caption: item.caption || MANUFACTURING_GALLERY_CAPTIONS[i] || item.alt,
     }))
-    return items
   }
   if (items.length > 0) return items
-  if (layout === "nexora-product-story") {
-    const captions = [
-      "Executive Dashboard",
-      "Analytics Overview",
-      "Mobile Inspection App",
-      "Reporting Suite",
-    ]
-    return [
-      "/Gallery/Prestige Bangalore-1.webp",
-      "/Gallery/Prestige Bangalore-4.webp",
-      "/Gallery/Prestige Bangalore-6.webp",
-      "/Gallery/Prestige Bangalore-7.webp",
-    ].map((url, i) => ({
+  if (
+    layout === "manufacturing-power-platform" ||
+    layout === "nexora-product-story" ||
+    layout === "synqlab-product-story"
+  ) {
+    const pack = stockPackForSlug(study.slug.current)
+    return pack.gallery.map((url, i) => ({
       url,
-      alt: captions[i] || "Application screenshot",
-      caption: captions[i],
-    }))
-  }
-  if (layout === "synqlab-product-story") {
-    const captions = [
-      "Analytics Dashboard",
-      "Revenue Overview",
-      "User Insights",
-      "Reporting Suite",
-    ]
-    return [
-      "/Gallery/Prestige Bangalore-1.webp",
-      "/Gallery/Prestige Bangalore-4.webp",
-      "/Gallery/Prestige Bangalore-6.webp",
-      "/Gallery/Prestige Bangalore-7.webp",
-    ].map((url, i) => ({
-      url,
-      alt: captions[i] || "Application screenshot",
-      caption: captions[i],
-    }))
-  }
-  if (layout === "manufacturing-power-platform") {
-    const captions = MANUFACTURING_GALLERY_CAPTIONS
-    return [
-      "/Gallery/Prestige Bangalore-1.webp",
-      "/Gallery/Prestige Bangalore-4.webp",
-      "/Gallery/Prestige Bangalore-6.webp",
-      "/Gallery/Prestige Bangalore-7.webp",
-    ].map((url, i) => ({
-      url,
-      alt: captions[i] || "Application screenshot",
-      caption: captions[i],
+      alt: MANUFACTURING_GALLERY_CAPTIONS[i] || "Project visual",
+      caption: MANUFACTURING_GALLERY_CAPTIONS[i],
     }))
   }
   const hero = study.mainImage?.asset?.url || study.mainImageUrl
@@ -585,7 +549,9 @@ export function mapCaseStudyToLayoutData(
 
   const challengeCards =
     layout === "manufacturing-power-platform"
-      ? manufacturingChallengeCards
+      ? study.challengeCards && study.challengeCards.length >= 3
+        ? study.challengeCards.slice(0, 3)
+        : manufacturingChallengeCards
       : layout === "nexora-product-story"
         ? study.challengeCards && study.challengeCards.length >= 3
           ? study.challengeCards.slice(0, 3)
@@ -616,14 +582,7 @@ export function mapCaseStudyToLayoutData(
       ? study.deliverables.slice(0, 6)
       : defaultDeliverables(approachBullets)
 
-  const deliverables =
-    layout === "manufacturing-power-platform"
-      ? deliverablesRaw.map((item, i) => ({
-          ...item,
-          imageUrl: item.imageUrl || MANUFACTURING_DELIVERABLE_IMAGES[i % MANUFACTURING_DELIVERABLE_IMAGES.length],
-          imageAlt: item.imageAlt || item.title,
-        }))
-      : deliverablesRaw
+  const deliverables = deliverablesRaw
 
   const technologies =
     study.technologies?.length && study.technologies.length >= 4
@@ -658,10 +617,18 @@ export function mapCaseStudyToLayoutData(
   const payflowSolutionTitle =
     layout === "payflow-fintech-story" ? "A Modern, Secure & Scalable Infrastructure" : undefined
 
+  const slug = study.slug.current
+  const stock = stockPackForSlug(slug)
+  const gallery = buildGallery(study, layout)
+  const heroUrl =
+    study.mainImage?.asset?.url || study.mainImageUrl || stock.hero
+
   return {
     slug: study.slug.current,
     layout,
-    title: study.title,
+    title: study.heroHeadline || study.title,
+    heroEyebrow: study.heroEyebrow,
+    clientLogoUrl: study.clientLogo?.asset?.url,
     headerTitle:
       study.headerTitle ||
       (layout === "nexora-product-story"
@@ -689,10 +656,7 @@ export function mapCaseStudyToLayoutData(
     category: study.category,
     industry: study.industry || categoryLabel(study.category),
     accentColor: study.accentColor || ACCENT,
-    heroImageUrl:
-      study.mainImage?.asset?.url ||
-      study.mainImageUrl ||
-      (layout === "manufacturing-power-platform" ? MANUFACTURING_HERO_IMAGE : undefined),
+    heroImageUrl: heroUrl,
     heroImageAlt: study.mainImage?.alt || study.client || study.title,
     videoUrl: study.videoUrl,
     highlights: buildHighlights(study, layout),
@@ -752,7 +716,8 @@ export function mapCaseStudyToLayoutData(
         : layout === "nexora-product-story"
           ? "A global manufacturer relied on fragmented spreadsheets and delayed reports — leadership needed a single source of truth for real-time plant performance."
           : layout === "manufacturing-power-platform"
-            ? "A global manufacturer needed to replace fragmented tools with a governed, scalable platform — without disrupting production on the floor."
+            ? study.challengeSummary ||
+              "The client needed governed systems that could ship fast without losing control of data, permissions, or approvals."
             : "A global manufacturer needed to replace fragmented tools with a governed, scalable platform."),
     challengeCards,
     approachHeading:
@@ -767,7 +732,10 @@ export function mapCaseStudyToLayoutData(
           ? "We partnered closely with stakeholders through iterative sprints — aligning discovery, design, and delivery with measurable milestones at every phase."
           : undefined),
     approachSteps: buildApproachSteps(study, layout),
-    solutionHeading: "Our Solution Architecture",
+    solutionHeading:
+      layout === "manufacturing-power-platform"
+        ? "How we delivered"
+        : "Our Solution Architecture",
     solutionTitle: nexoraSolutionTitle || synqlabSolutionTitle || payflowSolutionTitle,
     solutionSummary:
       study.solutionSummary ||
@@ -779,7 +747,9 @@ export function mapCaseStudyToLayoutData(
             ? "We delivered a unified analytics platform that consolidates operational data, automates reporting, and surfaces real-time KPIs for teams and leadership."
             : layout === "nexora-product-story"
               ? "We delivered a unified Power Platform analytics suite that consolidates operational data, automates reporting, and surfaces real-time KPIs for plant and executive teams."
-              : undefined),
+              : layout === "manufacturing-power-platform"
+                ? study.approachSummary || study.outcomeSummary
+                : undefined),
     solutionFeatures: buildSolutionFeatures(study, layout, approachBullets),
     resultsHeading:
       layout === "nexora-product-story" || layout === "synqlab-product-story"
@@ -799,21 +769,25 @@ export function mapCaseStudyToLayoutData(
     solutionNodes,
     deliverablesHeading: "What We Delivered",
     deliverables,
-    gallery: buildGallery(study, layout),
+    gallery,
+    galleryHeading:
+      layout === "manufacturing-power-platform" ? "What we shipped" : undefined,
+    gallerySubheading:
+      layout === "manufacturing-power-platform"
+        ? study.outcomeSummary || "Interfaces, workflows, and environments from the program."
+        : undefined,
     impactHeading: "Results & Business Impact",
     impactMetrics: buildImpactMetrics(study, layout),
     technologies,
     testimonial:
-      layout === "manufacturing-power-platform"
+      layout === "manufacturing-power-platform" && study.testimonial?.quote
         ? {
-            quote:
-              study.testimonial?.quote ||
-              "Softree transformed how our plants operate. We went from fragmented spreadsheets to a unified platform in weeks — and our teams adopted it because it was built for how they actually work on the floor.",
-            role: "Director of Operations",
-            company: study.testimonial?.company || study.client || "Global Manufacturing Company",
-            location: study.testimonial?.location || "North America",
-            avatarUrl:
-              study.testimonial?.avatar?.asset?.url || MANUFACTURING_SECTION_IMAGES.testimonial,
+            quote: study.testimonial.quote,
+            name: study.testimonial.name,
+            role: study.testimonial.role,
+            company: study.testimonial.company || study.client,
+            location: study.testimonial.location,
+            avatarUrl: study.testimonial.avatar?.asset?.url,
           }
         : layout === "nexora-product-story"
           ? {
@@ -823,7 +797,7 @@ export function mapCaseStudyToLayoutData(
               name: study.testimonial?.name || "James Carter",
               role: study.testimonial?.role || "Director of Operations",
               company: study.testimonial?.company || study.client || "Global Manufacturing Company",
-              avatarUrl: study.testimonial?.avatar?.asset?.url || MANUFACTURING_SECTION_IMAGES.testimonial,
+              avatarUrl: study.testimonial?.avatar?.asset?.url,
             }
           : layout === "synqlab-product-story"
             ? {
@@ -833,7 +807,7 @@ export function mapCaseStudyToLayoutData(
                 name: study.testimonial?.name || "Michael Anderson",
                 role: study.testimonial?.role || "CTO",
                 company: study.testimonial?.company || study.client || "DataCore",
-                avatarUrl: study.testimonial?.avatar?.asset?.url || MANUFACTURING_SECTION_IMAGES.testimonial,
+                avatarUrl: study.testimonial?.avatar?.asset?.url,
               }
             : layout === "payflow-fintech-story"
               ? {
@@ -843,7 +817,7 @@ export function mapCaseStudyToLayoutData(
                   name: study.testimonial?.name || "Daniel Morris",
                   role: study.testimonial?.role || "CTO",
                   company: study.testimonial?.company || study.client || "PayFlow",
-                  avatarUrl: study.testimonial?.avatar?.asset?.url || MANUFACTURING_SECTION_IMAGES.testimonial,
+                  avatarUrl: study.testimonial?.avatar?.asset?.url,
                 }
               : layout === "ai-horizontal-story" || layout === "neutrino-dashboard-story"
                 ? {
@@ -854,7 +828,7 @@ export function mapCaseStudyToLayoutData(
                     role: study.testimonial?.role || "CTO",
                     company: study.testimonial?.company || study.client || "Neutrino AI",
                     avatarUrl:
-                      study.testimonial?.avatar?.asset?.url || MANUFACTURING_SECTION_IMAGES.testimonial,
+                      study.testimonial?.avatar?.asset?.url,
                   }
                 : study.testimonial?.quote
           ? {
@@ -879,22 +853,21 @@ export function mapCaseStudyToLayoutData(
     faqs: buildFaqs(study, layout),
     sectionImages:
       layout === "manufacturing-power-platform"
-        ? { ...MANUFACTURING_SECTION_IMAGES }
-        : layout === "nexora-product-story"
+        ? {
+            hero: heroUrl,
+            heroAlt: study.mainImage?.alt || study.client || study.title,
+            challenge: gallery[1]?.url || stock.challenge,
+            solutionDashboard: gallery[2]?.url || gallery[0]?.url || stock.solution,
+            testimonial: study.testimonial?.avatar?.asset?.url,
+          }
+        : layout === "nexora-product-story" || layout === "synqlab-product-story"
           ? {
-              hero: study.mainImage?.asset?.url || study.mainImageUrl || MANUFACTURING_HERO_IMAGE,
+              hero: heroUrl,
               heroAlt: study.mainImage?.alt || study.client || study.title,
-              solutionDashboard: "/Gallery/Prestige Bangalore-4.webp",
-              challenge: "/Gallery/Prestige Bangalore-2.webp",
+              solutionDashboard: gallery[0]?.url || stock.solution,
+              challenge: gallery[1]?.url || stock.challenge,
             }
-          : layout === "synqlab-product-story"
-            ? {
-                hero: study.mainImage?.asset?.url || study.mainImageUrl || MANUFACTURING_HERO_IMAGE,
-                heroAlt: study.mainImage?.alt || study.client || study.title,
-                solutionDashboard: "/Gallery/Prestige Bangalore-4.webp",
-                challenge: "/Gallery/Prestige Bangalore-2.webp",
-              }
-            : undefined,
+          : undefined,
     publishedAt: study.publishedAt,
     updatedAt: study._updatedAt,
   }

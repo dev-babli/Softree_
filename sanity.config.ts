@@ -11,6 +11,7 @@ import {structureTool} from 'sanity/structure'
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import {assistPlugin} from './src/sanity/assist/config'
+import {geminiImageToolPlugin} from './src/sanity/plugins/geminiImageTool'
 import {resolve as presentationResolve} from './sanity/presentation/resolve'
 import {apiVersion, dataset, projectId} from './src/sanity/env'
 import {schema} from './src/sanity/schemaTypes'
@@ -18,8 +19,9 @@ import {structure, getDefaultDocumentNode} from './src/sanity/structure'
 import {DuplicateAsDraftAction} from './src/sanity/actions/duplicateAsDraft'
 import {FixKeysAction} from './src/sanity/actions/fixKeys'
 import {GenerateSeoFromContentAction} from './src/sanity/actions/generateSeoFromContent'
-import {GeneratePremiumBlocksFromStoryAction} from './src/sanity/actions/generatePremiumBlocksFromStory'
+import {GenerateBlocksFromStoryAction} from './src/sanity/actions/generatePremiumBlocksFromStory'
 import {documentTemplates} from './src/sanity/templates'
+import {CaseStudyDocumentBadge} from './src/sanity/badges/CaseStudyDocumentBadge'
 
 const singletonTypes = new Set(['homepageCaseStudySlider', 'globalSettings'])
 
@@ -34,6 +36,7 @@ export default defineConfig({
   plugins: [
     structureTool({structure, defaultDocumentNode: getDefaultDocumentNode}),
     assistPlugin,
+    geminiImageToolPlugin(),
     presentationTool({
       resolve: {
         ...presentationResolve,
@@ -81,9 +84,15 @@ export default defineConfig({
       ) {
         const actions = [...prev, DuplicateAsDraftAction, FixKeysAction, GenerateSeoFromContentAction]
         if (context.schemaType === 'caseStudy') {
-          actions.push(GeneratePremiumBlocksFromStoryAction)
+          actions.push(GenerateBlocksFromStoryAction)
         }
         return actions
+      }
+      return prev
+    },
+    badges: (prev, context) => {
+      if (context.schemaType === 'caseStudy') {
+        return [...prev, CaseStudyDocumentBadge]
       }
       return prev
     },
