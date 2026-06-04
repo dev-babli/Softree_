@@ -23,8 +23,8 @@
 
 import React, { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { LogoLoop } from "./LogoLoop"
 import { EASE_T } from "@/lib/motion"
+import { PartnerLogo, PARTNER_LOGOS } from "@/components/qc/homepage-light/AboutClientLogos"
 
 const EASE = EASE_T.silk
 
@@ -61,42 +61,9 @@ const FEATURES = [
 const HEADLINE =
   "Engineered for enterprise delivery at scale."
 
-/* Partner logos — sourced from the same set we use across the site
- * (`/public/images/logo`). Rendered into the LogoLoop as styled `<img>`
- * tiles so the cream background stays clean and unbranded marks read well. */
-type PartnerLogo = { name: string; src: string }
-const PARTNER_LOGOS: PartnerLogo[] = [
-  { name: "GO ERP", src: "/images/logo/goerp1.jpg" },
-  { name: "Nuvento", src: "/images/logo/nuvento.jpg" },
-  { name: "Kwiz", src: "/images/logo/kwiz.png" },
-  { name: "Jonians", src: "/images/logo/jonians.jpg" },
-  { name: "Export Control", src: "/images/logo/ecg.png" },
-  { name: "SP Marketplace", src: "/images/logo/sp-marketplace.png" },
-  { name: "Bosch", src: "/images/logo/bosch.png" },
-  { name: "Emscale", src: "/images/logo/emscale_logo.png" },
-  { name: "Link Innovation", src: "/images/logo/link-innovation.png" },
-  { name: "Intellectt", src: "/images/logo/Intellectt_logo.png" },
-]
+// PARTNER_LOGOS and PartnerLogo component are now imported from AboutClientLogos.tsx to maintain styling consistency.
 
-const MARQUEE_ITEMS = PARTNER_LOGOS.map((p) => ({
-  title: p.name,
-  ariaLabel: p.name,
-  node: (
-    <span
-      className="trustedby-logo group/logo inline-flex h-[56px] items-center justify-center px-5"
-      style={{ backgroundColor: "#F3F0EE" }}
-    >
-      <img
-        src={p.src}
-        alt={p.name}
-        loading="lazy"
-        decoding="async"
-        className="max-h-[44px] w-auto select-none object-contain"
-        draggable={false}
-      />
-    </span>
-  ),
-}))
+
 
 /* ─────────────────────────────────────────────────────────────────
    ASSETS
@@ -414,7 +381,7 @@ export default function InfoSection() {
       className="relative w-full overflow-hidden"
       style={{ backgroundColor: "transparent" }}
     >
-      <div className="mx-auto max-w-[1400px] px-6 md:px-12 pt-2 md:pt-4 lg:pt-6 pb-20 md:pb-28">
+      <div className="mx-auto max-w-7xl px-6 md:px-12 pt-2 md:pt-4 lg:pt-6 pb-20 md:pb-28">
         {/* ── info__wrap ── 2-column layout ── */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 lg:gap-16">
           {/* Small left column — decorative graphic */}
@@ -512,42 +479,85 @@ export default function InfoSection() {
                 </motion.li>
               ))}
             </ul>
+          </div>
+        </div>
 
-            {/* ── trustedby-wrap ── */}
-            <div className="w-full">
-              {/* tag-row : flanking lines + centred tag pair */}
-              <div className="flex items-center gap-4 mb-8 md:mb-10">
-                <span className="flex-1 h-px bg-[#141413]/15" />
-                <div className="flex items-center gap-1.5 shrink-0">
-                  <span className="inline-flex items-center px-3 py-1 rounded-md text-[10px] font-semibold tracking-[0.12em] uppercase text-[#141413]/85"
-                    style={{ background: "rgba(20,20,19,0.06)" }}
-                  >
-                    Trusted by
-                  </span>
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-semibold tracking-[0.12em] uppercase text-[#141413]/85"
-                    style={{ background: "rgba(20,20,19,0.06)" }}
-                  >
-                    Industry Giants
-                  </span>
-                </div>
-                <span className="flex-1 h-px bg-[#141413]/15" />
-              </div>
-
-              {/* trustedby-row : continuous logo marquee */}
-              <div className="opacity-95">
-                <LogoLoop
-                  logos={MARQUEE_ITEMS}
-                  speed={70}
-                  direction="left"
-                  gap={88}
-                  logoHeight={56}
-                  hoverSpeed={0}
-                  fadeOut
-                  fadeOutColor="#F3F0EE"
-                  ariaLabel="Trusted by partner companies"
-                />
-              </div>
+        {/* ── trustedby-wrap ── */}
+        <div className="w-full mt-16 md:mt-24">
+          {/* tag-row : flanking lines + centred tag pair */}
+          <div className="flex items-center gap-4 mb-8 md:mb-10">
+            <span className="flex-1 h-px bg-[#141413]/15" />
+            <div className="flex items-center gap-1.5 shrink-0">
+              <span className="inline-flex items-center px-3 py-1 rounded-md text-[10px] font-semibold tracking-[0.12em] uppercase text-[#141413]/85"
+                style={{ background: "rgba(20,20,19,0.06)" }}
+              >
+                Trusted by
+              </span>
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-semibold tracking-[0.12em] uppercase text-[#141413]/85"
+                style={{ background: "rgba(20,20,19,0.06)" }}
+              >
+                Industry Giants
+              </span>
             </div>
+            <span className="flex-1 h-px bg-[#141413]/15" />
+          </div>
+
+          {/* trustedby-row : continuous logo marquee */}
+          <div className="relative w-full overflow-hidden py-6">
+            {/* Fade edges */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 sm:w-24 bg-gradient-to-r from-[#F3F0EE] to-transparent"
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 sm:w-24 bg-gradient-to-l from-[#F3F0EE] to-transparent"
+            />
+
+            <div className="info-partner-marquee flex min-w-max items-center gap-6 will-change-transform">
+              {[0, 1].map((set) => (
+                <div
+                  key={set}
+                  aria-hidden={set === 1}
+                  className="flex shrink-0 items-center gap-6"
+                >
+                  {[...PARTNER_LOGOS, ...PARTNER_LOGOS].map((p, i) => (
+                    <PartnerLogo
+                      key={`${set}-${p.name}-${i}`}
+                      partner={p}
+                      tone="editorial"
+                    />
+                  ))}
+                </div>
+              ))}
+            </div>
+
+            <style>{`
+              .info-partner-marquee {
+                animation: info-partner-marquee-x 45s linear infinite;
+              }
+              .info-partner-marquee:hover {
+                animation-play-state: paused;
+              }
+              @keyframes info-partner-marquee-x {
+                from {
+                  transform: translate3d(0, 0, 0);
+                }
+                to {
+                  transform: translate3d(-50%, 0, 0);
+                }
+              }
+              @media (prefers-reduced-motion: reduce) {
+                .info-partner-marquee {
+                  animation: none !important;
+                  transform: none !important;
+                  flex-wrap: wrap;
+                  justify-content: center;
+                  min-width: 0;
+                  gap: 1rem;
+                }
+              }
+            `}</style>
           </div>
         </div>
       </div>

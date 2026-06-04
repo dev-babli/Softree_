@@ -17,7 +17,7 @@ export const PARTNER_LOGOS = [
   { name: "Intellectt", src: "/images/logo/Intellectt_logo.png", accent: "#a855f7" },
 ] as const;
 
-type Logo = (typeof PARTNER_LOGOS)[number];
+export type Logo = (typeof PARTNER_LOGOS)[number];
 
 const PARTNERS: Logo[] = [...PARTNER_LOGOS];
 
@@ -61,7 +61,7 @@ const marqueeStyles = `
   }
 `;
 
-function PartnerLogo({
+export function PartnerLogo({
   partner,
   tone = "legacy",
 }: {

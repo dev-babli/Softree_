@@ -6,14 +6,17 @@ export const resolve: PresentationPluginOptions['resolve'] = {
   locations: {
     post: defineLocations({
       select: { title: 'title', slug: 'slug.current' },
+      resolve: (doc) => ({
         locations: doc?.slug
           ? [
               { title: doc?.title || 'Blog post', href: `/blog/${doc.slug}` },
               { title: 'Blog index', href: '/blog' },
             ]
           : [{ title: 'Blog index', href: '/blog' }],
+      }),
     }),
 
+    caseStudy: defineLocations({
       select: { title: 'title', slug: 'slug.current', category: 'category' },
       resolve: (doc) => {
         const slugPath = doc?.slug ? `/case-studies/${doc.slug}` : '/case-studies'

@@ -359,7 +359,7 @@ export default function LightContactSection() {
                     <p
                       role="region"
                       aria-label="Email Form failure"
-                      className="mt-5 text-sm leading-6 text-[var(--legacy-ff8c70)]"
+                      className="mt-5 text-sm leading-6 text-red-500"
                     >
                       Submission failed. Please try again in a moment.
                     </p>
