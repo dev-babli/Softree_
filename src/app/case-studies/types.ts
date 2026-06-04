@@ -24,16 +24,3 @@ export type CaseStudyHeroSlide = {
   imageFit?: "cover" | "contain"
   stats: { score: string; label: string }[]
 }
-
-export type CaseStudyHeroSlide = {
-  company: string
-  eyebrow: string
-  title: string
-  description: string
-  ctaText: string
-  ctaHref: string
-  image: string
-  imageAlt: string
-  imageFit?: "cover" | "contain"
-  stats: { score: string; label: string }[]
-}
