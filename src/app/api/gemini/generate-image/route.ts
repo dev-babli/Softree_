@@ -1,8 +1,7 @@
 import { GoogleGenAI } from "@google/genai"
 import { NextResponse } from "next/server"
+import { generateWithGemini, isGeminiConfigured } from "@/lib/image-generation/gemini"
 
-const geminiApiKey =
-  process.env.GEMINI_API_KEY ?? process.env.GOOGLE_GENAI_API_KEY ?? ""
 const expectedApiKey = process.env.GEMINI_PLUGIN_API_KEY
 
 const corsHeaders = {
@@ -16,65 +15,31 @@ function verifyApiKey(request: Request): boolean {
   return request.headers.get("x-api-key") === expectedApiKey
 }
 
-async function generateSingleImage(
+function getGeminiClient(): GoogleGenAI {
+  const apiKey =
+    process.env.GEMINI_API_KEY ?? process.env.GOOGLE_GENAI_API_KEY ?? ""
+  return new GoogleGenAI({ apiKey })
+}
+
+/** Legacy series helper — still uses a single Gemini model. */
+async function generateSingleImageLegacy(
   client: GoogleGenAI,
+  modelName: string,
   prompt: string,
   aspectRatio?: string,
   mode?: string,
   baseImage?: string,
 ) {
-  const modelName = "gemini-2.5-flash-image"
-  let response
-
-  if (mode === "edit" && baseImage) {
-    response = await client.models.generateContent({
-      model: modelName,
-      contents: [
-        {
-          parts: [
-            {
-              inlineData: {
-                mimeType: "image/png",
-                data: baseImage,
-              },
-            },
-            { text: prompt },
-          ],
-        },
-      ],
-      config: {
-        imageConfig: aspectRatio ? { aspectRatio } : {},
-      },
-    })
-  } else {
-    response = await client.models.generateContent({
-      model: modelName,
-      contents: [{ parts: [{ text: prompt }] }],
-      config: {
-        responseModalities: ["Image"],
-        imageConfig: aspectRatio ? { aspectRatio } : {},
-      },
-    })
-  }
-
-  const result = response as {
-    candidates?: Array<{
-      content?: { parts?: Array<{ inlineData?: { data: string; mimeType?: string } }> }
-    }>
-  }
-
-  if (result.candidates?.[0]?.content?.parts) {
-    for (const part of result.candidates[0].content.parts) {
-      if (part.inlineData) {
-        return {
-          imageData: part.inlineData.data,
-          mimeType: part.inlineData.mimeType || "image/png",
-        }
-      }
-    }
-  }
-
-  throw new Error("No image generated in response")
+  const result = await generateWithGemini({
+    provider: "gemini",
+    modelId: modelName,
+    prompt,
+    aspectRatio,
+    mode: mode === "edit" ? "edit" : undefined,
+    baseImage,
+    model: modelName,
+  })
+  return { imageData: result.imageData, mimeType: result.mimeType }
 }
 
 export async function OPTIONS() {
@@ -89,16 +54,27 @@ export async function POST(request: Request) {
     )
   }
 
-  if (!geminiApiKey) {
+  if (!isGeminiConfigured()) {
     return NextResponse.json(
-      { error: "Gemini API not configured (set GEMINI_API_KEY or GOOGLE_GENAI_API_KEY)" },
+      {
+        error:
+          "Gemini API not configured (set GEMINI_API_KEY or GOOGLE_GENAI_API_KEY)",
+      },
       { status: 500, headers: corsHeaders },
     )
   }
 
   try {
     const body = await request.json()
-    const { prompt, aspectRatio, mode, baseImage, series } = body
+    const {
+      prompt,
+      aspectRatio,
+      mode,
+      baseImage,
+      series,
+      modelKey,
+      modelId,
+    } = body
 
     if (!prompt) {
       return NextResponse.json(
@@ -107,7 +83,9 @@ export async function POST(request: Request) {
       )
     }
 
-    const client = new GoogleGenAI({ apiKey: geminiApiKey })
+    const modelName =
+      modelKey ?? modelId ?? "gemini-2.5-flash-image"
+    const client = getGeminiClient()
 
     if (series) {
       const { quantity, consistencyPrompt, variations } = series
@@ -120,7 +98,11 @@ export async function POST(request: Request) {
       }
 
       const parsedQuantity = Number(quantity)
-      if (!Number.isFinite(parsedQuantity) || parsedQuantity < 2 || parsedQuantity > 10) {
+      if (
+        !Number.isFinite(parsedQuantity) ||
+        parsedQuantity < 2 ||
+        parsedQuantity > 10
+      ) {
         return NextResponse.json(
           { error: "Quantity must be a number between 2 and 10" },
           { status: 400, headers: corsHeaders },
@@ -133,7 +115,8 @@ export async function POST(request: Request) {
         variation: string
         index: number
       }> = []
-      const errors: Array<{ index: number; variation: string; error: string }> = []
+      const errors: Array<{ index: number; variation: string; error: string }> =
+        []
 
       const generateImage = async (variation: string, index: number) => {
         try {
@@ -159,8 +142,9 @@ export async function POST(request: Request) {
               .join(" ")
           }
 
-          const result = await generateSingleImage(
+          const result = await generateSingleImageLegacy(
             client,
+            modelName,
             fullPrompt,
             aspectRatio,
             mode,
@@ -171,7 +155,8 @@ export async function POST(request: Request) {
           errors.push({
             index,
             variation,
-            error: error instanceof Error ? error.message : "Generation failed",
+            error:
+              error instanceof Error ? error.message : "Generation failed",
           })
           return null
         }
@@ -202,8 +187,11 @@ export async function POST(request: Request) {
           quantity: parsedQuantity,
           successful: images.length,
           failed: errors.length,
+          model: modelName,
         },
-        ...(errors.length > 0 ? { errors, warning: "Some image generations failed" } : {}),
+        ...(errors.length > 0
+          ? { errors, warning: "Some image generations failed" }
+          : {}),
       }
 
       return NextResponse.json(payload, {
@@ -212,12 +200,27 @@ export async function POST(request: Request) {
       })
     }
 
-    const result = await generateSingleImage(client, prompt, aspectRatio, mode, baseImage)
-    return NextResponse.json(result, { headers: corsHeaders })
+    const result = await generateWithGemini({
+      provider: "gemini",
+      modelId: modelName,
+      model: modelName,
+      prompt,
+      aspectRatio,
+      mode: mode === "edit" ? "edit" : undefined,
+      baseImage,
+    })
+
+    return NextResponse.json(
+      { imageData: result.imageData, mimeType: result.mimeType },
+      { headers: corsHeaders },
+    )
   } catch (error) {
     console.error("Image generation failed:", error)
     return NextResponse.json(
-      { error: error instanceof Error ? error.message : "Image generation failed" },
+      {
+        error:
+          error instanceof Error ? error.message : "Image generation failed",
+      },
       { status: 500, headers: corsHeaders },
     )
   }

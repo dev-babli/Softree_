@@ -11,6 +11,7 @@ import {structureTool} from 'sanity/structure'
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import {assistPlugin} from './src/sanity/assist/config'
+import {geminiImageToolPlugin} from './src/sanity/plugins/geminiImageTool'
 import {resolve as presentationResolve} from './sanity/presentation/resolve'
 import {apiVersion, dataset, projectId} from './src/sanity/env'
 import {schema} from './src/sanity/schemaTypes'
@@ -35,6 +36,7 @@ export default defineConfig({
   plugins: [
     structureTool({structure, defaultDocumentNode: getDefaultDocumentNode}),
     assistPlugin,
+    geminiImageToolPlugin(),
     presentationTool({
       resolve: {
         ...presentationResolve,
