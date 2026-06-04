@@ -1,9 +1,11 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
 import { useState, useRef, type FormEvent, type ReactNode } from "react"
+import { SOFTREE_OFFICES_CONTACT } from "@/data/softree-offices"
 
 type Status = "idle" | "submitting" | "success" | "error"
 
@@ -32,7 +34,7 @@ function SocialIcon({
       aria-label={label}
       target="_blank"
       rel="noreferrer"
-      className="grid h-11 w-11 place-items-center rounded-full border border-white/16 bg-white/[0.055] text-white transition duration-300 hover:-translate-y-1 hover:border-white/35 hover:bg-white hover:text-[var(--legacy-09090d)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5812]/70"
+      className="grid h-11 w-11 place-items-center rounded-full border border-white/16 bg-white/[0.055] text-white transition duration-300 hover:-translate-y-1 hover:border-white/35 hover:bg-white hover:text-[#09090d] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5812]/70"
     >
       <span className="h-[22px] w-[22px]">{children}</span>
     </a>
@@ -157,7 +159,7 @@ export default function LightContactSection() {
   return (
     <section
       id="contact"
-      className="relative isolate overflow-hidden bg-[var(--legacy-f6f4f0)] px-4 py-8 text-[var(--legacy-111)] sm:px-6 sm:py-12 lg:px-8 lg:py-16"
+      className="relative isolate overflow-hidden bg-[#f6f4f0] px-4 py-8 text-[#111111] sm:px-6 sm:py-12 lg:px-8 lg:py-16"
     >
       <div
         aria-hidden
@@ -192,15 +194,15 @@ export default function LightContactSection() {
           whileInView={{ y: 0, opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-10%" }}
           transition={{ duration: 0.85, ease: EASE, delay: 0.05 }}
-          className="overflow-hidden rounded-[8px] bg-[var(--legacy-09090d)] text-white shadow-[0_34px_100px_-50px_rgba(0,0,0,0.75)]"
+          className="overflow-hidden rounded-[8px] bg-[#09090d] text-white shadow-[0_34px_100px_-50px_rgba(0,0,0,0.75)]"
         >
-          <div className="grid md:min-h-[500px] grid-cols-1 md:grid-cols-[0.32fr_1.12fr_1fr]">
-            <aside className="flex flex-col justify-between border-b border-white/10 p-5 sm:p-6 md:border-b-0 md:border-r">
+          <div className="grid lg:min-h-[420px] grid-cols-1 lg:grid-cols-[0.32fr_1.12fr_1fr]">
+            <aside className="flex flex-col justify-between border-b border-white/10 p-4 sm:p-5 lg:border-b-0 lg:border-r">
               <div>
                 <p className="text-[13px] font-semibold tracking-[-0.01em] text-white">
                   Follow us
                 </p>
-                <div className="mt-5 flex flex-wrap gap-3 md:flex-col">
+                <div className="mt-5 flex flex-wrap gap-3 lg:flex-col">
                   <SocialIcon href="https://www.instagram.com/" label="Instagram">
                     <InstagramIcon />
                   </SocialIcon>
@@ -216,12 +218,12 @@ export default function LightContactSection() {
                 </div>
               </div>
 
-              <div className="mt-10 hidden h-px w-full bg-white/10 md:block" />
+              <div className="mt-10 hidden h-px w-full bg-white/10 lg:block" />
             </aside>
 
-            <div className="flex flex-col justify-between gap-8 border-b border-white/10 p-5 sm:p-6 md:border-b-0 md:border-r">
-              <div className="grid gap-6 xl:grid-cols-[0.86fr_1fr]">
-                <div className="relative min-h-[140px] sm:min-h-[180px] md:min-h-[240px] overflow-hidden rounded-[6px] bg-white/8">
+            <div className="flex flex-col justify-between gap-5 border-b border-white/10 p-4 sm:p-5 lg:border-b-0 lg:border-r">
+              <div className="grid gap-4 xl:grid-cols-[0.86fr_1fr]">
+                <div className="relative min-h-[100px] sm:min-h-[120px] md:min-h-[160px] overflow-hidden rounded-[6px] bg-white/8">
                   <Image
                     src="https://cdn.prod.website-files.com/69a0a45220c8336fe957ccba/69ce260749d7110937223c7f_CTA%20Picture.webp"
                     alt="Person wearing a white hooded jacket and virtual reality headset against a shimmering abstract background."
@@ -239,11 +241,11 @@ export default function LightContactSection() {
                   <p className="text-[18px] font-medium tracking-[-0.02em]">
                     What we offer
                   </p>
-                  <div className="mt-5 flex flex-col gap-2">
+                  <div className="mt-4 flex flex-col gap-2">
                     {services.map((service) => (
                       <div
                         key={service}
-                        className="group flex items-center gap-3 border-b border-white/10 py-3"
+                        className="group flex items-center gap-3 border-b border-white/10 py-2"
                       >
                         <span className="h-2 w-2 rounded-full bg-[#ff5812] transition-transform duration-300 group-hover:scale-[1.45]" />
                         <span className="text-sm leading-none text-white/72 transition-colors group-hover:text-white">
@@ -255,7 +257,7 @@ export default function LightContactSection() {
                 </div>
               </div>
 
-              <div className="grid gap-4 border-t border-white/10 pt-6 sm:grid-cols-2">
+              <div className="flex flex-col gap-5 border-t border-white/10 pt-4">
                 <div>
                   <p className="text-[18px] font-medium tracking-[-0.02em]">
                     E-Mail
@@ -271,24 +273,28 @@ export default function LightContactSection() {
                   <p className="text-[18px] font-medium tracking-[-0.02em]">
                     Offices
                   </p>
-                  <div className="mt-2 space-y-4 text-[14px] leading-6 text-white/58">
-                    <p>
-                      <span className="block text-white/72">HQ — Cuttack</span>
-                      PLOT 5C/1283, SECTOR-10, CDA
-                      <br />
-                      Cuttack, Odisha 753014, India
-                    </p>
-                    <p>
-                      <span className="block text-white/72">Bengaluru</span>
-                      11th Floor, Prestige Tech Park, Platina 2, Outer Ring Rd,
-                      Kadubeesanahalli, Bengaluru, Karnataka 560087
-                    </p>
+                  <div className="mt-3 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                    {SOFTREE_OFFICES_CONTACT.map((office) => (
+                      <address
+                        key={office.city}
+                        className="not-italic text-[13px] leading-[1.55] text-white/58"
+                      >
+                        <span className="mb-1.5 block text-[14px] font-medium text-white/80">
+                          {office.city}
+                        </span>
+                        {office.lines.map((line) => (
+                          <span key={line} className="block">
+                            {line}
+                          </span>
+                        ))}
+                      </address>
+                    ))}
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-col p-5 sm:p-6">
+            <div className="flex flex-col p-4 sm:p-5">
               <div>
                 <p className="text-[18px] font-medium tracking-[-0.02em]">
                   Got a question, challenge, or idea?
@@ -298,7 +304,7 @@ export default function LightContactSection() {
                 </p>
               </div>
 
-              <div className="my-5 sm:my-7 h-px w-full bg-white/10" />
+              <div className="my-4 sm:my-5 h-px w-full bg-white/10" />
 
               <form
                 ref={formRef}
@@ -306,9 +312,9 @@ export default function LightContactSection() {
                 name="email-form"
                 aria-label="Contact Form"
                 onSubmit={handleSubmit}
-                className="flex flex-1 flex-col justify-between"
+                className="flex flex-1 flex-col justify-start gap-8"
               >
-                <div className="grid gap-4 sm:gap-5">
+                <div className="flex flex-col gap-5 sm:gap-6">
                   <Field id="CTA-Name" name="name" placeholder="Full Name" autoComplete="name" />
                   <Field id="email" name="email" type="email" placeholder="E-Mail" required autoComplete="email" />
                   <Field id="company-name" name="company" placeholder="Company Name" autoComplete="organization" />
@@ -329,17 +335,32 @@ export default function LightContactSection() {
 
                 <div>
                   <input name="_gotcha" type="text" className="sr-only" tabIndex={-1} autoComplete="off" aria-hidden="true" />
-                  <button
-                    type="submit"
-                    disabled={status === "submitting"}
-                    className="group mt-6 sm:mt-8 inline-flex h-11 sm:h-12 w-full sm:w-fit sm:px-8 gap-4 items-center justify-between rounded-full bg-[#ff5812] px-6 text-[13px] font-semibold uppercase tracking-[0.16em] text-white transition duration-300 hover:bg-white hover:text-[var(--legacy-09090d)] disabled:cursor-not-allowed disabled:opacity-65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5812]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090d]"
-                  >
-                    <span>{status === "submitting" ? "Please wait..." : "Send message & book a call"}</span>
-                    <ArrowUpRight
-                      className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45"
-                      strokeWidth={2}
-                    />
-                  </button>
+                  <div className="flex flex-col sm:flex-row gap-4 mt-6 sm:mt-8 w-full sm:w-auto">
+                    {/* Button 1: Send Message */}
+                    <button
+                      type="submit"
+                      disabled={status === "submitting"}
+                      className="group inline-flex h-11 sm:h-12 w-full sm:w-fit sm:px-8 gap-3 items-center justify-center rounded-full bg-[#ff5812] px-6 text-[13px] font-semibold uppercase tracking-[0.16em] text-white transition duration-300 hover:bg-white hover:text-[#09090d] disabled:cursor-not-allowed disabled:opacity-65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5812]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090d]"
+                    >
+                      <span>{status === "submitting" ? "Sending..." : "Send Message"}</span>
+                      <ArrowUpRight
+                        className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45"
+                        strokeWidth={2}
+                      />
+                    </button>
+
+                    {/* Button 2: Book a Call */}
+                    <Link
+                      href="/book-meeting"
+                      className="group inline-flex h-11 sm:h-12 w-full sm:w-fit sm:px-8 gap-3 items-center justify-center rounded-full border border-white/20 hover:border-[#ff5812] px-6 text-[13px] font-semibold uppercase tracking-[0.16em] text-white transition duration-300 hover:bg-[#ff5812] disabled:cursor-not-allowed focus-visible:outline-none"
+                    >
+                      <span>Book a Call</span>
+                      <ArrowUpRight
+                        className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45"
+                        strokeWidth={2}
+                      />
+                    </Link>
+                  </div>
 
                   <p className="mt-3 text-[11px] text-white/35 leading-5">
                     By submitting, you agree to our{" "}

@@ -45,25 +45,37 @@ export const navCaseStudiesQuery = groq`
     client,
     slug,
     excerpt,
-    category,
+    storyType,
+    heroLayout,
+    detailLayout,
     industry,
+    useCase,
+    companySize,
+    featuredRank,
     mainImage { asset->{ url }, alt },
-    mainImageUrl
+    mainImageUrl,
+    "keyResults": keyResults[] { value, label, description }
   }
 `;
 
 /** Featured case studies for homepage and promos (max 6). */
 export const featuredCaseStudiesNavQuery = groq`
-  *[_type == "caseStudy" && coalesce(status, "published") == "published" && featured == true && defined(slug.current)] | order(publishedAt desc)[0...6] {
+  *[_type == "caseStudy" && coalesce(status, "published") == "published" && featuredRank > 0 && defined(slug.current)] | order(featuredRank asc, publishedAt desc)[0...6] {
     _id,
     title,
     client,
     slug,
     excerpt,
-    category,
+    storyType,
+    heroLayout,
+    detailLayout,
     industry,
+    useCase,
+    companySize,
+    featuredRank,
     mainImage { asset->{ url }, alt },
-    mainImageUrl
+    mainImageUrl,
+    "keyResults": keyResults[] { value, label, description }
   }
 `;
 
@@ -75,16 +87,20 @@ export const caseStudyBySlugQuery = groq`
     slug,
     headerTitle,
     "excerpt": coalesce(excerpt, description),
-    category,
+    storyType,
+    heroLayout,
+    detailLayout,
     industry,
+    useCase,
+    companySize,
+    featuredRank,
     client,
     location,
     employees,
     scaleOfOperation,
-    projectDuration,
+    duration,
     teamSize,
     accentColor,
-    detailLayout,
     projectType,
     region,
     endUsers,
@@ -104,10 +120,13 @@ export const caseStudyBySlugQuery = groq`
     faqs[] { question, answer },
     mainImage { asset->{ url, metadata }, alt },
     "mainImageUrl": coalesce(mainImageUrl, imageUrl),
+    clientLogo { asset->{ url } },
+    heroImage { asset->{ url, metadata }, alt },
     pdfUrl,
     liveUrl,
     technologies,
     highlights[] { value, label },
+    keyResults[] { value, label, description },
     "rawResults": results,
     pullQuoteImage { asset->{ url, metadata }, alt, caption },
     challengeSummary,
@@ -121,11 +140,17 @@ export const caseStudyBySlugQuery = groq`
     outcomeContent,
     body,
     metrics[] { label, value, description },
+    heroEyebrow,
+    heroHeadline,
+    projectDuration,
     testimonial {
       quote,
       name,
       role,
-      avatar { asset->{ url } }
+      company,
+      location,
+      avatar { asset->{ url } },
+      headshot { asset->{ url } }
     },
     gallery[] {
       asset->{ url, metadata },
@@ -133,6 +158,7 @@ export const caseStudyBySlugQuery = groq`
       caption
     },
     galleryUrls[] { url, alt, caption },
+    relatedSlugs,
     relatedCaseStudies[]-> {
       _id,
       title,
@@ -160,12 +186,14 @@ export const relatedCaseStudiesFallbackQuery = groq`
     _id,
     title,
     slug,
-    category,
+    storyType,
     industry,
+    useCase,
     "excerpt": coalesce(excerpt, description),
     mainImage { asset->{ url } },
     "mainImageUrl": coalesce(mainImageUrl, imageUrl),
-    client
+    client,
+    "keyResults": keyResults[] { value, label, description }
   }
 `;
 

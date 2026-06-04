@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { AlertCircle, Clock, Layers } from "lucide-react"
+import { stockPackForSlug } from "@/lib/case-study-stock-images"
 import type { CaseStudyLayoutData } from "../../../types"
 import { PageContainer, Reveal, SectionLabel, SectionTitle } from "../shared"
 import { csLightClasses } from "../../../design-system/caseStudyLightTokens"
@@ -9,7 +10,8 @@ import { csLightClasses } from "../../../design-system/caseStudyLightTokens"
 const ICONS = [Layers, AlertCircle, Clock]
 
 export function ChallengeSection({ data }: { data: CaseStudyLayoutData }) {
-  const imageSrc = data.sectionImages?.challenge || "/Gallery/Prestige Bangalore-2.webp"
+  const imageSrc =
+    data.sectionImages?.challenge || stockPackForSlug(data.slug).challenge
 
   return (
     <section id="challenge" className="scroll-mt-24 bg-[var(--softree-bg-light,#fafaf9)] py-16 md:py-24">
@@ -24,7 +26,7 @@ export function ChallengeSection({ data }: { data: CaseStudyLayoutData }) {
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-[#efeae0]">
               <Image
                 src={imageSrc}
-                alt="Operations and manufacturing workspace"
+                alt={data.client ? `${data.client} — project context` : "Project context"}
                 fill
                 className="object-cover"
                 sizes="(min-width: 1024px) 48vw, 100vw"

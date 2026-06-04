@@ -1,143 +1,94 @@
 "use client";
 
-const techStack = [
-  // Languages — simpleicons SVGs are monochrome black; need invert on dark bg
-  { name: "Python", img: "https://cdn.simpleicons.org/python", invert: true },
+/**
+ * Homepage tech stack — light editorial band after Industries.
+ * Reuses LogoLoopTechStack (same colored icons as Engineering Solutions).
+ */
 
-  { name: "C#", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg", invert: false },
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import SectionHeader from "@/components/homepage-light/SectionHeader";
+import LogoLoopTechStack from "@/components/sections/engineering-solutions/LogoLoopTechStack";
+import { DUR, EASE_T, REVEAL, VIEWPORT } from "@/lib/motion";
 
-  // Backend / Frameworks
-  { name: "Node.js", img: "https://cdn.simpleicons.org/nodedotjs", invert: true },
-  { name: ".NET", img: "https://cdn.simpleicons.org/dotnet", invert: true },
-
-  { name: "Django", img: "https://cdn.simpleicons.org/django", invert: true },
-  { name: "GraphQL", img: "https://cdn.simpleicons.org/graphql", invert: true },
-
-  // Frontend
-  { name: "React", img: "https://cdn.simpleicons.org/react", invert: true },
-  { name: "Next.js", img: "https://cdn.simpleicons.org/nextdotjs", invert: true },
-  { name: "Vue.js", img: "https://cdn.simpleicons.org/vuedotjs", invert: true },
-
-  // Mobile
-  { name: "React Native", img: "https://cdn.simpleicons.org/react", invert: true },
-
-  // Microsoft Ecosystem — full-colour brand WEBPs; do NOT invert
-  {
-    name: "SharePoint",
-    img: "/images/sharepoint.webp",
-    invert: false,
-  },
-  { name: "Power Apps", img: "/images/power-apps.webp", invert: false },
-  { name: "Power Automate", img: "/images/power-auto.webp", invert: false },
-];
+const SURFACE = "#F3F0EE";
+const ACCENT_BLUE = "#1852FF";
 
 export default function TechStack() {
+  const ref = useRef<HTMLElement | null>(null);
+  const inView = useInView(ref, { ...VIEWPORT.once, amount: 0.2 });
+
   return (
-    <section className="relative py-12 overflow-hidden bg-[#0a0a0a]">
-      {/* Content */}
-      <div className="relative max-w-7xl mx-auto px-6">
-        <div
-          className="
-            rounded-3xl
-            bg-gradient-to-br from-black/70 via-black/60 to-black/70
-            border border-white/8
-            backdrop-blur-xl
-            shadow-[0_40px_120px_rgba(0,0,0,0.6)]
-            px-6 md:px-10 lg:px-14
-            py-20
-          "
+    <section
+      ref={ref}
+      data-section="tech-stack"
+      data-theme-section="light"
+      aria-labelledby="tech-stack-heading"
+      className="relative overflow-hidden border-t border-[#0a0a1a]/[0.06] py-16 md:py-20"
+      style={{ backgroundColor: SURFACE }}
+    >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background: `radial-gradient(42% 50% at 50% 0%, rgba(24,82,255,0.05), transparent 70%)`,
+        }}
+      />
+
+      <div className="relative mx-auto w-full max-w-[1280px] px-6 lg:px-12">
+        <motion.div
+          className="mx-auto max-w-2xl text-center"
+          initial={REVEAL.up.initial}
+          animate={inView ? REVEAL.up.animate : REVEAL.up.initial}
+          transition={{ duration: DUR.section, ease: EASE_T.silk }}
         >
-          {/* Heading */}
-          <div className="text-center mb-20">
-            <h2 className="relative inline-block text-4xl md:text-5xl font-bold leading-tight mb-6">
-              <span className="text-white">
-                From MVPs to Enterprise Solutions
+          <SectionHeader
+            badge="Technology stack"
+            accent={ACCENT_BLUE}
+            headline={
+              <span id="tech-stack-heading" className="text-balance">
+                From MVP launches to enterprise platforms
               </span>
-              <br />
-              <span
-                className="inline-block bg-clip-text text-transparent"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(90deg, #3a3a3a 0%, #6b5b5b 30%, #c75a2a 65%, #ff7a2f 100%)"
-                }}
-              >
-                Softree Builds It All
-              </span>
+            }
+            body="Modern frontends, Microsoft Power Platform, and cloud-native backends — one bench, full stack."
+            className="!items-center [&_p]:mx-auto"
+          />
+        </motion.div>
 
-            </h2>
+        <motion.div
+          className="mx-auto mt-10 max-w-4xl md:mt-12"
+          initial={REVEAL.fade.initial}
+          animate={inView ? REVEAL.fade.animate : REVEAL.fade.initial}
+          transition={{ duration: DUR.card, ease: EASE_T.silk, delay: 0.1 }}
+        >
+          <LogoLoopTechStack
+            fadeOutColor={SURFACE}
+            logoHeight={38}
+            gap={36}
+            speed={75}
+            ariaLabel="Technologies Softree builds with"
+          />
+        </motion.div>
 
-            <p className="max-w-3xl mx-auto text-lg text-white/80">
-              At Softree, we combine modern frontend frameworks, robust backend
-              systems, cloud-native architecture, DevOps automation, and AI
-              innovation to deliver scalable solutions — from fast MVP launches
-              to secure, enterprise-grade platforms.
-            </p>
-          </div>
-
-          {/* Marquee */}
-          <div className="relative overflow-hidden">
-            <style>{`
-              @media (prefers-reduced-motion: no-preference) {
-                .tech-marquee { animation: techScroll 28s linear infinite; }
-                .tech-marquee:hover { animation-play-state: paused; }
-                @keyframes techScroll {
-                  0% { transform: translateX(0); }
-                  100% { transform: translateX(-50%); }
-                }
-              }
-            `}</style>
-            <div className="tech-marquee flex gap-10 w-max">
-              {[...techStack, ...techStack].map((tech, i) => (
-                <div
-                  key={i}
-                  className="
-                    min-w-[160px] h-[120px] rounded-2xl
-                    bg-gradient-to-br
-                    from-[#111111] via-[#0e0e0e] to-[#111111]
-                    border border-white/8
-                    backdrop-blur-md
-                    flex flex-col items-center justify-center gap-3
-                    transition-all duration-300
-                    hover:-translate-y-2
-                    hover:shadow-[0_0_40px_rgba(255,122,47,0.12)]
-                  "
-                >
-                  <img
-                    src={tech.img}
-                    alt={tech.name}
-                    /* Conditional invert — monochrome simpleicons need it on
-                     * a dark canvas; full-colour brand WEBPs do not. */
-                    className={`w-12 h-12 object-contain ${tech.invert ? "invert" : ""}`}
-                  />
-                  <span className="text-sm text-white/90">{tech.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="text-center mt-20">
-            <a
-              href="/services/mvp"
-              className="
-      group inline-flex items-center justify-center gap-2
-      px-10 py-4 rounded-full font-semibold
-      text-white transition-all duration-300
-      hover:-translate-y-1 active:scale-[0.97]
-    "
-              style={{
-                background:
-                  "linear-gradient(90deg, #3a3a3a 0%, #6b5b5b 30%, #c75a2a 65%, #ff7a2f 100%)"
-              }}
-            >
-              Explore all Technologies
-
-              {/* Arrow */}
-              <span className="text-xl transition-transform duration-300 group-hover:translate-x-2">
-                →
-              </span>
-            </a>
-          </div>
-        </div>
+        <motion.div
+          className="mt-8 flex justify-center md:mt-10"
+          initial={REVEAL.fade.initial}
+          animate={inView ? REVEAL.fade.animate : REVEAL.fade.initial}
+          transition={{ duration: DUR.card, ease: EASE_T.silk, delay: 0.18 }}
+        >
+          <Link
+            href="/services/mvp"
+            className="group inline-flex items-center gap-2 text-[13px] font-semibold text-[#0a0a1a]/70 transition-colors hover:text-[#1852FF]"
+          >
+            Explore all technologies
+            <ArrowRight
+              className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
+              aria-hidden
+            />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

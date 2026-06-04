@@ -261,7 +261,7 @@ export default function LightAboutMerged() {
                 Your global offshore development partner.
               </h3>
             </TextReveal>
-             <WordReveal
+            <WordReveal
               text={`${COUNTRIES_SERVED} countries served. 200+ projects delivered. One dedicated offshore team — working as an extension of yours.`}
               delay={0.4}
               className="mb-6 text-2xl font-semibold leading-tight text-[#1852FF] md:text-3xl"

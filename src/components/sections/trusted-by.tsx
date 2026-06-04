@@ -8,29 +8,19 @@ import {
   useTransform,
 } from "framer-motion";
 import { useEffect, useRef } from "react";
+import { PARTNER_LOGOS } from "@/components/qc/homepage-light/AboutClientLogos";
+import { DUR, EASE_T, VIEWPORT } from "@/lib/motion";
 
-interface Logo {
-  name: string;
-  src: string;
-}
+/** About Us primary accent — dark-section chrome */
+const BRAND_ACCENT = "#FF5812";
+const SURFACE = "#070708";
 
-const LOGOS: Logo[] = [
-  { name: "GO ERP", src: "/images/logo/goerp1.jpg" },
-  { name: "Nuvento", src: "/images/logo/nuvento.jpg" },
-  { name: "Kwiz", src: "/images/logo/kwiz.png" },
-  { name: "Jonians", src: "/images/logo/jonians.jpg" },
-  { name: "Export Control", src: "/images/logo/ecg.png" },
-  { name: "SP Marketplace", src: "/images/logo/sp-marketplace.png" },
-  { name: "Bosch", src: "/images/logo/bosch.png" },
-  { name: "Emscale", src: "/images/logo/emscale_logo.png" },
-  { name: "Link Innovation", src: "/images/logo/link-innovation.png" },
-  { name: "Intellectt", src: "/images/logo/Intellectt_logo.png" },
-];
+type Logo = { name: string; src: string };
+
+const LOGOS: Logo[] = PARTNER_LOGOS.map(({ name, src }) => ({ name, src }));
 
 /* ---------------------------------------------------------------------------
- * LogoCard
- * White tile keeps mixed JPG/PNG logos legible and on-brand.
- * Apple/Stripe trust-grid convention.
+ * LogoCard — white tiles on dark canvas (Apple / Stripe trust-grid convention)
  * ------------------------------------------------------------------------- */
 function LogoCard({ logo }: { logo: Logo }) {
   const imgRef = useRef<HTMLImageElement>(null);
@@ -57,15 +47,14 @@ function LogoCard({ logo }: { logo: Logo }) {
         hover:-translate-y-[2px]
         hover:ring-black/[0.12]
         hover:shadow-[0_2px_4px_rgba(0,0,0,0.08),0_18px_38px_-14px_rgba(0,0,0,0.28)]
+        motion-reduce:hover:translate-y-0
       "
     >
-      {/* Top hairline highlight — barely-there gloss */}
       <span
         aria-hidden
         className="pointer-events-none absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-black/[0.08] to-transparent"
       />
 
-      {/* Logo */}
       <div className="relative flex h-12 w-[150px] items-center justify-center">
         <img
           ref={imgRef}
@@ -94,38 +83,33 @@ function LogoCard({ logo }: { logo: Logo }) {
         </div>
       </div>
 
-      {/* Bottom-edge inner shadow — gives the tile a tiny bit of depth */}
       <span
         aria-hidden
         className="pointer-events-none absolute inset-x-0 bottom-0 h-3"
         style={{
-          background:
-            "linear-gradient(to top, rgba(0,0,0,0.04), transparent)",
+          background: "linear-gradient(to top, rgba(0,0,0,0.04), transparent)",
         }}
       />
     </div>
   );
 }
 
-/* ---------------------------------------------------------------------------
- * MarqueeRow
- * - Pauses when off-screen (battery / GPU)
- * - Pauses on hover so users can read a logo
- * - Honors prefers-reduced-motion
- * ------------------------------------------------------------------------- */
 function MarqueeRow({
   items,
   reverse = false,
   duration = "60s",
+  paused = false,
 }: {
   items: Logo[];
   reverse?: boolean;
   duration?: string;
+  paused?: boolean;
 }) {
   const repeated = [...items, ...items, ...items, ...items];
   const wrapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (paused) return;
     const el = wrapRef.current;
     if (!el) return;
     const observer = new IntersectionObserver(
@@ -136,25 +120,29 @@ function MarqueeRow({
           ? "running"
           : "paused";
       },
-      { threshold: 0 }
+      { threshold: 0 },
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [paused]);
 
   return (
     <div ref={wrapRef} className="overflow-hidden">
       <div
         className="softree-trust-track flex w-max items-center gap-4 py-3"
         style={{
-          animation: `softree-trust-scroll ${duration} linear infinite`,
+          animation: paused
+            ? "none"
+            : `softree-trust-scroll ${duration} linear infinite`,
           animationDirection: reverse ? "reverse" : "normal",
-          willChange: "transform",
+          willChange: paused ? "auto" : "transform",
         }}
         onMouseEnter={(e) => {
+          if (paused) return;
           (e.currentTarget as HTMLElement).style.animationPlayState = "paused";
         }}
         onMouseLeave={(e) => {
+          if (paused) return;
           (e.currentTarget as HTMLElement).style.animationPlayState = "running";
         }}
       >
@@ -166,10 +154,41 @@ function MarqueeRow({
   );
 }
 
-/* ---------------------------------------------------------------------------
- * TrustedBy
- * Quiet authority. White tiles on a near-black canvas — Apple convention.
- * ------------------------------------------------------------------------- */
+function TrustSectionHeader() {
+  return (
+    <header className="mx-auto flex max-w-[44rem] flex-col items-center gap-6 text-center">
+      <span
+        className="inline-flex w-max items-center gap-2 rounded-full border px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.20em]"
+        style={{
+          color: BRAND_ACCENT,
+          borderColor: "rgba(255, 88, 18, 0.22)",
+          backgroundColor: "rgba(255, 88, 18, 0.08)",
+        }}
+      >
+        <span
+          aria-hidden
+          className="h-1.5 w-1.5 rounded-full motion-reduce:animate-none"
+          style={{ backgroundColor: BRAND_ACCENT }}
+        />
+        Trusted by
+      </span>
+
+      <h2
+        id="trustedby-heading"
+        className="text-balance font-semibold leading-[0.9] tracking-[-0.04em] text-white"
+        style={{ fontSize: "clamp(32px, 4.5vw, 56px)" }}
+      >
+        Built with teams the world relies on.
+      </h2>
+
+      <p className="max-w-[36rem] text-base leading-relaxed text-white/55">
+        From quiet enterprises to fast-moving product teams, partners choose
+        Softree to ship work that lasts.
+      </p>
+    </header>
+  );
+}
+
 export default function TrustedBy() {
   const reduceMotion = useReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
@@ -178,19 +197,12 @@ export default function TrustedBy() {
     target: sectionRef,
     offset: ["start end", "end start"],
   });
-  const rawScale = useTransform(scrollYProgress, [0, 0.4, 1], [0.97, 1, 1]);
-  const rawBlur = useTransform(scrollYProgress, [0, 0.3, 1], [4, 0, 0]);
+  const rawScale = useTransform(scrollYProgress, [0, 0.4, 1], [0.98, 1, 1]);
   const scale = useSpring(rawScale, {
     stiffness: 120,
     damping: 28,
     mass: 0.6,
   });
-  const blur = useSpring(rawBlur, {
-    stiffness: 120,
-    damping: 28,
-    mass: 0.6,
-  });
-  const blurFilter = useTransform(blur, (v) => `blur(${v}px)`);
 
   const row1 = LOGOS.slice(0, 5);
   const row2 = LOGOS.slice(5);
@@ -215,102 +227,75 @@ export default function TrustedBy() {
 
       <section
         ref={sectionRef}
+        data-section="trusted-by"
+        data-theme-section="dark"
         aria-labelledby="trustedby-heading"
-        className="relative overflow-hidden bg-[#070708] py-24 sm:py-28 lg:py-32"
+        className="relative overflow-hidden py-20 sm:py-24 lg:py-28"
+        style={{ backgroundColor: SURFACE }}
       >
-        {/* Top + bottom horizon seams */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-x-0 top-0 h-24"
           style={{
-            background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.55), transparent)",
+            background: `linear-gradient(to bottom, ${SURFACE}, transparent)`,
           }}
         />
         <div
           aria-hidden
           className="pointer-events-none absolute inset-x-0 bottom-0 h-24"
           style={{
-            background:
-              "linear-gradient(to top, rgba(0,0,0,0.55), transparent)",
+            background: `linear-gradient(to top, ${SURFACE}, transparent)`,
           }}
         />
 
-        {/* Soft warm bloom — confident, not loud */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
           style={{
-            background:
-              "radial-gradient(50% 35% at 50% 30%, rgba(255,122,47,0.07), transparent 65%)",
+            background: `radial-gradient(50% 35% at 50% 30%, rgba(255, 88, 18, 0.07), transparent 65%)`,
           }}
         />
 
-        <div className="relative mx-auto w-full max-w-[1400px] px-6">
-          {/* Header */}
-          <motion.header
-            initial={{ opacity: 0, y: 12, filter: "blur(6px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ type: "spring", duration: 0.75, bounce: 0 }}
-            className="mx-auto max-w-[44rem] text-center"
-          >
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-1 text-[10.5px] font-medium uppercase tracking-[0.22em] text-white/60 backdrop-blur">
-              <span className="relative inline-block h-1.5 w-1.5 rounded-full bg-[#f97316]">
-                <span className="absolute inset-0 animate-ping rounded-full bg-[#f97316]/60" />
-              </span>
-              Trusted globally
-            </span>
-
-            <h2
-              id="trustedby-heading"
-              className="mt-6 text-balance text-[2.5rem] font-medium leading-[1.05] tracking-[-0.025em] text-white sm:text-[3rem] lg:text-[3.5rem]"
-            >
-              Built with teams the world relies on.
-            </h2>
-
-            <p className="mx-auto mt-5 max-w-[36rem] text-[15px] leading-relaxed text-white/55">
-              From quiet enterprises to fast-moving product teams, partners
-              choose Softree to ship work that lasts.
-            </p>
-          </motion.header>
-
-          {/* Marquee block */}
+        <div className="relative mx-auto w-full max-w-[1400px] px-6 lg:px-12">
           <motion.div
-            style={{
-              scale,
-              filter: blurFilter,
-              willChange: "transform, filter, opacity",
-            }}
-            className="relative mt-16"
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={VIEWPORT.default}
+            transition={{ duration: DUR.panel, ease: EASE_T.silk }}
           >
-            {/* Wide cinematic edge fades */}
+            <TrustSectionHeader />
+          </motion.div>
+
+          <motion.div
+            style={reduceMotion ? undefined : { scale, willChange: "transform" }}
+            className="relative mt-12 sm:mt-14"
+          >
             <div
               aria-hidden
               className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 sm:w-48 lg:w-64"
               style={{
-                background:
-                  "linear-gradient(to right, #070708 10%, transparent 100%)",
+                background: `linear-gradient(to right, ${SURFACE} 10%, transparent 100%)`,
               }}
             />
             <div
               aria-hidden
               className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 sm:w-48 lg:w-64"
               style={{
-                background:
-                  "linear-gradient(to left, #070708 10%, transparent 100%)",
+                background: `linear-gradient(to left, ${SURFACE} 10%, transparent 100%)`,
               }}
             />
 
             <div className="space-y-4">
               <MarqueeRow
                 items={row1}
-                duration={reduceMotion ? "0s" : "60s"}
+                duration="60s"
+                paused={!!reduceMotion}
               />
               <MarqueeRow
                 items={row2}
                 reverse
-                duration={reduceMotion ? "0s" : "75s"}
+                duration="75s"
+                paused={!!reduceMotion}
               />
             </div>
           </motion.div>

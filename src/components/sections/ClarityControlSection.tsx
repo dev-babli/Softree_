@@ -1,12 +1,18 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { motion, useInView, type Variants } from "framer-motion";
+import { useEffect, useMemo, useRef, type RefObject } from "react";
+import { motion, useInView, useReducedMotion, type Variants } from "framer-motion";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import DottedMap from "dotted-map";
 import Grainient from "@/components/homepage-light/Grainient";
-import { EASE_T, STAGGER, EASE, DUR, prefersReducedMotion } from "@/lib/motion";
+import SectionHeader from "@/components/homepage-light/SectionHeader";
+import { EASE_T, STAGGER, EASE, DUR, VIEWPORT, prefersReducedMotion } from "@/lib/motion";
+
+/** About Us light editorial surface */
+export const HOME_INTRO_SURFACE = "#F3F0EE";
+const SURFACE = HOME_INTRO_SURFACE;
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -21,18 +27,34 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
  *  • Enhanced accessibility and reduced-motion support
  * ═══════════════════════════════════════════════════════════════════ */
 
-/* ── Premium card sizing with refined proportions ───────────────── */
-const OUTER_CARD = {
-    /* Enhanced outer card height with premium proportions */
-    minHeight: 480,
-};
+/* ── Card geometry (reference: square outer + glass from midline, flows below) ──
+ *  OUTER 400×400 Grainient only. INNER 350×350 glass: top edge at 50% of outer
+ *  (200px), extends 150px below the square. Position % must be relative to the
+ *  square box only — not a padded wrapper (that was pushing glass down). */
+const OUTER_PX = 400;
+const INNER_PX = 350;
+const GLASS_TOP_RATIO = 0.5;
+const GLASS_OVERFLOW_RATIO = (INNER_PX * (1 - GLASS_TOP_RATIO)) / OUTER_PX;
 
-const INNER_CARD = {
-    /* Premium inner glass card with refined square proportions */
-    size: 300,
-    /* Enhanced distance from outer card bottom */
-    bottomOffset: 32,
-};
+/** Shared coordinate space for card 1 & 2 SVG scenes. */
+const SCENE_SIZE = 280;
+const SCENE_CENTER = SCENE_SIZE / 2;
+
+/* ── Local motion token aliases ──────────────────────────────────────
+ *  The lib's STAGGER/DUR scales use semantic names (tight/default/loose,
+ *  press/card/panel/section). This file reads better with a short
+ *  fast/medium/slow trio — these aliases bridge the two without ever
+ *  diverging from the central source of truth. */
+const SF = {
+    fast: STAGGER.tight,    // 0.025
+    medium: STAGGER.default, // 0.06
+    slow: STAGGER.loose,    // 0.12
+} as const;
+const DR = {
+    base: DUR.card,    // 0.32 — card-level reveals
+    medium: DUR.panel, // 0.48 — heading + paragraph reveals
+    slow: DUR.section, // 0.9  — full-card scale-in & ambient loops
+} as const;
 
 /* ── Per-card Grainient palette + shader composition ── */
 type CardScene = {
@@ -83,50 +105,21 @@ const fadeUp: Variants = {
     visible: { opacity: 1, y: 0 },
 };
 const cardScaleIn: Variants = {
-    hidden: { opacity: 0, y: 40, scale: 0.94 },
+    hidden: { opacity: 0, y: 28, scale: 0.96 },
     visible: { opacity: 1, y: 0, scale: 1 },
 };
 const groupContainer: Variants = {
     hidden: {},
     visible: {
-        transition: { staggerChildren: STAGGER.slow, delayChildren: 0.1 },
+        transition: { staggerChildren: SF.slow, delayChildren: 0.12 },
     },
 };
-
-/* ── Premium WordReveal with enhanced motion ─────────────────────── */
-function WordReveal({
-    text,
-    delay = 0,
-    className = "",
-}: {
-    text: string;
-    delay?: number;
-    className?: string;
-}) {
-    const ref = useRef<HTMLSpanElement>(null);
-    const inView = useInView(ref, { once: true, margin: "-12%" });
-    const words = text.split(" ");
-    return (
-        <span ref={ref} className={`inline-flex flex-wrap gap-x-[0.32em] ${className}`}>
-            {words.map((w, i) => (
-                <span key={i} className="inline-flex overflow-hidden">
-                    <motion.span
-                        className="inline-block"
-                        initial={{ y: "100%", opacity: 0 }}
-                        animate={inView ? { y: 0, opacity: 1 } : {}}
-                        transition={{
-                            duration: DUR.medium,
-                            delay: delay + i * STAGGER.fast,
-                            ease: EASE_T.silk
-                        }}
-                    >
-                        {w}
-                    </motion.span>
-                </span>
-            ))}
-        </span>
-    );
-}
+const cardGroupContainer: Variants = {
+    hidden: {},
+    visible: {
+        transition: { staggerChildren: SF.slow, delayChildren: 0.22 },
+    },
+};
 
 /* ── Premium CountUp with enhanced motion and styling ─────────────── */
 function CountUp({
@@ -151,7 +144,7 @@ function CountUp({
         const reduced = prefersReducedMotion();
         if (reduced) {
             ref.current.textContent = `${prefix}${to.toFixed(decimals)}${suffix}`;
-            return;
+            return undefined;
         }
         const obj = { v: 0 };
         const tween = gsap.to(obj, {
@@ -163,7 +156,9 @@ function CountUp({
                 ref.current.textContent = `${prefix}${obj.v.toFixed(decimals)}${suffix}`;
             },
         });
-        return () => tween.kill();
+        return () => {
+            tween.kill();
+        };
     }, [inView, to, decimals, prefix, suffix, duration]);
     return (
         <span ref={ref} className={`${className} tabular-nums`}>
@@ -228,14 +223,14 @@ function KpiStrip({
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-5%" }}
                     transition={{
-                        duration: DUR.base,
-                        delay: STAGGER.medium + i * STAGGER.fast,
+                        duration: DR.base,
+                        delay: SF.medium + i * SF.fast,
                         ease: EASE_T.silk
                     }}
                     className={`${it.align === "center" ? "text-center" : ""} group`}
                 >
                     <div
-                        className={`${it.big ? "text-[28px]" : "text-[24px]"} font-bold leading-none tracking-[-0.03em] text-white tabular-nums transition-all duration-300 group-hover:scale-105`}
+                        className={`${it.big ? "text-[24px]" : "text-[20px]"} font-bold leading-none tracking-[-0.03em] text-white tabular-nums transition-all duration-300 group-hover:scale-105`}
                         style={{
                             textShadow: "0 2px 4px rgba(0,0,0,0.40), 0 0 12px rgba(255,255,255,0.15)"
                         }}
@@ -258,10 +253,10 @@ function KpiStrip({
  * ════════════════════════════════════════════════════════════════ */
 
 function Card1Scene() {
-    /* Enhanced coordinates with refined positioning */
-    const cx = 120;
-    const cy = 120;
-    const radius = 80;
+    const reduceMotion = useReducedMotion();
+    const cx = SCENE_CENTER;
+    const cy = SCENE_CENTER;
+    const radius = 98;
     const nodes = [
         { angle: -Math.PI / 2, label: "Discover", icon: "search" },
         { angle: -Math.PI / 2 + (Math.PI * 2) / 4, label: "Design", icon: "pencil" },
@@ -274,21 +269,51 @@ function Card1Scene() {
     }));
 
     return (
-        <div className="relative h-[280px] w-full">
-            <svg viewBox="0 0 240 240" className="absolute inset-0 h-full w-full" aria-hidden>
-                {/* Enhanced outer guide ring with premium styling */}
+        <div className="relative h-full min-h-[140px] w-full">
+            <svg viewBox={`0 0 ${SCENE_SIZE} ${SCENE_SIZE}`} className="absolute inset-0 h-full w-full" aria-hidden>
+                <defs>
+                    <radialGradient id="cc-hub-glow" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stopColor="#7CD2FF" stopOpacity="0.35" />
+                        <stop offset="100%" stopColor="#7CD2FF" stopOpacity="0" />
+                    </radialGradient>
+                    <linearGradient id="cc-line-fade" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#7CD2FF" stopOpacity="0.9" />
+                        <stop offset="100%" stopColor="white" stopOpacity="0.2" />
+                    </linearGradient>
+                </defs>
+                <circle cx={cx} cy={cy} r={radius + 18} fill="url(#cc-hub-glow)" />
                 <circle
                     cx={cx}
                     cy={cy}
                     r={radius}
                     fill="none"
                     stroke="white"
-                    strokeOpacity="0.20"
+                    strokeOpacity="0.14"
+                    strokeWidth="1"
+                    strokeDasharray="4 8"
+                >
+                    {!reduceMotion && (
+                        <animateTransform
+                            attributeName="transform"
+                            type="rotate"
+                            from={`0 ${cx} ${cy}`}
+                            to={`360 ${cx} ${cy}`}
+                            dur="48s"
+                            repeatCount="indefinite"
+                        />
+                    )}
+                </circle>
+                <circle
+                    cx={cx}
+                    cy={cy}
+                    r={radius}
+                    fill="none"
+                    stroke="white"
+                    strokeOpacity="0.22"
                     strokeWidth="1.2"
-                    strokeDasharray="3 5"
+                    strokeDasharray="3 6"
                 />
 
-                {/* Enhanced connection lines with premium animations */}
                 {nodes.map((n, i) => (
                     <motion.line
                         key={i}
@@ -296,32 +321,31 @@ function Card1Scene() {
                         y1={cy}
                         x2={n.x}
                         y2={n.y}
-                        stroke="white"
-                        strokeOpacity="0.35"
-                        strokeWidth="1"
-                        initial={{ pathLength: 0 }}
-                        whileInView={{ pathLength: 1 }}
+                        stroke="url(#cc-line-fade)"
+                        strokeOpacity="0.5"
+                        strokeWidth="1.2"
+                        initial={{ pathLength: 0, opacity: 0 }}
+                        whileInView={{ pathLength: 1, opacity: 1 }}
                         viewport={{ once: true, margin: "-5%" }}
                         transition={{
-                            duration: DUR.medium,
-                            delay: STAGGER.slow + i * STAGGER.fast,
-                            ease: EASE_T.silk
+                            duration: DR.medium,
+                            delay: SF.slow + i * SF.fast,
+                            ease: EASE_T.silk,
                         }}
                     />
                 ))}
 
-                {/* Enhanced travelling pulses with premium effects */}
-                {nodes.map((n, i) => {
+                {!reduceMotion && nodes.map((n, i) => {
                     const path = `M ${cx} ${cy} L ${n.x} ${n.y}`;
                     return (
-                        <circle key={`p-${i}`} r="2.5" fill="#7CD2FF" filter="drop-shadow(0 0 6px #7CD2FF)">
-                            <animateMotion dur="3.5s" begin={`${i * 0.6}s`} repeatCount="indefinite" path={path} />
+                        <circle key={`p-${i}`} r="3" fill="#7CD2FF" filter="drop-shadow(0 0 8px #7CD2FF)">
+                            <animateMotion dur="2.8s" begin={`${i * 0.5}s`} repeatCount="indefinite" path={path} />
                             <animate
                                 attributeName="opacity"
                                 values="0;1;1;0"
-                                keyTimes="0;0.1;0.9;1"
-                                dur="3.5s"
-                                begin={`${i * 0.6}s`}
+                                keyTimes="0;0.08;0.92;1"
+                                dur="2.8s"
+                                begin={`${i * 0.5}s`}
                                 repeatCount="indefinite"
                             />
                         </circle>
@@ -329,10 +353,9 @@ function Card1Scene() {
                 })}
             </svg>
 
-            {/* Enhanced central cube with premium glass effects */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                 <motion.div
-                    className="relative grid h-[64px] w-[64px] place-items-center rounded-[14px]"
+                    className="relative grid h-[72px] w-[72px] place-items-center rounded-[16px]"
                     style={{
                         background:
                             "linear-gradient(145deg, rgba(160,200,255,0.65) 0%, rgba(80,130,220,0.90) 50%, rgba(40,80,180,1.0) 100%)",
@@ -343,9 +366,9 @@ function Card1Scene() {
                             "0 15px 25px -10px rgba(40,80,180,0.75)",
                         ].join(", "),
                     }}
-                    animate={{ y: [-2, 2, -2], rotate: [-3, 3, -3] }}
-                    transition={{
-                        duration: DUR.slow,
+                    animate={reduceMotion ? undefined : { y: [-2, 2, -2], rotate: [-3, 3, -3] }}
+                    transition={reduceMotion ? undefined : {
+                        duration: DR.slow,
                         repeat: Infinity,
                         ease: EASE_T.silk
                     }}
@@ -370,8 +393,8 @@ function Card1Scene() {
                     key={`orb-${i}`}
                     className="absolute"
                     style={{
-                        left: `${(n.x / 240) * 100}%`,
-                        top: `${(n.y / 240) * 100}%`,
+                        left: `${(n.x / SCENE_SIZE) * 100}%`,
+                        top: `${(n.y / SCENE_SIZE) * 100}%`,
                         transform: "translate(-50%, -50%)",
                     }}
                     initial={{ opacity: 0, scale: 0.6 }}
@@ -379,8 +402,8 @@ function Card1Scene() {
                     whileHover={{ scale: 1.1 }}
                     viewport={{ once: true, margin: "-5%" }}
                     transition={{
-                        duration: DUR.base,
-                        delay: STAGGER.slow + i * STAGGER.fast,
+                        duration: DR.base,
+                        delay: SF.slow + i * SF.fast,
                         ease: EASE_T.silk
                     }}
                 >
@@ -396,7 +419,7 @@ function NodeOrb({ label, icon }: { label: string; icon: string }) {
     return (
         <div className="flex flex-col items-center group cursor-pointer">
             <div
-                className="grid h-[48px] w-[48px] place-items-center rounded-full transition-all duration-400 group-hover:scale-110 group-hover:shadow-xl"
+                className="grid h-[52px] w-[52px] place-items-center rounded-full transition-all duration-400 group-hover:scale-110 group-hover:shadow-xl"
                 style={{
                     background:
                         "radial-gradient(circle at 30% 28%, rgba(255,255,255,0.55) 0%, rgba(180,210,255,0.35) 40%, rgba(60,100,180,0.40) 100%)",
@@ -439,67 +462,90 @@ function Card1Icon({ name }: { name: string }) {
  * ════════════════════════════════════════════════════════════════ */
 
 function Card2Scene() {
+    const c = SCENE_CENTER;
+    const corners = [
+        { d: `M ${c} ${c} L 58 58`, delay: 0 },
+        { d: `M ${c} ${c} L 222 58`, delay: 0.08 },
+        { d: `M ${c} ${c} L 58 222`, delay: 0.16 },
+        { d: `M ${c} ${c} L 222 222`, delay: 0.24 },
+    ];
+
     return (
-        <div className="relative h-[260px] w-full">
-            {/* Top-left & top-right capability tiles */}
-            <div className="absolute left-2 top-2">
-                <CapabilityTile label="Data" icon="data" />
-            </div>
-            <div className="absolute right-2 top-2">
-                <CapabilityTile label="Reasoning" icon="reasoning" />
-            </div>
-
-            {/* Bottom-left & bottom-right tiles */}
-            <div className="absolute left-2 bottom-2">
-                <CapabilityTile label="Automation" icon="cog" />
-            </div>
-            <div className="absolute right-2 bottom-2">
-                <CapabilityTile label="Actions" icon="bolt" />
-            </div>
-
-            {/* Centred stacked glass platforms */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                <GlassPodium />
-            </div>
-
-            {/* Connecting trace lines from centre to the 4 tiles */}
-            <svg viewBox="0 0 240 240" className="pointer-events-none absolute inset-0 h-full w-full" aria-hidden>
-                {[
-                    "M 120 120 L 50 50",
-                    "M 120 120 L 190 50",
-                    "M 120 120 L 50 190",
-                    "M 120 120 L 190 190",
-                ].map((d, i) => (
+        <div className="relative h-full min-h-[140px] w-full">
+            <svg viewBox={`0 0 ${SCENE_SIZE} ${SCENE_SIZE}`} className="pointer-events-none absolute inset-0 h-full w-full" aria-hidden>
+                <circle cx={c} cy={c} r={72} fill="#B8DA8F" fillOpacity="0.06" />
+                {corners.map(({ d, delay }, i) => (
                     <motion.path
                         key={i}
                         d={d}
-                        stroke="white"
-                        strokeOpacity="0.15"
-                        strokeWidth="0.6"
-                        strokeDasharray="2 4"
+                        stroke="#B8DA8F"
+                        strokeOpacity="0.35"
+                        strokeWidth="1"
+                        strokeDasharray="3 5"
                         fill="none"
-                        initial={{ pathLength: 0 }}
-                        whileInView={{ pathLength: 1 }}
+                        initial={{ pathLength: 0, opacity: 0 }}
+                        whileInView={{ pathLength: 1, opacity: 1 }}
                         viewport={{ once: true, margin: "-5%" }}
-                        transition={{ duration: 0.8, delay: 0.5 + i * 0.08, ease: EASE_T.silk }}
+                        transition={{ duration: 0.9, delay: 0.35 + delay, ease: EASE_T.silk }}
                     />
                 ))}
             </svg>
+
+            <motion.div
+                className="absolute left-3 top-3"
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: DR.base, delay: 0.1, ease: EASE_T.silk }}
+            >
+                <CapabilityTile label="Data" icon="data" />
+            </motion.div>
+            <motion.div
+                className="absolute right-3 top-3"
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: DR.base, delay: 0.18, ease: EASE_T.silk }}
+            >
+                <CapabilityTile label="Reasoning" icon="reasoning" />
+            </motion.div>
+            <motion.div
+                className="absolute bottom-3 left-3"
+                initial={{ opacity: 0, y: -8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: DR.base, delay: 0.26, ease: EASE_T.silk }}
+            >
+                <CapabilityTile label="Automation" icon="cog" />
+            </motion.div>
+            <motion.div
+                className="absolute bottom-3 right-3"
+                initial={{ opacity: 0, y: -8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: DR.base, delay: 0.34, ease: EASE_T.silk }}
+            >
+                <CapabilityTile label="Actions" icon="bolt" />
+            </motion.div>
+
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                <GlassPodium />
+            </div>
         </div>
     );
 }
 
 /* Stacked glass podium — 3 layered steps with a sparkle on top */
 function GlassPodium() {
+    const reduceMotion = useReducedMotion();
     return (
-        <div className="relative" style={{ width: 110, height: 100 }}>
-            {/* Bottom (largest) plate */}
+        <div className="relative" style={{ width: 132, height: 118 }}>
             <div
-                className="absolute left-1/2 -translate-x-1/2 rounded-[10px]"
+                className="absolute left-1/2 -translate-x-1/2 rounded-[12px]"
                 style={{
                     bottom: 0,
-                    width: 110,
-                    height: 18,
+                    width: 132,
+                    height: 20,
                     background:
                         "linear-gradient(180deg, rgba(255,255,255,0.32) 0%, rgba(140,180,120,0.18) 100%)",
                     border: "1px solid rgba(255,255,255,0.30)",
@@ -509,11 +555,11 @@ function GlassPodium() {
             />
             {/* Middle plate */}
             <div
-                className="absolute left-1/2 -translate-x-1/2 rounded-[10px]"
+                className="absolute left-1/2 -translate-x-1/2 rounded-[11px]"
                 style={{
-                    bottom: 14,
-                    width: 88,
-                    height: 18,
+                    bottom: 16,
+                    width: 104,
+                    height: 20,
                     background:
                         "linear-gradient(180deg, rgba(255,255,255,0.36) 0%, rgba(140,180,120,0.22) 100%)",
                     border: "1px solid rgba(255,255,255,0.35)",
@@ -523,19 +569,19 @@ function GlassPodium() {
             />
             {/* Top plate (with sparkle) */}
             <motion.div
-                className="absolute left-1/2 -translate-x-1/2 grid place-items-center rounded-[12px]"
+                className="absolute left-1/2 -translate-x-1/2 grid place-items-center rounded-[14px]"
                 style={{
-                    bottom: 28,
-                    width: 64,
-                    height: 56,
+                    bottom: 32,
+                    width: 76,
+                    height: 66,
                     background:
                         "linear-gradient(160deg, rgba(255,255,255,0.55) 0%, rgba(180,220,150,0.30) 50%, rgba(80,140,80,0.45) 100%)",
                     border: "1px solid rgba(255,255,255,0.45)",
                     boxShadow:
                         "inset 0 2px 4px rgba(255,255,255,0.65), inset 0 -2px 6px rgba(0,0,0,0.25), 0 10px 20px -8px rgba(40,80,30,0.55), 0 0 24px rgba(180,220,150,0.45)",
                 }}
-                animate={{ y: [-1, 1, -1] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                animate={reduceMotion ? undefined : { y: [-2, 2, -2], scale: [1, 1.03, 1] }}
+                transition={reduceMotion ? undefined : { duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
             >
                 <SparkleGlyph />
             </motion.div>
@@ -545,15 +591,24 @@ function GlassPodium() {
 
 /* 4-pointed sparkle glyph (the AI mark) */
 function SparkleGlyph() {
+    const reduceMotion = useReducedMotion();
     return (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden>
+        <motion.svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden
+            animate={reduceMotion ? undefined : { rotate: [0, 8, -8, 0] }}
+            transition={reduceMotion ? undefined : { duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        >
             <path
                 d="M12 2 L13.5 10.5 L22 12 L13.5 13.5 L12 22 L10.5 13.5 L2 12 L10.5 10.5 Z"
                 fill="white"
                 fillOpacity="0.95"
-                style={{ filter: "drop-shadow(0 0 6px rgba(255,255,255,0.85))" }}
+                style={{ filter: "drop-shadow(0 0 8px rgba(255,255,255,0.9))" }}
             />
-        </svg>
+        </motion.svg>
     );
 }
 
@@ -562,7 +617,7 @@ function CapabilityTile({ label, icon }: { label: string; icon: string }) {
     return (
         <div className="flex flex-col items-center gap-1.5">
             <div
-                className="grid h-[44px] w-[44px] place-items-center rounded-[10px]"
+                className="grid h-[50px] w-[50px] place-items-center rounded-[12px]"
                 style={{
                     background:
                         "linear-gradient(180deg, rgba(255,255,255,0.30) 0%, rgba(140,180,120,0.15) 100%)",
@@ -594,137 +649,219 @@ function Card2Icon({ name }: { name: string }) {
 
 /* ════════════════════════════════════════════════════════════════
  *  CARD 3 — Cloud & Platform Engineering
- *  Scene: AWS cloud at top centre, two glass orbs at bottom
- *  containing Azure (A) and GCP (G) logos.
+ *  Inner card composition mirrors the reference image:
+ *    [globe icon · "Global infrastructure"]            [• • ●]
+ *    $XX,XXX  (or "99.99%" — large hero metric)
+ *    ────────────────────────────────────────
+ *    [● Active deployments worldwide]
+ *    [dotted world map with orange hotspots]
+ *
+ *  We pre-build the dot-map points ONCE at module load (runs
+ *  client-side via the parent file's "use client"), then each
+ *  render just paints the cached coordinates. Hotspot dots are
+ *  picked by lat/lng proximity to a small fixed set of beacons.
  * ════════════════════════════════════════════════════════════════ */
 
-function Card3Scene() {
-    return (
-        <div className="relative h-[260px] w-full">
-            {/* Concentric guide rings */}
-            <svg viewBox="0 0 240 240" className="absolute inset-0 h-full w-full" aria-hidden>
-                {[60, 90].map((r, i) => (
-                    <motion.circle
-                        key={i}
-                        cx="120"
-                        cy="120"
-                        r={r}
-                        fill="none"
-                        stroke="white"
-                        strokeOpacity="0.15"
-                        strokeWidth="0.7"
-                        strokeDasharray="2 4"
-                        initial={{ pathLength: 0, opacity: 0 }}
-                        whileInView={{ pathLength: 1, opacity: 1 }}
-                        viewport={{ once: true, margin: "-5%" }}
-                        transition={{ duration: 0.8, delay: 0.4 + i * 0.1, ease: EASE_T.silk }}
-                    />
-                ))}
-            </svg>
+/* Pre-build dotted map ONCE at module level for performance.
+ * Mirrors the pattern used by GlobalNetworkMap.tsx. */
+const _card3Map = new DottedMap({ height: 72, grid: "diagonal" });
+const _card3Points = _card3Map.getPoints();
 
-            {/* Top centre — AWS cloud */}
-            <motion.div
-                className="absolute left-1/2 -translate-x-1/2"
-                style={{ top: "20%" }}
-                animate={{ y: [-2, 2, -2] }}
-                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-            >
-                <AwsCloud />
-            </motion.div>
+/* Global tech-hub beacons — real coordinates of the world's major
+ * software / infrastructure hubs. Each dot within the proximity
+ * radius of one of these is rendered in the accent orange.
+ *
+ * Curated to represent global presence across:
+ *   • North America (SF, NY, Toronto)
+ *   • Latin America (São Paulo)
+ *   • Europe (London, Amsterdam, Berlin, Stockholm, Madrid)
+ *   • Middle East (Tel Aviv, Dubai)
+ *   • Africa (Lagos, Cape Town)
+ *   • India — Softree's home market (Bangalore, Hyderabad, Mumbai)
+ *   • Asia-Pacific (Singapore, Tokyo, Seoul)
+ *   • Oceania (Sydney) */
+const HOTSPOTS: ReadonlyArray<readonly [number, number]> = [
+    /* North America */
+    [37.77, -122.41],  // San Francisco
+    [40.71, -74.00],   // New York
+    [43.65, -79.38],   // Toronto
+    /* Latin America */
+    [-23.55, -46.63],  // São Paulo
+    /* Europe */
+    [51.51, -0.13],    // London
+    [52.37, 4.90],     // Amsterdam
+    [52.52, 13.40],    // Berlin
+    [59.33, 18.07],    // Stockholm
+    [40.42, -3.70],    // Madrid
+    /* Middle East */
+    [32.08, 34.78],    // Tel Aviv
+    [25.20, 55.27],    // Dubai
+    /* Africa */
+    [6.52, 3.38],      // Lagos
+    [-33.92, 18.42],   // Cape Town
+    /* India */
+    [12.97, 77.59],    // Bangalore
+    [17.39, 78.49],    // Hyderabad
+    [19.08, 72.88],    // Mumbai
+    /* Asia-Pacific */
+    [1.35, 103.82],    // Singapore
+    [35.68, 139.65],   // Tokyo
+    [37.57, 126.98],   // Seoul
+    /* Oceania */
+    [-33.87, 151.21],  // Sydney
+];
 
-            {/* Bottom-left — Azure orb */}
-            <motion.div
-                className="absolute"
-                style={{ left: "12%", bottom: "12%" }}
-                animate={{ y: [-1, 1, -1] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
-            >
-                <CloudOrb logo="azure" />
-            </motion.div>
+/* Tighter radius — each hub lights up only 2-4 nearby dots,
+ * keeping the constellation legible at small scale. */
+const HOTSPOT_RADIUS_DEG = 4.2;
 
-            {/* Bottom-right — GCP orb */}
-            <motion.div
-                className="absolute"
-                style={{ right: "12%", bottom: "12%" }}
-                animate={{ y: [-1, 1, -1] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
-            >
-                <CloudOrb logo="gcp" />
-            </motion.div>
-
-            {/* Tiny twinkles around the scene */}
-            <svg viewBox="0 0 240 240" className="absolute inset-0 h-full w-full pointer-events-none" aria-hidden>
-                {[
-                    [40, 80], [200, 70], [60, 180], [180, 170], [120, 50], [120, 195],
-                ].map(([x, y], i) => (
-                    <motion.circle
-                        key={i}
-                        cx={x}
-                        cy={y}
-                        r="1.4"
-                        fill="white"
-                        animate={{ opacity: [0.3, 1, 0.3] }}
-                        transition={{ duration: 2 + (i % 3), repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
-                    />
-                ))}
-            </svg>
-        </div>
-    );
+function _isHotspot(lat: number, lng: number): boolean {
+    for (const [hLat, hLng] of HOTSPOTS) {
+        const d = Math.hypot(lat - hLat, lng - hLng);
+        if (d < HOTSPOT_RADIUS_DEG) return true;
+    }
+    return false;
 }
 
-function AwsCloud() {
+/* Card 3 dotted map — renders the cached points as SVG circles.
+ * Hotspots glow with the accent orange; the rest are soft white. */
+function Card3DottedMap() {
+    const reduceMotion = useReducedMotion();
+    const { dots, vbWidth, vbHeight } = useMemo(() => {
+        let maxX = 0;
+        let maxY = 0;
+        for (const p of _card3Points) {
+            if (p.x > maxX) maxX = p.x;
+            if (p.y > maxY) maxY = p.y;
+        }
+        const padded = _card3Points.map((p) => ({
+            x: p.x,
+            y: p.y,
+            hot: _isHotspot(p.lat, p.lng),
+        }));
+        return { dots: padded, vbWidth: maxX, vbHeight: maxY };
+    }, []);
+
     return (
-        <div className="relative grid place-items-center" style={{ width: 110, height: 78 }}>
-            {/* Cloud silhouette */}
-            <svg viewBox="0 0 110 70" className="absolute inset-0 h-full w-full">
-                <defs>
-                    <linearGradient id="cloud-grad" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="rgba(255,232,200,0.85)" />
-                        <stop offset="60%" stopColor="rgba(220,170,120,0.55)" />
-                        <stop offset="100%" stopColor="rgba(140,80,40,0.55)" />
-                    </linearGradient>
-                </defs>
-                <path
-                    d="M28 55 C 14 55 8 44 14 36 C 12 22 30 14 40 22 C 46 14 64 14 70 24 C 88 18 96 38 86 48 C 96 56 88 65 78 60 C 70 70 38 70 28 55 Z"
-                    fill="url(#cloud-grad)"
-                    stroke="rgba(255,255,255,0.55)"
-                    strokeWidth="1"
-                    style={{ filter: "drop-shadow(0 6px 14px rgba(140,80,40,0.50))" }}
+        <svg
+            viewBox={`0 0 ${vbWidth} ${vbHeight}`}
+            className="h-full w-full"
+            preserveAspectRatio="xMidYMid meet"
+            aria-hidden
+        >
+            {/* Two-pass render so hotspots paint ON TOP of the regular
+             * dot grid — guarantees no orange pin is ever overlapped by
+             * a neutral dot drawn after it. */}
+            {dots.filter((d) => !d.hot).map((d, i) => (
+                <circle
+                    key={`n-${i}`}
+                    cx={d.x}
+                    cy={d.y}
+                    r={0.65}
+                    fill="rgba(255,255,255,0.72)"
                 />
-            </svg>
-            {/* AWS wordmark over the cloud */}
-            <div className="relative z-10 mt-1 text-[12px] font-bold tracking-tight text-white" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.45)" }}>
-                aws
-            </div>
-        </div>
+            ))}
+            {dots.filter((d) => d.hot).map((d, i) => (
+                <g key={`h-${i}`}>
+                    {!reduceMotion && (
+                        <circle cx={d.x} cy={d.y} r={2.4} fill="#FF6B00" opacity={0.18}>
+                            <animate
+                                attributeName="r"
+                                values="2;3.2;2"
+                                dur="2.4s"
+                                begin={`${(i % 5) * 0.35}s`}
+                                repeatCount="indefinite"
+                            />
+                            <animate
+                                attributeName="opacity"
+                                values="0.12;0.28;0.12"
+                                dur="2.4s"
+                                begin={`${(i % 5) * 0.35}s`}
+                                repeatCount="indefinite"
+                            />
+                        </circle>
+                    )}
+                    <circle cx={d.x} cy={d.y} r={1.8} fill="#FF6B00" opacity={0.28} />
+                    <circle cx={d.x} cy={d.y} r={1} fill="#FF6B00" />
+                </g>
+            ))}
+        </svg>
     );
 }
 
-/* Glass orb with Azure A or GCP G logo inside */
-function CloudOrb({ logo }: { logo: "azure" | "gcp" }) {
+/** Reused by About Us platform section (global delivery card). */
+export function GlobalMapGlassPanel() {
+    return <Card3Visual />;
+}
+
+function Card3Visual() {
     return (
         <div
-            className="grid h-[58px] w-[58px] place-items-center rounded-full"
+            className="relative flex h-full w-full flex-col overflow-hidden rounded-2xl"
             style={{
+                /* Tinted dark glass that lets the peach Grainient bleed through.
+                 * Three layers stacked via background-image:
+                 *  1. Top-edge specular highlight (1px white gradient)
+                 *  2. Soft inner vignette
+                 *  3. Base dark wash so the white type and map dots punch out */
                 background:
-                    "radial-gradient(circle at 30% 28%, rgba(255,240,220,0.75) 0%, rgba(220,170,120,0.45) 35%, rgba(120,70,30,0.65) 100%)",
+                    "linear-gradient(180deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0) 8%, rgba(255,255,255,0) 100%), radial-gradient(ellipse at 50% 0%, rgba(255,200,150,0.06) 0%, transparent 60%), linear-gradient(180deg, rgba(20,12,6,0.42) 0%, rgba(20,12,6,0.32) 100%)",
+                backdropFilter: "blur(22px) saturate(140%)",
+                WebkitBackdropFilter: "blur(22px) saturate(140%)",
+                border: "1px solid rgba(255,255,255,0.14)",
                 boxShadow: [
-                    "inset 4px 4px 10px rgba(255,255,255,0.45)",
-                    "inset -4px -4px 10px rgba(0,0,0,0.30)",
-                    "0 0 22px rgba(255,200,140,0.55)",
-                    "0 8px 16px -4px rgba(120,70,30,0.50)",
+                    "inset 0 1px 0 rgba(255,255,255,0.18)",
+                    "inset 0 -1px 0 rgba(0,0,0,0.20)",
+                    "0 18px 44px -18px rgba(0,0,0,0.55)",
                 ].join(", "),
             }}
         >
-            {logo === "azure" ? (
-                <span className="text-[20px] font-bold leading-none text-white" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.45)" }}>
-                    A
+            {/* Header row — globe glyph + label (left) + status dots (right).
+             * Consistent px-5 horizontal rhythm across every row. */}
+            <div className="flex items-center justify-between px-4 pt-3">
+                <div className="flex items-center gap-2">
+                    {/* Globe glyph */}
+                    <svg width="12" height="12" viewBox="0 0 13 13" fill="none" aria-hidden className="shrink-0">
+                        <circle cx="6.5" cy="6.5" r="5.2" stroke="white" strokeOpacity="0.85" strokeWidth="0.9" />
+                        <ellipse cx="6.5" cy="6.5" rx="5.2" ry="2.2" stroke="white" strokeOpacity="0.55" strokeWidth="0.7" />
+                        <path d="M6.5 1.3 V 11.7" stroke="white" strokeOpacity="0.55" strokeWidth="0.7" />
+                    </svg>
+                    <span className="text-[11px] font-medium text-white/95 leading-none tracking-[-0.005em]">
+                        Global infrastructure
+                    </span>
+                </div>
+                {/* 3-dot status indicator, last dot lit */}
+                <div className="flex items-center gap-1.5">
+                    <span className="block h-1 w-1 rounded-full bg-white/35" />
+                    <span className="block h-1 w-1 rounded-full bg-white/35" />
+                    <span className="block h-[5px] w-[5px] rounded-full bg-white/95 shadow-[0_0_6px_rgba(255,255,255,0.7)]" />
+                </div>
+            </div>
+
+            {/* Hero metric — the big number. Optical baseline aligns with
+             * the header row's text via matched pl-5 + slight pt-3.5. */}
+            <div className="px-4 pt-2.5">
+                <span
+                    className="block text-[38px] font-semibold leading-[0.92] tracking-[-0.04em] text-white tabular-nums"
+                    style={{ textShadow: "0 1px 2px rgba(0,0,0,0.32)" }}
+                >
+                    <CountUp to={99.99} decimals={2} suffix="%" duration={1.8} />
                 </span>
-            ) : (
-                <span className="text-[20px] font-bold leading-none text-white" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.45)" }}>
-                    G
-                </span>
-            )}
+            </div>
+
+            <div className="px-4 pt-2">
+                <div className="h-px w-full bg-gradient-to-r from-white/0 via-white/22 to-white/0" />
+                <div className="mt-2 flex items-center gap-1.5">
+                    <span className="block h-1.5 w-1.5 rounded-full bg-[#FF6B00] shadow-[0_0_6px_rgba(255,107,0,0.55)]" />
+                    <span className="text-[9.5px] font-medium text-white/70 leading-none tracking-[0.005em]">
+                        Active deployments worldwide
+                    </span>
+                </div>
+            </div>
+
+            <div className="relative mt-2 min-h-[140px] flex-1 px-3 pb-4 pt-1">
+                <Card3DottedMap />
+            </div>
         </div>
     );
 }
@@ -735,7 +872,7 @@ function CloudOrb({ logo }: { logo: "azure" | "gcp" }) {
 
 function Card1Visual() {
     return (
-        <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/30 bg-gradient-to-br from-white/[0.18] via-white/[0.10] to-white/[0.04] p-4 backdrop-blur-2xl shadow-[inset_0_1px_0_rgba(255,255,255,0.30),0_18px_44px_-18px_rgba(0,0,0,0.45)]">
+        <div className="relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-white/30 bg-gradient-to-br from-white/[0.18] via-white/[0.10] to-white/[0.04] p-4 backdrop-blur-2xl shadow-[inset_0_1px_0_rgba(255,255,255,0.30),0_18px_44px_-18px_rgba(0,0,0,0.45)]">
             <CardHeader
                 accent="#7CD2FF"
                 label="Project Delivery"
@@ -746,16 +883,16 @@ function Card1Visual() {
                     </svg>
                 }
             />
-            <div className="mt-3">
+            <div className="mt-2">
                 <KpiStrip
                     items={[
                         { value: <CountUp to={128} duration={1.6} />, label: "Projects" },
-                        { value: <CountUp to={97} suffix="%" duration={1.6} />, label: "Success" },
+                        { value: <CountUp to={97} suffix="%" duration={1.6} />, label: "Success rate" },
                         { value: <CountUp to={18} duration={1.6} />, label: "Teams" },
                     ]}
                 />
             </div>
-            <div className="mt-1 flex-1">
+            <div className="mt-2 min-h-[160px] flex-1">
                 <Card1Scene />
             </div>
         </div>
@@ -764,7 +901,7 @@ function Card1Visual() {
 
 function Card2Visual() {
     return (
-        <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-br from-black/30 via-black/55 to-black/70 p-4 backdrop-blur-2xl shadow-[inset_0_1px_0_rgba(255,255,255,0.10),0_18px_44px_-18px_rgba(0,0,0,0.55)]">
+        <div className="relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-br from-black/30 via-black/55 to-black/70 p-4 backdrop-blur-2xl shadow-[inset_0_1px_0_rgba(255,255,255,0.10),0_18px_44px_-18px_rgba(0,0,0,0.55)]">
             <CardHeader
                 accent="#B8DA8F"
                 label="AI Operations"
@@ -775,18 +912,17 @@ function Card2Visual() {
                     </svg>
                 }
             />
-            <div className="mt-3">
-                <div className="flex items-baseline gap-2">
+            <div className="mt-2">
+                <div className="flex flex-col gap-0.5">
                     <span
-                        className="text-[34px] font-semibold leading-none tracking-[-0.04em] text-white tabular-nums"
+                        className="text-[32px] font-semibold leading-none tracking-[-0.04em] text-white tabular-nums"
                         style={{ textShadow: "0 1px 2px rgba(0,0,0,0.30)" }}
                     >
                         <CountUp to={97.8} decimals={1} suffix="%" duration={1.8} />
                     </span>
-                    <span className="text-[10.5px] text-white/70">Workflow Accuracy</span>
+                    <span className="text-[10px] text-white/70">Workflow Accuracy</span>
                 </div>
-                {/* Mini sparkline next to the big number */}
-                <div className="mt-1.5 h-[18px]">
+                <div className="mt-1.5 h-[16px]">
                     <svg viewBox="0 0 220 24" className="h-full w-full" aria-hidden>
                         <motion.path
                             d="M0 18 L24 16 L48 14 L72 12 L96 8 L120 10 L144 6 L168 8 L196 4 L220 5"
@@ -802,43 +938,15 @@ function Card2Visual() {
                     </svg>
                 </div>
             </div>
-            <div className="mt-1 flex-1">
+            <div className="mt-2 min-h-[160px] flex-1">
                 <Card2Scene />
             </div>
         </div>
     );
 }
 
-function Card3Visual() {
-    return (
-        <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/30 bg-gradient-to-br from-white/[0.20] via-white/[0.13] to-white/[0.06] p-4 backdrop-blur-2xl shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_18px_44px_-18px_rgba(0,0,0,0.45)]">
-            <CardHeader
-                accent="#FFB07A"
-                label="Infrastructure"
-                icon={
-                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
-                        <path d="M2 7c0-1.5 1.2-2.5 2.5-2.5C5 3 6.5 2 8 3c1.5 1 2 3 0 4H3.5C2.5 7 2 7.5 2 7z" fill="currentColor" />
-                    </svg>
-                }
-            />
-            <div className="mt-3">
-                <KpiStrip
-                    items={[
-                        { value: <CountUp to={24} duration={1.6} />, label: "Regions" },
-                        { value: <CountUp to={99.99} decimals={2} suffix="%" duration={1.8} />, label: "Uptime" },
-                        { value: <CountUp to={156} duration={1.6} />, label: "Services" },
-                    ]}
-                />
-            </div>
-            <div className="mt-1 flex-1">
-                <Card3Scene />
-            </div>
-        </div>
-    );
-}
-
 /* ── Section data ─────────────────────────────────────────── */
-const COLUMNS: ReadonlyArray<{
+export const CLARITY_PILLARS: ReadonlyArray<{
     n: string;
     title: string;
     body: string;
@@ -871,179 +979,263 @@ const COLUMNS: ReadonlyArray<{
         },
     ];
 
-/* ════════════════════════════════════════════════════════════════
- *  Main section
- * ════════════════════════════════════════════════════════════════ */
-export default function ClarityControlSection() {
-    const sectionRef = useRef<HTMLElement>(null);
-    const inView = useInView(sectionRef, { once: true, margin: "-15%" });
+/* ── Exported blocks for Home Intro showcase / unified section ── */
+export function ClarityPillarRow({ inView }: { inView: boolean }) {
+    return (
+        <motion.div
+            variants={groupContainer}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            className="mb-10 grid grid-cols-1 gap-12 border-t border-[#0a0a1a]/10 pt-10 md:grid-cols-3 md:gap-8 md:pt-12 lg:gap-10"
+        >
+            {CLARITY_PILLARS.map((c) => (
+                <motion.div
+                    key={c.n}
+                    data-reveal
+                    variants={fadeUp}
+                    transition={{ duration: DR.base, ease: EASE_T.silk }}
+                    className="flex flex-col group"
+                >
+                    <span
+                        className="inline-flex w-fit items-center gap-1.5 rounded-full border border-[#0a0a1a]/10 bg-white/60 px-2.5 py-1 text-[10px] font-semibold tabular-nums tracking-[0.16em] text-[#0a0a1a]/65 uppercase transition-[color,border-color] duration-300 group-hover:border-[#FF5812]/30 group-hover:text-[#FF5812]"
+                        aria-hidden
+                    >
+                        <span className="block h-1 w-1 rounded-full bg-current opacity-60" />
+                        {c.n.padStart(2, "0")}
+                    </span>
+                    <h3 className="mt-4 text-[16px] font-semibold leading-[1.3] tracking-[-0.01em] text-[#0a0a1a] md:text-[17px]">
+                        {c.title}
+                    </h3>
+                    <p className="mt-3 text-[14px] md:text-[14.5px] leading-[1.65] text-[#0a0a1a]/70">
+                        {c.body}
+                    </p>
+                </motion.div>
+            ))}
+        </motion.div>
+    );
+}
 
-    /* Enhanced scroll-driven parallax with premium motion */
+const CARD_LAYOUT_CLASS = {
+    grid: "grid grid-cols-1 gap-10 overflow-visible pb-4 md:grid-cols-3 md:gap-6 lg:gap-8",
+    strip:
+        "flex gap-8 overflow-x-auto overscroll-x-contain pb-10 pt-2 -mx-6 px-6 lg:-mx-12 lg:px-12 snap-x snap-mandatory [&>*]:snap-center [&>*]:shrink-0 [&>*]:w-[min(88vw,400px)]",
+    bento:
+        "grid grid-cols-1 gap-10 overflow-visible pb-4 lg:grid-cols-12 lg:gap-x-6 lg:gap-y-4 [&>*:nth-child(1)]:lg:col-span-7 [&>*:nth-child(2)]:lg:col-span-5 [&>*:nth-child(2)]:lg:row-start-1 [&>*:nth-child(2)]:lg:mt-[min(18vw,120px)] [&>*:nth-child(3)]:lg:col-span-8 [&>*:nth-child(3)]:lg:col-start-3 [&>*:nth-child(3)]:lg:-mt-8",
+    stack:
+        "relative flex flex-col items-center gap-0 pb-8 [&>*]:w-full [&>*]:max-w-[400px] [&>*:not(:first-child)]:-mt-[min(32vw,160px)] [&>*:nth-child(1)]:z-30 [&>*:nth-child(2)]:z-20 [&>*:nth-child(3)]:z-10",
+} as const;
+
+export type ClarityPillar = (typeof CLARITY_PILLARS)[number];
+
+export function ClarityGlassCard({
+    pillar: c,
+    activeIndex = null,
+    index,
+    className = "",
+}: {
+    pillar: ClarityPillar;
+    index: number;
+    activeIndex?: number | null;
+    className?: string;
+}) {
+    return (
+        <div
+            data-reveal
+            className={`group relative mx-auto w-full max-w-[400px] overflow-visible motion-reduce:transform-none transition-[opacity,filter,transform] duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1 ${className} ${
+                activeIndex !== null && activeIndex !== index
+                    ? "opacity-[0.38] saturate-[0.8] motion-reduce:opacity-100"
+                    : "opacity-100"
+            }`}
+            style={{ paddingBottom: `${GLASS_OVERFLOW_RATIO * 100}%` }}
+        >
+            <div className="relative aspect-square w-full">
+                <article
+                    aria-label={c.title}
+                    className="absolute inset-0 overflow-hidden rounded-[28px] transition-[box-shadow] duration-500 group-hover:shadow-[0_0_0_1px_rgba(10,10,26,0.08),0_2px_4px_-1px_rgba(10,10,26,0.08),0_20px_44px_-16px_rgba(255,88,18,0.18)]"
+                    style={{
+                        maxWidth: OUTER_PX,
+                        boxShadow:
+                            "0 0 0 1px rgba(10,10,26,0.05), 0 1px 2px -1px rgba(10,10,26,0.06), 0 12px 28px -14px rgba(10,10,26,0.16)",
+                    }}
+                >
+                    <span
+                        aria-hidden
+                        className="pointer-events-none absolute inset-x-0 top-0 z-[2] h-px bg-gradient-to-r from-transparent via-white/70 to-transparent"
+                    />
+                    <div
+                        aria-hidden
+                        className="cc-card-backdrop absolute inset-[-10%]"
+                        style={{ willChange: "transform" }}
+                    >
+                        <Grainient
+                            color1={c.scene.color1}
+                            color2={c.scene.color2}
+                            color3={c.scene.color3}
+                            blendAngle={c.scene.blendAngle}
+                            centerX={c.scene.centerX}
+                            centerY={c.scene.centerY}
+                            zoom={c.scene.zoom}
+                            warpSpeed={c.scene.warpSpeed}
+                            timeSpeed={0.18}
+                            warpStrength={1.2}
+                            warpFrequency={4.0}
+                            warpAmplitude={45}
+                            blendSoftness={0.1}
+                            rotationAmount={420}
+                            noiseScale={1.8}
+                            grainAmount={0.06}
+                            grainScale={2.4}
+                            grainAnimated
+                            contrast={1.2}
+                            gamma={0.95}
+                            saturation={1.0}
+                        />
+                    </div>
+                    <div
+                        aria-hidden
+                        className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                        style={{
+                            background:
+                                "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.22) 100%)",
+                        }}
+                    />
+                </article>
+                <div
+                    className="absolute left-1/2 top-1/2 z-10 aspect-square w-[87.5%] max-w-[350px] -translate-x-1/2 overflow-hidden rounded-[24px] shadow-[0_24px_48px_-20px_rgba(10,10,26,0.42)] transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:-translate-y-0.5 motion-reduce:transition-none"
+                    style={{ maxWidth: INNER_PX }}
+                >
+                    <c.Visual />
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export function ClarityGlassCardGrid({
+    inView,
+    layout = "grid",
+    activeIndex = null,
+}: {
+    inView: boolean;
+    layout?: keyof typeof CARD_LAYOUT_CLASS;
+    /** When set, non-matching cards dim slightly (expertise index sync). */
+    activeIndex?: number | null;
+}) {
+    return (
+        <motion.div
+            variants={cardGroupContainer}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            className={CARD_LAYOUT_CLASS[layout]}
+        >
+            {CLARITY_PILLARS.map((c, index) => (
+                <motion.div
+                    key={c.n}
+                    variants={cardScaleIn}
+                    transition={{ duration: DR.medium, ease: EASE_T.silk }}
+                >
+                    <ClarityGlassCard pillar={c} index={index} activeIndex={activeIndex} />
+                </motion.div>
+            ))}
+        </motion.div>
+    );
+}
+
+export function useClarityCardParallax(scopeRef: RefObject<HTMLElement | null>) {
     useGSAP(
         () => {
-            if (!sectionRef.current) return;
-            const reduced = prefersReducedMotion();
-            if (reduced) return;
-            const cards = sectionRef.current.querySelectorAll<HTMLElement>(".cc-card-backdrop");
+            if (!scopeRef.current) return;
+            if (prefersReducedMotion()) return;
+            const cards = scopeRef.current.querySelectorAll<HTMLElement>(".cc-card-backdrop");
             cards.forEach((el) => {
                 gsap.fromTo(
                     el,
-                    { yPercent: -6 },
+                    { yPercent: -2.5 },
                     {
-                        yPercent: 6,
+                        yPercent: 2.5,
                         ease: "none",
                         scrollTrigger: {
                             trigger: el,
-                            start: "top bottom",
-                            end: "bottom top",
-                            scrub: 0.8,
+                            start: "top 88%",
+                            end: "bottom 12%",
+                            scrub: 0.45,
                         },
                     }
                 );
             });
         },
-        { scope: sectionRef }
+        { scope: scopeRef }
     );
+}
+
+/* ════════════════════════════════════════════════════════════════
+ *  Main section
+ * ════════════════════════════════════════════════════════════════ */
+export default function ClarityControlSection({
+    embedded = false,
+    showPillarRow = true,
+}: {
+    /** Render inside a parent section (post-hero sequence). */
+    embedded?: boolean;
+    showPillarRow?: boolean;
+} = {}) {
+    const sectionRef = useRef<HTMLElement>(null);
+    const inView = useInView(sectionRef, VIEWPORT.default);
+
+    useClarityCardParallax(sectionRef);
+
+    const Wrapper = embedded ? "div" : "section";
 
     return (
-        <section
+        <Wrapper
             ref={sectionRef}
             data-section="clarity-control"
             data-theme-section="light"
-            className="relative w-full overflow-hidden bg-[#F3F0EE] py-24 md:py-28 lg:py-32"
+            aria-labelledby={embedded ? undefined : "clarity-control-heading"}
+            className={
+                embedded
+                    ? "relative w-full overflow-x-clip overflow-y-visible pt-4 pb-20 md:pb-24 lg:pb-28"
+                    : "relative w-full overflow-x-clip overflow-y-visible py-20 md:py-24 lg:py-32"
+            }
+            style={{ backgroundColor: embedded ? "transparent" : SURFACE }}
         >
-            <div className="mx-auto max-w-[1320px] px-6 lg:px-12">
-                {/* Premium top row with enhanced typography */}
-                <div className="mb-16 grid grid-cols-1 gap-8 md:mb-20 lg:grid-cols-12 lg:gap-16">
-                    <h2 className="lg:col-span-7 text-[clamp(40px,5.5vw,72px)] font-semibold leading-[0.95] tracking-[-0.04em] text-[#0a0a1a]">
-                        <WordReveal text="Clarity and control for every part of your business." />
-                    </h2>
+            <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
+                {/* Section header (badge + H2) — uses the shared <SectionHeader>
+                 * primitive so the eyebrow tint, padding, radius, tracking, and
+                 * heading scale match every other section on the page exactly
+                 * (Requirement 11.2 — parity diff: badge pill, heading scale). */}
+                <div className="mb-12 grid grid-cols-1 gap-8 md:mb-14 lg:grid-cols-12 lg:gap-16">
+                    <motion.div
+                        className="lg:col-span-7"
+                        data-reveal
+                        initial={{ opacity: 0, y: 16 }}
+                        animate={inView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ duration: DR.medium, ease: EASE_T.silk }}
+                    >
+                        <SectionHeader
+                            badge="What we do"
+                            accent="#FF5812"
+                            headline={<span id="clarity-control-heading">Clarity and control for every part of your business.</span>}
+                        />
+                    </motion.div>
                     <motion.p
+                        data-reveal
                         initial={{ opacity: 0, y: 16 }}
                         animate={inView ? { opacity: 1, y: 0 } : {}}
                         transition={{
-                            duration: DUR.medium,
-                            delay: STAGGER.medium,
+                            duration: DR.medium,
+                            delay: SF.medium,
                             ease: EASE_T.silk
                         }}
-                        className="lg:col-span-4 lg:col-start-9 max-w-[440px] self-end text-[15px] md:text-[16px] leading-[1.6] text-[#0a0a1a]/60 font-medium"
+                        className="lg:col-span-4 lg:col-start-9 max-w-[440px] self-end text-pretty text-[15px] font-medium leading-[1.65] text-[#0a0a1a]/70 md:text-[16px]"
                     >
                         Get a clear, structured view of your IT services — from project delivery to system performance and growth opportunities.
                     </motion.p>
                 </div>
 
-                {/* Enhanced 3-column intro row with premium styling */}
-                <motion.div
-                    variants={groupContainer}
-                    initial="hidden"
-                    animate={inView ? "visible" : "hidden"}
-                    className="mb-8 grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-8 lg:gap-10"
-                >
-                    {COLUMNS.map((c) => (
-                        <motion.div
-                            key={c.n}
-                            variants={fadeUp}
-                            transition={{
-                                duration: DUR.base,
-                                ease: EASE_T.silk
-                            }}
-                            className="flex flex-col group cursor-pointer"
-                        >
-                            <span className="text-[11px] font-medium tabular-nums text-[#0a0a1a]/60 tracking-[0.05em] uppercase transition-colors duration-300 group-hover:text-[#FF5812]">
-                                [ {c.n} ]
-                            </span>
-                            <h3 className="mt-4 text-[16px] md:text-[17px] font-semibold leading-[1.3] tracking-[-0.01em] text-[#0a0a1a] transition-colors duration-300 group-hover:text-[#FF5812]">
-                                {c.title}
-                            </h3>
-                            <p className="mt-4 text-[14px] md:text-[14.5px] leading-[1.6] text-[#0a0a1a]/70">
-                                {c.body}
-                            </p>
-                        </motion.div>
-                    ))}
-                </motion.div>
-
-                {/* Premium 3 full-bleed scene cards with enhanced interactions */}
-                <motion.div
-                    variants={groupContainer}
-                    initial="hidden"
-                    animate={inView ? "visible" : "hidden"}
-                    className="grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-6 lg:gap-8"
-                >
-                    {COLUMNS.map((c) => (
-                        <motion.article
-                            key={c.n}
-                            variants={cardScaleIn}
-                            transition={{
-                                duration: DUR.slow,
-                                ease: EASE_T.silk
-                            }}
-                            style={{ minHeight: `${OUTER_CARD.minHeight}px` }}
-                            className="group relative overflow-hidden rounded-3xl transition-all duration-700 hover:shadow-2xl hover:shadow-[#FF5812]/20 cursor-pointer"
-                            whileHover={{
-                                y: -8,
-                                scale: 1.02,
-                                transition: { duration: DUR.medium, ease: EASE_T.silk }
-                            }}
-                        >
-                            {/* Enhanced Grainient bokeh with premium effects */}
-                            <div
-                                aria-hidden
-                                className="cc-card-backdrop absolute inset-[-12%] transition-all duration-[1500ms] group-hover:scale-[1.06] group-hover:rotate-1"
-                                style={{ willChange: "transform" }}
-                            >
-                                <Grainient
-                                    color1={c.scene.color1}
-                                    color2={c.scene.color2}
-                                    color3={c.scene.color3}
-                                    blendAngle={c.scene.blendAngle}
-                                    centerX={c.scene.centerX}
-                                    centerY={c.scene.centerY}
-                                    zoom={c.scene.zoom}
-                                    warpSpeed={c.scene.warpSpeed}
-                                    timeSpeed={0.18}
-                                    warpStrength={1.2}
-                                    warpFrequency={4.0}
-                                    warpAmplitude={45}
-                                    blendSoftness={0.10}
-                                    rotationAmount={420}
-                                    noiseScale={1.8}
-                                    grainAmount={0.06}
-                                    grainScale={2.4}
-                                    grainAnimated
-                                    contrast={1.20}
-                                    gamma={0.95}
-                                    saturation={1.00}
-                                />
-                            </div>
-
-                            {/* Enhanced soft scrim with premium gradient */}
-                            <div
-                                aria-hidden
-                                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                                style={{
-                                    background:
-                                        "linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.0) 50%, rgba(0,0,0,0.25) 100%)",
-                                }}
-                            />
-
-                            {/* Premium inner glass card with enhanced positioning */}
-                            <div
-                                className="absolute inset-x-0 flex justify-center transition-transform duration-700 group-hover:scale-105"
-                                style={{ bottom: `${INNER_CARD.bottomOffset}px` }}
-                            >
-                                <div
-                                    style={{
-                                        width: `${INNER_CARD.size}px`,
-                                        height: `${INNER_CARD.size}px`,
-                                    }}
-                                >
-                                    <c.Visual />
-                                </div>
-                            </div>
-                        </motion.article>
-                    ))}
-                </motion.div>
+                {showPillarRow ? <ClarityPillarRow inView={inView} /> : null}
+                <ClarityGlassCardGrid inView={inView} />
             </div>
-        </section>
+        </Wrapper>
     );
 }

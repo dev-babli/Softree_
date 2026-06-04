@@ -1,48 +1,31 @@
 import { defineLocations, PresentationPluginOptions } from 'sanity/presentation'
-import { CASE_STUDY_LAYOUTS } from '../../src/lib/case-study-layouts'
-import { CLASSIC_LAYOUT_VALUE } from '../../src/sanity/lib/layoutPreview'
 
 export const resolve: PresentationPluginOptions['resolve'] = {
   locations: {
     post: defineLocations({
       select: { title: 'title', slug: 'slug.current' },
       resolve: (doc) => ({
-        locations: [
-          { title: doc?.title || 'Blog post', href: doc?.slug ? `/blog/${doc.slug}` : '/blog' },
-          { title: 'Blog index', href: '/blog' },
-        ],
+        locations: doc?.slug
+          ? [
+              { title: doc?.title || 'Blog post', href: `/blog/${doc.slug}` },
+              { title: 'Blog index', href: '/blog' },
+            ]
+          : [{ title: 'Blog index', href: '/blog' }],
       }),
     }),
 
     caseStudy: defineLocations({
-      select: { title: 'title', slug: 'slug.current', category: 'category' },
+      select: { title: 'title', slug: 'slug.current' },
       resolve: (doc) => {
-        const slugPath = doc?.slug ? `/case-studies/${doc.slug}` : '/case-studies'
-        const locations = [
-          {
-            title: doc?.title || 'Case study',
-            href: slugPath,
-          },
-          { title: 'Case studies index', href: '/case-studies' },
-        ]
-        if (doc?.category) {
-          locations.push({
-            title: `${doc.category} category`,
-            href: `/case-studies/${doc.category}`,
-          })
-        }
-        if (doc?.slug) {
-          locations.push({
-            title: 'Layout preview: Classic (light)',
-            href: `${slugPath}?layout=${CLASSIC_LAYOUT_VALUE}`,
-          })
-          for (const layout of CASE_STUDY_LAYOUTS) {
-            locations.push({
-              title: `Layout preview: ${layout.title}`,
-              href: `${slugPath}?layout=${layout.value}`,
-            })
-          }
-        }
+        const locations = doc?.slug
+          ? [
+              { title: doc?.title || 'Case study', href: `/case-studies/${doc.slug}` },
+              { title: 'Case studies index', href: '/case-studies' },
+            ]
+          : [
+              { title: doc?.title || 'Case study (draft)', href: '/case-studies/preview' },
+              { title: 'Case studies index', href: '/case-studies' },
+            ]
         return { locations }
       },
     }),

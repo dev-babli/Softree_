@@ -7,6 +7,7 @@ import {
     useInView,
     useMotionValue,
     useMotionTemplate,
+    useReducedMotion,
     useSpring,
     useTransform,
     type Variants,
@@ -14,7 +15,14 @@ import {
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { EASE, EASE_T, DUR, STAGGER } from "@/lib/motion";
+import SectionHeader from "@/components/homepage-light/SectionHeader";
+import { EASE, EASE_T, DUR, STAGGER, VIEWPORT, prefersReducedMotion } from "@/lib/motion";
+
+/** About Us light surface — matches ClarityControlSection */
+const SECTION_SURFACE = "#F3F0EE";
+
+/** About Us primary accent — section chrome only; per-card accents stay distinct */
+const BRAND_ACCENT = "#FF5812";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -214,19 +222,19 @@ const cardContainer: Variants = {
  * Creates a more dynamic, less repetitive scroll entry. */
 const REVEAL_VARIANT_BY_INDEX: Variants[] = [
     {
-        hidden: { opacity: 0, y: 24, x: 0 },
+        hidden: { opacity: 0, y: 20, x: 0 },
         visible: { opacity: 1, y: 0, x: 0 },
     },
     {
-        hidden: { opacity: 0, x: 28, y: 0 },
+        hidden: { opacity: 0, x: 20, y: 0 },
         visible: { opacity: 1, x: 0, y: 0 },
     },
     {
-        hidden: { opacity: 0, x: -28, y: 0 },
+        hidden: { opacity: 0, x: -20, y: 0 },
         visible: { opacity: 1, x: 0, y: 0 },
     },
     {
-        hidden: { opacity: 0, y: 24, x: 0 },
+        hidden: { opacity: 0, y: 20, x: 0 },
         visible: { opacity: 1, y: 0, x: 0 },
     },
 ];
@@ -247,8 +255,14 @@ function WordReveal({
     className?: string;
 }) {
     const ref = useRef<HTMLSpanElement>(null);
-    const inView = useInView(ref, { once: true, margin: "-12%" });
+    const reduced = useReducedMotion();
+    const inView = useInView(ref, VIEWPORT.default);
     const words = text.split(" ");
+
+    if (reduced) {
+        return <span className={className}>{text}</span>;
+    }
+
     return (
         <span ref={ref} className={`inline-flex flex-wrap gap-x-[0.28em] ${className}`}>
             {words.map((w, i) => (
@@ -257,7 +271,11 @@ function WordReveal({
                         className="inline-block"
                         initial={{ y: "100%", opacity: 0 }}
                         animate={inView ? { y: 0, opacity: 1 } : {}}
-                        transition={{ duration: 0.65, delay: delay + i * 0.05, ease: EASE_T.silk }}
+                        transition={{
+                            duration: DUR.panel,
+                            delay: delay + i * STAGGER.default,
+                            ease: EASE_T.silk,
+                        }}
                     >
                         {w}
                     </motion.span>
@@ -277,7 +295,8 @@ function ServiceCard({
     cardIndex: number;
 }) {
     const cardRef = useRef<HTMLDivElement>(null);
-    const inView = useInView(cardRef, { once: true, margin: "-12%" });
+    const reduced = useReducedMotion();
+    const inView = useInView(cardRef, VIEWPORT.default);
     const Mark = MARK[service.mark];
     const accent = ACCENT[service.accent];
 
@@ -302,10 +321,10 @@ function ServiceCard({
      *
      *  Spring-smoothed so it doesn't lag the cursor or snap. Reset to 0
      *  on leave so the card returns to flat smoothly. */
-    const MAX_TILT = 5;
+    const MAX_TILT = 3.5;
     const rawTiltX = useMotionValue(0);
     const rawTiltY = useMotionValue(0);
-    const tiltSpringConfig = { stiffness: 220, damping: 24, mass: 0.4 };
+    const tiltSpringConfig = { stiffness: 200, damping: 28, mass: 0.5 };
     const tiltX = useSpring(rawTiltX, tiltSpringConfig);
     const tiltY = useSpring(rawTiltY, tiltSpringConfig);
     const rotateX = useTransform(tiltY, (v) => -v * MAX_TILT);
@@ -313,13 +332,13 @@ function ServiceCard({
     const cardTransform = useMotionTemplate`perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 
     const handleMove = (e: ReactMouseEvent<HTMLDivElement>) => {
+        if (reduced) return;
         const rect = cardRef.current?.getBoundingClientRect();
         if (!rect) return;
         const lx = e.clientX - rect.left;
         const ly = e.clientY - rect.top;
         mouseX.set(lx);
         mouseY.set(ly);
-        // Normalized −0.5..+0.5
         rawTiltX.set(lx / rect.width - 0.5);
         rawTiltY.set(ly / rect.height - 0.5);
     };
@@ -340,8 +359,8 @@ function ServiceCard({
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
             transition={{
-                duration: 0.7,
-                delay: cardIndex * 0.08,
+                duration: DUR.panel,
+                delay: cardIndex * STAGGER.default,
                 ease: EASE_T.silk,
             }}
             onMouseMove={handleMove}
@@ -351,8 +370,8 @@ function ServiceCard({
                     ["--card-accent" as string]: accent.ink,
                     ["--card-soft" as string]: accent.soft,
                     ["--card-glow" as string]: accent.glow,
-                    transform: cardTransform,
-                    transformStyle: "preserve-3d",
+                    transform: reduced ? undefined : cardTransform,
+                    transformStyle: reduced ? undefined : "preserve-3d",
                 } as React.CSSProperties
             }
             className="group relative flex flex-col overflow-hidden rounded-[22px] border border-[#0a0a1a]/8 bg-white p-6 md:p-7 lg:p-8 shadow-[0_1px_2px_rgba(10,10,26,0.04),0_8px_28px_-12px_rgba(10,10,26,0.10)] transition-[border-color,box-shadow] duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:border-[var(--card-accent)]/25 hover:shadow-[0_22px_50px_-22px_rgba(10,10,26,0.20)]"
@@ -638,8 +657,7 @@ export default function CoreEngineeringServices() {
     useGSAP(
         () => {
             if (!sectionRef.current) return;
-            const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-            if (reduced) return;
+            if (prefersReducedMotion()) return;
 
             const line = sectionRef.current.querySelector(".decor-line");
             if (!line) return;
@@ -673,15 +691,16 @@ export default function CoreEngineeringServices() {
             ref={sectionRef}
             data-section="support-partners"
             data-theme-section="light"
-            className="relative w-full overflow-hidden bg-white py-20 md:py-24 lg:py-32"
+            className="relative w-full overflow-hidden py-20 md:py-24 lg:py-32"
+            style={{ backgroundColor: SECTION_SURFACE }}
         >
-            {/* Atmosphere — single warm gradient anchored top-right (kept). */}
+            {/* Atmosphere — warm brand tint anchored top-right */}
             <span
                 aria-hidden
                 className="pointer-events-none absolute -top-40 -right-32 z-0 h-[640px] w-[640px] rounded-full"
                 style={{
                     background:
-                        "radial-gradient(closest-side, rgba(255,107,0,0.10), rgba(255,107,0,0) 70%)",
+                        "radial-gradient(closest-side, rgba(255,88,18,0.09), rgba(255,88,18,0) 70%)",
                     filter: "blur(40px)",
                 }}
             />
@@ -702,44 +721,38 @@ export default function CoreEngineeringServices() {
             />
 
             <div className="relative z-10 mx-auto max-w-[1280px] px-6 lg:px-12">
-                {/* ── Section header ── */}
-                <div ref={headingRef} className="relative mb-14 md:mb-18 max-w-[820px]">
+                {/* ── Section header (shared SectionHeader + credentials) ── */}
+                <div ref={headingRef} className="relative mb-12 md:mb-16 max-w-[820px]">
                     <span
                         aria-hidden
-                        className="decor-line absolute -left-12 top-3 hidden h-px w-10 bg-gradient-to-r from-[#FF6B00] to-transparent lg:block"
+                        className="decor-line absolute -left-12 top-3 hidden h-px w-10 lg:block"
+                        style={{
+                            background: `linear-gradient(to right, ${BRAND_ACCENT}, transparent)`,
+                        }}
                     />
 
                     <motion.div
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={headingInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.5, ease: EASE_T.silk }}
-                        className="mb-6 flex items-baseline gap-3 text-[12px] font-medium"
-                    >
-                        <span className="tabular-nums text-[#0a0a1a]/35">§ 01</span>
-                        <span className="h-px w-8 bg-[#0a0a1a]/15" />
-                        <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#FF6B00]">
-                            Core Capabilities
-                        </span>
-                    </motion.div>
-
-                    <h2 className="text-[clamp(34px,5vw,64px)] font-semibold leading-[0.98] tracking-[-0.03em] text-[#0a0a1a]">
-                        <WordReveal text="Core Engineering Services" delay={0.1} />
-                    </h2>
-
-                    <motion.p
                         initial={{ opacity: 0, y: 12 }}
                         animate={headingInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.6, delay: 0.35, ease: EASE_T.silk }}
-                        className="mt-6 max-w-[640px] text-[16px] md:text-[17px] leading-[1.55] text-[#0a0a1a]/65"
+                        transition={{ duration: DUR.panel, ease: EASE_T.silk }}
                     >
-                        Four verticals, one delivery standard. Enterprise-grade engineering across Microsoft platforms and modern web stacks — scoped, scaled, and shipped by senior teams.
-                    </motion.p>
+                        <SectionHeader
+                            badge="Core capabilities"
+                            accent="#FF5812"
+                            headline={
+                                <span id="core-engineering-services-heading">
+                                    Core Engineering Services
+                                </span>
+                            }
+                            body="Four verticals, one delivery standard. Enterprise-grade engineering across Microsoft platforms and modern web stacks — scoped, scaled, and shipped by senior teams."
+                        />
+                    </motion.div>
 
                     <motion.dl
                         initial={{ opacity: 0, y: 12 }}
                         animate={headingInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.6, delay: 0.5, ease: EASE_T.silk }}
-                        className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-[700px]"
+                        className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-[700px]"
                     >
                         {credentials.map((c) => (
                             <div key={c.label} className="flex items-baseline gap-3">
@@ -767,20 +780,22 @@ export default function CoreEngineeringServices() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-10%" }}
                     transition={{ duration: 0.6, ease: EASE_T.silk }}
-                    className="mt-12 md:mt-16 flex flex-col gap-4 md:flex-row md:items-center md:justify-between md:gap-8 border-t border-[#0a0a1a]/8 pt-7 md:pt-8"
+                        className="mt-12 md:mt-16 flex flex-col gap-4 md:flex-row md:items-center md:justify-between md:gap-8 border-t border-[#0a0a1a]/8 pt-7 md:pt-8"
                 >
                     <p className="max-w-[520px] text-[14px] leading-[1.55] text-[#0a0a1a]/65">
                         Looking for something more specific? Browse the full delivery catalogue across infrastructure, AI, and digital workplace.
                     </p>
                     <Link
                         href="/services"
-                        className="group/closer relative inline-flex items-center gap-2 self-start text-[13px] font-semibold text-[#0a0a1a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B00]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white md:self-auto"
+                        className="group/closer relative inline-flex items-center gap-2 self-start text-[13px] font-semibold text-[#0a0a1a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/50 focus-visible:ring-offset-2 md:self-auto"
+                        style={{ ["--tw-ring-offset-color" as string]: SECTION_SURFACE }}
                     >
                         <span className="relative">
                             See all services
                             <span
                                 aria-hidden
-                                className="absolute -bottom-0.5 left-0 block h-[1.5px] w-0 bg-[#FF6B00] transition-[width] duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover/closer:w-full"
+                                className="absolute -bottom-0.5 left-0 block h-[1.5px] w-0 transition-[width] duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover/closer:w-full"
+                                style={{ backgroundColor: BRAND_ACCENT }}
                             />
                         </span>
                         <svg

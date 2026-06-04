@@ -38,7 +38,11 @@ export function ManufacturingCaseStudyPage({ data }: { data: CaseStudyLayoutData
       <ChallengeSection data={data} />
       <SolutionSection data={data} />
       <DeliverablesSection data={data} />
-      <GallerySection items={data.gallery} />
+      <GallerySection
+        items={data.gallery}
+        heading={data.galleryHeading}
+        subheading={data.gallerySubheading}
+      />
       <ImpactSection data={data} />
       <TechStackSection data={data} />
       <TestimonialSection data={data} />

@@ -4,9 +4,11 @@ import dynamic from "next/dynamic";
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
 import ContactHero from "./ContactHero";
+import Gallery from "@/components/Gallery/Gallery";
 import LightContactSection from "@/components/qc/homepage-light/LightContactSection";
 import LightEngagementModels from "@/components/qc/homepage-light/LightEngagementModels";
 import TestimonialsGlobe from "@/components/sections/TestimonialsGlobe";
+import GlobalClientNetwork from "@/components/sections/GlobalClientNetwork";
 const LightFAQExactLazy = dynamic(
   () => import("@/components/homepage-light/LightFAQExact"),
   {
@@ -20,11 +22,12 @@ const LightFAQExactLazy = dynamic(
  * CONTACT — Restructured to mirror the About Us flow.
  *
  *  1. ContactHero            — Editorial hero with live office clocks + email
- *  2. LightContactSection    — CTA / contact form (from About Us)
- *  3. TestimonialsGlobe      — Global voices on world map
- *  4. LightFAQExact          — Pre-empt common questions
- *  5. LightEngagementModels  — How to work with us
- *  6. Footer
+ *  2. Gallery                — Pay Us A Visit — three offices
+ *  3. LightContactSection    — CTA / contact form (all office addresses)
+ *  4. TestimonialsGlobe      — Global voices on world map
+ *  5. LightFAQExact          — Pre-empt common questions
+ *  6. LightEngagementModels  — How to work with us
+ *  7. Footer
  */
 
 export default function ContactPage() {
@@ -35,11 +38,17 @@ export default function ContactPage() {
       {/* 1. Hero — editorial with live clocks */}
       <ContactHero />
 
-      {/* 2. CTA — contact form */}
+      {/* 2. Offices — Bengaluru, Cuttack, San Francisco */}
+      <Gallery />
+
+      {/* 3. CTA — contact form */}
       <LightContactSection />
 
       {/* 3. Testimonials — global voices */}
       <TestimonialsGlobe />
+
+      {/* Global client network — hex world with city stat cards */}
+      <GlobalClientNetwork />
 
       {/* 4. FAQs */}
       <LightFAQExactLazy />

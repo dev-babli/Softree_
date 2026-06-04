@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 
 type FormStatus = "idle" | "submitting" | "success" | "error" | "captcha";
 
@@ -688,6 +689,15 @@ export default function CTASection() {
               >
                 {formStatus === "submitting" ? "Submitting…" : formStatus === "success" ? "Submitted ✓" : "Submit Request"}
               </button>
+
+              <div className="text-center pt-2">
+                <Link
+                  href="/book-meeting"
+                  className="inline-flex items-center gap-1.5 text-[12px] text-orange-400 hover:text-orange-300 font-semibold transition"
+                >
+                  🤝 Or schedule a discovery call directly &rarr;
+                </Link>
+              </div>
             </form>
           </div>
         </div>

@@ -1,158 +1,127 @@
 "use client";
 
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+/**
+ * About Us platform section — three Clarity glass pillars + editorial footer.
+ * Pillar cards live in `AboutUsGlassPillars` (shared with homepage bento).
+ */
 
-type ProductCard = {
-  title: string;
-  description: string;
-  href: string;
+import { useRef } from "react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { AboutUsGlassPillars } from "@/components/sections/about-us/AboutUsGlassPillars";
+import SectionHeader from "@/components/homepage-light/SectionHeader";
+import { HOME_INTRO_SURFACE } from "@/components/sections/ClarityControlSection";
+import { DUR, EASE_T, VIEWPORT } from "@/lib/motion";
+
+const ACCENT = "#FF5812";
+const BLUE = "#1852FF";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
 };
 
-const PRODUCT_CARDS: ProductCard[] = [
-  {
-    title: "AI and Agent Solutions",
-    description:
-      "Custom AI copilots, workflow automation, and production-ready intelligent systems.",
-    href: "/services/offshore-ai-development",
-  },
-  {
-    title: "Power Platform Delivery",
-    description:
-      "Power Apps, Power Automate, and Dataverse implementations that drive adoption.",
-    href: "/services/offshore-power-platform-development",
-  },
-  {
-    title: "Web and Mobile Engineering",
-    description:
-      "Modern product development across web and mobile with strong architecture and UX.",
-    href: "/services",
-  },
-];
-
 export default function KorePlatformShowcaseSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const inView = useInView(sectionRef, VIEWPORT.default);
+
   return (
-    <section className="relative overflow-hidden bg-white pb-0">
-      <div className="absolute inset-0 z-0">
-        <div className="h-full w-full bg-[radial-gradient(120%_90%_at_15%_5%,rgba(24,82,255,0.03),transparent_45%),radial-gradient(120%_90%_at_85%_15%,rgba(255,88,18,0.03),transparent_48%),linear-gradient(180deg,#FFFFFF_0%,#FFFFFF_72%,#FFFFFF_100%)]" />
-      </div>
+    <section
+      ref={sectionRef}
+      data-section="about-us-platform"
+      data-theme-section="light"
+      aria-labelledby="about-us-platform-heading"
+      className="relative w-full overflow-x-clip overflow-y-visible py-20 md:py-24 lg:py-32"
+      style={{ backgroundColor: HOME_INTRO_SURFACE }}
+    >
+      <span
+        aria-hidden
+        className="pointer-events-none absolute -top-32 right-0 z-0 h-[520px] w-[520px] rounded-full"
+        style={{
+          background:
+            "radial-gradient(closest-side, rgba(255,88,18,0.08), rgba(255,88,18,0) 72%)",
+          filter: "blur(36px)",
+        }}
+      />
 
-      <div className="relative z-10 mx-auto max-w-[1320px] px-4 pb-20 pt-28 md:px-8 md:pt-32">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-balance text-4xl font-semibold leading-tight tracking-[-0.03em] text-[#0a0a1a] md:text-6xl">
-            Great digital outcomes are built on a strong delivery foundation.
-          </h2>
-          <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-[#0a0a1a]/70 md:text-2xl">
-            Product engineering, AI, and enterprise modernization for ambitious teams.
-            <br />
-            Built by Softree with speed, clarity, and accountability.
-          </p>
+      <div className="relative z-10 mx-auto max-w-[1400px] px-6 lg:px-12">
+        <div className="mb-12 grid grid-cols-1 gap-8 md:mb-14 lg:grid-cols-12 lg:gap-16">
+          <motion.div
+            className="lg:col-span-7"
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            variants={fadeUp}
+            transition={{ duration: DUR.panel, ease: EASE_T.silk }}
+          >
+            <SectionHeader
+              badge="About us"
+              accent={ACCENT}
+              headline={
+                <span id="about-us-platform-heading">
+                  A global offshore partner that ships under your brand.
+                </span>
+              }
+            />
+          </motion.div>
+          <motion.p
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            variants={fadeUp}
+            transition={{ duration: DUR.panel, delay: 0.06, ease: EASE_T.silk }}
+            className="max-w-[440px] self-end text-pretty text-[15px] font-medium leading-[1.65] text-[#0a0a1a]/70 md:text-[16px] lg:col-span-4 lg:col-start-9"
+          >
+            Softree gives agencies, consultancies, and product companies senior engineering
+            from India — white-label ready, Microsoft-capable, and accountable to your clients.
+          </motion.p>
+        </div>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+        <AboutUsGlassPillars />
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={VIEWPORT.default}
+          variants={fadeUp}
+          transition={{ duration: DUR.section, ease: EASE_T.silk }}
+          className="mt-14 flex flex-col gap-8 border-t border-[#0a0a1a]/10 pt-12 md:mt-16 md:flex-row md:items-end md:justify-between lg:mt-20"
+        >
+          <div className="max-w-[56ch]">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#0a0a1a]/40">
+              Who we are
+            </p>
+            <p className="mt-3 text-balance text-[1.35rem] font-semibold leading-[1.22] tracking-[-0.03em] text-[#0a0a1a] md:text-[1.55rem]">
+              Meet{" "}
+              <span style={{ color: BLUE }}>{`{`}</span>
+              <span className="italic">Softree</span>
+              <span style={{ color: BLUE }}>{`}`}</span>
+              <span className="text-[#0a0a1a]/65">
+                {" "}
+                — an engineering partner for offshore, white-label, and enterprise delivery.
+              </span>
+            </p>
+            <blockquote className="mt-6 border-l-2 border-[#FF5812]/40 pl-5 text-[15px] font-medium leading-[1.55] text-[#0a0a1a]/75 md:text-[16px]">
+              “They operate as our offshore bench — white-label ready, senior-led, and
+              accountable to our clients.”
+            </blockquote>
+          </div>
+          <div className="flex shrink-0 flex-wrap gap-3">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-[6px] bg-[#FF5812] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-[#FF5812]/90"
+              className="inline-flex items-center gap-2 rounded-full bg-[#FF5812] px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-[#e84f0f]"
             >
-              Start a project
+              Partner with us
+              <ArrowRight className="h-3.5 w-3.5" aria-hidden />
             </Link>
             <Link
               href="/case-studies"
-              className="inline-flex items-center justify-center rounded-[6px] border border-[#0a0a1a]/20 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] text-[#0a0a1a] transition hover:bg-[#0a0a1a] hover:text-white"
+              className="inline-flex items-center gap-2 rounded-full border border-[#0a0a1a]/14 bg-white px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-[#0a0a1a] transition hover:border-[#FF5812]/25 hover:text-[#FF5812]"
             >
-              Case Studies
+              Case studies
             </Link>
           </div>
-        </div>
-
-        <Link
-          href="/about-us"
-          className="mx-auto mt-12 block max-w-5xl rounded-2xl border border-[#0a0a1a]/10 bg-white/90 p-6 backdrop-blur md:p-8"
-        >
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#0a0a1a]/60">
-            The Softree Delivery System
-          </p>
-          <div className="mt-3 flex flex-wrap items-center gap-3">
-            <h3 className="text-3xl font-semibold tracking-[-0.03em] text-[#0a0a1a] md:text-4xl">
-              Meet <span className="text-[#1852FF]">{`{`}</span>{" "}
-              <span className="italic">Softree</span>{" "}
-              <span className="text-[#1852FF]">{`}`}</span>
-            </h3>
-            <span className="inline-flex rounded-full bg-[#FF5812] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-white">
-              New
-            </span>
-          </div>
-          <p className="mt-4 max-w-4xl text-[#0a0a1a]/70">
-            A practical execution model that combines strategy, design, engineering,
-            and QA to ship reliable products across AI, Power Platform, web, and
-            mobile.
-          </p>
-          <div className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#0a0a1a]">
-            Explore Softree <ArrowUpRight className="h-4 w-4" />
-          </div>
-        </Link>
-
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
-          {PRODUCT_CARDS.map((card) => (
-            <Link
-              key={card.title}
-              href={card.href}
-              className="group rounded-2xl border border-[#0a0a1a]/10 bg-white/90 p-5 backdrop-blur transition hover:border-[#FF5812]/30 hover:shadow-lg"
-            >
-              <div className="flex items-start justify-between gap-3">
-                <h4 className="text-xl font-semibold leading-tight tracking-[-0.02em] text-[#0a0a1a]">
-                  {card.title}
-                </h4>
-                <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-[#0a0a1a]/60 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </div>
-              <p className="mt-3 text-sm leading-relaxed text-[#0a0a1a]/70">{card.description}</p>
-              <div className="mt-5 h-24 rounded-xl bg-gradient-to-br from-[#F3F0EE] to-[#F3F0EE]/60" />
-            </Link>
-          ))}
-        </div>
+        </motion.div>
       </div>
-
-      <div className="pointer-events-none absolute right-[1.2%] top-0 z-20 hidden h-full items-center lg:flex">
-        <div className="flex flex-col items-center">
-          <div className="w-4 -rotate-90 whitespace-nowrap text-xs tracking-[0.08em] text-[#0a0a1a]/60">
-            Explore Softree services
-          </div>
-          <div className="relative mt-8 h-10 w-5">
-            <span className="side-arrow absolute left-1/2 top-0 h-2 w-2 -translate-x-1/2 rotate-[-45deg] border-b-2 border-l-2 border-[#FF5812]" />
-            <span className="side-arrow delay-[300ms] absolute left-1/2 top-0 h-2 w-2 -translate-x-1/2 rotate-[-45deg] border-b-2 border-l-2 border-[#FF5812]" />
-          </div>
-        </div>
-      </div>
-
-      <div className="relative z-10">
-        <div
-          className="h-[150px] w-full bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage:
-              "linear-gradient(180deg,rgba(243,240,238,0)_0%,rgba(24,82,255,0.06)_100%)",
-          }}
-        />
-      </div>
-
-      <style jsx>{`
-        .side-arrow {
-          opacity: 0;
-          animation: sideArrowFlow 1.5s infinite;
-        }
-        @keyframes sideArrowFlow {
-          0% {
-            transform: translateX(-50%) rotate(-45deg) translateY(0);
-            opacity: 0;
-          }
-          25%,
-          60% {
-            opacity: 1;
-          }
-          100% {
-            transform: translateX(-50%) rotate(-45deg) translateY(20px);
-            opacity: 0;
-          }
-        }
-      `}</style>
     </section>
   );
 }

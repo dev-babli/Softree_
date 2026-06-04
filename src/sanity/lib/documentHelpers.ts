@@ -1,14 +1,40 @@
 import SeoPreviewInput from "../components/SeoPreviewInput"
+import React from "react"
 import { defineField } from "sanity"
+import EditorProgressInput from "../components/EditorProgressInput"
+import type { ObjectInputProps } from "sanity"
 
 export function createSeoPreviewPanelField(group = "seo") {
+  const SeoPreviewPanelInput: React.FC<ObjectInputProps> = () =>
+    React.createElement(SeoPreviewInput, {
+      siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://www.softreetechnology.com",
+    })
   return defineField({
     name: "seoPreviewPanel",
     title: "Search & social preview",
     type: "object",
     group,
     components: {
-      input: SeoPreviewInput,
+      input: SeoPreviewPanelInput,
+    },
+    fields: [
+      defineField({
+        name: "placeholder",
+        type: "string",
+        hidden: true,
+      }),
+    ],
+  })
+}
+
+export function createEditorProgressPanelField(group = "publish") {
+  return defineField({
+    name: "editorProgressPanel",
+    title: "Editor progress",
+    type: "object",
+    group,
+    components: {
+      input: EditorProgressInput,
     },
     fields: [
       defineField({
@@ -24,10 +50,10 @@ export function createSeoPreviewPanelField(group = "seo") {
 export const seoPreviewPanelField = createSeoPreviewPanelField("seo")
 
 export function publishReadinessValidation(
-  Rule: any,
+  Rule: unknown,
   options?: { requireBody?: boolean; requireImage?: boolean },
 ) {
-  return Rule.custom((fields: Record<string, unknown> | undefined) => {
+  return (Rule as { custom: (fn: (v: Record<string, unknown> | undefined) => true | string) => unknown }).custom((fields: Record<string, unknown> | undefined) => {
     if (!fields || fields.status === "archived" || fields.status === "draft") return true
 
     const missing: string[] = []

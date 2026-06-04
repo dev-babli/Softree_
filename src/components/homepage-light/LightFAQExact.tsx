@@ -59,21 +59,56 @@ const defaultFaqs: FAQItem[] = [
   },
 ]
 
-const grainientColors = [
-  { from: "#fffaf5", via: "#fff3e6", to: "#ffe4cc", accent: "#f97316" },
-  { from: "#fffbf7", via: "#fff4ea", to: "#ffe8d6", accent: "#ea580c" },
-  { from: "#fffcf9", via: "#fff6ed", to: "#ffecd6", accent: "#ff822d" },
-  { from: "#fff9f2", via: "#fff0e0", to: "#ffe0c2", accent: "#e05300" },
-  { from: "#fffbf5", via: "#fff2e6", to: "#ffebd6", accent: "#ff7300" },
-]
+/** Brand palette: cream `#F3F0EE`, blue `#1852FF`, orange `#FF5812`, ink `#0a0a1a` */
+const FAQ_INK = "#0a0a1a"
+const FAQ_INK_MUTED = "#2a3348"
+const FAQ_DESKTOP_HEIGHT = 420
+const FAQ_MOBILE_ACTIVE_MIN = 228
+const FAQ_MOBILE_COLLAPSED_MIN = 52
 
-const activeGrainientPalette = [
-  { c1: "#fff7ed", c2: "#ff822d", c3: "#fdbb74" },
-  { c1: "#ffedd5", c2: "#f97316", c3: "#fed7aa" },
-  { c1: "#ffe8d6", c2: "#ea580c", c3: "#fdba74" },
-  { c1: "#fff2e6", c2: "#ff781f", c3: "#ffc294" },
-  { c1: "#ffebd6", c2: "#e05300", c3: "#ffe4cc" },
-]
+/** Same palette, alternating blue / orange at different shades */
+const FAQ_CARD_THEMES = [
+  {
+    from: "#F3F0EE",
+    via: "#e8eeff",
+    to: "#cdd9ff",
+    accent: "#1852FF",
+    grainient: { c1: "#F3F0EE", c2: "#1852FF", c3: "#8eb4ff" },
+    scrim: "from-white/55 via-white/30 to-[#1852FF]/10",
+  },
+  {
+    from: "#F3F0EE",
+    via: "#fdeee4",
+    to: "#ffd9c8",
+    accent: "#FF5812",
+    grainient: { c1: "#fffbf7", c2: "#FF5812", c3: "#ffb899" },
+    scrim: "from-white/55 via-white/30 to-[#FF5812]/10",
+  },
+  {
+    from: "#F3F0EE",
+    via: "#dce6ff",
+    to: "#b8c9ff",
+    accent: "#1852FF",
+    grainient: { c1: "#eef3ff", c2: "#3d5fd4", c3: "#a8c4ff" },
+    scrim: "from-white/55 via-white/30 to-[#1852FF]/10",
+  },
+  {
+    from: "#F3F0EE",
+    via: "#ffe8dc",
+    to: "#ffc9ad",
+    accent: "#FF5812",
+    grainient: { c1: "#fff5ef", c2: "#ff6b2c", c3: "#ffc9a8" },
+    scrim: "from-white/55 via-white/30 to-[#FF5812]/10",
+  },
+  {
+    from: "#F3F0EE",
+    via: "#d0dcff",
+    to: "#a8baff",
+    accent: "#1852FF",
+    grainient: { c1: "#f0f4ff", c2: "#1852FF", c3: "#c5d8ff" },
+    scrim: "from-white/55 via-white/30 to-[#1852FF]/10",
+  },
+] as const
 
 export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) {
   const faqs = customFaqs || defaultFaqs
@@ -126,7 +161,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
   }
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-[var(--legacy-fffbf7)] py-20 md:py-32">
+    <section ref={sectionRef} className="relative w-full bg-[#F3F0EE] py-14 md:py-20">
       {/* FAQPage JSON-LD — enables AI Overview, ChatGPT/Claude/Gemini citation,
          and Google rich results. Each answer is 30-50 words for optimal
          AEO extraction (the LLM sweet spot). */}
@@ -187,14 +222,16 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
       </svg>
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
         {/* Section Title */}
-        <div ref={titleRef} className="mb-12 md:mb-16">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--legacy-f97316)]/20 bg-[var(--legacy-f97316)]/10 px-4 py-2">
-            <HelpCircle className="h-4 w-4 text-[var(--legacy-ea580c)]" />
-            <span className="text-sm font-medium text-[var(--legacy-ea580c)]">FAQ</span>
+        <div ref={titleRef} className="mb-8 md:mb-10">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#1852FF]/20 bg-[#1852FF]/8 px-4 py-2">
+            <HelpCircle className="h-4 w-4 text-[#1852FF]" />
+            <span className="text-sm font-medium text-[#1852FF]">FAQ</span>
           </div>
-          <h2 className="text-3xl font-bold tracking-tight text-[var(--legacy-451a03)] md:text-5xl lg:text-6xl">
+          <h2 className="text-3xl font-bold tracking-tight text-[#0a0a1a] md:text-5xl lg:text-6xl">
             Frequently Asked{" "}
-            <span className="text-[var(--legacy-ea580c)]">Questions.</span>
+            <span className="bg-gradient-to-r from-[#1852FF] to-[#FF5812] bg-clip-text text-transparent">
+              Questions.
+            </span>
           </h2>
         </div>
 
@@ -204,33 +241,34 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
          *  • Desktop (≥lg)         : original horizontal slot accordion. */}
         <div
           ref={faqsRef}
-          className="flex flex-col lg:flex-row gap-2 lg:h-[600px]"
+          className="flex flex-col lg:flex-row gap-2 lg:h-[420px]"
         >
           {faqs.map((faq, index) => {
             const isActive = index === activeIndex
-            const isCollapsed = activeIndex !== -1 && !isActive
-            const paletteIndex = index % grainientColors.length
+            const theme = FAQ_CARD_THEMES[index % FAQ_CARD_THEMES.length]
 
             return (
               <div
                 key={faq.id}
                 onClick={() => handleClick(index)}
-                className={`group/card relative cursor-pointer overflow-hidden rounded-2xl border border-[var(--legacy-f97316)]/20 transition-all duration-700 ease-[var(--legacy-ease-0_4_0_0_2_1)] w-full ${isActive
-                  ? "bg-white shadow-[0_10px_30px_rgba(249,115,22,0.12)] border-[var(--legacy-f97316)]/30"
+                className={`group/card relative cursor-pointer overflow-hidden rounded-2xl border transition-all duration-700 ease-[var(--legacy-ease-0_4_0_0_2_1)] w-full ${isActive
+                  ? "bg-white shadow-lg"
                   : "bg-white/80"
                   }`}
-                style={
-                  isDesktop
+                style={{
+                  borderColor: isActive ? `${theme.accent}40` : `${theme.accent}22`,
+                  boxShadow: isActive ? `0 12px 40px ${theme.accent}22` : undefined,
+                  ...(isDesktop
                     ? {
-                      /* Desktop horizontal slot accordion. */
-                      width: isActive ? "37%" : isCollapsed ? "15%" : "15%",
-                      height: "600px",
-                    }
+                        width: isActive ? "37%" : "15%",
+                        height: `${FAQ_DESKTOP_HEIGHT}px`,
+                      }
                     : {
-                      /* Mobile / tablet vertical stack. */
-                      minHeight: isActive ? "320px" : "64px",
-                    }
-                }
+                        minHeight: isActive
+                          ? `${FAQ_MOBILE_ACTIVE_MIN}px`
+                          : `${FAQ_MOBILE_COLLAPSED_MIN}px`,
+                      }),
+                }}
               >
                 {/* Grainient Background for Inactive Cards */}
                 {!isActive && (
@@ -239,17 +277,17 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                     <div
                       className="absolute inset-0 transition-all duration-500 group-hover/card:opacity-90"
                       style={{
-                        background: `linear-gradient(135deg, ${grainientColors[paletteIndex].from} 0%, ${grainientColors[paletteIndex].via} 50%, ${grainientColors[paletteIndex].to} 100%)`,
+                        background: `linear-gradient(135deg, ${theme.from} 0%, ${theme.via} 50%, ${theme.to} 100%)`,
                       }}
                     />
                     {/* Accent Glow */}
                     <div
                       className="absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-20 blur-3xl transition-all duration-500 group-hover/card:opacity-40 group-hover/card:scale-125"
-                      style={{ backgroundColor: grainientColors[paletteIndex].accent }}
+                      style={{ backgroundColor: theme.accent }}
                     />
                     <div
                       className="absolute -bottom-10 -left-10 h-32 w-32 rounded-full opacity-10 blur-2xl transition-all duration-500 group-hover/card:opacity-30"
-                      style={{ backgroundColor: grainientColors[paletteIndex].accent }}
+                      style={{ backgroundColor: theme.accent }}
                     />
                     {/* Grain Overlay */}
                     <div
@@ -263,7 +301,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                     <div
                       className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover/card:opacity-100"
                       style={{
-                        boxShadow: `inset 0 0 0 1px ${grainientColors[paletteIndex].accent}20, 0 0 30px ${grainientColors[paletteIndex].accent}10`,
+                        boxShadow: `inset 0 0 0 1px ${theme.accent}28, 0 0 30px ${theme.accent}14`,
                       }}
                     />
                   </>
@@ -273,53 +311,55 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                 {isActive && (
                   <div className="absolute inset-0">
                     <Grainient
-                      color1={activeGrainientPalette[paletteIndex].c1}
-                      color2={activeGrainientPalette[paletteIndex].c2}
-                      color3={activeGrainientPalette[paletteIndex].c3}
+                      color1={theme.grainient.c1}
+                      color2={theme.grainient.c2}
+                      color3={theme.grainient.c3}
                       timeSpeed={0.15}
                       grainAmount={0.08}
                       grainScale={2.5}
                       grainAnimated={false}
-                      warpStrength={0.6}
+                      warpStrength={0.45}
                       warpFrequency={4.0}
                       warpSpeed={1.5}
-                      warpAmplitude={60.0}
+                      warpAmplitude={50.0}
                       rotationAmount={350.0}
                       noiseScale={1.8}
-                      contrast={1.35}
-                      saturation={1.15}
-                      blendSoftness={0.08}
-                      zoom={0.85}
+                      contrast={1.15}
+                      saturation={1.05}
+                      blendSoftness={0.12}
+                      zoom={0.9}
                     />
-                    {/* Subtle vignette overlay for text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--legacy-f97316)]/10 via-transparent to-[var(--legacy-f97316)]/5" />
+                    <div className={`absolute inset-0 bg-gradient-to-b ${theme.scrim}`} />
+                    <div className="absolute inset-0 bg-white/20" />
                   </div>
                 )}
 
                 {/* Content */}
-                <div className="relative flex h-full flex-col p-5 md:p-6">
+                <div className="relative flex h-full flex-col p-4 md:p-5">
                   {/* Top - Serial & Icon */}
                   <div className="mb-auto flex items-start justify-between">
                     <span
-                      className={`text-xs font-medium uppercase tracking-wider transition-colors duration-500 ${isActive ? "text-[var(--legacy-7c2d12)]/80" : "text-[var(--legacy-451a03)]/90"
-                        }`}
+                      className="text-xs font-medium uppercase tracking-wider transition-colors duration-500"
+                      style={{ color: isActive ? `${FAQ_INK_MUTED}cc` : FAQ_INK_MUTED }}
                     >
                       {faq.serial}
                     </span>
                     <div className="relative h-6 w-6">
                       {/* Plus Icon */}
                       <Plus
-                        className={`absolute inset-0 h-6 w-6 text-[var(--legacy-ea580c)] transition-all duration-500 ${isActive
+                        className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${isActive
                           ? "scale-0 opacity-0 rotate-90"
                           : "scale-100 opacity-100 rotate-0"
                           }`}
+                        style={{ color: theme.accent }}
                       />
                       {/* Minus Icon */}
                       <Minus
-                        className={`absolute inset-0 h-6 w-6 text-[var(--legacy-ea580c)] transition-all duration-500 ${isActive
+                        className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${isActive
                           ? "scale-100 opacity-100 rotate-0"
                           : "scale-0 opacity-0 -rotate-90"
                           }`}
+                        style={{ color: theme.accent }}
                       />
                     </div>
                   </div>
@@ -327,9 +367,10 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                   {/* Bottom Content */}
                   <div className="mt-auto">
                     {/* Question */}
-                    <div className="mb-4">
+                    <div className="mb-2 md:mb-3">
                       <h3
-                        className={`text-lg font-semibold leading-snug transition-colors duration-500 md:text-xl text-[var(--legacy-451a03)]`}
+                        className="text-base font-semibold leading-snug transition-colors duration-500 md:text-lg"
+                        style={{ color: FAQ_INK }}
                       >
                         {faq.question}
                       </h3>
@@ -343,20 +384,30 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                         opacity: isActive ? 1 : 0,
                       }}
                     >
-                      <div className="pt-4">
-                        <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-[var(--legacy-7c2d12)]/60">
+                      <div className="pt-2 md:pt-3">
+                        <h4
+                          className="mb-1.5 text-[11px] font-semibold uppercase tracking-wider"
+                          style={{ color: `${FAQ_INK_MUTED}99` }}
+                        >
                           Question Answer:
                         </h4>
-                        <div className="mb-4 h-px w-16 bg-[var(--legacy-ea580c)]/20" />
-                        <p className="mb-6 text-sm leading-relaxed text-[var(--legacy-451a03)]/85 md:text-base">
+                        <div className="mb-3 h-px w-14" style={{ backgroundColor: `${theme.accent}35` }} />
+                        <p
+                          className="mb-4 text-sm leading-relaxed"
+                          style={{ color: `${FAQ_INK}d9` }}
+                        >
                           {faq.answer}
                         </p>
                         <Link
                           href="/about-us"
-                          className="group inline-flex items-center gap-3 rounded-full bg-[var(--legacy-ea580c)] px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-[var(--legacy-7c2d12)]"
+                          className="group inline-flex items-center gap-2.5 rounded-full px-4 py-2 text-sm font-medium text-white transition-all hover:brightness-110"
+                          style={{ backgroundColor: theme.accent }}
                         >
                           <span>More About Us</span>
-                          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-[var(--legacy-ea580c)] transition-all group-hover:bg-[var(--legacy-ea580c)] group-hover:text-white">
+                          <span
+                            className="flex h-5 w-5 items-center justify-center rounded-full bg-white transition-all group-hover:text-white"
+                            style={{ color: theme.accent }}
+                          >
                             <ArrowUpRight className="h-3 w-3" />
                           </span>
                         </Link>

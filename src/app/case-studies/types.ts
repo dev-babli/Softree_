@@ -6,6 +6,10 @@ export type CaseStudyListingItem = {
   image?: string
   imageAlt: string
   imageFit?: "cover" | "contain"
+  industry?: string
+  useCase?: string
+  companySize?: string
+  keyResults?: { value: string; label: string; description?: string }[]
 }
 
 export type CaseStudyHeroSlide = {

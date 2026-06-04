@@ -12,7 +12,7 @@ import { TechLogo } from "../../shared/PowerPlatformLogos"
 /** Product launch — 50/50 hero, device mockup, app screenshot grid */
 export function SplitHeroMockupPage({ data }: { data: CaseStudyLayoutData }) {
   const hero = heroImage(data)
-  const shots = galleryOrFallback(data.gallery, 6)
+  const shots = galleryOrFallback(data.slug, data.gallery, 6)
 
   return (
     <article className="min-h-screen bg-[#FAFAFE] text-[#0F172A]">

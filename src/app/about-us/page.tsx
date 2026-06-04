@@ -8,7 +8,8 @@ import AwardsMarqueeSection from "@/components/qc/homepage-light/AwardsMarqueeSe
 import LightEngagementModels from "@/components/qc/homepage-light/LightEngagementModels";
 import LightContactSection from "@/components/qc/homepage-light/LightContactSection";
 import LightFAQExact from "@/components/homepage-light/LightFAQExact";
-import OffshoreTestimonialsGlobe from "@/components/sections/OffshoreTestimonialsGlobe";
+import Gallery from "@/components/Gallery/Gallery";
+import AnimatedPhotoGallery from "@/components/Gallery/AnimatedPhotoGallery";
 import Footer from "@/components/sections/footer";
 /**
  * ABOUT US — Complete Component Stack
@@ -19,9 +20,11 @@ import Footer from "@/components/sections/footer";
  *  4. LightEngagementModels   → Engagement Models accordion
  *  5. AboutTeamSection        → Leadership & team showcase
  *  6. AwardsMarqueeSection    → Awards marquee with glass trophies
- *  7. TestimonialsGlobe        → Global testimonials on world map
- *  8. LightContactSection     → Contact form CTA
- *  9. Footer                  → Homepage footer
+ *  7. AnimatedPhotoGallery     → Moving workspace photo rails
+ *  8. Gallery                  → Pay Us A Visit — three offices
+ *  9. LightContactSection     → Contact form CTA (all office addresses)
+ * 10. LightFAQExact            → FAQ accordion
+ * 11. Footer                  → Homepage footer
  */
 
 export default function AboutUsPage() {
@@ -48,16 +51,19 @@ export default function AboutUsPage() {
       {/* 6. Awards — Marquee with glass trophy cards */}
       <AwardsMarqueeSection />
 
-      {/* 7. Testimonials — Global voices on world map */}
-      <OffshoreTestimonialsGlobe variant="light" />
+      {/* 7. Workspace gallery — animated photo rails */}
+      <AnimatedPhotoGallery />
 
-      {/* 8. Contact — Get in touch */}
+      {/* 8. Offices — Bengaluru, Cuttack, San Francisco */}
+      <Gallery />
+
+      {/* 9. Contact — Get in touch */}
       <LightContactSection />
 
-      {/* 9. FAQ */}
+      {/* 10. FAQ */}
       <LightFAQExact />
 
-      {/* 10. Footer — Homepage footer */}
+      {/* 11. Footer — Homepage footer */}
       <Footer />
     </div>
   );

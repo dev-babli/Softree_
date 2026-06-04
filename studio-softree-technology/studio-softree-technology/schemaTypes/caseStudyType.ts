@@ -1,10 +1,21 @@
 import {defineField, defineType} from 'sanity'
+import {PptImportInput} from '../plugins/pptImport/components/PptImportInput'
 
 export const caseStudyType = defineType({
   name: 'caseStudy',
   title: 'Case Study',
   type: 'document',
   fields: [
+    defineField({
+      name: 'pptImport',
+      title: 'Import from PowerPoint',
+      description: 'Drag and drop a .pptx file to auto-populate this case study',
+      type: 'string',
+      components: {
+        input: PptImportInput,
+      },
+      readOnly: false,
+    }),
     defineField({
       name: 'title',
       title: 'Title',
@@ -26,24 +37,82 @@ export const caseStudyType = defineType({
     }),
     defineField({
       name: 'industry',
-      title: 'Industry / Category',
+      title: 'Industry',
       type: 'string',
+      description: 'e.g., Healthcare, Retail, Manufacturing, Finance, Education',
+      validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'category',
-      title: 'Tech Category',
+      name: 'useCase',
+      title: 'Use Case',
+      type: 'string',
+      description: 'e.g., Process Automation, AI Agents, Customer Experience, Operations',
+    }),
+    defineField({
+      name: 'companySize',
+      title: 'Company Size',
       type: 'string',
       options: {
         list: [
-          {title: 'AI & Machine Learning', value: 'ai'},
-          {title: 'Web Development', value: 'web'},
-          {title: 'Mobile Apps', value: 'mobile'},
-          {title: 'Power Platform', value: 'power-platform'},
-          {title: 'SharePoint', value: 'sharepoint'},
-          {title: 'Cloud & DevOps', value: 'cloud'},
-          {title: 'Other', value: 'other'},
+          {title: 'Startup', value: 'startup'},
+          {title: 'Mid-market', value: 'mid-market'},
+          {title: 'Enterprise', value: 'enterprise'},
         ],
       },
+    }),
+    defineField({
+      name: 'storyType',
+      title: 'Story Archetype',
+      type: 'string',
+      description: 'Determines the page layout archetype for this case study',
+      options: {
+        list: [
+          {title: 'Standard Story', value: 'standard'},
+          {title: 'Transformation Epic', value: 'transformation'},
+          {title: 'Product Showcase', value: 'product-showcase'},
+        ],
+        layout: 'radio',
+      },
+      initialValue: 'standard',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'heroLayout',
+      title: 'Hero Layout',
+      type: 'string',
+      description: 'How the hero section is arranged',
+      options: {
+        list: [
+          {title: 'Centered Typographic', value: 'centered'},
+          {title: 'Split Screen', value: 'split'},
+          {title: 'Full-Bleed Image', value: 'full-bleed'},
+          {title: 'Magazine Editorial', value: 'editorial'},
+        ],
+        layout: 'radio',
+      },
+      initialValue: 'centered',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'clientLogo',
+      title: 'Client Logo',
+      type: 'image',
+      description: 'SVG or PNG logo of the client company',
+      options: {hotspot: true},
+    }),
+    defineField({
+      name: 'heroImage',
+      title: 'Hero Image',
+      type: 'image',
+      description: 'Product screenshot or branded visual (not stock photo)',
+      options: {hotspot: true},
+    }),
+    defineField({
+      name: 'excerpt',
+      title: 'Excerpt',
+      type: 'text',
+      rows: 2,
+      description: 'One-sentence outcome for listing cards',
     }),
     defineField({
       name: 'date',
@@ -59,11 +128,56 @@ export const caseStudyType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'keyResults',
+      title: 'Key Results (Quantified)',
+      type: 'array',
+      of: [{
+        type: 'object',
+        fields: [
+          defineField({name: 'value', type: 'string', title: 'Value', description: 'e.g., 50% or $2M'}),
+          defineField({name: 'label', type: 'string', title: 'Label', description: 'e.g., faster booking or cost saved'}),
+          defineField({name: 'description', type: 'string', title: 'Short Description'}),
+        ],
+      }],
+      validation: (rule) => rule.max(3),
+    }),
+    defineField({
       name: 'results',
-      title: 'Key Results',
+      title: 'Key Results (Legacy)',
       type: 'array',
       of: [{type: 'string'}],
       validation: (rule) => rule.max(4),
+      hidden: true,
+    }),
+    defineField({
+      name: 'duration',
+      title: 'Project Duration',
+      type: 'string',
+      description: 'e.g., 6 months, 12 weeks',
+    }),
+    defineField({
+      name: 'teamSize',
+      title: 'Team Size',
+      type: 'string',
+      description: 'e.g., 4 engineers, 2 designers',
+    }),
+    defineField({
+      name: 'technologies',
+      title: 'Technologies',
+      type: 'array',
+      of: [{type: 'string'}],
+      description: 'e.g., React, Azure OpenAI, Power Apps',
+    }),
+    defineField({
+      name: 'testimonial',
+      title: 'Testimonial',
+      type: 'object',
+      fields: [
+        defineField({name: 'quote', type: 'text', title: 'Quote', rows: 3}),
+        defineField({name: 'name', type: 'string', title: 'Name'}),
+        defineField({name: 'role', type: 'string', title: 'Role'}),
+        defineField({name: 'headshot', type: 'image', title: 'Headshot'}),
+      ],
     }),
     defineField({
       name: 'image',
@@ -101,8 +215,25 @@ export const caseStudyType = defineType({
       rows: 2,
     }),
     defineField({
+      name: 'category',
+      title: 'Tech Category (Legacy)',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'AI & Machine Learning', value: 'ai'},
+          {title: 'Web Development', value: 'web'},
+          {title: 'Mobile Apps', value: 'mobile'},
+          {title: 'Power Platform', value: 'power-platform'},
+          {title: 'SharePoint', value: 'sharepoint'},
+          {title: 'Cloud & DevOps', value: 'cloud'},
+          {title: 'Other', value: 'other'},
+        ],
+      },
+      hidden: true,
+    }),
+    defineField({
       name: 'color',
-      title: 'Card Color',
+      title: 'Card Color (Legacy)',
       type: 'string',
       options: {
         list: [
@@ -115,18 +246,66 @@ export const caseStudyType = defineType({
         ],
       },
       initialValue: '#FF5812',
+      hidden: true,
     }),
     defineField({
       name: 'featured',
-      title: 'Featured Case Study',
+      title: 'Featured Case Study (Legacy)',
       type: 'boolean',
       initialValue: false,
+      hidden: true,
+    }),
+    defineField({
+      name: 'featuredRank',
+      title: 'Featured Rank',
+      type: 'number',
+      description: '0 = not featured. 1 = hero banner, 2-3 = secondary featured.',
+      initialValue: 0,
+    }),
+    defineField({
+      name: 'relatedSlugs',
+      title: 'Related Case Study Slugs',
+      type: 'array',
+      of: [{type: 'string'}],
+      description: 'Slugs of related stories to cross-link at bottom of page',
     }),
     defineField({
       name: 'body',
       title: 'Full Content',
       type: 'array',
       of: [{type: 'block'}],
+    }),
+    defineField({
+      name: 'designTheme',
+      title: 'Design Theme (from PPT)',
+      type: 'object',
+      description: 'Design style extracted from PowerPoint import',
+      fields: [
+        defineField({
+          name: 'colors',
+          title: 'Theme Colors',
+          type: 'object',
+          fields: [
+            defineField({name: 'primary', type: 'string', title: 'Primary'}),
+            defineField({name: 'secondary', type: 'string', title: 'Secondary'}),
+            defineField({name: 'accent1', type: 'string', title: 'Accent 1'}),
+            defineField({name: 'accent2', type: 'string', title: 'Accent 2'}),
+            defineField({name: 'accent3', type: 'string', title: 'Accent 3'}),
+            defineField({name: 'background', type: 'string', title: 'Background'}),
+            defineField({name: 'text', type: 'string', title: 'Text'}),
+          ],
+        }),
+        defineField({
+          name: 'fonts',
+          title: 'Theme Fonts',
+          type: 'object',
+          fields: [
+            defineField({name: 'heading', type: 'string', title: 'Heading Font'}),
+            defineField({name: 'body', type: 'string', title: 'Body Font'}),
+          ],
+        }),
+      ],
+      hidden: ({document}) => !document?.designTheme,
     }),
   ],
   preview: {

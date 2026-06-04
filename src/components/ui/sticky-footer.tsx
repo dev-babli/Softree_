@@ -23,6 +23,7 @@ const footerColumns = [
       { title: "Case Studies", href: "/case-studies" },
       { title: "Careers", href: "/careers" },
       { title: "Contact", href: "/contact" },
+      { title: "Book a Call 🤝", href: "/book-meeting" },
     ],
   },
   {
@@ -222,6 +223,12 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
                 className="flex h-9 items-center rounded-full border border-black/25 px-4 text-[12px] font-semibold text-black transition-all hover:border-black/60 hover:bg-black/5"
               >
                 Our Services
+              </Link>
+              <Link
+                href="/book-meeting"
+                className="flex h-9 items-center rounded-full border border-black/25 px-4 text-[12px] font-semibold text-black transition-all hover:border-black/60 hover:bg-black/5"
+              >
+                Book a Call
               </Link>
               <Link
                 href="/contact"

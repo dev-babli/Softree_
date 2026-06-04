@@ -1,69 +1,26 @@
 import Image from "next/image";
 import Link from "next/link";
+import { SOFTREE_OFFICE_GALLERY_COLUMNS } from "@/data/softree-offices";
 
 export type GalleryImage = {
   src: string;
   alt: string;
-  overlay?: string;
+};
+
+export type OfficeColumn = {
+  city: string;
+  addressLines: string[];
+  image: GalleryImage;
 };
 
 export type GalleryProps = {
   title?: string;
-  tagline?: string;
-  hashtag?: string;
-  description?: string;
   ctaLabel?: string;
   ctaHref?: string;
-  images?: GalleryImage[];
+  offices?: OfficeColumn[];
 };
 
-const DEFAULT_IMAGES: GalleryImage[] = [
-  /* URL-encode the space in filenames so the path is safe across hosts.
-   * Some CDN edges 400 on raw spaces in URLs even though browsers tolerate
-   * them locally. `%20` is universally accepted. */
-  {
-    src: "/Gallery/Prestige%20Bangalore-1.webp",
-    alt: "Prestige Tech Park Bengaluru office workspace",
-    overlay: "workspace — one",
-  },
-  {
-    src: "/Gallery/Prestige%20Bangalore-2.webp",
-    alt: "Prestige Tech Park Bengaluru office interior",
-  },
-  {
-    src: "/Gallery/Prestige%20Bangalore-3.webp",
-    alt: "Prestige Tech Park Bengaluru office collaboration area",
-    overlay: "innovation — hub",
-  },
-];
-
-function KnockoutOverlay({ text, imageSrc }: { text: string; imageSrc: string }) {
-  return (
-    <div className="pointer-events-none absolute inset-x-0 bottom-0 px-4 pb-5 sm:px-6 sm:pb-7 lg:px-8 lg:pb-9">
-      <p
-        aria-hidden
-        className="select-none text-[clamp(2.75rem,8.5vw,7.25rem)] font-bold lowercase leading-[0.82] tracking-[-0.045em] text-white/25"
-      >
-        {text}
-      </p>
-      <p
-        className="absolute inset-x-4 bottom-5 sm:inset-x-6 sm:bottom-7 lg:inset-x-8 lg:bottom-9 text-[clamp(2.75rem,8.5vw,7.25rem)] font-bold lowercase leading-[0.82] tracking-[-0.045em]"
-        style={{
-          backgroundImage: `url("${imageSrc}")`,
-          backgroundSize: "cover",
-          backgroundPosition: "center bottom",
-          WebkitBackgroundClip: "text",
-          backgroundClip: "text",
-          color: "transparent",
-        }}
-      >
-        {text}
-      </p>
-    </div>
-  );
-}
-
-function GalleryPanel({
+function PortraitPanel({
   image,
   priority,
 }: {
@@ -71,75 +28,68 @@ function GalleryPanel({
   priority?: boolean;
 }) {
   return (
-    <article className="relative min-h-[52vh] sm:min-h-[58vh] lg:min-h-[72vh]">
-      <Image
-        src={image.src}
-        alt={image.alt}
-        fill
-        priority={priority}
-        sizes="(min-width: 1024px) 33vw, 100vw"
-        className="object-cover"
-      />
-      {image.overlay ? (
-        <KnockoutOverlay text={image.overlay} imageSrc={image.src} />
-      ) : null}
+    <article className="relative w-full">
+      <div className="relative mx-auto aspect-[3/4] w-full max-h-[min(52vh,520px)] max-w-[300px] overflow-hidden bg-neutral-100 sm:max-w-none sm:max-h-[min(48vh,480px)]">
+        <Image
+          src={image.src}
+          alt={image.alt}
+          fill
+          priority={priority}
+          sizes="(min-width: 1024px) 28vw, 90vw"
+          className="object-cover object-center"
+        />
+      </div>
     </article>
   );
 }
 
 export default function Gallery({
-  title = "prestige studio",
-  tagline = "Building India's Most Beautiful Workspaces",
-  hashtag = "#prestige_tech_park",
-  description =
-  "A glimpse into our Bengaluru studio — where teams design, build, and deliver enterprise solutions every day.",
+  title = "Pay Us A Visit",
   ctaLabel = "BOOK A VISIT →",
   ctaHref = "/contact",
-  images = DEFAULT_IMAGES,
-} = {} as GalleryProps) {
-  const panels = images.slice(0, 3);
-
+  offices = SOFTREE_OFFICE_GALLERY_COLUMNS,
+}: GalleryProps = {}) {
   return (
     <section className="bg-white text-black">
-      <div className="w-full">
-        {/* Title */}
-        <div className="px-5 pt-10 sm:px-8 sm:pt-12 lg:px-10 lg:pt-14">
-          <h2 className="text-[clamp(3.25rem,11.5vw,9.5rem)] font-bold lowercase leading-[0.88] tracking-[-0.045em]">
+      <div className="mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-12">
+        <div className="flex flex-col gap-5 pt-8 sm:flex-row sm:items-end sm:justify-between sm:pt-10 lg:pt-12">
+          <h2 className="text-[clamp(2.25rem,6.5vw,5.75rem)] font-bold leading-[0.92] tracking-[-0.04em]">
             {title}
           </h2>
+          <Link
+            href={ctaHref}
+            className="inline-flex w-max items-center border border-black px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-black transition-colors hover:bg-black hover:text-white sm:text-[12px]"
+          >
+            {ctaLabel}
+          </Link>
         </div>
 
-        {/* Three-column header — aligned to gallery grid below */}
-        <div className="mt-6 grid grid-cols-1 border-y border-neutral-200/90 sm:mt-8 sm:grid-cols-3">
-          <div className="border-b border-neutral-200/90 px-5 py-6 sm:border-b-0 sm:border-r sm:px-6 sm:py-8 lg:px-8">
-            <p className="max-w-[16rem] text-[13px] leading-[1.55] text-neutral-500 sm:text-[14px]">
-              {tagline}
-            </p>
-          </div>
-
-          <div className="border-b border-neutral-200/90 px-5 py-6 sm:border-b-0 sm:border-r sm:px-6 sm:py-8 lg:px-8">
-            <p className="text-[13px] font-medium leading-[1.55] text-neutral-800 sm:text-[14px]">
-              {hashtag}
-            </p>
-            <p className="mt-3 max-w-[18rem] text-[13px] leading-[1.6] text-neutral-500 sm:text-[14px]">
-              {description}
-            </p>
-          </div>
-
-          <div className="flex items-start px-5 py-6 sm:justify-end sm:px-6 sm:py-8 lg:px-8">
-            <Link
-              href={ctaHref}
-              className="inline-flex items-center border border-black px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-black transition-colors hover:bg-black hover:text-white sm:text-[12px]"
+        <div className="mt-5 grid grid-cols-1 border-y border-neutral-200/90 sm:mt-6 sm:grid-cols-3">
+          {offices.map((office, index) => (
+            <div
+              key={office.city}
+              className={`flex flex-col ${
+                index < offices.length - 1
+                  ? "border-b border-neutral-200/90 sm:border-b-0 sm:border-r"
+                  : ""
+              }`}
             >
-              {ctaLabel}
-            </Link>
-          </div>
-        </div>
-
-        {/* Three-column image gallery */}
-        <div className="grid grid-cols-1 gap-[3px] bg-white sm:grid-cols-3">
-          {panels.map((image, index) => (
-            <GalleryPanel key={image.src} image={image} priority={index === 0} />
+              <div className="px-4 py-5 sm:px-5 sm:py-6 lg:px-6">
+                <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-neutral-800 sm:text-[14px]">
+                  {office.city}
+                </p>
+                <address className="mt-3 max-w-[20rem] space-y-0.5 not-italic text-[13px] leading-[1.6] text-neutral-500 sm:text-[14px]">
+                  {office.addressLines.map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ))}
+                </address>
+              </div>
+              <div className="mt-auto border-t border-neutral-200/90 px-3 pb-3 pt-0 sm:border-t-0 sm:px-4 sm:pb-4">
+                <PortraitPanel image={office.image} priority={index === 0} />
+              </div>
+            </div>
           ))}
         </div>
       </div>

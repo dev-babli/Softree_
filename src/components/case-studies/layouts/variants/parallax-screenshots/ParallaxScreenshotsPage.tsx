@@ -16,7 +16,7 @@ export function ParallaxScreenshotsPage({ data }: { data: CaseStudyLayoutData })
   const y1 = useTransform(scrollYProgress, [0, 1], [0, -80])
   const y2 = useTransform(scrollYProgress, [0, 1], [0, -140])
   const y3 = useTransform(scrollYProgress, [0, 1], [0, -60])
-  const shots = galleryOrFallback(data.gallery, 5)
+  const shots = galleryOrFallback(data.slug, data.gallery, 5)
 
   return (
     <article className="min-h-screen bg-[#F3F0FF] text-[#2D2640]">

@@ -2,11 +2,15 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { stockHeroUrl } from "@/lib/case-study-stock-images"
 import type { RelatedStudy } from "../../../types"
 import { PageContainer, Reveal, SectionTitle } from "../shared"
 
 function RelatedCard({ study }: { study: RelatedStudy }) {
-  const img = study.mainImage?.asset?.url || study.mainImageUrl || "/Gallery/Prestige Bangalore-4.webp"
+  const img =
+    study.mainImage?.asset?.url ||
+    study.mainImageUrl ||
+    stockHeroUrl(study.slug.current)
   const eyebrow = study.industry || study.category || "Customer Story"
   const blurb = study.excerpt || ""
   const display = study.client || study.title
@@ -32,7 +36,9 @@ function RelatedCard({ study }: { study: RelatedStudy }) {
         )}
       </div>
       <div className="flex flex-1 flex-col gap-3 px-1 pb-1">
-        <div className="text-[13px] font-semibold text-[#1852ff]">{eyebrow}</div>
+        <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--softree-accent,#FF7A2F)]">
+          {eyebrow}
+        </div>
         <h3 className="text-[1.55rem] font-bold leading-[1.15] tracking-[-0.01em] text-[#171717]">
           {display}
         </h3>

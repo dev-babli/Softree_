@@ -1,25 +1,36 @@
-/** Default gallery images for layout previews when Sanity gallery is empty */
-export const GALLERY_IMAGES = [
-  "/Gallery/Prestige Bangalore-1.webp",
-  "/Gallery/Prestige Bangalore-2.webp",
-  "/Gallery/Prestige Bangalore-3.webp",
-  "/Gallery/Prestige Bangalore-4.webp",
-  "/Gallery/Prestige Bangalore-5.webp",
-  "/Gallery/Prestige Bangalore-6.webp",
-  "/Gallery/Prestige Bangalore-7.webp",
-] as const
+import { CASE_STUDY_STOCK, stockPackForSlug, stockHeroUrl } from "@/lib/case-study-stock-images"
 
-export function heroImage(data: { heroImageUrl?: string; sectionImages?: { hero?: string } }) {
-  return data.sectionImages?.hero || data.heroImageUrl || GALLERY_IMAGES[0]
+/** Stock URLs for legacy layout variants (no `/Gallery/*`) */
+export const GALLERY_IMAGES: readonly string[] = [
+  CASE_STUDY_STOCK["power-platform"].hero,
+  ...CASE_STUDY_STOCK["power-platform"].gallery,
+  CASE_STUDY_STOCK["ai-copilot"].hero,
+  ...CASE_STUDY_STOCK["ai-copilot"].gallery.slice(0, 2),
+]
+
+/** Remote stock only — never `/Gallery/*` */
+export function heroImage(data: {
+  slug?: string
+  heroImageUrl?: string
+  sectionImages?: { hero?: string }
+}) {
+  return (
+    data.sectionImages?.hero ||
+    data.heroImageUrl ||
+    (data.slug ? stockHeroUrl(data.slug) : stockHeroUrl())
+  )
 }
 
 export function galleryOrFallback(
+  slug: string,
   gallery: Array<{ url: string; alt?: string; caption?: string }>,
   count = 4,
 ) {
   if (gallery.length > 0) return gallery
-  return GALLERY_IMAGES.slice(0, count).map((url, i) => ({
+  const pack = stockPackForSlug(slug)
+  return pack.gallery.slice(0, count).map((url, i) => ({
     url,
-    alt: `Project screenshot ${i + 1}`,
+    alt: `Project visual ${i + 1}`,
+    caption: undefined,
   }))
 }

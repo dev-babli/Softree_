@@ -4,14 +4,20 @@ import createGlobe, { COBEOptions } from "cobe";
 import { useMotionValue, useSpring } from "framer-motion";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
+import {
+  acquireWebGLSlot,
+  probeWebGLAvailable,
+  releaseWebGLSlot,
+} from "@/lib/grainient-webgl-slot";
 import { cn } from "@/lib/utils";
 
 const MOVEMENT_DAMPING = 1400;
+const MIN_CANVAS_PX = 2;
 
 const GLOBE_CONFIG: COBEOptions = {
   width: 800,
   height: 800,
-  onRender: () => { },
+  onRender: () => {},
   devicePixelRatio: 2,
   phi: 0,
   theta: 0.3,
@@ -36,6 +42,26 @@ const GLOBE_CONFIG: COBEOptions = {
   ],
 };
 
+function GlobeFallback({ className }: { className?: string }) {
+  return (
+    <div
+      className={cn(
+        "absolute inset-0 mx-auto aspect-square w-full max-w-[600px]",
+        className,
+      )}
+      aria-hidden
+    >
+      <div
+        className="size-full rounded-full opacity-80"
+        style={{
+          background:
+            "radial-gradient(circle at 35% 32%, rgba(24, 82, 255, 0.18) 0%, transparent 42%), radial-gradient(circle at 68% 58%, rgba(24, 82, 255, 0.1) 0%, transparent 48%), radial-gradient(circle at 50% 50%, rgba(10, 10, 26, 0.04) 0%, transparent 70%)",
+        }}
+      />
+    </div>
+  );
+}
+
 export function Globe({
   className,
   config = GLOBE_CONFIG,
@@ -46,9 +72,12 @@ export function Globe({
   const phiRef = useRef(0);
   const widthRef = useRef(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
   const pointerInteracting = useRef<number | null>(null);
   const pointerInteractionMovement = useRef(0);
   const [r, setR] = useState(0);
+  const [useFallback, setUseFallback] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   const api = useMotionValue(0);
   const springR = useSpring(api, {
@@ -67,34 +96,83 @@ export function Globe({
   );
 
   useEffect(() => {
-    if (!canvasRef.current) return;
+    const root = rootRef.current;
+    if (!root) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "120px", threshold: 0.01 },
+    );
+    observer.observe(root);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible || useFallback) return;
 
     const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    let globe: ReturnType<typeof createGlobe> | null = null;
+    let slotHeld = false;
+    let disposed = false;
+
+    const releaseSlot = () => {
+      if (slotHeld) {
+        slotHeld = false;
+        releaseWebGLSlot();
+      }
+    };
+
+    const initGlobe = () => {
+      if (disposed || globe) return;
+
+      const size = Math.floor(canvas.offsetWidth);
+      if (size < MIN_CANVAS_PX) return;
+
+      if (!probeWebGLAvailable() || !acquireWebGLSlot()) {
+        setUseFallback(true);
+        return;
+      }
+      slotHeld = true;
+      widthRef.current = size;
+
+      try {
+        globe = createGlobe(canvas, {
+          ...config,
+          width: size * 2,
+          height: size * 2,
+          onRender,
+        });
+        canvas.style.opacity = "1";
+      } catch {
+        releaseSlot();
+        setUseFallback(true);
+      }
+    };
+
+    const resizeObserver = new ResizeObserver(initGlobe);
+    resizeObserver.observe(canvas);
+    initGlobe();
 
     const onResize = () => {
-      widthRef.current = canvas.offsetWidth;
+      widthRef.current = Math.floor(canvas.offsetWidth);
     };
-
     window.addEventListener("resize", onResize);
-    onResize();
-
-    const globe = createGlobe(canvas, {
-      ...config,
-      width: widthRef.current * 2,
-      height: widthRef.current * 2,
-      onRender,
-    });
-
-    setTimeout(() => {
-      canvas.style.opacity = "1";
-    });
 
     return () => {
-      globe.destroy();
+      disposed = true;
+      resizeObserver.disconnect();
       window.removeEventListener("resize", onResize);
+      globe?.destroy();
+      releaseSlot();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [config, isVisible, onRender, useFallback]);
 
   useEffect(() => {
     springR.on("change", (value) => {
@@ -102,8 +180,13 @@ export function Globe({
     });
   }, [springR]);
 
+  if (useFallback) {
+    return <GlobeFallback className={className} />;
+  }
+
   return (
     <div
+      ref={rootRef}
       className={cn(
         "absolute inset-0 mx-auto aspect-square w-full max-w-[600px]",
         className,

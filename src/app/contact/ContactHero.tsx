@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const heroStyles = `
   @keyframes blob-1 {
@@ -151,12 +152,20 @@ export default function ContactHero() {
             delay: 0.55,
             ease: [0.21, 1.02, 0.73, 1],
           }}
-          className="mt-12 flex flex-col items-start justify-between gap-8 border-t border-neutral-900/[0.1] pt-6 sm:mt-16 sm:flex-row sm:items-end"
+          className="mt-12 flex flex-col items-start justify-between gap-8 border-t border-neutral-900/[0.1] pt-6 sm:mt-16 sm:flex-row sm:items-end w-full"
         >
-          <p className="max-w-[520px] text-[15px] leading-[1.65] text-neutral-600 sm:text-[16px]">
-            Tell us what you&rsquo;re building. We read every message
-            personally — and reply within&nbsp;24&nbsp;hours.
-          </p>
+          <div className="flex flex-col items-start gap-4">
+            <p className="max-w-[520px] text-[15px] leading-[1.65] text-neutral-600 sm:text-[16px]">
+              Tell us what you&rsquo;re building. We read every message
+              personally — and reply within&nbsp;24&nbsp;hours.
+            </p>
+            <Link
+              href="/book-meeting"
+              className="inline-flex items-center gap-2 text-[14px] font-bold text-orange-600 hover:text-orange-500 transition-colors"
+            >
+              ⚡ Want to talk immediately? Book a call instead &rarr;
+            </Link>
+          </div>
 
           <div className="flex items-center gap-2 text-[10.5px] font-medium uppercase tracking-[0.24em] text-neutral-400">
             <span className="scroll-hint inline-block">↓</span>

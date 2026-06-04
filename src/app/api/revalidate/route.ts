@@ -1,7 +1,6 @@
 import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 
-import { CASE_STUDY_CATEGORY_KEYS } from "@/app/case-studies/categoryConfig";
 import { notifyPublish } from "@/sanity/lib/notifyPublish";
 
 /**
@@ -30,7 +29,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ message: "Invalid secret" }, { status: 401 });
     }
 
-    const { _type, slug, category } = body;
+    const { _type, slug } = body;
     const paths: string[] = [];
 
     if (_type === "post") {
@@ -45,15 +44,6 @@ export async function POST(request: NextRequest) {
     if (_type === "caseStudy") {
       paths.push("/case-studies", "/");
       if (slug?.current) paths.push(`/case-studies/${slug.current}`);
-
-      const categorySlug = category
-      if (categorySlug && CASE_STUDY_CATEGORY_KEYS.includes(categorySlug)) {
-        paths.push(`/case-studies/${categorySlug}`);
-      }
-
-      for (const key of CASE_STUDY_CATEGORY_KEYS) {
-        paths.push(`/case-studies/${key}`);
-      }
     }
 
     if (_type === "marketingPage") {

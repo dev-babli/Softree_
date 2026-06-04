@@ -78,6 +78,14 @@ const Footer: React.FC = () => {
                 Get a Quote
               </a>
             </li>
+            <li>
+              <a
+                href="/book-meeting"
+                className="hover:underline text-orange-400 font-semibold"
+              >
+                Book a Meeting 🤝
+              </a>
+            </li>
           </ul>
         </div>
 

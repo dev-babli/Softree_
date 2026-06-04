@@ -30,5 +30,17 @@ export default defineBlueprint({
         SANITY_STUDIO_URL: process.env.SANITY_STUDIO_URL || '',
       },
     }),
+    defineDocumentFunction({
+      name: 'ppt-to-case-study-on-upload',
+      displayName: 'Create draft case study on PPT upload',
+      event: {
+        on: ['create'],
+        filter: '_type == "sanity.fileAsset" && originalFilename match "*.pptx"',
+        projection: '{ _id, originalFilename }',
+      },
+      env: {
+        SANITY_API_WRITE_TOKEN: process.env.SANITY_API_WRITE_TOKEN || '',
+      },
+    }),
   ],
 })
