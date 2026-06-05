@@ -114,8 +114,10 @@ const menu = [
     url: "/case-studies",
     icon: <FaUsers />,
     children: [
-      { label: "Mobile App Case Studies", url: "/mobile-app-case-studies" },
-      { label: "PowerApps Case Studies", url: "/powerapps-case-studies" },
+      { label: "Power Apps Case Studies", url: "/case-studies/power-platform" },
+      { label: "Web App Case Studies", url: "/case-studies/web" },
+      { label: "Mobile App Case Studies", url: "/case-studies/mobile" },
+      { label: "SharePoint Case Studies", url: "/case-studies/sharepoint" },
     ],
   },
   { label: "Blog", url: "/blog/all-posts", icon: <FaBlog /> },

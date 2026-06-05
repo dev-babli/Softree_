@@ -26,6 +26,6 @@ export function probeWebGLAvailable(): boolean {
     canvas.getContext("webgl") ??
     canvas.getContext("experimental-webgl")
   if (!gl) return false
-  gl.getExtension("WEBGL_lose_context")?.loseContext()
+  ;(gl as any).getExtension("WEBGL_lose_context")?.loseContext()
   return true
 }

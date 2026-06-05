@@ -50,7 +50,7 @@ const fadeUp = {
 
 export default function OffshoreCoreFeatures() {
   const ref = useRef<HTMLElement | null>(null);
-  const inView = useInView(ref, { ...VIEWPORT.once, amount: 0.15 });
+  const inView = useInView(ref, { ...VIEWPORT.default, amount: 0.15 });
 
   return (
     <section

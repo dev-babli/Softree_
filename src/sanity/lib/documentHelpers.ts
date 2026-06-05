@@ -50,10 +50,10 @@ export function createEditorProgressPanelField(group = "publish") {
 export const seoPreviewPanelField = createSeoPreviewPanelField("seo")
 
 export function publishReadinessValidation(
-  Rule: unknown,
+  Rule: any,
   options?: { requireBody?: boolean; requireImage?: boolean },
-) {
-  return (Rule as { custom: (fn: (v: Record<string, unknown> | undefined) => true | string) => unknown }).custom((fields: Record<string, unknown> | undefined) => {
+): any {
+  return Rule.custom((fields: any) => {
     if (!fields || fields.status === "archived" || fields.status === "draft") return true
 
     const missing: string[] = []

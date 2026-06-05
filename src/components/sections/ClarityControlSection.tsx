@@ -1188,7 +1188,7 @@ export default function ClarityControlSection({
 
     return (
         <Wrapper
-            ref={sectionRef}
+            ref={sectionRef as any}
             data-section="clarity-control"
             data-theme-section="light"
             aria-labelledby={embedded ? undefined : "clarity-control-heading"}

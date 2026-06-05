@@ -64,11 +64,11 @@ const ASSETS = {
       "https://cdn.prod.website-files.com/69a0a45220c8336fe957ccba%2F69d2095642a31660d0b048ee_Video%202_poster.0000000.jpg",
   },
   services: [
-    { n: "01", label: "AI & Automation", href: "/services/ai-intelligence", img: "/whysoftree/ai.webp" },
-    { n: "02", label: "Web Development", href: "/services/digital-workspace/web-app-development", img: "/whysoftree/web dev.webp" },
-    { n: "03", label: "Microsoft Solutions", href: "/services/business-applications/power-apps", img: "/whysoftree/Micorosft.webp" },
-    { n: "04", label: "Data & Analytics", href: "/services/data-analytics/power-bi", img: "/whysoftree/data.webp" },
-    { n: "05", label: "Digital Workspace", href: "/services/digital-workspace/sharepoint", img: "/whysoftree/web.webp" },
+    { n: "01", label: "AI & Automation", href: "/services/ai-intelligence", img: "/whysoftree/ai.png" },
+    { n: "02", label: "Web Development", href: "/services/digital-workspace/web-app-development", img: "/whysoftree/modern.png" },
+    { n: "03", label: "Microsoft Solutions", href: "/services/business-applications/power-apps", img: "/whysoftree/powe-pltform.png" },
+    { n: "04", label: "Data & Analytics", href: "/services/data-analytics/power-bi", img: "/whysoftree/data-analytics.jpg" },
+    { n: "05", label: "Digital Workspace", href: "/services/digital-workspace/sharepoint", img: "/whysoftree/modern.png" },
   ],
 }
 

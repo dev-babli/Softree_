@@ -493,8 +493,7 @@ export default function InfoSection() {
               >
                 Trusted by
               </span>
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-semibold tracking-[0.12em] uppercase text-[#141413]/85"
-                style={{ background: "rgba(20,20,19,0.06)" }}
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-semibold tracking-[0.12em] uppercase text-white bg-[#FF5812]"
               >
                 Industry Giants
               </span>
