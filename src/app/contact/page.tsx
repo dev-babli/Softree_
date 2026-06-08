@@ -6,14 +6,30 @@ import Footer from "@/components/sections/footer";
 import ContactHero from "./ContactHero";
 import Gallery from "@/components/Gallery/Gallery";
 import LightContactSection from "@/components/qc/homepage-light/LightContactSection";
-import LightEngagementModels from "@/components/qc/homepage-light/LightEngagementModels";
-import TestimonialsGlobe from "@/components/sections/TestimonialsGlobe";
 import GlobalClientNetwork from "@/components/sections/GlobalClientNetwork";
+
+const TestimonialsGlobeLazy = dynamic(
+  () => import("@/components/sections/TestimonialsGlobe"),
+  {
+    loading: () => (
+      <div className="min-h-[50vh] w-full bg-[#FAFAF8]" aria-hidden />
+    ),
+  },
+);
 const LightFAQExactLazy = dynamic(
   () => import("@/components/homepage-light/LightFAQExact"),
   {
     loading: () => (
       <div className="min-h-[60vh] w-full bg-[#f6f6f6]" aria-hidden />
+    ),
+  },
+);
+
+const LightEngagementModelsLazy = dynamic(
+  () => import("@/components/qc/homepage-light/LightEngagementModels"),
+  {
+    loading: () => (
+      <div className="min-h-[70vh] w-full bg-white" aria-hidden />
     ),
   },
 );
@@ -45,7 +61,7 @@ export default function ContactPage() {
       <LightContactSection />
 
       {/* 3. Testimonials — global voices */}
-      <TestimonialsGlobe />
+      <TestimonialsGlobeLazy />
 
       {/* Global client network — hex world with city stat cards */}
       <GlobalClientNetwork />
@@ -54,7 +70,7 @@ export default function ContactPage() {
       <LightFAQExactLazy />
 
       {/* 5. Engagement Models */}
-      <LightEngagementModels />
+      <LightEngagementModelsLazy />
 
       {/* 6. Footer */}
       <Footer />

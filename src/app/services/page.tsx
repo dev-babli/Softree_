@@ -11,7 +11,8 @@ import LightFAQExact from "@/components/homepage-light/LightFAQExact";
 import ProcessTimeline from "./process";
 import ServicesSection from "./services";
 import { Metadata } from "next";
-
+import IndustriesSection from "./industreis";
+import TechCloudShowcase from "./tech";
 const servicesMainFAQs = [
   {
     id: 1,
@@ -122,6 +123,8 @@ export default function Home() {
         <ServicesHero />
         <ServicesHeader />
         <ServicesSection />
+        <IndustriesSection />
+        <TechCloudShowcase />
         <ProcessTimeline />
         <LightContactSection />
         <LightFAQExact faqs={servicesMainFAQs} />

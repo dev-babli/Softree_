@@ -25,7 +25,11 @@ type Service = {
   desc: string
   tags: string[]
   img: string
-  price: string
+  whiteLabel?: {
+    title: string
+    subtitle: string
+    features: string[]
+  }
 }
 
 const SERVICES: Service[] = [
@@ -36,7 +40,11 @@ const SERVICES: Service[] = [
     desc: "Production-grade web apps in Next.js, React, and TypeScript. Senior engineers, fixed scope, weekly demos. From discovery to launch in 12 weeks.",
     tags: ["Next.js", "React", "TypeScript", "Production"],
     img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=900&q=80",
-    price: "From ₹12L · 12-week MVP",
+    whiteLabel: {
+      title: "WHITE-LABEL WEB APP PARTNER",
+      subtitle: "Offshore Delivery • Your Brand • Our Expertise",
+      features: ["NDA Protected", "Dedicated Team", "Next.js & React Specialists"]
+    }
   },
   {
     n: "02",
@@ -45,16 +53,24 @@ const SERVICES: Service[] = [
     desc: "Power Apps, Power Automate, and Power BI built by Microsoft Gold Partners. Enterprise governance, security review, ALM pipelines included.",
     tags: ["Power Apps", "Power Automate", "Power BI", "Microsoft"],
     img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80",
-    price: "From ₹8L · 6-week MVP",
+    whiteLabel: {
+      title: "WHITE-LABEL POWER PLATFORM PARTNER",
+      subtitle: "Offshore Delivery • Your Brand • Our Expertise",
+      features: ["NDA Protected", "Dedicated Team", "Microsoft Specialists"]
+    }
   },
   {
     n: "03",
     title: "Modernize SharePoint",
     href: "/services/digital-workspace/sharepoint",
-    desc: "SharePoint intranets and SPFx web parts that don\u2019t feel like SharePoint. Migration, custom branding, and Microsoft 365 integrations.",
+    desc: "SharePoint intranets and SPFx web parts that don’t feel like SharePoint. Migration, custom branding, and Microsoft 365 integrations.",
     tags: ["SharePoint", "SPFx", "M365", "Migration"],
     img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=80",
-    price: "From ₹6L · 4–8 week engagements",
+    whiteLabel: {
+      title: "WHITE-LABEL SHAREPOINT PARTNER",
+      subtitle: "Offshore Delivery • Your Brand • Our Expertise",
+      features: ["NDA Protected", "Dedicated Team", "SharePoint & SPFx Specialists"]
+    }
   },
   {
     n: "04",
@@ -63,7 +79,11 @@ const SERVICES: Service[] = [
     desc: "Microsoft Fabric, Power BI dashboards, and data engineering pipelines that surface revenue signals — not 60-page decks.",
     tags: ["Microsoft Fabric", "Power BI", "Data Engineering", "Analytics"],
     img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80",
-    price: "From ₹10L · 8-week pilot",
+    whiteLabel: {
+      title: "WHITE-LABEL DATA & BI PARTNER",
+      subtitle: "Offshore Delivery • Your Brand • Our Expertise",
+      features: ["NDA Protected", "Dedicated Team", "Power BI & Fabric Specialists"]
+    }
   },
   {
     n: "05",
@@ -72,7 +92,11 @@ const SERVICES: Service[] = [
     desc: "Transform outdated systems, desktop applications, or legacy databases into secure, cloud-native platforms. Modern codebase architectures, seamless integrations.",
     tags: ["Legacy Migration", "Cloud Native", "React", "Next.js"],
     img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80",
-    price: "From ₹15L · 12-week MVP",
+    whiteLabel: {
+      title: "WHITE-LABEL MODERNIZATION PARTNER",
+      subtitle: "Offshore Delivery • Your Brand • Our Expertise",
+      features: ["NDA Protected", "Dedicated Team", "Legacy Migration Specialists"]
+    }
   },
 ]
 
@@ -186,19 +210,28 @@ function ServiceCard({
                 {s.desc}
               </p>
 
-              {/* Pricing/timeline transparency — buyers self-qualify */}
-              <div
-                className="mt-5 inline-flex items-center gap-2 self-start rounded-full border border-[#0a0a1a]/10 bg-[#F3F0EE]/80 px-3.5 py-1.5"
-                style={{ fontVariantNumeric: "tabular-nums" }}
-              >
-                <span
-                  aria-hidden
-                  className="h-1.5 w-1.5 rounded-full bg-[#FF5812]"
-                />
-                <span className="text-[11.5px] font-semibold uppercase tracking-[0.16em] text-[#0a0a1a]/72">
-                  {s.price}
-                </span>
-              </div>
+              {/* White-Label Partner / Pricing/timeline transparency */}
+              {s.whiteLabel ? (
+                <div className="mt-5 flex flex-col gap-3.5 self-start rounded-2xl border border-[#0a0a1a]/10 bg-[#F3F0EE]/85 px-5 py-4 w-full max-w-[480px]">
+                  <div className="flex flex-col gap-0.5">
+                    <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#FF5812]">
+                      {s.whiteLabel.title}
+                    </span>
+                    <span className="text-[13.5px] font-semibold text-[#0a0a1a]/80 leading-snug mt-1">
+                      {s.whiteLabel.subtitle}
+                    </span>
+                  </div>
+                  <div className="h-px bg-[#0a0a1a]/10 w-full" />
+                  <div className="flex flex-wrap gap-x-4 gap-y-1.5">
+                    {s.whiteLabel.features.map((feat, i) => (
+                      <div key={i} className="flex items-center gap-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#FF5812]" />
+                        <span className="text-[12.5px] font-medium text-[#0a0a1a]/70">{feat}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
 
               {/* Tags pinned to bottom-left of the column */}
               <div className="mt-auto flex flex-wrap gap-2.5 pt-16">

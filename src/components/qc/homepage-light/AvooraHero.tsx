@@ -64,11 +64,11 @@ const ASSETS = {
       "https://cdn.prod.website-files.com/69a0a45220c8336fe957ccba%2F69d2095642a31660d0b048ee_Video%202_poster.0000000.jpg",
   },
   services: [
-    { n: "01", label: "AI & Automation", href: "/services/ai-intelligence", img: "/whysoftree/ai.webp" },
-    { n: "02", label: "Web Development", href: "/services/digital-workspace/web-app-development", img: "/whysoftree/web dev.webp" },
-    { n: "03", label: "Microsoft Solutions", href: "/services/business-applications/power-apps", img: "/whysoftree/Micorosft.webp" },
-    { n: "04", label: "Data & Analytics", href: "/services/data-analytics/power-bi", img: "/whysoftree/data.webp" },
-    { n: "05", label: "Digital Workspace", href: "/services/digital-workspace/sharepoint", img: "/whysoftree/web.webp" },
+    { n: "01", label: "AI & Automation", href: "/services/ai-intelligence", img: "/whysoftree/ai.png" },
+    { n: "02", label: "Web Development", href: "/services/digital-workspace/web-app-development", img: "/whysoftree/modern.png" },
+    { n: "03", label: "Microsoft Solutions", href: "/services/business-applications/power-apps", img: "/whysoftree/powe-pltform.png" },
+    { n: "04", label: "Data & Analytics", href: "/services/data-analytics/power-bi", img: "/whysoftree/data-analytics.jpg" },
+    { n: "05", label: "Digital Workspace", href: "/services/digital-workspace/sharepoint", img: "/whysoftree/modern.png" },
   ],
 }
 
@@ -123,8 +123,7 @@ function CyclingWord() {
           exit={{ opacity: 0, y: -8, filter: "blur(12px)" }}
           transition={{
             duration: DUR.card,
-            ease: EASE_T.silk,
-            stagger: 0.02 // Premium stagger for character reveal
+            ease: EASE_T.silk as any,
           }}
         >
           {word.split('').map((char, i) => (
@@ -136,10 +135,10 @@ function CyclingWord() {
               transition={{
                 delay: i * 0.015,
                 duration: 0.3,
-                ease: EASE_T.out
+                ease: EASE_T.out as any,
               }}
             >
-              {char}
+              {char === " " ? "\u00A0" : char}
             </motion.span>
           ))}
         </motion.span>
@@ -413,7 +412,7 @@ export default function AvooraHero() {
       )
 
       return () => {
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+        mm.revert()
       }
     },
     { scope: containerRef }
@@ -639,17 +638,20 @@ export default function AvooraHero() {
           </div>
 
           {/* Local keyframe — scoped via class name, no global pollution. */}
-          <style jsx>{`
-            .avoora-hero-marquee {
-              animation: avoora-hero-marquee-x 45s linear infinite;
-            }
-            @keyframes avoora-hero-marquee-x {
-              from { transform: translate3d(0, 0, 0); }
-              to   { transform: translate3d(-50%, 0, 0); }
+          <style>{`
+            @media (prefers-reduced-motion: no-preference) {
+              .avoora-hero-marquee {
+                animation: avoora-hero-marquee-x 45s linear infinite;
+              }
+              @keyframes avoora-hero-marquee-x {
+                from { transform: translate3d(0, 0, 0); }
+                to   { transform: translate3d(-50%, 0, 0); }
+              }
             }
             @media (prefers-reduced-motion: reduce) {
               .avoora-hero-marquee {
-                animation: none;
+                animation: none !important;
+                transform: none !important;
               }
             }
           `}</style>

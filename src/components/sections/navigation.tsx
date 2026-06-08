@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState, useEffect, useRef, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import type { SanityNavCategory } from "@/sanity/types";
+import type { SanityNavCategory, SanityNavCaseStudyCategory } from "@/sanity/types";
 
 import {
   Settings,
@@ -274,8 +274,10 @@ const menu: MenuItem[] = [
 
 export default function Navigation({
   blogCategories,
+  caseStudyCategories,
 }: {
   blogCategories?: SanityNavCategory[];
+  caseStudyCategories?: SanityNavCaseStudyCategory[];
 }) {
   const [open, setOpen] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -283,31 +285,54 @@ export default function Navigation({
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
   const lastScrollY = useRef(0);
 
-  // Build the dynamic Blog menu children from Sanity categories
+  // Build the dynamic Blog and Case Studies menu children from Sanity categories
   const dynamicMenu = useMemo(() => {
-    if (!blogCategories || blogCategories.length === 0) return menu;
-
     return menu.map((item) => {
-      if (item.label !== "Blog") return item;
+      if (item.label === "Blog" && blogCategories && blogCategories.length > 0) {
+        // Convert Sanity categories into mega menu columns (max 4)
+        const children = blogCategories
+          .filter((cat) => cat.posts && cat.posts.length > 0)
+          .slice(0, 4)
+          .map((cat) => ({
+            title: cat.title,
+            description: `Latest ${cat.title.toLowerCase()} articles`,
+            links: cat.posts.map((post) => ({
+              label: post.title,
+              url: `/blog/${post.slug.current}`,
+              icon: FileText,
+              description: post.excerpt || "",
+            })),
+          }));
+        return { ...item, children };
+      }
 
-      // Convert Sanity categories into mega menu columns (max 4)
-      const children = blogCategories
-        .filter((cat) => cat.posts && cat.posts.length > 0)
-        .slice(0, 4)
-        .map((cat) => ({
+      if (item.label === "Case Studies" && caseStudyCategories && caseStudyCategories.length > 0) {
+        // Convert Sanity case study categories into mega menu columns (max 4)
+        const children = caseStudyCategories.slice(0, 4).map((cat) => ({
           title: cat.title,
-          description: `Latest ${cat.title.toLowerCase()} articles`,
-          links: cat.posts.map((post) => ({
-            label: post.title,
-            url: `/blog/${post.slug.current}`,
-            icon: FileText,
-            description: post.excerpt || "",
-          })),
+          description: cat.description,
+          image: cat.image,
+          links: [
+            ...cat.caseStudies.map((study) => ({
+              label: study.client || study.title,
+              url: `/case-studies/${study.slug.current}`,
+              icon: FileText,
+              description: study.excerpt || "",
+            })),
+            {
+              label: "View all stories",
+              url: cat.viewAllUrl,
+              icon: ArrowRight,
+              description: `Browse all ${cat.title} case studies`,
+            },
+          ],
         }));
+        return { ...item, children };
+      }
 
-      return { ...item, children };
+      return item;
     });
-  }, [blogCategories]);
+  }, [blogCategories, caseStudyCategories]);
 
   useEffect(() => {
     const handleScroll = () => {

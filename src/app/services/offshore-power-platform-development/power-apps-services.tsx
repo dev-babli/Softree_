@@ -75,7 +75,7 @@ export default function PowerAppsServices() {
         <div className="text-center mb-5 px-4">
           <h2 className="text-3xl lg:text-4xl font-semibold text-gray-900 leading-tight">
             Power Apps{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
               Consulting & Development
             </span>{" "}
             Services
@@ -95,7 +95,7 @@ export default function PowerAppsServices() {
             <div
               className="
       relative
-  bg-gradient-to-r from-black via-[#0f2f7a] to-black
+  bg-gradient-to-r from-black via-[#4c1c02] to-black
       backdrop-blur-xl
       p-5
       rounded-2xl
@@ -174,7 +174,7 @@ export default function PowerAppsServices() {
             <div
               className="
         relative
-      bg-gradient-to-r from-black via-[#0f2f7a] to-black
+      bg-gradient-to-r from-black via-[#4c1c02] to-black
         backdrop-blur-xl
         p-6
         rounded-2xl

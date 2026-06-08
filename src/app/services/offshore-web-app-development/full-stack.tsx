@@ -20,14 +20,14 @@ export default function WebDevelopmentProcess() {
   const radius = 250;
 
   return (
-    <section className="relative py-12 bg-gradient-to-b from-gray-50 via-white to-gray-50 ">
+    <section className="relative py-16 bg-gradient-to-b from-gray-50 via-white to-gray-50 ">
       <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         {/* ================= LEFT CONTENT ================= */}
         <div className="max-w-xl">
           {/* Heading */}
           <h2 className="mt-5 text-4xl sm:text-5xl xl:text-6xl font-bold leading-[1.1] text-gray-900">
             Web development process
-            <span className="block mt-2 bg-gradient-to-r from-indigo-600 to-cyan-500 bg-clip-text text-transparent">
+            <span className="block mt-2 bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
               that delivers results
             </span>
           </h2>
@@ -42,7 +42,7 @@ export default function WebDevelopmentProcess() {
       <svg className="mt-1 shrink-0" width="20" height="20" viewBox="0 0 24 24">
   <path
     d="M12 2l2.5 6.5L21 11l-6.5 2.5L12 20l-2.5-6.5L3 11l6.5-2.5L12 2z"
-    fill="#151619"
+    fill="#f97316"
     opacity="0.7"
   />
 </svg>
@@ -64,30 +64,30 @@ export default function WebDevelopmentProcess() {
             <defs>
               {/* stroke gradient */}
               <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stopColor="#7c3aed" />
-                <stop offset="50%" stopColor="#06b6d4" />
-                <stop offset="100%" stopColor="#22c55e" />
+                <stop offset="0%" stopColor="#f97316" />
+                <stop offset="50%" stopColor="#ea580c" />
+                <stop offset="100%" stopColor="#f59e0b" />
               </linearGradient>
 
               {/* fills */}
               <radialGradient id="ringFillOuter">
-                <stop offset="0%" stopColor="#6366f1" stopOpacity="0.10" />
+                <stop offset="0%" stopColor="#f97316" stopOpacity="0.10" />
                 <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
               </radialGradient>
 
               <radialGradient id="ringFillMiddle">
-                <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.12" />
+                <stop offset="0%" stopColor="#ea580c" stopOpacity="0.12" />
                 <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
               </radialGradient>
 
               <radialGradient id="ringFillInner">
-                <stop offset="0%" stopColor="#22c55e" stopOpacity="0.10" />
+                <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.10" />
                 <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
               </radialGradient>
 
               {/* center glow */}
               <radialGradient id="pulse">
-                <stop offset="0%" stopColor="#6366f1" stopOpacity="0.35" />
+                <stop offset="0%" stopColor="#f97316" stopOpacity="0.35" />
                 <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
               </radialGradient>
 
@@ -162,7 +162,7 @@ export default function WebDevelopmentProcess() {
               x={center}
               y="225"
               textAnchor="middle"
-              fill="#7c3aed"
+              fill="#ea580c"
               fontSize="12"
               fontWeight="600"
             >
@@ -173,7 +173,7 @@ export default function WebDevelopmentProcess() {
               x={center}
               y="380"
               textAnchor="middle"
-              fill="#06b6d4"
+              fill="#f97316"
               fontSize="12"
               fontWeight="600"
             >

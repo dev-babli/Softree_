@@ -25,8 +25,6 @@ export default function ServicesHero() {
       const style = document.createElement("style");
       style.id = styleId;
       style.textContent = `
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap');
-
         @keyframes heroFadeUp {
           from { opacity: 0; transform: translateY(22px); }
           to   { opacity: 1; transform: translateY(0); }
@@ -144,7 +142,6 @@ export default function ServicesHero() {
   return (
     <section
       style={{
-        fontFamily: "'DM Sans', sans-serif",
         background: "#09090f",
         position: "relative",
         overflow: "hidden",
@@ -257,7 +254,6 @@ export default function ServicesHero() {
         {/* Headline */}
         <h1
           style={{
-            fontFamily: "'Playfair Display', serif",
             fontSize: "clamp(44px, 7vw, 96px)",
             fontWeight: 900,
             lineHeight: 1.02,
@@ -284,12 +280,12 @@ export default function ServicesHero() {
         >
           <h1
             style={{
-              fontFamily: "'Playfair Display', serif",
-              fontStyle: "italic",
-              fontWeight: 400,
+              fontWeight: 900,
               fontSize: "clamp(44px, 7vw, 96px)",
               lineHeight: 1.02,
-              color: "#888899",
+              background: "linear-gradient(135deg, #ff8f3d 0%, #f97316 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
               margin: 0,
               letterSpacing: "-0.02em",
             }}
@@ -307,12 +303,13 @@ export default function ServicesHero() {
             <span
               key={tickerIndex}
               style={{
-                fontFamily: "'Playfair Display', serif",
                 fontSize: "clamp(44px, 7vw, 96px)",
                 fontWeight: 900,
                 lineHeight: 1.02,
                 letterSpacing: "-0.02em",
-                color: "#f59e0b",
+                background: "linear-gradient(135deg, #ff8f3d 0%, #f97316 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
                 display: "block",
                 animation: tickerVisible
                   ? "tickerIn 0.3s ease both"
@@ -354,7 +351,6 @@ export default function ServicesHero() {
           >
             <button
               style={{
-                fontFamily: "'DM Sans', sans-serif",
                 fontSize: "13px",
                 fontWeight: 500,
                 letterSpacing: "0.04em",
@@ -383,7 +379,6 @@ export default function ServicesHero() {
             </button>
             <button
               style={{
-                fontFamily: "'DM Sans', sans-serif",
                 fontSize: "13px",
                 fontWeight: 500,
                 letterSpacing: "0.04em",
@@ -444,7 +439,6 @@ export default function ServicesHero() {
             >
               <div
                 style={{
-                  fontFamily: "'Playfair Display', serif",
                   fontSize: "22px",
                   fontWeight: 700,
                   color: "#f0f0f4",

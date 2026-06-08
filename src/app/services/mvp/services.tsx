@@ -65,13 +65,13 @@ export default function MvpServices() {
   return (
     <section
       id="services_sec"
-      className="relative overflow-hidden py-28 bg-gradient-to-b from-zinc-50 via-white to-zinc-50"
+      className="relative overflow-hidden"
     >
-      <div className="relative mx-auto max-w-7xl px-6">
+      <div className="relative w-full">
         {/* Header */}
         <div className="mx-auto mb-20 max-w-5xl text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
               Build
             </span>{" "}
             MVPs That Scale Into Products
@@ -120,7 +120,7 @@ export default function MvpServices() {
                   <li key={i} className="flex items-start gap-3">
                     {/* Fixed icon wrapper */}
                     <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center mt-0.5">
-                      <CheckCircle2 className="w-5 h-5 text-blue-600" />
+                      <CheckCircle2 className="w-5 h-5 text-orange-500" />
                     </span>
 
                     <span className="leading-relaxed">{point}</span>

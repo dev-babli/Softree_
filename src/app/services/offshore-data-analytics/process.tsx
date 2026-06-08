@@ -60,7 +60,7 @@ export default function PowerBIProcessSection() {
           className="
             absolute inset-0
             rounded-[40px]
-            bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10
+            bg-gradient-to-br from-orange-500/10 via-transparent to-amber-500/10
             pointer-events-none
             -z-10
           "
@@ -73,8 +73,8 @@ export default function PowerBIProcessSection() {
     gap-16 lg:gap-24
     px-8 py-14 lg:px-14 lg:py-20
 
-    /* ✅ Charcoal glass background */
-     bg-gradient-to-r from-black via-[#0f2f7a] to-black
+    /* ✅ Charcoal glass background with brand copper glow */
+     bg-gradient-to-r from-black via-[#4c1c02] to-black
     backdrop-blur-2xl
     border border-white/10
     rounded-[36px]

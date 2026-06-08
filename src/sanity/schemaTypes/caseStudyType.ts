@@ -33,7 +33,7 @@ export const caseStudyType = defineType({
     type: 'document',
     icon: CaseIcon,
     groups: [
-        { name: 'content', title: 'Content', default: true },
+        { name: 'content', title: 'Content' },
         { name: 'details', title: 'Project Details' },
         { name: 'proof', title: 'Proof & Results' },
         { name: 'media', title: 'Media' },
@@ -195,7 +195,11 @@ export const caseStudyType = defineType({
             initialValue: 'published',
             validation: (Rule) => Rule.required(),
         }),
-        {...reviewStatusField, group: 'publish', fieldset: 'statusSet'},
+        defineField({
+            ...reviewStatusField,
+            group: 'publish',
+            fieldset: 'statusSet',
+        }),
         defineField({
             name: 'category',
             title: 'Tech Category (Legacy)',
@@ -330,7 +334,7 @@ export const caseStudyType = defineType({
             group: 'media',
             fieldset: 'heroMedia',
             description: 'Describe the hero image you want AI to generate. Leave empty to use the title and category as context.',
-            hidden: ({document}) => !!document?.mainImage?.asset,
+            hidden: ({document}) => !!(document as any)?.mainImage?.asset,
         }),
         defineField({
             name: 'mainImageUrl',

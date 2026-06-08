@@ -12,12 +12,12 @@ import {
 
 export default function HireSharePointPricing() {
   return (
-    <section id="plan-pricing" className="relative py-24 sm:py-32">
+    <section id="plan-pricing" className="relative py-16">
       <div className="mx-auto max-w-7xl px-6">
         {/* ================= HEADING ================= */}
         <h2 className="mb-10 text-center text-4xl font-semibold text-gray-900">
           Hire{" "}
-          <span className="bg-gradient-to-r from-indigo-600 to-cyan-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
             SharePoint Developers
           </span>
           <br />
@@ -36,21 +36,21 @@ export default function HireSharePointPricing() {
               <div
                 key={i}
                 className="
-        group relative overflow-hidden
-        flex flex-1 items-center gap-4
-        rounded-2xl
-        bg-gradient-to-br from-white via-white to-sky-50
-        border border-gray-200
-        p-6
-        shadow-[0_4px_14px_rgba(0,0,0,0.05)]
-        hover:shadow-[0_10px_28px_rgba(0,0,0,0.10)]
-        hover:-translate-y-1
-        transition-all duration-300
-      "
+                  group relative overflow-hidden
+                  flex flex-1 items-center gap-4
+                  rounded-2xl
+                  bg-gradient-to-br from-white via-white to-orange-50/30
+                  border border-gray-200
+                  p-6
+                  shadow-[0_4px_14px_rgba(0,0,0,0.05)]
+                  hover:shadow-[0_10px_28px_rgba(0,0,0,0.10)]
+                  hover:-translate-y-1
+                  transition-all duration-300
+                "
               >
-                <span className="absolute inset-x-0 bottom-0 h-[3px] rounded-b-2xl bg-gradient-to-r from-indigo-600 via-cyan-500 to-indigo-600 opacity-80" />
+                <span className="absolute inset-x-0 bottom-0 h-[3px] rounded-b-2xl bg-gradient-to-r from-orange-600 via-amber-500 to-orange-600 opacity-80" />
 
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 transition group-hover:bg-indigo-600 group-hover:text-white">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-orange-50 text-orange-600 transition group-hover:bg-orange-600 group-hover:text-white">
                   <item.icon className="h-5 w-5" />
                 </div>
 
@@ -95,21 +95,21 @@ export default function HireSharePointPricing() {
                 className={`relative rounded-3xl p-8 transition-all duration-300 ${
                   plan.highlight
                     ? `
-          bg-gradient-to-r from-black via-[#0f2f7a] to-black
-              text-white
-              shadow-[0_18px_50px_rgba(79,70,229,0.4)]
-              scale-[1.03]
-            `
+                        bg-gradient-to-r from-black via-[#4c1c02] to-black
+                        text-white
+                        shadow-[0_18px_50px_rgba(249,115,22,0.4)]
+                        scale-[1.03]
+                      `
                     : `
-              bg-white
-              border border-gray-200
-              shadow-sm
-              hover:shadow-md
-            `
+                        bg-white
+                        border border-gray-200
+                        shadow-sm
+                        hover:shadow-md
+                      `
                 }`}
               >
                 {plan.highlight && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-white px-4 py-1 text-[11px] font-semibold text-indigo-700 shadow-md">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-white px-4 py-1 text-[11px] font-semibold text-orange-600 shadow-md">
                     MOST POPULAR
                   </span>
                 )}
@@ -132,7 +132,7 @@ export default function HireSharePointPricing() {
                     >
                       <CheckCircle2
                         className={`h-4 w-4 shrink-0 ${
-                          plan.highlight ? "text-white" : "text-indigo-600"
+                          plan.highlight ? "text-white" : "text-orange-600"
                         }`}
                       />
                       <span>{f}</span>
@@ -151,7 +151,7 @@ export default function HireSharePointPricing() {
             className="
               inline-flex items-center gap-3
               rounded-full
-              bg-gradient-to-r from-indigo-600 to-cyan-500
+              bg-gradient-to-r from-orange-600 to-amber-500
               px-10 py-4
               text-sm font-semibold
               text-white

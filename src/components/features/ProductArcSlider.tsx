@@ -879,7 +879,7 @@ export default function ProductArcSlider() {
       }}
     >
       {/* ── Inner wrapper (header + pills, normal flow) ── */}
-      <div className="relative z-10 mx-auto max-w-[1400px] px-5 sm:px-8 md:px-12">
+      <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 md:px-12">
         {/* Title row — left h2, right paragraph */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 md:gap-16 pt-10 sm:pt-12 md:pt-14 mb-6 md:mb-8">
           <h2 className="text-[clamp(28px,4.4vw,58px)] font-semibold leading-[1.04] tracking-[-0.025em] text-[#141413] max-w-[680px]">

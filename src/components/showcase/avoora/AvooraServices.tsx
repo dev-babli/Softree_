@@ -34,7 +34,9 @@ export function AvooraServices() {
     onSelect();
     emblaApi.on("select", onSelect);
     emblaApi.scrollTo(2, false);
-    return () => emblaApi.off("select", onSelect);
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
   }, [emblaApi, onSelect]);
 
   const progress = ((active + 1) / SERVICES.length) * 100;

@@ -66,9 +66,9 @@ const techStacks = [
 
 export default function TechStack() {
   return (
-    <section className="relative overflow-hidden py-12">
+    <section className="relative overflow-hidden py-16">
       {/* Background glow */}
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.15),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(236,72,153,0.12),transparent_40%)]" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(249,115,22,0.15),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(245,158,11,0.12),transparent_40%)]" />
 
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-4xl mx-auto mb-4 px-4">
@@ -77,17 +77,17 @@ export default function TechStack() {
             className="
       inline-flex items-center gap-2
       text-sm font-semibold tracking-widest uppercase
-      text-blue-600
+      text-orange-600
     "
           >
-            <MdAutoAwesome className="text-blue-600" />
+            <MdAutoAwesome className="text-orange-600" />
             SharePoint Technology Stack
           </span>
 
           {/* Heading */}
           <h2 className="mt-6 text-4xl lg:text-5xl font-semibold leading-tight tracking-tight text-gray-900">
             Built on a Modern, <br />
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
               Scalable SharePoint Ecosystem
             </span>
           </h2>
@@ -106,21 +106,20 @@ export default function TechStack() {
           {techStacks.map((stack, idx) => (
             <div
               key={idx}
-              className="relative group rounded-[28px] p-[1px] bg-gradient-to-r from-black via-[#0f2f7a] to-black hover:from-blue-500/40 transition-all duration-500"
+              className="relative group rounded-[28px] p-[1px] bg-gradient-to-r from-black via-[#4c1c02] to-black hover:from-orange-500/40 transition-all duration-500"
             >
-              <div className="h-full rounded-[28px] bg-gradient-to-r from-black via-[#0f2f7a] to-black p-7">
-                {/* Card title */}
+              <div className="h-full rounded-[28px] bg-gradient-to-r from-black via-[#4c1c02] to-black p-7">
                 {/* Card title */}
                 <div className="mb-8">
                   <span
                     className={`
-      inline-flex items-center
-      px-5 py-2
-      rounded-full
-      text-sm font-semibold text-white
-      bg-gradient-to-r ${stack.accent}
-      shadow-[0_0_20px_rgba(255,255,255,0.15)]
-    `}
+                      inline-flex items-center
+                      px-5 py-2
+                      rounded-full
+                      text-sm font-semibold text-white
+                      bg-gradient-to-r ${stack.accent}
+                      shadow-[0_0_20px_rgba(255,255,255,0.15)]
+                    `}
                   >
                     {stack.title}
                   </span>

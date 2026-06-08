@@ -11,7 +11,7 @@ export const marketingPageType = defineType({
   type: 'document',
   icon: EarthGlobeIcon,
   groups: [
-    { name: 'content', title: 'Page builder', default: true },
+    { name: 'content', title: 'Page builder' },
     { name: 'seo', title: 'SEO' },
   ],
   fields: [
@@ -46,7 +46,10 @@ export const marketingPageType = defineType({
       },
       initialValue: 'draft',
     }),
-    {...reviewStatusField, group: 'content'},
+    defineField({
+      ...reviewStatusField,
+      group: 'content',
+    }),
     defineField({
       name: 'sections',
       title: 'Page sections',

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Smartphone, Brain, ArrowUpRight, ArrowRight, Sparkles, Globe } from "lucide-react";
+import { Smartphone, Brain, ArrowUpRight, ArrowRight, Sparkles, Globe, AppWindow, Database } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { useEffect, useState, useRef, useCallback, CSSProperties } from "react";
 
@@ -25,80 +25,70 @@ interface Service {
 ============================================================ */
 const SERVICES: Service[] = [
   {
-    id: "sharepoint-development",
-    title: "SharePoint Development",
-    shortTitle: "SharePoint",
-    imgSrc: "https://cdn-icons-png.flaticon.com/512/5968/5968705.png",
-    accent: "#f59e0b",
-    accentRgb: "245,158,11",
-    description: "Intranet portals, document management, and collaboration hubs built on Microsoft 365.",
-    tags: ["Microsoft 365", "SharePoint Online", "Intranet"],
+    id: "power-platform",
+    title: "Business Applications Delivery Support",
+    shortTitle: "Power Platform",
+    LucideIcon: AppWindow,
+    accent: "#ff7a2f",
+    accentRgb: "255,122,47",
+    description: "Helping partners execute Power Platform and Dynamics implementations. We operate as your extended Power Platform engineering team.",
+    tags: ["Power Apps", "Power Automate", "Dataverse"],
   },
   {
-    id: "spfx-development",
-    title: "SPFx Development",
-    shortTitle: "SPFx",
-    imgSrc: "https://cdn-icons-png.flaticon.com/512/732/732221.png",
-    accent: "#f59e0b",
-    accentRgb: "245,158,11",
-    description: "Custom SPFx web parts, extensions, and Adaptive Card components with React & TypeScript.",
-    tags: ["React", "TypeScript", "SPFx"],
+    id: "data-bi",
+    title: "Data & Analytics Execution",
+    shortTitle: "Data & BI",
+    LucideIcon: Database,
+    accent: "#ff7a2f",
+    accentRgb: "255,122,47",
+    description: "Building scalable data solutions and BI environments for partners. We bring reliable data engineering and up-to-date analytics expertise.",
+    tags: ["Power BI", "Microsoft Fabric", "Databricks", "Snowflake"],
   },
   {
-    id: "power-apps",
-    title: "Power Apps",
-    shortTitle: "Power Apps",
-    imgSrc: "https://cdn-icons-png.flaticon.com/512/732/732223.png",
-    accent: "#f59e0b",
-    accentRgb: "245,158,11",
-    description: "Low-code canvas and model-driven apps that automate business processes end-to-end.",
-    tags: ["Power Platform", "Canvas Apps", "Dataverse"],
-  },
-  {
-    id: "power-bi",
-    title: "Power BI",
-    shortTitle: "Power BI",
-    imgSrc: "https://cdn-icons-png.flaticon.com/512/732/732220.png",
-    accent: "#f59e0b",
-    accentRgb: "245,158,11",
-    description: "Interactive dashboards, semantic models, and real-time analytics for every stakeholder.",
-    tags: ["Analytics", "DAX", "Power Query"],
-  },
-  {
-    id: "web-development",
-    title: "Web Development",
-    shortTitle: "Web Dev",
-    LucideIcon: Globe,
-    accent: "#f59e0b",
-    accentRgb: "245,158,11",
-    description: "Next.js, React, and headless CMS solutions engineered for performance and scalability.",
-    tags: ["Next.js", "React", "Headless CMS"],
-  },
-  {
-    id: "mobile-app-development",
-    title: "Mobile App Development",
-    shortTitle: "Mobile",
-    LucideIcon: Smartphone,
-    accent: "#f59e0b",
-    accentRgb: "245,158,11",
-    description: "Cross-platform iOS and Android applications built with React Native and Expo.",
-    tags: ["React Native", "Expo", "iOS & Android"],
-  },
-  {
-    id: "ai-solutions",
-    title: "AI Solutions",
-    shortTitle: "AI",
+    id: "intelligent-ai",
+    title: "AI & Intelligent Automation",
+    shortTitle: "Intelligent AI",
     LucideIcon: Brain,
-    accent: "#f59e0b",
-    accentRgb: "245,158,11",
-    description: "LLM integrations, intelligent agents, RAG pipelines, and ML-powered automation built into your existing workflows.",
-    tags: ["LLMs", "AI Agents", "RAG", "Automation"],
+    accent: "#ff7a2f",
+    accentRgb: "255,122,47",
+    description: "Integrating AI solutions to improve business processes and experiences. Operate with confidence using our AI integration expertise.",
+    tags: ["Azure AI Foundry", "Copilot Integration", "AI Agents", "RAG Workflows"],
+  },
+  {
+    id: "workspace",
+    title: "Digital Workspace & App Engineering",
+    shortTitle: "Workspace",
+    imgSrc: "https://cdn-icons-png.flaticon.com/512/5968/5968705.png",
+    accent: "#ff7a2f",
+    accentRgb: "255,122,47",
+    description: "Enhancing and extending your Microsoft 365 collaboration environments. Securely deliver and support modern workspace solutions.",
+    tags: ["SharePoint Online", "Microsoft 365", "Web Applications", "Mobile Applications"],
+  },
+  {
+    id: "ai-automation",
+    title: "AI Powered Test Automation",
+    shortTitle: "AI Automation",
+    LucideIcon: Sparkles,
+    accent: "#ff7a2f",
+    accentRgb: "255,122,47",
+    description: "Accelerating release cycles and software quality using intelligent automated test suites. Achieve continuous quality with modern AI testing workflows.",
+    tags: ["Selenium", "Playwright", "CI/CD Integration", "Visual AI Testing"],
+  },
+  {
+    id: "legacy",
+    title: "Legacy Application Modernization",
+    shortTitle: "Legacy",
+    LucideIcon: Globe,
+    accent: "#ff7a2f",
+    accentRgb: "255,122,47",
+    description: "Transforming outdated monolithic architectures into secure, scalable, cloud-native systems. Safely de-risk and rebuild systems for modern scale.",
+    tags: ["Microservices", "Cloud Migration", "API Refactoring", "System Rewrites"],
   },
 ];
 
 const STATS = [
   { value: "50+", label: "Projects" },
-  { value: "7", label: "Practices" },
+  { value: "6", label: "Practices" },
   { value: "98%", label: "Satisfaction" },
   { value: "4yr", label: "Avg. partner" },
 ];
@@ -173,7 +163,7 @@ function Card({
   onLeave: () => void;
   onClick: () => void;
 }) {
-  const isWide = svc.id === "ai-solutions";
+  const isWide = false;
 
   const base: CSSProperties = {
     gridColumn: isWide ? "1 / -1" : undefined,
@@ -189,6 +179,7 @@ function Card({
     textDecoration: "none",
     overflow: "hidden",
     cursor: "pointer",
+    height: "100%",
     transition: "border-color 0.25s, background 0.25s, transform 0.25s, box-shadow 0.25s",
     transform: hovered && !isWide ? "translateY(-3px)" : "none",
     boxShadow: lit ? `0 8px 28px rgba(${svc.accentRgb},0.14)` : "none",
@@ -231,7 +222,7 @@ function Card({
         )}
 
         <div style={{ display: "flex", flexWrap: "wrap", gap: 5, marginTop: 8 }}>
-          {svc.tags.slice(0, isWide ? 4 : 1).map((tag) => (
+          {svc.tags.slice(0, 3).map((tag) => (
             <span key={tag} style={{
               fontSize: 10, fontWeight: 500, letterSpacing: "0.04em",
               padding: "2px 8px", borderRadius: 20,
@@ -258,53 +249,58 @@ function Panel({ svc }: { svc: Service }) {
       border: `0.5px solid rgba(${svc.accentRgb},0.32)`,
       background: "rgba(255,255,255,0.025)", overflow: "hidden",
       animation: "sh-slideIn 0.3s ease",
+      display: "flex", flexDirection: "column"
     }}>
       {/* bg glow */}
-      <div style={{ position: "absolute", inset: 0, pointerEvents: "none", background: `radial-gradient(ellipse at 25% 20%, rgba(${svc.accentRgb},0.09) 0%, transparent 60%)` }} />
+      <div style={{ position: "absolute", inset: 0, pointerEvents: "none", background: `radial-gradient(ellipse at 25% 20%, rgba(${svc.accentRgb},0.09) 0%, transparent 65%)` }} />
 
-      <div style={{ position: "relative", zIndex: 1 }}>
-        {/* badge */}
-        <div style={{
-          display: "inline-flex", alignItems: "center", gap: 5,
-          fontSize: 9.5, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase",
-          padding: "4px 10px", borderRadius: 20, marginBottom: 20,
-          background: `rgba(${svc.accentRgb},0.12)`,
-          border: `0.5px solid rgba(${svc.accentRgb},0.28)`,
-          color: svc.accent,
-        }}>
-          <Sparkles size={9} /> {svc.tags[0]}
-        </div>
-
-        {/* icon + title */}
-        <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 16 }}>
-          <div style={{ width: 48, height: 48, borderRadius: 14, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, background: `rgba(${svc.accentRgb},0.15)` }}>
-            <SvcIcon svc={svc} size={22} />
+      <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", height: "100%", flex: 1 }}>
+        <div>
+          {/* badge */}
+          <div style={{
+            display: "inline-flex", alignItems: "center", gap: 5,
+            fontSize: 9.5, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase",
+            padding: "4px 10px", borderRadius: 20, marginBottom: 20,
+            background: `rgba(${svc.accentRgb},0.12)`,
+            border: `0.5px solid rgba(${svc.accentRgb},0.28)`,
+            color: svc.accent,
+          }}>
+            <Sparkles size={9} /> {svc.tags[0]}
           </div>
-          <h3 style={{ fontFamily: "'Playfair Display','Georgia',serif", fontSize: 20, fontWeight: 600, color: "#f0f0f4", lineHeight: 1.25, margin: 0 }}>
-            {svc.title}
-          </h3>
+
+          {/* icon + title */}
+          <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 16 }}>
+            <div style={{ width: 48, height: 48, borderRadius: 14, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, background: `rgba(${svc.accentRgb},0.15)` }}>
+              <SvcIcon svc={svc} size={22} />
+            </div>
+            <h3 style={{ fontSize: 20, fontWeight: 700, color: "#f0f0f4", lineHeight: 1.25, margin: 0 }}>
+              {svc.title}
+            </h3>
+          </div>
+
+          {/* desc */}
+          <p style={{ fontSize: 13, lineHeight: 1.75, color: "#88889a", marginBottom: 20 }}>
+            {svc.description}
+          </p>
         </div>
 
-        {/* desc */}
-        <p style={{ fontSize: 13, lineHeight: 1.75, color: "#88889a", marginBottom: 20 }}>
-          {svc.description}
-        </p>
+        <div>
+          <div style={{ height: "0.5px", background: "rgba(255,255,255,0.07)", marginBottom: 18 }} />
 
-        <div style={{ height: "0.5px", background: "rgba(255,255,255,0.07)", marginBottom: 18 }} />
+          {/* tags */}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 22 }}>
+            {svc.tags.map((tag) => (
+              <span key={tag} style={{ fontSize: 11, padding: "4px 10px", borderRadius: 8, background: "rgba(255,255,255,0.04)", border: "0.5px solid rgba(255,255,255,0.09)", color: "#77778a" }}>
+                {tag}
+              </span>
+            ))}
+          </div>
 
-        {/* tags */}
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 22 }}>
-          {svc.tags.map((tag) => (
-            <span key={tag} style={{ fontSize: 11, padding: "4px 10px", borderRadius: 8, background: "rgba(255,255,255,0.04)", border: "0.5px solid rgba(255,255,255,0.09)", color: "#77778a" }}>
-              {tag}
-            </span>
-          ))}
+          {/* cta */}
+          <Link href={`/services#${svc.id}`} style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 13, fontWeight: 500, color: svc.accent, textDecoration: "none" }}>
+            Explore Solution <ArrowRight size={14} />
+          </Link>
         </div>
-
-        {/* cta */}
-        <Link href={`/services#${svc.id}`} style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 13, fontWeight: 500, color: svc.accent, textDecoration: "none" }}>
-          Explore this service <ArrowRight size={14} />
-        </Link>
       </div>
     </div>
   );
@@ -316,20 +312,19 @@ function Panel({ svc }: { svc: Service }) {
 export default function ServicesHeader() {
   const activeHash = useActiveHash();
   const [hoveredId, setHoveredId] = useState<string | null>(null);
-  const [selectedId, setSelectedId] = useState<string>("ai-solutions");
+  const [selectedId, setSelectedId] = useState<string>("power-platform");
   const sectionRef = useRef<HTMLDivElement>(null);
   const inView = useInView(sectionRef as React.RefObject<Element>);
 
   const panelSvc =
     SERVICES.find((s) => s.id === (hoveredId ?? (activeHash || selectedId))) ??
-    SERVICES[6];
+    SERVICES[0];
 
   const select = useCallback((id: string) => setSelectedId(id), []);
 
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
         @keyframes sh-fadeUp { from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)} }
         @keyframes sh-slideIn { from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:translateX(0)} }
         @keyframes sh-marquee { from{transform:translateX(0)}to{transform:translateX(-50%)} }
@@ -338,7 +333,7 @@ export default function ServicesHeader() {
 
       <section
         ref={sectionRef}
-        style={{ position: "relative", overflow: "hidden", background: "linear-gradient(160deg,#07070f 0%,#0d0d1a 55%,#080810 100%)", fontFamily: "'DM Sans',sans-serif" }}
+        style={{ position: "relative", overflow: "hidden", background: "linear-gradient(160deg,#07070f 0%,#0d0d1a 55%,#080810 100%)" }}
       >
         {/* grid bg */}
         <div aria-hidden style={{ position:"absolute",inset:0,backgroundImage:"linear-gradient(rgba(255,255,255,0.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.022) 1px,transparent 1px)",backgroundSize:"56px 56px",pointerEvents:"none" }} />
@@ -361,9 +356,17 @@ export default function ServicesHeader() {
                 <div style={{ width:26,height:1,background:"#f59e0b",opacity:.7 }} />
                 <span style={{ fontSize:10.5,fontWeight:600,letterSpacing:"0.2em",textTransform:"uppercase",color:"#f59e0b" }}>Our Expertise</span>
               </div>
-              <h2 style={{ fontFamily:"'Playfair Display','Georgia',serif",fontSize:"clamp(36px,4.5vw,58px)",fontWeight:600,lineHeight:1.12,color:"#f0f0f4",margin:0 }}>
+              <h2 style={{ fontSize:"clamp(36px,4.5vw,58px)",fontWeight:600,lineHeight:1.12,color:"#f0f0f4",margin:0 }}>
                 Building digital{" "}
-                <em style={{ fontStyle:"italic",color:"#f59e0b" }}>solutions</em>
+                <span style={{
+                  fontStyle: "normal",
+                  background: "linear-gradient(135deg, #ff8f3d 0%, #f97316 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  fontWeight: 700
+                }}>
+                  solutions
+                </span>
                 <br />that scale with you.
               </h2>
               <p style={{ marginTop:16,fontSize:14.5,lineHeight:1.75,fontWeight:300,color:"#888899",maxWidth:460 }}>
@@ -374,7 +377,7 @@ export default function ServicesHeader() {
             <div style={{ display:"flex",gap:32,alignItems:"flex-end",paddingBottom:4 }}>
               {STATS.map((s) => (
                 <div key={s.label} style={{ textAlign:"right" }}>
-                  <div style={{ fontFamily:"'Playfair Display',serif",fontSize:"clamp(26px,2.8vw,36px)",fontWeight:600,color:"#e8e8f4",lineHeight:1 }}>{s.value}</div>
+                  <div style={{ fontSize:"clamp(26px,2.8vw,36px)",fontWeight:600,color:"#e8e8f4",lineHeight:1 }}>{s.value}</div>
                   <div style={{ fontSize:10.5,color:"#555566",marginTop:4,fontWeight:300 }}>{s.label}</div>
                 </div>
               ))}
@@ -383,13 +386,13 @@ export default function ServicesHeader() {
 
           {/* ── BODY ── */}
           <div style={{
-            display:"grid",gridTemplateColumns:"1fr 360px",gap:16,alignItems:"start",
+            display:"grid",gridTemplateColumns:"1fr 360px",gap:16,alignItems:"stretch",
             opacity: inView ? 1 : 0, transform: inView ? "none" : "translateY(28px)",
             transition:"opacity 0.7s ease 0.15s,transform 0.7s ease 0.15s",
           }}>
 
             {/* cards */}
-            <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:10 }}>
+            <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gridTemplateRows:"repeat(3, 1fr)",gap:10,height:"100%" }}>
               {SERVICES.map((svc, i) => (
                 <Card
                   key={svc.id}
@@ -405,7 +408,7 @@ export default function ServicesHeader() {
             </div>
 
             {/* right panel */}
-            <div style={{ display:"flex",flexDirection:"column",gap:12 }} key={panelSvc.id}>
+            <div style={{ display:"flex",flexDirection:"column",gap:12,height:"100%" }} key={panelSvc.id}>
               <Panel svc={panelSvc} />
 
               <div style={{ borderRadius:14,padding:"18px 20px",background:"rgba(245,158,11,0.05)",border:"0.5px solid rgba(245,158,11,0.16)",display:"flex",alignItems:"center",justifyContent:"space-between",gap:12 }}>

@@ -44,7 +44,7 @@ export default function HomepageCaseStudiesSection({
           className="mx-auto max-w-2xl text-center"
           initial={false}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ ...VIEWPORT.once, amount: 0.12 }}
+          viewport={{ ...VIEWPORT.default, amount: 0.12 }}
           transition={{ duration: DUR.section, ease: EASE_T.silk }}
         >
           <SectionHeader
@@ -64,7 +64,7 @@ export default function HomepageCaseStudiesSection({
           className="mt-8 flex justify-center"
           initial={false}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ ...VIEWPORT.once, amount: 0.12 }}
+          viewport={{ ...VIEWPORT.default, amount: 0.12 }}
           transition={{ duration: DUR.card, ease: EASE_T.silk, delay: 0.06 }}
         >
           <Link
@@ -80,7 +80,7 @@ export default function HomepageCaseStudiesSection({
           className="mt-10 md:mt-12"
           initial={false}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ ...VIEWPORT.once, amount: 0.08 }}
+          viewport={{ ...VIEWPORT.default, amount: 0.08 }}
           transition={{ duration: DUR.section, ease: EASE_T.silk, delay: 0.1 }}
         >
           <BentoWireframe

@@ -99,7 +99,7 @@ export function TrustedByMarquee() {
           <span className="inline-flex items-center rounded-full bg-[var(--legacy-eaeaea)] px-3 py-1 sm:px-4 sm:py-1.5">
             <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-[var(--legacy-111)]">Trusted by</span>
           </span>
-          <span className="inline-flex items-center rounded-full bg-[var(--legacy-1a1a1a)] px-3 py-1 sm:px-4 sm:py-1.5">
+          <span className="inline-flex items-center rounded-full bg-[#FF5812] px-3 py-1 sm:px-4 sm:py-1.5">
             <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-white">Industry Giants</span>
           </span>
         </div>

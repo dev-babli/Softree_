@@ -40,18 +40,18 @@ export default function QualityBenchmarkUltra() {
   return (
     <section
       id="plan-pricing"
-      className="relative overflow-hidden py-10 bg-gradient-to-b from-gray-50 via-white to-gray-50"
+      className="relative overflow-hidden py-16 bg-gradient-to-b from-gray-50 via-white to-gray-50"
     >
       <div className="relative mx-auto max-w-7xl px-6">
         {/* ================= Header ================= */}
         <div className="mx-auto mb-14 max-w-4xl text-center">
-          <span className="text-xs font-semibold tracking-[0.25em] uppercase text-blue-600">
+          <span className="text-xs font-semibold tracking-[0.25em] uppercase text-orange-600">
             Quality Framework
           </span>
 
           <h2 className="mt-3 text-4xl md:text-5xl font-bold text-gray-900">
             Our Standard for Building{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
               Reliable, Scalable
             </span>{" "}
             Web Experiences
@@ -107,7 +107,7 @@ export default function QualityBenchmarkUltra() {
                       ${
                         isFeatured
                           ? `
-                            bg-gradient-to-r from-black via-[#0f2f7a] to-black
+                            bg-gradient-to-r from-black via-[#4c1c02] to-black
                             text-white
                             shadow-2xl scale-[1.04]
                           `
@@ -132,7 +132,7 @@ export default function QualityBenchmarkUltra() {
                     {/* Points */}
                     <ul
                       className={`space-y-4 text-sm text-left ${
-                        isFeatured ? "text-blue-50" : "text-gray-600"
+                        isFeatured ? "text-zinc-300" : "text-gray-600"
                       }`}
                     >
                       {item.points.map((point, idx) => (
@@ -141,12 +141,12 @@ export default function QualityBenchmarkUltra() {
                           <span
                             className={`
                               flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5
-                              ${isFeatured ? "bg-white/20" : "bg-blue-50"}
+                              ${isFeatured ? "bg-white/20" : "bg-orange-50"}
                             `}
                           >
                             <CheckCircle2
                               className={`w-4 h-4 ${
-                                isFeatured ? "text-white" : "text-blue-600"
+                                isFeatured ? "text-white" : "text-orange-600"
                               }`}
                             />
                           </span>
