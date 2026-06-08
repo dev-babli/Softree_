@@ -184,7 +184,7 @@ export default function ChannelCard() {
                   ))}
                 </div>
                 <div className="hidden sm:flex flex-col gap-0.5">
-                  <span className="text-[11px] font-semibold text-white">200+ Clients</span>
+                  <span className="text-[11px] font-semibold text-white">50+ Clients</span>
                   <span className="text-[9px] font-medium uppercase tracking-[0.16em] text-white/55">Trusted Globally</span>
                 </div>
               </motion.div>

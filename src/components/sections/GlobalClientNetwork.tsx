@@ -50,17 +50,20 @@ type City = {
 
 /** Verified HQ / delivery hubs — city + country shown in roster (not on-map cards). */
 const CITIES: City[] = [
-  { id: "hallman", name: "Hallman Industries", city: "Houston", country: "USA", lat: 29.7604, lon: -95.3698, accent: "orange", region: "Americas" },
-  { id: "nuvento", name: "Nuvento", city: "Seattle", country: "USA", lat: 47.6062, lon: -122.3321, accent: "blue", region: "Americas" },
-  { id: "intellectt", name: "Intellectt", city: "Miami", country: "USA", lat: 25.7617, lon: -80.1918, accent: "violet", region: "Americas" },
-  { id: "autorepair", name: "Auto Repair Pro", city: "Los Angeles", country: "USA", lat: 34.0522, lon: -118.2437, accent: "green", region: "Americas" },
-  { id: "bosch", name: "Bosch", city: "Stuttgart", country: "Germany", lat: 48.7758, lon: 9.1829, accent: "violet", region: "Europe" },
-  { id: "emscale", name: "Emscale", city: "London", country: "UK", lat: 51.5074, lon: -0.1278, accent: "green", region: "Europe" },
+  { id: "export-control", name: "Export control group", city: "Amsterdam", country: "Netherlands", lat: 52.3676, lon: 4.9041, accent: "violet", region: "Europe" },
+  { id: "goerp", name: "Go ERP", city: "Bristol", country: "England", lat: 51.4545, lon: -2.5879, accent: "blue", region: "Europe" },
+  { id: "jonians", name: "Jonians Corporation", city: "Los Angeles, California", country: "United States", lat: 34.0522, lon: -118.2437, accent: "orange", region: "Americas" },
+  { id: "nuvento", name: "Nuvento", city: "Kansas", country: "USA", lat: 39.0997, lon: -94.5786, accent: "blue", region: "Americas" },
+  { id: "sp-marketplace", name: "Sp-marketplace", city: "Penn Valley", country: "California", lat: 39.1982, lon: -121.1822, accent: "orange", region: "Americas" },
+  { id: "kwizcom", name: "KwizCom", city: "Toronto, Ontario", country: "Canada", lat: 43.6532, lon: -79.3832, accent: "violet", region: "Americas" },
+  { id: "cubeet", name: "Cubeet", city: "Singapore", country: "Singapore", lat: 1.3521, lon: 103.8198, accent: "blue", region: "Asia Pacific" },
+  { id: "maxtube", name: "MAXTUBE", city: "Abu Dhabi", country: "UAE", lat: 24.4539, lon: 54.3773, accent: "green", region: "Middle East" },
+  { id: "devfinite", name: "DevFinite", city: "Calgary", country: "Canada", lat: 51.0447, lon: -114.0719, accent: "green", region: "Americas" },
+  { id: "adiva", name: "Adiva Information Technology LLC", city: "Dubai", country: "UAE", lat: 25.2048, lon: 55.2708, accent: "orange", region: "Middle East" },
   { id: "link", name: "Link Innovation", city: "Hyderabad", country: "India", lat: 17.385, lon: 78.4867, accent: "blue", region: "Asia Pacific" },
-  { id: "kwiz", name: "Kwiz", city: "Bengaluru", country: "India", lat: 12.9716, lon: 77.5946, accent: "violet", region: "Asia Pacific" },
-  { id: "goerp", name: "GO ERP", city: "Singapore", country: "Singapore", lat: 1.3521, lon: 103.8198, accent: "blue", region: "Asia Pacific" },
-  { id: "sp", name: "SP Marketplace", city: "Melbourne", country: "Australia", lat: -37.8136, lon: 144.9631, accent: "orange", region: "Asia Pacific" },
-  { id: "jonians", name: "Jonians", city: "Dubai", country: "UAE", lat: 25.2048, lon: 55.2708, accent: "orange", region: "Middle East" },
+  { id: "emscale", name: "Emscale", city: "Mumbai", country: "India", lat: 19.0760, lon: 72.8777, accent: "green", region: "Asia Pacific" },
+  { id: "intellect", name: "Intellectt", city: "New Jersey", country: "USA", lat: 40.0583, lon: -74.4057, accent: "violet", region: "Americas" },
+  { id: "kogny", name: "Kogny.ai", city: "Alpharetta, Atlanta", country: "Georgia, USA", lat: 34.0754, lon: -84.2941, accent: "blue", region: "Americas" },
 ];
 
 const REGION_ORDER: City["region"][] = ["Americas", "Europe", "Asia Pacific", "Middle East"];

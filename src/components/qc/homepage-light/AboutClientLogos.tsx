@@ -17,7 +17,7 @@ export const PARTNER_LOGOS = [
   { name: "Intellectt", src: "/images/logo/Intellectt_logo.png", accent: "#a855f7" },
 ] as const;
 
-type Logo = (typeof PARTNER_LOGOS)[number];
+export type Logo = (typeof PARTNER_LOGOS)[number];
 
 const PARTNERS: Logo[] = [...PARTNER_LOGOS];
 
@@ -61,7 +61,7 @@ const marqueeStyles = `
   }
 `;
 
-function PartnerLogo({
+export function PartnerLogo({
   partner,
   tone = "legacy",
 }: {
@@ -290,7 +290,7 @@ export default function AboutClientLogos({
       {/* Top clean hairline edge */}
       <div className="absolute left-0 right-0 top-0 h-px bg-neutral-900/[0.06]" />
 
-      <div className="relative mx-auto max-w-[1400px] px-6 lg:px-12">
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-12">
         
         {!marqueeOnly && (
         <motion.div

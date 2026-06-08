@@ -62,19 +62,19 @@ export default function FabricHeroTabs() {
     <>
       <style>{`
         .st-wrap {
-          padding: 40px 16px;
+          padding: 64px 16px;
           background: transparent;
         }
         .st-card {
           max-width: 80rem;
           margin: 0 auto;
-          background: linear-gradient(to right, #000000 0%, #0f2f7a 50%, #000000 100%);
+          background: linear-gradient(to right, #000000 0%, #4c1c02 50%, #000000 100%);
           border-radius: 28px;
           padding: 44px 48px 36px;
           position: relative;
           overflow: hidden;
           box-shadow:
-            0 0 0 1px rgba(99,120,255,0.15),
+            0 0 0 1px rgba(249,115,22,0.15),
             0 32px 64px rgba(0,0,0,0.55),
             inset 0 1px 0 rgba(255,255,255,0.04);
         }
@@ -86,12 +86,12 @@ export default function FabricHeroTabs() {
         .st-blob1 {
           top: -80px; right: -80px;
           width: 320px; height: 320px;
-          background: radial-gradient(circle, rgba(99,120,255,0.18) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(249,115,22,0.18) 0%, transparent 70%);
         }
         .st-blob2 {
           bottom: -80px; left: -40px;
           width: 280px; height: 280px;
-          background: radial-gradient(circle, rgba(56,189,248,0.1) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(245,158,11,0.1) 0%, transparent 70%);
         }
         .st-grid {
           position: absolute;
@@ -114,22 +114,22 @@ export default function FabricHeroTabs() {
           display: inline-flex;
           align-items: center;
           gap: 6px;
-          background: rgba(99,102,241,0.12);
-          border: 1px solid rgba(99,102,241,0.25);
+          background: rgba(249,115,22,0.12);
+          border: 1px solid rgba(249,115,22,0.25);
           border-radius: 100px;
           padding: 4px 14px;
           font-size: 11px;
           font-weight: 600;
           letter-spacing: 0.1em;
           text-transform: uppercase;
-          color: #a5b4fc;
+          color: #fdba74;
           margin-bottom: 14px;
         }
         .st-dot {
           width: 5px; height: 5px;
           border-radius: 50%;
-          background: #818cf8;
-          box-shadow: 0 0 6px #818cf8;
+          background: #f97316;
+          box-shadow: 0 0 6px #f97316;
           animation: blink 2.2s ease-in-out infinite;
         }
         @keyframes blink {
@@ -145,13 +145,13 @@ export default function FabricHeroTabs() {
         }
         .st-title em {
           font-style: normal;
-          background: linear-gradient(90deg, #a5b4fc, #38bdf8);
+          background: linear-gradient(90deg, #fdba74, #f97316);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
         .st-sub {
-          color: rgba(200,210,255,0.5);
+          color: rgba(254,215,170,0.5);
           font-size: 13.5px;
           max-width: 480px;
           margin: 0 auto;
@@ -170,7 +170,7 @@ export default function FabricHeroTabs() {
         .st-tab {
           background: none;
           border: 1px solid rgba(255,255,255,0.08);
-          color: rgba(200,210,255,0.45);
+          color: rgba(254,215,170,0.45);
           font-size: 12.5px;
           font-weight: 500;
           padding: 6px 15px;
@@ -179,15 +179,15 @@ export default function FabricHeroTabs() {
           transition: all 0.18s ease;
         }
         .st-tab:hover {
-          border-color: rgba(165,180,252,0.3);
-          color: rgba(200,210,255,0.85);
+          border-color: rgba(253,186,116,0.3);
+          color: rgba(254,215,170,0.85);
         }
         .st-tab.on {
           background: rgba(255,255,255,0.95);
           border-color: transparent;
           color: #0a1240;
           font-weight: 700;
-          box-shadow: 0 2px 16px rgba(99,102,241,0.4);
+          box-shadow: 0 2px 16px rgba(249,115,22,0.4);
         }
 
         .st-panel {
@@ -219,13 +219,13 @@ export default function FabricHeroTabs() {
           font-weight: 700;
           letter-spacing: 0.1em;
           text-transform: uppercase;
-          color: #a5b4fc;
+          color: #fdba74;
           margin-bottom: 10px;
         }
         .st-service-line {
           display: inline-block;
           width: 20px; height: 1.5px;
-          background: #a5b4fc;
+          background: #fdba74;
           border-radius: 2px;
         }
         .st-panel-title {
@@ -237,7 +237,7 @@ export default function FabricHeroTabs() {
           line-height: 1.25;
         }
         .st-panel-desc {
-          color: rgba(200,210,255,0.5);
+          color: rgba(254,215,170,0.5);
           font-size: 13.5px;
           line-height: 1.7;
           margin-bottom: 20px;
@@ -255,12 +255,12 @@ export default function FabricHeroTabs() {
           border: none;
           cursor: pointer;
           transition: all 0.18s ease;
-          box-shadow: 0 4px 16px rgba(99,102,241,0.3);
+          box-shadow: 0 4px 16px rgba(249,115,22,0.3);
           letter-spacing: 0.02em;
         }
         .st-cta:hover {
           transform: translateY(-2px);
-          box-shadow: 0 6px 22px rgba(99,102,241,0.45);
+          box-shadow: 0 6px 22px rgba(249,115,22,0.45);
           background: #ffffff;
         }
         .st-arrow { transition: transform 0.18s; }
@@ -341,7 +341,7 @@ export default function FabricHeroTabs() {
               Softree · Microsoft Fabric
             </div>
             <h1 className="st-title">
-              Comprehensive Microsoft Fabric Services
+              Comprehensive <span className="text-orange-500">Microsoft Fabric</span> Services
             </h1>
             <p className="st-sub">
               Advanced tools and deep Microsoft expertise — helping your organization manage data and make smarter decisions.

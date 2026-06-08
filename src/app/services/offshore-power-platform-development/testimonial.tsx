@@ -81,10 +81,10 @@ export default function TestimonialsSplitSlider() {
   return (
     <section className="relative py-14 overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
       {/* ===== DARK PREMIUM WRAPPER ===== */}
-      <div className="relative max-w-7xl mx-auto rounded-3xl px-10 py-10 text-white bg-gradient-to-r from-black via-[#0f2f7a] to-black overflow-hidden">
+      <div className="relative max-w-7xl mx-auto rounded-3xl px-10 py-10 text-white bg-gradient-to-r from-black via-[#4c1c02] to-black overflow-hidden">
         {/* Glow background */}
-        <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-blue-600/30 blur-[120px] rounded-full" />
-        <div className="absolute -bottom-32 -right-32 w-[400px] h-[400px] bg-indigo-600/30 blur-[120px] rounded-full" />
+        <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-orange-600/30 blur-[120px] rounded-full" />
+        <div className="absolute -bottom-32 -right-32 w-[400px] h-[400px] bg-orange-600/30 blur-[120px] rounded-full" />
 
         <div className="relative flex flex-col items-center gap-10">
           {/* ================= HEADER ================= */}
@@ -93,7 +93,7 @@ export default function TestimonialsSplitSlider() {
               What Our Clients Say
             </h2>
 
-            <p className="text-blue-200 text-sm max-w-xl">
+            <p className="text-orange-200 text-sm max-w-xl">
               Trusted by enterprises worldwide. See how our Power Platform
               solutions transform business productivity.
             </p>
@@ -140,7 +140,7 @@ export default function TestimonialsSplitSlider() {
   "
                       >
                         {/* ⭐ Quote */}
-                        <Quote className="w-6 h-6 text-blue-300 mb-4" />
+                        <Quote className="w-6 h-6 text-orange-300 mb-4" />
 
                         {/* ================= USER INFO ================= */}
                         <div className="flex items-center gap-3 mb-4">
@@ -163,14 +163,14 @@ export default function TestimonialsSplitSlider() {
                             <p className="text-sm font-semibold text-white">
                               {t.name}
                             </p>
-                            <p className="text-xs text-blue-300">
+                            <p className="text-xs text-orange-300">
                               {t.role} • {t.company}
                             </p>
                           </div>
                         </div>
 
                         {/* ================= TEXT BELOW USER ================= */}
-                        <p className="text-sm leading-relaxed text-blue-100 line-clamp-4">
+                        <p className="text-sm leading-relaxed text-orange-100 line-clamp-4">
                           {t.text}
                         </p>
                         {/* ⭐ Stars */}

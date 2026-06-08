@@ -104,7 +104,7 @@ export default function UseCasesSection() {
     <>
       <style>{`
         .uc-wrap {
-          padding: 60px 16px 64px;
+          padding: 64px 16px;
           background: transparent;
         }
         .uc-grid-bg {
@@ -123,11 +123,11 @@ export default function UseCasesSection() {
           margin: 0 auto;
           position: relative;
           z-index: 2;
-          background: linear-gradient(to right, #000000 0%, #0f2f7a 50%, #000000 100%);
+           background: linear-gradient(to right, #000000 0%, #4c1c02 50%, #000000 100%);
           border-radius: 28px;
           padding: 44px 48px 44px;
           box-shadow:
-            0 0 0 1px rgba(99,120,255,0.15),
+            0 0 0 1px rgba(249,115,22,0.15),
             0 32px 64px rgba(0,0,0,0.55),
             inset 0 1px 0 rgba(255,255,255,0.05);
           overflow: hidden;
@@ -177,10 +177,10 @@ export default function UseCasesSection() {
           background: rgba(255,255,255,0.07);
         }
         .uc-tab.on {
-          background: linear-gradient(135deg, #1e3a8a, #1d4ed8);
-          border-color: rgba(99,102,241,0.5);
+          background: linear-gradient(135deg, #ea580c, #d97706);
+          border-color: rgba(249,115,22,0.5);
           color: #fff;
-          box-shadow: 0 4px 18px rgba(29,78,216,0.45);
+          box-shadow: 0 4px 18px rgba(234,88,12,0.45);
         }
 
         /* Scrollbar for tabs on small screens */
@@ -225,7 +225,7 @@ export default function UseCasesSection() {
         }
 
         .uc-sources-label {
-          background: linear-gradient(135deg, #6d28d9, #4f46e5);
+          background: linear-gradient(135deg, #d97706, #b45309);
           color: #fff;
           font-size: 12px;
           font-weight: 700;
@@ -276,7 +276,7 @@ export default function UseCasesSection() {
         }
 
         .uc-hub-box {
-          background: linear-gradient(135deg, #0369a1, #0284c7);
+          background: linear-gradient(135deg, #ea580c, #f97316);
           border-radius: 10px;
           padding: 10px 18px;
           display: flex;
@@ -286,7 +286,7 @@ export default function UseCasesSection() {
           font-weight: 700;
           color: #fff;
           white-space: nowrap;
-          box-shadow: 0 4px 16px rgba(3,105,161,0.4);
+          box-shadow: 0 4px 16px rgba(234,88,12,0.45);
         }
         .uc-hub-icon { font-size: 18px; }
 
@@ -294,14 +294,14 @@ export default function UseCasesSection() {
         .uc-arrow-down {
           width: 1.5px;
           height: 20px;
-          background: rgba(34,211,238,0.5);
+          background: rgba(249,115,22,0.5);
           margin: 0 auto;
         }
         .uc-arrow-tip {
           width: 0; height: 0;
           border-left: 5px solid transparent;
           border-right: 5px solid transparent;
-          border-top: 7px solid rgba(34,211,238,0.6);
+          border-top: 7px solid rgba(249,115,22,0.6);
           margin: 0 auto;
         }
 
@@ -332,18 +332,18 @@ export default function UseCasesSection() {
 
         .uc-output-box {
           background: rgba(255,255,255,0.04);
-          border: 1px solid rgba(56,189,248,0.25);
+          border: 1px solid rgba(249,115,22,0.25);
           border-radius: 8px;
           padding: 7px 12px;
           font-size: 11.5px;
           font-weight: 600;
-          color: rgba(147,210,255,0.85);
+          color: rgba(254,215,170,0.85);
           text-align: center;
           white-space: pre-line;
           transition: background 0.15s;
         }
         .uc-output-box:hover {
-          background: rgba(56,189,248,0.1);
+          background: rgba(249,115,22,0.15);
         }
 
         /* Right panel - bullets */
@@ -369,7 +369,7 @@ export default function UseCasesSection() {
           flex-shrink: 0;
           font-size: 15px;
           font-weight: 700;
-          color: #38bdf8;
+          color: #f97316;
           margin-top: 1px;
         }
 
@@ -409,7 +409,9 @@ export default function UseCasesSection() {
         <div className="uc-inner">
           <div className="uc-grid-bg" />
 
-          <h2 className="uc-title">Microsoft Fabric Use Cases</h2>
+          <h2 className="uc-title">
+            <span className="text-orange-500">Microsoft Fabric</span> Use Cases
+          </h2>
 
           {/* Tabs */}
           <div className="uc-tabs">

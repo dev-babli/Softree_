@@ -6,13 +6,13 @@ export default function HireNextJsPricing() {
   return (
     <section
       id="plan-pricing"
-      className="relative bg-gradient-to-b from-gray-50 via-white to-gray-50 py-10"
+      className="relative bg-gradient-to-b from-gray-50 via-white to-gray-50 py-16"
     >
       <div className="mx-auto max-w-7xl px-6">
         {/* ================= HEADING ================= */}
         <h2 className="mb-14 text-center text-4xl lg:text-4xl font-semibold text-gray-900">
           Hire{" "}
-          <span className="bg-gradient-to-r from-indigo-600 to-cyan-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
             Next.js Developers
           </span>{" "}
           for Scalable & High-Performance Applications
@@ -35,7 +35,7 @@ export default function HireNextJsPricing() {
         flex items-center gap-5
         rounded-2xl
 
-        bg-gradient-to-br from-white via-white to-sky-50
+        bg-gradient-to-br from-white via-white to-orange-50
         border border-gray-200
 
         p-6
@@ -54,9 +54,9 @@ export default function HireNextJsPricing() {
           h-[4px]
           rounded-b-2xl
           bg-gradient-to-r
-          from-indigo-600
-          via-cyan-500
-          to-indigo-600
+          from-orange-600
+          via-amber-500
+          to-orange-600
           opacity-70
           group-hover:opacity-100
           transition
@@ -71,10 +71,10 @@ export default function HireNextJsPricing() {
           flex items-center justify-center
           rounded-xl
 
-          bg-indigo-50
-          text-indigo-600
+          bg-orange-50
+          text-orange-600
 
-          group-hover:bg-indigo-600
+          group-hover:bg-orange-600
           group-hover:text-white
 
           transition
@@ -129,10 +129,10 @@ export default function HireNextJsPricing() {
                   ${
                     plan.highlight
                       ? `
-                      bg-gradient-to-r from-black via-[#0f2f7a] to-black
+                      bg-gradient-to-r from-black via-[#4c1c02] to-black
                         text-white
                         border-transparent
-                        shadow-[0_25px_70px_rgba(79,70,229,0.45)]
+                        shadow-[0_25px_70px_rgba(249,115,22,0.45)]
                         scale-[1.06]
                       `
                       : `
@@ -146,7 +146,7 @@ export default function HireNextJsPricing() {
               >
                 {/* ===== BADGE ===== */}
                 {plan.highlight && (
-                  <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-white text-indigo-700 px-4 py-1 text-xs font-semibold shadow-md">
+                  <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-white text-orange-700 px-4 py-1 text-xs font-semibold shadow-md">
                     RECOMMENDED
                   </span>
                 )}
@@ -171,7 +171,7 @@ export default function HireNextJsPricing() {
                     >
                       <CheckCircle2
                         className={`h-5 w-5 shrink-0 ${
-                          plan.highlight ? "text-white" : "text-indigo-600"
+                          plan.highlight ? "text-white" : "text-orange-600"
                         }`}
                       />
                       <span>{f}</span>
@@ -190,7 +190,7 @@ export default function HireNextJsPricing() {
             className="
               inline-flex items-center gap-3
               rounded-full
-              bg-gradient-to-r from-indigo-600 to-cyan-500
+              bg-gradient-to-r from-orange-600 to-amber-500
               px-10 py-4
               text-sm font-semibold
               text-white

@@ -70,7 +70,7 @@ export default function AiInsightsBlog() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="mb-12 max-w-3xl">
-          <span className="inline-flex items-center gap-2 rounded-full bg-blue-50 text-blue-700 px-4 py-1 text-xs font-semibold tracking-widest uppercase">
+          <span className="inline-flex items-center gap-2 rounded-full bg-orange-50 text-orange-700 px-4 py-1 text-xs font-semibold tracking-widest uppercase">
             Power Apps Development
           </span>
 
@@ -143,7 +143,7 @@ export default function AiInsightsBlog() {
                 <span
                   className="
           absolute left-0 top-1/2 -translate-y-1/2
-          h-0 w-1 bg-blue-600 rounded-full
+          h-0 w-1 bg-orange-600 rounded-full
           group-hover:h-10 transition-all duration-300
         "
                 />
@@ -162,7 +162,7 @@ export default function AiInsightsBlog() {
                 <div className="flex-1">
                   <h4
                     className="font-semibold text-slate-900 leading-snug
-                         group-hover:text-blue-600 transition-colors"
+                         group-hover:text-orange-600 transition-colors"
                   >
                     {article.title}
                   </h4>

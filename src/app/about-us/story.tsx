@@ -48,7 +48,6 @@ export default function AboutStory() {
           onEnter: () => gsap.to(item, { y: 0, opacity: 1, duration: 0.6, delay: i * 0.08, ease: "power2.out" }),
         })
       })
-      return () => { ScrollTrigger.getAll().forEach(st => st.kill()) }
     })
     return () => mm.revert()
   }, { scope: sRef })

@@ -21,12 +21,12 @@ export default function TrustedBrandsMarquee() {
       <div className="relative w-full py-16 text-center">
         {/* soft glow */}
         <div className="absolute inset-0 flex justify-center">
-          <div className="h-24 w-96 rounded-full bg-blue-100/60 blur-3xl" />
+          <div className="h-24 w-96 rounded-full bg-orange-100/60 blur-3xl" />
         </div>
 
         <div className="relative flex items-center justify-center gap-5">
           <span className="h-px w-16 bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
-          <h2 className="text-4xl md:text-4xl font-bold text-blue-900">
+          <h2 className="text-4xl md:text-4xl font-bold text-slate-900">
             Trusted by Leading Brands Worldwide
           </h2>
           <span className="h-px w-16 bg-gradient-to-r from-transparent via-gray-300 to-transparent" />

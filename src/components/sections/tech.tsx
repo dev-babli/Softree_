@@ -18,7 +18,7 @@ const ACCENT_BLUE = "#1852FF";
 
 export default function TechStack() {
   const ref = useRef<HTMLElement | null>(null);
-  const inView = useInView(ref, { ...VIEWPORT.once, amount: 0.2 });
+  const inView = useInView(ref, { ...VIEWPORT.default, amount: 0.2 });
 
   return (
     <section

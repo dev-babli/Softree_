@@ -37,13 +37,13 @@ const pillars = [
 /* ===================== SECTION ===================== */
 export default function ThreePillarsOfExcellence() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 via-white to-gray-50 py-10">
+    <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 via-white to-gray-50 py-16">
       <div className="relative mx-auto max-w-7xl px-6 sm:px-10 lg:px-16">
         {/* ===== Header ===== */}
         <div className="text-center max-w-3xl mx-auto mb-7">
           <h2 className="mt-6 text-4xl md:text-5xl font-bold text-gray-900">
             Our Web Development{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
               Delivery Pillars
             </span>
           </h2>
@@ -103,8 +103,8 @@ function Pillar({
       `}
     >
       {/* ICON */}
-      <div className="mb-6 w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center">
-        <Icon className="w-7 h-7 text-blue-600" />
+      <div className="mb-6 w-14 h-14 rounded-xl bg-orange-50 flex items-center justify-center">
+        <Icon className="w-7 h-7 text-orange-600" />
       </div>
 
       {/* TITLE */}
@@ -114,7 +114,7 @@ function Pillar({
       <ul className="space-y-4 text-sm text-gray-600">
         {points.map((point, index) => (
           <li key={index} className="flex gap-3 items-start">
-            <span className="text-blue-600 font-semibold">{index + 1}.</span>
+            <span className="text-orange-600 font-semibold">{index + 1}.</span>
             <span>{point}</span>
           </li>
         ))}

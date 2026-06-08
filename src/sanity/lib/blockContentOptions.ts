@@ -27,6 +27,6 @@ export const blockContentInsertMenu = {
       { name: 'list' },
     ],
   },
-} as const
+}
 
 export const aiAssistExclude = { aiAssist: { exclude: true } } as const

@@ -59,19 +59,28 @@ export default function SpfxTabs() {
   const [activeTab, setActiveTab] = useState(tabs[0].id);
 
   return (
-    <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-24">
+    <section className="relative">
+      <style>{`
+        .scrollbar-none::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-none {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         {/* ================= PREMIUM LIGHT HEADER ================= */}
-        <div className="text-center mb-20 max-w-4xl mx-auto">
+        <div className="text-center mb-16 max-w-4xl mx-auto">
           {/* Eyebrow */}
           <span
             className="
-      inline-block mb-5
-      px-4 py-1.5
-      rounded-full
-      text-xs font-semibold tracking-widest uppercase
-      bg-blue-50 text-blue-600
-    "
+              inline-block mb-5
+              px-4 py-1.5
+              rounded-full
+              text-xs font-semibold tracking-widest uppercase
+              bg-orange-50 text-orange-600 border border-orange-100/50 shadow-sm
+            "
           >
             SharePoint Framework
           </span>
@@ -83,15 +92,15 @@ export default function SpfxTabs() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="
-      text-4xl md:text-5xl lg:text-6xl
-      font-semibold
-      text-zinc-900
-      leading-tight
-      mb-6
-    "
+              text-4xl md:text-5xl lg:text-6xl
+              font-semibold
+              text-zinc-900
+              leading-tight
+              mb-6
+            "
           >
             Modern{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
               SPFx Solutions
             </span>{" "}
             for SharePoint
@@ -104,12 +113,12 @@ export default function SpfxTabs() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="
-      text-zinc-600
-      text-base md:text-lg
-      leading-relaxed
-      max-w-3xl
-      mx-auto
-    "
+              text-zinc-600
+              text-base md:text-lg
+              leading-relaxed
+              max-w-3xl
+              mx-auto
+            "
           >
             Deliver seamless, scalable, and secure SharePoint experiences with
             custom web parts, extensions, and Microsoft 365 integrations — built
@@ -120,65 +129,70 @@ export default function SpfxTabs() {
         {/* ================= ULTRA ADVANCED TABS ================= */}
         <div
           className="
-    bg-gradient-to-r from-black via-[#0f2f7a] to-black
-    p-[1px] rounded-3xl overflow-hidden
-  "
+            bg-gradient-to-r from-black via-[#4c1c02] to-black
+            p-[1px] rounded-3xl overflow-hidden shadow-2xl
+          "
         >
           <div
             className="
-      grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8
-      rounded-3xl p-6
-      bg-gradient-to-br from-black/60 via-black/70 to-black/80
-      backdrop-blur-2xl
-      border border-white/10
-      min-h-[420px]
-    "
+              grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8
+              rounded-3xl p-6 md:p-8
+              bg-gradient-to-br from-black/85 via-zinc-950 to-black
+              backdrop-blur-2xl
+              min-h-[500px]
+            "
           >
             {/* ================= LEFT : TABS NAV ================= */}
             <div
               className="
-        flex flex-col gap-3
-        h-full
-        rounded-2xl
-        bg-gradient-to-br from-white/10 to-white/5
-        border border-white/10
-        p-3
-      "
+                flex flex-col gap-2
+                max-h-[500px] overflow-y-auto
+                p-2
+                rounded-2xl
+                bg-white/5
+                border border-white/10
+                scrollbar-none
+              "
             >
-              {tabs.map((tab) => (
+              {tabs.map((tab, idx) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
                   className={`
-            relative w-full px-5 py-4 rounded-xl text-left font-medium
-            transition-all duration-300 ease-out
-            ${
-              activeTab === tab.id
-                ? `
-                  text-white
-                  bg-gradient-to-br from-white/30 via-white/15 to-white/5
-                  border border-white/25
-                `
-                : `
-                  text-gray-300
-                  bg-white/5
-                  border border-white/10
-                  hover:bg-white/10 hover:text-white
-                `
-            }
-          `}
+                    relative w-full px-4 py-3 rounded-xl text-left font-medium
+                    transition-all duration-300 ease-out text-sm
+                    border
+                    ${
+                      activeTab === tab.id
+                        ? `
+                          text-white
+                          bg-gradient-to-br from-orange-500/20 via-white/5 to-white/5
+                          border-orange-500/40 shadow-inner
+                        `
+                        : `
+                          text-gray-400
+                          bg-transparent
+                          border-transparent
+                          hover:bg-white/5 hover:text-white hover:border-white/10
+                        `
+                    }
+                  `}
                 >
-                  {/* Soft active glow */}
-                  {activeTab === tab.id && (
+                  <div className="flex items-center gap-3">
                     <span
-                      className="
-                pointer-events-none absolute inset-0 rounded-xl
-               
-              "
-                    />
-                  )}
-
-                  <span className="relative z-10">{tab.title}</span>
+                      className={`
+                        text-[10px] font-mono px-2 py-0.5 rounded transition-colors duration-300
+                        ${
+                          activeTab === tab.id
+                            ? "bg-gradient-to-r from-orange-600 to-amber-500 text-white font-bold"
+                            : "bg-white/10 text-gray-400 group-hover:bg-white/20"
+                        }
+                      `}
+                    >
+                      {String(idx + 1).padStart(2, "0")}
+                    </span>
+                    <span className="truncate">{tab.title}</span>
+                  </div>
                 </button>
               ))}
             </div>
@@ -186,28 +200,30 @@ export default function SpfxTabs() {
             {/* ================= RIGHT : TAB CONTENT ================= */}
             <div
               className="
-        md:col-span-2
-        relative h-full
-        rounded-2xl p-6
-        bg-gradient-to-br from-white/12 via-white/6 to-white/10
-        backdrop-blur-xl
-        border border-white/15
-        overflow-hidden
-      "
+                lg:col-span-2
+                relative h-full
+                rounded-2xl p-6 md:p-8
+                bg-gradient-to-br from-white/10 via-white/5 to-white/5
+                backdrop-blur-xl
+                border border-white/10
+                overflow-hidden
+                flex flex-col justify-between
+                min-h-[400px]
+              "
             >
               {tabs.map(
                 (tab) =>
                   tab.id === activeTab && (
                     <motion.div
                       key={tab.id}
-                      initial={{ opacity: 0, y: 16 }}
-                      animate={{ opacity: 1, y: 0 }}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.4, ease: "easeOut" }}
-                      className="relative flex flex-col h-full gap-6"
+                      className="relative flex flex-col h-full gap-6 justify-between"
                     >
                       {/* TEXT */}
                       <div>
-                        <h4 className="text-white text-2xl md:text-3xl font-bold mb-3">
+                        <h4 className="text-white text-2xl md:text-3xl font-semibold mb-3 tracking-tight">
                           {tab.title}
                         </h4>
                         <p className="text-gray-300 text-sm md:text-base leading-relaxed max-w-2xl">
@@ -216,19 +232,22 @@ export default function SpfxTabs() {
                       </div>
 
                       {/* IMAGE */}
-                      <div className="flex-1 flex items-center justify-center">
+                      <div className="flex-1 flex items-center justify-center mt-4">
                         <div
                           className="
-                    p-4 rounded-2xl
-                    bg-gradient-to-br from-white/10 to-white/5
-                    border border-white/10
-                    backdrop-blur-md
-                  "
+                            p-2 rounded-2xl
+                            bg-gradient-to-br from-white/10 to-white/5
+                            border border-white/10
+                            backdrop-blur-md
+                            shadow-2xl
+                            transition-all duration-300
+                            hover:border-orange-500/30
+                          "
                         >
                           <img
                             src={tab.img}
                             alt={tab.title}
-                            className="rounded-lg max-h-80 object-contain"
+                            className="rounded-xl max-h-72 object-contain"
                           />
                         </div>
                       </div>
@@ -242,3 +261,4 @@ export default function SpfxTabs() {
     </section>
   );
 }
+

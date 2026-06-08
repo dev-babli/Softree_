@@ -35,13 +35,13 @@ export default function MvpBenefitsAccordion() {
   const [active, setActive] = useState<number | null>(0);
 
   return (
-    <section className="relative py-7 overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
-      <div className="relative mx-auto max-w-7xl px-6">
+    <section className="relative overflow-hidden">
+      <div className="relative w-full">
         {/* ================= HEADER ================= */}
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-4xl mt-14 md:text-6xl font-semibold tracking-tight text-gray-900">
             Benefits of Our{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
               MVP Development Services
             </span>
           </h2>
@@ -76,7 +76,7 @@ export default function MvpBenefitsAccordion() {
                 <motion.div
                   animate={{ height: open ? "100%" : "0%" }}
                   transition={{ duration: 0.4 }}
-                  className="absolute left-0 top-0 w-1 bg-gradient-to-b from-blue-600 to-indigo-600 rounded-l-3xl"
+                  className="absolute left-0 top-0 w-1 bg-gradient-to-b from-orange-600 to-amber-500 rounded-l-3xl"
                 />
 
                 {/* Header */}
@@ -95,8 +95,8 @@ export default function MvpBenefitsAccordion() {
                         transition-all duration-300
                         ${
                           open
-                            ? "bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-500/30"
-                            : "bg-blue-50 text-blue-600"
+                            ? "bg-gradient-to-br from-orange-600 to-amber-500 text-white shadow-lg shadow-orange-500/30"
+                            : "bg-orange-50 text-orange-600 border border-orange-100"
                         }
                       `}
                     >

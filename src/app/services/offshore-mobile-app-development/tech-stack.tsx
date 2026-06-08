@@ -83,7 +83,7 @@ export default function TechnologiesTabs() {
   }, [activeTab]);
 
   return (
-    <section className="relative px-4 overflow-hidden ">
+    <section className="relative px-4 overflow-hidden py-16">
       <div className="max-w-7xl mx-auto">
         {/* ===== ADVANCED HEADER (PREMIUM LIGHT) ===== */}
         <div className="relative text-center mb-10 max-w-5xl mx-auto px-6">
@@ -98,7 +98,7 @@ export default function TechnologiesTabs() {
     tracking-[0.35em] uppercase
 
     bg-gradient-to-b from-white to-gray-50
-    text-blue-600
+    text-orange-600
     border border-gray-200
     shadow-sm
   "
@@ -112,9 +112,9 @@ export default function TechnologiesTabs() {
             <span
               className="
       bg-gradient-to-r
-      from-blue-600
-      via-cyan-500
-      to-blue-600
+      from-orange-600
+      via-amber-500
+      to-orange-600
       bg-clip-text
       text-transparent
     "
@@ -139,7 +139,7 @@ export default function TechnologiesTabs() {
               className="
         relative flex flex-wrap justify-center gap-4
         rounded-t-2xl px-6 py-4
-      bg-gradient-to-r from-black via-[#0f2f7a] to-black backdrop-blur-lg
+      bg-gradient-to-r from-black via-[#4c1c02] to-black backdrop-blur-lg
         border border-white/10 border-b-0
       "
             >
@@ -165,7 +165,7 @@ export default function TechnologiesTabs() {
         {/* ================= CARDS ================= */}
         <div className="flex justify-center">
           <div className="relative w-full max-w-6xl ">
-            <div className="relative rounded-b-2xl bg-gradient-to-r from-black via-[#0f2f7a] to-black border border-white/10 border-t-0">
+            <div className="relative rounded-b-2xl bg-gradient-to-r from-black via-[#4c1c02] to-black border border-white/10 border-t-0">
               {/* Subtle inner glow */}
               <div className="absolute inset-0 rounded-b-2xl bg-white/5 pointer-events-none" />
 

@@ -40,7 +40,7 @@ export default function StackedSlider() {
     <div className="relative w-full overflow-hidden py-10 bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
       {/* ========= HEADER ========= */}
       <div className="text-center mb-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl md:text-5xl font-bold text-blue-900">
+        <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
           What We Do with Power BI
         </h2>
 
@@ -77,7 +77,7 @@ export default function StackedSlider() {
                 }}
               >
                 {/* gradient border */}
-                <div className="absolute inset-0 rounded-3xl p-[1px] bg-gradient-to-br from-purple-500 via-indigo-500 to-cyan-500">
+                <div className="absolute inset-0 rounded-3xl p-[1px] bg-gradient-to-br from-orange-500 via-amber-500 to-rose-500">
                   <div className="relative w-full h-full rounded-3xl overflow-hidden bg-white">
                     {/* image */}
                     <img src={card.img} className="w-full h-full object-cover" />

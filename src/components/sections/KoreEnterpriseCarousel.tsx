@@ -118,7 +118,7 @@ export default function KoreEnterpriseCarousel() {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const cardRefs = useRef<Array<HTMLDivElement | null>>([]);
   const reduced = useReducedMotion();
-  const inView = useInView(sectionRef, { ...VIEWPORT.once, amount: 0.1 });
+  const inView = useInView(sectionRef, { ...VIEWPORT.default, amount: 0.1 });
 
   const activateTab = useCallback(
     (index: number) => {

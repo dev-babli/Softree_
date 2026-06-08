@@ -257,7 +257,7 @@ export default function LightContactSection() {
                 </div>
               </div>
 
-              <div className="flex flex-col gap-5 border-t border-white/10 pt-4">
+              <div className="grid gap-3 border-t border-white/10 pt-4 sm:grid-cols-2">
                 <div>
                   <p className="text-[18px] font-medium tracking-[-0.02em]">
                     E-Mail
@@ -328,7 +328,7 @@ export default function LightContactSection() {
                       placeholder="Timeline, scope, budget — the more detail, the better we can help."
                       maxLength={5000}
                       className="min-h-[80px] sm:min-h-[110px] w-full resize-none rounded-none border-0 border-b border-white/14 bg-transparent px-0 py-4 text-[15px] font-medium text-white outline-none transition-colors duration-300 placeholder:text-white/65 focus:border-[#ff5812]"
-                      onFocus={() => { if (status === 'idle' && typeof window !== 'undefined') (window as unknown as { dataLayer?: object[] }).dataLayer?.push({ event: 'form_start', form_name: 'contact' }) }}
+                      onFocus={() => { if (status === 'idle' && typeof window !== 'undefined') (window as unknown as { dataLayer?: Array<Record<string, unknown>> }).dataLayer?.push({ event: 'form_start', form_name: 'contact' }) }}
                     />
                   </label>
                 </div>
@@ -382,7 +382,7 @@ export default function LightContactSection() {
                     <p
                       role="region"
                       aria-label="Email Form failure"
-                      className="mt-5 text-sm leading-6 text-[var(--legacy-ff8c70)]"
+                      className="mt-5 text-sm leading-6 text-red-500"
                     >
                       Submission failed. Please try again in a moment.
                     </p>

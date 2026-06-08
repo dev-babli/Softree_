@@ -11,7 +11,7 @@ export const postType = defineType({
   type: 'document',
   icon: DocumentTextIcon,
   groups: [
-    {name: 'content', title: 'Content', default: true},
+    {name: 'content', title: 'Content'},
     {name: 'seo', title: 'SEO & AEO'},
   ],
   fields: [
@@ -62,7 +62,10 @@ export const postType = defineType({
       initialValue: 'published',
       validation: (Rule) => Rule.required(),
     }),
-    {...reviewStatusField, group: 'content'},
+    defineField({
+      ...reviewStatusField,
+      group: 'content',
+    }),
     defineField({
       name: 'author',
       type: 'reference',
@@ -95,7 +98,7 @@ export const postType = defineType({
       rows: 3,
       group: 'content',
       description: 'Describe the featured image you want AI to generate. Leave empty to use the title and excerpt as context.',
-      hidden: ({document}) => !!document?.mainImage?.asset,
+      hidden: ({document}) => !!(document as any)?.mainImage?.asset,
     }),
     defineField({
       name: 'categories',

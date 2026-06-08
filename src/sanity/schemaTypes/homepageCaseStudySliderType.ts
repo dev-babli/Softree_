@@ -30,7 +30,7 @@ export const homepageCaseStudySliderType = defineType({
       description:
         "Each slide references a published case study. Text, image, and stats are pulled from the case study unless you add manual overrides below.",
       validation: (Rule) =>
-        Rule.custom((slides) => {
+        Rule.custom((slides: any[] | undefined) => {
           if (!slides?.length) return true
           const invalid = slides.some(
             (slide: { caseStudy?: unknown; title?: string; company?: string }) =>

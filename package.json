@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "next dev --turbo",
-        "build": "npm run generate:og && next build",
+        "build": "npm run generate:og && next build --webpack",
         "start": "next start",
         "lint": "next lint",
         "sanity:dev": "sanity dev",
