@@ -1,4 +1,5 @@
 import { nvidiaSizeFromAspectRatio, openAiSizeFromAspectRatio } from "./aspect-ratio"
+import { formatProviderError } from "./errors"
 import type { ImageModelDefinition } from "./types"
 import type { GenerateImageRequest, GenerateImageResult } from "./types"
 
@@ -35,31 +36,37 @@ async function generateViaGenaiInfer(
   const url = `https://ai.api.nvidia.com/v1/genai/${path}`
   const { width, height } = nvidiaSizeFromAspectRatio(aspectRatio ?? "1:1")
 
-  const response = await fetch(url, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      prompt,
-      mode: "base",
-      seed: 0,
-      steps: model.nvidiaSteps ?? 4,
-      width,
-      height,
-    }),
-  })
+  let response: Response
+  try {
+    response = await fetch(url, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        prompt,
+        mode: "base",
+        seed: 0,
+        steps: model.nvidiaSteps ?? 4,
+        width,
+        height,
+      }),
+    })
+  } catch (error) {
+    throw formatProviderError(error, "nvidia")
+  }
 
   const data = (await response.json()) as NvidiaGenaiResponse
 
   if (!response.ok) {
-    const msg =
+    throw formatProviderError(
       data.detail ||
-      data.message ||
-      `NVIDIA genai request failed (${response.status})`
-    throw new Error(msg)
+        data.message ||
+        `NVIDIA genai request failed (${response.status})`,
+      "nvidia",
+    )
   }
 
   const base64 = data.artifacts?.[0]?.base64
@@ -83,30 +90,36 @@ async function generateViaOpenAiImages(
 ): Promise<GenerateImageResult> {
   const size = openAiSizeFromAspectRatio(aspectRatio ?? "1:1")
 
-  const response = await fetch(
-    "https://integrate.api.nvidia.com/v1/images/generations",
-    {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
+  let response: Response
+  try {
+    response = await fetch(
+      "https://integrate.api.nvidia.com/v1/images/generations",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          model: model.modelId,
+          prompt,
+          n: 1,
+          response_format: "b64_json",
+          size,
+        }),
       },
-      body: JSON.stringify({
-        model: model.modelId,
-        prompt,
-        n: 1,
-        response_format: "b64_json",
-        size,
-      }),
-    },
-  )
+    )
+  } catch (error) {
+    throw formatProviderError(error, "nvidia")
+  }
 
   const data = (await response.json()) as NvidiaOpenAiImageResponse
 
   if (!response.ok) {
-    throw new Error(
+    throw formatProviderError(
       data.error?.message ||
         `NVIDIA images API failed (${response.status})`,
+      "nvidia",
     )
   }
 

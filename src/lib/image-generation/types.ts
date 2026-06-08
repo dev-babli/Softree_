@@ -36,4 +36,9 @@ export type GenerateImageResult = {
   mimeType: string
   provider: ImageProvider
   modelId: string
+  /** Set when Gemini failed and NVIDIA was used instead */
+  fallbackUsed?: boolean
+  requestedProvider?: ImageProvider
+  requestedModelId?: string
+  primaryError?: string
 }

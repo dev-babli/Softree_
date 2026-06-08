@@ -438,6 +438,7 @@ export const caseStudyType = defineType({
                     { title: 'Video Hero', value: 'video-hero' },
                     { title: 'Before / After Table', value: 'before-after-table' },
                     { title: 'Stats Dashboard', value: 'stats-dashboard' },
+                    { title: 'Madar Sticky Story (Yamama Reference)', value: 'madar-sticky-story' },
                 ],
                 layout: 'dropdown',
             },

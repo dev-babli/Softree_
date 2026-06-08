@@ -4,7 +4,10 @@ import Link from "next/link";
 import { useState, useEffect, useRef, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import type { SanityNavCategory } from "@/sanity/types";
+import type {
+  SanityNavCategory,
+  SanityNavCaseStudyCategory,
+} from "@/sanity/types";
 
 import {
   Settings,
@@ -26,11 +29,8 @@ import {
   Smartphone,
   Layers,
   Info,
-  AppWindow,
   ArrowRight,
   ChevronDown,
-  Laptop,
-  Share2,
   BookOpen,
   Briefcase,
   FileText,
@@ -208,61 +208,14 @@ const menu: MenuItem[] = [
     url: "/case-studies",
     icon: Layers,
     mega: true,
-    children: [
-      {
-        title: "Microsoft Power Platform",
-        links: [
-          {
-            label: "Power Apps Case Studies",
-            url: "/case-studies/power-platform",
-            icon: AppWindow,
-            description: "Real-world low-code solutions",
-          },
-          // {
-          //   label: "AI Case Studies",
-          //   url: "/case-studies/ai",
-          //   icon: Brain,
-          //   description: "AI-driven automation",
-          // },
-        ],
-      },
-      {
-        title: "Application Development",
-        links: [
-          {
-            label: "Mobile App Case Studies",
-            url: "/case-studies/mobile",
-            icon: Smartphone,
-            description: "Android & iOS solutions",
-          },
-          {
-            label: "Web App Case Studies",
-            url: "/case-studies/web",
-            icon: Laptop,
-            description: "High-performance platforms",
-          },
-        ],
-      },
-      {
-        title: "Microsoft 365 & SharePoint",
-        links: [
-          {
-            label: "SharePoint Case Studies",
-            url: "/case-studies/sharepoint",
-            icon: Share2,
-            description: "Enterprise collaboration",
-          },
-        ],
-      },
-    ],
+    children: [],
   },
-  // Blog menu item — children are dynamically populated from Sanity
   {
     label: "Blog",
     url: "/blog",
     icon: BookOpen,
     mega: true,
-    children: [], // populated at runtime from blogCategories prop
+    children: [],
   },
   {
     label: "Careers",
@@ -272,42 +225,99 @@ const menu: MenuItem[] = [
 
 ];
 
+function buildBlogChildren(blogCategories: SanityNavCategory[]) {
+  return blogCategories
+    .filter((cat) => cat.posts && cat.posts.length > 0)
+    .slice(0, 4)
+    .map((cat) => ({
+      title: cat.title,
+      description: `Latest ${cat.title.toLowerCase()} articles`,
+      links: cat.posts.map((post) => ({
+        label: post.title,
+        url: `/blog/${post.slug.current}`,
+        icon: FileText,
+        description: post.excerpt || "",
+      })),
+    }));
+}
+
+function buildCaseStudyChildren(caseStudyCategories: SanityNavCaseStudyCategory[]) {
+  return caseStudyCategories
+    .filter((cat) => cat.caseStudies && cat.caseStudies.length > 0)
+    .slice(0, 4)
+    .map((cat) => ({
+      title: cat.title,
+      description: cat.description,
+      image: cat.image,
+      links: cat.caseStudies.map((study) => ({
+        label: study.title,
+        url: `/case-studies/${study.slug.current}`,
+        icon: Layers,
+        description: study.excerpt || study.client || "",
+      })),
+    }));
+}
+
+const GRID_COLS: Record<number, string> = {
+  1: "grid-cols-1",
+  2: "grid-cols-2",
+  3: "grid-cols-3",
+  4: "grid-cols-4",
+};
+
+const MEGA_FOOTER: Record<string, { label: string; href: string }> = {
+  Services: { label: "Explore all services", href: "/services" },
+  "Case Studies": { label: "View all case studies", href: "/case-studies" },
+  Blog: { label: "View all articles", href: "/blog" },
+};
+
 export default function Navigation({
-  blogCategories,
+  blogCategories = [],
+  caseStudyCategories = [],
 }: {
   blogCategories?: SanityNavCategory[];
+  caseStudyCategories?: SanityNavCaseStudyCategory[];
 }) {
   const [open, setOpen] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [showNav, setShowNav] = useState(true);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
   const lastScrollY = useRef(0);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Build the dynamic Blog menu children from Sanity categories
+  const openMenu = (label: string) => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+    setOpen(label);
+  };
+
+  const scheduleCloseMenu = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => setOpen(null), 120);
+  };
+
   const dynamicMenu = useMemo(() => {
-    if (!blogCategories || blogCategories.length === 0) return menu;
+    const blogChildren = buildBlogChildren(blogCategories);
+    const caseStudyChildren = buildCaseStudyChildren(caseStudyCategories);
 
     return menu.map((item) => {
-      if (item.label !== "Blog") return item;
-
-      // Convert Sanity categories into mega menu columns (max 4)
-      const children = blogCategories
-        .filter((cat) => cat.posts && cat.posts.length > 0)
-        .slice(0, 4)
-        .map((cat) => ({
-          title: cat.title,
-          description: `Latest ${cat.title.toLowerCase()} articles`,
-          links: cat.posts.map((post) => ({
-            label: post.title,
-            url: `/blog/${post.slug.current}`,
-            icon: FileText,
-            description: post.excerpt || "",
-          })),
-        }));
-
-      return { ...item, children };
+      if (item.label === "Blog" && blogChildren.length > 0) {
+        return { ...item, children: blogChildren };
+      }
+      if (item.label === "Case Studies" && caseStudyChildren.length > 0) {
+        return { ...item, children: caseStudyChildren };
+      }
+      return item;
     });
-  }, [blogCategories]);
+  }, [blogCategories, caseStudyCategories]);
+
+  useEffect(() => {
+    return () => {
+      if (closeTimer.current) clearTimeout(closeTimer.current);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -352,12 +362,14 @@ export default function Navigation({
               );
             }
 
+            const columnCount = Math.min(item.children?.length || 1, 4);
+
             return (
               <div
                 key={item.label}
                 className="relative group"
-                onMouseEnter={() => setOpen(item.label)}
-                onMouseLeave={() => setOpen(null)}
+                onMouseEnter={() => openMenu(item.label)}
+                onMouseLeave={scheduleCloseMenu}
               >
                 <Link
                   href={item.url || "#"}
@@ -372,13 +384,15 @@ export default function Navigation({
 
                 {/* ── MEGA MENU ── */}
                 <AnimatePresence>
-                  {open === item.label && (
+                  {open === item.label && item.children && item.children.length > 0 && (
                     <motion.div
-                      initial={{ opacity: 0, y: 6 }}
+                      initial={{ opacity: 0, y: 4 }}
                       animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 6 }}
-                      transition={{ duration: 0.18, ease: "easeOut" }}
-                      className="fixed top-[95px] left-1/2 -translate-x-1/2 w-[1100px] bg-white rounded-3xl border border-gray-100 shadow-[0_24px_80px_rgba(0,0,0,0.15),0_8px_24px_rgba(0,0,0,0.08)] overflow-hidden"
+                      exit={{ opacity: 0, y: 4 }}
+                      transition={{ duration: 0.12, ease: "easeOut" }}
+                      onMouseEnter={() => openMenu(item.label)}
+                      onMouseLeave={scheduleCloseMenu}
+                      className="fixed top-[84px] left-1/2 -translate-x-1/2 w-[1100px] max-w-[calc(100vw-2rem)] bg-white rounded-3xl border border-gray-100 shadow-[0_24px_80px_rgba(0,0,0,0.15),0_8px_24px_rgba(0,0,0,0.08)] overflow-hidden before:absolute before:-top-3 before:left-0 before:right-0 before:h-3 before:content-['']"
                     >
                       {/* Header */}
                       <div className="px-8 pt-5 pb-4 border-b border-gray-100">
@@ -396,8 +410,7 @@ export default function Navigation({
                         </Link>
                       </div>
 
-                      {/* columns */}
-                      <div className="grid grid-cols-4 gap-0">
+                      <div className={`grid gap-0 ${GRID_COLS[columnCount] ?? "grid-cols-4"}`}>
                         {item.children?.map((group, idx) => {
                           const cfg = colConfig[idx] ?? {
                             accent: null,
@@ -485,16 +498,18 @@ export default function Navigation({
                           </Link>
                         </p>
                         <div className="flex items-center gap-6">
-                          <Link
-                            href="/services"
-                            className="text-[13px] font-medium text-gray-600 hover:text-gray-900 flex items-center gap-1.5 transition-colors group/f"
-                          >
-                            Explore all services
-                            <ArrowRight
-                              size={14}
-                              className="group-hover/f:translate-x-0.5 transition-transform"
-                            />
-                          </Link>
+                          {MEGA_FOOTER[item.label] && (
+                            <Link
+                              href={MEGA_FOOTER[item.label].href}
+                              className="text-[13px] font-medium text-gray-600 hover:text-gray-900 flex items-center gap-1.5 transition-colors group/f"
+                            >
+                              {MEGA_FOOTER[item.label].label}
+                              <ArrowRight
+                                size={14}
+                                className="group-hover/f:translate-x-0.5 transition-transform"
+                              />
+                            </Link>
+                          )}
                           <Link
                             href="/contact"
                             className="text-[13px] font-medium text-gray-600 hover:text-gray-900 flex items-center gap-1.5 transition-colors group/f"

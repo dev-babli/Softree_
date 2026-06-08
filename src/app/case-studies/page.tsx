@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import NavigationClient from "@/components/sections/navigation-client"
+import NavigationServer from "@/components/sections/navigation-server"
 import Footer from "@/components/sections/footer"
 import CaseStudiesListingClient from "./CaseStudiesListingClient"
 import { getCaseStudyHeroSlides, getCaseStudyListingItems } from "./categoryCards"
@@ -23,7 +23,7 @@ export default async function CaseStudiesPage() {
 
   return (
     <div className="min-h-screen">
-      <NavigationClient />
+      <NavigationServer />
       <CaseStudiesListingClient caseStudies={caseStudies} heroSlides={heroSlides} />
       <Footer />
     </div>

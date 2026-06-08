@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowLeft, CalendarDays, Clock3, Facebook, Linkedin, Link2, Twitter } from 'lucide-react'
-import NavigationClient from '@/components/sections/navigation-client'
+import NavigationServer from '@/components/sections/navigation-server'
 import Footer from '@/components/sections/footer'
 import { sharedPortableTextTypes } from '@/components/portable-text/contentBlockTypes'
 import { sanityFetch } from '@/sanity/lib/fetch'
@@ -240,7 +240,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
   return (
     <div className="min-h-screen bg-[#f6f7fb]">
-      <NavigationClient />
+      <NavigationServer />
 
       {/* Article JSON-LD */}
       <script

@@ -1,5 +1,8 @@
 import type { ImageModelDefinition } from "./types"
 
+/** Fast NVIDIA model used when Gemini errors or is unavailable. */
+export const NVIDIA_FALLBACK_MODEL_KEY = "nvidia-flux-1-schnell"
+
 /** All image models exposed in Sanity Studio (Gemini + NVIDIA build.nvidia.com). */
 export const IMAGE_MODEL_CATALOG: ImageModelDefinition[] = [
   // —— Google Gemini ——

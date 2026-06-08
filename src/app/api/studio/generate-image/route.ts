@@ -1,9 +1,12 @@
 import { NextResponse } from "next/server"
 import {
   IMAGE_MODEL_CATALOG,
+  canGenerateWithGeminiProvider,
   generateImage,
   getProviderAvailability,
+  NVIDIA_FALLBACK_MODEL_KEY,
 } from "@/lib/image-generation"
+import { ImageGenerationError } from "@/lib/image-generation/errors"
 import type { ImageProvider } from "@/lib/image-generation/types"
 
 const expectedApiKey = process.env.GEMINI_PLUGIN_API_KEY
@@ -57,6 +60,12 @@ export async function GET() {
         },
       ],
       models,
+      fallback: {
+        when: "gemini",
+        toProvider: "nvidia" as const,
+        modelKey: NVIDIA_FALLBACK_MODEL_KEY,
+        enabled: availability.nvidia,
+      },
     },
     { headers: corsHeaders },
   )
@@ -101,11 +110,11 @@ export async function POST(request: Request) {
     }
 
     const availability = getProviderAvailability()
-    if (resolvedProvider === "gemini" && !availability.gemini) {
+    if (resolvedProvider === "gemini" && !canGenerateWithGeminiProvider()) {
       return NextResponse.json(
         {
           error:
-            "Gemini API not configured (set GEMINI_API_KEY or GOOGLE_GENAI_API_KEY)",
+            "Neither Gemini nor NVIDIA API is configured. Set GEMINI_API_KEY and/or NVIDIA_API_KEY.",
         },
         { status: 500, headers: corsHeaders },
       )
@@ -143,12 +152,14 @@ export async function POST(request: Request) {
     return NextResponse.json(result, { headers: corsHeaders })
   } catch (error) {
     console.error("Studio image generation failed:", error)
+    const status =
+      error instanceof ImageGenerationError ? error.status : 500
     return NextResponse.json(
       {
         error:
           error instanceof Error ? error.message : "Image generation failed",
       },
-      { status: 500, headers: corsHeaders },
+      { status, headers: corsHeaders },
     )
   }
 }

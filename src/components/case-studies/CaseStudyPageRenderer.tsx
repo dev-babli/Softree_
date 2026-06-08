@@ -1,6 +1,10 @@
 "use client";
 
 import NavigationClient from "@/components/sections/navigation-client";
+import type {
+  SanityNavCategory,
+  SanityNavCaseStudyCategory,
+} from "@/sanity/types";
 import Footer from "@/components/sections/footer";
 import {
   isPremiumLayout,
@@ -16,6 +20,7 @@ import { ParallaxScreenshotsLayout } from "@/components/case-studies/layouts/var
 import { SynqLabProductStoryLayout } from "@/components/case-studies/layouts/variants/SynqLabProductStoryLayout";
 import { AIHorizontalStoryLayout } from "@/components/case-studies/layouts/variants/AIHorizontalStoryLayout";
 import { NeutrinoDashboardStoryLayout } from "@/components/case-studies/layouts/variants/NeutrinoDashboardStoryLayout";
+import { MadarStickyStoryLayout } from "@/components/case-studies/layouts/variants/madar-sticky-story";
 import { NexoraProductStoryLayout } from "@/components/case-studies/layouts/variants/NexoraProductStoryLayout";
 import { PayFlowFintechStoryLayout } from "@/components/case-studies/layouts/variants/PayFlowFintechStoryLayout";
 import { SidebarMetadataLayout } from "@/components/case-studies/layouts/variants/SidebarMetadataLayout";
@@ -51,6 +56,7 @@ const PREMIUM_LAYOUTS: Record<
   "payflow-fintech-story": PayFlowFintechStoryLayout,
   "ai-horizontal-story": AIHorizontalStoryLayout,
   "neutrino-dashboard-story": NeutrinoDashboardStoryLayout,
+  "madar-sticky-story": MadarStickyStoryLayout,
 };
 
 /** Premium layouts that ship their own FAQ + contact block */
@@ -65,10 +71,14 @@ export function CaseStudyPageRenderer({
   study,
   related,
   slug,
+  initialBlogCategories,
+  initialCaseStudyCategories,
 }: {
   study: StudyDoc;
   related: RelatedStudy[];
   slug: string;
+  initialBlogCategories?: SanityNavCategory[];
+  initialCaseStudyCategories?: SanityNavCaseStudyCategory[];
 }) {
   const detailLayout = isPremiumLayout(study.detailLayout)
     ? study.detailLayout
@@ -80,7 +90,10 @@ export function CaseStudyPageRenderer({
 
     return (
       <div className="min-h-screen bg-white">
-        <NavigationClient />
+        <NavigationClient
+          initialBlogCategories={initialBlogCategories}
+          initialCaseStudyCategories={initialCaseStudyCategories}
+        />
         <Layout data={data} />
         {!SELF_CONTAINED_PREMIUM.includes(detailLayout) ? <Footer /> : null}
       </div>

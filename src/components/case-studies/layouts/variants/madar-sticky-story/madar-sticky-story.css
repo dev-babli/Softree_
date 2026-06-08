@@ -1,0 +1,597 @@
+/* Madar × Yamama sticky story — Vide Infra reference tokens */
+.madar-story {
+  --madar-navy: #172e64;
+  --madar-deep: #060a3d;
+  --madar-accent: #ff6340;
+  --madar-light-bg: #f4f6fb;
+  --madar-dark-alt: #0b1533;
+  --madar-text-dark: #172e64;
+  --madar-text-light: #ffffff;
+  --madar-muted: rgba(23, 46, 100, 0.72);
+  --madar-container: min(92vw, 1460px);
+  --madar-pad-x: clamp(1.25rem, 4vw, 3.5rem);
+  font-family: var(--font-geist-sans, system-ui, sans-serif);
+  color: var(--madar-text-dark);
+  background: var(--madar-light-bg);
+}
+
+.madar-story *,
+.madar-story *::before,
+.madar-story *::after {
+  box-sizing: border-box;
+}
+
+.madar-container {
+  width: var(--madar-container);
+  margin-inline: auto;
+  padding-inline: var(--madar-pad-x);
+}
+
+.madar-border-deco {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--madar-accent) 0%, rgba(255, 99, 64, 0.15) 100%);
+}
+
+/* ── Hero (platform-inner-intro) ── */
+.madar-hero {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  background: var(--madar-deep);
+  color: var(--madar-text-light);
+}
+
+.madar-hero__sticky {
+  position: sticky;
+  top: 0;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+}
+
+.madar-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.madar-hero__bg img {
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+  object-position: center 30%;
+  will-change: transform;
+}
+
+.madar-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 10, 61, 0.35) 0%,
+    rgba(6, 10, 61, 0.75) 55%,
+    rgba(6, 10, 61, 0.95) 100%
+  );
+  z-index: 1;
+}
+
+.madar-hero__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-block: clamp(5rem, 14vh, 9rem) clamp(3rem, 8vh, 5rem);
+}
+
+.madar-hero__eyebrow {
+  display: inline-block;
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-bottom: 0.75rem;
+}
+
+.madar-hero__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: end;
+}
+
+@media (min-width: 768px) {
+  .madar-hero__grid {
+    grid-template-columns: 3fr 1fr;
+    gap: 3rem;
+  }
+}
+
+.madar-hero__title {
+  margin: 0;
+  font-size: clamp(2.75rem, 7vw, 5.5rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.madar-hero__lead-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .madar-hero__lead-col {
+    align-items: flex-end;
+    text-align: right;
+  }
+}
+
+.madar-hero__lead {
+  margin: 0;
+  font-size: clamp(1.125rem, 2.2vw, 1.5rem);
+  font-weight: 300;
+  line-height: 1.35;
+  opacity: 0.9;
+}
+
+.madar-hero__scroll {
+  display: none;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 0.25rem;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  color: inherit;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.madar-hero__scroll:hover {
+  border-color: var(--madar-accent);
+  background: rgba(255, 99, 64, 0.15);
+}
+
+@media (min-width: 768px) {
+  .madar-hero__scroll {
+    display: inline-flex;
+  }
+}
+
+/* ── About sticky (c-about-sticky) ── */
+.madar-about {
+  position: relative;
+  background: var(--madar-light-bg);
+  overflow: hidden;
+}
+
+.madar-about__sticky-wrap {
+  position: relative;
+}
+
+.madar-about__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .madar-about__grid {
+    grid-template-columns: 1fr 1fr;
+    min-height: 140vh;
+  }
+}
+
+.madar-about__side {
+  position: relative;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .madar-about__side {
+    display: block;
+  }
+
+  .madar-about__side-sticky {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    overflow: hidden;
+  }
+}
+
+.madar-about__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left bottom;
+  will-change: transform;
+}
+
+.madar-about__logo-wrap {
+  position: absolute;
+  left: 50%;
+  bottom: 18%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  will-change: transform;
+}
+
+.madar-about__logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  background: #fff;
+  padding: 0.5rem;
+  box-shadow: 0 12px 40px rgba(23, 46, 100, 0.12);
+}
+
+.madar-about__content {
+  padding-block: clamp(4rem, 10vh, 7rem);
+}
+
+.madar-about__heading {
+  margin: 0 0 1rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 500;
+  color: var(--madar-accent);
+}
+
+.madar-about__intro {
+  margin: 0 0 3rem;
+  font-size: clamp(1rem, 1.6vw, 1.125rem);
+  line-height: 1.65;
+  color: var(--madar-muted);
+  max-width: 42rem;
+}
+
+.madar-about__mobile-visual {
+  display: block;
+  margin-block: 2rem 3rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .madar-about__mobile-visual {
+    display: none;
+  }
+}
+
+.madar-about__mobile-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.madar-about__mobile-logo {
+  position: absolute;
+  left: 25%;
+  bottom: 2rem;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  background: #fff;
+  padding: 0.4rem;
+  border-radius: 0.35rem;
+}
+
+.madar-about__subheading {
+  margin: 0 0 1rem;
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  font-weight: 400;
+}
+
+.madar-about__body {
+  margin: 0 0 2.5rem;
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--madar-muted);
+  max-width: 40rem;
+}
+
+/* ── Assessment (c-assessment) ── */
+.madar-assessment {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--madar-deep);
+  color: var(--madar-text-light);
+}
+
+.madar-assessment__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.madar-assessment__bg img {
+  width: 100%;
+  height: 130%;
+  object-fit: cover;
+  object-position: center bottom;
+  will-change: transform;
+}
+
+.madar-assessment__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(6, 10, 61, 0.92) 0%, rgba(6, 10, 61, 0.55) 50%, rgba(6, 10, 61, 0.35) 100%);
+  z-index: 1;
+}
+
+.madar-assessment__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-block: clamp(4rem, 10vh, 6rem);
+}
+
+.madar-assessment__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .madar-assessment__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.madar-assessment__card {
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  background: rgba(6, 10, 61, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+@media (min-width: 768px) {
+  .madar-assessment__card {
+    grid-column: 2;
+  }
+}
+
+.madar-assessment__title {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.madar-assessment__text {
+  margin: 0;
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  line-height: 1.65;
+  opacity: 0.88;
+}
+
+/* ── Integration sticky (c-integration-sticky) ── */
+.madar-integration {
+  position: relative;
+  background: var(--madar-dark-alt);
+  color: var(--madar-text-light);
+  overflow: hidden;
+}
+
+.madar-integration__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .madar-integration__grid {
+    grid-template-columns: 1fr 1fr;
+    min-height: 160vh;
+  }
+}
+
+.madar-integration__side {
+  position: relative;
+  padding-block: 2rem;
+}
+
+@media (min-width: 768px) {
+  .madar-integration__side-sticky {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: var(--madar-pad-x);
+  }
+}
+
+.madar-integration__diagram {
+  width: min(316px, 80vw);
+  height: auto;
+  will-change: transform;
+}
+
+.madar-integration__diagram--mobile {
+  display: block;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .madar-integration__diagram--mobile {
+    display: none;
+  }
+}
+
+.madar-integration__content {
+  padding-block: clamp(3rem, 8vh, 6rem);
+}
+
+.madar-integration__title {
+  margin: 0 0 2rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 400;
+}
+
+/* ── Accordion ── */
+.madar-accordion {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.madar-accordion__item {
+  border-top: 1px solid rgba(23, 46, 100, 0.12);
+}
+
+.madar-accordion--dark .madar-accordion__item {
+  border-top-color: rgba(255, 255, 255, 0.12);
+}
+
+.madar-accordion__item:last-child {
+  border-bottom: 1px solid rgba(23, 46, 100, 0.12);
+}
+
+.madar-accordion--dark .madar-accordion__item:last-child {
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+.madar-accordion__row {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 1rem;
+  padding-block: 1.25rem;
+}
+
+.madar-accordion__icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 99, 64, 0.1);
+  color: var(--madar-accent);
+  flex-shrink: 0;
+}
+
+.madar-accordion--dark .madar-accordion__icon {
+  background: rgba(255, 255, 255, 0.06);
+  color: #59e2ff;
+}
+
+.madar-accordion__icon-svg {
+  width: 28px;
+  height: 28px;
+}
+
+.madar-accordion__trigger {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+}
+
+.madar-accordion__title {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.madar-accordion__toggle {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+  background: rgba(23, 46, 100, 0.06);
+  flex-shrink: 0;
+}
+
+.madar-accordion--dark .madar-accordion__toggle {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.madar-accordion__chevron {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.25s ease;
+}
+
+.madar-accordion__trigger[data-state="open"] .madar-accordion__chevron {
+  transform: rotate(180deg);
+}
+
+.madar-accordion__panel {
+  overflow: hidden;
+}
+
+.madar-accordion__panel[data-state="open"] {
+  animation: madar-accordion-open 0.3s ease;
+}
+
+.madar-accordion__panel[data-state="closed"] {
+  animation: madar-accordion-close 0.25s ease;
+}
+
+@keyframes madar-accordion-open {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+}
+
+@keyframes madar-accordion-close {
+  from {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+
+.madar-accordion__text {
+  margin: 0.75rem 0 0;
+  padding-bottom: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--madar-muted);
+}
+
+.madar-accordion--dark .madar-accordion__text {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .madar-hero__bg img,
+  .madar-about__bg,
+  .madar-about__logo-wrap,
+  .madar-assessment__bg img,
+  .madar-integration__diagram {
+    will-change: auto;
+    transform: none !important;
+  }
+}

@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import NavigationClient from '@/components/sections/navigation-client'
+import NavigationServer from '@/components/sections/navigation-server'
 import Footer from '@/components/sections/footer'
 import { MarketingPageSections, type MarketingSection } from '@/components/marketing/MarketingPageSections'
 import { sanityFetch } from '@/sanity/lib/fetch'
@@ -51,7 +51,7 @@ export default async function MarketingPage({
 
   return (
     <>
-      <NavigationClient />
+      <NavigationServer />
       <main>
         <MarketingPageSections sections={page.sections} />
       </main>

@@ -139,10 +139,14 @@ export default function GeminiImageStudioTool() {
     [models, modelKey],
   )
 
-  const providerConfigured = useMemo(
-    () => providers.find((p) => p.id === provider)?.configured ?? true,
-    [providers, provider],
-  )
+  const providerConfigured = useMemo(() => {
+    const gemini = providers.find((p) => p.id === "gemini")
+    const nvidia = providers.find((p) => p.id === "nvidia")
+    if (provider === "gemini") {
+      return Boolean(gemini?.configured || nvidia?.configured)
+    }
+    return Boolean(nvidia?.configured)
+  }, [providers, provider])
 
   useEffect(() => {
     const first =
@@ -227,10 +231,14 @@ export default function GeminiImageStudioTool() {
         imageData: data.imageData,
         mimeType: data.mimeType || "image/png",
       })
+      const fallbackNote = data.fallbackUsed
+        ? `Gemini unavailable — generated with NVIDIA (${data.modelId ?? "FLUX"})`
+        : (selectedModel?.label ?? modelKey)
+
       toast.push({
-        status: "success",
-        title: "Image generated",
-        description: selectedModel?.label ?? modelKey,
+        status: data.fallbackUsed ? "warning" : "success",
+        title: data.fallbackUsed ? "Image generated (NVIDIA fallback)" : "Image generated",
+        description: fallbackNote,
       })
     } catch (error) {
       toast.push({
@@ -434,7 +442,7 @@ export default function GeminiImageStudioTool() {
                   >
                     build.nvidia.com
                   </a>
-                  ). Add both in Vercel env to switch providers in Studio.
+                  ). With both set, **Gemini is tried first**; if it fails (quota, error), Studio **automatically uses NVIDIA FLUX.1 schnell**.
                 </Text>
               </Card>
             </Stack>

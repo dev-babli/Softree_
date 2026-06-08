@@ -8,6 +8,7 @@ import { isPreviewMode, sanityFetch } from "@/sanity/lib/fetch"
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { CaseStudyPageRenderer } from "@/components/case-studies/CaseStudyPageRenderer"
+import { getNavigationData } from "@/components/sections/navigation-server"
 import type { SanityCaseStudyDoc } from "@/components/case-studies/layouts/mapCaseStudyData"
 import type { RelatedStudy } from "@/components/case-studies/layouts/types"
 
@@ -71,5 +72,15 @@ export default async function CaseStudyDetailPage({
     related = (await client.fetch<RelatedStudy[]>(relatedCaseStudiesFallbackQuery, { slug })) || []
   }
 
-  return <CaseStudyPageRenderer study={study} related={related} slug={slug} />
+  const { blogCategories, caseStudyCategories } = await getNavigationData()
+
+  return (
+    <CaseStudyPageRenderer
+      study={study}
+      related={related}
+      slug={slug}
+      initialBlogCategories={blogCategories}
+      initialCaseStudyCategories={caseStudyCategories}
+    />
+  )
 }

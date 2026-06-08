@@ -1,4 +1,5 @@
 import { GoogleGenAI } from "@google/genai"
+import { formatProviderError } from "./errors"
 import type { GenerateImageRequest, GenerateImageResult } from "./types"
 
 function getGeminiApiKey(): string {
@@ -27,35 +28,39 @@ export async function generateWithGemini(
   const { model, prompt, aspectRatio, mode, baseImage } = request
   let response
 
-  if (mode === "edit" && baseImage) {
-    response = await client.models.generateContent({
-      model,
-      contents: [
-        {
-          parts: [
-            {
-              inlineData: {
-                mimeType: "image/png",
-                data: baseImage,
+  try {
+    if (mode === "edit" && baseImage) {
+      response = await client.models.generateContent({
+        model,
+        contents: [
+          {
+            parts: [
+              {
+                inlineData: {
+                  mimeType: "image/png",
+                  data: baseImage,
+                },
               },
-            },
-            { text: prompt },
-          ],
+              { text: prompt },
+            ],
+          },
+        ],
+        config: {
+          imageConfig: aspectRatio ? { aspectRatio } : {},
         },
-      ],
-      config: {
-        imageConfig: aspectRatio ? { aspectRatio } : {},
-      },
-    })
-  } else {
-    response = await client.models.generateContent({
-      model,
-      contents: [{ parts: [{ text: prompt }] }],
-      config: {
-        responseModalities: ["Image"],
-        imageConfig: aspectRatio ? { aspectRatio } : {},
-      },
-    })
+      })
+    } else {
+      response = await client.models.generateContent({
+        model,
+        contents: [{ parts: [{ text: prompt }] }],
+        config: {
+          responseModalities: ["Image"],
+          imageConfig: aspectRatio ? { aspectRatio } : {},
+        },
+      })
+    }
+  } catch (error) {
+    throw formatProviderError(error, "gemini")
   }
 
   const result = response as {

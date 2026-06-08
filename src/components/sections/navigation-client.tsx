@@ -1,68 +1,63 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { useEffect, useState, useCallback, useMemo } from "react";
-import { client, liveClient } from "@/sanity/client";
+import { client } from "@/sanity/client";
 import { navBlogsQuery, navCaseStudiesQuery } from "@/sanity/queries";
 import { buildCaseStudyNavCategories } from "@/sanity/buildCaseStudyNav";
 import type {
   SanityNavCategory,
   SanityNavCaseStudy,
+  SanityNavCaseStudyCategory,
 } from "@/sanity/types";
+import Navigation from "./navigation";
 
-const Navigation = dynamic(() => import("./navigation"), {
-  ssr: false,
-});
+type NavigationClientProps = {
+  initialBlogCategories?: SanityNavCategory[];
+  initialCaseStudyCategories?: SanityNavCaseStudyCategory[];
+};
 
-export default function NavigationClient() {
-  const [blogCategories, setBlogCategories] = useState<SanityNavCategory[]>([]);
-  const [caseStudies, setCaseStudies] = useState<SanityNavCaseStudy[]>([]);
-
-  const fetchBlogCategories = useCallback(() => {
-    client
-      .fetch<SanityNavCategory[]>(navBlogsQuery, {}, { cache: "no-store" })
-      .then((data) => setBlogCategories(data || []))
-      .catch(() => {});
-  }, []);
-
-  const fetchCaseStudies = useCallback(() => {
-    client
-      .fetch<SanityNavCaseStudy[]>(navCaseStudiesQuery, {}, { cache: "no-store" })
-      .then((data) => setCaseStudies(data || []))
-      .catch(() => {});
-  }, []);
-
-  const caseStudyCategories = useMemo(
-    () => buildCaseStudyNavCategories(caseStudies),
-    [caseStudies],
+export default function NavigationClient({
+  initialBlogCategories,
+  initialCaseStudyCategories,
+}: NavigationClientProps = {}) {
+  const [blogCategories, setBlogCategories] = useState<SanityNavCategory[]>(
+    initialBlogCategories ?? [],
   );
+  const [caseStudies, setCaseStudies] = useState<SanityNavCaseStudy[]>([]);
+  const [caseStudyCategories, setCaseStudyCategories] = useState<
+    SanityNavCaseStudyCategory[]
+  >(initialCaseStudyCategories ?? []);
+
+  const hasInitialData =
+    (initialBlogCategories?.length ?? 0) > 0 ||
+    (initialCaseStudyCategories?.length ?? 0) > 0;
+
+  const fetchNavData = useCallback(() => {
+    Promise.all([
+      client.fetch<SanityNavCategory[]>(navBlogsQuery),
+      client.fetch<SanityNavCaseStudy[]>(navCaseStudiesQuery),
+    ])
+      .then(([blogs, studies]) => {
+        setBlogCategories(blogs || []);
+        setCaseStudies(studies || []);
+        setCaseStudyCategories(buildCaseStudyNavCategories(studies || []));
+      })
+      .catch(() => {});
+  }, []);
+
+  const resolvedCaseStudyCategories = useMemo(() => {
+    if (caseStudyCategories.length > 0) return caseStudyCategories;
+    return buildCaseStudyNavCategories(caseStudies);
+  }, [caseStudyCategories, caseStudies]);
 
   useEffect(() => {
-    fetchBlogCategories();
-    fetchCaseStudies();
-
-    const blogSubscription = liveClient
-      .listen('*[_type == "post" || _type == "category"]')
-      .subscribe(() => {
-        fetchBlogCategories();
-      });
-
-    const caseStudySubscription = liveClient
-      .listen('*[_type == "caseStudy"]')
-      .subscribe(() => {
-        fetchCaseStudies();
-      });
-
-    return () => {
-      blogSubscription.unsubscribe();
-      caseStudySubscription.unsubscribe();
-    };
-  }, [fetchBlogCategories, fetchCaseStudies]);
+    if (!hasInitialData) fetchNavData();
+  }, [fetchNavData, hasInitialData]);
 
   return (
     <Navigation
       blogCategories={blogCategories}
-      caseStudyCategories={caseStudyCategories}
+      caseStudyCategories={resolvedCaseStudyCategories}
     />
   );
 }

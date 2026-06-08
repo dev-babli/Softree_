@@ -21,7 +21,7 @@
  * ───────────────────────────────────────────────────────────────────── */
 
 import dynamic from "next/dynamic";
-import NavigationClient from "@/components/sections/navigation-client";
+import NavigationServer from "@/components/sections/navigation-server";
 import Footer from "@/components/sections/footer";
 import LightContactSection from "@/components/qc/homepage-light/LightContactSection";
 import { client } from "@/sanity/client";
@@ -114,7 +114,7 @@ export default async function CareersPage() {
     return (
         <main className="min-h-screen pt-[100px]">
             {/* 1. Navigation — chrome from About / Contact */}
-            <NavigationClient />
+            <NavigationServer />
 
             {/* 2. Hero with marquee image rails */}
             <CareersHeroLight

@@ -1,6 +1,11 @@
 import { GoogleGenAI } from "@google/genai"
 import { NextResponse } from "next/server"
-import { generateWithGemini, isGeminiConfigured } from "@/lib/image-generation/gemini"
+import {
+  canGenerateWithGeminiProvider,
+  generateImage,
+} from "@/lib/image-generation"
+import { ImageGenerationError } from "@/lib/image-generation/errors"
+import { generateWithGemini } from "@/lib/image-generation/gemini"
 
 const expectedApiKey = process.env.GEMINI_PLUGIN_API_KEY
 
@@ -54,11 +59,11 @@ export async function POST(request: Request) {
     )
   }
 
-  if (!isGeminiConfigured()) {
+  if (!canGenerateWithGeminiProvider()) {
     return NextResponse.json(
       {
         error:
-          "Gemini API not configured (set GEMINI_API_KEY or GOOGLE_GENAI_API_KEY)",
+          "Neither Gemini nor NVIDIA API is configured. Set GEMINI_API_KEY and/or NVIDIA_API_KEY.",
       },
       { status: 500, headers: corsHeaders },
     )
@@ -200,28 +205,27 @@ export async function POST(request: Request) {
       })
     }
 
-    const result = await generateWithGemini({
+    const result = await generateImage({
       provider: "gemini",
+      modelKey: modelName,
       modelId: modelName,
-      model: modelName,
       prompt,
       aspectRatio,
       mode: mode === "edit" ? "edit" : undefined,
       baseImage,
     })
 
-    return NextResponse.json(
-      { imageData: result.imageData, mimeType: result.mimeType },
-      { headers: corsHeaders },
-    )
+    return NextResponse.json(result, { headers: corsHeaders })
   } catch (error) {
     console.error("Image generation failed:", error)
+    const status =
+      error instanceof ImageGenerationError ? error.status : 500
     return NextResponse.json(
       {
         error:
           error instanceof Error ? error.message : "Image generation failed",
       },
-      { status: 500, headers: corsHeaders },
+      { status, headers: corsHeaders },
     )
   }
 }

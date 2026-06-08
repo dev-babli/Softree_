@@ -85,6 +85,12 @@ export const CASE_STUDY_LAYOUTS = [
     description:
       "Pinned sidebar with metadata, IDE-style dashboard frame with file tabs, 5-step bottom stepper (Problem, Architecture, Agent System, Infrastructure, Impact), split-pane code editor + live ops dashboard.",
   },
+  {
+    value: "madar-sticky-story",
+    title: "Madar Sticky Story (Yamama Reference)",
+    description:
+      "Full-viewport parallax hero, sticky about column with challenge accordion, assessment card on dark imagery, integration section with SVG diagram and wide accordion — Vide Infra / Madar case study pattern.",
+  },
 ] as const
 
 export type CaseStudyDetailLayout = (typeof CASE_STUDY_LAYOUTS)[number]["value"]

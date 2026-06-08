@@ -1,16 +1,29 @@
-import NavigationClient from "@/components/sections/navigation-client";
+import dynamic from "next/dynamic";
+import NavigationServer from "@/components/sections/navigation-server";
 import Footer from "@/components/sections/footer";
-import ServicesHeader from "./header";
-import ServicesDetails from "./service-details";
-import CaseStudiesSlider from "./cases";
-import ProjectProcessSection from "./start-project";
-import Certifications from "./offshore-power-platform-development/certification";
-import ServicesHero from "./hero";
+import ServicesHubIntro from "./services-hub-intro";
+import ServicesHubSticky from "./services-hub-sticky";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import LightFAQExact from "@/components/homepage-light/LightFAQExact";
-import ProcessTimeline from "./process";
-import ServicesSection from "./services";
-import { Metadata } from "next";
+import type { Metadata } from "next";
+
+const ServicesStackedSlides = dynamic(
+  () => import("@/components/sections/ServicesStackedSlides"),
+  {
+    loading: () => (
+      <div className="min-h-[100vh] w-full bg-[#F3F0EE]" aria-hidden="true" />
+    ),
+  },
+);
+
+const HomepageCaseStudiesSection = dynamic(
+  () => import("@/components/sections/HomepageCaseStudiesSection"),
+  {
+    loading: () => (
+      <div className="min-h-[70vh] w-full bg-[#F3F0EE]" aria-hidden="true" />
+    ),
+  },
+);
 
 const servicesMainFAQs = [
   {
@@ -48,20 +61,20 @@ const servicesMainFAQs = [
     answer:
       "Our contracts are fixed-scope and fixed-price. If we miss the timeline, we absorb the cost—not the client. We mitigate risk through weekly demos, milestone reviews, and direct Slack access to the engineering squad working on your project.",
   },
-]
+];
 
 export const metadata: Metadata = {
   title: "Services | Softree Technology",
   description:
-    "Comprehensive software development services including web, mobile, CRM, AI, and e-commerce solutions by Softree Technology.",
+    "Microsoft Power Platform, SharePoint, AI, data analytics, web and mobile development — enterprise software services by Softree Technology.",
   keywords: [
     "software development services",
+    "Power Platform development",
+    "SharePoint development",
+    "AI development company",
     "web development India",
     "mobile app development",
-    "CRM development",
-    "AI development",
-    "ecommerce development",
-    "software company India",
+    "Microsoft 365 development",
   ],
   alternates: {
     canonical: "https://www.softreetechnology.com/services",
@@ -69,7 +82,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Services | Softree Technology",
     description:
-      "Comprehensive software development services by Softree Technology.",
+      "Enterprise software services — Microsoft, AI, data, and modern application development.",
     url: "https://www.softreetechnology.com/services",
     siteName: "Softree Technology",
     images: [
@@ -85,13 +98,12 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Services | Softree Technology",
-    description:
-      "Comprehensive software development services by Softree Technology.",
+    description: "Enterprise software services by Softree Technology.",
     images: ["/og-image.png"],
   },
 };
 
-export default function Home() {
+export default function ServicesPage() {
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -106,28 +118,41 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.softreetechnology.com" },
-      { "@type": "ListItem", position: 2, name: "Services", item: "https://www.softreetechnology.com/services" },
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://www.softreetechnology.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Services",
+        item: "https://www.softreetechnology.com/services",
+      },
     ],
   };
 
   return (
-    <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
-      {/* FIXED NAVIGATION */}
-      <NavigationClient />
-      {/* MAIN CONTENT – space reserved for pill navbar */}
-      <main className="bg-[#09090f]">
-        <ServicesHero />
-        <ServicesHeader />
-        <ServicesSection />
-        <ProcessTimeline />
+    <div className="flex min-h-screen flex-col overflow-x-clip bg-[#F3F0EE]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <NavigationServer />
+      <main className="flex-grow overflow-x-clip">
+        <ServicesHubIntro />
+        <ServicesHubSticky />
+        <ServicesStackedSlides />
+        <HomepageCaseStudiesSection />
         <LightContactSection />
         <LightFAQExact faqs={servicesMainFAQs} />
       </main>
-      {/* FOOTER */}
       <Footer />
-    </>
+    </div>
   );
 }

@@ -45,6 +45,7 @@ export const navCaseStudiesQuery = groq`
     client,
     slug,
     excerpt,
+    category,
     storyType,
     heroLayout,
     detailLayout,
