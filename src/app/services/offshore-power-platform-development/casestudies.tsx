@@ -18,7 +18,7 @@ const caseStudies = [
     impact: "Improved accuracy and reduced manual effort.",
     tech: ["Power Apps", "Dataverse", "Power Automate", "Barcode Scanner"],
     image: "/images/case-study/power-apps/barcode.png",
-    href: "/pdf/Barcode Scanner App.pdf",
+    href: "https://www.softreetechnology.com/case-studies/barcode-scanner-app-audio-equipment-management",
     category: "Power Apps",
   },
 
@@ -30,7 +30,7 @@ const caseStudies = [
   impact: "Boosted productivity and reduced manual effort significantly.",
   tech: ["Power Apps", "Copilot AI", "Power Automate", "Dataverse"],
   image: "/images/case-study/power-apps/copilot.png",
-  href: "/pdf/AI-Powered-Task-Automation-using-Copilot-in-Power-Apps.pptx",
+  href: "https://www.softreetechnology.com/case-studies/ai-powered-process-discovery-copilot",
   category: "Power Apps",
 },
 

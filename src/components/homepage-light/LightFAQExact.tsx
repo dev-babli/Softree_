@@ -25,37 +25,37 @@ const defaultFaqs: FAQItem[] = [
   {
     id: 1,
     serial: "question 01",
-    question: "What does Softree actually build?",
+    question: "What kind of technology solutions does Softree Technology specialize in?",
     answer:
-      "Softree builds production-grade software for enterprise teams: AI agents, web apps, Microsoft Power Platform automations, SharePoint intranets, and Power BI dashboards. We are Microsoft Gold Partners. Median project ship time is 47 days.",
+      "Softree Technology specializes in enterprise Microsoft solutions, AI-powered automation, modern application engineering, and offshore development services. Our core expertise includes SharePoint + PowerApps, Power Automate, Power BI, Dynamics 365, Microsoft Fabric, Azure AI, AI agents, custom web and mobile applications, and enterprise workflow automation solutions designed to help businesses modernize operations and scale efficiently.",
   },
   {
     id: 2,
     serial: "question 02",
-    question: "How long does a typical Softree project take?",
+    question: "Can Softree help businesses replace manual processes and spreadsheet-based operations?",
     answer:
-      "Most Softree projects ship in 6 to 12 weeks. Power Apps MVPs take 6 weeks. Web app MVPs take 12 weeks. SharePoint migrations take 4 to 8 weeks. We provide a fixed scope and fixed timeline during discovery, before any contract is signed.",
+      "Yes. Many organizations still manage approvals, reporting, employee requests, and operational workflows through spreadsheets, emails, and disconnected systems. Softree helps businesses modernize these processes using SharePoint + PowerApps, Power Automate, Dynamics 365, and AI-powered workflow automation solutions that improve operational visibility, reduce manual effort, minimize process delays, and increase efficiency across departments.",
   },
   {
     id: 3,
     serial: "question 03",
-    question: "What if the project takes longer than estimated?",
+    question: "Does Softree work with companies that already use Microsoft 365?",
     answer:
-      "Softree contracts are fixed-scope and fixed-price. If we miss the timeline, we absorb the cost — not the client. We mitigate risk through weekly demos, fortnightly milestone reviews, and direct Slack access to the engineering squad working on your project.",
+      "Absolutely. Softree primarily works with businesses already operating within the Microsoft ecosystem. We help organizations extend and optimize Microsoft 365 environments using SharePoint, Teams, Power Platform, Dynamics 365, Power BI, Azure AI, and Microsoft Copilot integrations without disrupting existing operations or requiring large-scale infrastructure changes.",
   },
   {
     id: 4,
     serial: "question 04",
-    question: "How do you handle code ownership and IP?",
+    question: "How does Softree support enterprise digital transformation initiatives?",
     answer:
-      "You own the code, designs, and IP from day one. Softree commits directly to your GitHub or Azure DevOps repository. Source code, infrastructure, and credentials transfer to your team at project handoff. No vendor lock-in.",
+      "Softree supports enterprise digital transformation by modernizing legacy systems, automating workflows, improving collaboration, implementing AI-driven business solutions, and building scalable enterprise applications. Our delivery model combines Microsoft technologies, cloud architecture, AI automation, and agile engineering practices to help organizations improve operational agility, accelerate delivery timelines, and reduce dependency on fragmented manual processes.",
   },
   {
     id: 5,
     serial: "question 05",
-    question: "What is Softree's security and compliance posture?",
+    question: "Can Softree build custom AI solutions for enterprise operations?",
     answer:
-      "Softree follows Microsoft Gold Partner security standards: SOC 2 controls, GDPR compliance, NDAs, data isolation per client, and signed BAAs for healthcare. Engineers work from secured devices. We can provide a security questionnaire response within 5 business days.",
+      "Yes. Softree develops AI-powered enterprise solutions including AI agents, Copilot integrations, intelligent automation systems, document AI, AI-assisted workflows, and Retrieval-Augmented Generation (RAG) solutions. These systems are designed to improve productivity, automate repetitive business operations, streamline knowledge access, and support faster operational decision-making across enterprise environments.",
   },
 ]
 
@@ -122,7 +122,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
    * between vertical stack (mobile/tablet) and horizontal accordion (≥lg). */
   const [isDesktop, setIsDesktop] = useState(false)
   useEffect(() => {
-    const mql = window.matchMedia("(min-width: 1024px)")
+    const mql = window.matchMedia("(min-width: 1280px)")
     const update = () => setIsDesktop(mql.matches)
     update()
     mql.addEventListener?.("change", update)
@@ -241,7 +241,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
          *  • Desktop (≥lg)         : original horizontal slot accordion. */}
         <div
           ref={faqsRef}
-          className="flex flex-col lg:flex-row gap-2 lg:h-[420px]"
+          className="flex flex-col xl:flex-row gap-2 xl:h-[420px]"
         >
           {faqs.map((faq, index) => {
             const isActive = index === activeIndex
@@ -263,11 +263,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                         width: isActive ? "37%" : "15%",
                         height: `${FAQ_DESKTOP_HEIGHT}px`,
                       }
-                    : {
-                        minHeight: isActive
-                          ? `${FAQ_MOBILE_ACTIVE_MIN}px`
-                          : `${FAQ_MOBILE_COLLAPSED_MIN}px`,
-                      }),
+                    : {}),
                 }}
               >
                 {/* Grainient Background for Inactive Cards */}
@@ -335,7 +331,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                 )}
 
                 {/* Content */}
-                <div className="relative flex h-full flex-col p-4 md:p-5">
+                <div className={`relative flex flex-col p-4 md:p-5 ${isDesktop ? "h-full" : "h-auto"}`}>
                   {/* Top - Serial & Icon */}
                   <div className="mb-auto flex items-start justify-between">
                     <span
@@ -378,39 +374,49 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
 
                     {/* Answer - Only visible when active */}
                     <div
-                      className="overflow-hidden transition-all duration-700 ease-[var(--legacy-ease-0_4_0_0_2_1)]"
-                      style={{
-                        width: isActive ? "100%" : "0%",
-                        opacity: isActive ? 1 : 0,
-                      }}
+                      className="overflow-hidden transition-all duration-500 ease-in-out"
+                      style={
+                        isDesktop
+                          ? {
+                              width: isActive ? "100%" : "0%",
+                              opacity: isActive ? 1 : 0,
+                            }
+                          : {
+                              display: "grid",
+                              gridTemplateRows: isActive ? "1fr" : "0fr",
+                              opacity: isActive ? 1 : 0,
+                            }
+                      }
                     >
-                      <div className="pt-2 md:pt-3">
-                        <h4
-                          className="mb-1.5 text-[11px] font-semibold uppercase tracking-wider"
-                          style={{ color: `${FAQ_INK_MUTED}99` }}
-                        >
-                          Question Answer:
-                        </h4>
-                        <div className="mb-3 h-px w-14" style={{ backgroundColor: `${theme.accent}35` }} />
-                        <p
-                          className="mb-4 text-sm leading-relaxed"
-                          style={{ color: `${FAQ_INK}d9` }}
-                        >
-                          {faq.answer}
-                        </p>
-                        <Link
-                          href="/about-us"
-                          className="group inline-flex items-center gap-2.5 rounded-full px-4 py-2 text-sm font-medium text-white transition-all hover:brightness-110"
-                          style={{ backgroundColor: theme.accent }}
-                        >
-                          <span>More About Us</span>
-                          <span
-                            className="flex h-5 w-5 items-center justify-center rounded-full bg-white transition-all group-hover:text-white"
-                            style={{ color: theme.accent }}
+                      <div className="overflow-hidden w-full">
+                        <div className="pt-2 md:pt-3">
+                          <h4
+                            className="mb-1.5 text-[11px] font-semibold uppercase tracking-wider"
+                            style={{ color: `${FAQ_INK_MUTED}99` }}
                           >
-                            <ArrowUpRight className="h-3 w-3" />
-                          </span>
-                        </Link>
+                            Question Answer:
+                          </h4>
+                          <div className="mb-3 h-px w-14" style={{ backgroundColor: `${theme.accent}35` }} />
+                          <p
+                            className="mb-4 text-sm leading-relaxed"
+                            style={{ color: `${FAQ_INK}d9` }}
+                          >
+                            {faq.answer}
+                          </p>
+                          <Link
+                            href="/about-us"
+                            className="group inline-flex items-center gap-2.5 rounded-full px-4 py-2 text-sm font-medium text-white transition-all hover:brightness-110"
+                            style={{ backgroundColor: theme.accent }}
+                          >
+                            <span>More About Us</span>
+                            <span
+                              className="flex h-5 w-5 items-center justify-center rounded-full bg-white transition-all group-hover:text-white"
+                              style={{ color: theme.accent }}
+                            >
+                              <ArrowUpRight className="h-3 w-3" />
+                            </span>
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>

@@ -18,7 +18,7 @@ const caseStudies = [
     impact: "Improved accuracy and reduced manual effort.",
     tech: ["Power Apps", "Dataverse", "Power Automate", "Barcode Scanner"],
     image: "/images/case-study/power-apps/barcode.png",
-    href: "/pdf/AI-Powered-Task-Automation-using-Copilot-in-Power-Apps.pptx 2 1.pptx",
+    href: "https://www.softreetechnology.com/case-studies/barcode-scanner-app-audio-equipment-management",
     category: "Power Apps",
   },
 
