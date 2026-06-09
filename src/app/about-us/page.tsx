@@ -63,7 +63,15 @@ const aboutUsFaqs = [
     answer:
       "Yes. Softree frequently works as a white-label offshore engineering partner for digital agencies, Microsoft consultants, ERP providers, system integrators, and enterprise technology companies requiring scalable expertise across Microsoft technologies, AI engineering, enterprise automation, and modern application development.",
   },
+  {
+    id: 6,
+    serial: "question 06",
+    question: "Does Softree provide both low-code and custom software development services?",
+    answer:
+      "Yes. Softree delivers both low-code Microsoft Power Platform solutions and fully custom enterprise applications using technologies such as React, Next.js, .NET, Python, Node.js, FastAPI, Azure, and cloud-native architectures. This allows businesses to choose the right development approach based on operational complexity, scalability goals, integration needs, and long-term technology strategies.",
+  },
 ];
+
 
 export default function AboutUsPage() {
   return (

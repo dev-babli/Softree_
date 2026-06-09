@@ -51,126 +51,163 @@ export function TransferredSoftreeHero() {
       const reduced = prefersReducedMotion();
       const cinematicEase = EASE.drawer;
 
-      /* ── Deterministic initial state (scroll timeline owns the full lifecycle) ── */
-      gsap.set(q(".mask-expander"), { scale: 0, transformOrigin: "50% 88%" });
-      gsap.set(q(".card-inner-bg"), { opacity: 0 });
-      gsap.set(q(".card-ui"), { opacity: 0 });
-      gsap.set(q(".mask-wrapper"), { scale: 1.08 });
-      gsap.set(q(".center-card"), { scale: 1.08 });
-      gsap.set(q(".hero-title"), { opacity: 1, y: 0, scale: 1 });
-      gsap.set(q(".hero-sub"), { opacity: 1, y: 0 });
-      gsap.set(q(".hero-btn"), { opacity: 1, y: 0, scale: 1 });
-      gsap.set(q(".hero-text-cluster"), { autoAlpha: 1, pointerEvents: "auto" });
-      gsap.set(q(".hero-scrim"), { opacity: 1 });
-      gsap.set(q(".salary-text-cluster"), { autoAlpha: 0, y: 20, pointerEvents: "none" });
-      gsap.set(q(".left-card"), { xPercent: 0, opacity: 0, scale: 0.94, visibility: "hidden" });
-      gsap.set(q(".right-card"), { xPercent: 0, opacity: 0, scale: 0.94, visibility: "hidden" });
+      const mm = gsap.matchMedia();
 
-      if (reduced) {
-        gsap.set(q(".mask-expander"), { scale: 16 });
-        gsap.set(q(".card-inner-bg"), { opacity: 1 });
-        gsap.set(q(".card-ui"), { opacity: 1 });
-        gsap.set(q(".left-card"), { xPercent: -110, opacity: 1, scale: 1, visibility: "visible" });
-        gsap.set(q(".right-card"), { xPercent: 110, opacity: 1, scale: 1, visibility: "visible" });
-        gsap.set(q(".hero-text-cluster"), { autoAlpha: 0, pointerEvents: "none" });
-        gsap.set(q(".hero-scrim"), { opacity: 0 });
-        gsap.set(q(".salary-text-cluster"), { autoAlpha: 1, y: 0, pointerEvents: "auto" });
-        return;
-      }
+      // Desktop/Wide screens: Run the full cinematic pinning scroll animation
+      mm.add("(min-width: 1024px)", () => {
+        /* ── Deterministic initial state (scroll timeline owns the full lifecycle) ── */
+        gsap.set(q(".mask-expander"), { scale: 0, transformOrigin: "50% 88%" });
+        gsap.set(q(".card-inner-bg"), { opacity: 0 });
+        gsap.set(q(".card-ui"), { opacity: 0 });
+        gsap.set(q(".mask-wrapper"), { scale: 1.08 });
+        gsap.set(q(".center-card"), { scale: 1.08 });
+        gsap.set(q(".hero-title"), { opacity: 1, y: 0, scale: 1 });
+        gsap.set(q(".hero-sub"), { opacity: 1, y: 0 });
+        gsap.set(q(".hero-btn"), { opacity: 1, y: 0, scale: 1 });
+        gsap.set(q(".hero-text-cluster"), { autoAlpha: 1, pointerEvents: "auto" });
+        gsap.set(q(".hero-scrim"), { opacity: 1 });
+        gsap.set(q(".salary-text-cluster"), { autoAlpha: 0, y: 20, pointerEvents: "none" });
+        gsap.set(q(".left-card"), { xPercent: 0, opacity: 0, scale: 0.94, visibility: "hidden" });
+        gsap.set(q(".right-card"), { xPercent: 0, opacity: 0, scale: 0.94, visibility: "hidden" });
 
-      /* One scrub timeline — every tween is fromTo so scroll-back mirrors forward */
-      const tl = gsap.timeline({
-        defaults: { ease: "none", force3D: true },
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top top",
-          end: "+=55%",
-          pin: true,
-          pinSpacing: true,
-          anticipatePin: 1,
-          scrub: 0.55,
-          invalidateOnRefresh: true,
-        },
+        if (reduced) {
+          gsap.set(q(".mask-expander"), { scale: 16 });
+          gsap.set(q(".card-inner-bg"), { opacity: 1 });
+          gsap.set(q(".card-ui"), { opacity: 1 });
+          gsap.set(q(".left-card"), { xPercent: -110, opacity: 1, scale: 1, visibility: "visible" });
+          gsap.set(q(".right-card"), { xPercent: 110, opacity: 1, scale: 1, visibility: "visible" });
+          gsap.set(q(".hero-text-cluster"), { autoAlpha: 0, pointerEvents: "none" });
+          gsap.set(q(".hero-scrim"), { opacity: 0 });
+          gsap.set(q(".salary-text-cluster"), { autoAlpha: 1, y: 0, pointerEvents: "auto" });
+          return;
+        }
+
+        /* One scrub timeline ── every tween is fromTo so scroll-back mirrors forward */
+        const tl = gsap.timeline({
+          defaults: { ease: "none", force3D: true },
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top top",
+            end: "+=55%",
+            pin: true,
+            pinSpacing: true,
+            anticipatePin: 1,
+            scrub: 0.55,
+            invalidateOnRefresh: true,
+          },
+        });
+
+        const T = 1;
+
+        /* Phase A — cream wash rises over the subject (mask layer above figure) */
+        tl.fromTo(
+          q(".mask-expander"),
+          { scale: 0 },
+          { scale: 16, duration: T, ease: cinematicEase },
+          0,
+        );
+        tl.fromTo(
+          q(".hero-scrim"),
+          { opacity: 1 },
+          { opacity: 0, duration: T * 0.55, ease: cinematicEase },
+          0.08,
+        );
+        tl.fromTo(
+          q(".mask-wrapper"),
+          { scale: 1.08 },
+          { scale: 1, duration: T, ease: cinematicEase },
+          0,
+        );
+        tl.fromTo(
+          q(".center-card"),
+          { scale: 1.08 },
+          { scale: 1, duration: T, ease: cinematicEase },
+          0,
+        );
+        tl.fromTo(q(".card-inner-bg"), { opacity: 0 }, { opacity: 1, duration: T * 0.5, ease: cinematicEase }, 0.12);
+        tl.fromTo(q(".card-ui"), { opacity: 0 }, { opacity: 1, duration: T * 0.45, ease: cinematicEase }, 0.18);
+
+        /* Phase B — hero copy exits before pillar copy enters (clean scroll-back) */
+        tl.fromTo(
+          q(".hero-title"),
+          { opacity: 1, y: 0, scale: 1 },
+          { opacity: 0, y: -22, scale: 0.98, duration: T * 0.32, ease: cinematicEase },
+          0.14,
+        );
+        tl.fromTo(
+          q(".hero-sub"),
+          { opacity: 1, y: 0 },
+          { opacity: 0, y: -14, duration: T * 0.28, ease: cinematicEase },
+          0.17,
+        );
+        tl.fromTo(
+          q(".hero-btn"),
+          { opacity: 1, y: 0, scale: 1 },
+          { opacity: 0, y: -10, scale: 0.98, duration: T * 0.24, ease: cinematicEase },
+          0.19,
+        );
+        tl.fromTo(
+          q(".hero-text-cluster"),
+          { autoAlpha: 1, pointerEvents: "auto" },
+          { autoAlpha: 0, pointerEvents: "none", duration: T * 0.12, ease: cinematicEase },
+          0.36,
+        );
+
+        /* Phase C — pillar headline (after hero is mostly gone on reverse) */
+        tl.fromTo(
+          q(".salary-text-cluster"),
+          { autoAlpha: 0, y: 20, pointerEvents: "none" },
+          { autoAlpha: 1, y: 0, pointerEvents: "auto", duration: T * 0.38, ease: cinematicEase },
+          0.4,
+        );
+
+        /* Phase D — side cards peel out */
+        tl.fromTo(
+          q(".left-card"),
+          { xPercent: 0, opacity: 0, scale: 0.94, visibility: "hidden" },
+          { xPercent: -108, opacity: 1, scale: 1, visibility: "visible", duration: T * 0.55, ease: cinematicEase },
+          0.48,
+        );
+        tl.fromTo(
+          q(".right-card"),
+          { xPercent: 0, opacity: 0, scale: 0.94, visibility: "hidden" },
+          { xPercent: 108, opacity: 1, scale: 1, visibility: "visible", duration: T * 0.55, ease: cinematicEase },
+          0.48,
+        );
       });
 
-      const T = 1;
+      // Mobile/Tablet/Small screens (< 1024px): Standard responsive hero layout, turn off animations
+      mm.add("(max-width: 1023px)", () => {
+        gsap.set(q(".mask-expander"), { scale: 0 }); // Hide cream wash to keep dark office background
+        gsap.set(q(".mask-wrapper"), { scale: 1 });
+        gsap.set(q(".hero-title"), { opacity: 1, y: 0, scale: 1 });
+        gsap.set(q(".hero-sub"), { opacity: 1, y: 0 });
+        gsap.set(q(".hero-btn"), { opacity: 1, y: 0, scale: 1 });
+        gsap.set(q(".hero-text-cluster"), { autoAlpha: 1, pointerEvents: "auto" });
+        gsap.set(q(".hero-scrim"), { opacity: 0.45 });
 
-      /* Phase A — cream wash rises over the subject (mask layer above figure) */
-      tl.fromTo(
-        q(".mask-expander"),
-        { scale: 0 },
-        { scale: 16, duration: T, ease: cinematicEase },
-        0,
-      );
-      tl.fromTo(
-        q(".hero-scrim"),
-        { opacity: 1 },
-        { opacity: 0, duration: T * 0.55, ease: cinematicEase },
-        0.08,
-      );
-      tl.fromTo(
-        q(".mask-wrapper"),
-        { scale: 1.08 },
-        { scale: 1, duration: T, ease: cinematicEase },
-        0,
-      );
-      tl.fromTo(
-        q(".center-card"),
-        { scale: 1.08 },
-        { scale: 1, duration: T, ease: cinematicEase },
-        0,
-      );
-      tl.fromTo(q(".card-inner-bg"), { opacity: 0 }, { opacity: 1, duration: T * 0.5, ease: cinematicEase }, 0.12);
-      tl.fromTo(q(".card-ui"), { opacity: 0 }, { opacity: 1, duration: T * 0.45, ease: cinematicEase }, 0.18);
+        // Ensure cards have no animation or left-over translations/scales on mobile and tablet
+        gsap.set(q(".left-card, .right-card, .center-card"), {
+          xPercent: 0,
+          yPercent: 0,
+          x: 0,
+          y: 0,
+          scale: 1,
+          opacity: 1,
+          visibility: "visible",
+          clearProps: "all"
+        });
+        gsap.set(q(".card-inner-bg"), {
+          opacity: 1,
+          clearProps: "opacity"
+        });
+        gsap.set(q(".card-ui"), {
+          opacity: 1,
+          clearProps: "opacity"
+        });
+      });
 
-      /* Phase B — hero copy exits before pillar copy enters (clean scroll-back) */
-      tl.fromTo(
-        q(".hero-title"),
-        { opacity: 1, y: 0, scale: 1 },
-        { opacity: 0, y: -22, scale: 0.98, duration: T * 0.32, ease: cinematicEase },
-        0.14,
-      );
-      tl.fromTo(
-        q(".hero-sub"),
-        { opacity: 1, y: 0 },
-        { opacity: 0, y: -14, duration: T * 0.28, ease: cinematicEase },
-        0.17,
-      );
-      tl.fromTo(
-        q(".hero-btn"),
-        { opacity: 1, y: 0, scale: 1 },
-        { opacity: 0, y: -10, scale: 0.98, duration: T * 0.24, ease: cinematicEase },
-        0.19,
-      );
-      tl.fromTo(
-        q(".hero-text-cluster"),
-        { autoAlpha: 1, pointerEvents: "auto" },
-        { autoAlpha: 0, pointerEvents: "none", duration: T * 0.12, ease: cinematicEase },
-        0.36,
-      );
-
-      /* Phase C — pillar headline (after hero is mostly gone on reverse) */
-      tl.fromTo(
-        q(".salary-text-cluster"),
-        { autoAlpha: 0, y: 20, pointerEvents: "none" },
-        { autoAlpha: 1, y: 0, pointerEvents: "auto", duration: T * 0.38, ease: cinematicEase },
-        0.4,
-      );
-
-      /* Phase D — side cards peel out */
-      tl.fromTo(
-        q(".left-card"),
-        { xPercent: 0, opacity: 0, scale: 0.94, visibility: "hidden" },
-        { xPercent: -108, opacity: 1, scale: 1, visibility: "visible", duration: T * 0.55, ease: cinematicEase },
-        0.48,
-      );
-      tl.fromTo(
-        q(".right-card"),
-        { xPercent: 0, opacity: 0, scale: 0.94, visibility: "hidden" },
-        { xPercent: 108, opacity: 1, scale: 1, visibility: "visible", duration: T * 0.55, ease: cinematicEase },
-        0.48,
-      );
-
+      return () => mm.revert();
     },
     { scope: containerRef },
   );
@@ -181,9 +218,9 @@ export function TransferredSoftreeHero() {
       data-section="hero"
       data-theme-section="dark"
       aria-label="Hero"
-      className="relative min-h-[100dvh] w-full shrink-0 bg-[#fafaf9]"
+      className="relative min-h-screen lg:min-h-[100dvh] w-full shrink-0 bg-[#1a2a3a] lg:bg-[#fafaf9] flex flex-col"
     >
-      <div className="sticky top-0 min-h-[100dvh] h-[100dvh] w-full overflow-hidden flex flex-col items-center">
+      <div className="relative lg:sticky lg:top-0 min-h-screen lg:min-h-[100dvh] h-auto lg:h-[100dvh] w-full overflow-visible lg:overflow-hidden flex flex-col items-center">
         {/* ================= 1. BACKGROUND ================= */}
         <div className="absolute inset-0 z-0 bg-[#1a2a3a]">
           <Image
@@ -203,7 +240,7 @@ export function TransferredSoftreeHero() {
             aria-hidden
           />
           <div
-            className="global-subject pointer-events-none absolute block"
+            className="global-subject pointer-events-none absolute hidden lg:block"
             style={{
               left: SUBJECT_LEFT,
               bottom: SUBJECT_BOTTOM,
@@ -247,7 +284,7 @@ export function TransferredSoftreeHero() {
         </div>
 
         {/* ================= 3. HERO TEXT ================= */}
-        <div className="hero-text-cluster absolute inset-0 z-20 flex flex-col justify-center pt-[14vh] pb-[22vh] pl-[clamp(1.25rem,7vw,6rem)] pr-[clamp(1.25rem,4vw,3rem)] pointer-events-none">
+        <div className="hero-text-cluster relative lg:absolute lg:inset-0 z-20 flex flex-col justify-center pt-[12vh] pb-[6vh] lg:pt-[14vh] lg:pb-[22vh] px-6 lg:pl-[clamp(1.25rem,7vw,6rem)] lg:pr-[clamp(1.25rem,4vw,3rem)] pointer-events-none w-full">
           <div className="max-w-[34rem] text-left pointer-events-auto">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 backdrop-blur-sm">
               <svg
@@ -454,10 +491,10 @@ export function TransferredSoftreeHero() {
         </div>
 
         {/* ================= 5. VISUAL CLUSTER (cards & frame) ================= */}
-        <div className="absolute inset-x-0 bottom-0 z-30 flex items-end justify-center pointer-events-none">
+        <div className="relative lg:absolute lg:inset-x-0 lg:bottom-0 z-30 flex flex-col lg:flex-row items-center lg:items-end justify-center gap-6 lg:gap-0 px-6 pb-16 lg:pb-0 w-full pointer-events-none">
           {/* Left Card — OFFSHORE DELIVERY */}
           <div
-            className={`left-card absolute ${CARD_SIZE} rounded-2xl overflow-hidden scale-[0.9] opacity-0 z-[2]`}
+            className={`left-card relative lg:absolute w-full max-w-[320px] lg:w-[clamp(240px,22vw,380px)] aspect-[0.8] rounded-2xl overflow-hidden z-[2]`}
             style={{
               background:
                 "linear-gradient(135deg, rgba(30,40,60,0.9) 0%, rgba(20,30,50,0.95) 100%)",
@@ -493,7 +530,7 @@ export function TransferredSoftreeHero() {
 
           {/* Right Card — AI AUTOMATION */}
           <div
-            className={`right-card absolute ${CARD_SIZE} rounded-2xl overflow-hidden scale-[0.9] opacity-0 z-[2]`}
+            className={`right-card relative lg:absolute w-full max-w-[320px] lg:w-[clamp(240px,22vw,380px)] aspect-[0.8] rounded-2xl overflow-hidden z-[2]`}
             style={{
               background:
                 "linear-gradient(135deg, rgba(30,40,60,0.9) 0%, rgba(20,30,50,0.95) 100%)",
@@ -529,12 +566,12 @@ export function TransferredSoftreeHero() {
 
           {/* Center Card (The Frame!) */}
           <div
-            className={`center-card relative ${CARD_SIZE} origin-bottom z-[3]`}
+            className={`center-card relative w-full max-w-[320px] lg:w-[clamp(240px,22vw,380px)] aspect-[0.8] origin-bottom z-[3]`}
             style={{ willChange: "transform" }}
           >
             {/* Card inner — reference.png */}
             <div
-              className="card-inner-bg absolute inset-0 rounded-xl overflow-hidden bg-[#1a2a3a] opacity-0"
+              className="card-inner-bg absolute inset-0 rounded-xl overflow-hidden bg-[#1a2a3a] opacity-100 lg:opacity-0"
               style={{ willChange: "opacity" }}
             >
               <Image
@@ -558,7 +595,7 @@ export function TransferredSoftreeHero() {
 
             {/* Card UI */}
             <div
-              className="card-ui absolute inset-x-0 bottom-0 z-[4] opacity-0 pointer-events-none"
+              className="card-ui absolute inset-x-0 bottom-0 z-[4] opacity-100 lg:opacity-0 pointer-events-none"
               style={{ willChange: "opacity" }}
             >
               <div className="bg-gradient-to-t from-black/70 via-black/15 to-transparent rounded-b-xl p-5 flex flex-col">
