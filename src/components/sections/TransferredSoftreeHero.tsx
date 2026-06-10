@@ -218,9 +218,9 @@ export function TransferredSoftreeHero() {
       data-section="hero"
       data-theme-section="dark"
       aria-label="Hero"
-      className="relative min-h-screen lg:min-h-[100dvh] w-full shrink-0 bg-[#1a2a3a] lg:bg-[#fafaf9] flex flex-col"
+      className="relative h-auto lg:min-h-[100dvh] w-full shrink-0 bg-[#1a2a3a] lg:bg-[#fafaf9] flex flex-col"
     >
-      <div className="relative lg:sticky lg:top-0 min-h-screen lg:min-h-[100dvh] h-auto lg:h-[100dvh] w-full overflow-visible lg:overflow-hidden flex flex-col items-center">
+      <div className="relative lg:sticky lg:top-0 h-auto lg:h-[100dvh] w-full overflow-visible lg:overflow-hidden flex flex-col items-center">
         {/* ================= 1. BACKGROUND ================= */}
         <div className="absolute inset-0 z-0 bg-[#1a2a3a]">
           <Image
@@ -260,7 +260,7 @@ export function TransferredSoftreeHero() {
         </div>
 
         {/* ================= 2. MASK (above subject — covers figure on scroll) ================= */}
-        <div className="hero-mask-layer absolute inset-0 z-[8] pointer-events-none overflow-hidden">
+        <div className="hero-mask-layer absolute inset-0 z-[8] pointer-events-none overflow-hidden hidden lg:block">
           <div
             className="mask-wrapper absolute -translate-x-1/2"
             style={{
@@ -477,7 +477,7 @@ export function TransferredSoftreeHero() {
 
         {/* ================= 4. PILLAR TEXT (light surface) ================= */}
         <div
-          className="salary-text-cluster absolute inset-0 z-20 flex flex-col items-center pt-[15vh] pointer-events-none invisible opacity-0"
+          className="salary-text-cluster absolute inset-0 z-20 flex flex-col items-center pt-[15vh] pointer-events-none invisible opacity-0 hidden lg:flex"
           style={{ willChange: "transform, opacity" }}
         >
           <div className="max-w-2xl px-6 text-center pointer-events-auto">
