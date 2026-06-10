@@ -16,6 +16,18 @@
     {
       "source": "/geo/:path*",
       "destination": "https://web-lead-magnet-seven.vercel.app/geo/:path*"
+    },
+    {
+      "source": "/assets/:path*",
+      "destination": "https://web-lead-magnet-seven.vercel.app/assets/:path*"
+    },
+    {
+      "source": "/api/process",
+      "destination": "https://web-lead-magnet-seven.vercel.app/api/process"
+    },
+    {
+      "source": "/api/process/:path*",
+      "destination": "https://web-lead-magnet-seven.vercel.app/api/process/:path*"
     }
   ]
 }
