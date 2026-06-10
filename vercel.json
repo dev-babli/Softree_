@@ -1,0 +1,21 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/webanalyser",
+      "destination": "https://web-lead-magnet-seven.vercel.app"
+    },
+    {
+      "source": "/webanalyser/:path*",
+      "destination": "https://web-lead-magnet-seven.vercel.app/:path*"
+    },
+    {
+      "source": "/geo",
+      "destination": "https://web-lead-magnet-seven.vercel.app/geo"
+    },
+    {
+      "source": "/geo/:path*",
+      "destination": "https://web-lead-magnet-seven.vercel.app/geo/:path*"
+    }
+  ]
+}
