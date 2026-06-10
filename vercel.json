@@ -10,6 +10,22 @@
       "destination": "https://web-lead-magnet-seven.vercel.app/geo/:path*"
     },
     {
+      "source": "/softree_icon.png",
+      "destination": "https://web-lead-magnet-seven.vercel.app/softree_icon.png"
+    },
+    {
+      "source": "/favicon.svg",
+      "destination": "https://web-lead-magnet-seven.vercel.app/favicon.svg"
+    },
+    {
+      "source": "/logo.png",
+      "destination": "https://web-lead-magnet-seven.vercel.app/logo.png"
+    },
+    {
+      "source": "/logo.svg",
+      "destination": "https://web-lead-magnet-seven.vercel.app/logo.svg"
+    },
+    {
       "source": "/assets/:path*",
       "destination": "https://web-lead-magnet-seven.vercel.app/assets/:path*"
     },
