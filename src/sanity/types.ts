@@ -27,16 +27,22 @@ export type SanityNavCaseStudy = {
     slug: { current: string };
     excerpt?: string;
     category?: string;
+    useCase?: string;
     industry?: string;
     mainImage?: { asset?: { url?: string }; alt?: string };
     mainImageUrl?: string;
+};
+
+export type SanityNavCaseStudyLink = {
+    key: string;
+    label: string;
+    description: string;
+    href: string;
 };
 
 export type SanityNavCaseStudyCategory = {
     key: string;
     title: string;
     description: string;
-    image?: string;
-    viewAllUrl: string;
-    caseStudies: SanityNavCaseStudy[];
+    links: SanityNavCaseStudyLink[];
 };

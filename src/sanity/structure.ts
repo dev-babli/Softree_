@@ -1,28 +1,56 @@
-import type { DefaultDocumentNodeResolver, StructureResolver } from 'sanity/structure'
-import { CaseStudyLivePreviewPane } from './components/CaseStudyLivePreviewPane'
-import MigrationScriptsNote from './components/MigrationScriptsNote'
+import type {DefaultDocumentNodeResolver, StructureBuilder, StructureResolver} from 'sanity/structure'
+import {
+  CaseIcon,
+  CogIcon,
+  DocumentIcon,
+  DocumentTextIcon,
+  EarthGlobeIcon,
+  HomeIcon,
+  SparklesIcon,
+  TagIcon,
+  UsersIcon,
+} from '@sanity/icons'
+import {CaseStudyLivePreviewPane} from './components/CaseStudyLivePreviewPane'
+import StudioDashboard from './studio/StudioDashboard'
+import PresentationShortcut from './studio/PresentationShortcut'
+import { CASE_STUDY_NEEDS_WORK } from './lib/caseStudyCompleteness'
+import { POST_NEEDS_WORK } from './lib/postCompleteness'
 
 const API = '2026-05-21'
 
-const needsWorkFilter = `(
-  !defined(excerpt) ||
-  !defined(client) ||
-  !defined(headerTitle) ||
-  (
-    !defined(body) &&
-    !defined(challengeContent) &&
-    !defined(challenge)
-  ) ||
-  (!defined(mainImage) && !defined(mainImageUrl)) ||
-  coalesce(status, "published") == "draft"
-) && coalesce(status, "published") != "archived"`
+/** Document types that are embedded blocks — never show in sidebar */
+const HIDDEN_TYPES = new Set([
+  'callout',
+  'ctaButton',
+  'statHighlight',
+  'pageHeroBlock',
+  'pageFeatureGridBlock',
+  'pageCtaBlock',
+  'pageRichTextBlock',
+  'pageTestimonialBlock',
+  'csOverviewSection',
+  'csNarrativeSection',
+  'csCardGridSection',
+  'csMetricsSection',
+  'csSolutionSection',
+  'csGallerySection',
+  'csTestimonialSection',
+  'csTechStackSection',
+  'csBeforeAfterSection',
+  'csFaqSection',
+  'csRelatedSection',
+  'csContactSection',
+])
 
-export const getDefaultDocumentNode: DefaultDocumentNodeResolver = (S, { schemaType }) => {
+/** Singletons — fixed document IDs, excluded from generic lists */
+const SINGLETONS = new Set(['homepageCaseStudySlider', 'globalSettings', 'careersPage'])
+
+export const getDefaultDocumentNode: DefaultDocumentNodeResolver = (S, {schemaType}) => {
   if (schemaType === 'caseStudy') {
     return S.document()
       .views([
-        S.view.form().id('editor').title('Content'),
-        S.view.component(CaseStudyLivePreviewPane).id('preview').title('Preview'),
+        S.view.form().id('editor').title('Edit'),
+        S.view.component(CaseStudyLivePreviewPane).id('preview').title('Live preview'),
       ])
       .defaultPanes(['editor', 'preview'])
   }
@@ -30,338 +58,268 @@ export const getDefaultDocumentNode: DefaultDocumentNodeResolver = (S, { schemaT
   return S.document().views([S.view.form()])
 }
 
-function publishedList(S: Parameters<StructureResolver>[0], schemaType: string, title: string) {
-  return S.documentList()
-    .title(title)
-    .schemaType(schemaType)
-    .apiVersion(API)
-    .filter(`_type == "${schemaType}" && coalesce(status, "published") == "published"`)
-    .defaultOrdering([{ field: 'publishedAt', direction: 'desc' }])
-}
-
-function draftList(S: Parameters<StructureResolver>[0], schemaType: string, title: string) {
-  return S.documentList()
-    .title(title)
-    .schemaType(schemaType)
-    .apiVersion(API)
-    .filter(`_type == "${schemaType}" && coalesce(status, "published") == "draft"`)
-    .defaultOrdering([{ field: '_updatedAt', direction: 'desc' }])
-}
-
-function archivedList(S: Parameters<StructureResolver>[0], schemaType: string, title: string) {
-  return S.documentList()
-    .title(title)
-    .schemaType(schemaType)
-    .apiVersion(API)
-    .filter(`_type == "${schemaType}" && status == "archived"`)
-    .defaultOrdering([{ field: '_updatedAt', direction: 'desc' }])
-}
-
-function reviewList(
-  S: Parameters<StructureResolver>[0],
-  schemaType: string,
-  reviewStatus: string,
-  title: string,
+function docList(
+  S: StructureBuilder,
+  opts: {
+    id?: string
+    title: string
+    schemaType: string
+    filter: string
+    defaultOrdering?: {field: string; direction: 'asc' | 'desc'}[]
+  },
 ) {
-  return S.documentList()
-    .title(title)
-    .schemaType(schemaType)
+  let list = S.documentList()
+    .title(opts.title)
+    .schemaType(opts.schemaType)
     .apiVersion(API)
-    .filter(`_type == "${schemaType}" && reviewStatus == "${reviewStatus}"`)
-    .defaultOrdering([{ field: '_updatedAt', direction: 'desc' }])
+    .filter(opts.filter)
+    .defaultOrdering(opts.defaultOrdering ?? [{field: '_updatedAt', direction: 'desc'}])
+
+  if (opts.id) {
+    list = list.id(opts.id)
+  }
+
+  return list
 }
 
-function needsWorkList(S: Parameters<StructureResolver>[0], schemaType: string, title: string) {
-  return S.documentList()
+function singleton(S: StructureBuilder, typeName: string, title: string, documentId: string) {
+  return S.listItem()
     .title(title)
-    .schemaType(schemaType)
-    .apiVersion(API)
-    .filter(`_type == "${schemaType}" && ${needsWorkFilter}`)
-    .defaultOrdering([{ field: '_updatedAt', direction: 'desc' }])
-}
-
-const CASE_STUDY_ARCHETYPES: Array<{ title: string; value: string; template: string }> = [
-  { title: 'Standard Story', value: 'standard', template: 'caseStudy-standard' },
-  { title: 'Transformation Epic', value: 'transformation', template: 'caseStudy-transformation' },
-  { title: 'Product Showcase', value: 'product-showcase', template: 'caseStudy-product-showcase' },
-]
-
-function editorialLists(
-  S: Parameters<StructureResolver>[0],
-  schemaType: string,
-  publishedTitle: string,
-  draftTitle: string,
-  needsWorkTitle: string,
-  archivedTitle: string,
-) {
-  return [
-    S.listItem().title('Published').child(publishedList(S, schemaType, publishedTitle)),
-    S.listItem().title('Drafts').child(draftList(S, schemaType, draftTitle)),
-    S.listItem()
-      .title('In review')
-      .child(reviewList(S, schemaType, 'in-review', `${publishedTitle} — in review`)),
-    S.listItem()
-      .title('Approved')
-      .child(reviewList(S, schemaType, 'approved', `${publishedTitle} — approved`)),
-    S.listItem().title('Needs work').child(needsWorkList(S, schemaType, needsWorkTitle)),
-    S.listItem().title('Archived').child(archivedList(S, schemaType, archivedTitle)),
-  ]
+    .child(S.document().schemaType(typeName).documentId(documentId).title(title))
 }
 
 export const structure: StructureResolver = (S) =>
   S.list()
-    .title('Softree Content')
+    .title('Softree Studio')
     .items([
+      // ── Home ──
       S.listItem()
-        .title('Start writing')
+        .id('dashboard')
+        .title('Dashboard')
+        .icon(HomeIcon)
+        .child(S.component(StudioDashboard).title('Dashboard')),
+
+      S.listItem()
+        .id('presentationShortcut')
+        .title('Presentation mode')
+        .icon(EarthGlobeIcon)
+        .child(S.component(PresentationShortcut).title('Presentation')),
+
+      S.divider(),
+
+      // ── Site pages (singletons) ──
+      S.listItem()
+        .id('siteSettings')
+        .title('Site & pages')
+        .icon(CogIcon)
         .child(
           S.list()
-            .title('New from template')
+            .id('siteSettingsMenu')
+            .title('Site & pages')
             .items([
-              S.listItem()
-                .title('Blog posts')
-                .child(
-                  S.list()
-                    .title('Blog templates')
-                    .items([
-                      S.listItem()
-                        .title('Standard article')
-                        .child(S.document().schemaType('post').initialValueTemplate('post-article')),
-                      S.listItem()
-                        .title('How-to guide')
-                        .child(S.document().schemaType('post').initialValueTemplate('post-how-to')),
-                      S.listItem()
-                        .title('Thought leadership')
-                        .child(
-                          S.document().schemaType('post').initialValueTemplate('post-thought-leadership'),
-                        ),
-                      S.listItem()
-                        .title('Product update')
-                        .child(S.document().schemaType('post').initialValueTemplate('post-product-update')),
-                    ]),
-                ),
-              S.listItem()
-                .title('Case studies')
-                .child(
-                  S.list()
-                    .title('Case study templates')
-                    .items(
-                      CASE_STUDY_ARCHETYPES.map(({ title, template }) =>
-                        S.listItem()
-                          .title(title)
-                          .child(
-                            S.document()
-                              .schemaType('caseStudy')
-                              .initialValueTemplate(template),
-                          ),
-                      ),
-                    ),
-                ),
-              S.listItem()
-                .title('Marketing landing page')
-                .child(
-                  S.document().schemaType('marketingPage').initialValueTemplate('marketing-landing'),
-                ),
+              singleton(S, 'globalSettings', 'Global settings', 'globalSettings'),
+              singleton(S, 'homepageCaseStudySlider', 'Homepage case study slider', 'homepageCaseStudySlider'),
+              singleton(S, 'careersPage', 'Careers page', 'careersPage'),
             ]),
         ),
 
       S.divider(),
 
+      // ── Case studies (primary content) ──
       S.listItem()
-        .title('Blog')
-        .child(
-          S.list()
-            .title('Blog')
-            .items([
-              ...editorialLists(
-                S,
-                'post',
-                'Published posts',
-                'Draft posts',
-                'Posts needing content',
-                'Archived posts',
-              ),
-              S.divider(),
-              S.listItem()
-                .title('All posts')
-                .child(
-                  S.documentList()
-                    .title('All posts')
-                    .schemaType('post')
-                    .apiVersion(API)
-                    .filter('_type == "post"')
-                    .defaultOrdering([{ field: '_updatedAt', direction: 'desc' }]),
-                ),
-            ]),
-        ),
-
-      S.listItem()
+        .id('caseStudies')
         .title('Case studies')
+        .icon(CaseIcon)
         .child(
           S.list()
+            .id('caseStudiesMenu')
             .title('Case studies')
             .items([
-              ...editorialLists(
-                S,
-                'caseStudy',
-                'Published case studies',
-                'Draft case studies',
-                'Case studies needing content',
-                'Archived case studies',
-              ),
+              S.listItem()
+                .id('caseStudiesNeedsWork')
+                .title('Needs work')
+                .icon(SparklesIcon)
+                .child(
+                  docList(S, {
+                    title: 'Case studies needing content',
+                    schemaType: 'caseStudy',
+                    filter: `_type == "caseStudy" && ${CASE_STUDY_NEEDS_WORK}`,
+                  }),
+                ),
+              S.listItem()
+                .id('caseStudiesDrafts')
+                .title('Drafts')
+                .child(
+                  docList(S, {
+                    title: 'Draft case studies',
+                    schemaType: 'caseStudy',
+                    filter: `_type == "caseStudy" && coalesce(status, "published") == "draft"`,
+                  }),
+                ),
+              S.listItem()
+                .id('caseStudiesPublished')
+                .title('Published')
+                .child(
+                  docList(S, {
+                    title: 'Published case studies',
+                    schemaType: 'caseStudy',
+                    filter: `_type == "caseStudy" && coalesce(status, "published") == "published"`,
+                    defaultOrdering: [{field: 'publishedAt', direction: 'desc'}],
+                  }),
+                ),
+              S.listItem()
+                .id('caseStudiesArchived')
+                .title('Archived')
+                .child(
+                  docList(S, {
+                    title: 'Archived case studies',
+                    schemaType: 'caseStudy',
+                    filter: `_type == "caseStudy" && status == "archived"`,
+                  }),
+                ),
               S.divider(),
               S.listItem()
-                .title('By archetype')
-                .child(
-                  S.list()
-                    .title('By archetype')
-                    .items(
-                      CASE_STUDY_ARCHETYPES.map(({ title, value, template }) =>
-                        S.listItem()
-                          .title(title)
-                          .child(
-                            S.documentList()
-                              .title(`${title} case studies`)
-                              .schemaType('caseStudy')
-                              .apiVersion(API)
-                              .filter(
-                                `_type == "caseStudy" && storyType == "${value}" && coalesce(status, "published") == "published"`,
-                              )
-                              .initialValueTemplates([
-                                S.initialValueTemplateItem(
-                                  template,
-                                  (item: { title: (t: string) => { title: string } }) => item.title(`New ${title} case study`),
-                                ),
-                              ])
-                              .defaultOrdering([{ field: 'publishedAt', direction: 'desc' }]),
-                          ),
-                      ),
-                    ),
-                ),
-              S.listItem()
+                .id('caseStudiesAll')
                 .title('All case studies')
                 .child(
-                  S.documentList()
-                    .title('All case studies')
-                    .schemaType('caseStudy')
-                    .apiVersion(API)
-                    .filter('_type == "caseStudy"')
-                    .defaultOrdering([{ field: '_updatedAt', direction: 'desc' }]),
+                  docList(S, {
+                    id: 'caseStudiesAllList',
+                    title: 'All case studies',
+                    schemaType: 'caseStudy',
+                    filter: '_type == "caseStudy"',
+                  }),
                 ),
+              S.listItem()
+                .title('＋ Page composer')
+                .child(
+                  S.document().schemaType('caseStudy').initialValueTemplate('caseStudy-composer'),
+                ),
+              S.listItem()
+                .title('＋ New case study')
+                .child(S.document().schemaType('caseStudy').initialValueTemplate('caseStudy-standard')),
             ]),
         ),
 
+      // ── Blog ──
       S.listItem()
-        .title('Marketing pages')
+        .id('blog')
+        .title('Blog')
+        .icon(DocumentTextIcon)
         .child(
           S.list()
+            .id('blogMenu')
+            .title('Blog')
+            .items([
+              S.listItem()
+                .id('postsNeedsWork')
+                .title('Needs work')
+                .icon(SparklesIcon)
+                .child(
+                  docList(S, {
+                    title: 'Posts needing content',
+                    schemaType: 'post',
+                    filter: `_type == "post" && ${POST_NEEDS_WORK}`,
+                  }),
+                ),
+              S.listItem()
+                .title('Published')
+                .child(
+                  docList(S, {
+                    title: 'Published posts',
+                    schemaType: 'post',
+                    filter: '_type == "post" && coalesce(status, "published") == "published"',
+                    defaultOrdering: [{field: 'publishedAt', direction: 'desc'}],
+                  }),
+                ),
+              S.listItem()
+                .title('Drafts')
+                .child(
+                  docList(S, {
+                    title: 'Draft posts',
+                    schemaType: 'post',
+                    filter: '_type == "post" && coalesce(status, "published") == "draft"',
+                  }),
+                ),
+              S.divider(),
+              S.listItem()
+                .id('postsAll')
+                .title('All posts')
+                .child(docList(S, {title: 'All posts', schemaType: 'post', filter: '_type == "post"'})),
+              S.listItem()
+                .title('＋ New article')
+                .child(S.document().schemaType('post').initialValueTemplate('post-article')),
+              S.divider(),
+              S.documentTypeListItem('author').title('Authors').icon(UsersIcon),
+              S.documentTypeListItem('category').title('Categories').icon(TagIcon),
+            ]),
+        ),
+
+      // ── Marketing ──
+      S.listItem()
+        .id('marketing')
+        .title('Marketing pages')
+        .icon(DocumentIcon)
+        .child(
+          S.list()
+            .id('marketingMenu')
             .title('Marketing pages')
             .items([
               S.listItem()
                 .title('Published')
                 .child(
-                  S.documentList()
-                    .title('Published pages')
-                    .schemaType('marketingPage')
-                    .apiVersion(API)
-                    .filter('_type == "marketingPage" && status == "published"')
-                    .defaultOrdering([{ field: '_updatedAt', direction: 'desc' }]),
+                  docList(S, {
+                    title: 'Published pages',
+                    schemaType: 'marketingPage',
+                    filter: '_type == "marketingPage" && status == "published"',
+                  }),
                 ),
               S.listItem()
                 .title('Drafts')
                 .child(
-                  S.documentList()
-                    .title('Draft pages')
-                    .schemaType('marketingPage')
-                    .apiVersion(API)
-                    .filter('_type == "marketingPage" && coalesce(status, "draft") == "draft"')
-                    .defaultOrdering([{ field: '_updatedAt', direction: 'desc' }]),
+                  docList(S, {
+                    title: 'Draft pages',
+                    schemaType: 'marketingPage',
+                    filter: '_type == "marketingPage" && coalesce(status, "draft") == "draft"',
+                  }),
                 ),
-              S.listItem()
-                .title('In review')
-                .child(
-                  reviewList(S, 'marketingPage', 'in-review', 'Marketing pages in review'),
-                ),
-              S.listItem()
-                .title('Approved')
-                .child(reviewList(S, 'marketingPage', 'approved', 'Approved marketing pages')),
+              S.divider(),
               S.listItem()
                 .title('All pages')
                 .child(
-                  S.documentList()
-                    .title('All marketing pages')
-                    .schemaType('marketingPage')
-                    .apiVersion(API)
-                    .filter('_type == "marketingPage"')
-                    .defaultOrdering([{ field: '_updatedAt', direction: 'desc' }]),
+                  docList(S, {
+                    title: 'All marketing pages',
+                    schemaType: 'marketingPage',
+                    filter: '_type == "marketingPage"',
+                  }),
                 ),
+              S.listItem()
+                .title('＋ New landing page')
+                .child(S.document().schemaType('marketingPage').initialValueTemplate('marketing-landing')),
             ]),
         ),
 
       S.divider(),
 
+      // ── Reference data ──
       S.listItem()
-        .title('Library & settings')
+        .id('reference')
+        .title('Reference')
         .child(
           S.list()
-            .title('Library')
-            .items([
-              S.listItem()
-                .title('Homepage case study slider')
-                .child(
-                  S.document()
-                    .schemaType('homepageCaseStudySlider')
-                    .documentId('homepageCaseStudySlider')
-                    .title('Homepage Case Study Slider'),
-                ),
-              S.listItem()
-                .title('Careers page')
-                .child(
-                  S.document()
-                    .schemaType('careersPage')
-                    .documentId('careersPage')
-                    .title('Careers Page'),
-                ),
-              S.listItem()
-                .title('Global settings')
-                .child(
-                  S.document()
-                    .schemaType('globalSettings')
-                    .documentId('globalSettings')
-                    .title('Global Settings'),
-                ),
-              S.documentTypeListItem('aiContext').title('AI context (brand voice)'),
-              S.documentTypeListItem('category').title('Categories'),
-              S.documentTypeListItem('author').title('Authors'),
-              S.listItem()
-                .title('Migration scripts (CLI)')
-                .child(S.component(MigrationScriptsNote).title('Migration scripts')),
-            ]),
+            .id('referenceMenu')
+            .title('Reference data')
+            .items([S.documentTypeListItem('aiContext').title('AI brand voice')]),
         ),
 
-      S.divider(),
-
-      ...S.documentTypeListItems().filter(
-        (item) =>
-          item.getId() &&
-          ![
-            'post',
-            'caseStudy',
-            'category',
-            'author',
-            'homepageCaseStudySlider',
-            'globalSettings',
-            'marketingPage',
-            'aiContext',
-            'careersPage',
-            'callout',
-            'ctaButton',
-            'statHighlight',
-            'pageHeroBlock',
-            'pageFeatureGridBlock',
-            'pageCtaBlock',
-            'pageRichTextBlock',
-            'pageTestimonialBlock',
-          ].includes(item.getId()!),
-      ),
+      // Safety net — only unexpected document types (not blocks or handled above)
+      ...S.documentTypeListItems().filter((item) => {
+        const id = item.getId()
+        if (!id) return false
+        if (HIDDEN_TYPES.has(id)) return false
+        if (SINGLETONS.has(id)) return false
+        if (['post', 'caseStudy', 'marketingPage', 'category', 'author', 'aiContext'].includes(id)) {
+          return false
+        }
+        return true
+      }),
     ])

@@ -1,12 +1,12 @@
 "use client"
 
 import { DesktopIcon, RefreshIcon } from "@sanity/icons"
-import { Box, Button, Card, Flex, Spinner, Text } from "@sanity/ui"
+import { Box, Button, Flex, Spinner, Text } from "@sanity/ui"
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import type { UserViewComponent } from "sanity/structure"
 
 import { hydrateCaseStudyForPreview } from "@/sanity/lib/hydrateCaseStudyPreview"
-import { getSiteOrigin } from "@/sanity/lib/layoutPreview"
+import { buildLayoutPreviewIframeUrl, getSiteOrigin } from "@/sanity/lib/layoutPreview"
 
 const STORY_TYPE_OPTIONS = [
   { value: "standard", title: "Standard Story" },
@@ -24,20 +24,35 @@ export const CaseStudyLivePreviewPane: UserViewComponent = (props) => {
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null)
 
   const previewOrigin = getSiteOrigin()
-  const previewSrc = `${previewOrigin}/case-studies/preview`
 
   const displayed = props.document?.displayed as Record<string, unknown> | undefined
-  const layout = (displayed?.storyType as string | undefined) || "standard"
+  const slug = (displayed?.slug as { current?: string } | undefined)?.current?.trim()
+  const detailLayout = (displayed?.detailLayout as string | undefined) || ""
+  const layout =
+    detailLayout === "page-composer"
+      ? "page-composer"
+      : detailLayout === "manufacturing-power-platform"
+        ? "manufacturing-power-platform"
+        : (displayed?.storyType as string | undefined) || "standard"
   const layoutTitle =
-    STORY_TYPE_OPTIONS.find((option) => option.value === layout)?.title || layout
+    detailLayout === "page-composer"
+      ? "Page composer"
+      : detailLayout === "manufacturing-power-platform"
+        ? "Manufacturing layout"
+        : STORY_TYPE_OPTIONS.find((option) => option.value === layout)?.title || layout
+
+  const usesRealSlugPreview = Boolean(slug)
+  const previewSrc = usesRealSlugPreview
+    ? buildLayoutPreviewIframeUrl(slug!)
+    : `${previewOrigin}/case-studies/preview`
 
   const payload = useMemo(() => {
-    if (!displayed) return null
+    if (!displayed || usesRealSlugPreview) return null
     return hydrateCaseStudyForPreview(displayed)
-  }, [displayed])
+  }, [displayed, usesRealSlugPreview])
 
   const pushPreview = useCallback(() => {
-    if (!frameReady || !payload || !iframeRef.current?.contentWindow) return
+    if (usesRealSlugPreview || !frameReady || !payload || !iframeRef.current?.contentWindow) return
     iframeRef.current.contentWindow.postMessage(
       {
         type: "CASE_STUDY_PREVIEW_UPDATE",
@@ -47,11 +62,16 @@ export const CaseStudyLivePreviewPane: UserViewComponent = (props) => {
       previewOrigin,
     )
     setLastUpdated(new Date())
-  }, [frameReady, payload, layout, previewOrigin])
+  }, [usesRealSlugPreview, frameReady, payload, layout, previewOrigin])
 
   useEffect(() => {
+    if (usesRealSlugPreview) {
+      setFrameReady(true)
+      return
+    }
+
     const allowedOrigins = [new URL(previewOrigin).origin, window.location.origin].filter(
-      (o, i, arr) => arr.indexOf(o) === i
+      (o, i, arr) => arr.indexOf(o) === i,
     )
     const onMessage = (event: MessageEvent) => {
       if (!allowedOrigins.includes(event.origin)) return
@@ -61,40 +81,56 @@ export const CaseStudyLivePreviewPane: UserViewComponent = (props) => {
     }
     window.addEventListener("message", onMessage)
     return () => window.removeEventListener("message", onMessage)
-  }, [previewOrigin])
+  }, [previewOrigin, usesRealSlugPreview])
 
   useEffect(() => {
-    if (!frameReady) return
+    if (usesRealSlugPreview || !frameReady) return
     if (debounceRef.current) clearTimeout(debounceRef.current)
     debounceRef.current = setTimeout(pushPreview, DEBOUNCE_MS)
     return () => {
       if (debounceRef.current) clearTimeout(debounceRef.current)
     }
-  }, [frameReady, pushPreview])
+  }, [usesRealSlugPreview, frameReady, pushPreview, displayed])
+
+  useEffect(() => {
+    if (!usesRealSlugPreview || !frameReady) return
+    if (debounceRef.current) clearTimeout(debounceRef.current)
+    debounceRef.current = setTimeout(() => {
+      try {
+        iframeRef.current?.contentWindow?.location.reload()
+      } catch {
+        setIframeKey((key) => key + 1)
+      }
+      setLastUpdated(new Date())
+    }, DEBOUNCE_MS)
+    return () => {
+      if (debounceRef.current) clearTimeout(debounceRef.current)
+    }
+  }, [usesRealSlugPreview, frameReady, displayed])
 
   const refresh = useCallback(() => {
-    setFrameReady(false)
+    if (!usesRealSlugPreview) setFrameReady(false)
     setIframeKey((key) => key + 1)
-  }, [])
+    setLastUpdated(new Date())
+  }, [usesRealSlugPreview])
 
   return (
-    <Flex direction="column" style={{ height: "100%", minHeight: 0 }}>
-      <Card padding={3} borderBottom tone="transparent">
+    <Flex direction="column" className="softree-preview-pane" style={{ height: "100%", minHeight: 0 }}>
+      <div className="softree-preview-pane__toolbar">
         <Flex align="center" justify="space-between" gap={3} wrap="wrap">
           <Flex align="center" gap={2}>
             <DesktopIcon />
-            <Text size={1} weight="semibold">
-              Live preview
-            </Text>
+            <span className="softree-preview-pane__title">Live preview</span>
             {!frameReady ? <Spinner muted /> : null}
           </Flex>
           <Flex align="center" gap={3}>
-            <Text size={1} muted>
+            <span className="softree-preview-pane__meta">
               {layoutTitle}
+              {slug ? ` · /${slug}` : " · draft (no slug)"}
               {lastUpdated
                 ? ` · updated ${lastUpdated.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" })}`
                 : ""}
-            </Text>
+            </span>
             <Button
               fontSize={1}
               icon={RefreshIcon}
@@ -105,12 +141,13 @@ export const CaseStudyLivePreviewPane: UserViewComponent = (props) => {
           </Flex>
         </Flex>
         <Text size={1} muted style={{ marginTop: 8 }}>
-          Changes appear here as you type — no save required. Switch layouts in the Content pane to
-          compare variants.
+          {usesRealSlugPreview
+            ? "Previewing the real case study URL with draft mode — matches what visitors see after publish."
+            : "Add a slug to preview the live page. Until then, changes appear here as you type."}
         </Text>
-      </Card>
+      </div>
 
-      <Box flex={1} style={{ minHeight: 0, background: "#0d0a23" }}>
+      <Box flex={1} className="softree-preview-pane__frame-wrap">
         <iframe
           key={iframeKey}
           ref={iframeRef}

@@ -4,7 +4,15 @@ import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
 import { stockHeroUrl } from "@/lib/case-study-stock-images"
 import type { CaseStudyLayoutData } from "../../../types"
-import { PageContainer, Reveal, PrimaryButton, OutlineButton } from "../shared"
+import {
+  HeroReveal,
+  PageContainer,
+  ParallaxLayer,
+  PrimaryButton,
+  OutlineButton,
+  RevealItem,
+  RevealStagger,
+} from "../shared"
 
 function MetricCell({ value, label }: { value: string; label: string }) {
   return (
@@ -38,7 +46,7 @@ export function HeroSection({ data }: { data: CaseStudyLayoutData }) {
       <PageContainer className="relative pb-16 pt-28 md:pb-20 md:pt-32 lg:pt-36">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.92fr)] lg:items-center lg:gap-14">
           <div>
-            <Reveal>
+            <HeroReveal delay={0}>
               <div className="flex flex-wrap items-center gap-4">
                 {data.clientLogoUrl ? (
                   <div className="relative h-9 w-[120px] shrink-0">
@@ -55,27 +63,27 @@ export function HeroSection({ data }: { data: CaseStudyLayoutData }) {
                   {eyebrow}
                 </span>
               </div>
-            </Reveal>
+            </HeroReveal>
 
-            <Reveal delay={0.04}>
+            <HeroReveal delay={0.07} variant="blur" distance={22}>
               <p className="mt-5 text-sm font-semibold tracking-tight text-[#181818]/80">
                 {data.client}
               </p>
-            </Reveal>
+            </HeroReveal>
 
-            <Reveal delay={0.06}>
+            <HeroReveal delay={0.12} variant="scale" distance={28}>
               <h1 className="mt-3 max-w-[16ch] text-[clamp(2.25rem,5.5vw,3.75rem)] font-bold leading-[1.05] tracking-[-0.04em] text-[#181818]">
                 {data.title}
               </h1>
-            </Reveal>
+            </HeroReveal>
 
-            <Reveal delay={0.08}>
+            <HeroReveal delay={0.18} variant="up" distance={24}>
               <p className="mt-6 max-w-xl text-[1.0625rem] leading-[1.65] text-[var(--cs-text-secondary,#334155)] md:text-lg">
                 {data.excerpt}
               </p>
-            </Reveal>
+            </HeroReveal>
 
-            <Reveal delay={0.1}>
+            <HeroReveal delay={0.24}>
               <div className="mt-9 flex flex-wrap gap-3">
                 <PrimaryButton href="#overview">Read the story</PrimaryButton>
                 <OutlineButton href={data.cta.buttonHref}>
@@ -83,35 +91,37 @@ export function HeroSection({ data }: { data: CaseStudyLayoutData }) {
                   <ArrowUpRight className="ml-2 inline h-4 w-4" aria-hidden />
                 </OutlineButton>
               </div>
-            </Reveal>
+            </HeroReveal>
 
             {data.highlights.length > 0 ? (
-              <Reveal delay={0.12} className="mt-12">
-                <div className="flex flex-col gap-6 sm:flex-row sm:flex-wrap sm:items-start">
-                  {data.highlights.slice(0, 3).map((item) => (
-                    <MetricCell key={item.label} value={item.value} label={item.label} />
-                  ))}
-                </div>
-              </Reveal>
+              <RevealStagger className="mt-12 flex flex-col gap-6 sm:flex-row sm:flex-wrap sm:items-start">
+                {data.highlights.slice(0, 3).map((item) => (
+                  <RevealItem key={item.label} variant="scale">
+                    <MetricCell value={item.value} label={item.label} />
+                  </RevealItem>
+                ))}
+              </RevealStagger>
             ) : null}
           </div>
 
-          <Reveal delay={0.1}>
-            <div className="rounded-[1.75rem] p-2 shadow-[0_24px_64px_rgba(0,0,0,0.06)] ring-1 ring-[#0a0a1a]/[0.05] [background:#F0F2F6]">
-              <div className="overflow-hidden rounded-[calc(1.75rem-0.5rem)] bg-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.85)]">
-                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[calc(1.75rem-0.5rem)] bg-[#E8ECF2] md:aspect-[5/4]">
-                  <Image
-                    src={heroSrc}
-                    alt={heroAlt}
-                    fill
-                    priority
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 560px"
-                  />
+          <HeroReveal delay={0.14} variant="scale" distance={40}>
+            <ParallaxLayer strength={28}>
+              <div className="rounded-[1.75rem] p-2 shadow-[0_24px_64px_rgba(0,0,0,0.06)] ring-1 ring-[#0a0a1a]/[0.05] [background:#F0F2F6]">
+                <div className="overflow-hidden rounded-[calc(1.75rem-0.5rem)] bg-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.85)]">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[calc(1.75rem-0.5rem)] bg-[#E8ECF2] md:aspect-[5/4]">
+                    <Image
+                      src={heroSrc}
+                      alt={heroAlt}
+                      fill
+                      priority
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 560px"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          </Reveal>
+            </ParallaxLayer>
+          </HeroReveal>
         </div>
       </PageContainer>
     </header>

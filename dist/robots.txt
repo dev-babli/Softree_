@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /studio/
+Disallow: /sentry-example-page/
+Disallow: /record-slides/
+Disallow: /timeline-component-05/
+
+Sitemap: https://www.softreetechnology.com/sitemap.xml

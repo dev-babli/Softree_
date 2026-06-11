@@ -1,10 +1,11 @@
-"use client";
+import { defineLive } from 'next-sanity/live'
 
-/**
- * Live content bridge placeholder.
- * Upgrade to next-sanity v5+ and wire defineLive when ready.
- * Until then, listing components use sanityFetch + webhook revalidation.
- */
-export function SanityLive() {
-  return null;
-}
+import { client } from './client'
+
+const token = process.env.SANITY_API_READ_TOKEN
+
+export const { sanityFetch: liveSanityFetch, SanityLive } = defineLive({
+  client,
+  serverToken: token,
+  browserToken: token,
+})

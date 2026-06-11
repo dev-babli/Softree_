@@ -1,9 +1,19 @@
 import {DocumentTextIcon} from '@sanity/icons'
 import {defineArrayMember, defineField, defineType} from 'sanity'
+import {BLOG_LAYOUT_RECIPES} from '../../lib/blog-layout-recipes'
+import ComposerSectionsInput from '../components/ComposerSectionsInput'
 import {aiAssistExclude} from '../lib/blockContentOptions'
 import {fieldAi} from '../lib/fieldAiOptions'
-import {publishReadinessValidation, createSeoPreviewPanelField} from '../lib/documentHelpers'
+import {createSeoPreviewPanelField} from '../lib/documentHelpers'
+import {postHasContent} from '../lib/postCompleteness'
 import {reviewStatusField} from '../lib/reviewStatusField'
+import {caseStudyComposerInsertMenu, caseStudyComposerMembers} from './caseStudyComposerBlocks'
+
+const isComposerPost = ({document}: {document?: Record<string, unknown>}) =>
+  (document?.displayMode as string | undefined) === 'composer'
+
+const hideWhenClassic = ({document}: {document?: Record<string, unknown>}) =>
+  !isComposerPost({document})
 
 export const postType = defineType({
   name: 'post',
@@ -12,6 +22,7 @@ export const postType = defineType({
   icon: DocumentTextIcon,
   groups: [
     {name: 'content', title: 'Content'},
+    {name: 'composer', title: 'Page composer'},
     {name: 'seo', title: 'SEO & AEO'},
   ],
   fields: [
@@ -38,11 +49,91 @@ export const postType = defineType({
       validation: (Rule) => Rule.max(200),
     }),
     defineField({
+      name: 'displayMode',
+      title: 'Page display',
+      type: 'string',
+      group: 'composer',
+      description:
+        'Classic = standard article layout. Composer = scroll-based sections (same blocks as case studies). Existing posts stay on Classic.',
+      options: {
+        list: [
+          {title: 'Classic article', value: 'classic'},
+          {title: 'Page composer (scroll sections)', value: 'composer'},
+        ],
+        layout: 'radio',
+        ...aiAssistExclude,
+      },
+      initialValue: 'classic',
+    }),
+    defineField({
+      name: 'layoutRecipe',
+      title: 'Layout recipe',
+      type: 'string',
+      group: 'composer',
+      description: 'Used by the AI content pipeline to pick section types. Editors can override.',
+      hidden: hideWhenClassic,
+      options: {
+        list: BLOG_LAYOUT_RECIPES.map((recipe) => ({
+          title: recipe.title,
+          value: recipe.id,
+        })),
+      },
+    }),
+    defineField({
+      name: 'composerSections',
+      title: 'Page sections',
+      type: 'array',
+      group: 'composer',
+      description: 'Stack narrative, metrics, FAQ, and other sections — same composer as case studies.',
+      hidden: hideWhenClassic,
+      of: caseStudyComposerMembers,
+      components: {
+        input: ComposerSectionsInput,
+      },
+      options: {
+        insertMenu: caseStudyComposerInsertMenu,
+      },
+      validation: (Rule) =>
+        Rule.custom((sections, context) => {
+          const doc = context.document as {displayMode?: string}
+          if (doc?.displayMode !== 'composer') return true
+          if (!sections?.length) return 'Add at least one section for composer display mode'
+          return true
+        }),
+    }),
+    defineField({
+      name: 'heroEyebrow',
+      title: 'Hero eyebrow',
+      type: 'string',
+      group: 'composer',
+      description: 'Small label above the title, e.g. "Microsoft 365 · June 2026"',
+      hidden: hideWhenClassic,
+    }),
+    defineField({
+      name: 'heroHighlights',
+      title: 'Hero highlights',
+      type: 'array',
+      group: 'composer',
+      hidden: hideWhenClassic,
+      of: [
+        defineArrayMember({
+          type: 'object',
+          name: 'heroHighlight',
+          fields: [
+            defineField({name: 'value', type: 'string', validation: (Rule) => Rule.required()}),
+            defineField({name: 'label', type: 'string', validation: (Rule) => Rule.required()}),
+          ],
+          preview: {select: {title: 'value', subtitle: 'label'}},
+        }),
+      ],
+    }),
+    defineField({
       name: 'body',
       title: 'Article Content',
       type: 'blockContent',
       group: 'content',
       description: fieldAi.body.description,
+      hidden: ({document}) => (document?.displayMode as string | undefined) === 'composer',
     }),
     defineField({
       name: 'status',
@@ -174,7 +265,24 @@ export const postType = defineType({
     }),
     createSeoPreviewPanelField('seo'),
   ],
-  validation: (Rule) => publishReadinessValidation(Rule, { requireImage: false }),
+  validation: (Rule) =>
+    Rule.custom((fields: Record<string, unknown> | undefined) => {
+      if (!fields || fields.status === 'archived' || fields.status === 'draft') return true
+
+      const missing: string[] = []
+      if (!fields.title) missing.push('title')
+      if (!(fields.slug as {current?: string} | undefined)?.current) missing.push('slug')
+      if (!fields.excerpt) missing.push('excerpt')
+
+      if (!postHasContent(fields as Parameters<typeof postHasContent>[0])) {
+        missing.push('content (body or composer sections)')
+      }
+
+      if (missing.length > 0) {
+        return `Before publishing, add: ${missing.join(', ')}`
+      }
+      return true
+    }),
   preview: {
     select: {
       title: 'title',

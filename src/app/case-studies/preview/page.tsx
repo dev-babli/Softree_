@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 
 import CaseStudyDraftPreview from "@/components/case-studies/preview/CaseStudyDraftPreview"
 
@@ -10,13 +10,30 @@ type PreviewState = {
   layout: string
 }
 
+function allowedOrigins(): string[] {
+  const origins = new Set<string>()
+  if (typeof window !== "undefined") origins.add(window.location.origin)
+  const site = process.env.NEXT_PUBLIC_SITE_URL
+  if (site) {
+    try {
+      origins.add(new URL(site).origin)
+    } catch {
+      /* ignore invalid env */
+    }
+  }
+  return [...origins]
+}
+
 export default function CaseStudyPreviewPage() {
   const [state, setState] = useState<PreviewState | null>(null)
+  const origins = useMemo(() => allowedOrigins(), [])
 
   useEffect(() => {
-    window.parent.postMessage({ type: "CASE_STUDY_PREVIEW_READY" }, "*")
+    const targetOrigin = window.parent !== window ? document.referrer ? new URL(document.referrer).origin : "*" : "*"
+    window.parent.postMessage({ type: "CASE_STUDY_PREVIEW_READY" }, targetOrigin)
 
     const onMessage = (event: MessageEvent) => {
+      if (!origins.includes(event.origin) && event.origin !== window.location.origin) return
       if (event.data?.type !== "CASE_STUDY_PREVIEW_UPDATE") return
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const study = event.data.study as any
@@ -26,7 +43,7 @@ export default function CaseStudyPreviewPage() {
 
     window.addEventListener("message", onMessage)
     return () => window.removeEventListener("message", onMessage)
-  }, [])
+  }, [origins])
 
   if (!state) {
     return (

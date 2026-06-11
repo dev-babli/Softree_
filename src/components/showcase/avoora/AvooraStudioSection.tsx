@@ -1,20 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { Instrument_Serif } from "next/font/google";
 import { ArrowUpRight } from "lucide-react";
 import { AvooraCanvas, CANVAS } from "./AvooraCanvas";
 import { BrandLogos } from "./BrandLogos";
 import { AvooraBento } from "./AvooraBento";
 import { AvooraServices } from "./AvooraServices";
 import { AvooraCta } from "./AvooraCta";
-
-const serif = Instrument_Serif({
-  subsets: ["latin"],
-  style: ["italic"],
-  weight: ["400"],
-  display: "swap",
-});
 
 /** Pixel-faithful Avoora clone — 682px design canvas, mockup crops for 3D visuals */
 export default function AvooraStudioSection() {
@@ -56,7 +48,12 @@ export default function AvooraStudioSection() {
             </p>
             <h1 className="mt-[18px] text-[34px] font-semibold leading-[1.04] tracking-[-0.04em] text-[#111111]">
               We create digital experiences that move businesses{" "}
-              <span className={`font-normal text-[#8A84FF] ${serif.className}`}>forward.</span>
+              <span
+                className="font-normal text-[#8A84FF]"
+                style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontStyle: "italic" }}
+              >
+                forward.
+              </span>
             </h1>
             <p className="mt-[16px] text-[11px] leading-[1.65] text-[#111]/48">
               We partner with ambitious brands and startups to design, build and scale digital

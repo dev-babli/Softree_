@@ -1,47 +1,90 @@
+import {
+  CASE_STUDY_CATEGORY_CONFIG,
+  type CaseStudyCategoryKey,
+  isCaseStudyCategory,
+} from "@/app/case-studies/categoryConfig"
 import type { SanityNavCaseStudy, SanityNavCaseStudyCategory } from "./types"
 
-const FALLBACK_IMAGE = "/images/case-study/power-apps/automated.jpg"
+const NAV_GROUPS: {
+  key: string
+  title: string
+  description: string
+  categoryKeys: CaseStudyCategoryKey[]
+}[] = [
+  {
+    key: "microsoft",
+    title: "Microsoft & data",
+    description: "Power Platform, SharePoint, and analytics delivery.",
+    categoryKeys: ["power-platform", "sharepoint", "data-analytics"],
+  },
+  {
+    key: "engineering",
+    title: "Product engineering",
+    description: "Web and mobile platforms built for scale.",
+    categoryKeys: ["web", "mobile"],
+  },
+  {
+    key: "intelligence",
+    title: "AI & automation",
+    description: "Intelligent systems with measurable outcomes.",
+    categoryKeys: ["ai"],
+  },
+]
 
-function getCaseStudyImage(study: SanityNavCaseStudy): string | undefined {
-  return study.mainImage?.asset?.url || study.mainImageUrl
+const USE_CASE_CATEGORY_MAP: Record<string, CaseStudyCategoryKey> = {
+  "Web Platform": "web",
+  "Mobile App": "mobile",
+  "AI Agents": "ai",
+  "Process Automation": "power-platform",
+  "Customer Experience": "web",
+  Operations: "data-analytics",
 }
 
-function getGroupKey(study: SanityNavCaseStudy): string {
-  return (study.industry || study.category || "Featured").trim()
+function resolveCategoryKey(study: SanityNavCaseStudy): CaseStudyCategoryKey | null {
+  if (study.category && isCaseStudyCategory(study.category)) {
+    return study.category
+  }
+  if (study.useCase && USE_CASE_CATEGORY_MAP[study.useCase]) {
+    return USE_CASE_CATEGORY_MAP[study.useCase]
+  }
+  return null
 }
 
 export function buildCaseStudyNavCategories(
   studies: SanityNavCaseStudy[],
 ): SanityNavCaseStudyCategory[] {
-  const grouped = new Map<string, SanityNavCaseStudy[]>()
+  const counts = new Map<CaseStudyCategoryKey, number>()
 
   for (const study of studies) {
     if (!study.slug?.current) continue
-    const key = getGroupKey(study)
-    const bucket = grouped.get(key) ?? []
-    if (bucket.length < 3) bucket.push(study)
-    grouped.set(key, bucket)
+    const key = resolveCategoryKey(study)
+    if (!key) continue
+    counts.set(key, (counts.get(key) ?? 0) + 1)
   }
 
-  const orderedKeys: string[] = []
-  for (const study of studies) {
-    if (!study.slug?.current) continue
-    const key = getGroupKey(study)
-    if (!orderedKeys.includes(key) && (grouped.get(key)?.length ?? 0) > 0) {
-      orderedKeys.push(key)
-    }
-  }
-
-  return orderedKeys.slice(0, 4).map((key) => {
-    const items = grouped.get(key) ?? []
+  return NAV_GROUPS.map((group) => {
+    const links = group.categoryKeys
+      .filter((key) => (counts.get(key) ?? 0) > 0)
+      .map((key) => {
+        const config = CASE_STUDY_CATEGORY_CONFIG[key]
+        return {
+          key,
+          label: config.title,
+          description: config.eyebrow,
+          href: `/case-studies/${key}`,
+        }
+      })
 
     return {
-      key: key.toLowerCase().replace(/\s+/g, "-"),
-      title: key,
-      description: `Latest ${key.toLowerCase()} customer stories`,
-      image: getCaseStudyImage(items[0]) || FALLBACK_IMAGE,
-      viewAllUrl: "/case-studies",
-      caseStudies: items,
+      key: group.key,
+      title: group.title,
+      description: group.description,
+      links: links.map(({ key, label, description, href }) => ({
+        key,
+        label,
+        description,
+        href,
+      })),
     }
-  })
+  }).filter((group) => group.links.length > 0)
 }

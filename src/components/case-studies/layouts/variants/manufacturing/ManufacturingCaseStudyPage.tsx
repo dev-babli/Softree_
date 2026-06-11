@@ -7,6 +7,8 @@ import { csCssVars } from "./tokens"
 import { HeroSection } from "./sections/HeroSection"
 import { OverviewSection } from "./sections/OverviewSection"
 import { ChallengeSection } from "./sections/ChallengeSection"
+import { ApproachSection } from "./sections/ApproachSection"
+import { OutcomeSection } from "./sections/OutcomeSection"
 import { SolutionSection } from "./sections/SolutionSection"
 import { DeliverablesSection } from "./sections/DeliverablesSection"
 import { GallerySection } from "./sections/GallerySection"
@@ -36,6 +38,7 @@ export function ManufacturingCaseStudyPage({ data }: { data: CaseStudyLayoutData
       <HeroSection data={data} />
       <OverviewSection data={data} />
       <ChallengeSection data={data} />
+      <ApproachSection data={data} />
       <SolutionSection data={data} />
       <DeliverablesSection data={data} />
       <GallerySection
@@ -43,6 +46,7 @@ export function ManufacturingCaseStudyPage({ data }: { data: CaseStudyLayoutData
         heading={data.galleryHeading}
         subheading={data.gallerySubheading}
       />
+      <OutcomeSection data={data} />
       <ImpactSection data={data} />
       <TechStackSection data={data} />
       <TestimonialSection data={data} />

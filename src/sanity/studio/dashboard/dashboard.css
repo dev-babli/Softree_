@@ -1,0 +1,577 @@
+/**
+ * Softree Studio Dashboard — gradient bento command center
+ */
+
+.softree-dash {
+  --dash-accent: var(--softree-accent, #ff7a2f);
+  --dash-accent-soft: var(--softree-accent-soft, rgba(255, 122, 47, 0.14));
+  --dash-ink: var(--softree-ink, #141416);
+  --dash-muted: var(--softree-muted, #6b7280);
+  --dash-border: var(--softree-border, rgba(15, 23, 42, 0.07));
+  --dash-surface: rgba(255, 255, 255, 0.82);
+  --dash-cream: var(--softree-cream, #f4f2ee);
+  --dash-success: #16a34a;
+  --dash-warning: #d97706;
+  --dash-gradient: linear-gradient(135deg, #ff7a2f 0%, #ff9f5a 50%, #ffb347 100%);
+  --dash-ease: cubic-bezier(0.23, 1, 0.32, 1);
+  min-height: 100%;
+  background: transparent;
+}
+
+.softree-dash__inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: clamp(1.25rem, 3vw, 2rem) clamp(1rem, 3vw, 1.75rem) 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+/* ── Hero — aurora mesh ── */
+.softree-dash__hero {
+  border-radius: 1.5rem;
+  padding: clamp(1.35rem, 3.5vw, 2rem);
+  background: linear-gradient(145deg, #1a1a1e 0%, #141416 45%, #0c0c0e 100%);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 24px 64px rgba(12, 12, 14, 0.28),
+    0 0 0 1px rgba(255, 122, 47, 0.08) inset;
+}
+
+.softree-dash__hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 75% 90% at 92% 8%, rgba(255, 122, 47, 0.42) 0%, transparent 58%),
+    radial-gradient(ellipse 55% 70% at 8% 92%, rgba(255, 159, 90, 0.22) 0%, transparent 52%),
+    radial-gradient(ellipse 40% 50% at 50% 50%, rgba(255, 179, 71, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.softree-dash__hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.softree-dash__hero-orbs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.softree-dash__orb {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(48px);
+  opacity: 0.65;
+}
+
+.softree-dash__orb--1 {
+  width: 200px;
+  height: 200px;
+  top: -60px;
+  right: 12%;
+  background: rgba(255, 122, 47, 0.55);
+  animation: softree-dash-float 14s ease-in-out infinite;
+}
+
+.softree-dash__orb--2 {
+  width: 160px;
+  height: 160px;
+  bottom: -50px;
+  left: 8%;
+  background: rgba(255, 179, 71, 0.35);
+  animation: softree-dash-float 18s ease-in-out infinite reverse;
+}
+
+@keyframes softree-dash-float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(12px, -8px) scale(1.06);
+  }
+}
+
+.softree-dash__hero-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.softree-dash__eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  background: var(--dash-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.softree-dash__title {
+  font-size: clamp(1.625rem, 4vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  margin: 0;
+  background: linear-gradient(120deg, #ffffff 0%, #ffe8d6 70%, #ffcba4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.softree-dash__subtitle {
+  margin: 0.6rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.68);
+  max-width: 38rem;
+}
+
+.softree-dash__health {
+  min-width: min(100%, 240px);
+  padding: 1.125rem 1.25rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.softree-dash__health-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.35rem;
+}
+
+.softree-dash__health-value {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  background: var(--dash-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.softree-dash__health-bar {
+  margin-top: 0.75rem;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.softree-dash__health-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--dash-gradient);
+  box-shadow: 0 0 16px rgba(255, 122, 47, 0.5);
+  transition: width 0.65s var(--dash-ease);
+}
+
+/* ── Bento grid ── */
+.softree-dash__bento {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+}
+
+@media (min-width: 900px) {
+  .softree-dash__bento {
+    grid-template-columns: 1.5fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1.1rem;
+  }
+
+  .softree-dash__queue {
+    grid-row: span 2;
+  }
+}
+
+/* ── Glass panels with gradient edge ── */
+.softree-dash__panel {
+  position: relative;
+  background: var(--dash-surface);
+  border: 1px solid var(--dash-border);
+  border-radius: 1.125rem;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 1px 2px rgba(12, 12, 14, 0.04),
+    0 12px 40px rgba(12, 12, 14, 0.05);
+}
+
+.softree-dash__panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 122, 47, 0.22),
+    rgba(255, 255, 255, 0.4) 40%,
+    rgba(255, 159, 90, 0.12) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.softree-dash__panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6), transparent);
+}
+
+.softree-dash__panel-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dash-muted);
+  margin: 0;
+}
+
+.softree-dash__panel-action {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--dash-accent);
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  transition: opacity 0.15s ease;
+}
+
+.softree-dash__panel-action:hover {
+  opacity: 0.75;
+}
+
+/* ── Attention queue ── */
+.softree-dash__queue-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 0.9rem 1.2rem;
+  cursor: pointer;
+  border-top: 1px solid rgba(15, 23, 42, 0.04);
+  transition:
+    background 0.14s ease,
+    transform 0.14s var(--dash-ease);
+}
+
+.softree-dash__queue-item:first-child {
+  border-top: none;
+}
+
+.softree-dash__queue-item:hover {
+  background: linear-gradient(90deg, rgba(255, 122, 47, 0.06), transparent);
+  transform: translateX(2px);
+}
+
+.softree-dash__queue-item:active {
+  transform: translateX(0) scale(0.995);
+}
+
+.softree-dash__queue-icon {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--dash-gradient);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(255, 122, 47, 0.28);
+}
+
+.softree-dash__queue-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.softree-dash__queue-name {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--dash-ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.softree-dash__queue-meta {
+  font-size: 0.75rem;
+  color: var(--dash-muted);
+  margin-top: 0.2rem;
+}
+
+.softree-dash__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+}
+
+.softree-dash__tag {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(217, 119, 6, 0.1);
+  color: var(--dash-warning);
+  border: 1px solid rgba(217, 119, 6, 0.15);
+}
+
+.softree-dash__empty {
+  padding: 2.25rem 1.2rem;
+  text-align: center;
+  color: var(--dash-muted);
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+
+.softree-dash__empty-icon {
+  margin-bottom: 0.65rem;
+}
+
+/* ── Stat rows ── */
+.softree-dash__stat-row {
+  padding: 0.9rem 1.2rem;
+  border-top: 1px solid rgba(15, 23, 42, 0.04);
+}
+
+.softree-dash__stat-row:first-of-type {
+  border-top: none;
+}
+
+.softree-dash__stat-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.55rem;
+}
+
+.softree-dash__stat-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--dash-ink);
+}
+
+.softree-dash__stat-nums {
+  font-size: 0.75rem;
+  color: var(--dash-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.softree-dash__stat-bar {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+}
+
+.softree-dash__stat-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--dash-gradient);
+  transition: width 0.5s var(--dash-ease);
+}
+
+/* ── Quick actions ── */
+.softree-dash__actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+  gap: 0.75rem;
+}
+
+.softree-dash__action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  padding: 1rem 1.05rem;
+  border-radius: 1rem;
+  border: 1px solid var(--dash-border);
+  background: var(--dash-surface);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  text-align: left;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s var(--dash-ease);
+}
+
+.softree-dash__action:hover {
+  border-color: rgba(255, 122, 47, 0.32);
+  box-shadow: 0 8px 28px rgba(12, 12, 14, 0.08);
+  transform: translateY(-2px);
+}
+
+.softree-dash__action:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.softree-dash__action--primary {
+  background: var(--dash-gradient);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 8px 28px rgba(255, 122, 47, 0.32);
+}
+
+.softree-dash__action--primary:hover {
+  box-shadow: 0 12px 36px rgba(255, 122, 47, 0.42);
+  border-color: transparent;
+}
+
+.softree-dash__action-label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.softree-dash__action-hint {
+  font-size: 0.6875rem;
+  opacity: 0.78;
+  line-height: 1.4;
+}
+
+/* ── Activity feed ── */
+.softree-dash__activity-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem 1.2rem;
+  border-top: 1px solid rgba(15, 23, 42, 0.04);
+  cursor: pointer;
+  transition:
+    background 0.14s ease,
+    transform 0.14s var(--dash-ease);
+}
+
+.softree-dash__activity-item:first-child {
+  border-top: none;
+}
+
+.softree-dash__activity-item:hover {
+  background: rgba(255, 122, 47, 0.05);
+}
+
+.softree-dash__activity-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  flex-shrink: 0;
+  background: var(--dash-gradient);
+  box-shadow: 0 0 8px rgba(255, 122, 47, 0.45);
+}
+
+.softree-dash__activity-title {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.softree-dash__activity-time {
+  font-size: 0.6875rem;
+  color: var(--dash-muted);
+  flex-shrink: 0;
+}
+
+/* ── Guide panel ── */
+.softree-dash__guide-step {
+  display: flex;
+  gap: 0.8rem;
+  padding: 0.85rem 1.2rem;
+  border-top: 1px solid rgba(15, 23, 42, 0.04);
+}
+
+.softree-dash__guide-step:first-child {
+  border-top: none;
+}
+
+.softree-dash__guide-num {
+  flex-shrink: 0;
+  width: 1.625rem;
+  height: 1.625rem;
+  border-radius: 999px;
+  background: var(--dash-gradient);
+  color: #fff;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(255, 122, 47, 0.25);
+}
+
+.softree-dash__guide-text {
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--dash-muted);
+}
+
+.softree-dash__guide-text strong {
+  color: var(--dash-ink);
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .softree-dash__orb--1,
+  .softree-dash__orb--2 {
+    animation: none;
+  }
+
+  .softree-dash__health-bar-fill,
+  .softree-dash__stat-bar-fill,
+  .softree-dash__action,
+  .softree-dash__queue-item {
+    transition: none;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .softree-dash__panel,
+  .softree-dash__action,
+  .softree-dash__health {
+    backdrop-filter: none;
+    background: #fff;
+  }
+}

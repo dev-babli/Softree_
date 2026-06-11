@@ -11,8 +11,8 @@ export function TestimonialSection({ data }: { data: CaseStudyLayoutData }) {
   return (
     <section id="testimonial" className="scroll-mt-24 bg-white py-16 md:py-24">
       <PageContainer>
-        <Reveal>
-          <figure className="overflow-hidden rounded-2xl border border-[rgba(15,23,42,0.08)] bg-[#F7F6F3]">
+        <Reveal variant="scale" distance={32}>
+          <figure className="overflow-hidden rounded-2xl border border-[rgba(15,23,42,0.08)] bg-[#F7F6F3] shadow-[0_20px_50px_rgba(15,23,42,0.06)]">
             <div className="grid gap-8 p-8 md:grid-cols-[1fr_auto] md:items-center md:p-10 lg:gap-12">
               <blockquote>
                 <p className="text-[1.2rem] font-medium leading-[1.55] tracking-[-0.01em] text-[#181818] md:text-[1.35rem]">

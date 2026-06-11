@@ -2,21 +2,31 @@
 
 import Image from "next/image"
 import type { CaseStudyLayoutData } from "../../../types"
-import { PageContainer, Reveal, SectionLabel, SectionTitle } from "../shared"
+import {
+  PageContainer,
+  RevealItem,
+  RevealStagger,
+  SectionHeaderReveal,
+  SectionLabel,
+  SectionTitle,
+} from "../shared"
 
 export function DeliverablesSection({ data }: { data: CaseStudyLayoutData }) {
+  if (data.deliverables.length === 0) return null
+
   return (
     <section id="deliverables" className="scroll-mt-24 bg-[var(--softree-bg-light,#fafaf9)] py-16 md:py-24">
       <PageContainer>
-        <Reveal className="max-w-2xl">
-          <SectionLabel>What we built</SectionLabel>
-          <SectionTitle>{data.deliverablesHeading}</SectionTitle>
-        </Reveal>
+        <SectionHeaderReveal
+          className="max-w-2xl"
+          label={<SectionLabel>What we built</SectionLabel>}
+          title={<SectionTitle>{data.deliverablesHeading}</SectionTitle>}
+        />
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2">
+        <RevealStagger className="mt-12 grid gap-6 sm:grid-cols-2">
           {data.deliverables.map((item, i) => (
-            <Reveal key={item.title} delay={i * 0.04}>
-              <article className="overflow-hidden rounded-2xl border border-[rgba(15,23,42,0.08)] bg-white shadow-[0_4px_12px_rgba(15,23,42,0.04)]">
+            <RevealItem key={item.title} variant="scale">
+              <article className="h-full overflow-hidden rounded-2xl border border-[rgba(15,23,42,0.08)] bg-white shadow-[0_4px_12px_rgba(15,23,42,0.04)] transition-transform duration-300 hover:-translate-y-1">
                 {item.imageUrl ? (
                   <div className="relative aspect-[16/10] bg-[#efeae0]">
                     <Image
@@ -40,9 +50,9 @@ export function DeliverablesSection({ data }: { data: CaseStudyLayoutData }) {
                   </p>
                 </div>
               </article>
-            </Reveal>
+            </RevealItem>
           ))}
-        </div>
+        </RevealStagger>
       </PageContainer>
     </section>
   )

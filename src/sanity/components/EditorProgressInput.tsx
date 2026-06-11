@@ -1,67 +1,78 @@
 "use client"
 
-import React, { useMemo } from "react"
-import type { ObjectInputProps } from "sanity"
+import { useMemo } from "react"
+import { caseStudyHasStoryContent, type CaseStudyCompletenessDoc } from '../lib/caseStudyCompleteness'
+import type {ObjectInputProps} from "sanity"
 
-type CaseStudyDocShape = {
+type CaseStudyDocShape = CaseStudyCompletenessDoc & {
   title?: string
-  slug?: { current?: string }
+  slug?: {current?: string}
   client?: string
+  headerTitle?: string
   excerpt?: string
-  mainImage?: { asset?: { _ref?: string } }
+  mainImage?: {asset?: {_ref?: string}}
   mainImageUrl?: string
-  challengeContent?: unknown[]
-  approachContent?: unknown[]
-  outcomeContent?: unknown[]
-  body?: unknown[]
 }
 
 export default function EditorProgressInput(props: ObjectInputProps) {
-  // Access full document via context
   // @ts-expect-error -- documented pattern in Sanity input components
   const doc = props?.context?.document as CaseStudyDocShape | undefined
 
-  const { percent, missing } = useMemo(() => {
+  const {percent, checks} = useMemo(() => {
     const d = doc || {}
-    const checks: Array<{ label: string; pass: boolean }> = [
-      { label: "title", pass: !!d.title },
-      { label: "slug", pass: !!d.slug?.current },
-      { label: "client", pass: !!d.client },
-      { label: "excerpt", pass: !!d.excerpt },
+    const items: Array<{label: string; pass: boolean}> = [
+      {label: "Title", pass: !!d.title},
+      {label: "Slug", pass: !!d.slug?.current},
+      {label: "Client", pass: !!d.client},
+      {label: "Header title", pass: !!d.headerTitle},
+      {label: "Excerpt", pass: !!d.excerpt},
       {
-        label: "image",
+        label: "Cover",
         pass: !!(d.mainImage?.asset?._ref || d.mainImageUrl),
       },
       {
-        label: "story",
-        pass:
-          (d.challengeContent?.length ?? 0) > 0 ||
-          (d.approachContent?.length ?? 0) > 0 ||
-          (d.outcomeContent?.length ?? 0) > 0 ||
-          (d.body?.length ?? 0) > 0,
+        label: "Story",
+        pass: caseStudyHasStoryContent(d),
       },
     ]
-    const passed = checks.filter((c) => c.pass).length
-    const total = checks.length
-    const pct = Math.round((passed / total) * 100)
-    return { percent: pct, missing: checks.filter((c) => !c.pass).map((c) => c.label) }
+    const passed = items.filter((c) => c.pass).length
+    const pct = Math.round((passed / items.length) * 100)
+    return {percent: pct, checks: items}
   }, [doc])
 
+  const barColor = percent >= 85 ? "#16a34a" : percent >= 50 ? "#ff7a2f" : "#d97706"
+  const missing = checks.filter((c) => !c.pass)
+
   return (
-    <div style={{ padding: 16, border: "1px solid #eee", borderRadius: 8, background: "#fafafa" }}>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }}>
-        <strong>Publish readiness</strong>
-        <span style={{ fontFamily: "monospace" }}>{percent}%</span>
+    <div className="softree-readiness">
+      <div className="softree-readiness__head">
+        <span className="softree-readiness__title">Publish readiness</span>
+        <span className="softree-readiness__pct" style={{color: barColor}}>
+          {percent}%
+        </span>
       </div>
-      <div style={{ height: 8, background: "#eaeaea", borderRadius: 4, overflow: "hidden" }}>
-        <div style={{ height: 8, width: `${percent}%`, background: percent >= 80 ? "#16a34a" : "#f59e0b" }} />
+      <div className="softree-readiness__bar">
+        <div
+          className="softree-readiness__bar-fill"
+          style={{width: `${percent}%`, background: barColor}}
+        />
+      </div>
+      <div className="softree-readiness__checks">
+        {checks.map((check) => (
+          <span
+            key={check.label}
+            className={`softree-readiness__check ${check.pass ? "is-done" : "is-missing"}`}
+          >
+            {check.label}
+          </span>
+        ))}
       </div>
       {missing.length > 0 ? (
-        <div style={{ marginTop: 10, color: "#6b7280", fontSize: 12 }}>
-          Missing: {missing.join(", ")}
-        </div>
+        <p className="softree-readiness__hint">
+          Next: {missing.map((m) => m.label.toLowerCase()).join(", ")}
+        </p>
       ) : (
-        <div style={{ marginTop: 10, color: "#16a34a", fontSize: 12 }}>Looks good!</div>
+        <p className="softree-readiness__hint is-ready">Ready to publish</p>
       )}
     </div>
   )

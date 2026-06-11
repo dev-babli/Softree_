@@ -1,4 +1,3 @@
-import { groq } from 'next-sanity'
 import { PortableText, type PortableTextComponents } from '@portabletext/react'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
@@ -7,9 +6,13 @@ import Image from 'next/image'
 import { ArrowLeft, CalendarDays, Clock3, Facebook, Linkedin, Link2, Twitter } from 'lucide-react'
 import NavigationServer from '@/components/sections/navigation-server'
 import Footer from '@/components/sections/footer'
+import { BlogComposerPage } from '@/components/blog/BlogComposerPage'
 import { sharedPortableTextTypes } from '@/components/portable-text/contentBlockTypes'
+import { getNavigationData } from '@/components/sections/navigation-server'
 import { sanityFetch } from '@/sanity/lib/fetch'
-import { buildArticleJsonLd } from '@/lib/structured-data'
+import { client } from '@/sanity/lib/client'
+import { postBySlugQuery, relatedPostsQuery } from '@/sanity/queries'
+import { buildArticleJsonLd, buildBlogJsonLdGraph } from '@/lib/structured-data'
 
 function toPlainText(value: unknown): string {
   if (!value) return ''
@@ -131,45 +134,9 @@ const portableTextComponents: PortableTextComponents = {
   },
 }
 
-const postQuery = groq`
-  *[_type == "post" && slug.current == $slug && ($preview == true || coalesce(status, "published") == "published")][0] {
-    _id,
-    _updatedAt,
-    title,
-    slug,
-    excerpt,
-    publishedAt,
-    author->{ name, bio },
-    categories[]->{ title },
-    mainImage { asset->{ url }, alt },
-    body[]{
-      ...,
-      _type == "image" => {
-        ...,
-        asset->
-      },
-      markDefs[]{
-        ...,
-        _type == "link" => {
-          ...,
-          href
-        }
-      }
-    },
-    metaTitle,
-    metaDescription,
-    focusKeyword,
-    secondaryKeywords,
-    faqSchema,
-    ogImage { asset->{ url } }
-  }
-`
-
-export const dynamic = 'force-dynamic'
-
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
-  const post = await sanityFetch<any>(postQuery, { slug })
+  const post = await sanityFetch<any>(postBySlugQuery, { slug })
 
   if (!post) return { title: 'Blog Post Not Found' }
 
@@ -207,11 +174,77 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 }
 
+export const dynamic = 'force-dynamic'
+
+function estimateReadTime(post: { body?: unknown; composerSections?: unknown[] }): string {
+  const composerText = JSON.stringify(post.composerSections || '')
+  const bodyText = JSON.stringify(post.body || '')
+  const words = (composerText + bodyText).split(/\s+/).filter(Boolean).length
+  return `${Math.max(3, Math.ceil(Math.max(words, 700) / 220))} min read`
+}
+
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const post = await sanityFetch<any>(postQuery, { slug })
+  const post = await sanityFetch<any>(postBySlugQuery, { slug })
 
   if (!post) notFound()
+
+  const authorName = toPlainText(post.author?.name) || 'Softree Team'
+  const publishedDate = post.publishedAt
+    ? new Date(post.publishedAt).toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+      })
+    : 'Recent'
+  const readTime = estimateReadTime(post)
+
+  if (post.displayMode === 'composer' && post.composerSections?.length) {
+    const [relatedPosts, nav] = await Promise.all([
+      client.fetch(relatedPostsQuery, { slug }),
+      getNavigationData(),
+    ])
+    const pageUrl = `https://www.softreetechnology.com/blog/${slug}`
+    const excerpt =
+      toPlainText(post.excerpt) ||
+      toPlainText(post.composerSections?.[0])?.substring(0, 160) ||
+      ''
+    const keywords = [post.focusKeyword, ...(post.secondaryKeywords || [])].filter(Boolean)
+
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              buildBlogJsonLdGraph({
+                headline: post.title,
+                description:
+                  toPlainText(post.metaDescription) || excerpt,
+                url: pageUrl,
+                datePublished: post.publishedAt,
+                dateModified: post._updatedAt,
+                image: post.mainImage?.asset?.url || post.ogImage?.asset?.url,
+                authorName,
+                faqs: post.faqSchema,
+                keywords,
+              }),
+            ),
+          }}
+        />
+        <BlogComposerPage
+          post={post}
+          relatedPosts={relatedPosts || []}
+          slug={slug}
+          authorName={authorName}
+          publishedLabel={`Published: ${publishedDate}`}
+          readTime={readTime}
+          initialBlogCategories={nav.blogCategories}
+          initialCaseStudyCategories={nav.caseStudyCategories}
+        />
+      </>
+    )
+  }
 
   const excerpt =
     toPlainText(post.excerpt) ||
@@ -220,11 +253,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   const pageUrl = `https://www.softreetechnology.com/blog/${slug}`
   const encodedUrl = encodeURIComponent(pageUrl)
   const encodedTitle = encodeURIComponent(post.title || 'Softree Technology Blog')
-  const readTime = Math.max(3, Math.ceil((JSON.stringify(post.body || '').split(/\s+/).length || 700) / 220))
   const categoryName = post.categories?.[0]?.title || 'Blog'
-  const publishedDate = post.publishedAt
-    ? new Date(post.publishedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
-    : 'Recent'
   const updatedDate = post._updatedAt
     ? new Date(post._updatedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
     : publishedDate

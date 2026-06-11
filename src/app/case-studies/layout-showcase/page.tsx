@@ -1,9 +1,10 @@
 import Link from "next/link"
 import Image from "next/image"
+import { notFound } from "next/navigation"
 import NavigationClient from "@/components/sections/navigation-client"
 import Footer from "@/components/sections/footer"
 import { CASE_STUDY_LAYOUTS } from "@/lib/case-study-layouts"
-import { client } from "@/sanity/client"
+import { client } from "@/sanity/lib/client"
 import { allCaseStudySlugsQuery } from "@/sanity/queries"
 
 export const metadata = {
@@ -21,6 +22,13 @@ const LAYOUT_MOODS: Record<
     labelClass: string
   }
 > = {
+  "page-composer": {
+    product: "CMS-driven / Editor-first",
+    mood: "Drag-and-drop sections — narrative, metrics, gallery, FAQ, CTA",
+    previewClass: "from-[#fafaf9] via-white to-[#f5f2ed]",
+    accent: "#FF7A2F",
+    labelClass: "text-[#0f172a]/70",
+  },
   "manufacturing-power-platform": {
     product: "Enterprise Power Platform / Manufacturing",
     mood: "Dark industrial editorial, stats bar, architecture flow",
@@ -136,6 +144,8 @@ const LAYOUT_MOODS: Record<
 }
 
 export default async function LayoutShowcasePage() {
+  if (process.env.NODE_ENV === "production") notFound()
+
   const slugs = await client.fetch<string[]>(allCaseStudySlugsQuery)
   const previewSlug = slugs?.[0] || "fix-customer-relations-30-days"
 
@@ -149,18 +159,17 @@ export default async function LayoutShowcasePage() {
             16 distinct case study designs
           </h1>
           <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-slate-600">
-            Each layout is a complete page design — not a reorder of shared sections. Open any card to preview with{" "}
-            <code className="rounded-md bg-white px-1.5 py-0.5 text-[13px] font-medium text-slate-800 ring-1 ring-slate-200">
-              ?layout=
-            </code>{" "}
-            on slug <strong className="font-semibold text-slate-800">{previewSlug}</strong>.
+            Each layout is a complete page design. Layout is set in Sanity under{" "}
+            <strong className="font-semibold text-slate-800">Page composer → Page layout</strong>.
+            Preview any layout using the sample slug{" "}
+            <strong className="font-semibold text-slate-800">{previewSlug}</strong> in Studio.
           </p>
         </div>
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {CASE_STUDY_LAYOUTS.map((layout, index) => {
             const meta = LAYOUT_MOODS[layout.value]
-            const href = `/case-studies/${previewSlug}?layout=${layout.value}`
+            const href = `/case-studies/${previewSlug}`
             return (
               <Link
                 key={layout.value}
@@ -233,14 +242,14 @@ export default async function LayoutShowcasePage() {
                 /case-studies/layout-showcase
               </Link>
             </li>
-            <li>Click any card — opens the case study with a layout override (preview mode)</li>
+            <li>Click any card — opens the published case study page (layout is controlled in Sanity CMS)</li>
             <li>
-              Direct URL pattern:{" "}
-              <code className="mt-1 block overflow-x-auto rounded-lg bg-slate-50 px-3 py-2 text-xs text-slate-700 ring-1 ring-slate-200">
-                /case-studies/{previewSlug}?layout=neutrino-dashboard-story
-              </code>
+              In Sanity Studio, open a case study → set <strong>Page layout</strong> → use the live preview pane
             </li>
-            <li>In Sanity Studio, use the Detail Layout picker — previews via iframe</li>
+            <li>
+              Run <code className="rounded bg-slate-50 px-1.5 py-0.5 text-xs">npm run sanity:migrate-to-composer -- --apply</code> to
+              migrate manufacturing layouts to page composer
+            </li>
             <li>Open two layouts in split tabs — they should read as different products, not the same template</li>
           </ol>
         </section>

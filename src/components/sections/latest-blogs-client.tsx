@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { client } from "@/sanity/client";
+import { client } from "@/sanity/lib/client";
 import { latestBlogsQuery } from "@/sanity/queries";
 import type { SanityBlogPost } from "@/sanity/types";
 import LatestBlogsSection from "./ai-insights-blog";

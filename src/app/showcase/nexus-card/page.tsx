@@ -4,11 +4,15 @@ import Link from "next/link";
 import { NexusSection2 } from "@/components/showcase/nexus-card";
 import "@/components/showcase/nexus-card/nexus-section-2.css";
 
-/** FOLLOW.ART nexus-section-2 scroll clone — Your Card promo */
+/** FOLLOW.ART nexus-section-2 scroll clone */
 export default function NexusCardShowcasePage() {
   return (
-    <div className="min-h-screen" style={{ background: "#8fa3b3" }}>
-      <nav className="nexus-promo-nav" aria-label="Promo navigation">
+    <div className="nexus-ui-blue min-h-screen">
+      <Link href="/showcase" className="nexus-showcase-back">
+        ← Showcase
+      </Link>
+
+      <nav className="nexus-promo-nav" aria-label="Site">
         <div>
           <p className="nexus-promo-nav__brand">FOLLOW.ART</p>
           <p className="nexus-promo-nav__tagline">One Practice. One Card.</p>
@@ -18,37 +22,15 @@ export default function NexusCardShowcasePage() {
             <a href="#">About</a>
           </li>
           <li>
-            <a href="#" className="is-active">
-              Our Product
-            </a>
-          </li>
-          <li>
-            <a href="#">Community Board</a>
+            <a href="#">How it works</a>
           </li>
           <li>
             <a href="#">Pricing</a>
           </li>
-          <li>
-            <a href="#">FAQ</a>
-          </li>
-          <li>
-            <a href="#">Login</a>
-          </li>
-          <li>
-            <a href="#">Join</a>
-          </li>
         </ul>
       </nav>
 
-      <div className="nexus-showcase-header">
-        <Link href="/showcase">← Showcase</Link>
-        <Link href="/">Homepage</Link>
-      </div>
-
-      <main>
-        <NexusSection2 />
-        <p className="nexus-scroll-hint">Scroll to step through each card state</p>
-      </main>
+      <NexusSection2 />
     </div>
   );
 }

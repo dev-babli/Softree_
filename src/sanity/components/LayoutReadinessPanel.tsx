@@ -6,7 +6,8 @@ import { useMemo } from "react"
 import { useFormValue } from "sanity"
 
 import { isPremiumLayout } from "@/lib/case-study-layouts"
-import { CLASSIC_LAYOUT_VALUE } from "@/sanity/lib/layoutPreview"
+
+const DEFAULT_LAYOUT = "page-composer"
 
 type Warning = {
   field: string
@@ -19,8 +20,9 @@ function countBlocks(value: unknown): number {
 
 function analyzeReadiness(doc: Record<string, unknown>): Warning[] {
   const warnings: Warning[] = []
-  const layout = (doc.detailLayout as string | undefined) || CLASSIC_LAYOUT_VALUE
-  const premium = isPremiumLayout(layout === CLASSIC_LAYOUT_VALUE ? undefined : layout)
+  const layout = (doc.detailLayout as string | undefined) || DEFAULT_LAYOUT
+  const premium = isPremiumLayout(layout)
+  const isComposer = layout === "page-composer"
 
   if (!doc.client) {
     warnings.push({
@@ -40,17 +42,27 @@ function analyzeReadiness(doc: Record<string, unknown>): Warning[] {
     warnings.push({ field: "excerpt", message: "Excerpt is missing — listing cards and SEO will use fallbacks." })
   }
 
-  const hasStory =
-    countBlocks(doc.challengeContent) > 0 ||
-    countBlocks(doc.approachContent) > 0 ||
-    countBlocks(doc.outcomeContent) > 0 ||
-    countBlocks(doc.body) > 0
+  if (isComposer) {
+    const sections = doc.composerSections as unknown[] | undefined
+    if (!sections?.length) {
+      warnings.push({
+        field: "composerSections",
+        message: "Add at least one section in the Page composer tab.",
+      })
+    }
+  } else {
+    const hasStory =
+      countBlocks(doc.challengeContent) > 0 ||
+      countBlocks(doc.approachContent) > 0 ||
+      countBlocks(doc.outcomeContent) > 0 ||
+      countBlocks(doc.body) > 0
 
-  if (!hasStory) {
-    warnings.push({
-      field: "story",
-      message: "No story sections filled — the page body will look empty.",
-    })
+    if (!hasStory) {
+      warnings.push({
+        field: "story",
+        message: "No story sections filled — the page body will look empty.",
+      })
+    }
   }
 
   const mainImage = doc.mainImage as { asset?: { _ref?: string } } | undefined
@@ -69,7 +81,7 @@ function analyzeReadiness(doc: Record<string, unknown>): Warning[] {
     })
   }
 
-  if (premium) {
+  if (premium && !isComposer) {
     const challengeCards = doc.challengeCards as unknown[] | undefined
     if (!challengeCards?.length) {
       warnings.push({
@@ -124,7 +136,7 @@ function analyzeReadiness(doc: Record<string, unknown>): Warning[] {
 
 export default function LayoutReadinessPanel() {
   const document = useFormValue([]) as Record<string, unknown> | undefined
-  const layout = (document?.detailLayout as string | undefined) || CLASSIC_LAYOUT_VALUE
+  const layout = (document?.detailLayout as string | undefined) || DEFAULT_LAYOUT
 
   const warnings = useMemo(
     () => (document ? analyzeReadiness(document) : []),

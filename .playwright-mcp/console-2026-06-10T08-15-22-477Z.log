@@ -1,0 +1,519 @@
+[     128ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[     143ms] [LOG] [Fast Refresh] done in 120ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[    2096ms] [LOG] %c[Vercel Speed Insights]%c [vitals] color: rgb(120, 120, 120) color: inherit {speed: 4g, metrics: Array(3), scriptVersion: 0.1.3, sdkName: @vercel/speed-insights/next, sdkVersion: 2.0.0} /_vercel/speed-insights/vitals @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[    2121ms] [LOG] %c[Vercel Speed Insights]%c [vitals] color: rgb(120, 120, 120) color: inherit {speed: 4g, metrics: Array(1), scriptVersion: 0.1.3, sdkName: @vercel/speed-insights/next, sdkVersion: 2.0.0} /_vercel/speed-insights/vitals @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[    2638ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[    2890ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/chunks/src_components_calendly_CalendlyInlineEmbed_tsx_0iaxk.8._.js:0
+[    2893ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[    5195ms] [WARNING] [PostHog] Missing NEXT_PUBLIC_POSTHOG_KEY - analytics disabled @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   10766ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   10853ms] [LOG] [Fast Refresh] done in 197ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   11808ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   11809ms] [LOG] [Fast Refresh] done in 651ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   11880ms] [LOG] Route changed: / @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   11881ms] [LOG] Sending pageview: / @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   11881ms] [LOG] GA4 loaded @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   12123ms] [LOG] %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   12674ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   15123ms] [LOG] [Fast Refresh] done in 2553ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   16665ms] [WARNING] The resource http://localhost:3000/_next/static/chunks/src_components_calendly_CalendlyInlineEmbed_tsx_0iaxk.8._.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/#contact:0
+[   24846ms] [WARNING] The resource http://localhost:3000/_next/static/chunks/src_components_calendly_CalendlyInlineEmbed_tsx_0iaxk.8._.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/#contact:0
+[   32805ms] [WARNING] The resource http://localhost:3000/_next/static/chunks/src_components_calendly_CalendlyInlineEmbed_tsx_0iaxk.8._.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/#contact:0
+[   37888ms] [WARNING] The resource http://localhost:3000/_next/static/chunks/src_components_calendly_CalendlyInlineEmbed_tsx_0iaxk.8._.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/#contact:0
+[   43352ms] [WARNING] The resource http://localhost:3000/_next/static/chunks/src_components_calendly_CalendlyInlineEmbed_tsx_0iaxk.8._.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/#contact:0
+[   43447ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   47032ms] [WARNING] Datadog Browser SDK: No storage available for session. We will not send any data. @ https://assets.calendly.com/assets/booking/js/booking-1beb1f699.js:92
+[   50329ms] [WARNING] The resource http://localhost:3000/_next/static/chunks/src_components_calendly_CalendlyInlineEmbed_tsx_0iaxk.8._.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/#contact:0
+[   53853ms] [WARNING] The resource http://localhost:3000/_next/static/chunks/src_components_calendly_CalendlyInlineEmbed_tsx_0iaxk.8._.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/#contact:0
+[   56939ms] [ERROR] ./src/components/sections/navigation.tsx:12:1
+Export NAV_MENU_GRAINIENT doesn't exist in target module
+  10 | ...aseStudyCategory,
+  11 | ...nity/types";
+> 12 | ...
+     |    ^^^^^^^
+> 13 | ...RAINIENT,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 14 | ...mnGrainient,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 15 | ...ainientPreset,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 16 | ...vigation-grainien...
+     |    ^^^^^^^^^^^^^^^^^^^^
+  17 | ...
+  18 | ...
+  19 | ...board,
+
+The export NAV_MENU_GRAINIENT was not found in module [project]/src/components/sections/navigation-grainient.presets.ts [app-client] (ecmascript).
+Did you mean to import NAV_RAIL_GRAINIENT?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/navigation.tsx [Client Component Browser]
+    ./src/components/sections/navigation-client.tsx [Client Component Browser]
+    ./src/app/home-page.tsx [Client Component Browser]
+    ./src/app/home-page.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/navigation.tsx [Client Component SSR]
+    ./src/components/sections/navigation-client.tsx [Client Component SSR]
+    ./src/app/home-page.tsx [Client Component SSR]
+    ./src/app/home-page.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1915
+[   56940ms] [ERROR] ./src/components/sections/navigation.tsx:12:1
+Export NAV_MENU_GRAINIENT doesn't exist in target module
+  10 | ...aseStudyCategory,
+  11 | ...nity/types";
+> 12 | ...
+     |    ^^^^^^^
+> 13 | ...RAINIENT,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 14 | ...mnGrainient,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 15 | ...ainientPreset,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 16 | ...vigation-grainien...
+     |    ^^^^^^^^^^^^^^^^^^^^
+  17 | ...
+  18 | ...
+  19 | ...board,
+
+The export NAV_MENU_GRAINIENT was not found in module [project]/src/components/sections/navigation-grainient.presets.ts [app-ssr] (ecmascript).
+Did you mean to import NAV_RAIL_GRAINIENT?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/navigation.tsx [Client Component Browser]
+    ./src/components/sections/navigation-client.tsx [Client Component Browser]
+    ./src/app/home-page.tsx [Client Component Browser]
+    ./src/app/home-page.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/navigation.tsx [Client Component SSR]
+    ./src/components/sections/navigation-client.tsx [Client Component SSR]
+    ./src/app/home-page.tsx [Client Component SSR]
+    ./src/app/home-page.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1915
+[   56940ms] [ERROR] ./src/components/sections/navigation.tsx:12:1
+Export getNavColumnGrainient doesn't exist in target module
+  10 | ...aseStudyCategory,
+  11 | ...nity/types";
+> 12 | ...
+     |    ^^^^^^^
+> 13 | ...RAINIENT,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 14 | ...mnGrainient,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 15 | ...ainientPreset,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 16 | ...vigation-grainien...
+     |    ^^^^^^^^^^^^^^^^^^^^
+  17 | ...
+  18 | ...
+  19 | ...board,
+
+The export getNavColumnGrainient was not found in module [project]/src/components/sections/navigation-grainient.presets.ts [app-client] (ecmascript).
+Did you mean to import getNavColumnAccent?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/navigation.tsx [Client Component Browser]
+    ./src/components/sections/navigation-client.tsx [Client Component Browser]
+    ./src/app/home-page.tsx [Client Component Browser]
+    ./src/app/home-page.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/navigation.tsx [Client Component SSR]
+    ./src/components/sections/navigation-client.tsx [Client Component SSR]
+    ./src/app/home-page.tsx [Client Component SSR]
+    ./src/app/home-page.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1915
+[   56941ms] [ERROR] ./src/components/sections/navigation.tsx:12:1
+Export getNavColumnGrainient doesn't exist in target module
+  10 | ...aseStudyCategory,
+  11 | ...nity/types";
+> 12 | ...
+     |    ^^^^^^^
+> 13 | ...RAINIENT,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 14 | ...mnGrainient,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 15 | ...ainientPreset,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 16 | ...vigation-grainien...
+     |    ^^^^^^^^^^^^^^^^^^^^
+  17 | ...
+  18 | ...
+  19 | ...board,
+
+The export getNavColumnGrainient was not found in module [project]/src/components/sections/navigation-grainient.presets.ts [app-ssr] (ecmascript).
+Did you mean to import getNavColumnAccent?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/navigation.tsx [Client Component Browser]
+    ./src/components/sections/navigation-client.tsx [Client Component Browser]
+    ./src/app/home-page.tsx [Client Component Browser]
+    ./src/app/home-page.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/navigation.tsx [Client Component SSR]
+    ./src/components/sections/navigation-client.tsx [Client Component SSR]
+    ./src/app/home-page.tsx [Client Component SSR]
+    ./src/app/home-page.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1915
+[   57887ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   57891ms] [ERROR] ./src/components/sections/navigation.tsx:12:1
+Export NAV_MENU_GRAINIENT doesn't exist in target module
+  10 | ...aseStudyCategory,
+  11 | ...nity/types";
+> 12 | ...
+     |    ^^^^^^^
+> 13 | ...RAINIENT,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 14 | ...mnGrainient,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 15 | ...ainientPreset,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 16 | ...vigation-grainien...
+     |    ^^^^^^^^^^^^^^^^^^^^
+  17 | ...
+  18 | ...
+  19 | ...board,
+
+The export NAV_MENU_GRAINIENT was not found in module [project]/src/components/sections/navigation-grainient.presets.ts [app-client] (ecmascript).
+Did you mean to import NAV_RAIL_GRAINIENT?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/navigation.tsx [Client Component Browser]
+    ./src/components/sections/navigation-client.tsx [Client Component Browser]
+    ./src/app/home-page.tsx [Client Component Browser]
+    ./src/app/home-page.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/navigation.tsx [Client Component SSR]
+    ./src/components/sections/navigation-client.tsx [Client Component SSR]
+    ./src/app/home-page.tsx [Client Component SSR]
+    ./src/app/home-page.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1915
+[   57892ms] [ERROR] ./src/components/sections/navigation.tsx:12:1
+Export NAV_MENU_GRAINIENT doesn't exist in target module
+  10 | ...aseStudyCategory,
+  11 | ...nity/types";
+> 12 | ...
+     |    ^^^^^^^
+> 13 | ...RAINIENT,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 14 | ...mnGrainient,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 15 | ...ainientPreset,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 16 | ...vigation-grainien...
+     |    ^^^^^^^^^^^^^^^^^^^^
+  17 | ...
+  18 | ...
+  19 | ...board,
+
+The export NAV_MENU_GRAINIENT was not found in module [project]/src/components/sections/navigation-grainient.presets.ts [app-ssr] (ecmascript).
+Did you mean to import NAV_RAIL_GRAINIENT?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/navigation.tsx [Client Component Browser]
+    ./src/components/sections/navigation-client.tsx [Client Component Browser]
+    ./src/app/home-page.tsx [Client Component Browser]
+    ./src/app/home-page.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/navigation.tsx [Client Component SSR]
+    ./src/components/sections/navigation-client.tsx [Client Component SSR]
+    ./src/app/home-page.tsx [Client Component SSR]
+    ./src/app/home-page.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1915
+[   57893ms] [ERROR] ./src/components/sections/navigation.tsx:12:1
+Export getNavColumnGrainient doesn't exist in target module
+  10 | ...aseStudyCategory,
+  11 | ...nity/types";
+> 12 | ...
+     |    ^^^^^^^
+> 13 | ...RAINIENT,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 14 | ...mnGrainient,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 15 | ...ainientPreset,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 16 | ...vigation-grainien...
+     |    ^^^^^^^^^^^^^^^^^^^^
+  17 | ...
+  18 | ...
+  19 | ...board,
+
+The export getNavColumnGrainient was not found in module [project]/src/components/sections/navigation-grainient.presets.ts [app-client] (ecmascript).
+Did you mean to import getNavColumnAccent?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/navigation.tsx [Client Component Browser]
+    ./src/components/sections/navigation-client.tsx [Client Component Browser]
+    ./src/app/home-page.tsx [Client Component Browser]
+    ./src/app/home-page.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/navigation.tsx [Client Component SSR]
+    ./src/components/sections/navigation-client.tsx [Client Component SSR]
+    ./src/app/home-page.tsx [Client Component SSR]
+    ./src/app/home-page.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1915
+[   57895ms] [ERROR] ./src/components/sections/navigation.tsx:12:1
+Export getNavColumnGrainient doesn't exist in target module
+  10 | ...aseStudyCategory,
+  11 | ...nity/types";
+> 12 | ...
+     |    ^^^^^^^
+> 13 | ...RAINIENT,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 14 | ...mnGrainient,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 15 | ...ainientPreset,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 16 | ...vigation-grainien...
+     |    ^^^^^^^^^^^^^^^^^^^^
+  17 | ...
+  18 | ...
+  19 | ...board,
+
+The export getNavColumnGrainient was not found in module [project]/src/components/sections/navigation-grainient.presets.ts [app-ssr] (ecmascript).
+Did you mean to import getNavColumnAccent?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/navigation.tsx [Client Component Browser]
+    ./src/components/sections/navigation-client.tsx [Client Component Browser]
+    ./src/app/home-page.tsx [Client Component Browser]
+    ./src/app/home-page.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/navigation.tsx [Client Component SSR]
+    ./src/components/sections/navigation-client.tsx [Client Component SSR]
+    ./src/app/home-page.tsx [Client Component SSR]
+    ./src/app/home-page.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1915
+[   58024ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   71515ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/?_rsc=q3mOO9BClNZHexY7#contact:0
+[   71582ms] [ERROR] ./src/components/sections/navigation.tsx:12:1
+Export NAV_MENU_GRAINIENT doesn't exist in target module
+  10 | ...aseStudyCategory,
+  11 | ...nity/types";
+> 12 | ...
+     |    ^^^^^^^
+> 13 | ...RAINIENT,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 14 | ...mnGrainient,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 15 | ...ainientPreset,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 16 | ...vigation-grainien...
+     |    ^^^^^^^^^^^^^^^^^^^^
+  17 | ...
+  18 | ...
+  19 | ...board,
+
+The export NAV_MENU_GRAINIENT was not found in module [project]/src/components/sections/navigation-grainient.presets.ts [app-client] (ecmascript).
+Did you mean to import NAV_RAIL_GRAINIENT?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/navigation.tsx [Client Component Browser]
+    ./src/components/sections/navigation-client.tsx [Client Component Browser]
+    ./src/app/home-page.tsx [Client Component Browser]
+    ./src/app/home-page.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/navigation.tsx [Client Component SSR]
+    ./src/components/sections/navigation-client.tsx [Client Component SSR]
+    ./src/app/home-page.tsx [Client Component SSR]
+    ./src/app/home-page.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1915
+[   71584ms] [ERROR] ./src/components/sections/navigation.tsx:12:1
+Export NAV_MENU_GRAINIENT doesn't exist in target module
+  10 | ...aseStudyCategory,
+  11 | ...nity/types";
+> 12 | ...
+     |    ^^^^^^^
+> 13 | ...RAINIENT,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 14 | ...mnGrainient,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 15 | ...ainientPreset,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 16 | ...vigation-grainien...
+     |    ^^^^^^^^^^^^^^^^^^^^
+  17 | ...
+  18 | ...
+  19 | ...board,
+
+The export NAV_MENU_GRAINIENT was not found in module [project]/src/components/sections/navigation-grainient.presets.ts [app-ssr] (ecmascript).
+Did you mean to import NAV_RAIL_GRAINIENT?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/navigation.tsx [Client Component Browser]
+    ./src/components/sections/navigation-client.tsx [Client Component Browser]
+    ./src/app/home-page.tsx [Client Component Browser]
+    ./src/app/home-page.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/navigation.tsx [Client Component SSR]
+    ./src/components/sections/navigation-client.tsx [Client Component SSR]
+    ./src/app/home-page.tsx [Client Component SSR]
+    ./src/app/home-page.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1915
+[   71586ms] [ERROR] ./src/components/sections/navigation.tsx:12:1
+Export getNavColumnGrainient doesn't exist in target module
+  10 | ...aseStudyCategory,
+  11 | ...nity/types";
+> 12 | ...
+     |    ^^^^^^^
+> 13 | ...RAINIENT,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 14 | ...mnGrainient,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 15 | ...ainientPreset,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 16 | ...vigation-grainien...
+     |    ^^^^^^^^^^^^^^^^^^^^
+  17 | ...
+  18 | ...
+  19 | ...board,
+
+The export getNavColumnGrainient was not found in module [project]/src/components/sections/navigation-grainient.presets.ts [app-client] (ecmascript).
+Did you mean to import getNavColumnAccent?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/navigation.tsx [Client Component Browser]
+    ./src/components/sections/navigation-client.tsx [Client Component Browser]
+    ./src/app/home-page.tsx [Client Component Browser]
+    ./src/app/home-page.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/navigation.tsx [Client Component SSR]
+    ./src/components/sections/navigation-client.tsx [Client Component SSR]
+    ./src/app/home-page.tsx [Client Component SSR]
+    ./src/app/home-page.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1915
+[   71589ms] [ERROR] ./src/components/sections/navigation.tsx:12:1
+Export getNavColumnGrainient doesn't exist in target module
+  10 | ...aseStudyCategory,
+  11 | ...nity/types";
+> 12 | ...
+     |    ^^^^^^^
+> 13 | ...RAINIENT,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 14 | ...mnGrainient,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 15 | ...ainientPreset,
+     |    ^^^^^^^^^^^^^^^^^^^^
+> 16 | ...vigation-grainien...
+     |    ^^^^^^^^^^^^^^^^^^^^
+  17 | ...
+  18 | ...
+  19 | ...board,
+
+The export getNavColumnGrainient was not found in module [project]/src/components/sections/navigation-grainient.presets.ts [app-ssr] (ecmascript).
+Did you mean to import getNavColumnAccent?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/navigation.tsx [Client Component Browser]
+    ./src/components/sections/navigation-client.tsx [Client Component Browser]
+    ./src/app/home-page.tsx [Client Component Browser]
+    ./src/app/home-page.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/navigation.tsx [Client Component SSR]
+    ./src/components/sections/navigation-client.tsx [Client Component SSR]
+    ./src/app/home-page.tsx [Client Component SSR]
+    ./src/app/home-page.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1915
+[   71728ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   74259ms] [WARNING] The resource http://localhost:3000/_next/static/chunks/src_components_calendly_CalendlyInlineEmbed_tsx_0iaxk.8._.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/#contact:0
+[   76900ms] [LOG] [Fast Refresh] done in 4749ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   77524ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   77677ms] [LOG] [Fast Refresh] done in 548ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   77793ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   79548ms] [LOG] [Fast Refresh] done in 1864ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   80411ms] [LOG] %c[Vercel Speed Insights]%c [vitals] color: rgb(120, 120, 120) color: inherit {speed: 4g, metrics: Array(3), scriptVersion: 0.1.3, sdkName: @vercel/speed-insights/next, sdkVersion: 2.0.0} /_vercel/speed-insights/vitals @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   80413ms] [LOG] %c[Vercel Speed Insights]%c [vitals] color: rgb(120, 120, 120) color: inherit {speed: 4g, metrics: Array(1), scriptVersion: 0.1.3, sdkName: @vercel/speed-insights/next, sdkVersion: 2.0.0} /_vercel/speed-insights/vitals @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   84258ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   85471ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/chunks/src_components_calendly_CalendlyInlineEmbed_tsx_0bp3s9u._.js:0
+[   85482ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   86770ms] [WARNING] [PostHog] Missing NEXT_PUBLIC_POSTHOG_KEY - analytics disabled @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   89590ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   89735ms] [LOG] [Fast Refresh] done in 254ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   89866ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   90426ms] [LOG] [Fast Refresh] done in 680ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   90485ms] [LOG] Route changed: / @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   90485ms] [LOG] Sending pageview: / @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   90485ms] [LOG] GA4 loaded @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   90527ms] [LOG] %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   90792ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   90864ms] [LOG] [Fast Refresh] done in 179ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[   93769ms] [WARNING] The resource http://localhost:3000/_next/static/chunks/src_components_calendly_CalendlyInlineEmbed_tsx_0bp3s9u._.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/#contact:0
+[  103936ms] [WARNING] Datadog Browser SDK: No storage available for session. We will not send any data. @ https://assets.calendly.com/assets/booking/js/booking-1beb1f699.js:92
+[  106968ms] [WARNING] The resource http://localhost:3000/_next/static/chunks/src_components_calendly_CalendlyInlineEmbed_tsx_0bp3s9u._.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/#contact:0
+[  116765ms] [WARNING] The resource http://localhost:3000/_next/static/chunks/src_components_calendly_CalendlyInlineEmbed_tsx_0bp3s9u._.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/#contact:0
+[  123138ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  123193ms] [LOG] [Fast Refresh] done in 177ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  123734ms] [WARNING] The resource http://localhost:3000/_next/static/chunks/src_components_calendly_CalendlyInlineEmbed_tsx_0bp3s9u._.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/#contact:0
+[  127479ms] [WARNING] The resource http://localhost:3000/_next/static/chunks/src_components_calendly_CalendlyInlineEmbed_tsx_0bp3s9u._.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/#contact:0
+[  132197ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  134129ms] [LOG] [Fast Refresh] done in 2042ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  134574ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  134641ms] [LOG] [Fast Refresh] done in 258ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  137412ms] [ERROR] Error sending segment performance metrics TypeError: Failed to fetch
+    at l (https://assets.calendly.com/assets/booking/js/booking-1beb1f699.js:144:8794)
+    at o (https://cdn.segment.io/analytics.js/v1/rfvnxd6wnn/analytics.min.js:1:23741)
+    at t.<anonymous> (https://cdn.segment.io/analytics.js/v1/rfvnxd6wnn/analytics.min.js:1:22238)
+    at https://cdn.segment.io/analytics.js/v1/rfvnxd6wnn/analytics.min.js:1:33667
+    at Object.next (https://cdn.segment.io/analytics.js/v1/rfvnxd6wnn/analytics.min.js:1:33772)
+    at https://cdn.segment.io/analytics.js/v1/rfvnxd6wnn/analytics.min.js:1:32688
+    at new Promise (<anonymous>)
+    at u (https://cdn.segment.io/analytics.js/v1/rfvnxd6wnn/analytics.min.js:1:32433)
+    at t.send (https://cdn.segment.io/analytics.js/v1/rfvnxd6wnn/analytics.min.js:1:22021)
+    at t.<anonymous> (https://cdn.segment.io/analytics.js/v1/rfvnxd6wnn/analytics.min.js:1:21894) @ https://cdn.segment.io/analytics.js/v1/rfvnxd6wnn/analytics.min.js:0
+[  138412ms] [LOG] Route changed: / @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  138412ms] [LOG] Sending pageview: / @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  138412ms] [LOG] GA4 loaded @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  149984ms] [WARNING] The resource http://localhost:3000/_next/static/chunks/src_components_calendly_CalendlyInlineEmbed_tsx_0bp3s9u._.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/#contact:0
+[  155505ms] [WARNING] The resource http://localhost:3000/_next/static/chunks/src_components_calendly_CalendlyInlineEmbed_tsx_0bp3s9u._.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/#contact:0
+[  159254ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  161077ms] [LOG] [Fast Refresh] done in 1942ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  161273ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  161463ms] [LOG] [Fast Refresh] done in 313ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  161783ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  161855ms] [LOG] [Fast Refresh] done in 187ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074

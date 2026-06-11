@@ -3,31 +3,34 @@
 import { CheckmarkIcon, DesktopIcon, LaunchIcon } from "@sanity/icons"
 import { Box, Button, Card, Flex, Grid, Stack, Text } from "@sanity/ui"
 import { useCallback, useMemo, useState } from "react"
-import { type StringInputProps, set, unset, useFormValue } from "sanity"
+import { type StringInputProps, set, useFormValue } from "sanity"
 
+import { CASE_STUDY_LAYOUTS } from "@/lib/case-study-layouts"
 import {
   buildLayoutPreviewIframeUrl,
-  CLASSIC_LAYOUT_VALUE,
+  buildPresentationPreviewHref,
   getSiteOrigin,
-  LAYOUT_PREVIEW_OPTIONS,
 } from "@/sanity/lib/layoutPreview"
+
+const DEFAULT_LAYOUT = "page-composer"
 
 function LayoutWireframe({ layoutValue }: { layoutValue: string }) {
   const accent = "var(--card-focus-ring-color, #5a17ee)"
 
-  if (layoutValue === CLASSIC_LAYOUT_VALUE) {
+  if (layoutValue === "page-composer") {
     return (
-      <Box padding={2}>
-        <Box style={{ height: 10, borderRadius: 3, background: "#0d0a23", marginBottom: 6 }} />
-        <Flex gap={2}>
-          <Box flex={1} style={{ height: 36, borderRadius: 3, background: "var(--card-border-color)" }} />
-          <Stack flex={2} space={2}>
-            <Box style={{ height: 8, width: "70%", borderRadius: 2, background: accent, opacity: 0.5 }} />
-            <Box style={{ height: 6, borderRadius: 2, background: "var(--card-border-color)" }} />
-            <Box style={{ height: 6, borderRadius: 2, background: "var(--card-border-color)" }} />
-          </Stack>
-        </Flex>
-      </Box>
+      <Stack space={2} padding={2}>
+        {[0, 1, 2, 3].map((i) => (
+          <Box
+            key={i}
+            style={{
+              height: i === 0 ? 12 : 10,
+              borderRadius: 3,
+              background: i === 0 ? "#0d0a23" : "var(--card-border-color)",
+            }}
+          />
+        ))}
+      </Stack>
     )
   }
 
@@ -93,55 +96,43 @@ function LayoutWireframe({ layoutValue }: { layoutValue: string }) {
 
 export default function DetailLayoutInput(props: StringInputProps) {
   const slug = useFormValue(["slug", "current"]) as string | undefined
-  const savedLayout = (props.value as string | undefined) || ""
-  const [previewOverride, setPreviewOverride] = useState<string | null>(null)
+  const savedLayout = (props.value as string | undefined) || DEFAULT_LAYOUT
   const [iframeKey, setIframeKey] = useState(0)
-  const previewLayout = previewOverride ?? (savedLayout || CLASSIC_LAYOUT_VALUE)
 
   const origin = getSiteOrigin()
 
   const previewUrl = useMemo(() => {
     if (!slug) return null
-    return buildLayoutPreviewIframeUrl(slug, previewLayout, origin)
-  }, [slug, previewLayout, origin])
+    return buildLayoutPreviewIframeUrl(slug, origin)
+  }, [slug, origin])
 
-  const presentationHref = slug ? buildLayoutPreviewIframeUrl(slug, previewLayout, origin) : null
+  const presentationHref = slug ? buildPresentationPreviewHref(slug) : null
 
   const selectLayout = useCallback(
     (value: string) => {
-      const nextSaved = value === CLASSIC_LAYOUT_VALUE ? undefined : value
-      props.onChange(nextSaved ? set(nextSaved) : unset())
-      setPreviewOverride(null)
+      props.onChange(set(value))
       setIframeKey((key) => key + 1)
     },
     [props],
   )
-
-  const previewOnly = useCallback((value: string) => {
-    setPreviewOverride(value)
-    setIframeKey((key) => key + 1)
-  }, [])
 
   return (
     <Stack space={5}>
       <Card padding={4} radius={3} tone="transparent" border>
         <Stack space={3}>
           <Text size={1} weight="semibold">
-            How to preview your layout
+            Page layout
           </Text>
           <Text size={1} muted>
-            Pick a layout card below to set the published layout, or click &ldquo;Preview only&rdquo; to compare
-            options without saving. Live preview updates in the Preview split pane as you type — open any case study to
-            see Content and Preview side by side. For full-screen site preview with click-to-edit, use Presentation in
-            the Studio sidebar.
+            Choose how this case study renders on the website. Page composer lets you stack sections in any order.
+            Other layouts are fixed templates. Preview uses the real case study URL with your draft content.
           </Text>
         </Stack>
       </Card>
 
       <Grid columns={[1, 1, 2]} gap={3}>
-        {LAYOUT_PREVIEW_OPTIONS.map((layout) => {
-          const isSaved = savedLayout === layout.value || (!savedLayout && layout.value === CLASSIC_LAYOUT_VALUE)
-          const isPreviewing = previewLayout === layout.value
+        {CASE_STUDY_LAYOUTS.map((layout) => {
+          const isSaved = savedLayout === layout.value
 
           return (
             <Card
@@ -149,12 +140,12 @@ export default function DetailLayoutInput(props: StringInputProps) {
               padding={3}
               radius={3}
               border
-              tone={isPreviewing ? "primary" : "default"}
+              tone={isSaved ? "primary" : "default"}
               style={{
                 cursor: "pointer",
-                outline: isPreviewing ? "2px solid var(--card-focus-ring-color)" : undefined,
+                outline: isSaved ? "2px solid var(--card-focus-ring-color)" : undefined,
               }}
-              onClick={() => previewOnly(layout.value)}
+              onClick={() => selectLayout(layout.value)}
             >
               <Stack space={3}>
                 <LayoutWireframe layoutValue={layout.value} />
@@ -175,29 +166,16 @@ export default function DetailLayoutInput(props: StringInputProps) {
                   <Text size={1} muted>
                     {layout.description}
                   </Text>
-                  <Flex gap={2} wrap="wrap">
-                    <Button
-                      fontSize={1}
-                      mode={isSaved ? "default" : "ghost"}
-                      tone="primary"
-                      text={isSaved ? "Selected layout" : "Use this layout"}
-                      onClick={(event) => {
-                        event.stopPropagation()
-                        selectLayout(layout.value)
-                      }}
-                    />
-                    {!isPreviewing ? (
-                      <Button
-                        fontSize={1}
-                        mode="bleed"
-                        text="Preview only"
-                        onClick={(event) => {
-                          event.stopPropagation()
-                          previewOnly(layout.value)
-                        }}
-                      />
-                    ) : null}
-                  </Flex>
+                  <Button
+                    fontSize={1}
+                    mode={isSaved ? "default" : "ghost"}
+                    tone="primary"
+                    text={isSaved ? "Selected layout" : "Use this layout"}
+                    onClick={(event) => {
+                      event.stopPropagation()
+                      selectLayout(layout.value)
+                    }}
+                  />
                 </Stack>
               </Stack>
             </Card>
@@ -217,8 +195,8 @@ export default function DetailLayoutInput(props: StringInputProps) {
               </Flex>
               <Text size={1} muted>
                 {slug
-                  ? `Showing "${LAYOUT_PREVIEW_OPTIONS.find((l) => l.value === previewLayout)?.title || previewLayout}" with your draft content.`
-                  : "Add a slug in Publish & SEO before previewing."}
+                  ? `Showing "${CASE_STUDY_LAYOUTS.find((l) => l.value === savedLayout)?.title || savedLayout}" at /case-studies/${slug}.`
+                  : "Add a slug before previewing."}
               </Text>
             </Stack>
             <Flex gap={2} wrap="wrap">

@@ -46,6 +46,7 @@ export const navCaseStudiesQuery = groq`
     slug,
     excerpt,
     category,
+    useCase,
     storyType,
     heroLayout,
     detailLayout,
@@ -99,7 +100,6 @@ export const caseStudyBySlugQuery = groq`
     location,
     employees,
     scaleOfOperation,
-    duration,
     teamSize,
     accentColor,
     projectType,
@@ -174,7 +174,37 @@ export const caseStudyBySlugQuery = groq`
     metaTitle,
     metaDescription,
     ogImage { asset->{ url } },
-    publishedAt
+    publishedAt,
+    composerSections[] {
+      _type,
+      _key,
+      anchorId,
+      label,
+      heading,
+      content,
+      layout,
+      image { asset->{ url }, alt },
+      cards[] { _key, title, description },
+      showImage,
+      metrics[] { _key, value, label, description },
+      summary,
+      features,
+      subheading,
+      images[] { _key, asset->{ url }, alt, caption },
+      quote,
+      name,
+      role,
+      avatar { asset->{ url } },
+      description,
+      technologies[] {
+        _key,
+        name,
+        subtitle,
+        logo { asset->{ url }, alt }
+      },
+      rows[] { _key, metric, before, after },
+      faqs[] { _key, question, answer }
+    }
   }
 `;
 
@@ -200,6 +230,95 @@ export const relatedCaseStudiesFallbackQuery = groq`
 
 export const allCaseStudySlugsQuery = groq`
   *[_type == "caseStudy" && defined(slug.current) && coalesce(status, "published") == "published"][].slug.current
+`;
+
+/** Shared GROQ projection for page composer sections (case studies + composer blog posts). */
+export const composerSectionsProjection = `
+  composerSections[] {
+    _type,
+    _key,
+    anchorId,
+    label,
+    heading,
+    content,
+    layout,
+    image { asset->{ url }, alt },
+    cards[] { _key, title, description },
+    showImage,
+    metrics[] { _key, value, label, description },
+    summary,
+    features,
+    subheading,
+    images[] { _key, asset->{ url }, alt, caption },
+    quote,
+    name,
+    role,
+    avatar { asset->{ url } },
+    description,
+    technologies[] {
+      _key,
+      name,
+      subtitle,
+      logo { asset->{ url }, alt }
+    },
+    rows[] { _key, metric, before, after },
+    faqs[] { _key, question, answer }
+  }
+`;
+
+export const postBySlugQuery = groq`
+  *[_type == "post" && slug.current == $slug && ($preview == true || coalesce(status, "published") == "published")][0] {
+    _id,
+    _updatedAt,
+    title,
+    slug,
+    excerpt,
+    displayMode,
+    layoutRecipe,
+    heroEyebrow,
+    heroHighlights[] { value, label },
+    publishedAt,
+    status,
+    author->{ name, bio },
+    categories[]->{ title, slug },
+    mainImage { asset->{ url }, alt },
+    body[]{
+      ...,
+      _type == "image" => {
+        ...,
+        asset->
+      },
+      markDefs[]{
+        ...,
+        _type == "link" => {
+          ...,
+          href
+        }
+      }
+    },
+    metaTitle,
+    metaDescription,
+    focusKeyword,
+    secondaryKeywords,
+    faqSchema,
+    ogImage { asset->{ url } },
+    ${composerSectionsProjection}
+  }
+`;
+
+export const relatedPostsQuery = groq`
+  *[_type == "post"
+    && slug.current != $slug
+    && coalesce(status, "published") == "published"
+    && defined(slug.current)
+  ] | order(publishedAt desc)[0...3] {
+    _id,
+    title,
+    slug,
+    excerpt,
+    categories[]->{ title },
+    mainImage { asset->{ url }, alt }
+  }
 `;
 
 export const marketingPageBySlugQuery = groq`

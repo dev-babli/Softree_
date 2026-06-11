@@ -3,6 +3,7 @@ import React from "react"
 import { defineField } from "sanity"
 import EditorProgressInput from "../components/EditorProgressInput"
 import type { ObjectInputProps } from "sanity"
+import { caseStudyHasStoryContent, type CaseStudyCompletenessDoc } from "./caseStudyCompleteness"
 
 export function createSeoPreviewPanelField(group = "seo") {
   const SeoPreviewPanelInput: React.FC<ObjectInputProps> = () =>
@@ -62,20 +63,10 @@ export function publishReadinessValidation(
     if (!fields.excerpt) missing.push("excerpt")
 
     if (options?.requireBody !== false) {
-      const body = fields.body as unknown[] | undefined
-      const challengeContent = fields.challengeContent as unknown[] | undefined
-      const approachContent = fields.approachContent as unknown[] | undefined
-      const outcomeContent = fields.outcomeContent as unknown[] | undefined
-      const legacyChallenge = fields.challenge as unknown[] | undefined
-      const sections = fields.sections as unknown[] | undefined
-      const hasStory =
-        (body?.length ?? 0) > 0 ||
-        (challengeContent?.length ?? 0) > 0 ||
-        (approachContent?.length ?? 0) > 0 ||
-        (outcomeContent?.length ?? 0) > 0 ||
-        (legacyChallenge?.length ?? 0) > 0 ||
-        (sections?.length ?? 0) > 0
-      if (!hasStory) missing.push("story (sections or content)")
+      const doc = fields as CaseStudyCompletenessDoc
+      if (!caseStudyHasStoryContent(doc)) {
+        missing.push("story (sections or content)")
+      }
     }
 
     if (options?.requireImage !== false) {

@@ -1,5 +1,5 @@
 import { groq } from "next-sanity"
-import { client } from "@/sanity/client"
+import { client } from "@/sanity/lib/client"
 import type { CaseStudyItem } from "./CaseStudyGrid"
 import type { CaseStudyListingItem, CaseStudyHeroSlide } from "./types"
 

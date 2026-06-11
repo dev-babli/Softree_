@@ -1,4 +1,4 @@
-import { client } from "@/sanity/client"
+import { client } from "@/sanity/lib/client"
 import {
   caseStudyBySlugQuery,
   relatedCaseStudiesFallbackQuery,
@@ -74,13 +74,50 @@ export default async function CaseStudyDetailPage({
 
   const { blogCategories, caseStudyCategories } = await getNavigationData()
 
+  const canonicalUrl = `https://www.softreetechnology.com/case-studies/${slug}`
+  const ogImage =
+    study.ogImage?.asset?.url || study.mainImage?.asset?.url || study.mainImageUrl || "/og-image.png"
+  const description =
+    study.metaDescription ||
+    study.excerpt ||
+    `Read how ${study.client || study.title} partnered with Softree Technology.`
+
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: study.metaTitle || study.title,
+    description,
+    image: ogImage.startsWith("http") ? ogImage : `https://www.softreetechnology.com${ogImage}`,
+    url: canonicalUrl,
+    author: {
+      "@type": "Organization",
+      name: "Softree Technology",
+      url: "https://www.softreetechnology.com",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Softree Technology",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo.png",
+      },
+    },
+    mainEntityOfPage: canonicalUrl,
+  }
+
   return (
-    <CaseStudyPageRenderer
-      study={study}
-      related={related}
-      slug={slug}
-      initialBlogCategories={blogCategories}
-      initialCaseStudyCategories={caseStudyCategories}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <CaseStudyPageRenderer
+        study={study}
+        related={related}
+        slug={slug}
+        initialBlogCategories={blogCategories}
+        initialCaseStudyCategories={caseStudyCategories}
+      />
+    </>
   )
 }

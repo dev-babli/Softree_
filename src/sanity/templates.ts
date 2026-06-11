@@ -78,6 +78,42 @@ const caseStudySections = {
   ],
 }
 
+const composerStarterSections = [
+  { _type: 'csOverviewSection' },
+  {
+    _type: 'csNarrativeSection',
+    label: 'The challenge',
+    heading: 'What the client was up against',
+    content: caseStudySections.challenge,
+    layout: 'text',
+  },
+  {
+    _type: 'csNarrativeSection',
+    label: 'Our approach',
+    heading: 'How we tackled it',
+    content: caseStudySections.approach,
+    layout: 'split',
+  },
+  {
+    _type: 'csNarrativeSection',
+    label: 'The outcome',
+    heading: 'Results that matter',
+    content: caseStudySections.outcome,
+    layout: 'text',
+  },
+  {
+    _type: 'csMetricsSection',
+    label: 'Impact',
+    heading: 'Results & business impact',
+    metrics: [
+      { _type: 'composerMetric', value: '—', label: 'Metric 1' },
+      { _type: 'composerMetric', value: '—', label: 'Metric 2' },
+      { _type: 'composerMetric', value: '—', label: 'Metric 3' },
+    ],
+  },
+  { _type: 'csContactSection' },
+]
+
 const caseStudyBase = (industry: string, technologies: string[] = []) => ({
   status: 'published' as const,
   featuredRank: 0,
@@ -152,6 +188,17 @@ export const documentTemplates: Template[] = [
     title: 'Blog — product update',
     schemaType: 'post',
     value: { status: 'published', body: productUpdateBody },
+  },
+  {
+    id: 'caseStudy-composer',
+    title: 'Case study — page composer (drag & drop)',
+    schemaType: 'caseStudy',
+    value: {
+      ...caseStudyBase('Technology'),
+      status: 'draft' as const,
+      detailLayout: 'page-composer',
+      composerSections: composerStarterSections,
+    },
   },
   {
     id: 'caseStudy-article',

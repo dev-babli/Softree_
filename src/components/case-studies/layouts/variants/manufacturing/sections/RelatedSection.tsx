@@ -4,7 +4,13 @@ import Image from "next/image"
 import Link from "next/link"
 import { stockHeroUrl } from "@/lib/case-study-stock-images"
 import type { RelatedStudy } from "../../../types"
-import { PageContainer, Reveal, SectionTitle } from "../shared"
+import {
+  PageContainer,
+  Reveal,
+  RevealItem,
+  RevealStagger,
+  SectionTitle,
+} from "../shared"
 
 function RelatedCard({ study }: { study: RelatedStudy }) {
   const img =
@@ -18,7 +24,7 @@ function RelatedCard({ study }: { study: RelatedStudy }) {
   return (
     <Link
       href={`/case-studies/${study.slug.current}`}
-      className="group flex h-full flex-col gap-5 rounded-[18px] bg-white p-5 transition-transform duration-200 ease-out hover:-translate-y-[3px]"
+      className="group flex h-full flex-col gap-5 rounded-[18px] bg-white p-5 transition-transform duration-300 ease-out hover:-translate-y-1"
     >
       <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[14px] bg-[#efeae0]">
         {img ? (
@@ -26,7 +32,7 @@ function RelatedCard({ study }: { study: RelatedStudy }) {
             src={img}
             alt={study.mainImage?.alt || display}
             fill
-            className="object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
+            className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
             sizes="(max-width: 768px) 100vw, 400px"
           />
         ) : (
@@ -61,7 +67,7 @@ export function RelatedSection({ related }: { related: RelatedStudy[] }) {
   return (
     <section id="related" className="scroll-mt-24 bg-[#f8f4ea] py-16 md:py-24">
       <PageContainer>
-        <Reveal className="mb-12 flex flex-wrap items-end justify-between gap-6">
+        <Reveal variant="scale" className="mb-12 flex flex-wrap items-end justify-between gap-6">
           <SectionTitle>More Customer Stories</SectionTitle>
           <Link
             href="/case-studies"
@@ -71,13 +77,13 @@ export function RelatedSection({ related }: { related: RelatedStudy[] }) {
           </Link>
         </Reveal>
 
-        <div className="grid grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-3">
-          {related.map((study, i) => (
-            <Reveal key={study._id} delay={i * 0.05}>
+        <RevealStagger className="grid grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-3">
+          {related.map((study) => (
+            <RevealItem key={study._id} variant="scale">
               <RelatedCard study={study} />
-            </Reveal>
+            </RevealItem>
           ))}
-        </div>
+        </RevealStagger>
       </PageContainer>
     </section>
   )

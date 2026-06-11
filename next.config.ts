@@ -37,6 +37,13 @@ const nextConfig: any = {
     // Skip type checking during production builds to avoid OOM / spawn UNKNOWN errors
     ignoreBuildErrors: true,
   },
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.(glb|gltf)$/i,
+      type: 'asset/resource',
+    })
+    return config
+  },
 };
 
 export default withSentryConfig(withBundleAnalyzer(nextConfig), {

@@ -1,16 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import type {
   SanityNavCategory,
   SanityNavCaseStudyCategory,
 } from "@/sanity/types";
+import { MegaMenuPanel } from "./navigation-mega-menu";
 
 import {
-  Settings,
   LayoutDashboard,
   Workflow,
   Server,
@@ -28,210 +28,92 @@ import {
   Globe2,
   Smartphone,
   Layers,
-  Info,
-  ArrowRight,
-  ChevronDown,
-  BookOpen,
-  Briefcase,
   FileText,
 } from "lucide-react";
+
+type MenuLink = {
+  label: string;
+  url: string;
+  icon?: React.ComponentType<{ size?: number; className?: string }>;
+  description?: string;
+};
+
+type MenuGroup = {
+  title: string;
+  description?: string;
+  links: MenuLink[];
+};
 
 type MenuItem = {
   label: string;
   url?: string;
-  icon?: any;
   mega?: boolean;
-  children?: {
-    title: string;
-    image?: string;
-    description?: string;
-    links: {
-      label: string;
-      url: string;
-      icon?: any;
-      description?: string;
-    }[];
-  }[];
+  children?: MenuGroup[];
 };
 
-// Images for dropdown columns
-const dropdownImages = [
-  "/images/case-study/power-apps/automated.jpg", // Business Apps
-  "/images/ai/analytics.jpg", // Data & Analytics
-  "/images/ai/ai-agent.jpg", // AI & Automation
-  "/images/case-study/mobile/education.png", // Digital Workspace
-];
-
-const colConfig = [
-  { accent: "#FF7A2F", bg: "#E6F1FB", label: "Business Apps" },
-  { accent: "#FF7A2F", bg: "#EAF3DE", label: "Data & Analytics" },
-  { accent: "#FF7A2F", bg: "#FAEEDA", label: "AI & Automation" },
-  { accent: "#FF7A2F", bg: "#FAEEDA", label: "Digital Workspace" },
-];
+const CLOSE_DELAY_MS = 280;
 
 const menu: MenuItem[] = [
-  { label: "About", url: "/about-us", icon: Info },
-
+  { label: "About", url: "/about-us" },
   {
     label: "Services",
     url: "/services",
-    icon: Settings,
     mega: true,
     children: [
       {
-        title: "Business Applications Delivery Support",
-        description:
-          "Scalable Power Platform solutions built for enterprise delivery.",
+        title: "Business Applications",
+        description: "Power Platform at enterprise scale.",
         links: [
-          {
-            label: "Power Apps",
-            url: "/services/offshore-power-platform-development",
-            icon: LayoutDashboard, // updated
-            description: "Low-code app development",
-          },
-          {
-            label: "Power Automate",
-            url: "/services/offshore-power-platform-development", // fixed
-            icon: Workflow, // updated
-            description: "Workflow automation",
-          },
-          {
-            label: "Dataverse",
-            url: "/services/offshore-power-platform-development", // fixed
-            icon: Server, // updated
-            description: "Unified data platform",
-          },
-          {
-            label: "MVP Development",
-            url: "/services/mvp",
-            icon: Rocket,
-            description: "Build and launch your product",
-          },
+          { label: "Power Apps", url: "/services/offshore-power-platform-development", icon: LayoutDashboard, description: "Low-code delivery" },
+          { label: "Power Automate", url: "/services/offshore-power-platform-development", icon: Workflow, description: "Workflow automation" },
+          { label: "Dataverse", url: "/services/offshore-power-platform-development", icon: Server, description: "Unified data layer" },
+          { label: "MVP Development", url: "/services/mvp", icon: Rocket, description: "Launch faster" },
         ],
       },
       {
-        title: "Data & Analytics Execution",
-        description: "Turn raw data into strategic intelligence at any scale.",
+        title: "Data & Analytics",
+        description: "Intelligence from raw data.",
         links: [
-          {
-            label: "Power BI",
-            url: "/services/offshore-data-analytics",
-            icon: LineChart, // updated
-            description: "Business dashboards",
-          },
-          {
-            label: "Microsoft Fabric",
-            url: "/services/offshore-microsoft-fabric", // fixed
-            icon: Boxes, // updated
-            description: "Unified analytics platform",
-          },
-          {
-            label: "Databricks",
-            url: "/services/offshore-data-analytics", // fixed
-            icon: Cpu, // updated
-            description: "Big data & ML pipelines",
-          },
-          {
-            label: "Snowflake",
-            url: "/services/offshore-data-analytics", // fixed
-            icon: CloudSnow, // 🔥 best match
-            description: "Cloud data warehousing",
-          },
+          { label: "Power BI", url: "/services/offshore-data-analytics", icon: LineChart, description: "Executive dashboards" },
+          { label: "Microsoft Fabric", url: "/services/offshore-microsoft-fabric", icon: Boxes, description: "Unified analytics" },
+          { label: "Databricks", url: "/services/offshore-data-analytics", icon: Cpu, description: "ML pipelines" },
+          { label: "Snowflake", url: "/services/offshore-data-analytics", icon: CloudSnow, description: "Cloud warehouse" },
         ],
       },
       {
-        title: "AI & Intelligent Automation",
-        description: "Embed intelligence into every process and workflow.",
+        title: "AI & Automation",
+        description: "Intelligence in every workflow.",
         links: [
-          {
-            label: "AI Powered Test Automation",
-            url: "/services/ai-powered-test-automation",
-            icon: BrainCircuit, // updated
-            description: "Enterprise AI platform",
-          },
-
-          {
-            label: "AI Agents",
-            url: "/services/offshore-ai-development", // fixed
-            icon: Bot,
-            description: "Autonomous task execution",
-          },
-          {
-            label: "Generative AI",
-            url: "/services/offshore-generative-ai-development",
-            icon: WandSparkles, // updated
-            description: "Retrieval-augmented generation",
-          },
+          { label: "AI Test Automation", url: "/services/ai-powered-test-automation", icon: BrainCircuit, description: "Quality at speed" },
+          { label: "AI Agents", url: "/services/offshore-ai-development", icon: Bot, description: "Autonomous tasks" },
+          { label: "Generative AI", url: "/services/offshore-generative-ai-development", icon: WandSparkles, description: "RAG & copilots" },
         ],
       },
       {
-        title: "Digital Workspace & App Engineering",
-        description:
-          "Modern digital experiences for connected, productive teams.",
+        title: "Digital Workspace",
+        description: "Modern apps for connected teams.",
         links: [
-          {
-            label: "Legacy Modernization",
-            url: "/services/legacy-application-modernization", // fixed
-            icon: Sparkles, // updated
-            description: "Transform outdated systems with modern architecture.",
-          },
-          {
-            label: "SharePoint Online",
-            url: "/services/offshore-sharepoint-development",
-            icon: Building2, // updated
-            description: "Intranet & collaboration",
-          },
-          {
-            label: "SPFx Development",
-            url: "/services/offshore-spfx-development", // fixed
-            icon: Code2, // updated
-            description: "Custom SharePoint Framework solutions",
-          },
-          {
-            label: "Web Applications",
-            url: "/services/offshore-web-app-development",
-            icon: Globe2, // updated
-            description: "Custom web portals & apps",
-          },
-          {
-            label: "Mobile Applications",
-            url: "/services/offshore-mobile-app-development",
-            icon: Smartphone,
-            description: "Cross-platform mobile apps",
-          },
+          { label: "Legacy Modernization", url: "/services/legacy-application-modernization", icon: Sparkles, description: "Architecture refresh" },
+          { label: "SharePoint Online", url: "/services/offshore-sharepoint-development", icon: Building2, description: "Intranets" },
+          { label: "SPFx Development", url: "/services/offshore-spfx-development", icon: Code2, description: "Custom SPFx" },
+          { label: "Web Applications", url: "/services/offshore-web-app-development", icon: Globe2, description: "Portals & apps" },
+          { label: "Mobile Applications", url: "/services/offshore-mobile-app-development", icon: Smartphone, description: "iOS & Android" },
         ],
       },
     ],
   },
-  {
-    label: "Case Studies",
-    url: "/case-studies",
-    icon: Layers,
-    mega: true,
-    children: [],
-  },
-  {
-    label: "Blog",
-    url: "/blog",
-    icon: BookOpen,
-    mega: true,
-    children: [],
-  },
-  {
-    label: "Careers",
-    url: "/careers",
-    icon: Briefcase,
-  },
-
+  { label: "Case Studies", url: "/case-studies", mega: true, children: [] },
+  { label: "Blog", url: "/blog", mega: true, children: [] },
+  { label: "Careers", url: "/careers" },
 ];
 
-function buildBlogChildren(blogCategories: SanityNavCategory[]) {
+function buildBlogChildren(blogCategories: SanityNavCategory[]): MenuGroup[] {
   return blogCategories
-    .filter((cat) => cat.posts && cat.posts.length > 0)
+    .filter((c) => c.posts?.length)
     .slice(0, 4)
     .map((cat) => ({
       title: cat.title,
-      description: `Latest ${cat.title.toLowerCase()} articles`,
+      description: `Latest in ${cat.title.toLowerCase()}`,
       links: cat.posts.map((post) => ({
         label: post.title,
         url: `/blog/${post.slug.current}`,
@@ -241,35 +123,23 @@ function buildBlogChildren(blogCategories: SanityNavCategory[]) {
     }));
 }
 
-function buildCaseStudyChildren(caseStudyCategories: SanityNavCaseStudyCategory[]) {
+function buildCaseStudyChildren(
+  caseStudyCategories: SanityNavCaseStudyCategory[],
+): MenuGroup[] {
   return caseStudyCategories
-    .filter((cat) => cat.caseStudies && cat.caseStudies.length > 0)
+    .filter((c) => c.links?.length)
     .slice(0, 4)
     .map((cat) => ({
       title: cat.title,
       description: cat.description,
-      image: cat.image,
-      links: cat.caseStudies.map((study) => ({
-        label: study.title,
-        url: `/case-studies/${study.slug.current}`,
+      links: cat.links.map((link) => ({
+        label: link.label,
+        url: link.href,
         icon: Layers,
-        description: study.excerpt || study.client || "",
+        description: link.description,
       })),
     }));
 }
-
-const GRID_COLS: Record<number, string> = {
-  1: "grid-cols-1",
-  2: "grid-cols-2",
-  3: "grid-cols-3",
-  4: "grid-cols-4",
-};
-
-const MEGA_FOOTER: Record<string, { label: string; href: string }> = {
-  Services: { label: "Explore all services", href: "/services" },
-  "Case Studies": { label: "View all case studies", href: "/case-studies" },
-  Blog: { label: "View all articles", href: "/blog" },
-};
 
 export default function Navigation({
   blogCategories = [],
@@ -284,19 +154,6 @@ export default function Navigation({
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
   const lastScrollY = useRef(0);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const openMenu = (label: string) => {
-    if (closeTimer.current) {
-      clearTimeout(closeTimer.current);
-      closeTimer.current = null;
-    }
-    setOpen(label);
-  };
-
-  const scheduleCloseMenu = () => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-    closeTimer.current = setTimeout(() => setOpen(null), 120);
-  };
 
   const dynamicMenu = useMemo(() => {
     const blogChildren = buildBlogChildren(blogCategories);
@@ -313,421 +170,250 @@ export default function Navigation({
     });
   }, [blogCategories, caseStudyCategories]);
 
+  const activeMegaItem = useMemo(
+    () => dynamicMenu.find((i) => i.label === open && i.mega) ?? null,
+    [dynamicMenu, open],
+  );
+
+  const hasMegaContent = (activeMegaItem?.children?.length ?? 0) > 0;
+
+  const clearCloseTimer = useCallback(() => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+  }, []);
+
+  const openMenu = useCallback(
+    (label: string) => {
+      clearCloseTimer();
+      setOpen(label);
+    },
+    [clearCloseTimer],
+  );
+
+  const closeMenu = useCallback(() => {
+    clearCloseTimer();
+    setOpen(null);
+  }, [clearCloseTimer]);
+
+  const scheduleCloseMenu = useCallback(() => {
+    clearCloseTimer();
+    closeTimer.current = setTimeout(() => setOpen(null), CLOSE_DELAY_MS);
+  }, [clearCloseTimer]);
+
+  useEffect(() => () => clearCloseTimer(), [clearCloseTimer]);
+
   useEffect(() => {
-    return () => {
-      if (closeTimer.current) clearTimeout(closeTimer.current);
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (y < 20 || y < lastScrollY.current) setShowNav(true);
+      else {
+        setShowNav(false);
+        setOpen(null);
+      }
+      lastScrollY.current = y;
     };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY < 20 || currentScrollY < lastScrollY.current) {
-        setShowNav(true);
-      } else {
-        setShowNav(false);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(null);
+        setMobileOpen(false);
       }
-      lastScrollY.current = currentScrollY;
     };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, []);
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 flex justify-center transition-all duration-500 ease-[var(--legacy-ease-0_23_1_0_32_1)] ${showNav ? "translate-y-0" : "-translate-y-full"
-        }`}
+      className={`fixed inset-x-0 top-0 z-50 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${
+        showNav ? "translate-y-0" : "-translate-y-full"
+      }`}
+      onMouseLeave={scheduleCloseMenu}
     >
-      <nav className="relative w-full max-w-7xl mx-6 lg:mx-12 mt-2 px-6 lg:px-12 h-[72px] flex items-center justify-between rounded-2xl bg-white/80 backdrop-blur-xl border border-gray-200/60 shadow-[0_4px_24px_rgba(0,0,0,0.06)]">
-        <Link href="/" className="inline-block shrink-0">
-          <img
-            src="/logo/Softree-Technology-Final-Logo.png"
-            alt="Softree"
-            className="h-9 w-auto object-contain"
-          />
-        </Link>
+      <div className="mx-auto max-w-[1280px] px-5 pt-2.5 lg:px-10">
+        <nav className="relative flex h-[64px] items-center justify-between rounded-2xl border border-black/[0.06] bg-white/95 px-4 shadow-[0_8px_32px_-10px_rgba(10,10,26,0.12)] backdrop-blur-xl lg:px-6">
+          <Link href="/" className="shrink-0">
+            <img
+              src="/logo/Softree-Technology-Final-Logo.png"
+              alt="Softree"
+              className="h-8 w-auto lg:h-[34px]"
+            />
+          </Link>
 
-        {/* ── DESKTOP ── */}
-        <div className="hidden lg:flex items-center gap-1">
-          {dynamicMenu.map((item) => {
-            if (!item.mega) {
+          <div className="hidden items-center gap-0.5 lg:flex">
+            {dynamicMenu.map((item) => {
+              if (!item.mega) {
+                return (
+                  <Link
+                    key={item.label}
+                    href={item.url || "#"}
+                    className="rounded-lg px-3.5 py-2 text-[13px] font-medium text-[#0a0a1a]/60 transition-colors duration-100 hover:bg-[#F3F0EE] hover:text-[#0a0a1a]"
+                  >
+                    {item.label}
+                  </Link>
+                );
+              }
+
+              const isOpen = open === item.label;
+              const canOpen = (item.children?.length ?? 0) > 0;
+
               return (
-                <Link
+                <div
                   key={item.label}
-                  href={item.url || "#"}
-                  className="group relative px-4 py-2 text-sm font-medium text-gray-600 rounded-lg transition-all duration-200 hover:text-gray-900 hover:bg-gray-100/50"
+                  onMouseEnter={() => canOpen && openMenu(item.label)}
                 >
-                  {item.label}
-                </Link>
+                  <Link
+                    href={item.url || "#"}
+                    aria-expanded={isOpen}
+                    aria-haspopup={canOpen ? "true" : undefined}
+                    className={`inline-flex items-center gap-1 rounded-lg px-3.5 py-2 text-[13px] font-medium transition-colors duration-100 ${
+                      isOpen
+                        ? "bg-[rgba(255,88,18,0.1)] text-[#FF5812]"
+                        : "text-[#0a0a1a]/60 hover:bg-[#F3F0EE] hover:text-[#0a0a1a]"
+                    }`}
+                  >
+                    {item.label}
+                    {canOpen && (
+                      <ChevronDown
+                        size={13}
+                        className={`transition-transform duration-100 ${
+                          isOpen ? "rotate-180 text-[#FF5812]" : "text-[#0a0a1a]/25"
+                        }`}
+                      />
+                    )}
+                  </Link>
+                </div>
               );
-            }
+            })}
+          </div>
 
-            const columnCount = Math.min(item.children?.length || 1, 4);
-
-            return (
-              <div
-                key={item.label}
-                className="relative group"
-                onMouseEnter={() => openMenu(item.label)}
-                onMouseLeave={scheduleCloseMenu}
-              >
-                <Link
-                  href={item.url || "#"}
-                  className="group relative inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-gray-600 rounded-lg transition-all duration-200 hover:text-orange-600 hover:bg-orange-50/50"
-                >
-                  {item.label}
-                  <ChevronDown
-                    size={14}
-                    className={`transition-transform duration-200 ${open === item.label ? "rotate-180 text-orange-600" : "text-gray-400 group-hover:text-orange-500"}`}
-                  />
-                </Link>
-
-                {/* ── MEGA MENU ── */}
-                <AnimatePresence>
-                  {open === item.label && item.children && item.children.length > 0 && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 4 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 4 }}
-                      transition={{ duration: 0.12, ease: "easeOut" }}
-                      onMouseEnter={() => openMenu(item.label)}
-                      onMouseLeave={scheduleCloseMenu}
-                      className="fixed top-[84px] left-1/2 -translate-x-1/2 w-[1100px] max-w-[calc(100vw-2rem)] bg-white rounded-3xl border border-gray-100 shadow-[0_24px_80px_rgba(0,0,0,0.15),0_8px_24px_rgba(0,0,0,0.08)] overflow-hidden before:absolute before:-top-3 before:left-0 before:right-0 before:h-3 before:content-['']"
-                    >
-                      {/* Header */}
-                      <div className="px-8 pt-5 pb-4 border-b border-gray-100">
-                        <Link
-                          href={item.url || "#"}
-                          className="group/drawer-title flex items-center gap-x-2"
-                        >
-                          <span className="text-xl font-semibold text-gray-900">
-                            {item.label}
-                          </span>
-                          <ArrowRight
-                            size={18}
-                            className="text-gray-400 transition-transform group-hover/drawer-title:translate-x-1"
-                          />
-                        </Link>
-                      </div>
-
-                      <div className={`grid gap-0 ${GRID_COLS[columnCount] ?? "grid-cols-4"}`}>
-                        {item.children?.map((group, idx) => {
-                          const cfg = colConfig[idx] ?? {
-                            accent: null,
-                            bg: null,
-                            label: group.title,
-                          };
-
-                          return (
-                            <div
-                              key={group.title}
-                              className={`px-5 py-5 ${idx < item.children!.length - 1
-                                ? "border-r border-gray-100"
-                                : ""
-                                }`}
-                            >
-                              {/* Service Visual - Image at top */}
-                              <div className="relative h-[110px] overflow-hidden rounded-xl border border-gray-200 bg-gray-900 mb-4 group/image">
-                                <img
-                                  alt={cfg.label}
-                                  className="h-full w-full object-cover object-center opacity-95 transition-all duration-500 group-hover/image:scale-105"
-                                  src={(group as any).image || dropdownImages[idx]}
-                                  onError={(e) => {
-                                    // Fallback: hide image and show gradient background
-                                    (
-                                      e.target as HTMLImageElement
-                                    ).style.display = "none";
-                                    (
-                                      e.target as HTMLImageElement
-                                    ).parentElement!.style.background =
-                                      `linear-gradient(135deg, ${cfg.bg} 0%, ${cfg.accent}20 100%)`;
-                                  }}
-                                />
-                                <div className="absolute inset-x-0 bottom-0 h-14 bg-linear-to-t from-black/60 via-black/20 to-transparent" />
-                                <span className="absolute bottom-2.5 left-3 rounded-full bg-white/95 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-gray-900 shadow-sm">
-                                  {cfg.label}
-                                </span>
-                              </div>
-
-                              {/* links */}
-                              <div className="flex flex-col gap-0.5">
-                                {group.links.map((link) => {
-                                  const Icon = link.icon;
-                                  return (
-                                    <Link
-                                      key={link.label}
-                                      href={link.url}
-                                      className="group/link flex items-center gap-3 px-2 py-2 rounded-lg hover:bg-gray-50 transition-all duration-150"
-                                    >
-                                      <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-gray-100 group-hover/link:bg-orange-500 transition-all duration-200">
-                                        {Icon && (
-                                          <Icon
-                                            size={17}
-                                            className="text-gray-600 group-hover/link:text-white transition-colors"
-                                          />
-                                        )}
-                                      </div>
-                                      <div className="flex-1 min-w-0">
-                                        <p className="text-[13px] font-medium text-gray-900 leading-snug">
-                                          {link.label}
-                                        </p>
-                                        {link.description && (
-                                          <p className="text-[11px] text-gray-500 mt-0.5 leading-snug">
-                                            {link.description}
-                                          </p>
-                                        )}
-                                      </div>
-                                    </Link>
-                                  );
-                                })}
-                              </div>
-                            </div>
-                          );
-                        })}
-                      </div>
-
-                      {/* footer */}
-                      <div className="border-t border-gray-100 bg-gray-50/80 px-6 py-4 flex items-center justify-between">
-                        <p className="text-[13px] text-gray-500">
-                          Need guidance?{" "}
-                          <Link
-                            href="/book-meeting"
-                            className="text-gray-900 font-semibold hover:text-orange-600 transition-colors"
-                          >
-                            Book a discovery call →
-                          </Link>
-                        </p>
-                        <div className="flex items-center gap-6">
-                          {MEGA_FOOTER[item.label] && (
-                            <Link
-                              href={MEGA_FOOTER[item.label].href}
-                              className="text-[13px] font-medium text-gray-600 hover:text-gray-900 flex items-center gap-1.5 transition-colors group/f"
-                            >
-                              {MEGA_FOOTER[item.label].label}
-                              <ArrowRight
-                                size={14}
-                                className="group-hover/f:translate-x-0.5 transition-transform"
-                              />
-                            </Link>
-                          )}
-                          <Link
-                            href="/contact"
-                            className="text-[13px] font-medium text-gray-600 hover:text-gray-900 flex items-center gap-1.5 transition-colors group/f"
-                          >
-                            Get a quote
-                            <ArrowRight
-                              size={14}
-                              className="group-hover/f:translate-x-0.5 transition-transform"
-                            />
-                          </Link>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* ── CTA ── */}
-        <div className="hidden lg:flex items-center gap-3">
-          <Link
-            href="/book-meeting"
-            className="group inline-flex items-center gap-1.5 transition-all duration-300 ease-out active:scale-95 hover:shadow-lg"
-            style={{
-              background: "linear-gradient(135deg, #FF7A2F 0%, #E85A1F 100%)",
-              borderRadius: "10px",
-              boxShadow: "0 4px 14px 0 rgba(255, 122, 47, 0.35)",
-              padding: "12px 28px",
-              fontSize: "14px",
-              fontWeight: 600,
-              color: "#fff",
-            }}
-          >
-            Book a Call
-            <svg
-              viewBox="0 0 16 16"
-              fill="none"
-              className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              style={{ width: 14, height: 14 }}
+          <div className="hidden items-center gap-2 lg:flex">
+            <Link
+              href="/book-meeting"
+              className="rounded-full bg-[#FF5812] px-5 py-2.5 text-[13px] font-semibold text-white shadow-[0_4px_14px_rgba(255,88,18,0.3)] transition-[transform,box-shadow] duration-150 hover:shadow-[0_6px_18px_rgba(255,88,18,0.36)] active:scale-[0.97]"
             >
-              <path
-                d="M4 12L12 4M12 4H7M12 4v5"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </Link>
-          <Link
-            href="/contact"
-            className="group inline-flex items-center gap-1.5 transition-all duration-300 ease-out active:scale-95 hover:shadow-lg"
-            style={{
-              background: "linear-gradient(135deg, #FF7A2F 0%, #E85A1F 100%)",
-              borderRadius: "10px",
-              boxShadow: "0 4px 14px 0 rgba(255, 122, 47, 0.35)",
-              padding: "12px 28px",
-              fontSize: "14px",
-              fontWeight: 600,
-              color: "#fff",
-            }}
-          >
-            Get Started
-            <svg
-              viewBox="0 0 16 16"
-              fill="none"
-              className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              style={{ width: 14, height: 14 }}
+              Book a Call
+            </Link>
+            <Link
+              href="/contact"
+              className="rounded-full border border-black/[0.08] px-5 py-2.5 text-[13px] font-semibold text-[#0a0a1a] transition-colors duration-150 hover:bg-[#F3F0EE] active:scale-[0.97]"
             >
-              <path
-                d="M4 12L12 4M12 4H7M12 4v5"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </Link>
-        </div>
+              Get Started
+            </Link>
+          </div>
 
-        {/* ── MOBILE TOGGLE ── */}
-        <button
-          className="lg:hidden relative z-[60] text-gray-700 shrink-0 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-        >
-          <motion.div
-            initial={false}
-            animate={{ rotate: mobileOpen ? 90 : 0 }}
-            transition={{ duration: 0.2 }}
+          <button
+            type="button"
+            className="flex h-10 w-10 items-center justify-center rounded-lg lg:hidden"
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-          </motion.div>
-        </button>
+          </button>
+        </nav>
 
-        {/* ── MOBILE PANEL ── */}
-        <AnimatePresence>
-          {mobileOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.25 }}
-              className="fixed top-0 left-0 w-full h-screen bg-white z-40 px-6 pt-24 pb-10 overflow-y-auto lg:hidden"
-            >
-              <div className="flex flex-col gap-4">
-                {dynamicMenu.map((item) => (
-                  <div key={item.label}>
-                    {item.mega ? (
-                      <button
-                        onClick={() => {
-                          setMobileDropdown(
-                            mobileDropdown === item.label ? null : item.label,
-                          );
-                        }}
-                        className="w-full flex items-center justify-between py-4 border-b border-gray-200 text-left"
-                      >
-                        <span className="text-lg font-semibold text-gray-900">
-                          {item.label}
-                        </span>
-                        <ChevronDown
-                          size={20}
-                          className={`text-gray-900 transition-transform ${mobileDropdown === item.label ? "rotate-180" : ""
-                            }`}
-                        />
-                      </button>
-                    ) : (
-                      <Link
-                        href={item.url || "#"}
-                        onClick={() => setMobileOpen(false)}
-                        className="w-full flex items-center justify-between py-4 border-b border-gray-200 text-left"
-                      >
-                        <span className="text-lg font-semibold text-gray-900">
-                          {item.label}
-                        </span>
-                      </Link>
-                    )}
+        {/* Mega menu — new left-rail layout via MegaMenuPanel */}
+        <div
+          className="relative hidden lg:block"
+          onMouseEnter={clearCloseTimer}
+          aria-hidden={!hasMegaContent}
+        >
+          <div
+            className={`absolute left-0 right-0 top-0 z-40 pt-2 transition-none ${
+              hasMegaContent
+                ? "pointer-events-auto visible opacity-100"
+                : "pointer-events-none invisible opacity-0"
+            }`}
+          >
+            {activeMegaItem?.children && hasMegaContent && (
+              <MegaMenuPanel
+                label={activeMegaItem.label}
+                groups={activeMegaItem.children}
+                onClose={closeMenu}
+              />
+            )}
+          </div>
+        </div>
+      </div>
 
-                    {item.mega && mobileDropdown === item.label && (
-                      <div className="pl-4 mt-3 space-y-6 pb-2">
-                        {item.children?.map((group, idx) => (
-                          <div key={idx} className="space-y-3">
-                            <h4 className="text-sm font-bold text-gray-900 tracking-wide uppercase">
-                              {group.title}
-                            </h4>
-                            <div className="flex flex-col gap-3 pl-2 border-l-2 border-gray-100">
-                              {group.links.map((link) => (
-                                <Link
-                                  key={link.label}
-                                  href={link.url}
-                                  onClick={() => setMobileOpen(false)}
-                                  className="block py-1 text-sm font-medium text-gray-600 hover:text-black transition-colors"
-                                >
-                                  {link.label}
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.16, ease: [0.23, 1, 0.32, 1] }}
+            className="fixed inset-0 z-40 overflow-y-auto bg-[#FAFAF9] px-5 pb-10 pt-24 lg:hidden"
+          >
+            <div className="mx-auto max-w-lg">
+              {dynamicMenu.map((item) => (
+                <div key={item.label} className="border-b border-black/[0.06]">
+                  {item.mega ? (
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setMobileDropdown((d) =>
+                          d === item.label ? null : item.label,
+                        )
+                      }
+                      className="flex w-full items-center justify-between py-4 text-left"
+                    >
+                      <span className="text-base font-semibold">{item.label}</span>
+                      <ChevronDown
+                        size={18}
+                        className={`transition-transform duration-150 ${
+                          mobileDropdown === item.label ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                  ) : (
+                    <Link
+                      href={item.url || "#"}
+                      onClick={() => setMobileOpen(false)}
+                      className="block py-4 text-base font-semibold"
+                    >
+                      {item.label}
+                    </Link>
+                  )}
 
+                  {item.mega && mobileDropdown === item.label && item.children && (
+                    <div className="pb-4">
+                      <MegaMenuPanel
+                        label={item.label}
+                        groups={item.children}
+                        onClose={() => setMobileOpen(false)}
+                      />
+                    </div>
+                  )}
+                </div>
+              ))}
+
+              <div className="mt-6 flex flex-col gap-2">
                 <Link
                   href="/book-meeting"
                   onClick={() => setMobileOpen(false)}
-                  className="group mt-6 flex items-center justify-center gap-1.5 px-6 py-3.5 border border-gray-200 text-gray-800 rounded-xl font-semibold hover:bg-gray-50 transition"
+                  className="rounded-full bg-[#FF5812] py-3.5 text-center text-sm font-semibold text-white"
                 >
                   Book a Call
-                  <svg
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    style={{ width: 14, height: 14 }}
-                  >
-                    <path
-                      d="M4 12L12 4M12 4H7M12 4v5"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
                 </Link>
-
                 <Link
                   href="/contact"
                   onClick={() => setMobileOpen(false)}
-                  style={{
-                    backgroundColor: "#FF7759",
-                    boxShadow: "0 6px 20px -4px rgba(255,119,89,0.5)",
-                  }}
-                  className="group mt-2 flex items-center justify-center gap-1.5 px-6 py-3.5 text-white rounded-xl font-semibold"
+                  className="rounded-full border border-black/[0.08] py-3.5 text-center text-sm font-semibold"
                 >
                   Get Started
-                  <svg
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    style={{ width: 14, height: 14 }}
-                  >
-                    <path
-                      d="M4 12L12 4M12 4H7M12 4v5"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
                 </Link>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

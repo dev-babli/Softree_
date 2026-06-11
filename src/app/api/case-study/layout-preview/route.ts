@@ -1,7 +1,7 @@
 import { draftMode } from "next/headers"
 import { NextRequest, NextResponse } from "next/server"
 
-import { buildCaseStudyPreviewPath, CLASSIC_LAYOUT_VALUE } from "@/sanity/lib/layoutPreview"
+import { buildCaseStudyPreviewPath } from "@/sanity/lib/layoutPreview"
 
 function isStudioPreviewRequest(request: NextRequest): boolean {
   const referer = request.headers.get("referer") || ""
@@ -29,10 +29,9 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: "Missing slug parameter." }, { status: 400 })
   }
 
-  const layout = request.nextUrl.searchParams.get("layout")?.trim() || CLASSIC_LAYOUT_VALUE
   const draft = await draftMode()
   draft.enable()
 
-  const redirectPath = buildCaseStudyPreviewPath(slug, layout)
+  const redirectPath = buildCaseStudyPreviewPath(slug)
   return NextResponse.redirect(new URL(redirectPath, request.url))
 }

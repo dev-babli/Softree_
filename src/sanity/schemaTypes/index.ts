@@ -12,6 +12,7 @@ import { globalSettingsType } from './globalSettingsType'
 import { aiContextType } from './aiContextType'
 import { marketingPageType } from './marketingPageType'
 import { pageBuilderBlockTypes } from './pageBuilderBlocks'
+import { caseStudyComposerBlockTypes } from './caseStudyComposerBlocks'
 import { careersPageType } from './careersPageType'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
@@ -22,6 +23,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     blockContentType,
     storyBlockContentType,
     ...pageBuilderBlockTypes,
+    ...caseStudyComposerBlockTypes,
     categoryType,
     postType,
     authorType,

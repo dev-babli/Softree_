@@ -1,0 +1,4 @@
+[     421ms] [WARNING] [PostHog] Missing NEXT_PUBLIC_POSTHOG_KEY - analytics disabled @ https://www.softreetechnology.com/_next/static/chunks/5564-03f111140ce376c2.js:45
+[     635ms] [LOG] Route changed: /webanalyser @ https://www.softreetechnology.com/_next/static/chunks/5564-03f111140ce376c2.js:45
+[     636ms] [LOG] Sending pageview: /webanalyser @ https://www.softreetechnology.com/_next/static/chunks/5564-03f111140ce376c2.js:45
+[     636ms] [LOG] GA4 loaded @ https://www.softreetechnology.com/_next/static/chunks/5564-03f111140ce376c2.js:45

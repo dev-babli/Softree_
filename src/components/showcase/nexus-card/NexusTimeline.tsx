@@ -1,29 +1,47 @@
 "use client";
 
-const TICK_COUNT = 62;
-const MAIN_STEPS = [22, 42, 61] as const;
+const TICKS = 58;
+/** Step marker positions (tick index) — matches follow.art spacing */
+const STEP_TICKS = [14, 30, 52] as const;
 
-export function NexusTimeline({ activeStep }: { activeStep: number }) {
+export function NexusTimeline({
+  activeStep,
+  hidden,
+}: {
+  activeStep: number;
+  hidden?: boolean;
+}) {
+  if (hidden) return null;
+
   return (
-    <div className="nexus-timeline" aria-hidden>
+    <div className="nexus-timeline">
       <div className="nexus-timeline__chart">
-        {Array.from({ length: TICK_COUNT }).map((_, i) => {
-          const stepIndex = MAIN_STEPS.indexOf(i as (typeof MAIN_STEPS)[number]);
-          const isMain = stepIndex >= 0;
-          const isActive = isMain && activeStep === stepIndex;
-          const scaleY = isActive ? 1 : isMain ? 0.66 : 0.5;
+        {Array.from({ length: TICKS }).map((_, i) => {
+          const stepIdx = STEP_TICKS.indexOf(i as (typeof STEP_TICKS)[number]);
+          const isMarker = stepIdx >= 0;
+          const isActive = stepIdx === activeStep;
 
           return (
             <span
               key={i}
-              className={`nexus-timeline__tick${isMain ? " nexus-timeline__tick--main" : ""}${isActive ? " nexus-timeline__tick--active" : ""}`}
-              style={{ transform: `scaleY(${scaleY})` }}
+              className={[
+                "nexus-timeline__tick",
+                isMarker ? "nexus-timeline__tick--marker" : "",
+                isActive ? "nexus-timeline__tick--active" : "",
+              ]
+                .filter(Boolean)
+                .join(" ")}
             >
-              {isMain ? (
+              {isMarker ? (
                 <span
-                  className={`nexus-timeline__step-label${isActive ? " nexus-timeline__step-label--active" : ""}`}
+                  className={[
+                    "nexus-timeline__step",
+                    isActive ? "nexus-timeline__step--active" : "",
+                  ]
+                    .filter(Boolean)
+                    .join(" ")}
                 >
-                  Step&nbsp;{stepIndex + 1}
+                  Step&nbsp;{stepIdx + 1}
                 </span>
               ) : null}
             </span>

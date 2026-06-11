@@ -10,16 +10,19 @@ import type {
   Highlight,
   Metric,
   OverviewBar,
+  PTBlock,
   RelatedStudy,
 } from "./types"
 
 const ACCENT = "#FF7A2F"
 
 type PortableTextLike = {
-  _type?: string
+  _type: string
+  _key?: string
   style?: string
   children?: Array<{ text?: string }>
   listItem?: string
+  level?: number
 }
 
 export type SanityCaseStudyDoc = {
@@ -63,6 +66,7 @@ export type SanityCaseStudyDoc = {
   liveUrl?: string
   outcomeSummary?: string
   outcomeContent?: PortableTextLike[]
+  body?: PortableTextLike[]
   testimonial?: {
     quote?: string
     name?: string
@@ -196,7 +200,10 @@ const MANUFACTURING_DEFAULT_FAQS: CaseStudyFAQ[] = [
 
 function buildFaqs(study: SanityCaseStudyDoc, layout: CaseStudyDetailLayout): CaseStudyFAQ[] {
   if (study.faqs?.length) return study.faqs.slice(0, 8)
-  if (layout === "manufacturing-power-platform") return MANUFACTURING_DEFAULT_FAQS
+  if (layout === "manufacturing-power-platform") {
+    // No real FAQs entered → hide the section (default FAQs contained invented claims)
+    return []
+  }
   return MANUFACTURING_DEFAULT_FAQS.slice(0, 4)
 }
 
@@ -207,7 +214,14 @@ function buildHighlights(study: SanityCaseStudyDoc, layout: CaseStudyDetailLayou
       icon: h.icon || MANUFACTURING_HERO_HIGHLIGHTS[i]?.icon,
     }))
   }
-  if (layout === "manufacturing-power-platform") return MANUFACTURING_HERO_HIGHLIGHTS
+  if (layout === "manufacturing-power-platform") {
+    // Real stats only: fall back to Key Metrics, otherwise hide the stat row
+    return (study.metrics || []).slice(0, 3).map((m, i) => ({
+      value: m.value || "",
+      label: m.label || m.description || "",
+      icon: MANUFACTURING_HERO_HIGHLIGHTS[i]?.icon,
+    }))
+  }
   if (study.metrics?.length) {
     return study.metrics.slice(0, 3).map((m, i) => ({
       value: m.value || "",
@@ -233,7 +247,7 @@ function buildImpactMetrics(study: SanityCaseStudyDoc, layout: CaseStudyDetailLa
         AI_HORIZONTAL_IMPACT_METRICS[i]?.icon,
     }))
   }
-  if (layout === "manufacturing-power-platform") return MANUFACTURING_IMPACT_METRICS
+  if (layout === "manufacturing-power-platform") return []
   if (layout === "nexora-product-story") {
     if (study.metrics?.length) {
       return study.metrics.slice(0, 5).map((m, i) => ({
@@ -529,29 +543,14 @@ export function mapCaseStudyToLayoutData(
   layout: CaseStudyDetailLayout,
 ): CaseStudyLayoutData {
   const approachBullets = bulletsFromBlocks(study.approachContent)
-  const manufacturingChallengeCards: CardItem[] = [
-    {
-      title: "Manual Processes",
-      description:
-        "Plant teams relied on spreadsheets and email for production approvals, causing delays and inconsistent data across facilities.",
-    },
-    {
-      title: "Lack of Visibility",
-      description:
-        "Leadership lacked a single source of truth for operational KPIs — ERP, MES, and quality data lived in disconnected silos.",
-    },
-    {
-      title: "Delayed Approvals",
-      description:
-        "Multi-step sign-offs over email stretched cycle times and created compliance gaps during quarterly audits.",
-    },
-  ]
+
+  const isManufacturingLike =
+    layout === "manufacturing-power-platform" || layout === "page-composer"
 
   const challengeCards =
-    layout === "manufacturing-power-platform"
-      ? study.challengeCards && study.challengeCards.length >= 3
-        ? study.challengeCards.slice(0, 3)
-        : manufacturingChallengeCards
+    isManufacturingLike
+      ? // Real CMS cards only — no fabricated fallbacks on production stories
+        (study.challengeCards || []).slice(0, 3)
       : layout === "nexora-product-story"
         ? study.challengeCards && study.challengeCards.length >= 3
           ? study.challengeCards.slice(0, 3)
@@ -575,17 +574,24 @@ export function mapCaseStudyToLayoutData(
   const solutionNodes =
     study.solutionArchitecture && study.solutionArchitecture.length >= 3
       ? study.solutionArchitecture.slice(0, 6)
-      : defaultSolutionNodes(study.technologies || [])
+      : isManufacturingLike
+        ? study.technologies?.length
+          ? defaultSolutionNodes(study.technologies)
+          : []
+        : defaultSolutionNodes(study.technologies || [])
 
-  const deliverablesRaw =
-    study.deliverables && study.deliverables.length >= 4
-      ? study.deliverables.slice(0, 6)
-      : defaultDeliverables(approachBullets)
-
-  const deliverables = deliverablesRaw
+  const deliverables =
+    isManufacturingLike
+      ? // Show exactly what editors entered; section hides itself when empty
+        (study.deliverables || []).slice(0, 6)
+      : study.deliverables && study.deliverables.length >= 4
+        ? study.deliverables.slice(0, 6)
+        : defaultDeliverables(approachBullets)
 
   const technologies =
-    study.technologies?.length && study.technologies.length >= 4
+    isManufacturingLike
+      ? study.technologies || []
+      : study.technologies?.length && study.technologies.length >= 4
       ? study.technologies
       : layout === "nexora-product-story"
         ? ["Power Apps", "Power Automate", "Dataverse", "Power BI", "SharePoint", "Azure", "React", "TypeScript"]
@@ -663,12 +669,13 @@ export function mapCaseStudyToLayoutData(
     snapshot:
       layout === "manufacturing-power-platform"
         ? {
-            projectType: study.projectType || "Power Platform Implementation",
-            industry: study.industry || "Manufacturing",
-            region: study.region || study.location || "North America",
-            duration: study.projectDuration || "12 Weeks",
-            teamSize: study.teamSize || "8 Specialists",
-            users: study.endUsers || "500+ Employees",
+            // Real values only — OverviewSection skips empty entries
+            projectType: study.projectType || "",
+            industry: study.industry || "",
+            region: study.region || study.location || "",
+            duration: study.projectDuration || "",
+            teamSize: study.teamSize || "",
+            users: study.endUsers || "",
           }
         : layout === "synqlab-product-story"
           ? {
@@ -716,10 +723,13 @@ export function mapCaseStudyToLayoutData(
         : layout === "nexora-product-story"
           ? "A global manufacturer relied on fragmented spreadsheets and delayed reports — leadership needed a single source of truth for real-time plant performance."
           : layout === "manufacturing-power-platform"
-            ? study.challengeSummary ||
-              "The client needed governed systems that could ship fast without losing control of data, permissions, or approvals."
+            ? study.challengeSummary || ""
             : "A global manufacturer needed to replace fragmented tools with a governed, scalable platform."),
     challengeCards,
+    challengeBody: study.challengeContent as PTBlock[] | undefined,
+    approachBody: study.approachContent as PTBlock[] | undefined,
+    outcomeBody: study.outcomeContent as PTBlock[] | undefined,
+    extraBody: study.body as PTBlock[] | undefined,
     approachHeading:
       layout === "nexora-product-story" || layout === "synqlab-product-story"
         ? "A Collaborative & Agile Approach"
@@ -840,7 +850,11 @@ export function mapCaseStudyToLayoutData(
               avatarUrl: study.testimonial.avatar?.asset?.url,
             }
           : undefined,
-    beforeAfter: study.beforeAfter?.length ? study.beforeAfter : defaultBeforeAfter(),
+    beforeAfter: study.beforeAfter?.length
+      ? study.beforeAfter
+      : layout === "manufacturing-power-platform"
+        ? []
+        : defaultBeforeAfter(),
     cta: {
       headline: study.ctaHeadline || "Ready to modernize your business applications?",
       subtext:
@@ -852,7 +866,7 @@ export function mapCaseStudyToLayoutData(
     related,
     faqs: buildFaqs(study, layout),
     sectionImages:
-      layout === "manufacturing-power-platform"
+      isManufacturingLike
         ? {
             hero: heroUrl,
             heroAlt: study.mainImage?.alt || study.client || study.title,

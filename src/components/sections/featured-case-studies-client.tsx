@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
-import { client } from "@/sanity/client"
+import { client } from "@/sanity/lib/client"
 import { featuredCaseStudiesNavQuery } from "@/sanity/queries"
 import type { SanityNavCaseStudy } from "@/sanity/types"
 

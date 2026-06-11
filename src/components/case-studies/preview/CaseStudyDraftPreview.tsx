@@ -1,37 +1,30 @@
 "use client"
 
-import StandardStoryLayout from "@/components/case-studies/layouts/archetypes/StandardStoryLayout"
-import TransformationEpicLayout from "@/components/case-studies/layouts/archetypes/TransformationEpicLayout"
-import ProductShowcaseLayout from "@/components/case-studies/layouts/archetypes/ProductShowcaseLayout"
+import { CaseStudyPageRenderer } from "@/components/case-studies/CaseStudyPageRenderer"
+import type { SanityCaseStudyDoc } from "@/components/case-studies/layouts/mapCaseStudyData"
+import type { CaseStudyComposerSection } from "@/components/case-studies/composer/types"
+import { isPremiumLayout } from "@/lib/case-study-layouts"
 
-interface StudyLike {
-  client?: string
-  title?: string
-  headerTitle?: string
-  excerpt?: string
-  challengeContent?: unknown
-  approachContent?: unknown
-  outcomeContent?: unknown
-  body?: unknown
-  challenge?: unknown
-  approach?: unknown
-  solution?: unknown
-  outcome?: unknown
-  result?: unknown
-  mainImage?: unknown
-  mainImageUrl?: string
-  highlights?: unknown
-  metrics?: unknown
-  technologies?: string[]
-  accentColor?: string
-  slug?: { current?: string }
-  _id?: string
+type PortableTextLike = {
+  _type?: string
+  _key?: string
+  style?: string
+  children?: Array<{ text?: string; marks?: string[]; _type?: string }>
+}
+
+interface StudyLike extends SanityCaseStudyDoc {
+  composerSections?: CaseStudyComposerSection[]
+  storyType?: string
   [key: string]: unknown
 }
 
 type Props = {
   study: StudyLike
   layout: string
+}
+
+function asPortableTextArray(value: unknown): PortableTextLike[] {
+  return Array.isArray(value) ? (value as PortableTextLike[]) : []
 }
 
 function normalizeStudy(raw: StudyLike): StudyLike {
@@ -41,10 +34,10 @@ function normalizeStudy(raw: StudyLike): StudyLike {
     title: raw.title || "Untitled",
     headerTitle: raw.headerTitle || "",
     excerpt: raw.excerpt || "",
-    challengeContent: raw.challengeContent || raw.challenge || [],
-    approachContent: raw.approachContent || raw.approach || raw.solution || [],
-    outcomeContent: raw.outcomeContent || raw.outcome || raw.result || [],
-    body: raw.body || [],
+    challengeContent: asPortableTextArray(raw.challengeContent || raw.challenge),
+    approachContent: asPortableTextArray(raw.approachContent || raw.approach || raw.solution),
+    outcomeContent: asPortableTextArray(raw.outcomeContent || raw.outcome || raw.result),
+    body: asPortableTextArray(raw.body),
     mainImage: raw.mainImage || null,
     mainImageUrl: raw.mainImageUrl || "",
     highlights: raw.highlights || [],
@@ -56,26 +49,34 @@ function normalizeStudy(raw: StudyLike): StudyLike {
   }
 }
 
+function resolveDetailLayout(study: StudyLike, layout: string): string | undefined {
+  if (study.detailLayout) return study.detailLayout
+  if (layout === "page-composer") return "page-composer"
+  if (layout === "manufacturing-power-platform") return layout
+  if (isPremiumLayout(layout)) return layout
+  return undefined
+}
+
+/** Studio iframe preview — uses the same renderer as the live slug page. */
 export default function CaseStudyDraftPreview({ study, layout }: Props) {
-  const storyType =
-    layout === "classic" || layout === "standard"
-      ? "standard"
-      : layout === "transformation"
-        ? "transformation"
-        : layout === "product-showcase"
-          ? "product-showcase"
-          : "standard"
-
-  const slug = study?.slug?.current || "preview"
   const safeStudy = normalizeStudy(study)
+  const slug = safeStudy?.slug?.current || "preview"
+  const detailLayout = resolveDetailLayout(safeStudy, layout)
 
-  switch (storyType) {
-    case "transformation":
-      return <TransformationEpicLayout study={safeStudy} related={[]} slug={slug} />
-    case "product-showcase":
-      return <ProductShowcaseLayout study={safeStudy} related={[]} slug={slug} />
-    case "standard":
-    default:
-      return <StandardStoryLayout study={safeStudy} related={[]} slug={slug} />
-  }
+  return (
+    <CaseStudyPageRenderer
+      study={{
+        ...safeStudy,
+        detailLayout,
+        storyType:
+          layout === "transformation"
+            ? "transformation"
+            : layout === "product-showcase"
+              ? "product-showcase"
+              : safeStudy.storyType || "standard",
+      }}
+      related={[]}
+      slug={slug}
+    />
+  )
 }

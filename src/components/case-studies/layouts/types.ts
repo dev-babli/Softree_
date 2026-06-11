@@ -1,5 +1,16 @@
 import type { CaseStudyDetailLayout } from "@/lib/case-study-layouts"
 
+/** Portable Text block as fetched from Sanity (storyBlockContent / blockContent) */
+export type PTBlock = {
+  _type: string
+  _key?: string
+  style?: string
+  listItem?: string
+  level?: number
+  children?: Array<{ text?: string; marks?: string[] }>
+  [key: string]: unknown
+}
+
 export type CardItem = {
   title: string
   description: string
@@ -96,6 +107,12 @@ export type CaseStudyLayoutData = {
   challengeTitle?: string
   challengeSubheading: string
   challengeCards: CardItem[]
+  /** Rich narrative bodies authored in the studio (storyBlockContent) */
+  challengeBody?: PTBlock[]
+  approachBody?: PTBlock[]
+  outcomeBody?: PTBlock[]
+  /** Optional extra sections appended after the three narratives */
+  extraBody?: PTBlock[]
   approachHeading?: string
   approachSummary?: string
   approachSteps?: ApproachStep[]

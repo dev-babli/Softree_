@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback, useMemo } from "react";
-import { client } from "@/sanity/client";
+import { client } from "@/sanity/lib/client";
 import { navBlogsQuery, navCaseStudiesQuery } from "@/sanity/queries";
 import { buildCaseStudyNavCategories } from "@/sanity/buildCaseStudyNav";
 import type {

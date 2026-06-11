@@ -53,6 +53,39 @@ export function hydrateCaseStudyForPreview(doc: Record<string, unknown>): Record
     clone.testimonial = testimonial
   }
 
+  if (Array.isArray(clone.composerSections)) {
+    clone.composerSections = (clone.composerSections as Array<Record<string, unknown>>).map(
+      (section) => {
+        const next = { ...section }
+        if (next.image) {
+          next.image = hydrateImageField(next.image as { asset?: AssetRef | null })
+        }
+        if (next.avatar) {
+          next.avatar = hydrateImageField(next.avatar as { asset?: AssetRef | null })
+        }
+        if (Array.isArray(next.images)) {
+          next.images = next.images.map((item) =>
+            item && typeof item === "object"
+              ? hydrateImageField(item as { asset?: AssetRef | null })
+              : item,
+          )
+        }
+        if (Array.isArray(next.technologies)) {
+          next.technologies = next.technologies.map((item) => {
+            if (!item || typeof item !== "object") return item
+            const tech = item as { logo?: { asset?: AssetRef | null } }
+            if (!tech.logo) return item
+            return {
+              ...tech,
+              logo: hydrateImageField(tech.logo),
+            }
+          })
+        }
+        return next
+      },
+    )
+  }
+
   if (!clone.slug || typeof clone.slug !== "object") {
     clone.slug = { current: "preview" }
   } else if (!(clone.slug as { current?: string }).current) {

@@ -1,11 +1,16 @@
 "use client"
 
 import Image from "next/image"
-import Link from "next/link"
+import dynamic from "next/dynamic"
 import { motion } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
 import { useState, type FormEvent, type ReactNode } from "react"
 import { SOFTREE_OFFICES_CONTACT } from "@/data/softree-offices"
+
+const CalendlyPopupButton = dynamic(
+  () => import("@/components/calendly/CalendlyPopupButton"),
+  { ssr: false },
+)
 
 type Status = "idle" | "submitting" | "success" | "error"
 
@@ -139,7 +144,7 @@ export default function LightContactSection() {
       } else {
         setStatus("error")
       }
-    } catch (err) {
+    } catch {
       setStatus("error")
     }
   }
@@ -248,8 +253,8 @@ export default function LightContactSection() {
                 </div>
               </div>
 
-              <div className="grid gap-3 border-t border-white/10 pt-4 sm:grid-cols-2">
-                <div>
+              <div className="grid gap-4 border-t border-white/10 pt-4 sm:grid-cols-2">
+                <div className="min-w-0">
                   <p className="text-[18px] font-medium tracking-[-0.02em]">
                     E-Mail
                   </p>
@@ -260,27 +265,22 @@ export default function LightContactSection() {
                     sales@softreetechnology.com
                   </a>
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-[18px] font-medium tracking-[-0.02em]">
                     Offices
                   </p>
-                  <div className="mt-3 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                  <ul className="mt-3 flex flex-col gap-3">
                     {SOFTREE_OFFICES_CONTACT.map((office) => (
-                      <address
-                        key={office.city}
-                        className="not-italic text-[13px] leading-[1.55] text-white/58"
-                      >
-                        <span className="mb-1.5 block text-[14px] font-medium text-white/80">
+                      <li key={office.city}>
+                        <p className="text-[13px] font-medium leading-none text-white/80">
                           {office.city}
-                        </span>
-                        {office.lines.map((line) => (
-                          <span key={line} className="block">
-                            {line}
-                          </span>
-                        ))}
-                      </address>
+                        </p>
+                        <p className="mt-1 text-[11px] leading-[1.45] text-white/48">
+                          {office.lines.slice(1).join(" · ")}
+                        </p>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -291,8 +291,25 @@ export default function LightContactSection() {
                   Got a question, challenge, or idea?
                 </p>
                 <p className="mt-2 max-w-sm text-sm leading-6 text-white/52">
-                  Fill out the form. We&apos;ll get back to you shortly.
+                  Fill out the form or pick a time on our scheduler.
                 </p>
+              </div>
+
+              <div className="my-4 sm:my-5 rounded-[6px] border border-white/10 bg-white/[0.03] px-4 py-3">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <div className="min-w-0">
+                    <p className="text-[13px] font-medium text-white/85">
+                      30-min discovery call
+                    </p>
+                    <p className="mt-0.5 text-[11px] leading-snug text-white/42">
+                      Same Calendly as our booking page · instant invite
+                    </p>
+                  </div>
+                  <CalendlyPopupButton
+                    label="Pick a time"
+                    className="group inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-[#ff5812] px-5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white transition duration-300 hover:bg-white hover:text-[#09090d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5812]/60"
+                  />
+                </div>
               </div>
 
               <div className="my-4 sm:my-5 h-px w-full bg-white/10" />
@@ -333,16 +350,7 @@ export default function LightContactSection() {
                         strokeWidth={2}
                       />
                     </button>
-                    <Link
-                      href="/book-meeting"
-                      className="group inline-flex h-11 sm:h-12 w-full sm:w-fit sm:px-8 gap-3 items-center justify-center rounded-full border border-white/20 hover:border-[#ff5812] px-6 text-[13px] font-semibold uppercase tracking-[0.16em] text-white transition duration-300 hover:bg-[#ff5812]"
-                    >
-                      <span>Book a Call</span>
-                      <ArrowUpRight
-                        className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45"
-                        strokeWidth={2}
-                      />
-                    </Link>
+                    <CalendlyPopupButton />
                   </div>
 
                   {status === "success" && (

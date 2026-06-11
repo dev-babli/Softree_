@@ -1,0 +1,2045 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - navigation [ref=e5]:
+        - link "Softree" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - img "Softree" [ref=e7]
+        - generic [ref=e8]:
+          - link "About" [ref=e9] [cursor=pointer]:
+            - /url: /about-us
+          - link "Services" [ref=e11] [cursor=pointer]:
+            - /url: /services
+            - text: Services
+            - img [ref=e12]
+          - link "Case Studies" [ref=e15] [cursor=pointer]:
+            - /url: /case-studies
+            - text: Case Studies
+            - img [ref=e16]
+          - link "Blog" [ref=e19] [cursor=pointer]:
+            - /url: /blog
+            - text: Blog
+            - img [ref=e20]
+          - link "Careers" [ref=e22] [cursor=pointer]:
+            - /url: /careers
+        - generic [ref=e23]:
+          - link "Book a Call" [ref=e24] [cursor=pointer]:
+            - /url: /book-meeting
+          - link "Get Started" [ref=e25] [cursor=pointer]:
+            - /url: /contact
+    - main [ref=e26]:
+      - region "Hero" [ref=e28]:
+        - generic [ref=e29]:
+          - generic [ref=e30]:
+            - img "Office background" [ref=e31]
+            - generic:
+              - img "Softree VR Expert"
+          - generic [ref=e33]:
+            - heading "Three pillars. One team." [level=2] [ref=e34]
+            - paragraph [ref=e35]: Websites. AI Agents. Microsoft Solutions.
+          - generic:
+            - generic:
+              - img "Offshore Delivery"
+              - generic:
+                - paragraph: Modern Engineering
+                - paragraph: Modern applications built for scale and performance
+                - link "Explore engineering →" [ref=e36] [cursor=pointer]:
+                  - /url: /services/offshore-web-app-development
+                  - text: Explore engineering
+                  - generic [ref=e37]: →
+            - generic:
+              - img "AI Automation"
+              - generic:
+                - paragraph: AI & Automation
+                - paragraph: AI systems that streamline operations
+                - link "Explore AI solutions →" [ref=e38] [cursor=pointer]:
+                  - /url: /services/offshore-ai-development
+                  - text: Explore AI solutions
+                  - generic [ref=e39]: →
+            - generic:
+              - generic:
+                - img "Softree VR Expert"
+              - generic:
+                - generic:
+                  - paragraph: Microsoft & Data
+                  - paragraph: Cloud, analytics, and enterprise solutions that empower business
+                  - link "Explore Microsoft solutions →" [ref=e40] [cursor=pointer]:
+                    - /url: /services/offshore-power-platform-development
+                    - text: Explore Microsoft solutions
+                    - generic [ref=e41]: →
+      - region "Your global offshore partner—built for scale." [ref=e42]:
+        - generic [ref=e43]:
+          - generic [ref=e44]:
+            - generic [ref=e45]:
+              - generic [ref=e46]:
+                - generic [ref=e47]: About us
+                - heading "Your global offshore partner—built for scale." [level=2] [ref=e49]
+                - paragraph [ref=e50]:
+                  - generic [ref=e51]: 30+ countries served · 200+ projects · one embedded team. Microsoft-certified delivery with senior engineers in your workflows from day one.
+              - link "Explore our story" [ref=e52] [cursor=pointer]:
+                - /url: /about-us
+                - text: Explore our story
+                - img [ref=e53]
+            - generic [ref=e58]:
+              - generic [ref=e59]:
+                - paragraph [ref=e60]: Global reach
+                - paragraph [ref=e61]: 0+
+                - paragraph [ref=e62]: Countries with active client deployments and dedicated delivery pods.
+              - generic [ref=e63]:
+                - generic [ref=e64]: Recognition
+                - generic [ref=e65]: Microsoft Partner
+          - generic [ref=e66]:
+            - generic [ref=e67]:
+              - generic [ref=e68]:
+                - paragraph [ref=e69]: Three ways we partner
+                - heading "Offshore bench · white-label · Microsoft enterprise" [level=3] [ref=e70]
+              - paragraph [ref=e71]: The same Clarity-grade glass cards from our About Us platform—global map, white-label delivery, and Microsoft governance in one row.
+            - generic [ref=e73]:
+              - generic [ref=e74]:
+                - generic [ref=e76]:
+                  - article "Global offshore tech partner" [ref=e77]
+                  - generic [ref=e83]:
+                    - generic [ref=e85]:
+                      - img [ref=e86]
+                      - generic [ref=e89]: Global infrastructure
+                    - generic [ref=e95]: 0.00%
+                    - generic [ref=e100]: Active deployments worldwide
+                    - img [ref=e102]
+                - generic [ref=e4542]:
+                  - generic [ref=e4543]: "01"
+                  - heading "Global offshore tech partner" [level=3] [ref=e4545]
+                  - paragraph [ref=e4546]: Senior India-based squads, follow-the-sun delivery, and elastic capacity without sacrificing quality.
+                  - link "Learn more" [ref=e4547] [cursor=pointer]:
+                    - /url: /about-us
+                    - text: Learn more
+                    - img [ref=e4548]
+              - generic [ref=e4551]:
+                - generic [ref=e4553]:
+                  - article "White-label partner" [ref=e4554]
+                  - generic [ref=e4560]:
+                    - generic [ref=e4562]: White-label
+                    - paragraph [ref=e4567]:
+                      - text: Your brand.
+                      - text: Our bench.
+                    - generic [ref=e4568]:
+                      - generic [ref=e4569]: Client-facing
+                      - generic [ref=e4571]:
+                        - text: Delivery layer
+                        - generic [ref=e4572]: Softree — invisible
+                - generic [ref=e4573]:
+                  - generic [ref=e4574]: "02"
+                  - heading "White-label partner" [level=3] [ref=e4576]
+                  - paragraph [ref=e4577]: Your brand on every artifact — NDA-ready teams, your rituals, invisible to your end clients.
+                  - link "Learn more" [ref=e4578] [cursor=pointer]:
+                    - /url: /about-us
+                    - text: Learn more
+                    - img [ref=e4579]
+              - generic [ref=e4582]:
+                - generic [ref=e4584]:
+                  - article "Microsoft & platform partner" [ref=e4585]
+                  - generic [ref=e4591]:
+                    - generic [ref=e4593]: Enterprise
+                    - generic [ref=e4598]:
+                      - generic [ref=e4599]: MS
+                      - generic [ref=e4600]:
+                        - paragraph [ref=e4601]: Microsoft partner
+                        - paragraph [ref=e4602]: Power Platform · Azure · AI
+                    - generic [ref=e4603]:
+                      - generic [ref=e4604]:
+                        - paragraph [ref=e4605]: 120+
+                        - paragraph [ref=e4606]: Specialists
+                      - generic [ref=e4607]:
+                        - paragraph [ref=e4608]: 97%
+                        - paragraph [ref=e4609]: On-time
+                      - generic [ref=e4610]:
+                        - paragraph [ref=e4611]: 24/7
+                        - paragraph [ref=e4612]: Coverage
+                - generic [ref=e4613]:
+                  - generic [ref=e4614]: "03"
+                  - heading "Microsoft & platform partner" [level=3] [ref=e4616]
+                  - paragraph [ref=e4617]: Power Platform, Azure, AI, and web — with governance, docs, and QA built into every sprint.
+                  - link "Learn more" [ref=e4618] [cursor=pointer]:
+                    - /url: /about-us
+                    - text: Learn more
+                    - img [ref=e4619]
+          - generic [ref=e4622]:
+            - generic [ref=e4623]:
+              - paragraph [ref=e4624]: Services in motion
+              - paragraph [ref=e4625]: Abstract showcases per practice — arrow keys or chevrons to browse.
+            - paragraph [ref=e4627]: Proof at a glance
+            - generic [ref=e4630]:
+              - generic "Service showcase gallery" [ref=e4631]:
+                - generic [ref=e4632]:
+                  - generic [ref=e4633]:
+                    - img [ref=e4635]
+                    - generic:
+                      - paragraph: Intelligence
+                      - paragraph: AI & automation
+                      - paragraph: Copilots, agents, and workflow automation wired into Microsoft 365 and enterprise data.
+                  - generic [ref=e4636]:
+                    - img [ref=e4638]
+                    - generic:
+                      - paragraph: Microsoft
+                      - paragraph: Power Platform
+                      - paragraph: Power Apps, Automate, and Fabric solutions that ship fast and stay governable.
+                  - generic [ref=e4639]:
+                    - img [ref=e4641]
+                    - generic:
+                      - paragraph: Analytics
+                      - paragraph: Data & analytics
+                      - paragraph: Pipelines, warehouses, and Fabric workloads that turn operational data into decisions.
+                  - generic [ref=e4642]:
+                    - img [ref=e4644]
+                    - generic:
+                      - paragraph: Engineering
+                      - paragraph: Modern web applications
+                      - paragraph: React, Next.js, and API platforms built for performance, security, and long-term maintainability.
+                - generic [ref=e4646]:
+                  - generic [ref=e4647]:
+                    - img "AI & automation" [ref=e4650]
+                    - img "Power Platform" [ref=e4653]
+                    - img "Data & analytics" [ref=e4656]
+                    - img "Modern web applications" [ref=e4659]
+                  - generic [ref=e4660]:
+                    - generic [ref=e4661]:
+                      - generic [ref=e4662]:
+                        - paragraph [ref=e4663]: "01"
+                        - paragraph [ref=e4664]: AI & automation
+                      - generic [ref=e4665]:
+                        - paragraph [ref=e4666]: Intelligence
+                        - paragraph [ref=e4667]: "2025"
+                    - generic [ref=e4668]:
+                      - generic [ref=e4669]:
+                        - paragraph [ref=e4670]: "02"
+                        - paragraph [ref=e4671]: Power Platform
+                      - generic [ref=e4672]:
+                        - paragraph [ref=e4673]: Microsoft
+                        - paragraph [ref=e4674]: "2024"
+                    - generic [ref=e4675]:
+                      - generic [ref=e4676]:
+                        - paragraph [ref=e4677]: "03"
+                        - paragraph [ref=e4678]: Data & analytics
+                      - generic [ref=e4679]:
+                        - paragraph [ref=e4680]: Analytics
+                        - paragraph [ref=e4681]: "2024"
+                    - generic [ref=e4682]:
+                      - generic [ref=e4683]:
+                        - paragraph [ref=e4684]: "04"
+                        - paragraph [ref=e4685]: Modern web applications
+                      - generic [ref=e4686]:
+                        - paragraph [ref=e4687]: Engineering
+                        - paragraph [ref=e4688]: "2024"
+              - generic:
+                - generic:
+                  - paragraph: Services we deliver
+                  - paragraph: AI & automation
+                - generic: 01/04
+              - generic [ref=e4689]:
+                - button "Previous slide" [disabled] [ref=e4690]:
+                  - img [ref=e4691]
+                - button "Next slide" [ref=e4693]:
+                  - img [ref=e4694]
+            - generic [ref=e4697]:
+              - generic [ref=e4699]:
+                - generic [ref=e4700]:
+                  - paragraph [ref=e4701]: Partnerships that last
+                  - paragraph [ref=e4702]:
+                    - generic [ref=e4703]: "0"
+                    - text: "%"
+                  - paragraph [ref=e4704]: Client retention rate
+                - paragraph [ref=e4705]: Multi-year co-engineering with enterprise teams—measured renewal, not one-off project handoffs.
+              - generic [ref=e4707]:
+                - generic [ref=e4708]:
+                  - paragraph [ref=e4709]: Shipped at scale
+                  - paragraph [ref=e4710]:
+                    - generic [ref=e4711]: "0"
+                    - text: +
+                  - paragraph [ref=e4712]: Enterprise deliveries
+                - paragraph [ref=e4713]: Power Platform, AI, data, and modern app programs delivered with senior offshore pods.
+            - generic [ref=e4716]:
+              - paragraph [ref=e4717]:
+                - generic [ref=e4718]: "+0"
+              - generic [ref=e4719]:
+                - paragraph [ref=e4720]: Enterprise clients
+                - paragraph [ref=e4721]: Across 15+ industries
+            - generic [ref=e4724]:
+              - paragraph [ref=e4725]:
+                - generic [ref=e4726]: 0%
+              - generic [ref=e4727]:
+                - paragraph [ref=e4728]: Client retention
+                - paragraph [ref=e4729]: Year over year
+            - generic [ref=e4732]:
+              - paragraph [ref=e4733]:
+                - generic [ref=e4734]: "+0"
+              - generic [ref=e4735]:
+                - paragraph [ref=e4736]: Microsoft-certified
+                - paragraph [ref=e4737]: Engineers on staff
+            - generic [ref=e4740]:
+              - paragraph [ref=e4741]:
+                - generic [ref=e4742]: "+0"
+              - generic [ref=e4743]:
+                - paragraph [ref=e4744]: Countries served
+                - paragraph [ref=e4745]: Active deployments
+            - generic [ref=e4746]:
+              - generic [ref=e4747]:
+                - paragraph [ref=e4748]: Co-engineered
+                - paragraph [ref=e4749]: Technology leaders trust our teams inside their stack.
+                - paragraph [ref=e4750]: Senior squads, transparent sprints, and Microsoft-grade governance on every engagement.
+              - generic [ref=e4751]:
+                - link "Partner with us" [ref=e4752] [cursor=pointer]:
+                  - /url: /contact
+                  - text: Partner with us
+                  - img [ref=e4753]
+                - link "Case studies" [ref=e4756] [cursor=pointer]:
+                  - /url: /case-studies
+      - region "From Strategy to Production — We Own Every Layer." [ref=e4757]:
+        - generic [ref=e4758]:
+          - generic [ref=e4760]:
+            - generic [ref=e4761]: Delivery lifecycle
+            - heading "From Strategy to Production — We Own Every Layer." [level=2] [ref=e4763]
+            - paragraph [ref=e4764]: A structured offshore delivery model designed for speed, scalability, and long-term business impact.
+          - link "Start a Project" [ref=e4765] [cursor=pointer]:
+            - /url: /contact
+            - generic [ref=e4766]: Start a Project
+            - img [ref=e4767]
+        - generic [ref=e4769]:
+          - generic [ref=e4773]:
+            - generic [ref=e4774]:
+              - generic [ref=e4775]: "01"
+              - generic [ref=e4776]: PHASE 01
+            - heading "GLOBAL DELIVERY" [level=3] [ref=e4777]
+            - paragraph [ref=e4778]: Distributed teams built for continuous delivery.
+            - paragraph [ref=e4779]: India-based engineering teams across time zones — scalable capacity, reliable continuity.
+            - list "GLOBAL DELIVERY outcomes" [ref=e4780]:
+              - listitem [ref=e4781]: Offshore Teams
+              - listitem [ref=e4782]: Global Reach
+              - listitem [ref=e4783]: Always-On
+            - generic [ref=e4784]:
+              - link "Start a Project" [ref=e4785] [cursor=pointer]:
+                - /url: /contact
+                - generic [ref=e4786]: Start a Project
+                - img [ref=e4787]
+              - link "View Services" [ref=e4789] [cursor=pointer]:
+                - /url: /services
+                - generic [ref=e4790]: View Services
+          - generic [ref=e4798]:
+            - generic [ref=e4799]:
+              - generic [ref=e4800]: "02"
+              - generic [ref=e4801]: PHASE 02
+            - heading "DELIVERY FRAMEWORK" [level=3] [ref=e4802]
+            - paragraph [ref=e4803]: A proven process designed for predictable outcomes.
+            - paragraph [ref=e4804]: A structured framework aligning goals, architecture, and planning to reduce risk and accelerate execution.
+            - list "DELIVERY FRAMEWORK outcomes" [ref=e4805]:
+              - listitem [ref=e4806]: Discovery
+              - listitem [ref=e4807]: Design
+              - listitem [ref=e4808]: Agile Delivery
+            - generic [ref=e4809]:
+              - link "Start a Project" [ref=e4810] [cursor=pointer]:
+                - /url: /contact
+                - generic [ref=e4811]: Start a Project
+                - img [ref=e4812]
+              - link "View Services" [ref=e4814] [cursor=pointer]:
+                - /url: /services
+                - generic [ref=e4815]: View Services
+          - generic [ref=e4823]:
+            - generic [ref=e4824]:
+              - generic [ref=e4825]: "03"
+              - generic [ref=e4826]: PHASE 03
+            - heading "ENGINEERING EXECUTION" [level=3] [ref=e4827]
+            - paragraph [ref=e4828]: Modern engineering for enterprise systems.
+            - paragraph [ref=e4829]: Cloud platforms, Microsoft ecosystems, AI automation, custom apps — shipped to production.
+            - list "ENGINEERING EXECUTION outcomes" [ref=e4830]:
+              - listitem [ref=e4831]: Cloud
+              - listitem [ref=e4832]: Microsoft
+              - listitem [ref=e4833]: AI Automation
+            - generic [ref=e4834]:
+              - link "Start a Project" [ref=e4835] [cursor=pointer]:
+                - /url: /contact
+                - generic [ref=e4836]: Start a Project
+                - img [ref=e4837]
+              - link "View Services" [ref=e4839] [cursor=pointer]:
+                - /url: /services
+                - generic [ref=e4840]: View Services
+          - generic [ref=e4848]:
+            - generic [ref=e4849]:
+              - generic [ref=e4850]: "04"
+              - generic [ref=e4851]: PHASE 04
+            - heading "LONG-TERM PARTNERSHIP" [level=3] [ref=e4852]
+            - paragraph [ref=e4853]: A delivery partner focused on long-term growth.
+            - paragraph [ref=e4854]: Dedicated teams, ongoing optimization, and reliable support that scales with your business.
+            - list "LONG-TERM PARTNERSHIP outcomes" [ref=e4855]:
+              - listitem [ref=e4856]: Dedicated Teams
+              - listitem [ref=e4857]: Support
+              - listitem [ref=e4858]: Optimization
+            - generic [ref=e4859]:
+              - link "Start a Project" [ref=e4860] [cursor=pointer]:
+                - /url: /contact
+                - generic [ref=e4861]: Start a Project
+                - img [ref=e4862]
+              - link "View Services" [ref=e4864] [cursor=pointer]:
+                - /url: /services
+                - generic [ref=e4865]: View Services
+      - generic [ref=e4870]:
+        - generic [ref=e4871]:
+          - generic [ref=e4872]:
+            - generic [ref=e4873]:
+              - heading "Built for global engineering partnerships" [level=2] [ref=e4874]
+              - paragraph [ref=e4875]: Access everything with a single partnership — offshore scalability, enterprise engineering, and AI-driven delivery.
+            - generic [ref=e4877]:
+              - button "Security & Governance" [ref=e4878]:
+                - generic [ref=e4879]:
+                  - generic [ref=e4880]: "01"
+                  - generic [ref=e4881]:
+                    - generic [ref=e4882]: Security & Governance
+                    - generic [ref=e4883]: Security & Governance
+              - button "Documentation Discipline" [ref=e4884]:
+                - generic [ref=e4885]:
+                  - generic [ref=e4886]: "02"
+                  - generic [ref=e4887]:
+                    - generic [ref=e4888]: Documentation Discipline
+                    - generic [ref=e4889]: Documentation Discipline
+              - button "Scalable Architecture" [pressed] [ref=e4890]:
+                - generic [ref=e4892]:
+                  - generic [ref=e4893]: "03"
+                  - generic [ref=e4894]:
+                    - generic [ref=e4895]: Scalable Architecture
+                    - generic [ref=e4896]: Scalable Architecture
+              - button "Cross-Team Collaboration" [ref=e4897]:
+                - generic [ref=e4898]:
+                  - generic [ref=e4899]: "04"
+                  - generic [ref=e4900]:
+                    - generic [ref=e4901]: Cross-Team Collaboration
+                    - generic [ref=e4902]: Cross-Team Collaboration
+              - button "AI-Enhanced Productivity" [ref=e4903]:
+                - generic [ref=e4904]:
+                  - generic [ref=e4905]: "05"
+                  - generic [ref=e4906]:
+                    - generic [ref=e4907]: AI-Enhanced Productivity
+                    - generic [ref=e4908]: AI-Enhanced Productivity
+              - button "Transparent Delivery" [ref=e4909]:
+                - generic [ref=e4910]:
+                  - generic [ref=e4911]: "06"
+                  - generic [ref=e4912]:
+                    - generic [ref=e4913]: Transparent Delivery
+                    - generic [ref=e4914]: Transparent Delivery
+          - generic [ref=e4916]:
+            - generic:
+              - article [ref=e4917]:
+                - generic [ref=e4918]:
+                  - generic [ref=e4919]: CAPABILITY
+                  - generic [ref=e4920]: Membership
+                - generic [ref=e4921]:
+                  - img [ref=e4924]
+                  - heading "Security & Governance" [level=3] [ref=e4926]
+                  - paragraph [ref=e4927]: Enterprise-grade controls, compliance practices, access management, and delivery governance integrated into every engagement.
+                - button "Discover" [ref=e4929]:
+                  - generic [ref=e4930]:
+                    - generic [ref=e4931]: Discover
+                    - generic [ref=e4932]: Discover
+                  - img [ref=e4933]
+              - article [ref=e4935]:
+                - generic [ref=e4936]:
+                  - generic [ref=e4937]: CAPABILITY
+                  - generic [ref=e4938]: Membership
+                - generic [ref=e4939]:
+                  - img [ref=e4942]
+                  - heading "Documentation Discipline" [level=3] [ref=e4944]
+                  - paragraph [ref=e4945]: Structured documentation, knowledge transfer, and maintainable engineering practices designed for long-term continuity.
+                - button "Discover" [ref=e4947]:
+                  - generic [ref=e4948]:
+                    - generic [ref=e4949]: Discover
+                    - generic [ref=e4950]: Discover
+                  - img [ref=e4951]
+              - article [ref=e4953]:
+                - generic [ref=e4954]:
+                  - generic [ref=e4955]: CAPABILITY
+                  - generic [ref=e4956]: Membership
+                - generic [ref=e4957]:
+                  - img [ref=e4960]
+                  - heading "Scalable Architecture" [level=3] [ref=e4962]
+                  - paragraph [ref=e4963]: Modern architectures engineered for performance, extensibility, and future business growth.
+                - button "Discover" [ref=e4965]:
+                  - generic [ref=e4966]:
+                    - generic [ref=e4967]: Discover
+                    - generic [ref=e4968]: Discover
+                  - img [ref=e4969]
+              - article [ref=e4971]:
+                - generic [ref=e4972]:
+                  - generic [ref=e4973]: CAPABILITY
+                  - generic [ref=e4974]: Membership
+                - generic [ref=e4975]:
+                  - img [ref=e4978]
+                  - heading "Cross-Team Collaboration" [level=3] [ref=e4980]
+                  - paragraph [ref=e4981]: Transparent communication and coordinated execution across stakeholders, engineering teams, and business units.
+                - button "Discover" [ref=e4983]:
+                  - generic [ref=e4984]:
+                    - generic [ref=e4985]: Discover
+                    - generic [ref=e4986]: Discover
+                  - img [ref=e4987]
+        - generic [ref=e4990]:
+          - generic [ref=e4991]:
+            - img [ref=e4994]:
+              - generic [ref=e4996]: SOFTREE
+              - generic [ref=e4997]: / SYSTEMS
+              - generic [ref=e4998]: v.04 ●
+              - generic [ref=e5040]: AI · ACTIVE
+              - generic [ref=e5045]:
+                - generic [ref=e5047]: CORE CAPABILITIES
+                - generic [ref=e5048]:
+                  - generic [ref=e5052]: POWER PLATFORM
+                  - generic [ref=e5056]: AI
+                  - generic [ref=e5060]: DATA
+                  - generic [ref=e5064]: WEB
+                  - generic [ref=e5068]: GLOBAL ENG · 24/7
+            - generic [ref=e5069]:
+              - generic [ref=e5070]:
+                - paragraph [ref=e5071]: Why Softree?
+                - img [ref=e5073]
+              - heading "Engineered for enterprise delivery at scale." [level=3] [ref=e5075]:
+                - generic [ref=e5076]: Engineered
+                - generic [ref=e5077]: for
+                - generic [ref=e5078]: enterprise
+                - generic [ref=e5079]: delivery
+                - generic [ref=e5080]: at
+                - generic [ref=e5081]: scale.
+              - list [ref=e5082]:
+                - listitem [ref=e5083]:
+                  - heading "Security & Governance" [level=4] [ref=e5085]:
+                    - generic [ref=e5086]: Security & Governance
+                  - paragraph [ref=e5088]: Enterprise-grade controls, compliance practices, access management, and delivery governance integrated into every engagement.
+                - listitem [ref=e5089]:
+                  - heading "Documentation Discipline" [level=4] [ref=e5091]:
+                    - generic [ref=e5092]: Documentation Discipline
+                  - paragraph [ref=e5094]: Structured documentation, knowledge transfer, and maintainable engineering practices designed for long-term continuity.
+                - listitem [ref=e5095]:
+                  - heading "Scalable Architecture" [level=4] [ref=e5097]:
+                    - generic [ref=e5098]: Scalable Architecture
+                  - paragraph [ref=e5100]: Modern architectures engineered for performance, extensibility, and future business growth.
+                - listitem [ref=e5101]:
+                  - heading "Cross-Team Collaboration" [level=4] [ref=e5103]:
+                    - generic [ref=e5104]: Cross-Team Collaboration
+                  - paragraph [ref=e5106]: Transparent communication and coordinated execution across stakeholders, engineering teams, and business units.
+                - listitem [ref=e5107]:
+                  - heading "AI-Enhanced Productivity" [level=4] [ref=e5109]:
+                    - generic [ref=e5110]: AI-Enhanced Productivity
+                  - paragraph [ref=e5112]: AI-assisted workflows that accelerate development, automation, testing, and operational efficiency.
+                - listitem [ref=e5113]:
+                  - heading "Transparent Delivery" [level=4] [ref=e5115]:
+                    - generic [ref=e5116]: Transparent Delivery
+                  - paragraph [ref=e5118]: Clear sprint visibility, milestone tracking, reporting, and accountability throughout the delivery lifecycle.
+          - generic [ref=e5119]:
+            - generic [ref=e5122]:
+              - generic [ref=e5123]: Trusted by
+              - generic [ref=e5124]: Industry Giants
+            - generic [ref=e5127]:
+              - generic [ref=e5128]:
+                - generic [ref=e5129]:
+                  - img "GO ERP Brand Logo"
+                - generic [ref=e5130]:
+                  - img "Nuvento Brand Logo"
+                - generic [ref=e5131]:
+                  - img "Kwiz Brand Logo"
+                - generic [ref=e5132]:
+                  - img "Jonians Brand Logo"
+                - img "Export Control Brand Logo" [ref=e5134]
+                - generic [ref=e5135]:
+                  - img "SP Marketplace Brand Logo"
+                - generic [ref=e5136]:
+                  - img "Bosch Brand Logo"
+                - generic [ref=e5137]:
+                  - img "Emscale Brand Logo"
+                - generic [ref=e5138]:
+                  - img "Link Innovation Brand Logo"
+                - generic [ref=e5139]:
+                  - img "Intellectt Brand Logo"
+                - generic [ref=e5140]:
+                  - img "GO ERP Brand Logo"
+                - generic [ref=e5141]:
+                  - img "Nuvento Brand Logo"
+                - generic [ref=e5142]:
+                  - img "Kwiz Brand Logo"
+                - generic [ref=e5143]:
+                  - img "Jonians Brand Logo"
+                - img "Export Control Brand Logo" [ref=e5145]
+                - generic [ref=e5146]:
+                  - img "SP Marketplace Brand Logo"
+                - generic [ref=e5147]:
+                  - img "Bosch Brand Logo"
+                - generic [ref=e5148]:
+                  - img "Emscale Brand Logo"
+                - generic [ref=e5149]:
+                  - img "Link Innovation Brand Logo"
+                - generic [ref=e5150]:
+                  - img "Intellectt Brand Logo"
+              - generic [ref=e5151]:
+                - img [ref=e5157]
+                - img [ref=e5168]
+      - region "Global impact" [ref=e5174]:
+        - generic [ref=e5175]:
+          - generic [ref=e5178]:
+            - generic [ref=e5179]: Global network
+            - heading "Global impact" [level=2] [ref=e5181]
+            - paragraph [ref=e5182]: Verified partner hubs across the Americas, Europe, Asia Pacific, and the Middle East — with delivery teams anchored in the right city, not a generic region label.
+          - generic [ref=e5183]:
+            - img "World map showing Softree partner locations" [ref=e5187]
+            - generic [ref=e8782]:
+              - generic [ref=e8783]:
+                - paragraph [ref=e8784]: Active hubs
+                - paragraph [ref=e8785]: 14+
+                - paragraph [ref=e8786]: Enterprise partnerships across four regions
+              - list [ref=e8787]:
+                - listitem [ref=e8788]:
+                  - img [ref=e8790]
+                  - generic [ref=e8791]:
+                    - paragraph [ref=e8792]: Client retention
+                    - paragraph [ref=e8793]: 98%
+                - listitem [ref=e8794]:
+                  - img [ref=e8796]
+                  - generic [ref=e8800]:
+                    - paragraph [ref=e8801]: Partner certs
+                    - paragraph [ref=e8802]: 50+
+                - listitem [ref=e8803]:
+                  - img [ref=e8805]
+                  - generic [ref=e8808]:
+                    - paragraph [ref=e8809]: Projects delivered
+                    - paragraph [ref=e8810]: 178+
+          - generic [ref=e8812]:
+            - generic [ref=e8813]:
+              - generic [ref=e8814]:
+                - paragraph [ref=e8815]: Partner locations
+                - paragraph [ref=e8816]: Tap or hover a hub — the map pin highlights. City and country are always shown.
+              - link "View case studies" [ref=e8817] [cursor=pointer]:
+                - /url: /case-studies
+            - generic [ref=e8818]:
+              - generic [ref=e8820]:
+                - paragraph [ref=e8821]: Americas
+                - list [ref=e8822]:
+                  - listitem [ref=e8823]:
+                    - button "Jonians Corporation Los Angeles, California · United States" [ref=e8824]:
+                      - generic [ref=e8826]:
+                        - generic [ref=e8827]: Jonians Corporation
+                        - generic [ref=e8828]: Los Angeles, California · United States
+                  - listitem [ref=e8829]:
+                    - button "Nuvento Kansas · USA" [ref=e8830]:
+                      - generic [ref=e8832]:
+                        - generic [ref=e8833]: Nuvento
+                        - generic [ref=e8834]: Kansas · USA
+                  - listitem [ref=e8835]:
+                    - button "Sp-marketplace Penn Valley · California" [ref=e8836]:
+                      - generic [ref=e8838]:
+                        - generic [ref=e8839]: Sp-marketplace
+                        - generic [ref=e8840]: Penn Valley · California
+                  - listitem [ref=e8841]:
+                    - button "KwizCom Toronto, Ontario · Canada" [ref=e8842]:
+                      - generic [ref=e8844]:
+                        - generic [ref=e8845]: KwizCom
+                        - generic [ref=e8846]: Toronto, Ontario · Canada
+                  - listitem [ref=e8847]:
+                    - button "DevFinite Calgary · Canada" [ref=e8848]:
+                      - generic [ref=e8850]:
+                        - generic [ref=e8851]: DevFinite
+                        - generic [ref=e8852]: Calgary · Canada
+                  - listitem [ref=e8853]:
+                    - button "Intellectt New Jersey · USA" [ref=e8854]:
+                      - generic [ref=e8856]:
+                        - generic [ref=e8857]: Intellectt
+                        - generic [ref=e8858]: New Jersey · USA
+                  - listitem [ref=e8859]:
+                    - button "Kogny.ai Alpharetta, Atlanta · Georgia, USA" [ref=e8860]:
+                      - generic [ref=e8862]:
+                        - generic [ref=e8863]: Kogny.ai
+                        - generic [ref=e8864]: Alpharetta, Atlanta · Georgia, USA
+              - generic [ref=e8866]:
+                - paragraph [ref=e8867]: Europe
+                - list [ref=e8868]:
+                  - listitem [ref=e8869]:
+                    - button "Export control group Amsterdam · Netherlands" [ref=e8870]:
+                      - generic [ref=e8872]:
+                        - generic [ref=e8873]: Export control group
+                        - generic [ref=e8874]: Amsterdam · Netherlands
+                  - listitem [ref=e8875]:
+                    - button "Go ERP Bristol · England" [ref=e8876]:
+                      - generic [ref=e8878]:
+                        - generic [ref=e8879]: Go ERP
+                        - generic [ref=e8880]: Bristol · England
+              - generic [ref=e8882]:
+                - paragraph [ref=e8883]: Asia Pacific
+                - list [ref=e8884]:
+                  - listitem [ref=e8885]:
+                    - button "Cubeet Singapore · Singapore" [ref=e8886]:
+                      - generic [ref=e8888]:
+                        - generic [ref=e8889]: Cubeet
+                        - generic [ref=e8890]: Singapore · Singapore
+                  - listitem [ref=e8891]:
+                    - button "Link Innovation Hyderabad · India" [ref=e8892]:
+                      - generic [ref=e8894]:
+                        - generic [ref=e8895]: Link Innovation
+                        - generic [ref=e8896]: Hyderabad · India
+                  - listitem [ref=e8897]:
+                    - button "Emscale Mumbai · India" [ref=e8898]:
+                      - generic [ref=e8900]:
+                        - generic [ref=e8901]: Emscale
+                        - generic [ref=e8902]: Mumbai · India
+              - generic [ref=e8904]:
+                - paragraph [ref=e8905]: Middle East
+                - list [ref=e8906]:
+                  - listitem [ref=e8907]:
+                    - button "MAXTUBE Abu Dhabi · UAE" [ref=e8908]:
+                      - generic [ref=e8910]:
+                        - generic [ref=e8911]: MAXTUBE
+                        - generic [ref=e8912]: Abu Dhabi · UAE
+                  - listitem [ref=e8913]:
+                    - button "Adiva Information Technology LLC Dubai · UAE" [ref=e8914]:
+                      - generic [ref=e8916]:
+                        - generic [ref=e8917]: Adiva Information Technology LLC
+                        - generic [ref=e8918]: Dubai · UAE
+      - region "Engineering solutions built for impact" [ref=e8919]:
+        - generic [ref=e8920]:
+          - generic [ref=e8921]:
+            - generic [ref=e8923]:
+              - generic [ref=e8924]: Capabilities
+              - heading "Engineering solutions built for impact" [level=2] [ref=e8926]
+              - paragraph [ref=e8927]: From intelligent applications to cloud platforms — scalable, secure, and aligned with how enterprise teams actually ship.
+            - generic [ref=e8928]:
+              - generic [ref=e8929]:
+                - img [ref=e8931]
+                - generic [ref=e8933]: 250+
+                - generic [ref=e8934]: Projects Delivered
+              - generic [ref=e8935]:
+                - img [ref=e8937]
+                - generic [ref=e8943]: 98%
+                - generic [ref=e8944]: Client Satisfaction
+              - generic [ref=e8945]:
+                - img [ref=e8947]
+                - generic [ref=e8949]: 12+
+                - generic [ref=e8950]: Years of Experience
+              - generic [ref=e8951]:
+                - img [ref=e8953]
+                - generic [ref=e8957]: 24/7
+                - generic [ref=e8958]: Support Available
+          - generic [ref=e8959]:
+            - generic [ref=e8960]:
+              - generic:
+                - img
+              - generic [ref=e8961]:
+                - generic [ref=e8962]:
+                  - img [ref=e8964]
+                  - heading "Engineering Platform" [level=3] [ref=e8969]
+                  - generic [ref=e8970]: Core
+                - paragraph [ref=e8971]: Our engineering foundation powers everything we build — secure, scalable, and efficient.
+                - link "Explore platform" [ref=e8973] [cursor=pointer]:
+                  - /url: /services
+                  - text: Explore platform
+                  - img [ref=e8974]
+                - img [ref=e8978]
+                - generic [ref=e9102]:
+                  - generic [ref=e9103]:
+                    - img [ref=e9105]
+                    - generic [ref=e9107]: Security First
+                    - generic [ref=e9108]: Enterprise-grade protection
+                  - generic [ref=e9109]:
+                    - img [ref=e9111]
+                    - generic [ref=e9117]: Scalable by Design
+                    - generic [ref=e9118]: Built to grow with your business
+                  - generic [ref=e9119]:
+                    - img [ref=e9121]
+                    - generic [ref=e9126]: Modern Stack
+                    - generic [ref=e9127]: Latest technologies and best practices
+                  - generic [ref=e9128]:
+                    - img [ref=e9130]
+                    - generic [ref=e9132]: Performance Optimized
+                    - generic [ref=e9133]: Speed, reliability, and efficiency
+            - generic [ref=e9134]:
+              - generic [ref=e9136]:
+                - generic [ref=e9137]:
+                  - generic [ref=e9138]:
+                    - img [ref=e9140]
+                    - heading "AI & Intelligent Systems" [level=3] [ref=e9144]
+                  - paragraph [ref=e9145]: Build intelligent applications that learn, adapt, and create real business value.
+                  - generic [ref=e9146]:
+                    - generic [ref=e9147]: Machine Learning
+                    - generic [ref=e9148]: NLP
+                    - generic [ref=e9149]: Computer Vision
+                    - generic [ref=e9150]: Generative AI
+                - img [ref=e9154]:
+                  - generic [ref=e9206]: AI
+              - generic [ref=e9256]:
+                - generic [ref=e9258]:
+                  - generic [ref=e9259]:
+                    - generic [ref=e9260]:
+                      - img [ref=e9262]
+                      - heading "Data & Analytics" [level=3] [ref=e9264]
+                    - paragraph [ref=e9265]: Transform your data into actionable insights with modern data engineering and analytics.
+                    - generic [ref=e9266]:
+                      - generic [ref=e9267]: Data Engineering
+                      - generic [ref=e9268]: BI & Analytics
+                      - generic [ref=e9269]: Data Platforms
+                  - img [ref=e9273]
+                - generic [ref=e9375]:
+                  - generic [ref=e9376]:
+                    - generic [ref=e9377]:
+                      - img [ref=e9379]
+                      - heading "Cloud & Infrastructure" [level=3] [ref=e9381]
+                    - paragraph [ref=e9382]: Scalable, secure, and cost-optimized cloud solutions built for performance.
+                    - generic [ref=e9383]:
+                      - generic [ref=e9384]: AWS
+                      - generic [ref=e9385]: Azure
+                      - generic [ref=e9386]: GCP
+                      - generic [ref=e9387]: DevOps
+                  - img [ref=e9391]
+              - generic [ref=e9525]:
+                - generic [ref=e9526]:
+                  - generic [ref=e9527]:
+                    - img [ref=e9529]
+                    - heading "Digital Products & Platforms" [level=3] [ref=e9535]
+                  - paragraph [ref=e9536]: End-to-end product engineering for web, mobile, and enterprise platforms.
+                  - generic [ref=e9537]:
+                    - generic [ref=e9538]: Web Applications
+                    - generic [ref=e9539]: Mobile Apps
+                    - generic [ref=e9540]: SaaS Platforms
+                    - generic [ref=e9541]: Enterprise Solutions
+                - img [ref=e9545]:
+                  - generic [ref=e9623]:
+                    - generic [ref=e9625]: 12.4K
+                    - generic [ref=e9626]: +8%
+          - generic [ref=e9677]:
+            - generic [ref=e9678]:
+              - generic [ref=e9679]: Technology stack
+              - region "Technologies we build with" [ref=e9681]:
+                - generic [ref=e9682]:
+                  - list [ref=e9683]:
+                    - listitem:
+                      - link "React":
+                        - /url: https://react.dev
+                        - img "React"
+                    - listitem:
+                      - link "Next.js":
+                        - /url: https://nextjs.org
+                        - img "Next.js"
+                    - listitem:
+                      - link "TypeScript":
+                        - /url: https://www.typescriptlang.org
+                        - img "TypeScript"
+                    - listitem:
+                      - link "Tailwind CSS":
+                        - /url: https://tailwindcss.com
+                        - img "Tailwind CSS"
+                    - listitem:
+                      - link "Node.js":
+                        - /url: https://nodejs.org
+                        - img "Node.js"
+                    - listitem:
+                      - link "Python":
+                        - /url: https://www.python.org
+                        - img "Python"
+                    - listitem:
+                      - link ".NET":
+                        - /url: https://dotnet.microsoft.com
+                        - img ".NET"
+                    - listitem:
+                      - link "GraphQL":
+                        - /url: https://graphql.org
+                        - img "GraphQL"
+                    - listitem:
+                      - link "Vue.js":
+                        - /url: https://vuejs.org
+                        - img "Vue.js"
+                    - listitem [ref=e9684]:
+                      - link "SharePoint" [ref=e9685] [cursor=pointer]:
+                        - /url: https://www.microsoft.com/en-us/microsoft-365/sharepoint
+                        - img [ref=e9687]
+                    - listitem [ref=e9691]:
+                      - link "Power Apps" [ref=e9692] [cursor=pointer]:
+                        - /url: https://www.microsoft.com/en-us/power-platform/products/power-apps
+                        - img [ref=e9694]
+                    - listitem [ref=e9697]:
+                      - link "Power Automate" [ref=e9698] [cursor=pointer]:
+                        - /url: https://www.microsoft.com/en-us/power-platform/products/power-automate
+                        - img [ref=e9700]
+                  - list [ref=e9704]:
+                    - listitem [ref=e9705]:
+                      - link [ref=e9706] [cursor=pointer]:
+                        - /url: https://www.microsoft.com/en-us/microsoft-365/sharepoint
+                        - img [ref=e9708]
+                    - listitem [ref=e9712]:
+                      - link [ref=e9713] [cursor=pointer]:
+                        - /url: https://www.microsoft.com/en-us/power-platform/products/power-apps
+                        - img [ref=e9715]
+                    - listitem [ref=e9718]:
+                      - link [ref=e9719] [cursor=pointer]:
+                        - /url: https://www.microsoft.com/en-us/power-platform/products/power-automate
+                        - img [ref=e9721]
+                  - list [ref=e9725]:
+                    - listitem [ref=e9726]:
+                      - link [ref=e9727] [cursor=pointer]:
+                        - /url: https://www.microsoft.com/en-us/microsoft-365/sharepoint
+                        - img [ref=e9729]
+                    - listitem [ref=e9733]:
+                      - link [ref=e9734] [cursor=pointer]:
+                        - /url: https://www.microsoft.com/en-us/power-platform/products/power-apps
+                        - img [ref=e9736]
+                    - listitem [ref=e9739]:
+                      - link [ref=e9740] [cursor=pointer]:
+                        - /url: https://www.microsoft.com/en-us/power-platform/products/power-automate
+                        - img [ref=e9742]
+                  - list [ref=e9746]:
+                    - listitem [ref=e9747]:
+                      - link [ref=e9748] [cursor=pointer]:
+                        - /url: https://www.microsoft.com/en-us/microsoft-365/sharepoint
+                        - img [ref=e9750]
+                    - listitem [ref=e9754]:
+                      - link [ref=e9755] [cursor=pointer]:
+                        - /url: https://www.microsoft.com/en-us/power-platform/products/power-apps
+                        - img [ref=e9757]
+                    - listitem [ref=e9760]:
+                      - link [ref=e9761] [cursor=pointer]:
+                        - /url: https://www.microsoft.com/en-us/power-platform/products/power-automate
+                        - img [ref=e9763]
+            - generic [ref=e9767]:
+              - paragraph [ref=e9768]: Let's build something amazing together.
+              - link "Schedule a consultation" [ref=e9769] [cursor=pointer]:
+                - /url: /contact
+                - text: Schedule a consultation
+                - img [ref=e9770]
+      - region "We've built our business by serving global enterprises" [ref=e9772]:
+        - generic [ref=e9774]:
+          - complementary [ref=e9775]:
+            - generic [ref=e9776]:
+              - heading "We've built our business by serving global enterprises" [level=2] [ref=e9777]
+              - paragraph [ref=e9778]: Engineering partners for regulated teams — Microsoft, industrial, and product-led organisations worldwide.
+            - generic [ref=e9779]:
+              - paragraph [ref=e9780]: Discover how enterprises partner with Softree for delivery you can audit, scale, and own.
+              - generic [ref=e9782]:
+                - link "Request a demo" [ref=e9783] [cursor=pointer]:
+                  - /url: /contact
+                  - text: Request a demo
+                  - img [ref=e9784]
+                - link "Let's talk" [ref=e9786] [cursor=pointer]:
+                  - /url: /contact
+          - generic [ref=e9787]:
+            - tablist "Industry sectors" [ref=e9788]:
+              - tab "Banking" [selected] [ref=e9789]
+              - tab "Healthcare" [ref=e9790]
+              - tab "Retail" [ref=e9791]
+              - tab "Telecom + Media" [ref=e9792]
+              - tab "Business" [ref=e9793]
+            - generic [ref=e9794]:
+              - tabpanel "Banking" [ref=e9795]:
+                - generic [ref=e9796]:
+                  - heading "Banks, Credit Unions, Financial Institutions" [level=3] [ref=e9798]
+                  - generic [ref=e9799]:
+                    - paragraph [ref=e9800]: "Trusted by Softree partners:"
+                    - generic [ref=e9802]:
+                      - generic [ref=e9803]:
+                        - img "GO ERP"
+                      - generic [ref=e9804]:
+                        - img "Nuvento"
+                      - generic [ref=e9805]:
+                        - img "Kwiz"
+                      - generic [ref=e9806]:
+                        - img "Jonians"
+                      - img "Export Control" [ref=e9808]
+                      - generic [ref=e9809]:
+                        - img "SP Marketplace"
+                      - generic [ref=e9810]:
+                        - img "Bosch"
+                      - generic [ref=e9811]:
+                        - img "Emscale"
+                      - generic [ref=e9812]:
+                        - img "Link Innovation"
+                      - generic [ref=e9813]:
+                        - img "Intellectt"
+                      - generic [ref=e9814]:
+                        - img "GO ERP"
+                      - generic [ref=e9815]:
+                        - img "Nuvento"
+                      - generic [ref=e9816]:
+                        - img "Kwiz"
+                      - generic [ref=e9817]:
+                        - img "Jonians"
+                      - img "Export Control" [ref=e9819]
+                      - generic [ref=e9820]:
+                        - img "SP Marketplace"
+                      - generic [ref=e9821]:
+                        - img "Bosch"
+                      - generic [ref=e9822]:
+                        - img "Emscale"
+                      - generic [ref=e9823]:
+                        - img "Link Innovation"
+                      - generic [ref=e9824]:
+                        - img "Intellectt"
+              - tabpanel "Healthcare" [ref=e9825]:
+                - generic [ref=e9826]:
+                  - heading "Payers, Providers, Life Sciences" [level=3] [ref=e9828]
+                  - generic [ref=e9829]:
+                    - paragraph [ref=e9830]: "Trusted by Softree partners:"
+                    - generic [ref=e9832]:
+                      - generic [ref=e9833]:
+                        - img "GO ERP"
+                      - generic [ref=e9834]:
+                        - img "Nuvento"
+                      - generic [ref=e9835]:
+                        - img "Kwiz"
+                      - generic [ref=e9836]:
+                        - img "Jonians"
+                      - img "Export Control" [ref=e9838]
+                      - generic [ref=e9839]:
+                        - img "SP Marketplace"
+                      - generic [ref=e9840]:
+                        - img "Bosch"
+                      - generic [ref=e9841]:
+                        - img "Emscale"
+                      - generic [ref=e9842]:
+                        - img "Link Innovation"
+                      - generic [ref=e9843]:
+                        - img "Intellectt"
+                      - generic [ref=e9844]:
+                        - img "GO ERP"
+                      - generic [ref=e9845]:
+                        - img "Nuvento"
+                      - generic [ref=e9846]:
+                        - img "Kwiz"
+                      - generic [ref=e9847]:
+                        - img "Jonians"
+                      - img "Export Control" [ref=e9849]
+                      - generic [ref=e9850]:
+                        - img "SP Marketplace"
+                      - generic [ref=e9851]:
+                        - img "Bosch"
+                      - generic [ref=e9852]:
+                        - img "Emscale"
+                      - generic [ref=e9853]:
+                        - img "Link Innovation"
+                      - generic [ref=e9854]:
+                        - img "Intellectt"
+              - tabpanel "Retail" [ref=e9855]:
+                - generic [ref=e9856]:
+                  - generic [ref=e9857]:
+                    - heading "Consumer Goods and Services" [level=3] [ref=e9858]
+                    - paragraph [ref=e9859]: Make work more efficient, intelligent, and valuable across the organization.
+                  - generic [ref=e9860]:
+                    - paragraph [ref=e9861]: "Trusted by Softree partners:"
+                    - generic [ref=e9863]:
+                      - generic [ref=e9864]:
+                        - img "GO ERP"
+                      - generic [ref=e9865]:
+                        - img "Nuvento"
+                      - generic [ref=e9866]:
+                        - img "Kwiz"
+                      - generic [ref=e9867]:
+                        - img "Jonians"
+                      - img "Export Control" [ref=e9869]
+                      - generic [ref=e9870]:
+                        - img "SP Marketplace"
+                      - generic [ref=e9871]:
+                        - img "Bosch"
+                      - generic [ref=e9872]:
+                        - img "Emscale"
+                      - generic [ref=e9873]:
+                        - img "Link Innovation"
+                      - generic [ref=e9874]:
+                        - img "Intellectt"
+                      - generic [ref=e9875]:
+                        - img "GO ERP"
+                      - generic [ref=e9876]:
+                        - img "Nuvento"
+                      - generic [ref=e9877]:
+                        - img "Kwiz"
+                      - generic [ref=e9878]:
+                        - img "Jonians"
+                      - img "Export Control" [ref=e9880]
+                      - generic [ref=e9881]:
+                        - img "SP Marketplace"
+                      - generic [ref=e9882]:
+                        - img "Bosch"
+                      - generic [ref=e9883]:
+                        - img "Emscale"
+                      - generic [ref=e9884]:
+                        - img "Link Innovation"
+                      - generic [ref=e9885]:
+                        - img "Intellectt"
+              - tabpanel "Telecom + Media" [ref=e9886]:
+                - generic [ref=e9887]:
+                  - generic [ref=e9888]:
+                    - heading "Telecom, Media, Communications" [level=3] [ref=e9889]
+                    - paragraph [ref=e9890]: Make work more efficient, intelligent, and valuable across the organization.
+                  - generic [ref=e9891]:
+                    - paragraph [ref=e9892]: "Trusted by Softree partners:"
+                    - generic [ref=e9894]:
+                      - generic [ref=e9895]:
+                        - img "GO ERP"
+                      - generic [ref=e9896]:
+                        - img "Nuvento"
+                      - generic [ref=e9897]:
+                        - img "Kwiz"
+                      - generic [ref=e9898]:
+                        - img "Jonians"
+                      - img "Export Control" [ref=e9900]
+                      - generic [ref=e9901]:
+                        - img "SP Marketplace"
+                      - generic [ref=e9902]:
+                        - img "Bosch"
+                      - generic [ref=e9903]:
+                        - img "Emscale"
+                      - generic [ref=e9904]:
+                        - img "Link Innovation"
+                      - generic [ref=e9905]:
+                        - img "Intellectt"
+                      - generic [ref=e9906]:
+                        - img "GO ERP"
+                      - generic [ref=e9907]:
+                        - img "Nuvento"
+                      - generic [ref=e9908]:
+                        - img "Kwiz"
+                      - generic [ref=e9909]:
+                        - img "Jonians"
+                      - img "Export Control" [ref=e9911]
+                      - generic [ref=e9912]:
+                        - img "SP Marketplace"
+                      - generic [ref=e9913]:
+                        - img "Bosch"
+                      - generic [ref=e9914]:
+                        - img "Emscale"
+                      - generic [ref=e9915]:
+                        - img "Link Innovation"
+                      - generic [ref=e9916]:
+                        - img "Intellectt"
+              - tabpanel "Business" [ref=e9917]:
+                - generic [ref=e9918]:
+                  - generic [ref=e9919]:
+                    - heading "B2B Goods and Services" [level=3] [ref=e9920]
+                    - paragraph [ref=e9921]: Make work more efficient, intelligent, and valuable across the organization.
+                  - generic [ref=e9922]:
+                    - paragraph [ref=e9923]: "Trusted by Softree partners:"
+                    - generic [ref=e9925]:
+                      - generic [ref=e9926]:
+                        - img "GO ERP"
+                      - generic [ref=e9927]:
+                        - img "Nuvento"
+                      - generic [ref=e9928]:
+                        - img "Kwiz"
+                      - generic [ref=e9929]:
+                        - img "Jonians"
+                      - img "Export Control" [ref=e9931]
+                      - generic [ref=e9932]:
+                        - img "SP Marketplace"
+                      - generic [ref=e9933]:
+                        - img "Bosch"
+                      - generic [ref=e9934]:
+                        - img "Emscale"
+                      - generic [ref=e9935]:
+                        - img "Link Innovation"
+                      - generic [ref=e9936]:
+                        - img "Intellectt"
+                      - generic [ref=e9937]:
+                        - img "GO ERP"
+                      - generic [ref=e9938]:
+                        - img "Nuvento"
+                      - generic [ref=e9939]:
+                        - img "Kwiz"
+                      - generic [ref=e9940]:
+                        - img "Jonians"
+                      - img "Export Control" [ref=e9942]
+                      - generic [ref=e9943]:
+                        - img "SP Marketplace"
+                      - generic [ref=e9944]:
+                        - img "Bosch"
+                      - generic [ref=e9945]:
+                        - img "Emscale"
+                      - generic [ref=e9946]:
+                        - img "Link Innovation"
+                      - generic [ref=e9947]:
+                        - img "Intellectt"
+      - region "From MVP launches to enterprise platforms" [ref=e9948]:
+        - generic [ref=e9949]:
+          - generic [ref=e9951]:
+            - generic [ref=e9952]: Technology stack
+            - heading "From MVP launches to enterprise platforms" [level=2] [ref=e9954]
+            - paragraph [ref=e9955]: Modern frontends, Microsoft Power Platform, and cloud-native backends — one bench, full stack.
+          - region "Technologies Softree builds with" [ref=e9958]:
+            - generic [ref=e9959]:
+              - list [ref=e9960]:
+                - listitem:
+                  - link "React":
+                    - /url: https://react.dev
+                    - img "React"
+                - listitem:
+                  - link "Next.js":
+                    - /url: https://nextjs.org
+                    - img "Next.js"
+                - listitem:
+                  - link "TypeScript":
+                    - /url: https://www.typescriptlang.org
+                    - img "TypeScript"
+                - listitem:
+                  - link "Tailwind CSS":
+                    - /url: https://tailwindcss.com
+                    - img "Tailwind CSS"
+                - listitem:
+                  - link "Node.js":
+                    - /url: https://nodejs.org
+                    - img "Node.js"
+                - listitem:
+                  - link "Python":
+                    - /url: https://www.python.org
+                    - img "Python"
+                - listitem:
+                  - link ".NET":
+                    - /url: https://dotnet.microsoft.com
+                    - img ".NET"
+                - listitem:
+                  - link "GraphQL":
+                    - /url: https://graphql.org
+                    - img "GraphQL"
+                - listitem:
+                  - link "Vue.js":
+                    - /url: https://vuejs.org
+                    - img "Vue.js"
+                - listitem [ref=e9961]:
+                  - link "SharePoint" [ref=e9962] [cursor=pointer]:
+                    - /url: https://www.microsoft.com/en-us/microsoft-365/sharepoint
+                    - img [ref=e9964]
+                - listitem [ref=e9968]:
+                  - link "Power Apps" [ref=e9969] [cursor=pointer]:
+                    - /url: https://www.microsoft.com/en-us/power-platform/products/power-apps
+                    - img [ref=e9971]
+                - listitem [ref=e9974]:
+                  - link "Power Automate" [ref=e9975] [cursor=pointer]:
+                    - /url: https://www.microsoft.com/en-us/power-platform/products/power-automate
+                    - img [ref=e9977]
+              - list [ref=e9981]:
+                - listitem [ref=e9982]:
+                  - link [ref=e9983] [cursor=pointer]:
+                    - /url: https://www.microsoft.com/en-us/microsoft-365/sharepoint
+                    - img [ref=e9985]
+                - listitem [ref=e9989]:
+                  - link [ref=e9990] [cursor=pointer]:
+                    - /url: https://www.microsoft.com/en-us/power-platform/products/power-apps
+                    - img [ref=e9992]
+                - listitem [ref=e9995]:
+                  - link [ref=e9996] [cursor=pointer]:
+                    - /url: https://www.microsoft.com/en-us/power-platform/products/power-automate
+                    - img [ref=e9998]
+              - list [ref=e10002]:
+                - listitem [ref=e10003]:
+                  - link [ref=e10004] [cursor=pointer]:
+                    - /url: https://www.microsoft.com/en-us/microsoft-365/sharepoint
+                    - img [ref=e10006]
+                - listitem [ref=e10010]:
+                  - link [ref=e10011] [cursor=pointer]:
+                    - /url: https://www.microsoft.com/en-us/power-platform/products/power-apps
+                    - img [ref=e10013]
+                - listitem [ref=e10016]:
+                  - link [ref=e10017] [cursor=pointer]:
+                    - /url: https://www.microsoft.com/en-us/power-platform/products/power-automate
+                    - img [ref=e10019]
+              - list [ref=e10023]:
+                - listitem [ref=e10024]:
+                  - link [ref=e10025] [cursor=pointer]:
+                    - /url: https://www.microsoft.com/en-us/microsoft-365/sharepoint
+                    - img [ref=e10027]
+                - listitem [ref=e10031]:
+                  - link [ref=e10032] [cursor=pointer]:
+                    - /url: https://www.microsoft.com/en-us/power-platform/products/power-apps
+                    - img [ref=e10034]
+                - listitem [ref=e10037]:
+                  - link [ref=e10038] [cursor=pointer]:
+                    - /url: https://www.microsoft.com/en-us/power-platform/products/power-automate
+                    - img [ref=e10040]
+          - link "Explore all technologies" [ref=e10045] [cursor=pointer]:
+            - /url: /services/mvp
+            - text: Explore all technologies
+            - img [ref=e10046]
+      - region "What we build for you" [ref=e10048]:
+        - generic [ref=e10051]:
+          - generic [ref=e10052]: Services
+          - heading "What we build for you" [level=2] [ref=e10054]
+          - paragraph [ref=e10055]: Scroll the stack — each card is a delivery lane with scope, timeline, and a path to the right practice page.
+        - generic [ref=e10056]:
+          - article [ref=e10058]:
+            - generic [ref=e10061]:
+              - generic [ref=e10062]:
+                - 'link "Ship a Web App { 0 1 }" [ref=e10063] [cursor=pointer]':
+                  - /url: /services/digital-workspace/web-app-development
+                  - heading "Ship a Web App" [level=3] [ref=e10064]
+                  - generic [ref=e10065]:
+                    - generic [ref=e10066]: "{"
+                    - generic [ref=e10067]: "0"
+                    - generic [ref=e10068]: "1"
+                    - generic [ref=e10069]: "}"
+                - paragraph [ref=e10070]: Production-grade web apps in Next.js, React, and TypeScript. Senior engineers, fixed scope, weekly demos. From discovery to launch in 12 weeks.
+                - generic [ref=e10071]:
+                  - generic [ref=e10072]:
+                    - generic [ref=e10073]: WHITE-LABEL WEB APP PARTNER
+                    - generic [ref=e10074]: Offshore Delivery • Your Brand • Our Expertise
+                  - generic [ref=e10076]:
+                    - generic [ref=e10079]: NDA Protected
+                    - generic [ref=e10082]: Dedicated Team
+                    - generic [ref=e10085]: Next.js & React Specialists
+                - generic [ref=e10086]:
+                  - generic [ref=e10087]: Next.js
+                  - generic [ref=e10088]: React
+                  - generic [ref=e10089]: TypeScript
+                  - generic [ref=e10090]: Production
+              - link "Ship a Web App" [ref=e10091] [cursor=pointer]:
+                - /url: /services/digital-workspace/web-app-development
+                - img "Ship a Web App" [ref=e10093]
+          - article [ref=e10095]:
+            - generic [ref=e10098]:
+              - generic [ref=e10099]:
+                - 'link "Build Power Platform Automations { 0 2 }" [ref=e10100] [cursor=pointer]':
+                  - /url: /services/business-applications/power-apps
+                  - heading "Build Power Platform Automations" [level=3] [ref=e10101]
+                  - generic [ref=e10102]:
+                    - generic [ref=e10103]: "{"
+                    - generic [ref=e10104]: "0"
+                    - generic [ref=e10105]: "2"
+                    - generic [ref=e10106]: "}"
+                - paragraph [ref=e10107]: Power Apps, Power Automate, and Power BI built by Microsoft Gold Partners. Enterprise governance, security review, ALM pipelines included.
+                - generic [ref=e10108]:
+                  - generic [ref=e10109]:
+                    - generic [ref=e10110]: WHITE-LABEL POWER PLATFORM PARTNER
+                    - generic [ref=e10111]: Offshore Delivery • Your Brand • Our Expertise
+                  - generic [ref=e10113]:
+                    - generic [ref=e10116]: NDA Protected
+                    - generic [ref=e10119]: Dedicated Team
+                    - generic [ref=e10122]: Microsoft Specialists
+                - generic [ref=e10123]:
+                  - generic [ref=e10124]: Power Apps
+                  - generic [ref=e10125]: Power Automate
+                  - generic [ref=e10126]: Power BI
+                  - generic [ref=e10127]: Microsoft
+              - link "Build Power Platform Automations" [ref=e10128] [cursor=pointer]:
+                - /url: /services/business-applications/power-apps
+                - img "Build Power Platform Automations" [ref=e10130]
+          - article [ref=e10132]:
+            - generic [ref=e10135]:
+              - generic [ref=e10136]:
+                - 'link "Modernize SharePoint { 0 3 }" [ref=e10137] [cursor=pointer]':
+                  - /url: /services/digital-workspace/sharepoint
+                  - heading "Modernize SharePoint" [level=3] [ref=e10138]
+                  - generic [ref=e10139]:
+                    - generic [ref=e10140]: "{"
+                    - generic [ref=e10141]: "0"
+                    - generic [ref=e10142]: "3"
+                    - generic [ref=e10143]: "}"
+                - paragraph [ref=e10144]: SharePoint intranets and SPFx web parts that don’t feel like SharePoint. Migration, custom branding, and Microsoft 365 integrations.
+                - generic [ref=e10145]:
+                  - generic [ref=e10146]:
+                    - generic [ref=e10147]: WHITE-LABEL SHAREPOINT PARTNER
+                    - generic [ref=e10148]: Offshore Delivery • Your Brand • Our Expertise
+                  - generic [ref=e10150]:
+                    - generic [ref=e10153]: NDA Protected
+                    - generic [ref=e10156]: Dedicated Team
+                    - generic [ref=e10159]: SharePoint & SPFx Specialists
+                - generic [ref=e10160]:
+                  - generic [ref=e10161]: SharePoint
+                  - generic [ref=e10162]: SPFx
+                  - generic [ref=e10163]: M365
+                  - generic [ref=e10164]: Migration
+              - link "Modernize SharePoint" [ref=e10165] [cursor=pointer]:
+                - /url: /services/digital-workspace/sharepoint
+                - img "Modernize SharePoint" [ref=e10167]
+          - article [ref=e10169]:
+            - generic [ref=e10172]:
+              - generic [ref=e10173]:
+                - 'link "Stand up Data + BI { 0 4 }" [ref=e10174] [cursor=pointer]':
+                  - /url: /services/data-analytics/microsoft-fabric
+                  - heading "Stand up Data + BI" [level=3] [ref=e10175]
+                  - generic [ref=e10176]:
+                    - generic [ref=e10177]: "{"
+                    - generic [ref=e10178]: "0"
+                    - generic [ref=e10179]: "4"
+                    - generic [ref=e10180]: "}"
+                - paragraph [ref=e10181]: Microsoft Fabric, Power BI dashboards, and data engineering pipelines that surface revenue signals — not 60-page decks.
+                - generic [ref=e10182]:
+                  - generic [ref=e10183]:
+                    - generic [ref=e10184]: WHITE-LABEL DATA & BI PARTNER
+                    - generic [ref=e10185]: Offshore Delivery • Your Brand • Our Expertise
+                  - generic [ref=e10187]:
+                    - generic [ref=e10190]: NDA Protected
+                    - generic [ref=e10193]: Dedicated Team
+                    - generic [ref=e10196]: Power BI & Fabric Specialists
+                - generic [ref=e10197]:
+                  - generic [ref=e10198]: Microsoft Fabric
+                  - generic [ref=e10199]: Power BI
+                  - generic [ref=e10200]: Data Engineering
+                  - generic [ref=e10201]: Analytics
+              - link "Stand up Data + BI" [ref=e10202] [cursor=pointer]:
+                - /url: /services/data-analytics/microsoft-fabric
+                - img "Stand up Data + BI" [ref=e10204]
+          - article [ref=e10206]:
+            - generic [ref=e10209]:
+              - generic [ref=e10210]:
+                - 'link "Modernize Legacy Applications { 0 5 }" [ref=e10211] [cursor=pointer]':
+                  - /url: /services/legacy-application-modernization
+                  - heading "Modernize Legacy Applications" [level=3] [ref=e10212]
+                  - generic [ref=e10213]:
+                    - generic [ref=e10214]: "{"
+                    - generic [ref=e10215]: "0"
+                    - generic [ref=e10216]: "5"
+                    - generic [ref=e10217]: "}"
+                - paragraph [ref=e10218]: Transform outdated systems, desktop applications, or legacy databases into secure, cloud-native platforms. Modern codebase architectures, seamless integrations.
+                - generic [ref=e10219]:
+                  - generic [ref=e10220]:
+                    - generic [ref=e10221]: WHITE-LABEL MODERNIZATION PARTNER
+                    - generic [ref=e10222]: Offshore Delivery • Your Brand • Our Expertise
+                  - generic [ref=e10224]:
+                    - generic [ref=e10227]: NDA Protected
+                    - generic [ref=e10230]: Dedicated Team
+                    - generic [ref=e10233]: Legacy Migration Specialists
+                - generic [ref=e10234]:
+                  - generic [ref=e10235]: Legacy Migration
+                  - generic [ref=e10236]: Cloud Native
+                  - generic [ref=e10237]: React
+                  - generic [ref=e10238]: Next.js
+              - link "Modernize Legacy Applications" [ref=e10239] [cursor=pointer]:
+                - /url: /services/legacy-application-modernization
+                - img "Modernize Legacy Applications" [ref=e10241]
+      - region "Engagement models" [ref=e10244]:
+        - generic [ref=e10245]:
+          - generic [ref=e10247]:
+            - generic [ref=e10248]: Engagement
+            - heading "Engagement models" [level=2] [ref=e10250]
+            - paragraph [ref=e10251]: Choose how Softree embeds with your team — expand one lane to see scope, tags, and fit.
+          - tablist "Engagement models" [ref=e10252]:
+            - tab "Model (01) Dedicated Teams Dedicated Teams Build a scalable engineering extension aligned with your delivery goals and workflows. Agile Delivery Scalable Teams Long-Term Leadership" [selected] [ref=e10253] [cursor=pointer]:
+              - generic [ref=e10254]:
+                - generic [ref=e10255]: Model
+                - generic [ref=e10257]: (01)
+              - generic [ref=e10259]:
+                - img "Dedicated Teams" [ref=e10261]
+                - generic [ref=e10262]:
+                  - heading "Dedicated Teams" [level=3] [ref=e10263]
+                  - paragraph [ref=e10264]: Build a scalable engineering extension aligned with your delivery goals and workflows.
+                  - generic [ref=e10265]:
+                    - generic [ref=e10266]: Agile Delivery
+                    - generic [ref=e10267]: Scalable Teams
+                    - generic [ref=e10268]: Long-Term
+                    - generic [ref=e10269]: Leadership
+              - heading [level=3] [ref=e10274]: Dedicated Teams
+            - tab "Model (02) White-Label" [ref=e10275] [cursor=pointer]:
+              - generic [ref=e10276]:
+                - generic [ref=e10277]: Model
+                - generic [ref=e10278]: (02)
+              - heading "White-Label" [level=3] [ref=e10284]
+            - tab "Model (03) Staff Augmentation" [ref=e10285] [cursor=pointer]:
+              - generic [ref=e10286]:
+                - generic [ref=e10287]: Model
+                - generic [ref=e10288]: (03)
+              - heading "Staff Augmentation" [level=3] [ref=e10294]
+            - tab "Model (04) Project Delivery" [ref=e10295] [cursor=pointer]:
+              - generic [ref=e10296]:
+                - generic [ref=e10297]: Model
+                - generic [ref=e10298]: (04)
+              - heading "Project Delivery" [level=3] [ref=e10304]
+            - tab "Model (05) Managed Services" [ref=e10305] [cursor=pointer]:
+              - generic [ref=e10306]:
+                - generic [ref=e10307]: Model
+                - generic [ref=e10308]: (05)
+              - heading "Managed Services" [level=3] [ref=e10314]
+      - region "Case studies that ship" [ref=e10315]:
+        - generic [ref=e10316]:
+          - generic [ref=e10318]:
+            - generic [ref=e10319]: Selected works
+            - heading "Case studies that ship" [level=2] [ref=e10321]
+            - paragraph [ref=e10322]: Real deliveries across SharePoint, Power Platform, and product engineering — browse the index or open a story.
+          - link "View all case studies" [ref=e10324] [cursor=pointer]:
+            - /url: /case-studies
+            - text: View all case studies
+            - img [ref=e10325]
+          - region "Work index and previews" [ref=e10328]:
+            - region "Featured client work" [ref=e10333]:
+              - generic [ref=e10338]:
+                - generic [ref=e10339]:
+                  - button "Go to story 1" [ref=e10340] [cursor=pointer]
+                  - button "Go to story 2" [ref=e10342] [cursor=pointer]
+                  - button "Go to story 3" [ref=e10343] [cursor=pointer]
+                  - button "Go to story 4" [ref=e10344] [cursor=pointer]
+                - button "Pause stories" [ref=e10345] [cursor=pointer]:
+                  - img [ref=e10346]
+              - generic [ref=e10350]:
+                - generic [ref=e10351]:
+                  - generic [ref=e10352]:
+                    - generic [ref=e10353]: Microsoft Power Platform
+                    - time [ref=e10354]: Nov 12, 2025
+                  - generic [ref=e10355]: 01 / 04
+                - generic [ref=e10356]:
+                  - heading "Governed low-code at enterprise scale" [level=2] [ref=e10357]
+                  - paragraph [ref=e10358]: Low-code apps and workflows with enterprise governance built in.
+                - generic [ref=e10359]:
+                  - link "Power Platform" [ref=e10360] [cursor=pointer]:
+                    - /url: /services/offshore-power-platform-development
+                    - text: Power Platform
+                    - generic [ref=e10361]: →
+                  - generic [ref=e10362]: 6-week rollout
+              - button "Previous story" [ref=e10363] [cursor=pointer]:
+                - img [ref=e10364]
+              - button "Next story" [ref=e10366] [cursor=pointer]:
+                - img [ref=e10367]
+            - generic [ref=e10369]:
+              - navigation "Case study index" [ref=e10370]:
+                - paragraph [ref=e10371]: Featured work
+                - list [ref=e10372]:
+                  - listitem [ref=e10373]:
+                    - link "Wicked Point LLC Professional Services Wicked Point LLC" [ref=e10374] [cursor=pointer]:
+                      - /url: /case-studies/wicked-point-power-platform-governance
+                      - img "Wicked Point LLC" [ref=e10377]
+                      - generic [ref=e10378]:
+                        - generic [ref=e10379]: Professional Services
+                        - generic [ref=e10380]: Wicked Point LLC
+                      - generic [ref=e10381]: →
+                  - listitem [ref=e10382]:
+                    - link "ECG Group Financial Services ECG Group" [ref=e10383] [cursor=pointer]:
+                      - /url: /case-studies/ecg-group-ai-copilot-transformation
+                      - img "ECG Group" [ref=e10385]
+                      - generic [ref=e10386]:
+                        - generic [ref=e10387]: Financial Services
+                        - generic [ref=e10388]: ECG Group
+                      - generic [ref=e10389]: →
+                  - listitem [ref=e10390]:
+                    - link "SP Marketplace Technology SP Marketplace" [ref=e10391] [cursor=pointer]:
+                      - /url: /case-studies/sp-marketplace-installation-automation
+                      - img "SP Marketplace" [ref=e10393]
+                      - generic [ref=e10394]:
+                        - generic [ref=e10395]: Technology
+                        - generic [ref=e10396]: SP Marketplace
+                      - generic [ref=e10397]: →
+              - generic [ref=e10399]:
+                - img "Wicked Point LLC" [ref=e10401]
+                - generic [ref=e10404]:
+                  - generic [ref=e10405]: Professional Services
+                  - heading "Wicked Point LLC" [level=3] [ref=e10406]
+                  - link "Open case study" [ref=e10408] [cursor=pointer]:
+                    - /url: /case-studies/wicked-point-power-platform-governance
+      - region "Success stories" [ref=e10409]:
+        - generic [ref=e10410]:
+          - article [ref=e10411]:
+            - generic [ref=e10412]:
+              - generic [ref=e10413]: Softree
+              - generic [ref=e10414]: ®
+            - generic [ref=e10415]:
+              - heading "Success stories" [level=2] [ref=e10416]:
+                - text: Success
+                - text: stories
+              - paragraph [ref=e10417]: Our work speaks for itself, but our clients say it even better.
+          - article [ref=e10418]:
+            - generic [ref=e10420]:
+              - generic [ref=e10421]:
+                - img "Wicked Point LLC — Virginia headquarters building" [ref=e10423]
+                - img "Urban corporate skyline" [ref=e10425]
+              - generic [ref=e10428]:
+                - generic [ref=e10430]:
+                  - img "Wicked Point LLC" [ref=e10432]
+                  - paragraph [ref=e10433]: Natasha Adams
+                  - paragraph [ref=e10434]: Wicked Point LLC
+                  - paragraph [ref=e10435]: Virginia
+                - generic [ref=e10437]:
+                  - img "ECG Group" [ref=e10439]
+                  - paragraph [ref=e10440]: Arkady Fedorovtsjev
+                  - paragraph [ref=e10441]: ECG Group
+                  - paragraph [ref=e10442]: Netherlands
+          - article [ref=e10443]:
+            - generic [ref=e10446]:
+              - generic [ref=e10448]:
+                - generic [ref=e10449]:
+                  - img [ref=e10450]
+                  - img [ref=e10452]
+                  - img [ref=e10454]
+                  - img [ref=e10456]
+                  - img [ref=e10458]
+                - blockquote [ref=e10460]:
+                  - paragraph [ref=e10461]: “We had a very positive experience working with Softree Technology. The developers were responsive and delivery was on time. We appreciate the attention they gave our project and their great communication.”
+                - generic "Project impact metrics" [ref=e10462]:
+                  - generic [ref=e10463]:
+                    - paragraph [ref=e10464]: +33%
+                    - paragraph [ref=e10465]: Faster delivery
+                  - generic [ref=e10466]:
+                    - paragraph [ref=e10467]: 81%
+                    - paragraph [ref=e10468]: On-time milestones
+                - paragraph [ref=e10469]: 01 / 03
+              - generic [ref=e10471]:
+                - generic [ref=e10472]:
+                  - img [ref=e10473]
+                  - img [ref=e10475]
+                  - img [ref=e10477]
+                  - img [ref=e10479]
+                  - img [ref=e10481]
+                - blockquote [ref=e10483]:
+                  - paragraph [ref=e10484]: “Overall, we are satisfied with our collaboration in the past and your last action really makes a difference.”
+                - generic "Project impact metrics" [ref=e10485]:
+                  - generic [ref=e10486]:
+                    - paragraph [ref=e10487]: +25%
+                    - paragraph [ref=e10488]: Release velocity
+                  - generic [ref=e10489]:
+                    - paragraph [ref=e10490]: +43%
+                    - paragraph [ref=e10491]: Sprint throughput
+                - paragraph [ref=e10492]: 02 / 03
+          - article [ref=e10493]:
+            - paragraph [ref=e10494]: Client voices
+            - link "Read all" [ref=e10495] [cursor=pointer]:
+              - /url: "#client-testimonials"
+              - generic [ref=e10496]:
+                - text: Read
+                - text: all
+              - img [ref=e10498]
+        - paragraph [ref=e10500]: Showing testimonial from Arkady Fedorovtsjev, ECG Group
+      - generic [ref=e10503]:
+        - generic [ref=e10504]:
+          - generic [ref=e10505]:
+            - paragraph [ref=e10506]: Client stories
+            - heading "Trusted by teams who ship" [level=2] [ref=e10507]
+          - paragraph [ref=e10508]: 1 of 3
+        - generic [ref=e10509]:
+          - button "Previous testimonial" [ref=e10510] [cursor=pointer]:
+            - img [ref=e10511]
+          - button "Next testimonial" [ref=e10513] [cursor=pointer]:
+            - img [ref=e10514]
+          - article [ref=e10516]:
+            - generic [ref=e10517]:
+              - generic [ref=e10518]:
+                - generic [ref=e10519]:
+                  - generic "5 out of 5 stars" [ref=e10520]:
+                    - img [ref=e10521]
+                    - img [ref=e10523]
+                    - img [ref=e10525]
+                    - img [ref=e10527]
+                    - img [ref=e10529]
+                  - blockquote [ref=e10531]: “We had a very positive experience working with Softree Technology. The developers were responsive and delivery was on time. We appreciate the attention they gave our project and their great communication.”
+                - generic [ref=e10532]:
+                  - generic [ref=e10533]: NA
+                  - generic [ref=e10534]:
+                    - paragraph [ref=e10535]: Natasha Adams
+                    - paragraph [ref=e10536]: Wicked Point LLC · Virginia
+              - img "Wicked Point LLC" [ref=e10544]
+        - generic [ref=e10545]:
+          - button "Go to testimonial 1" [ref=e10546]
+          - button "Go to testimonial 2" [ref=e10547]
+          - button "Go to testimonial 3" [ref=e10548]
+      - region "Blog highlights" [ref=e10551]:
+        - generic [ref=e10553]:
+          - generic [ref=e10554]:
+            - paragraph [ref=e10555]: Insights
+            - heading "From the blog" [level=2] [ref=e10556]
+            - paragraph [ref=e10557]: Implementation notes on Power Platform, Fabric, AI, and shipping enterprise software with distributed teams.
+          - link "All articles" [ref=e10558] [cursor=pointer]:
+            - /url: /blog
+        - generic [ref=e10559]:
+          - navigation "Article index" [ref=e10560]:
+            - paragraph [ref=e10562]: Latest · 4 articles
+            - list [ref=e10563]:
+              - listitem [ref=e10564]:
+                - link "10 Best React Development Services Web Development 10 Best React Development Services May 21, 2026" [ref=e10565] [cursor=pointer]:
+                  - /url: /blog/best-react-development-services
+                  - img "10 Best React Development Services" [ref=e10568]
+                  - generic [ref=e10569]:
+                    - text: Web Development
+                    - paragraph [ref=e10570]: 10 Best React Development Services
+                    - time [ref=e10571]: May 21, 2026
+              - listitem [ref=e10572]:
+                - link "10 Best Agentic AI Services AI & Machine Learning 10 Best Agentic AI Services May 21, 2026" [ref=e10573] [cursor=pointer]:
+                  - /url: /blog/best-agentic-ai-services
+                  - img "10 Best Agentic AI Services" [ref=e10575]
+                  - generic [ref=e10576]:
+                    - text: AI & Machine Learning
+                    - paragraph [ref=e10577]: 10 Best Agentic AI Services
+                    - time [ref=e10578]: May 21, 2026
+              - listitem [ref=e10579]:
+                - link "10 Best Microsoft Fabric Services Microsoft 365 10 Best Microsoft Fabric Services May 21, 2026" [ref=e10580] [cursor=pointer]:
+                  - /url: /blog/best-microsoft-fabric-services
+                  - img "10 Best Microsoft Fabric Services" [ref=e10582]
+                  - generic [ref=e10583]:
+                    - text: Microsoft 365
+                    - paragraph [ref=e10584]: 10 Best Microsoft Fabric Services
+                    - time [ref=e10585]: May 21, 2026
+              - listitem [ref=e10586]:
+                - link "10 Best SPFx Development Services Microsoft 365 10 Best SPFx Development Services May 21, 2026" [ref=e10587] [cursor=pointer]:
+                  - /url: /blog/best-spfx-development-services
+                  - img "10 Best SPFx Development Services" [ref=e10589]
+                  - generic [ref=e10590]:
+                    - text: Microsoft 365
+                    - paragraph [ref=e10591]: 10 Best SPFx Development Services
+                    - time [ref=e10592]: May 21, 2026
+          - generic [ref=e10594]:
+            - img "10 Best React Development Services" [ref=e10596]
+            - generic [ref=e10599]:
+              - generic [ref=e10600]: Web Development
+              - heading "10 Best React Development Services" [level=3] [ref=e10601]
+              - paragraph [ref=e10602]: Modern businesses face increasing pressure to build fast, responsive web applications with exceptional user experiences. Between component complexity, state man
+              - link "Read article" [ref=e10604] [cursor=pointer]:
+                - /url: /blog/best-react-development-services
+      - region "Spaces built for focused work." [ref=e10605]:
+        - generic [ref=e10606]:
+          - generic [ref=e10607]:
+            - generic [ref=e10608]:
+              - generic [ref=e10609]: Inside Softree
+              - heading "Spaces built for focused work." [level=2] [ref=e10611]
+              - paragraph [ref=e10612]: Bengaluru, Cuttack, and San Francisco — real floors, huddle rooms, and teams shipping enterprise software every day.
+            - link "Book a visit" [ref=e10613] [cursor=pointer]:
+              - /url: /contact
+          - generic [ref=e10614]:
+            - generic [ref=e10616]:
+              - figure "Softree Bengaluru reception lounge" [ref=e10617]:
+                - img "Softree Bengaluru reception lounge" [ref=e10618]
+                - generic: Softree Bengaluru reception lounge
+              - figure "Softree open-plan workspace" [ref=e10619]:
+                - img "Softree open-plan workspace" [ref=e10620]
+                - generic: Softree open-plan workspace
+              - figure "Softree café and lunch area" [ref=e10621]:
+                - img "Softree café and lunch area" [ref=e10622]
+                - generic: Softree café and lunch area
+              - figure "Softree conference room — The Circus" [ref=e10623]:
+                - img "Softree conference room — The Circus" [ref=e10624]
+                - generic: Softree conference room — The Circus
+              - figure "Softree San Francisco workspace" [ref=e10625]:
+                - img "Softree San Francisco workspace" [ref=e10626]
+                - generic: Softree San Francisco workspace
+              - figure "Modern office interior" [ref=e10627]:
+                - img "Modern office interior" [ref=e10628]
+                - generic: Modern office interior
+              - figure "Softree team workspace" [ref=e10629]:
+                - img "Softree team workspace" [ref=e10630]
+                - generic: Softree team workspace
+              - figure "Softree Bengaluru reception lounge" [ref=e10631]:
+                - img "Softree Bengaluru reception lounge" [ref=e10632]
+                - generic: Softree Bengaluru reception lounge
+              - figure "Softree open-plan workspace" [ref=e10633]:
+                - img "Softree open-plan workspace" [ref=e10634]
+                - generic: Softree open-plan workspace
+              - figure "Softree café and lunch area" [ref=e10635]:
+                - img "Softree café and lunch area" [ref=e10636]
+                - generic: Softree café and lunch area
+              - figure "Softree conference room — The Circus" [ref=e10637]:
+                - img "Softree conference room — The Circus" [ref=e10638]
+                - generic: Softree conference room — The Circus
+              - figure "Softree San Francisco workspace" [ref=e10639]:
+                - img "Softree San Francisco workspace" [ref=e10640]
+                - generic: Softree San Francisco workspace
+              - figure "Modern office interior" [ref=e10641]:
+                - img "Modern office interior" [ref=e10642]
+                - generic: Modern office interior
+              - figure "Softree team workspace" [ref=e10643]:
+                - img "Softree team workspace" [ref=e10644]
+                - generic: Softree team workspace
+            - generic [ref=e10646]:
+              - figure "Softree huddle room" [ref=e10647]:
+                - img "Softree huddle room" [ref=e10648]
+                - generic: Softree huddle room
+              - figure "Softree breakout pods" [ref=e10649]:
+                - img "Softree breakout pods" [ref=e10650]
+                - generic: Softree breakout pods
+              - figure "Prestige Tech Platina 2 — Bengaluru campus" [ref=e10651]:
+                - img "Prestige Tech Platina 2 — Bengaluru campus" [ref=e10652]
+                - generic: Prestige Tech Platina 2 — Bengaluru campus
+              - figure "Softree Bengaluru office exterior — Prestige Tech Park" [ref=e10653]:
+                - img "Softree Bengaluru office exterior — Prestige Tech Park" [ref=e10654]
+                - generic: Softree Bengaluru office exterior — Prestige Tech Park
+              - figure "Collaboration space — natural light" [ref=e10655]:
+                - img "Collaboration space — natural light" [ref=e10656]
+                - generic: Collaboration space — natural light
+              - figure "Open-plan engineering floor" [ref=e10657]:
+                - img "Open-plan engineering floor" [ref=e10658]
+                - generic: Open-plan engineering floor
+              - figure "Softree office — team area" [ref=e10659]:
+                - img "Softree office — team area" [ref=e10660]
+                - generic: Softree office — team area
+              - figure "Softree huddle room" [ref=e10661]:
+                - img "Softree huddle room" [ref=e10662]
+                - generic: Softree huddle room
+              - figure "Softree breakout pods" [ref=e10663]:
+                - img "Softree breakout pods" [ref=e10664]
+                - generic: Softree breakout pods
+              - figure "Prestige Tech Platina 2 — Bengaluru campus" [ref=e10665]:
+                - img "Prestige Tech Platina 2 — Bengaluru campus" [ref=e10666]
+                - generic: Prestige Tech Platina 2 — Bengaluru campus
+              - figure "Softree Bengaluru office exterior — Prestige Tech Park" [ref=e10667]:
+                - img "Softree Bengaluru office exterior — Prestige Tech Park" [ref=e10668]
+                - generic: Softree Bengaluru office exterior — Prestige Tech Park
+              - figure "Collaboration space — natural light" [ref=e10669]:
+                - img "Collaboration space — natural light" [ref=e10670]
+                - generic: Collaboration space — natural light
+              - figure "Open-plan engineering floor" [ref=e10671]:
+                - img "Open-plan engineering floor" [ref=e10672]
+                - generic: Open-plan engineering floor
+              - figure "Softree office — team area" [ref=e10673]:
+                - img "Softree office — team area" [ref=e10674]
+                - generic: Softree office — team area
+      - generic [ref=e10676]:
+        - generic [ref=e10677]:
+          - heading "Pay Us A Visit" [level=2] [ref=e10678]
+          - link "BOOK A VISIT →" [ref=e10679] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=e10680]:
+          - generic [ref=e10681]:
+            - generic [ref=e10682]:
+              - paragraph [ref=e10683]: Bengaluru
+              - generic [ref=e10684]:
+                - generic [ref=e10685]: Softree Technology Pvt. Ltd.
+                - generic [ref=e10686]: 11th Floor, Prestige Tech Park, Platina 2
+                - generic [ref=e10687]: Outer Ring Rd, Kadubeesanahalli
+                - generic [ref=e10688]: Bengaluru, Karnataka 560087, India
+            - article [ref=e10690]:
+              - img "Softree Bengaluru office — Prestige Tech Park building" [ref=e10692]
+          - generic [ref=e10693]:
+            - generic [ref=e10694]:
+              - paragraph [ref=e10695]: Cuttack
+              - generic [ref=e10696]:
+                - generic [ref=e10697]: Softree Technology Pvt. Ltd.
+                - generic [ref=e10698]: PLOT 5C/1283, SECTOR-10, CDA
+                - generic [ref=e10699]: Cuttack, Odisha 753014
+                - generic [ref=e10700]: India
+            - article [ref=e10702]:
+              - img "Softree Cuttack office" [ref=e10704]
+          - generic [ref=e10705]:
+            - generic [ref=e10706]:
+              - paragraph [ref=e10707]: San Francisco
+              - generic [ref=e10708]:
+                - generic [ref=e10709]: 28 Geary St., Suite 650
+                - generic [ref=e10710]: San Francisco, CA 94108
+                - generic [ref=e10711]: United States
+            - article [ref=e10713]:
+              - img "Softree San Francisco office" [ref=e10715]
+      - generic [ref=e10717]:
+        - generic [ref=e10718]:
+          - generic [ref=e10719]:
+            - img [ref=e10720]
+            - generic [ref=e10723]: FAQ
+          - heading "Frequently Asked Questions." [level=2] [ref=e10724]
+        - generic [ref=e10725]:
+          - generic [ref=e10732] [cursor=pointer]:
+            - generic [ref=e10733]:
+              - generic [ref=e10734]: question 01
+              - img [ref=e10736]
+            - generic [ref=e10737]:
+              - heading "What does Softree actually build?" [level=3] [ref=e10739]
+              - generic:
+                - generic:
+                  - heading "Question Answer:" [level=4]
+                  - paragraph: "Softree builds production-grade software for enterprise teams: AI agents, web apps, Microsoft Power Platform automations, SharePoint intranets, and Power BI dashboards. We are Microsoft Gold Partners. Median project ship time is 47 days."
+                  - link "More About Us" [ref=e10741]:
+                    - /url: /about-us
+                    - generic [ref=e10742]: More About Us
+                    - img [ref=e10744]
+          - generic [ref=e10753] [cursor=pointer]:
+            - generic [ref=e10754]:
+              - generic [ref=e10755]: question 02
+              - img [ref=e10757]
+            - generic [ref=e10758]:
+              - heading "How long does a typical Softree project take?" [level=3] [ref=e10760]
+              - generic:
+                - generic:
+                  - heading "Question Answer:" [level=4]
+                  - paragraph: Most Softree projects ship in 6 to 12 weeks. Power Apps MVPs take 6 weeks. Web app MVPs take 12 weeks. SharePoint migrations take 4 to 8 weeks. We provide a fixed scope and fixed timeline during discovery, before any contract is signed.
+                  - link "More About Us" [ref=e10762]:
+                    - /url: /about-us
+                    - generic [ref=e10763]: More About Us
+                    - img [ref=e10765]
+          - generic [ref=e10774] [cursor=pointer]:
+            - generic [ref=e10775]:
+              - generic [ref=e10776]: question 03
+              - img [ref=e10778]
+            - generic [ref=e10779]:
+              - heading "What if the project takes longer than estimated?" [level=3] [ref=e10781]
+              - generic:
+                - generic:
+                  - heading "Question Answer:" [level=4]
+                  - paragraph: Softree contracts are fixed-scope and fixed-price. If we miss the timeline, we absorb the cost — not the client. We mitigate risk through weekly demos, fortnightly milestone reviews, and direct Slack access to the engineering squad working on your project.
+                  - link "More About Us" [ref=e10783]:
+                    - /url: /about-us
+                    - generic [ref=e10784]: More About Us
+                    - img [ref=e10786]
+          - generic [ref=e10795] [cursor=pointer]:
+            - generic [ref=e10796]:
+              - generic [ref=e10797]: question 04
+              - img [ref=e10799]
+            - generic [ref=e10800]:
+              - heading "How do you handle code ownership and IP?" [level=3] [ref=e10802]
+              - generic:
+                - generic:
+                  - heading "Question Answer:" [level=4]
+                  - paragraph: You own the code, designs, and IP from day one. Softree commits directly to your GitHub or Azure DevOps repository. Source code, infrastructure, and credentials transfer to your team at project handoff. No vendor lock-in.
+                  - link "More About Us" [ref=e10804]:
+                    - /url: /about-us
+                    - generic [ref=e10805]: More About Us
+                    - img [ref=e10807]
+          - generic [ref=e10816] [cursor=pointer]:
+            - generic [ref=e10817]:
+              - generic [ref=e10818]: question 05
+              - img [ref=e10820]
+            - generic [ref=e10821]:
+              - heading "What is Softree's security and compliance posture?" [level=3] [ref=e10823]
+              - generic [ref=e10825]:
+                - heading "Question Answer:" [level=4] [ref=e10826]
+                - paragraph [ref=e10828]: "Softree follows Microsoft Gold Partner security standards: SOC 2 controls, GDPR compliance, NDAs, data isolation per client, and signed BAAs for healthcare. Engineers work from secured devices. We can provide a security questionnaire response within 5 business days."
+                - link "More About Us" [ref=e10829]:
+                  - /url: /about-us
+                  - generic [ref=e10830]: More About Us
+                  - img [ref=e10832]
+      - generic [ref=e10836]:
+        - generic [ref=e10837]:
+          - heading "Build faster with a reliable offshore engineering partner." [level=2] [ref=e10838]
+          - paragraph [ref=e10839]: Book a discovery call or send a message — we reply within one business day.
+        - generic [ref=e10841]:
+          - generic [ref=e10842]:
+            - img "Person wearing a white hooded jacket and virtual reality headset." [ref=e10844]
+            - generic [ref=e10846]:
+              - paragraph [ref=e10847]: What we offer
+              - generic [ref=e10848]:
+                - generic [ref=e10851]: Enterprise Integration
+                - generic [ref=e10854]: Cloud Architecture
+                - generic [ref=e10857]: AI & Automation
+                - generic [ref=e10860]: Microsoft Solutions
+                - generic [ref=e10863]: Offshore Engineering
+            - generic [ref=e10864]:
+              - paragraph [ref=e10865]: Our offices
+              - list [ref=e10866]:
+                - listitem [ref=e10867]:
+                  - img [ref=e10868]
+                  - generic [ref=e10871]:
+                    - paragraph [ref=e10872]: Bengaluru
+                    - paragraph [ref=e10873]: 11th Floor, Prestige Tech Park, Platina 2, Bengaluru, Karnataka 560087, India
+                - listitem [ref=e10874]:
+                  - img [ref=e10875]
+                  - generic [ref=e10878]:
+                    - paragraph [ref=e10879]: Cuttack
+                    - paragraph [ref=e10880]: PLOT 5C/1283, SECTOR-10, CDA, India
+                - listitem [ref=e10881]:
+                  - img [ref=e10882]
+                  - generic [ref=e10885]:
+                    - paragraph [ref=e10886]: San Francisco
+                    - paragraph [ref=e10887]: San Francisco, CA 94108, United States
+            - generic [ref=e10888]:
+              - link "sales@softreetechnology.com" [ref=e10889] [cursor=pointer]:
+                - /url: mailto:sales@softreetechnology.com
+              - generic [ref=e10890]:
+                - link "Instagram" [ref=e10891] [cursor=pointer]:
+                  - /url: https://www.instagram.com/
+                  - img [ref=e10893]
+                - link "LinkedIn" [ref=e10896] [cursor=pointer]:
+                  - /url: https://linkedin.com/
+                  - img [ref=e10898]
+                - link "Facebook" [ref=e10902] [cursor=pointer]:
+                  - /url: https://www.facebook.com
+                  - img [ref=e10904]
+                - link "X" [ref=e10906] [cursor=pointer]:
+                  - /url: https://x.com/
+                  - img [ref=e10908]
+          - generic [ref=e10910]:
+            - generic [ref=e10911]:
+              - button "Book a call" [ref=e10912]
+              - button "Send message" [ref=e10913]
+            - generic [ref=e10914]:
+              - paragraph [ref=e10915]: Schedule a discovery call
+              - paragraph [ref=e10916]: Same live scheduler as our booking page — pick a time and get an instant invite.
+              - iframe [ref=e10924]:
+                - img [ref=f21e7]
+    - contentinfo [ref=e10925]:
+      - generic [ref=e10926]:
+        - generic [ref=e10931]:
+          - generic [ref=e10933]: SOFTREE.
+          - generic [ref=e10934]:
+            - link "Privacy Policy" [ref=e10935] [cursor=pointer]:
+              - /url: /privacy-policy
+            - link "Terms of Service" [ref=e10936] [cursor=pointer]:
+              - /url: /terms
+            - paragraph [ref=e10937]: © 2026 Softree Technology
+        - img "Softree Technology" [ref=e10939]
+        - generic [ref=e10940]:
+          - generic [ref=e10941]:
+            - link "Softree home" [ref=e10942] [cursor=pointer]:
+              - /url: /
+              - img "Softree Technology" [ref=e10943]
+            - generic [ref=e10944]:
+              - link "Our Services" [ref=e10945] [cursor=pointer]:
+                - /url: /services
+              - link "Book a Call" [ref=e10946] [cursor=pointer]:
+                - /url: /book-meeting
+              - link "Get in Touch" [ref=e10947] [cursor=pointer]:
+                - /url: /contact
+          - generic [ref=e10948]:
+            - generic [ref=e10949]:
+              - paragraph [ref=e10950]: Company
+              - list [ref=e10951]:
+                - listitem [ref=e10952]:
+                  - link "Home" [ref=e10953] [cursor=pointer]:
+                    - /url: /
+                - listitem [ref=e10954]:
+                  - link "About Us" [ref=e10955] [cursor=pointer]:
+                    - /url: /about-us
+                - listitem [ref=e10956]:
+                  - link "Case Studies" [ref=e10957] [cursor=pointer]:
+                    - /url: /case-studies
+                - listitem [ref=e10958]:
+                  - link "Careers" [ref=e10959] [cursor=pointer]:
+                    - /url: /careers
+                - listitem [ref=e10960]:
+                  - link "Contact" [ref=e10961] [cursor=pointer]:
+                    - /url: /contact
+                - listitem [ref=e10962]:
+                  - link "Book a Call 🤝" [ref=e10963] [cursor=pointer]:
+                    - /url: /book-meeting
+            - generic [ref=e10964]:
+              - paragraph [ref=e10965]: Connect
+              - list [ref=e10966]:
+                - listitem [ref=e10967]:
+                  - link "LinkedIn" [ref=e10968] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/company/softree-technology-pvt-ltd/
+                    - text: LinkedIn
+                    - img [ref=e10969]
+                - listitem [ref=e10971]:
+                  - link "Twitter" [ref=e10972] [cursor=pointer]:
+                    - /url: https://x.com/softreetechnology
+                    - text: Twitter
+                    - img [ref=e10973]
+                - listitem [ref=e10975]:
+                  - link "Facebook" [ref=e10976] [cursor=pointer]:
+                    - /url: https://www.facebook.com/softreetechnology
+                    - text: Facebook
+                    - img [ref=e10977]
+                - listitem [ref=e10979]:
+                  - link "Instagram" [ref=e10980] [cursor=pointer]:
+                    - /url: https://www.instagram.com/softreetechnology/
+                    - text: Instagram
+                    - img [ref=e10981]
+            - generic [ref=e10983]:
+              - paragraph [ref=e10984]: Resources
+              - list [ref=e10985]:
+                - listitem [ref=e10986]:
+                  - link "Blog" [ref=e10987] [cursor=pointer]:
+                    - /url: https://www.softreetechnology.com/blog
+                    - text: Blog
+                    - img [ref=e10988]
+                - listitem [ref=e10990]:
+                  - link "Services" [ref=e10991] [cursor=pointer]:
+                    - /url: /services
+                - listitem [ref=e10992]:
+                  - link "Privacy Policy" [ref=e10993] [cursor=pointer]:
+                    - /url: /privacy-policy
+                - listitem [ref=e10994]:
+                  - link "Terms of Service" [ref=e10995] [cursor=pointer]:
+                    - /url: /terms
+              - generic [ref=e10996]:
+                - link "LinkedIn" [ref=e10998] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/company/softree-technology-pvt-ltd/
+                  - img [ref=e11000]
+                  - generic [ref=e11004]: LinkedIn
+                - link "Twitter" [ref=e11006] [cursor=pointer]:
+                  - /url: https://x.com/softreetechnology
+                  - img [ref=e11008]
+                  - generic [ref=e11010]: Twitter
+                - link "Facebook" [ref=e11012] [cursor=pointer]:
+                  - /url: https://www.facebook.com/softreetechnology
+                  - img [ref=e11014]
+                  - generic [ref=e11016]: Facebook
+                - link "Instagram" [ref=e11018] [cursor=pointer]:
+                  - /url: https://www.instagram.com/softreetechnology/
+                  - img [ref=e11020]
+                  - generic [ref=e11023]: Instagram
+  - button "Open Next.js Dev Tools" [ref=e11030] [cursor=pointer]:
+    - generic [ref=e11033]:
+      - text: Rendering
+      - generic [ref=e11034]:
+        - generic [ref=e11035]: .
+        - generic [ref=e11036]: .
+        - generic [ref=e11037]: .
+  - alert [ref=e11038]

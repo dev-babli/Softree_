@@ -2,7 +2,15 @@
 
 import NumberFlow from "@number-flow/react"
 import type { CaseStudyLayoutData } from "../../../types"
-import { PageContainer, Reveal, SectionLabel, SectionTitle } from "../shared"
+import {
+  PageContainer,
+  Reveal,
+  RevealItem,
+  RevealStagger,
+  SectionHeaderReveal,
+  SectionLabel,
+  SectionTitle,
+} from "../shared"
 
 function parseMetricValue(value: string): { num: number; prefix: string; suffix: string } {
   const match = value.match(/^([^0-9]*)([0-9]+(?:\.[0-9]+)?)(.*)$/)
@@ -11,22 +19,25 @@ function parseMetricValue(value: string): { num: number; prefix: string; suffix:
 }
 
 export function ImpactSection({ data }: { data: CaseStudyLayoutData }) {
+  if (data.impactMetrics.length === 0 && data.beforeAfter.length === 0) return null
+
   return (
     <section id="impact" className="scroll-mt-24 bg-white py-16 md:py-24">
       <PageContainer>
-        <Reveal className="max-w-2xl">
-          <SectionLabel>Results</SectionLabel>
-          <SectionTitle>{data.impactHeading}</SectionTitle>
-        </Reveal>
+        <SectionHeaderReveal
+          className="max-w-2xl"
+          label={<SectionLabel>Results</SectionLabel>}
+          title={<SectionTitle>{data.impactHeading}</SectionTitle>}
+        />
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {data.impactMetrics.map((metric, i) => {
+        <RevealStagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {data.impactMetrics.map((metric) => {
             const { num, prefix, suffix } = parseMetricValue(metric.value)
             const hasNumber = num > 0
 
             return (
-              <Reveal key={metric.label} delay={i * 0.04}>
-                <div className="flex h-full flex-col rounded-2xl border border-[rgba(15,23,42,0.08)] bg-[var(--softree-bg-light,#fafaf9)] p-7 md:p-8">
+              <RevealItem key={metric.label} variant="scale">
+                <div className="flex h-full flex-col rounded-2xl border border-[rgba(15,23,42,0.08)] bg-[var(--softree-bg-light,#fafaf9)] p-7 transition-transform duration-300 hover:-translate-y-1 md:p-8">
                   <p className="text-[clamp(2rem,4vw,2.75rem)] font-bold leading-none tracking-[-0.03em] text-[var(--softree-accent,#FF7A2F)]">
                     {hasNumber ? (
                       <>
@@ -42,13 +53,13 @@ export function ImpactSection({ data }: { data: CaseStudyLayoutData }) {
                     {metric.label}
                   </p>
                 </div>
-              </Reveal>
+              </RevealItem>
             )
           })}
-        </div>
+        </RevealStagger>
 
-        {data.beforeAfter.length > 0 && (
-          <Reveal delay={0.1} className="mt-14 overflow-hidden rounded-2xl border border-[rgba(15,23,42,0.08)]">
+        {data.beforeAfter.length > 0 ? (
+          <Reveal variant="up" delay={0.1} className="mt-14 overflow-hidden rounded-2xl border border-[rgba(15,23,42,0.08)]">
             <table className="w-full text-left text-sm">
               <thead>
                 <tr className="border-b border-[rgba(15,23,42,0.08)] bg-[var(--softree-bg-light,#fafaf9)]">
@@ -78,7 +89,7 @@ export function ImpactSection({ data }: { data: CaseStudyLayoutData }) {
               </tbody>
             </table>
           </Reveal>
-        )}
+        ) : null}
       </PageContainer>
     </section>
   )

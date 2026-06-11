@@ -1,5 +1,11 @@
 export const CASE_STUDY_LAYOUTS = [
   {
+    value: "page-composer",
+    title: "Page composer (drag & drop)",
+    description:
+      "Stack narrative sections, card grids, metrics, galleries, and CTAs in any order — built for editors with live preview.",
+  },
+  {
     value: "manufacturing-power-platform",
     title: "Manufacturing Power Platform (Reference)",
     description:

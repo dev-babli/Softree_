@@ -8,6 +8,8 @@ import GoogleAnalytics from "@/components/sections/google-analytics";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { draftMode } from "next/headers";
 import { VisualEditing } from "next-sanity/visual-editing";
+import { DisableDraftMode } from "@/components/sanity/DisableDraftMode";
+import { SanityLive } from "@/sanity/lib/live";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.softreetechnology.com"),
@@ -161,6 +163,8 @@ export default async function RootLayout({
 
           {/* Sanity Visual Editing bridge (required for Presentation tool) */}
           {isDraftMode ? <VisualEditing /> : null}
+          {isDraftMode ? <DisableDraftMode /> : null}
+          <SanityLive />
         </PostHogProvider>
       </body>
     </html>

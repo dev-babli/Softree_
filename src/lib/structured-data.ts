@@ -8,6 +8,13 @@ type ArticleJsonLdInput = {
   authorName?: string
 }
 
+type FaqJsonLdItem = { question: string; answer: string }
+
+type BlogJsonLdInput = ArticleJsonLdInput & {
+  faqs?: FaqJsonLdItem[]
+  keywords?: string[]
+}
+
 export function buildArticleJsonLd(input: ArticleJsonLdInput) {
   return {
     "@context": "https://schema.org",
@@ -53,5 +60,64 @@ export function buildCaseStudyJsonLd(input: ArticleJsonLdInput & { clientName?: 
         }
       : undefined,
     articleSection: "Case Study",
+  }
+}
+
+/** Stacked @graph for blog SEO + AEO + GEO (Article + FAQPage + BreadcrumbList). */
+export function buildBlogJsonLdGraph(input: BlogJsonLdInput) {
+  const siteOrigin = "https://www.softreetechnology.com"
+  const article = buildArticleJsonLd(input)
+
+  const graph: Record<string, unknown>[] = [
+    {
+      "@type": "Organization",
+      "@id": `${siteOrigin}/#organization`,
+      name: "Softree Technology",
+      url: siteOrigin,
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteOrigin}/logo/Softree-Technology-Final-Logo.png`,
+      },
+    },
+    {
+      ...article,
+      "@id": `${input.url}#article`,
+      publisher: { "@id": `${siteOrigin}/#organization` },
+      ...(input.keywords?.length ? { keywords: input.keywords.join(", ") } : {}),
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Blog",
+          item: `${siteOrigin}/blog`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: input.headline,
+          item: input.url,
+        },
+      ],
+    },
+  ]
+
+  if (input.faqs?.length) {
+    graph.push({
+      "@type": "FAQPage",
+      "@id": `${input.url}#faq`,
+      mainEntity: input.faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+    })
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": graph,
   }
 }

@@ -1,0 +1,611 @@
+/**
+ * Softree Studio — premium editorial CMS chrome
+ * Warm coral gradients · glass surfaces · mesh ambient backdrop
+ */
+
+:root {
+  --softree-accent: #ff7a2f;
+  --softree-accent-hover: #e85a1f;
+  --softree-accent-soft: rgba(255, 122, 47, 0.14);
+  --softree-accent-glow: #ff9f5a;
+  --softree-accent-amber: #ffb347;
+  --softree-ink: #141416;
+  --softree-black: #0c0c0e;
+  --softree-cream: #f4f2ee;
+  --softree-muted: #6b7280;
+  --softree-border: rgba(15, 23, 42, 0.07);
+  --softree-radius: 0.875rem;
+  --softree-radius-lg: 1.125rem;
+  --softree-gradient-accent: linear-gradient(
+    135deg,
+    #ff7a2f 0%,
+    #ff9f5a 48%,
+    #ffb347 100%
+  );
+  --softree-gradient-dark: linear-gradient(
+    145deg,
+    #1a1a1e 0%,
+    #141416 42%,
+    #0c0c0e 100%
+  );
+  --softree-glass: rgba(255, 255, 255, 0.72);
+  --softree-glass-strong: rgba(255, 255, 255, 0.88);
+  --softree-shadow-sm: 0 1px 2px rgba(12, 12, 14, 0.04);
+  --softree-shadow-md: 0 8px 32px rgba(12, 12, 14, 0.08);
+  --softree-shadow-glow: 0 0 40px rgba(255, 122, 47, 0.18);
+  --softree-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --softree-font: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ── Ambient shell ── */
+.softree-studio-shell {
+  position: relative;
+  min-height: 100dvh;
+  font-family: var(--softree-font);
+  isolation: isolate;
+}
+
+.softree-studio-shell__mesh {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 90% 55% at 8% -8%, rgba(255, 122, 47, 0.16), transparent 52%),
+    radial-gradient(ellipse 70% 45% at 96% 4%, rgba(255, 159, 90, 0.12), transparent 48%),
+    radial-gradient(ellipse 55% 50% at 50% 108%, rgba(255, 209, 179, 0.2), transparent 55%),
+    linear-gradient(180deg, #f0eeea 0%, #f7f5f2 38%, #faf9f7 100%);
+}
+
+.softree-studio-shell__glow {
+  position: fixed;
+  border-radius: 999px;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.55;
+}
+
+.softree-studio-shell__glow--tl {
+  width: 420px;
+  height: 420px;
+  top: -120px;
+  left: -80px;
+  background: rgba(255, 122, 47, 0.22);
+}
+
+.softree-studio-shell__glow--br {
+  width: 360px;
+  height: 360px;
+  bottom: -100px;
+  right: -60px;
+  background: rgba(255, 179, 71, 0.16);
+}
+
+.softree-studio-shell__content {
+  position: relative;
+  z-index: 1;
+  min-height: 100dvh;
+}
+
+/* ── Environment banner ── */
+.softree-studio-env-banner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #92400e;
+  background: linear-gradient(90deg, #fff7ed, #ffedd5, #fef3c7);
+  border-bottom: 1px solid rgba(217, 119, 6, 0.2);
+}
+
+.softree-studio-env-banner__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.2);
+  animation: softree-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes softree-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.92);
+  }
+}
+
+/* ── Unified header chrome ── */
+.softree-studio-header {
+  position: relative;
+  background: var(--softree-gradient-dark);
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 12px 40px rgba(12, 12, 14, 0.22);
+  overflow: hidden;
+}
+
+.softree-studio-header__sheen {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 120% at 0% 0%, rgba(255, 122, 47, 0.28), transparent 55%),
+    radial-gradient(ellipse 50% 80% at 100% 0%, rgba(255, 159, 90, 0.14), transparent 50%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.softree-studio-header__brand-row {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.75rem 1.125rem 0.625rem;
+}
+
+.softree-studio-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.softree-studio-header__logo {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+}
+
+.softree-studio-header__logo-core {
+  position: absolute;
+  inset: 6px;
+  border-radius: 999px;
+  background: var(--softree-gradient-accent);
+  box-shadow: 0 0 20px rgba(255, 122, 47, 0.45);
+}
+
+.softree-studio-header__logo-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 0.55rem;
+  border: 1px solid rgba(255, 122, 47, 0.35);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.softree-studio-header__titles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.softree-studio-header__name {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  background: linear-gradient(120deg, #fff 0%, #ffe8d6 55%, #ffcba4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.softree-studio-header__tagline {
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.softree-studio-header__dataset {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+
+.softree-studio-header__dataset.is-prod {
+  color: #86efac;
+  background: rgba(22, 163, 74, 0.16);
+  border-color: rgba(22, 163, 74, 0.28);
+  box-shadow: 0 0 16px rgba(22, 163, 74, 0.12);
+}
+
+.softree-studio-header__dataset.is-dev {
+  color: #fcd34d;
+  background: rgba(217, 119, 6, 0.18);
+  border-color: rgba(217, 119, 6, 0.3);
+}
+
+.softree-studio-header__nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.softree-studio-header__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.42rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background 0.18s var(--softree-ease-out),
+    border-color 0.18s var(--softree-ease-out),
+    transform 0.18s var(--softree-ease-out),
+    box-shadow 0.18s var(--softree-ease-out);
+}
+
+.softree-studio-header__pill svg {
+  width: 14px;
+  height: 14px;
+  opacity: 0.9;
+}
+
+.softree-studio-header__pill:hover {
+  background: rgba(255, 122, 47, 0.2);
+  border-color: rgba(255, 122, 47, 0.45);
+  box-shadow: 0 4px 20px rgba(255, 122, 47, 0.2);
+  transform: translateY(-1px);
+}
+
+.softree-studio-header__pill:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.softree-studio-header__pill--ghost {
+  background: transparent;
+}
+
+/* Sanity navbar strip — glass sub-bar */
+.softree-studio-header__sanity-bar {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+}
+
+.softree-studio-header__sanity-bar [data-ui='Navbar'] {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.softree-studio-header__sanity-bar [data-ui='Text'] {
+  color: rgba(255, 255, 255, 0.88) !important;
+}
+
+/* ── Structure sidebar ── */
+[data-testid='structure-tool-pane'] {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(247, 245, 242, 0.95) 120px,
+    rgba(255, 255, 255, 0.98) 100%
+  ) !important;
+  backdrop-filter: blur(16px);
+  border-right: 1px solid var(--softree-border) !important;
+}
+
+[data-testid='pane-item'] {
+  border-radius: 0.625rem;
+  margin-inline: 0.25rem;
+  transition:
+    background 0.14s ease,
+    transform 0.14s var(--softree-ease-out);
+}
+
+[data-testid='pane-item']:hover {
+  background: rgba(255, 122, 47, 0.06);
+}
+
+[data-testid='pane-item'][data-selected='true'] {
+  font-weight: 600;
+  background: var(--softree-accent-soft) !important;
+  box-shadow: inset 3px 0 0 var(--softree-accent);
+}
+
+[data-testid='structure-tool-list'] [data-ui='Text'] {
+  letter-spacing: -0.01em;
+}
+
+/* List pane cards */
+[data-ui='DocumentListPane'] {
+  background: transparent !important;
+}
+
+[data-ui='DocumentListPane'] [data-ui='Card'] {
+  border-radius: 0.75rem;
+  border: 1px solid var(--softree-border);
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.15s var(--softree-ease-out);
+}
+
+[data-ui='DocumentListPane'] [data-ui='Card']:hover {
+  border-color: rgba(255, 122, 47, 0.28);
+  box-shadow: var(--softree-shadow-md);
+  transform: translateY(-1px);
+}
+
+/* ── Document editor canvas ── */
+[data-ui='PaneLayout'] [data-ui='Pane']:not([data-testid='structure-tool-pane']) {
+  background: rgba(255, 255, 255, 0.94) !important;
+}
+
+[data-ui='Field'] {
+  scroll-margin-top: 6rem;
+}
+
+[data-ui='Field'] [data-ui='Label'] {
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--softree-ink);
+}
+
+[data-ui='Field'] [data-ui='Description'] {
+  line-height: 1.55;
+  max-width: 42rem;
+  color: var(--softree-muted);
+}
+
+/* Group tabs */
+[data-testid='group-tab'] {
+  border-radius: 0.625rem 0.625rem 0 0;
+  transition: color 0.15s ease;
+}
+
+[data-testid='group-tab'][data-selected='true'] {
+  font-weight: 600;
+  color: var(--softree-ink);
+}
+
+[data-testid='group-tab'][data-selected='true']::after {
+  height: 3px !important;
+  border-radius: 999px;
+  background: var(--softree-gradient-accent) !important;
+}
+
+/* Fieldsets & inputs */
+[data-ui='fieldset'] {
+  border-radius: var(--softree-radius);
+  border-color: var(--softree-border) !important;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+[data-ui='TextInput'],
+[data-ui='TextArea'],
+[data-testid='pt-editor'] {
+  border-radius: var(--softree-radius) !important;
+}
+
+[data-testid='pt-editor'] {
+  border: 1px solid var(--softree-border);
+}
+
+/* Primary actions — gradient fill */
+[data-ui='Button'][data-tone='primary'],
+button[data-ui='Button'][data-mode='default'][data-tone='primary'] {
+  font-weight: 600;
+  background: var(--softree-gradient-accent) !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(255, 122, 47, 0.28);
+  transition:
+    transform 0.15s var(--softree-ease-out),
+    box-shadow 0.15s var(--softree-ease-out) !important;
+}
+
+[data-ui='Button'][data-tone='primary']:hover,
+button[data-ui='Button'][data-mode='default'][data-tone='primary']:hover {
+  box-shadow: 0 6px 24px rgba(255, 122, 47, 0.36);
+  transform: translateY(-1px);
+}
+
+[data-ui='Button'][data-tone='primary']:active,
+button[data-ui='Button'][data-mode='default'][data-tone='primary']:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ── Publish readiness card ── */
+.softree-readiness {
+  border: 1px solid rgba(255, 122, 47, 0.15);
+  border-radius: var(--softree-radius-lg);
+  padding: 1.125rem 1.25rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 247, 240, 0.9));
+  box-shadow: var(--softree-shadow-sm);
+}
+
+.softree-readiness__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.softree-readiness__title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--softree-ink);
+  letter-spacing: -0.02em;
+}
+
+.softree-readiness__pct {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  background: var(--softree-gradient-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.softree-readiness__bar {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+}
+
+.softree-readiness__bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--softree-gradient-accent);
+  box-shadow: 0 0 12px rgba(255, 122, 47, 0.35);
+  transition: width 0.4s var(--softree-ease-out);
+}
+
+.softree-readiness__hint {
+  margin-top: 0.65rem;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--softree-muted);
+}
+
+.softree-readiness__hint.is-ready {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.softree-readiness__checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.65rem;
+}
+
+.softree-readiness__check {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.5rem;
+  border-radius: 999px;
+}
+
+.softree-readiness__check.is-done {
+  background: rgba(22, 163, 74, 0.1);
+  color: #16a34a;
+}
+
+.softree-readiness__check.is-missing {
+  background: rgba(217, 119, 6, 0.1);
+  color: #d97706;
+}
+
+/* ── Live preview pane ── */
+.softree-preview-pane {
+  height: 100%;
+  min-height: 0;
+}
+
+[data-softree-studio-layout] [data-ui='PaneLayout'] {
+  min-height: calc(100dvh - 8.5rem);
+}
+
+[data-softree-studio-layout] [data-ui='PaneLayout'] [data-ui='Pane'] {
+  min-height: 0;
+}
+
+.softree-preview-pane__toolbar {
+  border-bottom: 1px solid var(--softree-border);
+  background: var(--softree-glass-strong);
+  backdrop-filter: blur(12px);
+  padding: 0.75rem 1rem;
+}
+
+.softree-preview-pane__title {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.softree-preview-pane__meta {
+  font-size: 0.75rem;
+  color: var(--softree-muted);
+}
+
+.softree-preview-pane__frame-wrap {
+  flex: 1;
+  min-height: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255, 122, 47, 0.08), transparent 55%),
+    #0d0a23;
+}
+
+/* ── Focus & scrollbars ── */
+:focus-visible {
+  outline: 2px solid var(--softree-accent);
+  outline-offset: 2px;
+}
+
+.softree-studio-shell ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.softree-studio-shell ::-webkit-scrollbar-thumb {
+  background: rgba(255, 122, 47, 0.28);
+  border-radius: 999px;
+}
+
+.softree-studio-shell ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 122, 47, 0.42);
+}
+
+.softree-studio-shell ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .softree-studio-env-banner__dot {
+    animation: none;
+  }
+
+  .softree-readiness__bar-fill,
+  [data-ui='Button'][data-tone='primary'],
+  [data-testid='pane-item'],
+  [data-ui='DocumentListPane'] [data-ui='Card'],
+  .softree-studio-header__pill {
+    transition: none;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .softree-studio-header__sanity-bar,
+  [data-testid='structure-tool-pane'],
+  .softree-preview-pane__toolbar {
+    backdrop-filter: none;
+    background: #fff;
+  }
+}

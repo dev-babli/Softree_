@@ -2,48 +2,40 @@
 
 import type { NexusCardFace } from "./data";
 
-function CardIcon({ type }: { type: NexusCardFace["icon"] }) {
-  if (type === "bolt") {
+function SquiggleIcon({ type }: { type: NexusCardFace["icon"] }) {
+  if (type === "dollar") {
     return (
-      <svg className="nexus-card-face__icon" viewBox="0 0 48 32" fill="none" aria-hidden>
-        <path
-          d="M8 24c8-14 14-20 22-22 2 6-1 10-6 12 8-2 12 2 14 10-10-4-18-2-24 0 6-6 10-12 12-18-8 6-12 14-18 18Z"
-          fill="#FF5C2B"
-          stroke="#FF5C2B"
-          strokeWidth="1.5"
-          strokeLinejoin="round"
-        />
-      </svg>
-    );
-  }
-  if (type === "wave") {
-    return (
-      <svg className="nexus-card-face__icon" viewBox="0 0 48 32" fill="none" aria-hidden>
-        <path
-          d="M6 18c6-8 12-10 18-8 4 8 10 10 18 6-2 8-10 12-20 10S8 26 6 18Z"
-          fill="#FF5C2B"
-        />
-      </svg>
+      <span className="nexus-card-face__dollar" aria-hidden>
+        $
+      </span>
     );
   }
   return (
-    <svg className="nexus-card-face__icon nexus-card-face__icon--dollar" viewBox="0 0 32 40" aria-hidden>
-      <text x="2" y="32" fill="#FF5C2B" fontSize="32" fontFamily="Georgia, serif" fontWeight="700">
-        $
-      </text>
+    <svg className="nexus-card-face__squiggle" viewBox="0 0 64 40" fill="none" aria-hidden>
+      <path
+        d="M4 28C18 8 28 6 42 14c6 10 14 12 22 8-4 12-16 18-32 14S6 40 4 28Z"
+        fill="#F15A24"
+      />
+      {type === "bolt" ? (
+        <path
+          d="M30 10 22 24h8l-6 14 16-20h-9l5-8Z"
+          fill="#F15A24"
+          opacity="0.9"
+        />
+      ) : null}
     </svg>
   );
 }
 
-function NexusCardFacePanel({ card, active }: { card: NexusCardFace; active: boolean }) {
+function NexusCardFacePanel({ card }: { card: NexusCardFace }) {
   return (
-    <div className={`nexus-card-face${active ? " nexus-card-face--active" : ""}`}>
-      <div className="nexus-card-face__top">
+    <div className="nexus-card-face">
+      <div className="nexus-card-face__head">
         <p className="nexus-card-face__label">{card.title}</p>
         <span className="nexus-card-face__number">{card.number}</span>
       </div>
       <hr className="nexus-card-face__rule" />
-      <CardIcon type={card.icon} />
+      <SquiggleIcon type={card.icon} />
     </div>
   );
 }
@@ -57,26 +49,21 @@ export function NexusCardStack({
 }) {
   return (
     <div className="nexus-card-stack" aria-hidden>
-      <div className="nexus-card-stack__scene">
-        {cards.map((card, i) => {
-          const offset = i - activeIndex;
-          const isActive = i === activeIndex;
-          return (
-            <div
-              key={card.number}
-              className="nexus-card-stack__item"
-              style={{
-                ["--stack-offset" as string]: offset,
-                ["--stack-abs" as string]: Math.abs(offset),
-                zIndex: 10 - Math.abs(offset),
-              }}
-              data-active={isActive ? "true" : undefined}
-            >
-              <NexusCardFacePanel card={card} active={isActive} />
-            </div>
-          );
-        })}
-      </div>
+      {cards.map((card, i) => {
+        const rel = i - activeIndex;
+        if (rel < 0 || rel > 1) return null;
+        if (rel === 1 && activeIndex === 0) return null;
+        return (
+          <div
+            key={card.number}
+            className="nexus-card-stack__item"
+            data-rel={rel}
+            style={{ zIndex: 10 - rel }}
+          >
+            <NexusCardFacePanel card={card} />
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -84,25 +71,29 @@ export function NexusCardStack({
 export function NexusPhoneFinale({ visible }: { visible: boolean }) {
   return (
     <div className={`nexus-phones${visible ? " nexus-phones--visible" : ""}`} aria-hidden>
-      <div className="nexus-phones__device nexus-phones__device--orange">
-        <div className="nexus-phones__screen">
-          <p className="nexus-phones__name">Venus Nwaokoro</p>
-          <p className="nexus-phones__meta">Artist · CA, Ajax</p>
-          <div className="nexus-phones__qr" />
-          <p className="nexus-phones__tiny">Scan to connect</p>
+      {/* Reference composite from follow.art finale frame */}
+      <div className="nexus-phones__frame">
+        <div className="nexus-phones__device nexus-phones__device--orange">
+          <div className="nexus-phones__screen nexus-phones__screen--orange">
+            <div className="nexus-phones__avatar nexus-phones__avatar--sm" />
+            <p className="nexus-phones__name">Venus Nwaokoro</p>
+            <p className="nexus-phones__meta">Phone · E-mail</p>
+            <div className="nexus-phones__qr" />
+          </div>
         </div>
-      </div>
-      <div className="nexus-phones__device nexus-phones__device--dark">
-        <div className="nexus-phones__screen nexus-phones__screen--profile">
-          <div className="nexus-phones__avatar" />
-          <p className="nexus-phones__name">Venus Nwaokoro</p>
-          <p className="nexus-phones__meta">Artist | CA, Ajax</p>
-          <button type="button" className="nexus-phones__pill">
-            Support Me
-          </button>
-          <button type="button" className="nexus-phones__pill nexus-phones__pill--ghost">
-            Add to Apple Wallet
-          </button>
+        <div className="nexus-phones__device nexus-phones__device--profile">
+          <div className="nexus-phones__screen nexus-phones__screen--profile">
+            <div className="nexus-phones__floral" />
+            <div className="nexus-phones__avatar" />
+            <p className="nexus-phones__name">Venus Nwaokoro</p>
+            <p className="nexus-phones__meta">Artist | CA, Ajax</p>
+            <button type="button" className="nexus-phones__cta">
+              Support Me
+            </button>
+            <button type="button" className="nexus-phones__cta nexus-phones__cta--ghost">
+              Add to Apple Wallet
+            </button>
+          </div>
         </div>
       </div>
     </div>

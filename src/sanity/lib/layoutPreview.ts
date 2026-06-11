@@ -1,5 +1,6 @@
 import { CASE_STUDY_LAYOUTS } from "@/lib/case-study-layouts"
 
+/** @deprecated Layout query params are no longer read by the case study page. */
 export const CLASSIC_LAYOUT_VALUE = "classic"
 
 export type LayoutPreviewOption = {
@@ -8,19 +9,11 @@ export type LayoutPreviewOption = {
   description: string
 }
 
-export const LAYOUT_PREVIEW_OPTIONS: LayoutPreviewOption[] = [
-  {
-    value: CLASSIC_LAYOUT_VALUE,
-    title: "Classic (light)",
-    description:
-      "Default light layout with hero, sidebar table of contents, and summary grid. Used when Detail Page Layout is empty.",
-  },
-  ...CASE_STUDY_LAYOUTS.map((layout) => ({
-    value: layout.value,
-    title: layout.title,
-    description: layout.description,
-  })),
-]
+export const LAYOUT_PREVIEW_OPTIONS: LayoutPreviewOption[] = CASE_STUDY_LAYOUTS.map((layout) => ({
+  value: layout.value,
+  title: layout.title,
+  description: layout.description,
+}))
 
 export function getSiteOrigin(): string {
   if (typeof window !== "undefined" && window.location?.origin) {
@@ -29,24 +22,17 @@ export function getSiteOrigin(): string {
   return process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
 }
 
-export function buildCaseStudyPreviewPath(slug: string, layout: string): string {
-  const layoutParam =
-    layout && layout !== CLASSIC_LAYOUT_VALUE
-      ? `?layout=${encodeURIComponent(layout)}`
-      : layout === CLASSIC_LAYOUT_VALUE
-        ? "?layout=classic"
-        : ""
-  return `/case-studies/${slug}${layoutParam}`
+/** Real case study URL — layout comes from the document's detailLayout field. */
+export function buildCaseStudyPreviewPath(slug: string): string {
+  return `/case-studies/${slug}`
 }
 
-export function buildLayoutPreviewIframeUrl(slug: string, layout: string, origin = getSiteOrigin()): string {
-  const params = new URLSearchParams({
-    slug,
-    layout: layout || CLASSIC_LAYOUT_VALUE,
-  })
+/** Enables draft mode and redirects to the live case study page. */
+export function buildLayoutPreviewIframeUrl(slug: string, origin = getSiteOrigin()): string {
+  const params = new URLSearchParams({ slug })
   return `${origin}/api/case-study/layout-preview?${params.toString()}`
 }
 
-export function buildPresentationPreviewHref(slug: string, layout: string): string {
-  return buildCaseStudyPreviewPath(slug, layout || CLASSIC_LAYOUT_VALUE)
+export function buildPresentationPreviewHref(slug: string): string {
+  return buildCaseStudyPreviewPath(slug)
 }

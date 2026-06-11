@@ -1,0 +1,155 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - link "← Showcase" [ref=e3] [cursor=pointer]:
+      - /url: /showcase
+    - generic [ref=e5]:
+      - generic:
+        - generic:
+          - heading "The New Standard in Staffing" [level=1]:
+            - generic:
+              - generic:
+                - generic: The
+              - generic:
+                - generic: New
+              - generic:
+                - generic: Standard
+            - generic:
+              - generic:
+                - generic: in
+              - generic:
+                - generic: Staffing
+          - paragraph:
+            - generic:
+              - generic:
+                - generic: AI
+              - generic:
+                - generic: driven
+              - generic:
+                - generic: speed.
+              - generic:
+                - generic: Expert
+              - generic:
+                - generic: curation.
+            - generic:
+              - generic:
+                - generic: We
+              - generic:
+                - generic: mobilize
+              - generic:
+                - generic: verified
+              - generic:
+                - generic: crews
+              - generic:
+                - generic: to
+              - generic:
+                - generic: protect
+              - generic:
+                - generic: your
+              - generic:
+                - generic: schedule
+              - generic:
+                - generic: and
+              - generic:
+                - generic: your
+              - generic:
+                - generic: bottom
+              - generic:
+                - generic: line
+              - generic:
+                - generic: in
+              - generic:
+                - generic: high-consequence
+              - generic:
+                - generic: environments.
+        - button "scroll to discover our process" [ref=e6] [cursor=pointer]:
+          - generic [ref=e8]: scroll to discover our process
+      - generic [ref=e12]:
+        - generic [ref=e13]:
+          - generic [ref=e14]:
+            - generic [ref=e15]: "01"
+            - heading "Activation, simplified" [level=3] [ref=e16]
+          - paragraph [ref=e21]:
+            - text: One call triggers mobilization.
+            - text: "Your requirements: craft, count, and start date route directly to our verified crews. No hand-offs. No escalations. Just boots on the ground in minutes."
+        - generic [ref=e22]:
+          - generic [ref=e23]:
+            - generic [ref=e24]: "02"
+            - heading "Cleared to count" [level=3] [ref=e25]
+          - paragraph [ref=e30]: Our team handles all screening and verification before dispatch. Compliance, background, certifications, and fitness-for-duty — we enforce a zero-fail model to guarantee every worker clears the gate on Day 1.
+        - generic [ref=e31]:
+          - generic [ref=e32]:
+            - generic [ref=e33]: "03"
+            - heading "Proven field match" [level=3] [ref=e34]
+          - paragraph [ref=e39]: We don't just provide available workers. We deploy proven crews. By filtering for past performance, role fit, and reliability, we deliver teams engineered for endurance — ensuring your project stays fully manned from first break to completion.
+        - generic [ref=e40]:
+          - generic [ref=e41]:
+            - generic [ref=e42]: "04"
+            - heading "Seamless arrival" [level=3] [ref=e43]
+          - paragraph [ref=e48]: We manage the "last mile" of mobilization. Every crew arrives site-ready with finalized reporting details. With real-time arrival monitoring and active coordination, we ensure your shift starts on time, even when field conditions shift.
+      - generic [ref=e50]:
+        - heading "Designed for today's operations, beyond legacy staffing workflows." [level=2] [ref=e51]:
+          - text: Designed for today's operations,
+          - text: beyond legacy staffing workflows.
+        - generic [ref=e52]:
+          - article [ref=e53]:
+            - generic [ref=e54]:
+              - img "Rapid Activation icon" [ref=e56]
+              - generic [ref=e57]:
+                - heading "Rapid Activation" [level=3] [ref=e58]
+                - paragraph [ref=e59]: We believe speed is a skill. Our platform uses machine learning to turn staffing into instant logistics, deploying a precisely matched workforce the moment demand strikes.
+          - article [ref=e60]:
+            - generic [ref=e61]:
+              - img "Rigorous Selection icon" [ref=e63]
+              - generic [ref=e64]:
+                - heading "Rigorous Selection" [level=3] [ref=e65]
+                - paragraph [ref=e66]: Geography is a core metric. Our engine uses AI to find and contact qualified talent within defined radii, securing top local contractors first, filtered for cost and skill.
+          - article [ref=e67]:
+            - generic [ref=e68]:
+              - img "100% Verified Before Arrival icon" [ref=e70]
+              - generic [ref=e71]:
+                - heading "100% Verified Before Arrival" [level=3] [ref=e72]
+                - paragraph [ref=e73]: We use a Zero-Trust verification model with secure API integrations to run automated background checks and drug testing, blocking dispatch access until fully cleared.
+          - article [ref=e74]:
+            - generic [ref=e75]:
+              - img "Controlled Outcomes icon" [ref=e77]
+              - generic [ref=e78]:
+                - heading "Controlled Outcomes" [level=3] [ref=e79]
+                - paragraph [ref=e80]: We guarantee controlled outcomes by managing staffing's biggest variables—cost and compliance—prioritizing local mobilization and automating safety for every dispatch.
+      - generic [ref=e82]:
+        - img "Workers in safety vests coordinating at industrial site" [ref=e85]
+        - generic [ref=e86]:
+          - heading "Nuclear-grade standards across every site." [level=2] [ref=e87]:
+            - generic [ref=e88]: Nuclear-grade
+            - generic [ref=e89]: standards across
+            - generic [ref=e90]: every site.
+          - paragraph [ref=e91]: Modeled on nuclear-grade environments, our process enforces badge compliance, protected timelines and zero-error tolerance.
+          - link "Explore our industries" [ref=e93] [cursor=pointer]:
+            - /url: "#industries"
+      - generic [ref=e95]:
+        - heading "How we work and how we deliver industrial-grade staffing." [level=2] [ref=e97]
+        - generic [ref=e99]:
+          - generic [ref=e100]:
+            - button "How fast can crews be mobilized?" [expanded] [ref=e101] [cursor=pointer]:
+              - generic [ref=e102]: How fast can crews be mobilized?
+            - paragraph [ref=e105]: We move at the speed of your schedule. Our platform maintains a deep network of verified industrial craft, eliminating the weeks wasted in traditional hiring cycles. One call activates our mobilization engine to source and deploy precision-matched crews in hours, not days, ensuring your most critical paths remain fully manned.
+          - generic [ref=e106]:
+            - button "How do you handle compliance & background checks?" [ref=e107] [cursor=pointer]:
+              - generic [ref=e108]: How do you handle compliance & background checks?
+            - paragraph [ref=e110]: We use a Zero-Fail Compliance model. Before a worker is even cleared for dispatch, our system automates the verification of background checks, drug testing (FFD), and site-specific certifications including nuclear grade requirements. We block access to the gate for anyone who isn't 100% cleared, ensuring your badging office has zero headaches on Day 1.
+          - generic [ref=e111]:
+            - button "What is the coverage during outages?" [ref=e112] [cursor=pointer]:
+              - generic [ref=e113]: What is the coverage during outages?
+            - paragraph [ref=e115]: "We provide 24/7 active coordination to match the 24/7 nature of an outage. Our coverage spans the full range of outage craft: from general laborers and painters to specialized repairs and schedulers. More importantly, we manage the \"last mile\" of arrival, monitoring deployments in real-time to ensure your night and day shifts remain fully manned, even when field conditions shift."
+          - generic [ref=e116]:
+            - button "How does Vectr differ from traditional staffing vendors?" [ref=e117] [cursor=pointer]:
+              - generic [ref=e118]: How does Vectr differ from traditional staffing vendors?
+            - paragraph [ref=e120]: Traditional vendors are reactive; Vectr is an operational engine. While legacy agencies rely on manual resumes and 'available' warm bodies, we use intelligent workflows and expert curation to deliver field-validated precision. We don't just find people who are looking for work; we deploy proven crews that are engineered for the high-tempo grind of a critical path environment.
+      - generic [ref=e121]:
+        - heading "Staff your outage with fast response, and crews you can rely on." [level=2] [ref=e122]:
+          - generic [ref=e123]: Staff your outage with fast response,
+          - generic [ref=e124]: and crews you can rely on.
+        - link "Request Crews" [ref=e126] [cursor=pointer]:
+          - /url: "#request-crew"
+  - button "Open Next.js Dev Tools" [ref=e132] [cursor=pointer]:
+    - img [ref=e133]
+  - alert [ref=e136]

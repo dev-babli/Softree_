@@ -1,0 +1,265 @@
+- generic [active]:
+  - main [ref=e1]:
+    - iframe [ref=e2]:
+      - generic [ref=f49e3]:
+        - navigation [ref=f49e4]:
+          - generic [ref=f49e5]:
+            - link "Softree Technology Logo SOFTREE TECHNOLOGY" [ref=f49e6] [cursor=pointer]:
+              - /url: /
+              - generic [ref=f49e7]:
+                - img "Softree Technology Logo" [ref=f49e8]
+                - generic [ref=f49e9]:
+                  - strong [ref=f49e10]: SOFTREE
+                  - generic [ref=f49e11]: TECHNOLOGY
+            - generic [ref=f49e12]:
+              - img [ref=f49e13]
+              - text: Lead Engine Portal
+        - generic [ref=f49e16]:
+          - generic [ref=f49e18]:
+            - generic [ref=f49e19]:
+              - generic [ref=f49e20]:
+                - img [ref=f49e21]
+                - text: AI Growth Intelligence
+              - heading "AI-Powered Website Intelligence for Scalable Growth" [level=1] [ref=f49e24]
+              - paragraph [ref=f49e25]: Built for modern growth teams and business leaders, our AI-powered audit platform delivers strategic website intelligence designed to improve conversions, strengthen digital trust, and accelerate inbound revenue performance.
+              - generic [ref=f49e26]:
+                - generic [ref=f49e27]:
+                  - img [ref=f49e29]
+                  - heading "Growth Focused" [level=4] [ref=f49e32]
+                  - paragraph [ref=f49e33]: Actionable insights that drive real results
+                - generic [ref=f49e34]:
+                  - img [ref=f49e36]
+                  - heading "Instant Results" [level=4] [ref=f49e38]
+                  - paragraph [ref=f49e39]: Get your audit report in under 60 seconds
+                - generic [ref=f49e40]:
+                  - img [ref=f49e42]
+                  - heading "100% Secure" [level=4] [ref=f49e45]
+                  - paragraph [ref=f49e46]: Your data is safe and confidential
+            - generic [ref=f49e48]:
+              - generic [ref=f49e49]:
+                - img [ref=f49e51]
+                - heading "Generate Your AI Performance Audit" [level=2] [ref=f49e54]
+                - paragraph [ref=f49e55]: Designed for growth-focused businesses, this AI-powered audit delivers strategic insights into your website’s conversion performance, digital credibility, and customer acquisition readiness.
+              - generic [ref=f49e56]:
+                - generic [ref=f49e57]:
+                  - generic [ref=f49e58]:
+                    - generic [ref=f49e59]: Full Name
+                    - generic [ref=f49e60]:
+                      - img [ref=f49e62]
+                      - textbox "Full Name" [ref=f49e65]:
+                        - /placeholder: e.g. Sarah Jenkins
+                  - generic [ref=f49e66]:
+                    - generic [ref=f49e68]: Website URL to Analyze
+                    - generic [ref=f49e69]:
+                      - img [ref=f49e71]
+                      - textbox "Website URL to Analyze" [ref=f49e74]:
+                        - /placeholder: https://yourwebsite.com/landing-page
+                  - generic [ref=f49e75]:
+                    - generic [ref=f49e76]: Business Email
+                    - generic [ref=f49e77]:
+                      - img [ref=f49e79]
+                      - textbox "Business Email" [ref=f49e82]:
+                        - /placeholder: name@company.com
+                - iframe [ref=f49e87]:
+                  - generic [ref=f52e2]:
+                    - generic [ref=f52e3]:
+                      - checkbox "I'm not a robot" [ref=f52e7]
+                      - generic [ref=f52e11]: I'm not a robot
+                    - generic [ref=f52e15]: reCAPTCHA
+                - generic [ref=f49e88]:
+                  - generic [ref=f49e89]:
+                    - img [ref=f49e90]
+                    - generic [ref=f49e93]: Get report within minutes
+                  - generic [ref=f49e94]:
+                    - img [ref=f49e95]
+                    - generic [ref=f49e97]: No credit card
+                  - generic [ref=f49e98]:
+                    - img [ref=f49e99]
+                    - generic [ref=f49e102]: PDF delivered instantly
+                - button "Generate My Audit" [disabled] [ref=f49e103]:
+                  - img [ref=f49e104]
+                  - text: Generate My Audit
+                - generic [ref=f49e107]:
+                  - img [ref=f49e108]
+                  - generic [ref=f49e111]: We respect your privacy. No spam, ever.
+          - generic [ref=f49e113]:
+            - generic [ref=f49e114]:
+              - heading "See a Sample Audit Report" [level=2] [ref=f49e115]
+              - paragraph [ref=f49e116]: Here’s a preview of the insights you’ll receive after analyzing your page.
+            - generic [ref=f49e117]:
+              - complementary [ref=f49e118]:
+                - generic [ref=f49e119]:
+                  - generic [ref=f49e120]:
+                    - generic [ref=f49e121]: SOFTREE
+                    - generic [ref=f49e122]: TECHNOLOGY
+                  - generic [ref=f49e123]:
+                    - generic [ref=f49e124]: Audit Report
+                    - generic "https://example.com/landing" [ref=f49e125]
+                  - navigation [ref=f49e126]:
+                    - generic [ref=f49e127]:
+                      - img [ref=f49e128]
+                      - generic [ref=f49e133]: Overview
+                    - generic [ref=f49e134]:
+                      - img [ref=f49e135]
+                      - generic [ref=f49e137]: Top Issues
+                    - generic [ref=f49e138]:
+                      - img [ref=f49e139]
+                      - generic [ref=f49e142]: Opportunities
+                    - generic [ref=f49e143]:
+                      - img [ref=f49e144]
+                      - generic [ref=f49e147]: Detailed Analysis
+                    - generic [ref=f49e148]:
+                      - img [ref=f49e149]
+                      - generic [ref=f49e152]: Recommendations
+                    - generic [ref=f49e153]:
+                      - img [ref=f49e154]
+                      - generic [ref=f49e157]: Technical Insights
+              - main [ref=f49e158]:
+                - generic [ref=f49e159]:
+                  - generic [ref=f49e160]:
+                    - generic [ref=f49e162]: Conversion Score
+                    - generic [ref=f49e163]:
+                      - generic [ref=f49e164]:
+                        - generic [ref=f49e165]:
+                          - generic [ref=f49e166]: "72"
+                          - generic [ref=f49e167]: /100
+                        - generic [ref=f49e168]: Good
+                      - img [ref=f49e170]
+                  - generic [ref=f49e173]:
+                    - generic [ref=f49e174]:
+                      - generic [ref=f49e175]: Top Issues Found
+                      - generic [ref=f49e176]: 3 Critical
+                    - generic [ref=f49e177]:
+                      - generic [ref=f49e178]:
+                        - img [ref=f49e179]
+                        - generic [ref=f49e181]: Missing customer testimonials
+                      - generic [ref=f49e182]:
+                        - img [ref=f49e183]
+                        - generic [ref=f49e185]: Weak CTA placement
+                      - generic [ref=f49e186]:
+                        - img [ref=f49e187]
+                        - generic [ref=f49e189]: Form has too many fields
+                    - generic [ref=f49e190]:
+                      - generic [ref=f49e191]: View all issues
+                      - generic [ref=f49e192]: →
+                  - generic [ref=f49e193]:
+                    - generic [ref=f49e195]: Estimated Impact
+                    - generic [ref=f49e196]:
+                      - generic [ref=f49e197]: +28%
+                      - generic [ref=f49e198]: Potential conversion improvement
+                    - img [ref=f49e200]
+                - generic [ref=f49e211]:
+                  - generic [ref=f49e212]:
+                    - generic [ref=f49e214]: Key Opportunity Areas
+                    - generic [ref=f49e215]:
+                      - generic [ref=f49e216]:
+                        - img [ref=f49e217]
+                        - generic [ref=f49e219]: Add social proof above the fold
+                      - generic [ref=f49e220]:
+                        - img [ref=f49e221]
+                        - generic [ref=f49e223]: Improve CTA visibility and contrast
+                      - generic [ref=f49e224]:
+                        - img [ref=f49e225]
+                        - generic [ref=f49e227]: Shorten and simplify the form
+                      - generic [ref=f49e228]:
+                        - img [ref=f49e229]
+                        - generic [ref=f49e231]: Clarify value proposition in headline
+                    - generic [ref=f49e232]:
+                      - generic [ref=f49e233]: View all opportunities
+                      - generic [ref=f49e234]: →
+                  - generic [ref=f49e235]:
+                    - generic [ref=f49e237]: AI Recommendations
+                    - generic [ref=f49e238]:
+                      - generic [ref=f49e239]:
+                        - img [ref=f49e240]
+                        - generic [ref=f49e243]: Add customer testimonials to build trust
+                      - generic [ref=f49e244]:
+                        - img [ref=f49e245]
+                        - generic [ref=f49e248]: Move primary CTA above the fold
+                      - generic [ref=f49e249]:
+                        - img [ref=f49e250]
+                        - generic [ref=f49e253]: Reduce form fields from 7 to 3
+                      - generic [ref=f49e254]:
+                        - img [ref=f49e255]
+                        - generic [ref=f49e258]: Add a sticky CTA for better conversions
+                    - generic [ref=f49e259]:
+                      - generic [ref=f49e260]: View all recommendations
+                      - generic [ref=f49e261]: →
+                  - generic [ref=f49e262]:
+                    - img [ref=f49e264]
+                    - generic [ref=f49e267]: Get the Full Report
+                    - paragraph [ref=f49e268]: Our detailed PDF report includes in-depth analysis, screenshots, and step-by-step recommendations.
+                    - generic [ref=f49e269]:
+                      - img [ref=f49e270]
+                      - generic [ref=f49e273]: Download Sample PDF
+                    - generic [ref=f49e274]: No email required
+            - generic [ref=f49e275]: This is a sample report for demonstration only. Your actual report will be generated based on the page you submit.
+          - generic [ref=f49e277]:
+            - generic [ref=f49e278]:
+              - heading "What We Analyze" [level=2] [ref=f49e279]
+              - paragraph [ref=f49e280]: Our multi-agent system audits your digital footprint across six strategic conversion layers.
+            - generic [ref=f49e281]:
+              - generic [ref=f49e282]:
+                - generic [ref=f49e283]:
+                  - img [ref=f49e285]
+                  - heading "Conversion Intelligence" [level=4] [ref=f49e288]
+                - paragraph [ref=f49e289]: Identify friction points hurting conversions and opportunities to increase sign-ups and sales.
+              - generic [ref=f49e290]:
+                - generic [ref=f49e291]:
+                  - img [ref=f49e293]
+                  - heading "CTA Effectiveness" [level=4] [ref=f49e299]
+                - paragraph [ref=f49e300]: Evaluate the placement, visibility, copy, and visual contrast of your primary and secondary calls-to-action.
+              - generic [ref=f49e301]:
+                - generic [ref=f49e302]:
+                  - img [ref=f49e304]
+                  - heading "Trust & Credibility" [level=4] [ref=f49e307]
+                - paragraph [ref=f49e308]: Analyze trust signals, security badges, social proof elements, and overall domain authority flags.
+              - generic [ref=f49e309]:
+                - generic [ref=f49e310]:
+                  - img [ref=f49e312]
+                  - heading "User Experience" [level=4] [ref=f49e314]
+                - paragraph [ref=f49e315]: Assess overall page layout usability, content hierarchy, readability, and interface clarity.
+              - generic [ref=f49e316]:
+                - generic [ref=f49e317]:
+                  - img [ref=f49e319]
+                  - heading "Mobile Performance" [level=4] [ref=f49e321]
+                - paragraph [ref=f49e322]: Check responsiveness, button sizes, mobile font sizes, and layout adaptation on smaller screens.
+              - generic [ref=f49e323]:
+                - generic [ref=f49e324]:
+                  - img [ref=f49e326]
+                  - heading "SEO & Technical" [level=4] [ref=f49e329]
+                - paragraph [ref=f49e330]: Review critical meta tags, title lengths, semantic headings hierarchy, image alt text, and page response speeds.
+          - generic [ref=f49e332]:
+            - heading "Why Growth Teams Trust Softree Technology" [level=2] [ref=f49e334]
+            - generic [ref=f49e335]:
+              - generic [ref=f49e336]:
+                - img [ref=f49e338]
+                - generic [ref=f49e341]: ISO/IEC 27001:2022
+                - generic [ref=f49e342]: Certified Security Management
+              - generic [ref=f49e343]:
+                - img [ref=f49e345]
+                - generic [ref=f49e348]: ISO 9001:2015
+                - generic [ref=f49e349]: Certified Quality Management
+              - generic [ref=f49e350]:
+                - generic [ref=f49e356]: Microsoft
+                - generic [ref=f49e357]: Technology Expertise
+              - generic [ref=f49e358]:
+                - img [ref=f49e360]
+                - generic [ref=f49e365]: Global Delivery Team
+                - generic [ref=f49e366]: Across Multiple Time Zones
+              - generic [ref=f49e367]:
+                - img [ref=f49e369]
+                - generic [ref=f49e372]: Serving Clients
+                - generic [ref=f49e373]: US, UK & Australia
+        - contentinfo [ref=f49e374]:
+          - generic [ref=f49e375]: © 2025 Softree Technology. All rights reserved.
+          - generic [ref=f49e376]:
+            - link "Privacy Policy" [ref=f49e377] [cursor=pointer]:
+              - /url: "#"
+            - generic [ref=f49e378]: "|"
+            - link "Terms of Service" [ref=f49e379] [cursor=pointer]:
+              - /url: "#"
+            - generic [ref=f49e380]: "|"
+            - link "Contact Us" [ref=f49e381] [cursor=pointer]:
+              - /url: "#"
+  - alert [ref=e3]

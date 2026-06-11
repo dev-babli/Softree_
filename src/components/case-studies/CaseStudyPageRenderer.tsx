@@ -32,12 +32,14 @@ import { BentoResultsLayout } from "@/components/case-studies/layouts/variants/B
 import { VideoHeroLayout } from "@/components/case-studies/layouts/variants/VideoHeroLayout";
 import { BeforeAfterTableLayout } from "@/components/case-studies/layouts/variants/BeforeAfterTableLayout";
 import { StatsDashboardLayout } from "@/components/case-studies/layouts/variants/StatsDashboardLayout";
-import StandardStoryLayout from "@/components/case-studies/layouts/archetypes/StandardStoryLayout";
+import { PageComposerLayout } from "@/components/case-studies/layouts/variants/PageComposerLayout";
+import type { CaseStudyComposerSection } from "@/components/case-studies/composer/types";
 import TransformationEpicLayout from "@/components/case-studies/layouts/archetypes/TransformationEpicLayout";
 import ProductShowcaseLayout from "@/components/case-studies/layouts/archetypes/ProductShowcaseLayout";
+import StandardStoryLayout from "@/components/case-studies/layouts/archetypes/StandardStoryLayout";
 
 const PREMIUM_LAYOUTS: Record<
-  CaseStudyDetailLayout,
+  Exclude<CaseStudyDetailLayout, "page-composer">,
   React.ComponentType<{ data: CaseStudyLayoutData }>
 > = {
   "manufacturing-power-platform": ManufacturingPowerPlatformLayout,
@@ -60,11 +62,12 @@ const PREMIUM_LAYOUTS: Record<
 };
 
 /** Premium layouts that ship their own FAQ + contact block */
-const SELF_CONTAINED_PREMIUM: CaseStudyDetailLayout[] = ["manufacturing-power-platform"];
+const SELF_CONTAINED_PREMIUM: CaseStudyDetailLayout[] = ["manufacturing-power-platform", "page-composer"];
 
 type StudyDoc = SanityCaseStudyDoc & {
   storyType?: "standard" | "transformation" | "product-showcase";
   detailLayout?: string;
+  composerSections?: CaseStudyComposerSection[];
 };
 
 export function CaseStudyPageRenderer({
@@ -86,6 +89,20 @@ export function CaseStudyPageRenderer({
 
   if (detailLayout) {
     const data = mapCaseStudyToLayoutData(study, related, detailLayout);
+
+    if (detailLayout === "page-composer") {
+      return (
+        <div className="min-h-screen bg-white">
+          <NavigationClient
+            initialBlogCategories={initialBlogCategories}
+            initialCaseStudyCategories={initialCaseStudyCategories}
+          />
+          <PageComposerLayout data={data} sections={study.composerSections} />
+          {!SELF_CONTAINED_PREMIUM.includes(detailLayout) ? <Footer /> : null}
+        </div>
+      );
+    }
+
     const Layout = PREMIUM_LAYOUTS[detailLayout];
 
     return (

@@ -1,18 +1,20 @@
 'use client'
 
 /**
- * This configuration is used to for the Sanity Studio that’s mounted on the `\src\app\studio\[[...tool]]\page.tsx` route
+ * Softree embedded Sanity Studio — mounted at /studio
  */
+
+import './src/sanity/studio/studio.css'
 
 import {visionTool} from '@sanity/vision'
 import {defineConfig} from 'sanity'
 import {presentationTool} from 'sanity/presentation'
 import {structureTool} from 'sanity/structure'
 
-// Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import {assistPlugin} from './src/sanity/assist/config'
 import {geminiImageToolPlugin} from './src/sanity/plugins/geminiImageTool'
-import {resolve as presentationResolve} from './sanity/presentation/resolve'
+import {reactBitsToolPlugin} from './src/sanity/plugins/reactBitsTool'
+import {resolve as presentationResolve} from './src/sanity/presentation/resolve'
 import {apiVersion, dataset, projectId} from './src/sanity/env'
 import {schema} from './src/sanity/schemaTypes'
 import {structure, getDefaultDocumentNode} from './src/sanity/structure'
@@ -22,21 +24,38 @@ import {GenerateSeoFromContentAction} from './src/sanity/actions/generateSeoFrom
 import {GenerateBlocksFromStoryAction} from './src/sanity/actions/generatePremiumBlocksFromStory'
 import {documentTemplates} from './src/sanity/templates'
 import {CaseStudyDocumentBadge} from './src/sanity/badges/CaseStudyDocumentBadge'
+import {softreeStudioTheme} from './src/sanity/studio/theme'
+import {SoftreeStudioIcon} from './src/sanity/studio/SoftreeStudioIcon'
+import {StudioLayout} from './src/sanity/studio/StudioLayout'
+import {StudioNavbar} from './src/sanity/studio/StudioNavbar'
+import {StudioToolMenu} from './src/sanity/studio/StudioToolMenu'
 
-const singletonTypes = new Set(['homepageCaseStudySlider', 'globalSettings'])
+const singletonTypes = new Set(['homepageCaseStudySlider', 'globalSettings', 'careersPage'])
 
 export default defineConfig({
+  name: 'softree',
+  title: 'Softree Studio',
+  icon: SoftreeStudioIcon,
   basePath: '/studio',
   projectId,
   dataset,
+  theme: softreeStudioTheme,
   schema: {
     types: schema.types,
     templates: (prev) => [...prev, ...documentTemplates],
+  },
+  studio: {
+    components: {
+      layout: StudioLayout,
+      navbar: StudioNavbar,
+      toolMenu: StudioToolMenu,
+    },
   },
   plugins: [
     structureTool({structure, defaultDocumentNode: getDefaultDocumentNode}),
     assistPlugin,
     geminiImageToolPlugin(),
+    reactBitsToolPlugin(),
     presentationTool({
       resolve: {
         ...presentationResolve,
@@ -71,8 +90,6 @@ export default defineConfig({
         'https://www.softreetechnology.com',
       ],
     }),
-    // Vision is for querying with GROQ from inside the Studio
-    // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),
   ],
   document: {

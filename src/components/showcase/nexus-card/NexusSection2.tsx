@@ -1,11 +1,12 @@
 "use client";
 
-import { useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
+import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { CardTypographyDesktop, CardTypographyMobile } from "./CardTypography";
+import { CardTypography } from "./CardTypography";
 import { UnderlinePhrase } from "./HandUnderline";
 import { NEXUS_SLIDES } from "./data";
 import { NexusCardStack, NexusPhoneFinale } from "./NexusCardStack";
@@ -17,57 +18,6 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 const CARD_FACES = NEXUS_SLIDES.filter((s) => s.card).map((s) => s.card!);
 const SLIDE_COUNT = NEXUS_SLIDES.length;
 
-function TimeForwardIcon() {
-  return (
-    <svg
-      className="nexus-section-2__time-icon"
-      viewBox="0 0 24 24"
-      fill="none"
-      aria-hidden
-    >
-      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" />
-      <path
-        d="M12 7v5l3 2"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="M16 4l3-1 1 3"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function PromoArrowIcon() {
-  return (
-    <svg
-      className="nexus-section-2__arrow-deco"
-      viewBox="0 0 120 80"
-      fill="none"
-      aria-hidden
-    >
-      <path
-        d="M8 62c28-38 52-48 88-42"
-        stroke="#0c0c0c"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="M88 18l8 24-24 4"
-        stroke="#0c0c0c"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 function PromoSlideText({
   slide,
   active,
@@ -76,11 +26,13 @@ function PromoSlideText({
   active: boolean;
 }) {
   return (
-    <p className={`nexus-section-2__slide${active ? " nexus-section-2__slide--active" : ""}`}>
-      {slide.prefix ? <>{slide.prefix} </> : null}
-      <UnderlinePhrase active={active}>
-        {slide.highlight}
-      </UnderlinePhrase>
+    <p className="nexus-section-2__slide">
+      {slide.prefix ? (
+        <>
+          {slide.prefix}{" "}
+        </>
+      ) : null}
+      <UnderlinePhrase active={active}>{slide.highlight}</UnderlinePhrase>
       {slide.suffix ? <> {slide.suffix}</> : null}
     </p>
   );
@@ -92,9 +44,9 @@ export default function NexusSection2() {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeRef = useRef(0);
 
-  const isCta = activeIndex === SLIDE_COUNT - 1;
+  const isCta = activeIndex >= SLIDE_COUNT - 1;
   const cardActiveIndex = Math.min(activeIndex, CARD_FACES.length - 1);
-  const timelineStep = isCta ? 2 : Math.min(activeIndex, 2);
+  const timelineStep = Math.min(activeIndex, 2);
 
   useGSAP(
     () => {
@@ -102,39 +54,38 @@ export default function NexusSection2() {
       const list = listRef.current;
       if (!root || !list) return;
 
-      const measureSlideHeight = () => {
-        const first = list.querySelector<HTMLElement>(".nexus-section-2__slide");
-        return first?.offsetHeight ?? 180;
+      const measure = () => {
+        const slide = list.querySelector<HTMLElement>(".nexus-section-2__slide");
+        return slide?.offsetHeight ?? 200;
       };
 
-      let slideHeight = measureSlideHeight();
+      let slideHeight = measure();
 
       const st = ScrollTrigger.create({
         trigger: root,
         start: "top top",
-        end: `+=${SLIDE_COUNT * 100}%`,
+        end: `+=${(SLIDE_COUNT - 1) * 100}%`,
         pin: true,
         pinSpacing: true,
         anticipatePin: 1,
-        scrub: 0.8,
+        scrub: 0.65,
         invalidateOnRefresh: true,
         onUpdate: (self) => {
-          const raw = self.progress * SLIDE_COUNT;
-          const index = Math.min(SLIDE_COUNT - 1, Math.floor(raw));
-          if (index !== activeRef.current) {
-            activeRef.current = index;
-            setActiveIndex(index);
+          const progressSlides = self.progress * (SLIDE_COUNT - 1);
+          const index = Math.round(progressSlides);
+          const clamped = Math.min(SLIDE_COUNT - 1, Math.max(0, index));
+
+          if (clamped !== activeRef.current) {
+            activeRef.current = clamped;
+            setActiveIndex(clamped);
           }
 
-          const fractional = raw - index;
-          const baseOffset = index * slideHeight;
-          const scrubOffset = fractional * slideHeight * 0.35;
-          gsap.set(list, { y: -(baseOffset + scrubOffset) });
+          gsap.set(list, { y: -progressSlides * slideHeight });
         },
       });
 
       const ro = new ResizeObserver(() => {
-        slideHeight = measureSlideHeight();
+        slideHeight = measure();
         ScrollTrigger.refresh();
       });
       ro.observe(list);
@@ -144,32 +95,35 @@ export default function NexusSection2() {
         st.kill();
       };
     },
-    { scope: rootRef, dependencies: [] },
+    { scope: rootRef },
   );
 
   return (
-    <section ref={rootRef} className="nexus-section-2 ui-blue" aria-label="Your Card">
+    <section
+      ref={rootRef}
+      className="nexus-section-2 nexus-ui-blue"
+      aria-label="Your Card"
+    >
       <div className="nexus-section-2__pin">
-        <div className="nexus-section-2__grid">
-          {/* Left — typography + 3D cards / phones */}
+        <div className="nexus-section-2__row">
           <div className="nexus-section-2__visual">
             <h2 className="sr-only">Your Card</h2>
-            <CardTypographyDesktop />
-            <CardTypographyMobile />
-
-            <div
-              className="nexus-section-2__cards-layer"
-              style={{ opacity: isCta ? 0 : 1, transition: "opacity 0.6s ease" }}
-            >
+            <CardTypography />
+            <div style={{ opacity: isCta ? 0 : 1, transition: "opacity 0.55s ease" }}>
               <NexusCardStack cards={CARD_FACES} activeIndex={cardActiveIndex} />
             </div>
             <NexusPhoneFinale visible={isCta} />
           </div>
 
-          {/* Right — scrolling copy + timeline + CTA */}
-          <div className="nexus-section-2__content col-divider__right">
+          <div className="nexus-section-2__content">
             <div className="nexus-section-2__content-top">
-              <TimeForwardIcon />
+              <Image
+                src="/showcase/nexus-card/time-forward.svg"
+                alt=""
+                width={26}
+                height={26}
+                className="nexus-section-2__time-icon"
+              />
             </div>
             <hr className="nexus-section-2__divider" />
             <div className="nexus-section-2__content-bottom">
@@ -185,19 +139,25 @@ export default function NexusSection2() {
                 </div>
               </div>
 
-              <div className="nexus-section-2__footer">
-                <NexusTimeline activeStep={timelineStep} />
+              <div className="nexus-section-2__bottom">
+                <NexusTimeline activeStep={timelineStep} hidden={isCta} />
                 <div
-                  className={`nexus-section-2__cta-wrap${isCta ? " nexus-section-2__cta-wrap--visible" : ""}`}
+                  className={`nexus-section-2__cta-panel${isCta ? " nexus-section-2__cta-panel--visible" : ""}`}
                 >
-                  <PromoArrowIcon />
+                  <Image
+                    src="/showcase/nexus-card/promo-arrow.svg"
+                    alt=""
+                    width={150}
+                    height={100}
+                    className="nexus-section-2__promo-arrow"
+                  />
                   <Link href="#" className="nexus-section-2__join-btn">
-                    <span>Join</span>
                     <span className="nexus-section-2__join-icon" aria-hidden>
-                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 12h14M13 6l6 6-6 6" />
                       </svg>
                     </span>
+                    <span className="nexus-section-2__join-text">Join</span>
                   </Link>
                 </div>
               </div>

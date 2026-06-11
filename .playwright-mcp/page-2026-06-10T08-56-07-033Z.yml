@@ -1,0 +1,264 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e5]:
+      - link "Softree Technology Logo SOFTREE TECHNOLOGY" [ref=e6] [cursor=pointer]:
+        - /url: /geo
+        - generic [ref=e7]:
+          - img "Softree Technology Logo" [ref=e8]
+          - generic [ref=e9]:
+            - strong [ref=e10]: SOFTREE
+            - generic [ref=e11]: TECHNOLOGY
+      - generic [ref=e12]:
+        - link "How It Works" [ref=e13] [cursor=pointer]:
+          - /url: "#how-it-works"
+        - link "GEO Report" [ref=e14] [cursor=pointer]:
+          - /url: "#geo-report"
+        - link "Features" [ref=e15] [cursor=pointer]:
+          - /url: "#features"
+        - link "Why GEO Matters" [ref=e16] [cursor=pointer]:
+          - /url: "#why-geo"
+        - link "FAQs" [ref=e17] [cursor=pointer]:
+          - /url: "#faqs"
+      - link "AI Growth Intelligence" [ref=e18] [cursor=pointer]:
+        - /url: "#hero"
+        - text: AI Growth Intelligence
+  - generic [ref=e23]:
+    - generic [ref=e24]:
+      - generic [ref=e25]:
+        - img [ref=e26]
+        - generic [ref=e29]: AI Visibility Assessment
+      - heading "Can ChatGPT, Gemini & Perplexity Understand Your Business?" [level=1] [ref=e30]
+      - paragraph [ref=e31]: Get a free AI Visibility Assessment and discover how well your website is positioned for AI-powered search, citations, entity recognition, and generative engine discovery.
+      - generic [ref=e34]:
+        - generic [ref=e35]:
+          - generic [ref=e36]:
+            - img [ref=e37]
+            - text: Website URL
+          - textbox "https://yourwebsite.com" [ref=e40]
+        - generic [ref=e41]:
+          - generic [ref=e42]:
+            - img [ref=e43]
+            - text: Business Email
+          - textbox "you@company.com" [ref=e46]
+        - button "Generate Free GEO Audit" [ref=e47] [cursor=pointer]: Generate Free GEO Audit
+        - generic [ref=e49]:
+          - generic [ref=e50]:
+            - img [ref=e51]
+            - text: Under 60 seconds
+          - generic [ref=e54]:
+            - img [ref=e55]
+            - text: No credit card
+          - generic [ref=e57]:
+            - img [ref=e58]
+            - text: Detailed report
+    - generic [ref=e63]:
+      - generic [ref=e65]:
+        - generic [ref=e66]:
+          - paragraph [ref=e67]: AI Visibility Dashboard
+          - paragraph [ref=e68]: Real-time GEO Intelligence
+        - generic [ref=e71]: Live
+      - generic [ref=e72]:
+        - generic [ref=e73]:
+          - img [ref=e74]
+          - generic [ref=e77]:
+            - generic [ref=e78]: "78"
+            - generic [ref=e79]: AI Score
+        - generic [ref=e81]:
+          - generic [ref=e83]:
+            - generic [ref=e84]: ChatGPT
+            - generic [ref=e85]: 82%
+          - generic [ref=e89]:
+            - generic [ref=e90]: Gemini
+            - generic [ref=e91]: 71%
+          - generic [ref=e95]:
+            - generic [ref=e96]: Perplexity
+            - generic [ref=e97]: 65%
+      - generic [ref=e101]:
+        - paragraph [ref=e102]: Weekly Trend
+        - img [ref=e103]
+      - generic [ref=e106]:
+        - generic [ref=e107]:
+          - paragraph [ref=e108]: 94%
+          - paragraph [ref=e109]: Entity Match
+          - paragraph [ref=e110]: +12%
+        - generic [ref=e111]:
+          - paragraph [ref=e112]: 67%
+          - paragraph [ref=e113]: Schema Score
+          - paragraph [ref=e114]: +8%
+        - generic [ref=e115]:
+          - paragraph [ref=e116]: "23"
+          - paragraph [ref=e117]: Citations
+          - paragraph [ref=e118]: "+5"
+      - generic [ref=e119]:
+        - paragraph [ref=e120]: Recommendation
+        - paragraph [ref=e121]: Add FAQ schema to improve AI citations by 40%
+  - generic [ref=e123]:
+    - generic [ref=e124]:
+      - paragraph [ref=e125]: Preview
+      - heading "A Glimpse of Your GEO Report" [level=2] [ref=e126]
+      - paragraph [ref=e127]: See what actionable intelligence our AI agents deliver to optimize your generative engine visibility.
+    - generic [ref=e128]:
+      - generic [ref=e129]:
+        - img [ref=e131]
+        - heading "AI Visibility Score" [level=3] [ref=e134]
+        - paragraph [ref=e135]: Comprehensive score measuring how well AI engines can discover, understand, and cite your business across ChatGPT, Gemini, and Perplexity.
+        - generic [ref=e138]: 78/100
+      - generic [ref=e139]:
+        - img [ref=e141]
+        - heading "What AI Understands" [level=3] [ref=e149]
+        - paragraph [ref=e150]: Deep analysis of services, business entities, offerings, and authority signals that AI engines extract from your website content.
+        - generic [ref=e151]:
+          - generic [ref=e152]: Service Categories
+          - generic [ref=e154]: Business Entities
+          - generic [ref=e156]: Authority Signals
+          - generic [ref=e158]: Content Structure
+      - generic [ref=e160]:
+        - img [ref=e162]
+        - heading "Top Recommendations" [level=3] [ref=e164]
+        - paragraph [ref=e165]: Actionable GEO opportunities including schema improvements, entity optimization, and AI citation enhancement strategies.
+        - generic [ref=e166]:
+          - generic [ref=e167]: Schema Markup
+          - generic [ref=e169]: Entity Optimization
+          - generic [ref=e171]: Citation Readiness
+          - generic [ref=e173]: Content Gaps
+  - generic [ref=e176]:
+    - generic [ref=e177]:
+      - paragraph [ref=e178]: Process
+      - heading "How It Works" [level=2] [ref=e179]
+      - paragraph [ref=e180]: Four simple steps to unlock your AI visibility intelligence.
+    - generic [ref=e181]:
+      - generic [ref=e182]:
+        - generic [ref=e184]: "01"
+        - heading "Enter Website" [level=3] [ref=e185]
+        - paragraph [ref=e186]: Paste your website URL and business email to begin the AI visibility analysis.
+      - generic [ref=e187]:
+        - generic [ref=e189]: "02"
+        - heading "AI Analyzes Site" [level=3] [ref=e190]
+        - paragraph [ref=e191]: Our multi-agent AI engine scans content, schema, entities, and structure.
+      - generic [ref=e192]:
+        - generic [ref=e194]: "03"
+        - heading "Generate GEO Score" [level=3] [ref=e195]
+        - paragraph [ref=e196]: Advanced algorithms calculate your visibility across ChatGPT, Gemini, and Perplexity.
+      - generic [ref=e197]:
+        - generic [ref=e199]: "04"
+        - heading "Receive Report" [level=3] [ref=e200]
+        - paragraph [ref=e201]: Get a comprehensive GEO audit with actionable recommendations and scores.
+  - generic [ref=e203]:
+    - generic [ref=e204]:
+      - paragraph [ref=e205]: Capabilities
+      - heading "Comprehensive AI Visibility Analysis" [level=2] [ref=e206]
+      - paragraph [ref=e207]: Every dimension of your AI search presence, analyzed and optimized.
+    - generic [ref=e208]:
+      - generic [ref=e209]:
+        - img [ref=e211]
+        - heading "AI Understanding" [level=3] [ref=e219]
+        - paragraph [ref=e220]: Deep analysis of how AI engines interpret your content and messaging.
+      - generic [ref=e221]:
+        - img [ref=e223]
+        - heading "Entity Recognition" [level=3] [ref=e227]
+        - paragraph [ref=e228]: Map how well your brand entities are structured for AI extraction.
+      - generic [ref=e229]:
+        - img [ref=e231]
+        - heading "Schema Markup Analysis" [level=3] [ref=e234]
+        - paragraph [ref=e235]: Audit structured data that powers AI-generated answers and citations.
+      - generic [ref=e236]:
+        - img [ref=e238]
+        - heading "Authority Signals" [level=3] [ref=e241]
+        - paragraph [ref=e242]: Evaluate trust markers that AI engines use for content ranking.
+      - generic [ref=e243]:
+        - img [ref=e245]
+        - heading "AI Citation Readiness" [level=3] [ref=e248]
+        - paragraph [ref=e249]: Score your content readiness for appearing in AI-generated responses.
+      - generic [ref=e250]:
+        - img [ref=e252]
+        - heading "GEO Recommendations" [level=3] [ref=e254]
+        - paragraph [ref=e255]: Actionable strategies to improve visibility across generative engines.
+      - generic [ref=e256]:
+        - img [ref=e258]
+        - heading "Search Visibility" [level=3] [ref=e261]
+        - paragraph [ref=e262]: Track discoverability across traditional and AI-powered search.
+      - generic [ref=e263]:
+        - img [ref=e265]
+        - heading "AI Discoverability" [level=3] [ref=e268]
+        - paragraph [ref=e269]: Measure how easily AI assistants find and reference your business.
+      - generic [ref=e270]:
+        - img [ref=e272]
+        - heading "Structured Data Review" [level=3] [ref=e275]
+        - paragraph [ref=e276]: Comprehensive review of JSON-LD, microdata, and Open Graph markup.
+  - generic [ref=e278]:
+    - generic [ref=e279]:
+      - paragraph [ref=e280]: The Shift
+      - heading "Why GEO Matters" [level=2] [ref=e281]
+      - paragraph [ref=e282]: Traditional SEO is no longer enough. AI-powered search engines like ChatGPT, Gemini, and Perplexity are reshaping how customers discover businesses. Generative Engine Optimization ensures your brand remains visible in this new paradigm.
+    - generic [ref=e283]:
+      - generic [ref=e284]:
+        - paragraph [ref=e285]: 40%
+        - paragraph [ref=e286]: of searches will be AI-powered by 2026
+      - generic [ref=e287]:
+        - paragraph [ref=e288]: 68%
+        - paragraph [ref=e289]: of users trust AI-generated answers
+      - generic [ref=e290]:
+        - paragraph [ref=e291]: 3x
+        - paragraph [ref=e292]: higher engagement from AI citations
+      - generic [ref=e293]:
+        - paragraph [ref=e294]: 80%
+        - paragraph [ref=e295]: of brands are invisible to AI search
+  - generic [ref=e298]:
+    - paragraph [ref=e299]: Get Started
+    - heading "Get Your Free AI Visibility Assessment" [level=2] [ref=e300]
+    - paragraph [ref=e301]: Enter your website and email to receive your detailed GEO audit report with actionable recommendations.
+    - button "Start Free GEO Audit" [ref=e302] [cursor=pointer]: Start Free GEO Audit
+    - paragraph [ref=e304]: No credit card required • Results in under 60 seconds
+  - generic [ref=e306]:
+    - generic [ref=e307]:
+      - paragraph [ref=e308]: Support
+      - heading "Frequently Asked Questions" [level=2] [ref=e309]
+      - paragraph [ref=e310]: Everything you need to know about GEO and AI visibility optimization.
+    - generic [ref=e311]:
+      - generic [ref=e312]:
+        - button "What is GEO?" [ref=e313] [cursor=pointer]:
+          - generic [ref=e314]: What is GEO?
+          - img [ref=e315]
+        - paragraph [ref=e317]: GEO (Generative Engine Optimization) is the practice of optimizing your digital presence to be discoverable, understood, and cited by AI-powered search engines like ChatGPT, Google Gemini, and Perplexity. It goes beyond traditional SEO by focusing on entity recognition, structured data, and content authority.
+      - generic [ref=e318]:
+        - button "How is GEO different from SEO?" [ref=e319] [cursor=pointer]:
+          - generic [ref=e320]: How is GEO different from SEO?
+          - img [ref=e321]
+        - paragraph [ref=e323]: While SEO focuses on ranking in traditional search engine results pages, GEO optimizes for AI-generated answers and citations. GEO analyzes entity structures, schema markup, content clarity, and authority signals that AI engines use to generate responses about your business.
+      - generic [ref=e324]:
+        - button "What platforms do you analyze?" [ref=e325] [cursor=pointer]:
+          - generic [ref=e326]: What platforms do you analyze?
+          - img [ref=e327]
+        - paragraph [ref=e329]: "Our AI Visibility Assessment covers the three major generative AI platforms: ChatGPT (OpenAI), Google Gemini, and Perplexity AI. We analyze how each platform understands, cites, and references your business content."
+      - generic [ref=e330]:
+        - button "Is the GEO audit free?" [ref=e331] [cursor=pointer]:
+          - generic [ref=e332]: Is the GEO audit free?
+          - img [ref=e333]
+        - paragraph [ref=e335]: Yes, the initial AI Visibility Assessment is completely free. You receive a comprehensive GEO score, entity analysis, schema audit, and actionable recommendations at no cost. No credit card is required.
+      - generic [ref=e336]:
+        - button "How long does the analysis take?" [ref=e337] [cursor=pointer]:
+          - generic [ref=e338]: How long does the analysis take?
+          - img [ref=e339]
+        - paragraph [ref=e341]: Our multi-agent AI engine typically completes a full GEO analysis in under 60 seconds. The system simultaneously scans content structure, schema markup, entity recognition, and authority signals to generate your report.
+      - generic [ref=e342]:
+        - button "What will the report include?" [ref=e343] [cursor=pointer]:
+          - generic [ref=e344]: What will the report include?
+          - img [ref=e345]
+        - paragraph [ref=e347]: Your GEO report includes an AI Visibility Score, individual platform scores (ChatGPT, Gemini, Perplexity), entity recognition analysis, schema markup audit, content authority assessment, citation readiness score, and prioritized recommendations for improvement.
+  - contentinfo [ref=e348]:
+    - generic [ref=e349]:
+      - generic [ref=e350]:
+        - generic [ref=e351]:
+          - link "How It Works" [ref=e352] [cursor=pointer]:
+            - /url: "#how-it-works"
+          - link "Features" [ref=e353] [cursor=pointer]:
+            - /url: "#features"
+          - link "Why GEO" [ref=e354] [cursor=pointer]:
+            - /url: "#why-geo"
+          - link "FAQs" [ref=e355] [cursor=pointer]:
+            - /url: "#faqs"
+        - generic [ref=e356]:
+          - generic [ref=e357] [cursor=pointer]: X
+          - generic [ref=e358] [cursor=pointer]: in
+          - generic [ref=e359] [cursor=pointer]: G
+      - paragraph [ref=e361]: © 2026 Softree Technology. All rights reserved. AI Growth Intelligence Platform.

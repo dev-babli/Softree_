@@ -1,4 +1,4 @@
-import { client } from "@/sanity/client"
+import { client } from "@/sanity/lib/client"
 import { groq } from "next-sanity"
 import NavigationClient from "@/components/sections/navigation-client"
 import Footer from "@/components/sections/footer"

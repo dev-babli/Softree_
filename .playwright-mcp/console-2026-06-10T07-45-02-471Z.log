@@ -1,0 +1,102 @@
+[     807ms] [LOG] [Client Instrumentation Hook] Slow execution detected: 22ms (Note: Code download overhead is not included in this measurement) @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:703
+[     840ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[     961ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[    1108ms] [WARNING] [PostHog] Missing NEXT_PUBLIC_POSTHOG_KEY - analytics disabled @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[    1114ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[    1163ms] [LOG] [Fast Refresh] done in 179ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[    1312ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[    1335ms] [LOG] [Fast Refresh] done in 126ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[    1368ms] [LOG] Route changed: /showcase/vectr-staffing @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[    1368ms] [LOG] Sending pageview: /showcase/vectr-staffing @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[    1368ms] [LOG] GA4 loaded @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[    1388ms] [LOG] %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  108550ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  109381ms] [LOG] [Fast Refresh] done in 934ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  117077ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  118262ms] [LOG] [Fast Refresh] done in 1286ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  118370ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  118500ms] [LOG] [Fast Refresh] done in 233ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  118828ms] [LOG] Route changed: /showcase/vectr-staffing @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  118828ms] [LOG] Sending pageview: /showcase/vectr-staffing @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  118828ms] [LOG] GA4 loaded @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  119230ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  119827ms] [LOG] [Fast Refresh] done in 702ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  119930ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  119997ms] [LOG] [Fast Refresh] done in 166ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  120228ms] [LOG] Route changed: /showcase/vectr-staffing @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  120229ms] [LOG] Sending pageview: /showcase/vectr-staffing @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  120229ms] [LOG] GA4 loaded @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  120881ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  121875ms] [LOG] [Fast Refresh] done in 1091ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  121985ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  122026ms] [LOG] [Fast Refresh] done in 146ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  122395ms] [LOG] Route changed: /showcase/vectr-staffing @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  122395ms] [LOG] Sending pageview: /showcase/vectr-staffing @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  122395ms] [LOG] GA4 loaded @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  125624ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  126274ms] [LOG] [Fast Refresh] done in 754ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  126381ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  126438ms] [LOG] [Fast Refresh] done in 161ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  126659ms] [LOG] Route changed: /showcase/vectr-staffing @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  126660ms] [LOG] Sending pageview: /showcase/vectr-staffing @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  126660ms] [LOG] GA4 loaded @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  127548ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  127555ms] [LOG] [Fast Refresh] done in 111ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  137700ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  138647ms] [LOG] [Fast Refresh] done in 1047ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  138749ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  138809ms] [LOG] [Fast Refresh] done in 161ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  138922ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  139114ms] [LOG] [Fast Refresh] done in 295ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  139374ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  139521ms] [LOG] Route changed: /showcase/vectr-staffing @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  139521ms] [LOG] Sending pageview: /showcase/vectr-staffing @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  139521ms] [LOG] GA4 loaded @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  139931ms] [LOG] [Fast Refresh] done in 661ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  140036ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  140066ms] [LOG] [Fast Refresh] done in 131ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  140185ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  140428ms] [LOG] [Fast Refresh] done in 352ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  140548ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  140667ms] [LOG] Route changed: /showcase/vectr-staffing @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  140667ms] [LOG] Sending pageview: /showcase/vectr-staffing @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  140667ms] [LOG] GA4 loaded @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  140685ms] [LOG] [Fast Refresh] done in 238ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  141172ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  141751ms] [LOG] [Fast Refresh] done in 680ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  141854ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  141890ms] [LOG] [Fast Refresh] done in 136ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  142221ms] [LOG] Route changed: /showcase/vectr-staffing @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  142221ms] [LOG] Sending pageview: /showcase/vectr-staffing @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  142221ms] [LOG] GA4 loaded @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  147422ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  147795ms] [LOG] [Fast Refresh] done in 473ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  147905ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  147970ms] [LOG] [Fast Refresh] done in 170ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  148078ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  148246ms] [LOG] [Fast Refresh] done in 275ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  148459ms] [LOG] Route changed: /showcase/vectr-staffing @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  148460ms] [LOG] Sending pageview: /showcase/vectr-staffing @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  148460ms] [LOG] GA4 loaded @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  150797ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  150860ms] [LOG] [Fast Refresh] done in 164ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  162311ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  162502ms] [LOG] [Fast Refresh] done in 295ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  189885ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  190491ms] [LOG] [Fast Refresh] done in 661ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  192156ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  193773ms] [LOG] [Fast Refresh] done in 1625ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  206182ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  206763ms] [LOG] [Fast Refresh] done in 680ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  206878ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  206979ms] [LOG] [Fast Refresh] done in 208ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  207350ms] [LOG] Route changed: /showcase/vectr-staffing @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  207350ms] [LOG] Sending pageview: /showcase/vectr-staffing @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  207350ms] [LOG] GA4 loaded @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  208578ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  208966ms] [LOG] [Fast Refresh] done in 467ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  209073ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  209102ms] [LOG] [Fast Refresh] done in 131ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  209382ms] [LOG] Route changed: /showcase/vectr-staffing @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  209382ms] [LOG] Sending pageview: /showcase/vectr-staffing @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074
+[  209382ms] [LOG] GA4 loaded @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0nzbwyu._.js:1074

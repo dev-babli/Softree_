@@ -7,7 +7,7 @@ import type { BlogPostMock } from "@/components/bento-layout";
 import { BENTO_ABSTRACT } from "@/components/bento-layout/bento-media";
 import { homepageTestimonials } from "@/data/homepage-showcase-content";
 import SuccessStoriesBentoSection from "@/components/sections/SuccessStoriesBentoSection";
-import { client } from "@/sanity/client";
+import { client } from "@/sanity/lib/client";
 import { latestBlogsQuery } from "@/sanity/queries";
 import type { SanityBlogPost } from "@/sanity/types";
 
