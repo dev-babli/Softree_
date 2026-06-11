@@ -277,7 +277,7 @@ export default function LightAboutMerged() {
               transition={{ duration: 0.6, delay: 0.8 }}
             >
               <Link
-                href="/case-studies"
+                href="/contact"
                 className="group relative inline-flex items-center gap-2 overflow-hidden rounded-lg bg-[var(--legacy-1a1a1a)] px-5 py-2.5 shadow-[0_8px_24px_-8px_rgba(26,26,26,0.4)] transition-all duration-300 ease-[var(--legacy-ease-0_23_1_0_32_1)] hover:-translate-y-px hover:shadow-[0_14px_30px_-10px_rgba(26,26,26,0.55)] active:scale-[0.97]"
               >
                 <span className="text-sm font-medium text-white">Explore offshore engagement models</span>

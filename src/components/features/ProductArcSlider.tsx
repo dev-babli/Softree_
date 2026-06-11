@@ -589,62 +589,6 @@ function ArcCard({
           </p>
         </div>
 
-        {/* ── Bottom row: Discover button (perfectly centred) ── */}
-        <div className="relative z-10 flex justify-center">
-          <button
-            type="button"
-            tabIndex={-1}
-            className={[
-              "group/btn relative inline-flex items-center justify-center gap-1.5 overflow-hidden",
-              "rounded-full px-4 py-2 text-[12px] font-medium tracking-[-0.01em]",
-              // Emil: separate transitions per property, no `all`
-              "transition-[transform,box-shadow] duration-[200ms] ease-[cubic-bezier(0.23,1,0.32,1)]",
-              // Press feedback — Emil's signature scale(0.97) on active
-              "active:scale-[0.97]",
-            ].join(" ")}
-            style={{
-              background:
-                card.textColor === "#ffffff"
-                  ? "rgba(255,255,255,0.94)"
-                  : "rgba(20,20,19,0.94)",
-              color: card.textColor === "#ffffff" ? "#141413" : "#ffffff",
-              boxShadow:
-                card.textColor === "#ffffff"
-                  ? "0 4px 14px -4px rgba(0,0,0,0.20), 0 0 0 1px rgba(0,0,0,0.04)"
-                  : "0 4px 14px -4px rgba(0,0,0,0.30), 0 0 0 1px rgba(255,255,255,0.04)",
-            }}
-          >
-            {/* 2-stack label slide on hover */}
-            <span className="relative inline-block h-[1.2em] overflow-hidden">
-              <span className="block transition-transform duration-[420ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover/btn:-translate-y-full">
-                Discover
-              </span>
-              <span
-                aria-hidden
-                className="absolute inset-0 block translate-y-full transition-transform duration-[420ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover/btn:translate-y-0"
-              >
-                Discover
-              </span>
-            </span>
-            {/* Trailing arrow that nudges right on hover */}
-            <svg
-              width="11"
-              height="11"
-              viewBox="0 0 11 11"
-              fill="none"
-              aria-hidden
-              className="transition-transform duration-[280ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover/btn:translate-x-0.5"
-            >
-              <path
-                d="M2 5.5h7M9 5.5L6 2.5M9 5.5L6 8.5"
-                stroke="currentColor"
-                strokeWidth="1.4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-        </div>
       </article>
     </motion.div>
   );

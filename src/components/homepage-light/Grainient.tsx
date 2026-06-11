@@ -242,15 +242,31 @@ const Grainient: React.FC<GrainientProps> = ({
 
     const mesh = new Mesh(gl, { geometry, program })
 
+    let resizeTimeout: any = null
+    let isInitial = true
     const setSize = () => {
+      if (released) return
       const rect = container.getBoundingClientRect()
       const width = Math.max(1, Math.floor(rect.width))
       const height = Math.max(1, Math.floor(rect.height))
-      renderer.setSize(width, height)
-      const res = (program.uniforms.iResolution as { value: Float32Array }).value
-      res[0] = gl.drawingBufferWidth
-      res[1] = gl.drawingBufferHeight
-      renderer.render({ scene: mesh })
+
+      if (isInitial) {
+        isInitial = false
+        renderer.setSize(width, height)
+        const res = (program.uniforms.iResolution as { value: Float32Array }).value
+        res[0] = gl.drawingBufferWidth
+        res[1] = gl.drawingBufferHeight
+        return
+      }
+
+      if (resizeTimeout) clearTimeout(resizeTimeout)
+      resizeTimeout = setTimeout(() => {
+        if (released) return
+        renderer.setSize(width, height)
+        const res = (program.uniforms.iResolution as { value: Float32Array }).value
+        res[0] = gl.drawingBufferWidth
+        res[1] = gl.drawingBufferHeight
+      }, 150)
     }
 
     const ro = new ResizeObserver(setSize)
@@ -260,6 +276,7 @@ const Grainient: React.FC<GrainientProps> = ({
     let raf = 0
     const t0 = performance.now()
     const loop = (t: number) => {
+      if (released) return
       ;(program.uniforms.iTime as { value: number }).value = (t - t0) * 0.001
       renderer.render({ scene: mesh })
       raf = requestAnimationFrame(loop)
@@ -267,6 +284,8 @@ const Grainient: React.FC<GrainientProps> = ({
     raf = requestAnimationFrame(loop)
 
     return () => {
+      released = true
+      if (resizeTimeout) clearTimeout(resizeTimeout)
       releaseSlot()
       cancelAnimationFrame(raf)
       ro.disconnect()

@@ -249,7 +249,7 @@ const caseStudies = [
     date: '2024',
     description: 'A Power Apps barcode scanner solution with real-time scanning and automated data capture for inventory.',
     imageUrl: '/images/case-study/power-apps/barcode.png',
-    pdfUrl: '/pdf/Barcode Scanner App.pdf',
+    pdfUrl: 'https://www.softreetechnology.com/case-studies/barcode-scanner-app-audio-equipment-management',
     challenge: 'Manual inventory tracking caused delays and frequent stock inaccuracies.',
     solution: 'Built a real-time barcode scanning Power App integrated with SharePoint and Dataverse.',
     result: 'Improved inventory accuracy and reduced stock processing time significantly.',

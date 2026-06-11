@@ -45,7 +45,7 @@ const initialRecent: Article[] = [
     title: "Barcode Scanner App",
     date: "Power Apps",
     readTime: "Case Study",
-    href: "/pdf/Barcode Scanner App.pdf",
+    href: "https://www.softreetechnology.com/case-studies/barcode-scanner-app-audio-equipment-management",
     description:
       "A Microsoft Dataverse-based barcode scanning app that automates real-time inventory tracking and reduces manual data entry.",
   },
@@ -54,7 +54,7 @@ const initialRecent: Article[] = [
     title: "AI-Powered Task Automation using Copilot in Power Apps",
     date: "AI",
     readTime: "Case Study",
-    href: "/pdf/AI-Powered-Task-Automation-using-Copilot-in-Power-Apps.pptx",
+    href: "https://www.softreetechnology.com/case-studies/ai-powered-process-discovery-copilot",
     description:
       "A unified student experience platform for accessing academic data, profiles, and institutional services.",
   },

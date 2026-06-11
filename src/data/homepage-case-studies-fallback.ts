@@ -3,24 +3,31 @@ import { BENTO_ABSTRACT } from "@/components/bento-layout/bento-media";
 
 export const HOMEPAGE_FALLBACK_CASE_STUDIES: CaseStudyMock[] = [
   {
-    id: "fallback-wicked",
-    title: "62% Faster Approvals in 8 Weeks",
-    category: "Microsoft Power Platform",
+    id: "fallback-process-discovery",
+    title: "AI-Powered Process Discovery Copilot",
+    category: "Power Platform",
     image: BENTO_ABSTRACT.iridescent,
-    href: "/case-studies/wicked-point-power-platform-governance",
+    href: "/case-studies/ai-powered-process-discovery-copilot",
   },
   {
-    id: "fallback-ecg",
-    title: "40% Faster Resolution with Grounded Copilots",
-    category: "AI & Automation",
+    id: "fallback-barcode-scanner",
+    title: "Barcode Scanner App",
+    category: "Power Platform",
     image: BENTO_ABSTRACT.holographic,
-    href: "/case-studies/ecg-group-ai-copilot-transformation",
+    href: "/case-studies/barcode-scanner-app-audio-equipment-management",
   },
   {
-    id: "fallback-sp",
-    title: "97.8% Install Success on a Bi-Weekly Train",
-    category: "Product Engineering",
+    id: "fallback-service-management",
+    title: "IT Service Management Analytics",
+    category: "Enterprise IT Operations",
     image: BENTO_ABSTRACT.fluidMesh,
-    href: "/case-studies/sp-marketplace-installation-automation",
+    href: "/case-studies/ai-it-service-management-analytics-platform",
+  },
+  {
+    id: "fallback-employee-separation",
+    title: "Employee Separation Process Automation",
+    category: "Public Sector Automation",
+    image: BENTO_ABSTRACT.ember,
+    href: "/case-studies/employee-separation-process-automation",
   },
 ];
