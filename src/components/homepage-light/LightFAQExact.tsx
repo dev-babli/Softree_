@@ -25,7 +25,7 @@ const defaultFaqs: FAQItem[] = [
   {
     id: 1,
     serial: "question 01",
-    question: "What technology solutions does Softree Technology specialize in?",
+    question: "What kind of technology solutions does Softree Technology specialize in?",
     answer:
       "Softree Technology specializes in enterprise Microsoft solutions, AI-powered automation, modern application engineering, and offshore development services. Our core expertise includes SharePoint + PowerApps, Power Automate, Power BI, Dynamics 365, Microsoft Fabric, Azure AI, AI agents, custom web and mobile applications, and enterprise workflow automation solutions designed to help businesses modernize operations and scale efficiently.",
   },
@@ -53,16 +53,23 @@ const defaultFaqs: FAQItem[] = [
   {
     id: 5,
     serial: "question 05",
-    question: "What business processes can be automated using Microsoft Power Platform solutions?",
+    question: "How does Softree support enterprise digital transformation initiatives?",
     answer:
-      "Businesses use Microsoft Power Platform to automate approvals, onboarding, reporting, inventory tracking, HR operations, document workflows, customer request management, compliance processes, and operational coordination systems. Softree helps organizations identify automation opportunities and implement scalable Power Apps and Power Automate solutions integrated with enterprise systems and existing Microsoft environments.",
+      "Softree supports enterprise digital transformation by modernizing legacy systems, automating workflows, improving collaboration, implementing AI-driven business solutions, and building scalable enterprise applications. Our delivery model combines Microsoft technologies, cloud architecture, AI automation, and agile engineering practices to help organizations improve operational agility, accelerate delivery timelines, and reduce dependency on fragmented manual processes.",
   },
   {
     id: 6,
     serial: "question 06",
-    question: "Does Softree provide offshore development and dedicated engineering teams?",
+    question: "Can Softree build custom AI solutions for enterprise operations?",
     answer:
-      "Yes. Softree works as an offshore engineering partner for consulting firms, agencies, startups, Microsoft partners, and enterprise organizations. We provide dedicated development teams, white-label partnerships, staff augmentation, managed engineering services, and end-to-end project delivery models aligned with client workflows, delivery standards, and scalability requirements.",
+      "Yes. Softree develops AI-powered enterprise solutions including AI agents, Copilot integrations, intelligent automation systems, document AI, AI-assisted workflows, and Retrieval-Augmented Generation (RAG) solutions. These systems are designed to improve productivity, automate repetitive business operations, streamline knowledge access, and support faster operational decision-making across enterprise environments.",
+  },
+  {
+    id: 7,
+    serial: "question 07",
+    question: "What business processes can be automated using Microsoft Power Platform solutions?",
+    answer:
+      "Businesses use Microsoft Power Platform to automate approvals, onboarding, reporting, inventory tracking, HR operations, document workflows, customer request management, compliance processes, and operational coordination systems. Softree helps organizations identify automation opportunities and implement scalable Power Apps and Power Automate solutions integrated with enterprise systems and existing Microsoft environments.",
   },
 ]
 
@@ -119,7 +126,7 @@ const FAQ_CARD_THEMES = [
 
 export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) {
   const faqs = customFaqs || defaultFaqs
-  const [activeIndex, setActiveIndex] = useState(faqs.length > 0 ? 0 : -1)
+  const [activeIndex, setActiveIndex] = useState(faqs.length > 0 ? Math.min(4, faqs.length - 1) : -1)
   const sectionRef = useRef<HTMLElement>(null)
   const titleRef = useRef<HTMLDivElement>(null)
   const faqsRef = useRef<HTMLDivElement>(null)
@@ -129,7 +136,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
    * between vertical stack (mobile/tablet) and horizontal accordion (≥lg). */
   const [isDesktop, setIsDesktop] = useState(false)
   useEffect(() => {
-    const mql = window.matchMedia("(min-width: 1280px)")
+    const mql = window.matchMedia("(min-width: 1024px)")
     const update = () => setIsDesktop(mql.matches)
     update()
     mql.addEventListener?.("change", update)
@@ -248,7 +255,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
          *  • Desktop (≥lg)         : original horizontal slot accordion. */}
         <div
           ref={faqsRef}
-          className="flex flex-col xl:flex-row gap-2 xl:h-[420px]"
+          className="flex flex-col lg:flex-row gap-2 lg:h-[420px]"
         >
           {faqs.map((faq, index) => {
             const isActive = index === activeIndex
@@ -258,9 +265,10 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
               <div
                 key={faq.id}
                 onClick={() => handleClick(index)}
-                className={`group/card relative cursor-pointer overflow-hidden rounded-2xl border w-full ${
-                  isDesktop ? "transition-all duration-700 ease-[var(--legacy-ease-0_4_0_0_2_1)]" : ""
-                } ${isActive ? "bg-white shadow-lg" : "bg-white/80"}`}
+                className={`group/card relative cursor-pointer overflow-hidden rounded-2xl border transition-all duration-700 ease-[var(--legacy-ease-0_4_0_0_2_1)] w-full ${isActive
+                  ? "bg-white shadow-lg"
+                  : "bg-white/80"
+                  }`}
                 style={{
                   borderColor: isActive ? `${theme.accent}40` : `${theme.accent}22`,
                   boxShadow: isActive ? `0 12px 40px ${theme.accent}22` : undefined,
@@ -269,7 +277,11 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                       width: isActive ? "37%" : "15%",
                       height: `${FAQ_DESKTOP_HEIGHT}px`,
                     }
-                    : {}),
+                    : {
+                      minHeight: isActive
+                        ? `${FAQ_MOBILE_ACTIVE_MIN}px`
+                        : `${FAQ_MOBILE_COLLAPSED_MIN}px`,
+                    }),
                 }}
               >
                 {/* Grainient Background for Inactive Cards */}
@@ -277,22 +289,18 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                   <>
                     {/* Base Gradient */}
                     <div
-                      className={`absolute inset-0 ${isDesktop ? "transition-all duration-500 group-hover/card:opacity-90" : ""}`}
+                      className="absolute inset-0 transition-all duration-500 group-hover/card:opacity-90"
                       style={{
                         background: `linear-gradient(135deg, ${theme.from} 0%, ${theme.via} 50%, ${theme.to} 100%)`,
                       }}
                     />
                     {/* Accent Glow */}
                     <div
-                      className={`absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-20 blur-3xl ${
-                        isDesktop ? "transition-all duration-500 group-hover/card:opacity-40 group-hover/card:scale-125" : ""
-                      }`}
+                      className="absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-20 blur-3xl transition-all duration-500 group-hover/card:opacity-40 group-hover/card:scale-125"
                       style={{ backgroundColor: theme.accent }}
                     />
                     <div
-                      className={`absolute -bottom-10 -left-10 h-32 w-32 rounded-full opacity-10 blur-2xl ${
-                        isDesktop ? "transition-all duration-500 group-hover/card:opacity-30" : ""
-                      }`}
+                      className="absolute -bottom-10 -left-10 h-32 w-32 rounded-full opacity-10 blur-2xl transition-all duration-500 group-hover/card:opacity-30"
                       style={{ backgroundColor: theme.accent }}
                     />
                     {/* Grain Overlay */}
@@ -305,9 +313,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                     />
                     {/* Subtle Border Glow */}
                     <div
-                      className={`absolute inset-0 rounded-2xl opacity-0 ${
-                        isDesktop ? "transition-opacity duration-500 group-hover/card:opacity-100" : ""
-                      }`}
+                      className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover/card:opacity-100"
                       style={{
                         boxShadow: `inset 0 0 0 1px ${theme.accent}28, 0 0 30px ${theme.accent}14`,
                       }}
@@ -343,7 +349,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                 )}
 
                 {/* Content */}
-                <div className={`relative flex flex-col p-4 md:p-5 ${isDesktop ? "h-full" : "h-auto"}`}>
+                <div className="relative flex h-full flex-col p-4 md:p-5">
                   {/* Top - Serial & Icon */}
                   <div className="mb-auto flex items-start justify-between">
                     <span
@@ -355,7 +361,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                     <div className="relative h-6 w-6">
                       {/* Plus Icon */}
                       <Plus
-                        className={`absolute inset-0 h-6 w-6 ${isDesktop ? "transition-all duration-500" : ""} ${isActive
+                        className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${isActive
                           ? "scale-0 opacity-0 rotate-90"
                           : "scale-100 opacity-100 rotate-0"
                           }`}
@@ -363,7 +369,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                       />
                       {/* Minus Icon */}
                       <Minus
-                        className={`absolute inset-0 h-6 w-6 ${isDesktop ? "transition-all duration-500" : ""} ${isActive
+                        className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${isActive
                           ? "scale-100 opacity-100 rotate-0"
                           : "scale-0 opacity-0 -rotate-90"
                           }`}
@@ -386,49 +392,39 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
 
                     {/* Answer - Only visible when active */}
                     <div
-                      className={`overflow-hidden ${isDesktop ? "transition-all duration-500 ease-in-out" : ""}`}
-                      style={
-                        isDesktop
-                          ? {
-                            width: isActive ? "100%" : "0%",
-                            opacity: isActive ? 1 : 0,
-                          }
-                          : {
-                            display: "grid",
-                            gridTemplateRows: isActive ? "1fr" : "0fr",
-                            opacity: isActive ? 1 : 0,
-                          }
-                      }
+                      className="overflow-hidden transition-all duration-700 ease-[var(--legacy-ease-0_4_0_0_2_1)]"
+                      style={{
+                        width: isActive ? "100%" : "0%",
+                        opacity: isActive ? 1 : 0,
+                      }}
                     >
-                      <div className="overflow-hidden w-full">
-                        <div className="pt-2 md:pt-3">
-                          <h4
-                            className="mb-1.5 text-[11px] font-semibold uppercase tracking-wider"
-                            style={{ color: `${FAQ_INK_MUTED}99` }}
+                      <div className="pt-2 md:pt-3">
+                        <h4
+                          className="mb-1.5 text-[11px] font-semibold uppercase tracking-wider"
+                          style={{ color: `${FAQ_INK_MUTED}99` }}
+                        >
+                          Question Answer:
+                        </h4>
+                        <div className="mb-3 h-px w-14" style={{ backgroundColor: `${theme.accent}35` }} />
+                        <p
+                          className="mb-4 text-sm leading-relaxed"
+                          style={{ color: `${FAQ_INK}d9` }}
+                        >
+                          {faq.answer}
+                        </p>
+                        <Link
+                          href="/about-us"
+                          className="group inline-flex items-center gap-2.5 rounded-full px-4 py-2 text-sm font-medium text-white transition-all hover:brightness-110"
+                          style={{ backgroundColor: theme.accent }}
+                        >
+                          <span>More About Us</span>
+                          <span
+                            className="flex h-5 w-5 items-center justify-center rounded-full bg-white transition-all group-hover:text-white"
+                            style={{ color: theme.accent }}
                           >
-                            Question Answer:
-                          </h4>
-                          <div className="mb-3 h-px w-14" style={{ backgroundColor: `${theme.accent}35` }} />
-                          <p
-                            className="mb-4 text-sm leading-relaxed"
-                            style={{ color: `${FAQ_INK}d9` }}
-                          >
-                            {faq.answer}
-                          </p>
-                          <Link
-                            href="/about-us"
-                            className="group inline-flex items-center gap-2.5 rounded-full px-4 py-2 text-sm font-medium text-white transition-all hover:brightness-110"
-                            style={{ backgroundColor: theme.accent }}
-                          >
-                            <span>More About Us</span>
-                            <span
-                              className="flex h-5 w-5 items-center justify-center rounded-full bg-white transition-all group-hover:text-white"
-                              style={{ color: theme.accent }}
-                            >
-                              <ArrowUpRight className="h-3 w-3" />
-                            </span>
-                          </Link>
-                        </div>
+                            <ArrowUpRight className="h-3 w-3" />
+                          </span>
+                        </Link>
                       </div>
                     </div>
                   </div>
