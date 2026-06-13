@@ -25,37 +25,51 @@ const defaultFaqs: FAQItem[] = [
   {
     id: 1,
     serial: "question 01",
-    question: "What does Softree actually build?",
+    question: "What kind of technology solutions does Softree Technology specialize in?",
     answer:
-      "Softree builds production-grade software for enterprise teams: AI agents, web apps, Microsoft Power Platform automations, SharePoint intranets, and Power BI dashboards. We are Microsoft Gold Partners. Median project ship time is 47 days.",
+      "Softree Technology specializes in enterprise Microsoft solutions, AI-powered automation, modern application engineering, and offshore development services. Our core expertise includes SharePoint + PowerApps, Power Automate, Power BI, Dynamics 365, Microsoft Fabric, Azure AI, AI agents, custom web and mobile applications, and enterprise workflow automation solutions designed to help businesses modernize operations and scale efficiently.",
   },
   {
     id: 2,
     serial: "question 02",
-    question: "How long does a typical Softree project take?",
+    question: "Can Softree help businesses replace manual processes and spreadsheet-based operations?",
     answer:
-      "Most Softree projects ship in 6 to 12 weeks. Power Apps MVPs take 6 weeks. Web app MVPs take 12 weeks. SharePoint migrations take 4 to 8 weeks. We provide a fixed scope and fixed timeline during discovery, before any contract is signed.",
+      "Yes. Many organizations still manage approvals, reporting, employee requests, and operational workflows through spreadsheets, emails, and disconnected systems. Softree helps businesses modernize these processes using SharePoint + PowerApps, Power Automate, Dynamics 365, and AI-powered workflow automation solutions that improve operational visibility, reduce manual effort, minimize process delays, and increase efficiency across departments.",
   },
   {
     id: 3,
     serial: "question 03",
-    question: "What if the project takes longer than estimated?",
+    question: "Does Softree work with companies that already use Microsoft 365?",
     answer:
-      "Softree contracts are fixed-scope and fixed-price. If we miss the timeline, we absorb the cost — not the client. We mitigate risk through weekly demos, fortnightly milestone reviews, and direct Slack access to the engineering squad working on your project.",
+      "Absolutely. Softree primarily works with businesses already operating within the Microsoft ecosystem. We help organizations extend and optimize Microsoft 365 environments using SharePoint, Teams, Power Platform, Dynamics 365, Power BI, Azure AI, and Microsoft Copilot integrations without disrupting existing operations or requiring large-scale infrastructure changes.",
   },
   {
     id: 4,
     serial: "question 04",
-    question: "How do you handle code ownership and IP?",
+    question: "Why do companies choose Softree as their Microsoft and AI development partner?",
     answer:
-      "You own the code, designs, and IP from day one. Softree commits directly to your GitHub or Azure DevOps repository. Source code, infrastructure, and credentials transfer to your team at project handoff. No vendor lock-in.",
+      "Companies choose Softree for its expertise in SharePoint with Power Apps, Power Platform, Dynamics 365, Azure AI, enterprise automation, and custom software development. We combine deep Microsoft ecosystem knowledge with AI engineering capabilities, offshore scalability, transparent delivery processes, and long-term partnership models.",
   },
   {
     id: 5,
     serial: "question 05",
-    question: "What is Softree's security and compliance posture?",
+    question: "How does Softree support enterprise digital transformation initiatives?",
     answer:
-      "Softree follows Microsoft Gold Partner security standards: SOC 2 controls, GDPR compliance, NDAs, data isolation per client, and signed BAAs for healthcare. Engineers work from secured devices. We can provide a security questionnaire response within 5 business days.",
+      "Softree supports enterprise digital transformation by modernizing legacy systems, automating workflows, improving collaboration, implementing AI-driven business solutions, and building scalable enterprise applications. Our delivery model combines Microsoft technologies, cloud architecture, AI automation, and agile engineering practices to help organizations improve operational agility, accelerate delivery timelines, and reduce dependency on fragmented manual processes.",
+  },
+  {
+    id: 6,
+    serial: "question 06",
+    question: "Can Softree build custom AI solutions for enterprise operations?",
+    answer:
+      "Yes. Softree develops AI-powered enterprise solutions including AI agents, Copilot integrations, intelligent automation systems, document AI, AI-assisted workflows, and Retrieval-Augmented Generation (RAG) solutions. These systems are designed to improve productivity, automate repetitive business operations, streamline knowledge access, and support faster operational decision-making across enterprise environments.",
+  },
+  {
+    id: 7,
+    serial: "question 07",
+    question: "What business processes can be automated using Microsoft Power Platform solutions?",
+    answer:
+      "Businesses use Microsoft Power Platform to automate approvals, onboarding, reporting, inventory tracking, HR operations, document workflows, customer request management, compliance processes, and operational coordination systems. Softree helps organizations identify automation opportunities and implement scalable Power Apps and Power Automate solutions integrated with enterprise systems and existing Microsoft environments.",
   },
 ]
 
@@ -260,14 +274,14 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                   boxShadow: isActive ? `0 12px 40px ${theme.accent}22` : undefined,
                   ...(isDesktop
                     ? {
-                        width: isActive ? "37%" : "15%",
-                        height: `${FAQ_DESKTOP_HEIGHT}px`,
-                      }
+                      width: isActive ? "37%" : "15%",
+                      height: `${FAQ_DESKTOP_HEIGHT}px`,
+                    }
                     : {
-                        minHeight: isActive
-                          ? `${FAQ_MOBILE_ACTIVE_MIN}px`
-                          : `${FAQ_MOBILE_COLLAPSED_MIN}px`,
-                      }),
+                      minHeight: isActive
+                        ? `${FAQ_MOBILE_ACTIVE_MIN}px`
+                        : `${FAQ_MOBILE_COLLAPSED_MIN}px`,
+                    }),
                 }}
               >
                 {/* Grainient Background for Inactive Cards */}
