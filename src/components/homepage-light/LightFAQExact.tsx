@@ -255,7 +255,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
          *  • Desktop (≥lg)         : original horizontal slot accordion. */}
         <div
           ref={faqsRef}
-          className="flex flex-col lg:flex-row gap-2 lg:h-[420px]"
+          className="flex flex-col lg:flex-row gap-3 lg:h-[420px]"
         >
           {faqs.map((faq, index) => {
             const isActive = index === activeIndex
@@ -265,23 +265,14 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
               <div
                 key={faq.id}
                 onClick={() => handleClick(index)}
-                className={`group/card relative cursor-pointer overflow-hidden rounded-2xl border transition-all duration-700 ease-[var(--legacy-ease-0_4_0_0_2_1)] w-full ${isActive
-                  ? "bg-white shadow-lg"
-                  : "bg-white/80"
-                  }`}
+                className={`group/card relative cursor-pointer overflow-hidden rounded-2xl border transition-all duration-700 ease-[var(--legacy-ease-0_4_0_0_2_1)] w-full h-auto lg:h-full ${
+                  isActive
+                    ? "bg-white shadow-xl lg:flex-[4] lg:grow-[4]"
+                    : "bg-white/90 shadow-sm hover:shadow-md lg:flex-[1] lg:grow-[1]"
+                }`}
                 style={{
                   borderColor: isActive ? `${theme.accent}40` : `${theme.accent}22`,
                   boxShadow: isActive ? `0 12px 40px ${theme.accent}22` : undefined,
-                  ...(isDesktop
-                    ? {
-                      width: isActive ? "37%" : "15%",
-                      height: `${FAQ_DESKTOP_HEIGHT}px`,
-                    }
-                    : {
-                      minHeight: isActive
-                        ? `${FAQ_MOBILE_ACTIVE_MIN}px`
-                        : `${FAQ_MOBILE_COLLAPSED_MIN}px`,
-                    }),
                 }}
               >
                 {/* Grainient Background for Inactive Cards */}
@@ -349,16 +340,17 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                 )}
 
                 {/* Content */}
-                <div className="relative flex h-full flex-col p-4 md:p-5">
-                  {/* Top - Serial & Icon */}
-                  <div className="mb-auto flex items-start justify-between">
+                <div className="relative flex h-full flex-col p-5 md:p-6 justify-between">
+                  {/* Top Row: always visible */}
+                  <div className="flex items-center justify-between w-full flex-shrink-0">
                     <span
-                      className="text-xs font-medium uppercase tracking-wider transition-colors duration-500"
+                      className="text-xs font-semibold uppercase tracking-wider transition-colors duration-500"
                       style={{ color: isActive ? `${FAQ_INK_MUTED}cc` : FAQ_INK_MUTED }}
                     >
-                      {faq.serial}
+                      {/* On desktop, show only the question number (e.g. "01") when inactive to prevent layout squishing */}
+                      {(!isActive && isDesktop) ? faq.serial.replace("question ", "") : faq.serial}
                     </span>
-                    <div className="relative h-6 w-6">
+                    <div className="relative h-6 w-6 flex-shrink-0">
                       {/* Plus Icon */}
                       <Plus
                         className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${isActive
@@ -378,53 +370,65 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                     </div>
                   </div>
 
-                  {/* Bottom Content */}
-                  <div className="mt-auto">
+                  {/* Bottom Content / Middle content */}
+                  <div className={`mt-auto flex flex-col transition-all duration-500 ${
+                    !isActive && isDesktop 
+                      ? "flex-grow justify-center items-center mb-auto" 
+                      : ""
+                  }`}>
                     {/* Question */}
-                    <div className="mb-2 md:mb-3">
+                    <div className={`${!isActive && isDesktop ? "py-2" : "mb-2"}`}>
                       <h3
-                        className="text-base font-semibold leading-snug transition-colors duration-500 md:text-lg"
-                        style={{ color: FAQ_INK }}
+                        className={`font-semibold leading-snug transition-colors duration-500 ${
+                          isActive ? "text-base md:text-lg" : "text-sm lg:text-[13px]"
+                        }`}
+                        style={{
+                          color: FAQ_INK,
+                          writingMode: !isActive && isDesktop ? "vertical-rl" : undefined,
+                          transform: !isActive && isDesktop ? "rotate(180deg)" : undefined,
+                          maxHeight: !isActive && isDesktop ? "290px" : undefined,
+                          overflow: !isActive && isDesktop ? "hidden" : undefined,
+                        }}
                       >
                         {faq.question}
                       </h3>
                     </div>
 
-                    {/* Answer - Only visible when active */}
+                    {/* Answer (Animate height using CSS Grid) */}
                     <div
-                      className="overflow-hidden transition-all duration-700 ease-[var(--legacy-ease-0_4_0_0_2_1)]"
-                      style={{
-                        width: isActive ? "100%" : "0%",
-                        opacity: isActive ? 1 : 0,
-                      }}
+                      className={`grid transition-all duration-500 ease-[var(--legacy-ease-0_4_0_0_2_1)] ${
+                        isActive ? "grid-rows-[1fr] opacity-100 mt-2" : "grid-rows-[0fr] opacity-0 mt-0"
+                      }`}
                     >
-                      <div className="pt-2 md:pt-3">
-                        <h4
-                          className="mb-1.5 text-[11px] font-semibold uppercase tracking-wider"
-                          style={{ color: `${FAQ_INK_MUTED}99` }}
-                        >
-                          Question Answer:
-                        </h4>
-                        <div className="mb-3 h-px w-14" style={{ backgroundColor: `${theme.accent}35` }} />
-                        <p
-                          className="mb-4 text-sm leading-relaxed"
-                          style={{ color: `${FAQ_INK}d9` }}
-                        >
-                          {faq.answer}
-                        </p>
-                        <Link
-                          href="/about-us"
-                          className="group inline-flex items-center gap-2.5 rounded-full px-4 py-2 text-sm font-medium text-white transition-all hover:brightness-110"
-                          style={{ backgroundColor: theme.accent }}
-                        >
-                          <span>More About Us</span>
-                          <span
-                            className="flex h-5 w-5 items-center justify-center rounded-full bg-white transition-all group-hover:text-white"
-                            style={{ color: theme.accent }}
+                      <div className="overflow-hidden">
+                        <div className="pt-2 md:pt-3">
+                          <h4
+                            className="mb-1.5 text-[11px] font-semibold uppercase tracking-wider"
+                            style={{ color: `${FAQ_INK_MUTED}99` }}
                           >
-                            <ArrowUpRight className="h-3 w-3" />
-                          </span>
-                        </Link>
+                            Question Answer:
+                          </h4>
+                          <div className="mb-3 h-px w-14" style={{ backgroundColor: `${theme.accent}35` }} />
+                          <p
+                            className="mb-4 text-sm leading-relaxed"
+                            style={{ color: `${FAQ_INK}d9` }}
+                          >
+                            {faq.answer}
+                          </p>
+                          <Link
+                            href="/about-us"
+                            className="group inline-flex items-center gap-2.5 rounded-full px-4 py-2 text-sm font-medium text-white transition-all hover:brightness-110"
+                            style={{ backgroundColor: theme.accent }}
+                          >
+                            <span>More About Us</span>
+                            <span
+                              className="flex h-5 w-5 items-center justify-center rounded-full bg-white transition-all group-hover:text-white"
+                              style={{ color: theme.accent }}
+                            >
+                              <ArrowUpRight className="h-3 w-3" />
+                            </span>
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>

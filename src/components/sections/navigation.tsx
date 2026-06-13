@@ -206,6 +206,7 @@ export default function Navigation({
 
   useEffect(() => {
     const onScroll = () => {
+      if (mobileOpen) return;
       const y = window.scrollY;
       if (y < 20 || y < lastScrollY.current) setShowNav(true);
       else {
@@ -216,7 +217,7 @@ export default function Navigation({
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [mobileOpen]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -229,118 +230,132 @@ export default function Navigation({
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  // Lock scrolling when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${
-        showNav ? "translate-y-0" : "-translate-y-full"
-      }`}
-      onMouseLeave={scheduleCloseMenu}
-    >
-      <div className="mx-auto max-w-[1280px] px-5 pt-2.5 lg:px-10">
-        <nav className="relative flex h-[64px] items-center justify-between rounded-2xl border border-black/[0.06] bg-white/95 px-4 shadow-[0_8px_32px_-10px_rgba(10,10,26,0.12)] backdrop-blur-xl lg:px-6">
-          <Link href="/" className="shrink-0">
-            <img
-              src="/logo/Softree-Technology-Final-Logo.png"
-              alt="Softree"
-              className="h-8 w-auto lg:h-[34px]"
-            />
-          </Link>
-
-          <div className="hidden items-center gap-0.5 lg:flex">
-            {dynamicMenu.map((item) => {
-              if (!item.mega) {
-                return (
-                  <Link
-                    key={item.label}
-                    href={item.url || "#"}
-                    className="rounded-lg px-3.5 py-2 text-[13px] font-medium text-[#0a0a1a]/60 transition-colors duration-100 hover:bg-[#F3F0EE] hover:text-[#0a0a1a]"
-                  >
-                    {item.label}
-                  </Link>
-                );
-              }
-
-              const isOpen = open === item.label;
-              const canOpen = (item.children?.length ?? 0) > 0;
-
-              return (
-                <div
-                  key={item.label}
-                  onMouseEnter={() => canOpen && openMenu(item.label)}
-                >
-                  <Link
-                    href={item.url || "#"}
-                    aria-expanded={isOpen}
-                    aria-haspopup={canOpen ? "true" : undefined}
-                    className={`inline-flex items-center gap-1 rounded-lg px-3.5 py-2 text-[13px] font-medium transition-colors duration-100 ${
-                      isOpen
-                        ? "bg-[rgba(255,88,18,0.1)] text-[#FF5812]"
-                        : "text-[#0a0a1a]/60 hover:bg-[#F3F0EE] hover:text-[#0a0a1a]"
-                    }`}
-                  >
-                    {item.label}
-                    {canOpen && (
-                      <ChevronDown
-                        size={13}
-                        className={`transition-transform duration-100 ${
-                          isOpen ? "rotate-180 text-[#FF5812]" : "text-[#0a0a1a]/25"
-                        }`}
-                      />
-                    )}
-                  </Link>
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="hidden items-center gap-2 lg:flex">
-            <Link
-              href="/book-meeting"
-              className="rounded-full bg-[#FF5812] px-5 py-2.5 text-[13px] font-semibold text-white shadow-[0_4px_14px_rgba(255,88,18,0.3)] transition-[transform,box-shadow] duration-150 hover:shadow-[0_6px_18px_rgba(255,88,18,0.36)] active:scale-[0.97]"
-            >
-              Book a Call
-            </Link>
-            <Link
-              href="/contact"
-              className="rounded-full border border-black/[0.08] px-5 py-2.5 text-[13px] font-semibold text-[#0a0a1a] transition-colors duration-150 hover:bg-[#F3F0EE] active:scale-[0.97]"
-            >
-              Get Started
-            </Link>
-          </div>
-
-          <button
-            type="button"
-            className="flex h-10 w-10 items-center justify-center rounded-lg lg:hidden"
-            onClick={() => setMobileOpen((v) => !v)}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
-        </nav>
-
-        {/* Mega menu — new left-rail layout via MegaMenuPanel */}
-        <div
-          className="relative hidden lg:block"
-          onMouseEnter={clearCloseTimer}
-          aria-hidden={!hasMegaContent}
-        >
-          <div
-            className={`absolute left-0 right-0 top-0 z-40 pt-2 transition-none ${
-              hasMegaContent
-                ? "pointer-events-auto visible opacity-100"
-                : "pointer-events-none invisible opacity-0"
-            }`}
-          >
-            {activeMegaItem?.children && hasMegaContent && (
-              <MegaMenuPanel
-                label={activeMegaItem.label}
-                groups={activeMegaItem.children}
-                onClose={closeMenu}
+    <>
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${
+          showNav ? "translate-y-0" : "-translate-y-full"
+        }`}
+        onMouseLeave={scheduleCloseMenu}
+      >
+        <div className="mx-auto max-w-[1280px] px-5 pt-2.5 lg:px-10">
+          <nav className="relative flex h-[64px] items-center justify-between rounded-2xl border border-black/[0.06] bg-white/95 px-4 shadow-[0_8px_32px_-10px_rgba(10,10,26,0.12)] backdrop-blur-xl lg:px-6">
+            <Link href="/" className="shrink-0">
+              <img
+                src="/logo/Softree-Technology-Final-Logo.png"
+                alt="Softree"
+                className="h-8 w-auto lg:h-[34px]"
               />
-            )}
+            </Link>
+
+            <div className="hidden items-center gap-0.5 lg:flex">
+              {dynamicMenu.map((item) => {
+                if (!item.mega) {
+                  return (
+                    <Link
+                      key={item.label}
+                      href={item.url || "#"}
+                      className="rounded-lg px-3.5 py-2 text-[13px] font-medium text-[#0a0a1a]/60 transition-colors duration-100 hover:bg-[#F3F0EE] hover:text-[#0a0a1a]"
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                }
+
+                const isOpen = open === item.label;
+                const canOpen = (item.children?.length ?? 0) > 0;
+
+                return (
+                  <div
+                    key={item.label}
+                    onMouseEnter={() => canOpen && openMenu(item.label)}
+                  >
+                    <Link
+                      href={item.url || "#"}
+                      aria-expanded={isOpen}
+                      aria-haspopup={canOpen ? "true" : undefined}
+                      className={`inline-flex items-center gap-1 rounded-lg px-3.5 py-2 text-[13px] font-medium transition-colors duration-100 ${
+                        isOpen
+                          ? "bg-[rgba(255,88,18,0.1)] text-[#FF5812]"
+                          : "text-[#0a0a1a]/60 hover:bg-[#F3F0EE] hover:text-[#0a0a1a]"
+                      }`}
+                    >
+                      {item.label}
+                      {canOpen && (
+                        <ChevronDown
+                          size={13}
+                          className={`transition-transform duration-100 ${
+                            isOpen ? "rotate-180 text-[#FF5812]" : "text-[#0a0a1a]/25"
+                          }`}
+                        />
+                      )}
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="hidden items-center gap-2 lg:flex">
+              <Link
+                href="/book-meeting"
+                className="rounded-full bg-[#FF5812] px-5 py-2.5 text-[13px] font-semibold text-white shadow-[0_4px_14px_rgba(255,88,18,0.3)] transition-[transform,box-shadow] duration-150 hover:shadow-[0_6px_18px_rgba(255,88,18,0.36)] active:scale-[0.97]"
+              >
+                Book a Call
+              </Link>
+              <Link
+                href="/contact"
+                className="rounded-full border border-black/[0.08] px-5 py-2.5 text-[13px] font-semibold text-[#0a0a1a] transition-colors duration-150 hover:bg-[#F3F0EE] active:scale-[0.97]"
+              >
+                Get Started
+              </Link>
+            </div>
+
+            <button
+              type="button"
+              className="flex h-10 w-10 items-center justify-center rounded-lg text-[#0a0a1a] hover:bg-[#F3F0EE] transition-colors duration-150 lg:hidden"
+              onClick={() => setMobileOpen((v) => !v)}
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            >
+              {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </nav>
+
+          {/* Mega menu — new left-rail layout via MegaMenuPanel */}
+          <div
+            className="relative hidden lg:block"
+            onMouseEnter={clearCloseTimer}
+            aria-hidden={!hasMegaContent}
+          >
+            <div
+              className={`absolute left-0 right-0 top-0 z-40 pt-2 transition-none ${
+                hasMegaContent
+                  ? "pointer-events-auto visible opacity-100"
+                  : "pointer-events-none invisible opacity-0"
+              }`}
+            >
+              {activeMegaItem?.children && hasMegaContent && (
+                <MegaMenuPanel
+                  label={activeMegaItem.label}
+                  groups={activeMegaItem.children}
+                  onClose={closeMenu}
+                />
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      </header>
 
       <AnimatePresence>
         {mobileOpen && (
@@ -349,7 +364,7 @@ export default function Navigation({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.16, ease: [0.23, 1, 0.32, 1] }}
-            className="fixed inset-0 z-40 overflow-y-auto bg-[#FAFAF9] px-5 pb-10 pt-24 lg:hidden"
+            className="fixed inset-0 z-40 overflow-y-auto bg-[#FAFAF9] text-[#0a0a1a] px-5 pb-10 pt-24 lg:hidden"
           >
             <div className="mx-auto max-w-lg">
               {dynamicMenu.map((item) => (
@@ -362,13 +377,13 @@ export default function Navigation({
                           d === item.label ? null : item.label,
                         )
                       }
-                      className="flex w-full items-center justify-between py-4 text-left"
+                      className="flex w-full items-center justify-between py-4 text-left text-[#0a0a1a]"
                     >
                       <span className="text-base font-semibold">{item.label}</span>
                       <ChevronDown
                         size={18}
-                        className={`transition-transform duration-150 ${
-                          mobileDropdown === item.label ? "rotate-180" : ""
+                        className={`transition-transform duration-150 text-[#0a0a1a]/40 ${
+                          mobileDropdown === item.label ? "rotate-180 text-[#FF5812]" : ""
                         }`}
                       />
                     </button>
@@ -376,19 +391,56 @@ export default function Navigation({
                     <Link
                       href={item.url || "#"}
                       onClick={() => setMobileOpen(false)}
-                      className="block py-4 text-base font-semibold"
+                      className="block py-4 text-base font-semibold text-[#0a0a1a] hover:text-[#FF5812] transition-colors duration-100"
                     >
                       {item.label}
                     </Link>
                   )}
 
                   {item.mega && mobileDropdown === item.label && item.children && (
-                    <div className="pb-4">
-                      <MegaMenuPanel
-                        label={item.label}
-                        groups={item.children}
-                        onClose={() => setMobileOpen(false)}
-                      />
+                    <div className="flex flex-col gap-5 pl-4 pr-2 pb-6 pt-2">
+                      {item.children.map((group, groupIdx) => (
+                        <div key={groupIdx} className="flex flex-col gap-2.5">
+                          <div className="flex items-center gap-2">
+                            <span className="h-1.5 w-1.5 rounded-full bg-[#FF5812]" />
+                            <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#0a0a1a]/45">
+                              {group.title}
+                            </h4>
+                          </div>
+
+                          <ul className="flex flex-col gap-1.5">
+                            {group.links.map((link, linkIdx) => {
+                              const LinkIcon = link.icon;
+                              return (
+                                <li key={linkIdx}>
+                                  <Link
+                                    href={link.url}
+                                    onClick={() => setMobileOpen(false)}
+                                    className="group flex items-start gap-3 rounded-xl p-2.5 transition-colors duration-100 hover:bg-black/[0.03] active:bg-black/[0.05]"
+                                  >
+                                    {Icon && (
+                                      <LinkIcon
+                                        size={18}
+                                        className="mt-0.5 shrink-0 text-[#0a0a1a]/30 group-hover:text-[#FF5812]"
+                                      />
+                                    )}
+                                    <div className="flex flex-col min-w-0">
+                                      <span className="text-[13px] font-semibold text-[#0a0a1a] leading-tight group-hover:text-[#FF5812]">
+                                        {link.label}
+                                      </span>
+                                      {link.description && (
+                                        <span className="mt-0.5 text-[11px] text-[#0a0a1a]/40 leading-snug line-clamp-2">
+                                          {link.description}
+                                        </span>
+                                      )}
+                                    </div>
+                                  </Link>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </div>
+                      ))}
                     </div>
                   )}
                 </div>
@@ -398,22 +450,21 @@ export default function Navigation({
                 <Link
                   href="/book-meeting"
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-full bg-[#FF5812] py-3.5 text-center text-sm font-semibold text-white"
+                  className="rounded-full bg-[#FF5812] py-3.5 text-center text-sm font-semibold text-white shadow-[0_4px_14px_rgba(255,88,18,0.3)] transition-[transform,box-shadow] duration-150 hover:shadow-[0_6px_18px_rgba(255,88,18,0.36)] active:scale-[0.97]"
                 >
                   Book a Call
                 </Link>
                 <Link
                   href="/contact"
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-full border border-black/[0.08] py-3.5 text-center text-sm font-semibold"
+                  className="rounded-full border border-black/[0.08] py-3.5 text-center text-sm font-semibold text-[#0a0a1a] transition-colors duration-150 hover:bg-[#F3F0EE] active:scale-[0.97]"
                 >
                   Get Started
                 </Link>
-              </div>
-            </div>
+              </div>            </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
