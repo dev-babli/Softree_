@@ -1,4 +1,4 @@
-import { client } from "@/sanity/lib/client";
+import { readClient } from "@/sanity/lib/readClient";
 import { navBlogsQuery, navCaseStudiesQuery } from "@/sanity/queries";
 import { buildCaseStudyNavCategories } from "@/sanity/buildCaseStudyNav";
 import type {
@@ -9,8 +9,8 @@ import NavigationClient from "./navigation-client";
 
 export async function getNavigationData() {
   const [blogCategories, caseStudies] = await Promise.all([
-    client.fetch<SanityNavCategory[]>(navBlogsQuery),
-    client.fetch<SanityNavCaseStudy[]>(navCaseStudiesQuery),
+    readClient.fetch<SanityNavCategory[]>(navBlogsQuery),
+    readClient.fetch<SanityNavCaseStudy[]>(navCaseStudiesQuery),
   ]);
 
   return {

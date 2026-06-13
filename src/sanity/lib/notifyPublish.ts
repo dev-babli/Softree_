@@ -4,8 +4,10 @@
  * Required env vars (all optional — notifications are skipped when unset):
  * - SLACK_WEBHOOK_URL — Incoming webhook for Slack publish alerts
  * - NEXT_PUBLIC_SITE_URL — Public site origin (defaults to production URL)
- * - SANITY_STUDIO_URL — Full Studio URL override (defaults to {site}/studio)
+ * - SANITY_STUDIO_URL / NEXT_PUBLIC_SANITY_STUDIO_URL — CMS-Kit Studio URL
  */
+
+import { getStudioBaseUrl } from '@/lib/studio-url'
 
 type PublishNotificationPayload = {
   _type?: string
@@ -27,7 +29,7 @@ function siteOrigin(): string {
 }
 
 function studioBase(): string {
-  return process.env.SANITY_STUDIO_URL || `${siteOrigin()}/studio`
+  return getStudioBaseUrl()
 }
 
 function documentLabel(body: PublishNotificationPayload): string {

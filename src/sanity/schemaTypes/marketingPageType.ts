@@ -1,6 +1,6 @@
 import { EarthGlobeIcon } from '@sanity/icons'
 import { defineArrayMember, defineField, defineType } from 'sanity'
-import { defaultFieldInstructions } from '../assist/config'
+import { defaultFieldInstructions } from '../assist/instructions'
 import { aiAssistExclude } from '../lib/blockContentOptions'
 import { publishReadinessValidation, createSeoPreviewPanelField } from '../lib/documentHelpers'
 import { reviewStatusField } from '../lib/reviewStatusField'

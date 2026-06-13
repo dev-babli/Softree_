@@ -15,6 +15,7 @@ export {
   getProviderAvailability,
   NVIDIA_FALLBACK_MODEL_KEY,
 } from "./catalog"
+export { isNvidiaConfigured } from "./nvidia"
 export type {
   GenerateImageRequest,
   GenerateImageResult,

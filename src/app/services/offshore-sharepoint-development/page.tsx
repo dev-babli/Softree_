@@ -14,6 +14,7 @@ import TrustedBrandsMarquee from "../offshore-power-platform-development/trust";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import LightFAQExact from "@/components/homepage-light/LightFAQExact";
 import type { Metadata } from "next";
+import { applyPageOg } from "@/lib/site-metadata";
 
 const sharePointFAQs = [
   {
@@ -53,7 +54,7 @@ const sharePointFAQs = [
   },
 ]
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageOg("/services/offshore-sharepoint-development", {
   title: "SharePoint Development Services | Custom Intranet & Solutions",
 
   description:
@@ -92,7 +93,7 @@ export const metadata: Metadata = {
     canonical:
       "https://www.softreetechnology.com/services/offshore-sharepoint-development",
   },
-};
+}, "Softree Technology");
 const FIXED_WIDTH = "mx-auto max-w-8xl px-8 sm:px-10 md:px-14 lg:px-20";
 
 export default function Home() {

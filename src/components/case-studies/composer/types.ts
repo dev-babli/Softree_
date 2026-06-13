@@ -101,6 +101,39 @@ export type CsFaqSection = {
 export type CsRelatedSection = { _type: 'csRelatedSection'; _key?: string }
 export type CsContactSection = { _type: 'csContactSection'; _key?: string }
 
+export type CsReactBitsSection = {
+  _type: 'csReactBitsSection'
+  _key?: string
+  componentId: string
+  heading?: string
+  minHeight?: 'sm' | 'md' | 'lg'
+}
+
+export type CsHeroMetricsStrip = {
+  _type: 'csHeroMetricsStrip'
+  _key?: string
+  label?: string
+  heading?: string
+  metrics?: ComposerMetric[]
+  variant?: 'band' | 'strip'
+}
+
+export type ComposerEvidence = {
+  claim: string
+  source: string
+  sourceUrl?: string
+  _key?: string
+}
+
+export type CsEvidencePanel = {
+  _type: 'csEvidencePanel'
+  _key?: string
+  label?: string
+  heading?: string
+  summary?: string
+  items?: ComposerEvidence[]
+}
+
 export type CaseStudyComposerSection =
   | CsOverviewSection
   | CsNarrativeSection
@@ -114,3 +147,6 @@ export type CaseStudyComposerSection =
   | CsFaqSection
   | CsRelatedSection
   | CsContactSection
+  | CsHeroMetricsStrip
+  | CsEvidencePanel
+  | CsReactBitsSection

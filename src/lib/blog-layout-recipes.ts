@@ -32,6 +32,7 @@ export const BLOG_LAYOUT_RECIPES: BlogLayoutRecipe[] = [
     topicPatterns: [/10 best/i, /top \d+/i, /best .+ (services|providers)/i, / vs /i],
     sectionPlan: [
       { _type: 'csNarrativeSection', purpose: 'Direct answer intro with definition lead', layout: 'split' },
+      { _type: 'csEvidencePanel', purpose: 'Cited facts for AEO extractability' },
       { _type: 'csCardGridSection', purpose: 'Main list items as cards (6–10 entries)' },
       { _type: 'csMetricsSection', purpose: 'Aggregate stats or evaluation criteria' },
       { _type: 'csFaqSection', purpose: '8 FAQ pairs for AEO' },
@@ -45,6 +46,7 @@ export const BLOG_LAYOUT_RECIPES: BlogLayoutRecipe[] = [
     topicPatterns: [/2026/i, /update/i, /trend/i, /announce/i, /what(?:'|')s new/i],
     sectionPlan: [
       { _type: 'csNarrativeSection', purpose: 'What changed — answer-first summary', layout: 'split' },
+      { _type: 'csEvidencePanel', purpose: 'Dated evidence with sources' },
       { _type: 'csBeforeAfterSection', purpose: 'Before vs after comparison table' },
       { _type: 'csTechStackSection', purpose: 'Technologies and platforms involved' },
       { _type: 'csNarrativeSection', purpose: 'What this means for enterprise teams' },
@@ -73,6 +75,7 @@ export const BLOG_LAYOUT_RECIPES: BlogLayoutRecipe[] = [
     topicPatterns: [/future of/i, /strategy/i, /why .+ matters/i, /enterprise/i],
     sectionPlan: [
       { _type: 'csNarrativeSection', purpose: 'Bold thesis with dated context' },
+      { _type: 'csEvidencePanel', purpose: 'Cited proof points for AI answers' },
       { _type: 'csMetricsSection', purpose: '3–4 proof metrics with sources' },
       { _type: 'csTestimonialSection', purpose: 'Softree practitioner perspective quote' },
       { _type: 'csFaqSection', purpose: 'FAQ' },

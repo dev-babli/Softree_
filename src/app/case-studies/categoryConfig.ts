@@ -1,3 +1,5 @@
+import { ogImages, pageOgImage, SITE_URL, twitterImages } from '@/lib/site-metadata'
+
 export type CaseStudyCategoryKey =
   | "ai"
   | "power-platform"
@@ -320,7 +322,9 @@ export function getCaseStudyCategoryConfig(
 
 export function buildCaseStudyCategoryMetadata(category: CaseStudyCategoryKey) {
   const config = CASE_STUDY_CATEGORY_CONFIG[category]
-  const canonical = `https://www.softreetechnology.com/case-studies/${category}`
+  const path = `/case-studies/${category}`
+  const canonical = `${SITE_URL}${path}`
+  const ogImage = pageOgImage(path, config.metaTitle)
 
   return {
     title: config.metaTitle,
@@ -330,7 +334,13 @@ export function buildCaseStudyCategoryMetadata(category: CaseStudyCategoryKey) {
       title: `${config.metaTitle} | Softree Technology`,
       description: config.metaDescription,
       url: canonical,
-      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: config.metaTitle }],
+      images: ogImages(ogImage),
+    },
+    twitter: {
+      card: 'summary_large_image' as const,
+      title: `${config.metaTitle} | Softree Technology`,
+      description: config.metaDescription,
+      images: twitterImages(ogImage),
     },
   }
 }

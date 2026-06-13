@@ -1,7 +1,8 @@
 import Footer from "@/components/sections/footer";
 import { Metadata } from "next";
+import { applyPageOg } from "@/lib/site-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageOg("/terms", {
   title: "Terms of Use | Softree Technology",
   description:
     "Read Softree Technology’s Terms of Use to understand the rules and guidelines for using our website and services.",
@@ -21,24 +22,14 @@ export const metadata: Metadata = {
       "Understand the terms and conditions for using Softree Technology services.",
     url: "https://www.softreetechnology.com/terms",
     siteName: "Softree Technology",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Softree Technology",
-      },
-    ],
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
     title: "Terms of Use | Softree Technology",
     description:
       "Understand the terms and conditions for using Softree Technology services.",
-    images: ["/og-image.png"],
   },
-};
+}, "Softree Technology Terms of Use");
 
 export default function TermsOfUse() {
   const sections = [

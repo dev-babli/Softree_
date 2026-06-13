@@ -1,0 +1,326 @@
+{
+  "generatedAt": "2026-06-11T21:31:47.814Z",
+  "baseUrl": "https://www.softreetechnology.com",
+  "size": 1200,
+  "count": 53,
+  "routes": [
+    {
+      "route": "/",
+      "file": "/og/pages/home.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/about-us",
+      "file": "/og/pages/about-us.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog",
+      "file": "/og/pages/blog.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies",
+      "file": "/og/pages/case-studies.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/power-platform",
+      "file": "/og/pages/case-studies--power-platform.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/sharepoint",
+      "file": "/og/pages/case-studies--sharepoint.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/web",
+      "file": "/og/pages/case-studies--web.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/mobile",
+      "file": "/og/pages/case-studies--mobile.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/data-analytics",
+      "file": "/og/pages/case-studies--data-analytics.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/contact",
+      "file": "/og/pages/contact.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/careers",
+      "file": "/og/pages/careers.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/services",
+      "file": "/og/pages/services.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/services/mvp",
+      "file": "/og/pages/services--mvp.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/services/ai-powered-test-automation",
+      "file": "/og/pages/services--ai-powered-test-automation.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/services/legacy-application-modernization",
+      "file": "/og/pages/services--legacy-application-modernization.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/services/offshore-ai-development",
+      "file": "/og/pages/services--offshore-ai-development.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/services/offshore-data-analytics",
+      "file": "/og/pages/services--offshore-data-analytics.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/services/offshore-generative-ai-development",
+      "file": "/og/pages/services--offshore-generative-ai-development.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/services/offshore-microsoft-fabric",
+      "file": "/og/pages/services--offshore-microsoft-fabric.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/services/offshore-mobile-app-development",
+      "file": "/og/pages/services--offshore-mobile-app-development.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/services/offshore-power-platform-development",
+      "file": "/og/pages/services--offshore-power-platform-development.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/services/offshore-sharepoint-development",
+      "file": "/og/pages/services--offshore-sharepoint-development.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/services/offshore-spfx-development",
+      "file": "/og/pages/services--offshore-spfx-development.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/services/offshore-web-app-development",
+      "file": "/og/pages/services--offshore-web-app-development.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/privacy-policy",
+      "file": "/og/pages/privacy-policy.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/terms",
+      "file": "/og/pages/terms.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/book-meeting",
+      "file": "/og/pages/book-meeting.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/engineering-solutions",
+      "file": "/og/pages/engineering-solutions.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/avoora",
+      "file": "/og/pages/avoora.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/barcode-scanner-app-audio-equipment-management",
+      "file": "/og/pages/case-studies--barcode-scanner-app-audio-equipment-management.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/ai-it-service-management-analytics-platform",
+      "file": "/og/pages/case-studies--ai-it-service-management-analytics-platform.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/ai-powered-process-discovery-copilot",
+      "file": "/og/pages/case-studies--ai-powered-process-discovery-copilot.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/employee-separation-process-automation",
+      "file": "/og/pages/case-studies--employee-separation-process-automation.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/ecg-group-ai-copilot-transformation",
+      "file": "/og/pages/case-studies--ecg-group-ai-copilot-transformation.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/sp-marketplace-installation-automation",
+      "file": "/og/pages/case-studies--sp-marketplace-installation-automation.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/wicked-point-power-platform-governance",
+      "file": "/og/pages/case-studies--wicked-point-power-platform-governance.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/hr-process-automation-with-copilot-studio",
+      "file": "/og/pages/case-studies--hr-process-automation-with-copilot-studio.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/ai-enterprise-transformation",
+      "file": "/og/pages/blog--ai-enterprise-transformation.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/enterprise-ai-automation-services",
+      "file": "/og/pages/blog--enterprise-ai-automation-services.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/power-platform-consulting-services",
+      "file": "/og/pages/blog--power-platform-consulting-services.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/ai-automation-services-enterprise-transformation",
+      "file": "/og/pages/blog--ai-automation-services-enterprise-transformation.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/nextjs-14-modern-development",
+      "file": "/og/pages/blog--nextjs-14-modern-development.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/data-engineering-trends-2024",
+      "file": "/og/pages/blog--data-engineering-trends-2024.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/data-analytics-consulting-services-enterprise-decision-making",
+      "file": "/og/pages/blog--data-analytics-consulting-services-enterprise-decision-making.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/modernizing-legacy-applications-sharepoint-power-apps",
+      "file": "/og/pages/blog--modernizing-legacy-applications-sharepoint-power-apps.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/microsoft-fabric-and-power-bi-integration-for-enterprise-analytics",
+      "file": "/og/pages/blog--microsoft-fabric-and-power-bi-integration-for-enterprise-analytics.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/power-platform-complete-guide",
+      "file": "/og/pages/blog--power-platform-complete-guide.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/sharepoint-development-best-practices",
+      "file": "/og/pages/blog--sharepoint-development-best-practices.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/security-first-application-development",
+      "file": "/og/pages/blog--security-first-application-development.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/best-mobile-app-development-services",
+      "file": "/og/pages/blog--best-mobile-app-development-services.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/best-power-platform-development-services",
+      "file": "/og/pages/blog--best-power-platform-development-services.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/best-react-development-services",
+      "file": "/og/pages/blog--best-react-development-services.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/best-sharepoint-development-services",
+      "file": "/og/pages/blog--best-sharepoint-development-services.png",
+      "width": 1200,
+      "height": 1200
+    }
+  ]
+}

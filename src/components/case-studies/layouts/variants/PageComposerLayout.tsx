@@ -1,6 +1,7 @@
+import { mergeComposerStyleVars } from '@/lib/composer-style-vars'
+import type { DesignTokenSettings } from '@/lib/design-tokens'
 import type { CaseStudyLayoutData } from "../types"
 import type { CaseStudyComposerSection } from "../../composer/types"
-import { csCssVars } from "./manufacturing/tokens"
 import { HeroSection } from "./manufacturing/sections/HeroSection"
 import { csLightClasses } from "../design-system/caseStudyLightTokens"
 import { CaseStudyComposer } from "../../composer/CaseStudyComposer"
@@ -9,12 +10,14 @@ import { CaseStudyComposer } from "../../composer/CaseStudyComposer"
 export function PageComposerLayout({
   data,
   sections,
+  designTokens,
 }: {
   data: CaseStudyLayoutData
   sections?: CaseStudyComposerSection[] | null
+  designTokens?: DesignTokenSettings | null
 }) {
   return (
-    <article className={csLightClasses.shell} style={csCssVars}>
+    <article className={csLightClasses.shell} style={mergeComposerStyleVars(designTokens)}>
       <HeroSection data={data} />
       <CaseStudyComposer sections={sections} data={data} />
     </article>

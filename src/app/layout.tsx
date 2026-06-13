@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import "./globals.css";
 import ErrorReporter from "@/components/ErrorReporter";
@@ -9,10 +10,18 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { draftMode } from "next/headers";
 import { VisualEditing } from "next-sanity/visual-editing";
 import { DisableDraftMode } from "@/components/sanity/DisableDraftMode";
-import { SanityLive } from "@/sanity/lib/live";
+import { SanityLiveServer } from "@/components/sanity/SanityLiveServer";
+import { fetchDesignTokens } from "@/lib/fetch-design-tokens";
+import { resolveDesignTokenCssVars } from "@/lib/design-tokens";
+import {
+  DEFAULT_OG_IMAGE,
+  ogImages,
+  SITE_URL,
+  twitterImages,
+} from "@/lib/site-metadata";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.softreetechnology.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Softree Technology | AI, Power Platform & Web Development",
     template: "%s | Softree Technology",
@@ -28,11 +37,12 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Softree Technology",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Softree Technology" }],
+    images: ogImages(DEFAULT_OG_IMAGE),
   },
   twitter: {
     card: "summary_large_image",
     site: "@softreetech",
+    images: twitterImages(DEFAULT_OG_IMAGE),
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
@@ -45,9 +55,11 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const { isEnabled: isDraftMode } = await draftMode();
+  const designTokens = await fetchDesignTokens();
+  const designTokenVars = resolveDesignTokenCssVars(designTokens) as CSSProperties;
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning style={designTokenVars}>
       <head>
         {/* ✅ Structured Data — Organization + WebSite */}
         <Script
@@ -164,7 +176,7 @@ export default async function RootLayout({
           {/* Sanity Visual Editing bridge (required for Presentation tool) */}
           {isDraftMode ? <VisualEditing /> : null}
           {isDraftMode ? <DisableDraftMode /> : null}
-          <SanityLive />
+          <SanityLiveServer />
         </PostHogProvider>
       </body>
     </html>

@@ -1,4 +1,5 @@
 import { CATEGORY_LABELS, type CaseStudyDetailLayout } from "@/lib/case-study-layouts"
+import { DEFAULT_ACCENT } from "@/lib/brand-defaults"
 import { stockPackForSlug } from "@/lib/case-study-stock-images"
 import type {
   ApproachStep,
@@ -14,7 +15,7 @@ import type {
   RelatedStudy,
 } from "./types"
 
-const ACCENT = "#FF7A2F"
+const ACCENT = DEFAULT_ACCENT
 
 type PortableTextLike = {
   _type: string

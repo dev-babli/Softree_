@@ -1,0 +1,301 @@
+/* FDA Maps — Softree global delivery section */
+
+.fda-maps {
+  background: #fff;
+  color: #0f0f0f;
+  padding: clamp(72px, 9vw, 120px) 0;
+}
+
+.fda-overflow-hidden {
+  overflow: hidden;
+}
+
+.fda-container {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 32px);
+}
+
+.fda-maps-main {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: clamp(32px, 5vw, 56px);
+}
+
+.fda-maps-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.fda-text-align-center {
+  text-align: center;
+}
+
+.fda-sub-heading {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px 8px 10px;
+  border: 1px solid rgba(15, 15, 15, 0.08);
+  border-radius: 999px;
+  background: #fafafa;
+}
+
+.fda-sub-heading-gap {
+  gap: 10px;
+}
+
+.fda-sub-heading-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 88, 18, 0.12);
+}
+
+.fda-sub-heading-text-wrap {
+  display: flex;
+}
+
+.fda-sub-heading-text {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+  color: #0f0f0f;
+}
+
+.fda-sub-heading-text-v2 {
+  color: #5b5b5b;
+}
+
+.fda-gap-off {
+  margin: 0;
+  max-width: 760px;
+  font-size: clamp(30px, 4.2vw, 52px);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: #0f0f0f;
+}
+
+.fda-maps-lede {
+  margin: 0;
+  max-width: 620px;
+  font-size: clamp(14.5px, 1.25vw, 17px);
+  line-height: 1.65;
+  color: rgba(15, 15, 15, 0.62);
+}
+
+.fda-location {
+  position: relative;
+  width: 100%;
+}
+
+.fda-location-map {
+  width: 100%;
+  line-height: 0;
+  aspect-ratio: 1291 / 523;
+}
+
+.fda-world-map-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.fda-location-icon-wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  /* Pin SVG tip is at bottom-center (y=67) — anchor tip to lat/lon point */
+  transform: translate(-50%, -100%);
+  pointer-events: none;
+}
+
+.fda-map-location {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: center bottom;
+  will-change: transform;
+}
+
+.fda-map-details {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 220px;
+  max-width: 260px;
+  padding: 14px 16px 12px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ff5812 0%, #ff7a3d 55%, #ff9a66 100%);
+  box-shadow: 0 18px 40px rgba(255, 88, 18, 0.28);
+  opacity: 0;
+  visibility: hidden;
+  will-change: opacity;
+}
+
+.fda-map-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.fda-map-logo {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fda-map-logo img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.fda-map-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.fda-text-color-white {
+  color: #fff;
+}
+
+.fda-map-card-small-text {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  opacity: 0.88;
+  margin-bottom: 2px;
+}
+
+.fda-text-style-h6 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.fda-map-shape {
+  flex: 0 0 auto;
+  line-height: 0;
+}
+
+.fda-map-shape img {
+  display: block;
+  width: 76px;
+  height: auto;
+}
+
+.fda-location-icon,
+.fda-location-icon-v2 {
+  position: relative;
+  line-height: 0;
+  will-change: opacity;
+}
+
+.fda-location-icon-v2 {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.fda-location-icon img,
+.fda-location-icon-v2 img {
+  width: clamp(34px, 4vw, 46px);
+  height: auto;
+  display: block;
+}
+
+.fda-location-icon-v2 img {
+  filter: hue-rotate(258deg) saturate(1.65) brightness(1.04);
+}
+
+.fda-maps--embedded {
+  background: #fafaf8;
+  padding: clamp(56px, 7vw, 88px) 0;
+}
+
+.fda-location-icon-wrapper--interactive {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.fda-maps-scroll-hint {
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(15, 15, 15, 0.42);
+}
+
+.fda-maps-scroll-hint--embedded {
+  text-transform: none;
+  letter-spacing: 0.04em;
+  font-size: 13px;
+}
+
+@media (max-width: 991px) {
+  .fda-container {
+    max-width: 728px;
+  }
+
+  .fda-map-details {
+    min-width: 190px;
+    max-width: 220px;
+    padding: 12px 14px 10px;
+  }
+
+  .fda-text-style-h6 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .fda-location-icon-wrapper {
+    transform: translate(-50%, -100%) scale(0.86);
+    transform-origin: center bottom;
+  }
+
+  .fda-map-details {
+    display: none;
+  }
+
+  .fda-maps-scroll-hint {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fda-map-location,
+  .fda-map-details,
+  .fda-location-icon,
+  .fda-location-icon-v2 {
+    will-change: auto;
+  }
+}

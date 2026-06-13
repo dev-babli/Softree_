@@ -1,12 +1,15 @@
 import {buildLegacyTheme} from 'sanity'
 
-/** Softree Studio — warm editorial palette with gradient-friendly accents */
+/** Softree Studio — light editorial shell with warm orange accent (matches homepage). */
 const palette = {
-  '--softree-black': '#0c0c0e',
+  '--softree-black': '#0a0a1a',
   '--softree-ink': '#141416',
+  '--softree-surface': '#ffffff',
+  '--softree-surface-2': '#f4f2ee',
   '--softree-white': '#ffffff',
   '--softree-cream': '#f4f2ee',
   '--softree-muted': '#6b7280',
+  '--softree-text': '#0a0a1a',
   '--softree-accent': '#ff7a2f',
   '--softree-accent-hover': '#e85a1f',
   '--softree-accent-glow': '#ff9f5a',
@@ -23,8 +26,8 @@ export const softreeStudioTheme = buildLegacyTheme({
   '--gray': palette['--softree-muted'],
   '--gray-base': palette['--softree-muted'],
 
-  '--component-bg': palette['--softree-white'],
-  '--component-text-color': palette['--softree-ink'],
+  '--component-bg': palette['--softree-surface'],
+  '--component-text-color': palette['--softree-text'],
 
   '--brand-primary': palette['--softree-accent'],
 
@@ -39,8 +42,8 @@ export const softreeStudioTheme = buildLegacyTheme({
   '--state-warning-color': palette['--softree-warning'],
   '--state-danger-color': palette['--softree-danger'],
 
-  '--main-navigation-color': palette['--softree-ink'],
-  '--main-navigation-color--inverted': palette['--softree-white'],
+  '--main-navigation-color': palette['--softree-surface'],
+  '--main-navigation-color--inverted': palette['--softree-text'],
 
   '--focus-color': palette['--softree-accent'],
 })

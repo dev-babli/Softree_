@@ -1,6 +1,9 @@
 "use client";
 
 import React from "react";
+import SectionHeader from "@/components/homepage-light/SectionHeader";
+
+const ACCENT = "#FF5812" as const;
 
 /* ===================== DATA ===================== */
 const steps = [
@@ -20,19 +23,25 @@ export default function WebDevelopmentProcess() {
   const radius = 250;
 
   return (
-    <section className="relative py-16 bg-gradient-to-b from-gray-50 via-white to-gray-50 ">
-      <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-        {/* ================= LEFT CONTENT ================= */}
+    <section
+      data-section="web-dev-process"
+      className="relative py-16 md:py-20"
+    >
+      <div className="relative mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-16 px-4 sm:px-6 lg:grid-cols-2 lg:px-12">
         <div className="max-w-xl">
-          {/* Heading */}
-          <h2 className="mt-5 text-4xl sm:text-5xl xl:text-6xl font-bold leading-[1.1] text-gray-900">
-            Web development process
-            <span className="block mt-2 bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
-              that delivers results
-            </span>
-          </h2>
+          <SectionHeader
+            badge="Our process"
+            accent={ACCENT}
+            headline={
+              <>
+                Web development process
+                <span className="block text-[#FF5812]">that delivers results</span>
+              </>
+            }
+            body="Strategy-driven delivery with secure architecture and high-performance apps optimized for speed and reliability."
+          />
 
-       <ul className="mt-10 space-y-5 text-gray-600 text-base">
+          <ul className="mt-10 space-y-5 text-base text-[#0a0a1a]/65">
   {[
     "Strategy-driven approach for scalable solutions",
     "Secure architecture built with industry best practices",

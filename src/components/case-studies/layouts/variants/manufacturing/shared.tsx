@@ -69,7 +69,7 @@ export function PrimaryButton({
   return (
     <a
       href={href}
-      className={`inline-flex items-center justify-center rounded-full bg-[var(--softree-accent,#FF7A2F)] px-8 py-3.5 text-sm font-semibold text-white transition-transform duration-200 hover:bg-[var(--softree-accent-hover,#E85A1F)] active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF7A2F] focus-visible:ring-offset-2 ${className}`}
+      className={`inline-flex items-center justify-center rounded-full bg-[var(--softree-accent,#FF7A2F)] px-8 py-3.5 text-sm font-semibold text-white transition-transform duration-200 hover:bg-[var(--softree-accent-hover,#E85A1F)] active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--softree-accent,#FF7A2F)] focus-visible:ring-offset-2 ${className}`}
     >
       {children}
     </a>
@@ -90,7 +90,7 @@ export function OutlineButton({
   return (
     <a
       href={href}
-      className={`inline-flex items-center justify-center rounded-full border px-8 py-3.5 text-sm font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF7A2F] focus-visible:ring-offset-2 ${
+      className={`inline-flex items-center justify-center rounded-full border px-8 py-3.5 text-sm font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--softree-accent,#FF7A2F)] focus-visible:ring-offset-2 ${
         dark
           ? "border-white/25 text-white hover:border-white/50 hover:bg-white/10"
           : "border-[#191919] text-[#191919] hover:bg-[#191919] hover:text-white"

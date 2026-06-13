@@ -1,6 +1,7 @@
 "use client";
 
 import NavigationClient from "@/components/sections/navigation-client";
+import type { DesignTokenSettings } from "@/lib/design-tokens";
 import type {
   SanityNavCategory,
   SanityNavCaseStudyCategory,
@@ -76,12 +77,14 @@ export function CaseStudyPageRenderer({
   slug,
   initialBlogCategories,
   initialCaseStudyCategories,
+  designTokens,
 }: {
   study: StudyDoc;
   related: RelatedStudy[];
   slug: string;
   initialBlogCategories?: SanityNavCategory[];
   initialCaseStudyCategories?: SanityNavCaseStudyCategory[];
+  designTokens?: DesignTokenSettings | null;
 }) {
   const detailLayout = isPremiumLayout(study.detailLayout)
     ? study.detailLayout
@@ -97,13 +100,30 @@ export function CaseStudyPageRenderer({
             initialBlogCategories={initialBlogCategories}
             initialCaseStudyCategories={initialCaseStudyCategories}
           />
-          <PageComposerLayout data={data} sections={study.composerSections} />
+          <PageComposerLayout
+            data={data}
+            sections={study.composerSections}
+            designTokens={designTokens}
+          />
           {!SELF_CONTAINED_PREMIUM.includes(detailLayout) ? <Footer /> : null}
         </div>
       );
     }
 
     const Layout = PREMIUM_LAYOUTS[detailLayout];
+
+    if (detailLayout === "manufacturing-power-platform") {
+      return (
+        <div className="min-h-screen bg-white">
+          <NavigationClient
+            initialBlogCategories={initialBlogCategories}
+            initialCaseStudyCategories={initialCaseStudyCategories}
+          />
+          <ManufacturingPowerPlatformLayout data={data} designTokens={designTokens} />
+          {!SELF_CONTAINED_PREMIUM.includes(detailLayout) ? <Footer /> : null}
+        </div>
+      );
+    }
 
     return (
       <div className="min-h-screen bg-white">

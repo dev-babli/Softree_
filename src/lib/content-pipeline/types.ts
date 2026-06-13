@@ -2,6 +2,8 @@ import { z } from 'zod'
 
 import type { BlogLayoutRecipeId } from '@/lib/blog-layout-recipes'
 
+import type { ArenaCandidateScore } from './arena/judge'
+
 export const pipelineRunSchema = z.object({
   topic: z.string().min(3).max(200).optional(),
   autoPublish: z.boolean().default(false),
@@ -16,6 +18,8 @@ export const pipelineRunSchema = z.object({
     ])
     .optional(),
   generateImages: z.boolean().default(true),
+  /** When true (default), three writer personas compete and a judge picks the best draft. */
+  useArena: z.boolean().default(true),
 })
 
 export type PipelineRunInput = z.infer<typeof pipelineRunSchema>
@@ -52,6 +56,11 @@ export type PipelineRunResult = {
   url: string
   layoutRecipe: BlogLayoutRecipeId
   title: string
+  arena?: {
+    winnerId: string
+    rationale: string
+    scores: ArenaCandidateScore[]
+  }
 }
 
 export type PipelineRunError = {

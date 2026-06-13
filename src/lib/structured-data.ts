@@ -13,6 +13,7 @@ type FaqJsonLdItem = { question: string; answer: string }
 type BlogJsonLdInput = ArticleJsonLdInput & {
   faqs?: FaqJsonLdItem[]
   keywords?: string[]
+  breadcrumb?: { rootName: string; rootUrl: string }
 }
 
 export function buildArticleJsonLd(input: ArticleJsonLdInput) {
@@ -67,6 +68,10 @@ export function buildCaseStudyJsonLd(input: ArticleJsonLdInput & { clientName?: 
 export function buildBlogJsonLdGraph(input: BlogJsonLdInput) {
   const siteOrigin = "https://www.softreetechnology.com"
   const article = buildArticleJsonLd(input)
+  const breadcrumbRoot = input.breadcrumb ?? {
+    rootName: "Blog",
+    rootUrl: `${siteOrigin}/blog`,
+  }
 
   const graph: Record<string, unknown>[] = [
     {
@@ -91,8 +96,8 @@ export function buildBlogJsonLdGraph(input: BlogJsonLdInput) {
         {
           "@type": "ListItem",
           position: 1,
-          name: "Blog",
-          item: `${siteOrigin}/blog`,
+          name: breadcrumbRoot.rootName,
+          item: breadcrumbRoot.rootUrl,
         },
         {
           "@type": "ListItem",

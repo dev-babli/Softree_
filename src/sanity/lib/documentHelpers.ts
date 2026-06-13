@@ -4,6 +4,7 @@ import { defineField } from "sanity"
 import EditorProgressInput from "../components/EditorProgressInput"
 import type { ObjectInputProps } from "sanity"
 import { caseStudyHasStoryContent, type CaseStudyCompletenessDoc } from "./caseStudyCompleteness"
+import { getAeoPublishIssues, type AeoCompletenessDoc } from "./aeoCompleteness"
 
 export function createSeoPreviewPanelField(group = "seo") {
   const SeoPreviewPanelInput: React.FC<ObjectInputProps> = () =>
@@ -74,6 +75,11 @@ export function publishReadinessValidation(
       if (!mainImage?.asset?._ref && !fields.mainImageUrl) {
         missing.push("cover image")
       }
+    }
+
+    const aeoIssues = getAeoPublishIssues(fields as AeoCompletenessDoc)
+    if (aeoIssues.length > 0) {
+      missing.push(...aeoIssues)
     }
 
     if (missing.length > 0) {

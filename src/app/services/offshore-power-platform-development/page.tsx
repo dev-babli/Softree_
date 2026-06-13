@@ -15,6 +15,7 @@ import TrustedBrandsMarquee from "./trust";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import LightFAQExact from "@/components/homepage-light/LightFAQExact";
 import type { Metadata } from "next";
+import { applyPageOg } from "@/lib/site-metadata";
 
 const powerPlatformFAQs = [
   {
@@ -54,7 +55,7 @@ const powerPlatformFAQs = [
   },
 ]
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageOg("/services/offshore-power-platform-development", {
   title: "Power Platform Development Services | Power Apps & Automation",
 
   description:
@@ -93,7 +94,7 @@ export const metadata: Metadata = {
     canonical:
       "https://www.softreetechnology.com/services/offshore-power-platform-development",
   },
-};
+}, "Softree Technology");
 
 export default function Home() {
   return (

@@ -45,7 +45,7 @@ export function BlogHeroSection({
     <header className="relative overflow-hidden bg-[#F7F6F3] text-[#181818]">
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-[20%] top-0 h-[70%] w-[55%] rounded-full bg-[radial-gradient(circle,rgba(255,88,18,0.08)_0%,transparent_68%)]"
+        className="pointer-events-none absolute -right-[20%] top-0 h-[70%] w-[55%] rounded-full bg-[radial-gradient(circle,color-mix(in_srgb,var(--softree-accent,#FF7A2F)_8%,transparent)_0%,transparent_68%)]"
       />
 
       <PageContainer className="relative pb-16 pt-28 md:pb-20 md:pt-32 lg:pt-36">

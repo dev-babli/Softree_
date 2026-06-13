@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { applyPageOg } from "@/lib/site-metadata";
 
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
@@ -51,7 +52,7 @@ const testAutomationFAQs = [
   },
 ]
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageOg("/services/ai-powered-test-automation", {
   title: "AI-Powered Test Automation Services | Softree",
 
   description:
@@ -83,29 +84,16 @@ export const metadata: Metadata = {
 
     siteName: "Softree",
 
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "AI-Powered Test Automation Services",
-      },
-    ],
-
     type: "website",
   },
 
   twitter: {
-    card: "summary_large_image",
-
     title: "AI-Powered Test Automation Services | Softree",
 
     description:
       "Enterprise AI-powered automation testing and intelligent QA solutions.",
-
-    images: ["/og-image.png"],
   },
-};
+}, "AI-Powered Test Automation Services");
 
 export default function AIPoweredAutomationPage() {
   return (

@@ -1,4 +1,5 @@
 import type { CaseStudyLayoutData, RelatedStudy } from "@/components/case-studies/layouts/types"
+import { DEFAULT_ACCENT } from "@/lib/brand-defaults"
 
 export type SanityPostDoc = {
   _id: string
@@ -34,7 +35,7 @@ export function mapPostToLayoutData(
     client: authorName,
     category,
     industry: category,
-    accentColor: "#FF7A2F",
+    accentColor: DEFAULT_ACCENT,
     heroImageUrl: heroUrl,
     heroImageAlt: post.mainImage?.alt || post.title,
     highlights: (post.heroHighlights || [])
@@ -65,7 +66,7 @@ export function mapPostToLayoutData(
       subtext:
         "Talk to Softree about enterprise engineering, Microsoft platforms, and AI delivery.",
       buttonText: "Contact us",
-      buttonHref: "/contact-us",
+      buttonHref: "/contact",
     },
     related,
     faqs: (post.faqSchema || []).map((faq) => ({

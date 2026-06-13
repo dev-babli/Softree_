@@ -14,6 +14,9 @@ import {
   MapPin,
   Sliders,
 } from "lucide-react";
+import SectionHeader from "@/components/homepage-light/SectionHeader";
+
+const ACCENT = "#FF5812" as const;
 
 /* ================= WHY CHOOSE DATA ================= */
 const whyChoose = [
@@ -39,10 +42,6 @@ const whyChoose = [
   },
 ];
 
-<meta
-  name="google-site-verification"
-  content="CBKqqECDJRj5OGKmASLx9E8oM6XET_LWY_4_mWL5A3k"
-/>;
 /* ================= REVIEWS DATA ================= */
 const reviews = [
   {
@@ -87,49 +86,45 @@ export default function WhyChooseWithTestimonials() {
   }, [paused]);
 
   return (
-    <section className="text-gray-900 py-16">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-        {/* ================= LEFT : WHY CHOOSE ================= */}
+    <section
+      data-section="web-dev-why"
+      className="py-16 text-[#0a0a1a] md:py-20"
+    >
+      <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-start gap-16 px-4 sm:px-6 lg:grid-cols-2 lg:px-12">
         <div className="relative">
-          {/* Small Label */}
-          <div className="text-orange-600 text-xs uppercase tracking-[0.15em] mb-3">
-            Why Choose Softree
-          </div>
+          <SectionHeader
+            badge="Why choose Softree"
+            accent={ACCENT}
+            headline={
+              <>
+                Built for{" "}
+                <span className="text-[#FF5812]">long-term impact</span>
+              </>
+            }
+          />
 
-          {/* Heading */}
-          <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-10">
-            Built for{" "}
-            <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
-              Long-Term Impact
-            </span>
-          </h2>
+          <div className="absolute left-4 top-[120px] bottom-0 hidden w-px bg-gradient-to-b from-[#FF5812]/40 via-[#FF5812]/15 to-transparent md:block" />
 
-          {/* ✅ Vertical Accent Line (Orange Version) */}
-          <div className="absolute left-4 top-[120px] bottom-0 w-px bg-gradient-to-b from-orange-500/40 via-orange-400/20 to-transparent hidden md:block" />
-
-          {/* Features */}
-          <div className="space-y-10">
+          <div className="mt-10 space-y-10">
             {whyChoose.map((item, i) => {
               const Icon = item.icon;
 
               return (
                 <div key={i} className="relative flex gap-6 items-start">
-                  {/* Number */}
-                  <div className="relative z-10 flex items-center justify-center w-8 h-8 text-xs font-semibold text-orange-600">
+                  <div className="relative z-10 flex h-8 w-8 items-center justify-center text-xs font-semibold text-[#FF5812]">
                     {String(i + 1).padStart(2, "0")}
                   </div>
 
-                  {/* Content */}
                   <div>
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="w-9 h-9 flex items-center justify-center rounded-md bg-orange-50 text-orange-600">
+                    <div className="mb-2 flex items-center gap-3">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-md bg-[#FF5812]/10 text-[#FF5812]">
                         <Icon size={18} />
                       </div>
 
                       <h3 className="text-lg font-semibold">{item.title}</h3>
                     </div>
 
-                    <p className="text-gray-600 text-sm leading-relaxed max-w-md">
+                    <p className="max-w-md text-sm leading-relaxed text-[#0a0a1a]/65">
                       {item.desc}
                     </p>
                   </div>
@@ -139,35 +134,33 @@ export default function WhyChooseWithTestimonials() {
           </div>
         </div>
 
-        {/* ================= RIGHT : TESTIMONIALS ================= */}
-        <div className="rounded-2xl p-10 bg-gradient-to-r from-black via-[#4c1c02] to-black border border-white/10 shadow-2xl">
-          {/* Header */}
+        <div className="overflow-hidden rounded-[24px] border border-[#0a0a1a]/[0.08] bg-white p-8 shadow-[0_24px_70px_-40px_rgba(10,10,26,0.14)] md:p-10">
           <div className="mb-10">
-            <div className="text-white text-xs uppercase tracking-widest mb-3">
-              Client Feedback
-            </div>
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#FF5812]">
+              Client feedback
+            </p>
 
-            <h3 className="text-2xl font-semibold mb-6 text-white">
-              Trusted by Enterprise Teams
+            <h3 className="mb-6 text-2xl font-semibold text-[#0a0a1a]">
+              Trusted by enterprise teams
             </h3>
 
-            <div className="flex items-center gap-4 mb-2">
+            <div className="mb-2 flex items-center gap-4">
               <div className="flex gap-1">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star
                     key={i}
-                    className="w-4 h-4 fill-yellow-400 text-yellow-400"
+                    className="h-4 w-4 fill-[#FF5812] text-[#FF5812]"
                   />
                 ))}
               </div>
 
-              <p className="font-semibold text-white">4.9 / 5</p>
-              <p className="text-gray-300 text-sm">average rating</p>
+              <p className="font-semibold text-[#0a0a1a]">4.9 / 5</p>
+              <p className="text-sm text-[#0a0a1a]/50">average rating</p>
             </div>
 
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-[#0a0a1a]/50">
               Based on{" "}
-              <span className="font-medium text-white">
+              <span className="font-medium text-[#0a0a1a]">
                 150+ client reviews
               </span>
             </p>
@@ -187,39 +180,36 @@ export default function WhyChooseWithTestimonials() {
                       {Array.from({ length: 5 }).map((_, idx) => (
                         <Star
                           key={idx}
-                          className={`w-4 h-4 ${
+                          className={`h-4 w-4 ${
                             idx < review.rating
-                              ? "fill-yellow-400 text-yellow-400"
-                              : "text-gray-500"
+                              ? "fill-[#FF5812] text-[#FF5812]"
+                              : "text-[#0a0a1a]/20"
                           }`}
                         />
                       ))}
                     </div>
 
                     {/* Review Comment */}
-                    <p className="text-gray-200 text-base leading-relaxed mb-6">
-                      “{review.comment}”
+                    <p className="mb-6 text-base leading-relaxed text-[#0a0a1a]/72">
+                      &ldquo;{review.comment}&rdquo;
                     </p>
 
-                    {/* Reviewer Info */}
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
-                        <User size={14} className="text-orange-400" />
+                        <User size={14} className="text-[#FF5812]" />
                         <div>
-                          <p className="font-semibold text-white text-sm">
+                          <p className="text-sm font-semibold text-[#0a0a1a]">
                             {review.name}
                           </p>
-
-                          {/* ✅ Company added here */}
-                          <p className="text-xs text-gray-400">
+                          <p className="text-xs text-[#0a0a1a]/50">
                             {review.company}
                           </p>
                         </div>
                       </div>
 
                       <div className="flex items-center gap-2">
-                        <MapPin size={13} className="text-gray-400" />
-                        <p className="text-xs text-gray-400">
+                        <MapPin size={13} className="text-[#0a0a1a]/40" />
+                        <p className="text-xs text-[#0a0a1a]/50">
                           {review.location}
                         </p>
                       </div>
@@ -230,29 +220,34 @@ export default function WhyChooseWithTestimonials() {
             </div>
           </div>
 
-          {/* Controls */}
-          <div className="flex items-center gap-6 mt-8 text-gray-400">
+          <div className="mt-8 flex items-center gap-6 text-[#0a0a1a]/40">
             <button
+              type="button"
               onClick={() =>
                 setIndex((i) => (i === 0 ? reviews.length - 1 : i - 1))
               }
-              className="hover:text-white transition"
+              className="transition hover:text-[#0a0a1a]"
+              aria-label="Previous review"
             >
               <ChevronLeft size={18} />
             </button>
 
             <button
+              type="button"
               onClick={() => setPaused(!paused)}
-              className="hover:text-white transition"
+              className="transition hover:text-[#0a0a1a]"
+              aria-label={paused ? "Play reviews" : "Pause reviews"}
             >
               {paused ? <Play size={16} /> : <Pause size={16} />}
             </button>
 
             <button
+              type="button"
               onClick={() =>
                 setIndex((i) => (i >= reviews.length - 1 ? 0 : i + 1))
               }
-              className="hover:text-white transition"
+              className="transition hover:text-[#0a0a1a]"
+              aria-label="Next review"
             >
               <ChevronRight size={18} />
             </button>

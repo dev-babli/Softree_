@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
+import { applyPageOg } from "@/lib/site-metadata";
+
+export const metadata: Metadata = applyPageOg("/services/offshore-mobile-app-development", {
   title:
     "Mobile App Development Services | iOS, Android & Cross-Platform Solutions",
 
@@ -31,7 +33,6 @@ export const metadata: Metadata = {
   },
 
   twitter: {
-    card: "summary_large_image",
     title:
       "Mobile App Development Services",
     description:
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
     canonical:
       "https://www.softreetechnology.com/services/offshore-mobile-app-development",
   },
-};
+}, "Mobile App Development Services");
 
 export default function MobileAppLayout({
   children,

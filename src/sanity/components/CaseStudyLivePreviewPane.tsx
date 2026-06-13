@@ -1,12 +1,17 @@
 "use client"
 
-import { DesktopIcon, RefreshIcon } from "@sanity/icons"
+import { DesktopIcon, LaunchIcon, RefreshIcon } from "@sanity/icons"
 import { Box, Button, Flex, Spinner, Text } from "@sanity/ui"
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import type { UserViewComponent } from "sanity/structure"
 
 import { hydrateCaseStudyForPreview } from "@/sanity/lib/hydrateCaseStudyPreview"
-import { buildLayoutPreviewIframeUrl, getSiteOrigin } from "@/sanity/lib/layoutPreview"
+import {
+  buildBlogPreviewPath,
+  buildPresentationPreviewHref,
+  buildStudioPreviewEnterUrl,
+  getSiteOrigin,
+} from "@/sanity/lib/layoutPreview"
 
 const STORY_TYPE_OPTIONS = [
   { value: "standard", title: "Standard Story" },
@@ -26,6 +31,8 @@ export const CaseStudyLivePreviewPane: UserViewComponent = (props) => {
   const previewOrigin = getSiteOrigin()
 
   const displayed = props.document?.displayed as Record<string, unknown> | undefined
+  const docType = (displayed?._type as string | undefined) || props.schemaType || "caseStudy"
+  const isPost = docType === "post"
   const slug = (displayed?.slug as { current?: string } | undefined)?.current?.trim()
   const detailLayout = (displayed?.detailLayout as string | undefined) || ""
   const layout =
@@ -35,24 +42,43 @@ export const CaseStudyLivePreviewPane: UserViewComponent = (props) => {
         ? "manufacturing-power-platform"
         : (displayed?.storyType as string | undefined) || "standard"
   const layoutTitle =
-    detailLayout === "page-composer"
-      ? "Page composer"
-      : detailLayout === "manufacturing-power-platform"
-        ? "Manufacturing layout"
-        : STORY_TYPE_OPTIONS.find((option) => option.value === layout)?.title || layout
+    isPost
+      ? (displayed?.displayMode as string | undefined) === "composer"
+        ? "Blog · page composer"
+        : "Blog · classic article"
+      : detailLayout === "page-composer"
+        ? "Page composer"
+        : detailLayout === "manufacturing-power-platform"
+          ? "Manufacturing layout"
+          : STORY_TYPE_OPTIONS.find((option) => option.value === layout)?.title || layout
 
   const usesRealSlugPreview = Boolean(slug)
-  const previewSrc = usesRealSlugPreview
-    ? buildLayoutPreviewIframeUrl(slug!)
-    : `${previewOrigin}/case-studies/preview`
+  const previewPath = isPost
+    ? slug
+      ? buildBlogPreviewPath(slug)
+      : null
+    : slug
+      ? `/case-studies/${slug}`
+      : null
+  const previewSrc = previewPath
+    ? buildStudioPreviewEnterUrl(previewPath, previewOrigin)
+    : isPost
+      ? null
+      : `${previewOrigin}/case-studies/preview`
+
+  const openInNewTabHref = previewPath
+    ? buildStudioPreviewEnterUrl(previewPath, previewOrigin)
+    : !isPost && slug
+      ? buildPresentationPreviewHref(slug, previewOrigin)
+      : null
 
   const payload = useMemo(() => {
-    if (!displayed || usesRealSlugPreview) return null
+    if (isPost || !displayed || usesRealSlugPreview) return null
     return hydrateCaseStudyForPreview(displayed)
-  }, [displayed, usesRealSlugPreview])
+  }, [displayed, isPost, usesRealSlugPreview])
 
   const pushPreview = useCallback(() => {
-    if (usesRealSlugPreview || !frameReady || !payload || !iframeRef.current?.contentWindow) return
+    if (isPost || usesRealSlugPreview || !frameReady || !payload || !iframeRef.current?.contentWindow) return
     iframeRef.current.contentWindow.postMessage(
       {
         type: "CASE_STUDY_PREVIEW_UPDATE",
@@ -62,10 +88,10 @@ export const CaseStudyLivePreviewPane: UserViewComponent = (props) => {
       previewOrigin,
     )
     setLastUpdated(new Date())
-  }, [usesRealSlugPreview, frameReady, payload, layout, previewOrigin])
+  }, [isPost, usesRealSlugPreview, frameReady, payload, layout, previewOrigin])
 
   useEffect(() => {
-    if (usesRealSlugPreview) {
+    if (usesRealSlugPreview || isPost) {
       setFrameReady(true)
       return
     }
@@ -81,19 +107,19 @@ export const CaseStudyLivePreviewPane: UserViewComponent = (props) => {
     }
     window.addEventListener("message", onMessage)
     return () => window.removeEventListener("message", onMessage)
-  }, [previewOrigin, usesRealSlugPreview])
+  }, [previewOrigin, usesRealSlugPreview, isPost])
 
   useEffect(() => {
-    if (usesRealSlugPreview || !frameReady) return
+    if (isPost || usesRealSlugPreview || !frameReady) return
     if (debounceRef.current) clearTimeout(debounceRef.current)
     debounceRef.current = setTimeout(pushPreview, DEBOUNCE_MS)
     return () => {
       if (debounceRef.current) clearTimeout(debounceRef.current)
     }
-  }, [usesRealSlugPreview, frameReady, pushPreview, displayed])
+  }, [isPost, usesRealSlugPreview, frameReady, pushPreview, displayed])
 
   useEffect(() => {
-    if (!usesRealSlugPreview || !frameReady) return
+    if ((!usesRealSlugPreview && !isPost) || !frameReady || !previewSrc) return
     if (debounceRef.current) clearTimeout(debounceRef.current)
     debounceRef.current = setTimeout(() => {
       try {
@@ -106,13 +132,37 @@ export const CaseStudyLivePreviewPane: UserViewComponent = (props) => {
     return () => {
       if (debounceRef.current) clearTimeout(debounceRef.current)
     }
-  }, [usesRealSlugPreview, frameReady, displayed])
+  }, [usesRealSlugPreview, isPost, frameReady, previewSrc, displayed])
 
   const refresh = useCallback(() => {
-    if (!usesRealSlugPreview) setFrameReady(false)
+    if (!usesRealSlugPreview && !isPost) setFrameReady(false)
     setIframeKey((key) => key + 1)
     setLastUpdated(new Date())
-  }, [usesRealSlugPreview])
+  }, [usesRealSlugPreview, isPost])
+
+  if (isPost && !previewSrc) {
+    return (
+      <Flex direction="column" className="softree-preview-pane" style={{ height: "100%", padding: 24 }}>
+        <Text size={2} weight="semibold">
+          Live preview
+        </Text>
+        <Text size={1} muted style={{ marginTop: 12, maxWidth: "28rem", lineHeight: 1.6 }}>
+          Add a slug in the Content tab to preview this post with draft mode. Until then, use
+          Presentation from the top bar for a site-wide preview.
+        </Text>
+        <Box marginTop={4}>
+          <Button
+            as="a"
+            fontSize={1}
+            icon={LaunchIcon}
+            mode="default"
+            href="/studio/presentation"
+            text="Open Presentation"
+          />
+        </Box>
+      </Flex>
+    )
+  }
 
   return (
     <Flex direction="column" className="softree-preview-pane" style={{ height: "100%", minHeight: 0 }}>
@@ -126,7 +176,11 @@ export const CaseStudyLivePreviewPane: UserViewComponent = (props) => {
           <Flex align="center" gap={3}>
             <span className="softree-preview-pane__meta">
               {layoutTitle}
-              {slug ? ` · /${slug}` : " · draft (no slug)"}
+              {slug
+                ? isPost
+                  ? ` · /blog/${slug}`
+                  : ` · /case-studies/${slug}`
+                : " · draft (no slug)"}
               {lastUpdated
                 ? ` · updated ${lastUpdated.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" })}`
                 : ""}
@@ -138,16 +192,31 @@ export const CaseStudyLivePreviewPane: UserViewComponent = (props) => {
               text="Refresh"
               onClick={refresh}
             />
+            {openInNewTabHref ? (
+              <Button
+                as="a"
+                fontSize={1}
+                icon={LaunchIcon}
+                mode="ghost"
+                href={openInNewTabHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                text="Open in new tab"
+              />
+            ) : null}
           </Flex>
         </Flex>
         <Text size={1} muted style={{ marginTop: 8 }}>
           {usesRealSlugPreview
-            ? "Previewing the real case study URL with draft mode — matches what visitors see after publish."
+            ? isPost
+              ? "Previewing the real blog URL with draft mode — matches what readers see after publish."
+              : "Previewing the real case study URL with draft mode — matches what visitors see after publish."
             : "Add a slug to preview the live page. Until then, changes appear here as you type."}
         </Text>
       </div>
 
       <Box flex={1} className="softree-preview-pane__frame-wrap">
+        {previewSrc ? (
         <iframe
           key={iframeKey}
           ref={iframeRef}
@@ -161,6 +230,7 @@ export const CaseStudyLivePreviewPane: UserViewComponent = (props) => {
             background: "#fff",
           }}
         />
+        ) : null}
       </Box>
     </Flex>
   )

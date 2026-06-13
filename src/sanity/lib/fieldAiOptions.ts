@@ -1,4 +1,4 @@
-import { defaultFieldInstructions } from '../assist/config'
+import { defaultFieldInstructions } from '../assist/instructions'
 
 /** Field-level AI Assist hints (used once AI is enabled in Studio via ✨). */
 export function aiAssistInstruction(instruction: string) {

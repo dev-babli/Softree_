@@ -5,17 +5,35 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
 import { client } from "@/sanity/lib/client"
-import { featuredCaseStudiesNavQuery } from "@/sanity/queries"
+import { featuredCaseStudiesNavQuery, navCaseStudiesQuery } from "@/sanity/queries"
 import type { SanityNavCaseStudy } from "@/sanity/types"
 
 export default function FeaturedCaseStudiesClient() {
   const [studies, setStudies] = useState<SanityNavCaseStudy[]>([])
 
   useEffect(() => {
-    client
-      .fetch<SanityNavCaseStudy[]>(featuredCaseStudiesNavQuery, {}, { cache: "no-store" })
-      .then((data) => setStudies((data || []).slice(0, 3)))
-      .catch(() => {})
+    async function load() {
+      try {
+        const featured = await client.fetch<SanityNavCaseStudy[]>(
+          featuredCaseStudiesNavQuery,
+          {},
+          { cache: "no-store" },
+        )
+        if (featured?.length) {
+          setStudies(featured.slice(0, 3))
+          return
+        }
+        const latest = await client.fetch<SanityNavCaseStudy[]>(
+          navCaseStudiesQuery,
+          {},
+          { cache: "no-store" },
+        )
+        setStudies((latest || []).slice(0, 3))
+      } catch {
+        /* keep empty */
+      }
+    }
+    void load()
   }, [])
 
   if (studies.length === 0) return null

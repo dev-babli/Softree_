@@ -1,25 +1,27 @@
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from 'next/server'
 import {
   IMAGE_MODEL_CATALOG,
   canGenerateWithGeminiProvider,
   generateImage,
   getProviderAvailability,
   NVIDIA_FALLBACK_MODEL_KEY,
-} from "@/lib/image-generation"
-import { ImageGenerationError } from "@/lib/image-generation/errors"
-import type { ImageProvider } from "@/lib/image-generation/types"
+} from '@/lib/image-generation'
+import { ImageGenerationError } from '@/lib/image-generation/errors'
+import type { ImageProvider } from '@/lib/image-generation/types'
+import { isStudioApiRequest, studioApiUnauthorized } from '@/lib/studio-api-auth'
 
 const expectedApiKey = process.env.GEMINI_PLUGIN_API_KEY
 
 const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type, Authorization, X-API-Key",
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-API-Key, X-Softree-Studio',
 }
 
-function verifyApiKey(request: Request): boolean {
-  if (!expectedApiKey) return true
-  return request.headers.get("x-api-key") === expectedApiKey
+function verifyPostAuth(request: Request): boolean {
+  if (isStudioApiRequest(request)) return true
+  if (!expectedApiKey) return false
+  return request.headers.get('x-api-key') === expectedApiKey
 }
 
 export async function OPTIONS() {
@@ -27,7 +29,8 @@ export async function OPTIONS() {
 }
 
 /** List models and which providers have API keys configured. */
-export async function GET() {
+export async function GET(request: Request) {
+  if (!isStudioApiRequest(request)) return studioApiUnauthorized()
   const availability = getProviderAvailability()
 
   const models = IMAGE_MODEL_CATALOG.map((m) => ({
@@ -72,9 +75,13 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  if (!verifyApiKey(request)) {
+  if (!verifyPostAuth(request)) {
     return NextResponse.json(
-      { error: "Invalid or missing API key" },
+      {
+        error: expectedApiKey
+          ? 'Studio session or valid X-API-Key required'
+          : 'Studio session required — set GEMINI_PLUGIN_API_KEY for server-to-server access',
+      },
       { status: 401, headers: corsHeaders },
     )
   }

@@ -1,5 +1,6 @@
 "use client"
 
+import NumberFlow from "@number-flow/react"
 import Image from "next/image"
 import { AlertCircle, Check, Clock, Layers } from "lucide-react"
 import LightContactSection from "@/components/homepage-light/LightContactSection"
@@ -29,8 +30,10 @@ import type {
   ComposerImage,
   CsBeforeAfterSection,
   CsCardGridSection,
+  CsEvidencePanel,
   CsFaqSection,
   CsGallerySection,
+  CsHeroMetricsStrip,
   CsMetricsSection,
   CsNarrativeSection,
   CsSolutionSection,
@@ -38,6 +41,21 @@ import type {
   CsTestimonialSection,
 } from "./types"
 import { BlogRelatedSection } from "@/components/blog/BlogRelatedSection"
+import { ReactBitsPreview } from "@/components/react-bits/ReactBitsPreview"
+import type { CsReactBitsSection } from "./types"
+
+const REACT_BITS_HEIGHT: Record<string, string> = {
+  sm: "min-h-[320px]",
+  md: "min-h-[480px]",
+  lg: "min-h-[640px]",
+}
+
+const METRICS_GRID_COLS: Record<number, string> = {
+  1: "lg:grid-cols-1",
+  2: "lg:grid-cols-2",
+  3: "lg:grid-cols-3",
+  4: "lg:grid-cols-4",
+}
 
 const CARD_ICONS = [Layers, AlertCircle, Clock]
 
@@ -246,6 +264,142 @@ function ComposerBeforeAfterBlock({ block }: { block: CsBeforeAfterSection }) {
   )
 }
 
+function parseMetricValue(value: string): { num: number; prefix: string; suffix: string } {
+  const match = value.match(/^([^0-9]*)([0-9]+(?:\.[0-9]+)?)(.*)$/)
+  if (!match) return { num: 0, prefix: "", suffix: value }
+  return { num: parseFloat(match[2]), prefix: match[1], suffix: match[3] }
+}
+
+function ComposerHeroMetricsStripBlock({ block }: { block: CsHeroMetricsStrip }) {
+  const metrics = block.metrics || []
+  if (!metrics.length) return null
+
+  const isBand = block.variant !== "strip"
+
+  return (
+    <section
+      className={
+        isBand
+          ? "scroll-mt-24 bg-[var(--softree-accent,#FF7A2F)] py-10 text-white md:py-12"
+          : "scroll-mt-24 border-y border-[rgba(15,23,42,0.08)] bg-[var(--softree-bg-light,#fafaf9)] py-8 md:py-10"
+      }
+    >
+      <PageContainer>
+        {(block.label || block.heading) && (
+          <SectionHeaderReveal
+            className="max-w-2xl"
+            label={
+              block.label ? (
+                <SectionLabel className={isBand ? "text-white/70" : undefined}>{block.label}</SectionLabel>
+              ) : null
+            }
+            title={
+              block.heading ? (
+                <SectionTitle className={isBand ? "text-white" : undefined}>{block.heading}</SectionTitle>
+              ) : null
+            }
+          />
+        )}
+        <RevealStagger
+          className={`grid gap-4 sm:grid-cols-2 ${METRICS_GRID_COLS[Math.min(metrics.length, 4)] || METRICS_GRID_COLS[4]} ${block.heading || block.label ? "mt-8" : ""}`}
+        >
+          {metrics.map((metric) => {
+            const { num, prefix, suffix } = parseMetricValue(metric.value)
+            const hasNumber = num > 0
+            return (
+              <RevealItem key={metric._key || metric.label} variant="scale">
+                <div
+                  className={
+                    isBand
+                      ? "rounded-2xl border border-white/15 bg-white/10 px-5 py-6 backdrop-blur-sm"
+                      : "rounded-2xl border border-[rgba(15,23,42,0.08)] bg-white px-5 py-6"
+                  }
+                >
+                  <p
+                    className={`text-[clamp(1.75rem,3vw,2.35rem)] font-bold leading-none tracking-[-0.03em] ${
+                      isBand ? "text-white" : "text-[var(--softree-accent,#FF7A2F)]"
+                    }`}
+                  >
+                    {hasNumber ? (
+                      <>
+                        {prefix}
+                        <NumberFlow value={num} />
+                        {suffix}
+                      </>
+                    ) : (
+                      metric.value
+                    )}
+                  </p>
+                  <p className={`mt-2 text-sm ${isBand ? "text-white/80" : "text-[var(--cs-text-muted,#64748b)]"}`}>
+                    {metric.label}
+                  </p>
+                </div>
+              </RevealItem>
+            )
+          })}
+        </RevealStagger>
+      </PageContainer>
+    </section>
+  )
+}
+
+function ComposerEvidencePanelBlock({ block }: { block: CsEvidencePanel }) {
+  const items = block.items || []
+  if (!block.summary && !items.length) return null
+
+  return (
+    <section className="scroll-mt-24 bg-white py-16 md:py-24">
+      <PageContainer>
+        <SectionHeaderReveal
+          className="max-w-3xl"
+          label={block.label ? <SectionLabel>{block.label}</SectionLabel> : null}
+          title={<SectionTitle>{block.heading || "What the data shows"}</SectionTitle>}
+        />
+        {block.summary ? (
+          <Reveal variant="up" delay={0.06}>
+            <p
+              className="mt-6 max-w-3xl text-[1.0625rem] leading-[1.7] text-[var(--cs-text-secondary,#334155)]"
+              data-aeo-summary="true"
+            >
+              {block.summary}
+            </p>
+          </Reveal>
+        ) : null}
+        {items.length > 0 ? (
+          <RevealStagger className="mt-10 grid gap-4 md:grid-cols-2">
+            {items.map((item) => (
+              <RevealItem key={item._key || item.claim}>
+                <article className="h-full rounded-2xl border border-[rgba(15,23,42,0.08)] bg-[var(--softree-bg-light,#fafaf9)] p-5">
+                  <p className="text-[0.9375rem] leading-relaxed text-[var(--cs-text-primary,#0f172a)]">
+                    {item.claim}
+                  </p>
+                  <p className="mt-3 text-xs font-medium uppercase tracking-[0.12em] text-[var(--cs-text-muted,#64748b)]">
+                    Source{" "}
+                    {item.sourceUrl ? (
+                      <a
+                        href={item.sourceUrl}
+                        className="normal-case tracking-normal text-[var(--softree-accent,#FF7A2F)] underline underline-offset-4"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        {item.source}
+                      </a>
+                    ) : (
+                      <span className="normal-case tracking-normal text-[var(--cs-text-secondary,#334155)]">
+                        {item.source}
+                      </span>
+                    )}
+                  </p>
+                </article>
+              </RevealItem>
+            ))}
+          </RevealStagger>
+        ) : null}
+      </PageContainer>
+    </section>
+  )
+}
+
 function ComposerBlock({
   section,
   data,
@@ -344,6 +498,12 @@ function ComposerBlock({
     case "csBeforeAfterSection":
       return <ComposerBeforeAfterBlock block={section} />
 
+    case "csHeroMetricsStrip":
+      return <ComposerHeroMetricsStripBlock block={section as CsHeroMetricsStrip} />
+
+    case "csEvidencePanel":
+      return <ComposerEvidencePanelBlock block={section as CsEvidencePanel} />
+
     case "csFaqSection": {
       const faqBlock = section as CsFaqSection
       const faqItems = (faqBlock.faqs || []).map((f, i) => ({
@@ -372,6 +532,24 @@ function ComposerBlock({
           <LightContactSection />
         </Reveal>
       )
+
+    case "csReactBitsSection": {
+      const fx = section as CsReactBitsSection
+      if (!fx.componentId) return null
+      const heightClass = REACT_BITS_HEIGHT[fx.minHeight || "md"] || REACT_BITS_HEIGHT.md
+      return (
+        <section className={`relative overflow-hidden ${heightClass}`}>
+          <ReactBitsPreview componentId={fx.componentId} className="absolute inset-0 h-full w-full" />
+          {fx.heading ? (
+            <div className="relative z-10 flex h-full items-center justify-center px-6">
+              <h2 className="max-w-3xl text-center text-3xl font-semibold tracking-tight text-white md:text-4xl">
+                {fx.heading}
+              </h2>
+            </div>
+          ) : null}
+        </section>
+      )
+    }
 
     default:
       return null

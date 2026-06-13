@@ -1,15 +1,20 @@
+import type { CaseStudyCategoryKey } from './categoryConfig'
+
 export type CaseStudyListingItem = {
   category: string
+  categoryKey?: CaseStudyCategoryKey | null
+  categoryHref?: string
   title: string
   description: string
   href: string
   image?: string
   imageAlt: string
-  imageFit?: "cover" | "contain"
+  imageFit?: 'cover' | 'contain'
   industry?: string
   useCase?: string
   companySize?: string
   keyResults?: { value: string; label: string; description?: string }[]
+  publishedAt?: string
 }
 
 export type CaseStudyHeroSlide = {
@@ -21,6 +26,6 @@ export type CaseStudyHeroSlide = {
   ctaHref: string
   image: string
   imageAlt: string
-  imageFit?: "cover" | "contain"
+  imageFit?: 'cover' | 'contain'
   stats: { score: string; label: string }[]
 }

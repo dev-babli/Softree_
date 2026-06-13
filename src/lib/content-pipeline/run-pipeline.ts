@@ -1,3 +1,4 @@
+import { runContentArena } from './arena/run-arena'
 import { loadBrandContext } from './brand-context'
 import { generatePostDocument } from './generate-post'
 import { publishGeneratedPost } from './publish'
@@ -15,12 +16,27 @@ export async function runContentPipeline(
     const topic = input.topic?.trim() || (await suggestTopic())
     const brandContext = await loadBrandContext()
     const research = await researchTopic(topic)
-    const payload = await generatePostDocument(
-      topic,
-      research,
-      brandContext,
-      input.layoutRecipe,
-    )
+
+    let payload
+    let arenaReport: PipelineRunResult['arena']
+
+    if (input.useArena) {
+      const arena = await runContentArena(topic, research, brandContext, input.layoutRecipe)
+      payload = arena.winner
+      arenaReport = {
+        winnerId: arena.verdict.winnerId,
+        rationale: arena.verdict.rationale,
+        scores: arena.verdict.scores,
+      }
+    } else {
+      payload = await generatePostDocument(
+        topic,
+        research,
+        brandContext,
+        input.layoutRecipe,
+      )
+    }
+
     const { documentId, slug } = await publishGeneratedPost(payload, {
       autoPublish: input.autoPublish,
       generateImages: input.generateImages,
@@ -33,6 +49,7 @@ export async function runContentPipeline(
       url: `/blog/${slug}`,
       layoutRecipe: payload.layoutRecipe,
       title: payload.title,
+      ...(arenaReport ? { arena: arenaReport } : {}),
     }
   } catch (error) {
     return {

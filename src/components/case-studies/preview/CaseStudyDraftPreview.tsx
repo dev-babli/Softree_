@@ -2,6 +2,7 @@
 
 import { CaseStudyPageRenderer } from "@/components/case-studies/CaseStudyPageRenderer"
 import type { SanityCaseStudyDoc } from "@/components/case-studies/layouts/mapCaseStudyData"
+import { DEFAULT_ACCENT } from "@/lib/brand-defaults"
 import type { CaseStudyComposerSection } from "@/components/case-studies/composer/types"
 import { isPremiumLayout } from "@/lib/case-study-layouts"
 
@@ -43,7 +44,7 @@ function normalizeStudy(raw: StudyLike): StudyLike {
     highlights: raw.highlights || [],
     metrics: raw.metrics || [],
     technologies: raw.technologies || [],
-    accentColor: raw.accentColor || "#FF7A2F",
+    accentColor: raw.accentColor || DEFAULT_ACCENT,
     slug: raw.slug || { current: "preview" },
     _id: raw._id || "draft-preview",
   }

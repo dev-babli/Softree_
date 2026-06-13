@@ -6,9 +6,50 @@ const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 });
 
+const siteOrigin = (
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  process.env.NEXT_PUBLIC_SOFTREE_SITE_URL ||
+  "https://www.softreetechnology.com"
+).replace(/\/$/, "");
+
 const nextConfig: any = {
+  async rewrites() {
+    return [];
+  },
   async redirects() {
+    const studioBase =
+      process.env.NEXT_PUBLIC_SANITY_STUDIO_URL?.replace(/\/$/, "") ||
+      `${siteOrigin}/studio`;
+
+    const redirects: Array<{
+      source: string;
+      destination: string;
+      permanent: boolean;
+    }> = [];
+
+    // Production: send /studio to external Studio host when it is not this site.
+    if (
+      process.env.NODE_ENV === "production" &&
+      studioBase &&
+      !studioBase.startsWith(siteOrigin)
+    ) {
+      redirects.push(
+        { source: "/studio", destination: studioBase, permanent: false },
+        {
+          source: "/studio/:path*",
+          destination: `${studioBase}/:path*`,
+          permanent: false,
+        },
+      );
+    }
+
     return [
+      {
+        source: '/studio',
+        destination: '/studio/structure/dashboard',
+        permanent: false,
+      },
+      ...redirects,
       {
         source: "/customers/:slug",
         destination: "/case-studies/:slug",
@@ -22,6 +63,11 @@ const nextConfig: any = {
       {
         source: "/case-studies/power-apps/:path*",
         destination: "/case-studies/power-platform/:path*",
+        permanent: true,
+      },
+      {
+        source: "/contact-us",
+        destination: "/contact",
         permanent: true,
       },
     ];

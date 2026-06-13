@@ -7,7 +7,7 @@ export { csLight, csLightClasses, caseStudyLightCssVars, CS_LIGHT_EASE } from ".
 export const SOFTREE = {
   accent: "var(--softree-accent, #FF7A2F)",
   accentHover: "var(--softree-accent-hover, #E85A1F)",
-  accentSoft: "rgba(255, 122, 47, 0.12)",
+  accentSoft: "var(--softree-accent-soft, rgba(255, 122, 47, 0.12))",
   bgLight: "var(--softree-bg-light, #fafaf9)",
   bgDark: "var(--softree-bg-dark, #0a0a0a)",
   bgCream: "#F8F9FC",

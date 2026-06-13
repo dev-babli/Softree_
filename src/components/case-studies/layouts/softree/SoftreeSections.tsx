@@ -61,8 +61,8 @@ export function OrangePill({ children, theme = "dark" }: { children: React.React
     <span
       className="inline-flex items-center rounded-full px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em]"
       style={{
-        backgroundColor: theme === "dark" ? "rgba(255,122,47,0.15)" : "rgba(255,122,47,0.12)",
-        color: "#FF7A2F",
+        backgroundColor: "var(--softree-accent-soft)",
+        color: "var(--softree-accent)",
       }}
     >
       {children}
@@ -124,7 +124,7 @@ export const PremiumShell = SoftreeShell
 export function SoftreeDarkHero({ data }: { data: CaseStudyLayoutData }) {
   return (
     <section className="relative overflow-hidden bg-[#0a0a0a] text-white">
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_20%_40%,rgba(255,122,47,0.22)_0%,transparent_55%)]" />
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_20%_40%,color-mix(in_srgb,var(--softree-accent,#FF7A2F)_22%,transparent)_0%,transparent_55%)]" />
       {data.heroImageUrl ? (
         <div className="pointer-events-none absolute inset-0 opacity-35">
           <Image src={data.heroImageUrl} alt="" fill unoptimized className="object-cover" priority />
@@ -146,7 +146,7 @@ export function SoftreeDarkHero({ data }: { data: CaseStudyLayoutData }) {
         ) : null}
         <Link
           href={data.cta.buttonHref}
-          className="mt-10 inline-flex items-center justify-center rounded-full bg-[#FF7A2F] px-8 py-3.5 text-sm font-semibold text-[#0a0a0a] transition-transform hover:-translate-y-0.5"
+          className="mt-10 inline-flex items-center justify-center rounded-full bg-[var(--softree-accent,#FF7A2F)] px-8 py-3.5 text-sm font-semibold text-[#0a0a0a] transition-transform hover:-translate-y-0.5"
         >
           Talk to Our Experts
         </Link>
@@ -159,7 +159,7 @@ export function SoftreeLightHero({ data }: { data: CaseStudyLayoutData }) {
   return (
     <section className="relative overflow-hidden bg-[#fafaf9]">
       <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="careers-blob-1 absolute -left-[10%] top-[10%] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(255,122,47,0.12)_0%,transparent_70%)] blur-3xl" />
+        <div className="careers-blob-1 absolute -left-[10%] top-[10%] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,color-mix(in_srgb,var(--softree-accent,#FF7A2F)_12%,transparent)_0%,transparent_70%)] blur-3xl" />
         <div className="careers-blob-2 absolute -right-[5%] bottom-[5%] h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,rgba(24,82,255,0.08)_0%,transparent_70%)] blur-3xl" />
       </div>
       <div className={`relative ${CONTAINER} py-24 md:py-32`}>
@@ -203,7 +203,7 @@ export function SoftreeSplitHero({ data }: { data: CaseStudyLayoutData }) {
         </div>
         {data.heroImageUrl ? (
           <motion.div
-            className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[rgba(15,23,42,0.08)] bg-white shadow-[0_30px_80px_rgba(255,122,47,0.12)]"
+            className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[rgba(15,23,42,0.08)] bg-white shadow-[0_30px_80px_var(--softree-accent-soft,rgba(255,122,47,0.12))]"
             initial={{ opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -243,7 +243,7 @@ export function SoftreeVideoHero({ data }: { data: CaseStudyLayoutData }) {
           <div className="mt-10 flex flex-wrap gap-8">
             {data.highlights.map((h) => (
               <div key={`${h.value}-${h.label}`}>
-                <div className="text-3xl font-bold text-[#FF7A2F]">{h.value}</div>
+                <div className="text-3xl font-bold text-[var(--softree-accent,#FF7A2F)]">{h.value}</div>
                 <div className="mt-1 text-sm text-white/55">{h.label}</div>
               </div>
             ))}
@@ -272,12 +272,12 @@ function HeroStat({ highlight, theme, compact }: { highlight: Highlight; theme: 
   return (
     <div className="flex items-start gap-3">
       {!compact ? (
-        <div className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[rgba(255,122,47,0.15)]">
-          <BarChart3 className="h-4 w-4 text-[#FF7A2F]" />
+        <div className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--softree-accent-soft,rgba(255,122,47,0.15))]">
+          <BarChart3 className="h-4 w-4 text-[var(--softree-accent,#FF7A2F)]" />
         </div>
       ) : null}
       <div>
-        <div className={`font-bold leading-none text-[#FF7A2F] ${compact ? "text-xl" : "text-[clamp(1.6rem,2.5vw,2rem)]"}`}>
+        <div className={`font-bold leading-none text-[var(--softree-accent,#FF7A2F)] ${compact ? "text-xl" : "text-[clamp(1.6rem,2.5vw,2rem)]"}`}>
           {highlight.value}
         </div>
         <div className={`mt-2 text-sm leading-snug ${t.body}`}>{highlight.label}</div>
@@ -303,7 +303,7 @@ export function ProjectSnapshotBar({ data, theme = "dark" }: { data: CaseStudyLa
       <div className={`${CONTAINER} grid grid-cols-2 gap-6 py-8 md:grid-cols-3 lg:grid-cols-6`}>
         {items.map(({ icon: Icon, label, value }) => (
           <div key={label} className="flex flex-col gap-2">
-            <Icon className="h-4 w-4 text-[#FF7A2F]" />
+            <Icon className="h-4 w-4 text-[var(--softree-accent,#FF7A2F)]" />
             <div className={`text-[10px] font-semibold uppercase tracking-[0.16em] ${t.muted}`}>{label}</div>
             <div className={`text-sm font-medium leading-snug ${t.heading}`}>{value}</div>
           </div>
@@ -338,9 +338,9 @@ function IconCard({
       transition={{ duration: 0.4, ease: EASE }}
     >
       <div
-        className={`mb-5 flex h-12 w-12 items-center justify-center bg-[rgba(255,122,47,0.12)] ${circular ? "rounded-full" : "rounded-xl"}`}
+        className={`mb-5 flex h-12 w-12 items-center justify-center bg-[var(--softree-accent-soft,rgba(255,122,47,0.12))] ${circular ? "rounded-full" : "rounded-xl"}`}
       >
-        <Icon className="h-5 w-5 text-[#FF7A2F]" />
+        <Icon className="h-5 w-5 text-[var(--softree-accent,#FF7A2F)]" />
       </div>
       <h3 className={`text-lg font-semibold ${t.heading}`}>{card.title}</h3>
       <p className={`mt-3 text-sm leading-relaxed ${t.body}`}>{card.description}</p>
@@ -391,14 +391,14 @@ export function SolutionArchitectureFlow({
             {data.solutionNodes.slice(0, 5).map((node, i, arr) => (
               <div key={node.title} className="flex flex-1 items-center">
                 <div className={`flex flex-1 flex-col items-center ${cardClasses(theme)} px-4 py-6 text-center`}>
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#FF7A2F] text-xs font-bold text-[#0a0a0a]">
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-[var(--softree-accent,#FF7A2F)] text-xs font-bold text-[#0a0a0a]">
                     {i + 1}
                   </div>
                   <div className={`text-sm font-semibold ${t.heading}`}>{node.title}</div>
                   <p className={`mt-2 text-xs leading-relaxed ${t.body}`}>{node.description}</p>
                 </div>
                 {i < arr.length - 1 ? (
-                  <div className="mx-1 hidden h-px w-8 shrink-0 border-t border-dashed border-[#FF7A2F] sm:block" />
+                  <div className="mx-1 hidden h-px w-8 shrink-0 border-t border-dashed border-[var(--softree-accent,#FF7A2F)] sm:block" />
                 ) : null}
               </div>
             ))}
@@ -451,10 +451,10 @@ export function ScreenshotsCarousel({ items, theme = "dark" }: { items: GalleryI
           {current.caption ? <p className={`mt-4 text-center text-sm ${sectionText(theme).body}`}>{current.caption}</p> : null}
           {count > 1 ? (
             <>
-              <button type="button" onClick={prev} aria-label="Previous" className={`absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full ${cardClasses(theme)} p-3 hover:border-[#FF7A2F]`}>
+              <button type="button" onClick={prev} aria-label="Previous" className={`absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full ${cardClasses(theme)} p-3 hover:border-[var(--softree-accent,#FF7A2F)]`}>
                 <ChevronLeft className="h-5 w-5" />
               </button>
-              <button type="button" onClick={next} aria-label="Next" className={`absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 rounded-full ${cardClasses(theme)} p-3 hover:border-[#FF7A2F]`}>
+              <button type="button" onClick={next} aria-label="Next" className={`absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 rounded-full ${cardClasses(theme)} p-3 hover:border-[var(--softree-accent,#FF7A2F)]`}>
                 <ChevronRight className="h-5 w-5" />
               </button>
             </>
@@ -481,7 +481,7 @@ export function ImpactStatsRow({ data, theme = "dark" }: { data: CaseStudyLayout
               viewport={{ once: true }}
               transition={{ duration: 0.35, ease: EASE }}
             >
-              <div className="text-[clamp(2rem,4vw,2.75rem)] font-bold leading-none text-[#FF7A2F]">{m.value}</div>
+              <div className="text-[clamp(2rem,4vw,2.75rem)] font-bold leading-none text-[var(--softree-accent,#FF7A2F)]">{m.value}</div>
               <div className={`mt-3 text-sm ${t.body}`}>{m.label}</div>
             </motion.div>
           ))}
@@ -519,7 +519,7 @@ export function TestimonialSection({ data, theme = "dark" }: { data: CaseStudyLa
     <section className={`${sectionBg(theme, true)} ${SECTION_PY}`}>
       <div className={CONTAINER}>
         <div className={`${cardClasses(theme)} p-8 md:flex md:items-center md:gap-10 md:p-12`}>
-          <Quote className="h-16 w-16 shrink-0 text-[#FF7A2F]" />
+          <Quote className="h-16 w-16 shrink-0 text-[var(--softree-accent,#FF7A2F)]" />
           <div className="flex-1">
             <p className={`text-xl italic leading-relaxed md:text-2xl ${theme === "dark" ? "text-white/85" : "text-[#334155]"}`}>
               &ldquo;{t.quote}&rdquo;
@@ -530,7 +530,7 @@ export function TestimonialSection({ data, theme = "dark" }: { data: CaseStudyLa
                   <Image src={t.avatarUrl} alt={t.name || "Client"} fill unoptimized className="object-cover" />
                 </div>
               ) : (
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#FF7A2F] text-sm font-bold text-[#0a0a0a]">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--softree-accent,#FF7A2F)] text-sm font-bold text-[#0a0a0a]">
                   {(t.name || t.role || "C").charAt(0)}
                 </div>
               )}
@@ -554,7 +554,7 @@ export function RelatedCaseStudiesSection({ related, theme = "dark" }: { related
       <div className={CONTAINER}>
         <div className="mb-12 flex items-end justify-between gap-4">
           <h2 className={`text-[clamp(1.75rem,3vw,2.5rem)] font-bold ${st.heading}`}>More Case Studies</h2>
-          <Link href="/case-studies" className="text-sm font-semibold text-[#FF7A2F]">View All →</Link>
+          <Link href="/case-studies" className="text-sm font-semibold text-[var(--softree-accent,#FF7A2F)]">View All →</Link>
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {related.slice(0, 3).map((study) => {
@@ -566,7 +566,7 @@ export function RelatedCaseStudiesSection({ related, theme = "dark" }: { related
                   {img ? <Image src={img} alt={study.mainImage?.alt || study.title} fill unoptimized className="object-cover transition-transform duration-300 group-hover:scale-[1.03]" /> : null}
                 </div>
                 <div className="p-5">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-[#FF7A2F]">{tag}</span>
+                  <span className="text-xs font-semibold uppercase tracking-wider text-[var(--softree-accent,#FF7A2F)]">{tag}</span>
                   <h3 className={`mt-2 text-lg font-semibold ${st.heading}`}>{study.client || study.title}</h3>
                   <span className={`mt-4 inline-flex items-center gap-1 text-sm ${st.body} group-hover:opacity-100`}>
                     View Case Study <ArrowRight className="h-4 w-4" />
@@ -584,11 +584,11 @@ export function RelatedCaseStudiesSection({ related, theme = "dark" }: { related
 export function FinalCTA({ data }: { data: CaseStudyLayoutData }) {
   return (
     <section className={`relative overflow-hidden bg-[#0a0a0a] ${SECTION_PY}`}>
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,122,47,0.2)_0%,transparent_65%)]" />
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,color-mix(in_srgb,var(--softree-accent,#FF7A2F)_20%,transparent)_0%,transparent_65%)]" />
       <div className="relative mx-auto max-w-3xl px-5 text-center md:px-8">
         <h2 className="text-[clamp(1.85rem,3.5vw,2.75rem)] font-bold tracking-[-0.02em] text-white">{data.cta.headline}</h2>
         <p className="mx-auto mt-5 max-w-xl text-lg text-white/60">{data.cta.subtext}</p>
-        <Link href={data.cta.buttonHref} className="mt-9 inline-flex items-center justify-center rounded-full bg-[#FF7A2F] px-10 py-4 text-sm font-semibold text-[#0a0a0a]">
+        <Link href={data.cta.buttonHref} className="mt-9 inline-flex items-center justify-center rounded-full bg-[var(--softree-accent,#FF7A2F)] px-10 py-4 text-sm font-semibold text-[#0a0a0a]">
           {data.cta.buttonText}
         </Link>
       </div>
@@ -603,9 +603,9 @@ export function SoftreeFAQSection({ faqs }: { faqs: CaseStudyFAQ[] }) {
     <section id="faq" className={`scroll-mt-24 bg-[#fafaf9] ${SECTION_PY}`}>
       <div className={CONTAINER}>
         <motion.div className="mb-12 max-w-2xl md:mb-16" initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, ease: EASE }}>
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[rgba(255,122,47,0.25)] bg-[rgba(255,122,47,0.08)] px-4 py-2">
-            <HelpCircle className="h-4 w-4 text-[#FF7A2F]" aria-hidden />
-            <span className="text-sm font-medium text-[#FF7A2F]">FAQ</span>
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--softree-accent-border,rgba(255,122,47,0.25))] bg-[var(--softree-accent-tint,rgba(255,122,47,0.08))] px-4 py-2">
+            <HelpCircle className="h-4 w-4 text-[var(--softree-accent,#FF7A2F)]" aria-hidden />
+            <span className="text-sm font-medium text-[var(--softree-accent,#FF7A2F)]">FAQ</span>
           </div>
           <h2 className="text-[clamp(1.75rem,3vw,2.5rem)] font-bold tracking-[-0.02em] text-[#0f172a]">
             Common questions about this project
@@ -623,7 +623,7 @@ export function SoftreeFAQSection({ faqs }: { faqs: CaseStudyFAQ[] }) {
                   aria-expanded={isOpen}
                 >
                   <div className="flex gap-5">
-                    <span className="mt-0.5 shrink-0 text-lg text-[#FF7A2F]/50">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="mt-0.5 shrink-0 text-lg text-[var(--softree-accent,#FF7A2F)]/50">{String(i + 1).padStart(2, "0")}</span>
                     <span className="text-base font-semibold leading-snug text-[#0f172a] md:text-lg">{faq.question}</span>
                   </div>
                   <span className="mt-1 shrink-0 text-[#94a3b8]">{isOpen ? <Minus className="h-5 w-5" /> : <Plus className="h-5 w-5" />}</span>
@@ -660,7 +660,7 @@ export function BeforeAfterTable({ rows, theme = "light" }: { rows: BeforeAfterR
             <div key={row.metric} className={`grid grid-cols-3 border-t text-sm ${t.border} ${theme === "dark" ? "bg-[#0a0a0a]" : "bg-white"}`}>
               <div className={`px-6 py-5 font-medium ${t.heading}`}>{row.metric}</div>
               <div className={`border-l ${t.border} px-6 py-5 ${t.body}`}>{row.before}</div>
-              <div className={`border-l ${t.border} px-6 py-5 font-medium text-[#FF7A2F]`}>{row.after}</div>
+              <div className={`border-l ${t.border} px-6 py-5 font-medium text-[var(--softree-accent,#FF7A2F)]`}>{row.after}</div>
             </div>
           ))}
         </div>
@@ -689,7 +689,7 @@ export function TabbedDeliverables({ items, theme = "light" }: { items: CardItem
               type="button"
               onClick={() => setActive(tab.id)}
               className={`rounded-full px-5 py-2 text-sm font-semibold transition-colors ${
-                active === tab.id ? "bg-[#FF7A2F] text-[#0a0a0a]" : theme === "dark" ? "border border-white/15 text-white/70" : "border border-[rgba(15,23,42,0.12)] text-[#64748b]"
+                active === tab.id ? "bg-[var(--softree-accent,#FF7A2F)] text-[#0a0a0a]" : theme === "dark" ? "border border-white/15 text-white/70" : "border border-[rgba(15,23,42,0.12)] text-[#64748b]"
               }`}
             >
               {tab.label}
@@ -722,7 +722,7 @@ export function BentoImpactGrid({ data, theme = "dark" }: { data: CaseStudyLayou
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08, ease: EASE }}
               >
-                <div className="text-[clamp(2.2rem,5vw,3.5rem)] font-bold text-[#FF7A2F]">{m!.value}</div>
+                <div className="text-[clamp(2.2rem,5vw,3.5rem)] font-bold text-[var(--softree-accent,#FF7A2F)]">{m!.value}</div>
                 <div className={`mt-3 max-w-sm text-base ${sectionText(theme).body}`}>{m!.label}</div>
               </motion.div>
             )
@@ -739,10 +739,10 @@ export function VerticalTimeline({ nodes, theme = "light" }: { nodes: CardItem[]
       <div className="mx-auto max-w-3xl px-5 md:px-8">
         <SectionHeading title="Solution Journey" subtitle="Phased delivery from discovery to enterprise rollout." theme={theme} />
         <div className="relative mt-14 space-y-0">
-          <div className="absolute bottom-4 left-[19px] top-4 w-px border-l border-dashed border-[#FF7A2F]" />
+          <div className="absolute bottom-4 left-[19px] top-4 w-px border-l border-dashed border-[var(--softree-accent,#FF7A2F)]" />
           {nodes.map((node, i) => (
             <div key={node.title} className="relative flex gap-6 pb-10 last:pb-0">
-              <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FF7A2F] text-sm font-bold text-[#0a0a0a]">
+              <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--softree-accent,#FF7A2F)] text-sm font-bold text-[#0a0a0a]">
                 {i + 1}
               </div>
               <div className={`${cardClasses(theme)} flex-1 p-6`}>
@@ -769,7 +769,7 @@ export function StatsDashboard({ data, theme = "light" }: { data: CaseStudyLayou
             <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
               {data.impactMetrics.map((m) => (
                 <div key={m.value} className={`rounded-xl p-4 ${theme === "dark" ? "bg-[#0a0a0a]" : "bg-[#fafaf9]"}`}>
-                  <div className="text-2xl font-bold text-[#FF7A2F]">{m.value}</div>
+                  <div className="text-2xl font-bold text-[var(--softree-accent,#FF7A2F)]">{m.value}</div>
                   <div className={`mt-1 text-xs ${t.body}`}>{m.label}</div>
                 </div>
               ))}
@@ -872,7 +872,7 @@ export function StickySidebarLayout({
       <div className={`${CONTAINER} grid grid-cols-1 gap-12 lg:grid-cols-[280px_minmax(0,1fr)]`}>
         <aside className="lg:sticky lg:top-28 lg:self-start">
           <div className={`${cardClasses(theme)} p-6`}>
-            <div className="text-xs font-semibold uppercase tracking-[0.16em] text-[#FF7A2F]">Project Snapshot</div>
+            <div className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--softree-accent,#FF7A2F)]">Project Snapshot</div>
             <dl className="mt-6 space-y-5 text-sm">
               {(Object.entries(data.snapshot) as [string, string][]).map(([key, val]) => (
                 <div key={key}>

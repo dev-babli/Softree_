@@ -39,7 +39,7 @@ export const navBlogsQuery = groq`
  * Grouped by category on the client via buildCaseStudyNavCategories().
  */
 export const navCaseStudiesQuery = groq`
-  *[_type == "caseStudy" && coalesce(status, "published") == "published" && defined(slug.current)] | order(publishedAt desc) {
+  *[_type == "caseStudy" && coalesce(status, "published") == "published" && defined(slug.current)] | order(_updatedAt desc) {
     _id,
     title,
     client,
@@ -62,7 +62,7 @@ export const navCaseStudiesQuery = groq`
 
 /** Featured case studies for homepage and promos (max 6). */
 export const featuredCaseStudiesNavQuery = groq`
-  *[_type == "caseStudy" && coalesce(status, "published") == "published" && featuredRank > 0 && defined(slug.current)] | order(featuredRank asc, publishedAt desc)[0...6] {
+  *[_type == "caseStudy" && coalesce(status, "published") == "published" && featuredRank > 0 && defined(slug.current)] | order(featuredRank asc, _updatedAt desc)[0...6] {
     _id,
     title,
     client,
@@ -78,6 +78,44 @@ export const featuredCaseStudiesNavQuery = groq`
     mainImage { asset->{ url }, alt },
     mainImageUrl,
     "keyResults": keyResults[] { value, label, description }
+  }
+`;
+
+/** Shared GROQ projection for page composer sections (case studies + composer blog posts). */
+export const composerSectionsProjection = `
+  composerSections[] {
+    _type,
+    _key,
+    anchorId,
+    label,
+    heading,
+    content,
+    layout,
+    image { asset->{ url }, alt },
+    cards[] { _key, title, description },
+    showImage,
+    metrics[] { _key, value, label, description },
+    summary,
+    features,
+    subheading,
+    images[] { _key, asset->{ url }, alt, caption },
+    quote,
+    name,
+    role,
+    avatar { asset->{ url } },
+    description,
+    technologies[] {
+      _key,
+      name,
+      subtitle,
+      logo { asset->{ url }, alt }
+    },
+    rows[] { _key, metric, before, after },
+    faqs[] { _key, question, answer },
+    componentId,
+    minHeight,
+    variant,
+    items[] { _key, claim, source, sourceUrl }
   }
 `;
 
@@ -166,45 +204,18 @@ export const caseStudyBySlugQuery = groq`
       slug,
       category,
       industry,
+      status,
       "excerpt": coalesce(excerpt, description),
       mainImage { asset->{ url } },
       "mainImageUrl": coalesce(mainImageUrl, imageUrl),
       client
-    },
+    }[coalesce(status, "published") == "published"],
     metaTitle,
     metaDescription,
+    faqSchema[] { question, answer },
     ogImage { asset->{ url } },
     publishedAt,
-    composerSections[] {
-      _type,
-      _key,
-      anchorId,
-      label,
-      heading,
-      content,
-      layout,
-      image { asset->{ url }, alt },
-      cards[] { _key, title, description },
-      showImage,
-      metrics[] { _key, value, label, description },
-      summary,
-      features,
-      subheading,
-      images[] { _key, asset->{ url }, alt, caption },
-      quote,
-      name,
-      role,
-      avatar { asset->{ url } },
-      description,
-      technologies[] {
-        _key,
-        name,
-        subtitle,
-        logo { asset->{ url }, alt }
-      },
-      rows[] { _key, metric, before, after },
-      faqs[] { _key, question, answer }
-    }
+    ${composerSectionsProjection}
   }
 `;
 
@@ -213,7 +224,7 @@ export const relatedCaseStudiesFallbackQuery = groq`
     && slug.current != $slug
     && defined(slug.current)
     && coalesce(status, "published") == "published"
-  ] | order(publishedAt desc)[0...3] {
+  ] | order(_updatedAt desc)[0...3] {
     _id,
     title,
     slug,
@@ -230,40 +241,6 @@ export const relatedCaseStudiesFallbackQuery = groq`
 
 export const allCaseStudySlugsQuery = groq`
   *[_type == "caseStudy" && defined(slug.current) && coalesce(status, "published") == "published"][].slug.current
-`;
-
-/** Shared GROQ projection for page composer sections (case studies + composer blog posts). */
-export const composerSectionsProjection = `
-  composerSections[] {
-    _type,
-    _key,
-    anchorId,
-    label,
-    heading,
-    content,
-    layout,
-    image { asset->{ url }, alt },
-    cards[] { _key, title, description },
-    showImage,
-    metrics[] { _key, value, label, description },
-    summary,
-    features,
-    subheading,
-    images[] { _key, asset->{ url }, alt, caption },
-    quote,
-    name,
-    role,
-    avatar { asset->{ url } },
-    description,
-    technologies[] {
-      _key,
-      name,
-      subtitle,
-      logo { asset->{ url }, alt }
-    },
-    rows[] { _key, metric, before, after },
-    faqs[] { _key, question, answer }
-  }
 `;
 
 export const postBySlugQuery = groq`
@@ -392,7 +369,8 @@ export const globalSettingsQuery = groq`
     defaultMetaDescription,
     socialLinks { linkedin, twitter, github, clutch },
     contactInfo { email, phone, address },
-    analytics { gtmId, gaId, posthogKey }
+    analytics { gtmId, gaId, posthogKey },
+    designTokens { accentPreset, typographyPreset }
   }
 `;
 

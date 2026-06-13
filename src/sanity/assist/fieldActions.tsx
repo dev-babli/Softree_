@@ -1,201 +1,249 @@
 "use client"
 
 import { useMemo } from "react"
-import { defineAssistFieldAction } from "@sanity/assist"
+import { defineAssistFieldAction, defineFieldActionDivider } from "@sanity/assist"
 import type { AssistFieldActionProps } from "@sanity/assist"
-import { SparklesIcon, ImageIcon, TagIcon, SearchIcon } from "@sanity/icons"
-import { useClient } from "sanity"
+import { SparklesIcon, ImageIcon, EditIcon } from "@sanity/icons"
+import { set, useClient } from "sanity"
 import { useToast } from "@sanity/ui"
+import type { Path } from "sanity"
 
+import { studioApiUrl, studioFetchInit } from "@/sanity/lib/studioFetch"
 import { SOFTREE_STYLE_CONTEXT } from "./constants"
 import { studioInstructionTemplates } from "./instructionTemplates"
 
 const AI_CONTEXT_QUERY = `*[_type == "aiContext" && isDefault == true][0].context`
 
-/** Category-specific image style guides for optimal results */
-const CATEGORY_STYLES: Record<string, { style: string; colors: string; elements: string }> = {
-  'Power Platform': {
-    style: 'Microsoft Fluent Design aesthetic, modern productivity interface elements, clean app icons',
-    colors: 'Microsoft blue (#0078D4), white, subtle gray accents, professional office palette',
-    elements: 'Power Apps canvas, Power Automate flow diagrams, Dataverse connections, low-code visual cues',
-  },
-  'SharePoint': {
-    style: 'Modern SharePoint interface, collaborative workspace aesthetic, document management visuals',
-    colors: 'SharePoint teal (#03787C), Microsoft 365 blue, clean whites, subtle greens',
-    elements: 'Team sites, document libraries, intranet dashboards, collaboration icons',
-  },
-  'AI & Machine Learning': {
-    style: 'Futuristic neural network visualization, abstract data flow, sophisticated tech aesthetic',
-    colors: 'Deep blue (#0A2540), electric purple (#635BFF), cyan accents (#00D4AA), dark background',
-    elements: 'Neural nodes, data streams, algorithmic patterns, AI model visualization, glowing connections',
-  },
-  'Web Development': {
-    style: 'Modern web interface mockups, responsive design elements, code visualization',
-    colors: 'Developer blue (#3178C6), React teal (#61DAFB), JavaScript yellow (#F7DF1E), dark code editor theme',
-    elements: 'Browser windows, code snippets, responsive breakpoints, component architecture',
-  },
-  'Mobile Apps': {
-    style: 'Premium smartphone mockups, floating UI elements, app interface design, device showcase',
-    colors: 'iOS blue (#007AFF), Material Design accents, clean device frames, gradient backgrounds',
-    elements: 'iPhone/Android devices, touch gestures, app screens, notification badges',
-  },
-  'Cloud & DevOps': {
-    style: 'Cloud infrastructure visualization, server network abstract, modern data center aesthetic',
-    colors: 'Azure blue (#007FFF), AWS orange (#FF9900), cloud white, infrastructure gray, status green',
-    elements: 'Cloud services icons, CI/CD pipelines, container orchestration, monitoring dashboards',
-  },
-  'Data & Analytics': {
-    style: 'Dashboard visualization, chart and graph aesthetics, business intelligence interface',
-    colors: 'Tableau blue (#1F77B4), Power BI yellow (#F2C811), data visualization palette, clean whites',
-    elements: 'Bar charts, line graphs, KPI dashboards, real-time metrics, data flow diagrams',
-  },
-  'default': {
-    style: 'Modern abstract technology illustration, clean geometric shapes, professional corporate aesthetic',
-    colors: 'Softree brand blue (#2563EB), warm orange (#F97316), complementary grays, clean whites',
-    elements: 'Abstract geometric patterns, data visualization motifs, professional business icons',
-  },
+const AUTOCOMPLETE_FIELDS = new Set([
+  "excerpt",
+  "metaTitle",
+  "metaDescription",
+  "featuredImagePrompt",
+  "heroImagePrompt",
+  "answer",
+  "challengeSummary",
+  "approachSummary",
+  "outcomeSummary",
+])
+
+const TOP_DOCUMENT_TEMPLATES = studioInstructionTemplates.slice(0, 8)
+
+function pathKey(path: Path | undefined): string {
+  if (!path?.length) return ""
+  return path[path.length - 1]?.toString() || ""
 }
 
-/** Get optimized style guide for category */
-function getCategoryStyle(category: string): { style: string; colors: string; elements: string } {
-  const normalizedCategory = category.toLowerCase()
+function generateImagePromptFromDocument(doc: Record<string, unknown>, type: "caseStudy" | "post"): string {
+  const title = (doc.title as string) || ""
+  const excerpt = (doc.excerpt as string) || ""
+  const clientName = (doc.client as string) || ""
+  const industry = (doc.industry as string) || "Technology"
+  const category = (doc.category as string) || "Enterprise Technology"
 
-  for (const [key, value] of Object.entries(CATEGORY_STYLES)) {
-    if (normalizedCategory.includes(key.toLowerCase())) {
-      return value
+  if (type === "caseStudy") {
+    return `Enterprise case study hero for "${title}" — ${category} for ${clientName} (${industry}). 16:9, cinematic, no text, no faces, Microsoft ecosystem aesthetic, premium editorial.`
+  }
+  return `Blog hero for "${title}" — ${category}. ${excerpt.slice(0, 100)}. 16:9 editorial tech illustration, no text, no faces.`
+}
+
+async function autocompleteField(
+  props: AssistFieldActionProps,
+  fieldName: string,
+  toast: ReturnType<typeof useToast>,
+  client: ReturnType<typeof useClient>,
+): Promise<void> {
+  const doc = { ...(props.getDocumentValue?.() ?? {}) } as Record<string, unknown>
+  const documentType = (doc._type as string) || props.documentSchemaType?.name || "document"
+  const path = props.path || []
+
+  if (fieldName === "answer" && path.length >= 2) {
+    const parent = path[path.length - 2]
+    if (typeof parent === "object" && parent && "_key" in parent) {
+      const arrayField = path[0]?.toString()
+      const key = (parent as { _key: string })._key
+      const items = doc[arrayField || "faqSchema"]
+      if (Array.isArray(items)) {
+        const item = items.find((i) => (i as { _key?: string })._key === key) as {
+          question?: string
+        }
+        if (item?.question) doc.question = item.question
+      }
     }
   }
 
-  return CATEGORY_STYLES.default
-}
+  const res = await fetch(
+    studioApiUrl("/api/studio/ai-complete-field"),
+    studioFetchInit("POST", {
+      documentType,
+      fieldName,
+      fieldTitle: props.schemaType?.title,
+      document: doc,
+    }),
+  )
 
-/** Generate professional image prompt with advanced prompt engineering */
-function generateImagePromptFromDocument(doc: Record<string, unknown>, type: 'caseStudy' | 'post'): string {
-  const title = (doc.title as string) || ''
-  const category = (doc.category as string) || (doc.categoryLabel as string) || 'Enterprise Technology'
-  const excerpt = (doc.excerpt as string) || ''
-  const client = (doc.client as string) || ''
-  const industry = (doc.industry as string) || 'Technology'
-
-  const categoryStyle = getCategoryStyle(category)
-
-  if (type === 'caseStudy') {
-    return `SUBJECT: Enterprise software case study hero image for "${title}" - ${category} solution for ${client} in ${industry} sector
-
-COMPOSITION: Wide cinematic 16:9 aspect ratio, professional magazine cover quality, centered focal point with balanced negative space on sides for text overlay compatibility
-
-STYLE: ${categoryStyle.style}, minimalist corporate aesthetic, premium editorial photography style inspired by Wired magazine and MIT Technology Review
-
-COLOR PALETTE: ${categoryStyle.colors}, sophisticated gradient background transitioning from deep professional tones to lighter accents
-
-KEY VISUAL ELEMENTS: ${categoryStyle.elements}, subtle technological motifs, abstract representation of digital transformation, clean iconography suggesting innovation and reliability
-
-TECHNICAL SPECIFICATIONS: 
-- Lighting: Soft professional studio lighting with subtle rim light for depth
-- Texture: Smooth matte surfaces with subtle grain for premium feel
-- Depth: Shallow depth of field effect, sharp focus on central subject
-- Quality: 8K resolution, photorealistic rendering, ray-traced reflections
-
-MOOD & ATMOSPHERE: Innovative yet trustworthy, cutting-edge but approachable, enterprise-grade sophistication, morning optimism with professional confidence
-
-NEGATIVE PROMPTS (AVOID): 
-- No text, letters, watermarks, or logos
-- No human faces, hands, or body parts
-- No cluttered or busy compositions
-- No cartoonish or overly playful styles
-- No stock photo clichés (handshakes, generic meeting rooms)
-- No harsh shadows or overexposed areas
-- No distorted or abstract shapes that confuse the subject
-
-FINAL TOUCHES: Professional color grading with slight teal-orange contrast, subtle vignette, clean edges suitable for web use, optimized for both light and dark mode viewing`
+  const json = (await res.json()) as { ok?: boolean; value?: string; error?: string }
+  if (!json.ok || !json.value) {
+    throw new Error(json.error || "Autocomplete failed")
   }
 
-  // Blog post - more editorial, less client-specific
-  return `SUBJECT: Technology blog header image for article "${title}" - exploring ${category} concepts and ${excerpt.slice(0, 80)}...
+  const documentId = props.documentIdForAction
+  if (!documentId) throw new Error("Save the document first")
 
-COMPOSITION: Wide 16:9 aspect ratio perfect for blog hero sections, rule of thirds composition, intentional negative space on left side for text overlay, magazine-quality editorial layout
-
-STYLE: ${categoryStyle.style}, sophisticated editorial illustration style inspired by The Verge, TechCrunch, and premium tech publications, modern flat design meets photorealistic elements
-
-COLOR PALETTE: ${categoryStyle.colors}, balanced contrast for readability, background suitable for both white and dark text overlays
-
-KEY VISUAL ELEMENTS: ${categoryStyle.elements}, conceptual illustration of technology theme, subtle depth layers creating visual interest without distraction
-
-TECHNICAL SPECIFICATIONS:
-- Resolution: 4K minimum, web-optimized with crisp edges
-- Lighting: Even, diffused lighting with subtle highlights
-- Focus: Sharp throughout with gentle depth suggestion
-- Style blend: 70% digital illustration, 30% photorealistic texture
-
-MOOD & ATMOSPHERE: Thought leadership confidence, intellectual curiosity, accessible expertise, modern innovation energy balanced with trustworthiness
-
-NEGATIVE PROMPTS (AVOID):
-- No text, typography, or watermarks
-- No generic stock photography elements
-- No overly complex busy backgrounds
-- No aggressive or jarring color schemes
-- No outdated or retro styling
-- No human subjects or faces
-- No cluttered iconography
-
-OPTIMIZED FOR: Blog readability, social media sharing, LinkedIn article headers, newsletter thumbnails, presentation slides, SEO featured snippets`
-}
-
-/** Generate negative prompt for image refinement */
-function generateNegativePrompt(type: 'caseStudy' | 'post'): string {
-  const baseNegatives = [
-    'text',
-    'watermark',
-    'signature',
-    'logo',
-    'human face',
-    'human hand',
-    'body parts',
-    'cluttered',
-    'busy composition',
-    'cartoon',
-    'childish',
-    'amateur',
-    'low quality',
-    'blurry',
-    'distorted',
-    'oversaturated',
-    'harsh shadows',
-    'overexposed',
-    'generic stock photo',
-    'cheesy business imagery',
-    'shaking hands',
-    'meeting room clichés',
-    'outdated technology',
-    'retro style',
-  ]
-
-  if (type === 'caseStudy') {
-    return [...baseNegatives, 'playful', 'casual', 'informal', 'fun', 'comic'].join(', ')
+  if (path.length > 0) {
+    await client.patch(documentId).set(set(path, json.value)).commit()
+  } else {
+    await client.patch(documentId).set({ [fieldName]: json.value }).commit()
   }
 
-  return [...baseNegatives, 'aggressive', 'jarring', 'shocking', 'clickbait'].join(', ')
+  toast.push({
+    status: "success",
+    title: "Field updated",
+    description: `${props.schemaType?.title || fieldName} filled from document context.`,
+  })
 }
 
-/** Document-level AI Assist shortcuts wired to Softree instruction templates + aiContext. */
+/** Field + document AI actions — autocomplete writes directly; templates copy prompts. */
 export function useSoftreeAssistFieldActions(props: AssistFieldActionProps) {
-  const { actionType, getDocumentValue } = props
+  const { actionType, getDocumentValue, path } = props
   const client = useClient({ apiVersion: "2026-05-21" })
   const toast = useToast()
 
   return useMemo(() => {
+    const fieldName = pathKey(path)
+
+    if (actionType === "field" && AUTOCOMPLETE_FIELDS.has(fieldName)) {
+      return [
+        defineAssistFieldAction({
+          title: "Autocomplete from context",
+          icon: SparklesIcon,
+          onAction: async () => {
+            try {
+              await autocompleteField(props, fieldName, toast, client)
+            } catch (err) {
+              toast.push({
+                status: "error",
+                title: "Autocomplete failed",
+                description: err instanceof Error ? err.message : "Could not complete field",
+              })
+            }
+          },
+        }),
+      ]
+    }
+
     if (actionType !== "document") return []
 
-    const templates = studioInstructionTemplates.map((template) =>
+    const docActions = [
       defineAssistFieldAction({
-        title: template.title,
+        title: "Autocomplete excerpt from story",
+        icon: EditIcon,
+        onAction: async () => {
+          try {
+            await autocompleteField({ ...props, path: ["excerpt"] }, "excerpt", toast, client)
+          } catch (err) {
+            toast.push({
+              status: "error",
+              title: "Excerpt failed",
+              description: err instanceof Error ? err.message : "Error",
+            })
+          }
+        },
+      }),
+      defineAssistFieldAction({
+        title: "Autocomplete SEO package (title + description)",
+        icon: SparklesIcon,
+        onAction: async () => {
+          try {
+            const doc = getDocumentValue?.() ?? {}
+            const id = props.documentIdForAction
+            if (!id) throw new Error("Save the document first")
+
+            const [metaTitleRes, metaDescRes] = await Promise.all([
+              fetch(
+                studioApiUrl("/api/studio/ai-complete-field"),
+                studioFetchInit("POST", {
+                  documentType: doc._type,
+                  fieldName: "metaTitle",
+                  document: doc,
+                }),
+              ),
+              fetch(
+                studioApiUrl("/api/studio/ai-complete-field"),
+                studioFetchInit("POST", {
+                  documentType: doc._type,
+                  fieldName: "metaDescription",
+                  document: doc,
+                }),
+              ),
+            ])
+
+            const metaTitleJson = (await metaTitleRes.json()) as {
+              ok?: boolean
+              value?: string
+              error?: string
+            }
+            const metaDescJson = (await metaDescRes.json()) as {
+              ok?: boolean
+              value?: string
+              error?: string
+            }
+            if (!metaTitleJson.ok || !metaDescJson.ok) {
+              throw new Error(metaTitleJson.error || metaDescJson.error || "SEO generation failed")
+            }
+
+            await client
+              .patch(id)
+              .set({
+                metaTitle: metaTitleJson.value,
+                metaDescription: metaDescJson.value,
+              })
+              .commit()
+
+            toast.push({ status: "success", title: "SEO metadata generated" })
+          } catch (err) {
+            toast.push({
+              status: "error",
+              title: "SEO failed",
+              description: err instanceof Error ? err.message : "Error",
+            })
+          }
+        },
+      }),
+      defineAssistFieldAction({
+        title: "Build image prompt from document",
+        icon: ImageIcon,
+        onAction: async () => {
+          const doc = getDocumentValue?.() ?? {}
+          const type = doc._type as "caseStudy" | "post"
+          if (!["caseStudy", "post"].includes(type)) {
+            toast.push({ status: "error", title: "Only for posts and case studies" })
+            return
+          }
+          const prompt = generateImagePromptFromDocument(doc, type)
+          const field = type === "caseStudy" ? "heroImagePrompt" : "featuredImagePrompt"
+          const id = props.documentIdForAction
+          if (!id) {
+            await navigator.clipboard.writeText(prompt)
+            toast.push({ status: "info", title: "Prompt copied — paste into image prompt field" })
+            return
+          }
+          await client.patch(id).set({ [field]: prompt }).commit()
+          toast.push({ status: "success", title: `${field} updated` })
+        },
+      }),
+      defineFieldActionDivider(),
+    ]
+
+    const templateActions = TOP_DOCUMENT_TEMPLATES.map((template) =>
+      defineAssistFieldAction({
+        title: `Copy: ${template.title}`,
         icon: SparklesIcon,
         onAction: async () => {
           const doc = getDocumentValue?.() ?? {}
           const aiContext = await client.fetch<string | null>(AI_CONTEXT_QUERY)
           const contextBlock = aiContext
-            ? `\n\nBrand voice (from AI Context document):\n${aiContext}`
-            : `\n\nBrand voice baseline:\n${SOFTREE_STYLE_CONTEXT}`
+            ? `\n\nBrand voice:\n${aiContext}`
+            : `\n\nBrand voice baseline:\n${SOFTREE_STYLE_CONTEXT.slice(0, 2000)}`
 
           const instruction = `${template.instruction}${contextBlock}\n\nDocument:\n${JSON.stringify(doc, null, 2).slice(0, 6000)}`
 
@@ -203,80 +251,16 @@ export function useSoftreeAssistFieldActions(props: AssistFieldActionProps) {
             await navigator.clipboard.writeText(instruction)
             toast.push({
               status: "success",
-              title: template.title,
-              description: "Instruction copied — paste into ✨ Manage instructions or a field prompt.",
+              title: "Prompt copied",
+              description: "Paste into ✨ on the field you want to fill.",
             })
           } catch {
-            toast.push({
-              status: "info",
-              title: template.title,
-              description: instruction.slice(0, 240) + (instruction.length > 240 ? "…" : ""),
-            })
+            toast.push({ status: "info", title: template.title, description: instruction.slice(0, 200) })
           }
         },
       }),
     )
 
-    // Add quick actions for common workflows
-    const quickActions = [
-      defineAssistFieldAction({
-        title: '🎨 Auto-Generate Image Prompt',
-        icon: ImageIcon,
-        onAction: async () => {
-          const doc = getDocumentValue?.() ?? {}
-          const type = doc._type as 'caseStudy' | 'post'
-
-          if (!['caseStudy', 'post'].includes(type)) {
-            toast.push({
-              status: "error",
-              title: "Image Prompt",
-              description: "This action only works for case studies and blog posts.",
-            })
-            return
-          }
-
-          const prompt = generateImagePromptFromDocument(doc, type)
-
-          try {
-            await navigator.clipboard.writeText(prompt)
-            toast.push({
-              status: "success",
-              title: "Image Prompt Generated!",
-              description: `Prompt copied to clipboard. Paste it into the "${type === 'caseStudy' ? 'Hero Image AI Prompt' : 'Featured Image AI Prompt'}" field, then click Generate with AI.`,
-            })
-          } catch {
-            toast.push({
-              status: "info",
-              title: "Image Prompt Generated",
-              description: prompt.slice(0, 120) + "...",
-            })
-          }
-        },
-      }),
-      defineAssistFieldAction({
-        title: '⚡ Quick: Generate SEO metadata',
-        icon: SearchIcon,
-        onAction: async () => {
-          toast.push({
-            status: "info",
-            title: "SEO Generation",
-            description: "Use the '� SEO — complete metadata package' template for detailed SEO generation.",
-          })
-        },
-      }),
-      defineAssistFieldAction({
-        title: '⚡ Quick: Suggest tags',
-        icon: TagIcon,
-        onAction: async () => {
-          toast.push({
-            status: "info",
-            title: "Auto-tagging",
-            description: "Use the '🏷️ Auto-tagging — suggest categories' template for smart categorization.",
-          })
-        },
-      }),
-    ]
-
-    return [...templates, ...quickActions]
-  }, [actionType, client, getDocumentValue, toast])
+    return [...docActions, ...templateActions]
+  }, [actionType, client, getDocumentValue, path, props, toast])
 }

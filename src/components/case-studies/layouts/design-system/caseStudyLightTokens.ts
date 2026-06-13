@@ -22,8 +22,8 @@ export const csLight = {
   accent: "var(--softree-accent, #FF7A2F)",
   accentHover: "var(--softree-accent-hover, #E85A1F)",
   accentSoft: "var(--softree-accent-soft, rgba(255, 122, 47, 0.12))",
-  accentTint: "rgba(255, 122, 47, 0.08)",
-  accentBorder: "rgba(255, 122, 47, 0.25)",
+  accentTint: "var(--softree-accent-tint, rgba(255, 122, 47, 0.08))",
+  accentBorder: "var(--softree-accent-border, rgba(255, 122, 47, 0.25))",
 
   /* Borders & shadows */
   border: "rgba(15, 23, 42, 0.08)",
@@ -50,7 +50,7 @@ export const csLight = {
   durationReveal: "400ms",
 
   /* Focus */
-  focusRing: "0 0 0 2px #fafaf9, 0 0 0 4px #FF7A2F",
+  focusRing: "0 0 0 2px #fafaf9, 0 0 0 4px var(--softree-accent, #FF7A2F)",
 } as const
 
 /** CSS custom properties for inline style on layout shell */
@@ -78,9 +78,9 @@ export const csLightClasses = {
   section: "px-5 md:px-8",
   container: "mx-auto w-full max-w-[1240px]",
   headingDisplay:
-    "text-[clamp(2rem,4.2vw,3.25rem)] font-bold leading-[1.08] tracking-[-0.03em] text-[var(--cs-text-primary,#0f172a)]",
+    "text-[clamp(calc(2rem*var(--softree-heading-scale,1)),calc(4.2vw*var(--softree-heading-scale,1)),calc(3.25rem*var(--softree-heading-scale,1)))] font-bold leading-[1.08] tracking-[-0.03em] text-[var(--cs-text-primary,#0f172a)]",
   headingSection:
-    "text-[clamp(1.75rem,3vw,2.5rem)] font-bold tracking-[-0.02em] text-[var(--cs-text-primary,#0f172a)]",
+    "text-[clamp(calc(1.75rem*var(--softree-heading-scale,1)),calc(3vw*var(--softree-heading-scale,1)),calc(2.5rem*var(--softree-heading-scale,1)))] font-bold tracking-[-0.02em] text-[var(--cs-text-primary,#0f172a)]",
   bodyLg: "text-[1.0625rem] leading-[1.65] text-[var(--cs-text-secondary,#334155)]",
   body: "text-[0.9375rem] leading-relaxed text-[var(--cs-text-muted,#64748b)]",
   label:
@@ -89,7 +89,7 @@ export const csLightClasses = {
   cardInteractive:
     "cursor-pointer transition-[transform,box-shadow] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-0.5 hover:shadow-[var(--cs-shadow-hover,0_16px_40px_rgba(15,23,42,0.1))] active:scale-[0.99] motion-reduce:transform-none motion-reduce:hover:translate-y-0",
   ctaButton:
-    "inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold text-white transition-transform duration-[160ms] ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-px active:scale-[0.97] motion-reduce:transform-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF7A2F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fafaf9]",
+    "inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold text-white transition-transform duration-[160ms] ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-px active:scale-[0.97] motion-reduce:transform-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--softree-accent,#FF7A2F)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fafaf9]",
 } as const
 
 export const CS_LIGHT_EASE: [number, number, number, number] = [0.23, 1, 0.32, 1]

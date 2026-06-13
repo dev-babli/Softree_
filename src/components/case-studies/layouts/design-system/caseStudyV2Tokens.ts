@@ -16,9 +16,9 @@ export const csV2 = {
   textDim: "#52525b",
 
   accent: "var(--softree-accent, #FF7A2F)",
-  accentGlow: "rgba(255, 122, 47, 0.35)",
-  accentSoft: "rgba(255, 122, 47, 0.14)",
-  accentLine: "rgba(255, 122, 47, 0.45)",
+  accentGlow: "var(--softree-accent-soft, rgba(255, 122, 47, 0.35))",
+  accentSoft: "var(--softree-accent-soft, rgba(255, 122, 47, 0.14))",
+  accentLine: "var(--softree-accent-border, rgba(255, 122, 47, 0.45))",
 
   border: "rgba(255, 255, 255, 0.08)",
   borderStrong: "rgba(255, 255, 255, 0.14)",
@@ -49,7 +49,7 @@ export const caseStudyV2CssVars: Record<string, string> = {
 
 export const csV2Classes = {
   shell:
-    "relative min-h-screen bg-[#0a0b0f] font-sans text-[#f4f4f5] antialiased selection:bg-[rgba(255,122,47,0.25)]",
+    "relative min-h-screen bg-[#0a0b0f] font-sans text-[#f4f4f5] antialiased selection:bg-[var(--softree-accent-soft,rgba(255,122,47,0.25))]",
   container: "mx-auto w-full max-w-[1280px] px-5 md:px-8 lg:px-10",
   display:
     "font-[family-name:var(--cs2-display)] text-[clamp(2.5rem,6vw,4.75rem)] font-medium leading-[1.02] tracking-[-0.03em] text-[#f4f4f5]",
@@ -58,13 +58,13 @@ export const csV2Classes = {
   eyebrow:
     'font-[family-name:var(--cs2-mono)] text-[11px] font-medium uppercase tracking-[0.22em] text-[#71717a]',
   chapterNum:
-    'font-[family-name:var(--cs2-mono)] text-[clamp(3rem,8vw,6rem)] font-light leading-none tracking-[-0.04em] text-[rgba(255,122,47,0.22)]',
+    'font-[family-name:var(--cs2-mono)] text-[clamp(3rem,8vw,6rem)] font-light leading-none tracking-[-0.04em] text-[color-mix(in_srgb,var(--softree-accent,#FF7A2F)_22%,transparent)]',
   bodyLg: "text-[1.125rem] leading-[1.7] text-[#a1a1aa]",
   body: "text-[0.9375rem] leading-[1.65] text-[#71717a]",
   linkAccent:
-    "inline-flex cursor-pointer items-center gap-2 text-sm font-medium text-[#FF7A2F] transition-opacity duration-200 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF7A2F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0b0f]",
+    "inline-flex cursor-pointer items-center gap-2 text-sm font-medium text-[var(--softree-accent,#FF7A2F)] transition-opacity duration-200 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--softree-accent,#FF7A2F)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0b0f]",
   cta:
-    "inline-flex cursor-pointer items-center gap-2 rounded-full bg-[#FF7A2F] px-8 py-3.5 text-sm font-semibold text-[#0a0b0f] transition-[transform,background-color] duration-[160ms] ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-[#ff8f4d] active:scale-[0.97] motion-reduce:transform-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF7A2F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0b0f]",
+    "inline-flex cursor-pointer items-center gap-2 rounded-full bg-[var(--softree-accent,#FF7A2F)] px-8 py-3.5 text-sm font-semibold text-[#0a0b0f] transition-[transform,background-color] duration-[160ms] ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-[var(--softree-accent-hover,#ff8f4d)] active:scale-[0.97] motion-reduce:transform-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--softree-accent,#FF7A2F)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0b0f]",
 } as const
 
 export const CS_V2_EASE: [number, number, number, number] = [0.23, 1, 0.32, 1]
@@ -97,9 +97,9 @@ export const csV2Light = {
   textDim: "#94a3b8",
 
   accent: "var(--softree-accent, #FF7A2F)",
-  accentGlow: "rgba(255, 122, 47, 0.2)",
-  accentSoft: "rgba(255, 122, 47, 0.1)",
-  accentLine: "rgba(255, 122, 47, 0.45)",
+  accentGlow: "var(--softree-accent-soft, rgba(255, 122, 47, 0.2))",
+  accentSoft: "var(--softree-accent-soft, rgba(255, 122, 47, 0.1))",
+  accentLine: "var(--softree-accent-border, rgba(255, 122, 47, 0.45))",
 
   border: "rgba(15, 23, 42, 0.08)",
   borderStrong: "rgba(15, 23, 42, 0.12)",
@@ -130,7 +130,7 @@ export const caseStudyV2LightCssVars: Record<string, string> = {
 
 export const csV2LightClasses = {
   shell:
-    "relative min-h-screen bg-[#f8f7f4] font-sans text-slate-900 antialiased selection:bg-[rgba(255,122,47,0.18)]",
+    "relative min-h-screen bg-[#f8f7f4] font-sans text-slate-900 antialiased selection:bg-[var(--softree-accent-soft,rgba(255,122,47,0.18))]",
   container: csV2Classes.container,
   display:
     "font-[family-name:var(--cs2-display)] text-[clamp(2.5rem,6vw,4.75rem)] font-medium leading-[1.02] tracking-[-0.03em] text-slate-900",
@@ -139,13 +139,13 @@ export const csV2LightClasses = {
   eyebrow:
     'font-[family-name:var(--cs2-mono)] text-[11px] font-medium uppercase tracking-[0.22em] text-slate-500',
   chapterNum:
-    'font-[family-name:var(--cs2-mono)] text-[clamp(3rem,8vw,6rem)] font-light leading-none tracking-[-0.04em] text-[rgba(255,122,47,0.18)]',
+    'font-[family-name:var(--cs2-mono)] text-[clamp(3rem,8vw,6rem)] font-light leading-none tracking-[-0.04em] text-[color-mix(in_srgb,var(--softree-accent,#FF7A2F)_18%,transparent)]',
   bodyLg: "text-[1.125rem] leading-[1.7] text-slate-600",
   body: "text-[0.9375rem] leading-[1.65] text-slate-500",
   linkAccent:
-    "inline-flex cursor-pointer items-center gap-2 text-sm font-medium text-[#FF7A2F] transition-opacity duration-200 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF7A2F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f8f7f4]",
+    "inline-flex cursor-pointer items-center gap-2 text-sm font-medium text-[var(--softree-accent,#FF7A2F)] transition-opacity duration-200 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--softree-accent,#FF7A2F)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f8f7f4]",
   cta:
-    "inline-flex cursor-pointer items-center gap-2 rounded-full bg-[#FF7A2F] px-8 py-3.5 text-sm font-semibold text-white transition-[transform,background-color] duration-[160ms] ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-[#e86a1f] active:scale-[0.97] motion-reduce:transform-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF7A2F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f8f7f4]",
+    "inline-flex cursor-pointer items-center gap-2 rounded-full bg-[var(--softree-accent,#FF7A2F)] px-8 py-3.5 text-sm font-semibold text-white transition-[transform,background-color] duration-[160ms] ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-[var(--softree-accent-hover,#e86a1f)] active:scale-[0.97] motion-reduce:transform-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--softree-accent,#FF7A2F)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f8f7f4]",
 } as const
 
 /** Scroll narrative chapters for progress rail */

@@ -1,8 +1,8 @@
-import imageUrlBuilder from "@sanity/image-url"
+import { createImageUrlBuilder } from "@sanity/image-url"
 
 import { projectId, dataset } from "@/sanity/env"
 
-const builder = imageUrlBuilder({ projectId, dataset })
+const builder = createImageUrlBuilder({ projectId, dataset })
 
 type AssetRef = { _ref?: string; url?: string }
 

@@ -10,7 +10,7 @@ import {
   CheckmarkCircleIcon,
 } from '@sanity/icons'
 import {useClient} from 'sanity'
-import {useEffect, useMemo, useState} from 'react'
+import {useCallback, useEffect, useMemo, useState} from 'react'
 import {useRouter} from 'sanity/router'
 
 import './dashboard/dashboard.css'
@@ -24,6 +24,10 @@ import {
   publishReadinessPercent,
   typeLabel,
 } from './dashboard/utils'
+import { DashboardCharts } from './dashboard/DashboardCharts'
+import { DashboardKpiStrip } from './dashboard/DashboardKpiStrip'
+import { AiSystemsHealthPanel } from './dashboard/AiSystemsHealthPanel'
+import type { DashboardInsights } from './dashboard/insightsTypes'
 
 type QueuedItem = AttentionItem & {_type: 'caseStudy' | 'post'}
 
@@ -35,34 +39,6 @@ function healthMessage(readiness: number, attentionCount: number): string {
     return `${attentionCount} item${attentionCount === 1 ? '' : 's'} need a quick pass before they are fully ready.`
   }
   return `${attentionCount} item${attentionCount === 1 ? '' : 's'} are missing key content — start with the attention queue.`
-}
-
-function StatRow({
-  label,
-  published,
-  total,
-  needsWork,
-}: {
-  label: string
-  published: number
-  total: number
-  needsWork: number
-}) {
-  const pct = total > 0 ? Math.round((published / total) * 100) : 0
-
-  return (
-    <div className="softree-dash__stat-row">
-      <div className="softree-dash__stat-top">
-        <span className="softree-dash__stat-name">{label}</span>
-        <span className="softree-dash__stat-nums">
-          {published}/{total} live · {needsWork} need work
-        </span>
-      </div>
-      <div className="softree-dash__stat-bar">
-        <div className="softree-dash__stat-bar-fill" style={{width: `${pct}%`}} />
-      </div>
-    </div>
-  )
 }
 
 function QueueItem({
@@ -86,6 +62,7 @@ function QueueItem({
       className="softree-dash__queue-item"
       role="button"
       tabIndex={0}
+      aria-label={`Open ${displayName}`}
       onClick={() => onOpen(item._id, item._type)}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -129,6 +106,47 @@ export default function StudioDashboard() {
   const router = useRouter()
   const [data, setData] = useState<DashboardData | null>(null)
   const [loading, setLoading] = useState(true)
+  const [insights, setInsights] = useState<DashboardInsights | null>(null)
+  const [insightsLoading, setInsightsLoading] = useState(true)
+  const [insightsFailed, setInsightsFailed] = useState(false)
+  const [insightsRefreshing, setInsightsRefreshing] = useState(false)
+  const [loadError, setLoadError] = useState<string | null>(null)
+
+  const fetchInsights = useCallback(async (refresh = false) => {
+    if (refresh) {
+      setInsightsRefreshing(true)
+      setInsightsFailed(false)
+    } else {
+      setInsightsLoading(true)
+      setInsightsFailed(false)
+    }
+
+    const controller = new AbortController()
+    const timer = window.setTimeout(() => controller.abort(), refresh ? 30_000 : 8_000)
+
+    try {
+      const url = refresh
+        ? '/api/studio/dashboard-insights?refresh=1'
+        : '/api/studio/dashboard-insights'
+      const res = await fetch(url, { signal: controller.signal })
+      if (!res.ok) {
+        setInsightsFailed(true)
+        return
+      }
+      const result = (await res.json()) as DashboardInsights
+      setInsights(result)
+      setInsightsFailed(false)
+    } catch {
+      setInsightsFailed(true)
+    } finally {
+      window.clearTimeout(timer)
+      if (refresh) {
+        setInsightsRefreshing(false)
+      } else {
+        setInsightsLoading(false)
+      }
+    }
+  }, [])
 
   useEffect(() => {
     let cancelled = false
@@ -137,6 +155,11 @@ export default function StudioDashboard() {
       .then((result) => {
         if (!cancelled) setData(result)
       })
+      .catch((err) => {
+        if (!cancelled) {
+          setLoadError(err instanceof Error ? err.message : 'Could not load dashboard data')
+        }
+      })
       .finally(() => {
         if (!cancelled) setLoading(false)
       })
@@ -144,6 +167,14 @@ export default function StudioDashboard() {
       cancelled = true
     }
   }, [client])
+
+  useEffect(() => {
+    void fetchInsights(false)
+  }, [fetchInsights])
+
+  const refreshInsights = useCallback(() => {
+    void fetchInsights(true)
+  }, [fetchInsights])
 
   const readiness = data
     ? publishReadinessPercent({caseStudies: data.caseStudies, posts: data.posts})
@@ -193,34 +224,54 @@ export default function StudioDashboard() {
                   : healthMessage(readiness, attentionCount)}
               </p>
             </div>
-            <div className="softree-dash__health">
-              <div className="softree-dash__health-label">Publish readiness</div>
-              <div className="softree-dash__health-value">{loading ? '—' : `${readiness}%`}</div>
-              <div className="softree-dash__health-bar">
-                <div
-                  className="softree-dash__health-bar-fill"
-                  style={{width: loading ? '0%' : `${readiness}%`}}
-                />
-              </div>
-            </div>
           </div>
         </header>
 
-        {/* Layer 2 + 3 — Bento command center */}
+        <DashboardKpiStrip
+          data={data}
+          loading={loading}
+          readiness={readiness}
+          attentionCount={attentionCount}
+          onNavigate={go}
+        />
+
+        {loadError ? (
+          <div className="softree-dash__banner softree-dash__banner--error" role="alert">
+            {loadError}. Try refreshing the page.
+          </div>
+        ) : null}
+
+        <DashboardCharts
+          data={data}
+          insights={insights}
+          loading={loading}
+          insightsLoading={insightsLoading}
+          insightsFailed={insightsFailed}
+          insightsRefreshing={insightsRefreshing}
+          readiness={readiness}
+          attentionCount={attentionCount}
+          onNavigate={go}
+          onOpenDoc={openDoc}
+          onRefreshInsights={refreshInsights}
+        />
+
+        <AiSystemsHealthPanel />
+
         <div className="softree-dash__bento">
           {/* Attention queue — primary focus */}
-          <section className="softree-dash__panel softree-dash__queue">
+          <section
+            id="softree-attention-queue"
+            className="softree-dash__panel softree-dash__queue"
+          >
             <div className="softree-dash__panel-head">
               <h2 className="softree-dash__panel-title">Needs your attention</h2>
               {!loading && attentionCount > 0 ? (
                 <button
                   type="button"
                   className="softree-dash__panel-action"
-                  onClick={() =>
-                    go('/studio/structure/caseStudies;caseStudiesMenu;caseStudiesNeedsWork')
-                  }
+                  onClick={() => go('/studio/structure/caseStudies;caseStudiesNeedsWork')}
                 >
-                  View all ({attentionCount})
+                  Open needs-work list ({attentionCount})
                 </button>
               ) : null}
             </div>
@@ -231,7 +282,7 @@ export default function StudioDashboard() {
                 <div className="softree-dash__empty-icon">
                   <CheckmarkCircleIcon style={{width: 28, height: 28, color: '#16a34a'}} />
                 </div>
-                Everything looks publish-ready. Create something new or review recent edits below.
+                Everything looks publish-ready. Use quick actions below to create something new.
               </div>
             ) : (
               attentionQueue.map((item) => (
@@ -240,80 +291,11 @@ export default function StudioDashboard() {
             )}
           </section>
 
-          {/* Content stats */}
-          <section className="softree-dash__panel">
+          <section className="softree-dash__panel softree-dash__actions-panel">
             <div className="softree-dash__panel-head">
-              <h2 className="softree-dash__panel-title">Content overview</h2>
+              <h2 className="softree-dash__panel-title">Quick actions</h2>
             </div>
-            {loading ? (
-              <div className="softree-dash__empty">Loading stats…</div>
-            ) : (
-              <>
-                <StatRow
-                  label="Case studies"
-                  published={data?.caseStudies.published ?? 0}
-                  total={data?.caseStudies.total ?? 0}
-                  needsWork={data?.caseStudies.needsWork ?? 0}
-                />
-                <StatRow
-                  label="Blog posts"
-                  published={data?.posts.published ?? 0}
-                  total={data?.posts.total ?? 0}
-                  needsWork={data?.posts.needsWork ?? 0}
-                />
-                <StatRow
-                  label="Marketing pages"
-                  published={data?.marketing.published ?? 0}
-                  total={data?.marketing.total ?? 0}
-                  needsWork={data?.marketing.drafts ?? 0}
-                />
-              </>
-            )}
-          </section>
-
-          {/* Recent activity */}
-          <section className="softree-dash__panel">
-            <div className="softree-dash__panel-head">
-              <h2 className="softree-dash__panel-title">Recent activity</h2>
-            </div>
-            {loading ? (
-              <div className="softree-dash__empty">Loading activity…</div>
-            ) : !data?.recentActivity?.length ? (
-              <div className="softree-dash__empty">No recent edits yet.</div>
-            ) : (
-              data.recentActivity.map((item) => (
-                <div
-                  key={item._id}
-                  className="softree-dash__activity-item"
-                  role="button"
-                  tabIndex={0}
-                  onClick={() => openDoc(item._id, item._type)}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault()
-                      openDoc(item._id, item._type)
-                    }
-                  }}
-                >
-                  <span className="softree-dash__activity-dot" />
-                  <span className="softree-dash__activity-title">
-                    {item.client || item.title || 'Untitled'} · {typeLabel(item._type)}
-                  </span>
-                  <span className="softree-dash__activity-time">
-                    {formatRelativeTime(item._updatedAt)}
-                  </span>
-                </div>
-              ))
-            )}
-          </section>
-        </div>
-
-        {/* Quick actions */}
-        <section>
-          <div className="softree-dash__panel-head" style={{padding: '0 0 0.75rem', border: 'none'}}>
-            <h2 className="softree-dash__panel-title">Quick actions</h2>
-          </div>
-          <div className="softree-dash__actions">
+            <div className="softree-dash__actions softree-dash__actions--stack">
             <button
               type="button"
               className="softree-dash__action softree-dash__action--primary"
@@ -327,19 +309,35 @@ export default function StudioDashboard() {
             <button
               type="button"
               className="softree-dash__action"
-              onClick={() => go('/studio/intent/create/template=post-article;type=post/')}
+              onClick={() => go('/studio/intent/create/template=post-composer;type=post/')}
             >
               <span className="softree-dash__action-label">New blog post</span>
-              <span className="softree-dash__action-hint">Article with SEO fields</span>
+              <span className="softree-dash__action-hint">Composer layout with AEO sections</span>
             </button>
             <button
               type="button"
               className="softree-dash__action"
-              onClick={() =>
-                go('/studio/structure/caseStudies;caseStudiesMenu;caseStudiesNeedsWork')
-              }
+              onClick={() => go('/studio/structure/siteSettings;aiContext')}
             >
               <SparklesIcon style={{width: 16, height: 16, color: '#ff9f5a'}} />
+              <span className="softree-dash__action-label">AI brand voice</span>
+              <span className="softree-dash__action-hint">Powers ✨ Assist + Content Agent</span>
+            </button>
+            <button
+              type="button"
+              className="softree-dash__action"
+              onClick={() => go('/studio/content-agent')}
+            >
+              <SparklesIcon style={{width: 16, height: 16, color: '#ff9f5a'}} />
+              <span className="softree-dash__action-label">Content Agent</span>
+              <span className="softree-dash__action-hint">Generate or audit SEO / AEO</span>
+            </button>
+            <button
+              type="button"
+              className="softree-dash__action"
+              onClick={() => go('/studio/structure/caseStudies;caseStudiesNeedsWork')}
+            >
+              <DocumentTextIcon style={{width: 16, height: 16, color: '#f59e0b'}} />
               <span className="softree-dash__action-label">Fix incomplete content</span>
               <span className="softree-dash__action-hint">
                 {attentionCount > 0 ? `${attentionCount} waiting` : 'Queue is clear'}
@@ -348,11 +346,11 @@ export default function StudioDashboard() {
             <button
               type="button"
               className="softree-dash__action"
-              onClick={() => go('/studio/structure/siteSettings;siteSettingsMenu;globalSettings')}
+              onClick={() => go('/studio/structure/siteSettings')}
             >
               <CogIcon style={{width: 16, height: 16, color: '#64748b'}} />
               <span className="softree-dash__action-label">Site settings</span>
-              <span className="softree-dash__action-hint">Nav, SEO, homepage slider</span>
+              <span className="softree-dash__action-hint">Design tokens, SEO, homepage slider</span>
             </button>
             <button
               type="button"
@@ -374,14 +372,16 @@ export default function StudioDashboard() {
               <span className="softree-dash__action-label">Open live site</span>
               <span className="softree-dash__action-hint">Preview in a new tab</span>
             </a>
-          </div>
-        </section>
+            </div>
+          </section>
+        </div>
 
         {/* Editorial guide */}
-        <section className="softree-dash__panel">
-          <div className="softree-dash__panel-head">
-            <h2 className="softree-dash__panel-title">How to publish a case study</h2>
-          </div>
+        <details className="softree-dash__panel softree-dash__guide">
+          <summary className="softree-dash__guide-summary">
+            <span className="softree-dash__panel-title">How to publish a case study</span>
+            <span className="softree-dash__guide-toggle">Show guide</span>
+          </summary>
           <div className="softree-dash__guide-step">
             <span className="softree-dash__guide-num">1</span>
             <p className="softree-dash__guide-text">
@@ -399,11 +399,39 @@ export default function StudioDashboard() {
           <div className="softree-dash__guide-step">
             <span className="softree-dash__guide-num">3</span>
             <p className="softree-dash__guide-text">
-              Use the <strong>Live preview</strong> pane, then set status to Published in{' '}
-              <strong>Publish &amp; SEO</strong>.
+              Use the <strong>Live preview</strong> pane, set <strong>Review status</strong> to
+              Approved, then publish from <strong>Publish &amp; SEO</strong>.
             </p>
           </div>
-        </section>
+        </details>
+
+        <details className="softree-dash__panel softree-dash__guide">
+          <summary className="softree-dash__guide-summary">
+            <span className="softree-dash__panel-title">AI &amp; Content Agent</span>
+            <span className="softree-dash__guide-toggle">Show guide</span>
+          </summary>
+          <div className="softree-dash__guide-step">
+            <span className="softree-dash__guide-num">1</span>
+            <p className="softree-dash__guide-text">
+              Set your voice once under <strong>Site settings → AI brand voice</strong>. Every ✨
+              field action and automated blog draft reads this context.
+            </p>
+          </div>
+          <div className="softree-dash__guide-step">
+            <span className="softree-dash__guide-num">2</span>
+            <p className="softree-dash__guide-text">
+              Open <strong>Content Agent</strong> to generate a composer blog from a topic, or run
+              the <strong>Content audit</strong> tab to fix missing meta, FAQ, and alt text.
+            </p>
+          </div>
+          <div className="softree-dash__guide-step">
+            <span className="softree-dash__guide-num">3</span>
+            <p className="softree-dash__guide-text">
+              In any field, click ✨ and pick a Softree template (SEO title, expand bullets, FAQ,
+              hero image prompt). Always review in <strong>Live preview</strong> before publish.
+            </p>
+          </div>
+        </details>
       </div>
     </div>
   )

@@ -28,11 +28,21 @@ export function buildCaseStudyPreviewPath(slug: string): string {
 }
 
 /** Enables draft mode and redirects to the live case study page. */
-export function buildLayoutPreviewIframeUrl(slug: string, origin = getSiteOrigin()): string {
-  const params = new URLSearchParams({ slug })
-  return `${origin}/api/case-study/layout-preview?${params.toString()}`
+/** Enables draft mode and redirects to a front-end path (case study, blog, etc.). */
+export function buildStudioPreviewEnterUrl(path: string, origin = getSiteOrigin()): string {
+  const params = new URLSearchParams({ path })
+  return `${origin}/api/preview/enter?${params.toString()}`
 }
 
-export function buildPresentationPreviewHref(slug: string): string {
-  return buildCaseStudyPreviewPath(slug)
+export function buildBlogPreviewPath(slug: string): string {
+  return `/blog/${slug}`
+}
+
+export function buildLayoutPreviewIframeUrl(slug: string, origin = getSiteOrigin()): string {
+  return buildStudioPreviewEnterUrl(buildCaseStudyPreviewPath(slug), origin)
+}
+
+/** Same draft-mode entry URL as the iframe preview — safe for "Open in new tab". */
+export function buildPresentationPreviewHref(slug: string, origin = getSiteOrigin()): string {
+  return buildLayoutPreviewIframeUrl(slug, origin)
 }

@@ -15,8 +15,8 @@ import {
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
 import * as THREE from 'three';
 
-// replace with your own imports, see the usage snippet for details
-import cardGLB from './card.glb';
+// Served from /public — avoids Turbopack .glb import errors
+const CARD_GLB_URL = '/react-bits/lanyard/card.glb';
 import lanyard from './lanyard.png';
 
 extend({ MeshLineGeometry, MeshLineMaterial });
@@ -160,7 +160,7 @@ function Band({
     linearDamping: 4
   };
 
-  const { nodes, materials } = useGLTF(cardGLB) as any;
+  const { nodes, materials } = useGLTF(CARD_GLB_URL) as any;
   const texture = useTexture(lanyardImage || lanyard);
   // useTexture must be called unconditionally; use a blank pixel when an image
   // isn't supplied for a given face, then skip compositing it below.

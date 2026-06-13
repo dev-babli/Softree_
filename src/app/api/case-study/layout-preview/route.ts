@@ -1,37 +1,18 @@
-import { draftMode } from "next/headers"
-import { NextRequest, NextResponse } from "next/server"
+import { NextRequest } from "next/server"
 
-import { buildCaseStudyPreviewPath } from "@/sanity/lib/layoutPreview"
+import { handleStudioPreviewEnter } from "@/lib/studio-preview"
 
-function isStudioPreviewRequest(request: NextRequest): boolean {
-  const referer = request.headers.get("referer") || ""
-  const origin = request.headers.get("origin") || ""
-
-  if (referer.includes("/studio")) return true
-  if (origin.includes("/studio")) return true
-
-  const host = request.headers.get("host") || ""
-  if (host.startsWith("localhost") || host.startsWith("127.0.0.1")) return true
-
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
-  if (siteUrl && referer.startsWith(siteUrl) && referer.includes("/studio")) return true
-
-  return false
-}
-
+/** @deprecated Use /api/preview/enter?path=/case-studies/{slug} */
 export async function GET(request: NextRequest) {
-  if (!isStudioPreviewRequest(request)) {
-    return NextResponse.json({ error: "Preview is only available from Sanity Studio." }, { status: 403 })
-  }
-
   const slug = request.nextUrl.searchParams.get("slug")?.trim()
   if (!slug) {
-    return NextResponse.json({ error: "Missing slug parameter." }, { status: 400 })
+    return handleStudioPreviewEnter(request)
   }
 
-  const draft = await draftMode()
-  draft.enable()
+  const url = new URL(request.url)
+  url.pathname = "/api/preview/enter"
+  url.searchParams.delete("slug")
+  url.searchParams.set("path", `/case-studies/${slug}`)
 
-  const redirectPath = buildCaseStudyPreviewPath(slug)
-  return NextResponse.redirect(new URL(redirectPath, request.url))
+  return handleStudioPreviewEnter(new NextRequest(url, request))
 }

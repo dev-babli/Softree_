@@ -1,6 +1,7 @@
 import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 
+import { CASE_STUDY_CATEGORY_KEYS } from "@/app/case-studies/categoryConfig";
 import { notifyPublish } from "@/sanity/lib/notifyPublish";
 
 /**
@@ -43,7 +44,11 @@ export async function POST(request: NextRequest) {
 
     if (_type === "caseStudy") {
       paths.push("/case-studies", "/");
+      for (const category of CASE_STUDY_CATEGORY_KEYS) {
+        paths.push(`/case-studies/${category}`);
+      }
       if (slug?.current) paths.push(`/case-studies/${slug.current}`);
+      revalidatePath("/case-studies", "layout");
     }
 
     if (_type === "marketingPage") {
@@ -55,7 +60,10 @@ export async function POST(request: NextRequest) {
     }
 
     if (_type === "globalSettings") {
-      paths.push("/", "/sitemap.xml");
+      paths.push("/", "/sitemap.xml", "/blog", "/case-studies");
+      revalidatePath("/", "layout");
+      revalidatePath("/blog", "layout");
+      revalidatePath("/case-studies", "layout");
     }
 
     paths.push("/sitemap.xml");
