@@ -84,6 +84,7 @@ const menu: MenuItem[] = [
         title: "AI & Automation",
         description: "Intelligence in every workflow.",
         links: [
+          { label: "AI Web Analyser", url: "/webanalyser", icon: Sparkles, description: "Instant website performance audit" },
           { label: "AI Test Automation", url: "/services/ai-powered-test-automation", icon: BrainCircuit, description: "Quality at speed" },
           { label: "AI Agents", url: "/services/offshore-ai-development", icon: Bot, description: "Autonomous tasks" },
           { label: "Generative AI", url: "/services/offshore-generative-ai-development", icon: WandSparkles, description: "RAG & copilots" },
@@ -102,6 +103,7 @@ const menu: MenuItem[] = [
       },
     ],
   },
+
   { label: "Case Studies", url: "/case-studies", mega: true, children: [] },
   { label: "Blog", url: "/blog", mega: true, children: [] },
   { label: "Careers", url: "/careers" },
@@ -245,9 +247,8 @@ export default function Navigation({
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${
-          showNav ? "translate-y-0" : "-translate-y-full"
-        }`}
+        className={`fixed inset-x-0 top-0 z-50 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${showNav ? "translate-y-0" : "-translate-y-full"
+          }`}
         onMouseLeave={scheduleCloseMenu}
       >
         <div className="mx-auto max-w-[1280px] px-5 pt-2.5 lg:px-10">
@@ -286,19 +287,17 @@ export default function Navigation({
                       href={item.url || "#"}
                       aria-expanded={isOpen}
                       aria-haspopup={canOpen ? "true" : undefined}
-                      className={`inline-flex items-center gap-1 rounded-lg px-3.5 py-2 text-[13px] font-medium transition-colors duration-100 ${
-                        isOpen
+                      className={`inline-flex items-center gap-1 rounded-lg px-3.5 py-2 text-[13px] font-medium transition-colors duration-100 ${isOpen
                           ? "bg-[rgba(255,88,18,0.1)] text-[#FF5812]"
                           : "text-[#0a0a1a]/60 hover:bg-[#F3F0EE] hover:text-[#0a0a1a]"
-                      }`}
+                        }`}
                     >
                       {item.label}
                       {canOpen && (
                         <ChevronDown
                           size={13}
-                          className={`transition-transform duration-100 ${
-                            isOpen ? "rotate-180 text-[#FF5812]" : "text-[#0a0a1a]/25"
-                          }`}
+                          className={`transition-transform duration-100 ${isOpen ? "rotate-180 text-[#FF5812]" : "text-[#0a0a1a]/25"
+                            }`}
                         />
                       )}
                     </Link>
@@ -339,11 +338,10 @@ export default function Navigation({
             aria-hidden={!hasMegaContent}
           >
             <div
-              className={`absolute left-0 right-0 top-0 z-40 pt-2 transition-none ${
-                hasMegaContent
+              className={`absolute left-0 right-0 top-0 z-40 pt-2 transition-none ${hasMegaContent
                   ? "pointer-events-auto visible opacity-100"
                   : "pointer-events-none invisible opacity-0"
-              }`}
+                }`}
             >
               {activeMegaItem?.children && hasMegaContent && (
                 <MegaMenuPanel
@@ -382,9 +380,8 @@ export default function Navigation({
                       <span className="text-base font-semibold">{item.label}</span>
                       <ChevronDown
                         size={18}
-                        className={`transition-transform duration-150 text-[#0a0a1a]/40 ${
-                          mobileDropdown === item.label ? "rotate-180 text-[#FF5812]" : ""
-                        }`}
+                        className={`transition-transform duration-150 text-[#0a0a1a]/40 ${mobileDropdown === item.label ? "rotate-180 text-[#FF5812]" : ""
+                          }`}
                       />
                     </button>
                   ) : (
@@ -418,7 +415,7 @@ export default function Navigation({
                                     onClick={() => setMobileOpen(false)}
                                     className="group flex items-start gap-3 rounded-xl p-2.5 transition-colors duration-100 hover:bg-black/[0.03] active:bg-black/[0.05]"
                                   >
-                                    {Icon && (
+                                    {LinkIcon && (
                                       <LinkIcon
                                         size={18}
                                         className="mt-0.5 shrink-0 text-[#0a0a1a]/30 group-hover:text-[#FF5812]"

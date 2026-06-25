@@ -108,7 +108,7 @@ export function HeroSection({ data }: { data: CaseStudyLayoutData }) {
             <ParallaxLayer strength={28}>
               <div className="rounded-[1.75rem] p-2 shadow-[0_24px_64px_rgba(0,0,0,0.06)] ring-1 ring-[#0a0a1a]/[0.05] [background:#F0F2F6]">
                 <div className="overflow-hidden rounded-[calc(1.75rem-0.5rem)] bg-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.85)]">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[calc(1.75rem-0.5rem)] bg-[#E8ECF2] md:aspect-[5/4]">
+                  <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[calc(1.75rem-0.5rem)] bg-[#E8ECF2]">
                     <Image
                       src={heroSrc}
                       alt={heroAlt}

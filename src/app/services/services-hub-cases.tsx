@@ -88,7 +88,7 @@ export default function ServicesHubCaseStudies() {
           {CASE_STUDIES.map((item) => (
             <SwiperSlide key={item.id}>
               <article className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-12">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[#0a0a1a]/[0.08] bg-white shadow-[0_8px_32px_-20px_rgba(10,10,26,0.14)] lg:aspect-auto lg:min-h-[420px]">
+                <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-[#0a0a1a]/[0.08] bg-white shadow-[0_8px_32px_-20px_rgba(10,10,26,0.14)] lg:aspect-auto lg:min-h-[420px]">
                   <Image
                     src={item.image}
                     alt=""

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useMemo } from "react";
 import Image from "next/image";
@@ -161,7 +161,7 @@ export default function CaseStudiesListingClient({
                       className="group flex h-full flex-col gap-5 rounded-[18px] bg-white p-5 transition-transform duration-200 ease-out hover:-translate-y-[3px]"
                     >
                       <div
-                        className={`relative aspect-[4/3] w-full overflow-hidden rounded-[14px] ${isPlaceholder ? "bg-[#efeae0]" : ""
+                        className={`relative aspect-[16/9] w-full overflow-hidden rounded-[14px] ${isPlaceholder ? "bg-[#efeae0]" : ""
                           }`}
                       >
                         {study.image && !isPlaceholder ? (

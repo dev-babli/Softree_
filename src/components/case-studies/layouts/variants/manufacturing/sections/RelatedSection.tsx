@@ -26,7 +26,7 @@ function RelatedCard({ study }: { study: RelatedStudy }) {
       href={`/case-studies/${study.slug.current}`}
       className="group flex h-full flex-col gap-5 rounded-[18px] bg-white p-5 transition-transform duration-300 ease-out hover:-translate-y-1"
     >
-      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[14px] bg-[#efeae0]">
+      <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[14px] bg-[#efeae0]">
         {img ? (
           <Image
             src={img}

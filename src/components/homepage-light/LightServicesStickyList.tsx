@@ -33,19 +33,21 @@ type Service = {
 }
 
 const SERVICES: Service[] = [
+
   {
     n: "01",
-    title: "Ship a Web App",
-    href: "/services/digital-workspace/web-app-development",
-    desc: "Production-grade web apps in Next.js, React, and TypeScript. Senior engineers, fixed scope, weekly demos. From discovery to launch in 12 weeks.",
-    tags: ["Next.js", "React", "TypeScript", "Production"],
-    img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=900&q=80",
+    title: "AI Web Analyser",
+    href: "/webanalyser",
+    desc: "Scan your website instantly with AI. Get a performance audit, conversion optimization report, and custom digital strategy insights designed for growth.",
+    tags: ["AI Growth Intelligence", "Website Audit", "Conversion Optimization", "UX Insights"],
+    img: "/images/webanalyser-fixed.png",
     whiteLabel: {
-      title: "WHITE-LABEL WEB APP PARTNER",
-      subtitle: "Offshore Delivery • Your Brand • Our Expertise",
-      features: ["NDA Protected", "Dedicated Team", "Next.js & React Specialists"]
+      title: "FREE AI CONVERSION AUDIT",
+      subtitle: "Instant Report • Actionable Insights • No Obligation",
+      features: ["Performance Scoring", "UX Flow Analysis", "CRO Recommendations"]
     }
   },
+
   {
     n: "02",
     title: "Build Power Platform Automations",
@@ -98,6 +100,20 @@ const SERVICES: Service[] = [
       features: ["NDA Protected", "Dedicated Team", "Legacy Migration Specialists"]
     }
   },
+  {
+    n: "06",
+    title: "Ship a Web App",
+    href: "/services/digital-workspace/web-app-development",
+    desc: "Production-grade web apps in Next.js, React, and TypeScript. Senior engineers, fixed scope, weekly demos. From discovery to launch in 12 weeks.",
+    tags: ["Next.js", "React", "TypeScript", "Production"],
+    img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=900&q=80",
+    whiteLabel: {
+      title: "WHITE-LABEL WEB APP PARTNER",
+      subtitle: "Offshore Delivery • Your Brand • Our Expertise",
+      features: ["NDA Protected", "Dedicated Team", "Next.js & React Specialists"]
+    }
+  },
+
 ]
 
 /* ====================================================================

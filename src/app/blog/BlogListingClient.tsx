@@ -100,7 +100,7 @@ export default function BlogListingClient({ posts }: { posts: BlogPost[] }) {
                   Learn more
                 </Link>
               </div>
-              <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-[#d7dce9]">
+              <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-[#d7dce9]">
                 <Image
                   src={featured.mainImage?.asset?.url || "/og-image.png"}
                   alt={featured.mainImage?.alt || featured.title}
@@ -139,7 +139,7 @@ export default function BlogListingClient({ posts }: { posts: BlogPost[] }) {
                 href={`/blog/${post.slug.current}`}
                 className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[#d7dce9] bg-white transition-[transform,border-color] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#a8b4d1]"
               >
-                <div className="relative aspect-[16/10] overflow-hidden border-b border-[#d7dce9]">
+                <div className="relative aspect-[16/9] overflow-hidden border-b border-[#d7dce9]">
                   <Image
                     src={post.mainImage?.asset?.url || "/og-image.png"}
                     alt={post.mainImage?.alt || post.title}
