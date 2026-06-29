@@ -1,38 +1,17 @@
-import dynamic from "next/dynamic";
-import NavigationServer from "@/components/sections/navigation-server";
+import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
-import ServicePageBreadcrumb from "@/components/services/ServicePageBreadcrumb";
-import WebDevIntro from "./web-dev-intro";
-import WebDevSticky from "./web-dev-sticky";
-import ServicesHubTestimonial from "../services-hub-testimonial";
+import Certifications from "../offshore-power-platform-development/certification";
+import FullStackTeams from "./full-stack";
+import ThreePillars from "./three-pillar";
+import CollaborationTabs from "./collab-tab";
+import WebDevelopmentHero from "./process";
+import QualityBenchmark from "./quality";
+import WhyChooseSoftreeWebDevelopment from "./why-chose";
+import WebDevelopmentCaseStudies from "./case-studies";
+import WebDevHero from "./hero";
+import TrustedBrandsMarquee from "../offshore-power-platform-development/trust";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import LightFAQExact from "@/components/homepage-light/LightFAQExact";
-import type { Metadata } from "next";
-import { applyPageOg } from "@/lib/site-metadata";
-
-const WebDevStackedSlides = dynamic(() => import("./web-dev-stacked-slides"), {
-  loading: () => (
-    <div className="min-h-[100vh] w-full bg-[#F3F0EE]" aria-hidden="true" />
-  ),
-});
-
-const HomepageCaseStudiesSection = dynamic(
-  () => import("@/components/sections/HomepageCaseStudiesSection"),
-  {
-    loading: () => (
-      <div className="min-h-[70vh] w-full bg-[#F3F0EE]" aria-hidden="true" />
-    ),
-  },
-);
-
-const LightEngagementModels = dynamic(
-  () => import("@/components/homepage-light/LightEngagementModels"),
-  {
-    loading: () => (
-      <div className="min-h-[80vh] w-full bg-[#F3F0EE]" aria-hidden="true" />
-    ),
-  },
-);
 
 const webAppFAQs = [
   {
@@ -70,118 +49,81 @@ const webAppFAQs = [
     answer:
       "Absolutely. We have extensive experience integrating web applications with third-party APIs, legacy systems, databases, CRMs, ERPs, and other enterprise software. We ensure seamless data flow and system interoperability.",
   },
-];
+]
 
-export const metadata: Metadata = applyPageOg(
-  "/services/offshore-web-app-development",
-  {
-    title: "Web App Development Services | Custom Enterprise Web Applications",
+/* ------------------------------------------------------------------ */
+/* Shared Layout Config                                                */
+/* ------------------------------------------------------------------ */
+const SECTION_WRAPPER = "mx-auto max-w-full px-8 sm:px-10 md:px-14 lg:px-20";
+const SECTION_GAP = "space-y-24";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Web App Development Services | Custom Enterprise Web Applications",
+
+  description:
+    "Professional web app development services. We build scalable, secure, and high-performance custom web applications, SaaS platforms, and enterprise portals using modern technologies.",
+
+  keywords: [
+    "web app development",
+    "custom web applications",
+    "enterprise web development",
+    "SaaS application development",
+    "full-stack development",
+    "React.js development",
+    "Node.js development",
+    "cloud-based web apps",
+    "web application development company",
+    "secure web applications",
+  ],
+
+  openGraph: {
+    title: "Web App Development Services | Enterprise & SaaS Applications",
     description:
-      "Professional web app development services. We build scalable, secure, and high-performance custom web applications, SaaS platforms, and enterprise portals using modern technologies.",
-    keywords: [
-      "web app development",
-      "custom web applications",
-      "enterprise web development",
-      "SaaS application development",
-      "full-stack development",
-      "React.js development",
-      "Node.js development",
-      "cloud-based web apps",
-      "web application development company",
-      "secure web applications",
-    ],
-    openGraph: {
-      title: "Web App Development Services | Enterprise & SaaS Applications",
-      description:
-        "Custom web app development services for startups and enterprises. Scalable, secure, and high-performance web applications tailored to your business needs.",
-      url: "https://www.softreetechnology.com/services/offshore-web-app-development",
-      siteName: "Softree Technology",
-      type: "website",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Web App Development Services",
-      description:
-        "Custom enterprise and SaaS web applications with modern technologies.",
-    },
-    alternates: {
-      canonical:
-        "https://www.softreetechnology.com/services/offshore-web-app-development",
-    },
+      "Custom web app development services for startups and enterprises. Scalable, secure, and high-performance web applications tailored to your business needs.",
+    url: "https://www.softreetechnology.com/services/offshore-web-app-development",
+    siteName: "Softree Technology",
+    type: "website",
   },
-  "Softree Technology",
-);
 
-export default function WebDevelopmentServicePage() {
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: webAppFAQs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: { "@type": "Answer", text: faq.answer },
-    })),
-  };
+  twitter: {
+    card: "summary_large_image",
+    title: "Web App Development Services",
+    description:
+      "Custom enterprise and SaaS web applications with modern technologies.",
+  },
 
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://www.softreetechnology.com",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Services",
-        item: "https://www.softreetechnology.com/services",
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "Web Development",
-        item: "https://www.softreetechnology.com/services/offshore-web-app-development",
-      },
-    ],
-  };
+  alternates: {
+    canonical:
+      "https://www.softreetechnology.com/services/offshore-web-app-development",
+  },
+};
 
+export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col overflow-x-clip bg-[#F3F0EE]">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <NavigationServer />
-      <main className="flex-grow overflow-x-clip">
-        <div className="bg-[#F3F0EE] pt-[100px]" data-section="web-dev-breadcrumb">
-          <div className="mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-12">
-            <ServicePageBreadcrumb
-              items={[
-                { label: "Home", href: "/" },
-                { label: "Services", href: "/services" },
-                { label: "Web Development" },
-              ]}
-            />
-          </div>
-        </div>
+    <main className="relative min-h-screen bg-black">
+      <NavigationClient />
 
-        <WebDevIntro />
-        <WebDevSticky />
-        <LightEngagementModels />
-        <WebDevStackedSlides />
-        <HomepageCaseStudiesSection />
-        <ServicesHubTestimonial />
-        <LightContactSection />
-        <LightFAQExact faqs={webAppFAQs} />
-      </main>
+      {/* HERO */}
+      <WebDevHero />
+
+      {/* MAIN CONTENT — COMPONENT BACKGROUND */}
+      <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
+        <TrustedBrandsMarquee />
+        <WebDevelopmentCaseStudies />
+        <WebDevelopmentHero />
+        <FullStackTeams />
+        <ThreePillars />
+        <CollaborationTabs />
+        <QualityBenchmark />
+        <WhyChooseSoftreeWebDevelopment />
+        {/* <Certifications /> */}
+      </section>
+
+      <LightContactSection />
+      <LightFAQExact faqs={webAppFAQs} />
+
       <Footer />
-    </div>
+    </main>
   );
 }

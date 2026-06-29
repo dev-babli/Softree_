@@ -14,96 +14,26 @@ const ACCENT = "#FF5812" as const;
 
 const caseStudies = [
   {
-    title: "EdTech Management Information System",
+    title: "AI Website Performance Monitoring",
     category: "Web App Development",
-
-    summary:
-      "Centralized platform for managing students, courses, and operations.",
-
-    challenge:
-      "Institutions lacked a unified system for academic and admin management.",
-
-    solution:
-      "Built a web-based MIS to manage academics, users, and reporting.",
-
-    impact: "Reduced manual work by 60% and enabled real-time reporting.",
-
-    tech: ["Web Application", "EdTech", "System Management"],
-
+    summary: "AI-powered real-time tracking dashboard for monitoring site speed, traffic anomalies, and user behavior metrics.",
+    challenge: "Legacy analytics tools failed to capture real-time performance anomalies, leading to slow page loads and user drop-offs.",
+    solution: "Implemented a real-time AI performance monitoring web app with predictive analytics and alerting.",
+    impact: "Improved average page load times by 55% and reduced critical system downtime by 90%.",
+    tech: ["Next.js", "AI Analytics", "Real-Time DB", "Performance Tracking"],
     image: "/images/edtech.jpg",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/EdTech-Management-Information-System-.pdf",
+    href: "https://www.softreetechnology.com/case-studies/ai-website-performance-monitoring",
   },
-
   {
-    title: "Noteved Admin Web Portal",
+    title: "Enterprise AI Website Transformation",
     category: "Web App Development",
-
-    summary: "Secure admin dashboard for centralized platform control.",
-
-    challenge: "Admins needed better control over users and content.",
-
-    solution: "Developed a role-based admin portal for system management.",
-
-    impact: "Improved efficiency by 45% with faster operations.",
-
-    tech: ["Admin Dashboard", "Web Management", "RBAC"],
-
-    image: "/images/education.jpg",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/NotevedAdmin.docx.pdf",
-  },
-
-  {
-    title: "Wellkies Admin Web Application",
-    category: "Web App Development",
-
-    summary: "Internal healthcare admin system for secure workflow management.",
-
-    challenge: "Healthcare teams lacked centralized workflow control.",
-
-    solution: "Built a secure admin app for managing users and services.",
-
-    impact: "Reduced operational delays by 50%.",
-
-    tech: ["Web Application", "Admin Panel", "Healthcare Platform"],
-
+    summary: "Integrating generative AI and customized chatbots to revolutionize enterprise website user experience and client conversion.",
+    challenge: "Traditional static corporate websites suffered from low user engagement and poor lead conversion rates.",
+    solution: "Developed a custom AI-driven web experience with conversational search, personalization, and live-chat agent integration.",
+    impact: "Increased qualified lead generation by 150% and boosted user session duration by 3×.",
+    tech: ["React.js", "Generative AI", "Azure Cognitive Services", "Custom Chatbots"],
     image: "/images/web-app.png",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Website.docx.pdf",
-  },
-
-  {
-    title: "Public Blogging Website (MERN Stack)",
-    category: "Web App Development",
-
-    summary: "Scalable blogging platform with authentication and CMS.",
-
-    challenge: "Creators needed a secure and scalable publishing platform.",
-
-    solution: "Built a full-stack MERN app with authentication and CMS.",
-
-    impact: "Handled high traffic and increased engagement 3×.",
-
-    tech: ["MongoDB", "Express.js", "React.js", "Node.js"],
-
-    image: "/images/3.png",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Public-Blogging-Website-Using-the-MERN-Stack.pdf",
-  },
-
-  {
-    title: "Food & Wine Website",
-    category: "Web App Development",
-
-    summary: "Modern content-driven website with immersive UI.",
-
-    challenge: "Needed a visually rich platform with strong performance.",
-
-    solution: "Developed a responsive, performance-optimized website.",
-
-    impact: "Improved page speed by 40% and boosted engagement.",
-
-    tech: ["Web Design", "Responsive UI", "CMS"],
-
-    image: "/images/food.png",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/FOOD-WINE-WEBSITE.pdf",
+    href: "https://www.softreetechnology.com/case-studies/enterprise-ai-website-transformation",
   },
 ];
 

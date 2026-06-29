@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-11T21:31:47.814Z",
+  "generatedAt": "2026-06-29T06:57:42.780Z",
   "baseUrl": "https://www.softreetechnology.com",
   "size": 1200,
-  "count": 53,
+  "count": 93,
   "routes": [
     {
       "route": "/",
@@ -179,6 +179,36 @@
       "height": 1200
     },
     {
+      "route": "/case-studies/digital-learning-management-platform",
+      "file": "/og/pages/case-studies--digital-learning-management-platform.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/enterprise-leave-management-system",
+      "file": "/og/pages/case-studies--enterprise-leave-management-system.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/power-apps-ceramic-manufacturing-automation",
+      "file": "/og/pages/case-studies--power-apps-ceramic-manufacturing-automation.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/sharepoint-spfx-automation-testing",
+      "file": "/og/pages/case-studies--sharepoint-spfx-automation-testing.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/ai-powered-task-automation-copilot-power-apps",
+      "file": "/og/pages/case-studies--ai-powered-task-automation-copilot-power-apps.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
       "route": "/case-studies/barcode-scanner-app-audio-equipment-management",
       "file": "/og/pages/case-studies--barcode-scanner-app-audio-equipment-management.png",
       "width": 1200,
@@ -191,14 +221,68 @@
       "height": 1200
     },
     {
+      "route": "/case-studies/multi-vendor-ecommerce-marketplace-platform",
+      "file": "/og/pages/case-studies--multi-vendor-ecommerce-marketplace-platform.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/electronic-medical-records-emr-workflow-automation-ai-copilot",
+      "file": "/og/pages/case-studies--electronic-medical-records-emr-workflow-automation-ai-copilot.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/ai-website-performance-monitoring",
+      "file": "/og/pages/case-studies--ai-website-performance-monitoring.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/hr-analytics-employee-experience-platform",
+      "file": "/og/pages/case-studies--hr-analytics-employee-experience-platform.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
       "route": "/case-studies/ai-powered-process-discovery-copilot",
       "file": "/og/pages/case-studies--ai-powered-process-discovery-copilot.png",
       "width": 1200,
       "height": 1200
     },
     {
+      "route": "/case-studies/smart-manufacturing-intelligence-platform",
+      "file": "/og/pages/case-studies--smart-manufacturing-intelligence-platform.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
       "route": "/case-studies/employee-separation-process-automation",
       "file": "/og/pages/case-studies--employee-separation-process-automation.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/wellkies-healthcare-consultation-platform",
+      "file": "/og/pages/case-studies--wellkies-healthcare-consultation-platform.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/banking-risk-compliance-analytics-global-bank",
+      "file": "/og/pages/case-studies--banking-risk-compliance-analytics-global-bank.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/enterprise-ai-website-transformation",
+      "file": "/og/pages/case-studies--enterprise-ai-website-transformation.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/content-scheduler-app-powerapps-sharepoint",
+      "file": "/og/pages/case-studies--content-scheduler-app-powerapps-sharepoint.png",
       "width": 1200,
       "height": 1200
     },
@@ -221,14 +305,92 @@
       "height": 1200
     },
     {
+      "route": "/case-studies/wellkies-clinic-patient-management-app",
+      "file": "/og/pages/case-studies--wellkies-clinic-patient-management-app.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/powerapps-retail-store-opening-automation",
+      "file": "/og/pages/case-studies--powerapps-retail-store-opening-automation.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/claim-request-management-powerapps-sharepoint",
+      "file": "/og/pages/case-studies--claim-request-management-powerapps-sharepoint.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/sharepoint-asset-tracker-app",
+      "file": "/og/pages/case-studies--sharepoint-asset-tracker-app.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/customer-360-platform",
+      "file": "/og/pages/case-studies--customer-360-platform.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/contacts-management-system-powerapps-mobile-app",
+      "file": "/og/pages/case-studies--contacts-management-system-powerapps-mobile-app.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/neucart-powerapps-power-automate-qa-testing-case-study",
+      "file": "/og/pages/case-studies--neucart-powerapps-power-automate-qa-testing-case-study.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/healthcare-ai-test-automation-patient-management-platform",
+      "file": "/og/pages/case-studies--healthcare-ai-test-automation-patient-management-platform.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/healthcare-referral-management-insurance-pre-authorization-automation",
+      "file": "/og/pages/case-studies--healthcare-referral-management-insurance-pre-authorization-automation.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
       "route": "/case-studies/hr-process-automation-with-copilot-studio",
       "file": "/og/pages/case-studies--hr-process-automation-with-copilot-studio.png",
       "width": 1200,
       "height": 1200
     },
     {
+      "route": "/case-studies/ai-driven-itsm-analytics-platform-microsoft-fabric",
+      "file": "/og/pages/case-studies--ai-driven-itsm-analytics-platform-microsoft-fabric.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/healthcare-patient-intelligence-platform",
+      "file": "/og/pages/case-studies--healthcare-patient-intelligence-platform.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/case-studies/delivery-performance-sla-analytics-dashboard",
+      "file": "/og/pages/case-studies--delivery-performance-sla-analytics-dashboard.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
       "route": "/blog/ai-enterprise-transformation",
       "file": "/og/pages/blog--ai-enterprise-transformation.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/ai-workflow-orchestration-platform",
+      "file": "/og/pages/blog--ai-workflow-orchestration-platform.png",
       "width": 1200,
       "height": 1200
     },
@@ -269,6 +431,48 @@
       "height": 1200
     },
     {
+      "route": "/blog/website-modernization-guide",
+      "file": "/og/pages/blog--website-modernization-guide.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/website-modernization-strategy",
+      "file": "/og/pages/blog--website-modernization-strategy.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/enterprise-ai-workflow-automation",
+      "file": "/og/pages/blog--enterprise-ai-workflow-automation.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/microsoft-power-apps-development-guide-for-enterprises",
+      "file": "/og/pages/blog--microsoft-power-apps-development-guide-for-enterprises.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/enterprise-ai-governance-framework",
+      "file": "/og/pages/blog--enterprise-ai-governance-framework.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/website-redesign-vs-modernization",
+      "file": "/og/pages/blog--website-redesign-vs-modernization.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/custom-ai-agent-development-for-enterprise-workflows",
+      "file": "/og/pages/blog--custom-ai-agent-development-for-enterprise-workflows.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
       "route": "/blog/modernizing-legacy-applications-sharepoint-power-apps",
       "file": "/og/pages/blog--modernizing-legacy-applications-sharepoint-power-apps.png",
       "width": 1200,
@@ -277,6 +481,12 @@
     {
       "route": "/blog/microsoft-fabric-and-power-bi-integration-for-enterprise-analytics",
       "file": "/og/pages/blog--microsoft-fabric-and-power-bi-integration-for-enterprise-analytics.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/microsoft-fabric-implementation-services",
+      "file": "/og/pages/blog--microsoft-fabric-implementation-services.png",
       "width": 1200,
       "height": 1200
     },
@@ -295,6 +505,24 @@
     {
       "route": "/blog/security-first-application-development",
       "file": "/og/pages/blog--security-first-application-development.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/responsive-web-design-modernization",
+      "file": "/og/pages/blog--responsive-web-design-modernization.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/ai-copilots-for-manufacturing-driving-operational-gains-in-2026",
+      "file": "/og/pages/blog--ai-copilots-for-manufacturing-driving-operational-gains-in-2026.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/ai-copilots-for-manufacturing-enterprise-implementation-guide-2026",
+      "file": "/og/pages/blog--ai-copilots-for-manufacturing-enterprise-implementation-guide-2026.png",
       "width": 1200,
       "height": 1200
     },
@@ -319,6 +547,18 @@
     {
       "route": "/blog/best-sharepoint-development-services",
       "file": "/og/pages/blog--best-sharepoint-development-services.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/power-platform-governance-enterprise-framework-for-2026-it-leaders",
+      "file": "/og/pages/blog--power-platform-governance-enterprise-framework-for-2026-it-leaders.png",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "route": "/blog/power-platform-governance-enterprise-framework-for-2026-success",
+      "file": "/og/pages/blog--power-platform-governance-enterprise-framework-for-2026-success.png",
       "width": 1200,
       "height": 1200
     }

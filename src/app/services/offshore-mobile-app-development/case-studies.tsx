@@ -9,93 +9,37 @@ import { FileText, AlertTriangle, Lightbulb, TrendingUp } from "lucide-react";
 import 'swiper/css';
 const caseStudies = [
   {
-    title: "Wellkies Doctor Mobile App",
+    title: "Wellkies Clinic Patient Management App",
     category: "Mobile App Development",
-
-    summary: "Secure app for doctors to manage appointments and consultations.",
-
-    challenge: "Doctors needed faster access to schedules and patient records.",
-
-    solution: "Built a secure app with calendars, records, and workflow tools.",
-
-    impact: "Reduced appointment handling time by 40%.",
-
-    tech: ["Mobile App", "Healthcare", "UI/UX"],
-
-    image: "/images/1.png",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-Doctor-Document.pdf",
-  },
-
-  {
-    title: "Wellkies Clinic Management App",
-    category: "Mobile App Development",
-
-    summary: "Centralized clinic management and scheduling system.",
-
-    challenge: "Disconnected systems caused scheduling inefficiencies.",
-
-    solution: "Developed a unified app for staff and appointment management.",
-
-    impact: "Improved operational efficiency by 50%.",
-
-    tech: ["Mobile App", "Clinic Management", "System Integration"],
-
+    summary: "An integrated mobile app for patient registration, electronic health records (EHR), and automated billing workflows.",
+    challenge: "Manual clinic registration and patient check-in workflows caused long wait times and billing bottlenecks.",
+    solution: "Implemented a custom patient management mobile app with digital check-ins and integrated payment gateways.",
+    impact: "Reduced patient waiting room times by 65% and improved billing accuracy by 95%.",
+    tech: ["Flutter", "Firebase", "Node.js", "Healthcare API"],
     image: "/images/2.png",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-Clinic-App.pdf",
+    href: "https://www.softreetechnology.com/case-studies/wellkies-clinic-patient-management-app",
   },
-
   {
-    title: "Wellkies User Mobile App",
+    title: "Contacts Management System (PowerApps Mobile App)",
     category: "Mobile App Development",
-
-    summary: "Patient app for booking and managing healthcare visits.",
-
-    challenge: "Patients lacked a simple digital booking experience.",
-
-    solution: "Built an intuitive app for search, booking, and profiles.",
-
-    impact: "Tripled bookings and improved engagement.",
-
-    tech: ["Mobile App", "Patient Experience", "Secure Auth"],
-
+    summary: "A secure, customized PowerApps mobile application for enterprise contacts and client relationship management.",
+    challenge: "Sales and account teams lacked unified access to real-time client contact details on mobile devices, leading to communication delays.",
+    solution: "Designed and built a mobile canvas Power App with native click-to-call, email, and location features integrated with Dynamics 365.",
+    impact: "Reduced communication latency by 50% and achieved 100% data compliance across teams.",
+    tech: ["Power Apps", "Dynamics 365", "Power Automate", "Mobile Workflow"],
     image: "/images/wellkies.png",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-User-App.pdf",
+    href: "https://www.softreetechnology.com/case-studies/contacts-management-system-powerapps-mobile-app",
   },
-
   {
-    title: "School Stationery Shopping App",
-    category: "Web & Mobile Solutions",
-
-    summary: "Scalable eCommerce app for stationery ordering.",
-
-    challenge: "Manual ordering and inventory management caused delays.",
-
-    solution: "Built a shopping app with admin controls and smooth checkout.",
-
-    impact: "Reduced manual effort by 60% and improved accuracy.",
-
-    tech: ["Mobile App", "eCommerce", "Admin Dashboard"],
-
-    image: "/images/school.png",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/School-Stationery-Shopping-App-Backend-Documentation.docx.pdf",
-  },
-
-  {
-    title: "Live Appointment Booking App",
+    title: "Digital Learning Management Platform",
     category: "Mobile App Development",
-
-    summary: "Real-time booking system with instant confirmations.",
-
-    challenge: "Users needed quick bookings without scheduling conflicts.",
-
-    solution: "Developed live scheduling with smart approval workflows.",
-
-    impact: "Reduced booking delays by 70%.",
-
-    tech: ["Mobile App", "Real-Time Booking", "UI/UX"],
-
-    image: "/images/appointment.png",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/11/LIVE-appointment-bookings.docx.pdf",
+    summary: "A comprehensive digital learning management platform for online course delivery, student tracking, and analytics.",
+    challenge: "Traditional classroom training models were hard to scale and track across decentralized locations.",
+    solution: "Developed a cross-platform learning mobile app with interactive progress tracking, offline access, and automated assessments.",
+    impact: "Scaled learning reach to over 10,000 active students and boosted course completion rates by 40%.",
+    tech: ["React Native", "Node.js", "MongoDB", "LMS Integration"],
+    image: "/images/school.png",
+    href: "https://www.softreetechnology.com/case-studies/digital-learning-management-platform",
   },
 ];
 

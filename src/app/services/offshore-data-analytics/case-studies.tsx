@@ -11,6 +11,17 @@ import "swiper/css/pagination";
 
 const caseStudies = [
   {
+    title: "Healthcare Patient Intelligence Platform",
+    category: "Power BI",
+    summary: "An enterprise-grade Power BI dashboard for real-time patient admissions tracking, resource allocation, and clinical analytics.",
+    challenge: "Healthcare executives lacked a centralized, real-time platform to monitor hospital capacity, patient outcomes, and staffing needs.",
+    solution: "Implemented a HIPAA-compliant Power BI data platform integrated with hospital EHR databases and predictive analytics models.",
+    impact: "Enhanced hospital operational efficiency by 40% and improved patient admissions forecasting accuracy.",
+    tech: ["Power BI", "Data Analytics", "Azure Data Factory", "EHR Integration"],
+    image: "/images/case-study/power-apps/hr.png",
+    href: "https://www.softreetechnology.com/case-studies/healthcare-patient-intelligence-platform",
+  },
+  {
     title: "Barcode Scanner Model-Driven App",
     summary: "A Dataverse-based barcode app for real-time inventory tracking.",
     challenge: "Manual inventory caused inaccuracies and delays.",
