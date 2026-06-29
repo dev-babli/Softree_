@@ -6,7 +6,7 @@
         "dev": "next dev --turbo",
         "dev:legacy-cms-kit": "concurrently -k -n site,studio -c blue,magenta \"next dev --turbo\" \"npm run cms:dev\"",
         "dev:site": "next dev --turbo",
-        "build": "npm run generate:og && next build --webpack",
+        "build": "next build --webpack",
         "start": "next start",
         "lint": "next lint",
         "studio": "next dev --turbo",
@@ -207,6 +207,6 @@
         "vitest": "2.1.9"
     },
     "engines": {
-        "node": "20.x"
+        "node": "24.x"
     }
 }
