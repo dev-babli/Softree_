@@ -49,12 +49,20 @@ export const DASHBOARD_QUERY = `{
     excerpt,
     _updatedAt
   },
-  "recentActivity": *[_type in ["caseStudy", "post", "marketingPage"]] | order(_updatedAt desc)[0...8] {
+  "recentActivity": *[_type in ["caseStudy", "post", "marketingPage"]] | order(_updatedAt desc)[0...10] {
     _id,
     _type,
     title,
     client,
     "status": coalesce(status, "published"),
     _updatedAt
-  }
+  },
+  "activity7d": *[
+    _type in ["caseStudy", "post", "marketingPage"] &&
+    dateTime(_updatedAt) > dateTime(now()) - 60*60*24*7
+  ]{ _updatedAt },
+  "edits7dCount": count(*[
+    _type in ["caseStudy", "post", "marketingPage"] &&
+    dateTime(_updatedAt) > dateTime(now()) - 60*60*24*7
+  ])
 }`

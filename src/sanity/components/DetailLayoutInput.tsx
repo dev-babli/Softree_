@@ -106,7 +106,7 @@ export default function DetailLayoutInput(props: StringInputProps) {
     return buildLayoutPreviewIframeUrl(slug, origin)
   }, [slug, origin])
 
-  const presentationHref = slug ? buildPresentationPreviewHref(slug) : null
+  const presentationHref = slug ? buildPresentationPreviewHref(slug, origin) : null
 
   const selectLayout = useCallback(
     (value: string) => {

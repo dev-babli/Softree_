@@ -28,7 +28,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\"topic\": \"{{$json.topic || ''}}\", \"autoPublish\": true, \"generateImages\": true}"
+        "jsonBody": "={\"topic\": \"{{$json.topic || ''}}\", \"autoPublish\": false, \"generateImages\": true, \"useArena\": true}"
       },
       "id": "http-pipeline",
       "name": "Run Softree Pipeline",

@@ -41,7 +41,7 @@ export const GenerateSeoFromContentAction: DocumentActionComponent = (props) => 
   }
 
   return {
-    label: "Generate SEO from content",
+    label: "Fill SEO from title & excerpt",
     icon: SparklesIcon,
     onHandle,
   }

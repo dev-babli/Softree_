@@ -1,7 +1,8 @@
 import Footer from "@/components/sections/footer";
 import { Metadata } from "next";
+import { applyPageOg } from "@/lib/site-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageOg("/privacy-policy", {
   title: "Privacy Policy | Softree Technology",
   description:
     "Read Softree Technology’s Privacy Policy to understand how we collect, use, and protect your information.",
@@ -19,23 +20,13 @@ export const metadata: Metadata = {
     description: "Learn how Softree Technology protects your data and privacy.",
     url: "https://www.softreetechnology.com/privacy-policy",
     siteName: "Softree Technology",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Softree Technology",
-      },
-    ],
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
     title: "Privacy Policy | Softree Technology",
     description: "Learn how Softree Technology protects your data and privacy.",
-    images: ["/og-image.png"],
   },
-};
+}, "Softree Technology Privacy Policy");
 
 export default function PrivacyPolicy() {
   const sections = [

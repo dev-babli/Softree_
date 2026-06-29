@@ -35,4 +35,7 @@ export type DashboardData = {
   attentionCaseStudies: AttentionItem[]
   attentionPosts: AttentionItem[]
   recentActivity: ActivityItem[]
+  /** All documents touched in the last 7 days — powers velocity chart + KPI. */
+  activity7d: Array<{_updatedAt: string}>
+  edits7dCount: number
 }

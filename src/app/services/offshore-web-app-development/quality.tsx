@@ -2,6 +2,9 @@
 
 import { CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
+import SectionHeader from "@/components/homepage-light/SectionHeader";
+
+const ACCENT = "#FF5812" as const;
 
 export default function QualityBenchmarkUltra() {
   const steps = [
@@ -39,35 +42,24 @@ export default function QualityBenchmarkUltra() {
 
   return (
     <section
-      id="plan-pricing"
-      className="relative overflow-hidden py-16 bg-gradient-to-b from-gray-50 via-white to-gray-50"
+      data-section="web-dev-quality"
+      className="relative overflow-hidden py-16 md:py-20"
     >
-      <div className="relative mx-auto max-w-7xl px-6">
-        {/* ================= Header ================= */}
+      <div className="relative mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-12">
         <div className="mx-auto mb-14 max-w-4xl text-center">
-          <span className="text-xs font-semibold tracking-[0.25em] uppercase text-orange-600">
-            Quality Framework
-          </span>
-
-          <h2 className="mt-3 text-4xl md:text-5xl font-bold text-gray-900">
-            Our Standard for Building{" "}
-            <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
-              Reliable, Scalable
-            </span>{" "}
-            Web Experiences
-          </h2>
-
-          <p className="mt-4 text-gray-600 leading-relaxed max-w-3xl mx-auto">
-            We follow a disciplined framework that ensures performance,
-            security, and scalability at every stage — from thoughtful design to
-            production-ready engineering.
-          </p>
+          <SectionHeader
+            badge="Quality framework"
+            accent={ACCENT}
+            headline="Our standard for building reliable, scalable web experiences"
+            body="We follow a disciplined framework that ensures performance, security, and scalability at every stage — from thoughtful design to production-ready engineering."
+            className="mx-auto items-center [&_p]:mx-auto"
+          />
         </div>
 
         {/* ================= Timeline ================= */}
         <div className="relative">
           {/* line */}
-          <div className="hidden md:block absolute top-10 left-0 right-0 h-px bg-gray-200" />
+          <div className="hidden md:block absolute top-10 left-0 right-0 h-px bg-[#0a0a1a]/10" />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {steps.map((item, index) => {
@@ -107,15 +99,13 @@ export default function QualityBenchmarkUltra() {
                       ${
                         isFeatured
                           ? `
-                            bg-gradient-to-r from-black via-[#4c1c02] to-black
-                            text-white
-                            shadow-2xl scale-[1.04]
+                            bg-[#0a0a0a] text-white
+                            shadow-[0_24px_60px_-24px_rgba(10,10,26,0.45)] scale-[1.02]
                           `
                           : `
-                            bg-white/80 backdrop-blur-xl
-                            border border-gray-200
-                            text-gray-900
-                            shadow-md hover:shadow-xl
+                            border border-[#0a0a1a]/[0.06] bg-white
+                            text-[#0a0a1a]
+                            shadow-[0_12px_40px_-24px_rgba(10,10,26,0.12)] hover:shadow-[0_24px_60px_-32px_rgba(10,10,26,0.18)]
                           `
                       }
                     `}
@@ -123,7 +113,7 @@ export default function QualityBenchmarkUltra() {
                     {/* Title */}
                     <h3
                       className={`mb-6 text-lg font-semibold ${
-                        isFeatured ? "text-white" : "text-gray-900"
+                        isFeatured ? "text-white" : "text-[#0a0a1a]"
                       }`}
                     >
                       {item.title}
@@ -131,8 +121,8 @@ export default function QualityBenchmarkUltra() {
 
                     {/* Points */}
                     <ul
-                      className={`space-y-4 text-sm text-left ${
-                        isFeatured ? "text-zinc-300" : "text-gray-600"
+                      className={`space-y-4 text-left text-sm ${
+                        isFeatured ? "text-white/70" : "text-[#0a0a1a]/65"
                       }`}
                     >
                       {item.points.map((point, idx) => (
@@ -141,12 +131,12 @@ export default function QualityBenchmarkUltra() {
                           <span
                             className={`
                               flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5
-                              ${isFeatured ? "bg-white/20" : "bg-orange-50"}
+                              ${isFeatured ? "bg-white/15" : "bg-[#FF5812]/10"}
                             `}
                           >
                             <CheckCircle2
                               className={`w-4 h-4 ${
-                                isFeatured ? "text-white" : "text-orange-600"
+                                isFeatured ? "text-white" : "text-[#FF5812]"
                               }`}
                             />
                           </span>

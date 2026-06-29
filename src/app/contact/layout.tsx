@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
+import { applyPageOg } from "@/lib/site-metadata";
+
+export const metadata: Metadata = applyPageOg("/contact", {
   title: "Contact | Softree Technology - AI & Enterprise Solutions",
   description:
-    "Get in touch with Softree Technology. Contact us for AI solutions, enterprise software development, and expert IT consulting services.",
+    "Contact Softree Technology — send a project inquiry, book a free discovery call via Calendly, or reach our Bengaluru, Cuttack, and San Francisco teams directly.",
   keywords: [
     "Contact Softree",
     "AI development company",
@@ -21,24 +23,14 @@ export const metadata: Metadata = {
       "Get in touch with Softree Technology for AI, cloud, and enterprise software solutions.",
     url: "https://www.softreetechnology.com/contact",
     siteName: "Softree Technology",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Softree Technology",
-      },
-    ],
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
     title: "Contact | Softree Technology - AI & Enterprise Solutions",
     description:
       "Connect with Softree Technology for AI, cloud, and enterprise software development services.",
-    images: ["/og-image.png"],
   },
-};
+}, "Contact Softree Technology");
 
 export default function ContactLayout({
   children,

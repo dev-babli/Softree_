@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
 
+import {
+  CASE_STUDIES_OG_IMAGE,
+  ogImages,
+  SITE_URL,
+  twitterImages,
+} from "@/lib/site-metadata";
+
 export const metadata: Metadata = {
   title: {
     template: "%s | Softree Technology Case Studies",
@@ -8,14 +15,15 @@ export const metadata: Metadata = {
   description:
     "Explore real-world case studies showcasing how Softree Technology delivers AI, Power Platform, SharePoint, and web solutions that drive measurable business results.",
   alternates: {
-    canonical: "https://www.softreetechnology.com/case-studies",
+    canonical: `${SITE_URL}/case-studies`,
   },
   openGraph: {
     title: "Case Studies | Softree Technology",
     description:
       "See how Softree Technology helped businesses transform with AI, Power Platform, and modern web development.",
+    url: `${SITE_URL}/case-studies`,
     siteName: "Softree Technology",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Softree Technology Case Studies" }],
+    images: ogImages(CASE_STUDIES_OG_IMAGE),
     type: "website",
   },
   twitter: {
@@ -23,7 +31,7 @@ export const metadata: Metadata = {
     title: "Case Studies | Softree Technology",
     description:
       "Real-world results from AI, Power Platform, and web development projects by Softree Technology.",
-    images: ["/og-image.png"],
+    images: twitterImages(CASE_STUDIES_OG_IMAGE),
   },
 };
 

@@ -1,0 +1,56 @@
+---
+description: Composer design tokens — fetch, CSS vars, and accent color checklist for case studies and blogs
+globs: src/components/case-studies/**,src/components/blog/**,src/lib/design-tokens.ts,src/lib/fetch-design-tokens.ts,src/app/case-studies/**,src/app/blog/**,src/sanity/schemaTypes/globalSettingsType.ts
+alwaysApply: false
+---
+
+# Composer design tokens
+
+Global accent + typography presets live in **Sanity → Global Settings → Design tokens** (`globalSettings.designTokens`). Never hardcode brand orange in composer surfaces.
+
+## Data flow
+
+1. `fetchDesignTokens()` — `sanityFetch`, singleton `_id == "globalSettings"`, React `cache()`, draft-aware.
+2. `resolveDesignTokenCssVars()` — maps presets → `--softree-accent`, `--softree-accent-soft`, `--softree-accent-tint`, `--softree-accent-border`, `--softree-heading-scale`, `--cs-accent`.
+3. Root `layout.tsx` injects vars on `<html>`.
+4. Composer shells use `mergeComposerStyleVars(designTokens)` from `@/lib/composer-style-vars`.
+
+## Styling rules
+
+```tsx
+// ❌ BAD — bypasses Global Settings
+className="text-[#FF7A2F]"
+style={{ color: "#FF7A2F" }}
+
+// ✅ GOOD
+className="text-[var(--softree-accent,#FF7A2F)]"
+style={{ backgroundColor: "var(--softree-accent-soft)" }}
+
+// ✅ GOOD — tints / glows
+className="bg-[radial-gradient(circle,color-mix(in_srgb,var(--softree-accent,#FF7A2F)_8%,transparent)_0%,transparent_68%)]"
+```
+
+- Default fallback hex: `DEFAULT_ACCENT` from `@/lib/brand-defaults` (not scattered `#FF7A2F`).
+- Category listing pages (`CaseStudyGrid`, `categoryConfig`) may keep per-category accents — that is intentional, not composer tokens.
+
+## Layout wiring
+
+| Layout | Must pass `designTokens` |
+|--------|--------------------------|
+| `PageComposerLayout` | yes |
+| `ManufacturingPowerPlatformLayout` / `ManufacturingCaseStudyPage` | yes |
+| `BlogComposerLayout` | yes |
+| Premium one-off layouts (parallax, bento, etc.) | inherit from `<html>` vars where possible |
+
+## Publish & revalidate
+
+- Editors must **Publish Global Settings** for live site (draft preview uses `sanityFetch` + draft mode).
+- Webhook revalidates `/`, `/blog`, `/case-studies`, and root layout on `globalSettings` change.
+
+## Pre-ship checklist
+
+1. Change accent to **Ocean blue** in Global Settings → Publish → hard refresh case study + blog composer page.
+2. Metrics, CTAs, links, hero glow, gallery ring all reflect new accent.
+3. Manufacturing layout and page-composer both update (not just one).
+4. Grep changed files: no new `#FF7A2F` / `rgba(255,122,47` in composer/blog components unless inside `var(..., fallback)`.
+5. Studio live preview iframe (draft enter URL) shows draft token changes without publish.

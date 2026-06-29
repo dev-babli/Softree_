@@ -2,12 +2,13 @@
  * Manufacturing case study — Softree site tokens (Inter, brand orange, 1240px layout).
  * Reuses shared light tokens; no custom Google fonts.
  */
+import { DEFAULT_ACCENT } from "@/lib/brand-defaults"
 import {
   caseStudyLightCssVars,
   csLight,
 } from "../../design-system/caseStudyLightTokens"
 
-export const ACCENT = "#FF7A2F"
+export const ACCENT = DEFAULT_ACCENT
 
 /** CSS vars for section components — maps legacy --cs-* names to Softree palette */
 export const csCssVars: Record<string, string> = {

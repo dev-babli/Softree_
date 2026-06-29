@@ -12,6 +12,7 @@ import Certifications from "../offshore-power-platform-development/certification
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import LightFAQExact from "@/components/homepage-light/LightFAQExact";
 import { Metadata } from "next";
+import { applyPageOg } from "@/lib/site-metadata";
 
 /* ------------------------------------------------------------------ */
 /* Shared Layout Spacing Config                                        */
@@ -19,7 +20,7 @@ import { Metadata } from "next";
 const SECTION_WRAPPER = "mx-auto max-w-8xl px-8 sm:px-10 md:px-14 lg:px-20";
 const SECTION_GAP = "space-y-24 py-24";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageOg("/services/mvp", {
   title:
     "MVP Development Services in India | Quick MVP Creation & Validation | Softree",
 
@@ -52,29 +53,16 @@ export const metadata: Metadata = {
 
     siteName: "Softree Technology",
 
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Softree MVP Development Services India",
-      },
-    ],
-
     type: "website",
   },
 
   twitter: {
-    card: "summary_large_image",
-
     title: "MVP Development Services India | Quick MVP Launch",
 
     description:
       "Fast, affordable MVP development services for startups and enterprises. Build and validate your product quickly with Softree.",
-
-    images: ["/og-image.png"],
   },
-};
+}, "Softree MVP Development Services India");
 
 export default function Home() {
   return (

@@ -12,6 +12,7 @@ import Certifications from "../offshore-power-platform-development/certification
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import LightFAQExact from "@/components/homepage-light/LightFAQExact";
 import type { Metadata } from "next";
+import { applyPageOg } from "@/lib/site-metadata";
 
 const generativeAIFAQs = [
   {
@@ -51,7 +52,7 @@ const generativeAIFAQs = [
   },
 ]
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageOg("/services/offshore-generative-ai-development", {
   title:
     "Generative AI Development Services | Custom AI & Enterprise Automation",
 
@@ -93,7 +94,7 @@ export const metadata: Metadata = {
     canonical:
       "https://www.softreetechnology.com/services/offshore-generative-ai-development",
   },
-};
+}, "Softree Technology");
 export default function GenerativeAI() {
   return (
     <div>

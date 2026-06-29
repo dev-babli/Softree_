@@ -3,13 +3,23 @@
 import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Search } from "lucide-react";
+import { ArrowUpRight, Search } from "lucide-react";
 import GeneralHeaderHero from "@/components/sections/GeneralHeaderHero";
+import type { CaseStudyCategoryKey } from "./categoryConfig";
 import type { CaseStudyHeroSlide, CaseStudyListingItem } from "./types";
+
+type CategoryLink = {
+  key: CaseStudyCategoryKey;
+  label: string;
+  href: string;
+  count: number;
+  accentColor: string;
+};
 
 type CaseStudiesListingClientProps = {
   caseStudies: CaseStudyListingItem[];
   heroSlides: CaseStudyHeroSlide[];
+  categoryLinks: CategoryLink[];
 };
 
 const INDUSTRY_OPTIONS = [
@@ -20,6 +30,11 @@ const INDUSTRY_OPTIONS = [
   "Finance",
   "Education",
   "Technology",
+  "Government",
+  "Financial Services",
+  "Professional Services",
+  "Information Technology Services",
+  "Human Resources, Corporate Services, AI Automation",
 ];
 
 const USE_CASE_OPTIONS = [
@@ -30,6 +45,7 @@ const USE_CASE_OPTIONS = [
   "Operations",
   "Web Platform",
   "Mobile App",
+  "Product Engineering",
 ];
 
 const COMPANY_SIZE_OPTIONS = ["All", "Startup", "Mid-market", "Enterprise"];
@@ -37,8 +53,10 @@ const COMPANY_SIZE_OPTIONS = ["All", "Startup", "Mid-market", "Enterprise"];
 export default function CaseStudiesListingClient({
   caseStudies,
   heroSlides,
+  categoryLinks,
 }: CaseStudiesListingClientProps) {
   const [search, setSearch] = useState("");
+  const [techCategory, setTechCategory] = useState<CaseStudyCategoryKey | "All">("All");
   const [industry, setIndustry] = useState("All");
   const [useCase, setUseCase] = useState("All");
   const [companySize, setCompanySize] = useState("All");
@@ -49,27 +67,33 @@ export default function CaseStudiesListingClient({
         !search ||
         study.title.toLowerCase().includes(search.toLowerCase()) ||
         study.description.toLowerCase().includes(search.toLowerCase()) ||
+        study.category.toLowerCase().includes(search.toLowerCase()) ||
         (study.industry || "").toLowerCase().includes(search.toLowerCase()) ||
         (study.useCase || "").toLowerCase().includes(search.toLowerCase());
 
+      const matchesTech =
+        techCategory === "All" || study.categoryKey === techCategory;
+
       const matchesIndustry =
         industry === "All" ||
-        (study.industry || "").toLowerCase() === industry.toLowerCase();
+        (study.industry || "").toLowerCase().includes(industry.toLowerCase());
 
       const matchesUseCase =
         useCase === "All" ||
-        (study.useCase || "").toLowerCase() === useCase.toLowerCase();
+        (study.useCase || "").toLowerCase().includes(useCase.toLowerCase());
 
       const matchesSize =
         companySize === "All" ||
         (study.companySize || "").toLowerCase() === companySize.toLowerCase();
 
-      return matchesSearch && matchesIndustry && matchesUseCase && matchesSize;
+      return matchesSearch && matchesTech && matchesIndustry && matchesUseCase && matchesSize;
     });
-  }, [caseStudies, search, industry, useCase, companySize]);
+  }, [caseStudies, search, techCategory, industry, useCase, companySize]);
 
-  const activeFilterCount = [industry, useCase, companySize].filter(
-    (f) => f !== "All"
+  const latestStories = caseStudies.slice(0, 2);
+
+  const activeFilterCount = [techCategory !== "All" ? techCategory : null, industry, useCase, companySize].filter(
+    (f) => f && f !== "All",
   ).length;
 
   return (
@@ -80,11 +104,63 @@ export default function CaseStudiesListingClient({
         slides={heroSlides}
       />
 
+      {/* Browse by technology */}
+      {categoryLinks.length > 0 ? (
+        <section className="border-b border-[#e6e1f2] bg-[#faf8f3]">
+          <div className="mx-auto max-w-[1280px] px-5 py-8 md:px-8">
+            <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.14em] text-[#6b7694]">
+              Browse by technology
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {categoryLinks.map((cat) => (
+                <Link
+                  key={cat.key}
+                  href={cat.href}
+                  className="group inline-flex items-center gap-2 rounded-full border border-[#e6e1f2] bg-white px-4 py-2.5 text-[13px] font-semibold text-[#171717] transition-all hover:-translate-y-0.5 hover:shadow-md"
+                  style={{ borderColor: `${cat.accentColor}33` }}
+                >
+                  <span
+                    className="h-2 w-2 rounded-full"
+                    style={{ backgroundColor: cat.accentColor }}
+                    aria-hidden
+                  />
+                  {cat.label}
+                  <span className="text-[11px] font-medium text-[#6b7694]">({cat.count})</span>
+                  <ArrowUpRight className="h-3.5 w-3.5 text-[#6b7694] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {/* Latest spotlight */}
+      {latestStories.length > 0 ? (
+        <section className="border-b border-[#e6e1f2] bg-white py-10 md:py-12">
+          <div className="mx-auto max-w-[1280px] px-5 md:px-8">
+            <div className="mb-6 flex items-end justify-between gap-4">
+              <div>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#1852ff]">
+                  Latest
+                </p>
+                <h2 className="mt-1 text-[1.75rem] font-bold tracking-[-0.02em] text-[#171717]">
+                  Recently published
+                </h2>
+              </div>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2">
+              {latestStories.map((study) => (
+                <LatestStoryCard key={study.href} study={study} />
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       {/* Filters */}
       <section className="border-b border-[#e6e1f2] bg-white">
         <div className="mx-auto max-w-[1280px] px-5 py-6 md:px-8">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            {/* Search */}
             <div className="relative max-w-sm">
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#6b7694]" />
               <input
@@ -96,8 +172,17 @@ export default function CaseStudiesListingClient({
               />
             </div>
 
-            {/* Filter pills */}
             <div className="flex flex-wrap items-center gap-3">
+              <FilterSelect
+                label="Technology"
+                value={techCategory}
+                options={["All", ...categoryLinks.map((c) => c.key)]}
+                optionLabels={{
+                  All: "Technology",
+                  ...Object.fromEntries(categoryLinks.map((c) => [c.key, c.label])),
+                }}
+                onChange={(v) => setTechCategory(v as CaseStudyCategoryKey | "All")}
+              />
               <FilterSelect
                 label="Industry"
                 value={industry}
@@ -117,9 +202,11 @@ export default function CaseStudiesListingClient({
                 onChange={setCompanySize}
               />
 
-              {activeFilterCount > 0 && (
+              {activeFilterCount > 0 ? (
                 <button
+                  type="button"
                   onClick={() => {
+                    setTechCategory("All");
                     setIndustry("All");
                     setUseCase("All");
                     setCompanySize("All");
@@ -128,7 +215,7 @@ export default function CaseStudiesListingClient({
                 >
                   Clear ({activeFilterCount})
                 </button>
-              )}
+              ) : null}
             </div>
           </div>
         </div>
@@ -141,7 +228,7 @@ export default function CaseStudiesListingClient({
             <div className="rounded-[18px] border border-[#e6e1f2] bg-white px-8 py-16 text-center">
               <h2 className="text-[1.5rem] font-bold text-[#171717]">No matching stories</h2>
               <p className="mx-auto mt-3 max-w-xl text-[15px] leading-[1.6] text-[#4c5366]">
-                Try adjusting your filters or search terms.
+                Try adjusting your filters or browse a technology category above.
               </p>
             </div>
           ) : (
@@ -150,92 +237,9 @@ export default function CaseStudiesListingClient({
                 {filtered.length} {filtered.length === 1 ? "story" : "stories"}
               </p>
               <div className="grid grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-3">
-                {filtered.map((study) => {
-                  const isPlaceholder = !study.image || study.image.endsWith("_chat.svg");
-
-                  return (
-                    <Link
-                      key={study.href}
-                      aria-label="Read case study"
-                      href={study.href}
-                      className="group flex h-full flex-col gap-5 rounded-[18px] bg-white p-5 transition-transform duration-200 ease-out hover:-translate-y-[3px]"
-                    >
-                      <div
-                        className={`relative aspect-[16/9] w-full overflow-hidden rounded-[14px] ${isPlaceholder ? "bg-[#efeae0]" : ""
-                          }`}
-                      >
-                        {study.image && !isPlaceholder ? (
-                          <Image
-                            src={study.image}
-                            alt={study.imageAlt}
-                            fill
-                            unoptimized
-                            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 400px"
-                            className="object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
-                          />
-                        ) : study.image ? (
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <Image
-                              src={study.image}
-                              alt={study.imageAlt}
-                              width={120}
-                              height={120}
-                              unoptimized
-                              sizes="120px"
-                              className="h-[72px] w-auto object-contain transition-transform duration-300 ease-out group-hover:scale-[1.04]"
-                            />
-                          </div>
-                        ) : (
-                          <div className="absolute inset-0 flex items-center justify-center text-sm font-medium text-[#6b7694]">
-                            {study.title}
-                          </div>
-                        )}
-                      </div>
-
-                      <div className="flex flex-1 flex-col gap-3 px-1 pb-1">
-                        <div className="flex items-center gap-2">
-                          <span className="text-[13px] font-semibold text-[#1852ff]">
-                            {study.industry || study.category}
-                          </span>
-                          {study.useCase && (
-                            <>
-                              <span className="text-[#c5c5c5]">·</span>
-                              <span className="text-[12px] text-[#6b7694]">{study.useCase}</span>
-                            </>
-                          )}
-                        </div>
-
-                        <h2 className="text-[1.55rem] font-bold leading-[1.15] tracking-[-0.01em] text-[#171717]">
-                          {study.title}
-                        </h2>
-
-                        {/* Key results */}
-                        {study.keyResults && study.keyResults.length > 0 && (
-                          <div className="flex flex-wrap gap-2">
-                            {study.keyResults.slice(0, 2).map((r) => (
-                              <span
-                                key={r.label}
-                                className="inline-flex items-center rounded-md bg-[#f0f4ff] px-2.5 py-1 text-[12px] font-semibold text-[#1852ff]"
-                              >
-                                {r.value} {r.label}
-                              </span>
-                            ))}
-                          </div>
-                        )}
-
-                        <p className="text-[15px] leading-[1.55] text-[#4c5366]">
-                          {study.description}
-                        </p>
-
-                        <div className="mt-auto pt-3">
-                          <span className="inline-flex items-center rounded-full border border-[#191919] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#191919] transition-colors duration-200 group-hover:bg-[#191919] group-hover:text-white">
-                            read case study
-                          </span>
-                        </div>
-                      </div>
-                    </Link>
-                  );
-                })}
+                {filtered.map((study) => (
+                  <StoryCard key={study.href} study={study} />
+                ))}
               </div>
             </>
           )}
@@ -245,15 +249,149 @@ export default function CaseStudiesListingClient({
   );
 }
 
+function LatestStoryCard({ study }: { study: CaseStudyListingItem }) {
+  return (
+    <Link
+      href={study.href}
+      className="group flex flex-col overflow-hidden rounded-[18px] border border-[#e6e1f2] bg-white transition-transform hover:-translate-y-1 hover:shadow-lg md:flex-row"
+    >
+      <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden md:aspect-auto md:h-auto md:w-[42%]">
+        {study.image ? (
+          <Image
+            src={study.image}
+            alt={study.imageAlt}
+            fill
+            unoptimized
+            className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+            sizes="(max-width: 768px) 100vw, 400px"
+          />
+        ) : (
+          <div className="flex h-full min-h-[180px] items-center justify-center bg-[#efeae0] text-sm text-[#6b7694]">
+            {study.title}
+          </div>
+        )}
+      </div>
+      <div className="flex flex-1 flex-col gap-3 p-6">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="text-[12px] font-semibold uppercase tracking-[0.08em] text-[#1852ff]">
+            {study.category}
+          </span>
+          {study.industry ? (
+            <>
+              <span className="text-[#c5c5c5]">·</span>
+              <span className="text-[12px] text-[#6b7694]">{study.industry}</span>
+            </>
+          ) : null}
+        </div>
+        <h3 className="text-[1.35rem] font-bold leading-[1.2] text-[#171717]">{study.title}</h3>
+        <p className="line-clamp-2 text-[14px] leading-[1.55] text-[#4c5366]">{study.description}</p>
+        <span className="mt-auto inline-flex items-center gap-1 text-[12px] font-semibold uppercase tracking-[0.1em] text-[#171717]">
+          Read story <ArrowUpRight className="h-3.5 w-3.5" />
+        </span>
+      </div>
+    </Link>
+  );
+}
+
+function StoryCard({ study }: { study: CaseStudyListingItem }) {
+  const isPlaceholder = !study.image || study.image.endsWith("_chat.svg");
+
+  return (
+    <Link
+      aria-label="Read case study"
+      href={study.href}
+      className="group flex h-full flex-col gap-5 rounded-[18px] bg-white p-5 transition-transform duration-200 ease-out hover:-translate-y-[3px]"
+    >
+      <div
+        className={`relative aspect-[16/9] w-full overflow-hidden rounded-[14px] ${
+          isPlaceholder ? "bg-[#efeae0]" : ""
+        }`}
+      >
+        {study.image && !isPlaceholder ? (
+          <Image
+            src={study.image}
+            alt={study.imageAlt}
+            fill
+            unoptimized
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 400px"
+            className="object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
+          />
+        ) : study.image ? (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <Image
+              src={study.image}
+              alt={study.imageAlt}
+              width={120}
+              height={120}
+              unoptimized
+              sizes="120px"
+              className="h-[72px] w-auto object-contain transition-transform duration-300 ease-out group-hover:scale-[1.04]"
+            />
+          </div>
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center text-sm font-medium text-[#6b7694]">
+            {study.title}
+          </div>
+        )}
+      </div>
+
+      <div className="flex flex-1 flex-col gap-3 px-1 pb-1">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="text-[13px] font-semibold text-[#1852ff]">{study.category}</span>
+          {study.industry ? (
+            <>
+              <span className="text-[#c5c5c5]">·</span>
+              <span className="text-[12px] text-[#6b7694]">{study.industry}</span>
+            </>
+          ) : null}
+          {study.useCase ? (
+            <>
+              <span className="text-[#c5c5c5]">·</span>
+              <span className="text-[12px] text-[#6b7694]">{study.useCase.split(",")[0]}</span>
+            </>
+          ) : null}
+        </div>
+
+        <h2 className="text-[1.55rem] font-bold leading-[1.15] tracking-[-0.01em] text-[#171717]">
+          {study.title}
+        </h2>
+
+        {study.keyResults && study.keyResults.length > 0 ? (
+          <div className="flex flex-wrap gap-2">
+            {study.keyResults.slice(0, 2).map((r) => (
+              <span
+                key={r.label}
+                className="inline-flex items-center rounded-md bg-[#f0f4ff] px-2.5 py-1 text-[12px] font-semibold text-[#1852ff]"
+              >
+                {r.value} {r.label}
+              </span>
+            ))}
+          </div>
+        ) : null}
+
+        <p className="text-[15px] leading-[1.55] text-[#4c5366]">{study.description}</p>
+
+        <div className="mt-auto pt-3">
+          <span className="inline-flex items-center rounded-full border border-[#191919] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#191919] transition-colors duration-200 group-hover:bg-[#191919] group-hover:text-white">
+            read case study
+          </span>
+        </div>
+      </div>
+    </Link>
+  );
+}
+
 function FilterSelect({
   label,
   value,
   options,
+  optionLabels,
   onChange,
 }: {
   label: string;
   value: string;
   options: string[];
+  optionLabels?: Record<string, string>;
   onChange: (v: string) => void;
 }) {
   return (
@@ -265,7 +403,7 @@ function FilterSelect({
       >
         {options.map((opt) => (
           <option key={opt} value={opt}>
-            {opt === "All" ? label : opt}
+            {opt === "All" ? label : optionLabels?.[opt] || opt}
           </option>
         ))}
       </select>

@@ -1,78 +1,55 @@
 "use client";
 
+import { useEffect } from "react";
 import dynamic from "next/dynamic";
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
-import ContactHero from "./ContactHero";
 import Gallery from "@/components/Gallery/Gallery";
-import LightContactSection from "@/components/qc/homepage-light/LightContactSection";
-import GlobalClientNetwork from "@/components/sections/GlobalClientNetwork";
+import ContactHero from "./ContactHero";
+import ContactHub from "./ContactHub";
 
-const TestimonialsGlobeLazy = dynamic(
-  () => import("@/components/sections/TestimonialsGlobe"),
-  {
-    loading: () => (
-      <div className="min-h-[50vh] w-full bg-[#FAFAF8]" aria-hidden />
-    ),
-  },
+const FdaMapsSectionLazy = dynamic(
+  () => import("@/components/sections/FdaMapsSection"),
+  { loading: () => <div className="min-h-[50vh] w-full bg-[#FAFAF8]" aria-hidden="true" /> }
 );
+
 const LightFAQExactLazy = dynamic(
   () => import("@/components/homepage-light/LightFAQExact"),
-  {
-    loading: () => (
-      <div className="min-h-[60vh] w-full bg-[#f6f6f6]" aria-hidden />
-    ),
-  },
-);
-
-const LightEngagementModelsLazy = dynamic(
-  () => import("@/components/qc/homepage-light/LightEngagementModels"),
-  {
-    loading: () => (
-      <div className="min-h-[70vh] w-full bg-white" aria-hidden />
-    ),
-  },
+  { loading: () => <div className="min-h-[48vh] w-full bg-[#F3F0EE]" aria-hidden="true" /> }
 );
 
 /**
- * CONTACT — Restructured to mirror the About Us flow.
- *
- *  1. ContactHero            — Editorial hero with live office clocks + email
- *  2. Gallery                — Pay Us A Visit — three offices
- *  3. LightContactSection    — CTA / contact form (all office addresses)
- *  4. TestimonialsGlobe      — Global voices on world map
- *  5. LightFAQExact          — Pre-empt common questions
- *  6. LightEngagementModels  — How to work with us
- *  7. Footer
+ * Contact — focused conversion flow
+ *  1. Hero — editorial headline + live office clocks
+ *  2. Hub — message form + inline Calendly
+ *  3. Gallery — three global offices
+ *  4. Global map — tap pins (no scroll pin)
+ *  5. FAQ — main Softree FAQ
+ *  6. Footer
  */
-
 export default function ContactPage() {
+  useEffect(() => {
+    import("gsap/ScrollTrigger").then(({ ScrollTrigger }) => {
+      ScrollTrigger.getAll().forEach((trigger) => {
+        if (trigger.pin) trigger.kill();
+      });
+      requestAnimationFrame(() => ScrollTrigger.refresh(true));
+    });
+  }, []);
+
   return (
-    <div className="min-h-screen pt-[100px]">
+    <div className="min-h-screen bg-[#FAFAF8] pt-[100px]">
       <NavigationClient />
 
-      {/* 1. Hero — editorial with live clocks */}
       <ContactHero />
-
-      {/* 2. Offices — Bengaluru, Cuttack, San Francisco */}
-      <Gallery />
-
-      {/* 3. CTA — contact form */}
-      <LightContactSection />
-
-      {/* 3. Testimonials — global voices */}
-      <TestimonialsGlobeLazy />
-
-      {/* Global client network — hex world with city stat cards */}
-      <GlobalClientNetwork />
-
-      {/* 4. FAQs */}
+      <ContactHub />
+      <Gallery
+        title="Pay Us A Visit"
+        ctaLabel="Book a call →"
+        ctaHref="#schedule"
+      />
+      <FdaMapsSectionLazy embedded />
       <LightFAQExactLazy />
-
-      {/* 5. Engagement Models */}
-      <LightEngagementModelsLazy />
-
-      {/* 6. Footer */}
       <Footer />
     </div>
   );

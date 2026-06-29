@@ -4,6 +4,9 @@
  * Usage: npm run sanity:seed-ai-context
  * Requires SANITY_API_WRITE_TOKEN in .env.local
  */
+import { config } from 'dotenv'
+config({ path: '.env.local' })
+
 import { createClient } from '@sanity/client'
 import { SOFTREE_STYLE_CONTEXT } from '../src/sanity/assist/config'
 
@@ -29,7 +32,7 @@ const client = createClient({
   useCdn: false,
 })
 
-const DOC_ID = 'aiContext-softree-brand-voice'
+const DOC_ID = 'aiContext'
 
 async function main() {
   await client.createOrReplace({

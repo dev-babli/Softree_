@@ -1,100 +1,82 @@
 "use client";
 
 import { useEffect, useId } from "react";
-
-declare global {
-  interface Window {
-    Calendly?: {
-      initInlineWidget: (options: {
-        url: string;
-        parentElement: HTMLElement;
-        prefill?: Record<string, string>;
-        pageSettings?: {
-          backgroundColor?: string;
-          textColor?: string;
-          primaryColor?: string;
-        };
-      }) => void;
-    };
-  }
-}
-
-const DEFAULT_CALENDLY_URL =
-  "https://calendly.com/shradhabhagat/new-meeting?hide_gdpr_banner=1&hide_landing_page_details=1";
+import {
+  buildCalendlyUrl,
+  CALENDLY_PAGE_SETTINGS,
+  DEFAULT_CALENDLY_URL,
+  loadCalendlyAssets,
+  type CalendlyPageTheme,
+} from "./calendly-loader";
 
 type CalendlyInlineEmbedProps = {
   url?: string;
   height?: number;
   className?: string;
+  theme?: CalendlyPageTheme;
+  /** When true, no outer border — parent frame handles chrome */
+  bare?: boolean;
 };
 
 export default function CalendlyInlineEmbed({
   url = DEFAULT_CALENDLY_URL,
-  height = 560,
+  height = 700,
   className = "",
+  theme = "cream",
+  bare = false,
 }: CalendlyInlineEmbedProps) {
   const reactId = useId().replace(/:/g, "");
   const containerId = `calendly-embed-${reactId}`;
+  const embedUrl = buildCalendlyUrl(url);
 
   useEffect(() => {
+    let pollId: number | undefined;
+
     const initWidget = () => {
       const container = document.getElementById(containerId);
       if (!container || !window.Calendly?.initInlineWidget) return false;
 
       container.innerHTML = "";
       window.Calendly.initInlineWidget({
-        url,
+        url: embedUrl,
         parentElement: container,
-        pageSettings: {
-          backgroundColor: "09090d",
-          textColor: "ffffff",
-          primaryColor: "ff5812",
-        },
+        pageSettings: CALENDLY_PAGE_SETTINGS[theme],
       });
       return true;
     };
 
-    const ensureScript = () => {
-      const existingScript = document.getElementById("calendly-script");
-      if (existingScript) {
-        if (initWidget()) return;
-        const interval = window.setInterval(() => {
-          if (initWidget()) window.clearInterval(interval);
-        }, 100);
-        return () => window.clearInterval(interval);
-      }
-
-      const script = document.createElement("script");
-      script.id = "calendly-script";
-      script.src = "https://assets.calendly.com/assets/external/widget.js";
-      script.async = true;
-      script.onload = () => initWidget();
-      document.body.appendChild(script);
-
-      if (!document.getElementById("calendly-stylesheet")) {
-        const link = document.createElement("link");
-        link.id = "calendly-stylesheet";
-        link.rel = "stylesheet";
-        link.href = "https://assets.calendly.com/assets/external/widget.css";
-        document.head.appendChild(link);
-      }
+    const boot = () => {
+      loadCalendlyAssets().then(() => {
+        if (!initWidget()) {
+          pollId = window.setInterval(() => {
+            if (initWidget()) window.clearInterval(pollId);
+          }, 100);
+        }
+      });
     };
 
-    const cleanupTimer = window.setTimeout(ensureScript, 50);
-    const reinitTimer = window.setTimeout(initWidget, 200);
+    const timer = window.setTimeout(boot, 40);
 
     return () => {
-      window.clearTimeout(cleanupTimer);
-      window.clearTimeout(reinitTimer);
+      window.clearTimeout(timer);
+      if (pollId) window.clearInterval(pollId);
     };
-  }, [containerId, url]);
+  }, [containerId, embedUrl, theme]);
+
+  const bgClass =
+    theme === "cream"
+      ? "bg-[#fafaf8]"
+      : theme === "light"
+        ? "bg-white"
+        : "bg-[#09090d]";
 
   return (
     <div
-      className={`overflow-hidden rounded-[6px] border border-white/10 bg-white ${className}`}
+      className={`softree-calendly-embed ${bare ? "" : `overflow-hidden ${bgClass}`} ${className}`}
     >
       <div
         id={containerId}
+        className="softree-calendly-embed__mount"
         style={{ minWidth: 280, height, width: "100%" }}
       />
     </div>

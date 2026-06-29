@@ -13,6 +13,8 @@ import {
   UsersIcon,
 } from '@sanity/icons'
 
+import ReactBitsComponentInput from '../components/ReactBitsComponentInput'
+
 const cardItem = defineArrayMember({
   type: 'object',
   name: 'composerCard',
@@ -485,6 +487,179 @@ export const csContactSectionType = defineType({
   },
 })
 
+export const csHeroMetricsStripType = defineType({
+  name: 'csHeroMetricsStrip',
+  title: 'Hero metrics strip',
+  type: 'object',
+  icon: ChartUpwardIcon,
+  fields: [
+    defineField({
+      name: 'label',
+      title: 'Eyebrow label',
+      type: 'string',
+      initialValue: 'At a glance',
+    }),
+    defineField({
+      name: 'heading',
+      title: 'Heading (optional)',
+      type: 'string',
+    }),
+    defineField({
+      name: 'metrics',
+      title: 'Metrics',
+      type: 'array',
+      of: [metricItem],
+      validation: (Rule) => Rule.min(1).max(4),
+    }),
+    defineField({
+      name: 'variant',
+      title: 'Style',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Accent band', value: 'band' },
+          { title: 'Compact strip', value: 'strip' },
+        ],
+        layout: 'radio',
+      },
+      initialValue: 'band',
+    }),
+  ],
+  preview: {
+    select: { title: 'heading', metrics: 'metrics', variant: 'variant' },
+    prepare({ title, metrics, variant }) {
+      return {
+        title: title || 'Hero metrics strip',
+        subtitle: `${metrics?.length || 0} metric${metrics?.length === 1 ? '' : 's'} · ${variant || 'band'}`,
+        media: ChartUpwardIcon,
+      }
+    },
+  },
+})
+
+const evidenceItem = defineArrayMember({
+  type: 'object',
+  name: 'composerEvidence',
+  fields: [
+    defineField({
+      name: 'claim',
+      title: 'Claim',
+      type: 'string',
+      description: 'Short, extractable fact (one sentence).',
+      validation: (Rule) => Rule.required().max(220),
+    }),
+    defineField({
+      name: 'source',
+      title: 'Source label',
+      type: 'string',
+      description: 'e.g. Gartner 2025, client audit, internal benchmark',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'sourceUrl',
+      title: 'Source URL (optional)',
+      type: 'url',
+    }),
+  ],
+  preview: { select: { title: 'claim', subtitle: 'source' } },
+})
+
+export const csEvidencePanelType = defineType({
+  name: 'csEvidencePanel',
+  title: 'Evidence panel (AEO)',
+  type: 'object',
+  icon: DocumentsIcon,
+  fields: [
+    defineField({
+      name: 'label',
+      title: 'Eyebrow label',
+      type: 'string',
+      initialValue: 'Evidence',
+    }),
+    defineField({
+      name: 'heading',
+      title: 'Heading',
+      type: 'string',
+      initialValue: 'What the data shows',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'summary',
+      title: 'Extractable summary',
+      type: 'text',
+      rows: 3,
+      description: 'One paragraph AI answer engines can quote directly.',
+      validation: (Rule) => Rule.required().max(320),
+    }),
+    defineField({
+      name: 'items',
+      title: 'Cited evidence',
+      type: 'array',
+      of: [evidenceItem],
+      validation: (Rule) => Rule.min(1).max(6),
+    }),
+  ],
+  preview: {
+    select: { title: 'heading', items: 'items' },
+    prepare({ title, items }) {
+      return {
+        title: title || 'Evidence panel',
+        subtitle: `${items?.length || 0} cited item${items?.length === 1 ? '' : 's'}`,
+        media: DocumentsIcon,
+      }
+    },
+  },
+})
+
+export const csReactBitsSectionType = defineType({
+  name: 'csReactBitsSection',
+  title: 'Visual effect (React Bits)',
+  type: 'object',
+  icon: SparklesIcon,
+  fields: [
+    defineField({
+      name: 'componentId',
+      title: 'Effect',
+      type: 'string',
+      description: 'Animated background or motion from the React Bits library.',
+      components: {
+        input: ReactBitsComponentInput,
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'heading',
+      title: 'Overlay heading (optional)',
+      type: 'string',
+      description: 'Short text shown on top of the effect.',
+    }),
+    defineField({
+      name: 'minHeight',
+      title: 'Section height',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Compact (320px)', value: 'sm' },
+          { title: 'Standard (480px)', value: 'md' },
+          { title: 'Hero (640px)', value: 'lg' },
+        ],
+        layout: 'radio',
+      },
+      initialValue: 'md',
+    }),
+  ],
+  preview: {
+    select: { title: 'heading', componentId: 'componentId' },
+    prepare({ title, componentId }) {
+      return {
+        title: title || 'Visual effect',
+        subtitle: componentId || 'Pick an effect',
+        media: SparklesIcon,
+      }
+    },
+  },
+})
+
 export const caseStudyComposerBlockTypes = [
   csOverviewSectionType,
   csNarrativeSectionType,
@@ -498,6 +673,9 @@ export const caseStudyComposerBlockTypes = [
   csFaqSectionType,
   csRelatedSectionType,
   csContactSectionType,
+  csHeroMetricsStripType,
+  csEvidencePanelType,
+  csReactBitsSectionType,
 ]
 
 export const caseStudyComposerMembers = caseStudyComposerBlockTypes.map((block) =>
@@ -506,7 +684,8 @@ export const caseStudyComposerMembers = caseStudyComposerBlockTypes.map((block) 
 
 export const caseStudyComposerInsertMenu = {
   groups: [
-    { name: 'story', title: 'Story', of: ['csOverviewSection', 'csNarrativeSection'] },
+    { name: 'start', title: 'Open', of: ['csOverviewSection', 'csHeroMetricsStrip'] },
+    { name: 'story', title: 'Story', of: ['csNarrativeSection', 'csEvidencePanel'] },
     {
       name: 'structure',
       title: 'Structure',
@@ -515,7 +694,12 @@ export const caseStudyComposerInsertMenu = {
     {
       name: 'proof',
       title: 'Results & proof',
-      of: ['csMetricsSection', 'csBeforeAfterSection', 'csTestimonialSection'],
+      of: ['csMetricsSection', 'csHeroMetricsStrip', 'csBeforeAfterSection', 'csTestimonialSection'],
+    },
+    {
+      name: 'visual',
+      title: 'Visual effects',
+      of: ['csReactBitsSection'],
     },
     {
       name: 'closing',

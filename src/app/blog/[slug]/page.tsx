@@ -13,6 +13,9 @@ import { sanityFetch } from '@/sanity/lib/fetch'
 import { client } from '@/sanity/lib/client'
 import { postBySlugQuery, relatedPostsQuery } from '@/sanity/queries'
 import { buildArticleJsonLd, buildBlogJsonLdGraph } from '@/lib/structured-data'
+import { fetchDesignTokens } from '@/lib/fetch-design-tokens'
+import { collectFaqItems } from '@/sanity/lib/aeoCompleteness'
+import { ogImages, pageOgImage, SITE_URL, twitterImages } from '@/lib/site-metadata'
 
 function toPlainText(value: unknown): string {
   if (!value) return ''
@@ -147,29 +150,29 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     toPlainText(post.body?.[0])?.substring(0, 160) ||
     ''
   const keywords = [post.focusKeyword, ...(post.secondaryKeywords || [])].filter(Boolean).join(', ')
+  const ogImage = pageOgImage(`/blog/${slug}`, title)
 
   return {
     title,
     description,
     keywords,
     alternates: {
-      canonical: `https://www.softreetechnology.com/blog/${slug}`,
+      canonical: `${SITE_URL}/blog/${slug}`,
     },
     openGraph: {
       title,
       description,
       type: 'article',
-      url: `https://www.softreetechnology.com/blog/${slug}`,
+      url: `${SITE_URL}/blog/${slug}`,
       publishedTime: post.publishedAt,
       authors: post.author?.name ? [post.author.name] : ['Softree Technology'],
-      images: post.ogImage?.asset?.url
-        ? [{ url: post.ogImage.asset.url, width: 1200, height: 630 }]
-        : [{ url: '/og-image.png', width: 1200, height: 630 }],
+      images: ogImages(ogImage),
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
+      images: twitterImages(ogImage),
     },
   }
 }
@@ -200,9 +203,10 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   const readTime = estimateReadTime(post)
 
   if (post.displayMode === 'composer' && post.composerSections?.length) {
-    const [relatedPosts, nav] = await Promise.all([
+    const [relatedPosts, nav, designTokens] = await Promise.all([
       client.fetch(relatedPostsQuery, { slug }),
       getNavigationData(),
+      fetchDesignTokens(),
     ])
     const pageUrl = `https://www.softreetechnology.com/blog/${slug}`
     const excerpt =
@@ -210,6 +214,12 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       toPlainText(post.composerSections?.[0])?.substring(0, 160) ||
       ''
     const keywords = [post.focusKeyword, ...(post.secondaryKeywords || [])].filter(Boolean)
+    const faqs = collectFaqItems({
+      metaTitle: post.metaTitle,
+      metaDescription: post.metaDescription,
+      faqSchema: post.faqSchema,
+      composerSections: post.composerSections,
+    })
 
     return (
       <>
@@ -226,7 +236,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 dateModified: post._updatedAt,
                 image: post.mainImage?.asset?.url || post.ogImage?.asset?.url,
                 authorName,
-                faqs: post.faqSchema,
+                faqs,
                 keywords,
               }),
             ),
@@ -241,6 +251,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           readTime={readTime}
           initialBlogCategories={nav.blogCategories}
           initialCaseStudyCategories={nav.caseStudyCategories}
+          designTokens={designTokens}
         />
       </>
     )
@@ -437,7 +448,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#0f5cc0]">Case Studies</p>
                 <p className="mt-2 font-semibold text-zinc-900">See delivered outcomes and implementation stories.</p>
               </Link>
-              <Link href="/contact-us" className="rounded-xl border border-zinc-200 bg-[#f8faff] p-5">
+              <Link href="/contact" className="rounded-xl border border-zinc-200 bg-[#f8faff] p-5">
                 <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#0f5cc0]">Talk to us</p>
                 <p className="mt-2 font-semibold text-zinc-900">Need help with a similar initiative? Let&apos;s connect.</p>
               </Link>

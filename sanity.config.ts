@@ -1,36 +1,40 @@
 'use client'
 
 /**
- * Softree embedded Sanity Studio — mounted at /studio
+ * Softree Studio — embedded Sanity v5 at /studio
+ * @see src/app/studio/[[...tool]]/page.tsx
  */
 
 import './src/sanity/studio/studio.css'
 
 import {visionTool} from '@sanity/vision'
 import {defineConfig} from 'sanity'
-import {presentationTool} from 'sanity/presentation'
+import {defineDocuments, presentationTool} from 'sanity/presentation'
 import {structureTool} from 'sanity/structure'
 
 import {assistPlugin} from './src/sanity/assist/config'
-import {geminiImageToolPlugin} from './src/sanity/plugins/geminiImageTool'
-import {reactBitsToolPlugin} from './src/sanity/plugins/reactBitsTool'
-import {resolve as presentationResolve} from './src/sanity/presentation/resolve'
-import {apiVersion, dataset, projectId} from './src/sanity/env'
-import {schema} from './src/sanity/schemaTypes'
-import {structure, getDefaultDocumentNode} from './src/sanity/structure'
+import {GuardedPublishAction} from './src/sanity/actions/guardedPublishAction'
 import {DuplicateAsDraftAction} from './src/sanity/actions/duplicateAsDraft'
 import {FixKeysAction} from './src/sanity/actions/fixKeys'
 import {GenerateSeoFromContentAction} from './src/sanity/actions/generateSeoFromContent'
 import {GenerateBlocksFromStoryAction} from './src/sanity/actions/generatePremiumBlocksFromStory'
+import {contentAgentToolPlugin} from './src/sanity/plugins/contentAgentTool'
+import {geminiImageToolPlugin} from './src/sanity/plugins/geminiImageTool'
+import {reactBitsToolPlugin} from './src/sanity/plugins/reactBitsTool'
+import {presentationLocations, previewOrigin} from './src/sanity/presentation/resolve'
+import {apiVersion, dataset, projectId} from './src/sanity/env'
+import {schema} from './src/sanity/schemaTypes'
+import {defaultDocumentNode, structure} from './src/sanity/structure'
 import {documentTemplates} from './src/sanity/templates'
 import {CaseStudyDocumentBadge} from './src/sanity/badges/CaseStudyDocumentBadge'
-import {softreeStudioTheme} from './src/sanity/studio/theme'
-import {SoftreeStudioIcon} from './src/sanity/studio/SoftreeStudioIcon'
 import {StudioLayout} from './src/sanity/studio/StudioLayout'
 import {StudioNavbar} from './src/sanity/studio/StudioNavbar'
 import {StudioToolMenu} from './src/sanity/studio/StudioToolMenu'
+import {SoftreeStudioIcon} from './src/sanity/studio/SoftreeStudioIcon'
+import {softreeStudioTheme} from './src/sanity/studio/theme'
 
-const singletonTypes = new Set(['homepageCaseStudySlider', 'globalSettings', 'careersPage'])
+const singletonTypes = new Set(['homepageCaseStudySlider', 'globalSettings', 'careersPage', 'aiContext'])
+const editorialTypes = new Set(['post', 'caseStudy', 'marketingPage'])
 
 export default defineConfig({
   name: 'softree',
@@ -40,10 +44,6 @@ export default defineConfig({
   projectId,
   dataset,
   theme: softreeStudioTheme,
-  schema: {
-    types: schema.types,
-    templates: (prev) => [...prev, ...documentTemplates],
-  },
   studio: {
     components: {
       layout: StudioLayout,
@@ -51,22 +51,31 @@ export default defineConfig({
       toolMenu: StudioToolMenu,
     },
   },
+  schema: {
+    types: schema.types,
+    templates: (prev) => [...prev, ...documentTemplates],
+  },
   plugins: [
-    structureTool({structure, defaultDocumentNode: getDefaultDocumentNode}),
-    assistPlugin,
-    geminiImageToolPlugin(),
-    reactBitsToolPlugin(),
+    structureTool({structure, defaultDocumentNode}),
     presentationTool({
       resolve: {
-        ...presentationResolve,
-        mainDocuments: [
+        locations: presentationLocations,
+        mainDocuments: defineDocuments([
           {
             route: '/',
             filter: '_type == "homepageCaseStudySlider"',
           },
           {
+            route: '/blog',
+            filter: '_type == "post"',
+          },
+          {
             route: '/blog/:slug',
             filter: '_type == "post" && slug.current == $slug',
+          },
+          {
+            route: '/case-studies',
+            filter: '_type == "caseStudy"',
           },
           {
             route: '/case-studies/:slug',
@@ -76,10 +85,10 @@ export default defineConfig({
             route: '/p/:slug',
             filter: '_type == "marketingPage" && slug.current == $slug',
           },
-        ],
+        ]),
       },
       previewUrl: {
-        origin: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+        origin: previewOrigin,
         previewMode: {
           enable: '/api/draft-mode/enable',
           disable: '/api/draft-mode/disable',
@@ -90,16 +99,23 @@ export default defineConfig({
         'https://www.softreetechnology.com',
       ],
     }),
+    assistPlugin,
+    contentAgentToolPlugin(),
+    geminiImageToolPlugin(),
+    reactBitsToolPlugin(),
     visionTool({defaultApiVersion: apiVersion}),
   ],
   document: {
     actions: (prev, context) => {
-      if (
-        context.schemaType === 'post' ||
-        context.schemaType === 'caseStudy' ||
-        context.schemaType === 'marketingPage'
-      ) {
-        const actions = [...prev, DuplicateAsDraftAction, FixKeysAction, GenerateSeoFromContentAction]
+      if (editorialTypes.has(context.schemaType)) {
+        const actions = prev.map((action) =>
+          (action as {action?: string}).action === 'publish' ? GuardedPublishAction : action,
+        )
+        actions.push(
+          DuplicateAsDraftAction,
+          FixKeysAction,
+          GenerateSeoFromContentAction,
+        )
         if (context.schemaType === 'caseStudy') {
           actions.push(GenerateBlocksFromStoryAction)
         }

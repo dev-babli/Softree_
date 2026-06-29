@@ -1,7 +1,17 @@
 import { SparklesIcon } from '@sanity/icons'
 import { defineField, defineType } from 'sanity'
-import { defaultFieldInstructions } from '../assist/config'
-import { aiAssistExclude } from '../lib/blockContentOptions'
+
+/** Starter copy — writers customize; bundled Softree guide fills gaps until then. */
+const AI_CONTEXT_STARTER = `Customize Softree's AI writing rules here. Content Agent and ✨ field actions read this document when "Default context" is on.
+
+Include:
+• Target audience (CTO, IT director, etc.)
+• Tone (authoritative, concrete, no buzzwords)
+• Forbidden phrases and preferred alternatives
+• How to cite metrics and proof points
+• CTA style for case studies vs blog posts
+
+Leave blank sections out — the bundled style guide still applies as a fallback.`
 
 /** Brand voice & style guide consumed by Sanity AI Assist instructions in Studio. */
 export const aiContextType = defineType({
@@ -23,7 +33,8 @@ export const aiContextType = defineType({
       type: 'text',
       rows: 16,
       description:
-        'Paste brand voice, terminology, and writing rules. This document is automatically loaded by Softree instruction templates in ✨ AI Assist.',
+        'Brand voice and writing rules for ✨ AI Assist (field templates) and the Content Agent pipeline. Mark one document as Default.',
+      initialValue: AI_CONTEXT_STARTER,
       validation: (Rule) => Rule.required(),
     }),
     defineField({

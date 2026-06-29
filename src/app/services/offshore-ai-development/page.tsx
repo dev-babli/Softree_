@@ -15,6 +15,7 @@ import AIServicesSection from "./strategy";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import LightFAQExact from "@/components/homepage-light/LightFAQExact";
 import { Metadata } from "next";
+import { applyPageOg } from "@/lib/site-metadata";
 
 const agenticAIFAQs = [
   {
@@ -54,7 +55,7 @@ const agenticAIFAQs = [
   },
 ]
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageOg("/services/offshore-ai-development", {
   title:
     "Agentic AI Development Services | AI Agents & Intelligent Automation | Softree",
 
@@ -89,29 +90,16 @@ export const metadata: Metadata = {
 
     siteName: "Softree Technology",
 
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Softree Agentic AI Development Services",
-      },
-    ],
-
     type: "website",
   },
 
   twitter: {
-    card: "summary_large_image",
-
     title: "Agentic AI Development Services | AI Agents & Automation",
 
     description:
       "Autonomous AI agents, intelligent automation, and enterprise Generative AI solutions tailored for modern businesses.",
-
-    images: ["/og-image.png"],
   },
-};
+}, "Softree Agentic AI Development Services");
 
 export default function AgenticAIPage() {
   return (

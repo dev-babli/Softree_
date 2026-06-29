@@ -1,4 +1,10 @@
 import type { Metadata } from "next";
+import {
+  BLOG_OG_IMAGE,
+  ogImages,
+  SITE_URL,
+  twitterImages,
+} from "@/lib/site-metadata";
 
 export const metadata: Metadata = {
   title: "Blog | Softree Technology - Insights on AI, Cloud & Enterprise",
@@ -18,23 +24,16 @@ export const metadata: Metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.softreetechnology.com/blog",
+    canonical: `${SITE_URL}/blog`,
   },
 
   openGraph: {
     title: "Blog | Softree Technology",
     description:
       "Expert insights on AI, Microsoft 365, web development, and digital transformation strategies.",
-    url: "https://www.softreetechnology.com/blog",
+    url: `${SITE_URL}/blog`,
     siteName: "Softree Technology",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Softree Technology Blog",
-      },
-    ],
+    images: ogImages(BLOG_OG_IMAGE),
     type: "website",
   },
 
@@ -43,7 +42,7 @@ export const metadata: Metadata = {
     title: "Blog | Softree Technology",
     description:
       "Expert insights on AI, Microsoft 365, web development, and digital transformation.",
-    images: ["/og-image.png"],
+    images: twitterImages(BLOG_OG_IMAGE),
   },
 };
 

@@ -84,21 +84,23 @@ export default function BlogListingClient({ posts }: { posts: BlogPost[] }) {
           </div>
 
           {featured ? (
-            <div className="mt-10 grid gap-6 rounded-2xl border border-[#d7dce9] bg-white p-5 md:grid-cols-[1fr_1.02fr] md:p-7">
+            <Link
+              href={`/blog/${featured.slug.current}`}
+              className="group mt-10 grid gap-6 rounded-2xl border border-[#d7dce9] bg-white p-5 transition-[transform,border-color] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#a8b4d1] md:grid-cols-[1fr_1.02fr] md:p-7"
+            >
               <div className="flex flex-col justify-between gap-6">
                 <div className="space-y-4">
                   <span className="inline-flex rounded-full border border-[#0f5cc0]/30 bg-[#edf3ff] px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-[#0f5cc0]">
                     Featured
                   </span>
-                  <h2 className="text-2xl font-black leading-tight tracking-[-0.02em] md:text-3xl">{featured.title}</h2>
+                  <h2 className="text-2xl font-black leading-tight tracking-[-0.02em] transition-colors group-hover:text-[#0f5cc0] md:text-3xl">
+                    {featured.title}
+                  </h2>
                   <p className="text-[15px] leading-7 text-[#4c5366]">{featured.excerpt}</p>
                 </div>
-                <Link
-                  href={`/blog/${featured.slug.current}`}
-                  className="inline-flex w-fit items-center rounded-md border border-[#181818] px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition-[background-color,color,transform] duration-200 ease-out active:scale-[0.98] hover:bg-[#181818] hover:text-white"
-                >
+                <span className="inline-flex w-fit items-center rounded-md border border-[#181818] px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition-[background-color,color,transform] duration-200 ease-out group-hover:bg-[#181818] group-hover:text-white">
                   Learn more
-                </Link>
+                </span>
               </div>
               <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-[#d7dce9]">
                 <Image
@@ -106,10 +108,10 @@ export default function BlogListingClient({ posts }: { posts: BlogPost[] }) {
                   alt={featured.mainImage?.alt || featured.title}
                   fill
                   sizes="(max-width: 900px) 100vw, 560px"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-200 ease-out group-hover:scale-105"
                 />
               </div>
-            </div>
+            </Link>
           ) : null}
         </div>
       </section>

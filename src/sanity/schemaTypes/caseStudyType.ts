@@ -4,10 +4,10 @@ import { CaseIcon } from '@sanity/icons'
 import { aiAssistExclude } from '../lib/blockContentOptions'
 import { fieldAi } from '../lib/fieldAiOptions'
 import { createSeoPreviewPanelField, createEditorProgressPanelField } from '../lib/documentHelpers'
+import { getAeoPublishIssues, type AeoCompletenessDoc } from '../lib/aeoCompleteness'
 import { reviewStatusField } from '../lib/reviewStatusField'
+
 import ComposerSectionsInput from '../components/ComposerSectionsInput'
-import DetailLayoutInput from '../components/DetailLayoutInput'
-import CaseStudySplitPaneBoot from '../components/CaseStudySplitPaneBoot'
 import {
     caseStudyComposerInsertMenu,
     caseStudyComposerMembers,
@@ -49,10 +49,10 @@ export const caseStudyType = defineType({
     type: 'document',
     icon: CaseIcon,
     groups: [
-        { name: 'composer', title: 'Page composer', default: true },
+        { name: 'composer', title: 'Page', default: true },
         { name: 'story', title: 'Story' },
-        { name: 'client', title: 'Client & project' },
-        { name: 'sections', title: 'Page sections' },
+        { name: 'client', title: 'Client' },
+        { name: 'sections', title: 'Legacy sections' },
         { name: 'media', title: 'Media' },
         { name: 'publish', title: 'Publish & SEO' },
     ],
@@ -74,15 +74,6 @@ export const caseStudyType = defineType({
         { name: 'seoSet', title: 'SEO', options: { collapsible: true, collapsed: true } },
     ],
     fields: [
-        defineField({
-            name: 'studioSplitBoot',
-            type: 'string',
-            group: 'composer',
-            hidden: true,
-            components: {
-                input: CaseStudySplitPaneBoot,
-            },
-        }),
         defineField({
             name: 'title',
             title: 'Title',
@@ -210,7 +201,8 @@ export const caseStudyType = defineType({
             type: 'string',
             group: 'publish',
             fieldset: 'statusSet',
-            description: 'Set to Archived to hide this case study from the website while keeping it in Sanity.',
+            description:
+              'Website visibility. Must be Published AND you must click the green Publish button in Studio. Archived hides from the site.',
             options: {
                 list: [
                     { title: 'Published', value: 'published' },
@@ -220,7 +212,7 @@ export const caseStudyType = defineType({
                 layout: 'radio',
                 ...aiAssistExclude,
             },
-            initialValue: 'published',
+            initialValue: 'draft',
             validation: (Rule) => Rule.required(),
         }),
         defineField({
@@ -230,9 +222,11 @@ export const caseStudyType = defineType({
         }),
         defineField({
             name: 'category',
-            title: 'Tech Category (Legacy)',
+            title: 'Technology category',
             type: 'string',
             group: 'client',
+            description:
+              'Used for /case-studies/power-platform and nav grouping. Required before publishing on production.',
             options: {
                 list: [
                     { title: 'AI & Machine Learning', value: 'ai' },
@@ -243,7 +237,13 @@ export const caseStudyType = defineType({
                     { title: 'Data Analytics', value: 'data-analytics' },
                 ],
             },
-            hidden: true,
+            validation: (Rule) =>
+                Rule.custom((value, context) => {
+                    const status = (context.document as { status?: string } | undefined)?.status
+                    if (status === 'archived' || status === 'draft') return true
+                    if (!value) return 'Pick a technology category so this story appears in nav and category pages'
+                    return true
+                }),
         }),
         defineField({
             name: 'industry',
@@ -450,12 +450,7 @@ export const caseStudyType = defineType({
             name: 'detailLayout',
             title: 'Page layout',
             type: 'string',
-            group: 'composer',
-            description:
-                'Controls the case study page design. Page composer is recommended — stack sections in any order with live preview.',
-            components: {
-                input: DetailLayoutInput,
-            },
+            hidden: true,
             initialValue: 'page-composer',
         }),
         defineField({
@@ -956,6 +951,11 @@ export const caseStudyType = defineType({
                 missing.push('cover image')
             } else if (mainImage?.asset?._ref && !mainImage.alt) {
                 missing.push('cover image alt text')
+            }
+
+            const aeoIssues = getAeoPublishIssues(fields as AeoCompletenessDoc)
+            if (aeoIssues.length > 0) {
+                missing.push(...aeoIssues)
             }
 
             if (missing.length > 0) {

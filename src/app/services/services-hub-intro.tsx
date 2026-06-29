@@ -17,7 +17,7 @@ export default function ServicesHubIntro() {
     <section
       role="banner"
       data-section="services-intro"
-      className="relative w-full overflow-x-clip pt-[100px]"
+      className="relative w-full overflow-x-clip pt-4"
       style={{ backgroundColor: SURFACE }}
       aria-labelledby="services-hero-heading"
     >

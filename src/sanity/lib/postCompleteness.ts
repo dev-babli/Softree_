@@ -17,6 +17,7 @@ export function postHasContent(doc: PostCompletenessDoc | undefined | null): boo
 export const POST_NEEDS_WORK = `(
   !defined(excerpt) ||
   !defined(title) ||
+  !defined(mainImage.asset) ||
   (
     coalesce(displayMode, "classic") == "composer" &&
     count(coalesce(composerSections, [])) == 0

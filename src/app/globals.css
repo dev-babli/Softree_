@@ -30,7 +30,7 @@
   --softree-border-dark: rgba(255, 255, 255, 0.1);
   --softree-border-light: rgba(10, 10, 10, 0.1);
 
-  /* Brand orange — single source of truth */
+  /* Brand accent — defaults; overridden at runtime on <html> by fetchDesignTokens() in layout.tsx */
   --softree-accent: #ff7a2f;
   --softree-accent-hover: #e85a1f;
   --softree-accent-soft: rgba(255, 122, 47, 0.12);
@@ -274,4 +274,35 @@
   .why-us-project-marquee {
     animation: none;
   }
+}
+
+/* Calendly popup — softer overlay on brand pages */
+.calendly-overlay {
+  background: rgba(9, 9, 13, 0.78) !important;
+  backdrop-filter: blur(10px);
+}
+.calendly-popup-content {
+  border-radius: 18px !important;
+  overflow: hidden !important;
+  box-shadow: 0 32px 80px -24px rgba(0, 0, 0, 0.55) !important;
+}
+.calendly-popup-close {
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
+}
+
+/* Calendly inline — flush embed inside Softree frame */
+.softree-calendly-embed .calendly-inline-widget {
+  min-width: 100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+}
+.softree-calendly-embed .calendly-inline-widget iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border: 0 !important;
+  display: block;
+}
+.softree-calendly-embed__mount {
+  line-height: 0;
 }

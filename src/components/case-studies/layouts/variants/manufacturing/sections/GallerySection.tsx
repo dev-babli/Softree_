@@ -90,7 +90,7 @@ export function GallerySection({
                   onClick={() => setActive(i)}
                   className={`relative aspect-[16/10] w-full cursor-pointer overflow-hidden rounded-xl ring-2 transition-all duration-300 ${
                     active === i
-                      ? "ring-[var(--softree-accent,#FF7A2F)] shadow-[0_8px_24px_rgba(255,122,47,0.2)]"
+                      ? "ring-[var(--softree-accent,#FF7A2F)] shadow-[0_8px_24px_var(--softree-accent-soft,rgba(255,122,47,0.2))]"
                       : "ring-transparent hover:ring-[rgba(15,23,42,0.12)]"
                   }`}
                 >

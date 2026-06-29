@@ -83,6 +83,13 @@ function copyAssets() {
     if (fs.existsSync(from)) fs.copyFileSync(from, path.join(lanyardDest, file))
   }
 
+  const publicLanyard = path.join(ROOT, 'public', 'react-bits', 'lanyard')
+  fs.mkdirSync(publicLanyard, { recursive: true })
+  const cardGlb = path.join(lanyardDest, 'card.glb')
+  if (fs.existsSync(cardGlb)) {
+    fs.copyFileSync(cardGlb, path.join(publicLanyard, 'card.glb'))
+  }
+
   const glbSrc = path.join(VENDOR, 'public', 'assets', '3d')
   const glbDest = path.join(ROOT, 'public', 'assets', '3d')
   if (fs.existsSync(glbSrc)) copyDir(glbSrc, glbDest)
@@ -133,7 +140,7 @@ function main() {
   copyDir(SOURCE, DEST)
   copyAssets()
 
-  // Upstream SideRays ships a duplicated component block — keep first export only.
+  // SideRays upstream duplicate export
   const sideRaysPath = path.join(DEST, 'Backgrounds', 'SideRays', 'SideRays.tsx')
   if (fs.existsSync(sideRaysPath)) {
     const sideRays = fs.readFileSync(sideRaysPath, 'utf8')
@@ -142,6 +149,18 @@ function main() {
     if (first !== -1 && sideRays.indexOf(marker, first + marker.length) !== -1) {
       fs.writeFileSync(sideRaysPath, `${sideRays.slice(0, first + marker.length)}\n`)
     }
+  }
+
+  // Turbopack cannot import .glb modules — load from /public instead
+  const lanyardPath = path.join(DEST, 'Components', 'Lanyard', 'Lanyard.tsx')
+  if (fs.existsSync(lanyardPath)) {
+    let lanyardTsx = fs.readFileSync(lanyardPath, 'utf8')
+    lanyardTsx = lanyardTsx.replace(
+      /import cardGLB from '\.\/card\.glb';\r?\n/,
+      "const CARD_GLB_URL = '/react-bits/lanyard/card.glb';\n",
+    )
+    lanyardTsx = lanyardTsx.replace(/useGLTF\(cardGLB\)/g, 'useGLTF(CARD_GLB_URL)')
+    fs.writeFileSync(lanyardPath, lanyardTsx)
   }
 
   const catalog: ReactBitsCatalogEntry[] = components.map(({ id, relImport }) => {

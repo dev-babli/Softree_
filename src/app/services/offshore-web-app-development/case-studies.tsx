@@ -7,6 +7,10 @@ import { useRouter } from "next/navigation";
 import { FileText, AlertTriangle, Lightbulb } from "lucide-react";
 
 import "swiper/css";
+import SectionHeader from "@/components/homepage-light/SectionHeader";
+import { WEB_DEV_VISUALS } from "./web-dev-visuals";
+
+const ACCENT = "#FF5812" as const;
 
 const caseStudies = [
   {
@@ -109,38 +113,30 @@ export default function WebAppCaseStudies() {
   const router = useRouter();
 
   return (
-    <section className="relative flex items-center py-16 bg-white overflow-hidden">
-      <div className="w-[86%] max-w-7xl mx-auto space-y-8">
+    <section
+      data-section="web-dev-cases"
+      className="relative flex items-center overflow-hidden py-16 md:py-20"
+    >
+      <div className="mx-auto w-full max-w-[1400px] space-y-8 px-4 sm:px-6 lg:px-12">
         <div className="text-center">
-          {/* Badge */}
-          <span className="inline-block mb-2 px-4 py-1.5 rounded-full bg-orange-50 text-orange-600 border border-orange-100 text-xs font-semibold tracking-[0.18em] uppercase">
-            Web App Case Studies
-          </span>
-
-          {/* Title */}
-          <h2 className="text-3xl lg:text-4xl font-semibold text-gray-900">
-            Web Applications in Action:
-            <span className="text-orange-600"> Scalable Digital Solutions</span>
-          </h2>
-
-          {/* Description */}
-          <p className="mt-3 max-w-3xl mx-auto text-base text-gray-600 leading-relaxed">
-            See how Softree designs and develops modern web applications,
-            portals, and enterprise dashboards that automate workflows, improve
-            efficiency, and deliver secure, high-performance experiences for
-            growing businesses.
-          </p>
+          <SectionHeader
+            badge="Web app case studies"
+            accent={ACCENT}
+            headline="Web applications in action: scalable digital solutions"
+            body="See how Softree designs and develops modern web applications, portals, and enterprise dashboards that automate workflows, improve efficiency, and deliver secure, high-performance experiences for growing businesses."
+            className="mx-auto items-center [&_p]:mx-auto"
+          />
         </div>
 
         <div
           className="
         w-full
         h-auto min-h-[680px] md:h-[70vh] md:max-h-[680px]
-        bg-gradient-to-r from-[#fafafb] via-[#ffebe0] to-[#fafafb]
-        rounded-[32px]
-        border border-slate-200
-        shadow-xl
         overflow-hidden
+        rounded-[32px]
+        border border-[#0a0a1a]/[0.06]
+        bg-[#0a0a0a]
+        shadow-[0_30px_90px_-40px_rgba(10,10,26,0.28)]
       "
         >
           <Swiper
@@ -157,105 +153,78 @@ export default function WebAppCaseStudies() {
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
             className="h-full w-full overflow-hidden"
           >
-            {caseStudies.map((item, index) => (
+            {caseStudies.map((item, index) => {
+              const cover =
+                WEB_DEV_VISUALS.works[index % WEB_DEV_VISUALS.works.length].src;
+              return (
               <SwiperSlide key={index} className="h-full w-full">
-                {/* FULL WIDTH CARD */}
-                <div className="relative w-full h-full overflow-hidden rounded-[32px]">
-                  {/* Border */}
-                  <div className="pointer-events-none absolute inset-0 rounded-[32px] ring-1 ring-white/15" />
+                <div className="relative h-full w-full overflow-hidden">
+                  <img
+                    src={cover}
+                    alt=""
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/92 via-[#0a0a0a]/78 to-[#0a0a0a]/55" />
 
-                  {/* CARD BODY */}
-                  <div
-                    className="
-                  w-full
-                  h-full
-                  bg-gradient-to-r from-black via-[#4c1c02] to-black
-                  p-10
-                  flex flex-col justify-center
-                "
-                  >
-                    {/* Header */}
-                    <div className="text-center mb-6">
-                      <h3 className="text-2xl font-semibold text-white">
-                        {item.title} — Case Study
-                      </h3>
-
-                      <p className="mt-2 text-sm text-slate-300 flex items-center justify-center gap-2">
-                        📍 Client Country
-                        <span className="font-medium text-white">
-                          United States 🇺🇸
-                        </span>
+                  <div className="relative flex h-full flex-col justify-center p-8 md:p-12 lg:p-14">
+                    <div className="mb-6 text-center lg:text-left">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#FF5812]">
+                        {item.category}
                       </p>
+                      <h3 className="mt-2 text-2xl font-semibold tracking-[-0.02em] text-white md:text-3xl">
+                        {item.title}
+                      </h3>
+                      <p className="mt-2 text-sm text-white/55">{item.summary}</p>
                     </div>
 
-                    {/* Content */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
-                      {/* Image */}
-                      <div className="flex justify-center w-full min-w-0">
-                        <div className="w-full max-w-[380px] h-[200px] sm:h-[250px] lg:h-[300px] overflow-hidden rounded-xl shadow-md ring-1 ring-white/10 shrink-0">
-                          <img
-                            src={item.image}
-                            alt={item.title}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
+                    <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
+                      <div className="relative mx-auto aspect-[16/10] w-full max-w-[420px] overflow-hidden rounded-2xl border border-white/10 shadow-2xl lg:mx-0">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="h-full w-full object-cover"
+                        />
                       </div>
 
-                      {/* Text */}
-                      <div className="space-y-5 min-w-0 w-full">
+                      <div className="min-w-0 space-y-5">
                         {/* SUMMARY */}
                         <div className="space-y-2">
                           <div className="flex items-center gap-2">
-                            <FileText className="w-4 h-4 text-orange-400" />
-                            <h4 className="text-xs font-semibold tracking-wide text-orange-400 uppercase">
+                            <FileText className="h-4 w-4 text-[#FF5812]" />
+                            <h4 className="text-xs font-semibold uppercase tracking-wide text-[#FF5812]">
                               Summary
                             </h4>
                           </div>
-                          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                          <p className="text-xs leading-relaxed text-white/70 sm:text-sm">
                             {item.summary}
                           </p>
                         </div>
 
-                        {/* PROBLEM */}
                         <div className="space-y-2">
                           <div className="flex items-center gap-2">
-                            <AlertTriangle className="w-4 h-4 text-rose-400" />
-                            <h4 className="text-xs font-semibold tracking-wide text-rose-400 uppercase">
+                            <AlertTriangle className="h-4 w-4 text-white/70" />
+                            <h4 className="text-xs font-semibold uppercase tracking-wide text-white/70">
                               Problem
                             </h4>
                           </div>
-                          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                          <p className="text-xs leading-relaxed text-white/65 sm:text-sm">
                             {item.challenge}
                           </p>
                         </div>
 
-                        {/* SOLUTION */}
                         <div className="space-y-2">
                           <div className="flex items-center gap-2">
-                            <Lightbulb className="w-4 h-4 text-cyan-400" />
-                            <h4 className="text-xs font-semibold tracking-wide text-cyan-400 uppercase">
+                            <Lightbulb className="h-4 w-4 text-[#1852FF]" />
+                            <h4 className="text-xs font-semibold uppercase tracking-wide text-[#1852FF]">
                               Solution
                             </h4>
                           </div>
-                          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                          <p className="text-xs leading-relaxed text-white/65 sm:text-sm">
                             {item.solution}
                           </p>
                         </div>
 
-                        {/* IMPACT BOX */}
-                        <div
-                          className="
-            relative
-            rounded-xl
-            px-5 py-4
-            flex flex-col gap-3
-            sm:flex-row sm:items-center sm:justify-between
-            bg-gradient-to-r from-orange-600 via-orange-700 to-amber-500
-            text-white
-            shadow-lg
-            overflow-hidden
-          "
-                        >
+                        <div className="relative flex flex-col gap-3 overflow-hidden rounded-xl border border-white/10 bg-white/10 px-5 py-4 backdrop-blur-md sm:flex-row sm:items-center sm:justify-between">
                           <div className="relative z-10 space-y-0.5 flex-1 min-w-0 pr-3">
                             <p className="text-xs uppercase tracking-wider text-white/70 truncate">
                               Impact
@@ -269,18 +238,7 @@ export default function WebAppCaseStudies() {
                             href={item.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="
-        relative z-10
-        inline-flex items-center justify-center
-        px-4 py-2
-        text-xs font-semibold uppercase tracking-wide
-        rounded-full
-        bg-white text-orange-700
-        hover:scale-105
-        transition-all duration-300
-        whitespace-nowrap
-        flex-shrink-0
-      "
+                            className="relative z-10 inline-flex flex-shrink-0 items-center justify-center rounded-full bg-[#FF5812] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white transition hover:bg-[#FF6B00]"
                           >
                             View Case Study →
                           </a>
@@ -290,7 +248,8 @@ export default function WebAppCaseStudies() {
                   </div>
                 </div>
               </SwiperSlide>
-            ))}
+            );
+            })}
           </Swiper>
         </div>
 
@@ -305,8 +264,8 @@ export default function WebAppCaseStudies() {
                   className={`text-xs font-medium tracking-widest transition
                          ${
                            activeIndex === i
-                             ? "text-orange-600 scale-125"
-                             : "text-gray-400 hover:text-gray-700"
+                             ? "text-[#FF5812] scale-125"
+                             : "text-[#0a0a1a]/35 hover:text-[#0a0a1a]"
                          }
                        `}
                 >
@@ -317,7 +276,7 @@ export default function WebAppCaseStudies() {
 
             <div className="w-36 h-[3px] bg-gray-200 rounded-full overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-orange-600 to-amber-500 transition-all duration-500"
+                className="h-full bg-[#FF5812] transition-all duration-500"
                 style={{
                   width: `${((activeIndex + 1) / caseStudies.length) * 100}%`,
                 }}

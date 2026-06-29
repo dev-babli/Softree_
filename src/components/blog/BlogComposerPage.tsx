@@ -1,5 +1,6 @@
 "use client"
 
+import type { DesignTokenSettings } from "@/lib/design-tokens"
 import NavigationClient from "@/components/sections/navigation-client"
 import Footer from "@/components/sections/footer"
 import type { SanityNavCategory, SanityNavCaseStudyCategory } from "@/sanity/types"
@@ -16,6 +17,7 @@ export function BlogComposerPage({
   readTime,
   initialBlogCategories,
   initialCaseStudyCategories,
+  designTokens,
 }: {
   post: SanityPostDoc & { composerSections?: CaseStudyComposerSection[] | null }
   relatedPosts: Parameters<typeof mapRelatedPosts>[0]
@@ -25,6 +27,7 @@ export function BlogComposerPage({
   readTime: string
   initialBlogCategories?: SanityNavCategory[]
   initialCaseStudyCategories?: SanityNavCaseStudyCategory[]
+  designTokens?: DesignTokenSettings | null
 }) {
   const related = mapRelatedPosts(relatedPosts)
   const data = mapPostToLayoutData(post, related)
@@ -41,6 +44,7 @@ export function BlogComposerPage({
         authorName={authorName}
         publishedLabel={publishedLabel}
         readTime={readTime}
+        designTokens={designTokens}
       />
       <Footer />
     </div>

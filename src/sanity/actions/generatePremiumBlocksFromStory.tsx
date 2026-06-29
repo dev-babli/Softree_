@@ -59,7 +59,7 @@ export const GenerateBlocksFromStoryAction: DocumentActionComponent = (props) =>
   if (props.type !== "caseStudy") return null
 
   return {
-    label: "Generate blocks from story",
+    label: "Extract blocks from story (auto-fill)",
     icon: SparklesIcon,
     onHandle,
   }

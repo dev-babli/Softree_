@@ -9,6 +9,7 @@ import TrustedBrandsMarquee from "../offshore-power-platform-development/trust";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import LightFAQExact from "@/components/homepage-light/LightFAQExact";
 import type { Metadata } from "next";
+import { applyPageOg } from "@/lib/site-metadata";
 
 const spfxFAQs = [
   {
@@ -48,7 +49,7 @@ const spfxFAQs = [
   },
 ]
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageOg("/services/offshore-spfx-development", {
   title: "SharePoint Framework (SPFX) Development Services | Custom Web Parts",
 
   description:
@@ -87,7 +88,7 @@ export const metadata: Metadata = {
     canonical:
       "https://www.softreetechnology.com/services/offshore-spfx-development",
   },
-};
+}, "Softree Technology");
 
 const SECTION_WRAPPER = "mx-auto max-w-8xl px-8 sm:px-10 md:px-14 lg:px-20";
 const SECTION_GAP = "space-y-24 py-24";

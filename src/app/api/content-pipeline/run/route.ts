@@ -1,15 +1,22 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 import { pipelineRunSchema } from '@/lib/content-pipeline/types'
+import { getContentPipelineLlmEnvSummary } from '@/lib/content-pipeline/llm-config'
 import { runContentPipeline } from '@/lib/content-pipeline/run-pipeline'
 
 /**
- * Autonomous blog composer pipeline.
+ * Autonomous blog composer pipeline with optional Content Arena.
  *
  * POST /api/content-pipeline/run
  * Header: Authorization: Bearer {CONTENT_PIPELINE_SECRET}
  *
- * Body: { topic?: string, autoPublish?: boolean, layoutRecipe?: string, generateImages?: boolean }
+ * Body: {
+ *   topic?: string,
+ *   autoPublish?: boolean,
+ *   layoutRecipe?: string,
+ *   generateImages?: boolean,
+ *   useArena?: boolean  // default true — 3 personas compete, judge picks winner
+ * }
  */
 export async function POST(request: NextRequest) {
   const secret = process.env.CONTENT_PIPELINE_SECRET
@@ -31,7 +38,16 @@ export async function POST(request: NextRequest) {
     const result = await runContentPipeline(input)
 
     if (!result.ok) {
-      return NextResponse.json(result, { status: 500 })
+      const message = result.error.toLowerCase()
+      const status =
+        message.includes('503') ||
+        message.includes('unavailable') ||
+        message.includes('high demand') ||
+        message.includes('rate limit')
+          ? 503
+          : 500
+
+      return NextResponse.json(result, { status })
     }
 
     return NextResponse.json(result)
@@ -47,15 +63,51 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET() {
+  const config = getContentPipelineLlmEnvSummary()
+
   return NextResponse.json({
     service: 'softree-content-pipeline',
-    version: '1.0.0',
+    version: '2.2.0',
     methods: ['POST'],
+    ...config,
+    features: {
+      contentArena: {
+        enabled: true,
+        default: true,
+        contestants: ['editor', 'seo-architect', 'practitioner'],
+        judgeDimensions: [
+          'factualGrounding',
+          'seoAeoReadiness',
+          'brandVoice',
+          'structureCompleteness',
+          'originality',
+        ],
+      },
+    },
     requiredEnv: [
       'CONTENT_PIPELINE_SECRET',
       'SANITY_API_WRITE_TOKEN',
-      'ANTHROPIC_API_KEY',
+      config.llmProvider === 'gemini'
+        ? 'GEMINI_API_KEY'
+        : config.llmProvider === 'nvidia'
+          ? 'NVIDIA_API_KEY'
+          : 'ANTHROPIC_API_KEY',
     ],
-    optionalEnv: ['PERPLEXITY_API_KEY', 'GEMINI_API_KEY', 'GOOGLE_GENAI_API_KEY'],
+    optionalEnv: [
+      'GOOGLE_GENAI_API_KEY',
+      'NVAPI_API_KEY',
+      'CONTENT_PIPELINE_LLM_PROVIDER',
+      'CONTENT_PIPELINE_IMAGE_PROVIDER',
+      'CONTENT_PIPELINE_GEMINI_MODEL',
+      'CONTENT_PIPELINE_GEMINI_IMAGE_MODEL',
+      'CONTENT_PIPELINE_NVIDIA_MODEL',
+      'CONTENT_PIPELINE_NVIDIA_IMAGE_MODEL',
+      'CONTENT_PIPELINE_NVIDIA_RPM',
+      'CONTENT_PIPELINE_MODEL',
+      'PERPLEXITY_API_KEY',
+      'ANTHROPIC_API_KEY',
+      'NVIDIA_API_KEY',
+      'GEMINI_API_KEY',
+    ],
   })
 }

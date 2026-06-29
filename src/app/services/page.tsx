@@ -3,9 +3,12 @@ import NavigationServer from "@/components/sections/navigation-server";
 import Footer from "@/components/sections/footer";
 import ServicesHubIntro from "./services-hub-intro";
 import ServicesHubSticky from "./services-hub-sticky";
+import ServicesHubBreadcrumb from "./services-hub-breadcrumb";
+import ServicesHubTestimonial from "./services-hub-testimonial";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import LightFAQExact from "@/components/homepage-light/LightFAQExact";
 import type { Metadata } from "next";
+import { applyPageOg } from "@/lib/site-metadata";
 
 const ServicesStackedSlides = dynamic(
   () => import("@/components/sections/ServicesStackedSlides"),
@@ -21,6 +24,15 @@ const HomepageCaseStudiesSection = dynamic(
   {
     loading: () => (
       <div className="min-h-[70vh] w-full bg-[#F3F0EE]" aria-hidden="true" />
+    ),
+  },
+);
+
+const LightEngagementModels = dynamic(
+  () => import("@/components/homepage-light/LightEngagementModels"),
+  {
+    loading: () => (
+      <div className="min-h-[80vh] w-full bg-[#F3F0EE]" aria-hidden="true" />
     ),
   },
 );
@@ -63,7 +75,7 @@ const servicesMainFAQs = [
   },
 ];
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageOg("/services", {
   title: "Services | Softree Technology",
   description:
     "Microsoft Power Platform, SharePoint, AI, data analytics, web and mobile development — enterprise software services by Softree Technology.",
@@ -85,23 +97,13 @@ export const metadata: Metadata = {
       "Enterprise software services — Microsoft, AI, data, and modern application development.",
     url: "https://www.softreetechnology.com/services",
     siteName: "Softree Technology",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Softree Technology Services",
-      },
-    ],
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
     title: "Services | Softree Technology",
     description: "Enterprise software services by Softree Technology.",
-    images: ["/og-image.png"],
   },
-};
+}, "Softree Technology Services");
 
 export default function ServicesPage() {
   const faqJsonLd = {
@@ -145,10 +147,20 @@ export default function ServicesPage() {
       />
       <NavigationServer />
       <main className="flex-grow overflow-x-clip">
+        <div
+          className="bg-[#F3F0EE] pt-[100px]"
+          data-section="services-breadcrumb"
+        >
+          <div className="mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-12">
+            <ServicesHubBreadcrumb />
+          </div>
+        </div>
         <ServicesHubIntro />
         <ServicesHubSticky />
+        <LightEngagementModels />
         <ServicesStackedSlides />
         <HomepageCaseStudiesSection />
+        <ServicesHubTestimonial />
         <LightContactSection />
         <LightFAQExact faqs={servicesMainFAQs} />
       </main>

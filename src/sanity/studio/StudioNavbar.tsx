@@ -6,6 +6,8 @@ import {useRouter} from 'sanity/router'
 
 import {dataset} from '../env'
 
+import {SoftreeLogo} from './SoftreeLogo'
+
 export function StudioNavbar(props: NavbarProps) {
   const {renderDefault} = props
   const router = useRouter()
@@ -20,10 +22,14 @@ export function StudioNavbar(props: NavbarProps) {
 
       <div className="softree-studio-header__brand-row">
         <div className="softree-studio-header__brand">
-          <span className="softree-studio-header__logo" aria-hidden>
-            <span className="softree-studio-header__logo-core" />
-            <span className="softree-studio-header__logo-ring" />
-          </span>
+          <button
+            type="button"
+            className="softree-studio-header__logo-button"
+            onClick={() => go('/studio/structure/dashboard')}
+            aria-label="Softree Studio home"
+          >
+            <SoftreeLogo size="md" />
+          </button>
           <div className="softree-studio-header__titles">
             <span className="softree-studio-header__name">Softree Studio</span>
             <span className="softree-studio-header__tagline">Content command center</span>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { client } from "@/sanity/lib/client";
 import { groq } from "next-sanity";
+import { applyPageOg } from "@/lib/site-metadata";
 
 /**
  * Careers — dynamic SEO metadata
@@ -33,7 +34,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const title = metaTitle?.trim() || FALLBACK_TITLE;
   const description = metaDescription?.trim() || FALLBACK_DESCRIPTION;
 
-  return {
+  return applyPageOg("/careers", {
     title,
     description,
     alternates: {
@@ -44,23 +45,13 @@ export async function generateMetadata(): Promise<Metadata> {
       description,
       url: "https://www.softreetechnology.com/careers",
       siteName: "Softree Technology",
-      images: [
-        {
-          url: "/og-image.png",
-          width: 1200,
-          height: 630,
-          alt: "Softree Technology Careers",
-        },
-      ],
       type: "website",
     },
     twitter: {
-      card: "summary_large_image",
       title,
       description,
-      images: ["/og-image.png"],
     },
-  };
+  }, "Softree Technology Careers");
 }
 
 export default function CareersLayout({

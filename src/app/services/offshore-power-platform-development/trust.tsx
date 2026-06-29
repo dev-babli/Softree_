@@ -1,6 +1,12 @@
 "use client";
 
-export default function TrustedBrandsMarquee() {
+type TrustedBrandsMarqueeProps = {
+  surface?: "legacy" | "light";
+};
+
+export default function TrustedBrandsMarquee({
+  surface = "legacy",
+}: TrustedBrandsMarqueeProps) {
   const logos = [
     { name: "GO ERP", src: "/images/logo/goerp1.jpg" },
     { name: "Nuvento", src: "/images/logo/nuvento.jpg" },
@@ -17,7 +23,13 @@ export default function TrustedBrandsMarquee() {
   ];
 
   return (
-    <section className="relative py-2 overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
+    <section
+      className={
+        surface === "light"
+          ? "relative overflow-hidden bg-[#F3F0EE] py-2"
+          : "relative overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-2"
+      }
+    >
       <style>{`
         /* ── Scroll track ── */
         .pp-logo-wrap {

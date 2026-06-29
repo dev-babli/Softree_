@@ -17,6 +17,7 @@ import TrustedBrandsMarquee from "../offshore-power-platform-development/trust";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import LightFAQExact from "@/components/homepage-light/LightFAQExact";
 import type { Metadata } from "next";
+import { applyPageOg } from "@/lib/site-metadata";
 
 const powerBIFAQs = [
   {
@@ -60,7 +61,7 @@ const powerBIFAQs = [
 /* ------------------------------------------------------------------ */
 const FIXED_WIDTH = "mx-auto max-w-8xl px-8 sm:px-10 md:px-14 lg:px-20";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageOg("/services/offshore-data-analytics", {
   title: "Power BI Development Services | Power BI Consulting & Dashboard",
 
   description:
@@ -99,7 +100,7 @@ export const metadata: Metadata = {
     canonical:
       "https://www.softreetechnology.com/services/offshore-data-analytics",
   },
-};
+}, "Softree Technology");
 export default function Home() {
   return (
     <main className="relative min-h-screen">

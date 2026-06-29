@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import { applyPageOg } from "@/lib/site-metadata"
 import NavigationClient from "@/components/sections/navigation-client"
 import HeroSection from "./hero"
 import Footer from "@/components/sections/footer"
@@ -11,7 +12,7 @@ import ProcessSection from "./process"
 import WhyChooseSoftree from "./why"
 import LightContactSection from "@/components/homepage-light/LightContactSection"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageOg("/services/legacy-application-modernization", {
   title: "Application Modernization & Cloud Migration Services | Softree",
   description: "Modernize legacy applications with Softree’s migration and modernization services. Upgrade outdated systems to cloud-native, scalable, secure, and high-performance platforms.",
   keywords: [
@@ -34,23 +35,13 @@ export const metadata: Metadata = {
     description: "Modernize legacy applications with Softree’s migration and modernization services. Upgrade outdated systems to cloud-native, scalable, secure, and high-performance platforms.",
     url: "https://www.softreetechnology.com/services/legacy-application-modernization",
     siteName: "Softree Technology",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Softree Legacy Modernization Services",
-      },
-    ],
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
     title: "Application Modernization & Cloud Migration Services | Softree",
     description: "Modernize legacy applications with Softree’s migration and modernization services. Upgrade outdated systems to cloud-native, scalable, secure, and high-performance platforms.",
-    images: ["/og-image.png"],
   },
-}
+}, "Softree Legacy Modernization Services")
 
 export default function LegacyModernization() {
     return <div>

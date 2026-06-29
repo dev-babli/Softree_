@@ -1,5 +1,7 @@
 import type { Template } from 'sanity'
 
+import type { CaseStudyCategoryKey } from '@/app/case-studies/categoryConfig'
+
 const STORY_TYPES = [
   { value: 'standard', title: 'Standard Story' },
   { value: 'transformation', title: 'Transformation Epic' },
@@ -114,13 +116,26 @@ const composerStarterSections = [
   { _type: 'csContactSection' },
 ]
 
-const caseStudyBase = (industry: string, technologies: string[] = []) => ({
-  status: 'published' as const,
+import type { CaseStudyCategoryKey } from '@/app/case-studies/categoryConfig'
+
+const caseStudyBase = (
+  category: CaseStudyCategoryKey,
+  options: {
+    industry?: string
+    technologies?: string[]
+    detailLayout?: string
+    composerSections?: typeof composerStarterSections
+  } = {},
+) => ({
+  status: 'draft' as const,
   featuredRank: 0,
   storyType: 'standard' as const,
   heroLayout: 'centered' as const,
-  industry,
-  technologies,
+  category,
+  industry: options.industry ?? 'Technology',
+  detailLayout: options.detailLayout ?? 'manufacturing-power-platform',
+  technologies: options.technologies ?? [],
+  composerSections: options.composerSections,
   challengeContent: caseStudySections.challenge,
   approachContent: caseStudySections.approach,
   outcomeContent: caseStudySections.outcome,
@@ -158,46 +173,89 @@ const marketingLandingSections = [
   },
 ]
 
-const storyTypeTemplate = (storyType: string, industry = 'Technology') => ({
-  ...caseStudyBase(industry),
+const storyTypeTemplate = (storyType: string, category: CaseStudyCategoryKey = 'power-platform') => ({
+  ...caseStudyBase(category),
   storyType,
-  status: 'draft' as const,
 })
 
+const blogComposerStarterSections = [
+  {
+    _type: 'csNarrativeSection',
+    label: 'Introduction',
+    heading: 'Why this matters now',
+    content: [block('normal', 'Open with the problem your reader cares about.')],
+    layout: 'text',
+  },
+  {
+    _type: 'csEvidencePanel',
+    label: 'Evidence',
+    heading: 'What the data shows',
+    summary: 'One extractable paragraph with the key takeaway for AI search and readers.',
+    items: [
+      {
+        _type: 'composerEvidence',
+        claim: 'Replace with a cited fact from your research.',
+        source: 'Source name',
+      },
+    ],
+  },
+  {
+    _type: 'csFaqSection',
+    heading: 'Common questions',
+    faqs: [
+      { _type: 'composerFaq', question: 'Question readers search for?', answer: 'Clear, concise answer.' },
+      { _type: 'composerFaq', question: 'Second common question?', answer: 'Another helpful answer.' },
+    ],
+  },
+  { _type: 'csContactSection' },
+]
+
 export const documentTemplates: Template[] = [
+  {
+    id: 'post-composer',
+    title: 'Blog — page composer (recommended)',
+    schemaType: 'post',
+    value: {
+      status: 'draft',
+      displayMode: 'composer',
+      layoutRecipe: 'how-to-guide',
+      composerSections: blogComposerStarterSections,
+    },
+  },
   {
     id: 'post-article',
     title: 'Blog — standard article',
     schemaType: 'post',
-    value: { status: 'published', body: blogIntroBody },
+    value: { status: 'draft', displayMode: 'classic', body: blogIntroBody },
   },
   {
     id: 'post-how-to',
     title: 'Blog — how-to guide',
     schemaType: 'post',
-    value: { status: 'published', body: howToBody },
+    value: { status: 'draft', body: howToBody },
   },
   {
     id: 'post-thought-leadership',
     title: 'Blog — thought leadership',
     schemaType: 'post',
-    value: { status: 'published', body: thoughtLeadershipBody },
+    value: { status: 'draft', body: thoughtLeadershipBody },
   },
   {
     id: 'post-product-update',
     title: 'Blog — product update',
     schemaType: 'post',
-    value: { status: 'published', body: productUpdateBody },
+    value: { status: 'draft', body: productUpdateBody },
   },
   {
     id: 'caseStudy-composer',
     title: 'Case study — page composer (drag & drop)',
     schemaType: 'caseStudy',
     value: {
-      ...caseStudyBase('Technology'),
-      status: 'draft' as const,
-      detailLayout: 'page-composer',
-      composerSections: composerStarterSections,
+      ...caseStudyBase('power-platform', {
+        industry: 'Technology',
+        detailLayout: 'page-composer',
+        composerSections: composerStarterSections,
+      }),
     },
   },
   {

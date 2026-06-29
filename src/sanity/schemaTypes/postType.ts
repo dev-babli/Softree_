@@ -4,8 +4,9 @@ import {BLOG_LAYOUT_RECIPES} from '../../lib/blog-layout-recipes'
 import ComposerSectionsInput from '../components/ComposerSectionsInput'
 import {aiAssistExclude} from '../lib/blockContentOptions'
 import {fieldAi} from '../lib/fieldAiOptions'
-import {createSeoPreviewPanelField} from '../lib/documentHelpers'
+import {createSeoPreviewPanelField, createEditorProgressPanelField} from '../lib/documentHelpers'
 import {postHasContent} from '../lib/postCompleteness'
+import {getAeoPublishIssues, type AeoCompletenessDoc} from '../lib/aeoCompleteness'
 import {reviewStatusField} from '../lib/reviewStatusField'
 import {caseStudyComposerInsertMenu, caseStudyComposerMembers} from './caseStudyComposerBlocks'
 
@@ -24,6 +25,7 @@ export const postType = defineType({
     {name: 'content', title: 'Content'},
     {name: 'composer', title: 'Page composer'},
     {name: 'seo', title: 'SEO & AEO'},
+    {name: 'publish', title: 'Publish'},
   ],
   fields: [
     defineField({
@@ -54,7 +56,7 @@ export const postType = defineType({
       type: 'string',
       group: 'composer',
       description:
-        'Classic = standard article layout. Composer = scroll-based sections (same blocks as case studies). Existing posts stay on Classic.',
+        'Classic = standard article layout. Composer = scroll-based sections (same blocks as case studies). New posts default to Composer.',
       options: {
         list: [
           {title: 'Classic article', value: 'classic'},
@@ -63,7 +65,7 @@ export const postType = defineType({
         layout: 'radio',
         ...aiAssistExclude,
       },
-      initialValue: 'classic',
+      initialValue: 'composer',
     }),
     defineField({
       name: 'layoutRecipe',
@@ -155,7 +157,7 @@ export const postType = defineType({
     }),
     defineField({
       ...reviewStatusField,
-      group: 'content',
+      group: 'publish',
     }),
     defineField({
       name: 'author',
@@ -264,6 +266,7 @@ export const postType = defineType({
       options: {hotspot: true},
     }),
     createSeoPreviewPanelField('seo'),
+    createEditorProgressPanelField('publish'),
   ],
   validation: (Rule) =>
     Rule.custom((fields: Record<string, unknown> | undefined) => {
@@ -276,6 +279,11 @@ export const postType = defineType({
 
       if (!postHasContent(fields as Parameters<typeof postHasContent>[0])) {
         missing.push('content (body or composer sections)')
+      }
+
+      const aeoIssues = getAeoPublishIssues(fields as AeoCompletenessDoc)
+      if (aeoIssues.length > 0) {
+        missing.push(...aeoIssues)
       }
 
       if (missing.length > 0) {

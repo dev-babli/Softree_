@@ -4,6 +4,7 @@ import {
   type BlogLayoutRecipeId,
 } from '@/lib/blog-layout-recipes'
 
+import type { ArenaContestant } from './arena/contestants'
 import { generateJson } from './llm'
 import { proseToPortableText } from './portable-text'
 import type { GeneratedPostPayload, ResearchBrief } from './types'
@@ -22,6 +23,7 @@ type LlmSection = {
   rows?: Array<{ metric: string; before: string; after: string }>
   technologies?: string[]
   faqs?: Array<{ question: string; answer: string }>
+  items?: Array<{ claim: string; source: string; sourceUrl?: string }>
   quote?: string
   name?: string
   role?: string
@@ -110,6 +112,22 @@ function mapSection(section: LlmSection, planLayout?: 'text' | 'split'): Record<
         heading: section.heading || 'Frequently asked questions',
         faqs: (section.faqs || []).map((faq) => ({ ...faq, _key: randomKey() })),
       }
+    case 'csEvidencePanel':
+      return {
+        ...base,
+        label: section.label || 'Evidence',
+        heading: section.heading || 'What the data shows',
+        summary: section.summary || section.contentMarkdown?.slice(0, 320) || '',
+        items: (section.items || []).map((item) => ({ ...item, _key: randomKey() })),
+      }
+    case 'csHeroMetricsStrip':
+      return {
+        ...base,
+        label: section.label,
+        heading: section.heading,
+        variant: 'band',
+        metrics: (section.metrics || []).map((metric) => ({ ...metric, _key: randomKey() })),
+      }
     case 'csRelatedSection':
       return base
     case 'csContactSection':
@@ -119,18 +137,22 @@ function mapSection(section: LlmSection, planLayout?: 'text' | 'split'): Record<
   }
 }
 
-export async function generatePostDocument(
+function buildPostPrompts(
   topic: string,
   research: ResearchBrief,
   brandContext: string,
-  layoutRecipeId?: BlogLayoutRecipeId,
-): Promise<GeneratedPostPayload> {
-  const recipeId = layoutRecipeId || inferLayoutRecipe(topic)
+  recipeId: BlogLayoutRecipeId,
+  contestant?: ArenaContestant,
+) {
   const recipe = getLayoutRecipe(recipeId)
   const today = new Date().toLocaleDateString('en-US', {
     month: 'long',
     year: 'numeric',
   })
+
+  const personaBlock = contestant
+    ? `\n\nContestant persona — ${contestant.name}:\n${contestant.directive}`
+    : ''
 
   const system = `${brandContext}
 
@@ -141,7 +163,7 @@ Rules:
 - Question-form headings where possible
 - 3-5 statistics with sources from research brief
 - No forbidden buzzwords from brand guide
-- Output ONLY valid JSON matching the schema`
+- Output ONLY valid JSON matching the schema${personaBlock}`
 
   const user = `Topic: ${topic}
 Layout recipe: ${recipe.id} — ${recipe.title}
@@ -172,10 +194,21 @@ Return JSON:
   ]
 }
 
-For csFaqSection include faqs array. For csContactSection and csRelatedSection only _type is needed.
+For csFaqSection include faqs array. For csEvidencePanel include summary + items[{claim,source,sourceUrl}].
+For csContactSection and csRelatedSection only _type is needed.
 Do NOT include csOverviewSection.`
 
-  const llm = await generateJson<LlmPostResponse>(system, user)
+  return { recipe, today, system, user, temperature: contestant?.temperature ?? 0.3 }
+}
+
+function assemblePostPayload(
+  topic: string,
+  research: ResearchBrief,
+  recipeId: BlogLayoutRecipeId,
+  llm: LlmPostResponse,
+  today: string,
+): GeneratedPostPayload {
+  const recipe = getLayoutRecipe(recipeId)
 
   const composerSections = recipe.sectionPlan.map((plan, index) => {
     const llmSection =
@@ -212,11 +245,43 @@ Do NOT include csOverviewSection.`
     featuredImagePrompt:
       llm.featuredImagePrompt ||
       `Editorial photograph for enterprise blog: ${title}. Modern Microsoft technology workspace, warm neutral tones, orange accent, no text.`,
-    faqSchema: llm.faqSchema?.length ? llm.faqSchema : research.faqSeeds.slice(0, 6).map((q) => ({
-      question: q,
-      answer: research.summary,
-    })),
+    faqSchema: llm.faqSchema?.length
+      ? llm.faqSchema
+      : research.faqSeeds.slice(0, 6).map((q) => ({
+          question: q,
+          answer: research.summary,
+        })),
     layoutRecipe: recipeId,
     composerSections,
   }
+}
+
+/** Generate one candidate — used by the Content Arena and single-shot mode. */
+export async function generatePostCandidate(
+  topic: string,
+  research: ResearchBrief,
+  brandContext: string,
+  layoutRecipeId?: BlogLayoutRecipeId,
+  contestant?: ArenaContestant,
+): Promise<GeneratedPostPayload> {
+  const recipeId = layoutRecipeId || inferLayoutRecipe(topic)
+  const { today, system, user, temperature } = buildPostPrompts(
+    topic,
+    research,
+    brandContext,
+    recipeId,
+    contestant,
+  )
+
+  const llm = await generateJson<LlmPostResponse>(system, user, { temperature })
+  return assemblePostPayload(topic, research, recipeId, llm, today)
+}
+
+export async function generatePostDocument(
+  topic: string,
+  research: ResearchBrief,
+  brandContext: string,
+  layoutRecipeId?: BlogLayoutRecipeId,
+): Promise<GeneratedPostPayload> {
+  return generatePostCandidate(topic, research, brandContext, layoutRecipeId)
 }

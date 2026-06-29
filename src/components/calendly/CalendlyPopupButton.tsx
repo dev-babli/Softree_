@@ -2,49 +2,11 @@
 
 import { useCallback, useEffect } from "react";
 import { ArrowUpRight } from "lucide-react";
-
-declare global {
-  interface Window {
-    Calendly?: {
-      initPopupWidget: (options: { url: string }) => void;
-    };
-  }
-}
-
-const DEFAULT_CALENDLY_URL =
-  "https://calendly.com/shradhabhagat/new-meeting?hide_gdpr_banner=1&hide_landing_page_details=1";
-
-function loadCalendlyAssets() {
-  if (typeof window === "undefined") return Promise.resolve();
-
-  return new Promise<void>((resolve) => {
-    if (window.Calendly?.initPopupWidget) {
-      resolve();
-      return;
-    }
-
-    if (!document.getElementById("calendly-stylesheet")) {
-      const link = document.createElement("link");
-      link.id = "calendly-stylesheet";
-      link.rel = "stylesheet";
-      link.href = "https://assets.calendly.com/assets/external/widget.css";
-      document.head.appendChild(link);
-    }
-
-    const existingScript = document.getElementById("calendly-script");
-    if (existingScript) {
-      existingScript.addEventListener("load", () => resolve(), { once: true });
-      return;
-    }
-
-    const script = document.createElement("script");
-    script.id = "calendly-script";
-    script.src = "https://assets.calendly.com/assets/external/widget.js";
-    script.async = true;
-    script.onload = () => resolve();
-    document.body.appendChild(script);
-  });
-}
+import {
+  DEFAULT_CALENDLY_URL,
+  loadCalendlyAssets,
+  openCalendlyPopup,
+} from "./calendly-loader";
 
 type CalendlyPopupButtonProps = {
   url?: string;
@@ -62,9 +24,7 @@ export default function CalendlyPopupButton({
   }, []);
 
   const openScheduler = useCallback(() => {
-    loadCalendlyAssets().then(() => {
-      window.Calendly?.initPopupWidget({ url });
-    });
+    void openCalendlyPopup(url);
   }, [url]);
 
   return (

@@ -89,8 +89,11 @@ export function TechLogo({
 }) {
   const Logo = TECH_LOGO_MAP[name]
   if (Logo) return <Logo className={className} />
-  const fallbackBg = variant === "light" ? "rgba(255,122,47,0.12)" : "#FF7A2F"
-  const fallbackText = variant === "light" ? "#FF7A2F" : "#0a0a0a"
+  const fallbackBg =
+    variant === "light"
+      ? "var(--softree-accent-soft, rgba(255,122,47,0.12))"
+      : "var(--softree-accent, #FF7A2F)"
+  const fallbackText = variant === "light" ? "var(--softree-accent, #FF7A2F)" : "#0a0a0a"
   return (
     <div
       className={`flex items-center justify-center rounded-lg text-xs font-bold ${className || "h-10 w-10"}`}

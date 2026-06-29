@@ -5,7 +5,6 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import "./infinity-scroll-home.css";
 
-/** Slides use images from `public/service_image/` only — no Grainient. */
 export const gallerySlides = [
   {
     title: "AI & automation",
@@ -41,7 +40,7 @@ export const gallerySlides = [
   },
 ] as const;
 
-const SLIDE_COUNT = gallerySlides.length;
+export type GallerySlide = (typeof gallerySlides)[number];
 
 const config = { LERP_FACTOR: 0.05, SNAP_DURATION: 500 };
 
@@ -70,11 +69,15 @@ function createParallax(layer: HTMLElement, height: number, scale = 1.4): Parall
 type ParallaxGalleryCardProps = {
   className?: string;
   onSlideChange?: (index: number) => void;
+  slides?: readonly GallerySlide[];
+  eyebrow?: string;
 };
 
 export default function ParallaxGalleryCard({
   className = "",
   onSlideChange,
+  slides,
+  eyebrow = "Services we deliver",
 }: ParallaxGalleryCardProps) {
   const stageRef = useRef<HTMLDivElement>(null);
   const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -84,8 +87,11 @@ export default function ParallaxGalleryCard({
   const minimapInfoRefs = useRef<(HTMLDivElement | null)[]>([]);
   const goToIndexRef = useRef<(index: number) => void>(() => {});
 
+  const resolvedSlides = slides ?? gallerySlides;
+  const slideCount = resolvedSlides.length;
+
   const [activeIndex, setActiveIndex] = useState(0);
-  const active = gallerySlides[activeIndex];
+  const active = resolvedSlides[activeIndex];
 
   const syncActiveIndex = useCallback(
     (index: number) => {
@@ -117,7 +123,7 @@ export default function ParallaxGalleryCard({
       state.minimap.clear();
       state.minimapInfo.clear();
 
-      for (let i = 0; i < SLIDE_COUNT; i++) {
+      for (let i = 0; i < slideCount; i++) {
         const projectEl = projectRefs.current[i];
         const visualEl = projectVisualRefs.current[i];
         if (projectEl) {
@@ -159,7 +165,7 @@ export default function ParallaxGalleryCard({
       Math.round(-state.targetY / state.projectHeight);
 
     const goToIndex = (index: number) => {
-      const clamped = Math.max(0, Math.min(SLIDE_COUNT - 1, index));
+      const clamped = Math.max(0, Math.min(slideCount - 1, index));
       state.lastReportedIndex = clamped;
       state.isSnapping = true;
       state.snapStart.time = Date.now();
@@ -227,7 +233,7 @@ export default function ParallaxGalleryCard({
         return;
       const current = getCurrentIndex();
       if (e.key === "ArrowDown" || e.key === "ArrowRight") {
-        if (current < SLIDE_COUNT - 1) {
+        if (current < slideCount - 1) {
           e.preventDefault();
           goToIndex(current + 1);
         }
@@ -250,7 +256,7 @@ export default function ParallaxGalleryCard({
       resizeObserver.disconnect();
       window.removeEventListener("keydown", onKeyDown);
     };
-  }, [syncActiveIndex]);
+  }, [syncActiveIndex, slideCount]);
 
   return (
     <div
@@ -265,7 +271,7 @@ export default function ParallaxGalleryCard({
       >
         {/* Full-bleed background — service images from public/service_image */}
         <div className="isc-project-list">
-          {gallerySlides.map((slide, i) => (
+          {resolvedSlides.map((slide, i) => (
             <div
               key={slide.title}
               ref={(el) => {
@@ -309,7 +315,7 @@ export default function ParallaxGalleryCard({
         <div className="isc-minimap isc-minimap--landscape">
           <div className="isc-minimap-wrapper">
             <div className="isc-minimap-img-preview">
-              {gallerySlides.map((slide, i) => (
+              {resolvedSlides.map((slide, i) => (
                 <div
                   key={`mini-${slide.title}`}
                   ref={(el) => {
@@ -336,7 +342,7 @@ export default function ParallaxGalleryCard({
               ))}
             </div>
             <div className="isc-minimap-info-list">
-              {gallerySlides.map((slide, i) => (
+              {resolvedSlides.map((slide, i) => (
                 <div
                   key={`info-${slide.title}`}
                   ref={(el) => {
@@ -362,7 +368,7 @@ export default function ParallaxGalleryCard({
       <div className="pointer-events-none absolute inset-x-0 top-0 z-20 flex items-start justify-between bg-gradient-to-b from-black/50 to-transparent p-4 md:p-5">
         <div>
           <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/55">
-            Services we deliver
+            {eyebrow}
           </p>
           <p className="mt-1 text-sm font-semibold text-white md:text-base">
             {active.title}
@@ -370,7 +376,7 @@ export default function ParallaxGalleryCard({
         </div>
         <span className="rounded-full border border-white/15 bg-white/10 px-2.5 py-1 font-mono text-[10px] tabular-nums text-white/80 backdrop-blur-md">
           {String(activeIndex + 1).padStart(2, "0")}/
-          {String(SLIDE_COUNT).padStart(2, "0")}
+          {String(slideCount).padStart(2, "0")}
         </span>
       </div>
 
@@ -387,7 +393,7 @@ export default function ParallaxGalleryCard({
         <button
           type="button"
           onClick={() => goToIndexRef.current(activeIndex + 1)}
-          disabled={activeIndex === SLIDE_COUNT - 1}
+          disabled={activeIndex === slideCount - 1}
           className="pointer-events-auto inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white text-[#0a0a1a] backdrop-blur-md transition hover:bg-white/90 disabled:opacity-30"
           aria-label="Next slide"
         >

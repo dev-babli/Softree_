@@ -18,6 +18,7 @@ import {
 } from "@sanity/ui"
 import { useClient } from "sanity"
 import { apiVersion } from "@/sanity/env"
+import { studioApiUrl, studioFetchInit } from "@/sanity/lib/studioFetch"
 import {
   GEMINI_ASPECT_RATIOS,
   GEMINI_PROMPT_TEMPLATES,
@@ -93,7 +94,7 @@ export default function GeminiImageStudioTool() {
     let cancelled = false
     ;(async () => {
       try {
-        const res = await fetch(resolveApiUrl("/api/studio/generate-image"))
+        const res = await fetch(studioApiUrl("/api/studio/generate-image"), studioFetchInit())
         if (!res.ok) throw new Error("Could not load model catalog")
         const data = (await res.json()) as CatalogResponse
         if (!cancelled) setCatalog(data)
@@ -204,17 +205,13 @@ export default function GeminiImageStudioTool() {
 
     try {
       const response = await fetch(
-        resolveApiUrl("/api/studio/generate-image"),
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            provider,
-            modelKey,
-            prompt: trimmed,
-            aspectRatio,
-          }),
-        },
+        studioApiUrl("/api/studio/generate-image"),
+        studioFetchInit("POST", {
+          provider,
+          modelKey,
+          prompt: trimmed,
+          aspectRatio,
+        }),
       )
 
       const data = await response.json()

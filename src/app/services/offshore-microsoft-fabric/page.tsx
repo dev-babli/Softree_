@@ -12,6 +12,7 @@ import FabricPartner from "./fabric-partner";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import LightFAQExact from "@/components/homepage-light/LightFAQExact";
 import type { Metadata } from "next";
+import { applyPageOg } from "@/lib/site-metadata";
 
 const fabricFAQs = [
   {
@@ -51,7 +52,7 @@ const fabricFAQs = [
   },
 ]
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageOg("/services/offshore-microsoft-fabric", {
   title: "Microsoft Fabric Consulting Services | Data Analytics & AI Solutions",
 
   description:
@@ -90,7 +91,7 @@ export const metadata: Metadata = {
     canonical:
       "https://www.softreetechnology.com/services/offshore-microsoft-fabric",
   },
-};
+}, "Softree Technology");
 export default function Home() {
   return (
     <>

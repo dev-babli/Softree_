@@ -2,6 +2,9 @@
 
 import React from "react";
 import { Rocket, Briefcase, ShieldCheck } from "lucide-react";
+import SectionHeader from "@/components/homepage-light/SectionHeader";
+
+const ACCENT = "#FF5812" as const;
 
 /* ===================== DATA ===================== */
 const pillars = [
@@ -37,34 +40,22 @@ const pillars = [
 /* ===================== SECTION ===================== */
 export default function ThreePillarsOfExcellence() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 via-white to-gray-50 py-16">
-      <div className="relative mx-auto max-w-7xl px-6 sm:px-10 lg:px-16">
-        {/* ===== Header ===== */}
-        <div className="text-center max-w-3xl mx-auto mb-7">
-          <h2 className="mt-6 text-4xl md:text-5xl font-bold text-gray-900">
-            Our Web Development{" "}
-            <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
-              Delivery Pillars
-            </span>
-          </h2>
-
-          <p className="mt-6 text-gray-600 leading-relaxed">
-            We build secure, scalable, and business-driven digital solutions.
-            These pillars ensure every web application is reliable,
-            future-ready, and aligned with real-world goals.
-          </p>
+    <section
+      data-section="web-dev-pillars"
+      className="relative overflow-hidden py-16 md:py-20"
+    >
+      <div className="relative mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-12">
+        <div className="mx-auto mb-12 max-w-3xl text-center">
+          <SectionHeader
+            badge="Delivery pillars"
+            accent={ACCENT}
+            headline="Our web development delivery pillars"
+            body="We build secure, scalable, and business-driven digital solutions. These pillars ensure every web application is reliable, future-ready, and aligned with real-world goals."
+            className="mx-auto items-center [&_p]:mx-auto"
+          />
         </div>
 
-        {/* ===== Container Card ===== */}
-        <div
-          className="
-          rounded-3xl
-          bg-white/80 backdrop-blur-xl
-          border border-gray-200
-          shadow-xl
-          p-12
-        "
-        >
+        <div className="rounded-3xl border border-[#0a0a1a]/[0.06] bg-white p-8 shadow-[0_24px_60px_-40px_rgba(10,10,26,0.12)] md:p-12">
           {/* ===== Pillars Grid ===== */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {pillars.map((pillar, index) => (
@@ -99,22 +90,19 @@ function Pillar({
     <div
       className={`
         relative transition-all duration-300 hover:-translate-y-2
-        ${bordered ? "md:border-l md:border-gray-200 md:pl-10" : ""}
+        ${bordered ? "md:border-l md:border-[#0a0a1a]/10 md:pl-10" : ""}
       `}
     >
-      {/* ICON */}
-      <div className="mb-6 w-14 h-14 rounded-xl bg-orange-50 flex items-center justify-center">
-        <Icon className="w-7 h-7 text-orange-600" />
+      <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-[#FF5812]/10">
+        <Icon className="h-7 w-7 text-[#FF5812]" />
       </div>
 
-      {/* TITLE */}
-      <h3 className="text-lg font-semibold text-gray-900 mb-6">{title}</h3>
+      <h3 className="mb-6 text-lg font-semibold text-[#0a0a1a]">{title}</h3>
 
-      {/* POINTS */}
-      <ul className="space-y-4 text-sm text-gray-600">
+      <ul className="space-y-4 text-sm text-[#0a0a1a]/65">
         {points.map((point, index) => (
-          <li key={index} className="flex gap-3 items-start">
-            <span className="text-orange-600 font-semibold">{index + 1}.</span>
+          <li key={index} className="flex items-start gap-3">
+            <span className="font-semibold text-[#FF5812]">{index + 1}.</span>
             <span>{point}</span>
           </li>
         ))}
