@@ -50,6 +50,8 @@ const MEGA_META: Record<string, MegaMenuMeta> = {
   "Case Studies": {
     eyebrow: "Proof",
     blurb: "Customer stories organized by solution area.",
+    cta: "All case studies",
+    href: "/case-studies",
   },
   Blog: {
     eyebrow: "Insights",

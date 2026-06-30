@@ -157,7 +157,7 @@ const menu: MenuItem[] = [
       },
     ],
   },
-  { label: "Case Studies", mega: true, children: [] },
+  { label: "Case Studies", url: "/case-studies", mega: true, children: [] },
   { label: "Blog", url: "/blog", mega: true, children: [] },
   { label: "Careers", url: "/careers" },
 ];
@@ -441,7 +441,7 @@ export default function Navigation({
             <div className="mx-auto max-w-lg">
               {dynamicMenu.map((item) => (
                 <div key={item.label} className="border-b border-black/[0.06]">
-                  {item.mega ? (
+                  {item.mega && item.children && item.children.length > 0 ? (
                     <button
                       type="button"
                       onClick={() =>
