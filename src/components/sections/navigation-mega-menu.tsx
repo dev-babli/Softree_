@@ -27,6 +27,8 @@ export type MegaMenuLink = {
 
 export type MegaMenuGroup = {
   title: string;
+  url?: string;
+  icon?: React.ComponentType<{ size?: number; className?: string }>;
   description?: string;
   links: MegaMenuLink[];
 };
@@ -34,8 +36,8 @@ export type MegaMenuGroup = {
 type MegaMenuMeta = {
   eyebrow: string;
   blurb: string;
-  cta: string;
-  href: string;
+  cta?: string;
+  href?: string;
 };
 
 const MEGA_META: Record<string, MegaMenuMeta> = {
@@ -48,14 +50,16 @@ const MEGA_META: Record<string, MegaMenuMeta> = {
   "Case Studies": {
     eyebrow: "Proof",
     blurb: "Customer stories organized by solution area.",
-    cta: "All case studies",
-    href: "/case-studies",
   },
   Blog: {
     eyebrow: "Insights",
     blurb: "Practical notes on platforms, AI, and software delivery.",
     cta: "All articles",
     href: "/blog",
+  },
+  Products: {
+    eyebrow: "Solutions",
+    blurb: "Production-ready products built to accelerate your operations.",
   },
 };
 
@@ -107,7 +111,7 @@ export function MegaMenuPanel({
               </p>
             )}
           </div>
-          {meta && (
+          {meta && meta.href && meta.cta && (
             <Link
               href={meta.href}
               onClick={onClose}
@@ -125,7 +129,7 @@ export function MegaMenuPanel({
         {/* Mobile-only header */}
         <div className="flex items-center justify-between border-b border-black/[0.06] px-5 py-3.5 sm:hidden">
           <span className="text-sm font-semibold text-[#0a0a1a]">{label}</span>
-          {meta && (
+          {meta && meta.href && meta.cta && (
             <Link
               href={meta.href}
               onClick={onClose}
@@ -136,80 +140,143 @@ export function MegaMenuPanel({
           )}
         </div>
 
-        <div
-          className={`grid gap-0 p-4 sm:p-5 ${GRID_COLS[columnCount] ?? "grid-cols-4"}`}
-        >
-          {groups.map((group, idx) => {
-            const accent = getNavColumnAccent(idx);
-            const isLast = idx === groups.length - 1;
+        {(() => {
+          const cols: MegaMenuGroup[][] = [];
+          const maxCols = 4;
+          for (let i = 0; i < groups.length; i++) {
+            const colIdx = i % maxCols;
+            if (!cols[colIdx]) {
+              cols[colIdx] = [];
+            }
+            cols[colIdx].push(groups[i]);
+          }
 
-            return (
-              <div
-                key={`${group.title}-${idx}`}
-                className={`px-3 py-1 ${!isLast ? "border-r border-black/[0.05]" : ""}`}
-              >
-                <div className="mb-3">
-                  <div className="mb-1.5 flex items-center gap-2">
-                    <span
-                      className="h-1.5 w-1.5 shrink-0 rounded-full"
-                      style={{ backgroundColor: accent }}
-                    />
-                    <span
-                      className="text-[10px] font-bold uppercase tracking-[0.2em]"
-                      style={{ color: accent }}
-                    >
-                      {group.title}
-                    </span>
-                  </div>
-                  {group.description && (
-                    <p className="text-[11px] leading-snug text-[#0a0a1a]/45 line-clamp-2">
-                      {group.description}
-                    </p>
-                  )}
-                </div>
+          return (
+            <div className={`grid gap-0 p-4 sm:p-5 ${GRID_COLS[cols.length] ?? "grid-cols-4"}`}>
+              {cols.map((columnGroups, colIdx) => {
+                const accent = getNavColumnAccent(colIdx);
+                const isLast = colIdx === cols.length - 1;
 
-                <ul className="space-y-0.5">
-                  {group.links.map((link) => {
-                    const Icon = link.icon;
-                    return (
-                      <li key={`${link.url}-${link.label}`}>
-                        <Link
-                          href={link.url}
-                          onClick={onClose}
-                          className="group flex items-start gap-2.5 rounded-lg px-2 py-2 transition-colors duration-100 hover:bg-white"
-                        >
-                          {Icon && (
-                            <Icon
-                              size={15}
-                              className="mt-0.5 shrink-0 text-[#0a0a1a]/30 transition-colors duration-100 group-hover:text-[#FF5812]"
-                            />
-                          )}
-                          <span className="min-w-0">
-                            <span className="flex items-center gap-1">
-                              <span className="text-[13px] font-medium leading-snug text-[#0a0a1a]">
-                                {link.label}
-                              </span>
-                              <ArrowUpRight
-                                size={11}
-                                className="shrink-0 opacity-0 transition-all duration-100 group-hover:translate-x-px group-hover:-translate-y-px group-hover:opacity-100"
-                                style={{ color: accent }}
-                              />
-                            </span>
-                            {link.description && (
-                              <span className="mt-0.5 block text-[11px] leading-snug text-[#0a0a1a]/40 line-clamp-2">
-                                {link.description}
-                              </span>
+                return (
+                  <div
+                    key={colIdx}
+                    className={`flex flex-col gap-6 px-3 py-1 ${!isLast ? "border-r border-black/[0.05]" : ""}`}
+                  >
+                    {columnGroups.map((group, groupIdx) => {
+                      const GroupIcon = group.icon;
+                      return (
+                        <div key={`${group.title}-${groupIdx}`} className="w-full">
+                          <div className="mb-3">
+                            {group.url ? (
+                              <Link
+                                href={group.url}
+                                onClick={onClose}
+                                className="group/col-link -mx-2.5 block rounded-xl p-2.5 transition-colors duration-150 hover:bg-black/[0.03]"
+                              >
+                                <div className="mb-1.5 flex items-center gap-2">
+                                  {GroupIcon ? (
+                                    <GroupIcon
+                                      size={16}
+                                      className="shrink-0 text-[#0a0a1a]/30 transition-colors duration-100 group-hover/col-link:text-[#FF5812]"
+                                    />
+                                  ) : (
+                                    <span
+                                      className="h-1.5 w-1.5 shrink-0 rounded-full"
+                                      style={{ backgroundColor: accent }}
+                                    />
+                                  )}
+                                  <span
+                                    className="text-[10px] font-bold uppercase tracking-[0.2em] transition-colors duration-100 group-hover/col-link:text-[#FF5812]"
+                                    style={{ color: accent }}
+                                  >
+                                    {group.title}
+                                  </span>
+                                </div>
+                                {group.description && (
+                                  <p className="text-[11px] leading-snug text-[#0a0a1a]/45 line-clamp-2 transition-colors duration-100 group-hover/col-link:text-[#0a0a1a]/60">
+                                    {group.description}
+                                  </p>
+                                )}
+                              </Link>
+                            ) : (
+                              <>
+                                <div className="mb-1.5 flex items-center gap-2">
+                                  {GroupIcon ? (
+                                    <GroupIcon
+                                      size={16}
+                                      className="shrink-0 text-[#0a0a1a]/30"
+                                    />
+                                  ) : (
+                                    <span
+                                      className="h-1.5 w-1.5 shrink-0 rounded-full"
+                                      style={{ backgroundColor: accent }}
+                                    />
+                                  )}
+                                  <span
+                                    className="text-[10px] font-bold uppercase tracking-[0.2em]"
+                                    style={{ color: accent }}
+                                  >
+                                    {group.title}
+                                  </span>
+                                </div>
+                                {group.description && (
+                                  <p className="text-[11px] leading-snug text-[#0a0a1a]/45 line-clamp-2">
+                                    {group.description}
+                                  </p>
+                                )}
+                              </>
                             )}
-                          </span>
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            );
-          })}
-        </div>
+                          </div>
+
+                          {group.links && group.links.length > 0 && (
+                            <ul className="space-y-0.5">
+                              {group.links.map((link) => {
+                                const Icon = link.icon;
+                                return (
+                                  <li key={`${link.url}-${link.label}`}>
+                                    <Link
+                                      href={link.url}
+                                      onClick={onClose}
+                                      className="group flex items-start gap-2.5 rounded-lg px-2 py-2 transition-colors duration-100 hover:bg-white"
+                                    >
+                                      {Icon && (
+                                        <Icon
+                                          size={15}
+                                          className="mt-0.5 shrink-0 text-[#0a0a1a]/30 transition-colors duration-100 group-hover:text-[#FF5812]"
+                                        />
+                                      )}
+                                      <span className="min-w-0">
+                                        <span className="flex items-center gap-1">
+                                          <span className="text-[13px] font-medium leading-snug text-[#0a0a1a]">
+                                            {link.label}
+                                          </span>
+                                          <ArrowUpRight
+                                            size={11}
+                                            className="shrink-0 opacity-0 transition-all duration-100 group-hover:translate-x-px group-hover:-translate-y-px group-hover:opacity-100"
+                                            style={{ color: accent }}
+                                          />
+                                        </span>
+                                        {link.description && (
+                                          <span className="mt-0.5 block text-[11px] leading-snug text-[#0a0a1a]/40 line-clamp-2">
+                                            {link.description}
+                                          </span>
+                                        )}
+                                      </span>
+                                    </Link>
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })()}
 
         <div className="flex items-center justify-between border-t border-black/[0.05] px-5 py-2.5">
           <p className="text-[11px] text-[#0a0a1a]/45">

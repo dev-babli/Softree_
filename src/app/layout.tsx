@@ -111,8 +111,13 @@ export default async function RootLayout({
             }),
           }}
         />
+      </head>
+ 
+       <body className="antialiased bg-[#141414] text-white">
         {/* ✅ Google Tag Manager */}
-        <script
+        <Script
+          id="gtm"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function(w,d,s,l,i){w[l]=w[l]||[];
@@ -126,9 +131,6 @@ export default async function RootLayout({
             `,
           }}
         />
-      </head>
-
-      <body className="antialiased bg-[#141414] text-white">
         {/* ✅ GTM NoScript (Immediate child of <body>) */}
         <noscript>
           <iframe

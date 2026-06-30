@@ -29,6 +29,7 @@ import {
   Smartphone,
   Layers,
   FileText,
+  RefreshCw,
 } from "lucide-react";
 
 type MenuLink = {
@@ -40,6 +41,8 @@ type MenuLink = {
 
 type MenuGroup = {
   title: string;
+  url?: string;
+  icon?: React.ComponentType<{ size?: number; className?: string }>;
   description?: string;
   links: MenuLink[];
 };
@@ -103,8 +106,58 @@ const menu: MenuItem[] = [
       },
     ],
   },
-
-  { label: "Case Studies", url: "/case-studies", mega: true, children: [] },
+  {
+    label: "Products",
+    mega: true,
+    children: [
+      {
+        title: "AI & Automation",
+        icon: Bot,
+        description: "Intelligent autonomous tools & agents.",
+        links: [
+          { label: "AI Growth Intelligence", url: "/webanalyser", icon: Sparkles, description: "AI-Powered Website Intelligence" },
+          { label: "GEO", url: "/geo", icon: Globe2, description: "AI Growth Intelligence | AI-Powered Website Intelligence" },
+        ],
+      },
+      {
+        title: "Microsoft",
+        icon: LayoutDashboard,
+        description: "Enterprise Microsoft solutions.",
+        links: [],
+      },
+      {
+        title: "Cloud & DevOps",
+        icon: Server,
+        description: "Infrastructure & architecture refresh.",
+        links: [],
+      },
+      {
+        title: "Data & Analytics",
+        icon: LineChart,
+        description: "Data intelligence platforms.",
+        links: [],
+      },
+      {
+        title: "Software Engineering",
+        icon: Code2,
+        description: "Custom software engineering.",
+        links: [],
+      },
+      {
+        title: "Quality Assurance",
+        icon: BrainCircuit,
+        description: "Production-grade testing.",
+        links: [],
+      },
+      {
+        title: "Digital Transformation",
+        icon: Layers,
+        description: "Modernize legacy systems.",
+        links: [],
+      },
+    ],
+  },
+  { label: "Case Studies", mega: true, children: [] },
   { label: "Blog", url: "/blog", mega: true, children: [] },
   { label: "Careers", url: "/careers" },
 ];
@@ -283,24 +336,45 @@ export default function Navigation({
                     key={item.label}
                     onMouseEnter={() => canOpen && openMenu(item.label)}
                   >
-                    <Link
-                      href={item.url || "#"}
-                      aria-expanded={isOpen}
-                      aria-haspopup={canOpen ? "true" : undefined}
-                      className={`inline-flex items-center gap-1 rounded-lg px-3.5 py-2 text-[13px] font-medium transition-colors duration-100 ${isOpen
+                    {item.url ? (
+                      <Link
+                        href={item.url}
+                        aria-expanded={isOpen}
+                        aria-haspopup={canOpen ? "true" : undefined}
+                        className={`inline-flex items-center gap-1 rounded-lg px-3.5 py-2 text-[13px] font-medium transition-colors duration-100 ${isOpen
                           ? "bg-[rgba(255,88,18,0.1)] text-[#FF5812]"
                           : "text-[#0a0a1a]/60 hover:bg-[#F3F0EE] hover:text-[#0a0a1a]"
-                        }`}
-                    >
-                      {item.label}
-                      {canOpen && (
-                        <ChevronDown
-                          size={13}
-                          className={`transition-transform duration-100 ${isOpen ? "rotate-180 text-[#FF5812]" : "text-[#0a0a1a]/25"
-                            }`}
-                        />
-                      )}
-                    </Link>
+                          }`}
+                      >
+                        {item.label}
+                        {canOpen && (
+                          <ChevronDown
+                            size={13}
+                            className={`transition-transform duration-100 ${isOpen ? "rotate-180 text-[#FF5812]" : "text-[#0a0a1a]/25"
+                              }`}
+                          />
+                        )}
+                      </Link>
+                    ) : (
+                      <button
+                        type="button"
+                        aria-expanded={isOpen}
+                        aria-haspopup={canOpen ? "true" : undefined}
+                        className={`inline-flex items-center gap-1 rounded-lg px-3.5 py-2 text-[13px] font-medium transition-colors duration-100 outline-none ${isOpen
+                          ? "bg-[rgba(255,88,18,0.1)] text-[#FF5812]"
+                          : "text-[#0a0a1a]/60 hover:bg-[#F3F0EE] hover:text-[#0a0a1a]"
+                          }`}
+                      >
+                        {item.label}
+                        {canOpen && (
+                          <ChevronDown
+                            size={13}
+                            className={`transition-transform duration-100 ${isOpen ? "rotate-180 text-[#FF5812]" : "text-[#0a0a1a]/25"
+                              }`}
+                          />
+                        )}
+                      </button>
+                    )}
                   </div>
                 );
               })}
@@ -339,8 +413,8 @@ export default function Navigation({
           >
             <div
               className={`absolute left-0 right-0 top-0 z-40 pt-2 transition-none ${hasMegaContent
-                  ? "pointer-events-auto visible opacity-100"
-                  : "pointer-events-none invisible opacity-0"
+                ? "pointer-events-auto visible opacity-100"
+                : "pointer-events-none invisible opacity-0"
                 }`}
             >
               {activeMegaItem?.children && hasMegaContent && (
@@ -396,48 +470,91 @@ export default function Navigation({
 
                   {item.mega && mobileDropdown === item.label && item.children && (
                     <div className="flex flex-col gap-5 pl-4 pr-2 pb-6 pt-2">
-                      {item.children.map((group, groupIdx) => (
-                        <div key={groupIdx} className="flex flex-col gap-2.5">
-                          <div className="flex items-center gap-2">
-                            <span className="h-1.5 w-1.5 rounded-full bg-[#FF5812]" />
-                            <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#0a0a1a]/45">
-                              {group.title}
-                            </h4>
-                          </div>
+                      {item.children.map((group, groupIdx) => {
+                        const GroupIcon = group.icon;
+                        const hasLinks = (group.links?.length ?? 0) > 0;
 
-                          <ul className="flex flex-col gap-1.5">
-                            {group.links.map((link, linkIdx) => {
-                              const LinkIcon = link.icon;
-                              return (
-                                <li key={linkIdx}>
-                                  <Link
-                                    href={link.url}
-                                    onClick={() => setMobileOpen(false)}
-                                    className="group flex items-start gap-3 rounded-xl p-2.5 transition-colors duration-100 hover:bg-black/[0.03] active:bg-black/[0.05]"
-                                  >
-                                    {LinkIcon && (
-                                      <LinkIcon
-                                        size={18}
-                                        className="mt-0.5 shrink-0 text-[#0a0a1a]/30 group-hover:text-[#FF5812]"
-                                      />
-                                    )}
-                                    <div className="flex flex-col min-w-0">
-                                      <span className="text-[13px] font-semibold text-[#0a0a1a] leading-tight group-hover:text-[#FF5812]">
-                                        {link.label}
-                                      </span>
-                                      {link.description && (
-                                        <span className="mt-0.5 text-[11px] text-[#0a0a1a]/40 leading-snug line-clamp-2">
-                                          {link.description}
-                                        </span>
+                        if (group.url && !hasLinks) {
+                          return (
+                            <div key={groupIdx}>
+                              <Link
+                                href={group.url}
+                                onClick={() => setMobileOpen(false)}
+                                className="group flex items-start gap-3 rounded-xl p-2.5 transition-colors duration-100 hover:bg-black/[0.03] active:bg-black/[0.05]"
+                              >
+                                {GroupIcon ? (
+                                  <GroupIcon
+                                    size={18}
+                                    className="mt-0.5 shrink-0 text-[#0a0a1a]/30 group-hover:text-[#FF5812]"
+                                  />
+                                ) : (
+                                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#FF5812]" />
+                                )}
+                                <div className="flex flex-col min-w-0">
+                                  <span className="text-[13px] font-semibold text-[#0a0a1a] leading-tight group-hover:text-[#FF5812]">
+                                    {group.title}
+                                  </span>
+                                  {group.description && (
+                                    <span className="mt-0.5 text-[11px] text-[#0a0a1a]/40 leading-snug line-clamp-2">
+                                      {group.description}
+                                    </span>
+                                  )}
+                                </div>
+                              </Link>
+                            </div>
+                          );
+                        }
+
+                        return (
+                          <div key={groupIdx} className="flex flex-col gap-2.5">
+                            <div className="flex items-center gap-2">
+                              {GroupIcon ? (
+                                <GroupIcon
+                                  size={14}
+                                  className="shrink-0 text-[#0a0a1a]/30"
+                                />
+                              ) : (
+                                <span className="h-1.5 w-1.5 rounded-full bg-[#FF5812]" />
+                              )}
+                              <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#0a0a1a]/45">
+                                {group.title}
+                              </h4>
+                            </div>
+
+                            <ul className="flex flex-col gap-1.5">
+                              {group.links.map((link, linkIdx) => {
+                                const LinkIcon = link.icon;
+                                return (
+                                  <li key={linkIdx}>
+                                    <Link
+                                      href={link.url}
+                                      onClick={() => setMobileOpen(false)}
+                                      className="group flex items-start gap-3 rounded-xl p-2.5 transition-colors duration-100 hover:bg-black/[0.03] active:bg-black/[0.05]"
+                                    >
+                                      {LinkIcon && (
+                                        <LinkIcon
+                                          size={18}
+                                          className="mt-0.5 shrink-0 text-[#0a0a1a]/30 group-hover:text-[#FF5812]"
+                                        />
                                       )}
-                                    </div>
-                                  </Link>
-                                </li>
-                              );
-                            })}
-                          </ul>
-                        </div>
-                      ))}
+                                      <div className="flex flex-col min-w-0">
+                                        <span className="text-[13px] font-semibold text-[#0a0a1a] leading-tight group-hover:text-[#FF5812]">
+                                          {link.label}
+                                        </span>
+                                        {link.description && (
+                                          <span className="mt-0.5 text-[11px] text-[#0a0a1a]/40 leading-snug line-clamp-2">
+                                            {link.description}
+                                          </span>
+                                        )}
+                                      </div>
+                                    </Link>
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          </div>
+                        );
+                      })}
                     </div>
                   )}
                 </div>
