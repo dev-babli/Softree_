@@ -111,15 +111,19 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: white;
-    background: #ff5c00;
+    background-color: #ff5c00;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-blend-mode: overlay;
     padding: 6px 14px;
-    border-radius: 100px;
+    border-radius: 0;
     font-weight: 600;
     border: none;
   }
 
   .tag.accent {
-    background: #ff7a2f;
+    background-color: #ff7a2f;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-blend-mode: overlay;
     color: white;
   }
 
@@ -209,10 +213,11 @@
   /* ---------- Register strip (signature element) ---------- */
   .register {
     margin-top: 64px;
-    background: white;
-    border: 1.5px solid var(--rule);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"), linear-gradient(135deg, #ff7a2f 0%, #ff5c00 100%);
+    background-blend-mode: overlay;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
     border-radius: 16px;
-    box-shadow: 0 10px 30px -10px var(--paper-shadow);
+    box-shadow: 0 10px 30px -10px rgba(255, 92, 0, 0.15);
     overflow: hidden;
   }
 
@@ -223,14 +228,14 @@
 
   .register-cell {
     padding: 32px 40px;
-    border-right: 1.5px solid var(--rule);
+    border-right: 1.5px solid rgba(255, 255, 255, 0.15);
     position: relative;
-    background: white;
+    background: transparent;
     transition: background-color 0.25s ease;
   }
 
   .register-cell:hover {
-    background-color: #fbfbfa;
+    background-color: rgba(255, 255, 255, 0.08);
   }
 
   .register-cell:last-child { border-right: none; }
@@ -239,7 +244,7 @@
     font-family: var(--display);
     font-size: clamp(2.4rem, 4vw, 3.2rem);
     font-weight: 750;
-    color: var(--ink);
+    color: white;
     display: flex;
     align-items: baseline;
     gap: 4px;
@@ -249,22 +254,22 @@
   .register-num .pct {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #ff5c00;
+    color: rgba(255, 255, 255, 0.95);
   }
 
   .register-num .prefix {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #ff5c00;
+    color: rgba(255, 255, 255, 0.95);
   }
 
   .register-label {
     margin-top: 10px;
     font-size: 0.88rem;
-    color: var(--slate);
+    color: rgba(255, 255, 255, 0.85);
     font-weight: 550;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
   }
 
   @media (max-width: 700px) {
@@ -300,9 +305,11 @@
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: white;
-    background: #ff5c00;
+    background-color: #ff5c00;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-blend-mode: overlay;
     padding: 5px 14px;
-    border-radius: 100px;
+    border-radius: 0;
     font-weight: 600;
     display: inline-flex;
     align-items: center;
@@ -358,7 +365,9 @@
 
   .band-ink .section-eyebrow {
     color: white;
-    background: #ff5c00;
+    background-color: #ff5c00;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-blend-mode: overlay;
   }
   .band-ink .section-head h2 { color: var(--ink); }
   .band-ink .prose p { color: var(--ink-soft); }
@@ -367,18 +376,33 @@
   .meta-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 32px 48px;
+    gap: 0;
     margin-top: 48px;
-    padding: 40px;
-    background: rgba(255, 255, 255, 0.45);
-    border: 1.5px dashed var(--rule);
+    padding: 16px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"), linear-gradient(135deg, #ff7a2f 0%, #ff5c00 100%);
+    background-blend-mode: overlay;
+    border: 1.5px dashed rgba(255, 255, 255, 0.25);
     border-radius: 16px;
     backdrop-filter: blur(8px);
+    transition: border-color 0.25s ease, background 0.25s ease;
+  }
+
+  .meta-grid:hover {
+    border-color: white;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"), linear-gradient(135deg, #ff8c42 0%, #ff6c1a 100%);
   }
 
   .meta-cell {
-    padding: 0;
-    border-bottom: none;
+    padding: 24px 32px;
+  }
+
+  .meta-cell:nth-child(3n+1),
+  .meta-cell:nth-child(3n+2) {
+    border-right: 1.5px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .meta-cell:nth-child(-n+3) {
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.15);
   }
 
   .meta-label {
@@ -386,7 +410,7 @@
     font-size: 0.72rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: #ff5c00;
+    color: rgba(255, 255, 255, 0.85);
     margin-bottom: 8px;
     font-weight: 600;
   }
@@ -394,21 +418,41 @@
   .meta-value {
     font-weight: 600;
     font-size: 1.05rem;
-    color: var(--ink);
+    color: white;
     line-height: 1.4;
   }
 
   @media (max-width: 700px) {
     .meta-grid { 
       grid-template-columns: repeat(2, 1fr); 
-      padding: 32px;
-      gap: 28px;
+      padding: 16px;
+      gap: 0;
+    }
+    .meta-cell {
+      padding: 20px 24px;
+      border-right: none !important;
+      border-bottom: none !important;
+    }
+    .meta-cell:nth-child(2n+1) {
+      border-right: 1.5px solid rgba(255, 255, 255, 0.15) !important;
+    }
+    .meta-cell:nth-child(-n+4) {
+      border-bottom: 1.5px solid rgba(255, 255, 255, 0.15) !important;
     }
   }
   @media (max-width: 460px) {
     .meta-grid { 
       grid-template-columns: 1fr; 
-      gap: 24px;
+      gap: 0;
+      padding: 12px;
+    }
+    .meta-cell {
+      padding: 16px 20px;
+      border-right: none !important;
+      border-bottom: 1.5px solid rgba(255, 255, 255, 0.15) !important;
+    }
+    .meta-cell:last-child {
+      border-bottom: none !important;
     }
   }
 
@@ -609,11 +653,12 @@
   }
 
   .story-card {
-    border: 1px solid var(--rule);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 6px;
     padding: 28px;
-    background: var(--chalk);
-    transition: border-color 0.2s ease, transform 0.2s ease;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"), linear-gradient(135deg, #ff7a2f 0%, #ff5c00 100%);
+    background-blend-mode: overlay;
+    transition: border-color 0.25s ease, transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -621,8 +666,10 @@
   }
 
   .story-card:hover {
-    border-color: var(--ink);
-    transform: translateY(-3px);
+    border-color: white;
+    transform: translateY(-4px);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"), linear-gradient(135deg, #ff8c42 0%, #ff6c1a 100%);
+    box-shadow: 0 10px 24px -10px rgba(255, 92, 0, 0.2);
   }
 
   .story-tag {
@@ -630,7 +677,7 @@
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    color: var(--marker-deep);
+    color: rgba(255, 255, 255, 0.85);
     margin-bottom: 14px;
   }
 
@@ -640,11 +687,12 @@
     font-weight: 600;
     margin-bottom: 12px;
     line-height: 1.3;
+    color: white;
   }
 
   .story-card p {
     font-size: 0.9rem;
-    color: var(--slate);
+    color: rgba(255, 255, 255, 0.85);
     flex-grow: 1;
   }
 
@@ -652,7 +700,7 @@
     margin-top: 18px;
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--ink);
+    color: white;
     display: inline-flex;
     align-items: center;
     gap: 6px;
