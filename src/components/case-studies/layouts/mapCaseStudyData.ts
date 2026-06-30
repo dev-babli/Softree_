@@ -209,8 +209,9 @@ function buildFaqs(study: SanityCaseStudyDoc, layout: CaseStudyDetailLayout): Ca
 }
 
 function buildHighlights(study: SanityCaseStudyDoc, layout: CaseStudyDetailLayout): Highlight[] {
-  if (study.highlights?.length) {
-    return study.highlights.slice(0, 3).map((h, i) => ({
+  const hasRealHighlights = study.highlights?.length && study.highlights.some(h => h.value && h.value !== "—" && h.value !== "-");
+  if (hasRealHighlights) {
+    return study.highlights!.slice(0, 3).map((h, i) => ({
       ...h,
       icon: h.icon || MANUFACTURING_HERO_HIGHLIGHTS[i]?.icon,
     }))
@@ -885,5 +886,6 @@ export function mapCaseStudyToLayoutData(
           : undefined,
     publishedAt: study.publishedAt,
     updatedAt: study._updatedAt,
+    pdfUrl: study.pdfUrl,
   }
 }

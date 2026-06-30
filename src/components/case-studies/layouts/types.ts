@@ -83,6 +83,7 @@ export type CaseStudyLayoutData = {
   slug: string
   layout: CaseStudyDetailLayout
   title: string
+  pdfUrl?: string
   headerTitle: string
   heroEyebrow?: string
   clientLogoUrl?: string

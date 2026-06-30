@@ -104,35 +104,7 @@ export default function CaseStudiesListingClient({
         slides={heroSlides}
       />
 
-      {/* Browse by technology */}
-      {categoryLinks.length > 0 ? (
-        <section className="border-b border-[#e6e1f2] bg-[#faf8f3]">
-          <div className="mx-auto max-w-[1280px] px-5 py-8 md:px-8">
-            <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.14em] text-[#6b7694]">
-              Browse by technology
-            </p>
-            <div className="flex flex-wrap gap-3">
-              {categoryLinks.map((cat) => (
-                <Link
-                  key={cat.key}
-                  href={cat.href}
-                  className="group inline-flex items-center gap-2 rounded-full border border-[#e6e1f2] bg-white px-4 py-2.5 text-[13px] font-semibold text-[#171717] transition-all hover:-translate-y-0.5 hover:shadow-md"
-                  style={{ borderColor: `${cat.accentColor}33` }}
-                >
-                  <span
-                    className="h-2 w-2 rounded-full"
-                    style={{ backgroundColor: cat.accentColor }}
-                    aria-hidden
-                  />
-                  {cat.label}
-                  <span className="text-[11px] font-medium text-[#6b7694]">({cat.count})</span>
-                  <ArrowUpRight className="h-3.5 w-3.5 text-[#6b7694] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      ) : null}
+
 
       {/* Latest spotlight */}
       {latestStories.length > 0 ? (
@@ -255,14 +227,14 @@ function LatestStoryCard({ study }: { study: CaseStudyListingItem }) {
       href={study.href}
       className="group flex flex-col overflow-hidden rounded-[18px] border border-[#e6e1f2] bg-white transition-transform hover:-translate-y-1 hover:shadow-lg md:flex-row"
     >
-      <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden md:aspect-auto md:h-auto md:w-[42%]">
+      <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden md:aspect-auto md:h-auto md:w-[42%] bg-[#fcfbf9]">
         {study.image ? (
           <Image
             src={study.image}
             alt={study.imageAlt}
             fill
             unoptimized
-            className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+            className="object-contain transition-transform duration-300 group-hover:scale-[1.03]"
             sizes="(max-width: 768px) 100vw, 400px"
           />
         ) : (
@@ -272,22 +244,13 @@ function LatestStoryCard({ study }: { study: CaseStudyListingItem }) {
         )}
       </div>
       <div className="flex flex-1 flex-col gap-3 p-6">
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="text-[12px] font-semibold uppercase tracking-[0.08em] text-[#1852ff]">
-            {study.category}
-          </span>
-          {study.industry ? (
-            <>
-              <span className="text-[#c5c5c5]">·</span>
-              <span className="text-[12px] text-[#6b7694]">{study.industry}</span>
-            </>
-          ) : null}
-        </div>
         <h3 className="text-[1.35rem] font-bold leading-[1.2] text-[#171717]">{study.title}</h3>
         <p className="line-clamp-2 text-[14px] leading-[1.55] text-[#4c5366]">{study.description}</p>
-        <span className="mt-auto inline-flex items-center gap-1 text-[12px] font-semibold uppercase tracking-[0.1em] text-[#171717]">
-          Read story <ArrowUpRight className="h-3.5 w-3.5" />
-        </span>
+        <div className="mt-auto pt-3">
+          <span className="inline-flex items-center rounded-full border border-[#191919] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#191919] transition-colors duration-200 group-hover:bg-[#191919] group-hover:text-white">
+            read case study
+          </span>
+        </div>
       </div>
     </Link>
   );
@@ -304,7 +267,7 @@ function StoryCard({ study }: { study: CaseStudyListingItem }) {
     >
       <div
         className={`relative aspect-[16/9] w-full overflow-hidden rounded-[14px] ${
-          isPlaceholder ? "bg-[#efeae0]" : ""
+          isPlaceholder ? "bg-[#efeae0]" : "bg-[#fcfbf9]"
         }`}
       >
         {study.image && !isPlaceholder ? (
@@ -314,7 +277,7 @@ function StoryCard({ study }: { study: CaseStudyListingItem }) {
             fill
             unoptimized
             sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 400px"
-            className="object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
+            className="object-contain transition-transform duration-300 ease-out group-hover:scale-[1.03]"
           />
         ) : study.image ? (
           <div className="absolute inset-0 flex items-center justify-center">
@@ -336,41 +299,10 @@ function StoryCard({ study }: { study: CaseStudyListingItem }) {
       </div>
 
       <div className="flex flex-1 flex-col gap-3 px-1 pb-1">
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="text-[13px] font-semibold text-[#1852ff]">{study.category}</span>
-          {study.industry ? (
-            <>
-              <span className="text-[#c5c5c5]">·</span>
-              <span className="text-[12px] text-[#6b7694]">{study.industry}</span>
-            </>
-          ) : null}
-          {study.useCase ? (
-            <>
-              <span className="text-[#c5c5c5]">·</span>
-              <span className="text-[12px] text-[#6b7694]">{study.useCase.split(",")[0]}</span>
-            </>
-          ) : null}
-        </div>
-
         <h2 className="text-[1.55rem] font-bold leading-[1.15] tracking-[-0.01em] text-[#171717]">
           {study.title}
         </h2>
-
-        {study.keyResults && study.keyResults.length > 0 ? (
-          <div className="flex flex-wrap gap-2">
-            {study.keyResults.slice(0, 2).map((r) => (
-              <span
-                key={r.label}
-                className="inline-flex items-center rounded-md bg-[#f0f4ff] px-2.5 py-1 text-[12px] font-semibold text-[#1852ff]"
-              >
-                {r.value} {r.label}
-              </span>
-            ))}
-          </div>
-        ) : null}
-
         <p className="text-[15px] leading-[1.55] text-[#4c5366]">{study.description}</p>
-
         <div className="mt-auto pt-3">
           <span className="inline-flex items-center rounded-full border border-[#191919] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#191919] transition-colors duration-200 group-hover:bg-[#191919] group-hover:text-white">
             read case study
