@@ -241,16 +241,20 @@ export function EducationEdTechStoryPage({ data }: Props) {
   // FAQ default questions
   const defaultFaqs = [
     {
-      question: "What challenges does an education management app solve?",
-      answer: "An education management app centralizes attendance tracking, student records, examinations, communication, and learning resources into a single platform — reducing manual administration and improving operational efficiency for institutions.",
+      question: "What types of custom systems and platforms does Softree develop?",
+      answer: "Softree Technology designs and builds custom enterprise platforms, cloud applications, workflow automation, and analytics dashboards using modern stacks like React, Next.js, Power Platform, SharePoint, and Azure/AWS integrations.",
     },
     {
-      question: "Why was React Native chosen for this app?",
-      answer: "React Native enabled a single codebase for both Android and iOS, reducing development time, ensuring consistency across devices, and simplifying long-term maintenance.",
+      question: "How does Softree ensure rapid project delivery without compromising quality?",
+      answer: "We employ agile methodologies, pre-built design primitives, and automated test pipelines. This approach allows us to launch production-ready MVPs in 8–12 weeks while maintaining high performance, security, and scalability.",
     },
     {
-      question: "How does the platform improve attendance management?",
-      answer: "The platform digitizes attendance tracking, letting teachers record attendance in real time while giving administrators instant access to reports and analytics — significantly reducing manual processing.",
+      question: "Can Softree integrate new solutions with our existing database or ERP?",
+      answer: "Yes, we specialize in secure integration layers and custom APIs that connect new frontends and low-code applications directly with legacy databases, ERPs, and third-party services.",
+    },
+    {
+      question: "How does Softree manage and execute custom case study projects?",
+      answer: "Softree Technology designs, builds, and maintains custom enterprise applications and integration platforms, utilizing agile sprints, low-code systems (Power Platform, SharePoint), custom web/mobile stacks, and automated testing to deliver high-quality outcomes within weeks.",
     },
   ]
   const faqs = data.faqs && data.faqs.length > 0 ? data.faqs : defaultFaqs
@@ -271,11 +275,11 @@ export function EducationEdTechStoryPage({ data }: Props) {
   const relatedCases = data.related && data.related.length > 0
     ? data.related.slice(0, 6)
     : [
-        { category: "Manufacturing", title: "Employee Leave Management System for Manufacturing Enterprise", excerpt: "A U.S. manufacturing company digitized leave workflows with Power Platform, cutting approval time by 80%.", slug: "employee-leave-management" },
-        { category: "Manufacturing", title: "Power Apps Automation for Ceramic Manufacturing", excerpt: "Automated product lifecycle management, reducing manual effort by 60% and eliminating data inconsistencies.", slug: "power-apps-ceramic-manufacturing" },
-        { category: "Manufacturing & Distribution", title: "Global Manufacturing Enterprise Test Automation", excerpt: "Automated SharePoint and SPFx testing with Selenium, reducing defects by 50% with a 98% pass rate.", slug: "sharepoint-enterprise-test-automation" },
+        { category: "Manufacturing", title: "Employee Leave Management System for Manufacturing Enterprise", excerpt: "A U.S. manufacturing company digitized leave workflows with Power Platform, cutting approval time by 80%.", slug: "enterprise-leave-management-system" },
+        { category: "Manufacturing", title: "Power Apps Automation for Ceramic Manufacturing", excerpt: "Automated product lifecycle management, reducing manual effort by 60% and eliminating data inconsistencies.", slug: "power-apps-ceramic-manufacturing-automation" },
+        { category: "Manufacturing & Distribution", title: "Global Manufacturing Enterprise Test Automation", excerpt: "Automated SharePoint and SPFx testing with Selenium, reducing defects by 50% with a 98% pass rate.", slug: "sharepoint-spfx-automation-testing" },
         { category: "Healthcare", title: "Healthcare AI Test Automation for Patient Management Platform", excerpt: "Softree Technology helped a leading healthcare provider achieve 95% test automation coverage.", slug: "healthcare-ai-test-automation-patient-management-platform" },
-        { category: "AI & Automation", title: "AI-Powered Website Performance Platform", excerpt: "Discover how Softree Technology's AI Performance Intelligence Report identifies conversion blockers.", slug: "ai-powered-website-performance-platform" },
+        { category: "AI & Automation", title: "AI-Powered Website Performance Platform", excerpt: "Discover how Softree Technology's AI Performance Intelligence Report identifies conversion blockers.", slug: "ai-website-performance-monitoring" },
       ]
 
 
