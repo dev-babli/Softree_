@@ -49,6 +49,7 @@ export type SanityCaseStudyDoc = {
   mainImageUrl?: string
   technologies?: string[]
   highlights?: Highlight[]
+  keyResults?: Array<{ value: string; label: string; description?: string }>
   metrics?: Metric[]
   rawResults?: string[] | Metric[]
   challengeCards?: CardItem[]
@@ -63,8 +64,11 @@ export type SanityCaseStudyDoc = {
   solutionSummary?: string
   solutionFeatures?: string[]
   myRole?: string
+  useCase?: string
+  scaleOfOperation?: string
   servicesProvided?: string
   liveUrl?: string
+  pdfUrl?: string
   outcomeSummary?: string
   outcomeContent?: PortableTextLike[]
   body?: PortableTextLike[]
@@ -209,10 +213,18 @@ function buildFaqs(study: SanityCaseStudyDoc, layout: CaseStudyDetailLayout): Ca
 }
 
 function buildHighlights(study: SanityCaseStudyDoc, layout: CaseStudyDetailLayout): Highlight[] {
-  if (study.highlights?.length) {
-    return study.highlights.slice(0, 3).map((h, i) => ({
+  const hasRealHighlights = study.highlights?.length && study.highlights.some(h => h.value && h.value !== "—" && h.value !== "-");
+  if (hasRealHighlights) {
+    return study.highlights!.slice(0, 3).map((h, i) => ({
       ...h,
       icon: h.icon || MANUFACTURING_HERO_HIGHLIGHTS[i]?.icon,
+    }))
+  }
+  if (study.keyResults?.length) {
+    return study.keyResults.slice(0, 3).map((r, i) => ({
+      value: r.value || "",
+      label: r.label || r.description || "",
+      icon: MANUFACTURING_HERO_HIGHLIGHTS[i]?.icon,
     }))
   }
   if (layout === "manufacturing-power-platform") {
@@ -625,6 +637,59 @@ export function mapCaseStudyToLayoutData(
     layout === "payflow-fintech-story" ? "A Modern, Secure & Scalable Infrastructure" : undefined
 
   const slug = study.slug.current
+  const isContactsApp = slug === "contacts-management-system-application"
+
+  const challengeTitle =
+    isContactsApp
+      ? "Business Process Challenges"
+      : nexoraChallengeTitle ||
+        synqlabChallengeTitle ||
+        payflowChallengeTitle ||
+        (layout === "manufacturing-power-platform"
+          ? "Business Process Challenges"
+          : undefined)
+
+  const approachSummaryValue =
+    study.approachSummary ||
+    (isContactsApp
+      ? "Our Strategic Approach"
+      : layout === "ai-horizontal-story" || layout === "neutrino-dashboard-story"
+        ? "We architected a four-layer AI engine — agents, intelligence, automation, and governed data — so Neutrino could scale autonomous workflows without losing auditability."
+        : layout === "nexora-product-story" || layout === "synqlab-product-story"
+          ? "We partnered closely with stakeholders through iterative sprints — aligning discovery, design, and delivery with measurable milestones at every phase."
+          : layout === "manufacturing-power-platform"
+            ? "Our Strategic Approach"
+            : undefined)
+
+  const solutionTitleValue =
+    isContactsApp
+      ? "A unified mobile contact manager built in weeks."
+      : nexoraSolutionTitle ||
+        synqlabSolutionTitle ||
+        payflowSolutionTitle ||
+        (layout === "manufacturing-power-platform"
+          ? "How we built the solution."
+          : undefined)
+
+  const outcomeTitle =
+    isContactsApp
+      ? "Delivering Measurable Business Outcomes"
+      : layout === "manufacturing-power-platform"
+        ? "Delivering Measurable Business Outcomes"
+        : "What changed for the client."
+
+  const techStackTitle =
+    isContactsApp
+      ? "The Power Platform and SharePoint integration layer."
+      : "The full integration layer."
+
+  const gallerySubheadingValue =
+    layout === "manufacturing-power-platform"
+      ? (isContactsApp
+          ? "Explore the Solution Through visuals"
+          : study.outcomeSummary || "Explore the Solution Through visuals")
+      : undefined
+
   const stock = stockPackForSlug(slug)
   const gallery = buildGallery(study, layout)
   const heroUrl =
@@ -667,6 +732,8 @@ export function mapCaseStudyToLayoutData(
     heroImageAlt: study.mainImage?.alt || study.client || study.title,
     videoUrl: study.videoUrl,
     highlights: buildHighlights(study, layout),
+    useCase: study.useCase,
+    scaleOfOperation: study.scaleOfOperation,
     snapshot:
       layout === "manufacturing-power-platform"
         ? {
@@ -714,7 +781,7 @@ export function mapCaseStudyToLayoutData(
               users: study.endUsers || "2,400+ plant users",
             },
     challengeHeading: "The Client Challenge",
-    challengeTitle: nexoraChallengeTitle || synqlabChallengeTitle || payflowChallengeTitle,
+    challengeTitle,
     challengeSubheading:
       study.challengeSummary ||
       (layout === "payflow-fintech-story"
@@ -735,19 +802,13 @@ export function mapCaseStudyToLayoutData(
       layout === "nexora-product-story" || layout === "synqlab-product-story"
         ? "A Collaborative & Agile Approach"
         : undefined,
-    approachSummary:
-      study.approachSummary ||
-      (layout === "ai-horizontal-story" || layout === "neutrino-dashboard-story"
-        ? "We architected a four-layer AI engine — agents, intelligence, automation, and governed data — so Neutrino could scale autonomous workflows without losing auditability."
-        : layout === "nexora-product-story" || layout === "synqlab-product-story"
-          ? "We partnered closely with stakeholders through iterative sprints — aligning discovery, design, and delivery with measurable milestones at every phase."
-          : undefined),
+    approachSummary: approachSummaryValue,
     approachSteps: buildApproachSteps(study, layout),
     solutionHeading:
       layout === "manufacturing-power-platform"
         ? "How we delivered"
         : "Our Solution Architecture",
-    solutionTitle: nexoraSolutionTitle || synqlabSolutionTitle || payflowSolutionTitle,
+    solutionTitle: solutionTitleValue,
     solutionSummary:
       study.solutionSummary ||
       (layout === "payflow-fintech-story"
@@ -783,10 +844,11 @@ export function mapCaseStudyToLayoutData(
     gallery,
     galleryHeading:
       layout === "manufacturing-power-platform" ? "What we shipped" : undefined,
-    gallerySubheading:
-      layout === "manufacturing-power-platform"
-        ? study.outcomeSummary || "Interfaces, workflows, and environments from the program."
-        : undefined,
+    gallerySubheading: gallerySubheadingValue,
+    outcomeHeading: "The Outcome",
+    outcomeTitle,
+    techStackHeading: "Reference Tech Stack",
+    techStackTitle,
     impactHeading: "Results & Business Impact",
     impactMetrics: buildImpactMetrics(study, layout),
     technologies,
@@ -885,5 +947,6 @@ export function mapCaseStudyToLayoutData(
           : undefined,
     publishedAt: study.publishedAt,
     updatedAt: study._updatedAt,
+    pdfUrl: study.pdfUrl,
   }
 }

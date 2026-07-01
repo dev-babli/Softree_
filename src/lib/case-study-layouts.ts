@@ -97,6 +97,11 @@ export const CASE_STUDY_LAYOUTS = [
     description:
       "Full-viewport parallax hero, sticky about column with challenge accordion, assessment card on dark imagery, integration section with SVG diagram and wide accordion — Vide Infra / Madar case study pattern.",
   },
+  {
+    value: "education-edtech-story",
+    title: "Education EdTech Story",
+    description: "Ruled notebook paper layout with Fraunces serif headers, count-up tally animations, device mockup showcase, results ledger table, and sticky side index navigation.",
+  },
 ] as const
 
 export type CaseStudyDetailLayout = (typeof CASE_STUDY_LAYOUTS)[number]["value"]

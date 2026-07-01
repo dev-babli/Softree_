@@ -83,6 +83,7 @@ export type CaseStudyLayoutData = {
   slug: string
   layout: CaseStudyDetailLayout
   title: string
+  pdfUrl?: string
   headerTitle: string
   heroEyebrow?: string
   clientLogoUrl?: string
@@ -123,7 +124,13 @@ export type CaseStudyLayoutData = {
   resultsHeading?: string
   overviewBar?: OverviewBar
   servicesProvided?: string
+  useCase?: string
+  scaleOfOperation?: string
   liveUrl?: string
+  outcomeHeading?: string
+  outcomeTitle?: string
+  techStackHeading?: string
+  techStackTitle?: string
   solutionNodes: CardItem[]
   deliverablesHeading: string
   deliverables: CardItem[]

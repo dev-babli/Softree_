@@ -16,12 +16,12 @@ import {
   type SanityCaseStudyDoc,
 } from "@/components/case-studies/layouts/mapCaseStudyData";
 import type { CaseStudyLayoutData, RelatedStudy } from "@/components/case-studies/layouts/types";
-import { ManufacturingPowerPlatformLayout } from "@/components/case-studies/layouts/variants/ManufacturingPowerPlatformLayout";
 import { ParallaxScreenshotsLayout } from "@/components/case-studies/layouts/variants/ParallaxScreenshotsLayout";
 import { SynqLabProductStoryLayout } from "@/components/case-studies/layouts/variants/SynqLabProductStoryLayout";
 import { AIHorizontalStoryLayout } from "@/components/case-studies/layouts/variants/AIHorizontalStoryLayout";
 import { NeutrinoDashboardStoryLayout } from "@/components/case-studies/layouts/variants/NeutrinoDashboardStoryLayout";
 import { MadarStickyStoryLayout } from "@/components/case-studies/layouts/variants/madar-sticky-story";
+import { EducationEdTechStoryLayout } from "./layouts/variants/education-edtech-story/EducationEdTechStoryLayout";
 import { NexoraProductStoryLayout } from "@/components/case-studies/layouts/variants/NexoraProductStoryLayout";
 import { PayFlowFintechStoryLayout } from "@/components/case-studies/layouts/variants/PayFlowFintechStoryLayout";
 import { SidebarMetadataLayout } from "@/components/case-studies/layouts/variants/SidebarMetadataLayout";
@@ -43,7 +43,7 @@ const PREMIUM_LAYOUTS: Record<
   Exclude<CaseStudyDetailLayout, "page-composer">,
   React.ComponentType<{ data: CaseStudyLayoutData }>
 > = {
-  "manufacturing-power-platform": ManufacturingPowerPlatformLayout,
+  "manufacturing-power-platform": EducationEdTechStoryLayout,
   "sidebar-metadata": SidebarMetadataLayout,
   "split-hero-mockup": SplitHeroMockupLayout,
   "zigzag-alternating": ZigzagAlternatingLayout,
@@ -60,10 +60,11 @@ const PREMIUM_LAYOUTS: Record<
   "ai-horizontal-story": AIHorizontalStoryLayout,
   "neutrino-dashboard-story": NeutrinoDashboardStoryLayout,
   "madar-sticky-story": MadarStickyStoryLayout,
+  "education-edtech-story": EducationEdTechStoryLayout,
 };
 
 /** Premium layouts that ship their own FAQ + contact block */
-const SELF_CONTAINED_PREMIUM: CaseStudyDetailLayout[] = ["manufacturing-power-platform", "page-composer"];
+const SELF_CONTAINED_PREMIUM: CaseStudyDetailLayout[] = ["page-composer"];
 
 type StudyDoc = SanityCaseStudyDoc & {
   storyType?: "standard" | "transformation" | "product-showcase";
@@ -88,7 +89,7 @@ export function CaseStudyPageRenderer({
 }) {
   const detailLayout = isPremiumLayout(study.detailLayout)
     ? study.detailLayout
-    : null;
+    : "education-edtech-story";
 
   if (detailLayout) {
     const data = mapCaseStudyToLayoutData(study, related, detailLayout);
@@ -119,8 +120,8 @@ export function CaseStudyPageRenderer({
             initialBlogCategories={initialBlogCategories}
             initialCaseStudyCategories={initialCaseStudyCategories}
           />
-          <ManufacturingPowerPlatformLayout data={data} designTokens={designTokens} />
-          {!SELF_CONTAINED_PREMIUM.includes(detailLayout) ? <Footer /> : null}
+          <EducationEdTechStoryLayout data={data} />
+          <Footer />
         </div>
       );
     }
