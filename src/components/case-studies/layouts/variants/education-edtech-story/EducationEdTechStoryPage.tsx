@@ -25,54 +25,12 @@ import {
   ChevronRight,
   Calendar
 } from "lucide-react"
-import type { CaseStudyLayoutData, Highlight, PTBlock } from "../../types"
+import type { CaseStudyLayoutData, Highlight, PTBlock, RelatedStudy } from "../../types"
 import LightContactSection from "@/components/homepage-light/LightContactSection"
+import { stockPackForSlug } from "@/lib/case-study-stock-images"
 import "./education-edtech-story.css"
 
-const getTechIconInfo = (name: string) => {
-  const n = name.toLowerCase()
-  
-  if (n.includes("react native") || n.includes("mobile") || n.includes("android") || n.includes("ios") || n.includes("expo") || n.includes("swift") || n.includes("kotlin")) {
-    return { Icon: Smartphone, color: "#3B82F6", bg: "#EFF6FF", border: "rgba(59, 130, 246, 0.2)" }
-  }
-  if (n.includes("react") || n.includes("next") || n.includes("front") || n.includes("vue") || n.includes("angular") || n.includes("tailwind") || n.includes("html") || n.includes("css")) {
-    return { Icon: Atom, color: "#06B6D4", bg: "#ECFEFF", border: "rgba(6, 182, 212, 0.2)" }
-  }
-  if (n.includes("javascript") || n.includes("typescript") || n.includes("js") || n.includes("ts") || n.includes("node") || n.includes("express")) {
-    return { Icon: Terminal, color: "#D97706", bg: "#FEF3C7", border: "rgba(217, 119, 6, 0.2)" }
-  }
-  if (n.includes("firebase") || n.includes("database") || n.includes("sql") || n.includes("mongodb") || n.includes("dataverse") || n.includes("postgres") || n.includes("cosmos")) {
-    return { Icon: Database, color: "#0EA5E9", bg: "#F0F9FF", border: "rgba(14, 165, 233, 0.2)" }
-  }
-  if (n.includes("powerapps") || n.includes("power apps") || n.includes("power platform") || n.includes("canvas")) {
-    return { Icon: Zap, color: "#7C3AED", bg: "#F5F3FF", border: "rgba(124, 58, 237, 0.2)" }
-  }
-  if (n.includes("power automate") || n.includes("automate") || n.includes("flow")) {
-    return { Icon: Workflow, color: "#10B981", bg: "#ECFDF5", border: "rgba(16, 185, 129, 0.2)" }
-  }
-  if (n.includes("power bi") || n.includes("powerbi") || n.includes("fabric") || n.includes("analytics") || n.includes("reporting") || n.includes("dashboard")) {
-    return { Icon: BarChart3, color: "#F59E0B", bg: "#FEF3C7", border: "rgba(245, 158, 11, 0.2)" }
-  }
-  if (n.includes("sharepoint") || n.includes("spfx") || n.includes("m365") || n.includes("microsoft 365") || n.includes("teams")) {
-    return { Icon: Share2, color: "#0078D4", bg: "#EFF6FF", border: "rgba(0, 120, 212, 0.2)" }
-  }
-  if (n.includes("azure") || n.includes("aws") || n.includes("cloud") || n.includes("serverless")) {
-    return { Icon: Cloud, color: "#2563EB", bg: "#EFF6FF", border: "rgba(37, 99, 235, 0.2)" }
-  }
-  if (n.includes("api") || n.includes("rest") || n.includes("net") || n.includes("c#") || n.includes("java") || n.includes("graphql")) {
-    return { Icon: Code2, color: "#4F46E5", bg: "#EEF2FF", border: "rgba(79, 70, 229, 0.2)" }
-  }
-  if (n.includes("openai") || n.includes("ai") || n.includes("ml") || n.includes("python") || n.includes("llama") || n.includes("langchain") || n.includes("gpt") || n.includes("nlp") || n.includes("learning") || n.includes("intelligence")) {
-    return { Icon: Brain, color: "#8B5CF6", bg: "#F5F3FF", border: "rgba(139, 92, 246, 0.2)" }
-  }
-  if (n.includes("devops") || n.includes("ci/cd") || n.includes("cicd") || n.includes("git") || n.includes("docker") || n.includes("kubernetes")) {
-    return { Icon: GitBranch, color: "#EF4444", bg: "#FEF2F2", border: "rgba(239, 68, 68, 0.2)" }
-  }
-  if (n.includes("test") || n.includes("qa") || n.includes("selenium") || n.includes("playwright") || n.includes("cypress") || n.includes("automation")) {
-    return { Icon: Bot, color: "#0D9488", bg: "#F0FDFA", border: "rgba(13, 148, 136, 0.2)" }
-  }
-  return { Icon: Layers, color: "#4B5563", bg: "#F3F4F6", border: "rgba(75, 85, 99, 0.2)" }
-}
+
 
 type Props = {
   data: CaseStudyLayoutData
@@ -82,7 +40,29 @@ type Props = {
 const notebookPortableTextComponents: PortableTextComponents = {
   block: {
     normal: ({ children }) => <p>{children}</p>,
-    h3: ({ children }) => <h3>{children}</h3>,
+    h3: ({ children }) => {
+      // Avoid duplicate title rendering for generic section headers
+      const text = Array.isArray(children)
+        ? children.map((c) => (typeof c === "string" ? c : "")).join("").trim()
+        : typeof children === "string"
+          ? children.trim()
+          : "";
+
+      const lowercaseText = text.toLowerCase();
+      if (
+        lowercaseText === "the challenge" ||
+        lowercaseText === "challenge" ||
+        lowercaseText === "the outcome" ||
+        lowercaseText === "outcome" ||
+        lowercaseText === "the approach" ||
+        lowercaseText === "approach" ||
+        lowercaseText === "the solution" ||
+        lowercaseText === "solution"
+      ) {
+        return null;
+      }
+      return <h3>{children}</h3>;
+    },
     blockquote: ({ children }) => <p className="pull-quote">{children}</p>,
   },
 }
@@ -171,11 +151,11 @@ export function EducationEdTechStoryPage({ data }: Props) {
 
   // Fallbacks for layout metadata
   const meta = {
-    client: data.client || "Confidential Client",
+    useCase: data.useCase || "Process Automation",
+    servicesProvided: data.servicesProvided || "Power Platform Development",
+    scaleOfOperation: data.scaleOfOperation || data.snapshot?.users || "100+ Business Users",
     projectType: data.snapshot?.projectType || "Education Management System",
     region: data.snapshot?.region || "Asia-Pacific",
-    duration: data.snapshot?.duration || "4 Months",
-    teamSize: data.snapshot?.teamSize || "4 Devs · 1 Designer · 1 QA",
     endUsers: data.snapshot?.users || "10,000+ Students & Educators",
     industry: data.snapshot?.industry || data.industry || "EdTech",
   }
@@ -272,14 +252,14 @@ export function EducationEdTechStoryPage({ data }: Props) {
       ]
 
   // Related cases mapping
-  const relatedCases = data.related && data.related.length > 0
+  const relatedCases: RelatedStudy[] = data.related && data.related.length > 0
     ? data.related.slice(0, 6)
     : [
-        { category: "Manufacturing", title: "Employee Leave Management System for Manufacturing Enterprise", excerpt: "A U.S. manufacturing company digitized leave workflows with Power Platform, cutting approval time by 80%.", slug: "enterprise-leave-management-system" },
-        { category: "Manufacturing", title: "Power Apps Automation for Ceramic Manufacturing", excerpt: "Automated product lifecycle management, reducing manual effort by 60% and eliminating data inconsistencies.", slug: "power-apps-ceramic-manufacturing-automation" },
-        { category: "Manufacturing & Distribution", title: "Global Manufacturing Enterprise Test Automation", excerpt: "Automated SharePoint and SPFx testing with Selenium, reducing defects by 50% with a 98% pass rate.", slug: "sharepoint-spfx-automation-testing" },
-        { category: "Healthcare", title: "Healthcare AI Test Automation for Patient Management Platform", excerpt: "Softree Technology helped a leading healthcare provider achieve 95% test automation coverage.", slug: "healthcare-ai-test-automation-patient-management-platform" },
-        { category: "AI & Automation", title: "AI-Powered Website Performance Platform", excerpt: "Discover how Softree Technology's AI Performance Intelligence Report identifies conversion blockers.", slug: "ai-website-performance-monitoring" },
+        { _id: "fallback-leave-mgmt", category: "Manufacturing", title: "Employee Leave Management System for Manufacturing Enterprise", excerpt: "A U.S. manufacturing company digitized leave workflows with Power Platform, cutting approval time by 80%.", slug: { current: "enterprise-leave-management-system" } },
+        { _id: "fallback-ceramic-auto", category: "Manufacturing", title: "Power Apps Automation for Ceramic Manufacturing", excerpt: "Automated product lifecycle management, reducing manual effort by 60% and eliminating data inconsistencies.", slug: { current: "power-apps-ceramic-manufacturing-automation" } },
+        { _id: "fallback-test-auto", category: "Manufacturing & Distribution", title: "Global Manufacturing Enterprise Test Automation", excerpt: "Automated SharePoint and SPFx testing with Selenium, reducing defects by 50% with a 98% pass rate.", slug: { current: "sharepoint-spfx-automation-testing" } },
+        { _id: "fallback-hc-qa", category: "Healthcare", title: "Healthcare AI Test Automation for Patient Management Platform", excerpt: "Softree Technology helped a leading healthcare provider achieve 95% test automation coverage.", slug: { current: "healthcare-ai-test-automation-patient-management-platform" } },
+        { _id: "fallback-perf-mon", category: "AI & Automation", title: "AI-Powered Website Performance Platform", excerpt: "Discover how Softree Technology's AI Performance Intelligence Report identifies conversion blockers.", slug: { current: "ai-website-performance-monitoring" } },
       ]
 
 
@@ -392,30 +372,79 @@ export function EducationEdTechStoryPage({ data }: Props) {
           <div className="section-body">
             <div className="spacer" />
             <Reveal className="w-full">
-              <div className="meta-grid">
-                <div className="meta-cell">
-                  <div className="meta-label">Client</div>
-                  <div className="meta-value">{meta.client}</div>
+              <div className="meta-bento-grid">
+                {/* Use Cases (span 1) */}
+                <div className="meta-bento-card">
+                  <div className="meta-bento-header">
+                    <div className="meta-bento-icon-wrap">
+                      <Workflow className="h-4.5 w-4.5" />
+                    </div>
+                    <span className="meta-bento-label">Use Cases</span>
+                  </div>
+                  <div className="meta-bento-value">{meta.useCase}</div>
                 </div>
-                <div className="meta-cell">
-                  <div className="meta-label">Industry</div>
-                  <div className="meta-value">{meta.industry}</div>
+
+                {/* Industry (span 1) */}
+                <div className="meta-bento-card">
+                  <div className="meta-bento-header">
+                    <div className="meta-bento-icon-wrap">
+                      <Globe className="h-4.5 w-4.5" />
+                    </div>
+                    <span className="meta-bento-label">Industry</span>
+                  </div>
+                  <div className="meta-bento-value">{meta.industry}</div>
                 </div>
-                <div className="meta-cell">
-                  <div className="meta-label">Project type</div>
-                  <div className="meta-value">{meta.projectType}</div>
+
+                {/* Project Type (span 1) */}
+                <div className="meta-bento-card">
+                  <div className="meta-bento-header">
+                    <div className="meta-bento-icon-wrap">
+                      <Smartphone className="h-4.5 w-4.5" />
+                    </div>
+                    <span className="meta-bento-label">Project Type</span>
+                  </div>
+                  <div className="meta-bento-value">{meta.projectType}</div>
                 </div>
-                <div className="meta-cell">
-                  <div className="meta-label">Duration</div>
-                  <div className="meta-value">{meta.duration}</div>
+
+                {/* Scale of Operation (span 2) */}
+                <div className="meta-bento-card span-2">
+                  <div className="meta-bento-header">
+                    <div className="meta-bento-icon-wrap">
+                      <Zap className="h-4.5 w-4.5" />
+                    </div>
+                    <span className="meta-bento-label">Scale of Operation</span>
+                  </div>
+                  <div className="meta-bento-value">{meta.scaleOfOperation}</div>
                 </div>
-                <div className="meta-cell">
-                  <div className="meta-label">Team size</div>
-                  <div className="meta-value">{meta.teamSize}</div>
+
+                {/* End Users (span 1) */}
+                <div className="meta-bento-card">
+                  <div className="meta-bento-header">
+                    <div className="meta-bento-icon-wrap">
+                      <Share2 className="h-4.5 w-4.5" />
+                    </div>
+                    <span className="meta-bento-label">End Users</span>
+                  </div>
+                  <div className="meta-bento-value">{meta.endUsers}</div>
                 </div>
-                <div className="meta-cell">
-                  <div className="meta-label">End users</div>
-                  <div className="meta-value">{meta.endUsers}</div>
+
+                {/* Service Provided (span 3) */}
+                <div className="meta-bento-card span-3">
+                  <div className="meta-bento-header">
+                    <div className="meta-bento-icon-wrap">
+                      <Wrench className="h-4.5 w-4.5" />
+                    </div>
+                    <span className="meta-bento-label">Service Provided</span>
+                  </div>
+                  <div className="meta-bento-tags-wrap">
+                    {meta.servicesProvided ? meta.servicesProvided.split(",").map((s, idx) => (
+                      <span key={idx} className="meta-bento-tag">
+                        {s.trim()}
+                      </span>
+                    )) : (
+                      <span className="meta-bento-tag">Custom Development</span>
+                    )}
+                  </div>
                 </div>
               </div>
             </Reveal>
@@ -428,7 +457,7 @@ export function EducationEdTechStoryPage({ data }: Props) {
         <div className="wrap">
           <Reveal className="section-head">
             <div className="section-eyebrow">{data.challengeHeading || "The Client Challenge"}</div>
-            <h2>{data.challengeTitle || "Three separate systems were doing one job, badly."}</h2>
+            <h2>{data.challengeTitle || "Business Process Challenges"}</h2>
           </Reveal>
           <Reveal className="section-body">
             <div className="spacer" />
@@ -452,7 +481,7 @@ export function EducationEdTechStoryPage({ data }: Props) {
         <div className="wrap">
           <Reveal className="section-head">
             <div className="section-eyebrow">{data.approachHeading || "Our Approach"}</div>
-            <h2>{data.approachSummary || "One codebase, three roles, a single source of truth."}</h2>
+            <h2>{data.approachSummary || "Our Strategic Approach"}</h2>
           </Reveal>
           <Reveal className="section-body">
             <div className="spacer" />
@@ -502,7 +531,7 @@ export function EducationEdTechStoryPage({ data }: Props) {
         <div className="wrap">
           <Reveal className="section-head">
             <div className="section-eyebrow">{data.galleryHeading || "Visual Proof"}</div>
-            <h2>{data.gallerySubheading || "What we shipped."}</h2>
+            <h2>{data.gallerySubheading || "Explore the Solution Through visuals"}</h2>
           </Reveal>
           <Reveal className="section-body">
             <div className="spacer" />
@@ -519,7 +548,7 @@ export function EducationEdTechStoryPage({ data }: Props) {
                   
                   {/* Left Side: Large Active Screenshot */}
                   <div className="w-full">
-                    <div className="lg:sticky lg:top-28 self-start w-full flex flex-col items-center">
+                    <div className="lg:sticky lg:top-28 self-start w-full flex flex-col items-center justify-center min-h-[460px]">
                       <div 
                         className="device-frame w-full cursor-pointer group"
                         onClick={() => setLightboxIndex(activeShowcaseIndex)}
@@ -530,10 +559,9 @@ export function EducationEdTechStoryPage({ data }: Props) {
                               src={galleryItems[activeShowcaseIndex].url}
                               alt={galleryItems[activeShowcaseIndex].alt || `Featured Screenshot`}
                               fill
-                              className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                              className="object-contain bg-white transition-transform duration-500 group-hover:scale-[1.02]"
                               sizes="(max-width: 768px) 100vw, 800px"
                             />
-                            {/* Hover Overlay with expand hint */}
                             <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                               <span className="text-white bg-[#ff5c00] px-4.5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase shadow-md flex items-center gap-1.5 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                                 Click to expand
@@ -605,8 +633,8 @@ export function EducationEdTechStoryPage({ data }: Props) {
       <section className="band-ink" id="outcome">
         <div className="wrap">
           <Reveal className="section-head">
-            <div className="section-eyebrow">The Outcome</div>
-            <h2>What changed for the client.</h2>
+            <div className="section-eyebrow">{data.outcomeHeading || "The Outcome"}</div>
+            <h2>{data.outcomeTitle || "Delivering Measurable Business Outcomes"}</h2>
           </Reveal>
           <Reveal className="section-body">
             <div className="spacer" />
@@ -655,30 +683,24 @@ export function EducationEdTechStoryPage({ data }: Props) {
       <section className="band-dim">
         <div className="wrap">
           <Reveal className="section-head">
-            <div className="section-eyebrow">Reference Tech Stack</div>
-            <h2>The full integration layer.</h2>
+            <div className="section-eyebrow">{data.techStackHeading || "Reference Tech Stack"}</div>
+            <h2>{data.techStackTitle || "The full integration layer."}</h2>
           </Reveal>
           <Reveal className="section-body">
             <div className="spacer" />
             <div className="flex flex-wrap justify-center gap-3 md:gap-4 max-w-4xl mx-auto w-full">
               {techStack.map((item, i) => {
-                const { Icon } = getTechIconInfo(item.name)
                 return (
                   <div
                     key={i}
-                    className="inline-flex items-center gap-2.5 px-[18px] py-2.5 rounded-full text-white shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
+                    className="inline-flex items-center px-6 py-2.5 rounded-full text-white shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
                     style={{
                       backgroundColor: "#ff5c00",
                       backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
                       backgroundBlendMode: "overlay"
                     }}
                   >
-                    <div
-                      className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white"
-                    >
-                      <Icon className="h-4 w-4" style={{ color: "#ff5c00" }} />
-                    </div>
-                    <span className="text-[13px] font-bold tracking-wide pr-1">
+                    <span className="text-[13px] font-bold tracking-wide">
                       {item.name}
                     </span>
                   </div>
@@ -710,27 +732,42 @@ export function EducationEdTechStoryPage({ data }: Props) {
                 transform: `translateX(-${currentIndex * (100 / visibleCount)}%)`,
               }}
             >
-              {relatedCases.map((rc, i) => (
-                <div
-                  key={i}
-                  className="shrink-0 px-3 flex justify-center"
-                  style={{
-                    flex: `0 0 ${100 / visibleCount}%`,
-                  }}
-                >
-                  <div className="story-card h-full max-w-3xl w-full" onMouseMove={handleMouseMove}>
-                    <div className="story-tag">{rc.category}</div>
-                    <h3>{rc.title}</h3>
-                    <p>{rc.excerpt}</p>
-                    <Link
-                      href={typeof rc.slug === "string" ? `/case-studies/${rc.slug}` : `/case-studies/${rc.slug?.current || ""}`}
-                      className="story-link"
-                    >
-                      Read case study →
-                    </Link>
+              {relatedCases.map((rc, i) => {
+                const slugStr = typeof rc.slug === "string" ? rc.slug : rc.slug?.current || ""
+                const img = rc.mainImage?.asset?.url || rc.mainImageUrl || stockPackForSlug(slugStr).hero
+                return (
+                  <div
+                    key={i}
+                    className="shrink-0 px-3 flex justify-center"
+                    style={{
+                      flex: `0 0 ${100 / visibleCount}%`,
+                    }}
+                  >
+                    <div className="story-card group h-full max-w-3xl w-full" onMouseMove={handleMouseMove}>
+                      {img && (
+                        <div className="relative aspect-[16/10] w-full rounded-md overflow-hidden mb-6 border border-white/10 shadow-sm">
+                          <Image
+                            src={img}
+                            alt={rc.title || "Related Case Study"}
+                            fill
+                            className="object-contain bg-white transition-transform duration-500 group-hover:scale-105"
+                            sizes="(max-width: 768px) 100vw, 400px"
+                          />
+                        </div>
+                      )}
+                      <div className="story-tag">{rc.category}</div>
+                      <h3>{rc.title}</h3>
+                      <p>{rc.excerpt}</p>
+                      <Link
+                        href={typeof rc.slug === "string" ? `/case-studies/${rc.slug}` : `/case-studies/${rc.slug?.current || ""}`}
+                        className="story-link"
+                      >
+                        Read case study →
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
 

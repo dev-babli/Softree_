@@ -124,7 +124,13 @@ export type CaseStudyLayoutData = {
   resultsHeading?: string
   overviewBar?: OverviewBar
   servicesProvided?: string
+  useCase?: string
+  scaleOfOperation?: string
   liveUrl?: string
+  outcomeHeading?: string
+  outcomeTitle?: string
+  techStackHeading?: string
+  techStackTitle?: string
   solutionNodes: CardItem[]
   deliverablesHeading: string
   deliverables: CardItem[]
