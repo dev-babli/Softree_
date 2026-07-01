@@ -745,7 +745,7 @@ export function EducationEdTechStoryPage({ data }: Props) {
                   >
                     <div className="story-card group h-full max-w-3xl w-full" onMouseMove={handleMouseMove}>
                       {img && (
-                        <div className="relative aspect-[16/10] w-full rounded-md overflow-hidden mb-6 border border-white/10 shadow-sm">
+                        <div className="story-image-wrap relative aspect-[16/10] w-full rounded-md overflow-hidden mb-6 border border-white/10 shadow-sm">
                           <Image
                             src={img}
                             alt={rc.title || "Related Case Study"}
@@ -755,15 +755,17 @@ export function EducationEdTechStoryPage({ data }: Props) {
                           />
                         </div>
                       )}
-                      <div className="story-tag">{rc.category}</div>
-                      <h3>{rc.title}</h3>
-                      <p>{rc.excerpt}</p>
-                      <Link
-                        href={typeof rc.slug === "string" ? `/case-studies/${rc.slug}` : `/case-studies/${rc.slug?.current || ""}`}
-                        className="story-link"
-                      >
-                        Read case study →
-                      </Link>
+                      <div className="story-content">
+                        <div className="story-tag">{rc.category}</div>
+                        <h3>{rc.title}</h3>
+                        <p>{rc.excerpt}</p>
+                        <Link
+                          href={typeof rc.slug === "string" ? `/case-studies/${rc.slug}` : `/case-studies/${rc.slug?.current || ""}`}
+                          className="story-link"
+                        >
+                          Read case study →
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 )

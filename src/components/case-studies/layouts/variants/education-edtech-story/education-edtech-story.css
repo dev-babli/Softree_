@@ -695,6 +695,37 @@
     box-shadow: 0 10px 24px -10px rgba(255, 92, 0, 0.2);
   }
 
+  .story-image-wrap {
+    width: 100%;
+    margin-bottom: 24px;
+    flex-shrink: 0;
+  }
+
+  .story-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+  }
+
+  @media (min-width: 768px) {
+    .story-card {
+      flex-direction: row !important;
+      align-items: center;
+      gap: 32px;
+      padding: 32px;
+    }
+
+    .story-image-wrap {
+      width: 45%;
+      margin-bottom: 0 !important;
+    }
+
+    .story-content {
+      width: 55%;
+    }
+  }
+
   .story-tag {
     font-family: var(--mono);
     font-size: 0.7rem;
