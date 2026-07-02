@@ -122,7 +122,7 @@ export function StatsDashboardPage({ data }: { data: CaseStudyLayoutData }) {
           <div className="mx-auto max-w-6xl px-6">
             <h2 className="text-sm font-bold uppercase tracking-wider">Related briefings</h2>
             <div className="mt-6 grid gap-4 sm:grid-cols-3">
-              {data.related.slice(0, 3).map((r) => (
+              {data.related.slice(0, 6).map((r) => (
                 <Link key={r._id} href={`/case-studies/${r.slug.current}`} className="rounded-lg border border-[#DDE4EC] bg-white p-4 hover:shadow-md">
                   <h3 className="font-semibold">{r.client || r.title}</h3>
                 </Link>

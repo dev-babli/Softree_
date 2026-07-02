@@ -442,22 +442,38 @@ export default function Navigation({
               {dynamicMenu.map((item) => (
                 <div key={item.label} className="border-b border-black/[0.06]">
                   {item.mega && item.children && item.children.length > 0 ? (
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setMobileDropdown((d) =>
-                          d === item.label ? null : item.label,
-                        )
-                      }
-                      className="flex w-full items-center justify-between py-4 text-left text-[#0a0a1a]"
-                    >
-                      <span className="text-base font-semibold">{item.label}</span>
-                      <ChevronDown
-                        size={18}
-                        className={`transition-transform duration-150 text-[#0a0a1a]/40 ${mobileDropdown === item.label ? "rotate-180 text-[#FF5812]" : ""
+                    <div className="flex w-full items-center justify-between">
+                      {item.url ? (
+                        <Link
+                          href={item.url}
+                          onClick={() => setMobileOpen(false)}
+                          className="flex-1 py-4 text-base font-semibold text-[#0a0a1a] hover:text-[#FF5812] transition-colors duration-100"
+                        >
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="flex-1 py-4 text-base font-semibold text-[#0a0a1a]">
+                          {item.label}
+                        </span>
+                      )}
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setMobileDropdown((d) =>
+                            d === item.label ? null : item.label,
+                          )
+                        }
+                        className="p-4 -mr-4 flex items-center justify-center text-[#0a0a1a]/40 hover:text-[#FF5812] transition-colors duration-100"
+                        aria-label={`Toggle ${item.label} dropdown`}
+                      >
+                        <ChevronDown
+                          size={18}
+                          className={`transition-transform duration-150 ${
+                            mobileDropdown === item.label ? "rotate-180 text-[#FF5812]" : ""
                           }`}
-                      />
-                    </button>
+                        />
+                      </button>
+                    </div>
                   ) : (
                     <Link
                       href={item.url || "#"}

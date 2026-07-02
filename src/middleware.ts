@@ -2,8 +2,27 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
+  const url = request.nextUrl.clone()
+  const pathname = url.pathname
+  const decodedPath = decodeURIComponent(pathname)
+
+  // Normalize case studies path and clean up spaces
+  if (decodedPath.includes('case studies') || decodedPath.includes(' ')) {
+    let normalizedPath = decodedPath
+      .replace(/\/case studies\//i, '/case-studies/')
+      .replace(/\s+/g, '-') // Replace all spaces with hyphens
+      .replace(/-+/g, '-')   // De-duplicate hyphens
+
+    if (normalizedPath.endsWith('-')) {
+      normalizedPath = normalizedPath.slice(0, -1)
+    }
+
+    url.pathname = normalizedPath
+    return NextResponse.redirect(url, 301)
+  }
+
   const requestHeaders = new Headers(request.headers)
-  requestHeaders.set('x-pathname', request.nextUrl.pathname)
+  requestHeaders.set('x-pathname', pathname)
 
   return NextResponse.next({
     request: { headers: requestHeaders },

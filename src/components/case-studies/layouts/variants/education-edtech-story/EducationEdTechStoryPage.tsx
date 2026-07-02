@@ -273,7 +273,7 @@ export function EducationEdTechStoryPage({ data }: Props) {
     if (isPaused) return
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % relatedCases.length)
-    }, 4500)
+    }, 3000)
     return () => clearInterval(interval)
   }, [isPaused, relatedCases.length])
 
@@ -713,62 +713,90 @@ export function EducationEdTechStoryPage({ data }: Props) {
 
       {/* OTHER STORIES */}
       <section 
-        className="relative overflow-hidden"
+        className="relative overflow-hidden py-16 sm:py-20 md:py-24"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
         <div className="wrap">
-          <div className="mb-8">
+          <div className="mb-8 md:mb-12">
             <Reveal className="section-head !mb-0">
               <div className="section-eyebrow">More Customer Stories</div>
               <h2>Other engagements worth a look.</h2>
             </Reveal>
           </div>
 
-          <div className="overflow-hidden w-full -mx-3 px-3">
-            <div
-              className="flex transition-transform duration-500 ease-out"
-              style={{
-                transform: `translateX(-${currentIndex * (100 / visibleCount)}%)`,
-              }}
-            >
-              {relatedCases.map((rc, i) => {
-                const slugStr = typeof rc.slug === "string" ? rc.slug : rc.slug?.current || ""
-                const img = rc.mainImage?.asset?.url || rc.mainImageUrl || stockPackForSlug(slugStr).hero
-                return (
-                  <div
-                    key={i}
-                    className="shrink-0 px-3 flex justify-center"
-                    style={{
-                      flex: `0 0 ${100 / visibleCount}%`,
-                    }}
-                  >
-                    <div className="story-card group h-full max-w-3xl w-full" onMouseMove={handleMouseMove}>
-                      {img && (
-                        <div className="relative aspect-[16/10] w-full rounded-md overflow-hidden mb-6 border border-white/10 shadow-sm">
-                          <Image
-                            src={img}
-                            alt={rc.title || "Related Case Study"}
-                            fill
-                            className="object-contain bg-white transition-transform duration-500 group-hover:scale-105"
-                            sizes="(max-width: 768px) 100vw, 400px"
-                          />
+          <div className="relative group/slider w-full px-2 sm:px-10">
+            {/* Carousel track wrapper */}
+            <div className="overflow-hidden w-full">
+              <div
+                className="flex transition-transform duration-500 ease-out"
+                style={{
+                  transform: `translateX(-${currentIndex * (100 / visibleCount)}%)`,
+                }}
+              >
+                {relatedCases.map((rc, i) => {
+                  const slugStr = typeof rc.slug === "string" ? rc.slug : rc.slug?.current || ""
+                  const img = rc.mainImage?.asset?.url || rc.mainImageUrl || stockPackForSlug(slugStr).hero
+                  return (
+                    <div
+                      key={i}
+                      className="shrink-0 px-3 flex justify-center"
+                      style={{
+                        flex: `0 0 ${100 / visibleCount}%`,
+                      }}
+                    >
+                      <div className="story-card group/card h-full max-w-3xl w-full" onMouseMove={handleMouseMove}>
+                        {img && (
+                          <div className="story-image-wrap relative aspect-[16/10] w-full rounded-xl overflow-hidden mb-6 border border-white/10 shadow-sm">
+                            <Image
+                              src={img}
+                              alt={rc.title || "Related Case Study"}
+                              fill
+                              className="object-cover transition-transform duration-500 group-hover/card:scale-103"
+                              sizes="(max-width: 768px) 100vw, 400px"
+                            />
+                          </div>
+                        )}
+                        <div className="story-content">
+                          <div className="story-tag">{rc.category}</div>
+                          <h3>{rc.title}</h3>
+                          <p>{rc.excerpt}</p>
+                          <Link
+                            href={typeof rc.slug === "string" ? `/case-studies/${rc.slug}` : `/case-studies/${rc.slug?.current || ""}`}
+                            className="story-link group/link"
+                          >
+                            Read case study
+                            <span className="inline-block transition-transform duration-300 group-hover/link:translate-x-1.5 group-hover/card:translate-x-1 ml-1.5">→</span>
+                          </Link>
                         </div>
-                      )}
-                      <div className="story-tag">{rc.category}</div>
-                      <h3>{rc.title}</h3>
-                      <p>{rc.excerpt}</p>
-                      <Link
-                        href={typeof rc.slug === "string" ? `/case-studies/${rc.slug}` : `/case-studies/${rc.slug?.current || ""}`}
-                        className="story-link"
-                      >
-                        Read case study →
-                      </Link>
+                      </div>
                     </div>
-                  </div>
-                )
-              })}
+                  )
+                })}
+              </div>
             </div>
+
+            {/* Navigation Arrows */}
+            {relatedCases.length > visibleCount && (
+              <>
+                <button
+                  type="button"
+                  onClick={() => setCurrentIndex((prev) => (prev - 1 + relatedCases.length) % relatedCases.length)}
+                  className="absolute left-0 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-[#0a0a1a]/10 bg-white/90 text-[#0a0a1a] shadow-md backdrop-blur-sm transition-all duration-300 hover:bg-[#ff5c00] hover:text-white hover:border-transparent opacity-0 group-hover/slider:opacity-100 focus:opacity-100 cursor-pointer"
+                  aria-label="Previous slide"
+                >
+                  <ChevronLeft size={20} />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCurrentIndex((prev) => (prev + 1) % relatedCases.length)}
+                  className="absolute right-0 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-[#0a0a1a]/10 bg-white/90 text-[#0a0a1a] shadow-md backdrop-blur-sm transition-all duration-300 hover:bg-[#ff5c00] hover:text-white hover:border-transparent opacity-0 group-hover/slider:opacity-100 focus:opacity-100 cursor-pointer"
+                  aria-label="Next slide"
+                >
+                  <ChevronRight size={20} />
+                </button>
+              </>
+            )}
           </div>
 
           {/* Indicator dots */}

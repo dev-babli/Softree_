@@ -14,15 +14,26 @@ const ACCENT = "#FF5812" as const;
 
 const caseStudies = [
   {
-    title: "AI Website Performance Monitoring",
+    title: "Enterprise Technology Website Design & Development",
     category: "Web App Development",
-    summary: "AI-powered real-time tracking dashboard for monitoring site speed, traffic anomalies, and user behavior metrics.",
-    challenge: "Legacy analytics tools failed to capture real-time performance anomalies, leading to slow page loads and user drop-offs.",
-    solution: "Implemented a real-time AI performance monitoring web app with predictive analytics and alerting.",
-    impact: "Improved average page load times by 55% and reduced critical system downtime by 90%.",
-    tech: ["Next.js", "AI Analytics", "Real-Time DB", "Performance Tracking"],
-    image: "/images/edtech.jpg",
-    href: "https://www.softreetechnology.com/case-studies/ai-website-performance-monitoring",
+    summary: "Rebuilding a high-performance corporate marketing website and developer portal with Next.js, customized block builders, and global edge delivery.",
+    challenge: "A slow, rigid legacy CMS hindered content publishing speed, had poor SEO crawlability, and struggled under sudden traffic spikes.",
+    solution: "Designed a headless architecture utilizing Next.js, custom block schemas, Tailwind CSS, and Vercel edge caching.",
+    impact: "Achieved 98+ Lighthouse performance scores, slashed page load times by 65%, and increased organic search traffic by 40%.",
+    tech: ["Next.js", "Headless CMS", "Tailwind CSS", "Vercel Edge"],
+    image: "/images/business.png",
+    href: "https://www.softreetechnology.com/case-studies/enterprise-technology-website-design-development",
+  },
+  {
+    title: "Enterprise AI Website Development",
+    category: "Web App Development",
+    summary: "Engineering an enterprise-grade AI-powered website using retrieval-augmented generation (RAG) to serve instant compliance, engineering, and sales resources.",
+    challenge: "Enterprise buyers struggled to find relevant technical resources across thousands of siloed documents, reducing sales velocity.",
+    solution: "Built a custom Next.js web application integrated with secure vector databases, custom RAG pipelines, and conversational search interfaces.",
+    impact: "Reduced resource discovery time by 80%, automated 60% of preliminary sales inquiries, and improved user engagement metrics by 2.5×.",
+    tech: ["Next.js", "Vector DB", "RAG Pipeline", "LLM Integration"],
+    image: "/images/case-study/web/ai-web.jpg",
+    href: "https://www.softreetechnology.com/case-studies/enterprise-ai-website-development",
   },
   {
     title: "Enterprise AI Website Transformation",
@@ -32,7 +43,7 @@ const caseStudies = [
     solution: "Developed a custom AI-driven web experience with conversational search, personalization, and live-chat agent integration.",
     impact: "Increased qualified lead generation by 150% and boosted user session duration by 3×.",
     tech: ["React.js", "Generative AI", "Azure Cognitive Services", "Custom Chatbots"],
-    image: "/images/web-app.png",
+    image: "/images/case-study/web/ai.jpg",
     href: "https://www.softreetechnology.com/case-studies/enterprise-ai-website-transformation",
   },
 ];
@@ -108,11 +119,11 @@ export default function WebAppCaseStudies() {
                     </div>
 
                     <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
-                      <div className="relative mx-auto aspect-[16/10] w-full max-w-[420px] overflow-hidden rounded-2xl border border-white/10 shadow-2xl lg:mx-0">
+                      <div className="relative mx-auto aspect-[16/10] w-full max-w-[420px] overflow-hidden rounded-2xl border border-white/10 shadow-2xl lg:mx-0 bg-[#05050a]/60">
                         <img
                           src={item.image}
                           alt={item.title}
-                          className="h-full w-full object-cover"
+                          className="h-full w-full object-contain"
                         />
                       </div>
 

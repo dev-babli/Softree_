@@ -557,7 +557,7 @@ export function RelatedCaseStudiesSection({ related, theme = "dark" }: { related
           <Link href="/case-studies" className="text-sm font-semibold text-[var(--softree-accent,#FF7A2F)]">View All →</Link>
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {related.slice(0, 3).map((study) => {
+          {related.slice(0, 6).map((study) => {
             const img = study.mainImage?.asset?.url || study.mainImageUrl
             const tag = study.industry || CATEGORY_LABELS[study.category || ""] || "Case Study"
             return (
