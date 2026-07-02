@@ -18,21 +18,21 @@ const BENTO_IMAGE_POOL = [
 ] as const;
 
 const SLUG_DISPLAY_MAPPING: Record<string, { title: string; category: string }> = {
-  "ai-powered-process-discovery-copilot": {
-    title: "AI Process Discovery Copilot",
-    category: "Power Platform",
+  "ai-website-performance-monitoring": {
+    title: "AI Website Performance",
+    category: "AI & Automation",
   },
   "barcode-scanner-app-audio-equipment-management": {
     title: "Barcode Scanner App",
     category: "Power Platform",
   },
-  "ai-it-service-management-analytics-platform": {
-    title: "IT Service Management Platform",
-    category: "Enterprise IT",
+  "ai-driven-itsm-analytics-platform-microsoft-fabric": {
+    title: "ITSM Analytics Platform",
+    category: "Microsoft Fabric",
   },
-  "employee-separation-process-automation": {
-    title: "Employee Separation Automation",
-    category: "Public Sector",
+  "enterprise-leave-management-system": {
+    title: "Leave Management System",
+    category: "Power Platform",
   },
 };
 
@@ -58,10 +58,10 @@ export function mapSanityCaseStudies(studies: SanityNavCaseStudy[]): CaseStudyMo
 
 const homepageFeaturedCaseStudiesQuery = groq`
   *[_type == "caseStudy" && coalesce(status, "published") == "published" && slug.current in [
-    "ai-powered-process-discovery-copilot",
+    "ai-website-performance-monitoring",
     "barcode-scanner-app-audio-equipment-management",
-    "ai-it-service-management-analytics-platform",
-    "employee-separation-process-automation"
+    "ai-driven-itsm-analytics-platform-microsoft-fabric",
+    "enterprise-leave-management-system"
   ]] {
     _id,
     title,
@@ -90,10 +90,10 @@ export async function getHomepageCaseStudies(): Promise<CaseStudyMock[]> {
 
     if (studies?.length) {
       const order = [
-        "ai-powered-process-discovery-copilot",
+        "ai-website-performance-monitoring",
         "barcode-scanner-app-audio-equipment-management",
-        "ai-it-service-management-analytics-platform",
-        "employee-separation-process-automation"
+        "ai-driven-itsm-analytics-platform-microsoft-fabric",
+        "enterprise-leave-management-system"
       ];
       const sortedStudies = [...studies].sort((a, b) => {
         const aSlug = a.slug?.current || "";
