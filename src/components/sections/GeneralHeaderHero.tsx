@@ -32,40 +32,64 @@ type GeneralHeaderHeroProps = {
 
 const DEFAULT_LOGOS: CustomerLogo[] = [
   {
-    src: "https://cdn.prod.website-files.com/68e69c204ba0666edacc94b1/68ef7bd8f4568496c646be06_autodesk_logo.svg.svg",
-    alt: "Autodesk",
-    width: 101,
-    height: 22,
+    src: "/images/logo/goerp1.jpg",
+    alt: "GO ERP",
+    width: 100,
+    height: 40,
   },
   {
-    src: "https://cdn.prod.website-files.com/68e69c204ba0666edacc94b1/68f8eddcfa3169325ce7a315_bnp%20paribas.svg",
-    alt: "BNP Paribas",
-    width: 101,
-    height: 22,
+    src: "/images/logo/nuvento.jpg",
+    alt: "Nuvento",
+    width: 100,
+    height: 40,
   },
   {
-    src: "https://cdn.prod.website-files.com/68e69c204ba0666edacc94b1/68f8eddc74c7dcce83b3d8b3_groupe%20ima.svg",
-    alt: "Groupe IMA",
-    width: 121,
-    height: 56,
+    src: "/images/logo/kwiz.png",
+    alt: "Kwiz",
+    width: 100,
+    height: 40,
   },
   {
-    src: "https://cdn.prod.website-files.com/68e69c204ba0666edacc94b1/68ef7bd8a0baab03c5046663_swisscom.svg",
-    alt: "Swisscom",
-    width: 121,
-    height: 56,
+    src: "/images/logo/jonians.jpg",
+    alt: "Jonians",
+    width: 100,
+    height: 40,
   },
   {
-    src: "https://cdn.prod.website-files.com/68e69c204ba0666edacc94b1/68f8eddc4341fa416a3fb4db_providence.svg",
-    alt: "Providence",
-    width: 121,
-    height: 56,
+    src: "/images/logo/ecg.png",
+    alt: "Export Control Group",
+    width: 100,
+    height: 40,
   },
   {
-    src: "https://cdn.prod.website-files.com/68e69c204ba0666edacc94b1/6903b0eb0559db4af59486e6_smartrecruiters.svg",
-    alt: "SmartRecruiters",
-    width: 121,
-    height: 56,
+    src: "/images/logo/sp-marketplace.png",
+    alt: "SP Marketplace",
+    width: 100,
+    height: 40,
+  },
+  {
+    src: "/images/logo/bosch.png",
+    alt: "Bosch",
+    width: 100,
+    height: 40,
+  },
+  {
+    src: "/images/logo/emscale_logo.png",
+    alt: "Emscale",
+    width: 100,
+    height: 40,
+  },
+  {
+    src: "/images/logo/link-innovation.png",
+    alt: "Link Innovation",
+    width: 100,
+    height: 40,
+  },
+  {
+    src: "/images/logo/Intellectt_logo.png",
+    alt: "Intellectt",
+    width: 100,
+    height: 40,
   },
 ]
 
@@ -238,14 +262,15 @@ export default function GeneralHeaderHero({
           <span className="gh-trust-label">{trustLabel}</span>
           <div className="gh-trust-logos">
             {customerLogos.map((logo) => (
-              <Image
-                key={logo.src}
-                src={logo.src}
-                alt={logo.alt}
-                width={logo.width}
-                height={logo.height}
-                unoptimized
-              />
+              <div className="gh-trust-logo-card" key={logo.src}>
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={logo.width}
+                  height={logo.height}
+                  unoptimized
+                />
+              </div>
             ))}
           </div>
         </div>

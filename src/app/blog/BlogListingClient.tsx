@@ -158,7 +158,7 @@ export default function BlogListingClient({ posts }: { posts: BlogPost[] }) {
                   <p className="line-clamp-4 text-[15px] leading-6 text-[#4c5366]">{post.excerpt}</p>
                   <div className="mt-auto pt-2">
                     <span className="inline-flex rounded-full border border-[#181818] px-4 py-2 text-[12px] font-semibold text-[#181818] transition-colors group-hover:bg-[#181818] group-hover:text-white">
-                      read blog
+                      Read Article
                     </span>
                   </div>
                 </div>
