@@ -110,7 +110,7 @@ export function VerticalTimelinePage({ data }: { data: CaseStudyLayoutData }) {
           <div className="mx-auto max-w-4xl px-6">
             <h2 className="font-bold">Related deliveries</h2>
             <div className="mt-6 space-y-3">
-              {data.related.slice(0, 3).map((r) => (
+              {data.related.slice(0, 6).map((r) => (
                 <Link key={r._id} href={`/case-studies/${r.slug.current}`} className="block rounded-lg border border-slate-200 p-4 transition-colors hover:border-sky-400">
                   {r.client || r.title}
                 </Link>

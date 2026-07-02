@@ -126,7 +126,7 @@ export function SidebarMetadataPage({ data }: { data: CaseStudyLayoutData }) {
           <div className="mx-auto max-w-5xl px-6">
             <h2 className="text-sm font-semibold uppercase tracking-wider text-[#787774]">Related studies</h2>
             <div className="mt-6 grid gap-4 sm:grid-cols-3">
-              {data.related.slice(0, 3).map((r) => (
+              {data.related.slice(0, 6).map((r) => (
                 <Link
                   key={r._id}
                   href={`/case-studies/${r.slug.current}`}

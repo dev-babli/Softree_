@@ -129,7 +129,7 @@ export function ParallaxScreenshotsPage({ data }: { data: CaseStudyLayoutData })
           <div className="mx-auto max-w-6xl px-6">
             <h2 className="font-bold">More design work</h2>
             <div className="mt-8 grid gap-6 sm:grid-cols-3">
-              {data.related.slice(0, 3).map((r) => (
+              {data.related.slice(0, 6).map((r) => (
                 <Link key={r._id} href={`/case-studies/${r.slug.current}`} className="group overflow-hidden rounded-2xl bg-white shadow-md">
                   <div className="relative aspect-video bg-violet-100">
                     {(r.mainImageUrl || r.mainImage?.asset?.url) && (

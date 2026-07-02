@@ -100,7 +100,7 @@ export function ZigzagAlternatingPage({ data }: { data: CaseStudyLayoutData }) {
           <div className="mx-auto max-w-6xl px-6">
             <h2 className="font-serif text-2xl">More stories</h2>
             <div className="mt-8 grid gap-6 sm:grid-cols-3">
-              {data.related.slice(0, 3).map((r) => (
+              {data.related.slice(0, 6).map((r) => (
                 <Link key={r._id} href={`/case-studies/${r.slug.current}`} className="group">
                   <div className="relative aspect-[3/4] overflow-hidden bg-[#E8E0D4]">
                     {(r.mainImageUrl || r.mainImage?.asset?.url) && (

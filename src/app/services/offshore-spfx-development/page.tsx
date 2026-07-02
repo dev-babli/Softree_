@@ -4,7 +4,7 @@ import Footer from "@/components/sections/footer";
 import SpfxBenefits from "./spfx-benefits";
 import SpfxTabs from "./spfx-tab";
 import SoftreeExpertiseTimeline from "./spfx.expertise";
-import SpfxShowcase from "./case-study";
+import SharePointCaseStudies from "./casestudies";
 import TrustedBrandsMarquee from "../offshore-power-platform-development/trust";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import LightFAQExact from "@/components/homepage-light/LightFAQExact";
@@ -104,7 +104,7 @@ export default function Page() {
         <TrustedBrandsMarquee />
         <div className={`${SECTION_WRAPPER} ${SECTION_GAP}`}>
           <SpfxTabs />
-          <SpfxShowcase />
+          <SharePointCaseStudies />
           <SpfxBenefits />
           <SoftreeExpertiseTimeline />
         </div>

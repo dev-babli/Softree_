@@ -677,28 +677,36 @@
 
   .story-card {
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 6px;
-    padding: 28px;
+    border-radius: 16px;
+    padding: 32px;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"), linear-gradient(135deg, #ff7a2f 0%, #ff5c00 100%);
     background-blend-mode: overlay;
-    transition: border-color 0.25s ease, transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                background-image 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex;
     flex-direction: column;
     height: 100%;
     position: relative;
+    box-shadow: 0 10px 30px -10px rgba(255, 92, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.25);
   }
 
   .story-card:hover {
-    border-color: white;
-    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-6px);
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"), linear-gradient(135deg, #ff8c42 0%, #ff6c1a 100%);
-    box-shadow: 0 10px 24px -10px rgba(255, 92, 0, 0.2);
+    box-shadow: 0 20px 40px -10px rgba(255, 92, 0, 0.45);
   }
 
   .story-image-wrap {
     width: 100%;
     margin-bottom: 24px;
     flex-shrink: 0;
+    background: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
   }
 
   .story-content {
@@ -712,8 +720,8 @@
     .story-card {
       flex-direction: row !important;
       align-items: center;
-      gap: 32px;
-      padding: 32px;
+      gap: 36px;
+      padding: 36px;
     }
 
     .story-image-wrap {
@@ -728,36 +736,48 @@
 
   .story-tag {
     font-family: var(--mono);
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
+    font-weight: 700;
     color: rgba(255, 255, 255, 0.85);
-    margin-bottom: 14px;
+    margin-bottom: 12px;
   }
 
   .story-card h3 {
     font-family: var(--display);
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 600;
-    margin-bottom: 12px;
-    line-height: 1.3;
-    color: white;
+    margin-bottom: 10px;
+    line-height: 1.35;
+    color: #ffffff;
+    transition: color 0.3s ease;
+  }
+
+  .story-card:hover h3 {
+    color: #ffffff;
   }
 
   .story-card p {
-    font-size: 0.9rem;
+    font-size: 0.92rem;
+    line-height: 1.55;
     color: rgba(255, 255, 255, 0.85);
     flex-grow: 1;
   }
 
   .story-link {
-    margin-top: 18px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: white;
+    margin-top: 20px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #ffffff;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 2px;
+    transition: color 0.25s ease;
+  }
+
+  .story-card:hover .story-link {
+    color: rgba(255, 255, 255, 0.9);
   }
 
   /* ---------- Final CTA ---------- */

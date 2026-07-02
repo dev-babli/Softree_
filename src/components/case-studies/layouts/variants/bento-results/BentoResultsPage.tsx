@@ -115,7 +115,7 @@ export function BentoResultsPage({ data }: { data: CaseStudyLayoutData }) {
           <div className="mx-auto max-w-6xl px-6">
             <h2 className="text-xs font-bold uppercase text-[#64748B]">Related analytics</h2>
             <div className="mt-4 grid gap-3 sm:grid-cols-3">
-              {data.related.slice(0, 3).map((r) => (
+              {data.related.slice(0, 6).map((r) => (
                 <Link key={r._id} href={`/case-studies/${r.slug.current}`} className="rounded-lg border border-[#1E293B] p-4 text-sm hover:border-[#22D3EE]">
                   {r.client || r.title}
                 </Link>
