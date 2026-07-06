@@ -3,11 +3,11 @@ import { BENTO_ABSTRACT } from "@/components/bento-layout/bento-media";
 
 export const HOMEPAGE_FALLBACK_CASE_STUDIES: CaseStudyMock[] = [
   {
-    id: "fallback-process-discovery",
-    title: "AI-Powered Process Discovery Copilot",
-    category: "Power Platform",
+    id: "fallback-perf-mon",
+    title: "AI Website Performance",
+    category: "AI & Automation",
     image: BENTO_ABSTRACT.iridescent,
-    href: "/case-studies/ai-powered-process-discovery-copilot",
+    href: "/case-studies/ai-website-performance-monitoring",
   },
   {
     id: "fallback-barcode-scanner",
@@ -17,17 +17,17 @@ export const HOMEPAGE_FALLBACK_CASE_STUDIES: CaseStudyMock[] = [
     href: "/case-studies/barcode-scanner-app-audio-equipment-management",
   },
   {
-    id: "fallback-service-management",
-    title: "IT Service Management Analytics",
-    category: "Enterprise IT Operations",
+    id: "fallback-itsm-analytics",
+    title: "ITSM Analytics Platform",
+    category: "Microsoft Fabric",
     image: BENTO_ABSTRACT.fluidMesh,
-    href: "/case-studies/ai-it-service-management-analytics-platform",
+    href: "/case-studies/ai-driven-itsm-analytics-platform-microsoft-fabric",
   },
   {
-    id: "fallback-employee-separation",
-    title: "Employee Separation Process Automation",
-    category: "Public Sector Automation",
+    id: "fallback-leave-mgmt",
+    title: "Leave Management System",
+    category: "Power Platform",
     image: BENTO_ABSTRACT.ember,
-    href: "/case-studies/employee-separation-process-automation",
+    href: "/case-studies/enterprise-leave-management-system",
   },
 ];

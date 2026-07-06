@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect, useRef, useMemo, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import type {
   SanityNavCategory,
@@ -57,7 +57,7 @@ type MenuItem = {
 const CLOSE_DELAY_MS = 280;
 
 const menu: MenuItem[] = [
-  { label: "About", url: "/about-us" },
+  { label: "AI", url: "/ai" },
   {
     label: "Services",
     url: "/services",
@@ -87,6 +87,7 @@ const menu: MenuItem[] = [
         title: "AI & Automation",
         description: "Intelligence in every workflow.",
         links: [
+          { label: "AI Solutions", url: "/ai", icon: Sparkles, description: "Agentic & generative AI hub" },
           { label: "AI Web Analyser", url: "/webanalyser", icon: Sparkles, description: "Instant website performance audit" },
           { label: "AI Test Automation", url: "/services/ai-powered-test-automation", icon: BrainCircuit, description: "Quality at speed" },
           { label: "AI Agents", url: "/services/offshore-ai-development", icon: Bot, description: "Autonomous tasks" },
@@ -160,6 +161,7 @@ const menu: MenuItem[] = [
   { label: "Case Studies", url: "/case-studies", mega: true, children: [] },
   { label: "Blog", url: "/blog", mega: true, children: [] },
   { label: "Careers", url: "/careers" },
+  { label: "About", url: "/about-us" },
 ];
 
 function buildBlogChildren(blogCategories: SanityNavCategory[]): MenuGroup[] {
@@ -209,6 +211,7 @@ export default function Navigation({
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
   const lastScrollY = useRef(0);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const reduceMotion = useReducedMotion();
 
   const dynamicMenu = useMemo(() => {
     const blogChildren = buildBlogChildren(blogCategories);
@@ -302,11 +305,13 @@ export default function Navigation({
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${showNav ? "translate-y-0" : "-translate-y-full"
           }`}
+        aria-hidden={!showNav}
+        inert={!showNav ? true : undefined}
         onMouseLeave={scheduleCloseMenu}
       >
         <div className="mx-auto max-w-[1280px] px-5 pt-2.5 lg:px-10">
           <nav className="relative flex h-[64px] items-center justify-between rounded-2xl border border-black/[0.06] bg-white/95 px-4 shadow-[0_8px_32px_-10px_rgba(10,10,26,0.12)] backdrop-blur-xl lg:px-6">
-            <Link href="/" className="shrink-0">
+            <Link href="/" className="inline-flex min-h-11 shrink-0 items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45">
               <img
                 src="/logo/Softree-Technology-Final-Logo.png"
                 alt="Softree"
@@ -321,7 +326,7 @@ export default function Navigation({
                     <Link
                       key={item.label}
                       href={item.url || "#"}
-                      className="rounded-lg px-3.5 py-2 text-[13px] font-medium text-[#0a0a1a]/60 transition-colors duration-100 hover:bg-[#F3F0EE] hover:text-[#0a0a1a]"
+                      className="inline-flex min-h-11 items-center rounded-lg px-3.5 py-2 text-[13px] font-medium text-[#0a0a1a]/60 transition-colors duration-100 hover:bg-[#F3F0EE] hover:text-[#0a0a1a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45"
                     >
                       {item.label}
                     </Link>
@@ -341,7 +346,8 @@ export default function Navigation({
                         href={item.url}
                         aria-expanded={isOpen}
                         aria-haspopup={canOpen ? "true" : undefined}
-                        className={`inline-flex items-center gap-1 rounded-lg px-3.5 py-2 text-[13px] font-medium transition-colors duration-100 ${isOpen
+                        onFocus={() => canOpen && openMenu(item.label)}
+                        className={`inline-flex min-h-11 items-center gap-1 rounded-lg px-3.5 py-2 text-[13px] font-medium transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45 ${isOpen
                           ? "bg-[rgba(255,88,18,0.1)] text-[#FF5812]"
                           : "text-[#0a0a1a]/60 hover:bg-[#F3F0EE] hover:text-[#0a0a1a]"
                           }`}
@@ -360,7 +366,9 @@ export default function Navigation({
                         type="button"
                         aria-expanded={isOpen}
                         aria-haspopup={canOpen ? "true" : undefined}
-                        className={`inline-flex items-center gap-1 rounded-lg px-3.5 py-2 text-[13px] font-medium transition-colors duration-100 outline-none ${isOpen
+                        onClick={() => (isOpen ? closeMenu() : openMenu(item.label))}
+                        onFocus={() => canOpen && openMenu(item.label)}
+                        className={`inline-flex min-h-11 items-center gap-1 rounded-lg px-3.5 py-2 text-[13px] font-medium transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45 ${isOpen
                           ? "bg-[rgba(255,88,18,0.1)] text-[#FF5812]"
                           : "text-[#0a0a1a]/60 hover:bg-[#F3F0EE] hover:text-[#0a0a1a]"
                           }`}
@@ -383,13 +391,13 @@ export default function Navigation({
             <div className="hidden items-center gap-2 lg:flex">
               <Link
                 href="/book-meeting"
-                className="rounded-full bg-[#FF5812] px-5 py-2.5 text-[13px] font-semibold text-white shadow-[0_4px_14px_rgba(255,88,18,0.3)] transition-[transform,box-shadow] duration-150 hover:shadow-[0_6px_18px_rgba(255,88,18,0.36)] active:scale-[0.97]"
+                className="inline-flex min-h-11 items-center rounded-full bg-[#FF5812] px-5 py-2.5 text-[13px] font-semibold text-white shadow-[0_4px_14px_rgba(255,88,18,0.3)] transition-[transform,box-shadow] duration-150 hover:shadow-[0_6px_18px_rgba(255,88,18,0.36)] active:scale-[0.97]"
               >
                 Book a Call
               </Link>
               <Link
                 href="/contact"
-                className="rounded-full border border-black/[0.08] px-5 py-2.5 text-[13px] font-semibold text-[#0a0a1a] transition-colors duration-150 hover:bg-[#F3F0EE] active:scale-[0.97]"
+                className="inline-flex min-h-11 items-center rounded-full border border-black/[0.08] px-5 py-2.5 text-[13px] font-semibold text-[#0a0a1a] transition-colors duration-150 hover:bg-[#F3F0EE] active:scale-[0.97]"
               >
                 Get Started
               </Link>
@@ -397,7 +405,7 @@ export default function Navigation({
 
             <button
               type="button"
-              className="flex h-10 w-10 items-center justify-center rounded-lg text-[#0a0a1a] hover:bg-[#F3F0EE] transition-colors duration-150 lg:hidden"
+              className="flex h-11 w-11 items-center justify-center rounded-lg text-[#0a0a1a] hover:bg-[#F3F0EE] transition-colors duration-150 lg:hidden"
               onClick={() => setMobileOpen((v) => !v)}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
             >
@@ -432,44 +440,62 @@ export default function Navigation({
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -8 }}
+            initial={reduceMotion ? false : { opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.16, ease: [0.23, 1, 0.32, 1] }}
+            exit={reduceMotion ? undefined : { opacity: 0, y: -8 }}
+            transition={reduceMotion ? { duration: 0 } : { duration: 0.16, ease: [0.23, 1, 0.32, 1] }}
             className="fixed inset-0 z-40 overflow-y-auto bg-[#FAFAF9] text-[#0a0a1a] px-5 pb-10 pt-24 lg:hidden"
           >
             <div className="mx-auto max-w-lg">
               {dynamicMenu.map((item) => (
                 <div key={item.label} className="border-b border-black/[0.06]">
                   {item.mega && item.children && item.children.length > 0 ? (
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setMobileDropdown((d) =>
-                          d === item.label ? null : item.label,
-                        )
-                      }
-                      className="flex w-full items-center justify-between py-4 text-left text-[#0a0a1a]"
-                    >
-                      <span className="text-base font-semibold">{item.label}</span>
-                      <ChevronDown
-                        size={18}
-                        className={`transition-transform duration-150 text-[#0a0a1a]/40 ${mobileDropdown === item.label ? "rotate-180 text-[#FF5812]" : ""
+                    <div className="flex w-full items-center justify-between">
+                      {item.url ? (
+                        <Link
+                          href={item.url}
+                          onClick={() => setMobileOpen(false)}
+                          className="flex-1 rounded-lg py-4 text-base font-semibold text-[#0a0a1a] hover:text-[#FF5812] transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45"
+                        >
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="flex-1 py-4 text-base font-semibold text-[#0a0a1a]">
+                          {item.label}
+                        </span>
+                      )}
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setMobileDropdown((d) =>
+                            d === item.label ? null : item.label,
+                          )
+                        }
+                        className="p-4 -mr-4 flex items-center justify-center text-[#0a0a1a]/40 hover:text-[#FF5812] transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45"
+                        aria-label={`Toggle ${item.label} dropdown`}
+                        aria-expanded={mobileDropdown === item.label}
+                        aria-controls={`mobile-nav-${item.label.replace(/\s+/g, "-").toLowerCase()}`}
+                      >
+                        <ChevronDown
+                          size={18}
+                          className={`transition-transform duration-150 ${
+                            mobileDropdown === item.label ? "rotate-180 text-[#FF5812]" : ""
                           }`}
-                      />
-                    </button>
+                        />
+                      </button>
+                    </div>
                   ) : (
                     <Link
                       href={item.url || "#"}
                       onClick={() => setMobileOpen(false)}
-                      className="block py-4 text-base font-semibold text-[#0a0a1a] hover:text-[#FF5812] transition-colors duration-100"
+                      className="block rounded-lg py-4 text-base font-semibold text-[#0a0a1a] hover:text-[#FF5812] transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45"
                     >
                       {item.label}
                     </Link>
                   )}
 
                   {item.mega && mobileDropdown === item.label && item.children && (
-                    <div className="flex flex-col gap-5 pl-4 pr-2 pb-6 pt-2">
+                    <div id={`mobile-nav-${item.label.replace(/\s+/g, "-").toLowerCase()}`} className="flex flex-col gap-5 pl-4 pr-2 pb-6 pt-2">
                       {item.children.map((group, groupIdx) => {
                         const GroupIcon = group.icon;
                         const hasLinks = (group.links?.length ?? 0) > 0;
@@ -480,7 +506,7 @@ export default function Navigation({
                               <Link
                                 href={group.url}
                                 onClick={() => setMobileOpen(false)}
-                                className="group flex items-start gap-3 rounded-xl p-2.5 transition-colors duration-100 hover:bg-black/[0.03] active:bg-black/[0.05]"
+                                className="group flex min-h-11 items-start gap-3 rounded-xl p-2.5 transition-colors duration-100 hover:bg-black/[0.03] active:bg-black/[0.05] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45"
                               >
                                 {GroupIcon ? (
                                   <GroupIcon
@@ -529,7 +555,7 @@ export default function Navigation({
                                     <Link
                                       href={link.url}
                                       onClick={() => setMobileOpen(false)}
-                                      className="group flex items-start gap-3 rounded-xl p-2.5 transition-colors duration-100 hover:bg-black/[0.03] active:bg-black/[0.05]"
+                                      className="group flex min-h-11 items-start gap-3 rounded-xl p-2.5 transition-colors duration-100 hover:bg-black/[0.03] active:bg-black/[0.05] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45"
                                     >
                                       {LinkIcon && (
                                         <LinkIcon
@@ -564,14 +590,14 @@ export default function Navigation({
                 <Link
                   href="/book-meeting"
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-full bg-[#FF5812] py-3.5 text-center text-sm font-semibold text-white shadow-[0_4px_14px_rgba(255,88,18,0.3)] transition-[transform,box-shadow] duration-150 hover:shadow-[0_6px_18px_rgba(255,88,18,0.36)] active:scale-[0.97]"
+                  className="rounded-full bg-[#FF5812] py-3.5 text-center text-sm font-semibold text-white shadow-[0_4px_14px_rgba(255,88,18,0.3)] transition-[transform,box-shadow] duration-150 hover:shadow-[0_6px_18px_rgba(255,88,18,0.36)] active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45"
                 >
                   Book a Call
                 </Link>
                 <Link
                   href="/contact"
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-full border border-black/[0.08] py-3.5 text-center text-sm font-semibold text-[#0a0a1a] transition-colors duration-150 hover:bg-[#F3F0EE] active:scale-[0.97]"
+                  className="rounded-full border border-black/[0.08] py-3.5 text-center text-sm font-semibold text-[#0a0a1a] transition-colors duration-150 hover:bg-[#F3F0EE] active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45"
                 >
                   Get Started
                 </Link>

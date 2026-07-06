@@ -224,7 +224,7 @@ export const relatedCaseStudiesFallbackQuery = groq`
     && slug.current != $slug
     && defined(slug.current)
     && coalesce(status, "published") == "published"
-  ] | order(_updatedAt desc)[0...3] {
+  ] | order(_updatedAt desc)[0...6] {
     _id,
     title,
     slug,

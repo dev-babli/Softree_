@@ -1,0 +1,167 @@
+{
+  "local": {
+    "viewport": {
+      "w": 1536,
+      "h": 960
+    },
+    "loader": {
+      "x": 0,
+      "y": 0,
+      "w": 1536,
+      "h": 960,
+      "fontSize": "16.1998px",
+      "lineHeight": "24.2997px",
+      "fontFamily": "Inter, Arial, sans-serif",
+      "position": "fixed",
+      "transform": "none",
+      "variant": "w-variant-78b56fe7-8c75-0360-85cb-da3212be0c74",
+      "dataVariant": "display-5"
+    },
+    "heading": {
+      "x": 576,
+      "y": 424,
+      "w": 384,
+      "h": 111,
+      "fontSize": "101.249px",
+      "lineHeight": "111.374px",
+      "fontFamily": "Inter, Arial, sans-serif",
+      "position": "relative",
+      "transform": "none",
+      "variant": "w-variant-78b56fe7-8c75-0360-85cb-da3212be0c74",
+      "dataVariant": "display-5"
+    },
+    "meet": {
+      "x": 633,
+      "y": 424,
+      "w": 227,
+      "h": 111,
+      "fontSize": "101.249px",
+      "lineHeight": "111.374px",
+      "fontFamily": "Inter, Arial, sans-serif",
+      "position": "static",
+      "transform": "matrix(1, 0, 0, 1, 56.6484, 0)",
+      "variant": "w-variant-78b56fe7-8c75-0360-85cb-da3212be0c74",
+      "dataVariant": "display-5"
+    },
+    "paragraph": {
+      "x": 576,
+      "y": 424,
+      "w": 384,
+      "h": 111,
+      "fontSize": "101.249px",
+      "lineHeight": "111.374px",
+      "fontFamily": "Inter, Arial, sans-serif",
+      "position": "static",
+      "transform": "none",
+      "variant": "w-variant-78b56fe7-8c75-0360-85cb-da3212be0c74",
+      "dataVariant": "display-5"
+    },
+    "bar": {
+      "x": 701,
+      "y": 840,
+      "w": 134,
+      "h": 24,
+      "fontSize": "16.1998px",
+      "lineHeight": "24.2997px",
+      "fontFamily": "Inter, Arial, sans-serif",
+      "position": "absolute",
+      "transform": "none",
+      "variant": "w-variant-78b56fe7-8c75-0360-85cb-da3212be0c74",
+      "dataVariant": "display-5"
+    }
+  },
+  "ref": {
+    "viewport": {
+      "w": 1536,
+      "h": 960
+    },
+    "loader": {
+      "x": 0,
+      "y": 0,
+      "w": 1536,
+      "h": 960,
+      "fontSize": "16.1998px",
+      "lineHeight": "24.2997px",
+      "fontFamily": "Inter, Arial, sans-serif",
+      "position": "fixed",
+      "transform": "none",
+      "variant": "w-variant-78b56fe7-8c75-0360-85cb-da3212be0c74",
+      "dataVariant": "display-5"
+    },
+    "heading": {
+      "x": 576,
+      "y": 424,
+      "w": 384,
+      "h": 111,
+      "fontSize": "101.249px",
+      "lineHeight": "111.374px",
+      "fontFamily": "Inter, Arial, sans-serif",
+      "position": "static",
+      "transform": "none",
+      "variant": "w-variant-78b56fe7-8c75-0360-85cb-da3212be0c74",
+      "dataVariant": "display-5"
+    },
+    "meet": {
+      "x": 633,
+      "y": 424,
+      "w": 227,
+      "h": 111,
+      "fontSize": "101.249px",
+      "lineHeight": "111.374px",
+      "fontFamily": "Inter, Arial, sans-serif",
+      "position": "static",
+      "transform": "matrix(1, 0, 0, 1, 56.6484, 0)",
+      "variant": "w-variant-78b56fe7-8c75-0360-85cb-da3212be0c74",
+      "dataVariant": "display-5"
+    },
+    "paragraph": {
+      "x": 576,
+      "y": 424,
+      "w": 384,
+      "h": 111,
+      "fontSize": "101.249px",
+      "lineHeight": "111.374px",
+      "fontFamily": "Inter, Arial, sans-serif",
+      "position": "static",
+      "transform": "none",
+      "variant": "w-variant-78b56fe7-8c75-0360-85cb-da3212be0c74",
+      "dataVariant": "display-5"
+    },
+    "bar": {
+      "x": 701,
+      "y": 840,
+      "w": 134,
+      "h": 24,
+      "fontSize": "16.1998px",
+      "lineHeight": "24.2997px",
+      "fontFamily": "Inter, Arial, sans-serif",
+      "position": "absolute",
+      "transform": "none",
+      "variant": "w-variant-78b56fe7-8c75-0360-85cb-da3212be0c74",
+      "dataVariant": "display-5"
+    }
+  },
+  "deltas": {
+    "heading": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0,
+      "fontSize": "match"
+    },
+    "meet": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0,
+      "fontSize": "match"
+    },
+    "bar": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0,
+      "fontSize": "match"
+    }
+  }
+}

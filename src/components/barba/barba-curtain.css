@@ -1,0 +1,57 @@
+/* Softree page transition — single silk wipe, transform-only */
+
+.barba-transition-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.barba-transition-curtain {
+  position: absolute;
+  inset: 0;
+  background: #f8f4ec;
+  transform: translate3d(0, 100%, 0);
+  backface-visibility: hidden;
+}
+
+.barba-transition-curtain::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ff5812 0%, #ff7a3d 50%, #ff5812 100%);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+html.barba-is-transitioning .barba-transition-curtain::before {
+  transform: scaleX(1);
+  transition: transform 0.38s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+[data-barba="wrapper"] {
+  min-height: 100%;
+}
+
+[data-barba="container"] {
+  min-height: 1px;
+}
+
+html.barba-is-transitioning {
+  overflow: hidden;
+}
+
+html.barba-is-transitioning [data-barba="container"] {
+  pointer-events: none;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .barba-transition-stage {
+    display: none !important;
+  }
+}

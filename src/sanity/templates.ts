@@ -80,7 +80,7 @@ const caseStudySections = {
   ],
 }
 
-const composerStarterSections = [
+const composerStarterSections: Array<Record<string, unknown>> = [
   { _type: 'csOverviewSection' },
   {
     _type: 'csNarrativeSection',
@@ -116,8 +116,6 @@ const composerStarterSections = [
   { _type: 'csContactSection' },
 ]
 
-import type { CaseStudyCategoryKey } from '@/app/case-studies/categoryConfig'
-
 const caseStudyBase = (
   category: CaseStudyCategoryKey,
   options: {
@@ -135,7 +133,9 @@ const caseStudyBase = (
   industry: options.industry ?? 'Technology',
   detailLayout: options.detailLayout ?? 'manufacturing-power-platform',
   technologies: options.technologies ?? [],
-  composerSections: options.composerSections,
+  // Only include composerSections when actually provided — an explicit
+  // `composerSections: undefined` key ends up in the resolved initial value.
+  ...(options.composerSections ? { composerSections: options.composerSections } : {}),
   challengeContent: caseStudySections.challenge,
   approachContent: caseStudySections.approach,
   outcomeContent: caseStudySections.outcome,
@@ -268,37 +268,41 @@ export const documentTemplates: Template[] = [
     id: 'caseStudy-ai',
     title: 'Case study — AI & ML',
     schemaType: 'caseStudy',
-    value: caseStudyBase('ai', ['Azure OpenAI', 'Python', 'RAG']),
+    value: caseStudyBase('ai', { technologies: ['Azure OpenAI', 'Python', 'RAG'] }),
   },
   {
     id: 'caseStudy-power-platform',
     title: 'Case study — Power Platform',
     schemaType: 'caseStudy',
-    value: caseStudyBase('power-platform', ['Power Apps', 'Power Automate', 'Dataverse']),
+    value: caseStudyBase('power-platform', {
+      technologies: ['Power Apps', 'Power Automate', 'Dataverse'],
+    }),
   },
   {
     id: 'caseStudy-sharepoint',
     title: 'Case study — SharePoint',
     schemaType: 'caseStudy',
-    value: caseStudyBase('sharepoint', ['SharePoint Online', 'Microsoft 365']),
+    value: caseStudyBase('sharepoint', { technologies: ['SharePoint Online', 'Microsoft 365'] }),
   },
   {
     id: 'caseStudy-web',
     title: 'Case study — web',
     schemaType: 'caseStudy',
-    value: caseStudyBase('web', ['Next.js', 'React', 'TypeScript']),
+    value: caseStudyBase('web', { technologies: ['Next.js', 'React', 'TypeScript'] }),
   },
   {
     id: 'caseStudy-mobile',
     title: 'Case study — mobile',
     schemaType: 'caseStudy',
-    value: caseStudyBase('mobile', ['React Native', 'iOS', 'Android']),
+    value: caseStudyBase('mobile', { technologies: ['React Native', 'iOS', 'Android'] }),
   },
   {
     id: 'caseStudy-data-analytics',
     title: 'Case study — data analytics',
     schemaType: 'caseStudy',
-    value: caseStudyBase('data-analytics', ['Power BI', 'Azure Synapse', 'SQL']),
+    value: caseStudyBase('data-analytics', {
+      technologies: ['Power BI', 'Azure Synapse', 'SQL'],
+    }),
   },
   {
     id: 'marketing-landing',

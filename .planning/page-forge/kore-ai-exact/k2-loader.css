@@ -1,0 +1,84 @@
+.wf-design-mode .k2-loader:not(:has(>[data-w-instance-of])){
+  display:flex;
+}
+.wf-design-mode .k2-loader *{
+  opacity:1!important;
+  transform:none!important;
+}
+
+.k2-loader::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:#000 radial-gradient(circle,rgba(255,255,255,.06) 0 6px,transparent 6.5px) 0 0/24px 24px;
+  pointer-events:none;
+  z-index:-1;
+}
+.k2-loader::before,.k2-loader-bar-item{
+  transition:opacity 1s;
+}
+.k2-loader.step-3::before,.k2-loader.step-3 .k2-loader-bar-item{
+  opacity:0;
+}
+
+.k2-loader-bar::before{
+  content:"";position:absolute;inset:0;background:var(--_k2---color--green-light);
+  transform-origin:left;
+  transform:scaleX(var(--p,0));
+  transition:transform 1s var(--ease);
+}
+.k2-loader.step-1 .k2-loader-bar::before{--p:.33}
+.k2-loader.step-2 .k2-loader-bar::before{--p:.66}
+.k2-loader.step-3 .k2-loader-bar::before{--p:1}
+
+.k2-loader p>:first-child{
+  transform:translate3d(25%,0,0);
+}
+.k2-loader em{
+  opacity:0;
+  transition:color .5s;
+}
+.k2-loader:not(.step-3) em{
+  color:var(--_k2---color--green-light);
+}
+.k2-loader .k2-heading sup{
+  white-space:nowrap;
+  width:0;
+  will-change:transform;
+}
+.k2-loader>*{
+  transition:opacity .5s;
+}
+.k2-loader:not(.step-0)>*,.k2-loader.step3 .k2-loader-bar,.k2-loader .k2-heading sup .char{
+  opacity:0;
+}
+
+@keyframes loader0{from{opacity:0}to{opacity:1}}
+@keyframes loader1-1{to{transform:none}}
+@keyframes loader1-2{to{opacity:1}}
+@keyframes loader1-3{50%{opacity:0}}
+@keyframes loader2-1{to{transform:none}}
+@keyframes loader2-2{to{width:var(--w)}}
+@keyframes loader2-3{to{opacity:1}}
+
+.k2-loader.step-0 p>:first-child>.char{
+  animation:loader0 1s var(--ease) calc(.5s + var(--i, 0) * .1s) both;
+}
+.k2-loader.step-1 p>:first-child{
+  animation:loader1-1 1s var(--ease) both;
+}
+.k2-loader.step-1 em{
+  animation:loader1-2 1s var(--ease) both .5s,loader1-3 .2s linear 2 1s;
+}
+.k2-loader em>:last-child{
+  transform:translate3d(-150%,0,0);
+}
+.k2-loader.step-2 em>:last-child{
+  animation:loader2-1 2s var(--ease) both;
+}
+.k2-loader.step-2 sup{
+  animation:loader2-2 2s var(--ease) both;
+}
+.k2-loader.step-2 sup .char{
+  animation:loader2-3 .5s linear calc(var(--i, 0) * .15s) both;
+}

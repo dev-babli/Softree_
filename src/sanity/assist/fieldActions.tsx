@@ -262,5 +262,5 @@ export function useSoftreeAssistFieldActions(props: AssistFieldActionProps) {
     )
 
     return [...docActions, ...templateActions]
-  }, [actionType, client, getDocumentValue, path, props, toast])
+  }, [actionType, client, getDocumentValue, path, props.documentIdForAction, props.schemaType, toast])
 }

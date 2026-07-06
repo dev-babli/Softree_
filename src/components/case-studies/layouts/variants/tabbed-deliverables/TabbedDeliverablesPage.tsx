@@ -111,7 +111,7 @@ export function TabbedDeliverablesPage({ data }: { data: CaseStudyLayoutData }) 
           <div className="mx-auto max-w-6xl px-6">
             <h2 className="font-bold">Explore more platforms</h2>
             <div className="mt-6 grid gap-4 sm:grid-cols-3">
-              {data.related.slice(0, 3).map((r) => (
+              {data.related.slice(0, 6).map((r) => (
                 <Link key={r._id} href={`/case-studies/${r.slug.current}`} className="rounded-xl bg-zinc-50 p-5 ring-1 ring-zinc-200 hover:ring-violet-300">
                   <h3 className="font-semibold">{r.client || r.title}</h3>
                   <p className="mt-1 line-clamp-2 text-sm text-[#71717A]">{r.excerpt}</p>

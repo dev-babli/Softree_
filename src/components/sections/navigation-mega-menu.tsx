@@ -117,7 +117,7 @@ export function MegaMenuPanel({
             <Link
               href={meta.href}
               onClick={onClose}
-              className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-white/90 transition-colors duration-100 hover:text-white"
+              className="inline-flex min-h-11 items-center gap-1.5 text-[12px] font-semibold text-white/90 transition-colors duration-100 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
             >
               {meta.cta}
               <ArrowUpRight size={14} />
@@ -135,7 +135,7 @@ export function MegaMenuPanel({
             <Link
               href={meta.href}
               onClick={onClose}
-              className="text-[12px] font-medium text-[#1852FF]"
+              className="inline-flex min-h-11 items-center text-[12px] font-medium text-[#1852FF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1852FF]/50"
             >
               {meta.cta}
             </Link>
@@ -173,7 +173,7 @@ export function MegaMenuPanel({
                               <Link
                                 href={group.url}
                                 onClick={onClose}
-                                className="group/col-link -mx-2.5 block rounded-xl p-2.5 transition-colors duration-150 hover:bg-black/[0.03]"
+                                className="group/col-link -mx-2.5 flex min-h-11 flex-col justify-center rounded-xl p-2.5 transition-colors duration-150 hover:bg-black/[0.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/40"
                               >
                                 <div className="mb-1.5 flex items-center gap-2">
                                   {GroupIcon ? (
@@ -239,7 +239,7 @@ export function MegaMenuPanel({
                                     <Link
                                       href={link.url}
                                       onClick={onClose}
-                                      className="group flex items-start gap-2.5 rounded-lg px-2 py-2 transition-colors duration-100 hover:bg-white"
+                                      className="group flex min-h-11 items-start gap-2.5 rounded-lg px-2 py-2 transition-colors duration-100 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/40"
                                     >
                                       {Icon && (
                                         <Icon
@@ -285,7 +285,7 @@ export function MegaMenuPanel({
             <Link
               href="/book-meeting"
               onClick={onClose}
-              className="font-medium text-[#0a0a1a]/70 hover:text-[#FF5812]"
+              className="inline-flex min-h-11 items-center font-medium text-[#0a0a1a]/70 hover:text-[#FF5812] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/40"
             >
               Book a discovery call
             </Link>
@@ -293,7 +293,7 @@ export function MegaMenuPanel({
           <Link
             href="/contact"
             onClick={onClose}
-            className="text-[11px] font-medium text-[#0a0a1a]/55 hover:text-[#0a0a1a]"
+            className="inline-flex min-h-11 items-center text-[11px] font-medium text-[#0a0a1a]/55 hover:text-[#0a0a1a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/40"
           >
             Get a quote →
           </Link>

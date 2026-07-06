@@ -1,0 +1,16 @@
+---
+description: Multi-agent Awwwards page forge loop for Softree marketing pages
+globs:
+alwaysApply: false
+---
+
+# Awwwards Page Loop
+
+When the user asks to **forge a page**, run the **awwwards loop**, build an **Awwwards-level** marketing page, or wants design + responsive + performance agents with correction cycles:
+
+1. Read and follow `.agents/skills/awwwards-page-loop/SKILL.md` completely.
+2. Write artifacts under `.planning/page-forge/<slug>/`.
+3. Run Trend → Story → Map → Build → **parallel** Design/Responsive/Performance checkers → Review → Correct until overall ≥ 8.5 or max 4 loops.
+4. Never hijack `src/app/layout.tsx` with global loaders/Barba unless explicitly requested.
+5. Preserve nav, sticky orange footer, `LightContactSection`, `LightFAQExact` by default.
+6. Use existing stack only: Next.js, Tailwind, GSAP, Framer Motion, `@/lib/motion`, brand `#FF5812` / `#f8f4ec`.

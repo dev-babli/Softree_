@@ -4,15 +4,7 @@ import { applyPageOg } from "@/lib/site-metadata";
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
 
-import HeroAIAutomation from "./hero";
-import QAForgeLandingPage from "./trust";
-import AutomationTestingServices from "./testing-services";
-import AutomationTestingSolutions from "./testing-support";
-import TechStack from "./tech";
-import EngagementModels from "./models";
-import WhySoftree from "./why";
-import LightContactSection from "@/components/homepage-light/LightContactSection";
-import LightFAQExact from "@/components/homepage-light/LightFAQExact";
+import { TestAutomationPage } from "@/components/test-automation/TestAutomationPage";
 
 const testAutomationFAQs = [
   {
@@ -27,7 +19,7 @@ const testAutomationFAQs = [
     serial: "question 02",
     question: "How does AI improve test automation compared to traditional approaches?",
     answer:
-      "AI-powered tests self-heal when UI changes, intelligently identify edge cases, and reduce false positives. This significantly lowers maintenance overhead and increases test reliability compared to traditional script-based automation.",
+      "AI-powered tests can self-heal when UI changes, prioritize risky paths, and surface defect patterns. We use these capabilities to reduce brittle maintenance work and improve reliability where the application and pipeline are ready for intelligent automation.",
   },
   {
     id: 3,
@@ -41,7 +33,7 @@ const testAutomationFAQs = [
     serial: "question 04",
     question: "How long does it take to implement AI-powered test automation?",
     answer:
-      "Initial test automation setup takes 4-8 weeks. Full implementation with AI-powered features and comprehensive coverage takes 8-12 weeks depending on application complexity and scope.",
+      "A practical first slice usually starts with one critical flow, one framework decision, and one CI/CD gate. Larger AI-assisted automation programs depend on application complexity, release cadence, environments, and how much existing QA structure is already in place.",
   },
   {
     id: 5,
@@ -97,19 +89,10 @@ export const metadata: Metadata = applyPageOg("/services/ai-powered-test-automat
 
 export default function AIPoweredAutomationPage() {
   return (
-    <div>
+    <div className="min-h-screen bg-white pt-[100px]">
       <NavigationClient />
-      <HeroAIAutomation />
-      <QAForgeLandingPage />
-      <AutomationTestingServices />
-      <AutomationTestingSolutions />
-      <EngagementModels />
-      <WhySoftree />
-      <TechStack />
-      <LightContactSection />
-      <LightFAQExact faqs={testAutomationFAQs} />
+      <TestAutomationPage faqs={testAutomationFAQs} />
       <Footer />
-
     </div>
   );
 }

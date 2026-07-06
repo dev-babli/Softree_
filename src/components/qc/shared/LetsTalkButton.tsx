@@ -48,24 +48,24 @@ export default function LetsTalkButton({
         <a
             href={href}
             className={
-                "group/btn relative inline-flex items-center gap-4 overflow-hidden rounded-full bg-[#0a0a0a] pl-5 pr-1.5 py-1.5 text-white" +
+                "group/btn relative inline-flex min-h-11 items-center gap-4 overflow-hidden rounded-full bg-[#0a0a0a] pl-5 pr-1.5 py-1.5 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B00]/60 focus-visible:ring-offset-2" +
                 (className ? ` ${className}` : "")
             }
             style={{ paddingTop: compact ? 4 : 6, paddingBottom: compact ? 4 : 6 }}
         >
             <span className="relative block h-[14px] overflow-hidden">
-                <span className="block text-[11px] font-semibold uppercase tracking-[0.18em] transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)] group-hover/btn:-translate-y-full">
+                <span className="block text-[11px] font-semibold uppercase tracking-[0.18em] motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-[cubic-bezier(.22,1,.36,1)] motion-safe:group-hover/btn:-translate-y-full">
                     LET&rsquo;S TALK
                 </span>
-                <span className="absolute inset-x-0 top-full block text-[11px] font-semibold uppercase tracking-[0.18em] transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)] group-hover/btn:-translate-y-full">
+                <span className="absolute inset-x-0 top-full block text-[11px] font-semibold uppercase tracking-[0.18em] motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-[cubic-bezier(.22,1,.36,1)] motion-safe:group-hover/btn:-translate-y-full">
                     LET&rsquo;S TALK
                 </span>
             </span>
             <span className="relative grid h-[26px] w-[26px] place-items-center overflow-hidden rounded-full bg-white">
-                <span className="absolute inset-0 grid place-items-center transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)] group-hover/btn:translate-x-[250%]">
+                <span className="absolute inset-0 grid place-items-center motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-[cubic-bezier(.22,1,.36,1)] motion-safe:group-hover/btn:translate-x-[250%]">
                     <ArrowIcon />
                 </span>
-                <span className="absolute inset-0 grid -translate-x-[250%] place-items-center transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)] group-hover/btn:translate-x-0">
+                <span className="absolute inset-0 grid -translate-x-[250%] place-items-center motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-[cubic-bezier(.22,1,.36,1)] motion-safe:group-hover/btn:translate-x-0 motion-reduce:hidden">
                     <ArrowIcon />
                 </span>
             </span>

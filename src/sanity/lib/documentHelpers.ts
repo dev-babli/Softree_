@@ -6,11 +6,14 @@ import type { ObjectInputProps } from "sanity"
 import { caseStudyHasStoryContent, type CaseStudyCompletenessDoc } from "./caseStudyCompleteness"
 import { getAeoPublishIssues, type AeoCompletenessDoc } from "./aeoCompleteness"
 
+const SEO_PREVIEW_SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.softreetechnology.com"
+
+function SeoPreviewPanelInput(_props: ObjectInputProps) {
+  return React.createElement(SeoPreviewInput, { siteUrl: SEO_PREVIEW_SITE_URL })
+}
+
 export function createSeoPreviewPanelField(group = "seo") {
-  const SeoPreviewPanelInput: React.FC<ObjectInputProps> = () =>
-    React.createElement(SeoPreviewInput, {
-      siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://www.softreetechnology.com",
-    })
   return defineField({
     name: "seoPreviewPanel",
     title: "Search & social preview",

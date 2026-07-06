@@ -2,7 +2,7 @@
 
 import { DesktopIcon, LaunchIcon, RefreshIcon } from "@sanity/icons"
 import { Box, Button, Flex, Spinner, Text } from "@sanity/ui"
-import { useCallback, useEffect, useMemo, useRef, useState } from "react"
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react"
 import type { UserViewComponent } from "sanity/structure"
 
 import { hydrateCaseStudyForPreview } from "@/sanity/lib/hydrateCaseStudyPreview"
@@ -21,9 +21,10 @@ const STORY_TYPE_OPTIONS = [
 
 const DEBOUNCE_MS = 400
 
-export const CaseStudyLivePreviewPane: UserViewComponent = (props) => {
+const CaseStudyLivePreviewPaneInner: UserViewComponent = (props) => {
   const iframeRef = useRef<HTMLIFrameElement>(null)
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const displayedRef = useRef<Record<string, unknown> | undefined>(undefined)
   const [frameReady, setFrameReady] = useState(false)
   const [iframeKey, setIframeKey] = useState(0)
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null)
@@ -31,6 +32,7 @@ export const CaseStudyLivePreviewPane: UserViewComponent = (props) => {
   const previewOrigin = getSiteOrigin()
 
   const displayed = props.document?.displayed as Record<string, unknown> | undefined
+  displayedRef.current = displayed
   const docType = (displayed?._type as string | undefined) || props.schemaType || "caseStudy"
   const isPost = docType === "post"
   const slug = (displayed?.slug as { current?: string } | undefined)?.current?.trim()
@@ -77,18 +79,32 @@ export const CaseStudyLivePreviewPane: UserViewComponent = (props) => {
     return hydrateCaseStudyForPreview(displayed)
   }, [displayed, isPost, usesRealSlugPreview])
 
+  const payloadRef = useRef(payload)
+  payloadRef.current = payload
+
   const pushPreview = useCallback(() => {
-    if (isPost || usesRealSlugPreview || !frameReady || !payload || !iframeRef.current?.contentWindow) return
+    const study = displayedRef.current
+    const hydrated = payloadRef.current
+    if (isPost || usesRealSlugPreview || !frameReady || !hydrated || !iframeRef.current?.contentWindow) return
     iframeRef.current.contentWindow.postMessage(
       {
         type: "CASE_STUDY_PREVIEW_UPDATE",
-        study: payload,
+        study: hydrated,
         layout,
       },
       previewOrigin,
     )
     setLastUpdated(new Date())
-  }, [isPost, usesRealSlugPreview, frameReady, payload, layout, previewOrigin])
+  }, [isPost, usesRealSlugPreview, frameReady, layout, previewOrigin])
+
+  const previewSyncKey = useMemo(() => {
+    if (!displayed || isPost || usesRealSlugPreview) return ""
+    try {
+      return JSON.stringify(displayed)
+    } catch {
+      return String(displayed._rev ?? displayed._updatedAt ?? "")
+    }
+  }, [displayed, isPost, usesRealSlugPreview])
 
   useEffect(() => {
     if (usesRealSlugPreview || isPost) {
@@ -116,7 +132,7 @@ export const CaseStudyLivePreviewPane: UserViewComponent = (props) => {
     return () => {
       if (debounceRef.current) clearTimeout(debounceRef.current)
     }
-  }, [isPost, usesRealSlugPreview, frameReady, pushPreview, displayed])
+  }, [isPost, usesRealSlugPreview, frameReady, pushPreview, previewSyncKey])
 
   useEffect(() => {
     if ((!usesRealSlugPreview && !isPost) || !frameReady || !previewSrc) return
@@ -132,7 +148,7 @@ export const CaseStudyLivePreviewPane: UserViewComponent = (props) => {
     return () => {
       if (debounceRef.current) clearTimeout(debounceRef.current)
     }
-  }, [usesRealSlugPreview, isPost, frameReady, previewSrc, displayed])
+  }, [usesRealSlugPreview, isPost, frameReady, previewSrc, previewSyncKey])
 
   const refresh = useCallback(() => {
     if (!usesRealSlugPreview && !isPost) setFrameReady(false)
@@ -235,3 +251,5 @@ export const CaseStudyLivePreviewPane: UserViewComponent = (props) => {
     </Flex>
   )
 }
+
+export const CaseStudyLivePreviewPane = memo(CaseStudyLivePreviewPaneInner)

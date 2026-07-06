@@ -1,7 +1,7 @@
 'use client'
 
 /**
- * Softree Studio — embedded Sanity v5 at /studio
+ * Softree Studio — embedded Sanity at /studio
  * @see src/app/studio/[[...tool]]/page.tsx
  */
 
@@ -106,6 +106,12 @@ export default defineConfig({
     visionTool({defaultApiVersion: apiVersion}),
   ],
   document: {
+    // Case studies/posts use many named object arrays; Studio comments on those
+    // fields triggered "Too many re-renders" (sanity-io/sanity#12000, fixed in 5.9+).
+    // Keep disabled until we confirm v6.3+ is stable in production.
+    comments: {
+      enabled: false,
+    },
     actions: (prev, context) => {
       if (editorialTypes.has(context.schemaType)) {
         const actions = prev.map((action) =>

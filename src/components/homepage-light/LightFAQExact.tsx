@@ -1,12 +1,11 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
-import Link from "next/link"
-import { ArrowUpRight, Plus, Minus, HelpCircle } from "lucide-react"
-import Grainient from "./Grainient"
+import { Plus, Minus, HelpCircle } from "lucide-react"
+import { prefersReducedMotion } from "@/lib/motion"
 
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
@@ -87,7 +86,6 @@ const FAQ_CARD_THEMES = [
     via: "#e8eeff",
     to: "#cdd9ff",
     accent: "#1852FF",
-    grainient: { c1: "#F3F0EE", c2: "#1852FF", c3: "#8eb4ff" },
     scrim: "from-white/55 via-white/30 to-[#1852FF]/10",
   },
   {
@@ -95,7 +93,6 @@ const FAQ_CARD_THEMES = [
     via: "#fdeee4",
     to: "#ffd9c8",
     accent: "#FF5812",
-    grainient: { c1: "#fffbf7", c2: "#FF5812", c3: "#ffb899" },
     scrim: "from-white/55 via-white/30 to-[#FF5812]/10",
   },
   {
@@ -103,7 +100,6 @@ const FAQ_CARD_THEMES = [
     via: "#dce6ff",
     to: "#b8c9ff",
     accent: "#1852FF",
-    grainient: { c1: "#eef3ff", c2: "#3d5fd4", c3: "#a8c4ff" },
     scrim: "from-white/55 via-white/30 to-[#1852FF]/10",
   },
   {
@@ -111,7 +107,6 @@ const FAQ_CARD_THEMES = [
     via: "#ffe8dc",
     to: "#ffc9ad",
     accent: "#FF5812",
-    grainient: { c1: "#fff5ef", c2: "#ff6b2c", c3: "#ffc9a8" },
     scrim: "from-white/55 via-white/30 to-[#FF5812]/10",
   },
   {
@@ -119,7 +114,6 @@ const FAQ_CARD_THEMES = [
     via: "#d0dcff",
     to: "#a8baff",
     accent: "#1852FF",
-    grainient: { c1: "#f0f4ff", c2: "#1852FF", c3: "#c5d8ff" },
     scrim: "from-white/55 via-white/30 to-[#1852FF]/10",
   },
 ] as const
@@ -131,19 +125,9 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
   const titleRef = useRef<HTMLDivElement>(null)
   const faqsRef = useRef<HTMLDivElement>(null)
 
-  /* `isDesktop` is hydration-safe — starts false on SSR + first render, then
-   * resolves to the real value once mounted. Drives the layout switch
-   * between vertical stack (mobile/tablet) and horizontal accordion (≥lg). */
-  const [isDesktop, setIsDesktop] = useState(false)
-  useEffect(() => {
-    const mql = window.matchMedia("(min-width: 1024px)")
-    const update = () => setIsDesktop(mql.matches)
-    update()
-    mql.addEventListener?.("change", update)
-    return () => mql.removeEventListener?.("change", update)
-  }, [])
-
   useGSAP(() => {
+    if (prefersReducedMotion()) return
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
@@ -156,7 +140,6 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
     tl.from(titleRef.current, {
       y: 60,
       opacity: 0,
-      filter: "blur(10px)",
       duration: 0.8,
       ease: "power3.out",
     })
@@ -164,7 +147,6 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
     tl.from(faqsRef.current, {
       y: 80,
       opacity: 0,
-      filter: "blur(8px)",
       duration: 0.8,
       ease: "power3.out",
     }, "-=0.4")
@@ -197,43 +179,6 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
           }),
         }}
       />
-      {/* SVG Grain Filter Definition */}
-      <svg className="pointer-events-none fixed h-0 w-0" aria-hidden="true">
-        <defs>
-          <filter id="faq-grain" x="0%" y="0%" width="100%" height="100%">
-            <feTurbulence
-              type="fractalNoise"
-              baseFrequency="0.8"
-              numOctaves="4"
-              stitchTiles="stitch"
-              result="noise"
-            />
-            <feColorMatrix
-              type="saturate"
-              values="0"
-              in="noise"
-              result="mono"
-            />
-            <feBlend in="SourceGraphic" in2="mono" mode="multiply" />
-          </filter>
-          <filter id="faq-grain-dark" x="0%" y="0%" width="100%" height="100%">
-            <feTurbulence
-              type="fractalNoise"
-              baseFrequency="0.65"
-              numOctaves="4"
-              stitchTiles="stitch"
-              result="noise"
-            />
-            <feColorMatrix
-              type="saturate"
-              values="0"
-              in="noise"
-              result="mono"
-            />
-            <feBlend in="SourceGraphic" in2="mono" mode="soft-light" />
-          </filter>
-        </defs>
-      </svg>
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
         {/* Section Title */}
         <div ref={titleRef} className="mb-8 md:mb-10">
@@ -255,7 +200,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
          *  • Desktop (≥lg)         : original horizontal slot accordion. */}
         <div
           ref={faqsRef}
-          className="flex flex-col lg:flex-row gap-3 lg:h-[420px]"
+          className="grid gap-3 lg:grid-cols-2"
         >
           {faqs.map((faq, index) => {
             const isActive = index === activeIndex
@@ -264,11 +209,10 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
             return (
               <div
                 key={faq.id}
-                onClick={() => handleClick(index)}
-                className={`group/card relative cursor-pointer overflow-hidden rounded-2xl border transition-all duration-700 ease-[var(--legacy-ease-0_4_0_0_2_1)] w-full h-auto lg:h-full ${
+                className={`group/card relative overflow-hidden rounded-2xl border transition-all duration-500 ease-[var(--legacy-ease-0_4_0_0_2_1)] w-full ${
                   isActive
-                    ? "bg-white shadow-xl lg:flex-[4] lg:grow-[4]"
-                    : "bg-white/90 shadow-sm hover:shadow-md lg:flex-[1] lg:grow-[1]"
+                    ? "bg-white shadow-xl"
+                    : "bg-white/90 shadow-sm hover:shadow-md"
                 }`}
                 style={{
                   borderColor: isActive ? `${theme.accent}40` : `${theme.accent}22`,
@@ -287,20 +231,12 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                     />
                     {/* Accent Glow */}
                     <div
-                      className="absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-20 blur-3xl transition-all duration-500 group-hover/card:opacity-40 group-hover/card:scale-125"
+                      className="absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-10 transition-opacity duration-500 group-hover/card:opacity-20"
                       style={{ backgroundColor: theme.accent }}
                     />
                     <div
-                      className="absolute -bottom-10 -left-10 h-32 w-32 rounded-full opacity-10 blur-2xl transition-all duration-500 group-hover/card:opacity-30"
+                      className="absolute -bottom-10 -left-10 h-32 w-32 rounded-full opacity-5 transition-opacity duration-500 group-hover/card:opacity-15"
                       style={{ backgroundColor: theme.accent }}
-                    />
-                    {/* Grain Overlay */}
-                    <div
-                      className="absolute inset-0 opacity-[0.35] mix-blend-overlay"
-                      style={{
-                        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-                        backgroundRepeat: "repeat",
-                      }}
                     />
                     {/* Subtle Border Glow */}
                     <div
@@ -312,27 +248,14 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                   </>
                 )}
 
-                {/* Grainient Background for Active Card */}
+                {/* Static Background for Active Card */}
                 {isActive && (
                   <div className="absolute inset-0">
-                    <Grainient
-                      color1={theme.grainient.c1}
-                      color2={theme.grainient.c2}
-                      color3={theme.grainient.c3}
-                      timeSpeed={0.15}
-                      grainAmount={0.08}
-                      grainScale={2.5}
-                      grainAnimated={false}
-                      warpStrength={0.45}
-                      warpFrequency={4.0}
-                      warpSpeed={1.5}
-                      warpAmplitude={50.0}
-                      rotationAmount={350.0}
-                      noiseScale={1.8}
-                      contrast={1.15}
-                      saturation={1.05}
-                      blendSoftness={0.12}
-                      zoom={0.9}
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background: `linear-gradient(135deg, ${theme.from} 0%, ${theme.via} 58%, ${theme.to} 100%)`,
+                      }}
                     />
                     <div className={`absolute inset-0 bg-gradient-to-b ${theme.scrim}`} />
                     <div className="absolute inset-0 bg-white/20" />
@@ -341,6 +264,13 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
 
                 {/* Content */}
                 <div className="relative flex h-full flex-col p-5 md:p-6 justify-between">
+                  <button
+                    type="button"
+                    aria-expanded={isActive}
+                    aria-controls={isActive ? `faq-answer-${faq.id}` : undefined}
+                    onClick={() => handleClick(index)}
+                    className="flex w-full flex-col text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1852FF]/50 focus-visible:ring-offset-2"
+                  >
                   {/* Top Row: always visible */}
                   <div className="flex items-center justify-between w-full flex-shrink-0">
                     <span
@@ -348,7 +278,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                       style={{ color: isActive ? `${FAQ_INK_MUTED}cc` : FAQ_INK_MUTED }}
                     >
                       {/* On desktop, show only the question number (e.g. "01") when inactive to prevent layout squishing */}
-                      {(!isActive && isDesktop) ? faq.serial.replace("question ", "") : faq.serial}
+                      {faq.serial}
                     </span>
                     <div className="relative h-6 w-6 flex-shrink-0">
                       {/* Plus Icon */}
@@ -371,67 +301,36 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                   </div>
 
                   {/* Bottom Content / Middle content */}
-                  <div className={`mt-auto flex flex-col transition-all duration-500 ${
-                    !isActive && isDesktop 
-                      ? "flex-grow justify-center items-center mb-auto" 
-                      : ""
-                  }`}>
+                  <div className="mt-auto flex flex-col transition-all duration-500">
                     {/* Question */}
-                    <div className={`${!isActive && isDesktop ? "py-2" : "mb-2"}`}>
+                    <div className="mb-2">
                       <h3
                         className={`font-semibold leading-snug transition-colors duration-500 ${
                           isActive ? "text-base md:text-lg" : "text-sm lg:text-[13px]"
                         }`}
                         style={{
                           color: FAQ_INK,
-                          writingMode: !isActive && isDesktop ? "vertical-rl" : undefined,
-                          transform: !isActive && isDesktop ? "rotate(180deg)" : undefined,
-                          maxHeight: !isActive && isDesktop ? "290px" : undefined,
-                          overflow: !isActive && isDesktop ? "hidden" : undefined,
                         }}
                       >
                         {faq.question}
                       </h3>
                     </div>
+                  </div>
+                  </button>
 
-                    {/* Answer (Animate height using CSS Grid) */}
-                    <div
-                      className={`grid transition-all duration-500 ease-[var(--legacy-ease-0_4_0_0_2_1)] ${
-                        isActive ? "grid-rows-[1fr] opacity-100 mt-2" : "grid-rows-[0fr] opacity-0 mt-0"
-                      }`}
-                    >
-                      <div className="overflow-hidden">
+                    {isActive && (
+                      <div id={`faq-answer-${faq.id}`} className="mt-2">
                         <div className="pt-2 md:pt-3">
-                          <h4
-                            className="mb-1.5 text-[11px] font-semibold uppercase tracking-wider"
-                            style={{ color: `${FAQ_INK_MUTED}99` }}
-                          >
+                          <h4 className="mb-1.5 text-[11px] font-semibold uppercase tracking-wider" style={{ color: `${FAQ_INK_MUTED}99` }}>
                             Question Answer:
                           </h4>
                           <div className="mb-3 h-px w-14" style={{ backgroundColor: `${theme.accent}35` }} />
-                          <p
-                            className="mb-4 text-sm leading-relaxed"
-                            style={{ color: `${FAQ_INK}d9` }}
-                          >
+                          <p className="mb-4 text-sm leading-relaxed" style={{ color: `${FAQ_INK}d9` }}>
                             {faq.answer}
                           </p>
-                          <Link
-                            href="/about-us"
-                            className="group inline-flex items-center gap-2.5 rounded-full px-4 py-2 text-sm font-medium text-white transition-all hover:brightness-110"
-                            style={{ backgroundColor: theme.accent }}
-                          >
-                            <span>More About Us</span>
-                            <span
-                              className="flex h-5 w-5 items-center justify-center rounded-full bg-white transition-all group-hover:text-white"
-                              style={{ color: theme.accent }}
-                            >
-                              <ArrowUpRight className="h-3 w-3" />
-                            </span>
-                          </Link>
                         </div>
                       </div>
-                    </div>
-                  </div>
+                    )}
                 </div>
               </div>
             )

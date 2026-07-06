@@ -1,0 +1,41 @@
+/* Hero layout + typography lock after loader handoff */
+
+.kore-ai-intro-complete #meet-artemis.on .char,
+.kore-ai-intro-complete #meet-artemis [data-stagger].on > *,
+.kore-ai-intro-complete #meet-artemis .k2-container-hero > .k2-hero > .k2-text,
+.kore-ai-intro-complete #meet-artemis [data-flip-target="loader"],
+.kore-ai-intro-complete #meet-artemis .k2-container-hero [data-stagger="300"] > *,
+.kore-ai-intro-complete #meet-artemis .k2-container-hero-2 .k2-text,
+.kore-ai-intro-complete #meet-artemis .k2-container-hero-2 .k2-cta,
+.kore-ai-intro-complete #meet-artemis .k2-heading,
+.kore-ai-intro-complete #meet-artemis h1,
+.kore-ai-intro-complete #meet-artemis .k2-tabs {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.kore-ai-intro-complete #meet-artemis [data-flip-target="loader"] em {
+  opacity: 1 !important;
+}
+
+.kore-ai-intro-complete #meet-artemis [data-flip-target="loader"] .char,
+.kore-ai-intro-complete #meet-artemis .k2-container-hero > .k2-hero > .k2-text .char {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Clear scroll-reveal offsets without breaking reference transforms on braces */
+.kore-ai-intro-complete #meet-artemis [data-stagger] > *,
+.kore-ai-intro-complete #meet-artemis [data-stagger].on > * {
+  transform: none !important;
+}
+
+.kore-ai-intro-complete #meet-artemis .char {
+  transition: none !important;
+}
+
+@media (max-width: 767px) {
+  .kore-ai-intro-complete #meet-artemis .k2-container-hero [data-flip-target="loader"] {
+    max-width: 100%;
+  }
+}

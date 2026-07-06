@@ -1,0 +1,74 @@
+{
+  "loop": 5,
+  "replay": "http://localhost:3001/kore-ai-component?replay-loader=1",
+  "gates": [
+    {
+      "id": "shared_asset",
+      "pass": true,
+      "detail": "KoreK2Loader imports KORE_HERO_BG_IMAGE"
+    },
+    {
+      "id": "no_layout_hijack",
+      "pass": true,
+      "detail": "loader not in layout.tsx"
+    },
+    {
+      "id": "bg_url_match",
+      "pass": true,
+      "detail": "https://cdn.prod.website-files.com/6717a0dfaf71071a80dfce8b/6a0492517357867bd2ef180f_k2-hero.webp"
+    },
+    {
+      "id": "replay_loader",
+      "pass": true,
+      "detail": "loader mounted"
+    },
+    {
+      "id": "hard_stop_12s",
+      "pass": true,
+      "detail": "9381ms"
+    },
+    {
+      "id": "handoff_complete",
+      "pass": true,
+      "detail": "intro complete, loader removed"
+    },
+    {
+      "id": "hero_h1",
+      "pass": true,
+      "detail": "The AI-programmable platform for the agentic enterprise"
+    },
+    {
+      "id": "hero_text_visible",
+      "pass": true,
+      "detail": "33/33 chars"
+    },
+    {
+      "id": "hero_typography",
+      "pass": true,
+      "detail": "72.8991px / 65.6092px"
+    },
+    {
+      "id": "hero_flip_visible",
+      "pass": true,
+      "detail": "flip target visible"
+    },
+    {
+      "id": "hero_layout",
+      "pass": true,
+      "detail": "order ok, leftDelta 0px"
+    },
+    {
+      "id": "screenshots",
+      "pass": true,
+      "detail": "12 files in D:\\Softree_Projects\\SOFTREE_MAIN\\Softree_\\.planning\\page-forge\\kore-ai-exact\\handoff-loop-5"
+    },
+    {
+      "id": "route_200",
+      "pass": true,
+      "detail": "200"
+    }
+  ],
+  "passCount": 13,
+  "failCount": 0,
+  "allPass": true
+}

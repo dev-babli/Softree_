@@ -1,0 +1,112 @@
+/**
+ * home-2026 ember light system + brutalist texture utilities.
+ * The ember is THE page identity: one warm light source (--softree-ember)
+ * whose hue can travel (ProofChapter interpolates --ember-color via GSAP).
+ */
+
+:root {
+  --softree-ember: rgba(255, 122, 47, 0.07);
+  --ember-color: 255, 122, 47; /* RGB triplet — ProofChapter tweens this */
+}
+
+/* Ambient ember glow — pure CSS, zero bytes of media. */
+.ember-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 60% 50% at var(--ember-x, 75%) var(--ember-y, 80%),
+    rgba(var(--ember-color), 0.09),
+    transparent 70%
+  );
+}
+
+/* 4%-opacity grain to prevent gradient banding (glow sections only).
+   Inline SVG feTurbulence — no network request. */
+.ember-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 140px 140px;
+}
+
+/* Mono metadata utility — system mono stack, zero network cost (brief §4). */
+.font-mono-meta {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* 1px hairline utilities on the shared border token. */
+.hairline-t { border-top: 1px solid var(--softree-border-dark, rgba(255, 255, 255, 0.1)); }
+.hairline-b { border-bottom: 1px solid var(--softree-border-dark, rgba(255, 255, 255, 0.1)); }
+.hairline { border: 1px solid var(--softree-border-dark, rgba(255, 255, 255, 0.1)); }
+
+/* Knocked-out (outline stroke) display word — hero "ship". */
+.text-stroke {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--softree-fg-on-dark, #ffffff);
+}
+
+/* Index rail (page shell, desktop ≥ 1024px). */
+.index-rail {
+  position: fixed;
+  left: clamp(0.75rem, 2vw, 2rem);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 40;
+  display: none;
+  flex-direction: column;
+  gap: 0.875rem;
+  padding-left: 0.75rem;
+  border-left: 1px solid var(--softree-border-dark, rgba(255, 255, 255, 0.1));
+}
+@media (min-width: 1024px) {
+  .index-rail { display: flex; }
+}
+.index-rail a {
+  color: rgba(255, 255, 255, 0.35);
+  transition: color 0.22s cubic-bezier(0.23, 1, 0.32, 1);
+  text-decoration: none;
+}
+.index-rail a:hover,
+.index-rail a:focus-visible {
+  color: rgba(255, 255, 255, 0.75);
+}
+.index-rail a[aria-current="true"] {
+  color: var(--softree-accent, #ff7a2f);
+}
+
+/* Corner brackets (EngagementModels hover) — 4 stroked spans, transform-only. */
+.bracket {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--softree-accent, #ff7a2f);
+  border-style: solid;
+  border-width: 0;
+  transform: scale(0);
+  transform-origin: center;
+  transition: transform 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+  pointer-events: none;
+}
+.bracket-tl { top: -1px; left: -1px; border-top-width: 1px; border-left-width: 1px; transform-origin: top left; }
+.bracket-tr { top: -1px; right: -1px; border-top-width: 1px; border-right-width: 1px; transform-origin: top right; }
+.bracket-bl { bottom: -1px; left: -1px; border-bottom-width: 1px; border-left-width: 1px; transform-origin: bottom left; }
+.bracket-br { bottom: -1px; right: -1px; border-bottom-width: 1px; border-right-width: 1px; transform-origin: bottom right; }
+.bracket-host:hover .bracket,
+.bracket-host:focus-within .bracket {
+  transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .index-rail a,
+  .bracket {
+    transition: none;
+  }
+}

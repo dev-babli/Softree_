@@ -82,8 +82,10 @@ export default async function RootLayout({
                     "Softree Technology is an enterprise software development company specializing in AI, Power Platform, SharePoint, and modern web development.",
                   foundingDate: "2018",
                   sameAs: [
-                    "https://www.linkedin.com/company/softree-technology",
-                    "https://twitter.com/softreetech",
+                    "https://www.linkedin.com/company/softree-technology-pvt-ltd/",
+                    "https://x.com/softreetechnology",
+                    "https://www.facebook.com/softreetechnology",
+                    "https://www.instagram.com/softreetechnology/",
                   ],
                   contactPoint: {
                     "@type": "ContactPoint",
@@ -162,11 +164,11 @@ export default async function RootLayout({
             id="route-messenger"
             src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/route-messenger.js"
             strategy="lazyOnload"
-            data-target-origin="*"
+            data-target-origin="https://www.softreetechnology.com"
             data-message-type="ROUTE_CHANGE"
-            data-include-search-params="true"
+            data-include-search-params="false"
             data-only-in-iframe="true"
-            data-debug="true"
+            data-debug="false"
             data-custom-data='{"appName":"Softree","version":"1.0.0"}'
           />
 

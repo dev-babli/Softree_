@@ -111,7 +111,7 @@ export function BeforeAfterTablePage({ data }: { data: CaseStudyLayoutData }) {
           <div className="mx-auto max-w-5xl px-6">
             <h2 className="font-bold">Similar automation wins</h2>
             <div className="mt-4 grid gap-3 sm:grid-cols-3">
-              {data.related.slice(0, 3).map((r) => (
+              {data.related.slice(0, 6).map((r) => (
                 <Link key={r._id} href={`/case-studies/${r.slug.current}`} className="rounded-lg border border-[#E5E5E5] p-4 transition-colors hover:border-[#0F172A]">
                   {r.client || r.title}
                 </Link>

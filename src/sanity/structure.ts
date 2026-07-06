@@ -26,15 +26,17 @@ const EDITOR_VIEW = 'editor'
 const PREVIEW_VIEW = 'preview'
 
 function editorialDocumentNode(S: StructureBuilder) {
-  return S.document()
-    .views([
-      S.view.form().id(EDITOR_VIEW).title('Edit'),
-      S.view
-        .component(CaseStudyLivePreviewPane)
-        .id(PREVIEW_VIEW)
-        .title('Live preview'),
-    ])
-    .defaultPanes([EDITOR_VIEW, PREVIEW_VIEW])
+  // Note: deliberately NOT using .defaultPanes([EDITOR_VIEW, PREVIEW_VIEW]).
+  // The auto-split bootstrap (view=editor,expanded=true|,view=preview) triggered a
+  // "Too many re-renders" (#301) crash in the Studio's document pane on production.
+  // Editors can still open the preview from the "Live preview" tab.
+  return S.document().views([
+    S.view.form().id(EDITOR_VIEW).title('Edit'),
+    S.view
+      .component(CaseStudyLivePreviewPane)
+      .id(PREVIEW_VIEW)
+      .title('Live preview'),
+  ])
 }
 
 export const defaultDocumentNode: DefaultDocumentNodeResolver = (S, {schemaType}) => {

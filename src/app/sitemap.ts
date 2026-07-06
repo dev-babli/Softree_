@@ -5,7 +5,8 @@ const BASE_URL = 'https://www.softreetechnology.com'
 
 const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${BASE_URL}/`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
-  { url: `${BASE_URL}/about-us`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+  { url: `${BASE_URL}/ai`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
+  { url: `${BASE_URL}/about-us`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
   { url: `${BASE_URL}/contact`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
   { url: `${BASE_URL}/careers`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
   { url: `${BASE_URL}/blog`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
@@ -21,8 +22,8 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${BASE_URL}/case-studies/sharepoint`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
   { url: `${BASE_URL}/case-studies/web`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
   // Service pages
-  { url: `${BASE_URL}/services/ai-intelligence/agentic-ai`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-  { url: `${BASE_URL}/services/ai-intelligence/generative-ai`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+  { url: `${BASE_URL}/services/offshore-ai-development`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
+  { url: `${BASE_URL}/services/offshore-generative-ai-development`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
   { url: `${BASE_URL}/services/ai-powered-test-automation`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
   { url: `${BASE_URL}/services/business-applications/mvp`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
   { url: `${BASE_URL}/services/business-applications/power-platform`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },

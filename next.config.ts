@@ -70,6 +70,21 @@ const nextConfig: any = {
         destination: "/contact",
         permanent: true,
       },
+      {
+        source: "/services/ai-intelligence",
+        destination: "/ai",
+        permanent: true,
+      },
+      {
+        source: "/services/ai-intelligence/agentic-ai",
+        destination: "/services/offshore-ai-development",
+        permanent: true,
+      },
+      {
+        source: "/services/ai-intelligence/generative-ai",
+        destination: "/services/offshore-generative-ai-development",
+        permanent: true,
+      },
     ];
   },
   images: {
