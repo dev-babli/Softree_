@@ -93,7 +93,8 @@ export async function fetchPosthogSnapshot(): Promise<PosthogSnapshot> {
           }))
           .filter((p) => p.views > 0)
       }
-    } catch {
+    } catch (error) {
+      console.error('[posthogSnapshot] Failed to fetch top pages:', error)
       topPages = undefined
     }
 
@@ -103,7 +104,8 @@ export async function fetchPosthogSnapshot(): Promise<PosthogSnapshot> {
       uniqueVisitors7d: Number.isFinite(visitors) ? visitors : 0,
       topPages,
     }
-  } catch {
+  } catch (error) {
+    console.error('[posthogSnapshot] Failed to fetch PostHog snapshot:', error)
     return {
       configured: false,
       hint: 'Could not reach PostHog API. Verify POSTHOG_API_HOST if self-hosted.',

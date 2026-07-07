@@ -51,8 +51,9 @@ export default function HomepageShowcaseSections() {
           { cache: "no-store" },
         );
         if (blogs?.length) setPosts(mapBlogPosts(blogs));
-      } catch {
+      } catch (error) {
         /* blog band hidden if CMS unavailable */
+        console.error("[homepage-showcase] Failed to load blog posts:", error);
       }
     }
 

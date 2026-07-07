@@ -172,6 +172,7 @@ export default function ContactPage() {
                     alert("❌ Something went wrong. Please try again.");
                   }
                 } catch (error) {
+                  console.error("Contact form submission failed:", error);
                   alert("❌ Something went wrong. Please try again.");
                 }
               }}

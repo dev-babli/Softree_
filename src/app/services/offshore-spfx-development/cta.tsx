@@ -28,7 +28,8 @@ export default function CtaSPFx() {
       } else {
         setStatus("ERROR");
       }
-    } catch {
+    } catch (error) {
+      console.error("Contact form submission failed:", error);
       setStatus("ERROR");
     }
   };

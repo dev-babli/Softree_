@@ -14,7 +14,8 @@ export const DESIGN_TOKENS_QUERY = `*[_id == "globalSettings" || _type == "globa
 export const fetchDesignTokens = cache(async (): Promise<DesignTokenSettings | null> => {
   try {
     return await sanityFetch<DesignTokenSettings | null>(DESIGN_TOKENS_QUERY)
-  } catch {
+  } catch (error) {
+    console.error('[fetch-design-tokens] Failed to fetch design tokens:', error)
     return null
   }
 })

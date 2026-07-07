@@ -13,7 +13,9 @@ export default function LatestBlogsClient() {
         client
             .fetch<SanityBlogPost[]>(latestBlogsQuery, {}, { cache: "no-store" })
             .then((data) => setPosts(data || []))
-            .catch(() => { });
+            .catch((error) => {
+                console.error("[latest-blogs] Failed to load posts:", error);
+            });
     }, []);
 
     return <LatestBlogsSection posts={posts} />;
