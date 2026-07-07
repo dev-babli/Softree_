@@ -5,6 +5,7 @@ import { auditPageSpeed } from '@/lib/psi/auditPage'
 import { fetchGscSnapshot } from '@/lib/studio/gscSnapshot'
 import { fetchPosthogSnapshot } from '@/lib/studio/posthogSnapshot'
 import { client } from '@/sanity/lib/client'
+import { isStudioApiRequest, studioApiUnauthorized } from '@/lib/studio-api-auth'
 import type { DashboardInsights } from '@/sanity/studio/dashboard/insightsTypes'
 
 const SITE_BASE = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.softreetechnology.com'
@@ -136,6 +137,7 @@ const getCachedInsights = unstable_cache(
 )
 
 export async function GET(request: Request) {
+  if (!isStudioApiRequest(request)) return studioApiUnauthorized()
   const forceRefresh = new URL(request.url).searchParams.get('refresh') === '1'
   const payload = forceRefresh ? await loadDashboardInsights() : await getCachedInsights()
   return NextResponse.json(payload)

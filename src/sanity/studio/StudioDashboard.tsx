@@ -20,6 +20,7 @@ import {
   publishReadinessPercent,
   typeLabel,
 } from './dashboard/utils'
+import { studioApiUrl, studioFetchInit } from '../lib/studioFetch'
 import { AiSystemsHealthPanel } from './dashboard/AiSystemsHealthPanel'
 import { DashboardContentIssues } from './dashboard/DashboardContentIssues'
 import { DashboardContentPipeline } from './dashboard/DashboardContentPipeline'
@@ -134,10 +135,13 @@ export default function StudioDashboard() {
     const timer = window.setTimeout(() => controller.abort(), refresh ? 45_000 : 12_000)
 
     try {
-      const url = refresh
+      const path = refresh
         ? '/api/studio/dashboard-insights?refresh=1'
         : '/api/studio/dashboard-insights'
-      const res = await fetch(url, { signal: controller.signal })
+      const res = await fetch(studioApiUrl(path), {
+        ...studioFetchInit(),
+        signal: controller.signal,
+      })
       if (!res.ok) {
         setInsightsFailed(true)
         return
