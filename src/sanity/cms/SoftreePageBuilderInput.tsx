@@ -87,7 +87,7 @@ export default function SoftreePageBuilderInput(props: ArrayOfObjectsInputProps)
                 Quick guide
               </Text>
               <Text size={1} muted style={{ lineHeight: 1.6 }}>
-                1. Fill in <strong>Story</strong> tab (title, client, excerpt){' '}
+                1. Fill in <strong>Story</strong> tab (title, client, category, excerpt){' '}
                 2. Add sections below 3. Use ✨ <strong>AI Assist</strong> on any text field{' '}
                 4. Preview in Presentation before publishing
               </Text>

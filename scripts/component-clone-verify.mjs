@@ -10,7 +10,7 @@ const componentId = process.argv[2] || "loader-hero"
 const loop = Number(process.argv[3] || 1)
 const BASE = path.resolve(".planning/page-forge/kore-ai-exact")
 const OUT = path.join(BASE, "components", componentId, `loop-${loop}`)
-const LOCAL_BASE = process.env.CLONE_LOCAL_URL || "http://localhost:3001/kore-ai-component"
+const LOCAL_BASE = process.env.CLONE_LOCAL_URL || "http://localhost:3000/kore-ai-component"
 const REF_URL = "https://www.kore.ai/ai-agent-platform"
 const VIEWPORTS = [
   { name: "1536", width: 1536, height: 960 },

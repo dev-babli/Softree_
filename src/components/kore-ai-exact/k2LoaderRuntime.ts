@@ -64,11 +64,14 @@ export function runK2Loader(onDone: () => void = () => {}): () => void {
 
   let cancelled = false
   let hardStop = 0
+  let dismissScroll: (() => void) | null = null
 
   const finish = (loaderEl: HTMLElement | null = loader) => {
     if (cancelled) return
     cancelled = true
     if (hardStop) window.clearTimeout(hardStop)
+    dismissScroll?.()
+    dismissScroll = null
     window.removeEventListener("resize", setWidth)
     loader.remove()
     lenis?.start?.()
@@ -95,6 +98,7 @@ export function runK2Loader(onDone: () => void = () => {}): () => void {
     }
 
     if (step === 3) {
+      loader.style.pointerEvents = "none"
       requestAnimationFrame(() => {
         requestAnimationFrame(done)
       })
@@ -136,6 +140,19 @@ export function runK2Loader(onDone: () => void = () => {}): () => void {
     window.scrollTo(0, 0)
     setWidth()
     window.addEventListener("resize", setWidth)
+
+    const onUserNavigate = () => {
+      if (cancelled) return
+      if (window.scrollY > 48) finish()
+    }
+
+    window.addEventListener("scroll", onUserNavigate, { passive: true })
+    window.addEventListener("wheel", onUserNavigate, { passive: true })
+    dismissScroll = () => {
+      window.removeEventListener("scroll", onUserNavigate)
+      window.removeEventListener("wheel", onUserNavigate)
+    }
+
     if (!loader.classList.contains("step-0")) loader.classList.add("step-0")
     requestAnimationFrame(() => runStep())
   }
@@ -146,6 +163,7 @@ export function runK2Loader(onDone: () => void = () => {}): () => void {
 
   return () => {
     cancelled = true
+    dismissScroll?.()
     window.clearTimeout(hardStop)
     window.removeEventListener("resize", setWidth)
   }

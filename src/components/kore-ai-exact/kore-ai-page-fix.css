@@ -1,8 +1,13 @@
 /* Page-scoped fixes — hero bg, intro handoff, scroll reveals */
 
 .kore-ai-exact-shell {
-  background: #000;
+  background-color: #000;
+  transition: background-color 0.5s ease;
   min-height: 100vh;
+}
+
+body.k2-body[data-theme="light"] .kore-ai-exact-shell {
+  background-color: var(--_k2---color--beige);
 }
 
 .kore-ai-exact-shell #meet-artemis {
@@ -94,14 +99,6 @@ html.kore-ai-k2-handoff-running #meet-artemis.k2-hero-handoff-settled [data-flip
 .kore-ai-intro-complete #meet-artemis .k2-bg .k2-img,
 .kore-ai-intro-complete #meet-artemis .k2-overlay,
 .kore-ai-intro-complete #meet-artemis [data-unscale] {
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-.kore-ai-exact-shell [data-scroll].on,
-.kore-ai-exact-shell [data-scroll].on .char,
-.kore-ai-exact-shell [data-stagger].on > *,
-.kore-ai-exact-shell .k2-tabs.on [data-stagger] > * {
   opacity: 1 !important;
   visibility: visible !important;
 }

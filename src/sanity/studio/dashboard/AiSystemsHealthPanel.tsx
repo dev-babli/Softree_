@@ -49,9 +49,8 @@ export function AiSystemsHealthPanel() {
   return (
     <section className="softree-dash__panel softree-dash__ai-health">
       <div className="softree-dash__panel-head">
-        <h2 className="softree-dash__panel-title">
-          <SparklesIcon style={{ width: 18, height: 18, marginRight: 8, verticalAlign: 'text-bottom' }} />
-          AI systems health
+        <h2 className="softree-dash__panel-title softree-dash__panel-title--friendly">
+          AI assistant health
         </h2>
         <button type="button" className="softree-dash__panel-action" onClick={() => void load()}>
           {loading ? 'Checking…' : 'Re-run audit'}

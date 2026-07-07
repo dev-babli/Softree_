@@ -70,6 +70,19 @@ export const SERVICES_HUB: ServicesHubItem[] = [
     tags: ["Power BI", "DAX", "Fabric", "Analytics"],
   },
   {
+    id: "web-modernization",
+    n: "05b",
+    title: "Website modernisation",
+    shortTitle: "Web Modern",
+    href: "/services/website-modernization",
+    image: "/images/webanalyser-fixed.png",
+    LucideIcon: Globe,
+    accent: "#FF5812",
+    description:
+      "Free AI blueprint — scan, competitor gaps, wireframe preview — then Next.js rebuild with Softree.",
+    tags: ["AI Audit", "Redesign", "Next.js", "CRO"],
+  },
+  {
     id: "web",
     n: "05",
     title: "Web apps",

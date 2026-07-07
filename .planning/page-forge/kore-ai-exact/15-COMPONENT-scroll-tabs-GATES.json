@@ -2,7 +2,7 @@
   "componentId": "scroll-tabs",
   "name": "Scroll Tabs",
   "loop": 1,
-  "localUrl": "http://localhost:3001/kore-ai-component",
+  "localUrl": "http://localhost:3000/kore-ai-component",
   "refUrl": "https://www.kore.ai/ai-agent-platform",
   "weighted": 10,
   "scores": {

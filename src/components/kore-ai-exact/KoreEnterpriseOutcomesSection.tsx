@@ -10,24 +10,24 @@ const cometIcon =
 const outcomeCards = [
   {
     icon: "https://cdn.prod.website-files.com/6717a0dfaf71071a80dfce8b/6a0c0e4de7656dee6d330b2c_value.svg",
-    title: "{ Outcomes in days }",
-    body: "{ Artemis } handles the infrastructure; your team starts at the business logic. Team focuses on outcomes. Agents ship faster.",
-    metric: "5x",
-    label: "faster time to value",
+    title: "{ Outcomes in weeks }",
+    body: "Softree handles Microsoft stack plumbing; your team starts at business logic. Agents ship faster with offshore velocity.",
+    metric: "4×",
+    label: "faster time to production",
   },
   {
     icon: "https://cdn.prod.website-files.com/6717a0dfaf71071a80dfce8b/6a0c0e51ce7260a2cb825b5e_scale.svg",
-    title: "{ Predictability at Scale }",
-    body: "Every agent is clearly defined, tested, and validated before deployment, so what works in design does not break in production.",
-    metric: "No",
+    title: "{ Predictability at scale }",
+    body: "Every agent is defined, tested, and validated before deployment, so pilot success survives production load.",
+    metric: "0",
     label: "surprises in production",
   },
   {
     icon: "https://cdn.prod.website-files.com/6717a0dfaf71071a80dfce8b/6a06dbc247ccaaf54ed093f1_security.svg",
-    title: "{ Security + Governance }",
-    body: "Every action stays within approved policies and boundaries, with full visibility into what happened and why.",
-    metric: "Zero",
-    label: "unauthorized agent actions",
+    title: "{ Security + governance }",
+    body: "DLP, Entra ID, and approval gates keep every action within policy, with full audit trails your IT team trusts.",
+    metric: "100%",
+    label: "audited agent sessions",
   },
 ]
 
@@ -212,7 +212,7 @@ export function KoreEnterpriseOutcomesSection() {
                 data-op="100"
                 data-split=""
                 data-wf--heading--variant="h2"
-                className="k2-heading w-variant-48067f6b-129e-96ba-1732-913f89e63e21 w-richtext on"
+                className="k2-heading w-variant-48067f6b-129e-96ba-1732-913f89e63e21 w-richtext"
               >
                 <h2>
                   <span
@@ -222,7 +222,7 @@ export function KoreEnterpriseOutcomesSection() {
                     }
                   >
                     What {"{"}{" "}
-                    <strong style={{ display: "inline-block", position: "relative" }}>Artemis</strong>{" "}
+                    <strong style={{ display: "inline-block", position: "relative" }}>Softree</strong>{" "}
                     {"}"}
                   </span>
                   <span
@@ -231,7 +231,7 @@ export function KoreEnterpriseOutcomesSection() {
                       { display: "block", textAlign: "start", width: "100%", "--i": 1 } as StyleVars
                     }
                   >
-                    <em style={{ display: "inline-block", position: "relative" }}>changes</em> for enterprise AI
+                    <em style={{ display: "inline-block", position: "relative" }}>changes</em> for agentic AI
                   </span>
                 </h2>
               </div>
@@ -255,7 +255,7 @@ export function KoreEnterpriseOutcomesSection() {
           data-op="100"
           data-split=""
           data-wf--heading--variant="display-1"
-          className="k2-heading w-variant-b8037af9-0c31-33c6-fdfd-3ef99113e090 w-richtext on"
+          className="k2-heading w-variant-b8037af9-0c31-33c6-fdfd-3ef99113e090 w-richtext"
         >
           <p>
             <span
@@ -263,7 +263,7 @@ export function KoreEnterpriseOutcomesSection() {
               style={{ display: "block", textAlign: "start", width: "100%", "--i": 0 } as StyleVars}
             >
               <sub style={{ display: "inline-block", position: "relative" }}>{"{"}</sub>
-              Artemis
+              Softree
               <sub style={{ display: "inline-block", position: "relative" }}>{"}"}</sub>
             </span>
             <span

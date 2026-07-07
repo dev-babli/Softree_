@@ -1,13 +1,5 @@
 import type { Template } from 'sanity'
 
-import type { CaseStudyCategoryKey } from '@/app/case-studies/categoryConfig'
-
-const STORY_TYPES = [
-  { value: 'standard', title: 'Standard Story' },
-  { value: 'transformation', title: 'Transformation Epic' },
-  { value: 'product-showcase', title: 'Product Showcase' },
-]
-
 const block = (style: string, text: string) => ({
   _type: 'block' as const,
   style,
@@ -47,13 +39,13 @@ const thoughtLeadershipBody = [
   block('h2', 'What most teams get wrong'),
   block('normal', 'Challenge a common assumption with evidence or examples.'),
   block('h2', 'A better operating model'),
-  block('normal', 'Present Softree\'s point of view and recommended approach.'),
+  block('normal', "Present Softree's point of view and recommended approach."),
   block('h2', 'Implications for your roadmap'),
   block('normal', 'Translate the idea into decisions executives can make this quarter.'),
 ]
 
 const productUpdateBody = [
-  block('h2', 'What\'s new'),
+  block('h2', "What's new"),
   block('normal', 'Lead with the headline capability or release in one sentence.'),
   block('h2', 'Why it matters'),
   block('normal', 'Connect the release to customer outcomes and use cases.'),
@@ -71,16 +63,9 @@ const caseStudySections = {
   outcome: sectionParagraph(
     'Highlight measurable results, operational improvements, and long-term impact.',
   ),
-  extra: [
-    block('h2', 'What\'s next'),
-    block(
-      'normal',
-      'Optional closing section on roadmap, expansion, or lessons for similar organizations.',
-    ),
-  ],
 }
 
-const composerStarterSections: Array<Record<string, unknown>> = [
+export const composerStarterSections: Array<Record<string, unknown>> = [
   { _type: 'csOverviewSection' },
   {
     _type: 'csNarrativeSection',
@@ -116,67 +101,15 @@ const composerStarterSections: Array<Record<string, unknown>> = [
   { _type: 'csContactSection' },
 ]
 
-const caseStudyBase = (
-  category: CaseStudyCategoryKey,
-  options: {
-    industry?: string
-    technologies?: string[]
-    detailLayout?: string
-    composerSections?: typeof composerStarterSections
-  } = {},
-) => ({
+/** Canonical new case study — category is chosen in the form, not via separate templates */
+export const caseStudyComposerValue = {
   status: 'draft' as const,
   featuredRank: 0,
   storyType: 'standard' as const,
-  heroLayout: 'centered' as const,
-  category,
-  industry: options.industry ?? 'Technology',
-  detailLayout: options.detailLayout ?? 'manufacturing-power-platform',
-  technologies: options.technologies ?? [],
-  // Only include composerSections when actually provided — an explicit
-  // `composerSections: undefined` key ends up in the resolved initial value.
-  ...(options.composerSections ? { composerSections: options.composerSections } : {}),
-  challengeContent: caseStudySections.challenge,
-  approachContent: caseStudySections.approach,
-  outcomeContent: caseStudySections.outcome,
-  body: caseStudySections.extra,
-  highlights: [
-    { _type: 'highlight', value: '—', label: 'Metric 1' },
-    { _type: 'highlight', value: '—', label: 'Metric 2' },
-    { _type: 'highlight', value: '—', label: 'Metric 3' },
-  ],
-})
-
-const marketingLandingSections = [
-  {
-    _type: 'pageHeroBlock',
-    eyebrow: 'Softree Technology',
-    headline: 'Headline for your campaign',
-    subheadline: 'One sentence on the outcome you deliver.',
-    primaryCta: { label: 'Talk to us', href: '/contact' },
-  },
-  {
-    _type: 'pageFeatureGridBlock',
-    heading: 'Why teams choose Softree',
-    features: [
-      { _type: 'object', title: 'Capability one', description: 'Short benefit statement.' },
-      { _type: 'object', title: 'Capability two', description: 'Short benefit statement.' },
-      { _type: 'object', title: 'Capability three', description: 'Short benefit statement.' },
-    ],
-  },
-  {
-    _type: 'pageCtaBlock',
-    headline: 'Ready to start?',
-    body: 'Tell us about your goals and timeline.',
-    buttonLabel: 'Book a call',
-    buttonHref: '/contact',
-  },
-]
-
-const storyTypeTemplate = (storyType: string, category: CaseStudyCategoryKey = 'power-platform') => ({
-  ...caseStudyBase(category),
-  storyType,
-})
+  detailLayout: 'page-composer' as const,
+  industry: 'Technology',
+  composerSections: composerStarterSections,
+}
 
 const blogComposerStarterSections = [
   {
@@ -210,10 +143,43 @@ const blogComposerStarterSections = [
   { _type: 'csContactSection' },
 ]
 
-export const documentTemplates: Template[] = [
+const marketingLandingSections = [
+  {
+    _type: 'pageHeroBlock',
+    eyebrow: 'Softree Technology',
+    headline: 'Headline for your campaign',
+    subheadline: 'One sentence on the outcome you deliver.',
+    primaryCta: { label: 'Talk to us', href: '/contact' },
+  },
+  {
+    _type: 'pageFeatureGridBlock',
+    heading: 'Why teams choose Softree',
+    features: [
+      { _type: 'object', title: 'Capability one', description: 'Short benefit statement.' },
+      { _type: 'object', title: 'Capability two', description: 'Short benefit statement.' },
+      { _type: 'object', title: 'Capability three', description: 'Short benefit statement.' },
+    ],
+  },
+  {
+    _type: 'pageCtaBlock',
+    headline: 'Ready to start?',
+    body: 'Tell us about your goals and timeline.',
+    buttonLabel: 'Book a call',
+    buttonHref: '/contact',
+  },
+]
+
+/** Editor-facing templates (sidebar + global Create) */
+const editorTemplates: Template[] = [
+  {
+    id: 'caseStudy-composer',
+    title: 'Case study',
+    schemaType: 'caseStudy',
+    value: caseStudyComposerValue,
+  },
   {
     id: 'post-composer',
-    title: 'Blog — page composer (recommended)',
+    title: 'Blog post',
     schemaType: 'post',
     value: {
       status: 'draft',
@@ -223,101 +189,42 @@ export const documentTemplates: Template[] = [
     },
   },
   {
-    id: 'post-article',
-    title: 'Blog — standard article',
-    schemaType: 'post',
-    value: { status: 'draft', displayMode: 'classic', body: blogIntroBody },
-  },
-  {
-    id: 'post-how-to',
-    title: 'Blog — how-to guide',
-    schemaType: 'post',
-    value: { status: 'draft', body: howToBody },
-  },
-  {
-    id: 'post-thought-leadership',
-    title: 'Blog — thought leadership',
-    schemaType: 'post',
-    value: { status: 'draft', body: thoughtLeadershipBody },
-  },
-  {
-    id: 'post-product-update',
-    title: 'Blog — product update',
-    schemaType: 'post',
-    value: { status: 'draft', body: productUpdateBody },
-  },
-  {
-    id: 'caseStudy-composer',
-    title: 'Case study — page composer (drag & drop)',
-    schemaType: 'caseStudy',
-    value: {
-      ...caseStudyBase('power-platform', {
-        industry: 'Technology',
-        detailLayout: 'page-composer',
-        composerSections: composerStarterSections,
-      }),
-    },
-  },
-  {
-    id: 'caseStudy-article',
-    title: 'Case study — general',
-    schemaType: 'caseStudy',
-    value: caseStudyBase('web'),
-  },
-  {
-    id: 'caseStudy-ai',
-    title: 'Case study — AI & ML',
-    schemaType: 'caseStudy',
-    value: caseStudyBase('ai', { technologies: ['Azure OpenAI', 'Python', 'RAG'] }),
-  },
-  {
-    id: 'caseStudy-power-platform',
-    title: 'Case study — Power Platform',
-    schemaType: 'caseStudy',
-    value: caseStudyBase('power-platform', {
-      technologies: ['Power Apps', 'Power Automate', 'Dataverse'],
-    }),
-  },
-  {
-    id: 'caseStudy-sharepoint',
-    title: 'Case study — SharePoint',
-    schemaType: 'caseStudy',
-    value: caseStudyBase('sharepoint', { technologies: ['SharePoint Online', 'Microsoft 365'] }),
-  },
-  {
-    id: 'caseStudy-web',
-    title: 'Case study — web',
-    schemaType: 'caseStudy',
-    value: caseStudyBase('web', { technologies: ['Next.js', 'React', 'TypeScript'] }),
-  },
-  {
-    id: 'caseStudy-mobile',
-    title: 'Case study — mobile',
-    schemaType: 'caseStudy',
-    value: caseStudyBase('mobile', { technologies: ['React Native', 'iOS', 'Android'] }),
-  },
-  {
-    id: 'caseStudy-data-analytics',
-    title: 'Case study — data analytics',
-    schemaType: 'caseStudy',
-    value: caseStudyBase('data-analytics', {
-      technologies: ['Power BI', 'Azure Synapse', 'SQL'],
-    }),
-  },
-  {
     id: 'marketing-landing',
-    title: 'Marketing — landing page',
+    title: 'Marketing landing page',
     schemaType: 'marketingPage',
     value: {
       status: 'draft',
       sections: marketingLandingSections,
     },
   },
-  ...STORY_TYPES.map((type) => ({
-    id: `caseStudy-${type.value}`,
-    title: `Case study — ${type.title}`,
-    schemaType: 'caseStudy' as const,
-    value: storyTypeTemplate(type.value),
-  })),
 ]
 
+/** Legacy templates — registered for old intents only; hidden from Create menu */
+const legacyTemplates: Template[] = [
+  {
+    id: 'post-article',
+    title: 'Blog — standard article (legacy)',
+    schemaType: 'post',
+    value: { status: 'draft', displayMode: 'classic', body: blogIntroBody },
+  },
+  {
+    id: 'post-how-to',
+    title: 'Blog — how-to guide (legacy)',
+    schemaType: 'post',
+    value: { status: 'draft', displayMode: 'classic', body: howToBody },
+  },
+  {
+    id: 'post-thought-leadership',
+    title: 'Blog — thought leadership (legacy)',
+    schemaType: 'post',
+    value: { status: 'draft', displayMode: 'classic', body: thoughtLeadershipBody },
+  },
+  {
+    id: 'post-product-update',
+    title: 'Blog — product update (legacy)',
+    schemaType: 'post',
+    value: { status: 'draft', displayMode: 'classic', body: productUpdateBody },
+  },
+]
+
+export const documentTemplates: Template[] = [...editorTemplates, ...legacyTemplates]

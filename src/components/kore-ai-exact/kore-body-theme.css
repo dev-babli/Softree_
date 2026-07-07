@@ -1,0 +1,10 @@
+/* Kore page body theme — dark default, beige when data-theme="light" */
+
+body.k2-body {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body.k2-body:not([data-theme="light"]) {
+  background-color: #000;
+  color: #fff;
+}

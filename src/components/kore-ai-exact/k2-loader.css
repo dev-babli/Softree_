@@ -8,8 +8,14 @@
   align-items: center;
   overflow: hidden;
   background: #000;
-  pointer-events: auto;
+  pointer-events: none !important;
   isolation: isolate;
+}
+
+/* step-3 / exiting kept for clarity — loader never captures clicks */
+.k2-loader.step-3,
+.k2-loader.k2-loader-exiting {
+  pointer-events: none !important;
 }
 
 .k2-loader-perspective {

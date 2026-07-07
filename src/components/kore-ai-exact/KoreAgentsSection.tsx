@@ -1,7 +1,6 @@
 "use client"
 
-import { useEffect, useState, type CSSProperties } from "react"
-import { revealLightThemeSections } from "./lightThemeReveal"
+import { useState, type CSSProperties } from "react"
 
 type StyleVars = CSSProperties & Record<`--${string}`, string | number>
 
@@ -16,17 +15,17 @@ const tabs = [
       "https://cdn.prod.website-files.com/6717a0dfaf71071a80dfce8b/6a0d74c8ccd1edf661f5e0b7_agents-object-1.webp",
     objectVariant: "agent-1",
     objectClass: "w-variant-0d4b44dd-bdd2-5fff-bf07-25f61f56446c",
-    lines: ["No more", "{it worked} in", "the [Demo]"],
+    lines: ["No more", "{pilot stall}", "in production"],
     body: (
       <>
         {"{ "}
-        <strong>Artemis</strong>
-        {" }"} has compiled IR, explicit memory contracts, typed trace events for every decision,
-        cycle detection, and real observability.
+        <strong>Softree</strong>
+        {" }"} delivers typed trace events, eval suites, DLP guardrails, and observability your IT team can audit on
+        Copilot Studio and Azure AI.
       </>
     ),
-    ctaLabel: "Get Demo",
-    ctaHref: "/get-a-demo-artemis",
+    ctaLabel: "Let's talk",
+    ctaHref: "/contact",
   },
   {
     id: "tabs-2-tab-2",
@@ -42,13 +41,13 @@ const tabs = [
     body: (
       <>
         {"{ "}
-        <strong>Artemis</strong>
-        {" }"} delivers reliability across complex, high-volume, regulated workflows, continuously
-        running, testing, and optimizing the metrics that matter.
+        <strong>Softree</strong>
+        {" }"} ships agents that move metrics in regulated, high-volume workflows — with offshore delivery speed and
+        Microsoft stack governance built in.
       </>
     ),
-    ctaLabel: "Get Demo",
-    ctaHref: "/get-a-demo-artemis",
+    ctaLabel: "Let's talk",
+    ctaHref: "/contact",
   },
 ]
 
@@ -109,7 +108,7 @@ function AgentsPanel({
         </div>
       </div>
 
-      <div data-stagger="200" className="k2-agents-panel on">
+      <div data-stagger="200" className="k2-agents-panel">
         <div className="k2-agents-header">
           <div
             data-trim=""
@@ -143,7 +142,7 @@ function AgentsPanel({
 
         <div
           data-stagger="200/200"
-          className="k2-agents-content on"
+          className="k2-agents-content"
           style={{ transitionDelay: "200ms", animationDelay: "200ms" }}
         >
           <div
@@ -187,14 +186,10 @@ function AgentsPanel({
 export function KoreAgentsSection() {
   const [activeIndex, setActiveIndex] = useState(0)
 
-  useEffect(() => {
-    revealLightThemeSections(document.querySelector("#ai-agents") ?? document)
-  }, [activeIndex])
-
   return (
     <section id="ai-agents" className="k2-section k2-section-agents">
       <div className="k2-container k2-container-agents">
-        <div data-scroll="20vh" className="k2-tabs on" data-k2-init="true">
+        <div data-scroll="20vh" className="k2-tabs" data-k2-init="true">
           <div className="k2-tabs-menu" role="tablist">
             {tabs.map((tab, index) => {
               const active = index === activeIndex

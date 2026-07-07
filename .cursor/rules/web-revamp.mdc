@@ -1,0 +1,43 @@
+---
+description: ATLAS page revamp — website modernization funnel + Kore.ai-level craft rules
+alwaysApply: false
+---
+
+# Web Modernization Revamp — Standing Rules
+
+Part of **ATLAS**. Load `.cursor/knowledge/thinking-principles.md` first.
+
+**Master prompt:** `.cursor/atlas-revamp-super-prompt.md` (appendix section for this page)
+
+Target page: `src/app/services/website-modernization/` (route `/services/website-modernization` — create if missing)
+
+Design reference: `src/components/kore-ai-exact/` (live: `/kore-ai-component`)
+
+Business goal: Generate qualified leads via the AI modernization blueprint funnel (URL scan → trust/crawl audit → competitor gap analysis → wireframe preview → book strategy call)
+
+Primary CTA: **Get your free modernisation blueprint** (hero/tool); secondary **Book a modernisation strategy call**
+
+Audience: Mid-market marketing leaders, IT directors, and founders with outdated corporate/marketing websites (WordPress, Webflow, legacy brochure sites) evaluating a redesign or Next.js migration
+
+## Non-negotiables
+
+- Softree positioning: **AI Transformation Partner** — outcomes over features (see `brand-positioning.md`).
+- Never sacrifice accessibility (WCAG 2.2 AA) or working build for visual polish.
+- No dark patterns: no fake urgency/countdowns, no deceptive CTAs.
+- Research live references with screenshots this session — do not rely on training data.
+- After any change, verify build + render before moving on.
+- Verifier loop required — builder never self-approves (see master prompt Complete Loop).
+- Log every change as: [agent] changed X because Y, trade-off: Z.
+
+## Page-specific constraints
+
+- Embed or deep-link the existing AI analyser (`/webanalyser` → `web-lead-magnet-seven.vercel.app`); hero URL input must prefill the tool.
+- Reuse Kore interaction patterns (scroll reveals, pinned sections, radar/trust viz) from `src/components/kore-ai-exact/` — do not copy competitor branding verbatim.
+- Preserve site shell: `NavigationClient`, `LightContactSection`, `Footer` unless Brief says otherwise.
+- Wireframe/competitor outputs may be gated behind email — never fake a generated result; use labelled sample/demo data where the backend is not ready.
+
+## Invoke
+
+When the user asks to **revamp the website modernization page**, run **ATLAS** on this route, or paste the PROMPT from `.cursor/atlas-revamp-super-prompt.md`.
+
+For full Agentic AI page queue, use the master prompt without limiting to this page.

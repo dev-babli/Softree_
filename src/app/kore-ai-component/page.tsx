@@ -2,9 +2,9 @@ import type { Metadata } from "next"
 import KoreAiExactPage from "@/components/kore-ai-exact/KoreAiExactPage"
 
 export const metadata: Metadata = {
-  title: "Kore.ai Artemis | AI Agent Platform: Build, govern & scale enterprise AI",
+  title: "Softree Agentic AI | Build, govern & scale on Microsoft",
   description:
-    "The AI-programmable platform for the agentic enterprise. Build, govern, and scale enterprise AI agents with Kore.ai Artemis.",
+    "Design, deploy, and govern AI agents across Copilot Studio, Azure AI, and Power Platform — with offshore delivery speed and production-grade guardrails.",
 }
 
 export default function KoreAiComponentPage() {

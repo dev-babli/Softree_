@@ -1,0 +1,21 @@
+{
+  "slug": "softree-studio",
+  "mode": "TEN_OUT_OF_TEN",
+  "loop": 5,
+  "status": "LOOP_5_COMMAND_CENTER",
+  "current_phase": "visual_polish",
+  "completed_gates": [
+    "build",
+    "dashboard_workspace_layout",
+    "progressive_disclosure_analytics",
+    "hero_primary_ctas",
+    "pipeline_board",
+    "work_queue_first"
+  ],
+  "pending_gates": [
+    "chrome_mcp_console_clean",
+    "dashboard_screenshots_1440_390",
+    "lint"
+  ],
+  "budget": { "loops_used": 4, "loops_max": 10 }
+}

@@ -26,6 +26,7 @@ import {apiVersion, dataset, projectId} from './src/sanity/env'
 import {schema} from './src/sanity/schemaTypes'
 import {defaultDocumentNode, structure} from './src/sanity/structure'
 import {documentTemplates} from './src/sanity/templates'
+import {isEditorCreateTemplate} from './src/sanity/lib/editorTemplates'
 import {CaseStudyDocumentBadge} from './src/sanity/badges/CaseStudyDocumentBadge'
 import {StudioLayout} from './src/sanity/studio/StudioLayout'
 import {StudioNavbar} from './src/sanity/studio/StudioNavbar'
@@ -137,7 +138,11 @@ export default defineConfig({
     },
     newDocumentOptions: (prev, {creationContext}) => {
       if (creationContext.type === 'global') {
-        return prev.filter((templateItem) => !singletonTypes.has(templateItem.templateId))
+        return prev.filter(
+          (templateItem) =>
+            !singletonTypes.has(templateItem.templateId) &&
+            isEditorCreateTemplate(templateItem.templateId),
+        )
       }
       return prev
     },

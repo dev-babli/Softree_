@@ -22,6 +22,7 @@ export type DashboardInsights = {
     hint?: string
     pageviews7d?: number
     uniqueVisitors7d?: number
+    topPages?: Array<{ path: string; views: number }>
   }
   gsc: {
     configured: boolean

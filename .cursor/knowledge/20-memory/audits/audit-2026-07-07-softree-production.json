@@ -1,0 +1,65 @@
+{
+  "id": "audit-2026-07-07-softree-production",
+  "url": "https://www.softreetechnology.com/",
+  "auditedAt": "2026-07-07T02:45:00+05:30",
+  "orchestrator": "ATLAS",
+  "reviewCycles": 3,
+  "converged": true,
+  "convergenceReason": "Three consecutive cycles produced zero new HIGH-impact findings after cycle 3 cross-review",
+  "overallScore": 58,
+  "verdict": "Partially Rebuild + Completely Reposition",
+  "benchmarks": ["kore.ai/about-us", "kore.ai platform pages"],
+  "departmentScores": {
+    "positioning": 3,
+    "messaging": 4,
+    "design": 6,
+    "ux": 5,
+    "trust": 4,
+    "seo": 4,
+    "geo": 3,
+    "aeo": 4,
+    "conversion": 4,
+    "content": 5,
+    "enterpriseBuying": 4
+  },
+  "findings": [
+    {
+      "id": "F-001",
+      "severity": "critical",
+      "priority": "P0",
+      "title": "Homepage positions Softree as offshore engineering vendor, not AI Transformation Partner",
+      "pattern": "enterprise-ai-outcomes-not-agents",
+      "businessImpact": "high",
+      "revenueImpact": "high"
+    },
+    {
+      "id": "F-002",
+      "severity": "critical",
+      "priority": "P0",
+      "title": "Live stat counters render as 0+ / +0 destroying trust",
+      "businessImpact": "high",
+      "trustImpact": "critical"
+    },
+    {
+      "id": "F-003",
+      "severity": "critical",
+      "priority": "P0",
+      "title": "sitemap.xml returns HTTP 500 — crawlability failure",
+      "seoImpact": "critical"
+    },
+    {
+      "id": "F-004",
+      "severity": "high",
+      "priority": "P1",
+      "title": "/ai hub is thin link farm vs flagship AI transformation narrative",
+      "businessImpact": "high"
+    },
+    {
+      "id": "F-005",
+      "severity": "high",
+      "priority": "P1",
+      "title": "Positioning schizophrenia: white-label offshore vs enterprise AI consulting",
+      "businessImpact": "high"
+    }
+  ]
+}

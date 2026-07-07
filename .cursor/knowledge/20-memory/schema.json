@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "audit": {
+    "required": [
+      "id",
+      "url",
+      "auditedAt",
+      "scores",
+      "findings",
+      "recommendations",
+      "confidence"
+    ],
+    "findings": [
+      "id",
+      "title",
+      "severity",
+      "evidence",
+      "pattern",
+      "businessImpact",
+      "roi"
+    ]
+  }
+}

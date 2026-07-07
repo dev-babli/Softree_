@@ -7,6 +7,7 @@ export type PosthogSnapshot = {
   hint?: string
   pageviews7d?: number
   uniqueVisitors7d?: number
+  topPages?: Array<{ path: string; views: number }>
 }
 
 export async function fetchPosthogSnapshot(): Promise<PosthogSnapshot> {
@@ -56,10 +57,51 @@ export async function fetchPosthogSnapshot(): Promise<PosthogSnapshot> {
     const pageviews = Number(row?.[0] ?? 0)
     const visitors = Number(row?.[1] ?? 0)
 
+    let topPages: Array<{ path: string; views: number }> | undefined
+    try {
+      const topRes = await fetch(`${host}/api/projects/${projectId}/query/`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: {
+            kind: 'HogQLQuery',
+            query: `
+              SELECT
+                coalesce(properties.$pathname, '/') AS path,
+                count() AS views
+              FROM events
+              WHERE event = '$pageview'
+                AND timestamp >= now() - INTERVAL 7 DAY
+              GROUP BY path
+              ORDER BY views DESC
+              LIMIT 8
+            `,
+          },
+        }),
+        next: { revalidate: 900 },
+      })
+      if (topRes.ok) {
+        const topJson = (await topRes.json()) as PosthogQueryResponse
+        const rows = topJson.results?.[0]?.results ?? []
+        topPages = rows
+          .map((r) => ({
+            path: String(r?.[0] ?? '/'),
+            views: Number(r?.[1] ?? 0),
+          }))
+          .filter((p) => p.views > 0)
+      }
+    } catch {
+      topPages = undefined
+    }
+
     return {
       configured: true,
       pageviews7d: Number.isFinite(pageviews) ? pageviews : 0,
       uniqueVisitors7d: Number.isFinite(visitors) ? visitors : 0,
+      topPages,
     }
   } catch {
     return {

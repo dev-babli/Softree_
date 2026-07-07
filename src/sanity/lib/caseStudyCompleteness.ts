@@ -33,6 +33,7 @@ export function caseStudyHasStoryContent(doc: CaseStudyCompletenessDoc | undefin
  * Composer docs satisfy "story" via composerSections; legacy docs via narrative fields.
  */
 export const CASE_STUDY_NEEDS_WORK = `(
+  !defined(category) ||
   !defined(excerpt) ||
   !defined(client) ||
   !defined(headerTitle) ||

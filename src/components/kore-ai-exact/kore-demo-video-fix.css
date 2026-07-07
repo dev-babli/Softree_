@@ -1,0 +1,45 @@
+/* Demo video section — controls above iframe, visible after dark build-scale block */
+
+.kore-ai-exact-shell .k2-section-demo-video {
+  position: relative;
+  z-index: 1;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.kore-ai-exact-shell .k2-demo-video {
+  position: relative;
+  isolation: isolate;
+}
+
+.kore-ai-exact-shell .k2-demo-video .video-overlay,
+.kore-ai-exact-shell .k2-demo-video #custom-play,
+.kore-ai-exact-shell .k2-demo-video #custom-pause,
+.kore-ai-exact-shell .k2-demo-video #video-progress-container,
+.kore-ai-exact-shell .k2-demo-video #bamform-cta {
+  position: relative;
+  z-index: 3;
+  pointer-events: auto;
+}
+
+.kore-ai-exact-shell .k2-demo-video .video-iframe-wrap,
+.kore-ai-exact-shell .k2-demo-video #vimeo-player {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.bamform-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2147482000;
+  pointer-events: none;
+}
+
+.bamform-overlay:not(.show) {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.bamform-overlay.show {
+  pointer-events: auto;
+}

@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "nextId": 3,
+  "patterns": [
+    {
+      "id": "#1",
+      "title": "Social proof above the fold",
+      "category": "homepage",
+      "observation": "High-converting SaaS homepages place social proof (logos, metrics, testimonials) in the first viewport.",
+      "evidence": "Observed across Kore.ai, Stripe, Linear reference audits",
+      "metrics": {
+        "conversionLift": "benchmark +15–25% (industry range)"
+      },
+      "confidence": 0.82,
+      "confidenceLabel": "Medium",
+      "recommendation": "Default: include 3–6 client logos or one quantified proof line above the fold on B2B service pages.",
+      "whenToUse": "B2B SaaS and consulting homepages targeting enterprise buyers",
+      "whenNotToUse": "Brand campaigns where mystery/tease is intentional",
+      "relatedPatterns": [],
+      "sourceAudits": [],
+      "createdAt": "2026-07-06T21:07:48.574Z",
+      "version": "1.0.0"
+    },
+    {
+      "id": "#2",
+      "title": "Enterprise AI positions outcomes not agents",
+      "category": "enterprise-ai",
+      "observation": "Most successful enterprise AI companies lead with business outcomes — not 'we build AI agents'.",
+      "evidence": "Kore.ai, Accenture, Thoughtworks homepage messaging analysis",
+      "metrics": {},
+      "confidence": 0.88,
+      "confidenceLabel": "High",
+      "recommendation": "Lead with: revenue, efficiency, automation, cost reduction. Technology is implementation layer.",
+      "whenToUse": "All Softree AI and Agentic AI pages",
+      "whenNotToUse": "Deep technical docs for engineering evaluators",
+      "relatedPatterns": [],
+      "sourceAudits": [],
+      "createdAt": "2026-07-06T21:07:48.575Z",
+      "version": "1.0.0"
+    }
+  ]
+}

@@ -2,6 +2,7 @@ import {DocumentTextIcon} from '@sanity/icons'
 import {defineArrayMember, defineField, defineType} from 'sanity'
 import {BLOG_LAYOUT_RECIPES} from '../../lib/blog-layout-recipes'
 import ComposerSectionsInput from '../components/ComposerSectionsInput'
+import PostEditorWelcome from '../components/PostEditorWelcome'
 import {aiAssistExclude} from '../lib/blockContentOptions'
 import {fieldAi} from '../lib/fieldAiOptions'
 import {createSeoPreviewPanelField, createEditorProgressPanelField} from '../lib/documentHelpers'
@@ -22,12 +23,30 @@ export const postType = defineType({
   type: 'document',
   icon: DocumentTextIcon,
   groups: [
-    {name: 'content', title: 'Content'},
+    {name: 'content', title: 'Content', default: true},
     {name: 'composer', title: 'Page composer'},
     {name: 'seo', title: 'SEO & AEO'},
     {name: 'publish', title: 'Publish'},
   ],
+  fieldsets: [
+    {name: 'advancedLayout', title: 'Advanced layout', options: {collapsible: true, collapsed: true}},
+  ],
   fields: [
+    defineField({
+      name: 'editorWelcome',
+      title: 'Getting started',
+      type: 'object',
+      components: {
+        input: PostEditorWelcome,
+      },
+      fields: [
+        defineField({
+          name: 'placeholder',
+          type: 'string',
+          hidden: true,
+        }),
+      ],
+    }),
     defineField({
       name: 'title',
       type: 'string',
@@ -55,8 +74,9 @@ export const postType = defineType({
       title: 'Page display',
       type: 'string',
       group: 'composer',
+      fieldset: 'advancedLayout',
       description:
-        'Classic = standard article layout. Composer = scroll-based sections (same blocks as case studies). New posts default to Composer.',
+        'Leave as Page composer for new posts. Switch to Classic only when editing a legacy article.',
       options: {
         list: [
           {title: 'Classic article', value: 'classic'},

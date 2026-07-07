@@ -46,6 +46,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${BASE_URL}/services/offshore-sharepoint-development`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
   { url: `${BASE_URL}/services/offshore-spfx-development`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
   { url: `${BASE_URL}/services/offshore-web-app-development`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+  { url: `${BASE_URL}/services/website-modernization`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
   // Product
   { url: `${BASE_URL}/avoora`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
 ]

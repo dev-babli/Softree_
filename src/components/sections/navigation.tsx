@@ -102,6 +102,7 @@ const menu: MenuItem[] = [
           { label: "SharePoint Online", url: "/services/offshore-sharepoint-development", icon: Building2, description: "Intranets" },
           { label: "SPFx Development", url: "/services/offshore-spfx-development", icon: Code2, description: "Custom SPFx" },
           { label: "Web Applications", url: "/services/offshore-web-app-development", icon: Globe2, description: "Portals & apps" },
+          { label: "Website Modernisation", url: "/services/website-modernization", icon: RefreshCw, description: "Free AI blueprint + redesign" },
           { label: "Mobile Applications", url: "/services/offshore-mobile-app-development", icon: Smartphone, description: "iOS & Android" },
         ],
       },

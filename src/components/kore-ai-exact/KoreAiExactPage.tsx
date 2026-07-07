@@ -4,14 +4,18 @@ import Script from "next/script"
 import { useEffect } from "react"
 import { KoreK2Loader } from "./KoreK2Loader"
 import { revealHeroContent } from "./heroHandoffSelectors"
-import { revealLightThemeSections } from "./lightThemeReveal"
+import { bindK2ThemeSwitch, refreshK2ThemeSwitch } from "./k2ThemeSwitch"
+import { initKoreScrollReveal, refreshK2ScrollVisibility } from "./k2ScrollReveal"
+import { initLightThemeSection } from "./lightThemeReveal"
 import { KORE_AI_REFERENCE_CSS } from "./referenceContent"
 import { KoreAiFooter, KoreAiHeader, KoreAiReferenceModals, KoreAiScrollNav, KORE_AI_SECTION_COMPONENTS } from "./sections"
 import "./kore-ai-page-fix.css"
+import "./kore-body-theme.css"
 import "./kore-hero-handoff.css"
 import "./kore-light-theme-fix.css"
 
 const externalScripts = [
+  "https://unpkg.com/split-type",
   "https://cdn.jsdelivr.net/npm/@rive-app/canvas@2.21.6/rive.js",
   "https://cdn.prod.website-files.com/gsap/3.15.0/gsap.min.js",
   "https://cdn.prod.website-files.com/gsap/3.15.0/ScrollTrigger.min.js",
@@ -27,14 +31,12 @@ export default function KoreAiExactPage() {
     const previousTheme = body.getAttribute("data-theme")
 
     body.className = "k2-body"
-    body.style.backgroundColor = "#000"
     body.style.color = ""
     body.setAttribute("data-theme", "")
     html.classList.add("w-mod-js", "wf-active", "ready", "lenis")
 
     return () => {
       body.className = previousBodyClass
-      body.style.backgroundColor = ""
       body.style.color = ""
       if (previousTheme === null) body.removeAttribute("data-theme")
       else body.setAttribute("data-theme", previousTheme)
@@ -45,7 +47,7 @@ export default function KoreAiExactPage() {
   useEffect(() => {
     const applyCurrentRoute = () => {
       const currentLinks = document.querySelectorAll<HTMLAnchorElement>(
-        ".k2-header a[href='/ai-agent-platform'], .k2-footer a[href='/ai-agent-platform']",
+        ".k2-header a[href='/kore-ai-component'], .k2-footer a[href='/kore-ai-component'], .k2-header a[href='/ai-agent-platform'], .k2-footer a[href='/ai-agent-platform']",
       )
 
       currentLinks.forEach((link) => {
@@ -187,63 +189,41 @@ export default function KoreAiExactPage() {
     const page = document.querySelector<HTMLElement>(".kore-ai-exact-shell")
     if (!page) return
 
-    let observer: IntersectionObserver | undefined
+    const unbindTheme = bindK2ThemeSwitch(page)
+    let unbindScroll = () => {}
 
-    const collectTargets = () =>
-      Array.from(page.querySelectorAll<HTMLElement>("[data-scroll], [data-stagger]")).filter(
-        (el) => !el.closest("#meet-artemis"),
-      )
-
-    const reveal = (element: HTMLElement) => {
-      element.classList.add("on")
-      element.style.removeProperty("opacity")
-      element.style.removeProperty("visibility")
-      element.style.removeProperty("transform")
+    const mountScrollReveal = () => {
+      unbindScroll()
+      unbindScroll = initKoreScrollReveal(page)
+      refreshK2ScrollVisibility(page)
     }
 
-    const revealIfVisible = (element: HTMLElement) => {
-      const rect = element.getBoundingClientRect()
-      if (rect.top < window.innerHeight * 0.95 && rect.bottom > 0) reveal(element)
-    }
+    mountScrollReveal()
+    const mountTimer = window.setTimeout(mountScrollReveal, 400)
+    initLightThemeSection(page)
 
-    const bindReveal = () => {
+    const onIntroComplete = () => {
       revealHeroContent()
-      revealLightThemeSections(page)
-      observer?.disconnect()
-      const targets = collectTargets()
-      if (!targets.length) return
-
-      targets.forEach(revealIfVisible)
-
-      if (!("IntersectionObserver" in window)) {
-        targets.forEach(reveal)
-        return
-      }
-
-      observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return
-            reveal(entry.target as HTMLElement)
-            observer?.unobserve(entry.target)
-          })
-        },
-        { rootMargin: "0px 0px -5% 0px", threshold: 0.05 },
-      )
-
-      targets.forEach((target) => {
-        if (!target.classList.contains("on")) observer?.observe(target)
-      })
+      refreshK2ThemeSwitch(page)
+      mountScrollReveal()
+      initLightThemeSection(page)
+      const win = window as Window & { ScrollTrigger?: { refresh: () => void } }
+      win.ScrollTrigger?.refresh()
     }
 
-    bindReveal()
-    window.addEventListener("kore-ai-intro-complete", bindReveal)
-    window.addEventListener("scroll", bindReveal, { passive: true })
+    const onScrollReveal = () => refreshK2ScrollVisibility(page)
+
+    window.addEventListener("kore-ai-intro-complete", onIntroComplete)
+    window.addEventListener("scroll", onScrollReveal, { passive: true })
+    window.addEventListener("resize", onScrollReveal, { passive: true })
 
     return () => {
-      observer?.disconnect()
-      window.removeEventListener("kore-ai-intro-complete", bindReveal)
-      window.removeEventListener("scroll", bindReveal)
+      window.clearTimeout(mountTimer)
+      unbindTheme()
+      unbindScroll()
+      window.removeEventListener("kore-ai-intro-complete", onIntroComplete)
+      window.removeEventListener("scroll", onScrollReveal)
+      window.removeEventListener("resize", onScrollReveal)
     }
   }, [])
 

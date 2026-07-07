@@ -1,20 +1,24 @@
 "use client"
 
 import { useEffect, useMemo, useRef } from "react"
-import { revealLightThemeSections } from "./lightThemeReveal"
+import { initK2SplitAndStagger } from "./k2ScrollReveal"
+import { initLightThemeSection } from "./lightThemeReveal"
+import { applySoftreeSectionHtml } from "./koreHtmlCopy"
 import { KORE_AI_SECTIONS } from "./referenceContent"
 
 export function KoreAiProgrammableSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const html = useMemo(() => {
     const section = KORE_AI_SECTIONS.find((item) => item.name === "KoreAiProgrammableSection")
-    return section?.html ?? ""
+    return applySoftreeSectionHtml("KoreAiProgrammableSection", section?.html ?? "")
   }, [])
 
   useEffect(() => {
     const root = sectionRef.current
     if (!root) return
-    revealLightThemeSections(root)
+
+    initK2SplitAndStagger(root)
+    initLightThemeSection(root)
 
     const sticky = root.querySelector<HTMLElement>(".k2-orbit-sticky")
     const steps = Array.from(root.querySelectorAll<HTMLElement>(".k2-orbit-step"))

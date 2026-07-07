@@ -230,7 +230,7 @@ export function KoreHeroSection() {
             style={{ "--n": 20 } as StyleVars}
           >
             <p>
-              {splitWords("Kore.ai Agent Platform").map((word, index) => (
+              {splitWords("Softree Technology · Agentic AI").map((word, index) => (
                 <span key={index}>
                   {index > 0 ? " " : null}
                   {word}
@@ -254,7 +254,7 @@ export function KoreHeroSection() {
                 <em style={{ display: "inline-block", position: "relative" }}>
                   <SplitWord text="{" start={0} />{" "}
                   <sup style={{ display: "inline-block", position: "relative" }}>
-                    <SplitWord text="Artemis" start={0} />
+                    <SplitWord text="Softree" start={0} />
                   </sup>{" "}
                   <SplitWord text="}" start={0} />
                 </em>
@@ -268,7 +268,7 @@ export function KoreHeroSection() {
                 data-wf--heading--variant="display-4"
                 className="k2-heading w-variant-a99798b7-ba2e-447c-08ca-de2b7acb44dc w-richtext"
               >
-                <h1>The AI-programmable platform for the agentic enterprise</h1>
+                <h1>Autonomous agents built for the agentic enterprise</h1>
               </div>
               <div
                 data-op="100"
@@ -279,7 +279,7 @@ export function KoreHeroSection() {
                 style={{ transitionDelay: "300ms", animationDelay: "300ms" }}
               >
                 <p>
-                  <em>The foundation for building AI agents with certainty.</em>
+                  <em>Design, deploy, and govern AI on the Microsoft stack.</em>
                 </p>
               </div>
             </div>
@@ -298,12 +298,11 @@ export function KoreHeroSection() {
             style={{ transitionDelay: "400ms", animationDelay: "400ms" }}
           >
             <p>
-              Built with AI from the ground up {"{ "}
-              <strong>Artemis</strong>
-              {" }"} leverages years of enterprise experience. Agents running on {"{ "}
-              <strong>Artemis </strong>
-              {"}"} thrive in complex, high volume, regulated workflows where other agents break. This is the
-              AI-native platform that experience made possible.
+              Built for enterprise delivery from the ground up {"{ "}
+              <strong>Softree</strong>
+              {" }"} combines offshore velocity with Copilot Studio, Azure AI, and Power Platform expertise. Agents we
+              ship thrive in complex, high-volume, regulated workflows — with governance your IT team can audit. This is
+              agentic AI delivery that experience made possible.
             </p>
           </div>
 
@@ -313,10 +312,10 @@ export function KoreHeroSection() {
             style={{ transitionDelay: "600ms", animationDelay: "600ms" }}
           >
             <div className="k2-clickable">
-              <a aria-label="Get Demo" href="/get-a-demo-artemis" className="k2-action w-inline-block" />
+              <a aria-label="Let's talk" href="/contact" className="k2-action w-inline-block" />
             </div>
             <div aria-hidden="true" className="k2-cta-text">
-              Get Demo
+              Let's talk
             </div>
             <div aria-hidden="true" className="k2-cta-icon w-variant-324d61ef-5935-7d9b-deaa-ee6d974aa212">
               <DotArrowIcon />

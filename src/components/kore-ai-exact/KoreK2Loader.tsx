@@ -25,7 +25,7 @@ function splitChars(text: string, startIndex = 0) {
 
 function LoaderMarkup() {
   return (
-    <div className="k2-loader step-0" aria-label="Loading Kore.ai Agent Platform" role="status" aria-live="polite">
+    <div className="k2-loader step-0" aria-label="Loading Softree Agentic AI" role="status" aria-live="polite">
       <div className="k2-loader-perspective">
         <div className="k2-loader-bg" data-k2-loader-bg="">
           <img
@@ -62,7 +62,7 @@ function LoaderMarkup() {
               </span>{" "}
               <sup style={{ display: "inline-block", position: "relative" }}>
                 <span className="word" style={{ display: "inline-block" }}>
-                  {splitChars("Artemis")}
+                  {splitChars("Softree")}
                 </span>
               </sup>{" "}
               <span className="word" style={{ display: "inline-block" }}>

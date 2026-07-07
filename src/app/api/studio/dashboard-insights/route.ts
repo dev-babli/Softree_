@@ -42,12 +42,18 @@ const CONTENT_ISSUES_QUERY = `{
   ])
 }`
 
-/** One mobile homepage audit keeps the dashboard fast; run \`npm run psi\` for full audits. */
+/** Key marketing routes — PageSpeed audits (cached 1h; dev needs PSI_DASHBOARD=1). */
 const PSI_DASHBOARD_PAGES: Array<{
   label: string
   path: string
   strategy: 'mobile' | 'desktop'
-}> = [{ label: 'Homepage', path: '/', strategy: 'mobile' }]
+}> = [
+  { label: 'Homepage', path: '/', strategy: 'mobile' },
+  { label: 'Case studies hub', path: '/case-studies', strategy: 'mobile' },
+  { label: 'Blog', path: '/blog', strategy: 'mobile' },
+  { label: 'Contact', path: '/contact', strategy: 'mobile' },
+  { label: 'Services', path: '/services', strategy: 'mobile' },
+]
 
 const shouldRunPsi =
   Boolean(process.env.PSI_API_KEY) &&

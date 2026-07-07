@@ -1,41 +1,55 @@
-/**
- * Softree Studio structure — sidebar + split-pane authoring for editorial types.
- */
+'use client'
 
 import type {
   DefaultDocumentNodeResolver,
   StructureBuilder,
   StructureResolver,
+  UserViewComponent,
 } from 'sanity/structure'
 import {
   CaseIcon,
   CogIcon,
   DocumentIcon,
   DocumentTextIcon,
+  EarthGlobeIcon,
   SparklesIcon,
   TagIcon,
   UsersIcon,
 } from '@sanity/icons'
 
-import {CaseStudyLivePreviewPane} from './components/CaseStudyLivePreviewPane'
+import {
+  CASE_STUDY_CATEGORY_CONFIG,
+  CASE_STUDY_CATEGORY_KEYS,
+} from '@/app/case-studies/categoryConfig'
+import CaseStudyLivePreviewPane from './components/CaseStudyLivePreviewPane'
 import {CASE_STUDY_NEEDS_WORK} from './lib/caseStudyCompleteness'
 import {POST_NEEDS_WORK} from './lib/postCompleteness'
+import PresentationShortcut from './studio/PresentationShortcut'
 import StudioDashboard from './studio/StudioDashboard'
+
+/**
+ * Sanity structure `.component()` / `.view.component()` require plain functions
+ * defined in this module — not memo() wrappers or opaque re-exports.
+ */
+function DashboardPane() {
+  return <StudioDashboard />
+}
+
+function PresentationPane() {
+  return <PresentationShortcut />
+}
+
+const LivePreviewPane: UserViewComponent = (props) => <CaseStudyLivePreviewPane {...props} />
 
 const EDITOR_VIEW = 'editor'
 const PREVIEW_VIEW = 'preview'
 
 function editorialDocumentNode(S: StructureBuilder) {
   // Note: deliberately NOT using .defaultPanes([EDITOR_VIEW, PREVIEW_VIEW]).
-  // The auto-split bootstrap (view=editor,expanded=true|,view=preview) triggered a
-  // "Too many re-renders" (#301) crash in the Studio's document pane on production.
-  // Editors can still open the preview from the "Live preview" tab.
+  // Auto-split bootstrap caused "Too many re-renders" (#301) on production.
   return S.document().views([
     S.view.form().id(EDITOR_VIEW).title('Edit'),
-    S.view
-      .component(CaseStudyLivePreviewPane)
-      .id(PREVIEW_VIEW)
-      .title('Live preview'),
+    S.view.component(LivePreviewPane).id(PREVIEW_VIEW).title('Live preview'),
   ])
 }
 
@@ -79,6 +93,11 @@ const HIDDEN_TYPES = new Set([
 
 const SINGLETONS = new Set(['homepageCaseStudySlider', 'globalSettings', 'careersPage', 'aiContext'])
 
+/** Route create/edit intents to the correct document list (Sanity structure docs). */
+function matchesSchemaIntent(type: string | undefined, schemaType: string) {
+  return type === schemaType
+}
+
 function docList(
   S: StructureBuilder,
   opts: {
@@ -95,6 +114,11 @@ function docList(
     .apiVersion(API)
     .filter(opts.filter)
     .defaultOrdering(opts.defaultOrdering ?? [{field: '_updatedAt', direction: 'desc'}])
+    .canHandleIntent((intentName, {type}) => {
+      if (intentName === 'edit') return matchesSchemaIntent(type, opts.schemaType)
+      if (intentName === 'create') return matchesSchemaIntent(type, opts.schemaType)
+      return false
+    })
 
   if (opts.id) list = list.id(opts.id)
   return list
@@ -112,9 +136,15 @@ export const structure: StructureResolver = (S) =>
     .items([
       S.listItem()
         .id('dashboard')
-        .title('Home')
+        .title('Workspace')
         .icon(SparklesIcon)
-        .child(S.component(StudioDashboard).title('Dashboard')),
+        .child(S.component(DashboardPane).title('Workspace')),
+
+      S.listItem()
+        .id('presentationShortcut')
+        .title('Presentation')
+        .icon(EarthGlobeIcon)
+        .child(S.component(PresentationPane).title('Presentation')),
 
       S.divider(),
 
@@ -127,6 +157,16 @@ export const structure: StructureResolver = (S) =>
             .title('Case studies')
             .items([
               S.listItem()
+                .title('＋ New case study')
+                .icon(SparklesIcon)
+                .child(
+                  S.document()
+                    .schemaType('caseStudy')
+                    .title('New case study')
+                    .initialValueTemplate('caseStudy-composer'),
+                ),
+              S.divider(),
+              S.listItem()
                 .title('Needs work')
                 .icon(SparklesIcon)
                 .child(
@@ -138,6 +178,57 @@ export const structure: StructureResolver = (S) =>
                   }),
                 ),
               S.listItem()
+                .title('Browse by category')
+                .child(
+                  S.list()
+                    .title('By service line')
+                    .items([
+                      ...CASE_STUDY_CATEGORY_KEYS.map((key) =>
+                        S.listItem()
+                          .title(CASE_STUDY_CATEGORY_CONFIG[key].title)
+                          .child(
+                            docList(S, {
+                              id: `caseStudiesCat_${key}`,
+                              title: CASE_STUDY_CATEGORY_CONFIG[key].title,
+                              schemaType: 'caseStudy',
+                              filter: `_type == "caseStudy" && category == "${key}"`,
+                            }),
+                          ),
+                      ),
+                      S.divider(),
+                      S.listItem()
+                        .title('Missing category')
+                        .child(
+                          docList(S, {
+                            id: 'caseStudiesNoCategory',
+                            title: 'Missing category',
+                            schemaType: 'caseStudy',
+                            filter: '_type == "caseStudy" && !defined(category)',
+                          }),
+                        ),
+                    ]),
+                ),
+              S.listItem()
+                .title('Published')
+                .child(
+                  docList(S, {
+                    id: 'caseStudiesPublished',
+                    title: 'Published case studies',
+                    schemaType: 'caseStudy',
+                    filter: '_type == "caseStudy" && !(_id in path("drafts.**"))',
+                  }),
+                ),
+              S.listItem()
+                .title('Drafts')
+                .child(
+                  docList(S, {
+                    id: 'caseStudiesDrafts',
+                    title: 'Draft case studies',
+                    schemaType: 'caseStudy',
+                    filter: '_type == "caseStudy" && _id in path("drafts.**")',
+                  }),
+                ),
+              S.listItem()
                 .title('All case studies')
                 .child(
                   docList(S, {
@@ -146,21 +237,6 @@ export const structure: StructureResolver = (S) =>
                     schemaType: 'caseStudy',
                     filter: '_type == "caseStudy"',
                   }),
-                ),
-              S.divider(),
-              S.listItem()
-                .title('New — page composer')
-                .child(
-                  S.document()
-                    .schemaType('caseStudy')
-                    .initialValueTemplate('caseStudy-composer'),
-                ),
-              S.listItem()
-                .title('New — standard template')
-                .child(
-                  S.document()
-                    .schemaType('caseStudy')
-                    .initialValueTemplate('caseStudy-standard'),
                 ),
             ]),
         ),
@@ -174,6 +250,16 @@ export const structure: StructureResolver = (S) =>
             .title('Blog')
             .items([
               S.listItem()
+                .title('＋ New blog post')
+                .icon(SparklesIcon)
+                .child(
+                  S.document()
+                    .schemaType('post')
+                    .title('New blog post')
+                    .initialValueTemplate('post-composer'),
+                ),
+              S.divider(),
+              S.listItem()
                 .title('Needs work')
                 .icon(SparklesIcon)
                 .child(
@@ -184,14 +270,16 @@ export const structure: StructureResolver = (S) =>
                     filter: `_type == "post" && ${POST_NEEDS_WORK}`,
                   }),
                 ),
-              S.documentTypeListItem('post').title('All posts'),
-              S.divider(),
               S.listItem()
-                .title('New article (composer)')
-                .child(S.document().schemaType('post').initialValueTemplate('post-composer')),
-              S.listItem()
-                .title('New classic article')
-                .child(S.document().schemaType('post').initialValueTemplate('post-article')),
+                .title('All posts')
+                .child(
+                  docList(S, {
+                    id: 'postsAll',
+                    title: 'All posts',
+                    schemaType: 'post',
+                    filter: '_type == "post"',
+                  }),
+                ),
               S.divider(),
               S.documentTypeListItem('author').title('Authors').icon(UsersIcon),
               S.documentTypeListItem('category').title('Categories').icon(TagIcon),

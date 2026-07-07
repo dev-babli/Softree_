@@ -27,9 +27,11 @@ function ActivityIcon({ type }: { type: string }) {
 export function RecentEditsList({
   items,
   onOpen,
+  hideHead = false,
 }: {
   items: ActivityItem[]
   onOpen: (id: string, type: string) => void
+  hideHead?: boolean
 }) {
   if (items.length === 0) {
     return (
@@ -39,7 +41,7 @@ export function RecentEditsList({
 
   return (
     <div className="softree-dash__recent-edits">
-      <p className="softree-dash__recent-edits-head">Recent edits</p>
+      {hideHead ? null : <p className="softree-dash__recent-edits-head">Recent edits</p>}
       <ul className="softree-dash__recent-edits-list">
         {items.map((item) => {
           const label = activityLabel(item)

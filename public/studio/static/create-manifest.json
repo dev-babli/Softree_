@@ -1,0 +1,21 @@
+{
+  "createdAt": "2026-07-06T11:33:47.319Z",
+  "studioVersion": "6.3.0",
+  "version": 3,
+  "workspaces": [
+    {
+      "basePath": "/studio",
+      "dataset": "production",
+      "icon": "<img src=\"/logo/Softree-Technology-Final-Logo.png\" alt=\"Softree Technology\" width=\"20\" height=\"20\" style=\"display:block;width:20px;height:20px;object-fit:contain;border-radius:4px;background:#fff;padding:2px\">",
+      "mediaLibrary": {
+        "enabled": false,
+        "__internal": {}
+      },
+      "name": "softree",
+      "projectId": "1zmh4sfw",
+      "schema": "d60e5a6e.create-schema.json",
+      "title": "Softree Studio",
+      "tools": "061499ad.create-tools.json"
+    }
+  ]
+}

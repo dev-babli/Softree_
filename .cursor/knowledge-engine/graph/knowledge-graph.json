@@ -1,0 +1,2766 @@
+{
+  "version": "3.0.0",
+  "updatedAt": "2026-07-06T21:09:07.720Z",
+  "nodeCount": 182,
+  "edgeCount": 0,
+  "folders": [
+    "00-constitution",
+    "01-company",
+    "02-consulting",
+    "03-design",
+    "04-ui-ux",
+    "05-engineering",
+    "06-ai",
+    "07-marketing",
+    "08-sales",
+    "09-seo",
+    "10-geo",
+    "11-aeo",
+    "12-brand",
+    "13-copywriting",
+    "14-research",
+    "15-competitors",
+    "16-industry",
+    "17-frameworks",
+    "18-scoring",
+    "19-reporting",
+    "20-memory",
+    "21-roadmaps"
+  ],
+  "nodes": [
+    {
+      "id": "pattern.business-outcomes-first",
+      "title": "Business Outcomes First Pattern",
+      "category": "pattern",
+      "domain": "consulting",
+      "confidence": 0.85,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-07",
+      "status": "verified",
+      "path": "knowledge-engine/patterns/consulting/business-outcomes-first.md",
+      "tags": [
+        "pattern",
+        "messaging",
+        "cro",
+        "positioning"
+      ]
+    },
+    {
+      "id": "pattern.scroll-choreography-storytelling",
+      "title": "Scroll Choreography Storytelling Pattern",
+      "category": "pattern",
+      "domain": "motion-design",
+      "confidence": 0.95,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-07",
+      "status": "verified",
+      "path": "knowledge-engine/patterns/motion-design/scroll-choreography-storytelling.md",
+      "tags": [
+        "pattern",
+        "scroll",
+        "gsap",
+        "storytelling",
+        "awwwards"
+      ]
+    },
+    {
+      "id": "pattern.1",
+      "title": "Social proof above the fold",
+      "category": "pattern",
+      "domain": "patterns",
+      "knowledgeFolder": "patterns",
+      "confidence": 0.82,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "verified",
+      "path": "knowledge-engine/patterns/pattern-001.md",
+      "tags": []
+    },
+    {
+      "id": "constitution.core.philosophy",
+      "title": "Core Philosophy",
+      "category": "atom",
+      "domain": "constitution",
+      "knowledgeFolder": "00-constitution",
+      "confidence": 0.95,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "verified",
+      "path": "knowledge/00-constitution/CorePhilosophy.md",
+      "tags": [
+        "constitution"
+      ]
+    },
+    {
+      "id": "constitution.decision.framework",
+      "title": "Decision Framework",
+      "category": "atom",
+      "domain": "constitution",
+      "knowledgeFolder": "00-constitution",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/00-constitution/DecisionFramework.md",
+      "tags": [
+        "constitution"
+      ]
+    },
+    {
+      "id": "constitution.engineering.standards",
+      "title": "Engineering Standards",
+      "category": "atom",
+      "domain": "constitution",
+      "knowledgeFolder": "00-constitution",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/00-constitution/EngineeringStandards.md",
+      "tags": [
+        "constitution"
+      ]
+    },
+    {
+      "id": "constitution.mission",
+      "title": "Mission",
+      "category": "atom",
+      "domain": "constitution",
+      "knowledgeFolder": "00-constitution",
+      "confidence": 0.95,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "verified",
+      "path": "knowledge/00-constitution/Mission.md",
+      "tags": [
+        "constitution"
+      ]
+    },
+    {
+      "id": "constitution.principles",
+      "title": "Principles",
+      "category": "atom",
+      "domain": "constitution",
+      "knowledgeFolder": "00-constitution",
+      "confidence": 0.95,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "verified",
+      "path": "knowledge/00-constitution/Principles.md",
+      "tags": [
+        "constitution"
+      ]
+    },
+    {
+      "id": "constitution.quality.standards",
+      "title": "Quality Standards",
+      "category": "atom",
+      "domain": "constitution",
+      "knowledgeFolder": "00-constitution",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/00-constitution/QualityStandards.md",
+      "tags": [
+        "constitution"
+      ]
+    },
+    {
+      "id": "constitution.success.metrics",
+      "title": "Success Metrics",
+      "category": "atom",
+      "domain": "constitution",
+      "knowledgeFolder": "00-constitution",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/00-constitution/SuccessMetrics.md",
+      "tags": [
+        "constitution"
+      ]
+    },
+    {
+      "id": "constitution.thinking.framework",
+      "title": "Thinking Framework",
+      "category": "atom",
+      "domain": "constitution",
+      "knowledgeFolder": "00-constitution",
+      "confidence": 0.95,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "verified",
+      "path": "knowledge/00-constitution/ThinkingFramework.md",
+      "tags": [
+        "constitution"
+      ]
+    },
+    {
+      "id": "constitution.vision",
+      "title": "Vision",
+      "category": "atom",
+      "domain": "constitution",
+      "knowledgeFolder": "00-constitution",
+      "confidence": 0.95,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "verified",
+      "path": "knowledge/00-constitution/Vision.md",
+      "tags": [
+        "constitution"
+      ]
+    },
+    {
+      "id": "company.brand.positioning",
+      "title": "Brand Positioning",
+      "category": "atom",
+      "domain": "company",
+      "knowledgeFolder": "01-company",
+      "confidence": 0.95,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "verified",
+      "path": "knowledge/01-company/BrandPositioning.md",
+      "tags": [
+        "company"
+      ]
+    },
+    {
+      "id": "company.case.studies",
+      "title": "Case Studies",
+      "category": "atom",
+      "domain": "company",
+      "knowledgeFolder": "01-company",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/01-company/CaseStudies.md",
+      "tags": [
+        "company"
+      ]
+    },
+    {
+      "id": "company.culture",
+      "title": "Culture",
+      "category": "atom",
+      "domain": "company",
+      "knowledgeFolder": "01-company",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/01-company/Culture.md",
+      "tags": [
+        "company"
+      ]
+    },
+    {
+      "id": "company.goals",
+      "title": "Goals",
+      "category": "atom",
+      "domain": "company",
+      "knowledgeFolder": "01-company",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/01-company/Goals.md",
+      "tags": [
+        "company"
+      ]
+    },
+    {
+      "id": "company.i.c.p",
+      "title": "I C P",
+      "category": "atom",
+      "domain": "company",
+      "knowledgeFolder": "01-company",
+      "confidence": 0.95,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "verified",
+      "path": "knowledge/01-company/ICP.md",
+      "tags": [
+        "company"
+      ]
+    },
+    {
+      "id": "company.ideal.clients",
+      "title": "Ideal Clients",
+      "category": "atom",
+      "domain": "company",
+      "knowledgeFolder": "01-company",
+      "confidence": 0.95,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "verified",
+      "path": "knowledge/01-company/IdealClients.md",
+      "tags": [
+        "company"
+      ]
+    },
+    {
+      "id": "company.mission",
+      "title": "Mission",
+      "category": "atom",
+      "domain": "company",
+      "knowledgeFolder": "01-company",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/01-company/Mission.md",
+      "tags": [
+        "company"
+      ]
+    },
+    {
+      "id": "company.pricing",
+      "title": "Pricing",
+      "category": "atom",
+      "domain": "company",
+      "knowledgeFolder": "01-company",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/01-company/Pricing.md",
+      "tags": [
+        "company"
+      ]
+    },
+    {
+      "id": "company.services",
+      "title": "Services",
+      "category": "atom",
+      "domain": "company",
+      "knowledgeFolder": "01-company",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/01-company/Services.md",
+      "tags": [
+        "company"
+      ]
+    },
+    {
+      "id": "company.softree",
+      "title": "Softree",
+      "category": "atom",
+      "domain": "company",
+      "knowledgeFolder": "01-company",
+      "confidence": 0.95,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "verified",
+      "path": "knowledge/01-company/Softree.md",
+      "tags": [
+        "company"
+      ]
+    },
+    {
+      "id": "company.team",
+      "title": "Team",
+      "category": "atom",
+      "domain": "company",
+      "knowledgeFolder": "01-company",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/01-company/Team.md",
+      "tags": [
+        "company"
+      ]
+    },
+    {
+      "id": "company.vision",
+      "title": "Vision",
+      "category": "atom",
+      "domain": "company",
+      "knowledgeFolder": "01-company",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/01-company/Vision.md",
+      "tags": [
+        "company"
+      ]
+    },
+    {
+      "id": "consulting.business.analysis",
+      "title": "Business Analysis",
+      "category": "atom",
+      "domain": "consulting",
+      "knowledgeFolder": "02-consulting",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/02-consulting/BusinessAnalysis.md",
+      "tags": [
+        "consulting"
+      ]
+    },
+    {
+      "id": "consulting.consulting.playbook",
+      "title": "Consulting Playbook",
+      "category": "atom",
+      "domain": "consulting",
+      "knowledgeFolder": "02-consulting",
+      "confidence": 0.95,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "verified",
+      "path": "knowledge/02-consulting/ConsultingPlaybook.md",
+      "tags": [
+        "consulting"
+      ]
+    },
+    {
+      "id": "consulting.hypothesis.driven.thinking",
+      "title": "Hypothesis Driven Thinking",
+      "category": "atom",
+      "domain": "consulting",
+      "knowledgeFolder": "02-consulting",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/02-consulting/HypothesisDrivenThinking.md",
+      "tags": [
+        "consulting"
+      ]
+    },
+    {
+      "id": "consulting.issue.trees",
+      "title": "Issue Trees",
+      "category": "atom",
+      "domain": "consulting",
+      "knowledgeFolder": "02-consulting",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/02-consulting/IssueTrees.md",
+      "tags": [
+        "consulting"
+      ]
+    },
+    {
+      "id": "consulting.m.e.c.e",
+      "title": "M E C E",
+      "category": "atom",
+      "domain": "consulting",
+      "knowledgeFolder": "02-consulting",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/02-consulting/MECE.md",
+      "tags": [
+        "consulting"
+      ]
+    },
+    {
+      "id": "consulting.problem.solving",
+      "title": "Problem Solving",
+      "category": "atom",
+      "domain": "consulting",
+      "knowledgeFolder": "02-consulting",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/02-consulting/ProblemSolving.md",
+      "tags": [
+        "consulting"
+      ]
+    },
+    {
+      "id": "consulting.root.cause.analysis",
+      "title": "Root Cause Analysis",
+      "category": "atom",
+      "domain": "consulting",
+      "knowledgeFolder": "02-consulting",
+      "confidence": 0.95,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "verified",
+      "path": "knowledge/02-consulting/RootCauseAnalysis.md",
+      "tags": [
+        "consulting"
+      ]
+    },
+    {
+      "id": "consulting.strategy",
+      "title": "Strategy",
+      "category": "atom",
+      "domain": "consulting",
+      "knowledgeFolder": "02-consulting",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/02-consulting/Strategy.md",
+      "tags": [
+        "consulting"
+      ]
+    },
+    {
+      "id": "consulting.transformation",
+      "title": "Transformation",
+      "category": "atom",
+      "domain": "consulting",
+      "knowledgeFolder": "02-consulting",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/02-consulting/Transformation.md",
+      "tags": [
+        "consulting"
+      ]
+    },
+    {
+      "id": "consulting.value.chain",
+      "title": "Value Chain",
+      "category": "atom",
+      "domain": "consulting",
+      "knowledgeFolder": "02-consulting",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/02-consulting/ValueChain.md",
+      "tags": [
+        "consulting"
+      ]
+    },
+    {
+      "id": "design.airbnb",
+      "title": "Airbnb",
+      "category": "atom",
+      "domain": "design",
+      "knowledgeFolder": "03-design",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/03-design/Airbnb.md",
+      "tags": [
+        "design"
+      ]
+    },
+    {
+      "id": "design.apple",
+      "title": "Apple",
+      "category": "atom",
+      "domain": "design",
+      "knowledgeFolder": "03-design",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/03-design/Apple.md",
+      "tags": [
+        "design"
+      ]
+    },
+    {
+      "id": "design.color.theory",
+      "title": "Color Theory",
+      "category": "atom",
+      "domain": "design",
+      "knowledgeFolder": "03-design",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/03-design/ColorTheory.md",
+      "tags": [
+        "design"
+      ]
+    },
+    {
+      "id": "design.design.principles",
+      "title": "Design Principles",
+      "category": "atom",
+      "domain": "design",
+      "knowledgeFolder": "03-design",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/03-design/DesignPrinciples.md",
+      "tags": [
+        "design"
+      ]
+    },
+    {
+      "id": "design.linear",
+      "title": "Linear",
+      "category": "atom",
+      "domain": "design",
+      "knowledgeFolder": "03-design",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/03-design/Linear.md",
+      "tags": [
+        "design"
+      ]
+    },
+    {
+      "id": "design.notion",
+      "title": "Notion",
+      "category": "atom",
+      "domain": "design",
+      "knowledgeFolder": "03-design",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/03-design/Notion.md",
+      "tags": [
+        "design"
+      ]
+    },
+    {
+      "id": "design.stripe",
+      "title": "Stripe",
+      "category": "atom",
+      "domain": "design",
+      "knowledgeFolder": "03-design",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/03-design/Stripe.md",
+      "tags": [
+        "design"
+      ]
+    },
+    {
+      "id": "design.vercel",
+      "title": "Vercel",
+      "category": "atom",
+      "domain": "design",
+      "knowledgeFolder": "03-design",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/03-design/Vercel.md",
+      "tags": [
+        "design"
+      ]
+    },
+    {
+      "id": "design.visual.hierarchy",
+      "title": "Visual Hierarchy",
+      "category": "atom",
+      "domain": "design",
+      "knowledgeFolder": "03-design",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/03-design/VisualHierarchy.md",
+      "tags": [
+        "design"
+      ]
+    },
+    {
+      "id": "design.whitespace",
+      "title": "Whitespace",
+      "category": "atom",
+      "domain": "design",
+      "knowledgeFolder": "03-design",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/03-design/Whitespace.md",
+      "tags": [
+        "design"
+      ]
+    },
+    {
+      "id": "ui.ux.accessibility",
+      "title": "Accessibility",
+      "category": "atom",
+      "domain": "ui-ux",
+      "knowledgeFolder": "04-ui-ux",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/04-ui-ux/Accessibility.md",
+      "tags": [
+        "ui-ux"
+      ]
+    },
+    {
+      "id": "ui.ux.enterprise.u.x",
+      "title": "Enterprise U X",
+      "category": "atom",
+      "domain": "ui-ux",
+      "knowledgeFolder": "04-ui-ux",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/04-ui-ux/EnterpriseUX.md",
+      "tags": [
+        "ui-ux"
+      ]
+    },
+    {
+      "id": "ui.ux.information.architecture",
+      "title": "Information Architecture",
+      "category": "atom",
+      "domain": "ui-ux",
+      "knowledgeFolder": "04-ui-ux",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/04-ui-ux/InformationArchitecture.md",
+      "tags": [
+        "ui-ux"
+      ]
+    },
+    {
+      "id": "ui.ux.interaction",
+      "title": "Interaction",
+      "category": "atom",
+      "domain": "ui-ux",
+      "knowledgeFolder": "04-ui-ux",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/04-ui-ux/Interaction.md",
+      "tags": [
+        "ui-ux"
+      ]
+    },
+    {
+      "id": "ui.ux.mental.models",
+      "title": "Mental Models",
+      "category": "atom",
+      "domain": "ui-ux",
+      "knowledgeFolder": "04-ui-ux",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/04-ui-ux/MentalModels.md",
+      "tags": [
+        "ui-ux"
+      ]
+    },
+    {
+      "id": "ui.ux.navigation",
+      "title": "Navigation",
+      "category": "atom",
+      "domain": "ui-ux",
+      "knowledgeFolder": "04-ui-ux",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/04-ui-ux/Navigation.md",
+      "tags": [
+        "ui-ux"
+      ]
+    },
+    {
+      "id": "ui.ux.nielsen.norman",
+      "title": "Nielsen Norman",
+      "category": "atom",
+      "domain": "ui-ux",
+      "knowledgeFolder": "04-ui-ux",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/04-ui-ux/NielsenNorman.md",
+      "tags": [
+        "ui-ux"
+      ]
+    },
+    {
+      "id": "ui.ux.u.x.laws",
+      "title": "U X Laws",
+      "category": "atom",
+      "domain": "ui-ux",
+      "knowledgeFolder": "04-ui-ux",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/04-ui-ux/UXLaws.md",
+      "tags": [
+        "ui-ux"
+      ]
+    },
+    {
+      "id": "engineering.architecture",
+      "title": "Architecture",
+      "category": "atom",
+      "domain": "engineering",
+      "knowledgeFolder": "05-engineering",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/05-engineering/Architecture.md",
+      "tags": [
+        "engineering"
+      ]
+    },
+    {
+      "id": "engineering.clean.code",
+      "title": "Clean Code",
+      "category": "atom",
+      "domain": "engineering",
+      "knowledgeFolder": "05-engineering",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/05-engineering/CleanCode.md",
+      "tags": [
+        "engineering"
+      ]
+    },
+    {
+      "id": "engineering.design.patterns",
+      "title": "Design Patterns",
+      "category": "atom",
+      "domain": "engineering",
+      "knowledgeFolder": "05-engineering",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/05-engineering/DesignPatterns.md",
+      "tags": [
+        "engineering"
+      ]
+    },
+    {
+      "id": "engineering.next.j.s",
+      "title": "Next J S",
+      "category": "atom",
+      "domain": "engineering",
+      "knowledgeFolder": "05-engineering",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/05-engineering/NextJS.md",
+      "tags": [
+        "engineering"
+      ]
+    },
+    {
+      "id": "engineering.performance",
+      "title": "Performance",
+      "category": "atom",
+      "domain": "engineering",
+      "knowledgeFolder": "05-engineering",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/05-engineering/Performance.md",
+      "tags": [
+        "engineering"
+      ]
+    },
+    {
+      "id": "engineering.react",
+      "title": "React",
+      "category": "atom",
+      "domain": "engineering",
+      "knowledgeFolder": "05-engineering",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/05-engineering/React.md",
+      "tags": [
+        "engineering"
+      ]
+    },
+    {
+      "id": "engineering.scalability",
+      "title": "Scalability",
+      "category": "atom",
+      "domain": "engineering",
+      "knowledgeFolder": "05-engineering",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/05-engineering/Scalability.md",
+      "tags": [
+        "engineering"
+      ]
+    },
+    {
+      "id": "engineering.security",
+      "title": "Security",
+      "category": "atom",
+      "domain": "engineering",
+      "knowledgeFolder": "05-engineering",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/05-engineering/Security.md",
+      "tags": [
+        "engineering"
+      ]
+    },
+    {
+      "id": "engineering.type.script",
+      "title": "Type Script",
+      "category": "atom",
+      "domain": "engineering",
+      "knowledgeFolder": "05-engineering",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/05-engineering/TypeScript.md",
+      "tags": [
+        "engineering"
+      ]
+    },
+    {
+      "id": "ai.agents",
+      "title": "Agents",
+      "category": "atom",
+      "domain": "ai",
+      "knowledgeFolder": "06-ai",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/06-ai/Agents.md",
+      "tags": [
+        "ai"
+      ]
+    },
+    {
+      "id": "ai.a.i.architecture",
+      "title": "A I Architecture",
+      "category": "atom",
+      "domain": "ai",
+      "knowledgeFolder": "06-ai",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/06-ai/AIArchitecture.md",
+      "tags": [
+        "ai"
+      ]
+    },
+    {
+      "id": "ai.a.i.governance",
+      "title": "A I Governance",
+      "category": "atom",
+      "domain": "ai",
+      "knowledgeFolder": "06-ai",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/06-ai/AIGovernance.md",
+      "tags": [
+        "ai"
+      ]
+    },
+    {
+      "id": "ai.a.i.transformation",
+      "title": "A I Transformation",
+      "category": "atom",
+      "domain": "ai",
+      "knowledgeFolder": "06-ai",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/06-ai/AITransformation.md",
+      "tags": [
+        "ai"
+      ]
+    },
+    {
+      "id": "ai.a.i.workflows",
+      "title": "A I Workflows",
+      "category": "atom",
+      "domain": "ai",
+      "knowledgeFolder": "06-ai",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/06-ai/AIWorkflows.md",
+      "tags": [
+        "ai"
+      ]
+    },
+    {
+      "id": "ai.enterprise.a.i",
+      "title": "Enterprise A I",
+      "category": "atom",
+      "domain": "ai",
+      "knowledgeFolder": "06-ai",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/06-ai/EnterpriseAI.md",
+      "tags": [
+        "ai"
+      ]
+    },
+    {
+      "id": "ai.l.l.ms",
+      "title": "L L Ms",
+      "category": "atom",
+      "domain": "ai",
+      "knowledgeFolder": "06-ai",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/06-ai/LLMs.md",
+      "tags": [
+        "ai"
+      ]
+    },
+    {
+      "id": "ai.m.c.p",
+      "title": "M C P",
+      "category": "atom",
+      "domain": "ai",
+      "knowledgeFolder": "06-ai",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/06-ai/MCP.md",
+      "tags": [
+        "ai"
+      ]
+    },
+    {
+      "id": "ai.prompt.engineering",
+      "title": "Prompt Engineering",
+      "category": "atom",
+      "domain": "ai",
+      "knowledgeFolder": "06-ai",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/06-ai/PromptEngineering.md",
+      "tags": [
+        "ai"
+      ]
+    },
+    {
+      "id": "ai.r.a.g",
+      "title": "R A G",
+      "category": "atom",
+      "domain": "ai",
+      "knowledgeFolder": "06-ai",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/06-ai/RAG.md",
+      "tags": [
+        "ai"
+      ]
+    },
+    {
+      "id": "ai.tool.calling",
+      "title": "Tool Calling",
+      "category": "atom",
+      "domain": "ai",
+      "knowledgeFolder": "06-ai",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/06-ai/ToolCalling.md",
+      "tags": [
+        "ai"
+      ]
+    },
+    {
+      "id": "marketing.a.b.m",
+      "title": "A B M",
+      "category": "atom",
+      "domain": "marketing",
+      "knowledgeFolder": "07-marketing",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/07-marketing/ABM.md",
+      "tags": [
+        "marketing"
+      ]
+    },
+    {
+      "id": "marketing.content.marketing",
+      "title": "Content Marketing",
+      "category": "atom",
+      "domain": "marketing",
+      "knowledgeFolder": "07-marketing",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/07-marketing/ContentMarketing.md",
+      "tags": [
+        "marketing"
+      ]
+    },
+    {
+      "id": "marketing.demand.generation",
+      "title": "Demand Generation",
+      "category": "atom",
+      "domain": "marketing",
+      "knowledgeFolder": "07-marketing",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/07-marketing/DemandGeneration.md",
+      "tags": [
+        "marketing"
+      ]
+    },
+    {
+      "id": "marketing.email.marketing",
+      "title": "Email Marketing",
+      "category": "atom",
+      "domain": "marketing",
+      "knowledgeFolder": "07-marketing",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/07-marketing/EmailMarketing.md",
+      "tags": [
+        "marketing"
+      ]
+    },
+    {
+      "id": "marketing.lead.generation",
+      "title": "Lead Generation",
+      "category": "atom",
+      "domain": "marketing",
+      "knowledgeFolder": "07-marketing",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/07-marketing/LeadGeneration.md",
+      "tags": [
+        "marketing"
+      ]
+    },
+    {
+      "id": "marketing.marketing.psychology",
+      "title": "Marketing Psychology",
+      "category": "atom",
+      "domain": "marketing",
+      "knowledgeFolder": "07-marketing",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/07-marketing/MarketingPsychology.md",
+      "tags": [
+        "marketing"
+      ]
+    },
+    {
+      "id": "marketing.messaging",
+      "title": "Messaging",
+      "category": "atom",
+      "domain": "marketing",
+      "knowledgeFolder": "07-marketing",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/07-marketing/Messaging.md",
+      "tags": [
+        "marketing"
+      ]
+    },
+    {
+      "id": "marketing.paid.ads",
+      "title": "Paid Ads",
+      "category": "atom",
+      "domain": "marketing",
+      "knowledgeFolder": "07-marketing",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/07-marketing/PaidAds.md",
+      "tags": [
+        "marketing"
+      ]
+    },
+    {
+      "id": "marketing.positioning",
+      "title": "Positioning",
+      "category": "atom",
+      "domain": "marketing",
+      "knowledgeFolder": "07-marketing",
+      "confidence": 0.95,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "verified",
+      "path": "knowledge/07-marketing/Positioning.md",
+      "tags": [
+        "marketing"
+      ]
+    },
+    {
+      "id": "sales.c.r.m",
+      "title": "C R M",
+      "category": "atom",
+      "domain": "sales",
+      "knowledgeFolder": "08-sales",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/08-sales/CRM.md",
+      "tags": [
+        "sales"
+      ]
+    },
+    {
+      "id": "sales.discovery.calls",
+      "title": "Discovery Calls",
+      "category": "atom",
+      "domain": "sales",
+      "knowledgeFolder": "08-sales",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/08-sales/DiscoveryCalls.md",
+      "tags": [
+        "sales"
+      ]
+    },
+    {
+      "id": "sales.enterprise.sales",
+      "title": "Enterprise Sales",
+      "category": "atom",
+      "domain": "sales",
+      "knowledgeFolder": "08-sales",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/08-sales/EnterpriseSales.md",
+      "tags": [
+        "sales"
+      ]
+    },
+    {
+      "id": "sales.negotiation",
+      "title": "Negotiation",
+      "category": "atom",
+      "domain": "sales",
+      "knowledgeFolder": "08-sales",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/08-sales/Negotiation.md",
+      "tags": [
+        "sales"
+      ]
+    },
+    {
+      "id": "sales.objection.handling",
+      "title": "Objection Handling",
+      "category": "atom",
+      "domain": "sales",
+      "knowledgeFolder": "08-sales",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/08-sales/ObjectionHandling.md",
+      "tags": [
+        "sales"
+      ]
+    },
+    {
+      "id": "sales.pricing",
+      "title": "Pricing",
+      "category": "atom",
+      "domain": "sales",
+      "knowledgeFolder": "08-sales",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/08-sales/Pricing.md",
+      "tags": [
+        "sales"
+      ]
+    },
+    {
+      "id": "sales.procurement",
+      "title": "Procurement",
+      "category": "atom",
+      "domain": "sales",
+      "knowledgeFolder": "08-sales",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/08-sales/Procurement.md",
+      "tags": [
+        "sales"
+      ]
+    },
+    {
+      "id": "sales.proposal.writing",
+      "title": "Proposal Writing",
+      "category": "atom",
+      "domain": "sales",
+      "knowledgeFolder": "08-sales",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/08-sales/ProposalWriting.md",
+      "tags": [
+        "sales"
+      ]
+    },
+    {
+      "id": "seo.core.web.vitals",
+      "title": "Core Web Vitals",
+      "category": "atom",
+      "domain": "seo",
+      "knowledgeFolder": "09-seo",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/09-seo/CoreWebVitals.md",
+      "tags": [
+        "seo"
+      ]
+    },
+    {
+      "id": "seo.internal.links",
+      "title": "Internal Links",
+      "category": "atom",
+      "domain": "seo",
+      "knowledgeFolder": "09-seo",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/09-seo/InternalLinks.md",
+      "tags": [
+        "seo"
+      ]
+    },
+    {
+      "id": "seo.keyword.research",
+      "title": "Keyword Research",
+      "category": "atom",
+      "domain": "seo",
+      "knowledgeFolder": "09-seo",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/09-seo/KeywordResearch.md",
+      "tags": [
+        "seo"
+      ]
+    },
+    {
+      "id": "seo.schema",
+      "title": "Schema",
+      "category": "atom",
+      "domain": "seo",
+      "knowledgeFolder": "09-seo",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/09-seo/Schema.md",
+      "tags": [
+        "seo"
+      ]
+    },
+    {
+      "id": "seo.semantic.s.e.o",
+      "title": "Semantic S E O",
+      "category": "atom",
+      "domain": "seo",
+      "knowledgeFolder": "09-seo",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/09-seo/SemanticSEO.md",
+      "tags": [
+        "seo"
+      ]
+    },
+    {
+      "id": "seo.technical.s.e.o",
+      "title": "Technical S E O",
+      "category": "atom",
+      "domain": "seo",
+      "knowledgeFolder": "09-seo",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/09-seo/TechnicalSEO.md",
+      "tags": [
+        "seo"
+      ]
+    },
+    {
+      "id": "seo.topical.authority",
+      "title": "Topical Authority",
+      "category": "atom",
+      "domain": "seo",
+      "knowledgeFolder": "09-seo",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/09-seo/TopicalAuthority.md",
+      "tags": [
+        "seo"
+      ]
+    },
+    {
+      "id": "geo.chat.g.p.t.optimization",
+      "title": "Chat G P T Optimization",
+      "category": "atom",
+      "domain": "geo",
+      "knowledgeFolder": "10-geo",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/10-geo/ChatGPTOptimization.md",
+      "tags": [
+        "geo"
+      ]
+    },
+    {
+      "id": "geo.citation.optimization",
+      "title": "Citation Optimization",
+      "category": "atom",
+      "domain": "geo",
+      "knowledgeFolder": "10-geo",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/10-geo/CitationOptimization.md",
+      "tags": [
+        "geo"
+      ]
+    },
+    {
+      "id": "geo.claude.optimization",
+      "title": "Claude Optimization",
+      "category": "atom",
+      "domain": "geo",
+      "knowledgeFolder": "10-geo",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/10-geo/ClaudeOptimization.md",
+      "tags": [
+        "geo"
+      ]
+    },
+    {
+      "id": "geo.entity.optimization",
+      "title": "Entity Optimization",
+      "category": "atom",
+      "domain": "geo",
+      "knowledgeFolder": "10-geo",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/10-geo/EntityOptimization.md",
+      "tags": [
+        "geo"
+      ]
+    },
+    {
+      "id": "geo.gemini.optimization",
+      "title": "Gemini Optimization",
+      "category": "atom",
+      "domain": "geo",
+      "knowledgeFolder": "10-geo",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/10-geo/GeminiOptimization.md",
+      "tags": [
+        "geo"
+      ]
+    },
+    {
+      "id": "geo.knowledge.graphs",
+      "title": "Knowledge Graphs",
+      "category": "atom",
+      "domain": "geo",
+      "knowledgeFolder": "10-geo",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/10-geo/KnowledgeGraphs.md",
+      "tags": [
+        "geo"
+      ]
+    },
+    {
+      "id": "geo.perplexity.optimization",
+      "title": "Perplexity Optimization",
+      "category": "atom",
+      "domain": "geo",
+      "knowledgeFolder": "10-geo",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/10-geo/PerplexityOptimization.md",
+      "tags": [
+        "geo"
+      ]
+    },
+    {
+      "id": "aeo.answer.engine.optimization",
+      "title": "Answer Engine Optimization",
+      "category": "atom",
+      "domain": "aeo",
+      "knowledgeFolder": "11-aeo",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/11-aeo/AnswerEngineOptimization.md",
+      "tags": [
+        "aeo"
+      ]
+    },
+    {
+      "id": "aeo.f.a.qs",
+      "title": "F A Qs",
+      "category": "atom",
+      "domain": "aeo",
+      "knowledgeFolder": "11-aeo",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/11-aeo/FAQs.md",
+      "tags": [
+        "aeo"
+      ]
+    },
+    {
+      "id": "aeo.question.research",
+      "title": "Question Research",
+      "category": "atom",
+      "domain": "aeo",
+      "knowledgeFolder": "11-aeo",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/11-aeo/QuestionResearch.md",
+      "tags": [
+        "aeo"
+      ]
+    },
+    {
+      "id": "aeo.snippet.optimization",
+      "title": "Snippet Optimization",
+      "category": "atom",
+      "domain": "aeo",
+      "knowledgeFolder": "11-aeo",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/11-aeo/SnippetOptimization.md",
+      "tags": [
+        "aeo"
+      ]
+    },
+    {
+      "id": "aeo.structured.answers",
+      "title": "Structured Answers",
+      "category": "atom",
+      "domain": "aeo",
+      "knowledgeFolder": "11-aeo",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/11-aeo/StructuredAnswers.md",
+      "tags": [
+        "aeo"
+      ]
+    },
+    {
+      "id": "brand.authority",
+      "title": "Authority",
+      "category": "atom",
+      "domain": "brand",
+      "knowledgeFolder": "12-brand",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/12-brand/Authority.md",
+      "tags": [
+        "brand"
+      ]
+    },
+    {
+      "id": "brand.brand.identity",
+      "title": "Brand Identity",
+      "category": "atom",
+      "domain": "brand",
+      "knowledgeFolder": "12-brand",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/12-brand/BrandIdentity.md",
+      "tags": [
+        "brand"
+      ]
+    },
+    {
+      "id": "brand.brand.voice",
+      "title": "Brand Voice",
+      "category": "atom",
+      "domain": "brand",
+      "knowledgeFolder": "12-brand",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/12-brand/BrandVoice.md",
+      "tags": [
+        "brand"
+      ]
+    },
+    {
+      "id": "brand.category.creation",
+      "title": "Category Creation",
+      "category": "atom",
+      "domain": "brand",
+      "knowledgeFolder": "12-brand",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/12-brand/CategoryCreation.md",
+      "tags": [
+        "brand"
+      ]
+    },
+    {
+      "id": "brand.reputation",
+      "title": "Reputation",
+      "category": "atom",
+      "domain": "brand",
+      "knowledgeFolder": "12-brand",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/12-brand/Reputation.md",
+      "tags": [
+        "brand"
+      ]
+    },
+    {
+      "id": "brand.trust",
+      "title": "Trust",
+      "category": "atom",
+      "domain": "brand",
+      "knowledgeFolder": "12-brand",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/12-brand/Trust.md",
+      "tags": [
+        "brand"
+      ]
+    },
+    {
+      "id": "copywriting.case.studies",
+      "title": "Case Studies",
+      "category": "atom",
+      "domain": "copywriting",
+      "knowledgeFolder": "13-copywriting",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/13-copywriting/CaseStudies.md",
+      "tags": [
+        "copywriting"
+      ]
+    },
+    {
+      "id": "copywriting.c.t.as",
+      "title": "C T As",
+      "category": "atom",
+      "domain": "copywriting",
+      "knowledgeFolder": "13-copywriting",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/13-copywriting/CTAs.md",
+      "tags": [
+        "copywriting"
+      ]
+    },
+    {
+      "id": "copywriting.headlines",
+      "title": "Headlines",
+      "category": "atom",
+      "domain": "copywriting",
+      "knowledgeFolder": "13-copywriting",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/13-copywriting/Headlines.md",
+      "tags": [
+        "copywriting"
+      ]
+    },
+    {
+      "id": "copywriting.homepage",
+      "title": "Homepage",
+      "category": "atom",
+      "domain": "copywriting",
+      "knowledgeFolder": "13-copywriting",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/13-copywriting/Homepage.md",
+      "tags": [
+        "copywriting"
+      ]
+    },
+    {
+      "id": "copywriting.landing.pages",
+      "title": "Landing Pages",
+      "category": "atom",
+      "domain": "copywriting",
+      "knowledgeFolder": "13-copywriting",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/13-copywriting/LandingPages.md",
+      "tags": [
+        "copywriting"
+      ]
+    },
+    {
+      "id": "copywriting.linked.in",
+      "title": "Linked In",
+      "category": "atom",
+      "domain": "copywriting",
+      "knowledgeFolder": "13-copywriting",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/13-copywriting/LinkedIn.md",
+      "tags": [
+        "copywriting"
+      ]
+    },
+    {
+      "id": "copywriting.newsletters",
+      "title": "Newsletters",
+      "category": "atom",
+      "domain": "copywriting",
+      "knowledgeFolder": "13-copywriting",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/13-copywriting/Newsletters.md",
+      "tags": [
+        "copywriting"
+      ]
+    },
+    {
+      "id": "copywriting.storytelling",
+      "title": "Storytelling",
+      "category": "atom",
+      "domain": "copywriting",
+      "knowledgeFolder": "13-copywriting",
+      "confidence": 0.95,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "verified",
+      "path": "knowledge/13-copywriting/Storytelling.md",
+      "tags": [
+        "copywriting"
+      ]
+    },
+    {
+      "id": "research.a.i.trends",
+      "title": "A I Trends",
+      "category": "atom",
+      "domain": "research",
+      "knowledgeFolder": "14-research",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/14-research/AITrends.md",
+      "tags": [
+        "research"
+      ]
+    },
+    {
+      "id": "research.anthropic",
+      "title": "Anthropic",
+      "category": "atom",
+      "domain": "research",
+      "knowledgeFolder": "14-research",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/14-research/Anthropic.md",
+      "tags": [
+        "research"
+      ]
+    },
+    {
+      "id": "research.a.w.s",
+      "title": "A W S",
+      "category": "atom",
+      "domain": "research",
+      "knowledgeFolder": "14-research",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/14-research/AWS.md",
+      "tags": [
+        "research"
+      ]
+    },
+    {
+      "id": "research.azure",
+      "title": "Azure",
+      "category": "atom",
+      "domain": "research",
+      "knowledgeFolder": "14-research",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/14-research/Azure.md",
+      "tags": [
+        "research"
+      ]
+    },
+    {
+      "id": "research.enterprise.a.i",
+      "title": "Enterprise A I",
+      "category": "atom",
+      "domain": "research",
+      "knowledgeFolder": "14-research",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/14-research/EnterpriseAI.md",
+      "tags": [
+        "research"
+      ]
+    },
+    {
+      "id": "research.google",
+      "title": "Google",
+      "category": "atom",
+      "domain": "research",
+      "knowledgeFolder": "14-research",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/14-research/Google.md",
+      "tags": [
+        "research"
+      ]
+    },
+    {
+      "id": "research.microsoft",
+      "title": "Microsoft",
+      "category": "atom",
+      "domain": "research",
+      "knowledgeFolder": "14-research",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/14-research/Microsoft.md",
+      "tags": [
+        "research"
+      ]
+    },
+    {
+      "id": "research.open.a.i",
+      "title": "Open A I",
+      "category": "atom",
+      "domain": "research",
+      "knowledgeFolder": "14-research",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/14-research/OpenAI.md",
+      "tags": [
+        "research"
+      ]
+    },
+    {
+      "id": "competitors.accenture",
+      "title": "Accenture",
+      "category": "atom",
+      "domain": "competitors",
+      "knowledgeFolder": "15-competitors",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/15-competitors/Accenture.md",
+      "tags": [
+        "competitors"
+      ]
+    },
+    {
+      "id": "competitors.builder.a.i",
+      "title": "Builder A I",
+      "category": "atom",
+      "domain": "competitors",
+      "knowledgeFolder": "15-competitors",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/15-competitors/BuilderAI.md",
+      "tags": [
+        "competitors"
+      ]
+    },
+    {
+      "id": "competitors.deloitte",
+      "title": "Deloitte",
+      "category": "atom",
+      "domain": "competitors",
+      "knowledgeFolder": "15-competitors",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/15-competitors/Deloitte.md",
+      "tags": [
+        "competitors"
+      ]
+    },
+    {
+      "id": "competitors.globant",
+      "title": "Globant",
+      "category": "atom",
+      "domain": "competitors",
+      "knowledgeFolder": "15-competitors",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/15-competitors/Globant.md",
+      "tags": [
+        "competitors"
+      ]
+    },
+    {
+      "id": "competitors.i.b.m",
+      "title": "I B M",
+      "category": "atom",
+      "domain": "competitors",
+      "knowledgeFolder": "15-competitors",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/15-competitors/IBM.md",
+      "tags": [
+        "competitors"
+      ]
+    },
+    {
+      "id": "competitors.infosys",
+      "title": "Infosys",
+      "category": "atom",
+      "domain": "competitors",
+      "knowledgeFolder": "15-competitors",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/15-competitors/Infosys.md",
+      "tags": [
+        "competitors"
+      ]
+    },
+    {
+      "id": "competitors.kore.a.i",
+      "title": "Kore A I",
+      "category": "atom",
+      "domain": "competitors",
+      "knowledgeFolder": "15-competitors",
+      "confidence": 0.95,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "verified",
+      "path": "knowledge/15-competitors/KoreAI.md",
+      "tags": [
+        "competitors"
+      ]
+    },
+    {
+      "id": "competitors.moveworks",
+      "title": "Moveworks",
+      "category": "atom",
+      "domain": "competitors",
+      "knowledgeFolder": "15-competitors",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/15-competitors/Moveworks.md",
+      "tags": [
+        "competitors"
+      ]
+    },
+    {
+      "id": "competitors.pw.c",
+      "title": "Pw C",
+      "category": "atom",
+      "domain": "competitors",
+      "knowledgeFolder": "15-competitors",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/15-competitors/PwC.md",
+      "tags": [
+        "competitors"
+      ]
+    },
+    {
+      "id": "competitors.t.c.s",
+      "title": "T C S",
+      "category": "atom",
+      "domain": "competitors",
+      "knowledgeFolder": "15-competitors",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/15-competitors/TCS.md",
+      "tags": [
+        "competitors"
+      ]
+    },
+    {
+      "id": "competitors.thoughtworks",
+      "title": "Thoughtworks",
+      "category": "atom",
+      "domain": "competitors",
+      "knowledgeFolder": "15-competitors",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/15-competitors/Thoughtworks.md",
+      "tags": [
+        "competitors"
+      ]
+    },
+    {
+      "id": "competitors.writer",
+      "title": "Writer",
+      "category": "atom",
+      "domain": "competitors",
+      "knowledgeFolder": "15-competitors",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/15-competitors/Writer.md",
+      "tags": [
+        "competitors"
+      ]
+    },
+    {
+      "id": "competitors.yellow.a.i",
+      "title": "Yellow A I",
+      "category": "atom",
+      "domain": "competitors",
+      "knowledgeFolder": "15-competitors",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/15-competitors/YellowAI.md",
+      "tags": [
+        "competitors"
+      ]
+    },
+    {
+      "id": "industry.education",
+      "title": "Education",
+      "category": "atom",
+      "domain": "industry",
+      "knowledgeFolder": "16-industry",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/16-industry/Education.md",
+      "tags": [
+        "industry"
+      ]
+    },
+    {
+      "id": "industry.finance",
+      "title": "Finance",
+      "category": "atom",
+      "domain": "industry",
+      "knowledgeFolder": "16-industry",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/16-industry/Finance.md",
+      "tags": [
+        "industry"
+      ]
+    },
+    {
+      "id": "industry.healthcare",
+      "title": "Healthcare",
+      "category": "atom",
+      "domain": "industry",
+      "knowledgeFolder": "16-industry",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/16-industry/Healthcare.md",
+      "tags": [
+        "industry"
+      ]
+    },
+    {
+      "id": "industry.insurance",
+      "title": "Insurance",
+      "category": "atom",
+      "domain": "industry",
+      "knowledgeFolder": "16-industry",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/16-industry/Insurance.md",
+      "tags": [
+        "industry"
+      ]
+    },
+    {
+      "id": "industry.legal",
+      "title": "Legal",
+      "category": "atom",
+      "domain": "industry",
+      "knowledgeFolder": "16-industry",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/16-industry/Legal.md",
+      "tags": [
+        "industry"
+      ]
+    },
+    {
+      "id": "industry.logistics",
+      "title": "Logistics",
+      "category": "atom",
+      "domain": "industry",
+      "knowledgeFolder": "16-industry",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/16-industry/Logistics.md",
+      "tags": [
+        "industry"
+      ]
+    },
+    {
+      "id": "industry.manufacturing",
+      "title": "Manufacturing",
+      "category": "atom",
+      "domain": "industry",
+      "knowledgeFolder": "16-industry",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/16-industry/Manufacturing.md",
+      "tags": [
+        "industry"
+      ]
+    },
+    {
+      "id": "industry.retail",
+      "title": "Retail",
+      "category": "atom",
+      "domain": "industry",
+      "knowledgeFolder": "16-industry",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/16-industry/Retail.md",
+      "tags": [
+        "industry"
+      ]
+    },
+    {
+      "id": "frameworks.a.i.readiness.framework",
+      "title": "A I Readiness Framework",
+      "category": "atom",
+      "domain": "frameworks",
+      "knowledgeFolder": "17-frameworks",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/17-frameworks/AIReadinessFramework.md",
+      "tags": [
+        "frameworks"
+      ]
+    },
+    {
+      "id": "frameworks.brand.framework",
+      "title": "Brand Framework",
+      "category": "atom",
+      "domain": "frameworks",
+      "knowledgeFolder": "17-frameworks",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/17-frameworks/BrandFramework.md",
+      "tags": [
+        "frameworks"
+      ]
+    },
+    {
+      "id": "frameworks.conversion.framework",
+      "title": "Conversion Framework",
+      "category": "atom",
+      "domain": "frameworks",
+      "knowledgeFolder": "17-frameworks",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/17-frameworks/ConversionFramework.md",
+      "tags": [
+        "frameworks"
+      ]
+    },
+    {
+      "id": "frameworks.digital.transformation",
+      "title": "Digital Transformation",
+      "category": "atom",
+      "domain": "frameworks",
+      "knowledgeFolder": "17-frameworks",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/17-frameworks/DigitalTransformation.md",
+      "tags": [
+        "frameworks"
+      ]
+    },
+    {
+      "id": "frameworks.enterprise.audit",
+      "title": "Enterprise Audit",
+      "category": "atom",
+      "domain": "frameworks",
+      "knowledgeFolder": "17-frameworks",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/17-frameworks/EnterpriseAudit.md",
+      "tags": [
+        "frameworks"
+      ]
+    },
+    {
+      "id": "frameworks.modernization.framework",
+      "title": "Modernization Framework",
+      "category": "atom",
+      "domain": "frameworks",
+      "knowledgeFolder": "17-frameworks",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/17-frameworks/ModernizationFramework.md",
+      "tags": [
+        "frameworks"
+      ]
+    },
+    {
+      "id": "frameworks.softree.transformation.framework",
+      "title": "Softree Transformation Framework",
+      "category": "atom",
+      "domain": "frameworks",
+      "knowledgeFolder": "17-frameworks",
+      "confidence": 0.95,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "verified",
+      "path": "knowledge/17-frameworks/SoftreeTransformationFramework.md",
+      "tags": [
+        "frameworks"
+      ]
+    },
+    {
+      "id": "frameworks.trust.framework",
+      "title": "Trust Framework",
+      "category": "atom",
+      "domain": "frameworks",
+      "knowledgeFolder": "17-frameworks",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/17-frameworks/TrustFramework.md",
+      "tags": [
+        "frameworks"
+      ]
+    },
+    {
+      "id": "frameworks.website.audit.framework",
+      "title": "Website Audit Framework",
+      "category": "atom",
+      "domain": "frameworks",
+      "knowledgeFolder": "17-frameworks",
+      "confidence": 0.95,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "verified",
+      "path": "knowledge/17-frameworks/WebsiteAuditFramework.md",
+      "tags": [
+        "frameworks"
+      ]
+    },
+    {
+      "id": "scoring.accessibility.score",
+      "title": "Accessibility Score",
+      "category": "atom",
+      "domain": "scoring",
+      "knowledgeFolder": "18-scoring",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/18-scoring/AccessibilityScore.md",
+      "tags": [
+        "scoring"
+      ]
+    },
+    {
+      "id": "scoring.conversion.score",
+      "title": "Conversion Score",
+      "category": "atom",
+      "domain": "scoring",
+      "knowledgeFolder": "18-scoring",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/18-scoring/ConversionScore.md",
+      "tags": [
+        "scoring"
+      ]
+    },
+    {
+      "id": "scoring.design.score",
+      "title": "Design Score",
+      "category": "atom",
+      "domain": "scoring",
+      "knowledgeFolder": "18-scoring",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/18-scoring/DesignScore.md",
+      "tags": [
+        "scoring"
+      ]
+    },
+    {
+      "id": "scoring.enterprise.readiness",
+      "title": "Enterprise Readiness",
+      "category": "atom",
+      "domain": "scoring",
+      "knowledgeFolder": "18-scoring",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/18-scoring/EnterpriseReadiness.md",
+      "tags": [
+        "scoring"
+      ]
+    },
+    {
+      "id": "scoring.performance.score",
+      "title": "Performance Score",
+      "category": "atom",
+      "domain": "scoring",
+      "knowledgeFolder": "18-scoring",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/18-scoring/PerformanceScore.md",
+      "tags": [
+        "scoring"
+      ]
+    },
+    {
+      "id": "scoring.s.e.o.score",
+      "title": "S E O Score",
+      "category": "atom",
+      "domain": "scoring",
+      "knowledgeFolder": "18-scoring",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/18-scoring/SEOScore.md",
+      "tags": [
+        "scoring"
+      ]
+    },
+    {
+      "id": "scoring.trust.score",
+      "title": "Trust Score",
+      "category": "atom",
+      "domain": "scoring",
+      "knowledgeFolder": "18-scoring",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/18-scoring/TrustScore.md",
+      "tags": [
+        "scoring"
+      ]
+    },
+    {
+      "id": "scoring.website.score",
+      "title": "Website Score",
+      "category": "atom",
+      "domain": "scoring",
+      "knowledgeFolder": "18-scoring",
+      "confidence": 0.95,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "verified",
+      "path": "knowledge/18-scoring/WebsiteScore.md",
+      "tags": [
+        "scoring"
+      ]
+    },
+    {
+      "id": "reporting.audit.report",
+      "title": "Audit Report",
+      "category": "atom",
+      "domain": "reporting",
+      "knowledgeFolder": "19-reporting",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/19-reporting/AuditReport.md",
+      "tags": [
+        "reporting"
+      ]
+    },
+    {
+      "id": "reporting.business.report",
+      "title": "Business Report",
+      "category": "atom",
+      "domain": "reporting",
+      "knowledgeFolder": "19-reporting",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/19-reporting/BusinessReport.md",
+      "tags": [
+        "reporting"
+      ]
+    },
+    {
+      "id": "reporting.competitor.report",
+      "title": "Competitor Report",
+      "category": "atom",
+      "domain": "reporting",
+      "knowledgeFolder": "19-reporting",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/19-reporting/CompetitorReport.md",
+      "tags": [
+        "reporting"
+      ]
+    },
+    {
+      "id": "reporting.executive.report",
+      "title": "Executive Report",
+      "category": "atom",
+      "domain": "reporting",
+      "knowledgeFolder": "19-reporting",
+      "confidence": 0.95,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "verified",
+      "path": "knowledge/19-reporting/ExecutiveReport.md",
+      "tags": [
+        "reporting"
+      ]
+    },
+    {
+      "id": "reporting.proposal.template",
+      "title": "Proposal Template",
+      "category": "atom",
+      "domain": "reporting",
+      "knowledgeFolder": "19-reporting",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/19-reporting/ProposalTemplate.md",
+      "tags": [
+        "reporting"
+      ]
+    },
+    {
+      "id": "reporting.roadmap",
+      "title": "Roadmap",
+      "category": "atom",
+      "domain": "reporting",
+      "knowledgeFolder": "19-reporting",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/19-reporting/Roadmap.md",
+      "tags": [
+        "reporting"
+      ]
+    },
+    {
+      "id": "reporting.technical.report",
+      "title": "Technical Report",
+      "category": "atom",
+      "domain": "reporting",
+      "knowledgeFolder": "19-reporting",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/19-reporting/TechnicalReport.md",
+      "tags": [
+        "reporting"
+      ]
+    },
+    {
+      "id": "memory.r.e.a.d.m.e",
+      "title": "R E A D M E",
+      "category": "atom",
+      "domain": "memory",
+      "knowledgeFolder": "20-memory",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/20-memory/README.md",
+      "tags": [
+        "memory"
+      ]
+    },
+    {
+      "id": "roadmaps.180.day",
+      "title": "180 Day",
+      "category": "atom",
+      "domain": "roadmaps",
+      "knowledgeFolder": "21-roadmaps",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/21-roadmaps/180Day.md",
+      "tags": [
+        "roadmaps"
+      ]
+    },
+    {
+      "id": "roadmaps.30.day",
+      "title": "30 Day",
+      "category": "atom",
+      "domain": "roadmaps",
+      "knowledgeFolder": "21-roadmaps",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/21-roadmaps/30Day.md",
+      "tags": [
+        "roadmaps"
+      ]
+    },
+    {
+      "id": "roadmaps.365.day",
+      "title": "365 Day",
+      "category": "atom",
+      "domain": "roadmaps",
+      "knowledgeFolder": "21-roadmaps",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/21-roadmaps/365Day.md",
+      "tags": [
+        "roadmaps"
+      ]
+    },
+    {
+      "id": "roadmaps.90.day",
+      "title": "90 Day",
+      "category": "atom",
+      "domain": "roadmaps",
+      "knowledgeFolder": "21-roadmaps",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/21-roadmaps/90Day.md",
+      "tags": [
+        "roadmaps"
+      ]
+    },
+    {
+      "id": "roadmaps.a.i.adoption",
+      "title": "A I Adoption",
+      "category": "atom",
+      "domain": "roadmaps",
+      "knowledgeFolder": "21-roadmaps",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/21-roadmaps/AIAdoption.md",
+      "tags": [
+        "roadmaps"
+      ]
+    },
+    {
+      "id": "roadmaps.transformation",
+      "title": "Transformation",
+      "category": "atom",
+      "domain": "roadmaps",
+      "knowledgeFolder": "21-roadmaps",
+      "confidence": 0.4,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-06",
+      "status": "scaffold",
+      "path": "knowledge/21-roadmaps/Transformation.md",
+      "tags": [
+        "roadmaps"
+      ]
+    }
+  ],
+  "edges": []
+}

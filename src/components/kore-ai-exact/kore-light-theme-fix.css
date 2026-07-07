@@ -1,5 +1,18 @@
 /* .k2-theme-light — AI Agents, AI Programmable, Pillars */
 
+/* Opacity cross-fade is driven by body[data-theme] in reference CSS (0.5s). */
+
+.kore-ai-exact-shell .k2-theme-light .k2-tabs-panel-agents.on {
+  animation: none !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.kore-ai-exact-shell .k2-theme-light .k2-tabs-panel-agents:not(.on) {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 .kore-ai-exact-shell .k2-theme-light #ai-agents,
 .kore-ai-exact-shell .k2-theme-light #ai-programmable,
 .kore-ai-exact-shell .k2-theme-light #pillars {
@@ -24,26 +37,7 @@
 .kore-ai-exact-shell .k2-theme-light .k2-tabs-panel-agents.on .k2-agents-panel,
 .kore-ai-exact-shell .k2-theme-light .k2-tabs-panel-agents.on .k2-agents-header,
 .kore-ai-exact-shell .k2-theme-light .k2-tabs-panel-agents.on .k2-agents-content,
-.kore-ai-exact-shell .k2-theme-light .k2-tabs-panel-agents.on .k2-agents-content > *,
-.kore-ai-exact-shell .k2-theme-light .k2-tabs-panel-agents.on .line,
-.kore-ai-exact-shell .k2-theme-light .k2-tabs-panel-agents.on .char {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: none !important;
-}
-
-.kore-ai-exact-shell .k2-theme-light [data-scroll].on,
-.kore-ai-exact-shell .k2-theme-light [data-scroll].on .char,
-.kore-ai-exact-shell .k2-theme-light [data-scroll].on .line,
-.kore-ai-exact-shell .k2-theme-light [data-scroll].on [data-stagger] > *,
-.kore-ai-exact-shell .k2-theme-light [data-stagger].on > *,
-.kore-ai-exact-shell .k2-theme-light .k2-tabs.on [data-stagger] > *,
-.kore-ai-exact-shell .k2-theme-light .k2-pillars-row.on,
-.kore-ai-exact-shell .k2-theme-light .k2-pillars-row.on .k2-pillars-col,
-.kore-ai-exact-shell .k2-theme-light .k2-pillars-row.on .k2-img-wrapper,
-.kore-ai-exact-shell .k2-theme-light .k2-pillars-row.on .line,
-.kore-ai-exact-shell .k2-theme-light .k2-pillars-row.on .char {
-  opacity: 1 !important;
+.kore-ai-exact-shell .k2-theme-light .k2-tabs-panel-agents.on .k2-agents-content > * {
   visibility: visible !important;
 }
 

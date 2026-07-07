@@ -23,10 +23,11 @@ try {
       const top = window.scrollY + el.getBoundingClientRect().top - 80
       window.scrollTo(0, Math.max(0, top))
     }, sec.id)
-    await new Promise((r) => setTimeout(r, 900))
+    await new Promise((r) => setTimeout(r, 1200))
 
     report[sec.id] = await page.evaluate((id, probes) => {
       const section = document.querySelector(`#${id}`)
+      const themeWrap = section?.closest(".k2-theme-light")
       const read = (sel) => {
         const el = section?.querySelector(sel)
         if (!el) return { missing: sel }
@@ -42,7 +43,10 @@ try {
           on: el.classList.contains("on"),
         }
       }
+      const themeCs = themeWrap ? getComputedStyle(themeWrap) : null
       return {
+        bodyTheme: document.body.getAttribute("data-theme"),
+        themeWrapOpacity: themeCs?.opacity ?? null,
         scrollOn: section?.querySelector("[data-scroll]")?.classList.contains("on"),
         probes: Object.fromEntries(probes.map((p) => [p, read(p)])),
       }

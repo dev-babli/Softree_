@@ -19,11 +19,11 @@ export const POST_NEEDS_WORK = `(
   !defined(title) ||
   !defined(mainImage.asset) ||
   (
-    coalesce(displayMode, "classic") == "composer" &&
+    coalesce(displayMode, "composer") == "composer" &&
     count(coalesce(composerSections, [])) == 0
   ) ||
   (
-    coalesce(displayMode, "classic") == "classic" &&
+    coalesce(displayMode, "composer") == "classic" &&
     count(coalesce(body, [])) == 0
   ) ||
   coalesce(status, "published") == "draft"

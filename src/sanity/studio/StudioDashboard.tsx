@@ -2,12 +2,8 @@
 
 import {
   CaseIcon,
-  CogIcon,
-  DocumentTextIcon,
-  EarthGlobeIcon,
-  LaunchIcon,
-  SparklesIcon,
   CheckmarkCircleIcon,
+  DocumentTextIcon,
 } from '@sanity/icons'
 import {useClient} from 'sanity'
 import {useCallback, useEffect, useMemo, useState} from 'react'
@@ -24,21 +20,32 @@ import {
   publishReadinessPercent,
   typeLabel,
 } from './dashboard/utils'
-import { DashboardCharts } from './dashboard/DashboardCharts'
-import { DashboardKpiStrip } from './dashboard/DashboardKpiStrip'
 import { AiSystemsHealthPanel } from './dashboard/AiSystemsHealthPanel'
+import { DashboardContentIssues } from './dashboard/DashboardContentIssues'
+import { DashboardContentPipeline } from './dashboard/DashboardContentPipeline'
+import { DashboardEditVelocity } from './dashboard/DashboardEditVelocity'
+import { DashboardGettingStarted } from './dashboard/DashboardGettingStarted'
+import { DashboardPageScorecards } from './dashboard/DashboardPageScorecards'
+import { DashboardPipelineBoard } from './dashboard/DashboardPipelineBoard'
+import { DashboardQuickTools } from './dashboard/DashboardQuickTools'
+import { DashboardSitePulse } from './dashboard/DashboardSitePulse'
+import { DashboardTopPages } from './dashboard/DashboardTopPages'
+import { DashboardWelcomeHero } from './dashboard/DashboardWelcomeHero'
 import type { DashboardInsights } from './dashboard/insightsTypes'
 
 type QueuedItem = AttentionItem & {_type: 'caseStudy' | 'post'}
 
+const CREATE_CASE_STUDY = '/studio/intent/create/template=caseStudy-composer;type=caseStudy/'
+const CREATE_POST = '/studio/intent/create/template=post-composer;type=post/'
+
 function healthMessage(readiness: number, attentionCount: number): string {
   if (attentionCount === 0) {
-    return 'All case studies and blog posts are publish-ready. Nice work.'
+    return 'Site metrics and editorial health are below. Your queue is clear — great time to publish something new.'
   }
   if (readiness >= 80) {
-    return `${attentionCount} item${attentionCount === 1 ? '' : 's'} need a quick pass before they are fully ready.`
+    return `${attentionCount} item${attentionCount === 1 ? '' : 's'} need a final pass. Scores and traffic update when you refresh metrics.`
   }
-  return `${attentionCount} item${attentionCount === 1 ? '' : 's'} are missing key content — start with the attention queue.`
+  return `${attentionCount} item${attentionCount === 1 ? '' : 's'} blocking publish readiness — start with your work queue.`
 }
 
 function QueueItem({
@@ -56,6 +63,9 @@ function QueueItem({
       : item.title || 'Untitled post'
   const subtitle =
     item._type === 'caseStudy' && item.client && item.title ? item.title : typeLabel(item._type)
+  const totalChecks = item._type === 'caseStudy' ? 6 : 4
+  const doneChecks = totalChecks - missing.length
+  const pct = Math.max(0, Math.round((doneChecks / totalChecks) * 100))
 
   return (
     <div
@@ -79,21 +89,20 @@ function QueueItem({
         )}
       </div>
       <div className="softree-dash__queue-body">
-        <div className="softree-dash__queue-name">{displayName}</div>
+        <div className="softree-dash__queue-row">
+          <div className="softree-dash__queue-name">{displayName}</div>
+          <span className="softree-dash__queue-pct">{pct}%</span>
+        </div>
         <div className="softree-dash__queue-meta">
           {subtitle}
           {item._updatedAt ? ` · ${formatRelativeTime(item._updatedAt)}` : ''}
         </div>
+        <div className="softree-dash__queue-bar" aria-hidden>
+          <div className="softree-dash__queue-bar-fill" style={{width: `${pct}%`}} />
+        </div>
         {missing.length > 0 ? (
           <div className="softree-dash__tags">
-            {missing.slice(0, 4).map((tag) => (
-              <span key={tag} className="softree-dash__tag">
-                {tag}
-              </span>
-            ))}
-            {missing.length > 4 ? (
-              <span className="softree-dash__tag">+{missing.length - 4}</span>
-            ) : null}
+            <span className="softree-dash__tag softree-dash__tag--next">Next: {missing[0]}</span>
           </div>
         ) : null}
       </div>
@@ -122,7 +131,7 @@ export default function StudioDashboard() {
     }
 
     const controller = new AbortController()
-    const timer = window.setTimeout(() => controller.abort(), refresh ? 30_000 : 8_000)
+    const timer = window.setTimeout(() => controller.abort(), refresh ? 45_000 : 12_000)
 
     try {
       const url = refresh
@@ -191,7 +200,7 @@ export default function StudioDashboard() {
         (a, b) =>
           new Date(b._updatedAt || 0).getTime() - new Date(a._updatedAt || 0).getTime(),
       )
-      .slice(0, 10)
+      .slice(0, 8)
   }, [data])
 
   const attentionCount =
@@ -204,36 +213,27 @@ export default function StudioDashboard() {
   const go = (path: string) => router.navigateUrl({path})
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+  const metricsBusy = insightsLoading || insightsRefreshing
 
   return (
-    <div className="softree-dash">
+    <div className="softree-dash softree-dash--command">
       <div className="softree-dash__inner">
-        {/* Layer 1 — Health status */}
-        <header className="softree-dash__hero">
-          <div className="softree-dash__hero-orbs" aria-hidden>
-            <span className="softree-dash__orb softree-dash__orb--1" />
-            <span className="softree-dash__orb softree-dash__orb--2" />
-          </div>
-          <div className="softree-dash__hero-inner">
-            <div>
-              <p className="softree-dash__eyebrow">Softree Studio</p>
-              <h1 className="softree-dash__title">{greetingForHour()}</h1>
-              <p className="softree-dash__subtitle">
-                {loading
-                  ? 'Loading your content health…'
-                  : healthMessage(readiness, attentionCount)}
-              </p>
-            </div>
-          </div>
-        </header>
-
-        <DashboardKpiStrip
-          data={data}
-          loading={loading}
+        <DashboardWelcomeHero
+          greeting={greetingForHour()}
+          subtitle={healthMessage(readiness, attentionCount)}
           readiness={readiness}
-          attentionCount={attentionCount}
-          onNavigate={go}
+          loading={loading}
+          onCreateCaseStudy={() => go(CREATE_CASE_STUDY)}
+          onCreatePost={() => go(CREATE_POST)}
+          onOpenPresentation={() => go('/studio/presentation')}
         />
+
+        {insightsFailed ? (
+          <div className="softree-dash__banner softree-dash__banner--warn" role="status">
+            Site metrics could not load — editorial data below is still live. Click Refresh metrics
+            to retry.
+          </div>
+        ) : null}
 
         {loadError ? (
           <div className="softree-dash__banner softree-dash__banner--error" role="alert">
@@ -241,197 +241,83 @@ export default function StudioDashboard() {
           </div>
         ) : null}
 
-        <DashboardCharts
-          data={data}
+        <DashboardSitePulse
           insights={insights}
-          loading={loading}
+          loading={metricsBusy}
           insightsLoading={insightsLoading}
-          insightsFailed={insightsFailed}
-          insightsRefreshing={insightsRefreshing}
-          readiness={readiness}
-          attentionCount={attentionCount}
+          onRefresh={refreshInsights}
           onNavigate={go}
-          onOpenDoc={openDoc}
-          onRefreshInsights={refreshInsights}
         />
 
-        <AiSystemsHealthPanel />
+        <DashboardPageScorecards insights={insights} loading={metricsBusy} />
 
-        <div className="softree-dash__bento">
-          {/* Attention queue — primary focus */}
-          <section
-            id="softree-attention-queue"
-            className="softree-dash__panel softree-dash__queue"
-          >
-            <div className="softree-dash__panel-head">
-              <h2 className="softree-dash__panel-title">Needs your attention</h2>
-              {!loading && attentionCount > 0 ? (
-                <button
-                  type="button"
-                  className="softree-dash__panel-action"
-                  onClick={() => go('/studio/structure/caseStudies;caseStudiesNeedsWork')}
-                >
-                  Open needs-work list ({attentionCount})
-                </button>
-              ) : null}
-            </div>
-            {loading ? (
-              <div className="softree-dash__empty">Loading queue…</div>
-            ) : attentionQueue.length === 0 ? (
-              <div className="softree-dash__empty">
-                <div className="softree-dash__empty-icon">
-                  <CheckmarkCircleIcon style={{width: 28, height: 28, color: '#16a34a'}} />
+        <DashboardPipelineBoard
+          data={data}
+          loading={loading}
+          attentionCount={attentionCount}
+          onNavigate={go}
+        />
+
+        <div className="softree-dash__command-grid">
+          <div className="softree-dash__command-main">
+            <section
+              id="softree-attention-queue"
+              className="softree-dash__panel softree-dash__queue"
+            >
+              <div className="softree-dash__panel-head">
+                <div>
+                  <h2 className="softree-dash__panel-title softree-dash__panel-title--friendly">
+                    Your work queue
+                  </h2>
+                  <p className="softree-dash__panel-sub">
+                    What needs your attention before publish
+                  </p>
                 </div>
-                Everything looks publish-ready. Use quick actions below to create something new.
+                {!loading && attentionCount > 0 ? (
+                  <button
+                    type="button"
+                    className="softree-dash__panel-action"
+                    onClick={() => go('/studio/structure/caseStudies;caseStudiesNeedsWork')}
+                  >
+                    View all ({attentionCount})
+                  </button>
+                ) : null}
               </div>
-            ) : (
-              attentionQueue.map((item) => (
-                <QueueItem key={item._id} item={item} onOpen={openDoc} />
-              ))
-            )}
-          </section>
+              {loading ? (
+                <div className="softree-dash__empty">Loading your queue…</div>
+              ) : attentionQueue.length === 0 ? (
+                <div className="softree-dash__empty softree-dash__empty--celebrate">
+                  <div className="softree-dash__empty-icon">
+                    <CheckmarkCircleIcon style={{width: 32, height: 32, color: '#16a34a'}} />
+                  </div>
+                  <p className="softree-dash__empty-title">Queue is clear</p>
+                  <p>Check page scores above, then create or publish when ready.</p>
+                </div>
+              ) : (
+                attentionQueue.map((item) => (
+                  <QueueItem key={item._id} item={item} onOpen={openDoc} />
+                ))
+              )}
+            </section>
 
-          <section className="softree-dash__panel softree-dash__actions-panel">
-            <div className="softree-dash__panel-head">
-              <h2 className="softree-dash__panel-title">Quick actions</h2>
-            </div>
-            <div className="softree-dash__actions softree-dash__actions--stack">
-            <button
-              type="button"
-              className="softree-dash__action softree-dash__action--primary"
-              onClick={() =>
-                go('/studio/intent/create/template=caseStudy-composer;type=caseStudy/')
-              }
-            >
-              <span className="softree-dash__action-label">New case study</span>
-              <span className="softree-dash__action-hint">Challenge → Approach → Outcome</span>
-            </button>
-            <button
-              type="button"
-              className="softree-dash__action"
-              onClick={() => go('/studio/intent/create/template=post-composer;type=post/')}
-            >
-              <span className="softree-dash__action-label">New blog post</span>
-              <span className="softree-dash__action-hint">Composer layout with AEO sections</span>
-            </button>
-            <button
-              type="button"
-              className="softree-dash__action"
-              onClick={() => go('/studio/structure/siteSettings;aiContext')}
-            >
-              <SparklesIcon style={{width: 16, height: 16, color: '#ff9f5a'}} />
-              <span className="softree-dash__action-label">AI brand voice</span>
-              <span className="softree-dash__action-hint">Powers ✨ Assist + Content Agent</span>
-            </button>
-            <button
-              type="button"
-              className="softree-dash__action"
-              onClick={() => go('/studio/content-agent')}
-            >
-              <SparklesIcon style={{width: 16, height: 16, color: '#ff9f5a'}} />
-              <span className="softree-dash__action-label">Content Agent</span>
-              <span className="softree-dash__action-hint">Generate or audit SEO / AEO</span>
-            </button>
-            <button
-              type="button"
-              className="softree-dash__action"
-              onClick={() => go('/studio/structure/caseStudies;caseStudiesNeedsWork')}
-            >
-              <DocumentTextIcon style={{width: 16, height: 16, color: '#f59e0b'}} />
-              <span className="softree-dash__action-label">Fix incomplete content</span>
-              <span className="softree-dash__action-hint">
-                {attentionCount > 0 ? `${attentionCount} waiting` : 'Queue is clear'}
-              </span>
-            </button>
-            <button
-              type="button"
-              className="softree-dash__action"
-              onClick={() => go('/studio/structure/siteSettings')}
-            >
-              <CogIcon style={{width: 16, height: 16, color: '#64748b'}} />
-              <span className="softree-dash__action-label">Site settings</span>
-              <span className="softree-dash__action-hint">Design tokens, SEO, homepage slider</span>
-            </button>
-            <button
-              type="button"
-              className="softree-dash__action"
-              onClick={() => go('/studio/presentation')}
-            >
-              <EarthGlobeIcon style={{width: 16, height: 16, color: '#ff9f5a'}} />
-              <span className="softree-dash__action-label">Presentation mode</span>
-              <span className="softree-dash__action-hint">Edit with live site preview</span>
-            </button>
-            <a
-              className="softree-dash__action"
-              href={siteUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{textDecoration: 'none', color: 'inherit'}}
-            >
-              <LaunchIcon style={{width: 16, height: 16, color: '#64748b'}} />
-              <span className="softree-dash__action-label">Open live site</span>
-              <span className="softree-dash__action-hint">Preview in a new tab</span>
-            </a>
-            </div>
-          </section>
+            <DashboardContentPipeline data={data} loading={loading} onNavigate={go} />
+
+            <DashboardContentIssues
+              insights={insights}
+              loading={metricsBusy}
+              onNavigate={go}
+            />
+          </div>
+
+          <aside className="softree-dash__command-side">
+            <DashboardTopPages insights={insights} loading={metricsBusy} />
+            <DashboardEditVelocity data={data} loading={loading} onOpenDoc={openDoc} />
+            <DashboardQuickTools siteUrl={siteUrl} onNavigate={go} />
+            <DashboardGettingStarted />
+          </aside>
         </div>
 
-        {/* Editorial guide */}
-        <details className="softree-dash__panel softree-dash__guide">
-          <summary className="softree-dash__guide-summary">
-            <span className="softree-dash__panel-title">How to publish a case study</span>
-            <span className="softree-dash__guide-toggle">Show guide</span>
-          </summary>
-          <div className="softree-dash__guide-step">
-            <span className="softree-dash__guide-num">1</span>
-            <p className="softree-dash__guide-text">
-              Fill the <strong>Page composer</strong> tab — stack sections (narrative, metrics,
-              gallery, tech stack with logos, FAQ, contact). Live preview matches the real slug page.
-            </p>
-          </div>
-          <div className="softree-dash__guide-step">
-            <span className="softree-dash__guide-num">2</span>
-            <p className="softree-dash__guide-text">
-              Add client, header title, excerpt, and cover image under{' '}
-              <strong>Client &amp; project</strong> and <strong>Media</strong>.
-            </p>
-          </div>
-          <div className="softree-dash__guide-step">
-            <span className="softree-dash__guide-num">3</span>
-            <p className="softree-dash__guide-text">
-              Use the <strong>Live preview</strong> pane, set <strong>Review status</strong> to
-              Approved, then publish from <strong>Publish &amp; SEO</strong>.
-            </p>
-          </div>
-        </details>
-
-        <details className="softree-dash__panel softree-dash__guide">
-          <summary className="softree-dash__guide-summary">
-            <span className="softree-dash__panel-title">AI &amp; Content Agent</span>
-            <span className="softree-dash__guide-toggle">Show guide</span>
-          </summary>
-          <div className="softree-dash__guide-step">
-            <span className="softree-dash__guide-num">1</span>
-            <p className="softree-dash__guide-text">
-              Set your voice once under <strong>Site settings → AI brand voice</strong>. Every ✨
-              field action and automated blog draft reads this context.
-            </p>
-          </div>
-          <div className="softree-dash__guide-step">
-            <span className="softree-dash__guide-num">2</span>
-            <p className="softree-dash__guide-text">
-              Open <strong>Content Agent</strong> to generate a composer blog from a topic, or run
-              the <strong>Content audit</strong> tab to fix missing meta, FAQ, and alt text.
-            </p>
-          </div>
-          <div className="softree-dash__guide-step">
-            <span className="softree-dash__guide-num">3</span>
-            <p className="softree-dash__guide-text">
-              In any field, click ✨ and pick a Softree template (SEO title, expand bullets, FAQ,
-              hero image prompt). Always review in <strong>Live preview</strong> before publish.
-            </p>
-          </div>
-        </details>
+        <AiSystemsHealthPanel />
       </div>
     </div>
   )

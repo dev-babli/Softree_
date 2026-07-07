@@ -1,13 +1,20 @@
 import { defineField, defineType, defineArrayMember } from 'sanity'
-import { caseStudyHasStoryContent } from '../lib/caseStudyCompleteness'
+import {
+  getCaseStudyCategoryStudioList,
+  isCaseStudyCategory,
+} from '@/app/case-studies/categoryConfig'
 import { CaseIcon } from '@sanity/icons'
 import { aiAssistExclude } from '../lib/blockContentOptions'
 import { fieldAi } from '../lib/fieldAiOptions'
 import { createSeoPreviewPanelField, createEditorProgressPanelField } from '../lib/documentHelpers'
 import { getAeoPublishIssues, type AeoCompletenessDoc } from '../lib/aeoCompleteness'
 import { reviewStatusField } from '../lib/reviewStatusField'
+import { caseStudyHasStoryContent } from '../lib/caseStudyCompleteness'
 
+import CaseStudyCategoryInput from '../components/CaseStudyCategoryInput'
+import CaseStudyEditorWelcome from '../components/CaseStudyEditorWelcome'
 import ComposerSectionsInput from '../components/ComposerSectionsInput'
+import DetailLayoutInput from '../components/DetailLayoutInput'
 import {
     caseStudyComposerInsertMenu,
     caseStudyComposerMembers,
@@ -49,8 +56,8 @@ export const caseStudyType = defineType({
     type: 'document',
     icon: CaseIcon,
     groups: [
-        { name: 'composer', title: 'Page', default: true },
-        { name: 'story', title: 'Story' },
+        { name: 'story', title: 'Story', default: true },
+        { name: 'composer', title: 'Page' },
         { name: 'client', title: 'Client' },
         { name: 'sections', title: 'Legacy sections' },
         { name: 'media', title: 'Media' },
@@ -75,6 +82,21 @@ export const caseStudyType = defineType({
     ],
     fields: [
         defineField({
+            name: 'editorWelcome',
+            title: 'Getting started',
+            type: 'object',
+            components: {
+                input: CaseStudyEditorWelcome,
+            },
+            fields: [
+                defineField({
+                    name: 'placeholder',
+                    type: 'string',
+                    hidden: true,
+                }),
+            ],
+        }),
+        defineField({
             name: 'title',
             title: 'Title',
             type: 'string',
@@ -90,6 +112,30 @@ export const caseStudyType = defineType({
             fieldset: 'identity',
             options: { source: 'title', maxLength: 96, ...aiAssistExclude },
             validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+            name: 'category',
+            title: 'Service category',
+            type: 'string',
+            group: 'story',
+            fieldset: 'identity',
+            description:
+              'Which Softree service line this project belongs to. Controls category pages, navigation, and filters on the website.',
+            options: {
+                list: getCaseStudyCategoryStudioList(),
+            },
+            components: {
+                input: CaseStudyCategoryInput,
+            },
+            validation: (Rule) =>
+                Rule.custom((value, context) => {
+                    const status = (context.document as { status?: string } | undefined)?.status
+                    if (status === 'archived') return true
+                    if (!value || !isCaseStudyCategory(value)) {
+                        return 'Pick a service category so this story appears on the correct category page'
+                    }
+                    return true
+                }),
         }),
         defineField({
             name: 'excerpt',
@@ -219,31 +265,6 @@ export const caseStudyType = defineType({
             ...reviewStatusField,
             group: 'publish',
             fieldset: 'statusSet',
-        }),
-        defineField({
-            name: 'category',
-            title: 'Technology category',
-            type: 'string',
-            group: 'client',
-            description:
-              'Used for /case-studies/power-platform and nav grouping. Required before publishing on production.',
-            options: {
-                list: [
-                    { title: 'AI & Machine Learning', value: 'ai' },
-                    { title: 'Power Platform', value: 'power-platform' },
-                    { title: 'SharePoint', value: 'sharepoint' },
-                    { title: 'Web Development', value: 'web' },
-                    { title: 'Mobile Development', value: 'mobile' },
-                    { title: 'Data Analytics', value: 'data-analytics' },
-                ],
-            },
-            validation: (Rule) =>
-                Rule.custom((value, context) => {
-                    const status = (context.document as { status?: string } | undefined)?.status
-                    if (status === 'archived' || status === 'draft') return true
-                    if (!value) return 'Pick a technology category so this story appears in nav and category pages'
-                    return true
-                }),
         }),
         defineField({
             name: 'industry',
@@ -450,8 +471,14 @@ export const caseStudyType = defineType({
             name: 'detailLayout',
             title: 'Page layout',
             type: 'string',
-            hidden: true,
+            group: 'story',
+            fieldset: 'layout',
+            description:
+                'Page composer (recommended) lets you stack sections. Fixed layouts use Story tab fields instead.',
             initialValue: 'page-composer',
+            components: {
+                input: DetailLayoutInput,
+            },
         }),
         defineField({
             name: 'composerSections',
@@ -929,6 +956,9 @@ export const caseStudyType = defineType({
             if (!fields.excerpt) missing.push('excerpt')
             if (!fields.client) missing.push('client')
             if (!fields.headerTitle) missing.push('headerTitle')
+            if (!fields.category || !isCaseStudyCategory(fields.category as string)) {
+                missing.push('service category')
+            }
 
             const body = fields.body as unknown[] | undefined
             const challengeContent = fields.challengeContent as unknown[] | undefined
@@ -969,12 +999,17 @@ export const caseStudyType = defineType({
             title: 'title',
             client: 'client',
             industry: 'industry',
+            category: 'category',
             media: 'mainImage',
         },
-        prepare({ title, client, industry, media }) {
+        prepare({ title, client, industry, category, media }) {
+            const categoryLabel = category
+                ? getCaseStudyCategoryStudioList().find((item) => item.value === category)?.title
+                : undefined
+            const parts = [client || 'No client', categoryLabel || industry || 'No category'].filter(Boolean)
             return {
                 title,
-                subtitle: `${client || 'No client'} - ${industry || 'No industry'}`,
+                subtitle: parts.join(' · '),
                 media,
             }
         },

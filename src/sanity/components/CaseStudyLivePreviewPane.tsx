@@ -2,7 +2,7 @@
 
 import { DesktopIcon, LaunchIcon, RefreshIcon } from "@sanity/icons"
 import { Box, Button, Flex, Spinner, Text } from "@sanity/ui"
-import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react"
+import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import type { UserViewComponent } from "sanity/structure"
 
 import { hydrateCaseStudyForPreview } from "@/sanity/lib/hydrateCaseStudyPreview"
@@ -21,7 +21,7 @@ const STORY_TYPE_OPTIONS = [
 
 const DEBOUNCE_MS = 400
 
-const CaseStudyLivePreviewPaneInner: UserViewComponent = (props) => {
+const CaseStudyLivePreviewPane: UserViewComponent = (props) => {
   const iframeRef = useRef<HTMLIFrameElement>(null)
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const displayedRef = useRef<Record<string, unknown> | undefined>(undefined)
@@ -252,4 +252,4 @@ const CaseStudyLivePreviewPaneInner: UserViewComponent = (props) => {
   )
 }
 
-export const CaseStudyLivePreviewPane = memo(CaseStudyLivePreviewPaneInner)
+export default CaseStudyLivePreviewPane

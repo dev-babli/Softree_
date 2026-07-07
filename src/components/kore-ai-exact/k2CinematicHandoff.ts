@@ -70,6 +70,7 @@ export async function runCinematicHandoff(
   const heroRest = document.querySelectorAll<HTMLElement>(HERO_REST_SELECTORS)
 
   loader.classList.add("k2-loader-exiting")
+  loader.style.pointerEvents = "none"
   document.documentElement.classList.remove("kore-ai-k2-loader-running")
   document.documentElement.classList.add("kore-ai-k2-handoff-running")
 

@@ -1,3 +1,5 @@
+import { scrambleTabLabel } from "./k2Scramble"
+
 type TabGroup = {
   root: HTMLElement
   syncAutoplay?: () => void
@@ -126,15 +128,35 @@ export function installKoreTabs(scope: ParentNode) {
     }
 
     const scrollRootToTop = (smooth = true) => {
-      const top = Math.max(0, window.scrollY + root.getBoundingClientRect().top - 100)
+      const offset = -100
+      const lenis = (window as Window & { lenis?: { scrollTo: (target: Element, opts: { offset: number; immediate: boolean }) => void } }).lenis
+
+      if (lenis) {
+        lenis.scrollTo(root, { offset, immediate: !smooth })
+        return
+      }
+
+      const top = Math.max(0, window.scrollY + root.getBoundingClientRect().top + offset)
       window.scrollTo({ top, behavior: smooth ? "smooth" : "auto" })
+    }
+
+    const getObserveTarget = () => {
+      let target: HTMLElement = root
+      let parent = root.parentElement?.closest<HTMLElement>(".k2-tabs")
+
+      while (parent) {
+        target = parent
+        parent = parent.parentElement?.closest<HTMLElement>(".k2-tabs")
+      }
+
+      return target
     }
 
     const setActive = (
       index: number,
-      options: { focus?: boolean; scroll?: boolean; smooth?: boolean } = {},
+      options: { focus?: boolean; scroll?: boolean; smooth?: boolean; scramble?: boolean } = {},
     ) => {
-      const { focus = false, scroll = true, smooth = true } = options
+      const { focus = false, scroll = true, smooth = true, scramble = true } = options
       resetProgress()
 
       for (let tabIndex = 0; tabIndex < count; tabIndex += 1) {
@@ -150,6 +172,7 @@ export function installKoreTabs(scope: ParentNode) {
 
       active = index
 
+      if (scramble) scrambleTabLabel(tabs[index])
       if (focus) tabs[index].focus()
       if (scroll) requestAnimationFrame(() => scrollMenuToTab(tabs[index], smooth))
       requestAnimationFrame(() => {
@@ -159,7 +182,7 @@ export function installKoreTabs(scope: ParentNode) {
 
     const hashIndex = getHashIndex()
     if (hashIndex >= 0) active = hashIndex
-    setActive(active, { smooth: false })
+    setActive(active, { smooth: false, scramble: false })
 
     let autoplayFrame = 0
     let autoplayTimer: ReturnType<typeof setTimeout> | undefined
@@ -273,6 +296,10 @@ export function installKoreTabs(scope: ParentNode) {
     })
 
     if (canAutoplay) {
+      const startAt = 0.25
+      const stopAt = 0.05
+      const observeTarget = getObserveTarget()
+
       const onFocusIn = () => {
         autoplayHeld = true
         group.syncAutoplay?.()
@@ -289,16 +316,17 @@ export function installKoreTabs(scope: ParentNode) {
         ([entry]) => {
           const ratio = entry.intersectionRatio
           const leavingTop = entry.boundingClientRect.top < 0
-          autoplayInView = leavingTop && ratio <= 0.05 ? false : ratio >= 0.25
+          if (leavingTop && ratio <= stopAt) autoplayInView = false
+          else autoplayInView = ratio >= startAt
           group.syncAutoplay?.()
         },
-        { threshold: [0, 0.05, 0.25, 1] },
+        { threshold: [0, stopAt, startAt, 1] },
       )
 
       resetProgress()
       root.addEventListener("focusin", onFocusIn)
       root.addEventListener("focusout", onFocusOut)
-      observer.observe(root)
+      observer.observe(observeTarget)
 
       cleanups.push(() => {
         root.removeEventListener("focusin", onFocusIn)

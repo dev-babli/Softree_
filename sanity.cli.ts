@@ -5,10 +5,21 @@ import { defineCliConfig } from 'sanity/cli'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '1zmh4sfw'
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
+
 export default defineCliConfig({
   api: {
-    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
-    dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+    projectId,
+    dataset,
+  },
+  /** Embedded at https://www.softreetechnology.com/studio — required for manifest + Dashboard. */
+  project: {
+    basePath: '/studio',
+  },
+  deployment: {
+    appId: process.env.SANITY_STUDIO_APP_ID,
+    autoUpdates: true,
   },
   vite: (config) => ({
     ...config,

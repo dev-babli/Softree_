@@ -1262,6 +1262,526 @@ button.softree-dash__kpi {
   color: #991b1b;
 }
 
+.softree-dash__banner--warn {
+  background: rgba(217, 119, 6, 0.08);
+  border: 1px solid rgba(217, 119, 6, 0.2);
+  color: #92400e;
+}
+
+/* ── Command center layout (Loop 5) ── */
+.softree-dash--command {
+  background:
+    radial-gradient(ellipse 120% 80% at 50% -20%, rgba(255, 122, 47, 0.07), transparent 55%),
+    var(--dash-cream);
+}
+
+.softree-dash__command-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .softree-dash__command-grid {
+    grid-template-columns: 1.55fr 1fr;
+  }
+}
+
+.softree-dash__command-main,
+.softree-dash__command-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  min-width: 0;
+}
+
+/* ── Site pulse (Vercel-style metrics) ── */
+.softree-pulse {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.softree-pulse__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.softree-pulse__title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--dash-ink);
+}
+
+.softree-pulse__sub {
+  margin: 0.25rem 0 0;
+  font-size: 0.8125rem;
+  color: var(--dash-muted);
+  max-width: 36rem;
+}
+
+.softree-pulse__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.softree-pulse__updated {
+  font-size: 0.6875rem;
+  color: var(--dash-muted);
+}
+
+.softree-pulse__refresh {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--dash-border);
+  background: #fff;
+  cursor: pointer;
+  color: var(--dash-ink);
+}
+
+.softree-pulse__refresh:hover {
+  border-color: rgba(255, 122, 47, 0.35);
+  background: rgba(255, 122, 47, 0.05);
+}
+
+.softree-pulse__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+@media (min-width: 900px) {
+  .softree-pulse__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.softree-pulse__card {
+  padding: 1rem 1.05rem;
+  border-radius: 1rem;
+  border: 1px solid var(--dash-border);
+  background: var(--dash-surface);
+  box-shadow: 0 8px 28px rgba(10, 10, 26, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-height: 148px;
+}
+
+.softree-pulse__card--loading {
+  min-height: 148px;
+}
+
+.softree-pulse__card--good {
+  border-color: rgba(22, 163, 74, 0.2);
+}
+
+.softree-pulse__card--warn {
+  border-color: rgba(217, 119, 6, 0.22);
+}
+
+.softree-pulse__card--bad {
+  border-color: rgba(220, 38, 38, 0.2);
+}
+
+.softree-pulse__card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.softree-pulse__icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 122, 47, 0.1);
+  color: var(--dash-accent);
+}
+
+.softree-pulse__label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dash-muted);
+}
+
+.softree-pulse__value {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--dash-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.softree-pulse__detail {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--dash-muted);
+  line-height: 1.45;
+}
+
+.softree-pulse__hint {
+  margin: 0;
+  font-size: 0.6875rem;
+  color: var(--dash-muted);
+  line-height: 1.4;
+}
+
+.softree-pulse__footer {
+  margin-top: auto;
+  padding-top: 0.25rem;
+}
+
+.softree-pulse__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--dash-accent);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.softree-pulse__legend {
+  margin: 0;
+  font-size: 0.6875rem;
+  color: var(--dash-muted);
+}
+
+/* ── Page scorecards ── */
+.softree-page-scores {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.softree-page-scores__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.softree-page-scores__title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.softree-page-scores__sub {
+  margin: 0.25rem 0 0;
+  font-size: 0.8125rem;
+  color: var(--dash-muted);
+}
+
+.softree-page-scores__setup {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--dash-muted);
+  max-width: 20rem;
+  text-align: right;
+}
+
+.softree-page-scores__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.softree-page-scores__card {
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid var(--dash-border);
+  background: var(--dash-surface);
+  box-shadow: 0 6px 24px rgba(10, 10, 26, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.softree-page-scores__card--loading {
+  min-height: 140px;
+}
+
+.softree-page-scores__card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.softree-page-scores__name {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--dash-ink);
+}
+
+.softree-page-scores__path {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.625rem;
+  color: var(--dash-muted);
+  font-family: ui-monospace, monospace;
+}
+
+.softree-page-scores__ring {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.softree-page-scores__ring-inner {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--dash-ink);
+}
+
+.softree-page-scores__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.softree-page-score__badge {
+  font-size: 0.625rem;
+  font-weight: 700;
+  padding: 0.2rem 0.45rem;
+  border-radius: 999px;
+  border: 1px solid;
+  font-variant-numeric: tabular-nums;
+}
+
+.softree-page-score__badge--muted {
+  border-color: var(--dash-border);
+  color: var(--dash-muted);
+}
+
+.softree-page-scores__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--dash-accent);
+  text-decoration: none;
+  margin-top: auto;
+}
+
+.softree-page-scores__error {
+  margin: 0;
+  font-size: 0.6875rem;
+  color: #dc2626;
+}
+
+.softree-page-scores__empty {
+  grid-column: 1 / -1;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--dash-muted);
+  border: 1px dashed var(--dash-border);
+  border-radius: 1rem;
+}
+
+/* ── Top pages ── */
+.softree-top-pages__list {
+  list-style: none;
+  margin: 0;
+  padding: 0.35rem 0;
+}
+
+.softree-top-pages__row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 1rem;
+  text-decoration: none;
+  color: inherit;
+  border-top: 1px solid rgba(15, 23, 42, 0.04);
+  transition: background 0.12s ease;
+}
+
+.softree-top-pages__row:hover {
+  background: rgba(255, 122, 47, 0.05);
+}
+
+.softree-top-pages__rank {
+  width: 1.25rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--dash-muted);
+  text-align: center;
+}
+
+.softree-top-pages__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.softree-top-pages__name {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--dash-ink);
+}
+
+.softree-top-pages__path {
+  display: block;
+  font-size: 0.625rem;
+  color: var(--dash-muted);
+  margin-top: 0.1rem;
+}
+
+.softree-top-pages__bar {
+  margin-top: 0.35rem;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+}
+
+.softree-top-pages__bar-fill {
+  height: 100%;
+  background: var(--dash-gradient);
+  border-radius: 999px;
+}
+
+.softree-top-pages__views {
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--dash-ink);
+}
+
+.softree-top-pages__launch {
+  width: 14px;
+  height: 14px;
+  color: var(--dash-muted);
+  flex-shrink: 0;
+}
+
+.softree-dash__empty--setup {
+  text-align: left;
+  padding: 1.25rem 1.2rem;
+}
+
+/* ── Content issues ── */
+.softree-issues__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.softree-issues__row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  width: 100%;
+  padding: 0.85rem 1.2rem;
+  border: none;
+  border-top: 1px solid rgba(15, 23, 42, 0.04);
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  transition: background 0.12s ease;
+}
+
+.softree-issues__row:hover {
+  background: rgba(255, 122, 47, 0.05);
+}
+
+.softree-issues__count {
+  flex-shrink: 0;
+  min-width: 2rem;
+  height: 2rem;
+  padding: 0 0.35rem;
+  border-radius: 0.5rem;
+  background: rgba(255, 122, 47, 0.12);
+  color: #c2410c;
+  font-size: 0.875rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.softree-issues__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.softree-issues__body strong {
+  font-size: 0.8125rem;
+  color: var(--dash-ink);
+}
+
+.softree-issues__body span {
+  font-size: 0.75rem;
+  color: var(--dash-muted);
+  line-height: 1.4;
+}
+
+.softree-issues__action {
+  flex-shrink: 0;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--dash-accent);
+}
+
+.softree-pipeline-chart__body,
+.softree-velocity__chart {
+  padding: 0.25rem 0.5rem 0.75rem;
+}
+
+.softree-dash__velocity .softree-dash__recent-edits {
+  margin-top: 0;
+  padding: 0 0.5rem 0.85rem;
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+/* AI systems health panel */
+.softree-dash__ai-health {
+  grid-column: 1 / -1;
+}
+
 .softree-dash__guide {
   overflow: visible;
 }
@@ -1331,10 +1851,510 @@ button.softree-dash__kpi {
   }
 }
 
-/* AI systems health panel */
-.softree-dash__ai-health {
-  grid-column: 1 / -1;
+.softree-dash__panel-title--friendly {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: var(--dash-ink);
 }
+
+.softree-dash__panel-sub {
+  margin: 0.25rem 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--dash-muted);
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* ── Workspace hero ── */
+.softree-dash__hero--workspace {
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+}
+
+.softree-dash__hero-inner--workspace {
+  align-items: stretch;
+  gap: 2rem;
+}
+
+.softree-dash__hero-copy {
+  flex: 1;
+  min-width: min(100%, 520px);
+}
+
+.softree-dash__hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.35rem;
+}
+
+.softree-dash__hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.875rem;
+  border: 1px solid var(--dash-border);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--dash-ink);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.15s var(--dash-ease);
+}
+
+.softree-dash__hero-cta strong {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.softree-dash__hero-cta small {
+  display: block;
+  font-size: 0.6875rem;
+  color: var(--dash-muted);
+  margin-top: 0.1rem;
+}
+
+.softree-dash__hero-cta:hover {
+  border-color: rgba(255, 122, 47, 0.35);
+  box-shadow: 0 8px 24px rgba(10, 10, 26, 0.06);
+  transform: translateY(-1px);
+}
+
+.softree-dash__hero-cta--primary {
+  background: var(--dash-gradient);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 10px 32px rgba(255, 122, 47, 0.28);
+}
+
+.softree-dash__hero-cta--primary small {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.softree-dash__hero-cta--primary:hover {
+  box-shadow: 0 14px 40px rgba(255, 122, 47, 0.38);
+}
+
+.softree-dash__hero-cta--ghost {
+  background: transparent;
+}
+
+.softree-dash__hero-readiness {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  min-width: 140px;
+}
+
+.softree-dash__readiness-ring {
+  width: 112px;
+  height: 112px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+}
+
+.softree-dash__readiness-ring-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.06);
+}
+
+.softree-dash__readiness-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--dash-ink);
+  line-height: 1;
+}
+
+.softree-dash__readiness-label {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dash-muted);
+  margin-top: 0.15rem;
+}
+
+.softree-dash__readiness-caption {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: var(--dash-muted);
+  text-align: center;
+  max-width: 12rem;
+}
+
+/* ── Pipeline board ── */
+.softree-dash__pipeline {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .softree-dash__pipeline {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.softree-dash__pipeline-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid var(--dash-border);
+  background: var(--dash-surface);
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  transition:
+    border-color 0.15s ease,
+    transform 0.15s var(--dash-ease),
+    box-shadow 0.15s ease;
+}
+
+.softree-dash__pipeline-card:hover {
+  border-color: rgba(255, 122, 47, 0.28);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(10, 10, 26, 0.06);
+}
+
+.softree-dash__pipeline-card--loading {
+  min-height: 96px;
+  cursor: default;
+}
+
+.softree-dash__pipeline-card--warn {
+  border-color: rgba(217, 119, 6, 0.22);
+  background: linear-gradient(145deg, #fff 0%, #fffaf5 100%);
+}
+
+.softree-dash__pipeline-card--success {
+  border-color: rgba(22, 163, 74, 0.18);
+}
+
+.softree-dash__pipeline-icon {
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.65rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 122, 47, 0.1);
+  color: var(--dash-accent);
+}
+
+.softree-dash__pipeline-card--warn .softree-dash__pipeline-icon {
+  background: rgba(217, 119, 6, 0.12);
+  color: var(--dash-warning);
+}
+
+.softree-dash__pipeline-card--success .softree-dash__pipeline-icon {
+  background: rgba(22, 163, 74, 0.12);
+  color: var(--dash-success);
+}
+
+.softree-dash__pipeline-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  color: var(--dash-ink);
+}
+
+.softree-dash__pipeline-label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--dash-ink);
+  margin-top: 0.15rem;
+}
+
+.softree-dash__pipeline-hint {
+  display: block;
+  font-size: 0.6875rem;
+  color: var(--dash-muted);
+  margin-top: 0.2rem;
+  line-height: 1.4;
+}
+
+/* ── Workspace layout ── */
+.softree-dash__workspace {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+  align-items: start;
+}
+
+@media (min-width: 960px) {
+  .softree-dash__workspace {
+    grid-template-columns: 1.5fr 1fr;
+  }
+}
+
+.softree-dash__workspace-main,
+.softree-dash__workspace-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  min-width: 0;
+}
+
+.softree-dash__continue .softree-dash__recent-edits {
+  margin-top: 0;
+  padding: 0 0.5rem 0.85rem;
+  border-top: none;
+}
+
+.softree-dash__continue .softree-dash__recent-edits-list {
+  max-height: none;
+}
+
+/* ── Quick tools ── */
+.softree-dash__tools-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+  padding: 0.85rem;
+}
+
+.softree-dash__tool {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  padding: 0.85rem;
+  border-radius: 0.875rem;
+  border: 1px solid var(--dash-border);
+  background: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  font: inherit;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
+}
+
+.softree-dash__tool:hover {
+  border-color: rgba(255, 122, 47, 0.28);
+  background: rgba(255, 122, 47, 0.04);
+}
+
+.softree-dash__tool--accent {
+  border-color: rgba(255, 122, 47, 0.18);
+  background: rgba(255, 122, 47, 0.05);
+}
+
+.softree-dash__tool-label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--dash-ink);
+}
+
+.softree-dash__tool-hint {
+  font-size: 0.6875rem;
+  color: var(--dash-muted);
+  line-height: 1.35;
+}
+
+/* ── Onboarding ── */
+.softree-dash__onboarding-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0.85rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.softree-dash__onboarding-step {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.softree-dash__onboarding-num {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 999px;
+  background: var(--dash-gradient);
+  color: #fff;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.softree-dash__onboarding-step strong {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--dash-ink);
+  margin-bottom: 0.2rem;
+}
+
+.softree-dash__onboarding-step p {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--dash-muted);
+}
+
+/* ── Insights drawer (progressive disclosure) ── */
+.softree-dash__insights-drawer {
+  border-radius: 1.125rem;
+  border: 1px solid var(--dash-border);
+  background: rgba(255, 255, 255, 0.55);
+  overflow: hidden;
+}
+
+.softree-dash__insights-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  cursor: pointer;
+  list-style: none;
+  font-size: 0.875rem;
+  color: var(--dash-ink);
+}
+
+.softree-dash__insights-summary::-webkit-details-marker {
+  display: none;
+}
+
+.softree-dash__insights-summary strong {
+  display: block;
+  font-weight: 700;
+}
+
+.softree-dash__insights-hint {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--dash-muted);
+  margin-top: 0.15rem;
+}
+
+.softree-dash__insights-body {
+  padding: 0 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+/* ── Queue improvements ── */
+.softree-dash__queue-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.softree-dash__queue-pct {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--dash-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.softree-dash__queue-bar {
+  margin-top: 0.45rem;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+}
+
+.softree-dash__queue-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--dash-gradient);
+  transition: width 0.4s var(--dash-ease);
+}
+
+.softree-dash__tag--next {
+  background: rgba(255, 122, 47, 0.1);
+  color: #c2410c;
+  border-color: rgba(255, 122, 47, 0.2);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.softree-dash__empty--celebrate {
+  padding: 2.5rem 1.5rem;
+}
+
+.softree-dash__empty-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--dash-ink);
+  margin: 0 0 0.35rem;
+}
+
+.softree-dash__hero-cta:focus-visible,
+.softree-dash__pipeline-card:focus-visible,
+.softree-dash__tool:focus-visible,
+.softree-dash__insights-summary:focus-visible {
+  outline: 2px solid var(--dash-accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 720px) {
+  .softree-dash__hero-inner--workspace {
+    flex-direction: column;
+  }
+
+  .softree-dash__hero-readiness {
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .softree-dash__readiness-caption {
+    text-align: left;
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .softree-dash__hero-cta,
+  .softree-dash__pipeline-card,
+  .softree-dash__queue-bar-fill {
+    transition: none;
+  }
+}
+
 
 .softree-dash__ai-score {
   display: flex;

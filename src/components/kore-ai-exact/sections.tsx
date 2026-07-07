@@ -1,4 +1,5 @@
-import { createElement } from "react"
+import { createElement, useMemo } from "react"
+import { applySoftreeShellHtml } from "./koreHtmlCopy"
 import { KoreAiProgrammableSection as KoreAiProgrammableOrbitSection } from "./KoreAiProgrammableSection"
 import { KoreAgentsSection } from "./KoreAgentsSection"
 import { KoreBuildScaleOptimizeSection as KoreBuildScaleOptimizeExactSection } from "./KoreBuildScaleOptimizeSection"
@@ -39,6 +40,7 @@ function toReactStyle(style: unknown) {
 }
 
 function HtmlElement({ element }: { element: ReferenceElement }) {
+  const html = useMemo(() => applySoftreeShellHtml(element.html), [element.html])
   const attrs = {
     ...element.attrs,
     style: toReactStyle(element.attrs.style),
@@ -46,7 +48,7 @@ function HtmlElement({ element }: { element: ReferenceElement }) {
 
   return createElement(element.tag, {
     ...attrs,
-    dangerouslySetInnerHTML: { __html: element.html },
+    dangerouslySetInnerHTML: { __html: html },
   })
 }
 
