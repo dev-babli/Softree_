@@ -1,0 +1,65 @@
+/* .k2-theme-light — AI Agents, AI Programmable, Pillars */
+
+/* Opacity cross-fade is driven by body[data-theme] in reference CSS (0.5s). */
+
+.softree-agentic-shell .k2-theme-light .k2-tabs-panel-agents.on {
+  animation: none !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.softree-agentic-shell .k2-theme-light .k2-tabs-panel-agents:not(.on) {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.softree-agentic-shell .k2-theme-light #ai-agents,
+.softree-agentic-shell .k2-theme-light #ai-programmable,
+.softree-agentic-shell .k2-theme-light #pillars {
+  position: relative;
+}
+
+.softree-agentic-shell .k2-theme-light .k2-tabs-panel-agents {
+  position: relative;
+  isolation: isolate;
+}
+
+.softree-agentic-shell .k2-theme-light .k2-tabs-panel-agents .k2-bg {
+  z-index: 0;
+}
+
+.softree-agentic-shell .k2-theme-light .k2-tabs-panel-agents .k2-bg,
+.softree-agentic-shell .k2-theme-light .k2-tabs-panel-agents .k2-bg .k2-img {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.softree-agentic-shell .k2-theme-light .k2-tabs-panel-agents.on .k2-agents-panel,
+.softree-agentic-shell .k2-theme-light .k2-tabs-panel-agents.on .k2-agents-header,
+.softree-agentic-shell .k2-theme-light .k2-tabs-panel-agents.on .k2-agents-content,
+.softree-agentic-shell .k2-theme-light .k2-tabs-panel-agents.on .k2-agents-content > * {
+  visibility: visible !important;
+}
+
+.softree-agentic-shell .k2-theme-light #pillars .k2-pillars-row {
+  transform: none !important;
+}
+
+.softree-agentic-shell .k2-theme-light #ai-programmable .k2-orbit-sticky-wrapper,
+.softree-agentic-shell .k2-theme-light #ai-programmable .k2-orbit-sticky,
+.softree-agentic-shell .k2-theme-light #ai-programmable .k2-orbit-buttons {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.softree-agentic-shell .k2-theme-light #ai-programmable .k2-orbit-buttons {
+  display: flex !important;
+}
+
+@media screen and (min-width: 991px) {
+  .softree-agentic-shell .k2-theme-light #ai-programmable .k2-orbit-sticky[data-step="0"] .k2-orbit-circle,
+  .softree-agentic-shell .k2-theme-light #ai-programmable .k2-orbit-sticky[data-step="0"] .k2-orbit-content > :first-child {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}

@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 
-const assetsSrc = fs.readFileSync('src/components/kore/assets.ts', 'utf8');
+const assetsSrc = fs.readFileSync('src/components/softree-marketing-ui/assets.ts', 'utf8');
 
 // Parse the industryTabs section: find "industryTabs: {" ... matching close.
 const secStart = assetsSrc.indexOf('industryTabs: {');

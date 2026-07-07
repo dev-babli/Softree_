@@ -1,0 +1,17 @@
+/* #get-started prefooter reveal — reference uses .on on data-scroll container */
+
+.softree-agentic-shell #get-started {
+  position: relative;
+  isolation: isolate;
+}
+
+.softree-agentic-shell #get-started .k2-container-prefooter.on,
+.softree-agentic-shell #get-started .k2-container-prefooter.on .k2-prefooter-panel,
+.softree-agentic-shell #get-started .k2-container-prefooter.on .k2-pluses {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.softree-agentic-shell #get-started .k2-prefooter-panel a {
+  pointer-events: auto;
+}

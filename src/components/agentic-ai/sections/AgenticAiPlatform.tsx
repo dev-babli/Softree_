@@ -8,8 +8,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 import { prefersReducedMotion } from "@/lib/motion"
 import { stackShowcaseCards } from "../data"
-import { KoreHairline, KoreMonoLabel } from "../primitives/KorePrimitives"
-import { KORE } from "../primitives/kore-tokens"
+import { KoreHairline, KoreMonoLabel } from "../primitives/SoftreeAgenticPrimitives"
+import { KORE } from "../primitives/softree-ui-tokens"
 
 gsap.registerPlugin(ScrollTrigger)
 

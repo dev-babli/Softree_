@@ -1,22 +1,22 @@
 /**
- * extract-kore-styles.mjs
+ * extract-softree-styles.mjs
  *
  * Build-time Source_Document style audit for the Kore homepage clone.
  *
- * Reads `public/kore-source-sections.html`, walks every `<style>` block plus
+ * Reads `public/softree-source-sections.html`, walks every `<style>` block plus
  * every inline `style="..."` attribute, and emits a JSON inventory of distinct
  * style values bucketed by category (colors, fontFamilies, fontSizes,
  * fontWeights, lineHeights, letterSpacings, spacing, radii, shadows, durations,
  * easings, zIndices, breakpoints).
  *
- * Output: `scripts/.kore-style-inventory.json`
+ * Output: `scripts/.softree-style-inventory.json`
  *
  * Idempotence: re-running over the same source emits a byte-identical JSON.
  * This is achieved by sorting every bucket deterministically and inserting
  * keys in a fixed order before stringifying.
  *
- * Used as the input for `src/components/kore/tokens.ts` and
- * `src/components/kore/tokens.css` authoring (Requirements 22.1, 22.2, 22.3,
+ * Used as the input for `src/components/softree-marketing-ui/tokens.ts` and
+ * `src/components/softree-marketing-ui/tokens.css` authoring (Requirements 22.1, 22.2, 22.3,
  * 22.4, 22.5).
  */
 
@@ -29,7 +29,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '..');
 const SOURCE_HTML = path.join(ROOT, 'public', 'kore-source-sections.html');
-const OUTPUT_JSON = path.join(__dirname, '.kore-style-inventory.json');
+const OUTPUT_JSON = path.join(__dirname, '.softree-style-inventory.json');
 
 // ---------------------------------------------------------------------------
 // Property → bucket mapping
@@ -446,7 +446,7 @@ function sortNumbers(arr) {
 
 function main() {
     if (!fs.existsSync(SOURCE_HTML)) {
-        console.error(`[extract-kore-styles] Source HTML not found: ${SOURCE_HTML}`);
+        console.error(`[extract-softree-styles] Source HTML not found: ${SOURCE_HTML}`);
         process.exit(1);
     }
 
@@ -464,7 +464,7 @@ function main() {
             walkRoot(root);
             parsedBlocks++;
         } catch (err) {
-            console.warn(`[extract-kore-styles] Skipped malformed <style> block: ${err.message}`);
+            console.warn(`[extract-softree-styles] Skipped malformed <style> block: ${err.message}`);
         }
     }
 
@@ -476,7 +476,7 @@ function main() {
             walkRoot(root);
             parsedInlines++;
         } catch (err) {
-            console.warn(`[extract-kore-styles] Skipped malformed inline style: ${err.message}`);
+            console.warn(`[extract-softree-styles] Skipped malformed inline style: ${err.message}`);
         }
     }
 
@@ -500,8 +500,8 @@ function main() {
     for (const k of BUCKET_KEYS) counts[k] = finalBuckets[k].length;
 
     const output = {
-        source: 'public/kore-source-sections.html',
-        generator: 'scripts/extract-kore-styles.mjs',
+        source: 'public/softree-source-sections.html',
+        generator: 'scripts/extract-softree-styles.mjs',
         schemaVersion: 1,
         parsed: {
             styleBlocks: parsedBlocks,
@@ -517,10 +517,10 @@ function main() {
 
     const summary = BUCKET_KEYS.map((k) => `${k}=${counts[k]}`).join(' ');
     console.log(
-        `[extract-kore-styles] Parsed ${parsedBlocks} <style> block(s), ${parsedInlines} inline style attr(s).`,
+        `[extract-softree-styles] Parsed ${parsedBlocks} <style> block(s), ${parsedInlines} inline style attr(s).`,
     );
-    console.log(`[extract-kore-styles] ${summary}`);
-    console.log(`[extract-kore-styles] Wrote ${path.relative(ROOT, OUTPUT_JSON)} (${Buffer.byteLength(json)} bytes).`);
+    console.log(`[extract-softree-styles] ${summary}`);
+    console.log(`[extract-softree-styles] Wrote ${path.relative(ROOT, OUTPUT_JSON)} (${Buffer.byteLength(json)} bytes).`);
 }
 
 main();

@@ -7,8 +7,8 @@
  * Two assertions split across two `it` blocks:
  *
  * Part A (Req 22.6 — Token_Coverage = 100%):
- *   AST-walk every `.ts`/`.tsx`/`.css` file under `src/components/kore/`
- *   and `src/app/kore-ai-component/` (whitelisting tokens.ts, tokens.css,
+ *   AST-walk every `.ts`/`.tsx`/`.css` file under `src/components/softree-marketing-ui/`
+ *   and `src/app/agentic-ai-platform/` (whitelisting tokens.ts, tokens.css,
  *   keyframes.css, assets.ts, the data fixture folder, and any test files)
  *   and assert that no literal numeric / color / easing / duration /
  *   radius / shadow value appears at a call site.  Today the test passes
@@ -16,8 +16,8 @@
  *   it becomes enforcing as new component code lands.
  *
  * Part B (Req 22.7 — 1:1 cardinality):
- *   Parse `src/components/kore/tokens.ts` with @babel/parser, extract
- *   every `as const` leaf.  Parse `src/components/kore/tokens.css` with
+ *   Parse `src/components/softree-marketing-ui/tokens.ts` with @babel/parser, extract
+ *   every `as const` leaf.  Parse `src/components/softree-marketing-ui/tokens.css` with
  *   postcss, extract every `--*` custom property declared inside the
  *   `@theme` block.  Assert one-to-one cardinality with a deterministic
  *   per-category prefix + camelCase→kebab-case derivation.
@@ -45,7 +45,7 @@ const KORE_AI_PAGE_DIR = path.join(
     WORKSPACE_ROOT,
     "src",
     "app",
-    "kore-ai-component",
+    "agentic-ai-platform",
 );
 
 // ---------------------------------------------------------------------------
@@ -521,7 +521,7 @@ function extractCssVars(filePath: string): CssVar[] {
 // ---------------------------------------------------------------------------
 
 describe("Property 9: Token Coverage and tokens.ts ↔ tokens.css Parity", () => {
-    it("no literal magic values appear at call sites in src/components/kore or src/app/kore-ai-component", () => {
+    it("no literal magic values appear at call sites in src/components/kore or src/app/agentic-ai-platform", () => {
         const candidateFiles: string[] = [];
         for (const root of [KORE_DIR, KORE_AI_PAGE_DIR]) {
             for (const f of walk(root)) {

@@ -11,7 +11,7 @@ previous_status: gaps_found
 previous_score: 8.28
 gaps_closed:
   - "Hero headline accent moved to #FF5812 orange"
-  - "KoreScrollTabs ported with ScrollTrigger pin + barba:enter-complete deferral"
+  - "SoftreeAgenticScrollTabs ported with ScrollTrigger pin + barba:enter-complete deferral"
   - "Cinematic Barba transitions wired in layout with reduced-motion bypass"
   - "Stats counter no longer starts at 0+; reduced-motion shows final values"
   - "Certification light variant integrated on page"
@@ -52,7 +52,7 @@ scores:
 | Fix area | Status | Evidence |
 | -------- | ------ | -------- |
 | `barba/*` cinematic transitions | ✓ | `BarbaRoot` in `layout.tsx`; `cinematicLeave`/`Enter`/`Once` in `transitions.ts` |
-| `KoreScrollTabs.tsx` | ✓ | ScrollTrigger pin, tab a11y, `barba:enter-complete` listener |
+| `SoftreeAgenticScrollTabs.tsx` | ✓ | ScrollTrigger pin, tab a11y, `barba:enter-complete` listener |
 | `AgenticAiHero.tsx` | ✓ | Light editorial hero, `accent="#FF5812"`, descriptive `alt`, 44px controls |
 | Certification light variant | ✓ | `AgenticAiPage` imports power-platform `certification.tsx` with `dark={false}` |
 | Em-dash copy (sections) | ⚠️ partial | Inline TSX clean; `agentic-ai-content.ts` still has ~15 user-facing em-dashes |

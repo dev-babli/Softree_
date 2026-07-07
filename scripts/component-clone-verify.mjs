@@ -8,10 +8,10 @@ import puppeteer from "puppeteer"
 
 const componentId = process.argv[2] || "loader-hero"
 const loop = Number(process.argv[3] || 1)
-const BASE = path.resolve(".planning/page-forge/kore-ai-exact")
+const BASE = path.resolve(".planning/page-forge/softree-agentic-exact")
 const OUT = path.join(BASE, "components", componentId, `loop-${loop}`)
-const LOCAL_BASE = process.env.CLONE_LOCAL_URL || "http://localhost:3000/kore-ai-component"
-const REF_URL = "https://www.kore.ai/ai-agent-platform"
+const LOCAL_BASE = process.env.CLONE_LOCAL_URL || "http://localhost:3000/agentic-ai-platform"
+const REF_URL = "https://www.softreetechnology.com/ai-agent-platform"
 const VIEWPORTS = [
   { name: "1536", width: 1536, height: 960 },
   { name: "390", width: 390, height: 844 },
@@ -24,7 +24,7 @@ const COMPONENTS = {
     localUrl: `${LOCAL_BASE}?replay-loader=1`,
     waitMs: 11000,
     waitFor: () =>
-      document.querySelector(".kore-ai-exact-shell")?.classList.contains("kore-ai-intro-complete"),
+      document.querySelector(".softree-agentic-shell")?.classList.contains("softree-agentic-intro-complete"),
     probes: [
       { id: "pill", sel: ".k2-container-hero > .k2-hero > .k2-text" },
       { id: "flip", sel: '[data-flip-target="loader"]' },

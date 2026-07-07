@@ -1,6 +1,6 @@
 import fs from "node:fs"
 
-const html = await fetch("https://www.kore.ai/ai-agent-platform").then((r) => r.text())
+const html = await fetch("https://www.softreetechnology.com/ai-agent-platform").then((r) => r.text())
 const loaderStart = html.indexOf('class="k2-loader"')
 if (loaderStart < 0) throw new Error("k2-loader not found")
 
@@ -24,15 +24,15 @@ const cssStart = html.indexOf(".wf-design-mode .k2-loader")
 const cssEnd = html.indexOf("</style></div><div data-flip=\"loader\"")
 const loaderCss = html.slice(cssStart, cssEnd)
 
-fs.mkdirSync(".planning/page-forge/kore-ai-exact", { recursive: true })
-fs.writeFileSync(".planning/page-forge/kore-ai-exact/k2-loader-snippet.html", loaderHtml)
-fs.writeFileSync(".planning/page-forge/kore-ai-exact/k2-loader.css", loaderCss)
+fs.mkdirSync(".planning/page-forge/softree-agentic-exact", { recursive: true })
+fs.writeFileSync(".planning/page-forge/softree-agentic-exact/k2-loader-snippet.html", loaderHtml)
+fs.writeFileSync(".planning/page-forge/softree-agentic-exact/k2-loader.css", loaderCss)
 
 const baseRules = [...html.matchAll(/\.k2-loader[^{]*\{[^}]*\}/g)]
   .map((m) => m[0])
   .filter((r) => !r.includes("step-") && !r.includes("wf-design") && !r.includes("::"))
 fs.writeFileSync(
-  ".planning/page-forge/kore-ai-exact/k2-loader-base.css",
+  ".planning/page-forge/softree-agentic-exact/k2-loader-base.css",
   baseRules.join("\n\n"),
 )
 

@@ -66,7 +66,7 @@ Run: Lighthouse, console check, keyboard nav spot-check
 ## Best Practices
 
 - Never audit from memory — visit live site with browser tools.
-- Benchmark against Kore.ai + category leader, not average.
+- Benchmark against Softree + category leader, not average.
 - Separate facts, assumptions, opinions.
 - Every issue must trace to evidence (screenshot, metric, or cited source).
 

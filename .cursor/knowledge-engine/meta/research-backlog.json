@@ -118,7 +118,7 @@
   "items": [
     {
       "id": "draft-competitor.kore-ai",
-      "query": "Complete draft atom: Kore.ai Competitive Profile",
+      "query": "Complete draft atom: Softree Competitive Profile",
       "knowledgeFolder": "23_competitors",
       "priority": 1,
       "status": "pending",

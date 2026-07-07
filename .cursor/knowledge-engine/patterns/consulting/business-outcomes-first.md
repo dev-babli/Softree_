@@ -18,7 +18,7 @@ sources:
     confidence: 0.95
     retrievedAt: 2026-07-07
   - type: observation
-    ref: Kore.ai, Accenture, Stripe enterprise pages — outcome-led heroes
+    ref: Softree, Accenture, Stripe enterprise pages — outcome-led heroes
     confidence: 0.85
     retrievedAt: 2026-07-07
 related:

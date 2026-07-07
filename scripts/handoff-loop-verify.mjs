@@ -7,9 +7,9 @@ import path from "node:path"
 import puppeteer from "puppeteer"
 
 const loop = Number(process.argv[2] || 1)
-const BASE = path.resolve(".planning/page-forge/kore-ai-exact")
+const BASE = path.resolve(".planning/page-forge/softree-agentic-exact")
 const OUT = path.join(BASE, `handoff-loop-${loop}`)
-const LOCAL = process.env.HANDOFF_URL || "http://localhost:3000/kore-ai-component?replay-loader=1"
+const LOCAL = process.env.HANDOFF_URL || "http://localhost:3000/agentic-ai-platform?replay-loader=1"
 const VIEWPORTS = [
   { name: "390", width: 390, height: 844 },
   { name: "768", width: 768, height: 1024 },
@@ -43,7 +43,7 @@ async function gotoPage(page, url) {
   for (let attempt = 1; attempt <= 2; attempt++) {
     try {
       await page.goto(url, { waitUntil: "domcontentloaded", timeout: 90000 })
-      await page.waitForSelector(".kore-ai-exact-shell", { timeout: 30000 })
+      await page.waitForSelector(".softree-agentic-shell", { timeout: 30000 })
       return
     } catch (error) {
       if (attempt === 2) throw error
@@ -54,7 +54,7 @@ async function gotoPage(page, url) {
 
 async function waitForLoader(page) {
   await page.waitForFunction(
-    () => document.querySelector(".k2-loader") || document.querySelector(".kore-ai-exact-shell")?.classList.contains("kore-ai-intro-complete"),
+    () => document.querySelector(".k2-loader") || document.querySelector(".softree-agentic-shell")?.classList.contains("softree-agentic-intro-complete"),
     { timeout: 30000 },
   )
 }
@@ -74,14 +74,14 @@ async function runViewport(page, vp) {
   await captureFrame(page, `${vp.name}-02-loader-step3.png`, 200)
 
   await page.waitForFunction(
-    () => document.documentElement.classList.contains("kore-ai-k2-handoff-running"),
+    () => document.documentElement.classList.contains("softree-agentic-k2-handoff-running"),
     { timeout: 15000 },
   ).catch(() => {})
   await captureFrame(page, `${vp.name}-03-handoff-mid.png`, 600)
 
   await page.waitForFunction(
     () =>
-      document.querySelector(".kore-ai-exact-shell")?.classList.contains("kore-ai-intro-complete") &&
+      document.querySelector(".softree-agentic-shell")?.classList.contains("softree-agentic-intro-complete") &&
       !document.querySelector(".k2-loader"),
     { timeout: 20000 },
   ).catch(() => {})
@@ -90,7 +90,7 @@ async function runViewport(page, vp) {
   return page.evaluate(() => ({
     loaderSrc: document.querySelector(".k2-loader-bg-img")?.getAttribute("src") ?? null,
     heroSrc: document.querySelector("#meet-artemis .k2-img")?.getAttribute("src") ?? null,
-    introComplete: document.querySelector(".kore-ai-exact-shell")?.classList.contains("kore-ai-intro-complete"),
+    introComplete: document.querySelector(".softree-agentic-shell")?.classList.contains("softree-agentic-intro-complete"),
     loaderGone: !document.querySelector(".k2-loader"),
     flipVisible: getComputedStyle(document.querySelector('[data-flip-target="loader"]') || document.body).visibility,
     h1: document.querySelector("#meet-artemis h1")?.textContent?.trim().slice(0, 60),
@@ -126,12 +126,12 @@ async function main() {
   fs.mkdirSync(OUT, { recursive: true })
 
   // Gate: shared asset in code
-  const loaderTs = fs.readFileSync("src/components/kore-ai-exact/KoreK2Loader.tsx", "utf8")
-  if (loaderTs.includes("KORE_HERO_BG_IMAGE")) pass("shared_asset", "KoreK2Loader imports KORE_HERO_BG_IMAGE")
-  else fail("shared_asset", "missing KORE_HERO_BG_IMAGE import")
+  const loaderTs = fs.readFileSync("src/components/softree-agentic-exact/SoftreeAgenticLoader.tsx", "utf8")
+  if (loaderTs.includes("SOFTREE_AGENTIC_HERO_BG_IMAGE")) pass("shared_asset", "SoftreeAgenticLoader imports SOFTREE_AGENTIC_HERO_BG_IMAGE")
+  else fail("shared_asset", "missing SOFTREE_AGENTIC_HERO_BG_IMAGE import")
 
   const layout = fs.readFileSync("src/app/layout.tsx", "utf8")
-  if (!layout.includes("KoreK2Loader") && !layout.includes("k2-loader")) pass("no_layout_hijack", "loader not in layout.tsx")
+  if (!layout.includes("SoftreeAgenticLoader") && !layout.includes("k2-loader")) pass("no_layout_hijack", "loader not in layout.tsx")
   else fail("no_layout_hijack", "loader found in layout.tsx")
 
   let browser
@@ -176,7 +176,7 @@ async function main() {
 
     await page.waitForFunction(
       () =>
-        document.querySelector(".kore-ai-exact-shell")?.classList.contains("kore-ai-intro-complete") &&
+        document.querySelector(".softree-agentic-shell")?.classList.contains("softree-agentic-intro-complete") &&
         !document.querySelector(".k2-loader"),
       { timeout: 25000 },
     )
@@ -221,7 +221,7 @@ async function main() {
     }
 
     const audit1536 = await page.evaluate(() => ({
-      introComplete: document.querySelector(".kore-ai-exact-shell")?.classList.contains("kore-ai-intro-complete"),
+      introComplete: document.querySelector(".softree-agentic-shell")?.classList.contains("softree-agentic-intro-complete"),
       loaderGone: !document.querySelector(".k2-loader"),
       h1: document.querySelector("#meet-artemis h1")?.textContent?.trim().slice(0, 60),
       heroTypography: (() => {

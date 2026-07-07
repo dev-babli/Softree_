@@ -2,7 +2,7 @@ import { EarthGlobeIcon } from '@sanity/icons'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 import { defaultFieldInstructions } from '../assist/instructions'
 import { aiAssistExclude } from '../lib/blockContentOptions'
-import { publishReadinessValidation, createSeoPreviewPanelField } from '../lib/documentHelpers'
+import { createSeoPreviewPanelField } from '../lib/documentHelpers'
 import { reviewStatusField } from '../lib/reviewStatusField'
 
 export const marketingPageType = defineType({
@@ -83,8 +83,6 @@ export const marketingPageType = defineType({
     }),
     createSeoPreviewPanelField('seo'),
   ],
-  validation: (Rule) =>
-    publishReadinessValidation(Rule, { requireBody: false, requireImage: false }),
   preview: {
     select: { title: 'title', slug: 'slug.current', status: 'status' },
     prepare({ title, slug, status }) {

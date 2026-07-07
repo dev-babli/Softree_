@@ -2,82 +2,88 @@
 
 import { PublishIcon } from '@sanity/icons'
 import { useCallback, useMemo } from 'react'
-import { type DocumentActionComponent, useClient, useDocumentOperation } from 'sanity'
+import { type DocumentActionComponent, useDocumentOperation, useEditState } from 'sanity'
 
-import { dataset, apiVersion } from '../env'
+import { countFaqItems } from '../lib/aeoCompleteness'
 import {
-  getPublishAeoBlockers,
-  getPublishContentBlockers,
+  getPublishWarnings,
   type PublishReadinessDoc,
 } from '../lib/publishReadiness'
+import { STUDIO_UI_ONLY_FIELDS } from '../lib/studioUiFields'
 
 const GUARDED_TYPES = new Set(['caseStudy', 'post', 'marketingPage'])
 
-/** Block publish on production until reviewStatus is approved (default plan). */
+const PUBLISH_DISABLED_HINTS: Record<string, string> = {
+  ALREADY_PUBLISHED:
+    'No unpublished draft yet — change something, wait for autosave (or press Ctrl+S), then Publish.',
+  NO_CHANGES: 'No changes to publish — edit the document and save first.',
+  LIVE_EDIT_ENABLED: 'This document type uses live edit; changes publish automatically.',
+  NOT_PUBLISHED: 'First-time publish — fill required fields, save, then Publish.',
+}
+
+function publishDisabledHint(disabled: false | string | boolean): string | null {
+  if (!disabled || disabled === true) return null
+  if (typeof disabled === 'string') {
+    return PUBLISH_DISABLED_HINTS[disabled] ?? `Publish unavailable (${disabled})`
+  }
+  return null
+}
+
+function resolveActionDoc(
+  props: { draft?: PublishReadinessDoc | null; published?: PublishReadinessDoc | null },
+  editState: { draft?: PublishReadinessDoc | null; published?: PublishReadinessDoc | null },
+): PublishReadinessDoc | null | undefined {
+  return props.draft || editState.draft || props.published || editState.published || null
+}
+
 export const GuardedPublishAction: DocumentActionComponent = (props) => {
-  const { publish } = useDocumentOperation(props.id, props.type)
-  const sanityClient = useClient({ apiVersion })
-  const doc = (props.draft || props.published) as PublishReadinessDoc | null | undefined
-  const reviewStatus =
-    doc && typeof doc === 'object' && 'reviewStatus' in doc
-      ? (doc.reviewStatus as string | undefined)
-      : undefined
+  const { publish, patch } = useDocumentOperation(props.id, props.type)
+  const editState = useEditState(props.id, props.type)
+  const docType = props.type
+  const hasDraft = Boolean(props.draft || editState.draft)
 
-  const contentMissing = useMemo(
-    () => (GUARDED_TYPES.has(props.type) ? getPublishContentBlockers(props.type, doc) : []),
-    [props.type, doc],
+  const doc = useMemo(
+    () => resolveActionDoc(props, editState),
+    [props, editState.draft, editState.published, props.draft, props.published],
   )
 
-  const aeoMissing = useMemo(
-    () => (GUARDED_TYPES.has(props.type) ? getPublishAeoBlockers(props.type, doc) : []),
-    [props.type, doc],
+  const warnings = useMemo(
+    () => (GUARDED_TYPES.has(docType) ? getPublishWarnings(docType, doc) : []),
+    [docType, doc],
   )
 
-  const reviewBlocked =
-    dataset === 'production' && GUARDED_TYPES.has(props.type) && reviewStatus !== 'approved'
+  const faqCount = useMemo(() => countFaqItems(doc), [doc])
+  const disabledHint = publishDisabledHint(publish.disabled)
 
-  const contentBlocked =
-    dataset === 'production' && GUARDED_TYPES.has(props.type) && contentMissing.length > 0
+  const onHandle = useCallback(() => {
+    const ops: Array<{ set?: Record<string, string>; unset?: string[] }> = [
+      { unset: [...STUDIO_UI_ONLY_FIELDS] },
+    ]
 
-  const aeoBlocked =
-    dataset === 'production' &&
-    (props.type === 'caseStudy' || props.type === 'post') &&
-    aeoMissing.length > 0
-
-  const blocked = reviewBlocked || contentBlocked || aeoBlocked
-
-  const onHandle = useCallback(async () => {
-    const patch: Record<string, unknown> = { status: 'published' }
     if (!doc?.publishedAt) {
-      patch.publishedAt = new Date().toISOString()
+      ops.push({ set: { publishedAt: new Date().toISOString() } })
     }
 
-    try {
-      await sanityClient.patch(props.id).set(patch).commit()
-    } catch (error) {
-      console.error('[GuardedPublishAction] Failed to sync publish metadata:', error)
-    }
-
+    patch.execute(ops)
     publish.execute()
     props.onComplete()
-  }, [doc?.publishedAt, props, publish, sanityClient])
+  }, [doc?.publishedAt, patch, props, publish])
 
-  const allMissing = [...contentMissing, ...aeoMissing]
-
-  const title = reviewBlocked
-    ? 'Set Review status to Approved before publishing on the production dataset.'
-    : contentBlocked
-      ? `Before publishing on production, add: ${contentMissing.join(', ')}`
-      : aeoBlocked
-        ? `AEO checklist — fix before publishing: ${aeoMissing.join(', ')}`
-        : allMissing.length > 0
-          ? `Publish readiness: still missing ${allMissing.join(', ')} (allowed on ${dataset})`
-          : 'Sets Status to Published and fills Published date if empty, then publishes to the live site.'
+  const title = !publish.enabled
+    ? disabledHint ??
+      'Publish is unavailable — make a change, save (Ctrl+S), then try again.'
+    : warnings.length > 0
+      ? `Publish updates the live site. Notes: ${warnings.join(' · ')}`
+      : faqCount < 2 && (docType === 'caseStudy' || docType === 'post')
+        ? `Publish — saved draft has ${faqCount}/2 FAQs (save after adding more if needed).`
+        : hasDraft
+          ? 'Publish merges your draft changes to the live site.'
+          : 'Make an edit and save to create a draft, then Publish.'
 
   return {
     label: 'Publish',
     icon: PublishIcon,
-    disabled: blocked || !publish.enabled,
+    disabled: !publish.enabled,
     title,
     onHandle,
   }

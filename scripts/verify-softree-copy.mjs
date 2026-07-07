@@ -1,9 +1,9 @@
-import { KORE_AI_SECTIONS, KORE_AI_DIALOGS, KORE_AI_FOOTER, KORE_AI_HEADER } from "../src/components/kore-ai-exact/referenceContent.ts"
-import { applySoftreeSectionHtml, applySoftreeShellHtml } from "../src/components/kore-ai-exact/koreHtmlCopy.ts"
+import { SOFTREE_AGENTIC_SECTIONS, SOFTREE_AGENTIC_DIALOGS, SOFTREE_AGENTIC_FOOTER, SOFTREE_AGENTIC_HEADER } from "../src/components/softree-agentic-exact/referenceContent.ts"
+import { applySoftreeSectionHtml, applySoftreeShellHtml } from "../src/components/softree-agentic-exact/softreeAgenticHtmlCopy.ts"
 
 const brand = /kore\.ai|artemis|abl™|™arch|\babl\b/i
 
-for (const s of KORE_AI_SECTIONS) {
+for (const s of SOFTREE_AGENTIC_SECTIONS) {
   const patched = applySoftreeSectionHtml(s.name, s.html)
   const plain = patched.replace(/<style[\s\S]*?<\/style>/gi, "").replace(/<[^>]+>/g, " ")
   const hits = plain.match(brand) || []
@@ -11,9 +11,9 @@ for (const s of KORE_AI_SECTIONS) {
 }
 
 for (const [label, html] of [
-  ["header", KORE_AI_HEADER.html],
-  ["footer", KORE_AI_FOOTER.html],
-  ["dialogs", KORE_AI_DIALOGS.map((d) => d.html).join("")],
+  ["header", SOFTREE_AGENTIC_HEADER.html],
+  ["footer", SOFTREE_AGENTIC_FOOTER.html],
+  ["dialogs", SOFTREE_AGENTIC_DIALOGS.map((d) => d.html).join("")],
 ]) {
   const patched = applySoftreeShellHtml(html)
   const plain = patched.replace(/<style[\s\S]*?<\/style>/gi, "").replace(/<[^>]+>/g, " ")

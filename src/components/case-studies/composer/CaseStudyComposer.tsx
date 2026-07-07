@@ -43,6 +43,7 @@ import type {
 import { BlogRelatedSection } from "@/components/blog/BlogRelatedSection"
 import { ReactBitsPreview } from "@/components/react-bits/ReactBitsPreview"
 import type { CsReactBitsSection } from "./types"
+import { caseStudySectionSurface } from "@/components/case-studies/detail/caseStudyDetailSurfaces"
 
 const REACT_BITS_HEIGHT: Record<string, string> = {
   sm: "min-h-[320px]",
@@ -77,16 +78,18 @@ function ComposerNarrativeBlock({
   block,
   client,
   slug,
+  surfaceClass,
 }: {
   block: CsNarrativeSection
   client: string
   slug: string
+  surfaceClass: string
 }) {
   const id = block.anchorId || undefined
   const sideImage = block.layout === "split" ? imageUrl(block.image) : undefined
 
   return (
-    <section id={id} className="scroll-mt-24 bg-[var(--softree-bg-light,#fafaf9)] py-16 md:py-24">
+    <section id={id} className={`scroll-mt-24 py-16 md:py-24 ${surfaceClass}`}>
       <PageContainer>
         <SectionHeaderReveal
           className="max-w-3xl"
@@ -127,10 +130,12 @@ function ComposerCardGridBlock({
   block,
   client,
   slug,
+  surfaceClass,
 }: {
   block: CsCardGridSection
   client: string
   slug: string
+  surfaceClass: string
 }) {
   const cards = block.cards || []
   if (!cards.length) return null
@@ -139,7 +144,7 @@ function ComposerCardGridBlock({
     block.showImage !== false ? cmsImage || stockPackForSlug(slug).challenge : null
 
   return (
-    <section className="scroll-mt-24 bg-white py-16 md:py-24">
+    <section className={`scroll-mt-24 py-16 md:py-24 ${surfaceClass}`}>
       <PageContainer>
         <SectionHeaderReveal
           className="max-w-3xl"
@@ -190,12 +195,18 @@ function ComposerCardGridBlock({
   )
 }
 
-function ComposerSolutionBlock({ block }: { block: CsSolutionSection }) {
+function ComposerSolutionBlock({
+  block,
+  surfaceClass,
+}: {
+  block: CsSolutionSection
+  surfaceClass: string
+}) {
   const features = block.features || []
   if (!block.heading && !block.summary && !features.length) return null
 
   return (
-    <section id="solution" className="scroll-mt-24 bg-white py-16 md:py-24">
+    <section id="solution" className={`scroll-mt-24 py-16 md:py-24 ${surfaceClass}`}>
       <PageContainer>
         <SectionHeaderReveal
           className="max-w-3xl"
@@ -227,12 +238,18 @@ function ComposerSolutionBlock({ block }: { block: CsSolutionSection }) {
   )
 }
 
-function ComposerBeforeAfterBlock({ block }: { block: CsBeforeAfterSection }) {
+function ComposerBeforeAfterBlock({
+  block,
+  surfaceClass,
+}: {
+  block: CsBeforeAfterSection
+  surfaceClass: string
+}) {
   const rows = block.rows || []
   if (!rows.length) return null
 
   return (
-    <section className="scroll-mt-24 bg-[var(--softree-bg-light,#fafaf9)] py-16 md:py-24">
+    <section className={`scroll-mt-24 py-16 md:py-24 ${surfaceClass}`}>
       <PageContainer>
         <SectionHeaderReveal
           className="max-w-2xl"
@@ -343,12 +360,18 @@ function ComposerHeroMetricsStripBlock({ block }: { block: CsHeroMetricsStrip })
   )
 }
 
-function ComposerEvidencePanelBlock({ block }: { block: CsEvidencePanel }) {
+function ComposerEvidencePanelBlock({
+  block,
+  surfaceClass,
+}: {
+  block: CsEvidencePanel
+  surfaceClass: string
+}) {
   const items = block.items || []
   if (!block.summary && !items.length) return null
 
   return (
-    <section className="scroll-mt-24 bg-white py-16 md:py-24">
+    <section className={`scroll-mt-24 py-16 md:py-24 ${surfaceClass}`}>
       <PageContainer>
         <SectionHeaderReveal
           className="max-w-3xl"
@@ -404,21 +427,39 @@ function ComposerBlock({
   section,
   data,
   contentMode = "case-study",
+  sectionIndex,
 }: {
   section: CaseStudyComposerSection
   data: CaseStudyLayoutData
   contentMode?: "case-study" | "blog"
+  sectionIndex: number
 }) {
+  const surfaceClass = caseStudySectionSurface(sectionIndex)
+
   switch (section._type) {
     case "csOverviewSection":
       if (contentMode === "blog") return null
-      return <OverviewSection data={data} />
+      return <OverviewSection data={data} surfaceClass={surfaceClass} />
 
     case "csNarrativeSection":
-      return <ComposerNarrativeBlock block={section} client={data.client} slug={data.slug} />
+      return (
+        <ComposerNarrativeBlock
+          block={section}
+          client={data.client}
+          slug={data.slug}
+          surfaceClass={surfaceClass}
+        />
+      )
 
     case "csCardGridSection":
-      return <ComposerCardGridBlock block={section} client={data.client} slug={data.slug} />
+      return (
+        <ComposerCardGridBlock
+          block={section}
+          client={data.client}
+          slug={data.slug}
+          surfaceClass={surfaceClass}
+        />
+      )
 
     case "csMetricsSection": {
       const metricsBlock = section as CsMetricsSection
@@ -432,11 +473,11 @@ function ComposerBlock({
         })),
         beforeAfter: [],
       }
-      return <ImpactSection data={patched} />
+      return <ImpactSection data={patched} surfaceClass={surfaceClass} />
     }
 
     case "csSolutionSection":
-      return <ComposerSolutionBlock block={section} />
+      return <ComposerSolutionBlock block={section} surfaceClass={surfaceClass} />
 
     case "csGallerySection": {
       const galleryBlock = section as CsGallerySection
@@ -460,7 +501,7 @@ function ComposerBlock({
           avatarUrl: imageUrl(t.avatar),
         },
       }
-      return <TestimonialSection data={patched} />
+      return <TestimonialSection data={patched} surfaceClass={surfaceClass} />
     }
 
     case "csTechStackSection": {
@@ -496,13 +537,13 @@ function ComposerBlock({
     }
 
     case "csBeforeAfterSection":
-      return <ComposerBeforeAfterBlock block={section} />
+      return <ComposerBeforeAfterBlock block={section} surfaceClass={surfaceClass} />
 
     case "csHeroMetricsStrip":
       return <ComposerHeroMetricsStripBlock block={section as CsHeroMetricsStrip} />
 
     case "csEvidencePanel":
-      return <ComposerEvidencePanelBlock block={section as CsEvidencePanel} />
+      return <ComposerEvidencePanelBlock block={section as CsEvidencePanel} surfaceClass={surfaceClass} />
 
     case "csFaqSection": {
       const faqBlock = section as CsFaqSection
@@ -585,6 +626,7 @@ export function CaseStudyComposer({
           section={section}
           data={data}
           contentMode={contentMode}
+          sectionIndex={index}
         />
       ))}
     </>

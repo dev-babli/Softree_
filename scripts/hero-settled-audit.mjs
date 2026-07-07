@@ -2,9 +2,9 @@ import fs from "node:fs"
 import path from "node:path"
 import puppeteer from "puppeteer"
 
-const OUT = path.resolve(".planning/page-forge/kore-ai-exact/hero-settled-audit")
+const OUT = path.resolve(".planning/page-forge/softree-agentic-exact/hero-settled-audit")
 fs.mkdirSync(OUT, { recursive: true })
-const URL = process.env.HERO_AUDIT_URL || "http://localhost:3001/kore-ai-component?replay-loader=1"
+const URL = process.env.HERO_AUDIT_URL || "http://localhost:3001/agentic-ai-platform?replay-loader=1"
 
 const browser = await puppeteer.launch({ headless: true, args: ["--no-sandbox"] })
 try {
@@ -13,14 +13,14 @@ try {
   await page.setViewport({ width: 1536, height: 960 })
   await page.goto(URL, { waitUntil: "domcontentloaded", timeout: 90000 })
   await page.waitForFunction(
-    () => document.querySelector(".kore-ai-exact-shell")?.classList.contains("kore-ai-intro-complete"),
+    () => document.querySelector(".softree-agentic-shell")?.classList.contains("softree-agentic-intro-complete"),
     { timeout: 20000 },
   )
   await new Promise((r) => setTimeout(r, 2000))
 
   const audit = await page.evaluate(() => {
     const hero = document.querySelector("#meet-artemis")
-    const shell = document.querySelector(".kore-ai-exact-shell")
+    const shell = document.querySelector(".softree-agentic-shell")
     const probes = [
       { id: "pill", sel: ".k2-container-hero > .k2-hero > .k2-text" },
       { id: "flip", sel: '[data-flip-target="loader"]' },

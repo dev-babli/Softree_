@@ -72,6 +72,13 @@ type StudyDoc = SanityCaseStudyDoc & {
   composerSections?: CaseStudyComposerSection[];
 };
 
+function resolveDetailLayout(study: StudyDoc): CaseStudyDetailLayout | null {
+  const raw = study.detailLayout
+  if (raw === "page-composer" || !raw) return "page-composer"
+  if (isPremiumLayout(raw)) return raw
+  return null
+}
+
 export function CaseStudyPageRenderer({
   study,
   related,
@@ -87,16 +94,14 @@ export function CaseStudyPageRenderer({
   initialCaseStudyCategories?: SanityNavCaseStudyCategory[];
   designTokens?: DesignTokenSettings | null;
 }) {
-  const detailLayout = isPremiumLayout(study.detailLayout)
-    ? study.detailLayout
-    : "education-edtech-story";
+  const detailLayout = resolveDetailLayout(study);
 
   if (detailLayout) {
     const data = mapCaseStudyToLayoutData(study, related, detailLayout);
 
     if (detailLayout === "page-composer") {
       return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen bg-[#f8f4ec]">
           <NavigationClient
             initialBlogCategories={initialBlogCategories}
             initialCaseStudyCategories={initialCaseStudyCategories}

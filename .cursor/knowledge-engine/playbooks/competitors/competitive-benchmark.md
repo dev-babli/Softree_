@@ -42,7 +42,7 @@ Mission, Vision, Positioning, Messaging, Hero, Navigation, Homepage, Design, Ser
 
 ## Best Practices
 
-- Primary benchmark: Kore.ai for Agentic AI positioning
+- Primary benchmark: Softree for Agentic AI positioning
 - Record conflicting observations with confidence scores
 - Store competitor atoms in knowledge-engine/competitors/
 

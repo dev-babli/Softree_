@@ -1,53 +1,65 @@
 import SeoPreviewInput from "../components/SeoPreviewInput"
-import React from "react"
+import React, { type ComponentType } from "react"
 import { defineField } from "sanity"
 import EditorProgressInput from "../components/EditorProgressInput"
-import type { ObjectInputProps } from "sanity"
+import FaqAeoPanelInput from "../components/FaqAeoPanelInput"
+import type { StringInputProps } from "sanity"
 import { caseStudyHasStoryContent, type CaseStudyCompletenessDoc } from "./caseStudyCompleteness"
-import { getAeoPublishIssues, type AeoCompletenessDoc } from "./aeoCompleteness"
+import { hasCoverImageAlt } from "./publishReadiness"
 
 const SEO_PREVIEW_SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://www.softreetechnology.com"
 
-function SeoPreviewPanelInput(_props: ObjectInputProps) {
+function SeoPreviewPanelInput(_props: StringInputProps) {
   return React.createElement(SeoPreviewInput, { siteUrl: SEO_PREVIEW_SITE_URL })
 }
 
-export function createSeoPreviewPanelField(group = "seo") {
+/** Non-persisted UI shell — use string + custom input (object panels break publish mutations). */
+function createUiShellField(options: {
+  name: string
+  title: string
+  group: string
+  input: ComponentType<StringInputProps>
+  fieldset?: string
+}) {
   return defineField({
-    name: "seoPreviewPanel",
-    title: "Search & social preview",
-    type: "object",
-    group,
+    name: options.name,
+    title: options.title,
+    type: "string",
+    group: options.group,
+    fieldset: options.fieldset,
+    readOnly: true,
     components: {
-      input: SeoPreviewPanelInput,
+      input: options.input,
     },
-    fields: [
-      defineField({
-        name: "placeholder",
-        type: "string",
-        hidden: true,
-      }),
-    ],
+  })
+}
+
+export function createSeoPreviewPanelField(group = "seo") {
+  return createUiShellField({
+    name: "seoPreviewUi",
+    title: "Search & social preview",
+    group,
+    input: SeoPreviewPanelInput,
   })
 }
 
 export function createEditorProgressPanelField(group = "publish") {
-  return defineField({
-    name: "editorProgressPanel",
-    title: "Editor progress",
-    type: "object",
+  return createUiShellField({
+    name: "publishChecklistUi",
+    title: "Publish checklist",
     group,
-    components: {
-      input: EditorProgressInput,
-    },
-    fields: [
-      defineField({
-        name: "placeholder",
-        type: "string",
-        hidden: true,
-      }),
-    ],
+    input: EditorProgressInput,
+  })
+}
+
+export function createFaqAeoPanelField(group = "publish") {
+  return createUiShellField({
+    name: "faqReadinessUi",
+    title: "FAQ readiness",
+    group,
+    fieldset: "faqAeoSet",
+    input: FaqAeoPanelInput,
   })
 }
 
@@ -74,15 +86,12 @@ export function publishReadinessValidation(
     }
 
     if (options?.requireImage !== false) {
-      const mainImage = fields.mainImage as { asset?: { _ref?: string } } | undefined
+      const mainImage = fields.mainImage as { asset?: { _ref?: string }; alt?: string } | undefined
       if (!mainImage?.asset?._ref && !fields.mainImageUrl) {
         missing.push("cover image")
+      } else if (!hasCoverImageAlt(fields)) {
+        missing.push("cover image alt text")
       }
-    }
-
-    const aeoIssues = getAeoPublishIssues(fields as AeoCompletenessDoc)
-    if (aeoIssues.length > 0) {
-      missing.push(...aeoIssues)
     }
 
     if (missing.length > 0) {

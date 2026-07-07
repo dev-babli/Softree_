@@ -1,6 +1,6 @@
 import puppeteer from "puppeteer"
 
-const URL = process.env.SCROLL_AUDIT_URL || "http://localhost:3001/kore-ai-component"
+const URL = process.env.SCROLL_AUDIT_URL || "http://localhost:3001/agentic-ai-platform"
 
 const probes = [
   {
@@ -30,7 +30,7 @@ try {
   const page = await browser.newPage()
   await page.setViewport({ width: 1536, height: 960 })
   await page.goto(URL, { waitUntil: "domcontentloaded", timeout: 90000 })
-  await page.waitForSelector(".kore-ai-exact-shell", { timeout: 15000 })
+  await page.waitForSelector(".softree-agentic-shell", { timeout: 15000 })
   await new Promise((r) => setTimeout(r, 2000))
 
   const report = {}

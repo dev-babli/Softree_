@@ -1,9 +1,9 @@
 import {
-  KORE_AI_DIALOGS,
-  KORE_AI_FOOTER,
-  KORE_AI_HEADER,
-  KORE_AI_SECTIONS,
-} from "../src/components/kore-ai-exact/referenceContent.ts"
+  SOFTREE_AGENTIC_DIALOGS,
+  SOFTREE_AGENTIC_FOOTER,
+  SOFTREE_AGENTIC_HEADER,
+  SOFTREE_AGENTIC_SECTIONS,
+} from "../src/components/softree-agentic-exact/referenceContent.ts"
 
 function plain(html) {
   return html
@@ -15,18 +15,18 @@ function plain(html) {
     .filter((x) => x.length > 4 && /[a-zA-Z]{3}/.test(x))
 }
 
-for (const s of KORE_AI_SECTIONS) {
+for (const s of SOFTREE_AGENTIC_SECTIONS) {
   console.log(`\n== ${s.name} ==`)
   console.log(plain(s.html).join("\n"))
 }
 
 console.log("\n== HEADER ==")
-console.log(plain(KORE_AI_HEADER.html).slice(0, 30).join("\n"))
+console.log(plain(SOFTREE_AGENTIC_HEADER.html).slice(0, 30).join("\n"))
 
 console.log("\n== FOOTER ==")
-console.log(plain(KORE_AI_FOOTER.html).slice(0, 30).join("\n"))
+console.log(plain(SOFTREE_AGENTIC_FOOTER.html).slice(0, 30).join("\n"))
 
 console.log("\n== DIALOGS ==")
-for (const d of KORE_AI_DIALOGS) {
+for (const d of SOFTREE_AGENTIC_DIALOGS) {
   console.log(plain(d.html).slice(0, 15).join(" | "))
 }

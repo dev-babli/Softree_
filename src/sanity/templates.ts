@@ -98,6 +98,22 @@ export const composerStarterSections: Array<Record<string, unknown>> = [
       { _type: 'composerMetric', value: '—', label: 'Metric 3' },
     ],
   },
+  {
+    _type: 'csFaqSection',
+    heading: 'Common questions',
+    faqs: [
+      {
+        _type: 'composerFaq',
+        question: 'What challenge did the client face?',
+        answer: 'Describe the business problem in one or two sentences.',
+      },
+      {
+        _type: 'composerFaq',
+        question: 'What results were achieved?',
+        answer: 'Summarize measurable outcomes and impact.',
+      },
+    ],
+  },
   { _type: 'csContactSection' },
 ]
 

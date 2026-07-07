@@ -1,5 +1,5 @@
 ---
-description: ATLAS page revamp — website modernization funnel + Kore.ai-level craft rules
+description: ATLAS page revamp — website modernization funnel + Softree-level craft rules
 alwaysApply: false
 ---
 
@@ -11,7 +11,7 @@ Part of **ATLAS**. Load `.cursor/knowledge/thinking-principles.md` first.
 
 Target page: `src/app/services/website-modernization/` (route `/services/website-modernization` — create if missing)
 
-Design reference: `src/components/kore-ai-exact/` (live: `/kore-ai-component`)
+Design reference: `src/components/softree-agentic-exact/` (live: `/agentic-ai-platform`)
 
 Business goal: Generate qualified leads via the AI modernization blueprint funnel (URL scan → trust/crawl audit → competitor gap analysis → wireframe preview → book strategy call)
 
@@ -32,7 +32,7 @@ Audience: Mid-market marketing leaders, IT directors, and founders with outdated
 ## Page-specific constraints
 
 - Embed or deep-link the existing AI analyser (`/webanalyser` → `web-lead-magnet-seven.vercel.app`); hero URL input must prefill the tool.
-- Reuse Kore interaction patterns (scroll reveals, pinned sections, radar/trust viz) from `src/components/kore-ai-exact/` — do not copy competitor branding verbatim.
+- Reuse Kore interaction patterns (scroll reveals, pinned sections, radar/trust viz) from `src/components/softree-agentic-exact/` — do not copy competitor branding verbatim.
 - Preserve site shell: `NavigationClient`, `LightContactSection`, `Footer` unless Brief says otherwise.
 - Wireframe/competitor outputs may be gated behind email — never fake a generated result; use labelled sample/demo data where the backend is not ready.
 

@@ -6,9 +6,9 @@ import fs from "node:fs"
 import path from "node:path"
 import puppeteer from "puppeteer"
 
-const OUT_DIR = path.resolve(".planning/page-forge/kore-ai-exact")
-const LOCAL_URL = process.env.CLONE_LOCAL_URL || process.env.HANDOFF_URL || "http://localhost:3001/kore-ai-component?replay-loader=1"
-const REF_URL = "https://www.kore.ai/ai-agent-platform"
+const OUT_DIR = path.resolve(".planning/page-forge/softree-agentic-exact")
+const LOCAL_URL = process.env.CLONE_LOCAL_URL || process.env.HANDOFF_URL || "http://localhost:3001/agentic-ai-platform?replay-loader=1"
+const REF_URL = "https://www.softreetechnology.com/ai-agent-platform"
 const VIEWPORT = { width: 1536, height: 960 }
 
 const WEIGHTS = {
@@ -219,7 +219,7 @@ ${total < 8.5 ? "- Weighted score below 8.5 gate — see criterion rows under 8.
 
 ## How to replay loader locally
 
-\`http://localhost:3000/kore-ai-component?replay-loader=1\`
+\`http://localhost:3000/agentic-ai-platform?replay-loader=1\`
 `
 }
 

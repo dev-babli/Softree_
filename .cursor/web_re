@@ -3,7 +3,7 @@
 - **Rules:** `.cursor/rules/web-revamp.mdc`
 - **Super prompt (Plan mode):** `.cursor/web-revamp-super-prompt.md`
 - **Target:** `/services/website-modernization` → `src/app/services/website-modernization/`
-- **Design ref:** `/kore-ai-component` → `src/components/kore-ai-exact/`
+- **Design ref:** `/agentic-ai-platform` → `src/components/softree-agentic-exact/`
 - **Primary CTA:** Get your free modernisation blueprint
 
 Copy the PROMPT section from `web-revamp-super-prompt.md` into Agents → Plan mode to start.

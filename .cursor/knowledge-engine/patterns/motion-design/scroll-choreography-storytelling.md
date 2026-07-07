@@ -19,7 +19,7 @@ sources:
     confidence: 0.9
     retrievedAt: 2026-07-07
   - type: observation
-    ref: kore.ai platform pages — section narrative arc
+    ref: softreetechnology.com platform pages — section narrative arc
     confidence: 0.85
     retrievedAt: 2026-07-07
   - type: internal

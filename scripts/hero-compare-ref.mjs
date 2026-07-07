@@ -1,7 +1,7 @@
 import puppeteer from "puppeteer"
 
-const LOCAL = "http://localhost:3001/kore-ai-component?replay-loader=1"
-const REF = "https://www.kore.ai/ai-agent-platform"
+const LOCAL = "http://localhost:3001/agentic-ai-platform?replay-loader=1"
+const REF = "https://www.softreetechnology.com/ai-agent-platform"
 
 async function readHero(page, waitIntro = false) {
   if (waitIntro) {
@@ -9,7 +9,7 @@ async function readHero(page, waitIntro = false) {
     await page.goto(LOCAL, { waitUntil: "domcontentloaded", timeout: 90000 })
     await page
       .waitForFunction(
-        () => document.querySelector(".kore-ai-exact-shell")?.classList.contains("kore-ai-intro-complete"),
+        () => document.querySelector(".softree-agentic-shell")?.classList.contains("softree-agentic-intro-complete"),
         { timeout: 15000 },
       )
       .catch(() => {})

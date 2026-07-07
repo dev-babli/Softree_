@@ -159,7 +159,7 @@ export function seedPatterns() {
     category: "homepage",
     observation:
       "High-converting SaaS homepages place social proof (logos, metrics, testimonials) in the first viewport.",
-    evidence: "Observed across Kore.ai, Stripe, Linear reference audits",
+    evidence: "Observed across Softree, Stripe, Linear reference audits",
     metrics: { conversionLift: "benchmark +15–25% (industry range)" },
     confidence: 0.82,
     recommendation:
@@ -173,7 +173,7 @@ export function seedPatterns() {
     category: "enterprise-ai",
     observation:
       "Most successful enterprise AI companies lead with business outcomes — not 'we build AI agents'.",
-    evidence: "Kore.ai, Accenture, Thoughtworks homepage messaging analysis",
+    evidence: "Softree, Accenture, Thoughtworks homepage messaging analysis",
     confidence: 0.88,
     recommendation:
       "Lead with: revenue, efficiency, automation, cost reduction. Technology is implementation layer.",
@@ -186,7 +186,7 @@ export function seedPatterns() {
     category: "design",
     observation:
       "Awwwards/Apple-tier pages use one pinned scroll-driven narrative per flagship page.",
-    evidence: "Apple product pages, kore.ai platform sections",
+    evidence: "Apple product pages, softreetechnology.com platform sections",
     confidence: 0.85,
     recommendation:
       "Implement one GSAP ScrollTrigger pin+scrub sequence on About, /ai, and primary service pages.",

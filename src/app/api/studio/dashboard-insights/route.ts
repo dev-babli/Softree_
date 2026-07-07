@@ -28,7 +28,11 @@ const CONTENT_ISSUES_QUERY = `{
   "missingFaq": count(*[
     _type in ["caseStudy", "post"] &&
     coalesce(status, "published") == "published" &&
-    count(coalesce(faqSchema, [])) < 2
+    (
+      count(coalesce(faqSchema, [])) +
+      count(coalesce(faqs, [])) +
+      count(coalesce(composerSections[_type == "csFaqSection"].faqs, []))
+    ) < 2
   ]),
   "missingAlt": count(*[
     _type in ["caseStudy", "post"] &&

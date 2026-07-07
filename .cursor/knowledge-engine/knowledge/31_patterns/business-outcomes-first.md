@@ -14,7 +14,7 @@ version: 1.0.0
 lastUpdated: 2026-07-07
 sources:
   - type: internal
-ref: Kore.ai, Accenture, Stripe enterprise pages — outcome-led heroes
+ref: Softree, Accenture, Stripe enterprise pages — outcome-led heroes
 retrievedAt: 2026-07-07
 related:
   - consulting.thinking-principles

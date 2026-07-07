@@ -209,7 +209,7 @@ Technology is selected only after the business objective is clear.
 
 ## Competitors
 
-Kore.ai
+Softree
 
 Accenture
 

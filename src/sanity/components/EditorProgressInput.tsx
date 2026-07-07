@@ -1,131 +1,119 @@
-"use client"
+'use client'
 
-import { useMemo } from "react"
-import type { ObjectInputProps } from "sanity"
+import { CheckmarkIcon, CloseIcon } from '@sanity/icons'
+import { Card, Flex, Stack, Text } from '@sanity/ui'
+import { useMemo } from 'react'
+import type { StringInputProps } from 'sanity'
 
-import { getAeoPublishIssues, type AeoCompletenessDoc } from '../lib/aeoCompleteness'
-import { caseStudyHasStoryContent, type CaseStudyCompletenessDoc } from '../lib/caseStudyCompleteness'
-import { postHasContent, type PostCompletenessDoc } from '../lib/postCompleteness'
-import { isCaseStudyCategory } from '@/app/case-studies/categoryConfig'
+import { usePublishReadinessDoc } from '../hooks/usePublishReadinessDoc'
+import { getPublishChecklist } from '../lib/publishReadiness'
 
-type EditorDocShape = CaseStudyCompletenessDoc &
-  PostCompletenessDoc &
-  AeoCompletenessDoc & {
-  _type?: string
-  title?: string
-  slug?: { current?: string }
-  client?: string
-  headerTitle?: string
-  excerpt?: string
-  category?: string
-  mainImage?: { asset?: { _ref?: string } }
-  mainImageUrl?: string
-  sections?: unknown[]
-}
+export default function EditorProgressInput(_props: StringInputProps) {
+  const doc = usePublishReadinessDoc()
+  const docType = doc._type || 'caseStudy'
 
-function storyContentPass(doc: EditorDocShape): boolean {
-  if (doc._type === 'post') return postHasContent(doc)
-  if (doc._type === 'marketingPage') return (doc.sections?.length ?? 0) > 0
-  return caseStudyHasStoryContent(doc)
-}
-
-export default function EditorProgressInput(props: ObjectInputProps) {
-  // @ts-expect-error -- documented pattern in Sanity input components
-  const doc = props?.context?.document as EditorDocShape | undefined
-  const docType = doc?._type
-
-  const { percent, checks } = useMemo(() => {
-    const d = doc || {}
-    const aeoIssues = getAeoPublishIssues(d)
-    const isCaseStudy = docType === 'caseStudy'
-    const isPost = docType === 'post'
-    const isMarketing = docType === 'marketingPage'
-
-    const items: Array<{ label: string; pass: boolean }> = [
-      { label: 'Title', pass: !!d.title },
-      { label: 'Slug', pass: !!d.slug?.current },
-    ]
-
-    if (isCaseStudy) {
-      items.push(
-        { label: 'Client', pass: !!d.client },
-        { label: 'Header title', pass: !!d.headerTitle },
-        { label: 'Technology category', pass: !!d.category && isCaseStudyCategory(d.category) },
-      )
-    }
-
-    if (!isMarketing) {
-      items.push({ label: 'Excerpt', pass: !!d.excerpt })
-    }
-
-    if (!isMarketing) {
-      items.push({
-        label: 'Cover',
-        pass: !!(d.mainImage?.asset?._ref || d.mainImageUrl),
-      })
-    }
-
-    items.push({
-      label: isMarketing ? 'Sections' : 'Story',
-      pass: storyContentPass(d),
-    })
-
-    if (!isMarketing) {
-      items.push(
-        { label: 'Meta title', pass: !aeoIssues.some((issue) => issue.startsWith('meta title')) },
-        {
-          label: 'Meta description',
-          pass: !aeoIssues.some((issue) => issue.startsWith('meta description')),
-        },
-        { label: 'FAQ (AEO)', pass: !aeoIssues.some((issue) => issue.startsWith('FAQ')) },
-      )
-    }
-
+  const { percent, checks, missing } = useMemo(() => {
+    const items = getPublishChecklist(docType, doc)
     const passed = items.filter((c) => c.pass).length
-    const pct = Math.round((passed / items.length) * 100)
-    return { percent: pct, checks: items }
+    const pct = items.length ? Math.round((passed / items.length) * 100) : 0
+    return {
+      percent: pct,
+      checks: items,
+      missing: items.filter((c) => !c.pass),
+    }
   }, [doc, docType])
 
-  const barColor = percent >= 85 ? '#16a34a' : percent >= 50 ? '#ff7a2f' : '#d97706'
-  const missing = checks.filter((c) => !c.pass)
+  const barColor = percent >= 100 ? '#16a34a' : percent >= 70 ? '#ff7a2f' : '#d97706'
 
   return (
-    <div className="softree-readiness">
-      <div className="softree-readiness__head">
-        <span className="softree-readiness__title">Publish readiness</span>
-        <span className="softree-readiness__pct" style={{ color: barColor }}>
-          {percent}%
-        </span>
-      </div>
-      <div className="softree-readiness__bar">
+    <Card padding={4} radius={3} border tone={percent >= 100 ? 'positive' : 'caution'}>
+      <Stack space={4}>
+        <Flex align="center" justify="space-between" gap={3}>
+          <Stack space={2}>
+            <Text size={2} weight="semibold">
+              Publish checklist
+            </Text>
+            <Text size={1} muted style={{ lineHeight: 1.55 }}>
+              Complete every item below, then <strong>Save</strong> (Ctrl+S) and use{' '}
+              <strong>Publish</strong> in the ⋯ menu. The checklist reads your current edits; Publish
+              uses the last saved draft — save after changing FAQs or review status.
+            </Text>
+          </Stack>
+          <Text size={3} weight="bold" style={{ color: barColor }}>
+            {percent}%
+          </Text>
+        </Flex>
+
         <div
-          className="softree-readiness__bar-fill"
-          style={{ width: `${percent}%`, background: barColor }}
-        />
-      </div>
-      <div className="softree-readiness__checks">
-        {checks.map((check) => (
-          <span
-            key={check.label}
-            className={`softree-readiness__check ${check.pass ? 'is-done' : 'is-missing'}`}
-          >
-            {check.label}
-          </span>
-        ))}
-      </div>
-      {missing.length > 0 ? (
-        <p className="softree-readiness__hint">
-          Next: {missing.map((m) => m.label.toLowerCase()).join(', ')}
-        </p>
-      ) : (
-        <p className="softree-readiness__hint is-ready">
-          Ready to publish — click Publish to push live (syncs Status + date)
-        </p>
-      )}
-      <p className="softree-readiness__hint" style={{ marginTop: '0.5rem', opacity: 0.85 }}>
-        Saving in Studio is not enough: use the green Publish button. Status must be Published for
-        the website to show this document.
-      </p>
-    </div>
+          style={{
+            height: 8,
+            borderRadius: 4,
+            background: 'var(--card-border-color)',
+            overflow: 'hidden',
+          }}
+        >
+          <div
+            style={{
+              height: '100%',
+              width: `${percent}%`,
+              background: barColor,
+              transition: 'width 0.25s ease',
+            }}
+          />
+        </div>
+
+        <Stack space={2}>
+          {checks.map((check) => (
+            <Flex key={check.id} align="flex-start" gap={3}>
+              <Flex
+                align="center"
+                justify="center"
+                style={{
+                  width: 22,
+                  height: 22,
+                  borderRadius: 999,
+                  flexShrink: 0,
+                  background: check.pass ? 'rgba(22,163,74,0.12)' : 'rgba(217,119,6,0.12)',
+                  color: check.pass ? '#16a34a' : '#d97706',
+                }}
+              >
+                {check.pass ? <CheckmarkIcon /> : <CloseIcon />}
+              </Flex>
+              <Stack space={1}>
+                <Text size={1} weight={check.pass ? 'regular' : 'semibold'}>
+                  {check.label}
+                  {!check.pass ? (
+                    <Text as="span" size={0} muted>
+                      {' '}
+                      → {check.tab} tab
+                    </Text>
+                  ) : null}
+                </Text>
+                {!check.pass ? (
+                  <Text size={1} muted style={{ lineHeight: 1.5 }}>
+                    {check.hint}
+                  </Text>
+                ) : null}
+              </Stack>
+            </Flex>
+          ))}
+        </Stack>
+
+        {missing.length > 0 ? (
+          <Card padding={3} radius={2} tone="transparent" border>
+            <Text size={1}>
+              <strong>Recommended before publish:</strong>{' '}
+              {missing.map((m) => m.label.toLowerCase()).join(', ')}
+            </Text>
+          </Card>
+        ) : (
+          <Card padding={3} radius={2} tone="positive" border>
+            <Text size={1}>
+              Checklist complete — save draft (Ctrl+S), then Publish from the ⋯ menu.
+            </Text>
+          </Card>
+        )}
+      </Stack>
+    </Card>
   )
 }

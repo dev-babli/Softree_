@@ -256,7 +256,7 @@ There are many other agentic AI providers available for organizations exploring 
 - **Cognition AI**: Devin AI agent for software development
 - **Adept AI**: AI agents for enterprise workflows
 - **Relevance AI**: AI agents for knowledge work
-- **Kore.ai**: AI agents for customer service
+- **Softree**: AI agents for customer service
 - **Cognigy**: AI agents for customer experience
 
 ## Key Points

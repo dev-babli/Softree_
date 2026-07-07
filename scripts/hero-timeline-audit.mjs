@@ -2,9 +2,9 @@ import fs from "node:fs"
 import path from "node:path"
 import puppeteer from "puppeteer"
 
-const OUT = path.resolve(".planning/page-forge/kore-ai-exact/hero-timeline-audit")
+const OUT = path.resolve(".planning/page-forge/softree-agentic-exact/hero-timeline-audit")
 fs.mkdirSync(OUT, { recursive: true })
-const URL = "http://localhost:3001/kore-ai-component?replay-loader=1"
+const URL = "http://localhost:3001/agentic-ai-platform?replay-loader=1"
 
 const browser = await puppeteer.launch({ headless: true, args: ["--no-sandbox"] })
 try {
@@ -28,7 +28,7 @@ try {
       }
       return {
         t: performance.now(),
-        shell: document.querySelector(".kore-ai-exact-shell")?.className,
+        shell: document.querySelector(".softree-agentic-shell")?.className,
         heroClass: hero?.className,
         htmlClass: document.documentElement.className,
         loader: !!document.querySelector(".k2-loader"),

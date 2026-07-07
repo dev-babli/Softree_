@@ -7,7 +7,7 @@
       "title": "Social proof above the fold",
       "category": "homepage",
       "observation": "High-converting SaaS homepages place social proof (logos, metrics, testimonials) in the first viewport.",
-      "evidence": "Observed across Kore.ai, Stripe, Linear reference audits",
+      "evidence": "Observed across Softree, Stripe, Linear reference audits",
       "metrics": {
         "conversionLift": "benchmark +15–25% (industry range)"
       },
@@ -26,7 +26,7 @@
       "title": "Enterprise AI positions outcomes not agents",
       "category": "enterprise-ai",
       "observation": "Most successful enterprise AI companies lead with business outcomes — not 'we build AI agents'.",
-      "evidence": "Kore.ai, Accenture, Thoughtworks homepage messaging analysis",
+      "evidence": "Softree, Accenture, Thoughtworks homepage messaging analysis",
       "metrics": {},
       "confidence": 0.88,
       "confidenceLabel": "High",

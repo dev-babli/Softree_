@@ -1,5 +1,5 @@
 # ATLAS: Self-Correcting Multi-Agent Page Revamp
-## Awwwards / Apple / Kore.ai Level — Iterate Until World-Class
+## Awwwards / Apple / Softree Level — Iterate Until World-Class
 
 **This is the master prompt.** Load ATLAS knowledge first, then paste the PROMPT block below into Cursor Plan mode, approve the plan, switch to Agent mode, and run.
 
@@ -19,7 +19,7 @@
 - Knowledge brain: `.cursor/knowledge/`
 - Standing rules: `.cursor/rules/atlas-knowledge.mdc`, `.cursor/rules/web-revamp.mdc`
 - Website-modernization funnel spec: appendix at bottom of this file
-- Design reference in repo: `src/components/kore-ai-exact/` → `/kore-ai-component`
+- Design reference in repo: `src/components/softree-agentic-exact/` → `/agentic-ai-platform`
 
 ---
 
@@ -66,7 +66,7 @@ Each agent confirms which skills it read before starting.
 Dispatch a **RESEARCH AGENT** with browser tools (Playwright / Chrome DevTools MCP). Visit live sites — never rely on memory.
 
 ### Primary reference
-**https://kore.ai** — About Us + every Agentic AI / platform / product page.
+**https://softreetechnology.com** — About Us + every Agentic AI / platform / product page.
 
 Full-page screenshots at **1440px, 768px, 390px**. Save to `./design-reference/kore/`.
 
@@ -89,13 +89,13 @@ Save to `./design-reference/craft/`.
 ### Output
 `./design-reference/DESIGN-BRIEF.md` — single source of truth: Softree's design language, motion vocabulary, storytelling formula.
 
-Synthesize Kore.ai enterprise discipline + Apple scroll craft + Softree positioning as **AI Transformation Partner** (not IT services).
+Synthesize Softree enterprise discipline + Apple scroll craft + Softree positioning as **AI Transformation Partner** (not IT services).
 
 ---
 
 ## DESIGN DIRECTION (non-negotiable)
 
-**Quality bar:** Awwwards SOTD / Apple product page / kore.ai enterprise polish.
+**Quality bar:** Awwwards SOTD / Apple product page / softreetechnology.com enterprise polish.
 
 Verifier scores like an Awwwards judge: **Design 40, Usability 30, Creativity 20, Content 10**. Under **8.5/10 overall = REJECTED**.
 
@@ -117,11 +117,11 @@ Also score against `.cursor/knowledge/website-scoring-rubric.md` (100-point fram
 - **Typographic drama:** structural display type (96–160px desktop), mixed weights, clip-path / per-line stagger reveals
 - **Custom easing:** cubic-bezier(0.16, 1, 0.3, 1) family; entrances 400–800ms; sibling stagger 40–80ms
 - **Section transitions:** theme shifts between sections, choreographed content in (no skeleton flash)
-- **kore.ai discipline:** rigid grid, restrained palette, enterprise credibility — creativity in motion, not layout chaos
+- **softreetechnology.com discipline:** rigid grid, restrained palette, enterprise credibility — creativity in motion, not layout chaos
 - **3rd-visit test:** interruptible, respects `prefers-reduced-motion`, never blocks reading
 
 ### Page 1 concept gate
-UI Designer presents **2–3 distinct visual concepts** for the first flagship page (words + reference to Kore.ai screenshots). Orchestrator picks one. All later pages inherit that design language.
+UI Designer presents **2–3 distinct visual concepts** for the first flagship page (words + reference to Softree screenshots). Orchestrator picks one. All later pages inherit that design language.
 
 ---
 
@@ -161,7 +161,7 @@ Before building, re-open DESIGN-BRIEF.md + reference screenshots. If page type l
 Pipeline: Architect → Designer → Engineer → Motion → Responsive → Performance → CRO → SEO → Trust → Analytics.
 
 Reuse existing repo patterns where appropriate:
-- Motion: `@/lib/motion`, `k2ScrollReveal`, `k2Radar` from `kore-ai-exact`
+- Motion: `@/lib/motion`, `k2ScrollReveal`, `k2Radar` from `softree-agentic-exact`
 - Shell: `NavigationClient`, `LightContactSection`, `Footer`
 - Do not copy competitor branding verbatim
 
@@ -171,7 +171,7 @@ Reuse existing repo patterns where appropriate:
 - Run `npm run build`, lint, check console errors, accessibility basics
 
 ### Step 4 — COMPARE TO WEB
-Side-by-side OUR screenshots vs kore.ai + craft references:
+Side-by-side OUR screenshots vs softreetechnology.com + craft references:
 - Design language hold up?
 - Motion as smooth and purposeful?
 - Storytelling arc as clear?
@@ -214,7 +214,7 @@ Inventory and revamp in this order. Confirm list against repo before starting; a
 | 7 | `/case-studies/ai` | AI social proof |
 | 8 | `/` | Homepage AI transformation positioning (if scope includes) |
 
-**Design gold standard in repo:** `/kore-ai-component` → `src/components/kore-ai-exact/` — study before building; reuse patterns, do not duplicate blindly.
+**Design gold standard in repo:** `/agentic-ai-platform` → `src/components/softree-agentic-exact/` — study before building; reuse patterns, do not duplicate blindly.
 
 After all pages: **FULL-SITE VERIFIER** — nav, footer, spacing rhythm, motion vocabulary, cross-page consistency + final build/lint/console sweep.
 
@@ -260,13 +260,13 @@ Use `.cursor/knowledge/report-template.md` structure:
 
 # PROMPT (paste into Plan mode)
 
-You are the ORCHESTRATOR running ATLAS — a self-correcting multi-agent revamp of Softree's Agentic AI and positioning pages to Awwwards / Apple / Kore.ai level.
+You are the ORCHESTRATOR running ATLAS — a self-correcting multi-agent revamp of Softree's Agentic AI and positioning pages to Awwwards / Apple / Softree level.
 
 **Before anything else:** Read `.cursor/knowledge/thinking-principles.md`, then `business-context.md`, `brand-positioning.md`, `ideal-client-profile.md`, `website-scoring-rubric.md`, and `consulting-frameworks.md`.
 
 **Then execute in order:**
 1. Phase 0 — confirm skill reads per agent role
-2. Phase 1 — Research agent builds `./design-reference/` + `DESIGN-BRIEF.md` (live kore.ai + craft sites, screenshots at 3 breakpoints, full motion/story/structure docs)
+2. Phase 1 — Research agent builds `./design-reference/` + `DESIGN-BRIEF.md` (live softreetechnology.com + craft sites, screenshots at 3 breakpoints, full motion/story/structure docs)
 3. UI Designer presents 2–3 concepts for page 1 (`/about-us`); you pick one
 4. Run the Complete Loop on each page in the revamp queue (flagships first)
 5. Full-site Verifier pass

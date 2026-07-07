@@ -27,14 +27,14 @@ npm run atlas:improve
 **State:** `.cursor/atlas-loop-state.json`  
 **Research output:** `design-reference/DESIGN-BRIEF.md`
 
-**Target bar:** Awwwards SOTD / Apple / Kore.ai · self-correcting verifier loop · max 6 iterations/page
+**Target bar:** Awwwards SOTD / Apple / Softree · self-correcting verifier loop · max 6 iterations/page
 
 **Default page queue:** about-us → /ai → offshore-ai-development → offshore-generative-ai → website-modernization → ai-powered-test-automation → case-studies/ai
 
 **Invoke (full queue):**
 ```
 Run ATLAS. Read .cursor/atlas-revamp-super-prompt.md — paste PROMPT into Plan mode.
-Phase 1: screenshot kore.ai + craft refs → DESIGN-BRIEF.md. Then loop page 1.
+Phase 1: screenshot softreetechnology.com + craft refs → DESIGN-BRIEF.md. Then loop page 1.
 ```
 
 **Invoke (single page):**
@@ -105,7 +105,7 @@ loader-hero · enterprise-outcomes · ai-agents · ai-programmable · pillars ·
 
 ## Replay
 
-`http://localhost:3001/kore-ai-component?replay-loader=1`
+`http://localhost:3001/agentic-ai-platform?replay-loader=1`
 
 ## Verify all
 

@@ -4,6 +4,8 @@ import { RevertIcon } from "@sanity/icons"
 import { useCallback } from "react"
 import { type DocumentActionComponent, useClient } from "sanity"
 
+import { STUDIO_UI_ONLY_FIELDS } from "../lib/studioUiFields"
+
 function randomKey(): string {
   return Math.random().toString(36).slice(2, 10)
 }
@@ -54,12 +56,13 @@ export const FixKeysAction: DocumentActionComponent = (props) => {
     if (!source) return
 
     const { next, changed } = addMissingKeys(source)
-    if (!changed) {
-      props.onComplete()
-      return
+    let patch = client.patch(props.id).unset([...STUDIO_UI_ONLY_FIELDS])
+
+    if (changed) {
+      patch = patch.set(next as Record<string, unknown>)
     }
 
-    await client.patch(props.id).set(next as Record<string, unknown>).commit()
+    await patch.commit()
     props.onComplete()
   }, [client, props])
 
@@ -70,6 +73,7 @@ export const FixKeysAction: DocumentActionComponent = (props) => {
     label: "Fix missing array keys",
     icon: RevertIcon,
     onHandle,
-    title: "Add _key to array items missing keys (helps Portable Text and reordering)",
+    title:
+      "Add _key to array items missing keys and remove Studio-only UI fields that can block publish",
   }
 }

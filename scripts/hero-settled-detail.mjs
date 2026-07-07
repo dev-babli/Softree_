@@ -1,6 +1,6 @@
 import puppeteer from "puppeteer"
 
-const URL = "http://localhost:3001/kore-ai-component?replay-loader=1"
+const URL = "http://localhost:3001/agentic-ai-platform?replay-loader=1"
 
 const browser = await puppeteer.launch({ headless: true, args: ["--no-sandbox"] })
 try {
@@ -9,7 +9,7 @@ try {
   await page.setViewport({ width: 1536, height: 960 })
   await page.goto(URL, { waitUntil: "domcontentloaded", timeout: 90000 })
   await page.waitForFunction(
-    () => document.querySelector(".kore-ai-exact-shell")?.classList.contains("kore-ai-intro-complete"),
+    () => document.querySelector(".softree-agentic-shell")?.classList.contains("softree-agentic-intro-complete"),
     { timeout: 25000 },
   )
   await new Promise((r) => setTimeout(r, 1500))
@@ -42,7 +42,7 @@ try {
       opacity: getComputedStyle(el).opacity,
     }))
     return {
-      shell: document.querySelector(".kore-ai-exact-shell")?.className,
+      shell: document.querySelector(".softree-agentic-shell")?.className,
       pill: read(pill),
       h1: read(h1),
       flip: read(flip),
@@ -51,7 +51,7 @@ try {
     }
   })
   console.log(JSON.stringify(audit, null, 2))
-  await page.screenshot({ path: ".planning/page-forge/kore-ai-exact/hero-settled-audit/settled2.png" })
+  await page.screenshot({ path: ".planning/page-forge/softree-agentic-exact/hero-settled-audit/settled2.png" })
 } finally {
   await browser.close()
 }

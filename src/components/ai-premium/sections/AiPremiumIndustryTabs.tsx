@@ -2,8 +2,8 @@
 
 import { industryTabs, type IndustryTabId } from "../data/agentic-ai-content"
 import { AiReveal } from "../primitives/AiReveal"
-import { KoreTabPanel } from "@/components/kore/primitives/kore-tab-panel"
-import { KoreTabStrip } from "@/components/kore/primitives/kore-tab-strip"
+import { SoftreeTabPanel } from "@/components/softree-marketing-ui/primitives/softree-tab-panel"
+import { SoftreeTabStrip } from "@/components/softree-marketing-ui/primitives/softree-tab-strip"
 import { Check } from "lucide-react"
 import { useState } from "react"
 
@@ -26,7 +26,7 @@ export function AiPremiumIndustryTabs() {
         <hr className="ai-rule mt-10" />
 
         <div className="mt-10 flex flex-col gap-8 lg:mt-14">
-          <KoreTabStrip
+          <SoftreeTabStrip
             idBase="ai-industry"
             ariaLabel="Industry use cases"
             tabs={industryTabs.map((t) => ({ id: t.id, label: t.label }))}
@@ -37,7 +37,7 @@ export function AiPremiumIndustryTabs() {
           />
 
           {industryTabs.map((panel) => (
-            <KoreTabPanel key={panel.id} idBase="ai-industry" tabId={panel.id} active={active === panel.id}>
+            <SoftreeTabPanel key={panel.id} idBase="ai-industry" tabId={panel.id} active={active === panel.id}>
               <div className="grid gap-10 rounded-[1.5rem] border border-[var(--ai-line)] bg-[var(--ai-cream)]/50 p-8 md:grid-cols-[1.1fr_0.9fr] md:p-12">
                 <div>
                   <h3 className="text-2xl font-semibold tracking-tight text-[var(--ai-navy)] md:text-3xl">
@@ -68,7 +68,7 @@ export function AiPremiumIndustryTabs() {
                   ))}
                 </ul>
               </div>
-            </KoreTabPanel>
+            </SoftreeTabPanel>
           ))}
         </div>
 

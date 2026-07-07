@@ -66,6 +66,16 @@ const nextConfig: any = {
         permanent: true,
       },
       {
+        source: "/kore-ai-component",
+        destination: "/agentic-ai-platform",
+        permanent: true,
+      },
+      {
+        source: "/kore-ai-component/:path*",
+        destination: "/agentic-ai-platform/:path*",
+        permanent: true,
+      },
+      {
         source: "/contact-us",
         destination: "/contact",
         permanent: true,

@@ -1,6 +1,6 @@
 import puppeteer from "puppeteer"
 
-const URL = process.env.BUILD_AUDIT_URL || "http://localhost:3000/kore-ai-component"
+const URL = process.env.BUILD_AUDIT_URL || "http://localhost:3000/agentic-ai-platform"
 
 const browser = await puppeteer.launch({ headless: true, args: ["--no-sandbox"] })
 try {

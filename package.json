@@ -53,6 +53,8 @@
         "atlas:migrate": "node scripts/atlas-knowledge/migrate-legacy.mjs",
         "atlas:patterns": "node scripts/atlas-knowledge/patterns-cli.mjs",
         "atlas:relocate": "node scripts/atlas-knowledge/relocate-knowledge.mjs",
+        "rename:kore-to-softree": "node scripts/rename-kore-to-softree.mjs --apply --verify",
+        "rename:kore-to-softree:dry": "node scripts/rename-kore-to-softree.mjs --dry-run",
         "atlas:ingest": "node scripts/atlas-knowledge/cli.mjs",
         "atlas:improve": "node scripts/atlas-knowledge/self-improve.mjs",
         "atlas:knowledge": "node scripts/atlas-knowledge/search.mjs"

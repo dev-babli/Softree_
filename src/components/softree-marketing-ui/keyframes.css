@@ -1,0 +1,228 @@
+/*
+ * Softree homepage clone — keyframes.css
+ *
+ * Verbatim copy of every @keyframes block declared in the inline <style>
+ * blocks of `public/softree-source-sections.html`, plus the static
+ * [transition-delay="0".."15"] rule block and every accordion grid
+ * transition rule that the source declares.
+ *
+ * Source: public/softree-source-sections.html
+ * Frame stops, percentages, and property values are preserved exactly.
+ *
+ * Imported alongside `tokens.css` from `src/app/agentic-ai-platform/layout.tsx`.
+ */
+
+/* ===========================================================================
+ * @keyframes (inline <style> blocks)
+ * ===========================================================================
+ */
+
+/* Marquee — source line ~1579 */
+@keyframes marquee {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Marquee reverse — source line ~1589 */
+@keyframes marqueereverse {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(50%);
+    }
+}
+
+/* Slider Marquee — source line ~1672 */
+@keyframes marqueeSlide {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Hero side arrow indicator — source line ~4080 */
+@keyframes sideArrowFlow {
+    0% {
+        top: 0px;
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 20px;
+        opacity: 0;
+    }
+}
+
+/* Numbered point button arrow slide — source line ~5535 */
+@keyframes npArrowMove {
+
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    49% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Hover-image button rotating gradient — source line ~9382 */
+@keyframes hva-rotate {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* ===========================================================================
+ * Accordion grid transition rules — source lines ~272-302
+ * ===========================================================================
+ */
+
+[data-accordion-list="css"] [data-accordion-body] {
+    grid-template-rows: 0fr;
+    display: grid;
+}
+
+[data-accordion-list="css"] [data-accordion="active"] [data-accordion-body] {
+    grid-template-rows: 1fr !important;
+}
+
+[data-accordion-list="css"] [data-accordion="active"] .accordion-icon {
+    transform: rotate(180deg)
+}
+
+[data-accordion-list="css"] [data-accordion="active"] .accordion-cross-icon {
+    transform: rotate(45deg)
+}
+
+[data-accordion-list="css"] [data-accordion-body] {
+    transition: grid-template-rows 0.6s cubic-bezier(0.625, 0.05, 0, 1);
+}
+
+[data-accordion-imgs] [data-accordion-img] {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.3s ease;
+}
+
+[data-accordion-imgs] [data-accordion-img="not-active"] {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Accordion image positioning — source line ~1943 */
+[data-accordion-imgs] [data-accordion-img]:first-child {
+    position: static !important;
+}
+
+[data-accordion-imgs] [data-accordion-img] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ===========================================================================
+ * Static [transition-delay="0".."15"] rule block — source lines ~192-254
+ * Each value is 0.1s + n * 0.1s (n=0 -> 0.1s, n=15 -> 1.6s).
+ * ===========================================================================
+ */
+
+[transition-delay="0"] {
+    transition-delay: .1s !important
+}
+
+[transition-delay="1"] {
+    transition-delay: .2s !important
+}
+
+[transition-delay="2"] {
+    transition-delay: .3s !important
+}
+
+[transition-delay="3"] {
+    transition-delay: .4s !important
+}
+
+[transition-delay="4"] {
+    transition-delay: .5s !important
+}
+
+[transition-delay="5"] {
+    transition-delay: .6s !important
+}
+
+[transition-delay="6"] {
+    transition-delay: .7s !important
+}
+
+[transition-delay="7"] {
+    transition-delay: .8s !important
+}
+
+[transition-delay="8"] {
+    transition-delay: .9s !important
+}
+
+[transition-delay="9"] {
+    transition-delay: 1s !important
+}
+
+[transition-delay="10"] {
+    transition-delay: 1.1s !important
+}
+
+[transition-delay="11"] {
+    transition-delay: 1.2s !important
+}
+
+[transition-delay="12"] {
+    transition-delay: 1.3s !important
+}
+
+[transition-delay="13"] {
+    transition-delay: 1.4s !important
+}
+
+[transition-delay="14"] {
+    transition-delay: 1.5s !important
+}
+
+[transition-delay="15"] {
+    transition-delay: 1.6s !important
+}

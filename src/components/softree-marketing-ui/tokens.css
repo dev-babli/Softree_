@@ -1,0 +1,274 @@
+/*
+ * Softree homepage clone — tokens.css
+ *
+ * Tailwind v4 `@theme` block that mirrors every leaf of
+ * `src/components/softree-marketing-ui/tokens.ts` to a CSS custom property with a category
+ * namespace prefix. Cardinality is 1:1 — every TS leaf has exactly one CSS
+ * custom property and there are NO extra custom properties without a
+ * matching TS leaf. The parity test in tasks.md task 1.6
+ * (`tests/property/token-coverage.test.ts`) enforces this invariant.
+ *
+ * NAMING CONVENTION (Tailwind v4 conventional namespaces):
+ *   colors          → --color-<kebab>
+ *   fonts           → --font-<kebab>
+ *   fontSizes       → --text-<kebab>
+ *   fontWeights     → --font-weight-<kebab>
+ *   lineHeights     → --leading-<kebab>
+ *   letterSpacings  → --tracking-<kebab>
+ *   spacing         → --spacing-<kebab>
+ *   radii           → --radius-<kebab>
+ *   shadows         → --shadow-<kebab>     (no leaves; section omitted)
+ *   durations       → --duration-<kebab>
+ *   easings         → --ease-<kebab>
+ *   zIndices        → --z-<kebab>
+ *   breakpoints     → --breakpoint-<kebab>
+ *
+ * KEBAB-CASE DERIVATION (deterministic, round-trip-able):
+ *   kebab(key) = key
+ *     .replace(/([a-z0-9])([A-Z])/g, '$1-$2')   // split lowercase/digit→Upper
+ *     .toLowerCase();
+ *
+ *   Examples:
+ *     softreeBlue            → kore-blue
+ *     sourceCodePro       → source-code-pro
+ *     fsDot8125rem        → fs-dot8125rem
+ *     lsNegDot01625rem    → ls-neg-dot01625rem
+ *     easeInOut           → ease-in-out
+ *     mobilePortrait      → mobile-portrait
+ *     s0p75rem            → s0p75rem        (no uppercase → no splits)
+ *     lh1                 → lh1             (no uppercase → no splits)
+ *     w400                → w400             (no uppercase → no splits)
+ *
+ * VALUE EMISSION:
+ *   - String leaves (colors, fonts, fontSizes, fontWeights, lineHeights,
+ *     letterSpacings, spacing, radii, durations, easings) are emitted
+ *     verbatim from `tokens.ts`.
+ *   - Numeric leaves (zIndices, breakpoints) are emitted as raw numbers,
+ *     equal to the TS literal value.
+ *
+ * WIRING:
+ *   `tokens.css` is imported alongside `keyframes.css` from the segment-
+ *   scoped layout `src/app/agentic-ai-platform/layout.tsx` authored in
+ *   task 20.1. This file deliberately does not modify `page.tsx` or any
+ *   other route file — the layout import is owned by tasks 20.1/20.2.
+ *
+ * TOTAL LEAVES (must match TS): 154
+ *   colors=9, fonts=3, fontSizes=17, fontWeights=3, lineHeights=4,
+ *   letterSpacings=2, spacing=47, radii=3, shadows=0, durations=34,
+ *   easings=8, zIndices=11, breakpoints=13.
+ *
+ * SOURCE OF TRUTH: src/components/softree-marketing-ui/tokens.ts
+ * REQUIREMENT:    22.7
+ */
+
+@import "tailwindcss";
+
+@theme {
+    /* ===================================================================
+     * colors  (9 leaves)
+     * =================================================================== */
+    --color-kore-blue: #4d65ff;
+    --color-kore-red: #dd4615;
+    --color-white: #fff;
+    --color-current-color: currentcolor;
+    --color-black70: rgba(0, 0, 0, 0.7);
+    --color-black90: rgba(0, 0, 0, 0.9);
+    --color-white12: rgba(255, 255, 255, 0.12);
+    --color-white20: rgba(255, 255, 255, 0.20);
+    --color-transparent: transparent;
+
+    /* ===================================================================
+     * fonts  (3 leaves)
+     * =================================================================== */
+    --font-inter: Inter;
+    --font-sans-serif: sans-serif;
+    --font-source-code-pro: Sourcecodepro;
+
+    /* ===================================================================
+     * fontSizes  (17 leaves) — namespace --text-
+     * =================================================================== */
+    --text-fs-neg0p0002971768202080227rem: -0.0002971768202080227rem;
+    --text-fs-neg0p0026778242677824265rem: -0.0026778242677824265rem;
+    --text-fs-dot8125rem: .8125rem;
+    --text-fs0p8rem: 0.8rem;
+    --text-fs0p75rem: 0.75rem;
+    --text-fs0p825rem: 0.825rem;
+    --text-fs0p8508974358974357vw: 0.8508974358974357vw;
+    --text-fs0p00019230769230782485rem: 0.00019230769230782485rem;
+    --text-fs0p037909407665505324rem: 0.037909407665505324rem;
+    --text-fs0rem: 0rem;
+    --text-fs1p011441307578009vw: 1.011441307578009vw;
+    --text-fs1p111441307578009vw: 1.111441307578009vw;
+    --text-fs2p083125rem: 2.083125rem;
+    --text-fs2p0069686411149825vw: 2.0069686411149825vw;
+    --text-fs4p266666666666667vw: 4.266666666666667vw;
+    --text-fs4p2666666666666675vw: 4.2666666666666675vw;
+    --text-fs4p2845188284518825vw: 4.2845188284518825vw;
+
+    /* ===================================================================
+     * fontWeights  (3 leaves) — namespace --font-weight-
+     * =================================================================== */
+    --font-weight-w400: 400;
+    --font-weight-w500: 500;
+    --font-weight-w600: 600;
+
+    /* ===================================================================
+     * lineHeights  (4 leaves) — namespace --leading-
+     * =================================================================== */
+    --leading-lh1: 1;
+    --leading-lh1p2: 1.2;
+    --leading-lh1p25rem: 1.25rem;
+    --leading-lh-normal: normal;
+
+    /* ===================================================================
+     * letterSpacings  (2 leaves) — namespace --tracking-
+     * =================================================================== */
+    --tracking-ls-neg-dot01625rem: -.01625rem;
+    --tracking-ls-neg0p01875rem: -0.01875rem;
+
+    /* ===================================================================
+     * spacing  (47 leaves) — namespace --spacing-
+     * =================================================================== */
+    --spacing-s-neg0p35rem: -0.35rem;
+    --spacing-s-neg5p3rem: -5.3rem;
+    --spacing-s-neg6p6rem: -6.6rem;
+    --spacing-s-neg9999px: -9999px;
+    --spacing-s-dot25rem: .25rem;
+    --spacing-s-dot75rem: .75rem;
+    --spacing-s0: 0;
+    --spacing-s0p3rem: 0.3rem;
+    --spacing-s0p5rem: 0.5rem;
+    --spacing-s0p6rem: 0.6rem;
+    --spacing-s0p8rem: 0.8rem;
+    --spacing-s0p10rem: 0.10rem;
+    --spacing-s0p25rem: 0.25rem;
+    --spacing-s0p75em: 0.75em;
+    --spacing-s0p75rem: 0.75rem;
+    --spacing-s0p725rem: 0.725rem;
+    --spacing-s0px: 0px;
+    --spacing-s0rem: 0rem;
+    --spacing-s1p5rem: 1.5rem;
+    --spacing-s1p25rem: 1.25rem;
+    --spacing-s1p75rem: 1.75rem;
+    --spacing-s1p225rem: 1.225rem;
+    --spacing-s1em: 1em;
+    --spacing-s1px: 1px;
+    --spacing-s1rem: 1rem;
+    --spacing-s2rem: 2rem;
+    --spacing-s3p5rem: 3.5rem;
+    --spacing-s3rem: 3rem;
+    --spacing-s5rem: 5rem;
+    --spacing-s8px: 8px;
+    --spacing-s10px: 10px;
+    --spacing-s20px: 20px;
+    --spacing-s22px: 22px;
+    --spacing-s24px: 24px;
+    --spacing-s50vh: 50vh;
+    --spacing-s95vh: 95vh;
+    --spacing-s100vh: 100vh;
+    --spacing-s101vh: 101vh;
+    --spacing-s101vw: 101vw;
+    --spacing-s120px: 120px;
+    --spacing-s180px: 180px;
+    --spacing-s710px: 710px;
+    --spacing-s776px: 776px;
+    --spacing-s875px: 875px;
+    --spacing-s917px: 917px;
+    --spacing-s957px: 957px;
+    --spacing-s969px: 969px;
+
+    /* ===================================================================
+     * radii  (3 leaves) — namespace --radius-
+     * =================================================================== */
+    --radius-r-dot25rem: .25rem;
+    --radius-r0p25rem: 0.25rem;
+    --radius-r20px: 20px;
+
+    /* ===================================================================
+     * shadows  (0 leaves) — section omitted intentionally per tokens.ts
+     * =================================================================== */
+
+    /* ===================================================================
+     * durations  (34 leaves) — namespace --duration-
+     * =================================================================== */
+    --duration-d-dot1s: .1s;
+    --duration-d-dot2s: .2s;
+    --duration-d-dot3s: .3s;
+    --duration-d-dot4s: .4s;
+    --duration-d-dot5s: .5s;
+    --duration-d-dot6s: .6s;
+    --duration-d-dot7s: .7s;
+    --duration-d-dot8s: .8s;
+    --duration-d-dot9s: .9s;
+    --duration-d-dot55s: .55s;
+    --duration-d0p1s: 0.1s;
+    --duration-d0p2s: 0.2s;
+    --duration-d0p3s: 0.3s;
+    --duration-d0p4s: 0.4s;
+    --duration-d0p5s: 0.5s;
+    --duration-d0p6s: 0.6s;
+    --duration-d0p8s: 0.8s;
+    --duration-d0p9s: 0.9s;
+    --duration-d0p35s: 0.35s;
+    --duration-d0p75s: 0.75s;
+    --duration-d0s: 0s;
+    --duration-d1p1s: 1.1s;
+    --duration-d1p2s: 1.2s;
+    --duration-d1p3s: 1.3s;
+    --duration-d1p4s: 1.4s;
+    --duration-d1p5s: 1.5s;
+    --duration-d1p6s: 1.6s;
+    --duration-d1p25s: 1.25s;
+    --duration-d1s: 1s;
+    --duration-d2s: 2s;
+    --duration-d4s: 4s;
+    --duration-d20s: 20s;
+    --duration-d40s: 40s;
+    --duration-d200ms: 200ms;
+
+    /* ===================================================================
+     * easings  (8 leaves) — namespace --ease-
+     * =================================================================== */
+    --ease-anim: cubic-bezier(.22, .61, .36, 1);
+    --ease-anim-long: cubic-bezier(0.22, 0.6, 0.36, 1);
+    --ease-lenis: cubic-bezier(0.165, 0.84, 0.44, 1);
+    --ease-silk: cubic-bezier(0.625, 0.05, 0, 1);
+    --ease-ease: ease;
+    --ease-ease-in: ease-in;
+    --ease-ease-in-out: ease-in-out;
+    --ease-linear: linear;
+
+    /* ===================================================================
+     * zIndices  (11 leaves) — namespace --z-, raw integer values
+     * =================================================================== */
+    --z-z-neg1: -1;
+    --z-z1: 1;
+    --z-z2: 2;
+    --z-z9: 9;
+    --z-z10: 10;
+    --z-z99: 99;
+    --z-z9989: 9989;
+    --z-z9998: 9998;
+    --z-z9999: 9999;
+    --z-z99998: 99998;
+    --z-z99999: 99999;
+
+    /* ===================================================================
+     * breakpoints  (13 leaves) — namespace --breakpoint-, raw integer values
+     * Source-document verbatim entries (bp240..bp3000) plus spec-mandated
+     * semantic mapping (mobilePortrait, mobileLandscape, tablet, desktop).
+     * =================================================================== */
+    --breakpoint-bp240: 240;
+    --breakpoint-bp375: 375;
+    --breakpoint-bp479: 479;
+    --breakpoint-bp480: 480;
+    --breakpoint-bp767: 767;
+    --breakpoint-bp991: 991;
+    --breakpoint-bp1440: 1440;
+    --breakpoint-bp1800: 1800;
+    --breakpoint-bp3000: 3000;
+    --breakpoint-mobile-portrait: 360;
+    --breakpoint-mobile-landscape: 480;
+    --breakpoint-tablet: 768;
+    --breakpoint-desktop: 992;
+}

@@ -13,7 +13,7 @@ import { AgenticAiHero } from "./sections/AgenticAiHero"
 import { AgenticAiIndustry } from "./sections/AgenticAiIndustry"
 import { AgenticAiIndustryPills } from "./sections/AgenticAiIndustryPills"
 import { AgenticAiPillars } from "./sections/AgenticAiPillars"
-import { KoreScrollTabs } from "./sections/KoreScrollTabs"
+import { SoftreeAgenticScrollTabs } from "./sections/SoftreeAgenticScrollTabs"
 import { AgenticAiProcess } from "./sections/AgenticAiProcess"
 import { AgenticAiServices } from "./sections/AgenticAiServices"
 import { AgenticAiStats } from "./sections/AgenticAiStats"
@@ -39,7 +39,7 @@ export function AgenticAiPage({ faqs }: AgenticAiPageProps) {
       </div>
       <AboutClientLogos />
       <AgenticAiPillars />
-      <KoreScrollTabs />
+      <SoftreeAgenticScrollTabs />
       <AgenticAiIndustry />
       <AgenticAiIndustryPills />
       <AgenticAiTechStack />

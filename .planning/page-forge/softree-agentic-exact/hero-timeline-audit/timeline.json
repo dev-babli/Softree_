@@ -1,0 +1,245 @@
+[
+  {
+    "t": 7458.100000023842,
+    "shell": "softree-agentic-shell",
+    "heroClass": "k2-section k2-section-hero on",
+    "htmlClass": "",
+    "loader": false,
+    "pill": {
+      "opacity": "1",
+      "vis": "visible",
+      "text": "Softree Agent Platform"
+    },
+    "flip": {
+      "opacity": "1",
+      "vis": "visible",
+      "text": "Meet { Artemis }"
+    },
+    "h1": {
+      "opacity": "1",
+      "vis": "visible",
+      "text": "The AI-programmable platform for the age"
+    },
+    "body": {
+      "opacity": "1",
+      "vis": "visible",
+      "text": "Built with AI from the ground up { Artem"
+    }
+  },
+  {
+    "t": 8900.700000047684,
+    "shell": "softree-agentic-shell",
+    "heroClass": "k2-section k2-section-hero on k2-hero-handoff-settled",
+    "htmlClass": "w-mod-js wf-active ready lenis softree-agentic-k2-loader-running",
+    "loader": true,
+    "pill": {
+      "opacity": "0",
+      "vis": "hidden",
+      "text": "Softree Agent Platform"
+    },
+    "flip": {
+      "opacity": "0",
+      "vis": "hidden",
+      "text": "Meet { Artemis }"
+    },
+    "h1": {
+      "opacity": "1",
+      "vis": "hidden",
+      "text": "The AI-programmable platform for the age"
+    },
+    "body": {
+      "opacity": "1",
+      "vis": "visible",
+      "text": "Built with AI from the ground up { Artem"
+    }
+  },
+  {
+    "t": 10289.800000071526,
+    "shell": "softree-agentic-shell",
+    "heroClass": "k2-section k2-section-hero on k2-hero-handoff-settled",
+    "htmlClass": "w-mod-js wf-active ready lenis softree-agentic-k2-loader-running",
+    "loader": true,
+    "pill": {
+      "opacity": "0",
+      "vis": "hidden",
+      "text": "Softree Agent Platform"
+    },
+    "flip": {
+      "opacity": "0",
+      "vis": "hidden",
+      "text": "Meet { Artemis }"
+    },
+    "h1": {
+      "opacity": "1",
+      "vis": "hidden",
+      "text": "The AI-programmable platform for the age"
+    },
+    "body": {
+      "opacity": "1",
+      "vis": "visible",
+      "text": "Built with AI from the ground up { Artem"
+    }
+  },
+  {
+    "t": 11449.900000095367,
+    "shell": "softree-agentic-shell",
+    "heroClass": "k2-section k2-section-hero on k2-hero-handoff-settled",
+    "htmlClass": "w-mod-js wf-active ready lenis softree-agentic-k2-loader-running",
+    "loader": true,
+    "pill": {
+      "opacity": "0",
+      "vis": "hidden",
+      "text": "Softree Agent Platform"
+    },
+    "flip": {
+      "opacity": "0",
+      "vis": "hidden",
+      "text": "Meet { Artemis }"
+    },
+    "h1": {
+      "opacity": "1",
+      "vis": "hidden",
+      "text": "The AI-programmable platform for the age"
+    },
+    "body": {
+      "opacity": "1",
+      "vis": "visible",
+      "text": "Built with AI from the ground up { Artem"
+    }
+  },
+  {
+    "t": 12538.700000047684,
+    "shell": "softree-agentic-shell",
+    "heroClass": "k2-section k2-section-hero on k2-hero-handoff-settled",
+    "htmlClass": "w-mod-js wf-active ready lenis softree-agentic-k2-loader-running",
+    "loader": true,
+    "pill": {
+      "opacity": "0",
+      "vis": "hidden",
+      "text": "Softree Agent Platform"
+    },
+    "flip": {
+      "opacity": "0",
+      "vis": "hidden",
+      "text": "Meet { Artemis }"
+    },
+    "h1": {
+      "opacity": "1",
+      "vis": "hidden",
+      "text": "The AI-programmable platform for the age"
+    },
+    "body": {
+      "opacity": "1",
+      "vis": "visible",
+      "text": "Built with AI from the ground up { Artem"
+    }
+  },
+  {
+    "t": 14246.200000047684,
+    "shell": "softree-agentic-shell",
+    "heroClass": "k2-section k2-section-hero on k2-hero-handoff-settled",
+    "htmlClass": "w-mod-js wf-active ready lenis softree-agentic-k2-loader-running",
+    "loader": true,
+    "pill": {
+      "opacity": "0",
+      "vis": "hidden",
+      "text": "Softree Agent Platform"
+    },
+    "flip": {
+      "opacity": "0",
+      "vis": "hidden",
+      "text": "Meet { Artemis }"
+    },
+    "h1": {
+      "opacity": "1",
+      "vis": "hidden",
+      "text": "The AI-programmable platform for the age"
+    },
+    "body": {
+      "opacity": "1",
+      "vis": "visible",
+      "text": "Built with AI from the ground up { Artem"
+    }
+  },
+  {
+    "t": 15685.100000023842,
+    "shell": "softree-agentic-shell",
+    "heroClass": "k2-section k2-section-hero on k2-hero-handoff-settled",
+    "htmlClass": "w-mod-js wf-active ready lenis softree-agentic-k2-handoff-running",
+    "loader": true,
+    "pill": {
+      "opacity": "1",
+      "vis": "visible",
+      "text": "Softree Agent Platform"
+    },
+    "flip": {
+      "opacity": "1",
+      "vis": "visible",
+      "text": "Meet { Artemis }"
+    },
+    "h1": {
+      "opacity": "1",
+      "vis": "visible",
+      "text": "The AI-programmable platform for the age"
+    },
+    "body": {
+      "opacity": "1",
+      "vis": "visible",
+      "text": "Built with AI from the ground up { Artem"
+    }
+  },
+  {
+    "t": 19420.100000023842,
+    "shell": "softree-agentic-shell softree-agentic-intro-complete",
+    "heroClass": "k2-section k2-section-hero on k2-hero-handoff-settled",
+    "htmlClass": "w-mod-js wf-active ready lenis",
+    "loader": false,
+    "pill": {
+      "opacity": "1",
+      "vis": "visible",
+      "text": "Softree Agent Platform"
+    },
+    "flip": {
+      "opacity": "1",
+      "vis": "visible",
+      "text": "Meet { Artemis }"
+    },
+    "h1": {
+      "opacity": "1",
+      "vis": "visible",
+      "text": "The AI-programmable platform for the age"
+    },
+    "body": {
+      "opacity": "1",
+      "vis": "visible",
+      "text": "Built with AI from the ground up { Artem"
+    }
+  },
+  {
+    "t": 25583.100000023842,
+    "shell": "softree-agentic-shell softree-agentic-intro-complete",
+    "heroClass": "k2-section k2-section-hero on k2-hero-handoff-settled",
+    "htmlClass": "w-mod-js wf-active ready lenis",
+    "loader": false,
+    "pill": {
+      "opacity": "1",
+      "vis": "visible",
+      "text": "Softree Agent Platform"
+    },
+    "flip": {
+      "opacity": "1",
+      "vis": "visible",
+      "text": "Meet { Artemis }"
+    },
+    "h1": {
+      "opacity": "1",
+      "vis": "visible",
+      "text": "The AI-programmable platform for the age"
+    },
+    "body": {
+      "opacity": "1",
+      "vis": "visible",
+      "text": "Built with AI from the ground up { Artem"
+    }
+  }
+]

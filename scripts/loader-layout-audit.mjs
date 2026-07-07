@@ -2,11 +2,11 @@ import fs from "node:fs"
 import path from "node:path"
 import puppeteer from "puppeteer"
 
-const OUT = path.resolve(".planning/page-forge/kore-ai-exact/loader-layout-audit")
+const OUT = path.resolve(".planning/page-forge/softree-agentic-exact/loader-layout-audit")
 fs.mkdirSync(OUT, { recursive: true })
 
-const LOCAL = process.env.LOADER_AUDIT_URL || "http://localhost:3001/kore-ai-component?replay-loader=1"
-const REF = "https://www.kore.ai/ai-agent-platform"
+const LOCAL = process.env.LOADER_AUDIT_URL || "http://localhost:3001/agentic-ai-platform?replay-loader=1"
+const REF = "https://www.softreetechnology.com/ai-agent-platform"
 
 async function measure(page, label) {
   await page.evaluateOnNewDocument(() => localStorage.removeItem("k2LoaderPlayedAt"))

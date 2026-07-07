@@ -1,6 +1,6 @@
 import fs from "node:fs"
 
-const html = await fetch("https://www.kore.ai/ai-agent-platform").then((r) => r.text())
+const html = await fetch("https://www.softreetechnology.com/ai-agent-platform").then((r) => r.text())
 const cssUrls = [...html.matchAll(/href="([^"]+\.css[^"]*)"/g)]
   .map((m) => m[1])
   .filter((u) => u.includes("website-files"))
@@ -57,5 +57,5 @@ for (let i = blockStart; i < html.length; i++) {
   }
 }
 const loaderHtml = html.slice(blockStart, end)
-fs.writeFileSync(".planning/page-forge/kore-ai-exact/k2-loader-live.html", loaderHtml)
+fs.writeFileSync(".planning/page-forge/softree-agentic-exact/k2-loader-live.html", loaderHtml)
 console.log("\nSaved live loader HTML")

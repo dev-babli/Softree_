@@ -6,8 +6,6 @@ import PostEditorWelcome from '../components/PostEditorWelcome'
 import {aiAssistExclude} from '../lib/blockContentOptions'
 import {fieldAi} from '../lib/fieldAiOptions'
 import {createSeoPreviewPanelField, createEditorProgressPanelField} from '../lib/documentHelpers'
-import {postHasContent} from '../lib/postCompleteness'
-import {getAeoPublishIssues, type AeoCompletenessDoc} from '../lib/aeoCompleteness'
 import {reviewStatusField} from '../lib/reviewStatusField'
 import {caseStudyComposerInsertMenu, caseStudyComposerMembers} from './caseStudyComposerBlocks'
 
@@ -288,29 +286,6 @@ export const postType = defineType({
     createSeoPreviewPanelField('seo'),
     createEditorProgressPanelField('publish'),
   ],
-  validation: (Rule) =>
-    Rule.custom((fields: Record<string, unknown> | undefined) => {
-      if (!fields || fields.status === 'archived' || fields.status === 'draft') return true
-
-      const missing: string[] = []
-      if (!fields.title) missing.push('title')
-      if (!(fields.slug as {current?: string} | undefined)?.current) missing.push('slug')
-      if (!fields.excerpt) missing.push('excerpt')
-
-      if (!postHasContent(fields as Parameters<typeof postHasContent>[0])) {
-        missing.push('content (body or composer sections)')
-      }
-
-      const aeoIssues = getAeoPublishIssues(fields as AeoCompletenessDoc)
-      if (aeoIssues.length > 0) {
-        missing.push(...aeoIssues)
-      }
-
-      if (missing.length > 0) {
-        return `Before publishing, add: ${missing.join(', ')}`
-      }
-      return true
-    }),
   preview: {
     select: {
       title: 'title',

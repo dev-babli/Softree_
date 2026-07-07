@@ -1,6 +1,6 @@
 import puppeteer from "puppeteer"
 
-const URL = "http://localhost:3001/kore-ai-component"
+const URL = "http://localhost:3001/agentic-ai-platform"
 const sections = [
   { id: "ai-agents", probes: [".k2-tabs-btn.on", ".k2-tabs-panel-agents.on h2", ".k2-agents-content p", ".k2-agents-panel .k2-img-wrapper:last-child img"] },
   { id: "ai-programmable", probes: [".k2-orbit-sticky", ".k2-orbit-arch", ".k2-orbit-button", "#get-to-roi-faster"] },
@@ -12,7 +12,7 @@ try {
   const page = await browser.newPage()
   await page.setViewport({ width: 1536, height: 960 })
   await page.goto(URL, { waitUntil: "domcontentloaded", timeout: 90000 })
-  await page.waitForSelector(".kore-ai-exact-shell", { timeout: 15000 })
+  await page.waitForSelector(".softree-agentic-shell", { timeout: 15000 })
   await new Promise((r) => setTimeout(r, 1500))
 
   const report = {}

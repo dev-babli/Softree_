@@ -1,7 +1,7 @@
 import fs from "node:fs"
 
-const t = fs.readFileSync("src/components/kore-ai-exact/referenceContent.ts", "utf8")
-const m = t.match(/export const KORE_AI_REFERENCE_CSS = "([\s\S]*)";/)
+const t = fs.readFileSync("src/components/softree-agentic-exact/referenceContent.ts", "utf8")
+const m = t.match(/export const SOFTREE_AGENTIC_REFERENCE_CSS = "([\s\S]*)";/)
 const css = m[1].replace(/\\n/g, "\n").replace(/\\"/g, '"')
 
 console.log("length", css.length)

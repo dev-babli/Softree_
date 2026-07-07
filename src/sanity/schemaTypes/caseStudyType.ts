@@ -6,15 +6,11 @@ import {
 import { CaseIcon } from '@sanity/icons'
 import { aiAssistExclude } from '../lib/blockContentOptions'
 import { fieldAi } from '../lib/fieldAiOptions'
-import { createSeoPreviewPanelField, createEditorProgressPanelField } from '../lib/documentHelpers'
-import { getAeoPublishIssues, type AeoCompletenessDoc } from '../lib/aeoCompleteness'
+import { createSeoPreviewPanelField, createEditorProgressPanelField, createFaqAeoPanelField } from '../lib/documentHelpers'
 import { reviewStatusField } from '../lib/reviewStatusField'
-import { caseStudyHasStoryContent } from '../lib/caseStudyCompleteness'
 
-import CaseStudyCategoryInput from '../components/CaseStudyCategoryInput'
-import CaseStudyEditorWelcome from '../components/CaseStudyEditorWelcome'
+import CaseStudySetupInput from '../components/CaseStudySetupInput'
 import ComposerSectionsInput from '../components/ComposerSectionsInput'
-import DetailLayoutInput from '../components/DetailLayoutInput'
 import {
     caseStudyComposerInsertMenu,
     caseStudyComposerMembers,
@@ -77,24 +73,34 @@ export const caseStudyType = defineType({
         { name: 'heroMedia', title: 'Cover & hero', options: { collapsible: true, collapsed: false } },
         { name: 'gallerySet', title: 'Gallery & video', options: { collapsible: true, collapsed: true } },
         { name: 'statusSet', title: 'Status', options: { collapsible: false } },
+        { name: 'faqAeoSet', title: 'FAQ (required for publish)', options: { collapsible: false } },
         { name: 'listingSet', title: 'Listing & featured', options: { collapsible: true, collapsed: true } },
         { name: 'seoSet', title: 'SEO', options: { collapsible: true, collapsed: true } },
     ],
     fields: [
         defineField({
-            name: 'editorWelcome',
-            title: 'Getting started',
-            type: 'object',
-            components: {
-                input: CaseStudyEditorWelcome,
+            name: 'category',
+            title: 'Story setup',
+            type: 'string',
+            group: 'story',
+            fieldset: 'identity',
+            description:
+              'Service category (where on the site) and page format (how it renders). One create template for all stories.',
+            options: {
+                list: getCaseStudyCategoryStudioList(),
             },
-            fields: [
-                defineField({
-                    name: 'placeholder',
-                    type: 'string',
-                    hidden: true,
+            components: {
+                input: CaseStudySetupInput,
+            },
+            validation: (Rule) =>
+                Rule.custom((value, context) => {
+                    const status = (context.document as { status?: string } | undefined)?.status
+                    if (status === 'archived') return true
+                    if (!value || !isCaseStudyCategory(value)) {
+                        return 'Pick a service category so this story appears on the correct category page'
+                    }
+                    return true
                 }),
-            ],
         }),
         defineField({
             name: 'title',
@@ -112,30 +118,6 @@ export const caseStudyType = defineType({
             fieldset: 'identity',
             options: { source: 'title', maxLength: 96, ...aiAssistExclude },
             validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-            name: 'category',
-            title: 'Service category',
-            type: 'string',
-            group: 'story',
-            fieldset: 'identity',
-            description:
-              'Which Softree service line this project belongs to. Controls category pages, navigation, and filters on the website.',
-            options: {
-                list: getCaseStudyCategoryStudioList(),
-            },
-            components: {
-                input: CaseStudyCategoryInput,
-            },
-            validation: (Rule) =>
-                Rule.custom((value, context) => {
-                    const status = (context.document as { status?: string } | undefined)?.status
-                    if (status === 'archived') return true
-                    if (!value || !isCaseStudyCategory(value)) {
-                        return 'Pick a service category so this story appears on the correct category page'
-                    }
-                    return true
-                }),
         }),
         defineField({
             name: 'excerpt',
@@ -248,7 +230,7 @@ export const caseStudyType = defineType({
             group: 'publish',
             fieldset: 'statusSet',
             description:
-              'Website visibility. Must be Published AND you must click the green Publish button in Studio. Archived hides from the site.',
+              'Website visibility. Keep as Draft while editing existing stories — use the Publish button (⋯ menu) to push changes live.',
             options: {
                 list: [
                     { title: 'Published', value: 'published' },
@@ -265,6 +247,40 @@ export const caseStudyType = defineType({
             ...reviewStatusField,
             group: 'publish',
             fieldset: 'statusSet',
+        }),
+        createEditorProgressPanelField('publish'),
+        createFaqAeoPanelField('publish'),
+        defineField({
+            name: 'faqSchema',
+            title: 'FAQ pairs',
+            type: 'array',
+            group: 'publish',
+            fieldset: 'faqAeoSet',
+            description:
+              'Question-and-answer pairs for search and AI answers. Page tab FAQ sections also count.',
+            of: [
+                defineArrayMember({
+                    type: 'object',
+                    name: 'caseStudyFaqSchema',
+                    fields: [
+                        defineField({
+                            name: 'question',
+                            type: 'string',
+                            title: 'Question',
+                            validation: (Rule) => Rule.required(),
+                        }),
+                        defineField({
+                            name: 'answer',
+                            type: 'text',
+                            title: 'Answer',
+                            rows: 3,
+                            description: fieldAi.faqAnswer.description,
+                            validation: (Rule) => Rule.required(),
+                        }),
+                    ],
+                    preview: { select: { title: 'question' } },
+                }),
+            ],
         }),
         defineField({
             name: 'industry',
@@ -364,16 +380,18 @@ export const caseStudyType = defineType({
                     name: 'alt',
                     type: 'string',
                     title: 'Alternative text',
-                    validation: (Rule) => Rule.required().warning('Alt text is required for accessibility and SEO'),
+                    description:
+                      'Required for accessibility and SEO — describe what’s in the image (e.g. "Acme Corp dashboard after Power Platform rollout").',
+                    validation: (Rule) =>
+                        Rule.custom((alt, context) => {
+                            const image = context.parent as { asset?: { _ref?: string } } | undefined
+                            if (!image?.asset?._ref) return true
+                            return alt?.trim()
+                                ? true
+                                : 'Required when a cover image is uploaded'
+                        }),
                 }),
             ],
-            validation: (Rule) =>
-                Rule.custom((value, context) => {
-                    const parent = context.document as { mainImageUrl?: string }
-                    if (parent?.mainImageUrl) return true
-                    if (!value?.asset) return true
-                    return (value as { alt?: string }).alt ? true : 'Add alt text to the cover image'
-                }),
         }),
         defineField({
             name: 'heroImagePrompt',
@@ -473,12 +491,9 @@ export const caseStudyType = defineType({
             type: 'string',
             group: 'story',
             fieldset: 'layout',
-            description:
-                'Page composer (recommended) lets you stack sections. Fixed layouts use Story tab fields instead.',
+            description: 'Managed in Story setup above. Hidden here to avoid duplicate pickers.',
             initialValue: 'page-composer',
-            components: {
-                input: DetailLayoutInput,
-            },
+            hidden: () => true,
         }),
         defineField({
             name: 'composerSections',
@@ -762,7 +777,6 @@ export const caseStudyType = defineType({
             fieldset: 'statusSet',
             description: 'Displayed on the site when status is Published. Future dates are stored for editorial planning; automatic hide-until scheduling is not yet enabled on the site.',
         }),
-        createEditorProgressPanelField('publish'),
 
         // Legacy story fields — kept for existing content, hidden from editors.
         defineField({
@@ -946,54 +960,6 @@ export const caseStudyType = defineType({
         }),
         createSeoPreviewPanelField('publish'),
     ],
-    validation: (Rule) =>
-        Rule.custom((fields) => {
-            if (!fields || fields.status === 'archived' || fields.status === 'draft') return true
-
-            const missing: string[] = []
-            if (!fields.title) missing.push('title')
-            if (!(fields.slug as { current?: string } | undefined)?.current) missing.push('slug')
-            if (!fields.excerpt) missing.push('excerpt')
-            if (!fields.client) missing.push('client')
-            if (!fields.headerTitle) missing.push('headerTitle')
-            if (!fields.category || !isCaseStudyCategory(fields.category as string)) {
-                missing.push('service category')
-            }
-
-            const body = fields.body as unknown[] | undefined
-            const challengeContent = fields.challengeContent as unknown[] | undefined
-            const approachContent = fields.approachContent as unknown[] | undefined
-            const outcomeContent = fields.outcomeContent as unknown[] | undefined
-            const composerSections = fields.composerSections as unknown[] | undefined
-            const detailLayout = fields.detailLayout as string | undefined
-            const hasStory = caseStudyHasStoryContent({
-                detailLayout,
-                composerSections,
-                body,
-                challengeContent,
-                approachContent,
-                outcomeContent,
-            })
-            if (!hasStory) missing.push('story (sections or content)')
-
-            const mainImage = fields.mainImage as { asset?: { _ref?: string }; alt?: string } | undefined
-            if (!mainImage?.asset?._ref && !fields.mainImageUrl) {
-                missing.push('cover image')
-            } else if (mainImage?.asset?._ref && !mainImage.alt) {
-                missing.push('cover image alt text')
-            }
-
-            const aeoIssues = getAeoPublishIssues(fields as AeoCompletenessDoc)
-            if (aeoIssues.length > 0) {
-                missing.push(...aeoIssues)
-            }
-
-            if (missing.length > 0) {
-                return `Before publishing, add: ${missing.join(', ')}`
-            }
-
-            return true
-        }),
     preview: {
         select: {
             title: 'title',

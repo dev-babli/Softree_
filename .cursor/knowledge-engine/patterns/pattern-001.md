@@ -11,7 +11,7 @@ lastUpdated: 2026-07-06
 status: verified
 sources:
   - type: observation
-    ref: Observed across Kore.ai, Stripe, Linear reference audits
+    ref: Observed across Softree, Stripe, Linear reference audits
     confidence: 0.82
     retrievedAt: 2026-07-06
 ---
@@ -22,7 +22,7 @@ High-converting SaaS homepages place social proof (logos, metrics, testimonials)
 
 ## Core Concepts
 
-**Evidence:** Observed across Kore.ai, Stripe, Linear reference audits
+**Evidence:** Observed across Softree, Stripe, Linear reference audits
 
 **Confidence:** Medium (0.82)
 

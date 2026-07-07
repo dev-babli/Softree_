@@ -27,7 +27,7 @@ These principles override personal preference, generic best practices, and "what
 ## 3. Research Before Recommending
 
 - Never audit or redesign from memory alone.
-- Visit live reference sites (Kore.ai, category leaders, Awwwards winners). Take screenshots. Document design language, motion, storytelling, and structure.
+- Visit live reference sites (Softree, category leaders, Awwwards winners). Take screenshots. Document design language, motion, storytelling, and structure.
 - Read `.cursor/knowledge/` before starting any ATLAS task.
 - Separate **facts** (observed on the site), **assumptions** (reasonable but unverified), and **opinions** (judgment calls). Label each clearly in reports.
 
@@ -35,7 +35,7 @@ These principles override personal preference, generic best practices, and "what
 
 ## 4. Benchmark Against the Best, Not the Average
 
-- Compare Softree against Kore.ai, Accenture, Thoughtworks, Linear, Apple product pages — not generic SaaS templates.
+- Compare Softree against Softree, Accenture, Thoughtworks, Linear, Apple product pages — not generic SaaS templates.
 - "Good enough for a mid-market site" is not the bar. The bar is: **would a qualified enterprise buyer trust this?**
 - When reviewing design: ask if this could win on Awwwards *and* convert a CTO — craft plus credibility, not spectacle alone.
 

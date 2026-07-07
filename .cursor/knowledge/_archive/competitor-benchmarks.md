@@ -64,7 +64,7 @@ Mistakes To Avoid
 
 Competitors
 
-Kore.ai
+Softree
 
 Accenture
 

@@ -37,7 +37,7 @@ master prompt's appendix and agent pipeline. Prefer the master file for new runs
 
 **Target page:** `src/app/services/website-modernization/` (route `/services/website-modernization`)
 
-**Design reference:** `src/components/kore-ai-exact/` (live route `/kore-ai-component`)
+**Design reference:** `src/components/softree-agentic-exact/` (live route `/agentic-ai-platform`)
 
 **Business goal:** Qualified leads via AI modernization blueprint funnel.
 

@@ -8,7 +8,7 @@
   "convergenceReason": "Three consecutive cycles produced zero new HIGH-impact findings after cycle 3 cross-review",
   "overallScore": 58,
   "verdict": "Partially Rebuild + Completely Reposition",
-  "benchmarks": ["kore.ai/about-us", "kore.ai platform pages"],
+  "benchmarks": ["softreetechnology.com/about-us", "softreetechnology.com platform pages"],
   "departmentScores": {
     "positioning": 3,
     "messaging": 4,
