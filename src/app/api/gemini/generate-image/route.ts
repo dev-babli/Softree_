@@ -6,18 +6,24 @@ import {
 } from "@/lib/image-generation"
 import { ImageGenerationError } from "@/lib/image-generation/errors"
 import { generateWithGemini } from "@/lib/image-generation/gemini"
+import { isStudioApiRequest } from "@/lib/studio-api-auth"
 
 const expectedApiKey = process.env.GEMINI_PLUGIN_API_KEY
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type, Authorization, X-API-Key",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization, X-API-Key, X-Softree-Studio",
 }
 
 function verifyApiKey(request: Request): boolean {
-  if (!expectedApiKey) return true
-  return request.headers.get("x-api-key") === expectedApiKey
+  if (expectedApiKey && request.headers.get("x-api-key") === expectedApiKey) {
+    return true
+  }
+  // No shared key match: fall back to a same-origin Studio request rather than
+  // failing open. Previously an unset GEMINI_PLUGIN_API_KEY left this paid
+  // endpoint fully open to the internet.
+  return isStudioApiRequest(request)
 }
 
 function getGeminiClient(): GoogleGenAI {

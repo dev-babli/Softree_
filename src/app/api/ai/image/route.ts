@@ -1,9 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { GoogleGenAI } from '@google/genai'
+import { isStudioApiRequest, studioApiUnauthorized } from '@/lib/studio-api-auth'
 
 const genAI = new GoogleGenAI({ apiKey: process.env.GOOGLE_GENAI_API_KEY || '' })
 
 export async function POST(req: NextRequest) {
+  if (!isStudioApiRequest(req)) return studioApiUnauthorized()
+
   try {
     const { prompt, aspectRatio = '1:1', editImage } = await req.json()
 
