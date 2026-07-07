@@ -9,8 +9,9 @@ export async function loadBrandContext(): Promise<string> {
     if (fromSanity?.trim()) {
       return `${fromSanity.trim()}\n\n${SOFTREE_STYLE_CONTEXT}`
     }
-  } catch {
+  } catch (error) {
     // Fall back to bundled style guide when CMS is unreachable.
+    console.warn('[brand-context] Failed to load AI context from Sanity, using bundled fallback:', error)
   }
   return SOFTREE_STYLE_CONTEXT
 }

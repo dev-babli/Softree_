@@ -27,8 +27,9 @@ export async function POST(req: NextRequest) {
           email,
           message: `New case study unlock request:\n\nEmail: ${email}\nStudy: ${studyTitle}\nCategory: ${studyCategory}\nPDF: ${studyHref}\nTimestamp: ${new Date().toISOString()}`,
         }),
-      }).catch(() => {
-        // Non-fatal — lead still captured in logs
+      }).catch((error) => {
+        // Non-fatal — lead still captured in logs below
+        console.error("[case-study-lead] Web3Forms notification failed:", error)
       })
     }
 
@@ -42,7 +43,8 @@ export async function POST(req: NextRequest) {
     })
 
     return NextResponse.json({ success: true })
-  } catch {
+  } catch (error) {
+    console.error("[case-study-lead] Failed to process lead:", error)
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }

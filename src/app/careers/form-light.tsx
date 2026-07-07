@@ -121,7 +121,8 @@ export default function ApplicationFormLight({
             } else {
                 setStatus("error");
             }
-        } catch {
+        } catch (error) {
+            console.error("Careers application submission failed:", error);
             setStatus("error");
         }
     };

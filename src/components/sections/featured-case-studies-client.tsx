@@ -29,8 +29,8 @@ export default function FeaturedCaseStudiesClient() {
           { cache: "no-store" },
         )
         setStudies((latest || []).slice(0, 3))
-      } catch {
-        /* keep empty */
+      } catch (error) {
+        console.error("[featured-case-studies] Failed to load case studies:", error)
       }
     }
     void load()

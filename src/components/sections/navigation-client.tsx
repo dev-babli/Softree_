@@ -42,7 +42,9 @@ export default function NavigationClient({
         setCaseStudies(studies || []);
         setCaseStudyCategories(buildCaseStudyNavCategories(studies || []));
       })
-      .catch(() => {});
+      .catch((error) => {
+        console.error("[navigation] Failed to load nav data:", error);
+      });
   }, []);
 
   const resolvedCaseStudyCategories = useMemo(() => {

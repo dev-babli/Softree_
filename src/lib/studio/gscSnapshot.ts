@@ -50,7 +50,8 @@ async function loadServiceAccount(): Promise<ServiceAccountCredentials | null> {
           private_key: parsed.private_key.replace(/\\n/g, '\n'),
         }
       }
-    } catch {
+    } catch (error) {
+      console.error('[gscSnapshot] Failed to parse GSC_SERVICE_ACCOUNT_JSON:', error)
       return null
     }
   }
@@ -62,7 +63,8 @@ async function loadServiceAccount(): Promise<ServiceAccountCredentials | null> {
       const raw = await readFile(resolved, 'utf8')
       const parsed = JSON.parse(raw) as ServiceAccountCredentials
       if (parsed.client_email && parsed.private_key) return parsed
-    } catch {
+    } catch (error) {
+      console.error('[gscSnapshot] Failed to read GSC service account key file:', error)
       return null
     }
   }

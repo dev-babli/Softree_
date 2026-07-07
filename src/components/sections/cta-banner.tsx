@@ -535,7 +535,8 @@ export default function CTASection() {
                   } else {
                     setFormStatus("error");
                   }
-                } catch {
+                } catch (error) {
+                  console.error("Contact form submission failed:", error);
                   setFormStatus("error");
                 }
               }}

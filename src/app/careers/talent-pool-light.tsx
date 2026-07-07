@@ -113,7 +113,8 @@ export default function CareersTalentPoolLight({
             } else {
                 setStatus("error");
             }
-        } catch {
+        } catch (error) {
+            console.error("Talent pool submission failed:", error);
             setStatus("error");
         }
     };
@@ -123,8 +124,8 @@ export default function CareersTalentPoolLight({
             await navigator.clipboard.writeText(email);
             setCopied(true);
             setTimeout(() => setCopied(false), 1800);
-        } catch {
-            /* noop */
+        } catch (error) {
+            console.warn("Failed to copy email to clipboard:", error);
         }
     };
 

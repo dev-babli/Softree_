@@ -56,7 +56,8 @@ async function getBlogSlugs(): Promise<{ slug: string; updatedAt: string | null 
     return await client.fetch(
       `*[_type == "post" && !(_id in path("drafts.**")) && coalesce(status, "published") == "published"]{ "slug": slug.current, "updatedAt": coalesce(_updatedAt, publishedAt) }`
     )
-  } catch {
+  } catch (error) {
+    console.error("[sitemap] Failed to fetch blog slugs:", error)
     return []
   }
 }
@@ -66,7 +67,8 @@ async function getCaseStudySlugs(): Promise<{ slug: string; updatedAt: string | 
     return await client.fetch(
       `*[_type == "caseStudy" && !(_id in path("drafts.**")) && coalesce(status, "published") == "published"]{ "slug": slug.current, "updatedAt": coalesce(_updatedAt, publishedAt) }`
     )
-  } catch {
+  } catch (error) {
+    console.error("[sitemap] Failed to fetch case study slugs:", error)
     return []
   }
 }
@@ -76,7 +78,8 @@ async function getMarketingPageSlugs(): Promise<{ slug: string; updatedAt: strin
     return await client.fetch(
       `*[_type == "marketingPage" && status == "published" && defined(slug.current)]{ "slug": slug.current, "updatedAt": _updatedAt }`,
     )
-  } catch {
+  } catch (error) {
+    console.error("[sitemap] Failed to fetch marketing page slugs:", error)
     return []
   }
 }

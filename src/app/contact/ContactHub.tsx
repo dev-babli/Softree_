@@ -40,7 +40,8 @@ export default function ContactHub() {
       } else {
         setStatus("error");
       }
-    } catch {
+    } catch (error) {
+      console.error("Contact form submission failed:", error);
       setStatus("error");
     }
   };
