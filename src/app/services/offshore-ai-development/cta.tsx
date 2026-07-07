@@ -1,43 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useFormspreeForm } from "@/hooks/use-formspree-form";
 
 export default function CtaAgenticAI() {
-  const [status, setStatus] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
-    setLoading(true);
-    setStatus("");
-
-    const form = e.target;
-    const data = new FormData(form);
-
-    try {
-      const res = await fetch("https://formspree.io/f/mbdwbkad", {
-        method: "POST",
-        body: data,
-        headers: {
-          Accept: "application/json",
-        },
-      });
-
-      if (res.ok) {
-        setStatus("SUCCESS");
-        form.reset();
-
-        // auto hide message after 3 sec
-        setTimeout(() => setStatus(""), 3000);
-      } else {
-        setStatus("ERROR");
-      }
-    } catch {
-      setStatus("ERROR");
-    }
-
-    setLoading(false);
-  };
+  const { status, loading, handleSubmit } = useFormspreeForm();
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50">

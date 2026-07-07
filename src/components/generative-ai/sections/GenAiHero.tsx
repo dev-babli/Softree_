@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import { getInitials } from "@/lib/text";
 import Link from "next/link"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
@@ -18,15 +19,6 @@ import { genHero, heroTestimonials } from "../data"
 const CYCLING = ["Azure OpenAI", "Copilot", "RAG systems", "Fine-tuning"] as const
 const HERO_IMG = "/service_image/ai.jpg"
 const ROTATE_MS = 6000
-
-function initials(name: string) {
-  return name
-    .split(" ")
-    .map((w) => w[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase()
-}
 
 export function GenAiHero() {
   const containerRef = useRef<HTMLElement>(null)
@@ -224,7 +216,7 @@ export function GenAiHero() {
               <p className="text-base leading-relaxed text-[#0a0a1a]/80">&ldquo;{review.text}&rdquo;</p>
               <div className="mt-5 flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#FF5812]/10 text-xs font-bold text-[#FF5812]">
-                  {initials(review.name)}
+                  {getInitials(review.name)}
                 </div>
                 <div className="min-w-0">
                   <p className="text-sm font-semibold text-[#0a0a1a]">{review.name}</p>

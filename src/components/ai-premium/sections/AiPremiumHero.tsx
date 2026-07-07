@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { getInitials } from "@/lib/text";
 import { useCallback, useEffect, useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useGSAP } from "@gsap/react"
@@ -14,15 +15,6 @@ import { agenticHero, heroTestimonials } from "../data/agentic-ai-content"
 
 const ROTATE_MS = 6000
 const TICK_MS = 100
-
-function initials(name: string) {
-  return name
-    .split(" ")
-    .map((w) => w[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase()
-}
 
 export function AiPremiumHero() {
   const { pill, headline, headlineAccent, subhead, announcement, cards, stats } = agenticHero
@@ -206,7 +198,7 @@ export function AiPremiumHero() {
                 <p className="text-sm leading-relaxed text-white/85">&ldquo;{testimonial.text}&rdquo;</p>
                 <div className="mt-5 flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-[4px] bg-white/10 font-mono text-xs font-bold">
-                    {initials(testimonial.name)}
+                    {getInitials(testimonial.name)}
                   </div>
                   <div>
                     <p className="text-sm font-semibold">{testimonial.name}</p>
