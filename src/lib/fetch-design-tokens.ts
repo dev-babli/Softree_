@@ -3,7 +3,7 @@ import 'server-only'
 import { cache } from 'react'
 
 import type { DesignTokenSettings } from '@/lib/design-tokens'
-import { sanityFetch } from '@/sanity/lib/fetch'
+import { sanityFetch } from '@/cms/lib/fetch'
 
 export const DESIGN_TOKENS_QUERY = `*[_id == "globalSettings" || _type == "globalSettings"][0].designTokens {
   accentPreset,

@@ -6,7 +6,7 @@ import {
   resolveCaseStudyCategory,
   type CaseStudyCategorySource,
 } from '@/lib/case-study-category'
-import { readClient } from '@/sanity/lib/readClient'
+import { readClient } from '@/cms/lib/readClient'
 
 import type { CaseStudyItem } from './CaseStudyGrid'
 import type { CaseStudyListingItem, CaseStudyHeroSlide } from './types'
@@ -87,14 +87,14 @@ const caseStudyCardProjection = `
 `
 
 const publishedCaseStudiesQuery = groq`
-  *[_type == "caseStudy" && coalesce(status, "published") == "published" && defined(slug.current)]
+  *[_type == "caseStudy" && coalesce(visibility, status, "published") == "published" && defined(slug.current)]
   | order(_updatedAt desc) {
     ${caseStudyCardProjection}
   }
 `
 
 const caseStudyHeroSlidesQuery = groq`
-  *[_type == "caseStudy" && coalesce(status, "published") == "published" && featuredRank > 0 && defined(slug.current)]
+  *[_type == "caseStudy" && coalesce(visibility, status, "published") == "published" && featuredRank > 0 && defined(slug.current)]
   | order(featuredRank asc, _updatedAt desc) {
     ${caseStudyCardProjection}
   }

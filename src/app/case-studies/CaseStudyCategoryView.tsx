@@ -15,7 +15,7 @@ import {
   isCaseStudyCategory,
   type CaseStudyCategoryKey,
 } from "./categoryConfig"
-import { buildCaseStudyCategoryLinks } from "@/sanity/buildCaseStudyNav"
+import { buildCaseStudyCategoryLinks } from "@/cms/lib/buildCaseStudyNav"
 
 type Props = {
   category: CaseStudyCategoryKey

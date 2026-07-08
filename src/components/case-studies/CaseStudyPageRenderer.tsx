@@ -5,7 +5,7 @@ import type { DesignTokenSettings } from "@/lib/design-tokens";
 import type {
   SanityNavCategory,
   SanityNavCaseStudyCategory,
-} from "@/sanity/types";
+} from "@/cms/lib/types";
 import Footer from "@/components/sections/footer";
 import {
   isPremiumLayout,
@@ -21,6 +21,7 @@ import { SynqLabProductStoryLayout } from "@/components/case-studies/layouts/var
 import { AIHorizontalStoryLayout } from "@/components/case-studies/layouts/variants/AIHorizontalStoryLayout";
 import { NeutrinoDashboardStoryLayout } from "@/components/case-studies/layouts/variants/NeutrinoDashboardStoryLayout";
 import { MadarStickyStoryLayout } from "@/components/case-studies/layouts/variants/madar-sticky-story";
+import { ManufacturingPowerPlatformLayout } from "@/components/case-studies/layouts/variants/ManufacturingPowerPlatformLayout";
 import { EducationEdTechStoryLayout } from "./layouts/variants/education-edtech-story/EducationEdTechStoryLayout";
 import { NexoraProductStoryLayout } from "@/components/case-studies/layouts/variants/NexoraProductStoryLayout";
 import { PayFlowFintechStoryLayout } from "@/components/case-studies/layouts/variants/PayFlowFintechStoryLayout";
@@ -43,7 +44,9 @@ const PREMIUM_LAYOUTS: Record<
   Exclude<CaseStudyDetailLayout, "page-composer">,
   React.ComponentType<{ data: CaseStudyLayoutData }>
 > = {
-  "manufacturing-power-platform": EducationEdTechStoryLayout,
+  "manufacturing-power-platform": ManufacturingPowerPlatformLayout as React.ComponentType<{
+    data: CaseStudyLayoutData;
+  }>,
   "sidebar-metadata": SidebarMetadataLayout,
   "split-hero-mockup": SplitHeroMockupLayout,
   "zigzag-alternating": ZigzagAlternatingLayout,
@@ -72,9 +75,19 @@ type StudyDoc = SanityCaseStudyDoc & {
   composerSections?: CaseStudyComposerSection[];
 };
 
-function resolveDetailLayout(study: StudyDoc): CaseStudyDetailLayout | null {
+function resolveDetailLayout(
+  study: StudyDoc,
+  forceLayout?: CaseStudyDetailLayout,
+): CaseStudyDetailLayout | null {
+  if (forceLayout && isPremiumLayout(forceLayout)) return forceLayout
+
   const raw = study.detailLayout
-  if (raw === "page-composer" || !raw) return "page-composer"
+  const sectionCount = study.composerSections?.length ?? 0
+
+  // Composer sections always render page-composer (unless forceLayout override)
+  if (sectionCount > 0) return 'page-composer'
+
+  if (raw === 'page-composer' || !raw) return 'page-composer'
   if (isPremiumLayout(raw)) return raw
   return null
 }
@@ -86,6 +99,7 @@ export function CaseStudyPageRenderer({
   initialBlogCategories,
   initialCaseStudyCategories,
   designTokens,
+  forceLayout,
 }: {
   study: StudyDoc;
   related: RelatedStudy[];
@@ -93,8 +107,9 @@ export function CaseStudyPageRenderer({
   initialBlogCategories?: SanityNavCategory[];
   initialCaseStudyCategories?: SanityNavCaseStudyCategory[];
   designTokens?: DesignTokenSettings | null;
+  forceLayout?: CaseStudyDetailLayout;
 }) {
-  const detailLayout = resolveDetailLayout(study);
+  const detailLayout = resolveDetailLayout(study, forceLayout);
 
   if (detailLayout) {
     const data = mapCaseStudyToLayoutData(study, related, detailLayout);
@@ -125,7 +140,7 @@ export function CaseStudyPageRenderer({
             initialBlogCategories={initialBlogCategories}
             initialCaseStudyCategories={initialCaseStudyCategories}
           />
-          <EducationEdTechStoryLayout data={data} />
+          <ManufacturingPowerPlatformLayout data={data} designTokens={designTokens} />
           <Footer />
         </div>
       );

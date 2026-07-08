@@ -4,30 +4,30 @@ import { NextResponse } from 'next/server'
 import { auditPageSpeed } from '@/lib/psi/auditPage'
 import { fetchGscSnapshot } from '@/lib/studio/gscSnapshot'
 import { fetchPosthogSnapshot } from '@/lib/studio/posthogSnapshot'
-import { client } from '@/sanity/lib/client'
-import type { DashboardInsights } from '@/sanity/studio/dashboard/insightsTypes'
+import { client } from '@/cms/lib/client'
+import type { DashboardInsights } from '@/cms/studio/dashboard/insightsTypes'
 
 const SITE_BASE = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.softreetechnology.com'
 
 const CONTENT_ISSUES_QUERY = `{
   "stalePublished": count(*[
     _type in ["caseStudy", "post"] &&
-    coalesce(status, "published") == "published" &&
+    coalesce(visibility, status, "published") == "published" &&
     dateTime(_updatedAt) < dateTime(now()) - 60*60*24*90
   ]),
   "pendingReview": count(*[
     _type in ["caseStudy", "post", "marketingPage"] &&
     coalesce(reviewStatus, "draft") != "approved" &&
-    coalesce(status, "published") != "archived"
+    coalesce(visibility, status, "published") != "archived"
   ]),
   "missingMeta": count(*[
     _type in ["caseStudy", "post"] &&
-    coalesce(status, "published") == "published" &&
+    coalesce(visibility, status, "published") == "published" &&
     (!defined(metaTitle) || !defined(metaDescription))
   ]),
   "missingFaq": count(*[
     _type in ["caseStudy", "post"] &&
-    coalesce(status, "published") == "published" &&
+    coalesce(visibility, status, "published") == "published" &&
     (
       count(coalesce(faqSchema, [])) +
       count(coalesce(faqs, [])) +
@@ -36,13 +36,13 @@ const CONTENT_ISSUES_QUERY = `{
   ]),
   "missingAlt": count(*[
     _type in ["caseStudy", "post"] &&
-    coalesce(status, "published") == "published" &&
+    coalesce(visibility, status, "published") == "published" &&
     defined(mainImage.asset) &&
     !defined(mainImage.alt)
   ]),
   "unpublishedDrafts": count(*[
     _type in ["caseStudy", "post"] &&
-    coalesce(status, "published") == "draft"
+    coalesce(visibility, status, "published") == "draft"
   ])
 }`
 

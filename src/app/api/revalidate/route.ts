@@ -2,7 +2,7 @@ import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 
 import { CASE_STUDY_CATEGORY_KEYS } from "@/app/case-studies/categoryConfig";
-import { notifyPublish } from "@/sanity/lib/notifyPublish";
+import { notifyPublish } from "@/cms/lib/notifyPublish";
 
 /**
  * Sanity Webhook → On-demand Revalidation + optional publish notifications

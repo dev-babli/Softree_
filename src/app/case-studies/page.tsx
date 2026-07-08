@@ -7,7 +7,7 @@ import {
   getCaseStudyHeroSlides,
   getCaseStudyListingItems,
 } from "./categoryCards"
-import { buildCaseStudyCategoryLinks } from "@/sanity/buildCaseStudyNav"
+import { buildCaseStudyCategoryLinks } from "@/cms/lib/buildCaseStudyNav"
 
 export const metadata: Metadata = {
   title: "Case Studies | Softree Technology",

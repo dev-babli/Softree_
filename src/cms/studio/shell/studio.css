@@ -1,0 +1,710 @@
+/**
+ * Softree Studio chrome — shell, boot, header. Avoid overriding Sanity form internals.
+ */
+
+:root {
+  --softree-accent: #ff7a2f;
+  --softree-accent-soft: rgba(255, 122, 47, 0.14);
+  --softree-shell-bg: #f4f2ee;
+  --softree-surface: #ffffff;
+  --softree-ink: #141416;
+  --softree-cream: #f4f2ee;
+  --softree-border: rgba(15, 23, 42, 0.07);
+  --softree-hairline: rgba(10, 10, 26, 0.08);
+  --softree-text: #0a0a1a;
+  --softree-muted: #6b7280;
+  --softree-ease: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+[data-ui='Button'][data-tone='primary'] {
+  --button-primary-bg-color: var(--softree-accent);
+}
+
+[data-testid='group-tab'][data-selected='true']::after {
+  background: var(--softree-accent) !important;
+}
+
+/* ── Shell ── */
+html:has([data-softree-studio-route]),
+body:has([data-softree-studio-route]) {
+  height: 100%;
+  overflow: hidden;
+  color-scheme: light;
+}
+
+[data-softree-studio-route] {
+  color-scheme: light;
+}
+
+.softree-studio-shell {
+  height: 100%;
+  max-height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--softree-shell-bg);
+  color: var(--softree-text);
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+}
+
+.softree-studio-shell__mesh {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  opacity: 0.45;
+  background-image:
+    linear-gradient(rgba(10, 10, 26, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 10, 26, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, #000 20%, transparent 75%);
+}
+
+.softree-studio-shell__glow {
+  pointer-events: none;
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  border-radius: 999px;
+  filter: blur(80px);
+  opacity: 0.14;
+}
+
+.softree-studio-shell__glow--tl {
+  top: -120px;
+  left: -80px;
+  background: rgba(255, 122, 47, 0.45);
+}
+
+.softree-studio-shell__glow--br {
+  bottom: -160px;
+  right: -60px;
+  background: rgba(255, 179, 71, 0.25);
+}
+
+.softree-studio-shell__content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.softree-studio-env-banner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem;
+  font-size: 0.8125rem;
+  color: #7c2d12;
+  background: linear-gradient(90deg, rgba(255, 122, 47, 0.12), transparent);
+  border-bottom: 1px solid rgba(255, 122, 47, 0.18);
+}
+
+.softree-studio-env-banner__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--softree-accent);
+  box-shadow: 0 0 10px rgba(255, 122, 47, 0.65);
+}
+
+/* ── Boot screen ── */
+.softree-studio-boot {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--softree-shell-bg);
+  transition: opacity 0.4s var(--softree-ease);
+}
+
+.softree-studio-boot--out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.softree-studio-boot__mesh {
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  background-image:
+    linear-gradient(rgba(10, 10, 26, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 10, 26, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.softree-studio-boot__inner {
+  position: relative;
+  text-align: center;
+  padding: 2rem;
+}
+
+.softree-studio-boot__logo-mark {
+  display: inline-flex;
+  margin-bottom: 1.25rem;
+}
+
+.softree-studio-boot__title {
+  margin: 0;
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--softree-text);
+}
+
+.softree-studio-boot__subtitle {
+  margin: 0.45rem 0 1.25rem;
+  font-size: 0.875rem;
+  color: var(--softree-muted);
+}
+
+.softree-studio-boot__bar {
+  width: min(220px, 70vw);
+  height: 4px;
+  margin: 0 auto;
+  border-radius: 999px;
+  background: rgba(10, 10, 26, 0.08);
+  overflow: hidden;
+}
+
+.softree-studio-boot__bar-fill {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #ff7a2f, #ffb347);
+  animation: softree-boot-progress 0.85s var(--softree-ease) forwards;
+}
+
+@keyframes softree-boot-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes softree-boot-progress {
+  to {
+    width: 100%;
+  }
+}
+
+/* ── Brand logo (homepage asset) ── */
+.softree-brand-logo-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.55rem;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid var(--softree-hairline);
+  box-shadow: 0 4px 16px rgba(10, 10, 26, 0.06);
+}
+
+.softree-brand-logo__img {
+  object-fit: contain;
+}
+
+/* ── Custom header ── */
+.softree-studio-header {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--softree-hairline);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 8px 32px -10px rgba(10, 10, 26, 0.08);
+}
+
+.softree-studio-header__sheen {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 122, 47, 0.06), transparent 55%);
+}
+
+.softree-studio-header__brand-row {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  padding: 0.65rem 1rem 0.5rem;
+}
+
+.softree-studio-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.softree-studio-header__logo-button {
+  display: inline-flex;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: transform 0.15s var(--softree-ease);
+}
+
+.softree-studio-header__logo-button:hover {
+  transform: translateY(-1px);
+}
+
+.softree-studio-header__logo-button:focus-visible {
+  outline: 2px solid rgba(255, 122, 47, 0.65);
+  outline-offset: 2px;
+}
+
+.softree-studio-header__titles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.softree-studio-header__name {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--softree-text);
+}
+
+.softree-studio-header__tagline {
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--softree-muted);
+}
+
+.softree-studio-header__dataset {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--softree-hairline);
+}
+
+.softree-studio-header__dataset.is-dev {
+  color: #c2410c;
+  border-color: rgba(255, 122, 47, 0.25);
+  background: rgba(255, 122, 47, 0.08);
+}
+
+.softree-studio-header__dataset.is-prod {
+  color: #15803d;
+  border-color: rgba(22, 163, 74, 0.2);
+  background: rgba(22, 163, 74, 0.08);
+}
+
+.softree-studio-header__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.softree-studio-header__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--softree-hairline);
+  background: rgba(255, 255, 255, 0.85);
+  color: rgba(10, 10, 26, 0.72);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
+}
+
+.softree-studio-header__pill:hover {
+  border-color: rgba(255, 122, 47, 0.35);
+  background: rgba(255, 122, 47, 0.08);
+}
+
+.softree-studio-header__pill--ghost {
+  background: transparent;
+}
+
+.softree-studio-header__sanity-bar {
+  position: relative;
+  border-top: 1px solid var(--softree-hairline);
+}
+
+/* ── Structure tool layout — sidebar stays put, content scrolls ── */
+[data-softree-studio-route] #sanity,
+[data-softree-studio-route] [data-ui='LayerProvider'] > div,
+[data-softree-studio-route] [data-ui='ToastProvider'] > div {
+  height: 100%;
+  min-height: 0;
+}
+
+[data-softree-studio-route] [data-ui='PaneLayout'] {
+  height: 100% !important;
+  min-height: 0 !important;
+  max-height: 100% !important;
+  overflow: hidden !important;
+}
+
+[data-softree-studio-route] [data-ui='Pane'] {
+  height: 100%;
+  min-height: 0;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+[data-softree-studio-route] [data-ui='Pane'] > [data-ui='Card'],
+[data-softree-studio-route] [data-ui='Pane'] > div {
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+[data-softree-studio-route] [data-ui='PaneHeader'] {
+  flex-shrink: 0;
+}
+
+[data-softree-studio-route] [data-ui='PaneContent'],
+[data-softree-studio-route] [data-ui='PaneFooter'] {
+  min-height: 0;
+}
+
+[data-softree-studio-route] [data-ui='PaneContent'] {
+  flex: 1;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .softree-studio-boot__logo-ring,
+  .softree-studio-boot__bar-fill {
+    animation: none;
+  }
+
+  .softree-studio-boot__bar-fill {
+    width: 100%;
+  }
+
+  .softree-studio-boot {
+    transition: none;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .softree-studio-header,
+  .softree-studio-shell__glow {
+    backdrop-filter: none;
+  }
+}
+
+/* ── Split-pane live preview ── */
+.softree-preview-pane {
+  background: var(--softree-surface);
+}
+
+.softree-preview-pane__toolbar {
+  flex-shrink: 0;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--softree-hairline);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.softree-preview-pane__title {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--softree-text);
+}
+
+.softree-preview-pane__meta {
+  font-size: 0.6875rem;
+  color: var(--softree-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.softree-preview-pane__frame-wrap {
+  min-height: 0;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* ── Publish readiness stepper ── */
+.softree-readiness {
+  padding: 1rem 1.125rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 122, 47, 0.2);
+  background: linear-gradient(135deg, rgba(255, 122, 47, 0.08), rgba(255, 255, 255, 0.92));
+}
+
+.softree-readiness__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.softree-readiness__title {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.softree-readiness__pct {
+  font-size: 1.125rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.softree-readiness__bar {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(10, 10, 26, 0.08);
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.softree-readiness__bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.35s ease;
+}
+
+.softree-readiness__checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.softree-readiness__check {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+
+.softree-readiness__check.is-done {
+  color: #15803d;
+  border-color: rgba(22, 163, 74, 0.2);
+  background: rgba(22, 163, 74, 0.08);
+}
+
+.softree-readiness__check.is-missing {
+  color: var(--softree-muted);
+  border-color: var(--softree-hairline);
+  background: rgba(10, 10, 26, 0.03);
+}
+
+.softree-readiness__hint {
+  margin: 0.65rem 0 0;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--softree-muted);
+}
+
+.softree-readiness__hint.is-ready {
+  color: #15803d;
+  font-weight: 600;
+}
+
+/* ── Section picker drawer ── */
+.softree-section-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  pointer-events: auto;
+}
+
+.softree-section-drawer__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  animation: softree-drawer-fade-in 0.2s ease;
+}
+
+.softree-section-drawer__panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(480px, 100vw);
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  animation: softree-drawer-slide-in 0.24s ease;
+  border-left: 1px solid var(--softree-hairline);
+}
+
+@keyframes softree-drawer-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes softree-drawer-slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .softree-section-drawer__backdrop,
+  .softree-section-drawer__panel {
+    animation: none;
+  }
+
+  .softree-readiness__bar-fill {
+    transition: none;
+  }
+}
+
+/* ── Command palette ── */
+.softree-cmdk {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 12vh 1rem 1rem;
+  background: rgba(10, 10, 26, 0.42);
+  backdrop-filter: blur(6px);
+}
+
+.softree-cmdk__panel {
+  width: min(560px, 100%);
+  background: var(--softree-surface);
+  border: 1px solid var(--softree-border);
+  border-radius: 14px;
+  box-shadow: 0 24px 80px rgba(10, 10, 26, 0.18);
+  overflow: hidden;
+}
+
+.softree-cmdk__input-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--softree-hairline);
+}
+
+.softree-cmdk__input-row input {
+  flex: 1;
+  border: 0;
+  outline: none;
+  font: inherit;
+  background: transparent;
+  color: var(--softree-text);
+}
+
+.softree-cmdk__results {
+  list-style: none;
+  margin: 0;
+  padding: 0.35rem;
+  max-height: 320px;
+  overflow: auto;
+}
+
+.softree-cmdk__results button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 0.75rem;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  color: var(--softree-text);
+}
+
+.softree-cmdk__results button:hover {
+  background: var(--softree-accent-soft);
+}
+
+.softree-cmdk__results small {
+  color: var(--softree-muted);
+}
+
+.softree-cmdk__empty,
+.softree-cmdk__hint {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  color: var(--softree-muted);
+  font-size: 12px;
+}
+
+/* ── Content score panel ── */
+.softree-content-score {
+  padding: 0.75rem 0;
+}
+
+.softree-content-score__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 13px;
+}
+
+.softree-content-score__list {
+  margin: 0.75rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 12px;
+  color: var(--softree-muted);
+}
+
+.softree-content-score__ok {
+  color: #16a34a;
+}
+
+.softree-content-score__warn {
+  color: #b45309;
+}
+
+@media (max-width: 768px) {
+  .softree-studio-shell__content {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .softree-cmdk {
+    padding-top: 8vh;
+  }
+
+  .softree-cmdk__panel {
+    border-radius: 12px 12px 0 0;
+    max-height: 80vh;
+  }
+}

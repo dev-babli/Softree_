@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { client } from "@/sanity/lib/client";
+import { client } from "@/cms/lib/client";
 import { groq } from "next-sanity";
 import { applyPageOg } from "@/lib/site-metadata";
 

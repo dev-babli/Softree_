@@ -24,8 +24,8 @@ import dynamic from "next/dynamic";
 import NavigationServer from "@/components/sections/navigation-server";
 import Footer from "@/components/sections/footer";
 import LightContactSection from "@/components/qc/homepage-light/LightContactSection";
-import { client } from "@/sanity/lib/client";
-import { careersPageQuery } from "@/sanity/queries";
+import { client } from "@/cms/lib/client";
+import { careersPageQuery } from "@/cms/lib/queries/queries";
 
 import CareersHeroLight from "./hero-light";
 import CareersIntroLight from "./intro-light";

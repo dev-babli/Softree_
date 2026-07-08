@@ -7,7 +7,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import type {
   SanityNavCategory,
   SanityNavCaseStudyCategory,
-} from "@/sanity/types";
+} from "@/cms/lib/types";
 import { MegaMenuPanel } from "./navigation-mega-menu";
 
 import {

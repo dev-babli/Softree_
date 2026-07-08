@@ -3,8 +3,8 @@ import "server-only";
 import type { CaseStudyMock } from "@/components/bento-layout";
 import { BENTO_ABSTRACT } from "@/components/bento-layout/bento-media";
 import { HOMEPAGE_FALLBACK_CASE_STUDIES } from "@/data/homepage-case-studies-fallback";
-import { sanityFetch } from "@/sanity/lib/fetch";
-import type { SanityNavCaseStudy } from "@/sanity/types";
+import { sanityFetch } from "@/cms/lib/fetch";
+import type { SanityNavCaseStudy } from "@/cms/lib/types";
 import { groq } from "next-sanity";
 
 export { HOMEPAGE_FALLBACK_CASE_STUDIES } from "@/data/homepage-case-studies-fallback";
@@ -57,7 +57,7 @@ export function mapSanityCaseStudies(studies: SanityNavCaseStudy[]): CaseStudyMo
 }
 
 const homepageFeaturedCaseStudiesQuery = groq`
-  *[_type == "caseStudy" && coalesce(status, "published") == "published" && slug.current in [
+  *[_type == "caseStudy" && coalesce(visibility, status, "published") == "published" && slug.current in [
     "ai-website-performance-monitoring",
     "barcode-scanner-app-audio-equipment-management",
     "ai-driven-itsm-analytics-platform-microsoft-fabric",

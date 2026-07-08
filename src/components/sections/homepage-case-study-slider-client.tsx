@@ -7,8 +7,8 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import { Pagination, Autoplay } from "swiper/modules"
 import "swiper/css"
 import "swiper/css/pagination"
-import { client } from "@/sanity/lib/client"
-import { homepageCaseStudySliderQuery } from "@/sanity/queries"
+import { client } from "@/cms/lib/client"
+import { homepageCaseStudySliderQuery } from "@/cms/lib/queries/queries"
 
 type Stat = { value?: string; label?: string }
 

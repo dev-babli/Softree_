@@ -1,11 +1,11 @@
-import { client } from "@/sanity/lib/client"
+import { client } from "@/cms/lib/client"
 import { groq } from "next-sanity"
 import NavigationClient from "@/components/sections/navigation-client"
 import Footer from "@/components/sections/footer"
 import BlogListingClient from "./BlogListingClient"
 
 const postsQuery = groq`
-  *[_type == "post" && coalesce(status, "published") == "published"] | order(publishedAt desc) {
+  *[_type == "post" && coalesce(visibility, status, "published") == "published"] | order(publishedAt desc) {
     _id,
     title,
     slug,

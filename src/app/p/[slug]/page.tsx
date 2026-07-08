@@ -3,9 +3,10 @@ import { notFound } from 'next/navigation'
 import NavigationServer from '@/components/sections/navigation-server'
 import Footer from '@/components/sections/footer'
 import { MarketingPageSections, type MarketingSection } from '@/components/marketing/MarketingPageSections'
-import { sanityFetch } from '@/sanity/lib/fetch'
-import { client } from '@/sanity/lib/client'
-import { marketingPageBySlugQuery, marketingPageSlugsQuery } from '@/sanity/queries'
+import { sanityFetch } from '@/cms/lib/fetch'
+import { client } from '@/cms/lib/client'
+import { marketingPageBySlugQuery, marketingPageSlugsQuery } from '@/cms/lib/queries/queries'
+import { cmsPageMetadata } from '@/lib/seo/pageMetadata'
 
 export const revalidate = 3600
 
@@ -21,6 +22,7 @@ type MarketingPageDoc = {
   sections?: MarketingSection[]
   metaTitle?: string
   metaDescription?: string
+  ogImage?: { asset?: { url?: string }; alt?: string }
 }
 
 export async function generateMetadata({
@@ -33,10 +35,13 @@ export async function generateMetadata({
 
   if (!page) return { title: 'Page not found' }
 
-  return {
+  return cmsPageMetadata({
+    path: `/p/${slug}`,
     title: page.metaTitle || page.title,
     description: page.metaDescription,
-  }
+    ogImage: page.ogImage,
+    ogAlt: page.title,
+  })
 }
 
 export default async function MarketingPage({

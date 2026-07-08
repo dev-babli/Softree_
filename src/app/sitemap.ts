@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { client } from '@/sanity/lib/client'
+import { client } from '@/cms/lib/client'
 
 const BASE_URL = 'https://www.softreetechnology.com'
 
@@ -54,7 +54,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
 async function getBlogSlugs(): Promise<{ slug: string; updatedAt: string | null }[]> {
   try {
     return await client.fetch(
-      `*[_type == "post" && !(_id in path("drafts.**")) && coalesce(status, "published") == "published"]{ "slug": slug.current, "updatedAt": coalesce(_updatedAt, publishedAt) }`
+      `*[_type == "post" && !(_id in path("drafts.**")) && coalesce(visibility, status, "published") == "published"]{ "slug": slug.current, "updatedAt": coalesce(_updatedAt, publishedAt) }`
     )
   } catch {
     return []
@@ -64,7 +64,7 @@ async function getBlogSlugs(): Promise<{ slug: string; updatedAt: string | null 
 async function getCaseStudySlugs(): Promise<{ slug: string; updatedAt: string | null }[]> {
   try {
     return await client.fetch(
-      `*[_type == "caseStudy" && !(_id in path("drafts.**")) && coalesce(status, "published") == "published"]{ "slug": slug.current, "updatedAt": coalesce(_updatedAt, publishedAt) }`
+      `*[_type == "caseStudy" && !(_id in path("drafts.**")) && coalesce(visibility, status, "published") == "published"]{ "slug": slug.current, "updatedAt": coalesce(_updatedAt, publishedAt) }`
     )
   } catch {
     return []

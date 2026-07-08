@@ -3,7 +3,7 @@
 import type { DesignTokenSettings } from "@/lib/design-tokens"
 import NavigationClient from "@/components/sections/navigation-client"
 import Footer from "@/components/sections/footer"
-import type { SanityNavCategory, SanityNavCaseStudyCategory } from "@/sanity/types"
+import type { SanityNavCategory, SanityNavCaseStudyCategory } from "@/cms/lib/types"
 import type { CaseStudyComposerSection } from "@/components/case-studies/composer/types"
 import { BlogComposerLayout } from "./BlogComposerLayout"
 import { mapPostToLayoutData, mapRelatedPosts, type SanityPostDoc } from "./mapPostToLayoutData"
