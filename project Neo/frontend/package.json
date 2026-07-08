@@ -1,0 +1,36 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "16.2.9",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "next-sanity": "^9.8.58",
+    "@sanity/client": "^6.27.5",
+    "@sanity/image-url": "^1.1.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.6.0",
+    "lucide-react": "^0.468.0",
+    "@radix-ui/react-slot": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.7",
+    "typescript": "^5.9.3",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "16.2.9",
+    "tailwindcss": "^4.1.0",
+    "prettier": "^3.8.4",
+    "prettier-plugin-tailwindcss": "^0.6.11"
+  }
+}

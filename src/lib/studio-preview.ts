@@ -1,7 +1,7 @@
 import { draftMode } from "next/headers"
 import { NextRequest, NextResponse } from "next/server"
 
-import { buildCaseStudyPreviewPath } from "@/sanity/lib/layoutPreview"
+import { buildCaseStudyPreviewPath } from "@/cms/lib/studio/layoutPreview"
 
 export function isStudioPreviewRequest(request: NextRequest): boolean {
   const referer = request.headers.get("referer") || ""

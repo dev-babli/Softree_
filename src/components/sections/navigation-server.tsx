@@ -1,10 +1,10 @@
-import { readClient } from "@/sanity/lib/readClient";
-import { navBlogsQuery, navCaseStudiesQuery } from "@/sanity/queries";
-import { buildCaseStudyNavCategories } from "@/sanity/buildCaseStudyNav";
+import { readClient } from "@/cms/lib/readClient";
+import { navBlogsQuery, navCaseStudiesQuery } from "@/cms/lib/queries/queries";
+import { buildCaseStudyNavCategories } from "@/cms/lib/buildCaseStudyNav";
 import type {
   SanityNavCategory,
   SanityNavCaseStudy,
-} from "@/sanity/types";
+} from "@/cms/lib/types";
 import NavigationClient from "./navigation-client";
 
 export async function getNavigationData() {

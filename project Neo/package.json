@@ -1,0 +1,41 @@
+{
+  "name": "project-neo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI-native Agency Platform - CMS Replacement",
+  "workspaces": [
+    "frontend",
+    "studio"
+  ],
+  "scripts": {
+    "dev": "turbo dev",
+    "dev:frontend": "turbo dev --filter=frontend",
+    "dev:studio": "turbo dev --filter=studio",
+    "build": "turbo build",
+    "build:frontend": "turbo build --filter=frontend",
+    "build:studio": "turbo build --filter=studio",
+    "lint": "turbo lint",
+    "lint:frontend": "turbo lint --filter=frontend",
+    "lint:studio": "turbo lint --filter=studio",
+    "typecheck": "turbo typecheck",
+    "typecheck:frontend": "turbo typecheck --filter=frontend",
+    "typecheck:studio": "turbo typecheck --filter=studio",
+    "clean": "turbo clean",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md}\""
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.7",
+    "eslint": "^9.39.4",
+    "prettier": "^3.8.4",
+    "turbo": "^2.10.2",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
+  "packageManager": "npm@11.6.2"
+}

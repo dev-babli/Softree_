@@ -1,0 +1,40 @@
+{
+  "auditedAt": "2026-07-07T12:01:43.085Z",
+  "total": 38,
+  "issues": 4,
+  "apply": true,
+  "rows": [
+    {
+      "slug": "ai-shipment-delay-prediction-platform",
+      "title": "AI-Powered Shipment Delay Prediction Platform",
+      "current": "manufacturing-power-platform",
+      "recommended": "page-composer",
+      "score": 6,
+      "sectionCount": 6
+    },
+    {
+      "slug": "ai-powered-process-discovery-copilot",
+      "title": "AI-Powered Process Discovery Copilot",
+      "current": "payflow-fintech-story",
+      "recommended": "page-composer",
+      "score": 6,
+      "sectionCount": 1
+    },
+    {
+      "slug": "banking-risk-compliance-analytics-global-bank",
+      "title": "Banking Risk & Compliance Analytics Platform for Global Banking Institution",
+      "current": "manufacturing-power-platform",
+      "recommended": "page-composer",
+      "score": 6,
+      "sectionCount": 7
+    },
+    {
+      "slug": "healthcare-patient-intelligence-platform",
+      "title": "Healthcare Patient Intelligence Platform",
+      "current": "manufacturing-power-platform",
+      "recommended": "page-composer",
+      "score": 6,
+      "sectionCount": 8
+    }
+  ]
+}

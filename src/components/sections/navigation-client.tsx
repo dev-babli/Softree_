@@ -1,14 +1,14 @@
 "use client";
 
 import { useEffect, useState, useCallback, useMemo } from "react";
-import { client } from "@/sanity/lib/client";
-import { navBlogsQuery, navCaseStudiesQuery } from "@/sanity/queries";
-import { buildCaseStudyNavCategories } from "@/sanity/buildCaseStudyNav";
+import { client } from "@/cms/lib/client";
+import { navBlogsQuery, navCaseStudiesQuery } from "@/cms/lib/queries/queries";
+import { buildCaseStudyNavCategories } from "@/cms/lib/buildCaseStudyNav";
 import type {
   SanityNavCategory,
   SanityNavCaseStudy,
   SanityNavCaseStudyCategory,
-} from "@/sanity/types";
+} from "@/cms/lib/types";
 import Navigation from "./navigation";
 
 type NavigationClientProps = {

@@ -1,0 +1,41 @@
+/* Hero layout + typography lock after loader handoff */
+
+.softree-agentic-intro-complete #meet-artemis.on .char,
+.softree-agentic-intro-complete #meet-artemis [data-stagger].on > *,
+.softree-agentic-intro-complete #meet-artemis .k2-container-hero > .k2-hero > .k2-text,
+.softree-agentic-intro-complete #meet-artemis [data-flip-target="loader"],
+.softree-agentic-intro-complete #meet-artemis .k2-container-hero [data-stagger="300"] > *,
+.softree-agentic-intro-complete #meet-artemis .k2-container-hero-2 .k2-text,
+.softree-agentic-intro-complete #meet-artemis .k2-container-hero-2 .k2-cta,
+.softree-agentic-intro-complete #meet-artemis .k2-heading,
+.softree-agentic-intro-complete #meet-artemis h1,
+.softree-agentic-intro-complete #meet-artemis .k2-tabs {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.softree-agentic-intro-complete #meet-artemis [data-flip-target="loader"] em {
+  opacity: 1 !important;
+}
+
+.softree-agentic-intro-complete #meet-artemis [data-flip-target="loader"] .char,
+.softree-agentic-intro-complete #meet-artemis .k2-container-hero > .k2-hero > .k2-text .char {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Clear scroll-reveal offsets without breaking reference transforms on braces */
+.softree-agentic-intro-complete #meet-artemis [data-stagger] > *,
+.softree-agentic-intro-complete #meet-artemis [data-stagger].on > * {
+  transform: none !important;
+}
+
+.softree-agentic-intro-complete #meet-artemis .char {
+  transition: none !important;
+}
+
+@media (max-width: 767px) {
+  .softree-agentic-intro-complete #meet-artemis .k2-container-hero [data-flip-target="loader"] {
+    max-width: 100%;
+  }
+}

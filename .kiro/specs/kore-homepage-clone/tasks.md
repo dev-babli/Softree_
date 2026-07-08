@@ -71,41 +71,41 @@ Stack: TypeScript, React 19, Next.js 16 App Router, Tailwind v4, GSAP 3.15 + Scr
     - _Requirements: 24.1, 24.2, 24.3, 24.4, 24.5_
 
 - [ ] 2. Build cross-section hooks
-  - [~] 2.1 Implement `src/components/kore/hooks/use-reduced-motion.ts`
+  - [ ] 2.1 Implement `src/components/kore/hooks/use-reduced-motion.ts`
     - Subscribe to `matchMedia('(prefers-reduced-motion: reduce)')`, return current value, react to `change` events
     - SSR-safe: returns `false` on the server and updates after mount
     - _Requirements: 4.9, 6.10, 8.11, 13.8, 14.9, 15.9, 17.7, 18.7, 19.12, 20.9_
 
-  - [~] 2.2 Implement `src/components/kore/hooks/use-coarse-pointer.ts`
+  - [ ] 2.2 Implement `src/components/kore/hooks/use-coarse-pointer.ts`
     - Subscribe to `matchMedia('(hover: none) and (pointer: coarse)')`, SSR-safe
     - _Requirements: 16.5_
 
-  - [~] 2.3 Implement `src/components/kore/hooks/use-lenis.ts`
+  - [ ] 2.3 Implement `src/components/kore/hooks/use-lenis.ts`
     - Instantiate Lenis with the `duration`, `easing`, `smoothWheel`, `smoothTouch`, `direction`, `gestureDirection` values declared in Source_Document (read from tokens)
     - Register a GSAP ticker callback that calls `lenis.raf(time * 1000)`; set `gsap.ticker.lagSmoothing(0)`
     - Cleanup on unmount: kill every `ScrollTrigger`, remove the ticker callback, call `lenis.destroy()`
     - When Reduced_Motion is true OR `requestAnimationFrame` is undefined OR `new Lenis(...)` throws: skip instantiation and fall back to native scroll
     - _Requirements: 19.1, 19.2, 19.3, 19.11, 19.12, 26.6_
 
-  - [~] 2.4 Implement `src/components/kore/hooks/use-scroll-triggers.ts`
+  - [ ] 2.4 Implement `src/components/kore/hooks/use-scroll-triggers.ts`
     - Register `ScrollTrigger`s for `[data-anim]`, `[data-anim-rotate]`, `[data-anim-scale]`, `[data-anim-hero-image]`, `[data-stagger]` with `start: "top 95%"` and `once: true`, applying the entrance transitions exactly as declared in Source_Document
     - When Reduced_Motion is true: skip ScrollTrigger registration and apply the final post-animation state on mount within 1 animation frame
     - _Requirements: 19.4, 19.6, 19.7, 19.8, 19.9, 19.10, 19.12_
 
-  - [~] 2.5 Implement `src/components/kore/hooks/use-rive-block.ts`
+  - [ ] 2.5 Implement `src/components/kore/hooks/use-rive-block.ts`
     - Lazy-mount the Rive runtime via dynamic `import('@rive-app/canvas')` keyed on `IntersectionObserver` with `rootMargin: '200px'`
     - Race the `onLoad` callback against a 10s `setTimeout`; on rejection or timeout, leave the canvas hidden and keep the poster `<img>` visible
     - Suppress console errors; emit zero unhandled errors
     - When Reduced_Motion: hold canvas at first frame
     - _Requirements: 6.4, 6.5, 6.9, 6.10, 8.10, 8.11, 26.5, 27.6_
 
-  - [~] 2.6 Implement `src/components/kore/hooks/use-focus-trap.ts`
+  - [ ] 2.6 Implement `src/components/kore/hooks/use-focus-trap.ts`
     - Trap Tab and Shift+Tab inside the supplied container element while `active` is true
     - Restore focus to the prior `document.activeElement` on deactivation
     - Listen for Escape and call the supplied `onEscape` callback
     - _Requirements: 13.5, 13.7, 15.4, 15.7, 25.7_
 
-  - [~] 2.7 Implement `src/components/kore/hooks/use-tab-strip.ts`
+  - [ ] 2.7 Implement `src/components/kore/hooks/use-tab-strip.ts`
     - Manage active tab id, key handlers (Arrow Left / Right / Home / End), and emit `aria-selected`, `aria-controls`, `aria-labelledby` per the WAI-ARIA Tab pattern
     - Provide a typed `useTabStrip<T extends string>({ tabs, initial })` hook returning `{ active, setActive, getTabProps, getPanelProps }`
     - _Requirements: 7.3, 7.4, 8.4, 9.2, 9.6, 25.10_
@@ -118,54 +118,54 @@ Stack: TypeScript, React 19, Next.js 16 App Router, Tailwind v4, GSAP 3.15 + Scr
     - _Requirements: 7.3, 7.4, 8.1, 8.4, 9.2, 25.10_
 
 - [ ] 3. Build shared primitive components
-  - [~] 3.1 Implement `KoreButtonDot` primitive at `src/components/kore/primitives/kore-button-dot.tsx`
+  - [ ] 3.1 Implement `KoreButtonDot` primitive at `src/components/kore/primitives/kore-button-dot.tsx`
     - Props: `label`, `href?`, `onClick?`, `target?`, `rel?`, `ariaLabel?`, `variant?`
     - Render the source `.button` markup with leading dot and underline; hover transitions read from `tokens.durations` and `tokens.easings`
     - _Requirements: 6.7, 6.8, 11.3, 11.5, 20.4, 20.5_
 
-  - [~] 3.2 Implement `KoreSectionPill` primitive at `src/components/kore/primitives/kore-section-pill.tsx`
+  - [ ] 3.2 Implement `KoreSectionPill` primitive at `src/components/kore/primitives/kore-section-pill.tsx`
     - Render uppercase Source Code Pro pill labels matching the source
     - _Requirements: 21.5_
 
-  - [~] 3.3 Implement `KoreTabStrip` and `KoreTabPanel` primitives
+  - [ ] 3.3 Implement `KoreTabStrip` and `KoreTabPanel` primitives
     - File: `src/components/kore/primitives/kore-tab-strip.tsx`, `src/components/kore/primitives/kore-tab-panel.tsx`
     - Wire `role="tablist"`, `role="tab"`, `aria-selected`, `aria-controls`, `aria-labelledby`, keyboard navigation via `useTabStrip`
     - Active state styling via tokens
     - _Requirements: 7.3, 7.4, 8.1, 8.4, 9.2, 9.6, 25.10_
 
-  - [~] 3.4 Implement `KoreAccordionRow` primitive at `src/components/kore/primitives/kore-accordion-row.tsx`
+  - [ ] 3.4 Implement `KoreAccordionRow` primitive at `src/components/kore/primitives/kore-accordion-row.tsx`
     - Markup carries `data-accordion-list="css"`, `data-accordion-body`, and toggles `data-accordion="active"`
     - Apply `grid-template-rows: 0fr → 1fr` with `0.6s cubic-bezier(0.625, 0.05, 0, 1)` from tokens
     - Rotate the accordion icon 180° and the cross icon 45° when active
     - _Requirements: 3.6, 5.11, 14.6, 20.7, 20.8_
 
-  - [~] 3.5 Implement `KoreModal` primitive at `src/components/kore/primitives/kore-modal.tsx`
+  - [ ] 3.5 Implement `KoreModal` primitive at `src/components/kore/primitives/kore-modal.tsx`
     - Render `role="dialog"`, `aria-modal="true"`, `aria-labelledby`
     - Apply `lenis-stopped` to `<html>` while open; remove on close within 1 frame
     - Manage backdrop click, Esc handler, focus trap via `use-focus-trap`, focus return to trigger
     - Reduced_Motion path swaps display immediately within 1 animation frame
     - _Requirements: 13.4, 13.5, 13.7, 13.8, 15.3, 15.4, 15.7, 15.8, 15.9, 25.6, 25.7_
 
-  - [~] 3.6 Implement `KoreSwiperWrapper` primitive at `src/components/kore/primitives/kore-swiper-wrapper.tsx`
+  - [ ] 3.6 Implement `KoreSwiperWrapper` primitive at `src/components/kore/primitives/kore-swiper-wrapper.tsx`
     - SSR-safe skeleton (`<div class="swiper">`, `<div class="swiper-wrapper">`, child slides) before hydration
     - Lazy-mount the Swiper instance via `IntersectionObserver` with `rootMargin: '200px'` if the host first appears more than 844 px below scroll position 0
     - Apply the `modules` and `config` props verbatim from the supplied data
     - _Requirements: 7.6, 10.2, 26.4, 27.6, 27.8_
 
-  - [~] 3.7 Implement `KoreRiveCanvas` primitive at `src/components/kore/primitives/kore-rive-canvas.tsx`
+  - [ ] 3.7 Implement `KoreRiveCanvas` primitive at `src/components/kore/primitives/kore-rive-canvas.tsx`
     - Render the poster `<img>` immediately; mount a `<canvas>` overlay when host enters viewport
     - Use `use-rive-block` to manage load and timeout
     - Opacity 0 → 1 over 350 ms after first frame paint
     - _Requirements: 6.4, 6.5, 6.9, 8.10, 26.5_
 
-  - [~] 3.8 Implement `KoreMarquee` and `KoreSideArrow` primitives
+  - [ ] 3.8 Implement `KoreMarquee` and `KoreSideArrow` primitives
     - File: `src/components/kore/primitives/kore-marquee.tsx`, `src/components/kore/primitives/kore-side-arrow.tsx`
     - `KoreMarquee` applies the `marqueeSlide` keyframe with `[marquee-anim="20s"]` config
     - `KoreSideArrow` applies `sideArrowFlow` 1.5s infinite with the staggered 0s/0.3s child delays
     - When Reduced_Motion: `animation-play-state: paused`
     - _Requirements: 6.6, 20.3, 20.6, 20.9_
 
-  - [~] 3.9 Implement `KoreHoverImageTarget` primitive at `src/components/kore/primitives/kore-hover-image-target.tsx`
+  - [ ] 3.9 Implement `KoreHoverImageTarget` primitive at `src/components/kore/primitives/kore-hover-image-target.tsx`
     - Imperatively register the rendered element with the `HoverImageContext` registry on mount; unregister on unmount
     - Pass-through children
     - _Requirements: 8.8, 8.9, 16.2, 16.3, 16.4_
@@ -176,7 +176,7 @@ Stack: TypeScript, React 19, Next.js 16 App Router, Tailwind v4, GSAP 3.15 + Scr
     - _Requirements: 3.6, 13.5, 15.4, 25.6, 25.7_
 
 - [ ] 4. Implement Loader section
-  - [~] 4.1 Implement `KoreLoader` at `src/components/kore/sections/kore-loader.tsx`
+  - [ ] 4.1 Implement `KoreLoader` at `src/components/kore/sections/kore-loader.tsx`
     - `'use client'`; render two stacked logo nodes with the source classes `.loader.logo-1` and `.loader.logo-2`
     - On mount inside `useEffect`: apply `loading` to `<html>` within 1 frame, hold first logo for the source-declared duration (200..2000 ms), cross-fade to second logo within 1000 ms, remove `loading`, apply `ready`, unmount
     - 5000 ms force-complete safeguard
@@ -184,7 +184,7 @@ Stack: TypeScript, React 19, Next.js 16 App Router, Tailwind v4, GSAP 3.15 + Scr
     - Never apply the `anti-flicker` class
     - _Requirements: 1.9, 17.1, 17.2, 17.3, 17.4, 17.5, 17.6, 17.7, 17.8_
 
-  - [~] 4.2 Author `src/components/kore/data/loader.ts` fixture
+  - [ ] 4.2 Author `src/components/kore/data/loader.ts` fixture
     - Export the loader's first-logo display duration token-bound; export logo asset refs
     - _Requirements: 17.3_
 
@@ -196,12 +196,12 @@ Stack: TypeScript, React 19, Next.js 16 App Router, Tailwind v4, GSAP 3.15 + Scr
     - _Requirements: 1.9, 17.1, 17.4, 17.5, 17.8_
 
 - [ ] 5. Implement Top Strip section
-  - [~] 5.1 Author `src/components/kore/data/top-strip.ts` fixture
+  - [ ] 5.1 Author `src/components/kore/data/top-strip.ts` fixture
     - Export `topStripSlides` from Source_Document `.top-strip-box` in source order, each with `id`, `text`, `href`, `variant`
     - Export `TOP_STRIP_ROTATION_MS` from the source rotation script
     - _Requirements: 4.1_
 
-  - [~] 5.2 Implement `KoreTopStrip` at `src/components/kore/sections/kore-top-strip.tsx`
+  - [ ] 5.2 Implement `KoreTopStrip` at `src/components/kore/sections/kore-top-strip.tsx`
     - `'use client'`; render every Cycling_Strip_Slide as `<div class="top-strip-bar">`
     - Apply the source-declared background color, foreground text color, font-size, font-weight, padding, height
     - Render the `.top-strip-bar.new` modifier pill via `KoreSectionPill`
@@ -218,12 +218,12 @@ Stack: TypeScript, React 19, Next.js 16 App Router, Tailwind v4, GSAP 3.15 + Scr
     - _Requirements: 4.4, 4.5, 4.6, 4.8_
 
 - [ ] 6. Implement Navigation section
-  - [~] 6.1 Author `src/components/kore/data/navigation.ts` fixture
+  - [ ] 6.1 Author `src/components/kore/data/navigation.ts` fixture
     - Export the four `MegaMenuItem`s (`agent-platform`, `agentic-ai-apps`, `agent-marketplace`, `more`) with their `MegaMenuPanel` columns, recent insights, and event CTA
     - Export the language toggle data and demo CTA
     - _Requirements: 5.2, 5.5, 5.6, 5.7, 5.8_
 
-  - [~] 6.2 Implement `KoreNavigation` at `src/components/kore/sections/kore-navigation.tsx`
+  - [ ] 6.2 Implement `KoreNavigation` at `src/components/kore/sections/kore-navigation.tsx`
     - `'use client'`; render brand logo, four top-level items, language toggle, Get-a-demo CTA in source order
     - Sticky behavior: `position: sticky` with the `transition: transform 0.9s` rule when the strip's bottom edge scrolls above viewport top
     - Mega_Menu open/close on pointer enter/leave; transitions opacity 0→1 and `.mega-column` `translateY(2rem) opacity 0` → `translateY(0) opacity 1` with nth-child delays 0s/0.1s/0.2s
@@ -239,11 +239,11 @@ Stack: TypeScript, React 19, Next.js 16 App Router, Tailwind v4, GSAP 3.15 + Scr
     - _Requirements: 5.1, 5.10, 5.12, 5.13_
 
 - [ ] 7. Implement Hero section
-  - [~] 7.1 Author `src/components/kore/data/hero.ts` fixture
+  - [ ] 7.1 Author `src/components/kore/data/hero.ts` fixture
     - Export `heroData` with headline (PortableHeading), subhead, two CTAs, Artemis announcement card, background video asset, and exactly three RiveCardData entries (`pre-built-applications`, `application-accelerators`, `tailored-applications`) each with `riveSrc` and `posterFallback`
     - _Requirements: 6.2, 6.3, 6.4_
 
-  - [~] 7.2 Implement `KoreHero` at `src/components/kore/sections/kore-hero.tsx`
+  - [ ] 7.2 Implement `KoreHero` at `src/components/kore/sections/kore-hero.tsx`
     - `'use client'`; outer `<section class="section-home-hero _100vh pb-0">` with `height: 100vh`, `padding-bottom: 0`
     - Render background `<video>` with `src`, `poster`, `autoplay`, `loop`, `muted`, `playsinline` from data
     - Render headline, subhead, demo CTA via `KoreButtonDot`, analyst-reports CTA, Artemis announcement card
@@ -259,13 +259,13 @@ Stack: TypeScript, React 19, Next.js 16 App Router, Tailwind v4, GSAP 3.15 + Scr
     - _Requirements: 6.5, 6.9, 6.10_
 
 - [ ] 8. Implement Industry Tabs section
-  - [~] 8.1 Author `src/components/kore/data/industry-tabs.ts` fixture
+  - [ ] 8.1 Author `src/components/kore/data/industry-tabs.ts` fixture
     - Export `industryTabsData` with the five tabs in source order (`banking`, `healthcare`, `retail`, `telecom-and-media`, `business`), each with logos copied one-to-one from Source_Document
     - Export the per-industry Swiper config matching Source_Document `slidesPerView`, `spaceBetween`, `loop`, `speed`, `autoplay`, `freeMode`, `breakpoints`
     - `initialActive: 'banking'`
     - _Requirements: 7.1, 7.2, 7.3, 7.6_
 
-  - [~] 8.2 Implement `KoreIndustryTabs` at `src/components/kore/sections/kore-industry-tabs.tsx`
+  - [ ] 8.2 Implement `KoreIndustryTabs` at `src/components/kore/sections/kore-industry-tabs.tsx`
     - `'use client'`; render heading, then `KoreTabStrip` with five tabs, then five `KoreTabPanel`s each containing a `KoreSwiperWrapper`
     - Apply the section background, padding, container width, heading typography from tokens
     - Each logo wrapper is 120px wide with 22px image height; image `alt` is the brand name
@@ -279,14 +279,14 @@ Stack: TypeScript, React 19, Next.js 16 App Router, Tailwind v4, GSAP 3.15 + Scr
     - _Requirements: 7.3, 7.4, 7.6_
 
 - [ ] 9. Implement Business Outcomes section
-  - [~] 9.1 Author `src/components/kore/data/business-outcomes.ts` fixture
+  - [ ] 9.1 Author `src/components/kore/data/business-outcomes.ts` fixture
     - Export `businessOutcomesData` with the four `OutcomesTabData` entries in order
     - The `agent-platform-artemis` entry includes nine `ArtemisSubTabData` entries
     - Embed `RiveCardData` for the Application_Accelerators tab block where source declares Rive
     - Each `hover-img-button` carries its `data-img` value
     - _Requirements: 8.1, 8.3, 8.10_
 
-  - [~] 9.2 Implement `KoreBusinessOutcomes` at `src/components/kore/sections/kore-business-outcomes.tsx`
+  - [ ] 9.2 Implement `KoreBusinessOutcomes` at `src/components/kore/sections/kore-business-outcomes.tsx`
     - `'use client'`; render the outer `#explore-products` wrapper, heading, then `KoreTabStrip` with four Outcomes_Tabs
     - Default active = `pre-built-applications`
     - Each pane renders its service-card grid, hover-image buttons (wrapped in `KoreHoverImageTarget`), and embedded Rive blocks
@@ -302,51 +302,51 @@ Stack: TypeScript, React 19, Next.js 16 App Router, Tailwind v4, GSAP 3.15 + Scr
     - _Requirements: 8.5, 8.6, 8.7, 8.11_
 
 - [ ] 10. Implement Analyst Recognition section
-  - [~] 10.1 Author `src/components/kore/data/analyst-recognition.ts` fixture
+  - [ ] 10.1 Author `src/components/kore/data/analyst-recognition.ts` fixture
     - Export `analystRecognitionData` with four tabs in order (`conversational-ai-platforms`, `cognitive-search-platforms`, `genai-applications`, `genai-engineering`)
     - Each tab carries `body`, `analystImage` (with srcset/sizes/alt), `cta`
     - _Requirements: 9.1, 9.4_
 
-  - [~] 10.2 Implement `KoreAnalystRecognition` at `src/components/kore/sections/kore-analyst-recognition.tsx`
+  - [ ] 10.2 Implement `KoreAnalystRecognition` at `src/components/kore/sections/kore-analyst-recognition.tsx`
     - `'use client'`; render heading, then `KoreTabStrip` with four tabs and matching panels
     - Default active = `conversational-ai-platforms`
     - Read `data-duration-in="300"`, `data-duration-out="100"`, `data-easing` from `tokens.durations` / `tokens.easings`
     - Annotate tablist + tabs + panels with the WAI-ARIA Tab pattern
     - _Requirements: 9.1, 9.2, 9.3, 9.4, 9.5, 9.6_
 
-- [~] 11. Checkpoint - Foundation, Loader, Top_Strip, Navigation, Hero, Industry_Tabs, Business_Outcomes, Analyst_Recognition complete
+- [ ] 11. Checkpoint - Foundation, Loader, Top_Strip, Navigation, Hero, Industry_Tabs, Business_Outcomes, Analyst_Recognition complete
   - Ensure all tests pass, ask the user if questions arise.
 
 - [ ] 12. Implement Testimonials section
-  - [~] 12.1 Author `src/components/kore/data/testimonials.ts` fixture
+  - [ ] 12.1 Author `src/components/kore/data/testimonials.ts` fixture
     - Export every testimonial slide one-to-one from Source_Document with `customerLogo`, `customerName`, `role`, `quote`
     - Export the Swiper config matching Source_Document
     - _Requirements: 10.1, 10.2_
 
-  - [~] 12.2 Implement `KoreTestimonials` at `src/components/kore/sections/kore-testimonials.tsx`
+  - [ ] 12.2 Implement `KoreTestimonials` at `src/components/kore/sections/kore-testimonials.tsx`
     - `'use client'`; render via `KoreSwiperWrapper` with autoplay, loop, navigation, pagination from source
     - Pause-on-hover via `mouseenter` / `mouseleave`
     - Disabled prev/next styling when loop is off and at boundary slides
     - _Requirements: 10.1, 10.2, 10.3, 10.4, 10.5, 10.6, 10.7, 10.8, 10.9_
 
 - [ ] 13. Implement Strategic Partners section
-  - [~] 13.1 Author `src/components/kore/data/strategic-partners.ts` fixture
+  - [ ] 13.1 Author `src/components/kore/data/strategic-partners.ts` fixture
     - Export `strategicPartnersData` with exactly two cards in order Microsoft, AWS
     - _Requirements: 11.1_
 
-  - [~] 13.2 Implement `KoreStrategicPartners` at `src/components/kore/sections/kore-strategic-partners.tsx`
+  - [ ] 13.2 Implement `KoreStrategicPartners` at `src/components/kore/sections/kore-strategic-partners.tsx`
     - Server component; render heading and two partner cards in source DOM order
     - Each card: image (preserving aspect ratio + object-fit, alt = brand name), heading, body, CTA via `KoreButtonDot`
     - On image error: preserve layout via width/height attributes, keep alt text visible
     - _Requirements: 11.1, 11.2, 11.3, 11.4, 11.5, 11.6, 11.7_
 
 - [ ] 14. Implement AI Insights section
-  - [~] 14.1 Author `src/components/kore/data/insights.ts` fixture
+  - [ ] 14.1 Author `src/components/kore/data/insights.ts` fixture
     - Export `aiInsightsData` with exactly one `featured` BlogItem (`variant: 'featured'`) and exactly four `latest` BlogItems (`variant: 'latest'`) sourced from Source_Document
     - Permit empty `readTime` strings
     - _Requirements: 12.1, 12.3, 12.5_
 
-  - [~] 14.2 Implement `KoreAiInsights` at `src/components/kore/sections/kore-ai-insights.tsx`
+  - [ ] 14.2 Implement `KoreAiInsights` at `src/components/kore/sections/kore-ai-insights.tsx`
     - Server component; render the `.blogs_hero-section_block.hide-mobile-landscape` featured block + the `.blogs_hero-section_block.for-latest.for-homepage > .latest-blogs-list` with four `.blog-item.is-latest` entries in source DOM order
     - Render heading "AI Insights" and "View all" CTA via `KoreButtonDot`
     - Empty `readTime` renders an empty node — no placeholder
@@ -355,16 +355,16 @@ Stack: TypeScript, React 19, Next.js 16 App Router, Tailwind v4, GSAP 3.15 + Scr
     - _Requirements: 12.1, 12.2, 12.3, 12.4, 12.5, 12.6, 12.7, 12.8, 12.9_
 
 - [ ] 15. Implement Pre-Footer CTA section and Exit Modal
-  - [~] 15.1 Author `src/components/kore/data/pre-footer-cta.ts` and `data/exit-modal.ts` fixtures
+  - [ ] 15.1 Author `src/components/kore/data/pre-footer-cta.ts` and `data/exit-modal.ts` fixtures
     - `preFooterCtaData`: two CtaBlocks in order (`accelerate-time-to-value`, `start-using-artemis-today`)
     - `exitModalData`: heading, body, primary, secondary
     - _Requirements: 13.1, 13.6_
 
-  - [~] 15.2 Implement `KorePreFooterCta` at `src/components/kore/sections/kore-pre-footer-cta.tsx`
+  - [ ] 15.2 Implement `KorePreFooterCta` at `src/components/kore/sections/kore-pre-footer-cta.tsx`
     - Server component; render the two CTA blocks in source DOM order with the source layout, styling, target URLs, and `aria-label`s
     - _Requirements: 13.1, 13.2_
 
-  - [~] 15.3 Implement `KoreExitModal` at `src/components/kore/sections/kore-exit-modal.tsx`
+  - [ ] 15.3 Implement `KoreExitModal` at `src/components/kore/sections/kore-exit-modal.tsx`
     - `'use client'`; subscribe to `mouseleave` on `document.documentElement` where `event.clientY <= 0`, fire only the first such event in the page session
     - Render a `KoreModal` wrapping the heading, body, primary, secondary CTAs
     - Apply `lenis-stopped` to `<html>` while open; suspend Lenis_Scroller; restore focus to the prior `document.activeElement` on close
@@ -373,11 +373,11 @@ Stack: TypeScript, React 19, Next.js 16 App Router, Tailwind v4, GSAP 3.15 + Scr
     - _Requirements: 13.3, 13.4, 13.5, 13.6, 13.7, 13.8_
 
 - [ ] 16. Implement Site Footer
-  - [~] 16.1 Author `src/components/kore/data/footer.ts` fixture
+  - [ ] 16.1 Author `src/components/kore/data/footer.ts` fixture
     - Export `footerData` with logo, language toggle, exactly four `FooterColumn`s, RFP CTA, social, legal, copyright
     - _Requirements: 14.1, 14.7_
 
-  - [~] 16.2 Implement `KoreFooter` at `src/components/kore/sections/kore-footer.tsx`
+  - [ ] 16.2 Implement `KoreFooter` at `src/components/kore/sections/kore-footer.tsx`
     - Client wrapper for back-to-top + language toggle; static structure renders server-side
     - Render brand logo, language toggle, four link columns, RFP CTA, social row, legal row, copyright, back-to-top in source order; no positive `tabindex` values
     - At ≤ 767 px: collapse columns into `KoreAccordionRow` accordions
@@ -388,11 +388,11 @@ Stack: TypeScript, React 19, Next.js 16 App Router, Tailwind v4, GSAP 3.15 + Scr
     - _Requirements: 14.1, 14.2, 14.3, 14.4, 14.5, 14.6, 14.7, 14.8, 14.9, 25.4_
 
 - [ ] 17. Implement Modals Layer (code-split)
-  - [~] 17.1 Author `src/components/kore/data/modals.ts` fixture
+  - [ ] 17.1 Author `src/components/kore/data/modals.ts` fixture
     - Export `modalsData` with the four ModalDescriptors in order (`enterprise-tech-stack` content, `ai-for-work` / `ai-for-service` / `ai-for-process` video)
     - _Requirements: 15.1, 15.2_
 
-  - [~] 17.2 Implement `KoreModalsLayer` at `src/components/kore/sections/kore-modals-layer.tsx`
+  - [ ] 17.2 Implement `KoreModalsLayer` at `src/components/kore/sections/kore-modals-layer.tsx`
     - `'use client'`; expose a `ModalContext` with `openModal(id)` / `closeModal()`; mutual exclusion: at most one modal open at a time
     - Render via `KoreModal` primitive — `role="dialog"`, `aria-modal="true"`, focus trap, Esc, backdrop, focus return
     - Video modals: autoplay muted on open; pause + reset `currentTime = 0` on close; 10s `canplaythrough` watchdog falls back to poster image
@@ -408,7 +408,7 @@ Stack: TypeScript, React 19, Next.js 16 App Router, Tailwind v4, GSAP 3.15 + Scr
     - _Requirements: 13.3, 15.3, 15.7, 15.8, 25.6, 25.7_
 
 - [ ] 18. Implement Hover Image Preview
-  - [~] 18.1 Implement `KoreHoverImagePreview` at `src/components/kore/sections/kore-hover-image-preview.tsx`
+  - [ ] 18.1 Implement `KoreHoverImagePreview` at `src/components/kore/sections/kore-hover-image-preview.tsx`
     - `'use client'`; render one fixed-position container at `width: 180px`, `height: auto`, `object-fit: contain`, `pointer-events: none`, `z-index: 99`
     - Provide `HoverImageContext` with a `register(target, dataImg)` registry
     - On `pointerenter`: load `data-img`, wait 100 ms, fade opacity 0→1 over 500 ms with scale 1
@@ -427,11 +427,11 @@ Stack: TypeScript, React 19, Next.js 16 App Router, Tailwind v4, GSAP 3.15 + Scr
     - _Requirements: 16.2, 16.3, 16.4, 16.5, 16.6_
 
 - [ ] 19. Implement Floating Chatbot
-  - [~] 19.1 Author `src/components/kore/data/chatbot.ts` fixture
+  - [ ] 19.1 Author `src/components/kore/data/chatbot.ts` fixture
     - Export `chatbotData` with `placeholder` and `arrowAriaLabel`
     - _Requirements: 18.1_
 
-  - [~] 19.2 Implement `KoreChatbot` at `src/components/kore/sections/kore-chatbot.tsx`
+  - [ ] 19.2 Implement `KoreChatbot` at `src/components/kore/sections/kore-chatbot.tsx`
     - `'use client'`; render fixed-position element in lower-right with the source offset, size, background, radius, shadow
     - Collapsed (`:not(.ready)`): width 3.5rem; `.chatbot-line-spacer`, `.chatbot-input`, `.chatbot-arrow-btn` at opacity 0 + `pointer-events: none`
     - On activation (click + Enter + Space): apply `.ready` within 1 frame, set chatbot icon `max-width: 1.25rem`, fade-in spacer (delay 0.5s), input (0.8s), arrow btn (0.3s)
@@ -449,19 +449,19 @@ Stack: TypeScript, React 19, Next.js 16 App Router, Tailwind v4, GSAP 3.15 + Scr
     - _Requirements: 18.4, 18.5_
 
 - [ ] 20. Wire the page tree, layout, and route
-  - [~] 20.1 Implement `src/app/kore-ai-component/layout.tsx`
+  - [ ] 20.1 Implement `src/app/kore-ai-component/layout.tsx`
     - Optional segment-scoped layout that imports `tokens.css` and `keyframes.css`
     - Declare the `<link rel="preconnect">` tags for `cdn.prod.website-files.com`, `fonts.googleapis.com`, `fonts.gstatic.com` matching Source_Document `crossorigin`
     - Declare `<link rel="preload" as="image">` for the Hero background video poster
     - Confirm root `src/app/layout.tsx` already declares `lang="en"` on `<html>` and `body { background: #FFFFFF }`; if not, update only the minimal required attributes
     - _Requirements: 1.3, 24.6, 27.7_
 
-  - [~] 20.2 Implement `src/app/kore-ai-component/page.tsx`
+  - [ ] 20.2 Implement `src/app/kore-ai-component/page.tsx`
     - Server component; export `KoreAiComponentPage` default; emit metadata only (no client work)
     - Render the `KorePage` client composer
     - _Requirements: 1.1, 1.7, 23.5_
 
-  - [~] 20.3 Implement `src/app/kore-ai-component/kore-page.tsx`
+  - [ ] 20.3 Implement `src/app/kore-ai-component/kore-page.tsx`
     - `'use client'`; mount `useLenis()` and `useScrollTriggers()`; mount `HoverImageContext.Provider` and modal context provider
     - Render Page_Sections in document order: `KoreLoader`, `KoreTopStrip`, `KoreNavigation`, `<main>` containing `KoreHero`, `KoreIndustryTabs`, `KoreBusinessOutcomes`, `KoreAnalystRecognition`, `KoreTestimonials`, `KoreStrategicPartners`, `KoreAiInsights`, `KorePreFooterCta`, then `KoreFooter`, `KoreModalsLayer` (lazy via `next/dynamic({ ssr: false })`), `KoreHoverImagePreview`, `KoreExitModal`, `KoreChatbot`
     - Z-index ranking matches tokens: Top_Strip < Navigation < Modals_Layer < Loader, with Hover_Image_Preview at z-index 99
@@ -469,15 +469,15 @@ Stack: TypeScript, React 19, Next.js 16 App Router, Tailwind v4, GSAP 3.15 + Scr
     - Never apply the `anti-flicker` class
     - _Requirements: 1.1, 1.2, 1.3, 1.4, 1.5, 1.7, 1.9, 2.8, 19.1, 19.2, 19.3, 25.1, 25.2, 25.3_
 
-  - [~] 20.4 Wire focus ring and keyboard focus styling globally for the Clone_Page
+  - [ ] 20.4 Wire focus ring and keyboard focus styling globally for the Clone_Page
     - Add a scoped CSS rule (via `tokens.css` or a sibling `focus.css`) ensuring every focusable element in the Clone_Page tree shows a 2px outline / box-shadow with ≥ 3:1 contrast on focus
     - _Requirements: 25.8_
 
-- [~] 21. Checkpoint - Page composition and all sections wired
+- [ ] 21. Checkpoint - Page composition and all sections wired
   - Ensure all tests pass, ask the user if questions arise.
 
 - [ ] 22. Build accessibility, scope, and out-of-scope guardrails
-  - [~] 22.1 Wire and run an `eslint` rule set forbidding the literal markers `TODO`, `FIXME`, `XXX`, `placeholder`, `lorem ipsum`, `mock` inside `src/components/kore/`, `src/app/kore-ai-component/`, and `public/kore/` (case-insensitive), with the only exception being literal string values copied verbatim from Source_Document
+  - [ ] 22.1 Wire and run an `eslint` rule set forbidding the literal markers `TODO`, `FIXME`, `XXX`, `placeholder`, `lorem ipsum`, `mock` inside `src/components/kore/`, `src/app/kore-ai-component/`, and `public/kore/` (case-insensitive), with the only exception being literal string values copied verbatim from Source_Document
     - Use `eslint-plugin-no-warning-comments` plus a custom regex rule
     - _Requirements: 29.1_
 
@@ -542,7 +542,7 @@ Stack: TypeScript, React 19, Next.js 16 App Router, Tailwind v4, GSAP 3.15 + Scr
     - Gate behind `pnpm test:matrix`; runs nightly in CI, not on every commit
     - _Requirements: 26.1, 26.2, 26.3_
 
-- [~] 25. Final checkpoint - Ensure all tests pass
+- [ ] 25. Final checkpoint - Ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.
   - Confirm `pnpm exec eslint src/components/kore src/app/kore-ai-component --max-warnings=0` exits 0
   - Confirm `pnpm exec tsc --noEmit` exits 0

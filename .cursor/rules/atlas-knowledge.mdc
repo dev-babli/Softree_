@@ -1,0 +1,38 @@
+---
+description: ATLAS v3 — knowledge taxonomy, pattern engine, memory
+alwaysApply: true
+---
+
+# ATLAS v3
+
+## Search first
+
+```bash
+npm run atlas:knowledge search "<topic>"
+npm run atlas:patterns search "<topic>"
+```
+
+Knowledge: `.cursor/knowledge/{00-21}-*/` | Patterns: `.cursor/knowledge-engine/patterns/` | Prompts: `.cursor/prompts/`
+
+## Key files
+
+| Path | Content |
+|------|---------|
+| `00-constitution/ThinkingFramework.md` | Agent thinking rules |
+| `01-company/Softree.md` | Company intelligence |
+| `01-company/BrandPositioning.md` | Positioning |
+| `15-competitors/KoreAI.md` | Primary benchmark |
+| `17-frameworks/SoftreeTransformationFramework.md` | D5OO delivery |
+| `18-scoring/WebsiteScore.md` | 0–100 rubric |
+| `19-reporting/ExecutiveReport.md` | Report template |
+| `20-memory/audits/` | Every audit stored here |
+
+## Constitution rules
+
+See `.cursor/rules/atlas-constitution.mdc` — cite evidence, research first, ROI, confidence scores, never duplicate.
+
+## Invoke
+
+- Bootstrap: `npm run atlas:bootstrap`
+- Ingest: `.cursor/knowledge-engine-operator-prompt.md`
+- Revamp: `.cursor/atlas-revamp-super-prompt.md`

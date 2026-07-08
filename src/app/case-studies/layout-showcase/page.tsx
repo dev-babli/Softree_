@@ -4,8 +4,8 @@ import { notFound } from "next/navigation"
 import NavigationClient from "@/components/sections/navigation-client"
 import Footer from "@/components/sections/footer"
 import { CASE_STUDY_LAYOUTS } from "@/lib/case-study-layouts"
-import { client } from "@/sanity/lib/client"
-import { allCaseStudySlugsQuery } from "@/sanity/queries"
+import { client } from "@/cms/lib/client"
+import { allCaseStudySlugsQuery } from "@/cms/lib/queries/queries"
 
 export const metadata = {
   title: "Case Study Layout Showcase | Softree",
@@ -169,7 +169,7 @@ export default async function LayoutShowcasePage() {
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {CASE_STUDY_LAYOUTS.map((layout, index) => {
             const meta = LAYOUT_MOODS[layout.value]
-            const href = `/case-studies/${previewSlug}`
+            const href = `/case-studies/${previewSlug}?layout=${layout.value}`
             return (
               <Link
                 key={layout.value}

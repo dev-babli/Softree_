@@ -164,6 +164,11 @@ const Grainient: React.FC<GrainientProps> = ({
   useEffect(() => {
     if (!containerRef.current || useCssFallback) return
 
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setUseCssFallback(true)
+      return
+    }
+
     if (!probeWebGLAvailable() || !acquireGrainientWebGL()) {
       setUseCssFallback(true)
       return
@@ -180,11 +185,16 @@ const Grainient: React.FC<GrainientProps> = ({
 
     const contextProbe = document.createElement("canvas")
     const supportsWebGL2 = !!contextProbe.getContext("webgl2")
+    if (!supportsWebGL2) {
+      releaseSlot()
+      setUseCssFallback(true)
+      return
+    }
 
     let renderer: Renderer
     try {
       renderer = new Renderer({
-        webgl: supportsWebGL2 ? 2 : 1,
+        webgl: 2,
         alpha: true,
         antialias: false,
         dpr: Math.min(window.devicePixelRatio || 1, 2),
@@ -284,9 +294,9 @@ const Grainient: React.FC<GrainientProps> = ({
     raf = requestAnimationFrame(loop)
 
     return () => {
-      released = true
       if (resizeTimeout) clearTimeout(resizeTimeout)
       releaseSlot()
+      released = true
       cancelAnimationFrame(raf)
       ro.disconnect()
       gl.getExtension("WEBGL_lose_context")?.loseContext()

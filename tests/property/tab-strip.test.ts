@@ -27,7 +27,7 @@ import * as fc from 'fast-check';
 import React from 'react';
 import { render, cleanup, act, fireEvent } from '@testing-library/react';
 
-import { useTabStrip } from '../../src/components/kore/hooks/use-tab-strip';
+import { useTabStrip } from '../../src/components/softree-marketing-ui/hooks/use-tab-strip';
 
 // ---------------------------------------------------------------------------
 // Test harness: a minimal component that spreads the hook props onto real DOM

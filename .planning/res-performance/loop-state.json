@@ -1,0 +1,66 @@
+{
+  "slug": "res-performance",
+  "mode": "TEN_OUT_OF_TEN",
+  "loop": 0,
+  "status": "NOT_STARTED",
+  "baseline": {
+    "captured": "2026-07-06",
+    "data_points": 8283,
+    "global_res": 49,
+    "fcp_s": 3.28,
+    "lcp_s": 4.54,
+    "inp_ms": 704,
+    "cls": 0,
+    "ttfb_s": 0.14
+  },
+  "targets": {
+    "global_res": 95,
+    "route_res_p0": 90,
+    "fcp_s": 1.2,
+    "lcp_s": 1.8,
+    "inp_ms": 150
+  },
+  "route_queue": [
+    { "path": "/case-studies/[slug]", "visits": 1800, "res": 53, "priority": "P0", "status": "pending" },
+    { "path": "/", "visits": 995, "res": 62, "priority": "P0", "status": "pending" },
+    { "path": "/case-studies", "visits": 384, "res": 34, "priority": "P0", "status": "pending" },
+    { "path": "/blog/[slug]", "visits": 127, "res": 48, "priority": "P1", "status": "pending" },
+    { "path": "/blog", "visits": 112, "res": 61, "priority": "P1", "status": "pending" },
+    { "path": "/contact", "visits": 46, "res": 33, "priority": "P0", "status": "pending" },
+    { "path": "/services/offshore-power-platform-development", "visits": 37, "res": 46, "priority": "P1", "status": "pending" }
+  ],
+  "benchmark_routes": [
+    { "path": "/about-us", "res": 97 },
+    { "path": "/case-studies/preview", "res": 97 }
+  ],
+  "excluded_routes": [
+    "/studio/**"
+  ],
+  "current_route": null,
+  "current_blockers": [],
+  "completed_gates": [],
+  "pending_gates": [
+    "lint",
+    "build",
+    "chrome_mcp_trace",
+    "chrome_mcp_lcp_breakdown",
+    "chrome_mcp_network",
+    "cli_lighthouse_mobile",
+    "triangulation",
+    "bundle_analyze",
+    "vercel_res_confirmatory"
+  ],
+  "measurement_stack": {
+    "primary": ["chrome_devtools_mcp", "cli_lighthouse", "bundle_analyze"],
+    "cross_check": ["psi", "posthog_web_vitals"],
+    "confirmatory": ["vercel_speed_insights_res", "unlighthouse"]
+  },
+  "blocker_history": [],
+  "next_agent": "diagnostician",
+  "budget": {
+    "loops_used": 0,
+    "loops_max": 12,
+    "routes_max_per_loop": 1
+  },
+  "memory_lessons": []
+}

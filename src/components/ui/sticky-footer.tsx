@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Linkedin, Twitter, Facebook, Instagram } from "lucide-react";
-import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import Grainient from "@/components/homepage-light/Grainient";
 
@@ -19,8 +18,9 @@ const footerColumns = [
     label: "Company",
     links: [
       { title: "Home", href: "/" },
-      { title: "About Us", href: "/about-us" },
+      { title: "AI Solutions", href: "/ai" },
       { title: "Case Studies", href: "/case-studies" },
+      { title: "About Us", href: "/about-us" },
       { title: "Careers", href: "/careers" },
       { title: "Contact", href: "/contact" },
       { title: "Book a Call 🤝", href: "/book-meeting" },
@@ -77,45 +77,23 @@ const SOCIAL_PILLS = [
   },
 ];
 
-/* Social pills row — exact same flex-expand mechanic as mission/vision cards */
 function SocialPillRow() {
-  const [hovered, setHovered] = useState<string | null>(null);
-
   return (
     <div className="mt-8 flex h-11 items-center gap-2">
       {SOCIAL_PILLS.map((pill) => {
         const Icon = pill.icon;
-        const isHovered = hovered === pill.id;
         return (
-          <motion.div
+          <Link
             key={pill.id}
-            animate={{ width: isHovered ? "auto" : 44 }}
-            transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            className="relative h-11 overflow-hidden rounded-full"
-            style={{ background: pill.gradient, minWidth: 44 }}
-            onMouseEnter={() => setHovered(pill.id)}
-            onMouseLeave={() => setHovered(null)}
+            href={pill.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={pill.label}
+            className="flex h-11 w-11 items-center justify-center rounded-full text-white transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            style={{ background: pill.gradient }}
           >
-            <Link
-              href={pill.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={pill.label}
-              className="flex h-full items-center text-white"
-              style={{ width: "max-content" }}
-            >
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center">
-                <Icon className="h-[18px] w-[18px]" />
-              </span>
-              <motion.span
-                animate={{ opacity: isHovered ? 1 : 0 }}
-                transition={{ duration: 0.2, delay: isHovered ? 0.18 : 0 }}
-                className="whitespace-nowrap pr-4 text-[13px] font-semibold"
-              >
-                {pill.label}
-              </motion.span>
-            </Link>
-          </motion.div>
+            <Icon className="h-[18px] w-[18px]" />
+          </Link>
         );
       })}
     </div>
@@ -138,7 +116,7 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
       {...props}
     >
       {/* FULL-WIDTH CARD — fills entire viewport height */}
-      <div className="relative w-full overflow-hidden" style={{ height: "100svh", minHeight: 560 }}>
+      <div className="relative w-full overflow-hidden" style={{ minHeight: "100svh" }}>
 
         {/* Layer 1 — Purple Grainient full-bleed */}
         <div className="absolute inset-0 z-0">
@@ -180,10 +158,10 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
           </div>
           {/* Metadata row below wordmark */}
           <div className="flex flex-wrap items-center gap-x-6 gap-y-1">
-            <Link href="/privacy-policy" className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/70 hover:text-white transition-colors">
+            <Link href="/privacy-policy" className="inline-flex min-h-11 items-center rounded-lg text-[11px] font-semibold uppercase tracking-[0.14em] text-white/70 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/70 hover:text-white transition-colors">
+            <Link href="/terms" className="inline-flex min-h-11 items-center rounded-lg text-[11px] font-semibold uppercase tracking-[0.14em] text-white/70 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
               Terms of Service
             </Link>
             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/70">
@@ -196,7 +174,8 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
         <div className="absolute bottom-5 right-8 z-20 md:right-12 lg:right-16">
           <Image
             src={LOGO_LIGHT_BG}
-            alt="Softree Technology"
+            alt=""
+            aria-hidden="true"
             width={120}
             height={30}
             className="h-7 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
@@ -204,11 +183,15 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
         </div>
 
         {/* Layer 4 — All content */}
-        <div className="relative z-30 flex h-full flex-col px-8 pt-7 pb-6 md:px-12 md:pt-8 lg:px-16">
+        <div className="relative z-30 flex min-h-[100svh] flex-col px-5 pb-56 pt-7 sm:px-8 md:px-12 md:pt-8 lg:px-16">
 
           {/* TOP BAR — real logo + CTAs */}
-          <div className="flex items-center justify-between">
-            <Link href="/" aria-label="Softree home">
+          <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+            <Link
+              href="/"
+              aria-label="Softree home"
+              className="inline-flex min-h-11 items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50"
+            >
               <Image
                 src={LOGO_LIGHT}
                 alt="Softree Technology"
@@ -217,22 +200,28 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
                 className="h-8 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
               />
             </Link>
-            <div className="flex items-center gap-2.5">
+            <div className="flex flex-wrap items-center gap-2.5">
+              <Link
+                href="/ai"
+                className="flex h-11 items-center rounded-full border border-black/25 px-4 text-[12px] font-semibold text-black transition-colors hover:border-black/60 hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50"
+              >
+                AI Solutions
+              </Link>
               <Link
                 href="/services"
-                className="flex h-9 items-center rounded-full border border-black/25 px-4 text-[12px] font-semibold text-black transition-all hover:border-black/60 hover:bg-black/5"
+                className="flex h-11 items-center rounded-full border border-black/25 px-4 text-[12px] font-semibold text-black transition-colors hover:border-black/60 hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50"
               >
-                Our Services
+                Services
               </Link>
               <Link
                 href="/book-meeting"
-                className="flex h-9 items-center rounded-full border border-black/25 px-4 text-[12px] font-semibold text-black transition-all hover:border-black/60 hover:bg-black/5"
+                className="flex h-11 items-center rounded-full border border-black/25 px-4 text-[12px] font-semibold text-black transition-colors hover:border-black/60 hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50"
               >
                 Book a Call
               </Link>
               <Link
                 href="/contact"
-                className="flex h-9 items-center rounded-full px-5 text-[12px] font-bold text-white transition-all hover:opacity-90"
+                className="flex h-11 items-center rounded-full px-5 text-[12px] font-bold text-white transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50"
                 style={{ background: "linear-gradient(135deg, rgba(255,122,47,0.97) 0%, rgba(200,80,20,0.92) 100%)" }}
               >
                 Get in Touch
@@ -241,7 +230,7 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
           </div>
 
           {/* 3-COLUMN NAV */}
-          <div className="mt-12 grid flex-1 grid-cols-3 gap-x-12 gap-y-6 md:mt-14">
+          <div className="mt-12 grid flex-1 grid-cols-1 gap-x-12 gap-y-8 sm:grid-cols-2 md:mt-14 lg:grid-cols-3">
             {footerColumns.map((col) => (
               <div key={col.label} className="flex flex-col">
                 <p className="mb-5 text-[12px] font-extrabold uppercase tracking-[0.18em] text-black">
@@ -254,7 +243,7 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
                         href={link.href}
                         target={link.external ? "_blank" : undefined}
                         rel={link.external ? "noopener noreferrer" : undefined}
-                        className="inline-flex items-center text-[14px] font-medium text-black transition-colors hover:text-black/70"
+                        className="inline-flex min-h-11 items-center rounded-lg text-[14px] font-medium text-black transition-colors hover:text-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50"
                       >
                         {link.title}
                         {link.external && <Arrow />}

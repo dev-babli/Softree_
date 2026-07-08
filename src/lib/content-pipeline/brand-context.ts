@@ -1,5 +1,5 @@
-import { SOFTREE_STYLE_CONTEXT } from '@/sanity/assist/constants'
-import { readClient } from '@/sanity/lib/readClient'
+import { SOFTREE_STYLE_CONTEXT } from '@/cms/studio/assist/constants'
+import { readClient } from '@/cms/lib/readClient'
 
 const AI_CONTEXT_QUERY = `*[_type == "aiContext" && isDefault == true][0].context`
 

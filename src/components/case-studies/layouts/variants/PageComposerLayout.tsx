@@ -3,8 +3,9 @@ import type { DesignTokenSettings } from '@/lib/design-tokens'
 import type { CaseStudyLayoutData } from "../types"
 import type { CaseStudyComposerSection } from "../../composer/types"
 import { HeroSection } from "./manufacturing/sections/HeroSection"
-import { csLightClasses } from "../design-system/caseStudyLightTokens"
+import { caseStudyLightCssVars, csLightClasses } from "../design-system/caseStudyLightTokens"
 import { CaseStudyComposer } from "../../composer/CaseStudyComposer"
+import { CaseStudyScrollProgress } from "@/components/case-studies/detail/CaseStudyDetailChrome"
 
 /** Drag-and-drop case study layout — hero from document + composable sections */
 export function PageComposerLayout({
@@ -17,7 +18,11 @@ export function PageComposerLayout({
   designTokens?: DesignTokenSettings | null
 }) {
   return (
-    <article className={csLightClasses.shell} style={mergeComposerStyleVars(designTokens)}>
+    <article
+      className={`${csLightClasses.shell} bg-[#f8f4ec]`}
+      style={{ ...caseStudyLightCssVars, ...mergeComposerStyleVars(designTokens) }}
+    >
+      <CaseStudyScrollProgress />
       <HeroSection data={data} />
       <CaseStudyComposer sections={sections} data={data} />
     </article>

@@ -1,0 +1,47 @@
+{
+  "slug": "softree-cms-rebuild",
+  "mode": "GREENFIELD",
+  "loop": 1,
+  "status": "PHASE_0_PLANNING_COMPLETE",
+  "startedAt": "2026-07-07",
+  "foundation": "sanity-template-nextjs-clean",
+  "researchSources": [
+    "sanity-template-nextjs-clean",
+    "template-nextjs-personal-website",
+    "cms-kit",
+    "src/sanity (legacy inventory)"
+  ],
+  "currentPhase": 0,
+  "nextPhase": 1,
+  "agents": {
+    "architect": { "status": "done", "artifact": "ARCHITECTURE.md" },
+    "cmsEngineer": { "status": "done", "artifact": "CONTENT-MODEL.md" },
+    "nextjs": { "status": "pending" },
+    "sanity": { "status": "pending" },
+    "ux": { "status": "pending" },
+    "ai": { "status": "done", "artifact": "AI-ARCHITECTURE.md" },
+    "performance": { "status": "pending" },
+    "security": { "status": "pending" },
+    "seo": { "status": "pending" },
+    "agency": { "status": "pending" }
+  },
+  "gates": {
+    "phase0": "planning docs reviewed",
+    "phase1": "studio-v2 loads",
+    "phase6": "staging migration 100%",
+    "phase8": "production cutover",
+    "phase10": "legacy deleted"
+  },
+  "blockers": [
+    "B1-premium-layouts",
+    "B2-publish-visibility",
+    "B3-write-token",
+    "B4-no-big-bang"
+  ],
+  "loopQueue": [
+    "research_iteration_2_payload_storyblok",
+    "schema_pr_review",
+    "studio_ia_wireframes",
+    "sprint_0_scaffold"
+  ]
+}

@@ -1,5 +1,6 @@
 import 'server-only'
 
+import { FIELD_SPECS_RECORD } from '@/cms/studio/assist/fieldRegistry'
 import { loadBrandContext } from '@/lib/content-pipeline/brand-context'
 import { generateJson } from '@/lib/content-pipeline/llm'
 
@@ -38,71 +39,17 @@ function pickContext(doc: Record<string, unknown>, fields: string[]): Record<str
   return out
 }
 
-const FIELD_SPECS: Record<
-  string,
-  { contextFields: string[]; instruction: string; maxLength?: number }
-> = {
-  excerpt: {
-    contextFields: ['title', 'client', 'industry', 'challengeContent', 'approachContent', 'outcomeContent', 'body'],
-    instruction:
-      'Write a listing excerpt in active voice. One concrete outcome. No hype words.',
-    maxLength: 160,
-  },
-  metaTitle: {
-    contextFields: ['title', 'excerpt', 'client', 'focusKeyword'],
-    instruction: 'Write an SEO page title. Include primary topic. No trailing punctuation.',
-    maxLength: 60,
-  },
-  metaDescription: {
-    contextFields: ['title', 'excerpt', 'metaTitle', 'focusKeyword'],
-    instruction: 'Write an SEO meta description with clear value and soft CTA.',
-    maxLength: 160,
-  },
-  featuredImagePrompt: {
-    contextFields: ['title', 'excerpt', 'categories'],
-    instruction:
-      'Write a detailed AI image generation prompt for a blog hero (16:9, no text, no faces, enterprise tech aesthetic).',
-    maxLength: 800,
-  },
-  heroImagePrompt: {
-    contextFields: ['title', 'excerpt', 'client', 'industry', 'category'],
-    instruction:
-      'Write a detailed AI image generation prompt for a case study hero (16:9, no text, no faces, enterprise tech aesthetic).',
-    maxLength: 800,
-  },
-  answer: {
-    contextFields: ['title', 'excerpt', 'challengeContent', 'approachContent', 'outcomeContent', 'question'],
-    instruction:
-      'Write a concise FAQ answer (2–4 sentences) suitable for Google AI Overviews. Use the question field as the prompt.',
-    maxLength: 400,
-  },
-  challengeSummary: {
-    contextFields: ['title', 'client', 'industry', 'challengeContent'],
-    instruction: 'Summarize the business challenge in 1–2 sentences.',
-    maxLength: 220,
-  },
-  approachSummary: {
-    contextFields: ['title', 'challengeSummary', 'challengeContent', 'approachContent'],
-    instruction: 'Summarize Softree approach in 1–2 sentences.',
-    maxLength: 220,
-  },
-  outcomeSummary: {
-    contextFields: ['title', 'approachSummary', 'approachContent', 'outcomeContent', 'metrics'],
-    instruction: 'Summarize measurable outcomes in 1–2 sentences with metrics if available.',
-    maxLength: 220,
-  },
-}
-
 export type FieldCompleteInput = {
   documentType: string
   fieldName: string
   fieldTitle?: string
   document: Record<string, unknown>
   currentValue?: string
+  action?: 'autocomplete' | 'rewrite'
 }
 
 export async function completeEditorField(input: FieldCompleteInput): Promise<string> {
-  const spec = FIELD_SPECS[input.fieldName]
+  const spec = FIELD_SPECS_RECORD[input.fieldName]
   if (!spec) {
     throw new Error(`Field "${input.fieldName}" is not supported for AI autocomplete`)
   }
@@ -113,22 +60,28 @@ export async function completeEditorField(input: FieldCompleteInput): Promise<st
     context.currentDraft = input.currentValue.trim()
   }
 
+  const action = input.action ?? 'autocomplete'
   const maxLen = spec.maxLength ? ` Maximum ${spec.maxLength} characters.` : ''
+  const rewriteHint =
+    action === 'rewrite'
+      ? ' Rewrite the current draft for clarity and Softree voice. Keep facts; improve flow.'
+      : ''
 
   const result = await generateJson<{ value: string }>(
-    `${brandContext}\n\nYou complete a single CMS field for Softree Technology. Return JSON: {"value":"..."}.${maxLen} Output only the field value, no quotes wrapper in the value itself.`,
+    `${brandContext}\n\nYou complete a single CMS field for Softree Technology. Return JSON: {"value":"..."}.${rewriteHint}${maxLen} Output only the field value.`,
     JSON.stringify(
       {
         documentType: input.documentType,
         field: input.fieldName,
         fieldTitle: input.fieldTitle,
         instruction: spec.instruction,
+        action,
         context,
       },
       null,
       2,
     ),
-    { temperature: 0.35, maxTokens: 1024 },
+    { temperature: action === 'rewrite' ? 0.45 : 0.35, maxTokens: 1024 },
   )
 
   let value = result.value?.trim() || ''

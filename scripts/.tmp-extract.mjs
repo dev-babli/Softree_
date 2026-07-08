@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 
-const h = fs.readFileSync('public/kore-source-sections.html', 'utf8');
+const h = fs.readFileSync('public/softree-source-sections.html', 'utf8');
 
 // Slice the industry-tabs swiper region: from tabs-menu v3 to the closing of the tab-slider.
 const start = h.indexOf('tabs-menu v3');

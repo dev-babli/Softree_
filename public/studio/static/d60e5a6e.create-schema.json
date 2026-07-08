@@ -1,0 +1,5998 @@
+[
+  {
+    "fields": [
+      {
+        "readOnly": true,
+        "hidden": true,
+        "name": "path",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "fieldsets": [
+              {
+                "name": "appearance",
+                "options": {
+                  "collapsible": true,
+                  "collapsed": true
+                }
+              }
+            ],
+            "type": "sanity.assist.instruction",
+            "title": "Instruction"
+          }
+        ],
+        "name": "instructions",
+        "type": "array"
+      }
+    ],
+    "name": "sanity.assist.schemaType.field",
+    "type": "object",
+    "title": "Field prompt"
+  },
+  {
+    "fields": [
+      {
+        "name": "prompt",
+        "type": "sanity.assist.instruction.prompt",
+        "title": "Instruction"
+      },
+      {
+        "name": "icon",
+        "type": "string",
+        "fieldset": "appearance"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "fieldset": "appearance"
+      },
+      {
+        "readOnly": "conditional",
+        "name": "userId",
+        "type": "string",
+        "title": "Visibility",
+        "fieldset": "appearance"
+      },
+      {
+        "hidden": true,
+        "name": "createdById",
+        "type": "string",
+        "title": "Created by",
+        "fieldset": "appearance"
+      },
+      {
+        "of": [
+          {
+            "type": "sanity.assist.output.field",
+            "title": "Output field"
+          },
+          {
+            "type": "sanity.assist.output.type",
+            "title": "Output type"
+          }
+        ],
+        "name": "output",
+        "type": "array",
+        "title": "Output filter"
+      }
+    ],
+    "fieldsets": [
+      {
+        "name": "appearance",
+        "options": {
+          "collapsible": true,
+          "collapsed": true
+        }
+      }
+    ],
+    "name": "sanity.assist.instruction",
+    "type": "object",
+    "title": "Instruction"
+  },
+  {
+    "options": {
+      "modal": {
+        "type": "popover"
+      }
+    },
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ]
+          }
+        ],
+        "name": "path",
+        "type": "string",
+        "title": "Field"
+      }
+    ],
+    "name": "sanity.assist.instruction.fieldRef",
+    "type": "object",
+    "title": "Field"
+  },
+  {
+    "of": [
+      {
+        "marks": {
+          "annotations": []
+        },
+        "of": [
+          {
+            "options": {
+              "modal": {
+                "type": "popover"
+              }
+            },
+            "name": "sanity.assist.instruction.fieldRef",
+            "type": "sanity.assist.instruction.fieldRef",
+            "title": "Field"
+          },
+          {
+            "options": {
+              "modal": {
+                "type": "popover",
+                "width": "auto"
+              }
+            },
+            "name": "sanity.assist.instruction.context",
+            "type": "sanity.assist.instruction.context",
+            "title": "AI context"
+          },
+          {
+            "options": {
+              "modal": {
+                "type": "popover",
+                "width": 1
+              }
+            },
+            "name": "sanity.assist.instruction.userInput",
+            "type": "sanity.assist.instruction.userInput",
+            "title": "User input"
+          }
+        ],
+        "styles": [
+          {
+            "value": "normal",
+            "title": "Normal"
+          }
+        ],
+        "type": "block"
+      }
+    ],
+    "name": "sanity.assist.instruction.prompt",
+    "type": "array",
+    "title": "Prompt"
+  },
+  {
+    "options": {
+      "modal": {
+        "type": "popover",
+        "width": 1
+      }
+    },
+    "fields": [
+      {
+        "placeholder": "Provide instruction text",
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "description": "The header above the user input text field",
+        "name": "message",
+        "type": "string",
+        "title": "User input title"
+      },
+      {
+        "rows": 3,
+        "description": "The description above the user input text field",
+        "name": "description",
+        "type": "text",
+        "title": "User input description"
+      }
+    ],
+    "name": "sanity.assist.instruction.userInput",
+    "type": "object",
+    "title": "User input"
+  },
+  {
+    "options": {
+      "modal": {
+        "type": "popover",
+        "width": "auto"
+      }
+    },
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "description": "The referenced context will be inserted into the instruction",
+        "to": [
+          {
+            "liveEdit": true,
+            "type": "assist.instruction.context"
+          }
+        ],
+        "name": "reference",
+        "type": "reference",
+        "title": "Context"
+      }
+    ],
+    "name": "sanity.assist.instruction.context",
+    "type": "object",
+    "title": "AI context"
+  },
+  {
+    "fields": [
+      {
+        "name": "path",
+        "type": "string"
+      }
+    ],
+    "name": "sanity.assist.output.field",
+    "type": "object",
+    "title": "Output field"
+  },
+  {
+    "fields": [
+      {
+        "name": "type",
+        "type": "string"
+      }
+    ],
+    "name": "sanity.assist.output.type",
+    "type": "object",
+    "title": "Output type"
+  },
+  {
+    "liveEdit": true,
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "type": "sanity.assist.schemaType.field",
+            "title": "Field prompt"
+          }
+        ],
+        "name": "fields",
+        "type": "array"
+      }
+    ],
+    "name": "sanity.assist.schemaType.annotations",
+    "type": "object",
+    "title": "AI Document"
+  },
+  {
+    "liveEdit": true,
+    "fields": [
+      {
+        "of": [
+          {
+            "type": "sanity.assist.instructionTask",
+            "title": "Instruction task"
+          }
+        ],
+        "name": "tasks",
+        "type": "array"
+      }
+    ],
+    "name": "sanity.assist.task.status",
+    "type": "object",
+    "title": "Document instruction status"
+  },
+  {
+    "fields": [
+      {
+        "name": "path",
+        "type": "string"
+      },
+      {
+        "name": "instructionKey",
+        "type": "string",
+        "title": "Instruction key"
+      },
+      {
+        "name": "started",
+        "type": "datetime"
+      },
+      {
+        "name": "updated",
+        "type": "datetime"
+      },
+      {
+        "name": "info",
+        "type": "string"
+      }
+    ],
+    "name": "sanity.assist.instructionTask",
+    "type": "object",
+    "title": "Instruction task"
+  },
+  {
+    "liveEdit": true,
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "marks": {
+              "annotations": []
+            },
+            "of": [],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              }
+            ],
+            "type": "block"
+          }
+        ],
+        "name": "context",
+        "type": "array"
+      }
+    ],
+    "name": "assist.instruction.context",
+    "type": "document",
+    "title": "AI context"
+  },
+  {
+    "fields": [
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Info",
+              "value": "info"
+            },
+            {
+              "title": "Tip",
+              "value": "tip"
+            },
+            {
+              "title": "Warning",
+              "value": "warning"
+            }
+          ],
+          "layout": "radio"
+        },
+        "initialValue": "info",
+        "name": "variant",
+        "type": "string",
+        "title": "Style"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "title": "Title (optional)"
+      },
+      {
+        "rows": 4,
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "text",
+        "type": "text"
+      }
+    ],
+    "name": "callout",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "label",
+        "type": "string",
+        "title": "Button label"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/",
+                      "/^mailto$/",
+                      "/^tel$/"
+                    ],
+                    "allowRelative": true,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "name": "href",
+        "type": "url",
+        "title": "Link URL"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Primary",
+              "value": "primary"
+            },
+            {
+              "title": "Secondary",
+              "value": "secondary"
+            }
+          ],
+          "layout": "radio"
+        },
+        "initialValue": "primary",
+        "name": "style",
+        "type": "string",
+        "title": "Button style"
+      }
+    ],
+    "name": "ctaButton",
+    "type": "object",
+    "title": "Call to action"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "description": "e.g. 75%, 3x, $2M",
+        "name": "value",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "label",
+        "type": "string"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "title": "Description (optional)"
+      }
+    ],
+    "name": "statHighlight",
+    "type": "object",
+    "title": "Stat highlight"
+  },
+  {
+    "options": {
+      "insertMenu": {
+        "groups": [
+          {
+            "name": "writing",
+            "title": "Writing"
+          },
+          {
+            "name": "highlights",
+            "title": "Highlights"
+          },
+          {
+            "name": "media",
+            "title": "Media"
+          }
+        ],
+        "views": [
+          {
+            "name": "grid"
+          },
+          {
+            "name": "list"
+          }
+        ]
+      }
+    },
+    "of": [
+      {
+        "lists": [
+          {
+            "value": "bullet",
+            "title": "Bullet list"
+          },
+          {
+            "value": "number",
+            "title": "Numbered list"
+          }
+        ],
+        "marks": {
+          "annotations": [
+            {
+              "fields": [
+                {
+                  "validation": [
+                    {
+                      "level": "error",
+                      "rules": [
+                        {
+                          "flag": "uri",
+                          "constraint": {
+                            "options": {
+                              "scheme": [
+                                "/^http$/",
+                                "/^https$/",
+                                "/^mailto$/",
+                                "/^tel$/"
+                              ],
+                              "allowRelative": true,
+                              "relativeOnly": false,
+                              "allowCredentials": false
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "name": "href",
+                  "type": "url",
+                  "title": "URL"
+                },
+                {
+                  "initialValue": false,
+                  "name": "blank",
+                  "type": "boolean",
+                  "title": "Open in new tab"
+                }
+              ],
+              "name": "link",
+              "type": "object"
+            }
+          ],
+          "decorators": [
+            {
+              "value": "strong",
+              "title": "Bold"
+            },
+            {
+              "value": "em",
+              "title": "Italic"
+            },
+            {
+              "value": "underline",
+              "title": "Underline"
+            },
+            {
+              "value": "code",
+              "title": "Code"
+            },
+            {
+              "value": "strike-through",
+              "title": "Strike"
+            }
+          ]
+        },
+        "of": [],
+        "styles": [
+          {
+            "value": "normal",
+            "title": "Paragraph"
+          },
+          {
+            "value": "h2",
+            "title": "Heading 2"
+          },
+          {
+            "value": "h3",
+            "title": "Heading 3"
+          },
+          {
+            "value": "h4",
+            "title": "Heading 4"
+          },
+          {
+            "value": "blockquote",
+            "title": "Quote"
+          }
+        ],
+        "type": "block"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "validation": [
+              {
+                "level": "warning",
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "message": "Alt text improves accessibility and SEO"
+              }
+            ],
+            "name": "alt",
+            "type": "string",
+            "title": "Alternative text"
+          },
+          {
+            "name": "caption",
+            "type": "string"
+          }
+        ],
+        "type": "image"
+      },
+      {
+        "type": "callout"
+      },
+      {
+        "type": "ctaButton",
+        "title": "Call to action"
+      },
+      {
+        "type": "statHighlight",
+        "title": "Stat highlight"
+      }
+    ],
+    "name": "blockContent",
+    "type": "array",
+    "title": "Rich Text"
+  },
+  {
+    "options": {
+      "insertMenu": {
+        "groups": [
+          {
+            "name": "writing",
+            "title": "Writing"
+          },
+          {
+            "name": "highlights",
+            "title": "Highlights"
+          },
+          {
+            "name": "media",
+            "title": "Media"
+          }
+        ],
+        "views": [
+          {
+            "name": "grid"
+          },
+          {
+            "name": "list"
+          }
+        ]
+      }
+    },
+    "of": [
+      {
+        "lists": [
+          {
+            "value": "bullet",
+            "title": "Bullet list"
+          },
+          {
+            "value": "number",
+            "title": "Numbered list"
+          }
+        ],
+        "marks": {
+          "annotations": [
+            {
+              "fields": [
+                {
+                  "validation": [
+                    {
+                      "level": "error",
+                      "rules": [
+                        {
+                          "flag": "uri",
+                          "constraint": {
+                            "options": {
+                              "scheme": [
+                                "/^http$/",
+                                "/^https$/",
+                                "/^mailto$/",
+                                "/^tel$/"
+                              ],
+                              "allowRelative": true,
+                              "relativeOnly": false,
+                              "allowCredentials": false
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "name": "href",
+                  "type": "url",
+                  "title": "URL"
+                }
+              ],
+              "name": "link",
+              "type": "object"
+            }
+          ],
+          "decorators": [
+            {
+              "value": "strong",
+              "title": "Bold"
+            },
+            {
+              "value": "em",
+              "title": "Italic"
+            },
+            {
+              "value": "underline",
+              "title": "Underline"
+            }
+          ]
+        },
+        "of": [],
+        "styles": [
+          {
+            "value": "normal",
+            "title": "Paragraph"
+          },
+          {
+            "value": "h3",
+            "title": "Heading 3"
+          },
+          {
+            "value": "h4",
+            "title": "Heading 4"
+          },
+          {
+            "value": "blockquote",
+            "title": "Quote"
+          }
+        ],
+        "type": "block"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "validation": [
+              {
+                "level": "warning",
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "message": "Alt text improves accessibility and SEO"
+              }
+            ],
+            "name": "alt",
+            "type": "string",
+            "title": "Alternative text"
+          },
+          {
+            "name": "caption",
+            "type": "string"
+          }
+        ],
+        "type": "image"
+      },
+      {
+        "type": "callout"
+      },
+      {
+        "type": "statHighlight",
+        "title": "Stat highlight"
+      },
+      {
+        "type": "ctaButton",
+        "title": "Call to action"
+      }
+    ],
+    "name": "storyBlockContent",
+    "type": "array",
+    "title": "Story Section"
+  },
+  {
+    "fields": [
+      {
+        "name": "eyebrow",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "headline",
+        "type": "string"
+      },
+      {
+        "rows": 3,
+        "name": "subheadline",
+        "type": "text"
+      },
+      {
+        "fields": [
+          {
+            "name": "label",
+            "type": "string"
+          },
+          {
+            "description": "Relative (/contact) or absolute URL",
+            "name": "href",
+            "type": "string",
+            "title": "URL"
+          }
+        ],
+        "name": "primaryCta",
+        "type": "object",
+        "title": "Primary CTA"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "name": "alt",
+            "type": "string",
+            "title": "Alt text"
+          }
+        ],
+        "name": "image",
+        "type": "image",
+        "title": "Hero image"
+      }
+    ],
+    "name": "pageHeroBlock",
+    "type": "object",
+    "title": "Hero"
+  },
+  {
+    "fields": [
+      {
+        "name": "heading",
+        "type": "string",
+        "title": "Section heading"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "rows": 3,
+                "name": "description",
+                "type": "text"
+              },
+              {
+                "name": "icon",
+                "type": "string",
+                "title": "Icon name (optional)"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "features",
+        "type": "array"
+      }
+    ],
+    "name": "pageFeatureGridBlock",
+    "type": "object",
+    "title": "Feature grid"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "headline",
+        "type": "string"
+      },
+      {
+        "rows": 3,
+        "name": "body",
+        "type": "text"
+      },
+      {
+        "name": "buttonLabel",
+        "type": "string",
+        "title": "Button label"
+      },
+      {
+        "description": "Relative or absolute URL",
+        "name": "buttonHref",
+        "type": "string",
+        "title": "Button URL"
+      }
+    ],
+    "name": "pageCtaBlock",
+    "type": "object",
+    "title": "Call to action"
+  },
+  {
+    "fields": [
+      {
+        "options": {
+          "insertMenu": {
+            "groups": [
+              {
+                "name": "writing",
+                "title": "Writing"
+              },
+              {
+                "name": "highlights",
+                "title": "Highlights"
+              },
+              {
+                "name": "media",
+                "title": "Media"
+              }
+            ],
+            "views": [
+              {
+                "name": "grid"
+              },
+              {
+                "name": "list"
+              }
+            ]
+          }
+        },
+        "name": "content",
+        "type": "blockContent"
+      }
+    ],
+    "name": "pageRichTextBlock",
+    "type": "object",
+    "title": "Rich text"
+  },
+  {
+    "fields": [
+      {
+        "rows": 4,
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "quote",
+        "type": "text"
+      },
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "name": "role",
+        "type": "string",
+        "title": "Role / company"
+      },
+      {
+        "name": "avatar",
+        "type": "image"
+      }
+    ],
+    "name": "pageTestimonialBlock",
+    "type": "object",
+    "title": "Testimonial"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Uses client name, excerpt, and project metadata from Client & project tab.",
+        "readOnly": true,
+        "name": "note",
+        "type": "string"
+      }
+    ],
+    "name": "csOverviewSection",
+    "type": "object",
+    "title": "Project overview"
+  },
+  {
+    "fields": [
+      {
+        "description": "URL hash for in-page links, e.g. challenge → #challenge",
+        "name": "anchorId",
+        "type": "string",
+        "title": "Anchor ID (optional)"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "description": "Small uppercase label above the heading",
+        "name": "label",
+        "type": "string",
+        "title": "Section label"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "options": {
+          "insertMenu": {
+            "groups": [
+              {
+                "name": "writing",
+                "title": "Writing"
+              },
+              {
+                "name": "highlights",
+                "title": "Highlights"
+              },
+              {
+                "name": "media",
+                "title": "Media"
+              }
+            ],
+            "views": [
+              {
+                "name": "grid"
+              },
+              {
+                "name": "list"
+              }
+            ]
+          }
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "content",
+        "type": "storyBlockContent",
+        "title": "Body"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Text only",
+              "value": "text"
+            },
+            {
+              "title": "Text + side image",
+              "value": "split"
+            }
+          ],
+          "layout": "radio"
+        },
+        "initialValue": "text",
+        "name": "layout",
+        "type": "string"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "name": "alt",
+            "type": "string",
+            "title": "Alt text"
+          }
+        ],
+        "hidden": "conditional",
+        "name": "image",
+        "type": "image",
+        "title": "Side image"
+      }
+    ],
+    "name": "csNarrativeSection",
+    "type": "object",
+    "title": "Narrative section"
+  },
+  {
+    "fields": [
+      {
+        "name": "label",
+        "type": "string",
+        "title": "Section label"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 1
+              },
+              {
+                "flag": "max",
+                "constraint": 6
+              }
+            ]
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "rows": 3,
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "description",
+                "type": "text"
+              }
+            ],
+            "type": "object",
+            "name": "composerCard"
+          }
+        ],
+        "name": "cards",
+        "type": "array"
+      },
+      {
+        "initialValue": true,
+        "description": "Displays an image beside the card grid (Challenge-style layout).",
+        "name": "showImage",
+        "type": "boolean",
+        "title": "Show contextual image"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Upload a custom image, or leave empty to use the project stock image.",
+        "fields": [
+          {
+            "name": "alt",
+            "type": "string",
+            "title": "Alt text"
+          }
+        ],
+        "hidden": "conditional",
+        "name": "image",
+        "type": "image",
+        "title": "Side image"
+      }
+    ],
+    "name": "csCardGridSection",
+    "type": "object",
+    "title": "Card grid"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Impact",
+        "name": "label",
+        "type": "string",
+        "title": "Section label"
+      },
+      {
+        "initialValue": "Results & business impact",
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 1
+              },
+              {
+                "flag": "max",
+                "constraint": 8
+              }
+            ]
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "value",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "label",
+                "type": "string"
+              },
+              {
+                "name": "description",
+                "type": "string",
+                "title": "Description (optional)"
+              }
+            ],
+            "type": "object",
+            "name": "composerMetric"
+          }
+        ],
+        "name": "metrics",
+        "type": "array"
+      }
+    ],
+    "name": "csMetricsSection",
+    "type": "object",
+    "title": "Results & metrics"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Solution",
+        "name": "label",
+        "type": "string",
+        "title": "Section label"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "rows": 4,
+        "name": "summary",
+        "type": "text"
+      },
+      {
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "features",
+        "type": "array",
+        "title": "Feature bullets"
+      }
+    ],
+    "name": "csSolutionSection",
+    "type": "object",
+    "title": "Solution summary"
+  },
+  {
+    "fields": [
+      {
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "name": "subheading",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ]
+          }
+        ],
+        "of": [
+          {
+            "options": {
+              "hotspot": true
+            },
+            "fields": [
+              {
+                "name": "alt",
+                "type": "string",
+                "title": "Alt text"
+              },
+              {
+                "name": "caption",
+                "type": "string"
+              }
+            ],
+            "type": "image"
+          }
+        ],
+        "name": "images",
+        "type": "array"
+      }
+    ],
+    "name": "csGallerySection",
+    "type": "object",
+    "title": "Screenshot gallery"
+  },
+  {
+    "fields": [
+      {
+        "rows": 4,
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "quote",
+        "type": "text"
+      },
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "name": "role",
+        "type": "string",
+        "title": "Role / company"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "avatar",
+        "type": "image"
+      }
+    ],
+    "name": "csTestimonialSection",
+    "type": "object",
+    "title": "Client testimonial"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Technology stack",
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "rows": 2,
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ]
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "description": "Optional line under the technology name",
+                "name": "subtitle",
+                "type": "string"
+              },
+              {
+                "options": {
+                  "hotspot": true
+                },
+                "description": "Upload a logo, or leave empty to use the built-in icon when available",
+                "name": "logo",
+                "type": "image"
+              }
+            ],
+            "type": "object",
+            "name": "techItem"
+          }
+        ],
+        "name": "technologies",
+        "type": "array"
+      }
+    ],
+    "name": "csTechStackSection",
+    "type": "object",
+    "title": "Tech stack"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Before & after",
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ]
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "metric",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "before",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "after",
+                "type": "string"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "rows",
+        "type": "array",
+        "title": "Comparison rows"
+      }
+    ],
+    "name": "csBeforeAfterSection",
+    "type": "object",
+    "title": "Before / after table"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Common questions",
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ]
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "question",
+                "type": "string"
+              },
+              {
+                "rows": 4,
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "answer",
+                "type": "text"
+              }
+            ],
+            "type": "object",
+            "name": "composerFaq"
+          }
+        ],
+        "name": "faqs",
+        "type": "array",
+        "title": "Questions"
+      }
+    ],
+    "name": "csFaqSection",
+    "type": "object",
+    "title": "FAQ accordion"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Shows related case studies configured on this document (or category matches).",
+        "readOnly": true,
+        "name": "note",
+        "type": "string"
+      }
+    ],
+    "name": "csRelatedSection",
+    "type": "object",
+    "title": "Related case studies"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Renders the site-wide contact section — no configuration needed.",
+        "readOnly": true,
+        "name": "note",
+        "type": "string"
+      }
+    ],
+    "name": "csContactSection",
+    "type": "object",
+    "title": "Contact CTA"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "At a glance",
+        "name": "label",
+        "type": "string",
+        "title": "Eyebrow label"
+      },
+      {
+        "name": "heading",
+        "type": "string",
+        "title": "Heading (optional)"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 1
+              },
+              {
+                "flag": "max",
+                "constraint": 4
+              }
+            ]
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "value",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "label",
+                "type": "string"
+              },
+              {
+                "name": "description",
+                "type": "string",
+                "title": "Description (optional)"
+              }
+            ],
+            "type": "object",
+            "name": "composerMetric"
+          }
+        ],
+        "name": "metrics",
+        "type": "array"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Accent band",
+              "value": "band"
+            },
+            {
+              "title": "Compact strip",
+              "value": "strip"
+            }
+          ],
+          "layout": "radio"
+        },
+        "initialValue": "band",
+        "name": "variant",
+        "type": "string",
+        "title": "Style"
+      }
+    ],
+    "name": "csHeroMetricsStrip",
+    "type": "object",
+    "title": "Hero metrics strip"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Evidence",
+        "name": "label",
+        "type": "string",
+        "title": "Eyebrow label"
+      },
+      {
+        "initialValue": "What the data shows",
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 320
+              }
+            ]
+          }
+        ],
+        "description": "One paragraph AI answer engines can quote directly.",
+        "name": "summary",
+        "type": "text",
+        "title": "Extractable summary"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 1
+              },
+              {
+                "flag": "max",
+                "constraint": 6
+              }
+            ]
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      },
+                      {
+                        "flag": "max",
+                        "constraint": 220
+                      }
+                    ]
+                  }
+                ],
+                "description": "Short, extractable fact (one sentence).",
+                "name": "claim",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "description": "e.g. Gartner 2025, client audit, internal benchmark",
+                "name": "source",
+                "type": "string",
+                "title": "Source label"
+              },
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "uri",
+                        "constraint": {
+                          "options": {
+                            "scheme": [
+                              "/^http$/",
+                              "/^https$/"
+                            ],
+                            "allowRelative": false,
+                            "relativeOnly": false,
+                            "allowCredentials": false
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "name": "sourceUrl",
+                "type": "url",
+                "title": "Source URL (optional)"
+              }
+            ],
+            "type": "object",
+            "name": "composerEvidence"
+          }
+        ],
+        "name": "items",
+        "type": "array",
+        "title": "Cited evidence"
+      }
+    ],
+    "name": "csEvidencePanel",
+    "type": "object",
+    "title": "Evidence panel (AEO)"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "description": "Animated background or motion from the React Bits library.",
+        "name": "componentId",
+        "type": "string",
+        "title": "Effect"
+      },
+      {
+        "description": "Short text shown on top of the effect.",
+        "name": "heading",
+        "type": "string",
+        "title": "Overlay heading (optional)"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Compact (320px)",
+              "value": "sm"
+            },
+            {
+              "title": "Standard (480px)",
+              "value": "md"
+            },
+            {
+              "title": "Hero (640px)",
+              "value": "lg"
+            }
+          ],
+          "layout": "radio"
+        },
+        "initialValue": "md",
+        "name": "minHeight",
+        "type": "string",
+        "title": "Section height"
+      }
+    ],
+    "name": "csReactBitsSection",
+    "type": "object",
+    "title": "Visual effect (React Bits)"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "title"
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ]
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "name": "description",
+        "type": "text"
+      }
+    ],
+    "name": "category",
+    "type": "document"
+  },
+  {
+    "validation": [
+      {
+        "level": "error",
+        "rules": [
+          {
+            "flag": "custom"
+          }
+        ]
+      }
+    ],
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 10
+              },
+              {
+                "flag": "max",
+                "constraint": 100
+              }
+            ]
+          }
+        ],
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96,
+          "aiAssist": {
+            "exclude": true
+          }
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 200
+              }
+            ]
+          }
+        ],
+        "description": "Write a listing summary in 120–160 characters. Mention the client or topic and one measurable outcome. No hype words.",
+        "name": "excerpt",
+        "type": "text"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Classic article",
+              "value": "classic"
+            },
+            {
+              "title": "Page composer (scroll sections)",
+              "value": "composer"
+            }
+          ],
+          "layout": "radio",
+          "aiAssist": {
+            "exclude": true
+          }
+        },
+        "initialValue": "composer",
+        "description": "Classic = standard article layout. Composer = scroll-based sections (same blocks as case studies). New posts default to Composer.",
+        "name": "displayMode",
+        "type": "string",
+        "title": "Page display"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Listicle / comparison",
+              "value": "listicle-comparison"
+            },
+            {
+              "title": "Trend / news analysis",
+              "value": "trend-analysis"
+            },
+            {
+              "title": "How-to guide",
+              "value": "how-to-guide"
+            },
+            {
+              "title": "Thought leadership",
+              "value": "thought-leadership"
+            },
+            {
+              "title": "Tool / platform deep dive",
+              "value": "tool-deep-dive"
+            },
+            {
+              "title": "ROI / outcomes story",
+              "value": "roi-story"
+            }
+          ]
+        },
+        "description": "Used by the AI content pipeline to pick section types. Editors can override.",
+        "hidden": "conditional",
+        "name": "layoutRecipe",
+        "type": "string",
+        "title": "Layout recipe"
+      },
+      {
+        "options": {
+          "insertMenu": {
+            "groups": [
+              {
+                "name": "start",
+                "title": "Open"
+              },
+              {
+                "name": "story",
+                "title": "Story"
+              },
+              {
+                "name": "structure",
+                "title": "Structure"
+              },
+              {
+                "name": "proof",
+                "title": "Results & proof"
+              },
+              {
+                "name": "visual",
+                "title": "Visual effects"
+              },
+              {
+                "name": "closing",
+                "title": "Closing"
+              }
+            ],
+            "views": [
+              {
+                "name": "list"
+              },
+              {
+                "name": "grid"
+              }
+            ]
+          }
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ]
+          }
+        ],
+        "description": "Stack narrative, metrics, FAQ, and other sections — same composer as case studies.",
+        "of": [
+          {
+            "type": "csOverviewSection",
+            "title": "Project overview"
+          },
+          {
+            "type": "csNarrativeSection",
+            "title": "Narrative section"
+          },
+          {
+            "type": "csCardGridSection",
+            "title": "Card grid"
+          },
+          {
+            "type": "csMetricsSection",
+            "title": "Results & metrics"
+          },
+          {
+            "type": "csSolutionSection",
+            "title": "Solution summary"
+          },
+          {
+            "type": "csGallerySection",
+            "title": "Screenshot gallery"
+          },
+          {
+            "type": "csTestimonialSection",
+            "title": "Client testimonial"
+          },
+          {
+            "type": "csTechStackSection",
+            "title": "Tech stack"
+          },
+          {
+            "type": "csBeforeAfterSection",
+            "title": "Before / after table"
+          },
+          {
+            "type": "csFaqSection",
+            "title": "FAQ accordion"
+          },
+          {
+            "type": "csRelatedSection",
+            "title": "Related case studies"
+          },
+          {
+            "type": "csContactSection",
+            "title": "Contact CTA"
+          },
+          {
+            "type": "csHeroMetricsStrip",
+            "title": "Hero metrics strip"
+          },
+          {
+            "type": "csEvidencePanel",
+            "title": "Evidence panel (AEO)"
+          },
+          {
+            "type": "csReactBitsSection",
+            "title": "Visual effect (React Bits)"
+          }
+        ],
+        "hidden": "conditional",
+        "name": "composerSections",
+        "type": "array",
+        "title": "Page sections"
+      },
+      {
+        "description": "Small label above the title, e.g. \"Microsoft 365 · June 2026\"",
+        "hidden": "conditional",
+        "name": "heroEyebrow",
+        "type": "string",
+        "title": "Hero eyebrow"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "value",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "label",
+                "type": "string"
+              }
+            ],
+            "type": "object",
+            "name": "heroHighlight"
+          }
+        ],
+        "hidden": "conditional",
+        "name": "heroHighlights",
+        "type": "array",
+        "title": "Hero highlights"
+      },
+      {
+        "options": {
+          "insertMenu": {
+            "groups": [
+              {
+                "name": "writing",
+                "title": "Writing"
+              },
+              {
+                "name": "highlights",
+                "title": "Highlights"
+              },
+              {
+                "name": "media",
+                "title": "Media"
+              }
+            ],
+            "views": [
+              {
+                "name": "grid"
+              },
+              {
+                "name": "list"
+              }
+            ]
+          }
+        },
+        "description": "Write in clear paragraphs. Use H2 for major sections only. Do not add an H1 — the page title is the H1. Prefer bullet lists for takeaways.",
+        "hidden": "conditional",
+        "name": "body",
+        "type": "blockContent",
+        "title": "Article Content"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Published",
+              "value": "published"
+            },
+            {
+              "title": "Draft",
+              "value": "draft"
+            },
+            {
+              "title": "Archived",
+              "value": "archived"
+            }
+          ],
+          "layout": "radio",
+          "aiAssist": {
+            "exclude": true
+          }
+        },
+        "initialValue": "published",
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "published",
+                  "draft",
+                  "archived"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "description": "Set to Archived to hide this post from the website while keeping it in Sanity.",
+        "name": "status",
+        "type": "string"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Draft",
+              "value": "draft"
+            },
+            {
+              "title": "In review",
+              "value": "in-review"
+            },
+            {
+              "title": "Approved",
+              "value": "approved"
+            }
+          ],
+          "layout": "radio",
+          "aiAssist": {
+            "exclude": true
+          }
+        },
+        "initialValue": "draft",
+        "description": "Editorial review workflow — separate from publish status.",
+        "name": "reviewStatus",
+        "type": "string",
+        "title": "Review status"
+      },
+      {
+        "to": [
+          {
+            "type": "author"
+          }
+        ],
+        "name": "author",
+        "type": "reference"
+      },
+      {
+        "options": {
+          "hotspot": true,
+          "aiAssist": {
+            "imageInstructionField": "featuredImagePrompt"
+          }
+        },
+        "fields": [
+          {
+            "validation": [
+              {
+                "level": "error",
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ]
+              }
+            ],
+            "name": "alt",
+            "type": "string",
+            "title": "Alternative text"
+          }
+        ],
+        "name": "mainImage",
+        "type": "image"
+      },
+      {
+        "rows": 3,
+        "description": "Describe the featured image you want AI to generate. Leave empty to use the title and excerpt as context.",
+        "hidden": "conditional",
+        "name": "featuredImagePrompt",
+        "type": "text",
+        "title": "Featured Image AI Prompt"
+      },
+      {
+        "of": [
+          {
+            "to": [
+              {
+                "type": "category"
+              }
+            ],
+            "type": "reference",
+            "title": "Reference to category"
+          }
+        ],
+        "name": "categories",
+        "type": "array"
+      },
+      {
+        "description": "Displayed on the site when status is Published. Future dates are stored for editorial planning; automatic hide-until scheduling is not yet enabled on the site.",
+        "name": "publishedAt",
+        "type": "datetime"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 60
+              }
+            ]
+          }
+        ],
+        "description": "Write an SEO page title in 30–60 characters. Include brand relevance. No trailing punctuation.",
+        "name": "metaTitle",
+        "type": "string"
+      },
+      {
+        "rows": 2,
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 160
+              }
+            ]
+          }
+        ],
+        "description": "Write an SEO meta description in 120–160 characters. Include the focus keyword if provided. Clear call to value.",
+        "name": "metaDescription",
+        "type": "text"
+      },
+      {
+        "description": "Primary keyword this post targets",
+        "name": "focusKeyword",
+        "type": "string"
+      },
+      {
+        "options": {
+          "layout": "tags"
+        },
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "secondaryKeywords",
+        "type": "array"
+      },
+      {
+        "description": "Add FAQ pairs to generate JSON-LD FAQ schema for answer engine optimization",
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "question",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "description": "Write a concise FAQ answer (2–4 sentences) suitable for Google AI Overviews and featured snippets.",
+                "name": "answer",
+                "type": "text"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "faqSchema",
+        "type": "array",
+        "title": "FAQ Schema (AEO)"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Image used when shared on social media (1200×630px recommended)",
+        "name": "ogImage",
+        "type": "image",
+        "title": "Open Graph Image"
+      },
+      {
+        "fields": [
+          {
+            "hidden": true,
+            "name": "placeholder",
+            "type": "string"
+          }
+        ],
+        "name": "seoPreviewPanel",
+        "type": "object",
+        "title": "Search & social preview"
+      },
+      {
+        "fields": [
+          {
+            "hidden": true,
+            "name": "placeholder",
+            "type": "string"
+          }
+        ],
+        "name": "editorProgressPanel",
+        "type": "object",
+        "title": "Editor progress"
+      }
+    ],
+    "name": "post",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "name"
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ]
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "image",
+        "type": "image"
+      },
+      {
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "level": "error",
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "of": [],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              }
+            ],
+            "type": "block"
+          }
+        ],
+        "name": "bio",
+        "type": "array"
+      }
+    ],
+    "name": "author",
+    "type": "document"
+  },
+  {
+    "validation": [
+      {
+        "level": "error",
+        "rules": [
+          {
+            "flag": "custom"
+          }
+        ]
+      }
+    ],
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 10
+              },
+              {
+                "flag": "max",
+                "constraint": 120
+              }
+            ]
+          }
+        ],
+        "name": "title",
+        "type": "string",
+        "fieldset": "identity"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96,
+          "aiAssist": {
+            "exclude": true
+          }
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "slug",
+        "type": "slug",
+        "fieldset": "identity"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "description": "E.g. Healthcare, Finance, Retail, Education",
+        "name": "industry",
+        "type": "string",
+        "fieldset": "identity"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 2
+              }
+            ]
+          }
+        ],
+        "description": "Client name (or anonymized label like \"Fortune 500 Retailer\"). Shown as the large H1 on the detail page hero.",
+        "name": "client",
+        "type": "string",
+        "title": "Client Name",
+        "fieldset": "identity"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 300
+              }
+            ]
+          }
+        ],
+        "description": "Write a listing summary in 120–160 characters. Mention the client or topic and one measurable outcome. No hype words.",
+        "name": "excerpt",
+        "type": "text",
+        "fieldset": "narrative"
+      },
+      {
+        "options": {
+          "insertMenu": {
+            "groups": [
+              {
+                "name": "writing",
+                "title": "Writing"
+              },
+              {
+                "name": "highlights",
+                "title": "Highlights"
+              },
+              {
+                "name": "media",
+                "title": "Media"
+              }
+            ],
+            "views": [
+              {
+                "name": "grid"
+              },
+              {
+                "name": "list"
+              }
+            ]
+          }
+        },
+        "description": "Describe the business problem, constraints, and pain points before the project. 2–4 short paragraphs. Be specific to the client industry.",
+        "hidden": "conditional",
+        "name": "challengeContent",
+        "type": "storyBlockContent",
+        "title": "The Challenge",
+        "fieldset": "narrative"
+      },
+      {
+        "options": {
+          "insertMenu": {
+            "groups": [
+              {
+                "name": "writing",
+                "title": "Writing"
+              },
+              {
+                "name": "highlights",
+                "title": "Highlights"
+              },
+              {
+                "name": "media",
+                "title": "Media"
+              }
+            ],
+            "views": [
+              {
+                "name": "grid"
+              },
+              {
+                "name": "list"
+              }
+            ]
+          }
+        },
+        "description": "Explain Softree's strategy, architecture, and delivery approach. Mention relevant technologies without jargon overload.",
+        "hidden": "conditional",
+        "name": "approachContent",
+        "type": "storyBlockContent",
+        "title": "Our Approach",
+        "fieldset": "narrative"
+      },
+      {
+        "options": {
+          "insertMenu": {
+            "groups": [
+              {
+                "name": "writing",
+                "title": "Writing"
+              },
+              {
+                "name": "highlights",
+                "title": "Highlights"
+              },
+              {
+                "name": "media",
+                "title": "Media"
+              }
+            ],
+            "views": [
+              {
+                "name": "grid"
+              },
+              {
+                "name": "list"
+              }
+            ]
+          }
+        },
+        "description": "Highlight measurable results and business impact. Include metrics where possible. End with forward-looking value.",
+        "hidden": "conditional",
+        "name": "outcomeContent",
+        "type": "storyBlockContent",
+        "title": "The Outcome",
+        "fieldset": "narrative"
+      },
+      {
+        "options": {
+          "insertMenu": {
+            "groups": [
+              {
+                "name": "writing",
+                "title": "Writing"
+              },
+              {
+                "name": "highlights",
+                "title": "Highlights"
+              },
+              {
+                "name": "media",
+                "title": "Media"
+              }
+            ],
+            "views": [
+              {
+                "name": "grid"
+              },
+              {
+                "name": "list"
+              }
+            ]
+          }
+        },
+        "description": "Optional extra content appended after Challenge / Approach / Outcome — e.g. “What’s next”. Leave empty if the three sections above are enough.",
+        "hidden": "conditional",
+        "name": "body",
+        "type": "blockContent",
+        "title": "Additional sections (optional)",
+        "fieldset": "narrative"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 10
+              },
+              {
+                "flag": "max",
+                "constraint": 180
+              }
+            ]
+          }
+        ],
+        "description": "The descriptive title shown next to the hero image. e.g. \"JetBrains Centralizes Developer Support at Scale With Rasa\". The \"Client Name\" field is used as the giant H1 above this.",
+        "name": "headerTitle",
+        "type": "string",
+        "title": "Header Title (long form)",
+        "fieldset": "narrative"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 3
+              }
+            ]
+          }
+        ],
+        "description": "Stat row shown in the hero next to the image. e.g. value: \"75-80%\" / label: \"CSAT\". Use exactly 3 for best layout.",
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "description": "e.g. 75-80% or 100% or 35x",
+                "name": "value",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "description": "e.g. CSAT, products supported, deflection rate",
+                "name": "label",
+                "type": "string"
+              }
+            ],
+            "type": "object",
+            "name": "highlight"
+          }
+        ],
+        "hidden": "conditional",
+        "name": "highlights",
+        "type": "array",
+        "title": "Hero Highlights (max 3)",
+        "fieldset": "stats"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "metric",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "before",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "after",
+                "type": "string"
+              }
+            ],
+            "type": "object",
+            "name": "beforeAfterRow"
+          }
+        ],
+        "hidden": "conditional",
+        "name": "beforeAfter",
+        "type": "array",
+        "title": "Before / After Rows",
+        "fieldset": "stats"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 3
+              }
+            ]
+          }
+        ],
+        "description": "Stat chips shown on the /case-studies LISTING page cards — not on the detail page. For the on-page \"Results & Business Impact\" section, use Key Metrics below.",
+        "of": [
+          {
+            "fields": [
+              {
+                "description": "e.g., 50% or $2M",
+                "name": "value",
+                "type": "string"
+              },
+              {
+                "description": "e.g., faster booking or cost saved",
+                "name": "label",
+                "type": "string"
+              },
+              {
+                "name": "description",
+                "type": "string",
+                "title": "Short Description"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "keyResults",
+        "type": "array",
+        "title": "Listing Card Stats (max 3)",
+        "fieldset": "stats"
+      },
+      {
+        "description": "Outcome metrics shown in the \"Results & Business Impact\" section of the case study page (e.g. \"Revenue lift: 34%\"). Also used as hero stats when Hero Highlights is empty.",
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "label",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "value",
+                "type": "string"
+              },
+              {
+                "name": "description",
+                "type": "string",
+                "title": "Description (optional)"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "metrics",
+        "type": "array",
+        "title": "Key Metrics",
+        "fieldset": "stats"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Optional inline highlight image rendered between body sections.",
+        "fields": [
+          {
+            "name": "alt",
+            "type": "string",
+            "title": "Alt Text"
+          },
+          {
+            "name": "caption",
+            "type": "string"
+          }
+        ],
+        "name": "pullQuoteImage",
+        "type": "image",
+        "title": "Pull-Quote / Highlight Image",
+        "fieldset": "heroMedia"
+      },
+      {
+        "options": {
+          "hotspot": true,
+          "aiAssist": {
+            "imageInstructionField": "heroImagePrompt"
+          }
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ]
+          }
+        ],
+        "fields": [
+          {
+            "validation": [
+              {
+                "level": "warning",
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "message": "Alt text is required for accessibility and SEO"
+              }
+            ],
+            "name": "alt",
+            "type": "string",
+            "title": "Alternative text"
+          }
+        ],
+        "name": "mainImage",
+        "type": "image",
+        "title": "Cover Image",
+        "fieldset": "heroMedia"
+      },
+      {
+        "rows": 3,
+        "description": "Describe the hero image you want AI to generate. Leave empty to use the title and category as context.",
+        "hidden": "conditional",
+        "name": "heroImagePrompt",
+        "type": "text",
+        "title": "Hero Image AI Prompt",
+        "fieldset": "heroMedia"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              },
+              {
+                "flag": "custom"
+              }
+            ]
+          }
+        ],
+        "description": "Optional external cover image. If both upload and URL are set, the uploaded image takes precedence on the site.",
+        "name": "mainImageUrl",
+        "type": "url",
+        "title": "Cover Image URL (external)",
+        "fieldset": "heroMedia"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "SVG or PNG logo of the client company",
+        "name": "clientLogo",
+        "type": "image",
+        "fieldset": "heroMedia"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Product screenshot or branded visual (not stock photo)",
+        "name": "heroImage",
+        "type": "image",
+        "fieldset": "heroMedia"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Published",
+              "value": "published"
+            },
+            {
+              "title": "Draft",
+              "value": "draft"
+            },
+            {
+              "title": "Archived",
+              "value": "archived"
+            }
+          ],
+          "layout": "radio",
+          "aiAssist": {
+            "exclude": true
+          }
+        },
+        "initialValue": "draft",
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "published",
+                  "draft",
+                  "archived"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "description": "Website visibility. Must be Published AND you must click the green Publish button in Studio. Archived hides from the site.",
+        "name": "status",
+        "type": "string",
+        "fieldset": "statusSet"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Draft",
+              "value": "draft"
+            },
+            {
+              "title": "In review",
+              "value": "in-review"
+            },
+            {
+              "title": "Approved",
+              "value": "approved"
+            }
+          ],
+          "layout": "radio",
+          "aiAssist": {
+            "exclude": true
+          }
+        },
+        "initialValue": "draft",
+        "description": "Editorial review workflow — separate from publish status.",
+        "name": "reviewStatus",
+        "type": "string",
+        "title": "Review status",
+        "fieldset": "statusSet"
+      },
+      {
+        "description": "Displayed on the site when status is Published. Future dates are stored for editorial planning; automatic hide-until scheduling is not yet enabled on the site.",
+        "name": "publishedAt",
+        "type": "datetime",
+        "fieldset": "statusSet"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "AI & Machine Learning",
+              "value": "ai"
+            },
+            {
+              "title": "Power Platform",
+              "value": "power-platform"
+            },
+            {
+              "title": "SharePoint",
+              "value": "sharepoint"
+            },
+            {
+              "title": "Web Development",
+              "value": "web"
+            },
+            {
+              "title": "Mobile Development",
+              "value": "mobile"
+            },
+            {
+              "title": "Data Analytics",
+              "value": "data-analytics"
+            }
+          ]
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "ai",
+                  "power-platform",
+                  "sharepoint",
+                  "web",
+                  "mobile",
+                  "data-analytics"
+                ]
+              },
+              {
+                "flag": "custom"
+              }
+            ]
+          }
+        ],
+        "description": "Used for /case-studies/power-platform and nav grouping. Required before publishing on production.",
+        "name": "category",
+        "type": "string",
+        "title": "Technology category"
+      },
+      {
+        "description": "e.g., Process Automation, AI Agents, Customer Experience, Operations",
+        "name": "useCase",
+        "type": "string",
+        "fieldset": "engagement"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Startup",
+              "value": "startup"
+            },
+            {
+              "title": "Mid-market",
+              "value": "mid-market"
+            },
+            {
+              "title": "Enterprise",
+              "value": "enterprise"
+            }
+          ]
+        },
+        "name": "companySize",
+        "type": "string",
+        "fieldset": "engagement"
+      },
+      {
+        "description": "e.g. \"12 weeks\", \"6 months\"",
+        "name": "projectDuration",
+        "type": "string",
+        "fieldset": "engagement"
+      },
+      {
+        "description": "Engagement team size, e.g. \"5 engineers + 1 designer\" (kept separate from company-wide Employees).",
+        "name": "teamSize",
+        "type": "string",
+        "fieldset": "engagement"
+      },
+      {
+        "initialValue": "#FF7A2F",
+        "description": "Hex color for section accents and badges. Default: #FF7A2F for premium layouts.",
+        "name": "accentColor",
+        "type": "string",
+        "fieldset": "engagement"
+      },
+      {
+        "description": "Shown in the overview bar, e.g. \"Lead Product Designer & Developer\".",
+        "name": "myRole",
+        "type": "string",
+        "fieldset": "engagement"
+      },
+      {
+        "description": "Comma-separated services for hero metadata, e.g. \"Product Design, Web Development\".",
+        "name": "servicesProvided",
+        "type": "string",
+        "fieldset": "engagement"
+      },
+      {
+        "options": {
+          "layout": "tags"
+        },
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "technologies",
+        "type": "array",
+        "title": "Technologies Used",
+        "fieldset": "engagement"
+      },
+      {
+        "description": "e.g. \"Amsterdam, The Netherlands\" — shown in the case study summary block.",
+        "name": "location",
+        "type": "string",
+        "title": "Client Location",
+        "fieldset": "snapshot"
+      },
+      {
+        "description": "Company headcount, e.g. \"2,800\" — shown in the case study summary block.",
+        "name": "employees",
+        "type": "string",
+        "title": "Company Employees",
+        "fieldset": "snapshot"
+      },
+      {
+        "rows": 2,
+        "description": "Brief scale statement, e.g. \"Used by over 12.8M professionals and 92 of the Fortune Global Top 100\" — shown in the case study summary block.",
+        "name": "scaleOfOperation",
+        "type": "text",
+        "title": "Scale of Operation",
+        "fieldset": "snapshot"
+      },
+      {
+        "description": "Shown in the project snapshot bar, e.g. \"Power Platform Modernization\".",
+        "name": "projectType",
+        "type": "string",
+        "fieldset": "snapshot"
+      },
+      {
+        "description": "Geographic scope, e.g. \"North America & EMEA\".",
+        "name": "region",
+        "type": "string",
+        "fieldset": "snapshot"
+      },
+      {
+        "description": "User count for snapshot bar, e.g. \"2,400+ plant users\".",
+        "name": "endUsers",
+        "type": "string",
+        "fieldset": "snapshot"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Standard Story",
+              "value": "standard"
+            },
+            {
+              "title": "Transformation Epic",
+              "value": "transformation"
+            },
+            {
+              "title": "Product Showcase",
+              "value": "product-showcase"
+            }
+          ],
+          "layout": "radio"
+        },
+        "initialValue": "standard",
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "standard",
+                  "transformation",
+                  "product-showcase"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "description": "Legacy layout selector. Premium Page Layout below takes precedence on the website.",
+        "hidden": "conditional",
+        "name": "storyType",
+        "type": "string",
+        "title": "Story Archetype (legacy)",
+        "fieldset": "layout"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Centered Typographic",
+              "value": "centered"
+            },
+            {
+              "title": "Split Screen",
+              "value": "split"
+            },
+            {
+              "title": "Full-Bleed Image",
+              "value": "full-bleed"
+            },
+            {
+              "title": "Magazine Editorial",
+              "value": "editorial"
+            }
+          ],
+          "layout": "radio"
+        },
+        "initialValue": "centered",
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "centered",
+                  "split",
+                  "full-bleed",
+                  "editorial"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "description": "Legacy hero arrangement — only used when Premium Page Layout is empty.",
+        "hidden": "conditional",
+        "name": "heroLayout",
+        "type": "string",
+        "title": "Hero Layout (legacy)",
+        "fieldset": "layout"
+      },
+      {
+        "initialValue": "page-composer",
+        "hidden": true,
+        "name": "detailLayout",
+        "type": "string",
+        "title": "Page layout"
+      },
+      {
+        "options": {
+          "insertMenu": {
+            "groups": [
+              {
+                "name": "start",
+                "title": "Open"
+              },
+              {
+                "name": "story",
+                "title": "Story"
+              },
+              {
+                "name": "structure",
+                "title": "Structure"
+              },
+              {
+                "name": "proof",
+                "title": "Results & proof"
+              },
+              {
+                "name": "visual",
+                "title": "Visual effects"
+              },
+              {
+                "name": "closing",
+                "title": "Closing"
+              }
+            ],
+            "views": [
+              {
+                "name": "list"
+              },
+              {
+                "name": "grid"
+              }
+            ]
+          }
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ]
+          }
+        ],
+        "description": "Build the case study page by stacking sections. Drag to reorder; switch to grid view when inserting new blocks.",
+        "of": [
+          {
+            "type": "csOverviewSection",
+            "title": "Project overview"
+          },
+          {
+            "type": "csNarrativeSection",
+            "title": "Narrative section"
+          },
+          {
+            "type": "csCardGridSection",
+            "title": "Card grid"
+          },
+          {
+            "type": "csMetricsSection",
+            "title": "Results & metrics"
+          },
+          {
+            "type": "csSolutionSection",
+            "title": "Solution summary"
+          },
+          {
+            "type": "csGallerySection",
+            "title": "Screenshot gallery"
+          },
+          {
+            "type": "csTestimonialSection",
+            "title": "Client testimonial"
+          },
+          {
+            "type": "csTechStackSection",
+            "title": "Tech stack"
+          },
+          {
+            "type": "csBeforeAfterSection",
+            "title": "Before / after table"
+          },
+          {
+            "type": "csFaqSection",
+            "title": "FAQ accordion"
+          },
+          {
+            "type": "csRelatedSection",
+            "title": "Related case studies"
+          },
+          {
+            "type": "csContactSection",
+            "title": "Contact CTA"
+          },
+          {
+            "type": "csHeroMetricsStrip",
+            "title": "Hero metrics strip"
+          },
+          {
+            "type": "csEvidencePanel",
+            "title": "Evidence panel (AEO)"
+          },
+          {
+            "type": "csReactBitsSection",
+            "title": "Visual effect (React Bits)"
+          }
+        ],
+        "hidden": "conditional",
+        "name": "composerSections",
+        "type": "array",
+        "title": "Page sections"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "description": "Optional background video for the Video Hero layout.",
+        "name": "videoUrl",
+        "type": "url",
+        "title": "Hero Video URL",
+        "fieldset": "gallerySet"
+      },
+      {
+        "description": "Additional screenshots / visuals for the case study",
+        "of": [
+          {
+            "options": {
+              "hotspot": true
+            },
+            "fields": [
+              {
+                "name": "alt",
+                "type": "string",
+                "title": "Alt text"
+              },
+              {
+                "name": "caption",
+                "type": "string"
+              }
+            ],
+            "type": "image"
+          }
+        ],
+        "name": "gallery",
+        "type": "array",
+        "fieldset": "gallerySet"
+      },
+      {
+        "description": "Image URLs hosted externally (used as gallery fallback)",
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "uri",
+                        "constraint": {
+                          "options": {
+                            "scheme": [
+                              "/^http$/",
+                              "/^https$/"
+                            ],
+                            "allowRelative": false,
+                            "relativeOnly": false,
+                            "allowCredentials": false
+                          }
+                        }
+                      },
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "url",
+                "type": "url",
+                "title": "Image URL"
+              },
+              {
+                "validation": [
+                  {
+                    "level": "warning",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "message": "Alt text required"
+                  }
+                ],
+                "name": "alt",
+                "type": "string",
+                "title": "Alt text"
+              },
+              {
+                "name": "caption",
+                "type": "string"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "galleryUrls",
+        "type": "array",
+        "title": "Gallery (external URLs)",
+        "fieldset": "gallerySet"
+      },
+      {
+        "description": "Path or URL to the original PDF — used as download CTA",
+        "name": "pdfUrl",
+        "type": "string",
+        "title": "Source PDF (download)",
+        "fieldset": "gallerySet"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "name": "liveUrl",
+        "type": "url",
+        "title": "Live Project URL (optional)",
+        "fieldset": "gallerySet"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 3
+              }
+            ]
+          }
+        ],
+        "description": "Optional summary cards shown BESIDE the main \"The Challenge\" narrative (written in the Content tab). Leave empty to show the narrative alone — do not duplicate it here.",
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "rows": 3,
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "description",
+                "type": "text"
+              }
+            ],
+            "type": "object",
+            "name": "challengeCard"
+          }
+        ],
+        "hidden": "conditional",
+        "name": "challengeCards",
+        "type": "array",
+        "title": "Challenge Highlight Cards (optional, max 3)",
+        "fieldset": "cards"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 6
+              }
+            ]
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "rows": 3,
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "description",
+                "type": "text"
+              }
+            ],
+            "type": "object",
+            "name": "solutionNode"
+          }
+        ],
+        "hidden": "conditional",
+        "name": "solutionArchitecture",
+        "type": "array",
+        "title": "Solution Architecture Nodes",
+        "fieldset": "cards"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 6
+              }
+            ]
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "rows": 3,
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "description",
+                "type": "text"
+              }
+            ],
+            "type": "object",
+            "name": "deliverable"
+          }
+        ],
+        "hidden": "conditional",
+        "name": "deliverables",
+        "type": "array",
+        "fieldset": "cards"
+      },
+      {
+        "rows": 3,
+        "description": "Paragraph for The Solution section.",
+        "hidden": "conditional",
+        "name": "solutionSummary",
+        "type": "text",
+        "fieldset": "cards"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 8
+              }
+            ]
+          }
+        ],
+        "description": "Checklist items for The Solution section.",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "hidden": "conditional",
+        "name": "solutionFeatures",
+        "type": "array",
+        "title": "Solution Features (checklist)",
+        "fieldset": "cards"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 5
+              }
+            ]
+          }
+        ],
+        "description": "Five timeline steps (Discovery → Launch).",
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "rows": 2,
+                "name": "description",
+                "type": "text"
+              }
+            ],
+            "type": "object",
+            "name": "approachStep"
+          }
+        ],
+        "hidden": "conditional",
+        "name": "approachSteps",
+        "type": "array",
+        "title": "Approach Steps (timeline)",
+        "fieldset": "cards"
+      },
+      {
+        "hidden": "conditional",
+        "name": "ctaHeadline",
+        "type": "string",
+        "title": "Final CTA Headline",
+        "fieldset": "ctaSet"
+      },
+      {
+        "rows": 2,
+        "hidden": "conditional",
+        "name": "ctaSubtext",
+        "type": "text",
+        "title": "Final CTA Subtext",
+        "fieldset": "ctaSet"
+      },
+      {
+        "hidden": "conditional",
+        "name": "ctaButtonText",
+        "type": "string",
+        "title": "Final CTA Button Text",
+        "fieldset": "ctaSet"
+      },
+      {
+        "description": "Optional FAQs shown before the contact section.",
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "question",
+                "type": "string"
+              },
+              {
+                "rows": 3,
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "answer",
+                "type": "text"
+              }
+            ],
+            "type": "object",
+            "name": "caseStudyFaq"
+          }
+        ],
+        "hidden": "conditional",
+        "name": "faqs",
+        "type": "array",
+        "title": "FAQs",
+        "fieldset": "faqSet"
+      },
+      {
+        "description": "Short punchy headline for the listing page hero slider.",
+        "name": "heroHeadline",
+        "type": "string",
+        "fieldset": "listingSet"
+      },
+      {
+        "description": "Eyebrow label for the hero slider, e.g. \"Customer Story — Retail\".",
+        "name": "heroEyebrow",
+        "type": "string",
+        "fieldset": "listingSet"
+      },
+      {
+        "initialValue": 0,
+        "description": "0 = not featured. 1 = hero banner, 2-3 = secondary featured.",
+        "name": "featuredRank",
+        "type": "number",
+        "fieldset": "listingSet"
+      },
+      {
+        "description": "Slugs of related stories to cross-link at bottom of page",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "relatedSlugs",
+        "type": "array",
+        "title": "Related Case Study Slugs",
+        "fieldset": "listingSet"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 3
+              }
+            ]
+          }
+        ],
+        "description": "Up to 3 manually-curated related stories. If empty, the latest 3 other case studies are shown automatically.",
+        "of": [
+          {
+            "to": [
+              {
+                "type": "caseStudy"
+              }
+            ],
+            "type": "reference",
+            "title": "Reference to case study"
+          }
+        ],
+        "name": "relatedCaseStudies",
+        "type": "array",
+        "fieldset": "listingSet"
+      },
+      {
+        "initialValue": false,
+        "options": {
+          "aiAssist": {
+            "exclude": true
+          }
+        },
+        "description": "Show in featured case study lists",
+        "hidden": true,
+        "name": "featured",
+        "type": "boolean",
+        "title": "Featured (Legacy)"
+      },
+      {
+        "fields": [
+          {
+            "hidden": true,
+            "name": "placeholder",
+            "type": "string"
+          }
+        ],
+        "name": "editorProgressPanel",
+        "type": "object",
+        "title": "Editor progress"
+      },
+      {
+        "rows": 4,
+        "hidden": "conditional",
+        "name": "challengeSummary",
+        "type": "text",
+        "title": "Challenge Summary (legacy)"
+      },
+      {
+        "options": {
+          "insertMenu": {
+            "groups": [
+              {
+                "name": "writing",
+                "title": "Writing"
+              },
+              {
+                "name": "highlights",
+                "title": "Highlights"
+              },
+              {
+                "name": "media",
+                "title": "Media"
+              }
+            ],
+            "views": [
+              {
+                "name": "grid"
+              },
+              {
+                "name": "list"
+              }
+            ]
+          }
+        },
+        "hidden": "conditional",
+        "name": "challenge",
+        "type": "blockContent",
+        "title": "The Challenge (legacy)"
+      },
+      {
+        "rows": 4,
+        "hidden": "conditional",
+        "name": "approachSummary",
+        "type": "text",
+        "title": "Approach Summary (legacy)"
+      },
+      {
+        "options": {
+          "insertMenu": {
+            "groups": [
+              {
+                "name": "writing",
+                "title": "Writing"
+              },
+              {
+                "name": "highlights",
+                "title": "Highlights"
+              },
+              {
+                "name": "media",
+                "title": "Media"
+              }
+            ],
+            "views": [
+              {
+                "name": "grid"
+              },
+              {
+                "name": "list"
+              }
+            ]
+          }
+        },
+        "hidden": "conditional",
+        "name": "approach",
+        "type": "blockContent",
+        "title": "Our Approach (legacy)"
+      },
+      {
+        "rows": 4,
+        "hidden": "conditional",
+        "name": "outcomeSummary",
+        "type": "text",
+        "title": "Outcome Summary (legacy)"
+      },
+      {
+        "options": {
+          "insertMenu": {
+            "groups": [
+              {
+                "name": "writing",
+                "title": "Writing"
+              },
+              {
+                "name": "highlights",
+                "title": "Highlights"
+              },
+              {
+                "name": "media",
+                "title": "Media"
+              }
+            ],
+            "views": [
+              {
+                "name": "grid"
+              },
+              {
+                "name": "list"
+              }
+            ]
+          }
+        },
+        "hidden": "conditional",
+        "name": "outcome",
+        "type": "blockContent",
+        "title": "The Outcome (legacy)"
+      },
+      {
+        "fields": [
+          {
+            "name": "quote",
+            "type": "text"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "title": "Person Name"
+          },
+          {
+            "name": "role",
+            "type": "string",
+            "title": "Role / Title"
+          },
+          {
+            "name": "company",
+            "type": "string"
+          },
+          {
+            "name": "location",
+            "type": "string"
+          },
+          {
+            "name": "avatar",
+            "type": "image"
+          }
+        ],
+        "name": "testimonial",
+        "type": "object",
+        "title": "Client Testimonial",
+        "fieldset": "testimonialSet"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Social sharing image (1200×630 recommended). Falls back to cover image if empty.",
+        "name": "ogImage",
+        "type": "image",
+        "title": "Open Graph Image",
+        "fieldset": "seoSet"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 60
+              }
+            ]
+          }
+        ],
+        "description": "Write an SEO page title in 30–60 characters. Include brand relevance. No trailing punctuation.",
+        "name": "metaTitle",
+        "type": "string",
+        "fieldset": "seoSet"
+      },
+      {
+        "rows": 2,
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 160
+              }
+            ]
+          }
+        ],
+        "description": "Write an SEO meta description in 120–160 characters. Include the focus keyword if provided. Clear call to value.",
+        "name": "metaDescription",
+        "type": "text",
+        "fieldset": "seoSet"
+      },
+      {
+        "fields": [
+          {
+            "hidden": true,
+            "name": "placeholder",
+            "type": "string"
+          }
+        ],
+        "name": "seoPreviewPanel",
+        "type": "object",
+        "title": "Search & social preview"
+      }
+    ],
+    "fieldsets": [
+      {
+        "name": "identity",
+        "title": "Title & client",
+        "options": {
+          "collapsible": false
+        }
+      },
+      {
+        "name": "narrative",
+        "title": "Story sections",
+        "options": {
+          "collapsible": false
+        }
+      },
+      {
+        "name": "stats",
+        "title": "Metrics & highlights",
+        "options": {
+          "collapsible": true,
+          "collapsed": false
+        }
+      },
+      {
+        "name": "heroMedia",
+        "title": "Cover & hero",
+        "options": {
+          "collapsible": true,
+          "collapsed": false
+        }
+      },
+      {
+        "name": "statusSet",
+        "title": "Status",
+        "options": {
+          "collapsible": false
+        }
+      },
+      {
+        "name": "engagement",
+        "title": "Engagement details",
+        "options": {
+          "collapsible": true,
+          "collapsed": true
+        }
+      },
+      {
+        "name": "snapshot",
+        "title": "Project snapshot",
+        "options": {
+          "collapsible": true,
+          "collapsed": false
+        }
+      },
+      {
+        "name": "layout",
+        "title": "Page layout",
+        "options": {
+          "collapsible": true,
+          "collapsed": true
+        }
+      },
+      {
+        "name": "gallerySet",
+        "title": "Gallery & video",
+        "options": {
+          "collapsible": true,
+          "collapsed": true
+        }
+      },
+      {
+        "name": "cards",
+        "title": "Cards & lists",
+        "options": {
+          "collapsible": true,
+          "collapsed": true
+        }
+      },
+      {
+        "name": "ctaSet",
+        "title": "Call to action",
+        "options": {
+          "collapsible": true,
+          "collapsed": true
+        }
+      },
+      {
+        "name": "faqSet",
+        "title": "FAQs",
+        "options": {
+          "collapsible": true,
+          "collapsed": true
+        }
+      },
+      {
+        "name": "listingSet",
+        "title": "Listing & featured",
+        "options": {
+          "collapsible": true,
+          "collapsed": true
+        }
+      },
+      {
+        "name": "testimonialSet",
+        "title": "Testimonial",
+        "options": {
+          "collapsible": true,
+          "collapsed": true
+        }
+      },
+      {
+        "name": "seoSet",
+        "title": "SEO",
+        "options": {
+          "collapsible": true,
+          "collapsed": true
+        }
+      }
+    ],
+    "name": "caseStudy",
+    "type": "document"
+  },
+  {
+    "initialValue": {
+      "title": "Homepage Case Study Slider",
+      "sectionEnabled": true
+    },
+    "fields": [
+      {
+        "initialValue": "Homepage Case Study Slider",
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "title",
+        "type": "string",
+        "title": "Internal Title"
+      },
+      {
+        "initialValue": true,
+        "name": "sectionEnabled",
+        "type": "boolean"
+      },
+      {
+        "validation": [
+          {
+            "level": "warning",
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ]
+          }
+        ],
+        "description": "Each slide references a published case study. Text, image, and stats are pulled from the case study unless you add manual overrides below.",
+        "of": [
+          {
+            "fields": [
+              {
+                "description": "Preferred source — text, image, and stats auto-populate from the referenced case study. Legacy manual-only slides still work when this is empty.",
+                "to": [
+                  {
+                    "type": "caseStudy"
+                  }
+                ],
+                "name": "caseStudy",
+                "type": "reference",
+                "title": "Case study"
+              },
+              {
+                "description": "Defaults to the referenced case study client name.",
+                "name": "company",
+                "type": "string",
+                "title": "Company name override"
+              },
+              {
+                "description": "Defaults to hero eyebrow on the case study.",
+                "name": "eyebrow",
+                "type": "string",
+                "title": "Eyebrow override"
+              },
+              {
+                "description": "Defaults to hero headline or header title on the case study.",
+                "name": "title",
+                "type": "string",
+                "title": "Heading override"
+              },
+              {
+                "rows": 3,
+                "description": "Defaults to the case study excerpt.",
+                "name": "description",
+                "type": "text",
+                "title": "Description override"
+              },
+              {
+                "initialValue": "Read case study",
+                "name": "ctaText",
+                "type": "string",
+                "title": "CTA Text override"
+              },
+              {
+                "description": "Defaults to \"/case-studies/{slug}\".",
+                "name": "ctaHref",
+                "type": "string",
+                "title": "CTA Link override"
+              },
+              {
+                "options": {
+                  "hotspot": true
+                },
+                "description": "Defaults to the case study cover image.",
+                "fields": [
+                  {
+                    "name": "alt",
+                    "type": "string",
+                    "title": "Alt Text"
+                  }
+                ],
+                "name": "image",
+                "type": "image",
+                "title": "Image override"
+              },
+              {
+                "options": {
+                  "hotspot": true
+                },
+                "fields": [
+                  {
+                    "name": "alt",
+                    "type": "string",
+                    "title": "Alt Text"
+                  }
+                ],
+                "name": "badgeImage",
+                "type": "image",
+                "title": "Badge Image (Optional)"
+              },
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "max",
+                        "constraint": 3
+                      }
+                    ]
+                  }
+                ],
+                "description": "Defaults to hero highlights or key metrics on the case study.",
+                "of": [
+                  {
+                    "fields": [
+                      {
+                        "validation": [
+                          {
+                            "level": "error",
+                            "rules": [
+                              {
+                                "flag": "presence",
+                                "constraint": "required"
+                              },
+                              {
+                                "flag": "max",
+                                "constraint": 20
+                              }
+                            ]
+                          }
+                        ],
+                        "name": "value",
+                        "type": "string"
+                      },
+                      {
+                        "validation": [
+                          {
+                            "level": "error",
+                            "rules": [
+                              {
+                                "flag": "presence",
+                                "constraint": "required"
+                              },
+                              {
+                                "flag": "max",
+                                "constraint": 80
+                              }
+                            ]
+                          }
+                        ],
+                        "name": "label",
+                        "type": "string"
+                      }
+                    ],
+                    "type": "object"
+                  }
+                ],
+                "name": "stats",
+                "type": "array",
+                "title": "Stats override"
+              }
+            ],
+            "type": "object",
+            "name": "homepageSlide"
+          }
+        ],
+        "name": "slides",
+        "type": "array"
+      }
+    ],
+    "name": "homepageCaseStudySlider",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Softree Technology",
+        "name": "siteName",
+        "type": "string"
+      },
+      {
+        "initialValue": "https://www.softreetechnology.com",
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "name": "siteUrl",
+        "type": "url",
+        "title": "Site URL"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "logo",
+        "type": "image",
+        "title": "Site Logo"
+      },
+      {
+        "description": "Brand-safe presets for case study and blog composer pages. Writers cannot set arbitrary colors. **Publish Global Settings** after changing — live site and preview read from this singleton. For AI copy tone, use **Site settings → AI brand voice**.",
+        "fields": [
+          {
+            "options": {
+              "list": [
+                {
+                  "title": "Softree orange (default)",
+                  "value": "softree-orange"
+                },
+                {
+                  "title": "Ocean blue",
+                  "value": "ocean-blue"
+                },
+                {
+                  "title": "Forest green",
+                  "value": "forest-green"
+                },
+                {
+                  "title": "Graphite",
+                  "value": "graphite"
+                }
+              ],
+              "layout": "radio"
+            },
+            "initialValue": "softree-orange",
+            "name": "accentPreset",
+            "type": "string",
+            "title": "Accent color"
+          },
+          {
+            "options": {
+              "list": [
+                {
+                  "title": "Editorial (default)",
+                  "value": "editorial"
+                },
+                {
+                  "title": "Compact",
+                  "value": "compact"
+                },
+                {
+                  "title": "Display",
+                  "value": "display"
+                }
+              ],
+              "layout": "radio"
+            },
+            "initialValue": "editorial",
+            "name": "typographyPreset",
+            "type": "string",
+            "title": "Heading scale"
+          }
+        ],
+        "name": "designTokens",
+        "type": "object",
+        "title": "Composer design tokens"
+      },
+      {
+        "description": "Fallback title for pages without custom SEO",
+        "name": "defaultMetaTitle",
+        "type": "string"
+      },
+      {
+        "rows": 3,
+        "name": "defaultMetaDescription",
+        "type": "text"
+      },
+      {
+        "fields": [
+          {
+            "validation": [
+              {
+                "level": "error",
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ]
+              }
+            ],
+            "name": "linkedin",
+            "type": "url",
+            "title": "LinkedIn"
+          },
+          {
+            "validation": [
+              {
+                "level": "error",
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ]
+              }
+            ],
+            "name": "twitter",
+            "type": "url",
+            "title": "Twitter/X"
+          },
+          {
+            "validation": [
+              {
+                "level": "error",
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ]
+              }
+            ],
+            "name": "github",
+            "type": "url",
+            "title": "GitHub"
+          },
+          {
+            "validation": [
+              {
+                "level": "error",
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ]
+              }
+            ],
+            "name": "clutch",
+            "type": "url"
+          }
+        ],
+        "name": "socialLinks",
+        "type": "object",
+        "title": "Social Media Links"
+      },
+      {
+        "fields": [
+          {
+            "name": "email",
+            "type": "string"
+          },
+          {
+            "name": "phone",
+            "type": "string"
+          },
+          {
+            "rows": 3,
+            "name": "address",
+            "type": "text"
+          }
+        ],
+        "name": "contactInfo",
+        "type": "object",
+        "title": "Contact Information"
+      },
+      {
+        "fields": [
+          {
+            "name": "gtmId",
+            "type": "string",
+            "title": "Google Tag Manager ID"
+          },
+          {
+            "name": "gaId",
+            "type": "string",
+            "title": "Google Analytics ID"
+          },
+          {
+            "name": "posthogKey",
+            "type": "string",
+            "title": "PostHog Project Key"
+          }
+        ],
+        "name": "analytics",
+        "type": "object",
+        "title": "Analytics IDs"
+      }
+    ],
+    "name": "globalSettings",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Softree brand voice",
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "rows": 16,
+        "initialValue": "Customize Softree's AI writing rules here. Content Agent and ✨ field actions read this document when \"Default context\" is on.\n\nInclude:\n• Target audience (CTO, IT director, etc.)\n• Tone (authoritative, concrete, no buzzwords)\n• Forbidden phrases and preferred alternatives\n• How to cite metrics and proof points\n• CTA style for case studies vs blog posts\n\nLeave blank sections out — the bundled style guide still applies as a fallback.",
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "description": "Brand voice and writing rules for ✨ AI Assist (field templates) and the Content Agent pipeline. Mark one document as Default.",
+        "name": "context",
+        "type": "text",
+        "title": "Style guide & instructions"
+      },
+      {
+        "initialValue": true,
+        "description": "Mark as the primary context document for editors.",
+        "name": "isDefault",
+        "type": "boolean",
+        "title": "Default context"
+      }
+    ],
+    "name": "aiContext",
+    "type": "document",
+    "title": "AI Context"
+  },
+  {
+    "validation": [
+      {
+        "level": "error",
+        "rules": [
+          {
+            "flag": "custom"
+          }
+        ]
+      }
+    ],
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "title",
+        "type": "string",
+        "title": "Internal title"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96,
+          "aiAssist": {
+            "exclude": true
+          }
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "slug",
+        "type": "slug",
+        "title": "URL slug"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Published",
+              "value": "published"
+            },
+            {
+              "title": "Draft",
+              "value": "draft"
+            },
+            {
+              "title": "Archived",
+              "value": "archived"
+            }
+          ],
+          "layout": "radio",
+          "aiAssist": {
+            "exclude": true
+          }
+        },
+        "initialValue": "draft",
+        "name": "status",
+        "type": "string"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Draft",
+              "value": "draft"
+            },
+            {
+              "title": "In review",
+              "value": "in-review"
+            },
+            {
+              "title": "Approved",
+              "value": "approved"
+            }
+          ],
+          "layout": "radio",
+          "aiAssist": {
+            "exclude": true
+          }
+        },
+        "initialValue": "draft",
+        "description": "Editorial review workflow — separate from publish status.",
+        "name": "reviewStatus",
+        "type": "string",
+        "title": "Review status"
+      },
+      {
+        "description": "Stack hero, features, testimonials, and CTAs to build landing pages without code.",
+        "of": [
+          {
+            "type": "pageHeroBlock",
+            "title": "Hero"
+          },
+          {
+            "type": "pageFeatureGridBlock",
+            "title": "Feature grid"
+          },
+          {
+            "type": "pageRichTextBlock",
+            "title": "Rich text"
+          },
+          {
+            "type": "pageTestimonialBlock",
+            "title": "Testimonial"
+          },
+          {
+            "type": "pageCtaBlock",
+            "title": "Call to action"
+          }
+        ],
+        "name": "sections",
+        "type": "array",
+        "title": "Page sections"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 60
+              }
+            ]
+          }
+        ],
+        "description": "Write an SEO page title in 30–60 characters. Include brand relevance. No trailing punctuation.",
+        "name": "metaTitle",
+        "type": "string",
+        "title": "Meta title"
+      },
+      {
+        "rows": 2,
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 160
+              }
+            ]
+          }
+        ],
+        "description": "Write an SEO meta description in 120–160 characters. Include the focus keyword if provided. Clear call to value.",
+        "name": "metaDescription",
+        "type": "text",
+        "title": "Meta description"
+      },
+      {
+        "fields": [
+          {
+            "hidden": true,
+            "name": "placeholder",
+            "type": "string"
+          }
+        ],
+        "name": "seoPreviewPanel",
+        "type": "object",
+        "title": "Search & social preview"
+      }
+    ],
+    "name": "marketingPage",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Careers Page",
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "title",
+        "type": "string",
+        "title": "Internal Title"
+      },
+      {
+        "initialValue": "Now hiring across Bengaluru, Cuttack & Remote",
+        "name": "heroEyebrow",
+        "type": "string"
+      },
+      {
+        "initialValue": "Build careers",
+        "description": "Primary line of the editorial display headline.",
+        "name": "heroHeadline",
+        "type": "string"
+      },
+      {
+        "initialValue": "worth telling.",
+        "description": "Italic serif word(s) shown below the primary line.",
+        "name": "heroHeadlineItalic",
+        "type": "string",
+        "title": "Hero Headline — italic accent"
+      },
+      {
+        "rows": 3,
+        "initialValue": "Senior engineers, real ownership, fixed-scope client work that ships in weeks not quarters. Find the role that fits how you build best.",
+        "name": "heroSubline",
+        "type": "text"
+      },
+      {
+        "initialValue": [
+          "AI Engineer",
+          "Power BI Developer",
+          "Power Apps Developer",
+          "QA Automation Engineer",
+          "Full-stack Developer"
+        ],
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "heroCyclingRoles",
+        "type": "array"
+      },
+      {
+        "description": "8–12 office / culture photographs. Marquee loops infinitely.",
+        "of": [
+          {
+            "options": {
+              "hotspot": true
+            },
+            "fields": [
+              {
+                "name": "alt",
+                "type": "string",
+                "title": "Alt Text"
+              },
+              {
+                "name": "caption",
+                "type": "string"
+              }
+            ],
+            "type": "image"
+          }
+        ],
+        "name": "heroGallery",
+        "type": "array",
+        "title": "Hero Gallery (marquee images)"
+      },
+      {
+        "initialValue": "Why Softree",
+        "name": "introBadge",
+        "type": "string"
+      },
+      {
+        "initialValue": "A team of senior engineers shipping enterprise software.",
+        "name": "introHeading",
+        "type": "string"
+      },
+      {
+        "initialValue": "200+ enterprise projects delivered. 50+ Microsoft-certified engineers. One culture built around mastery, not management.",
+        "name": "introHighlight",
+        "type": "string",
+        "title": "Intro Highlight (accent line)"
+      },
+      {
+        "rows": 4,
+        "initialValue": "We hire people who care about the craft. Engineers who can architect, write tests, talk to clients, and ship production software end-to-end. No layered management, no busywork — just clear goals, weekly demos, and senior peers who push you to ship better code than you did last month.",
+        "name": "introBody",
+        "type": "text",
+        "title": "Intro Body Paragraph"
+      },
+      {
+        "initialValue": [
+          {
+            "value": "200+",
+            "label": "Engineers across India"
+          },
+          {
+            "value": "50+",
+            "label": "Microsoft-certified specialists"
+          },
+          {
+            "value": "98%",
+            "label": "Offer acceptance rate"
+          },
+          {
+            "value": "4.9★",
+            "label": "Glassdoor rating"
+          }
+        ],
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 4
+              }
+            ]
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "value",
+                "type": "string"
+              },
+              {
+                "name": "label",
+                "type": "string"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "introStats",
+        "type": "array"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 2
+              }
+            ]
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "label",
+                "type": "string",
+                "title": "Pill Label"
+              },
+              {
+                "name": "headline",
+                "type": "string"
+              },
+              {
+                "rows": 3,
+                "name": "body",
+                "type": "text"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "introPillars",
+        "type": "array",
+        "title": "Intro Pillar Cards (Mission / Vision style)"
+      },
+      {
+        "initialValue": "Open roles.",
+        "name": "jobsHeading",
+        "type": "string",
+        "title": "Jobs Section Heading"
+      },
+      {
+        "initialValue": "Find a role that fits how you build best.",
+        "name": "jobsSubheading",
+        "type": "string",
+        "title": "Jobs Section Subheading"
+      },
+      {
+        "initialValue": [
+          "All",
+          "AI",
+          "Power Platform",
+          "Power BI",
+          "Web",
+          "Mobile",
+          "QA",
+          "Marketing",
+          "HR"
+        ],
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "jobsCategories",
+        "type": "array",
+        "title": "Job Categories (filter pills)"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "name": "category",
+                "type": "string"
+              },
+              {
+                "initialValue": "Hybrid",
+                "name": "location",
+                "type": "string"
+              },
+              {
+                "initialValue": "Full time",
+                "name": "type",
+                "type": "string",
+                "title": "Employment Type"
+              },
+              {
+                "name": "experience",
+                "type": "string"
+              },
+              {
+                "name": "salary",
+                "type": "string",
+                "title": "Salary Range"
+              },
+              {
+                "description": "e.g. Hot, New, Urgent",
+                "name": "badge",
+                "type": "string"
+              },
+              {
+                "rows": 3,
+                "name": "description",
+                "type": "text"
+              },
+              {
+                "of": [
+                  {
+                    "type": "string"
+                  }
+                ],
+                "name": "tags",
+                "type": "array"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "jobs",
+        "type": "array",
+        "title": "Open Positions"
+      },
+      {
+        "initialValue": "How we hire.",
+        "name": "processHeading",
+        "type": "string"
+      },
+      {
+        "initialValue": "No black holes, no ghosting. Most candidates hear back within 48 hours and the full loop wraps in under two weeks.",
+        "name": "processSubheading",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "number",
+                "type": "string",
+                "title": "Step Number"
+              },
+              {
+                "name": "title",
+                "type": "string",
+                "title": "Step Title"
+              },
+              {
+                "name": "subtitle",
+                "type": "string"
+              },
+              {
+                "name": "duration",
+                "type": "string"
+              },
+              {
+                "rows": 2,
+                "name": "description",
+                "type": "text"
+              },
+              {
+                "of": [
+                  {
+                    "type": "string"
+                  }
+                ],
+                "name": "details",
+                "type": "array",
+                "title": "Details (bullets)"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "processSteps",
+        "type": "array"
+      },
+      {
+        "initialValue": "Where great careers actually happen.",
+        "name": "perksHeading",
+        "type": "string"
+      },
+      {
+        "initialValue": "We back our people with tools, learning budgets, flexible setups, and the kind of mentorship that compounds over years.",
+        "name": "perksSubheading",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "icon",
+                "type": "string",
+                "title": "Icon Glyph"
+              },
+              {
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "rows": 2,
+                "name": "description",
+                "type": "text"
+              },
+              {
+                "name": "stat",
+                "type": "string"
+              },
+              {
+                "name": "statLabel",
+                "type": "string"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "perks",
+        "type": "array"
+      },
+      {
+        "initialValue": "Life at Softree.",
+        "name": "cultureHeading",
+        "type": "string"
+      },
+      {
+        "initialValue": "Open spaces, off-sites, and rooms named after circuses. Our office in Prestige Tech Platina 2, Bengaluru, is built for focused work and unscripted conversations.",
+        "name": "cultureSubheading",
+        "type": "string"
+      },
+      {
+        "description": "6–10 photos showcasing the workplace.",
+        "of": [
+          {
+            "options": {
+              "hotspot": true
+            },
+            "fields": [
+              {
+                "name": "alt",
+                "type": "string",
+                "title": "Alt Text"
+              },
+              {
+                "name": "caption",
+                "type": "string"
+              }
+            ],
+            "type": "image"
+          }
+        ],
+        "name": "cultureGallery",
+        "type": "array"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 3
+              }
+            ]
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "rows": 3,
+                "name": "body",
+                "type": "text"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "culturePillars",
+        "type": "array"
+      },
+      {
+        "initialValue": "Don’t see the right role?",
+        "name": "talentHeading",
+        "type": "string",
+        "title": "Talent Pool Heading"
+      },
+      {
+        "rows": 3,
+        "initialValue": "Drop your CV here. When something matching your background opens up, we’ll come back to you first — usually within a few weeks.",
+        "name": "talentBody",
+        "type": "text",
+        "title": "Talent Pool Body"
+      },
+      {
+        "initialValue": "shradhab@softreetechnology.com",
+        "name": "talentEmail",
+        "type": "string",
+        "title": "Talent Pool Email"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "question",
+                "type": "string"
+              },
+              {
+                "rows": 4,
+                "name": "answer",
+                "type": "text"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "faqs",
+        "type": "array",
+        "title": "Careers FAQs"
+      },
+      {
+        "name": "metaTitle",
+        "type": "string"
+      },
+      {
+        "rows": 3,
+        "name": "metaDescription",
+        "type": "text"
+      }
+    ],
+    "name": "careersPage",
+    "type": "document"
+  }
+]

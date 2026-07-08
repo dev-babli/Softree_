@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 
-const assetsSrc = fs.readFileSync('src/components/kore/assets.ts', 'utf8');
+const assetsSrc = fs.readFileSync('src/components/softree-marketing-ui/assets.ts', 'utf8');
 const entryRe = /"([^"]+)":\s*\{\s*kind:\s*"(?:cdn-passthrough|local)",\s*url:\s*"([^"]+)",/g;
 const byUrl = new Map();
 let m;

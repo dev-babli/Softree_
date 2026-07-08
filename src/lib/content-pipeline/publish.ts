@@ -1,6 +1,6 @@
 import { revalidatePath } from 'next/cache'
 
-import { getSanityWriteClient } from '@/sanity/lib/writeClient'
+import { getSanityWriteClient } from '@/cms/lib/writeClient'
 
 import { attachGeneratedImages } from './images'
 import type { GeneratedPostPayload, PipelineRunInput } from './types'

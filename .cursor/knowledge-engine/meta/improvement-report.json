@@ -1,0 +1,356 @@
+{
+  "analyzedAt": "2026-07-06T21:04:09.529Z",
+  "pipeline": "Internet → Research Agent → Scraper → Cleaner → Summarizer → Fact Checker → Knowledge Extractor → Pattern Engine → Knowledge Files → Knowledge Graph",
+  "questions": [
+    "What new concepts appeared?",
+    "What knowledge is outdated?",
+    "What contradictions exist?",
+    "What patterns are emerging?",
+    "What should be researched next?"
+  ],
+  "stats": {
+    "totalAtoms": 13,
+    "coveredFolders": 8,
+    "emptyFolders": 24,
+    "lowConfidence": 0,
+    "drafts": 1,
+    "stale": 0,
+    "competitors": 1
+  },
+  "emptyFolders": [
+    {
+      "folder": "02_consulting",
+      "label": "Consulting"
+    },
+    {
+      "folder": "03_business",
+      "label": "Business"
+    },
+    {
+      "folder": "04_strategy",
+      "label": "Strategy"
+    },
+    {
+      "folder": "05_sales",
+      "label": "Sales"
+    },
+    {
+      "folder": "06_marketing",
+      "label": "Marketing"
+    },
+    {
+      "folder": "07_copywriting",
+      "label": "Copywriting"
+    },
+    {
+      "folder": "08_design",
+      "label": "Design"
+    },
+    {
+      "folder": "09_ui",
+      "label": "UI"
+    },
+    {
+      "folder": "10_ux",
+      "label": "UX"
+    },
+    {
+      "folder": "11_psychology",
+      "label": "Psychology"
+    },
+    {
+      "folder": "12_seo",
+      "label": "SEO"
+    },
+    {
+      "folder": "13_geo",
+      "label": "GEO"
+    },
+    {
+      "folder": "14_aeo",
+      "label": "AEO"
+    },
+    {
+      "folder": "15_llmo",
+      "label": "LLMO"
+    },
+    {
+      "folder": "16_ai",
+      "label": "AI"
+    },
+    {
+      "folder": "17_rag",
+      "label": "RAG"
+    },
+    {
+      "folder": "18_agents",
+      "label": "Agents"
+    },
+    {
+      "folder": "19_architecture",
+      "label": "Architecture"
+    },
+    {
+      "folder": "20_performance",
+      "label": "Performance"
+    },
+    {
+      "folder": "21_security",
+      "label": "Security"
+    },
+    {
+      "folder": "22_accessibility",
+      "label": "Accessibility"
+    },
+    {
+      "folder": "24_industries",
+      "label": "Industries"
+    },
+    {
+      "folder": "25_case_studies",
+      "label": "Case Studies"
+    },
+    {
+      "folder": "27_prompt_library",
+      "label": "Prompt Library"
+    }
+  ],
+  "items": [
+    {
+      "id": "draft-competitor.kore-ai",
+      "query": "Complete draft atom: Softree Competitive Profile",
+      "knowledgeFolder": "23_competitors",
+      "priority": 1,
+      "status": "pending",
+      "reason": "draft status",
+      "targetAtom": "competitor.kore-ai"
+    },
+    {
+      "id": "competitor-accenture",
+      "query": "Competitive benchmark: accenture — positioning, messaging, design, SEO",
+      "domain": "competitors",
+      "knowledgeFolder": "23_competitors",
+      "priority": 1,
+      "status": "pending",
+      "reason": "missing competitor profile"
+    },
+    {
+      "id": "competitor-ibm-consulting",
+      "query": "Competitive benchmark: ibm consulting — positioning, messaging, design, SEO",
+      "domain": "competitors",
+      "knowledgeFolder": "23_competitors",
+      "priority": 1,
+      "status": "pending",
+      "reason": "missing competitor profile"
+    },
+    {
+      "id": "competitor-thoughtworks",
+      "query": "Competitive benchmark: thoughtworks — positioning, messaging, design, SEO",
+      "domain": "competitors",
+      "knowledgeFolder": "23_competitors",
+      "priority": 1,
+      "status": "pending",
+      "reason": "missing competitor profile"
+    },
+    {
+      "id": "competitor-moveworks",
+      "query": "Competitive benchmark: moveworks — positioning, messaging, design, SEO",
+      "domain": "competitors",
+      "knowledgeFolder": "23_competitors",
+      "priority": 1,
+      "status": "pending",
+      "reason": "missing competitor profile"
+    },
+    {
+      "id": "research-02_consulting",
+      "query": "Authoritative best practices for Consulting (Delivery methodology, engagement models)",
+      "domain": "consulting",
+      "knowledgeFolder": "02_consulting",
+      "priority": 2,
+      "status": "pending",
+      "reason": "empty taxonomy folder"
+    },
+    {
+      "id": "research-03_business",
+      "query": "Authoritative best practices for Business (Business models, ROI, transformation economics)",
+      "domain": "business",
+      "knowledgeFolder": "03_business",
+      "priority": 2,
+      "status": "pending",
+      "reason": "empty taxonomy folder"
+    },
+    {
+      "id": "research-04_strategy",
+      "query": "Authoritative best practices for Strategy (Product strategy, roadmaps, category design)",
+      "domain": "strategy",
+      "knowledgeFolder": "04_strategy",
+      "priority": 2,
+      "status": "pending",
+      "reason": "empty taxonomy folder"
+    },
+    {
+      "id": "research-05_sales",
+      "query": "Authoritative best practices for Sales (Enterprise sales, negotiation, procurement)",
+      "domain": "sales",
+      "knowledgeFolder": "05_sales",
+      "priority": 2,
+      "status": "pending",
+      "reason": "empty taxonomy folder"
+    },
+    {
+      "id": "research-06_marketing",
+      "query": "Authoritative best practices for Marketing (Demand gen, funnels, campaigns)",
+      "domain": "marketing",
+      "knowledgeFolder": "06_marketing",
+      "priority": 2,
+      "status": "pending",
+      "reason": "empty taxonomy folder"
+    },
+    {
+      "id": "research-07_copywriting",
+      "query": "Authoritative best practices for Copywriting (Messaging, headlines, conversion copy)",
+      "domain": "copywriting",
+      "knowledgeFolder": "07_copywriting",
+      "priority": 2,
+      "status": "pending",
+      "reason": "empty taxonomy folder"
+    },
+    {
+      "id": "research-08_design",
+      "query": "Authoritative best practices for Design (Visual design, design systems, taste)",
+      "domain": "design",
+      "knowledgeFolder": "08_design",
+      "priority": 2,
+      "status": "pending",
+      "reason": "empty taxonomy folder"
+    },
+    {
+      "id": "research-09_ui",
+      "query": "Authoritative best practices for UI (Components, states, interface patterns)",
+      "domain": "ui",
+      "knowledgeFolder": "09_ui",
+      "priority": 2,
+      "status": "pending",
+      "reason": "empty taxonomy folder"
+    },
+    {
+      "id": "research-10_ux",
+      "query": "Authoritative best practices for UX (Information architecture, flows, usability)",
+      "domain": "ux",
+      "knowledgeFolder": "10_ux",
+      "priority": 2,
+      "status": "pending",
+      "reason": "empty taxonomy folder"
+    },
+    {
+      "id": "research-11_psychology",
+      "query": "Authoritative best practices for Psychology (Buying psychology, trust, persuasion)",
+      "domain": "psychology",
+      "knowledgeFolder": "11_psychology",
+      "priority": 2,
+      "status": "pending",
+      "reason": "empty taxonomy folder"
+    },
+    {
+      "id": "research-12_seo",
+      "query": "Authoritative best practices for SEO (Search optimization, intent, on-page)",
+      "domain": "seo",
+      "knowledgeFolder": "12_seo",
+      "priority": 2,
+      "status": "pending",
+      "reason": "empty taxonomy folder"
+    },
+    {
+      "id": "research-13_geo",
+      "query": "Authoritative best practices for GEO (Generative engine optimization)",
+      "domain": "geo",
+      "knowledgeFolder": "13_geo",
+      "priority": 2,
+      "status": "pending",
+      "reason": "empty taxonomy folder"
+    },
+    {
+      "id": "research-14_aeo",
+      "query": "Authoritative best practices for AEO (Answer engine optimization)",
+      "domain": "aeo",
+      "knowledgeFolder": "14_aeo",
+      "priority": 2,
+      "status": "pending",
+      "reason": "empty taxonomy folder"
+    },
+    {
+      "id": "research-15_llmo",
+      "query": "Authoritative best practices for LLMO (Large language model optimization)",
+      "domain": "llmo",
+      "knowledgeFolder": "15_llmo",
+      "priority": 2,
+      "status": "pending",
+      "reason": "empty taxonomy folder"
+    },
+    {
+      "id": "research-16_ai",
+      "query": "Authoritative best practices for AI (AI strategy, governance, enterprise AI)",
+      "domain": "ai",
+      "knowledgeFolder": "16_ai",
+      "priority": 2,
+      "status": "pending",
+      "reason": "empty taxonomy folder"
+    },
+    {
+      "id": "research-17_rag",
+      "query": "Authoritative best practices for RAG (Retrieval augmented generation)",
+      "domain": "rag",
+      "knowledgeFolder": "17_rag",
+      "priority": 2,
+      "status": "pending",
+      "reason": "empty taxonomy folder"
+    },
+    {
+      "id": "research-18_agents",
+      "query": "Authoritative best practices for Agents (Agentic systems, MCP, orchestration)",
+      "domain": "agents",
+      "knowledgeFolder": "18_agents",
+      "priority": 2,
+      "status": "pending",
+      "reason": "empty taxonomy folder"
+    },
+    {
+      "id": "research-19_architecture",
+      "query": "Authoritative best practices for Architecture (System design, cloud, DevOps)",
+      "domain": "architecture",
+      "knowledgeFolder": "19_architecture",
+      "priority": 2,
+      "status": "pending",
+      "reason": "empty taxonomy folder"
+    },
+    {
+      "id": "research-20_performance",
+      "query": "Authoritative best practices for Performance (Web perf, Core Web Vitals, optimization)",
+      "domain": "performance",
+      "knowledgeFolder": "20_performance",
+      "priority": 2,
+      "status": "pending",
+      "reason": "empty taxonomy folder"
+    },
+    {
+      "id": "research-21_security",
+      "query": "Authoritative best practices for Security (App security, compliance, AI safety)",
+      "domain": "security",
+      "knowledgeFolder": "21_security",
+      "priority": 2,
+      "status": "pending",
+      "reason": "empty taxonomy folder"
+    }
+  ],
+  "suggestions": [
+    "Prioritize seeding 5 empty taxonomy folders per week",
+    "Ingest top 5 competitor profiles into 23_competitors/",
+    "Run npm run atlas:ingest after populating ingest/raw/*.json from web research"
+  ],
+  "graph": {
+    "nodes": 13
+  },
+  "index": {
+    "docs": 13
+  }
+}

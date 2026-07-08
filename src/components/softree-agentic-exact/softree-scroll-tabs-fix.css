@@ -1,0 +1,27 @@
+/* Pinned scroll-tabs — width only; GSAP ScrollTrigger owns transform/height while pinned */
+
+.softree-agentic-shell .k2-section-scroll-tabs {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.softree-agentic-shell .k2-scroll-tabs-menu {
+  position: relative;
+  z-index: 4;
+  pointer-events: auto;
+}
+
+.softree-agentic-shell .k2-scroll-tabs-menu-link {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.softree-agentic-shell .k2-scroll-tabs-content-pane:not(.w--tab-active) .k2-scroll-tabs-content-block {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.softree-agentic-shell .k2-scroll-tabs-content-pane.w--tab-active .k2-scroll-tabs-content-block {
+  opacity: 1;
+  pointer-events: auto;
+}

@@ -7,7 +7,7 @@ import Footer from "@/components/sections/footer";
 import { TransferredSoftreeHero } from "@/components/sections/TransferredSoftreeHero";
 
 import ServicesStackedSlides from "@/components/sections/ServicesStackedSlides";
-import KoreEnterpriseCarousel from "@/components/sections/KoreEnterpriseCarousel";
+import SoftreeEnterpriseCarousel from "@/components/sections/SoftreeEnterpriseCarousel";
 import GlobalClientNetwork from "@/components/sections/GlobalClientNetwork";
 
 /* ── Lazy-loaded transferred components ──
@@ -95,7 +95,7 @@ export default function Home({ homepageCaseStudies }: HomeProps) {
         <EngineeringSolutionsLazy />
 
         {/* Industry tabs + Softree partner marquees — continues light band. */}
-        <KoreEnterpriseCarousel />
+        <SoftreeEnterpriseCarousel />
 
         <TechStackSectionLazy />
         <LightServicesStickyListLazy />

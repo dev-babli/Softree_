@@ -1,19 +1,6 @@
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
-import StackedSlider from "./stack-slider";
-import AgenticSection from "./agentic-section";
-import EnterpriseAIBenefits from "./enterprise";
-import WhyChooseUs from "./why";
-import AIStats from "./ai-stats";
-import AgenticToolsOverview from "./tools";
-import HeroWithTestimonial from "./hero";
-import IndustriesSection from "./industry";
-import AgenticFramework from "./agentic-frame";
-import TrustedBrandsMarquee from "../offshore-power-platform-development/trust";
-import Certifications from "../offshore-power-platform-development/certification";
-import AIServicesSection from "./strategy";
-import LightContactSection from "@/components/homepage-light/LightContactSection";
-import LightFAQExact from "@/components/homepage-light/LightFAQExact";
+import { AgenticAiPage } from "@/components/agentic-ai/AgenticAiPage";
 import { Metadata } from "next";
 import { applyPageOg } from "@/lib/site-metadata";
 
@@ -53,7 +40,7 @@ const agenticAIFAQs = [
     answer:
       "We implement guardrails, human-in-the-loop validation, monitoring, and fallback mechanisms. We establish clear boundaries for agent actions and provide comprehensive testing to ensure safe and reliable operation.",
   },
-]
+];
 
 export const metadata: Metadata = applyPageOg("/services/offshore-ai-development", {
   title:
@@ -103,22 +90,9 @@ export const metadata: Metadata = applyPageOg("/services/offshore-ai-development
 
 export default function AgenticAIPage() {
   return (
-    <div>
+    <div className="min-h-screen bg-white pt-[100px]">
       <NavigationClient />
-      <HeroWithTestimonial />
-      <TrustedBrandsMarquee />
-      <StackedSlider />
-      <EnterpriseAIBenefits />
-      <AgenticToolsOverview />
-      <IndustriesSection />
-      <AgenticFramework />
-      <AIServicesSection />
-      <WhyChooseUs />
-      <AgenticSection />
-      <Certifications />
-      <LightContactSection />
-      <LightFAQExact faqs={agenticAIFAQs} />
-
+      <AgenticAiPage faqs={agenticAIFAQs} />
       <Footer />
     </div>
   );

@@ -9,14 +9,13 @@
  * @see https://www.sanity.io/docs/visual-editing
  */
 
-import { useDraftModeEnvironment } from 'next-sanity/hooks'
+import { useIsPresentationTool } from 'next-sanity/hooks'
 
 export function DisableDraftMode() {
-  const environment = useDraftModeEnvironment()
+  const isPresentationTool = useIsPresentationTool()
 
-  // Only show when outside the Presentation Tool
-  // (environment === 'live' means standalone preview, not in Studio iframe)
-  if (environment !== 'live' && environment !== 'unknown') {
+  // Hide inside Presentation Tool; show for standalone draft-mode preview.
+  if (isPresentationTool) {
     return null
   }
 

@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { client } from "@/sanity/lib/client";
-import { latestBlogsQuery } from "@/sanity/queries";
-import type { SanityBlogPost } from "@/sanity/types";
+import { client } from "@/cms/lib/client";
+import { latestBlogsQuery } from "@/cms/lib/queries/queries";
+import type { SanityBlogPost } from "@/cms/lib/types";
 import LatestBlogsSection from "./ai-insights-blog";
 
 export default function LatestBlogsClient() {

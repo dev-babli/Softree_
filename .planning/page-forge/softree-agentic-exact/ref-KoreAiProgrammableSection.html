@@ -1,0 +1,175 @@
+
+                    <div class="k2-code w-embed">
+                        <style>
+                            /* Orbit */
+                            .k2-orbit svg {
+                                overflow: visible
+                            }
+
+                            .wf-design-mode :is(.k2-orbit-sticky-wrapper, .k2-orbit-steps) {
+                                height: auto
+                            }
+
+                            .wf-design-mode .k2-orbit-sticky {
+                                position: static
+                            }
+
+                            .k2-orbit-button::before {
+                                content: "";
+                                position: absolute;
+                                inset: -50%
+                            }
+
+                            .k2-orbit-button.w--current {
+                                width: 2rem;
+                                opacity: 1
+                            }
+
+                            /* Desktop */
+                            @media screen and (min-width:991px) {
+
+                                .k2-orbit>*,
+                                .k2-orbit-content>* {
+                                    transition: opacity .5s, transform 1s var(--ease)
+                                }
+
+                                .k2-orbit-content>* {
+                                    transition-duration: .3s
+                                }
+
+                                .k2-orbit-content::before {
+                                    content: none
+                                }
+
+                                html:not(.wf-design-mode) .k2-orbit-content>:last-child {
+                                    opacity: 0
+                                }
+
+                                [data-step="1"] .k2-orbit:nth-child(1)>.k2-orbit-content {
+                                    transform: translate3d(100%, 20%, 0)
+                                }
+
+                                [data-step="1"] .k2-orbit:nth-child(1)>.k2-orbit-content>:last-child {
+                                    opacity: 1;
+                                    transition-delay: .3s
+                                }
+
+                                [data-step="1"] .k2-orbit:nth-child(1)>.k2-orbit-circle {
+                                    transform: translate3d(0%, 0, 0) scale(1.5)
+                                }
+
+                                [data-step="1"] .k2-orbit:not(:nth-child(1))>.k2-orbit-content {
+                                    opacity: 0
+                                }
+
+                                [data-step="1"] .k2-orbit:not(:nth-child(1))>.k2-orbit-circle {
+                                    transform: translate3d(6.5rem, 4rem, 0)
+                                }
+
+                                [data-step="2"] .k2-orbit:nth-child(2)>.k2-orbit-content {
+                                    transform: translate3d(-70%, -170%, 0)
+                                }
+
+                                [data-step="2"] .k2-orbit:nth-child(2)>.k2-orbit-content>:last-child {
+                                    opacity: 1;
+                                    transition-delay: .3s
+                                }
+
+                                [data-step="2"] .k2-orbit:nth-child(2)>.k2-orbit-circle {
+                                    transform: translate3d(-20%, 0, 0) scale(1.5)
+                                }
+
+                                [data-step="2"] .k2-orbit:not(:nth-child(2))>.k2-orbit-content {
+                                    opacity: 0
+                                }
+
+                                [data-step="2"] .k2-orbit:not(:nth-child(2))>.k2-orbit-circle {
+                                    transform: translate3d(5rem, 0, 0)
+                                }
+
+                                [data-step="2"] .k2-orbit:nth-child(1)>.k2-orbit-circle {
+                                    transform: translate3d(15rem, -7.625rem, 0)
+                                }
+
+                                [data-step="3"] .k2-orbit:nth-child(3)>.k2-orbit-content {
+                                    transform: translate3d(-100%, 150%, 0)
+                                }
+
+                                [data-step="3"] .k2-orbit:nth-child(3)>.k2-orbit-content>:last-child {
+                                    opacity: 1;
+                                    transition-delay: .3s
+                                }
+
+                                [data-step="3"] .k2-orbit:nth-child(3)>.k2-orbit-circle {
+                                    transform: translate3d(0, 27%, 0) rotate(90deg) scale(1.5)
+                                }
+
+                                [data-step="3"] .k2-orbit:not(:nth-child(3))>.k2-orbit-content {
+                                    opacity: 0
+                                }
+
+                                [data-step="3"] .k2-orbit:not(:nth-child(3))>.k2-orbit-circle {
+                                    transform: translate3d(-5rem, 0, 0)
+                                }
+
+                                [data-step="3"] .k2-orbit:nth-child(2)>.k2-orbit-circle {
+                                    transform: translate3d(-5rem, -15rem, 0) rotate(180deg)
+                                }
+
+                                :is([data-step="2"], [data-step="3"]) .k2-orbit-circle-1 {
+                                    z-index: 1
+                                }
+                            }
+
+                            /* Tablet-Mobile */
+                            @media screen and (max-width:991px) {
+                                .k2-orbit-circle circle:last-child {
+                                    stroke: currentColor;
+                                    stroke-width: 1px;
+                                    fill: #fef8ee;
+                                    transition: fill .5s
+                                }
+
+                                .k2-orbit:nth-child(2) .k2-orbit-circle circle:last-child {
+                                    transform-origin: 50% 100%;
+                                    transform: scale(1.25)
+                                }
+
+                                .k2-orbit:nth-child(3) .k2-orbit-circle circle:last-child {
+                                    transform-origin: 90% 20%;
+                                    transform: scale(1.75)
+                                }
+
+                                :is([data-step="1"] .k2-orbit:nth-child(1),
+                                    [data-step="2"] .k2-orbit:nth-child(2),
+                                    [data-step="3"] .k2-orbit:nth-child(3)) circle:last-child {
+                                    fill: #8dd975
+                                }
+
+                                .k2-orbit-circle svg {
+                                    transition: transform 1s var(--ease)
+                                }
+
+                                .k2-orbit:nth-child(1) .k2-orbit-circle svg {
+                                    transform: rotate(40deg)
+                                }
+
+                                .k2-orbit:nth-child(2) .k2-orbit-circle svg {
+                                    transform: rotate(40deg)
+                                }
+
+                                .k2-orbit:nth-child(3) .k2-orbit-circle svg {
+                                    transform: rotate(20deg)
+                                }
+
+                                [data-step="1"] .k2-orbit:nth-child(1) .k2-orbit-circle svg,
+                                [data-step="2"] .k2-orbit:nth-child(2) .k2-orbit-circle svg {
+                                    transform: none
+                                }
+
+                                [data-step="3"] .k2-orbit:nth-child(3) .k2-orbit-circle svg {
+                                    transform: rotate(70deg)
+                                }
+
+                                html:not(.wf-design-mode) .k2-orbit-content {
+   

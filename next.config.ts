@@ -66,8 +66,33 @@ const nextConfig: any = {
         permanent: true,
       },
       {
+        source: "/kore-ai-component",
+        destination: "/agentic-ai-platform",
+        permanent: true,
+      },
+      {
+        source: "/kore-ai-component/:path*",
+        destination: "/agentic-ai-platform/:path*",
+        permanent: true,
+      },
+      {
         source: "/contact-us",
         destination: "/contact",
+        permanent: true,
+      },
+      {
+        source: "/services/ai-intelligence",
+        destination: "/ai",
+        permanent: true,
+      },
+      {
+        source: "/services/ai-intelligence/agentic-ai",
+        destination: "/services/offshore-ai-development",
+        permanent: true,
+      },
+      {
+        source: "/services/ai-intelligence/generative-ai",
+        destination: "/services/offshore-generative-ai-development",
         permanent: true,
       },
     ];

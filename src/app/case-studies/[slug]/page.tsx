@@ -1,19 +1,20 @@
-import { sanityFetch } from "@/sanity/lib/fetch"
-import { readClient } from "@/sanity/lib/readClient"
+import { sanityFetch } from "@/cms/lib/fetch"
+import { readClient } from "@/cms/lib/readClient"
 import {
   allCaseStudySlugsQuery,
   caseStudyBySlugQuery,
   relatedCaseStudiesFallbackQuery,
-} from "@/sanity/queries"
+} from "@/cms/lib/queries/queries"
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { CaseStudyPageRenderer } from "@/components/case-studies/CaseStudyPageRenderer"
 import { getNavigationData } from "@/components/sections/navigation-server"
 import { fetchDesignTokens } from "@/lib/fetch-design-tokens"
 import { buildBlogJsonLdGraph } from "@/lib/structured-data"
-import { collectFaqItems } from "@/sanity/lib/aeoCompleteness"
+import { collectFaqItems } from "@/cms/lib/studio/aeoCompleteness"
 import type { SanityCaseStudyDoc } from "@/components/case-studies/layouts/mapCaseStudyData"
 import type { RelatedStudy } from "@/components/case-studies/layouts/types"
+import { isPremiumLayout } from "@/lib/case-study-layouts"
 import { ogImages, pageOgImage, SITE_URL, twitterImages } from "@/lib/site-metadata"
 
 export const dynamic = "force-dynamic"
@@ -68,10 +69,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function CaseStudyDetailPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>
+  searchParams: Promise<{ layout?: string }>
 }) {
   const { slug } = await params
+  const { layout: layoutOverride } = await searchParams
   const study = await sanityFetch<CaseStudyDoc | null>(caseStudyBySlugQuery, { slug })
   if (!study) notFound()
 
@@ -120,12 +124,19 @@ export default async function CaseStudyDetailPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
       />
       <CaseStudyPageRenderer
-        study={study}
+        study={
+          layoutOverride && isPremiumLayout(layoutOverride)
+            ? { ...study, detailLayout: layoutOverride }
+            : study
+        }
         related={related}
         slug={slug}
         initialBlogCategories={blogCategories}
         initialCaseStudyCategories={caseStudyCategories}
         designTokens={designTokens}
+        forceLayout={
+          layoutOverride && isPremiumLayout(layoutOverride) ? layoutOverride : undefined
+        }
       />
     </>
   )

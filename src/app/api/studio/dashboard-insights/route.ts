@@ -4,50 +4,60 @@ import { NextResponse } from 'next/server'
 import { auditPageSpeed } from '@/lib/psi/auditPage'
 import { fetchGscSnapshot } from '@/lib/studio/gscSnapshot'
 import { fetchPosthogSnapshot } from '@/lib/studio/posthogSnapshot'
-import { client } from '@/sanity/lib/client'
-import type { DashboardInsights } from '@/sanity/studio/dashboard/insightsTypes'
+import { client } from '@/cms/lib/client'
+import type { DashboardInsights } from '@/cms/studio/dashboard/insightsTypes'
 
 const SITE_BASE = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.softreetechnology.com'
 
 const CONTENT_ISSUES_QUERY = `{
   "stalePublished": count(*[
     _type in ["caseStudy", "post"] &&
-    coalesce(status, "published") == "published" &&
+    coalesce(visibility, status, "published") == "published" &&
     dateTime(_updatedAt) < dateTime(now()) - 60*60*24*90
   ]),
   "pendingReview": count(*[
     _type in ["caseStudy", "post", "marketingPage"] &&
     coalesce(reviewStatus, "draft") != "approved" &&
-    coalesce(status, "published") != "archived"
+    coalesce(visibility, status, "published") != "archived"
   ]),
   "missingMeta": count(*[
     _type in ["caseStudy", "post"] &&
-    coalesce(status, "published") == "published" &&
+    coalesce(visibility, status, "published") == "published" &&
     (!defined(metaTitle) || !defined(metaDescription))
   ]),
   "missingFaq": count(*[
     _type in ["caseStudy", "post"] &&
-    coalesce(status, "published") == "published" &&
-    count(coalesce(faqSchema, [])) < 2
+    coalesce(visibility, status, "published") == "published" &&
+    (
+      count(coalesce(faqSchema, [])) +
+      count(coalesce(faqs, [])) +
+      count(coalesce(composerSections[_type == "csFaqSection"].faqs, []))
+    ) < 2
   ]),
   "missingAlt": count(*[
     _type in ["caseStudy", "post"] &&
-    coalesce(status, "published") == "published" &&
+    coalesce(visibility, status, "published") == "published" &&
     defined(mainImage.asset) &&
     !defined(mainImage.alt)
   ]),
   "unpublishedDrafts": count(*[
     _type in ["caseStudy", "post"] &&
-    coalesce(status, "published") == "draft"
+    coalesce(visibility, status, "published") == "draft"
   ])
 }`
 
-/** One mobile homepage audit keeps the dashboard fast; run \`npm run psi\` for full audits. */
+/** Key marketing routes — PageSpeed audits (cached 1h; dev needs PSI_DASHBOARD=1). */
 const PSI_DASHBOARD_PAGES: Array<{
   label: string
   path: string
   strategy: 'mobile' | 'desktop'
-}> = [{ label: 'Homepage', path: '/', strategy: 'mobile' }]
+}> = [
+  { label: 'Homepage', path: '/', strategy: 'mobile' },
+  { label: 'Case studies hub', path: '/case-studies', strategy: 'mobile' },
+  { label: 'Blog', path: '/blog', strategy: 'mobile' },
+  { label: 'Contact', path: '/contact', strategy: 'mobile' },
+  { label: 'Services', path: '/services', strategy: 'mobile' },
+]
 
 const shouldRunPsi =
   Boolean(process.env.PSI_API_KEY) &&

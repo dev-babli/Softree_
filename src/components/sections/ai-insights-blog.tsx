@@ -6,7 +6,7 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import type { SanityBlogPost } from "@/sanity/types";
+import type { SanityBlogPost } from "@/cms/lib/types";
 
 gsap.registerPlugin(ScrollTrigger);
 

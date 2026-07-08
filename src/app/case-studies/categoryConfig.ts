@@ -21,6 +21,14 @@ export function isCaseStudyCategory(value: string): value is CaseStudyCategoryKe
   return CASE_STUDY_CATEGORY_KEYS.includes(value as CaseStudyCategoryKey)
 }
 
+/** Studio picker + schema list — single source of truth */
+export function getCaseStudyCategoryStudioList() {
+  return CASE_STUDY_CATEGORY_KEYS.map((key) => ({
+    title: CASE_STUDY_CATEGORY_CONFIG[key].title,
+    value: key,
+  }))
+}
+
 type CategoryFAQ = {
   id: number
   serial: string

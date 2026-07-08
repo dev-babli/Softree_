@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "hooks": {
+    "stop": [
+      {
+        "command": "bun .cursor/hooks/keep-going.ts",
+        "timeout": 10,
+        "failClosed": true,
+        "loop_limit": 12
+      }
+    ]
+  }
+}

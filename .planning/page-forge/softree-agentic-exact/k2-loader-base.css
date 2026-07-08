@@ -1,0 +1,40 @@
+.k2-loader{display:flex}
+
+.k2-loader:not(:has(>[data-w-instance-of])){
+  display:flex;
+}
+
+.k2-loader *{
+  opacity:1!important;
+  transform:none!important;
+}
+
+.k2-loader p>:first-child{
+  transform:translate3d(25%,0,0);
+}
+
+.k2-loader em{
+  opacity:0;
+  transition:color .5s;
+}
+
+.k2-loader .k2-heading sup{
+  white-space:nowrap;
+  width:0;
+  will-change:transform;
+}
+
+.k2-loader>*{
+  transition:opacity .5s;
+}
+
+.k2-loader em>:last-child{
+  transform:translate3d(-150%,0,0);
+}
+
+.k2-loader");
+
+  if (!loader) {
+    onDone();
+    return;
+  }

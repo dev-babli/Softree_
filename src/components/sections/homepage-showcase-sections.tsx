@@ -7,9 +7,9 @@ import type { BlogPostMock } from "@/components/bento-layout";
 import { BENTO_ABSTRACT } from "@/components/bento-layout/bento-media";
 import { homepageTestimonials } from "@/data/homepage-showcase-content";
 import SuccessStoriesBentoSection from "@/components/sections/SuccessStoriesBentoSection";
-import { client } from "@/sanity/lib/client";
-import { latestBlogsQuery } from "@/sanity/queries";
-import type { SanityBlogPost } from "@/sanity/types";
+import { client } from "@/cms/lib/client";
+import { latestBlogsQuery } from "@/cms/lib/queries/queries";
+import type { SanityBlogPost } from "@/cms/lib/types";
 
 const BENTO_IMAGE_POOL = [
   BENTO_ABSTRACT.iridescent,

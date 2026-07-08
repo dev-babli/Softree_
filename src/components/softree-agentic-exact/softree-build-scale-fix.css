@@ -1,0 +1,51 @@
+/* #build-scale-optimize — dark section after light theme block */
+
+.softree-agentic-shell #build-scale-optimize {
+  position: relative;
+  isolation: isolate;
+}
+
+.softree-agentic-shell #build-scale-optimize .k2-bg {
+  z-index: 0;
+}
+
+.softree-agentic-shell #build-scale-optimize .k2-bg,
+.softree-agentic-shell #build-scale-optimize .k2-bg .k2-img {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.softree-agentic-shell #build-scale-optimize > :not(.k2-bg) {
+  position: relative;
+  z-index: 1;
+}
+
+.softree-agentic-shell #build-scale-optimize .k2-tabs-menu-2 {
+  position: relative;
+  z-index: 3;
+  pointer-events: auto;
+}
+
+.softree-agentic-shell #build-scale-optimize .k2-tabs-panels-2,
+.softree-agentic-shell #build-scale-optimize .k2-tabs-panels {
+  display: grid;
+  position: relative;
+  z-index: 2;
+}
+
+.softree-agentic-shell #build-scale-optimize .k2-tabs-panels-2 > .k2-tabs-panel {
+  grid-area: 1 / 1;
+}
+
+.softree-agentic-shell #build-scale-optimize .k2-tabs-panels > .k2-tabs-panel {
+  grid-area: 1 / 1;
+}
+
+.softree-agentic-shell #build-scale-optimize .k2-tabs-panel:not(.on) {
+  pointer-events: none;
+}
+
+.softree-agentic-shell #build-scale-optimize .radar-panel.on #radar-wrap svg {
+  opacity: 1;
+  visibility: visible;
+}

@@ -25,7 +25,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { assets } from '../../src/components/kore/assets';
+import { assets } from '../../src/components/softree-marketing-ui/assets';
 
 // ---------------------------------------------------------------------------
 // Workspace + inventory paths
@@ -228,7 +228,7 @@ describe('Property 10: Asset Manifest Well-Formedness', () => {
     // PART C — Rive fallback completeness (Req 24.4)
     // -----------------------------------------------------------------------
 
-    it('PART C — every `.riv` entry carries a `local` fallback under `/kore/rive/` (Req 24.4)', () => {
+    it('PART C — every `.riv` entry carries a `local` fallback under `/softree-marketing/rive/` (Req 24.4)', () => {
         const rivLeaves = MANIFEST_LEAVES.filter((l) => l.url.endsWith('.riv'));
 
         // Sanity: Source_Document declares Rive on the Hero block, so we
@@ -242,7 +242,7 @@ describe('Property 10: Asset Manifest Well-Formedness', () => {
             ).toBeDefined();
             expect(leaf.fallback?.kind).toBe('local');
             expect(
-                leaf.fallback?.url.startsWith('/kore/rive/'),
+                leaf.fallback?.url.startsWith('/softree-marketing/rive/'),
                 `Expected fallback URL under /kore/rive/ for ${leaf.section}.${leaf.id}; got ${leaf.fallback?.url}`,
             ).toBe(true);
             // And the fallback file must already exist on disk.

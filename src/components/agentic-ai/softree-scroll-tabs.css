@@ -1,0 +1,130 @@
+/* Ported from Softree_/aipage.html — k2-scroll-tabs embed styles (lines 5550–5627) */
+
+.k2-scroll-tabs-root {
+  --k2-cream: #f8f4ec;
+  --k2-ink: #121417;
+  --k2-accent: #ff5812;
+}
+
+.k2-scroll-tabs-content-block {
+  opacity: 0;
+}
+
+.k2-scroll-tabs-content-pane.is-active .k2-scroll-tabs-content-block {
+  opacity: 1;
+}
+
+.k2-scroll-tabs-menu-link {
+  opacity: 0.25;
+  transition: color 0.55s ease, opacity 0.55s ease, transform 0.55s ease;
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 0;
+  font: inherit;
+}
+
+.k2-tab-common-ai {
+  opacity: 0;
+  transition: opacity 0.45s ease, color 0.45s ease;
+}
+
+.k2-scroll-tabs-menu-link.is-current .k2-tab-common-ai {
+  opacity: 1;
+}
+
+.k2-scroll-tabs-menu-link.is-current {
+  opacity: 1;
+  color: var(--k2-ink);
+}
+
+.k2-scroll-tabs-content-bg {
+  transform: scale(1.08);
+  object-fit: cover;
+}
+
+.k2-bar-strip {
+  width: 100%;
+  height: 1.25rem;
+  opacity: 0.2;
+  margin-top: 0.5rem;
+  background: repeating-linear-gradient(
+    to right,
+    #d9d9d9 0px,
+    #d9d9d9 8px,
+    transparent 0px,
+    transparent 14px
+  );
+}
+
+.k2-corners {
+  position: relative;
+}
+
+.k2-corners::before,
+.k2-corners::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: var(--k2-accent);
+  border-style: solid;
+  pointer-events: none;
+}
+
+.k2-corners::before {
+  top: 0;
+  left: 0;
+  border-width: 1px 0 0 1px;
+}
+
+.k2-corners::after {
+  bottom: 0;
+  right: 0;
+  border-width: 0 1px 1px 0;
+}
+
+@media screen and (max-width: 767px) {
+  .k2-scroll-tabs-menu {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    display: flex;
+    gap: 1.5rem;
+    flex-direction: row !important;
+  }
+
+  .k2-scroll-tabs-menu::-webkit-scrollbar {
+    display: none;
+  }
+
+  .k2-tab-common-ai {
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .k2-scroll-tabs-layout {
+    display: grid;
+    grid-template-columns: 1fr minmax(200px, 280px);
+    gap: 2rem;
+    align-items: stretch;
+  }
+
+  .k2-scroll-tabs-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .k2-scroll-tabs-menu-link {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: rgba(18, 20, 23, 0.35);
+  }
+}

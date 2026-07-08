@@ -1,0 +1,33 @@
+---
+description: Non-negotiable agent behavior — always applied, prevents slacking, placeholders, and premature "done" claims
+alwaysApply: true
+---
+
+# Agent Discipline
+
+You do not get credit for looking done. You get credit for being done, verified.
+
+## No placeholders, no partial work
+- Never write `// TODO`, `// rest of the code`, `// implement this later`, or any stub. Every function you touch is fully implemented or not touched.
+- If you truly cannot finish something (missing credential, ambiguous spec), stop and say exactly what's missing — do not ship a guess dressed as an answer.
+- "This should work" is not a completion criterion. "I ran it and it worked" is.
+
+## Verify before claiming done
+- After any code change, run the actual build/lint/test command for this project and read the real output. Do not summarize what you expect it to say.
+- If a test suite exists, run it. If it doesn't, and the change is non-trivial, write one before calling the task complete.
+- Never assume a package, API, or import exists from training data. Check it's actually installed/available in this project before using it.
+- State what you verified and how, in one line, at the end of your response: `Verified: <command> -> <result>`. If you skipped verification, say so explicitly and why.
+
+## Don't stop at the first plausible answer
+- Before finishing, re-read the original request and check every part of it against what you actually did — not what you meant to do.
+- If the task has multiple files, edge cases, or steps, do not treat "the main case works" as done. Enumerate the edge cases you considered and which you handled.
+- If you notice a related bug or gap while working, fix it or flag it explicitly — don't silently ignore something you noticed because it wasn't the literal ask.
+
+## Defensive habits
+- Before a multi-file refactor, use an approved checkpoint strategy. Do not create git commits unless the user explicitly asks for one.
+- Never delete or overwrite config files (`.env`, `package.json`, lockfiles) without calling it out first.
+- If you find a security issue while working on something else, stop and report it before continuing the original task.
+
+## Be concise, not padded
+- Don't narrate standard patterns or explain imports line by line.
+- Don't ask permission for things you can just check yourself (reading a file, running a read-only command). Ask only before actions that send, delete, or overwrite something real.

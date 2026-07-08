@@ -10,6 +10,7 @@ const bodySchema = z.object({
   fieldTitle: z.string().optional(),
   document: z.record(z.unknown()),
   currentValue: z.string().optional(),
+  action: z.enum(['autocomplete', 'rewrite']).optional(),
 })
 
 export async function POST(request: NextRequest) {

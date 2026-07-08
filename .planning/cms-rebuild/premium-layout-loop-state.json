@@ -1,0 +1,40 @@
+{
+  "slug": "premium-layout-loop",
+  "iteration": 2,
+  "status": "IN_PROGRESS",
+  "targetScore": 9,
+  "currentLayout": "sidebar-metadata",
+  "completed": [
+    "manufacturing-power-platform",
+    "page-composer"
+  ],
+  "inProgress": ["sidebar-metadata"],
+  "queue": [
+    "split-hero-mockup",
+    "zigzag-alternating",
+    "vertical-timeline",
+    "tabbed-deliverables",
+    "bento-results",
+    "video-hero",
+    "before-after-table",
+    "stats-dashboard",
+    "parallax-screenshots",
+    "nexora-product-story",
+    "synqlab-product-story",
+    "payflow-fintech-story",
+    "ai-horizontal-story",
+    "neutrino-dashboard-story",
+    "madar-sticky-story",
+    "education-edtech-story"
+  ],
+  "lastRun": {
+    "at": "2026-07-07T12:04:00.000Z",
+    "auditTotal": 38,
+    "auditIssues": 0,
+    "cmsPatches": 4,
+    "rendererFixes": [
+      "resolveDetailLayout: composerSections → page-composer",
+      "forceLayout query param for layout-showcase"
+    ]
+  }
+}

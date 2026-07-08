@@ -1,0 +1,38 @@
+/* SignalStrip marquee — CSS transform loop, the page's ONE marquee. */
+.track {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+  will-change: transform;
+}
+
+.paused {
+  animation-play-state: paused;
+}
+
+.track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 767px) {
+  .track {
+    animation-duration: 60s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+    width: auto;
+    overflow-x: auto;
+  }
+}

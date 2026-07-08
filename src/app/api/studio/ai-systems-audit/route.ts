@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-import { runAiSystemsAudit } from '@/sanity/lib/aiSystemsAudit'
+import { runAiSystemsAudit } from '@/cms/lib/aiSystemsAudit'
 import { isStudioApiRequest, studioApiUnauthorized } from '@/lib/studio-api-auth'
 
 export async function GET(request: NextRequest) {

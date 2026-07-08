@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "system": "ATLAS",
+  "startedAt": null,
+  "currentPage": null,
+  "currentLoop": 0,
+  "maxLoopsPerPage": 6,
+  "designBriefPath": "design-reference/DESIGN-BRIEF.md",
+  "selectedConcept": null,
+  "pageQueue": [
+    { "route": "/about-us", "status": "pending", "loops": 0, "awwwardsScore": null, "rubricScore": null },
+    { "route": "/ai", "status": "pending", "loops": 0, "awwwardsScore": null, "rubricScore": null },
+    { "route": "/services/offshore-ai-development", "status": "pending", "loops": 0, "awwwardsScore": null, "rubricScore": null },
+    { "route": "/services/offshore-generative-ai-development", "status": "pending", "loops": 0, "awwwardsScore": null, "rubricScore": null },
+    { "route": "/services/website-modernization", "status": "pending", "loops": 0, "awwwardsScore": null, "rubricScore": null },
+    { "route": "/services/ai-powered-test-automation", "status": "pending", "loops": 0, "awwwardsScore": null, "rubricScore": null },
+    { "route": "/case-studies/ai", "status": "pending", "loops": 0, "awwwardsScore": null, "rubricScore": null }
+  ],
+  "fullSiteVerifier": { "status": "pending", "completedAt": null }
+}

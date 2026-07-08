@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import dynamic from "next/dynamic"
-import { motion } from "framer-motion"
+import { motion, useReducedMotion } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
 import { useState, type FormEvent, type ReactNode } from "react"
 import { SOFTREE_OFFICES_CONTACT } from "@/data/softree-offices"
@@ -13,6 +13,14 @@ const CalendlyPopupButton = dynamic(
 )
 
 type Status = "idle" | "submitting" | "success" | "error"
+
+type LightContactSectionProps = {
+  headlineLead?: string
+  headlineAccent?: string
+  headlineLabel?: string
+  body?: string
+  messagePlaceholder?: string
+}
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1]
 
@@ -119,8 +127,15 @@ function Field({
   )
 }
 
-export default function LightContactSection() {
+export default function LightContactSection({
+  headlineLead = "Build faster with a reliable",
+  headlineAccent = "offshore engineering partner",
+  headlineLabel = "Build faster with a reliable offshore engineering partner",
+  body = "Partner with Softree to accelerate product delivery, modernize enterprise systems, and scale with confidence.",
+  messagePlaceholder = "Project Message",
+}: LightContactSectionProps = {}) {
   const [status, setStatus] = useState<Status>("idle")
+  const reduceMotion = useReducedMotion()
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -161,29 +176,28 @@ export default function LightContactSection() {
 
       <div className="relative mx-auto max-w-[1440px]">
         <motion.div
-          initial={{ y: 28, opacity: 0 }}
+          initial={reduceMotion ? false : { y: 28, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, margin: "-12%" }}
-          transition={{ duration: 0.75, ease: EASE }}
+          transition={reduceMotion ? { duration: 0 } : { duration: 0.75, ease: EASE }}
           className="mb-4 text-center sm:mb-6"
         >
           <h2
-            aria-label="Build faster with a reliable offshore engineering partner"
+            aria-label={headlineLabel}
             className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-semibold leading-[1.1] tracking-[-0.02em] max-w-4xl mx-auto"
           >
-            Build faster with a reliable{" "}
-            <span className="text-[#ff5812]">offshore engineering partner</span>.
+            {headlineLead} <span className="text-[#ff5812]">{headlineAccent}</span>.
           </h2>
           <p className="mt-2 text-white/60 text-sm sm:text-base max-w-2xl mx-auto">
-            Partner with Softree to accelerate product delivery, modernize enterprise systems, and scale with confidence.
+            {body}
           </p>
         </motion.div>
 
         <motion.div
-          initial={{ y: 34, opacity: 0, scale: 0.985 }}
+          initial={reduceMotion ? false : { y: 34, opacity: 0, scale: 0.985 }}
           whileInView={{ y: 0, opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-10%" }}
-          transition={{ duration: 0.85, ease: EASE, delay: 0.05 }}
+          transition={reduceMotion ? { duration: 0 } : { duration: 0.85, ease: EASE, delay: 0.05 }}
           className="overflow-hidden rounded-[8px] bg-[#09090d] text-white shadow-[0_34px_100px_-50px_rgba(0,0,0,0.75)]"
         >
           <div className="grid lg:min-h-[420px] grid-cols-1 lg:grid-cols-[0.32fr_1.12fr_1fr]">
@@ -193,16 +207,16 @@ export default function LightContactSection() {
                   Follow us
                 </p>
                 <div className="mt-5 flex flex-wrap gap-3 lg:flex-col">
-                  <SocialIcon href="https://www.instagram.com/" label="Instagram">
+                  <SocialIcon href="https://www.instagram.com/softreetechnology/" label="Instagram">
                     <InstagramIcon />
                   </SocialIcon>
-                  <SocialIcon href="https://linkedin.com/" label="LinkedIn">
+                  <SocialIcon href="https://www.linkedin.com/company/softree-technology-pvt-ltd/" label="LinkedIn">
                     <LinkedinIcon />
                   </SocialIcon>
-                  <SocialIcon href="https://www.facebook.com" label="Facebook">
+                  <SocialIcon href="https://www.facebook.com/softreetechnology" label="Facebook">
                     <FacebookIcon />
                   </SocialIcon>
-                  <SocialIcon href="https://x.com/" label="X">
+                  <SocialIcon href="https://x.com/softreetechnology" label="X">
                     <XIcon />
                   </SocialIcon>
                 </div>
@@ -307,7 +321,7 @@ export default function LightContactSection() {
                   </div>
                   <CalendlyPopupButton
                     label="Pick a time"
-                    className="group inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-[#ff5812] px-5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white transition duration-300 hover:bg-white hover:text-[#09090d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5812]/60"
+                    className="group inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-[#ff5812] px-5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white transition duration-300 hover:bg-white hover:text-[#09090d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5812]/60"
                   />
                 </div>
               </div>
@@ -326,11 +340,11 @@ export default function LightContactSection() {
                   <Field id="email" name="email" type="email" placeholder="E-Mail" required />
                   <Field id="company-name" name="company" placeholder="Company name" />
                   <label className="block" htmlFor="field">
-                    <span className="sr-only">Test Message</span>
+                    <span className="sr-only">{messagePlaceholder}</span>
                     <textarea
                       id="field"
                       name="field"
-                      placeholder="Test Message"
+                      placeholder={messagePlaceholder}
                       maxLength={5000}
                       className="min-h-[80px] sm:min-h-[110px] w-full resize-none rounded-none border-0 border-b border-white/14 bg-transparent px-0 py-4 text-[15px] font-medium text-white outline-none transition-colors duration-300 placeholder:text-white/40 focus:border-[#ff5812]"
                     />
@@ -355,7 +369,8 @@ export default function LightContactSection() {
 
                   {status === "success" && (
                     <p
-                      role="region"
+                      role="status"
+                      aria-live="polite"
                       aria-label="Email Form success"
                       className="mt-5 text-sm leading-6 text-white/68"
                     >
@@ -365,7 +380,8 @@ export default function LightContactSection() {
 
                   {status === "error" && (
                     <p
-                      role="region"
+                      role="alert"
+                      aria-live="assertive"
                       aria-label="Email Form failure"
                       className="mt-5 text-sm leading-6 text-red-500"
                     >

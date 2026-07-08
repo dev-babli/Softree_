@@ -1,0 +1,26 @@
+{
+  "slug": "softree-studio",
+  "mode": "TEN_OUT_OF_TEN",
+  "loop": 6,
+  "status": "LOOP_6_CATEGORY_TEMPLATE_SIMPLIFY",
+  "current_phase": "authoring_ux",
+  "completed_gates": [
+    "build",
+    "dashboard_workspace_layout",
+    "progressive_disclosure_analytics",
+    "hero_primary_ctas",
+    "pipeline_board",
+    "work_queue_first",
+    "unified_case_study_setup",
+    "single_create_template",
+    "category_required",
+    "reference_layouts_collapsed"
+  ],
+  "pending_gates": [
+    "chrome_mcp_console_clean",
+    "dashboard_screenshots_1440_390",
+    "lint",
+    "recategorize_legacy_case_studies"
+  ],
+  "budget": { "loops_used": 5, "loops_max": 10 }
+}

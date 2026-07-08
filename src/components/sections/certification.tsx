@@ -3,32 +3,10 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-export const certifications = [
-  {
-    src: "https://www.softreetechnology.com/wp-content/uploads/2024/12/STPI.webp",
-    alt: "STPI",
-  },
-  {
-    src: "https://www.softreetechnology.com/wp-content/uploads/2024/12/startupindia.webp",
-    alt: "Startup India",
-  },
-  {
-    src: "https://www.softreetechnology.com/wp-content/uploads/2024/12/MCPD.webp",
-    alt: "MCPD",
-  },
-  {
-    src: "https://www.softreetechnology.com/wp-content/uploads/2024/12/MCTS.webp",
-    alt: "MCTS",
-  },
-  {
-    src: "https://www.softreetechnology.com/wp-content/uploads/2024/12/ISO-9001-2015.webp",
-    alt: "ISO 9001",
-  },
-  {
-    src: "https://www.softreetechnology.com/wp-content/uploads/2024/12/ISO-27001-2022.webp",
-    alt: "ISO 27001",
-  },
-];
+import { CERTIFICATION_LOGOS } from "@/lib/certifications";
+
+/** Self-hosted paths only — avoids hotlink 403s from wp-content. */
+export const certifications = CERTIFICATION_LOGOS.map(({ src, alt }) => ({ src, alt }));
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -109,7 +87,7 @@ export function CertificationCard({ item, dark = true }: { item: { src: string; 
           group-hover:-translate-y-1.5
           ${dark 
             ? "bg-white/[0.05] backdrop-blur-xl border border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.3)] group-hover:shadow-[0_20px_60px_rgba(255,122,47,0.15)]" 
-            : "bg-white/80 backdrop-blur-xl border border-slate-200/50 shadow-[0_4px_20px_rgba(0,0,0,0.03)] group-hover:shadow-[0_20px_60px_rgba(255,122,47,0.08)]"
+            : "bg-white border border-slate-200/50 shadow-[0_4px_20px_rgba(0,0,0,0.03)] group-hover:shadow-[0_20px_60px_rgba(255,122,47,0.08)]"
           }
         `}
       >
