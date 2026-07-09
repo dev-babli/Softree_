@@ -56,8 +56,11 @@ function haystack(source: CaseStudyCategorySource): string {
 export function resolveCaseStudyCategory(
   source: CaseStudyCategorySource,
 ): CaseStudyCategoryKey | null {
-  if (source.category && isCaseStudyCategory(source.category)) {
-    return source.category
+  if (source.category) {
+    const normalized = source.category.toLowerCase().trim().replace(/\s+/g, '-')
+    if (isCaseStudyCategory(normalized)) {
+      return normalized
+    }
   }
 
   if (source.detailLayout === 'manufacturing-power-platform') {

@@ -108,6 +108,7 @@
 .gh-slider-wrap .swiper {
   width: 100%;
   border-radius: 22px;
+  margin-bottom: 0 !important;
 }
 
 .gh-slider-wrap .swiper-slide {
@@ -133,8 +134,8 @@
 .gh-slide-content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 1.25rem;
+  justify-content: center;
+  gap: 2rem;
   max-width: 36rem;
 }
 
@@ -158,11 +159,12 @@
 }
 
 .gh-slide-heading {
-  margin: 0.55rem 0 0;
-  font-size: clamp(2rem, 3.4vw, 3rem);
-  line-height: 1;
-  letter-spacing: -0.03em;
-  font-weight: 700;
+  margin: 0;
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  font-weight: 800;
+  text-wrap: balance;
 }
 
 .gh-slide-desc {
@@ -306,7 +308,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 1.25rem;
+  margin-top: -0.25rem;
   gap: 1rem;
 }
 

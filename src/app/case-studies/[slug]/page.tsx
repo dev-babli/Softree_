@@ -127,7 +127,7 @@ export default async function CaseStudyDetailPage({
         study={
           layoutOverride && isPremiumLayout(layoutOverride)
             ? { ...study, detailLayout: layoutOverride }
-            : study
+            : { ...study, detailLayout: "education-edtech-story" }
         }
         related={related}
         slug={slug}
@@ -135,7 +135,9 @@ export default async function CaseStudyDetailPage({
         initialCaseStudyCategories={caseStudyCategories}
         designTokens={designTokens}
         forceLayout={
-          layoutOverride && isPremiumLayout(layoutOverride) ? layoutOverride : undefined
+          layoutOverride && isPremiumLayout(layoutOverride)
+            ? layoutOverride
+            : "education-edtech-story"
         }
       />
     </>

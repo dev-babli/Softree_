@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { ArrowUpRight, Search } from "lucide-react";
 import GeneralHeaderHero from "@/components/sections/GeneralHeaderHero";
 import type { CaseStudyCategoryKey } from "./categoryConfig";
@@ -22,33 +23,47 @@ type CaseStudiesListingClientProps = {
   categoryLinks: CategoryLink[];
 };
 
-const INDUSTRY_OPTIONS = [
-  "All",
-  "Healthcare",
-  "Retail",
-  "Manufacturing",
-  "Finance",
-  "Education",
-  "Technology",
-  "Government",
-  "Financial Services",
-  "Professional Services",
-  "Information Technology Services",
-  "Human Resources, Corporate Services, AI Automation",
-];
+export function getStandardizedIndustry(raw?: string | null): string {
+  if (!raw) return "Other";
+  const val = raw.toLowerCase().trim();
+  
+  if (val.includes("health")) return "Healthcare";
+  if (val.includes("manufactur")) return "Manufacturing";
+  if (val.includes("finance") || val.includes("banking") || val.includes("bfsi")) return "Finance & Banking";
+  if (val.includes("retail") || val.includes("ecommerce") || val.includes("e-commerce")) return "Retail & E-commerce";
+  if (val.includes("logistics") || val.includes("supply chain") || val.includes("shipping")) return "Logistics & Supply Chain";
+  if (val.includes("education") || val.includes("edtech")) return "Education";
+  if (val.includes("government") || val.includes("public") || val.includes("state")) return "Government & Public Sector";
+  if (val.includes("technology") || val.includes("it") || val.includes("engineering")) return "Technology";
+  if (val.includes("professional services")) return "Professional Services";
+  
+  return "Other";
+}
 
-const USE_CASE_OPTIONS = [
-  "All",
-  "Process Automation",
-  "AI Agents",
-  "Customer Experience",
-  "Operations",
-  "Web Platform",
-  "Mobile App",
-  "Product Engineering",
-];
+export function getUseCaseGroups(raw?: string | null): string[] {
+  if (!raw) return [];
+  const val = raw.toLowerCase();
+  const groups: string[] = [];
+  
+  if (val.includes("automation") || val.includes("workflow")) groups.push("Process Automation");
+  if (val.includes("ai agent") || val.includes("copilot") || val.includes("llm") || val.includes("ai-powered")) groups.push("AI Agents & Copilots");
+  if (val.includes("analytics") || val.includes("intelligence") || val.includes("bi") || val.includes("reporting")) groups.push("Analytics & BI");
+  if (val.includes("customer") || val.includes("experience") || val.includes("ecommerce") || val.includes("marketplace")) groups.push("Customer Experience");
+  if (val.includes("engineering") || val.includes("development") || val.includes("platform") || val.includes("product")) groups.push("Product Engineering");
+  if (val.includes("qa") || val.includes("testing") || val.includes("quality")) groups.push("Quality Assurance & Testing");
+  if (val.includes("sharepoint") || val.includes("intranet") || val.includes("document management") || val.includes("collaboration")) groups.push("Collaboration & Intranet");
+  
+  return groups;
+}
 
-const COMPANY_SIZE_OPTIONS = ["All", "Startup", "Mid-market", "Enterprise"];
+export function getStandardizedCompanySize(raw?: string | null): string {
+  if (!raw) return "Enterprise";
+  const val = raw.toLowerCase().trim();
+  if (val === "enterprise") return "Enterprise";
+  if (val === "mid-market") return "Mid-market";
+  if (val === "startup" || val === "small") return "Startup";
+  return "Enterprise";
+}
 
 export default function CaseStudiesListingClient({
   caseStudies,
@@ -60,6 +75,59 @@ export default function CaseStudiesListingClient({
   const [industry, setIndustry] = useState("All");
   const [useCase, setUseCase] = useState("All");
   const [companySize, setCompanySize] = useState("All");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const searchParams = useSearchParams();
+  const techQuery = searchParams.get("tech");
+
+  useEffect(() => {
+    let tech: string | null = null;
+    if (techQuery) {
+      tech = techQuery;
+    } else if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      tech = params.get("tech");
+    }
+
+    if (tech) {
+      setTechCategory(tech as CaseStudyCategoryKey);
+    } else {
+      setTechCategory("All");
+    }
+  }, [techQuery]);
+
+  const industryOptions = useMemo(() => {
+    if (!mounted) return ["All"];
+    const set = new Set<string>();
+    caseStudies.forEach((study) => {
+      const std = getStandardizedIndustry(study.industry);
+      if (std && std !== "Other") set.add(std);
+    });
+    return ["All", ...Array.from(set).sort(), "Other"];
+  }, [caseStudies, mounted]);
+
+  const useCaseOptions = useMemo(() => {
+    if (!mounted) return ["All"];
+    const set = new Set<string>();
+    caseStudies.forEach((study) => {
+      getUseCaseGroups(study.useCase).forEach((g) => set.add(g));
+    });
+    return ["All", ...Array.from(set).sort()];
+  }, [caseStudies, mounted]);
+
+  const companySizeOptions = useMemo(() => {
+    if (!mounted) return ["All"];
+    const set = new Set<string>();
+    caseStudies.forEach((study) => {
+      const size = getStandardizedCompanySize(study.companySize);
+      if (size) set.add(size);
+    });
+    return ["All", ...Array.from(set).sort()];
+  }, [caseStudies, mounted]);
 
   const filtered = useMemo(() => {
     return caseStudies.filter((study) => {
@@ -76,15 +144,15 @@ export default function CaseStudiesListingClient({
 
       const matchesIndustry =
         industry === "All" ||
-        (study.industry || "").toLowerCase().includes(industry.toLowerCase());
+        getStandardizedIndustry(study.industry) === industry;
 
       const matchesUseCase =
         useCase === "All" ||
-        (study.useCase || "").toLowerCase().includes(useCase.toLowerCase());
+        getUseCaseGroups(study.useCase).includes(useCase);
 
       const matchesSize =
         companySize === "All" ||
-        (study.companySize || "").toLowerCase() === companySize.toLowerCase();
+        getStandardizedCompanySize(study.companySize) === companySize;
 
       return matchesSearch && matchesTech && matchesIndustry && matchesUseCase && matchesSize;
     });
@@ -158,19 +226,19 @@ export default function CaseStudiesListingClient({
               <FilterSelect
                 label="Industry"
                 value={industry}
-                options={INDUSTRY_OPTIONS}
+                options={industryOptions}
                 onChange={setIndustry}
               />
               <FilterSelect
                 label="Use Case"
                 value={useCase}
-                options={USE_CASE_OPTIONS}
+                options={useCaseOptions}
                 onChange={setUseCase}
               />
               <FilterSelect
                 label="Size"
                 value={companySize}
-                options={COMPANY_SIZE_OPTIONS}
+                options={companySizeOptions}
                 onChange={setCompanySize}
               />
 
@@ -244,8 +312,8 @@ function LatestStoryCard({ study }: { study: CaseStudyListingItem }) {
         )}
       </div>
       <div className="flex flex-1 flex-col gap-3 p-6">
-        <h3 className="text-[1.35rem] font-bold leading-[1.2] text-[#171717]">{study.title}</h3>
-        <p className="line-clamp-2 text-[14px] leading-[1.55] text-[#4c5366]">{study.description}</p>
+        <h3 className="text-[1.35rem] font-bold leading-[1.2] text-[#171717] break-words">{study.title}</h3>
+        <p className="line-clamp-2 text-[14px] leading-[1.55] text-[#4c5366] break-words">{study.description}</p>
         <div className="mt-auto pt-3">
           <span className="inline-flex items-center rounded-full border border-[#191919] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#191919] transition-colors duration-200 group-hover:bg-[#191919] group-hover:text-white">
             read case study
@@ -299,10 +367,10 @@ function StoryCard({ study }: { study: CaseStudyListingItem }) {
       </div>
 
       <div className="flex flex-1 flex-col gap-3 px-1 pb-1">
-        <h2 className="text-[1.55rem] font-bold leading-[1.15] tracking-[-0.01em] text-[#171717]">
+        <h2 className="text-[1.55rem] font-bold leading-[1.15] tracking-[-0.01em] text-[#171717] break-words">
           {study.title}
         </h2>
-        <p className="text-[15px] leading-[1.55] text-[#4c5366]">{study.description}</p>
+        <p className="text-[15px] leading-[1.55] text-[#4c5366] break-words">{study.description}</p>
         <div className="mt-auto pt-3">
           <span className="inline-flex items-center rounded-full border border-[#191919] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#191919] transition-colors duration-200 group-hover:bg-[#191919] group-hover:text-white">
             read case study

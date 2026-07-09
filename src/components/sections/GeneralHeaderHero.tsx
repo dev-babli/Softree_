@@ -169,29 +169,10 @@ export default function GeneralHeaderHero({
               return (
                 <SwiperSlide key={`${slide.company}-${index}`}>
                   <article className="gh-slide">
-                    <div className="gh-slide-content">
+                    <div className="gh-slide-content" style={{ justifyContent: "center", gap: "1.5rem" }}>
                       <div>
-                        <span className="gh-slide-eyebrow">
-                          <span className="gh-slide-eyebrow-dot" aria-hidden />
-                          {slide.eyebrow}
-                        </span>
                         <h2 className="gh-slide-heading">{slide.title}</h2>
                         <p className="gh-slide-desc">{slide.description}</p>
-                      </div>
-
-                      <div className="gh-stats">
-                        {slide.stats.map((stat) => {
-                          const { primary, suffix } = splitScore(stat.score)
-                          return (
-                            <div key={stat.label} className="gh-stat-tile">
-                              <div className="gh-stat-value">
-                                <span>{primary}</span>
-                                {suffix ? <span className="gh-stat-suffix">{suffix}</span> : null}
-                              </div>
-                              <div className="gh-stat-label">{stat.label}</div>
-                            </div>
-                          )
-                        })}
                       </div>
 
                       <Link href={slide.ctaHref} className="gh-slide-cta">

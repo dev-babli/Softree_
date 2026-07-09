@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { Suspense } from "react"
 import NavigationServer from "@/components/sections/navigation-server"
 import Footer from "@/components/sections/footer"
 import CaseStudiesListingClient from "./CaseStudiesListingClient"
@@ -32,11 +33,17 @@ export default async function CaseStudiesPage() {
   return (
     <div className="min-h-screen">
       <NavigationServer />
-      <CaseStudiesListingClient
-        caseStudies={caseStudies}
-        heroSlides={heroSlides}
-        categoryLinks={categoryLinks}
-      />
+      <Suspense fallback={
+        <div className="min-h-[400px] flex items-center justify-center bg-[#FAFAF9]">
+          <div className="text-[#6b7694] font-medium text-[15px]">Loading customer stories...</div>
+        </div>
+      }>
+        <CaseStudiesListingClient
+          caseStudies={caseStudies}
+          heroSlides={heroSlides}
+          categoryLinks={categoryLinks}
+        />
+      </Suspense>
       <Footer />
     </div>
   )
