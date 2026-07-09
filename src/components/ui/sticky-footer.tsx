@@ -11,7 +11,6 @@ type StickyFooterProps = React.ComponentProps<"footer">;
 
 const CREAM = "#F6F1E6";
 const LOGO_LIGHT = "/logo/Softree-Technology-Final-Logo.png";
-const LOGO_LIGHT_BG = "/logo/Softree-Technology-Final-Logo-Light-BG.png";
 
 const footerColumns = [
   {
@@ -79,7 +78,7 @@ const SOCIAL_PILLS = [
 
 function SocialPillRow() {
   return (
-    <div className="mt-8 flex h-11 items-center gap-2">
+    <div className="mt-4 flex h-11 items-center gap-2">
       {SOCIAL_PILLS.map((pill) => {
         const Icon = pill.icon;
         return (
@@ -146,7 +145,7 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
         />
 
         {/* Layer 3 — Purple zone: wordmark + metadata stacked at bottom-left, logo at bottom-right */}
-        <div className="absolute inset-x-0 bottom-0 z-20 flex flex-col items-start justify-end pb-5 px-8 md:px-12 lg:px-16" style={{ height: "43%" }}>
+        <div className="absolute inset-x-0 bottom-0 z-20 flex flex-col items-stretch justify-end pb-6 md:pb-8 px-8 md:px-12 lg:px-16" style={{ height: "43%" }}>
           {/* Giant white SOFTREE. wordmark */}
           <div aria-hidden className="w-full overflow-hidden leading-none mb-3">
             <span
@@ -158,28 +157,16 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
           </div>
           {/* Metadata row below wordmark */}
           <div className="flex flex-wrap items-center gap-x-6 gap-y-1">
-            <Link href="/privacy-policy" className="inline-flex min-h-11 items-center rounded-lg text-[11px] font-semibold uppercase tracking-[0.14em] text-white/70 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
+            <Link href="/privacy-policy" className="inline-flex py-2 items-center rounded-lg text-[11px] font-semibold uppercase tracking-[0.14em] text-white/70 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="inline-flex min-h-11 items-center rounded-lg text-[11px] font-semibold uppercase tracking-[0.14em] text-white/70 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
+            <Link href="/terms" className="inline-flex py-2 items-center rounded-lg text-[11px] font-semibold uppercase tracking-[0.14em] text-white/70 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
               Terms of Service
             </Link>
             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/70">
               © {new Date().getFullYear()} Softree Technology
             </p>
           </div>
-        </div>
-
-        {/* Logo — bottom-right of purple zone */}
-        <div className="absolute bottom-5 right-8 z-20 md:right-12 lg:right-16">
-          <Image
-            src={LOGO_LIGHT_BG}
-            alt=""
-            aria-hidden="true"
-            width={120}
-            height={30}
-            className="h-7 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
-          />
         </div>
 
         {/* Layer 4 — All content */}
@@ -230,20 +217,20 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
           </div>
 
           {/* 3-COLUMN NAV */}
-          <div className="mt-12 grid flex-1 grid-cols-1 gap-x-12 gap-y-8 sm:grid-cols-2 md:mt-14 lg:grid-cols-3">
+          <div className="mt-8 grid flex-1 grid-cols-1 gap-x-12 gap-y-6 sm:grid-cols-2 md:mt-10 lg:grid-cols-3">
             {footerColumns.map((col) => (
               <div key={col.label} className="flex flex-col">
-                <p className="mb-5 text-[12px] font-extrabold uppercase tracking-[0.18em] text-black">
+                <p className="mb-3 text-[12px] font-extrabold uppercase tracking-[0.18em] text-black">
                   {col.label}
                 </p>
-                <ul className="space-y-[10px]">
+                <ul className="space-y-1">
                   {col.links.map((link) => (
                     <li key={link.title}>
                       <Link
                         href={link.href}
                         target={link.external ? "_blank" : undefined}
                         rel={link.external ? "noopener noreferrer" : undefined}
-                        className="inline-flex min-h-11 items-center rounded-lg text-[14px] font-medium text-black transition-colors hover:text-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50"
+                        className="inline-flex py-1.5 items-center rounded-lg text-[14px] font-medium text-black transition-colors hover:text-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50"
                       >
                         {link.title}
                         {link.external && <Arrow />}
