@@ -7,30 +7,74 @@ knowledgeFolder: 01-company
 fileName: Services.md
 tags:
   - company
-summary: Knowledge atom for Services in 01-company. Softree company intelligence — services, ICP, positioning, culture. Enriched by ATLAS research pipeline.
-confidence: 0.4
-version: 1.0.0
-lastUpdated: 2026-07-06
+  - services
+  - routes
+summary: Production service routes and offerings mapped from Softree_ src/app/services/** and navigation.tsx (July 2026 repo scan).
+confidence: 0.92
+version: 1.1.0
+lastVerified: 2026-07-13
+lastUpdated: 2026-07-13
 sources:
   - type: internal
-    ref: atlas:bootstrap/01-company/Services
-    confidence: 0.4
-    retrievedAt: 2026-07-06
+    ref: src/components/sections/navigation.tsx
+    confidence: 0.95
+    retrievedAt: 2026-07-13
+  - type: internal
+    ref: src/app/services/
+    confidence: 0.95
+    retrievedAt: 2026-07-13
+  - type: url
+    ref: https://softreetechnology.com/services
+    confidence: 0.9
+    retrievedAt: 2026-07-13
 related:
-status: scaffold
+  - company.softree
+status: verified
 ---
 
 ## Summary
 
-Knowledge atom for Services in 01-company. Softree company intelligence — services, ICP, positioning, culture. Enriched by ATLAS research pipeline.
+Softree production services are organized under `/services` with offshore delivery positioning across AI, Microsoft stack, data, and application modernization. Nav authority: `src/components/sections/navigation.tsx`.
 
-## Core Concepts
+## Production Service Routes
 
-This file is part of ATLAS 01-company. Purpose: Softree company intelligence — services, ICP, positioning, culture.
+| Route | Nav label | Category |
+|-------|-----------|----------|
+| `/services` | Services hub | Index |
+| `/services/offshore-ai-development` | AI Agents | AI |
+| `/services/offshore-generative-ai-development` | Generative AI | AI |
+| `/services/ai-powered-test-automation` | AI Test Automation | AI |
+| `/services/offshore-power-platform-development` | Power Apps / Automate / Dataverse | Microsoft |
+| `/services/offshore-data-analytics` | Power BI / Databricks / Snowflake | Data |
+| `/services/offshore-microsoft-fabric` | Microsoft Fabric | Data |
+| `/services/offshore-sharepoint-development` | SharePoint Online | Digital workspace |
+| `/services/offshore-spfx-development` | SPFx Development | Digital workspace |
+| `/services/offshore-web-app-development` | Web Applications | Apps |
+| `/services/offshore-mobile-app-development` | Mobile Applications | Apps |
+| `/services/mvp` | MVP Development | Startups |
+| `/services/legacy-application-modernization` | Legacy Modernization | Modernization |
+| `/services/website-modernization` | Website Modernisation | Modernization (active-build / ATLAS revamp target) |
 
-Ingest authoritative sources via:
-`npm run atlas:ingest` after populating `ingest/raw/{id}.json`.
+## Flagship Adjacent Pages (not under /services)
 
-## Future Research
+| Route | Purpose |
+|-------|---------|
+| `/ai` | AI solutions hub |
+| `/agentic-ai-platform` | Agentic platform exact clone (active-build, not yet in nav/sitemap) |
+| `/webanalyser` | AI website intelligence lead magnet |
 
-- Deep research for Services
+## Positioning Pattern
+
+- **Offshore velocity** + **Microsoft stack depth** (Copilot Studio, Azure AI, Power Platform)
+- **Outcomes language** over technology labels (per BrandPositioning.md)
+- Website modernization funnel ties to ATLAS audit rubrics (`web-revamp-super-prompt.md`)
+
+## Gaps
+
+- Nav link `/geo` in navigation.tsx has **no matching route** (engineering debt)
+- `header.tsx` lists stale URLs (`/services/mobile-app-development`) — not production nav
+
+## References
+
+- `src/components/sections/navigation.tsx`
+- `.cursor/knowledge/20-memory/audits/repo-scan-2026-07-13.json`

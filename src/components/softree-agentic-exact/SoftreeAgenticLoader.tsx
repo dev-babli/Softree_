@@ -5,6 +5,7 @@ import { createPortal } from "react-dom"
 import { SOFTREE_AGENTIC_HERO_BG_IMAGE } from "./softreeAgenticHeroAssets"
 import { finalizeHeroReveal } from "./heroHandoffSelectors"
 import { runK2Loader, shouldSkipK2Loader } from "./k2LoaderRuntime"
+import { loaderContent } from "./softreeAgenticContent"
 import "./k2-loader.css"
 
 type StyleVars = CSSProperties & Record<`--${string}`, string | number>
@@ -25,7 +26,7 @@ function splitChars(text: string, startIndex = 0) {
 
 function LoaderMarkup() {
   return (
-    <div className="k2-loader step-0" aria-label="Loading Softree Agentic AI" role="status" aria-live="polite">
+    <div className="k2-loader step-0" aria-label={loaderContent.ariaLabel} role="status" aria-live="polite">
       <div className="k2-loader-perspective">
         <div className="k2-loader-bg" data-k2-loader-bg="">
           <img
@@ -54,17 +55,17 @@ function LoaderMarkup() {
         >
           <p>
             <span className="word" style={{ display: "inline-block" }}>
-              {splitChars("Meet")}
-            </span>{" "}
-            <em style={{ display: "inline-block", position: "relative" }}>
-              <span className="word" style={{ display: "inline-block" }}>
-                {splitChars("{")}
+                {splitChars(loaderContent.meet)}
               </span>{" "}
-              <sup style={{ display: "inline-block", position: "relative" }}>
+              <em style={{ display: "inline-block", position: "relative" }}>
                 <span className="word" style={{ display: "inline-block" }}>
-                  {splitChars("Softree")}
-                </span>
-              </sup>{" "}
+                  {splitChars("{")}
+                </span>{" "}
+                <sup style={{ display: "inline-block", position: "relative" }}>
+                  <span className="word" style={{ display: "inline-block" }}>
+                    {splitChars(loaderContent.brand)}
+                  </span>
+                </sup>{" "}
               <span className="word" style={{ display: "inline-block" }}>
                 {splitChars("}")}
               </span>

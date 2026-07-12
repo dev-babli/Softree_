@@ -1,0 +1,33 @@
+{
+  "name": "custom-studio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3001",
+    "build": "next build",
+    "start": "next start --port 3001",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@neo/ui": "*",
+    "@neo/types": "*",
+    "@neo/utils": "*",
+    "@neo/ai-gateway": "*",
+    "@neo/navigation": "*",
+    "@neo/workspace": "*",
+    "lucide-react": "^0.468.0",
+    "next": "15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.9.3"
+  }
+}

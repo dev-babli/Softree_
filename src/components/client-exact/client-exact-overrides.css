@@ -1,0 +1,556 @@
+/* Overrides so the Framer SSR clone works inside Next without Framer hydrate */
+
+.client-exact-framer-shell {
+  width: 100%;
+  overflow-x: clip;
+  background: #fff;
+  min-height: 100vh;
+}
+
+.client-exact-framer-shell #main,
+.client-exact-main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Framer root must keep its box — display:contents drops width/flex and breaks hero */
+.client-exact-framer-shell [data-framer-root] {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1600px;
+}
+
+/* Hide Framer editor badge if any leaked markup */
+.client-exact-framer-shell .__framer-badge,
+.client-exact-framer-shell #__framer-badge-container,
+.client-exact-framer-shell #__framer-editorbar,
+.client-exact-framer-shell .framer-1k4nlbv-container {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Ensure section wrappers don't break Framer layout */
+.cx-framer-section {
+  display: contents;
+}
+
+/* Reveal appear-initial nodes — never touch the hero video scroll-zoom plane or parallax images */
+.client-exact-framer-shell.cx-ready [data-framer-appear-id]:not(.framer-1278xai-container):not(.cx-parallax-target):not(.cx-parallax-y),
+.client-exact-framer-shell.cx-ready [style*="opacity: 0.001"]:not(.framer-1278xai-container):not(.cx-parallax-target):not(.cx-parallax-y),
+.client-exact-framer-shell.cx-ready [style*="opacity:0.001"]:not(.framer-1278xai-container):not(.cx-parallax-target):not(.cx-parallax-y),
+.client-exact-framer-shell.cx-ready [style*="scale(0)"]:not(.framer-1278xai-container):not(.cx-parallax-target):not(.cx-parallax-y) {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Decorative vectors that start at scale(0) — not the hero video */
+.client-exact-framer-shell [data-framer-name="Section Hero"] [data-framer-name="Vector"][style*="scale(0)"] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/*
+ * Framer hydrate expands the hero video beyond the SSR flex:1/width:1px stub.
+ * Scroll zoom (scale/translateY/opacity) is driven in JS — do not force transform:none.
+ */
+.client-exact-framer-shell .framer-1278xai-container {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  flex: none !important;
+  z-index: 0;
+  overflow: visible;
+  transform-origin: center center;
+  will-change: transform, opacity;
+}
+
+.client-exact-framer-shell .framer-1278xai-container video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+}
+
+.client-exact-framer-shell .framer-2i1two {
+  z-index: 4;
+}
+
+.client-exact-framer-shell .framer-ci9zn7-container,
+.client-exact-framer-shell .framer-mkouhr,
+.client-exact-framer-shell .framer-opyzi3 {
+  pointer-events: none;
+}
+
+/* Logos ticker: Framer SSR baked a mid-scroll translateX — reset + CSS marquee */
+.client-exact-framer-shell [data-framer-name="Section Logos"] ul {
+  transform: none !important;
+  animation: cx-logo-marquee 40s linear infinite;
+  width: max-content !important;
+  max-width: none !important;
+}
+
+.client-exact-framer-shell [data-framer-name="Section Logos"] .ticker-item,
+.client-exact-framer-shell [data-framer-name="Section Logos"] .clone-item {
+  transform: none !important;
+  width: auto !important;
+  flex: 0 0 auto !important;
+}
+
+@keyframes cx-logo-marquee {
+  from {
+    transform: translateX(0) !important;
+  }
+  to {
+    transform: translateX(-50%) !important;
+  }
+}
+
+/* Fixed top bar (Menu / time / Start Project) — Framer puts this under .framer-3L5GK */
+.client-exact-framer-shell .cx-topbar.framer-1iup1yh-container {
+  position: fixed !important;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(100%, 1600px);
+  z-index: 20;
+  pointer-events: none;
+}
+
+.client-exact-framer-shell .cx-topbar .framer-repFf {
+  pointer-events: auto;
+  margin: 0 auto;
+}
+
+.client-exact-framer-shell .cx-topbar a,
+.client-exact-framer-shell .cx-topbar [data-highlight="true"] {
+  cursor: pointer;
+}
+
+/* Softree site chrome can fight Framer topbar — keep clone self-contained */
+.client-exact-framer-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Layout shell — match live .framer-3L5GK column */
+.client-exact-framer-shell > .client-exact-main > .framer-3L5GK {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background-color: var(--token-4321a524-8651-4268-85f9-e884d8cb6223, #fff);
+}
+
+/* Menu open: raise topbar above blur + lock scroll already via body overflow */
+.client-exact-framer-shell.cx-menu-open .cx-topbar {
+  z-index: 30 !important;
+}
+
+.client-exact-framer-shell .cx-menu-backdrop.framer-qlili8 {
+  pointer-events: auto !important;
+  z-index: 25 !important;
+  cursor: pointer;
+  animation: cx-menu-fade 0.35s cubic-bezier(0.44, 0, 0.56, 1) both;
+}
+
+.client-exact-framer-shell .framer-11vsk7q {
+  z-index: 24 !important;
+  pointer-events: none;
+}
+
+.client-exact-framer-shell .cx-menu-panel.framer-cqh11d-container {
+  z-index: 26 !important;
+  pointer-events: auto;
+  width: 660px !important;
+  height: 500px !important;
+  animation: cx-menu-nav-in 0.45s cubic-bezier(0.44, 0, 0.56, 1) both;
+}
+
+.client-exact-framer-shell .cx-menu-panel .framer-rFApl {
+  width: 100%;
+  height: 100%;
+}
+
+.client-exact-framer-shell .cx-menu-panel .framer-c6z8u:hover .framer-n2tvl0 {
+  transform: scale(1) !important;
+  transition: transform 0.25s cubic-bezier(0.44, 0, 0.56, 1);
+}
+
+.client-exact-framer-shell .cx-menu-panel .framer-n2tvl0 {
+  transition: transform 0.25s cubic-bezier(0.44, 0, 0.56, 1);
+}
+
+/* Parallax image targets — do not force transform:none */
+.client-exact-framer-shell .cx-parallax-target,
+.client-exact-framer-shell .cx-parallax-y {
+  will-change: transform;
+  transform-origin: center center;
+}
+
+/* Process / Testimonials card-row parallax hosts */
+.client-exact-framer-shell .framer-vi8nhy,
+.client-exact-framer-shell .framer-1wzefn9,
+.client-exact-framer-shell .framer-1fcolx0,
+.client-exact-framer-shell .framer-cf67t,
+.client-exact-framer-shell .framer-9xwwk9 {
+  will-change: transform;
+}
+
+@keyframes cx-menu-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes cx-menu-nav-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes cx-menu-link-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Footer wrapper — full width under page root */
+.client-exact-framer-shell .framer-97pctu-container {
+  width: 100%;
+  max-width: 1600px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Accordion: closed content collapsed */
+.client-exact-framer-shell .framer-kWrVV[data-framer-name*="Close"] [data-framer-name="Content"],
+.client-exact-framer-shell .framer-6rypv[data-framer-name*="Close"] [data-framer-name="Content"] {
+  display: none;
+}
+
+.client-exact-framer-shell .framer-kWrVV[data-highlight="true"],
+.client-exact-framer-shell .framer-6rypv[data-highlight="true"] {
+  cursor: pointer;
+}
+
+/* Hero: shader depth-map parallax (WebGL city background) */
+.client-exact-framer-shell .cx-hero-depth-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.client-exact-framer-shell .cx-hero-depth-root {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  transform: none;
+}
+
+.client-exact-framer-shell .cx-hero-cinema-atmosphere {
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 90% 75% at 50% 42%, transparent 35%, rgba(0, 0, 0, 0.07) 100%),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.22) 0%,
+      transparent 22%,
+      transparent 78%,
+      rgba(0, 0, 0, 0.05) 100%
+    );
+  mix-blend-mode: multiply;
+  opacity: 0.85;
+}
+
+/* Fill hero container — override CityDepthParallax inline aspect-ratio */
+.client-exact-framer-shell .cx-hero-depth-parallax {
+  aspect-ratio: auto !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100%;
+}
+
+.client-exact-framer-shell .cx-hero-depth-parallax canvas {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100%;
+  display: block;
+}
+
+/*
+ * Hero copy — no overlay; ink + subtle red accents on light city background.
+ */
+.client-exact-framer-shell #home-hero {
+  --cx-hero-ink: #141414;
+  --cx-hero-muted: rgba(20, 20, 20, 0.58);
+  --cx-hero-accent: #b8473a;
+  --cx-hero-line: rgba(20, 20, 20, 0.12);
+}
+
+.client-exact-framer-shell #home-hero [data-framer-component-type="RichTextContainer"] .framer-text {
+  --framer-text-color: var(--cx-hero-ink) !important;
+  color: var(--cx-hero-ink) !important;
+  text-shadow: none !important;
+}
+
+.client-exact-framer-shell #home-hero .framer-16qcng6 > .framer-text {
+  --framer-text-color: var(--cx-hero-muted) !important;
+  color: var(--cx-hero-muted) !important;
+}
+
+.client-exact-framer-shell #home-hero .framer-16qcng6 .framer-text span.framer-text {
+  --framer-text-color: var(--cx-hero-ink) !important;
+  color: var(--cx-hero-ink) !important;
+}
+
+.client-exact-framer-shell #home-hero .framer-v1eolc p.framer-text {
+  --framer-text-color: var(--cx-hero-accent) !important;
+  color: var(--cx-hero-accent) !important;
+}
+
+.client-exact-framer-shell #home-hero .framer-v1eolc h6.framer-text {
+  --framer-text-color: var(--cx-hero-ink) !important;
+  color: var(--cx-hero-ink) !important;
+}
+
+.client-exact-framer-shell #home-hero .framer-958oot > .framer-text {
+  --framer-text-color: var(--cx-hero-accent) !important;
+  color: var(--cx-hero-accent) !important;
+}
+
+.client-exact-framer-shell #home-hero .framer-958oot .framer-text span.framer-text {
+  --framer-text-color: var(--cx-hero-muted) !important;
+  color: var(--cx-hero-muted) !important;
+}
+
+.client-exact-framer-shell #home-hero .framer-rmrdvh > .framer-text {
+  --framer-text-color: var(--cx-hero-ink) !important;
+  color: var(--cx-hero-ink) !important;
+}
+
+.client-exact-framer-shell #home-hero .framer-rmrdvh .framer-text span.framer-text {
+  --framer-text-color: var(--cx-hero-muted) !important;
+  color: var(--cx-hero-muted) !important;
+}
+
+.client-exact-framer-shell #home-hero [data-framer-name="Vector"] {
+  background-color: var(--cx-hero-line) !important;
+}
+
+.client-exact-framer-shell #home-hero .framer-1dfqhu1,
+.client-exact-framer-shell #home-hero .framer-1v2ap27,
+.client-exact-framer-shell #home-hero .framer-1asrz1b,
+.client-exact-framer-shell #home-hero .framer-yyvzpt {
+  background-color: var(--cx-hero-accent) !important;
+}
+
+.client-exact-framer-shell #home-hero .framer-15l9pkj {
+  background-color: rgba(20, 20, 20, 0.18) !important;
+}
+
+.client-exact-framer-shell #home-hero .cx-hero-em {
+  --framer-text-color: var(--cx-hero-accent) !important;
+  color: var(--cx-hero-accent) !important;
+}
+
+/* Vigorous Softech wordmark — white logo + depth shadow */
+.client-exact-framer-shell .cx-brand-logo,
+.client-exact-framer-shell img[src*="LOGOWHITE"],
+.client-exact-framer-shell img[src*="vigorous-logo-white"] {
+  object-fit: contain !important;
+  object-position: left center !important;
+  filter:
+    drop-shadow(0 12px 32px rgba(8, 12, 20, 0.4))
+    drop-shadow(0 4px 14px rgba(8, 12, 20, 0.28))
+    drop-shadow(0 1px 3px rgba(8, 12, 20, 0.2));
+}
+
+.client-exact-framer-shell #home-hero .framer-1wu5efj[data-framer-name="Logo"] {
+  filter: drop-shadow(0 18px 44px rgba(10, 14, 22, 0.32));
+}
+
+.client-exact-framer-shell #home-hero .framer-1wu5efj[data-framer-name="Logo"] img {
+  object-fit: contain !important;
+  object-position: left bottom !important;
+  max-height: 120px;
+  width: 100% !important;
+}
+
+/* Navbar wordmark — Framer column inherits 14px menu height; size explicitly */
+.client-exact-framer-shell .cx-topbar .framer-17r4z5h-container {
+  height: 52px !important;
+  min-height: 52px !important;
+  width: auto !important;
+  flex: 0 0 auto !important;
+}
+
+.client-exact-framer-shell .cx-topbar .framer-17r4z5h-container a {
+  height: 52px !important;
+  min-height: 52px !important;
+  width: auto !important;
+  min-width: 200px;
+  aspect-ratio: 4.7525 / 1;
+}
+
+.client-exact-framer-shell .cx-topbar img.cx-brand-logo,
+.client-exact-framer-shell .cx-topbar img[src*="LOGOWHITE"] {
+  object-fit: contain !important;
+  object-position: left center !important;
+  height: 52px !important;
+  max-height: 52px !important;
+  width: auto !important;
+  min-width: 200px;
+  max-width: 248px;
+  filter:
+    drop-shadow(0 6px 18px rgba(8, 12, 20, 0.38))
+    drop-shadow(0 2px 8px rgba(8, 12, 20, 0.24));
+}
+
+/* Dark sections — soft halo behind white wordmark */
+.client-exact-framer-shell #home-testimonials .cx-brand-logo,
+.client-exact-framer-shell #home-case-study .cx-brand-logo,
+.client-exact-framer-shell [data-framer-name="Section Footer"] .cx-brand-logo {
+  filter:
+    drop-shadow(0 10px 28px rgba(0, 0, 0, 0.55))
+    drop-shadow(0 0 22px rgba(255, 255, 255, 0.1))
+    drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+}
+
+/* Top bar over light hero — no dark scrim */
+.client-exact-framer-shell .cx-topbar::before {
+  display: none;
+}
+
+.client-exact-framer-shell .cx-topbar .framer-text {
+  --framer-text-color: var(--cx-hero-ink, #141414) !important;
+  color: var(--cx-hero-ink, #141414) !important;
+  text-shadow: none !important;
+}
+
+/* Topbar CTA pill — dark fill needs light label + accent subline */
+.client-exact-framer-shell .cx-topbar .framer-dFc6T[data-framer-name="Secondary"] .framer-1ag56wc .framer-text {
+  --framer-text-color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+.client-exact-framer-shell .cx-topbar .framer-dFc6T[data-framer-name="Secondary"] .framer-1nqevs4 .framer-text {
+  --framer-text-color: var(--cx-hero-accent, #b8473a) !important;
+  color: var(--cx-hero-accent, #b8473a) !important;
+}
+
+.client-exact-framer-shell .cx-topbar .cx-local-time,
+.client-exact-framer-shell .cx-topbar .cx-local-time span {
+  color: #141414 !important;
+}
+
+.client-exact-framer-shell .cx-topbar .framer-1m5dyx3 .framer-text {
+  --framer-text-color: rgba(20, 20, 20, 0.58) !important;
+  color: rgba(20, 20, 20, 0.58) !important;
+}
+
+.client-exact-framer-shell .cx-topbar [data-framer-name="Vector"],
+.client-exact-framer-shell .cx-topbar .framer-1t9yc25 {
+  background-color: rgba(20, 20, 20, 0.14) !important;
+}
+
+.client-exact-framer-shell .cx-industry-marquee-img {
+  object-fit: contain !important;
+  background: #121212;
+}
+
+.client-exact-framer-shell #home-industries-ticker [data-framer-name^="Industry-"] {
+  min-width: 160px;
+  min-height: 64px;
+}
+
+.client-exact-framer-shell [data-framer-name="Section Industries"] .cx-industry-scroll-bg {
+  position: absolute;
+  inset: -12% 0;
+  width: 100%;
+  height: 124%;
+  background-size: cover;
+  background-position: center 42%;
+  background-repeat: no-repeat;
+  will-change: transform;
+  backface-visibility: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.client-exact-framer-shell [data-framer-name="Section Industries"] .framer-m8aia7-container {
+  overflow: hidden;
+}
+
+.client-exact-framer-shell [data-framer-name="Section Industries"] .framer-1584kqp {
+  overflow: hidden;
+  min-height: 100%;
+}
+
+.client-exact-framer-shell [data-framer-name="Section Industries"] .cx-industry-card-preview {
+  overflow: hidden;
+}
+
+.client-exact-framer-shell [data-framer-name="Section Industries"] .cx-industry-card-preview img {
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+/* Badge wordmarks — never scale with scroll parallax */
+.client-exact-framer-shell [data-framer-name="Section Industries"] .framer-19uk0u0[data-framer-name="Image"] {
+  transform: none !important;
+  overflow: visible !important;
+}
+
+.client-exact-framer-shell [data-framer-name="Section Industries"] .framer-19uk0u0[data-framer-name="Image"] img {
+  object-fit: contain !important;
+  object-position: left center !important;
+}
+
+/* Content overlay — keep Framer absolute positioning; only raise stacking */
+.client-exact-framer-shell [data-framer-name="Section Industries"] .framer-jq5anf {
+  z-index: 3;
+}
+
+.client-exact-framer-shell [data-framer-name="Section Industries"] .framer-1o4hcnf,
+.client-exact-framer-shell [data-framer-name="Section Industries"] .framer-196mnoj,
+.client-exact-framer-shell [data-framer-name="Section Industries"] .framer-15peonm {
+  min-width: 0;
+}
+
+.client-exact-framer-shell [data-framer-name="Section Industries"] .framer-1y9624l .framer-text,
+.client-exact-framer-shell [data-framer-name="Section Industries"] .framer-2orqbg .framer-text {
+  overflow: visible;
+  text-overflow: unset;
+  white-space: normal;
+}
+
+.client-exact-framer-shell [data-framer-name="Section Industries"] .framer-1ko235o {
+  flex-wrap: wrap;
+  row-gap: 0.35rem;
+}
+
+/* Vigorous wordmark SVG — never crop like the old HANZA raster */
+.client-exact-framer-shell img[src="/images/hero/LOGOWHITE.png"],
+.client-exact-framer-shell img[src*="LOGOWHITE"] {
+  object-fit: contain !important;
+  object-position: center center !important;
+}

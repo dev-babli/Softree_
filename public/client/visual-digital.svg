@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 1400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Digital services abstract">
+  <defs>
+    <linearGradient id="d1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#151515"/>
+      <stop offset="100%" stop-color="#252525"/>
+    </linearGradient>
+  </defs>
+  <rect width="1050" height="1400" fill="url(#d1)"/>
+  <g opacity="0.55" stroke="#ec6c36" stroke-width="1.5">
+    <path d="M0 280h1050M0 560h1050M0 840h1050M0 1120h1050"/>
+    <path d="M210 0v1400M420 0v1400M630 0v1400M840 0v1400"/>
+  </g>
+  <circle cx="520" cy="700" r="220" fill="#ec6c36" opacity="0.28"/>
+  <circle cx="520" cy="700" r="120" fill="#ff6044" opacity="0.35"/>
+  <path d="M520 520v360M360 700h320" stroke="#fff" stroke-width="3" opacity="0.25"/>
+</svg>

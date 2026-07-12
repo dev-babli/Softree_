@@ -1,0 +1,285 @@
+{
+  "classCount": 56,
+  "classes": [
+    "framer-0fB9Y",
+    "framer-1137f1h",
+    "framer-12874x6",
+    "framer-13jhmkd",
+    "framer-13mbuk0",
+    "framer-14pe6wh-container",
+    "framer-159hxm7",
+    "framer-15bw1kw-container",
+    "framer-169mvim-container",
+    "framer-17jup9s",
+    "framer-1bg18zu",
+    "framer-1cz5rc9",
+    "framer-1ely9zm",
+    "framer-1g2yfhh",
+    "framer-1gur1lo-container",
+    "framer-1h96was-container",
+    "framer-1ibeai8-container",
+    "framer-1llhkxt",
+    "framer-1ogh48m",
+    "framer-1pgu075",
+    "framer-1qoopbm",
+    "framer-1wybxq8",
+    "framer-1y3qsf9",
+    "framer-29v6qa-container",
+    "framer-3L5GK",
+    "framer-3cqjcs",
+    "framer-3x0ad0",
+    "framer-5u9gcs",
+    "framer-8jslbc",
+    "framer-8wq3jr",
+    "framer-GxmSJ",
+    "framer-J0UB8",
+    "framer-b3pjF",
+    "framer-c6z8u",
+    "framer-cadcse",
+    "framer-cqh11d-container",
+    "framer-h6sw14",
+    "framer-ig1dpd",
+    "framer-ilo9ey",
+    "framer-iwbg4x-container",
+    "framer-j5mz3r",
+    "framer-k0zbmq-container",
+    "framer-mMmZv",
+    "framer-n2tvl0",
+    "framer-rFApl",
+    "framer-ssth7t",
+    "framer-styles-preset-1s378tr",
+    "framer-styles-preset-1t53lfp",
+    "framer-styles-preset-1tde6wz",
+    "framer-text",
+    "framer-tupl0z-container",
+    "framer-v-1asdoeb",
+    "framer-v-1pgu075",
+    "framer-v-1wybxq8",
+    "framer-v-3x0ad0",
+    "framer-v9ppym-container"
+  ],
+  "structure": {
+    "tag": "DIV",
+    "name": null,
+    "cls": "framer-3L5GK framer-cqh11d-container",
+    "rect": {
+      "t": 110,
+      "l": 48,
+      "w": 660,
+      "h": 500
+    },
+    "kids": [
+      {
+        "tag": "DIV",
+        "name": "Desktop",
+        "cls": "framer-rFApl framer-J0UB8 framer-0fB9Y framer-1wybxq8 framer-v-1wybxq8",
+        "rect": {
+          "t": 110,
+          "l": 48,
+          "w": 660,
+          "h": 500
+        },
+        "kids": [
+          {
+            "tag": "DIV",
+            "name": "Menu",
+            "cls": "framer-j5mz3r",
+            "rect": {
+              "t": 110,
+              "l": 48,
+              "w": 260,
+              "h": 500
+            },
+            "kids": [
+              {
+                "tag": "NAV",
+                "name": "Nav",
+                "cls": "framer-1ely9zm",
+                "rect": {
+                  "t": 142,
+                  "l": 80,
+                  "w": 196,
+                  "h": 148
+                },
+                "kids": [
+                  {
+                    "tag": "DIV",
+                    "name": null,
+                    "cls": "framer-1ibeai8-container",
+                    "rect": {
+                      "t": 142,
+                      "l": 80,
+                      "w": 196,
+                      "h": 17
+                    },
+                    "kids": []
+                  },
+                  {
+                    "tag": "DIV",
+                    "name": null,
+                    "cls": "framer-14pe6wh-container",
+                    "rect": {
+                      "t": 175,
+                      "l": 80,
+                      "w": 196,
+                      "h": 17
+                    },
+                    "kids": []
+                  },
+                  {
+                    "tag": "DIV",
+                    "name": null,
+                    "cls": "framer-15bw1kw-container",
+                    "rect": {
+                      "t": 208,
+                      "l": 80,
+                      "w": 196,
+                      "h": 17
+                    },
+                    "kids": []
+                  },
+                  {
+                    "tag": "DIV",
+                    "name": null,
+                    "cls": "framer-169mvim-container",
+                    "rect": {
+                      "t": 240,
+                      "l": 80,
+                      "w": 196,
+                      "h": 17
+                    },
+                    "kids": []
+                  },
+                  {
+                    "tag": "DIV",
+                    "name": null,
+                    "cls": "framer-29v6qa-container",
+                    "rect": {
+                      "t": 273,
+                      "l": 80,
+                      "w": 196,
+                      "h": 17
+                    },
+                    "kids": []
+                  }
+                ]
+              },
+              {
+                "tag": "DIV",
+                "name": "Grid",
+                "cls": "framer-ig1dpd",
+                "rect": {
+                  "t": 393,
+                  "l": 80,
+                  "w": 196,
+                  "h": 185
+                },
+                "kids": [
+                  {
+                    "tag": "DIV",
+                    "name": null,
+                    "cls": "framer-1bg18zu",
+                    "rect": {
+                      "t": 393,
+                      "l": 80,
+                      "w": 60,
+                      "h": 80
+                    },
+                    "kids": []
+                  },
+                  {
+                    "tag": "DIV",
+                    "name": "Grid",
+                    "cls": "framer-13jhmkd",
+                    "rect": {
+                      "t": 497,
+                      "l": 80,
+                      "w": 196,
+                      "h": 39
+                    },
+                    "kids": []
+                  },
+                  {
+                    "tag": "DIV",
+                    "name": "Socials",
+                    "cls": "framer-159hxm7",
+                    "rect": {
+                      "t": 560,
+                      "l": 80,
+                      "w": 96,
+                      "h": 18
+                    },
+                    "kids": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tag": "DIV",
+            "name": "Projects",
+            "cls": "framer-cadcse",
+            "rect": {
+              "t": 110,
+              "l": 308,
+              "w": 400,
+              "h": 500
+            },
+            "kids": [
+              {
+                "tag": "DIV",
+                "name": null,
+                "cls": "framer-1y3qsf9",
+                "rect": {
+                  "t": 110,
+                  "l": 308,
+                  "w": 400,
+                  "h": 250
+                },
+                "kids": [
+                  {
+                    "tag": "DIV",
+                    "name": null,
+                    "cls": "framer-1137f1h",
+                    "rect": {
+                      "t": 110,
+                      "l": 308,
+                      "w": 400,
+                      "h": 250
+                    },
+                    "kids": []
+                  }
+                ]
+              },
+              {
+                "tag": "DIV",
+                "name": null,
+                "cls": "framer-ilo9ey",
+                "rect": {
+                  "t": 360,
+                  "l": 308,
+                  "w": 400,
+                  "h": 250
+                },
+                "kids": [
+                  {
+                    "tag": "DIV",
+                    "name": null,
+                    "cls": "framer-ssth7t",
+                    "rect": {
+                      "t": 360,
+                      "l": 308,
+                      "w": 400,
+                      "h": 250
+                    },
+                    "kids": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

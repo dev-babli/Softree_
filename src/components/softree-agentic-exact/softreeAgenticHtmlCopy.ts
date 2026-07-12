@@ -1,5 +1,15 @@
 /** Field-level HTML copy patches — Kore reference strings → Softree Technology copy only. */
 
+import {
+  buildScaleContent,
+  demoVideoContent,
+  getStartedContent,
+  pillarsContent,
+  programmableContent,
+  scrollTabsContent,
+  shellContent,
+} from "./softreeAgenticContent"
+
 type ReplacePair = [string, string]
 
 function chainReplace(html: string, pairs: ReplacePair[]): string {
@@ -73,7 +83,7 @@ const NAV_FOOTER: ReplacePair[] = [
   ['href="/" class="k2-nav-link w-inline-block">\n                        <div class="k2-nav-link-text">Services</div>', 'href="/services" class="k2-nav-link w-inline-block">\n                        <div class="k2-nav-link-text">Services</div>'],
   ["Agent Marketplace", "Case studies"],
   // Footer tagline + columns
-  ["Agentic AI for the enterprise", "Microsoft-stack agentic AI, delivered offshore"],
+  ["Agentic AI for the enterprise", shellContent.footerTagline],
   ["Pre-built applications", "Services"],
   ["Banking", "Power Platform"],
   ['href="/ai-for-service/ai-for-banking"', 'href="/services/business-applications/power-apps"'],
@@ -138,208 +148,206 @@ const NAV_FOOTER: ReplacePair[] = [
 
 const SCROLL_TAB_BODIES: ReplacePair[] = [
   [
+    "Nine ways the Kore Agent Platform does the work.",
+    scrollTabsContent.sectionIntro,
+  ],
+  [
     "Nine ways the Softree Agent Platform does the work.",
-    "Nine ways Softree delivers agentic AI on the Microsoft stack.",
+    scrollTabsContent.sectionIntro,
   ],
   [
     "Nobody else has ABL™",
-    "Copilot Studio patterns that ship in weeks",
+    scrollTabsContent.tabs[0].title,
   ],
   [
     "ABL is a purpose-built compilable agent language for AI agents. Using\n                                    ABL cuts thousands of code hours. Faster production; highest\n                                    quality.",
-    "Pre-built agent accelerators on Microsoft 365: HR, IT, finance, and customer ops with governance baked in.",
+    scrollTabsContent.tabs[0].body,
   ],
   [
     "ABL is a purpose-built compilable agent language for AI agents. Using ABL cuts thousands of code hours. Faster production; highest quality.",
-    "Pre-built agent accelerators on Microsoft 365: HR, IT, finance, and customer ops with governance baked in.",
+    scrollTabsContent.tabs[0].body,
   ],
   [
     "Others route. We orchestrate.",
-    "Multi-agent handoffs your operators can trust",
+    scrollTabsContent.tabs[1].title,
   ],
   [
     "Agents run in parallel, each with a bounded context. One agent\n                                    failing won’t unwind everything.",
-    "Specialist agents with memory, escalation paths, and clear ownership, not one brittle mega-prompt.",
+    scrollTabsContent.tabs[1].body,
   ],
   [
     "Deterministic; not probabilistic.",
-    "Deterministic guardrails, not probabilistic hope",
+    scrollTabsContent.tabs[2].title,
   ],
   [
     "Engine-enforced constraints. An LLM can’t override them. Auditable\n                                    proof of policy.",
-    "DLP, Entra ID, and approval gates enforced before agents act, with auditable proof for IT and compliance.",
+    scrollTabsContent.tabs[2].body,
   ],
   [
     "Zero production surprises.",
-    "Zero production surprises",
+    scrollTabsContent.tabs[3].title,
   ],
   [
     "We validate at compile time to always avoid broken orchestration\n                                    logic at runtime.",
-    "Eval suites across personas and edge cases before deployment, and after every model change.",
+    scrollTabsContent.tabs[3].body,
   ],
   [
     "System aware vs. operating in the blind.",
-    "System-aware vs. operating blind",
+    scrollTabsContent.tabs[4].title,
   ],
   [
     "{ Artemis } generates compiler-validated ABL definitions against your\n                                    full topology.",
-    "Agents wired to SharePoint, Dataverse, Fabric, and your APIs, deployed across Teams and channels you already use.",
+    scrollTabsContent.tabs[4].body,
   ],
   [
     "100% of AI interactions audited",
-    "100% of agent sessions traced",
+    scrollTabsContent.tabs[5].title,
   ],
   [
     "{ Artemis } sets new standards for evaluation, traces, and audits\n                                    every session. Most sample 5 – 10%.",
-    "Observability, evals, and audit logs so operators see what happened and why, not sampled 5–10%.",
+    scrollTabsContent.tabs[5].body,
   ],
   [
     "Your logic uniquely outlasts the model.",
-    "Your agents scale on Microsoft infrastructure",
+    scrollTabsContent.tabs[6].title,
   ],
   [
     "Application definition is independent of the LLM. Swap models; the\n                                    ABL still executes.",
-    "Application logic stays portable across Copilot Studio, Azure OpenAI, and Power Platform as models evolve.",
+    scrollTabsContent.tabs[6].body,
   ],
   [
     "The need for two AI systems eliminated.",
-    "One delivery stack, not parallel AI systems",
+    scrollTabsContent.tabs[7].title,
   ],
   [
     "{ Artemis } runs scripted and reasoning AI on the same session\n                                    infrastructure.",
-    "Softree unifies scripted workflows and reasoning agents on Teams, SharePoint, and Dataverse you already operate.",
+    scrollTabsContent.tabs[7].body,
   ],
   [
     "Optimization is no longer manual forensics.",
-    "Optimization without manual log archaeology",
+    scrollTabsContent.tabs[8].title,
   ],
   [
     "The platform does the work. No engineer required at every step.",
-    "Drift, cost, and quality signals surface automatically so teams improve agents without forensic digging.",
+    scrollTabsContent.tabs[8].body,
   ],
 ]
 
 const PROGRAMMABLE: ReplacePair[] = [
-  ["{ Artemis }", "{ Softree }"],
-  [
-    "designed for what<br>actually matters",
-    "designed for what<br>actually ships",
-  ],
+  ["{ Artemis }", programmableContent.brand],
+  ["designed for what<br>actually matters", programmableContent.headlineDesigned],
   [
     "enterprise<br>AI&nbsp;Programmable<br>is the new AI advantage",
-    "Agentic AI on Microsoft<br>is the new enterprise advantage",
+    programmableContent.headlineAdvantage,
   ],
   [
     "AI builds, runs evals, and optimizes quality agents for production\n                                with speed",
-    "Copilot Studio, Azure AI, and Power Automate: from idea to governed agent in weeks, not quarters.",
+    programmableContent.bullets[0],
   ],
   [
     "Evaluate, trace, and audit every agent session, that's 100%\n                                observability",
-    "DLP, Entra ID, and approval gates with tracing and audit trails your IT team trusts.",
+    programmableContent.bullets[1],
   ],
   [
     "Your logic is built to outlast innovation, regardless of the model",
-    "Delivery patterns built to outlast model churn on the Microsoft stack.",
+    programmableContent.bullets[2],
   ],
   [
     "Invented for the<br><em>agentic era</em>. Shaped by a decade of hard-earned enterprise AI\n                                learnings.",
-    "Built for the<br><em>agentic era</em>. Shaped by offshore delivery on Copilot Studio, Azure AI, and Power Platform.",
+    programmableContent.closing,
   ],
 ]
 
 const PILLARS: ReplacePair[] = [
+  ["{ Pillars }", pillarsContent.eyebrow],
   [
     "The two pillars<br>behind the AI-native<br>foundation<br>for agentic AI",
-    "The two pillars<br>behind governed<br>agentic AI<br>on Microsoft",
+    pillarsContent.headline,
   ],
   [
     "Agent Blueprint<br>Language (ABL™)",
-    "Agent definitions<br>+ governance patterns",
+    pillarsContent.pillar1.title,
   ],
   [
     "ABL is a typed, schema-driven language<br>purpose-built for agentic AI. It lets enterprises define agent behavior,<br>tools, guardrails, orchestration, and handoff logic in a formal,<br>structured way.",
-    "Structured specs for agent behavior, tools, guardrails, and handoffs — so business and engineering teams share one definition of done.",
+    pillarsContent.pillar1.body,
   ],
   [
     "ABL is a typed, schema-driven language purpose-built for agentic AI. It lets enterprises define agent behavior, tools, guardrails, orchestration, and handoff logic in a formal, structured way.",
-    "Structured specs for agent behavior, tools, guardrails, and handoffs — so business and engineering teams share one definition of done.",
+    pillarsContent.pillar1.body,
   ],
-  ["™ARCH", "Delivery architecture"],
+  ["™ARCH", pillarsContent.pillar2.title],
   [
     "Arch is the platform’s built-in AI solution<br>architect. It turns plain-language intent into a complete agent system -<br>including agents, workflows, tools, policies, and handoffs - and helps<br>teams build, manage, and optimize AI agents.",
-    "Softree solution architects turn intent into Copilot Studio agents, Power Automate flows, and Azure integrations your IT team can audit and operate.",
+    pillarsContent.pillar2.body,
   ],
 ]
 
 const BUILD_SCALE: ReplacePair[] = [
   [
     "Build AI agents five times faster.",
-    "Ship governed Copilot Studio agents in weeks, not quarters.",
+    buildScaleContent.headline,
   ],
-  ["Agent Studio", "Copilot Studio delivery"],
+  ["Agent Studio", buildScaleContent.tabs.build.title],
   [
     "Create agents, workflows, and tools using visual and code-based<br>authoring in a unified workspace.",
-    "Design agents, workflows, and approvals in Copilot Studio with pro-code extensions when you need them.",
+    buildScaleContent.tabs.build.body,
   ],
   [
     "Move from idea to agent faster with an AI architect that helps<br>build, scale, and optimize AI agents.",
-    "Move from workshop to production with Softree architects who map ROI, risk, and Microsoft stack fit.",
+    buildScaleContent.tabs.build.architect,
   ],
   [
     "Define agent behavior, tools, and guardrails in a structured and<br>compilable DSL.",
-    "Document agent behavior, tools, and guardrails in specs your compliance team can review.",
+    buildScaleContent.tabs.build.specs,
   ],
   [
     "Operate AI agents with provable reliability and control, in production,<br>at scale.",
-    "Run agents in Teams, SharePoint, and line-of-business systems with observability from day one.",
+    buildScaleContent.tabs.scale.body,
   ],
   [
     "Turn every agent run into a signal for incremental improvement.",
-    "Turn every agent run into a signal for safer, cheaper, better automation.",
+    buildScaleContent.tabs.scale.signals,
   ],
   [
     "Your agents inherit the curve",
-    "Your agents ride the model curve",
+    buildScaleContent.tabs.optimize.inherit,
   ],
   [
     "AI is on an exponential growth curve; the Al-programmable platform rides<br>it by design. Every model gain in reasoning, tool use, and context lands<br>inside your agents automatically. No rebuild. No catch-up.",
-    "Model capabilities keep accelerating. Softree delivery keeps your Copilot and Azure agents current without rebuilding from scratch every release.",
+    buildScaleContent.tabs.optimize.inheritBody,
   ],
   [
     "New models design and refactor better agents.",
-    "New models improve prompts, tools, and eval coverage.",
+    buildScaleContent.tabs.optimize.judges,
   ],
-  [
-    "Smarter judges catch what older ones missed.",
-    "Sharper eval suites catch drift before users do.",
-  ],
-  ["THE&nbsp;ARCH™&nbsp;LOOP", "CONTINUOUS&nbsp;IMPROVEMENT&nbsp;LOOP"],
+  ["THE&nbsp;ARCH™&nbsp;LOOP", buildScaleContent.tabs.optimize.loop],
   [
     "Every loop improves; every release evolves",
-    "Every sprint improves; every release compounds",
+    buildScaleContent.tabs.optimize.loopTagline,
   ],
   [
     "Same investment compounding return",
-    "Same offshore squad, compounding ROI",
+    buildScaleContent.tabs.optimize.compound,
   ],
-  ["Plugs into the stack you already run on", "Plugs into the Microsoft stack you already run"],
+  ["Plugs into the stack you already run on", buildScaleContent.tabs.optimize.stack],
   ["Arch™", "Softree architects"],
   ["Arch ", "Softree "],
 ]
 
 const DEMO_VIDEO: ReplacePair[] = [
-  ["Play Video", "Play video"],
+  ["Play Video", demoVideoContent.playLabel],
   [
     "Start AI-programming your next AI Agents",
-    "Start your next agentic AI program on Microsoft",
+    demoVideoContent.headline,
   ],
 ]
 
 const GET_STARTED: ReplacePair[] = [
-  ["Get started with<br>&nbsp;Artemis&nbsp;", "Get started with<br>&nbsp;Softree&nbsp;"],
+  ["Get started with<br>&nbsp;Artemis&nbsp;", getStartedContent.headline],
   [
     "Start AI-progamming your next AI Agents",
-    "Start your next agentic AI program with Softree",
+    getStartedContent.subhead,
   ],
 ]
 
@@ -356,8 +364,8 @@ const BRAND_CLEANUP: ReplacePair[] = [
 ]
 
 const SHELL: ReplacePair[] = [
-  ["Agent Platform { Artemis }", "Agentic AI · Softree"],
-  ["Agent Platform {&nbsp;Artemis&nbsp;}", "Agentic AI · Softree"],
+  ["Agent Platform { Artemis }", shellContent.navProduct],
+  ["Agent Platform {&nbsp;Artemis&nbsp;}", `${shellContent.navProduct} · Softree`],
   ["About Softree", "About Softree"],
   ["Softree white logo in display.", "Softree Technology logo."],
   ["© 2026 Softree Inc.", "© 2026 Softree Technology"],

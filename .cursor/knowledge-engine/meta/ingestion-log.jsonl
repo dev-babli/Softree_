@@ -1,0 +1,32 @@
+{"ts":"2026-07-12T19:02:41.907Z","stage":"pipeline","message":"Run run-1783882961907","data":{"flow":"Internet → Research Agent → Scraper → Cleaner → Summarizer → Fact Checker → Knowledge Extractor → Pattern Engine → Knowledge Files → Memory → Knowledge Graph","stages":["researchAgent","scraper","cleaner","summarizer","factChecker","knowledgeExtractor","patternEngine","deduplicate","categorize","generateFiles","linkKnowledge","updateGraph","index","version","store"]}}
+{"ts":"2026-07-12T19:02:41.908Z","stage":"researchAgent","message":"Resolved 9 research targets","data":null}
+{"ts":"2026-07-12T19:02:41.916Z","stage":"scraper","message":"Scraped 9 sources","data":null}
+{"ts":"2026-07-12T19:02:41.921Z","stage":"cleaner","message":"Cleaned 9 documents","data":null}
+{"ts":"2026-07-12T19:02:41.922Z","stage":"summarizer","message":"Summaries generated","data":null}
+{"ts":"2026-07-12T19:02:41.923Z","stage":"factChecker","message":"Fact-checked 9 items","data":null}
+{"ts":"2026-07-12T19:02:41.926Z","stage":"knowledgeExtractor","message":"Extracted 9 knowledge atoms","data":null}
+{"ts":"2026-07-12T19:02:41.926Z","stage":"patternEngine","message":"Identified 0 patterns","data":null}
+{"ts":"2026-07-12T19:02:43.154Z","stage":"deduplicate","message":"Passed 0, rejected 9","data":null}
+{"ts":"2026-07-12T19:02:43.155Z","stage":"categorize","message":"Folder assignments validated","data":null}
+{"ts":"2026-07-12T19:02:43.156Z","stage":"generateFiles","message":"Generated 0 knowledge files","data":null}
+{"ts":"2026-07-12T19:02:43.157Z","stage":"linkKnowledge","message":"Related atom links embedded in frontmatter","data":null}
+{"ts":"2026-07-12T19:02:43.305Z","stage":"updateGraph","message":"182 nodes, 5 edges","data":null}
+{"ts":"2026-07-12T19:02:43.409Z","stage":"index","message":"182 indexed documents","data":null}
+{"ts":"2026-07-12T19:02:43.410Z","stage":"version","message":"Revision 1","data":null}
+{"ts":"2026-07-12T19:02:43.410Z","stage":"store","message":"Stored 0 knowledge files","data":null}
+{"ts":"2026-07-12T19:02:55.470Z","stage":"pipeline","message":"Run run-1783882975469","data":{"flow":"Internet → Research Agent → Scraper → Cleaner → Summarizer → Fact Checker → Knowledge Extractor → Pattern Engine → Knowledge Files → Memory → Knowledge Graph","stages":["researchAgent","scraper","cleaner","summarizer","factChecker","knowledgeExtractor","patternEngine","deduplicate","categorize","generateFiles","linkKnowledge","updateGraph","index","version","store"]}}
+{"ts":"2026-07-12T19:02:55.471Z","stage":"researchAgent","message":"Resolved 9 research targets","data":null}
+{"ts":"2026-07-12T19:02:55.476Z","stage":"scraper","message":"Scraped 9 sources","data":null}
+{"ts":"2026-07-12T19:02:55.484Z","stage":"cleaner","message":"Cleaned 9 documents","data":null}
+{"ts":"2026-07-12T19:02:55.484Z","stage":"summarizer","message":"Summaries generated","data":null}
+{"ts":"2026-07-12T19:02:55.485Z","stage":"factChecker","message":"Fact-checked 9 items","data":null}
+{"ts":"2026-07-12T19:02:55.489Z","stage":"knowledgeExtractor","message":"Extracted 9 knowledge atoms","data":null}
+{"ts":"2026-07-12T19:02:55.489Z","stage":"patternEngine","message":"Identified 0 patterns","data":null}
+{"ts":"2026-07-12T19:02:56.673Z","stage":"deduplicate","message":"Passed 9, rejected 0","data":null}
+{"ts":"2026-07-12T19:02:56.673Z","stage":"categorize","message":"Folder assignments validated","data":null}
+{"ts":"2026-07-12T19:02:56.675Z","stage":"generateFiles","message":"Generated 9 knowledge files","data":null}
+{"ts":"2026-07-12T19:02:56.676Z","stage":"linkKnowledge","message":"Related atom links embedded in frontmatter","data":null}
+{"ts":"2026-07-12T19:02:56.886Z","stage":"updateGraph","message":"182 nodes, 5 edges","data":null}
+{"ts":"2026-07-12T19:02:57.027Z","stage":"index","message":"182 indexed documents","data":null}
+{"ts":"2026-07-12T19:02:57.029Z","stage":"version","message":"Revision 2","data":null}
+{"ts":"2026-07-12T19:02:57.035Z","stage":"store","message":"Stored 9 knowledge files","data":null}

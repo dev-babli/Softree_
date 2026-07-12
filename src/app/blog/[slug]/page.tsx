@@ -177,7 +177,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 }
 
-export const dynamic = 'force-dynamic'
+// ISR: individual posts are cacheable; draft mode auto-opts editors into dynamic rendering.
+export const revalidate = 3600
 
 function estimateReadTime(post: { body?: unknown; composerSections?: unknown[] }): string {
   const composerText = JSON.stringify(post.composerSections || '')

@@ -1,0 +1,232 @@
+{
+  "atCenter": {
+    "portfolioImages": [
+      {
+        "section": "Section Portfolio",
+        "wrapName": "Image",
+        "wrapCls": "framer-m6d5t0",
+        "wrapT": "matrix(1.10536, 0, 0, 1.10536, 0, 0)",
+        "imgT": "none",
+        "bgT": "none"
+      },
+      {
+        "section": "Section Portfolio",
+        "wrapName": "Image",
+        "wrapCls": "framer-19uk0u0",
+        "wrapT": "none",
+        "imgT": "none",
+        "bgT": "none"
+      },
+      {
+        "section": "Section Portfolio",
+        "wrapName": "Image",
+        "wrapCls": "framer-m6d5t0",
+        "wrapT": "matrix(1.10536, 0, 0, 1.10536, 0, 0)",
+        "imgT": "none",
+        "bgT": "none"
+      },
+      {
+        "section": "Section Portfolio",
+        "wrapName": "Image",
+        "wrapCls": "framer-19uk0u0",
+        "wrapT": "none",
+        "imgT": "none",
+        "bgT": "none"
+      },
+      {
+        "section": "Section Portfolio",
+        "wrapName": "Image",
+        "wrapCls": "framer-m6d5t0",
+        "wrapT": "matrix(1.2, 0, 0, 1.2, 0, 0)",
+        "imgT": "none",
+        "bgT": "none"
+      },
+      {
+        "section": "Section Portfolio",
+        "wrapName": "Image",
+        "wrapCls": "framer-19uk0u0",
+        "wrapT": "none",
+        "imgT": "none",
+        "bgT": "none"
+      }
+    ],
+    "blogImages": [
+      {
+        "section": "Section Blog",
+        "wrapName": "Image",
+        "wrapCls": "framer-bepblw",
+        "wrapT": "matrix(1.1, 0, 0, 1.1, 0, 0)",
+        "imgT": "none",
+        "bgT": "none"
+      },
+      {
+        "section": "Section Blog",
+        "wrapName": "Image",
+        "wrapCls": "framer-bepblw",
+        "wrapT": "matrix(1.1, 0, 0, 1.1, 0, 0)",
+        "imgT": "none",
+        "bgT": "none"
+      },
+      {
+        "section": "Section Blog",
+        "wrapName": "Image",
+        "wrapCls": "framer-bepblw",
+        "wrapT": "matrix(1.1, 0, 0, 1.1, 0, 0)",
+        "imgT": "none",
+        "bgT": "none"
+      },
+      {
+        "section": "Section Blog",
+        "wrapName": "Image",
+        "wrapCls": "framer-bepblw",
+        "wrapT": "matrix(1.1, 0, 0, 1.1, 0, 0)",
+        "imgT": "none",
+        "bgT": "none"
+      }
+    ],
+    "aboutImages": [
+      {
+        "section": "Section About",
+        "wrapName": "Image",
+        "wrapCls": "framer-2z1m2t",
+        "wrapT": "matrix(1.2, 0, 0, 1.2, 0, 0)",
+        "imgT": "none",
+        "bgT": "none"
+      }
+    ],
+    "caseImages": [
+      {
+        "section": "Section Casy Study",
+        "wrapName": "Image",
+        "wrapCls": "framer-biajrz",
+        "wrapT": "none",
+        "imgT": "none",
+        "bgT": "none"
+      },
+      {
+        "section": "Section Casy Study",
+        "wrapName": "Image",
+        "wrapCls": "framer-1ncs1ds framer-lux5qc",
+        "wrapT": "none",
+        "imgT": "none",
+        "bgT": "none"
+      }
+    ],
+    "scrollY": 3809
+  },
+  "afterScroll": {
+    "portfolioImages": [
+      {
+        "section": "Section Portfolio",
+        "wrapName": "Image",
+        "wrapCls": "framer-m6d5t0",
+        "wrapT": "matrix(1.0516, 0, 0, 1.0516, 0, 0)",
+        "imgT": "none",
+        "bgT": "none"
+      },
+      {
+        "section": "Section Portfolio",
+        "wrapName": "Image",
+        "wrapCls": "framer-19uk0u0",
+        "wrapT": "none",
+        "imgT": "none",
+        "bgT": "none"
+      },
+      {
+        "section": "Section Portfolio",
+        "wrapName": "Image",
+        "wrapCls": "framer-m6d5t0",
+        "wrapT": "matrix(1.05152, 0, 0, 1.05152, 0, 0)",
+        "imgT": "none",
+        "bgT": "none"
+      },
+      {
+        "section": "Section Portfolio",
+        "wrapName": "Image",
+        "wrapCls": "framer-19uk0u0",
+        "wrapT": "none",
+        "imgT": "none",
+        "bgT": "none"
+      },
+      {
+        "section": "Section Portfolio",
+        "wrapName": "Image",
+        "wrapCls": "framer-m6d5t0",
+        "wrapT": "matrix(1.10446, 0, 0, 1.10446, 0, 0)",
+        "imgT": "none",
+        "bgT": "none"
+      },
+      {
+        "section": "Section Portfolio",
+        "wrapName": "Image",
+        "wrapCls": "framer-19uk0u0",
+        "wrapT": "none",
+        "imgT": "none",
+        "bgT": "none"
+      }
+    ],
+    "blogImages": [
+      {
+        "section": "Section Blog",
+        "wrapName": "Image",
+        "wrapCls": "framer-bepblw",
+        "wrapT": "matrix(1.1, 0, 0, 1.1, 0, 0)",
+        "imgT": "none",
+        "bgT": "none"
+      },
+      {
+        "section": "Section Blog",
+        "wrapName": "Image",
+        "wrapCls": "framer-bepblw",
+        "wrapT": "matrix(1.1, 0, 0, 1.1, 0, 0)",
+        "imgT": "none",
+        "bgT": "none"
+      },
+      {
+        "section": "Section Blog",
+        "wrapName": "Image",
+        "wrapCls": "framer-bepblw",
+        "wrapT": "matrix(1.1, 0, 0, 1.1, 0, 0)",
+        "imgT": "none",
+        "bgT": "none"
+      },
+      {
+        "section": "Section Blog",
+        "wrapName": "Image",
+        "wrapCls": "framer-bepblw",
+        "wrapT": "matrix(1.1, 0, 0, 1.1, 0, 0)",
+        "imgT": "none",
+        "bgT": "none"
+      }
+    ],
+    "aboutImages": [
+      {
+        "section": "Section About",
+        "wrapName": "Image",
+        "wrapCls": "framer-2z1m2t",
+        "wrapT": "matrix(1.2, 0, 0, 1.2, 0, 0)",
+        "imgT": "none",
+        "bgT": "none"
+      }
+    ],
+    "caseImages": [
+      {
+        "section": "Section Casy Study",
+        "wrapName": "Image",
+        "wrapCls": "framer-biajrz",
+        "wrapT": "none",
+        "imgT": "none",
+        "bgT": "none"
+      },
+      {
+        "section": "Section Casy Study",
+        "wrapName": "Image",
+        "wrapCls": "framer-1ncs1ds framer-lux5qc",
+        "wrapT": "none",
+        "imgT": "none",
+        "bgT": "none"
+      }
+    ],
+    "scrollY": 4309
+  }
+}

@@ -5,6 +5,7 @@ import { z } from 'zod'
 import { isStudioApiRequest, studioApiUnauthorized } from '@/lib/studio-api-auth'
 import {
   commitWebsiteLivePublish,
+  draftDocumentId,
   publishedDocumentId,
   type WebsitePublishDoc,
 } from '@/cms/lib/studio/publishWebsiteStatus'
@@ -51,18 +52,26 @@ export async function POST(request: NextRequest) {
   try {
     const { documentId } = bodySchema.parse(await request.json())
     const publishedId = publishedDocumentId(documentId)
+    const draftId = draftDocumentId(documentId)
     const client = getSanityWriteClient()
 
-    const published = (await client.getDocument(publishedId)) as WebsitePublishDoc
-    if (!published) {
+    const [published, draft] = await Promise.all([
+      client.getDocument(publishedId) as Promise<WebsitePublishDoc>,
+      client.getDocument(draftId) as Promise<WebsitePublishDoc>,
+    ])
+
+    if (!published && !draft) {
       return NextResponse.json(
         { ok: false, error: 'Document not found. Save it in Studio first (Ctrl+S).' },
         { status: 404 },
       )
     }
 
-    await commitWebsiteLivePublish(client, publishedId, published)
-    revalidatePublishedPaths(published)
+    const docForPatch = (draft ?? published) as WebsitePublishDoc
+    await commitWebsiteLivePublish(client, publishedId, docForPatch)
+
+    const live = (await client.getDocument(publishedId)) as WebsitePublishDoc
+    revalidatePublishedPaths(live)
 
     return NextResponse.json({ ok: true, documentId: publishedId })
   } catch (error) {

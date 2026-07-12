@@ -1,0 +1,48 @@
+{
+  "AboutSection.tsx": [
+    "alt:User"
+  ],
+  "BlogSection.tsx": [
+    "alt:Preview Image"
+  ],
+  "CasyStudySection.tsx": [],
+  "FaqSection.tsx": [],
+  "FooterSection.tsx": [
+    "placeholder:Jane Smith",
+    "placeholder:jane@framer.com",
+    "placeholder:I need a website ...",
+    "alt:User",
+    "alt:Logo",
+    "alt:Gola Templates"
+  ],
+  "HeroSection.tsx": [
+    ",\n  mediaRef: RefObject",
+    "(null)\n  const mediaRef = useRef",
+    "(null)\n  useHeroVideoScrollZoom(sectionRef, mediaRef)\n\n  return (",
+    "alt:User"
+  ],
+  "LogosSection.tsx": [],
+  "MenuPanel.tsx": [
+    "alt:User",
+    "alt:Hero Image"
+  ],
+  "NavSection.tsx": [],
+  "PortfolioSection.tsx": [
+    "alt:Preview Image"
+  ],
+  "PricingSection.tsx": [
+    "alt:User"
+  ],
+  "ProcessSection.tsx": [],
+  "ServicesSection.tsx": [
+    "alt:User"
+  ],
+  "StatsSection.tsx": [],
+  "TestimonialsSection.tsx": [
+    "alt:User",
+    "alt:Logo"
+  ],
+  "TopBarSection.tsx": [
+    "alt:Logo"
+  ]
+}

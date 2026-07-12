@@ -1,0 +1,135 @@
+{
+  "about": {
+    "h": 2016,
+    "w": 1600,
+    "textHead": "GET IN TOUCH |  | /HANZA |  | HANZA NOVÁK |  | PROFESSION |  | DESIGNER & FRAMER EXPERT |  | LOCATION |  | PRAGUE, CZECHIA |  | 01 |  | MY MISSION |  | ©2019-2026 |  | Ahoj, I’m Hanza. I help founders, studios, and growing brands turn their ideas into refined websites. I design clear visual systems and build them in Framer, smooth motion, and a focus on usability. |  | 01 |  | PROJECTS |  | 122+ |  | 122+ |  | Digital projects shaped from early concept to ",
+    "wordCount": 33,
+    "opacities": [
+      {
+        "t": "Ahoj,",
+        "op": "0.2"
+      },
+      {
+        "t": "I’m",
+        "op": "0.2"
+      },
+      {
+        "t": "Hanza.",
+        "op": "0.2"
+      },
+      {
+        "t": "I",
+        "op": "0.2"
+      },
+      {
+        "t": "help",
+        "op": "0.2"
+      },
+      {
+        "t": "founders,",
+        "op": "0.2"
+      },
+      {
+        "t": "studios,",
+        "op": "0.2"
+      },
+      {
+        "t": "and",
+        "op": "0.2"
+      },
+      {
+        "t": "growing",
+        "op": "0.2"
+      },
+      {
+        "t": "brands",
+        "op": "0.2"
+      },
+      {
+        "t": "turn",
+        "op": "0.2"
+      },
+      {
+        "t": "their",
+        "op": "0.2"
+      }
+    ],
+    "sticky": [
+      {
+        "name": null,
+        "pos": "sticky",
+        "cls": "framer-1umz7to-container"
+      }
+    ]
+  },
+  "aboutAfter": [
+    {
+      "t": "Ahoj,",
+      "op": "1"
+    },
+    {
+      "t": "I’m",
+      "op": "1"
+    },
+    {
+      "t": "Hanza.",
+      "op": "1"
+    },
+    {
+      "t": "I",
+      "op": "1"
+    },
+    {
+      "t": "help",
+      "op": "1"
+    },
+    {
+      "t": "founders,",
+      "op": "1"
+    },
+    {
+      "t": "studios,",
+      "op": "1"
+    },
+    {
+      "t": "and",
+      "op": "1"
+    },
+    {
+      "t": "growing",
+      "op": "1"
+    },
+    {
+      "t": "brands",
+      "op": "1"
+    },
+    {
+      "t": "turn",
+      "op": "1"
+    },
+    {
+      "t": "their",
+      "op": "1"
+    },
+    {
+      "t": "ideas",
+      "op": "1"
+    },
+    {
+      "t": "into",
+      "op": "1"
+    },
+    {
+      "t": "refined",
+      "op": "1"
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    "You provided a `value` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultValue`. Otherwise, set either `onChange` or `readOnly`.",
+    "You provided a `value` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultValue`. Otherwise, set either `onChange` or `readOnly`."
+  ],
+  "nextOverlay": {
+    "hasPortal": true
+  }
+}

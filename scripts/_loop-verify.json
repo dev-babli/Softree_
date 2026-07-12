@@ -1,0 +1,24 @@
+{
+  "menu": {
+    "open": true,
+    "label": "Close",
+    "links": "HOME | PORTFOLIO | ABOUT | CONTACT | BLOG | 404"
+  },
+  "faqBefore": {
+    "sectionH": 973,
+    "firstName": "First Open (L)",
+    "firstH": 253
+  },
+  "faqAfter": {
+    "sectionH": 973,
+    "firstName": "First Open (L)",
+    "firstH": 253,
+    "contentDisplay": "flex"
+  },
+  "footer": {
+    "h": 1722,
+    "hasForm": true,
+    "text": "GET IN TOUCH |  | /HANZA |  | HANZA NOVÁK |  | PROFESSION |  | DESIGNER & FRAMER EXPERT |  | LOCATION |  | PRAGUE, CZECHIA |  | CONTACT |  | CREATE YOUR"
+  },
+  "pageErrors": []
+}

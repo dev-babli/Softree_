@@ -1,0 +1,177 @@
+{
+  "layoutCls": "framer-3L5GK framer-7n6fwg",
+  "kids": [
+    {
+      "tag": "DIV",
+      "cls": "framer-1ld9wvj-container",
+      "name": null,
+      "op": "1",
+      "pos": "relative",
+      "z": "auto",
+      "text": "",
+      "rect": {
+        "t": 0,
+        "l": 800,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "DIV",
+      "cls": "framer-xobrsp-container hidden-s4cw1s hidden-1whf26r",
+      "name": null,
+      "op": "1",
+      "pos": "fixed",
+      "z": "8",
+      "text": "",
+      "rect": {
+        "t": 0,
+        "l": 0,
+        "w": 1600,
+        "h": 120
+      }
+    },
+    {
+      "tag": "DIV",
+      "cls": "framer-1iup1yh-container",
+      "name": null,
+      "op": "1",
+      "pos": "absolute",
+      "z": "auto",
+      "text": "MENU |  | 06:58 AM |  | LOCAL TIME |  | START PROJECT |  | /HANZA",
+      "rect": {
+        "t": 0,
+        "l": 0,
+        "w": 1600,
+        "h": 114
+      }
+    },
+    {
+      "tag": "STYLE",
+      "cls": "",
+      "name": null,
+      "op": "1",
+      "pos": "static",
+      "z": "auto",
+      "text": "html body { background: var(--token-4321a524-8651-4268-85f9-e884d8cb6223, rgb(25",
+      "rect": {
+        "t": 0,
+        "l": 0,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "DIV",
+      "cls": "framer-7JiRT framer-J0UB8 framer-0fB9Y framer-ic7tY framer-BfFRM framer-Y9G5g framer-7Z0zH framer-pL0Rf framer-OwmSi framer-PXhJw framer-72r",
+      "name": null,
+      "op": "1",
+      "pos": "relative",
+      "z": "auto",
+      "text": "I HELP FOUNDERS AND GROWING BRANDS TURN THEIR IDEAS INTO REFINED WEBSITES. |  | /01 | ",
+      "rect": {
+        "t": 0,
+        "l": 0,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "DIV",
+      "cls": "",
+      "name": null,
+      "op": "1",
+      "pos": "static",
+      "z": "auto",
+      "text": "",
+      "rect": {
+        "t": 15388,
+        "l": 800,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "DIV",
+      "cls": "framer-10q7wcf",
+      "name": null,
+      "op": "1",
+      "pos": "relative",
+      "z": "auto",
+      "text": "",
+      "rect": {
+        "t": 15388,
+        "l": 800,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "DIV",
+      "cls": "framer-kpxr6s-container",
+      "name": null,
+      "op": "1",
+      "pos": "absolute",
+      "z": "0",
+      "text": "",
+      "rect": {
+        "t": 0,
+        "l": 0,
+        "w": 1600,
+        "h": 17110
+      }
+    },
+    {
+      "tag": "DIV",
+      "cls": "framer-97pctu-container",
+      "name": null,
+      "op": "1",
+      "pos": "relative",
+      "z": "auto",
+      "text": "GET IN TOUCH |  | /HANZA |  | HANZA NOVÁK  |  | PROFESSION |  | DESIGNER & FRAMER EXPERT |  | LOCATI",
+      "rect": {
+        "t": 15388,
+        "l": 0,
+        "w": 1600,
+        "h": 1722
+      }
+    },
+    {
+      "tag": "DIV",
+      "cls": "framer-1k4nlbv-container",
+      "name": null,
+      "op": "1",
+      "pos": "fixed",
+      "z": "9",
+      "text": "More Templates |  | More Templates |  | Buy for $99 |  | Buy for $99",
+      "rect": {
+        "t": 681,
+        "l": 1440,
+        "w": 138,
+        "h": 159
+      }
+    }
+  ],
+  "cqh": {
+    "cls": "framer-3L5GK framer-cqh11d-container",
+    "html": "<div class=\"framer-3L5GK framer-cqh11d-container\" style=\"opacity: 1; transform: none; will-change: transform;\"><div class=\"framer-rFApl framer-J0UB8 framer-0fB9Y framer-1wybxq8 framer-v-1wybxq8\" data-framer-name=\"Desktop\" style=\"background-color: var(--token-a4a8718c-07f9-4933-9dc3-7840f6471332, rgb(25, 25, 25)); box-shadow: rgba(0, 0, 0, 0.25) 0px 5px 20px 0px; opacity: 1;\"><div class=\"framer-j5mz3r\" data-framer-name=\"Menu\" style=\"opacity: 1;\"><nav class=\"framer-1ely9zm\" data-framer-name=\"Nav\" style=\"opacity: 1;\"><div class=\"framer-1ibeai8-container\" style=\"opacity: 1;\"><a class=\"framer-c6z8u framer-GxmSJ framer-3x0ad0 framer-v-3x0ad0 framer-17jup9s\" data-framer-name=\"Inverse\" data-highlight=\"true\" href=\"./\" data-framer-page-link-current=\"true\" tabindex=\"0\" style=\"width: 100%; opacity: 1;\"><div class=\"framer-n2tvl0\" data-framer-name=\"Vector\" style=\"background-color: var(--token-dca875b7-f855-43c1-bf73-97596e452266, rgb(255, 96, 68)); transform: scale(0); opacity: 1;\"></div><div class=\"framer-1cz5rc9\" data-framer-component-type=\"RichTextContainer\" style=\"--extracted-r6o4lv: var(--token-681ab5da-b380-493f-a46b-a44cff4aee36, rgb(255, 255, 255)); --framer-paragraph-spacing: 0px; transform: none; opacity: 1;\"><p class=\"framer-text framer-styles-preset-1s378tr\" data-styles-preset=\"QivRp3Nud\" dir=\"auto\" style=\"--framer-text-color: var(--extracted-r6o4lv, var(--token-681ab5da-b380-493f-a46b-a44cff4aee36, rgb(255, 255, 255)));\">Home</p></div></a></div><div class=\"framer-14pe6wh-container\" style=\"opacity: 1;\"><a class=\"framer-c6z8u framer-GxmSJ framer-3x0ad0 framer-v-3x0ad0 framer-17jup9s\" data-framer-name=\"Inverse\" data-highlight=\"true\" href=\"./portfolio\" tabindex=\"0\" style=\"width: 100%; opacity: 1;\"><div class=\"framer-n2tvl0\" data-framer-name=\"Vector\" style=\"background-color: var(--token-dca875b7-f855-43c1-bf73-97596e452266, rgb(255, 96, 68)); transform: scale(0); opacity: 1;\"></div><div class=\"framer-1cz5rc9\" data-framer-component-type=\"RichTextContainer\" style=\"--extracted-r6o4lv: var(--token-681ab5da-b380-493f-a46b-a44cff4aee36, rgb(255, 255, 255)); --framer-paragraph-spacing: 0px; transform: none; opacity: 1;\"><p class=\"framer-text framer-styles-preset-1s378tr\" data-styles-preset=\"QivRp3Nud\" dir=\"auto\" style=\"--framer-text-color: var(--extracted-r6o4lv, var(--token-681ab5da-b380-493f-a46b-a44cff4aee36, rgb(255, 255, 255)));\">Portfolio</p></div></a></div><div class=\"framer-15bw1kw-container\" style=\"opacity: 1;\"><a class=\"framer-c6z8u framer-GxmSJ framer-3x0ad0 framer-v-3x0ad0 framer-17jup9s\" data-framer-name=\"Inverse\" data-highlight=\"true\" href=\"./about\" tabindex=\"0\" style=\"width: 100%; opacity: 1;\"><div class=\"framer-n2tvl0\" data-framer-name=\"Vector\" style=\"background-color: var(--token-dca875b7-f855-43c1-bf73-97596e452266, rgb(255, 96, 68)); transform: scale(0); opacity: 1;\"></div><div class=\"framer-1cz5rc9\" data-framer-component-type=\"RichTextContainer\" style=\"--extracted-r6o4lv: var(--token-681ab5da-b380-493f-a46b-a44cff4aee36, rgb(255, 255, 255)); --framer-paragraph-spacing: 0px; transform: none; opacity: 1;\"><p class=\"framer-text framer-styles-preset-1s378tr\" data-styles-preset=\"QivRp3Nud\" dir=\"auto\" style=\"--framer-text-color: var(--extracted-r6o4lv, var(--token-681ab5da-b380-493f-a46b-a44cff4aee36, rgb(255, 255, 255)));\">About</p></div></a></div><div class=\"framer-169mvim-container\" style=\"opacity: 1;\"><a class=\"framer-c6z8u framer-GxmSJ framer-3x0ad0 framer-v-3x0ad0 framer-17jup9s\" data-framer-name=\"Inverse\" data-highlight=\"true\" href=\"./contact\" tabindex=\"0\" style=\"width: 100%; opacity: 1;\"><div class=\"framer-n2tvl0\" data-framer-name=\"Vector\" style=\"background-color: var(--token-dca875b7-f855-43c1-bf73-97596e452266, rgb(255, 96, 68)); transform: scale(0); opacity: 1;\"></div><div class=\"framer-1cz5rc9\" data-framer-component-type=\"RichTextContainer\" style=\"--extracted-r6o4lv: var(--token-681ab5da-b380-493f-a46b-a44cff4aee36, rgb(255, 255, 255)); --framer-paragraph-spacing: 0px; transform: none; opacity: 1;\"><p class=\"framer-text framer-styles-preset-1s378tr\" data-styles-preset=\"QivRp3Nud\" dir=\"auto\" style=\"--framer-text-color: var(--extracted-r6o4lv, var(--token-681ab5da-b380-493f-a46b-a44cff4aee36, rgb(255, 255, 255)));\">Contact</p></div></a></div><div class=\"framer-29v6qa-container\" style=\"opacity: 1;\"><a class=\"framer-c6z8u framer-GxmSJ framer-3x0ad0 framer-v-3x0ad0 framer-17jup9s\" data-framer-name=\"Inverse\" data-highlight=\"true\" href=\"./blog\" tabindex=\"0\" style=\"width: 100%; opacity: 1;\"><div class=\"framer-n2tvl0\" data-framer-name=\"Vector\" style=\"background-color: var(--token-dca875b7-f855-43c1-bf73-97596e452266, rgb(255, 96, 68)); transform: scale(0); opacity: 1;\"></div><div class=\"framer-1cz5rc9\" data-framer-component-type=\"RichTextContainer\" style=\"--extracted-r6o4lv: var(--token-681ab5da-b380-493f-a46b-a44cff4aee36, rgb(255, 255, 255)); --framer-paragraph-spacing: 0px; transform: none; opacity: 1;\"><p class=\"framer-text framer-styles-preset-1s378tr\" data-styles-preset=\"QivRp3Nud\" dir=\"auto\" style=\"--framer-text-color: var(--extracted-r6o4lv, var(--token-681ab5da-b380-493f-a46b-a44cff4aee36, rgb(255, 255, 255)));\">Blog</p></div></a></div></nav><div class=\"framer-ig1dpd\" data-framer-name=\"Grid\" style=\"opacity: 1;\"><div class=\"framer-1bg18zu\" style=\"opacity: 1;\"><div data-framer-background-image-wrapper=\"true\" style=\"position: absolute; border-radius: inherit; corner-shape: inherit; inset: 0px;\"><img decoding=\"auto\" width=\"1000\" height=\"1200\" sizes=\"60px\" srcset=\"https://framerusercontent.com/images/zeniIu0DU3NmcSWU4yeBs0Gdk.webp?scale-down-to=1024&amp;width=1000&amp;height=1200 853w,https://framerusercontent.com/images/zeniIu0DU3NmcSWU4yeBs0Gdk.webp?width=1000&amp;height=1200 1000w\" src=\"https://framerusercontent.com/images/zeniIu0DU3NmcSWU4yeBs0Gdk.webp?width=1000&amp;height=1200\" alt=\"User\" style=\"display: block; width: 100%; height: 100%; border-radius: inherit; corner-shape: inherit; object-position: center center; object-fit: cover;\"></div></div><div class=\"framer-13jhmkd\" data-framer-name=\"Grid\" style=\"opacity: 1;\"><div class=\"framer-3cqjcs\" data-framer-name=\"Grid\" style=\"opacity: 1;\"><div class=\"framer-1g2yfhh\" data-framer-name=\"Vector\" style=\"background-color: var(--token-dca875b7-f855-43c1-bf73-97596e452266, rgb(255, 96, 68)); opacity: 1;\"></div><div class=\"framer-8jslbc\" data-framer-component-type=\"RichTextContainer\" style=\"--extracted-1w1cjl5: var(--token-681ab5da-b380-493f-a46b-a44cff4aee36, rgb(255, 255, 255)); --framer-paragraph-spacing: 0px; transform: none; opacity: 1;\"><h6 class=\"framer-text framer-styles-preset-1tde6wz\" data-styles-preset=\"i6r0kI2sg\" dir=\"auto\" style=\"--framer-text-color: var(--extracted-1w1cjl5, var(--token-681ab5da-b380-493f-a46b-a44cff4aee36, rgb(255, 255, 255)));\">Hanza Novák </h6></div></div><div class=\"framer-1llhkxt\" data-framer-name=\"Text\" data-framer-component-type=\"RichTextContainer\" style=\"--extracted-r6o4lv: var(--token-e78e0574-70cc-443d-9ed0-67f0605f5e88, rgba(255, 255, 255, 0.6)); --framer-paragraph-spacing: 0px; transform: none; opacity: 1;\"><p class=\"framer-text framer-styles-preset-1t53lfp\" data-styles-preset=\"izEPYCVCb\" dir=\"auto\" style=\"--framer-text-color: var(--extracted-r6o4lv, var(--token-e78e0574-70cc-443d-9ed0-67f0605f5e88, rgba(255, 255, 255, 0.6)));\">Designer &amp; Framer Expert</p></div></div><div class=\"framer-159hxm7\" data-framer-name=\"Socials\" style=\"opacity: 1;\"><div class=\"framer-1gur1lo-container\" style=\"opacity: 1;\"><a class=\"framer-b3pjF framer-1qoopbm framer-v-1asdoeb framer-13mbuk0\" data-framer-name=\"Inverse\" href=\"https://www.framer.com/marketplace/creator/pawel-gola?via=pawelgola\" target=\"_blank\" rel=\"noopener\" style=\"opacity: 1;\"><svg class=\"framer-QYJ03 framer-17shpqd\" role=\"presentation\" viewBox=\"0 0 24 24\" style=\"--1m6trwb: 0; --21h8s6: var(--token-681ab5da-b380-493f-a46b-a44cff4aee36, rgb(255, 255, 255)); --pgex8v: 1.5; transform: none; opacity: 1;\"><use href=\"#1403532491\"></use></svg></a></div><div class=\"framer-iwbg4x-container\" style=\"opacity: 1;\"><a class",
+    "parentCls": ""
+  },
+  "qlili": {
+    "cls": "framer-3L5GK framer-qlili8",
+    "tag": "DIV"
+  },
+  "nav": {
+    "cls": "framer-1qvl8bs",
+    "parentCls": "framer-1t7bxkq",
+    "text": "HOME\n\nPORTFOLIO\n\nABOUT\n\nCONTACT\n\nBLOG\n\n404",
+    "rect": {
+      "t": 16675,
+      "l": 800,
+      "w": 368,
+      "h": 181
+    }
+  },
+  "topText": "MENU\n\n06:58 AM\n\nLOCAL TIME\n\nSTART PROJECT\n\n/HANZA",
+  "close": null
+}

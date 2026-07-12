@@ -1,8 +1,8 @@
 {
   "version": "3.0.0",
-  "updatedAt": "2026-07-06T21:09:07.720Z",
-  "nodeCount": 182,
-  "edgeCount": 0,
+  "updatedAt": "2026-07-12T19:03:08.481Z",
+  "nodeCount": 191,
+  "edgeCount": 5,
   "folders": [
     "00-constitution",
     "01-company",
@@ -332,18 +332,35 @@
       ]
     },
     {
+      "id": "research-repo-softree-stack-2026-07",
+      "title": "Softree_ Repository Stack Intelligence",
+      "category": "atom",
+      "domain": "company",
+      "knowledgeFolder": "01-company",
+      "confidence": 0.85,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-12",
+      "status": "verified",
+      "path": "knowledge/01-company/research-repo-softree-stack-2026-07.md",
+      "tags": [
+        "company"
+      ]
+    },
+    {
       "id": "company.services",
       "title": "Services",
       "category": "atom",
       "domain": "company",
       "knowledgeFolder": "01-company",
-      "confidence": 0.4,
-      "version": "1.0.0",
-      "lastUpdated": "2026-07-06",
-      "status": "scaffold",
+      "confidence": 0.9,
+      "version": "1.1.0",
+      "lastUpdated": "2026-07-13",
+      "status": "verified",
       "path": "knowledge/01-company/Services.md",
       "tags": [
-        "company"
+        "company",
+        "services",
+        "routes"
       ]
     },
     {
@@ -479,6 +496,51 @@
       "path": "knowledge/02-consulting/ProblemSolving.md",
       "tags": [
         "consulting"
+      ]
+    },
+    {
+      "id": "research-agents-mcp-2026-07",
+      "title": "MCP 2026-07-28 Specification Release Candidate",
+      "category": "atom",
+      "domain": "agents",
+      "knowledgeFolder": "02-consulting",
+      "confidence": 0.85,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-12",
+      "status": "verified",
+      "path": "knowledge/02-consulting/research-agents-mcp-2026-07.md",
+      "tags": [
+        "agents"
+      ]
+    },
+    {
+      "id": "research-nextjs-16-2-2026",
+      "title": "Next.js 16.2 Release Notes",
+      "category": "atom",
+      "domain": "architecture",
+      "knowledgeFolder": "02-consulting",
+      "confidence": 0.85,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-12",
+      "status": "verified",
+      "path": "knowledge/02-consulting/research-nextjs-16-2-2026.md",
+      "tags": [
+        "architecture"
+      ]
+    },
+    {
+      "id": "research-repo-agentic-platform-2026-07",
+      "title": "Softree Agentic AI Platform — Repo Implementation",
+      "category": "atom",
+      "domain": "agents",
+      "knowledgeFolder": "02-consulting",
+      "confidence": 0.85,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-12",
+      "status": "verified",
+      "path": "knowledge/02-consulting/research-repo-agentic-platform-2026-07.md",
+      "tags": [
+        "agents"
       ]
     },
     {
@@ -817,13 +879,16 @@
       "category": "atom",
       "domain": "engineering",
       "knowledgeFolder": "05-engineering",
-      "confidence": 0.4,
-      "version": "1.0.0",
-      "lastUpdated": "2026-07-06",
-      "status": "scaffold",
+      "confidence": 0.95,
+      "version": "1.1.0",
+      "lastUpdated": "2026-07-13",
+      "status": "verified",
       "path": "knowledge/05-engineering/Architecture.md",
       "tags": [
-        "engineering"
+        "engineering",
+        "nextjs",
+        "sanity",
+        "architecture"
       ]
     },
     {
@@ -877,13 +942,16 @@
       "category": "atom",
       "domain": "engineering",
       "knowledgeFolder": "05-engineering",
-      "confidence": 0.4,
-      "version": "1.0.0",
-      "lastUpdated": "2026-07-06",
-      "status": "scaffold",
+      "confidence": 0.95,
+      "version": "1.1.0",
+      "lastUpdated": "2026-07-13",
+      "status": "verified",
       "path": "knowledge/05-engineering/Performance.md",
       "tags": [
-        "engineering"
+        "engineering",
+        "performance",
+        "cwv",
+        "lighthouse"
       ]
     },
     {
@@ -952,13 +1020,16 @@
       "category": "atom",
       "domain": "ai",
       "knowledgeFolder": "06-ai",
-      "confidence": 0.4,
-      "version": "1.0.0",
-      "lastUpdated": "2026-07-06",
-      "status": "scaffold",
+      "confidence": 0.9,
+      "version": "1.1.0",
+      "lastUpdated": "2026-07-13",
+      "status": "verified",
       "path": "knowledge/06-ai/Agents.md",
       "tags": [
-        "ai"
+        "ai",
+        "agents",
+        "mcp",
+        "agentic-platform"
       ]
     },
     {
@@ -1412,6 +1483,21 @@
       ]
     },
     {
+      "id": "research-seo-cwv-2026",
+      "title": "Core Web Vitals Thresholds 2026",
+      "category": "atom",
+      "domain": "seo",
+      "knowledgeFolder": "09-seo",
+      "confidence": 0.85,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-12",
+      "status": "verified",
+      "path": "knowledge/09-seo/research-seo-cwv-2026.md",
+      "tags": [
+        "seo"
+      ]
+    },
+    {
       "id": "seo.schema",
       "title": "Schema",
       "category": "atom",
@@ -1577,6 +1663,21 @@
       ]
     },
     {
+      "id": "research-geo-best-practices-2026",
+      "title": "Generative Engine Optimization Complete Guide 2026",
+      "category": "atom",
+      "domain": "geo",
+      "knowledgeFolder": "10-geo",
+      "confidence": 0.85,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-12",
+      "status": "verified",
+      "path": "knowledge/10-geo/research-geo-best-practices-2026.md",
+      "tags": [
+        "geo"
+      ]
+    },
+    {
       "id": "aeo.answer.engine.optimization",
       "title": "Answer Engine Optimization",
       "category": "atom",
@@ -1617,6 +1718,21 @@
       "lastUpdated": "2026-07-06",
       "status": "scaffold",
       "path": "knowledge/11-aeo/QuestionResearch.md",
+      "tags": [
+        "aeo"
+      ]
+    },
+    {
+      "id": "research-aeo-answer-engine-2026",
+      "title": "Answer Engine Optimization Complete Guide 2026",
+      "category": "atom",
+      "domain": "aeo",
+      "knowledgeFolder": "11-aeo",
+      "confidence": 0.85,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-12",
+      "status": "verified",
+      "path": "knowledge/11-aeo/research-aeo-answer-engine-2026.md",
       "tags": [
         "aeo"
       ]
@@ -2072,21 +2188,6 @@
       ]
     },
     {
-      "id": "competitors.kore.a.i",
-      "title": "Kore A I",
-      "category": "atom",
-      "domain": "competitors",
-      "knowledgeFolder": "15-competitors",
-      "confidence": 0.95,
-      "version": "1.0.0",
-      "lastUpdated": "2026-07-06",
-      "status": "verified",
-      "path": "knowledge/15-competitors/KoreAI.md",
-      "tags": [
-        "competitors"
-      ]
-    },
-    {
       "id": "competitors.moveworks",
       "title": "Moveworks",
       "category": "atom",
@@ -2114,6 +2215,55 @@
       "path": "knowledge/15-competitors/PwC.md",
       "tags": [
         "competitors"
+      ]
+    },
+    {
+      "id": "research-competitor-accenture-ai-2026",
+      "title": "Accenture Agentic AI Strategy — AI Refinery and Trusted Agent Huddle",
+      "category": "atom",
+      "domain": "competitors",
+      "knowledgeFolder": "15-competitors",
+      "confidence": 0.85,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-12",
+      "status": "verified",
+      "path": "knowledge/15-competitors/research-competitor-accenture-ai-2026.md",
+      "tags": [
+        "competitors"
+      ]
+    },
+    {
+      "id": "research-competitor-kore-artemis-2026-05",
+      "title": "Kore.ai Artemis Agent Platform Launch",
+      "category": "atom",
+      "domain": "competitors",
+      "knowledgeFolder": "15-competitors",
+      "confidence": 0.85,
+      "version": "1.0.0",
+      "lastUpdated": "2026-07-12",
+      "status": "verified",
+      "path": "knowledge/15-competitors/research-competitor-kore-artemis-2026-05.md",
+      "tags": [
+        "competitors"
+      ]
+    },
+    {
+      "id": "competitors.kore.a.i",
+      "title": "Kore.ai Competitive Profile",
+      "category": "atom",
+      "domain": "competitors",
+      "knowledgeFolder": "15-competitors",
+      "confidence": 0.85,
+      "version": "1.2.0",
+      "lastUpdated": "2026-07-13",
+      "status": "verified",
+      "path": "knowledge/15-competitors/SoftreeAI.md",
+      "tags": [
+        "competitors",
+        "kore-ai",
+        "artemis",
+        "agentic-ai",
+        "benchmark"
       ]
     },
     {
@@ -2762,5 +2912,31 @@
       ]
     }
   ],
-  "edges": []
+  "edges": [
+    {
+      "from": "company.services",
+      "to": "company.softree",
+      "type": "related"
+    },
+    {
+      "from": "engineering.architecture",
+      "to": "engineering.performance",
+      "type": "related"
+    },
+    {
+      "from": "engineering.performance",
+      "to": "engineering.architecture",
+      "type": "related"
+    },
+    {
+      "from": "ai.agents",
+      "to": "competitors.kore.a.i",
+      "type": "related"
+    },
+    {
+      "from": "competitors.kore.a.i",
+      "to": "ai.agents",
+      "type": "related"
+    }
+  ]
 }

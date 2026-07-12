@@ -1,6 +1,6 @@
 {
-  "analyzedAt": "2026-07-06T21:04:09.529Z",
-  "pipeline": "Internet → Research Agent → Scraper → Cleaner → Summarizer → Fact Checker → Knowledge Extractor → Pattern Engine → Knowledge Files → Knowledge Graph",
+  "analyzedAt": "2026-07-12T19:03:08.369Z",
+  "pipeline": "Internet → Research Agent → Scraper → Cleaner → Summarizer → Fact Checker → Knowledge Extractor → Pattern Engine → Knowledge Files → Memory → Knowledge Graph",
   "questions": [
     "What new concepts appeared?",
     "What knowledge is outdated?",
@@ -9,341 +9,519 @@
     "What should be researched next?"
   ],
   "stats": {
-    "totalAtoms": 13,
-    "coveredFolders": 8,
-    "emptyFolders": 24,
-    "lowConfidence": 0,
-    "drafts": 1,
+    "totalAtoms": 191,
+    "coveredFolders": 23,
+    "emptyFolders": 0,
+    "lowConfidence": 157,
+    "drafts": 0,
     "stale": 0,
-    "competitors": 1
+    "competitors": 0
   },
-  "emptyFolders": [
-    {
-      "folder": "02_consulting",
-      "label": "Consulting"
-    },
-    {
-      "folder": "03_business",
-      "label": "Business"
-    },
-    {
-      "folder": "04_strategy",
-      "label": "Strategy"
-    },
-    {
-      "folder": "05_sales",
-      "label": "Sales"
-    },
-    {
-      "folder": "06_marketing",
-      "label": "Marketing"
-    },
-    {
-      "folder": "07_copywriting",
-      "label": "Copywriting"
-    },
-    {
-      "folder": "08_design",
-      "label": "Design"
-    },
-    {
-      "folder": "09_ui",
-      "label": "UI"
-    },
-    {
-      "folder": "10_ux",
-      "label": "UX"
-    },
-    {
-      "folder": "11_psychology",
-      "label": "Psychology"
-    },
-    {
-      "folder": "12_seo",
-      "label": "SEO"
-    },
-    {
-      "folder": "13_geo",
-      "label": "GEO"
-    },
-    {
-      "folder": "14_aeo",
-      "label": "AEO"
-    },
-    {
-      "folder": "15_llmo",
-      "label": "LLMO"
-    },
-    {
-      "folder": "16_ai",
-      "label": "AI"
-    },
-    {
-      "folder": "17_rag",
-      "label": "RAG"
-    },
-    {
-      "folder": "18_agents",
-      "label": "Agents"
-    },
-    {
-      "folder": "19_architecture",
-      "label": "Architecture"
-    },
-    {
-      "folder": "20_performance",
-      "label": "Performance"
-    },
-    {
-      "folder": "21_security",
-      "label": "Security"
-    },
-    {
-      "folder": "22_accessibility",
-      "label": "Accessibility"
-    },
-    {
-      "folder": "24_industries",
-      "label": "Industries"
-    },
-    {
-      "folder": "25_case_studies",
-      "label": "Case Studies"
-    },
-    {
-      "folder": "27_prompt_library",
-      "label": "Prompt Library"
-    }
-  ],
+  "emptyFolders": [],
   "items": [
     {
-      "id": "draft-competitor.kore-ai",
-      "query": "Complete draft atom: Softree Competitive Profile",
-      "knowledgeFolder": "23_competitors",
+      "id": "verify-constitution.decision.framework",
+      "query": "Verify and strengthen: Decision Framework",
+      "domain": "constitution",
+      "knowledgeFolder": "00-constitution",
       "priority": 1,
       "status": "pending",
-      "reason": "draft status",
-      "targetAtom": "competitor.kore-ai"
+      "reason": "low confidence",
+      "targetAtom": "constitution.decision.framework"
     },
     {
-      "id": "competitor-accenture",
-      "query": "Competitive benchmark: accenture — positioning, messaging, design, SEO",
-      "domain": "competitors",
-      "knowledgeFolder": "23_competitors",
+      "id": "verify-constitution.engineering.standards",
+      "query": "Verify and strengthen: Engineering Standards",
+      "domain": "constitution",
+      "knowledgeFolder": "00-constitution",
       "priority": 1,
       "status": "pending",
-      "reason": "missing competitor profile"
+      "reason": "low confidence",
+      "targetAtom": "constitution.engineering.standards"
     },
     {
-      "id": "competitor-ibm-consulting",
-      "query": "Competitive benchmark: ibm consulting — positioning, messaging, design, SEO",
-      "domain": "competitors",
-      "knowledgeFolder": "23_competitors",
+      "id": "verify-constitution.quality.standards",
+      "query": "Verify and strengthen: Quality Standards",
+      "domain": "constitution",
+      "knowledgeFolder": "00-constitution",
       "priority": 1,
       "status": "pending",
-      "reason": "missing competitor profile"
+      "reason": "low confidence",
+      "targetAtom": "constitution.quality.standards"
     },
     {
-      "id": "competitor-thoughtworks",
-      "query": "Competitive benchmark: thoughtworks — positioning, messaging, design, SEO",
-      "domain": "competitors",
-      "knowledgeFolder": "23_competitors",
+      "id": "verify-constitution.success.metrics",
+      "query": "Verify and strengthen: Success Metrics",
+      "domain": "constitution",
+      "knowledgeFolder": "00-constitution",
       "priority": 1,
       "status": "pending",
-      "reason": "missing competitor profile"
+      "reason": "low confidence",
+      "targetAtom": "constitution.success.metrics"
     },
     {
-      "id": "competitor-moveworks",
-      "query": "Competitive benchmark: moveworks — positioning, messaging, design, SEO",
-      "domain": "competitors",
-      "knowledgeFolder": "23_competitors",
+      "id": "verify-company.case.studies",
+      "query": "Verify and strengthen: Case Studies",
+      "domain": "company",
+      "knowledgeFolder": "01-company",
       "priority": 1,
       "status": "pending",
-      "reason": "missing competitor profile"
+      "reason": "low confidence",
+      "targetAtom": "company.case.studies"
     },
     {
-      "id": "research-02_consulting",
-      "query": "Authoritative best practices for Consulting (Delivery methodology, engagement models)",
+      "id": "verify-company.culture",
+      "query": "Verify and strengthen: Culture",
+      "domain": "company",
+      "knowledgeFolder": "01-company",
+      "priority": 1,
+      "status": "pending",
+      "reason": "low confidence",
+      "targetAtom": "company.culture"
+    },
+    {
+      "id": "verify-company.goals",
+      "query": "Verify and strengthen: Goals",
+      "domain": "company",
+      "knowledgeFolder": "01-company",
+      "priority": 1,
+      "status": "pending",
+      "reason": "low confidence",
+      "targetAtom": "company.goals"
+    },
+    {
+      "id": "verify-company.mission",
+      "query": "Verify and strengthen: Mission",
+      "domain": "company",
+      "knowledgeFolder": "01-company",
+      "priority": 1,
+      "status": "pending",
+      "reason": "low confidence",
+      "targetAtom": "company.mission"
+    },
+    {
+      "id": "verify-company.pricing",
+      "query": "Verify and strengthen: Pricing",
+      "domain": "company",
+      "knowledgeFolder": "01-company",
+      "priority": 1,
+      "status": "pending",
+      "reason": "low confidence",
+      "targetAtom": "company.pricing"
+    },
+    {
+      "id": "verify-company.team",
+      "query": "Verify and strengthen: Team",
+      "domain": "company",
+      "knowledgeFolder": "01-company",
+      "priority": 1,
+      "status": "pending",
+      "reason": "low confidence",
+      "targetAtom": "company.team"
+    },
+    {
+      "id": "verify-company.vision",
+      "query": "Verify and strengthen: Vision",
+      "domain": "company",
+      "knowledgeFolder": "01-company",
+      "priority": 1,
+      "status": "pending",
+      "reason": "low confidence",
+      "targetAtom": "company.vision"
+    },
+    {
+      "id": "verify-consulting.business.analysis",
+      "query": "Verify and strengthen: Business Analysis",
       "domain": "consulting",
-      "knowledgeFolder": "02_consulting",
-      "priority": 2,
+      "knowledgeFolder": "02-consulting",
+      "priority": 1,
       "status": "pending",
-      "reason": "empty taxonomy folder"
+      "reason": "low confidence",
+      "targetAtom": "consulting.business.analysis"
     },
     {
-      "id": "research-03_business",
-      "query": "Authoritative best practices for Business (Business models, ROI, transformation economics)",
-      "domain": "business",
-      "knowledgeFolder": "03_business",
-      "priority": 2,
+      "id": "verify-consulting.hypothesis.driven.thinking",
+      "query": "Verify and strengthen: Hypothesis Driven Thinking",
+      "domain": "consulting",
+      "knowledgeFolder": "02-consulting",
+      "priority": 1,
       "status": "pending",
-      "reason": "empty taxonomy folder"
+      "reason": "low confidence",
+      "targetAtom": "consulting.hypothesis.driven.thinking"
     },
     {
-      "id": "research-04_strategy",
-      "query": "Authoritative best practices for Strategy (Product strategy, roadmaps, category design)",
-      "domain": "strategy",
-      "knowledgeFolder": "04_strategy",
-      "priority": 2,
+      "id": "verify-consulting.issue.trees",
+      "query": "Verify and strengthen: Issue Trees",
+      "domain": "consulting",
+      "knowledgeFolder": "02-consulting",
+      "priority": 1,
       "status": "pending",
-      "reason": "empty taxonomy folder"
+      "reason": "low confidence",
+      "targetAtom": "consulting.issue.trees"
     },
     {
-      "id": "research-05_sales",
-      "query": "Authoritative best practices for Sales (Enterprise sales, negotiation, procurement)",
-      "domain": "sales",
-      "knowledgeFolder": "05_sales",
-      "priority": 2,
+      "id": "verify-consulting.m.e.c.e",
+      "query": "Verify and strengthen: M E C E",
+      "domain": "consulting",
+      "knowledgeFolder": "02-consulting",
+      "priority": 1,
       "status": "pending",
-      "reason": "empty taxonomy folder"
+      "reason": "low confidence",
+      "targetAtom": "consulting.m.e.c.e"
     },
     {
-      "id": "research-06_marketing",
-      "query": "Authoritative best practices for Marketing (Demand gen, funnels, campaigns)",
-      "domain": "marketing",
-      "knowledgeFolder": "06_marketing",
-      "priority": 2,
+      "id": "verify-consulting.problem.solving",
+      "query": "Verify and strengthen: Problem Solving",
+      "domain": "consulting",
+      "knowledgeFolder": "02-consulting",
+      "priority": 1,
       "status": "pending",
-      "reason": "empty taxonomy folder"
+      "reason": "low confidence",
+      "targetAtom": "consulting.problem.solving"
     },
     {
-      "id": "research-07_copywriting",
-      "query": "Authoritative best practices for Copywriting (Messaging, headlines, conversion copy)",
-      "domain": "copywriting",
-      "knowledgeFolder": "07_copywriting",
-      "priority": 2,
+      "id": "verify-consulting.strategy",
+      "query": "Verify and strengthen: Strategy",
+      "domain": "consulting",
+      "knowledgeFolder": "02-consulting",
+      "priority": 1,
       "status": "pending",
-      "reason": "empty taxonomy folder"
+      "reason": "low confidence",
+      "targetAtom": "consulting.strategy"
     },
     {
-      "id": "research-08_design",
-      "query": "Authoritative best practices for Design (Visual design, design systems, taste)",
+      "id": "verify-consulting.transformation",
+      "query": "Verify and strengthen: Transformation",
+      "domain": "consulting",
+      "knowledgeFolder": "02-consulting",
+      "priority": 1,
+      "status": "pending",
+      "reason": "low confidence",
+      "targetAtom": "consulting.transformation"
+    },
+    {
+      "id": "verify-consulting.value.chain",
+      "query": "Verify and strengthen: Value Chain",
+      "domain": "consulting",
+      "knowledgeFolder": "02-consulting",
+      "priority": 1,
+      "status": "pending",
+      "reason": "low confidence",
+      "targetAtom": "consulting.value.chain"
+    },
+    {
+      "id": "verify-design.airbnb",
+      "query": "Verify and strengthen: Airbnb",
       "domain": "design",
-      "knowledgeFolder": "08_design",
-      "priority": 2,
+      "knowledgeFolder": "03-design",
+      "priority": 1,
       "status": "pending",
-      "reason": "empty taxonomy folder"
+      "reason": "low confidence",
+      "targetAtom": "design.airbnb"
     },
     {
-      "id": "research-09_ui",
-      "query": "Authoritative best practices for UI (Components, states, interface patterns)",
-      "domain": "ui",
-      "knowledgeFolder": "09_ui",
-      "priority": 2,
+      "id": "verify-design.apple",
+      "query": "Verify and strengthen: Apple",
+      "domain": "design",
+      "knowledgeFolder": "03-design",
+      "priority": 1,
       "status": "pending",
-      "reason": "empty taxonomy folder"
+      "reason": "low confidence",
+      "targetAtom": "design.apple"
     },
     {
-      "id": "research-10_ux",
-      "query": "Authoritative best practices for UX (Information architecture, flows, usability)",
-      "domain": "ux",
-      "knowledgeFolder": "10_ux",
-      "priority": 2,
+      "id": "verify-design.color.theory",
+      "query": "Verify and strengthen: Color Theory",
+      "domain": "design",
+      "knowledgeFolder": "03-design",
+      "priority": 1,
       "status": "pending",
-      "reason": "empty taxonomy folder"
+      "reason": "low confidence",
+      "targetAtom": "design.color.theory"
     },
     {
-      "id": "research-11_psychology",
-      "query": "Authoritative best practices for Psychology (Buying psychology, trust, persuasion)",
-      "domain": "psychology",
-      "knowledgeFolder": "11_psychology",
-      "priority": 2,
+      "id": "verify-design.design.principles",
+      "query": "Verify and strengthen: Design Principles",
+      "domain": "design",
+      "knowledgeFolder": "03-design",
+      "priority": 1,
       "status": "pending",
-      "reason": "empty taxonomy folder"
+      "reason": "low confidence",
+      "targetAtom": "design.design.principles"
     },
     {
-      "id": "research-12_seo",
-      "query": "Authoritative best practices for SEO (Search optimization, intent, on-page)",
-      "domain": "seo",
-      "knowledgeFolder": "12_seo",
-      "priority": 2,
+      "id": "verify-design.linear",
+      "query": "Verify and strengthen: Linear",
+      "domain": "design",
+      "knowledgeFolder": "03-design",
+      "priority": 1,
       "status": "pending",
-      "reason": "empty taxonomy folder"
+      "reason": "low confidence",
+      "targetAtom": "design.linear"
     },
     {
-      "id": "research-13_geo",
-      "query": "Authoritative best practices for GEO (Generative engine optimization)",
-      "domain": "geo",
-      "knowledgeFolder": "13_geo",
-      "priority": 2,
+      "id": "verify-design.notion",
+      "query": "Verify and strengthen: Notion",
+      "domain": "design",
+      "knowledgeFolder": "03-design",
+      "priority": 1,
       "status": "pending",
-      "reason": "empty taxonomy folder"
+      "reason": "low confidence",
+      "targetAtom": "design.notion"
     },
     {
-      "id": "research-14_aeo",
-      "query": "Authoritative best practices for AEO (Answer engine optimization)",
-      "domain": "aeo",
-      "knowledgeFolder": "14_aeo",
-      "priority": 2,
+      "id": "verify-design.stripe",
+      "query": "Verify and strengthen: Stripe",
+      "domain": "design",
+      "knowledgeFolder": "03-design",
+      "priority": 1,
       "status": "pending",
-      "reason": "empty taxonomy folder"
+      "reason": "low confidence",
+      "targetAtom": "design.stripe"
     },
     {
-      "id": "research-15_llmo",
-      "query": "Authoritative best practices for LLMO (Large language model optimization)",
-      "domain": "llmo",
-      "knowledgeFolder": "15_llmo",
-      "priority": 2,
+      "id": "verify-design.vercel",
+      "query": "Verify and strengthen: Vercel",
+      "domain": "design",
+      "knowledgeFolder": "03-design",
+      "priority": 1,
       "status": "pending",
-      "reason": "empty taxonomy folder"
+      "reason": "low confidence",
+      "targetAtom": "design.vercel"
     },
     {
-      "id": "research-16_ai",
-      "query": "Authoritative best practices for AI (AI strategy, governance, enterprise AI)",
+      "id": "verify-design.visual.hierarchy",
+      "query": "Verify and strengthen: Visual Hierarchy",
+      "domain": "design",
+      "knowledgeFolder": "03-design",
+      "priority": 1,
+      "status": "pending",
+      "reason": "low confidence",
+      "targetAtom": "design.visual.hierarchy"
+    },
+    {
+      "id": "verify-design.whitespace",
+      "query": "Verify and strengthen: Whitespace",
+      "domain": "design",
+      "knowledgeFolder": "03-design",
+      "priority": 1,
+      "status": "pending",
+      "reason": "low confidence",
+      "targetAtom": "design.whitespace"
+    },
+    {
+      "id": "verify-ui.ux.accessibility",
+      "query": "Verify and strengthen: Accessibility",
+      "domain": "ui-ux",
+      "knowledgeFolder": "04-ui-ux",
+      "priority": 1,
+      "status": "pending",
+      "reason": "low confidence",
+      "targetAtom": "ui.ux.accessibility"
+    },
+    {
+      "id": "verify-ui.ux.enterprise.u.x",
+      "query": "Verify and strengthen: Enterprise U X",
+      "domain": "ui-ux",
+      "knowledgeFolder": "04-ui-ux",
+      "priority": 1,
+      "status": "pending",
+      "reason": "low confidence",
+      "targetAtom": "ui.ux.enterprise.u.x"
+    },
+    {
+      "id": "verify-ui.ux.information.architecture",
+      "query": "Verify and strengthen: Information Architecture",
+      "domain": "ui-ux",
+      "knowledgeFolder": "04-ui-ux",
+      "priority": 1,
+      "status": "pending",
+      "reason": "low confidence",
+      "targetAtom": "ui.ux.information.architecture"
+    },
+    {
+      "id": "verify-ui.ux.interaction",
+      "query": "Verify and strengthen: Interaction",
+      "domain": "ui-ux",
+      "knowledgeFolder": "04-ui-ux",
+      "priority": 1,
+      "status": "pending",
+      "reason": "low confidence",
+      "targetAtom": "ui.ux.interaction"
+    },
+    {
+      "id": "verify-ui.ux.mental.models",
+      "query": "Verify and strengthen: Mental Models",
+      "domain": "ui-ux",
+      "knowledgeFolder": "04-ui-ux",
+      "priority": 1,
+      "status": "pending",
+      "reason": "low confidence",
+      "targetAtom": "ui.ux.mental.models"
+    },
+    {
+      "id": "verify-ui.ux.navigation",
+      "query": "Verify and strengthen: Navigation",
+      "domain": "ui-ux",
+      "knowledgeFolder": "04-ui-ux",
+      "priority": 1,
+      "status": "pending",
+      "reason": "low confidence",
+      "targetAtom": "ui.ux.navigation"
+    },
+    {
+      "id": "verify-ui.ux.nielsen.norman",
+      "query": "Verify and strengthen: Nielsen Norman",
+      "domain": "ui-ux",
+      "knowledgeFolder": "04-ui-ux",
+      "priority": 1,
+      "status": "pending",
+      "reason": "low confidence",
+      "targetAtom": "ui.ux.nielsen.norman"
+    },
+    {
+      "id": "verify-ui.ux.u.x.laws",
+      "query": "Verify and strengthen: U X Laws",
+      "domain": "ui-ux",
+      "knowledgeFolder": "04-ui-ux",
+      "priority": 1,
+      "status": "pending",
+      "reason": "low confidence",
+      "targetAtom": "ui.ux.u.x.laws"
+    },
+    {
+      "id": "verify-engineering.clean.code",
+      "query": "Verify and strengthen: Clean Code",
+      "domain": "engineering",
+      "knowledgeFolder": "05-engineering",
+      "priority": 1,
+      "status": "pending",
+      "reason": "low confidence",
+      "targetAtom": "engineering.clean.code"
+    },
+    {
+      "id": "verify-engineering.design.patterns",
+      "query": "Verify and strengthen: Design Patterns",
+      "domain": "engineering",
+      "knowledgeFolder": "05-engineering",
+      "priority": 1,
+      "status": "pending",
+      "reason": "low confidence",
+      "targetAtom": "engineering.design.patterns"
+    },
+    {
+      "id": "verify-engineering.next.j.s",
+      "query": "Verify and strengthen: Next J S",
+      "domain": "engineering",
+      "knowledgeFolder": "05-engineering",
+      "priority": 1,
+      "status": "pending",
+      "reason": "low confidence",
+      "targetAtom": "engineering.next.j.s"
+    },
+    {
+      "id": "verify-engineering.react",
+      "query": "Verify and strengthen: React",
+      "domain": "engineering",
+      "knowledgeFolder": "05-engineering",
+      "priority": 1,
+      "status": "pending",
+      "reason": "low confidence",
+      "targetAtom": "engineering.react"
+    },
+    {
+      "id": "verify-engineering.scalability",
+      "query": "Verify and strengthen: Scalability",
+      "domain": "engineering",
+      "knowledgeFolder": "05-engineering",
+      "priority": 1,
+      "status": "pending",
+      "reason": "low confidence",
+      "targetAtom": "engineering.scalability"
+    },
+    {
+      "id": "verify-engineering.security",
+      "query": "Verify and strengthen: Security",
+      "domain": "engineering",
+      "knowledgeFolder": "05-engineering",
+      "priority": 1,
+      "status": "pending",
+      "reason": "low confidence",
+      "targetAtom": "engineering.security"
+    },
+    {
+      "id": "verify-engineering.type.script",
+      "query": "Verify and strengthen: Type Script",
+      "domain": "engineering",
+      "knowledgeFolder": "05-engineering",
+      "priority": 1,
+      "status": "pending",
+      "reason": "low confidence",
+      "targetAtom": "engineering.type.script"
+    },
+    {
+      "id": "verify-ai.a.i.architecture",
+      "query": "Verify and strengthen: A I Architecture",
       "domain": "ai",
-      "knowledgeFolder": "16_ai",
-      "priority": 2,
+      "knowledgeFolder": "06-ai",
+      "priority": 1,
       "status": "pending",
-      "reason": "empty taxonomy folder"
+      "reason": "low confidence",
+      "targetAtom": "ai.a.i.architecture"
     },
     {
-      "id": "research-17_rag",
-      "query": "Authoritative best practices for RAG (Retrieval augmented generation)",
-      "domain": "rag",
-      "knowledgeFolder": "17_rag",
-      "priority": 2,
+      "id": "verify-ai.a.i.governance",
+      "query": "Verify and strengthen: A I Governance",
+      "domain": "ai",
+      "knowledgeFolder": "06-ai",
+      "priority": 1,
       "status": "pending",
-      "reason": "empty taxonomy folder"
+      "reason": "low confidence",
+      "targetAtom": "ai.a.i.governance"
     },
     {
-      "id": "research-18_agents",
-      "query": "Authoritative best practices for Agents (Agentic systems, MCP, orchestration)",
-      "domain": "agents",
-      "knowledgeFolder": "18_agents",
-      "priority": 2,
+      "id": "verify-ai.a.i.transformation",
+      "query": "Verify and strengthen: A I Transformation",
+      "domain": "ai",
+      "knowledgeFolder": "06-ai",
+      "priority": 1,
       "status": "pending",
-      "reason": "empty taxonomy folder"
+      "reason": "low confidence",
+      "targetAtom": "ai.a.i.transformation"
     },
     {
-      "id": "research-19_architecture",
-      "query": "Authoritative best practices for Architecture (System design, cloud, DevOps)",
-      "domain": "architecture",
-      "knowledgeFolder": "19_architecture",
-      "priority": 2,
+      "id": "verify-ai.a.i.workflows",
+      "query": "Verify and strengthen: A I Workflows",
+      "domain": "ai",
+      "knowledgeFolder": "06-ai",
+      "priority": 1,
       "status": "pending",
-      "reason": "empty taxonomy folder"
+      "reason": "low confidence",
+      "targetAtom": "ai.a.i.workflows"
     },
     {
-      "id": "research-20_performance",
-      "query": "Authoritative best practices for Performance (Web perf, Core Web Vitals, optimization)",
-      "domain": "performance",
-      "knowledgeFolder": "20_performance",
-      "priority": 2,
+      "id": "verify-ai.enterprise.a.i",
+      "query": "Verify and strengthen: Enterprise A I",
+      "domain": "ai",
+      "knowledgeFolder": "06-ai",
+      "priority": 1,
       "status": "pending",
-      "reason": "empty taxonomy folder"
+      "reason": "low confidence",
+      "targetAtom": "ai.enterprise.a.i"
     },
     {
-      "id": "research-21_security",
-      "query": "Authoritative best practices for Security (App security, compliance, AI safety)",
-      "domain": "security",
-      "knowledgeFolder": "21_security",
-      "priority": 2,
+      "id": "verify-ai.l.l.ms",
+      "query": "Verify and strengthen: L L Ms",
+      "domain": "ai",
+      "knowledgeFolder": "06-ai",
+      "priority": 1,
       "status": "pending",
-      "reason": "empty taxonomy folder"
+      "reason": "low confidence",
+      "targetAtom": "ai.l.l.ms"
     }
   ],
   "suggestions": [
-    "Prioritize seeding 5 empty taxonomy folders per week",
+    "Fact-check pass on 157 low-confidence atoms",
     "Ingest top 5 competitor profiles into 23_competitors/",
     "Run npm run atlas:ingest after populating ingest/raw/*.json from web research"
   ]

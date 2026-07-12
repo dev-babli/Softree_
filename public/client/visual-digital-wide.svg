@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2560 1440" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
+  <rect width="2560" height="1440" fill="#111"/>
+  <g opacity="0.4" stroke="#ec6c36">
+    <path d="M0 360h2560M0 720h2560M0 1080h2560"/>
+    <path d="M640 0v1440M1280 0v1440M1920 0v1440"/>
+  </g>
+  <circle cx="1280" cy="720" r="360" fill="#ec6c36" opacity="0.25"/>
+</svg>

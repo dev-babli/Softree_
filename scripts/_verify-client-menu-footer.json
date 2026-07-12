@@ -1,0 +1,40 @@
+{
+  "before": {
+    "title": "Hanza® - Portfolio & Agency (exact clone) | Softree Technology",
+    "hasFooter": true,
+    "footerH": 1722,
+    "footerText": "GET IN TOUCH |  | /HANZA |  | HANZA NOVÁK |  | PROFESSION |  | DESIGNER & FRAMER EXPERT |  | LOCATION |  | PRAGUE, CZECHIA |  | CONTACT |  | CREATE YOUR NEXT WEBSITE | WITH ME. |  | FROM FIRST CONCEPT TO FINAL BUILD, I CREATE WEBSITES WITH CLEAR STRUCTURE & ",
+    "menuLabel": "Menu",
+    "sectionCount": 12
+  },
+  "afterMenu": {
+    "shellOpen": true,
+    "label": "Close",
+    "backdrop": {
+      "op": "1",
+      "z": "25",
+      "pos": "fixed"
+    },
+    "panel": {
+      "op": "1",
+      "z": "26",
+      "pos": "fixed",
+      "text": "HOME |  | PORTFOLIO |  | ABOUT |  | CONTACT |  | BLOG |  | 404",
+      "rect": {
+        "t": 120,
+        "l": 64,
+        "w": 80,
+        "h": 101
+      }
+    },
+    "navText": "HOME\n\nPORTFOLIO\n\nABOUT\n\nCONTACT\n\nBLOG\n\n404"
+  },
+  "bottom": {
+    "scrollH": 17038,
+    "footerVisible": true,
+    "footerH": 1722,
+    "hasForm": true,
+    "endText": "026 | YOUR NAME | EMAIL ADDRESS | HOW CAN I HELP? | FORM INCOMPLETE | By submitting, you agree to ourTermsandPrivacy Policy. | HOME | PORTFOLIO | ABOUT | CONTACT | BLOG | 404 | Vinohradská 102 | 120 00 Prague | Czech Republic | AHOJ@HANZA.CZ | AHOJ@HANZA.CZ | CONTACT ME | CONTACT ME | CRAFTED BY | GOLA TEMPLATES | © 2026 HANZA® | ALL RIGHT RESERVED. | TERMS | PRIVACY POLICY"
+  },
+  "pageErrors": []
+}

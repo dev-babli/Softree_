@@ -1,0 +1,32 @@
+---
+id: research-competitor-accenture-ai-2026
+title: Accenture Agentic AI Strategy — AI Refinery and Trusted Agent Huddle
+category: atom
+domain: competitors
+knowledgeFolder: 15-competitors
+tags:
+  - competitors
+summary: Accenture positions as enterprise agentic AI orchestration leader via AI Refinery platform and Trusted Agent Huddle (launched April 28, 2025). Trusted Agent Huddle enables multi-system agent collaboration across Adobe, AWS, Databricks, Google Cloud, Meta, Microsoft, NVIDIA, Oracle, Salesforce, SAP, ServiceNow, Snowflake, Workday using Agent2Agent and Model Context Protocol (MCP) open standards....
+confidence: 0.75
+version: 1.0.0
+lastUpdated: 2026-07-12
+sources:
+  - type: url
+    ref: https://www.accenture.com/us-en/blogs/ai-data/beyond-hype-why-agentic-ai-closer-than-you-think
+    confidence: 0.85
+    retrievedAt: 2026-07-12
+related:
+status: verified
+---
+
+## Summary
+
+Accenture positions as enterprise agentic AI orchestration leader via AI Refinery platform and Trusted Agent Huddle (launched April 28, 2025). Trusted Agent Huddle enables multi-system agent collaboration across Adobe, AWS, Databricks, Google Cloud, Meta, Microsoft, NVIDIA, Oracle, Salesforce, SAP, ServiceNow, Snowflake, Workday using Agent2Agent and Model Context Protocol (MCP) open standards....
+
+## Core Concepts
+
+Accenture positions as enterprise agentic AI orchestration leader via AI Refinery platform and Trusted Agent Huddle (launched April 28, 2025). Trusted Agent Huddle enables multi-system agent collaboration across Adobe, AWS, Databricks, Google Cloud, Meta, Microsoft, NVIDIA, Oracle, Salesforce, SAP, ServiceNow, Snowflake, Workday using Agent2Agent and Model Context Protocol (MCP) open standards. Strategy: move organizations from isolated AI pilots to cross-domain integrated intelligence. MCP described as plug-and-play way for agents to connect tools, services, data regardless of origin. Forrester Wave Leader in AI Consulting Services Q2 2026 and AI Technical Services Q4 2025. $3B AI investment (2023). Pricing shift from T&M to results/asset-based. Differentiation: enterprise context + integration depth + governance at scale, not model superiority. Recommendation for enterprises: identify high-impact agent workflows, prepare data/knowledge assets, pilot trusted agents then orchestrate and scale.
+
+## References
+
+- https://www.accenture.com/us-en/blogs/ai-data/beyond-hype-why-agentic-ai-closer-than-you-think

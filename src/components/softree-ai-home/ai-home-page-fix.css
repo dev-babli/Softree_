@@ -1,0 +1,39 @@
+/* AI home exact clone — layout + reveal safety overrides */
+
+.softree-ai-home-shell {
+  width: 100%;
+  min-height: 100vh;
+  background: #fff;
+  color: #181818;
+}
+
+html.softree-ai-home-active,
+html.softree-ai-home-active body {
+  overflow-x: clip;
+  background: #fff !important;
+  color: #181818 !important;
+}
+
+/* Webflow capture ships sections with opacity:0 until JS runs — unstick after ready */
+html.softree-ai-home-active.ready .softree-ai-home-shell [data-anim][style*="opacity: 0"],
+html.softree-ai-home-active.ready .softree-ai-home-shell [data-anim][style*="opacity:0"] {
+  opacity: 1 !important;
+}
+
+/* Product explore section pinned state */
+.softree-ai-home-shell #explore-products[style*="opacity: 0"],
+.softree-ai-home-shell #explore-products[style*="opacity:0"] {
+  opacity: 1 !important;
+}
+
+/* Hide chatbot widget from reference (Kore support bot) */
+.softree-ai-home-shell .chatbot-element {
+  display: none !important;
+}
+
+/* Softree logo sizing in nav/footer */
+.softree-ai-home-shell .nav-head img,
+.softree-ai-home-shell .footer-head img {
+  height: 1.4rem;
+  width: auto;
+}

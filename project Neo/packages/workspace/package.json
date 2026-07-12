@@ -1,0 +1,25 @@
+{
+  "name": "@neo/workspace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Workspace and permission state management for Neo",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@neo/types": "*",
+    "@neo/utils": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "refreshedAt": "2026-07-13T00:45:00+05:30",
+  "repo": "D:/Softree_Projects/SOFTREE_MAIN/Softree_",
+  "phasesCompleted": ["0", "1", "2", "3", "4", "5", "6"],
+  "improvementLoop": {
+    "before": { "totalAtoms": 182, "lowConfidence": 161, "emptyFolders": 0 },
+    "after": { "totalAtoms": 191, "lowConfidence": 157, "emptyFolders": 0 }
+  },
+  "ingestedAtoms": 9,
+  "ingestIds": [
+    "research-agents-mcp-2026-07",
+    "research-competitor-kore-artemis-2026-05",
+    "research-seo-cwv-2026",
+    "research-geo-best-practices-2026",
+    "research-nextjs-16-2-2026",
+    "research-aeo-answer-engine-2026",
+    "research-competitor-accenture-ai-2026",
+    "research-repo-softree-stack-2026-07",
+    "research-repo-agentic-platform-2026-07"
+  ],
+  "legacyFilesUpdated": [
+    "01-company/Services.md",
+    "05-engineering/Architecture.md",
+    "05-engineering/Performance.md",
+    "06-ai/Agents.md",
+    "15-competitors/SoftreeAI.md",
+    "knowledge-engine/01_company/softree-context.md",
+    "knowledge-engine/23_competitors/softree-ai.md"
+  ],
+  "selfImprovementAnswers": {
+    "newConcepts": [
+      "MCP 2026-07-28 stateless core + OAuth 2.1 enterprise auth",
+      "Kore.ai Artemis ABL/Arch/Dual-Brain positioning",
+      "Softree repo nav authority is navigation.tsx not header.tsx",
+      "Next.js 16.2 AGENTS.md + next-browser agent devtools"
+    ],
+    "outdatedKnowledge": [
+      "Services.md, Architecture.md, Agents.md were scaffolds — now repo-verified",
+      "Kore competitor profile lacked Artemis May 2026 launch data",
+      "Performance.md missing res-performance loop baseline"
+    ],
+    "contradictions": [
+      "header.tsx vs navigation.tsx nav authority — resolved for navigation.tsx",
+      "cms-rebuild loop-state vs AGENT-SIGNOFF — planning JSON lags sign-off"
+    ],
+    "emergingPatterns": [
+      "Page-forge exact clones with canonical copy TS files + verify scripts",
+      "K2 cinematic loader handoff pattern across agentic pages",
+      "GEO/AEO answer-first 40-60 word blocks for AI citation"
+    ],
+    "nextResearch": [
+      "IBM Consulting, Thoughtworks, Moveworks competitor profiles",
+      "Live site vs repo drift screenshots (1440 + 390)",
+      "Systematic verify pass on 157 low-confidence atoms",
+      "Vendor refresh: OpenAI, Anthropic, Google July 2026 product pages"
+    ]
+  },
+  "confidence": 0.91
+}

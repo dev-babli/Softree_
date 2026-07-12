@@ -1,0 +1,1660 @@
+{
+  "hanza": {
+    "label": "hanza",
+    "samples": [
+      {
+        "step": 0,
+        "scrollY": 6846,
+        "sectionH": 1664,
+        "sectionTop": 0,
+        "cardCount": 12,
+        "sticky": [
+          {
+            "name": null,
+            "cls": "framer-or0yj9-container",
+            "pos": "sticky",
+            "top": "64px",
+            "transform": "none",
+            "rectTop": 160,
+            "h": 14,
+            "text": "04  PROCESS"
+          }
+        ],
+        "transformed": [
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 2.87414)",
+            "willChange": "transform",
+            "top": 163,
+            "h": 72,
+            "w": 48,
+            "text": "5"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 2.87414)",
+            "willChange": "transform",
+            "top": 163,
+            "h": 72,
+            "w": 52,
+            "text": "S"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 2.87414)",
+            "willChange": "transform",
+            "top": 163,
+            "h": 72,
+            "w": 48,
+            "text": "T"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 2.87414)",
+            "willChange": "transform",
+            "top": 163,
+            "h": 72,
+            "w": 47,
+            "text": "E"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 2.87414)",
+            "willChange": "transform",
+            "top": 163,
+            "h": 72,
+            "w": 51,
+            "text": "P"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 2.87414)",
+            "willChange": "transform",
+            "top": 163,
+            "h": 72,
+            "w": 52,
+            "text": "S"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 4.45132)",
+            "willChange": "transform",
+            "top": 236,
+            "h": 72,
+            "w": 48,
+            "text": "T"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 4.45132)",
+            "willChange": "transform",
+            "top": 236,
+            "h": 72,
+            "w": 60,
+            "text": "O"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 4.45132)",
+            "willChange": "transform",
+            "top": 236,
+            "h": 72,
+            "w": 41,
+            "text": "L"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 4.45132)",
+            "willChange": "transform",
+            "top": 236,
+            "h": 72,
+            "w": 53,
+            "text": "A"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 4.45132)",
+            "willChange": "transform",
+            "top": 236,
+            "h": 72,
+            "w": 54,
+            "text": "U"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 4.45132)",
+            "willChange": "transform",
+            "top": 236,
+            "h": 72,
+            "w": 57,
+            "text": "N"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 4.45132)",
+            "willChange": "transform",
+            "top": 236,
+            "h": 72,
+            "w": 56,
+            "text": "C"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 4.45132)",
+            "willChange": "transform",
+            "top": 236,
+            "h": 72,
+            "w": 55,
+            "text": "H"
+          },
+          {
+            "name": "Grid",
+            "cls": "framer-vi8nhy",
+            "pos": "relative",
+            "transform": "matrix(1, 0, 0, 1, 0, 45.8534)",
+            "willChange": "transform",
+            "top": 446,
+            "h": 1042,
+            "w": 367,
+            "text": "01  PLAN  Project Direction  I start by "
+          },
+          {
+            "name": "Grid",
+            "cls": "framer-1wzefn9",
+            "pos": "relative",
+            "transform": "matrix(1, 0, 0, 1, 0, 103.17)",
+            "willChange": "transform",
+            "top": 503,
+            "h": 1058,
+            "w": 367,
+            "text": "02  STRUCTURE  Website Blueprint  I defi"
+          },
+          {
+            "name": "Grid",
+            "cls": "framer-1fcolx0 hidden-1g6n99x",
+            "pos": "relative",
+            "transform": "matrix(1, 0, 0, 1, 0, 160.487)",
+            "willChange": "transform",
+            "top": 560,
+            "h": 1104,
+            "w": 367,
+            "text": "03  DESIGN  Visual System  I create a cl"
+          }
+        ]
+      },
+      {
+        "step": 1,
+        "scrollY": 7066,
+        "sectionH": 1664,
+        "sectionTop": -220,
+        "cardCount": 12,
+        "sticky": [
+          {
+            "name": null,
+            "cls": "framer-or0yj9-container",
+            "pos": "sticky",
+            "top": "64px",
+            "transform": "none",
+            "rectTop": 64,
+            "h": 14,
+            "text": "04  PROCESS"
+          }
+        ],
+        "transformed": [
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 0.0864983)",
+            "willChange": "transform",
+            "top": -60,
+            "h": 72,
+            "w": 48,
+            "text": "5"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 0.0864983)",
+            "willChange": "transform",
+            "top": -60,
+            "h": 72,
+            "w": 52,
+            "text": "S"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 0.0864983)",
+            "willChange": "transform",
+            "top": -60,
+            "h": 72,
+            "w": 48,
+            "text": "T"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 0.0864983)",
+            "willChange": "transform",
+            "top": -60,
+            "h": 72,
+            "w": 47,
+            "text": "E"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 0.0864983)",
+            "willChange": "transform",
+            "top": -60,
+            "h": 72,
+            "w": 51,
+            "text": "P"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 0.0864983)",
+            "willChange": "transform",
+            "top": -60,
+            "h": 72,
+            "w": 52,
+            "text": "S"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 0.143697)",
+            "willChange": "transform",
+            "top": 12,
+            "h": 72,
+            "w": 48,
+            "text": "T"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 0.143697)",
+            "willChange": "transform",
+            "top": 12,
+            "h": 72,
+            "w": 60,
+            "text": "O"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 0.143697)",
+            "willChange": "transform",
+            "top": 12,
+            "h": 72,
+            "w": 41,
+            "text": "L"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 0.143697)",
+            "willChange": "transform",
+            "top": 12,
+            "h": 72,
+            "w": 53,
+            "text": "A"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 0.143697)",
+            "willChange": "transform",
+            "top": 12,
+            "h": 72,
+            "w": 54,
+            "text": "U"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 0.143697)",
+            "willChange": "transform",
+            "top": 12,
+            "h": 72,
+            "w": 57,
+            "text": "N"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 0.143697)",
+            "willChange": "transform",
+            "top": 12,
+            "h": 72,
+            "w": 56,
+            "text": "C"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 0.143697)",
+            "willChange": "transform",
+            "top": 12,
+            "h": 72,
+            "w": 55,
+            "text": "H"
+          },
+          {
+            "name": "Grid",
+            "cls": "framer-vi8nhy",
+            "pos": "relative",
+            "transform": "matrix(1, 0, 0, 1, 0, 32.6322)",
+            "willChange": "transform",
+            "top": 213,
+            "h": 1042,
+            "w": 367,
+            "text": "01  PLAN  Project Direction  I start by "
+          },
+          {
+            "name": "Grid",
+            "cls": "framer-1wzefn9",
+            "pos": "relative",
+            "transform": "matrix(1, 0, 0, 1, 0, 73.4225)",
+            "willChange": "transform",
+            "top": 253,
+            "h": 1058,
+            "w": 367,
+            "text": "02  STRUCTURE  Website Blueprint  I defi"
+          },
+          {
+            "name": "Grid",
+            "cls": "framer-1fcolx0 hidden-1g6n99x",
+            "pos": "relative",
+            "transform": "matrix(1, 0, 0, 1, 0, 114.213)",
+            "willChange": "transform",
+            "top": 294,
+            "h": 1104,
+            "w": 367,
+            "text": "03  DESIGN  Visual System  I create a cl"
+          }
+        ]
+      },
+      {
+        "step": 2,
+        "scrollY": 7286,
+        "sectionH": 1664,
+        "sectionTop": -440,
+        "cardCount": 12,
+        "sticky": [
+          {
+            "name": null,
+            "cls": "framer-or0yj9-container",
+            "pos": "sticky",
+            "top": "64px",
+            "transform": "none",
+            "rectTop": 64,
+            "h": 14,
+            "text": "04  PROCESS"
+          }
+        ],
+        "transformed": [
+          {
+            "name": "Grid",
+            "cls": "framer-vi8nhy",
+            "pos": "relative",
+            "transform": "matrix(1, 0, 0, 1, 0, 19.4111)",
+            "willChange": "transform",
+            "top": -21,
+            "h": 1042,
+            "w": 367,
+            "text": "01  PLAN  Project Direction  I start by "
+          },
+          {
+            "name": "Grid",
+            "cls": "framer-1wzefn9",
+            "pos": "relative",
+            "transform": "matrix(1, 0, 0, 1, 0, 43.6749)",
+            "willChange": "transform",
+            "top": 4,
+            "h": 1058,
+            "w": 367,
+            "text": "02  STRUCTURE  Website Blueprint  I defi"
+          },
+          {
+            "name": "Grid",
+            "cls": "framer-1fcolx0 hidden-1g6n99x",
+            "pos": "relative",
+            "transform": "matrix(1, 0, 0, 1, 0, 67.9387)",
+            "willChange": "transform",
+            "top": 28,
+            "h": 1104,
+            "w": 367,
+            "text": "03  DESIGN  Visual System  I create a cl"
+          }
+        ]
+      },
+      {
+        "step": 3,
+        "scrollY": 7506,
+        "sectionH": 1664,
+        "sectionTop": -660,
+        "cardCount": 12,
+        "sticky": [
+          {
+            "name": null,
+            "cls": "framer-or0yj9-container",
+            "pos": "sticky",
+            "top": "64px",
+            "transform": "none",
+            "rectTop": 64,
+            "h": 14,
+            "text": "04  PROCESS"
+          }
+        ],
+        "transformed": [
+          {
+            "name": "Grid",
+            "cls": "framer-vi8nhy",
+            "pos": "relative",
+            "transform": "matrix(1, 0, 0, 1, 0, 6.1899)",
+            "willChange": "transform",
+            "top": -254,
+            "h": 1042,
+            "w": 367,
+            "text": "01  PLAN  Project Direction  I start by "
+          },
+          {
+            "name": "Grid",
+            "cls": "framer-1wzefn9",
+            "pos": "relative",
+            "transform": "matrix(1, 0, 0, 1, 0, 13.9273)",
+            "willChange": "transform",
+            "top": -246,
+            "h": 1058,
+            "w": 367,
+            "text": "02  STRUCTURE  Website Blueprint  I defi"
+          },
+          {
+            "name": "Grid",
+            "cls": "framer-1fcolx0 hidden-1g6n99x",
+            "pos": "relative",
+            "transform": "matrix(1, 0, 0, 1, 0, 21.6647)",
+            "willChange": "transform",
+            "top": -238,
+            "h": 1104,
+            "w": 367,
+            "text": "03  DESIGN  Visual System  I create a cl"
+          }
+        ]
+      },
+      {
+        "step": 4,
+        "scrollY": 7726,
+        "sectionH": 1664,
+        "sectionTop": -880,
+        "cardCount": 12,
+        "sticky": [
+          {
+            "name": null,
+            "cls": "framer-or0yj9-container",
+            "pos": "sticky",
+            "top": "64px",
+            "transform": "none",
+            "rectTop": 64,
+            "h": 14,
+            "text": "04  PROCESS"
+          }
+        ],
+        "transformed": []
+      },
+      {
+        "step": 5,
+        "scrollY": 7946,
+        "sectionH": 1664,
+        "sectionTop": -1100,
+        "cardCount": 12,
+        "sticky": [
+          {
+            "name": null,
+            "cls": "framer-or0yj9-container",
+            "pos": "sticky",
+            "top": "64px",
+            "transform": "none",
+            "rectTop": 64,
+            "h": 14,
+            "text": "04  PROCESS"
+          }
+        ],
+        "transformed": []
+      },
+      {
+        "step": 6,
+        "scrollY": 8166,
+        "sectionH": 1664,
+        "sectionTop": -1320,
+        "cardCount": 12,
+        "sticky": [
+          {
+            "name": null,
+            "cls": "framer-or0yj9-container",
+            "pos": "sticky",
+            "top": "64px",
+            "transform": "none",
+            "rectTop": 64,
+            "h": 14,
+            "text": "04  PROCESS"
+          }
+        ],
+        "transformed": []
+      },
+      {
+        "step": 7,
+        "scrollY": 8386,
+        "sectionH": 1664,
+        "sectionTop": -1540,
+        "cardCount": 12,
+        "sticky": [
+          {
+            "name": null,
+            "cls": "framer-or0yj9-container",
+            "pos": "sticky",
+            "top": "64px",
+            "transform": "none",
+            "rectTop": -51,
+            "h": 14,
+            "text": "04  PROCESS"
+          }
+        ],
+        "transformed": []
+      }
+    ],
+    "other": {
+      "Section Portfolio": {
+        "transformed": [
+          {
+            "name": "Image",
+            "cls": "framer-m6d5t0",
+            "transform": "matrix(1.2, 0, 0, 1.2, 0, 0)",
+            "pos": "relative"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 135)",
+            "pos": "absolute"
+          },
+          {
+            "name": "Image",
+            "cls": "framer-m6d5t0",
+            "transform": "matrix(1.2, 0, 0, 1.2, 0, 0)",
+            "pos": "relative"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 135)",
+            "pos": "absolute"
+          },
+          {
+            "name": "Image",
+            "cls": "framer-m6d5t0",
+            "transform": "matrix(1.2, 0, 0, 1.2, 0, 0)",
+            "pos": "relative"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 135)",
+            "pos": "absolute"
+          }
+        ],
+        "sticky": []
+      },
+      "Section Testimonials": {
+        "transformed": [
+          {
+            "name": "Grid",
+            "cls": "framer-cf67t",
+            "transform": "matrix(1, 0, 0, 1, 0, 33.7981)",
+            "pos": "relative"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 2.24258)",
+            "pos": "absolute"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, -2.4116)",
+            "pos": "absolute"
+          },
+          {
+            "name": "Grid",
+            "cls": "framer-9xwwk9",
+            "transform": "matrix(1, 0, 0, 1, 0, 76.0458)",
+            "pos": "relative"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 1.06241)",
+            "pos": "absolute"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, -3.59176)",
+            "pos": "absolute"
+          }
+        ],
+        "sticky": [
+          {
+            "name": "Column",
+            "pos": "sticky",
+            "top": "64px",
+            "cls": "framer-1msv653"
+          }
+        ]
+      },
+      "Section Pricing": {
+        "transformed": [
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": "Column",
+            "cls": "framer-xgw5ej",
+            "transform": "matrix(1, 0, 0, 1, 0, 250)",
+            "pos": "relative"
+          },
+          {
+            "name": "Column",
+            "cls": "framer-1ma830q",
+            "transform": "matrix(1, 0, 0, 1, 0, 150)",
+            "pos": "relative"
+          }
+        ],
+        "sticky": []
+      },
+      "Section Blog": {
+        "transformed": [
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": "Image",
+            "cls": "framer-bepblw",
+            "transform": "matrix(1.1, 0, 0, 1.1, 0, 0)",
+            "pos": "relative"
+          },
+          {
+            "name": "Image",
+            "cls": "framer-bepblw",
+            "transform": "matrix(1.1, 0, 0, 1.1, 0, 0)",
+            "pos": "relative"
+          }
+        ],
+        "sticky": []
+      },
+      "Section About": {
+        "transformed": [
+          {
+            "name": "Image",
+            "cls": "framer-2z1m2t",
+            "transform": "matrix(1.2, 0, 0, 1.2, 0, 0)",
+            "pos": "absolute"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          }
+        ],
+        "sticky": [
+          {
+            "name": null,
+            "pos": "sticky",
+            "top": "64px",
+            "cls": "framer-1umz7to-container"
+          }
+        ]
+      }
+    }
+  },
+  "client": {
+    "label": "client",
+    "samples": [
+      {
+        "step": 0,
+        "scrollY": 2844,
+        "sectionH": 1664,
+        "sectionTop": 4002,
+        "cardCount": 12,
+        "sticky": [
+          {
+            "name": null,
+            "cls": "framer-or0yj9-container",
+            "pos": "sticky",
+            "top": "64px",
+            "transform": "none",
+            "rectTop": 4162,
+            "h": 14,
+            "text": "04  PROCESS"
+          }
+        ],
+        "transformed": [
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "willChange": "transform, opacity",
+            "top": 4182,
+            "h": 72,
+            "w": 48,
+            "text": "5"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "willChange": "transform, opacity",
+            "top": 4182,
+            "h": 72,
+            "w": 52,
+            "text": "S"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "willChange": "transform, opacity",
+            "top": 4182,
+            "h": 72,
+            "w": 48,
+            "text": "T"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "willChange": "transform, opacity",
+            "top": 4182,
+            "h": 72,
+            "w": 47,
+            "text": "E"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "willChange": "transform, opacity",
+            "top": 4182,
+            "h": 72,
+            "w": 51,
+            "text": "P"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "willChange": "transform, opacity",
+            "top": 4182,
+            "h": 72,
+            "w": 52,
+            "text": "S"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "willChange": "transform, opacity",
+            "top": 4254,
+            "h": 72,
+            "w": 48,
+            "text": "T"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "willChange": "transform, opacity",
+            "top": 4254,
+            "h": 72,
+            "w": 60,
+            "text": "O"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "willChange": "transform, opacity",
+            "top": 4254,
+            "h": 72,
+            "w": 41,
+            "text": "L"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "willChange": "transform, opacity",
+            "top": 4254,
+            "h": 72,
+            "w": 53,
+            "text": "A"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "willChange": "transform, opacity",
+            "top": 4254,
+            "h": 72,
+            "w": 54,
+            "text": "U"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "willChange": "transform, opacity",
+            "top": 4254,
+            "h": 72,
+            "w": 57,
+            "text": "N"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "willChange": "transform, opacity",
+            "top": 4254,
+            "h": 72,
+            "w": 56,
+            "text": "C"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "willChange": "transform, opacity",
+            "top": 4254,
+            "h": 72,
+            "w": 55,
+            "text": "H"
+          }
+        ]
+      },
+      {
+        "step": 1,
+        "scrollY": 6261,
+        "sectionH": 1664,
+        "sectionTop": 585,
+        "cardCount": 12,
+        "sticky": [
+          {
+            "name": null,
+            "cls": "framer-or0yj9-container",
+            "pos": "sticky",
+            "top": "64px",
+            "transform": "none",
+            "rectTop": 745,
+            "h": 14,
+            "text": "04  PROCESS"
+          }
+        ],
+        "transformed": [
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 14.5011)",
+            "willChange": "transform, opacity",
+            "top": 759,
+            "h": 72,
+            "w": 48,
+            "text": "5"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 14.5011)",
+            "willChange": "transform, opacity",
+            "top": 759,
+            "h": 72,
+            "w": 52,
+            "text": "S"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 14.9275)",
+            "willChange": "transform, opacity",
+            "top": 760,
+            "h": 72,
+            "w": 48,
+            "text": "T"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 14.9275)",
+            "willChange": "transform, opacity",
+            "top": 760,
+            "h": 72,
+            "w": 47,
+            "text": "E"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 16.2282)",
+            "willChange": "transform, opacity",
+            "top": 761,
+            "h": 72,
+            "w": 51,
+            "text": "P"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 18.4814)",
+            "willChange": "transform, opacity",
+            "top": 763,
+            "h": 72,
+            "w": 52,
+            "text": "S"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 14.5011)",
+            "willChange": "transform, opacity",
+            "top": 831,
+            "h": 72,
+            "w": 48,
+            "text": "T"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 14.9275)",
+            "willChange": "transform, opacity",
+            "top": 832,
+            "h": 72,
+            "w": 60,
+            "text": "O"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 14.5011)",
+            "willChange": "transform, opacity",
+            "top": 831,
+            "h": 72,
+            "w": 41,
+            "text": "L"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 14.9275)",
+            "willChange": "transform, opacity",
+            "top": 832,
+            "h": 72,
+            "w": 53,
+            "text": "A"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 14.9275)",
+            "willChange": "transform, opacity",
+            "top": 832,
+            "h": 72,
+            "w": 54,
+            "text": "U"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 16.2282)",
+            "willChange": "transform, opacity",
+            "top": 833,
+            "h": 72,
+            "w": 57,
+            "text": "N"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 18.4814)",
+            "willChange": "transform, opacity",
+            "top": 835,
+            "h": 72,
+            "w": 56,
+            "text": "C"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "pos": "static",
+            "transform": "matrix(1, 0, 0, 1, 0, 18.4814)",
+            "willChange": "transform, opacity",
+            "top": 835,
+            "h": 72,
+            "w": 55,
+            "text": "H"
+          }
+        ]
+      },
+      {
+        "step": 2,
+        "scrollY": 6481,
+        "sectionH": 1664,
+        "sectionTop": 365,
+        "cardCount": 12,
+        "sticky": [
+          {
+            "name": null,
+            "cls": "framer-or0yj9-container",
+            "pos": "sticky",
+            "top": "64px",
+            "transform": "none",
+            "rectTop": 525,
+            "h": 14,
+            "text": "04  PROCESS"
+          }
+        ],
+        "transformed": []
+      },
+      {
+        "step": 3,
+        "scrollY": 6701,
+        "sectionH": 1664,
+        "sectionTop": 145,
+        "cardCount": 12,
+        "sticky": [
+          {
+            "name": null,
+            "cls": "framer-or0yj9-container",
+            "pos": "sticky",
+            "top": "64px",
+            "transform": "none",
+            "rectTop": 305,
+            "h": 14,
+            "text": "04  PROCESS"
+          }
+        ],
+        "transformed": []
+      },
+      {
+        "step": 4,
+        "scrollY": 6921,
+        "sectionH": 1664,
+        "sectionTop": -75,
+        "cardCount": 12,
+        "sticky": [
+          {
+            "name": null,
+            "cls": "framer-or0yj9-container",
+            "pos": "sticky",
+            "top": "64px",
+            "transform": "none",
+            "rectTop": 85,
+            "h": 14,
+            "text": "04  PROCESS"
+          }
+        ],
+        "transformed": []
+      },
+      {
+        "step": 5,
+        "scrollY": 7141,
+        "sectionH": 1664,
+        "sectionTop": -295,
+        "cardCount": 12,
+        "sticky": [
+          {
+            "name": null,
+            "cls": "framer-or0yj9-container",
+            "pos": "sticky",
+            "top": "64px",
+            "transform": "none",
+            "rectTop": 64,
+            "h": 14,
+            "text": "04  PROCESS"
+          }
+        ],
+        "transformed": []
+      },
+      {
+        "step": 6,
+        "scrollY": 7361,
+        "sectionH": 1664,
+        "sectionTop": -515,
+        "cardCount": 12,
+        "sticky": [
+          {
+            "name": null,
+            "cls": "framer-or0yj9-container",
+            "pos": "sticky",
+            "top": "64px",
+            "transform": "none",
+            "rectTop": 64,
+            "h": 14,
+            "text": "04  PROCESS"
+          }
+        ],
+        "transformed": []
+      },
+      {
+        "step": 7,
+        "scrollY": 7581,
+        "sectionH": 1664,
+        "sectionTop": -735,
+        "cardCount": 12,
+        "sticky": [
+          {
+            "name": null,
+            "cls": "framer-or0yj9-container",
+            "pos": "sticky",
+            "top": "64px",
+            "transform": "none",
+            "rectTop": 64,
+            "h": 14,
+            "text": "04  PROCESS"
+          }
+        ],
+        "transformed": []
+      }
+    ],
+    "other": {
+      "Section Portfolio": {
+        "transformed": [
+          {
+            "name": "Image",
+            "cls": "framer-m6d5t0 cx-parallax-target",
+            "transform": "matrix(1.1665, 0, 0, 1.1665, 0, 0)",
+            "pos": "relative"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 317.7)",
+            "pos": "absolute"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 317.7)",
+            "pos": "absolute"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 317.7)",
+            "pos": "absolute"
+          }
+        ],
+        "sticky": []
+      },
+      "Section Testimonials": {
+        "transformed": [
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 4.2)",
+            "pos": "absolute"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 4.2)",
+            "pos": "absolute"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 4.2)",
+            "pos": "absolute"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 4.2)",
+            "pos": "absolute"
+          }
+        ],
+        "sticky": [
+          {
+            "name": "Column",
+            "pos": "sticky",
+            "top": "64px",
+            "cls": "framer-1msv653"
+          }
+        ]
+      },
+      "Section Pricing": {
+        "transformed": [
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          }
+        ],
+        "sticky": []
+      },
+      "Section Blog": {
+        "transformed": [
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          },
+          {
+            "name": null,
+            "cls": "",
+            "transform": "matrix(1, 0, 0, 1, 0, 20)",
+            "pos": "static"
+          }
+        ],
+        "sticky": []
+      },
+      "Section About": {
+        "transformed": [
+          {
+            "name": "Image",
+            "cls": "framer-2z1m2t cx-parallax-target",
+            "transform": "matrix(1.0048, 0, 0, 1.0048, 0, 0)",
+            "pos": "absolute"
+          }
+        ],
+        "sticky": [
+          {
+            "name": null,
+            "pos": "sticky",
+            "top": "64px",
+            "cls": "framer-1umz7to-container"
+          }
+        ]
+      }
+    }
+  }
+}

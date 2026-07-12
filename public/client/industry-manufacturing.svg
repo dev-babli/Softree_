@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 128" role="img" aria-label="Manufacturing">
+  <rect width="320" height="128" fill="#121212"/>
+  <path d="M48 88V48l32-20 32 20v40H48z" fill="#ec6c36" opacity="0.75"/>
+  <path d="M140 88V56l24-14 24 14v32h-48z" fill="#fff" opacity="0.2"/>
+  <rect x="212" y="40" width="72" height="8" rx="2" fill="#ff6044"/>
+  <rect x="212" y="56" width="56" height="8" rx="2" fill="#fff" opacity="0.5"/>
+  <rect x="212" y="72" width="64" height="8" rx="2" fill="#fff" opacity="0.35"/>
+</svg>

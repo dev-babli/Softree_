@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+/** Run: npx tsx scripts/verify-softree-copy.mjs */
 import { SOFTREE_AGENTIC_SECTIONS, SOFTREE_AGENTIC_DIALOGS, SOFTREE_AGENTIC_FOOTER, SOFTREE_AGENTIC_HEADER } from "../src/components/softree-agentic-exact/referenceContent.ts"
 import { applySoftreeSectionHtml, applySoftreeShellHtml } from "../src/components/softree-agentic-exact/softreeAgenticHtmlCopy.ts"
 

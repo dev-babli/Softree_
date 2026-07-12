@@ -1,0 +1,93 @@
+{
+  "layoutCls": "framer-3L5GK framer-7n6fwg",
+  "topText": "MENU\n\n07:19 AM\n\nLOCAL TIME\n\nSTART PROJECT\n\n/HANZA",
+  "candidateCount": 7,
+  "panel": {
+    "tag": "DIV",
+    "name": null,
+    "cls": "framer-3L5GK framer-cqh11d-container",
+    "parentCls": "",
+    "grandCls": "",
+    "rect": {
+      "t": 110,
+      "l": 48,
+      "w": 660,
+      "h": 500
+    },
+    "text": "HOME |  | PORTFOLIO |  | ABOUT |  | CONTACT |  | BLOG |  | HANZA NOVÁK  |  | DESIGNER & FRAMER EXPERT",
+    "htmlLen": 14884,
+    "imgs": [
+      {
+        "src": "https://framerusercontent.com/images/zeniIu0DU3NmcSWU4yeBs0Gdk.webp?scale-down-to=1024&width=1000&height=1200",
+        "alt": "User",
+        "w": 70,
+        "h": 84
+      },
+      {
+        "src": "https://framerusercontent.com/images/mwMZjXODcUlLHZnp5GWrpy6u6Lc.webp?width=199&height=64",
+        "alt": "",
+        "w": 199,
+        "h": 64
+      },
+      {
+        "src": "https://framerusercontent.com/images/OBhRqYnNhzprFbDXTmYz6oMBA.webp?width=2560&height=1440",
+        "alt": "Hero Image",
+        "w": 400,
+        "h": 225
+      },
+      {
+        "src": "https://framerusercontent.com/images/rdYH8Fpt5aPTxGpCY3SCXoox8U.webp?width=263&height=64",
+        "alt": "",
+        "w": 263,
+        "h": 64
+      },
+      {
+        "src": "https://framerusercontent.com/images/L2rXxsYb7zPRivbHPp3oRsvjWxE.webp?width=2560&height=1440",
+        "alt": "Hero Image",
+        "w": 400,
+        "h": 225
+      }
+    ]
+  },
+  "fixed": [
+    {
+      "name": null,
+      "cls": "framer-3L5GK framer-11vsk7q",
+      "z": "9",
+      "pos": "fixed",
+      "text": "",
+      "rect": {
+        "t": 0,
+        "l": 0,
+        "w": 1440,
+        "h": 900
+      }
+    },
+    {
+      "name": "Overlay",
+      "cls": "framer-3L5GK framer-qlili8",
+      "z": "9",
+      "pos": "fixed",
+      "text": "",
+      "rect": {
+        "t": 0,
+        "l": 0,
+        "w": 1440,
+        "h": 900
+      }
+    },
+    {
+      "name": null,
+      "cls": "framer-3L5GK framer-cqh11d-container",
+      "z": "9",
+      "pos": "fixed",
+      "text": "HOME |  | PORTFOLIO |  | ABOUT |  | CONTACT |  | BLOG |  | HANZA NOVÁK  |  | DESIGNER & FRAMER EXPERT",
+      "rect": {
+        "t": 110,
+        "l": 48,
+        "w": 660,
+        "h": 500
+      }
+    }
+  ]
+}

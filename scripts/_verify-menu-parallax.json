@@ -1,0 +1,21 @@
+{
+  "menu": {
+    "open": true,
+    "panel": {
+      "w": 660,
+      "h": 500,
+      "t": 110,
+      "l": 48,
+      "text": "HOME |  | PORTFOLIO |  | ABOUT |  | CONTACT |  | BLOG |  | HANZA NOVÁK |  | DESIGNER & FRAMER EXPERT",
+      "imgs": 5,
+      "hasGoodwell": true,
+      "hasIkigai": true,
+      "hasProfile": true
+    },
+    "hasRfa": true,
+    "hasBackdrop": true
+  },
+  "para1": "matrix(1.0936, 0, 0, 1.0936, 0, 0)",
+  "para2": "matrix(1.0345, 0, 0, 1.0345, 0, 0)",
+  "pageErrors": []
+}

@@ -24,6 +24,14 @@ export function middleware(request: NextRequest) {
   const requestHeaders = new Headers(request.headers)
   requestHeaders.set('x-pathname', pathname)
 
+  if (pathname === '/client') {
+    const response = NextResponse.next({
+      request: { headers: requestHeaders },
+    })
+    response.headers.set('X-Robots-Tag', 'noindex, nofollow, noarchive, nosnippet')
+    return response
+  }
+
   return NextResponse.next({
     request: { headers: requestHeaders },
   })

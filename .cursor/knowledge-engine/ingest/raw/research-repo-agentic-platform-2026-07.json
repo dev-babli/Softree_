@@ -1,0 +1,14 @@
+{
+  "url": "https://softreetechnology.com/agentic-ai-platform",
+  "title": "Softree Agentic AI Platform — Repo Implementation",
+  "content": "Live route /agentic-ai-platform implemented in src/components/softree-agentic-exact/ (35 files). Canonical copy source: softreeAgenticContent.ts — content agents edit only this file. Story hierarchy: Loader+Hero (Microsoft-stack agentic promise), Outcomes (metrics), Agents (personas), Programmable (Microsoft advantage), Pillars (delivery architecture), Build-Scale-Optimize, Demo video, Scroll tabs (9 capability proofs), Get started CTA. Motion runtime: k2LoaderRuntime.ts, k2CinematicHandoff.ts, k2Scramble.ts, k2ScrollReveal.ts, k2ThemeSwitch.ts, k2Radar.ts. HTML reference pipeline: softreeAgenticHtmlCopy.ts patches Kore reference to Softree voice. Content loop state: complete (all scores >=8, forbidden terms 10/10) per .planning/page-forge/softree-agentic-exact/content-loop-state.json lastVerified 2026-07-08. Handoff loop 1 APPROVED. Verify: npm run agentic:copy:verify, handoff:verify, hero:score. Positioning from copy: enterprise certainty on Microsoft stack (Copilot Studio, Azure AI, Power Platform), offshore velocity + governance IT can audit. Not yet in production nav or sitemap — engineering gap for go-live.",
+  "domain": "agents",
+  "knowledgeFolder": "18_agents",
+  "category": "atom",
+  "tags": ["softree", "agentic-platform", "k2-loader", "microsoft-stack"],
+  "publishedAt": "2026-07-13",
+  "sourceTier": 1,
+  "metadata": {
+    "repoPath": "src/components/softree-agentic-exact/softreeAgenticContent.ts"
+  }
+}

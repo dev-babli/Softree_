@@ -1,55 +1,45 @@
 "use client"
 
 import { useState, type CSSProperties } from "react"
+import { agentsContent } from "./softreeAgenticContent"
 
 type StyleVars = CSSProperties & Record<`--${string}`, string | number>
 
-const tabs = [
+const tabAssets = [
   {
-    id: "tabs-2-tab-1",
-    panelId: "tabs-2-tab-1-panel",
-    label: "{ technical leader }",
     background:
       "https://cdn.prod.website-files.com/6717a0dfaf71071a80dfce8b/6a0d740ea150c2eed21ad614_agents-1.webp",
     object:
       "https://cdn.prod.website-files.com/6717a0dfaf71071a80dfce8b/6a0d74c8ccd1edf661f5e0b7_agents-object-1.webp",
     objectVariant: "agent-1",
     objectClass: "w-variant-0d4b44dd-bdd2-5fff-bf07-25f61f56446c",
-    lines: ["No more", "{pilot stall}", "in production"],
-    body: (
-      <>
-        {"{ "}
-        <strong>Softree</strong>
-        {" }"} delivers typed trace events, eval suites, DLP guardrails, and observability your IT team can audit on
-        Copilot Studio and Azure AI.
-      </>
-    ),
-    ctaLabel: "Let's talk",
-    ctaHref: "/contact",
   },
   {
-    id: "tabs-2-tab-2",
-    panelId: "tabs-2-tab-2-panel",
-    label: "{ business leader }",
     background:
       "https://cdn.prod.website-files.com/6717a0dfaf71071a80dfce8b/6a0db21491108b8576c9ab90_agents-bg-2.webp",
     object:
       "https://cdn.prod.website-files.com/6717a0dfaf71071a80dfce8b/6a0db2136543611bb983dbb6_agents-object-2.webp",
     objectVariant: "agent-2",
     objectClass: "w-variant-5d8a354a-7291-b6f3-e48b-9fc545d53e94",
-    lines: ["AI agents", "that move", "metrics"],
-    body: (
-      <>
-        {"{ "}
-        <strong>Softree</strong>
-        {" }"} ships agents that move metrics in regulated, high-volume workflows — with offshore delivery speed and
-        Microsoft stack governance built in.
-      </>
-    ),
-    ctaLabel: "Let's talk",
-    ctaHref: "/contact",
   },
-]
+] as const
+
+const tabs = agentsContent.tabs.map((tab, index) => ({
+  id: `tabs-2-tab-${index + 1}`,
+  panelId: `tabs-2-tab-${index + 1}-panel`,
+  label: tab.label,
+  ...tabAssets[index],
+  lines: [...tab.lines],
+  body: (
+    <>
+      {"{ "}
+      <strong>Softree</strong>
+      {" }"} {tab.body}
+    </>
+  ),
+  ctaLabel: tab.ctaLabel,
+  ctaHref: tab.ctaHref,
+}))
 
 function DotArrowIcon() {
   const dots = [

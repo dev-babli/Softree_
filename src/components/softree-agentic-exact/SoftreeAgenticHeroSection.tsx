@@ -3,40 +3,28 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react"
 
 import { SOFTREE_AGENTIC_HERO_BG_IMAGE } from "./softreeAgenticHeroAssets"
+import { heroContent, loaderContent } from "./softreeAgenticContent"
 
 type StyleVars = CSSProperties & Record<`--${string}`, string | number>
 
 const heroImage = SOFTREE_AGENTIC_HERO_BG_IMAGE
 
-const riveTabs = [
-  {
-    label: "{ Build }",
-    id: "tabs-1-tab-1",
-    panelId: "tabs-1-tab-1-panel",
-    placeholder: "for-build",
-    src: "https://cdn.prod.website-files.com/6717a0dfaf71071a80dfce8b/6a15972d945f9408ee044dd8_Build_Full%20V4.riv",
-    active: true,
-    canvas: { width: 6040, height: 2296, cssWidth: "3020px", cssHeight: "1148px" },
-  },
-  {
-    label: "{ Scale }",
-    id: "tabs-1-tab-2",
-    panelId: "tabs-1-tab-2-panel",
-    placeholder: "for-scale",
-    src: "https://cdn.prod.website-files.com/6717a0dfaf71071a80dfce8b/6a1417303f6e8503a85caddb_Scale_Full%20V2.riv",
-    active: false,
-    canvas: { width: 1, height: 1, cssWidth: "1px", cssHeight: "1px" },
-  },
-  {
-    label: "{ Optimize }",
-    id: "tabs-1-tab-3",
-    panelId: "tabs-1-tab-3-panel",
-    placeholder: "for-optimize",
-    src: "https://cdn.prod.website-files.com/6717a0dfaf71071a80dfce8b/6a15999912b3f274de2ae25f_Optimize_Full%20V4.riv",
-    active: false,
-    canvas: { width: 1, height: 1, cssWidth: "1px", cssHeight: "1px" },
-  },
-]
+const riveTabs = heroContent.riveTabs.map((tab, index) => ({
+  label: tab.label,
+  id: `tabs-1-tab-${index + 1}`,
+  panelId: `tabs-1-tab-${index + 1}-panel`,
+  placeholder: `for-${tab.phase}`,
+  src: [
+    "https://cdn.prod.website-files.com/6717a0dfaf71071a80dfce8b/6a15972d945f9408ee044dd8_Build_Full%20V4.riv",
+    "https://cdn.prod.website-files.com/6717a0dfaf71071a80dfce8b/6a1417303f6e8503a85caddb_Scale_Full%20V2.riv",
+    "https://cdn.prod.website-files.com/6717a0dfaf71071a80dfce8b/6a15999912b3f274de2ae25f_Optimize_Full%20V4.riv",
+  ][index],
+  active: index === 0,
+  canvas:
+    index === 0
+      ? { width: 6040, height: 2296, cssWidth: "3020px", cssHeight: "1148px" }
+      : { width: 1, height: 1, cssWidth: "1px", cssHeight: "1px" },
+}))
 
 type RiveRuntime = {
   Rive: new (config: Record<string, unknown>) => { cleanup?: () => void; resizeDrawingSurfaceToCanvas?: () => void }
@@ -230,7 +218,7 @@ export function SoftreeAgenticHeroSection() {
             style={{ "--n": 20 } as StyleVars}
           >
             <p>
-              {splitWords("Softree Technology · Agentic AI").map((word, index) => (
+              {splitWords(heroContent.eyebrow).map((word, index) => (
                 <span key={index}>
                   {index > 0 ? " " : null}
                   {word}
@@ -250,11 +238,11 @@ export function SoftreeAgenticHeroSection() {
               className="k2-heading w-variant-14221f46-b77f-f549-1365-c3cf0146a3ed w-richtext"
             >
               <p>
-                <SplitWord text="Meet" />{" "}
+                <SplitWord text={heroContent.meet} />{" "}
                 <em style={{ display: "inline-block", position: "relative" }}>
                   <SplitWord text="{" start={0} />{" "}
                   <sup style={{ display: "inline-block", position: "relative" }}>
-                    <SplitWord text="Softree" start={0} />
+                    <SplitWord text={heroContent.brand} start={0} />
                   </sup>{" "}
                   <SplitWord text="}" start={0} />
                 </em>
@@ -268,7 +256,9 @@ export function SoftreeAgenticHeroSection() {
                 data-wf--heading--variant="display-4"
                 className="k2-heading w-variant-a99798b7-ba2e-447c-08ca-de2b7acb44dc w-richtext"
               >
-                <h1>Autonomous agents built for the agentic enterprise</h1>
+                <h1>
+                  {heroContent.headline} {heroContent.headlineAccent}
+                </h1>
               </div>
               <div
                 data-op="100"
@@ -279,7 +269,7 @@ export function SoftreeAgenticHeroSection() {
                 style={{ transitionDelay: "300ms", animationDelay: "300ms" }}
               >
                 <p>
-                  <em>Design, deploy, and govern AI on the Microsoft stack.</em>
+                  <em>{heroContent.subheadItalic}</em>
                 </p>
               </div>
             </div>
@@ -297,13 +287,7 @@ export function SoftreeAgenticHeroSection() {
             className="k2-text w-variant-02404dae-b9b0-4e85-c5f5-f41da6cf14a9 w-richtext"
             style={{ transitionDelay: "400ms", animationDelay: "400ms" }}
           >
-            <p>
-              Built for enterprise delivery from the ground up {"{ "}
-              <strong>Softree</strong>
-              {" }"} combines offshore velocity with Copilot Studio, Azure AI, and Power Platform expertise. Agents we
-              ship thrive in complex, high-volume, regulated workflows — with governance your IT team can audit. This is
-              agentic AI delivery that experience made possible.
-            </p>
+            <p>{heroContent.body}</p>
           </div>
 
           <div
@@ -312,10 +296,10 @@ export function SoftreeAgenticHeroSection() {
             style={{ transitionDelay: "600ms", animationDelay: "600ms" }}
           >
             <div className="k2-clickable">
-              <a aria-label="Let's talk" href="/contact" className="k2-action w-inline-block" />
+              <a aria-label={heroContent.ctaLabel} href={heroContent.ctaHref} className="k2-action w-inline-block" />
             </div>
             <div aria-hidden="true" className="k2-cta-text">
-              Let's talk
+              {heroContent.ctaLabel}
             </div>
             <div aria-hidden="true" className="k2-cta-icon w-variant-324d61ef-5935-7d9b-deaa-ee6d974aa212">
               <DotArrowIcon />

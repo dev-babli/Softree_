@@ -11,11 +11,17 @@ tags:
 summary: "Migrated from legacy knowledge: business-context.md. Core Softree business intelligence for ATLAS agents."
 confidence: 1
 version: 1.0.0
-lastUpdated: 2026-07-06
+lastUpdated: 2026-07-13
+lastVerified: 2026-07-13
 sources:
   - type: internal
-ref: .cursor/knowledge/business-context.md
-retrievedAt: 2026-07-06
+    ref: .cursor/knowledge/01-company/Softree.md
+    confidence: 0.95
+    retrievedAt: 2026-07-13
+  - type: internal
+    ref: .cursor/knowledge/20-memory/audits/repo-scan-2026-07-13.json
+    confidence: 0.95
+    retrievedAt: 2026-07-13
 related:
 status: verified
 knowledgeFolder: 01_company
@@ -259,6 +265,15 @@ We build better businesses.
 ## Future Goal
 
 Become the consulting-first AI implementation company for the Indian and global mid-market.
+
+## Repo Intelligence (July 2026 scan)
+
+- **Production site:** https://softreetechnology.com
+- **Stack:** Next.js 16.2.6, React 19, Sanity 6, GSAP 3.15
+- **Routes:** 63 unique App Router pages (35 production, 18 demo, 8 draft, 3 active-build)
+- **Flagship active-build:** `/agentic-ai-platform` (content loop complete), `/client` (private lead magnet)
+- **Nav authority:** `src/components/sections/navigation.tsx`
+- **CMS:** Sanity Studio at `/studio`, 19 case study layout variants
 
 ## References
 
