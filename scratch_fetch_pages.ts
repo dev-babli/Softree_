@@ -12,7 +12,8 @@ console.log("NEXT_PUBLIC_SANITY_DATASET:", process.env.NEXT_PUBLIC_SANITY_DATASE
 console.log("SANITY_API_READ_TOKEN exists:", !!process.env.SANITY_API_READ_TOKEN)
 
 async function run() {
-  const count = await client.fetch('count(*[_type == "caseStudy"])')
-  console.log("\nTotal caseStudy documents in this dataset:", count)
+  const caseStudy = await client.fetch('*[_type == "caseStudy" && slug.current == "digital-learning-management-platform"][0]{ title, "slug": slug.current, detailLayout }')
+  console.log("\nTarget Case Study in Sanity:")
+  console.log(JSON.stringify(caseStudy, null, 2))
 }
 run().catch(console.error)

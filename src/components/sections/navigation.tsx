@@ -57,7 +57,7 @@ type MenuItem = {
 const CLOSE_DELAY_MS = 280;
 
 const menu: MenuItem[] = [
-  { label: "AI", url: "/ai" },
+  { label: "About", url: "/about-us" },
   {
     label: "Services",
     url: "/services",
@@ -88,7 +88,7 @@ const menu: MenuItem[] = [
         description: "Intelligence in every workflow.",
         links: [
           { label: "AI Solutions", url: "/ai", icon: Sparkles, description: "Agentic & generative AI hub" },
-          { label: "AI Web Analyser", url: "/webanalyser", icon: Sparkles, description: "Instant website performance audit" },
+          { label: "Workflow Orchestration", url: "/ai-workflow-orchestration", icon: Workflow, description: "Autonomous pipeline agents" },
           { label: "AI Test Automation", url: "/services/ai-powered-test-automation", icon: BrainCircuit, description: "Quality at speed" },
           { label: "AI Agents", url: "/services/offshore-ai-development", icon: Bot, description: "Autonomous tasks" },
           { label: "Generative AI", url: "/services/offshore-generative-ai-development", icon: WandSparkles, description: "RAG & copilots" },
@@ -102,7 +102,7 @@ const menu: MenuItem[] = [
           { label: "SharePoint Online", url: "/services/offshore-sharepoint-development", icon: Building2, description: "Intranets" },
           { label: "SPFx Development", url: "/services/offshore-spfx-development", icon: Code2, description: "Custom SPFx" },
           { label: "Web Applications", url: "/services/offshore-web-app-development", icon: Globe2, description: "Portals & apps" },
-          { label: "Website Modernisation", url: "/services/website-modernization", icon: RefreshCw, description: "Free AI blueprint + redesign" },
+          // { label: "Website Modernisation", url: "/services/website-modernization", icon: RefreshCw, description: "Free AI blueprint + redesign" },
           { label: "Mobile Applications", url: "/services/offshore-mobile-app-development", icon: Smartphone, description: "iOS & Android" },
         ],
       },
@@ -121,48 +121,11 @@ const menu: MenuItem[] = [
           { label: "GEO", url: "/geo", icon: Globe2, description: "AI Growth Intelligence | AI-Powered Website Intelligence" },
         ],
       },
-      {
-        title: "Microsoft",
-        icon: LayoutDashboard,
-        description: "Enterprise Microsoft solutions.",
-        links: [],
-      },
-      {
-        title: "Cloud & DevOps",
-        icon: Server,
-        description: "Infrastructure & architecture refresh.",
-        links: [],
-      },
-      {
-        title: "Data & Analytics",
-        icon: LineChart,
-        description: "Data intelligence platforms.",
-        links: [],
-      },
-      {
-        title: "Software Engineering",
-        icon: Code2,
-        description: "Custom software engineering.",
-        links: [],
-      },
-      {
-        title: "Quality Assurance",
-        icon: BrainCircuit,
-        description: "Production-grade testing.",
-        links: [],
-      },
-      {
-        title: "Digital Transformation",
-        icon: Layers,
-        description: "Modernize legacy systems.",
-        links: [],
-      },
     ],
   },
   { label: "Case Studies", url: "/case-studies", mega: true, children: [] },
-  { label: "Blog", url: "/blog", mega: true, children: [] },
+  { label: "Blog", url: "/blog" },
   { label: "Careers", url: "/careers" },
-  { label: "About", url: "/about-us" },
 ];
 
 function buildBlogChildren(blogCategories: SanityNavCategory[]): MenuGroup[] {
@@ -171,15 +134,28 @@ function buildBlogChildren(blogCategories: SanityNavCategory[]): MenuGroup[] {
     .slice(0, 4)
     .map((cat) => ({
       title: cat.title,
+      url: `/blog?category=${encodeURIComponent(cat.title.toLowerCase().trim().replace(/\s+/g, '-'))}`,
       description: `Latest in ${cat.title.toLowerCase()}`,
-      links: cat.posts.map((post) => ({
-        label: post.title,
-        url: `/blog/${post.slug.current}`,
-        icon: FileText,
-        description: post.excerpt || "",
-      })),
+      links: cat.posts.map((post) => {
+        const cleanedTitle = post.title.replace(/^\d+\s+Best\s+/i, "").replace(/^Best\s+/i, "");
+        return {
+          label: cleanedTitle,
+          url: `/blog/${post.slug.current}`,
+          icon: FileText,
+          description: post.excerpt || "",
+        };
+      }),
     }));
 }
+
+const CASE_STUDY_TECH_MAP: Record<string, string> = {
+  "Power Platform": "power-platform",
+  "SharePoint": "sharepoint",
+  "Data & Analytics": "data-analytics",
+  "Web": "web",
+  "Mobile": "mobile",
+  "AI": "ai",
+};
 
 function buildCaseStudyChildren(
   caseStudyCategories: SanityNavCaseStudyCategory[],
@@ -190,12 +166,16 @@ function buildCaseStudyChildren(
     .map((cat) => ({
       title: cat.title,
       description: cat.description,
-      links: cat.links.map((link) => ({
-        label: link.label,
-        url: link.href,
-        icon: Layers,
-        description: link.description,
-      })),
+      links: cat.links.map((link) => {
+        const techKey = CASE_STUDY_TECH_MAP[link.label];
+        const targetUrl = techKey ? `/case-studies?tech=${techKey}` : link.href;
+        return {
+          label: link.label,
+          url: targetUrl,
+          icon: Layers,
+          description: link.description,
+        };
+      }),
     }));
 }
 
@@ -215,19 +195,15 @@ export default function Navigation({
   const reduceMotion = useReducedMotion();
 
   const dynamicMenu = useMemo(() => {
-    const blogChildren = buildBlogChildren(blogCategories);
     const caseStudyChildren = buildCaseStudyChildren(caseStudyCategories);
 
     return menu.map((item) => {
-      if (item.label === "Blog" && blogChildren.length > 0) {
-        return { ...item, children: blogChildren };
-      }
       if (item.label === "Case Studies" && caseStudyChildren.length > 0) {
         return { ...item, children: caseStudyChildren };
       }
       return item;
     });
-  }, [blogCategories, caseStudyCategories]);
+  }, [caseStudyCategories]);
 
   const activeMegaItem = useMemo(
     () => dynamicMenu.find((i) => i.label === open && i.mega) ?? null,
@@ -479,9 +455,8 @@ export default function Navigation({
                       >
                         <ChevronDown
                           size={18}
-                          className={`transition-transform duration-150 ${
-                            mobileDropdown === item.label ? "rotate-180 text-[#FF5812]" : ""
-                          }`}
+                          className={`transition-transform duration-150 ${mobileDropdown === item.label ? "rotate-180 text-[#FF5812]" : ""
+                            }`}
                         />
                       </button>
                     </div>

@@ -6,8 +6,8 @@
   --chalk: #FAF7F0;
   --chalk-dim: #F1ECE0;
   --slate: #5C6470;
-  --marker: #F2B33D;
-  --marker-deep: #D99A2B;
+  --marker: #ff5c00;
+  --marker-deep: #e04f00;
   --sage: #6E8F69;
   --rule: #DCD5C2;
   --paper-shadow: rgba(20, 33, 61, 0.08);
@@ -90,7 +90,7 @@
     right: -150px;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(242,179,61,0.16), transparent 70%);
+    background: radial-gradient(circle, rgba(255,92,0,0.16), transparent 70%);
     pointer-events: none;
     z-index: 0;
   }
@@ -588,7 +588,7 @@
     transition: background 0.2s ease;
   }
 
-  .ledger-row:hover { background: rgba(242,179,61,0.05); }
+  .ledger-row:hover { background: rgba(255,92,0,0.05); }
 
   .ledger-num {
     font-family: var(--mono);

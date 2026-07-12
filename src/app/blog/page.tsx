@@ -1,5 +1,6 @@
 import { client } from "@/cms/lib/client"
 import { groq } from "next-sanity"
+import { Suspense } from "react"
 import NavigationClient from "@/components/sections/navigation-client"
 import Footer from "@/components/sections/footer"
 import BlogListingClient from "./BlogListingClient"
@@ -44,7 +45,13 @@ export default async function BlogPage() {
   return (
     <div className="min-h-screen">
       <NavigationClient />
-      <BlogListingClient posts={normalizedPosts} />
+      <Suspense fallback={
+        <div className="min-h-[400px] flex items-center justify-center bg-[#f6f7fb]">
+          <div className="text-[#50576b] font-medium text-[15px]">Loading blog insights...</div>
+        </div>
+      }>
+        <BlogListingClient posts={normalizedPosts} />
+      </Suspense>
       <Footer />
     </div>
   )

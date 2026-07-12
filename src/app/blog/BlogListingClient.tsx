@@ -1,8 +1,9 @@
 "use client"
 
-import { useMemo, useState } from "react"
+import { useMemo, useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { useSearchParams } from "next/navigation"
 import { Search, Plus } from "lucide-react"
 import GeneralHeaderHero from "@/components/sections/GeneralHeaderHero"
 
@@ -21,6 +22,26 @@ const VISIBLE_STEP = 8
 export default function BlogListingClient({ posts }: { posts: BlogPost[] }) {
   const [search, setSearch] = useState("")
   const [visibleCount, setVisibleCount] = useState(VISIBLE_STEP)
+  const [selectedCategory, setSelectedCategory] = useState("All")
+
+  const searchParams = useSearchParams()
+  const catQuery = searchParams.get("category")
+
+  useEffect(() => {
+    let cat: string | null = null;
+    if (catQuery) {
+      cat = catQuery;
+    } else if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      cat = params.get("category");
+    }
+
+    if (cat) {
+      setSelectedCategory(cat);
+    } else {
+      setSelectedCategory("All");
+    }
+  }, [catQuery]);
 
   const normalized = useMemo(
     () =>
@@ -34,8 +55,25 @@ export default function BlogListingClient({ posts }: { posts: BlogPost[] }) {
     [posts]
   )
 
-  const featured = normalized[0]
-  const rest = normalized.slice(1)
+  const categories = useMemo(() => {
+    const set = new Set<string>();
+    normalized.forEach((post) => {
+      if (post.category) set.add(post.category);
+    });
+    return ["All", ...Array.from(set)];
+  }, [normalized]);
+
+  const filteredByCategory = useMemo(() => {
+    if (!selectedCategory || selectedCategory === "All") return normalized;
+    return normalized.filter((post) => {
+      const postCat = post.category.toLowerCase().trim().replace(/\s+/g, '-');
+      const selectedCat = selectedCategory.toLowerCase().trim().replace(/\s+/g, '-');
+      return postCat === selectedCat;
+    });
+  }, [normalized, selectedCategory]);
+
+  const featured = filteredByCategory[0] || null
+  const rest = filteredByCategory.slice(1)
 
   const filtered = useMemo(() => {
     const q = search.toLowerCase().trim()
@@ -59,28 +97,37 @@ export default function BlogListingClient({ posts }: { posts: BlogPost[] }) {
       <section className="border-b border-[#d8dce8] bg-white">
         <div className="mx-auto max-w-[1240px] px-4 pb-12 pt-10 md:px-8 md:pb-16">
           <div className="mt-5 flex flex-wrap gap-2">
-            {[
-              "AI insights",
-              "Customer Stories",
-              "Blog",
-              "WhitepaperS",
-              "WebinarS",
-              "AI Research Reports",
-              "Videos",
-              "Glossary",
-              "e-Guides",
-            ].map((item) => (
-              <span
-                key={item}
-                className={`rounded-full border px-4 py-[7px] text-[13px] font-medium leading-none ${
-                  item === "Blog"
-                    ? "border-[#0f5cc0] bg-[#edf3ff] text-[#0f5cc0]"
-                    : "border-[#d7dce9] bg-white text-[#50576b]"
-                }`}
-              >
-                {item}
-              </span>
-            ))}
+            {categories.map((item) => {
+              const isSelected =
+                selectedCategory.toLowerCase().trim().replace(/\s+/g, '-') ===
+                item.toLowerCase().trim().replace(/\s+/g, '-');
+              return (
+                <button
+                  key={item}
+                  onClick={() => {
+                    setSelectedCategory(item);
+                    setSearch("");
+                    setVisibleCount(VISIBLE_STEP);
+                    if (typeof window !== "undefined") {
+                      const url = new URL(window.location.href);
+                      if (item === "All") {
+                        url.searchParams.delete("category");
+                      } else {
+                        url.searchParams.set("category", item.toLowerCase().trim().replace(/\s+/g, '-'));
+                      }
+                      window.history.pushState({}, "", url.toString());
+                    }
+                  }}
+                  className={`rounded-full border px-4 py-[7px] text-[13px] font-medium leading-none transition-colors ${
+                    isSelected
+                      ? "border-[#0f5cc0] bg-[#edf3ff] text-[#0f5cc0]"
+                      : "border-[#d7dce9] bg-white text-[#50576b] hover:bg-black/[0.02]"
+                  }`}
+                >
+                  {item}
+                </button>
+              );
+            })}
           </div>
 
           {featured ? (
@@ -118,7 +165,9 @@ export default function BlogListingClient({ posts }: { posts: BlogPost[] }) {
 
       <section className="mx-auto max-w-[1240px] px-4 py-12 md:px-8 md:py-16">
         <div className="mb-7 flex flex-wrap items-center justify-between gap-4">
-          <h2 className="text-[clamp(1.5rem,3vw,2.1rem)] font-black tracking-[-0.02em]">All AI insights</h2>
+          <h2 className="text-[clamp(1.5rem,3vw,2.1rem)] font-black tracking-[-0.02em]">
+            {selectedCategory === "All" ? "All AI insights" : `All ${selectedCategory} articles`}
+          </h2>
           <label className="flex h-11 min-w-[280px] items-center gap-2 rounded-[10px] border border-[#d7dce9] bg-white px-3.5">
             <Search className="h-4 w-4 text-[#65708a]" />
             <input

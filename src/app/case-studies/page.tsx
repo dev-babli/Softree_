@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { Suspense } from "react"
 import NavigationServer from "@/components/sections/navigation-server"
 import Footer from "@/components/sections/footer"
 import LightContactSection from "@/components/qc/homepage-light/LightContactSection"
@@ -42,11 +43,19 @@ export default async function CaseStudiesPage() {
   return (
     <div className="min-h-screen">
       <NavigationServer />
-      <CaseStudiesListingClient
-        caseStudies={caseStudies}
-        heroSlides={heroSlides}
-        categoryLinks={categoryLinks}
-      />
+      <Suspense
+        fallback={
+          <div className="flex min-h-[400px] items-center justify-center bg-[#FAFAF9]">
+            <div className="text-[15px] font-medium text-[#6b7694]">Loading customer stories...</div>
+          </div>
+        }
+      >
+        <CaseStudiesListingClient
+          caseStudies={caseStudies}
+          heroSlides={heroSlides}
+          categoryLinks={categoryLinks}
+        />
+      </Suspense>
       <CaseStudyProofCTA
         accentColor={CASE_STUDIES_HUB_ACCENT}
         challengeText={CASE_STUDIES_HUB_PROOF.challengeText}

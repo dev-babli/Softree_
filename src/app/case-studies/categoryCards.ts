@@ -27,6 +27,7 @@ type SanityCaseStudyCard = CaseStudyCategorySource & {
   publishedAt?: string | null
   _updatedAt?: string
   status?: string
+  companySize?: string | null
 }
 
 export type { CaseStudyListingItem, CaseStudyHeroSlide } from './types'
@@ -153,7 +154,7 @@ function mapSanityCaseStudyToListingItem(study: SanityCaseStudyCard): CaseStudyL
         ? study.industry
         : undefined,
     useCase: study.useCase || undefined,
-    companySize: study.companySize,
+    companySize: study.companySize || undefined,
     keyResults: stats,
     publishedAt: study.publishedAt || study._updatedAt,
   }
@@ -229,16 +230,9 @@ export async function getCaseStudyListingItems(): Promise<CaseStudyListingItem[]
 }
 
 export async function getCaseStudyHeroSlides(): Promise<CaseStudyHeroSlide[]> {
-  const featured = await readClient.fetch<SanityCaseStudyCard[]>(caseStudyHeroSlidesQuery)
-  const fromFeatured = featured
-    .map(mapSanityCaseStudyToHeroSlide)
-    .filter((slide): slide is CaseStudyHeroSlide => slide !== null)
-
-  if (fromFeatured.length > 0) return fromFeatured
-
   const latest = await fetchPublishedCaseStudies()
   return latest
-    .slice(0, 4)
+    .slice(0, 3)
     .map(mapSanityCaseStudyToHeroSlide)
     .filter((slide): slide is CaseStudyHeroSlide => slide !== null)
 }

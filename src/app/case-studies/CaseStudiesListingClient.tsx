@@ -1,8 +1,9 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { AnimatePresence, motion, useInView, useMotionValueEvent, useScroll } from "framer-motion";
 import { Search, Sparkles } from "lucide-react";
 import GeneralHeaderHero from "@/components/sections/GeneralHeaderHero";
@@ -26,31 +27,47 @@ type CaseStudiesListingClientProps = {
   categoryLinks: CategoryLink[];
 };
 
-const INDUSTRY_OPTIONS = [
-  "All",
-  "Healthcare",
-  "Retail",
-  "Manufacturing",
-  "Finance",
-  "Education",
-  "Technology",
-  "Government",
-  "Financial Services",
-  "Professional Services",
-];
+export function getStandardizedIndustry(raw?: string | null): string {
+  if (!raw) return "Other";
+  const val = raw.toLowerCase().trim();
 
-const USE_CASE_OPTIONS = [
-  "All",
-  "Process Automation",
-  "AI Agents",
-  "Customer Experience",
-  "Operations",
-  "Web Platform",
-  "Mobile App",
-  "Product Engineering",
-];
+  if (val.includes("health")) return "Healthcare";
+  if (val.includes("manufactur")) return "Manufacturing";
+  if (val.includes("finance") || val.includes("banking") || val.includes("bfsi")) return "Finance & Banking";
+  if (val.includes("retail") || val.includes("ecommerce") || val.includes("e-commerce")) return "Retail & E-commerce";
+  if (val.includes("logistics") || val.includes("supply chain") || val.includes("shipping")) return "Logistics & Supply Chain";
+  if (val.includes("education") || val.includes("edtech")) return "Education";
+  if (val.includes("government") || val.includes("public") || val.includes("state")) return "Government & Public Sector";
+  if (val.includes("technology") || val.includes("it") || val.includes("engineering")) return "Technology";
+  if (val.includes("professional services")) return "Professional Services";
 
-const COMPANY_SIZE_OPTIONS = ["All", "Startup", "Mid-market", "Enterprise"];
+  return "Other";
+}
+
+export function getUseCaseGroups(raw?: string | null): string[] {
+  if (!raw) return [];
+  const val = raw.toLowerCase();
+  const groups: string[] = [];
+
+  if (val.includes("automation") || val.includes("workflow")) groups.push("Process Automation");
+  if (val.includes("ai agent") || val.includes("copilot") || val.includes("llm") || val.includes("ai-powered")) groups.push("AI Agents & Copilots");
+  if (val.includes("analytics") || val.includes("intelligence") || val.includes("bi") || val.includes("reporting")) groups.push("Analytics & BI");
+  if (val.includes("customer") || val.includes("experience") || val.includes("ecommerce") || val.includes("marketplace")) groups.push("Customer Experience");
+  if (val.includes("engineering") || val.includes("development") || val.includes("platform") || val.includes("product")) groups.push("Product Engineering");
+  if (val.includes("qa") || val.includes("testing") || val.includes("quality")) groups.push("Quality Assurance & Testing");
+  if (val.includes("sharepoint") || val.includes("intranet") || val.includes("document management") || val.includes("collaboration")) groups.push("Collaboration & Intranet");
+
+  return groups;
+}
+
+export function getStandardizedCompanySize(raw?: string | null): string {
+  if (!raw) return "Enterprise";
+  const val = raw.toLowerCase().trim();
+  if (val === "enterprise") return "Enterprise";
+  if (val === "mid-market") return "Mid-market";
+  if (val === "startup" || val === "small") return "Startup";
+  return "Enterprise";
+}
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -64,6 +81,59 @@ export default function CaseStudiesListingClient({
   const [industry, setIndustry] = useState("All");
   const [useCase, setUseCase] = useState("All");
   const [companySize, setCompanySize] = useState("All");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const searchParams = useSearchParams();
+  const techQuery = searchParams.get("tech");
+
+  useEffect(() => {
+    let tech: string | null = null;
+    if (techQuery) {
+      tech = techQuery;
+    } else if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      tech = params.get("tech");
+    }
+
+    if (tech) {
+      setTechCategory(tech as CaseStudyCategoryKey);
+    } else {
+      setTechCategory("All");
+    }
+  }, [techQuery]);
+
+  const industryOptions = useMemo(() => {
+    if (!mounted) return ["All"];
+    const set = new Set<string>();
+    caseStudies.forEach((study) => {
+      const std = getStandardizedIndustry(study.industry);
+      if (std && std !== "Other") set.add(std);
+    });
+    return ["All", ...Array.from(set).sort(), "Other"];
+  }, [caseStudies, mounted]);
+
+  const useCaseOptions = useMemo(() => {
+    if (!mounted) return ["All"];
+    const set = new Set<string>();
+    caseStudies.forEach((study) => {
+      getUseCaseGroups(study.useCase).forEach((g) => set.add(g));
+    });
+    return ["All", ...Array.from(set).sort()];
+  }, [caseStudies, mounted]);
+
+  const companySizeOptions = useMemo(() => {
+    if (!mounted) return ["All"];
+    const set = new Set<string>();
+    caseStudies.forEach((study) => {
+      const size = getStandardizedCompanySize(study.companySize);
+      if (size) set.add(size);
+    });
+    return ["All", ...Array.from(set).sort()];
+  }, [caseStudies, mounted]);
 
   const sectionRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
@@ -92,16 +162,13 @@ export default function CaseStudiesListingClient({
       const matchesTech = techCategory === "All" || study.categoryKey === techCategory;
 
       const matchesIndustry =
-        industry === "All" ||
-        (study.industry || "").toLowerCase().includes(industry.toLowerCase());
+        industry === "All" || getStandardizedIndustry(study.industry) === industry;
 
       const matchesUseCase =
-        useCase === "All" ||
-        (study.useCase || "").toLowerCase().includes(useCase.toLowerCase());
+        useCase === "All" || getUseCaseGroups(study.useCase).includes(useCase);
 
       const matchesSize =
-        companySize === "All" ||
-        (study.companySize || "").toLowerCase() === companySize.toLowerCase();
+        companySize === "All" || getStandardizedCompanySize(study.companySize) === companySize;
 
       return matchesSearch && matchesTech && matchesIndustry && matchesUseCase && matchesSize;
     });
@@ -201,9 +268,9 @@ export default function CaseStudiesListingClient({
             </div>
 
             <div className="flex flex-wrap items-center gap-3">
-              <FilterSelect label="Industry" value={industry} options={INDUSTRY_OPTIONS} onChange={setIndustry} />
-              <FilterSelect label="Use case" value={useCase} options={USE_CASE_OPTIONS} onChange={setUseCase} />
-              <FilterSelect label="Size" value={companySize} options={COMPANY_SIZE_OPTIONS} onChange={setCompanySize} />
+              <FilterSelect label="Industry" value={industry} options={industryOptions} onChange={setIndustry} />
+              <FilterSelect label="Use case" value={useCase} options={useCaseOptions} onChange={setUseCase} />
+              <FilterSelect label="Size" value={companySize} options={companySizeOptions} onChange={setCompanySize} />
               {activeFilterCount > 0 || search ? (
                 <button
                   type="button"
@@ -379,10 +446,10 @@ function FeaturedStoryCard({ study, index }: { study: CaseStudyListingItem; inde
           >
             {study.category}
           </span>
-          <h3 className="text-[clamp(1.25rem,2.5vw,1.5rem)] font-bold leading-[1.15] text-[#171717]">
+          <h3 className="break-words text-[clamp(1.25rem,2.5vw,1.5rem)] font-bold leading-[1.15] text-[#171717]">
             {study.title}
           </h3>
-          <p className="line-clamp-3 text-[14px] leading-[1.55] text-[#4c5366]">{study.description}</p>
+          <p className="line-clamp-3 break-words text-[14px] leading-[1.55] text-[#4c5366]">{study.description}</p>
           {metric ? (
             <p className="text-[13px] font-semibold" style={{ color: CASE_STUDIES_HUB_ACCENT }}>
               {metric.value === metric.label ? metric.value : `${metric.value} ${metric.label}`}
@@ -403,11 +470,13 @@ function FilterSelect({
   label,
   value,
   options,
+  optionLabels,
   onChange,
 }: {
   label: string;
   value: string;
   options: string[];
+  optionLabels?: Record<string, string>;
   onChange: (v: string) => void;
 }) {
   return (
@@ -422,7 +491,7 @@ function FilterSelect({
       >
         {options.map((opt) => (
           <option key={opt} value={opt}>
-            {opt === "All" ? label : opt}
+            {opt === "All" ? label : optionLabels?.[opt] || opt}
           </option>
         ))}
       </select>
