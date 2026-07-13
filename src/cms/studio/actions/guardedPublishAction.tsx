@@ -5,10 +5,12 @@ import { useToast } from '@sanity/ui'
 import { useCallback, useMemo, useState } from 'react'
 import {
   type DocumentActionComponent,
+  useClient,
   useDocumentOperation,
   useEditState,
 } from 'sanity'
 
+import { apiVersion } from '@/cms/api'
 import { countFaqItems } from '@/cms/lib/studio/aeoCompleteness'
 import {
   getPublishWarnings,
@@ -17,6 +19,7 @@ import {
 import { isScheduledPublishBlocked } from '@/cms/lib/studio/scheduledPublishField'
 import {
   buildWebsiteLivePatch,
+  commitWebsiteLivePublish,
   isWebsiteDraft,
   publishWebsiteLiveViaApi,
 } from '@/cms/lib/studio/publishWebsiteStatus'
@@ -53,6 +56,7 @@ function publishErrorMessage(error: unknown): string {
 
 export const GuardedPublishAction: DocumentActionComponent = (props) => {
   const toast = useToast()
+  const client = useClient({ apiVersion })
   const { publish, patch } = useDocumentOperation(props.id, props.type)
   const editState = useEditState(props.id, props.type)
   const [isPublishing, setIsPublishing] = useState(false)
@@ -82,19 +86,72 @@ export const GuardedPublishAction: DocumentActionComponent = (props) => {
     isWebsiteDraft(publishedDoc) && hasPublished && !publish.enabled && !hasUnsavedChanges
 
   const scheduledBlock = isScheduledPublishBlocked(doc)
-  const canPublish = (publish.enabled || canGoLiveWithoutDraft) && !scheduledBlock
+
+  const publishViaSanityOperation = useCallback(async () => {
+    const { set, unset } = buildWebsiteLivePatch(doc)
+    patch.execute([{ set }, { unset }])
+    publish.execute()
+  }, [doc, patch, publish])
+
+  const publishViaWriteClient = useCallback(async () => {
+    await commitWebsiteLivePublish(client, props.id, doc)
+  }, [client, doc, props.id])
 
   const onHandle = useCallback(async () => {
     if (isPublishing) return
 
+    if (scheduledBlock) {
+      toast.push({
+        status: 'warning',
+        title: 'Publish scheduled',
+        description: scheduledBlock,
+      })
+      return
+    }
+
+    if (hasUnsavedChanges) {
+      toast.push({
+        status: 'warning',
+        title: 'Save before publishing',
+        description: 'Press Ctrl+S (or Cmd+S) to save your draft, then click Publish again.',
+      })
+      return
+    }
+
+    if (!hasDraft && !hasPublished) {
+      toast.push({
+        status: 'warning',
+        title: 'Nothing to publish yet',
+        description: 'Add content, save (Ctrl+S), then Publish.',
+      })
+      return
+    }
+
     setIsPublishing(true)
     try {
       if (publish.enabled) {
-        const { set, unset } = buildWebsiteLivePatch(doc)
-        patch.execute([{ set }, { unset }])
-        publish.execute()
-      } else if (canGoLiveWithoutDraft) {
+        await publishViaSanityOperation()
+      } else if (canGoLiveWithoutDraft || hasDraft) {
+        try {
+          await publishViaWriteClient()
+        } catch (clientError) {
+          try {
+            await publishWebsiteLiveViaApi(props.id)
+          } catch {
+            throw clientError
+          }
+        }
+      } else if (hasPublished) {
         await publishWebsiteLiveViaApi(props.id)
+      } else {
+        toast.push({
+          status: 'warning',
+          title: 'Publish unavailable',
+          description:
+            disabledHint ??
+            'Save your changes (Ctrl+S), then Publish. Or use ⋯ → Mark live on website.',
+        })
+        return
       }
       props.onComplete()
     } catch (error) {
@@ -108,11 +165,16 @@ export const GuardedPublishAction: DocumentActionComponent = (props) => {
     }
   }, [
     canGoLiveWithoutDraft,
-    doc,
+    disabledHint,
+    hasDraft,
+    hasPublished,
+    hasUnsavedChanges,
     isPublishing,
-    patch,
     props,
-    publish,
+    publish.enabled,
+    publishViaSanityOperation,
+    publishViaWriteClient,
+    scheduledBlock,
     toast,
   ])
 
@@ -124,21 +186,20 @@ export const GuardedPublishAction: DocumentActionComponent = (props) => {
         ? 'Go live on website — sets Status → Published (no other edits required).'
         : scheduledBlock
           ? scheduledBlock
-          : !publish.enabled
-          ? disabledHint ??
-            'Publish is unavailable — save your changes (Ctrl+S), then try again.'
-          : warnings.length > 0
-            ? `Publish updates the live site. Notes: ${warnings.join(' · ')}`
-            : faqCount < 2 && (docType === 'caseStudy' || docType === 'post')
-              ? `Publish — saved draft has ${faqCount}/2 FAQs (save after adding more if needed).`
-              : hasDraft
-                ? 'Publish merges your draft to the live site and sets Status → Published.'
-                : 'Make an edit and save to create a draft, then Publish.'
+          : !publish.enabled && !hasDraft
+            ? disabledHint ?? 'Save your changes (Ctrl+S), then Publish.'
+            : warnings.length > 0
+              ? `Publish updates the live site. Notes: ${warnings.join(' · ')}`
+              : faqCount < 2 && (docType === 'caseStudy' || docType === 'post')
+                ? `Publish — saved draft has ${faqCount}/2 FAQs (save after adding more if needed).`
+                : hasDraft || hasPublished
+                  ? 'Publish merges your draft to the live site and sets Status → Published.'
+                  : 'Make an edit and save to create a draft, then Publish.'
 
   return {
     label: isPublishing ? 'Publishing…' : 'Publish',
     icon: PublishIcon,
-    disabled: isPublishing || hasUnsavedChanges || !canPublish,
+    disabled: isPublishing,
     title,
     onHandle,
   }

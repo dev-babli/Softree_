@@ -1,0 +1,16 @@
+@import "@neo/ui/styles/tokens.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+
+  body {
+    @apply bg-neo-base text-text-primary;
+    font-family: var(--neo-font-sans);
+  }
+}

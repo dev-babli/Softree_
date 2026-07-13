@@ -1,0 +1,32 @@
+---
+id: research-repo-softree-stack-2026-07
+title: Softree_ Repository Stack Intelligence
+category: atom
+domain: company
+knowledgeFolder: 01-company
+tags:
+  - company
+summary: "Softree_ monorepo at D:/Softree_Projects/SOFTREE_MAIN/Softree_ powers https://softreetechnology.com. Tech stack from package.json: Next.js ^16.2.6 (webpack production build, turbo dev), React ^19.0.0, Sanity ^6.3.0 with next-sanity ^13.1.1, GSAP ^3.15.0, Framer Motion ^12.40.0, Tailwind CSS ^4.3.0, Node 24.x. App Router with 63 unique routes (64 page.tsx files). Production nav authority: src/co..."
+confidence: 0.75
+version: 1.0.0
+lastUpdated: 2026-07-12
+sources:
+  - type: url
+    ref: https://softreetechnology.com
+    confidence: 0.85
+    retrievedAt: 2026-07-12
+related:
+status: verified
+---
+
+## Summary
+
+Softree_ monorepo at D:/Softree_Projects/SOFTREE_MAIN/Softree_ powers https://softreetechnology.com. Tech stack from package.json: Next.js ^16.2.6 (webpack production build, turbo dev), React ^19.0.0, Sanity ^6.3.0 with next-sanity ^13.1.1, GSAP ^3.15.0, Framer Motion ^12.40.0, Tailwind CSS ^4.3.0, Node 24.x. App Router with 63 unique routes (64 page.tsx files). Production nav authority: src/co...
+
+## Core Concepts
+
+Softree_ monorepo at D:/Softree_Projects/SOFTREE_MAIN/Softree_ powers https://softreetechnology.com. Tech stack from package.json: Next.js ^16.2.6 (webpack production build, turbo dev), React ^19.0.0, Sanity ^6.3.0 with next-sanity ^13.1.1, GSAP ^3.15.0, Framer Motion ^12.40.0, Tailwind CSS ^4.3.0, Node 24.x. App Router with 63 unique routes (64 page.tsx files). Production nav authority: src/components/sections/navigation.tsx (header.tsx is stale alternate). CMS: src/cms/ with Sanity Studio at /studio. Documents: post, caseStudy, marketingPage, homepage, serviceLine, aiContext, etc. 19 case study layout variants in src/lib/case-study-layouts.ts. Flagship pages: /agentic-ai-platform (softree-agentic-exact), /client (private lead magnet, noindex), /ai hub. Active workstreams: page-forge softree-agentic-exact (content loop complete), client-exact clone, cms-rebuild Phase 0, res-performance loop 1 (global RES 49). Verify scripts: agentic:copy:verify, handoff:verify, hero:score, psi, cms:go-live.
+
+## References
+
+- https://softreetechnology.com

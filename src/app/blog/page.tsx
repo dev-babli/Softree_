@@ -18,7 +18,8 @@ const postsQuery = groq`
   }
 `
 
-export const dynamic = "force-dynamic"
+// ISR: blog listing changes on publish, not per-visitor. Draft mode auto-opts editors dynamic.
+export const revalidate = 900
 
 export default async function BlogPage() {
   const posts = await client.fetch(postsQuery)

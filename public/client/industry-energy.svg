@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 128" role="img" aria-label="Energy">
+  <rect width="320" height="128" fill="#121212"/>
+  <path d="M88 24l-20 52h28l-12 36 48-64H96l20-24H88z" fill="#ec6c36"/>
+  <circle cx="220" cy="64" r="36" stroke="#fff" stroke-width="2" fill="none" opacity="0.25"/>
+  <circle cx="220" cy="64" r="20" fill="#ff6044" opacity="0.4"/>
+</svg>

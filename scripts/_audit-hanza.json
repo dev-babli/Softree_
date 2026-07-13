@@ -1,0 +1,316 @@
+{
+  "label": "hanza",
+  "menuClick": {
+    "found": true,
+    "tag": "DIV",
+    "cls": "framer-19ggs0t",
+    "name": "Column"
+  },
+  "before": {
+    "sections": [
+      {
+        "name": "Section Hero",
+        "h": 900,
+        "w": 1600,
+        "top": 0
+      },
+      {
+        "name": "Section Logos",
+        "h": 96,
+        "w": 1600,
+        "top": 900
+      },
+      {
+        "name": "Section About",
+        "h": 2016,
+        "w": 1600,
+        "top": 996
+      },
+      {
+        "name": "Section Portfolio",
+        "h": 2870,
+        "w": 1600,
+        "top": 3012
+      },
+      {
+        "name": "Section Services",
+        "h": 964,
+        "w": 1600,
+        "top": 5882
+      },
+      {
+        "name": "Section Process",
+        "h": 1664,
+        "w": 1600,
+        "top": 6846
+      },
+      {
+        "name": "Section Testimonials",
+        "h": 1506,
+        "w": 1600,
+        "top": 8510
+      },
+      {
+        "name": "Section Stats",
+        "h": 390,
+        "w": 1600,
+        "top": 10016
+      },
+      {
+        "name": "Section Casy Study",
+        "h": 900,
+        "w": 1600,
+        "top": 10406
+      },
+      {
+        "name": "Section Pricing",
+        "h": 1720,
+        "w": 1600,
+        "top": 11306
+      },
+      {
+        "name": "Section FAQ",
+        "h": 978,
+        "w": 1600,
+        "top": 13026
+      },
+      {
+        "name": "Section Blog",
+        "h": 1384,
+        "w": 1600,
+        "top": 14004
+      }
+    ],
+    "fixed": [
+      {
+        "name": null,
+        "cls": "framer-xobrsp-container hidden-s4cw1s hidden-1whf26r",
+        "text": "",
+        "z": "8",
+        "t": 0,
+        "h": 120
+      },
+      {
+        "name": null,
+        "cls": "framer-1umz7to-container",
+        "text": "GET IN TOUCH |  | /HANZA |  | HANZA NOVÁK  |  | PROFESSION |  | DESIGNER & FRAMER EXPERT |  | LOCATI",
+        "z": "1",
+        "t": 1076,
+        "h": 644
+      },
+      {
+        "name": "Column",
+        "cls": "framer-1msv653",
+        "text": "05 |  | TESTIMONIALS |  | CLIENT  | STORIES. |  | A FEW WORDS FROM FOUNDERS, STUDIOS, AND BRAN",
+        "z": "1",
+        "t": 8670,
+        "h": 466
+      },
+      {
+        "name": "Column",
+        "cls": "framer-1mmfbh3",
+        "text": "FAQ |  | QUICK  | ANSWERS. |  | EVERYTHING YOU SHOULD KNOW BEFORE WE START DESIGNING AND B",
+        "z": "1",
+        "t": 13186,
+        "h": 296
+      },
+      {
+        "name": "Top",
+        "cls": "framer-1tnztnc",
+        "text": "GET IN TOUCH |  | /HANZA |  | HANZA NOVÁK  |  | PROFESSION |  | DESIGNER & FRAMER EXPERT |  | LOCATI",
+        "z": "auto",
+        "t": 15548,
+        "h": 1237
+      },
+      {
+        "name": null,
+        "cls": "framer-2nj8en-container",
+        "text": "GET IN TOUCH |  | /HANZA |  | HANZA NOVÁK  |  | PROFESSION |  | DESIGNER & FRAMER EXPERT |  | LOCATI",
+        "z": "1",
+        "t": 15548,
+        "h": 644
+      },
+      {
+        "name": null,
+        "cls": "framer-1k4nlbv-container",
+        "text": "More Templates |  | More Templates |  | Buy for $99 |  | Buy for $99",
+        "z": "9",
+        "t": 681,
+        "h": 159
+      },
+      {
+        "name": null,
+        "cls": "",
+        "text": "Create a free website with Framer, the website builder loved by startups, design",
+        "z": "2147483647",
+        "t": 822,
+        "h": 78
+      }
+    ],
+    "footerish": [
+      {
+        "name": "Desktop XL",
+        "tag": "FOOTER",
+        "text": "GET IN TOUCH |  | /HANZA |  | HANZA NOVÁK  |  | PROFESSION |  | DESIGNER & FRAMER EXPERT |  | LOCATION |  | PRAGUE, CZECHIA |  | CONTACT |  | CREATE YOUR NEXT WEBSITE | WITH ME. |  | FROM FIRST CONCEPT TO FINAL BUILD, I CREATE WEBSITES WI",
+        "h": 1722
+      }
+    ],
+    "lastSections": [
+      {
+        "name": "Section Pricing",
+        "h": 1720,
+        "w": 1600,
+        "top": 11306
+      },
+      {
+        "name": "Section FAQ",
+        "h": 978,
+        "w": 1600,
+        "top": 13026
+      },
+      {
+        "name": "Section Blog",
+        "h": 1384,
+        "w": 1600,
+        "top": 14004
+      }
+    ],
+    "bodyEnd": "E\n\nREAD ARTICLE\n\nGET IN TOUCH\n\n/HANZA\n\nHANZA NOVÁK \n\nPROFESSION\n\nDESIGNER & FRAMER EXPERT\n\nLOCATION\n\nPRAGUE, CZECHIA\n\nCONTACT\n\nCREATE YOUR NEXT WEBSITE\nWITH ME.\n\nFROM FIRST CONCEPT TO FINAL BUILD, I CREATE WEBSITES WITH CLEAR STRUCTURE & SMOOTH INTERACTIONS.\n\n2\n\nSLOTS\n\nAVAILABLE\n\nJUNE 2026\n\nYOUR NAME\n\nEMAIL ADDRESS\n\nHOW CAN I HELP?\n\nFORM INCOMPLETE\n\nBy submitting, you agree to our Terms and Privacy Policy.\n\nHOME\n\nPORTFOLIO\n\nABOUT\n\nCONTACT\n\nBLOG\n\n404\n\nVinohradská 102\n120 00 Prague\nCzech Republic\n\nAHOJ@HANZA.CZ\n\nAHOJ@HANZA.CZ\n\nCONTACT ME\n\nCONTACT ME\n\nCRAFTED BY\n\nGOLA TEMPLATES\n\n© 2026 HANZA®\n\nALL RIGHT RESERVED.\n\nTERMS\n\nPRIVACY POLICY\n\nMore Templates\n\nMore Templates\n\nBuy for $99\n\nBuy for $99\n\nCreate a free website with Framer, the website builder loved by startups, designers and agencies.\n\n ",
+    "hasMenuOverlay": false,
+    "navCount": 1,
+    "navText": [
+      "HOME\n\nPORTFOLIO\n\nABOUT\n\nCONTACT\n\nBLOG\n\n404"
+    ]
+  },
+  "afterMenu": {
+    "bodyHasNavLinks": true,
+    "overlays": []
+  },
+  "bottom": {
+    "scrollH": 17110,
+    "visible": [
+      {
+        "name": "Default (XL)",
+        "tag": "DIV",
+        "text": "",
+        "h": 17110
+      },
+      {
+        "name": "Line",
+        "tag": "DIV",
+        "text": "",
+        "h": 17110
+      },
+      {
+        "name": "Line",
+        "tag": "DIV",
+        "text": "",
+        "h": 17110
+      },
+      {
+        "name": "Line",
+        "tag": "DIV",
+        "text": "",
+        "h": 17110
+      },
+      {
+        "name": "Line",
+        "tag": "DIV",
+        "text": "",
+        "h": 17110
+      },
+      {
+        "name": "Line",
+        "tag": "DIV",
+        "text": "",
+        "h": 17110
+      },
+      {
+        "name": "Desktop XL",
+        "tag": "FOOTER",
+        "text": "GET IN TOUCH |  | /HANZA |  | HANZA NOVÁK  |  | PROFESSION |  | DESIGNER & FRAMER EXPERT |  | LOCATION |  | PRAGUE, CZECHIA | ",
+        "h": 1722
+      },
+      {
+        "name": "Inner",
+        "tag": "DIV",
+        "text": "GET IN TOUCH |  | /HANZA |  | HANZA NOVÁK  |  | PROFESSION |  | DESIGNER & FRAMER EXPERT |  | LOCATION |  | PRAGUE, CZECHIA | ",
+        "h": 1498
+      },
+      {
+        "name": "Grid",
+        "tag": "DIV",
+        "text": "GET IN TOUCH |  | /HANZA |  | HANZA NOVÁK  |  | PROFESSION |  | DESIGNER & FRAMER EXPERT |  | LOCATION |  | PRAGUE, CZECHIA | ",
+        "h": 1378
+      },
+      {
+        "name": "Column",
+        "tag": "DIV",
+        "text": "GET IN TOUCH |  | /HANZA |  | HANZA NOVÁK  |  | PROFESSION |  | DESIGNER & FRAMER EXPERT |  | LOCATION |  | PRAGUE, CZECHIA",
+        "h": 1378
+      },
+      {
+        "name": "Top",
+        "tag": "DIV",
+        "text": "GET IN TOUCH |  | /HANZA |  | HANZA NOVÁK  |  | PROFESSION |  | DESIGNER & FRAMER EXPERT |  | LOCATION |  | PRAGUE, CZECHIA",
+        "h": 1237
+      },
+      {
+        "name": "Inverse (XL)",
+        "tag": "DIV",
+        "text": "GET IN TOUCH |  | /HANZA |  | HANZA NOVÁK  |  | PROFESSION |  | DESIGNER & FRAMER EXPERT |  | LOCATION |  | PRAGUE, CZECHIA",
+        "h": 644
+      },
+      {
+        "name": "Image Wrapper",
+        "tag": "DIV",
+        "text": "GET IN TOUCH |  | /HANZA",
+        "h": 491
+      },
+      {
+        "name": "Secondary",
+        "tag": "A",
+        "text": "GET IN TOUCH |  | /HANZA",
+        "h": 50
+      },
+      {
+        "name": "Icon",
+        "tag": "DIV",
+        "text": "",
+        "h": 50
+      },
+      {
+        "name": "Content",
+        "tag": "DIV",
+        "text": "GET IN TOUCH |  | /HANZA",
+        "h": 50
+      },
+      {
+        "name": "Icon",
+        "tag": "DIV",
+        "text": "",
+        "h": 50
+      },
+      {
+        "name": "Image",
+        "tag": "DIV",
+        "text": "",
+        "h": 495
+      },
+      {
+        "name": "Grid",
+        "tag": "DIV",
+        "text": "HANZA NOVÁK  |  | PROFESSION |  | DESIGNER & FRAMER EXPERT |  | LOCATION |  | PRAGUE, CZECHIA",
+        "h": 154
+      },
+      {
+        "name": "Grid",
+        "tag": "DIV",
+        "text": "PROFESSION |  | DESIGNER & FRAMER EXPERT |  | LOCATION |  | PRAGUE, CZECHIA",
+        "h": 45
+      }
+    ],
+    "endText": "E\n\nEMAIL ADDRESS\n\nHOW CAN I HELP?\n\nFORM INCOMPLETE\n\nBy submitting, you agree to our Terms and Privacy Policy.\n\nHOME\n\nPORTFOLIO\n\nABOUT\n\nCONTACT\n\nBLOG\n\n404\n\nVinohradská 102\n120 00 Prague\nCzech Republic\n\nAHOJ@HANZA.CZ\n\nAHOJ@HANZA.CZ\n\nCONTACT ME\n\nCONTACT ME\n\nCRAFTED BY\n\nGOLA TEMPLATES\n\n© 2026 HANZA®\n\nALL RIGHT RESERVED.\n\nTERMS\n\nPRIVACY POLICY\n\nMore Templates\n\nMore Templates\n\nBuy for $99\n\nBuy for $99\n\nCreate a free website with Framer, the website builder loved by startups, designers and agencies.\n\n "
+  },
+  "errors": []
+}

@@ -1,0 +1,84 @@
+{
+  "items": [
+    {
+      "i": 0,
+      "name": "First Open (L)",
+      "q": "01",
+      "x": 1168,
+      "y": 247.84375,
+      "h": 253
+    },
+    {
+      "i": 1,
+      "name": "Default Close (L)",
+      "q": "02",
+      "x": 1168,
+      "y": 414.84375,
+      "h": 81
+    },
+    {
+      "i": 2,
+      "name": "Default Close (L)",
+      "q": "03",
+      "x": 1168,
+      "y": 495.84375,
+      "h": 81
+    },
+    {
+      "i": 3,
+      "name": "Default Close (L)",
+      "q": "04",
+      "x": 1168,
+      "y": 576.84375,
+      "h": 81
+    },
+    {
+      "i": 4,
+      "name": "Default Close (L)",
+      "q": "05",
+      "x": 1168,
+      "y": 657.84375,
+      "h": 81
+    },
+    {
+      "i": 5,
+      "name": "Default Close (L)",
+      "q": "06",
+      "x": 1168,
+      "y": 738.84375,
+      "h": 81
+    }
+  ],
+  "answers": [
+    {
+      "name": "Default Close (L)",
+      "cls": "framer-v-1kpnvul",
+      "text": "02 | 02 | DO YOU ONLY WORK WITH FRAMER?",
+      "h": 81
+    },
+    {
+      "name": "Default Close (L)",
+      "cls": "framer-v-1kpnvul",
+      "text": "02 | 02 | DO YOU ONLY WORK WITH FRAMER?",
+      "h": 81
+    },
+    {
+      "name": "Default Close (L)",
+      "cls": "framer-v-1kpnvul",
+      "text": "04 | 04 | CAN YOU REDESIGN MY EXISTING WEBSITE?",
+      "h": 81
+    },
+    {
+      "name": "Default Close (L)",
+      "cls": "framer-v-1kpnvul",
+      "text": "04 | 04 | CAN YOU REDESIGN MY EXISTING WEBSITE?",
+      "h": 81
+    },
+    {
+      "name": "Default Close (L)",
+      "cls": "framer-v-1kpnvul",
+      "text": "06 | 06 | HOW DO WE START A PROJECT?",
+      "h": 81
+    }
+  ]
+}

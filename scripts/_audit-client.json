@@ -1,0 +1,279 @@
+{
+  "label": "client",
+  "menuClick": {
+    "found": true,
+    "tag": "DIV",
+    "cls": "framer-19ggs0t",
+    "name": "Column"
+  },
+  "before": {
+    "sections": [
+      {
+        "name": "Section Hero",
+        "h": 900,
+        "w": 1600,
+        "top": 0
+      },
+      {
+        "name": "Section Logos",
+        "h": 96,
+        "w": 1600,
+        "top": 900
+      },
+      {
+        "name": "Section About",
+        "h": 2016,
+        "w": 1600,
+        "top": 996
+      },
+      {
+        "name": "Section Portfolio",
+        "h": 2870,
+        "w": 1600,
+        "top": 3012
+      },
+      {
+        "name": "Section Services",
+        "h": 964,
+        "w": 1600,
+        "top": 5882
+      },
+      {
+        "name": "Section Process",
+        "h": 1664,
+        "w": 1600,
+        "top": 6846
+      },
+      {
+        "name": "Section Testimonials",
+        "h": 1506,
+        "w": 1600,
+        "top": 8510
+      },
+      {
+        "name": "Section Stats",
+        "h": 390,
+        "w": 1600,
+        "top": 10016
+      },
+      {
+        "name": "Section Casy Study",
+        "h": 900,
+        "w": 1600,
+        "top": 10406
+      },
+      {
+        "name": "Section Pricing",
+        "h": 1720,
+        "w": 1600,
+        "top": 11306
+      },
+      {
+        "name": "Section FAQ",
+        "h": 906,
+        "w": 1600,
+        "top": 13026
+      },
+      {
+        "name": "Section Blog",
+        "h": 1384,
+        "w": 1600,
+        "top": 13932
+      }
+    ],
+    "fixed": [
+      {
+        "name": null,
+        "cls": "framer-1iup1yh-container cx-topbar",
+        "text": "MENU |  | 10:19 AM |  | LOCAL TIME |  | START PROJECT |  | /HANZA",
+        "z": "20",
+        "t": 0,
+        "h": 114
+      },
+      {
+        "name": null,
+        "cls": "framer-1umz7to-container",
+        "text": "GET IN TOUCH |  | /HANZA |  | HANZA NOVÁK |  | PROFESSION |  | DESIGNER & FRAMER EXPERT |  | LOCATIO",
+        "z": "1",
+        "t": 1076,
+        "h": 644
+      },
+      {
+        "name": "Column",
+        "cls": "framer-1msv653",
+        "text": "05 |  | TESTIMONIALS |  | CLIENT  | STORIES. |  | A FEW WORDS FROM FOUNDERS, STUDIOS, AND BRAN",
+        "z": "1",
+        "t": 8670,
+        "h": 466
+      },
+      {
+        "name": "Column",
+        "cls": "framer-1mmfbh3",
+        "text": "FAQ |  | QUICK  | ANSWERS. |  | EVERYTHING YOU SHOULD KNOW BEFORE WE START DESIGNING AND B",
+        "z": "1",
+        "t": 13186,
+        "h": 296
+      }
+    ],
+    "footerish": [],
+    "lastSections": [
+      {
+        "name": "Section Pricing",
+        "h": 1720,
+        "w": 1600,
+        "top": 11306
+      },
+      {
+        "name": "Section FAQ",
+        "h": 906,
+        "w": 1600,
+        "top": 13026
+      },
+      {
+        "name": "Section Blog",
+        "h": 1384,
+        "w": 1600,
+        "top": 13932
+      }
+    ],
+    "bodyEnd": "EAS, LESSONS, AND PRACTICAL INSIGHTS FROM MY WORK.\n\nALL ARTICLES\n\nALL ARTICLES\n\nJUN 24, 2026\n\nDESIGN\n\nWhat Makes A Website Project Run Smoothly\n\nA simple look at how clear structure, focused feedback, and the right process.\n\nREAD ARTICLE\n\nREAD ARTICLE\n\nMAY 30, 2026\n\nDESIGN\n\nHow Visual Direction Shapes A Stronger Website\n\nWhy typography, imagery, spacing, and color direction matter.\n\nREAD ARTICLE\n\nREAD ARTICLE\n\nAPR 7, 2026\n\nDEVELOPMENT\n\nBuilding Better Websites In Framer\n\nA practical look at responsive layouts, clean components & the CMS structure.\n\nREAD ARTICLE\n\nREAD ARTICLE\n\nMAR 23, 2026\n\nBRANDING\n\nCreating A Digital Presence That Feels Clear\n\nHow strong messaging, consistent visuals, and a focused website experience.\n\nREAD ARTICLE\n\nREAD ARTICLE\n\nHOME\n\nPORTFOLIO\n\nABOUT\n\nCONTACT\n\nBLOG\n\n404",
+    "hasMenuOverlay": false,
+    "navCount": 1,
+    "navText": [
+      "HOME\n\nPORTFOLIO\n\nABOUT\n\nCONTACT\n\nBLOG\n\n404"
+    ]
+  },
+  "afterMenu": {
+    "bodyHasNavLinks": true,
+    "overlays": []
+  },
+  "bottom": {
+    "scrollH": 15417,
+    "visible": [
+      {
+        "name": "Inverse (XL)",
+        "tag": "HEADER",
+        "text": "MENU |  | 10:19 AM |  | LOCAL TIME |  | START PROJECT |  | /HANZA",
+        "h": 114
+      },
+      {
+        "name": "Column",
+        "tag": "DIV",
+        "text": "START PROJECT |  | /HANZA",
+        "h": 50
+      },
+      {
+        "name": "Secondary",
+        "tag": "A",
+        "text": "START PROJECT |  | /HANZA",
+        "h": 50
+      },
+      {
+        "name": "Icon",
+        "tag": "DIV",
+        "text": "",
+        "h": 50
+      },
+      {
+        "name": "Image",
+        "tag": "DIV",
+        "text": "",
+        "h": 50
+      },
+      {
+        "name": "Content",
+        "tag": "DIV",
+        "text": "START PROJECT |  | /HANZA",
+        "h": 50
+      },
+      {
+        "name": "Icon",
+        "tag": "DIV",
+        "text": "",
+        "h": 50
+      },
+      {
+        "name": "Section Blog",
+        "tag": "SECTION",
+        "text": "09 |  | BLOG |  | DESIGN  | NOTES. |  | I SHARE IDEAS, LESSONS, AND PRACTICAL INSIGHTS FROM MY WORK. |  | ALL ARTICLES",
+        "h": 1384
+      },
+      {
+        "name": "Inner",
+        "tag": "DIV",
+        "text": "09 |  | BLOG |  | DESIGN  | NOTES. |  | I SHARE IDEAS, LESSONS, AND PRACTICAL INSIGHTS FROM MY WORK. |  | ALL ARTICLES",
+        "h": 1064
+      },
+      {
+        "name": "Desktop",
+        "tag": "DIV",
+        "text": "JUN 24, 2026 |  | DESIGN |  | What Makes A Website Project Run Smoothly |  | A simple look at how clear structur",
+        "h": 689
+      },
+      {
+        "name": "Image Wrapper",
+        "tag": "A",
+        "text": "",
+        "h": 368
+      },
+      {
+        "name": "Noise",
+        "tag": "DIV",
+        "text": "",
+        "h": 368
+      },
+      {
+        "name": "Image",
+        "tag": "DIV",
+        "text": "",
+        "h": 368
+      },
+      {
+        "name": "Content",
+        "tag": "DIV",
+        "text": "DESIGN |  | What Makes A Website Project Run Smoothly |  | A simple look at how clear structure, focused fee",
+        "h": 274
+      },
+      {
+        "name": "Content",
+        "tag": "DIV",
+        "text": "What Makes A Website Project Run Smoothly |  | A simple look at how clear structure, focused feedback, a",
+        "h": 108
+      },
+      {
+        "name": "Text",
+        "tag": "DIV",
+        "text": "What Makes A Website Project Run Smoothly",
+        "h": 52
+      },
+      {
+        "name": "Text",
+        "tag": "DIV",
+        "text": "A simple look at how clear structure, focused feedback, and the right process.",
+        "h": 48
+      },
+      {
+        "name": "Desktop",
+        "tag": "DIV",
+        "text": "MAY 30, 2026 |  | DESIGN |  | How Visual Direction Shapes A Stronger Website |  | Why typography, imagery, spaci",
+        "h": 811
+      },
+      {
+        "name": "Image Wrapper",
+        "tag": "A",
+        "text": "",
+        "h": 490
+      },
+      {
+        "name": "Noise",
+        "tag": "DIV",
+        "text": "",
+        "h": 490
+      }
+    ],
+    "endText": "es A Stronger Website\n\nWhy typography, imagery, spacing, and color direction matter.\n\nREAD ARTICLE\n\nREAD ARTICLE\n\nAPR 7, 2026\n\nDEVELOPMENT\n\nBuilding Better Websites In Framer\n\nA practical look at responsive layouts, clean components & the CMS structure.\n\nREAD ARTICLE\n\nREAD ARTICLE\n\nMAR 23, 2026\n\nBRANDING\n\nCreating A Digital Presence That Feels Clear\n\nHow strong messaging, consistent visuals, and a focused website experience.\n\nREAD ARTICLE\n\nREAD ARTICLE\n\nHOME\n\nPORTFOLIO\n\nABOUT\n\nCONTACT\n\nBLOG\n\n404"
+  },
+  "errors": [
+    "Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component use"
+  ]
+}

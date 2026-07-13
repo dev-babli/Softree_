@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 128" role="img" aria-label="Logistics">
+  <rect width="320" height="128" fill="#121212"/>
+  <path d="M48 72h120l16-28h56v28" fill="none" stroke="#ec6c36" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="88" cy="80" r="12" fill="#fff" opacity="0.85"/>
+  <circle cx="168" cy="80" r="12" fill="#fff" opacity="0.85"/>
+  <path d="M232 48l40 24-40 24V48z" fill="#ff6044" opacity="0.55"/>
+</svg>

@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
@@ -19,6 +20,15 @@ import {
   SITE_URL,
   twitterImages,
 } from "@/lib/site-metadata";
+
+// Self-hosted via next/font — removes the render-blocking Google Fonts @import that
+// previously cost ~900ms FCP/LCP on every route. Exposes --font-inter for globals.css.
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -59,7 +69,7 @@ export default async function RootLayout({
   const designTokenVars = resolveDesignTokenCssVars(designTokens) as CSSProperties;
 
   return (
-    <html lang="en" suppressHydrationWarning style={designTokenVars}>
+    <html lang="en" suppressHydrationWarning className={inter.variable} style={designTokenVars}>
       <head>
         {/* ✅ Structured Data — Organization + WebSite */}
         <Script
@@ -148,29 +158,35 @@ export default async function RootLayout({
         <PostHogProvider>
           <PostHogPageView />
 
-          {/* Browser log script */}
-          <Script
-            id="orchids-browser-logs"
-            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
-            strategy="lazyOnload"
-            data-orchids-project-id="f9231059-3647-4f7a-ab8a-965fcb6abfb0"
-          />
+          {/* Authoring/iframe-only tooling — never ship to production visitors (perf: saves a
+              third-party origin connection + JS parse on every route). */}
+          {process.env.NODE_ENV !== "production" ? (
+            <>
+              {/* Browser log script */}
+              <Script
+                id="orchids-browser-logs"
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
+                strategy="lazyOnload"
+                data-orchids-project-id="f9231059-3647-4f7a-ab8a-965fcb6abfb0"
+              />
+
+              {/* Route messenger */}
+              <Script
+                id="route-messenger"
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/route-messenger.js"
+                strategy="lazyOnload"
+                data-target-origin="https://www.softreetechnology.com"
+                data-message-type="ROUTE_CHANGE"
+                data-include-search-params="false"
+                data-only-in-iframe="true"
+                data-debug="false"
+                data-custom-data='{"appName":"Softree","version":"1.0.0"}'
+              />
+            </>
+          ) : null}
 
           {/* Global error reporter */}
           <ErrorReporter />
-
-          {/* Route messenger */}
-          <Script
-            id="route-messenger"
-            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/route-messenger.js"
-            strategy="lazyOnload"
-            data-target-origin="https://www.softreetechnology.com"
-            data-message-type="ROUTE_CHANGE"
-            data-include-search-params="false"
-            data-only-in-iframe="true"
-            data-debug="false"
-            data-custom-data='{"appName":"Softree","version":"1.0.0"}'
-          />
 
           {children}
 

@@ -1,0 +1,238 @@
+# client.html section map
+
+- Source: Softree_/client.html
+- Generator: Framer (not Webflow)
+- Lines: 670
+
+## Styles
+- Style blocks: 7
+- Total CSS chars: 352606
+
+## Scripts
+- 0: INLINE try{if(localStorage.getItem("__framer_force_showing_editorbar_since")){const n=d
+- 1: SRC https://events.framer.com/script?v=2
+- 2: INLINE (()=>{function u(){function n(t,e,i){let r=document.createElement("a");r.href=t,
+- 3: INLINE !function(){var w="framer_variant";function u(a,r){let e=r.indexOf("#"),t=e===-1
+- 4: INLINE var animator=(()=>{var L=(e,r,t)=>t>r?r:t<e?e:t;var U=()=>{};function _(e){let r
+- 5: INLINE {"1mpqic7":{"default":{"initial":{"opacity":0.001,"rotate":0,"rotateX":0,"rotate
+- 6: INLINE [{"hash":"72rtr7","mediaQuery":"(min-width: 1600px)"},{"hash":"zo2ufi","mediaQue
+- 7: INLINE (()=>{function c(i,o,s){if(window.__framer_disable_appear_effects_optimization__
+- 8: INLINE (()=>{function d(e){let t=Date.prototype.toLocaleString,o=Date.prototype.toLocal
+- 9: INLINE typeof document<"u"&&(window.process={...window.process,env:{...window.process?.
+- 10: SRC https://framerusercontent.com/sites/6qXPZt1wPKRXYwwbLMUHFc/script_main.N3mEoV6l.mjs
+
+## data-framer-name (unique, 90)
+- Inverse (XL)
+- Column
+- Inverse (Left)
+- Dots
+- Grid
+- Vector
+- Text
+- Border
+- Inverse
+- Content
+- Secondary
+- Icon
+- Image
+- Inner
+- Main Wrapper
+- Section Hero
+- Image Wrapper
+- Images
+- Logo
+- Line
+- Noise
+- Overlay
+- Section Logos
+- Logos
+- Card
+- Logo-01
+- Logo-02
+- Logo-03
+- Logo-04
+- Logo-05
+- Logo-06
+- Logo-07
+- Logo-08
+- Section About
+- Default (XL)
+- Socials
+- Default
+- First (XL)
+- Section Portfolio
+- Hero
+- Default (Left)
+- Desktop XL
+- Top
+- Bottom
+- Button
+- Section Services
+- Inverse Primary (Right)
+- First Close (L)
+- Header
+- Title
+- Number
+- Plus
+- Default Close (L)
+- Section Process
+- Border Top (XL)
+- List
+- Secondary Inverse
+- Section Testimonials
+- Anna Marek
+- Founder at Goodwell
+- Stars
+- Honza understood our vision immediately and turned it into a website that feels sharp, simple, and easy to use. The whole process was clear from start to finish.
+- Section Stats
+- Section Casy Study
+- Quote
+- “A clearer structure helped users understand the product faster and move through the site with more confidence.”
+- “
+- Stats
+- Author
+- Section Pricing
+- Price
+- $7,500
+- /Project
+- What’s included
+- CTA
+- Muted
+- Primary (XL)
+- Primary
+- Section FAQ
+- Desktop
+- First Open (L)
+- Section Blog
+- Default (Right)
+- Muted (Right)
+- Label
+- Incomplete
+- Nav
+- Variant 1
+- Light
+- Backdrop
+
+## Images (51)
+- alt="Logo" src=https://framerusercontent.com/images/2GMXWWbIueByg8aHy0ppmBuIo5k.webp?width=1901&amp;height=400
+- alt="" src=https://framerusercontent.com/images/nxrIdkDd6Y1sqhzSdeVsMugCCNk.webp?width=120&amp;height=120
+- alt="User" src=https://framerusercontent.com/images/OwtdU2BGnc0dMRE7IkZYZlGfBtU.webp?width=120&amp;height=120
+- alt="User" src=https://framerusercontent.com/images/3j6yNJGADoWDBfzMN3MTG2Fkvk.webp?width=120&amp;height=120
+- alt="User" src=https://framerusercontent.com/images/iWIgAhHOUCXReoVH7RJ12DTejLU.webp?width=120&amp;height=120
+- alt="User" src=https://framerusercontent.com/images/6vWPBMlL6qWuNfxxfBgHjLFwd8.webp?width=640&amp;height=640
+- alt="Logo" src=https://framerusercontent.com/images/2GMXWWbIueByg8aHy0ppmBuIo5k.webp?width=1901&amp;height=400
+- alt="" src=https://framerusercontent.com/images/rpWxtpnQjEatsb4cidN6iCSOU.webp?width=175&amp;height=64
+- alt="" src=https://framerusercontent.com/images/njSY1vofkQx6kiMXnNInOp8xPo.webp?width=218&amp;height=64
+- alt="" src=https://framerusercontent.com/images/tKVSvCD2BXrjTdpP7b5fCA4ouI.webp?width=196&amp;height=64
+- alt="" src=https://framerusercontent.com/images/WejkhJs0k28ahidPwTEVUa7UAQ.webp?width=202&amp;height=64
+- alt="" src=https://framerusercontent.com/images/lWNXDUsAA1lisY0W7PS4Iln69HU.webp?width=263&amp;height=64
+- alt="" src=https://framerusercontent.com/images/6327KxVOTRZ9nhdzpGqrKNfsq4.webp?width=199&amp;height=64
+- alt="" src=https://framerusercontent.com/images/lGBNjJpkXvM6ANJVGHNbMawZ4g.webp?width=180&amp;height=64
+- alt="" src=https://framerusercontent.com/images/Du3BTduVuZ6ITMKZ3z9yHUZKztc.webp?width=227&amp;height=64
+- alt="" src=https://framerusercontent.com/images/rpWxtpnQjEatsb4cidN6iCSOU.webp?width=175&amp;height=64
+- alt="" src=https://framerusercontent.com/images/njSY1vofkQx6kiMXnNInOp8xPo.webp?width=218&amp;height=64
+- alt="" src=https://framerusercontent.com/images/tKVSvCD2BXrjTdpP7b5fCA4ouI.webp?width=196&amp;height=64
+- alt="" src=https://framerusercontent.com/images/WejkhJs0k28ahidPwTEVUa7UAQ.webp?width=202&amp;height=64
+- alt="" src=https://framerusercontent.com/images/lWNXDUsAA1lisY0W7PS4Iln69HU.webp?width=263&amp;height=64
+- alt="" src=https://framerusercontent.com/images/6327KxVOTRZ9nhdzpGqrKNfsq4.webp?width=199&amp;height=64
+- alt="" src=https://framerusercontent.com/images/lGBNjJpkXvM6ANJVGHNbMawZ4g.webp?width=180&amp;height=64
+- alt="" src=https://framerusercontent.com/images/Du3BTduVuZ6ITMKZ3z9yHUZKztc.webp?width=227&amp;height=64
+- alt="User" src=https://framerusercontent.com/images/OV4oW912RxrUXZuTYi5Z2PUOEqk.webp?width=1344&amp;height=1783
+- alt="Preview Image" src=https://framerusercontent.com/images/Tg2bM2Ax2NMUNMjXUgpBNTXVW4.webp?width=1050&amp;height=1400
+- alt="" src=https://framerusercontent.com/images/mwMZjXODcUlLHZnp5GWrpy6u6Lc.webp?width=199&amp;height=64
+- alt="Preview Image" src=https://framerusercontent.com/images/usY3IMJkjdi2OFfVikOPgJQTdww.webp?width=1050&amp;height=1400
+- alt="" src=https://framerusercontent.com/images/R9NZvMfCkuh7KfYAC5mQwEfUr4s.webp?width=180&amp;height=64
+- alt="Preview Image" src=https://framerusercontent.com/images/5n03cn39zkw03AOYNOG4IGEscdc.webp?width=1050&amp;height=1400
+- alt="" src=https://framerusercontent.com/images/rdYH8Fpt5aPTxGpCY3SCXoox8U.webp?width=263&amp;height=64
+- alt="User" src=https://framerusercontent.com/images/zeniIu0DU3NmcSWU4yeBs0Gdk.webp?width=1000&amp;height=1200
+- alt="" src=https://framerusercontent.com/images/nxrIdkDd6Y1sqhzSdeVsMugCCNk.webp?width=120&amp;height=120
+- alt="User" src=https://framerusercontent.com/images/OwtdU2BGnc0dMRE7IkZYZlGfBtU.webp?width=120&amp;height=120
+- alt="User" src=https://framerusercontent.com/images/3j6yNJGADoWDBfzMN3MTG2Fkvk.webp?width=120&amp;height=120
+- alt="User" src=https://framerusercontent.com/images/iWIgAhHOUCXReoVH7RJ12DTejLU.webp?width=120&amp;height=120
+- alt="" src=https://framerusercontent.com/images/nxrIdkDd6Y1sqhzSdeVsMugCCNk.webp?width=120&amp;height=120
+- alt="Logo" src=https://framerusercontent.com/images/6327KxVOTRZ9nhdzpGqrKNfsq4.webp?width=199&amp;height=64
+- alt="Logo" src=https://framerusercontent.com/images/njSY1vofkQx6kiMXnNInOp8xPo.webp?width=218&amp;height=64
+- alt="Logo" src=https://framerusercontent.com/images/tKVSvCD2BXrjTdpP7b5fCA4ouI.webp?width=196&amp;height=64
+- alt="Logo" src=https://framerusercontent.com/images/lGBNjJpkXvM6ANJVGHNbMawZ4g.webp?width=180&amp;height=64
+
+## Visible text samples (80)
+- Menu
+- AM
+- Local Time
+- Start Project
+- /Hanza
+- I help founders and growing brands
+- turn their ideas into refined websites.
+- /01
+- Web Design
+- /02
+- Website Development
+- /03
+- Motion
+- 4.92
+- /5
+- Trusted by
+- 122+ Founders
+- Get in Touch
+- Hanza Novák
+- Profession
+- Designer & Framer Expert
+- Location
+- Prague, Czechia
+- 01
+- My Mission
+- ©2019-2026
+- Ahoj,
+- I’m
+- Hanza.
+- help
+- founders,
+- studios,
+- and
+- growing
+- brands
+- turn
+- their
+- ideas
+- into
+- refined
+- websites.
+- design
+- clear
+- visual
+- systems
+- build
+- them
+- in
+- Framer,
+- smooth
+- motion,
+- focus
+- on
+- usability.
+- Projects
+- 122+
+- Digital projects shaped from early concept to polished website.
+- 02
+- Websites
+- 84+
+- Websites developed in Framer with clean structure and smooth motion.
+- 03
+- Years
+- 12+
+- Years of experience across digital design, web development, and visual systems.
+- 04
+- Clients
+- 48+
+- Brands, founders, and studios supported from early idea to final launch.
+- Portfolio
+- All Projects
+- Client
+- Goodwell
+- Year
+- 2026
+- View Project
+- a calm, editorial website for a wellness brand.
+- Design
+- Development
+- Galileo

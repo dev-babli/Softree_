@@ -1,0 +1,32 @@
+---
+id: research-agents-mcp-2026-07
+title: MCP 2026-07-28 Specification Release Candidate
+category: atom
+domain: agents
+knowledgeFolder: 02-consulting
+tags:
+  - agents
+summary: "The MCP 2026-07-28 release candidate is the largest revision of the Model Context Protocol since launch. Key changes: (1) Stateless core — removes initialize handshake and session-level dependencies; every request is self-describing with versioning and capabilities in _meta; servers scale on ordinary HTTP without sticky sessions. (2) Authorization hardening — MCP servers are OAuth 2.1 resource ..."
+confidence: 0.75
+version: 1.0.0
+lastUpdated: 2026-07-12
+sources:
+  - type: url
+    ref: https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/
+    confidence: 0.85
+    retrievedAt: 2026-07-12
+related:
+status: verified
+---
+
+## Summary
+
+The MCP 2026-07-28 release candidate is the largest revision of the Model Context Protocol since launch. Key changes: (1) Stateless core — removes initialize handshake and session-level dependencies; every request is self-describing with versioning and capabilities in _meta; servers scale on ordinary HTTP without sticky sessions. (2) Authorization hardening — MCP servers are OAuth 2.1 resource ...
+
+## Core Concepts
+
+The MCP 2026-07-28 release candidate is the largest revision of the Model Context Protocol since launch. Key changes: (1) Stateless core — removes initialize handshake and session-level dependencies; every request is self-describing with versioning and capabilities in _meta; servers scale on ordinary HTTP without sticky sessions. (2) Authorization hardening — MCP servers are OAuth 2.1 resource servers with RFC 9728 Protected Resource Metadata, RFC 8707 Resource Indicators, and mandatory issuer verification (RFC 9207). (3) Extensions framework — Tasks extension for long-running work (tasks/get, tasks/update, tasks/cancel) and MCP Apps for sandboxed server-rendered UIs. (4) Multi Round-Trip Requests (MRTR) — tools return InputRequiredResult for mid-call user input without persistent streams. (5) server/discover method for up-front capability probing. (6) Formal deprecation policy (SEP-2596) — minimum 12-month window before feature removal; Roots, Sampling, Logging deprecated but not removed in 2026-07-28. (7) Operability — required Mcp-Method and Mcp-Name headers, HTTP caching metadata, W3C Trace Context. Beta SDKs available for Python v2, TypeScript v2, Go, C#. Final spec publication targeted July 28, 2026. Current finalized version remains 2025-11-25 until then.
+
+## References
+
+- https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/

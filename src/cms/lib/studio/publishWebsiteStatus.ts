@@ -51,7 +51,8 @@ function stripDraftForPublish(draft: Record<string, unknown>): Record<string, un
 }
 
 /**
- * Patch the published document id (Sanity copies published → draft), then publish.
+ * Promote draft → published with website status fields.
+ * Works for first-time publish (draft-only) and subsequent updates.
  * Must run with a write-capable client (Studio session or server token).
  */
 export async function commitWebsiteLivePublish(
@@ -63,29 +64,49 @@ export async function commitWebsiteLivePublish(
   const draftId = draftDocumentId(documentId)
   const { set, unset } = buildWebsiteLivePatch(doc)
 
-  let patch = client.patch(publishedId).set(set)
-  if (unset.length > 0) {
-    patch = patch.unset(unset)
-  }
-  await patch.commit({ autoGenerateArrayKeys: true })
-
   const [draft, published] = await Promise.all([
     client.getDocument(draftId),
     client.getDocument(publishedId),
   ])
 
-  if (!draft) {
+  if (!draft && !published) {
+    throw new Error('Could not find document. Save in Studio (Ctrl+S) and try again.')
+  }
+
+  // Patch live status on existing published doc only — skip when first publish (no published id yet).
+  if (published) {
+    let patch = client.patch(publishedId).set(set)
+    if (unset.length > 0) {
+      patch = patch.unset(unset)
+    }
+    await patch.commit({ autoGenerateArrayKeys: true })
+  }
+
+  const draftDoc = draft ?? (await client.getDocument(draftId))
+  if (!draftDoc) {
+    if (published) {
+      return
+    }
     throw new Error('Could not create a draft to publish. Save the document (Ctrl+S) and try again.')
   }
 
-  const draftValue = stripDraftForPublish(draft as Record<string, unknown>)
+  const draftValue = {
+    ...stripDraftForPublish(draftDoc as Record<string, unknown>),
+    ...set,
+  } as Record<string, unknown>
+  for (const field of unset) {
+    delete draftValue[field]
+  }
 
   let transaction = client.transaction()
 
   if (published) {
+    const latestPublished = await client.getDocument(publishedId)
+    if (!latestPublished) {
+      throw new Error('Published document disappeared during publish. Refresh and try again.')
+    }
     transaction = transaction.patch(publishedId, {
-      ifRevisionID: published._rev,
-      unset: ['_revision_lock_pseudo_field_'],
+      ifRevisionID: latestPublished._rev,
     })
     transaction = transaction.createOrReplace({
       ...draftValue,
@@ -98,7 +119,11 @@ export async function commitWebsiteLivePublish(
     })
   }
 
-  await transaction.delete(draftId).commit({ tag: 'document.publish' })
+  if (draftDoc) {
+    transaction = transaction.delete(draftId)
+  }
+
+  await transaction.commit({ tag: 'document.publish' })
 }
 
 export async function publishWebsiteLiveViaApi(documentId: string): Promise<void> {

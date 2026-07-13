@@ -1,0 +1,9 @@
+{
+  "id": "research-competitor-kore-artemis-2026-05",
+  "url": "https://www.kore.ai/news/kore-ai-launches-artemis-the-new-generation-of-the-kore-ai-agent-platform-for-building-governing-and-optimizing-enterprise-ai",
+  "title": "Kore.ai Artemis Agent Platform Launch",
+  "html": null,
+  "text": "On May 21, 2026 Kore.ai launched Artemis edition of its Agent Platform — an AI-programmable, AI-native foundation for building, governing, and optimizing enterprise agents, systems, and workflows. Initial launch on Microsoft Azure with broader cloud availability planned. Three core innovations: Agent Blueprint Language (ABL) for compiled validated agent definitions; Arch for AI-driven agent design; Dual-Brain architecture balancing autonomous reasoning with deterministic rule-based execution. Positioning: deploy production-ready multiagent systems in days not months with governance, observability, and operational control enforced before agents go live. Target: regulated industries (banking, healthcare, insurance) where scale, compliance, and reliability are non-negotiable. Analyst recognition: Gartner MQ Leader for Enterprise Conversational AI (highest Ability to Execute per company); Forrester Wave Leader for Cognitive Search; Everest Group Leader in Agentic AI Products PEAK Matrix 2026. Competitive bet: neutral model-agnostic layer vs hyperscaler lock-in (Microsoft, Salesforce, ServiceNow). Integration: 40+ channels, 300+ enterprise integrations, Microsoft Foundry, Agent 365, Entra ID, Microsoft Graph, Teams via Azure Bot Framework. CEO Raj Koneru frames enterprise AI third wave as governance + observability + trust at scale.",
+  "metadata": {},
+  "scrapedAt": "2026-07-12T19:02:41.911Z"
+}

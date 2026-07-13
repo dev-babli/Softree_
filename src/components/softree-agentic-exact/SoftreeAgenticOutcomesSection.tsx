@@ -1,35 +1,23 @@
 "use client"
 
 import { useEffect, useRef, type CSSProperties } from "react"
+import { outcomesContent } from "./softreeAgenticContent"
 
 type StyleVars = CSSProperties & Record<`--${string}`, string | number>
 
 const cometIcon =
   "https://cdn.prod.website-files.com/6717a0dfaf71071a80dfce8b/6a05fa08754882ab91c980e6_comet.svg"
 
-const outcomeCards = [
-  {
-    icon: "https://cdn.prod.website-files.com/6717a0dfaf71071a80dfce8b/6a0c0e4de7656dee6d330b2c_value.svg",
-    title: "{ Outcomes in weeks }",
-    body: "Softree handles Microsoft stack plumbing; your team starts at business logic. Agents ship faster with offshore velocity.",
-    metric: "4×",
-    label: "faster time to production",
-  },
-  {
-    icon: "https://cdn.prod.website-files.com/6717a0dfaf71071a80dfce8b/6a0c0e51ce7260a2cb825b5e_scale.svg",
-    title: "{ Predictability at scale }",
-    body: "Every agent is defined, tested, and validated before deployment, so pilot success survives production load.",
-    metric: "0",
-    label: "surprises in production",
-  },
-  {
-    icon: "https://cdn.prod.website-files.com/6717a0dfaf71071a80dfce8b/6a06dbc247ccaaf54ed093f1_security.svg",
-    title: "{ Security + governance }",
-    body: "DLP, Entra ID, and approval gates keep every action within policy, with full audit trails your IT team trusts.",
-    metric: "100%",
-    label: "audited agent sessions",
-  },
-]
+const outcomeIcons = [
+  "https://cdn.prod.website-files.com/6717a0dfaf71071a80dfce8b/6a0c0e4de7656dee6d330b2c_value.svg",
+  "https://cdn.prod.website-files.com/6717a0dfaf71071a80dfce8b/6a0c0e51ce7260a2cb825b5e_scale.svg",
+  "https://cdn.prod.website-files.com/6717a0dfaf71071a80dfce8b/6a06dbc247ccaaf54ed093f1_security.svg",
+] as const
+
+const outcomeCards = outcomesContent.cards.map((card, index) => ({
+  ...card,
+  icon: outcomeIcons[index],
+}))
 
 function SquareImage({ src, style }: { src: string; style?: StyleVars }) {
   return (

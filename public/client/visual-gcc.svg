@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 1400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="GCC capability abstract">
+  <defs>
+    <radialGradient id="a" cx="30%" cy="25%" r="70%">
+      <stop offset="0%" stop-color="#ff7a4d"/>
+      <stop offset="55%" stop-color="#ec6c36"/>
+      <stop offset="100%" stop-color="#121212"/>
+    </radialGradient>
+    <linearGradient id="b" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1a1a1a"/>
+      <stop offset="100%" stop-color="#2d2d2d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1050" height="1400" fill="url(#b)"/>
+  <ellipse cx="320" cy="420" rx="380" ry="300" fill="url(#a)" opacity="0.85"/>
+  <ellipse cx="760" cy="980" rx="340" ry="280" fill="#ec6c36" opacity="0.22"/>
+  <path d="M120 1120c180-220 420-220 600 0M180 1240c140-160 320-160 460 0" stroke="#fff" stroke-width="2" fill="none" opacity="0.12"/>
+  <circle cx="860" cy="320" r="120" stroke="#ff6044" stroke-width="2" fill="none" opacity="0.35"/>
+</svg>

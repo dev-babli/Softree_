@@ -1,0 +1,93 @@
+{
+  "auditedAt": "2026-07-13T00:35:00+05:30",
+  "repo": "D:/Softree_Projects/SOFTREE_MAIN/Softree_",
+  "baseline": {
+    "before": { "totalAtoms": 13, "emptyFolders": 24, "drafts": 1, "analyzedAt": "2026-07-06T21:04:09.529Z" },
+    "afterImprove": { "totalAtoms": 182, "emptyFolders": 0, "lowConfidence": 161, "drafts": 0, "analyzedAt": "2026-07-12T18:58:29.137Z" }
+  },
+  "storesCompared": {
+    "legacy": ".cursor/knowledge/{00-21}-*/",
+    "engine": ".cursor/knowledge-engine/knowledge/{00-31}_*/"
+  },
+  "coverage": {
+    "legacyFoldersPopulated": 23,
+    "engineFoldersPopulated": 14,
+    "engineEmptyAfterMigrate": 0,
+    "patterns": 2,
+    "playbooks": 2,
+    "competitors": { "legacy": 13, "engine": 1 }
+  },
+  "freshness": {
+    "staleWithoutJuly2026Source": [
+      "01-company/Services.md (scaffold, confidence 0.4)",
+      "05-engineering/Architecture.md (scaffold)",
+      "06-ai/Agents.md (scaffold)",
+      "15-competitors/SoftreeAI.md (references old kore-ai atom, no Artemis 2026 data)",
+      "23_competitors/softree-ai.md (status: draft, lastUpdated 2026-07-07)"
+    ],
+    "verifiedRecently": [
+      "00-constitution/ThinkingFramework.md (2026-07-06)",
+      "01-company/Softree.md (2026-07-06)",
+      "01-company/BrandPositioning.md (2026-07-06)"
+    ]
+  },
+  "contradictions": [
+    {
+      "topic": "Production navigation",
+      "legacySays": "header.tsx is nav authority (atlas-knowledge-refresh seed table)",
+      "repoSays": "navigation.tsx is live nav; header.tsx has stale URLs",
+      "resolution": "Repo scan confirms navigation.tsx; update agent prompts",
+      "confidence": 0.95
+    },
+    {
+      "topic": "CMS rebuild status",
+      "planningSays": "cms-rebuild loop-state Phase 0 planning",
+      "signoffSays": "AGENT-SIGNOFF.md agents 01-10 complete 2026-07-08",
+      "resolution": "Planning JSON lags sign-off; reconcile loop-state",
+      "confidence": 0.85
+    },
+    {
+      "topic": "Competitor atom naming",
+      "legacy": "15-competitors/SoftreeAI.md titled Kore A I",
+      "engine": "23_competitors/softree-ai.md id competitor.kore-ai",
+      "resolution": "Rename to KoreAI.md content with Artemis 2026 refresh",
+      "confidence": 0.9
+    },
+    {
+      "topic": "Route count",
+      "promptSeed": "64 routes",
+      "scanResult": "64 page.tsx files, 63 unique paths",
+      "resolution": "Duplicate client/page.tsx path listing",
+      "confidence": 0.98
+    }
+  ],
+  "duplicates": [
+    { "concept": "Softree company context", "files": ["01-company/Softree.md", "knowledge-engine/01_company/softree-context.md"], "overlap": "~90%", "action": "Mirror verified facts both directions after repo refresh" },
+    { "concept": "Brand positioning", "files": ["01-company/BrandPositioning.md", "knowledge-engine/01_company/brand-positioning.md"], "overlap": "~85%", "action": "Keep engine as pipeline source, legacy for agent rules" }
+  ],
+  "repoAlignment": {
+    "servicesKnowledgeVsRoutes": "Services.md scaffold empty; repo has 12+ production service routes under /services/*",
+    "agenticKnowledgeVsCode": "Agents.md scaffold; softree-agentic-exact fully implemented with content loop complete",
+    "architectureKnowledgeVsCode": "Architecture.md scaffold; repo uses Next 16.2.6 + Sanity 6 + App Router + /studio"
+  },
+  "priority1Backlog": {
+    "addressed": [
+      { "id": "draft-competitor.kore-ai", "action": "Ingest research-competitor-kore-artemis-2026-05 + update SoftreeAI.md", "status": "completed-this-run" },
+      { "id": "competitor-accenture", "action": "Ingest research-competitor-accenture-ai-2026", "status": "completed-this-run" }
+    ],
+    "deferred": [
+      { "id": "competitor-ibm-consulting", "reason": "Cycle 1 capacity; queued for next refresh" },
+      { "id": "competitor-thoughtworks", "reason": "Cycle 1 capacity; queued for next refresh" },
+      { "id": "competitor-moveworks", "reason": "Cycle 1 capacity; queued for next refresh" },
+      { "id": "verify-company.services", "reason": "Updated Services.md from repo scan this run" }
+    ]
+  },
+  "gapsRemaining": [
+    "161 low-confidence atoms need systematic verify pass",
+    "IBM Consulting, Thoughtworks, Moveworks competitor profiles",
+    "18_agents, 16_ai, 12_seo, 13_geo, 14_aeo engine folders still sparse post-ingest",
+    "Live site vs repo drift screenshots not captured (browser evidence deferred)",
+    "Performance.md not synced with res-performance loop-state"
+  ],
+  "confidence": 0.92
+}

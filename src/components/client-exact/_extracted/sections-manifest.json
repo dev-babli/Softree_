@@ -1,0 +1,80 @@
+[
+  {
+    "name": "Section Hero",
+    "slug": "hero",
+    "file": "hero.html",
+    "chars": 14108
+  },
+  {
+    "name": "Section Logos",
+    "slug": "logos",
+    "file": "logos.html",
+    "chars": 16921
+  },
+  {
+    "name": "Section About",
+    "slug": "about",
+    "file": "about.html",
+    "chars": 31182
+  },
+  {
+    "name": "Section Portfolio",
+    "slug": "portfolio",
+    "file": "portfolio.html",
+    "chars": 47988
+  },
+  {
+    "name": "Section Services",
+    "slug": "services",
+    "file": "services.html",
+    "chars": 29867
+  },
+  {
+    "name": "Section Process",
+    "slug": "process",
+    "file": "process.html",
+    "chars": 42748
+  },
+  {
+    "name": "Section Testimonials",
+    "slug": "testimonials",
+    "file": "testimonials.html",
+    "chars": 37769
+  },
+  {
+    "name": "Section Stats",
+    "slug": "stats",
+    "file": "stats.html",
+    "chars": 9357
+  },
+  {
+    "name": "Section Casy Study",
+    "slug": "casy-study",
+    "file": "casy-study.html",
+    "chars": 14811
+  },
+  {
+    "name": "Section Pricing",
+    "slug": "pricing",
+    "file": "pricing.html",
+    "chars": 57228
+  },
+  {
+    "name": "Section FAQ",
+    "slug": "faq",
+    "file": "faq.html",
+    "chars": 24638
+  },
+  {
+    "name": "Section Blog",
+    "slug": "blog",
+    "file": "blog.html",
+    "chars": 36150
+  },
+  {
+    "name": "Nav",
+    "slug": "nav",
+    "file": "nav.html",
+    "chars": 5534
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "page": "/agentic-ai-platform",
+  "slug": "softree-agentic-exact",
+  "loop": "content-agents",
+  "round": 1,
+  "maxRounds": 6,
+  "exitWhen": "all scores >= 8 and zero forbidden terms",
+  "scores": {
+    "hierarchy": 9,
+    "voice_honesty": 9,
+    "component_coverage": 9,
+    "forbidden_terms": 10,
+    "implementability": 9
+  },
+  "status": "complete",
+  "canonicalSource": "src/components/softree-agentic-exact/softreeAgenticContent.ts",
+  "lastVerified": "2026-07-08"
+}
