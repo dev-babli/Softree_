@@ -25,13 +25,13 @@ function RelatedPostCard({ post }: { post: RelatedStudy }) {
       href={`/blog/${post.slug.current}`}
       className="group flex h-full flex-col gap-5 rounded-[18px] bg-white p-5 transition-transform duration-300 ease-out hover:-translate-y-1"
     >
-      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[14px] bg-[#efeae0]">
+      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[14px] bg-white border border-[#d7dce9]">
         {img ? (
           <Image
             src={img}
             alt={post.mainImage?.alt || post.title}
             fill
-            className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+            className="object-contain p-2 transition-transform duration-500 ease-out group-hover:scale-[1.04]"
             sizes="(max-width: 768px) 100vw, 400px"
           />
         ) : (
