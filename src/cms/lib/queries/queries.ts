@@ -89,7 +89,7 @@ export const composerSectionsProjection = `
     anchorId,
     label,
     heading,
-    content,
+    "content": coalesce(content, body),
     layout,
     image { asset->{ url }, alt },
     cards[] { _key, title, description },

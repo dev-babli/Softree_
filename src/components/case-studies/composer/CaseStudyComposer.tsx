@@ -100,17 +100,17 @@ function ComposerNarrativeBlock({
         {sideImage ? (
           <div className="mt-10 grid items-start gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
             <Reveal variant="up" delay={0.08} className="max-w-3xl">
-              <NarrativeProse value={block.content as never} />
+              <NarrativeProse value={(block.content || block.body) as never} />
             </Reveal>
             <ParallaxLayer strength={24}>
               <Reveal variant="scale" delay={0.1}>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-[#efeae0]">
                   <Image
-                    src={sideImage}
-                    alt={block.image?.alt || `${client} — project context`}
-                    fill
-                    className="object-cover"
-                    sizes="(min-width: 1024px) 48vw, 100vw"
+                     src={sideImage}
+                     alt={block.image?.alt || `${client} — project context`}
+                     fill
+                     className="object-cover"
+                     sizes="(min-width: 1024px) 48vw, 100vw"
                   />
                 </div>
               </Reveal>
@@ -118,7 +118,7 @@ function ComposerNarrativeBlock({
           </div>
         ) : (
           <Reveal variant="blur" delay={0.08} className="mt-8 max-w-3xl">
-            <NarrativeProse value={block.content as never} />
+            <NarrativeProse value={(block.content || block.body) as never} />
           </Reveal>
         )}
       </PageContainer>
