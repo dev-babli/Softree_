@@ -19,7 +19,7 @@ export function BentoIndexThumb({
         className,
       )}
     >
-      <BentoCoverImage src={src} alt={alt} sizes="80px" className="transition-transform duration-500 ease-out group-hover:scale-105 motion-reduce:transition-none" />
+      <BentoCoverImage src={src} alt={alt} sizes="80px" className="object-contain p-1 transition-transform duration-500 ease-out group-hover:scale-105 motion-reduce:transition-none" />
     </div>
   );
 }

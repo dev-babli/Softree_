@@ -34,6 +34,14 @@ const SLUG_DISPLAY_MAPPING: Record<string, { title: string; category: string }> 
     title: "Leave Management System",
     category: "Power Platform",
   },
+  "electronic-medical-records-emr-workflow-automation-ai-copilot": {
+    title: "EMR Workflow Automation",
+    category: "Power Platform",
+  },
+  "ai-shipment-delay-prediction-platform": {
+    title: "Shipment Delay Prediction",
+    category: "AI & Automation",
+  },
 };
 
 export function mapSanityCaseStudies(studies: SanityNavCaseStudy[]): CaseStudyMock[] {
@@ -61,7 +69,9 @@ const homepageFeaturedCaseStudiesQuery = groq`
     "ai-website-performance-monitoring",
     "barcode-scanner-app-audio-equipment-management",
     "ai-driven-itsm-analytics-platform-microsoft-fabric",
-    "enterprise-leave-management-system"
+    "enterprise-leave-management-system",
+    "electronic-medical-records-emr-workflow-automation-ai-copilot",
+    "ai-shipment-delay-prediction-platform"
   ]] {
     _id,
     title,
@@ -93,7 +103,9 @@ export async function getHomepageCaseStudies(): Promise<CaseStudyMock[]> {
         "ai-website-performance-monitoring",
         "barcode-scanner-app-audio-equipment-management",
         "ai-driven-itsm-analytics-platform-microsoft-fabric",
-        "enterprise-leave-management-system"
+        "enterprise-leave-management-system",
+        "electronic-medical-records-emr-workflow-automation-ai-copilot",
+        "ai-shipment-delay-prediction-platform"
       ];
       const sortedStudies = [...studies].sort((a, b) => {
         const aSlug = a.slug?.current || "";
