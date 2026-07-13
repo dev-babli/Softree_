@@ -20,6 +20,7 @@ export type CsNarrativeSection = {
   label?: string
   heading?: string
   content?: unknown[]
+  body?: unknown[]
   layout?: 'text' | 'split'
   image?: ComposerImage | null
 }

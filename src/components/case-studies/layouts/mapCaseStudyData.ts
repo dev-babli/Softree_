@@ -1,6 +1,7 @@
 import { CATEGORY_LABELS, type CaseStudyDetailLayout } from "@/lib/case-study-layouts"
 import { DEFAULT_ACCENT } from "@/lib/brand-defaults"
 import { stockPackForSlug } from "@/lib/case-study-stock-images"
+import { resolveCaseStudyCategory } from "@/lib/case-study-category"
 import type {
   ApproachStep,
   BeforeAfterRow,
@@ -175,33 +176,28 @@ const MANUFACTURING_IMPACT_METRICS: Highlight[] = [
   { value: "99.9%", label: "System availability", icon: "shield" },
 ]
 
-const MANUFACTURING_DEFAULT_FAQS: CaseStudyFAQ[] = [
+const SOFTREE_DEFAULT_FAQS: CaseStudyFAQ[] = [
   {
-    question: "How long does a Power Platform manufacturing rollout typically take?",
+    question: "What specific services does Softree offer?",
     answer:
-      "Most plant-floor and operations rollouts ship in 8–12 weeks. We start with a scoped MVP on one line or facility, validate adoption with floor teams, then expand to additional plants with reusable Dataverse schemas and Power Automate templates.",
+      "Softree delivers custom solutions across AI and automation, Power Platform, SharePoint customization, full-stack web and SaaS engineering, and data analytics.",
   },
   {
-    question: "Can Power Platform integrate with our existing ERP and MES?",
+    question: "How does Softree produce its custom solutions?",
     answer:
-      "Yes. We design a governed integration layer — Power Automate connectors, Azure API Management, and event-driven flows — so Power Apps read and write operational data without replacing ERP or MES investments.",
+      "We combine modern software engineering standards, secure cloud configurations, pre-built accelerators, and agile delivery methodologies to produce governed, scalable applications.",
   },
   {
-    question: "How do you measure success on manufacturing Power Platform projects?",
+    question: "What is the typical timeline for a Softree project?",
     answer:
-      "We track manual effort reduction, approval cycle time, user adoption across plants, system availability, and audit-readiness. This case study highlights 75% less manual work, 60% faster approvals, and 500+ employees on the platform.",
+      "Our agile delivery model typically produces scoped initial MVPs in 4 to 8 weeks, with comprehensive enterprise deployments completed in 10 to 12 weeks.",
   },
   {
-    question: "Is the solution scalable across multiple facilities and regions?",
+    question: "Can Softree integrate new applications with legacy systems?",
     answer:
-      "The architecture uses a centralized Dataverse model with environment strategy, role-based access, and reusable app components. New plants inherit the same governed templates while localizing workflows where regulations or processes differ.",
+      "Yes. We design and build secure custom API gateways, REST connectors, and database bridges to ensure our custom solutions integrate seamlessly with your existing legacy infrastructure.",
   },
-  {
-    question: "Can Softree build a similar solution for our operations?",
-    answer:
-      "Absolutely. We specialize in manufacturing Power Platform programs — from discovery and architecture through deployment and change management. Schedule a consultation and we will map a fixed-scope plan based on your plants, systems, and compliance requirements.",
-  },
-]
+];
 
 function buildFaqs(study: SanityCaseStudyDoc, layout: CaseStudyDetailLayout): CaseStudyFAQ[] {
   if (study.faqs?.length) return study.faqs.slice(0, 8)
@@ -209,7 +205,7 @@ function buildFaqs(study: SanityCaseStudyDoc, layout: CaseStudyDetailLayout): Ca
     // No real FAQs entered → hide the section (default FAQs contained invented claims)
     return []
   }
-  return MANUFACTURING_DEFAULT_FAQS.slice(0, 4)
+  return SOFTREE_DEFAULT_FAQS
 }
 
 function buildHighlights(study: SanityCaseStudyDoc, layout: CaseStudyDetailLayout): Highlight[] {

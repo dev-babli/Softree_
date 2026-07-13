@@ -127,6 +127,35 @@ function mapSanityCaseStudyToItem(
   }
 }
 
+function resolveImageFit(study: SanityCaseStudyCard, image?: string | null): 'contain' | 'cover' {
+  if (!image) return 'cover'
+  if (image.includes('_chat.svg')) return 'contain'
+  
+  // If it's a fallback Unsplash abstract image, it should always be cover
+  if (image.includes('unsplash.com')) return 'cover'
+  
+  const slug = study.slug?.current?.toLowerCase() || ''
+  const title = (study.client || study.title || '').toLowerCase()
+  const useCase = (study.useCase || '').toLowerCase()
+  const industry = (study.industry || '').toLowerCase()
+  const category = (study.category || '').toLowerCase()
+  
+  const containKeywords = [
+    'dashboard', 'analytics', 'workflow', 'system', 'platform', 
+    'emr', 'itsm', 'scanner', 'automation', 'testing', 
+    'scheduler', 'tracker', 'app', 'pdf', 'compliance', 
+    'reports', 'copilot', 'migration', 'portal', 'control',
+    'audit', 'workbench', 'pipeline', 'tool', 'fabric',
+    'powerapps', 'sharepoint', 'spfx', 'sla', 'risk'
+  ]
+  
+  const matchesKeyword = containKeywords.some(
+    (kw) => slug.includes(kw) || title.includes(kw) || useCase.includes(kw) || industry.includes(kw) || category.includes(kw)
+  )
+  
+  return matchesKeyword ? 'contain' : 'cover'
+}
+
 function mapSanityCaseStudyToListingItem(study: SanityCaseStudyCard): CaseStudyListingItem {
   const image = study.mainImage?.asset?.url || study.mainImageUrl
   const title = study.client || study.title || 'Case Study'
@@ -148,7 +177,7 @@ function mapSanityCaseStudyToListingItem(study: SanityCaseStudyCard): CaseStudyL
     href: `/case-studies/${study.slug?.current}`,
     image,
     imageAlt: study.mainImage?.alt || `${title} case study`,
-    imageFit: image?.includes('_chat.svg') ? 'contain' : 'cover',
+    imageFit: resolveImageFit(study, image),
     industry:
       study.industry && categoryKey && study.industry !== categoryKey
         ? study.industry
@@ -202,7 +231,7 @@ function mapSanityCaseStudyToHeroSlide(study: SanityCaseStudyCard): CaseStudyHer
     ctaHref: `/case-studies/${slug}`,
     image: heroImage,
     imageAlt: study.mainImage?.alt || `${company} customer story visual`,
-    imageFit: heroImage.endsWith('.svg') ? 'contain' : 'cover',
+    imageFit: resolveImageFit(study, heroImage),
     stats: finalStats.length > 0 ? finalStats : [{ score: '—', label: 'Customer story' }],
   }
 }

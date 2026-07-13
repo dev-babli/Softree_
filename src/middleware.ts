@@ -6,10 +6,11 @@ export function middleware(request: NextRequest) {
   const pathname = url.pathname
   const decodedPath = decodeURIComponent(pathname)
 
-  // Normalize case studies path and clean up spaces
-  if (decodedPath.includes('case studies') || decodedPath.includes(' ')) {
+  // Normalize case studies path and clean up spaces/underscores
+  if (decodedPath.includes('case studies') || decodedPath.includes(' ') || decodedPath.includes('_')) {
     let normalizedPath = decodedPath
       .replace(/\/case studies\//i, '/case-studies/')
+      .replace(/_+/g, '-')  // Replace underscores with hyphens
       .replace(/\s+/g, '-') // Replace all spaces with hyphens
       .replace(/-+/g, '-')   // De-duplicate hyphens
 
