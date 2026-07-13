@@ -76,6 +76,11 @@ const nextConfig: any = {
         permanent: true,
       },
       {
+        source: "/client",
+        destination: "/demo-vigorous",
+        permanent: true,
+      },
+      {
         source: "/contact-us",
         destination: "/contact",
         permanent: true,

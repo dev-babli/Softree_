@@ -1,5 +1,5 @@
 /**
- * Vigorous Softech — lead-magnet copy for /client (Hanza shell).
+ * Vigorous Softech — lead-magnet copy for /demo-vigorous (Hanza shell).
  * Source: vigoroussoftech.com + multi-agent SEO/AEO/content/risk loop.
  * Rules: no fake metrics/testimonials/prices; CTA = free intro / GCC fit check.
  */

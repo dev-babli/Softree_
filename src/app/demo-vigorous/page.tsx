@@ -23,6 +23,6 @@ export const metadata: Metadata = {
   },
 }
 
-export default function ClientRoute() {
+export default function DemoVigorousRoute() {
   return <ClientExactPage />
 }

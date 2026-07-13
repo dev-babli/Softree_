@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
- * Full-page /client QA — broken images, missing section ids, invisible light text on light sections.
+ * Full-page /demo-vigorous QA — broken images, missing section ids, invisible light text on light sections.
  * Usage: node scripts/client-page-audit.mjs [baseUrl]
  */
-const baseUrl = process.argv[2] ?? "http://localhost:3000/client"
+const baseUrl = process.argv[2] ?? "http://localhost:3000/demo-vigorous"
 
 async function main() {
   const puppeteer = await import("puppeteer").catch(() => null)
