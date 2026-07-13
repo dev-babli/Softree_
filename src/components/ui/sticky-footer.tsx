@@ -114,8 +114,20 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
       className={cn("w-full bg-black", className)}
       {...props}
     >
+      <style dangerouslySetInnerHTML={{ __html: `
+        .sticky-footer-container {
+          --dark-left: max(220px, 43svh);
+          --dark-right: max(180px, 35svh);
+        }
+        @media (min-width: 768px) {
+          .sticky-footer-container {
+            --dark-left: max(300px, 43svh);
+            --dark-right: max(240px, 35svh);
+          }
+        }
+      `}} />
       {/* FULL-WIDTH CARD — fills entire viewport height */}
-      <div className="relative w-full overflow-hidden" style={{ minHeight: "100svh" }}>
+      <div className="sticky-footer-container relative w-full overflow-hidden" style={{ minHeight: "100svh" }}>
 
         {/* Layer 1 — Purple Grainient full-bleed */}
         <div className="absolute inset-0 z-0">
@@ -140,12 +152,15 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
           className="absolute inset-0 z-10"
           style={{
             background: CREAM,
-            clipPath: "polygon(0 0, 100% 0, 100% 65%, 40% 65%, 32% 57%, 0 57%)",
+            clipPath: "polygon(0 0, 100% 0, 100% calc(100% - var(--dark-right)), 40% calc(100% - var(--dark-right)), 32% calc(100% - var(--dark-left)), 0 calc(100% - var(--dark-left)))",
           }}
         />
 
         {/* Layer 3 — Purple zone: wordmark + metadata stacked at bottom-left, logo at bottom-right */}
-        <div className="absolute inset-x-0 bottom-0 z-20 flex flex-col items-stretch justify-end pb-6 md:pb-8 px-8 md:px-12 lg:px-16" style={{ height: "43%" }}>
+        <div 
+          className="absolute inset-x-0 bottom-0 z-20 flex flex-col items-stretch justify-end pb-6 md:pb-8 px-8 md:px-12 lg:px-16" 
+          style={{ height: "var(--dark-left)" }}
+        >
           {/* Giant white SOFTREE. wordmark */}
           <div aria-hidden className="w-full overflow-hidden leading-none mb-3">
             <span
@@ -170,7 +185,10 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
         </div>
 
         {/* Layer 4 — All content */}
-        <div className="relative z-30 flex min-h-[100svh] flex-col px-5 pb-56 pt-7 sm:px-8 md:px-12 md:pt-8 lg:px-16">
+        <div 
+          className="relative z-30 flex min-h-[100svh] flex-col px-5 pt-7 sm:px-8 md:px-12 md:pt-8 lg:px-16"
+          style={{ paddingBottom: "calc(var(--dark-left) + 32px)" }}
+        >
 
           {/* TOP BAR — real logo + CTAs */}
           <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">

@@ -30,4 +30,18 @@ export const HOMEPAGE_FALLBACK_CASE_STUDIES: CaseStudyMock[] = [
     image: BENTO_ABSTRACT.ember,
     href: "/case-studies/enterprise-leave-management-system",
   },
+  {
+    id: "fallback-emr-automation",
+    title: "EMR Workflow Automation",
+    category: "Power Platform",
+    image: BENTO_ABSTRACT.spectrum,
+    href: "/case-studies/electronic-medical-records-emr-workflow-automation-ai-copilot",
+  },
+  {
+    id: "fallback-shipment-delay",
+    title: "Shipment Delay Prediction",
+    category: "AI & Automation",
+    image: BENTO_ABSTRACT.cobalt,
+    href: "/case-studies/ai-shipment-delay-prediction-platform",
+  },
 ];

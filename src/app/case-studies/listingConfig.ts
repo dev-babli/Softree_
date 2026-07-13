@@ -6,30 +6,30 @@ export const CASE_STUDIES_HUB_FAQS = [
   {
     id: 1,
     serial: 'question 01',
-    question: 'What types of projects appear in Softree case studies?',
+    question: 'What core technologies are covered in Softree\'s case studies?',
     answer:
-      'Our library covers AI automation, Power Platform, SharePoint, web platforms, mobile apps, and data analytics — each story documents the business problem, delivery approach, and measurable outcomes.',
+      'Our case studies showcase enterprise solutions built across Microsoft Power Platform (Power Apps, Automate, Copilot Studio), SharePoint / SPFx, Microsoft Fabric, Azure AI, custom React/Next.js applications, and AI-powered test automation platforms.',
   },
   {
     id: 2,
     serial: 'question 02',
-    question: 'How are case studies organized?',
+    question: 'Are the client metrics and success rates in these stories verified?',
     answer:
-      'Stories are grouped by technology category and tagged by industry, use case, and company size so you can filter to projects most relevant to your context.',
+      'Yes. All metrics—such as processing time reductions, automated claims rates, and SLA improvements—are derived from actual client-approved delivery data. Where details are simplified for NDA compliance, the structural outcomes remain 100% verified.',
   },
   {
     id: 3,
     serial: 'question 03',
-    question: 'Can Softree deliver a project similar to one in the library?',
+    question: 'Can Softree replicate or adapt a featured case study solution for my business?',
     answer:
-      'Yes. Most engagements start from a comparable reference story. Share your goals in a consultation and we will map an approach based on proven delivery patterns from similar work.',
+      'Absolutely. Most of our client engagements begin with a comparable reference story. We leverage our existing accelerators, Microsoft patterns, and offshore delivery frameworks to replicate similar workflows and scale them to your specific operational needs.',
   },
   {
     id: 4,
     serial: 'question 04',
-    question: 'Are the metrics in case studies verified?',
+    question: 'What is the typical delivery timeline for an enterprise automation project?',
     answer:
-      'Published outcomes come from client-approved project data. Where a metric is directional or estimated, it is labeled accordingly in the full case study narrative.',
+      'As documented in our case studies, phased delivery timelines typically range from 4 to 12 weeks. We follow agile execution models with bi-weekly sprints, ensuring visible, leadership-ready milestones and ROI early in the lifecycle.',
   },
 ] as const
 

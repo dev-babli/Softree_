@@ -58,25 +58,42 @@ export function BentoPreviewPanel({
         {item ? (
           <motion.div
             key={item.id}
-            className="absolute inset-0"
+            className="absolute inset-0 overflow-hidden bg-[#111111]"
             {...swap}
             style={{ willChange: "opacity" }}
           >
-            <div className="relative h-full w-full">
+            {/* Layer 1 — Blurred background of the same image to create a rich colored halo/context */}
+            <div className="absolute inset-0 z-0 opacity-20 blur-2xl scale-110 overflow-hidden select-none pointer-events-none">
               <BentoCoverImage
                 src={item.image}
-                alt={item.title}
-                sizes="(max-width: 1024px) 100vw, 58vw"
+                alt=""
+                sizes="10px"
+                className="object-cover w-full h-full"
               />
             </div>
-            <div aria-hidden className="absolute inset-0 bg-[#111111]/30" />
-            <div
-              aria-hidden
-              className="absolute inset-0 bg-gradient-to-t from-[#111111]/92 via-[#111111]/30 to-transparent"
+
+            {/* Layer 2 — Floating centered image (fits container without cropping) */}
+            <div className="absolute inset-x-0 top-0 bottom-48 z-10 flex items-center justify-center p-6 md:p-8">
+              <div className="relative w-full h-full">
+                <BentoCoverImage
+                  src={item.image}
+                  alt={item.title}
+                  sizes="(max-width: 1024px) 100vw, 58vw"
+                  className="object-contain"
+                />
+              </div>
+            </div>
+
+            {/* Layer 3 — Dark gradient overlay at the bottom for readability */}
+            <div 
+              className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-[#111111] via-[#111111]/92 to-transparent z-20 pointer-events-none" 
+              aria-hidden 
             />
 
+            {/* Layer 4 — Text content overlay */}
             <motion.div
-              className="absolute inset-x-0 bottom-0 p-6 md:p-8"
+              className="absolute inset-x-0 bottom-0 p-6 md:p-8 z-30 flex flex-col justify-end"
+              style={{ minHeight: "12rem" }}
               variants={{
                 visible: {
                   transition: reduced
@@ -87,31 +104,33 @@ export function BentoPreviewPanel({
               initial="hidden"
               animate="visible"
             >
-              <motion.span
-                variants={caption}
-                className={cn(
-                  "inline-flex rounded-full border px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em]",
-                  badgeClass,
-                )}
-              >
-                {item.category}
-              </motion.span>
-              <motion.h3
-                variants={caption}
-                className="mt-3 max-w-2xl text-balance font-serif text-2xl leading-[1.12] tracking-[-0.03em] text-white md:text-[2rem]"
-              >
-                {item.title}
-              </motion.h3>
-              {item.excerpt ? (
-                <motion.p
+              <div>
+                <motion.span
                   variants={caption}
-                  className="mt-2 max-w-xl text-pretty text-sm leading-relaxed text-white/75 md:text-[15px]"
+                  className={cn(
+                    "inline-flex rounded-full border px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em]",
+                    badgeClass,
+                  )}
                 >
-                  {item.excerpt}
-                </motion.p>
-              ) : null}
+                  {item.category}
+                </motion.span>
+                <motion.h3
+                  variants={caption}
+                  className="mt-3 max-w-2xl text-balance font-serif text-xl leading-[1.2] tracking-[-0.025em] text-white md:text-2xl lg:text-[1.85rem]"
+                >
+                  {item.title}
+                </motion.h3>
+                {item.excerpt ? (
+                  <motion.p
+                    variants={caption}
+                    className="mt-2.5 max-w-xl text-pretty text-xs leading-relaxed text-white/75 md:text-sm line-clamp-2"
+                  >
+                    {item.excerpt}
+                  </motion.p>
+                ) : null}
+              </div>
               {item.href ? (
-                <motion.div variants={caption} className="mt-5">
+                <motion.div variants={caption} className="mt-4">
                   <Link
                     href={item.href}
                     className={cn(

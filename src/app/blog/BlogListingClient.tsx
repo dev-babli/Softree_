@@ -149,13 +149,13 @@ export default function BlogListingClient({ posts }: { posts: BlogPost[] }) {
                   Learn more
                 </span>
               </div>
-              <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-[#d7dce9]">
+              <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-[#d7dce9] bg-white">
                 <Image
                   src={featured.mainImage?.asset?.url || "/og-image.png"}
                   alt={featured.mainImage?.alt || featured.title}
                   fill
                   sizes="(max-width: 900px) 100vw, 560px"
-                  className="object-cover transition-transform duration-200 ease-out group-hover:scale-105"
+                  className="object-contain p-2 transition-transform duration-200 ease-out group-hover:scale-105"
                 />
               </div>
             </Link>
@@ -190,13 +190,13 @@ export default function BlogListingClient({ posts }: { posts: BlogPost[] }) {
                 href={`/blog/${post.slug.current}`}
                 className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[#d7dce9] bg-white transition-[transform,border-color] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#a8b4d1]"
               >
-                <div className="relative aspect-[16/9] overflow-hidden border-b border-[#d7dce9]">
+                <div className="relative aspect-[16/9] overflow-hidden border-b border-[#d7dce9] bg-white">
                   <Image
                     src={post.mainImage?.asset?.url || "/og-image.png"}
                     alt={post.mainImage?.alt || post.title}
                     fill
                     sizes="(max-width: 1024px) 50vw, 400px"
-                    className="object-cover transition-transform duration-200 ease-[ease] group-hover:scale-105"
+                    className="object-contain p-2 transition-transform duration-200 ease-[ease] group-hover:scale-105"
                   />
                 </div>
                 <div className="flex flex-1 flex-col gap-3 p-5">
