@@ -1,5 +1,5 @@
 /**
- * Editable page copy for /client — Vigorous Softech lead magnet.
+ * Editable page copy for /demo-vigorous — Vigorous Softech lead magnet.
  * Canonical source: ./vigorousContent.ts
  */
 export {

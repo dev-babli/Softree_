@@ -1,10 +1,10 @@
 "use client"
 
 import { LocalTime } from "../LocalTime"
-import { assets, ctas, hero } from "../content"
+import { assets, ctas } from "../content"
 
 /**
- * Fixed top bar: Menu/Close · brand · Local Time · Book Intro CTA
+ * Fixed top bar: Menu/Close · Local Time · Book Intro CTA
  */
 export function TopBarSection({
   menuOpen = false,
@@ -117,47 +117,6 @@ export function TopBarSection({
                 </p>
               </div>
             </div>
-          </div>
-          <div
-            className="framer-1t9yc25"
-            data-framer-name="Border"
-            style={{
-              backgroundColor:
-                "var(--token-19bcb141-744a-47e0-8efc-5c8873b4ccec, rgba(255, 255, 255, 0.2))",
-              opacity: "1",
-            }}
-          />
-          <div className="framer-17r4z5h-container" style={{ opacity: "1" }}>
-            <a
-              className="framer-0B0r4 framer-gkotj2 framer-v-dw47dl framer-32xhyo"
-              data-framer-name="Inverse"
-              href="/client"
-              data-framer-page-link-current="true"
-              style={{ height: "100%", width: "100%", opacity: "1" }}
-            >
-              <div
-                data-framer-background-image-wrapper="true"
-                style={{ position: "absolute", borderRadius: "inherit", inset: "0px" }}
-              >
-                <img
-                  decoding="auto"
-                  width={1901}
-                  height={400}
-                  sizes="66.7234px"
-                  className="cx-brand-logo"
-                  src={hero.logoSrc}
-                  alt={hero.logoAlt}
-                  style={{
-                    display: "block",
-                    width: "100%",
-                    height: "100%",
-                    borderRadius: "inherit",
-                    objectPosition: "center center",
-                    objectFit: "contain",
-                  }}
-                />
-              </div>
-            </a>
           </div>
         </div>
         <div className="framer-yi7bl9" data-framer-name="Column" style={{ opacity: "1" }}>

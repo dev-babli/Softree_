@@ -25,12 +25,17 @@ export function middleware(request: NextRequest) {
   const requestHeaders = new Headers(request.headers)
   requestHeaders.set('x-pathname', pathname)
 
-  if (pathname === '/client') {
+  if (pathname === '/demo-vigorous') {
     const response = NextResponse.next({
       request: { headers: requestHeaders },
     })
     response.headers.set('X-Robots-Tag', 'noindex, nofollow, noarchive, nosnippet')
     return response
+  }
+
+  if (pathname === '/client') {
+    url.pathname = '/demo-vigorous'
+    return NextResponse.redirect(url, 301)
   }
 
   return NextResponse.next({
