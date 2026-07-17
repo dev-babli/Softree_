@@ -51,6 +51,11 @@ const nextConfig: any = {
       },
       ...redirects,
       {
+        source: "/book-meeting",
+        destination: "/contact",
+        permanent: false,
+      },
+      {
         source: "/customers/:slug",
         destination: "/case-studies/:slug",
         permanent: true,
@@ -108,7 +113,7 @@ const nextConfig: any = {
     // Skip type checking during production builds to avoid OOM / spawn UNKNOWN errors
     ignoreBuildErrors: true,
   },
-  webpack: (config) => {
+  webpack: (config: any) => {
     config.module.rules.push({
       test: /\.(glb|gltf)$/i,
       type: 'asset/resource',

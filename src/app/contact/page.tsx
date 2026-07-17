@@ -8,14 +8,16 @@ import Gallery from "@/components/Gallery/Gallery";
 import ContactHero from "./ContactHero";
 import ContactHub from "./ContactHub";
 
+import { CONTACT_FAQS } from "@/data/contact-page";
+
 const FdaMapsSectionLazy = dynamic(
   () => import("@/components/sections/FdaMapsSection"),
-  { loading: () => <div className="min-h-[50vh] w-full bg-[#FAFAF8]" aria-hidden="true" /> }
+  { loading: () => <div className="min-h-[50vh] w-full bg-[#000000]" aria-hidden="true" /> }
 );
 
-const LightFAQExactLazy = dynamic(
-  () => import("@/components/homepage-light/LightFAQExact"),
-  { loading: () => <div className="min-h-[48vh] w-full bg-[#F3F0EE]" aria-hidden="true" /> }
+const SoftreeFAQLazy = dynamic(
+  () => import("@/components/sections/faq"),
+  { loading: () => <div className="min-h-[48vh] w-full bg-[#000000]" aria-hidden="true" /> }
 );
 
 /**
@@ -30,15 +32,25 @@ const LightFAQExactLazy = dynamic(
 export default function ContactPage() {
   useEffect(() => {
     import("gsap/ScrollTrigger").then(({ ScrollTrigger }) => {
-      ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.pin) trigger.kill();
-      });
-      requestAnimationFrame(() => ScrollTrigger.refresh(true));
+      try {
+        ScrollTrigger.getAll().forEach((trigger) => {
+          if (trigger.pin) trigger.kill();
+        });
+        requestAnimationFrame(() => {
+          try {
+            ScrollTrigger.refresh(true);
+          } catch (e) {
+            console.warn("ScrollTrigger refresh error:", e);
+          }
+        });
+      } catch (e) {
+        console.warn("ScrollTrigger cleanup error:", e);
+      }
     });
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8] pt-[100px]">
+    <div className="min-h-screen bg-[#000000] text-white">
       <NavigationClient />
 
       <ContactHero />
@@ -49,7 +61,7 @@ export default function ContactPage() {
         ctaHref="#schedule"
       />
       <FdaMapsSectionLazy embedded />
-      <LightFAQExactLazy />
+      <SoftreeFAQLazy faqs={CONTACT_FAQS} />
       <Footer />
     </div>
   );

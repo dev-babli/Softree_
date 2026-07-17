@@ -133,12 +133,12 @@ function CaseStudyRow({
 
       <span
         className={cn(
-          "mt-2 text-lg leading-none transition-transform duration-200",
+          "absolute right-[-24px] top-1/2 -translate-y-1/2 text-lg leading-none transition-all duration-200",
           isActive
-            ? "translate-x-1 text-[#0a0a1a]"
+            ? "translate-x-1 text-[#0a0a1a] opacity-100"
             : isHome
-              ? "text-[#0a0a1a]/25"
-              : "text-[#C4C4C0]",
+              ? "text-[#0a0a1a]/25 group-hover:translate-x-1 group-hover:text-[#0a0a1a] group-hover:opacity-100"
+              : "text-[#C4C4C0] group-hover:translate-x-1 group-hover:text-[#111111]",
         )}
         aria-hidden
       >

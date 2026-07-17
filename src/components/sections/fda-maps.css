@@ -1,8 +1,8 @@
 /* FDA Maps — Softree global delivery section */
 
 .fda-maps {
-  background: #fff;
-  color: #0f0f0f;
+  background: #000000;
+  color: #ffffff;
   padding: clamp(72px, 9vw, 120px) 0;
 }
 
@@ -39,9 +39,9 @@
   align-items: center;
   gap: 10px;
   padding: 8px 16px 8px 10px;
-  border: 1px solid rgba(15, 15, 15, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 999px;
-  background: #fafafa;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .fda-sub-heading-gap {
@@ -67,11 +67,11 @@
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: capitalize;
-  color: #0f0f0f;
+  color: #ffffff;
 }
 
 .fda-sub-heading-text-v2 {
-  color: #5b5b5b;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .fda-gap-off {
@@ -81,7 +81,7 @@
   font-weight: 700;
   line-height: 1.12;
   letter-spacing: -0.03em;
-  color: #0f0f0f;
+  color: #ffffff;
 }
 
 .fda-maps-lede {
@@ -89,7 +89,7 @@
   max-width: 620px;
   font-size: clamp(14.5px, 1.25vw, 17px);
   line-height: 1.65;
-  color: rgba(15, 15, 15, 0.62);
+  color: rgba(255, 255, 255, 0.62);
 }
 
 .fda-location {
@@ -236,7 +236,7 @@
 }
 
 .fda-maps--embedded {
-  background: #fafaf8;
+  background: #000000;
   padding: clamp(56px, 7vw, 88px) 0;
 }
 
@@ -251,7 +251,7 @@
   font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(15, 15, 15, 0.42);
+  color: rgba(255, 255, 255, 0.42);
 }
 
 .fda-maps-scroll-hint--embedded {

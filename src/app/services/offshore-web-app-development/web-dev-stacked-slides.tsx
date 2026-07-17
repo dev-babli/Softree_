@@ -12,11 +12,12 @@ import {
 import { DUR, EASE_T } from "@/lib/motion";
 import "@/components/sections/ServicesStackedSlides.css";
 
-function useNearViewport(ref: React.RefObject<HTMLElement | null>) {
+function useNearViewport() {
   const [active, setActive] = useState(false);
+  const [element, setElement] = useState<HTMLElement | null>(null);
+
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+    if (!element) return;
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -26,10 +27,11 @@ function useNearViewport(ref: React.RefObject<HTMLElement | null>) {
       },
       { rootMargin: "200% 0px 200% 0px", threshold: 0 },
     );
-    io.observe(el);
+    io.observe(element);
     return () => io.disconnect();
-  }, [ref]);
-  return active;
+  }, [element]);
+
+  return [active, setElement] as const;
 }
 
 function MediaSkeleton() {
@@ -45,10 +47,9 @@ export default function WebDevStackedSlides({
 }: {
   className?: string;
 }) {
-  const rootRef = useRef<HTMLElement>(null);
+  const [mediaActive, rootRef] = useNearViewport();
   const introRef = useRef<HTMLDivElement>(null);
   const introInView = useInView(introRef, { once: true, margin: "-15%" });
-  const mediaActive = useNearViewport(rootRef);
 
   return (
     <section

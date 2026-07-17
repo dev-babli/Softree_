@@ -48,11 +48,11 @@ export default function ContactHub() {
   return (
     <section
       id="schedule"
-      className="relative scroll-mt-28 overflow-hidden bg-[#FAFAF8] py-16 sm:py-20 lg:py-24"
+      className="relative scroll-mt-28 overflow-hidden bg-[#000000] py-16 sm:py-20 lg:py-24"
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.35] [background-image:radial-gradient(#1a1a1a_0.6px,transparent_0.6px)] [background-size:28px_28px]"
+        className="pointer-events-none absolute inset-0 opacity-[0.35] [background-image:radial-gradient(rgba(255,255,255,0.15)_0.6px,transparent_0.6px)] [background-size:28px_28px]"
       />
 
       <div className="relative mx-auto max-w-[1400px] px-6">
@@ -66,13 +66,13 @@ export default function ContactHub() {
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#ff5812]">
             Reach our team
           </p>
-          <h2 className="mt-3 text-[clamp(2rem,4.5vw,3.25rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-neutral-950">
+          <h2 className="mt-3 text-[clamp(2rem,4.5vw,3.25rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
             Send a message{" "}
-            <span className="font-serif italic font-normal text-neutral-800">
+            <span className="font-serif italic font-normal text-white/80">
               or book a call
             </span>
           </h2>
-          <p className="mt-4 text-[15px] leading-relaxed text-neutral-600">
+          <p className="mt-4 text-[15px] leading-relaxed text-white/60">
             Two paths, same outcome — a scoped conversation with engineers who
             have shipped 3,000+ enterprise projects.
           </p>
@@ -82,31 +82,31 @@ export default function ContactHub() {
           {CONTACT_CHANNELS.map((channel) => (
             <div
               key={channel.city}
-              className="rounded-xl border border-neutral-200/90 bg-white/70 px-4 py-4 backdrop-blur-sm"
+              className="rounded-xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur-sm"
             >
-              <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-neutral-500">
+              <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-white/40">
                 {channel.city}
               </p>
-              <p className="mt-1 text-[14px] font-medium text-neutral-900">
+              <p className="mt-1 text-[14px] font-medium text-white">
                 {channel.contact}
               </p>
               <div className="mt-3 flex flex-col gap-1.5 text-[13px]">
                 <a
                   href={`mailto:${channel.email}`}
-                  className="inline-flex items-center gap-2 text-neutral-600 transition-colors hover:text-[#ff5812]"
+                  className="inline-flex items-center gap-2 text-white/60 transition-colors hover:text-[#ff5812]"
                 >
                   <Mail className="h-3.5 w-3.5 shrink-0" strokeWidth={1.75} />
                   <span className="truncate">{channel.email}</span>
                 </a>
                 <a
                   href={`tel:${channel.phone.replace(/\s/g, "")}`}
-                  className="inline-flex items-center gap-2 text-neutral-600 transition-colors hover:text-[#ff5812]"
+                  className="inline-flex items-center gap-2 text-white/60 transition-colors hover:text-[#ff5812]"
                 >
                   <Phone className="h-3.5 w-3.5 shrink-0" strokeWidth={1.75} />
                   {channel.phone}
                 </a>
               </div>
-              <p className="mt-2 text-[11px] text-neutral-400">{channel.hours}</p>
+              <p className="mt-2 text-[11px] text-white/35">{channel.hours}</p>
             </div>
           ))}
         </div>
@@ -222,11 +222,11 @@ export default function ContactHub() {
 
         {/* Divider */}
         <div className="my-12 flex items-center gap-4">
-          <div className="h-px flex-1 bg-neutral-200/90" />
-          <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-400">
+          <div className="h-px flex-1 bg-white/10" />
+          <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40">
             Or book directly
           </span>
-          <div className="h-px flex-1 bg-neutral-200/90" />
+          <div className="h-px flex-1 bg-white/10" />
         </div>
 
         {/* Embedded Calendly — full width, room to breathe */}
@@ -235,13 +235,13 @@ export default function ContactHub() {
           className="mx-auto max-w-[960px]"
         />
 
-        <ul className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 border-t border-neutral-200/80 pt-8">
+        <ul className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 border-t border-white/10 pt-8">
           {CONTACT_TRUST_ITEMS.map((item) => (
             <li
               key={item.label}
-              className="flex items-center gap-2 text-[13px] text-neutral-500"
+              className="flex items-center gap-2 text-[13px] text-white/50"
             >
-              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#ff5812]/10 text-[10px] font-bold text-[#ff5812]">
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#ff5812]/15 text-[10px] font-bold text-[#ff5812]">
                 ✓
               </span>
               {item.label}

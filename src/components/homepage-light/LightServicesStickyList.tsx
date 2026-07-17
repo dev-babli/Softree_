@@ -33,7 +33,7 @@ type Service = {
 }
 
 const SERVICES: Service[] = [
-
+ 
   {
     n: "01",
     title: "AI Web Analyser",
@@ -47,11 +47,11 @@ const SERVICES: Service[] = [
       features: ["Performance Scoring", "UX Flow Analysis", "CRO Recommendations"]
     }
   },
-
+ 
   {
     n: "02",
     title: "Build Power Platform Automations",
-    href: "/services/business-applications/power-apps",
+    href: "/services/offshore-power-platform-development",
     desc: "Power Apps, Power Automate, and Power BI built by Microsoft Gold Partners. Enterprise governance, security review, ALM pipelines included.",
     tags: ["Power Apps", "Power Automate", "Power BI", "Microsoft"],
     img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80",
@@ -64,7 +64,7 @@ const SERVICES: Service[] = [
   {
     n: "03",
     title: "Modernize SharePoint",
-    href: "/services/digital-workspace/sharepoint",
+    href: "/services/legacy-application-modernization",
     desc: "SharePoint intranets and SPFx web parts that don’t feel like SharePoint. Migration, custom branding, and Microsoft 365 integrations.",
     tags: ["SharePoint", "SPFx", "M365", "Migration"],
     img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=80",
@@ -77,7 +77,7 @@ const SERVICES: Service[] = [
   {
     n: "04",
     title: "Stand up Data + BI",
-    href: "/services/data-analytics/microsoft-fabric",
+    href: "/services/offshore-data-analytics",
     desc: "Microsoft Fabric, Power BI dashboards, and data engineering pipelines that surface revenue signals — not 60-page decks.",
     tags: ["Microsoft Fabric", "Power BI", "Data Engineering", "Analytics"],
     img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80",
@@ -103,7 +103,7 @@ const SERVICES: Service[] = [
   {
     n: "06",
     title: "Ship a Web App",
-    href: "/services/digital-workspace/web-app-development",
+    href: "/services/offshore-web-app-development",
     desc: "Production-grade web apps in Next.js, React, and TypeScript. Senior engineers, fixed scope, weekly demos. From discovery to launch in 12 weeks.",
     tags: ["Next.js", "React", "TypeScript", "Production"],
     img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=900&q=80",
@@ -113,7 +113,6 @@ const SERVICES: Service[] = [
       features: ["NDA Protected", "Dedicated Team", "Next.js & React Specialists"]
     }
   },
-
 ]
 
 /* ====================================================================

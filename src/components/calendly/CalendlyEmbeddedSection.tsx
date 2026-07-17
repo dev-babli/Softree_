@@ -42,21 +42,21 @@ export default function CalendlyEmbeddedSection({
       className={className}
     >
       {/* Gradient frame */}
-      <div className="rounded-[22px] bg-gradient-to-br from-[#ff5812]/35 via-[#f5b947]/20 to-neutral-200/40 p-px shadow-[0_28px_70px_-36px_rgba(0,0,0,0.28)]">
-        <div className="overflow-hidden rounded-[21px] bg-[#fafaf8]">
+      <div className="rounded-[22px] bg-gradient-to-br from-[#ff5812]/35 via-[#f5b947]/20 to-white/5 p-px shadow-[0_28px_70px_-36px_rgba(0,0,0,0.65)]">
+        <div className="overflow-hidden rounded-[21px] bg-[#0c0a08]">
           <div className="h-1 bg-gradient-to-r from-[#ff5812] via-[#f5b947] to-[#ff5812]" />
 
           {/* Our header only — Calendly event banner hidden via URL params */}
-          <div className="border-b border-neutral-200/80 px-5 py-5 sm:px-7 sm:py-6">
+          <div className="border-b border-white/10 px-5 py-5 sm:px-7 sm:py-6">
             <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-md">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#ff5812]">
                   Live availability
                 </p>
-                <h3 className="mt-2 text-[clamp(1.35rem,2.5vw,1.75rem)] font-semibold tracking-[-0.03em] text-neutral-950">
+                <h3 className="mt-2 text-[clamp(1.35rem,2.5vw,1.75rem)] font-semibold tracking-[-0.03em] text-white">
                   Pick a time with our team
                 </h3>
-                <p className="mt-2 text-[14px] leading-relaxed text-neutral-500">
+                <p className="mt-2 text-[14px] leading-relaxed text-white/50">
                   {active.description ??
                     "Choose a slot — you'll get an instant calendar invite."}
                 </p>
@@ -65,7 +65,7 @@ export default function CalendlyEmbeddedSection({
               <div
                 role="tablist"
                 aria-label="Meeting type"
-                className="flex flex-wrap gap-1 rounded-xl border border-neutral-200/90 bg-white p-1"
+                className="flex flex-wrap gap-1 rounded-xl border border-white/10 bg-black/45 p-1"
               >
                 {meetingTypes.map((type, index) => {
                   const selected = index === activeIndex;
@@ -78,8 +78,8 @@ export default function CalendlyEmbeddedSection({
                       onClick={() => setActiveIndex(index)}
                       className={`rounded-lg px-3 py-2 text-left transition duration-200 ${
                         selected
-                          ? "bg-neutral-950 text-white shadow-sm"
-                          : "text-neutral-600 hover:bg-neutral-50"
+                          ? "bg-[#ff5812] text-white shadow-sm"
+                          : "text-white/60 hover:bg-white/5"
                       }`}
                     >
                       <span className="block text-[12px] font-medium leading-none">
@@ -87,7 +87,7 @@ export default function CalendlyEmbeddedSection({
                       </span>
                       <span
                         className={`mt-1 block text-[10px] ${
-                          selected ? "text-white/55" : "text-neutral-400"
+                          selected ? "text-white/75" : "text-white/40"
                         }`}
                       >
                         {type.duration}
@@ -103,7 +103,7 @@ export default function CalendlyEmbeddedSection({
             key={embedUrl}
             url={active.url}
             height={700}
-            theme="cream"
+            theme="dark"
             bare
           />
         </div>

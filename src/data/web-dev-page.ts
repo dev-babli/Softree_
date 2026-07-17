@@ -96,10 +96,10 @@ export const WEB_DEV_LANES: WebDevLane[] = [
 ];
 
 export const WEB_DEV_STACKED_VIDEOS: Record<string, string> = {
-  discovery: "/stacked_services/Fine_tune_scroll_reveal_effect_202605271100.webm",
-  design: "/stacked_services/SaaS_animation_soft_glassmorphis_202605271614-ezgif.com-gif-maker (1).webm",
-  build: "/stacked_services/3rdcard.webm",
-  launch: "/stacked_services/4thcard.webm",
+  discovery: "/stacked_services/Fine_tune_scroll_reveal_effect_202605271100.webm?v=1",
+  design: "/stacked_services/SaaS_animation_soft_glassmorphis_202605271614-ezgif.com-gif-maker (1).webm?v=1",
+  build: "/stacked_services/3rdcard.webm?v=1",
+  launch: "/stacked_services/4thcard.webm?v=1",
 };
 
 export const WEB_DEV_STACKED_SLIDES = [

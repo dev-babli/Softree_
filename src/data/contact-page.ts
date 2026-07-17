@@ -94,6 +94,11 @@ export const CONTACT_FAQS = [
     answer:
       "Dedicated teams, fixed-scope delivery, staff augmentation, and advisory — across AI, Microsoft, cloud, data, and custom product engineering.",
   },
+  {
+    question: "Do you offer post-launch support and maintenance?",
+    answer:
+      "Yes, we provide flexible support SLAs, continuous monitoring, security updates, and performance tuning to keep your systems running smoothly.",
+  },
 ] as const;
 
 export const CONTACT_OFFICE_CLOCKS = [

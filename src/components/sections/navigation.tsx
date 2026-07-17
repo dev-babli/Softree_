@@ -367,16 +367,10 @@ export default function Navigation({
 
             <div className="hidden items-center gap-2 lg:flex">
               <Link
-                href="/book-meeting"
+                href="/contact"
                 className="inline-flex min-h-11 items-center rounded-full bg-[#FF5812] px-5 py-2.5 text-[13px] font-semibold text-white shadow-[0_4px_14px_rgba(255,88,18,0.3)] transition-[transform,box-shadow] duration-150 hover:shadow-[0_6px_18px_rgba(255,88,18,0.36)] active:scale-[0.97]"
               >
-                Book a Call
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex min-h-11 items-center rounded-full border border-black/[0.08] px-5 py-2.5 text-[13px] font-semibold text-[#0a0a1a] transition-colors duration-150 hover:bg-[#F3F0EE] active:scale-[0.97]"
-              >
-                Get Started
+                Schedule a Call
               </Link>
             </div>
 
@@ -564,18 +558,11 @@ export default function Navigation({
 
               <div className="mt-6 flex flex-col gap-2">
                 <Link
-                  href="/book-meeting"
+                  href="/contact"
                   onClick={() => setMobileOpen(false)}
                   className="rounded-full bg-[#FF5812] py-3.5 text-center text-sm font-semibold text-white shadow-[0_4px_14px_rgba(255,88,18,0.3)] transition-[transform,box-shadow] duration-150 hover:shadow-[0_6px_18px_rgba(255,88,18,0.36)] active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45"
                 >
-                  Book a Call
-                </Link>
-                <Link
-                  href="/contact"
-                  onClick={() => setMobileOpen(false)}
-                  className="rounded-full border border-black/[0.08] py-3.5 text-center text-sm font-semibold text-[#0a0a1a] transition-colors duration-150 hover:bg-[#F3F0EE] active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45"
-                >
-                  Get Started
+                  Schedule a Call
                 </Link>
               </div>            </div>
           </motion.div>
