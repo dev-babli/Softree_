@@ -9,11 +9,12 @@ import { DUR, EASE_T } from "@/lib/motion"
 import "./ServicesStackedSlides.css"
 
 // Viewport-gated: returns true once the section is within 2x viewport. One-shot.
-function useNearViewport(ref: React.RefObject<HTMLElement | null>) {
+function useNearViewport() {
   const [active, setActive] = useState(false)
+  const [element, setElement] = useState<HTMLElement | null>(null)
+
   useEffect(() => {
-    const el = ref.current
-    if (!el) return
+    if (!element) return
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -23,10 +24,11 @@ function useNearViewport(ref: React.RefObject<HTMLElement | null>) {
       },
       { rootMargin: "200% 0px 200% 0px", threshold: 0 },
     )
-    io.observe(el)
+    io.observe(element)
     return () => io.disconnect()
-  }, [ref])
-  return active
+  }, [element])
+
+  return [active, setElement] as const
 }
 
 function MediaSkeleton() {
@@ -101,18 +103,16 @@ const SERVICE_SLIDES: ServiceSlide[] = [
 ]
 
 const STACKED_SERVICE_VIDEOS: Partial<Record<ServiceSlide["key"], string>> = {
-  "global-delivery": "/stacked_services/fine_tune_it_202605271049.webm",
-  "delivery-framework": "/stacked_services/2ndcard.webm",
-  "engineering-execution": "/stacked_services/3rdcard.webm",
-  "long-term-partnership": "/stacked_services/4thcard.webm",
+  "global-delivery": "/stacked_services/fine_tune_it_202605271049.webm?v=1",
+  "delivery-framework": "/stacked_services/2ndcard.webm?v=1",
+  "engineering-execution": "/stacked_services/3rdcard.webm?v=1",
+  "long-term-partnership": "/stacked_services/4thcard.webm?v=1",
 }
 
 export function ServicesStackedSlides({ className = "" }: { className?: string }) {
-  const rootRef = useRef<HTMLElement>(null)
+  const [mediaActive, rootRef] = useNearViewport()
   const introRef = useRef<HTMLDivElement>(null)
   const introInView = useInView(introRef, { once: true, margin: "-15%" })
-  // MEDIA OPTIMIZATION: mount heavy visualizations only when section is near viewport
-  const mediaActive = useNearViewport(rootRef)
   const handleFirstVideoTimeUpdate = (event: SyntheticEvent<HTMLVideoElement>) => {
     const video = event.currentTarget
     if (video.currentTime >= 3) {
@@ -202,7 +202,7 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
                           src={STACKED_SERVICE_VIDEOS[slide.key]}
                           autoPlay
                           muted
-                          loop={slide.key === "global-delivery"}
+                          loop
                           playsInline
                           preload="metadata"
                           aria-label={`${slide.title} showcase video`}

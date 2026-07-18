@@ -7,6 +7,7 @@ export const HOMEPAGE_CLIENT_LOGOS = {
   wickedPoint: "/images/logo/wickedpoint.jpg",
   ecg: "/images/logo/ecg.png",
   spMarketplace: "/images/logo/1.jpg",
+  nuvento: "/images/logo/nuvento.jpg",
 } as const;
 
 /** Corporate / architecture photos for success-stories bento (Unsplash) */
@@ -17,6 +18,10 @@ export const SUCCESS_STORY_BUILDING_IMAGES = {
     "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=1200&q=85",
   modernFacade:
     "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=85",
+  dubaiTowers:
+    "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1200&q=85",
+  officeTech:
+    "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1200&q=85",
 } as const;
 
 /** Impact stats shown in success-stories bento (animated) */
@@ -28,6 +33,14 @@ export const SUCCESS_STORY_METRICS: Record<string, [SuccessStoryMetric, SuccessS
   "arkady-fedorovtsjev": [
     { value: 30, prefix: "+", suffix: "%", label: "Release velocity" },
     { value: 52, prefix: "+", suffix: "%", label: "Sprint throughput" },
+  ],
+  "asif-mohamed": [
+    { value: 99.8, suffix: "%", label: "System uptime" },
+    { value: 100, suffix: "%", label: "Compliance rate" },
+  ],
+  "rahi-radhakrishnan": [
+    { value: 45, prefix: "+", suffix: "%", label: "App adoption" },
+    { value: 50, prefix: "+", suffix: "%", label: "Delivery speed" },
   ],
   "darrell-trimble": [
     { value: 35, prefix: "+", suffix: "%", label: "Automation coverage" },
@@ -111,10 +124,35 @@ export const homepageTestimonials: TestimonialSlide[] = [
     rating: 5,
   },
   {
+    id: "asif-mohamed",
+    quote:
+      "A trusted technology solutions provider with strong expertise in security, compliance, and enterprise delivery.",
+    name: "Asif Mohamed",
+    company: "Adiva Information Technology LLC",
+    location: "UAE",
+    image: SUCCESS_STORY_BUILDING_IMAGES.dubaiTowers,
+    imageAlt: "Adiva Information Technology — Dubai offices",
+    rating: 5,
+  },
+  {
+    id: "rahi-radhakrishnan",
+    quote:
+      "Softree demonstrated strong expertise in PowerApps development and delivered the project with excellent communication, responsiveness, and coordination throughout the engagement.",
+    name: "Rahi Radhakrishnan",
+    company: "Nuvento",
+    location: "USA",
+    logo: HOMEPAGE_CLIENT_LOGOS.nuvento,
+    logoAlt: "Nuvento",
+    image: SUCCESS_STORY_BUILDING_IMAGES.officeTech,
+    imageAlt: "Nuvento — offices",
+    rating: 5,
+  },
+  {
     id: "darrell-trimble",
     quote:
       "SOFTREE staff worked with us to learn our installation automation technology and built exactly what we needed.",
     name: "Darrell Trimble",
+    title: "CEO",
     company: "SP Marketplace",
     location: "California",
     logo: HOMEPAGE_CLIENT_LOGOS.spMarketplace,

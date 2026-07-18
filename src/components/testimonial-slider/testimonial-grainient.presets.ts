@@ -71,18 +71,46 @@ export const TESTIMONIAL_GRAINIENT_PRESETS: Record<string, SlideGrainientPreset>
       color3: "#93C5FD",
     },
   },
-  "darrell-trimble": {
+  "asif-mohamed": {
     dark: {
       ...darkBase,
-      color1: "#9EE8D4",
-      color2: "#0D9488",
-      color3: "#051A16",
+      color1: "#FFD4C4",
+      color2: "#FF3366",
+      color3: "#2E050C",
     },
     light: {
       ...lightBase,
-      color1: "#ECFDF5",
-      color2: "#14B8A6",
-      color3: "#99F6E4",
+      color1: "#FFF0EB",
+      color2: "#FF5E7E",
+      color3: "#FFB0C0",
+    },
+  },
+  "rahi-radhakrishnan": {
+    dark: {
+      ...darkBase,
+      color1: "#FFE8A3",
+      color2: "#FF6600",
+      color3: "#2A0C02",
+    },
+    light: {
+      ...lightBase,
+      color1: "#FEF9C3",
+      color2: "#F97316",
+      color3: "#FDE047",
+    },
+  },
+  "darrell-trimble": {
+    dark: {
+      ...darkBase,
+      color1: "#FFCCA3",
+      color2: "#B91C1C",
+      color3: "#2A0505",
+    },
+    light: {
+      ...lightBase,
+      color1: "#FFF1F2",
+      color2: "#F43F5E",
+      color3: "#FECDD3",
     },
   },
 };

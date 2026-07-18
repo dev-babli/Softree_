@@ -21,11 +21,12 @@ const LongTermDeliveryVisual = lazy(() =>
 )
 
 // Viewport-gated: returns true once the section is within 2x viewport. One-shot.
-function useNearViewport(ref: React.RefObject<HTMLElement | null>) {
+function useNearViewport() {
   const [active, setActive] = useState(false)
+  const [element, setElement] = useState<HTMLElement | null>(null)
+
   useEffect(() => {
-    const el = ref.current
-    if (!el) return
+    if (!element) return
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -35,10 +36,11 @@ function useNearViewport(ref: React.RefObject<HTMLElement | null>) {
       },
       { rootMargin: "200% 0px 200% 0px", threshold: 0 },
     )
-    io.observe(el)
+    io.observe(element)
     return () => io.disconnect()
-  }, [ref])
-  return active
+  }, [element])
+
+  return [active, setElement] as const
 }
 
 function MediaSkeleton() {
@@ -108,9 +110,7 @@ const SERVICE_SLIDES: ServiceSlide[] = [
 ]
 
 export function ServicesStackedSlides({ className = "" }: { className?: string }) {
-  const rootRef = useRef<HTMLDivElement>(null)
-  // MEDIA OPTIMIZATION: mount heavy visualizations only when section is near viewport
-  const mediaActive = useNearViewport(rootRef)
+  const [mediaActive, rootRef] = useNearViewport()
 
   /* INTENTIONAL SIMPLIFICATION (matching stack.html):
    * No GSAP. No ScrollTrigger. No animation-timeline. No scroll listeners.

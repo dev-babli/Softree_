@@ -72,16 +72,13 @@ export function BentoPreviewPanel({
               />
             </div>
 
-            {/* Layer 2 — Floating centered image (fits container without cropping) */}
-            <div className="absolute inset-x-0 top-0 bottom-48 z-10 flex items-center justify-center p-6 md:p-8">
-              <div className="relative w-full h-full">
-                <BentoCoverImage
-                  src={item.image}
-                  alt={item.title}
-                  sizes="(max-width: 1024px) 100vw, 58vw"
-                  className="object-contain"
-                />
-              </div>
+            {/* Layer 2 — Floating full-bleed image (no left-right space, no cropping) */}
+            <div className="absolute inset-x-0 top-0 bottom-48 z-10 overflow-hidden flex items-start">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-auto object-top"
+              />
             </div>
 
             {/* Layer 3 — Dark gradient overlay at the bottom for readability */}
