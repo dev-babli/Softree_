@@ -221,34 +221,6 @@ export default function CaseStudiesListingClient({
         accentColor={CASE_STUDIES_HUB_ACCENT}
       />
 
-      {featuredStories.length > 0 ? (
-        <section className="border-b border-[#e6e1f2] bg-white py-10 md:py-14">
-          <div className="mx-auto max-w-[1280px] px-5 md:px-8">
-            <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <p
-                  className="text-[11px] font-semibold uppercase tracking-[0.14em]"
-                  style={{ color: CASE_STUDIES_HUB_ACCENT }}
-                >
-                  Featured
-                </p>
-                <h2 className="mt-1 text-[clamp(1.5rem,3vw,1.85rem)] font-bold tracking-[-0.02em] text-[#171717]">
-                  Recently published
-                </h2>
-              </div>
-              <p className="max-w-sm text-[14px] text-[#4c5366]">
-                Latest customer stories with outcomes you can trace to delivery.
-              </p>
-            </div>
-            <div className="grid gap-6 lg:grid-cols-2">
-              {featuredStories.map((study, index) => (
-                <FeaturedStoryCard key={study.href} study={study} index={index} />
-              ))}
-            </div>
-          </div>
-        </section>
-      ) : null}
-
       <section className="border-b border-[#e6e1f2] bg-white">
         <div className="mx-auto max-w-[1280px] px-5 py-6 md:px-8">
           <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
