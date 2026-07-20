@@ -610,11 +610,13 @@ export function EducationEdTechStoryPage({ data }: Props) {
                               }`}>
                                 Screenshot {String(idx + 1).padStart(2, "0")}
                               </span>
-                              <span className={`text-[13px] font-semibold truncate ${
-                                isActive ? "text-slate-900 font-bold" : "text-white"
-                              }`}>
-                                {item.caption || `Engagement Mockup ${idx + 1}`}
-                              </span>
+                              {item.caption && !item.caption.toLowerCase().includes("engagement mockup") && (
+                                <span className={`text-[13px] font-semibold truncate ${
+                                  isActive ? "text-slate-900 font-bold" : "text-white"
+                                }`}>
+                                  {item.caption}
+                                </span>
+                              )}
                             </div>
                           </div>
                         )

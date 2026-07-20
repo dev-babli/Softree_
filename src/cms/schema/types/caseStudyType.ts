@@ -144,7 +144,6 @@ export const caseStudyType = defineType({
             group: 'story',
             fieldset: 'narrative',
             description: fieldAi.challengeContent.description,
-            hidden: isPageComposer,
         }),
         defineField({
             name: 'approachContent',
@@ -153,7 +152,6 @@ export const caseStudyType = defineType({
             group: 'story',
             fieldset: 'narrative',
             description: fieldAi.approachContent.description,
-            hidden: isPageComposer,
         }),
         defineField({
             name: 'outcomeContent',
@@ -162,7 +160,6 @@ export const caseStudyType = defineType({
             group: 'story',
             fieldset: 'narrative',
             description: fieldAi.outcomeContent.description,
-            hidden: isPageComposer,
         }),
         defineField({
             name: 'body',
@@ -170,7 +167,6 @@ export const caseStudyType = defineType({
             type: 'blockContent',
             group: 'story',
             fieldset: 'narrative',
-            hidden: isPageComposer,
             description:
                 'Optional extra content appended after Challenge / Approach / Outcome — e.g. “What’s next”. Leave empty if the three sections above are enough.',
         }),
