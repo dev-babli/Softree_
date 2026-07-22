@@ -45,96 +45,98 @@ export function BlogHeroSection({
     <header className="relative overflow-hidden bg-[#F7F6F3] text-[#181818]">
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-[20%] top-0 h-[70%] w-[55%] rounded-full bg-[radial-gradient(circle,color-mix(in_srgb,var(--softree-accent,#FF7A2F)_8%,transparent)_0%,transparent_68%)]"
+        className="pointer-events-none absolute left-1/2 top-0 h-[80%] w-[70%] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,color-mix(in_srgb,var(--softree-accent,#FF7A2F)_6%,transparent)_0%,transparent_70%)]"
       />
 
       <PageContainer className="relative pb-16 pt-28 md:pb-20 md:pt-32 lg:pt-36">
         <HeroReveal delay={0}>
-          <Link
-            href="/blog"
-            className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-[var(--cs-text-muted,#64748b)] transition-colors hover:text-[#181818]"
-          >
-            <ArrowLeft className="h-4 w-4" aria-hidden />
-            Back to Blog
-          </Link>
+          <div className="flex justify-center">
+            <Link
+              href="/blog"
+              className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-[var(--cs-text-muted,#64748b)] transition-colors hover:text-[#181818]"
+            >
+              <ArrowLeft className="h-4 w-4" aria-hidden />
+              Back to Blog
+            </Link>
+          </div>
         </HeroReveal>
 
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.92fr)] lg:items-center lg:gap-14">
-          <div>
-            <HeroReveal delay={0.05}>
-              <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--cs-text-muted,#64748b)]">
-                {data.heroEyebrow || "Blog"}
+        <div className="flex flex-col items-center text-center">
+          <HeroReveal delay={0.05}>
+            <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--cs-text-muted,#64748b)]">
+              {data.heroEyebrow || "Blog"}
+            </span>
+          </HeroReveal>
+
+          <HeroReveal delay={0.12} variant="scale" distance={28}>
+            <h1 className="mt-4 max-w-4xl text-[clamp(2.25rem,5.5vw,3.75rem)] font-bold leading-[1.08] tracking-[-0.04em] text-[#181818] mx-auto">
+              {data.title}
+            </h1>
+          </HeroReveal>
+
+          <HeroReveal delay={0.18} variant="up" distance={24}>
+            <p className="mt-6 max-w-2xl text-[1.0625rem] leading-[1.65] text-[var(--cs-text-secondary,#334155)] md:text-lg mx-auto">
+              {data.excerpt}
+            </p>
+          </HeroReveal>
+
+          <HeroReveal delay={0.22}>
+            <div className="mt-7 flex flex-wrap items-center justify-center gap-5 text-sm text-[var(--cs-text-muted,#64748b)]">
+              <span className="font-semibold text-[#181818]">{authorName}</span>
+              <span className="inline-flex items-center gap-2">
+                <CalendarDays className="h-4 w-4" aria-hidden />
+                {publishedLabel}
               </span>
-            </HeroReveal>
+              <span className="inline-flex items-center gap-2">
+                <Clock3 className="h-4 w-4" aria-hidden />
+                {readTime}
+              </span>
+            </div>
+          </HeroReveal>
 
-            <HeroReveal delay={0.12} variant="scale" distance={28}>
-              <h1 className="mt-4 max-w-[18ch] text-[clamp(2.25rem,5.5vw,3.75rem)] font-bold leading-[1.05] tracking-[-0.04em] text-[#181818]">
-                {data.title}
-              </h1>
-            </HeroReveal>
+          <HeroReveal delay={0.28}>
+            <div className="mt-9 flex flex-wrap justify-center gap-3">
+              <PrimaryButton href="#content">Read article</PrimaryButton>
+              <a
+                href={data.cta.buttonHref}
+                className="inline-flex items-center justify-center rounded-full border border-[#181818]/15 bg-white px-8 py-3.5 text-sm font-semibold text-[#181818] transition-transform duration-200 hover:bg-[#181818] hover:text-white active:scale-[0.97]"
+              >
+                {data.cta.buttonText}
+                <ArrowUpRight className="ml-2 inline h-4 w-4" aria-hidden />
+              </a>
+            </div>
+          </HeroReveal>
 
-            <HeroReveal delay={0.18} variant="up" distance={24}>
-              <p className="mt-6 max-w-xl text-[1.0625rem] leading-[1.65] text-[var(--cs-text-secondary,#334155)] md:text-lg">
-                {data.excerpt}
-              </p>
-            </HeroReveal>
+          {data.highlights.length > 0 ? (
+            <RevealStagger className="mt-12 flex flex-col justify-center gap-6 sm:flex-row sm:flex-wrap sm:items-start">
+              {data.highlights.slice(0, 3).map((item) => (
+                <RevealItem key={item.label} variant="scale">
+                  <MetricCell value={item.value} label={item.label} />
+                </RevealItem>
+              ))}
+            </RevealStagger>
+          ) : null}
 
-            <HeroReveal delay={0.22}>
-              <div className="mt-7 flex flex-wrap items-center gap-5 text-sm text-[var(--cs-text-muted,#64748b)]">
-                <span className="font-semibold text-[#181818]">{authorName}</span>
-                <span className="inline-flex items-center gap-2">
-                  <CalendarDays className="h-4 w-4" aria-hidden />
-                  {publishedLabel}
-                </span>
-                <span className="inline-flex items-center gap-2">
-                  <Clock3 className="h-4 w-4" aria-hidden />
-                  {readTime}
-                </span>
-              </div>
-            </HeroReveal>
-
-            <HeroReveal delay={0.28}>
-              <div className="mt-9 flex flex-wrap gap-3">
-                <PrimaryButton href="#content">Read article</PrimaryButton>
-                <a
-                  href={data.cta.buttonHref}
-                  className="inline-flex items-center justify-center rounded-full border border-[#181818]/15 bg-white px-8 py-3.5 text-sm font-semibold text-[#181818] transition-transform duration-200 hover:bg-[#181818] hover:text-white active:scale-[0.97]"
-                >
-                  {data.cta.buttonText}
-                  <ArrowUpRight className="ml-2 inline h-4 w-4" aria-hidden />
-                </a>
-              </div>
-            </HeroReveal>
-
-            {data.highlights.length > 0 ? (
-              <RevealStagger className="mt-12 flex flex-col gap-6 sm:flex-row sm:flex-wrap sm:items-start">
-                {data.highlights.slice(0, 3).map((item) => (
-                  <RevealItem key={item.label} variant="scale">
-                    <MetricCell value={item.value} label={item.label} />
-                  </RevealItem>
-                ))}
-              </RevealStagger>
-            ) : null}
-          </div>
-
-          <HeroReveal delay={0.14} variant="scale" distance={40}>
-            <ParallaxLayer strength={28}>
-              <div className="rounded-[1.75rem] p-2 shadow-[0_24px_64px_rgba(0,0,0,0.06)] ring-1 ring-[#0a0a1a]/[0.05] [background:#F0F2F6]">
-                <div className="overflow-hidden rounded-[calc(1.75rem-0.5rem)] bg-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.85)]">
-                  <div className="relative aspect-[3/2] w-full overflow-hidden rounded-[calc(1.75rem-0.5rem)] bg-white md:aspect-[3/2]">
-                    <Image
-                      src={heroSrc}
-                      alt={heroAlt}
-                      fill
-                      priority
-                      className="object-contain p-2"
-                      sizes="(max-width: 1024px) 100vw, 560px"
-                    />
+          <div className="mt-14 w-full max-w-4xl">
+            <HeroReveal delay={0.14} variant="scale" distance={40}>
+              <ParallaxLayer strength={28}>
+                <div className="rounded-[1.75rem] p-2 shadow-[0_24px_64px_rgba(0,0,0,0.06)] ring-1 ring-[#0a0a1a]/[0.05] [background:#F0F2F6]">
+                  <div className="overflow-hidden rounded-[calc(1.75rem-0.5rem)] bg-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.85)]">
+                    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[calc(1.75rem-0.5rem)] bg-white">
+                      <Image
+                        src={heroSrc}
+                        alt={heroAlt}
+                        fill
+                        priority
+                        className="object-contain p-2"
+                        sizes="(max-width: 1024px) 100vw, 896px"
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
-            </ParallaxLayer>
-          </HeroReveal>
+              </ParallaxLayer>
+            </HeroReveal>
+          </div>
         </div>
       </PageContainer>
     </header>

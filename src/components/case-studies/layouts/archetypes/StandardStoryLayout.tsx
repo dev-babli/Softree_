@@ -158,9 +158,9 @@ export default function StandardStoryLayout({
         <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] bg-[radial-gradient(ellipse_at_bottom,rgba(91,79,233,0.32)_0%,transparent_65%)]" />
         <div className="relative mx-auto w-full max-w-310 px-5 pb-20 pt-32 md:px-8 md:pb-28 md:pt-36 lg:pt-40">
           <h1 className="text-[clamp(3rem,9vw,7rem)] font-bold leading-[0.95] tracking-[-0.045em] text-white">{clientName}</h1>
-          <div className="mt-12 grid grid-cols-1 gap-10 lg:mt-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
-            <div className="relative aspect-16/10 w-full overflow-hidden rounded-[14px] bg-white/5 ring-1 ring-white/10">
-              {heroImageUrl ? <Image src={heroImageUrl} alt={study.mainImage?.alt || clientName} fill unoptimized priority sizes="600px" className="object-cover" /> : <div className="absolute inset-0 flex items-center justify-center text-white/50">No hero image</div>}
+          <div className="mt-12 grid grid-cols-1 gap-10 lg:mt-16 lg:grid-cols-2 lg:items-stretch lg:gap-12">
+            <div className="relative min-h-[440px] sm:min-h-[480px] lg:min-h-[520px] w-full overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl ring-1 ring-white/10">
+              {heroImageUrl ? <Image src={heroImageUrl} alt={study.mainImage?.alt || clientName} fill unoptimized priority sizes="650px" className="object-cover object-top" /> : <div className="absolute inset-0 flex items-center justify-center text-white/50">No hero image</div>}
             </div>
             <div className="flex flex-col justify-center">
               {headerTitle ? <h2 className="text-[clamp(1.55rem,2.5vw,2.05rem)] font-bold leading-[1.18] tracking-[-0.02em] text-white">{headerTitle}</h2> : null}

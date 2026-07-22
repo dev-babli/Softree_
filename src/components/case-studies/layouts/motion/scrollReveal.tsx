@@ -24,7 +24,7 @@ type RevealProps = {
   delay?: number
   variant?: RevealVariant
   once?: boolean
-  amount?: number
+  amount?: number | "some" | "all"
 } & Omit<MotionProps, "children">
 
 function hiddenState(variant: RevealVariant, distance: number) {
@@ -64,7 +64,7 @@ export function Reveal({
   delay = 0,
   variant = "up",
   once = true,
-  amount = 0.2,
+  amount = "some",
   ...rest
 }: RevealProps) {
   const reduce = useReducedMotion()
