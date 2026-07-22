@@ -340,23 +340,56 @@ export function EducationEdTechStoryPage({ data }: Props) {
                 )}
               </Reveal>
             </div>
-            <div className="hero-right">
-              <Reveal className="hero-image-wrap">
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-[rgba(20,33,61,0.08)] shadow-lg">
-                  <Image
-                    src={heroImageSrc}
-                    alt={data.heroImageAlt || data.title}
-                    fill
-                    priority
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 560px"
-                  />
+            <div className="hero-right w-full flex flex-col justify-center">
+              <Reveal className="hero-image-wrap w-full">
+                <div className="relative w-full overflow-hidden rounded-2xl border border-black/10 bg-white/90 shadow-[0_20px_50px_rgba(0,0,0,0.12)] backdrop-blur-xl transition-all duration-500 hover:shadow-[0_30px_60px_rgba(0,0,0,0.16)]">
+                  {/* Window Bar Header */}
+                  <div className="flex h-10 shrink-0 w-full items-center justify-between border-b border-black/[0.08] bg-neutral-100/90 px-4">
+                    <div className="flex items-center gap-1.5">
+                      <span className="h-3 w-3 rounded-full bg-[#ff5f56] shadow-inner" />
+                      <span className="h-3 w-3 rounded-full bg-[#ffbd2e] shadow-inner" />
+                      <span className="h-3 w-3 rounded-full bg-[#27c93f] shadow-inner" />
+                    </div>
+
+                    <div className="flex items-center gap-1.5 rounded-md border border-black/[0.06] bg-white/90 px-3 py-0.5 text-[11px] font-medium text-neutral-500 shadow-inner max-w-[240px] truncate">
+                      <span className="truncate">softreetechnology.com/case-studies</span>
+                    </div>
+
+                    <div className="w-8" />
+                  </div>
+
+                  {/* Image Display Frame - Full Aspect Ratio Display (Zero Cropping) */}
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#0d0f18] p-1">
+                    <Image
+                      src={heroImageSrc}
+                      alt={data.heroImageAlt || data.title}
+                      fill
+                      priority
+                      className="object-contain object-center transition-transform duration-700 hover:scale-[1.02]"
+                      sizes="(max-width: 900px) 100vw, 600px"
+                    />
+
+                    {/* Glass shine overlay */}
+                    <div className="cs-glass-shine absolute inset-0 pointer-events-none w-1/2 bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+                  </div>
                 </div>
               </Reveal>
             </div>
           </div>
+        </div>
 
-          <div className="register">
+        {/* Solid Hero Background Zigzag Bottom Edge */}
+        <div className="hero-solid-zigzag-divider" aria-hidden>
+          <svg viewBox="0 0 1440 32" preserveAspectRatio="none" className="hero-solid-zigzag-svg">
+            <polygon points="0,0 24,32 48,0 72,32 96,0 120,32 144,0 168,32 192,0 216,32 240,0 264,32 288,0 312,32 336,0 360,32 384,0 408,32 432,0 456,32 480,0 504,32 528,0 552,32 576,0 600,32 624,0 648,32 672,0 696,32 720,0 744,32 768,0 792,32 816,0 840,32 864,0 888,32 912,0 936,32 960,0 984,32 1008,0 1032,32 1056,0 1080,32 1104,0 1128,32 1152,0 1176,32 1200,0 1224,32 1248,0 1272,32 1296,0 1320,32 1344,0 1368,32 1392,0 1416,32 1440,0 1440,32 0,32" />
+          </svg>
+        </div>
+      </section>
+
+      {/* METRICS REGISTER STRIP */}
+      <section style={{ paddingTop: 0, paddingBottom: 0 }}>
+        <div className="wrap">
+          <div className="register" style={{ marginTop: "-16px", borderRadius: "16px" }}>
             <div className="register-row">
               {highlights.map((h, i) => (
                 <CounterCell key={i} targetValue={h.value} label={h.label} />

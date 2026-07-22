@@ -280,22 +280,6 @@ export default function ContactHero() {
                 }}>
                   Tell us what you're building. Pick a time that works for you or send a message. Our engineering leads join prepared — ready to map out your architecture and deliver real results.
                 </p>
-
-                {/* CTA Buttons */}
-                <div className="fade-up fade-up-4 flex flex-wrap gap-4 items-center">
-                  <Link
-                    href="#schedule"
-                    className="inline-flex h-11 items-center justify-center rounded-full bg-[#f97316] px-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-white transition hover:bg-white hover:text-black shadow-lg shadow-orange-500/10"
-                  >
-                    Book a call
-                  </Link>
-                  <Link
-                    href="#schedule"
-                    className="inline-flex h-11 items-center justify-center rounded-full border border-white/20 px-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-white/80 transition hover:border-white hover:text-white"
-                  >
-                    Send a message
-                  </Link>
-                </div>
               </div>
 
               {/* Right: Architecture Map Blueprint Visual */}
