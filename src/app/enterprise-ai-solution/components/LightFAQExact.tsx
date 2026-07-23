@@ -24,58 +24,58 @@ const defaultFaqs: FAQItem[] = [
   {
     id: 1,
     serial: "question 01",
-    question: "What kind of technology solutions does Softree Technology specialize in?",
+    question: "What is an Enterprise AI Solution, and how is it different from a standalone AI tool?",
     answer:
-      "Softree Technology specializes in enterprise Microsoft solutions, AI-powered automation, modern application engineering, and offshore development services. Our core expertise includes SharePoint + PowerApps, Power Automate, Power BI, Dynamics 365, Microsoft Fabric, Azure AI, AI agents, custom web and mobile applications, and enterprise workflow automation solutions designed to help businesses modernize operations and scale efficiently.",
+      "An Enterprise AI Solution combines AI models with governed business data, secure identities, workflows, integrations, user experiences, evaluation, and monitoring. Unlike a standalone chatbot, it operates within enterprise architecture, respects existing permissions, connects to systems of record, supports auditability, and is engineered for reliability, scale, security, and measurable business outcomes.",
   },
   {
     id: 2,
     serial: "question 02",
-    question: "Can Softree help businesses replace manual processes and spreadsheet-based operations?",
+    question: "Which business processes are best suited for Enterprise AI Solutions?",
     answer:
-      "Yes. Many organizations still manage approvals, reporting, employee requests, and operational workflows through spreadsheets, emails, and disconnected systems. Softree helps businesses modernize these processes using SharePoint + PowerApps, Power Automate, Dynamics 365, and AI-powered workflow automation solutions that improve operational visibility, reduce manual effort, minimize process delays, and increase efficiency across departments.",
+      "Strong candidates involve high-volume knowledge work, repetitive decisions, document-heavy operations, fragmented enterprise knowledge, customer or employee support, forecasting, and cross-system workflows. Prioritization should consider business value, process frequency, data readiness, integration effort, user impact, risk, and whether success can be measured against a clear operational baseline.",
   },
   {
     id: 3,
     serial: "question 03",
-    question: "Does Softree work with companies that already use Microsoft 365?",
+    question: "How should an organization measure the value and ROI of enterprise AI?",
     answer:
-      "Absolutely. Softree primarily works with businesses already operating within the Microsoft ecosystem. We help organizations extend and optimize Microsoft 365 environments using SharePoint, Teams, Power Platform, Dynamics 365, Power BI, Azure AI, and Microsoft Copilot integrations without disrupting existing operations or requiring large-scale infrastructure changes.",
+      "Value should be measured against the workflow being improved, not model activity alone. Useful metrics include cycle time, cost per transaction, resolution time, automation rate, error reduction, employee capacity, conversion, compliance quality, and user adoption. A baseline, target outcome, evaluation plan, and accountable business owner should be defined before production investment.",
   },
   {
     id: 4,
     serial: "question 04",
-    question: "Why do companies choose Softree as their Microsoft and AI development partner?",
+    question: "How can enterprise data be used without exposing sensitive information?",
     answer:
-      "Companies choose Softree for its expertise in SharePoint with Power Apps, Power Platform, Dynamics 365, Azure AI, enterprise automation, and custom software development. We combine deep Microsoft ecosystem knowledge with AI engineering capabilities, offshore scalability, transparent delivery processes, and long-term partnership models.",
+      "Enterprise AI should preserve identity, authorization, data classification, residency, retention, and least-privilege controls across the full data path. Permission-aware retrieval limits users and agents to approved content. Encryption, private networking, secret management, filtering, data-loss prevention, source-level auditing, and sensitive-data testing provide additional protection.",
   },
   {
     id: 5,
     serial: "question 05",
-    question: "How does Softree support enterprise digital transformation initiatives?",
+    question: "How are Enterprise AI Solutions kept accurate, grounded, and trustworthy?",
     answer:
-      "Softree supports enterprise digital transformation by modernizing legacy systems, automating workflows, improving collaboration, implementing AI-driven business solutions, and building scalable enterprise applications. Our delivery model combines Microsoft technologies, cloud architecture, AI automation, and agile engineering practices to help organizations improve operational agility, accelerate delivery timelines, and reduce dependency on fragmented manual processes.",
+      "Quality is managed through representative evaluation datasets and metrics for retrieval, groundedness, relevance, completeness, task adherence, and tool-call accuracy. Source citations, confidence behavior, content filtering, human review, and safe fallbacks reduce unsupported responses. Testing continues after launch because data, workflows, prompts, and models change over time.",
   },
   {
     id: 6,
     serial: "question 06",
-    question: "Can Softree build custom AI solutions for enterprise operations?",
+    question: "What governance and security controls should enterprise AI include?",
     answer:
-      "Yes. Softree develops AI-powered enterprise solutions including AI agents, Copilot integrations, intelligent automation systems, document AI, AI-assisted workflows, and Retrieval-Augmented Generation (RAG) solutions. These systems are designed to improve productivity, automate repetitive business operations, streamline knowledge access, and support faster operational decision-making across enterprise environments.",
+      "Controls should reflect the solution's risk and authority. Common safeguards include accountable ownership, scoped agent identities, role-based access, approved data sources, content safety, prompt-injection defenses, deterministic policy checks, human approval for high-impact actions, prohibited-action boundaries, audit trails, incident procedures, and continuous security and compliance monitoring.",
   },
   {
     id: 7,
     serial: "question 07",
-    question: "What business processes can be automated using Microsoft Power Platform solutions?",
+    question: "How do Enterprise AI Solutions move successfully from pilot to production?",
     answer:
-      "Businesses use Microsoft Power Platform to automate approvals, onboarding, reporting, inventory tracking, HR operations, document workflows, customer request management, compliance processes, and operational coordination systems. Softree helps organizations identify automation opportunities and implement scalable Power Apps and Power Automate solutions integrated with enterprise systems and existing Microsoft environments.",
+      "Production readiness requires more than a successful demonstration. The pilot must be converted into a supported architecture with secure integrations, quality thresholds, adversarial testing, observability, cost controls, fallback behavior, rollback procedures, user training, ownership, and service management. A phased rollout validates performance and adoption before wider deployment.",
   },
   {
     id: 8,
     serial: "question 08",
-    question: "How does Softree ensure data security and compliance in enterprise solutions?",
+    question: "How are Enterprise AI Solutions monitored, optimized, and scaled?",
     answer:
-      "Softree aligns all development with Microsoft and industry security best practices. We build solutions within your secure Microsoft 365 tenant or Azure environment, ensuring data privacy, strict access controls, and compliance with enterprise governance policies.",
+      "Observability should track quality, safety, retrieval performance, tool use, latency, failures, adoption, cost, and data or model drift. Automated evaluations can become CI/CD quality gates and run against production samples. Monitoring evidence guides prompt, retrieval, policy, model, capacity, and workflow improvements as the solution expands across teams and use cases.",
   },
 ]
 
@@ -331,9 +331,9 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
         {/* Section Title */}
         <div ref={titleRef} className="mb-8 md:mb-10">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#1852FF]/20 bg-[#1852FF]/8 px-4 py-2">
-            <HelpCircle className="h-4 w-4 text-[#1852FF]" />
-            <span className="text-sm font-medium text-[#1852FF]">FAQ</span>
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#1852FF]/30 bg-[#1852FF]/5 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#1852FF]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#1852FF] animate-pulse" />
+            FAQ
           </div>
           <h2 className="text-3xl font-bold tracking-tight text-[#0a0a1a] md:text-5xl lg:text-6xl">
             Frequently Asked{" "}

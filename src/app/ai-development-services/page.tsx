@@ -11,6 +11,9 @@ import NavigationClient from '@/components/sections/navigation-client';
 import Footer from '@/components/sections/footer';
 import LightContactSection from '@/components/homepage-light/LightContactSection';
 import TrustedByMarquee from '@/components/homepage-light/TrustedByMarquee';
+import CoreCapabilities from './components/CoreCapabilities';
+import TestimonialsSplitSlider from './components/Testimonial';
+import LightFAQExact from './components/LightFAQExact';
 
 export const metadata: Metadata = {
   title: 'AI Development Services | Softree Technology',
@@ -23,12 +26,15 @@ export default function AiDevelopmentServicesPage() {
       <NavigationClient />
       <Hero />
       <TrustedByMarquee />
+      <SuccessStories />
+      <OurAISolutions />
+      <CoreCapabilities /> 
       <BusinessChallenges />
       <HowAIWorks />
-      <OurAISolutions />
       <Industries />
-      <SuccessStories />
       <WhySoftree />
+      <TestimonialsSplitSlider />
+      <LightFAQExact />
       <LightContactSection />
       <Footer />
     </main>

@@ -1,30 +1,6 @@
-import React from 'react';
-
-const getHeaderIcon = (type: string, className: string) => {
-  switch (type) {
-    case 'cart': return (
-      <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-      </svg>
-    );
-    case 'heart': return (
-      <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 10v4m-2-2h4" />
-      </svg>
-    );
-    case 'bank': return (
-      <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
-      </svg>
-    );
-    default: return (
-      <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
-      </svg>
-    );
-  }
-};
+import Image from "next/image";
+import Link from "next/link";
+import type { SuccessStory } from "../../ai-development-services/data/success-stories";
 
 const renderHighlightedText = (text: string) => {
   return text.split(/(\d+%?)/).map((part, i) => 
@@ -32,28 +8,36 @@ const renderHighlightedText = (text: string) => {
   );
 };
 
-import Image from 'next/image';
-
 const imageMap: Record<string, string> = {
-  heart: '/images/ai-development-services/success-stories/healthcare.jpg',
-  bank: '/images/ai-development-services/success-stories/banking.jpg',
-  cart: '/images/ai-development-services/success-stories/retail.jpg',
-  manufacturing: '/images/ai-development-services/success-stories/banking.jpg',
-  'cross-industry': '/images/ai-development-services/success-stories/retail.jpg',
-  logistics: '/images/ai-development-services/success-stories/healthcare.jpg',
+  heart: "/images/enterprise-ai-solution/images/challenges/enterprise-ai.png",
+  bank: "/images/enterprise-ai-solution/images/challenges/employee-productivity.png",
+  cart: "/images/enterprise-ai-solution/images/challenges/ai-analytics.png",
+  manufacturing: "/images/enterprise-ai-solution/images/challenges/ai-automation.png",
+  "cross-industry": "/images/enterprise-ai-solution/images/challenges/ai-platform.png",
+  logistics: "/images/enterprise-ai-solution/images/challenges/workflow-automation.png",
 };
 
-export default function SuccessStoryCard({ item, isActive = false }: { item: any, isActive?: boolean }) {
+export default function SuccessStoryCard({
+  item,
+  isActive = false,
+}: {
+  item: SuccessStory;
+  isActive?: boolean;
+}) {
   return (
-    <div className={`w-full bg-white rounded-[28px] overflow-hidden transition-all duration-500 group 
+    <div className={`flex h-full w-full flex-col overflow-hidden rounded-[28px] bg-white transition-all duration-500 group
       ${isActive 
         ? 'shadow-[0_30px_60px_rgba(255,88,18,0.18)] border-2 border-[#FF6B2C]' 
         : 'shadow-[0_8px_20px_rgba(0,0,0,0.06)] border border-[#ECECEC]'}
     `}>
       {/* Top Image Area */}
-      <div className="h-[220px] w-full relative overflow-hidden bg-slate-50">
+      <Link 
+        href={item.caseStudyUrl || '#'}
+        aria-label={`Read case study: ${item.title}`}
+        className="relative block h-[220px] w-full shrink-0 cursor-pointer overflow-hidden bg-slate-50"
+      >
         <Image 
-          src={imageMap[item.icon] || imageMap.bank}
+          src={imageMap[item.icon]}
           alt={`${item.title} Case Study`}
           fill
           className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
@@ -61,14 +45,10 @@ export default function SuccessStoryCard({ item, isActive = false }: { item: any
           quality={95}
         />
         
-        {/* Floating Top Left Icon */}
-        <div className="absolute top-5 left-5 w-12 h-12 bg-white rounded-2xl shadow-lg flex items-center justify-center text-[#FF6B2C] z-10">
-           {getHeaderIcon(item.icon, "w-6 h-6")}
-        </div>
-      </div>
+      </Link>
 
       {/* Content */}
-      <div className="p-6">
+      <div className="flex flex-1 flex-col p-6">
         <p className="text-[12px] font-bold tracking-[0.1em] text-[#FF6B2C] uppercase mb-1">{item.industryLabel}</p>
         <h3 className="text-[22px] md:text-[24px] leading-tight font-bold text-[#111827] mb-4">{item.title}</h3>
         

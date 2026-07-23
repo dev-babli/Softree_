@@ -317,7 +317,7 @@ export function EducationEdTechStoryPage({ data }: Props) {
       </nav>
 
       {/* HERO */}
-      <section className="hero" id="overview" style={{ paddingBottom: 0 }}>
+      <section className="hero" id="overview" style={{ paddingBottom: "72px" }}>
         <div className="wrap">
           <div className="hero-split-grid">
             <div className="hero-left">
@@ -378,18 +378,12 @@ export function EducationEdTechStoryPage({ data }: Props) {
           </div>
         </div>
 
-        {/* Solid Hero Background Zigzag Bottom Edge */}
-        <div className="hero-solid-zigzag-divider" aria-hidden>
-          <svg viewBox="0 0 1440 32" preserveAspectRatio="none" className="hero-solid-zigzag-svg">
-            <polygon points="0,0 24,32 48,0 72,32 96,0 120,32 144,0 168,32 192,0 216,32 240,0 264,32 288,0 312,32 336,0 360,32 384,0 408,32 432,0 456,32 480,0 504,32 528,0 552,32 576,0 600,32 624,0 648,32 672,0 696,32 720,0 744,32 768,0 792,32 816,0 840,32 864,0 888,32 912,0 936,32 960,0 984,32 1008,0 1032,32 1056,0 1080,32 1104,0 1128,32 1152,0 1176,32 1200,0 1224,32 1248,0 1272,32 1296,0 1320,32 1344,0 1368,32 1392,0 1416,32 1440,0 1440,32 0,32" />
-          </svg>
-        </div>
       </section>
 
       {/* METRICS REGISTER STRIP */}
       <section style={{ paddingTop: 0, paddingBottom: 0 }}>
         <div className="wrap">
-          <div className="register" style={{ marginTop: "-16px", borderRadius: "16px" }}>
+          <div className="register" style={{ marginTop: "-32px", borderRadius: "16px" }}>
             <div className="register-row">
               {highlights.map((h, i) => (
                 <CounterCell key={i} targetValue={h.value} label={h.label} />

@@ -3,59 +3,42 @@
 import { useEffect, useState } from "react";
 import { Star, Quote } from "lucide-react";
 
-interface Testimonial {
-  text: string;
-  name: string;
-  role: string;
-  location: string;
-  company: string;
-  logo: string;
-  rating: number;
-}
-
 export default function TestimonialsSplitSlider() {
   /* ================= DATA ================= */
-  const testimonials: Testimonial[] = [
+  const testimonials = [
     {
-      text: "SOFTREE staff worked with us to learn our installation automation technology and built exactly what we needed.",
       name: "Darrell Trimble",
       role: "CEO",
-      location: "California",
-      company: "SP Marketplace",
-      logo: "/images/logo/1.jpg",
+      company: "SP Marketplace, California",
       rating: 5,
+      logo: "https://ui-avatars.com/api/?name=SP+Marketplace&background=fff&color=FF6B2C&font-size=0.33",
+      text: "SOFTREE staff worked with us to learn our installation automation technology and built exactly what we needed.",
     },
     {
-      text: "We had a very positive experience working with Softree Technology. The developers were responsive and delivery was on time. We appreciate the attention they gave our project and their great communication. The final product was exactly what we wanted and we look forward to working with Softree in the future.",
       name: "Natasha Adams",
       role: "Partner",
-      location: "Virginia",
-      company: "Wicked Point LLC",
-      logo: "/images/logo/wickedpoint.jpg",
+      company: "Wicked Point LLC, Virginia",
       rating: 5,
+      logo: "https://ui-avatars.com/api/?name=Wicked+Point&background=fff&color=FF6B2C&font-size=0.33",
+      text: "We had a very positive experience working with Softree Technology. The developers were responsive and delivery was on time. We appreciate the attention they gave our project and their great communication. The final product was exactly what we wanted and we look forward to working with Softree in the future.",
     },
     {
-      text: "Overall, we are satisfied with our collaboration in the past and your last action and response to our reported issue, really makes a difference.",
       name: "Arkady Fedorovtsjev",
       role: "IT Specialist",
-      location: "Netherlands",
-      company: "ECG International",
-      logo: "/images/logo/ecg.png",
+      company: "ECG International, Netherlands",
       rating: 5,
+      logo: "https://ui-avatars.com/api/?name=ECG+International&background=fff&color=FF6B2C&font-size=0.33",
+      text: "Overall, we are satisfied with our collaboration in the past and your last action and response to our reported issue, really makes a difference.",
     },
     {
-      text: "Softree demonstrated strong expertise in PowerApps development and delivered the project with excellent communication, responsiveness, and coordination throughout the engagement.",
       name: "Rahi Radhakrishnan",
       role: "Director of Delivery",
-      location: "USA",
-      company: "Nuvento",
-      logo: "/images/logo/nuvento.jpg",
+      company: "Nuvento, USA",
       rating: 5,
-    },
+      logo: "https://ui-avatars.com/api/?name=Nuvento&background=fff&color=FF6B2C&font-size=0.33",
+      text: "Softree demonstrated strong expertise in PowerApps development and delivered the project with excellent communication, responsiveness, and coordination throughout the engagement.",
+    }
   ];
-
-
-
 
   /* ================= SLIDER ================= */
   const [page, setPage] = useState(0);
@@ -191,10 +174,11 @@ export default function TestimonialsSplitSlider() {
                 <button
                   key={i}
                   onClick={() => setPage(i)}
-                  className={`h-2 rounded-full transition-all ${page === i
-                    ? "w-8 bg-white"
-                    : "w-3 bg-white/40 hover:bg-white/70"
-                    }`}
+                  className={`h-2 rounded-full transition-all ${
+                    page === i
+                      ? "w-8 bg-white"
+                      : "w-3 bg-white/40 hover:bg-white/70"
+                  }`}
                 />
               ))}
             </div>

@@ -24,58 +24,58 @@ const defaultFaqs: FAQItem[] = [
   {
     id: 1,
     serial: "question 01",
-    question: "What kind of technology solutions does Softree Technology specialize in?",
+    question: "How does Softree approach custom AI development for enterprise organizations?",
     answer:
-      "Softree Technology specializes in enterprise Microsoft solutions, AI-powered automation, modern application engineering, and offshore development services. Our core expertise includes SharePoint + PowerApps, Power Automate, Power BI, Dynamics 365, Microsoft Fabric, Azure AI, AI agents, custom web and mobile applications, and enterprise workflow automation solutions designed to help businesses modernize operations and scale efficiently.",
+      "We approach custom AI development as a strategic partnership focused on measurable business outcomes. Our process begins with a comprehensive AI consulting phase where we assess your existing infrastructure, identify high-ROI use cases, and design a scalable enterprise AI architecture. We then develop bespoke AI solutions—ranging from intelligent automation workflows to advanced generative AI models—tailored exactly to your operational needs. By leveraging the Microsoft AI ecosystem and Azure AI, we ensure that every custom AI software development project is secure, compliant, and seamlessly integrated into your existing enterprise environment.",
   },
   {
     id: 2,
     serial: "question 02",
-    question: "Can Softree help businesses replace manual processes and spreadsheet-based operations?",
+    question: "Can you integrate AI agents and Microsoft Copilot into our existing business workflows?",
     answer:
-      "Yes. Many organizations still manage approvals, reporting, employee requests, and operational workflows through spreadsheets, emails, and disconnected systems. Softree helps businesses modernize these processes using SharePoint + PowerApps, Power Automate, Dynamics 365, and AI-powered workflow automation solutions that improve operational visibility, reduce manual effort, minimize process delays, and increase efficiency across departments.",
+      "Absolutely. Integrating AI agents and Microsoft Copilot into existing enterprise systems is one of our core capabilities. We build intelligent automation solutions that connect these AI tools directly with your enterprise data, ERPs, and CRMs. This allows autonomous AI agents to handle complex, multi-step tasks, while Copilot empowers your workforce with real-time insights and productivity enhancements. Our AI integration process is designed to minimize disruption, ensuring that your new AI-driven workflows scale securely across your organization while adhering strictly to enterprise governance policies.",
   },
   {
     id: 3,
     serial: "question 03",
-    question: "Does Softree work with companies that already use Microsoft 365?",
+    question: "What is your process for ensuring AI security and data governance?",
     answer:
-      "Absolutely. Softree primarily works with businesses already operating within the Microsoft ecosystem. We help organizations extend and optimize Microsoft 365 environments using SharePoint, Teams, Power Platform, Dynamics 365, Power BI, Azure AI, and Microsoft Copilot integrations without disrupting existing operations or requiring large-scale infrastructure changes.",
+      "Enterprise AI security and data governance are foundational to our AI development services. We architect every AI solution with strict compliance, data privacy, and risk management in mind. Operating primarily within the secure Microsoft AI and Azure AI ecosystems, we implement robust identity and access management, encrypted data pipelines, and continuous monitoring. We ensure that your sensitive enterprise data never leaks into public AI models, giving IT directors and CIOs complete confidence that their custom AI solutions meet stringent regulatory and corporate security standards.",
   },
   {
     id: 4,
     serial: "question 04",
-    question: "Why do companies choose Softree as their Microsoft and AI development partner?",
+    question: "How long does a typical enterprise AI implementation timeline take?",
     answer:
-      "Companies choose Softree for its expertise in SharePoint with Power Apps, Power Platform, Dynamics 365, Azure AI, enterprise automation, and custom software development. We combine deep Microsoft ecosystem knowledge with AI engineering capabilities, offshore scalability, transparent delivery processes, and long-term partnership models.",
+      "An enterprise AI implementation timeline generally ranges from 8 to 16 weeks, depending on the complexity of the custom AI solution and the state of your enterprise data. We utilize an agile AI development process, starting with a rapid proof-of-concept (POC) deployed within the first 4 weeks to validate ROI and business outcomes. Following a successful POC, we proceed to full-scale AI integration, testing, and deployment. This phased approach allows enterprise decision-makers to mitigate risk, accelerate time-to-value, and iteratively scale their generative AI and automation capabilities.",
   },
   {
     id: 5,
     serial: "question 05",
-    question: "How does Softree support enterprise digital transformation initiatives?",
+    question: "What kind of ROI and business outcomes can we expect from generative AI solutions?",
     answer:
-      "Softree supports enterprise digital transformation by modernizing legacy systems, automating workflows, improving collaboration, implementing AI-driven business solutions, and building scalable enterprise applications. Our delivery model combines Microsoft technologies, cloud architecture, AI automation, and agile engineering practices to help organizations improve operational agility, accelerate delivery timelines, and reduce dependency on fragmented manual processes.",
+      "Implementing generative AI and intelligent automation solutions typically yields significant ROI through enhanced operational efficiency, reduced manual effort, and accelerated decision-making. Enterprise clients often experience a 30-50% reduction in processing times for document-heavy workflows and dramatic improvements in customer service response rates. By automating repetitive tasks and unlocking deep insights from enterprise data, our AI development services enable your teams to focus on high-value strategic initiatives, driving scalable business growth and maintaining a competitive edge in your industry.",
   },
   {
     id: 6,
     serial: "question 06",
-    question: "Can Softree build custom AI solutions for enterprise operations?",
+    question: "Do you provide ongoing maintenance and support for deployed AI solutions?",
     answer:
-      "Yes. Softree develops AI-powered enterprise solutions including AI agents, Copilot integrations, intelligent automation systems, document AI, AI-assisted workflows, and Retrieval-Augmented Generation (RAG) solutions. These systems are designed to improve productivity, automate repetitive business operations, streamline knowledge access, and support faster operational decision-making across enterprise environments.",
+      "Yes, comprehensive AI maintenance and support are critical components of our enterprise AI services. AI models and intelligent automation systems require continuous optimization to adapt to changing enterprise data and business objectives. We provide proactive monitoring, model fine-tuning, security patching, and performance analytics to ensure your AI agents and generative AI solutions remain accurate and efficient over time. Our dedicated support teams work closely with your IT department to seamlessly manage updates, scale capabilities, and maximize the long-term lifecycle of your custom AI software.",
   },
   {
     id: 7,
     serial: "question 07",
-    question: "What business processes can be automated using Microsoft Power Platform solutions?",
+    question: "Why should we choose Softree as our AI consulting and development partner?",
     answer:
-      "Businesses use Microsoft Power Platform to automate approvals, onboarding, reporting, inventory tracking, HR operations, document workflows, customer request management, compliance processes, and operational coordination systems. Softree helps organizations identify automation opportunities and implement scalable Power Apps and Power Automate solutions integrated with enterprise systems and existing Microsoft environments.",
+      "CTOs and digital transformation leaders choose Softree because we combine deep AI engineering expertise with extensive experience in the Microsoft AI ecosystem. We do not just build AI; we deliver comprehensive enterprise AI solutions that drive real business value. Our specialized knowledge of Azure AI, Microsoft Copilot, and intelligent automation ensures that your AI initiatives are built on secure, scalable, and enterprise-ready foundations. We prioritize transparency, rigorous AI governance, and a consultative approach to guarantee that our custom AI development directly aligns with your strategic business goals.",
   },
   {
     id: 8,
     serial: "question 08",
-    question: "How does Softree ensure data security and compliance in enterprise solutions?",
+    question: "How do you handle the integration of AI into legacy enterprise systems?",
     answer:
-      "Softree aligns all development with Microsoft and industry security best practices. We build solutions within your secure Microsoft 365 tenant or Azure environment, ensuring data privacy, strict access controls, and compliance with enterprise governance policies.",
+      "We specialize in modernizing operations by seamlessly integrating AI into legacy enterprise systems without causing operational downtime. Our AI integration strategy involves building secure API gateways and utilizing microservices architecture to connect your existing infrastructure with modern AI capabilities like generative AI and intelligent decision engines. Whether you are transitioning to cloud-native platforms or enhancing on-premise systems, our AI development services ensure smooth interoperability, data consistency, and scalable performance, allowing your organization to leverage advanced AI solutions while maximizing previous technology investments.",
   },
 ]
 

@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable react-hooks/set-state-in-effect, @typescript-eslint/no-unused-vars */
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
@@ -222,7 +223,7 @@ export default function CaseStudiesListingClient({
       />
 
       <section className="border-b border-[#e6e1f2] bg-white">
-        <div className="mx-auto max-w-[1280px] px-5 py-6 md:px-8">
+        <div className="mx-auto max-w-[1440px] px-5 py-6 md:px-8">
           <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
             <div className="relative max-w-md flex-1">
               <Search
@@ -297,7 +298,7 @@ export default function CaseStudiesListingClient({
           ) : null}
         </AnimatePresence>
 
-        <div className="mx-auto max-w-[1280px] px-5 md:px-8">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-8">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={gridInView ? { opacity: 1, y: 0 } : {}}
