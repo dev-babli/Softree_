@@ -70,6 +70,13 @@ const defaultFaqs: FAQItem[] = [
     answer:
       "Businesses use Microsoft Power Platform to automate approvals, onboarding, reporting, inventory tracking, HR operations, document workflows, customer request management, compliance processes, and operational coordination systems. Softree helps organizations identify automation opportunities and implement scalable Power Apps and Power Automate solutions integrated with enterprise systems and existing Microsoft environments.",
   },
+  {
+    id: 8,
+    serial: "question 08",
+    question: "How does Softree ensure data security and compliance in enterprise solutions?",
+    answer:
+      "Softree aligns all development with Microsoft and industry security best practices. We build solutions within your secure Microsoft 365 tenant or Azure environment, ensuring data privacy, strict access controls, and compliance with enterprise governance policies.",
+  },
 ]
 
 /** Brand palette: cream `#F3F0EE`, blue `#1852FF`, orange `#FF5812`, ink `#0a0a1a` */
@@ -120,7 +127,8 @@ const FAQ_CARD_THEMES = [
 
 export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) {
   const faqs = customFaqs || defaultFaqs
-  const [activeIndex, setActiveIndex] = useState(faqs.length > 0 ? Math.min(4, faqs.length - 1) : -1)
+  const [activeLeft, setActiveLeft] = useState<number>(faqs.length > 0 ? 0 : -1)
+  const [activeRight, setActiveRight] = useState<number>(faqs.length > 1 ? 1 : -1)
   const sectionRef = useRef<HTMLElement>(null)
   const titleRef = useRef<HTMLDivElement>(null)
   const faqsRef = useRef<HTMLDivElement>(null)
@@ -153,7 +161,148 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
   }, { scope: sectionRef })
 
   const handleClick = (index: number) => {
-    setActiveIndex(activeIndex === index ? -1 : index)
+    const isLeft = index % 2 === 0
+    if (isLeft) {
+      setActiveLeft(activeLeft === index ? -1 : index)
+    } else {
+      setActiveRight(activeRight === index ? -1 : index)
+    }
+  }
+
+  const renderFAQCard = (faq: FAQItem, index: number) => {
+    const isActive = index % 2 === 0 ? index === activeLeft : index === activeRight
+    const theme = FAQ_CARD_THEMES[index % FAQ_CARD_THEMES.length]
+
+    return (
+      <div
+        key={faq.id}
+        className={`group/card relative overflow-hidden rounded-2xl border transition-all duration-500 ease-[var(--legacy-ease-0_4_0_0_2_1)] w-full ${
+          isActive
+            ? "bg-white shadow-xl"
+            : "bg-white/90 shadow-sm hover:shadow-md"
+        }`}
+        style={{
+          borderColor: isActive ? `${theme.accent}40` : `${theme.accent}22`,
+          boxShadow: isActive ? `0 12px 40px ${theme.accent}22` : undefined,
+          order: index,
+        }}
+      >
+        {/* Grainient Background for Inactive Cards */}
+        {!isActive && (
+          <>
+            {/* Base Gradient */}
+            <div
+              className="absolute inset-0 transition-all duration-500 group-hover/card:opacity-90"
+              style={{
+                background: `linear-gradient(135deg, ${theme.from} 0%, ${theme.via} 50%, ${theme.to} 100%)`,
+              }}
+            />
+            {/* Accent Glow */}
+            <div
+              className="absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-10 transition-opacity duration-500 group-hover/card:opacity-20"
+              style={{ backgroundColor: theme.accent }}
+            />
+            <div
+              className="absolute -bottom-10 -left-10 h-32 w-32 rounded-full opacity-5 transition-opacity duration-500 group-hover/card:opacity-15"
+              style={{ backgroundColor: theme.accent }}
+            />
+            {/* Subtle Border Glow */}
+            <div
+              className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover/card:opacity-100"
+              style={{
+                boxShadow: `inset 0 0 0 1px ${theme.accent}28, 0 0 30px ${theme.accent}14`,
+              }}
+            />
+          </>
+        )}
+
+        {/* Static Background for Active Card */}
+        {isActive && (
+          <div className="absolute inset-0">
+            <div
+              className="absolute inset-0"
+              style={{
+                background: `linear-gradient(135deg, ${theme.from} 0%, ${theme.via} 58%, ${theme.to} 100%)`,
+              }}
+            />
+            <div className={`absolute inset-0 bg-gradient-to-b ${theme.scrim}`} />
+            <div className="absolute inset-0 bg-white/20" />
+          </div>
+        )}
+
+        {/* Content */}
+        <div className="relative flex h-full flex-col p-5 md:p-6 justify-between">
+          <button
+            type="button"
+            aria-expanded={isActive}
+            aria-controls={isActive ? `faq-answer-${faq.id}` : undefined}
+            onClick={() => handleClick(index)}
+            className="flex w-full flex-col text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1852FF]/50 focus-visible:ring-offset-2"
+          >
+            {/* Top Row: always visible */}
+            <div className="flex items-center justify-between w-full flex-shrink-0">
+              <span
+                className="text-xs font-semibold uppercase tracking-wider transition-colors duration-500"
+                style={{ color: isActive ? `${FAQ_INK_MUTED}cc` : FAQ_INK_MUTED }}
+              >
+                {faq.serial}
+              </span>
+              <div className="relative h-6 w-6 flex-shrink-0">
+                {/* Plus Icon */}
+                <Plus
+                  className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${
+                    isActive
+                      ? "scale-0 opacity-0 rotate-90"
+                      : "scale-100 opacity-100 rotate-0"
+                  }`}
+                  style={{ color: theme.accent }}
+                />
+                {/* Minus Icon */}
+                <Minus
+                  className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${
+                    isActive
+                      ? "scale-100 opacity-100 rotate-0"
+                      : "scale-0 opacity-0 -rotate-90"
+                  }`}
+                  style={{ color: theme.accent }}
+                />
+              </div>
+            </div>
+
+            {/* Bottom Content / Middle content */}
+            <div className="mt-auto flex flex-col transition-all duration-500">
+              {/* Question */}
+              <div className="mb-2">
+                <h3
+                  className={`font-semibold leading-snug transition-colors duration-500 ${
+                    isActive ? "text-base md:text-lg" : "text-sm lg:text-[13px]"
+                  }`}
+                  style={{
+                    color: FAQ_INK,
+                  }}
+                >
+                  {faq.question}
+                </h3>
+              </div>
+            </div>
+          </button>
+
+          {isActive && (
+            <div id={`faq-answer-${faq.id}`} className="mt-2">
+              <div className="pt-2 md:pt-3">
+                <h4 className="mb-1.5 text-[11px] font-semibold uppercase tracking-wider" style={{ color: `${FAQ_INK_MUTED}99` }}>
+                  Question Answer:
+                </h4>
+                <div className="mb-3 h-px w-14" style={{ backgroundColor: `${theme.accent}35` }} />
+                <p className="mb-4 text-sm leading-relaxed" style={{ color: `${FAQ_INK}d9` }}>
+                  {faq.answer}
+                </p>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -200,141 +349,16 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
          *  • Desktop (≥lg)         : original horizontal slot accordion. */}
         <div
           ref={faqsRef}
-          className="grid gap-3 lg:grid-cols-2"
+          className="flex flex-col gap-3 lg:grid lg:grid-cols-2 lg:gap-3 lg:items-start"
         >
-          {faqs.map((faq, index) => {
-            const isActive = index === activeIndex
-            const theme = FAQ_CARD_THEMES[index % FAQ_CARD_THEMES.length]
-
-            return (
-              <div
-                key={faq.id}
-                className={`group/card relative overflow-hidden rounded-2xl border transition-all duration-500 ease-[var(--legacy-ease-0_4_0_0_2_1)] w-full ${
-                  isActive
-                    ? "bg-white shadow-xl"
-                    : "bg-white/90 shadow-sm hover:shadow-md"
-                }`}
-                style={{
-                  borderColor: isActive ? `${theme.accent}40` : `${theme.accent}22`,
-                  boxShadow: isActive ? `0 12px 40px ${theme.accent}22` : undefined,
-                }}
-              >
-                {/* Grainient Background for Inactive Cards */}
-                {!isActive && (
-                  <>
-                    {/* Base Gradient */}
-                    <div
-                      className="absolute inset-0 transition-all duration-500 group-hover/card:opacity-90"
-                      style={{
-                        background: `linear-gradient(135deg, ${theme.from} 0%, ${theme.via} 50%, ${theme.to} 100%)`,
-                      }}
-                    />
-                    {/* Accent Glow */}
-                    <div
-                      className="absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-10 transition-opacity duration-500 group-hover/card:opacity-20"
-                      style={{ backgroundColor: theme.accent }}
-                    />
-                    <div
-                      className="absolute -bottom-10 -left-10 h-32 w-32 rounded-full opacity-5 transition-opacity duration-500 group-hover/card:opacity-15"
-                      style={{ backgroundColor: theme.accent }}
-                    />
-                    {/* Subtle Border Glow */}
-                    <div
-                      className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover/card:opacity-100"
-                      style={{
-                        boxShadow: `inset 0 0 0 1px ${theme.accent}28, 0 0 30px ${theme.accent}14`,
-                      }}
-                    />
-                  </>
-                )}
-
-                {/* Static Background for Active Card */}
-                {isActive && (
-                  <div className="absolute inset-0">
-                    <div
-                      className="absolute inset-0"
-                      style={{
-                        background: `linear-gradient(135deg, ${theme.from} 0%, ${theme.via} 58%, ${theme.to} 100%)`,
-                      }}
-                    />
-                    <div className={`absolute inset-0 bg-gradient-to-b ${theme.scrim}`} />
-                    <div className="absolute inset-0 bg-white/20" />
-                  </div>
-                )}
-
-                {/* Content */}
-                <div className="relative flex h-full flex-col p-5 md:p-6 justify-between">
-                  <button
-                    type="button"
-                    aria-expanded={isActive}
-                    aria-controls={isActive ? `faq-answer-${faq.id}` : undefined}
-                    onClick={() => handleClick(index)}
-                    className="flex w-full flex-col text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1852FF]/50 focus-visible:ring-offset-2"
-                  >
-                  {/* Top Row: always visible */}
-                  <div className="flex items-center justify-between w-full flex-shrink-0">
-                    <span
-                      className="text-xs font-semibold uppercase tracking-wider transition-colors duration-500"
-                      style={{ color: isActive ? `${FAQ_INK_MUTED}cc` : FAQ_INK_MUTED }}
-                    >
-                      {/* On desktop, show only the question number (e.g. "01") when inactive to prevent layout squishing */}
-                      {faq.serial}
-                    </span>
-                    <div className="relative h-6 w-6 flex-shrink-0">
-                      {/* Plus Icon */}
-                      <Plus
-                        className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${isActive
-                          ? "scale-0 opacity-0 rotate-90"
-                          : "scale-100 opacity-100 rotate-0"
-                          }`}
-                        style={{ color: theme.accent }}
-                      />
-                      {/* Minus Icon */}
-                      <Minus
-                        className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${isActive
-                          ? "scale-100 opacity-100 rotate-0"
-                          : "scale-0 opacity-0 -rotate-90"
-                          }`}
-                        style={{ color: theme.accent }}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Bottom Content / Middle content */}
-                  <div className="mt-auto flex flex-col transition-all duration-500">
-                    {/* Question */}
-                    <div className="mb-2">
-                      <h3
-                        className={`font-semibold leading-snug transition-colors duration-500 ${
-                          isActive ? "text-base md:text-lg" : "text-sm lg:text-[13px]"
-                        }`}
-                        style={{
-                          color: FAQ_INK,
-                        }}
-                      >
-                        {faq.question}
-                      </h3>
-                    </div>
-                  </div>
-                  </button>
-
-                    {isActive && (
-                      <div id={`faq-answer-${faq.id}`} className="mt-2">
-                        <div className="pt-2 md:pt-3">
-                          <h4 className="mb-1.5 text-[11px] font-semibold uppercase tracking-wider" style={{ color: `${FAQ_INK_MUTED}99` }}>
-                            Question Answer:
-                          </h4>
-                          <div className="mb-3 h-px w-14" style={{ backgroundColor: `${theme.accent}35` }} />
-                          <p className="mb-4 text-sm leading-relaxed" style={{ color: `${FAQ_INK}d9` }}>
-                            {faq.answer}
-                          </p>
-                        </div>
-                      </div>
-                    )}
-                </div>
-              </div>
-            )
-          })}
+          {/* Left Column (even indices) */}
+          <div className="contents lg:flex lg:flex-col lg:gap-3">
+            {faqs.map((faq, index) => (index % 2 === 0 ? renderFAQCard(faq, index) : null))}
+          </div>
+          {/* Right Column (odd indices) */}
+          <div className="contents lg:flex lg:flex-col lg:gap-3">
+            {faqs.map((faq, index) => (index % 2 !== 0 ? renderFAQCard(faq, index) : null))}
+          </div>
         </div>
       </div>
     </section>

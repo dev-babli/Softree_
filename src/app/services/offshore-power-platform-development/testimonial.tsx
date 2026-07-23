@@ -3,62 +3,59 @@
 import { useEffect, useState } from "react";
 import { Star, Quote } from "lucide-react";
 
+interface Testimonial {
+  text: string;
+  name: string;
+  role: string;
+  location: string;
+  company: string;
+  logo: string;
+  rating: number;
+}
+
 export default function TestimonialsSplitSlider() {
   /* ================= DATA ================= */
-  const testimonials = [
+  const testimonials: Testimonial[] = [
     {
-      name: "Rachel Green",
-      role: "HR Manager",
-      company: "Accenture",
+      text: "SOFTREE staff worked with us to learn our installation automation technology and built exactly what we needed.",
+      name: "Darrell Trimble",
+      role: "CEO",
+      location: "California",
+      company: "SP Marketplace",
+      logo: "/images/logo/1.jpg",
       rating: 5,
-      logo: "https://cdn.simpleicons.org/accenture",
-      text: "Softree automated our HR workflows using Power Platform and Dataverse. Manual approvals were eliminated and productivity increased significantly. Our HR operations are now faster, smarter, and fully digital.",
-    },
-
-    {
-      name: "Olivia Carter",
-      role: "UX Designer",
-      company: "Infosys",
-      rating: 5,
-      logo: "https://cdn.simpleicons.org/infosys",
-      text: "Their SharePoint and Power Apps solutions improved collaboration across global teams. Content is centralized, searchable, and workflows are streamlined. The overall experience feels seamless and efficient.",
-    },
-
-    {
-      name: "Amit Sharma",
-      role: "Digital Transformation Lead",
-      company: "Wipro",
-      rating: 5,
-      logo: "https://cdn.simpleicons.org/wipro",
-      text: "Softree helped us modernize internal tools with Power Apps and automation. Approval cycles became faster and manual processes were drastically reduced. The solution scaled perfectly across departments.",
-    },
-
-    {
-      name: "Priya Nair",
-      role: "System Administrator",
-      company: "HCLTech",
-      rating: 5,
-      logo: "https://cdn.simpleicons.org/hcl",
-      text: "With Dataverse and Power Automate, we built secure enterprise workflows integrated with Microsoft 365. Reporting accuracy improved and compliance became easier. Their implementation was smooth and reliable.",
     },
     {
-      name: "Rohit Mehta",
-      role: "IT Operations Head",
-      company: "TCS",
+      text: "We had a very positive experience working with Softree Technology. The developers were responsive and delivery was on time. We appreciate the attention they gave our project and their great communication. The final product was exactly what we wanted and we look forward to working with Softree in the future.",
+      name: "Natasha Adams",
+      role: "Partner",
+      location: "Virginia",
+      company: "Wicked Point LLC",
+      logo: "/images/logo/wickedpoint.jpg",
       rating: 5,
-      logo: "https://cdn.simpleicons.org/tcs",
-      text: "Softree built scalable SharePoint and Power Platform solutions that automated our service desk and internal processes. Ticket resolution time reduced drastically and reporting became fully real-time. The deployment was smooth across multiple teams.",
     },
-
     {
-      name: "Elena Martin",
-      role: "Digital Solutions Manager",
-      company: "Sanofi",
+      text: "Overall, we are satisfied with our collaboration in the past and your last action and response to our reported issue, really makes a difference.",
+      name: "Arkady Fedorovtsjev",
+      role: "IT Specialist",
+      location: "Netherlands",
+      company: "ECG International",
+      logo: "/images/logo/ecg.png",
       rating: 5,
-      logo: "/images/logo/sanofi.jpg",
-      text: "Their Power Apps and Dataverse implementation helped us digitize compliance workflows and regulatory documentation. Data is now centralized, secure, and easy to track. Productivity improved across our healthcare operations.",
+    },
+    {
+      text: "Softree demonstrated strong expertise in PowerApps development and delivered the project with excellent communication, responsiveness, and coordination throughout the engagement.",
+      name: "Rahi Radhakrishnan",
+      role: "Director of Delivery",
+      location: "USA",
+      company: "Nuvento",
+      logo: "/images/logo/nuvento.jpg",
+      rating: 5,
     },
   ];
+
+
+
 
   /* ================= SLIDER ================= */
   const [page, setPage] = useState(0);
@@ -194,11 +191,10 @@ export default function TestimonialsSplitSlider() {
                 <button
                   key={i}
                   onClick={() => setPage(i)}
-                  className={`h-2 rounded-full transition-all ${
-                    page === i
-                      ? "w-8 bg-white"
-                      : "w-3 bg-white/40 hover:bg-white/70"
-                  }`}
+                  className={`h-2 rounded-full transition-all ${page === i
+                    ? "w-8 bg-white"
+                    : "w-3 bg-white/40 hover:bg-white/70"
+                    }`}
                 />
               ))}
             </div>
