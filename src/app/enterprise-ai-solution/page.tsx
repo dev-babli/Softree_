@@ -11,7 +11,7 @@ import { HowAIHelps } from "./components/HowAIHelps";
 import CaseStudiesSection from "./components/CaseStudiesSection";
 import LightFAQExact from "./components/LightFAQExact";
 import TestimonialsSplitSlider from "../services/offshore-power-platform-development/testimonial";
-
+import EnterpriseAICapabilities from "./components/enterprise-ai-capabilites";
 export default function Home() {
     return (
         <div className="flex min-h-screen flex-col bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
@@ -19,6 +19,7 @@ export default function Home() {
             <main className="flex-1">
                 <AdvancedHero />
                 <TrustedByMarquee />
+                <EnterpriseAICapabilities />
                 <SuccessStoriesShowcase />
                 <SolutionMapper />
                 <InteractiveStepper />

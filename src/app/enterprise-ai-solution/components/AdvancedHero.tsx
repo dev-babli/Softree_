@@ -134,7 +134,7 @@ export function AdvancedHero() {
             </motion.div>
           </div>
 
-          <div className="relative mx-auto mt-16 w-full max-w-6xl rounded-[32px] border-2 border-orange-200/80 bg-[#f4f0e8] p-4 sm:p-5 shadow-[0_24px_60px_-15px_rgba(10,10,26,0.08)]">
+          <div className="relative mx-auto mt-16 w-full max-w-5xl rounded-[32px] border-2 border-orange-200/80 bg-[#f4f0e8] p-4 sm:p-5 shadow-[0_24px_60px_-15px_rgba(10,10,26,0.08)]">
             {/* Glowing Backdrop Platform */}
             <div className="pointer-events-none absolute -inset-2 rounded-[36px] bg-gradient-to-tr from-[#1852FF]/10 via-[#FF5812]/15 to-[#FF5812]/5 blur-2xl opacity-90" />
             

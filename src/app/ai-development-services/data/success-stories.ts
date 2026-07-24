@@ -1,16 +1,4 @@
-export interface SuccessStory {
-  id: string;
-  industryLabel: string;
-  title: string;
-  problem: string;
-  solution: string;
-  results: string[];
-  icon: string;
-  color: string;
-  caseStudyUrl?: string;
-}
-
-export const successStoriesList: SuccessStory[] = [
+export const successStoriesList = [
   {
     id: '01',
     industryLabel: 'HUMAN RESOURCES',
