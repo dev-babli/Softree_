@@ -1,3 +1,4 @@
+/* eslint-disable softree-design/no-untokenized-design-literals */
 "use client";
 
 import Link from "next/link";
@@ -30,6 +31,8 @@ import {
   Layers,
   FileText,
   RefreshCw,
+  Brain,
+  Lightbulb,
 } from "lucide-react";
 
 type MenuLink = {
@@ -84,11 +87,20 @@ const menu: MenuItem[] = [
         ],
       },
       {
-        title: "AI & Automation",
-        description: "Intelligence in every workflow.",
+        title: "AI Strategy & Solutions",
+        description: "Consulting & enterprise enablement.",
         links: [
+          { label: "AI Consulting Services", url: "/services/ai-consulting-services", icon: Lightbulb, description: "Strategy & readiness roadmaps" },
+          { label: "Enterprise AI Solutions", url: "/services/enterprise-ai-solution", icon: Building2, description: "Scale AI across the enterprise" },
           { label: "AI Solutions", url: "/ai", icon: Sparkles, description: "Agentic & generative AI hub" },
-          { label: "Workflow Orchestration", url: "/ai-workflow-orchestration", icon: Workflow, description: "Autonomous pipeline agents" },
+        ],
+      },
+      {
+        title: "AI & Automation",
+        description: "Agentic models & workflow build.",
+        links: [
+          { label: "AI Development Services", url: "/services/ai-development-services", icon: Brain, description: "Custom agentic & ML systems" },
+          { label: "Workflow Orchestration", url: "/services/ai-workflow-orchestration", icon: Workflow, description: "Autonomous pipeline agents" },
           { label: "AI Test Automation", url: "/services/ai-powered-test-automation", icon: BrainCircuit, description: "Quality at speed" },
           { label: "AI Agents", url: "/services/offshore-ai-development", icon: Bot, description: "Autonomous tasks" },
           { label: "Generative AI", url: "/services/offshore-generative-ai-development", icon: WandSparkles, description: "RAG & copilots" },
@@ -104,6 +116,21 @@ const menu: MenuItem[] = [
           { label: "Web Applications", url: "/services/offshore-web-app-development", icon: Globe2, description: "Portals & apps" },
           // { label: "Website Modernisation", url: "/services/website-modernization", icon: RefreshCw, description: "Free AI blueprint + redesign" },
           { label: "Mobile Applications", url: "/services/offshore-mobile-app-development", icon: Smartphone, description: "iOS & Android" },
+        ],
+      },
+    ],
+  },
+  {
+    label: "Solutions",
+    mega: true,
+    children: [
+      {
+        title: "AI & Automation",
+        description: "Intelligent solutions for enterprise automation.",
+        links: [
+          { label: "AI Agents Development", url: "/solutions/ai-agents-development", icon: Bot, description: "Automate complex enterprise workflows" },
+          { label: "AI Workflow Automation", url: "/solutions/ai-workflow-automation", icon: Workflow, description: "Intelligent process orchestration" },
+          { label: "Agentic AI Platform", url: "/agentic-ai-platform", icon: LayoutDashboard, description: "Build & govern agents at scale" },
         ],
       },
     ],
