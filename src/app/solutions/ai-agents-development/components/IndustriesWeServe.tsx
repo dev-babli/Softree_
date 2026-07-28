@@ -1,125 +1,155 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { industriesData } from "../data/industries";
 
 export default function IndustriesWeServe() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start center", "end end"],
-  });
+  const items = industriesData.items;
 
-  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  // Split items into 3 rows for structured desktop layout (matching the mockup)
+  // Row 1: 7 items, Row 2: 8 items, Row 3: 4 items
+  const row1 = items.slice(0, 7);
+  const row2 = items.slice(7, 15);
+  const row3 = items.slice(15, 19);
+
+  // Framer Motion Variants for Staggered Entrance
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.04,
+      },
+    },
+  } as const;
+
+  const pillVariants = {
+    hidden: { opacity: 0, y: 15, scale: 0.96 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        type: "spring" as const,
+        stiffness: 90,
+        damping: 14,
+      },
+    },
+  } as const;
+
 
   return (
-    <section className="relative overflow-hidden">
-      <div className="relative z-10 w-full">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+    <section className="relative py-20 bg-gradient-to-b from-zinc-50 via-white to-zinc-50 overflow-hidden">
+      
+      {/* Premium Ambient Background Blobs */}
+      <div className="absolute top-1/4 -left-36 w-[500px] h-[500px] bg-[#FF5812]/5 rounded-full blur-[120px] pointer-events-none z-0" />
+      <div className="absolute bottom-1/4 -right-36 w-[500px] h-[500px] bg-fuchsia-500/5 rounded-full blur-[120px] pointer-events-none z-0" />
+
+      <div className="mx-auto max-w-7xl px-6 relative z-10">
+        
+        {/* Top badge */}
+        <div className="flex items-center justify-center gap-3 mb-6">
+          <div className="w-8 h-[1px] bg-[#FF5812]/20"></div>
+          <div className="inline-flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FF5812]"></span>
+            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#FF5812]">
+              {industriesData.badge}
+            </span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FF5812]"></span>
+          </div>
+          <div className="w-8 h-[1px] bg-[#FF5812]/20"></div>
+        </div>
+
+        {/* Heading */}
+        <h2 className="text-center text-3xl md:text-5xl font-semibold leading-tight text-zinc-900">
+          {industriesData.heading.prefix}
+          <span className="text-[#FF5812]">
+            {industriesData.heading.highlight}
+          </span>
+          {industriesData.heading.suffix}
+        </h2>
+
+        {/* Description */}
+        <p className="mt-6 text-center text-zinc-600 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">
+          {industriesData.subheading}
+        </p>
+
+        {/* Industry Pills Container */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="mt-16 flex flex-col gap-4 items-center justify-center w-full"
         >
-          {/* ================= EXPERTISE HEADER ================= */}
-          <div className="text-center mb-12 max-w-4xl mx-auto px-4">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="w-8 h-[1px] bg-[#FF5812]/20"></div>
-              <div className="inline-flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#FF5812]"></span>
-                <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#FF5812]">
-                  {industriesData.badge}
-                </span>
-                <span className="w-1.5 h-1.5 rounded-full bg-[#FF5812]"></span>
-              </div>
-              <div className="w-8 h-[1px] bg-[#FF5812]/20"></div>
-            </div>
-
-            <h2 className="text-[clamp(32px,4.5vw,56px)] font-semibold leading-[0.9] tracking-[-0.04em] text-[#0A0A1A]">
-              {industriesData.heading.prefix}
-              <span className="text-[#FF5812]">
-                {industriesData.heading.highlight}
-              </span>
-              {industriesData.heading.suffix}
-            </h2>
-
-            <p className="mt-6 text-base leading-relaxed text-[#0a0a1a]/70 max-w-3xl mx-auto">
-              {industriesData.subheading}
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Timeline container */}
-        <div ref={containerRef} className="relative py-10">
-          {/* Vertical Line */}
-          <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 top-0 bottom-[110px] md:bottom-[100px] w-[2px] bg-zinc-200/80">
-            {/* Growing orange line */}
-            <motion.div
-              style={{ height: lineHeight }}
-              className="absolute top-0 left-0 w-full bg-gradient-to-b from-[#FF5812] to-amber-400 origin-top shadow-[0_0_10px_rgba(255,88,18,0.5)]"
-            />
-          </div>
-
-          {/* Timeline Items */}
-          <div className="flex flex-col gap-12">
-            {industriesData.items.map((item, idx) => {
-              const isLeft = idx % 2 === 0;
+          {/* Row 1 */}
+          <div className="flex flex-wrap justify-center gap-3 md:gap-4 max-w-6xl w-full">
+            {row1.map((item, index) => {
               const Icon = item.icon;
               return (
                 <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: idx * 0.12 }}
-                  className={`relative flex w-full items-center ${
-                    isLeft ? "md:flex-row" : "md:flex-row-reverse"
-                  } flex-row pl-8 md:pl-0`}
+                  key={`row1-${index}`}
+                  variants={pillVariants}
+                  whileHover={{ y: -3, scale: 1.02 }}
+                  className="group flex items-center gap-3 rounded-full border border-zinc-200/80 bg-white px-5 py-3 shadow-sm hover:shadow-[0_8px_24px_rgba(255,88,18,0.08)] hover:border-[#FF5812]/50 transition-all duration-300 cursor-pointer"
                 >
-                  {/* Dot */}
-                  <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-r from-orange-600 to-amber-500 rounded-full border-4 border-white z-10 shadow-md hover:scale-125 transition-transform duration-300"></div>
-
-                  {/* Card */}
-                  <div
-                    className={`w-full md:w-1/2 ${
-                      isLeft ? "md:pr-12 md:text-right" : "md:pl-12"
-                    }`}
-                  >
-                    <div
-                      className={`bg-white/90 backdrop-blur-md border-2 border-[#FF5812]/30 rounded-2xl p-6 shadow-xl hover:-translate-y-1 transition-all duration-300 hover:bg-orange-50 hover:border-[#FF5812]/50 hover:shadow-[0_15px_30px_rgba(249,115,22,0.15)] flex gap-4 items-start ${
-                        isLeft ? "md:flex-row-reverse" : "flex-row"
-                      }`}
-                    >
-                      {/* Icon Wrapper */}
-                      <div className="flex-shrink-0 flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-orange-500/10 to-amber-500/10 border border-orange-500/20 text-orange-600 shadow-inner">
-                        <Icon className="w-5 h-5" />
-                      </div>
-
-                      {/* Content Text */}
-                      <div className="flex-1">
-                        <h3 className="text-xl md:text-2xl font-semibold leading-snug text-zinc-900 tracking-tight">
-                          {item.industry}
-                        </h3>
-                        <p className="text-base leading-relaxed text-[#0a0a1a]/70 mt-1.5">
-                          {item.description}
-                        </p>
-                      </div>
-                    </div>
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#FF5812]/10 border border-[#FF5812]/20 group-hover:bg-[#FF5812] group-hover:border-[#FF5812] transition-all duration-300">
+                    <Icon size={18} className="text-[#FF5812] group-hover:text-white transition-colors duration-300" />
                   </div>
-
-                  {/* Spacer Column */}
-                  <div className="hidden md:block w-1/2"></div>
+                  <span className="text-sm md:text-[15px] font-medium text-zinc-800 group-hover:text-[#FF5812] transition-colors duration-300">
+                    {item.title}
+                  </span>
                 </motion.div>
               );
             })}
           </div>
-        </div>
+
+          {/* Row 2 */}
+          <div className="flex flex-wrap justify-center gap-3 md:gap-4 max-w-6xl w-full">
+            {row2.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={`row2-${index}`}
+                  variants={pillVariants}
+                  whileHover={{ y: -3, scale: 1.02 }}
+                  className="group flex items-center gap-3 rounded-full border border-zinc-200/80 bg-white px-5 py-3 shadow-sm hover:shadow-[0_8px_24px_rgba(255,88,18,0.08)] hover:border-[#FF5812]/50 transition-all duration-300 cursor-pointer"
+                >
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#FF5812]/10 border border-[#FF5812]/20 group-hover:bg-[#FF5812] group-hover:border-[#FF5812] transition-all duration-300">
+                    <Icon size={18} className="text-[#FF5812] group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <span className="text-sm md:text-[15px] font-medium text-zinc-800 group-hover:text-[#FF5812] transition-colors duration-300">
+                    {item.title}
+                  </span>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Row 3 */}
+          <div className="flex flex-wrap justify-center gap-3 md:gap-4 max-w-6xl w-full">
+            {row3.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={`row3-${index}`}
+                  variants={pillVariants}
+                  whileHover={{ y: -3, scale: 1.02 }}
+                  className="group flex items-center gap-3 rounded-full border border-zinc-200/80 bg-white px-5 py-3 shadow-sm hover:shadow-[0_8px_24px_rgba(255,88,18,0.08)] hover:border-[#FF5812]/50 transition-all duration-300 cursor-pointer"
+                >
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#FF5812]/10 border border-[#FF5812]/20 group-hover:bg-[#FF5812] group-hover:border-[#FF5812] transition-all duration-300">
+                    <Icon size={18} className="text-[#FF5812] group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <span className="text-sm md:text-[15px] font-medium text-zinc-800 group-hover:text-[#FF5812] transition-colors duration-300">
+                    {item.title}
+                  </span>
+                </motion.div>
+              );
+            })}
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );
 }
-

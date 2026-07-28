@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import SectionBadge from '../../../ai-development-services/components/SectionBadge';
+import SectionBadge from '../../../services/ai-development-services/components/SectionBadge';
 import { coreCapabilitiesData } from '../data/coreCapabilities';
 
 export default function CoreCapabilities() {

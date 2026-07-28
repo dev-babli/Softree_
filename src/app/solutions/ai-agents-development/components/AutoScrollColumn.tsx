@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import ChallengeItem from '../../../ai-development-services/components/ChallengeItem';
+import ChallengeItem from '../../../services/ai-development-services/components/ChallengeItem';
 
 export default function AutoScrollColumn({ 
   data, 

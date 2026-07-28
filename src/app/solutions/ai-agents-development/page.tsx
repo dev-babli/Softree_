@@ -12,6 +12,7 @@ import NavigationClient from '@/components/sections/navigation-client';
 import LightContactSection from '@/components/homepage-light/LightContactSection';
 import Footer from '@/components/sections/footer';
 import TrustedByMarquee from '@/components/homepage-light/TrustedByMarquee';
+import WhyChooseWithTestimonials from './components/why';
 
 export const metadata = {
   title: 'AI Agents Development Services | Softree Technology',
@@ -32,6 +33,7 @@ export default function AIAgentsDevelopmentPage() {
       <TechnologyStack />
       <IndustriesWeServe />
       <SuccessStories />
+      <WhyChooseWithTestimonials />
       <AIAgentsFAQ />
       <LightContactSection />
       <Footer />

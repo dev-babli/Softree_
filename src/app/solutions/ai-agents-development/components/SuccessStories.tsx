@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import { useRouter } from "next/navigation";
-import { FileText, AlertTriangle, Lightbulb } from "lucide-react";
+import { FileText, AlertTriangle, Lightbulb, Briefcase, BookOpen } from "lucide-react";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -96,12 +96,13 @@ export default function SuccessStories() {
                         {item.title}
                       </h3>
 
-                      <p className="mt-2 text-sm text-slate-300 flex items-center justify-center gap-2">
-                        📍 Industry:
+                      <div className="mt-2 text-sm text-slate-300 flex items-center justify-center gap-2">
+                        <Briefcase className="w-4 h-4 text-orange-400" />
+                        <span className="text-slate-400">Industry:</span>
                         <span className="font-medium text-white">
                           {item.industry}
                         </span>
-                      </p>
+                      </div>
                     </div>
 
                     {/* Content */}
@@ -190,15 +191,17 @@ export default function SuccessStories() {
                               href={(item as any).link}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="relative z-10 inline-flex items-center justify-center px-4 py-2 text-xs font-semibold uppercase tracking-wide rounded-full bg-white text-orange-700 hover:scale-105 transition-all duration-300 whitespace-nowrap flex-shrink-0"
+                              className="relative z-10 inline-flex items-center justify-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wide rounded-full bg-white text-orange-700 hover:scale-105 transition-all duration-300 whitespace-nowrap flex-shrink-0"
                             >
-                              {item.buttonText} →
+                              <BookOpen className="w-3.5 h-3.5" />
+                              {item.buttonText}
                             </a>
                           ) : (
                             <button
-                              className="relative z-10 inline-flex items-center justify-center px-4 py-2 text-xs font-semibold uppercase tracking-wide rounded-full bg-white text-orange-700 hover:scale-105 transition-all duration-300 whitespace-nowrap flex-shrink-0"
+                              className="relative z-10 inline-flex items-center justify-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wide rounded-full bg-white text-orange-700 hover:scale-105 transition-all duration-300 whitespace-nowrap flex-shrink-0"
                             >
-                              {item.buttonText} →
+                              <BookOpen className="w-3.5 h-3.5" />
+                              {item.buttonText}
                             </button>
                           )}
                         </div>

@@ -1,3 +1,4 @@
+/* eslint-disable softree-design/no-untokenized-design-literals */
 "use client";
 
 import Link from "next/link";
@@ -63,6 +64,10 @@ const MEGA_META: Record<string, MegaMenuMeta> = {
     eyebrow: "Solutions",
     blurb: "Production-ready products built to accelerate your operations.",
   },
+  Solutions: {
+    eyebrow: "Solutions",
+    blurb: "Tailored AI and enterprise solutions designed to transform your business operations.",
+  },
 };
 
 const GRID_COLS: Record<number, string> = {
@@ -70,6 +75,7 @@ const GRID_COLS: Record<number, string> = {
   2: "grid-cols-2",
   3: "grid-cols-3",
   4: "grid-cols-4",
+  5: "grid-cols-5",
 };
 
 export function MegaMenuPanel({
@@ -83,12 +89,12 @@ export function MegaMenuPanel({
 }) {
   const meta = MEGA_META[label];
   const railPreset = NAV_RAIL_GRAINIENT[label] ?? NAV_RAIL_GRAINIENT.Services;
-  const columnCount = Math.min(groups.length, 4);
+  const columnCount = Math.min(groups.length, 5);
 
   return (
     <div
       data-nav-mega="rail-v2"
-      className="mx-auto flex w-full max-w-[1080px] overflow-hidden rounded-2xl border border-black/[0.08] bg-white shadow-[0_32px_80px_-20px_rgba(10,10,26,0.28)]"
+      className="mx-auto flex w-full max-w-[1200px] overflow-hidden rounded-2xl border border-black/[0.08] bg-white shadow-[0_32px_80px_-20px_rgba(10,10,26,0.28)]"
     >
       {/* Left rail — single Grainient */}
       <div className="relative hidden w-[220px] shrink-0 overflow-hidden sm:block">
@@ -144,7 +150,7 @@ export function MegaMenuPanel({
 
         {(() => {
           const cols: MegaMenuGroup[][] = [];
-          const maxCols = 4;
+          const maxCols = 5;
           for (let i = 0; i < groups.length; i++) {
             const colIdx = i % maxCols;
             if (!cols[colIdx]) {

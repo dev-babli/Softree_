@@ -24,7 +24,7 @@
  */
 
 import React, { useState, useRef, useMemo, useEffect, useCallback } from "react";
-import SectionBadge from '../../../ai-development-services/components/SectionBadge';
+import SectionBadge from '../../../services/ai-development-services/components/SectionBadge';
 import {
   motion,
   useMotionValue,

@@ -10,7 +10,7 @@ import IndustriesShowcase from "./components/IndustriesShowcase";
 import { HowAIHelps } from "./components/HowAIHelps";
 import CaseStudiesSection from "./components/CaseStudiesSection";
 import LightFAQExact from "./components/LightFAQExact";
-import TestimonialsSplitSlider from "../services/offshore-power-platform-development/testimonial";
+import TestimonialsSplitSlider from "@/app/services/offshore-power-platform-development/testimonial";
 import EnterpriseAICapabilities from "./components/enterprise-ai-capabilites";
 export default function Home() {
     return (

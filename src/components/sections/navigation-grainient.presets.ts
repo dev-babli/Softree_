@@ -76,6 +76,14 @@ export const NAV_RAIL_GRAINIENT: Record<string, NavGrainientPreset> = {
     warpFrequency: 4.5,
     blendAngle: -24,
   },
+  Solutions: {
+    ...railBase,
+    color1: "#E0E7FF",
+    color2: "#4F46E5",
+    color3: "#EEF2FF",
+    warpFrequency: 4.0,
+    blendAngle: -30,
+  },
 };
 
 /** Full mega-menu panel palette (alias of rail presets for mobile/legacy nav) */
