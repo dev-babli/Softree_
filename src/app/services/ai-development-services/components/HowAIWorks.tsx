@@ -40,10 +40,7 @@ export default function HowAIWorks() {
   return (
     <section className="relative w-full py-12 lg:py-16 bg-transparent overflow-hidden" ref={containerRef}>
       {/* Background Decorators */}
-      {/* Decorative dots top left */}
-      <div className="absolute top-8 left-8 grid grid-cols-5 gap-2.5 pointer-events-none opacity-20">
-         {[...Array(25)].map((_, i) => <div key={i} className="w-1 h-1 bg-slate-400 rounded-full"></div>)}
-      </div>
+
       {/* Soft orange radial top right */}
       
       {/* Curved lines pattern bottom left and right */}
@@ -52,14 +49,14 @@ export default function HowAIWorks() {
 
       <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center">
         
-        <SectionBadge text="HOW AI WORKS" variant="line" />
+        <SectionBadge text="OUR AI DEVELOPMENT PROCESS" variant="line" />
         
         <h2 className="text-2xl md:text-4xl lg:text-[2.25rem] font-extrabold text-[#111827] mb-2 md:mb-3 tracking-tight text-center leading-tight">
-          How AI Works
+          From AI Strategy <span className="text-[#FF5812]">to Production-Ready Solutions</span>
         </h2>
         
         <p className="text-[15px] lg:text-base text-[#6B7280] mb-6 lg:mb-8 text-center max-w-2xl leading-relaxed">
-          Discover how our AI Development Services transform business challenges into intelligent enterprise solutions through a proven four-step implementation journey.
+          Our AI engineers take your business challenge from discovery and solution design through development, enterprise integration, and production deployment using a structured, outcome-driven approach.
         </p>
         
         <div 

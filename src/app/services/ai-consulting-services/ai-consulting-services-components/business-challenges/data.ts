@@ -1,82 +1,88 @@
-import { BusinessChallengePair } from "./types";
+import {
+    IconMap2,
+    IconChecklist,
+    IconUsers,
+    IconTrendingUp,
+    IconBrandAzure,
+    IconTargetArrow,
+    IconSearch,
+    IconBrain,
+    IconUsersGroup,
+    IconBuildingStore,
+} from "@tabler/icons-react";
 
-export const challengePairs: BusinessChallengePair[] = [
-  {
-    id: "1",
-    challenge: {
-      title: "Customer Support",
-      description: "Long response times and inconsistent customer experiences",
-      iconName: "Headphones"
+export const businessChallengesData = [
+    {
+        id: 1,
+        title: "Manual & Inefficient Business Processes",
+        description:
+            "Repetitive workflows, manual approvals, and disconnected operations reduce productivity and increase operational costs.",
+        icon: IconChecklist,
     },
-    solution: {
-      title: "AI Customer Agents",
-      description: "24/7 intelligent support with instant issue resolution",
-      iconName: "Bot"
-    }
-  },
-  {
-    id: "2",
-    challenge: {
-      title: "Document Processing",
-      description: "Manual document handling, extraction, and approvals",
-      iconName: "FileText"
+    {
+        id: 2,
+        title: "Legacy Systems Limiting Innovation",
+        description:
+            "Outdated applications and siloed systems make it difficult to adopt AI and modern digital capabilities.",
+        icon: IconUsers,
     },
-    solution: {
-      title: "Document AI",
-      description: "Automated data extraction, validation, and processing",
-      iconName: "FileSearch"
-    }
-  },
-  {
-    id: "3",
-    challenge: {
-      title: "Knowledge Management",
-      description: "Scattered business knowledge across multiple systems",
-      iconName: "Database"
+    {
+        id: 3,
+        title: "Lack of a Clear Enterprise AI Strategy",
+        description:
+            "Organizations struggle to identify high-value AI opportunities, prioritize investments, and build an AI roadmap.",
+        icon: IconMap2,
     },
-    solution: {
-      title: "Enterprise Search",
-      description: "AI-powered search delivering instant business answers",
-      iconName: "Brain"
-    }
-  },
-  {
-    id: "4",
-    challenge: {
-      title: "Workflow Automation",
-      description: "Repetitive manual tasks slowing business operations",
-      iconName: "Workflow"
+    {
+        id: 4,
+        title: "Scaling AI Across the Enterprise",
+        description:
+            "Moving from successful AI pilots to enterprise-wide adoption requires the right architecture, governance, and expertise.",
+        icon: IconTrendingUp,
     },
-    solution: {
-      title: "AI Workflow Automation",
-      description: "Automate approvals, tasks, and end-to-end business processes",
-      iconName: "Settings"
-    }
-  },
-  {
-    id: "5",
-    challenge: {
-      title: "Employee Productivity",
-      description: "Teams spend too much time on repetitive work",
-      iconName: "Users"
+    {
+        id: 5,
+        title: "Choosing the Right Microsoft AI Solution",
+        description:
+            "Selecting the right combination of Copilot, Azure AI, Power Platform, Microsoft Fabric, and Azure OpenAI can be complex.",
+        icon: IconBrandAzure,
     },
-    solution: {
-      title: "AI Copilot",
-      description: "Boost productivity with intelligent workplace assistance",
-      iconName: "Sparkles"
-    }
-  },
-  {
-    id: "6",
-    challenge: {
-      title: "Sales Automation",
-      description: "Manual lead follow-ups and inefficient sales processes",
-      iconName: "TrendingUp"
+];
+
+export const aiSolutionsData = [
+    {
+        id: 1,
+        title: "Business Process AI Consulting",
+        description:
+            "Identify automation opportunities and redesign business processes using Microsoft AI and intelligent automation.",
+        icon: IconTargetArrow,
     },
-    solution: {
-      title: "AI Sales Assistant",
-      description: "Automate lead qualification, follow-ups, and CRM updates",
-      iconName: "Target"
-    }
-  }
+    {
+        id: 2,
+        title: "Enterprise AI Modernization",
+        description:
+            "Modernize legacy applications with Microsoft AI, cloud-native architecture, and intelligent business solutions.",
+        icon: IconSearch,
+    },
+    {
+        id: 3,
+        title: "AI Strategy & Roadmap Consulting",
+        description:
+            "Develop a practical AI roadmap aligned with business goals, technology investments, and measurable outcomes.",
+        icon: IconBrain,
+    },
+    {
+        id: 4,
+        title: "Offshore AI Engineering Teams",
+        description:
+            "Accelerate AI delivery with dedicated Microsoft AI consultants and offshore engineering teams that scale with your business.",
+        icon: IconUsersGroup,
+    },
+    {
+        id: 5,
+        title: "Microsoft AI Consulting",
+        description:
+            "Receive expert guidance on Microsoft Copilot, Azure AI, Power Platform, Microsoft Fabric, and Azure OpenAI implementation.",
+        icon: IconBuildingStore,
+    },
 ];

@@ -12,10 +12,7 @@ export default function OurAISolutions() {
       {/* Top Left Curved Lines */}
       <div className="absolute top-0 left-0 w-[300px] h-[300px] border-b border-r border-[#FF6B2C]/10 rounded-br-[100%] opacity-20 pointer-events-none -translate-x-1/4 -translate-y-1/4"></div>
 
-      {/* Top Right Dotted Decoration */}
-      <div className="absolute top-20 right-12 grid grid-cols-4 gap-2.5 pointer-events-none opacity-[0.15]">
-         {[...Array(24)].map((_, i) => <div key={i} className="w-1.5 h-1.5 bg-[#FF6B2C] rounded-full"></div>)}
-      </div>
+
 
       {/* Bottom Right Curved Lines */}
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] border-t border-l border-[#FF6B2C]/15 rounded-tl-[100%] opacity-20 pointer-events-none translate-x-1/4 translate-y-1/4"></div>

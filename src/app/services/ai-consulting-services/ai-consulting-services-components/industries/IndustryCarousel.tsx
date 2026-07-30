@@ -51,9 +51,9 @@ export const IndustryCarousel = () => {
           {industriesData.map((industry, index) => (
             <div 
               key={industry.id} 
-              className="flex-[0_0_85%] sm:flex-[0_0_45%] lg:flex-[0_0_32%] pl-4 md:pl-6"
+              className="flex-[0_0_85%] sm:flex-[0_0_45%] lg:flex-[0_0_32%] pl-4 md:pl-6 flex"
             >
-              <div className="p-4" onClick={() => scrollTo(index)}>
+              <div className="p-4 flex w-full" onClick={() => scrollTo(index)}>
                 <IndustryCard 
                   industry={industry} 
                   isActive={index === selectedIndex} 

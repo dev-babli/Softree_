@@ -1,6 +1,8 @@
+"use client";
+
 import React, { useState } from "react";
 import Image from "next/image";
-import { ArrowRight, Activity, Cpu, Target } from "lucide-react";
+import { ArrowRight, Activity, Cpu, Target, CheckCircle2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SuccessStory } from "./successStoriesData";
 import Link from 'next/link';
@@ -26,7 +28,7 @@ const renderHighlightedText = (text: string) => {
 };
 
 export const SuccessStoryCard: React.FC<Props> = ({ story, isActive }) => {
-  const [activeTab, setActiveTab] = useState<"problem" | "solution" | "results">("problem");
+  const [activeTab, setActiveTab] = useState<'PROBLEM' | 'SOLUTION' | 'RESULTS'>('PROBLEM');
   const imageUrl = imageMap[story.icon] || imageMap['heart'];
 
   return (
@@ -74,12 +76,12 @@ export const SuccessStoryCard: React.FC<Props> = ({ story, isActive }) => {
       <div className="relative h-full w-full rounded-[24px] bg-white overflow-hidden flex flex-col border border-slate-100/80 z-10 transition-colors duration-300 group-hover:border-[#FF6A13]/20">
         
         {/* Top Image Banner */}
-        <Link href={story.caseStudyUrl} className="block relative w-full h-[120px] sm:h-[135px] overflow-hidden cursor-pointer shrink-0 group/img">
-          <div className="absolute top-3 left-3 z-10 bg-white/95 backdrop-blur-sm px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1.5 border border-slate-100">
+        <Link href={story.caseStudyUrl} className="block relative w-full h-[150px] sm:h-[170px] overflow-hidden cursor-pointer shrink-0 group/img">
+          <div className="absolute top-4 right-4 z-10 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm flex items-center gap-2 transition-transform duration-300 group-hover/img:-translate-y-1 group-hover/img:shadow-md border border-slate-100">
             <span className="text-[#FF6A13]">
-              <Activity className="w-3 h-3" />
+              <Activity className="w-3.5 h-3.5" />
             </span>
-            <span className="text-[9px] font-bold tracking-widest uppercase text-slate-800">{story.industryLabel}</span>
+            <span className="text-[10px] font-bold tracking-widest uppercase text-slate-800">{story.industryLabel}</span>
           </div>
           <Image
             src={imageUrl}
@@ -90,119 +92,121 @@ export const SuccessStoryCard: React.FC<Props> = ({ story, isActive }) => {
         </Link>
 
         {/* Content Area */}
-        <div className="p-4 sm:p-5 flex flex-col bg-white flex-1 justify-between">
-          <div>
-            <h3 className="text-[17px] sm:text-[18px] leading-tight font-bold text-slate-900 mb-4 line-clamp-2 min-h-[44px]">
-              {story.title}
-            </h3>
+        <div className="p-4 flex flex-col bg-white flex-grow">
+          <h3 className="text-[17px] md:text-[19px] leading-tight font-bold text-slate-900 mb-2">{story.title}</h3>
 
-            {/* Interactive Tabs Selector */}
-            <div className="flex border-b border-slate-100 mb-4 justify-between gap-1">
-              <button
-                type="button"
-                onClick={() => setActiveTab("problem")}
-                className={`flex-1 flex items-center justify-center gap-1 pb-1.5 text-[10px] font-bold uppercase tracking-wider border-b-[2px] transition-all duration-200 ${
-                  activeTab === "problem" 
-                    ? "border-[#FF6A13] text-[#FF6A13]" 
-                    : "border-transparent text-slate-400 hover:text-slate-600"
-                }`}
-              >
-                <Target className="w-3.5 h-3.5" />
-                <span>Problem</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setActiveTab("solution")}
-                className={`flex-1 flex items-center justify-center gap-1 pb-1.5 text-[10px] font-bold uppercase tracking-wider border-b-[2px] transition-all duration-200 ${
-                  activeTab === "solution" 
-                    ? "border-[#FF6A13] text-[#FF6A13]" 
-                    : "border-transparent text-slate-400 hover:text-slate-600"
-                }`}
-              >
-                <Cpu className="w-3.5 h-3.5" />
-                <span>Solution</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setActiveTab("results")}
-                className={`flex-1 flex items-center justify-center gap-1 pb-1.5 text-[10px] font-bold uppercase tracking-wider border-b-[2px] transition-all duration-200 ${
-                  activeTab === "results" 
-                    ? "border-[#FF6A13] text-[#FF6A13]" 
-                    : "border-transparent text-slate-400 hover:text-slate-600"
-                }`}
-              >
-                <Activity className="w-3.5 h-3.5" />
-                <span>Results</span>
-              </button>
-            </div>
-
-            {/* Active Content Display */}
-            <div className="min-h-[135px] flex flex-col justify-start pb-4">
-              <AnimatePresence mode="wait">
-                {activeTab === "problem" && (
-                  <motion.div
-                    key="problem"
-                    initial={{ opacity: 0, y: 4 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -4 }}
-                    transition={{ duration: 0.15 }}
-                    className="text-[12.5px] sm:text-[13px] text-slate-500 leading-relaxed font-normal"
-                  >
-                    {story.problem}
-                  </motion.div>
-                )}
-
-                {activeTab === "solution" && (
-                  <motion.div
-                    key="solution"
-                    initial={{ opacity: 0, y: 4 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -4 }}
-                    transition={{ duration: 0.15 }}
-                    className="text-[12.5px] sm:text-[13px] text-slate-500 leading-relaxed font-normal"
-                  >
-                    {story.solution}
-                  </motion.div>
-                )}
-
-                {activeTab === "results" && (
-                  <motion.div
-                    key="results"
-                    initial={{ opacity: 0, y: 4 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -4 }}
-                    transition={{ duration: 0.15 }}
-                    className="w-full"
-                  >
-                    <ul className="flex flex-col gap-1.5">
-                      {story.results.map((result, i) => (
-                        <li key={i} className="flex items-start gap-1.5 bg-slate-50/50 p-1.5 rounded-md border border-slate-100 transition-all duration-300">
-                          <div className="mt-[2px] shrink-0 w-3.5 h-3.5 rounded-full bg-[#FF6A13]/10 flex items-center justify-center">
-                             <svg className="w-2 h-2 text-[#FF6A13]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={4.5}>
-                               <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                             </svg>
-                          </div>
-                          <span className="text-[11.5px] sm:text-[12px] text-slate-700 leading-snug font-medium">{renderHighlightedText(result)}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+          {/* Client Overview */}
+          <div className="bg-slate-50/70 rounded-xl p-3 mb-3 border border-[#FF6A13]/30">
+            <h4 className="text-[10px] font-bold tracking-widest uppercase text-[#FF6A13] mb-2">Client Overview</h4>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-3">
+              <div>
+                <div className="text-[9px] font-bold tracking-wider text-[#94a3b8] uppercase mb-0.5">Name</div>
+                <div className="text-[12px] font-semibold text-slate-800 leading-tight">{story.clientOverview.name}</div>
+              </div>
+              <div>
+                <div className="text-[9px] font-bold tracking-wider text-[#94a3b8] uppercase mb-0.5">Business Type</div>
+                <div className="text-[12px] font-semibold text-slate-800 leading-tight">{story.clientOverview.businessType}</div>
+              </div>
+              <div>
+                <div className="text-[9px] font-bold tracking-wider text-[#94a3b8] uppercase mb-0.5">Industry</div>
+                <div className="text-[12px] font-semibold text-slate-800 leading-tight">{story.clientOverview.industry}</div>
+              </div>
+              <div>
+                <div className="text-[9px] font-bold tracking-wider text-[#94a3b8] uppercase mb-0.5">Country</div>
+                <div className="text-[12px] font-semibold text-slate-800 leading-tight">{story.clientOverview.country}</div>
+              </div>
             </div>
           </div>
 
+          {/* Tabs */}
+          <div className="flex w-full border-b border-slate-100 mb-3">
+            <button 
+              onClick={(e) => { e.stopPropagation(); setActiveTab('PROBLEM'); }}
+              className={`flex-1 flex items-center justify-center gap-1 pb-1.5 border-b-2 transition-colors ${
+                activeTab === 'PROBLEM' ? 'border-[#FF6A13] text-[#FF6A13]' : 'border-transparent text-slate-400 hover:text-slate-600'
+              }`}
+            >
+              <Target className="w-3.5 h-3.5" strokeWidth={2} />
+              <span className="text-[9.5px] font-bold tracking-widest uppercase">Problem</span>
+            </button>
+            <button 
+              onClick={(e) => { e.stopPropagation(); setActiveTab('SOLUTION'); }}
+              className={`flex-1 flex items-center justify-center gap-1 pb-1.5 border-b-2 transition-colors ${
+                activeTab === 'SOLUTION' ? 'border-[#FF6A13] text-[#FF6A13]' : 'border-transparent text-slate-400 hover:text-slate-600'
+              }`}
+            >
+              <Cpu className="w-3.5 h-3.5" strokeWidth={2} />
+              <span className="text-[9.5px] font-bold tracking-widest uppercase">Solution</span>
+            </button>
+            <button 
+              onClick={(e) => { e.stopPropagation(); setActiveTab('RESULTS'); }}
+              className={`flex-1 flex items-center justify-center gap-1 pb-1.5 border-b-2 transition-colors ${
+                activeTab === 'RESULTS' ? 'border-[#FF6A13] text-[#FF6A13]' : 'border-transparent text-slate-400 hover:text-slate-600'
+              }`}
+            >
+              <Activity className="w-3.5 h-3.5" strokeWidth={2} />
+              <span className="text-[9.5px] font-bold tracking-widest uppercase">Results</span>
+            </button>
+          </div>
+
+          {/* Tab Content */}
+          <div className="flex-grow min-h-[90px] mb-3">
+            <AnimatePresence mode="wait">
+              {activeTab === 'PROBLEM' && (
+                <motion.div
+                  key="problem"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <p className="text-[14px] md:text-[15px] text-[#64748b] leading-[1.6] font-medium">{story.problem}</p>
+                </motion.div>
+              )}
+              {activeTab === 'SOLUTION' && (
+                <motion.div
+                  key="solution"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <p className="text-[14px] md:text-[15px] text-[#64748b] leading-[1.6] font-medium">{story.solution}</p>
+                </motion.div>
+              )}
+              {activeTab === 'RESULTS' && (
+                <motion.div
+                  key="results"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <ul className="flex flex-col gap-2.5">
+                    {story.results.map((result, i) => (
+                      <li key={i} className="flex items-start gap-2.5">
+                        <div className="mt-1 shrink-0">
+                          <CheckCircle2 className="w-4 h-4 text-[#FF6A13]" strokeWidth={2.5} />
+                        </div>
+                        <span className="text-[14px] md:text-[15px] text-[#64748b] leading-[1.5] font-medium">{renderHighlightedText(result)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
           {/* CTA */}
-          <div className="flex justify-center pt-3 border-t border-slate-100 shrink-0">
+          <div className="flex justify-center pt-5 border-t border-slate-100 mt-auto">
             <Link
               href={story.caseStudyUrl}
-              className="inline-flex items-center gap-1.5 text-[#FF6A13] font-semibold text-xs transition-all duration-300 hover:text-orange-600 group/cta"
+              className="inline-flex items-center gap-2 text-[#FF6A13] font-bold text-[14px] transition-all duration-300 hover:text-orange-600 group/cta"
             >
               <span>View Case Study</span>
               <div className="w-5 h-5 rounded-full bg-[#FF6A13] text-white flex items-center justify-center transition-all duration-300 group-hover/cta:translate-x-1 shadow-sm">
-                <ArrowRight className="w-2.5 h-2.5" strokeWidth={2.5} />
+                <ArrowRight className="w-3 h-3" strokeWidth={2.5} />
               </div>
             </Link>
           </div>

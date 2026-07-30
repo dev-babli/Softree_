@@ -14,13 +14,12 @@ export default function HeroContent() {
         <span className="text-[#F25A24] block mt-1">{heroData.title.orangeText}</span>
       </h1>
       
-      <p className="text-sm lg:text-base text-slate-600 mb-6 max-w-md leading-relaxed">
+      <p className="text-[13px] lg:text-sm text-slate-600 mb-6 max-w-md leading-relaxed">
         {heroData.description}
       </p>
       
       <CTAButtons 
         primary={heroData.ctas.primary} 
-        secondary={heroData.ctas.secondary} 
       />
       
       <HeroFeatureList features={heroData.features} />

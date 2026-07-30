@@ -60,23 +60,23 @@ export default function CoreCapabilities() {
         <div className="flex flex-col items-center w-full mb-8 lg:mb-10">
           <SectionBadge text="CORE CAPABILITIES" variant="line" />
           
-          <h2 className="text-3xl md:text-4xl lg:text-[2.5rem] font-extrabold text-[#111827] mb-3 tracking-tight text-center leading-tight">
+          <h2 className="text-2xl md:text-4xl lg:text-[2.25rem] font-extrabold text-[#111827] mb-2 md:mb-3 tracking-tight text-center leading-tight">
             Enterprise AI <span className="text-[#FF6B2C]">Engineering Capabilities</span>
           </h2>
           
-          <p className="text-[15px] lg:text-[17px] text-[#6B7280] text-center max-w-2xl leading-snug">
+          <p className="text-[15px] lg:text-base text-[#6B7280] mb-6 lg:mb-8 text-center max-w-2xl mx-auto leading-relaxed">
             Leverage our end-to-end AI engineering expertise to design, build, deploy, and optimize secure, scalable, and business-driven AI solutions that accelerate innovation and deliver measurable enterprise outcomes.
           </p>
         </div>
 
         {/* Main Layout */}
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 relative"
+        <div className="flex flex-col lg:flex-row relative min-h-[500px]"
              onMouseEnter={() => setIsHovered(true)}
              onMouseLeave={() => setIsHovered(false)}
         >
           
           {/* Left Navigation (40%) */}
-          <div className="w-full lg:w-[40%] flex flex-col gap-2 lg:gap-3 relative z-10">
+          <div className="w-full lg:w-[40%] flex flex-col gap-3 lg:gap-4 lg:pr-6 relative z-10">
             {coreCapabilitiesData.map((cap, idx) => {
               const isActive = idx === activeIndex;
               const Icon = cap.icon;
@@ -127,39 +127,8 @@ export default function CoreCapabilities() {
             })}
           </div>
 
-          {/* SVG Connector (Hidden on Mobile) */}
-          <div className="hidden lg:block absolute left-[40%] top-0 bottom-0 w-[5%] z-0 pointer-events-none">
-             <svg width="100%" height="100%" preserveAspectRatio="none">
-               <motion.path 
-                 animate={{ d: `M 0 ${activeOffset} C 50 ${activeOffset}, 50 300, 100 300` }}
-                 stroke="rgba(255,107,44,0.2)"
-                 strokeWidth="2"
-                 fill="none"
-                 transition={{ duration: 0.5 }}
-               />
-               <motion.path 
-                 animate={{ 
-                   d: `M 0 ${activeOffset} C 50 ${activeOffset}, 50 300, 100 300`,
-                   strokeDashoffset: [0, -100]
-                 }}
-                 stroke="#FF6B2C"
-                 strokeWidth="2"
-                 fill="none"
-                 strokeDasharray="10 10"
-                 transition={{ 
-                   d: { duration: 0.5 },
-                   strokeDashoffset: { duration: 3, repeat: Infinity, ease: "linear" }
-                 }}
-               />
-               <motion.circle 
-                 cx="100" cy="300" r="4" fill="#FF6B2C"
-                 className="shadow-[0_0_8px_#FF6B2C]"
-               />
-             </svg>
-          </div>
-
           {/* Right Showcase (60%) */}
-          <div className="w-full lg:w-[60%] lg:pl-10 h-full flex flex-col">
+          <div className="w-full lg:w-[60%] lg:pl-6 h-full flex flex-col">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}

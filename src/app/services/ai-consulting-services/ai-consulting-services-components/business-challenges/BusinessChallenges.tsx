@@ -1,114 +1,94 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { challengePairs } from "./data";
-import { ChallengeRow } from "./ChallengeRow";
-import { BusinessChallengesHeader } from "./BusinessChallengesHeader";
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import CapabilitySectionBadge from '../Core-capabilities/CapabilitySectionBadge';
+import AutoScrollColumn from './AutoScrollColumn';
+import { businessChallengesData, aiSolutionsData } from './data';
 
+export default function BusinessChallenges() {
+  const [activeHoverId, setActiveHoverId] = useState<number | null>(null);
 
-export const BusinessChallenges = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [startIndex, setStartIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const [isInteracting, setIsInteracting] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Auto-play synchronization
+  const nextSlide = useCallback(() => {
+    setStartIndex((prev) => (prev + 1) % businessChallengesData.length);
+  }, []);
+
+  const prevSlide = useCallback(() => {
+    setStartIndex((prev) => (prev - 1 + businessChallengesData.length) % businessChallengesData.length);
+  }, []);
+
+  // Auto scroll effect
   useEffect(() => {
-    if (isHovered) return;
+    if (isHovered || isInteracting || activeHoverId !== null) return;
 
-    const timeoutId = setTimeout(() => {
-      setActiveIndex((prev) => (prev + 1) % challengePairs.length);
-    }, 4000); // 4s per row
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 3500);
 
-    return () => clearTimeout(timeoutId);
-  }, [activeIndex, isHovered]);
+    return () => clearInterval(interval);
+  }, [isHovered, isInteracting, activeHoverId, nextSlide]);
+
+  const handleInteraction = useCallback((direction: 'up' | 'down') => {
+    setIsInteracting(true);
+    if (direction === 'down') nextSlide();
+    else prevSlide();
+
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => {
+      setIsInteracting(false);
+    }, 5000);
+  }, [nextSlide, prevSlide]);
 
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
+    <section className="relative w-full py-12 md:py-16 lg:py-20 overflow-hidden bg-transparent">
+      {/* Background Decorators */}
 
-      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-        <BusinessChallengesHeader />
 
-        {/* Outer Rounded Container */}
-        <div 
-          className="max-w-5xl mx-auto bg-white rounded-[40px] p-6 md:p-10 lg:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-slate-100"
+
+      {/* Bottom curved lines pattern placeholder */}
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] border-t border-r border-orange-100 rounded-tr-[100%] opacity-20 pointer-events-none translate-y-1/2 -translate-x-1/4"></div>
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] border-t border-r border-orange-100/50 rounded-tr-[100%] opacity-20 pointer-events-none translate-y-1/2 -translate-x-1/4"></div>
+
+      <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center">
+
+        <CapabilitySectionBadge text="BUSINESS CHALLENGES" variant="line" />
+
+        <h2 className="text-3xl md:text-4xl lg:text-[2.5rem]
+ font-extrabold text-[#1a202c] mb-4 tracking-tight text-center leading-tight">
+          Common Business Challenges <span className="text-[#FF5812]">AI Consulting Helps You Solve</span>
+        </h2>
+
+        <p className="text-[15px] lg:text-[17px] text-slate-500 mb-12 text-center max-w-2xl">
+          Many organisations struggle with manual processes, disconnected systems, and inefficient decision-making. Our AI consulting experts identify opportunities to automate operations, improve productivity, and create a scalable AI transformation roadmap.
+        </p>
+
+        <div
+          className="w-full flex flex-col md:flex-row gap-6 lg:gap-8 relative z-20"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          
-          {/* Column Headers */}
-          <div className="hidden md:flex justify-between items-start mb-12 px-2 md:px-4">
-            {/* Left Column Header */}
-            <div className="w-[45%] flex flex-col gap-2">
-              <div className="flex items-center gap-4">
-                <div className="relative flex items-center justify-center w-14 h-14 flex-shrink-0">
-                  <div className="absolute inset-2 bg-[#FF5812] opacity-30 blur-xl rounded-full"></div>
-                  <div className="relative w-12 h-12 bg-white rounded-xl rotate-45 border border-orange-100/50 shadow-[0_4px_10px_rgba(255,88,18,0.1)] flex items-center justify-center">
-                    <div className="w-7 h-7 rounded-full border-2 border-[#FF5812] flex items-center justify-center -rotate-45">
-                      <span className="text-[#FF5812] font-bold text-lg leading-none">!</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-1.5 mt-2">
-                  <h3 className="text-slate-900 font-extrabold text-xl tracking-wide uppercase">BUSINESS CHALLENGES</h3>
-                  <div className="h-[2px] w-16 bg-orange-100 rounded-full overflow-hidden relative">
-                    <motion.div 
-                      animate={{ x: ["-100%", "200%"] }}
-                      transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-                      className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-[#FF5812] to-transparent"
-                    />
-                  </div>
-                </div>
-              </div>
-              <p className="text-slate-500 text-sm md:text-base leading-snug pl-[5.5rem] pr-4">
-                Key business challenges slowing down efficiency and growth.
-              </p>
-            </div>
-
-            {/* Right Column Header */}
-            <div className="w-[45%] flex flex-col gap-2">
-              <div className="flex items-center gap-4">
-                <div className="relative flex items-center justify-center w-14 h-14 flex-shrink-0">
-                  <div className="absolute inset-2 bg-[#FF5812] opacity-30 blur-xl rounded-full"></div>
-                  <div className="relative w-12 h-12 bg-white rounded-xl rotate-45 border border-orange-100/50 shadow-[0_4px_10px_rgba(255,88,18,0.1)] flex items-center justify-center">
-                    <div className="w-7 h-7 rounded-full border-2 border-[#FF5812] flex items-center justify-center -rotate-45">
-                      <svg className="w-4 h-4 text-[#FF5812]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-1.5 mt-2">
-                  <h3 className="text-slate-900 font-extrabold text-xl tracking-wide uppercase">AI SOLUTIONS</h3>
-                  <div className="h-[2px] w-16 bg-orange-100 rounded-full overflow-hidden relative">
-                    <motion.div 
-                      animate={{ x: ["-100%", "200%"] }}
-                      transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-                      className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-[#FF5812] to-transparent"
-                    />
-                  </div>
-                </div>
-              </div>
-              <p className="text-slate-500 text-sm md:text-base leading-snug pl-[5.5rem] pr-4">
-                Intelligent AI solutions that automate, optimize and accelerate your business.
-              </p>
-            </div>
-          </div>
-
-          {/* Rows */}
-          <div className="flex flex-col gap-6 md:gap-4">
-            {challengePairs.map((pair, index) => (
-              <ChallengeRow 
-                key={pair.id} 
-                pair={pair} 
-                index={index}
-                isActive={activeIndex === index}
-                onHover={() => setActiveIndex(index)}
-              />
-            ))}
-          </div>
-
+          <AutoScrollColumn
+            data={businessChallengesData}
+            isRight={false}
+            activeHoverId={activeHoverId}
+            setActiveHoverId={setActiveHoverId}
+            startIndex={startIndex}
+            onInteract={handleInteraction}
+          />
+          <AutoScrollColumn
+            data={aiSolutionsData}
+            isRight={true}
+            activeHoverId={activeHoverId}
+            setActiveHoverId={setActiveHoverId}
+            startIndex={startIndex}
+            onInteract={handleInteraction}
+          />
         </div>
-
-
       </div>
     </section>
   );
-};
+}

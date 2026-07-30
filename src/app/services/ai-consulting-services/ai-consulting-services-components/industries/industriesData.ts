@@ -4,7 +4,7 @@ export const industriesData: IndustryData[] = [
   {
     id: "healthcare",
     title: "Healthcare",
-    description: "Transform patient care with AI-powered diagnostics, predictive analytics, intelligent scheduling, and automated healthcare workflows while ensuring compliance and data security.",
+    description: "Improve patient care, streamline hospital operations, automate clinical workflows, and enhance decision-making with Microsoft AI, intelligent automation, and secure healthcare solutions.",
     iconName: "HeartPulse",
     imagePath: "/images/ai-consulting-service-image/industries/ind-3.png",
     badge: "AI Powered",
@@ -13,7 +13,7 @@ export const industriesData: IndustryData[] = [
   {
     id: "manufacturing",
     title: "Manufacturing",
-    description: "Optimize production planning, predictive maintenance, quality assurance, inventory management, and factory automation with intelligent AI solutions.",
+    description: "Optimize production planning, predictive maintenance, quality control, inventory management, and factory operations using AI-powered insights and intelligent automation.",
     iconName: "Settings",
     imagePath: "/images/ai-consulting-service-image/industries/ind-1.png",
     badge: "Smart Automation",
@@ -21,8 +21,8 @@ export const industriesData: IndustryData[] = [
   },
   {
     id: "finance",
-    title: "Finance",
-    description: "Enhance fraud detection, automate compliance, improve risk management, and deliver faster financial insights using enterprise AI.",
+    title: "Financial Services",
+    description: "Strengthen fraud detection, automate compliance, enhance risk analysis, and deliver AI-powered customer experiences with secure enterprise AI solutions.",
     iconName: "Landmark",
     imagePath: "/images/ai-consulting-service-image/industries/ind-5.png",
     badge: "Enterprise Ready",
@@ -30,8 +30,8 @@ export const industriesData: IndustryData[] = [
   },
   {
     id: "retail",
-    title: "Retail",
-    description: "Deliver personalized shopping experiences, demand forecasting, inventory optimization, and AI-powered customer engagement.",
+    title: "Retail & eCommerce",
+    description: "Deliver personalized shopping experiences, demand forecasting, inventory optimization, and AI-powered customer engagement across digital and physical channels.",
     iconName: "ShoppingCart",
     imagePath: "/images/ai-consulting-service-image/industries/ind-6.png",
     badge: "Industry Focused",
@@ -39,8 +39,8 @@ export const industriesData: IndustryData[] = [
   },
   {
     id: "logistics",
-    title: "Logistics",
-    description: "Optimize supply chains with predictive routing, warehouse automation, fleet intelligence, and real-time shipment visibility.",
+    title: "Logistics & Supply Chain",
+    description: "Improve supply chain visibility, warehouse operations, fleet management, route optimization, and predictive logistics with AI-driven decision support.",
     iconName: "Truck",
     imagePath: "/images/ai-consulting-service-image/industries/ind-4.png",
     badge: "Digital Transformation",
@@ -49,7 +49,7 @@ export const industriesData: IndustryData[] = [
   {
     id: "education",
     title: "Education",
-    description: "Create personalized learning experiences, automate administration, improve student engagement, and gain actionable academic insights.",
+    description: "Transform learning experiences with AI-powered student support, administrative automation, intelligent analytics, and personalized education solutions.",
     iconName: "GraduationCap",
     imagePath: "/images/ai-consulting-service-image/industries/ind-2.png",
     badge: "AI Insights",

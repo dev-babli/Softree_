@@ -4,7 +4,7 @@ import HeroVisual from './HeroVisual';
 
 export default function Hero() {
   return (
-    <section className="relative w-full pt-28 pb-8 lg:pt-36 lg:pb-12 overflow-hidden bg-transparent">
+    <section className="relative w-full pt-16 pb-8 lg:pt-24 lg:pb-12 overflow-hidden bg-transparent">
       {/* Very faint background grid or noise if needed */}
       <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02] pointer-events-none mix-blend-multiply"></div>
       

@@ -1,33 +1,33 @@
 export const heroData = {
-  badge: "AI DEVELOPMENT SERVICES",
+  badge: "OFFSHORE AI DEVELOPMENT PARTNER",
   title: {
-    blackText: "AI Development Services That Deliver",
-    orangeText: "Measurable Business Outcomes",
+    blackText: "AI Development Services for",
+    orangeText: "Intelligent, Scalable Enterprises",
   },
-  description: "We help organizations automate workflows, build AI agents, and transform business operations with secure, scalable and responsible enterprise AI.",
+  description: "Automate operations and transform experiences with secure, production-ready AI solutions. Softree Technology delivers end-to-end AI development—from strategy and custom agents to Generative AI, RAG, and enterprise integration.",
   ctas: {
-    primary: "Book Discovery",
-    secondary: "Talk to An Expert",
+    primary: "Talk to An Expert",
+
   },
   features: [
     {
-      title: "Enterprise Security",
-      description: "Built secure by design",
+      title: "White-Label Friendly",
+      description: "Trusted partner for tech agencies.",
       icon: "security"
     },
     {
-      title: "Custom AI Solutions",
-      description: "Tailored to your business",
+      title: "Dedicated Offshore Teams",
+      description: "Scale engineering on demand.",
       icon: "custom"
     },
     {
-      title: "Measurable Impact",
-      description: "Real results. Real ROI.",
+      title: "Microsoft AI Expertise",
+      description: "Azure, OpenAI & Power Platform.",
       icon: "impact"
     },
     {
-      title: "Latest AI Models",
-      description: "Powered by cutting-edge AI",
+      title: "Enterprise-Ready Delivery",
+      description: "Secure, production-grade solutions.",
       icon: "models"
     }
   ],
@@ -37,9 +37,9 @@ export const heroData = {
     description: "See how we transform complex business challenges into intelligent enterprise AI solutions."
   },
   floatingCards: [
-    { title: "AI AGENTS", icon: "bot" },
-    { title: "WORKFLOW", icon: "gear" },
-    { title: "DATA INSIGHTS", icon: "chart" }
+    { title: "AI AGENTS", description: "Intelligent agents for smarter operations.", icon: "bot" },
+    { title: "WORKFLOW", description: "Automate processes. Boost productivity.", icon: "gear" },
+    { title: "DATA INSIGHTS", description: "Turn data into actionable business insights.", icon: "chart" }
   ],
   trustLogos: [
     { name: "Microsoft" },
