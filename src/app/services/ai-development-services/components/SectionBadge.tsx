@@ -3,16 +3,16 @@ import React from 'react';
 export default function SectionBadge({ text, variant = 'pill' }: { text: string, variant?: 'pill' | 'line' }) {
   if (variant === 'line') {
     return (
-      <div className="flex items-center justify-center gap-3 mb-4">
-        <div className="w-8 h-[1px] bg-orange-200"></div>
-        <div className="inline-flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
-          <span className="text-[11px] font-bold tracking-widest text-orange-600 uppercase">
-            {text}
-          </span>
-          <span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+      <div className="mb-4 flex items-center justify-center gap-4 md:gap-6">
+        <div className="flex items-center relative h-[1.5px] w-10 sm:w-16 bg-[#FF5812]">
+          <div className="absolute left-0 w-1.5 h-1.5 sm:w-2 sm:h-2 rotate-45 bg-[#FF5812] -translate-x-1/2"></div>
         </div>
-        <div className="w-8 h-[1px] bg-orange-200"></div>
+        <span className="text-[#FF5812] font-bold tracking-[0.2em] text-[11px] uppercase">
+          {text}
+        </span>
+        <div className="flex items-center relative h-[1.5px] w-10 sm:w-16 bg-[#FF5812]">
+          <div className="absolute right-0 w-1.5 h-1.5 sm:w-2 sm:h-2 rotate-45 bg-[#FF5812] translate-x-1/2"></div>
+        </div>
       </div>
     );
   }

@@ -24,24 +24,15 @@ export function HowAIHelps() {
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-20">
-          <div className="flex items-center justify-center gap-6 mb-6">
-            <style>{`
-              @keyframes line-stretch {
-                0%, 100% { width: 40px; opacity: 0.6; }
-                50% { width: 100px; opacity: 1; }
-              }
-              .animate-line-stretch {
-                animation: line-stretch 3s ease-in-out infinite;
-              }
-            `}</style>
-            <div className="animate-line-stretch flex items-center relative h-[1.5px] bg-[#FF5812]">
-              <div className="absolute left-0 w-2 h-2 rotate-45 bg-[#FF5812] -translate-x-1/2"></div>
+          <div className="mb-4 flex items-center justify-center gap-4 md:gap-6">
+            <div className="flex items-center relative h-[1.5px] w-10 sm:w-16 bg-[#FF5812]">
+              <div className="absolute left-0 w-1.5 h-1.5 sm:w-2 sm:h-2 rotate-45 bg-[#FF5812] -translate-x-1/2"></div>
             </div>
-            <span className="text-[#FF5812] font-bold tracking-[0.2em] text-sm uppercase">
+            <span className="text-[#FF5812] font-bold tracking-[0.2em] text-[11px] uppercase">
               HOW AI HELPS
             </span>
-            <div className="animate-line-stretch flex items-center relative h-[1.5px] bg-[#FF5812]">
-              <div className="absolute right-0 w-2 h-2 rotate-45 bg-[#FF5812] translate-x-1/2"></div>
+            <div className="flex items-center relative h-[1.5px] w-10 sm:w-16 bg-[#FF5812]">
+              <div className="absolute right-0 w-1.5 h-1.5 sm:w-2 sm:h-2 rotate-45 bg-[#FF5812] translate-x-1/2"></div>
             </div>
           </div>
           

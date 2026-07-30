@@ -1,0 +1,96 @@
+import { TechCategory } from "@/app/services/offshore-power-platform-development/tech-stack";
+import {
+  Brain,
+  Bot,
+  Sparkles,
+  Layers,
+  Box,
+  Network,
+  Cloud,
+  LayoutGrid,
+  Search,
+  Database,
+  Workflow,
+  Server,
+  GitBranch,
+  ShieldCheck,
+  Key,
+  Lock,
+  Activity,
+  CheckCircle,
+} from "lucide-react";
+
+export const aiTechnologyCategories: TechCategory[] = [
+  {
+    id: "AI MODELS",
+    label: "AI MODELS",
+    items: [
+      { name: "OpenAI GPT Models", icon: Brain },
+      { name: "Claude", icon: Bot },
+      { name: "Gemini", icon: Sparkles },
+      { name: "Llama", icon: Layers },
+      { name: "Mistral AI", icon: Box },
+      { name: "Embedding Models", icon: Network },
+    ],
+  },
+  {
+    id: "MICROSOFT AI",
+    label: "MICROSOFT AI",
+    items: [
+      { name: "Azure AI Foundry", icon: Box },
+      { name: "Azure OpenAI Service", icon: Cloud },
+      { name: "Microsoft Copilot Studio", icon: Bot },
+      { name: "Microsoft Fabric", icon: Database },
+      { name: "Power Platform", icon: LayoutGrid },
+      { name: "Azure AI Search", icon: Search },
+    ],
+  },
+  {
+    id: "AGENTS & RAG",
+    label: "AGENTS & RAG",
+    items: [
+      { name: "LangChain", icon: Network },
+      { name: "LangGraph", icon: Workflow },
+      { name: "Semantic Kernel", icon: Brain },
+      { name: "RAG Architecture", icon: Layers },
+      { name: "Vector Search", icon: Search },
+      { name: "Enterprise Knowledge Agents", icon: Bot },
+    ],
+  },
+  {
+    id: "DATA & VECTOR",
+    label: "DATA & VECTOR",
+    items: [
+      { name: "Microsoft Fabric", icon: Database },
+      { name: "Azure SQL", icon: Database },
+      { name: "Dataverse", icon: Database },
+      { name: "PostgreSQL", icon: Database },
+      { name: "Pinecone", icon: Database },
+      { name: "FAISS", icon: Database },
+    ],
+  },
+  {
+    id: "CLOUD & DEVOPS",
+    label: "CLOUD & DEVOPS",
+    items: [
+      { name: "Microsoft Azure", icon: Cloud },
+      { name: "AWS", icon: Cloud },
+      { name: "Docker", icon: Server },
+      { name: "Kubernetes", icon: Layers },
+      { name: "GitHub", icon: GitBranch },
+      { name: "CI/CD", icon: Workflow },
+    ],
+  },
+  {
+    id: "SECURITY & GOVERNANCE",
+    label: "SECURITY & GOVERNANCE",
+    items: [
+      { name: "Microsoft Entra ID", icon: ShieldCheck },
+      { name: "Azure Key Vault", icon: Key },
+      { name: "Microsoft Purview", icon: ShieldCheck },
+      { name: "Role-Based Access Control", icon: Lock },
+      { name: "AI Monitoring", icon: Activity },
+      { name: "Responsible AI", icon: CheckCircle },
+    ],
+  },
+];

@@ -71,8 +71,12 @@ export default function SuccessStoryCarousel() {
     >
       {/* Swipe Area */}
       <div 
-        className="relative w-full flex items-center justify-center overflow-hidden py-16"
-        style={{ minHeight: '800px' }}
+        className="relative w-full flex items-center justify-center overflow-hidden py-8 cursor-pointer"
+        style={{ minHeight: '600px' }}
+        onClick={(e) => {
+           if ((e.target as HTMLElement).closest('a')) return;
+           toggleGroup();
+        }}
         onTouchStart={(e) => {
            const touchDown = e.touches[0].clientX;
            e.currentTarget.setAttribute('data-touch', touchDown.toString());

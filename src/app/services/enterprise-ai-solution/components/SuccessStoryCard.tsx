@@ -1,6 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { SuccessStory } from "../../ai-development-services/data/success-stories";
+export interface SuccessStory {
+  id: string;
+  industryLabel: string;
+  title: string;
+  problem: string;
+  solution: string;
+  results: string[];
+  icon: string;
+  caseStudyUrl?: string;
+}
 
 const renderHighlightedText = (text: string) => {
   return text.split(/(\d+%?)/).map((part, i) => 

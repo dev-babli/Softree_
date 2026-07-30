@@ -302,7 +302,7 @@ export function AiConsultingFaq({ faqs: customFaqs }: AiConsultingFaqProps) {
   }
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-[#F3F0EE] py-14 md:py-20">
+    <section ref={sectionRef} className="relative w-full bg-[#F3F0EE] py-12 md:py-16 lg:py-20">
       {/* FAQPage JSON-LD */}
       <script
         type="application/ld+json"

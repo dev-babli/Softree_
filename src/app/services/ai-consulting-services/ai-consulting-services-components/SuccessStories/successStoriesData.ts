@@ -8,6 +8,13 @@ export interface SuccessStory {
   icon: string;
   color: string;
   caseStudyUrl: string;
+  clientOverview: {
+    name: string;
+    industry: string;
+    country: string;
+    organizationSize: string;
+    businessType: string;
+  };
 }
 
 export const successStoriesList: SuccessStory[] = [
@@ -24,7 +31,14 @@ export const successStoriesList: SuccessStory[] = [
     ],
     icon: 'bank',
     color: 'from-blue-100/50 to-blue-50/50',
-    caseStudyUrl: 'https://www.softreetechnology.com/case-studies/how-an-enterprise-organization-automated-hr-operations-using-ai'
+    caseStudyUrl: 'https://www.softreetechnology.com/case-studies/how-an-enterprise-organization-automated-hr-operations-using-ai',
+    clientOverview: {
+      name: 'UK Based Client',
+      industry: 'Human Resources',
+      country: 'United Kingdom',
+      organizationSize: '1,200+ Employees',
+      businessType: 'Enterprise HR Services Provider'
+    }
   },
   {
     id: '02',
@@ -38,7 +52,14 @@ export const successStoriesList: SuccessStory[] = [
     ],
     icon: 'cart',
     color: 'from-orange-100/50 to-orange-50/50',
-    caseStudyUrl: 'https://www.softreetechnology.com/case-studies/ai-powered-website-performance-platform'
+    caseStudyUrl: 'https://www.softreetechnology.com/case-studies/ai-powered-website-performance-platform',
+    clientOverview: {
+      name: 'Australian Technology Firm',
+      industry: 'AI & Analytics',
+      country: 'Australia',
+      organizationSize: '280+ Employees',
+      businessType: 'Digital Marketing & Technology Company'
+    }
   },
   {
     id: '03',
@@ -52,7 +73,14 @@ export const successStoriesList: SuccessStory[] = [
     ],
     icon: 'heart',
     color: 'from-emerald-100/50 to-emerald-50/50',
-    caseStudyUrl: 'https://www.softreetechnology.com/case-studies/ai-powered-healthcare-operations-platform'
+    caseStudyUrl: 'https://www.softreetechnology.com/case-studies/ai-powered-healthcare-operations-platform',
+    clientOverview: {
+      name: 'North America Client',
+      industry: 'Healthcare',
+      country: 'United States',
+      organizationSize: '450+ Employees',
+      businessType: 'Multi-Specialty Healthcare Provider'
+    }
   },
   {
     id: '04',
@@ -67,7 +95,14 @@ export const successStoriesList: SuccessStory[] = [
     ],
     icon: 'manufacturing',
     color: 'from-blue-100/50 to-blue-50/50',
-    caseStudyUrl: 'https://www.softreetechnology.com/case-studies/ai-powered-manufacturing-operations-platform'
+    caseStudyUrl: 'https://www.softreetechnology.com/case-studies/ai-powered-manufacturing-operations-platform',
+    clientOverview: {
+      name: 'UAE Based Client',
+      industry: 'Manufacturing',
+      country: 'United Arab Emirates',
+      organizationSize: '2,300+ Employees',
+      businessType: 'Industrial Manufacturing Company'
+    }
   },
   {
     id: '05',
@@ -82,7 +117,14 @@ export const successStoriesList: SuccessStory[] = [
     ],
     icon: 'cross-industry',
     color: 'from-orange-100/50 to-orange-50/50',
-    caseStudyUrl: 'https://www.softreetechnology.com/case-studies/ai-competitive-gap-report-businesses-outperform-competitors'
+    caseStudyUrl: 'https://www.softreetechnology.com/case-studies/ai-competitive-gap-report-businesses-outperform-competitors',
+    clientOverview: {
+      name: 'Canadian Enterprise',
+      industry: 'Cross Industry',
+      country: 'Canada',
+      organizationSize: '850+ Employees',
+      businessType: 'Enterprise Consulting Firm'
+    }
   },
   {
     id: '06',
@@ -97,7 +139,14 @@ export const successStoriesList: SuccessStory[] = [
     ],
     icon: 'logistics',
     color: 'from-emerald-100/50 to-emerald-50/50',
-    caseStudyUrl: 'https://www.softreetechnology.com/case-studies/ai-shipment-delay-prediction-platform'
+    caseStudyUrl: 'https://www.softreetechnology.com/case-studies/ai-shipment-delay-prediction-platform',
+    clientOverview: {
+      name: 'European Logistics Provider',
+      industry: 'Logistics & Supply Chain',
+      country: 'Netherlands',
+      organizationSize: '1,750+ Employees',
+      businessType: 'Global Logistics Provider'
+    }
   }
 ];
 
