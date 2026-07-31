@@ -33,6 +33,7 @@ import {
   RefreshCw,
   Brain,
   Lightbulb,
+  Database,
 } from "lucide-react";
 
 type MenuLink = {
@@ -129,7 +130,9 @@ const menu: MenuItem[] = [
         description: "Intelligent solutions for enterprise automation.",
         links: [
           { label: "AI Agents Development", url: "/solutions/ai-agents-development", icon: Bot, description: "Automate complex enterprise workflows" },
+          { label: "AI Copilot Development", url: "/solutions/ai-copilot-development", icon: WandSparkles, description: "Build secure, intelligent AI copilots for business applications" },
           { label: "AI Workflow Automation", url: "/solutions/ai-workflow-automation", icon: Workflow, description: "Intelligent process orchestration" },
+          { label: "Enterprise RAG", url: "/solutions/enterprise-rag-development", icon: Database, description: "Secure Retrieval-Augmented Generation for enterprise knowledge" },
           { label: "Agentic AI Platform", url: "/agentic-ai-platform", icon: LayoutDashboard, description: "Build & govern agents at scale" },
         ],
       },

@@ -7,11 +7,14 @@ import Database from "lucide-react/dist/esm/icons/database";
 import PlugZap from "lucide-react/dist/esm/icons/plug-zap";
 import ShieldCheck from "lucide-react/dist/esm/icons/shield-check";
 import type { LucideIcon } from "lucide-react";
+import CapabilitySectionBadge from "../Core-capabilities/CapabilitySectionBadge";
+
+import type { ComponentType } from "react";
 
 /* ================= TYPES ================= */
 
 type ToolCard = {
-  icon: LucideIcon;
+  icon: ComponentType<{ className?: string }>;
   title: string;
   description: string;
   tags: string[];
@@ -23,105 +26,97 @@ const tools: ToolCard[] = [
   {
     icon: Workflow,
     title: "Microsoft Power Automate",
-    description: "Automate business workflows with intelligent process orchestration and approvals.",
+    description: "Automate end-to-end business workflows, approvals, notifications, document processing, and repetitive tasks using Microsoft's intelligent workflow automation platform.",
     tags: [
-      "Power Automate Cloud",
+      "Cloud Flows",
       "Desktop Flows",
-      "Approvals",
-      "Connectors",
-      "Scheduled Flows",
-      "Business Process Flows",
+      "Approval Workflows",
+      "Process Automation",
+      "Business Rules",
     ],
   },
   {
     icon: Bot,
-    title: "Microsoft Copilot Studio",
-    description: "Build intelligent AI copilots and conversational agents for enterprise automation.",
+    title: "Microsoft Copilot Studio & AI Agents",
+    description: "Build AI agents and enterprise copilots that automate employee support, customer interactions, workflow execution, and business process orchestration.",
     tags: [
+      "AI Agents",
       "Copilot Studio",
-      "Topics",
-      "Generative AI",
-      "Actions",
-      "Knowledge Sources",
-      "Omnichannel",
+      "Conversational AI",
+      "Workflow Orchestration",
+      "Knowledge Base",
     ],
   },
   {
     icon: CloudLightning,
-    title: "Azure AI Services",
-    description: "Integrate enterprise AI capabilities including language, vision, and document intelligence.",
+    title: "Azure AI & Document Intelligence",
+    description: "Extract business data, classify documents, analyze content, and automate document-heavy workflows using Azure AI and intelligent document processing.",
     tags: [
       "Azure OpenAI",
       "Document Intelligence",
+      "OCR",
       "AI Search",
-      "Speech",
-      "Vision",
-      "Language Studio",
+      "Computer Vision",
     ],
   },
   {
     icon: BrainCircuit,
-    title: "AI Models & LLMs",
-    description: "Leverage advanced language models for intelligent decision-making and automation.",
+    title: "AI Models & Decision Intelligence",
+    description: "Leverage enterprise AI models to automate decision-making, analyze business data, optimize workflows, and power intelligent business automation.",
     tags: [
-      "OpenAI GPT",
+      "GPT Models",
       "Claude",
       "Gemini",
       "Llama",
       "Prompt Engineering",
-      "Function Calling",
     ],
   },
   {
     icon: LayoutGrid,
-    title: "Business Applications",
-    description: "Connect enterprise systems and automate end-to-end business processes.",
+    title: "Enterprise Business Applications",
+    description: "Integrate enterprise applications and automate workflows across Microsoft Dynamics 365, Microsoft 365, ERP, CRM, and third-party business systems.",
     tags: [
-      "Power Apps",
       "Dynamics 365",
       "Microsoft 365",
-      "Teams",
-      "Outlook",
       "SharePoint",
+      "ERP",
+      "CRM",
     ],
   },
   {
     icon: Database,
-    title: "Data & Storage",
-    description: "Manage enterprise data securely across Microsoft platforms.",
+    title: "Data Platform & Process Intelligence",
+    description: "Centralize business data and monitor workflow performance with Dataverse, Microsoft Fabric, Power BI, and real-time process analytics.",
     tags: [
       "Dataverse",
-      "SQL Server",
-      "Azure SQL",
-      "OneLake",
       "Microsoft Fabric",
-      "Blob Storage",
+      "Power BI",
+      "Process Analytics",
+      "Data Integration",
     ],
   },
   {
     icon: PlugZap,
-    title: "Enterprise Integration",
-    description: "Connect internal and external systems using APIs and enterprise integration services.",
+    title: "Enterprise Integration & APIs",
+    description: "Connect cloud and on-premises systems through secure APIs, connectors, event-driven automation, and enterprise integration services.",
     tags: [
       "REST APIs",
       "Graph API",
-      "Webhooks",
       "Custom Connectors",
-      "SAP",
-      "Oracle",
+      "Webhooks",
+      "API Management",
     ],
   },
   {
     icon: ShieldCheck,
-    title: "Monitoring & Governance",
-    description: "Ensure secure, reliable, and compliant AI workflow automation.",
+    title: "Security, Governance & Monitoring",
+    description: "Ensure enterprise-grade security, governance, compliance, monitoring, and operational visibility for scalable AI workflow automation solutions.",
     tags: [
-      "Application Insights",
-      "Azure Monitor",
-      "Security",
       "Governance",
-      "Audit Logs",
-      "Role-Based Access",
+      "Compliance",
+      "Security",
+      "Application Insights",
+      "Monitoring",
     ],
   },
 ];
@@ -130,29 +125,10 @@ const tools: ToolCard[] = [
 
 export default function WorkflowTechnologyStack() {
   return (
-    <section className="py-24 relative overflow-hidden bg-white">
+    <section className="py-16 lg:py-20 relative overflow-hidden bg-white">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="flex flex-col items-center text-center mb-16">
-          <div className="flex items-center justify-center gap-6 mb-6">
-            <style>{`
-              @keyframes line-stretch {
-                0%, 100% { width: 40px; opacity: 0.6; }
-                50% { width: 100px; opacity: 1; }
-              }
-              .animate-line-stretch {
-                animation: line-stretch 3s ease-in-out infinite;
-              }
-            `}</style>
-            <div className="animate-line-stretch flex items-center relative h-[1.5px] bg-[#FF5812]">
-              <div className="absolute left-0 w-2 h-2 rotate-45 bg-[#FF5812] -translate-x-1/2"></div>
-            </div>
-            <span className="text-[#FF5812] font-bold tracking-[0.2em] text-sm uppercase">
-              AI WORKFLOW AUTOMATION TECHNOLOGY STACK
-            </span>
-            <div className="animate-line-stretch flex items-center relative h-[1.5px] bg-[#FF5812]">
-              <div className="absolute right-0 w-2 h-2 rotate-45 bg-[#FF5812] translate-x-1/2"></div>
-            </div>
-          </div>
+        <div className="flex flex-col items-center text-center mb-6 lg:mb-8">
+          <CapabilitySectionBadge text="TECHNOLOGIES" variant="line" />
 
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight mb-4 max-w-4xl mx-auto leading-tight">
             Enterprise AI Workflow <br className="hidden md:block" />
@@ -162,7 +138,7 @@ export default function WorkflowTechnologyStack() {
           </h2>
 
           <p className="mt-6 text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
-            We design, develop, and implement intelligent AI workflow automation solutions using Microsoft Power Platform, Azure AI, enterprise integrations, and modern AI technologies to automate business processes at scale.
+            Build intelligent workflow automation solutions with Microsoft Power Platform, Azure AI, AI Agents, enterprise integrations, and advanced automation technologies. Our technology stack enables secure, scalable, and AI-driven business process automation across your organization.
           </p>
         </div>
 

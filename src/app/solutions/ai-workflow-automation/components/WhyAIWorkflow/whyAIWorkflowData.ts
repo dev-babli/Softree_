@@ -1,4 +1,8 @@
-import { Target, LayoutGrid, ShieldCheck, Activity, Code } from "lucide-react";
+import Target from "lucide-react/dist/esm/icons/target";
+import LayoutGrid from "lucide-react/dist/esm/icons/layout-grid";
+import ShieldCheck from "lucide-react/dist/esm/icons/shield-check";
+import Activity from "lucide-react/dist/esm/icons/activity";
+import Code from "lucide-react/dist/esm/icons/code";
 
 import wsimg1 from "../../../../../../public/images/ai-consulting-service-image/why-softree/wsimg-1.png";
 import wsimg2 from "../../../../../../public/images/ai-consulting-service-image/why-softree/wsimg-2.png";
@@ -6,7 +10,6 @@ import wsimg3 from "../../../../../../public/images/ai-consulting-service-image/
 import wsimg4 from "../../../../../../public/images/ai-consulting-service-image/why-softree/wsimg-4.png";
 import wsimg5 from "../../../../../../public/images/ai-consulting-service-image/why-softree/wsimg-5.png";
 import wsimg6 from "../../../../../../public/images/ai-consulting-service-image/why-softree/wsimg-5.png";
-
 
 export interface Feature {
   title: string;

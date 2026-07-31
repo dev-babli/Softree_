@@ -16,10 +16,16 @@ import {
 } from "lucide-react";
 
 /* ================= TYPES ================= */
-type Tech = {
+export type Tech = {
   name: string;
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  icon: React.ComponentType<any>;
 };
+
+export interface TechCategory {
+  id: string;
+  label: string;
+  items: Tech[];
+}
 
 const TABS = [
   "POWER APPS",

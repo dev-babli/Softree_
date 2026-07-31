@@ -1,47 +1,48 @@
+/* eslint-disable softree-design/no-untokenized-design-literals */
 "use client";
 
 import { useState } from "react";
 
 const faqs = [
   {
-    question: "What is Softree?",
+    question: "What kind of technology solutions does Softree Technology specialize in?",
     answer:
-      "Softree is a technology solutions company that helps organizations design, build, and scale secure digital platforms using Microsoft, cloud, AI, and modern web technologies.",
+      "Softree Technology specializes in enterprise Microsoft solutions, AI-powered automation, modern application engineering, and offshore development services. Our core expertise includes SharePoint + PowerApps, Power Automate, Power BI, Dynamics 365, Microsoft Fabric, Azure AI, AI agents, custom web and mobile applications, and enterprise workflow automation solutions designed to help businesses modernize operations and scale efficiently.",
   },
   {
-    question: "What services does Softree offer?",
+    question: "Can Softree help businesses replace manual processes and spreadsheet-based operations?",
     answer:
-      "Softree provides custom software development, web and mobile applications, SharePoint and Power Platform solutions, cloud and Azure services, AI-driven automation, and enterprise system integration.",
+      "Yes. Many organizations still manage approvals, reporting, employee requests, and operational workflows through spreadsheets, emails, and disconnected systems. Softree helps businesses modernize these processes using SharePoint + PowerApps, Power Automate, Dynamics 365, and AI-powered workflow automation solutions that improve operational visibility, reduce manual effort, minimize process delays, and increase efficiency across departments.",
   },
   {
-    question: "Which industries does Softree serve?",
+    question: "Does Softree work with companies that already use Microsoft 365?",
     answer:
-      "Softree works with clients across IT services, healthcare, finance, manufacturing, education, and enterprise organizations seeking digital transformation.",
+      "Absolutely. Softree primarily works with businesses already operating within the Microsoft ecosystem. We help organizations extend and optimize Microsoft 365 environments using SharePoint, Teams, Power Platform, Dynamics 365, Power BI, Azure AI, and Microsoft Copilot integrations without disrupting existing operations or requiring large-scale infrastructure changes.",
   },
   {
-    question: "Does Softree work with Microsoft technologies?",
+    question: "Why do companies choose Softree as their Microsoft and AI development partner?",
     answer:
-      "Yes. Softree specializes in SharePoint, Power Apps, Power Automate, Power Pages, Microsoft 365, Azure, SPFx, and Microsoft Graph integrations.",
+      "Companies choose Softree for its expertise in SharePoint with Power Apps, Power Platform, Dynamics 365, Azure AI, enterprise automation, and custom software development. We combine deep Microsoft ecosystem knowledge with AI engineering capabilities, offshore scalability, transparent delivery processes, and long-term partnership models.",
   },
   {
-    question: "Can Softree integrate with existing systems?",
+    question: "How does Softree support enterprise digital transformation initiatives?",
     answer:
-      "Absolutely. Softree designs solutions that integrate seamlessly with existing enterprise systems, databases, APIs, and third-party platforms.",
+      "Softree supports enterprise digital transformation by modernizing legacy systems, automating workflows, improving collaboration, implementing AI-driven business solutions, and building scalable enterprise applications. Our delivery model combines Microsoft technologies, cloud architecture, AI automation, and agile engineering practices to help organizations improve operational agility, accelerate delivery timelines, and reduce dependency on fragmented manual processes.",
   },
   {
-    question: "Is Softree suitable for enterprise-scale projects?",
+    question: "Can Softree build custom AI solutions for enterprise operations?",
     answer:
-      "Yes. Softree follows enterprise-grade architecture, security best practices, and scalable design principles to support large teams and complex workflows.",
+      "Yes. Softree develops AI-powered enterprise solutions including AI agents, Copilot integrations, intelligent automation systems, document AI, AI-assisted workflows, and Retrieval-Augmented Generation (RAG) solutions. These systems are designed to improve productivity, automate repetitive business operations, streamline knowledge access, and support faster operational decision-making across enterprise environments.",
   },
   {
-    question: "How does Softree ensure security?",
+    question: "What business processes can be automated using Microsoft Power Platform solutions?",
     answer:
-      "Softree implements role-based access control, secure authentication, data protection standards, and compliance best practices tailored to enterprise environments.",
+      "Businesses use Microsoft Power Platform to automate approvals, onboarding, reporting, inventory tracking, HR operations, document workflows, customer request management, compliance processes, and operational coordination systems. Softree helps organizations identify automation opportunities and implement scalable Power Apps and Power Automate solutions integrated with enterprise systems and existing Microsoft environments.",
   },
   {
-    question: "Can Softree scale solutions as our business grows?",
+    question: "How does Softree ensure data security and compliance in enterprise solutions?",
     answer:
-      "Yes. All Softree solutions are designed to scale with increasing users, data, and evolving business requirements.",
+      "Softree aligns all development with Microsoft and industry security best practices. We build solutions within your secure Microsoft 365 tenant or Azure environment, ensuring data privacy, strict access controls, and compliance with enterprise governance policies.",
   },
 ];
 

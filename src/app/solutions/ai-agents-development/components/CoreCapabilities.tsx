@@ -53,48 +53,48 @@ export default function CoreCapabilities() {
       <div className="absolute top-0 left-0 w-[400px] h-[400px] border-b border-r border-[#FF6B2C]/10 rounded-br-[100%] opacity-20 pointer-events-none -translate-x-1/4 -translate-y-1/4"></div>
 
       <div className="relative z-10 max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Header (Matching SuccessStories) */}
         <div className="flex flex-col items-center w-full mb-8 lg:mb-10">
           <SectionBadge text="CORE CAPABILITIES" variant="line" />
-          
-          <h2 className="text-3xl md:text-4xl lg:text-[2.5rem] font-extrabold text-[#111827] mb-3 tracking-tight text-center leading-tight">
-            Enterprise <span className="text-[#FF6B2C]">AI Agent Capabilities</span>
+
+          <h2 className="text-2xl md:text-4xl lg:text-[2.25rem] font-extrabold text-[#111827] mb-3 tracking-tight text-center leading-tight">
+            Enterprise AI <span className="text-[#FF6B2C]">Agent Development Capabilities</span>
           </h2>
-          
-          <p className="text-[15px] lg:text-[17px] text-[#6B7280] text-center max-w-2xl leading-snug">
+
+          <p className="text-[15px] lg:text-base text-[#6B7280] text-center max-w-2xl leading-snug">
             Build enterprise-grade AI agents with secure architectures, intelligent reasoning, seamless integrations, and production-ready deployment capabilities.
           </p>
         </div>
 
         {/* Main Layout */}
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 relative"
-             onMouseEnter={() => setIsHovered(true)}
-             onMouseLeave={() => setIsHovered(false)}
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-8 relative"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
         >
-          
+
           {/* Left Navigation (40%) */}
           <div className="w-full lg:w-[40%] flex flex-col gap-2 lg:gap-3 relative z-10">
             {coreCapabilitiesData.map((cap, idx) => {
               const isActive = idx === activeIndex;
               const Icon = cap.icon;
-              
+
               return (
-                <div 
+                <div
                   key={cap.id}
                   ref={(el) => { cardRefs.current[idx] = el; }}
                   onClick={() => handleManualInteraction(idx)}
                   className={`
                     relative cursor-pointer transition-all duration-500 ease-out p-3 rounded-xl border
-                    ${isActive 
-                      ? 'bg-orange-50/50 border-orange-200 shadow-md transform scale-[1.02]' 
+                    ${isActive
+                      ? 'bg-orange-50/50 border-orange-200 shadow-md transform scale-[1.02]'
                       : 'bg-white border-gray-200 hover:border-orange-100 hover:shadow-sm hover:-translate-y-0.5'
                     }
                   `}
                 >
                   {/* Left Active Indicator */}
                   {isActive && (
-                    <motion.div 
+                    <motion.div
                       layoutId="activeIndicator"
                       className="absolute left-0 top-0 bottom-0 w-1 bg-[#FF6B2C] rounded-l-xl shadow-[0_0_10px_rgba(255,107,44,0.5)]"
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
@@ -108,7 +108,7 @@ export default function CoreCapabilities() {
                     `}>
                       <Icon size={18} stroke={2} className={isActive ? "animate-pulse scale-110" : ""} />
                     </div>
-                    
+
                     <div>
                       <div className="flex items-center gap-2 mb-0.5">
                         <h3 className={`text-base transition-all duration-300 ${isActive ? 'font-bold text-[#111827]' : 'font-semibold text-gray-700'}`}>
@@ -125,39 +125,8 @@ export default function CoreCapabilities() {
             })}
           </div>
 
-          {/* SVG Connector (Hidden on Mobile) */}
-          <div className="hidden lg:block absolute left-[40%] top-0 bottom-0 w-[5%] z-0 pointer-events-none">
-             <svg width="100%" height="100%" preserveAspectRatio="none">
-               <motion.path 
-                 animate={{ d: `M 0 ${activeOffset} C 50 ${activeOffset}, 50 300, 100 300` }}
-                 stroke="rgba(255,107,44,0.2)"
-                 strokeWidth="2"
-                 fill="none"
-                 transition={{ duration: 0.5 }}
-               />
-               <motion.path 
-                 animate={{ 
-                   d: `M 0 ${activeOffset} C 50 ${activeOffset}, 50 300, 100 300`,
-                   strokeDashoffset: [0, -100]
-                 }}
-                 stroke="#FF6B2C"
-                 strokeWidth="2"
-                 fill="none"
-                 strokeDasharray="10 10"
-                 transition={{ 
-                   d: { duration: 0.5 },
-                   strokeDashoffset: { duration: 3, repeat: Infinity, ease: "linear" }
-                 }}
-               />
-               <motion.circle 
-                 cx="100" cy="300" r="4" fill="#FF6B2C"
-                 className="shadow-[0_0_8px_#FF6B2C]"
-               />
-             </svg>
-          </div>
-
           {/* Right Showcase (60%) */}
-          <div className="w-full lg:w-[60%] lg:pl-10 h-full flex flex-col">
+          <div className="w-full lg:w-[60%] h-full flex flex-col">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}
@@ -167,12 +136,12 @@ export default function CoreCapabilities() {
                 transition={{ duration: 0.5, staggerChildren: 0.1 }}
                 className="bg-white rounded-3xl shadow-[0_10px_40px_rgba(255,107,44,0.08)] overflow-hidden flex flex-col h-full border border-[#FF6B2C] flex-grow"
               >
-                
+
                 {/* Top Section (Split) */}
                 <div className="flex flex-col md:flex-row flex-grow">
-                  
+
                   {/* Image Area */}
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6 }}
@@ -180,23 +149,23 @@ export default function CoreCapabilities() {
                   >
                     {/* Abstract Illustration Based on Capability */}
                     <div className="relative z-10 w-full h-full flex items-center justify-center transition-transform duration-700 group-hover:scale-105 min-h-[250px] lg:min-h-[300px]">
-                       {(activeData as any).image ? (
-                         <img src={(activeData as any).image} alt={activeData.title} className="w-full h-full object-cover absolute inset-0" />
-                       ) : (
-                         <AbstractIllustration type={activeData.illustration} />
-                       )}
+                      {(activeData as any).image ? (
+                        <img src={(activeData as any).image} alt={activeData.title} className="w-full h-full object-cover absolute inset-0" />
+                      ) : (
+                        <AbstractIllustration type={activeData.illustration} />
+                      )}
                     </div>
                   </motion.div>
 
                   {/* Content Area */}
                   <div className="w-full md:w-[55%] p-5 sm:p-6 lg:p-8 flex flex-col justify-center flex-grow">
-                    
+
                     <div className="flex items-center gap-2 mb-4 lg:mb-5">
                       <span className="text-[#FF6B2C] font-semibold tracking-wide text-base">{activeData.id}</span>
                       <div className="h-0.5 w-8 bg-orange-200"></div>
                     </div>
 
-                    <motion.h3 
+                    <motion.h3
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.2 }}
@@ -204,8 +173,8 @@ export default function CoreCapabilities() {
                     >
                       {activeData.title}
                     </motion.h3>
-                    
-                    <motion.p 
+
+                    <motion.p
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.3 }}
@@ -214,7 +183,7 @@ export default function CoreCapabilities() {
                       {activeData.description}
                     </motion.p>
 
-                    <motion.ul 
+                    <motion.ul
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.4 }}
@@ -240,15 +209,15 @@ export default function CoreCapabilities() {
                 </div>
 
                 {/* KPI Strip */}
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
                   className="grid grid-cols-2 sm:grid-cols-4 bg-white border-t border-gray-100 p-4 sm:p-5"
                 >
                   {activeData.kpis.map((kpi, i) => (
-                    <div 
-                      key={i} 
+                    <div
+                      key={i}
                       className={`flex flex-col items-center justify-center text-center group/kpi cursor-default ${i !== activeData.kpis.length - 1 ? 'sm:border-r border-gray-100' : ''}`}
                     >
                       <div className="text-2xl lg:text-3xl font-bold text-[#FF6B2C] mb-1 group-hover/kpi:scale-105 transition-transform duration-300">
@@ -264,7 +233,7 @@ export default function CoreCapabilities() {
               </motion.div>
             </AnimatePresence>
           </div>
-          
+
         </div>
       </div>
     </section>
@@ -342,13 +311,13 @@ function AbstractIllustration({ type }: { type: string }) {
   }
   return (
     <svg viewBox="0 0 400 200" className="w-full h-full max-w-[300px]" fill="none" xmlns="http://www.w3.org/2000/svg">
-       <path d="M50 150 L120 100 L180 120 L260 60 L350 90" stroke="rgba(255,255,255,0.2)" strokeWidth="2" fill="none" />
-       <path d="M50 150 L120 100 L180 120 L260 60 L350 90" stroke="#FF6B2C" strokeWidth="3" fill="none" strokeDasharray="400" strokeDashoffset="0" className="animate-pulse" />
-       <circle cx="120" cy="100" r="6" fill="rgba(255,255,255,0.5)" />
-       <circle cx="180" cy="120" r="6" fill="rgba(255,255,255,0.5)" />
-       <circle cx="260" cy="60" r="8" fill="#FF6B2C" />
-       <circle cx="350" cy="90" r="6" fill="rgba(255,255,255,0.5)" />
-       <rect x="240" y="30" width="40" height="15" rx="4" fill="rgba(255,107,44,0.2)" />
+      <path d="M50 150 L120 100 L180 120 L260 60 L350 90" stroke="rgba(255,255,255,0.2)" strokeWidth="2" fill="none" />
+      <path d="M50 150 L120 100 L180 120 L260 60 L350 90" stroke="#FF6B2C" strokeWidth="3" fill="none" strokeDasharray="400" strokeDashoffset="0" className="animate-pulse" />
+      <circle cx="120" cy="100" r="6" fill="rgba(255,255,255,0.5)" />
+      <circle cx="180" cy="120" r="6" fill="rgba(255,255,255,0.5)" />
+      <circle cx="260" cy="60" r="8" fill="#FF6B2C" />
+      <circle cx="350" cy="90" r="6" fill="rgba(255,255,255,0.5)" />
+      <rect x="240" y="30" width="40" height="15" rx="4" fill="rgba(255,107,44,0.2)" />
     </svg>
   );
 }
