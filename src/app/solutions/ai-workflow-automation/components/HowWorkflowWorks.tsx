@@ -39,16 +39,17 @@ import {
   AnimatePresence,
   type PanInfo,
 } from "framer-motion";
+import CapabilitySectionBadge from "./Core-capabilities/CapabilitySectionBadge";
 
 /* ─────────────────────────────────────────────────────────────────
    CONTENT  —  KEEP AS-IS
    ───────────────────────────────────────────────────────────────── */
 const BASE_CARDS = [
   {
-    id: "analyze-process",
-    title: "Analyze Process",
+    id: "process-assessment",
+    title: "Process Assessment",
     description:
-      "Identify repetitive business processes, bottlenecks, and automation opportunities using AI-driven process analysis.",
+      "Analyze existing business processes, identify automation opportunities, evaluate workflows, and define business requirements to maximize automation success.",
     tag: "STEP 01",
     bgColor: "#FFFFFF",
     textColor: "#141413",
@@ -56,10 +57,10 @@ const BASE_CARDS = [
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
   },
   {
-    id: "identify-automation",
-    title: "Identify Automation",
+    id: "solution-design",
+    title: "Solution Design",
     description:
-      "Determine the best AI workflows, business rules, and automation strategies for each process.",
+      "Design intelligent AI workflow automation solutions using Microsoft Power Platform, AI agents, business rules, approval workflows, and enterprise automation best practices.",
     tag: "STEP 02",
     bgColor: "#141413",
     textColor: "#ffffff",
@@ -67,10 +68,10 @@ const BASE_CARDS = [
       "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
   },
   {
-    id: "build-ai-workflow",
-    title: "Build AI Workflow",
+    id: "workflow-development",
+    title: "Workflow Development",
     description:
-      "Design intelligent workflows using AI agents, automation tools, approvals, and enterprise integrations.",
+      "Develop scalable AI-powered workflows, automate business processes, configure integrations, and implement secure enterprise automation solutions.",
     tag: "STEP 03",
     bgColor: "#F3F0EE",
     textColor: "#141413",
@@ -78,10 +79,10 @@ const BASE_CARDS = [
       "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800",
   },
   {
-    id: "integrate-systems",
-    title: "Integrate Systems",
+    id: "enterprise-integration",
+    title: "Enterprise Integration",
     description:
-      "Connect ERP, CRM, Microsoft 365, Dataverse, SharePoint, APIs, and third-party applications into one automated workflow.",
+      "Integrate AI workflow automation with Microsoft 365, Dynamics 365, SharePoint, ERP, CRM, Dataverse, and third-party business applications.",
     tag: "STEP 04",
     bgColor: "#FF5812",
     textColor: "#ffffff",
@@ -89,10 +90,10 @@ const BASE_CARDS = [
       "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800",
   },
   {
-    id: "monitor-optimize",
-    title: "Monitor & Optimize",
+    id: "optimization-support",
+    title: "Optimization & Support",
     description:
-      "Continuously monitor workflow performance, collect AI insights, and optimize business processes for maximum efficiency.",
+      "Continuously monitor workflow performance, optimize automation processes, improve AI accuracy, and provide ongoing support to maximize business value.",
     tag: "STEP 05",
     bgColor: "#141413",
     textColor: "#ffffff",
@@ -721,9 +722,9 @@ export default function HowWorkflowWorks() {
   /* Single rotation motion value — increments / decrements as the user drags
    * or the auto-loop ticks. We never wrap it: cards do their own modulo math
    * to display in the (-180°, 180°] range. */
-  const rotationMV = useMotionValue(0);
+  const rotationMV = useMotionValue(-DEG_PER_CARD);
   const smoothRotation = useSpring(rotationMV, { damping: 50, stiffness: 200 });
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(1);
 
   useMotionValueEvent(smoothRotation, "change", (val: number) => {
     /* `val` is the rotation; the active card is whichever card has angle ≈ -val
@@ -814,30 +815,14 @@ export default function HowWorkflowWorks() {
       {/* ── Inner wrapper (header + pills, normal flow) ── */}
       <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 md:px-12">
         {/* Title row */}
-        <div className="flex flex-col items-center text-center pt-10 sm:pt-12 md:pt-14 mb-10 md:mb-12">
-          <div className="flex items-center justify-center gap-6 mb-6">
-            <style>{`
-              @keyframes line-stretch {
-                0%, 100% { width: 40px; opacity: 0.6; }
-                50% { width: 100px; opacity: 1; }
-              }
-              .animate-line-stretch {
-                animation: line-stretch 3s ease-in-out infinite;
-              }
-            `}</style>
-            <div className="animate-line-stretch flex items-center relative h-[1.5px] bg-[#FF5812]">
-              <div className="absolute left-0 w-2 h-2 rotate-45 bg-[#FF5812] -translate-x-1/2"></div>
-            </div>
-            <span className="text-[#FF5812] font-bold tracking-[0.2em] text-sm uppercase">HOW IT WORKS</span>
-            <div className="animate-line-stretch flex items-center relative h-[1.5px] bg-[#FF5812]">
-              <div className="absolute right-0 w-2 h-2 rotate-45 bg-[#FF5812] translate-x-1/2"></div>
-            </div>
-          </div>
+        <div className="flex flex-col items-center text-center pt-4 sm:pt-6 md:pt-8 mb-6 md:mb-8">
+          <CapabilitySectionBadge text="OUR DELIVERY PROCESS" variant="line" />
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight mb-4 max-w-4xl mx-auto leading-tight">
-            How AI Workflow <span className="text-[#FF6A13]">Automation Works</span>
+            Our AI Workflow Automation <br className="hidden md:block" />
+            <span className="bg-gradient-to-r from-[#FF6B00] to-[#FF8C00] bg-clip-text text-transparent">Delivery Process</span>
           </h2>
           <p className="text-[15px] sm:text-[17px] md:text-[18px] text-[#141413]/55 leading-[1.55] max-w-3xl mx-auto">
-            See how AI-powered workflow automation transforms manual business processes into intelligent, automated workflows that improve efficiency, reduce errors, and accelerate business outcomes.
+            Our proven AI workflow automation methodology helps organizations analyze business processes, design intelligent automation solutions, integrate enterprise systems, and continuously optimize workflows for measurable business outcomes.
           </p>
         </div>
 
@@ -851,7 +836,7 @@ export default function HowWorkflowWorks() {
             className="md:hidden pointer-events-none absolute inset-y-0 left-0 w-10 z-10"
             style={{
               background:
-                "linear-gradient(to right, #F3F0EE 0%, rgba(243,240,238,0) 100%)",
+                "linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0) 100%)",
             }}
           />
           {/* Edge fade — right (mobile/tablet only) */}
@@ -860,7 +845,7 @@ export default function HowWorkflowWorks() {
             className="md:hidden pointer-events-none absolute inset-y-0 right-0 w-10 z-10"
             style={{
               background:
-                "linear-gradient(to left, #F3F0EE 0%, rgba(243,240,238,0) 100%)",
+                "linear-gradient(to left, #ffffff 0%, rgba(255,255,255,0) 100%)",
             }}
           />
 
@@ -975,7 +960,7 @@ export default function HowWorkflowWorks() {
         className="pointer-events-none absolute inset-x-0 bottom-0 h-12 md:h-16 z-30"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(243,240,238,0) 0%, rgba(243,240,238,1) 100%)",
+            "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%)",
         }}
       />
 

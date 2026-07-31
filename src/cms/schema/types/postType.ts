@@ -86,7 +86,8 @@ export const postType = defineType({
         layout: 'radio',
         ...aiAssistExclude,
       },
-      initialValue: 'composer',
+      initialValue: 'classic',
+      hidden: true,
     }),
     defineField({
       name: 'layoutRecipe',
@@ -187,12 +188,6 @@ export const postType = defineType({
       group: 'publish',
     }),
     defineField({
-      name: 'author',
-      type: 'reference',
-      to: {type: 'author'},
-      group: 'content',
-    }),
-    defineField({
       name: 'mainImage',
       type: 'image',
       group: 'content',
@@ -218,7 +213,7 @@ export const postType = defineType({
       rows: 3,
       group: 'content',
       description: 'Describe the featured image you want AI to generate. Leave empty to use the title and excerpt as context.',
-      hidden: ({document}) => !!(document as any)?.mainImage?.asset,
+      hidden: ({document}) => !!(document as { mainImage?: { asset?: unknown } })?.mainImage?.asset,
     }),
     defineField({
       name: 'categories',
@@ -304,12 +299,10 @@ export const postType = defineType({
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
       media: 'mainImage',
     },
     prepare(selection) {
-      const {author} = selection
-      return {...selection, subtitle: author && `by ${author}`}
+      return {...selection, subtitle: 'Blog Post'}
     },
   },
 })

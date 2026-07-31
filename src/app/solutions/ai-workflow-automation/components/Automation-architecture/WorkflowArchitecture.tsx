@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useRef } from "react";
-import { motion, Variants, TargetAndTransition } from "framer-motion";
+import React, { useRef, useEffect, useState } from "react";
+import { motion, useAnimation, useInView, Variants, TargetAndTransition } from "framer-motion";
 import {
   Rocket,
   BrainCircuit,
@@ -170,44 +170,45 @@ const pulseAnimation: TargetAndTransition = {
   },
 };
 
-const PARTICLE_POSITIONS = [
-  { left: "19.26%", top: "54.64%", opacity: 0.45 },
-  { left: "3.29%", top: "92.32%", opacity: 0.46 },
-  { left: "55.91%", top: "87.79%", opacity: 0.48 },
-  { left: "60.92%", top: "34.44%", opacity: 0.21 },
-  { left: "91.06%", top: "39.48%", opacity: 0.33 },
-  { left: "27.85%", top: "75.74%", opacity: 0.49 },
-  { left: "0.42%", top: "47.36%", opacity: 0.37 },
-  { left: "21.06%", top: "21.46%", opacity: 0.65 },
-  { left: "80.37%", top: "19.01%", opacity: 0.26 },
-  { left: "32.53%", top: "79.14%", opacity: 0.45 },
-  { left: "80.11%", top: "95.02%", opacity: 0.49 },
-  { left: "59.39%", top: "8.13%", opacity: 0.63 },
-] as const;
-
 /* =====================================================================
    COMPONENT
    ===================================================================== */
 
 export function WorkflowArchitecture() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { once: true, margin: "-10%" });
+  const controls = useAnimation();
+
+  // Desktop vs Mobile layout detection for connectors
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 1024);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start("visible");
+    }
+  }, [isInView, controls]);
 
   return (
     <section
       ref={containerRef}
-      className="relative w-full py-14 overflow-hidden font-sans bg-gradient-to-b from-zinc-50 via-white to-zinc-50"
+      className="relative w-full py-24 overflow-hidden font-sans bg-gradient-to-b from-zinc-50 via-white to-zinc-50"
     >
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-6">
         <motion.div
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          animate={controls}
           className="flex flex-col items-center"
         >
           {/* HEADER */}
-          <motion.div variants={fadeUpVariant} className="text-center mb-10">
+          <motion.div variants={fadeUpVariant} className="text-center mb-16">
             <div className="flex items-center justify-center gap-6 mb-6">
               <style>{`
                 @keyframes line-stretch {
@@ -246,158 +247,212 @@ export function WorkflowArchitecture() {
           </motion.div>
 
           {/* =====================================================================
-              ARCHITECTURE DIAGRAM (Responsive Grid Flow)
+              ARCHITECTURE DIAGRAM
               ===================================================================== */}
-          <div className="w-full mt-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center w-full max-w-6xl mx-auto">
-              
-              {/* LEFT COLUMN: TRIGGER -> ENGINE (5 Columns on Desktop) */}
-              <div className="lg:col-span-5 flex flex-col justify-center gap-2 w-full">
-                
-                {/* LAYER 1: TRIGGER */}
-                <motion.div
-                  variants={fadeDownVariant}
-                  whileHover={{ y: -4, transition: { duration: 0.3 } }}
-                  className="relative z-10 w-full"
-                >
-                  <div className="relative group bg-white/90 backdrop-blur-md border border-[#FF5812]/15 rounded-[22px] py-3.5 px-5 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_30px_rgba(255,88,18,0.08)] hover:border-[#FF5812]/30 transition-all duration-300 flex items-center gap-4 cursor-default">
-                    {/* Icon Wrapper */}
-                    <div className="relative flex-shrink-0 w-12 h-12 rounded-full bg-orange-50 border border-orange-100 flex items-center justify-center">
-                      <div className="absolute inset-0 bg-[#FF5812] opacity-0 group-hover:opacity-10 rounded-full blur-md transition-opacity duration-300" />
-                      <motion.div animate={floatAnimation}>
-                        <Rocket className="w-6 h-6 text-[#FF5812]" />
-                      </motion.div>
-                    </div>
-                    <div>
-                      <h3 className="text-[16px] font-bold text-slate-800 mb-0.5">Business Trigger</h3>
-                      <p className="text-xs text-slate-400">Event or action initiates the workflow</p>
-                    </div>
-                  </div>
-                </motion.div>
+          <div className="relative w-full flex flex-col items-center">
+            {/* SVG CONNECTORS (Background Layer) */}
+            {!isMobile && (
+              <svg
+                className="absolute inset-0 w-full h-[110%] pointer-events-none -z-10"
+                style={{ top: "80px" }}
+              >
+                <defs>
+                  <linearGradient id="flow-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#FF5812" stopOpacity="0.2" />
+                    <stop offset="50%" stopColor="#FF5812" stopOpacity="1" />
+                    <stop offset="100%" stopColor="#FF5812" stopOpacity="0.2" />
+                  </linearGradient>
+                </defs>
 
-                {/* Vertical Connector Pulse Line */}
-                <div className="flex justify-center items-center py-1">
-                  <div className="w-[1.5px] h-6 bg-gradient-to-b from-[#FF5812] to-orange-100/20" />
+                {/* Vertical Center Lines */}
+                {/* Trigger to Engine */}
+                <line x1="50%" y1="30" x2="50%" y2="100" stroke="#FF5812" strokeWidth="2" strokeDasharray="6 6" opacity="0.8" className="animate-dash-flow" />
+                <circle cx="50%" cy="65" r="3" fill="#FF5812" />
+
+                {/* Engine to Features */}
+                <line x1="50%" y1="200" x2="50%" y2="280" stroke="#FF5812" strokeWidth="2" strokeDasharray="6 6" opacity="0.8" className="animate-dash-flow" />
+                <circle cx="50%" cy="240" r="3" fill="#FF5812" />
+
+                {/* Features to Bottom */}
+                <line x1="50%" y1="560" x2="50%" y2="660" stroke="#FF5812" strokeWidth="2" strokeDasharray="6 6" opacity="0.8" className="animate-dash-flow" />
+                
+                {/* Horizontal line spreading across bottom systems */}
+                <line x1="15%" y1="660" x2="85%" y2="660" stroke="#FF5812" strokeWidth="1" strokeOpacity="0.3" />
+                
+                {/* Dropdowns to Bottom Systems */}
+                {[15, 26.6, 38.3, 50, 61.6, 73.3, 85].map((x, i) => (
+                  <line key={i} x1={`${x}%`} y1="660" x2={`${x}%`} y2="680" stroke="#FF5812" strokeWidth="1" strokeOpacity="0.3" />
+                ))}
+                
+                {/* Center dot below features */}
+                <circle cx="50%" cy="610" r="3" fill="#FF5812" />
+
+                {/* SIDE WIDE CONNECTORS (From Trigger to Bottom) */}
+                <path
+                  d="M 40% 50 L 10% 50 A 20 20 0 0 0 8% 70 L 8% 680 A 20 20 0 0 0 10% 700 L 13% 700"
+                  fill="none"
+                  stroke="#FF5812"
+                  strokeWidth="1.5"
+                  strokeOpacity="0.3"
+                />
+                <circle cx="8%" cy="300" r="4" fill="#FF5812" className="animate-pulse" />
+                <path
+                  d="M 60% 50 L 90% 50 A 20 20 0 0 1 92% 70 L 92% 680 A 20 20 0 0 1 90% 700 L 87% 700"
+                  fill="none"
+                  stroke="#FF5812"
+                  strokeWidth="1.5"
+                  strokeOpacity="0.3"
+                />
+                <circle cx="92%" cy="300" r="4" fill="#FF5812" className="animate-pulse" />
+
+                {/* Animated light pulses on the sides */}
+                <motion.path
+                  d="M 40% 50 L 10% 50 A 20 20 0 0 0 8% 70 L 8% 680"
+                  fill="none"
+                  stroke="url(#flow-gradient)"
+                  strokeWidth="2"
+                  strokeDasharray="200"
+                  initial={{ strokeDashoffset: -200 }}
+                  animate={{ strokeDashoffset: 1200 }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                />
+                <motion.path
+                  d="M 60% 50 L 90% 50 A 20 20 0 0 1 92% 70 L 92% 680"
+                  fill="none"
+                  stroke="url(#flow-gradient)"
+                  strokeWidth="2"
+                  strokeDasharray="200"
+                  initial={{ strokeDashoffset: -200 }}
+                  animate={{ strokeDashoffset: 1200 }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "linear", delay: 2 }}
+                />
+              </svg>
+            )}
+
+            {/* LAYER 1: TRIGGER */}
+            <motion.div
+              variants={fadeDownVariant}
+              whileHover={{ y: -6, transition: { duration: 0.3 } }}
+              className="relative z-10 w-full max-w-lg mb-[60px]"
+            >
+              <div className="relative group bg-white/90 backdrop-blur-md border border-[#FF5812]/20 rounded-[28px] p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_15px_40px_rgba(255,88,18,0.1)] hover:border-[#FF5812]/40 transition-all duration-300 flex items-center gap-6 cursor-default">
+                {/* Icon Wrapper */}
+                <div className="relative flex-shrink-0 w-16 h-16 rounded-full bg-orange-50 border border-orange-100 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-[#FF5812] opacity-0 group-hover:opacity-10 rounded-full blur-md transition-opacity duration-300" />
+                  <motion.div animate={floatAnimation}>
+                    <Rocket className="w-8 h-8 text-[#FF5812]" />
+                  </motion.div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">Business Trigger</h3>
+                  <p className="text-sm text-gray-500">Event or action initiates the workflow</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* LAYER 2: AI DECISION ENGINE */}
+            <motion.div
+              variants={fadeUpVariant}
+              whileHover={{ y: -6, transition: { duration: 0.3 } }}
+              className="relative z-10 w-full max-w-2xl mb-[60px]"
+            >
+              <div className="relative group bg-white/90 backdrop-blur-md border border-[#FF5812]/20 rounded-[28px] p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_15px_40px_rgba(255,88,18,0.15)] hover:border-[#FF5812]/40 transition-all duration-300 flex items-center gap-6 cursor-default overflow-hidden">
+                
+                {/* Circuit Graphics (Left) */}
+                <div className="absolute -left-12 top-1/2 -translate-y-1/2 w-48 h-full opacity-30 pointer-events-none flex flex-col justify-center gap-2">
+                   <div className="w-full h-px bg-gradient-to-r from-transparent via-[#FF5812] to-transparent translate-x-4" />
+                   <div className="w-3/4 h-px bg-gradient-to-r from-transparent via-[#FF5812] to-transparent -translate-x-2" />
+                   <div className="w-full h-px bg-gradient-to-r from-transparent via-[#FF5812] to-transparent translate-x-2" />
                 </div>
 
-                {/* LAYER 2: AI DECISION ENGINE */}
-                <motion.div
-                  variants={fadeUpVariant}
-                  whileHover={{ y: -4, transition: { duration: 0.3 } }}
-                  className="relative z-10 w-full"
-                >
-                  <div className="relative group bg-white/90 backdrop-blur-md border border-[#FF5812]/15 rounded-[22px] py-3.5 px-5 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_30px_rgba(255,88,18,0.1)] hover:border-[#FF5812]/30 transition-all duration-300 flex items-center gap-4 cursor-default overflow-hidden">
-                    
-                    {/* Circuit Graphics (Left) */}
-                    <div className="absolute -left-12 top-1/2 -translate-y-1/2 w-48 h-full opacity-20 pointer-events-none flex flex-col justify-center gap-2">
-                       <div className="w-full h-px bg-gradient-to-r from-transparent via-[#FF5812] to-transparent translate-x-4" />
-                       <div className="w-3/4 h-px bg-gradient-to-r from-transparent via-[#FF5812] to-transparent -translate-x-2" />
-                    </div>
+                {/* Particles (Right) */}
+                <div className="absolute right-4 top-1/2 -translate-y-1/2 w-24 h-24 pointer-events-none">
+                   {[...Array(12)].map((_, i) => (
+                     <motion.div
+                       key={i}
+                       animate={pulseAnimation}
+                       style={{
+                         animationDelay: `${i * 0.2}s`,
+                         position: "absolute",
+                         width: "3px",
+                         height: "3px",
+                         borderRadius: "50%",
+                         backgroundColor: "#FF5812",
+                         left: `${Math.random() * 100}%`,
+                         top: `${Math.random() * 100}%`,
+                         opacity: Math.random() * 0.5 + 0.2,
+                       }}
+                     />
+                   ))}
+                </div>
 
-                    {/* Particles (Right) */}
-                    <div className="absolute right-4 top-1/2 -translate-y-1/2 w-16 h-16 pointer-events-none">
-                        {PARTICLE_POSITIONS.slice(0, 6).map((pos, i) => (
-                          <motion.div
-                            key={i}
-                            animate={pulseAnimation}
-                            style={{
-                              animationDelay: `${i * 0.2}s`,
-                              position: "absolute",
-                              width: "2.5px",
-                              height: "2.5px",
-                              borderRadius: "50%",
-                              backgroundColor: "#FF5812",
-                              left: pos.left,
-                              top: pos.top,
-                              opacity: pos.opacity,
-                            }}
-                          />
-                        ))}
-                    </div>
+                {/* Icon Wrapper */}
+                <div className="relative z-10 flex-shrink-0 w-20 h-20 rounded-full bg-orange-50 border border-orange-100 flex items-center justify-center shadow-inner">
+                  <div className="absolute inset-0 bg-[#FF5812] opacity-5 group-hover:opacity-15 rounded-full blur-md transition-opacity duration-300" />
+                  <motion.div animate={floatAnimation}>
+                    <BrainCircuit className="w-10 h-10 text-[#FF5812]" />
+                  </motion.div>
+                </div>
+                <div className="relative z-10 pr-12">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">AI Decision Engine</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed">
+                    AI models analyze data, understand context, apply business rules, and make intelligent decisions
+                  </p>
+                </div>
+              </div>
+            </motion.div>
 
-                    {/* Icon Wrapper */}
-                    <div className="relative z-10 flex-shrink-0 w-14 h-14 rounded-full bg-orange-50 border border-orange-100 flex items-center justify-center">
-                      <div className="absolute inset-0 bg-[#FF5812] opacity-5 group-hover:opacity-15 rounded-full blur-md transition-opacity duration-300" />
-                      <motion.div animate={floatAnimation}>
-                        <BrainCircuit className="w-7 h-7 text-[#FF5812]" />
-                      </motion.div>
-                    </div>
-                    <div className="relative z-10 pr-6">
-                      <h3 className="text-[16px] font-bold text-slate-800 mb-0.5">AI Decision Engine</h3>
-                      <p className="text-xs text-slate-400 leading-normal">
-                        AI models analyze context and make intelligent process decisions
+            {/* LAYER 3: FEATURE BLOCKS */}
+            <motion.div
+              variants={fadeUpVariant}
+              className="relative z-10 w-full max-w-6xl mb-[60px]"
+            >
+              <div className="bg-white/90 backdrop-blur-md border border-gray-200/60 rounded-[28px] p-6 lg:p-8 shadow-[0_10px_40px_rgb(0,0,0,0.04)] hover:shadow-[0_15px_50px_rgba(0,0,0,0.06)] transition-all duration-300">
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-0 lg:divide-x divide-gray-100">
+                  {FEATURE_BLOCKS.map((block, idx) => (
+                    <motion.div
+                      key={idx}
+                      variants={staggerFadeVariant}
+                      className="flex flex-col items-center text-center px-4 py-4 group"
+                    >
+                      <div className="w-16 h-16 rounded-2xl bg-gray-50 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 shadow-sm border border-gray-100/50">
+                        {block.icon}
+                      </div>
+                      <h4 className="text-base font-bold text-gray-900 mb-2">{block.title}</h4>
+                      <p className="text-[13px] text-gray-500 leading-relaxed max-w-[200px]">
+                        {block.subtitle}
                       </p>
-                    </div>
-                  </div>
-                </motion.div>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
+            </motion.div>
 
-              {/* MIDDLE COLUMN: FLOW LINK DIRECTION (1 Column on Desktop, horizontal arrow) */}
-              <div className="hidden lg:flex items-center justify-center lg:col-span-1 py-4">
-                <svg className="w-6 h-6 text-[#FF5812]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                   <path strokeLinecap="round" strokeLinejoin="round" d="M13 5l7 7-7 7M5 5l7 7-7 7" className="animate-pulse" />
-                </svg>
+            {/* LAYER 4: BOTTOM SYSTEMS */}
+            <motion.div
+              variants={fadeUpVariant}
+              className="relative z-10 w-full max-w-6xl"
+            >
+              <div className="bg-white/90 backdrop-blur-md border border-gray-200/60 rounded-[28px] py-8 px-6 lg:px-12 shadow-[0_10px_40px_rgb(0,0,0,0.04)] hover:shadow-[0_15px_50px_rgba(0,0,0,0.06)] transition-all duration-300">
+                <div className="flex flex-wrap lg:flex-nowrap justify-center lg:justify-between items-center gap-6 lg:gap-4">
+                  {PLATFORMS.map((platform, idx) => (
+                    <motion.div
+                      key={idx}
+                      variants={staggerFadeVariant}
+                      whileHover={{ y: -4 }}
+                      className="flex flex-col items-center min-w-[100px] group cursor-default"
+                    >
+                      <div className="w-16 h-16 rounded-full bg-gray-50 flex items-center justify-center mb-4 group-hover:bg-white group-hover:shadow-md border border-transparent group-hover:border-gray-100 transition-all duration-300 text-gray-700">
+                        {platform.icon}
+                      </div>
+                      <span className={`text-sm font-semibold ${platform.color} group-hover:text-[#FF5812] transition-colors`}>
+                        {platform.label}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
-
-              {/* RIGHT COLUMN: CAPABILITIES & SYSTEMS (6 Columns on Desktop) */}
-              <div className="lg:col-span-6 flex flex-col gap-4 w-full">
-                
-                {/* LAYER 3: FEATURE BLOCKS (CAPABILITIES) */}
-                <motion.div
-                  variants={fadeUpVariant}
-                  className="relative z-10 w-full"
-                >
-                  <div className="bg-white/90 backdrop-blur-md border border-gray-150 rounded-[24px] p-4 shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
-                    <h4 className="text-xs font-black text-slate-400 uppercase tracking-widest mb-3 text-center lg:text-left pl-1">Engine Capabilities</h4>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-                      {FEATURE_BLOCKS.map((block, idx) => (
-                        <motion.div
-                          key={idx}
-                          variants={staggerFadeVariant}
-                          className="flex flex-col items-center text-center p-1 group"
-                        >
-                          <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300 shadow-sm border border-gray-100/50">
-                            {React.cloneElement(block.icon as React.ReactElement<{ className?: string }>, { className: "w-5 h-5 text-[#FF5812]" })}
-                          </div>
-                          <h5 className="text-[11px] font-bold text-slate-800 mb-0.5">{block.title}</h5>
-                          <p className="text-[9px] text-slate-400 leading-tight max-w-[100px] line-clamp-2">
-                            {block.subtitle}
-                          </p>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-
-                {/* LAYER 4: BOTTOM SYSTEMS (INTEGRATIONS) */}
-                <motion.div
-                  variants={fadeUpVariant}
-                  className="relative z-10 w-full"
-                >
-                  <div className="bg-white/90 backdrop-blur-md border border-gray-150 rounded-[24px] p-4 shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
-                    <h4 className="text-xs font-black text-slate-400 uppercase tracking-widest mb-2.5 text-center lg:text-left pl-1">Connected Systems</h4>
-                    <div className="flex flex-wrap justify-center lg:justify-start items-center gap-2">
-                      {PLATFORMS.map((platform, idx) => (
-                        <motion.div
-                          key={idx}
-                          variants={staggerFadeVariant}
-                          whileHover={{ y: -2 }}
-                          className="flex items-center gap-1.5 bg-slate-50 hover:bg-white hover:shadow-sm px-2.5 py-1.5 rounded-full border border-slate-100 hover:border-[#FF5812]/20 transition-all duration-300 text-gray-700 cursor-default"
-                        >
-                          <div className="flex-shrink-0">
-                            {React.cloneElement(platform.icon as React.ReactElement<{ className?: string }>, { className: "w-4 h-4" })}
-                          </div>
-                          <span className={`text-[10px] font-bold ${platform.color} transition-colors`}>
-                            {platform.label}
-                          </span>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-
-              </div>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>

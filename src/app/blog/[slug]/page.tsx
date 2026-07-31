@@ -16,6 +16,7 @@ import { buildArticleJsonLd, buildBlogJsonLdGraph } from '@/lib/structured-data'
 import { fetchDesignTokens } from '@/lib/fetch-design-tokens'
 import { collectFaqItems } from '@/cms/lib/studio/aeoCompleteness'
 import { ogImages, pageOgImage, SITE_URL, twitterImages } from '@/lib/site-metadata'
+import LightFAQExact from '@/components/homepage-light/LightFAQExact'
 
 function toPlainText(value: unknown): string {
   if (!value) return ''
@@ -51,6 +52,31 @@ function toPlainText(value: unknown): string {
   }
 
   return ''
+}
+
+interface BlogPostDocument {
+  _id: string
+  _updatedAt?: string
+  title?: string
+  slug?: { current: string }
+  excerpt?: string
+  displayMode?: string
+  layoutRecipe?: string
+  heroEyebrow?: string
+  heroHighlights?: { value: string; label: string }[]
+  publishedAt?: string
+  status?: string
+  author?: { name?: string; bio?: string }
+  categories?: { title: string; slug: { current: string } }[]
+  mainImage?: { asset?: { url: string }; alt?: string }
+  body?: unknown[]
+  metaTitle?: string
+  metaDescription?: string
+  focusKeyword?: string
+  secondaryKeywords?: string[]
+  faqSchema?: { question: string; answer: string }[]
+  ogImage?: { asset?: { url: string } }
+  composerSections?: unknown[]
 }
 
 const portableTextComponents: PortableTextComponents = {
@@ -139,7 +165,7 @@ const portableTextComponents: PortableTextComponents = {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
-  const post = await sanityFetch<any>(postBySlugQuery, { slug })
+  const post = await sanityFetch<BlogPostDocument | null>(postBySlugQuery, { slug })
 
   if (!post) return { title: 'Blog Post Not Found' }
 
@@ -189,7 +215,7 @@ function estimateReadTime(post: { body?: unknown; composerSections?: unknown[] }
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const post = await sanityFetch<any>(postBySlugQuery, { slug })
+  const post = await sanityFetch<BlogPostDocument | null>(postBySlugQuery, { slug })
 
   if (!post) notFound()
 
@@ -202,6 +228,12 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       })
     : 'Recent'
   const readTime = estimateReadTime(post)
+  const mappedFaqs = post.faqSchema?.map((faq: { question: string; answer: string }, i: number) => ({
+    id: i + 1,
+    serial: `question ${String(i + 1).padStart(2, '0')}`,
+    question: faq.question,
+    answer: faq.answer,
+  }))
 
   if (post.displayMode === 'composer' && post.composerSections?.length) {
     const [relatedPosts, nav, designTokens] = await Promise.all([
@@ -364,24 +396,6 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             <div className="blog-content">
               {post.body ? <PortableText value={post.body} components={portableTextComponents} /> : null}
             </div>
-
-            {post.faqSchema && post.faqSchema.length > 0 ? (
-              <div className="mt-14 border-t border-zinc-200 pt-10">
-                <h2 className="text-2xl font-black tracking-tight text-zinc-950 md:text-3xl">
-                  Frequently Asked Questions
-                </h2>
-                <div className="mt-6 space-y-4">
-                  {post.faqSchema.map((faq: { question: string; answer: string }, i: number) => (
-                    <details key={i} className="rounded-xl border border-zinc-200 bg-zinc-50">
-                      <summary className="cursor-pointer list-none px-5 py-4 text-base font-semibold text-zinc-900">
-                        {faq.question}
-                      </summary>
-                      <div className="border-t border-zinc-200 px-5 py-4 text-zinc-700">{faq.answer}</div>
-                    </details>
-                  ))}
-                </div>
-              </div>
-            ) : null}
           </article>
 
           <aside className="space-y-5 md:sticky md:top-28 md:h-fit">
@@ -431,6 +445,8 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             </div>
           </aside>
         </section>
+
+        <LightFAQExact faqs={mappedFaqs} />
 
         <section className="border-t border-zinc-200 bg-white py-14">
           <div className="mx-auto max-w-[1240px] px-4 md:px-8">

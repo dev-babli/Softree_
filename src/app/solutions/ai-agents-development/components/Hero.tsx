@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { motion, useSpring } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, ShieldCheck, Box, TrendingUp, Cpu } from 'lucide-react';
 import { HERO_DATA } from '../data/heroData';
 
 export const Hero: React.FC = () => {
@@ -102,11 +102,11 @@ export const Hero: React.FC = () => {
             {/* Heading */}
             <motion.h1
               variants={itemVariants}
-              className="text-4xl lg:text-5xl xl:text-[3.25rem] leading-[1.1] font-extrabold tracking-tight text-[#0A0F3C] mb-6"
+              className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.25rem] leading-[1.15] sm:leading-[1.1] font-extrabold tracking-tight text-[#0A0F3C] mb-6 whitespace-pre-line break-words w-full"
             >
               {heading.prefix}
-              <span className="text-[#FF5812] relative block mt-1">
-                {heading.highlight}
+              <span className="text-[#FF5812] relative">
+                {' '}{heading.highlight}
               </span>
               {heading.suffix}
             </motion.h1>
@@ -126,43 +126,62 @@ export const Hero: React.FC = () => {
             >
               <Link
                 href={ctaButtons.primary.href}
-                className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#FF6B00] text-white font-semibold text-base shadow-lg shadow-[#FF6B00]/25 hover:shadow-xl hover:shadow-[#FF6B00]/35 transition-all duration-300 transform hover:-translate-y-0.5"
+                className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl border border-gray-200 bg-white text-[#0A0F3C] font-semibold text-sm hover:bg-gray-50 transition-all duration-300"
               >
                 <span>{ctaButtons.primary.text}</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
 
-              <Link
-                href={ctaButtons.secondary.href}
-                className="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-white text-[#0A0F3C] border border-gray-200/80 font-semibold text-base hover:bg-gray-50 transition-all duration-300 transform hover:-translate-y-0.5"
-              >
-                {ctaButtons.secondary.text}
-              </Link>
+              {ctaButtons.secondary && ctaButtons.secondary.text && (
+                <Link
+                  href={ctaButtons.secondary.href}
+                  className="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-white text-[#0A0F3C] border border-gray-200/80 font-semibold text-base hover:bg-gray-50 transition-all duration-300 transform hover:-translate-y-0.5"
+                >
+                  {ctaButtons.secondary.text}
+                </Link>
+              )}
             </motion.div>
 
             {/* Features */}
             <motion.div
               variants={itemVariants}
-              className="pt-6 border-t border-gray-200/60 w-full flex flex-wrap sm:flex-nowrap items-center justify-center lg:justify-start gap-6 sm:gap-8"
+              className="flex flex-col md:flex-row w-full pt-6 border-t border-gray-100 gap-5 md:gap-4"
             >
-              {features.map((feature, idx) => {
-                const IconComponent = feature.icon;
-                return (
-                  <div key={idx} className="flex items-center gap-3 shrink-0">
-                    <div className="w-10 h-10 rounded-xl bg-orange-50/90 border border-orange-100 flex items-center justify-center shrink-0">
-                      <IconComponent className="w-5 h-5 text-[#FF5812]" />
-                    </div>
-                    <div className="flex flex-col text-left">
-                      <h4 className="text-sm font-bold text-[#0A0F3C] leading-snug">
-                        {feature.title}
-                      </h4>
-                      <p className="text-xs text-gray-500 font-normal mt-0.5">
-                        {feature.subtitle}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
+              {/* Item 1 */}
+              <div className="flex flex-col gap-1.5 flex-1">
+                <div className="flex items-start gap-2">
+                  <ShieldCheck className="w-5 h-5 text-[#FF6B00] shrink-0 mt-[1px]" strokeWidth={1.5} />
+                  <h4 className="text-[12.5px] font-semibold text-[#0A0F3C] leading-[1.25]">White-Label<br/>Friendly</h4>
+                </div>
+                <p className="text-[11px] text-gray-500 leading-relaxed pr-2">Trusted partner for tech agencies.</p>
+              </div>
+
+              {/* Item 2 */}
+              <div className="flex flex-col gap-1.5 flex-1">
+                <div className="flex items-start gap-2">
+                  <Box className="w-5 h-5 text-[#FF6B00] shrink-0 mt-[1px]" strokeWidth={1.5} />
+                  <h4 className="text-[12.5px] font-semibold text-[#0A0F3C] leading-[1.25]">Dedicated<br/>Offshore Teams</h4>
+                </div>
+                <p className="text-[11px] text-gray-500 leading-relaxed pr-2">Scale engineering on demand.</p>
+              </div>
+
+              {/* Item 3 */}
+              <div className="flex flex-col gap-1.5 flex-1">
+                <div className="flex items-start gap-2">
+                  <TrendingUp className="w-5 h-5 text-[#FF6B00] shrink-0 mt-[1px]" strokeWidth={1.5} />
+                  <h4 className="text-[12.5px] font-semibold text-[#0A0F3C] leading-[1.25]">Microsoft AI<br/>Expertise</h4>
+                </div>
+                <p className="text-[11px] text-gray-500 leading-relaxed pr-2">Azure, OpenAI & Power Platform.</p>
+              </div>
+
+              {/* Item 4 */}
+              <div className="flex flex-col gap-1.5 flex-1">
+                <div className="flex items-start gap-2">
+                  <Cpu className="w-5 h-5 text-[#FF6B00] shrink-0 mt-[1px]" strokeWidth={1.5} />
+                  <h4 className="text-[12.5px] font-semibold text-[#0A0F3C] leading-[1.25]">Enterprise-Ready<br/>Delivery</h4>
+                </div>
+                <p className="text-[11px] text-gray-500 leading-relaxed pr-2">Secure, production-grade solutions.</p>
+              </div>
             </motion.div>
           </motion.div>
 

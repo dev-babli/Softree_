@@ -5,6 +5,9 @@ import LightContactSection from "@/components/homepage-light/LightContactSection
 import Footer from "@/components/sections/footer"
 import BusinessChallenges from "./ai-consulting-services-components/business-challenges/BusinessChallenges";
 import BusinessOutcomes from "./ai-consulting-services-components/BusinessOutcomes";
+import ProvenResults from "./ai-consulting-services-components/ProvenResult";
+import AIPhilosophy from "./ai-consulting-services-components/AIPhilosophy";
+import AIDilemma from "./ai-consulting-services-components/AIDilemma";
 import { HowAIHelps } from "./ai-consulting-services-components/how-ai-helps/HowAIHelps";
 import { OurAISolutions } from "./ai-consulting-services-components/our-ai-solutions/OurAISolutions";
 import CapabilitiesBentoGrid from "./ai-consulting-services-components/Core-capabilities/CapabilitiesBentoGrid";
@@ -31,8 +34,11 @@ export default function AIConsultingServicesPage() {
         <TrustedBrandsMarquee />
         <SuccessStories />
         <CapabilitiesBentoGrid />
-        <BusinessChallenges />
-        <BusinessOutcomes />
+        {/* <BusinessChallenges />
+        <BusinessOutcomes /> */}
+        <ProvenResults />
+        <AIPhilosophy />
+        <AIDilemma />
         <Industries />
         <AITechnologies />
         <AIDeliveryProcess />

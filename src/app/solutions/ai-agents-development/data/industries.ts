@@ -1,52 +1,44 @@
-import {
-  Rocket,
-  Factory,
-  Shield,
-  GraduationCap,
-  Plane,
-  Zap,
-  Droplet,
-  Landmark,
-  Trophy,
-  Building2,
-  MessageSquare,
-  Flame,
-  HeartPulse,
-  Dumbbell,
-  ShoppingCart,
-  HardHat,
-  ChefHat,
-  Smartphone,
-  Banknote,
-} from 'lucide-react';
-
-export const industriesData = {
-  badge: "INDUSTRIES WE SERVE",
-  heading: {
-    prefix: "AI Agent Solutions Built for ",
-    highlight: "Every Industry",
-    suffix: "",
+export const industriesList = [
+  {
+    id: '01',
+    title: 'Financial Services',
+    description: 'Build secure AI agents for financial analysis, document processing, compliance workflows, customer support, and intelligent decision-making across complex financial operations.',
+    icon: 'finance',
+    color: 'from-blue-300/30 to-blue-200/10'
   },
-  subheading: "We develop enterprise AI agents tailored to industry-specific workflows, compliance requirements, and operational challenges, enabling organizations to automate intelligently and scale with confidence.",
-  items: [
-    { title: "Aerospace & Defence", icon: Rocket },
-    { title: "Industrial Manufacturing", icon: Factory },
-    { title: "Insurtech", icon: Shield },
-    { title: "Education", icon: GraduationCap },
-    { title: "Travel", icon: Plane },
-    { title: "Energy & Utilities", icon: Zap },
-    { title: "Petrochemical", icon: Droplet },
-    { title: "Fintech", icon: Landmark },
-    { title: "Sports", icon: Trophy },
-    { title: "Real Estate", icon: Building2 },
-    { title: "Social Media", icon: MessageSquare },
-    { title: "Oil & Gas", icon: Flame },
-    { title: "Healthcare", icon: HeartPulse },
-    { title: "Fitness", icon: Dumbbell },
-    { title: "E-commerce", icon: ShoppingCart },
-    { title: "Construction", icon: HardHat },
-    { title: "Restaurant", icon: ChefHat },
-    { title: "Telecom", icon: Smartphone },
-    { title: "Banking", icon: Banknote },
-  ]
-};
+  {
+    id: '02',
+    title: 'Healthcare',
+    description: 'Develop healthcare AI agents for patient support, clinical documentation, enterprise knowledge retrieval, administrative automation, and secure healthcare workflows.',
+    icon: 'healthcare',
+    color: 'from-slate-300/40 to-slate-200/10'
+  },
+  {
+    id: '03',
+    title: 'Manufacturing',
+    description: 'Deploy manufacturing AI agents for production workflows, predictive maintenance, quality operations, technical knowledge retrieval, and supply chain decision support.',
+    icon: 'manufacturing',
+    color: 'from-orange-300/30 to-orange-200/10'
+  },
+  {
+    id: '04',
+    title: 'Retail & E-commerce',
+    description: 'Build retail AI agents for personalized shopping, customer support, product discovery, order workflows, inventory intelligence, and e-commerce automation.',
+    icon: 'retail',
+    color: 'from-purple-300/30 to-purple-200/10'
+  },
+  {
+    id: '05',
+    title: 'Logistics',
+    description: 'Develop logistics AI agents for shipment tracking, exception handling, document processing, customer communication, route operations, and supply chain workflow automation.',
+    icon: 'logistics',
+    color: 'from-green-300/30 to-green-200/10'
+  },
+  {
+    id: '06',
+    title: 'Education & EdTech',
+    description: 'Build education AI agents for student support, personalized learning, institutional knowledge retrieval, course assistance, and administrative workflow automation.',
+    icon: 'education',
+    color: 'from-rose-300/30 to-rose-200/10'
+  }
+];

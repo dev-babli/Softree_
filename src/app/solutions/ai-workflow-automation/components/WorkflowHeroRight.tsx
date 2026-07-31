@@ -24,9 +24,14 @@ const CARDS_DATA = [
 
 export default function WorkflowHeroRight() {
   const [mounted, setMounted] = useState(false);
+  const [radius, setRadius] = useState(35);
 
   useEffect(() => {
     setMounted(true);
+    const handleResize = () => setRadius(window.innerWidth < 640 ? 24 : 35);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   if (!mounted) return <div className="min-h-[500px] w-full" />; // Prevent hydration mismatch
@@ -60,8 +65,8 @@ export default function WorkflowHeroRight() {
         {/* Drawing solid curved lines from center (50,50) to the 8 card positions */}
         {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => {
           const rad = (angle - 90) * (Math.PI / 180);
-          const x2 = 50 + 35 * Math.cos(rad);
-          const y2 = 50 + 35 * Math.sin(rad);
+          const x2 = 50 + radius * Math.cos(rad);
+          const y2 = 50 + radius * Math.sin(rad);
           return (
             <motion.line 
               key={`line-${i}`}
@@ -77,8 +82,8 @@ export default function WorkflowHeroRight() {
         {/* Pulsing connection nodes at the ends */}
         {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => {
           const rad = (angle - 90) * (Math.PI / 180);
-          const cx = 50 + 35 * Math.cos(rad);
-          const cy = 50 + 35 * Math.sin(rad);
+          const cx = 50 + radius * Math.cos(rad);
+          const cy = 50 + radius * Math.sin(rad);
           return (
             <motion.circle 
               key={`node-${i}`}
@@ -95,24 +100,23 @@ export default function WorkflowHeroRight() {
       <motion.div 
         animate={{ y: [-5, 5, -5] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="relative z-20 w-44 h-44 md:w-52 md:h-52 rounded-full flex items-center justify-center bg-gradient-to-b from-[#111] to-[#000] shadow-2xl border-[6px] border-[#111]"
+        className="relative z-20 w-32 h-32 sm:w-44 sm:h-44 md:w-52 md:h-52 rounded-full flex items-center justify-center bg-gradient-to-b from-[#111] to-[#000] shadow-2xl border-[4px] sm:border-[6px] border-[#111]"
       >
         {/* Removed orange blur shade from here */}
         <div className="text-white text-center flex flex-col items-center">
-          <Bot className="w-14 h-14 mb-2 text-[#FF6B00]" strokeWidth={1.5} />
-          <span className="font-extrabold tracking-wider text-xl">AI CORE</span>
+          <Bot className="w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 mb-1 sm:mb-2 text-[#FF6B00]" strokeWidth={1.5} />
+          <span className="font-extrabold tracking-wider text-sm sm:text-lg md:text-xl">AI CORE</span>
         </div>
       </motion.div>
 
       {/* 8 Orbiting Glass Cards */}
       {CARDS_DATA.map((card, i) => {
         const angle = i * 45; // Start from top (0 is actually top since we subtract 90 in rad calculation)
-        const radiusDesktop = 35; // dot radius percentage
         
         // Convert polar to cartesian coordinates (in percentages)
         const rad = (angle - 90) * (Math.PI / 180);
-        const x = 50 + radiusDesktop * Math.cos(rad);
-        const y = 50 + radiusDesktop * Math.sin(rad);
+        const x = 50 + radius * Math.cos(rad);
+        const y = 50 + radius * Math.sin(rad);
 
         // Adjust transform to connect the card exactly to the dot
         let transformStr = 'translate(-50%, -50%)';
@@ -132,7 +136,7 @@ export default function WorkflowHeroRight() {
         return (
           <div 
             key={card.id}
-            className="absolute z-30 hidden sm:flex"
+            className="absolute z-30 flex"
             style={{ 
               left: `${x}%`, 
               top: `${y}%`,
@@ -144,20 +148,17 @@ export default function WorkflowHeroRight() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.5 + (i * 0.1) }}
               whileHover={{ scale: 1.05 }}
-              className="w-[140px] p-3 rounded-xl bg-white shadow-xl border border-gray-100 flex-col items-center text-center group cursor-default flex"
+              className="w-[90px] sm:w-[120px] md:w-[140px] p-2 md:p-3 rounded-lg md:rounded-xl bg-white shadow-xl border border-gray-100 flex-col items-center text-center group cursor-default flex"
             >
-              <div className="w-10 h-10 rounded-full bg-[#FF6B00]/10 flex items-center justify-center mb-2 group-hover:bg-[#FF6B00] transition-colors duration-300">
-                <Icon className="w-5 h-5 text-[#FF6B00] group-hover:text-white transition-colors duration-300" strokeWidth={2} />
+              <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-full bg-[#FF6B00]/10 flex items-center justify-center mb-1 md:mb-2 group-hover:bg-[#FF6B00] transition-colors duration-300">
+                <Icon className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-[#FF6B00] group-hover:text-white transition-colors duration-300" strokeWidth={2} />
               </div>
-              <h4 className="text-[10px] font-bold text-[#111827] mb-1">{card.title}</h4>
-              <p className="text-[9px] text-[#6B7280] leading-tight">{card.desc}</p>
+              <h4 className="text-[7px] sm:text-[9px] md:text-[10px] font-bold text-[#111827] mb-0.5 md:mb-1">{card.title}</h4>
+              <p className="text-[6px] sm:text-[8px] md:text-[9px] text-[#6B7280] leading-tight hidden sm:block">{card.desc}</p>
             </motion.div>
           </div>
         );
       })}
-
-      <div className="sm:hidden absolute inset-0 z-30 flex flex-col items-center justify-center pointer-events-none opacity-0">
-      </div>
     </div>
   );
 }

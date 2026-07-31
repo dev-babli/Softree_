@@ -222,13 +222,13 @@ export default function AIAgentsFAQ() {
             <HelpCircle className="h-4 w-4 text-[#1852FF]" />
             <span className="text-sm font-medium text-[#1852FF]">FAQ</span>
           </div>
-          <h2 className="text-3xl font-bold tracking-tight text-[#0a0a1a] md:text-5xl lg:text-6xl">
+          <h2 className="text-2xl md:text-4xl lg:text-[2.25rem] font-extrabold tracking-tight text-[#0a0a1a]">
             Frequently Asked{" "}
             <span className="bg-gradient-to-r from-[#1852FF] to-[#FF5812] bg-clip-text text-transparent">
               Questions.
             </span>
           </h2>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-[#0a0a1a]/70">
+          <p className="mt-6 max-w-2xl text-[15px] lg:text-base leading-relaxed text-[#0a0a1a]/70">
             Find answers to the most common questions about enterprise AI agent
             development, implementation, integrations, security, and ongoing
             support.

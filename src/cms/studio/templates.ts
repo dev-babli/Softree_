@@ -127,37 +127,6 @@ export const caseStudyComposerValue = {
   composerSections: composerStarterSections,
 }
 
-const blogComposerStarterSections = [
-  {
-    _type: 'csNarrativeSection',
-    label: 'Introduction',
-    heading: 'Why this matters now',
-    content: [block('normal', 'Open with the problem your reader cares about.')],
-    layout: 'text',
-  },
-  {
-    _type: 'csEvidencePanel',
-    label: 'Evidence',
-    heading: 'What the data shows',
-    summary: 'One extractable paragraph with the key takeaway for AI search and readers.',
-    items: [
-      {
-        _type: 'composerEvidence',
-        claim: 'Replace with a cited fact from your research.',
-        source: 'Source name',
-      },
-    ],
-  },
-  {
-    _type: 'csFaqSection',
-    heading: 'Common questions',
-    faqs: [
-      { _type: 'composerFaq', question: 'Question readers search for?', answer: 'Clear, concise answer.' },
-      { _type: 'composerFaq', question: 'Second common question?', answer: 'Another helpful answer.' },
-    ],
-  },
-  { _type: 'csContactSection' },
-]
 
 const marketingLandingSections = [
   {
@@ -199,9 +168,8 @@ const editorTemplates: Template[] = [
     schemaType: 'post',
     value: {
       status: 'draft',
-      displayMode: 'composer',
-      layoutRecipe: 'how-to-guide',
-      composerSections: blogComposerStarterSections,
+      displayMode: 'classic',
+      body: blogIntroBody,
     },
   },
   {

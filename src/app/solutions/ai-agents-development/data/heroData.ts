@@ -27,36 +27,41 @@ export interface FeatureItem {
 }
 
 export const HERO_DATA = {
-  label: 'AI AGENTS DEVELOPMENT',
+  label: 'AI AGENT DEVELOPMENT SERVICES',
   heading: {
-    prefix: 'Build Intelligent ',
-    highlight: 'AI Agents',
-    suffix: ' That Drive Real Outcomes',
+    prefix: 'AI Agent Development Solutions',
+    highlight: 'for Enterprise Automation',
+    suffix: '',
   },
   paragraph:
-    'We design and build enterprise AI agents that automate workflows, make smarter decisions, and deliver exceptional customer experiences at scale.',
+    'Softree Technology delivers custom AI agent development services for enterprises looking to automate operations, unlock organizational knowledge, and integrate agentic AI into existing business systems.',
   ctaButtons: {
     primary: {
       text: 'Talk to an Expert',
       href: 'https://www.softreetechnology.com/contact',
     },
-    secondary: { text: 'Case Studies', href: 'https://www.softreetechnology.com/case-studies' },
+    secondary: { text: '', href: '' },
   },
   features: [
     {
-      icon: Zap,
-      title: 'Automate Workflows',
-      subtitle: 'Built secure by design',
+      icon: Cpu,
+      title: 'CUSTOM AI AGENTS',
+      subtitle: 'Tailored to your workflows.',
     },
     {
-      icon: Target,
-      title: 'Smarter Decisions',
-      subtitle: 'Tailored to your business',
+      icon: Database,
+      title: 'SYSTEM INTEGRATION',
+      subtitle: 'Connect APIs and databases.',
     },
     {
-      icon: Users,
-      title: 'Better Experiences',
-      subtitle: 'Real results. Real ROI.',
+      icon: ShieldCheck,
+      title: 'SECURE BY DESIGN',
+      subtitle: 'Enterprise security built-in.',
+    },
+    {
+      icon: TrendingUp,
+      title: 'END-TO-END DELIVERY',
+      subtitle: 'Full-cycle AI deployment.',
     },
   ] as FeatureItem[],
   capabilities: [
