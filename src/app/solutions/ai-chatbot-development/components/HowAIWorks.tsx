@@ -35,7 +35,7 @@ export default function HowAIWorks() {
   };
 
   return (
-    <section className="relative w-full py-12 lg:py-16 bg-transparent overflow-hidden" ref={containerRef}>
+    <section className="relative w-full py-12 md:py-16 lg:py-20 bg-transparent overflow-hidden" ref={containerRef}>
       {/* Background Decorators */}
 
       {/* Soft orange radial top right */}

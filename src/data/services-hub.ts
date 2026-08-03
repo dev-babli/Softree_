@@ -126,7 +126,7 @@ export const SERVICES_HUB: ServicesHubItem[] = [
     n: "08",
     title: "Generative AI",
     shortTitle: "Gen AI",
-    href: "/services/offshore-generative-ai-development",
+    href: "/services/generative-ai",
     image: "/service_image/ai.jpg",
     imgSrc: "/service_image/ai.jpg",
     accent: "#FF6B00",

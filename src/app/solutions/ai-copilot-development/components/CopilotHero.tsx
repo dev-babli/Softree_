@@ -4,7 +4,6 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, MessageSquare, Workflow, Network, ShieldCheck, Cpu } from "lucide-react";
-import { CopilotIllustration } from "./CopilotIllustration";
 
 const features = [
   {
@@ -31,88 +30,110 @@ const features = [
 
 export function CopilotHero() {
   return (
-    <section className="relative min-h-[95vh] w-full bg-gradient-to-b from-zinc-50 via-white to-zinc-50 overflow-hidden font-sans pt-32 pb-12 lg:pt-40 lg:pb-24 flex flex-col lg:justify-center">
+    <section className="relative min-h-[90vh] lg:min-h-screen w-full overflow-hidden font-sans flex flex-col justify-between pt-32 pb-12 lg:pt-40 lg:pb-16 bg-slate-950">
+      {/* Background Video */}
+      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
+        <video
+          src="/copilot-video/copilotpagebg-video.mp4"
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+        />
+        {/* Futuristic Glass & Dark Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/85 via-slate-950/60 to-slate-950/90" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_50%,rgba(255,107,0,0.15),transparent_60%)]" />
+        {/* Subtle grid overlay to enhance the high-tech terminal/grid vibe */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:1.5rem_1.5rem] pointer-events-none" />
+      </div>
 
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
-
-          {/* Left Content (45%) */}
-          <motion.div
-            className="w-full lg:w-[45%] flex flex-col items-center lg:items-start text-center lg:text-left"
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-2xl md:rounded-full bg-white border border-[#FF6B00]/30 shadow-[0_0_15px_rgba(255,107,0,0.1)] mb-6 md:mb-8 max-w-full">
-              <div className="w-2 h-2 rounded-full bg-[#FF6B00] animate-pulse flex-shrink-0" />
-              <span className="text-[9px] sm:text-[10px] md:text-[11px] font-bold tracking-[0.1em] sm:tracking-widest text-gray-800 uppercase leading-snug break-words">
-                CUSTOM AI COPILOTS • MICROSOFT AI • ENTERPRISE READY
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10 flex-grow flex flex-col justify-center">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+          
+          {/* Left Content (65%) */}
+          <div className="w-full lg:w-[65%] flex flex-col items-start text-left">
+            
+            {/* Eyebrow - Clear White Label */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md shadow-[0_0_30px_rgba(255,255,255,0.02)] mb-8"
+            >
+              <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+              <span className="text-[10px] sm:text-xs font-bold tracking-[0.2em] text-white uppercase">
+                OFFSHORE COPILOT DEVELOPMENT SERVICES SINCE 2013
               </span>
-            </div>
+            </motion.div>
 
             {/* Heading */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-gray-900 tracking-tight leading-[1.1] mb-6">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+              className="text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-tight leading-[1.05] mb-8 w-full"
+            >
               Enterprise AI <br />
-              <span className="text-[#FF6B00]">
+              <span className="bg-gradient-to-r from-[#FF6B00] via-[#FF8C33] to-[#FFA800] bg-clip-text text-transparent">
                 Copilot
               </span>{" "}
               Development
-            </h1>
+            </motion.h1>
 
             {/* Description */}
-            <p className="text-base md:text-lg text-gray-600 mb-8 md:mb-10 max-w-2xl leading-relaxed">
-              Build secure, intelligent AI copilots that empower employees, automate business processes, enhance customer experiences, and seamlessly integrate with Microsoft 365, Dynamics 365, SharePoint, Power Platform, and enterprise applications.
-            </p>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              className="text-base sm:text-lg md:text-xl text-slate-300 mb-12 max-w-2xl leading-relaxed font-normal"
+            >
+              Build secure, intelligent AI copilots that empower employees, automate business processes, and integrate seamlessly with Microsoft 365, Dynamics 365, and your enterprise databases.
+            </motion.p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-16 w-full justify-center lg:justify-start">
-              <Link 
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto"
+            >
+              <Link
                 href="/contact"
-                className="cursor-pointer inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#FF6B00] text-white border-2 border-[#FF6B00] rounded-xl font-semibold whitespace-nowrap shadow-[0_8px_20px_rgba(255,107,0,0.3)] hover:shadow-[0_8px_25px_rgba(255,107,0,0.4)] hover:bg-white hover:text-[#FF6B00] hover:-translate-y-0.5 transition-all duration-300"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FF6B00] text-white border border-[#FF6B00] rounded-xl font-bold whitespace-nowrap shadow-[0_0_30px_rgba(255,107,0,0.3)] hover:bg-white hover:text-[#FF6B00] hover:border-white transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-[1.03]"
               >
                 Talk to Our AI Experts
                 <ArrowRight className="w-5 h-5" />
               </Link>
-            </div>
+            </motion.div>
+          </div>
 
-
-          </motion.div>
-
-          {/* Right Illustration (55%) */}
-          <motion.div
-            className="w-full lg:w-[55%] flex items-center justify-center relative"
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          >
-            <div className="w-full max-w-[85%] xl:max-w-[80%] mx-auto">
-              <CopilotIllustration />
-            </div>
-          </motion.div>
+          {/* Right Side (30%) - Empty space to let background video breathe */}
+          <div className="hidden lg:block lg:w-[30%]" />
 
         </div>
+      </div>
 
-        {/* Feature Strip */}
+      {/* Feature Strip */}
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
-          className="mt-16 md:mt-24 w-full bg-white rounded-[24px] md:rounded-3xl border border-gray-100 shadow-[0_20px_40px_rgba(0,0,0,0.04)] py-6 md:py-4 px-4 md:px-8 relative z-20"
-          initial={{ opacity: 0, y: 40 }}
+          className="w-full bg-white/5 backdrop-blur-xl rounded-[2rem] border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.4)] py-6 px-6 md:px-8"
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <div className="flex flex-wrap justify-center gap-y-8 gap-x-4 lg:gap-0 lg:grid lg:grid-cols-5 lg:divide-x lg:divide-orange-100">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-y-6 gap-x-4 md:gap-0 md:divide-x md:divide-white/10 items-center">
             {features.map((feature, idx) => (
-              <div key={idx} className="flex flex-col items-center text-center px-2 lg:px-4 w-[45%] sm:w-[30%] lg:w-auto">
-                <div className="w-9 h-9 rounded-2xl bg-orange-50 flex items-center justify-center mb-2 lg:mb-3">
+              <div key={idx} className="flex flex-col items-center text-center px-2 md:px-4">
+                <div className="w-10 h-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-3">
                   {feature.icon}
                 </div>
-                <h4 className="text-[13px] md:text-sm font-bold text-gray-900 leading-tight">{feature.title}</h4>
+                <h4 className="text-xs sm:text-[13px] font-semibold text-white/95 leading-tight tracking-wide">{feature.title}</h4>
               </div>
             ))}
           </div>
         </motion.div>
-
       </div>
     </section>
   );

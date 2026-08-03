@@ -302,7 +302,7 @@ export function CopilotFAQ({ faqs: customFaqs }: CopilotFAQProps) {
   }
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-10 md:py-16">
+    <section ref={sectionRef} className="relative w-full bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-12 md:py-16 lg:py-20">
       {/* FAQPage JSON-LD */}
       <script
         type="application/ld+json"

@@ -1,9 +1,8 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { AlertCircle, Compass, CheckCircle2, ArrowRight } from "lucide-react";
+import { AlertCircle, Compass, CheckCircle2 } from "lucide-react";
 
 export interface ProvenResultItem {
   category: string;
@@ -16,7 +15,7 @@ export interface ProvenResultItem {
   link: string;
 }
 
-export type SolutionType = "ai-agents" | "ai-copilot" | "ai-workflow" | "enterprise-rag";
+export type SolutionType = "ai-agents" | "ai-copilot" | "ai-workflow" | "enterprise-rag" | "ai-chatbot";
 
 const solutionData: Record<SolutionType, ProvenResultItem[]> = {
   "ai-agents": [
@@ -146,6 +145,38 @@ const solutionData: Record<SolutionType, ProvenResultItem[]> = {
       metricLabel: "First-time Repair",
       link: "/solutions/enterprise-rag-development"
     }
+  ],
+  "ai-chatbot": [
+    {
+      category: "CUSTOMER SUPPORT",
+      title: "Enterprise Support Chatbot",
+      challenge: "Support teams were overwhelmed by repetitive FAQs and inconsistent answers across outdated help articles, driving long wait times.",
+      solution: "A knowledge-grounded AI chatbot that answers FAQs, creates tickets, and hands off to live agents with full conversation context.",
+      outcome: "Deflected routine queries and streamlined live-agent handoffs with complete context.",
+      metric: "65%",
+      metricLabel: "Ticket Deflection",
+      link: "/solutions/ai-chatbot-development"
+    },
+    {
+      category: "HUMAN RESOURCES",
+      title: "Employee Self-Service Chatbot",
+      challenge: "HR teams struggled with manual employee onboarding questions, leave inquiries, and policy lookups that clogged shared inboxes.",
+      solution: "An AI-powered HR chatbot on Microsoft Teams that answers policy questions, guides leave requests, and escalates sensitive cases.",
+      outcome: "Deflected routine questions and simplified leave/policy check requests for employees.",
+      metric: "55%",
+      metricLabel: "HR Admin Load Cut",
+      link: "/solutions/ai-chatbot-development"
+    },
+    {
+      category: "HEALTHCARE",
+      title: "Patient & Staff Concierge Chatbot",
+      challenge: "Healthcare providers faced high administrative effort answering scheduling and policy questions from patients and staff.",
+      solution: "A conversational assistant grounded in approved clinical ops content to handle appointment and policy questions.",
+      outcome: "Drastically reduced phone call volume and inquiry response times for support staff.",
+      metric: "58%",
+      metricLabel: "Fewer Call Enquiries",
+      link: "/solutions/ai-chatbot-development"
+    }
   ]
 };
 
@@ -170,7 +201,7 @@ export default function ProvenResults({
   const activeResults = results || solutionData[solution] || solutionData["ai-agents"];
 
   return (
-    <section className="relative w-full py-24 md:py-32 overflow-hidden font-sans bg-white">
+    <section className="relative w-full py-12 md:py-16 lg:py-20 overflow-hidden font-sans bg-white">
       <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-7xl">
         
         {/* Header */}
@@ -210,62 +241,93 @@ export default function ProvenResults({
               : idx === 1 
                 ? "from-[#FF6B00] via-[#FF5812] to-[#E64C00]" 
                 : "from-purple-600 to-purple-500";
+
+            const themes = [
+              {
+                // Blue Theme
+                cardHover: "hover:border-blue-500/25",
+                textAccent: "text-blue-600",
+                blockBg: "bg-blue-50/20",
+                blockBorder: "border-blue-100/50",
+                leftBorder: "border-l-blue-500",
+                iconBg: "bg-blue-50",
+                iconBorder: "border-blue-100",
+                iconText: "text-blue-600",
+              },
+              {
+                // Orange Theme
+                cardHover: "hover:border-[#FF5812]/25",
+                textAccent: "text-[#FF5812]",
+                blockBg: "bg-orange-50/20",
+                blockBorder: "border-orange-100/50",
+                leftBorder: "border-l-[#FF5812]",
+                iconBg: "bg-orange-50",
+                iconBorder: "border-orange-100",
+                iconText: "text-[#FF5812]",
+              },
+              {
+                // Purple Theme
+                cardHover: "hover:border-purple-500/25",
+                textAccent: "text-purple-600",
+                blockBg: "bg-purple-50/20",
+                blockBorder: "border-purple-100/50",
+                leftBorder: "border-l-purple-500",
+                iconBg: "bg-purple-50",
+                iconBorder: "border-purple-100",
+                iconText: "text-purple-600",
+              }
+            ];
+
+            const theme = themes[idx] || themes[0];
+
             return (
               <div 
                 key={idx} 
-                className="flex flex-row items-stretch gap-4 sm:gap-6 bg-slate-50/40 border border-slate-200/50 p-5 sm:p-6 rounded-[2rem] sm:rounded-[2.5rem] shadow-sm hover:border-[#FF5812]/10 transition-all duration-300"
+                className={`flex flex-row items-stretch gap-3 sm:gap-4 bg-slate-50/40 border border-slate-200/50 p-4 sm:p-5 rounded-[1.75rem] sm:rounded-[2rem] shadow-sm ${theme.cardHover} transition-all duration-300`}
               >
                 {/* Left Content Block */}
                 <div className="flex-1 flex flex-col justify-between">
                   <div>
-                    <span className="inline-block text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-2">
+                    <span className="inline-block text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-1">
                       {result.category}
                     </span>
-                    <h3 className="text-lg font-bold text-slate-900 mb-6 leading-tight">
+                    <h3 className="text-[16px] font-bold text-slate-900 mb-3 leading-tight">
                       {result.title}
                     </h3>
 
                     {/* Challenge */}
-                    <div className="flex items-start gap-2.5 mb-4">
-                      <span className="p-1 rounded-lg bg-orange-50 text-orange-500 border border-orange-100 shrink-0 mt-0.5">
+                    <div className={`flex items-start gap-2.5 p-2 px-2.5 rounded-r-xl rounded-l-sm border border-l-[3px] ${theme.blockBg} ${theme.blockBorder} ${theme.leftBorder} mb-2 transition-colors duration-200`}>
+                      <span className={`p-1 rounded-md ${theme.iconBg} ${theme.iconText} border ${theme.iconBorder} shrink-0 mt-0.5`}>
                         <AlertCircle className="w-3.5 h-3.5" />
                       </span>
                       <div>
-                        <h4 className="text-[10px] font-bold tracking-wider text-slate-400 uppercase mb-0.5">Business Challenge</h4>
-                        <p className="text-[12.5px] text-slate-600 leading-relaxed">{result.challenge}</p>
+                        <h4 className={`text-[9px] font-bold tracking-wider uppercase mb-0.5 ${theme.textAccent}`}>Business Challenge</h4>
+                        <p className="text-[12px] text-slate-700 leading-relaxed font-medium">{result.challenge}</p>
                       </div>
                     </div>
 
                     {/* Solution */}
-                    <div className="flex items-start gap-2.5 mb-4">
-                      <span className="p-1 rounded-lg bg-blue-50 text-blue-500 border border-blue-100 shrink-0 mt-0.5">
+                    <div className={`flex items-start gap-2.5 p-2 px-2.5 rounded-r-xl rounded-l-sm border border-l-[3px] ${theme.blockBg} ${theme.blockBorder} ${theme.leftBorder} mb-2 transition-colors duration-200`}>
+                      <span className={`p-1 rounded-md ${theme.iconBg} ${theme.iconText} border ${theme.iconBorder} shrink-0 mt-0.5`}>
                         <Compass className="w-3.5 h-3.5" />
                       </span>
                       <div>
-                        <h4 className="text-[10px] font-bold tracking-wider text-slate-400 uppercase mb-0.5">Our Solution</h4>
-                        <p className="text-[12.5px] text-slate-600 leading-relaxed">{result.solution}</p>
+                        <h4 className={`text-[9px] font-bold tracking-wider uppercase mb-0.5 ${theme.textAccent}`}>Our Solution</h4>
+                        <p className="text-[12px] text-slate-700 leading-relaxed font-medium">{result.solution}</p>
                       </div>
                     </div>
 
                     {/* Outcome */}
-                    <div className="flex items-start gap-2.5">
-                      <span className="p-1 rounded-lg bg-green-50 text-green-500 border border-green-100 shrink-0 mt-0.5">
+                    <div className={`flex items-start gap-2.5 p-2 px-2.5 rounded-r-xl rounded-l-sm border border-l-[3px] ${theme.blockBg} ${theme.blockBorder} ${theme.leftBorder} transition-colors duration-200`}>
+                      <span className={`p-1 rounded-md ${theme.iconBg} ${theme.iconText} border ${theme.iconBorder} shrink-0 mt-0.5`}>
                         <CheckCircle2 className="w-3.5 h-3.5" />
                       </span>
                       <div>
-                        <h4 className="text-[10px] font-bold tracking-wider text-slate-400 uppercase mb-0.5">Outcome</h4>
-                        <p className="text-[12.5px] text-slate-600 leading-relaxed">{result.outcome}</p>
+                        <h4 className={`text-[9px] font-bold tracking-wider uppercase mb-0.5 ${theme.textAccent}`}>Outcome</h4>
+                        <p className="text-[12px] text-slate-700 leading-relaxed font-medium">{result.outcome}</p>
                       </div>
                     </div>
                   </div>
-
-                  <Link 
-                    href={result.link} 
-                    className="inline-flex items-center gap-1 text-[12px] font-bold text-[#FF5812] hover:underline mt-6"
-                  >
-                    <span>View Case Study</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
                 </div>
 
                 {/* Right Vertical Metric Pill Card */}

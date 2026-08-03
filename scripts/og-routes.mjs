@@ -18,7 +18,7 @@ export const STATIC_OG_ROUTES = [
   '/services/legacy-application-modernization',
   '/services/offshore-ai-development',
   '/services/offshore-data-analytics',
-  '/services/offshore-generative-ai-development',
+  '/services/generative-ai',
   '/services/offshore-microsoft-fabric',
   '/services/offshore-mobile-app-development',
   '/services/offshore-power-platform-development',

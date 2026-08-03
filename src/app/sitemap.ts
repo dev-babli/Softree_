@@ -10,10 +10,9 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${BASE_URL}/ai`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
   { url: `${BASE_URL}/ai-workflow-orchestration`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
   { url: `${BASE_URL}/services/ai-intelligence/agentic-ai`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
-  { url: `${BASE_URL}/services/ai-intelligence/generative-ai`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
+  { url: `${BASE_URL}/services/generative-ai`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
   { url: `${BASE_URL}/services/ai-powered-test-automation`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
   { url: `${BASE_URL}/services/offshore-ai-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
-  { url: `${BASE_URL}/services/offshore-generative-ai-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
   { url: `${BASE_URL}/services/website-modernization`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
   { url: `${BASE_URL}/case-studies/ai`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
 

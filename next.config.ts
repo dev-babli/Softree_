@@ -102,7 +102,12 @@ const nextConfig: any = {
       },
       {
         source: "/services/ai-intelligence/generative-ai",
-        destination: "/services/offshore-generative-ai-development",
+        destination: "/services/generative-ai",
+        permanent: true,
+      },
+      {
+        source: "/services/offshore-generative-ai-development",
+        destination: "/services/generative-ai",
         permanent: true,
       },
     ];

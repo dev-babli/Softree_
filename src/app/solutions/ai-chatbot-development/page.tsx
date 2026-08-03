@@ -30,8 +30,8 @@ export default function AIChatbotDevelopmentPage() {
       <TrustedBrandsMarquee surface="light" />
       <SuccessStories />
       <CoreCapabilities />
-      <BusinessChallenges />
-      <BusinessOutcomes />
+      {/* <BusinessChallenges />
+      <BusinessOutcomes /> */}
       <ProvenResults solution="ai-chatbot" />
       <Industries />
       <AiTechnologyStack />
