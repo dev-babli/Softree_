@@ -45,7 +45,7 @@ const capabilities: Capability[] = [
       "Most enterprises struggle not with model access, but with deciding where AI creates durable value. We assess business outcomes, data readiness, risk, and change impact—so investment goes to production-ready opportunities, not isolated experiments.",
     icon: BrainCircuit,
     iconTone: "bg-violet-50 text-violet-600",
-    image: "/images/challenges/ai-platform.png",
+    image: "/images/enterprise-ai-solution/images/challenges/ai-platform.png",
     features: [
       {
         title: "Outcome-Led Use Case Discovery",
@@ -80,7 +80,7 @@ const capabilities: Capability[] = [
       "Enterprise AI succeeds when models, retrieval, identities, applications, and observability share one governed foundation. We design architectures that avoid AI silos and support reliable multi-team production—aligned to Azure Well-Architected principles.",
     icon: CloudCog,
     iconTone: "bg-emerald-50 text-emerald-600",
-    image: "/images/challenges/enterprise-ai.png",
+    image: "/images/enterprise-ai-solution/images/challenges/enterprise-ai.png",
     features: [
       {
         title: "Model & Orchestration Layer",
@@ -115,7 +115,7 @@ const capabilities: Capability[] = [
       "Modern Enterprise AI Solutions combine copilots, deterministic workflows, and human approvals. We build agents that act inside business processes—with policy checks, fallbacks, and audit trails—so automation improves speed without losing control.",
     icon: Bot,
     iconTone: "bg-fuchsia-50 text-fuchsia-600",
-    image: "/images/challenges/workflow-automation.png",
+    image: "/images/enterprise-ai-solution/images/challenges/workflow-automation.png",
     features: [
       {
         title: "Task-Oriented AI Agents",
@@ -150,7 +150,7 @@ const capabilities: Capability[] = [
       "Trust, traceability, and transparency are non-negotiable for production AI. We implement governance across data access, model behavior, agent authority, evaluations, and incident response—so enterprises can scale AI without amplifying risk.",
     icon: ShieldCheck,
     iconTone: "bg-amber-50 text-amber-600",
-    image: "/images/challenges/ai-automation.png",
+    image: "/images/enterprise-ai-solution/images/challenges/ai-automation.png",
     features: [
       {
         title: "Responsible AI Controls",
@@ -185,7 +185,7 @@ const capabilities: Capability[] = [
       "The highest ROI comes when AI runs inside the Microsoft stack teams already trust. Softree connects Azure AI Foundry, Copilot Studio, Microsoft Fabric, Power Platform, and Dynamics 365 so intelligence shows up in everyday workflows—not another disconnected tool.",
     icon: BarChart3,
     iconTone: "bg-sky-50 text-sky-600",
-    image: "/images/challenges/document-processing.png",
+    image: "/images/enterprise-ai-solution/images/challenges/document-processing.png",
     features: [
       {
         title: "Azure AI Foundry & OpenAI",
@@ -220,7 +220,7 @@ const capabilities: Capability[] = [
       "Enterprise AI Solutions degrade without ongoing evaluation. We instrument quality, safety, latency, retrieval, tool use, adoption, and cost—then use telemetry and CI/CD eval gates to keep models accurate, grounded, and economically efficient as data and workflows evolve.",
     icon: RefreshCw,
     iconTone: "bg-rose-50 text-rose-600",
-    image: "/images/challenges/ai-analytics.png",
+    image: "/images/enterprise-ai-solution/images/challenges/ai-analytics.png",
     features: [
       {
         title: "Quality & Safety Observability",
@@ -340,7 +340,7 @@ export default function EnterpriseAICapabilities() {
  
   return (
     <section className="overflow-hidden bg-[#FAFBFC] py-20 md:py-24">
-      <div className="mx-auto max-w-[90rem] px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-360 px-4 sm:px-6 lg:px-8">
         <div className="mb-10 text-center md:mb-12">
           <div className="mb-4 flex justify-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-3 py-1.5">
@@ -348,7 +348,7 @@ export default function EnterpriseAICapabilities() {
               <span className="badge-label text-[#FF5812]">Core Capabilities</span>
             </div>
           </div>
-          <h2 className="section-h2 !text-[32px] !font-bold !leading-[1.15] text-[#0F172A] sm:!text-[36px] md:!text-[40px]">
+          <h2 className="section-h2 text-[32px]! font-bold! leading-[1.15]! text-[#0F172A] sm:text-[36px]! md:text-[40px]!">
             Enterprise AI{" "}
             <span className="text-[#FF5812]">Engineering Capabilities</span>
           </h2>
@@ -431,7 +431,7 @@ export default function EnterpriseAICapabilities() {
                     <span
                       className={`grid h-10 w-10 shrink-0 place-items-center rounded-[9px] ${capability.iconTone}`}
                     >
-                      <Icon className="h-[18px] w-[18px]" strokeWidth={1.75} />
+                      <Icon className="h-4.5 w-4.5" strokeWidth={1.75} />
                     </span>
                     <span className="min-w-0">
                       <span className="block text-[15px] font-bold leading-snug text-[#0F172A]">
@@ -449,7 +449,7 @@ export default function EnterpriseAICapabilities() {
  
           <div
             ref={detailRef}
-            className="relative z-10 flex min-h-[480px] flex-col overflow-hidden rounded-[20px] border border-[#FF5812] bg-white shadow-[0_14px_36px_rgba(15,23,42,0.06)] lg:h-full lg:min-h-0"
+            className="relative z-10 flex min-h-120 flex-col overflow-hidden rounded-[20px] border border-[#FF5812] bg-white shadow-[0_14px_36px_rgba(15,23,42,0.06)] lg:h-full lg:min-h-0"
           >
             <AnimatePresence mode="wait">
               <motion.div
@@ -461,7 +461,7 @@ export default function EnterpriseAICapabilities() {
                 className="flex h-full min-h-0 flex-col"
               >
                 <div className="grid min-h-0 flex-1 grid-cols-1 md:grid-cols-2">
-                  <div className="relative min-h-[220px] overflow-hidden bg-[#111827] md:min-h-full">
+                  <div className="relative min-h-55 overflow-hidden bg-[#111827] md:min-h-full">
                     <Image
                       src={active.image}
                       alt={`${active.title} illustration`}
@@ -469,7 +469,7 @@ export default function EnterpriseAICapabilities() {
                       sizes="(min-width: 1024px) 28vw, 100vw"
                       className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a]/50 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-[#0a0a1a]/50 via-transparent to-transparent" />
                   </div>
  
                   <div className="flex flex-col justify-center px-5 py-5 sm:px-6 sm:py-6 lg:px-7 xl:px-8">

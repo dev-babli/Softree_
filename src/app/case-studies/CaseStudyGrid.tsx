@@ -236,14 +236,13 @@ export default function CaseStudyGrid({
                     radius={280}
                     className="h-full overflow-hidden rounded-2xl border border-[#0a0a1a]/5 bg-white shadow-[0_8px_28px_-12px_rgba(10,10,26,0.12)] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-1 hover:shadow-[0_24px_50px_-14px_rgba(24,82,255,0.2)]"
                   >
-                    {/* — Real screenshot thumbnail — */}
-                    <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#e8ecf4]">
+                    <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#fafafc]">
                       {item.image ? (
                         <Image
                           src={item.image}
                           alt={item.title}
                           fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                          className="object-contain transition-transform duration-700 group-hover:scale-[1.02]"
                           sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
                         />
                       ) : (
@@ -326,6 +325,12 @@ export default function CaseStudyGrid({
                         </span>
                       </div>
                     </div>
+
+                    {/* Thick partial bottom border accent */}
+                    <div 
+                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-[4px] rounded-t-full transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:w-full z-30"
+                      style={{ backgroundColor: accentColor }}
+                    />
                   </SpotlightCard>
                 </Link>
               </motion.div>

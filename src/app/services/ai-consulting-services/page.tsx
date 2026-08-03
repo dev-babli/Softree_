@@ -38,7 +38,7 @@ export default function AIConsultingServicesPage() {
         <BusinessOutcomes /> */}
         <ProvenResults />
         <AIPhilosophy />
-        <AIDilemma />
+        {/* <AIDilemma /> */}
         <Industries />
         <AITechnologies />
         <AIDeliveryProcess />

@@ -88,7 +88,7 @@ export default function WhyChooseWithTestimonialsSoftree() {
     }, [paused]);
 
     return (
-        <section className="text-gray-900 py-16 lg:py-20">
+        <section className="text-gray-900 py-12 md:py-16 lg:py-20">
             {/* Mobile Toggle Tabs */}
             <div className="flex lg:hidden justify-center mb-8 px-6">
                 <div className="flex bg-orange-50/50 border border-orange-100 p-1.5 rounded-2xl w-full max-w-sm">

@@ -1,47 +1,46 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { AlertCircle, Compass, CheckCircle2, ArrowRight } from "lucide-react";
+import { AlertCircle, Compass, CheckCircle2 } from "lucide-react";
 import SectionBadge from "./SectionBadge";
 
 const provenResults = [
   {
-    category: "HUMAN RESOURCES",
-    title: "AI-Powered HR Assistant",
-    challenge: "HR teams struggled with manual employee onboarding, leave management, and internal requests, creating administrative bottlenecks.",
-    solution: "Developed an AI-powered HR Assistant built on Microsoft Power Platform to automate onboarding, requests, and self-service support.",
-    outcome: "75% reduction in manual administration and onboarding workflows, with instant support for 1,200+ employees.",
+    category: "AGENTIC AI",
+    title: "Custom AI Agent Development",
+    challenge: "Businesses struggle with complex, multi-step workflows that traditional automation tools cannot handle, causing high labor costs and slower response times.",
+    solution: "Build autonomous, multi-agent orchestrations with human-in-the-loop validation designed to handle complex decision-making processes.",
+    outcome: "Fully automated operational pipelines that run 24/7 with zero-latency handoffs and complete governance trails.",
     metric: "75%",
-    metricLabel: "Work Reduction",
-    link: "https://www.softreetechnology.com/case-studies/how-an-enterprise-organization-automated-hr-operations-using-ai"
+    metricLabel: "Automation Rate",
+    link: ""
   },
   {
-    category: "AI & ANALYTICS",
-    title: "Website Performance Audit",
-    challenge: "Businesses struggled to quickly identify conversion blockers, UX issues, SEO gaps, and performance opportunities on their websites.",
-    solution: "Created an AI-powered website intelligence solution that analyzes client sites to find improvement opportunities within minutes.",
-    outcome: "Real-time identification of SEO and performance roadblocks with 100+ automated checks in under 5 minutes.",
-    metric: "5 MIN",
-    metricLabel: "Audit Completion",
-    link: "https://www.softreetechnology.com/case-studies/ai-powered-website-performance-platform"
+    category: "MODEL ENGINEERING",
+    title: "Generative AI & RAG Engineering",
+    challenge: "Static document storage leads to information silos, making it difficult for employees or support systems to retrieve accurate enterprise knowledge.",
+    solution: "Develop secure Retrieval-Augmented Generation (RAG) systems and fine-tuned LLMs connected directly to your proprietary enterprise databases.",
+    outcome: "Real-time semantic search and contextual chat systems that answer complex compliance, product, or policy queries in seconds.",
+    metric: "99%",
+    metricLabel: "Query Accuracy",
+    link: ""
   },
   {
-    category: "HEALTHCARE",
-    title: "AI Healthcare Operations Platform",
-    challenge: "A multi-specialty healthcare provider faced high administrative effort, inefficient patient scheduling, and complex hospital operations.",
-    solution: "Streamlined operational workflows and scheduling using AI Agents and Microsoft Power Platform.",
-    outcome: "58% reduction in administrative work for clinical staff, leading to 46% faster scheduling cycles.",
-    metric: "58%",
-    metricLabel: "Overhead Reduction",
-    link: "https://www.softreetechnology.com/case-studies/ai-powered-healthcare-operations-platform"
+    category: "COPILOT STUDIO",
+    title: "Custom Copilot Studio Solutions",
+    challenge: "Off-the-shelf Microsoft Copilots are powerful but lack custom integrations to execute actions directly inside legacy CRM, ERP, or internal databases.",
+    solution: "Extend Copilot Studio capability using custom Power Platform connectors, secure APIs, and custom agentic actions.",
+    outcome: "A unified conversational copilot that can read data, trigger Power Automate workflows, and perform transactions securely.",
+    metric: "4-6 WKS",
+    metricLabel: "Deployment Time",
+    link: ""
   }
 ];
 
 export default function ProvenResults() {
   return (
-    <section className="relative w-full py-24 md:py-32 overflow-hidden font-sans bg-white">
+    <section className="relative w-full py-12 md:py-16 lg:py-20 overflow-hidden font-sans bg-white">
       <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-7xl">
         
         {/* Header */}
@@ -52,12 +51,12 @@ export default function ProvenResults() {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-center text-center mb-16"
         >
-          <SectionBadge text="PROVEN RESULTS" variant="line" />
+          <SectionBadge text="OUR SERVICES" variant="line" />
           <h2 className="text-3xl md:text-4xl lg:text-[42px] font-extrabold text-[#111827] mt-4 mb-4 tracking-tight leading-tight">
-            Delivering Proven AI Solutions With <span className="text-[#FF5812]">Measurable Impact</span>
+            AI Development Services Built for <span className="text-[#FF5812]">Enterprise Certainty</span>
           </h2>
           <p className="text-[16px] lg:text-[17px] text-[#6B7280] max-w-2xl mx-auto leading-relaxed">
-            Explore how our enterprise-grade AI applications—from intelligent copilots to automated operations—drive real-world efficiency, scale, and tangible ROI for our clients.
+            We engineer production-ready AI applications—from autonomous agents to custom copilots—that integrate securely with your systems and optimize core operations.
           </p>
         </motion.div>
 
@@ -69,62 +68,96 @@ export default function ProvenResults() {
               : idx === 1 
                 ? "from-[#FF6B00] via-[#FF5812] to-[#E64C00]" 
                 : "from-purple-600 to-purple-500";
+
+            const themes = [
+              {
+                // Blue Theme
+                cardHover: "hover:border-blue-500/25",
+                textAccent: "text-blue-600",
+                blockBg: "bg-blue-50/20",
+                blockBorder: "border-blue-100/50",
+                leftBorder: "border-l-blue-500",
+                iconBg: "bg-blue-50",
+                iconBorder: "border-blue-100",
+                iconText: "text-blue-600",
+                ctaText: "text-blue-600 hover:text-blue-700",
+              },
+              {
+                // Orange Theme
+                cardHover: "hover:border-[#FF5812]/25",
+                textAccent: "text-[#FF5812]",
+                blockBg: "bg-orange-50/20",
+                blockBorder: "border-orange-100/50",
+                leftBorder: "border-l-[#FF5812]",
+                iconBg: "bg-orange-50",
+                iconBorder: "border-orange-100",
+                iconText: "text-[#FF5812]",
+                ctaText: "text-[#FF5812] hover:text-[#E64C00]",
+              },
+              {
+                // Purple Theme
+                cardHover: "hover:border-purple-500/25",
+                textAccent: "text-purple-600",
+                blockBg: "bg-purple-50/20",
+                blockBorder: "border-purple-100/50",
+                leftBorder: "border-l-purple-500",
+                iconBg: "bg-purple-50",
+                iconBorder: "border-purple-100",
+                iconText: "text-purple-600",
+                ctaText: "text-purple-600 hover:text-purple-700",
+              }
+            ];
+
+            const theme = themes[idx] || themes[0];
+
             return (
               <div 
                 key={idx} 
-                className="flex flex-row items-stretch gap-4 sm:gap-6 bg-slate-50/40 border border-slate-200/50 p-5 sm:p-6 rounded-[2rem] sm:rounded-[2.5rem] shadow-sm hover:border-[#FF5812]/10 transition-all duration-300"
+                className={`flex flex-row items-stretch gap-3 sm:gap-4 bg-slate-50/40 border border-slate-200/50 p-4 sm:p-5 rounded-[1.75rem] sm:rounded-[2rem] shadow-sm ${theme.cardHover} transition-all duration-300`}
               >
                 {/* Left Content Block */}
                 <div className="flex-1 flex flex-col justify-between">
                   <div>
-                    <span className="inline-block text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-2">
+                    <span className="inline-block text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-1">
                       {result.category}
                     </span>
-                    <h3 className="text-lg font-bold text-slate-900 mb-6 leading-tight">
+                    <h3 className="text-[16px] font-bold text-slate-900 mb-3 leading-tight">
                       {result.title}
                     </h3>
 
                     {/* Challenge */}
-                    <div className="flex items-start gap-2.5 mb-4">
-                      <span className="p-1 rounded-lg bg-orange-50 text-orange-500 border border-orange-100 shrink-0 mt-0.5">
+                    <div className={`flex items-start gap-2.5 p-2 px-2.5 rounded-r-xl rounded-l-sm border border-l-[3px] ${theme.blockBg} ${theme.blockBorder} ${theme.leftBorder} mb-2 transition-colors duration-200`}>
+                      <span className={`p-1 rounded-md ${theme.iconBg} ${theme.iconText} border ${theme.iconBorder} shrink-0 mt-0.5`}>
                         <AlertCircle className="w-3.5 h-3.5" />
                       </span>
                       <div>
-                        <h4 className="text-[10px] font-bold tracking-wider text-slate-400 uppercase mb-0.5">Business Challenge</h4>
-                        <p className="text-[12.5px] text-slate-600 leading-relaxed">{result.challenge}</p>
+                        <h4 className={`text-[9px] font-bold tracking-wider uppercase mb-0.5 ${theme.textAccent}`}>Business Challenge</h4>
+                        <p className="text-[12px] text-slate-700 leading-relaxed font-medium">{result.challenge}</p>
                       </div>
                     </div>
 
                     {/* Solution */}
-                    <div className="flex items-start gap-2.5 mb-4">
-                      <span className="p-1 rounded-lg bg-blue-50 text-blue-500 border border-blue-100 shrink-0 mt-0.5">
+                    <div className={`flex items-start gap-2.5 p-2 px-2.5 rounded-r-xl rounded-l-sm border border-l-[3px] ${theme.blockBg} ${theme.blockBorder} ${theme.leftBorder} mb-2 transition-colors duration-200`}>
+                      <span className={`p-1 rounded-md ${theme.iconBg} ${theme.iconText} border ${theme.iconBorder} shrink-0 mt-0.5`}>
                         <Compass className="w-3.5 h-3.5" />
                       </span>
                       <div>
-                        <h4 className="text-[10px] font-bold tracking-wider text-slate-400 uppercase mb-0.5">Our Solution</h4>
-                        <p className="text-[12.5px] text-slate-600 leading-relaxed">{result.solution}</p>
+                        <h4 className={`text-[9px] font-bold tracking-wider uppercase mb-0.5 ${theme.textAccent}`}>Our Solution</h4>
+                        <p className="text-[12px] text-slate-700 leading-relaxed font-medium">{result.solution}</p>
                       </div>
                     </div>
 
                     {/* Outcome */}
-                    <div className="flex items-start gap-2.5">
-                      <span className="p-1 rounded-lg bg-green-50 text-green-500 border border-green-100 shrink-0 mt-0.5">
+                    <div className={`flex items-start gap-2.5 p-2 px-2.5 rounded-r-xl rounded-l-sm border border-l-[3px] ${theme.blockBg} ${theme.blockBorder} ${theme.leftBorder} transition-colors duration-200`}>
+                      <span className={`p-1 rounded-md ${theme.iconBg} ${theme.iconText} border ${theme.iconBorder} shrink-0 mt-0.5`}>
                         <CheckCircle2 className="w-3.5 h-3.5" />
                       </span>
                       <div>
-                        <h4 className="text-[10px] font-bold tracking-wider text-slate-400 uppercase mb-0.5">Outcome</h4>
-                        <p className="text-[12.5px] text-slate-600 leading-relaxed">{result.outcome}</p>
+                        <h4 className={`text-[9px] font-bold tracking-wider uppercase mb-0.5 ${theme.textAccent}`}>Outcome</h4>
+                        <p className="text-[12px] text-slate-700 leading-relaxed font-medium">{result.outcome}</p>
                       </div>
                     </div>
                   </div>
-
-                  <Link 
-                    href={result.link} 
-                    className="inline-flex items-center gap-1 text-[12px] font-bold text-[#FF5812] hover:underline mt-6"
-                  >
-                    <span>View Case Study</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
                 </div>
 
                 {/* Right Vertical Metric Pill Card */}

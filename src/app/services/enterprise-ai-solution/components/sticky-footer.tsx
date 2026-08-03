@@ -95,7 +95,7 @@ function SocialPillRow() {
             className="flex h-11 w-11 items-center justify-center rounded-full text-white transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             style={{ background: pill.gradient }}
           >
-            <Icon className="h-[18px] w-[18px]" />
+            <Icon className="h-4.5 w-4.5" />
           </Link>
         );
       })}

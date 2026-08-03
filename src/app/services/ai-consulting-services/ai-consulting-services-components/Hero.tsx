@@ -12,7 +12,7 @@ export const Hero = () => {
     <section className="relative min-h-[100vh] lg:min-h-[90vh] overflow-hidden flex items-center pb-12 md:pb-16 lg:pb-20 pt-24 md:pt-32 lg:pt-36 bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="max-w-[1440px] mx-auto w-full">
+        <div className="max-w-7xl mx-auto w-full">
 
           {/* Main Hero Content - Stacked 12-Column Grid */}
           <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-y-6 lg:gap-y-8 xl:gap-y-10">
@@ -42,15 +42,14 @@ export const Hero = () => {
               <HeroButtons />
             </div>
 
-            {/* Middle: Centered Interactive Video Showcase Card */}
-            {/* Constrained on desktop to prevent excessive height from wide aspect ratio */}
-            <div className="col-span-12 lg:col-span-10 lg:col-start-2 xl:col-span-8 xl:col-start-3 flex justify-center relative mt-4 lg:mt-6">
-              <HeroVideoCard />
+            {/* Middle: Centered Trust Strip */}
+            <div className="col-span-12 flex justify-center relative z-20 my-6 lg:my-8">
+              <TrustStrip />
             </div>
 
-            {/* Bottom: Centered Trust Strip */}
-            <div className="col-span-12 lg:col-span-10 lg:col-start-2 xl:col-span-8 xl:col-start-3 flex justify-center mt-6 lg:mt-10">
-              <TrustStrip />
+            {/* Bottom: Centered Interactive Video Showcase Card */}
+            <div className="col-span-12 flex justify-center relative mt-4 lg:mt-6">
+              <HeroVideoCard />
             </div>
 
           </div>

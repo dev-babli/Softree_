@@ -12,6 +12,7 @@ import {
   ShoppingBag,
   Truck,
 } from "lucide-react";
+import SectionBadge from "./SectionBadge";
 
 const industries = [
   {
@@ -107,18 +108,13 @@ export default function IndustriesShowcase() {
       className="overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-24"
     >
       <div className="mx-auto max-w-[90rem] px-4 sm:px-6 lg:px-8">
-        <div className="mb-12 text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-orange-200/50 bg-orange-50/50 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#FF5812]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#FF5812] animate-pulse" />
-            Industries
-          </div>
-          <h2 className="section-h2 text-[#0a0a1a]">
+        <div className="mb-12 flex flex-col items-center text-center">
+          <SectionBadge text="INDUSTRIES WE SERVE" variant="line" />
+          <h2 className="text-2xl font-extrabold tracking-tight text-[#0a0a1a] md:text-4xl lg:text-[2.25rem]">
             Enterprise AI, Built for{" "}
-            <span className="bg-gradient-to-r from-[#FF5812] to-[#FF7A2F] bg-clip-text text-transparent font-bold">
-              Your Industry
-            </span>
+            <span className="text-[#FF5812]">Your Industry</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-[#0a0a1a]/70">
+          <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-relaxed text-[#0a0a1a]/70 lg:text-base">
             Purpose-built intelligence for complex workflows, regulated data,
             and measurable operational outcomes.
           </p>
@@ -126,43 +122,41 @@ export default function IndustriesShowcase() {
 
         <div className="grid overflow-hidden rounded-[28px] border border-orange-200/70 bg-[#f4f0e8] p-3 shadow-[0_22px_60px_rgba(15,23,42,0.12)] lg:grid-cols-[0.32fr_0.68fr]">
           <div className="flex flex-col rounded-[22px] bg-white p-6 sm:p-8 lg:min-h-[520px]">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#FF5812]">Industry Expertise</span>
-            <h3 className="mt-4 text-3xl font-semibold leading-[1.05] tracking-[-0.04em] text-[#0a0a1a] lg:text-4xl">
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#FF5812]">
+              Industry Expertise
+            </span>
+            <h3 className="mt-5 text-3xl font-semibold leading-[1.05] tracking-[-0.04em] text-[#0a0a1a] lg:text-4xl">
               Built around the way your business works.
             </h3>
-            <p className="mt-4 text-sm leading-relaxed text-[#0a0a1a]/70">
+            <p className="mt-5 text-sm leading-relaxed text-[#0a0a1a]/70 lg:text-base">
               We combine enterprise engineering, responsible AI, and deep
               workflow understanding to build systems your teams can trust.
             </p>
 
-            <div className="mt-6 space-y-3">
-              {[
-                { title: "Secure by Design", desc: "GDPR & HIPAA compliant architectures." },
-                { title: "Seamless Stack Integration", desc: "Plugs into Microsoft 365, Azure, and custom APIs." },
-                { title: "Direct Business ROI", desc: "Measured in hours saved and error reduction." }
-              ].map(
+            <div className="mt-8 space-y-3">
+              {["Secure by design", "Integrated with your stack", "Focused on ROI"].map(
                 (item) => (
-                  <div key={item.title} className="flex gap-3 rounded-xl border border-slate-100 bg-slate-50/50 p-3">
-                    <CheckCircle2 className="h-5 w-5 shrink-0 text-[#FF5812] mt-0.5" />
-                    <div>
-                      <h4 className="text-xs font-bold text-[#0a0a1a]/85">{item.title}</h4>
-                      <p className="text-[10.5px] text-[#0a0a1a]/55 mt-0.5">{item.desc}</p>
-                    </div>
+                  <div
+                    key={item}
+                    className="flex items-center gap-3 text-sm font-medium text-[#0a0a1a]/75"
+                  >
+                    <CheckCircle2 className="h-4 w-4 text-[#FF5812]" />
+                    {item}
                   </div>
-                ),
+                )
               )}
             </div>
 
-            <div className="mt-auto grid gap-2 pt-6">
+            <div className="mt-auto grid gap-2 pt-9">
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#0a0a1a] px-5 py-3.5 text-xs font-semibold uppercase tracking-[0.08em] text-white shadow-[0_4px_12px_rgba(10,10,26,0.15)] transition-all duration-300 hover:bg-[#FF5812] hover:shadow-[0_6px_16px_rgba(255,88,18,0.25)] hover:-translate-y-[1px] active:translate-y-0 active:scale-[0.98]"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#0a0a1a] px-5 py-3.5 text-xs font-semibold uppercase tracking-[0.08em] text-white transition hover:bg-[#FF5812]"
               >
                 Discuss your use case <ArrowUpRight className="h-4 w-4" />
               </a>
               <a
                 href="#case-studies"
-                className="inline-flex items-center justify-center rounded-xl border border-[#0a0a1a]/14 px-5 py-3.5 text-xs font-semibold uppercase tracking-[0.08em] text-[#0a0a1a] transition-all duration-300 hover:bg-slate-50 hover:border-[#FF5812]/45 hover:text-[#FF5812] active:scale-[0.98]"
+                className="inline-flex items-center justify-center rounded-xl border border-[#0a0a1a]/20 px-5 py-3.5 text-xs font-semibold uppercase tracking-[0.08em] text-[#0a0a1a] transition hover:border-[#FF5812] hover:text-[#FF5812]"
               >
                 Explore case studies
               </a>
@@ -170,7 +164,7 @@ export default function IndustriesShowcase() {
           </div>
 
           <div className="min-w-0 p-3 sm:p-5">
-            <div className="mb-4 flex gap-2 overflow-x-auto pb-1">
+            <div className="mb-4 flex gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {industries.map((industry, index) => {
                 const Icon = industry.icon;
                 const isActive = activeIndex === index;
@@ -186,7 +180,9 @@ export default function IndustriesShowcase() {
                         : "border border-white bg-white/85 text-[#0a0a1a]/55 hover:text-[#FF5812]"
                     }`}
                   >
-                    <Icon className={`h-3.5 w-3.5 ${isActive ? "text-[#FF6B00]" : ""}`} />
+                    <Icon
+                      className={`h-3.5 w-3.5 ${isActive ? "text-[#FF6B00]" : ""}`}
+                    />
                     {industry.label}
                   </button>
                 );
@@ -209,7 +205,7 @@ export default function IndustriesShowcase() {
                 >
                   <div className="flex items-start justify-between gap-5">
                     <div>
-                      <p className="badge-label text-[#FF8A50]">
+                      <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#FF8A50]">
                         {activeIndustry.label} AI
                       </p>
                       <h3 className="mt-4 max-w-xl text-3xl font-semibold leading-tight tracking-[-0.04em] sm:text-4xl">

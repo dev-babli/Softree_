@@ -1,0 +1,97 @@
+import { TechCategory } from "@/app/services/offshore-power-platform-development/tech-stack";
+import {
+  Brain,
+  Bot,
+  Sparkles,
+  Layers,
+  Box,
+  Network,
+  Cloud,
+  LayoutGrid,
+  Search,
+  Database,
+  Workflow,
+  Server,
+  GitBranch,
+  ShieldCheck,
+  Key,
+  Lock,
+  Activity,
+  CheckCircle,
+  Building2,
+} from "lucide-react";
+
+export const aiTechnologyCategories: TechCategory[] = [
+  {
+    id: "AI MODELS",
+    label: "AI MODELS",
+    items: [
+      { name: "OpenAI GPT Models", icon: Brain },
+      { name: "Claude", icon: Bot },
+      { name: "Gemini", icon: Sparkles },
+      { name: "Llama", icon: Layers },
+      { name: "Azure OpenAI", icon: Cloud },
+      { name: "Embedding Models", icon: Network },
+    ],
+  },
+  {
+    id: "MICROSOFT AI",
+    label: "MICROSOFT AI",
+    items: [
+      { name: "Azure AI Foundry", icon: Box },
+      { name: "Azure OpenAI Service", icon: Cloud },
+      { name: "Microsoft Copilot Studio", icon: Bot },
+      { name: "Microsoft 365 Copilot", icon: Building2 },
+      { name: "Power Platform", icon: LayoutGrid },
+      { name: "Azure AI Search", icon: Search },
+    ],
+  },
+  {
+    id: "ORCHESTRATION",
+    label: "ORCHESTRATION",
+    items: [
+      { name: "LangChain", icon: Network },
+      { name: "LangGraph", icon: GitBranch },
+      { name: "Semantic Kernel", icon: Brain },
+      { name: "AutoGen", icon: Bot },
+      { name: "RAG Architecture", icon: Layers },
+      { name: "Workflow Agents", icon: Workflow },
+    ],
+  },
+  {
+    id: "DATA & VECTOR",
+    label: "DATA & VECTOR",
+    items: [
+      { name: "Microsoft Fabric", icon: Database },
+      { name: "Azure SQL", icon: Database },
+      { name: "Dataverse", icon: Database },
+      { name: "PostgreSQL", icon: Database },
+      { name: "Pinecone", icon: Database },
+      { name: "FAISS", icon: Database },
+    ],
+  },
+  {
+    id: "CLOUD & DEVOPS",
+    label: "CLOUD & DEVOPS",
+    items: [
+      { name: "Microsoft Azure", icon: Cloud },
+      { name: "AWS", icon: Cloud },
+      { name: "Docker", icon: Server },
+      { name: "Kubernetes", icon: Layers },
+      { name: "CI/CD Pipelines", icon: GitBranch },
+      { name: "Observability", icon: Activity },
+    ],
+  },
+  {
+    id: "SECURITY",
+    label: "SECURITY",
+    items: [
+      { name: "Microsoft Entra ID", icon: Key },
+      { name: "RBAC & SSO", icon: ShieldCheck },
+      { name: "Private Networking", icon: Lock },
+      { name: "Audit Logging", icon: Activity },
+      { name: "Content Safety", icon: CheckCircle },
+      { name: "Secrets Management", icon: Key },
+    ],
+  },
+];

@@ -192,7 +192,7 @@ export default function LightContactSection({
             className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-semibold leading-[1.1] tracking-[-0.02em] max-w-4xl mx-auto"
           >
             {headlineLead}{" "}
-            <span className="bg-gradient-to-r from-[#FF5812] to-[#FF7A2F] bg-clip-text text-transparent font-bold">
+            <span className="bg-linear-to-r from-[#FF5812] to-[#FF7A2F] bg-clip-text text-transparent font-bold">
               {headlineAccent}
             </span>.
           </h2>

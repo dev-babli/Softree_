@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function AIPhilosophy() {
   return (
-    <section className="relative w-full py-24 md:py-32 overflow-hidden bg-white font-sans text-slate-900">
+    <section className="relative w-full py-12 md:py-16 lg:py-20 overflow-hidden bg-white font-sans text-slate-900">
       {/* Background radial highlight */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-slate-50 rounded-full blur-3xl pointer-events-none" />
 
@@ -17,10 +17,10 @@ export default function AIPhilosophy() {
             OUR PHILOSOPHY
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-[42px] font-extrabold text-slate-900 tracking-tight leading-tight max-w-3xl mb-4">
-           The Principles Behind <span className="text-[#FF5812]">Softree AI Solutions</span>
+           The Principles Behind <span className="text-[#FF5812]">Strategic AI Advisory</span>
           </h2>
           <p className="text-[16px] lg:text-[17px] text-slate-500 max-w-2xl mx-auto leading-relaxed">
-            At Softree, we build AI solutions that are practical, scalable, and focused on solving real business challenges. Our approach combines innovation, transparency, and responsible AI to deliver measurable results.
+            We align technology potential with organizational readiness. Our consulting philosophy focuses on building clear roadmaps, structuring sound architecture blueprints, and establishing responsible AI frameworks.
           </p>
         </div>
 
@@ -78,10 +78,10 @@ export default function AIPhilosophy() {
               PILLAR 01
             </span>
             <h3 className="text-slate-900 text-xl font-bold mb-3">
-              Business-First AI Strategy
+              Strategic Value Assessment
             </h3>
             <p className="text-slate-500 text-[14.5px] leading-relaxed">
-              We don't start with technology; we start with your business objectives. Our consulting-led approach makes sure every AI initiative is tied to a clear ROI, whether it's about enhancing customer experience, optimizing operations, or creating new revenue streams.
+              We identify where AI can drive actual business value. Through deep discovery, we evaluate your operational readiness and map out high-ROI use cases, ensuring every proposed initiative has a clear path to measurable outcomes.
             </p>
           </div>
 
@@ -112,10 +112,10 @@ export default function AIPhilosophy() {
               PILLAR 02
             </span>
             <h3 className="text-slate-900 text-xl font-bold mb-3">
-              Pragmatic & Scalable Implementation
+              Architectural Blueprints
             </h3>
             <p className="text-slate-500 text-[14.5px] leading-relaxed">
-              With cloud-native architectures and robust scalability, we ensure long-term AI system performance while future-proofing your business. Using our expertise in MLOps and Microsoft Cloud ecosystems, we deliver AI solutions that are not just innovative prototypes but scalable, maintainable enterprise assets.
+              We design the foundation for enterprise scale. From choosing between pre-built copilots and custom LLMs to auditing your data layer, we construct architecture blueprints aligned with the Microsoft Cloud ecosystems you trust.
             </p>
           </div>
 
@@ -149,10 +149,10 @@ export default function AIPhilosophy() {
               PILLAR 03
             </span>
             <h3 className="text-slate-900 text-xl font-bold mb-3">
-              Responsible AI & Governance
+              Governance & Risk Mitigation
             </h3>
             <p className="text-slate-500 text-[14.5px] leading-relaxed">
-              For enterprise adoption, trust is non-negotiable. We believe in building AI with security, responsible AI audits, and compliance at its core. Our frameworks help you manage data privacy, model bias, and regulatory requirements, giving you the confidence to deploy AI at scale.
+              Trust is non-negotiable for enterprise deployment. We define responsible AI guidelines, risk management policies, and compliance guardrails to help your security and IT teams confidently support organizational adoption.
             </p>
           </div>
 

@@ -44,14 +44,14 @@ const HorizontalConduit = ({ text, delay = 0 }: { text: string; delay?: number }
       <motion.div
         animate={{ x: ["-100%", "400%"] }}
         transition={{ repeat: Infinity, duration: 1.2, ease: "linear", delay }}
-        className="absolute inset-y-0 w-1/3 rounded-full bg-gradient-to-r from-transparent via-[#FF5812] to-transparent shadow-[0_0_15px_#FF5812]"
+        className="absolute inset-y-0 w-1/3 rounded-full bg-linear-to-r from-transparent via-[#FF5812] to-transparent shadow-[0_0_15px_#FF5812]"
       />
     </div>
   </div>
 );
 
 const VerticalConduit = ({ text, delay = 0 }: { text: string; delay?: number }) => (
-  <div className="flex lg:hidden flex-col items-center justify-center py-6 w-full">
+  <div className="flex lg:hidden-col items-center justify-center py-6 w-full">
     <motion.span
       animate={{ opacity: [0.4, 1, 0.4] }}
       transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut", delay }}
@@ -63,7 +63,7 @@ const VerticalConduit = ({ text, delay = 0 }: { text: string; delay?: number }) 
       <motion.div
         animate={{ y: ["-100%", "400%"] }}
         transition={{ repeat: Infinity, duration: 1.2, ease: "linear", delay }}
-        className="absolute inset-x-0 h-1/3 rounded-full bg-gradient-to-b from-transparent via-[#FF5812] to-transparent shadow-[0_0_15px_#FF5812]"
+        className="absolute inset-x-0 h-1/3 rounded-full bg-linear-to-b from-transparent via-[#FF5812] to-transparent shadow-[0_0_15px_#FF5812]"
       />
     </div>
   </div>
@@ -71,8 +71,8 @@ const VerticalConduit = ({ text, delay = 0 }: { text: string; delay?: number }) 
 
 export function HowAIHelps() {
   return (
-    <section id="how-ai-helps" className="overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-24">
-      <div className="mx-auto max-w-[90rem] px-4 sm:px-6 lg:px-8">
+    <section id="how-ai-helps" className="overflow-hidden bg-linear-to-b from-zinc-50 via-white to-zinc-50 py-24">
+      <div className="mx-auto max-w-360 px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
           <SectionLabel>Enterprise AI Solutions</SectionLabel>
           <h2 className="section-h2 text-[#0a0a1a]">
@@ -103,7 +103,7 @@ export function HowAIHelps() {
                 <HorizontalConduit text="Governed Data Context" delay={i * 0.2} />
                 <VerticalConduit text="Governed Data Context" delay={i * 0.2} />
 
-                <div className="relative z-10 flex h-[128px] flex-1 flex-col justify-center rounded-2xl bg-gradient-to-br from-[#FF7A00] to-[#F2580A] p-5 text-center text-white shadow-lg shadow-orange-500/20 transition-transform group-hover:scale-[1.02]">
+                <div className="relative z-10 flex h-[128px] flex-1 flex-col justify-center rounded-2xl bg-linear-to-br from-[#FF7A00] to-[#F2580A] p-5 text-center text-white shadow-lg shadow-orange-500/20 transition-transform group-hover:scale-[1.02]">
                   <span className="badge-label text-orange-100">
                     Enterprise AI Solution
                   </span>

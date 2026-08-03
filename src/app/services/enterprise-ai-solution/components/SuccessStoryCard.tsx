@@ -51,7 +51,7 @@ export default function SuccessStoryCard({
           fill
           className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 420px"
-          quality={95}
+          quality={75}
         />
         
       </Link>
