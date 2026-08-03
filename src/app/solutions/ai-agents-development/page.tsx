@@ -29,8 +29,8 @@ export default function AIAgentsDevelopmentPage() {
       <TrustedBrandsMarquee />
       <SuccessStories />
       <CoreCapabilities />
-      <BusinessChallenges />
-      <BusinessOutcomes />
+      {/* <BusinessChallenges />
+      <BusinessOutcomes /> */}
       <ProvenResults solution="ai-agents" />
       <Industries />
       <AiTechnologyStack />

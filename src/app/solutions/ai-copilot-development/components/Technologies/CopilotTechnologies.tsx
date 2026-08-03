@@ -52,48 +52,48 @@ const TABS = [
 /* ================= DATA ================= */
 const techData: Record<(typeof TABS)[number], Tech[]> = {
   "AI COPILOT": [
-    { name: "Microsoft Copilot Studio", description: "Design and deploy enterprise AI copilots and conversational AI assistants that automate employee support, customer interactions, and business workflows.", icon: Bot },
-    { name: "Azure OpenAI Service", description: "Build secure generative AI copilots using GPT models, Azure OpenAI, prompt engineering, and enterprise-grade AI capabilities.", icon: BrainCircuit },
-    { name: "Microsoft 365 Copilot", description: "Enhance productivity across Outlook, Teams, Word, Excel, and PowerPoint with intelligent Microsoft 365 Copilot integrations.", icon: LayoutGrid },
-    { name: "Azure AI Foundry", description: "Develop, customize, evaluate, and manage enterprise AI copilots and AI agents with Microsoft's unified AI development platform.", icon: Layers },
-    { name: "AI Agents", description: "Create intelligent AI agents that automate business processes, retrieve enterprise knowledge, execute tasks, and support employee decision-making.", icon: Cpu },
-    { name: "Enterprise Knowledge Integration", description: "Connect SharePoint, Dataverse, SQL, Microsoft 365, CRM, ERP, and enterprise knowledge sources to deliver accurate, context-aware AI responses.", icon: Database },
+    { name: "Microsoft Copilot Studio", description: "Build and deploy custom AI copilots and conversational assistants.", icon: Bot },
+    { name: "Azure OpenAI Service", description: "Deploy advanced GPT models with enterprise security and prompt tuning.", icon: BrainCircuit },
+    { name: "Microsoft 365 Copilot", description: "Boost employee productivity with custom Office 365 and Teams extensions.", icon: LayoutGrid },
+    { name: "Azure AI Foundry", description: "Unified platform to design, test, and manage enterprise AI applications.", icon: Layers },
+    { name: "AI Agents", description: "Build autonomous agents to automate processes and make decisions.", icon: Cpu },
+    { name: "Enterprise Knowledge Integration", description: "Integrate ERP, CRM, and SharePoint data for context-aware AI responses.", icon: Database },
   ],
 
   "POWER PLATFORM": [
-    { name: "Microsoft Power Automate", description: "Automate approvals, notifications, and business processes.", icon: Workflow },
-    { name: "Power Apps", description: "Create custom business applications integrated with AI copilots.", icon: AppWindow },
-    { name: "Dataverse", description: "Securely manage enterprise business data.", icon: Database },
-    { name: "AI Builder", description: "Add document processing, OCR, prediction, and AI capabilities.", icon: Wand2 },
-    { name: "Power Pages", description: "Build secure external portals powered by AI copilots.", icon: Globe },
-    { name: "Power BI", description: "Deliver AI-powered analytics and business insights.", icon: BarChart },
+    { name: "Microsoft Power Automate", description: "Automate approvals, workflows, and cross-system notifications.", icon: Workflow },
+    { name: "Power Apps", description: "Build custom low-code business applications integrated with AI.", icon: AppWindow },
+    { name: "Dataverse", description: "Store and manage relational business data securely.", icon: Database },
+    { name: "AI Builder", description: "Add intelligent OCR, form processing, and custom models.", icon: Wand2 },
+    { name: "Power Pages", description: "Launch external customer websites with embedded copilots.", icon: Globe },
+    { name: "Power BI", description: "Visualize business intelligence with AI-driven dashboard analytics.", icon: BarChart },
   ],
 
   "DATA & AI": [
-    { name: "Azure AI Search", description: "Advanced search with AI-powered relevance and intelligence.", icon: Search },
-    { name: "Azure AI Document Intelligence", description: "Extract text, key-value pairs, and structures from documents.", icon: FileText },
-    { name: "Azure Machine Learning", description: "Build, train, and deploy machine learning models.", icon: Activity },
-    { name: "Azure SQL", description: "Managed, intelligent SQL database in the cloud.", icon: Database },
-    { name: "Microsoft Fabric", description: "Unified analytics platform for the era of AI.", icon: Layers },
-    { name: "Semantic Kernel", description: "Integrate LLMs securely with enterprise apps.", icon: BrainCircuit },
+    { name: "Azure AI Search", description: "Implement secure semantic and vector search capabilities.", icon: Search },
+    { name: "Azure AI Document Intelligence", description: "Automate data extraction from complex forms and documents.", icon: FileText },
+    { name: "Azure Machine Learning", description: "Train, deploy, and manage enterprise-grade ML models.", icon: Activity },
+    { name: "Azure SQL", description: "High-performance relational cloud database with built-in AI queries.", icon: Database },
+    { name: "Microsoft Fabric", description: "Consolidate enterprise data analytics into a single lakehouse.", icon: Layers },
+    { name: "Semantic Kernel", description: "Orchestrate LLMs and plug-ins in enterprise codebases.", icon: BrainCircuit },
   ],
 
   "ENTERPRISE INTEGRATION": [
-    { name: "Microsoft Graph API", description: "Gateway to data and intelligence in Microsoft 365.", icon: Network },
-    { name: "SharePoint Online", description: "Intelligent intranet and enterprise content management.", icon: Files },
-    { name: "Dynamics 365", description: "Intelligent business applications for ERP and CRM.", icon: Building },
-    { name: "Salesforce", description: "Customer relationship management and sales workflows.", icon: Cloud },
-    { name: "SAP", description: "Enterprise resource planning and business operations.", icon: Briefcase },
-    { name: "REST APIs", description: "Secure, scalable interfaces for custom integration.", icon: Plug },
+    { name: "Microsoft Graph API", description: "Connect workspace data, files, and users securely.", icon: Network },
+    { name: "SharePoint Online", description: "Manage documents and host internal knowledge bases.", icon: Files },
+    { name: "Dynamics 365", description: "Integrate copilots into CRM and ERP business operations.", icon: Building },
+    { name: "Salesforce", description: "Connect customer sales pipelines and custom workflows.", icon: Cloud },
+    { name: "SAP", description: "Expose supply chain and financial data to copilots.", icon: Briefcase },
+    { name: "REST APIs", description: "Expose custom backend services through secure endpoints.", icon: Plug },
   ],
 
   "SECURITY & GOVERNANCE": [
-    { name: "Microsoft Entra ID", description: "Secure identity and access management.", icon: Shield },
-    { name: "Microsoft Purview", description: "Data governance, risk, and compliance solutions.", icon: ShieldCheck },
-    { name: "Azure Key Vault", description: "Safeguard cryptographic keys and other secrets.", icon: Key },
-    { name: "Microsoft Defender", description: "Comprehensive threat protection across domains.", icon: Lock },
-    { name: "Role-Based Access Control (RBAC)", description: "Fine-grained access management for resources.", icon: Users },
-    { name: "Compliance & Audit Logs", description: "Detailed tracking for governance and compliance.", icon: FileText },
+    { name: "Microsoft Entra ID", description: "Manage user identities and secure multi-factor login access.", icon: Shield },
+    { name: "Microsoft Purview", description: "Enforce strict data governance, labeling, and sensitivity checks.", icon: ShieldCheck },
+    { name: "Azure Key Vault", description: "Protect passwords, API keys, and connection secrets.", icon: Key },
+    { name: "Microsoft Defender", description: "Detect threats and safeguard cloud resources from attacks.", icon: Lock },
+    { name: "Role-Based Access Control (RBAC)", description: "Grant granular data access based on defined roles.", icon: Users },
+    { name: "Compliance & Audit Logs", description: "Track system access with secure history logging.", icon: FileText },
   ],
 };
 
@@ -102,7 +102,7 @@ export default function CopilotTechnologies() {
     useState<(typeof TABS)[number]>("AI COPILOT");
 
   return (
-    <section className="px-4 py-10">
+    <section className="px-4 py-12 md:py-16 lg:py-20 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* ================= HEADER ================= */}
         <div className="mb-10 text-center">

@@ -328,7 +328,7 @@ export const CopilotCaseStudies = () => {
   }, [emblaApi, setScrollSnaps, onSelect]);
 
   return (
-    <section className="relative w-full bg-gradient-to-b from-zinc-50 via-white to-zinc-50 pt-10 pb-10 md:pt-16 md:pb-16 overflow-hidden">
+    <section className="relative w-full bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-12 md:py-16 lg:py-20 overflow-hidden">
       {/* Background decorations matching AI Consulting Services */}
       <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-orange-400/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />

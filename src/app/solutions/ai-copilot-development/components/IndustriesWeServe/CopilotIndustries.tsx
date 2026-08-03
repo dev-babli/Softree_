@@ -6,7 +6,7 @@ import { IndustryCarousel } from "@/app/services/ai-consulting-services/ai-consu
 
 export const CopilotIndustries = () => {
   return (
-    <section className="relative py-12 lg:py-16 overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
+    <section className="relative py-12 md:py-16 lg:py-20 overflow-hidden bg-white">
       <div className="relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-4xl mx-auto mb-6 lg:mb-8 px-4">

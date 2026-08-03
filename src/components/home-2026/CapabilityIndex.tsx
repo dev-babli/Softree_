@@ -30,7 +30,7 @@ type Row = {
 // Routes verified against src/app/services/*/page.tsx (2026-07-04).
 const ROWS: Row[] = [
   { index: "01", label: "OFFSHORE AI DEVELOPMENT", stat: "Copilots + agents in production", href: "/services/offshore-ai-development", thumb: "/og/pages/services--offshore-ai-development.png" },
-  { index: "02", label: "GENERATIVE AI SYSTEMS", stat: "RAG, LLM pipelines, evals", href: "/services/offshore-generative-ai-development", thumb: "/og/pages/services--offshore-generative-ai-development.png" },
+  { index: "02", label: "GENERATIVE AI SYSTEMS", stat: "RAG, LLM pipelines, evals", href: "/services/generative-ai", thumb: "/og/pages/services--offshore-generative-ai-development.png" },
   { index: "03", label: "WEB & PRODUCT ENGINEERING", stat: "Next.js / .NET, end-to-end", href: "/services/offshore-web-app-development", thumb: "/og/pages/services--offshore-web-app-development.png" },
   { index: "04", label: "MOBILE APP DEVELOPMENT", stat: "iOS · Android · cross-platform", href: "/services/offshore-mobile-app-development", thumb: "/og/pages/services--offshore-mobile-app-development.png" },
   { index: "05", label: "DATA & ANALYTICS", stat: "Power BI to decision systems", href: "/services/offshore-data-analytics", thumb: "/og/pages/services--offshore-data-analytics.png" },

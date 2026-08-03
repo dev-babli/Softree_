@@ -44,7 +44,7 @@ const processSteps = [
 
 export function CopilotProcess() {
   return (
-    <section className="relative pt-8 pb-12 lg:pb-16 overflow-visible">
+    <section className="relative py-12 md:py-16 lg:py-20 overflow-visible">
       {/* Background glow */}
       <div
         className="absolute inset-0 pointer-events-none -z-20

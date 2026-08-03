@@ -19,7 +19,7 @@ const offerings = [
   },
   {
     title: "Generative AI",
-    href: "/services/offshore-generative-ai-development",
+    href: "/services/generative-ai",
     description:
       "Custom LLM applications, RAG pipelines, and copilots trained on your proprietary data and policies.",
     icon: WandSparkles,

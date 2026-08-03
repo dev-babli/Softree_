@@ -1,6 +1,5 @@
 import React from "react";
 import { CopilotHero } from "./components/CopilotHero";
-import { CopilotVideoShowcase } from "./components/CopilotVideoShowcase";
 import TrustedBrandsMarquee from "@/app/services/ai-consulting-services/ai-consulting-services-components/TrustedBrandsMarquee";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import Footer from "@/components/sections/footer"
@@ -33,12 +32,11 @@ export default function AICopilotDevelopmentPage() {
       <NavigationClient />
       <main className="min-h-screen bg-gradient-to-b from-zinc-50 via-white to-zinc-50 overflow-x-hidden">
         <CopilotHero />
-        <CopilotVideoShowcase />
         <TrustedBrandsMarquee />
         <CopilotCaseStudies />
         <CopilotCapabilities />
-        <CopilotChallenges />
-        <CopilotOutcomes />
+        {/* <CopilotChallenges />
+        <CopilotOutcomes /> */}
         <ProvenResults solution="ai-copilot" />
 
         {/* <WhyCopilotDevelopment /> */}

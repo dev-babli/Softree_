@@ -11,7 +11,7 @@ const CANONICAL = `${SITE_URL}${PAGE_PATH}`;
 
 const aiOfferings = [
   { name: "Agentic AI Development", url: `${SITE_URL}/services/offshore-ai-development` },
-  { name: "Generative AI Development", url: `${SITE_URL}/services/offshore-generative-ai-development` },
+  { name: "Generative AI Development", url: `${SITE_URL}/services/generative-ai` },
   { name: "AI Test Automation", url: `${SITE_URL}/services/ai-powered-test-automation` },
   { name: "AI Case Studies", url: `${SITE_URL}/case-studies/ai` },
 ];

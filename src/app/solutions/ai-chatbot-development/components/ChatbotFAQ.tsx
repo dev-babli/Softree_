@@ -254,7 +254,7 @@ export default function ChatbotFAQ({ faqs: customFaqs }: ChatbotFAQProps) {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-14 md:py-20"
+      className="relative w-full bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-12 md:py-16 lg:py-20"
     >
       <script
         type="application/ld+json"

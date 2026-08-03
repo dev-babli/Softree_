@@ -105,7 +105,7 @@ const menu: MenuItem[] = [
           { label: "Workflow Orchestration", url: "/ai-workflow-orchestration", icon: Workflow, description: "Autonomous pipeline agents" },
           { label: "AI Test Automation", url: "/services/ai-powered-test-automation", icon: BrainCircuit, description: "Quality at speed" },
           { label: "AI Agents", url: "/services/offshore-ai-development", icon: Bot, description: "Autonomous tasks" },
-          { label: "Generative AI", url: "/services/offshore-generative-ai-development", icon: WandSparkles, description: "RAG & copilots" },
+          { label: "Generative AI", url: "/services/generative-ai", icon: WandSparkles, description: "RAG & copilots" },
         ],
       },
       {
