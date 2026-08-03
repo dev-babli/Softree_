@@ -33,23 +33,16 @@ export default function CaseStudyListingCard({ study, accentColor = '#FF5812' }:
         color={`${accentColor}73`}
         intensity={0.45}
         radius={280}
-        className="flex h-full flex-col overflow-hidden rounded-[24px] border border-[#0a0a1a]/5 bg-white shadow-[0_8px_30px_rgba(10,10,26,0.04)] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-1.5 hover:border-[var(--hover-accent)] hover:shadow-[0_24px_50px_-14px_var(--hover-shadow)]"
+        className="flex h-full flex-col overflow-hidden rounded-[24px] border border-[#0a0a1a]/5 bg-white shadow-[0_8px_30px_rgba(10,10,26,0.04)] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-14px_var(--hover-shadow)]"
       >
         {/* Sweep-Shine Hover Effect */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-[24px] z-20">
           <div className="absolute -inset-[100%] bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] transition-transform duration-1000 ease-out group-hover:translate-x-[100%]" />
         </div>
 
-        {/* Partial border corners on hover */}
-        <span className="absolute top-[-1px] left-[-1px] w-8 h-8 border-t-2 border-l-2 border-[var(--hover-accent)] rounded-tl-[24px] opacity-0 scale-95 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:scale-100 z-30 pointer-events-none" />
-        <span className="absolute top-[-1px] right-[-1px] w-8 h-8 border-t-2 border-r-2 border-[var(--hover-accent)] rounded-tr-[24px] opacity-0 scale-95 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:scale-100 z-30 pointer-events-none" />
-        <span className="absolute bottom-[-1px] left-[-1px] w-8 h-8 border-b-2 border-l-2 border-[var(--hover-accent)] rounded-bl-[24px] opacity-0 scale-95 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:scale-100 z-30 pointer-events-none" />
-        <span className="absolute bottom-[-1px] right-[-1px] w-8 h-8 border-b-2 border-r-2 border-[var(--hover-accent)] rounded-br-[24px] opacity-0 scale-95 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:scale-100 z-30 pointer-events-none" />
-
-        {/* Image Container */}
         <div
           className={`relative aspect-[16/10] w-full overflow-hidden border-b border-[#edf0f7] ${
-            isPlaceholder ? 'bg-[#efeae0]' : 'bg-white'
+            isPlaceholder ? 'bg-[#efeae0]' : 'bg-[#fafafc]'
           }`}
         >
           {study.image && !isPlaceholder ? (
@@ -59,7 +52,7 @@ export default function CaseStudyListingCard({ study, accentColor = '#FF5812' }:
               fill
               unoptimized
               sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
-              className="relative z-10 transition-transform duration-700 ease-out group-hover:scale-105 object-cover"
+              className="relative z-10 transition-transform duration-700 ease-out group-hover:scale-[1.02] object-contain"
             />
           ) : study.image ? (
             <div className="absolute inset-0 flex items-center justify-center bg-[#f8f9fc]">
@@ -152,6 +145,12 @@ export default function CaseStudyListingCard({ study, accentColor = '#FF5812' }:
             </span>
           </div>
         </div>
+
+        {/* Thick partial bottom border accent */}
+        <div 
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-[4px] rounded-t-full transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:w-full z-30"
+          style={{ backgroundColor: accentColor }}
+        />
       </SpotlightCard>
     </Link>
   )

@@ -7,6 +7,8 @@ import { useGSAP } from "@gsap/react"
 import { Plus, Minus, HelpCircle } from "lucide-react"
 import { prefersReducedMotion } from "@/lib/motion"
 
+import { faqs as defaultFaqs } from "../data/faqs"
+
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
 interface FAQItem {
@@ -20,71 +22,9 @@ interface LightFAQExactProps {
   faqs?: FAQItem[]
 }
 
-const defaultFaqs: FAQItem[] = [
-  {
-    id: 1,
-    serial: "question 01",
-    question: "What is an Enterprise AI Solution, and how is it different from a standalone AI tool?",
-    answer:
-      "An Enterprise AI Solution combines AI models with governed business data, secure identities, workflows, integrations, user experiences, evaluation, and monitoring. Unlike a standalone chatbot, it operates within enterprise architecture, respects existing permissions, connects to systems of record, supports auditability, and is engineered for reliability, scale, security, and measurable business outcomes.",
-  },
-  {
-    id: 2,
-    serial: "question 02",
-    question: "Which business processes are best suited for Enterprise AI Solutions?",
-    answer:
-      "Strong candidates involve high-volume knowledge work, repetitive decisions, document-heavy operations, fragmented enterprise knowledge, customer or employee support, forecasting, and cross-system workflows. Prioritization should consider business value, process frequency, data readiness, integration effort, user impact, risk, and whether success can be measured against a clear operational baseline.",
-  },
-  {
-    id: 3,
-    serial: "question 03",
-    question: "How should an organization measure the value and ROI of enterprise AI?",
-    answer:
-      "Value should be measured against the workflow being improved, not model activity alone. Useful metrics include cycle time, cost per transaction, resolution time, automation rate, error reduction, employee capacity, conversion, compliance quality, and user adoption. A baseline, target outcome, evaluation plan, and accountable business owner should be defined before production investment.",
-  },
-  {
-    id: 4,
-    serial: "question 04",
-    question: "How can enterprise data be used without exposing sensitive information?",
-    answer:
-      "Enterprise AI should preserve identity, authorization, data classification, residency, retention, and least-privilege controls across the full data path. Permission-aware retrieval limits users and agents to approved content. Encryption, private networking, secret management, filtering, data-loss prevention, source-level auditing, and sensitive-data testing provide additional protection.",
-  },
-  {
-    id: 5,
-    serial: "question 05",
-    question: "How are Enterprise AI Solutions kept accurate, grounded, and trustworthy?",
-    answer:
-      "Quality is managed through representative evaluation datasets and metrics for retrieval, groundedness, relevance, completeness, task adherence, and tool-call accuracy. Source citations, confidence behavior, content filtering, human review, and safe fallbacks reduce unsupported responses. Testing continues after launch because data, workflows, prompts, and models change over time.",
-  },
-  {
-    id: 6,
-    serial: "question 06",
-    question: "What governance and security controls should enterprise AI include?",
-    answer:
-      "Controls should reflect the solution's risk and authority. Common safeguards include accountable ownership, scoped agent identities, role-based access, approved data sources, content safety, prompt-injection defenses, deterministic policy checks, human approval for high-impact actions, prohibited-action boundaries, audit trails, incident procedures, and continuous security and compliance monitoring.",
-  },
-  {
-    id: 7,
-    serial: "question 07",
-    question: "How do Enterprise AI Solutions move successfully from pilot to production?",
-    answer:
-      "Production readiness requires more than a successful demonstration. The pilot must be converted into a supported architecture with secure integrations, quality thresholds, adversarial testing, observability, cost controls, fallback behavior, rollback procedures, user training, ownership, and service management. A phased rollout validates performance and adoption before wider deployment.",
-  },
-  {
-    id: 8,
-    serial: "question 08",
-    question: "How are Enterprise AI Solutions monitored, optimized, and scaled?",
-    answer:
-      "Observability should track quality, safety, retrieval performance, tool use, latency, failures, adoption, cost, and data or model drift. Automated evaluations can become CI/CD quality gates and run against production samples. Monitoring evidence guides prompt, retrieval, policy, model, capacity, and workflow improvements as the solution expands across teams and use cases.",
-  },
-]
-
 /** Brand palette: cream `#F3F0EE`, blue `#1852FF`, orange `#FF5812`, ink `#0a0a1a` */
 const FAQ_INK = "#0a0a1a"
 const FAQ_INK_MUTED = "#2a3348"
-const FAQ_DESKTOP_HEIGHT = 420
-const FAQ_MOBILE_ACTIVE_MIN = 228
-const FAQ_MOBILE_COLLAPSED_MIN = 52
 
 /** Same palette, alternating blue / orange at different shades */
 const FAQ_CARD_THEMES = [
@@ -176,7 +116,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
     return (
       <div
         key={faq.id}
-        className={`group/card relative overflow-hidden rounded-2xl border transition-all duration-500 ease-[var(--legacy-ease-0_4_0_0_2_1)] w-full ${
+        className={`group/card relative overflow-hidden rounded-2xl border transition-all duration-500 ease-(--legacy-ease-0_4_0_0_2_1) w-full ${
           isActive
             ? "bg-white shadow-xl"
             : "bg-white/90 shadow-sm hover:shadow-md"
@@ -225,7 +165,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
                 background: `linear-gradient(135deg, ${theme.from} 0%, ${theme.via} 58%, ${theme.to} 100%)`,
               }}
             />
-            <div className={`absolute inset-0 bg-gradient-to-b ${theme.scrim}`} />
+            <div className={`absolute inset-0 bg-linear-to-b ${theme.scrim}`} />
             <div className="absolute inset-0 bg-white/20" />
           </div>
         )}
@@ -240,14 +180,14 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
             className="flex w-full flex-col text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1852FF]/50 focus-visible:ring-offset-2"
           >
             {/* Top Row: always visible */}
-            <div className="flex items-center justify-between w-full flex-shrink-0">
+            <div className="flex items-center justify-between w-full shrink-0">
               <span
                 className="text-xs font-semibold uppercase tracking-wider transition-colors duration-500"
                 style={{ color: isActive ? `${FAQ_INK_MUTED}cc` : FAQ_INK_MUTED }}
               >
                 {faq.serial}
               </span>
-              <div className="relative h-6 w-6 flex-shrink-0">
+              <div className="relative h-6 w-6 shrink-0">
                 {/* Plus Icon */}
                 <Plus
                   className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${
@@ -328,7 +268,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
           }),
         }}
       />
-      <div className="mx-auto max-w-[1400px] px-6 md:px-12">
+      <div className="mx-auto max-w-350 px-6 md:px-12">
         {/* Section Title */}
         <div ref={titleRef} className="mb-8 md:mb-10">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#1852FF]/30 bg-[#1852FF]/5 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#1852FF]">
@@ -337,7 +277,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
           </div>
           <h2 className="text-3xl font-bold tracking-tight text-[#0a0a1a] md:text-5xl lg:text-6xl">
             Frequently Asked{" "}
-            <span className="bg-gradient-to-r from-[#1852FF] to-[#FF5812] bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-[#1852FF] to-[#FF5812] bg-clip-text text-transparent">
               Questions.
             </span>
           </h2>

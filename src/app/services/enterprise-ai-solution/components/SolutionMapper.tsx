@@ -82,9 +82,9 @@ export function SolutionMapper() {
   const ActiveIcon = activeMapping.icon;
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-24">
-      <div className="mx-auto max-w-[90rem] px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-[30px] border border-orange-100 bg-gradient-to-b from-zinc-50 via-white to-zinc-50 px-5 py-10 text-[#0a0a1a] shadow-[0_24px_65px_rgba(15,23,42,0.10)] sm:px-8 lg:px-10">
+    <section className="relative overflow-hidden bg-linear-to-b from-zinc-50 via-white to-zinc-50 py-24">
+      <div className="mx-auto max-w-360 px-4 sm:px-6 lg:px-8">
+        <div className="relative overflow-hidden rounded-[30px] border border-orange-100 bg-linear-to-b from-zinc-50 via-white to-zinc-50 px-5 py-10 text-[#0a0a1a] shadow-[0_24px_65px_rgba(15,23,42,0.10)] sm:px-8 lg:px-10">
           <div className="pointer-events-none absolute -left-24 top-1/3 h-72 w-72 rounded-full bg-[#FF5812]/[0.07] blur-[100px]" />
           <div className="pointer-events-none absolute -right-20 top-0 h-80 w-80 rounded-full bg-orange-300/[0.08] blur-[110px]" />
 
@@ -95,7 +95,7 @@ export function SolutionMapper() {
             </div>
             <h2 className="section-h2 text-[#0a0a1a]">
               The Challenge{" "}
-              <span className="bg-gradient-to-r from-[#FF5812] to-[#FF7A2F] bg-clip-text text-transparent font-bold">
+              <span className="bg-linear-to-r from-[#FF5812] to-[#FF7A2F] bg-clip-text text-transparent font-bold">
                 We Solve
               </span>
             </h2>
@@ -109,7 +109,7 @@ export function SolutionMapper() {
             <div className="relative min-h-[390px] pl-6">
               <div className="absolute bottom-2 left-1 top-2 w-1 rounded-full bg-slate-200" />
               <motion.div
-                className="absolute left-1 top-2 w-1 rounded-full bg-gradient-to-b from-[#FF5812] to-[#FF9A3D]"
+                className="absolute left-1 top-2 w-1 rounded-full bg-linear-to-b from-[#FF5812] to-[#FF9A3D]"
                 animate={{ height: `${(activeId / mappings.length) * 100}%` }}
                 transition={{ type: "spring", stiffness: 170, damping: 24 }}
               />
@@ -166,7 +166,7 @@ export function SolutionMapper() {
                 transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
                 className="relative min-h-[390px] overflow-hidden rounded-2xl border-2 border-[#FF5812] bg-white/90 p-6 shadow-[0_16px_38px_rgba(255,88,18,0.10)] sm:p-8"
               >
-                <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full border border-[#FF5812]/35 bg-gradient-to-br from-orange-50 to-[#FF5812]/20" />
+                <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full border border-[#FF5812]/35 bg-linear-to-br from-orange-50 to-[#FF5812]/20" />
                 <div className="relative z-10">
                   <div className="mb-5 flex items-center gap-3">
                     <span className="grid h-10 w-10 place-items-center rounded-xl bg-[#FF5812]/15 text-[#FF8A50]">
@@ -204,7 +204,7 @@ export function SolutionMapper() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 1.04 }}
                 transition={{ duration: 0.45 }}
-                className="relative min-h-[390px] overflow-hidden rounded-2xl border border-[#FF5812]/20 bg-gradient-to-br from-[#171326] via-[#10101d] to-[#24110d]"
+                className="relative min-h-[390px] overflow-hidden rounded-2xl border border-[#FF5812]/20 bg-linear-to-br from-[#171326] via-[#10101d] to-[#24110d]"
               >
                 <motion.div
                   animate={{ scale: [1, 1.035, 1] }}
@@ -220,7 +220,7 @@ export function SolutionMapper() {
                     priority={activeMapping.id === 1}
                   />
                 </motion.div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/10" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/10 to-black/10" />
                 <div className="absolute inset-0 bg-[#FF5812]/[0.04] mix-blend-color" />
 
                 <div className="absolute inset-x-5 bottom-5 rounded-xl border border-white/15 bg-black/55 p-4 backdrop-blur-md">

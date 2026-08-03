@@ -6,7 +6,7 @@ import { Zap, HelpCircle } from "lucide-react";
 
 export default function AIDilemma() {
   return (
-    <section className="relative w-full py-24 md:py-32 overflow-hidden bg-slate-950 font-sans text-white">
+    <section className="relative w-full py-12 md:py-16 lg:py-20 overflow-hidden bg-slate-950 font-sans text-white">
       {/* Subtle deep blue background glow */}
       <div className="absolute bottom-0 left-0 w-full h-[300px] bg-gradient-to-t from-blue-900/20 to-transparent pointer-events-none" />
       

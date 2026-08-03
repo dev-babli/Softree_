@@ -47,7 +47,7 @@ export default function AiDevelopmentServicesPage() {
       <BusinessOutcomes /> */}
       <ProvenResults/>
       <AIPhilosophy />
-      <AIDilemma />
+      {/* <AIDilemma /> */}
       <Industries />
       <AiTechnologyStack />
       <HowAIWorks />

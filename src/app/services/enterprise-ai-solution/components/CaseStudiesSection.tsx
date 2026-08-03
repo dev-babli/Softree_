@@ -158,7 +158,7 @@ function StatVisual({ study }: { study: Study }) {
     <motion.div
       whileHover={{ y: -5, scale: 1.015 }}
       transition={{ type: "spring", stiffness: 280, damping: 22 }}
-      className={`relative flex min-h-[280px] overflow-hidden rounded-2xl bg-gradient-to-br ${study.gradient} p-4 text-white shadow-[0_16px_32px_rgba(15,23,42,0.16)]`}
+      className={`relative flex min-h-70 overflow-hidden rounded-2xl bg-linear-to-br ${study.gradient} p-4 text-white shadow-[0_16px_32px_rgba(15,23,42,0.16)]`}
     >
       <div className="absolute right-3 top-3 flex gap-1 opacity-60">
         <span className="h-1 w-4 rounded-full bg-white/70" />
@@ -251,8 +251,8 @@ export default function CaseStudiesSection() {
   );
 
   return (
-    <section className="relative w-full overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-20">
-      <div className="mx-auto max-w-[90rem] px-4 sm:px-6 lg:px-8">
+    <section className="relative w-full overflow-hidden bg-linear-to-b from-zinc-50 via-white to-zinc-50 py-20">
+      <div className="mx-auto max-w-360 px-4 sm:px-6 lg:px-8">
         <div className="relative overflow-hidden rounded-[28px] border border-orange-200/70 bg-white/80 px-5 py-8 shadow-[0_18px_48px_rgba(15,23,42,0.10)] sm:px-8">
           <div
             aria-hidden="true"
@@ -270,7 +270,7 @@ export default function CaseStudiesSection() {
             </div>
             <h2 className="section-h2 text-[#0a0a1a]">
               Why Enterprises{" "}
-              <span className="bg-gradient-to-r from-[#FF5812] to-[#FF7A2F] bg-clip-text text-transparent font-bold">
+              <span className="bg-linear-to-r from-[#FF5812] to-[#FF7A2F] bg-clip-text text-transparent font-bold">
                 Choose Softree
               </span>
             </h2>

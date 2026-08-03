@@ -1,35 +1,37 @@
 "use client";
 
 import React from "react";
-import { SectionLabel } from "../ui/SectionLabel";
-import SuccessStoryCarousel from "./SuccessStoryCarousel";
+import { motion } from "framer-motion";
+import { SuccessStoriesCarousel } from "./SuccessStoriesCarousel";
+import { staggerContainer, fadeUpVariant } from "./animations";
+import SectionBadge from "../SectionBadge";
 
-export default function SuccessStories() {
+export const SuccessStories = () => {
   return (
-    <section className="relative w-full py-20 bg-transparent overflow-hidden">
-      {/* Background Decorators */}
-      <div className="absolute top-0 left-0 w-[400px] h-[400px] border-b border-r border-[#FF6B2C]/10 rounded-br-[100%] opacity-20 pointer-events-none -translate-x-1/4 -translate-y-1/4"></div>
+    <section id="case-studies" className="relative w-full py-24 overflow-hidden font-sans bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
+      <div className="relative z-10 container mx-auto px-4 md:px-6">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="flex flex-col items-center"
+        >
+          {/* Section Header */}
+          <motion.div variants={fadeUpVariant} className="text-center mb-4">
+            <SectionBadge text="SUCCESS STORIES" variant="line" />
+            <h2 className="text-2xl md:text-4xl lg:text-[2.25rem] font-extrabold text-[#111827] mb-2 md:mb-3 tracking-tight text-center leading-tight">
+              Enterprise AI Real-World <span className="text-[#FF6A13]"> Solutions & Business Impact</span>
+            </h2>
+            <p className="text-[15px] lg:text-base text-[#6B7280] mb-6 lg:mb-8 text-center max-w-2xl mx-auto leading-relaxed">
+              See how we turn enterprise AI strategy into production systems with measurable operational and business impact.
+            </p>
+          </motion.div>
 
-      <div className="relative z-10 flex flex-col items-center w-full">
-        <div className="relative z-10 mb-10 text-center w-full">
-          <SectionLabel>Success Stories</SectionLabel>
+          <SuccessStoriesCarousel />
 
-          <h2 className="section-h2 text-[#0a0a1a]">
-            Real-World{" "}
-            <span className="bg-gradient-to-r from-[#FF5812] to-[#FF7A2F] bg-clip-text text-transparent font-bold">
-              AI Success Stories
-            </span>
-          </h2>
-
-          <p className="body-prose mx-auto mt-4 max-w-2xl text-[#0a0a1a]/70">
-            Discover how our enterprise AI solutions solve real business challenges and deliver
-            measurable outcomes across industries.
-          </p>
-        </div>
-
-        {/* Full width Carousel Wrapper */}
-        <SuccessStoryCarousel />
+        </motion.div>
       </div>
     </section>
   );
-}
+};

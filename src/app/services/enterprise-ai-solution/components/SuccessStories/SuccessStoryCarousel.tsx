@@ -34,10 +34,11 @@ export default function SuccessStoryCarousel() {
 
   const getCardStyle = (indexInGroup: number) => {
     const isMobile = windowWidth < 768;
-    const isTablet = windowWidth >= 768 && windowWidth < 1280;
+    const isTablet = windowWidth >= 768 && windowWidth < 1024;
+    const isSmallDesktop = windowWidth >= 1024 && windowWidth < 1280;
 
     // Spread for side cards
-    const baseOffset = isMobile ? 0 : isTablet ? 300 : 450;
+    const baseOffset = isMobile ? 0 : isTablet ? 420 : isSmallDesktop ? 450 : 500;
 
     if (indexInGroup === 1) {
       // Center/Featured card: Centered, elevated slightly, scaled up, fully opaque
@@ -105,7 +106,7 @@ export default function SuccessStoryCarousel() {
               return (
                 <motion.div
                   key={item.id}
-                  className="absolute w-[90%] max-w-[350px] md:max-w-[400px] lg:max-w-[430px]"
+                  className="absolute w-[90%] max-w-87.5 md:max-w-95 lg:max-w-100"
                   animate={{
                     x: style.x,
                     y: style.y,

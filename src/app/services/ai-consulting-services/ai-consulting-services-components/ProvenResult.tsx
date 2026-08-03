@@ -1,47 +1,46 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { AlertCircle, Compass, CheckCircle2, ArrowRight } from "lucide-react";
+import { AlertCircle, Compass, CheckCircle2 } from "lucide-react";
 import SectionBadge from "../../ai-development-services/components/SectionBadge";
 
 const provenResults = [
   {
-    category: "PROCESS AUTOMATION",
-    title: "HR Process Re-engineering",
-    challenge: "HR departments were burdened with manual, repetitive onboarding, leaving operations, and answering daily policy FAQs, creating massive delays.",
-    solution: "Mapped enterprise workflows to implement automated routines and low-latency custom conversational AI agents on Power Platform.",
-    outcome: "Streamlined onboarding cycles and automated routing of internal employee requests, saving administrative hours.",
-    metric: "75%",
-    metricLabel: "Workload Reduction",
-    link: "https://www.softreetechnology.com/case-studies/how-an-enterprise-organization-automated-hr-operations-using-ai"
-  },
-  {
     category: "AI STRATEGY",
-    title: "AI Readiness & Roadmap",
-    challenge: "A financial client wanted to adopt generative AI but lacked data governance, compliance guidelines, and a clear ROI map to justify the cost.",
-    solution: "Conducted security audits, evaluated data infrastructure, and designed a phased Copilot and Azure AI implementation plan.",
-    outcome: "10-usecase roadmap mapped to clear business value, accelerating secure internal approval timelines.",
-    metric: "4 WKS",
-    metricLabel: "Strategic Roadmap",
-    link: "https://www.softreetechnology.com/case-studies/ai-competitive-gap-report-businesses-outperform-competitors"
+    title: "AI Strategy & Advisory",
+    challenge: "Organizations struggle to align AI initiatives with business goals, resulting in high implementation risks and unclear ROI.",
+    solution: "Develop a customized, phased enterprise AI roadmap, identify high-value use cases, and align AI goals with corporate strategy.",
+    outcome: "A comprehensive, executive-ready roadmap mapped to clear business metrics and an actionable timeline.",
+    metric: "10+",
+    metricLabel: "ROI-Mapped Use Cases",
+    link: ""
   },
   {
-    category: "HEALTHCARE CONSULTING",
-    title: "Clinical Workflow Optimization",
-    challenge: "Clinical staff spent excessive time on manual patient scheduling and data entry, leading to doctor fatigue and triage scheduling errors.",
-    solution: "Designed a secure digital blueprint integrating AI agents with Power Platform to automate scheduling and triage workflows.",
-    outcome: "Lowered administrative work for nurses and improved general patient intake scheduling cycles.",
-    metric: "58%",
-    metricLabel: "Overhead Reduction",
-    link: "https://www.softreetechnology.com/case-studies/ai-powered-healthcare-operations-platform"
+    category: "ASSESSMENTS",
+    title: "AI Readiness Assessment",
+    challenge: "Companies often deploy AI on top of unstructured data, weak security structures, and legacy systems, leading to project failures.",
+    solution: "Conduct exhaustive data quality, security posture, and infrastructure readiness audits to build a solid foundation.",
+    outcome: "Full visibility into technical gaps with a clear remediation plan to prepare data and systems for AI scaling.",
+    metric: "100%",
+    metricLabel: "Data & Tech Audit",
+    link: ""
+  },
+  {
+    category: "MICROSOFT STACK",
+    title: "Microsoft AI Advisory",
+    challenge: "Enterprises struggle to leverage their existing Microsoft licenses, paying double for redundant third-party AI platforms.",
+    solution: "Blueprint architectures for Copilot Studio, Azure OpenAI, and Power Platform to optimize license efficiency.",
+    outcome: "Seamless integration of secure agents within SharePoint, Teams, and Dataverse, maximizing current IT investment.",
+    metric: "3.5x",
+    metricLabel: "Licensing Value ROI",
+    link: ""
   }
 ];
 
 export default function ProvenResults() {
   return (
-    <section className="relative w-full py-24 md:py-32 overflow-hidden font-sans bg-white">
+    <section className="relative w-full py-12 md:py-16 lg:py-20 overflow-hidden font-sans bg-white">
       <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-7xl">
         
         {/* Header */}
@@ -52,12 +51,12 @@ export default function ProvenResults() {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-center text-center mb-16"
         >
-          <SectionBadge text="PROVEN VALUE" variant="line" />
+          <SectionBadge text="OUR SERVICES" variant="line" />
           <h2 className="text-3xl md:text-4xl lg:text-[42px] font-extrabold text-[#111827] mt-4 mb-4 tracking-tight leading-tight">
-            Consulting Metrics That <span className="text-[#FF5812]">Prove the Value</span>
+            AI Consulting Services Designed for <span className="text-[#FF5812]">Enterprise Scale</span>
           </h2>
           <p className="text-[16px] lg:text-[17px] text-[#6B7280] max-w-2xl mx-auto leading-relaxed">
-            We measure success by the tangible business outcomes we deliver. Here are the core efficiency, strategy, and scale metrics achieved by our clients.
+            We guide your organization through every stage of the AI journey—from defining strategy and auditing readiness to implementing secure Microsoft AI solutions.
           </p>
         </motion.div>
 
@@ -69,62 +68,93 @@ export default function ProvenResults() {
               : idx === 1 
                 ? "from-[#FF6B00] via-[#FF5812] to-[#E64C00]" 
                 : "from-purple-600 to-purple-500";
+
+            const themes = [
+              {
+                // Blue Theme
+                cardHover: "hover:border-blue-500/25",
+                textAccent: "text-blue-600",
+                blockBg: "bg-blue-50/20",
+                blockBorder: "border-blue-100/50",
+                leftBorder: "border-l-blue-500",
+                iconBg: "bg-blue-50",
+                iconBorder: "border-blue-100",
+                iconText: "text-blue-600",
+              },
+              {
+                // Orange Theme
+                cardHover: "hover:border-[#FF5812]/25",
+                textAccent: "text-[#FF5812]",
+                blockBg: "bg-orange-50/20",
+                blockBorder: "border-orange-100/50",
+                leftBorder: "border-l-[#FF5812]",
+                iconBg: "bg-orange-50",
+                iconBorder: "border-orange-100",
+                iconText: "text-[#FF5812]",
+              },
+              {
+                // Purple Theme
+                cardHover: "hover:border-purple-500/25",
+                textAccent: "text-purple-600",
+                blockBg: "bg-purple-50/20",
+                blockBorder: "border-purple-100/50",
+                leftBorder: "border-l-purple-500",
+                iconBg: "bg-purple-50",
+                iconBorder: "border-purple-100",
+                iconText: "text-purple-600",
+              }
+            ];
+
+            const theme = themes[idx] || themes[0];
+
             return (
               <div 
                 key={idx} 
-                className="flex flex-row items-stretch gap-4 sm:gap-6 bg-slate-50/40 border border-slate-200/50 p-5 sm:p-6 rounded-[2rem] sm:rounded-[2.5rem] shadow-sm hover:border-[#FF5812]/10 transition-all duration-300"
+                className={`flex flex-row items-stretch gap-3 sm:gap-4 bg-slate-50/40 border border-slate-200/50 p-4 sm:p-5 rounded-[1.75rem] sm:rounded-[2rem] shadow-sm ${theme.cardHover} transition-all duration-300`}
               >
                 {/* Left Content Block */}
                 <div className="flex-1 flex flex-col justify-between">
                   <div>
-                    <span className="inline-block text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-2">
+                    <span className="inline-block text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-1">
                       {result.category}
                     </span>
-                    <h3 className="text-lg font-bold text-slate-900 mb-6 leading-tight">
+                    <h3 className="text-[16px] font-bold text-slate-900 mb-3 leading-tight">
                       {result.title}
                     </h3>
 
                     {/* Challenge */}
-                    <div className="flex items-start gap-2.5 mb-4">
-                      <span className="p-1 rounded-lg bg-orange-50 text-orange-500 border border-orange-100 shrink-0 mt-0.5">
+                    <div className={`flex items-start gap-2.5 p-2 px-2.5 rounded-r-xl rounded-l-sm border border-l-[3px] ${theme.blockBg} ${theme.blockBorder} ${theme.leftBorder} mb-2 transition-colors duration-200`}>
+                      <span className={`p-1 rounded-md ${theme.iconBg} ${theme.iconText} border ${theme.iconBorder} shrink-0 mt-0.5`}>
                         <AlertCircle className="w-3.5 h-3.5" />
                       </span>
                       <div>
-                        <h4 className="text-[10px] font-bold tracking-wider text-slate-400 uppercase mb-0.5">Business Challenge</h4>
-                        <p className="text-[12.5px] text-slate-600 leading-relaxed">{result.challenge}</p>
+                        <h4 className={`text-[9px] font-bold tracking-wider uppercase mb-0.5 ${theme.textAccent}`}>Business Challenge</h4>
+                        <p className="text-[12px] text-slate-700 leading-relaxed font-medium">{result.challenge}</p>
                       </div>
                     </div>
 
                     {/* Solution */}
-                    <div className="flex items-start gap-2.5 mb-4">
-                      <span className="p-1 rounded-lg bg-blue-50 text-blue-500 border border-blue-100 shrink-0 mt-0.5">
+                    <div className={`flex items-start gap-2.5 p-2 px-2.5 rounded-r-xl rounded-l-sm border border-l-[3px] ${theme.blockBg} ${theme.blockBorder} ${theme.leftBorder} mb-2 transition-colors duration-200`}>
+                      <span className={`p-1 rounded-md ${theme.iconBg} ${theme.iconText} border ${theme.iconBorder} shrink-0 mt-0.5`}>
                         <Compass className="w-3.5 h-3.5" />
                       </span>
                       <div>
-                        <h4 className="text-[10px] font-bold tracking-wider text-slate-400 uppercase mb-0.5">Our Solution</h4>
-                        <p className="text-[12.5px] text-slate-600 leading-relaxed">{result.solution}</p>
+                        <h4 className={`text-[9px] font-bold tracking-wider uppercase mb-0.5 ${theme.textAccent}`}>Our Solution</h4>
+                        <p className="text-[12px] text-slate-700 leading-relaxed font-medium">{result.solution}</p>
                       </div>
                     </div>
 
                     {/* Outcome */}
-                    <div className="flex items-start gap-2.5">
-                      <span className="p-1 rounded-lg bg-green-50 text-green-500 border border-green-100 shrink-0 mt-0.5">
+                    <div className={`flex items-start gap-2.5 p-2 px-2.5 rounded-r-xl rounded-l-sm border border-l-[3px] ${theme.blockBg} ${theme.blockBorder} ${theme.leftBorder} transition-colors duration-200`}>
+                      <span className={`p-1 rounded-md ${theme.iconBg} ${theme.iconText} border ${theme.iconBorder} shrink-0 mt-0.5`}>
                         <CheckCircle2 className="w-3.5 h-3.5" />
                       </span>
                       <div>
-                        <h4 className="text-[10px] font-bold tracking-wider text-slate-400 uppercase mb-0.5">Outcome</h4>
-                        <p className="text-[12.5px] text-slate-600 leading-relaxed">{result.outcome}</p>
+                        <h4 className={`text-[9px] font-bold tracking-wider uppercase mb-0.5 ${theme.textAccent}`}>Outcome</h4>
+                        <p className="text-[12px] text-slate-700 leading-relaxed font-medium">{result.outcome}</p>
                       </div>
                     </div>
                   </div>
-
-                  <Link 
-                    href={result.link} 
-                    className="inline-flex items-center gap-1 text-[12px] font-bold text-[#FF5812] hover:underline mt-6"
-                  >
-                    <span>View Case Study</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
                 </div>
 
                 {/* Right Vertical Metric Pill Card */}

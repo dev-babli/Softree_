@@ -5,6 +5,7 @@ import { Shield, Brain, TrendingUp, Bot, type LucideIcon } from "lucide-react";
 
 interface TrustItem {
   icon: LucideIcon;
+  tag: string;
   title: string;
   description: string;
 }
@@ -12,69 +13,87 @@ interface TrustItem {
 const trustItems: TrustItem[] = [
   {
     icon: Shield,
+    tag: "SECURE DELIVERY",
     title: "Offshore AI Teams",
-    description: "Microsoft-certified talent.",
+    description: "Microsoft-certified engineers delivering at velocity.",
   },
   {
     icon: Brain,
+    tag: "IP OWNERSHIP",
     title: "White-Label Delivery",
-    description: "Powered by our experts.",
+    description: "Custom code assets built directly in your tenant.",
   },
   {
     icon: TrendingUp,
+    tag: "CLOUD INTEGRATION",
     title: "Enterprise AI Solutions",
-    description: "Secure, scalable AI for business",
+    description: "Audit-ready systems mapped to Azure and Microsoft Fabric.",
   },
   {
     icon: Bot,
-    title: "Business ROI",
-    description: "Reduce costs. Accelerate delivery",
+    tag: "MEASURED IMPACT",
+    title: "Business ROI Focus",
+    description: "Proven cost reductions and operational speedups in weeks.",
   },
 ];
 
 export const TrustStrip = () => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 25 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.3 }}
-      className="w-full max-w-[1200px] relative z-20"
+      transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+      className="w-full max-w-7xl relative z-20"
     >
-      {/* Gradient hairline frame */}
-      <div className="rounded-2xl md:rounded-[32px] p-[1px] bg-gradient-to-b from-[#FFDCC2] via-[#ECECEC] to-[#ECECEC] shadow-[0_8px_30px_rgb(0,0,0,0.04),_0_20px_40px_rgb(255,107,0,0.03)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.06),_0_20px_50px_rgb(255,107,0,0.09)] transition-shadow duration-500">
-        <div className="bg-white/80 backdrop-blur-md rounded-[calc(1rem-1px)] md:rounded-[calc(2rem-1px)] flex flex-col md:flex-row">
-          {trustItems.map((item, index) => (
+      {/* Premium Outer Gradient Border & Dynamic Shadow Glow */}
+      <div className="rounded-3xl md:rounded-[36px] p-[1px] bg-gradient-to-r from-orange-500/30 via-slate-200 to-amber-500/20 shadow-[0_12px_40px_rgba(0,0,0,0.03),_0_30px_60px_rgba(255,107,0,0.04)] hover:shadow-[0_12px_45px_rgba(0,0,0,0.05),_0_30px_70px_rgba(255,107,0,0.12)] transition-all duration-700 ease-in-out">
+        
+        {/* Core Glass container */}
+        <div className="relative bg-white/70 backdrop-blur-xl rounded-[calc(1.75rem-1px)] md:rounded-[calc(2.25rem-1px)] overflow-hidden flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-100/80">
+          
+          {/* Subtle background tech grid */}
+          <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:20px_20px] opacity-40 pointer-events-none" />
+
+          {trustItems.map((item) => (
             <div
               key={item.title}
-              className="relative flex-1 group"
+              className="relative flex-1 group py-5 px-5 md:py-6 md:px-5 lg:px-6 xl:px-7 transition-all duration-500 hover:bg-gradient-to-b hover:from-orange-500/[0.03] hover:to-amber-500/[0.01]"
             >
-              {/* Fading divider — vertical on desktop, horizontal on mobile */}
-              {index !== trustItems.length - 1 && (
-                <>
-                  <div className="hidden md:block absolute right-0 top-[18%] bottom-[18%] w-px bg-gradient-to-b from-transparent via-[#E5E5E5] to-transparent" />
-                  <div className="md:hidden absolute left-[8%] right-[8%] bottom-0 h-px bg-gradient-to-r from-transparent via-[#E5E5E5] to-transparent" />
-                </>
-              )}
+              <div className="relative z-10 flex items-start gap-4">
+                {/* Advanced Multi-layered Icon */}
+                <div className="relative w-11 h-11 lg:w-12 lg:h-12 shrink-0">
+                  {/* Outer pulse animation on hover */}
+                  <div className="absolute inset-0 rounded-full bg-orange-500/5 group-hover:scale-125 transition-transform duration-500 group-hover:bg-orange-500/10" />
+                  
+                  {/* Rotating border accent */}
+                  <div className="absolute inset-0 rounded-full border border-orange-500/10 group-hover:border-orange-500/30 group-hover:rotate-45 transition-all duration-500" />
 
-              <div className="flex items-center md:items-start gap-3 xl:gap-4 py-4 px-4 md:py-5 lg:py-6 lg:px-4 xl:px-6 transition-transform duration-300 md:group-hover:-translate-y-[3px]">
-                {/* Icon: duotone ring instead of flat fill */}
-                <div className="relative w-10 h-10 lg:w-11 lg:h-11 xl:w-12 xl:h-12 shrink-0">
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#FFE4CC] to-[#FFF3EB] transition-transform duration-300 group-hover:scale-[1.1]" />
-                  <div className="absolute inset-[3px] rounded-full bg-white/40 flex items-center justify-center">
+                  {/* Inner container */}
+                  <div className="absolute inset-[3px] rounded-full bg-gradient-to-br from-white to-orange-50/50 flex items-center justify-center shadow-sm border border-slate-100 group-hover:border-orange-100">
                     <item.icon
-                      className="w-[18px] h-[18px] lg:w-[20px] lg:h-[20px] xl:w-[22px] xl:h-[22px] text-[#FF6B00] transition-transform duration-300 group-hover:rotate-[8deg]"
-                      strokeWidth={2}
+                      className="w-5 h-5 text-[#FF6B00] transition-all duration-500 group-hover:scale-110 group-hover:rotate-[6deg]"
+                      strokeWidth={1.8}
                     />
                   </div>
                 </div>
 
-                <div className="flex flex-col pt-0.5 text-left min-w-0">
-                  <h3 className="text-sm md:text-[15px] lg:text-[15px] xl:text-[17px] font-bold text-[#111827] leading-tight tracking-[-0.01em]">
+                {/* Content Block */}
+                <div className="flex flex-col text-left min-w-0">
+                  {/* Monospace tech tag */}
+                  <span className="text-[9px] font-bold tracking-[0.15em] text-[#FF5812]/90 font-mono mb-1">
+                    {item.tag}
+                  </span>
+                  
+                  {/* Title */}
+                  <h3 className="text-sm lg:text-[15px] xl:text-[16px] font-extrabold text-slate-800 leading-tight tracking-tight">
                     {item.title}
                   </h3>
-                  {/* Signature element: a small accent bar that reads as a "confidence" indicator and fills out on hover */}
-                  <span className="block h-[2px] w-5 bg-[#FF6B00]/60 rounded-full mt-1.5 mb-1.5 transition-all duration-300 ease-out group-hover:w-10 group-hover:bg-[#FF6B00]" />
-                  <p className="text-[12px] md:text-[12.5px] xl:text-[13.5px] font-medium text-[#6B7280] leading-[1.45]">
+
+                  {/* Growing Underline Accent */}
+                  <span className="block h-[1.5px] w-5 bg-orange-500/30 rounded-full mt-1.5 mb-1.5 transition-all duration-500 ease-out group-hover:w-12 group-hover:bg-[#FF6B00]" />
+
+                  {/* Description */}
+                  <p className="text-[12px] xl:text-[13px] font-medium text-slate-500 leading-relaxed">
                     {item.description}
                   </p>
                 </div>

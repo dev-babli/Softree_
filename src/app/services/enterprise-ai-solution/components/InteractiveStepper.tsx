@@ -36,7 +36,7 @@ export function InteractiveStepper() {
   const activeIndex = steps.findIndex((step) => step.id === activeStep);
 
   return (
-    <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-8 lg:py-12">
+    <section className="bg-linear-to-b from-zinc-50 via-white to-zinc-50 py-8 lg:py-12">
       <div className="container mx-auto px-6 lg:px-8 max-w-7xl">
         <div className="mb-8 text-center">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-orange-200/50 bg-orange-50/50 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#FF5812]">
@@ -45,7 +45,7 @@ export function InteractiveStepper() {
           </div>
           <h2 className="section-h2 text-center text-[#0a0a1a]">
             How Softree{" "}
-            <span className="bg-gradient-to-r from-[#FF5812] to-[#FF7A2F] bg-clip-text text-transparent font-bold">
+            <span className="bg-linear-to-r from-[#FF5812] to-[#FF7A2F] bg-clip-text text-transparent font-bold">
               AI Works
             </span>
           </h2>
@@ -80,7 +80,7 @@ export function InteractiveStepper() {
           <div className="grid grid-cols-1 items-stretch gap-6 p-4 sm:p-6 lg:grid-cols-[0.85fr_1.15fr] lg:gap-8">
           
           {/* Left Side: Stepper List */}
-          <div className="flex flex-col justify-between gap-4 h-full bg-gradient-to-b from-zinc-950 via-[#1c0b02] to-zinc-950 border border-orange-950/40 rounded-3xl p-4 sm:p-5">
+          <div className="flex flex-col justify-between gap-4 h-full bg-linear-to-b from-zinc-950 via-[#1c0b02] to-zinc-950 border border-orange-950/40 rounded-3xl p-4 sm:p-5">
             <div className="flex flex-col gap-2">
               {steps.map((step) => {
                 const isActive = activeStep === step.id;
@@ -102,7 +102,7 @@ export function InteractiveStepper() {
                         className="absolute inset-y-3 left-0 w-1 rounded-r-full bg-[#FF5812]"
                       />
                     )}
-                    <div className={`flex-shrink-0 rounded-xl p-2.5 transition-colors ${
+                    <div className={`shrink-0 rounded-xl p-2.5 transition-colors ${
                       isActive ? "bg-[#FF5812] text-white" : "bg-zinc-800 text-zinc-400"
                     }`}>
                       <Icon className="h-5 w-5" />
@@ -316,7 +316,7 @@ export function InteractiveStepper() {
           </div>
           </div>
 
-          <div className="relative overflow-hidden grid grid-cols-3 border-t border-[#FF5812]/10 bg-gradient-to-r from-[#FF5812] to-[#FF7A2F] text-white">
+          <div className="relative overflow-hidden grid grid-cols-3 border-t border-[#FF5812]/10 bg-linear-to-r from-[#FF5812] to-[#FF7A2F] text-white">
             {/* Tactile Dot Grid Texture */}
             <div
               aria-hidden="true"

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function AIPhilosophy() {
   return (
-    <section className="relative w-full py-24 md:py-32 overflow-hidden bg-white font-sans text-slate-900">
+    <section className="relative w-full py-12 md:py-16 lg:py-20 overflow-hidden bg-white font-sans text-slate-900">
       {/* Background radial highlight */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-slate-50 rounded-full blur-3xl pointer-events-none" />
 
@@ -17,10 +17,10 @@ export default function AIPhilosophy() {
             OUR PHILOSOPHY
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-[42px] font-extrabold text-slate-900 tracking-tight leading-tight max-w-3xl mb-4">
-           The Principles Behind <span className="text-[#FF5812]">Softree AI Solutions</span>
+           The Principles Behind <span className="text-[#FF5812]">Custom AI Development</span>
           </h2>
           <p className="text-[16px] lg:text-[17px] text-slate-500 max-w-2xl mx-auto leading-relaxed">
-            At Softree, we build AI solutions that are practical, scalable, and focused on solving real business challenges. Our approach combines innovation, transparency, and responsible AI to deliver measurable results.
+            At Softree, we engineer custom AI applications that integrate deeply with your proprietary data and core workflows. Our development philosophy is built on technical precision, production-grade scalability, and secure codebase design.
           </p>
         </div>
 
@@ -78,10 +78,10 @@ export default function AIPhilosophy() {
               PILLAR 01
             </span>
             <h3 className="text-slate-900 text-xl font-bold mb-3">
-              Business-First AI Strategy
+              Purpose-Built Engineering
             </h3>
             <p className="text-slate-500 text-[14.5px] leading-relaxed">
-              We don't start with technology; we start with your business objectives. Our consulting-led approach makes sure every AI initiative is tied to a clear ROI, whether it's about enhancing customer experience, optimizing operations, or creating new revenue streams.
+              We don't build generic API wrappers. Every model integration, custom agentic pipeline, and retrieval-augmented generation (RAG) system we develop is tailored specifically to solve your unique operational bottlenecks and process flows.
             </p>
           </div>
 
@@ -112,10 +112,10 @@ export default function AIPhilosophy() {
               PILLAR 02
             </span>
             <h3 className="text-slate-900 text-xl font-bold mb-3">
-              Pragmatic & Scalable Implementation
+              Production-Grade MLOps
             </h3>
             <p className="text-slate-500 text-[14.5px] leading-relaxed">
-              With cloud-native architectures and robust scalability, we ensure long-term AI system performance while future-proofing your business. Using our expertise in MLOps and Microsoft Cloud ecosystems, we deliver AI solutions that are not just innovative prototypes but scalable, maintainable enterprise assets.
+              We develop with long-term stability in mind. Leveraging Copilot Studio, Azure AI, and robust MLOps, we establish automated testing, continuous deployment pipelines, and active telemetry monitoring to ensure custom models scale reliably under load.
             </p>
           </div>
 
@@ -149,10 +149,10 @@ export default function AIPhilosophy() {
               PILLAR 03
             </span>
             <h3 className="text-slate-900 text-xl font-bold mb-3">
-              Responsible AI & Governance
+              Secure-by-Design Code
             </h3>
             <p className="text-slate-500 text-[14.5px] leading-relaxed">
-              For enterprise adoption, trust is non-negotiable. We believe in building AI with security, responsible AI audits, and compliance at its core. Our frameworks help you manage data privacy, model bias, and regulatory requirements, giving you the confidence to deploy AI at scale.
+              We bake governance directly into the codebase. From input sanitization and DLP checks to auditable action logging and Entra ID permissions, our developers ensure your AI systems run with enterprise-grade guardrails.
             </p>
           </div>
 

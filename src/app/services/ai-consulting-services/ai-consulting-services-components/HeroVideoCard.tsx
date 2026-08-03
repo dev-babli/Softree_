@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export const HeroVideoCard = () => {
   return (
-    <div className="relative w-full max-w-[1200px] aspect-[16/9] lg:aspect-[16/9]">
+    <div className="relative w-full max-w-7xl aspect-[16/9] lg:aspect-[16/9]">
       {/* Main Video Container */}
       <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
