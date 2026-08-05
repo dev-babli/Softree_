@@ -126,14 +126,30 @@ const menu: MenuItem[] = [
     mega: true,
     children: [
       {
-        title: "AI & Automation",
-        description: "Intelligent solutions for enterprise automation.",
+        title: "Agentic AI & Platforms",
+        description: "Build, orchestrate, and govern autonomous agents.",
         links: [
-          { label: "AI Agents Development", url: "/solutions/ai-agents-development", icon: Bot, description: "Automate complex enterprise workflows" },
-          { label: "AI Copilot Development", url: "/solutions/ai-copilot-development", icon: WandSparkles, description: "Build secure, intelligent AI copilots for business applications" },
-          { label: "AI Workflow Automation", url: "/solutions/ai-workflow-automation", icon: Workflow, description: "Intelligent process orchestration" },
-          { label: "Enterprise RAG", url: "/solutions/enterprise-rag-development", icon: Database, description: "Secure Retrieval-Augmented Generation for enterprise knowledge" },
           { label: "Agentic AI Platform", url: "/agentic-ai-platform", icon: LayoutDashboard, description: "Build & govern agents at scale" },
+          { label: "AI Agents Development", url: "/solutions/ai-agents-development", icon: Bot, description: "Automate complex enterprise workflows" },
+          { label: "Multi-Agent Systems", url: "/solutions/multi-agent-systems", icon: BrainCircuit, description: "Orchestrate collaborative agent networks" },
+        ],
+      },
+      {
+        title: "AI Assistants & Copilots",
+        description: "Conversational agents for workspace and customer success.",
+        links: [
+          { label: "AI Copilot Development", url: "/solutions/ai-copilot-development", icon: WandSparkles, description: "Secure copilots for business applications" },
+          { label: "AI Chatbot Development", url: "/solutions/ai-chatbot-development", icon: Bot, description: "Conversational support and sales interfaces" },
+          { label: "Azure OpenAI Solutions", url: "/solutions/azure-openai-development", icon: Sparkles, description: "Enterprise GPT applications on Azure" },
+        ],
+      },
+      {
+        title: "Data & Process Automation",
+        description: "Knowledge management and process orchestration.",
+        links: [
+          { label: "Enterprise RAG", url: "/solutions/enterprise-rag-development", icon: Database, description: "Secure Q&A over enterprise knowledge" },
+          { label: "Document AI Solutions", url: "/solutions/document-ai-solutions", icon: FileText, description: "Extract insights from unstructured documents" },
+          { label: "AI Workflow Automation", url: "/solutions/ai-workflow-automation", icon: Workflow, description: "Intelligent process orchestration" },
         ],
       },
     ],

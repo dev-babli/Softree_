@@ -1,0 +1,97 @@
+import { TechCategory } from "@/app/services/offshore-power-platform-development/tech-stack";
+import {
+  Brain,
+  Bot,
+  Sparkles,
+  Layers,
+  Box,
+  Network,
+  Cloud,
+  LayoutGrid,
+  Search,
+  Database,
+  Workflow,
+  Server,
+  GitBranch,
+  ShieldCheck,
+  Key,
+  Lock,
+  Activity,
+  CheckCircle,
+  MessageSquare,
+} from "lucide-react";
+
+export const aiTechnologyCategories: TechCategory[] = [
+  {
+    id: "AZURE OPENAI",
+    label: "AZURE OPENAI",
+    items: [
+      { name: "Azure OpenAI Service", icon: Cloud },
+      { name: "GPT-4o / GPT Models", icon: Brain },
+      { name: "Azure AI Foundry", icon: Box },
+      { name: "Embeddings", icon: Network },
+      { name: "Assistants & Tools", icon: Bot },
+      { name: "Content Safety", icon: ShieldCheck },
+    ],
+  },
+  {
+    id: "DATA & RAG",
+    label: "DATA & RAG",
+    items: [
+      { name: "Azure AI Search", icon: Search },
+      { name: "Microsoft Fabric", icon: Database },
+      { name: "Azure SQL", icon: Database },
+      { name: "Dataverse", icon: Database },
+      { name: "SharePoint", icon: LayoutGrid },
+      { name: "Blob / ADLS", icon: Server },
+    ],
+  },
+  {
+    id: "MICROSOFT APPS",
+    label: "MICROSOFT APPS",
+    items: [
+      { name: "Microsoft 365 Copilot Ext.", icon: Sparkles },
+      { name: "Teams Apps", icon: MessageSquare },
+      { name: "Power Platform", icon: Workflow },
+      { name: "Dynamics 365", icon: LayoutGrid },
+      { name: "Semantic Kernel", icon: Brain },
+      { name: "Azure Functions", icon: Layers },
+    ],
+  },
+  {
+    id: "CLOUD & DEVOPS",
+    label: "CLOUD & DEVOPS",
+    items: [
+      { name: "Microsoft Azure", icon: Cloud },
+      { name: "API Management", icon: Network },
+      { name: "Docker", icon: Server },
+      { name: "Kubernetes / AKS", icon: Layers },
+      { name: "GitHub", icon: GitBranch },
+      { name: "CI/CD Pipelines", icon: Workflow },
+    ],
+  },
+  {
+    id: "SECURITY",
+    label: "SECURITY",
+    items: [
+      { name: "Microsoft Entra ID", icon: ShieldCheck },
+      { name: "Azure Key Vault", icon: Key },
+      { name: "Private Endpoints", icon: Lock },
+      { name: "Purview", icon: ShieldCheck },
+      { name: "RBAC", icon: Lock },
+      { name: "Responsible AI", icon: CheckCircle },
+    ],
+  },
+  {
+    id: "OBSERVABILITY",
+    label: "OBSERVABILITY",
+    items: [
+      { name: "Azure Monitor", icon: Activity },
+      { name: "Application Insights", icon: Activity },
+      { name: "Token Cost Tracking", icon: Activity },
+      { name: "Eval Harnesses", icon: CheckCircle },
+      { name: "Prompt Versioning", icon: GitBranch },
+      { name: "Quality Dashboards", icon: Sparkles },
+    ],
+  },
+];

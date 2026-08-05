@@ -1,7 +1,6 @@
 import { CATEGORY_LABELS, type CaseStudyDetailLayout } from "@/lib/case-study-layouts"
 import { DEFAULT_ACCENT } from "@/lib/brand-defaults"
 import { stockPackForSlug } from "@/lib/case-study-stock-images"
-import { resolveCaseStudyCategory } from "@/lib/case-study-category"
 import type {
   ApproachStep,
   BeforeAfterRow,
@@ -338,7 +337,7 @@ function buildGallery(study: SanityCaseStudyDoc, layout?: CaseStudyDetailLayout)
   const fromUrls = (study.galleryUrls || [])
     .filter((g) => g?.url)
     .map((g) => ({ url: g.url!, alt: g.alt, caption: g.caption }))
-  let items = [...fromAssets, ...fromUrls]
+  const items = [...fromAssets, ...fromUrls]
   if (layout === "manufacturing-power-platform" && items.length > 0) {
     return items.slice(0, 5).map((item, i) => ({
       ...item,
@@ -911,7 +910,10 @@ export function mapCaseStudyToLayoutData(
           : undefined,
     beforeAfter: study.beforeAfter?.length
       ? study.beforeAfter
-      : layout === "manufacturing-power-platform"
+      : (layout === "manufacturing-power-platform" ||
+         (study.highlights?.length && study.highlights.some(h => h.value && h.value !== "—" && h.value !== "-")) ||
+         study.metrics?.length ||
+         study.keyResults?.length)
         ? []
         : defaultBeforeAfter(),
     cta: {
