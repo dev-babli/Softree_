@@ -2,13 +2,11 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Search, Database, Sparkles, Sliders, Cloud, Activity, ArrowDown } from "lucide-react";
+import { Search, Brain, ScanSearch, Workflow, ShieldCheck, Rocket, BarChart3, ArrowDown } from "lucide-react";
 import SectionBadge from "@/app/services/ai-development-services/components/SectionBadge";
-import { genProcess } from "../data";
+import { processData } from "./processData";
 
-const icons = [Search, Database, Sparkles, Sliders, Cloud, Activity];
-
-export function GenAiProcess() {
+export default function DocumentAiDeliveryProcess() {
   return (
     <section id="process" className="relative w-full py-16 md:py-24 bg-transparent font-sans">
       <div className="mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8 relative z-10">
@@ -19,15 +17,15 @@ export function GenAiProcess() {
           {/* Left Column - Sticky */}
           <div className="lg:col-span-5 lg:sticky lg:top-32 flex flex-col justify-center">
             <div className="flex flex-col items-start">
-              <SectionBadge text="DEVELOPMENT PROCESS" variant="line" />
+              <SectionBadge text="DELIVERY PROCESS" variant="line" />
               
               <h2 className="mt-4 text-3xl md:text-4xl lg:text-[2.5rem] font-extrabold text-[#111827] tracking-tight leading-tight">
-                Seamless AI-Driven <br />
+                Seamless Document AI <br />
                 <span className="text-[#FF5812]">Project Deliveries</span>
               </h2>
               
               <p className="mt-6 text-[15px] lg:text-base text-[#6B7280] leading-relaxed max-w-md">
-                As a leading AI engineering firm, our approach translates complex model architectures, private retrieval indexes, and orchestrators into production-ready automations. We combine rigorous testing with structured deployment to ensure your AI operations scale securely.
+                From structural layout discovery and document tagging to custom OCR training and database connector setups, Softree follows a proven delivery framework to deploy accurate, secure, and production-ready document understanding platforms.
               </p>
 
               {/* Scroll Indicator */}
@@ -40,11 +38,11 @@ export function GenAiProcess() {
 
           {/* Right Column - Card Stack */}
           <div className="lg:col-span-7 flex flex-col gap-0 pb-20">
-            {genProcess.map((step, index) => {
-              const Icon = icons[index % icons.length];
+            {processData.map((step, index) => {
+              const Icon = step.icon;
               return (
                 <motion.div
-                  key={step.step}
+                  key={step.id}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
@@ -68,7 +66,7 @@ export function GenAiProcess() {
                       <Icon size={22} strokeWidth={2} />
                     </div>
                     <span className="text-[12px] font-mono font-extrabold tracking-wider text-zinc-600 group-hover:text-[#FF5812]/80 transition-colors">
-                      STEP {step.step}
+                      STEP {step.id}
                     </span>
                   </div>
 
@@ -78,7 +76,7 @@ export function GenAiProcess() {
                       {step.title}
                     </h3>
                     <p className="text-sm md:text-[15px] text-zinc-400 leading-relaxed font-normal">
-                      {step.body}
+                      {step.description}
                     </p>
                   </div>
                 </motion.div>

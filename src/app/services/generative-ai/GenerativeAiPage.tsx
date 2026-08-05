@@ -12,6 +12,8 @@ import { GenAiHero } from "./sections/GenAiHero"
 import { GenAiIndustry } from "./sections/GenAiIndustry"
 import { GenAiProcess } from "./sections/GenAiProcess"
 import { GenAiServices } from "./sections/GenAiServices"
+import GenAiPortfolio from "./sections/GenAiPortfolio"
+import GenAiResilience from "./sections/GenAiResilience"
 import WhyChooseWithTestimonials from "@/app/services/offshore-generative-ai-development/why-gen-ai"
 import AiTechnologyStack from "@/app/solutions/ai-chatbot-development/components/AiTechnologyStack"
 import { SuccessStories } from "@/app/solutions/ai-chatbot-development/components/SuccessStories/SuccessStories";
@@ -36,6 +38,8 @@ export function GenerativeAiPage({ faqs }: GenerativeAiPageProps) {
       </div>
       <SuccessStories />
       <GenAiServices />
+      <GenAiPortfolio />
+      <GenAiResilience />
       <ProvenResults solution="enterprise-rag" />
       <GenAiFramework />
       <GenAiIndustry />
