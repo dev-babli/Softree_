@@ -1,0 +1,95 @@
+import { TechCategory } from "@/app/services/offshore-power-platform-development/tech-stack";
+import {
+  Brain,
+  Bot,
+  Sparkles,
+  Layers,
+  Box,
+  Network,
+  Cloud,
+  LayoutGrid,
+  Search,
+  Database,
+  Workflow,
+  Server,
+  GitBranch,
+  ShieldCheck,
+  Activity,
+  CheckCircle,
+  MessageSquare,
+} from "lucide-react";
+
+export const aiTechnologyCategories: TechCategory[] = [
+  {
+    id: "LANGGRAPH",
+    label: "LANGGRAPH",
+    items: [
+      { name: "LangGraph", icon: GitBranch },
+      { name: "LangChain", icon: Layers },
+      { name: "LangSmith", icon: Activity },
+      { name: "Checkpoints", icon: Database },
+      { name: "State Schemas", icon: Box },
+      { name: "Tool Kits", icon: Bot },
+    ],
+  },
+  {
+    id: "MODELS",
+    label: "MODELS",
+    items: [
+      { name: "OpenAI", icon: Brain },
+      { name: "Anthropic", icon: Sparkles },
+      { name: "Azure OpenAI", icon: Cloud },
+      { name: "GPT-4o / GPT Models", icon: Brain },
+      { name: "Claude", icon: MessageSquare },
+      { name: "Embeddings", icon: Network },
+    ],
+  },
+  {
+    id: "DATA & RAG",
+    label: "DATA & RAG",
+    items: [
+      { name: "Pinecone", icon: Search },
+      { name: "pgvector", icon: Database },
+      { name: "Chroma", icon: Database },
+      { name: "Weaviate", icon: Search },
+      { name: "Document Loaders", icon: LayoutGrid },
+      { name: "Hybrid Retrieval", icon: Server },
+    ],
+  },
+  {
+    id: "ORCHESTRATION",
+    label: "ORCHESTRATION",
+    items: [
+      { name: "LangGraph State", icon: GitBranch },
+      { name: "Multi-Agent Flows", icon: Bot },
+      { name: "FastAPI", icon: Server },
+      { name: "Celery / Workers", icon: Workflow },
+      { name: "Redis", icon: Database },
+      { name: "Webhooks", icon: Network },
+    ],
+  },
+  {
+    id: "CLOUD & DEVOPS",
+    label: "CLOUD & DEVOPS",
+    items: [
+      { name: "AWS / Azure / GCP", icon: Cloud },
+      { name: "Docker", icon: Server },
+      { name: "Kubernetes", icon: Layers },
+      { name: "GitHub Actions", icon: GitBranch },
+      { name: "CI/CD Pipelines", icon: Workflow },
+      { name: "Terraform", icon: Box },
+    ],
+  },
+  {
+    id: "OBSERVABILITY",
+    label: "OBSERVABILITY",
+    items: [
+      { name: "LangSmith Traces", icon: Activity },
+      { name: "Eval Harnesses", icon: CheckCircle },
+      { name: "Token Cost Tracking", icon: Activity },
+      { name: "Prompt Versioning", icon: GitBranch },
+      { name: "Guardrail Filters", icon: ShieldCheck },
+      { name: "Quality Dashboards", icon: Sparkles },
+    ],
+  },
+];
