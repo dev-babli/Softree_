@@ -15,7 +15,7 @@ export interface ProvenResultItem {
   link: string;
 }
 
-export type SolutionType = "ai-agents" | "ai-copilot" | "ai-workflow" | "enterprise-rag" | "ai-chatbot";
+export type SolutionType = "ai-agents" | "ai-copilot" | "ai-workflow" | "enterprise-rag" | "ai-chatbot" | "multi-agent";
 
 const solutionData: Record<SolutionType, ProvenResultItem[]> = {
   "ai-agents": [
@@ -177,6 +177,38 @@ const solutionData: Record<SolutionType, ProvenResultItem[]> = {
       metricLabel: "Fewer Call Enquiries",
       link: "/solutions/ai-chatbot-development"
     }
+  ],
+  "multi-agent": [
+    {
+      category: "CUSTOMER SERVICE",
+      title: "Support Agentic Workflow",
+      challenge: "Support teams were flooded with complex queries, causing long wait times and inconsistent answer quality.",
+      solution: "Built autonomous customer support agents integrated with knowledge bases and CRM APIs.",
+      outcome: "Automated resolution of 68% of support tickets, maintaining a 94% customer satisfaction score.",
+      metric: "68%",
+      metricLabel: "Ticket Automation",
+      link: "/solutions/multi-agent-systems"
+    },
+    {
+      category: "SUPPLY CHAIN",
+      title: "Inventory Allocation Agent",
+      challenge: "Supply chain managers struggled with manual inventory balancing, leading to stockouts and shipping delays.",
+      solution: "Deployed multi-agent orchestration to continuously monitor stock levels and automatically generate replenishment requests.",
+      outcome: "Cut stockout occurrences and reduced excess warehouse inventory across distribution centers.",
+      metric: "40%",
+      metricLabel: "Stockout Reduction",
+      link: "/solutions/multi-agent-systems"
+    },
+    {
+      category: "FINANCE OPERATIONS",
+      title: "Audit Compliance Agent",
+      challenge: "Manual tracking of invoices and financial documentation delayed period close cycles and increased audit risks.",
+      solution: "Architected custom agents to cross-reference transactions against corporate governance rules and flag errors.",
+      outcome: "Accelerated financial audit cycles and decreased transaction review times significantly.",
+      metric: "10x",
+      metricLabel: "Faster Compliance",
+      link: "/solutions/multi-agent-systems"
+    }
   ]
 };
 
@@ -187,6 +219,7 @@ interface ProvenResultsProps {
   title?: string;
   highlightedTitleWord?: string;
   subtitle?: string;
+  bgClassName?: string;
 }
 
 export default function ProvenResults({
@@ -195,13 +228,14 @@ export default function ProvenResults({
   badgeText = "PROVEN RESULTS",
   title = "Delivering Proven AI Solutions With",
   highlightedTitleWord = "Measurable Impact",
-  subtitle = "Explore how our enterprise-grade AI applications drive real-world efficiency, scale, and tangible ROI for our clients."
+  subtitle = "Explore how our enterprise-grade AI applications drive real-world efficiency, scale, and tangible ROI for our clients.",
+  bgClassName = "bg-white"
 }: ProvenResultsProps) {
   
   const activeResults = results || solutionData[solution] || solutionData["ai-agents"];
 
   return (
-    <section className="relative w-full py-12 md:py-16 lg:py-20 overflow-hidden font-sans bg-white">
+    <section className={`relative w-full py-12 md:py-16 lg:py-20 overflow-hidden font-sans ${bgClassName}`}>
       <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-7xl">
         
         {/* Header */}

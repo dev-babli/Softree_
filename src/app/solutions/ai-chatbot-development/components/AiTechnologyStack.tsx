@@ -4,7 +4,17 @@ import React, { useState } from "react";
 import { aiTechnologyCategories } from "../data/tech-stack";
 import SectionBadge from "./SectionBadge";
 
-export default function AiTechnologyStack() {
+type AiTechnologyStackProps = {
+  title?: string;
+  accentTitle?: string;
+  description?: string;
+};
+
+export default function AiTechnologyStack({
+  title = "Technology Stack for Enterprise",
+  accentTitle = "AI Chatbot Development",
+  description = "We build production-ready AI chatbots using leading LLMs, Microsoft Copilot Studio, RAG frameworks, vector databases, cloud platforms, and enterprise security technologies for secure, scalable conversations.",
+}: AiTechnologyStackProps) {
   const [activeTab, setActiveTab] = useState<string>(aiTechnologyCategories[0]?.id || "");
   const activeCategory = aiTechnologyCategories.find((cat) => cat.id === activeTab) || aiTechnologyCategories[0];
 
@@ -16,12 +26,12 @@ export default function AiTechnologyStack() {
           <SectionBadge text="AI TECHNOLOGY STACK" variant="line" />
 
           <h2 className="text-2xl md:text-4xl lg:text-[2.25rem] font-extrabold text-[#111827] mb-2 md:mb-3 tracking-tight text-center leading-tight">
-            Technology Stack for Enterprise{" "}
-            <span className="text-[#FF6A13]">AI Chatbot Development</span>
+            {title}{" "}
+            <span className="text-[#FF6A13]">{accentTitle}</span>
           </h2>
 
           <p className="text-[15px] lg:text-base text-[#6B7280] mb-6 lg:mb-8 text-center max-w-2xl mx-auto leading-relaxed">
-            We build production-ready AI chatbots using leading LLMs, Microsoft Copilot Studio, RAG frameworks, vector databases, cloud platforms, and enterprise security technologies for secure, scalable conversations.
+            {description}
           </p>
         </div>
 

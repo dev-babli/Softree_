@@ -34,6 +34,8 @@ import {
   Brain,
   Lightbulb,
   Database,
+  Link2,
+  Network,
 } from "lucide-react";
 
 type MenuLink = {
@@ -132,6 +134,8 @@ const menu: MenuItem[] = [
           { label: "Agentic AI Platform", url: "/agentic-ai-platform", icon: LayoutDashboard, description: "Build & govern agents at scale" },
           { label: "AI Agents Development", url: "/solutions/ai-agents-development", icon: Bot, description: "Automate complex enterprise workflows" },
           { label: "Multi-Agent Systems", url: "/solutions/multi-agent-systems", icon: BrainCircuit, description: "Orchestrate collaborative agent networks" },
+          { label: "LangChain Development", url: "/solutions/lang-chain-development", icon: Link2, description: "Build complex LLM workflows and chain-of-thought pipelines" },
+          { label: "LangGraph Development", url: "/solutions/lang-graph-development", icon: Network, description: "Build stateful, multi-agent workflows with graph-based orchestration" },
         ],
       },
       {

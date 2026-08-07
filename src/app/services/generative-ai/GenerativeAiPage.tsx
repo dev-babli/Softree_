@@ -43,7 +43,11 @@ export function GenerativeAiPage({ faqs }: GenerativeAiPageProps) {
       <ProvenResults solution="enterprise-rag" />
       <GenAiFramework />
       <GenAiIndustry />
-      <AiTechnologyStack />
+      <AiTechnologyStack 
+        title="Technology Stack for Enterprise"
+        accentTitle="Generative AI Development"
+        description="We build production-ready generative AI solutions using leading LLMs, advanced RAG frameworks, vector databases, cloud platforms, and enterprise security technologies for secure, scalable operations."
+      />
       <GenAiProcess />
       <WhyChooseWithTestimonials />
       <LightFAQExact faqs={faqs} />

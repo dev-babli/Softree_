@@ -1,11 +1,15 @@
 "use client";
 
 type TrustedBrandsMarqueeProps = {
-  surface?: "legacy" | "light";
+  surface?: "legacy" | "light" | "transparent";
+  items?: Array<{ name: string; src?: string }>;
+  title?: string;
 };
 
 export default function TrustedBrandsMarquee({
   surface = "legacy",
+  items,
+  title = "Trusted by Partners & Clients",
 }: TrustedBrandsMarqueeProps) {
   const logos = [
     { name: "GO ERP", src: "/images/logo/goerp1.jpg" },
@@ -22,12 +26,16 @@ export default function TrustedBrandsMarquee({
     { name: "Intellectt", src: "/images/logo/Intellectt_logo.png" },
   ];
 
+  const displayItems = items || logos;
+
   return (
     <section
       className={
         surface === "light"
           ? "relative overflow-hidden bg-[#F3F0EE] py-2"
-          : "relative overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-2"
+          : surface === "transparent"
+            ? "relative overflow-hidden bg-transparent py-2"
+            : "relative overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-2"
       }
     >
       <style>{`
@@ -66,7 +74,9 @@ export default function TrustedBrandsMarquee({
           align-items: center;
           justify-content: center;
           gap: 10px;
-          width: 160px;
+          min-width: 180px;
+          width: max-content;
+          padding: 0 1.25rem;
           height: 120px;
           border-radius: 18px;
           position: relative;
@@ -198,12 +208,12 @@ export default function TrustedBrandsMarquee({
       `}</style>
 
       <div className="relative max-w-7xl mx-auto">
-        <div className="relative bg-gradient-to-r from-black via-[#4c1c02] to-black rounded-t-[80px] px-6 py-16 overflow-hidden">
+        <div className="relative bg-gradient-to-r from-black via-[#4c1c02] to-black rounded-[80px] px-6 py-16 overflow-hidden">
           {/* Heading */}
           <div className="flex items-center gap-6 mb-12">
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-zinc-300 to-transparent" />
             <p className="shrink-0 text-2xl font-semibold tracking-widest uppercase bg-white bg-clip-text text-transparent">
-              Trusted by Partners &amp; Clients
+              {title}
             </p>
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-zinc-400 to-transparent" />
           </div>
@@ -211,11 +221,17 @@ export default function TrustedBrandsMarquee({
           {/* Infinite Scrolling Logos */}
           <div className="pp-logo-wrap">
             <div className="pp-logo-track">
-              {[...logos, ...logos].map((logo, index) => (
+              {[...displayItems, ...displayItems].map((logo, index) => (
                 <div key={index} className="pp-logo-card">
                   <span className="pp-card-shine" />
-                  <img src={logo.src} alt={logo.name} />
-                  <span className="pp-logo-name">{logo.name}</span>
+                  {logo.src ? (
+                    <img src={logo.src} alt={logo.name} />
+                  ) : (
+                    <svg className="w-7 h-7 text-[#FF5812] mb-1 relative z-10 shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                  )}
+                  <span className={`pp-logo-name text-center ${!logo.src ? 'text-white text-xs font-bold leading-snug px-1' : ''}`}>{logo.name}</span>
                 </div>
               ))}
             </div>

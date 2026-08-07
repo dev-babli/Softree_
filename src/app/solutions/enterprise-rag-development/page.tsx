@@ -30,8 +30,8 @@ export default function EnterpriseRAGDevelopmentPage() {
       <TrustedBrandsMarquee />
       <SuccessStories />
       <CoreCapabilities />
-      <BusinessChallenges />
-      <BusinessOutcomes />
+      {/* <BusinessChallenges />
+      <BusinessOutcomes /> */}
       <ProvenResults solution="enterprise-rag" />
       <Industries />
       <TechnologyStack />
