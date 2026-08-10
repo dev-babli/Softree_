@@ -5,7 +5,7 @@ import { groq } from "next-sanity";
  * Returns the 4 most recent published posts.
  */
 export const latestBlogsQuery = groq`
-  *[_type == "post" && coalesce(visibility, status, "published") == "published"] | order(publishedAt desc)[0...4] {
+  *[_type == "post" && coalesce(visibility, status, "published") == "published"] | order(coalesce(publishedAt, _createdAt) desc)[0...4] {
     _id,
     title,
     slug,
@@ -25,7 +25,7 @@ export const navBlogsQuery = groq`
     _id,
     title,
     slug,
-    "posts": *[_type == "post" && references(^._id) && coalesce(visibility, status, "published") == "published"] | order(publishedAt desc)[0...3] {
+    "posts": *[_type == "post" && references(^._id) && coalesce(visibility, status, "published") == "published"] | order(coalesce(publishedAt, _createdAt) desc)[0...3] {
       _id,
       title,
       slug,
@@ -288,7 +288,7 @@ export const relatedPostsQuery = groq`
     && slug.current != $slug
     && coalesce(visibility, status, "published") == "published"
     && defined(slug.current)
-  ] | order(publishedAt desc)[0...3] {
+  ] | order(coalesce(publishedAt, _createdAt) desc)[0...3] {
     _id,
     title,
     slug,
