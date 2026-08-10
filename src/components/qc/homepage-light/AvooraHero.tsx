@@ -64,11 +64,83 @@ const ASSETS = {
       "https://cdn.prod.website-files.com/69a0a45220c8336fe957ccba%2F69d2095642a31660d0b048ee_Video%202_poster.0000000.jpg",
   },
   services: [
-    { n: "01", label: "AI & Automation", href: "/services/ai-intelligence", img: "/whysoftree/ai.png" },
-    { n: "02", label: "Web Development", href: "/services/digital-workspace/web-app-development", img: "/whysoftree/modern.png" },
-    { n: "03", label: "Microsoft Solutions", href: "/services/business-applications/power-apps", img: "/whysoftree/powe-pltform.png" },
-    { n: "04", label: "Data & Analytics", href: "/services/data-analytics/power-bi", img: "/whysoftree/data-analytics.jpg" },
-    { n: "05", label: "Digital Workspace", href: "/services/digital-workspace/sharepoint", img: "/whysoftree/modern.png" },
+    {
+      n: "01",
+      label: "AI Development",
+      href: "/services/ai-development-services",
+      img: "/images/about/ai.jpg",
+      desc: "Custom AI agents, cognitive workflows, and predictive models built for your operations."
+    },
+    {
+      n: "02",
+      label: "Web Development",
+      href: "/services/web-app-development",
+      img: "/images/about/web.jpg",
+      desc: "High-performance web apps built with Next.js, React, and modern serverless architectures."
+    },
+    {
+      n: "03",
+      label: "Microsoft Solutions",
+      href: "/services/offshore-power-platform-development",
+      img: "/images/about/microsoft.png",
+      desc: "Accelerate automation with custom Power Apps, SharePoint workspaces, and Teams tools."
+    },
+    {
+      n: "04",
+      label: "Data & Analytics",
+      href: "/services/offshore-data-analytics",
+      img: "/whysoftree/data-analytics.jpg",
+      desc: "Turn raw data into actionable dashboards using Power BI and Microsoft Fabric solutions."
+    },
+    {
+      n: "05",
+      label: "AI Consultancy",
+      href: "/services/ai-consulting-services",
+      img: "/images/about/consultancy.png",
+      desc: "Strategic advisory to design your AI adoption roadmap, governance, and model selection."
+    },
+    {
+      n: "06",
+      label: "Azure OpenAI Development",
+      href: "/solutions/azure-openai-development",
+      img: "/images/about/azure.png",
+      desc: "Deploy enterprise-grade LLMs, GPT models, and neural search securely on Azure Cloud."
+    },
+    {
+      n: "07",
+      label: "Mobile App Development",
+      href: "/services/offshore-mobile-app-development",
+      img: "/images/about/mob.png",
+      desc: "Native and cross-platform mobile apps for iOS and Android with premium user interfaces."
+    },
+    {
+      n: "08",
+      label: "LangChain Development",
+      href: "/solutions/lang-chain-development",
+      img: "/images/about/lang.png",
+      desc: "Chain cognitive engines with databases, vector stores, and custom external APIs."
+    },
+    {
+      n: "09",
+      label: "LangGraph Development",
+      href: "/solutions/lang-graph-development",
+      img: "/images/about/graph.png",
+      desc: "Build resilient, cyclic multi-agent graphs with state-control and self-healing logic."
+    },
+    {
+      n: "10",
+      label: "Multi-Agent Systems",
+      href: "/solutions/multi-agent-systems",
+      img: "/whysoftree/ai.png",
+      desc: "Orchestrate collaborative networks of specialized AI agents working to solve complex goals."
+    },
+    {
+      n: "11",
+      label: "AI Copilot Development",
+      href: "/solutions/ai-copilot-development",
+      img: "/images/about/copilot.png",
+      desc: "Train interactive, context-aware assistive companions on your internal business databases."
+    },
   ],
 }
 
@@ -174,72 +246,81 @@ function ServiceCard({
   label,
   href,
   img,
+  desc,
+  isActive,
+  onCardClick,
 }: {
   n: string
   label: string
   href: string
   img: string
+  desc: string
+  isActive?: boolean
+  onCardClick?: (e: React.MouseEvent) => void
 }) {
   return (
     <a
       href={href}
       aria-label={label}
-      className="service-card group/srv relative flex flex-col rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900/30 focus-visible:ring-offset-2"
-      style={{ willChange: "transform" }}
+      onClick={(e) => {
+        if (!isActive && onCardClick) {
+          e.preventDefault()
+          onCardClick(e)
+        }
+      }}
+      className={`service-card group/srv relative flex aspect-[3/4] w-full flex-col justify-between overflow-hidden rounded-[28px] border transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30 ${isActive
+          ? "border-white/20 shadow-[0_24px_50px_-12px_rgba(0,0,0,0.8),0_0_30px_rgba(255,107,0,0.2)] scale-[1.08]"
+          : "border-white/[0.04] opacity-50 scale-[0.92] hover:opacity-80"
+        }`}
+      style={{ willChange: "transform, opacity" }}
     >
-      <div className="relative">
-        {/* Enhanced stacked shadow cards with ambient lighting */}
-        <div className="pointer-events-none absolute inset-0 z-0">
-          {[0, 1, 2].map((i) => (
-            <span
-              key={i}
-              className="shadow-layer absolute inset-0 rounded-2xl border border-gray-900/8 bg-gradient-to-br from-gray-900/4 to-gray-900/2 backdrop-blur-sm transition-[transform,opacity,filter] duration-600 group-hover/srv:shadow-[0_8px_24px_-8px_rgba(0,0,0,0.15)]"
-              style={{
-                transform: `translateY(${(i + 1) * 10}px) scale(${1 - (i + 1) * 0.04})`,
-                opacity: 1 - (i + 1) * 0.20,
-                filter: `blur(${(i + 1) * 0.5}px)`,
-                zIndex: -i - 1,
-              }}
-            />
-          ))}
-        </div>
-        {/* Main image card with enhanced hover effects */}
-        <div
-          className="main-image relative z-10 aspect-[4/5] w-full overflow-hidden rounded-2xl border border-gray-900/10 transition-all duration-600 group-hover/srv:-translate-y-2 group-hover/srv:shadow-[0_16px_40px_-12px_rgba(0,0,0,0.25)]"
-          style={{ willChange: "transform" }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-black/5 opacity-0 transition-opacity duration-600 group-hover/srv:opacity-100" />
-          <Image
-            src={img}
-            alt={label}
-            width={400}
-            height={500}
-            sizes="(max-width: 640px) 180px, (max-width: 1024px) 220px, 260px"
-            className="h-full w-full object-cover transition-all duration-700 group-hover/srv:scale-[1.08] group-hover/srv:brightness-110"
-            style={{ willChange: "transform" }}
-          />
-        </div>
-      </div>
+      {/* 1) Full Background Image */}
+      <Image
+        src={img}
+        alt={label}
+        fill
+        sizes="400px"
+        className="absolute inset-0 z-0 h-full w-full object-cover transition-transform duration-700 group-hover/srv:scale-[1.03]"
+      />
 
-      {/* Enhanced label row with premium roll-up animation */}
-      <div className="relative z-10 mt-5 flex items-center gap-3">
-        <span className="text-[10.5px] font-medium text-gray-900/50 tabular-nums transition-colors duration-300 group-hover/srv:text-gray-900/70">
-          ({n})
-        </span>
-        <span className="relative inline-block h-[1.2em] overflow-hidden align-middle">
-          <span className="block text-[13px] font-medium text-gray-900 transition-all duration-500 group-hover/srv:-translate-y-full group-hover/srv:text-gray-800">
-            {label}
+      {/* 2) Premium Dark gradient overlay for legibility */}
+      <div
+        className="absolute inset-0 z-10 transition-opacity duration-500"
+        style={{
+          background: isActive
+            ? "linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.65) 65%, rgba(0,0,0,0.95) 100%)"
+            : "linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.95) 100%)"
+        }}
+      />
+
+      {/* 3) Foreground Content Container */}
+      <div className="relative z-20 flex h-full w-full flex-col justify-between p-6 text-left">
+        {/* Top row: Number */}
+        <div className="flex items-center justify-end">
+          <span className="font-mono text-[13px] font-bold tracking-wider text-white shadow-sm">
+            {n}
           </span>
-          <span
-            aria-hidden
-            className="absolute inset-0 block translate-y-full text-[13px] font-medium text-gray-900 transition-all duration-500 group-hover/srv:translate-y-0 group-hover/srv:text-gray-800"
-          >
-            {label}
-          </span>
-        </span>
-        <span className="ml-auto text-[10px] font-medium text-gray-400 opacity-0 transition-all duration-300 group-hover/srv:opacity-100">
-          →
-        </span>
+        </div>
+
+        {/* Bottom Service Content */}
+        <div className="mt-auto">
+          <div className="space-y-2">
+            <h3 className={`text-[15px] sm:text-[17px] font-bold leading-tight tracking-tight transition-colors duration-500 ${isActive ? "text-[#FF6B00]" : "text-white"
+              }`}>
+              {label}
+            </h3>
+            <p className="text-[12px] leading-relaxed text-white/70 line-clamp-2 shadow-sm font-medium">
+              {desc}
+            </p>
+          </div>
+
+          {/* Explore link showing only for the active card */}
+          <div className={`mt-3 flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-[#FF6B00] transition-all duration-500 ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1 pointer-events-none"
+            }`}>
+            <span>Explore Service</span>
+            <span>→</span>
+          </div>
+        </div>
       </div>
     </a>
   )
@@ -252,6 +333,19 @@ export default function AvooraHero() {
   const headerRef = useRef<HTMLDivElement>(null)
   const videoStageRef = useRef<HTMLDivElement>(null)
   const marqueeRef = useRef<HTMLDivElement>(null)
+
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
+
+  const totalServices = ASSETS.services.length
+
+  useEffect(() => {
+    if (isPaused) return
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % totalServices)
+    }, 3000)
+    return () => clearInterval(timer)
+  }, [isPaused, totalServices])
 
   useGSAP(
     () => {
@@ -574,7 +668,6 @@ export default function AvooraHero() {
                   Shipping production-grade software since 2013
                 </div>
               </div>
-
               {/* Social icons — enhanced with premium hover states */}
               <div className="hidden flex-col items-center gap-3 sm:gap-3.5 sm:flex sm:absolute sm:right-6 sm:top-1/2 sm:-translate-y-1/2 md:right-8 lg:right-10 xl:right-12">
                 {[
@@ -598,61 +691,119 @@ export default function AvooraHero() {
         </div>
 
         {/* ═══════════════════════════════════════════════════════════
-             3) CAPABILITIES MARQUEE
-             CSS keyframe (off main thread). Doubled track gives a
-             seamless seam-less linear loop.
+             3) CAPABILITIES SLIDER
+             Dynamic 3-card sliding carousel with center active scaling.
+             Cycles every 3 seconds.
         ══════════════════════════════════════════════════════════ */}
-        <div
-          ref={marqueeRef}
-          className="relative mt-12 overflow-hidden py-6 sm:mt-14 sm:py-7 md:mt-16"
+        <div 
+          ref={marqueeRef} 
+          className="relative mt-24 pt-16 pb-12 select-none border-t border-gray-100"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
         >
-          {/* Edge fades */}
-          <span
-            aria-hidden
-            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 sm:w-20 md:w-24"
-            style={{ background: "linear-gradient(90deg, #fff 0%, transparent 100%)" }}
-          />
-          <span
-            aria-hidden
-            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 sm:w-20 md:w-24"
-            style={{ background: "linear-gradient(270deg, #fff 0%, transparent 100%)" }}
-          />
+          {/* Section Header with Left-Aligned Text & Right-Aligned Arrows */}
+          <div className="mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6 max-w-7xl mx-auto px-4">
+            <div className="text-left max-w-2xl">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#FF6B00]/15 bg-[#FFF5EF] px-4 py-1.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] text-[#FF6B00]">
+                Enterprise Technology Transformation Services
+              </span>
+              <h2 className="mt-4 text-xl font-bold tracking-tight text-gray-900 sm:text-2xl lg:text-3xl">
+                Transforming Business Challenges Into <span className="bg-linear-to-r from-[#FF6B00] to-[#FF5812] bg-clip-text text-transparent">Digital Solutions</span>
+              </h2>
+              <p className="mt-3 text-[13px] sm:text-[14px] text-gray-500 font-medium">
+                Explore our core expertise spanning cognitive agents, cloud application modernization, and enterprise integrations.
+              </p>
+            </div>
 
-          <div className="avoora-hero-marquee flex min-w-max items-center gap-5 sm:gap-6 will-change-transform">
-            {[0, 1].map((setIdx) => (
-              <div
-                key={setIdx}
-                aria-hidden={setIdx === 1}
-                className="flex shrink-0 items-center gap-5 sm:gap-6"
+            {/* Navigation Arrows on Right Side */}
+            <div className="flex gap-2.5 shrink-0 self-start md:self-end">
+              <button
+                disabled={activeIndex === 0}
+                onClick={() => setActiveIndex((prev) => Math.max(0, prev - 1))}
+                aria-label="Previous service"
+                className={`flex h-11 w-11 items-center justify-center rounded-full border transition-all duration-300 focus:outline-none ${
+                  activeIndex === 0
+                    ? "bg-gray-100 border-gray-100 text-gray-400 cursor-not-allowed opacity-50"
+                    : "bg-[#FF6B00] border-[#FF6B00] text-white hover:bg-[#FF5812] hover:scale-105 active:scale-95 shadow-sm"
+                }`}
               >
-                {ASSETS.services.map((s) => (
-                  <div
-                    key={`${setIdx}-${s.n}`}
-                    className="w-[180px] sm:w-[220px] lg:w-[260px] flex-shrink-0"
-                  >
-                    <ServiceCard {...s} />
-                  </div>
-                ))}
-              </div>
-            ))}
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                disabled={activeIndex === totalServices - 1}
+                onClick={() => setActiveIndex((prev) => Math.min(totalServices - 1, prev + 1))}
+                aria-label="Next service"
+                className={`flex h-11 w-11 items-center justify-center rounded-full border transition-all duration-300 focus:outline-none ${
+                  activeIndex === totalServices - 1
+                    ? "bg-gray-100 border-gray-100 text-gray-400 cursor-not-allowed opacity-50"
+                    : "bg-[#FF6B00] border-[#FF6B00] text-white hover:bg-[#FF5812] hover:scale-105 active:scale-95 shadow-sm"
+                }`}
+              >
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
           </div>
 
-          {/* Local keyframe — scoped via class name, no global pollution. */}
+          {/* 4) Continuous Slider Track */}
+          <div className="carousel-container overflow-hidden w-full py-10 relative">
+            <div
+              className="carousel-track"
+              style={{
+                transform: `translate3d(calc(-1 * ((${activeIndex} * (var(--card-width) + var(--card-gap))) + (var(--card-width) / 2))), 0, 0)`,
+              }}
+            >
+              {ASSETS.services.map((s, idx) => {
+                const isActive = idx === activeIndex
+                return (
+                  <div
+                    key={s.n}
+                    style={{ width: "var(--card-width)" }}
+                    className="shrink-0"
+                  >
+                    <ServiceCard
+                      n={s.n}
+                      label={s.label}
+                      href={s.href}
+                      img={s.img}
+                      desc={s.desc}
+                      isActive={isActive}
+                      onCardClick={() => setActiveIndex(idx)}
+                    />
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+
           <style>{`
-            @media (prefers-reduced-motion: no-preference) {
-              .avoora-hero-marquee {
-                animation: avoora-hero-marquee-x 45s linear infinite;
-              }
-              @keyframes avoora-hero-marquee-x {
-                from { transform: translate3d(0, 0, 0); }
-                to   { transform: translate3d(-50%, 0, 0); }
+            .carousel-container {
+              --card-width: 280px;
+              --card-gap: 16px;
+            }
+            @media (min-width: 640px) {
+              .carousel-container {
+                --card-width: 320px;
+                --card-gap: 24px;
               }
             }
-            @media (prefers-reduced-motion: reduce) {
-              .avoora-hero-marquee {
-                animation: none !important;
-                transform: none !important;
+            @media (min-width: 1024px) {
+              .carousel-container {
+                --card-width: 360px;
+                --card-gap: 24px;
               }
+            }
+            .carousel-track {
+              position: relative;
+              left: 50%;
+              display: flex;
+              gap: var(--card-gap);
+              width: max-content;
+              will-change: transform;
+              transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
             }
           `}</style>
         </div>
