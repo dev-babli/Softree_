@@ -6,7 +6,7 @@ import Footer from "@/components/sections/footer"
 import BlogListingClient from "./BlogListingClient"
 
 const postsQuery = groq`
-  *[_type == "post" && coalesce(visibility, status, "published") == "published"] | order(publishedAt desc) {
+  *[_type == "post" && coalesce(visibility, status, "published") == "published"] | order(coalesce(publishedAt, _createdAt) desc) {
     _id,
     title,
     slug,
