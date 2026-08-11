@@ -290,17 +290,24 @@ export default function InfinityScrollAnimation() {
           transition={{ duration: 0.75, ease: EASE_OUT }}
         >
           <div className="mb-8 flex flex-col gap-3 md:mb-10 md:flex-row md:items-end md:justify-between">
-            <div className="max-w-xl">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#FF5812]">
-                Three ways we partner
+            <div className="max-w-2xl">
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#FF5812]">
+                THREE WAYS WE PARTNER
               </p>
-              <h3 className="mt-2 text-[clamp(1.25rem,2.5vw,1.65rem)] font-bold tracking-tight text-[#0a0a1a]">
-                Offshore bench · white-label · Microsoft enterprise
+              <h3 className="mt-3 text-[clamp(1.5rem,3.5vw,2.5rem)] font-semibold leading-[1.1] tracking-tight text-[#0a0a1a]">
+                Offshore Bench <span className="inline-block mx-1.5 h-2 w-2 rounded-full bg-[#1852FF] align-middle" /> White Label <span className="inline-block mx-1.5 h-2 w-2 rounded-full bg-[#1852FF] align-middle" /><br className="hidden sm:block" />
+                Agentic AI &amp; Microsoft Ecosystem
               </h3>
+              <p className="mt-4 text-[15px] leading-[1.6] text-[#0a0a1a]/65 md:text-[16px]">
+                Flexible engagement models. World-class delivery.<br className="hidden sm:block" />
+                Built for speed, scale, and lasting impact.
+              </p>
             </div>
-            <p className="max-w-md text-[14px] leading-relaxed text-[#0a0a1a]/60">
-              The same Clarity-grade glass cards from our About Us platform—global map,
-              white-label delivery, and Microsoft governance in one row.
+            <p className="max-w-md text-[14px] leading-[1.65] text-[#0a0a1a]/65 md:text-[15px]">
+              From dedicated offshore teams and white-label
+              delivery to Agentic AI solutions and the full power
+              of the Microsoft ecosystem—everything you need,
+              under one trusted partner.
             </p>
           </div>
           <AboutUsGlassPillars />

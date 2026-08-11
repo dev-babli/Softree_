@@ -33,7 +33,7 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
  *  square box only — not a padded wrapper (that was pushing glass down). */
 const OUTER_PX = 400;
 const INNER_PX = 350;
-const GLASS_TOP_RATIO = 0.5;
+const GLASS_TOP_RATIO = 0.56;
 const GLASS_OVERFLOW_RATIO = (INNER_PX * (1 - GLASS_TOP_RATIO)) / OUTER_PX;
 
 /** Shared coordinate space for card 1 & 2 SVG scenes. */
@@ -827,7 +827,7 @@ function Card3Visual() {
                         <path d="M6.5 1.3 V 11.7" stroke="white" strokeOpacity="0.55" strokeWidth="0.7" />
                     </svg>
                     <span className="text-[11px] font-medium text-white/95 leading-none tracking-[-0.005em]">
-                        Global infrastructure
+                        GLOBAL DELIVERY
                     </span>
                 </div>
                 {/* 3-dot status indicator, last dot lit */}
@@ -845,7 +845,10 @@ function Card3Visual() {
                     className="block text-[38px] font-semibold leading-[0.92] tracking-[-0.04em] text-white tabular-nums"
                     style={{ textShadow: "0 1px 2px rgba(0,0,0,0.32)" }}
                 >
-                    <CountUp to={99.99} decimals={2} suffix="%" duration={1.8} />
+                    <CountUp to={99.9} decimals={1} suffix="%" duration={1.8} />
+                </span>
+                <span className="mt-1 block text-[9px] font-semibold uppercase tracking-[0.14em] text-white/55">
+                    SUCCESSFUL DELIVERY
                 </span>
             </div>
 
@@ -949,7 +952,9 @@ function Card2Visual() {
 export const CLARITY_PILLARS: ReadonlyArray<{
     n: string;
     title: string;
+    subtitle?: string;
     body: string;
+    icon?: React.ReactNode;
     scene: CardScene;
     Visual: () => React.ReactElement;
 }> = [
@@ -1099,9 +1104,31 @@ export function ClarityGlassCard({
                                 "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.22) 100%)",
                         }}
                     />
+                    <div className="absolute inset-0 flex flex-col p-6 z-10 pointer-events-none">
+                        <div className="mb-4">
+                            {c.icon && (
+                                <div className="mb-4 grid h-[52px] w-[52px] place-items-center rounded-full border border-white/20 bg-white/10 shadow-[0_4px_12px_rgba(0,0,0,0.1)] backdrop-blur-md">
+                                    {c.icon}
+                                </div>
+                            )}
+                            <h4 className="text-[18px] font-bold leading-tight tracking-tight text-white uppercase shadow-black/20" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.4)" }}>
+                                {c.title.split('\n').map((line, i) => (
+                                    <span key={i} className="block">{line}</span>
+                                ))}
+                            </h4>
+                            {c.subtitle && (
+                                <p className="mt-1.5 text-[13px] font-medium text-white/95" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}>
+                                    {c.subtitle}
+                                </p>
+                            )}
+                            <p className="mt-3 text-[13px] leading-relaxed text-white/80 max-w-[280px]" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}>
+                                {c.body}
+                            </p>
+                        </div>
+                    </div>
                 </article>
                 <div
-                    className="absolute left-1/2 top-1/2 z-10 aspect-square w-[87.5%] max-w-[350px] -translate-x-1/2 overflow-hidden rounded-[24px] shadow-[0_24px_48px_-20px_rgba(10,10,26,0.42)] transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:-translate-y-0.5 motion-reduce:transition-none"
+                    className="absolute left-1/2 top-[56%] z-10 aspect-square w-[87.5%] max-w-[350px] -translate-x-1/2 overflow-hidden rounded-[24px] shadow-[0_24px_48px_-20px_rgba(10,10,26,0.42)] transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:-translate-y-0.5 motion-reduce:transition-none"
                     style={{ maxWidth: INNER_PX }}
                 >
                     <c.Visual />

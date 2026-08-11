@@ -21,11 +21,49 @@ const BENTO_IMAGE_POOL = [
   BENTO_ABSTRACT.aurora,
 ] as const;
 
+const FALLBACK_BLOG_POSTS: BlogPostMock[] = [
+  {
+    id: "blog-ai-decision-making",
+    title: "AI for Enterprise Decision Making: How Intelligent Insights Are Reshaping Modern Operations",
+    category: "AI & Automation",
+    excerpt: "Discover how enterprise decision engines leverage cognitive models, predictive analytics, and natural language query systems to drive operational automation and strategic growth.",
+    image: "/images/blog/enterprise.png",
+    href: "/blog/ai-enterprise-decision-making",
+    publishedAt: "2026-08-10T12:00:00Z"
+  },
+  {
+    id: "blog-customer-service",
+    title: "AI-Powered Customer Service Automation: Transforming Enterprise Support",
+    category: "AI & Automation",
+    excerpt: "Learn how modern enterprise support divisions use secure large language models, custom copilots, and multi-agent routing to scale service delivery and automate ticketing resolutions.",
+    image: "/images/blog/ai-powered.png",
+    href: "/blog/ai-powered-customer-service-automation",
+    publishedAt: "2026-08-10T11:00:00Z"
+  },
+  {
+    id: "blog-security-testing",
+    title: "AI Security Testing Services: Ensuring Compliance and Threat Mitigation",
+    category: "Cybersecurity",
+    excerpt: "An in-depth review of advanced QA automation and security testing models designed to safeguard LLM integration pipelines, evaluate API compliance, and block cognitive threats.",
+    image: "/images/blog/security.png",
+    href: "/blog/ai-security-testing-services",
+    publishedAt: "2026-08-09T10:00:00Z"
+  },
+  {
+    id: "blog-data-analytics",
+    title: "Data Analytics Consulting Services for Enterprise Decision Making",
+    category: "Data & Analytics",
+    excerpt: "Unlocking business intelligence through Microsoft Fabric, scalable data engineering pipelines, and real-time operational telemetry dashboarding for high-performance enterprise teams.",
+    image: "/images/blog/data.png",
+    href: "/blog/data-analytics-consulting-services-enterprise-decision-making",
+    publishedAt: "2026-08-07T09:00:00Z"
+  }
+];
+
 function mapBlogPosts(posts: SanityBlogPost[]): BlogPostMock[] {
   return posts.slice(0, 5).map((post, index) => {
-    const image =
-      post.mainImage?.asset?.url ||
-      BENTO_IMAGE_POOL[(index + 2) % BENTO_IMAGE_POOL.length];
+    // Force text-free abstract 3D gradient covers from BENTO_IMAGE_POOL for the homepage blog preview grid
+    const image = BENTO_IMAGE_POOL[(index + 1) % BENTO_IMAGE_POOL.length];
 
     return {
       id: post._id,
@@ -40,23 +78,11 @@ function mapBlogPosts(posts: SanityBlogPost[]): BlogPostMock[] {
 }
 
 export default function HomepageShowcaseSections() {
-  const [posts, setPosts] = useState<BlogPostMock[]>([]);
+  const [posts, setPosts] = useState<BlogPostMock[]>(FALLBACK_BLOG_POSTS);
 
   useEffect(() => {
-    async function load() {
-      try {
-        const blogs = await client.fetch<SanityBlogPost[]>(
-          latestBlogsQuery,
-          {},
-          { cache: "no-store" },
-        );
-        if (blogs?.length) setPosts(mapBlogPosts(blogs));
-      } catch {
-        /* blog band hidden if CMS unavailable */
-      }
-    }
-
-    load();
+    // Force specific FALLBACK_BLOG_POSTS to ensure the user's 4 requested URLs are featured on the homepage showcase
+    setPosts(FALLBACK_BLOG_POSTS);
   }, []);
 
   return (

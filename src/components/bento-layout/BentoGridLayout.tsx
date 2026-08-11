@@ -9,6 +9,7 @@ import { BENTO_SPRING, BENTO_VIEWPORT, scrollReveal } from "./bento.motion";
 import { BentoPreviewPanel } from "./BentoPreviewPanel";
 import { BentoIndexThumb } from "./BentoIndexThumb";
 import { useBentoPreview } from "./useBentoPreview";
+import { ArrowRight } from "lucide-react";
 
 export type { BentoGridLayoutProps, BlogPostMock } from "./bento.types";
 
@@ -69,9 +70,11 @@ function BlogRow({
   const delay = Math.min(index * 0.05, 0.25);
   const date = formatDate(post.publishedAt);
   const rowClass = cn(
-    "group relative flex gap-4 py-4 text-left transition-colors duration-200 md:py-5",
+    "group relative flex gap-4 p-4 text-left transition-all duration-300 rounded-xl border border-transparent",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#0f5cc0]",
-    isActive ? "bg-white pl-3" : "hover:bg-white/80",
+    isActive 
+      ? "bg-zinc-900/90 border-zinc-800 shadow-[0_4px_20px_rgba(0,0,0,0.2)] pl-6" 
+      : "hover:bg-white/[0.03] hover:border-zinc-850/50 pl-4",
   );
 
   const motionProps = reduced
@@ -84,7 +87,7 @@ function BlogRow({
       };
 
   return (
-    <motion.li className="border-b border-[#d7dce9] last:border-b-0" {...motionProps}>
+    <motion.li className="border-none last:border-none" {...motionProps}>
       <Link
         href={post.href}
         className={rowClass}
@@ -95,28 +98,22 @@ function BlogRow({
         {isActive && !reduced ? (
           <motion.span
             layoutId="blog-active-rail"
-            className="absolute bottom-2 left-0 top-2 w-[2px] rounded-full bg-[#0f5cc0]"
+            className="absolute bottom-3 left-2 top-3 w-[3px] rounded-full bg-[#0f5cc0] shadow-[0_0_8px_#0f5cc0]"
             transition={BENTO_SPRING}
             aria-hidden
           />
         ) : isActive ? (
-          <span className="absolute bottom-2 left-0 top-2 w-[2px] rounded-full bg-[#0f5cc0]" aria-hidden />
+          <span className="absolute bottom-3 left-2 top-3 w-[3px] rounded-full bg-[#0f5cc0] shadow-[0_0_8px_#0f5cc0]" aria-hidden />
         ) : null}
 
-        <BentoIndexThumb
-          src={post.image}
-          alt={post.title}
-          className="h-14 w-14 md:h-16 md:w-16"
-        />
-
         <div className="min-w-0 flex-1">
-          <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#0f5cc0]">
+          <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#7eb8ff]">
             {post.category}
           </span>
           <p
             className={cn(
-              "mt-1 line-clamp-2 text-[15px] font-medium leading-snug tracking-[-0.02em]",
-              isActive ? "text-[#181818]" : "text-[#2F3437] group-hover:text-[#181818]",
+              "mt-1 text-[14px] md:text-[15px] font-medium leading-snug tracking-[-0.01em]",
+              isActive ? "text-white font-semibold" : "text-zinc-400 group-hover:text-zinc-200",
             )}
           >
             {post.title}
@@ -124,7 +121,7 @@ function BlogRow({
           {date ? (
             <time
               dateTime={post.publishedAt}
-              className="mt-1 block text-[11px] tabular-nums text-[#787774]"
+              className="mt-1 block text-[10px] tabular-nums text-zinc-500"
             >
               {date}
             </time>
@@ -184,9 +181,10 @@ export function BentoGridLayout({
           </div>
           <Link
             href={viewAllHref}
-            className="inline-flex h-fit shrink-0 rounded-md border border-[#181818] px-5 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-[#181818] transition-[background-color,color,transform] duration-200 hover:bg-[#181818] hover:text-white active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f5cc0]"
+            className="group inline-flex h-fit shrink-0 items-center gap-1.5 rounded-md border border-[#181818] px-5 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-[#181818] transition-[background-color,color,transform] duration-200 hover:bg-[#181818] hover:text-white active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f5cc0]"
           >
-            {viewAllLabel}
+            <span>{viewAllLabel}</span>
+            <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
           </Link>
         </div>
       </ScrollReveal>
@@ -215,14 +213,19 @@ export function BentoGridLayout({
             showStoryReel && stories.length > 0 ? "mt-8" : "mt-10",
           )}
         >
-          <nav aria-label="Article index">
+          <nav 
+            aria-label="Article index"
+            className="p-5 md:p-6 rounded-2xl border border-zinc-850 bg-gradient-to-br from-[#121215] via-[#0c0c0e] to-[#08080a] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.4)] relative overflow-hidden"
+          >
+            {/* Subtle glow blend in the left container */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(15,92,192,0.04),transparent_60%)] pointer-events-none" />
             <ScrollReveal reduced={reduced} delay={0.04}>
-              <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.14em] text-[#787774]">
+              <p className="mb-4 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-zinc-400 relative z-10">
                 Latest · {posts.length} articles
               </p>
             </ScrollReveal>
             <LayoutGroup id="blog-bento-index">
-              <ol>
+              <ol className="space-y-2 mt-2">
                 {posts.map((post, i) => (
                   <BlogRow
                     key={post.id}

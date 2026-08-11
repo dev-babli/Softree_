@@ -2,6 +2,8 @@
 import NavigationClient from "@/components/sections/navigation-client";
 import AvooraHero from "@/components/qc/homepage-light/AvooraHero";
 import AboutClientLogos from "@/components/qc/homepage-light/AboutClientLogos";
+import AboutCaseStudies from "@/components/qc/homepage-light/AboutCaseStudies";
+import WhySoftree from "@/components/qc/homepage-light/WhySoftree";
 import LightAboutMerged from "@/components/qc/homepage-light/LightAboutMerged";
 import AboutTeamSection from "@/components/qc/homepage-light/AboutTeamSection";
 import AwardsMarqueeSection from "@/components/qc/homepage-light/AwardsMarqueeSection";
@@ -11,12 +13,19 @@ import LightFAQExact from "@/components/homepage-light/LightFAQExact";
 import Gallery from "@/components/Gallery/Gallery";
 import AnimatedPhotoGallery from "@/components/Gallery/AnimatedPhotoGallery";
 import Footer from "@/components/sections/footer";
+import LatestTechnologies from "./LatestTechnologies";
+import Wework from "./Wework";
+
 /**
  * ABOUT US — Complete Component Stack
  *
  *  1. AvooraHero             → Video hero + cycling words + service cards
  *  2. LightAboutMerged        → Company intro with spotlight cards
  *  3. AboutClientLogos        → Trusted partners marquee (after about)
+ *  3.5 AboutCaseStudies       → Custom technology success stories (carousel)
+ *  3.8 Why Softree           → Interactive delivery differentiators list
+ *  3.9 LatestTechnologies    → Powerhouse technologies behind Softree
+ *  3.9.5 Wework              → Why Softree leads in custom AI development (sticky panels)
  *  4. LightEngagementModels   → Engagement Models accordion
  *  5. AboutTeamSection        → Leadership & team showcase
  *  6. AwardsMarqueeSection    → Awards marquee with glass trophies
@@ -75,18 +84,30 @@ const aboutUsFaqs = [
 
 export default function AboutUsPage() {
   return (
-    <div className="min-h-screen pt-[100px]">
+    <div className="min-h-screen pt-[100px] bg-white">
       {/* Navigation */}
       <NavigationClient />
 
       {/* 1. Hero — Video hero with cycling words */}
       <AvooraHero />
 
+      {/* 1.5. Case Studies — Custom technology success stories */}
+      <AboutCaseStudies />
+
       {/* 2. About — Company story with spotlight cards */}
       <LightAboutMerged />
 
       {/* 3. Client Logos — Trusted partners marquee */}
       <AboutClientLogos />
+
+      {/* 3.8. Why Softree — Interactive delivery differentiators list */}
+      <WhySoftree />
+
+      {/* 3.9. Latest Technologies — Powerhouse technologies behind Softree */}
+      <LatestTechnologies />
+
+      {/* 3.9.5. We Work — Custom AI Development sticky panels */}
+      <Wework />
 
       {/* 4. Engagement Models — How to work with us */}
       <LightEngagementModels />

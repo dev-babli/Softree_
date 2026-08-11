@@ -32,7 +32,7 @@ export default function AboutTeamSection() {
   return (
     <section
       ref={ref}
-      className="relative w-full overflow-hidden bg-[#F3F0EE] py-20 md:py-28 lg:py-32"
+      className="relative w-full overflow-hidden bg-white py-20 md:py-24"
     >
       <div className="mx-auto max-w-[1320px] px-6 lg:px-12">
         {/* Header */}
@@ -48,7 +48,7 @@ export default function AboutTeamSection() {
               Our Team
             </span>
           </div>
-          <h2 className="text-[clamp(32px,4.5vw,56px)] font-semibold leading-[1.1] tracking-[-0.02em] text-[var(--legacy-141413)]">
+          <h2 className="text-3xl md:text-5xl font-semibold tracking-tight leading-tight text-[var(--legacy-141413)]">
             The Team Behind
             <span className="block text-[#FF5812]">Every Solution</span>
           </h2>

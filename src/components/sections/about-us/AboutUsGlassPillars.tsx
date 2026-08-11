@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Leaf, Code, Bug, Rocket } from "lucide-react";
 import {
   ClarityGlassCard,
   GlobalMapGlassPanel,
@@ -63,38 +63,141 @@ function WhiteLabelGlassPanel() {
     <div className={GLASS_DARK}>
       <div className="flex items-center justify-between">
         <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#FF5812]">
-          White-label
+          BRAND POWERED DELIVERY
         </span>
         <GlassDots />
       </div>
-      <p className="mt-3 text-[26px] font-semibold leading-none tracking-[-0.04em] text-white">
-        Your brand.
-        <br />
-        <span className="text-white/55">Our bench.</span>
-      </p>
-      <div className="mt-4 grid grid-cols-2 gap-2.5">
+
+      {/* Two-column: Client-facing + Delivery Layer */}
+      <div className="mt-4 grid grid-cols-2 gap-3">
         <div
-          className="rounded-xl border border-white/20 p-3"
+          className="flex flex-col items-center rounded-[14px] border border-white/[0.08] p-4 pt-5 pb-5 text-center"
           style={{
             background:
-              "linear-gradient(160deg, rgba(255,255,255,0.22) 0%, rgba(255,88,18,0.12) 100%)",
+              "linear-gradient(180deg, rgba(255,88,18,0.12) 0%, rgba(255,88,18,0.03) 100%)",
           }}
         >
-          <span className="text-[9px] font-semibold uppercase tracking-[0.14em] text-white/70">
-            Client-facing
-          </span>
-          <div className="mt-2 h-7 rounded-md bg-white/20" />
-        </div>
-        <div className="rounded-xl border border-white/10 bg-black/25 p-3 opacity-80">
-          <span className="text-[9px] font-semibold uppercase tracking-[0.14em] text-white/45">
-            Delivery layer
-          </span>
-          <div className="mt-2 flex h-7 items-center justify-center rounded-md border border-dashed border-white/20 text-[9px] font-medium text-white/40">
-            Softree — invisible
+          {/* 3 People Icon */}
+          <div className="mb-3">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden>
+              {/* Left person (behind) */}
+              <path d="M7 19v-2a3 3 0 0 1 2.3-2.9" stroke="#FF5812" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <circle cx="5.5" cy="8.5" r="2.5" stroke="#FF5812" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              {/* Right person (behind) */}
+              <path d="M17 19v-2a3 3 0 0 0-2.3-2.9" stroke="#FF5812" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <circle cx="18.5" cy="8.5" r="2.5" stroke="#FF5812" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              {/* Center person (front) */}
+              <path d="M12 14.5c-3.2 0-5.5 2-5.5 4.5v1h11v-1c0-2.5-2.3-4.5-5.5-4.5z" stroke="#FF5812" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <circle cx="12" cy="9" r="3.5" stroke="#FF5812" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </div>
+          <span className="text-[10px] font-bold uppercase tracking-[0.08em] text-white/80">
+            CLIENT-FACING
+          </span>
+          <span className="mt-1 text-[11px] font-medium text-white/95">
+            100% Your Brand
+          </span>
+        </div>
+        
+        <div 
+          className="flex flex-col items-center rounded-[14px] border border-white/[0.08] p-4 pt-5 pb-5 text-center"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(255,88,18,0.06) 0%, rgba(255,88,18,0.01) 100%)",
+          }}
+        >
+          {/* Shield Check Icon */}
+          <div className="mb-3">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden>
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#FF5812" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M9 12l2 2 4-4" stroke="#FF5812" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
+          <span className="text-[10px] font-bold uppercase tracking-[0.08em] text-white/80">
+            DELIVERY LAYER
+          </span>
+          <span className="mt-1 text-[11px] font-medium text-white/95">
+            Softree — Invisible
+          </span>
         </div>
       </div>
+
+      {/* Workflow row: Design → Develop → Test → Deliver */}
+      <div className="mt-3 flex items-center justify-between rounded-[14px] border border-white/[0.06] bg-white/[0.02] p-3 px-5">
+        {[
+          { label: "Design", icon: "pencil" },
+          { label: "Develop", icon: "code" },
+          { label: "Test", icon: "check" },
+          { label: "Deliver", icon: "rocket" },
+        ].map((step, i, arr) => (
+          <div key={step.label} className="flex items-center">
+            <div className="flex flex-col items-center gap-1.5">
+              <div 
+                className="flex h-10 w-10 items-center justify-center rounded-[10px] border border-[#FF5812]/30 shadow-[0_0_12px_rgba(255,88,18,0.15)]"
+                style={{
+                  background: "linear-gradient(180deg, rgba(255,88,18,0.15) 0%, rgba(255,88,18,0.05) 100%)"
+                }}
+              >
+                <WorkflowIcon name={step.icon} />
+              </div>
+              <span className="text-[11px] font-semibold text-white/90">{step.label}</span>
+            </div>
+            {i !== arr.length - 1 && (
+              <span className="mx-2 mb-[16px] block h-1 w-1 rounded-full bg-[#FF5812] opacity-80" />
+            )}
+          </div>
+        ))}
+      </div>
     </div>
+  );
+}
+
+function WorkflowIcon({ name }: { name: string }) {
+  const props = {
+    className: "h-5 w-5 text-[#FF5812]",
+    strokeWidth: 1.5,
+  };
+  
+  if (name === "pencil") return <Leaf {...props} />;
+  if (name === "code") return <Code {...props} />;
+  if (name === "check") return <Bug {...props} />;
+  if (name === "rocket") return <Rocket {...props} />;
+  
+  return null;
+}
+
+function AzureIcon() {
+  return (
+    <img src="/logo/azure.png" alt="Azure" className="h-[18px] w-[18px] object-contain" />
+  );
+}
+
+function PowerPlatformIcon() {
+  return (
+    <img src="/logo/power.png" alt="Power Platform" className="h-[18px] w-[18px] object-contain" />
+  );
+}
+
+function M365Icon() {
+  return (
+    <img src="/logo/m365.png" alt="Microsoft 365" className="h-[18px] w-[18px] object-contain" />
+  );
+}
+
+function CopilotIcon() {
+  return (
+    <img src="/logo/copilot.png" alt="Copilot" className="h-[18px] w-[18px] object-contain" />
+  );
+}
+
+function MsLogoIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="16" height="16">
+      <path fill="#f35325" d="M1 1h10v10H1z" />
+      <path fill="#81bc06" d="M12 1h10v10H12z" />
+      <path fill="#05a6f0" d="M1 12h10v10H1z" />
+      <path fill="#ffba08" d="M12 12h10v10H12z" />
+    </svg>
   );
 }
 
@@ -102,46 +205,57 @@ function EnterpriseGlassPanel() {
   return (
     <div className={GLASS_DARK}>
       <div className="flex items-center justify-between">
-        <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#B8DA8F]">
-          Enterprise
+        <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#A3D95D]">
+          MICROSOFT PARTNER
         </span>
         <GlassDots />
       </div>
-      <div className="relative mt-3 flex items-center gap-3 rounded-xl border border-white/12 bg-white/[0.06] px-3 py-2.5">
-        <span
-          className="grid h-9 w-9 shrink-0 place-items-center rounded-md text-[11px] font-bold tracking-tight text-white"
-          style={{
-            background:
-              "linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(0,120,212,0.45) 100%)",
-          }}
-          aria-hidden
-        >
-          MS
-        </span>
+
+      {/* Microsoft Solutions Partner row */}
+      <div className="mt-3 flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2.5">
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white">
+          <MsLogoIcon />
+        </div>
         <div>
-          <p className="text-[11px] font-semibold text-white">Microsoft partner</p>
+          <p className="text-[11px] font-semibold text-white">Microsoft Solutions Partner</p>
           <p className="text-[9px] text-white/55">Power Platform · Azure · AI</p>
         </div>
       </div>
-      <div className="mt-4 grid grid-cols-3 gap-2 text-center">
-        {[
-          { v: "120+", l: "Specialists" },
-          { v: "97%", l: "On-time" },
-          { v: "24/7", l: "Coverage" },
-        ].map((k) => (
-          <div
-            key={k.l}
-            className="rounded-lg border border-white/10 py-2"
-            style={{ background: "rgba(255,255,255,0.04)" }}
-          >
-            <p className="text-[17px] font-bold tabular-nums tracking-[-0.03em] text-white">
-              {k.v}
-            </p>
-            <p className="mt-0.5 text-[8px] font-medium uppercase tracking-[0.1em] text-white/55">
-              {k.l}
-            </p>
-          </div>
-        ))}
+
+      {/* Metrics row */}
+      <div className="mt-3 grid grid-cols-3 gap-2 text-center">
+        <div className="rounded-lg border border-white/10 bg-white/[0.04] py-2">
+          <p className="text-[17px] font-bold tabular-nums tracking-[-0.03em] text-white">120+</p>
+          <p className="mt-0.5 text-[7px] font-medium uppercase tracking-[0.08em] text-white/55 leading-tight px-1">Specialists</p>
+        </div>
+        <div className="rounded-lg border border-white/10 bg-white/[0.04] py-2">
+          <p className="text-[17px] font-bold tabular-nums tracking-[-0.03em] text-white">97%</p>
+          <p className="mt-0.5 text-[7px] font-medium uppercase tracking-[0.08em] text-white/55 leading-tight px-1">On-time delivery</p>
+        </div>
+        <div className="rounded-lg border border-white/10 bg-white/[0.04] py-2">
+          <p className="text-[17px] font-bold tabular-nums tracking-[-0.03em] text-white">24/7</p>
+          <p className="mt-0.5 text-[7px] font-medium uppercase tracking-[0.08em] text-white/55 leading-tight px-1">Support &amp; Monitoring</p>
+        </div>
+      </div>
+
+      {/* Technology row */}
+      <div className="mt-3 grid grid-cols-4 gap-1.5">
+        <div className="flex flex-col items-center gap-1 rounded-lg border border-white/8 bg-white/[0.03] py-1.5 px-0.5">
+          <div className="flex h-5 w-5 items-center justify-center"><AzureIcon /></div>
+          <span className="text-[7px] font-medium text-white/55 text-center leading-tight">Azure</span>
+        </div>
+        <div className="flex flex-col items-center gap-1 rounded-lg border border-white/8 bg-white/[0.03] py-1.5 px-0.5">
+          <div className="flex h-5 w-5 items-center justify-center"><PowerPlatformIcon /></div>
+          <span className="text-[7px] font-medium text-white/55 text-center leading-tight">Power Platform</span>
+        </div>
+        <div className="flex flex-col items-center gap-1 rounded-lg border border-white/8 bg-white/[0.03] py-1.5 px-0.5">
+          <div className="flex h-5 w-5 items-center justify-center"><M365Icon /></div>
+          <span className="text-[7px] font-medium text-white/55 text-center leading-tight">Microsoft 365</span>
+        </div>
+        <div className="flex flex-col items-center gap-1 rounded-lg border border-white/8 bg-white/[0.03] py-1.5 px-0.5">
+          <div className="flex h-5 w-5 items-center justify-center"><CopilotIcon /></div>
+          <span className="text-[7px] font-medium text-white/55 text-center leading-tight">Copilot &amp; AI</span>
+        </div>
       </div>
     </div>
   );
@@ -150,22 +264,47 @@ function EnterpriseGlassPanel() {
 export const ABOUT_US_GLASS_PILLARS: ClarityPillar[] = [
   {
     n: "1",
-    title: "Global offshore tech partner",
-    body: "Senior India-based squads, follow-the-sun delivery, and elastic capacity without sacrificing quality.",
+    title: "OFFSHORE BENCH",
+    subtitle: "Scalable. Reliable. Cost-Effective.",
+    body: "Access a pool of pre-vetted technical experts who integrate seamlessly with your team and workflows.",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden>
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="9" cy="7" r="4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
     scene: SCENE_OFFSHORE,
     Visual: GlobalMapGlassPanel,
   },
   {
     n: "2",
-    title: "White-label partner",
-    body: "Your brand on every artifact — NDA-ready teams, your rituals, invisible to your end clients.",
+    title: "WHITE LABEL",
+    subtitle: "Your Brand. Our Delivery.",
+    body: "Deliver world-class solutions under your brand while we handle development, quality and delivery.",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden>
+        <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <line x1="7" y1="7" x2="7.01" y2="7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
     scene: SCENE_WHITELABEL,
     Visual: WhiteLabelGlassPanel,
   },
   {
     n: "3",
-    title: "Microsoft & platform partner",
-    body: "Power Platform, Azure, AI, and web — with governance, docs, and QA built into every sprint.",
+    title: "AGENTIC AI &\nMICROSOFT ECOSYSTEM",
+    subtitle: "Intelligent. Integrated. Future-Ready.",
+    body: "Build intelligent solutions with Agentic AI powered by Microsoft Cloud, Data, and AI services.",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 3c-3.87 0-7 3.13-7 7 0 1.76.66 3.37 1.74 4.58a6.97 6.97 0 0 0-1.74 4.42v1h14v-1a6.97 6.97 0 0 0-1.74-4.42A6.97 6.97 0 0 0 19 10c0-3.87-3.13-7-7-7z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M9 16.5c0 1.66 1.34 3 3 3s3-1.34 3-3" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="12" cy="11" r="2" stroke="white" strokeWidth="1.5"/>
+        <path d="M12 7v2M8.5 9.5l1.5 1M15.5 9.5l-1.5 1" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+      </svg>
+    ),
     scene: SCENE_ENTERPRISE,
     Visual: EnterpriseGlassPanel,
   },
@@ -188,7 +327,7 @@ type AboutUsGlassPillarsProps = {
 };
 
 export function AboutUsGlassPillars({
-  showCopy = true,
+  showCopy = false,
   className = "",
 }: AboutUsGlassPillarsProps) {
   const scopeRef = useRef<HTMLDivElement>(null);
@@ -201,14 +340,14 @@ export function AboutUsGlassPillars({
         variants={cardGroup}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
-        className="grid grid-cols-1 gap-8 overflow-visible sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8"
+        className="grid grid-cols-1 gap-8 overflow-visible md:grid-cols-3 md:gap-6 lg:gap-8"
       >
         {ABOUT_US_GLASS_PILLARS.map((pillar, index) => (
           <motion.div
             key={pillar.n}
             variants={cardScaleIn}
             transition={{ duration: DUR.panel, ease: EASE_T.silk }}
-            className="flex min-w-0 flex-col sm:last:col-span-2 sm:last:max-w-[480px] sm:last:justify-self-center lg:last:col-span-1 lg:last:max-w-none"
+            className="flex min-w-0 flex-col"
           >
             <ClarityGlassCard
               pillar={pillar}
