@@ -80,35 +80,25 @@ export default function Home({ homepageCaseStudies }: HomeProps) {
       <main className="flex-grow overflow-x-clip">
         {/* ── HERO (GSAP pin + pinSpacing — full-bleed) ── */}
         <TransferredSoftreeHero />
-
         {/* About bento — LightAboutMerged DNA + parallax gallery */}
         <InfinityScrollAnimationLazy />
-
         {/* ── Core sections ── */}
         <ServicesStackedSlides />
         <FeaturesShowcaseLazy />
-
         {/* Global client network — hex world with city stat cards */}
         <GlobalClientNetwork />
-
         {/* Capability showcase — light editorial band (#F3F0EE). */}
         <EngineeringSolutionsLazy />
-
         {/* Industry tabs + Softree partner marquees — continues light band. */}
         <SoftreeEnterpriseCarousel />
-
+        <HomepageCaseStudiesLazy />
+        {/* Testimonials + blog bento */}
+        <HomepageShowcaseSectionsLazy />
         <TechStackSectionLazy />
         <LightServicesStickyListLazy />
         <LightEngagementModelsLazy />
-
-        <HomepageCaseStudiesLazy caseStudies={homepageCaseStudies} />
-
-        {/* Testimonials + blog bento */}
-        <HomepageShowcaseSectionsLazy />
-
         <AnimatedPhotoGallery />
         <Gallery />
-
         <LightFAQExactLazy />
         <LightContactSectionLazy />
       </main>

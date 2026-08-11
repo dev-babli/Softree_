@@ -58,8 +58,8 @@ if (!CustomEase.get("rev")) {
 const ASSET_BG = "/hero/hero_BG.webp";
 const ASSET_SUBJECT = "/hero/hero_subject_wide.webp";
 const ASSET_REF = "/hero/reference.webp";
-const ASSET_LEFT = "/whysoftree/modern.png";
-const ASSET_RIGHT = "/whysoftree/ai.png";
+const ASSET_LEFT = "/whysoftree/ai.png";
+const ASSET_RIGHT = "/whysoftree/modern.png";
 
 /* Subject placement controls (kept identical to existing hero). */
 const SUBJECT_LEFT = "-3%";
@@ -450,6 +450,38 @@ export function CinematicHero() {
                     >
                         <Image
                             src={ASSET_LEFT}
+                            alt="AI &amp; Automation"
+                            fill
+                            className="object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                        <div className="absolute bottom-0 inset-x-0 p-5 flex flex-col">
+                            <p className="text-orange-400 text-[10px] font-bold tracking-[0.2em] uppercase">
+                                AI &amp; Automation
+                            </p>
+                            <p className="text-white text-base font-bold leading-tight mt-1.5">
+                                AI systems that streamline operations
+                            </p>
+                            <Link
+                                href="/services/ai-development-services"
+                                className="mt-3 self-start inline-flex items-center gap-1.5 bg-white text-zinc-900 text-xs font-semibold px-4 py-2 rounded-full pointer-events-auto"
+                            >
+                                Explore AI solutions <span aria-hidden>→</span>
+                            </Link>
+                        </div>
+                    </div>
+
+                    <div
+                        className="side-card right absolute w-[clamp(220px,20vw,340px)] aspect-[0.8] rounded-2xl overflow-hidden"
+                        style={{
+                            willChange: "transform, opacity",
+                            boxShadow:
+                                "0 25px 50px rgba(0,0,0,0.30), 0 10px 20px rgba(0,0,0,0.18)",
+                            border: "1.5px solid rgba(255,255,255,0.22)",
+                        }}
+                    >
+                        <Image
+                            src={ASSET_RIGHT}
                             alt="Modern engineering"
                             fill
                             className="object-cover"
@@ -467,38 +499,6 @@ export function CinematicHero() {
                                 className="mt-3 self-start inline-flex items-center gap-1.5 bg-white text-zinc-900 text-xs font-semibold px-4 py-2 rounded-full pointer-events-auto"
                             >
                                 Explore engineering <span aria-hidden>→</span>
-                            </Link>
-                        </div>
-                    </div>
-
-                    <div
-                        className="side-card right absolute w-[clamp(220px,20vw,340px)] aspect-[0.8] rounded-2xl overflow-hidden"
-                        style={{
-                            willChange: "transform, opacity",
-                            boxShadow:
-                                "0 25px 50px rgba(0,0,0,0.30), 0 10px 20px rgba(0,0,0,0.18)",
-                            border: "1.5px solid rgba(255,255,255,0.22)",
-                        }}
-                    >
-                        <Image
-                            src={ASSET_RIGHT}
-                            alt="AI &amp; Automation"
-                            fill
-                            className="object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-                        <div className="absolute bottom-0 inset-x-0 p-5 flex flex-col">
-                            <p className="text-orange-400 text-[10px] font-bold tracking-[0.2em] uppercase">
-                                AI &amp; Automation
-                            </p>
-                            <p className="text-white text-base font-bold leading-tight mt-1.5">
-                                AI systems that streamline operations
-                            </p>
-                            <Link
-                                href="/services/offshore-ai-development"
-                                className="mt-3 self-start inline-flex items-center gap-1.5 bg-white text-zinc-900 text-xs font-semibold px-4 py-2 rounded-full pointer-events-auto"
-                            >
-                                Explore AI solutions <span aria-hidden>→</span>
                             </Link>
                         </div>
                     </div>

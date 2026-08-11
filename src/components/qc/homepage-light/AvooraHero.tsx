@@ -6,6 +6,7 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
 import Image from "next/image"
+import Link from "next/link"
 import LetsTalkButton from "@/components/qc/shared/LetsTalkButton"
 import {
   EASE,
@@ -66,45 +67,45 @@ const ASSETS = {
   services: [
     {
       n: "01",
-      label: "AI Development",
+      label: "AI Development Services",
       href: "/services/ai-development-services",
       img: "/images/about/ai.jpg",
       desc: "Custom AI agents, cognitive workflows, and predictive models built for your operations."
     },
     {
       n: "02",
-      label: "Web Development",
-      href: "/services/web-app-development",
-      img: "/images/about/web.jpg",
-      desc: "High-performance web apps built with Next.js, React, and modern serverless architectures."
-    },
-    {
-      n: "03",
-      label: "Microsoft Solutions",
-      href: "/services/offshore-power-platform-development",
-      img: "/images/about/microsoft.png",
-      desc: "Accelerate automation with custom Power Apps, SharePoint workspaces, and Teams tools."
-    },
-    {
-      n: "04",
-      label: "Data & Analytics",
-      href: "/services/offshore-data-analytics",
-      img: "/whysoftree/data-analytics.jpg",
-      desc: "Turn raw data into actionable dashboards using Power BI and Microsoft Fabric solutions."
-    },
-    {
-      n: "05",
-      label: "AI Consultancy",
+      label: "AI Consultancy Services",
       href: "/services/ai-consulting-services",
       img: "/images/about/consultancy.png",
       desc: "Strategic advisory to design your AI adoption roadmap, governance, and model selection."
     },
     {
-      n: "06",
-      label: "Azure OpenAI Development",
+      n: "03",
+      label: "Generative AI Services",
+      href: "/services/generative-ai",
+      img: "/images/about/copilot.png",
+      desc: "Deploy retrieval-augmented generation (RAG), fine-tuned LLMs, and custom workplace copilots."
+    },
+    {
+      n: "04",
+      label: "Azure OpenAI",
       href: "/solutions/azure-openai-development",
       img: "/images/about/azure.png",
       desc: "Deploy enterprise-grade LLMs, GPT models, and neural search securely on Azure Cloud."
+    },
+    {
+      n: "05",
+      label: "Power Apps",
+      href: "/services/offshore-power-platform-development",
+      img: "/images/about/microsoft.png",
+      desc: "Accelerate custom low-code canvas and model-driven application builds for your team."
+    },
+    {
+      n: "06",
+      label: "Data Analytics",
+      href: "/services/offshore-data-analytics",
+      img: "/whysoftree/data-analytics.jpg",
+      desc: "Turn raw data into actionable dashboards using Power BI and Microsoft Fabric solutions."
     },
     {
       n: "07",
@@ -115,31 +116,31 @@ const ASSETS = {
     },
     {
       n: "08",
+      label: "Web Development",
+      href: "/services/offshore-web-app-development",
+      img: "/images/about/web.jpg",
+      desc: "High-performance web apps built with Next.js, React, and modern serverless architectures."
+    },
+    {
+      n: "09",
       label: "LangChain Development",
       href: "/solutions/lang-chain-development",
       img: "/images/about/lang.png",
       desc: "Chain cognitive engines with databases, vector stores, and custom external APIs."
     },
     {
-      n: "09",
+      n: "10",
       label: "LangGraph Development",
       href: "/solutions/lang-graph-development",
       img: "/images/about/graph.png",
       desc: "Build resilient, cyclic multi-agent graphs with state-control and self-healing logic."
     },
     {
-      n: "10",
+      n: "11",
       label: "Multi-Agent Systems",
       href: "/solutions/multi-agent-systems",
       img: "/whysoftree/ai.png",
       desc: "Orchestrate collaborative networks of specialized AI agents working to solve complex goals."
-    },
-    {
-      n: "11",
-      label: "AI Copilot Development",
-      href: "/solutions/ai-copilot-development",
-      img: "/images/about/copilot.png",
-      desc: "Train interactive, context-aware assistive companions on your internal business databases."
     },
   ],
 }
@@ -154,7 +155,9 @@ const ASSETS = {
  * ─────────────────────────────────────────────────────────────── */
 
 const CYCLING_WORDS = [
-  "Agentic AI",
+  "AI Development Services",
+  "Generative AI Services",
+  "AI Consultancy Services",
   "Web Apps",
   "Power Platform",
   "Data Analytics",
@@ -259,8 +262,9 @@ function ServiceCard({
   onCardClick?: (e: React.MouseEvent) => void
 }) {
   return (
-    <a
+    <Link
       href={href}
+      prefetch={false}
       aria-label={label}
       onClick={(e) => {
         if (!isActive && onCardClick) {
@@ -322,7 +326,7 @@ function ServiceCard({
           </div>
         </div>
       </div>
-    </a>
+    </Link>
   )
 }
 

@@ -103,7 +103,7 @@ export default function AwardsMarqueeSection() {
   const doubledAwards = [...AWARDS, ...AWARDS, ...AWARDS]
 
   return (
-    <section ref={ref} className="section relative w-full overflow-hidden bg-white py-20 md:py-28">
+    <section ref={ref} className="section relative w-full overflow-hidden bg-white py-20 md:py-24">
       <div className="w-layout-blockcontainer container home-2-award mx-auto max-w-[1400px] px-4 md:px-6 lg:px-8">
         <div className="section-wrapper">
           {/* Section Header */}
@@ -129,7 +129,7 @@ export default function AwardsMarqueeSection() {
             </div>
 
             {/* Heading */}
-            <h2 className="section-heading text-[clamp(32px,5vw,56px)] font-bold tracking-tight text-[var(--legacy-1a1a1a)]">
+            <h2 className="section-heading text-3xl md:text-5xl font-bold tracking-tight text-[var(--legacy-1a1a1a)] leading-tight">
               Industry Recognition
             </h2>
           </motion.div>

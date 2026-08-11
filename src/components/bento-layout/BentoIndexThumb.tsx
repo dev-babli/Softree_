@@ -15,11 +15,11 @@ export function BentoIndexThumb({
   return (
     <div
       className={cn(
-        "relative shrink-0 overflow-hidden rounded-md border border-[#EAEAEA] bg-[#f0f1f4]",
+        "relative shrink-0 overflow-hidden rounded-lg border border-zinc-200/50 shadow-sm",
         className,
       )}
     >
-      <BentoCoverImage src={src} alt={alt} sizes="80px" className="object-contain p-1 transition-transform duration-500 ease-out group-hover:scale-105 motion-reduce:transition-none" />
+      <BentoCoverImage src={src} alt={alt} sizes="80px" className="object-cover transition-transform duration-500 ease-out group-hover:scale-105 motion-reduce:transition-none" />
     </div>
   );
 }

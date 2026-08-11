@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export const PARTNER_LOGOS = [
   { name: "GO ERP", src: "/images/logo/goerp1.jpg", accent: "#3b82f6" },
@@ -21,106 +22,40 @@ export type Logo = (typeof PARTNER_LOGOS)[number];
 
 const PARTNERS: Logo[] = [...PARTNER_LOGOS];
 
-const marqueeStyles = `
-  @keyframes marquee-left {
-    0% { transform: translate3d(0, 0, 0); }
-    100% { transform: translate3d(-50%, 0, 0); }
-  }
-  @keyframes marquee-right {
-    0% { transform: translate3d(-50%, 0, 0); }
-    100% { transform: translate3d(0, 0, 0); }
-  }
-  .animate-marquee-left {
-    display: flex;
-    width: max-content;
-    animation: marquee-left 45s linear infinite;
-  }
-  .animate-marquee-right {
-    display: flex;
-    width: max-content;
-    animation: marquee-right 45s linear infinite;
-  }
-  .marquee-container:hover .animate-marquee-left,
-  .marquee-container:hover .animate-marquee-right {
-    animation-play-state: paused;
-  }
-  .logo-card-glow {
-    filter: blur(28px);
-    opacity: 0.08;
-    transition: opacity 0.45s var(--legacy-ease-0_16_1_0_3_1);
-  }
-  .group:hover .logo-card-glow {
-    opacity: 0.22;
-  }
+// Simple, clean styles for logo hover states
+const logoCardStyles = `
   .partner-logo-card {
-    transition: all 0.45s var(--legacy-ease-0_16_1_0_3_1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .partner-logo-card:hover {
-    border-color: var(--partner-accent) !important;
-    box-shadow: 0 20px 40px -8px var(--partner-accent-shadow) !important;
+    transform: translateY(-4px);
+    border-color: rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.08) !important;
   }
 `;
 
 export function PartnerLogo({
   partner,
-  tone = "legacy",
 }: {
   partner: Logo;
-  tone?: "legacy" | "editorial";
 }) {
   const [error, setError] = useState(false);
-  const editorial = tone === "editorial";
 
   return (
     <div
-      className={
-        editorial
-          ? "group relative flex h-[80px] w-[200px] shrink-0 items-center justify-center rounded-2xl border border-[#0a0a1a]/[0.08] bg-white px-6 py-4 shadow-[0_1px_0_rgba(10,10,26,0.04)] transition-[transform,border-color,box-shadow] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-0.5 hover:border-[#0a0a1a]/14 hover:shadow-[0_12px_32px_-20px_rgba(10,10,26,0.18)]"
-          : "partner-logo-card group relative flex h-[88px] w-[220px] shrink-0 items-center justify-center rounded-xl border bg-white/95 px-6 py-4 backdrop-blur-md hover:-translate-y-1.5"
-      }
-      style={
-        editorial
-          ? undefined
-          : ({
-              "--partner-accent": partner.accent,
-              "--partner-accent-border": `${partner.accent}30`,
-              "--partner-accent-shadow": `${partner.accent}20`,
-              borderColor: "var(--partner-accent-border)",
-            } as React.CSSProperties)
-      }
+      className="partner-logo-card group relative flex h-[88px] w-[220px] shrink-0 items-center justify-center rounded-xl border border-neutral-200/60 bg-white px-6 py-4 shadow-[0_4px_12px_rgba(0,0,0,0.01)] hover:-translate-y-1.5"
     >
-      {!editorial && (
-        <div
-          className="logo-card-glow pointer-events-none absolute inset-0 rounded-xl"
-          style={{
-            background: `radial-gradient(circle, ${partner.accent} 0%, transparent 70%)`,
-          }}
-        />
-      )}
-
       {error ? (
-        <div className="relative z-10 flex select-none items-center gap-2.5">
-          {!editorial && (
-            <span
-              className="h-2.5 w-2.5 animate-pulse rounded-full"
-              style={{ backgroundColor: partner.accent }}
-            />
-          )}
-          <span className="text-xs font-semibold tracking-tight text-[#0a0a1a]/70">
-            {partner.name}
-          </span>
-        </div>
+        <span className="text-xs font-semibold tracking-tight text-neutral-500">
+          {partner.name}
+        </span>
       ) : (
         <Image
           src={partner.src}
           alt={`${partner.name} Brand Logo`}
-          width={160}
-          height={48}
-          className={
-            editorial
-              ? "relative z-10 max-h-[40px] w-auto object-contain opacity-[0.82] grayscale-[0.15] transition-[opacity,transform,filter] duration-500 group-hover:scale-[1.02] group-hover:opacity-100 group-hover:grayscale-0"
-              : "relative z-10 max-h-[44px] w-auto object-contain transition-transform duration-[450ms] ease-[var(--legacy-ease-0_16_1_0_3_1)] group-hover:scale-108"
-          }
+          width={150}
+          height={44}
+          className="relative z-10 max-h-[44px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           onError={() => setError(true)}
           unoptimized
         />
@@ -148,93 +83,54 @@ const STATS_DATA = [
 ] as const;
 
 export function AboutClientStatsGrid({
-  tone = "legacy",
   inView = true,
+  dark = false,
 }: {
-  tone?: "legacy" | "editorial";
   inView?: boolean;
+  dark?: boolean;
 }) {
-  const editorial = tone === "editorial";
-
   return (
     <div className="relative mx-auto max-w-5xl">
-      {!editorial && (
-        <>
-          <CornerTick className="absolute -left-1 -top-1" />
-          <CornerTick className="absolute -right-1 -top-1 rotate-90" />
-          <CornerTick className="absolute -left-1 -bottom-1 -rotate-90" />
-          <CornerTick className="absolute -right-1 -bottom-1 rotate-180" />
-        </>
-      )}
-
       <motion.div
         className={
-          editorial
-            ? "grid grid-cols-1 divide-y divide-[#0a0a1a]/8 overflow-hidden rounded-2xl border border-[#0a0a1a]/8 bg-white/50 sm:grid-cols-3 sm:divide-x sm:divide-y-0"
-            : "grid grid-cols-1 divide-y divide-neutral-900/[0.06] overflow-hidden rounded-xl border border-neutral-900/[0.06] bg-[var(--legacy-fcfcfb)]/40 shadow-[0_4px_24px_rgba(0,0,0,0.01)] backdrop-blur-sm sm:grid-cols-3 sm:divide-x sm:divide-y-0"
+          dark
+            ? "grid grid-cols-1 divide-y divide-neutral-800 border border-neutral-800 bg-neutral-950/40 overflow-hidden rounded-xl backdrop-blur-sm sm:grid-cols-3 sm:divide-x sm:divide-y-0"
+            : "grid grid-cols-1 divide-y divide-neutral-200 border border-neutral-200/60 bg-white/60 overflow-hidden rounded-xl backdrop-blur-sm sm:grid-cols-3 sm:divide-x sm:divide-y-0"
         }
-        initial={{ opacity: 0, y: editorial ? 20 : 30 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.85, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
       >
         {STATS_DATA.map((stat, i) => (
           <div
             key={stat.label}
-            className={
-              editorial
-                ? "flex flex-col justify-center px-8 py-10 text-center md:py-12"
-                : "group relative flex flex-col justify-center px-8 py-10 text-center transition-all duration-500 hover:bg-[var(--legacy-fcfcfb)]"
-            }
+            className={`group relative flex flex-col justify-center px-8 py-10 text-center transition-all duration-500 ${
+              dark ? "hover:bg-neutral-900/40" : "hover:bg-neutral-50/50"
+            }`}
           >
-            {!editorial && (
-              <div
-                className="absolute inset-x-0 bottom-0 h-0.5 scale-x-0 transition-transform duration-500 ease-[var(--legacy-ease-0_16_1_0_3_1)] group-hover:scale-x-100"
-                style={{
-                  background:
-                    i === 0
-                      ? "linear-gradient(to right, #3b82f6, #6366f1)"
-                      : i === 1
-                        ? "linear-gradient(to right, #06b6d4, #3b82f6)"
-                        : "linear-gradient(to right, #6366f1, #ec4899)",
-                }}
-              />
-            )}
-
             <span
-              className={
-                editorial
-                  ? "text-[clamp(40px,5.5vw,56px)] font-semibold leading-none tracking-[-0.04em] text-[#FF5812] tabular-nums"
-                  : `font-serif text-[3.25rem] font-medium tracking-tight bg-clip-text text-transparent bg-gradient-to-r ${
-                      i === 0
-                        ? "from-blue-500 via-indigo-500 to-purple-500"
-                        : i === 1
-                          ? "from-cyan-500 via-blue-500 to-indigo-500"
-                          : "from-indigo-500 via-purple-500 to-pink-500"
-                    } transition-transform duration-500 ease-[var(--legacy-ease-0_16_1_0_3_1)] group-hover:scale-[1.04] sm:text-[3.75rem]`
-              }
+              className={`font-serif text-[3.25rem] font-medium tracking-tight bg-clip-text text-transparent bg-gradient-to-r ${
+                i === 0
+                  ? "from-blue-500 via-indigo-500 to-purple-500"
+                  : i === 1
+                    ? "from-cyan-500 via-blue-500 to-indigo-500"
+                    : "from-indigo-500 via-purple-500 to-pink-500"
+              } transition-transform duration-500 group-hover:scale-[1.04] sm:text-[3.75rem]`}
             >
               {stat.value}
             </span>
 
-            <span
-              className={
-                editorial
-                  ? "mt-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#0a0a1a]/45"
-                  : "mt-2 text-[10px] font-bold uppercase tracking-[0.24em] text-neutral-400"
-              }
-            >
+            <span className={`mt-2 text-[10px] font-bold uppercase tracking-[0.24em] ${
+              dark ? "text-neutral-400" : "text-neutral-500"
+            }`}>
               {stat.label}
             </span>
 
-            {editorial ? (
-              <span className="mx-auto mt-2 max-w-[220px] text-[12px] leading-relaxed text-[#0a0a1a]/50">
-                {stat.desc}
-              </span>
-            ) : (
-              <span className="mt-2 max-h-0 translate-y-2 overflow-hidden text-xs font-normal leading-relaxed text-neutral-400 opacity-0 transition-all duration-[450ms] ease-[var(--legacy-ease-0_16_1_0_3_1)] group-hover:max-h-12 group-hover:translate-y-0 group-hover:opacity-100">
-                {stat.desc}
-              </span>
-            )}
+            <span className={`mt-2 text-xs font-normal leading-relaxed ${
+              dark ? "text-neutral-500" : "text-neutral-500"
+            }`}>
+              {stat.desc}
+            </span>
           </div>
         ))}
       </motion.div>
@@ -244,139 +140,102 @@ export function AboutClientStatsGrid({
 
 export default function AboutClientLogos({
   marqueeOnly = false,
-  background = "var(--legacy-fafaf9)",
-  accentDot = "#1852FF",
-  tone = "legacy",
 }: {
   marqueeOnly?: boolean;
-  background?: string;
-  accentDot?: string;
-  tone?: "legacy" | "editorial";
 } = {}) {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
-  // Triple partners for seamless looping inside double marquees
-  const doubledLeft = [...PARTNERS, ...PARTNERS];
-  const doubledRight = [...PARTNERS, ...PARTNERS].reverse();
-
   return (
     <section
       ref={ref}
-      {...(marqueeOnly ? {} : { id: "coengineered-logos" })}
-      className={`relative w-full overflow-hidden ${
-        marqueeOnly
-          ? tone === "editorial"
-            ? "py-14 md:py-20"
-            : "py-12 md:py-14"
-          : "py-24 md:py-32"
-      }`}
-      style={{ background }}
+      id="coengineered-logos"
+      className="relative w-full overflow-hidden py-20 md:py-24 bg-white text-neutral-950 border-y border-neutral-200/60"
     >
-      <style>{marqueeStyles}</style>
+      <style>{logoCardStyles}</style>
 
-      {tone !== "editorial" && (
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.4]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, rgba(20,20,19,0.04) 1px, transparent 0)",
-            backgroundSize: "24px 24px",
-          }}
-        />
-      )}
-
-      {/* Top clean hairline edge */}
-      <div className="absolute left-0 right-0 top-0 h-px bg-neutral-900/[0.06]" />
+      {/* Clean, light dot grid background pattern matching the design theme */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.6]"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 1px 1px, rgba(15, 23, 42, 0.03) 1px, transparent 0)",
+          backgroundSize: "24px 24px",
+        }}
+      />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-12">
         
-        {!marqueeOnly && (
+        {/* Centered headline section with section header */}
         <motion.div
-          className="mx-auto max-w-3xl text-center mb-20"
-          initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
-          animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+          className="mx-auto max-w-4xl text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="inline-flex items-center gap-2.5 rounded-full border border-neutral-900/[0.06] bg-white px-3.5 py-1 shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
-            <span className="h-1.5 w-1.5 rounded-full animate-pulse" style={{ backgroundColor: accentDot }} />
-            <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-neutral-500">
-              Co-Engineered Networks
+          <div className="mb-4 flex items-center justify-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#ff7a2f]" />
+            <span className="text-xs font-bold uppercase tracking-wider text-orange-600">
+              Our Partnerships
             </span>
           </div>
-
-          <h2 className="mt-6 text-[1.875rem] font-semibold leading-tight tracking-[-0.035em] text-[var(--legacy-141413)] sm:text-[2.5rem] lg:text-[2.85rem]">
-            Engineered alongside technology leaders.
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-neutral-950 mb-6">
+            Trusted by Enterprises Worldwide
           </h2>
-          
-          <p className="mx-auto mt-4 max-w-xl text-[0.9375rem] leading-relaxed text-neutral-500 sm:text-[1rem]">
-            From strategic technical consultancy to shipping enterprise-grade code, our experts build directly inside world-class engineering ecosystems.
+          <p className="text-base md:text-lg leading-relaxed text-neutral-600 max-w-3xl mx-auto">
+            We've built our business hand-in-hand with enterprises, typically where the challenges are the hardest. Today hundreds of enterprises trust Softree to drive value from automation and AI.
           </p>
         </motion.div>
-        )}
 
-        {/* ── Double Lane Intersecting Marquees ── */}
+        {/* Static grid layout of company logos as shown in the image */}
         <motion.div
-          className="marquee-container relative flex flex-col gap-6 py-3"
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.15 }}
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-6xl mx-auto justify-items-center items-center mb-16"
+          initial={{ opacity: 0, y: 25 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
-          {/* Glass edge gradients for luxurious fade out */}
-          <div
-            className="pointer-events-none absolute left-0 top-0 bottom-0 z-20 w-20 sm:w-44"
-            style={{ background: `linear-gradient(to right, ${background}, transparent)` }}
-          />
-          <div
-            className="pointer-events-none absolute right-0 top-0 bottom-0 z-20 w-20 sm:w-44"
-            style={{ background: `linear-gradient(to left, ${background}, transparent)` }}
-          />
-
-          {/* Lane 1: Scrolling Left */}
-          <div className="relative flex w-full overflow-hidden">
-            <div className="animate-marquee-left gap-6 pr-6">
-              {doubledLeft.map((partner, index) => (
-                <PartnerLogo key={`left-${partner.name}-${index}`} partner={partner} tone={tone} />
-              ))}
+          {PARTNERS.map((partner) => (
+            <div
+              key={partner.name}
+              className="partner-logo-card group relative flex h-[88px] w-full max-w-[220px] items-center justify-center rounded-2xl border border-neutral-200/50 bg-white px-6 py-4 shadow-[0_4px_12px_rgba(15,23,42,0.02)] hover:-translate-y-1 hover:border-neutral-300/80 hover:shadow-[0_12px_24px_-10px_rgba(15,23,42,0.06)]"
+            >
+              <Image
+                src={partner.src}
+                alt={`${partner.name} Logo`}
+                width={140}
+                height={40}
+                className="max-h-[44px] w-auto object-contain opacity-[0.85] transition-all duration-300 group-hover:scale-105 group-hover:opacity-100"
+                unoptimized
+              />
             </div>
-          </div>
-
-          {/* Lane 2: Scrolling Right */}
-          <div className="relative flex w-full overflow-hidden">
-            <div className="animate-marquee-right gap-6 pr-6">
-              {doubledRight.map((partner, index) => (
-                <PartnerLogo key={`right-${partner.name}-${index}`} partner={partner} tone={tone} />
-              ))}
-            </div>
-          </div>
+          ))}
         </motion.div>
 
+        {/* Centered button: MORE CUSTOMER STORIES */}
+        <motion.div 
+          className="flex justify-center"
+          initial={{ opacity: 0, y: 15 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <Link
+            href="/contact"
+            prefetch={false}
+            className="inline-flex items-center justify-center rounded-full bg-[#111111] text-white px-8 py-3.5 text-xs font-semibold uppercase tracking-widest hover:bg-neutral-900 transition-colors shadow-[0_8px_20px_-6px_rgba(0,0,0,0.15)] active:scale-[0.98]"
+          >
+            Contact Us &nbsp;→
+          </Link>
+        </motion.div>
+
+        {/* Stats Grid - Kept clean below if not in marqueeOnly mode */}
         {!marqueeOnly && (
-          <div className="relative mx-auto mt-24 max-w-5xl">
-            <AboutClientStatsGrid tone={tone} inView={isInView} />
+          <div className="relative mx-auto mt-24 max-w-5xl border-t border-neutral-200/60 pt-16">
+            <AboutClientStatsGrid inView={isInView} dark={false} />
           </div>
         )}
 
       </div>
-
-      {/* Bottom clean hairline edge */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-neutral-900/[0.06]" />
     </section>
-  );
-}
-
-function CornerTick({ className = "" }: { className?: string }) {
-  return (
-    <svg
-      width="10"
-      height="10"
-      viewBox="0 0 10 10"
-      fill="none"
-      aria-hidden
-      className={`pointer-events-none z-10 ${className}`}
-    >
-      <path d="M0 0 H10 M0 0 V10" stroke="#E5E5E4" strokeWidth="1.2" />
-    </svg>
   );
 }

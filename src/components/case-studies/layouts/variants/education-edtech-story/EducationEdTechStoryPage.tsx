@@ -968,6 +968,10 @@ function CounterCell({ targetValue, label }: { targetValue: string; label: strin
 
   const isNumeric = hasDigits(finalValue)
 
+  // Track decimal places if present
+  const decimalMatches = finalValue.match(/\.(\d+)/)
+  const decimalPlaces = decimalMatches ? decimalMatches[1].length : 0
+
   const [count, setCount] = useState(0)
   const [showTick, setShowTick] = useState(false)
   const cellRef = useRef<HTMLDivElement>(null)
@@ -976,7 +980,10 @@ function CounterCell({ targetValue, label }: { targetValue: string; label: strin
   // Extract non-numeric prefix and suffix
   const prefix = finalValue.match(/^[^\d]+/)?.[0] || ""
   const suffix = finalValue.match(/[^\d]+$/)?.[0] || ""
-  const num = parseInt(finalValue.replace(/[^0-9]/g, ""), 10) || 0
+  
+  // Extract number including decimals
+  const numericMatch = finalValue.match(/\d+(\.\d+)?/)
+  const num = numericMatch ? parseFloat(numericMatch[0]) : 0
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -1000,7 +1007,7 @@ function CounterCell({ targetValue, label }: { targetValue: string; label: strin
               const elapsed = now - startTime
               const progress = Math.min(elapsed / duration, 1)
               const eased = 1 - Math.pow(1 - progress, 3) // Cubic ease-out
-              setCount(Math.round(eased * num))
+              setCount(eased * num)
 
               if (progress < 1) {
                 frameId = requestAnimationFrame(step)
@@ -1027,7 +1034,7 @@ function CounterCell({ targetValue, label }: { targetValue: string; label: strin
         {isNumeric ? (
           <>
             {prefix && <span className="prefix">{prefix}</span>}
-            <span className="count">{count}</span>
+            <span className="count">{count.toFixed(decimalPlaces)}</span>
             {suffix && <span className="pct">{suffix}</span>}
           </>
         ) : (

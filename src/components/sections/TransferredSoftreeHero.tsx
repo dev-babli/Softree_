@@ -458,9 +458,45 @@ export function TransferredSoftreeHero() {
 
         {/* ================= 5. VISUAL CLUSTER (cards & frame) ================= */}
         <div className="relative lg:absolute lg:inset-x-0 lg:bottom-0 z-30 flex flex-col lg:flex-row items-center lg:items-end justify-center gap-6 lg:gap-0 px-6 pb-16 lg:pb-0 w-full pointer-events-none">
-          {/* Left Card — OFFSHORE DELIVERY */}
+          {/* Left Card — AI AUTOMATION */}
           <div
             className={`left-card relative lg:absolute w-full max-w-[320px] lg:w-[clamp(240px,22vw,380px)] aspect-[0.8] rounded-2xl overflow-hidden z-[2]`}
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(30,40,60,0.9) 0%, rgba(20,30,50,0.95) 100%)",
+              border: "1.5px solid rgba(255,255,255,0.2)",
+              borderTopColor: "rgba(255,255,255,0.4)",
+              boxShadow:
+                "0 25px 50px rgba(0,0,0,0.3), 0 10px 20px rgba(0,0,0,0.2)",
+              willChange: "transform, opacity",
+            }}
+          >
+            <Image
+              src="/whysoftree/ai.png"
+              alt="AI Automation"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
+            <div className="absolute bottom-0 inset-x-0 p-5 flex flex-col">
+              <p className="text-[10px] font-bold uppercase tracking-[0.2em]" style={{ color: ACCENT }}>
+                AI & Automation
+              </p>
+              <p className="mt-1.5 text-base font-semibold leading-snug text-white">
+                AI systems that streamline operations
+              </p>
+              <Link
+                href="/services/ai-development-services"
+                className="mt-3 inline-flex items-center gap-1.5 self-start rounded-full bg-white px-4 py-2 text-xs font-semibold text-zinc-900 shadow-sm transition-[transform,background-color] duration-200 ease-out hover:bg-white/90 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white pointer-events-auto"
+              >
+                Explore AI solutions <span className="text-[10px]">→</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Card — MODERN ENGINEERING */}
+          <div
+            className={`right-card relative lg:absolute w-full max-w-[320px] lg:w-[clamp(240px,22vw,380px)] aspect-[0.8] rounded-2xl overflow-hidden z-[2]`}
             style={{
               background:
                 "linear-gradient(135deg, rgba(30,40,60,0.9) 0%, rgba(20,30,50,0.95) 100%)",
@@ -490,42 +526,6 @@ export function TransferredSoftreeHero() {
                 className="mt-3 inline-flex items-center gap-1.5 self-start rounded-full bg-white px-4 py-2 text-xs font-semibold text-zinc-900 shadow-sm transition-[transform,background-color] duration-200 ease-out hover:bg-white/90 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white pointer-events-auto"
               >
                 Explore engineering <span className="text-[10px]">→</span>
-              </Link>
-            </div>
-          </div>
-
-          {/* Right Card — AI AUTOMATION */}
-          <div
-            className={`right-card relative lg:absolute w-full max-w-[320px] lg:w-[clamp(240px,22vw,380px)] aspect-[0.8] rounded-2xl overflow-hidden z-[2]`}
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(30,40,60,0.9) 0%, rgba(20,30,50,0.95) 100%)",
-              border: "1.5px solid rgba(255,255,255,0.2)",
-              borderTopColor: "rgba(255,255,255,0.4)",
-              boxShadow:
-                "0 25px 50px rgba(0,0,0,0.3), 0 10px 20px rgba(0,0,0,0.2)",
-              willChange: "transform, opacity",
-            }}
-          >
-            <Image
-              src="/whysoftree/ai.png"
-              alt="AI Automation"
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
-            <div className="absolute bottom-0 inset-x-0 p-5 flex flex-col">
-              <p className="text-[10px] font-bold uppercase tracking-[0.2em]" style={{ color: ACCENT }}>
-                AI & Automation
-              </p>
-              <p className="mt-1.5 text-base font-semibold leading-snug text-white">
-                AI systems that streamline operations
-              </p>
-              <Link
-                href="/ai"
-                className="mt-3 inline-flex items-center gap-1.5 self-start rounded-full bg-white px-4 py-2 text-xs font-semibold text-zinc-900 shadow-sm transition-[transform,background-color] duration-200 ease-out hover:bg-white/90 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white pointer-events-auto"
-              >
-                Explore AI solutions <span className="text-[10px]">→</span>
               </Link>
             </div>
           </div>

@@ -118,7 +118,7 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
     if (video.currentTime >= 3) {
       video.currentTime = 0
       if (video.paused) {
-        void video.play()
+        video.play().catch(() => {})
       }
     }
   }

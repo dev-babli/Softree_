@@ -306,7 +306,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
   }
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-[#F3F0EE] py-14 md:py-20">
+    <section ref={sectionRef} className="relative w-full bg-white py-20 md:py-24">
       {/* FAQPage JSON-LD — enables AI Overview, ChatGPT/Claude/Gemini citation,
          and Google rich results. Each answer is 30-50 words for optimal
          AEO extraction (the LLM sweet spot). */}
@@ -335,7 +335,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
             <HelpCircle className="h-4 w-4 text-[#1852FF]" />
             <span className="text-sm font-medium text-[#1852FF]">FAQ</span>
           </div>
-          <h2 className="text-3xl font-bold tracking-tight text-[#0a0a1a] md:text-5xl lg:text-6xl">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#0a0a1a] leading-tight">
             Frequently Asked{" "}
             <span className="bg-gradient-to-r from-[#1852FF] to-[#FF5812] bg-clip-text text-transparent">
               Questions.

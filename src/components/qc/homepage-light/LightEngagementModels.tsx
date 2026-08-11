@@ -83,7 +83,7 @@ export default function LightEngagementModels() {
 
         {/* Header Section */}
         <div className="mb-14 flex flex-col md:flex-row md:items-center">
-          <h2 className="text-[clamp(2rem,4.5vw,52px)] font-bold tracking-[-0.04em] text-[var(--legacy-111)] leading-none">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-neutral-950 leading-tight">
             How We Partner With You
           </h2>
           <div className="my-6 h-[1px] w-full bg-[var(--legacy-eaeaea)] md:mx-8 md:my-0 md:h-[40px] md:w-[1px]"></div>

@@ -79,11 +79,11 @@ function MarqueeRail({
     <div className="softree-gallery-rail relative w-full overflow-hidden">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#F3F0EE] to-transparent sm:w-24"
+        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent sm:w-24"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#F3F0EE] to-transparent sm:w-24"
+        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent sm:w-24"
       />
       <div className={trackClass}>
         {loop.map((photo, index) => (
@@ -123,7 +123,7 @@ export default function AnimatedPhotoGallery({
 
   return (
     <section
-      className={`relative w-full overflow-hidden bg-[#F3F0EE] py-14 md:py-20 ${className}`.trim()}
+      className={`relative w-full overflow-hidden bg-white py-20 md:py-24 ${className}`.trim()}
       aria-labelledby="animated-photo-gallery-heading"
     >
       <div
@@ -158,7 +158,7 @@ export default function AnimatedPhotoGallery({
             </span>
             <h2
               id="animated-photo-gallery-heading"
-              className="text-[clamp(2rem,5vw,3.75rem)] font-bold leading-[0.95] tracking-[-0.04em] text-[#0a0a1a]"
+              className="text-3xl md:text-5xl font-bold tracking-tight text-[#0a0a1a] leading-tight"
             >
               {title}{" "}
               <span className="bg-gradient-to-r from-[#1852FF] to-[#FF5812] bg-clip-text text-transparent">
