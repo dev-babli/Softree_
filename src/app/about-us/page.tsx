@@ -15,6 +15,8 @@ import AnimatedPhotoGallery from "@/components/Gallery/AnimatedPhotoGallery";
 import Footer from "@/components/sections/footer";
 import LatestTechnologies from "./LatestTechnologies";
 import Wework from "./Wework";
+import { LightTestimonialFeature } from "@/components/qc/homepage-light/LightTestimonialFeature";
+import SoftreeTimeline from "@/components/qc/homepage-light/SoftreeTimeline";
 
 /**
  * ABOUT US — Complete Component Stack
@@ -101,11 +103,17 @@ export default function AboutUsPage() {
       {/* 3.8. Why Softree — Interactive delivery differentiators list */}
       <WhySoftree />
 
+      {/* Our Journey Timeline */}
+      <SoftreeTimeline />
+
       {/* 3.9. Latest Technologies — Powerhouse technologies behind Softree */}
       <LatestTechnologies />
 
       {/* 3.9.5. We Work — Custom AI Development sticky panels */}
       <Wework />
+
+      {/* Client Testimonials */}
+      <LightTestimonialFeature />
 
       {/* 4. Engagement Models — How to work with us */}
       <LightEngagementModels />

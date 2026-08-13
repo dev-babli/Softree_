@@ -693,15 +693,17 @@ export default function AvooraHero() {
         >
           {/* Section Header with Left-Aligned Text & Right-Aligned Arrows */}
           <div className="mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6 max-w-7xl mx-auto px-4">
-            <div className="text-left max-w-2xl">
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#FF6B00]/15 bg-[#FFF5EF] px-4 py-1.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] text-[#FF6B00]">
+            <div className="text-left max-w-4xl">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#FF5812]/20 bg-[#FF5812]/05 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.20em] text-[#FF5812] mb-3 shadow-sm">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#FF5812]" />
                 Enterprise Technology Transformation Services
               </span>
-              <h2 className="mt-4 text-xl font-bold tracking-tight text-gray-900 sm:text-2xl lg:text-3xl">
-                Transforming Business Challenges Into <span className="bg-linear-to-r from-[#FF6B00] to-[#FF5812] bg-clip-text text-transparent">Digital Solutions</span>
+              <h2 className="font-black text-3xl md:text-5xl leading-[1.1] tracking-tight text-[#0a0a1a] mt-2 block w-full">
+                <span className="text-[#0a0a1a]">Transforming Business Challenges Into</span>{" "}
+                <span className="text-[#FF5812] drop-shadow-[0_2px_12px_rgba(255,88,18,0.15)]">Digital Solutions</span>
               </h2>
-              <p className="mt-3 text-[13px] sm:text-[14px] text-gray-500 font-medium">
-                Explore our core expertise spanning cognitive agents, cloud application modernization, and enterprise integrations.
+              <p className="mt-3 text-zinc-600/90 font-medium text-base md:text-lg leading-relaxed max-w-2xl">
+                Explore our core expertise spanning cognitive agents cloud application modernization and enterprise integrations
               </p>
             </div>
 
