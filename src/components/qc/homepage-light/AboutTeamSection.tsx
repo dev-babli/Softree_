@@ -34,7 +34,7 @@ export default function AboutTeamSection() {
       ref={ref}
       className="relative w-full overflow-hidden bg-white py-20 md:py-24"
     >
-      <div className="mx-auto max-w-[1320px] px-6 lg:px-12">
+      <div className="mx-auto max-w-7xl px-6 lg:px-12">
         {/* Header */}
         <motion.div
           className="mb-16 text-center"

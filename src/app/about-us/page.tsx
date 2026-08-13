@@ -4,7 +4,7 @@ import AvooraHero from "@/components/qc/homepage-light/AvooraHero";
 import AboutClientLogos from "@/components/qc/homepage-light/AboutClientLogos";
 import AboutCaseStudies from "@/components/qc/homepage-light/AboutCaseStudies";
 import WhySoftree from "@/components/qc/homepage-light/WhySoftree";
-import LightAboutMerged from "@/components/qc/homepage-light/LightAboutMerged";
+import AboutInteractiveCore from "@/components/qc/homepage-light/AboutInteractiveCore";
 import AboutTeamSection from "@/components/qc/homepage-light/AboutTeamSection";
 import AwardsMarqueeSection from "@/components/qc/homepage-light/AwardsMarqueeSection";
 import LightEngagementModels from "@/components/qc/homepage-light/LightEngagementModels";
@@ -91,11 +91,9 @@ export default function AboutUsPage() {
       {/* 1. Hero — Video hero with cycling words */}
       <AvooraHero />
 
-      {/* 1.5. Case Studies — Custom technology success stories */}
-      <AboutCaseStudies />
 
       {/* 2. About — Company story with spotlight cards */}
-      <LightAboutMerged />
+      <AboutInteractiveCore />
 
       {/* 3. Client Logos — Trusted partners marquee */}
       <AboutClientLogos />

@@ -63,7 +63,7 @@ type MenuItem = {
 const CLOSE_DELAY_MS = 280;
 
 const menu: MenuItem[] = [
-  { label: "About", url: "/about-us" },
+  // { label: "About", url: "/about-us" },
   {
     label: "Services",
     url: "/services",

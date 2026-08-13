@@ -143,7 +143,7 @@ export default function AnimatedPhotoGallery({
         }}
       />
 
-      <div className="relative mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}

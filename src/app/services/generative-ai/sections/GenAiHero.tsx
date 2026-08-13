@@ -41,7 +41,15 @@ function CheckCircleIcon() {
   );
 }
 
-export function GenAiHero() {
+export function GenAiHero({
+  badgeText = "Generative AI Development",
+  heading,
+  subheading,
+}: {
+  badgeText?: string;
+  heading?: React.ReactNode;
+  subheading?: string;
+} = {}) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -86,21 +94,25 @@ export function GenAiHero() {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8">
             <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
             <span className="text-sm font-semibold text-orange-400 uppercase tracking-wider">
-              Generative AI Development
+              {badgeText}
             </span>
           </div>
 
           {/* Heading */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.15] mb-6 font-['Syne',sans-serif]">
-            Enterprise Generative AI <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
-              built for production
-            </span>
+            {heading || (
+              <>
+                Enterprise Generative AI <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
+                  built for production
+                </span>
+              </>
+            )}
           </h1>
 
           {/* Description */}
           <p className="text-lg md:text-xl text-white/80 mb-10 leading-relaxed font-normal">
-            We design and ship copilots, LLM applications, and intelligent automation on Azure OpenAI and leading models, with governance your IT team can audit.
+            {subheading || "We design and ship copilots, LLM applications, and intelligent automation on Azure OpenAI and leading models, with governance your IT team can audit."}
           </p>
 
           {/* CTA Buttons */}

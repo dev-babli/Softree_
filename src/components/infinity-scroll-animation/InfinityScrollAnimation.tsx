@@ -314,7 +314,7 @@ export default function InfinityScrollAnimation() {
         </motion.div>
 
         {/* ── Row 3: Service gallery + proof stats ── */}
-        <div className="mt-10 grid grid-cols-12 items-start gap-3 sm:mt-14 sm:gap-4 lg:mt-16">
+        <div className="mt-10 grid grid-cols-12 items-start lg:items-stretch gap-3 sm:mt-14 sm:gap-4 lg:mt-16">
           <div className="col-span-12 mb-1 lg:col-span-8">
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#0a0a1a]/45">
               Services in motion
@@ -330,7 +330,7 @@ export default function InfinityScrollAnimation() {
           </div>
 
           <motion.div
-            className="col-span-12 min-w-0 lg:col-span-8"
+            className="col-span-12 min-w-0 lg:col-span-8 h-full"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
@@ -341,7 +341,7 @@ export default function InfinityScrollAnimation() {
             </div>
           </motion.div>
 
-          <div className="col-span-12 flex min-w-0 flex-col gap-3 lg:col-span-4 lg:min-h-[440px] lg:gap-4 xl:min-h-[480px]">
+          <div className="col-span-12 flex min-w-0 flex-col gap-3 lg:col-span-4 lg:min-h-0 lg:gap-4">
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#0a0a1a]/45 lg:hidden">
               Proof at a glance
             </p>
@@ -349,7 +349,7 @@ export default function InfinityScrollAnimation() {
               {SPOTLIGHT_STATS.map((stat, idx) => (
                 <motion.div
                   key={stat.label}
-                  className="min-h-[148px] lg:min-h-0"
+                  className="min-h-[148px] lg:min-h-0 h-full"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -363,13 +363,13 @@ export default function InfinityScrollAnimation() {
                     color={stat.accentGlow}
                     intensity={0.55}
                     radius={240}
-                    className="flex h-full min-h-[148px] flex-col justify-between rounded-2xl border border-[#0a0a1a]/5 bg-white p-4 shadow-[0_8px_28px_-14px_rgba(10,10,26,0.12)] sm:p-5 lg:min-h-0"
+                    className="flex h-full min-h-[148px] flex-col justify-between rounded-2xl border border-[#0a0a1a]/5 bg-white p-5 shadow-[0_8px_28px_-14px_rgba(10,10,26,0.12)] sm:p-6 lg:p-8 xl:p-10 lg:min-h-0"
                   >
                     <div>
-                      <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#0a0a1a]/40">
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#0a0a1a]/40 lg:text-[12px] xl:text-[13px]">
                         {stat.headline}
                       </p>
-                      <p className="mt-2 text-[clamp(2rem,5vw,2.75rem)] font-bold leading-none tabular-nums">
+                      <p className="mt-2 text-[clamp(2.5rem,5vw,3rem)] font-bold leading-none tabular-nums lg:mt-3 lg:text-[clamp(3.5rem,6vw,4.5rem)]">
                         <span style={{ color: stat.numberColor }}>
                           <AnimatedNumber
                             value={stat.value}
@@ -381,11 +381,11 @@ export default function InfinityScrollAnimation() {
                           {stat.suffix}
                         </span>
                       </p>
-                      <p className="mt-1.5 text-sm font-semibold text-[#0a0a1a]">
+                      <p className="mt-1.5 text-sm font-semibold text-[#0a0a1a] lg:mt-2 lg:text-base xl:text-lg">
                         {stat.label}
                       </p>
                     </div>
-                    <p className="mt-3 text-[12px] leading-relaxed text-[#0a0a1a]/58 sm:text-[13px]">
+                    <p className="mt-4 text-[12px] leading-relaxed text-[#0a0a1a]/58 sm:text-[13px] lg:mt-6 lg:text-[15px] xl:text-[16px]">
                       {stat.body}
                     </p>
                   </SpotlightCard>
