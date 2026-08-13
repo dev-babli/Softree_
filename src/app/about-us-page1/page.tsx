@@ -13,8 +13,8 @@ import LightFAQExact from "@/components/homepage-light/LightFAQExact";
 import Gallery from "@/components/Gallery/Gallery";
 import AnimatedPhotoGallery from "@/components/Gallery/AnimatedPhotoGallery";
 import Footer from "@/components/sections/footer";
-import LatestTechnologies from "./LatestTechnologies";
-import Wework from "./Wework";
+import LatestTechnologies from "../about-us/LatestTechnologies";
+import Wework from "../about-us/Wework";
 import { LightTestimonialFeature } from "@/components/qc/homepage-light/LightTestimonialFeature";
 import SoftreeTimeline from "@/components/qc/homepage-light/SoftreeTimeline";
 
@@ -63,7 +63,7 @@ const aboutUsFaqs = [
   },
 ];
 
-export default function AboutUsPage() {
+export default function AboutUsPage1() {
   return (
     <div className="min-h-screen pt-[100px] bg-white">
       {/* Navigation */}

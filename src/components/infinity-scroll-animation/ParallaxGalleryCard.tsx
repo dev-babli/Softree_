@@ -573,7 +573,13 @@ export default function ParallaxGalleryCard({
                 />
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_34%_42%,rgba(255,255,255,0.06)_0%,transparent_55%),linear-gradient(180deg,rgba(0,0,0,0.08)_0%,rgba(0,0,0,0.5)_100%)]" />
               </div>
-              <div className="isc-project-caption pointer-events-none absolute inset-x-0 bottom-0 z-[5] max-w-[60%] px-3 pb-0 pt-4 md:px-5 md:pb-0 md:pt-6">
+              <div
+                className="isc-project-caption pointer-events-none absolute inset-x-0 bottom-0 z-[5] max-w-[60%] px-3 pb-0 pt-4 md:px-5 md:pb-0 md:pt-6"
+                style={{
+                  opacity: i === activeIndex ? 1 : 0,
+                  transition: "opacity 0.4s ease-out",
+                }}
+              >
                 <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/55">
                   {slide.bottomCategory}
                 </div>

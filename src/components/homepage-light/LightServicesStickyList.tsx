@@ -50,8 +50,8 @@ const SERVICES: Service[] = [
 
   {
     n: "02",
-    title: "Agentic AI",
-    href: "/services/offshore-ai-development",
+    title: "AI Development Services",
+    href: "/services/ai-development-services",
     desc: "Build intelligent AI agents that reason, plan, and act autonomously to automate complex business processes and deliver measurable outcomes.",
     tags: ["AI Agents", "Multi-Agent Systems", "LLM", "Automation"],
     img: "/images/dataBIRobort.png",
@@ -78,18 +78,6 @@ const SERVICES: Service[] = [
 
   {
     n: "04",
-    title: "AI Workflow Orchestration",
-    href: "/services/ai-workflow-orchestration",
-    desc: "Connect AI agents, business systems, and automated workflows to streamline operations, orchestrate intelligent processes, and scale productivity.",
-    tags: ["AI Workflows", "Orchestration", "Automation", "Integrations"],
-    img: "/images/aiworkflowservices.png",
-    whiteLabel: {
-      title: "WHITE-LABEL AI AUTOMATION PARTNER",
-      subtitle: "Offshore Delivery - Your Brand - Our Expertise",
-      features: ["Workflow Automation", "System Integration", "AI Specialists"]
-    }
-  }, {
-    n: "05",
     title: "Build Power Platform Automations",
     href: "/services/offshore-power-platform-development",
     desc: "Power Apps, Power Automate, and Power BI built by Microsoft Gold Partners. Enterprise governance, security review, ALM pipelines included.",
@@ -102,7 +90,7 @@ const SERVICES: Service[] = [
     }
   },
   {
-    n: "06",
+    n: "05",
     title: "Modernize SharePoint",
     href: "/services/legacy-application-modernization",
     desc: "SharePoint intranets and SPFx web parts that don’t feel like SharePoint. Migration, custom branding, and Microsoft 365 integrations.",
@@ -115,7 +103,7 @@ const SERVICES: Service[] = [
     }
   },
   {
-    n: "07",
+    n: "06",
     title: "Stand up Data + BI",
     href: "/services/offshore-data-analytics",
     desc: "Microsoft Fabric, Power BI dashboards, and data engineering pipelines that surface revenue signals — not 60-page decks.",
@@ -128,7 +116,7 @@ const SERVICES: Service[] = [
     }
   },
   {
-    n: "08",
+    n: "07",
     title: "Modernize Legacy Applications",
     href: "/services/legacy-application-modernization",
     desc: "Transform outdated systems, desktop applications, or legacy databases into secure, cloud-native platforms. Modern codebase architectures, seamless integrations.",
@@ -141,7 +129,7 @@ const SERVICES: Service[] = [
     }
   },
   {
-    n: "09",
+    n: "08",
     title: "Ship a Web App",
     href: "/services/offshore-web-app-development",
     desc: "Production-grade web apps in Next.js, React, and TypeScript. Senior engineers, fixed scope, weekly demos. From discovery to launch in 12 weeks.",
@@ -204,7 +192,7 @@ function ServiceCard({
   return (
     <div
       ref={ref}
-      className="sticky w-full px-4 sm:px-6 pt-4 pb-20 md:pb-32 lg:pb-40"
+      className="sticky w-full px-4 sm:px-6 pt-4 pb-6 md:pb-32 lg:pb-40"
       style={{ top: stickyOffset }}
     >
       <motion.article
@@ -216,8 +204,8 @@ function ServiceCard({
           transformOrigin: 'top center',
         }}
         className={
-          s.n === "01" || s.n === "02" || s.n === "03" || s.n === "04" || s.n === "05" || s.n === "06" || s.n === "07" || s.n === "08" || s.n === "09"
-            ? `relative mx-auto w-full max-w-7xl h-auto min-h-[60svh] lg:min-h-[75svh] py-4 lg:py-6 overflow-hidden text-white shadow-2xl ring-1 ring-white/10 ${s.n === "01" ? "rounded-[24px] bg-[#03030a]" : s.n === "02" ? "rounded-[24px] bg-[#050212]" : s.n === "03" ? "rounded-[24px] bg-[#120308]" : s.n === "04" ? "rounded-[24px] bg-[#020b12]" : s.n === "05" ? "rounded-[24px] bg-[#020617]" : s.n === "06" ? "rounded-[24px] bg-[#08080c]" : s.n === "07" ? "rounded-[24px] bg-[#031817]" : s.n === "08" ? "rounded-[24px] bg-[#05050A]" : "rounded-[24px] bg-[#020817]"
+          s.n === "01" || s.n === "02" || s.n === "03" || s.n === "04" || s.n === "05" || s.n === "06" || s.n === "07" || s.n === "08"
+            ? `relative mx-auto w-full max-w-7xl h-auto min-h-0 md:min-h-[60svh] lg:min-h-[75svh] py-3 sm:py-4 lg:py-6 overflow-hidden text-white shadow-2xl ring-1 ring-white/10 ${s.n === "01" ? "rounded-[24px] bg-[#03030a]" : s.n === "02" ? "rounded-[24px] bg-[#050212]" : s.n === "03" ? "rounded-[24px] bg-[#120308]" : s.n === "04" ? "rounded-[24px] bg-[#020617]" : s.n === "05" ? "rounded-[24px] bg-[#08080c]" : s.n === "06" ? "rounded-[24px] bg-[#031817]" : s.n === "07" ? "rounded-[24px] bg-[#05050A]" : "rounded-[24px] bg-[#020817]"
             }`
             : "relative mx-auto w-full max-w-7xl overflow-hidden rounded-[18px] border border-[#0a0a1a]/[0.08] bg-white shadow-[0_1px_2px_rgba(10,10,26,0.04),0_20px_50px_-28px_rgba(10,10,26,0.14)] ring-1 ring-[#FF5812]/10"
         }
@@ -240,7 +228,7 @@ function ServiceCard({
             <div className="pointer-events-none absolute bottom-[-10%] right-[10%] w-[50%] h-[50%] rounded-full bg-purple-600/20 blur-[100px]" />
             <div className="pointer-events-none absolute bottom-[10%] right-[30%] w-[30%] h-[30%] rounded-full bg-orange-500/10 blur-[80px]" />
 
-            <div className="relative z-10 grid min-h-full h-auto grid-cols-1 items-center gap-6 p-6 md:gap-10 md:p-12 lg:grid-cols-[45fr_55fr] lg:gap-10 lg:p-10 xl:p-12">
+            <div className="relative z-10 grid min-h-full h-auto grid-cols-1 items-center gap-6 p-4 sm:p-5 md:p-12 lg:grid-cols-[45fr_55fr] lg:gap-10 lg:p-10 xl:p-12">
 
               {/* LEFT */}
               <div className="flex flex-col h-auto justify-center">
@@ -269,13 +257,13 @@ function ServiceCard({
                   </h3>
                 </a>
 
-                <p className="max-w-[500px] text-[13px] leading-[1.6] text-white/80 md:text-[14px] lg:text-[15px] mb-5 md:mb-6">
+                <p className="max-w-[500px] text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] leading-[1.6] text-white/80 mb-3 md:mb-6">
                   {s.desc}
                 </p>
 
                 {/* White Label panel as premium dark glass */}
                 {s.whiteLabel && (
-                  <div className="mb-5 md:mb-6 flex flex-col gap-4 md:gap-5 rounded-2xl border border-blue-400/20 bg-[#0a0f1f]/60 p-5 md:p-7 backdrop-blur-xl max-w-[520px] shadow-[0_10px_40px_rgba(0,0,0,0.5),inset_0_0_30px_rgba(100,150,255,0.05)] relative overflow-hidden group/audit">
+                  <div className="mb-3 md:mb-6 flex flex-col gap-4 md:gap-5 rounded-2xl border border-blue-400/20 bg-[#0a0f1f]/60 p-3.5 sm:p-4 md:p-7 backdrop-blur-xl max-w-[520px] shadow-[0_10px_40px_rgba(0,0,0,0.5),inset_0_0_30px_rgba(100,150,255,0.05)] relative overflow-hidden group/audit">
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover/audit:opacity-100 transition-opacity duration-500" />
 
                     <div className="flex items-center gap-4 md:gap-5 relative z-10">
@@ -339,7 +327,7 @@ function ServiceCard({
               </div>
 
               {/* RIGHT */}
-              <div className="relative w-[90%] lg:w-[85%] mx-auto h-auto flex items-center justify-center lg:justify-end min-h-[200px] md:min-h-[350px] lg:min-h-[500px] mt-6 lg:mt-0 pb-8 lg:pb-0">
+              <div className="relative hidden lg:flex w-[90%] lg:w-[85%] mx-auto h-auto items-center justify-center lg:justify-end min-h-[200px] md:min-h-[350px] lg:min-h-[500px] mt-6 lg:mt-0 pb-8 lg:pb-0">
                 {/* Strong glow behind laptop */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] max-w-[600px] max-h-[600px] bg-gradient-to-br from-blue-600/40 via-purple-600/30 to-orange-500/10 blur-[100px] rounded-full pointer-events-none" />
 
@@ -407,7 +395,7 @@ function ServiceCard({
             <div className="pointer-events-none absolute top-[-10%] right-[0%] w-[60%] h-[80%] rounded-full bg-emerald-500/10 blur-[120px]" />
             <div className="pointer-events-none absolute bottom-[10%] right-[20%] w-[40%] h-[40%] rounded-full bg-yellow-500/10 blur-[100px]" />
 
-            <div className="relative z-10 grid min-h-full h-auto grid-cols-1 items-center gap-6 p-6 md:gap-10 md:p-12 lg:grid-cols-[45fr_55fr] lg:gap-10 lg:p-10 xl:p-12">
+            <div className="relative z-10 grid min-h-full h-auto grid-cols-1 items-center gap-6 p-4 sm:p-5 md:p-12 lg:grid-cols-[45fr_55fr] lg:gap-10 lg:p-10 xl:p-12">
 
               {/* LEFT */}
               <div className="flex flex-col h-auto justify-center">
@@ -428,20 +416,20 @@ function ServiceCard({
                     className="font-[800] text-white leading-[1.1] md:leading-[1.05] tracking-tight text-wrap md:text-balance"
                     style={{ fontSize: "clamp(20px, 5vw, 48px)" }}
                   >
-                    Agentic{" "}
+                    AI{" "}
                     <span className="bg-gradient-to-r from-emerald-400 to-yellow-400 bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(16,185,129,0.2)]">
-                      AI
+                      Development Services
                     </span>
                   </h3>
                 </a>
 
-                <p className="max-w-[480px] text-[13px] leading-[1.6] text-white/70 md:text-[14px] lg:text-[15px] mb-5 md:mb-6">
+                <p className="max-w-[480px] text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] leading-[1.6] text-white/70 mb-3 md:mb-6">
                   {s.desc}
                 </p>
 
                 {/* White Label Panel */}
                 {s.whiteLabel && (
-                  <div className="mb-5 md:mb-6 flex flex-col gap-3 md:gap-4 rounded-2xl border border-emerald-500/20 bg-[#0a1010]/60 p-5 md:p-7 backdrop-blur-xl max-w-[520px] shadow-[0_10px_40px_rgba(0,0,0,0.5),inset_0_0_30px_rgba(16,185,129,0.05)] relative overflow-hidden group/audit">
+                  <div className="mb-3 md:mb-6 flex flex-col gap-3 md:gap-4 rounded-2xl border border-emerald-500/20 bg-[#0a1010]/60 p-3.5 sm:p-4 md:p-7 backdrop-blur-xl max-w-[520px] shadow-[0_10px_40px_rgba(0,0,0,0.5),inset_0_0_30px_rgba(16,185,129,0.05)] relative overflow-hidden group/audit">
                     <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent opacity-0 group-hover/audit:opacity-100 transition-opacity duration-500" />
 
                     <div className="flex items-center gap-4 md:gap-5 relative z-10">
@@ -496,7 +484,7 @@ function ServiceCard({
                     href={s.href}
                     className="inline-flex w-fit items-center justify-center gap-2 md:gap-3 rounded-full bg-gradient-to-r from-emerald-500 to-yellow-500 px-4 py-2 md:px-5 md:py-2.5 text-[12px] md:text-[14px] font-bold text-black transition-all shadow-[0_0_30px_rgba(16,185,129,0.3)] hover:shadow-[0_0_50px_rgba(234,179,8,0.5)] hover:scale-[1.02]"
                   >
-                    Explore Agentic AI Services
+                    Explore AI Development Services
                     <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
@@ -506,7 +494,7 @@ function ServiceCard({
               </div>
 
               {/* RIGHT */}
-              <a href={s.href} className="group/right block cursor-pointer hover:opacity-95 transition-opacity relative w-[90%] lg:w-[85%] mx-auto h-auto flex flex-col items-center justify-center lg:justify-end min-h-[250px] md:min-h-[400px] lg:min-h-[600px] mt-6 lg:mt-0 pb-8 lg:pb-0">
+              <a href={s.href} className="group/right hidden lg:flex block cursor-pointer hover:opacity-95 transition-opacity relative w-[90%] lg:w-[85%] mx-auto h-auto flex-col items-center justify-center lg:justify-end min-h-[250px] md:min-h-[400px] lg:min-h-[600px] mt-6 lg:mt-0 pb-8 lg:pb-0">
 
                 {/* 
                   The Hero Robot Visual
@@ -573,7 +561,7 @@ function ServiceCard({
             <div className="pointer-events-none absolute bottom-[10%] right-[20%] w-[40%] h-[40%] rounded-full bg-blue-600/10 blur-[100px]" />
             <div className="pointer-events-none absolute top-[40%] right-[40%] w-[30%] h-[30%] rounded-full bg-fuchsia-600/10 blur-[80px]" />
 
-            <div className="relative z-10 grid min-h-full h-auto grid-cols-1 items-center gap-6 p-6 md:gap-10 md:p-12 lg:grid-cols-[45fr_55fr] lg:gap-10 lg:p-10 xl:p-12">
+            <div className="relative z-10 grid min-h-full h-auto grid-cols-1 items-center gap-6 p-4 sm:p-5 md:p-12 lg:grid-cols-[45fr_55fr] lg:gap-10 lg:p-10 xl:p-12">
 
               {/* LEFT */}
               <div className="flex flex-col h-auto justify-center">
@@ -601,13 +589,13 @@ function ServiceCard({
                   </h3>
                 </a>
 
-                <p className="max-w-[480px] text-[13px] leading-[1.6] text-white/70 md:text-[14px] lg:text-[15px] mb-5 md:mb-6">
+                <p className="max-w-[480px] text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] leading-[1.6] text-white/70 mb-3 md:mb-6">
                   {s.desc}
                 </p>
 
                 {/* White Label Panel */}
                 {s.whiteLabel && (
-                  <div className="mb-5 md:mb-6 flex flex-col gap-3 md:gap-4 rounded-2xl border border-purple-500/30 bg-[#0a0815]/70 p-5 md:p-7 backdrop-blur-xl max-w-[520px] shadow-[0_10px_40px_rgba(0,0,0,0.5),inset_0_0_30px_rgba(168,85,247,0.05)] relative overflow-hidden group/audit">
+                  <div className="mb-3 md:mb-6 flex flex-col gap-3 md:gap-4 rounded-2xl border border-purple-500/30 bg-[#0a0815]/70 p-3.5 sm:p-4 md:p-7 backdrop-blur-xl max-w-[520px] shadow-[0_10px_40px_rgba(0,0,0,0.5),inset_0_0_30px_rgba(168,85,247,0.05)] relative overflow-hidden group/audit">
                     <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover/audit:opacity-100 transition-opacity duration-500" />
 
                     <div className="flex items-center gap-4 md:gap-5 relative z-10">
@@ -675,7 +663,7 @@ function ServiceCard({
               </div>
 
               {/* RIGHT */}
-              <a href={s.href} className="group/right block cursor-pointer hover:opacity-95 transition-opacity relative w-[90%] lg:w-[85%] mx-auto h-auto flex flex-col items-center justify-center lg:justify-end min-h-[250px] md:min-h-[400px] lg:min-h-[600px] mt-6 lg:mt-0 pb-8 lg:pb-0">
+              <a href={s.href} className="group/right hidden lg:flex block cursor-pointer hover:opacity-95 transition-opacity relative w-[90%] lg:w-[85%] mx-auto h-auto flex flex-col items-center justify-center lg:justify-end min-h-[250px] md:min-h-[400px] lg:min-h-[600px] mt-6 lg:mt-0 pb-8 lg:pb-0">
 
                 {/* 
                   The Hero AI Visual
@@ -704,140 +692,6 @@ function ServiceCard({
             </div>
           </>
         ) : s.n === "04" ? (
-          <>
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0 opacity-80"
-              style={{
-                background: `
-                  radial-gradient(ellipse at 75% 40%, rgba(22, 199, 255, 0.15), transparent 60%),
-                  radial-gradient(ellipse at 15% 20%, rgba(59, 130, 246, 0.1), transparent 40%),
-                  radial-gradient(ellipse at 90% 70%, rgba(255, 210, 26, 0.05), transparent 50%)
-                `,
-              }}
-            />
-            {/* Grid overlay for a tech feel */}
-            <div className="absolute inset-0 z-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(22, 199, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(22, 199, 255, 0.1) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-
-            <div className="relative z-10 grid min-h-full h-auto grid-cols-1 items-center gap-6 p-6 md:gap-10 md:p-12 lg:grid-cols-[42fr_58fr] lg:gap-10 lg:p-10 xl:p-12">
-
-              {/* LEFT */}
-              <div className="flex flex-col h-auto justify-center">
-                <span className="mb-4 md:mb-6 inline-flex items-center gap-3 md:gap-4 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-white/90">
-                  <span className="h-[2px] w-8 md:w-10 bg-[#168CFF] rounded-full" />
-                  SERVICES WE DELIVER
-                  <span className="h-[2px] w-8 md:w-10 bg-[#FFD21A] rounded-full" />
-                </span>
-
-                <a href={s.href} className="block relative mb-4 md:mb-5 pr-28 md:pr-32 lg:pr-12 cursor-pointer hover:opacity-80 transition-opacity">
-                  {/* Number */}
-                  <span className="absolute top-0 right-0 lg:right-[-10px] text-[16px] md:text-[16px] lg:text-[22px] font-bold text-cyan-400 drop-shadow-[0_0_10px_rgba(34,211,238,0.5)]">
-                    {`{${s.n}}`}
-                  </span>
-                  {/* Headline */}
-                  <h3
-                    className="font-[800] text-white leading-[1.1] md:leading-[1.05] tracking-tight text-wrap md:text-balance"
-                    style={{ fontSize: "clamp(20px, 5vw, 48px)" }}
-                  >
-                    AI Workflow{" "}
-                    <span className="bg-gradient-to-r from-[#168CFF] to-[#16C7FF] bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(22,199,255,0.2)]">
-                      Orchestration
-                    </span>
-                  </h3>
-                </a>
-
-                <p className="max-w-[500px] text-[13px] leading-[1.6] text-white/70 md:text-[14px] lg:text-[15px] mb-5 md:mb-6">
-                  {s.desc}
-                </p>
-
-                {/* White Label Panel */}
-                {s.whiteLabel && (
-                  <div className="mb-5 md:mb-6 flex flex-col gap-4 md:gap-5 rounded-2xl border border-[#16C7FF]/30 bg-[#03101A]/80 p-5 md:p-7 backdrop-blur-xl max-w-[520px] shadow-[0_10px_40px_rgba(0,0,0,0.5),inset_0_0_30px_rgba(22,199,255,0.05)]">
-                    <div className="flex items-center gap-4 md:gap-5">
-                      <div className="flex h-10 w-10 md:h-12 md:w-12 shrink-0 items-center justify-center rounded-xl bg-[#168CFF]/20 text-[#16C7FF] border border-[#16C7FF]/40 shadow-[0_0_20px_rgba(22,199,255,0.3)]">
-                        <svg className="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 8h4M10 18h4M8 10v4M18 10v4" />
-                        </svg>
-                      </div>
-                      <div className="flex flex-col">
-                        <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.15em] text-[#16C7FF]">
-                          {s.whiteLabel.title}
-                        </span>
-                        <span className="text-[11px] md:text-[12px] font-medium text-white/90 mt-0.5 md:mt-1">
-                          {s.whiteLabel.subtitle}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="h-px w-full bg-[#16C7FF]/10" />
-
-                    <div className="flex flex-wrap gap-x-4 md:gap-x-6 gap-y-2 md:gap-y-3">
-                      {s.whiteLabel.features.map((feat, i) => (
-                        <div key={i} className="flex items-center gap-2">
-                          <div className="flex h-4 w-4 items-center justify-center rounded bg-[#16C7FF]/20 text-[#16C7FF]">
-                            <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                            </svg>
-                          </div>
-                          <span className="text-[11px] md:text-[12px] font-medium text-white/80">{feat}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 md:gap-3 mb-4 md:mb-5">
-                  {s.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="flex items-center gap-2 rounded-full border border-[#168CFF]/40 bg-[#168CFF]/10 px-4 py-1.5 md:px-5 md:py-2 text-[11px] md:text-[12px] font-medium tracking-wide text-white/90 backdrop-blur-md shadow-[0_0_15px_rgba(22,199,255,0.1)] transition-colors hover:bg-[#168CFF]/20"
-                    >
-                      <svg className="w-3 h-3 text-[#16C7FF]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                {/* CTA (Top Right) */}
-                <div className="mt-6 md:mt-8 z-[100] pointer-events-auto flex justify-start">
-
-
-
-                  {/* CTA */}
-                  <a
-                    href={s.href}
-                    className="inline-flex w-fit items-center justify-center gap-2 md:gap-3 rounded-full bg-gradient-to-r from-[#168CFF] via-[#16C7FF] to-[#10B981] px-4 py-2 md:px-5 md:py-2.5 text-[12px] md:text-[14px] font-bold text-white transition-all shadow-[0_0_30px_rgba(22,199,255,0.4)] hover:shadow-[0_0_50px_rgba(22,199,255,0.6)] hover:scale-[1.02]"
-                  >
-                    Explore AI Workflow Orchestration Services
-                    <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </a>
-
-                </div>
-              </div>
-
-              {/* RIGHT */}
-              <a href={s.href} className="group/right block cursor-pointer hover:opacity-95 transition-opacity relative w-[90%] lg:w-[85%] mx-auto h-auto flex items-center justify-center lg:justify-end mt-6 lg:mt-0 pb-8 lg:pb-0 z-10">
-                {/* Glow behind the image */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] max-w-[800px] bg-gradient-to-br from-[#16C7FF]/20 via-[#168CFF]/20 to-[#FFD21A]/10 blur-[100px] rounded-full pointer-events-none" />
-
-                <div className="relative z-10 w-full max-w-[95%] lg:max-w-none transform transition-transform duration-700 hover:scale-[1.01]">
-                  <Image
-                    src={s.img}
-                    alt={s.title}
-                    width={1000}
-                    height={800}
-                    className="w-full h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
-                    sizes="(max-width: 1024px) 100vw, 60vw"
-                    priority={index < 2}
-                  />
-                </div>
-              </a>
-            </div>
-          </>
-        ) : s.n === "05" ? (
           <>
             <div
               aria-hidden
@@ -895,13 +749,13 @@ function ServiceCard({
                 </a>
 
                 {/* Description */}
-                <p className="max-w-[480px] text-[13px] leading-[1.6] text-white/70 md:text-[14px] lg:text-[15px] mb-5 md:mb-6">
+                <p className="max-w-[480px] text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] leading-[1.6] text-white/70 mb-3 md:mb-6">
                   {s.desc}
                 </p>
 
                 {/* White Label Panel */}
                 {s.whiteLabel && (
-                  <div className="mb-5 md:mb-6 flex flex-col gap-3 md:gap-4 rounded-2xl border border-cyan-500/20 bg-[#020617]/60 p-5 md:p-7 backdrop-blur-xl max-w-[520px] shadow-[0_10px_40px_rgba(0,0,0,0.5),inset_0_0_30px_rgba(6,182,212,0.05)] relative overflow-hidden group/audit">
+                  <div className="mb-3 md:mb-6 flex flex-col gap-3 md:gap-4 rounded-2xl border border-cyan-500/20 bg-[#020617]/60 p-3.5 sm:p-4 md:p-7 backdrop-blur-xl max-w-[520px] shadow-[0_10px_40px_rgba(0,0,0,0.5),inset_0_0_30px_rgba(6,182,212,0.05)] relative overflow-hidden group/audit">
                     <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover/audit:opacity-100 transition-opacity duration-500" />
 
                     <div className="flex items-center gap-4 md:gap-5 relative z-10">
@@ -968,7 +822,7 @@ function ServiceCard({
               </div>
 
               {/* RIGHT */}
-              <div className="relative w-[90%] lg:w-[85%] mx-auto h-auto flex items-center justify-center lg:justify-end min-h-[200px] md:min-h-[350px] lg:min-h-[500px] mt-6 lg:mt-0 lg:pl-10 pb-8 lg:pb-0">
+              <div className="relative hidden lg:flex w-[90%] lg:w-[85%] mx-auto h-auto items-center justify-center lg:justify-end min-h-[200px] md:min-h-[350px] lg:min-h-[500px] mt-6 lg:mt-0 lg:pl-10 pb-8 lg:pb-0">
 
                 {/* Background bloom strictly around image */}
                 <div className="absolute top-[40%] right-[10%] -translate-y-1/2 w-[140%] h-[140%] max-w-[800px] max-h-[800px] bg-gradient-to-br from-cyan-600/40 via-blue-600/30 to-emerald-500/20 blur-[120px] rounded-full pointer-events-none" />
@@ -995,7 +849,7 @@ function ServiceCard({
               </div>
             </div>
           </>
-        ) : s.n === "06" ? (
+        ) : s.n === "05" ? (
           <>
             <div
               aria-hidden
@@ -1025,7 +879,7 @@ function ServiceCard({
               <circle cx="700" cy="500" r="4" fill="#f97316" opacity="0.5" className="animate-ping" />
             </svg>
 
-            <div className="relative z-10 grid min-h-full h-auto grid-cols-1 items-center gap-6 p-6 md:gap-10 md:p-12 lg:grid-cols-[45fr_55fr] lg:gap-10 lg:p-10 xl:p-12">
+            <div className="relative z-10 grid min-h-full h-auto grid-cols-1 items-center gap-6 p-4 sm:p-5 md:p-12 lg:grid-cols-[45fr_55fr] lg:gap-10 lg:p-10 xl:p-12">
 
               {/* LEFT */}
               <div className="flex flex-col h-auto justify-center">
@@ -1054,13 +908,13 @@ function ServiceCard({
                 </a>
 
                 {/* Description */}
-                <p className="max-w-[480px] text-[13px] leading-[1.6] text-white/70 md:text-[14px] lg:text-[15px] mb-5 md:mb-6">
+                <p className="max-w-[480px] text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] leading-[1.6] text-white/70 mb-3 md:mb-6">
                   {s.desc}
                 </p>
 
                 {/* White Label Panel */}
                 {s.whiteLabel && (
-                  <div className="mb-5 md:mb-6 flex flex-col gap-3 md:gap-4 rounded-2xl border border-orange-500/20 bg-[#120f18]/60 p-5 md:p-7 backdrop-blur-xl max-w-[520px] shadow-[0_10px_40px_rgba(0,0,0,0.5),inset_0_0_30px_rgba(249,115,22,0.05)] relative overflow-hidden group/audit">
+                  <div className="mb-3 md:mb-6 flex flex-col gap-3 md:gap-4 rounded-2xl border border-orange-500/20 bg-[#120f18]/60 p-3.5 sm:p-4 md:p-7 backdrop-blur-xl max-w-[520px] shadow-[0_10px_40px_rgba(0,0,0,0.5),inset_0_0_30px_rgba(249,115,22,0.05)] relative overflow-hidden group/audit">
                     <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent opacity-0 group-hover/audit:opacity-100 transition-opacity duration-500" />
 
                     <div className="flex items-center gap-4 md:gap-5 relative z-10">
@@ -1131,7 +985,7 @@ function ServiceCard({
               </div>
 
               {/* RIGHT */}
-              <div className="relative w-[90%] lg:w-[85%] mx-auto h-auto flex items-center justify-center lg:justify-end min-h-[200px] md:min-h-[350px] lg:min-h-[500px] mt-6 lg:mt-0 lg:pl-10 pb-8 lg:pb-0">
+              <div className="relative hidden lg:flex w-[90%] lg:w-[85%] mx-auto h-auto items-center justify-center lg:justify-end min-h-[200px] md:min-h-[350px] lg:min-h-[500px] mt-6 lg:mt-0 lg:pl-10 pb-8 lg:pb-0">
 
                 {/* Background bloom strictly around image */}
                 <div className="absolute top-[40%] right-[10%] -translate-y-1/2 w-[120%] h-[120%] max-w-[700px] max-h-[700px] bg-gradient-to-br from-orange-600/20 via-purple-600/20 to-transparent blur-[120px] rounded-full pointer-events-none" />
@@ -1157,7 +1011,7 @@ function ServiceCard({
               </div>
             </div>
           </>
-        ) : s.n === "07" ? (
+        ) : s.n === "06" ? (
           <>
             <div
               aria-hidden
@@ -1187,7 +1041,7 @@ function ServiceCard({
               <circle cx="700" cy="500" r="4" fill="#10b981" opacity="0.5" className="animate-ping" />
             </svg>
 
-            <div className="relative z-10 grid min-h-full h-auto grid-cols-1 items-center gap-6 p-6 md:gap-10 md:p-12 lg:grid-cols-[45fr_55fr] lg:gap-10 lg:p-10 xl:p-12">
+            <div className="relative z-10 grid min-h-full h-auto grid-cols-1 items-center gap-6 p-4 sm:p-5 md:p-12 lg:grid-cols-[45fr_55fr] lg:gap-10 lg:p-10 xl:p-12">
 
               {/* LEFT */}
               <div className="flex flex-col h-auto justify-center">
@@ -1216,13 +1070,13 @@ function ServiceCard({
                 </a>
 
                 {/* Description */}
-                <p className="max-w-[480px] text-[13px] leading-[1.6] text-white/70 md:text-[14px] lg:text-[15px] mb-5 md:mb-6">
+                <p className="max-w-[480px] text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] leading-[1.6] text-white/70 mb-3 md:mb-6">
                   {s.desc}
                 </p>
 
                 {/* White Label Panel */}
                 {s.whiteLabel && (
-                  <div className="mb-5 md:mb-6 flex flex-col gap-3 md:gap-4 rounded-2xl border border-emerald-500/20 bg-[#062522]/60 p-5 md:p-7 backdrop-blur-xl max-w-[520px] shadow-[0_10px_40px_rgba(0,0,0,0.5),inset_0_0_30px_rgba(16,185,129,0.05)] relative overflow-hidden group/audit">
+                  <div className="mb-3 md:mb-6 flex flex-col gap-3 md:gap-4 rounded-2xl border border-emerald-500/20 bg-[#062522]/60 p-3.5 sm:p-4 md:p-7 backdrop-blur-xl max-w-[520px] shadow-[0_10px_40px_rgba(0,0,0,0.5),inset_0_0_30px_rgba(16,185,129,0.05)] relative overflow-hidden group/audit">
                     <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent opacity-0 group-hover/audit:opacity-100 transition-opacity duration-500" />
 
                     <div className="flex items-center gap-4 md:gap-5 relative z-10">
@@ -1293,7 +1147,7 @@ function ServiceCard({
               </div>
 
               {/* RIGHT */}
-              <div className="relative w-[90%] lg:w-[85%] mx-auto h-auto flex items-center justify-center lg:justify-end min-h-[200px] md:min-h-[350px] lg:min-h-[500px] mt-6 lg:mt-0 lg:pl-10 pb-8 lg:pb-0">
+              <div className="relative hidden lg:flex w-[90%] lg:w-[85%] mx-auto h-auto items-center justify-center lg:justify-end min-h-[200px] md:min-h-[350px] lg:min-h-[500px] mt-6 lg:mt-0 lg:pl-10 pb-8 lg:pb-0">
 
                 {/* Background bloom strictly around image */}
                 <div className="absolute top-[40%] right-[10%] -translate-y-1/2 w-[120%] h-[120%] max-w-[700px] max-h-[700px] bg-gradient-to-br from-emerald-600/20 via-lime-600/10 to-transparent blur-[120px] rounded-full pointer-events-none" />
@@ -1319,7 +1173,7 @@ function ServiceCard({
               </div>
             </div>
           </>
-        ) : s.n === "08" ? (
+        ) : s.n === "07" ? (
           <>
             <div
               aria-hidden
@@ -1349,7 +1203,7 @@ function ServiceCard({
               <circle cx="700" cy="500" r="4" fill="#f97316" opacity="0.5" className="animate-ping" />
             </svg>
 
-            <div className="relative z-10 grid min-h-full h-auto grid-cols-1 items-center gap-6 p-6 md:gap-10 md:p-12 lg:grid-cols-[45fr_55fr] lg:gap-10 lg:p-10 xl:p-12">
+            <div className="relative z-10 grid min-h-full h-auto grid-cols-1 items-center gap-6 p-4 sm:p-5 md:p-12 lg:grid-cols-[45fr_55fr] lg:gap-10 lg:p-10 xl:p-12">
 
               {/* LEFT */}
               <div className="flex flex-col h-auto justify-center">
@@ -1379,13 +1233,13 @@ function ServiceCard({
                 </a>
 
                 {/* Description */}
-                <p className="max-w-[480px] text-[13px] leading-[1.6] text-white/70 md:text-[14px] lg:text-[15px] mb-5 md:mb-6">
+                <p className="max-w-[480px] text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] leading-[1.6] text-white/70 mb-3 md:mb-6">
                   {s.desc}
                 </p>
 
                 {/* White Label Panel */}
                 {s.whiteLabel && (
-                  <div className="mb-5 md:mb-6 flex flex-col gap-3 md:gap-4 rounded-2xl border border-orange-500/20 bg-[#0a0605]/60 p-5 md:p-7 backdrop-blur-xl max-w-[520px] shadow-[0_10px_40px_rgba(0,0,0,0.5),inset_0_0_30px_rgba(249,115,22,0.05)] relative overflow-hidden group/audit">
+                  <div className="mb-3 md:mb-6 flex flex-col gap-3 md:gap-4 rounded-2xl border border-orange-500/20 bg-[#0a0605]/60 p-3.5 sm:p-4 md:p-7 backdrop-blur-xl max-w-[520px] shadow-[0_10px_40px_rgba(0,0,0,0.5),inset_0_0_30px_rgba(249,115,22,0.05)] relative overflow-hidden group/audit">
                     <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent opacity-0 group-hover/audit:opacity-100 transition-opacity duration-500" />
 
                     <div className="flex items-center gap-4 md:gap-5 relative z-10">
@@ -1456,7 +1310,7 @@ function ServiceCard({
               </div>
 
               {/* RIGHT */}
-              <div className="relative w-[90%] lg:w-[85%] mx-auto h-auto flex items-center justify-center lg:justify-end min-h-[200px] md:min-h-[350px] lg:min-h-[500px] mt-6 lg:mt-0 lg:pl-10 pb-8 lg:pb-0">
+              <div className="relative hidden lg:flex w-[90%] lg:w-[85%] mx-auto h-auto items-center justify-center lg:justify-end min-h-[200px] md:min-h-[350px] lg:min-h-[500px] mt-6 lg:mt-0 lg:pl-10 pb-8 lg:pb-0">
 
                 {/* Background bloom strictly around image */}
                 <div className="absolute top-[40%] right-[10%] -translate-y-1/2 w-[120%] h-[120%] max-w-[700px] max-h-[700px] bg-gradient-to-br from-orange-600/20 via-pink-600/10 to-transparent blur-[120px] rounded-full pointer-events-none" />
@@ -1483,7 +1337,7 @@ function ServiceCard({
               </div>
             </div>
           </>
-        ) : s.n === "09" ? (
+        ) : s.n === "08" ? (
           <>
             <div
               aria-hidden
@@ -1513,7 +1367,7 @@ function ServiceCard({
               <circle cx="700" cy="500" r="4" fill="#3b82f6" opacity="0.5" className="animate-ping" />
             </svg>
 
-            <div className="relative z-10 grid min-h-full h-auto grid-cols-1 items-center gap-6 p-6 md:gap-10 md:p-12 lg:grid-cols-[45fr_55fr] lg:gap-10 lg:p-10 xl:p-12">
+            <div className="relative z-10 grid min-h-full h-auto grid-cols-1 items-center gap-6 p-4 sm:p-5 md:p-12 lg:grid-cols-[45fr_55fr] lg:gap-10 lg:p-10 xl:p-12">
 
               {/* LEFT */}
               <div className="flex flex-col h-auto justify-center">
@@ -1542,13 +1396,13 @@ function ServiceCard({
                 </a>
 
                 {/* Description */}
-                <p className="max-w-[480px] text-[13px] leading-[1.6] text-white/70 md:text-[14px] lg:text-[15px] mb-5 md:mb-6">
+                <p className="max-w-[480px] text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] leading-[1.6] text-white/70 mb-3 md:mb-6">
                   {s.desc}
                 </p>
 
                 {/* White Label Panel */}
                 {s.whiteLabel && (
-                  <div className="mb-5 md:mb-6 flex flex-col gap-3 md:gap-4 rounded-2xl border border-cyan-500/20 bg-[#060814]/60 p-5 md:p-7 backdrop-blur-xl max-w-[520px] shadow-[0_10px_40px_rgba(0,0,0,0.5),inset_0_0_30px_rgba(34,211,238,0.05)] relative overflow-hidden group/audit">
+                  <div className="mb-3 md:mb-6 flex flex-col gap-3 md:gap-4 rounded-2xl border border-cyan-500/20 bg-[#060814]/60 p-3.5 sm:p-4 md:p-7 backdrop-blur-xl max-w-[520px] shadow-[0_10px_40px_rgba(0,0,0,0.5),inset_0_0_30px_rgba(34,211,238,0.05)] relative overflow-hidden group/audit">
                     <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover/audit:opacity-100 transition-opacity duration-500" />
 
                     <div className="flex items-center gap-4 md:gap-5 relative z-10">
@@ -1619,7 +1473,7 @@ function ServiceCard({
               </div>
 
               {/* RIGHT */}
-              <div className="relative w-[90%] lg:w-[85%] mx-auto h-auto flex items-center justify-center lg:justify-end min-h-[200px] md:min-h-[350px] lg:min-h-[500px] mt-6 lg:mt-0 lg:pl-10 pb-8 lg:pb-0">
+              <div className="relative hidden lg:flex w-[90%] lg:w-[85%] mx-auto h-auto items-center justify-center lg:justify-end min-h-[200px] md:min-h-[350px] lg:min-h-[500px] mt-6 lg:mt-0 lg:pl-10 pb-8 lg:pb-0">
 
                 {/* Background bloom strictly around image */}
                 <div className="absolute top-[40%] right-[10%] -translate-y-1/2 w-[120%] h-[120%] max-w-[700px] max-h-[700px] bg-gradient-to-br from-cyan-500/10 via-purple-600/10 to-transparent blur-[120px] rounded-full pointer-events-none" />
@@ -1738,10 +1592,10 @@ function ServiceCard({
                   </div>
                 </div>
 
-                {/* RIGHT Ã¢â‚¬â€ image with red overlay wipe */}
+                {/* RIGHT Ã¢â‚¬â€  image with red overlay wipe */}
                 <a
                   href={s.href}
-                  className="relative block w-full overflow-hidden"
+                  className="relative hidden lg:block w-full overflow-hidden"
                   style={{
                     aspectRatio: "4 / 3",
                     maxHeight: "min(60svh, 520px)",

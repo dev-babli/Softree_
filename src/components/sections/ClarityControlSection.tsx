@@ -215,7 +215,7 @@ function KpiStrip({
     }>;
 }) {
     return (
-        <div className="flex items-start gap-4">
+        <div className="flex items-start gap-2.5 sm:gap-4">
             {items.map((it, i) => (
                 <motion.div
                     key={i}
@@ -230,14 +230,14 @@ function KpiStrip({
                     className={`${it.align === "center" ? "text-center" : ""} group`}
                 >
                     <div
-                        className={`${it.big ? "text-[24px]" : "text-[20px]"} font-bold leading-none tracking-[-0.03em] text-white tabular-nums transition-all duration-300 group-hover:scale-105`}
+                        className={`${it.big ? "text-[18px] sm:text-[24px]" : "text-[16px] sm:text-[20px]"} font-bold leading-none tracking-[-0.03em] text-white tabular-nums transition-all duration-300 group-hover:scale-105`}
                         style={{
                             textShadow: "0 2px 4px rgba(0,0,0,0.40), 0 0 12px rgba(255,255,255,0.15)"
                         }}
                     >
                         {it.value}
                     </div>
-                    <div className="mt-2 text-[10px] text-white/70 font-medium tracking-[0.02em] uppercase">
+                    <div className="mt-1 sm:mt-2 text-[8px] sm:text-[10px] text-white/70 font-medium tracking-[0.02em] uppercase">
                         {it.label}
                     </div>
                 </motion.div>
@@ -797,7 +797,7 @@ export function GlobalMapGlassPanel() {
 function Card3Visual() {
     return (
         <div
-            className="relative flex h-full w-full flex-col overflow-hidden rounded-2xl"
+            className="relative flex h-auto w-full flex-col overflow-hidden rounded-2xl"
             style={{
                 /* Tinted dark glass that lets the peach Grainient bleed through.
                  * Three layers stacked via background-image:
@@ -818,7 +818,7 @@ function Card3Visual() {
         >
             {/* Header row — globe glyph + label (left) + status dots (right).
              * Consistent px-5 horizontal rhythm across every row. */}
-            <div className="flex items-center justify-between px-4 pt-3">
+            <div className="flex items-center justify-between px-3 pt-2.5 sm:px-4 sm:pt-3">
                 <div className="flex items-center gap-2">
                     {/* Globe glyph */}
                     <svg width="12" height="12" viewBox="0 0 13 13" fill="none" aria-hidden className="shrink-0">
@@ -840,29 +840,29 @@ function Card3Visual() {
 
             {/* Hero metric — the big number. Optical baseline aligns with
              * the header row's text via matched pl-5 + slight pt-3.5. */}
-            <div className="px-4 pt-2.5">
+            <div className="px-3 pt-2 sm:px-4 sm:pt-2.5">
                 <span
-                    className="block text-[38px] font-semibold leading-[0.92] tracking-[-0.04em] text-white tabular-nums"
+                    className="block text-[28px] sm:text-[38px] font-semibold leading-[0.92] tracking-[-0.04em] text-white tabular-nums"
                     style={{ textShadow: "0 1px 2px rgba(0,0,0,0.32)" }}
                 >
                     <CountUp to={99.9} decimals={1} suffix="%" duration={1.8} />
                 </span>
-                <span className="mt-1 block text-[9px] font-semibold uppercase tracking-[0.14em] text-white/55">
+                <span className="mt-1 block text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.14em] text-white/55">
                     SUCCESSFUL DELIVERY
                 </span>
             </div>
 
-            <div className="px-4 pt-2">
+            <div className="px-3 pt-1.5 sm:px-4 sm:pt-2">
                 <div className="h-px w-full bg-gradient-to-r from-white/0 via-white/22 to-white/0" />
                 <div className="mt-2 flex items-center gap-1.5">
                     <span className="block h-1.5 w-1.5 rounded-full bg-[#FF6B00] shadow-[0_0_6px_rgba(255,107,0,0.55)]" />
-                    <span className="text-[9.5px] font-medium text-white/70 leading-none tracking-[0.005em]">
+                    <span className="text-[8.5px] sm:text-[9.5px] font-medium text-white/70 leading-none tracking-[0.005em]">
                         Active deployments worldwide
                     </span>
                 </div>
             </div>
 
-            <div className="relative mt-2 min-h-[140px] flex-1 px-3 pb-4 pt-1">
+            <div className="relative mt-2 min-h-[110px] sm:min-h-[140px] flex-1 px-2 sm:px-3 pb-3 sm:pb-4 pt-1">
                 <Card3DottedMap />
             </div>
         </div>
@@ -875,7 +875,7 @@ function Card3Visual() {
 
 function Card1Visual() {
     return (
-        <div className="relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-white/30 bg-gradient-to-br from-white/[0.18] via-white/[0.10] to-white/[0.04] p-4 backdrop-blur-2xl shadow-[inset_0_1px_0_rgba(255,255,255,0.30),0_18px_44px_-18px_rgba(0,0,0,0.45)]">
+        <div className="relative flex h-auto w-full flex-col overflow-hidden rounded-2xl border border-white/30 bg-gradient-to-br from-white/[0.18] via-white/[0.10] to-white/[0.04] p-3 sm:p-4 backdrop-blur-2xl shadow-[inset_0_1px_0_rgba(255,255,255,0.30),0_18px_44px_-18px_rgba(0,0,0,0.45)]">
             <CardHeader
                 accent="#7CD2FF"
                 label="Project Delivery"
@@ -895,7 +895,7 @@ function Card1Visual() {
                     ]}
                 />
             </div>
-            <div className="mt-2 min-h-[160px] flex-1">
+            <div className="mt-2 min-h-[120px] sm:min-h-[160px] flex-1">
                 <Card1Scene />
             </div>
         </div>
@@ -904,7 +904,7 @@ function Card1Visual() {
 
 function Card2Visual() {
     return (
-        <div className="relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-br from-black/30 via-black/55 to-black/70 p-4 backdrop-blur-2xl shadow-[inset_0_1px_0_rgba(255,255,255,0.10),0_18px_44px_-18px_rgba(0,0,0,0.55)]">
+        <div className="relative flex h-auto w-full flex-col overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-br from-black/30 via-black/55 to-black/70 p-3 sm:p-4 backdrop-blur-2xl shadow-[inset_0_1px_0_rgba(255,255,255,0.10),0_18px_44px_-18px_rgba(0,0,0,0.55)]">
             <CardHeader
                 accent="#B8DA8F"
                 label="AI Operations"
@@ -918,12 +918,12 @@ function Card2Visual() {
             <div className="mt-2">
                 <div className="flex flex-col gap-0.5">
                     <span
-                        className="text-[32px] font-semibold leading-none tracking-[-0.04em] text-white tabular-nums"
+                        className="text-[24px] sm:text-[32px] font-semibold leading-none tracking-[-0.04em] text-white tabular-nums"
                         style={{ textShadow: "0 1px 2px rgba(0,0,0,0.30)" }}
                     >
                         <CountUp to={97.8} decimals={1} suffix="%" duration={1.8} />
                     </span>
-                    <span className="text-[10px] text-white/70">Workflow Accuracy</span>
+                    <span className="text-[8.5px] sm:text-[10px] text-white/70">Workflow Accuracy</span>
                 </div>
                 <div className="mt-1.5 h-[16px]">
                     <svg viewBox="0 0 220 24" className="h-full w-full" aria-hidden>
@@ -941,7 +941,7 @@ function Card2Visual() {
                     </svg>
                 </div>
             </div>
-            <div className="mt-2 min-h-[160px] flex-1">
+            <div className="mt-2 min-h-[120px] sm:min-h-[160px] flex-1">
                 <Card2Scene />
             </div>
         </div>
@@ -1104,31 +1104,31 @@ export function ClarityGlassCard({
                                 "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.22) 100%)",
                         }}
                     />
-                    <div className="absolute inset-0 flex flex-col p-6 z-10 pointer-events-none">
+                    <div className="absolute inset-0 flex flex-col p-4 sm:p-5 lg:p-5 xl:p-6 z-10 pointer-events-none">
                         <div className="mb-4">
                             {c.icon && (
-                                <div className="mb-4 grid h-[52px] w-[52px] place-items-center rounded-full border border-white/20 bg-white/10 shadow-[0_4px_12px_rgba(0,0,0,0.1)] backdrop-blur-md">
+                                <div className="mb-2 lg:mb-2.5 grid h-9 w-9 lg:h-11 lg:w-11 place-items-center rounded-full border border-white/20 bg-white/10 shadow-[0_4px_12px_rgba(0,0,0,0.1)] backdrop-blur-md [&>svg]:h-4.5 [&>svg]:w-4.5 lg:[&>svg]:h-5.5 lg:[&>svg]:w-5.5">
                                     {c.icon}
                                 </div>
                             )}
-                            <h4 className="text-[18px] font-bold leading-tight tracking-tight text-white uppercase shadow-black/20" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.4)" }}>
+                            <h4 className="text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[17px] font-bold leading-tight tracking-tight text-white uppercase shadow-black/20" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.4)" }}>
                                 {c.title.split('\n').map((line, i) => (
                                     <span key={i} className="block">{line}</span>
                                 ))}
                             </h4>
                             {c.subtitle && (
-                                <p className="mt-1.5 text-[13px] font-medium text-white/95" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}>
+                                <p className="mt-1 lg:mt-1.5 text-[10.5px] sm:text-[11.5px] lg:text-[11.5px] xl:text-[12px] font-medium text-white/95" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}>
                                     {c.subtitle}
                                 </p>
                             )}
-                            <p className="mt-3 text-[13px] leading-relaxed text-white/80 max-w-[280px]" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}>
+                            <p className="mt-1.5 lg:mt-2 text-[10.5px] sm:text-[11px] lg:text-[11.5px] xl:text-[12px] leading-relaxed text-white/80 max-w-[280px]" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}>
                                 {c.body}
                             </p>
                         </div>
                     </div>
                 </article>
                 <div
-                    className="absolute left-1/2 top-[56%] z-10 aspect-square w-[87.5%] max-w-[350px] -translate-x-1/2 overflow-hidden rounded-[24px] shadow-[0_24px_48px_-20px_rgba(10,10,26,0.42)] transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:-translate-y-0.5 motion-reduce:transition-none"
+                    className="absolute left-1/2 top-[64%] sm:top-[62%] lg:top-[60%] z-10 h-auto w-[92%] sm:w-[87.5%] max-w-[350px] -translate-x-1/2 overflow-hidden rounded-[24px] shadow-[0_24px_48px_-20px_rgba(10,10,26,0.42)] transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:-translate-y-0.5 motion-reduce:transition-none"
                     style={{ maxWidth: INNER_PX }}
                 >
                     <c.Visual />

@@ -46,7 +46,7 @@ const SCENE_ENTERPRISE = {
 };
 
 const GLASS_DARK =
-  "relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-white/14 bg-gradient-to-br from-black/25 via-black/45 to-black/65 p-4 backdrop-blur-2xl shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_18px_44px_-18px_rgba(0,0,0,0.5)]";
+  "relative flex h-auto w-full flex-col overflow-hidden rounded-2xl border border-white/14 bg-gradient-to-br from-black/25 via-black/45 to-black/65 p-3 sm:p-4 backdrop-blur-2xl shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_18px_44px_-18px_rgba(0,0,0,0.5)]";
 
 function GlassDots() {
   return (
@@ -62,24 +62,24 @@ function WhiteLabelGlassPanel() {
   return (
     <div className={GLASS_DARK}>
       <div className="flex items-center justify-between">
-        <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#FF5812]">
+        <span className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.22em] text-[#FF5812]">
           BRAND POWERED DELIVERY
         </span>
         <GlassDots />
       </div>
 
       {/* Two-column: Client-facing + Delivery Layer */}
-      <div className="mt-4 grid grid-cols-2 gap-3">
+      <div className="mt-3 grid grid-cols-2 gap-2 sm:mt-4 sm:gap-3">
         <div
-          className="flex flex-col items-center rounded-[14px] border border-white/[0.08] p-4 pt-5 pb-5 text-center"
+          className="flex flex-col items-center rounded-[14px] border border-white/[0.08] p-2.5 pt-3 pb-3 sm:p-4 sm:pt-5 sm:pb-5 text-center"
           style={{
             background:
               "linear-gradient(180deg, rgba(255,88,18,0.12) 0%, rgba(255,88,18,0.03) 100%)",
           }}
         >
           {/* 3 People Icon */}
-          <div className="mb-3">
-            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden>
+          <div className="mb-2 sm:mb-3">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden className="h-6 w-6 sm:h-[34px] sm:w-[34px]">
               {/* Left person (behind) */}
               <path d="M7 19v-2a3 3 0 0 1 2.3-2.9" stroke="#FF5812" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               <circle cx="5.5" cy="8.5" r="2.5" stroke="#FF5812" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -91,39 +91,39 @@ function WhiteLabelGlassPanel() {
               <circle cx="12" cy="9" r="3.5" stroke="#FF5812" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
-          <span className="text-[10px] font-bold uppercase tracking-[0.08em] text-white/80">
+          <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.08em] text-white/80">
             CLIENT-FACING
           </span>
-          <span className="mt-1 text-[11px] font-medium text-white/95">
+          <span className="mt-0.5 sm:mt-1 text-[10px] sm:text-[11px] font-medium text-white/95">
             100% Your Brand
           </span>
         </div>
         
         <div 
-          className="flex flex-col items-center rounded-[14px] border border-white/[0.08] p-4 pt-5 pb-5 text-center"
+          className="flex flex-col items-center rounded-[14px] border border-white/[0.08] p-2.5 pt-3 pb-3 sm:p-4 sm:pt-5 sm:pb-5 text-center"
           style={{
             background:
               "linear-gradient(180deg, rgba(255,88,18,0.06) 0%, rgba(255,88,18,0.01) 100%)",
           }}
         >
           {/* Shield Check Icon */}
-          <div className="mb-3">
-            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden>
+          <div className="mb-2 sm:mb-3">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden className="h-6 w-6 sm:h-[34px] sm:w-[34px]">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#FF5812" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               <path d="M9 12l2 2 4-4" stroke="#FF5812" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
-          <span className="text-[10px] font-bold uppercase tracking-[0.08em] text-white/80">
+          <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.08em] text-white/80">
             DELIVERY LAYER
           </span>
-          <span className="mt-1 text-[11px] font-medium text-white/95">
+          <span className="mt-0.5 sm:mt-1 text-[10px] sm:text-[11px] font-medium text-white/95">
             Softree — Invisible
           </span>
         </div>
       </div>
 
       {/* Workflow row: Design → Develop → Test → Deliver */}
-      <div className="mt-3 flex items-center justify-between rounded-[14px] border border-white/[0.06] bg-white/[0.02] p-3 px-5">
+      <div className="mt-2.5 sm:mt-3 flex items-center justify-between rounded-[14px] border border-white/[0.06] bg-white/[0.02] p-2.5 px-3 sm:p-3 sm:px-5">
         {[
           { label: "Design", icon: "pencil" },
           { label: "Develop", icon: "code" },
@@ -131,14 +131,14 @@ function WhiteLabelGlassPanel() {
           { label: "Deliver", icon: "rocket" },
         ].map((step, i, arr) => (
           <div key={step.label} className="flex items-center">
-            <div className="flex flex-col items-center gap-1.5">
-              <div className="flex h-10 w-10 items-center justify-center rounded-[10px] border border-white/10 bg-gradient-to-br from-[#4A1A05] to-[#1F0A02] shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
+            <div className="flex flex-col items-center gap-1 sm:gap-1.5">
+              <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-[8px] sm:rounded-[10px] border border-white/10 bg-gradient-to-br from-[#4A1A05] to-[#1F0A02] shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
                 <WorkflowIcon name={step.icon} />
               </div>
-              <span className="text-[11px] font-semibold text-white/90">{step.label}</span>
+              <span className="text-[9.5px] sm:text-[11px] font-semibold text-white/90">{step.label}</span>
             </div>
             {i !== arr.length - 1 && (
-              <span className="mx-2 mb-[16px] block h-1 w-1 rounded-full bg-[#FF5812] opacity-80" />
+              <span className="mx-1 sm:mx-2 mb-[12px] sm:mb-[16px] block h-1 w-1 rounded-full bg-[#FF5812] opacity-80" />
             )}
           </div>
         ))}
@@ -149,7 +149,7 @@ function WhiteLabelGlassPanel() {
 
 function WorkflowIcon({ name }: { name: string }) {
   const props = {
-    className: "h-5 w-5 text-[#FF6B00]",
+    className: "h-4 w-4 sm:h-5 sm:w-5 text-[#FF6B00]",
     strokeWidth: 1.5,
   };
   
@@ -163,25 +163,25 @@ function WorkflowIcon({ name }: { name: string }) {
 
 function AzureIcon() {
   return (
-    <img src="/logo/azure.png" alt="Azure" className="h-[18px] w-[18px] object-contain" />
+    <img src="/logo/azure.png" alt="Azure" className="h-3.5 w-3.5 sm:h-[18px] sm:w-[18px] object-contain" />
   );
 }
 
 function PowerPlatformIcon() {
   return (
-    <img src="/logo/power.png" alt="Power Platform" className="h-[18px] w-[18px] object-contain" />
+    <img src="/logo/power.png" alt="Power Platform" className="h-3.5 w-3.5 sm:h-[18px] sm:w-[18px] object-contain" />
   );
 }
 
 function M365Icon() {
   return (
-    <img src="/logo/m365.png" alt="Microsoft 365" className="h-[18px] w-[18px] object-contain" />
+    <img src="/logo/m365.png" alt="Microsoft 365" className="h-3.5 w-3.5 sm:h-[18px] sm:w-[18px] object-contain" />
   );
 }
 
 function CopilotIcon() {
   return (
-    <img src="/logo/copilot.png" alt="Copilot" className="h-[18px] w-[18px] object-contain" />
+    <img src="/logo/copilot.png" alt="Copilot" className="h-3.5 w-3.5 sm:h-[18px] sm:w-[18px] object-contain" />
   );
 }
 
@@ -200,64 +200,64 @@ function EnterpriseGlassPanel() {
   return (
     <div className={GLASS_DARK}>
       <div className="flex items-center justify-between">
-        <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#A3D95D]">
+        <span className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.22em] text-[#A3D95D]">
           MICROSOFT PARTNER
         </span>
         <GlassDots />
       </div>
 
       {/* Microsoft Solutions Partner row */}
-      <div className="mt-3 flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2.5">
-        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white">
+      <div className="mt-2 flex items-center gap-2 sm:gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-2 py-1.5 sm:mt-3 sm:px-3 sm:py-2.5">
+        <div className="flex h-7 w-7 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-md bg-white">
           <MsLogoIcon />
         </div>
         <div>
-          <p className="text-[11px] font-semibold text-white">Microsoft Solutions Partner</p>
-          <p className="text-[9px] text-white/55">Power Platform · Azure · AI</p>
+          <p className="text-[10px] sm:text-[11px] font-semibold text-white leading-tight">Microsoft Solutions Partner</p>
+          <p className="text-[8px] sm:text-[9px] text-white/55 leading-none">Power Platform · Azure · AI</p>
         </div>
       </div>
 
       {/* Metrics row */}
-      <div className="mt-3 grid grid-cols-3 gap-2 text-center">
-        <div className="rounded-lg border border-white/10 bg-white/[0.04] py-2">
-          <p className="text-[17px] font-bold tabular-nums tracking-[-0.03em] text-white">120+</p>
-          <p className="mt-0.5 text-[7px] font-medium uppercase tracking-[0.08em] text-white/55 leading-tight px-1">Specialists</p>
+      <div className="mt-2 grid grid-cols-3 gap-1.5 sm:gap-2 text-center sm:mt-3">
+        <div className="rounded-lg border border-white/10 bg-white/[0.04] py-1 sm:py-2">
+          <p className="text-[14px] sm:text-[17px] font-bold tabular-nums tracking-[-0.03em] text-white">120+</p>
+          <p className="mt-0.5 text-[6.5px] sm:text-[7px] font-medium uppercase tracking-[0.08em] text-white/55 leading-tight px-0.5">Specialists</p>
         </div>
-        <div className="rounded-lg border border-white/10 bg-white/[0.04] py-2">
-          <p className="text-[17px] font-bold tabular-nums tracking-[-0.03em] text-white">97%</p>
-          <p className="mt-0.5 text-[7px] font-medium uppercase tracking-[0.08em] text-white/55 leading-tight px-1">On-time delivery</p>
+        <div className="rounded-lg border border-white/10 bg-white/[0.04] py-1 sm:py-2">
+          <p className="text-[14px] sm:text-[17px] font-bold tabular-nums tracking-[-0.03em] text-white">97%</p>
+          <p className="mt-0.5 text-[6.5px] sm:text-[7px] font-medium uppercase tracking-[0.08em] text-white/55 leading-tight px-0.5">On-time delivery</p>
         </div>
-        <div className="rounded-lg border border-white/10 bg-white/[0.04] py-2">
-          <p className="text-[17px] font-bold tabular-nums tracking-[-0.03em] text-white">24/7</p>
-          <p className="mt-0.5 text-[7px] font-medium uppercase tracking-[0.08em] text-white/55 leading-tight px-1">Support &amp; Monitoring</p>
+        <div className="rounded-lg border border-white/10 bg-white/[0.04] py-1 sm:py-2">
+          <p className="text-[14px] sm:text-[17px] font-bold tabular-nums tracking-[-0.03em] text-white">24/7</p>
+          <p className="mt-0.5 text-[6.5px] sm:text-[7px] font-medium uppercase tracking-[0.08em] text-white/55 leading-tight px-0.5">Support &amp; Monitoring</p>
         </div>
       </div>
 
       {/* Technology row */}
-      <div className="mt-3 grid grid-cols-4 gap-1.5">
-        <div className="flex flex-col items-center gap-1 rounded-lg border border-white/8 bg-white/[0.03] py-1.5 px-0.5">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-gradient-to-br from-[#004A8F] to-[#001A33] shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
+      <div className="mt-2 grid grid-cols-4 gap-1 sm:gap-1.5 sm:mt-3">
+        <div className="flex flex-col items-center gap-0.5 sm:gap-1 rounded-lg border border-white/8 bg-white/[0.03] py-1 px-0.5 sm:py-1.5">
+          <div className="flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-lg border border-white/10 bg-gradient-to-br from-[#004A8F] to-[#001A33] shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
             <AzureIcon />
           </div>
-          <span className="text-[7px] font-medium text-white/55 text-center leading-tight">Azure</span>
+          <span className="text-[6.5px] sm:text-[7px] font-medium text-white/55 text-center leading-tight">Azure</span>
         </div>
-        <div className="flex flex-col items-center gap-1 rounded-lg border border-white/8 bg-white/[0.03] py-1.5 px-0.5">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-gradient-to-br from-[#004D40] to-[#001A15] shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
+        <div className="flex flex-col items-center gap-0.5 sm:gap-1 rounded-lg border border-white/8 bg-white/[0.03] py-1 px-0.5 sm:py-1.5">
+          <div className="flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-lg border border-white/10 bg-gradient-to-br from-[#004D40] to-[#001A15] shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
             <PowerPlatformIcon />
           </div>
-          <span className="text-[7px] font-medium text-white/55 text-center leading-tight">Power Platform</span>
+          <span className="text-[6.5px] sm:text-[7px] font-medium text-white/55 text-center leading-tight">Power Platform</span>
         </div>
-        <div className="flex flex-col items-center gap-1 rounded-lg border border-white/8 bg-white/[0.03] py-1.5 px-0.5">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-gradient-to-br from-[#311B92] to-[#120A33] shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
+        <div className="flex flex-col items-center gap-0.5 sm:gap-1 rounded-lg border border-white/8 bg-white/[0.03] py-1 px-0.5 sm:py-1.5">
+          <div className="flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-lg border border-white/10 bg-gradient-to-br from-[#311B92] to-[#120A33] shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
             <M365Icon />
           </div>
-          <span className="text-[7px] font-medium text-white/55 text-center leading-tight">Microsoft 365</span>
+          <span className="text-[6.5px] sm:text-[7px] font-medium text-white/55 text-center leading-tight">Microsoft 365</span>
         </div>
-        <div className="flex flex-col items-center gap-1 rounded-lg border border-white/8 bg-white/[0.03] py-1.5 px-0.5">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-gradient-to-br from-[#1A237E] to-[#090C29] shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
+        <div className="flex flex-col items-center gap-0.5 sm:gap-1 rounded-lg border border-white/8 bg-white/[0.03] py-1 px-0.5 sm:py-1.5">
+          <div className="flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-lg border border-white/10 bg-gradient-to-br from-[#1A237E] to-[#090C29] shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
             <CopilotIcon />
           </div>
-          <span className="text-[7px] font-medium text-white/55 text-center leading-tight">Copilot &amp; AI</span>
+          <span className="text-[6.5px] sm:text-[7px] font-medium text-white/55 text-center leading-tight">Copilot &amp; AI</span>
         </div>
       </div>
     </div>
