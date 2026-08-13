@@ -150,7 +150,7 @@ export default function AboutClientLogos({
     <section
       ref={ref}
       id="coengineered-logos"
-      className="relative w-full overflow-hidden py-20 md:py-24 bg-white text-neutral-950 border-y border-neutral-200/60"
+      className="relative w-full overflow-hidden py-10 md:py-14 bg-white text-neutral-950 border-y border-neutral-200/60"
     >
       <style>{logoCardStyles}</style>
 
@@ -174,17 +174,20 @@ export default function AboutClientLogos({
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="mb-4 flex items-center justify-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#ff7a2f]" />
-            <span className="text-xs font-bold uppercase tracking-wider text-orange-600">
+          <div className="mb-5 flex items-center justify-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#FF5812]" />
+            <span className="text-xs md:text-sm font-semibold tracking-[0.25em] text-zinc-400/90 uppercase">
               Our Partnerships
             </span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-neutral-950 mb-6">
-            Trusted by Enterprises Worldwide
+          <h2 className="text-[#0a0a1a] tracking-tight mb-4 flex flex-col items-center">
+            <span className="font-black text-3xl md:text-5xl leading-[1.1] max-w-none block w-full">
+              <span className="text-[#0a0a1a]">Trusted by</span>{" "}
+              <span className="text-[#FF5812] drop-shadow-[0_2px_12px_rgba(255,88,18,0.15)]">Enterprises Worldwide</span>
+            </span>
           </h2>
-          <p className="text-base md:text-lg leading-relaxed text-neutral-600 max-w-3xl mx-auto">
-            We've built our business hand-in-hand with enterprises, typically where the challenges are the hardest. Today hundreds of enterprises trust Softree to drive value from automation and AI.
+          <p className="text-zinc-600/90 font-medium text-base md:text-lg leading-relaxed max-w-2xl mx-auto mt-1">
+            We have built our business hand in hand with enterprises where the engineering challenges are the hardest and today hundreds of enterprises trust Softree to drive value from automation and AI
           </p>
         </motion.div>
 

@@ -32,7 +32,7 @@ export default function AboutTeamSection() {
   return (
     <section
       ref={ref}
-      className="relative w-full overflow-hidden bg-white py-20 md:py-24"
+      className="relative w-full overflow-hidden bg-white py-10 md:py-14"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         {/* Header */}
@@ -42,15 +42,17 @@ export default function AboutTeamSection() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <div className="mb-4 flex items-center justify-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-[#FF5812]" />
-            <span className="text-xs font-medium tracking-wider text-[var(--legacy-141413)]/70 uppercase">
+          <div className="mb-5 flex items-center justify-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#FF5812]" />
+            <span className="text-xs md:text-sm font-semibold tracking-[0.25em] text-zinc-400/90 uppercase">
               Our Team
             </span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-semibold tracking-tight leading-tight text-[var(--legacy-141413)]">
-            The Team Behind
-            <span className="block text-[#FF5812]">Every Solution</span>
+          <h2 className="text-[#0a0a1a] tracking-tight mb-4 flex flex-col items-center">
+            <span className="font-black text-3xl md:text-5xl leading-[1.1] max-w-none block w-full">
+              <span className="text-[#0a0a1a]">The Team Behind</span>{" "}
+              <span className="text-[#FF5812] drop-shadow-[0_2px_12px_rgba(255,88,18,0.15)]">Every Solution</span>
+            </span>
           </h2>
         </motion.div>
 

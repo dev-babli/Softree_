@@ -162,7 +162,7 @@ export default function LightContactSection() {
   return (
     <section
       id="contact"
-      className="relative isolate overflow-hidden bg-[#f6f4f0] px-4 py-8 text-[#111111] sm:px-6 sm:py-12 lg:px-8 lg:py-16"
+      className="relative isolate overflow-hidden bg-white px-4 py-8 text-[#111111] sm:px-6 sm:py-12 lg:px-8 lg:py-16"
     >
       <div
         aria-hidden
@@ -177,17 +177,22 @@ export default function LightContactSection() {
           transition={{ duration: 0.75, ease: EASE }}
           className="mb-4 text-center sm:mb-6"
         >
-          <h2
-            aria-label="Let's Talk"
-            className="text-[clamp(2.5rem,6vw,4.5rem)] font-semibold leading-[0.82] tracking-[-0.075em]"
-          >
-            Let&apos;s{" "}
-            <span className="relative inline-block text-[#ff5812]">
-              Talk
-              <span
-                aria-hidden
-                className="absolute -bottom-2 left-1/2 h-2 w-[82%] -translate-x-1/2 rounded-full bg-[#ff5812]/20"
-              />
+          {/* Pill Badge */}
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#FF5812]/20 bg-[#FF5812]/05 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.20em] text-[#FF5812] mb-5 shadow-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#FF5812]" />
+            GET IN TOUCH
+          </span>
+          
+          {/* Designed Main Title (One size, black & orange scheme, comma-free) */}
+          <h2 id="contact-heading" className="text-[#0a0a1a] tracking-tight mb-4 flex flex-col items-center">
+            <span className="text-xs md:text-sm font-semibold tracking-[0.25em] text-zinc-400/90 uppercase mb-2.5">
+              Contact Us
+            </span>
+            <span className="font-black text-3xl md:text-5xl leading-[1.1] max-w-none block w-full">
+              <span className="text-[#0a0a1a]">Let&apos;s Start a</span>{" "}
+              <span className="text-[#FF5812] drop-shadow-[0_2px_12px_rgba(255,88,18,0.15)]">
+                Conversation
+              </span>
             </span>
           </h2>
         </motion.div>

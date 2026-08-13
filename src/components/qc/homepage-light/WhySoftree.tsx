@@ -315,7 +315,7 @@ export default function WhySoftree() {
   const progressPercent = activeIndex / (STEPS.length - 1)
 
   return (
-    <section className="relative w-full py-16 md:py-24 bg-white text-neutral-900 overflow-hidden">
+    <section className="relative w-full py-10 md:py-14 bg-white text-neutral-900 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative overflow-hidden rounded-[32px] md:rounded-[40px] bg-neutral-950 border border-neutral-800/40 p-8 sm:p-10 md:p-14 lg:p-16 text-white shadow-2xl">
           

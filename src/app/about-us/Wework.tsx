@@ -33,7 +33,7 @@ export default function Wework() {
   useLenis();
 
   return (
-    <section className="w-full px-4 md:px-[60px] lg:px-[100px] py-16 bg-white">
+    <section className="w-full px-4 md:px-[60px] lg:px-[100px] py-10 md:py-12 bg-white">
       <div className="w-full max-w-7xl mx-auto rounded-[32px] bg-black border border-zinc-900/60 shadow-[0_24px_80px_-16px_rgba(0,0,0,0.08)] flex flex-col relative">
         {/* Intro Section - Static, non-sticky */}
         <div className="w-full px-6 md:px-12 lg:px-16 pt-20 pb-16 flex justify-start">
