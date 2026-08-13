@@ -43,10 +43,10 @@ export function PartnerLogo({
 
   return (
     <div
-      className="partner-logo-card group relative flex h-[88px] w-[220px] shrink-0 items-center justify-center rounded-xl border border-neutral-200/60 bg-white px-6 py-4 shadow-[0_4px_12px_rgba(0,0,0,0.01)] hover:-translate-y-1.5"
+      className="partner-logo-card group relative flex h-[88px] w-[220px] shrink-0 items-center justify-center rounded-xl border border-zinc-800 bg-gradient-to-b from-zinc-950 via-[#1b0900] to-black px-6 py-4 shadow-lg shadow-orange-950/5 transition-all duration-300 hover:-translate-y-1.5 hover:border-orange-500/50 hover:shadow-[0_8px_25px_-5px_rgba(249,115,22,0.2)]"
     >
       {error ? (
-        <span className="text-xs font-semibold tracking-tight text-neutral-500">
+        <span className="text-xs font-semibold tracking-tight text-zinc-400">
           {partner.name}
         </span>
       ) : (
@@ -55,7 +55,7 @@ export function PartnerLogo({
           alt={`${partner.name} Brand Logo`}
           width={150}
           height={44}
-          className="relative z-10 max-h-[44px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+          className="relative z-10 max-h-[44px] w-auto object-contain opacity-[0.9] transition-all duration-300 group-hover:scale-105 group-hover:opacity-100"
           onError={() => setError(true)}
           unoptimized
         />
@@ -188,29 +188,34 @@ export default function AboutClientLogos({
           </p>
         </motion.div>
 
-        {/* Static grid layout of company logos as shown in the image */}
-        <motion.div
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-6xl mx-auto justify-items-center items-center mb-16"
-          initial={{ opacity: 0, y: 25 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-        >
-          {PARTNERS.map((partner) => (
-            <div
-              key={partner.name}
-              className="partner-logo-card group relative flex h-[88px] w-full max-w-[220px] items-center justify-center rounded-2xl border border-neutral-200/50 bg-white px-6 py-4 shadow-[0_4px_12px_rgba(15,23,42,0.02)] hover:-translate-y-1 hover:border-neutral-300/80 hover:shadow-[0_12px_24px_-10px_rgba(15,23,42,0.06)]"
+        {/* Infinite scrolling marquee of company logos passing from left to right */}
+        <div className="relative w-full overflow-hidden mb-16 py-4">
+          {/* Gradient Masks */}
+          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-white to-transparent" />
+          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-white to-transparent" />
+
+          {/* Scrolling Track */}
+          <div className="flex gap-6 overflow-hidden select-none">
+            <motion.div
+              className="flex gap-6 shrink-0"
+              animate={{
+                x: ["-33.333%", "0%"],
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 25,
+                  ease: "linear",
+                },
+              }}
             >
-              <Image
-                src={partner.src}
-                alt={`${partner.name} Logo`}
-                width={140}
-                height={40}
-                className="max-h-[44px] w-auto object-contain opacity-[0.85] transition-all duration-300 group-hover:scale-105 group-hover:opacity-100"
-                unoptimized
-              />
-            </div>
-          ))}
-        </motion.div>
+              {[...PARTNERS, ...PARTNERS, ...PARTNERS].map((partner, index) => (
+                <PartnerLogo key={`${partner.name}-${index}`} partner={partner} />
+              ))}
+            </motion.div>
+          </div>
+        </div>
 
         {/* Centered button: MORE CUSTOMER STORIES */}
         <motion.div 
@@ -230,7 +235,7 @@ export default function AboutClientLogos({
 
         {/* Stats Grid - Kept clean below if not in marqueeOnly mode */}
         {!marqueeOnly && (
-          <div className="relative mx-auto mt-24 max-w-5xl border-t border-neutral-200/60 pt-16">
+          <div className="relative mx-auto mt-10 max-w-5xl border-t border-neutral-200/60 pt-10">
             <AboutClientStatsGrid inView={isInView} dark={false} />
           </div>
         )}

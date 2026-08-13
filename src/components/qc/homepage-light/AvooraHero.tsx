@@ -192,30 +192,16 @@ function CyclingWord() {
       <AnimatePresence mode="wait">
         <motion.span
           key={word}
-          className="inline-block"
-          initial={{ opacity: 0, y: 8, filter: "blur(12px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          exit={{ opacity: 0, y: -8, filter: "blur(12px)" }}
+          className="inline-block bg-gradient-to-r from-[#FF6B00] to-[#FF5812] bg-clip-text text-transparent"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
           transition={{
-            duration: DUR.card,
-            ease: EASE_T.silk as any,
+            duration: 0.5,
+            ease: [0.16, 1, 0.3, 1],
           }}
         >
-          {word.split('').map((char, i) => (
-            <motion.span
-              key={`${char}-${i}`}
-              className="inline-block"
-              initial={{ opacity: 0, y: 4 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                delay: i * 0.015,
-                duration: 0.3,
-                ease: EASE_T.out as any,
-              }}
-            >
-              {char === " " ? "\u00A0" : char}
-            </motion.span>
-          ))}
+          {word}
         </motion.span>
       </AnimatePresence>
       {/* Enhanced hairline underline with gradient */}
@@ -518,7 +504,7 @@ export default function AvooraHero() {
 
   return (
     <section ref={containerRef} className="relative isolate w-full overflow-hidden bg-white">
-      <div className="mx-auto w-full max-w-[1440px] px-4 pt-8 pb-16 sm:px-5 sm:pt-10 md:px-8 md:pt-14 md:pb-20 lg:px-10 lg:pt-16 xl:pt-20">
+      <div className="mx-auto w-full max-w-7xl px-4 pt-8 pb-16 sm:px-5 sm:pt-10 md:px-8 md:pt-14 md:pb-20 lg:px-10 lg:pt-16 xl:pt-20">
         {/* ═══════════════════════════════════════════════════════════
              1) TOP HEADER ROW
         ══════════════════════════════════════════════════════════ */}

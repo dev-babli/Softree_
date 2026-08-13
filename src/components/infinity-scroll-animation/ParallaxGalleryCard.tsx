@@ -119,7 +119,7 @@ export const gallerySlides: readonly GallerySlideData[] = [
     subFeaturesLeft: [
       {
         icon: "cpu",
-        title: "AGENTIC AI & MULTI-AGENT SYSTEMS",
+        title: "AGENTIC AI & MULTI-AGENTS",
         description: "Autonomous agents that plan, reason and act.",
       },
       {
@@ -346,10 +346,10 @@ function createParallax(
 }
 
 /* ── Sub-component: single feature item ── */
-function FeatureItem({ feature, isHighlighted }: { feature: SubFeature, isHighlighted?: boolean }) {
+function FeatureItem({ feature }: { feature: SubFeature }) {
   const Icon = ICON_MAP[feature.icon];
   return (
-    <div className={`isc-feature-item ${isHighlighted ? "isc-feature-item--highlight" : ""}`}>
+    <div className="isc-feature-item">
       <span className="isc-feature-icon">
         {Icon && <Icon size={11} strokeWidth={2} />}
       </span>
@@ -379,23 +379,26 @@ export default function ParallaxGalleryCard({
   const stageRef = useRef<HTMLDivElement>(null);
   const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
   const projectVisualRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const goToIndexRef = useRef<(index: number) => void>(() => {});
+  const goToIndexRef = useRef<(index: number) => void>(() => { });
 
-  const [hoveredRow, setHoveredRow] = useState<number | null>(null);
-
-  useEffect(() => {
-    if (hoveredRow === null) return;
-    const interval = setInterval(() => {
-      setHoveredRow((prev) => (prev === null ? 0 : (prev + 1) % 3));
-    }, 1200); // 1.2s per row for a relaxed reading pace
-    return () => clearInterval(interval);
-  }, [hoveredRow]);
+  const [isHovering, setIsHovering] = useState(false);
 
   const resolvedSlides = slides ?? gallerySlides;
   const slideCount = resolvedSlides.length;
 
   const [activeIndex, setActiveIndex] = useState(0);
   const active = resolvedSlides[activeIndex];
+
+  useEffect(() => {
+    if (isHovering) return;
+
+    const timer = setInterval(() => {
+      const nextIndex = (activeIndex + 1) % slideCount;
+      goToIndexRef.current(nextIndex);
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, [isHovering, activeIndex, slideCount]);
 
   const syncActiveIndex = useCallback(
     (index: number) => {
@@ -532,17 +535,19 @@ export default function ParallaxGalleryCard({
 
   return (
     <div
-      className={`group relative flex h-full min-h-[280px] flex-col overflow-hidden rounded-2xl border border-[#0a0a1a]/8 bg-[#0a0a0a] shadow-[0_16px_48px_-24px_rgba(10,10,26,0.35)] sm:min-h-[340px] md:min-h-[400px] lg:min-h-[440px] xl:min-h-[480px] ${className}`}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      className={`group relative flex flex-col overflow-hidden rounded-2xl border border-[#0a0a1a]/8 bg-[#0a0a0a] shadow-[0_16px_48px_-24px_rgba(10,10,26,0.35)] w-full ${className}`}
     >
       <div
         ref={stageRef}
-        className="isc-stage relative min-h-0 flex-1"
+        className="isc-stage relative flex flex-col w-full h-full min-h-[500px]"
         tabIndex={0}
         aria-label="Service showcase gallery"
         aria-roledescription="carousel"
       >
-        {/* Full-bleed parallax background slides */}
-        <div className="isc-project-list">
+        {/* Full-bleed parallax background slides (Absolute Layer) */}
+        <div className="isc-project-list absolute inset-0 z-0 pointer-events-none">
           {resolvedSlides.map((slide, i) => (
             <div
               key={slide.title}
@@ -583,152 +588,157 @@ export default function ParallaxGalleryCard({
           ))}
         </div>
 
-        {/* ── Centre editorial showcase card ── */}
-        <div 
-          className="isc-minimap isc-minimap--landscape"
-          onMouseEnter={() => setHoveredRow(0)}
-          onMouseLeave={() => setHoveredRow(null)}
-        >
-          <div className="isc-minimap-wrapper">
-
-            {/* 3-column body */}
-            <div className="isc-minimap-body">
-
-              {/* Left sub-feature list */}
-              <div
-                key={`left-${activeIndex}`}
-                className="isc-minimap-col-features"
-              >
-                {active.subFeaturesLeft.map((feat, fi) => (
-                  <FeatureItem key={fi} feature={feat} isHighlighted={hoveredRow === fi} />
-                ))}
-              </div>
-
-              {/* Center: number badge + image + service label */}
-              <div className="isc-minimap-col-image">
-                <span
-                  key={`num-${activeIndex}`}
-                  className="isc-minimap-num-badge"
+        {/* Foreground Content Layer (Relative Flex Layout) */}
+        <div className="relative z-10 flex flex-col justify-between w-full h-full min-h-full">
+          {/* Top overlay area */}
+          <div className="pointer-events-none px-3 pt-3 pb-4 md:px-5 md:pt-4 md:pb-6 bg-gradient-to-b from-black/65 via-black/35 to-transparent">
+            <div className="flex items-start justify-between">
+              <div className="max-w-[58%] md:max-w-xs">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/55">
+                  {eyebrow}
+                </p>
+                <p
+                  key={`title-${activeIndex}`}
+                  className="isc-slide-title mt-2 font-bold leading-[1.08] tracking-tight text-white"
+                  style={{ fontSize: 'clamp(1.3rem,3vw,2.5rem)' }}
                 >
-                  {String(activeIndex + 1).padStart(2, "0")}
-                </span>
+                  {active.title}
+                </p>
+                <p
+                  key={`desc-${activeIndex}`}
+                  className="isc-slide-desc mt-2 text-[12px] leading-relaxed text-white/68 md:text-[13px]"
+                >
+                  {active.description}
+                </p>
+              </div>
+              <span className="rounded-full border border-white/15 bg-white/10 px-2.5 py-1 font-mono text-[10px] tabular-nums text-white/80 backdrop-blur-md">
+                {String(activeIndex + 1).padStart(2, "0")}/
+                {String(slideCount).padStart(2, "0")}
+              </span>
+            </div>
+          </div>
 
-                {/* Image — opacity crossfade between slides */}
-                <div className="isc-minimap-img-preview">
-                  {resolvedSlides.map((slide, i) => (
-                    <div
-                      key={slide.image}
-                      className="isc-minimap-img-item"
-                      style={{
-                        opacity: i === activeIndex ? 1 : 0,
-                        transition: "opacity 0.45s ease",
-                      }}
+          {/* Center Panel (isc-minimap) */}
+          <div className="flex-1 flex items-center justify-center py-4 px-2 sm:py-6 sm:px-4 pointer-events-auto">
+            {/* ── Centre editorial showcase card ── */}
+            <div className="isc-minimap isc-minimap--landscape">
+              <div className="isc-minimap-wrapper">
+
+                {/* 3-column body */}
+                <div className="isc-minimap-body">
+
+                  {/* Left sub-feature list */}
+                  <div
+                    key={`left-${activeIndex}`}
+                    className="isc-minimap-col-features"
+                  >
+                    {active.subFeaturesLeft.map((feat, fi) => (
+                      <FeatureItem key={fi} feature={feat} />
+                    ))}
+                  </div>
+
+                  {/* Center: number badge + image + service label */}
+                  <div className="isc-minimap-col-image">
+                    <span
+                      key={`num-${activeIndex}`}
+                      className="isc-minimap-num-badge"
                     >
-                      <div className="isc-minimap-visual relative size-full overflow-hidden">
-                        <Image
-                          src={slide.image}
-                          alt={slide.title}
-                          fill
-                          sizes="160px"
-                          className="object-cover"
-                          priority={i === 0}
-                        />
-                      </div>
+                      {String(activeIndex + 1).padStart(2, "0")}
+                    </span>
+
+                    {/* Image — opacity crossfade between slides */}
+                    <div className="isc-minimap-img-preview">
+                      {resolvedSlides.map((slide, i) => (
+                        <div
+                          key={slide.image}
+                          className="isc-minimap-img-item"
+                          style={{
+                            opacity: i === activeIndex ? 1 : 0,
+                            transition: "opacity 0.45s ease",
+                          }}
+                        >
+                          <div className="isc-minimap-visual relative size-full overflow-hidden">
+                            <Image
+                              src={slide.image}
+                              alt={slide.title}
+                              fill
+                              sizes="160px"
+                              className="object-cover"
+                              priority={i === 0}
+                            />
+                          </div>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+
+                    <span
+                      key={`svc-${activeIndex}`}
+                      className="isc-minimap-svc-label"
+                    >
+                      {active.serviceLabel}
+                    </span>
+                  </div>
+
+                  {/* Right sub-feature list */}
+                  <div
+                    key={`right-${activeIndex}`}
+                    className="isc-minimap-col-features isc-minimap-col-features--right"
+                  >
+                    {active.subFeaturesRight.map((feat, fi) => (
+                      <FeatureItem key={fi} feature={feat} />
+                    ))}
+                  </div>
                 </div>
 
-                <span
-                  key={`svc-${activeIndex}`}
-                  className="isc-minimap-svc-label"
+                {/* Footer: engagement models */}
+                <div
+                  key={`footer-${activeIndex}`}
+                  className="isc-minimap-footer"
                 >
-                  {active.serviceLabel}
-                </span>
+                  <span className="isc-minimap-footer-heading">
+                    Engagement Models
+                  </span>
+                  <div className="isc-minimap-footer-tags">
+                    {active.engagementModels.map((model) => {
+                      const Icon = ICON_MAP[model.icon];
+                      return (
+                        <span key={model.label} className="isc-minimap-footer-tag" data-label={model.label}>
+                          {Icon && <Icon size={9} strokeWidth={2} />}
+                          {model.label}
+                        </span>
+                      );
+                    })}
+                  </div>
+                </div>
               </div>
+            </div>
+          </div>
 
-              {/* Right sub-feature list */}
-              <div
-                key={`right-${activeIndex}`}
-                className="isc-minimap-col-features isc-minimap-col-features--right"
+          {/* Bottom Area (Spacer for absolute caption + Navigation) */}
+          <div className="px-3 pb-4 pt-4 md:px-5 md:pb-6 flex justify-end items-end relative pointer-events-none min-h-[140px] md:min-h-[160px]">
+            {/* Navigation chevrons */}
+            <div className="pointer-events-auto flex items-center gap-1.5 shrink-0">
+              <button
+                type="button"
+                onClick={() => goToIndexRef.current(activeIndex - 1)}
+                disabled={activeIndex === 0}
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white backdrop-blur-md transition hover:bg-black/60 disabled:opacity-30"
+                aria-label="Previous slide"
               >
-                {active.subFeaturesRight.map((feat, fi) => (
-                  <FeatureItem key={fi} feature={feat} isHighlighted={hoveredRow === fi} />
-                ))}
-              </div>
-            </div>
-
-            {/* Footer: engagement models */}
-            <div
-              key={`footer-${activeIndex}`}
-              className="isc-minimap-footer"
-            >
-              <span className="isc-minimap-footer-heading">
-                Engagement Models
-              </span>
-              <div className="isc-minimap-footer-tags">
-                {active.engagementModels.map((model) => {
-                  const Icon = ICON_MAP[model.icon];
-                  return (
-                    <span key={model.label} className="isc-minimap-footer-tag">
-                      {Icon && <Icon size={9} strokeWidth={2} />}
-                      {model.label}
-                    </span>
-                  );
-                })}
-              </div>
+                <ChevronLeft className="h-4 w-4" strokeWidth={1.75} />
+              </button>
+              <button
+                type="button"
+                onClick={() => goToIndexRef.current(activeIndex + 1)}
+                disabled={activeIndex === slideCount - 1}
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white text-[#0a0a1a] backdrop-blur-md transition hover:bg-white/90 disabled:opacity-30"
+                aria-label="Next slide"
+              >
+                <ChevronRight className="h-4 w-4" strokeWidth={1.75} />
+              </button>
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Top overlay: eyebrow + big title + description + slide counter */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-20 bg-gradient-to-b from-black/65 via-black/35 to-transparent px-3 pt-3 pb-20 md:px-5 md:pt-4 md:pb-28">
-        <div className="flex items-start justify-between">
-          <div className="max-w-[58%] md:max-w-xs">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/55">
-              {eyebrow}
-            </p>
-            <p
-              key={`title-${activeIndex}`}
-              className="isc-slide-title mt-2 font-bold leading-[1.08] tracking-tight text-white"
-              style={{ fontSize: 'clamp(1.3rem,3vw,2.5rem)' }}
-            >
-              {active.title}
-            </p>
-            <p
-              key={`desc-${activeIndex}`}
-              className="isc-slide-desc mt-2 text-[12px] leading-relaxed text-white/68 md:text-[13px]"
-            >
-              {active.description}
-            </p>
-          </div>
-          <span className="rounded-full border border-white/15 bg-white/10 px-2.5 py-1 font-mono text-[10px] tabular-nums text-white/80 backdrop-blur-md">
-            {String(activeIndex + 1).padStart(2, "0")}/
-            {String(slideCount).padStart(2, "0")}
-          </span>
-        </div>
-      </div>
-
-      {/* Navigation chevrons */}
-      <div className="absolute bottom-4 right-4 z-20 flex items-center gap-1.5">
-        <button
-          type="button"
-          onClick={() => goToIndexRef.current(activeIndex - 1)}
-          disabled={activeIndex === 0}
-          className="pointer-events-auto inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white backdrop-blur-md transition hover:bg-black/60 disabled:opacity-30"
-          aria-label="Previous slide"
-        >
-          <ChevronLeft className="h-4 w-4" strokeWidth={1.75} />
-        </button>
-        <button
-          type="button"
-          onClick={() => goToIndexRef.current(activeIndex + 1)}
-          disabled={activeIndex === slideCount - 1}
-          className="pointer-events-auto inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white text-[#0a0a1a] backdrop-blur-md transition hover:bg-white/90 disabled:opacity-30"
-          aria-label="Next slide"
-        >
-          <ChevronRight className="h-4 w-4" strokeWidth={1.75} />
-        </button>
       </div>
     </div>
   );

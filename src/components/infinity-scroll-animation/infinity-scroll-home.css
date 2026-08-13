@@ -83,15 +83,12 @@
    Total card = body (--isc-minimap-h) + footer (36px) + sep (1px)
 ───────────────────────────────────────────── */
 .isc-minimap {
-  position: absolute;
-  top: 54%;
-  left: 54%;
-  transform: translate(-50%, -50%);
-  /* Width — landscape modifier below overrides */
-  width: 80%;
+  position: relative;
+  width: 100%;
   max-width: 420px;
-  /* Card height: body height (--isc-minimap-h) + footer (44px) + separator (1px) */
-  height: calc(var(--isc-minimap-h, 160px) + 45px);
+  /* Use min-height so it can grow if content forces it */
+  min-height: calc(var(--isc-minimap-h, 160px) + 45px);
+  height: auto;
   background-color: #fff;
   overflow: hidden;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.32);
@@ -140,9 +137,9 @@
 .isc-minimap-body {
   display: flex;
   flex-direction: row;
-  height: var(--isc-minimap-h, 140px);
+  min-height: var(--isc-minimap-h, 140px);
+  height: auto;
   flex-shrink: 0;
-  min-height: 0;
 }
 
 /* ─────────────────────────────────────────────
@@ -154,8 +151,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 14px;
-  padding: 0.6rem 0.55rem 0.55rem;
+  gap: 4px;
+  padding: 0.35rem 0.4rem;
   border-right: 1px solid rgba(10, 10, 26, 0.07);
   /* Fade in on slide change (key re-mount triggers this) */
   animation: isc-fade-in 0.35s ease both;
@@ -180,22 +177,37 @@
 
 /* Individual feature item */
 .isc-feature-item {
+  flex: 1;
   display: flex;
   align-items: flex-start;
   gap: 6px;
-  transition: all 0.35s ease;
+  padding: 5px 8px;
+  border-radius: 8px;
+  background: rgba(10, 10, 26, 0.025);
+  border: 1px solid rgba(10, 10, 26, 0.06);
+  transition: all 0.3s ease;
+  cursor: default;
+  overflow: hidden;
 }
 
 /* Hover-highlight modifiers */
-.isc-feature-item--highlight .isc-feature-icon {
-  color: #FF6B00;
-  border-color: rgba(255, 107, 0, 0.4);
-  background: rgba(255, 107, 0, 0.1);
-  box-shadow: 0 0 10px rgba(255, 107, 0, 0.25);
-}
+@media (hover: hover) {
+  .isc-feature-item:hover {
+    border-color: rgba(255, 107, 0, 0.3);
+    background: rgba(255, 107, 0, 0.04);
+    box-shadow: 0 4px 12px rgba(255, 107, 0, 0.06);
+  }
 
-.isc-feature-item--highlight .isc-feature-title {
-  color: #FF6B00;
+  .isc-feature-item:hover .isc-feature-icon {
+    color: #FF6B00;
+    border-color: rgba(255, 107, 0, 0.4);
+    background: rgba(255, 107, 0, 0.12);
+    box-shadow: 0 0 10px rgba(255, 107, 0, 0.2);
+  }
+
+  .isc-feature-item:hover .isc-feature-title {
+    color: #FF6B00;
+  }
 }
 
 /* Small blue icon badge */
@@ -246,7 +258,7 @@
   /* ≈ 9.6px */
   font-weight: 400;
   color: rgba(10, 10, 26, 0.55);
-  line-height: 1.35;
+  line-height: 1.2;
   text-transform: none;
 }
 
@@ -359,14 +371,58 @@
   font-size: 0.6rem;
   /* ≈ 9.6px */
   font-weight: 500;
-  color: rgba(10, 10, 26, 0.68);
   white-space: nowrap;
-  border: 0.5px solid rgba(10, 10, 26, 0.18);
   border-radius: 20px;
   padding: 3px 7px;
   line-height: 1;
   flex-shrink: 0;
-  background: rgba(10, 10, 26, 0.03);
+  transition: filter 0.3s ease;
+  
+  /* Shared text & border for premium dark pills */
+  color: rgba(255, 255, 255, 0.9);
+  border: 0.5px solid rgba(255, 255, 255, 0.12);
+  /* Fallback deep dark gradient */
+  background: linear-gradient(135deg, #111827 0%, #1F2937 100%);
+}
+
+.isc-minimap-footer-tag[data-label="Dedicated Team"] {
+  background: linear-gradient(135deg, #0A1128 0%, #162B60 100%);
+}
+
+.isc-minimap-footer-tag[data-label="White Label"] {
+  background: linear-gradient(135deg, #572008 0%, #8A2D0A 100%);
+}
+
+.isc-minimap-footer-tag[data-label="Project Delivery"] {
+  background: linear-gradient(135deg, #1A1040 0%, #2A1A66 100%);
+}
+
+.isc-minimap-footer-tag[data-label="Managed AI Services"] {
+  background: linear-gradient(135deg, #3A0510 0%, #630B1D 100%);
+}
+
+/* Gradients for other models across slides */
+.isc-minimap-footer-tag[data-label="Implementation"] {
+  background: linear-gradient(135deg, #092B20 0%, #104A36 100%);
+}
+
+.isc-minimap-footer-tag[data-label="Support & Managed"],
+.isc-minimap-footer-tag[data-label="Support"] {
+  background: linear-gradient(135deg, #1B1A17 0%, #363229 100%);
+}
+
+.isc-minimap-footer-tag[data-label="Analytics-as-a-Service"] {
+  background: linear-gradient(135deg, #0A1F2E 0%, #11364F 100%);
+}
+
+.isc-minimap-footer-tag[data-label="Retainer"] {
+  background: linear-gradient(135deg, #241433 0%, #3B2154 100%);
+}
+
+@media (hover: hover) {
+  .isc-minimap-footer-tag:hover {
+    filter: brightness(1.2) contrast(1.1);
+  }
 }
 
 /* ─────────────────────────────────────────────

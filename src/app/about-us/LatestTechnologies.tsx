@@ -82,7 +82,7 @@ export default function LatestTechnologies() {
 
   return (
     <section className="w-full px-4 md:px-[60px] lg:px-[100px] py-24 bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
-      <div className="w-full max-w-[1440px] mx-auto rounded-[32px] overflow-hidden border border-zinc-200/60 shadow-[0_24px_80px_-16px_rgba(0,0,0,0.06)] flex flex-col md:flex-row items-stretch bg-white">
+      <div className="w-full max-w-7xl mx-auto rounded-[32px] overflow-hidden border border-zinc-200/60 shadow-[0_24px_80px_-16px_rgba(0,0,0,0.06)] flex flex-col md:flex-row items-stretch bg-white">
         
         {/* Left Panel - Glassmorphic Visual Stage */}
         <div className="relative w-full md:w-1/2 min-h-[320px] md:min-h-0 bg-zinc-950 overflow-hidden">

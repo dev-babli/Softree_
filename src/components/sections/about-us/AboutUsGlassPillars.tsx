@@ -132,12 +132,7 @@ function WhiteLabelGlassPanel() {
         ].map((step, i, arr) => (
           <div key={step.label} className="flex items-center">
             <div className="flex flex-col items-center gap-1.5">
-              <div 
-                className="flex h-10 w-10 items-center justify-center rounded-[10px] border border-[#FF5812]/30 shadow-[0_0_12px_rgba(255,88,18,0.15)]"
-                style={{
-                  background: "linear-gradient(180deg, rgba(255,88,18,0.15) 0%, rgba(255,88,18,0.05) 100%)"
-                }}
-              >
+              <div className="flex h-10 w-10 items-center justify-center rounded-[10px] border border-white/10 bg-gradient-to-br from-[#4A1A05] to-[#1F0A02] shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
                 <WorkflowIcon name={step.icon} />
               </div>
               <span className="text-[11px] font-semibold text-white/90">{step.label}</span>
@@ -154,7 +149,7 @@ function WhiteLabelGlassPanel() {
 
 function WorkflowIcon({ name }: { name: string }) {
   const props = {
-    className: "h-5 w-5 text-[#FF5812]",
+    className: "h-5 w-5 text-[#FF6B00]",
     strokeWidth: 1.5,
   };
   
@@ -241,19 +236,27 @@ function EnterpriseGlassPanel() {
       {/* Technology row */}
       <div className="mt-3 grid grid-cols-4 gap-1.5">
         <div className="flex flex-col items-center gap-1 rounded-lg border border-white/8 bg-white/[0.03] py-1.5 px-0.5">
-          <div className="flex h-5 w-5 items-center justify-center"><AzureIcon /></div>
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-gradient-to-br from-[#004A8F] to-[#001A33] shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
+            <AzureIcon />
+          </div>
           <span className="text-[7px] font-medium text-white/55 text-center leading-tight">Azure</span>
         </div>
         <div className="flex flex-col items-center gap-1 rounded-lg border border-white/8 bg-white/[0.03] py-1.5 px-0.5">
-          <div className="flex h-5 w-5 items-center justify-center"><PowerPlatformIcon /></div>
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-gradient-to-br from-[#004D40] to-[#001A15] shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
+            <PowerPlatformIcon />
+          </div>
           <span className="text-[7px] font-medium text-white/55 text-center leading-tight">Power Platform</span>
         </div>
         <div className="flex flex-col items-center gap-1 rounded-lg border border-white/8 bg-white/[0.03] py-1.5 px-0.5">
-          <div className="flex h-5 w-5 items-center justify-center"><M365Icon /></div>
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-gradient-to-br from-[#311B92] to-[#120A33] shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
+            <M365Icon />
+          </div>
           <span className="text-[7px] font-medium text-white/55 text-center leading-tight">Microsoft 365</span>
         </div>
         <div className="flex flex-col items-center gap-1 rounded-lg border border-white/8 bg-white/[0.03] py-1.5 px-0.5">
-          <div className="flex h-5 w-5 items-center justify-center"><CopilotIcon /></div>
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-gradient-to-br from-[#1A237E] to-[#090C29] shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
+            <CopilotIcon />
+          </div>
           <span className="text-[7px] font-medium text-white/55 text-center leading-tight">Copilot &amp; AI</span>
         </div>
       </div>

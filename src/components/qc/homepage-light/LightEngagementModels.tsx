@@ -79,7 +79,7 @@ export default function LightEngagementModels() {
 
   return (
     <section className="w-full bg-white py-24">
-      <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-12">
+      <div className="mx-auto w-full max-w-7xl px-6 lg:px-12">
 
         {/* Header Section */}
         <div className="mb-14 flex flex-col md:flex-row md:items-center">
