@@ -25,7 +25,6 @@ const menu = [
   { label: "About", url: "/about-us", icon: <FaInfoCircle /> },
   {
     label: "Services",
-    url: "/services",
     mega: true,
     icon: <FaCogs />,
     children: [

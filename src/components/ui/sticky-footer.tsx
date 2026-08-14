@@ -38,7 +38,6 @@ const footerColumns = [
     label: "Resources",
     links: [
       { title: "Blog", href: "https://www.softreetechnology.com/blog", external: true },
-      { title: "Services", href: "/services" },
       { title: "Privacy Policy", href: "/privacy-policy" },
       { title: "Terms of Service", href: "/terms" },
     ],
@@ -212,12 +211,7 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
               >
                 AI Solutions
               </Link>
-              <Link
-                href="/services"
-                className="flex h-11 items-center rounded-full border border-black/25 px-4 text-[12px] font-semibold text-black transition-colors hover:border-black/60 hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50"
-              >
-                Services
-              </Link>
+
               <Link
                 href="/book-meeting"
                 className="flex h-11 items-center rounded-full border border-black/25 px-4 text-[12px] font-semibold text-black transition-colors hover:border-black/60 hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50"

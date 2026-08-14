@@ -66,7 +66,6 @@ const menu: MenuItem[] = [
   { label: "About", url: "/about-us" },
   {
     label: "Services",
-    url: "/services",
     mega: true,
     children: [
       {
@@ -338,7 +337,11 @@ export default function Navigation({
       >
         <div className="mx-auto max-w-[1280px] px-5 pt-2.5 lg:px-10">
           <nav className="relative flex h-[64px] items-center justify-between rounded-2xl border border-black/[0.06] bg-white/95 px-4 shadow-[0_8px_32px_-10px_rgba(10,10,26,0.12)] backdrop-blur-xl lg:px-6">
-            <Link href="/" className="inline-flex min-h-11 shrink-0 items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45">
+            <Link
+              href="/"
+              onMouseEnter={closeMenu}
+              className="inline-flex min-h-11 shrink-0 items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45"
+            >
               <img
                 src="/logo/Softree-Technology-Final-Logo.png"
                 alt="Softree"
@@ -353,6 +356,7 @@ export default function Navigation({
                     <Link
                       key={item.label}
                       href={item.url || "#"}
+                      onMouseEnter={closeMenu}
                       className="inline-flex min-h-11 items-center rounded-lg px-3.5 py-2 text-[13px] font-medium text-[#0a0a1a]/60 transition-colors duration-100 hover:bg-[#F3F0EE] hover:text-[#0a0a1a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45"
                     >
                       {item.label}
@@ -374,6 +378,7 @@ export default function Navigation({
                         aria-expanded={isOpen}
                         aria-haspopup={canOpen ? "true" : undefined}
                         onFocus={() => canOpen && openMenu(item.label)}
+                        onMouseEnter={() => canOpen && openMenu(item.label)}
                         className={`inline-flex min-h-11 items-center gap-1 rounded-lg px-3.5 py-2 text-[13px] font-medium transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45 ${isOpen
                           ? "bg-[rgba(255,88,18,0.1)] text-[#FF5812]"
                           : "text-[#0a0a1a]/60 hover:bg-[#F3F0EE] hover:text-[#0a0a1a]"
@@ -395,6 +400,7 @@ export default function Navigation({
                         aria-haspopup={canOpen ? "true" : undefined}
                         onClick={() => (isOpen ? closeMenu() : openMenu(item.label))}
                         onFocus={() => canOpen && openMenu(item.label)}
+                        onMouseEnter={() => canOpen && openMenu(item.label)}
                         className={`inline-flex min-h-11 items-center gap-1 rounded-lg px-3.5 py-2 text-[13px] font-medium transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45 ${isOpen
                           ? "bg-[rgba(255,88,18,0.1)] text-[#FF5812]"
                           : "text-[#0a0a1a]/60 hover:bg-[#F3F0EE] hover:text-[#0a0a1a]"
@@ -415,7 +421,7 @@ export default function Navigation({
               })}
             </div>
 
-            <div className="hidden items-center gap-2 lg:flex">
+            <div className="hidden items-center gap-2 lg:flex" onMouseEnter={closeMenu}>
               <Link
                 href="/contact"
                 className="inline-flex min-h-11 items-center rounded-full bg-[#FF5812] px-5 py-2.5 text-[13px] font-semibold text-white shadow-[0_4px_14px_rgba(255,88,18,0.3)] transition-[transform,box-shadow] duration-150 hover:shadow-[0_6px_18px_rgba(255,88,18,0.36)] active:scale-[0.97]"

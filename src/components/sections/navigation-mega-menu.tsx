@@ -45,8 +45,6 @@ const MEGA_META: Record<string, MegaMenuMeta> = {
   Services: {
     eyebrow: "Capabilities",
     blurb: "Microsoft, data, AI, and product engineering — one delivery standard.",
-    cta: "All services",
-    href: "/services",
   },
   "Case Studies": {
     eyebrow: "Proof",

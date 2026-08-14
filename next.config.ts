@@ -110,6 +110,11 @@ const nextConfig: any = {
         destination: "/services/generative-ai",
         permanent: true,
       },
+      {
+        source: "/services",
+        destination: "/",
+        permanent: true,
+      },
     ];
   },
   images: {

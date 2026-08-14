@@ -797,7 +797,7 @@ export function GlobalMapGlassPanel() {
 function Card3Visual() {
     return (
         <div
-            className="relative flex h-auto w-full flex-col overflow-hidden rounded-2xl"
+            className="relative flex h-[300px] w-full flex-col overflow-hidden rounded-2xl"
             style={{
                 /* Tinted dark glass that lets the peach Grainient bleed through.
                  * Three layers stacked via background-image:
@@ -1106,22 +1106,24 @@ export function ClarityGlassCard({
                     />
                     <div className="absolute inset-0 flex flex-col p-4 sm:p-5 lg:p-5 xl:p-6 z-10 pointer-events-none">
                         <div className="mb-4">
-                            {c.icon && (
-                                <div className="mb-2 lg:mb-2.5 grid h-9 w-9 lg:h-11 lg:w-11 place-items-center rounded-full border border-white/20 bg-white/10 shadow-[0_4px_12px_rgba(0,0,0,0.1)] backdrop-blur-md [&>svg]:h-4.5 [&>svg]:w-4.5 lg:[&>svg]:h-5.5 lg:[&>svg]:w-5.5">
-                                    {c.icon}
-                                </div>
-                            )}
-                            <h4 className="text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[17px] font-bold leading-tight tracking-tight text-white uppercase shadow-black/20" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.4)" }}>
-                                {c.title.split('\n').map((line, i) => (
-                                    <span key={i} className="block">{line}</span>
-                                ))}
-                            </h4>
+                            <div className="flex items-center gap-3">
+                                {c.icon && (
+                                    <div className="grid h-9 w-9 lg:h-11 lg:w-11 shrink-0 place-items-center rounded-full border border-white/20 bg-white/10 shadow-[0_4px_12px_rgba(0,0,0,0.1)] backdrop-blur-md [&>svg]:h-4.5 [&>svg]:w-4.5 lg:[&>svg]:h-5.5 lg:[&>svg]:w-5.5">
+                                        {c.icon}
+                                    </div>
+                                )}
+                                <h4 className="text-[15px] sm:text-[16px] lg:text-[17.5px] xl:text-[18.5px] font-bold leading-tight tracking-tight text-white uppercase shadow-black/20" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.4)" }}>
+                                    {c.title.split('\n').map((line, i) => (
+                                        <span key={i} className="block">{line}</span>
+                                    ))}
+                                </h4>
+                            </div>
                             {c.subtitle && (
-                                <p className="mt-1 lg:mt-1.5 text-[10.5px] sm:text-[11.5px] lg:text-[11.5px] xl:text-[12px] font-medium text-white/95" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}>
+                                <p className="mt-1 lg:mt-1.5 text-[12.5px] sm:text-[13px] lg:text-[14px] xl:text-[14.5px] font-medium text-white/95" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}>
                                     {c.subtitle}
                                 </p>
                             )}
-                            <p className="mt-1.5 lg:mt-2 text-[10.5px] sm:text-[11px] lg:text-[11.5px] xl:text-[12px] leading-relaxed text-white/80 max-w-[280px]" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}>
+                            <p className="mt-1.5 lg:mt-2 text-[12px] sm:text-[12.5px] lg:text-[13.5px] xl:text-[14px] leading-relaxed text-white/80 max-w-[280px]" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}>
                                 {c.body}
                             </p>
                         </div>
