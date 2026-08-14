@@ -88,7 +88,7 @@ export default function LightEngagementModels() {
     <section
       data-section="engagement-models"
       data-theme-section="light"
-      className="w-full border-t border-[#0a0a1a]/[0.06] py-20 md:py-28"
+      className="w-full border-t border-[#0a0a1a]/[0.06] pt-12 pb-20 md:pt-16 md:pb-28"
       style={{ backgroundColor: SURFACE }}
       aria-labelledby="engagement-models-heading"
     >

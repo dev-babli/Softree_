@@ -6,6 +6,7 @@ import { motion, useInView, useSpring, useTransform } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { Globe } from "@/registry/magicui/globe";
 import { AboutUsGlassPillars } from "@/components/sections/about-us/AboutUsGlassPillars";
+import AboutGlobeMarkers from "@/components/homepage/AboutGlobeMarkers";
 import SectionHeader from "@/components/homepage-light/SectionHeader";
 import { SpotlightCard } from "@/components/qc/shared/SpotlightCard";
 import { COUNTRIES_SERVED, COUNTRIES_SERVED_NUMBER } from "@/lib/constants";
@@ -237,47 +238,21 @@ export default function InfinityScrollAnimation() {
               className="max-w-xl"
             />
             <Link
-              href="/about-us"
+              href="/contact"
               className="group mt-6 inline-flex w-max items-center gap-2 rounded-lg bg-[#1a1a1a] px-5 py-2.5 text-sm font-medium text-white shadow-[0_8px_24px_-8px_rgba(26,26,26,0.4)] transition hover:-translate-y-px"
             >
-              Explore our story
+              Contact our team
               <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </motion.div>
 
           <motion.div
-            className="col-span-12 lg:col-span-7"
+            className="col-span-12 lg:col-span-7 relative z-10 w-full min-w-0 overflow-x-clip"
             initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.08, ease: EASE_OUT }}
           >
-            <BentoCell className="relative min-h-[180px] sm:min-h-[200px] md:min-h-[220px]">
-              <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-40">
-                <Globe />
-              </div>
-              <div className="relative flex min-h-[180px] flex-col justify-between p-5 sm:min-h-[200px] sm:p-6 md:min-h-[220px] md:flex-row md:items-end md:p-8">
-                <div className="min-w-0">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#0a0a1a]/45">
-                    Global reach
-                  </p>
-                  <p className="mt-2 text-[clamp(3.25rem,14vw,7rem)] font-bold leading-none tracking-tighter text-[#0a0a1a]">
-                    <AnimatedNumber value={COUNTRIES_SERVED_NUMBER} delay={0.3} />
-                    <span className="text-[#1852FF]">+</span>
-                  </p>
-                  <p className="mt-2 max-w-xs text-sm text-[#0a0a1a]/55">
-                    Countries with active client deployments and dedicated delivery pods.
-                  </p>
-                </div>
-                <div className="mt-4 flex gap-6 md:mt-0 md:flex-col md:items-end md:gap-3">
-                  <span className="text-xs font-medium text-[#0a0a1a]/50">
-                    Recognition
-                  </span>
-                  <span className="text-xs font-medium text-[#1852FF]">
-                    Microsoft Partner
-                  </span>
-                </div>
-              </div>
-            </BentoCell>
+            <AboutGlobeMarkers />
           </motion.div>
         </div>
 
@@ -311,6 +286,7 @@ export default function InfinityScrollAnimation() {
             </p>
           </div>
           <AboutUsGlassPillars />
+        
         </motion.div>
 
         {/* ── Row 3: Service gallery + proof stats ── */}

@@ -187,9 +187,6 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
                       <span>Start a Project</span>
                       <ArrowRight className="ssx-action-icon" aria-hidden />
                     </Link>
-                    <Link href="/services" className="ssx-action-secondary">
-                      <span>View Services</span>
-                    </Link>
                   </div>
                 </div>
 

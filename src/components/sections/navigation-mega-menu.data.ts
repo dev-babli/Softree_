@@ -321,8 +321,6 @@ export const MEGA_META: Record<string, MegaMenuMeta> = {
     eyebrow: "Services",
     blurb:
       "End-to-end services to modernize, automate and transform your business.",
-    cta: "View all services",
-    href: "/services",
   },
   "Case Studies": {
     eyebrow: "Proof",
@@ -352,7 +350,7 @@ export const SERVICES_MEGA_FOOTER: MegaMenuFooterCta[] = [
   {
     icon: FileText,
     title: "Explore our capabilities in detail",
-    href: "/services",
+    href: "/",
     cta: "View all services",
   },
   {
