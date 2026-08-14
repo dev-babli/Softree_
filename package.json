@@ -4,6 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "next dev --turbo -p 3000",
+        "dev:webpack": "next dev --webpack -p 3000",
         "dev:legacy-cms-kit": "concurrently -k -n site,studio -c blue,magenta \"next dev --turbo -p 3000\" \"npm run cms:dev\"",
         "dev:site": "next dev --turbo -p 3000",
         "build": "cross-env NODE_OPTIONS=\"--max-old-space-size=8192\" next build --webpack",
@@ -237,6 +238,6 @@
         "vitest": "2.1.9"
     },
     "engines": {
-        "node": "24.x"
+        "node": ">=22.0.0"
     }
 }

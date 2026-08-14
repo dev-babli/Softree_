@@ -48,7 +48,9 @@ export default function CoreCapabilities() {
 
   return (
     <section className="relative w-full overflow-hidden bg-transparent py-12 font-sans lg:py-16">
-
+      {/* Background Decorators */}
+      {/* Top Left */}
+      <div className="absolute top-0 left-0 w-[400px] h-[400px] border-b border-r border-[#FF6B2C]/10 rounded-br-[100%] opacity-20 pointer-events-none -translate-x-1/4 -translate-y-1/4"></div>
 
       <div className="relative z-10 max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -141,13 +143,13 @@ export default function CoreCapabilities() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.45 }}
-                    className={`group relative flex w-full flex-1 items-center justify-center overflow-hidden border-r border-gray-100 bg-[#0B0F19] md:w-[45%] md:flex-none ${activeData.image ? '' : 'p-6'}`}
+                    className={`group relative flex w-full flex-1 items-center justify-center overflow-hidden border-r border-gray-100 bg-[#0B0F19] md:w-[45%] md:flex-none ${(activeData as any).image ? '' : 'p-6'}`}
                   >
                     <div className="relative z-10 flex h-full min-h-[220px] w-full items-center justify-center md:absolute md:inset-0 md:min-h-0">
-                      {activeData.image ? (
+                      {(activeData as any).image ? (
                         <>
                           <img
-                            src={activeData.image}
+                            src={(activeData as any).image}
                             alt={activeData.title}
                             className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                           />
@@ -160,14 +162,7 @@ export default function CoreCapabilities() {
                           </div>
                         </>
                       ) : (
-                        <>
-                          <AbstractIllustration type={activeData.illustration} />
-                          <div className="absolute bottom-4 left-4 right-4 z-20">
-                            <span className="inline-flex rounded-full border border-white/20 bg-black/35 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-white backdrop-blur-sm animate-pulse">
-                              {activeData.title}
-                            </span>
-                          </div>
-                        </>
+                        <AbstractIllustration type={activeData.illustration} />
                       )}
                     </div>
                   </motion.div>

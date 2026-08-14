@@ -270,7 +270,7 @@ describe("validators — brand tokens win over references (Property 10)", () => 
 describe("validators — story beat count and structure (Property 12)", () => {
     const behaviorArb = fc.oneof(
         fc.constantFrom<ScrollBehavior>(...APPROVED_SCROLL_BEHAVIORS),
-        fc.constantFrom("parallax", "bounce", "spin") as fc.Arbitrary<
+        fc.constantFrom("parallax", "bounce", "spin") as any as fc.Arbitrary<
             ScrollBehavior
         >,
     );

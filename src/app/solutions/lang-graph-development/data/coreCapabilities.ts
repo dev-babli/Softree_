@@ -21,7 +21,7 @@ export const coreCapabilitiesData = [
       'Design production LangGraph graphs—nodes, edges, conditional routing, and checkpoints for complex agent flows.',
     icon: IconGitBranch,
     color: 'bg-indigo-100 text-indigo-600',
-    image: '/images/solutions/lang-graph-development/cap-01-graphs.jpg?v=lg-cap-2',
+    image: '/images/solutions/lang-graph-development/core-capabilities/cap-01-graphs.jpg?v=lg-cap-2',
     description:
       'We design and ship LangGraph solutions that model real business processes as durable graphs—with typed state, branching logic, retries, and resumable runs your teams can trust in production.',
     highlights: [
@@ -56,7 +56,7 @@ export const coreCapabilitiesData = [
       'Orchestrate specialized agents with LangGraph—shared state, handoffs, and coordinated tool use under clear roles.',
     icon: IconRobot,
     color: 'bg-orange-100 text-orange-600',
-    image: '/images/solutions/lang-graph-development/cap-02-agents.jpg?v=lg-cap-2',
+    image: '/images/solutions/lang-graph-development/core-capabilities/cap-02-agents.jpg?v=lg-cap-2',
     description:
       'We embed multi-agent LangGraph teams where work happens—research, support, ops, and sales—with governed actions, shared memory, and clear escalation paths.',
     highlights: [
@@ -91,7 +91,7 @@ export const coreCapabilitiesData = [
       'Connect LangGraph agents to CRM, ERP, databases, and internal APIs with scoped tools and secure credential handling.',
     icon: IconPlugConnected,
     color: 'bg-red-100 text-red-600',
-    image: '/images/solutions/lang-graph-development/cap-03-tools.jpg?v=lg-cap-2',
+    image: '/images/solutions/lang-graph-development/core-capabilities/cap-03-tools.jpg?v=lg-cap-2',
     description:
       'Softree wires LangGraph tool kits to your systems—REST APIs, SQL, SaaS connectors, and custom functions—with least-privilege access from day one.',
     highlights: [
@@ -126,7 +126,7 @@ export const coreCapabilitiesData = [
       'Persist conversation state, checkpoint LangGraph runs, and resume long workflows without losing context.',
     icon: IconDatabase,
     color: 'bg-emerald-100 text-emerald-600',
-    image: '/images/solutions/lang-graph-development/cap-04-state.jpg?v=lg-cap-2',
+    image: '/images/solutions/lang-graph-development/core-capabilities/cap-04-state.jpg?v=lg-cap-2',
     description:
       'Production LangGraph needs durable state. We design memory stores, thread-level checkpoints, and recovery patterns so agent runs survive failures and scale across sessions.',
     highlights: [
@@ -161,7 +161,7 @@ export const coreCapabilitiesData = [
       'Ground LangGraph agents in vector stores and enterprise APIs so retrieval, reasoning, and actions stay permission-aware.',
     icon: IconSearch,
     color: 'bg-violet-100 text-violet-600',
-    image: '/images/solutions/lang-graph-development/cap-05-rag.jpg?v=lg-cap-2',
+    image: '/images/solutions/lang-graph-development/core-capabilities/cap-05-rag.jpg?v=lg-cap-2',
     description:
       'Combine retrieval nodes with agent graphs—hybrid search, ACL-aware loaders, and cited answers—so LangGraph workflows act on approved knowledge only.',
     highlights: [
@@ -196,7 +196,7 @@ export const coreCapabilitiesData = [
       'LangSmith tracing, CI eval suites, and guardrail nodes to keep LangGraph apps safe and measurable in production.',
     icon: IconShieldLock,
     color: 'bg-cyan-100 text-cyan-600',
-    image: '/images/solutions/lang-graph-development/cap-06-evals.jpg?v=lg-cap-2',
+    image: '/images/solutions/lang-graph-development/core-capabilities/cap-06-evals.jpg?v=lg-cap-2',
     description:
       'Ship with confidence—trace every node, regress against golden datasets, and insert validators and human review for high-risk actions.',
     highlights: [

@@ -45,7 +45,7 @@ const provenResults = [
 
 export default function ProvenResults() {
   return (
-    <section className="relative w-full overflow-hidden bg-transparent py-12 font-sans lg:py-16">
+    <section className="relative w-full overflow-hidden bg-white py-12 font-sans lg:py-16">
       <div className="relative z-10 mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div

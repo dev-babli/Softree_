@@ -15,9 +15,73 @@ export interface ProvenResultItem {
   link: string;
 }
 
-export type SolutionType = "ai-agents" | "ai-copilot" | "ai-workflow" | "enterprise-rag" | "ai-chatbot" | "multi-agent";
+export type SolutionType = "ai-agents" | "ai-copilot" | "ai-workflow" | "enterprise-rag" | "ai-chatbot" | "multi-agent" | "enterprise-ai" | "azure-openai";
 
 const solutionData: Record<SolutionType, ProvenResultItem[]> = {
+  "enterprise-ai": [
+    {
+      category: "ENTERPRISE STRATEGY",
+      title: "AI Portfolio to Production",
+      challenge: "Leadership funded fragmented AI pilots with no shared architecture, ownership model, or measurable path to ROI.",
+      solution: "Built an enterprise AI roadmap, governance model, and first production solutions across priority business units.",
+      outcome: "Converted stalled experiments into governed production systems with clear owners and tracked outcomes.",
+      metric: "3x",
+      metricLabel: "Faster Time-to-Prod",
+      link: "/services/enterprise-ai-solution"
+    },
+    {
+      category: "KNOWLEDGE & OPERATIONS",
+      title: "Enterprise Knowledge AI",
+      challenge: "Employees spent hours searching policies and operational docs across disconnected SharePoint and CRM systems.",
+      solution: "Deployed permission-aware RAG assistants integrated with Microsoft 365 and line-of-business systems.",
+      outcome: "Cut knowledge search time and improved answer consistency for internal and customer-facing teams.",
+      metric: "4.5 hrs",
+      metricLabel: "Saved Per Employee / Wk",
+      link: "/services/enterprise-ai-solution"
+    },
+    {
+      category: "PROCESS AUTOMATION",
+      title: "Cross-System AI Workflows",
+      challenge: "Multi-step operational processes required manual handoffs between CRM, ERP, and shared inboxes.",
+      solution: "Implemented agentic workflows with tool calling, approvals, and audit trails across enterprise systems.",
+      outcome: "Reduced cycle time on priority processes while keeping high-risk actions under human control.",
+      metric: "55%",
+      metricLabel: "Cycle Time Reduction",
+      link: "/services/enterprise-ai-solution"
+    }
+  ],
+  "ai-chatbot": [
+    {
+      category: "CUSTOMER SUPPORT",
+      title: "Knowledge-Grounded Support Chatbot",
+      challenge: "Support queues were flooded with repetitive FAQs while agents struggled to find consistent answers across outdated knowledge bases.",
+      solution: "Built a RAG-grounded chatbot on the website and help center, integrated with ticket creation and live-agent handoff.",
+      outcome: "Deflected a majority of routine inquiries while keeping customers on a clear path to human help when needed.",
+      metric: "62%",
+      metricLabel: "Ticket Deflection",
+      link: "/services/ai-chatbot-development"
+    },
+    {
+      category: "EMPLOYEE SELF-SERVICE",
+      title: "Internal HR & IT Assistant",
+      challenge: "Employees waited on email and portals for policy, leave, and IT how-to questions that delayed day-to-day work.",
+      solution: "Deployed an authenticated Teams chatbot grounded in HR and IT knowledge with secure escalation to service desks.",
+      outcome: "Cut internal request volume and improved employee self-service response times across common intents.",
+      metric: "45%",
+      metricLabel: "Fewer Internal Tickets",
+      link: "/services/ai-chatbot-development"
+    },
+    {
+      category: "SALES & PRE-SALES",
+      title: "Product Discovery Chatbot",
+      challenge: "Website visitors abandoned forms when they could not quickly compare products or get qualified answers after hours.",
+      solution: "Launched a conversational product assistant that answers catalog questions, captures leads, and routes hot intent to sales.",
+      outcome: "Increased qualified lead capture and shortened time-to-answer for product discovery conversations.",
+      metric: "2.4x",
+      metricLabel: "Qualified Chat Leads",
+      link: "/services/ai-chatbot-development"
+    }
+  ],
   "ai-agents": [
     {
       category: "CUSTOMER SERVICE",
@@ -176,6 +240,38 @@ const solutionData: Record<SolutionType, ProvenResultItem[]> = {
       metric: "58%",
       metricLabel: "Fewer Call Enquiries",
       link: "/solutions/ai-chatbot-development"
+    }
+  ],
+  "azure-openai": [
+    {
+      category: "KNOWLEDGE WORK",
+      title: "Azure OpenAI Enterprise Q&A",
+      challenge: "Employees could not find trusted answers across SharePoint and policy repositories.",
+      solution: "Built a permission-aware RAG assistant on Azure OpenAI and Azure AI Search grounded in approved content.",
+      outcome: "Cut knowledge search time and improved answer consistency across teams.",
+      metric: "55%",
+      metricLabel: "Faster Knowledge Access",
+      link: "/solutions/azure-openai-development"
+    },
+    {
+      category: "CUSTOMER SUPPORT",
+      title: "GPT Support Copilot on Azure",
+      challenge: "Support agents spent too long drafting replies without access to live product knowledge.",
+      solution: "Deployed an Azure OpenAI copilot integrated with help content and CRM context under Entra SSO.",
+      outcome: "Accelerated first responses while keeping replies on-policy.",
+      metric: "42%",
+      metricLabel: "Faster First Response",
+      link: "/solutions/azure-openai-development"
+    },
+    {
+      category: "OPERATIONS",
+      title: "Document Intelligence with Azure OpenAI",
+      challenge: "Teams manually reviewed long contracts and operational documents.",
+      solution: "Combined Document Intelligence with Azure OpenAI summarization and extraction workflows.",
+      outcome: "Reduced document cycle time with human review on high-risk outputs.",
+      metric: "50%",
+      metricLabel: "Doc Cycle Time Cut",
+      link: "/solutions/azure-openai-development"
     }
   ],
   "multi-agent": [

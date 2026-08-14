@@ -253,7 +253,7 @@ export default function AzureOpenAIFAQ({ faqs: customFaqs }: AzureOpenAIFAQProps
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-transparent py-12 lg:py-16"
+      className="relative w-full bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-12 lg:py-16"
     >
       <script
         type="application/ld+json"

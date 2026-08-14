@@ -116,18 +116,18 @@ function riveFallback(asset: CdnPassthroughAsset): LocalAsset {
 
 const heroVideoMp4 =
     assets.hero[
-    '6717a0dfaf71071a80dfce8b-68e6057dd670c86ab26c8544-kore-hero-banner-ripple-bg-transcode-mp4'
+    '6717a0dfaf71071a80dfce8b-68e6057dd670c86ab26c8544-softree-hero-banner-ripple-bg-transcode-mp4'
     ];
 
 /** webm alternative `<source>` (see file-header note 1). */
 export const heroBackgroundVideoWebm: AssetRef =
     assets.hero[
-    '6717a0dfaf71071a80dfce8b-68e6057dd670c86ab26c8544-kore-hero-banner-ripple-bg-transcode-webm'
+    '6717a0dfaf71071a80dfce8b-68e6057dd670c86ab26c8544-softree-hero-banner-ripple-bg-transcode-webm'
     ];
 
 const heroVideoPoster =
     assets.hero[
-    '6717a0dfaf71071a80dfce8b-68e6057dd670c86ab26c8544-kore-hero-banner-ripple-bg-poster-00001-jpg'
+    '6717a0dfaf71071a80dfce8b-68e6057dd670c86ab26c8544-softree-hero-banner-ripple-bg-poster-00001-jpg'
     ];
 
 // --- Rive card source assets -------------------------------------------------

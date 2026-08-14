@@ -87,8 +87,8 @@ export default function ChallengeItem({
         {getIcon(item.icon)}
       </div>
       
-      <div className="flex-1">
-        <span className={`text-[14px] font-medium transition-colors duration-300
+      <div className="min-w-0 flex-1">
+        <span className={`break-words text-[14px] font-medium transition-colors duration-300
           ${!isRight ? (isActive ? 'text-[#FF5812]' : 'text-white') : (isActive ? 'text-[#FF5812]' : 'text-slate-800')}
         `}>
           {item.title}

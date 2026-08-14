@@ -4,54 +4,18 @@
 import Link from "next/link";
 import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Sparkles, Bot, Globe2, Layers, FileText, LayoutDashboard, Workflow, BrainCircuit, WandSparkles, Database, Link2, Network } from "lucide-react";
 import type {
   SanityNavCategory,
   SanityNavCaseStudyCategory,
 } from "@/cms/lib/types";
 import { MegaMenuPanel } from "./navigation-mega-menu";
-
 import {
-  LayoutDashboard,
-  Workflow,
-  Server,
-  Rocket,
-  LineChart,
-  Boxes,
-  Cpu,
-  CloudSnow,
-  BrainCircuit,
-  Sparkles,
-  Bot,
-  WandSparkles,
-  Building2,
-  Code2,
-  Globe2,
-  Smartphone,
-  Layers,
-  FileText,
-  RefreshCw,
-  Brain,
-  Lightbulb,
-  Database,
-  Link2,
-  Network,
-} from "lucide-react";
+  SERVICES_MEGA_CATEGORIES,
+  type MegaMenuGroup,
+} from "./navigation-mega-menu.data";
 
-type MenuLink = {
-  label: string;
-  url: string;
-  icon?: React.ComponentType<{ size?: number; className?: string }>;
-  description?: string;
-};
-
-type MenuGroup = {
-  title: string;
-  url?: string;
-  icon?: React.ComponentType<{ size?: number; className?: string }>;
-  description?: string;
-  links: MenuLink[];
-};
+type MenuGroup = MegaMenuGroup;
 
 type MenuItem = {
   label: string;
@@ -68,60 +32,7 @@ const menu: MenuItem[] = [
     label: "Services",
     url: "/services",
     mega: true,
-    children: [
-      {
-        title: "Business Applications",
-        description: "Power Platform at enterprise scale.",
-        links: [
-          { label: "Power Apps", url: "/services/offshore-power-platform-development", icon: LayoutDashboard, description: "Low-code delivery" },
-          { label: "Power Automate", url: "/services/offshore-power-platform-development", icon: Workflow, description: "Workflow automation" },
-          { label: "Dataverse", url: "/services/offshore-power-platform-development", icon: Server, description: "Unified data layer" },
-          { label: "MVP Development", url: "/services/mvp", icon: Rocket, description: "Launch faster" },
-        ],
-      },
-      {
-        title: "Data & Analytics",
-        description: "Intelligence from raw data.",
-        links: [
-          { label: "Power BI", url: "/services/offshore-data-analytics", icon: LineChart, description: "Executive dashboards" },
-          { label: "Microsoft Fabric", url: "/services/offshore-microsoft-fabric", icon: Boxes, description: "Unified analytics" },
-          { label: "Databricks", url: "/services/offshore-data-analytics", icon: Cpu, description: "ML pipelines" },
-          { label: "Snowflake", url: "/services/offshore-data-analytics", icon: CloudSnow, description: "Cloud warehouse" },
-        ],
-      },
-      {
-        title: "AI Strategy & Solutions",
-        description: "Consulting & enterprise enablement.",
-        links: [
-          { label: "AI Consulting Services", url: "/services/ai-consulting-services", icon: Lightbulb, description: "Strategy & readiness roadmaps" },
-          { label: "Enterprise AI Solutions", url: "/services/enterprise-ai-solution", icon: Building2, description: "Scale AI across the enterprise" },
-          { label: "AI Solutions", url: "/ai", icon: Sparkles, description: "Agentic & generative AI hub" },
-        ],
-      },
-      {
-        title: "AI & Automation",
-        description: "Agentic models & workflow build.",
-        links: [
-          { label: "AI Development Services", url: "/services/ai-development-services", icon: Brain, description: "Custom agentic & ML systems" },
-          { label: "Workflow Orchestration", url: "/services/ai-workflow-orchestration", icon: Workflow, description: "Autonomous pipeline agents" },
-          { label: "AI Test Automation", url: "/services/ai-powered-test-automation", icon: BrainCircuit, description: "Quality at speed" },
-          { label: "AI Agents", url: "/services/offshore-ai-development", icon: Bot, description: "Autonomous tasks" },
-          { label: "Generative AI", url: "/services/generative-ai", icon: WandSparkles, description: "RAG & copilots" },
-        ],
-      },
-      {
-        title: "Digital Workspace",
-        description: "Modern apps for connected teams.",
-        links: [
-          { label: "Legacy Modernization", url: "/services/legacy-application-modernization", icon: Sparkles, description: "Architecture refresh" },
-          { label: "SharePoint Online", url: "/services/offshore-sharepoint-development", icon: Building2, description: "Intranets" },
-          { label: "SPFx Development", url: "/services/offshore-spfx-development", icon: Code2, description: "Custom SPFx" },
-          { label: "Web Applications", url: "/services/offshore-web-app-development", icon: Globe2, description: "Portals & apps" },
-          // { label: "Website Modernisation", url: "/services/website-modernization", icon: RefreshCw, description: "Free AI blueprint + redesign" },
-          { label: "Mobile Applications", url: "/services/offshore-mobile-app-development", icon: Smartphone, description: "iOS & Android" },
-        ],
-      },
-    ],
+    children: SERVICES_MEGA_CATEGORIES,
   },
   {
     label: "Solutions",

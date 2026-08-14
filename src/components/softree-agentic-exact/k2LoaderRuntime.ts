@@ -121,7 +121,7 @@ export function runK2Loader(onDone: () => void = () => {}): () => void {
         return
       }
 
-      const end = Math.max(...animations.map((anim) => anim.effect?.getComputedTiming().endTime ?? 0))
+      const end = Math.max(...animations.map((anim) => (anim.effect?.getComputedTiming().endTime as number) ?? 0))
       const overlap = step === 0 ? firstOverlap : 0
 
       window.setTimeout(advance, Math.max(stepFallbackMs[step] ?? 800, end - overlap))

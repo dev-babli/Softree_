@@ -11,7 +11,6 @@ import Industries from "./components/Industries";
 import { SuccessStories } from "./components/SuccessStories";
 import LangGraphFAQ from "./components/LangGraphFAQ";
 import NavigationClient from "@/components/sections/navigation-client";
-import LangGraphPortfolio from "./components/LangGraphPortfolio";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import Footer from "@/components/sections/footer";
 import WhyChooseWithTestimonials from "./components/why";
@@ -25,15 +24,14 @@ export const metadata: Metadata = {
 
 export default function LangGraphDevelopmentPage() {
   return (
-    <main className="min-h-screen w-full overflow-x-clip bg-white font-sans text-base text-[#0A0F3C] antialiased">
+    <main className="min-h-screen w-full overflow-x-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50 font-sans text-base text-[#0A0F3C] antialiased">
       <NavigationClient />
       <Hero />
-      <TrustedBrandsMarquee surface="transparent" />
+      <TrustedBrandsMarquee surface="light" />
       <SuccessStories />
       <CoreCapabilities />
-      <LangGraphPortfolio />
-      {/* <BusinessChallenges />
-      <BusinessOutcomes /> */}
+      <BusinessChallenges />
+      <BusinessOutcomes />
       <ProvenResults />
       <Industries />
       <AiTechnologyStack />

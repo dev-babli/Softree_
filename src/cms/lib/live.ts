@@ -7,8 +7,8 @@ import { cmsReadToken } from './token'
 
 export const { sanityFetch: cmsLiveFetch, SanityLive: CmsSanityLive } = defineLive({
   client: cmsClient,
-  serverToken: cmsReadToken,
-  browserToken: cmsReadToken,
+  serverToken: cmsReadToken || false,
+  browserToken: cmsReadToken || false,
 })
 
 /** @deprecated Use cmsLiveFetch */

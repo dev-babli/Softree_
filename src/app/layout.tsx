@@ -65,7 +65,11 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const { isEnabled: isDraftMode } = await draftMode();
-  const designTokens = await fetchDesignTokens();
+  // Skip Sanity round-trips in local dev unless draft/presentation mode is on.
+  const designTokens =
+    process.env.NODE_ENV === "development" && !isDraftMode
+      ? null
+      : await fetchDesignTokens();
   const designTokenVars = resolveDesignTokenCssVars(designTokens) as CSSProperties;
 
   return (
@@ -196,7 +200,10 @@ export default async function RootLayout({
           {/* Sanity Visual Editing bridge (required for Presentation tool) */}
           {isDraftMode ? <VisualEditing /> : null}
           {isDraftMode ? <DisableDraftMode /> : null}
-          <SanityLiveServer />
+          {/* Live SSE is expensive in local dev; only enable with draft mode. */}
+          {process.env.NODE_ENV === "production" || isDraftMode ? (
+            <SanityLiveServer />
+          ) : null}
         </PostHogProvider>
       </body>
     </html>

@@ -118,55 +118,70 @@ const nextConfig: any = {
     ],
     unoptimized: process.env.VERCEL ? false : true,
     formats: ["image/webp", "image/avif"],
+    // Next 16 only allows qualities listed here (default is [75]).
+    qualities: [75, 90, 92, 95, 100],
   },
   typescript: {
     // Skip type checking during production builds to avoid OOM / spawn UNKNOWN errors
     ignoreBuildErrors: true,
   },
-  webpack: (config: any) => {
+  webpack: (config: any, { isServer }: any) => {
     config.module.rules.push({
       test: /\.(glb|gltf)$/i,
       type: 'asset/resource',
     })
+
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        encoding: false,
+      };
+    }
+
     return config
   },
 };
 
-export default withSentryConfig(withBundleAnalyzer(nextConfig), {
-  // For all available options, see:
-  // https://www.npmjs.com/package/@sentry/webpack-plugin#options
+const analyzedConfig = withBundleAnalyzer(nextConfig);
 
-  org: "softree-technology",
+// Skip Sentry webpack plugin wrapping in local `next dev` — large compile cost.
+export default process.env.NODE_ENV === "production"
+  ? withSentryConfig(analyzedConfig, {
+      // For all available options, see:
+      // https://www.npmjs.com/package/@sentry/webpack-plugin#options
 
-  project: "javascript-nextjs",
+      org: "softree-technology",
 
-  // Only print logs for uploading source maps in CI
-  silent: !process.env.CI,
+      project: "javascript-nextjs",
 
-  // For all available options, see:
-  // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
+      // Only print logs for uploading source maps in CI
+      silent: !process.env.CI,
 
-  // Upload a larger set of source maps for prettier stack traces (increases build time)
-  widenClientFileUpload: true,
+      // For all available options, see:
+      // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
 
-  // Route browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers.
-  // This can increase your server load as well as your hosting bill.
-  // Note: Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-
-  // side errors will fail.
-  // Avoid local-dev tunnel proxy noise/timeouts to Sentry ingest.
-  tunnelRoute: process.env.NODE_ENV === "production" ? "/monitoring" : undefined,
+      // Upload a larger set of source maps for prettier stack traces (increases build time)
+      widenClientFileUpload: true,
 
-  webpack: {
-    // Enables automatic instrumentation of Vercel Cron Monitors. (Does not yet work with App Router route handlers.)
-    // See the following for more information:
-    // https://docs.sentry.io/product/crons/
-    // https://vercel.com/docs/cron-jobs
-    automaticVercelMonitors: true,
+      // Route browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers.
+      // This can increase your server load as well as your hosting bill.
+      // Note: Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-
+      // side errors will fail.
+      tunnelRoute: "/monitoring",
 
-    // Tree-shaking options for reducing bundle size
-    treeshake: {
-      // Automatically tree-shake Sentry logger statements to reduce bundle size
-      removeDebugLogging: true,
-    },
-  },
-});
+      webpack: {
+        // Enables automatic instrumentation of Vercel Cron Monitors. (Does not yet work with App Router route handlers.)
+        // See the following for more information:
+        // https://docs.sentry.io/product/crons/
+        // https://vercel.com/docs/cron-jobs
+        automaticVercelMonitors: true,
+
+        // Tree-shaking options for reducing bundle size
+        treeshake: {
+          // Automatically tree-shake Sentry logger statements to reduce bundle size
+          removeDebugLogging: true,
+        },
+      },
+    })
+  : analyzedConfig;

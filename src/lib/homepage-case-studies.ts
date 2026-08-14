@@ -92,6 +92,14 @@ const homepageFeaturedCaseStudiesQuery = groq`
 `;
 
 export async function getHomepageCaseStudies(): Promise<CaseStudyMock[]> {
+  // Avoid Sanity latency on every cold `next dev` homepage request.
+  if (
+    process.env.NODE_ENV === "development" &&
+    process.env.FORCE_SANITY_HOMEPAGE !== "1"
+  ) {
+    return HOMEPAGE_FALLBACK_CASE_STUDIES;
+  }
+
   try {
     const studies = await sanityFetch<SanityNavCaseStudy[]>(
       homepageFeaturedCaseStudiesQuery,

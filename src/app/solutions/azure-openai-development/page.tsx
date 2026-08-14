@@ -5,8 +5,6 @@ import BusinessChallenges from "./components/BusinessChallenges";
 import BusinessOutcomes from "./components/BusinessOutcomes";
 import ProvenResults from "./components/ProvenResults";
 import CoreCapabilities from "./components/CoreCapabilities";
-import AzurePortfolio from "./components/AzurePortfolio";
-import AzureResilience from "./components/AzureResilience";
 import HowAIWorks from "./components/HowAIWorks";
 import AiTechnologyStack from "./components/AiTechnologyStack";
 import Industries from "./components/Industries";
@@ -32,10 +30,8 @@ export default function AzureOpenAIDevelopmentPage() {
       <TrustedBrandsMarquee surface="light" />
       <SuccessStories />
       <CoreCapabilities />
-      <AzurePortfolio />
-      <AzureResilience />
-      {/* <BusinessChallenges />
-      <BusinessOutcomes /> */}
+      <BusinessChallenges />
+      <BusinessOutcomes />
       <ProvenResults />
       <Industries />
       <AiTechnologyStack />

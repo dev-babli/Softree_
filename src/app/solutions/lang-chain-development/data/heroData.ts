@@ -1,12 +1,14 @@
 import {
   Database,
-  Network,
   Layers,
   Workflow,
-  TrendingUp,
   Search,
   Bot,
   Activity,
+  Shield,
+  Users,
+  Cloud,
+  CheckCircle2,
 } from "lucide-react";
 
 export interface CapabilityCardData {
@@ -26,39 +28,39 @@ export interface FeatureItem {
 export const HERO_DATA = {
   label: "LANGCHAIN DEVELOPMENT",
   heading: {
-    prefix: "LangChain Development Services",
-    highlight: "for AI Applications",
+    prefix: "Enterprise LangChain",
+    highlight: "built for production",
     suffix: "",
   },
   paragraph:
-    "Softree delivers LangChain development services for AI applications, including RAG pipelines, LangGraph agent workflows, tool calling, persistent memory, and evaluation frameworks, so your business can launch scalable, governed, and production-ready AI solutions.",
+    "We design and ship LangChain apps, RAG pipelines, and agent workflows with tool calling, memory, and evaluation frameworks—governed AI your engineering team can run in production.",
   ctaButtons: {
     primary: {
-      text: "Talk to an Expert",
+      text: "Talk to our Expert",
       href: "https://www.softreetechnology.com/contact",
     },
     secondary: { text: "", href: "" },
   },
   features: [
     {
-      icon: Network,
-      title: "LANGCHAIN / LANGGRAPH",
-      subtitle: "Chains, graphs, and agents.",
+      icon: Shield,
+      title: "White-Label Friendly",
+      subtitle: "Seamless integration",
     },
     {
-      icon: Search,
-      title: "RAG CHAINS",
-      subtitle: "Grounded retrieval pipelines.",
+      icon: Users,
+      title: "Dedicated Offshore Teams",
+      subtitle: "Scalable capacity",
     },
     {
-      icon: Workflow,
-      title: "TOOL CALLING",
-      subtitle: "APIs, CRM, and enterprise data.",
+      icon: Cloud,
+      title: "Microsoft AI Expertise",
+      subtitle: "Certified partners",
     },
     {
-      icon: TrendingUp,
-      title: "PRODUCTION DELIVERY",
-      subtitle: "Strategy to live LangChain apps.",
+      icon: CheckCircle2,
+      title: "Enterprise-Ready Delivery",
+      subtitle: "Proven execution",
     },
   ] as FeatureItem[],
   capabilities: [

@@ -8,7 +8,7 @@ import SectionBadge from "../SectionBadge";
 
 export const SuccessStories = () => {
   return (
-    <section className="relative w-full py-24 overflow-hidden font-sans bg-transparent">
+    <section className="relative w-full py-24 overflow-hidden font-sans bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
       <div className="relative z-10 container mx-auto px-4 md:px-6">
         <motion.div
           variants={staggerContainer}

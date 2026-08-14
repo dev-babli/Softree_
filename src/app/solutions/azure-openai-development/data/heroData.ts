@@ -1,9 +1,13 @@
-import React from "react";
 import {
   Brain,
+  Cloud,
+  ShieldCheck,
   Database,
   Sparkles,
+  Network,
   Layers,
+  Workflow,
+  TrendingUp,
   KeyRound,
   Search,
 } from "lucide-react";
@@ -12,15 +16,14 @@ export interface CapabilityCardData {
   id: string;
   title: string;
   subtitle: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: any;
   angle: number;
 }
 
-export interface MetricItem {
-  number: string;
-  value: string;
-  label: string;
-  desc: string;
+export interface FeatureItem {
+  icon: any;
+  title: string;
+  subtitle: string;
 }
 
 export const HERO_DATA = {
@@ -39,26 +42,28 @@ export const HERO_DATA = {
     },
     secondary: { text: "", href: "" },
   },
-  metrics: [
+  features: [
     {
-      number: "01",
-      value: "55%",
-      label: "Faster Knowledge Access",
-      desc: "Cut enterprise Q&A search times",
+      icon: Cloud,
+      title: "AZURE AI FOUNDRY",
+      subtitle: "Models in your Azure tenant.",
     },
     {
-      number: "02",
-      value: "42%",
-      label: "Faster First Response",
-      desc: "Accelerated support workflows",
+      icon: Search,
+      title: "GROUNDED WITH RAG",
+      subtitle: "Azure AI Search + your data.",
     },
     {
-      number: "03",
-      value: "50%",
-      label: "Doc Cycle Time Cut",
-      desc: "Document intelligence speedup",
+      icon: ShieldCheck,
+      title: "ENTERPRISE SECURITY",
+      subtitle: "Entra ID, private networking.",
     },
-  ] as MetricItem[],
+    {
+      icon: TrendingUp,
+      title: "PRODUCTION DELIVERY",
+      subtitle: "Strategy to live Azure apps.",
+    },
+  ] as FeatureItem[],
   capabilities: [
     {
       id: "models",
