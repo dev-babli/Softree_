@@ -1,5 +1,5 @@
 import { FaCode, FaDatabase, FaCloud, FaShieldAlt, FaBrain, FaCogs, FaUsers, FaLock, FaGlobe, FaLink, FaChartLine, FaMicrosoft, FaAws } from "react-icons/fa";
-import { SiOpenai, SiDocker, SiKubernetes, SiLangchain, SiGooglecloud, SiRedis, SiPostgresql } from "react-icons/si";
+import { SiDocker, SiKubernetes, SiLangchain, SiGooglecloud, SiRedis, SiPostgresql } from "react-icons/si";
 
 export const technologyStackData = {
   badge: "TECHNOLOGY STACK",
@@ -15,7 +15,7 @@ export const technologyStackData = {
       badgeClass: "bg-orange-500/10 text-orange-400 border-orange-500/20",
       iconClass: "bg-orange-500/10 text-orange-400",
       items: [
-        { name: "OpenAI GPT-4o", icon: SiOpenai },
+        { name: "OpenAI GPT-4o", icon: FaBrain },
         { name: "Claude 4", icon: FaBrain },
         { name: "Gemini", icon: FaBrain },
         { name: "Llama", icon: FaCode },

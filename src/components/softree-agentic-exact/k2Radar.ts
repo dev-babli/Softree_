@@ -64,6 +64,7 @@ export function bindK2Radar(scope: ParentNode = document): () => void {
   checkRadarTab()
 
   function initRadar(attempt = 0) {
+    if (!wrap) return
     const gsap = getGsap()
     if (!gsap) {
       if (attempt < 30) window.setTimeout(() => initRadar(attempt + 1), 200)

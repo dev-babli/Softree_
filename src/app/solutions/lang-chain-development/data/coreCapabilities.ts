@@ -21,6 +21,7 @@ export const coreCapabilitiesData = [
       'Production LangChain applications—LCEL chains, streaming APIs, and backend services with evaluation and cost controls.',
     icon: IconApi,
     color: 'bg-indigo-100 text-indigo-600',
+    image: '/images/solutions/lang-chain-development/core-capabilities/cap-01-apps-apis.jpg?v=lc-cap-2',
     description:
       'We design and ship LangChain solutions that compose the right models, retrievers, and tools for each task—streaming when needed and exposing clean APIs your products and teams can trust.',
     highlights: [
@@ -55,6 +56,7 @@ export const coreCapabilitiesData = [
       'Ground LangChain chains in vector stores, document loaders, and enterprise APIs so answers stay accurate and permission-aware.',
     icon: IconSearch,
     color: 'bg-emerald-100 text-emerald-600',
+    image: '/images/solutions/lang-chain-development/core-capabilities/cap-02-rag.jpg?v=lc-cap-2',
     description:
       'Eliminate guesswork by retrieving only approved, permissioned content—with citations, chunking strategies, and continuous index hygiene built into LangChain retrievers.',
     highlights: [
@@ -89,7 +91,7 @@ export const coreCapabilitiesData = [
       'Orchestrate specialized agents with LangGraph—stateful graphs, human-in-the-loop checkpoints, and coordinated handoffs.',
     icon: IconGitBranch,
     color: 'bg-orange-100 text-orange-600',
-    image: '/images/lang-chain/cap-03-langgraph.jpg',
+    image: '/images/solutions/lang-chain-development/core-capabilities/cap-03-langgraph.jpg?v=lc-cap-2',
     description:
       'We embed LangGraph agents where work happens—research, support, ops, and sales—with governed actions, shared memory, and clear escalation paths.',
     highlights: [
@@ -124,7 +126,7 @@ export const coreCapabilitiesData = [
       'Connect LangChain agents to CRM, ERP, databases, and internal APIs with scoped tools and secure credential handling.',
     icon: IconPlugConnected,
     color: 'bg-red-100 text-red-600',
-    image: '/images/lang-chain/cap-04-tools.jpg',
+    image: '/images/solutions/lang-chain-development/core-capabilities/cap-04-tools.jpg?v=lc-cap-2',
     description:
       'Softree wires LangChain tool kits to your systems—REST APIs, SQL, SaaS connectors, and custom functions—with least-privilege access from day one.',
     highlights: [
@@ -159,7 +161,7 @@ export const coreCapabilitiesData = [
       'Persist conversation state, checkpoint LangGraph runs, and trace chains with LangSmith for production visibility.',
     icon: IconActivity,
     color: 'bg-violet-100 text-violet-600',
-    image: '/images/lang-chain/cap-05-observability.jpg',
+    image: '/images/solutions/lang-chain-development/core-capabilities/cap-05-observability.jpg?v=lc-cap-2',
     description:
       'Production LangChain needs visibility. We instrument runs, set token budgets, and tune prompts and models so spend tracks business value.',
     highlights: [
@@ -194,6 +196,7 @@ export const coreCapabilitiesData = [
       'Automated eval suites, output validators, and guardrail chains to keep LangChain apps safe and on-policy in production.',
     icon: IconShieldLock,
     color: 'bg-cyan-100 text-cyan-600',
+    image: '/images/solutions/lang-chain-development/core-capabilities/cap-06-guardrails.jpg?v=lc-cap-2',
     description:
       'Ship with confidence—regression tests, golden datasets, toxicity filters, and human review loops for high-risk outputs.',
     highlights: [

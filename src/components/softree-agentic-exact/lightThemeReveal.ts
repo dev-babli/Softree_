@@ -3,7 +3,7 @@
 const LIGHT_SECTION_IDS = ["ai-programmable", "pillars"] as const
 
 export function initLightThemeSection(root: ParentNode): void {
-  const scope = root instanceof Document ? root.querySelector(".softree-agentic-shell") : root.closest(".softree-agentic-shell")
+  const scope = root instanceof Document ? root.querySelector(".softree-agentic-shell") : (root as Element).closest(".softree-agentic-shell")
   if (!scope) return
 
   LIGHT_SECTION_IDS.forEach((id) => {

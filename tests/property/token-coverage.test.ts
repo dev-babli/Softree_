@@ -246,7 +246,7 @@ function findMagicValuesInTs(filePath: string): MagicHit[] {
 
         // Inspect literal nodes for magic values
         if (node.type === "StringLiteral") {
-            const value = (node as { value: string }).value;
+            const value = (node as any).value as string;
             for (const pat of MAGIC_STRING_PATTERNS) {
                 if (pat.test(value)) {
                     // Skip if inside a TS type-literal context
@@ -262,7 +262,7 @@ function findMagicValuesInTs(filePath: string): MagicHit[] {
                 }
             }
         } else if (node.type === "NumericLiteral") {
-            const num = (node as { value: number }).value;
+            const num = (node as any).value as number;
             if (
                 Number.isFinite(num) &&
                 num >= NUMERIC_MAGIC_MIN &&

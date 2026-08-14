@@ -5,8 +5,6 @@ import BusinessChallenges from "./components/BusinessChallenges";
 import BusinessOutcomes from "./components/BusinessOutcomes";
 import ProvenResults from "@/components/sections/ProvenResults";
 import CoreCapabilities from "./components/CoreCapabilities";
-import AgentShowcase from "./components/AgentShowcase";
-import FrontierArchitecture from "./components/FrontierArchitecture";
 import HowAIWorks from "./components/HowAIWorks";
 import AiTechnologyStack from "./components/AiTechnologyStack";
 import Industries from "./components/Industries";
@@ -29,14 +27,12 @@ export default function MultiAgentSystemsPage() {
     <main className="min-h-screen w-full overflow-x-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50 font-sans text-base text-[#0A0F3C] antialiased">
       <NavigationClient />
       <Hero />
-      <TrustedBrandsMarquee surface="transparent" />
+      <TrustedBrandsMarquee surface="light" />
       <SuccessStories />
       <CoreCapabilities />
-      <AgentShowcase />
-      <FrontierArchitecture />
-      {/* <BusinessChallenges />
-      <BusinessOutcomes /> */}
-      <ProvenResults solution="multi-agent" bgClassName="bg-transparent" />
+      <BusinessChallenges />
+      <BusinessOutcomes />
+      <ProvenResults solution="multi-agent" />
       <Industries />
       <AiTechnologyStack />
       <HowAIWorks />

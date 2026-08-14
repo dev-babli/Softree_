@@ -129,7 +129,7 @@ export function installSoftreeAgenticTabs(scope: ParentNode) {
 
     const scrollRootToTop = (smooth = true) => {
       const offset = -100
-      const lenis = (window as Window & { lenis?: { scrollTo: (target: Element, opts: { offset: number; immediate: boolean }) => void } }).lenis
+      const lenis = (window as any).lenis
 
       if (lenis) {
         lenis.scrollTo(root, { offset, immediate: !smooth })

@@ -10,7 +10,7 @@ const HERO_VIDEO_SRC =
   "/images/solutions/azure-openai-development/azure-openai-hero.mp4?v=aoai-play-3";
 
 export const Hero: React.FC = () => {
-  const { label, heading, paragraph, ctaButtons, metrics, capabilities } =
+  const { label, heading, paragraph, ctaButtons, features, capabilities } =
     HERO_DATA;
 
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -148,28 +148,27 @@ export const Hero: React.FC = () => {
 
             <motion.div
               variants={itemVariants}
-              className="grid w-full grid-cols-1 gap-y-6 border-t border-gray-100 pt-6 sm:grid-cols-3 sm:gap-x-6"
+              className="flex w-full flex-col gap-5 border-t border-gray-100 pt-6 md:flex-row md:gap-4"
             >
-              {metrics.map((metric) => (
-                <div key={metric.number} className="flex flex-col gap-1">
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-[10px] font-bold text-[#FF5812]/50 tracking-wider">
-                      {metric.number}
-                    </span>
-                    <span className="text-2xl font-extrabold tracking-tight text-[#FF5812] sm:text-3xl">
-                      {metric.value}
-                    </span>
-                  </div>
-                  <div>
-                    <h4 className="text-[12.5px] font-bold leading-tight text-[#0A0F3C]">
-                      {metric.label}
-                    </h4>
-                    <p className="text-[11px] leading-normal text-slate-500 font-medium mt-0.5">
-                      {metric.desc}
+              {features.map((feature) => {
+                const Icon = feature.icon;
+                return (
+                  <div key={feature.title} className="flex flex-1 flex-col gap-1.5">
+                    <div className="flex items-start gap-2">
+                      <Icon
+                        className="mt-[1px] h-5 w-5 shrink-0 text-[#FF6B00]"
+                        strokeWidth={1.5}
+                      />
+                      <h4 className="whitespace-pre-line text-[12.5px] font-semibold leading-[1.25] text-[#0A0F3C]">
+                        {feature.title.replace(" ", "\n")}
+                      </h4>
+                    </div>
+                    <p className="pr-2 text-[11px] leading-relaxed text-gray-500">
+                      {feature.subtitle}
                     </p>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </motion.div>
           </motion.div>
 

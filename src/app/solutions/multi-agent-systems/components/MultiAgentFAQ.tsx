@@ -253,7 +253,7 @@ export default function MultiAgentFAQ({ faqs: customFaqs }: MultiAgentFAQProps) 
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-transparent py-14 md:py-20"
+      className="relative w-full bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-14 md:py-20"
     >
       <script
         type="application/ld+json"

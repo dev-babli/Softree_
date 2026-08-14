@@ -1,21 +1,16 @@
 "use client"
 
 import Image from "next/image"
-import dynamic from "next/dynamic"
 import { motion, useReducedMotion } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
 import { useState, type FormEvent, type ReactNode } from "react"
 import { SOFTREE_OFFICES_CONTACT } from "@/data/softree-offices"
+import CalendlyPopupButton from "@/components/calendly/CalendlyPopupButton"
 
 interface SoftreeOfficeContact {
   city: string;
   lines: string[];
 }
-
-const CalendlyPopupButton = dynamic(
-  () => import("@/components/calendly/CalendlyPopupButton"),
-  { ssr: false },
-)
 
 type Status = "idle" | "submitting" | "success" | "error"
 

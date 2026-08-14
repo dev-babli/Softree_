@@ -45,7 +45,7 @@ export default function BusinessChallenges() {
   }, [nextSlide, prevSlide]);
 
   return (
-    <section className="relative w-full overflow-hidden bg-transparent py-12 lg:py-16">
+    <section className="relative w-full overflow-hidden bg-[#F7F5F2] py-12 lg:py-16">
       <div className="pointer-events-none absolute left-0 top-0 h-[420px] w-[420px] -translate-x-1/3 rounded-full bg-[#FF6A13]/[0.07] blur-3xl" />
 
       <div className="relative z-10 mx-auto flex max-w-[85rem] flex-col items-center px-4 sm:px-6 lg:px-8">

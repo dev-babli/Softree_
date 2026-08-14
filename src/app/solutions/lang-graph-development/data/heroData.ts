@@ -1,11 +1,14 @@
 import {
   Database,
   Workflow,
-  TrendingUp,
   Search,
   Bot,
   Activity,
   GitBranch,
+  Shield,
+  Users,
+  Cloud,
+  CheckCircle2,
 } from "lucide-react";
 
 export interface CapabilityCardData {
@@ -25,39 +28,39 @@ export interface FeatureItem {
 export const HERO_DATA = {
   label: "LANGGRAPH DEVELOPMENT",
   heading: {
-    prefix: "LangGraph Development Services",
-    highlight: "for Agentic Workflows",
+    prefix: "Enterprise LangGraph",
+    highlight: "built for production",
     suffix: "",
   },
   paragraph:
-    "Softree builds production LangGraph applications—stateful agent graphs, multi-agent teams, human-in-the-loop checkpoints, tool calling, persistent memory, and evaluation harnesses—so your team ships governed, observable agent systems that integrate with your data and tools.",
+    "We design and ship stateful LangGraph agents, multi-agent teams, and human-in-the-loop workflows with tool calling, memory, and eval harnesses—governed agent systems your team can run in production.",
   ctaButtons: {
     primary: {
-      text: "Talk to an Expert",
+      text: "Talk to our Expert",
       href: "https://www.softreetechnology.com/contact",
     },
     secondary: { text: "", href: "" },
   },
   features: [
     {
-      icon: GitBranch,
-      title: "STATEFUL GRAPHS",
-      subtitle: "Nodes, edges, and checkpoints.",
+      icon: Shield,
+      title: "White-Label Friendly",
+      subtitle: "Seamless integration",
     },
     {
-      icon: Bot,
-      title: "MULTI-AGENT TEAMS",
-      subtitle: "Specialized agents that collaborate.",
+      icon: Users,
+      title: "Dedicated Offshore Teams",
+      subtitle: "Scalable capacity",
     },
     {
-      icon: Workflow,
-      title: "TOOL CALLING",
-      subtitle: "APIs, CRM, and enterprise data.",
+      icon: Cloud,
+      title: "Microsoft AI Expertise",
+      subtitle: "Certified partners",
     },
     {
-      icon: TrendingUp,
-      title: "PRODUCTION DELIVERY",
-      subtitle: "Strategy to live LangGraph apps.",
+      icon: CheckCircle2,
+      title: "Enterprise-Ready Delivery",
+      subtitle: "Proven execution",
     },
   ] as FeatureItem[],
   capabilities: [

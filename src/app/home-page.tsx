@@ -5,15 +5,12 @@ import type { CaseStudyMock } from "@/components/bento-layout";
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
 import { TransferredSoftreeHero } from "@/components/sections/TransferredSoftreeHero";
-
 import ServicesStackedSlides from "@/components/sections/ServicesStackedSlides";
 import SoftreeEnterpriseCarousel from "@/components/sections/SoftreeEnterpriseCarousel";
 import GlobalClientNetwork from "@/components/sections/GlobalClientNetwork";
+import Gallery from "@/components/Gallery/Gallery";
+import AnimatedPhotoGallery from "@/components/Gallery/AnimatedPhotoGallery";
 
-/* ── Lazy-loaded transferred components ──
- * Skeleton colours are matched to each component's actual root section
- * background so the user never sees a dark→light (or light→dark) flash
- * during code-split hydration. */
 const FeaturesShowcaseLazy = dynamic(
   () => import("@/components/features/FeaturesShowcase"),
   { loading: () => <div className="min-h-[100vh] w-full bg-[#F3F0EE]" aria-hidden="true" /> }
@@ -46,21 +43,14 @@ const HomepageShowcaseSectionsLazy = dynamic(
     ),
   }
 );
-import Gallery from "@/components/Gallery/Gallery";
-import AnimatedPhotoGallery from "@/components/Gallery/AnimatedPhotoGallery";
-
 const LightFAQExactLazy = dynamic(
   () => import("@/components/homepage-light/LightFAQExact"),
-  /* Component renders on cream `#fffbf7` — skeleton must match or we see a
-   * jarring dark→cream flash. */
   { loading: () => <div className="min-h-[48vh] w-full bg-[#F3F0EE]" aria-hidden="true" /> }
 );
 const LightContactSectionLazy = dynamic(
   () => import("@/components/homepage-light/LightContactSection"),
   { loading: () => <div className="min-h-[100vh] w-full bg-[#0a0a0a]" aria-hidden="true" /> }
 );
-/* "Engineering Solutions Built for Impact" — light editorial showcase
- * (off-white #FAFAFA surface). Skeleton matches to avoid hydration flash. */
 const EngineeringSolutionsLazy = dynamic(
   () => import("@/components/sections/engineering-solutions/EngineeringSolutionsSection"),
   { loading: () => <div className="min-h-[120vh] w-full bg-[#F3F0EE]" aria-hidden /> }
@@ -69,6 +59,7 @@ const InfinityScrollAnimationLazy = dynamic(
   () => import("@/components/infinity-scroll-animation/InfinityScrollAnimation"),
   { loading: () => <div className="min-h-[60vh] w-full bg-[#F8F9FC] sm:min-h-[70vh]" aria-hidden /> }
 );
+
 type HomeProps = {
   homepageCaseStudies?: CaseStudyMock[];
 };
@@ -78,7 +69,6 @@ export default function Home({ homepageCaseStudies }: HomeProps) {
     <div className="flex flex-col min-h-screen overflow-x-clip bg-black">
       <NavigationClient />
       <main className="flex-grow overflow-x-clip">
-        {/* ── HERO (GSAP pin + pinSpacing — full-bleed) ── */}
         <TransferredSoftreeHero />
         {/* About bento — LightAboutMerged DNA + parallax gallery */}
         <InfinityScrollAnimationLazy />
