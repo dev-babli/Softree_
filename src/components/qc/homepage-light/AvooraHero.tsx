@@ -318,7 +318,11 @@ function ServiceCard({
 
 /* ── Main section ─────────────────────────────────────────────────── */
 
-export default function AvooraHero() {
+export default function AvooraHero({
+  showServices = false,
+}: {
+  showServices?: boolean
+} = {}) {
   const containerRef = useRef<HTMLDivElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
   const videoStageRef = useRef<HTMLDivElement>(null)
@@ -330,12 +334,12 @@ export default function AvooraHero() {
   const totalServices = ASSETS.services.length
 
   useEffect(() => {
-    if (isPaused) return
+    if (isPaused || !showServices) return
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % totalServices)
     }, 3000)
     return () => clearInterval(timer)
-  }, [isPaused, totalServices])
+  }, [isPaused, totalServices, showServices])
 
   useGSAP(
     () => {
@@ -460,15 +464,17 @@ export default function AvooraHero() {
       }
 
       // Marquee entrance
-      tl.from(
-        marqueeRef.current,
-        {
-          y: reduced ? 0 : 40,
-          opacity: 0,
-          duration: reduced ? 0.01 : DUR.card,
-        },
-        "-=0.2"
-      )
+      if (marqueeRef.current) {
+        tl.from(
+          marqueeRef.current,
+          {
+            y: reduced ? 0 : 40,
+            opacity: 0,
+            duration: reduced ? 0.01 : DUR.card,
+          },
+          "-=0.2"
+        )
+      }
 
       /* Parallax — desktop, no reduced-motion. The previous mm scope already
        * gated this; we keep that gate and only swap the literal duration. */
@@ -685,120 +691,122 @@ export default function AvooraHero() {
              Dynamic 3-card sliding carousel with center active scaling.
              Cycles every 3 seconds.
         ══════════════════════════════════════════════════════════ */}
-        <div 
-          ref={marqueeRef} 
-          className="relative mt-24 pt-16 pb-12 select-none border-t border-gray-100"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
-          {/* Section Header with Left-Aligned Text & Right-Aligned Arrows */}
-          <div className="mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6 max-w-7xl mx-auto px-4">
-            <div className="text-left max-w-4xl">
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#FF5812]/20 bg-[#FF5812]/05 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.20em] text-[#FF5812] mb-3 shadow-sm">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#FF5812]" />
-                Enterprise Technology Transformation Services
-              </span>
-              <h2 className="font-black text-3xl md:text-5xl leading-[1.1] tracking-tight text-[#0a0a1a] mt-2 block w-full">
-                <span className="text-[#0a0a1a]">Transforming Business Challenges Into</span>{" "}
-                <span className="text-[#FF5812] drop-shadow-[0_2px_12px_rgba(255,88,18,0.15)]">Digital Solutions</span>
-              </h2>
-              <p className="mt-3 text-zinc-600/90 font-medium text-base md:text-lg leading-relaxed max-w-2xl">
-                Explore our core expertise spanning cognitive agents cloud application modernization and enterprise integrations
-              </p>
+        {showServices && (
+          <div 
+            ref={marqueeRef} 
+            className="relative mt-24 pt-16 pb-12 select-none border-t border-gray-100"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            {/* Section Header with Left-Aligned Text & Right-Aligned Arrows */}
+            <div className="mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6 max-w-7xl mx-auto px-4">
+              <div className="text-left max-w-4xl">
+                <span className="inline-flex items-center gap-2 rounded-full border border-[#FF5812]/20 bg-[#FF5812]/05 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.20em] text-[#FF5812] mb-3 shadow-sm">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#FF5812]" />
+                  Enterprise Technology Transformation Services
+                </span>
+                <h2 className="font-black text-3xl md:text-5xl leading-[1.1] tracking-tight text-[#0a0a1a] mt-2 block w-full">
+                  <span className="text-[#0a0a1a]">Transforming Business Challenges Into</span>{" "}
+                  <span className="text-[#FF5812] drop-shadow-[0_2px_12px_rgba(255,88,18,0.15)]">Digital Solutions</span>
+                </h2>
+                <p className="mt-3 text-zinc-600/90 font-medium text-base md:text-lg leading-relaxed max-w-2xl">
+                  Explore our core expertise spanning cognitive agents cloud application modernization and enterprise integrations
+                </p>
+              </div>
+
+              {/* Navigation Arrows on Right Side */}
+              <div className="flex gap-2.5 shrink-0 self-start md:self-end">
+                <button
+                  disabled={activeIndex === 0}
+                  onClick={() => setActiveIndex((prev) => Math.max(0, prev - 1))}
+                  aria-label="Previous service"
+                  className={`flex h-11 w-11 items-center justify-center rounded-full border transition-all duration-300 focus:outline-none ${
+                    activeIndex === 0
+                      ? "bg-gray-100 border-gray-100 text-gray-400 cursor-not-allowed opacity-50"
+                      : "bg-[#FF6B00] border-[#FF6B00] text-white hover:bg-[#FF5812] hover:scale-105 active:scale-95 shadow-sm"
+                  }`}
+                >
+                  <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button
+                  disabled={activeIndex === totalServices - 1}
+                  onClick={() => setActiveIndex((prev) => Math.min(totalServices - 1, prev + 1))}
+                  aria-label="Next service"
+                  className={`flex h-11 w-11 items-center justify-center rounded-full border transition-all duration-300 focus:outline-none ${
+                    activeIndex === totalServices - 1
+                      ? "bg-gray-100 border-gray-100 text-gray-400 cursor-not-allowed opacity-50"
+                      : "bg-[#FF6B00] border-[#FF6B00] text-white hover:bg-[#FF5812] hover:scale-105 active:scale-95 shadow-sm"
+                  }`}
+                >
+                  <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
             </div>
 
-            {/* Navigation Arrows on Right Side */}
-            <div className="flex gap-2.5 shrink-0 self-start md:self-end">
-              <button
-                disabled={activeIndex === 0}
-                onClick={() => setActiveIndex((prev) => Math.max(0, prev - 1))}
-                aria-label="Previous service"
-                className={`flex h-11 w-11 items-center justify-center rounded-full border transition-all duration-300 focus:outline-none ${
-                  activeIndex === 0
-                    ? "bg-gray-100 border-gray-100 text-gray-400 cursor-not-allowed opacity-50"
-                    : "bg-[#FF6B00] border-[#FF6B00] text-white hover:bg-[#FF5812] hover:scale-105 active:scale-95 shadow-sm"
-                }`}
+            {/* 4) Continuous Slider Track */}
+            <div className="carousel-container overflow-hidden w-full py-10 relative">
+              <div
+                className="carousel-track"
+                style={{
+                  transform: `translate3d(calc(-1 * ((${activeIndex} * (var(--card-width) + var(--card-gap))) + (var(--card-width) / 2))), 0, 0)`,
+                }}
               >
-                <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              <button
-                disabled={activeIndex === totalServices - 1}
-                onClick={() => setActiveIndex((prev) => Math.min(totalServices - 1, prev + 1))}
-                aria-label="Next service"
-                className={`flex h-11 w-11 items-center justify-center rounded-full border transition-all duration-300 focus:outline-none ${
-                  activeIndex === totalServices - 1
-                    ? "bg-gray-100 border-gray-100 text-gray-400 cursor-not-allowed opacity-50"
-                    : "bg-[#FF6B00] border-[#FF6B00] text-white hover:bg-[#FF5812] hover:scale-105 active:scale-95 shadow-sm"
-                }`}
-              >
-                <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
+                {ASSETS.services.map((s, idx) => {
+                  const isActive = idx === activeIndex
+                  return (
+                    <div
+                      key={s.n}
+                      style={{ width: "var(--card-width)" }}
+                      className="shrink-0"
+                    >
+                      <ServiceCard
+                        n={s.n}
+                        label={s.label}
+                        href={s.href}
+                        img={s.img}
+                        desc={s.desc}
+                        isActive={isActive}
+                        onCardClick={() => setActiveIndex(idx)}
+                      />
+                    </div>
+                  )
+                })}
+              </div>
             </div>
-          </div>
 
-          {/* 4) Continuous Slider Track */}
-          <div className="carousel-container overflow-hidden w-full py-10 relative">
-            <div
-              className="carousel-track"
-              style={{
-                transform: `translate3d(calc(-1 * ((${activeIndex} * (var(--card-width) + var(--card-gap))) + (var(--card-width) / 2))), 0, 0)`,
-              }}
-            >
-              {ASSETS.services.map((s, idx) => {
-                const isActive = idx === activeIndex
-                return (
-                  <div
-                    key={s.n}
-                    style={{ width: "var(--card-width)" }}
-                    className="shrink-0"
-                  >
-                    <ServiceCard
-                      n={s.n}
-                      label={s.label}
-                      href={s.href}
-                      img={s.img}
-                      desc={s.desc}
-                      isActive={isActive}
-                      onCardClick={() => setActiveIndex(idx)}
-                    />
-                  </div>
-                )
-              })}
-            </div>
+            <style>{`
+              .carousel-container {
+                --card-width: 280px;
+                --card-gap: 16px;
+              }
+              @media (min-width: 640px) {
+                .carousel-container {
+                  --card-width: 320px;
+                  --card-gap: 24px;
+                }
+              }
+              @media (min-width: 1024px) {
+                .carousel-container {
+                  --card-width: 360px;
+                  --card-gap: 24px;
+                }
+              }
+              .carousel-track {
+                position: relative;
+                left: 50%;
+                display: flex;
+                gap: var(--card-gap);
+                width: max-content;
+                will-change: transform;
+                transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+              }
+            `}</style>
           </div>
-
-          <style>{`
-            .carousel-container {
-              --card-width: 280px;
-              --card-gap: 16px;
-            }
-            @media (min-width: 640px) {
-              .carousel-container {
-                --card-width: 320px;
-                --card-gap: 24px;
-              }
-            }
-            @media (min-width: 1024px) {
-              .carousel-container {
-                --card-width: 360px;
-                --card-gap: 24px;
-              }
-            }
-            .carousel-track {
-              position: relative;
-              left: 50%;
-              display: flex;
-              gap: var(--card-gap);
-              width: max-content;
-              will-change: transform;
-              transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-            }
-          `}</style>
-        </div>
+        )}
       </div>
     </section>
   )

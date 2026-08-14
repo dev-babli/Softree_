@@ -1,6 +1,6 @@
 "use client";
 import NavigationClient from "@/components/sections/navigation-client";
-import AvooraHero from "@/components/qc/homepage-light/AvooraHero";
+import AboutHero from "@/components/sections/AboutHero";
 import AboutClientLogos from "@/components/qc/homepage-light/AboutClientLogos";
 import AboutCaseStudies from "@/components/qc/homepage-light/AboutCaseStudies";
 import WhySoftree from "@/components/qc/homepage-light/WhySoftree";
@@ -70,7 +70,7 @@ export default function AboutUsPage1() {
       <NavigationClient />
 
       {/* 1. Hero — Video hero with cycling words */}
-      <AvooraHero />
+      <AboutHero />
 
       {/* 2. About — Company story with spotlight cards */}
       <AboutInteractiveCore />
