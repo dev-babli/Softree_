@@ -30,7 +30,6 @@ import {
   Smartphone,
   Layers,
   FileText,
-  RefreshCw,
   Brain,
   Lightbulb,
   Database,
@@ -43,6 +42,7 @@ type MenuLink = {
   url: string;
   icon?: React.ComponentType<{ size?: number; className?: string }>;
   description?: string;
+  group?: string;
 };
 
 type MenuGroup = {
@@ -69,90 +69,82 @@ const menu: MenuItem[] = [
     mega: true,
     children: [
       {
-        title: "Business Applications",
-        description: "Power Platform at enterprise scale.",
+        title: "AI & Automation",
+        icon: Bot,
+        description: "Build intelligent agents, automate workflows and unlock AI-powered business innovation.",
         links: [
-          { label: "Power Apps", url: "/services/offshore-power-platform-development", icon: LayoutDashboard, description: "Low-code delivery" },
-          { label: "Power Automate", url: "/services/offshore-power-platform-development", icon: Workflow, description: "Workflow automation" },
-          { label: "Dataverse", url: "/services/offshore-power-platform-development", icon: Server, description: "Unified data layer" },
-          { label: "MVP Development", url: "/services/mvp", icon: Rocket, description: "Launch faster" },
+          { label: "AI Development Services", url: "/services/ai-development-services", icon: Brain, description: "Custom AI solutions for your business" },
+          { label: "AI Copilot Development", url: "/solutions/ai-copilot-development", icon: WandSparkles, description: "Intelligent copilots for productivity" },
+          { label: "Generative AI Development", url: "/services/generative-ai", icon: Sparkles, description: "Build smart generative AI applications" },
+          { label: "Enterprise RAG Development", url: "/solutions/enterprise-rag-development", icon: Database, description: "Secure knowledge retrieval at scale" },
+          { label: "AI Consulting Services", url: "/services/ai-consulting-services", icon: Lightbulb, description: "Strategy, roadmap & implementation" },
+          { label: "AI Workflow Automation", url: "/solutions/ai-workflow-automation", icon: Workflow, description: "Automate processes with AI" },
+          { label: "AI Chatbot Development", url: "/solutions/ai-chatbot-development", icon: Bot, description: "Conversational AI for better engagement" },
+          { label: "AI Test Automation", url: "/services/ai-powered-test-automation", icon: BrainCircuit, description: "Intelligent test automation at speed" },
+        ],
+      },
+      {
+        title: "Agentic Orchestration",
+        icon: Network,
+        description: "Build stateful multi-agent workflows, autonomous agent networks and complex chain-of-thought LLM pipelines.",
+        links: [
+          { label: "AI Agents Development", url: "/solutions/ai-agents-development", icon: Bot, description: "Autonomous agents for complex tasks" },
+          { label: "Multi-Agent Systems", url: "/solutions/multi-agent-systems", icon: BrainCircuit, description: "Orchestrate collaborative agents" },
+          { label: "LangChain Development", url: "/solutions/lang-chain-development", icon: Link2, description: "LLM apps with LangChain framework" },
+          { label: "LangGraph Development", url: "/solutions/lang-graph-development", icon: Network, description: "Stateful multi-agent workflows" },
+        ],
+      },
+      {
+        title: "Microsoft & Business Applications",
+        icon: LayoutDashboard,
+        description: "Optimize operations and accelerate growth with enterprise-grade business applications built on Power Platform.",
+        links: [
+          { label: "Power Apps", url: "/services/offshore-power-platform-development", icon: LayoutDashboard, description: "Custom low-code business apps" },
+          { label: "Power Automate", url: "/services/offshore-power-platform-development", icon: Workflow, description: "Automated workflows and integration" },
+          { label: "Dataverse", url: "/services/offshore-power-platform-development", icon: Server, description: "Secure, unified enterprise data layer" },
+          { label: "MVP Development", url: "/services/mvp", icon: Rocket, description: "Rapid prototyping and fast-track MVP launch" },
         ],
       },
       {
         title: "Data & Analytics",
-        description: "Intelligence from raw data.",
+        icon: LineChart,
+        description: "Transform raw data into actionable intelligence and drive decision-making with modern analytics platforms.",
         links: [
-          { label: "Power BI", url: "/services/offshore-data-analytics", icon: LineChart, description: "Executive dashboards" },
-          { label: "Microsoft Fabric", url: "/services/offshore-microsoft-fabric", icon: Boxes, description: "Unified analytics" },
-          { label: "Databricks", url: "/services/offshore-data-analytics", icon: Cpu, description: "ML pipelines" },
-          { label: "Snowflake", url: "/services/offshore-data-analytics", icon: CloudSnow, description: "Cloud warehouse" },
+          { label: "Power BI", url: "/services/offshore-data-analytics", icon: LineChart, description: "Interactive executive dashboards" },
+          { label: "Microsoft Fabric", url: "/services/offshore-microsoft-fabric", icon: Boxes, description: "All-in-one unified analytics platform" },
+          { label: "Databricks", url: "/services/offshore-data-analytics", icon: Cpu, description: "Enterprise machine learning pipelines" },
+          { label: "Snowflake", url: "/services/offshore-data-analytics", icon: CloudSnow, description: "Cloud-native data warehousing and sharing" },
         ],
       },
       {
-        title: "AI Strategy & Solutions",
-        description: "Consulting & enterprise enablement.",
+        title: "Digital Engineering",
+        icon: Code2,
+        description: "Build high-performance web applications, robust APIs, and custom software systems tailored to your business operations.",
         links: [
-          { label: "AI Consulting Services", url: "/services/ai-consulting-services", icon: Lightbulb, description: "Strategy & readiness roadmaps" },
-          { label: "Enterprise AI Solutions", url: "/services/enterprise-ai-solution", icon: Building2, description: "Scale AI across the enterprise" },
-          { label: "AI Solutions", url: "/ai", icon: Sparkles, description: "Agentic & generative AI hub" },
+          { label: "Web Applications", url: "/services/offshore-web-app-development", icon: Globe2, description: "Bespoke web apps and customer portals" },
+          { label: "Mobile Applications", url: "/services/offshore-mobile-app-development", icon: Smartphone, description: "Native iOS & Android app development" },
+          { label: "Legacy Modernization", url: "/services/legacy-application-modernization", icon: Sparkles, description: "Re-architecting legacy software systems" },
+          { label: "API & Systems Integration", url: "/services/offshore-web-app-development", icon: Layers, description: "Seamless cross-platform data flow" },
         ],
       },
       {
-        title: "AI & Automation",
-        description: "Agentic models & workflow build.",
+        title: "Digital Workplace",
+        icon: Building2,
+        description: "Empower your workforce with modern collaboration portals, secure intranets, and customized SharePoint environments.",
         links: [
-          { label: "AI Development Services", url: "/services/ai-development-services", icon: Brain, description: "Custom agentic & ML systems" },
-          { label: "Workflow Orchestration", url: "/services/ai-workflow-orchestration", icon: Workflow, description: "Autonomous pipeline agents" },
-          { label: "AI Test Automation", url: "/services/ai-powered-test-automation", icon: BrainCircuit, description: "Quality at speed" },
-          { label: "AI Agents", url: "/services/offshore-ai-development", icon: Bot, description: "Autonomous tasks" },
-          { label: "Generative AI", url: "/services/generative-ai", icon: WandSparkles, description: "RAG & copilots" },
+          { label: "SharePoint Online", url: "/services/offshore-sharepoint-development", icon: Building2, description: "Intranet portals and document management" },
+          { label: "SPFx Development", url: "/services/offshore-spfx-development", icon: Code2, description: "Custom web parts and platform extensions" },
+          { label: "Modern Intranets", url: "/services/offshore-sharepoint-development", icon: Sparkles, description: "Interactive portals for connected teams" },
         ],
       },
       {
-        title: "Digital Workspace",
-        description: "Modern apps for connected teams.",
+        title: "Document & Process Intelligence",
+        icon: FileText,
+        description: "Extract value from unstructured documents and orchestrate complex workflows using advanced Document AI and process mining.",
         links: [
-          { label: "Legacy Modernization", url: "/services/legacy-application-modernization", icon: Sparkles, description: "Architecture refresh" },
-          { label: "SharePoint Online", url: "/services/offshore-sharepoint-development", icon: Building2, description: "Intranets" },
-          { label: "SPFx Development", url: "/services/offshore-spfx-development", icon: Code2, description: "Custom SPFx" },
-          { label: "Web Applications", url: "/services/offshore-web-app-development", icon: Globe2, description: "Portals & apps" },
-          // { label: "Website Modernisation", url: "/services/website-modernization", icon: RefreshCw, description: "Free AI blueprint + redesign" },
-          { label: "Mobile Applications", url: "/services/offshore-mobile-app-development", icon: Smartphone, description: "iOS & Android" },
-        ],
-      },
-    ],
-  },
-  {
-    label: "Solutions",
-    mega: true,
-    children: [
-      {
-        title: "Agentic AI & Platforms",
-        description: "Build, orchestrate, and govern autonomous agents.",
-        links: [
-          { label: "Agentic AI Platform", url: "/agentic-ai-platform", icon: LayoutDashboard, description: "Build & govern agents at scale" },
-          { label: "AI Agents Development", url: "/solutions/ai-agents-development", icon: Bot, description: "Automate complex enterprise workflows" },
-          { label: "Multi-Agent Systems", url: "/solutions/multi-agent-systems", icon: BrainCircuit, description: "Orchestrate collaborative agent networks" },
-          { label: "LangChain Development", url: "/solutions/lang-chain-development", icon: Link2, description: "Build complex LLM workflows and chain-of-thought pipelines" },
-          { label: "LangGraph Development", url: "/solutions/lang-graph-development", icon: Network, description: "Build stateful, multi-agent workflows with graph-based orchestration" },
-        ],
-      },
-      {
-        title: "AI Assistants & Copilots",
-        description: "Conversational agents for workspace and customer success.",
-        links: [
-          { label: "AI Copilot Development", url: "/solutions/ai-copilot-development", icon: WandSparkles, description: "Secure copilots for business applications" },
-          { label: "AI Chatbot Development", url: "/solutions/ai-chatbot-development", icon: Bot, description: "Conversational support and sales interfaces" },
-          { label: "Azure OpenAI Solutions", url: "/solutions/azure-openai-development", icon: Sparkles, description: "Enterprise GPT applications on Azure" },
-        ],
-      },
-      {
-        title: "Data & Process Automation",
-        description: "Knowledge management and process orchestration.",
-        links: [
-          { label: "Enterprise RAG", url: "/solutions/enterprise-rag-development", icon: Database, description: "Secure Q&A over enterprise knowledge" },
-          { label: "Document AI Solutions", url: "/solutions/document-ai-solutions", icon: FileText, description: "Extract insights from unstructured documents" },
-          { label: "AI Workflow Automation", url: "/solutions/ai-workflow-automation", icon: Workflow, description: "Intelligent process orchestration" },
+          { label: "Document AI Solutions", url: "/solutions/document-ai-solutions", icon: FileText, description: "Automate data extraction from docs" },
+          { label: "AI Workflow Automation", url: "/solutions/ai-workflow-automation", icon: Workflow, description: "Intelligent cross-app process orchestration" },
+          { label: "Azure OpenAI Solutions", url: "/solutions/azure-openai-development", icon: Sparkles, description: "Enterprise Generative AI integrations" },
         ],
       },
     ],
@@ -379,9 +371,9 @@ export default function Navigation({
                         aria-haspopup={canOpen ? "true" : undefined}
                         onFocus={() => canOpen && openMenu(item.label)}
                         onMouseEnter={() => canOpen && openMenu(item.label)}
-                        className={`inline-flex min-h-11 items-center gap-1 rounded-lg px-3.5 py-2 text-[13px] font-medium transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45 ${isOpen
-                          ? "bg-[rgba(255,88,18,0.1)] text-[#FF5812]"
-                          : "text-[#0a0a1a]/60 hover:bg-[#F3F0EE] hover:text-[#0a0a1a]"
+                        className={`relative inline-flex min-h-11 items-center gap-1 rounded-lg px-3.5 py-2 text-[13px] font-medium transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45 ${isOpen
+                          ? "text-[#FF5812]"
+                          : "text-[#0a0a1a]/60 hover:text-[#0a0a1a]"
                           }`}
                       >
                         {item.label}
@@ -390,6 +382,13 @@ export default function Navigation({
                             size={13}
                             className={`transition-transform duration-100 ${isOpen ? "rotate-180 text-[#FF5812]" : "text-[#0a0a1a]/25"
                               }`}
+                          />
+                        )}
+                        {isOpen && (
+                          <motion.span
+                            layoutId="activeNavBorder"
+                            className="absolute bottom-[-10px] left-3.5 right-3.5 h-[2.5px] bg-[#FF5812]"
+                            transition={{ type: "spring", stiffness: 380, damping: 30 }}
                           />
                         )}
                       </Link>
@@ -401,9 +400,9 @@ export default function Navigation({
                         onClick={() => (isOpen ? closeMenu() : openMenu(item.label))}
                         onFocus={() => canOpen && openMenu(item.label)}
                         onMouseEnter={() => canOpen && openMenu(item.label)}
-                        className={`inline-flex min-h-11 items-center gap-1 rounded-lg px-3.5 py-2 text-[13px] font-medium transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45 ${isOpen
-                          ? "bg-[rgba(255,88,18,0.1)] text-[#FF5812]"
-                          : "text-[#0a0a1a]/60 hover:bg-[#F3F0EE] hover:text-[#0a0a1a]"
+                        className={`relative inline-flex min-h-11 items-center gap-1 rounded-lg px-3.5 py-2 text-[13px] font-medium transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45 ${isOpen
+                          ? "text-[#FF5812]"
+                          : "text-[#0a0a1a]/60 hover:text-[#0a0a1a]"
                           }`}
                       >
                         {item.label}
@@ -412,6 +411,13 @@ export default function Navigation({
                             size={13}
                             className={`transition-transform duration-100 ${isOpen ? "rotate-180 text-[#FF5812]" : "text-[#0a0a1a]/25"
                               }`}
+                          />
+                        )}
+                        {isOpen && (
+                          <motion.span
+                            layoutId="activeNavBorder"
+                            className="absolute bottom-[-10px] left-3.5 right-3.5 h-[2.5px] bg-[#FF5812]"
+                            transition={{ type: "spring", stiffness: 380, damping: 30 }}
                           />
                         )}
                       </button>

@@ -44,6 +44,14 @@ const railBase: Omit<NavGrainientPreset, "color1" | "color2" | "color3" | "blend
 
 /** Left-rail palette per mega-menu section */
 export const NAV_RAIL_GRAINIENT: Record<string, NavGrainientPreset> = {
+  "AI & Automation": {
+    ...railBase,
+    color1: "#FFD6CC",
+    color2: "#F97316",
+    color3: "#FFF1EB",
+    warpFrequency: 5.0,
+    blendAngle: -12,
+  },
   Services: {
     ...railBase,
     color1: "#FFD6CC",
