@@ -6,6 +6,7 @@ export interface CaseStudyMock {
   category: string;
   image: string;
   href?: string;
+  excerpt?: string;
 }
 
 /** Blog card for `BentoGridLayout` */

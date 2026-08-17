@@ -3,7 +3,15 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion, useInView, useSpring, useTransform } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import {
+  ArrowUpRight,
+  Calendar,
+  Code2,
+  Cpu,
+  Globe2,
+  LayoutGrid,
+  Users,
+} from "lucide-react";
 import { Globe } from "@/registry/magicui/globe";
 import { AboutUsGlassPillars } from "@/components/sections/about-us/AboutUsGlassPillars";
 import AboutGlobeMarkers from "@/components/homepage/AboutGlobeMarkers";
@@ -16,6 +24,39 @@ import ParallaxGalleryCard from "./ParallaxGalleryCard";
 const EASE_OUT = EASE_T.silk;
 const SURFACE = "#F8F9FC";
 const ACCENT = "#FF5812";
+
+const ORANGE_FLOW =
+  "about-orange-flow bg-[linear-gradient(90deg,#E64C00,#FF5812,#FF8A4A,#FF5812,#E64C00)] bg-[length:200%_100%] bg-clip-text text-transparent";
+
+const ABOUT_STATS = [
+  { icon: Calendar, value: "2013", label: "Founded" },
+  { icon: Users, value: "13+", label: "Years of Engineering Experience" },
+  { icon: Globe2, value: "Global", label: "Delivery Across Multiple Countries" },
+] as const;
+
+const ABOUT_CAPABILITIES = [
+  {
+    title: "AI Capabilities",
+    detail: "Agentic AI • Generative AI • AI Automation • RAG",
+    icon: Cpu,
+    color: "#7C3AED",
+    surface: "rgba(124, 58, 237, 0.08)",
+  },
+  {
+    title: "Modern Engineering",
+    detail: "Web • Cloud • APIs • Applications",
+    icon: Code2,
+    color: "#0D9488",
+    surface: "rgba(13, 148, 136, 0.08)",
+  },
+  {
+    title: "Microsoft & Data",
+    detail: "Power Platform • SharePoint • Azure • Data & Analytics",
+    icon: LayoutGrid,
+    color: "#FF5812",
+    surface: "rgba(255, 88, 18, 0.08)",
+  },
+] as const;
 
 const PRIMARY_STATS = [
   {
@@ -74,7 +115,7 @@ const SPOTLIGHT_STATS = [
 ] as const;
 
 const GALLERY_MIN_H =
-  "min-h-[280px] sm:min-h-[340px] md:min-h-[400px] lg:min-h-[440px] xl:min-h-[480px]";
+  "min-h-[280px] sm:min-h-[320px] md:min-h-[360px] lg:min-h-[400px] xl:min-h-[420px]";
 
 const STAT_TILE_H = "h-[112px] w-full shrink-0 sm:h-[118px]";
 
@@ -201,6 +242,29 @@ export default function InfinityScrollAnimation() {
       style={{ backgroundColor: SURFACE }}
       aria-labelledby="about-bento-heading"
     >
+      <style>{`
+        @keyframes about-orange-flow {
+          0% { background-position: 0% 50%; }
+          100% { background-position: 200% 50%; }
+        }
+        @keyframes about-orange-icon {
+          0%, 100% { color: #E64C00; }
+          50% { color: #FF8A4A; }
+        }
+        .about-orange-flow {
+          animation: about-orange-flow 3.2s linear infinite;
+        }
+        .about-orange-icon {
+          color: #FF5812;
+          animation: about-orange-icon 2.8s ease-in-out infinite;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .about-orange-flow,
+          .about-orange-icon { animation: none; }
+          .about-orange-flow { color: #FF5812; background: none; -webkit-text-fill-color: #FF5812; }
+        }
+      `}</style>
+
       <span
         aria-hidden
         className="pointer-events-none absolute -top-24 right-0 h-[420px] w-[420px] rounded-full opacity-60"
@@ -213,46 +277,104 @@ export default function InfinityScrollAnimation() {
 
       <div className="relative z-10 mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-12">
         {/* ── Row 1: Intro + global reach ── */}
-        <div className="grid grid-cols-12 items-start gap-3 sm:gap-4">
+        <div className="grid grid-cols-12 items-start gap-10 lg:gap-6 xl:gap-14">
           <motion.div
-            className="col-span-12 lg:col-span-5"
-            initial={{ opacity: 0, x: -20 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, ease: EASE_OUT }}
+            className="col-span-12 lg:col-span-6 relative z-20 min-w-0"
+            initial={{ opacity: 0, y: 16 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
             <SectionHeader
               badge="About us"
               accent={ACCENT}
               headline={
                 <span id="about-bento-heading">
-                  Your global offshore partner—built for scale.
+                  Your global offshore development{" "}
+                  <span className={ORANGE_FLOW}>partner.</span>
                 </span>
               }
-              body={
-                <span className="block text-[15px] font-medium leading-relaxed text-[#0a0a1a]/68">
-                  {COUNTRIES_SERVED} countries served · 200+ projects · one embedded
-                  team. Microsoft-certified delivery with senior engineers in your
-                  workflows from day one.
-                </span>
-              }
-              className="max-w-xl"
+              className="gap-4 lg:gap-3.5 [&_h2]:!leading-[1.18] [&_h2]:text-[clamp(1.5rem,2.15vw,2.05rem)] [&_h2]:tracking-[-0.03em]"
             />
+
+            <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-0">
+              {ABOUT_STATS.map((stat, index) => {
+                const Icon = stat.icon;
+                return (
+                  <div
+                    key={stat.value}
+                    className={`flex items-start gap-2 sm:px-4 ${
+                      index === 0 ? "sm:pl-0" : "sm:border-l sm:border-[#0a0a1a]/10"
+                    }`}
+                  >
+                    <Icon className="about-orange-icon mt-0.5 h-3.5 w-3.5 shrink-0" />
+                    <div className="min-w-0">
+                      <p
+                        className={`${ORANGE_FLOW} text-[18px] font-semibold leading-none tracking-tight lg:text-[19px] xl:text-[20px]`}
+                      >
+                        {stat.value}
+                      </p>
+                      <p className="mt-1 text-[11px] leading-snug text-[#0a0a1a]/50 lg:text-[12px]">
+                        {stat.label}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <p className="mt-5 max-w-xl text-[13.5px] leading-[1.65] text-[#0a0a1a]/65 lg:text-[14px]">
+              We help businesses, technology companies, and partners extend their
+              engineering capabilities through AI, modern engineering, Microsoft, and
+              data expertise.
+            </p>
+
+            <div className="mt-5 flex flex-col gap-2">
+              {ABOUT_CAPABILITIES.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={item.title}
+                    className="flex items-center gap-2.5 rounded-xl px-3.5 py-2.5"
+                    style={{ backgroundColor: item.surface }}
+                  >
+                    <span
+                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white"
+                      style={{ color: item.color }}
+                    >
+                      <Icon size={14} />
+                    </span>
+                    <div className="min-w-0">
+                      <p
+                        className="text-[13px] font-semibold leading-none tracking-tight"
+                        style={{ color: item.color }}
+                      >
+                        {item.title}
+                      </p>
+                      <p className="mt-1 text-[12px] leading-snug text-[#0a0a1a]/55">
+                        {item.detail}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
             <Link
-              href="/contact"
-              className="group mt-6 inline-flex w-max items-center gap-2 rounded-lg bg-[#1a1a1a] px-5 py-2.5 text-sm font-medium text-white shadow-[0_8px_24px_-8px_rgba(26,26,26,0.4)] transition hover:-translate-y-px"
+              href="/about-us"
+              className="group mt-5 inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-[#1a1a1a] px-5 py-2.5 text-[13px] font-medium text-white shadow-[0_8px_24px_-8px_rgba(10,10,26,0.35)] transition hover:-translate-y-px"
             >
-              Contact our team
+              Explore our story
               <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </motion.div>
 
           <motion.div
-            className="col-span-12 lg:col-span-7 relative z-10 w-full min-w-0 overflow-x-clip"
+            className="col-span-12 lg:col-span-6 relative z-10 w-full min-w-0 overflow-x-clip"
             initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.08, ease: EASE_OUT }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
-            <AboutGlobeMarkers />
+            <AboutGlobeMarkers variant="light" />
           </motion.div>
         </div>
 
@@ -306,7 +428,7 @@ export default function InfinityScrollAnimation() {
           </div>
 
           <motion.div
-            className="col-span-12 min-w-0 lg:col-span-8 h-full"
+            className="col-span-12 min-w-0 lg:col-span-8 h-full lg:max-h-[440px] xl:max-h-[450px]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
@@ -317,7 +439,7 @@ export default function InfinityScrollAnimation() {
             </div>
           </motion.div>
 
-          <div className="col-span-12 flex min-w-0 flex-col gap-3 lg:col-span-4 lg:min-h-0 lg:gap-4">
+          <div className="col-span-12 flex min-w-0 flex-col gap-3 lg:col-span-4 lg:min-h-0 lg:gap-4 lg:max-h-[440px] xl:max-h-[450px]">
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#0a0a1a]/45 lg:hidden">
               Proof at a glance
             </p>
@@ -339,13 +461,13 @@ export default function InfinityScrollAnimation() {
                     color={stat.accentGlow}
                     intensity={0.55}
                     radius={240}
-                    className="flex h-full min-h-[148px] flex-col justify-between rounded-2xl border border-[#0a0a1a]/5 bg-white p-5 shadow-[0_8px_28px_-14px_rgba(10,10,26,0.12)] sm:p-6 lg:p-8 xl:p-10 lg:min-h-0"
+                    className="flex h-full min-h-[148px] flex-col justify-between rounded-2xl border border-[#0a0a1a]/5 bg-white p-5 shadow-[0_8px_28px_-14px_rgba(10,10,26,0.12)] sm:p-6 lg:p-6 xl:p-6 lg:min-h-0"
                   >
                     <div>
-                      <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#0a0a1a]/40 lg:text-[12px] xl:text-[13px]">
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#0a0a1a]/40 lg:text-[11px] xl:text-[12px]">
                         {stat.headline}
                       </p>
-                      <p className="mt-2 text-[clamp(2.5rem,5vw,3rem)] font-bold leading-none tabular-nums lg:mt-3 lg:text-[clamp(3.5rem,6vw,4.5rem)]">
+                      <p className="mt-2 text-[clamp(2.5rem,5vw,3rem)] font-bold leading-none tabular-nums lg:mt-2.5 lg:text-[clamp(2.8rem,4.5vw,3.6rem)]">
                         <span style={{ color: stat.numberColor }}>
                           <AnimatedNumber
                             value={stat.value}
@@ -357,11 +479,11 @@ export default function InfinityScrollAnimation() {
                           {stat.suffix}
                         </span>
                       </p>
-                      <p className="mt-1.5 text-sm font-semibold text-[#0a0a1a] lg:mt-2 lg:text-base xl:text-lg">
+                      <p className="mt-1 text-sm font-semibold text-[#0a0a1a] lg:mt-1.5 lg:text-base xl:text-[15px]">
                         {stat.label}
                       </p>
                     </div>
-                    <p className="mt-4 text-[12px] leading-relaxed text-[#0a0a1a]/58 sm:text-[13px] lg:mt-6 lg:text-[15px] xl:text-[16px]">
+                    <p className="mt-3 text-[12px] leading-relaxed text-[#0a0a1a]/58 sm:text-[13px] lg:mt-3.5 lg:text-[13px] xl:text-[14px]">
                       {stat.body}
                     </p>
                   </SpotlightCard>

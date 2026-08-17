@@ -17,10 +17,10 @@ const LIGHT_GLOBE_CONFIG: COBEOptions = {
   dark: 0,
   diffuse: 1.2,
   mapSamples: 22000,
-  mapBrightness: 8,
-  baseColor: [1, 1, 1],
+  mapBrightness: 1.5,
+  baseColor: [0.8, 0.8, 0.82],
   markerColor: [255 / 255, 88 / 255, 18 / 255], // Orange
-  glowColor: [0.97, 0.98, 0.99],
+  glowColor: [1, 1, 1],
   markers: [
     { location: [20.5937, 78.9629], size: 0.04 }, // India
     { location: [37.7749, -122.4194], size: 0.04 }, // San Francisco
@@ -38,7 +38,7 @@ const MicrosoftIcon = () => (
 
 export default function AboutHero() {
   return (
-    <section className="relative isolate w-full overflow-hidden bg-white pt-12 pb-16 md:py-24">
+    <section className="relative isolate w-full overflow-hidden bg-white pt-4 pb-16 md:pt-6 md:pb-24">
       {/* Subtle light background grid */}
       <div
         aria-hidden
@@ -53,8 +53,8 @@ export default function AboutHero() {
       <div className="mx-auto w-full max-w-7xl px-5 sm:px-6 md:px-8 lg:px-10">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-center lg:gap-8">
           
-          {/* Left Column: Heading and Copy */}
-          <div className="flex flex-col items-start gap-8 lg:col-span-7">
+          {/* Left Column: Heading (Col Span 5) */}
+          <div className="flex flex-col items-start gap-8 lg:col-span-5">
             {/* 1. Badge */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
@@ -66,65 +66,60 @@ export default function AboutHero() {
               YOUR OFFSHORE ENGINEERING PARTNER
             </motion.div>
 
-            {/* 2. Headline and description split */}
-            <div className="flex flex-col gap-8 md:flex-row md:items-end lg:flex-col lg:items-start lg:gap-8 w-full">
-              
-              {/* Softree Technology Brand Title */}
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#0a0a1a] leading-none shrink-0"
-              >
-                Softree<sup className="text-xl sm:text-2xl md:text-3xl font-semibold text-slate-400 ml-0.5">®</sup>
-                <br />
-                <span className="text-[#0a0a1a]">Technology</span>
-              </motion.h1>
-
-              {/* Supporting Text & Button */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="flex flex-col items-start gap-6 max-w-lg"
-              >
-                <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-850">
-                  Your engineering team, extended.
-                </h2>
-                <p className="text-sm sm:text-base text-slate-500 leading-relaxed font-medium">
-                  AI, modern engineering, and Microsoft expertise — delivered by a reliable offshore team built to work as an extension of your business.
-                </p>
-
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center justify-between rounded-full bg-black pl-6 pr-2.5 py-2.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-neutral-850 transition-all duration-300 shadow-sm"
-                >
-                  <span>Let's Talk</span>
-                  <span className="ml-4 flex h-8 w-8 items-center justify-center rounded-full bg-white text-black transition-transform duration-300 group-hover:translate-x-0.5 shadow-xs">
-                    <svg className="h-4 w-4 text-[#FF5812]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                </Link>
-              </motion.div>
-
-            </div>
+            {/* Softree Technology Brand Title */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-[84px] font-bold tracking-tight text-[#0a0a1a] leading-[1.05] shrink-0"
+            >
+              Softree<sup className="text-xl sm:text-2xl md:text-3xl font-semibold text-slate-400 ml-0.5">®</sup>
+              <br />
+              <span className="text-[#0a0a1a]">Technology</span>
+            </motion.h1>
           </div>
 
-          {/* Right Column: 3D Platform illustration and Globe */}
+          {/* Middle Column: Supporting Copy & Action (Col Span 3) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col items-start gap-6 lg:col-span-3 lg:pt-12"
+          >
+            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#0a0a1a]">
+              Your engineering team, extended.
+            </h2>
+            <p className="text-sm sm:text-base text-slate-500 leading-relaxed font-medium">
+              AI, modern engineering, and Microsoft expertise — delivered by a reliable offshore team built to work as an extension of your business.
+            </p>
+
+            <Link
+              href="/contact"
+              className="group inline-flex items-center justify-between rounded-full bg-black pl-6 pr-2.5 py-2.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-neutral-850 transition-all duration-300 shadow-sm"
+            >
+              <span>LET'S TALK</span>
+              <span className="ml-4 flex h-8 w-8 items-center justify-center rounded-full bg-white text-black transition-transform duration-300 group-hover:translate-x-0.5 shadow-xs">
+                <svg className="h-4 w-4 text-[#FF5812]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </Link>
+          </motion.div>
+
+          {/* Right Column: 3D Platform illustration and Globe (Col Span 4) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="relative lg:col-span-5 w-full aspect-square max-w-[480px] mx-auto flex items-center justify-center select-none"
+            className="relative lg:col-span-4 w-full aspect-square max-w-[440px] mx-auto flex items-center justify-center select-none bg-white/95 rounded-full border border-slate-200/50 shadow-[0_20px_50px_rgba(0,0,0,0.03)]"
           >
             {/* Globe Background */}
-            <div className="absolute inset-0 z-0 scale-90 sm:scale-100">
+            <div className="absolute inset-0 z-0 scale-[0.85]">
               <Globe config={LIGHT_GLOBE_CONFIG} className="!max-w-none" />
             </div>
 
             {/* Circular Stand 3D Stack */}
-            <div className="absolute bottom-[2%] left-1/2 -translate-x-1/2 w-[90%] h-[30%] pointer-events-none select-none z-10 scale-90 sm:scale-100">
+            <div className="absolute bottom-[8%] left-1/2 -translate-x-1/2 w-[78%] h-[12%] pointer-events-none select-none z-10">
               {/* Disc 1 (Bottom Shadow/Base) */}
               <div className="absolute inset-x-[2%] bottom-0 h-[80%] rounded-full bg-slate-200/40 border border-slate-300/20 shadow-[0_16px_32px_rgba(0,0,0,0.06)]" />
               {/* Disc 2 (Middle Layer) */}
@@ -139,9 +134,9 @@ export default function AboutHero() {
             <motion.div
               whileHover={{ y: -6, scale: 1.03 }}
               transition={{ type: "spring", stiffness: 400, damping: 25 }}
-              className="absolute left-[5%] bottom-[22%] z-20 cursor-pointer scale-90 sm:scale-100 origin-bottom"
+              className="absolute left-[2%] bottom-[14%] z-20 cursor-pointer scale-90 lg:scale-[0.92] origin-bottom"
             >
-              <div className="bg-white/95 backdrop-blur-md rounded-2xl border border-slate-100 shadow-[0_12px_24px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.02)] p-4 flex flex-col items-center gap-3.5 w-[116px] aspect-[1/1.22] text-center">
+              <div className="bg-white/95 backdrop-blur-md rounded-2xl border border-slate-100 shadow-[0_12px_24px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.02)] p-4 flex flex-col items-center gap-3.5 w-[108px] aspect-[1/1.22] text-center">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 border border-blue-100 text-blue-500">
                   <Code2 className="h-5 w-5" />
                 </div>
@@ -155,9 +150,9 @@ export default function AboutHero() {
             <motion.div
               whileHover={{ y: -6, scale: 1.03 }}
               transition={{ type: "spring", stiffness: 400, damping: 25 }}
-              className="absolute left-1/2 -translate-x-1/2 bottom-[46%] z-20 cursor-pointer scale-90 sm:scale-100 origin-bottom"
+              className="absolute left-1/2 -translate-x-1/2 bottom-[34%] z-20 cursor-pointer scale-90 lg:scale-[0.92] origin-bottom"
             >
-              <div className="bg-white/95 backdrop-blur-md rounded-2xl border border-slate-100 shadow-[0_12px_24px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.02)] p-4 flex flex-col items-center gap-3.5 w-[116px] aspect-[1/1.22] text-center">
+              <div className="bg-white/95 backdrop-blur-md rounded-2xl border border-slate-100 shadow-[0_12px_24px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.02)] p-4 flex flex-col items-center gap-3.5 w-[108px] aspect-[1/1.22] text-center">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-50 border border-orange-100 text-[#FF5812]">
                   <Cpu className="h-5 w-5" />
                 </div>
@@ -171,9 +166,9 @@ export default function AboutHero() {
             <motion.div
               whileHover={{ y: -6, scale: 1.03 }}
               transition={{ type: "spring", stiffness: 400, damping: 25 }}
-              className="absolute right-[5%] bottom-[22%] z-20 cursor-pointer scale-90 sm:scale-100 origin-bottom"
+              className="absolute right-[2%] bottom-[14%] z-20 cursor-pointer scale-90 lg:scale-[0.92] origin-bottom"
             >
-              <div className="bg-white/95 backdrop-blur-md rounded-2xl border border-slate-100 shadow-[0_12px_24px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.02)] p-4 flex flex-col items-center gap-3.5 w-[116px] aspect-[1/1.22] text-center">
+              <div className="bg-white/95 backdrop-blur-md rounded-2xl border border-slate-100 shadow-[0_12px_24px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.02)] p-4 flex flex-col items-center gap-3.5 w-[108px] aspect-[1/1.22] text-center">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-50 border border-red-100">
                   <MicrosoftIcon />
                 </div>

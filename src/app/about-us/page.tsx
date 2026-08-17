@@ -65,7 +65,7 @@ const aboutUsFaqs = [
 
 export default function AboutUsPage1() {
   return (
-    <div className="min-h-screen pt-[100px] bg-white">
+    <div className="min-h-screen pt-[80px] bg-white">
       {/* Navigation */}
       <NavigationClient />
 

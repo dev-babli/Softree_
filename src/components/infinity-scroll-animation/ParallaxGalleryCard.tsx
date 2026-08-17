@@ -321,7 +321,7 @@ export const gallerySlides: readonly GallerySlideData[] = [
 export type GallerySlide = GallerySlideData;
 
 /* ── Animation helpers ── */
-const config = { LERP_FACTOR: 0.05, SNAP_DURATION: 500 };
+const config = { LERP_FACTOR: 0.08, SNAP_DURATION: 650 };
 
 type ParallaxHandle = { update: (scroll: number, index: number) => void };
 type ElementEntry = { el: HTMLDivElement; parallax?: ParallaxHandle };
@@ -452,16 +452,14 @@ export default function ParallaxGalleryCard({
     };
 
     const getCurrentIndex = () =>
-      Math.round(-state.targetY / state.projectHeight);
+      Math.max(0, Math.min(slideCount - 1, Math.round(-state.currentY / state.projectHeight)));
 
     const goToIndex = (index: number) => {
       const clamped = Math.max(0, Math.min(slideCount - 1, index));
-      state.lastReportedIndex = clamped;
       state.isSnapping = true;
       state.snapStart.time = Date.now();
-      state.snapStart.y = state.targetY;
+      state.snapStart.y = state.currentY;
       state.snapStart.target = -clamped * state.projectHeight;
-      syncActiveIndex(clamped);
     };
 
     goToIndexRef.current = goToIndex;
@@ -471,10 +469,11 @@ export default function ParallaxGalleryCard({
         (Date.now() - state.snapStart.time) / config.SNAP_DURATION,
         1
       );
-      const eased = 1 - Math.pow(1 - progress, 3);
-      state.targetY =
+      const eased = 1 - Math.pow(1 - progress, 4);
+      state.currentY =
         state.snapStart.y +
         (state.snapStart.target - state.snapStart.y) * eased;
+      state.targetY = state.currentY;
       if (progress >= 1) state.isSnapping = false;
     };
 
@@ -494,8 +493,11 @@ export default function ParallaxGalleryCard({
 
     let rafId = 0;
     const animate = () => {
-      if (state.isSnapping) updateSnap();
-      state.currentY += (state.targetY - state.currentY) * config.LERP_FACTOR;
+      if (state.isSnapping) {
+        updateSnap();
+      } else {
+        state.currentY += (state.targetY - state.currentY) * config.LERP_FACTOR;
+      }
       updatePositions();
       rafId = requestAnimationFrame(animate);
     };
@@ -541,7 +543,7 @@ export default function ParallaxGalleryCard({
     >
       <div
         ref={stageRef}
-        className="isc-stage relative flex flex-col w-full h-full min-h-[500px]"
+        className="isc-stage relative flex flex-col w-full h-full min-h-[400px] lg:min-h-[420px]"
         tabIndex={0}
         aria-label="Service showcase gallery"
         aria-roledescription="carousel"
@@ -721,7 +723,7 @@ export default function ParallaxGalleryCard({
           </div>
 
           {/* Bottom Area (Spacer for absolute caption + Navigation) */}
-          <div className="px-3 pb-4 pt-4 md:px-5 md:pb-6 flex justify-end items-end relative pointer-events-none min-h-[140px] md:min-h-[160px]">
+          <div className="px-3 pb-4 pt-4 md:px-5 md:pb-6 flex justify-end items-end relative pointer-events-none min-h-[90px] md:min-h-[110px]">
             {/* Navigation chevrons */}
             <div className="pointer-events-auto flex items-center gap-1.5 shrink-0">
               <button

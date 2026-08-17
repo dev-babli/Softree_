@@ -53,11 +53,6 @@
     position: relative;
     overflow: hidden;
     background: linear-gradient(135deg, #FFFBF7 0%, #FDF2E8 45%, #F6DFCB 100%);
-    background-image: 
-      linear-gradient(to right, rgba(20, 33, 61, 0.035) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(20, 33, 61, 0.035) 1px, transparent 1px),
-      linear-gradient(135deg, #FFFBF7 0%, #FDF2E8 45%, #F6DFCB 100%);
-    background-size: 44px 44px, 44px 44px, 100% 100%;
     color: #14213d;
   }
 
@@ -248,12 +243,15 @@
   /* ---------- Register strip (signature element) ---------- */
   .register {
     margin-top: 64px;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"), linear-gradient(135deg, #ff7a2f 0%, #ff5c00 100%);
-    background-blend-mode: overlay;
-    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(to bottom, #09090b 0%, #2a0e00 50%, #000000 100%);
+    border: 1.5px solid rgba(255, 92, 0, 0.22);
     border-radius: 16px;
-    box-shadow: 0 10px 30px -10px rgba(255, 92, 0, 0.15);
+    backdrop-filter: blur(20px) saturate(145%);
+    -webkit-backdrop-filter: blur(20px) saturate(145%);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
     overflow: hidden;
+    position: relative;
+    z-index: 10;
   }
 
   .register-row {
@@ -263,14 +261,14 @@
 
   .register-cell {
     padding: 32px 40px;
-    border-right: 1.5px solid rgba(255, 255, 255, 0.15);
+    border-right: 1.5px solid rgba(255, 92, 0, 0.25);
     position: relative;
     background: transparent;
     transition: background-color 0.25s ease;
   }
 
   .register-cell:hover {
-    background-color: rgba(255, 255, 255, 0.08);
+    background-color: rgba(255, 92, 0, 0.06);
   }
 
   .register-cell:last-child { border-right: none; }
@@ -309,7 +307,7 @@
 
   @media (max-width: 700px) {
     .register-row { grid-template-columns: 1fr; }
-    .register-cell { border-right: none; border-bottom: 1.5px solid var(--rule); }
+    .register-cell { border-right: none; border-bottom: 1.5px solid rgba(255, 92, 0, 0.25); }
     .register-cell:last-child { border-bottom: none; }
   }
 
@@ -417,15 +415,16 @@
   }
 
   .meta-bento-card {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"), linear-gradient(135deg, #ff7a2f 0%, #ff5c00 100%);
-    background-blend-mode: overlay;
-    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(to bottom, #09090b 0%, #2a0e00 50%, #000000 100%);
+    border: 1.5px solid rgba(255, 92, 0, 0.22);
     border-radius: 12px;
     padding: 24px;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    box-shadow: 0 4px 12px -2px rgba(255, 92, 0, 0.1);
+    backdrop-filter: blur(20px) saturate(145%);
+    -webkit-backdrop-filter: blur(20px) saturate(145%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
     transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
                 box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
                 border-color 0.25s ease;
@@ -433,8 +432,8 @@
 
   .meta-bento-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 24px -4px rgba(255, 92, 0, 0.25);
-    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 0 35px 2px rgba(255, 92, 0, 0.12) inset, 0 4px 20px 0px rgba(255, 92, 0, 0.18);
+    border-color: rgba(255, 92, 0, 0.55);
   }
 
   .meta-bento-card.span-2 {
@@ -452,8 +451,8 @@
   }
 
   .meta-bento-icon-wrap {
-    color: white;
-    background: rgba(255, 255, 255, 0.15);
+    color: #ff5c00;
+    background: rgba(255, 92, 0, 0.12);
     width: 32px;
     height: 32px;
     border-radius: 6px;
@@ -461,6 +460,7 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    border: 1.5px solid rgba(255, 92, 0, 0.25);
   }
 
   .meta-bento-label {
@@ -721,35 +721,34 @@
   }
 
   .story-card {
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1.5px solid rgba(255, 92, 0, 0.22);
     border-radius: 16px;
     padding: 32px;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"), linear-gradient(135deg, #ff7a2f 0%, #ff5c00 100%);
-    background-blend-mode: overlay;
+    background: linear-gradient(to bottom, #09090b 0%, #2a0e00 50%, #000000 100%);
     transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
                 transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-                background-image 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                background 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
                 box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex;
     flex-direction: column;
     height: 100%;
     position: relative;
-    box-shadow: 0 10px 30px -10px rgba(255, 92, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   }
 
   .story-card:hover {
-    border-color: rgba(255, 255, 255, 0.6);
+    border-color: rgba(255, 92, 0, 0.45);
     transform: translateY(-6px);
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"), linear-gradient(135deg, #ff8c42 0%, #ff6c1a 100%);
-    box-shadow: 0 20px 40px -10px rgba(255, 92, 0, 0.45);
+    background: linear-gradient(to bottom, #0d0d11 0%, #361200 50%, #050505 100%);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 35px 2px rgba(255, 92, 0, 0.08) inset;
   }
 
   .story-image-wrap {
     width: 100%;
     margin-bottom: 24px;
     flex-shrink: 0;
-    background: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: #09090b;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     overflow: hidden;
   }

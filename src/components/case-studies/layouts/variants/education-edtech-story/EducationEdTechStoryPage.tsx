@@ -564,86 +564,91 @@ export function EducationEdTechStoryPage({ data }: Props) {
             <div className="spacer" />
             <div className="w-full">
               <div 
-                className="p-6 md:p-10 rounded-2xl border border-orange-600/40 shadow-xl w-full"
+                className="p-6 md:p-10 rounded-2xl border border-orange-600/30 shadow-2xl w-full backdrop-blur-xl"
                 style={{
-                  backgroundColor: "#ff5c00",
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"), linear-gradient(135deg, #ff7a2f 0%, #ff5c00 100%)`,
-                  backgroundBlendMode: "overlay",
+                  background: "linear-gradient(to bottom, #09090b 0%, #2a0e00 50%, #000000 100%)",
+                  boxShadow: "0 25px 60px rgba(0, 0, 0, 0.35)",
                 }}
               >
-                <div className={galleryItems.length === 1 ? "max-w-[800px] mx-auto w-full" : "grid grid-cols-1 lg:grid-cols-[1.6fr_1fr] gap-8 md:gap-12 w-full"}>
+                <div className="flex flex-col gap-6 md:gap-8 w-full max-w-[800px] mx-auto">
                   
-                  {/* Left Side: Large Active Screenshot */}
-                  <div className="w-full">
-                    <div className="lg:sticky lg:top-28 self-start w-full flex flex-col items-center justify-center min-h-[460px]">
-                      <div 
-                        className="device-frame w-full cursor-pointer group"
-                        onClick={() => setLightboxIndex(activeShowcaseIndex)}
-                      >
-                        <div className="screen">
-                          <div className="relative aspect-[16/10] w-full overflow-hidden">
-                            <Image
-                              src={galleryItems[activeShowcaseIndex].url}
-                              alt={galleryItems[activeShowcaseIndex].alt || `Featured Screenshot`}
-                              fill
-                              className="object-contain bg-white transition-transform duration-500 group-hover:scale-[1.02]"
-                              sizes="(max-width: 768px) 100vw, 800px"
-                            />
-                            <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                              <span className="text-white bg-[#ff5c00] px-4.5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase shadow-md flex items-center gap-1.5 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                                Click to expand
-                              </span>
-                            </div>
+                  {/* Top: Large Active Screenshot */}
+                  <div className="w-full flex flex-col items-center">
+                    <div 
+                      className="device-frame w-full cursor-pointer group"
+                      onClick={() => setLightboxIndex(activeShowcaseIndex)}
+                    >
+                      <div className="screen">
+                        <div className="relative aspect-[16/10] w-full overflow-hidden">
+                          <Image
+                            src={galleryItems[activeShowcaseIndex].url}
+                            alt={galleryItems[activeShowcaseIndex].alt || `Featured Screenshot`}
+                            fill
+                            className="object-contain bg-white transition-transform duration-500 group-hover:scale-[1.02]"
+                            sizes="(max-width: 768px) 100vw, 800px"
+                          />
+                          <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span className="text-white bg-[#ff5c00] px-4.5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase shadow-md flex items-center gap-1.5 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                              Click to expand
+                            </span>
                           </div>
                         </div>
                       </div>
-                      {galleryItems[activeShowcaseIndex].caption && (
-                        <div className="showcase-caption font-semibold mt-6 text-white text-center" style={{ justifyContent: "center" }}>
-                          {galleryItems[activeShowcaseIndex].caption}
-                        </div>
-                      )}
                     </div>
+                    {galleryItems[activeShowcaseIndex].caption && (
+                      <div className="showcase-caption font-semibold mt-4 text-white text-center" style={{ justifyContent: "center" }}>
+                        {galleryItems[activeShowcaseIndex].caption}
+                      </div>
+                    )}
                   </div>
 
-                  {/* Right Side: Smaller Previews Stack (Clickable Thumbnails) */}
+                  {/* Bottom: Clickable Thumbnails Horizontal Row */}
                   {galleryItems.length > 1 && (
-                    <div className="flex flex-col gap-4 w-full">
+                    <div className="flex flex-row overflow-x-auto md:flex-wrap gap-4.5 justify-start md:justify-center w-full pb-3 scrollbar-none select-none">
                       {galleryItems.map((item, idx) => {
                         const isActive = activeShowcaseIndex === idx;
                         return (
                           <div 
                             key={idx}
                             onClick={() => setActiveShowcaseIndex(idx)}
-                            className={`flex items-center gap-4.5 p-3.5 rounded-xl border transition-all duration-200 cursor-pointer ${
+                            className={`flex flex-col gap-2.5 p-2 rounded-xl border transition-all duration-200 cursor-pointer flex-1 min-w-[130px] max-w-[160px] shrink-0 ${
                               isActive 
-                                ? "border-white bg-white text-slate-900 shadow-md" 
+                                ? "border-white bg-white text-slate-900 shadow-md scale-102" 
                                 : "border-white/10 bg-white/10 text-white/80 hover:bg-white/20 hover:border-white/20 hover:text-white"
                             }`}
                           >
                             {/* Thumbnail device preview */}
-                            <div className="relative w-28 aspect-[16/10] shrink-0 overflow-hidden rounded-md border border-white/20">
+                            <div className="relative w-full aspect-[16/10] overflow-hidden rounded-md border border-white/10 bg-black/40">
                               <Image 
                                 src={item.url}
                                 alt={item.alt || `Thumbnail ${idx + 1}`}
                                 fill
                                 className="object-cover"
-                                sizes="112px"
+                                sizes="160px"
                               />
                             </div>
                             {/* Caption details */}
-                            <div className="flex flex-col gap-1 min-w-0">
-                              <span className={`text-xs uppercase font-mono tracking-wider font-bold ${
-                                isActive ? "text-[#ff5c00]" : "text-white/70"
-                              }`}>
-                                Screenshot {String(idx + 1).padStart(2, "0")}
-                              </span>
-                              {item.caption && !item.caption.toLowerCase().includes("engagement mockup") && (
-                                <span className={`text-[13px] font-semibold truncate ${
-                                  isActive ? "text-slate-900 font-bold" : "text-white"
-                                }`}>
-                                  {item.caption}
-                                </span>
-                              )}
+                            <div className="flex flex-col gap-1 min-w-0 text-center">
+                              {(() => {
+                                const captionText = item.caption || "";
+                                const sep = captionText.includes("—") ? "—" : captionText.includes("-") ? "-" : "";
+                                const [titlePart, ...restParts] = sep ? captionText.split(sep) : [captionText, ""];
+                                const displayTitle = titlePart.trim() || `View ${String(idx + 1).padStart(2, "0")}`;
+                                return (
+                                  <>
+                                    <span className={`text-[8px] uppercase font-mono tracking-widest font-extrabold ${
+                                      isActive ? "text-[#ff5c00]" : "text-white/60"
+                                    }`}>
+                                      {String(idx + 1).padStart(2, "0")} // VIEW
+                                    </span>
+                                    <span className={`text-[11px] font-semibold truncate ${
+                                      isActive ? "text-slate-900 font-bold" : "text-white"
+                                    }`}>
+                                      {displayTitle}
+                                    </span>
+                                  </>
+                                );
+                              })()}
                             </div>
                           </div>
                         )
@@ -722,11 +727,9 @@ export function EducationEdTechStoryPage({ data }: Props) {
                 return (
                   <div
                     key={i}
-                    className="inline-flex items-center px-6 py-2.5 rounded-full text-white shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
+                    className="inline-flex items-center px-6 py-2.5 rounded-full text-white shadow-sm border border-orange-600/35 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
                     style={{
-                      backgroundColor: "#ff5c00",
-                      backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-                      backgroundBlendMode: "overlay"
+                      background: "linear-gradient(to bottom, #09090b 0%, #2a0e00 50%, #000000 100%)",
                     }}
                   >
                     <span className="text-[13px] font-bold tracking-wide">
@@ -747,14 +750,44 @@ export function EducationEdTechStoryPage({ data }: Props) {
         onMouseLeave={() => setIsPaused(false)}
       >
         <div className="wrap">
-          <div className="mb-8 md:mb-12">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-8 md:mb-12">
             <Reveal className="section-head !mb-0">
               <div className="section-eyebrow">More Customer Stories</div>
               <h2>Other engagements worth a look.</h2>
             </Reveal>
+            {relatedCases.length > visibleCount && (
+              <Reveal className="flex items-center gap-3 self-end sm:self-auto shrink-0 z-20">
+                <button
+                  type="button"
+                  onClick={() => setCurrentIndex((prev) => Math.max(prev - 1, 0))}
+                  disabled={currentIndex === 0}
+                  className={`flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border transition-all duration-300 shadow-sm backdrop-blur-sm 
+                    ${currentIndex === 0 
+                      ? "border-zinc-200 bg-zinc-100/40 text-zinc-400 cursor-not-allowed opacity-60" 
+                      : "border-orange-500/20 bg-gradient-to-b from-zinc-900 to-black hover:from-orange-600 hover:to-orange-500 text-white cursor-pointer hover:border-transparent active:scale-95"
+                    }`}
+                  aria-label="Previous slide"
+                >
+                  <ChevronLeft size={20} />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCurrentIndex((prev) => Math.min(prev + 1, relatedCases.length - visibleCount))}
+                  disabled={currentIndex === relatedCases.length - visibleCount}
+                  className={`flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border transition-all duration-300 shadow-sm backdrop-blur-sm
+                    ${currentIndex === relatedCases.length - visibleCount 
+                      ? "border-zinc-200 bg-zinc-100/40 text-zinc-400 cursor-not-allowed opacity-60" 
+                      : "border-orange-500/20 bg-gradient-to-b from-zinc-900 to-black hover:from-orange-600 hover:to-orange-500 text-white cursor-pointer hover:border-transparent active:scale-95"
+                    }`}
+                  aria-label="Next slide"
+                >
+                  <ChevronRight size={20} />
+                </button>
+              </Reveal>
+            )}
           </div>
 
-          <div className="relative group/slider w-full px-2 sm:px-10">
+          <div className="relative group/slider w-full px-0">
             {/* Carousel track wrapper */}
             <div className="overflow-hidden w-full">
               <div
@@ -774,14 +807,14 @@ export function EducationEdTechStoryPage({ data }: Props) {
                         flex: `0 0 ${100 / visibleCount}%`,
                       }}
                     >
-                      <div className="story-card group/card h-full max-w-3xl w-full" onMouseMove={handleMouseMove}>
+                      <div className="story-card group/card h-full max-w-4xl w-full" onMouseMove={handleMouseMove}>
                         {img && (
                           <div className="story-image-wrap relative aspect-[16/10] w-full rounded-xl overflow-hidden mb-6 border border-white/10 shadow-sm">
                             <Image
                               src={img}
                               alt={rc.title || "Related Case Study"}
                               fill
-                              className="object-cover transition-transform duration-500 group-hover/card:scale-103"
+                              className="object-contain bg-neutral-950 transition-transform duration-500 group-hover/card:scale-103"
                               sizes="(max-width: 768px) 100vw, 400px"
                             />
                           </div>
@@ -805,27 +838,7 @@ export function EducationEdTechStoryPage({ data }: Props) {
               </div>
             </div>
 
-            {/* Navigation Arrows */}
-            {relatedCases.length > visibleCount && (
-              <>
-                <button
-                  type="button"
-                  onClick={() => setCurrentIndex((prev) => (prev - 1 + relatedCases.length) % relatedCases.length)}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-[#0a0a1a]/10 bg-white/90 text-[#0a0a1a] shadow-md backdrop-blur-sm transition-all duration-300 hover:bg-[#ff5c00] hover:text-white hover:border-transparent opacity-0 group-hover/slider:opacity-100 focus:opacity-100 cursor-pointer"
-                  aria-label="Previous slide"
-                >
-                  <ChevronLeft size={20} />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setCurrentIndex((prev) => (prev + 1) % relatedCases.length)}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-[#0a0a1a]/10 bg-white/90 text-[#0a0a1a] shadow-md backdrop-blur-sm transition-all duration-300 hover:bg-[#ff5c00] hover:text-white hover:border-transparent opacity-0 group-hover/slider:opacity-100 focus:opacity-100 cursor-pointer"
-                  aria-label="Next slide"
-                >
-                  <ChevronRight size={20} />
-                </button>
-              </>
-            )}
+            {/* Navigation Arrows inline above */}
           </div>
 
           {/* Indicator dots */}

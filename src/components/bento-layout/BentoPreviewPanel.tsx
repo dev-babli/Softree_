@@ -45,7 +45,7 @@ export function BentoPreviewPanel({
   return (
     <motion.div
       className={cn(
-        "relative min-h-[32rem] md:min-h-[26rem] lg:min-h-[30rem] overflow-hidden rounded-xl border bg-[#111111]",
+        "relative min-h-[34rem] md:min-h-[32rem] lg:min-h-[34rem] overflow-hidden rounded-xl border bg-[#111111]",
         isBlue ? "border-[#d7dce9]" : "border-[#EAEAEA] shadow-[0_2px_8px_rgba(0,0,0,0.04)]",
         className,
       )}
@@ -59,13 +59,51 @@ export function BentoPreviewPanel({
         {item ? (
           <motion.div
             key={item.id}
-            className="absolute inset-0 flex flex-col md:flex-row items-stretch overflow-hidden bg-[#0d0d0f]"
+            className="absolute inset-0 flex flex-col items-stretch overflow-hidden bg-[#0d0d0f]"
             {...swap}
             style={{ willChange: "opacity" }}
           >
-            {/* Left Column — Text & Gradient Background */}
+            {/* Top Row — Full Cover Image (No Text) */}
             <div 
-              className="w-full md:w-[43%] p-6 md:p-8 lg:p-10 flex flex-col justify-center relative z-20 border-b md:border-b-0 md:border-r border-zinc-800"
+              className="w-full flex-1 relative min-h-[220px] overflow-hidden z-10 border-b border-zinc-800"
+              style={{
+                backgroundImage: "linear-gradient(135deg, #0d0d0f 0%, #050507 100%)",
+              }}
+            >
+              {/* Glowing gradient ambient background layer behind the image */}
+              <div 
+                className="absolute inset-0 opacity-20 pointer-events-none transition-all duration-500"
+                style={{
+                  background: isBlue
+                    ? "radial-gradient(circle at center, rgba(15,92,192,0.35), transparent 70%)"
+                    : "radial-gradient(circle at center, rgba(255,88,18,0.25), transparent 70%)"
+                }}
+              />
+              {/* Blurred under-layer for aesthetic depth */}
+              <div className="absolute inset-0 z-0 opacity-35 blur-3xl scale-110 overflow-hidden select-none pointer-events-none">
+                <BentoCoverImage
+                  src={item.image}
+                  alt=""
+                  sizes="10px"
+                  className="object-cover w-full h-full"
+                />
+              </div>
+
+              {/* Main Full-Cover Image */}
+              <div className="absolute inset-0 z-10 w-full h-full flex items-center justify-center">
+                <BentoCoverImage
+                  src={item.image}
+                  alt={item.title}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover w-full h-full"
+                  priority
+                />
+              </div>
+            </div>
+
+            {/* Bottom Row — Text & Gradient Background */}
+            <div 
+              className="w-full p-5 md:p-6 lg:p-7 flex flex-col justify-center relative z-20"
               style={{
                 backgroundImage: "linear-gradient(135deg, #121215 0%, #08080a 100%)",
               }}
@@ -119,7 +157,7 @@ export function BentoPreviewPanel({
                 </div>
                 
                 {item.href ? (
-                  <motion.div variants={caption} className="mt-6 md:mt-8">
+                  <motion.div variants={caption} className="mt-4 md:mt-5">
                     <Link
                       href={item.href}
                       className={cn(
@@ -133,44 +171,6 @@ export function BentoPreviewPanel({
                   </motion.div>
                 ) : null}
               </motion.div>
-            </div>
-
-            {/* Right Column — Full Cover Image (No Text) */}
-            <div 
-              className="w-full md:w-[57%] relative min-h-[220px] md:min-h-0 overflow-hidden z-10"
-              style={{
-                backgroundImage: "linear-gradient(135deg, #0d0d0f 0%, #050507 100%)",
-              }}
-            >
-              {/* Glowing gradient ambient background layer behind the image */}
-              <div 
-                className="absolute inset-0 opacity-20 pointer-events-none transition-all duration-500"
-                style={{
-                  background: isBlue
-                    ? "radial-gradient(circle at center, rgba(15,92,192,0.35), transparent 70%)"
-                    : "radial-gradient(circle at center, rgba(255,88,18,0.25), transparent 70%)"
-                }}
-              />
-              {/* Blurred under-layer for aesthetic depth */}
-              <div className="absolute inset-0 z-0 opacity-35 blur-3xl scale-110 overflow-hidden select-none pointer-events-none">
-                <BentoCoverImage
-                  src={item.image}
-                  alt=""
-                  sizes="10px"
-                  className="object-cover w-full h-full"
-                />
-              </div>
-
-              {/* Main Full-Cover Image */}
-              <div className="absolute inset-0 z-10 w-full h-full flex items-center justify-center p-2">
-                <BentoCoverImage
-                  src={item.image}
-                  alt={item.title}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-contain w-full h-full max-h-full"
-                  priority
-                />
-              </div>
             </div>
           </motion.div>
         ) : (

@@ -149,7 +149,7 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
             accent="#FF5812"
             headline={
               <span id="services-stacked-heading">
-                From Strategy to Production — We Own Every Layer.
+                From Strategy to Production - We Own Every Layer.
               </span>
             }
             body="A structured offshore delivery model designed for speed, scalability, and long-term business impact."

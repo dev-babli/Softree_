@@ -18,28 +18,24 @@ const BENTO_IMAGE_POOL = [
 ] as const;
 
 const SLUG_DISPLAY_MAPPING: Record<string, { title: string; category: string }> = {
-  "ai-website-performance-monitoring": {
-    title: "AI Website Performance",
-    category: "AI & Automation",
-  },
   "barcode-scanner-app-audio-equipment-management": {
     title: "Barcode Scanner App",
     category: "Power Platform",
   },
-  "ai-driven-itsm-analytics-platform-microsoft-fabric": {
-    title: "ITSM Analytics Platform",
-    category: "Microsoft Fabric",
-  },
-  "enterprise-leave-management-system": {
-    title: "Leave Management System",
+  "employee-separation-process-automation": {
+    title: "Employee Separation Process Automation",
     category: "Power Platform",
   },
-  "electronic-medical-records-emr-workflow-automation-ai-copilot": {
-    title: "EMR Workflow Automation",
+  "es-speaks-travel-requests-management-system": {
+    title: "ES Travel Request Automation",
     category: "Power Platform",
   },
-  "ai-shipment-delay-prediction-platform": {
-    title: "Shipment Delay Prediction",
+  "healthcare-revenue-cycle-intelligence-dashboard": {
+    title: "Healthcare Revenue Intelligence",
+    category: "Data & Analytics",
+  },
+  "ai-competitive-gap-report-businesses-outperform-competitors": {
+    title: "AI Competitive Gap Report",
     category: "AI & Automation",
   },
 };
@@ -66,12 +62,11 @@ export function mapSanityCaseStudies(studies: SanityNavCaseStudy[]): CaseStudyMo
 
 const homepageFeaturedCaseStudiesQuery = groq`
   *[_type == "caseStudy" && coalesce(visibility, status, "published") == "published" && slug.current in [
-    "ai-website-performance-monitoring",
     "barcode-scanner-app-audio-equipment-management",
-    "ai-driven-itsm-analytics-platform-microsoft-fabric",
-    "enterprise-leave-management-system",
-    "electronic-medical-records-emr-workflow-automation-ai-copilot",
-    "ai-shipment-delay-prediction-platform"
+    "employee-separation-process-automation",
+    "es-speaks-travel-requests-management-system",
+    "healthcare-revenue-cycle-intelligence-dashboard",
+    "ai-competitive-gap-report-businesses-outperform-competitors"
   ]] {
     _id,
     title,
@@ -108,12 +103,11 @@ export async function getHomepageCaseStudies(): Promise<CaseStudyMock[]> {
 
     if (studies?.length) {
       const order = [
-        "ai-website-performance-monitoring",
         "barcode-scanner-app-audio-equipment-management",
-        "ai-driven-itsm-analytics-platform-microsoft-fabric",
-        "enterprise-leave-management-system",
-        "electronic-medical-records-emr-workflow-automation-ai-copilot",
-        "ai-shipment-delay-prediction-platform"
+        "employee-separation-process-automation",
+        "es-speaks-travel-requests-management-system",
+        "healthcare-revenue-cycle-intelligence-dashboard",
+        "ai-competitive-gap-report-businesses-outperform-competitors"
       ];
       const sortedStudies = [...studies].sort((a, b) => {
         const aSlug = a.slug?.current || "";

@@ -200,6 +200,7 @@ export function BentoWireframe({
         category: active.category,
         image: active.image,
         href: active.href,
+        excerpt: active.excerpt,
         ctaLabel: "Open case study",
       }
     : null;

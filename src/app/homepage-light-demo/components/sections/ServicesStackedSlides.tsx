@@ -132,7 +132,7 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
           <SectionHeader
             badge="Delivery Lifecycle"
             accent="#FF6B00"
-            headline={<>From Strategy to Production — We Own Every Layer.</>}
+            headline={<>From Strategy to Production - We Own Every Layer.</>}
             body="A structured offshore delivery model designed for speed, scalability, and long-term business impact."
             className="ssx-intro-copy"
           />
