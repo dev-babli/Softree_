@@ -4,8 +4,8 @@ import createGlobe from "cobe";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const MicrosoftIcon = () => (
-  <svg className="h-8 w-8 shrink-0" viewBox="0 0 23 23" fill="none">
+const MicrosoftIcon = ({ className = "h-8 w-8 shrink-0" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 23 23" fill="none">
     <rect width="10" height="10" fill="#F25022" />
     <rect x="12" width="10" height="10" fill="#7FBA00" />
     <rect y="12" width="10" height="10" fill="#00A1F1" />
@@ -443,67 +443,78 @@ export default function AboutUsGlobe() {
           </span>
 
           <div 
-            className="flex flex-wrap items-center justify-center gap-5 rounded-[2rem] border border-slate-200/50 bg-[#FAF9F6]/50 p-4 sm:px-8 sm:py-5 shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_8px_32px_rgba(10,10,26,0.03)] backdrop-blur-md max-w-6xl w-full"
+            className="flex flex-wrap items-center justify-center gap-2.5 lg:gap-3.5 xl:gap-4 rounded-[2rem] border border-slate-200/50 bg-[#FAF9F6]/50 p-3 sm:px-6 sm:py-4 shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_8px_32px_rgba(10,10,26,0.03)] backdrop-blur-md max-w-6xl w-full"
           >
             {/* Microsoft Solutions Partner */}
             <motion.div 
-              className="flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-gradient-to-r from-[#FF5812] to-[#FF763F] border border-transparent shadow-[0_2px_8px_rgba(255,88,18,0.1)] transition-all duration-300 hover:shadow-[0_4px_16px_rgba(255,88,18,0.2)] cursor-pointer text-white"
+              className="flex items-center gap-2.5 px-3 py-2 lg:px-4 lg:py-2.5 rounded-2xl bg-gradient-to-r from-[#FF5812] to-[#FF763F] border border-transparent shadow-[0_2px_8px_rgba(255,88,18,0.1)] transition-all duration-300 hover:shadow-[0_4px_16px_rgba(255,88,18,0.2)] cursor-pointer text-white"
               whileHover={{ y: -2, scale: 1.02 }}
             >
-              <MicrosoftIcon />
-              <span className="text-[14px] font-extrabold text-white tracking-tight">Microsoft Solutions Partner</span>
+              <MicrosoftIcon className="h-6 w-6 lg:h-7 lg:w-7 xl:h-8 xl:w-8 shrink-0" />
+              <span className="text-xs sm:text-[13px] lg:text-[14px] font-extrabold text-white tracking-tight">Microsoft Solutions Partner</span>
+            </motion.div>
+
+            {/* AI & Automation */}
+            <motion.div 
+              className="flex items-center gap-2.5 px-3 py-2 lg:px-4 lg:py-2.5 rounded-2xl bg-gradient-to-r from-[#FF5812] to-[#FF763F] border border-transparent shadow-[0_2px_8px_rgba(255,88,18,0.1)] transition-all duration-300 hover:shadow-[0_4px_16px_rgba(255,88,18,0.2)] cursor-pointer text-white"
+              whileHover={{ y: -2, scale: 1.02 }}
+            >
+              <svg className="h-6 w-6 lg:h-7 lg:w-7 xl:h-8 xl:w-8 shrink-0 fill-black" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2a7 7 0 0 0-7 7v3a4 4 0 0 0-2 3.46V18c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-2.54A4 4 0 0 0 19 12V9a7 7 0 0 0-7-7zm-4 9a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm8 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm-4 5c-1.66 0-3-1.34-3-3h6c0 1.66-1.34 3-3 3z" />
+              </svg>
+              <span className="text-xs sm:text-[13px] lg:text-[14px] font-extrabold text-white tracking-tight">AI & Automation</span>
             </motion.div>
 
             {/* SharePoint */}
             <motion.div 
-              className="flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-gradient-to-r from-[#FF5812] to-[#FF763F] border border-transparent shadow-[0_2px_8px_rgba(255,88,18,0.1)] transition-all duration-300 hover:shadow-[0_4px_16px_rgba(255,88,18,0.2)] cursor-pointer text-white"
+              className="flex items-center gap-2.5 px-3 py-2 lg:px-4 lg:py-2.5 rounded-2xl bg-gradient-to-r from-[#FF5812] to-[#FF763F] border border-transparent shadow-[0_2px_8px_rgba(255,88,18,0.1)] transition-all duration-300 hover:shadow-[0_4px_16px_rgba(255,88,18,0.2)] cursor-pointer text-white"
               whileHover={{ y: -2, scale: 1.02 }}
             >
               <img
                 src="/images/sharepoint.webp"
                 alt="SharePoint Logo"
-                className="h-8 w-8 shrink-0 object-contain filter drop-shadow-[0_1px_2px_rgba(16,124,65,0.08)]"
+                className="h-6 w-6 lg:h-7 lg:w-7 xl:h-8 xl:w-8 shrink-0 object-contain filter drop-shadow-[0_1px_2px_rgba(16,124,65,0.08)]"
               />
-              <span className="text-[14px] font-extrabold text-white tracking-tight">SharePoint</span>
+              <span className="text-xs sm:text-[13px] lg:text-[14px] font-extrabold text-white tracking-tight">SharePoint</span>
             </motion.div>
 
             {/* Power Apps */}
             <motion.div 
-              className="flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-gradient-to-r from-[#FF5812] to-[#FF763F] border border-transparent shadow-[0_2px_8px_rgba(255,88,18,0.1)] transition-all duration-300 hover:shadow-[0_4px_16px_rgba(255,88,18,0.2)] cursor-pointer text-white"
+              className="flex items-center gap-2.5 px-3 py-2 lg:px-4 lg:py-2.5 rounded-2xl bg-gradient-to-r from-[#FF5812] to-[#FF763F] border border-transparent shadow-[0_2px_8px_rgba(255,88,18,0.1)] transition-all duration-300 hover:shadow-[0_4px_16px_rgba(255,88,18,0.2)] cursor-pointer text-white"
               whileHover={{ y: -2, scale: 1.02 }}
             >
               <img
                 src="/images/power-apps.webp"
                 alt="Power Apps Logo"
-                className="h-8 w-8 shrink-0 object-contain filter drop-shadow-[0_1px_2px_rgba(116,39,116,0.08)]"
+                className="h-6 w-6 lg:h-7 lg:w-7 xl:h-8 xl:w-8 shrink-0 object-contain filter drop-shadow-[0_1px_2px_rgba(116,39,116,0.08)]"
               />
-              <span className="text-[14px] font-extrabold text-white tracking-tight">Power Apps</span>
+              <span className="text-xs sm:text-[13px] lg:text-[14px] font-extrabold text-white tracking-tight">Power Apps</span>
             </motion.div>
 
             {/* Azure */}
             <motion.div 
-              className="flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-gradient-to-r from-[#FF5812] to-[#FF763F] border border-transparent shadow-[0_2px_8px_rgba(255,88,18,0.1)] transition-all duration-300 hover:shadow-[0_4px_16px_rgba(255,88,18,0.2)] cursor-pointer text-white"
+              className="flex items-center gap-2.5 px-3 py-2 lg:px-4 lg:py-2.5 rounded-2xl bg-gradient-to-r from-[#FF5812] to-[#FF763F] border border-transparent shadow-[0_2px_8px_rgba(255,88,18,0.1)] transition-all duration-300 hover:shadow-[0_4px_16px_rgba(255,88,18,0.2)] cursor-pointer text-white"
               whileHover={{ y: -2, scale: 1.02 }}
             >
               <img
                 src="/images/azure.svg"
                 alt="Azure Logo"
-                className="h-8 w-8 shrink-0 object-contain filter drop-shadow-[0_1px_2px_rgba(0,120,212,0.08)]"
+                className="h-6 w-6 lg:h-7 lg:w-7 xl:h-8 xl:w-8 shrink-0 object-contain filter drop-shadow-[0_1px_2px_rgba(0,120,212,0.08)]"
               />
-              <span className="text-[14px] font-extrabold text-white tracking-tight">Azure</span>
+              <span className="text-xs sm:text-[13px] lg:text-[14px] font-extrabold text-white tracking-tight">Azure</span>
             </motion.div>
 
             {/* Power BI */}
             <motion.div 
-              className="flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-gradient-to-r from-[#FF5812] to-[#FF763F] border border-transparent shadow-[0_2px_8px_rgba(255,88,18,0.1)] transition-all duration-300 hover:shadow-[0_4px_16px_rgba(255,88,18,0.2)] cursor-pointer text-white"
+              className="flex items-center gap-2.5 px-3 py-2 lg:px-4 lg:py-2.5 rounded-2xl bg-gradient-to-r from-[#FF5812] to-[#FF763F] border border-transparent shadow-[0_2px_8px_rgba(255,88,18,0.1)] transition-all duration-300 hover:shadow-[0_4px_16px_rgba(255,88,18,0.2)] cursor-pointer text-white"
               whileHover={{ y: -2, scale: 1.02 }}
             >
               <img
                 src="/images/power-bi.webp"
                 alt="Power BI Logo"
-                className="h-8 w-8 shrink-0 object-contain filter drop-shadow-[0_1px_2px_rgba(242,200,17,0.08)]"
+                className="h-6 w-6 lg:h-7 lg:w-7 xl:h-8 xl:w-8 shrink-0 object-contain filter drop-shadow-[0_1px_2px_rgba(242,200,17,0.08)]"
               />
-              <span className="text-[14px] font-extrabold text-white tracking-tight">Power BI</span>
+              <span className="text-xs sm:text-[13px] lg:text-[14px] font-extrabold text-white tracking-tight">Power BI</span>
             </motion.div>
           </div>
         </motion.div>
