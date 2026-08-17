@@ -171,9 +171,15 @@ export default function LatestTechnologies() {
                         aria-expanded={isActive}
                         aria-controls={`content-${index}`}
                       >
-                        {/* Number Index */}
-                        <span className="text-zinc-500 text-xs mr-3 font-mono tracking-wider flex-shrink-0 w-[32px] pt-[1px] transition-colors duration-300 group-hover:text-zinc-400">
-                          {formattedNumber}
+                        {/* Number Index Badge */}
+                        <span 
+                          className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border text-[11px] font-bold font-mono tracking-tighter transition-all duration-300 mr-3.5 ${
+                            isActive 
+                              ? 'bg-gradient-to-br from-[#FF6B00] to-[#FF8C39] border-transparent text-white shadow-[0_0_12px_rgba(255,107,0,0.4)] scale-105' 
+                              : 'bg-zinc-900/40 border-zinc-800/80 text-zinc-500 group-hover:text-zinc-300 group-hover:border-zinc-700/80'
+                          }`}
+                        >
+                          0{index + 1}
                         </span>
                         
                         {/* Title */}

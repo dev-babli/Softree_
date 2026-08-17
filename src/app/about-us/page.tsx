@@ -1,6 +1,5 @@
 "use client";
 import NavigationClient from "@/components/sections/navigation-client";
-import AboutHero from "@/components/sections/AboutHero";
 import AboutClientLogos from "@/components/qc/homepage-light/AboutClientLogos";
 import AboutCaseStudies from "@/components/qc/homepage-light/AboutCaseStudies";
 import WhySoftree from "@/components/qc/homepage-light/WhySoftree";
@@ -17,6 +16,7 @@ import LatestTechnologies from "../about-us/LatestTechnologies";
 import Wework from "../about-us/Wework";
 import { LightTestimonialFeature } from "@/components/qc/homepage-light/LightTestimonialFeature";
 import SoftreeTimeline from "@/components/qc/homepage-light/SoftreeTimeline";
+import AboutUsGlobe from "../about-us/AboutUsGlobe";
 
 const aboutUsFaqs = [
   {
@@ -65,12 +65,12 @@ const aboutUsFaqs = [
 
 export default function AboutUsPage1() {
   return (
-    <div className="min-h-screen pt-[80px] bg-white">
+    <div className="min-h-screen pt-0 bg-white">
       {/* Navigation */}
       <NavigationClient />
 
       {/* 1. Hero — Video hero with cycling words */}
-      <AboutHero />
+      <AboutUsGlobe />
 
       {/* 2. About — Company story with spotlight cards */}
       <AboutInteractiveCore />

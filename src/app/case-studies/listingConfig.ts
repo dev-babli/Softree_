@@ -31,6 +31,34 @@ export const CASE_STUDIES_HUB_FAQS = [
     answer:
       'As documented in our case studies, phased delivery timelines typically range from 4 to 12 weeks. We follow agile execution models with bi-weekly sprints, ensuring visible, leadership-ready milestones and ROI early in the lifecycle.',
   },
+  {
+    id: 5,
+    serial: 'question 05',
+    question: 'Do you work under NDA and support white-label development?',
+    answer:
+      'Yes. We operate as a trusted partner under strict NDA guidelines. For agency partnerships and enterprise sub-contracting, we provide fully white-labeled offshore delivery, ensuring all code, intellectual property, and client identity remain completely confidential.',
+  },
+  {
+    id: 6,
+    serial: 'question 06',
+    question: 'How does Softree handle knowledge transfer and post-launch support?',
+    answer:
+      'Every case study concludes with a comprehensive handoff. We provide complete documentation, source files, training sessions for your internal teams, and structured post-launch support windows (typically 30 to 90 days) to guarantee a smooth operational transition.',
+  },
+  {
+    id: 7,
+    serial: 'question 07',
+    question: 'What is your approach to integration with legacy systems?',
+    answer:
+      'We specialize in modernizing workflows without disrupting existing systems. Whether through Microsoft Power Automate RPA, custom API connectors, or secure Azure integration layers, we connect new AI and automation tools directly to your legacy databases and core ERP systems.',
+  },
+  {
+    id: 8,
+    serial: 'question 08',
+    question: 'How does the offshore-onsite delivery model function for international clients?',
+    answer:
+      'We utilize a hybrid delivery model where architects and project managers align with your time zone for daily standups, design syncs, and reviews, while our engineering teams leverage high-efficiency offshore schedules to deliver rapid sprint cycles and cost-effective scaling.',
+  },
 ] as const
 
 export const CASE_STUDIES_HUB_PROOF = {

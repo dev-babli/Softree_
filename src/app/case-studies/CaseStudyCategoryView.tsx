@@ -7,7 +7,6 @@ import LightContactSection from "@/components/qc/homepage-light/LightContactSect
 import LightFAQExact from "@/components/homepage-light/LightFAQExact"
 import CaseStudyHero from "./CaseStudyHero"
 import CaseStudyGridNew from "./CaseStudyGrid"
-import CaseStudyProofCTA from "./CaseStudyProofCTA"
 import { getCaseStudyItemsByCategory, getCaseStudyCategoryCounts } from "./categoryCards"
 import {
   buildCaseStudyCategoryMetadata,
@@ -107,14 +106,6 @@ export default async function CaseStudyCategoryView({ category }: Props) {
           </div>
         </section>
       ) : null}
-      <CaseStudyProofCTA
-        challengeText={config.proofChallenge}
-        solutionText={config.proofSolution}
-        accentColor={config.accentColor}
-        quote={config.proofQuote}
-        quoteName={config.proofName}
-        quoteRole={config.proofRole}
-      />
       <LightContactSection />
       <LightFAQExact faqs={config.faqs} />
       <Footer />

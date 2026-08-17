@@ -115,7 +115,7 @@ const SPOTLIGHT_STATS = [
 ] as const;
 
 const GALLERY_MIN_H =
-  "min-h-[280px] sm:min-h-[320px] md:min-h-[360px] lg:min-h-[400px] xl:min-h-[420px]";
+  "min-h-[480px] sm:min-h-[500px] md:min-h-[500px] lg:min-h-[520px] xl:min-h-[540px]";
 
 const STAT_TILE_H = "h-[112px] w-full shrink-0 sm:h-[118px]";
 
@@ -428,7 +428,7 @@ export default function InfinityScrollAnimation() {
           </div>
 
           <motion.div
-            className="col-span-12 min-w-0 lg:col-span-8 h-full lg:max-h-[440px] xl:max-h-[450px]"
+            className="col-span-12 min-w-0 lg:col-span-8 h-full lg:max-h-[520px] xl:max-h-[540px]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
@@ -439,7 +439,7 @@ export default function InfinityScrollAnimation() {
             </div>
           </motion.div>
 
-          <div className="col-span-12 flex min-w-0 flex-col gap-3 lg:col-span-4 lg:min-h-0 lg:gap-4 lg:max-h-[440px] xl:max-h-[450px]">
+          <div className="col-span-12 flex min-w-0 flex-col gap-3 lg:col-span-4 lg:min-h-0 lg:gap-4 lg:max-h-[520px] xl:max-h-[540px]">
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#0a0a1a]/45 lg:hidden">
               Proof at a glance
             </p>

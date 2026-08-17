@@ -124,7 +124,7 @@ const menu: MenuItem[] = [
           { label: "Web Applications", url: "/services/offshore-web-app-development", icon: Globe2, description: "Bespoke web apps and customer portals" },
           { label: "Mobile Applications", url: "/services/offshore-mobile-app-development", icon: Smartphone, description: "Native iOS & Android app development" },
           { label: "Legacy Modernization", url: "/services/legacy-application-modernization", icon: Sparkles, description: "Re-architecting legacy software systems" },
-          { label: "API & Systems Integration", url: "/services/offshore-web-app-development", icon: Layers, description: "Seamless cross-platform data flow" },
+
         ],
       },
       {
@@ -134,8 +134,7 @@ const menu: MenuItem[] = [
         links: [
           { label: "SharePoint Online", url: "/services/offshore-sharepoint-development", icon: Building2, description: "Intranet portals and document management" },
           { label: "SPFx Development", url: "/services/offshore-spfx-development", icon: Code2, description: "Custom web parts and platform extensions" },
-          { label: "Modern Intranets", url: "/services/offshore-sharepoint-development", icon: Sparkles, description: "Interactive portals for connected teams" },
-        ],
+        ]
       },
       {
         title: "Document & Process Intelligence",

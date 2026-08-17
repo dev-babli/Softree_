@@ -444,7 +444,7 @@ export default function ParallaxGalleryCard({
       if (h < 1) return;
       state.projectHeight = h;
       // --isc-minimap-h drives the body height of the centre card
-      const bodyH = Math.round(Math.min(180, Math.max(140, h * 0.4)));
+      const bodyH = Math.round(Math.min(150, Math.max(120, h * 0.35)));
       stage.style.setProperty("--isc-minimap-h", `${bodyH}px`);
 
       bindSlides();
@@ -576,7 +576,7 @@ export default function ParallaxGalleryCard({
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_34%_42%,rgba(255,255,255,0.06)_0%,transparent_55%),linear-gradient(180deg,rgba(0,0,0,0.08)_0%,rgba(0,0,0,0.5)_100%)]" />
               </div>
               <div
-                className="isc-project-caption pointer-events-none absolute inset-x-0 bottom-0 z-[5] max-w-[60%] px-3 pb-0 pt-4 md:px-5 md:pb-0 md:pt-6"
+                className="isc-project-caption pointer-events-none absolute inset-x-0 bottom-0 z-[5] max-w-[60%] px-3 pb-6 pt-4 md:px-5 md:pb-8 md:pt-6"
                 style={{
                   opacity: i === activeIndex ? 1 : 0,
                   transition: "opacity 0.4s ease-out",
@@ -627,9 +627,9 @@ export default function ParallaxGalleryCard({
           </div>
 
           {/* Center Panel (isc-minimap) */}
-          <div className="flex-1 flex items-center justify-center py-4 px-2 sm:py-6 sm:px-4 pointer-events-auto">
+          <div className="flex-1 flex items-start justify-center py-4 px-2 sm:py-6 sm:px-4 pointer-events-auto">
             {/* ── Centre editorial showcase card ── */}
-            <div className="isc-minimap isc-minimap--landscape">
+            <div className="isc-minimap isc-minimap--landscape -translate-y-4 sm:-translate-y-6 md:-translate-y-10 lg:-translate-y-12">
               <div className="isc-minimap-wrapper">
 
                 {/* 3-column body */}
@@ -723,7 +723,7 @@ export default function ParallaxGalleryCard({
           </div>
 
           {/* Bottom Area (Spacer for absolute caption + Navigation) */}
-          <div className="px-3 pb-4 pt-4 md:px-5 md:pb-6 flex justify-end items-end relative pointer-events-none min-h-[90px] md:min-h-[110px]">
+          <div className="px-3 pb-4 pt-4 md:px-5 md:pb-6 flex justify-end items-end relative pointer-events-none min-h-[120px] md:min-h-[140px]">
             {/* Navigation chevrons */}
             <div className="pointer-events-auto flex items-center gap-1.5 shrink-0">
               <button

@@ -4,7 +4,6 @@ import NavigationServer from "@/components/sections/navigation-server"
 import Footer from "@/components/sections/footer"
 import LightContactSection from "@/components/qc/homepage-light/LightContactSection"
 import LightFAQExact from "@/components/homepage-light/LightFAQExact"
-import CaseStudyProofCTA from "./CaseStudyProofCTA"
 import CaseStudiesListingClient from "./CaseStudiesListingClient"
 import {
   getCaseStudyCategoryCounts,
@@ -13,9 +12,7 @@ import {
 } from "./categoryCards"
 import { buildCaseStudyCategoryLinks } from "@/cms/lib/buildCaseStudyNav"
 import {
-  CASE_STUDIES_HUB_ACCENT,
   CASE_STUDIES_HUB_FAQS,
-  CASE_STUDIES_HUB_PROOF,
 } from "./listingConfig"
 
 export const metadata: Metadata = {
@@ -56,16 +53,6 @@ export default async function CaseStudiesPage() {
           categoryLinks={categoryLinks}
         />
       </Suspense>
-      <CaseStudyProofCTA
-        accentColor={CASE_STUDIES_HUB_ACCENT}
-        challengeText={CASE_STUDIES_HUB_PROOF.challengeText}
-        solutionText={CASE_STUDIES_HUB_PROOF.solutionText}
-        quote={CASE_STUDIES_HUB_PROOF.quote}
-        quoteName={CASE_STUDIES_HUB_PROOF.quoteName}
-        quoteRole={CASE_STUDIES_HUB_PROOF.quoteRole}
-        ctaHref={CASE_STUDIES_HUB_PROOF.ctaHref}
-        ctaLabel={CASE_STUDIES_HUB_PROOF.ctaLabel}
-      />
       <LightContactSection />
       <LightFAQExact faqs={[...CASE_STUDIES_HUB_FAQS]} />
       <Footer />
