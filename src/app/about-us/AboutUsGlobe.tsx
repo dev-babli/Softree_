@@ -251,8 +251,8 @@ export default function AboutUsGlobe() {
       <div className="mx-auto w-full max-w-[1360px] px-5 sm:px-6 md:px-8 lg:px-10 relative z-10">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-start lg:gap-8">
           
-          {/* Left Column: Heading (Col Span 4) */}
-          <div className="flex flex-col items-start gap-8 lg:col-span-4 lg:pt-[80px] xl:pt-[92px] 2xl:pt-[104px] lg:pr-8 xl:pr-12">
+          {/* Left Column: Heading (Col Span 5) */}
+          <div className="flex flex-col items-start gap-8 lg:col-span-5 lg:pt-[80px] xl:pt-[92px] 2xl:pt-[104px] lg:pr-8 xl:pr-12">
             {/* 1. Badge */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
@@ -269,7 +269,7 @@ export default function AboutUsGlobe() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-[54px] xl:text-[68px] 2xl:text-[84px] font-bold tracking-tight leading-[1.05] shrink-0"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-[48px] xl:text-[60px] 2xl:text-[76px] font-bold tracking-tight leading-[1.05] shrink-0"
             >
               <span className="text-[#0a0a1a]">Softree</span>
               <sup className="text-xl sm:text-2xl md:text-3xl font-semibold text-slate-400 ml-0.5">®</sup>
@@ -307,12 +307,12 @@ export default function AboutUsGlobe() {
             </Link>
           </motion.div>
 
-          {/* Right Column: Globe & Cards (Col Span 5) */}
+          {/* Right Column: Globe & Cards (Col Span 4) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="relative lg:col-span-5 w-full aspect-square max-w-[520px] mx-auto flex items-center justify-center select-none lg:pt-12"
+            className="relative lg:col-span-4 w-full aspect-square max-w-[520px] mx-auto flex items-center justify-center select-none lg:pt-12"
           >
             <div className="relative w-full h-full">
               <style>{`
@@ -338,7 +338,7 @@ export default function AboutUsGlobe() {
               </div>
 
               <div
-                className="absolute inset-x-0 bottom-[4%] z-20 flex origin-bottom scale-[0.82] sm:scale-[0.92] md:scale-[1.0] lg:scale-[0.96] xl:scale-[1.05] items-end justify-center gap-2 sm:gap-4 lg:gap-5"
+                className="absolute inset-x-0 bottom-[4%] z-20 flex origin-bottom scale-[0.82] sm:scale-[0.92] md:scale-[1.0] lg:scale-[0.80] xl:scale-[0.92] 2xl:scale-[1.0] items-end justify-center gap-2 sm:gap-4 lg:gap-3 xl:gap-4 2xl:gap-5"
                 style={{ perspective: "1200px", transformStyle: "preserve-3d" }}
               >
                 <motion.div
