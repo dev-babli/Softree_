@@ -562,7 +562,7 @@ export function EducationEdTechStoryPage({ data }: Props) {
           </Reveal>
           <Reveal className="section-body">
             <div className="spacer" />
-            <div className="w-full">
+            <div className="w-full min-w-0">
               <div 
                 className="p-6 md:p-10 rounded-2xl border border-orange-600/30 shadow-2xl w-full backdrop-blur-xl"
                 style={{

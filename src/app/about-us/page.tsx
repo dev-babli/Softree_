@@ -17,7 +17,8 @@ import Wework from "../about-us/Wework";
 import { LightTestimonialFeature } from "@/components/qc/homepage-light/LightTestimonialFeature";
 import SoftreeTimeline from "@/components/qc/homepage-light/SoftreeTimeline";
 import AboutUsGlobe from "../about-us/AboutUsGlobe";
-
+import CoreValuesSection from "./CoreValuesSection";
+import ExactAboutUs from "./ExactAboutUs";
 const aboutUsFaqs = [
   {
     id: 1,
@@ -68,52 +69,35 @@ export default function AboutUsPage1() {
     <div className="min-h-screen pt-0 bg-white">
       {/* Navigation */}
       <NavigationClient />
-
       {/* 1. Hero — Video hero with cycling words */}
       <AboutUsGlobe />
-
-      {/* 2. About — Company story with spotlight cards */}
-      <AboutInteractiveCore />
-
       {/* 3. Client Logos — Trusted partners marquee */}
       <AboutClientLogos />
-
-      {/* 3.8. Why Softree — Interactive delivery differentiators list */}
-      <WhySoftree />
-
+      <ExactAboutUs />
+      {/* 2. About — Core Values, Mission, Vision, and Approach */}
+      <CoreValuesSection />
       {/* Our Journey Timeline */}
       <SoftreeTimeline />
-
       {/* 3.9. Latest Technologies — Powerhouse technologies behind Softree */}
       <LatestTechnologies />
-
       {/* 3.9.5. We Work — Custom AI Development sticky panels */}
       <Wework />
-
       {/* Client Testimonials */}
       <LightTestimonialFeature />
-
       {/* 4. Engagement Models — How to work with us */}
       <LightEngagementModels />
-
       {/* 5. Team — Leadership & people showcase */}
       <AboutTeamSection />
-
       {/* 6. Awards — Marquee with glass trophy cards */}
       <AwardsMarqueeSection />
-
       {/* 7. Workspace gallery — animated photo rails */}
       <AnimatedPhotoGallery />
-
       {/* 8. Offices — Bengaluru, Cuttack, San Francisco */}
       <Gallery />
-
       {/* 9. Contact — Get in touch */}
       <LightContactSection />
-
       {/* 10. FAQ */}
       <LightFAQExact faqs={aboutUsFaqs} />
-
       {/* 11. Footer — Homepage footer */}
       <Footer />
     </div>

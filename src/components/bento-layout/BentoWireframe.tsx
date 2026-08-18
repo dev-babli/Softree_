@@ -65,14 +65,14 @@ function CaseStudyRow({
   const delay = Math.min(index * 0.05, 0.25);
   const isHome = variant === "homepage-light";
   const rowClass = cn(
-    "group relative flex w-full items-start gap-4 py-4 text-left transition-colors duration-200 md:py-5",
+    "group relative flex w-full items-center justify-between gap-4 py-4 text-left transition-colors duration-200 md:py-5 px-3 md:px-4 rounded-xl",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#FF5812]",
     isHome
       ? isActive
-        ? "bg-[#F3F0EE] pl-3"
+        ? "bg-[#F3F0EE]"
         : "hover:bg-[#F3F0EE]/70"
       : isActive
-        ? "bg-white pl-3"
+        ? "bg-white"
         : "hover:bg-white/70",
   );
 
@@ -90,19 +90,21 @@ function CaseStudyRow({
       {isActive && !reduced ? (
         <motion.span
           layoutId="bento-active-rail"
-          className="absolute bottom-2 left-0 top-2 w-[2px] rounded-full bg-[#FF5812]"
+          className="absolute bottom-2 left-1.5 top-2 w-[2px] rounded-full bg-[#FF5812]"
           transition={BENTO_SPRING}
           aria-hidden
         />
       ) : isActive ? (
-        <span className="absolute bottom-2 left-0 top-2 w-[2px] rounded-full bg-[#FF5812]" aria-hidden />
+        <span className="absolute bottom-2 left-1.5 top-2 w-[2px] rounded-full bg-[#FF5812]" aria-hidden />
       ) : null}
 
-      <BentoIndexThumb
-        src={study.image}
-        alt={study.title}
-        className="h-14 w-14 md:h-16 md:w-16"
-      />
+      {!isHome && (
+        <BentoIndexThumb
+          src={study.image}
+          alt={study.title}
+          className="h-14 w-14 md:h-16 md:w-16"
+        />
+      )}
 
       <span className="min-w-0 flex-1">
         <span
@@ -133,12 +135,12 @@ function CaseStudyRow({
 
       <span
         className={cn(
-          "absolute right-[-24px] top-1/2 -translate-y-1/2 text-lg leading-none transition-all duration-200",
+          "text-lg leading-none transition-all duration-200 shrink-0",
           isActive
-            ? "translate-x-1 text-[#0a0a1a] opacity-100"
+            ? "translate-x-0.5 text-[#0a0a1a] opacity-100"
             : isHome
-              ? "text-[#0a0a1a]/25 group-hover:translate-x-1 group-hover:text-[#0a0a1a] group-hover:opacity-100"
-              : "text-[#C4C4C0] group-hover:translate-x-1 group-hover:text-[#111111]",
+              ? "text-[#0a0a1a]/25 group-hover:translate-x-0.5 group-hover:text-[#0a0a1a] group-hover:opacity-100"
+              : "text-[#C4C4C0] group-hover:translate-x-0.5 group-hover:text-[#111111]",
         )}
         aria-hidden
       >
@@ -240,7 +242,7 @@ export function BentoWireframe({
 
       {caseStudies.length > 0 ? (
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,360px)_1fr] lg:gap-10">
-          <nav aria-label="Case study index">
+          <nav aria-label="Case study index" className="flex flex-col lg:h-full">
             {!hideIndexHeader ? (
               <ScrollReveal reduced={reduced} delay={0.04}>
                 <div className="mb-5 flex items-end justify-between gap-4 border-b border-[#EAEAEA] pb-5">
@@ -267,7 +269,7 @@ export function BentoWireframe({
             )}
 
             <LayoutGroup id="bento-index">
-              <ol>
+              <ol className="flex flex-col lg:h-full lg:justify-between flex-1">
                 {caseStudies.map((study, i) => (
                   <CaseStudyRow
                     key={study.id}
