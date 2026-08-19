@@ -8,94 +8,59 @@ import "swiper/css";
 
 const caseStudies = [
   {
-    title: "Executive Sales Dashboard",
-
-    summary: "Real-time enterprise sales analytics platform.",
-
-    challenge:
-      "Leadership lacked unified visibility into sales KPIs across regions and product lines.",
-
-    solution:
-      "Built a centralized Power BI dashboard integrating CRM, ERP, and marketing data with advanced DAX modeling.",
-
-    impact:
-      "Improved decision-making speed by 45% with real-time KPI visibility.",
-
-    tech: ["Power BI", "Azure SQL", "DAX", "Power Query"],
-
-    image: "/images/case-study/power-bi/sales-dashboard.png",
-
-    href: "#",
-
+    title: "Smart Hospital Analytics Platform",
     category: "Power BI",
+    summary: "An enterprise-grade Power BI dashboard for real-time patient admissions tracking, resource allocation, and clinical analytics.",
+    challenge: "Healthcare executives lacked a centralized, real-time platform to monitor hospital capacity, patient outcomes, and staffing needs.",
+    solution: "Implemented a HIPAA-compliant Power BI data platform integrated with hospital EHR databases and predictive analytics models.",
+    impact: "Enhanced hospital operational efficiency by 40% and improved patient admissions forecasting accuracy.",
+    tech: ["Power BI", "Data Analytics", "Azure Data Factory", "EHR Integration"],
+    image: "/images/case-study/power-apps/hr.png",
+    href: "https://www.softreetechnology.com/case-studies/smart-hospital-analytics-platform",
   },
-
   {
-    title: "Financial Performance Analytics",
-
-    summary: "Automated reporting for CFO and finance teams.",
-
-    challenge:
-      "Manual Excel-based reporting caused delays and inconsistencies in financial insights.",
-
-    solution:
-      "Developed automated Power BI financial dashboards with row-level security and scheduled refresh.",
-
-    impact:
-      "Reduced reporting preparation time by 70% and improved data accuracy.",
-
-    tech: ["Power BI", "Excel", "RLS", "Power Automate"],
-
-    image: "/images/case-study/power-bi/finance-dashboard.png",
-
-    href: "#",
-
+    title: "Healthcare Revenue Intelligence",
     category: "Power BI",
+    summary: "An analytics platform that cleanses, models, and visualizes complex medical billing data, identifying leakage points and optimizing revenue cycles.",
+    challenge: "Medical billing data from multiple clinics was disconnected, leading to untracked claim rejections and hidden revenue leakage.",
+    solution: "Designed an automated data validation pipeline and interactive Power BI dashboards to track billing cycles in real-time.",
+    impact: "Identified 15% revenue leakage and accelerated billing cycles by 40% using advanced data analysis.",
+    tech: ["Power BI", "Azure Data Factory", "Data Modeling", "Billing Integration"],
+    image: "/images/case-study/home/health.png",
+    href: "https://www.softreetechnology.com/case-studies/healthcare-revenue-cycle-intelligence-dashboard",
   },
-
   {
-    title: "HR Workforce Analytics",
-
-    summary: "Data-driven employee performance and attrition insights.",
-
-    challenge:
-      "HR teams lacked consolidated analytics on attrition, performance, and hiring trends.",
-
-    solution:
-      "Designed interactive dashboards with predictive insights using Power BI and Azure Data Lake.",
-
-    impact:
-      "Reduced employee attrition by 18% through data-backed interventions.",
-
-    tech: ["Power BI", "Azure Data Lake", "DAX", "AI Insights"],
-
-    image: "/images/case-study/power-bi/hr-dashboard.png",
-
-    href: "#",
-
+    title: "AI-Driven ITSM Analytics Platform",
     category: "Power BI",
+    summary: "Modernizes enterprise operations using Microsoft Fabric and Power BI to automate ticket resolution and predictive analytics.",
+    challenge: "IT helpdesk operations were overwhelmed by ticket backlogs and lacked end-to-end analytics on system incidents and SLAs.",
+    solution: "Built an enterprise analytics platform on Microsoft Fabric with DirectLake connections and Power BI executive dashboards.",
+    impact: "Reduced ticket resolution backlogs by 35% and improved SLA compliance by 45% using predictive analysis.",
+    tech: ["Microsoft Fabric", "Power BI", "Synapse Analytics", "DirectLake"],
+    image: "/images/case-study/power-apps/ai.png",
+    href: "https://www.softreetechnology.com/case-studies/ai-driven-itsm-analytics-platform-microsoft-fabric",
   },
-
   {
-    title: "Operations & Supply Chain Analytics",
-
-    summary: "End-to-end supply chain performance visibility.",
-
-    challenge:
-      "Disconnected systems prevented accurate tracking of inventory and logistics performance.",
-
-    solution:
-      "Integrated ERP and warehouse data into a Power BI solution with drill-through insights.",
-
-    impact: "Improved inventory forecasting accuracy by 35%.",
-
-    tech: ["Power BI", "SQL Server", "Azure Synapse"],
-
-    image: "/images/case-study/power-bi/supply-dashboard.png",
-
-    href: "#",
-
+    title: "Customer 360 Platform",
     category: "Power BI",
+    summary: "A unified customer intelligence platform that integrates sales pipelines, customer support metrics, and marketing touchpoints.",
+    challenge: "Enterprise sales and support divisions operated on siloed databases, preventing a single unified view of customer journeys.",
+    solution: "Developed a Power BI dashboard connecting CRM, ERP, and customer desk systems with row-level security protocols.",
+    impact: "Boosted customer retention metrics by 25% and reduced support ticket resolution times by 30%.",
+    tech: ["Power BI", "SQL Data Warehouse", "Azure Synapse", "CRM Integration"],
+    image: "https://cdn.sanity.io/images/1zmh4sfw/production/435596ec547c94a0855c288debc25f8f045768e4-1536x1024.png",
+    href: "https://www.softreetechnology.com/case-studies/customer-360-platform",
+  },
+  {
+    title: "HR Analytics & Employee Experience Platform",
+    category: "Power BI",
+    summary: "A unified HR analytics portal consolidating workforce metrics, hiring pipeline data, and employee experience tracking across legacy databases.",
+    challenge: "A Fortune 500 financial services enterprise had employee data scattered across 12 legacy systems, making real-time reporting and onboarding metrics impossible.",
+    solution: "Designed a web-based unified portal with analytics dashboards, predictive employee retention metrics, and self-service portals.",
+    impact: "Saved 80% reporting time, achieved 65% HR query deflection via AI, and secured 90% self-service adoption rate.",
+    tech: ["Power BI", "Azure Data Lake", "Data Modeling", "AI Insights"],
+    image: "https://cdn.sanity.io/images/1zmh4sfw/production/f5db5b044703073394b6042ba5d1409d926800bf-1536x1024.png",
+    href: "https://www.softreetechnology.com/case-studies/hr-analytics-and-employee-experience-platform",
   },
 ];
 

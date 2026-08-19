@@ -75,6 +75,7 @@ export default function Home({ homepageCaseStudies }: HomeProps) {
         {/* ── Core sections ── */}
         <ServicesStackedSlides />
         <FeaturesShowcaseLazy />
+        <LightServicesStickyListLazy />
         {/* Global client network — hex world with city stat cards */}
         <GlobalClientNetwork />
         {/* Capability showcase — light editorial band (#F3F0EE). */}
@@ -85,7 +86,6 @@ export default function Home({ homepageCaseStudies }: HomeProps) {
         {/* Testimonials + blog bento */}
         <HomepageShowcaseSectionsLazy />
         <TechStackSectionLazy />
-        <LightServicesStickyListLazy />
         <LightEngagementModelsLazy />
         <AnimatedPhotoGallery />
         <Gallery />

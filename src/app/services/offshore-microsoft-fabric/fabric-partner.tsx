@@ -50,7 +50,7 @@ export default function FabricPartner() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-[#f8f9fc] pt-16 pb-8 px-8 text-center">
+      <section className="bg-white pt-16 pb-8 px-8 text-center">
         <h1 className="text-4xl font-bold text-black leading-tight max-w-5xl mx-auto mb-3">
           <span className="text-orange-600">Microsoft Fabric</span> Expertise by Softree
         </h1>
@@ -61,7 +61,7 @@ export default function FabricPartner() {
       </section>
 
       {/* Cards Section */}
-      <section className="bg-[#f8f9fc] pb-16 px-8">
+      <section className="bg-white pb-16 px-8">
         <div className="grid grid-cols-4 gap-6 max-w-7xl mx-auto">
           {cards.map((card) => (
             <div

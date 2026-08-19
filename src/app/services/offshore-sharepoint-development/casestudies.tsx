@@ -10,6 +10,28 @@ import "swiper/css";
 
 const caseStudies = [
   {
+    title: "LabTrack Pro Pathology Reports",
+    category: "SharePoint",
+    summary: "A SharePoint Online pathology reporting platform ensuring regulatory standards compliance and secure, automated PDF diagnostics dispatch.",
+    challenge: "Medical lab reporting suffered from manual processing lag and compliance risks due to decentralized diagnostic record storage.",
+    solution: "Built a custom SPFx dashboard integrated with Power Automate and secure SharePoint document library indexing.",
+    impact: "Reduced report generation time by 80% and achieved 100% HIPAA compliance audits.",
+    tech: ["SharePoint Online", "SPFx", "Power Automate", "Office 365 Groups"],
+    image: "/images/case-study/sharepoint/labpu.png",
+    href: "https://www.softreetechnology.com/case-studies/labtrack-pro-pathology-report-management",
+  },
+  {
+    title: "SharePoint Asset Tracker",
+    category: "SharePoint",
+    summary: "100% asset traceability platform built for enterprise retail inventory control and checkout tracking.",
+    challenge: "Retail stock counts and store floor IT gear checkouts were untracked, causing inventory losses and accounting conflicts.",
+    solution: "Developed a real-time barcode-scanning responsive SPFx interface and integrated Power Automate stock level alerts.",
+    impact: "Eliminated retail inventory leakages, saving thousands in annual hardware replacement costs.",
+    tech: ["SharePoint Online", "SPFx", "Power Automate", "Barcode Scanner"],
+    image: "/images/case-study/sharepoint/contact.png",
+    href: "https://www.softreetechnology.com/case-studies/sharepoint-asset-tracker-app",
+  },
+  {
     title: "SharePoint Site Pages to PDF",
     category: "SharePoint",
     summary: "Automated high-fidelity PDF generation from SharePoint Site Pages for regulatory compliance and document archival.",
@@ -21,29 +43,7 @@ const caseStudies = [
     href: "https://www.softreetechnology.com/case-studies/sharepoint-site-pages-to-pdf",
   },
   {
-    title: "Contacts Management System Application",
-    category: "SharePoint",
-    summary: "Unified contact hub integrating directory synchronization, permission management, and custom organizational charts.",
-    challenge: "Siloed lists of contacts across departments led to out-of-date directories and duplicate communication efforts.",
-    solution: "Created a central directory platform inside SharePoint using SPFx and custom React components.",
-    impact: "Saved over 20+ support hours weekly and unified organizational contact data with real-time syncing.",
-    tech: ["SharePoint Online", "React", "Graph API", "Fluent UI"],
-    image: "/images/case-study/sharepoint/contact.png",
-    href: "https://www.softreetechnology.com/case-studies/contacts-management-system-application",
-  },
-  {
-    title: "Claim Request Management Platform",
-    category: "SharePoint",
-    summary: "Automated business expense and claim request validation pipeline with multi-level approval stages.",
-    challenge: "Manual spreadsheet tracking and long email chains delayed expense approvals by weeks.",
-    solution: "Implemented a custom SharePoint portal backed by Power Automate for smart validations and notifications.",
-    impact: "Reduced approval processing cycles from 14 days down to 48 hours and improved tracking transparency.",
-    tech: ["SharePoint Online", "Power Automate", "React", "Microsoft Flow"],
-    image: "/images/case-study/sharepoint/claim.png",
-    href: "https://www.softreetechnology.com/case-studies/claim-request-management-platform",
-  },
-  {
-    title: "SharePoint SPFx Automation Testing & QA",
+    title: "SharePoint & SPFx Automation Testing",
     category: "SharePoint",
     summary: "Automated validation framework for SPFx components to secure continuous delivery pipelines.",
     challenge: "Manual QA checks on dynamic custom web parts delayed code releases and risked visual regression on live portals.",
@@ -52,6 +52,17 @@ const caseStudies = [
     tech: ["SPFx", "Jest", "Playwright", "CI/CD Pipeline"],
     image: "/images/case-study/sharepoint/sp.png",
     href: "https://www.softreetechnology.com/case-studies/sharepoint-spfx-automation-testing-quality-assurance",
+  },
+  {
+    title: "CareSync 360 Multilingual Patient Portal",
+    category: "SharePoint",
+    summary: "Built a secure multilingual appointment management and customer support system inside SharePoint Online.",
+    challenge: "Managing patient scheduling across different language barriers created high administrative burden and scheduling errors.",
+    solution: "Created a multilingual patient portal inside SharePoint using React SPFx web parts and Azure Cognitive Services.",
+    impact: "Handled over 50k monthly patient requests, improving patient onboarding speed by 60%.",
+    tech: ["SharePoint Online", "SPFx", "React", "Azure AI Translation"],
+    image: "/images/case-study/sharepoint/claim.png",
+    href: "https://www.softreetechnology.com/case-studies/multilingual-patient-appointment-portal",
   },
 ];
 
@@ -143,8 +154,8 @@ export default function SharePointCaseStudies() {
                     {/* Content */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
                       {/* Image */}
-                      <div className="flex justify-center w-full min-w-0">
-                        <div className="w-full max-w-[380px] h-[200px] sm:h-[250px] lg:h-[300px] overflow-hidden rounded-xl shadow-md ring-1 ring-white/10 shrink-0 bg-[#05050a]/60">
+                      <div className="flex justify-center w-full min-w-0 max-w-sm mx-auto lg:max-w-none">
+                        <div className="w-full aspect-video overflow-hidden rounded-xl shadow-md ring-1 ring-white/10 shrink-0 bg-black/40">
                           <img
                             src={item.image}
                             alt={item.title}

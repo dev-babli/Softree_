@@ -312,9 +312,9 @@ export default function AboutUsGlobe() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="relative lg:col-span-4 w-full aspect-square max-w-[520px] mx-auto flex items-center justify-center select-none lg:pt-12"
+            className="relative lg:col-span-4 w-full max-w-[520px] mx-auto flex flex-col items-center justify-center select-none lg:pt-12"
           >
-            <div className="relative w-full h-full">
+            <div className="relative w-full aspect-square">
               <style>{`
                 @keyframes about-us-globe-halo-pulse {
                   0%, 100% { opacity: 0.25; transform: scale(1); }
@@ -331,14 +331,14 @@ export default function AboutUsGlobe() {
 
               <RotatingGlobe />
 
-              <div className="pointer-events-none absolute inset-x-0 bottom-[2%] z-10 flex h-[80px] flex-col items-center">
+              <div className="pointer-events-none absolute inset-x-0 bottom-[2%] z-10 hidden lg:flex h-[80px] flex-col items-center">
                 <CylinderStep width="96%" bottom="2px" thickness={22} zIndex={1} />
                 <CylinderStep width="82%" bottom="20px" thickness={18} zIndex={2} />
                 <CylinderStep width="68%" bottom="34px" thickness={14} zIndex={3} />
               </div>
 
               <div
-                className="absolute inset-x-0 bottom-[4%] z-20 flex origin-bottom scale-[0.82] sm:scale-[0.92] md:scale-[1.0] lg:scale-[0.80] xl:scale-[0.92] 2xl:scale-[1.0] items-end justify-center gap-2 sm:gap-4 lg:gap-3 xl:gap-4 2xl:gap-5"
+                className="absolute inset-x-0 bottom-[4%] z-20 hidden lg:flex origin-bottom scale-[0.82] sm:scale-[0.92] md:scale-[1.0] lg:scale-[0.80] xl:scale-[0.92] 2xl:scale-[1.0] items-end justify-center gap-2 sm:gap-4 lg:gap-3 xl:gap-4 2xl:gap-5"
                 style={{ perspective: "1200px", transformStyle: "preserve-3d" }}
               >
                 <motion.div
@@ -428,6 +428,45 @@ export default function AboutUsGlobe() {
                   />
                 </motion.div>
               </div>
+            </div>
+
+            {/* Mobile Capability Cards below globe */}
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 lg:hidden w-full px-4">
+              <motion.div
+                whileHover={{ y: -4 }}
+                className="flex flex-col items-center justify-center p-5 rounded-2xl border border-zinc-200 bg-white shadow-[0_4px_12px_rgba(10,10,26,0.03)] text-center transition-all duration-200"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-50 border border-slate-200/50 shadow-xs text-slate-500 mb-3">
+                  <Code2 className="h-6 w-6" strokeWidth={1.8} />
+                </div>
+                <h3 className="text-xs font-black uppercase tracking-wider text-zinc-800">
+                  Modern Engineering
+                </h3>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ y: -4 }}
+                className="flex flex-col items-center justify-center p-5 rounded-2xl border border-zinc-200 bg-white shadow-[0_4px_12px_rgba(10,10,26,0.03)] text-center transition-all duration-200"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#FFF5EE] border border-[#FF5812]/15 shadow-xs text-[#FF5812] mb-3">
+                  <Brain className="h-6 w-6" strokeWidth={1.8} />
+                </div>
+                <h3 className="text-xs font-black uppercase tracking-wider text-zinc-800">
+                  AI & Automation
+                </h3>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ y: -4 }}
+                className="flex flex-col items-center justify-center p-5 rounded-2xl border border-zinc-200 bg-white shadow-[0_4px_12px_rgba(10,10,26,0.03)] text-center transition-all duration-200"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white border border-slate-200/50 shadow-xs mb-3">
+                  <MicrosoftMark size={26} />
+                </div>
+                <h3 className="text-xs font-black uppercase tracking-wider text-zinc-800">
+                  Microsoft & Data
+                </h3>
+              </motion.div>
             </div>
           </motion.div>
         </div>

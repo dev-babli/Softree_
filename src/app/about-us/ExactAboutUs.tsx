@@ -193,11 +193,11 @@ export default function ExactAboutUs() {
               </h3>
             </TextReveal>
 
-            {/* Three Horizontal Statistics */}
-            <div className="mb-4 grid grid-cols-3 gap-2 border-b border-[#0a0a1a]/10 pb-4 divide-x divide-[#0a0a1a]/10">
+            {/* Three Statistics */}
+            <div className="mb-4 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-2 border-b border-[#0a0a1a]/10 pb-4 divide-y sm:divide-y-0 sm:divide-x divide-[#0a0a1a]/10">
               {/* Stat 1 */}
               <motion.div
-                className="flex flex-col pr-2"
+                className="flex flex-col pb-2 sm:pb-0 sm:pr-2"
                 initial={{ opacity: 0, y: 10 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.4 }}
@@ -209,26 +209,26 @@ export default function ExactAboutUs() {
 
               {/* Stat 2 */}
               <motion.div
-                className="flex flex-col px-2"
+                className="flex flex-col pt-3 sm:pt-0 sm:px-2"
                 initial={{ opacity: 0, y: 10 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
                 <Users className="mb-1.5 h-4 w-4 text-[#1852FF]" strokeWidth={1.5} />
                 <span className="mb-0.5 text-lg font-bold tabular-nums text-[#0a0a1a]">13+</span>
-                <span className="text-[10px] font-medium leading-tight text-[#0a0a1a]/70">Years of Engineering<br />Experience</span>
+                <span className="text-[10px] font-medium leading-tight text-[#0a0a1a]/70">Years of Engineering Experience</span>
               </motion.div>
 
               {/* Stat 3 */}
               <motion.div
-                className="flex flex-col pl-2"
+                className="flex flex-col pt-3 sm:pt-0 sm:pl-2"
                 initial={{ opacity: 0, y: 10 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
                 <GlobeIcon className="mb-1.5 h-4 w-4 text-[#1852FF]" strokeWidth={1.5} />
                 <span className="mb-0.5 text-lg font-bold text-[#1852FF]">Global</span>
-                <span className="text-[10px] font-medium leading-tight text-[#0a0a1a]/70">Delivery Across<br />Multiple Countries</span>
+                <span className="text-[10px] font-medium leading-tight text-[#0a0a1a]/70">Delivery Across Multiple Countries</span>
               </motion.div>
             </div>
 

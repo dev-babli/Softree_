@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   ArrowRight, 
@@ -103,6 +103,11 @@ export function MegaMenuPanel({
   // Active Category state
   const [activeIdx, setActiveIdx] = useState(0);
 
+  // Reset activeIdx to 0 when groups change
+  useEffect(() => {
+    setActiveIdx(0);
+  }, [groups]);
+
   // Safely get the active category
   const activeGroup = useMemo(() => {
     if (groups.length === 0) return null;
@@ -134,15 +139,26 @@ export function MegaMenuPanel({
       className="mx-auto flex w-full max-w-[1200px] overflow-hidden rounded-[24px] border border-black/[0.08] bg-white shadow-[0_32px_80px_-20px_rgba(10,10,26,0.28)]"
     >
       {/* Left rail — stretches full height */}
-      <div 
-        className="relative hidden w-[260px] shrink-0 overflow-hidden md:block"
-        style={{
-          background: FALLBACK_GRADIENTS[label] ?? FALLBACK_GRADIENTS.Services
-        }}
-      >
-        <div className="absolute inset-0">
-          <Grainient {...railPreset} className="h-full w-full" />
-        </div>
+      <div className="relative hidden w-[260px] shrink-0 overflow-hidden md:block">
+        {/* Render each gradient as a layer and fade between them smoothly to prevent WebGL context compilation lag */}
+        {Object.entries(FALLBACK_GRADIENTS).map(([key, grad]) => (
+          <div
+            key={key}
+            className="absolute inset-0 transition-opacity duration-300 ease-out"
+            style={{
+              background: grad,
+              opacity: label === key ? 1 : 0,
+            }}
+          />
+        ))}
+        {!FALLBACK_GRADIENTS[label] && (
+          <div
+            className="absolute inset-0"
+            style={{
+              background: FALLBACK_GRADIENTS.Services,
+            }}
+          />
+        )}
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.06)_0%,rgba(0,0,0,0.42)_100%)]" />
         <div className="relative z-10 flex h-full min-h-[460px] flex-col justify-between p-6 text-white">
           <div>

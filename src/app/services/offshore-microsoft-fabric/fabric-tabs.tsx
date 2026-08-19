@@ -4,43 +4,43 @@ import { useState, useEffect } from "react";
 const data = [
   {
     title: "Data Engineering",
-    desc: "Build reliable, scalable data pipelines in Microsoft Fabric to ensure seamless data flow from source to insight.",
+    desc: "Build reliable, scalable data pipelines in Microsoft Fabric to ensure seamless data flow from source to insight. Harness the power of Data Factory and Synapse Data Engineering to ingest, transform, and clean high-volume datasets efficiently, establishing a robust foundation for all downstream analytics and real-time operations.",
     image: "https://dynatechconsultancy.com/hubfs/data-bricks.jpg",
     accent: "#4ade80",
   },
   {
     title: "Data Science",
-    desc: "Unlock the power of AI with machine learning, predictive analytics, and intelligent models that drive smarter decisions.",
+    desc: "Unlock the power of AI with machine learning, predictive analytics, and intelligent models that drive smarter decisions. Integrate Synapse Data Science to train, track, and deploy advanced ML models directly on your OneLake data storage, converting raw historical patterns into proactive, automated business intelligence.",
     image: "https://dynatechconsultancy.com/hubfs/dataops.jpg",
     accent: "#86efac",
   },
   {
     title: "Master Data Management",
-    desc: "Create a unified, trusted data foundation with consistent, accurate, and governed data across your organization.",
+    desc: "Create a unified, trusted data foundation with consistent, accurate, and governed data across your organization. Eliminate silos and redundancies by standardizing entities, maintaining operational integrity, and ensuring secure access policies that align completely with enterprise regulatory standards and compliance audits.",
     image: "https://dynatechconsultancy.com/hubfs/data-management.jpg",
     accent: "#4ade80",
   },
   {
     title: "Data Integration",
-    desc: "Connect and unify data from multiple sources using modern integration tools for real-time and batch processing.",
+    desc: "Connect and unify data from multiple cloud and on-premise sources using modern integration tools for real-time and batch processing. Design complex data orchestration workflows, ETL/ELT pipelines, and live data synchronization tasks that effortlessly bridge disconnected storage hubs into a single source of truth.",
     image: "https://dynatechconsultancy.com/hubfs/data-integration.jpg",
     accent: "#86efac",
   },
   {
     title: "Business Intelligence",
-    desc: "Transform data into actionable insights with interactive dashboards and advanced analytics for faster decision-making.",
+    desc: "Transform data into actionable insights with interactive Power BI dashboards and advanced analytics for faster decision-making. Empower stakeholders with self-service reporting, dynamic visualizations, and deep analytical reports that spotlight trends, bottlenecks, and performance metrics in real time.",
     image: "https://dynatechconsultancy.com/hubfs/data-intelligence.jpg",
     accent: "#4ade80",
   },
   {
     title: "Copilot in Fabric",
-    desc: "Leverage AI-powered Copilot to automate workflows, generate insights, and accelerate data-driven productivity.",
+    desc: "Leverage AI-powered Copilot to automate workflows, generate instant natural language insights, and accelerate data-driven productivity. Empower your technical and business teams to query databases, auto-generate code snippets, and build reports using conversational prompts.",
     image: "https://dynatechconsultancy.com/hubfs/sales-copilot.jpg",
     accent: "#86efac",
   },
   {
     title: "Data Warehouse",
-    desc: "Design high-performance, scalable data warehouses optimized for enterprise analytics and seamless Fabric integration.",
+    desc: "Design high-performance, scalable data warehouses optimized for enterprise analytics and seamless Fabric integration. Utilize fully managed SaaS warehousing to run fast SQL queries across massive datasets, separation of compute and storage, and direct OneLake access without data duplication.",
     image: "https://dynatechconsultancy.com/hubfs/synapse-analytics.jpg",
     accent: "#4ade80",
   },
@@ -368,9 +368,6 @@ export default function FabricHeroTabs() {
               </div>
               <h2 className="st-panel-title">{cur.title}</h2>
               <p className="st-panel-desc">{cur.desc}</p>
-              <button className="st-cta">
-                Learn More <span className="st-arrow">→</span>
-              </button>
             </div>
 
             <div className="st-img-wrap">

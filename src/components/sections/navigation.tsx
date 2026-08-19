@@ -95,6 +95,15 @@ const menu: MenuItem[] = [
         ],
       },
       {
+        title: "Document & Process Intelligence",
+        icon: FileText,
+        description: "Extract value from unstructured documents and orchestrate complex workflows using advanced Document AI and process mining.",
+        links: [
+          { label: "Document AI Solutions", url: "/solutions/document-ai-solutions", icon: FileText, description: "Automate data extraction from docs" },
+          { label: "Azure OpenAI Solutions", url: "/solutions/azure-openai-development", icon: Sparkles, description: "Enterprise Generative AI integrations" },
+        ],
+      },
+      {
         title: "Microsoft & Business Applications",
         icon: LayoutDashboard,
         description: "Optimize operations and accelerate growth with enterprise-grade business applications built on Power Platform.",
@@ -124,7 +133,6 @@ const menu: MenuItem[] = [
           { label: "Web Applications", url: "/services/offshore-web-app-development", icon: Globe2, description: "Bespoke web apps and customer portals" },
           { label: "Mobile Applications", url: "/services/offshore-mobile-app-development", icon: Smartphone, description: "Native iOS & Android app development" },
           { label: "Legacy Modernization", url: "/services/legacy-application-modernization", icon: Sparkles, description: "Re-architecting legacy software systems" },
-
         ],
       },
       {
@@ -135,16 +143,6 @@ const menu: MenuItem[] = [
           { label: "SharePoint Online", url: "/services/offshore-sharepoint-development", icon: Building2, description: "Intranet portals and document management" },
           { label: "SPFx Development", url: "/services/offshore-spfx-development", icon: Code2, description: "Custom web parts and platform extensions" },
         ]
-      },
-      {
-        title: "Document & Process Intelligence",
-        icon: FileText,
-        description: "Extract value from unstructured documents and orchestrate complex workflows using advanced Document AI and process mining.",
-        links: [
-          { label: "Document AI Solutions", url: "/solutions/document-ai-solutions", icon: FileText, description: "Automate data extraction from docs" },
-          { label: "AI Workflow Automation", url: "/solutions/ai-workflow-automation", icon: Workflow, description: "Intelligent cross-app process orchestration" },
-          { label: "Azure OpenAI Solutions", url: "/solutions/azure-openai-development", icon: Sparkles, description: "Enterprise Generative AI integrations" },
-        ],
       },
     ],
   },
@@ -251,6 +249,11 @@ export default function Navigation({
   );
 
   const hasMegaContent = (activeMegaItem?.children?.length ?? 0) > 0;
+
+  const [renderedMegaItem, setRenderedMegaItem] = useState<MenuItem | null>(null);
+  if (activeMegaItem && renderedMegaItem !== activeMegaItem) {
+    setRenderedMegaItem(activeMegaItem);
+  }
 
   const clearCloseTimer = useCallback(() => {
     if (closeTimer.current) {
@@ -452,15 +455,15 @@ export default function Navigation({
             aria-hidden={!hasMegaContent}
           >
             <div
-              className={`absolute left-0 right-0 top-0 z-40 pt-2 transition-none ${hasMegaContent
-                ? "pointer-events-auto visible opacity-100"
-                : "pointer-events-none invisible opacity-0"
+              className={`absolute left-0 right-0 top-0 z-40 pt-2 transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] ${hasMegaContent
+                ? "pointer-events-auto opacity-100 translate-y-0"
+                : "pointer-events-none opacity-0 -translate-y-1.5"
                 }`}
             >
-              {activeMegaItem?.children && hasMegaContent && (
+              {renderedMegaItem?.children && (
                 <MegaMenuPanel
-                  label={activeMegaItem.label}
-                  groups={activeMegaItem.children}
+                  label={renderedMegaItem.label}
+                  groups={renderedMegaItem.children}
                   onClose={closeMenu}
                 />
               )}

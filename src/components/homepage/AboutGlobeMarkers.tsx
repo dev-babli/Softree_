@@ -325,7 +325,7 @@ export default function AboutGlobeMarkers({ variant = "dark" }: { variant?: "lig
             <Globe config={isLight ? LIGHT_GLOBE_CONFIG : GLOBE_CONFIG} className="!max-w-none" />
           </div>
         </div>
-        <ul className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
+        <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
           {MARKERS.map((marker) => {
             const Icon = marker.icon;
             const titleClass = marker.orangeFlow
@@ -356,13 +356,13 @@ export default function AboutGlobeMarkers({ variant = "dark" }: { variant?: "lig
                 </span>
                 <span className="min-w-0">
                   <span
-                    className={`block text-[11.5px] font-bold leading-snug tracking-tight ${marker.orangeFlow && !isLight ? titleClass : ""}`}
+                    className={`block text-[11.5px] font-bold leading-snug tracking-tight whitespace-normal break-words ${marker.orangeFlow && !isLight ? titleClass : ""}`}
                     style={marker.orangeFlow && !isLight ? undefined : { color: mColor }}
                   >
                     {marker.title}
                   </span>
                   {marker.subtitle && (
-                    <span className={`mt-0.5 block text-[9.5px] leading-snug ${isLight ? "text-zinc-500 font-medium" : "text-white/60"}`}>
+                    <span className={`mt-0.5 block text-[9.5px] leading-snug whitespace-normal break-words ${isLight ? "text-zinc-500 font-medium" : "text-white/60"}`}>
                       {marker.subtitle}
                     </span>
                   )}

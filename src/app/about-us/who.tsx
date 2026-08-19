@@ -4,10 +4,10 @@ import React from "react";
 
 export default function WhoWeAre() {
   return (
-    <section className="w-full  py-8">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="bg-white rounded-2xl shadow-lg p-10 md:p-14">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+    <section className="w-full py-6 sm:py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-10 md:p-14">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* LEFT IMAGE */}
             <div className="w-full">
               <img
@@ -30,7 +30,7 @@ export default function WhoWeAre() {
               </p>
 
               {/* SERVICES GRID */}
-              <div className="grid sm:grid-cols-2 gap-x-12">
+              <div className="grid sm:grid-cols-2 gap-x-12 gap-y-6 sm:gap-y-0">
                 {/* Column 1 */}
                 <ul>
                   {[

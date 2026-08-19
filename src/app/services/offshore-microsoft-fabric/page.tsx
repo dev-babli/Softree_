@@ -1,7 +1,9 @@
 import HeroWithTestimonial from "./hero";
 import FabricTabs from "./fabric-tabs";
 import ProwessSection from "./process";
+import FabricCaseStudies from "./casestudies";
 import WhyFabricSection from "./business";
+import IndustriesSection from "./industry";
 import HireFabricPricing from "./pricing";
 import WhyChooseWithTestimonials from "./why";
 import TrustedBrandsMarquee from "../offshore-power-platform-development/trust";
@@ -18,37 +20,37 @@ const fabricFAQs = [
   {
     id: 1,
     serial: "question 01",
-    question: "What Microsoft Fabric services do you offer?",
+    question: "What Microsoft Fabric consulting and development services do you offer?",
     answer:
-      "We provide end-to-end Microsoft Fabric consulting: data engineering, data warehousing, real-time analytics, Power BI integration, data science, and AI implementation. We help organizations build unified analytics platforms.",
+      "We specialize in Microsoft Fabric implementation, including Data Factory pipelines, Synapse Data Engineering, Synapse Data Science, Synapse Real-Time Analytics, and Power BI visualization. We build end-to-end solutions connecting OneLake with all your enterprise data sources.",
   },
   {
     id: 2,
     serial: "question 02",
-    question: "How does Microsoft Fabric differ from Power BI?",
+    question: "How long does it take to develop a Microsoft Fabric solution?",
     answer:
-      "Microsoft Fabric is a unified analytics platform that includes Power BI, Synapse, and Data Factory in one SaaS solution. It provides data engineering, data science, and real-time analytics capabilities beyond traditional BI reporting.",
+      "Simple Microsoft Fabric setups and proof-of-concepts take 4-6 weeks. Complex enterprise analytics platforms with multi-source OneLake integration, custom ETL pipelines, and advanced dashboards take 8-12 weeks. We provide a detailed scope and timeline before starting development.",
   },
   {
     id: 3,
     serial: "question 03",
-    question: "Can you help migrate from legacy data platforms to Fabric?",
+    question: "Can you integrate Microsoft Fabric with existing systems?",
     answer:
-      "Yes, we specialize in migrating from legacy systems, on-premises data warehouses, and other cloud platforms to Microsoft Fabric. We ensure data integrity, minimal downtime, and optimized performance during migration.",
+      "Yes, we integrate Microsoft Fabric with Dynamics 365, SharePoint, SQL Server, on-premises databases, external APIs, and legacy cloud environments. We ensure seamless data flow, lakehouse organization, and unified access controls across your entire data ecosystem.",
   },
   {
     id: 4,
     serial: "question 04",
-    question: "How long does a Fabric implementation typically take?",
+    question: "Do you provide training for Microsoft Fabric solutions?",
     answer:
-      "Fabric implementations vary from 6-16 weeks depending on complexity. Simple data lake setups take 6-8 weeks, while enterprise-wide analytics platforms with multiple data sources take 12-16 weeks.",
+      "We provide comprehensive user training, developer documentation, and architecture handoff sessions. Your team learns to manage OneLake, run queries, and build reports. We also offer ongoing support packages for optimizations and updates.",
   },
   {
     id: 5,
     serial: "question 05",
-    question: "Do you provide training for Microsoft Fabric?",
+    question: "How do you handle Microsoft Fabric security and governance?",
     answer:
-      "We provide comprehensive training for data engineers, analysts, and business users. We cover data modeling, Power BI integration, data science tools, and governance to ensure your team can effectively use Fabric.",
+      "We implement Microsoft best practices for data security, including Microsoft Purview integration, workspace identities, row-level and column-level security (RLS/CLS), and compliance with your organization's governance rules. We follow strict security standards to protect your data assets.",
   },
 ]
 
@@ -94,15 +96,17 @@ export const metadata: Metadata = applyPageOg("/services/offshore-microsoft-fabr
 }, "Softree Technology");
 export default function Home() {
   return (
-    <>
+    <main className="relative min-h-screen bg-white">
       <NavigationClient />
       <HeroWithTestimonial />
       <TrustedBrandsMarquee />
       <FabricTabs />
       <ProwessSection />
+      <FabricCaseStudies />
 
       <UseCasesSection />
       <WhyFabricSection />
+      <IndustriesSection />
       <FabricPartner />
       <HireFabricPricing />
       <WhyChooseWithTestimonials />
@@ -110,6 +114,6 @@ export default function Home() {
       <LightFAQExact faqs={fabricFAQs} />
 
       <Footer />
-    </>
+    </main>
   );
 }

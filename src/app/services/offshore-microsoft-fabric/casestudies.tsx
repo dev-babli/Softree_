@@ -2,12 +2,11 @@
 
 import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import { useRouter } from "next/navigation";
 import { FileText, AlertTriangle, Lightbulb } from "lucide-react";
 
 import "swiper/css";
-import "swiper/css/pagination";
 
 const caseStudies = [
   {
@@ -67,22 +66,22 @@ const caseStudies = [
   },
 ];
 
-export default function PowerAppsCaseStudies() {
+export default function FabricCaseStudies() {
   const swiperRef = useRef<any>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const router = useRouter();
 
   return (
-    <section className="relative min-h-screen flex items-center ">
-      <div className="max-w-7xl mx-auto px-4 lg:px-8 space-y-8 w-full">
+    <section className="relative py-16">
+      <div className="w-[86%] max-w-7xl mx-auto space-y-8">
         {/* ================= HEADER ================= */}
         <div className="text-center">
           <span className="inline-block px-4 py-1.5 rounded-full bg-orange-50 text-orange-600 text-xs font-semibold tracking-[0.18em] uppercase">
             Case Studies
           </span>
 
-          <h2 className="text-3xl lg:text-4xl font-semibold text-gray-900">
-            Power BI in Action:
+          <h2 className="text-3xl lg:text-4xl font-semibold text-gray-900 mt-2">
+            Power BI & Fabric in Action:
             <span className="text-orange-600"> Business Success Stories</span>
           </h2>
 
@@ -163,7 +162,6 @@ export default function PowerAppsCaseStudies() {
                         </div>
                       </div>
 
-
                       {/* Text */}
                       <div className="space-y-5 min-w-0 w-full">
                         {/* SUMMARY */}
@@ -208,17 +206,17 @@ export default function PowerAppsCaseStudies() {
                         {/* IMPACT BOX */}
                         <div
                           className="
-                    relative
-                    rounded-xl
-                    px-5 py-4
-                    flex flex-col gap-4
-                    xl:flex-row xl:items-center xl:justify-between
-                    bg-gradient-to-r from-orange-600 via-orange-500 to-amber-500
-                    text-white
-                    shadow-lg
-                    overflow-hidden
-                    w-full
-                  "
+                            relative
+                            rounded-xl
+                            px-5 py-4
+                            flex flex-col gap-4
+                            xl:flex-row xl:items-center xl:justify-between
+                            bg-gradient-to-r from-orange-600 via-orange-500 to-amber-500
+                            text-white
+                            shadow-lg
+                            overflow-hidden
+                            w-full
+                          "
                         >
                           <div className="relative z-10 space-y-0.5 flex-1 min-w-0 pr-3">
                             <p className="text-xs uppercase tracking-wider text-white/70 truncate">
@@ -234,17 +232,17 @@ export default function PowerAppsCaseStudies() {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="
-                relative z-10
-                inline-flex items-center justify-center
-                px-4 py-2
-                text-xs font-semibold uppercase tracking-wide
-                rounded-full
-                bg-white text-orange-700
-                hover:scale-105
-                transition-all duration-300
-                whitespace-nowrap
-                flex-shrink-0
-              "
+                              relative z-10
+                              inline-flex items-center justify-center
+                              px-4 py-2
+                              text-xs font-semibold uppercase tracking-wide
+                              rounded-full
+                              bg-white text-orange-700
+                              hover:scale-105
+                              transition-all duration-300
+                              whitespace-nowrap
+                              flex-shrink-0
+                            "
                           >
                             View Case Study →
                           </a>
@@ -257,6 +255,7 @@ export default function PowerAppsCaseStudies() {
             ))}
           </Swiper>
         </div>
+
         {/* ================= PAGINATION (clean spacing) ================= */}
         <div className="flex justify-center">
           <div className="flex flex-col items-center gap-2 px-6 py-3 rounded-full bg-white border border-gray-200 shadow-md">
@@ -266,12 +265,12 @@ export default function PowerAppsCaseStudies() {
                   key={i}
                   onClick={() => swiperRef.current?.slideToLoop(i)}
                   className={`text-xs font-medium tracking-widest transition
-                ${
-                  activeIndex === i
-                    ? "text-orange-600 scale-125"
-                    : "text-gray-400 hover:text-gray-700"
-                }
-              `}
+                    ${
+                      activeIndex === i
+                        ? "text-orange-600 scale-125"
+                        : "text-gray-400 hover:text-gray-700"
+                    }
+                  `}
                 >
                   {String(i + 1).padStart(2, "0")}
                 </button>

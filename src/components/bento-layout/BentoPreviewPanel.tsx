@@ -95,7 +95,7 @@ export function BentoPreviewPanel({
                   src={item.image}
                   alt={item.title}
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover object-top w-full h-full"
+                  className="object-contain md:object-cover object-center md:object-top w-full h-full"
                   priority
                 />
               </div>
