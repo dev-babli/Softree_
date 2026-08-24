@@ -23,8 +23,6 @@ export const CaseStudyDocumentBadge: DocumentBadgeComponent = (props) => {
 
   const missing: string[] = []
   if (!doc.excerpt) missing.push('excerpt')
-  if (!doc.client) missing.push('client')
-  if (!effectiveCaseStudyHeaderTitle(doc)) missing.push('header')
   if (!effectiveCaseStudyCategory(doc)) missing.push('category')
   const hasImage = !!(doc.mainImage?.asset?._ref || doc.mainImageUrl)
   if (!hasImage) missing.push('image')

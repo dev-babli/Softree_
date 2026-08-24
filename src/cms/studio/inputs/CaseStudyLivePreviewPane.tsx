@@ -108,7 +108,10 @@ const CaseStudyLivePreviewPane: UserViewComponent = (props) => {
 
   useEffect(() => {
     if (usesRealSlugPreview || isPost) {
-      setFrameReady(true)
+      setFrameReady((prev) => {
+        if (!prev) return true
+        return prev
+      })
       return
     }
 
@@ -118,7 +121,10 @@ const CaseStudyLivePreviewPane: UserViewComponent = (props) => {
     const onMessage = (event: MessageEvent) => {
       if (!allowedOrigins.includes(event.origin)) return
       if (event.data?.type === "CASE_STUDY_PREVIEW_READY") {
-        setFrameReady(true)
+        setFrameReady((prev) => {
+          if (!prev) return true
+          return prev
+        })
       }
     }
     window.addEventListener("message", onMessage)

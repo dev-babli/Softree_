@@ -20,49 +20,24 @@ function countBlocks(value: unknown): number {
 
 function analyzeReadiness(doc: Record<string, unknown>): Warning[] {
   const warnings: Warning[] = []
-  const layout = (doc.detailLayout as string | undefined) || DEFAULT_LAYOUT
+  const layout = (doc.detailLayout as string | undefined) || "standard"
   const premium = isPremiumLayout(layout)
-  const isComposer = layout === "page-composer"
-
-  if (!doc.client) {
-    warnings.push({
-      field: "client",
-      message: "Client name is empty — the hero will fall back to the document title.",
-    })
-  }
-
-  if (!doc.headerTitle) {
-    warnings.push({
-      field: "headerTitle",
-      message: "Header title is empty — the hero subtitle area will be blank on the classic layout.",
-    })
-  }
 
   if (!doc.excerpt) {
     warnings.push({ field: "excerpt", message: "Excerpt is missing — listing cards and SEO will use fallbacks." })
   }
 
-  if (isComposer) {
-    const sections = doc.composerSections as unknown[] | undefined
-    if (!sections?.length) {
-      warnings.push({
-        field: "composerSections",
-        message: "Add at least one section in the Page composer tab.",
-      })
-    }
-  } else {
-    const hasStory =
-      countBlocks(doc.challengeContent) > 0 ||
-      countBlocks(doc.approachContent) > 0 ||
-      countBlocks(doc.outcomeContent) > 0 ||
-      countBlocks(doc.body) > 0
+  const hasStory =
+    countBlocks(doc.challengeContent) > 0 ||
+    countBlocks(doc.approachContent) > 0 ||
+    countBlocks(doc.outcomeContent) > 0 ||
+    countBlocks(doc.body) > 0
 
-    if (!hasStory) {
-      warnings.push({
-        field: "story",
-        message: "No story sections filled — the page body will look empty.",
-      })
-    }
+  if (!hasStory) {
+    warnings.push({
+      field: "story",
+      message: "No story sections filled — the page body will look empty.",
+    })
   }
 
   const mainImage = doc.mainImage as { asset?: { _ref?: string } } | undefined
@@ -81,7 +56,7 @@ function analyzeReadiness(doc: Record<string, unknown>): Warning[] {
     })
   }
 
-  if (premium && !isComposer) {
+  if (premium) {
     const challengeCards = doc.challengeCards as unknown[] | undefined
     if (!challengeCards?.length) {
       warnings.push({

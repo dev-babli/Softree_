@@ -86,29 +86,13 @@ export function getPublishChecklist(
   ]
 
   if (isCaseStudy) {
-    items.push(
-      {
-        id: 'client',
-        label: 'Client name',
-        pass: !!doc.client?.trim(),
-        tab: 'Story',
-        hint: 'Large hero name on the detail page',
-      },
-      {
-        id: 'headerTitle',
-        label: 'Header title',
-        pass: !!effectiveCaseStudyHeaderTitle(doc as CaseStudyLegacyDoc),
-        tab: 'Story',
-        hint: 'Descriptive subtitle next to the hero image',
-      },
-      {
-        id: 'category',
-        label: 'Service category',
-        pass: !!effectiveCaseStudyCategory(doc as CaseStudyLegacyDoc),
-        tab: 'Story',
-        hint: 'Story setup → pick AI, Web, Mobile, etc.',
-      },
-    )
+    items.push({
+      id: 'category',
+      label: 'Service category',
+      pass: !!effectiveCaseStudyCategory(doc as CaseStudyLegacyDoc),
+      tab: 'Story',
+      hint: 'Story setup → pick AI, Web, Mobile, etc.',
+    })
   }
 
   if (!isMarketing) {
@@ -142,10 +126,10 @@ export function getPublishChecklist(
     id: 'story',
     label: isMarketing ? 'Page sections' : 'Story content',
     pass: storyContentPass(doc),
-    tab: isMarketing ? 'Page' : isPost ? 'Page' : 'Page',
+    tab: isMarketing ? 'Page' : isPost ? 'Page' : 'Story',
     hint: isCaseStudy
-      ? 'Page tab → composer sections, or Story tab narratives'
-      : 'Body or composer sections',
+      ? 'Story tab narratives (Challenge/Approach/Outcome)'
+      : 'Body sections',
   })
 
   if (!isMarketing) {
@@ -221,12 +205,10 @@ export function getPublishContentBlockers(
 
   if (type === 'caseStudy') {
     if (!doc.excerpt) missing.push('excerpt')
-    if (!doc.client) missing.push('client')
-    if (!effectiveCaseStudyHeaderTitle(doc as CaseStudyLegacyDoc)) missing.push('header title')
     if (!hasCoverImage(doc)) missing.push('cover image')
     if (hasCoverImage(doc) && !hasCoverImageAlt(doc)) missing.push('cover image alt text')
     if (!caseStudyHasStoryContent(doc)) {
-      missing.push('story content (composer sections or challenge/approach/outcome)')
+      missing.push('story content (challenge/approach/outcome)')
     }
     if (!effectiveCaseStudyCategory(doc as CaseStudyLegacyDoc)) {
       missing.push('service category')

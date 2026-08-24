@@ -18,11 +18,8 @@ import {
 } from '@/cms/lib/studio/caseStudyLegacy'
 
 import CaseStudySetupInput from '@/cms/studio/inputs/CaseStudySetupInput'
-import ComposerSectionsInput from '@/cms/studio/inputs/ComposerSectionsInput'
-import {
-    caseStudyComposerInsertMenu,
-    caseStudyComposerMembers,
-} from './caseStudyComposerBlocks'
+import BulkGalleryUploadInput from '@/cms/studio/inputs/BulkGalleryUploadInput'
+import BulkTagsInput from '@/cms/studio/inputs/BulkTagsInput'
 
 const cardItemFields = [
     defineField({
@@ -46,13 +43,7 @@ const beforeAfterFields = [
     defineField({ name: 'after', type: 'string', title: 'After', validation: (Rule) => Rule.required() }),
 ]
 
-const isPageComposer = ({ document }: { document?: Record<string, unknown> }) => {
-    const layout = document?.detailLayout as string | undefined
-    return layout === 'page-composer' || !layout
-}
 
-const hideForComposer = ({ document }: { document?: Record<string, unknown> }) =>
-    isPageComposer({ document })
 
 export const caseStudyType = defineType({
     name: 'caseStudy',
@@ -61,14 +52,13 @@ export const caseStudyType = defineType({
     icon: CaseIcon,
     groups: [
         { name: 'story', title: 'Story', default: true },
-        { name: 'composer', title: 'Page' },
         { name: 'client', title: 'Client' },
         { name: 'sections', title: 'Legacy sections' },
         { name: 'media', title: 'Media' },
         { name: 'publish', title: 'Publish & SEO' },
     ],
     fieldsets: [
-        { name: 'identity', title: 'Title & client', options: { collapsible: false } },
+        { name: 'identity', title: 'Title', options: { collapsible: false } },
         { name: 'narrative', title: 'Story sections', options: { collapsible: false } },
         { name: 'layout', title: 'Page layout', options: { collapsible: true, collapsed: true } },
         { name: 'snapshot', title: 'Project snapshot', options: { collapsible: true, collapsed: false } },
@@ -144,6 +134,7 @@ export const caseStudyType = defineType({
             group: 'story',
             fieldset: 'narrative',
             description: fieldAi.challengeContent.description,
+            validation: (Rule) => Rule.required().error('Challenge narrative is required.'),
         }),
         defineField({
             name: 'approachContent',
@@ -152,6 +143,7 @@ export const caseStudyType = defineType({
             group: 'story',
             fieldset: 'narrative',
             description: fieldAi.approachContent.description,
+            validation: (Rule) => Rule.required().error('Approach narrative is required.'),
         }),
         defineField({
             name: 'outcomeContent',
@@ -160,6 +152,7 @@ export const caseStudyType = defineType({
             group: 'story',
             fieldset: 'narrative',
             description: fieldAi.outcomeContent.description,
+            validation: (Rule) => Rule.required().error('Outcome narrative is required.'),
         }),
         defineField({
             name: 'body',
@@ -170,29 +163,7 @@ export const caseStudyType = defineType({
             description:
                 'Optional extra content appended after Challenge / Approach / Outcome — e.g. “What’s next”. Leave empty if the three sections above are enough.',
         }),
-        defineField({
-            name: 'headerTitle',
-            title: 'Header Title (long form)',
-            type: 'string',
-            group: 'story',
-            fieldset: 'narrative',
-            description:
-                'The descriptive title shown next to the hero image. e.g. "JetBrains Centralizes Developer Support at Scale With Rasa". The "Client Name" field is used as the giant H1 above this.',
-            validation: (Rule) =>
-                Rule.custom((value, context) => {
-                    const doc = context.document as CaseStudyLegacyDoc | undefined
-                    const effective = effectiveCaseStudyHeaderTitle({
-                        ...doc,
-                        headerTitle: typeof value === 'string' ? value : undefined,
-                    })
-                    if (!effective) {
-                        return 'Required — descriptive subtitle next to the hero image (or fill Hero Headline on Publish tab)'
-                    }
-                    if (effective.length < 10) return 'Minimum 10 characters'
-                    if (effective.length > 180) return 'Maximum 180 characters'
-                    return true
-                }),
-        }),
+
         defineField({
             name: 'highlights',
             title: 'Hero Highlights (max 3)',
@@ -200,7 +171,6 @@ export const caseStudyType = defineType({
                 'Stat row shown in the hero next to the image. e.g. value: "75-80%" / label: "CSAT". Use exactly 3 for best layout.',
             type: 'array',
             group: 'sections',
-            hidden: hideForComposer,
             fieldset: 'stats',
             validation: (Rule) => Rule.max(3),
             of: [
@@ -341,15 +311,7 @@ export const caseStudyType = defineType({
                 ],
             },
         }),
-        defineField({
-            name: 'client',
-            title: 'Client Name',
-            type: 'string',
-            group: 'story',
-            fieldset: 'identity',
-            description: 'Client name (or anonymized label like "Fortune 500 Retailer"). Shown as the large H1 on the detail page hero.',
-            validation: (Rule) => Rule.required().min(2),
-        }),
+
         defineField({
             name: 'location',
             title: 'Client Location',
@@ -397,6 +359,7 @@ export const caseStudyType = defineType({
             type: 'image',
             group: 'media',
             fieldset: 'heroMedia',
+            validation: (Rule) => Rule.required().error('Cover Image is required.'),
             options: { 
                 hotspot: true,
                 aiAssist: {
@@ -528,48 +491,8 @@ export const caseStudyType = defineType({
             title: 'Page layout',
             type: 'string',
             group: 'story',
-            fieldset: 'layout',
             description: 'Managed in Story setup above. Hidden here to avoid duplicate pickers.',
-            initialValue: 'page-composer',
             hidden: () => true,
-        }),
-        defineField({
-            name: 'composerSections',
-            title: 'Page sections',
-            type: 'array',
-            group: 'composer',
-            description:
-                'Build the case study page by stacking sections. Drag to reorder; switch to grid view when inserting new blocks.',
-            hidden: ({ document }) => {
-                const layout = document?.detailLayout as string | undefined
-                return Boolean(layout && layout !== 'page-composer')
-            },
-            of: caseStudyComposerMembers,
-            components: {
-                input: ComposerSectionsInput,
-            },
-            options: {
-                insertMenu: caseStudyComposerInsertMenu,
-            },
-            validation: (Rule) =>
-                Rule.custom((sections, context) => {
-                    const doc = context.document as {
-                        detailLayout?: string
-                        composerSections?: unknown[]
-                        challengeContent?: unknown[]
-                        approachContent?: unknown[]
-                        outcomeContent?: unknown[]
-                        body?: unknown[]
-                        challenge?: unknown[]
-                    }
-                    const layout = doc?.detailLayout || 'page-composer'
-                    if (layout !== 'page-composer') return true
-                    if (caseStudyHasStoryContent(doc)) return true
-                    if (!sections?.length) {
-                        return 'Add at least one section in the Page composer tab — or use Story tab narratives'
-                    }
-                    return true
-                }),
         }),
         defineField({
             name: 'projectType',
@@ -610,7 +533,7 @@ export const caseStudyType = defineType({
                 'Optional summary cards shown BESIDE the main "The Challenge" narrative (written in the Content tab). Leave empty to show the narrative alone — do not duplicate it here.',
             type: 'array',
             group: 'sections',
-            hidden: ({ document }) => hideForComposer({ document }) || document?.storyType === 'product-showcase',
+            hidden: ({ document }) => document?.storyType === 'product-showcase',
             fieldset: 'cards',
             validation: (Rule) => Rule.max(3),
             of: [defineArrayMember({ type: 'object', name: 'challengeCard', fields: cardItemFields })],
@@ -620,7 +543,7 @@ export const caseStudyType = defineType({
             title: 'Solution Architecture Nodes',
             type: 'array',
             group: 'sections',
-            hidden: ({ document }) => hideForComposer({ document }) || document?.storyType !== 'product-showcase',
+            hidden: ({ document }) => document?.storyType !== 'product-showcase',
             fieldset: 'cards',
             validation: (Rule) => Rule.max(6),
             of: [defineArrayMember({ type: 'object', name: 'solutionNode', fields: cardItemFields })],
@@ -630,7 +553,7 @@ export const caseStudyType = defineType({
             title: 'Deliverables',
             type: 'array',
             group: 'sections',
-            hidden: ({ document }) => hideForComposer({ document }) || document?.storyType === 'product-showcase',
+            hidden: ({ document }) => document?.storyType === 'product-showcase',
             fieldset: 'cards',
             validation: (Rule) => Rule.max(6),
             of: [defineArrayMember({ type: 'object', name: 'deliverable', fields: cardItemFields })],
@@ -657,7 +580,7 @@ export const caseStudyType = defineType({
             type: 'text',
             rows: 3,
             group: 'sections',
-            hidden: ({ document }) => hideForComposer({ document }) || document?.storyType !== 'product-showcase',
+            hidden: ({ document }) => document?.storyType !== 'product-showcase',
             fieldset: 'cards',
             description: 'Paragraph for The Solution section.',
         }),
@@ -666,7 +589,7 @@ export const caseStudyType = defineType({
             title: 'Solution Features (checklist)',
             type: 'array',
             group: 'sections',
-            hidden: ({ document }) => hideForComposer({ document }) || document?.storyType !== 'product-showcase',
+            hidden: ({ document }) => document?.storyType !== 'product-showcase',
             fieldset: 'cards',
             of: [{ type: 'string' }],
             validation: (Rule) => Rule.max(8),
@@ -677,7 +600,7 @@ export const caseStudyType = defineType({
             title: 'Approach Steps (timeline)',
             type: 'array',
             group: 'sections',
-            hidden: ({ document }) => hideForComposer({ document }) || document?.storyType !== 'transformation',
+            hidden: ({ document }) => document?.storyType !== 'transformation',
             fieldset: 'cards',
             validation: (Rule) => Rule.max(5),
             of: [
@@ -698,7 +621,7 @@ export const caseStudyType = defineType({
             title: 'Before / After Rows',
             type: 'array',
             group: 'sections',
-            hidden: ({ document }) => hideForComposer({ document }) || document?.storyType !== 'transformation',
+            hidden: ({ document }) => document?.storyType !== 'transformation',
             fieldset: 'stats',
             of: [defineArrayMember({ type: 'object', name: 'beforeAfterRow', fields: beforeAfterFields })],
         }),
@@ -707,7 +630,6 @@ export const caseStudyType = defineType({
             title: 'Final CTA Headline',
             type: 'string',
             group: 'sections',
-            hidden: hideForComposer,
             fieldset: 'ctaSet',
         }),
         defineField({
@@ -716,7 +638,6 @@ export const caseStudyType = defineType({
             type: 'text',
             rows: 2,
             group: 'sections',
-            hidden: hideForComposer,
             fieldset: 'ctaSet',
         }),
         defineField({
@@ -724,7 +645,6 @@ export const caseStudyType = defineType({
             title: 'Final CTA Button Text',
             type: 'string',
             group: 'sections',
-            hidden: hideForComposer,
             fieldset: 'ctaSet',
         }),
         defineField({
@@ -732,7 +652,6 @@ export const caseStudyType = defineType({
             title: 'FAQs',
             type: 'array',
             group: 'sections',
-            hidden: hideForComposer,
             fieldset: 'faqSet',
             description: 'Optional FAQs shown before the contact section.',
             of: [
@@ -813,6 +732,9 @@ export const caseStudyType = defineType({
             name: 'technologies',
             title: 'Technologies Used',
             type: 'array',
+            components: {
+                input: BulkTagsInput,
+            },
             of: [{ type: 'string' }],
             group: 'client',
             fieldset: 'engagement',
@@ -907,7 +829,7 @@ export const caseStudyType = defineType({
             ],
         }),
 
-        // ───── MEDIA / GALLERY ─────
+
         defineField({
             name: 'gallery',
             title: 'Gallery',
@@ -915,6 +837,10 @@ export const caseStudyType = defineType({
             group: 'media',
             fieldset: 'gallerySet',
             description: 'Additional screenshots / visuals for the case study',
+            components: {
+                input: BulkGalleryUploadInput,
+            },
+            validation: (Rule) => Rule.required().min(1).error('Gallery must contain at least one image.'),
             of: [
                 defineArrayMember({
                     type: 'image',
@@ -926,6 +852,7 @@ export const caseStudyType = defineType({
                 }),
             ],
         }),
+
         defineField({
             name: 'galleryUrls',
             title: 'Gallery (external URLs)',

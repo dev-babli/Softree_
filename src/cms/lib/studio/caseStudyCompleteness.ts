@@ -10,14 +10,9 @@ export type CaseStudyCompletenessDoc = {
   challenge?: unknown[]
 }
 
-/** True when the document has page body content (legacy narrative OR composer sections). */
+/** True when the document has page body content (legacy narrative). */
 export function caseStudyHasStoryContent(doc: CaseStudyCompletenessDoc | undefined | null): boolean {
   if (!doc) return false
-
-  const layout = doc.detailLayout || 'page-composer'
-  if (layout === 'page-composer') {
-    return (doc.composerSections?.length ?? 0) > 0
-  }
 
   return (
     (doc.body?.length ?? 0) > 0 ||
@@ -30,23 +25,16 @@ export function caseStudyHasStoryContent(doc: CaseStudyCompletenessDoc | undefin
 
 /**
  * GROQ filter: published case studies missing required fields.
- * Composer docs satisfy "story" via composerSections; legacy docs via narrative fields.
  */
 export const CASE_STUDY_NEEDS_WORK = `(
   !defined(category) ||
   !defined(excerpt) ||
-  !defined(client) ||
-  !defined(headerTitle) ||
   (
     count(coalesce(challengeContent, [])) == 0 &&
     count(coalesce(approachContent, [])) == 0 &&
     count(coalesce(outcomeContent, [])) == 0 &&
     count(coalesce(body, [])) == 0 &&
-    count(coalesce(challenge, [])) == 0 &&
-    !(
-      coalesce(detailLayout, "page-composer") == "page-composer" &&
-      count(coalesce(composerSections, [])) > 0
-    )
+    count(coalesce(challenge, [])) == 0
   ) ||
   (!defined(mainImage) && !defined(mainImageUrl)) ||
   coalesce(visibility, status, "published") == "draft"
@@ -57,9 +45,5 @@ export const CASE_STUDY_HAS_STORY_GROQ = `(
   count(coalesce(challengeContent, [])) > 0 ||
   count(coalesce(approachContent, [])) > 0 ||
   count(coalesce(outcomeContent, [])) > 0 ||
-  count(coalesce(body, [])) > 0 ||
-  (
-    coalesce(detailLayout, "page-composer") == "page-composer" &&
-    count(coalesce(composerSections, [])) > 0
-  )
+  count(coalesce(body, [])) > 0
 )`

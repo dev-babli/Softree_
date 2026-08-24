@@ -81,8 +81,9 @@ export function HeroSection({ data }: { data: CaseStudyLayoutData }) {
     [categoryConfig?.title, data.industry].filter(Boolean).join(" · ") ||
     "Customer Story"
 
-  const displayTitle = data.headerTitle || data.title
-  const hasItalicLine = Boolean(data.title && data.headerTitle && data.title !== data.headerTitle)
+  const isComposer = data.layout === "page-composer"
+  const displayTitle = isComposer ? data.title : (data.headerTitle || data.title)
+  const hasItalicLine = isComposer ? false : Boolean(data.title && data.headerTitle && data.title !== data.headerTitle)
 
   return (
     <header className="relative overflow-hidden bg-[#F8F9FC] text-[#0a0a1a] pb-12 pt-20 sm:pt-28 lg:pt-32">
@@ -126,7 +127,7 @@ export function HeroSection({ data }: { data: CaseStudyLayoutData }) {
             <CaseStudyBreadcrumb
               categoryLabel={categoryConfig?.title}
               categoryHref={categoryHref}
-              client={data.client}
+              client={isComposer ? data.title : data.client}
             />
           </div>
         </HeroReveal>
@@ -141,7 +142,7 @@ export function HeroSection({ data }: { data: CaseStudyLayoutData }) {
                   <div className="relative h-8 w-[110px] shrink-0">
                     <Image
                       src={data.clientLogoUrl}
-                      alt={`${data.client} logo`}
+                      alt={data.client ? `${data.client} logo` : "logo"}
                       fill
                       className="object-contain object-left"
                       sizes="110px"
@@ -158,7 +159,7 @@ export function HeroSection({ data }: { data: CaseStudyLayoutData }) {
                   <span className="text-neutral-800">
                     {categoryConfig?.title || data.industry || eyebrow}
                   </span>
-                  {data.client && (
+                  {!isComposer && data.client && (
                     <>
                       <span className="text-neutral-300">•</span>
                       <span className="text-neutral-500 font-medium normal-case tracking-normal">

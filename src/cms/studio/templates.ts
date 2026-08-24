@@ -117,16 +117,12 @@ export const composerStarterSections: Array<Record<string, unknown>> = [
   { _type: 'csContactSection' },
 ]
 
-/** Canonical new case study — category is chosen in the form, not via separate templates */
 export const caseStudyComposerValue = {
   status: 'draft' as const,
   featuredRank: 0,
   storyType: 'standard' as const,
-  detailLayout: 'page-composer' as const,
   industry: 'Technology',
-  composerSections: composerStarterSections,
 }
-
 
 const marketingLandingSections = [
   {
