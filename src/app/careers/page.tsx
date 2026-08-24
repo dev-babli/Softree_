@@ -24,7 +24,7 @@ import dynamic from "next/dynamic";
 import NavigationServer from "@/components/sections/navigation-server";
 import Footer from "@/components/sections/footer";
 import LightContactSection from "@/components/qc/homepage-light/LightContactSection";
-import { client } from "@/cms/lib/client";
+import { sanityFetch } from "@/cms/lib/fetch";
 import { careersPageQuery } from "@/cms/lib/queries/queries";
 
 import CareersHeroLight from "./hero-light";
@@ -89,7 +89,7 @@ export const revalidate = 300; // 5 minutes ISR
 
 async function fetchCareersPage(): Promise<CareersPageData | null> {
     try {
-        return await client.fetch<CareersPageData | null>(careersPageQuery);
+        return await sanityFetch<CareersPageData | null>(careersPageQuery);
     } catch {
         // Studio doc not yet created — render with full defaults.
         return null;

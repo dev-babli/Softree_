@@ -1,4 +1,4 @@
-import { revalidatePath } from 'next/cache'
+import { revalidatePath, revalidateTag } from 'next/cache'
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 
@@ -18,6 +18,12 @@ const bodySchema = z.object({
 function revalidatePublishedPaths(doc: WebsitePublishDoc): void {
   const slug = doc?.slug?.current
   if (!slug) return
+
+  // Clear tag-based caches for defineLive/sanityFetch
+  revalidateTag("sanity")
+  if (doc?._type) {
+    revalidateTag(`sanity:${doc._type}`)
+  }
 
   if (doc?._type === 'caseStudy') {
     revalidatePath('/')

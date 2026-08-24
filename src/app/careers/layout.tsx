@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { client } from "@/cms/lib/client";
+import { sanityFetch } from "@/cms/lib/fetch";
 import { groq } from "next-sanity";
 import { applyPageOg } from "@/lib/site-metadata";
 
@@ -21,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
   let metaTitle: string | undefined;
   let metaDescription: string | undefined;
   try {
-    const doc = await client.fetch<{
+    const doc = await sanityFetch<{
       metaTitle?: string;
       metaDescription?: string;
     } | null>(seoQuery);

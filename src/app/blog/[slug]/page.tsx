@@ -10,7 +10,6 @@ import { BlogComposerPage } from '@/components/blog/BlogComposerPage'
 import { sharedPortableTextTypes } from '@/components/portable-text/contentBlockTypes'
 import { getNavigationData } from '@/components/sections/navigation-server'
 import { sanityFetch } from '@/cms/lib/fetch'
-import { client } from '@/cms/lib/client'
 import { postBySlugQuery, relatedPostsQuery } from '@/cms/lib/queries/queries'
 import { buildArticleJsonLd, buildBlogJsonLdGraph } from '@/lib/structured-data'
 import { fetchDesignTokens } from '@/lib/fetch-design-tokens'
@@ -237,7 +236,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
   if (post.displayMode === 'composer' && post.composerSections?.length) {
     const [relatedPosts, nav, designTokens] = await Promise.all([
-      client.fetch(relatedPostsQuery, { slug }),
+      sanityFetch<any[]>(relatedPostsQuery, { slug }),
       getNavigationData(),
       fetchDesignTokens(),
     ])

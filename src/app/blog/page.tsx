@@ -1,4 +1,4 @@
-import { client } from "@/cms/lib/client"
+import { sanityFetch } from "@/cms/lib/fetch"
 import { groq } from "next-sanity"
 import { Suspense } from "react"
 import NavigationClient from "@/components/sections/navigation-client"
@@ -22,7 +22,7 @@ const postsQuery = groq`
 export const revalidate = 900
 
 export default async function BlogPage() {
-  const posts = await client.fetch(postsQuery)
+  const posts = await sanityFetch<any[]>(postsQuery)
   const normalizedPosts = posts.map((post: Record<string, unknown>) => {
     const firstBlockText =
       (post.body &&

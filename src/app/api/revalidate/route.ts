@@ -1,4 +1,4 @@
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 
 import { CASE_STUDY_CATEGORY_KEYS } from "@/app/case-studies/categoryConfig";
@@ -70,6 +70,12 @@ export async function POST(request: NextRequest) {
 
     for (const path of [...new Set(paths)]) {
       revalidatePath(path, "page");
+    }
+
+    // Clear tag-based caches for defineLive/sanityFetch
+    revalidateTag("sanity");
+    if (_type) {
+      revalidateTag(`sanity:${_type}`);
     }
 
     try {
