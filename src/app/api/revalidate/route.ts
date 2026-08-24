@@ -73,9 +73,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Clear tag-based caches for defineLive/sanityFetch
-    revalidateTag("sanity");
+    revalidateTag("sanity", { expire: 0 });
     if (_type) {
-      revalidateTag(`sanity:${_type}`);
+      revalidateTag(`sanity:${_type}`, { expire: 0 });
     }
 
     try {
