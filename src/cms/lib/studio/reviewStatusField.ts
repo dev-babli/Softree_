@@ -15,5 +15,5 @@ export const reviewStatusField = defineField({
     layout: 'radio',
     ...aiAssistExclude,
   },
-  initialValue: 'draft',
+  initialValue: 'approved',
 })

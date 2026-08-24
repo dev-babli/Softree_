@@ -371,7 +371,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
               </span>
               <span className="inline-flex items-center gap-2">
                 <Clock3 className="h-4 w-4" />
-                {readTime} min read
+                {readTime}
               </span>
               <span>Updated: {updatedDate}</span>
             </div>

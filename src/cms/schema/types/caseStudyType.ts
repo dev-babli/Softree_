@@ -233,7 +233,7 @@ export const caseStudyType = defineType({
                 layout: 'radio',
                 ...aiAssistExclude,
             },
-            initialValue: 'draft',
+            initialValue: 'published',
         }),
         defineField({
             ...reviewStatusField,

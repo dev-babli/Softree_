@@ -118,7 +118,9 @@ export const composerStarterSections: Array<Record<string, unknown>> = [
 ]
 
 export const caseStudyComposerValue = {
-  status: 'draft' as const,
+  status: 'published' as const,
+  visibility: 'published' as const,
+  reviewStatus: 'approved' as const,
   featuredRank: 0,
   storyType: 'standard' as const,
   industry: 'Technology',
@@ -163,7 +165,9 @@ const editorTemplates: Template[] = [
     title: 'Blog post',
     schemaType: 'post',
     value: {
-      status: 'draft',
+      status: 'published',
+      visibility: 'published',
+      reviewStatus: 'approved',
       displayMode: 'classic',
       body: blogIntroBody,
     },
@@ -173,7 +177,9 @@ const editorTemplates: Template[] = [
     title: 'Marketing landing page',
     schemaType: 'marketingPage',
     value: {
-      status: 'draft',
+      status: 'published',
+      visibility: 'published',
+      reviewStatus: 'approved',
       sections: marketingLandingSections,
     },
   },
@@ -185,25 +191,25 @@ const legacyTemplates: Template[] = [
     id: 'post-article',
     title: 'Blog — standard article (legacy)',
     schemaType: 'post',
-    value: { status: 'draft', displayMode: 'classic', body: blogIntroBody },
+    value: { status: 'published', visibility: 'published', reviewStatus: 'approved', displayMode: 'classic', body: blogIntroBody },
   },
   {
     id: 'post-how-to',
     title: 'Blog — how-to guide (legacy)',
     schemaType: 'post',
-    value: { status: 'draft', displayMode: 'classic', body: howToBody },
+    value: { status: 'published', visibility: 'published', reviewStatus: 'approved', displayMode: 'classic', body: howToBody },
   },
   {
     id: 'post-thought-leadership',
     title: 'Blog — thought leadership (legacy)',
     schemaType: 'post',
-    value: { status: 'draft', displayMode: 'classic', body: thoughtLeadershipBody },
+    value: { status: 'published', visibility: 'published', reviewStatus: 'approved', displayMode: 'classic', body: thoughtLeadershipBody },
   },
   {
     id: 'post-product-update',
     title: 'Blog — product update (legacy)',
     schemaType: 'post',
-    value: { status: 'draft', displayMode: 'classic', body: productUpdateBody },
+    value: { status: 'published', visibility: 'published', reviewStatus: 'approved', displayMode: 'classic', body: productUpdateBody },
   },
 ]
 

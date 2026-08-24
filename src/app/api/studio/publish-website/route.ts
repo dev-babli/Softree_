@@ -20,12 +20,14 @@ function revalidatePublishedPaths(doc: WebsitePublishDoc): void {
   if (!slug) return
 
   if (doc?._type === 'caseStudy') {
+    revalidatePath('/')
     revalidatePath('/case-studies')
     revalidatePath(`/case-studies/${slug}`)
     return
   }
 
   if (doc?._type === 'post') {
+    revalidatePath('/')
     revalidatePath('/blog')
     revalidatePath(`/blog/${slug}`)
     return

@@ -18,7 +18,7 @@ export const visibilityField = defineField({
     layout: 'radio',
     ...aiAssistExclude,
   },
-  initialValue: 'draft',
+  initialValue: 'published',
 })
 
 /** GROQ fragment for published-only lists */

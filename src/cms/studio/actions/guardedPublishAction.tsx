@@ -131,15 +131,19 @@ export const GuardedPublishAction: DocumentActionComponent = (props) => {
     try {
       if (publish.enabled) {
         await publishViaSanityOperation()
+        // Proactively clear Next.js page cache immediately after standard publish
+        try {
+          await publishWebsiteLiveViaApi(props.id)
+        } catch (revalErr) {
+          console.warn('Post-publish revalidation failed:', revalErr)
+        }
       } else if (canGoLiveWithoutDraft || hasDraft) {
         try {
-          await publishViaWriteClient()
+          // Attempt publish & revalidate via API first to go live immediately
+          await publishWebsiteLiveViaApi(props.id)
         } catch (clientError) {
-          try {
-            await publishWebsiteLiveViaApi(props.id)
-          } catch {
-            throw clientError
-          }
+          console.warn('API publish failed, falling back to client-side write client:', clientError)
+          await publishViaWriteClient()
         }
       } else if (hasPublished) {
         await publishWebsiteLiveViaApi(props.id)
