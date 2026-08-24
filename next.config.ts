@@ -14,7 +14,12 @@ const siteOrigin = (
 
 const nextConfig: any = {
   async rewrites() {
-    return [];
+    return [
+      {
+        source: "/services/aidevelopemnt/service",
+        destination: "/services/ai-development-service",
+      },
+    ];
   },
   async redirects() {
     const studioBase =
