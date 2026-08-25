@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import ThreeDSpaceGlobe from "../../../about-us/ThreeDSpaceGlobe";
+import { Globe as ThreeDSpaceGlobe } from "@/components/homepage/globe";
 import { heroData } from "../data/hero";
 
 interface StarType {

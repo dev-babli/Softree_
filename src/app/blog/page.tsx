@@ -23,7 +23,7 @@ export const revalidate = 900
 
 export default async function BlogPage() {
   const posts = await sanityFetch<any[]>(postsQuery)
-  const normalizedPosts = posts.map((post: Record<string, unknown>) => {
+  const normalizedPosts = posts.map((post: any) => {
     const firstBlockText =
       (post.body &&
         typeof post.body === "object" &&

@@ -7,6 +7,7 @@ import { ArrowLeft, CalendarDays, Clock3, Facebook, Linkedin, Link2, Twitter } f
 import NavigationServer from '@/components/sections/navigation-server'
 import Footer from '@/components/sections/footer'
 import { BlogComposerPage } from '@/components/blog/BlogComposerPage'
+import type { CaseStudyComposerSection } from '@/components/case-studies/composer/types'
 import { sharedPortableTextTypes } from '@/components/portable-text/contentBlockTypes'
 import { getNavigationData } from '@/components/sections/navigation-server'
 import { sanityFetch } from '@/cms/lib/fetch'
@@ -56,8 +57,8 @@ function toPlainText(value: unknown): string {
 interface BlogPostDocument {
   _id: string
   _updatedAt?: string
-  title?: string
-  slug?: { current: string }
+  title: string
+  slug: { current: string }
   excerpt?: string
   displayMode?: string
   layoutRecipe?: string
@@ -75,7 +76,7 @@ interface BlogPostDocument {
   secondaryKeywords?: string[]
   faqSchema?: { question: string; answer: string }[]
   ogImage?: { asset?: { url: string } }
-  composerSections?: unknown[]
+  composerSections?: CaseStudyComposerSection[]
 }
 
 const portableTextComponents: PortableTextComponents = {
@@ -245,7 +246,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       toPlainText(post.excerpt) ||
       toPlainText(post.composerSections?.[0])?.substring(0, 160) ||
       ''
-    const keywords = [post.focusKeyword, ...(post.secondaryKeywords || [])].filter(Boolean)
+    const keywords = [post.focusKeyword, ...(post.secondaryKeywords || [])].filter((val): val is string => Boolean(val))
     const faqs = collectFaqItems({
       metaTitle: post.metaTitle,
       metaDescription: post.metaDescription,
