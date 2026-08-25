@@ -97,7 +97,7 @@ export default function IndustryCarousel() {
               className="w-full flex-shrink-0 px-3 sm:px-6"
               style={{ width: `${100 / cardsToShow}%` }}
             >
-              <div className="flex justify-center">
+              <div className="flex justify-center h-full">
                 <IndustryCard item={item} />
               </div>
             </div>

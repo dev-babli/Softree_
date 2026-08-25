@@ -80,7 +80,7 @@ export const metadata: Metadata = {
 
 export default function AiDevelopmentServicesPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-zinc-50 via-white to-zinc-50 font-sans text-slate-900 selection:bg-orange-500 selection:text-white overflow-x-hidden">
+    <main className="min-h-screen bg-gradient-to-b from-zinc-50 via-white to-zinc-50 font-sans text-slate-900 selection:bg-orange-500 selection:text-white overflow-x-clip">
       <NavigationClient />
       <Hero />
       <TrustedBrandsMarquee />

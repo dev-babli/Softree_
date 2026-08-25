@@ -135,7 +135,7 @@ const TiltCard = ({ solution, idx }: { solution: SolutionCard; idx: number }) =>
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.5, delay: idx * 0.05 }}
-        className="relative flex-1 bg-[#F3F4F6] border border-white/60 rounded-3xl p-7 flex flex-col justify-between shadow-[6px_6px_14px_rgba(163,177,198,0.55),-6px_-6px_14px_rgba(255,255,255,0.85)] hover:shadow-[12px_12px_24px_rgba(163,177,198,0.68),-12px_-12px_24px_rgba(255,255,255,0.95)] hover:border-orange-500/20 active:shadow-[inset_5px_5px_10px_rgba(163,177,198,0.55),inset_-5px_-5px_10px_rgba(255,255,255,0.9)] active:scale-[0.995] transition-all duration-300 group overflow-hidden select-none"
+        className="relative flex-1 bg-[#121217] border border-white/5 rounded-3xl p-7 flex flex-col justify-between shadow-xl hover:shadow-[0_10px_40px_rgba(255,107,44,0.1)] hover:border-orange-500/30 active:scale-[0.995] transition-all duration-300 group overflow-hidden select-none"
       >
         {/* Glowing Cursor Spotlight Effect */}
         <motion.div
@@ -161,7 +161,7 @@ const TiltCard = ({ solution, idx }: { solution: SolutionCard; idx: number }) =>
             style={{ transform: "translateZ(15px)" }}
             className="mb-4 flex items-center"
           >
-            <span className="inline-block bg-orange-500/10 border border-orange-500/20 text-[#FF6B2C] font-bold text-xs px-3 py-1 rounded-full shadow-[inset_1px_1px_2px_rgba(255,255,255,0.4)]">
+            <span className="inline-block bg-orange-500/10 border border-orange-500/20 text-[#FF6B2C] font-bold text-xs px-3 py-1 rounded-full">
               {solution.number}
             </span>
           </div>
@@ -169,7 +169,7 @@ const TiltCard = ({ solution, idx }: { solution: SolutionCard; idx: number }) =>
           {/* Title */}
           <h3
             style={{ transform: "translateZ(25px)" }}
-            className="text-xl font-extrabold text-gray-900 mb-5 leading-snug group-hover:text-[#FF6B2C] transition-colors duration-300"
+            className="text-xl font-extrabold text-white mb-5 leading-snug group-hover:text-[#FF6B2C] transition-colors duration-300"
           >
             {solution.title}
           </h3>
@@ -182,7 +182,7 @@ const TiltCard = ({ solution, idx }: { solution: SolutionCard; idx: number }) =>
             {solution.items.map((item, i) => (
               <li key={i} className="flex items-start gap-2.5">
                 <Check className="w-4 h-4 text-orange-500 shrink-0 mt-0.5" />
-                <span className="text-sm text-gray-700 leading-normal font-semibold">
+                <span className="text-sm text-gray-300 leading-normal font-semibold group-hover:text-orange-400/90 transition-colors duration-300">
                   {item}
                 </span>
               </li>
@@ -193,7 +193,7 @@ const TiltCard = ({ solution, idx }: { solution: SolutionCard; idx: number }) =>
         {/* Action Link (Next.js Link with separated top border) */}
         <div
           style={{ transform: "translateZ(10px)" }}
-          className="relative z-10 mt-auto pt-4 border-t border-gray-200/80 flex items-center justify-between"
+          className="relative z-10 mt-auto pt-4 border-t border-white/10 flex items-center justify-between"
         >
           <Link
             href={solution.buttonLink}

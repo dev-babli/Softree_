@@ -44,10 +44,10 @@ export default function WorkflowHeroLeft() {
         variants={itemVariants}
         className="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight leading-[1.1] mb-6"
       >
-        <div className="text-[#111827]">Your Offshore AI Delivery Partner</div>
-        <div className="text-[#FF5812]">
+        <span className="block text-[#111827]">Your Offshore AI Delivery Partner</span>
+        <span className="block text-[#FF5812]">
           for Workflow Automation
-        </div>
+        </span>
       </motion.h1>
 
       {/* Description */}

@@ -56,10 +56,13 @@ export default function AiReadinessBanner() {
           {/* Right Image Side */}
           <div className="relative flex-1 min-h-[320px] lg:min-h-full overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-100 flex items-center justify-center bg-slate-900">
             {/* The robot image from research */}
-            <img 
-              src="/images/ai-development-services/robot_readiness.png" 
-              alt="AI Data Readiness Audit"
-              className="w-full h-full object-cover absolute inset-0 select-none pointer-events-none transition-transform duration-700 hover:scale-105"
+            <video
+              src="/ai-development-service-video/ai-2.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover absolute inset-0 select-none pointer-events-none"
             />
             {/* Subtle shade vignette overlay */}
             <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/40 via-transparent to-transparent pointer-events-none" />

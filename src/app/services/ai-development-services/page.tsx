@@ -1,4 +1,5 @@
 import React from 'react';
+import { preload } from 'react-dom';
 import dynamic from 'next/dynamic';
 import Hero from './components/Hero';
 import { Metadata } from 'next';
@@ -27,16 +28,13 @@ export const metadata: Metadata = {
 };
 
 export default function AiDevelopmentServicesPage() {
+  preload("/images/ai-development-services/hero/8086715-uhd_3840_2160_25fps.mp4", {
+    as: "video",
+    type: "video/mp4"
+  });
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-zinc-50 via-white to-zinc-50 font-sans text-slate-900 selection:bg-orange-500 selection:text-white overflow-x-hidden">
-      {/* High-priority Preload for Hero Video */}
-      <link
-        rel="preload"
-        href="/images/ai-development-services/hero/8086715-uhd_3840_2160_25fps.mp4"
-        as="video"
-        type="video/mp4"
-      />
-
       <NavigationClient />
       <Hero />
       <TrustedBrandsMarquee />
