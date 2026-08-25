@@ -89,11 +89,11 @@ const solutionsData: SolutionCard[] = [
 
 const TiltCard = ({ solution, idx }: { solution: SolutionCard; idx: number }) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  
+
   // Motion values for tilt coordinates
   const x = useMotionValue(0.5);
   const y = useMotionValue(0.5);
-  
+
   // Map tilt normalized values to rotation degrees
   const rotateX = useTransform(y, [0, 1], [10, -10]);
   const rotateY = useTransform(x, [0, 1], [-10, 10]);
@@ -105,7 +105,7 @@ const TiltCard = ({ solution, idx }: { solution: SolutionCard; idx: number }) =>
     const height = rect.height;
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
-    
+
     // Normalize coordinates to [0, 1] range
     x.set(mouseX / width);
     y.set(mouseY / height);
@@ -118,8 +118,8 @@ const TiltCard = ({ solution, idx }: { solution: SolutionCard; idx: number }) =>
   };
 
   return (
-    <div 
-      className="w-full flex" 
+    <div
+      className="w-full flex"
       style={{ perspective: 1000 }}
     >
       <motion.div
@@ -138,7 +138,7 @@ const TiltCard = ({ solution, idx }: { solution: SolutionCard; idx: number }) =>
         className="relative flex-1 bg-[#F3F4F6] border border-white/60 rounded-3xl p-7 flex flex-col justify-between shadow-[6px_6px_14px_rgba(163,177,198,0.55),-6px_-6px_14px_rgba(255,255,255,0.85)] hover:shadow-[12px_12px_24px_rgba(163,177,198,0.68),-12px_-12px_24px_rgba(255,255,255,0.95)] hover:border-orange-500/20 active:shadow-[inset_5px_5px_10px_rgba(163,177,198,0.55),inset_-5px_-5px_10px_rgba(255,255,255,0.9)] active:scale-[0.995] transition-all duration-300 group overflow-hidden select-none"
       >
         {/* Glowing Cursor Spotlight Effect */}
-        <motion.div 
+        <motion.div
           className="absolute -inset-px rounded-3xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"
           style={{
             background: useTransform(
@@ -155,9 +155,9 @@ const TiltCard = ({ solution, idx }: { solution: SolutionCard; idx: number }) =>
 
         {/* 3D Content Layout Container */}
         <div style={{ transform: "translateZ(30px)", transformStyle: "preserve-3d" }} className="relative z-10">
-          
+
           {/* Badge Number Header */}
-          <div 
+          <div
             style={{ transform: "translateZ(15px)" }}
             className="mb-4 flex items-center"
           >
@@ -167,7 +167,7 @@ const TiltCard = ({ solution, idx }: { solution: SolutionCard; idx: number }) =>
           </div>
 
           {/* Title */}
-          <h3 
+          <h3
             style={{ transform: "translateZ(25px)" }}
             className="text-xl font-extrabold text-gray-900 mb-5 leading-snug group-hover:text-[#FF6B2C] transition-colors duration-300"
           >
@@ -175,7 +175,7 @@ const TiltCard = ({ solution, idx }: { solution: SolutionCard; idx: number }) =>
           </h3>
 
           {/* Items list */}
-          <ul 
+          <ul
             style={{ transform: "translateZ(15px)" }}
             className="space-y-3 mb-6"
           >
@@ -191,7 +191,7 @@ const TiltCard = ({ solution, idx }: { solution: SolutionCard; idx: number }) =>
         </div>
 
         {/* Action Link (Next.js Link with separated top border) */}
-        <div 
+        <div
           style={{ transform: "translateZ(10px)" }}
           className="relative z-10 mt-auto pt-4 border-t border-gray-200/80 flex items-center justify-between"
         >
@@ -218,7 +218,7 @@ export default function DigitalEngineeringSolutions() {
       <div className="absolute bottom-1/4 right-[-10%] w-[600px] h-[600px] bg-blue-50/30 rounded-full blur-3xl -z-10 pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Header */}
         <div className="flex flex-col items-center w-full mb-12 lg:mb-16 text-center">
           <div className="bg-orange-50 px-4 py-1.5 rounded-full border border-orange-100/50 mb-4 inline-block">
@@ -226,23 +226,23 @@ export default function DigitalEngineeringSolutions() {
               SOLUTIONS PORTFOLIO
             </span>
           </div>
-          
+
           <h2 className="text-3xl md:text-4xl lg:text-[42px] font-extrabold text-slate-800 mb-4 tracking-tight leading-tight max-w-4xl drop-shadow-[1px_1px_0px_rgba(255,255,255,0.9)]">
-            Custom AI Digital Engineering <span className="text-[#FF6B2C]">Solutions for Your Business Needs</span>
+            Custom AI Development Solutions for <span className="text-[#FF6B2C]">Modern Businesses</span>
           </h2>
-          
+
           <p className="text-[15px] lg:text-base text-slate-500 max-w-2xl mx-auto leading-relaxed">
-            Specialized engineering expertise to accelerate your AI transformation. Our comprehensive portfolio addresses critical enterprise AI needs with high-performance implementation.
+            Explore our portfolio of custom AI, Generative AI, AI agents, and RAG solutions, delivered by our offshore white-label development team to help businesses build secure, scalable, and production-ready AI applications.
           </p>
         </div>
 
         {/* Grid Layout (3 columns on desktop, 2 on tablet, 1 on mobile) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {solutionsData.map((solution, idx) => (
-            <TiltCard 
-              key={solution.number} 
-              solution={solution} 
-              idx={idx} 
+            <TiltCard
+              key={solution.number}
+              solution={solution}
+              idx={idx}
             />
           ))}
         </div>

@@ -1,11 +1,343 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Globe as ThreeDSpaceGlobe } from "@/components/homepage/globe";
-import { heroData } from "../data/hero";
+import * as THREE from "three";
 
+// --- HERO DATA ---
+const heroData = {
+  badge: "OFFSHORE AI DEVELOPMENT PARTNER",
+  title: {
+    blackText: "Your Offshore AI Development ",
+    orangeText: "Services for Intelligent & Scalable Enterprises",
+  },
+  description: "Your offshore delivery partner for building production-ready AI solutions—from custom AI and Generative AI to intelligent agents, RAG, automation, and business system integration.",
+  ctas: {
+    primary: "Talk to An Expert",
+  },
+  features: [
+    {
+      title: "White-Label Friendly",
+      description: "Trusted partner for tech agencies.",
+      icon: "security"
+    },
+    {
+      title: "Dedicated Offshore Teams",
+      description: "Scale engineering on demand.",
+      icon: "custom"
+    },
+    {
+      title: "Microsoft AI Expertise",
+      description: "Azure, OpenAI & Power Platform.",
+      icon: "impact"
+    },
+    {
+      title: "Enterprise-Ready Delivery",
+      description: "Secure, production-grade solutions.",
+      icon: "models"
+    }
+  ],
+  videoCard: {
+    duration: "90–120 sec",
+    title: "From Business Challenge to AI Solution",
+    description: "See how we transform complex business challenges into intelligent enterprise AI solutions."
+  },
+  floatingCards: [
+    { title: "AI AGENTS", description: "Intelligent agents for smarter operations.", icon: "bot" },
+    { title: "WORKFLOW", description: "Automate processes. Boost productivity.", icon: "gear" },
+    { title: "DATA INSIGHTS", description: "Turn data into actionable business insights.", icon: "chart" }
+  ],
+  trustLogos: [
+    { name: "Microsoft" },
+    { name: "Azure" },
+    { name: "Power Platform" },
+    { name: "OpenAI" },
+    { name: "dataverse" }
+  ]
+};
+
+// --- 3D SPACE GLOBE COMPONENT ---
+interface ThreeDSpaceGlobeProps {
+  className?: string;
+}
+
+function ThreeDSpaceGlobe({ className = "" }: ThreeDSpaceGlobeProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const animationIdRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const canvas = canvasRef.current;
+    if (!container || !canvas) return;
+
+    // --- 1. SCENE & CAMERA SETUP ---
+    const scene = new THREE.Scene();
+
+    const width = Math.max(container.clientWidth, 24);
+    const height = Math.max(container.clientHeight, 24);
+
+    // Camera positioned at the center, looking straight
+    const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 1000);
+    camera.position.set(0, 0, 14);
+    camera.lookAt(0, 0, 0);
+
+    // WebGL Renderer with transparency (alpha: true) to blend with star background
+    const renderer = new THREE.WebGLRenderer({
+      canvas,
+      alpha: true,
+      antialias: true,
+      powerPreference: "high-performance",
+    });
+    renderer.setSize(width, height);
+    // Increase pixel ratio for super-sampling antialiasing on high-DPI displays
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    // --- 2. MULTI-DIRECTIONAL HIGH-CONTRAST LIGHTING (Crescent Rim Light) ---
+    // Ambient light raised slightly to soften shadows
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.05);
+    scene.add(ambientLight);
+
+    // Main key light representing the Sun - positioned ABOVE and BEHIND the Earth
+    // This strikes the top curve and forms a sharp crescent horizon curve
+    const sunLight = new THREE.DirectionalLight(0xffffff, 2.6);
+    sunLight.position.set(0, 12, -8);
+    scene.add(sunLight);
+
+    // Bright front-left fill light to make rotating continents clearly visible
+    const frontFill = new THREE.DirectionalLight(0xa1a1aa, 0.72);
+    frontFill.position.set(-6, 3, 10);
+    scene.add(frontFill);
+
+    // Soft front-right blue fill light to add high-contrast coloring depth
+    const blueFill = new THREE.DirectionalLight(0x3b82f6, 0.35);
+    blueFill.position.set(6, -3, 8);
+    scene.add(blueFill);
+
+    // --- 3. CREATING EARTH SPHERE ---
+    const globeRadius = 10;
+    const globeGroup = new THREE.Group();
+    // Planet axial tilt
+    globeGroup.rotation.z = -15 * (Math.PI / 180);
+    globeGroup.rotation.x = 0.2;
+    scene.add(globeGroup);
+
+    const textureLoader = new THREE.TextureLoader();
+
+    // Procedural High-Contrast Earth Color Map (Slate-Gray Continents & Black Oceans + High-Tech Grid)
+    // Used as a fallback if the local /earth.jpg fails to load
+    const createProceduralEarthMap = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = 1024;
+      canvas.height = 512;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return null;
+
+      // Deep space black oceans
+      ctx.fillStyle = "#020205";
+      ctx.fillRect(0, 0, 1024, 512);
+
+      // Draw high-tech latitude/longitude grid lines
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.04)";
+      ctx.lineWidth = 1;
+      for (let i = 0; i < 1024; i += 32) {
+        ctx.beginPath();
+        ctx.moveTo(i, 0);
+        ctx.lineTo(i, 512);
+        ctx.stroke();
+      }
+      for (let j = 0; j < 512; j += 32) {
+        ctx.beginPath();
+        ctx.moveTo(0, j);
+        ctx.lineTo(1024, j);
+        ctx.stroke();
+      }
+
+      // Draw dark slate-gray continents
+      ctx.fillStyle = "#1e293b"; // Slate-800
+
+      const drawContinent = (cx: number, cy: number, rx: number, ry: number, points = 12) => {
+        ctx.beginPath();
+        for (let i = 0; i <= points; i++) {
+          const angle = (i / points) * Math.PI * 2;
+          const noise = 0.85 + Math.sin(angle * 4) * 0.1 + Math.cos(angle * 7) * 0.05;
+          const x = cx + rx * Math.cos(angle) * noise;
+          const y = cy + ry * Math.sin(angle) * noise;
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.closePath();
+        ctx.fill();
+      };
+
+      // Scatter landmass shapes
+      drawContinent(220, 180, 150, 95, 14);  // North America
+      drawContinent(300, 350, 95, 115, 12);  // South America
+      drawContinent(540, 160, 135, 85, 16);  // Eurasia
+      drawContinent(550, 310, 105, 95, 12);  // Africa
+      drawContinent(790, 350, 80, 60, 10);   // Australia
+      drawContinent(500, 480, 420, 30, 8);    // Antarctica
+
+      const tex = new THREE.CanvasTexture(canvas);
+      tex.colorSpace = THREE.SRGBColorSpace;
+      return tex;
+    };
+
+    // --- 4. EARTH MESH ---
+    const earthGeo = new THREE.SphereGeometry(globeRadius, 64, 64);
+    const earthMaterial = new THREE.MeshStandardMaterial({
+      roughness: 0.9,
+      metalness: 0.05,
+    });
+    // Tint the Earth material slate gray. This converts the local full-color /earth.jpg
+    // texture into a premium high-contrast monochrome gray-scale planet on load.
+    earthMaterial.color = new THREE.Color("#cbd5e1"); // Slate Gray tint
+
+    // Load Local Photographic Texture
+    let earthTexture: THREE.Texture | null = null;
+    earthTexture = textureLoader.load(
+      "/earth.jpg",
+      (texture) => {
+        texture.colorSpace = THREE.SRGBColorSpace;
+
+        // --- TEXTURE SHARPENING (WebGL Anisotropic Filtering) ---
+        // Sets maximum anisotropy supported by user's GPU to eliminate texture blurriness
+        const maxAnisotropy = renderer.capabilities.getMaxAnisotropy();
+        texture.anisotropy = maxAnisotropy;
+
+        earthMaterial.map = texture;
+        earthMaterial.needsUpdate = true;
+      },
+      undefined,
+      (err) => {
+        console.warn("Failed to load local photographic earth texture, using procedural fallback.", err);
+        const fallback = createProceduralEarthMap();
+        if (fallback) {
+          earthMaterial.map = fallback;
+          earthMaterial.needsUpdate = true;
+        }
+      }
+    );
+
+    const earthMesh = new THREE.Mesh(earthGeo, earthMaterial);
+    globeGroup.add(earthMesh);
+
+    // --- 5. ATMOSPHERE GLOW (Fresnel Shader) ---
+    const vertexShader = `
+      varying vec3 vNormal;
+      varying vec3 vViewPosition;
+      void main() {
+        vNormal = normalize(normalMatrix * normal);
+        vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+        vViewPosition = -mvPosition.xyz;
+        gl_Position = projectionMatrix * mvPosition;
+      }
+    `;
+
+    const fragmentShader = `
+      varying vec3 vNormal;
+      varying vec3 vViewPosition;
+      void main() {
+        vec3 normal = normalize(vNormal);
+        vec3 viewDir = normalize(vViewPosition);
+        // Sharp Fresnel calculation (steepened exponent to 3.0 for a thin, crisp glow rim)
+        float intensity = pow(0.72 - dot(normal, viewDir), 3.0);
+        // Crisp white-blue atmospheric color
+        gl_FragColor = vec4(0.8, 0.9, 1.0, 1.0) * intensity;
+      }
+    `;
+
+    const atmosphereGeo = new THREE.SphereGeometry(globeRadius * 1.045, 64, 64);
+    const atmosphereMaterial = new THREE.ShaderMaterial({
+      vertexShader,
+      fragmentShader,
+      side: THREE.BackSide,
+      transparent: true,
+      blending: THREE.AdditiveBlending,
+    });
+    const atmosphereMesh = new THREE.Mesh(atmosphereGeo, atmosphereMaterial);
+    globeGroup.add(atmosphereMesh);
+
+    // --- 6. ANIMATION LOOP ---
+    const animate = () => {
+      // Speed up Earth rotation so it is clearly visible
+      earthMesh.rotation.y += 0.0012;
+
+      // Subtle axis tilt wobble
+      const elapsed = Date.now() * 0.00004;
+      globeGroup.rotation.x = 0.2 + Math.sin(elapsed) * 0.01;
+
+      renderer.render(scene, camera);
+      animationIdRef.current = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    // --- 7. RESPONSIVE RESIZING WITH ASPECT-RATIO CONDITIONAL SCALING ---
+    const handleResize = () => {
+      if (!container || !canvas) return;
+      const w = Math.max(container.clientWidth, 24);
+      const h = Math.max(container.clientHeight, 24);
+      const aspect = w / h;
+
+      camera.aspect = aspect;
+      camera.updateProjectionMatrix();
+
+      renderer.setSize(w, h);
+
+      // Dynamically reposition and scale the globe to guarantee responsiveness:
+      // Prevent the globe from climbing up and crowding the text on narrow/tall viewports
+      if (aspect < 1.0) {
+        // Mobile / Portrait: Scale down and shift lower
+        globeGroup.position.set(0, -11.5, 0);
+        globeGroup.scale.set(0.85, 0.85, 0.85);
+      } else if (aspect < 1.5) {
+        // Tablet / Narrow Landscape
+        globeGroup.position.set(0, -9.8, 0);
+        globeGroup.scale.set(0.95, 0.95, 0.95);
+      } else {
+        // Desktop / Wide Screen
+        globeGroup.position.set(0, -9.2, 0);
+        globeGroup.scale.set(1.0, 1.0, 1.0);
+      }
+    };
+
+    const resizeObserver = new ResizeObserver(() => {
+      handleResize();
+    });
+    resizeObserver.observe(container);
+
+    // Run once
+    handleResize();
+
+    // --- 8. CLEANUP ON UNMOUNT ---
+    return () => {
+      resizeObserver.disconnect();
+      if (animationIdRef.current) {
+        cancelAnimationFrame(animationIdRef.current);
+      }
+
+      earthGeo.dispose();
+      atmosphereGeo.dispose();
+
+      earthMaterial.dispose();
+      atmosphereMaterial.dispose();
+
+      earthTexture?.dispose();
+
+      renderer.dispose();
+    };
+  }, []);
+
+  return (
+    <div ref={containerRef} className={`relative w-full h-full ${className}`}>
+      <canvas ref={canvasRef} className="block w-full h-full" />
+    </div>
+  );
+}
+
+// --- HERO COMPONENT ---
 interface StarType {
   id: number;
   top: string;
@@ -163,8 +495,8 @@ export default function Hero() {
               top: star.top,
               left: star.left,
               animationDelay: star.delay,
-              boxShadow: star.color === "bg-white" 
-                ? "0 0 3px rgba(255, 255, 255, 0.4)" 
+              boxShadow: star.color === "bg-white"
+                ? "0 0 3px rgba(255, 255, 255, 0.4)"
                 : star.color === "bg-blue-300"
                   ? "0 0 3px rgba(147, 197, 253, 0.4)"
                   : "0 0 3px rgba(253, 186, 116, 0.4)"
@@ -179,7 +511,7 @@ export default function Hero() {
       </div>
 
       {/* ── FULL-SCREEN CENTRALIZED RADIAL GLOW MASK ── */}
-      <div 
+      <div
         className="absolute inset-0 z-[2] w-full h-full pointer-events-none"
         style={{
           background: "radial-gradient(circle at center, rgba(2, 2, 5, 0.76) 0%, rgba(2, 2, 5, 0.45) 45%, rgba(2, 2, 5, 0) 70%)"
@@ -247,23 +579,15 @@ export default function Hero() {
             className="group relative inline-flex items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-[#FF5812] via-[#FF2A00] to-[#FF7A00] animate-orange-button px-8 py-3.5 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 w-full sm:w-auto"
           >
             <span>{ctas.primary}</span>
-            <svg 
-              className="h-4 w-4 text-white transition-transform duration-355 group-hover:translate-x-1" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2.5" 
+            <svg
+              className="h-4 w-4 text-white transition-transform duration-355 group-hover:translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
               viewBox="0 0 24 24"
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
-          </Link>
-
-          {/* White Secondary Button */}
-          <Link
-            href="#capabilities"
-            className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-black hover:bg-zinc-100 hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 w-full sm:w-auto shadow-lg"
-          >
-            <span>Explore Capabilities</span>
           </Link>
         </motion.div>
       </div>

@@ -179,28 +179,28 @@ export default function PartnerShowcase() {
   return (
     <section className="relative w-full py-16 lg:py-24 bg-transparent overflow-hidden font-sans">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Header */}
         <div className="flex flex-col items-center w-full mb-12 lg:mb-16 text-center">
           <SectionBadge text="INTEGRATIONS" variant="line" />
-          
+
           <h2 className="text-3xl md:text-4xl lg:text-[42px] font-extrabold text-slate-900 mb-4 tracking-tight leading-tight">
-            Our Enterprise <span className="text-[#FF6B2C]">Integration Ecosystem</span>
+            AI Integration Services for <span className="text-[#FF6B2C]">Enterprise Systems</span>
           </h2>
-          
+
           <p className="text-[15px] lg:text-base text-slate-500 max-w-2xl mx-auto leading-relaxed">
-            We integrate with leading technology providers and cloud platforms to deploy robust, production-ready AI solutions.
+            Our offshore AI development team integrates custom AI solutions with leading cloud platforms, business applications, and enterprise systems for secure, scalable, production-ready deployments.
           </p>
         </div>
 
         {/* Display split grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
+
           {/* Left Column: Visual Showcase Card */}
           <div className="lg:col-span-6 flex items-center justify-center">
             <div className="w-full max-w-[420px] aspect-[1.5/1] rounded-[32px] overflow-hidden shadow-lg border border-slate-200/80 bg-white relative p-1.5">
               <div className="w-full h-full rounded-[26px] overflow-hidden relative bg-slate-950 flex items-center justify-center min-h-[260px]">
-                
+
                 {/* Active Partner Illustration */}
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -254,29 +254,27 @@ export default function PartnerShowcase() {
                     <div className="flex items-center gap-4">
                       {/* Interactive indicator dot */}
                       <div className="relative w-2.5 h-2.5 rounded-full flex items-center justify-center">
-                        <motion.div 
+                        <motion.div
                           className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-[#FF6B2C] scale-110' : 'bg-slate-300 group-hover:bg-slate-400'}`}
                           animate={isActive ? { scale: [1, 1.4, 1] } : {}}
                           transition={{ repeat: Infinity, duration: 2 }}
                         />
                       </div>
                       <span
-                        className={`text-lg font-bold transition-colors duration-300 ${
-                          isActive 
-                            ? "text-slate-900" 
-                            : "text-slate-400 group-hover:text-slate-600"
-                        }`}
+                        className={`text-lg font-bold transition-colors duration-300 ${isActive
+                          ? "text-slate-900"
+                          : "text-slate-400 group-hover:text-slate-600"
+                          }`}
                       >
                         {partner.name}
                       </span>
                     </div>
 
-                    <span 
-                      className={`text-xs font-semibold uppercase tracking-wider transition-colors duration-300 ${
-                        isActive 
-                          ? "text-[#FF6B2C]" 
-                          : "text-slate-400 opacity-0 group-hover:opacity-100"
-                      }`}
+                    <span
+                      className={`text-xs font-semibold uppercase tracking-wider transition-colors duration-300 ${isActive
+                        ? "text-[#FF6B2C]"
+                        : "text-slate-400 opacity-0 group-hover:opacity-100"
+                        }`}
                     >
                       {isActive ? "Active Connection" : "Connect"}
                     </span>

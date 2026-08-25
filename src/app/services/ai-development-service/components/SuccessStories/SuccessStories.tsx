@@ -101,15 +101,15 @@ export const SuccessStories = () => {
   return (
     <section className="relative w-full py-16 lg:py-24 bg-transparent overflow-hidden font-sans">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Header */}
         <div className="flex flex-col items-center w-full mb-10 text-center">
           <SectionBadge text="SUCCESS STORIES" variant="line" />
           <h2 className="text-3xl md:text-4xl lg:text-[42px] font-extrabold text-slate-900 mb-4 tracking-tight leading-tight">
-            AI Case Studies: <span className="text-[#FF6B2C]">Real-World Solutions & Impact</span>
+            AI Development Case Studies: <span className="text-[#FF6B2C]">Real-World Solutions & Impact</span>
           </h2>
           <p className="text-[15px] lg:text-base text-slate-500 max-w-2xl mx-auto leading-relaxed">
-            See how we transform complex business challenges into measurable outcomes with intelligent AI solutions.
+            See how businesses use our AI development solutions to automate processes, solve complex challenges, and achieve measurable results.
           </p>
         </div>
 
@@ -155,17 +155,15 @@ export const SuccessStories = () => {
                   <div className="flex items-center gap-2">
                     <button
                       onClick={prevSlide}
-                      className={`w-10 h-10 rounded-full bg-slate-900/90 text-white flex items-center justify-center hover:bg-slate-800 transition-all duration-300 shadow-md ${
-                        currentIndex === 0 ? "opacity-0 pointer-events-none" : "opacity-100"
-                      }`}
+                      className={`w-10 h-10 rounded-full bg-slate-900/90 text-white flex items-center justify-center hover:bg-slate-800 transition-all duration-300 shadow-md ${currentIndex === 0 ? "opacity-0 pointer-events-none" : "opacity-100"
+                        }`}
                     >
                       <ArrowLeft className="w-4 h-4" />
                     </button>
                     <button
                       onClick={nextSlide}
-                      className={`w-10 h-10 rounded-full bg-slate-900/90 text-white flex items-center justify-center hover:bg-slate-800 transition-all duration-300 shadow-md ${
-                        currentIndex === successStoriesList.length - 1 ? "opacity-0 pointer-events-none" : "opacity-100"
-                      }`}
+                      className={`w-10 h-10 rounded-full bg-slate-900/90 text-white flex items-center justify-center hover:bg-slate-800 transition-all duration-300 shadow-md ${currentIndex === successStoriesList.length - 1 ? "opacity-0 pointer-events-none" : "opacity-100"
+                        }`}
                     >
                       <ArrowRight className="w-4 h-4" />
                     </button>
@@ -176,10 +174,10 @@ export const SuccessStories = () => {
               {/* Single Centered Case Study Image Card */}
               <div className="relative w-full flex items-center justify-center mb-12 z-10">
                 <div className="w-full max-w-[720px] aspect-[16/9] rounded-3xl overflow-hidden border border-white/10 relative shadow-2xl bg-slate-950 hover:-translate-y-1.5 transition-transform duration-300">
-                  <img 
-                    src={images.left} 
-                    className="w-full h-full object-cover select-none pointer-events-none" 
-                    alt={`${activeStory.title} Case Study Preview`} 
+                  <img
+                    src={images.left}
+                    className="w-full h-full object-cover select-none pointer-events-none"
+                    alt={`${activeStory.title} Case Study Preview`}
                   />
                   <div className="absolute inset-0 bg-black/5 pointer-events-none" />
                 </div>
@@ -188,7 +186,7 @@ export const SuccessStories = () => {
               {/* Bottom Challenges, Solutions & Outcomes section */}
               <div className="border-t border-slate-900/10 pt-8 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-slate-850">
-                  
+
                   {/* 1. BUSINESS CHALLENGES */}
                   <motion.div
                     initial={{ opacity: 0, y: 15 }}
@@ -255,7 +253,7 @@ export const SuccessStories = () => {
                       ))}
                     </ul>
                   </motion.div>
-                  
+
                 </div>
               </div>
 

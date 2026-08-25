@@ -57,7 +57,7 @@ export function GenAiHero({
   }, []);
 
   return (
-    <section className="relative min-h-screen overflow-hidden font-['DM_Sans',sans-serif]">
+    <section className="relative min-h-[90vh] lg:min-h-[85vh] overflow-hidden font-['DM_Sans',sans-serif]">
       {/* Layer 1: Background Video */}
       {/* 👇👇 TO ADD YOUR VIDEO 👇👇 */}
       {/* Replace the file at: public/videos/generative-ai-hero.mp4 */}
@@ -82,7 +82,7 @@ export function GenAiHero({
       />
 
       {/* Layer 3: Content Container */}
-      <div className="relative z-20 min-h-screen flex flex-col justify-center pt-[100px] pb-24 md:pb-32 max-w-7xl mx-auto px-6 md:px-12 w-full">
+      <div className="relative z-20 min-h-[90vh] lg:min-h-[85vh] flex flex-col justify-center pt-24 md:pt-[100px] pb-36 md:pb-40 lg:pb-44 max-w-7xl mx-auto px-6 md:px-12 w-full">
         <div
           className="max-w-[700px] transition-all duration-1000 ease-out"
           style={{
@@ -91,7 +91,7 @@ export function GenAiHero({
           }}
         >
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-5">
             <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
             <span className="text-sm font-semibold text-orange-400 uppercase tracking-wider">
               {badgeText}
@@ -99,7 +99,7 @@ export function GenAiHero({
           </div>
 
           {/* Heading */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.15] mb-6 font-['Syne',sans-serif]">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.15] mb-4 font-['Syne',sans-serif]">
             {heading || (
               <>
                 Offshore Generative AI
@@ -111,7 +111,7 @@ export function GenAiHero({
           </h1>
 
           {/* Description */}
-          <p className="text-lg md:text-xl text-white/80 mb-10 leading-relaxed font-normal">
+          <p className="text-lg md:text-xl text-white/80 mb-8 leading-relaxed font-normal">
             {subheading || "Extend your delivery capabilities with production-ready LLM applications, RAG solutions, AI copilots, and intelligent automation built by Softree's offshore engineering team."}
           </p>
 
@@ -119,7 +119,7 @@ export function GenAiHero({
           <div className="flex flex-wrap items-center gap-4">
             <Link
               href="/contact"
-              className="flex items-center gap-2 bg-gradient-to-r from-[#FF5812] to-[#FF6B00] text-white px-8 py-4 rounded-xl font-semibold hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(255,88,18,0.3)]"
+              className="flex items-center gap-2 bg-gradient-to-r from-[#FF5812] to-[#FF6B00] text-white px-7 py-3.5 rounded-xl font-semibold hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(255,88,18,0.3)]"
             >
               <Phone className="w-5 h-5" />
               Talk to our Expert
@@ -131,7 +131,7 @@ export function GenAiHero({
 
       {/* Layer 4: Trust Row */}
       <div
-        className="absolute bottom-10 left-0 right-0 z-20 transition-all duration-1000 delay-300 ease-out"
+        className="absolute bottom-6 md:bottom-8 left-0 right-0 z-20 transition-all duration-1000 delay-300 ease-out"
         style={{
           opacity: mounted ? 1 : 0,
           transform: mounted ? "translateY(0)" : "translateY(20px)",
