@@ -1,10 +1,10 @@
 export const heroData = {
-  badge: "OFFSHORE AI DEVELOPMENT PARTNER",
+  badge: "AI DEVELOPMENT PARTNER",
   title: {
-    blackText: "AI Development Services for",
-    orangeText: "Intelligent, Scalable Enterprises",
+    blackText: " Your Offshore AI Development Services for Intelligent, ",
+    orangeText: "Scalable Enterprises",
   },
-  description: "Automate operations and transform experiences with secure, production-ready AI solutions. Softree Technology delivers end-to-end AI development—from strategy and custom agents to Generative AI, RAG, and enterprise integration.",
+  description: "Your offshore delivery partner for building production-ready AI solutions—from custom AI and Generative AI to intelligent agents, RAG, automation, and business system integration.",
   ctas: {
     primary: "Talk to An Expert",
 

@@ -17,9 +17,9 @@ import Footer from '@/components/sections/footer';
 import TrustedBrandsMarquee from '@/app/services/offshore-power-platform-development/trust';
 
 export const metadata = {
-  title: 'Enterprise RAG Development | Softree Technology',
+  title: 'RAG Development Services | Softree Technology',
   description:
-    'Build secure Retrieval-Augmented Generation systems that transform enterprise knowledge into accurate, context-aware AI experiences.',
+    'Expand your AI delivery capabilities with Softree offshore RAG development team. Build secure RAG solutions for enterprise search, knowledge retrieval, AI assistants, and grounded AI.',
 };
 
 export default function EnterpriseRAGDevelopmentPage() {

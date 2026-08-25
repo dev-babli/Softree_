@@ -23,7 +23,7 @@ const LightContactSection = dynamic(() => import('@/components/homepage-light/Li
 
 export const metadata: Metadata = {
   title: 'AI Development Services | Softree Technology',
-  description: 'AI Development Services That Deliver Measurable Business Outcomes.',
+  description: 'Extend your delivery capacity with Softree offshore AI development team for custom AI, Generative AI, AI agents, RAG, automation, and enterprise integrations.',
 };
 
 export default function AiDevelopmentServicesPage() {
@@ -45,7 +45,7 @@ export default function AiDevelopmentServicesPage() {
       {/* Storytelling Flow
       <BusinessChallenges />
       <BusinessOutcomes /> */}
-      <ProvenResults/>
+      <ProvenResults />
       <AIPhilosophy />
       {/* <AIDilemma /> */}
       <Industries />

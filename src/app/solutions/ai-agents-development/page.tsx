@@ -16,9 +16,9 @@ import WhyChooseWithTestimonials from './components/why';
 import TrustedBrandsMarquee from '@/app/services/offshore-power-platform-development/trust';
 
 export const metadata = {
-  title: 'AI Agents Development Services | Softree Technology',
+  title: 'AI Agent Development Services | Softree Technology',
   description:
-    'Design and build enterprise AI agents that automate workflows, make smarter decisions, and deliver exceptional customer experiences at scale.',
+    'Add AI agent capability to your delivery portfolio with Softree. We build custom AI agents for automation, integrations, knowledge workflows, and business operations.',
 };
 
 export default function AIAgentsDevelopmentPage() {

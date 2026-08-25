@@ -102,9 +102,9 @@ export function GenAiHero({
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.15] mb-6 font-['Syne',sans-serif]">
             {heading || (
               <>
-                Enterprise Generative AI <br />
+                Offshore Generative AI
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
-                  built for production
+                  Development Partner
                 </span>
               </>
             )}
@@ -112,7 +112,7 @@ export function GenAiHero({
 
           {/* Description */}
           <p className="text-lg md:text-xl text-white/80 mb-10 leading-relaxed font-normal">
-            {subheading || "We design and ship copilots, LLM applications, and intelligent automation on Azure OpenAI and leading models, with governance your IT team can audit."}
+            {subheading || "Extend your delivery capabilities with production-ready LLM applications, RAG solutions, AI copilots, and intelligent automation built by Softree's offshore engineering team."}
           </p>
 
           {/* CTA Buttons */}
@@ -152,7 +152,7 @@ export function GenAiHero({
                   <div className="text-sm text-gray-400">Seamless integration</div>
                 </div>
               </div>
-              
+
               {/* Trust Item 2 */}
               <div className="flex items-center gap-4">
                 <div className="text-orange-500 p-2.5 bg-white/5 rounded-xl border border-white/5">

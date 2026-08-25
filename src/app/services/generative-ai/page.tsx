@@ -45,10 +45,10 @@ const generativeAIFAQs = [
 export const metadata: Metadata = applyPageOg(
   "/services/generative-ai",
   {
-    title: "Generative AI Development Services | Custom AI & Enterprise Automation",
+    title: "Generative AI Development Services | Softree Technology",
 
     description:
-      "Accelerate innovation with Generative AI development services. We build AI-powered chatbots, copilots, intelligent automation systems, LLM applications, and enterprise AI solutions tailored to your business.",
+      "Build production-ready generative AI solutions with Softree's offshore delivery team, including LLM applications, RAG, AI copilots, and intelligent automation.",
 
     keywords: [
       "Generative AI development",

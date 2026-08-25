@@ -32,12 +32,12 @@ export interface KnowledgeSourceItem {
 export const HERO_DATA = {
   label: 'ENTERPRISE RAG DEVELOPMENT SERVICES',
   heading: {
-    prefix: 'Enterprise RAG Development for',
+    prefix: 'Your Offshore RAG Development for',
     highlight: 'Accurate, Secure AI',
     suffix: '',
   },
   paragraph:
-    'Build secure, production-ready Retrieval-Augmented Generation (RAG) solutions that connect enterprise data with AI. Softree Technology develops scalable RAG systems for intelligent search, knowledge retrieval, AI assistants, and grounded enterprise AI experiences.',
+    'Strengthen your AI delivery capabilities with offshore RAG expertise that connects documents, databases, business applications, and knowledge sources to deliver accurate, grounded AI responses.',
   ctaButtons: {
     primary: {
       text: 'Talk to An Expert',

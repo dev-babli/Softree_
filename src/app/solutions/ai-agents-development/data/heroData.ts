@@ -29,12 +29,12 @@ export interface FeatureItem {
 export const HERO_DATA = {
   label: 'AI AGENT DEVELOPMENT SERVICES',
   heading: {
-    prefix: 'AI Agent Development Solutions',
-    highlight: 'for Enterprise Automation',
+    prefix: 'Your Offshore AI Agent Development Solutions for',
+    highlight: 'Enterprise Automation',
     suffix: '',
   },
   paragraph:
-    'Softree Technology delivers custom AI agent development services for enterprises looking to automate operations, unlock organizational knowledge, and integrate agentic AI into existing business systems.',
+    'Accelerate agentic AI delivery with an offshore engineering team that builds intelligent agents capable of understanding tasks, reasoning through decisions, integrating systems, and executing business workflows.',
   ctaButtons: {
     primary: {
       text: 'Talk to an Expert',
