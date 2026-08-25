@@ -21,8 +21,8 @@ const WorkflowAutomationFAQ = dynamic(() => import("./components/FAQ/WorkflowAut
 const ProvenResults = dynamic(() => import("@/components/sections/ProvenResults"));
 
 export const metadata = {
-  title: "AI Workflow Automation | Softree Technology",
-  description: "Automate repetitive business processes with AI-powered workflows, intelligent agents, and enterprise automation.",
+  title: "AI Workflow Automation Services | Softree Technology",
+  description: "Partner with Softree for AI workflow automation, AI agents, Power Automate, and Azure AI solutions. Scale delivery with our reliable offshore AI engineering team.",
 };
 
 export default function AIWorkflowAutomationPage() {

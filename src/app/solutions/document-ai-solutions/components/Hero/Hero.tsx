@@ -48,11 +48,11 @@ export const Hero = () => {
 
             {/* Typography */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3rem] font-extrabold text-white leading-[1.15] sm:leading-[1.1] tracking-tight">
-              AI-Powered Document Processing for <span className="text-orange-500">Smarter Business Operations</span>
+              Your Offshore AI Delivery Partner for <span className="text-orange-500">Document AI Solutions</span>
             </h1>
 
             <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-4xl leading-relaxed font-medium mx-auto px-2 sm:px-0">
-              Transform business documents into actionable data with Softree's Document AI Solutions. Using Azure AI Document Intelligence, OCR, and Intelligent Document Processing (IDP), we automate document extraction and validation to improve efficiency, accuracy, and productivity.
+              Extend your delivery capacity with Softree's AI engineering team for intelligent document processing, OCR, Azure AI Document Intelligence, document automation, and enterprise integrations.
             </p>
 
             {/* Buttons */}

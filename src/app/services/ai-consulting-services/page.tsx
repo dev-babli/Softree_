@@ -22,7 +22,7 @@ import TestimonialsSplitSlider from "./ai-consulting-services-components/Testimo
 
 export const metadata = {
   title: "AI Consulting Services | Softree Technology",
-  description: "Enterprise AI Solutions That Deliver Measurable Business Outcomes. Automate workflows, build AI agents, and transform business operations.",
+  description: "Partner with Softree for AI consulting, AI agents, workflow automation, Azure AI, and generative AI development through a reliable offshore delivery team.",
 };
 
 export default function AIConsultingServicesPage() {

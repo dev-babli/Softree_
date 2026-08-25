@@ -16,8 +16,8 @@ import { DocumentAiFAQ } from "./components/FAQ/DocumentAiFAQ"
 import Footer from "@/components/sections/footer"
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 export const metadata = {
-  title: "Document AI Solutions | Softree Technology",
-  description: "Transform unstructured documents into accurate, actionable insights with AI-powered automation, extraction, and understanding.",
+  title: "Document AI Solutions & Services | Softree Technology",
+  description: "Partner with Softree for Document AI solutions, intelligent document processing, OCR, Azure AI Document Intelligence, and document automation through a reliable offshore AI team.",
 };
 
 export default function DocumentAISolutionsPage() {

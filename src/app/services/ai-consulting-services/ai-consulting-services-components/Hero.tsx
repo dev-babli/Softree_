@@ -27,7 +27,7 @@ export const Hero = () => {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] font-extrabold text-slate-900 leading-[1.15] md:leading-[1.1] tracking-tight mb-4 md:mb-5"
               >
-                AI Consulting Services That Accelerate <span className="text-[#FF5812]">Business Transformation</span>
+                Your Offshore AI Delivery Partner for <span className="text-[#FF5812]">Consulting &amp; Implementation</span>
               </motion.h1>
 
               <motion.p
@@ -36,7 +36,7 @@ export const Hero = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed mb-6 md:mb-7 max-w-3xl px-2 sm:px-0"
               >
-                Transform your business with enterprise AI consulting services that help you define an AI strategy, automate workflows, implement generative AI, and deliver measurable business outcomes using Microsoft and Azure AI technologies.
+                Extend your delivery capacity with Softree's AI engineering team for AI strategy, AI agents, workflow automation, generative AI, and Microsoft Azure AI solutions.
               </motion.p>
 
               <HeroButtons />

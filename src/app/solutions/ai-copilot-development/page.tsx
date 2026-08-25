@@ -22,8 +22,8 @@ import NavigationClient from "@/components/sections/navigation-client";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Copilot Development | Softree Technology",
-  description: "Build secure, intelligent AI copilots that empower employees, automate business processes, enhance customer experiences, and seamlessly integrate with Microsoft 365, Dynamics 365, and enterprise applications.",
+  title: "AI Copilot Development Services | Softree Technology",
+  description: "Partner with Softree for AI Copilot development, AI agents, Microsoft Copilot Studio, and Azure AI solutions. Scale delivery with our reliable offshore AI engineering team.",
 };
 
 export default function AICopilotDevelopmentPage() {

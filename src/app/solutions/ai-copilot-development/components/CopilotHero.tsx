@@ -51,10 +51,10 @@ export function CopilotHero() {
 
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10 flex-grow flex flex-col justify-center">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-          
+
           {/* Left Content (65%) */}
           <div className="w-full lg:w-[65%] flex flex-col items-start text-left">
-            
+
             {/* Eyebrow - Clear White Label */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
@@ -75,8 +75,8 @@ export function CopilotHero() {
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
               className="text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-tight leading-[1.05] mb-8 w-full"
             >
-              Enterprise AI <br />
-              <span className="bg-gradient-to-r from-[#FF6B00] via-[#FF8C33] to-[#FFA800] bg-clip-text text-transparent">
+              Your Offshore AI Delivery Partner <br />
+              for <span className="bg-gradient-to-r from-[#FF6B00] via-[#FF8C33] to-[#FFA800] bg-clip-text text-transparent">
                 Copilot
               </span>{" "}
               Development
@@ -89,7 +89,7 @@ export function CopilotHero() {
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
               className="text-base sm:text-lg md:text-xl text-slate-300 mb-12 max-w-2xl leading-relaxed font-normal"
             >
-              Build secure, intelligent AI copilots that empower employees, automate business processes, and integrate seamlessly with Microsoft 365, Dynamics 365, and your enterprise databases.
+              Extend your delivery capacity with Softree's AI engineering team for custom AI copilots, AI agents, Microsoft Copilot Studio, Azure AI, and enterprise integrations.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -116,7 +116,7 @@ export function CopilotHero() {
       </div>
 
       {/* Feature Strip */}
-      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10 mt-12 lg:mt-20">
         <motion.div
           className="w-full bg-white/5 backdrop-blur-xl rounded-[2rem] border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.4)] py-6 px-6 md:px-8"
           initial={{ opacity: 0, y: 30 }}

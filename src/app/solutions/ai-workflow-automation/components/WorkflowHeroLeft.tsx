@@ -3,14 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion, Variants } from 'framer-motion';
-import Sparkles from "lucide-react/dist/esm/icons/sparkles";
-import MessageCircle from "lucide-react/dist/esm/icons/message-circle";
-import GitMerge from "lucide-react/dist/esm/icons/git-merge";
-import ShieldCheck from "lucide-react/dist/esm/icons/shield-check";
-import BarChart3 from "lucide-react/dist/esm/icons/bar-chart-3";
-import Users from "lucide-react/dist/esm/icons/users";
-import Network from "lucide-react/dist/esm/icons/network";
-import ArrowRight from "lucide-react/dist/esm/icons/arrow-right";
+import { Sparkles, MessageCircle, GitMerge, ShieldCheck, BarChart3, Users, Network, ArrowRight } from 'lucide-react';
 
 export default function WorkflowHeroLeft() {
   const containerVariants: Variants = {
@@ -51,11 +44,10 @@ export default function WorkflowHeroLeft() {
         variants={itemVariants}
         className="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight leading-[1.1] mb-6"
       >
-        <div className="text-[#111827]">Automate Business Processes with</div>
+        <div className="text-[#111827]">Your Offshore AI Delivery Partner</div>
         <div className="text-[#FF5812]">
-          Intelligent AI Workflow
+          for Workflow Automation
         </div>
-        <div className="text-[#111827]">Automation</div>
       </motion.h1>
 
       {/* Description */}
@@ -63,7 +55,7 @@ export default function WorkflowHeroLeft() {
         variants={itemVariants}
         className="text-base md:text-lg text-[#4B5563] leading-relaxed mb-10 max-w-[550px]"
       >
-        Streamline repetitive tasks, connect enterprise systems, and accelerate digital transformation with AI-powered workflow automation solutions built on Microsoft Power Platform, Azure AI, and enterprise integrations.
+        Extend your delivery capacity with Softree's AI engineering team for workflow automation, AI agents, Power Automate, Azure AI, and enterprise system integrations.
       </motion.p>
 
       {/* Buttons */}
