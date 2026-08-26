@@ -20,16 +20,47 @@ import { notifyPublish } from "@/cms/lib/notifyPublish";
  *   SANITY_STUDIO_URL — Studio base URL override (defaults to {site}/studio)
  */
 
+import { createHmac } from "crypto";
+
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-    const secret =
-      request.headers.get("x-sanity-secret") ||
-      request.nextUrl.searchParams.get("secret");
+    const rawBody = await request.text();
+    const body = JSON.parse(rawBody);
 
-    console.log("Revalidation Debug - Received prefix:", secret ? secret.substring(0, 4) : "none", "Expected prefix:", process.env.SANITY_REVALIDATE_SECRET ? process.env.SANITY_REVALIDATE_SECRET.trim().substring(0, 4) : "none");
+    const secretHeader = request.headers.get("x-sanity-secret");
+    const signatureHeader = request.headers.get("x-sanity-signature");
+    const secretQuery = request.nextUrl.searchParams.get("secret");
 
-    if (secret !== process.env.SANITY_REVALIDATE_SECRET?.trim()) {
+    const localSecret = process.env.SANITY_REVALIDATE_SECRET?.trim();
+
+    let isValid = false;
+
+    if (localSecret) {
+      // 1. Check custom plain-text header or query param
+      if (secretHeader === localSecret || secretQuery === localSecret) {
+        isValid = true;
+      }
+
+      // 2. Check secure HMAC signature from Sanity
+      if (!isValid && signatureHeader) {
+        const computedSignature = createHmac("sha256", localSecret)
+          .update(rawBody)
+          .digest("hex");
+        if (computedSignature === signatureHeader) {
+          isValid = true;
+        }
+      }
+    }
+
+    console.log("Revalidation Validation Debug:", {
+      isValid,
+      hasSecretHeader: !!secretHeader,
+      hasSignatureHeader: !!signatureHeader,
+      hasSecretQuery: !!secretQuery,
+      localSecretLength: localSecret?.length ?? 0
+    });
+
+    if (!isValid) {
       return NextResponse.json({ message: "Invalid secret" }, { status: 401 });
     }
 
