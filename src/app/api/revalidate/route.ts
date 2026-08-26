@@ -6,6 +6,7 @@ import { notifyPublish } from "@/cms/lib/notifyPublish";
 
 /**
  * Sanity Webhook → On-demand Revalidation + optional publish notifications
+ * (Force redeploy to load new SANITY_REVALIDATE_SECRET)
  *
  * Setup in Sanity:
  *   Webhook URL: https://www.softreetechnology.com/api/revalidate
