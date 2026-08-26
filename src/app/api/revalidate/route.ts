@@ -21,6 +21,7 @@ import { notifyPublish } from "@/cms/lib/notifyPublish";
  */
 
 import { createHmac } from "crypto";
+import { isValidSignature } from "@sanity/webhook";
 
 export async function POST(request: NextRequest) {
   try {
@@ -41,13 +42,12 @@ export async function POST(request: NextRequest) {
         isValid = true;
       }
 
-      // 2. Check secure HMAC signature from Sanity
+      // 2. Check secure signature using official @sanity/webhook
       if (!isValid && signatureHeader) {
-        const computedSignature = createHmac("sha256", localSecret)
-          .update(rawBody)
-          .digest("hex");
-        if (computedSignature === signatureHeader) {
-          isValid = true;
+        try {
+          isValid = await isValidSignature(rawBody, signatureHeader, localSecret);
+        } catch (err: any) {
+          console.error("Signature check error:", err.message);
         }
       }
     }
