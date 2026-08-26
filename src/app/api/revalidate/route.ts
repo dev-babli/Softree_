@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
       request.headers.get("x-sanity-secret") ||
       request.nextUrl.searchParams.get("secret");
 
-    if (secret !== process.env.SANITY_REVALIDATE_SECRET) {
+    if (secret !== process.env.SANITY_REVALIDATE_SECRET?.trim()) {
       return NextResponse.json({ message: "Invalid secret" }, { status: 401 });
     }
 
