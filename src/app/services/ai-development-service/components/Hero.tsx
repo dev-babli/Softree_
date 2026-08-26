@@ -620,10 +620,10 @@ export default function Hero() {
                   <IconComponent className="h-4 w-4" />
                 </div>
                 <div className="flex flex-col">
-                  <h4 className="text-[11.5px] sm:text-[12px] font-black uppercase tracking-wider text-white leading-tight">
+                  <h4 className="text-[12.5px] sm:text-[13.5px] font-black uppercase tracking-wider text-white leading-tight">
                     {feature.title}
                   </h4>
-                  <p className="text-[11px] sm:text-[11.5px] text-zinc-400 font-medium leading-tight mt-1">
+                  <p className="text-[11.5px] sm:text-[12px] text-zinc-400 font-medium leading-tight mt-1">
                     {feature.description}
                   </p>
                 </div>
