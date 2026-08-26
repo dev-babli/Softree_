@@ -210,7 +210,7 @@ const TiltCard = ({ solution, idx }: { solution: SolutionCard; idx: number }) =>
 
 export default function DigitalEngineeringSolutions() {
   return (
-    <section className="relative w-full py-20 lg:py-24 bg-gradient-to-b from-zinc-50 via-white to-zinc-50 overflow-hidden font-sans">
+    <section className="relative w-full py-20 lg:py-24 bg-white overflow-hidden font-sans">
       {/* Top Border Soft Brand Gradient Mesh */}
       <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-orange-500/[0.03] via-transparent to-transparent pointer-events-none -z-10" />
       {/* Background Decorators */}

@@ -99,7 +99,7 @@ export const SuccessStories = () => {
   const images = caseStudyImages[activeStory.id] || caseStudyImages["01"];
 
   return (
-    <section className="relative w-full py-16 lg:py-24 bg-transparent overflow-hidden font-sans">
+    <section className="relative w-full py-16 lg:py-24 bg-white overflow-hidden font-sans">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}

@@ -19,6 +19,7 @@ const AiTechnologyStack = dynamic(() => import('./components/AiTechnologyStack')
 const SuccessStories = dynamic(() => import('./components/SuccessStories/SuccessStories').then((mod) => mod.SuccessStories), { ssr: true });
 const AIPhilosophy = dynamic(() => import('./components/AIPhilosophy'), { ssr: true });
 const AIDilemma = dynamic(() => import('./components/AIDilemma'), { ssr: true });
+const AiRoadmap = dynamic(() => import('./components/AiRoadmap'), { ssr: true });
 const WhyChooseWithTestimonials = dynamic(() => import('./components/WhyChooseWithTestimonials'), { ssr: true });
 const LightFAQExact = dynamic(() => import('./components/LightFAQExact'), { ssr: true });
 const LightContactSection = dynamic(() => import('@/components/homepage-light/LightContactSection'), { ssr: true });
@@ -90,6 +91,7 @@ export default function AiDevelopmentServicesPage() {
       <Industries />
       <AiTechnologyStack />
       <DigitalEngineeringSolutions />
+      <AiRoadmap />
       <AiReadinessBanner />
       {/* <PartnerShowcase /> */}
       <ClientTestimonialsShowcase />
