@@ -19,28 +19,28 @@ const heroData = {
   },
   features: [
     {
-      title: "White-Label Friendly",
-      description: "Trusted partner for tech agencies.",
+      title: "White-Label",
+      description: "Trusted agency partner.",
       icon: "security"
     },
     {
-      title: "Dedicated Offshore Teams",
-      description: "Scale engineering on demand.",
+      title: "Offshore Teams",
+      description: "Scale on demand.",
       icon: "custom"
     },
     {
-      title: "Microsoft AI Expertise",
-      description: "Azure, OpenAI & Power Platform.",
+      title: "Microsoft AI",
+      description: "Azure & OpenAI partners.",
       icon: "impact"
     },
     {
-      title: "Enterprise-Ready Delivery",
-      description: "Secure, production-grade solutions.",
+      title: "Enterprise AI",
+      description: "Secure, production-grade.",
       icon: "models"
     },
     {
-      title: "Established Since 2013",
-      description: "13+ years of delivery excellence.",
+      title: "Since 2013",
+      description: "13+ years of excellence.",
       icon: "history"
     }
   ],
@@ -615,18 +615,18 @@ export default function Hero() {
             if (idx === 4) IconComponent = CalendarRange;
 
             return (
-              <div key={feature.title} className="flex flex-col items-start px-2">
-                <div className="flex items-center gap-2.5 mb-2">
-                  <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#FF5812]/10 text-[#FF5812] border border-[#FF5812]/20 shrink-0">
-                    <IconComponent className="h-4 w-4" />
-                  </div>
-                  <h4 className="text-xs sm:text-[13px] font-black uppercase tracking-wider text-white">
+              <div key={feature.title} className="flex items-start gap-3 px-2">
+                <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#FF5812]/10 text-[#FF5812] border border-[#FF5812]/20 shrink-0 mt-0.5">
+                  <IconComponent className="h-4 w-4" />
+                </div>
+                <div className="flex flex-col">
+                  <h4 className="text-[11.5px] sm:text-[12px] font-black uppercase tracking-wider text-white leading-tight">
                     {feature.title}
                   </h4>
+                  <p className="text-[11px] sm:text-[11.5px] text-zinc-400 font-medium leading-tight mt-1">
+                    {feature.description}
+                  </p>
                 </div>
-                <p className="text-[12px] text-zinc-400 font-medium leading-relaxed pl-9.5">
-                  {feature.description}
-                </p>
               </div>
             );
           })}
