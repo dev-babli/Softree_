@@ -108,7 +108,7 @@ export default function ClientTestimonialsShowcase() {
       `}} />
 
       {/* ================= TOP CTA BANNER ================= */}
-      <div className="w-full bg-[#FF8D6C] py-12 px-6 sm:px-12 lg:px-20 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
+      {/* <div className="w-full bg-[#FF8D6C] py-12 px-6 sm:px-12 lg:px-20 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:2rem_2rem] pointer-events-none" />
 
         <div className="relative z-10 max-w-2xl text-slate-900">
@@ -131,7 +131,7 @@ export default function ClientTestimonialsShowcase() {
             className="w-full h-full object-contain p-4"
           />
         </div>
-      </div>
+      </div> */}
 
       {/* ================= BOTTOM TESTIMONIALS SECTION ================= */}
       <div className="bg-black text-white py-20 lg:py-28 px-6 sm:px-12 lg:px-20 relative">

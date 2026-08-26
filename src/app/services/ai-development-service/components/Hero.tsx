@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import * as THREE from "three";
+import { ShieldCheck, Users, Cpu, Sparkles, CalendarRange } from "lucide-react";
 
 // --- HERO DATA ---
 const heroData = {
@@ -36,6 +37,11 @@ const heroData = {
       title: "Enterprise-Ready Delivery",
       description: "Secure, production-grade solutions.",
       icon: "models"
+    },
+    {
+      title: "Established Since 2013",
+      description: "13+ years of delivery excellence.",
+      icon: "history"
     }
   ],
   videoCard: {
@@ -96,23 +102,23 @@ function ThreeDSpaceGlobe({ className = "" }: ThreeDSpaceGlobeProps) {
 
     // --- 2. MULTI-DIRECTIONAL HIGH-CONTRAST LIGHTING (Crescent Rim Light) ---
     // Ambient light raised slightly to soften shadows
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.05);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.25);
     scene.add(ambientLight);
 
-    // Main key light representing the Sun - positioned ABOVE and BEHIND the Earth
-    // This strikes the top curve and forms a sharp crescent horizon curve
-    const sunLight = new THREE.DirectionalLight(0xffffff, 2.6);
-    sunLight.position.set(0, 12, -8);
+    // Main key light representing the Sun - positioned ABOVE and IN FRONT of the Earth
+    // This shines directly on the top-front curve visible to the user
+    const sunLight = new THREE.DirectionalLight(0xffffff, 3.8);
+    sunLight.position.set(0, 10, 8);
     scene.add(sunLight);
 
-    // Bright front-left fill light to make rotating continents clearly visible
-    const frontFill = new THREE.DirectionalLight(0xa1a1aa, 0.72);
-    frontFill.position.set(-6, 3, 10);
+    // Bright front-left fill light to make rotating continents clearly visible (warm white tint)
+    const frontFill = new THREE.DirectionalLight(0xffd6c2, 1.8);
+    frontFill.position.set(-8, 6, 8);
     scene.add(frontFill);
 
-    // Soft front-right blue fill light to add high-contrast coloring depth
-    const blueFill = new THREE.DirectionalLight(0x3b82f6, 0.35);
-    blueFill.position.set(6, -3, 8);
+    // Soft front-right blue fill light to add high-contrast coloring depth (sky blue tint)
+    const blueFill = new THREE.DirectionalLight(0x38bdf8, 1.5);
+    blueFill.position.set(8, 2, 8);
     scene.add(blueFill);
 
     // --- 3. CREATING EARTH SPHERE ---
@@ -190,9 +196,8 @@ function ThreeDSpaceGlobe({ className = "" }: ThreeDSpaceGlobeProps) {
       roughness: 0.9,
       metalness: 0.05,
     });
-    // Tint the Earth material slate gray. This converts the local full-color /earth.jpg
-    // texture into a premium high-contrast monochrome gray-scale planet on load.
-    earthMaterial.color = new THREE.Color("#cbd5e1"); // Slate Gray tint
+    // Remove slate gray tint to allow the photographic earth texture to render at full brightness
+    earthMaterial.color = new THREE.Color("#ffffff");
 
     // Load Local Photographic Texture
     let earthTexture: THREE.Texture | null = null;
@@ -261,11 +266,11 @@ function ThreeDSpaceGlobe({ className = "" }: ThreeDSpaceGlobeProps) {
 
     // --- 6. ANIMATION LOOP ---
     const animate = () => {
-      // Speed up Earth rotation so it is clearly visible
-      earthMesh.rotation.y += 0.0012;
+      // Speed up Earth rotation step to make the rotation movement highly visible and obvious
+      earthMesh.rotation.y += 0.012;
 
       // Subtle axis tilt wobble
-      const elapsed = Date.now() * 0.00004;
+      const elapsed = Date.now() * 0.00018;
       globeGroup.rotation.x = 0.2 + Math.sin(elapsed) * 0.01;
 
       renderer.render(scene, camera);
@@ -350,7 +355,7 @@ interface StarType {
 
 export default function Hero() {
   const [stars, setStars] = useState<StarType[]>([]);
-  const { badge, title, description, ctas } = heroData;
+  const { badge, title, description, ctas, features } = heroData;
 
   // Dynamically format title parts for best visual balance with the globe layout
   const blackTextStr = title.blackText || "";
@@ -546,13 +551,16 @@ export default function Hero() {
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-[76px] font-extrabold tracking-tighter leading-[1.08] max-w-4xl drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)] drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-[76px] font-extrabold tracking-tighter leading-[1.08] max-w-4xl"
         >
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF5812] via-[#FF2A00] to-[#FF7A00] animate-gradient-flow">
-            {mainTitle}
+          <span className="block text-white tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] mb-1">
+            Your Offshore
           </span>
-          <span className="block mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-[46px] font-bold tracking-tighter text-zinc-100 leading-[1.1] drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-            {subTitle}
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#FF5812] via-[#FF2A00] to-[#FF7A00] animate-gradient-flow filter drop-shadow-[0_0_35px_rgba(255,88,18,0.25)]">
+            AI Development
+          </span>
+          <span className="block mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-bold tracking-tight text-slate-200/95 leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+            Services for Intelligent & Scalable Enterprises
           </span>
         </motion.h1>
 
@@ -589,6 +597,39 @@ export default function Hero() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
           </Link>
+        </motion.div>
+
+        {/* Horizontal Trust Strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full max-w-5xl mt-16 sm:mt-20 border-t border-white/10 pt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 text-left"
+        >
+          {features.map((feature, idx) => {
+            // Icon mapping
+            let IconComponent = ShieldCheck;
+            if (idx === 1) IconComponent = Users;
+            if (idx === 2) IconComponent = Cpu;
+            if (idx === 3) IconComponent = Sparkles;
+            if (idx === 4) IconComponent = CalendarRange;
+
+            return (
+              <div key={feature.title} className="flex flex-col items-start px-2">
+                <div className="flex items-center gap-2.5 mb-2">
+                  <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#FF5812]/10 text-[#FF5812] border border-[#FF5812]/20 shrink-0">
+                    <IconComponent className="h-4 w-4" />
+                  </div>
+                  <h4 className="text-xs sm:text-[13px] font-black uppercase tracking-wider text-white">
+                    {feature.title}
+                  </h4>
+                </div>
+                <p className="text-[12px] text-zinc-400 font-medium leading-relaxed pl-9.5">
+                  {feature.description}
+                </p>
+              </div>
+            );
+          })}
         </motion.div>
       </div>
     </section>

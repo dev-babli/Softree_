@@ -15,6 +15,7 @@ const AiReadinessBanner = dynamic(() => import('./components/AiReadinessBanner')
 const PartnerShowcase = dynamic(() => import('./components/PartnerShowcase'), { ssr: true });
 const ClientTestimonialsShowcase = dynamic(() => import('./components/ClientTestimonialsShowcase'), { ssr: true });
 const Industries = dynamic(() => import('./components/Industries'), { ssr: true });
+const AiTechnologyStack = dynamic(() => import('./components/AiTechnologyStack'), { ssr: true });
 const SuccessStories = dynamic(() => import('./components/SuccessStories/SuccessStories').then((mod) => mod.SuccessStories), { ssr: true });
 const AIPhilosophy = dynamic(() => import('./components/AIPhilosophy'), { ssr: true });
 const AIDilemma = dynamic(() => import('./components/AIDilemma'), { ssr: true });
@@ -80,22 +81,24 @@ export const metadata: Metadata = {
 
 export default function AiDevelopmentServicesPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-zinc-50 via-white to-zinc-50 font-sans text-slate-900 selection:bg-orange-500 selection:text-white overflow-x-clip">
+    <main className="min-h-screen bg-white font-sans text-slate-900 selection:bg-orange-500 selection:text-white overflow-x-clip">
       <NavigationClient />
       <Hero />
       <TrustedBrandsMarquee />
       <SuccessStories />
       <CoreCapabilities />
+      <Industries />
+      <AiTechnologyStack />
       <DigitalEngineeringSolutions />
       <AiReadinessBanner />
-      <PartnerShowcase />
+      {/* <PartnerShowcase /> */}
       <ClientTestimonialsShowcase />
       {/* Storytelling Flow
       <BusinessChallenges />
       <BusinessOutcomes /> */}
       <AIPhilosophy />
       {/* <AIDilemma /> */}
-      <Industries />
+
       <WhyChooseWithTestimonials />
       <LightFAQExact />
       <LightContactSection />
