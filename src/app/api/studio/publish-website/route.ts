@@ -20,9 +20,10 @@ function revalidatePublishedPaths(doc: WebsitePublishDoc): void {
   if (!slug) return
 
   // Clear tag-based caches for defineLive/sanityFetch
-  revalidateTag("sanity", { expire: 0 })
+  revalidateTag("sanity", "max")
+  revalidateTag("sanity:fetch-sync-tags", "max")
   if (doc?._type) {
-    revalidateTag(`sanity:${doc._type}`, { expire: 0 })
+    revalidateTag(`sanity:${doc._type}`, "max")
   }
 
   if (doc?._type === 'caseStudy') {

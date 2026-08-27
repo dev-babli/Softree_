@@ -29,7 +29,9 @@ export async function POST(request: NextRequest) {
     const body = JSON.parse(rawBody);
 
     const secretHeader = request.headers.get("x-sanity-secret");
-    const signatureHeader = request.headers.get("x-sanity-signature");
+    const signatureHeader =
+      request.headers.get("sanity-webhook-signature") ||
+      request.headers.get("x-sanity-signature");
     const secretQuery = request.nextUrl.searchParams.get("secret");
 
     const localSecret = process.env.SANITY_REVALIDATE_SECRET?.trim();
@@ -63,6 +65,10 @@ export async function POST(request: NextRequest) {
     if (!isValid) {
       return NextResponse.json({ message: "Invalid secret" }, { status: 401 });
     }
+
+    // Wait 3 seconds for Content Lake eventual consistency to prevent race conditions
+    // where Next.js fetches stale data from Sanity before the API indexes are updated.
+    await new Promise((resolve) => setTimeout(resolve, 3000));
 
     const { _type, slug } = body;
     const paths: string[] = [];
@@ -107,9 +113,10 @@ export async function POST(request: NextRequest) {
     }
 
     // Clear tag-based caches for defineLive/sanityFetch
-    revalidateTag("sanity", { expire: 0 });
+    revalidateTag("sanity", "max");
+    revalidateTag("sanity:fetch-sync-tags", "max");
     if (_type) {
-      revalidateTag(`sanity:${_type}`, { expire: 0 });
+      revalidateTag(`sanity:${_type}`, "max");
     }
 
     try {
