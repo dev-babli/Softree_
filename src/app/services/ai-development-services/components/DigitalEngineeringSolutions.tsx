@@ -1,13 +1,16 @@
 "use client";
 
-import React, { useRef } from "react";
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import React, { useRef, useState } from "react";
+import { motion, useMotionValue, useTransform, useScroll, useMotionValueEvent } from "framer-motion";
 import { Check, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface SolutionCard {
   number: string;
   title: string;
+  description: string;
+  image: string;
   items: string[];
   buttonLink: string;
 }
@@ -16,6 +19,8 @@ const solutionsData: SolutionCard[] = [
   {
     number: "01",
     title: "AI Copilot Development",
+    description: "Build intelligent copilots that understand context, automate workflows, and enhance productivity across your organization.",
+    image: "/images/ai-development-service/aicard-1.png",
     items: [
       "Microsoft 365 Copilot Custom Extensions",
       "Context-Aware Code & Text Assistants",
@@ -28,6 +33,8 @@ const solutionsData: SolutionCard[] = [
   {
     number: "02",
     title: "Generative AI Development",
+    description: "Harness foundational models to generate high-quality text, images, code, and synthetic data for specialized enterprise tasks.",
+    image: "/images/ai-development-service/aicard-2.png",
     items: [
       "Custom LLM Fine-Tuning & Prompt Design",
       "High-Quality Synthetic Data Generation",
@@ -40,6 +47,8 @@ const solutionsData: SolutionCard[] = [
   {
     number: "03",
     title: "Enterprise RAG Development",
+    description: "Empower your workforce with Retrieval-Augmented Generation to securely interact with internal enterprise knowledge bases.",
+    image: "/images/ai-development-service/aicard-3.png",
     items: [
       "Hybrid Vector & Full-Text Search",
       "Real-Time Database & API Connectors",
@@ -52,6 +61,8 @@ const solutionsData: SolutionCard[] = [
   {
     number: "04",
     title: "AI Consulting Service",
+    description: "Navigate the complexities of AI adoption with expert guidance, ensuring strategic alignment and measurable ROI.",
+    image: "/images/ai-development-services/step-1.jpg",
     items: [
       "AI Maturity & Readiness Assessment",
       "ROI Analysis & Use Case Prioritization",
@@ -64,6 +75,8 @@ const solutionsData: SolutionCard[] = [
   {
     number: "05",
     title: "AI Chatbot Development",
+    description: "Deploy omnichannel conversational agents that provide human-like customer support and automate routine interactions.",
+    image: "/images/ai-development-services/step-2.jpg",
     items: [
       "Omnichannel Customer Support Bots",
       "Human-in-the-Loop Handoff Flows",
@@ -76,6 +89,8 @@ const solutionsData: SolutionCard[] = [
   {
     number: "06",
     title: "Multi Agent System",
+    description: "Design autonomous collaborative networks of AI agents that dynamically plan, execute, and evaluate complex workflows.",
+    image: "/images/ai-development-services/step-3.jpg",
     items: [
       "Collaborative Agentic Workflows",
       "Autonomous Task Decomposition & Routing",
@@ -87,177 +102,262 @@ const solutionsData: SolutionCard[] = [
   }
 ];
 
-const TiltCard = ({ solution, idx }: { solution: SolutionCard; idx: number }) => {
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  // Motion values for tilt coordinates
-  const x = useMotionValue(0.5);
-  const y = useMotionValue(0.5);
-
-  // Map tilt normalized values to rotation degrees
-  const rotateX = useTransform(y, [0, 1], [10, -10]);
-  const rotateY = useTransform(x, [0, 1], [-10, 10]);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-
-    // Normalize coordinates to [0, 1] range
-    x.set(mouseX / width);
-    y.set(mouseY / height);
-  };
-
-  const handleMouseLeave = () => {
-    // Reset back to center smoothly
-    x.set(0.5);
-    y.set(0.5);
-  };
-
+const DecorativeLayers = () => {
   return (
-    <div
-      className="w-full flex"
-      style={{ perspective: 1000 }}
-    >
-      <motion.div
-        ref={cardRef}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        style={{
-          rotateX,
-          rotateY,
-          transformStyle: "preserve-3d",
-        }}
-        initial={{ opacity: 0, y: 25 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.5, delay: idx * 0.05 }}
-        className="relative flex-1 bg-[#121217] border border-white/5 rounded-3xl p-7 flex flex-col justify-between shadow-xl hover:shadow-[0_10px_40px_rgba(255,107,44,0.1)] hover:border-orange-500/30 active:scale-[0.995] transition-all duration-300 group overflow-hidden select-none"
-      >
-        {/* Glowing Cursor Spotlight Effect */}
-        <motion.div
-          className="absolute -inset-px rounded-3xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"
-          style={{
-            background: useTransform(
-              [x, y],
-              ([latestX, latestY]) => {
-                if (typeof latestX !== 'number' || typeof latestY !== 'number') return '';
-                const pctX = latestX * 100;
-                const pctY = latestY * 100;
-                return `radial-gradient(350px circle at ${pctX}% ${pctY}%, rgba(255, 107, 44, 0.06) 0%, transparent 80%)`;
-              }
-            )
-          }}
-        />
-
-        {/* 3D Content Layout Container */}
-        <div style={{ transform: "translateZ(30px)", transformStyle: "preserve-3d" }} className="relative z-10">
-
-          {/* Badge Number Header */}
-          <div
-            style={{ transform: "translateZ(15px)" }}
-            className="mb-4 flex items-center"
-          >
-            <span className="inline-block bg-orange-500/10 border border-orange-500/20 text-[#FF6B2C] font-bold text-xs px-3 py-1 rounded-full">
-              {solution.number}
-            </span>
-          </div>
-
-          {/* Title */}
-          <h3
-            style={{ transform: "translateZ(25px)" }}
-            className="text-xl font-extrabold text-white mb-5 leading-snug group-hover:text-[#FF6B2C] transition-colors duration-300"
-          >
-            {solution.title}
-          </h3>
-
-          {/* Items list */}
-          <ul
-            style={{ transform: "translateZ(15px)" }}
-            className="space-y-3 mb-6"
-          >
-            {solution.items.map((item, i) => (
-              <li key={i} className="flex items-start gap-2.5">
-                <Check className="w-4 h-4 text-orange-500 shrink-0 mt-0.5" />
-                <span className="text-sm text-gray-300 leading-normal font-semibold group-hover:text-orange-400/90 transition-colors duration-300">
-                  {item}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Action Link (Next.js Link with separated top border) */}
-        <div
-          style={{ transform: "translateZ(10px)" }}
-          className="relative z-10 mt-auto pt-4 border-t border-white/10 flex items-center justify-between"
-        >
-          <Link
-            href={solution.buttonLink}
-            className="w-full flex items-center justify-between text-[#FF6B2C] hover:text-[#e0561b] font-bold text-sm transition-colors duration-200 group/link"
-          >
-            <span>Explore Service</span>
-            <ArrowRight className="w-4 h-4 text-[#FF6B2C] transition-transform duration-200 group-hover/link:translate-x-1.5" />
-          </Link>
-        </div>
-      </motion.div>
+    <div className="absolute inset-0 pointer-events-none z-0 overflow-visible hidden lg:block">
+      {/* Purple layer (Back) */}
+      <div className="absolute top-0 right-0 w-full max-w-[620px] h-[720px] bg-[#E5D9F2] rounded-[32px] translate-x-12 -translate-y-12 rotate-[6deg] opacity-100 origin-bottom-right shadow-sm" />
+      {/* Green layer (Middle) */}
+      <div className="absolute top-0 right-0 w-full max-w-[620px] h-[720px] bg-[#D1F2D9] rounded-[32px] translate-x-8 -translate-y-8 rotate-[4deg] opacity-100 origin-bottom-right shadow-sm" />
+      {/* Orange layer (Front-ish) */}
+      <div className="absolute top-0 right-0 w-full max-w-[620px] h-[720px] bg-[#FFE5D9] rounded-[32px] translate-x-4 -translate-y-4 rotate-[2deg] opacity-100 origin-bottom-right shadow-sm" />
     </div>
   );
 };
 
-export default function DigitalEngineeringSolutions() {
+const ActiveCard = ({ solution }: { solution: SolutionCard }) => {
   return (
-    <section className="relative w-full py-20 lg:py-24 bg-white overflow-hidden font-sans">
-      {/* Top Border Soft Brand Gradient Mesh */}
-      <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-orange-500/[0.03] via-transparent to-transparent pointer-events-none -z-10" />
-      {/* Background Decorators */}
-      <div className="absolute top-1/4 left-[-10%] w-[500px] h-[500px] bg-orange-100/20 rounded-full blur-3xl -z-10 pointer-events-none" />
-      <div className="absolute bottom-1/4 right-[-10%] w-[600px] h-[600px] bg-blue-50/30 rounded-full blur-3xl -z-10 pointer-events-none" />
+    <div className="w-full max-w-[680px] h-full bg-[#0B0F19] rounded-[20px] lg:rounded-[32px] flex flex-col overflow-hidden relative z-10 border border-white/5 mx-auto">
+      <div className="p-4 lg:p-8 flex-1 flex flex-col justify-start relative z-10 overflow-hidden">
+        {/* Top Badge */}
+        <div className="mb-2 lg:mb-3">
+          <span className="inline-flex items-center justify-center w-8 h-5 lg:w-14 lg:h-8 rounded-full border border-white/10 text-[#FF6B2C] font-semibold text-[9px] lg:text-sm bg-white/5">
+            {solution.number}
+          </span>
+        </div>
+        
+        {/* Title */}
+        <h3 className="text-[17px] sm:text-xl lg:text-[28px] font-extrabold text-white mb-1.5 lg:mb-2 leading-tight">
+          {solution.title}
+        </h3>
+        
+        {/* Description - Hidden on mobile to save vertical space */}
+        <p className="hidden lg:block text-gray-300/90 text-[14px] leading-relaxed mb-3 max-w-[95%]">
+          {solution.description}
+        </p>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Divider */}
+        <div className="hidden lg:block h-px w-full bg-white/10 mb-3" />
 
-        {/* Header */}
-        <div className="flex flex-col items-center w-full mb-12 lg:mb-16 text-center">
-          <div className="bg-orange-50 px-4 py-1.5 rounded-full border border-orange-100/50 mb-4 inline-block">
-            <span className="text-[11px] font-bold text-[#FF6B2C] tracking-widest uppercase">
-              SOLUTIONS PORTFOLIO
-            </span>
+        {/* Capabilities List - Truncated on extra-small mobile only */}
+        <ul className="space-y-1.5 lg:space-y-2.5 mb-2 lg:mb-3 overflow-hidden pr-2">
+          {solution.items.map((item, i) => (
+            <li key={i} className={`flex items-start gap-1.5 lg:gap-3 ${i >= 3 ? "hidden sm:flex" : ""}`}>
+              <Check className="w-3 lg:w-5 h-3 lg:h-5 text-[#FF6B2C] shrink-0 mt-0.5" />
+              <span className="text-[11px] sm:text-[12px] lg:text-[14px] text-gray-200/90 font-medium leading-tight lg:leading-snug">
+                {item}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+        {/* Explore Link */}
+        <Link 
+          href={solution.buttonLink}
+          className="inline-flex items-center gap-1.5 lg:gap-2 text-[#FF6B2C] font-bold text-[11px] sm:text-[12px] lg:text-[14px] hover:text-white transition-colors duration-200 w-max group mt-1 relative z-20"
+        >
+          Explore Service
+          <ArrowRight className="w-3 h-3 lg:w-4 lg:h-4 group-hover:translate-x-1 transition-transform duration-200" />
+        </Link>
+      </div>
+
+      {/* Large Image Area */}
+      <div className="w-full flex-1 min-h-[150px] lg:flex-none lg:h-[220px] relative">
+         <Image 
+           src={solution.image}
+           alt={solution.title}
+           fill
+           className="object-cover object-top lg:object-center opacity-80"
+         />
+         <div className="absolute inset-0 bg-gradient-to-b from-[#0B0F19] via-[#0B0F19]/60 to-transparent h-16" />
+      </div>
+    </div>
+  );
+};
+
+const AnimatedCard = ({ 
+  solution, 
+  index, 
+  totalCards, 
+  scrollYProgress 
+}: { 
+  solution: SolutionCard; 
+  index: number; 
+  totalCards: number; 
+  scrollYProgress: any;
+}) => {
+  const cardProgress = useTransform(scrollYProgress, [0, 1], [0, totalCards - 1]);
+  const offset = useTransform(cardProgress, (cp) => index - cp);
+
+  // Active card is at 0. 
+  // When passed (-1), it slides DOWN all the way off the screen.
+  // When waiting (1), it stays at 0 (hidden exactly behind active card).
+  const translateY = useTransform(offset, (o) => {
+    if (o < 0) {
+      return `${Math.abs(o) * 800}px`;
+    }
+    return "0px";
+  });
+
+  // No fading needed! The top card physically slides off, revealing the solid card below.
+  const opacity = useTransform(offset, (o) => {
+    if (o > 1.5) return 0; // Hide deep stack items
+    return 1;
+  });
+
+  const scale = useTransform(offset, (o) => {
+    if (o < 0) {
+      return 1 + (Math.abs(o) * 0.05); // slight pop-up effect as it slides off
+    }
+    return 1;
+  });
+
+  return (
+    <motion.div
+      style={{
+        position: "absolute",
+        top: 0,
+        right: 0,
+        width: "100%",
+        height: "100%",
+        translateY,
+        scale,
+        opacity,
+        zIndex: 100 - index,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+      }}
+      className="will-change-transform"
+    >
+      <ActiveCard solution={solution} />
+    </motion.div>
+  );
+};
+
+export default function DigitalEngineeringSolutions() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    const progress = latest * (solutionsData.length - 1);
+    const index = Math.round(progress);
+    if (index !== activeIndex && index >= 0 && index < solutionsData.length) {
+      setActiveIndex(index);
+    }
+  });
+
+  const scrollToIndex = (idx: number) => {
+    if (!containerRef.current) return;
+    
+    const rect = containerRef.current.getBoundingClientRect();
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const containerTop = rect.top + scrollTop;
+    
+    const containerHeight = containerRef.current.offsetHeight;
+    const viewportHeight = window.innerHeight;
+    
+    const scrollableDistance = containerHeight - viewportHeight;
+    const targetProgress = idx / (solutionsData.length - 1);
+    
+    const targetScrollY = containerTop + (scrollableDistance * targetProgress);
+    
+    window.scrollTo({
+      top: targetScrollY,
+      behavior: "smooth"
+    });
+  };
+
+  return (
+    <section 
+      ref={containerRef} 
+      className="relative w-full bg-white font-sans"
+      style={{ height: `${solutionsData.length * 90}vh` }} 
+    >
+      <div className="sticky top-0 w-full h-[100dvh] lg:h-screen flex flex-col justify-start overflow-hidden bg-white">
+        
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 w-full h-full flex flex-col lg:flex-row items-center gap-4 lg:gap-12 pt-6 pb-2 lg:pt-[6vh] lg:pb-[2vh]">
+          
+          {/* Left Column (Content & Navigation) */}
+          <div className="w-full lg:w-[45%] flex flex-col lg:h-full shrink-0 lg:justify-center">
+            <div className="bg-white border border-gray-100 shadow-sm px-2.5 py-1 lg:px-3 lg:py-1 rounded-full mb-1.5 lg:mb-2 inline-block w-max">
+              <span className="text-[9px] lg:text-[10px] font-bold text-[#FF6B2C] tracking-widest uppercase">
+                SOLUTIONS PORTFOLIO
+              </span>
+            </div>
+
+            <h2 className="text-[22px] sm:text-[28px] md:text-3xl lg:text-[32px] font-extrabold text-[#0B0F19] mb-2 tracking-tight leading-tight lg:leading-[1.15]">
+              Custom AI Development Solutions for <span className="text-[#FF6B2C]">Modern Businesses</span>
+            </h2>
+
+            <p className="hidden sm:block text-[13px] md:text-[14px] text-slate-500 mb-4 lg:mb-4 leading-relaxed max-w-[600px] shrink-0">
+              Explore our portfolio of custom AI, Generative AI, AI agents, and RAG solutions, delivered by our offshore white-label development team to help businesses build secure, scalable, and production-ready AI applications.
+            </p>
+
+            {/* Vertical Navigation List (Desktop Only) */}
+            <div className="hidden lg:block relative w-full flex-1 min-h-0 overflow-y-visible pr-2">
+              {/* Continuous vertical line on the far left */}
+              <div className="absolute left-[5px] lg:left-[5px] top-4 bottom-4 w-px bg-gray-200 hidden sm:block" />
+
+              <div className="flex flex-col">
+                {solutionsData.map((solution, idx) => {
+                  const isActive = activeIndex === idx;
+                  return (
+                    <div 
+                      key={solution.number}
+                      onClick={() => scrollToIndex(idx)}
+                      className={`relative flex items-center h-[55px] lg:h-[50px] border-b last:border-b-0 group shrink-0 transition-colors duration-300 rounded-lg mb-1 cursor-pointer ${isActive ? "bg-[#121217] border-transparent" : "bg-[#FF6B2C] border-transparent hover:brightness-110"}`}
+                    >
+                      {/* Active Dot */}
+                      {isActive && (
+                        <div className="absolute left-[1px] lg:left-[1px] top-1/2 -translate-y-1/2 flex items-center justify-center w-2 h-2 hidden sm:flex z-10">
+                          <div className="w-2 h-2 rounded-full bg-[#FF6B2C] ring-4 ring-[#121217]" />
+                        </div>
+                      )}
+
+                      <div className="flex items-center justify-between w-full sm:pl-8 pr-2 lg:pr-4">
+                        <div className="flex items-center gap-4 lg:gap-6">
+                          <span className={`text-base lg:text-lg font-bold transition-colors duration-300 ${isActive ? "text-[#FF6B2C]" : "text-white"}`}>
+                            {solution.number}
+                          </span>
+                          <span className={`text-[14px] lg:text-[17px] font-bold transition-colors duration-300 ${isActive ? "text-[#FF6B2C]" : "text-white"}`}>
+                            {solution.title}
+                          </span>
+                        </div>
+                        
+                        {/* Arrow Button */}
+                        <div className={`flex items-center justify-center w-8 h-8 lg:w-10 lg:h-10 rounded-full border transition-all duration-300 ${isActive ? "border-[#FF6B2C] bg-[#FF6B2C]/5" : "border-white/30 bg-white/10"}`}>
+                          <ArrowRight className={`w-4 h-4 lg:w-5 lg:h-5 transition-colors duration-300 ${isActive ? "text-[#FF6B2C]" : "text-white"}`} />
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-[42px] font-extrabold text-slate-800 mb-4 tracking-tight leading-tight max-w-4xl drop-shadow-[1px_1px_0px_rgba(255,255,255,0.9)]">
-            Custom AI Development Solutions for <span className="text-[#FF6B2C]">Modern Businesses</span>
-          </h2>
-
-          <p className="text-[15px] lg:text-base text-slate-500 max-w-2xl mx-auto leading-relaxed">
-            Explore our portfolio of custom AI, Generative AI, AI agents, and RAG solutions, delivered by our offshore white-label development team to help businesses build secure, scalable, and production-ready AI applications.
-          </p>
+          {/* Right Column Animated Stack (All Breakpoints) */}
+          <div className="flex w-full lg:w-[55%] relative flex-1 min-h-[300px] lg:h-full items-center justify-center lg:justify-end mt-4 sm:mt-6 lg:mt-0 perspective-1000">
+             <div className="relative w-full max-w-[680px] h-full mx-auto lg:mr-0">
+                {solutionsData.map((solution, idx) => (
+                  <AnimatedCard 
+                    key={solution.number}
+                    solution={solution}
+                    index={idx}
+                    totalCards={solutionsData.length}
+                    scrollYProgress={scrollYProgress}
+                  />
+                ))}
+             </div>
+          </div>
+          
         </div>
-
-        {/* Grid Layout (3 columns on desktop, 2 on tablet, 1 on mobile) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-          {solutionsData.map((solution, idx) => (
-            <TiltCard
-              key={solution.number}
-              solution={solution}
-              idx={idx}
-            />
-          ))}
-        </div>
-
-        {/* Global Action Footer Button */}
-        <div className="flex justify-center mt-16">
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-2 bg-[#18181b] hover:bg-[#FF6B2C] text-white font-bold text-[13px] tracking-wide px-8 py-4 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_25px_rgba(255,107,44,0.3)] transition-all duration-300 select-none"
-          >
-            <span>View All AI Services and Solutions</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-
       </div>
     </section>
   );
