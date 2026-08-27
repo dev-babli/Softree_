@@ -33,7 +33,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
-  const study = await sanityFetch<CaseStudyDoc | null>(caseStudyBySlugQuery, { slug })
+  const study = await sanityFetch<CaseStudyDoc | null>(caseStudyBySlugQuery, { slug }, { tags: ['caseStudy', `caseStudy:${slug}`] })
 
   if (!study) return { title: "Case Study Not Found" }
 
@@ -76,13 +76,13 @@ export default async function CaseStudyDetailPage({
 }) {
   const { slug } = await params
   const { layout: layoutOverride } = await searchParams
-  const study = await sanityFetch<CaseStudyDoc | null>(caseStudyBySlugQuery, { slug })
+  const study = await sanityFetch<CaseStudyDoc | null>(caseStudyBySlugQuery, { slug }, { tags: ['caseStudy', `caseStudy:${slug}`] })
   if (!study) notFound()
 
   let related: RelatedStudy[] = study.relatedCaseStudies || []
   if (!related || related.length === 0) {
     related =
-      (await sanityFetch<RelatedStudy[]>(relatedCaseStudiesFallbackQuery, { slug })) || []
+      (await sanityFetch<RelatedStudy[]>(relatedCaseStudiesFallbackQuery, { slug }, { tags: ['caseStudy'] })) || []
   }
 
   const [{ blogCategories, caseStudyCategories }, designTokens] = await Promise.all([

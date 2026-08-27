@@ -7,6 +7,7 @@ import { cmsLiveFetch } from './live'
 
 type CmsFetchOptions = {
   preview?: boolean
+  tags?: string[]
 }
 
 /** Server fetch with draft-mode support — CMS v2 data layer */
@@ -21,6 +22,7 @@ export async function cmsFetch<T>(
   const { data } = await cmsLiveFetch({
     query,
     params: { ...params, preview },
+    tags: options.tags || [],
     ...(preview
       ? { perspective: 'previewDrafts' as const, stega: true }
       : { perspective: 'published' as const, stega: false }),

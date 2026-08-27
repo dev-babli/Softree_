@@ -22,7 +22,7 @@ const postsQuery = groq`
 export const revalidate = 900
 
 export default async function BlogPage() {
-  const posts = await sanityFetch<any[]>(postsQuery)
+  const posts = await sanityFetch<any[]>(postsQuery, {}, { tags: ['post'] })
   const normalizedPosts = posts.map((post: any) => {
     const firstBlockText =
       (post.body &&

@@ -165,7 +165,7 @@ const portableTextComponents: PortableTextComponents = {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
-  const post = await sanityFetch<BlogPostDocument | null>(postBySlugQuery, { slug })
+  const post = await sanityFetch<BlogPostDocument | null>(postBySlugQuery, { slug }, { tags: ['post', `post:${slug}`] })
 
   if (!post) return { title: 'Blog Post Not Found' }
 
@@ -215,7 +215,7 @@ function estimateReadTime(post: { body?: unknown; composerSections?: unknown[] }
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const post = await sanityFetch<BlogPostDocument | null>(postBySlugQuery, { slug })
+  const post = await sanityFetch<BlogPostDocument | null>(postBySlugQuery, { slug }, { tags: ['post', `post:${slug}`] })
 
   if (!post) notFound()
 
@@ -237,7 +237,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
   if (post.displayMode === 'composer' && post.composerSections?.length) {
     const [relatedPosts, nav, designTokens] = await Promise.all([
-      sanityFetch<any[]>(relatedPostsQuery, { slug }),
+      sanityFetch<any[]>(relatedPostsQuery, { slug }, { tags: ['post'] }),
       getNavigationData(),
       fetchDesignTokens(),
     ])
