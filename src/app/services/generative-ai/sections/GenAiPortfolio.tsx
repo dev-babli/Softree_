@@ -186,9 +186,9 @@ export default function GenAiPortfolio() {
   return (
     <section className="relative w-full py-16 md:py-24 bg-transparent overflow-hidden font-sans">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] border-b border-l border-orange-500/5 rounded-bl-[100%] opacity-20 pointer-events-none translate-x-1/4 -translate-y-1/4" />
-      
+
       <div className="mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16 flex flex-col items-center">
           <SectionBadge text="PORTFOLIO OF SERVICES" variant="line" />
@@ -202,12 +202,12 @@ export default function GenAiPortfolio() {
 
         {/* Card Component */}
         <div className="mx-auto max-w-7xl rounded-3xl border border-zinc-200/60 bg-zinc-950 overflow-hidden shadow-2xl flex flex-col md:flex-row min-h-[520px]">
-          
+
           {/* Left Column */}
           <div className="relative w-full md:w-[38%] bg-gradient-to-br from-[#FF6B00] via-[#FF5812] to-[#E64C00] p-8 md:p-10 flex flex-col justify-between text-white overflow-hidden shrink-0">
             <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none" />
             <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.25),transparent_70%)] pointer-events-none" />
-            
+
             <div className="relative z-10 flex flex-col gap-10 h-full justify-between">
               <div>
                 <span className="text-[11px] font-bold tracking-[0.25em] text-white/80 uppercase">
@@ -225,11 +225,10 @@ export default function GenAiPortfolio() {
                         setActiveTab(idx);
                         setActiveAccordion(0);
                       }}
-                      className={`text-left transition-all duration-300 focus:outline-none ${
-                        isActive 
-                          ? "text-white font-extrabold text-lg md:text-xl translate-x-2" 
+                      className={`text-left transition-all duration-300 focus:outline-none ${isActive
+                          ? "text-white font-extrabold text-lg md:text-xl translate-x-2"
                           : "text-white/60 hover:text-white/90 hover:translate-x-1 text-base md:text-lg"
-                      }`}
+                        }`}
                     >
                       {item.tabLabel}
                     </button>
@@ -246,7 +245,7 @@ export default function GenAiPortfolio() {
           {/* Right Column */}
           <div className="w-full md:w-[62%] bg-[#0B0F19] p-8 md:p-12 flex flex-col justify-between text-zinc-100 relative">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(255,88,18,0.03),transparent_50%)] pointer-events-none" />
-            
+
             <div className="relative z-10">
               {/* Header */}
               <div className="flex justify-between items-start gap-4 mb-6">
@@ -270,7 +269,7 @@ export default function GenAiPortfolio() {
                 {currentTab.accordions.map((acc, index) => {
                   const isAccOpen = activeAccordion === index;
                   return (
-                    <div 
+                    <div
                       key={index}
                       className="border-b border-zinc-800/80 pb-4 transition-colors duration-200"
                     >
@@ -282,9 +281,9 @@ export default function GenAiPortfolio() {
                           <span className="text-[#FF5812] font-mono text-sm">{acc.id}.</span>
                           <span>{acc.title}</span>
                         </span>
-                        <ChevronDown 
-                          size={18} 
-                          className={`text-zinc-500 transition-transform duration-300 ${isAccOpen ? 'rotate-180 text-[#FF5812]' : ''}`} 
+                        <ChevronDown
+                          size={18}
+                          className={`text-zinc-500 transition-transform duration-300 ${isAccOpen ? 'rotate-180 text-[#FF5812]' : ''}`}
                         />
                       </button>
 
@@ -309,7 +308,7 @@ export default function GenAiPortfolio() {
               </div>
             </div>
           </div>
-          
+
         </div>
       </div>
     </section>

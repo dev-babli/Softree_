@@ -1,89 +1,132 @@
 "use client";
 
-import React, { useState } from "react";
-import { aiTechnologyCategories } from "../data/tech-stack";
-import SectionBadge from "./SectionBadge";
+import React from "react";
+import { motion } from "framer-motion";
+import { 
+  SiPython, 
+  SiPytorch, 
+  SiDatabricks, 
+  SiTensorflow, 
+  SiOpencv, 
+  SiDocker, 
+  SiHuggingface, 
+  SiScikitlearn, 
+  SiPandas, 
+  SiGrafana, 
+  SiFastapi, 
+  SiKubernetes,
+  SiLangchain,
+  SiApacheairflow,
+  SiApachespark
+} from "react-icons/si";
+import { TbBrandAzure, TbBrandAws } from "react-icons/tb";
+import { FaWindows } from "react-icons/fa";
+import { Brain, Database, GitMerge, SquareDot, LineChart } from "lucide-react";
+
+// Exact brand logos mapped for all 24 tech items
+const techStack = [
+  { name: "Python", icon: SiPython },
+  { name: "PyTorch", icon: SiPytorch },
+  { name: "Azure OpenAI", icon: TbBrandAzure },
+  { name: "LangChain", icon: SiLangchain },
+  { name: "LangGraph", icon: GitMerge },
+  { name: "LlamaIndex", icon: SiApachespark },
+  { name: "Pinecone", icon: SquareDot },
+  { name: "Hugging Face", icon: SiHuggingface },
+  { name: "Copilot Studio", icon: FaWindows },
+  { name: "Semantic Kernel", icon: FaWindows },
+  { name: "Databricks", icon: SiDatabricks },
+  { name: "Machine Learning", icon: Brain },
+  { name: "OpenCV", icon: SiOpencv },
+  { name: "Scikit-learn", icon: SiScikitlearn },
+  { name: "Tensorflow", icon: SiTensorflow },
+  { name: "Pandas", icon: SiPandas },
+  { name: "Microsoft Fabric", icon: FaWindows },
+  { name: "Azure AI Search", icon: TbBrandAzure },
+  { name: "ETL Processes", icon: SiApacheairflow },
+  { name: "FastAPI / APIs", icon: SiFastapi },
+  { name: "Docker & K8s", icon: SiDocker },
+  { name: "DevOps & MLOps", icon: SiKubernetes },
+  { name: "AWS Cloud", icon: TbBrandAws },
+  { name: "Grafana", icon: SiGrafana },
+];
 
 export default function AiTechnologyStack() {
-  const [activeTab, setActiveTab] = useState<string>(aiTechnologyCategories[0]?.id || "");
-  const activeCategory = aiTechnologyCategories.find((cat) => cat.id === activeTab) || aiTechnologyCategories[0];
-
   return (
-    <section className="px-4 py-16 lg:py-20 bg-transparent">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-black text-white py-20 lg:py-24 relative overflow-hidden font-sans">
+      
+      {/* Ambient background decorative orbs */}
+      <div className="absolute top-[-10%] left-[-10%] w-[35%] h-[35%] rounded-full bg-[#FF6B2C]/5 blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[35%] h-[35%] rounded-full bg-[#FF6B2C]/5 blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#FF6B2C]/[0.03] blur-[120px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
         {/* ================= HEADER ================= */}
-        <div className="mb-10 text-center flex flex-col items-center">
-          <SectionBadge text="AI TECHNOLOGY STACK" variant="line" />
-
-          <h2 className="text-2xl md:text-4xl lg:text-[2.25rem] font-extrabold text-[#111827] mb-2 md:mb-3 tracking-tight text-center leading-tight">
-            Technologies Powering Our{" "}
-            <span className="text-[#FF6A13]">AI Solutions</span>
-          </h2>
-
-          <p className="text-[15px] lg:text-base text-[#6B7280] mb-6 lg:mb-8 text-center max-w-2xl mx-auto leading-relaxed">
-            We combine leading AI models, Microsoft technologies, cloud platforms, data infrastructure, and modern development frameworks to build secure, scalable, and production-ready enterprise AI solutions.
-          </p>
-        </div>
-
-        {/* ================= TABS ================= */}
-        <div className="mb-10 flex justify-center">
-          <div className="flex flex-wrap justify-center gap-4 md:gap-8 border-b border-gray-200">
-            {aiTechnologyCategories.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`relative pb-3 text-sm font-medium transition ${
-                  activeTab === tab.id
-                    ? "text-orange-600"
-                    : "text-gray-800 hover:text-gray-700"
-                }`}
-              >
-                {tab.label}
-
-                {activeTab === tab.id && (
-                  <span className="absolute bottom-0 left-0 h-[3px] w-full rounded-full bg-orange-600" />
-                )}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* ================= TECH CARDS ================= */}
-        <div className="relative rounded-[32px] border border-white/10 bg-gradient-to-r from-black via-[#4c1c02] to-black px-4 sm:px-10 py-12 shadow-2xl">
-          {/* ambient glow */}
-          <div className="pointer-events-none absolute inset-0 flex justify-center overflow-hidden rounded-[32px]">
-            <div className="h-40 w-full max-w-[520px] rounded-full bg-orange-600/20 blur-[120px]" />
-          </div>
-
-          <div
-            key={activeTab}
-            className="relative z-10 grid gap-8 grid-cols-2 sm:grid-cols-3 lg:grid-cols-6"
+        <div className="max-w-4xl mb-12 lg:mb-16">
+          <motion.span 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-xs font-bold uppercase tracking-[0.25em] text-[#FF6B2C] mb-4 block"
           >
-            {activeCategory?.items.map((tech) => {
-              const Icon = tech.icon;
-
-              return (
-                <div
-                  key={tech.name}
-                  className="group relative flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-xl transition-all duration-300 ease-out hover:-translate-y-2 hover:bg-white/10 hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
-                >
-                  {/* icon container */}
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-600/10 ring-1 ring-orange-600/20 transition group-hover:bg-orange-600 group-hover:ring-orange-600">
-                    <Icon className="h-6 w-6 text-orange-400 group-hover:text-white transition" />
-                  </div>
-
-                  {/* name */}
-                  <span className="text-center text-sm font-medium text-gray-200 tracking-wide">
-                    {tech.name}
-                  </span>
-
-                  {/* hover glow */}
-                  <span className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-600/10 via-transparent to-amber-500/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                </div>
-              );
-            })}
-          </div>
+            Capabilities & Stack
+          </motion.span>
+          
+          <motion.h2 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-3xl md:text-5xl font-black text-white tracking-tight leading-[1.15] mb-6"
+          >
+            Powering Enterprise Innovation with Our Advanced AI Technology Stack
+          </motion.h2>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-sm md:text-[15px] text-slate-400 leading-relaxed max-w-3xl"
+          >
+            We combine leading foundation models, cloud infrastructure, and modern development frameworks to build secure, scalable, and production-ready enterprise solutions. From custom automated agents to high-performance data engineering pipelines, our vetted engineering team leverages a robust technology stack to deliver measurable ROI, accelerate operations, and secure your competitive edge.
+          </motion.p>
         </div>
+
+        {/* ================= TECH STACK GRID ================= */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+          {techStack.map((tech, idx) => {
+            const Icon = tech.icon;
+            
+            return (
+              <motion.div
+                key={tech.name}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.02 }}
+                whileHover={{ y: -3, scale: 1.02 }}
+                className="group flex items-center gap-4 px-6 py-5 bg-[#0C0C0C] border border-white/5 hover:border-[#FF6B2C]/30 hover:bg-[#121212] transition-all duration-300 rounded-xl cursor-pointer relative overflow-hidden"
+              >
+                {/* Micro-glow background highlight on hover */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#FF6B2C]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                {/* Icon Container */}
+                <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-lg bg-white/[0.03] text-slate-400 group-hover:bg-[#FF6B2C]/15 group-hover:text-[#FF6B2C] ring-1 ring-white/10 group-hover:ring-[#FF6B2C]/30 transition-all duration-300">
+                  <Icon className="h-5 w-5" />
+                </div>
+                
+                {/* Tech Name */}
+                <span className="relative z-10 text-[14.5px] font-bold text-slate-300 group-hover:text-white transition-colors duration-300">
+                  {tech.name}
+                </span>
+              </motion.div>
+            );
+          })}
+        </div>
+
       </div>
     </section>
   );

@@ -24,7 +24,7 @@
  */
 
 import React, { useState, useRef, useMemo, useEffect, useCallback } from "react";
-import SectionBadge from '../../../services/ai-development-services/components/SectionBadge';
+import SectionBadge from "@/app/services/ai-development-services/components/SectionBadge";
 import {
   motion,
   useMotionValue,
@@ -766,7 +766,7 @@ export default function WhatWeBuild() {
             </div>
             <div className="w-8 h-[1px] bg-[#FF5812]/20"></div>
           </div>
-          
+
           <h2 className="text-[clamp(32px,4.5vw,56px)] font-semibold leading-[0.9] tracking-[-0.04em] text-[#0A0A1A]">
             {whatWeBuildData.heading.prefix}
             <span className="text-[#FF5812]">
@@ -774,7 +774,7 @@ export default function WhatWeBuild() {
             </span>
             {whatWeBuildData.heading.suffix}
           </h2>
-          
+
           <p className="text-base leading-relaxed text-[#0a0a1a]/70 max-w-[600px]">
             {whatWeBuildData.subheading}
           </p>

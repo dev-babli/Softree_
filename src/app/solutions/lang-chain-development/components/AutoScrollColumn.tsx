@@ -2,17 +2,17 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import ChallengeItem from '../../../services/ai-development-services/components/ChallengeItem';
+import ChallengeItem from "@/app/services/ai-development-services/components/ChallengeItem";
 
-export default function AutoScrollColumn({ 
-  data, 
+export default function AutoScrollColumn({
+  data,
   isRight = false,
   activeHoverId = null,
-  setActiveHoverId = () => {},
+  setActiveHoverId = () => { },
   startIndex,
   onInteract
-}: { 
-  data: any[], 
+}: {
+  data: any[],
   isRight?: boolean,
   activeHoverId?: number | null,
   setActiveHoverId?: (id: number | null) => void,
@@ -85,7 +85,7 @@ export default function AutoScrollColumn({
   );
 
   return (
-    <div 
+    <div
       className={`flex h-[420px] flex-1 flex-col overflow-hidden overscroll-contain touch-pan-y rounded-[24px] border p-5 shadow-[0_8px_30px_rgb(0,0,0,0.03)] sm:h-[480px] sm:p-6 lg:h-[500px] lg:p-8 ${!isRight ? 'bg-[#FF5812] border-[#E84E0F]' : 'bg-[#FDFDFD] border-[#F0F0F0]'}`}
       onMouseLeave={() => { setActiveHoverId(null); }}
       onWheel={handleWheel}
@@ -100,7 +100,7 @@ export default function AutoScrollColumn({
           {isRight ? "LangChain Solutions" : "Business Challenges"}
         </h3>
       </div>
-      
+
       <div className="relative min-h-0 flex-1 overflow-hidden">
         <div className="relative flex h-full w-full flex-col gap-3 overflow-hidden pr-2 sm:pr-6">
           <AnimatePresence initial={false} mode="popLayout">
@@ -114,18 +114,18 @@ export default function AutoScrollColumn({
                 transition={{ type: "spring", stiffness: 400, damping: 40, mass: 1 }}
                 className="w-full"
               >
-                <ChallengeItem 
-                  item={item} 
-                  isRight={isRight} 
+                <ChallengeItem
+                  item={item}
+                  isRight={isRight}
                   isActive={activeHoverId === item.id}
                   onHover={() => setActiveHoverId(item.id)}
-                  onLeave={() => {}} // parent handles leave to prevent flickering
+                  onLeave={() => { }} // parent handles leave to prevent flickering
                 />
               </motion.div>
             ))}
           </AnimatePresence>
         </div>
-        
+
       </div>
     </div>
   );

@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { useInView } from 'framer-motion';
-import SectionBadge from '../../../services/ai-development-services/components/SectionBadge';
-import WorkflowTimeline from '../../../services/ai-development-services/components/WorkflowTimeline';
+import SectionBadge from "@/app/services/ai-development-services/components/SectionBadge";
+import WorkflowTimeline from "@/app/services/ai-development-services/components/WorkflowTimeline";
 import WorkflowMedia from '../../ai-agents-development/components/WorkflowMedia';
 import { workflowSteps } from '../data/how-ai-works';
 

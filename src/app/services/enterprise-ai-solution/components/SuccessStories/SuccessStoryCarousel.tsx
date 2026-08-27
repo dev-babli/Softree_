@@ -3,13 +3,13 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SuccessStoryCard } from "./SuccessStoryCard";
-import { successStoriesList } from "../../../ai-development-services/data/success-stories";
+import { successStoriesList } from "@/app/services/ai-development-services/data/success-stories";
 
 export default function SuccessStoryCarousel() {
   const [activeGroupIndex, setActiveGroupIndex] = useState(0);
   const [windowWidth, setWindowWidth] = useState(1920);
   const [isHovered, setIsHovered] = useState(false);
-  
+
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     handleResize(); // set initially

@@ -46,7 +46,7 @@ export function GenAiIndustry() {
   return (
     <section id="industry" className="w-full pt-4 pb-16 md:pt-8 md:pb-24 lg:pt-10 lg:pb-28 bg-white overflow-hidden">
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-12">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
@@ -61,7 +61,7 @@ export function GenAiIndustry() {
             We partner with organizations across industries to design, build, and scale intelligent digital solutions that create measurable impact.
           </p>
         </motion.div>
-        
+
         <div className="w-full">
           <IndustryCarousel items={mappedIndustries} />
         </div>

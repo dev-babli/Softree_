@@ -10,20 +10,20 @@ export default function DocumentAiDeliveryProcess() {
   return (
     <section id="process" className="relative w-full py-16 md:py-24 bg-transparent font-sans">
       <div className="mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Responsive Grid layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          
+
           {/* Left Column - Sticky */}
           <div className="lg:col-span-5 lg:sticky lg:top-32 flex flex-col justify-center">
             <div className="flex flex-col items-start">
               <SectionBadge text="DELIVERY PROCESS" variant="line" />
-              
+
               <h2 className="mt-4 text-3xl md:text-4xl lg:text-[2.5rem] font-extrabold text-[#111827] tracking-tight leading-tight">
                 Seamless Document AI <br />
                 <span className="text-[#FF5812]">Project Deliveries</span>
               </h2>
-              
+
               <p className="mt-6 text-[15px] lg:text-base text-[#6B7280] leading-relaxed max-w-md">
                 From structural layout discovery and document tagging to custom OCR training and database connector setups, Softree follows a proven delivery framework to deploy accurate, secure, and production-ready document understanding platforms.
               </p>
@@ -48,7 +48,7 @@ export default function DocumentAiDeliveryProcess() {
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.5, delay: index * 0.05 }}
                   className="group sticky w-full h-[280px] rounded-[32px] border border-zinc-800/80 bg-[#0B0F19] p-8 md:p-10 hover:border-[#FF5812]/50 transition-all duration-300 overflow-hidden mb-8 flex flex-col justify-between"
-                  style={{ 
+                  style={{
                     top: `140px`,
                     zIndex: index + 1
                   }}
@@ -56,10 +56,10 @@ export default function DocumentAiDeliveryProcess() {
                   {/* Advanced Background Texture & Glows */}
                   <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none" />
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,88,18,0.05),transparent_60%)] pointer-events-none" />
-                  
+
                   {/* Subtle top indicator line on hover */}
                   <div className="absolute top-0 left-0 h-[3px] w-full bg-gradient-to-r from-[#FF6B00] to-[#FF5812] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20" />
-                  
+
                   {/* Top Row: Icon & Step Label */}
                   <div className="flex items-center justify-between relative z-10">
                     <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#FF5812]/10 text-[#FF5812] border border-[#FF5812]/20 transition-all duration-300 group-hover:bg-[#FF5812] group-hover:text-white">

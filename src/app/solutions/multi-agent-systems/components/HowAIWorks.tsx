@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useInView } from 'framer-motion';
 import SectionBadge from './SectionBadge';
-import WorkflowTimeline from '../../../services/ai-development-services/components/WorkflowTimeline';
+import WorkflowTimeline from "@/app/services/ai-development-services/components/WorkflowTimeline";
 import WorkflowMedia from './WorkflowMedia';
 import { workflowSteps } from '../data/how-ai-works';
 
@@ -40,28 +40,28 @@ export default function HowAIWorks() {
       <div className="pointer-events-none absolute bottom-0 left-0 h-64 w-64 rounded-full bg-slate-300/20 blur-3xl" />
 
       <div className="relative z-10 mx-auto flex max-w-[85rem] flex-col items-center px-4 sm:px-6 lg:px-8">
-        
+
         <SectionBadge text="OUR MULTI-AGENT DELIVERY PROCESS" variant="line" />
-        
+
         <h2 className="mb-2 text-center text-3xl font-extrabold leading-tight tracking-tight text-[#111827] md:mb-3 md:text-4xl lg:text-[2.5rem]">
           From strategy to a <span className="text-[#FF5812]">production agent graph</span>
         </h2>
-        
+
         <p className="mb-8 max-w-2xl text-center text-[15px] leading-relaxed text-[#6B7280] lg:mb-10 lg:text-base">
           A structured path from use-case discovery to governed multi-agent deployment—built for orchestration quality, security, and measurable outcomes.
         </p>
-        
-        <div 
+
+        <div
           className="mb-8 flex w-full flex-col gap-4 rounded-[28px] border border-black/5 bg-[#F7F5F2] p-4 shadow-[0_20px_60px_-40px_rgba(0,0,0,0.35)] lg:flex-row lg:gap-6 lg:p-5"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
           {/* Left Side - Timeline */}
           <div className="w-full lg:w-[42%] flex flex-col">
-            <WorkflowTimeline 
-               steps={workflowSteps} 
-               activeStep={activeStep} 
-               onStepClick={handleStepClick} 
+            <WorkflowTimeline
+              steps={workflowSteps}
+              activeStep={activeStep}
+              onStepClick={handleStepClick}
             />
           </div>
 

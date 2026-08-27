@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { AlertCircle, Compass, CheckCircle2 } from "lucide-react";
-import SectionBadge from "../../ai-development-services/components/SectionBadge";
+import SectionBadge from "@/app/services/ai-development-services/components/SectionBadge";
 
 const provenResults = [
   {
@@ -42,9 +42,9 @@ export default function ProvenResults() {
   return (
     <section className="relative w-full py-12 md:py-16 lg:py-20 overflow-hidden font-sans bg-white">
       <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-7xl">
-        
+
         {/* Header */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -63,10 +63,10 @@ export default function ProvenResults() {
         {/* 3-Column Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 xl:gap-10">
           {provenResults.map((result, idx) => {
-            const gradientBg = idx === 0 
-              ? "from-blue-600 to-blue-500" 
-              : idx === 1 
-                ? "from-[#FF6B00] via-[#FF5812] to-[#E64C00]" 
+            const gradientBg = idx === 0
+              ? "from-blue-600 to-blue-500"
+              : idx === 1
+                ? "from-[#FF6B00] via-[#FF5812] to-[#E64C00]"
                 : "from-purple-600 to-purple-500";
 
             const themes = [
@@ -108,8 +108,8 @@ export default function ProvenResults() {
             const theme = themes[idx] || themes[0];
 
             return (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className={`flex flex-row items-stretch gap-3 sm:gap-4 bg-slate-50/40 border border-slate-200/50 p-4 sm:p-5 rounded-[1.75rem] sm:rounded-[2rem] shadow-sm ${theme.cardHover} transition-all duration-300`}
               >
                 {/* Left Content Block */}

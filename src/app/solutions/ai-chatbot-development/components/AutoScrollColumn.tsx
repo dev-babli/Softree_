@@ -2,17 +2,17 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import ChallengeItem from '../../../services/ai-development-services/components/ChallengeItem';
+import ChallengeItem from "@/app/services/ai-development-services/components/ChallengeItem";
 
-export default function AutoScrollColumn({ 
-  data, 
+export default function AutoScrollColumn({
+  data,
   isRight = false,
   activeHoverId = null,
-  setActiveHoverId = () => {},
+  setActiveHoverId = () => { },
   startIndex,
   onInteract
-}: { 
-  data: any[], 
+}: {
+  data: any[],
   isRight?: boolean,
   activeHoverId?: number | null,
   setActiveHoverId?: (id: number | null) => void,
@@ -39,13 +39,13 @@ export default function AutoScrollColumn({
   const handleTouchMove = (e: React.TouchEvent) => {
     if (throttleRef.current) return;
     const deltaY = touchStartY.current - e.touches[0].clientY;
-    
+
     if (Math.abs(deltaY) > 30) {
       throttleRef.current = true;
       setTimeout(() => { throttleRef.current = false; }, 600);
       if (deltaY > 0) onInteract('down');
       else onInteract('up');
-      touchStartY.current = e.touches[0].clientY; 
+      touchStartY.current = e.touches[0].clientY;
     }
   };
 
@@ -68,7 +68,7 @@ export default function AutoScrollColumn({
   );
 
   return (
-    <div 
+    <div
       className={`flex-1 rounded-[24px] p-6 lg:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.03)] border flex flex-col h-[500px] ${!isRight ? 'bg-[#FF5812] border-[#E84E0F]' : 'bg-[#FDFDFD] border-[#F0F0F0]'}`}
       onMouseLeave={() => { setActiveHoverId(null); }}
       onWheel={handleWheel}
@@ -83,7 +83,7 @@ export default function AutoScrollColumn({
           {isRight ? "AI Chatbot Solutions" : "Business Challenges"}
         </h3>
       </div>
-      
+
       <div className="flex-1 relative">
         <div className="flex flex-col gap-3 relative w-full h-full pr-6">
           <AnimatePresence initial={false} mode="popLayout">
@@ -97,18 +97,18 @@ export default function AutoScrollColumn({
                 transition={{ type: "spring", stiffness: 400, damping: 40, mass: 1 }}
                 className="w-full"
               >
-                <ChallengeItem 
-                  item={item} 
-                  isRight={isRight} 
+                <ChallengeItem
+                  item={item}
+                  isRight={isRight}
                   isActive={activeHoverId === item.id}
                   onHover={() => setActiveHoverId(item.id)}
-                  onLeave={() => {}} // parent handles leave to prevent flickering
+                  onLeave={() => { }} // parent handles leave to prevent flickering
                 />
               </motion.div>
             ))}
           </AnimatePresence>
         </div>
-        
+
       </div>
     </div>
   );

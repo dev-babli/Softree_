@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { SuccessStoriesCarousel } from "./SuccessStoriesCarousel";
 import { staggerContainer, fadeUpVariant } from "./animations";
-import SectionBadge from "../../../../services/ai-development-services/components/SectionBadge";
+import SectionBadge from "@/app/services/ai-development-services/components/SectionBadge";
 
 export const SuccessStories = () => {
   return (

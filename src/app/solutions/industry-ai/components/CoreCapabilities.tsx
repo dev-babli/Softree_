@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import SectionBadge from '../../../services/ai-development-services/components/SectionBadge';
+import SectionBadge from "@/app/services/ai-development-services/components/SectionBadge";
 import { useIndustryConfig } from "../context";
 
 export default function CoreCapabilities() {

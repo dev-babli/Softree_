@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { aiTechnologyCategories } from "../data/tech-stack";
-import SectionBadge from "../../../services/ai-development-services/components/SectionBadge";
+import SectionBadge from "@/app/services/ai-development-services/components/SectionBadge";
 
 export default function AiTechnologyStack() {
   const [activeTab, setActiveTab] = useState<string>(aiTechnologyCategories[0]?.id || "");
@@ -33,8 +33,8 @@ export default function AiTechnologyStack() {
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={`relative pb-3 text-sm font-medium transition ${activeTab === tab.id
-                    ? "text-orange-600"
-                    : "text-gray-800 hover:text-gray-700"
+                  ? "text-orange-600"
+                  : "text-gray-800 hover:text-gray-700"
                   }`}
               >
                 {tab.label}

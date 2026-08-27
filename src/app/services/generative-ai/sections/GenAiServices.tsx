@@ -11,7 +11,7 @@ type ServiceType = typeof genServices[0]
 export function GenAiServices() {
   const [active, setActive] = useState(1)
   const [isPaused, setIsPaused] = useState(false)
-  
+
   const current = genServices.find((s) => s.id === active) ?? genServices[0]
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export function GenAiServices() {
   return (
     <section id="services" className="w-full pt-4 pb-16 md:pt-8 md:pb-24 lg:pt-10 lg:pb-28 bg-white">
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-12">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
@@ -46,98 +46,95 @@ export function GenAiServices() {
             From strategy and model design to deployment and optimization, we help organizations unlock real business value with secure, scalable generative AI.
           </p>
         </motion.div>
-      <div 
-        className="mt-12 grid gap-6 lg:grid-cols-12 lg:gap-12"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-      >
-        {/* Left Column (Desktop ~35%) */}
-        <div className="group/list flex flex-col gap-4 lg:col-span-5 xl:col-span-4">
-          {genServices.map((service, index) => {
-            const isActive = service.id === active
-            return (
-              <motion.div
-                key={service.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative"
-              >
-                <button
-                  type="button"
-                  onClick={() => setActive(service.id)}
-                  className={`group relative flex w-full flex-col items-start gap-2 rounded-2xl border p-5 text-left transition-all duration-300 ${
-                    isActive
-                      ? "border-[#FF5812] bg-white shadow-[0_8px_30px_rgb(255,88,18,0.12)] ring-1 ring-[#FF5812]/20 opacity-100"
-                      : "border-gray-200 bg-gray-50/50 opacity-90 hover:opacity-100 hover:scale-[1.02] hover:border-gray-300 hover:bg-white hover:shadow-lg"
-                  }`}
+        <div
+          className="mt-12 grid gap-6 lg:grid-cols-12 lg:gap-12"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {/* Left Column (Desktop ~35%) */}
+          <div className="group/list flex flex-col gap-4 lg:col-span-5 xl:col-span-4">
+            {genServices.map((service, index) => {
+              const isActive = service.id === active
+              return (
+                <motion.div
+                  key={service.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="relative"
                 >
-                  {/* Active Indicator Line */}
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeIndicator"
-                      className="absolute left-0 top-1/2 h-1/2 w-1 -translate-y-1/2 rounded-r-full bg-[#FF5812]"
-                    />
-                  )}
-                  
-                  <div className="flex items-center gap-4">
-                    <span
-                      className={`font-mono text-sm font-bold tracking-widest transition-colors duration-300 ${
-                        isActive ? "text-[#FF5812]" : "text-gray-400 group-hover:text-[#FF5812]/70"
+                  <button
+                    type="button"
+                    onClick={() => setActive(service.id)}
+                    className={`group relative flex w-full flex-col items-start gap-2 rounded-2xl border p-5 text-left transition-all duration-300 ${isActive
+                        ? "border-[#FF5812] bg-white shadow-[0_8px_30px_rgb(255,88,18,0.12)] ring-1 ring-[#FF5812]/20 opacity-100"
+                        : "border-gray-200 bg-gray-50/50 opacity-90 hover:opacity-100 hover:scale-[1.02] hover:border-gray-300 hover:bg-white hover:shadow-lg"
                       }`}
-                    >
-                      {String(service.id).padStart(2, "0")}
-                    </span>
-                    <span
-                      className={`text-lg font-bold leading-snug transition-colors duration-300 ${
-                        isActive ? "text-gray-900" : "text-gray-600 group-hover:text-gray-900"
-                      }`}
-                    >
-                      {service.title}
-                    </span>
-                  </div>
-                </button>
+                  >
+                    {/* Active Indicator Line */}
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeIndicator"
+                        className="absolute left-0 top-1/2 h-1/2 w-1 -translate-y-1/2 rounded-r-full bg-[#FF5812]"
+                      />
+                    )}
 
-                {/* Mobile Content Accordion (Visible only on mobile/tablet) */}
-                <AnimatePresence>
-                  {isActive && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden lg:hidden"
-                    >
-                      <div className="mt-4 rounded-3xl border-2 border-[#FF5812] bg-gradient-to-br from-gray-50 to-white p-6 shadow-sm">
-                        <ServiceContent current={current} />
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            )
-          })}
-        </div>
+                    <div className="flex items-center gap-4">
+                      <span
+                        className={`font-mono text-sm font-bold tracking-widest transition-colors duration-300 ${isActive ? "text-[#FF5812]" : "text-gray-400 group-hover:text-[#FF5812]/70"
+                          }`}
+                      >
+                        {String(service.id).padStart(2, "0")}
+                      </span>
+                      <span
+                        className={`text-lg font-bold leading-snug transition-colors duration-300 ${isActive ? "text-gray-900" : "text-gray-600 group-hover:text-gray-900"
+                          }`}
+                      >
+                        {service.title}
+                      </span>
+                    </div>
+                  </button>
 
-        {/* Right Column (Desktop ~65%) */}
-        <div className="hidden lg:block lg:col-span-7 xl:col-span-8 relative">
-          <div className="sticky top-32 rounded-3xl border-2 border-[#FF5812] bg-white/60 bg-gradient-to-br from-white via-gray-50/50 to-gray-100/30 p-6 md:p-8 xl:p-10 shadow-[0_8px_40px_rgba(255,88,18,0.1)] backdrop-blur-xl">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={active}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-                className="min-h-[400px]"
-              >
-                <ServiceContent current={current} showGraphic={true} />
-              </motion.div>
-            </AnimatePresence>
+                  {/* Mobile Content Accordion (Visible only on mobile/tablet) */}
+                  <AnimatePresence>
+                    {isActive && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="overflow-hidden lg:hidden"
+                      >
+                        <div className="mt-4 rounded-3xl border-2 border-[#FF5812] bg-gradient-to-br from-gray-50 to-white p-6 shadow-sm">
+                          <ServiceContent current={current} />
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              )
+            })}
+          </div>
+
+          {/* Right Column (Desktop ~65%) */}
+          <div className="hidden lg:block lg:col-span-7 xl:col-span-8 relative">
+            <div className="sticky top-32 rounded-3xl border-2 border-[#FF5812] bg-white/60 bg-gradient-to-br from-white via-gray-50/50 to-gray-100/30 p-6 md:p-8 xl:p-10 shadow-[0_8px_40px_rgba(255,88,18,0.1)] backdrop-blur-xl">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={active}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  className="min-h-[400px]"
+                >
+                  <ServiceContent current={current} showGraphic={true} />
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </section>
   )
@@ -145,7 +142,7 @@ export function GenAiServices() {
 
 function AnimatedServiceGraphic({ serviceId }: { serviceId: number }) {
   const [typedText, setTypedText] = useState("")
-  
+
   useEffect(() => {
     if (serviceId === 2) {
       setTypedText("")
@@ -189,14 +186,14 @@ function AnimatedServiceGraphic({ serviceId }: { serviceId: number }) {
             <span className="text-[10px] text-zinc-500 tracking-wider">model-training.sh</span>
             <div className="w-10" />
           </div>
-          
+
           {/* Dashboard Body */}
           <div className="flex-grow py-3 flex flex-col justify-between text-xs">
             <div className="flex justify-between items-center text-[#FF5812]">
               <span>[STATE] TRAINING_IN_PROGRESS</span>
               <span className="animate-pulse">●</span>
             </div>
-            
+
             {/* Grid of weights */}
             <div className="grid grid-cols-6 gap-2 my-2">
               {Array.from({ length: 18 }).map((_, i) => (
@@ -205,8 +202,8 @@ function AnimatedServiceGraphic({ serviceId }: { serviceId: number }) {
                   className="h-3 rounded bg-zinc-800"
                   animate={{
                     backgroundColor: [
-                      "rgba(39, 39, 42, 1)", 
-                      "rgba(255, 88, 18, 0.4)", 
+                      "rgba(39, 39, 42, 1)",
+                      "rgba(255, 88, 18, 0.4)",
                       "rgba(39, 39, 42, 1)"
                     ]
                   }}
@@ -226,7 +223,7 @@ function AnimatedServiceGraphic({ serviceId }: { serviceId: number }) {
               <span>Acc: 98.4%</span>
             </div>
           </div>
-          
+
           {/* Progress bar */}
           <div className="w-full bg-zinc-800 h-2 rounded-full overflow-hidden">
             <motion.div
@@ -256,7 +253,7 @@ function AnimatedServiceGraphic({ serviceId }: { serviceId: number }) {
             <div className="self-end max-w-[80%] rounded-2xl bg-zinc-800 px-3.5 py-2 text-zinc-200">
               What is your timeline?
             </div>
-            
+
             {/* Assistant message */}
             <div className="self-start max-w-[85%] rounded-2xl bg-[#FF5812]/10 border border-[#FF5812]/20 px-3.5 py-2 text-zinc-200 flex gap-2 items-start min-h-[50px]">
               <div className="w-5 h-5 rounded-full bg-[#FF5812] flex items-center justify-center text-[10px] shrink-0 font-bold">AI</div>
@@ -388,7 +385,7 @@ function AnimatedServiceGraphic({ serviceId }: { serviceId: number }) {
                 <span className="text-[#FF5812] font-bold">0.3 (Deterministic)</span>
               </div>
               <div className="w-full bg-zinc-800 h-1 rounded-full relative flex items-center">
-                <motion.div 
+                <motion.div
                   className="w-3.5 h-3.5 rounded-full bg-white border border-[#FF5812] absolute"
                   animate={{ left: ["10%", "30%", "10%"] }}
                   transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
@@ -423,7 +420,7 @@ function AnimatedServiceGraphic({ serviceId }: { serviceId: number }) {
               <span>Use-case Prioritization Matrix</span>
             </div>
             <div className="flex items-center gap-2 text-zinc-200">
-              <motion.span 
+              <motion.span
                 className="text-[#FF5812] font-bold"
                 animate={{ opacity: [0.3, 1, 0.3] }}
                 transition={{ repeat: Infinity, duration: 1.5 }}
@@ -457,8 +454,8 @@ function ServiceContent({ current, showGraphic = false }: { current: ServiceType
         </p>
         <ul className="mt-8 space-y-4">
           {current.points.map((point: string, i: number) => (
-            <motion.li 
-              key={point} 
+            <motion.li
+              key={point}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 + i * 0.05 }}
@@ -470,7 +467,7 @@ function ServiceContent({ current, showGraphic = false }: { current: ServiceType
           ))}
         </ul>
       </div>
-      
+
       {showGraphic && (
         <div className="lg:col-span-6 flex items-center justify-center">
           <AnimatedServiceGraphic serviceId={current.id} />

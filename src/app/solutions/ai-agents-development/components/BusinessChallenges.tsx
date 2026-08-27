@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import SectionBadge from '../../../services/ai-development-services/components/SectionBadge';
+import SectionBadge from "@/app/services/ai-development-services/components/SectionBadge";
 import AutoScrollColumn from './AutoScrollColumn';
 import { businessChallengesData } from '../data/businessChallenges';
 import { aiSolutionsData } from '../data/aiSolutions';

@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import SectionBadge from '../../../services/ai-development-services/components/SectionBadge';
+import SectionBadge from "@/app/services/ai-development-services/components/SectionBadge";
 import AutoScrollColumn from '../../ai-agents-development/components/AutoScrollColumn';
 import { businessChallengesData } from '../data/businessChallenges';
 import { ragSolutionsData } from '../data/ragSolutions';

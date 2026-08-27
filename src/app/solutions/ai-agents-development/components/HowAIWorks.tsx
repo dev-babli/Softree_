@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useInView } from 'framer-motion';
 import SectionBadge from './SectionBadge';
-import WorkflowTimeline from '../../../services/ai-development-services/components/WorkflowTimeline';
+import WorkflowTimeline from "@/app/services/ai-development-services/components/WorkflowTimeline";
 import WorkflowMedia from './WorkflowMedia';
 import { workflowSteps } from '../data/how-ai-works';
 
@@ -42,34 +42,34 @@ export default function HowAIWorks() {
       {/* Background Decorators */}
 
       {/* Soft orange radial top right */}
-      
+
       {/* Curved lines pattern bottom left and right */}
       <div className="absolute bottom-0 left-0 w-[300px] h-[300px] border-t border-r border-[#FF6B2C]/10 rounded-tr-[100%] opacity-20 pointer-events-none translate-y-1/2 -translate-x-1/4"></div>
       <div className="absolute bottom-0 right-0 w-[300px] h-[300px] border-t border-l border-[#FF6B2C]/10 rounded-tl-[100%] opacity-20 pointer-events-none translate-y-1/2 translate-x-1/4"></div>
 
       <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center">
-        
+
         <SectionBadge text="OUR AI AGENT DEVELOPMENT PROCESS" variant="line" />
-        
+
         <h2 className="text-2xl md:text-4xl lg:text-[2.25rem] font-extrabold text-[#111827] mb-2 md:mb-3 tracking-tight text-center leading-tight">
           From AI Agent Strategy to <span className="text-[#FF5812]">Production-Ready Deployment</span>
         </h2>
-        
+
         <p className="text-[15px] lg:text-base text-[#6B7280] mb-6 lg:mb-8 text-center max-w-2xl leading-relaxed">
           Our AI agent developers design, build, integrate, test, and deploy custom enterprise AI agents using a structured development process focused on security, scalability, and measurable business outcomes.
         </p>
-        
-        <div 
+
+        <div
           className="w-full bg-[#FAF8F6] rounded-[24px] p-4 shadow-[0_8px_30px_rgb(0,0,0,0.03)] border border-[#ECECEC] flex flex-col lg:flex-row gap-4 lg:gap-6 mb-8"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
           {/* Left Side - Timeline */}
           <div className="w-full lg:w-[42%] flex flex-col">
-            <WorkflowTimeline 
-               steps={workflowSteps} 
-               activeStep={activeStep} 
-               onStepClick={handleStepClick} 
+            <WorkflowTimeline
+              steps={workflowSteps}
+              activeStep={activeStep}
+              onStepClick={handleStepClick}
             />
           </div>
 
