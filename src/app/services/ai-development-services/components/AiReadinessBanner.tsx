@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import Link from "next/link";
 
 export default function AiReadinessBanner() {
   return (
@@ -67,14 +68,16 @@ export default function AiReadinessBanner() {
             </div>
 
             {/* CTA Button */}
-            <motion.button
-              whileHover={{ scale: 1.02, y: -1 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-2 bg-[#FF6B2C] hover:bg-[#e0561b] text-white font-bold text-[12.5px] tracking-wider uppercase px-9 py-4.5 rounded-full shadow-[0_6px_20px_rgba(255,107,44,0.2)] hover:shadow-[0_12px_28px_rgba(255,107,44,0.35)] transition-all duration-300 group"
-            >
-              <span>Secure Your AI Team Now</span>
-              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </motion.button>
+            <Link href="/contact" className="inline-block">
+              <motion.div
+                whileHover={{ scale: 1.02, y: -1 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center gap-2 bg-[#FF6B2C] hover:bg-[#e0561b] text-white font-bold text-[12.5px] tracking-wider uppercase px-9 py-4.5 rounded-full shadow-[0_6px_20px_rgba(255,107,44,0.2)] hover:shadow-[0_12px_28px_rgba(255,107,44,0.35)] transition-all duration-300 group"
+              >
+                <span>Secure Your AI Team Now</span>
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </motion.div>
+            </Link>
 
           </div>
 
