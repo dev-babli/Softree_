@@ -15,7 +15,7 @@ const bodySchema = z.object({
   documentId: z.string().min(1),
 })
 
-function revalidatePublishedPaths(doc: WebsitePublishDoc): void {
+function revalidatePublishedPaths(doc: WebsitePublishDoc, documentId: string): void {
   const slug = doc?.slug?.current
   if (!slug) return
 
@@ -25,6 +25,10 @@ function revalidatePublishedPaths(doc: WebsitePublishDoc): void {
   if (doc?._type) {
     revalidateTag(`sanity:${doc._type}`, "max")
   }
+
+  const cleanId = documentId.replace(/^drafts\./, "")
+  revalidateTag(`sanity:${cleanId}`, "max")
+  revalidateTag(`sanity:drafts.${cleanId}`, "max")
 
   if (doc?._type === 'caseStudy') {
     revalidatePath('/')
@@ -80,7 +84,7 @@ export async function POST(request: NextRequest) {
     await commitWebsiteLivePublish(client, publishedId, docForPatch)
 
     const live = (await client.getDocument(publishedId)) as WebsitePublishDoc
-    revalidatePublishedPaths(live)
+    revalidatePublishedPaths(live, publishedId)
 
     return NextResponse.json({ ok: true, documentId: publishedId })
   } catch (error) {

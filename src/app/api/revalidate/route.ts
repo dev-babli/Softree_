@@ -70,7 +70,7 @@ export async function POST(request: NextRequest) {
     // where Next.js fetches stale data from Sanity before the API indexes are updated.
     await new Promise((resolve) => setTimeout(resolve, 3000));
 
-    const { _type, slug } = body;
+    const { _type, slug, _id } = body;
     const paths: string[] = [];
 
     if (_type === "post") {
@@ -117,6 +117,11 @@ export async function POST(request: NextRequest) {
     revalidateTag("sanity:fetch-sync-tags", "max");
     if (_type) {
       revalidateTag(`sanity:${_type}`, "max");
+    }
+    if (_id) {
+      const cleanId = _id.replace(/^drafts\./, "");
+      revalidateTag(`sanity:${cleanId}`, "max");
+      revalidateTag(`sanity:drafts.${cleanId}`, "max");
     }
 
     try {
