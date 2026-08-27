@@ -1,8 +1,8 @@
 export const heroData = {
-  badge: "AI DEVELOPMENT PARTNER",
+  badge: "OFFSHORE AI DEVELOPMENT PARTNER",
   title: {
-    blackText: " Your Offshore AI Development Services for Intelligent, ",
-    orangeText: "Scalable Enterprises",
+    blackText: "Offshore AI Development Services",
+    orangeText: "Built for Intelligent & Scalable Businesses",
   },
   description: "Your offshore delivery partner for building production-ready AI solutions—from custom AI and Generative AI to intelligent agents, RAG, automation, and business system integration.",
   ctas: {

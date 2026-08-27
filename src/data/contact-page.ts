@@ -61,8 +61,8 @@ export const CONTACT_CHANNELS = [
   },
   {
     city: "San Francisco",
-    email: "sophie.lynn@softreetechnology.com",
-    phone: "+1 628-800-5447",
+    email: "sales@softreetechnology.com",
+    phone: "",
     contact: "Sophie Lynn",
     hours: "PST business hours",
   },

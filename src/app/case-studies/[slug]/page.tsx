@@ -14,6 +14,7 @@ import { buildBlogJsonLdGraph } from "@/lib/structured-data"
 import { collectFaqItems } from "@/cms/lib/studio/aeoCompleteness"
 import type { SanityCaseStudyDoc } from "@/components/case-studies/layouts/mapCaseStudyData"
 import type { RelatedStudy } from "@/components/case-studies/layouts/types"
+import type { CaseStudyComposerSection } from "@/components/case-studies/composer/types"
 import { isPremiumLayout } from "@/lib/case-study-layouts"
 import { ogImages, pageOgImage, SITE_URL, twitterImages } from "@/lib/site-metadata"
 
@@ -24,6 +25,7 @@ type CaseStudyDoc = SanityCaseStudyDoc & {
   metaTitle?: string
   metaDescription?: string
   ogImage?: { asset?: { url?: string } } | null
+  composerSections?: CaseStudyComposerSection[]
 }
 
 export async function generateStaticParams() {

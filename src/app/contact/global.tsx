@@ -50,9 +50,9 @@ const locations = [
         United States
       </>
     ),
-    phone: "+1 628-800-5447",
+    phone: "",
     salesPerson: "Sophie Lynn",
-    mail: "sophie.lynn@softreetechnology.com",
+    mail: "sales@softreetechnology.com",
   },
 ];
 
@@ -126,21 +126,23 @@ export default function GlobalLocations() {
                     {/* CONTACT */}
                     <div className="mt-8 space-y-5">
                       {/* Phone */}
-                      <div className="flex items-start gap-3">
-                        <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-gray-800 ring-1 ring-white/10">
-                          <Phone className="w-4 h-4 text-orange-500" />
-                        </span>
+                      {loc.phone && (
+                        <div className="flex items-start gap-3">
+                          <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-gray-800 ring-1 ring-white/10">
+                            <Phone className="w-4 h-4 text-orange-500" />
+                          </span>
 
-                        <div className="flex flex-col">
-                          <span className="text-xs text-gray-400">Phone</span>
-                          <a
-                            href={`tel:${loc.phone}`}
-                            className="font-semibold hover:text-orange-500 transition"
-                          >
-                            {loc.phone}
-                          </a>
+                          <div className="flex flex-col">
+                            <span className="text-xs text-gray-400">Phone</span>
+                            <a
+                              href={`tel:${loc.phone}`}
+                              className="font-semibold hover:text-orange-500 transition"
+                            >
+                              {loc.phone}
+                            </a>
+                          </div>
                         </div>
-                      </div>
+                      )}
 
                       {/* Contact */}
                       {loc.salesPerson && (
@@ -230,21 +232,23 @@ export default function GlobalLocations() {
                     {/* CONTACT */}
                     <div className="mt-6 space-y-4">
                       {/* Phone */}
-                      <div className="flex items-start gap-3">
-                        <span className="flex items-center justify-center w-9 h-9 rounded-xl bg-gray-800">
-                          <Phone className="w-4 h-4 text-orange-500" />
-                        </span>
+                      {loc.phone && (
+                        <div className="flex items-start gap-3">
+                          <span className="flex items-center justify-center w-9 h-9 rounded-xl bg-gray-800">
+                            <Phone className="w-4 h-4 text-orange-500" />
+                          </span>
 
-                        <div className="flex flex-col">
-                          <span className="text-xs text-gray-400">Phone</span>
-                          <a
-                            href={`tel:${loc.phone}`}
-                            className="font-semibold hover:text-orange-500 transition"
-                          >
-                            {loc.phone}
-                          </a>
+                          <div className="flex flex-col">
+                            <span className="text-xs text-gray-400">Phone</span>
+                            <a
+                              href={`tel:${loc.phone}`}
+                              className="font-semibold hover:text-orange-500 transition"
+                            >
+                              {loc.phone}
+                            </a>
+                          </div>
                         </div>
-                      </div>
+                      )}
 
                       {/* Sales */}
                       {loc.salesPerson && (
