@@ -313,12 +313,13 @@ export const caseStudyType = defineType({
         }),
 
         defineField({
-            name: 'location',
-            title: 'Client Location',
-            type: 'string',
+            name: 'clientDetails',
+            title: 'Client Details',
+            type: 'text',
+            rows: 4,
             group: 'client',
             fieldset: 'snapshot',
-            description: 'e.g. "Amsterdam, The Netherlands" — shown in the case study summary block.',
+            description: 'Brief details about the client enterprise. If left empty, a default fallback text will be shown.',
         }),
         defineField({
             name: 'employees',

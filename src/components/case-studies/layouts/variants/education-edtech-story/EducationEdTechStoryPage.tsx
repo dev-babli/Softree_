@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, useMemo } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { PortableText, type PortableTextComponents } from "@portabletext/react"
@@ -68,6 +68,16 @@ const notebookPortableTextComponents: PortableTextComponents = {
 }
 
 export function EducationEdTechStoryPage({ data }: Props) {
+  const clientDetailsText = useMemo(() => {
+    const details = data.clientDetails;
+    if (details && details.trim()) return details;
+    const studyTitle = data.title || "AI-driven analytics and automation";
+    const studyRegion = data.snapshot?.region || "multiple international markets";
+    const size = (data.companySize || "enterprise").toLowerCase();
+    const sizeDesc = size === "startup" ? "A startup" : size === "mid-market" ? "A mid-market enterprise" : "A global enterprise";
+    return `${sizeDesc} in the IT services sector, operating across ${studyRegion} and managing a complex IT environment. The client partnered with Softree Technology to leverage ${studyTitle} for improved IT service management and operational efficiency.`;
+  }, [data.clientDetails, data.title, data.snapshot?.region, data.companySize]);
+
   const [progressWidth, setProgressWidth] = useState(0)
   const [activeSection, setActiveSection] = useState("overview")
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -390,6 +400,48 @@ export function EducationEdTechStoryPage({ data }: Props) {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* CLIENT DETAILS */}
+      <section style={{ paddingTop: "48px", paddingBottom: "16px" }}>
+        <div className="wrap">
+          <Reveal>
+            <div className="client-details-card" style={{
+              background: "linear-gradient(to bottom, #09090b 0%, #2a0e00 50%, #000000 100%)",
+              border: "1.5px solid rgba(255, 92, 0, 0.22)",
+              borderRadius: "16px",
+              padding: "32px",
+              boxShadow: "0 10px 30px rgba(0, 0, 0, 0.35)",
+              position: "relative",
+              overflow: "hidden"
+            }}>
+              <h4 style={{
+                fontFamily: "var(--mono)",
+                fontSize: "0.75rem",
+                fontWeight: 600,
+                textTransform: "uppercase",
+                letterSpacing: "0.18em",
+                color: "rgba(255, 255, 255, 0.7)",
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                marginBottom: "16px"
+              }}>
+                <span style={{ display: "inline-block", width: "6px", height: "6px", borderRadius: "50%", background: "var(--marker)" }} />
+                Client Profile
+              </h4>
+              <p style={{
+                fontFamily: "var(--body)",
+                fontSize: "1.1rem",
+                lineHeight: "1.75",
+                color: "rgba(255, 255, 255, 0.9)",
+                fontWeight: 400
+              }}>
+                {clientDetailsText}
+              </p>
+            </div>
+          </Reveal>
         </div>
       </section>
 

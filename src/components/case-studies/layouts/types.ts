@@ -89,6 +89,8 @@ export type CaseStudyLayoutData = {
   clientLogoUrl?: string
   excerpt: string
   client: string
+  clientDetails?: string
+  companySize?: string
   category?: string
   industry?: string
   accentColor: string

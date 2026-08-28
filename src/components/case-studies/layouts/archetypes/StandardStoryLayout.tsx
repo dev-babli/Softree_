@@ -20,7 +20,7 @@ type Metric = { label?: string; value?: string; description?: string };
 type RelatedStudy = { _id: string; title: string; slug: { current: string }; industry?: string; excerpt?: string; client?: string; mainImage?: SanityImage; mainImageUrl?: string };
 
 type StudyData = {
-  _id: string; _updatedAt?: string; title: string; slug: { current: string }; headerTitle?: string; excerpt?: string; industry?: string; useCase?: string; client?: string; location?: string; employees?: string; scaleOfOperation?: string; projectDuration?: string; duration?: string; teamSize?: string; technologies?: string[]; highlights?: Array<{ value: string; label: string }>; metrics?: Metric[]; keyResults?: Array<{ value: string; label: string }>; mainImage?: SanityImage; mainImageUrl?: string; heroImage?: SanityImage; clientLogo?: SanityImage; pdfUrl?: string; liveUrl?: string; challengeSummary?: string; challenge?: PTBlock[] | string; challengeContent?: PTBlock[]; approachSummary?: string; approach?: PTBlock[] | string; solution?: PTBlock[] | string; approachContent?: PTBlock[]; outcomeSummary?: string; outcome?: PTBlock[] | string; result?: string; outcomeContent?: PTBlock[]; body?: PTBlock[]; rawResults?: string[] | Metric[]; testimonial?: { quote?: string; name?: string; role?: string; avatar?: { asset?: { url?: string } } | null; headshot?: { asset?: { url?: string } } | null } | null; gallery?: Array<{ asset?: { url?: string }; alt?: string; caption?: string }>; galleryUrls?: Array<{ url?: string; alt?: string; caption?: string }>; pullQuoteImage?: SanityImage; publishedAt?: string;
+  _id: string; _updatedAt?: string; title: string; slug: { current: string }; headerTitle?: string; excerpt?: string; industry?: string; useCase?: string; client?: string; location?: string; clientDetails?: string; companySize?: string; employees?: string; scaleOfOperation?: string; projectDuration?: string; duration?: string; teamSize?: string; technologies?: string[]; highlights?: Array<{ value: string; label: string }>; metrics?: Metric[]; keyResults?: Array<{ value: string; label: string }>; mainImage?: SanityImage; mainImageUrl?: string; heroImage?: SanityImage; clientLogo?: SanityImage; pdfUrl?: string; liveUrl?: string; challengeSummary?: string; challenge?: PTBlock[] | string; challengeContent?: PTBlock[]; approachSummary?: string; approach?: PTBlock[] | string; solution?: PTBlock[] | string; approachContent?: PTBlock[]; outcomeSummary?: string; outcome?: PTBlock[] | string; result?: string; outcomeContent?: PTBlock[]; body?: PTBlock[]; rawResults?: string[] | Metric[]; testimonial?: { quote?: string; name?: string; role?: string; avatar?: { asset?: { url?: string } } | null; headshot?: { asset?: { url?: string } } | null } | null; gallery?: Array<{ asset?: { url?: string }; alt?: string; caption?: string }>; galleryUrls?: Array<{ url?: string; alt?: string; caption?: string }>; pullQuoteImage?: SanityImage; publishedAt?: string;
 };
 
 /* ------------------------------------------------------------------ */
@@ -91,6 +91,16 @@ export default function StandardStoryLayout({
   const excerptText = study.excerpt || "";
   const downloadUrl = study.pdfUrl;
   const heroImageUrl = study.mainImage?.asset?.url || study.mainImageUrl;
+
+  const clientDetailsText = useMemo(() => {
+    const details = study.clientDetails || study.location;
+    if (details && details.trim()) return details;
+    const studyTitle = study.title || "AI-driven analytics and automation";
+    const studyRegion = study.region || "multiple international markets";
+    const size = (study.companySize || "enterprise").toLowerCase();
+    const sizeDesc = size === "startup" ? "A startup" : size === "mid-market" ? "A mid-market enterprise" : "A global enterprise";
+    return `${sizeDesc} in the IT services sector, operating across ${studyRegion} and managing a complex IT environment. The client partnered with Softree Technology to leverage ${studyTitle} for improved IT service management and operational efficiency.`;
+  }, [study.clientDetails, study.location, study.title, study.region, study.companySize]);
 
   const challenge = asPT(study.challengeContent ?? study.challenge);
   const approach = asPT(study.approachContent ?? study.approach ?? study.solution);
@@ -180,13 +190,22 @@ export default function StandardStoryLayout({
               <nav className="mt-4 flex flex-col gap-2.5 text-[0.94rem]">{headings.length > 0 ? headings.map((h) => <a key={h.id} href={`#${h.id}`} className="text-[#37354a] transition-colors hover:text-[#5a17ee]">{h.text}</a>) : <span className="text-[#6b7694]">No sections yet.</span>}</nav>
             </aside>
             <div>
-              <div className="grid grid-cols-2 gap-x-8 gap-y-7 border-b border-[#e6e1f2] pb-10 md:grid-cols-3 lg:grid-cols-6">
+              <div className="grid grid-cols-2 gap-x-8 gap-y-7 border-b border-[#e6e1f2] pb-10 md:grid-cols-3 lg:grid-cols-5">
                 <SummaryItem label="Industry" value={study.industry || ""} />
-                <SummaryItem label="Location" value={study.location || ""} />
                 <SummaryItem label="Employees" value={study.employees || ""} />
                 <SummaryItem label="Duration" value={study.duration || study.projectDuration || ""} />
                 <SummaryItem label="Team size" value={study.teamSize || ""} />
                 <SummaryItem label="Scale" value={study.scaleOfOperation || (clientName ? `Trusted by ${clientName}` : "")} />
+              </div>
+              <div className="mt-10 rounded-2xl border border-[#e6e1f2] bg-[#f9f8fc] p-6 shadow-sm relative overflow-hidden">
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#5a17ee]" />
+                <h4 className="text-[0.75rem] font-bold uppercase tracking-[0.18em] text-[#6b7694] flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#5a17ee]" />
+                  Client Profile
+                </h4>
+                <p className="mt-4 text-[1.06rem] leading-[1.75] text-[#37354a] font-normal">
+                  {clientDetailsText}
+                </p>
               </div>
               {excerptText ? <p className="mt-10 text-[1.18rem] font-medium leading-[1.55] text-[#0d0a23] md:text-[1.28rem]">{excerptText}</p> : null}
               <article className="mt-2">
