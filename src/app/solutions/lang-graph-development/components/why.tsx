@@ -1,66 +1,62 @@
 "use client";
-
-import React, { useEffect, useMemo, useState } from "react";
+ 
+import React, { useEffect, useRef, useState } from "react";
 import {
   Star,
   ChevronLeft,
   ChevronRight,
   Pause,
   Play,
-  Rocket,
-  Users,
-  ShieldCheck,
   User,
   MapPin,
-  Sliders,
-  Shield,
+  Users,
+  Tag,
+  Expand,
+  BrainCircuit,
+  UserPlus,
   Globe,
 } from "lucide-react";
-
-const PAGE_URL =
-  "https://www.softreetechnology.com/solutions/lang-graph-development";
-
+ 
 /* ================= WHY CHOOSE DATA ================= */
 const whyChoose = [
   {
-    icon: Rocket,
-    title: "Agile Engineering",
-    desc: "Rapid iterations and modern delivery practices.",
-  },
-  {
     icon: Users,
-    title: "Leadership Access",
-    desc: "Direct communication with decision-makers.",
+    title: "Offshore Engineering Teams",
+    desc: "Access experienced, pre-vetted engineering talent that integrates seamlessly with your team and workflows.",
   },
   {
-    icon: ShieldCheck,
-    title: "Trusted Since 2013",
-    desc: "A decade of proven enterprise delivery.",
+    icon: Tag,
+    title: "White-Label Delivery",
+    desc: "Deliver solutions under your brand while Softree handles development, QA, and delivery behind the scenes.",
   },
   {
-    icon: Sliders,
-    title: "Flexible Engagement",
-    desc: "Scalable teams and adaptable delivery models aligned to your business goals.",
+    icon: Expand,
+    title: "Flexible & Scalable Engagements",
+    desc: "Scale engineering capacity through dedicated teams, project delivery, or on-demand offshore resources.",
   },
   {
-    icon: Shield,
-    title: "White-Label Friendly",
-    desc: "Ship LangGraph solutions under your brand with seamless integration.",
+    icon: BrainCircuit,
+    title: "AI, Microsoft & Modern Engineering Expertise",
+    desc: "Build and modernize solutions across Agentic AI, Microsoft Azure, Power Platform, SharePoint, data, cloud, and modern applications.",
+  },
+  {
+    icon: UserPlus,
+    title: "Your Team, Extended",
+    desc: "Work with Softree as an extension of your engineering organization, from discovery and design through production and ongoing support.",
   },
   {
     icon: Globe,
-    title: "Dedicated Offshore Teams",
-    desc: "Scale with dedicated offshore engineers embedded in your workflow.",
+    title: "Cost-Effective Global Delivery",
+    desc: "Leverage India-based engineering teams to increase delivery capacity while maintaining quality and continuity.",
   },
 ];
-
+ 
 /* ================= REVIEWS DATA ================= */
 const reviews = [
   {
     name: "Natasha Adams",
     company: "Wicked Point LLC",
     rating: 5,
-    headline: "Responsive LangGraph delivery with clear communication",
     comment:
       "We had a very positive experience working with Softree Technology. The developers were responsive and delivery was on time. We appreciate the attention they gave our project and their great communication. The final product was exactly what we wanted and we look forward to working with Softree in the future.",
     location: "Virginia",
@@ -69,7 +65,6 @@ const reviews = [
     name: "Arkady Fedorovtsjev",
     company: "ECG Group",
     rating: 5,
-    headline: "Enterprise support that responds when it matters",
     comment:
       "Overall, we are satisfied with our collaboration in the past and your last action and response to our reported issue, really makes a difference.",
     location: "Netherlands",
@@ -78,127 +73,71 @@ const reviews = [
     name: "Darrell Trimble",
     company: "SP Marketplace",
     rating: 5,
-    headline: "Built custom automation aligned to our stack",
     comment:
       "SOFTREE staff worked with us to learn our installation automation technology and built exactly what we needed.",
     location: "California",
   },
-  {
-    name: "Michael Chen",
-    company: "Digital Agency Partner",
-    rating: 5,
-    headline: "White-label LangGraph delivery our clients trust",
-    comment:
-      "Softree's white-label model let us ship production LangGraph workflows under our brand. Their team integrated cleanly with our process, documentation, and client demos.",
-    location: "United States",
-  },
-  {
-    name: "Priya Sharma",
-    company: "Enterprise SaaS Platform",
-    rating: 5,
-    headline: "Dedicated offshore team that scales with us",
-    comment:
-      "The dedicated offshore squad from Softree became an extension of our product team. They ramped quickly on LangGraph and helped us move from pilot to production.",
-    location: "United Kingdom",
-  },
-  {
-    name: "James O'Brien",
-    company: "B2B Technology Consultancy",
-    rating: 5,
-    headline: "Flexible LangGraph partnership from pilot to production",
-    comment:
-      "Softree matched our engagement model as we scaled from a LangGraph proof of concept to a production rollout with clear communication throughout.",
-    location: "Ireland",
-  },
 ];
-
-function buildReviewSchema() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Softree Technology",
-    url: PAGE_URL,
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "150",
-      bestRating: "5",
-    },
-    review: reviews.map((review) => ({
-      "@type": "Review",
-      author: { "@type": "Person", name: review.name },
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: review.rating,
-        bestRating: 5,
-      },
-      reviewBody: review.comment,
-      headline: review.headline,
-      publisher: { "@type": "Organization", name: review.company },
-    })),
-  };
-}
-
 export default function WhyChooseWithTestimonials() {
+  const trackRef = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
-  const reviewSchema = useMemo(() => buildReviewSchema(), []);
-
+ 
+  /* AUTOPLAY */
   useEffect(() => {
     if (paused) return;
-
+ 
     const interval = setInterval(() => {
       setIndex((prev) => (prev >= reviews.length - 1 ? 0 : prev + 1));
     }, 4000);
-
+ 
     return () => clearInterval(interval);
   }, [paused]);
-
+ 
   return (
-    <section className="py-12 text-gray-900 lg:py-16">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
-      />
-
-      <div className="mx-auto grid max-w-[85rem] grid-cols-1 items-start gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-12 lg:px-8">
-        {/* LEFT : WHY CHOOSE */}
+    <section className="text-gray-900 py-12 md:py-16 lg:py-20">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:items-stretch items-start">
+        {/* ================= LEFT : WHY CHOOSE ================= */}
         <div className="relative">
-          <div className="mb-3 text-xs uppercase tracking-[0.15em] text-orange-600">
+          {/* Small Label */}
+          <div className="text-orange-600 text-xs uppercase tracking-[0.15em] mb-3">
             Why Choose Softree
           </div>
-
-          <h2 className="mb-7 text-[1.85rem] font-extrabold leading-tight md:mb-8 md:text-[2.2rem] lg:text-[2rem]">
+ 
+          {/* Heading */}
+          <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-6">
             Built for{" "}
             <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
               Long-Term Impact
             </span>
           </h2>
-
-          <div className="absolute bottom-0 left-4 top-[108px] hidden w-px bg-gradient-to-b from-orange-500/40 via-orange-400/20 to-transparent md:block" />
-
-          <div className="space-y-5">
+ 
+          {/* ✅ Vertical Accent Line (Light Version) */}
+          <div className="absolute left-[11px] top-[105px] bottom-4 w-px bg-gradient-to-b from-orange-500/40 via-orange-400/20 to-transparent hidden md:block" />
+ 
+          {/* Features */}
+          <div className="space-y-4">
             {whyChoose.map((item, i) => {
               const Icon = item.icon;
-
+ 
               return (
-                <div key={item.title} className="relative flex items-start gap-5">
-                  <div className="relative z-10 flex h-7 w-7 items-center justify-center text-[11px] font-semibold text-orange-600">
+                <div key={i} className="relative flex gap-4 items-start">
+                  {/* Number */}
+                  <div className="relative z-10 flex items-center justify-center w-6 h-6 mt-1 text-[11px] font-semibold text-orange-600 bg-white">
                     {String(i + 1).padStart(2, "0")}
                   </div>
-
+ 
+                  {/* Content */}
                   <div>
-                    <div className="mb-1.5 flex items-center gap-2.5">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-md bg-orange-50 text-orange-600">
-                        <Icon size={16} />
+                    <div className="flex items-center gap-2 mb-1">
+                      <div className="w-7 h-7 flex items-center justify-center rounded-md bg-orange-50 text-orange-600 shrink-0">
+                        <Icon size={14} />
                       </div>
-
-                      <h3 className="text-[1rem] font-semibold leading-snug sm:text-[1.15rem]">
-                        {item.title}
-                      </h3>
+ 
+                      <h3 className="text-[15px] font-semibold">{item.title}</h3>
                     </div>
-
-                    <p className="max-w-md text-[13px] leading-relaxed text-gray-600 sm:text-[13.5px]">
+ 
+                    <p className="text-gray-600 text-[13px] leading-snug max-w-md">
                       {item.desc}
                     </p>
                   </div>
@@ -207,54 +146,56 @@ export default function WhyChooseWithTestimonials() {
             })}
           </div>
         </div>
-
-        {/* RIGHT : TESTIMONIALS */}
-        <div
-          id="client-feedback"
-          className="rounded-2xl border border-white/10 bg-gradient-to-r from-black via-[#4c1c02] to-black p-5 shadow-2xl sm:p-8 lg:mt-8"
-        >
-          <div className="mb-8">
-            <div className="mb-3 text-xs uppercase tracking-widest text-white">
+ 
+        {/* ================= RIGHT : TESTIMONIALS ================= */}
+        <div className="rounded-2xl p-10 bg-gradient-to-r from-black via-[#4c1c02] to-black border border-white/10 shadow-2xl h-full flex flex-col">
+          {/* Header */}
+          <div className="mb-10">
+            <div className="text-white text-xs uppercase tracking-widest mb-3">
               Client Feedback
             </div>
-
-            <h3 className="mb-5 text-[1.85rem] font-semibold text-white sm:text-[2rem]">
+ 
+            <h3 className="text-2xl font-semibold mb-6 text-white">
               Trusted by Enterprise Teams
             </h3>
-
-            <div className="mb-2 flex flex-wrap items-center gap-x-4 gap-y-1">
-              <div className="flex gap-1" role="img" aria-label="4.9 out of 5 stars">
+ 
+            <div className="flex items-center gap-4 mb-2">
+              <div className="flex gap-1">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star
                     key={i}
-                    className="h-4 w-4 fill-yellow-400 text-yellow-400"
+                    className="w-4 h-4 fill-yellow-400 text-yellow-400"
                   />
                 ))}
               </div>
-
+ 
               <p className="font-semibold text-white">4.9 / 5</p>
-              <p className="text-[13px] text-gray-300">average rating</p>
+              <p className="text-gray-300 text-sm">average rating</p>
             </div>
-
-            <p className="text-[13px] text-gray-400">
+ 
+            <p className="text-sm text-gray-400">
               Based on{" "}
-              <span className="font-medium text-white">150+ client reviews</span>
+              <span className="font-medium text-white">
+                150+ client reviews
+              </span>
             </p>
           </div>
-
-          <div className="relative w-full overflow-hidden">
+ 
+          {/* Reviews Slider */}
+          <div className="overflow-hidden relative w-full">
             <div
               className="flex transition-transform duration-700 ease-in-out"
               style={{ transform: `translateX(-${index * 100}%)` }}
             >
-              {reviews.map((review) => (
-                <article key={review.name} className="w-full shrink-0">
+              {reviews.map((review, i) => (
+                <div key={i} className="w-full shrink-0">
                   <div className="max-w-xl">
+                    {/* Rating Stars */}
                     <div className="mb-3 flex items-center gap-1">
                       {Array.from({ length: 5 }).map((_, idx) => (
                         <Star
                           key={idx}
-                          className={`h-4 w-4 ${
+                          className={`w-4 h-4 ${
                             idx < review.rating
                               ? "fill-yellow-400 text-yellow-400"
                               : "text-gray-500"
@@ -262,61 +203,64 @@ export default function WhyChooseWithTestimonials() {
                         />
                       ))}
                     </div>
-
-                    <blockquote className="mb-5 text-[15px] leading-relaxed text-gray-200">
+ 
+                    {/* Review Comment */}
+                    <p className="text-gray-200 text-base leading-relaxed mb-6">
                       “{review.comment}”
-                    </blockquote>
-
-                    <footer className="space-y-1">
+                    </p>
+ 
+                    {/* Reviewer Info */}
+                    <div className="space-y-1">
                       <div className="flex items-center gap-2">
                         <User size={14} className="text-orange-400" />
                         <div>
-                          <cite className="text-[13px] font-semibold not-italic text-white">
+                          <p className="font-semibold text-white text-sm">
                             {review.name}
-                          </cite>
-                          <p className="text-xs text-gray-400">{review.company}</p>
+                          </p>
+ 
+                          {/* ✅ Company added here */}
+                          <p className="text-xs text-gray-400">
+                            {review.company}
+                          </p>
                         </div>
                       </div>
-
+ 
                       <div className="flex items-center gap-2">
                         <MapPin size={13} className="text-gray-400" />
-                        <p className="text-xs text-gray-400">{review.location}</p>
+                        <p className="text-xs text-gray-400">
+                          {review.location}
+                        </p>
                       </div>
-                    </footer>
+                    </div>
                   </div>
-                </article>
+                </div>
               ))}
             </div>
           </div>
-
-          <div className="mt-6 flex items-center gap-2 text-gray-400">
+ 
+          {/* Controls */}
+          <div className="flex items-center gap-6 mt-auto pt-8 text-gray-400">
             <button
-              type="button"
               onClick={() =>
                 setIndex((i) => (i === 0 ? reviews.length - 1 : i - 1))
               }
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full transition hover:text-white"
-              aria-label="Previous review"
+              className="hover:text-white transition"
             >
               <ChevronLeft size={18} />
             </button>
-
+ 
             <button
-              type="button"
               onClick={() => setPaused(!paused)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full transition hover:text-white"
-              aria-label={paused ? "Play reviews" : "Pause reviews"}
+              className="hover:text-white transition"
             >
               {paused ? <Play size={16} /> : <Pause size={16} />}
             </button>
-
+ 
             <button
-              type="button"
               onClick={() =>
                 setIndex((i) => (i >= reviews.length - 1 ? 0 : i + 1))
               }
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full transition hover:text-white"
-              aria-label="Next review"
+              className="hover:text-white transition"
             >
               <ChevronRight size={18} />
             </button>
