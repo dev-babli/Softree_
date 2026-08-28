@@ -16,6 +16,7 @@ const PartnerShowcase = dynamic(() => import('./components/PartnerShowcase'), { 
 const ClientTestimonialsShowcase = dynamic(() => import('./components/ClientTestimonialsShowcase'), { ssr: true });
 const Industries = dynamic(() => import('./components/Industries'), { ssr: true });
 const AiTechnologyStack = dynamic(() => import('./components/AiTechnologyStack'), { ssr: true });
+// const AiArchitectureShowcase = dynamic(() => import('./components/AiArchitectureShowcase'), { ssr: true });
 const SuccessStories = dynamic(() => import('./components/SuccessStories/SuccessStories').then((mod) => mod.SuccessStories), { ssr: true });
 const AIPhilosophy = dynamic(() => import('./components/AIPhilosophy'), { ssr: true });
 const AIDilemma = dynamic(() => import('./components/AIDilemma'), { ssr: true });
@@ -90,10 +91,11 @@ export default function AiDevelopmentServicesPage() {
       <CoreCapabilities />
       <Industries />
       <AiTechnologyStack />
+      {/* <AiArchitectureShowcase /> */}
       <DigitalEngineeringSolutions />
       <AiRoadmap />
       <AiReadinessBanner />
-      {/* <PartnerShowcase /> */}
+      <PartnerShowcase />
       <ClientTestimonialsShowcase />
       {/* Storytelling Flow
       <BusinessChallenges />

@@ -1,11 +1,29 @@
-"use client";
-
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { BentoCoverImage } from "./BentoCoverImage";
 import { BENTO_VIEWPORT, captionStagger, panelReveal, previewSwap } from "./bento.motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MapPin, Briefcase, Users, Globe, Building2, AlertTriangle, Settings, Quote } from "lucide-react";
+
+function formatDate(iso?: string) {
+  if (!iso) return null;
+  const d = Date.parse(iso);
+  if (Number.isNaN(d)) return null;
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  }).format(new Date(d));
+}
+
+function getImageBgColor(imagePath?: string) {
+  if (!imagePath) return "#FAF9F6";
+  const path = imagePath.toLowerCase();
+  if (path.includes("enterprise")) return "#060814";
+  if (path.includes("ai-powered") || path.includes("customer") || path.includes("service")) return "#F7F8FC";
+  if (path.includes("security")) return "#0B0E2A";
+  if (path.includes("data")) return "#0A0C16";
+  return "#ffffff";
+}
 
 export type BentoPreviewItem = {
   id: string;
@@ -15,6 +33,24 @@ export type BentoPreviewItem = {
   href?: string;
   excerpt?: string;
   ctaLabel?: string;
+  clientDetails?: string;
+  challenge?: string;
+  approach?: string;
+  outcome?: string;
+  client?: string;
+  location?: string;
+  industry?: string;
+  employees?: string;
+  region?: string;
+  testimonial?: {
+    quote?: string;
+    name?: string;
+    role?: string;
+  };
+  highlights?: Array<{ value: string; label: string }>;
+  readingTime?: string;
+  takeaways?: string[];
+  publishedAt?: string;
 };
 
 type BentoPreviewPanelProps = {
@@ -33,20 +69,19 @@ export function BentoPreviewPanel({
   const swap = previewSwap(reduced);
   const caption = captionStagger(reduced);
   const isBlue = accent === "blue";
+  const isBlog = item?.ctaLabel === "Read article" || (!item?.challenge && !item?.approach && !item?.outcome && !!item?.excerpt);
 
   const badgeClass = isBlue
-    ? "border-[#0f5cc0]/40 bg-[#0f5cc0]/15 text-[#7eb8ff]"
-    : "border-[#FF5812]/35 bg-[#FF5812]/10 text-[#ffb899]";
-
-  const ctaClass = isBlue
-    ? "rounded-md border border-white bg-white px-5 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-[#181818] hover:bg-[#f0f1f4]"
-    : "border-b border-white/45 pb-0.5 text-sm font-medium text-white hover:border-white";
+    ? "border-[#0043CE]/30 bg-[#0043CE]/10 text-[#0043CE]"
+    : "border-[#FF5812]/30 bg-[#FF5812]/10 text-[#FF5812]";
 
   return (
     <motion.div
       className={cn(
-        "relative min-h-[34rem] md:min-h-[32rem] lg:min-h-[34rem] overflow-hidden rounded-xl border bg-[#111111]",
-        isBlue ? "border-[#d7dce9]" : "border-[#EAEAEA] shadow-[0_2px_8px_rgba(0,0,0,0.04)]",
+        "relative flex flex-col items-stretch overflow-hidden rounded-xl border bg-white border-[#EAEAEA] shadow-[0_8px_24px_rgba(0,0,0,0.03)]",
+        isBlog 
+          ? "min-h-[18rem] md:min-h-[18.5rem] lg:min-h-[19rem]" 
+          : "min-h-[38rem] md:min-h-[40rem] lg:min-h-[42rem]",
         className,
       )}
       initial="hidden"
@@ -59,122 +94,271 @@ export function BentoPreviewPanel({
         {item ? (
           <motion.div
             key={item.id}
-            className="absolute inset-0 flex flex-col items-stretch overflow-hidden bg-[#0d0d0f]"
+            className="absolute inset-0 flex flex-col items-stretch overflow-hidden bg-white"
             {...swap}
             style={{ willChange: "opacity" }}
           >
-            {/* Top Row — Full Cover Image (No Text) */}
-            <div 
-              className="w-full flex-1 relative min-h-[220px] overflow-hidden z-10 border-b border-zinc-800"
-              style={{
-                backgroundImage: "linear-gradient(135deg, #0d0d0f 0%, #050507 100%)",
-              }}
-            >
-              {/* Glowing gradient ambient background layer behind the image */}
-              <div 
-                className="absolute inset-0 opacity-20 pointer-events-none transition-all duration-500"
-                style={{
-                  background: isBlue
-                    ? "radial-gradient(circle at center, rgba(15,92,192,0.35), transparent 70%)"
-                    : "radial-gradient(circle at center, rgba(255,88,18,0.25), transparent 70%)"
-                }}
-              />
-              {/* Blurred under-layer for aesthetic depth */}
-              <div className="absolute inset-0 z-0 opacity-35 blur-3xl scale-110 overflow-hidden select-none pointer-events-none">
-                <BentoCoverImage
-                  src={item.image}
-                  alt=""
-                  sizes="10px"
-                  className="object-cover w-full h-full"
-                />
-              </div>
-
-              {/* Main Full-Cover Image */}
-              <div className="absolute inset-0 z-10 w-full h-full flex items-center justify-center">
-                <BentoCoverImage
-                  src={item.image}
-                  alt={item.title}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-contain md:object-cover object-center md:object-top w-full h-full"
-                  priority
-                />
-              </div>
-            </div>
-
-            {/* Bottom Row — Text & Gradient Background */}
-            <div 
-              className="w-full p-5 md:p-6 lg:p-7 flex flex-col justify-center relative z-20"
-              style={{
-                backgroundImage: "linear-gradient(135deg, #121215 0%, #08080a 100%)",
-              }}
-            >
-              {/* Subtle background glow matching the category accent */}
-              <div 
-                className="absolute inset-0 opacity-15 pointer-events-none"
-                style={{
-                  background: isBlue
-                    ? "radial-gradient(circle at 10% 10%, rgba(15,92,192,0.4), transparent 50%)"
-                    : "radial-gradient(circle at 10% 10%, rgba(255,88,18,0.3), transparent 50%)"
-                }}
-              />
-
-              <motion.div
-                className="flex flex-col justify-center relative z-10"
-                variants={{
-                  visible: {
-                    transition: reduced
-                      ? { duration: 0 }
-                      : { staggerChildren: 0.05, delayChildren: 0.08 },
-                  },
-                }}
-                initial="hidden"
-                animate="visible"
-              >
-                <div>
-                  <motion.span
-                    variants={caption}
-                    className={cn(
-                      "inline-flex rounded-full border px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em]",
-                      badgeClass,
-                    )}
+            {isBlog ? (
+              <div className="w-full h-full p-4 md:p-5 flex flex-col justify-between overflow-y-auto relative z-20 bg-[#FDFDFE]">
+                <div className="grid grid-cols-1 md:grid-cols-[38%_1fr] gap-4 md:gap-5 items-stretch h-full min-h-0">
+                  {/* Left Column: Portrait Cover Graphic */}
+                  <div 
+                    className="relative rounded-2xl overflow-hidden border border-[#EAEAEA] shadow-sm self-center md:self-start w-full"
+                    style={{ backgroundColor: getImageBgColor(item.image) }}
                   >
-                    {item.category}
-                  </motion.span>
-                  <motion.h3
-                    variants={caption}
-                    className="mt-4 max-w-2xl text-balance font-serif text-xl md:text-2xl lg:text-[1.85rem] font-bold leading-[1.25] tracking-[-0.025em] text-white"
-                  >
-                    {item.title}
-                  </motion.h3>
-                  {item.excerpt ? (
-                    <motion.p
-                      variants={caption}
-                      className="mt-3.5 max-w-xl text-pretty text-xs md:text-sm leading-relaxed text-white/70 line-clamp-3 md:line-clamp-4"
-                    >
-                      {item.excerpt}
-                    </motion.p>
-                  ) : null}
-                </div>
-                
-                {item.href ? (
-                  <motion.div variants={caption} className="mt-4 md:mt-5">
-                    <Link
-                      href={item.href}
-                      className={cn(
-                        "group inline-flex items-center gap-1.5 transition-[transform,background-color,border-color] duration-200 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
-                        ctaClass,
+                    <img 
+                      src={item.image} 
+                      alt={item.title} 
+                      className="w-full h-auto block"
+                    />
+                  </div>
+
+                  {/* Right Column: Title and Details */}
+                  <div className="flex flex-col justify-start gap-3 pt-0 pb-1 min-w-0">
+                    <div className="space-y-3">
+                      <div>
+                        <span className={cn(
+                          "inline-flex rounded-full border px-3 py-1 text-[9px] font-bold uppercase tracking-[0.14em]",
+                          badgeClass
+                        )}>
+                          {item.category}
+                        </span>
+                      </div>
+                      <h3 className="text-xl md:text-[23px] font-extrabold leading-[1.25] tracking-[-0.03em] text-[#0a0a1a]">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs md:text-sm leading-relaxed text-[#0a0a1a]/70 font-normal">
+                        {item.excerpt}
+                      </p>
+                    </div>
+
+                    <div className="mt-1.5 space-y-2.5">
+                      {/* Date & Reading time */}
+                      {item.publishedAt && (
+                        <div className="flex items-center gap-1.5 text-xs text-[#0a0a1a]/55 font-semibold tracking-wide">
+                          <time dateTime={item.publishedAt}>{formatDate(item.publishedAt)}</time>
+                          {item.readingTime && (
+                            <>
+                              <span>•</span>
+                              <span>{item.readingTime}</span>
+                            </>
+                          )}
+                        </div>
                       )}
-                    >
-                      <span>{item.ctaLabel ?? (isBlue ? "Read article" : "Open case study")}</span>
-                      <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
-                    </Link>
+
+                      {/* CTA Button */}
+                      {item.href && (
+                        <div>
+                          <Link
+                            href={item.href}
+                            className="group inline-flex items-center gap-2 rounded-full bg-[#db2727] hover:bg-[#b91c1c] px-6 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-white transition-all duration-300 active:scale-[0.98] shadow-sm"
+                          >
+                            <span>Read article</span>
+                            <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+                          </Link>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <>
+                {/* Scrollable Content Area */}
+                <div className="w-full p-5 md:p-7 pb-4 flex-grow overflow-y-auto relative z-20">
+                  <motion.div
+                    className="flex flex-col relative z-10"
+                    variants={{
+                      visible: {
+                        transition: reduced
+                          ? { duration: 0 }
+                          : { staggerChildren: 0.05, delayChildren: 0.08 },
+                      },
+                    }}
+                    initial="hidden"
+                    animate="visible"
+                  >
+                    {/* Header */}
+                    <div>
+                      <motion.span
+                        variants={caption}
+                        className={cn(
+                          "inline-flex rounded-full border px-3 py-1 text-[9px] font-bold uppercase tracking-[0.14em]",
+                          badgeClass,
+                        )}
+                      >
+                        {item.category}
+                      </motion.span>
+                      <motion.h3
+                        variants={caption}
+                        className="mt-3.5 max-w-2xl text-balance font-serif text-2xl md:text-3.5xl font-extrabold leading-[1.15] tracking-[-0.03em] text-[#0a0a1a]"
+                      >
+                        {item.title}
+                      </motion.h3>
+                      
+                      {item.client && (
+                        <motion.div 
+                          variants={caption}
+                          className="mt-2.5 flex items-center gap-2 text-sm text-[#0a0a1a]/60 font-semibold"
+                        >
+                          <Building2 className="h-4 w-4 shrink-0 text-[#0a0a1a]/40" />
+                          <span>{item.client}</span>
+                        </motion.div>
+                      )}
+
+                      {/* Metadata Grid */}
+                      {!isBlog && (
+                        <motion.div 
+                          variants={caption}
+                          className="mt-4 grid grid-cols-2 gap-3 border-t border-b border-[#EAEAEA] py-4 sm:grid-cols-4"
+                        >
+                          {/* Location */}
+                          <div className="flex items-center gap-2.5">
+                            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#0a0a1a]/[0.03] text-[#0a0a1a]/50">
+                              <MapPin className="h-4 w-4" />
+                            </div>
+                            <div>
+                              <span className="block text-[9px] font-bold uppercase tracking-wider text-[#0a0a1a]/40">Location</span>
+                              <span className="block text-xs font-semibold text-[#0a0a1a]">{item.location || "Global"}</span>
+                            </div>
+                          </div>
+
+                          {/* Industry */}
+                          <div className="flex items-center gap-2.5">
+                            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#0a0a1a]/[0.03] text-[#0a0a1a]/50">
+                              <Briefcase className="h-4 w-4" />
+                            </div>
+                            <div>
+                              <span className="block text-[9px] font-bold uppercase tracking-wider text-[#0a0a1a]/40">Industry</span>
+                              <span className="block text-xs font-semibold text-[#0a0a1a] truncate max-w-[85px]">{item.industry || "Technology"}</span>
+                            </div>
+                          </div>
+
+                          {/* Employees */}
+                          <div className="flex items-center gap-2.5">
+                            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#0a0a1a]/[0.03] text-[#0a0a1a]/50">
+                              <Users className="h-4 w-4" />
+                            </div>
+                            <div>
+                              <span className="block text-[9px] font-bold uppercase tracking-wider text-[#0a0a1a]/40">Employees</span>
+                              <span className="block text-xs font-semibold text-[#0a0a1a]">{item.employees || "1,000+"}</span>
+                            </div>
+                          </div>
+
+                          {/* Regions */}
+                          <div className="flex items-center gap-2.5">
+                            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#0a0a1a]/[0.03] text-[#0a0a1a]/50">
+                              <Globe className="h-4 w-4" />
+                            </div>
+                            <div>
+                              <span className="block text-[9px] font-bold uppercase tracking-wider text-[#0a0a1a]/40">Regions</span>
+                              <span className="block text-xs font-semibold text-[#0a0a1a]">{item.region || "Global"}</span>
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </div>
+
+                    {/* Narrative & Visual columns */}
+                    <div className="mt-5 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+                      {/* Left Column - Challenge & Solution or Article Overview */}
+                      <div className="flex-1 min-w-0 flex flex-col gap-4">
+                        {item.challenge && (
+                          <motion.div 
+                            variants={caption}
+                            className="rounded-xl border border-[#FF5812]/15 bg-[#FF5812]/[0.02] p-4"
+                          >
+                            <div className="flex items-center gap-2 text-[#FF5812] mb-1.5">
+                              <AlertTriangle className="h-4 w-4" />
+                              <span className="text-[10px] font-bold uppercase tracking-[0.12em]">The Challenge</span>
+                            </div>
+                            <p className="text-xs md:text-sm leading-relaxed text-[#0a0a1a]/80 font-normal">
+                              {item.challenge}
+                            </p>
+                          </motion.div>
+                        )}
+
+                        {item.approach && (
+                          <motion.div 
+                            variants={caption}
+                            className="rounded-xl border border-[#0043CE]/15 bg-[#0043CE]/[0.02] p-4"
+                          >
+                            <div className="flex items-center gap-2 text-[#0043CE] mb-1.5">
+                              <Settings className="h-4 w-4" />
+                              <span className="text-[10px] font-bold uppercase tracking-[0.12em]">Our Solution</span>
+                            </div>
+                            <p className="text-xs md:text-sm leading-relaxed text-[#0a0a1a]/80 font-normal">
+                              {item.approach}
+                            </p>
+                          </motion.div>
+                        )}
+                      </div>
+
+                      {/* Right Column - Device Mockup & Impact Card Below */}
+                      <motion.div 
+                        variants={caption}
+                        className="w-full md:w-[320px] lg:w-[340px] shrink-0 self-center md:self-start flex flex-col gap-4"
+                      >
+                        {/* The Composite Preview Graphic */}
+                        <div className="w-full rounded-2xl overflow-hidden bg-white border border-[#EAEAEA] shadow-sm">
+                          <img 
+                            src={item.image} 
+                            alt={item.title} 
+                            className="w-full h-auto block" 
+                          />
+                        </div>
+
+                        {/* The Impact Stats card stacked below */}
+                        {item.highlights && item.highlights.length > 0 && (
+                          <div className="w-full rounded-xl border border-[#D1E8D9] bg-[#F4FAF6] p-4 shadow-sm">
+                            <span className="block text-[10px] font-bold uppercase tracking-[0.14em] text-[#107C41] mb-2.5">
+                              The Impact
+                            </span>
+                            <div className="grid grid-cols-3 gap-3">
+                              {item.highlights.slice(0, 3).map((hl, i) => (
+                                <div key={i} className="flex flex-col items-center text-center">
+                                  <span className="text-base md:text-lg font-black text-[#107C41] leading-none">
+                                    {hl.value}
+                                  </span>
+                                  <span className="text-[9px] text-[#107C41]/85 leading-tight font-bold mt-1.5 uppercase tracking-wide">
+                                    {hl.label}
+                                  </span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </motion.div>
+                    </div>
                   </motion.div>
-                ) : null}
-              </motion.div>
-            </div>
+                </div>
+
+                {/* Sticky Footer Area with Read full case study button */}
+                {item.href && (
+                  <div className="w-full px-5 py-3.5 md:px-7 border-t border-[#EAEAEA] bg-[#FDFDFD] flex justify-end shrink-0 relative z-30 shadow-[0_-4px_16px_rgba(0,0,0,0.02)]">
+                    <motion.div
+                      variants={{
+                        hidden: { opacity: 0, y: 10 },
+                        visible: { opacity: 1, y: 0, transition: { delay: 0.15 } }
+                      }}
+                      initial="hidden"
+                      animate="visible"
+                    >
+                      <Link
+                        href={item.href}
+                        className="group inline-flex items-center gap-2 rounded-full bg-[#0a0a1a] px-5 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-white transition-all duration-300 hover:bg-[#222233] active:scale-[0.98] shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812] focus-visible:ring-offset-2"
+                      >
+                        <span>{item.ctaLabel ?? "Read full case study"}</span>
+                        <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+                      </Link>
+                    </motion.div>
+                  </div>
+                )}
+              </>
+            )}
           </motion.div>
         ) : (
-          <div className="flex h-full min-h-[22rem] items-center justify-center text-sm text-white/40">
+          <div className="flex h-full min-h-[22rem] items-center justify-center text-sm text-[#0a0a1a]/40 bg-white">
             Select an item
           </div>
         )}

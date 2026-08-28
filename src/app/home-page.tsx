@@ -82,7 +82,7 @@ export default function Home({ homepageCaseStudies }: HomeProps) {
         <EngineeringSolutionsLazy />
         {/* Industry tabs + Softree partner marquees — continues light band. */}
         <SoftreeEnterpriseCarousel />
-        <HomepageCaseStudiesLazy />
+        <HomepageCaseStudiesLazy caseStudies={homepageCaseStudies} />
         {/* Testimonials + blog bento */}
         <HomepageShowcaseSectionsLazy />
         <TechStackSectionLazy />

@@ -31,6 +31,19 @@ export type SanityNavCaseStudy = {
     industry?: string;
     mainImage?: { asset?: { url?: string }; alt?: string };
     mainImageUrl?: string;
+    clientDetails?: string;
+    challenge?: string;
+    approach?: string;
+    outcome?: string;
+    location?: string;
+    employees?: string;
+    region?: string;
+    testimonial?: {
+        quote?: string;
+        name?: string;
+        role?: string;
+    };
+    highlights?: Array<{ value: string; label: string }>;
 };
 
 export type SanityNavCaseStudyLink = {

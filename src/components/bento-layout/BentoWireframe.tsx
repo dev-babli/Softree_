@@ -9,6 +9,7 @@ import { BENTO_SPRING, BENTO_VIEWPORT, scrollReveal } from "./bento.motion";
 import { BentoPreviewPanel } from "./BentoPreviewPanel";
 import { BentoIndexThumb } from "./BentoIndexThumb";
 import { useBentoPreview } from "./useBentoPreview";
+import { Barcode, UserCheck, Briefcase, BarChart3, Target, MapPin } from "lucide-react";
 
 export type {
   BlogPostMock,
@@ -42,6 +43,44 @@ function ScrollReveal({
     >
       {children}
     </motion.div>
+  );
+}
+
+function CaseStudySidebarIcon({ study }: { study: CaseStudyMock }) {
+  const title = study.title.toLowerCase();
+  
+  if (title.includes("barcode") || title.includes("scanner")) {
+    return (
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#FF5812]/10 border border-[#FF5812]/20 text-[#FF5812]">
+        <Barcode className="h-5 w-5" />
+      </div>
+    );
+  }
+  if (title.includes("separation") || title.includes("employee")) {
+    return (
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#8A3FFC]/10 border border-[#8A3FFC]/20 text-[#8A3FFC]">
+        <UserCheck className="h-5 w-5" />
+      </div>
+    );
+  }
+  if (title.includes("travel") || title.includes("request")) {
+    return (
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#0043CE]/10 border border-[#0043CE]/20 text-[#0043CE]">
+        <Briefcase className="h-5 w-5" />
+      </div>
+    );
+  }
+  if (title.includes("healthcare") || title.includes("revenue") || title.includes("dashboard")) {
+    return (
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#24A148]/10 border border-[#24A148]/20 text-[#24A148]">
+        <BarChart3 className="h-5 w-5" />
+      </div>
+    );
+  }
+  return (
+    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#DA1E28]/10 border border-[#DA1E28]/20 text-[#DA1E28]">
+      <Target className="h-5 w-5" />
+    </div>
   );
 }
 
@@ -98,7 +137,9 @@ function CaseStudyRow({
         <span className="absolute bottom-2 left-1.5 top-2 w-[2px] rounded-full bg-[#FF5812]" aria-hidden />
       ) : null}
 
-      {!isHome && (
+      {isHome ? (
+        <CaseStudySidebarIcon study={study} />
+      ) : (
         <BentoIndexThumb
           src={study.image}
           alt={study.title}
@@ -109,11 +150,11 @@ function CaseStudyRow({
       <span className="min-w-0 flex-1">
         <span
           className={cn(
-            "block text-[10px] font-semibold uppercase tracking-[0.12em]",
+            "block text-[10px] font-bold uppercase tracking-[0.12em]",
             isActive
               ? "text-[#FF5812]"
               : isHome
-                ? "text-[#0a0a1a]/50"
+                ? "text-[#FF5812]"
                 : "text-[#787774]",
           )}
         >
@@ -121,16 +162,27 @@ function CaseStudyRow({
         </span>
         <span
           className={cn(
-            "mt-1 block text-pretty text-[15px] font-medium leading-snug tracking-[-0.02em]",
+            "mt-1 block text-pretty text-[15px] font-bold leading-tight tracking-[-0.02em]",
             isActive
               ? "text-[#0a0a1a]"
               : isHome
-                ? "text-[#0a0a1a]/75 group-hover:text-[#0a0a1a]"
+                ? "text-[#0a0a1a]/85 group-hover:text-[#0a0a1a]"
                 : "text-[#2F3437] group-hover:text-[#111111]",
           )}
         >
           {study.title}
         </span>
+        {isHome && study.client && (
+          <span className="mt-0.5 block text-xs text-[#0a0a1a]/60 truncate font-normal">
+            {study.client}
+          </span>
+        )}
+        {isHome && study.location && (
+          <span className="mt-1 flex items-center gap-1 text-[10px] text-[#0a0a1a]/50 font-normal">
+            <MapPin className="h-3 w-3 shrink-0 text-[#0a0a1a]/40" />
+            <span>{study.location}</span>
+          </span>
+        )}
       </span>
 
       <span
@@ -203,7 +255,18 @@ export function BentoWireframe({
         image: active.image,
         href: active.href,
         excerpt: active.excerpt,
-        ctaLabel: "Open case study",
+        clientDetails: active.clientDetails,
+        challenge: active.challenge,
+        approach: active.approach,
+        outcome: active.outcome,
+        client: active.client,
+        location: active.location,
+        industry: active.industry,
+        employees: active.employees,
+        region: active.region,
+        testimonial: active.testimonial,
+        highlights: active.highlights,
+        ctaLabel: "Read full case study",
       }
     : null;
 

@@ -29,7 +29,13 @@ const FALLBACK_BLOG_POSTS: BlogPostMock[] = [
     excerpt: "Discover how enterprise decision engines leverage cognitive models, predictive analytics, and natural language query systems to drive operational automation and strategic growth.",
     image: "/images/blog/enterprise.png",
     href: "/blog/ai-enterprise-decision-making",
-    publishedAt: "2026-08-10T12:00:00Z"
+    publishedAt: "2026-08-10T12:00:00Z",
+    readingTime: "5 min read",
+    takeaways: [
+      "Integrating predictive modeling into daily decision chains",
+      "Reducing human intervention in high-volume approvals",
+      "Leveraging Microsoft Fabric for real-time data ingestion"
+    ]
   },
   {
     id: "blog-customer-service",
@@ -38,7 +44,13 @@ const FALLBACK_BLOG_POSTS: BlogPostMock[] = [
     excerpt: "Learn how modern enterprise support divisions use secure large language models, custom copilots, and multi-agent routing to scale service delivery and automate ticketing resolutions.",
     image: "/images/blog/ai-powered.png",
     href: "/blog/ai-powered-customer-service-automation",
-    publishedAt: "2026-08-10T11:00:00Z"
+    publishedAt: "2026-08-10T11:00:00Z",
+    readingTime: "6 min read",
+    takeaways: [
+      "Deploying secure Copilots to deflect up to 65% of support calls",
+      "Automating ticketing queues with multi-agent routing",
+      "Ensuring absolute data privacy in customer chat histories"
+    ]
   },
   {
     id: "blog-security-testing",
@@ -47,7 +59,13 @@ const FALLBACK_BLOG_POSTS: BlogPostMock[] = [
     excerpt: "An in-depth review of advanced QA automation and security testing models designed to safeguard LLM integration pipelines, evaluate API compliance, and block cognitive threats.",
     image: "/images/blog/security.png",
     href: "/blog/ai-security-testing-services",
-    publishedAt: "2026-08-09T10:00:00Z"
+    publishedAt: "2026-08-09T10:00:00Z",
+    readingTime: "4 min read",
+    takeaways: [
+      "Detecting and mitigating prompt injection vulnerabilities",
+      "Building automated security pipelines for API integrations",
+      "Maintaining continuous compliance under enterprise standards"
+    ]
   },
   {
     id: "blog-data-analytics",
@@ -56,7 +74,13 @@ const FALLBACK_BLOG_POSTS: BlogPostMock[] = [
     excerpt: "Unlocking business intelligence through Microsoft Fabric, scalable data engineering pipelines, and real-time operational telemetry dashboarding for high-performance enterprise teams.",
     image: "/images/blog/data.png",
     href: "/blog/data-analytics-consulting-services-enterprise-decision-making",
-    publishedAt: "2026-08-07T09:00:00Z"
+    publishedAt: "2026-08-07T09:00:00Z",
+    readingTime: "5 min read",
+    takeaways: [
+      "Architecting clean, scalable data lakes on Microsoft Fabric",
+      "Creating executive-level dashboards with sub-second latency",
+      "Enabling real-time field telemetry tracking across operations"
+    ]
   }
 ];
 
@@ -91,7 +115,7 @@ export default function HomepageShowcaseSections() {
 
       <section
         id="client-testimonials"
-        className="bg-[#F3F0EE] px-4 py-12 md:px-6 md:py-16 scroll-mt-24"
+        className="bg-[#F3F0EE] px-4 py-0 scroll-mt-24"
       >
         <div className="mx-auto w-full max-w-[1100px]">
           <TestimonialSlider
@@ -103,9 +127,16 @@ export default function HomepageShowcaseSections() {
       </section>
 
       {posts.length > 0 ? (
-        <section className="border-t border-[#d7dce9] bg-[#f6f7fb] px-4 py-16 md:py-20">
+        <section className="border-t border-[#d7dce9] bg-[#f6f7fb] px-4 py-0">
           <div className="mx-auto max-w-[1240px]">
-            <BentoGridLayout posts={posts} viewAllHref="/blog" />
+            <BentoGridLayout 
+              posts={posts} 
+              viewAllHref="/blog" 
+              eyebrow="Latest insights"
+              headline="Technology Insights for modern enterprises"
+              description="Explore expert perspectives on AI, automation, data, and digital transformation."
+              viewAllLabel="View all articles"
+            />
           </div>
         </section>
       ) : null}

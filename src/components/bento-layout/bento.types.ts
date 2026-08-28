@@ -7,6 +7,21 @@ export interface CaseStudyMock {
   image: string;
   href?: string;
   excerpt?: string;
+  clientDetails?: string;
+  challenge?: string;
+  approach?: string;
+  outcome?: string;
+  client?: string;
+  location?: string;
+  industry?: string;
+  employees?: string;
+  region?: string;
+  testimonial?: {
+    quote?: string;
+    name?: string;
+    role?: string;
+  };
+  highlights?: Array<{ value: string; label: string }>;
 }
 
 /** Blog card for `BentoGridLayout` */
@@ -18,6 +33,8 @@ export interface BlogPostMock {
   href: string;
   excerpt?: string;
   publishedAt?: string;
+  readingTime?: string;
+  takeaways?: string[];
 }
 
 export interface BentoMetric {

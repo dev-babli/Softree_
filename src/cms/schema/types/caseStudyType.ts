@@ -330,6 +330,22 @@ export const caseStudyType = defineType({
             description: 'Company headcount, e.g. "2,800" — shown in the case study summary block.',
         }),
         defineField({
+            name: 'location',
+            title: 'Location',
+            type: 'string',
+            group: 'client',
+            fieldset: 'snapshot',
+            description: 'Client location, e.g. "Chicago, Illinois, USA" — shown in case study grids.',
+        }),
+        defineField({
+            name: 'region',
+            title: 'Operation Region',
+            type: 'string',
+            group: 'client',
+            fieldset: 'snapshot',
+            description: 'Scale of operation region, e.g. "40+ Countries" or "Global" — shown in case study grids.',
+        }),
+        defineField({
             name: 'scaleOfOperation',
             title: 'Scale of Operation',
             type: 'text',
