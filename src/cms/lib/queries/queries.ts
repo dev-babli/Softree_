@@ -136,6 +136,7 @@ export const caseStudyBySlugQuery = groq`
     featuredRank,
     client,
     location,
+    clientDetails,
     employees,
     scaleOfOperation,
     teamSize,
