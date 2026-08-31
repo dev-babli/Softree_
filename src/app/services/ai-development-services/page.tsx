@@ -23,6 +23,9 @@ const AIPhilosophy = dynamic(() => import('./components/AIPhilosophy'), { ssr: t
 const AIDilemma = dynamic(() => import('./components/AIDilemma'), { ssr: true });
 const AiRoadmap = dynamic(() => import('./components/AiRoadmap'), { ssr: true });
 const WhyChooseWithTestimonials = dynamic(() => import('./components/WhyChooseWithTestimonials'), { ssr: true });
+const AgenticAIWipeSlider = dynamic(() => import('./components/AgenticAIWipeSlider'), { ssr: true });
+// Replace WhySoftreeTabs with WhySoftreeCurtainSlider
+const WhySoftreeCurtainSlider = dynamic(() => import('./components/WhySoftreeCurtainSlider'), { ssr: true });
 const LightFAQExact = dynamic(() => import('./components/LightFAQExact'), { ssr: true });
 const LightContactSection = dynamic(() => import('@/components/homepage-light/LightContactSection'), { ssr: true });
 const CurtainSlider = dynamic(() => import('./components/CurtainSlider/CurtainSlider'), { ssr: true });
@@ -101,11 +104,11 @@ export default function AiDevelopmentServicesPage() {
             OFFSHORE AI DELIVERY
           </span>
         </div>
-        
+
         <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight">
           Accelerating Your <span className="text-[#FF6B2C]">AI Evolution</span>
         </h2>
-        
+
         <p className="text-[15px] lg:text-base text-slate-500 max-w-2xl mx-auto leading-relaxed">
           Build, deploy, and scale production-grade Agentic systems and custom GenAI pipelines with our vetted offshore engineering teams.
         </p>
@@ -118,7 +121,7 @@ export default function AiDevelopmentServicesPage() {
       {/* Who We Help & Global Network Section */}
       <div className="bg-white mt-20 md:mt-32 py-16 md:py-24 text-slate-900">
         <div className="max-w-[88vw] lg:max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           {/* Unified Centered Header */}
           <div className="flex flex-col items-center w-full mb-16 md:mb-20 text-center">
             <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-4 py-1.5 rounded-full border border-white/60 mb-4 inline-block">
@@ -126,11 +129,11 @@ export default function AiDevelopmentServicesPage() {
                 PARTNERSHIP & GLOBAL REACH
               </span>
             </div>
-            
+
             <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight">
               Who We Help & <span className="text-[#FF6B2C]">Where We Operate</span>
             </h2>
-            
+
             <p className="text-[15px] lg:text-base text-slate-500 max-w-2xl mx-auto leading-relaxed">
               We embed dedicated offshore AI engineering teams to help tech-driven organizations accelerate their roadmaps, build custom agents, and deploy secure vector search engines globally.
             </p>
@@ -150,7 +153,7 @@ export default function AiDevelopmentServicesPage() {
           </div>
         </div>
       </div>
-{/* 
+      {/* 
       <TrustedBrandsMarquee /> */}
       {/* <AIPhilosophy />
       <SuccessStories /> */}
@@ -279,9 +282,9 @@ export default function AiDevelopmentServicesPage() {
 
       <CoreCapabilities />
       <Industries />
-      
+
       {/* <AiArchitectureShowcase /> */}
-      <DigitalEngineeringSolutions />
+      {/* <DigitalEngineeringSolutions /> */}
       <AiRoadmap />
       <AiReadinessBanner />
       <PartnerShowcase />
@@ -290,8 +293,10 @@ export default function AiDevelopmentServicesPage() {
       <BusinessChallenges />
       <BusinessOutcomes /> */}
       {/* <AIDilemma /> */}
-   
 
+
+      <AgenticAIWipeSlider />
+      <WhySoftreeCurtainSlider />
       <WhyChooseWithTestimonials />
       <LightFAQExact />
       <LightContactSection />
