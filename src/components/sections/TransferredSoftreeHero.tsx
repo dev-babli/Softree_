@@ -448,10 +448,11 @@ export function TransferredSoftreeHero() {
         >
           <div className="max-w-2xl px-6 text-center pointer-events-auto">
             <h2 className="text-balance text-[clamp(2rem,4vw,4rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-[#0a0a1a]">
-              Three pillars. One team.
+              Three pillars. <span style={{ color: ACCENT }}>One engineering team.</span>
             </h2>
-            <p className="mx-auto mt-4 max-w-sm text-pretty text-[clamp(0.875rem,1.1vw,1.125rem)] leading-[1.6] text-[#0a0a1a]/65">
-              Websites. AI Agents. Microsoft Solutions.
+            <p className="mx-auto mt-4 max-w-xl text-pretty text-[clamp(0.875rem,1.1vw,1.125rem)] leading-[1.6] text-[#0a0a1a]/65">
+              From Microsoft solutions to intelligent AI systems and modern engineering, we help businesses{" "}
+              <strong className="font-bold text-[#0a0a1a]">build, automate, modernize, and scale.</strong>
             </p>
           </div>
         </div>
@@ -480,16 +481,17 @@ export function TransferredSoftreeHero() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
             <div className="absolute bottom-0 inset-x-0 p-5 flex flex-col">
               <p className="text-[10px] font-bold uppercase tracking-[0.2em]" style={{ color: ACCENT }}>
-                AI & Automation
+                Microsoft & Data
               </p>
               <p className="mt-1.5 text-base font-semibold leading-snug text-white">
-                AI systems that streamline operations
+                Cloud, analytics, and enterprise solutions that empower
+                business
               </p>
               <Link
-                href="/services/ai-development-services"
+                href="/services/offshore-power-platform-development"
                 className="mt-3 inline-flex items-center gap-1.5 self-start rounded-full bg-white px-4 py-2 text-xs font-semibold text-zinc-900 shadow-sm transition-[transform,background-color] duration-200 ease-out hover:bg-white/90 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white pointer-events-auto"
               >
-                Explore AI solutions <span className="text-[10px]">→</span>
+                Explore Microsoft solutions <span className="text-[10px]">→</span>
               </Link>
             </div>
           </div>
@@ -566,18 +568,16 @@ export function TransferredSoftreeHero() {
             >
               <div className="bg-gradient-to-t from-black/70 via-black/15 to-transparent rounded-b-xl p-5 flex flex-col">
                 <p className="text-[10px] font-bold uppercase tracking-[0.2em]" style={{ color: ACCENT }}>
-                  Microsoft & Data
+                  AI & Automation
                 </p>
                 <p className="mt-1.5 text-base font-semibold leading-snug text-white">
-                  Cloud, analytics, and enterprise solutions that empower
-                  business
+                  AI systems that streamline operations
                 </p>
                 <Link
-                  href="/services/offshore-power-platform-development"
+                  href="/services/ai-development-services"
                   className="mt-3 inline-flex items-center gap-1.5 self-start rounded-full bg-white px-4 py-2 text-xs font-semibold text-zinc-900 shadow-sm transition-[transform,background-color] duration-200 ease-out hover:bg-white/90 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white pointer-events-auto"
                 >
-                  Explore Microsoft solutions{" "}
-                  <span className="text-[10px]">→</span>
+                  Explore AI solutions <span className="text-[10px]">→</span>
                 </Link>
               </div>
             </div>

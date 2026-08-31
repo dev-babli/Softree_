@@ -311,7 +311,7 @@ export default function SuccessStoriesBentoSection() {
     <section
       id="success-stories"
       aria-labelledby="success-stories-heading"
-      className="border-b border-black/[0.06] px-4 py-10 md:px-6 md:py-14"
+      className="border-b border-black/[0.06] px-4 py-0"
       style={{ backgroundColor: SURFACE }}
     >
       <div className="mx-auto grid max-w-[min(100vw-48px,1848px)] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">

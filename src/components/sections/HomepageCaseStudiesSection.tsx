@@ -52,10 +52,10 @@ export default function HomepageCaseStudiesSection({
             accent={ACCENT_ORANGE}
             headline={
               <span id="homepage-case-studies-heading" className="text-balance">
-                Case studies that ship
+                Proven solutions that ship
               </span>
             }
-            body="Real deliveries across SharePoint, Power Platform, and product engineering — browse the index or open a story."
+            body="Real deliveries across Agentic AI services, Data Analytics, Microsoft cloud platforms, Web, and Mobile — browse the index or open a story."
             className="!items-center [&_p]:mx-auto"
           />
         </motion.div>

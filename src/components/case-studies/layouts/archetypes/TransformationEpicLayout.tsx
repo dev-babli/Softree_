@@ -1,5 +1,6 @@
 "use client";
 
+import { useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import NavigationClient from "@/components/sections/navigation-client";
@@ -16,7 +17,7 @@ type Metric = { label?: string; value?: string; description?: string };
 type RelatedStudy = { _id: string; title: string; slug: { current: string }; industry?: string; excerpt?: string; client?: string; mainImage?: SanityImage; mainImageUrl?: string };
 
 type StudyData = {
-  _id: string; _updatedAt?: string; title: string; slug: { current: string }; headerTitle?: string; excerpt?: string; industry?: string; useCase?: string; client?: string; location?: string; employees?: string; scaleOfOperation?: string; projectDuration?: string; duration?: string; teamSize?: string; technologies?: string[]; highlights?: Array<{ value: string; label: string }>; metrics?: Metric[]; keyResults?: Array<{ value: string; label: string }>; mainImage?: SanityImage; mainImageUrl?: string; heroImage?: SanityImage; clientLogo?: SanityImage; pdfUrl?: string; liveUrl?: string; challengeSummary?: string; approachSummary?: string; outcomeSummary?: string; result?: string; body?: Array<{ _type: string; style?: string; children?: Array<{ text?: string }> }>; rawResults?: string[] | Metric[]; testimonial?: { quote?: string; name?: string; role?: string; avatar?: { asset?: { url?: string } } | null; headshot?: { asset?: { url?: string } } | null } | null; gallery?: Array<{ asset?: { url?: string }; alt?: string; caption?: string }>; galleryUrls?: Array<{ url?: string; alt?: string; caption?: string }>; publishedAt?: string;
+  _id: string; _updatedAt?: string; title: string; slug: { current: string }; headerTitle?: string; excerpt?: string; industry?: string; useCase?: string; client?: string; location?: string; clientDetails?: string; companySize?: string; employees?: string; scaleOfOperation?: string; projectDuration?: string; duration?: string; teamSize?: string; technologies?: string[]; highlights?: Array<{ value: string; label: string }>; metrics?: Metric[]; keyResults?: Array<{ value: string; label: string }>; mainImage?: SanityImage; mainImageUrl?: string; heroImage?: SanityImage; clientLogo?: SanityImage; pdfUrl?: string; liveUrl?: string; challengeSummary?: string; approachSummary?: string; outcomeSummary?: string; result?: string; body?: Array<{ _type: string; style?: string; children?: Array<{ text?: string }> }>; rawResults?: string[] | Metric[]; testimonial?: { quote?: string; name?: string; role?: string; avatar?: { asset?: { url?: string } } | null; headshot?: { asset?: { url?: string } } | null } | null; gallery?: Array<{ asset?: { url?: string }; alt?: string; caption?: string }>; galleryUrls?: Array<{ url?: string; alt?: string; caption?: string }>; publishedAt?: string;
 };
 
 /* ------------------------------------------------------------------ */
@@ -61,6 +62,46 @@ export default function TransformationEpicLayout({
   const excerptText = study.excerpt || "";
   const downloadUrl = study.pdfUrl;
   const heroImageUrl = study.mainImage?.asset?.url || study.mainImageUrl;
+
+  const clientDetailsText = useMemo(() => {
+    const details = study.clientDetails || study.location;
+    const studyTitle = study.title || "AI-driven analytics and automation";
+    const studyRegion = study.region || "multiple international markets";
+
+    const rawText = (() => {
+      if (details && details.trim()) return details;
+      const size = (study.companySize || "enterprise").toLowerCase();
+      const sizeDesc = size === "startup" ? "A startup" : size === "mid-market" ? "A mid-market enterprise" : "A global enterprise";
+      return `${sizeDesc} in the IT services sector, operating across ${studyRegion} and managing a complex IT environment. The client partnered with Softree Technology to leverage ${studyTitle} for improved IT service management and operational efficiency.`;
+    })();
+
+    const escapeRegExp = (str: string) => {
+      return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    };
+
+    const searchTerms = [studyRegion, studyTitle].filter((t) => t && t.trim() !== "");
+    if (searchTerms.length === 0) return rawText;
+
+    const pattern = `(${searchTerms.map(escapeRegExp).join("|")})`;
+    const regex = new RegExp(pattern, "gi");
+    const parts = rawText.split(regex);
+
+    return (
+      <>
+        {parts.map((part, idx) => {
+          const isMatch = searchTerms.some((t) => t.toLowerCase() === part.toLowerCase());
+          if (isMatch) {
+            return (
+              <span key={idx} className="font-bold text-[#1852ff]" style={{ color: "#1852ff" }}>
+                {part}
+              </span>
+            );
+          }
+          return part;
+        })}
+      </>
+    );
+  }, [study.clientDetails, study.location, study.title, study.region, study.companySize]);
 
   const legacyResults: string[] = Array.isArray(study.rawResults) ? (study.rawResults as Array<string | Metric>).filter((r): r is string => typeof r === "string") : [];
   let heroHighlights = Array.isArray(study.highlights) ? study.highlights : [];
@@ -126,13 +167,22 @@ export default function TransformationEpicLayout({
       {/* Summary grid */}
       <section className="bg-white py-16 md:py-24">
         <div className="mx-auto w-full max-w-310 px-5 md:px-8">
-          <div className="grid grid-cols-2 gap-x-8 gap-y-7 border-b border-[#e6e1f2] pb-10 md:grid-cols-3 lg:grid-cols-6">
+          <div className="grid grid-cols-2 gap-x-8 gap-y-7 border-b border-[#e6e1f2] pb-10 md:grid-cols-3 lg:grid-cols-5">
             <div className="flex flex-col gap-1.5"><div className="text-[0.7rem] font-bold uppercase tracking-[0.16em] text-[#6b7694]">Industry</div><div className="text-[1rem] font-medium leading-[1.4] text-[#0d0a23]">{study.industry || "—"}</div></div>
-            <div className="flex flex-col gap-1.5"><div className="text-[0.7rem] font-bold uppercase tracking-[0.16em] text-[#6b7694]">Location</div><div className="text-[1rem] font-medium leading-[1.4] text-[#0d0a23]">{study.location || "—"}</div></div>
             <div className="flex flex-col gap-1.5"><div className="text-[0.7rem] font-bold uppercase tracking-[0.16em] text-[#6b7694]">Duration</div><div className="text-[1rem] font-medium leading-[1.4] text-[#0d0a23]">{study.duration || study.projectDuration || "—"}</div></div>
             <div className="flex flex-col gap-1.5"><div className="text-[0.7rem] font-bold uppercase tracking-[0.16em] text-[#6b7694]">Team size</div><div className="text-[1rem] font-medium leading-[1.4] text-[#0d0a23]">{study.teamSize || "—"}</div></div>
             <div className="flex flex-col gap-1.5"><div className="text-[0.7rem] font-bold uppercase tracking-[0.16em] text-[#6b7694]">Employees</div><div className="text-[1rem] font-medium leading-[1.4] text-[#0d0a23]">{study.employees || "—"}</div></div>
             <div className="flex flex-col gap-1.5"><div className="text-[0.7rem] font-bold uppercase tracking-[0.16em] text-[#6b7694]">Scale</div><div className="text-[1rem] font-medium leading-[1.4] text-[#0d0a23]">{study.scaleOfOperation || (clientName ? `Trusted by ${clientName}` : "—")}</div></div>
+          </div>
+          <div className="mt-10 rounded-2xl border border-[#e6e1f2] bg-[#f5f8ff] p-6 shadow-sm relative overflow-hidden">
+            <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#1852ff]" />
+            <h4 className="text-[0.7rem] font-bold uppercase tracking-[0.16em] text-[#6b7694] flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#1852ff]" />
+              Client Profile
+            </h4>
+            <p className="mt-4 text-[1rem] leading-[1.7] text-[#37354a] font-normal">
+              {clientDetailsText}
+            </p>
           </div>
         </div>
       </section>

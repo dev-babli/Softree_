@@ -8,28 +8,11 @@ const client = createClient({
 })
 
 const slugs = [
-  "ai-competitive-gap-report-businesses-outperform-competitors",
-  "how-an-enterprise-organization-automated-hr-operations-using-ai",
-  "barcode-scanner-app-audio-equipment-management",
-  "hr-analytics-and-employee-experience-platform",
-  "sharepoint-site-pages-to-pdf"
+  "barcode-scanner-app-audio-equipment-management"
 ]
 
 async function run() {
-  const query = `*[_type == "caseStudy" && slug.current in $slugs] {
-    "slug": slug.current,
-    title,
-    client,
-    industry,
-    category,
-    useCase,
-    excerpt,
-    challenge,
-    solution,
-    impact,
-    "keyResults": keyResults[] { value, label, description },
-    metrics
-  }`
+  const query = `*[_type == "caseStudy" && slug.current in $slugs]`
   
   const results = await client.fetch(query, { slugs })
   console.log("RESULTS:")

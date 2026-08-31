@@ -9,7 +9,7 @@ import { BENTO_SPRING, BENTO_VIEWPORT, scrollReveal } from "./bento.motion";
 import { BentoPreviewPanel } from "./BentoPreviewPanel";
 import { BentoIndexThumb } from "./BentoIndexThumb";
 import { useBentoPreview } from "./useBentoPreview";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, AlertTriangle, Globe, Settings, Briefcase } from "lucide-react";
 
 export type { BentoGridLayoutProps, BlogPostMock } from "./bento.types";
 
@@ -70,11 +70,11 @@ function BlogRow({
   const delay = Math.min(index * 0.05, 0.25);
   const date = formatDate(post.publishedAt);
   const rowClass = cn(
-    "group relative flex gap-4 p-4 text-left transition-all duration-300 rounded-xl border border-transparent",
+    "group relative flex gap-3.5 p-3 text-left transition-all duration-300 rounded-xl border",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#0f5cc0]",
     isActive 
-      ? "bg-zinc-900/90 border-zinc-800 shadow-[0_4px_20px_rgba(0,0,0,0.2)] pl-6" 
-      : "hover:bg-white/[0.03] hover:border-zinc-850/50 pl-4",
+      ? "bg-white border-[#EAEAEA] shadow-[0_4px_16px_rgba(0,0,0,0.04)] pl-4" 
+      : "bg-transparent border-transparent hover:bg-zinc-50 pl-4",
   );
 
   const motionProps = reduced
@@ -86,8 +86,16 @@ function BlogRow({
         variants: scrollReveal(reduced, { delay, y: 10, x: -4 }),
       };
 
+  const IconComponent = () => {
+    const iconClass = cn("h-4 w-4", isActive ? "text-[#0f5cc0]" : "text-zinc-400");
+    if (post.category.toLowerCase().includes("cyber")) return <AlertTriangle className={iconClass} />;
+    if (post.category.toLowerCase().includes("data")) return <Globe className={iconClass} />;
+    if (post.category.toLowerCase().includes("automation") || post.category.toLowerCase().includes("ai")) return <Settings className={iconClass} />;
+    return <Briefcase className={iconClass} />;
+  };
+
   return (
-    <motion.li className="border-none last:border-none" {...motionProps}>
+    <motion.li className="border-none" {...motionProps}>
       <Link
         href={post.href}
         className={rowClass}
@@ -95,25 +103,26 @@ function BlogRow({
         onFocus={() => onFocus(post.id)}
         aria-current={isActive ? "true" : undefined}
       >
-        {isActive && !reduced ? (
-          <motion.span
-            layoutId="blog-active-rail"
-            className="absolute bottom-3 left-2 top-3 w-[3px] rounded-full bg-[#0f5cc0] shadow-[0_0_8px_#0f5cc0]"
-            transition={BENTO_SPRING}
-            aria-hidden
-          />
-        ) : isActive ? (
-          <span className="absolute bottom-3 left-2 top-3 w-[3px] rounded-full bg-[#0f5cc0] shadow-[0_0_8px_#0f5cc0]" aria-hidden />
-        ) : null}
+        {/* Left Icon Container */}
+        <div className={cn(
+          "flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-colors duration-300",
+          isActive ? "bg-blue-50" : "bg-zinc-100 group-hover:bg-zinc-200/60"
+        )}>
+          <IconComponent />
+        </div>
 
+        {/* Right text content */}
         <div className="min-w-0 flex-1">
-          <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#7eb8ff]">
+          <span className={cn(
+            "text-[9px] font-bold uppercase tracking-[0.12em]",
+            isActive ? "text-[#0f5cc0]" : "text-zinc-400"
+          )}>
             {post.category}
           </span>
           <p
             className={cn(
-              "mt-1 text-[14px] md:text-[15px] font-medium leading-snug tracking-[-0.01em]",
-              isActive ? "text-white font-semibold" : "text-zinc-400 group-hover:text-zinc-200",
+              "mt-0.5 text-xs md:text-[13px] font-bold leading-snug tracking-[-0.01em] transition-colors",
+              isActive ? "text-[#0a0a1a]" : "text-zinc-500 group-hover:text-[#0a0a1a]",
             )}
           >
             {post.title}
@@ -121,7 +130,7 @@ function BlogRow({
           {date ? (
             <time
               dateTime={post.publishedAt}
-              className="mt-1 block text-[10px] tabular-nums text-zinc-500"
+              className="mt-0.5 block text-[9.5px] font-medium text-zinc-400"
             >
               {date}
             </time>
@@ -155,6 +164,9 @@ export function BentoGridLayout({
         href: active.href,
         excerpt: active.excerpt,
         ctaLabel: "Read article",
+        readingTime: active.readingTime,
+        takeaways: active.takeaways,
+        publishedAt: active.publishedAt,
       }
     : null;
 
@@ -162,7 +174,7 @@ export function BentoGridLayout({
     <section
       aria-label="Blog highlights"
       className={cn(
-        "mx-auto w-full max-w-[1240px] rounded-xl border border-[#d7dce9] bg-[#f6f7fb] p-5 md:p-8 lg:p-10",
+        "mx-auto w-full max-w-[1240px] rounded-xl border border-[#d7dce9] bg-[#f6f7fb] px-5 py-10 md:px-8 md:py-12 lg:px-10 lg:py-14",
         className,
       )}
     >
@@ -215,30 +227,34 @@ export function BentoGridLayout({
         >
           <nav 
             aria-label="Article index"
-            className="p-5 md:p-6 rounded-2xl border border-zinc-850 bg-gradient-to-br from-[#121215] via-[#0c0c0e] to-[#08080a] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.4)] relative overflow-hidden"
+            className="p-3.5 md:p-4 rounded-2xl border border-[#EAEAEA] bg-[#FAF9F6]/20 shadow-[0_8px_30px_rgba(0,0,0,0.02)] relative overflow-hidden flex flex-col justify-between"
           >
             {/* Subtle glow blend in the left container */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(15,92,192,0.04),transparent_60%)] pointer-events-none" />
-            <ScrollReveal reduced={reduced} delay={0.04}>
-              <p className="mb-4 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-zinc-400 relative z-10">
-                Latest · {posts.length} articles
-              </p>
-            </ScrollReveal>
-            <LayoutGroup id="blog-bento-index">
-              <ol className="space-y-2 mt-2">
-                {posts.map((post, i) => (
-                  <BlogRow
-                    key={post.id}
-                    post={post}
-                    index={i}
-                    isActive={active?.id === post.id}
-                    reduced={reduced}
-                    onHover={select}
-                    onFocus={selectImmediate}
-                  />
-                ))}
-              </ol>
-            </LayoutGroup>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(15,92,192,0.02),transparent_60%)] pointer-events-none" />
+            <div>
+              <ScrollReveal reduced={reduced} delay={0.04}>
+                <p className="mb-3 font-mono text-[9.5px] font-bold uppercase tracking-[0.16em] text-zinc-400 relative z-10">
+                  Latest · {posts.length} articles
+                </p>
+              </ScrollReveal>
+              <LayoutGroup id="blog-bento-index">
+                <ol className="space-y-1.5">
+                  {posts.map((post, i) => (
+                    <BlogRow
+                      key={post.id}
+                      post={post}
+                      index={i}
+                      isActive={active?.id === post.id}
+                      reduced={reduced}
+                      onHover={select}
+                      onFocus={selectImmediate}
+                    />
+                  ))}
+                </ol>
+              </LayoutGroup>
+            </div>
+
+
           </nav>
 
           <BentoPreviewPanel item={previewItem} reduced={reduced} accent="blue" />

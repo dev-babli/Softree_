@@ -576,7 +576,7 @@ export default function EngineeringSolutionsSection() {
 
                             <div className="mt-3">
                                 <Link
-                                    href="/services"
+                                    href="/services/offshore-power-platform-development"
                                     className="group inline-flex items-center gap-2 rounded-full bg-white/[0.06] px-3 py-1.5 text-[13px] font-semibold text-white ring-1 ring-white/10 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-white/[0.10] hover:ring-white/20"
                                 >
                                     Explore platform

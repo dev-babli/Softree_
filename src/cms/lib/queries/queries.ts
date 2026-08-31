@@ -45,6 +45,7 @@ export const navCaseStudiesQuery = groq`
     client,
     slug,
     excerpt,
+    clientDetails,
     category,
     useCase,
     storyType,
@@ -56,7 +57,12 @@ export const navCaseStudiesQuery = groq`
     featuredRank,
     mainImage { asset->{ url }, alt },
     mainImageUrl,
-    "keyResults": keyResults[] { value, label, description }
+    location,
+    employees,
+    "region": coalesce(region, location),
+    "challenge": challengeContent[0].children[0].text,
+    "approach": approachContent[0].children[0].text,
+    "outcome": outcomeContent[0].children[0].text
   }
 `;
 
@@ -68,6 +74,7 @@ export const featuredCaseStudiesNavQuery = groq`
     client,
     slug,
     excerpt,
+    clientDetails,
     storyType,
     heroLayout,
     detailLayout,
@@ -77,7 +84,12 @@ export const featuredCaseStudiesNavQuery = groq`
     featuredRank,
     mainImage { asset->{ url }, alt },
     mainImageUrl,
-    "keyResults": keyResults[] { value, label, description }
+    location,
+    employees,
+    "region": coalesce(region, location),
+    "challenge": challengeContent[0].children[0].text,
+    "approach": approachContent[0].children[0].text,
+    "outcome": outcomeContent[0].children[0].text
   }
 `;
 
@@ -136,6 +148,7 @@ export const caseStudyBySlugQuery = groq`
     featuredRank,
     client,
     location,
+    clientDetails,
     employees,
     scaleOfOperation,
     teamSize,

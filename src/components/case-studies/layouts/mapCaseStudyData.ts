@@ -38,6 +38,8 @@ export type SanityCaseStudyDoc = {
   industry?: string
   client?: string
   location?: string
+  clientDetails?: string
+  companySize?: string
   projectDuration?: string
   teamSize?: string
   projectType?: string
@@ -720,6 +722,8 @@ export function mapCaseStudyToLayoutData(
             ? "Softree partnered with Neutrino AI to design a governed intelligence engine — autonomous agents, real-time operations, and enterprise-grade automation on one platform."
             : "Softree delivered a unified low-code platform that connected plant operations, automated compliance workflows, and gave leadership real-time visibility across 40+ facilities worldwide."),
     client: study.client || study.title,
+    clientDetails: study.clientDetails,
+    companySize: study.companySize,
     category: study.category,
     industry: study.industry || categoryLabel(study.category),
     accentColor: study.accentColor || ACCENT,
