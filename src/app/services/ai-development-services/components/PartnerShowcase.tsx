@@ -212,7 +212,7 @@ export default function PartnerShowcase() {
 
 
   return (
-    <section className="w-full bg-[#F7F8FC] py-16 md:py-24 font-sans relative overflow-hidden">
+    <section className="w-full bg-white py-16 md:py-24 font-sans relative overflow-hidden">
       {/* Background Grid Pattern & Ambient Glows */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f29370a_1px,transparent_1px),linear-gradient(to_bottom,#1f29370a_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none opacity-20" />
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(0,195,255,0.03),transparent_60%)] pointer-events-none" />
@@ -220,21 +220,21 @@ export default function PartnerShowcase() {
       <div className="mx-auto w-full max-w-[1480px] px-4 sm:px-6 lg:px-8 space-y-8 flex flex-col items-stretch">
         
         {/* ==================== SECTION 07 — OFFSHORE AI ENGINEERING TEAMS ==================== */}
-        <div className="relative overflow-hidden rounded-[24px] border border-slate-800/90 bg-[#030914] p-10 md:p-12 md:py-14 shadow-[0_10px_40px_rgba(0,0,0,0.4)] min-h-[540px] flex flex-col justify-between z-10 text-white">
+        <div className="relative overflow-hidden rounded-[24px] border border-slate-200 bg-white p-10 md:p-12 md:py-14 shadow-[0_10px_40px_rgba(0,0,0,0.05)] min-h-[540px] flex flex-col justify-between z-10 text-slate-900">
           
           {/* Mirror-morphism reflection glows */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_25%,rgba(255,88,18,0.06),transparent_40%)] pointer-events-none" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_75%,rgba(0,195,255,0.08),transparent_45%)] pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_25%,rgba(255,88,18,0.03),transparent_40%)] pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_75%,rgba(0,195,255,0.04),transparent_45%)] pointer-events-none" />
           
           {/* Header row */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/80 pb-6 mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200/80 pb-6 mb-8">
             <div className="flex items-center gap-4">
             
               <div className="space-y-1">
-                <h2 className="text-[20px] md:text-[24px] font-black tracking-wide text-white uppercase">
+                <h2 className="text-[20px] md:text-[24px] font-black tracking-wide text-slate-900 uppercase">
                   OFFSHORE AI ENGINEERING TEAMS
                 </h2>
-                <p className="text-[12px] md:text-[13px] font-bold text-cyan-400 uppercase tracking-wider">
+                <p className="text-[12px] md:text-[13px] font-bold text-cyan-600 uppercase tracking-wider">
                   End-to-End AI Engineering Excellence
                 </p>
               </div>
@@ -252,39 +252,38 @@ export default function PartnerShowcase() {
               </g>
             </svg>
           </div>
-
           {/* ==================== HORIZONTAL AI DELIVERY PIPELINE VISUALIZER ==================== */}
           <div className="relative z-10 w-full mb-10 max-w-4xl mx-auto flex flex-col items-center">
             {/* Input Phase: AI Strategy & Architecture */}
             <div className="flex flex-col items-center gap-1.5">
-              <div className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-orange-600/90 to-orange-500/90 border border-orange-400/40 text-white font-black text-sm uppercase tracking-[0.2em] shadow-[0_0_20px_rgba(251,146,60,0.25)]">
+              <div className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-orange-600 to-orange-500 text-white font-black text-sm uppercase tracking-[0.2em] shadow-[0_0_20px_rgba(251,146,60,0.15)]">
                 AI Strategy & Architecture
               </div>
               <div className="text-orange-500 font-extrabold text-xl animate-bounce">↓</div>
             </div>
-
+ 
             {/* Horizontal pipeline chamber */}
-            <div className="w-full mt-2 relative rounded-2xl border border-slate-800/80 bg-slate-950/70 p-4 shadow-[inset_0_2px_10px_rgba(0,0,0,0.8)] overflow-hidden">
+            <div className="w-full mt-2 relative rounded-2xl border border-slate-200 bg-slate-50/70 p-4 shadow-[inset_0_1px_4px_rgba(0,0,0,0.05)] overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-cyan-500/5 to-purple-500/5 pointer-events-none" />
               
               {/* Pipeline nodes flow */}
               <div className="flex flex-wrap lg:flex-nowrap items-center justify-between gap-4 w-full text-center">
                 {[
-                  { name: "AI Architects", color: "text-[#00C3FF]" },
-                  { name: "AI Engineers", color: "text-[#00F0B4]" },
-                  { name: "Full-Stack Engineers", color: "text-[#8A3FFC]" },
-                  { name: "Data Engineers", color: "text-[#FFB900]" },
-                  { name: "QA & AI Testing", color: "text-[#E91E63]" },
-                  { name: "Cloud / DevOps", color: "text-[#0078D4]" }
+                  { name: "AI Architects", color: "text-cyan-600" },
+                  { name: "AI Engineers", color: "text-emerald-600" },
+                  { name: "Full-Stack Engineers", color: "text-purple-600" },
+                  { name: "Data Engineers", color: "text-orange-600" },
+                  { name: "QA & AI Testing", color: "text-pink-600" },
+                  { name: "Cloud / DevOps", color: "text-blue-600" }
                 ].map((node, nIdx) => (
                   <React.Fragment key={nIdx}>
-                    <div className="flex-1 min-w-[120px] py-2.5 px-3 rounded-lg bg-white/[0.02] border border-white/5 shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
+                    <div className="flex-1 min-w-[120px] py-2.5 px-3 rounded-lg bg-white border border-slate-200 shadow-sm">
                       <span className={`text-[12px] md:text-[13px] font-black uppercase tracking-wider ${node.color}`}>
                         {node.name}
                       </span>
                     </div>
                     {nIdx < 5 && (
-                      <div className="hidden lg:block text-slate-700 font-extrabold text-lg shrink-0 select-none">
+                      <div className="hidden lg:block text-slate-300 font-extrabold text-lg shrink-0 select-none">
                         →
                       </div>
                     )}
@@ -303,21 +302,21 @@ export default function PartnerShowcase() {
                   {/* Circle Node with glowing border */}
                   <div className="relative">
                     {/* Circle */}
-                    <div className={`flex h-[88px] w-[88px] items-center justify-center rounded-full bg-slate-900/90 border-2 ${item.color} shadow-lg transition-transform duration-300 hover:scale-105`}>
+                    <div className={`flex h-[88px] w-[88px] items-center justify-center rounded-full bg-slate-50 border-2 ${item.color} shadow-sm transition-transform duration-300 hover:scale-105`}>
                       {item.icon}
                     </div>
                     {/* Floating number badge */}
-                    <div className="absolute -top-1.5 -right-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-slate-900 border border-slate-700 text-[10px] font-black text-cyan-400 shadow-[0_0_10px_rgba(0,195,255,0.2)]">
+                    <div className="absolute -top-1.5 -right-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-white border border-slate-200 text-[10px] font-black text-cyan-600 shadow-[0_0_10px_rgba(0,195,255,0.05)]">
                       {item.num}
                     </div>
                   </div>
-
+ 
                   {/* Details */}
                   <div className="space-y-3 w-full">
-                    <span className="text-[13px] font-black text-white uppercase tracking-wider block">
+                    <span className="text-[13px] font-black text-slate-900 uppercase tracking-wider block">
                       {item.role}
                     </span>
-                    <ul className="text-[11px] text-slate-400 space-y-1 text-center font-medium leading-relaxed">
+                    <ul className="text-[11px] text-slate-500 space-y-1 text-center font-medium leading-relaxed">
                       {item.bullets.map((bullet, bIdx) => (
                         <li key={bIdx} className="truncate">
                           • {bullet}
@@ -329,29 +328,29 @@ export default function PartnerShowcase() {
 
                 {/* Right angle connector separator (hidden on last node or mobile) */}
                 {idx < teamRoles.length - 1 && (
-                  <div className="hidden lg:flex items-center text-slate-600 self-start mt-10">
+                  <div className="hidden lg:flex items-center text-slate-300 self-start mt-10">
                     <ChevronRight className="w-5 h-5 animate-pulse" />
                   </div>
                 )}
               </React.Fragment>
             ))}
           </div>
-
+ 
           {/* Connected timeline footer phase navigator */}
-          <div className="border-t border-slate-800/80 pt-6 mt-8 relative z-10 flex flex-wrap justify-between items-center gap-4">
+          <div className="border-t border-slate-200 pt-6 mt-8 relative z-10 flex flex-wrap justify-between items-center gap-4">
             <div className="flex items-center justify-between w-full">
               {timelinePhases.map((phase, pIdx) => (
                 <React.Fragment key={pIdx}>
                   <div className="flex items-center gap-2 group cursor-default">
-                    <div className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-900 border border-cyan-500/20 text-cyan-400 group-hover:border-cyan-400 shadow-sm transition-all duration-300">
+                    <div className="flex h-7 w-7 items-center justify-center rounded-full bg-white border border-cyan-500/30 text-cyan-600 group-hover:border-cyan-400 shadow-sm transition-all duration-300">
                       {phase.icon}
                     </div>
-                    <span className="text-[11px] font-bold text-slate-400 tracking-wider group-hover:text-white transition-colors duration-300">
+                    <span className="text-[11px] font-bold text-slate-500 tracking-wider group-hover:text-slate-900 transition-colors duration-300">
                       {phase.name}
                     </span>
                   </div>
                   {pIdx < timelinePhases.length - 1 && (
-                    <div className="flex-1 h-[1px] bg-gradient-to-r from-cyan-500/20 to-cyan-500/5 mx-2 hidden md:block" />
+                    <div className="flex-1 h-[1px] bg-gradient-to-r from-slate-200 to-slate-100 mx-2 hidden md:block" />
                   )}
                 </React.Fragment>
               ))}
