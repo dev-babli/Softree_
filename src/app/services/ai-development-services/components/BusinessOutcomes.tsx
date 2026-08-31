@@ -200,7 +200,7 @@ export default function BusinessOutcomes() {
 
   return (
     <section className="relative overflow-hidden bg-transparent py-16 md:py-24">
-      <div className="relative mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-12">
+      <div className="relative mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-12">
         
         {/* Header */}
         <div className="mx-auto mb-16 max-w-4xl text-center">
@@ -253,7 +253,7 @@ export default function BusinessOutcomes() {
 
         {/* Carousel Area */}
         <div 
-          className="relative mx-auto max-w-[1400px] px-0 sm:px-16 lg:px-24"
+          className="relative mx-auto max-w-[1600px] px-0 sm:px-16 lg:px-24"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >

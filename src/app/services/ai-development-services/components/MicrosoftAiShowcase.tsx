@@ -243,22 +243,22 @@ export default function MicrosoftAiShowcase() {
   return (
     <div className="flex flex-col gap-6 w-full z-10 relative font-sans">
       {/* Outer Dashboard Card */}
-      <div className="relative overflow-hidden rounded-[24px] border border-slate-800 bg-[#020813] p-8 lg:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] min-h-[580px] flex items-center text-white w-full">
+      <div className="relative overflow-hidden rounded-[24px] border border-slate-200 bg-white p-8 lg:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.05)] min-h-[580px] flex items-center text-slate-900 w-full">
         
         {/* Mirror-morphism reflection glows */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_25%,rgba(0,195,255,0.06),transparent_40%)] pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_75%,rgba(138,63,252,0.08),transparent_45%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_25%,rgba(0,195,255,0.03),transparent_40%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_75%,rgba(138,63,252,0.04),transparent_45%)] pointer-events-none" />
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch w-full relative z-10">
           
           {/* Left Column: Heading, Isometric Stack (contained inside a glowing card) */}
           <div className="lg:col-span-3 flex">
-            <div className="relative overflow-hidden rounded-[18px] border border-cyan-500/30 bg-[#030914]/80 p-6 shadow-[0_0_25px_rgba(0,195,255,0.15)] flex flex-col justify-between items-stretch w-full h-[360px] z-10">
+            <div className="relative overflow-hidden rounded-[18px] border border-cyan-500/30 bg-slate-50 p-6 shadow-[0_0_25px_rgba(0,195,255,0.05)] flex flex-col justify-between items-stretch w-full h-[360px] z-10">
               <div className="space-y-2 text-left">
-                <h2 className="text-[26px] lg:text-[30px] font-black tracking-wider text-white uppercase leading-tight">
+                <h2 className="text-[26px] lg:text-[30px] font-black tracking-wider text-slate-900 uppercase leading-tight">
                   MICROSOFT AI
                 </h2>
-                <p className="text-[14px] font-bold text-cyan-400 tracking-wider uppercase">
+                <p className="text-[14px] font-bold text-cyan-600 tracking-wider uppercase">
                   Intelligent. Connected. Secured.
                 </p>
               </div>
@@ -351,10 +351,10 @@ export default function MicrosoftAiShowcase() {
             <div className="lg:col-span-6 flex flex-col justify-between py-1 h-[360px] relative z-10">
               
               {/* Layer 01: AI Foundation */}
-              <div className="relative p-3 rounded-[12px] border border-cyan-500/25 bg-slate-950/60 shadow-[0_0_15px_rgba(0,195,255,0.02)] flex items-center gap-3 min-h-[66px]">
+              <div className="relative p-3 rounded-[12px] border border-cyan-500/25 bg-white shadow-sm flex items-center gap-3 min-h-[66px]">
                 <div className="w-[88px] shrink-0 text-left pl-0.5">
-                  <span className="text-[11px] font-black text-cyan-400 block tracking-wider uppercase mb-0.5">LAYER 01</span>
-                  <span className="text-[13px] font-black text-white tracking-tight uppercase leading-snug">AI FOUNDATION</span>
+                  <span className="text-[11px] font-black text-cyan-600 block tracking-wider uppercase mb-0.5">LAYER 01</span>
+                  <span className="text-[13px] font-black text-slate-900 tracking-tight uppercase leading-snug">AI FOUNDATION</span>
                 </div>
                 <div className="w-[1px] h-9 bg-cyan-500/25 self-center" />
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 pl-1 flex-1">
@@ -363,17 +363,17 @@ export default function MicrosoftAiShowcase() {
                       <div className="transition-all duration-300 group-hover:scale-120 group-hover:rotate-[6deg]">
                         {cap.logo}
                       </div>
-                      <span className="text-[14px] font-bold text-slate-300 group-hover:text-white transition-colors duration-200">{cap.name}</span>
+                      <span className="text-[14px] font-bold text-slate-600 group-hover:text-cyan-600 transition-colors duration-200">{cap.name}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Layer 02: Intelligent Experiences */}
-              <div className="relative p-3 rounded-[12px] border border-purple-500/25 bg-slate-950/60 shadow-[0_0_15px_rgba(138,63,252,0.02)] flex items-center gap-3 min-h-[66px]">
+              <div className="relative p-3 rounded-[12px] border border-purple-500/25 bg-white shadow-sm flex items-center gap-3 min-h-[66px]">
                 <div className="w-[88px] shrink-0 text-left pl-0.5">
-                  <span className="text-[11px] font-black text-purple-400 block tracking-wider uppercase mb-0.5">LAYER 02</span>
-                  <span className="text-[13px] font-black text-white tracking-tight uppercase leading-snug">INTELLIGENT EXP.</span>
+                  <span className="text-[11px] font-black text-purple-600 block tracking-wider uppercase mb-0.5">LAYER 02</span>
+                  <span className="text-[13px] font-black text-slate-900 tracking-tight uppercase leading-snug">INTELLIGENT EXP.</span>
                 </div>
                 <div className="w-[1px] h-9 bg-purple-500/25 self-center" />
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 pl-1 flex-1">
@@ -382,17 +382,17 @@ export default function MicrosoftAiShowcase() {
                       <div className="transition-all duration-300 group-hover:scale-120 group-hover:rotate-[6deg]">
                         {cap.logo}
                       </div>
-                      <span className="text-[14px] font-bold text-slate-300 group-hover:text-white transition-colors duration-200">{cap.name}</span>
+                      <span className="text-[14px] font-bold text-slate-600 group-hover:text-purple-600 transition-colors duration-200">{cap.name}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Layer 03: Business Automation */}
-              <div className="relative p-3 rounded-[12px] border border-pink-500/25 bg-slate-950/60 shadow-[0_0_15px_rgba(233,30,99,0.02)] flex items-center gap-3 min-h-[66px]">
+              <div className="relative p-3 rounded-[12px] border border-pink-500/25 bg-white shadow-sm flex items-center gap-3 min-h-[66px]">
                 <div className="w-[88px] shrink-0 text-left pl-0.5">
-                  <span className="text-[11px] font-black text-pink-400 block tracking-wider uppercase mb-0.5">LAYER 03</span>
-                  <span className="text-[13px] font-black text-white tracking-tight uppercase leading-snug">BUSINESS AUTO.</span>
+                  <span className="text-[11px] font-black text-pink-600 block tracking-wider uppercase mb-0.5">LAYER 03</span>
+                  <span className="text-[13px] font-black text-slate-900 tracking-tight uppercase leading-snug">BUSINESS AUTO.</span>
                 </div>
                 <div className="w-[1px] h-9 bg-pink-500/25 self-center" />
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 pl-1 flex-1">
@@ -401,17 +401,17 @@ export default function MicrosoftAiShowcase() {
                       <div className="transition-all duration-300 group-hover:scale-120 group-hover:rotate-[6deg]">
                         {cap.logo}
                       </div>
-                      <span className="text-[14px] font-bold text-slate-300 group-hover:text-white transition-colors duration-200">{cap.name}</span>
+                      <span className="text-[14px] font-bold text-slate-600 group-hover:text-pink-600 transition-colors duration-200">{cap.name}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Layer 04: Data & Intelligence */}
-              <div className="relative p-3 rounded-[12px] border border-emerald-500/25 bg-slate-950/60 shadow-[0_0_15px_rgba(16,185,129,0.02)] flex items-center gap-3 min-h-[66px]">
+              <div className="relative p-3 rounded-[12px] border border-emerald-500/25 bg-white shadow-sm flex items-center gap-3 min-h-[66px]">
                 <div className="w-[88px] shrink-0 text-left pl-0.5">
-                  <span className="text-[11px] font-black text-emerald-400 block tracking-wider uppercase mb-0.5">LAYER 04</span>
-                  <span className="text-[13px] font-black text-white tracking-tight uppercase leading-snug">DATA & INTEL.</span>
+                  <span className="text-[11px] font-black text-emerald-600 block tracking-wider uppercase mb-0.5">LAYER 04</span>
+                  <span className="text-[13px] font-black text-slate-900 tracking-tight uppercase leading-snug">DATA & INTEL.</span>
                 </div>
                 <div className="w-[1px] h-9 bg-emerald-500/25 self-center" />
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 pl-1 flex-1">
@@ -420,7 +420,7 @@ export default function MicrosoftAiShowcase() {
                       <div className="transition-all duration-300 group-hover:scale-120 group-hover:rotate-[6deg]">
                         {cap.logo}
                       </div>
-                      <span className="text-[14px] font-bold text-slate-300 group-hover:text-white transition-colors duration-200">{cap.name}</span>
+                      <span className="text-[14px] font-bold text-slate-600 group-hover:text-emerald-600 transition-colors duration-200">{cap.name}</span>
                     </div>
                   ))}
                 </div>
@@ -431,37 +431,37 @@ export default function MicrosoftAiShowcase() {
             <div className="lg:col-span-2 flex items-center justify-center relative z-10">
               <div className="relative flex items-center justify-center w-[210px] h-[210px]">
                 {/* Concentric rotating neon circles with technical cockpit ticks */}
-                <div className="absolute inset-0 rounded-full border border-cyan-500/30 animate-[spin_20s_linear_infinite] shadow-[0_0_40px_rgba(0,195,255,0.2)]" />
+                <div className="absolute inset-0 rounded-full border border-cyan-500/30 animate-[spin_20s_linear_infinite] shadow-[0_0_40px_rgba(0,195,255,0.05)]" />
                 <div className="absolute inset-3 rounded-full border border-indigo-500/20 animate-[spin_12s_linear_infinite_reverse]" />
                 
                 <svg className="absolute inset-0 w-full h-full animate-[spin_40s_linear_infinite]" viewBox="0 0 100 100">
                   <circle cx="50" cy="50" r="46" stroke="rgba(0,195,255,0.12)" strokeWidth="1" fill="none" strokeDasharray="1 3" />
                   <circle cx="50" cy="50" r="42" stroke="rgba(0,195,255,0.22)" strokeWidth="1" fill="none" strokeDasharray="4 8" />
                 </svg>
-
+ 
                 {/* Core content with inner reflection */}
-                <div className="absolute inset-6 rounded-full bg-slate-950/85 border-2 border-cyan-400/50 shadow-[inset_0_0_20px_rgba(0,195,255,0.3),0_0_30px_rgba(0,195,255,0.4)] flex flex-col items-center justify-center gap-1.5 z-10">
+                <div className="absolute inset-6 rounded-full bg-white border-2 border-cyan-400/50 shadow-[inset_0_0_20px_rgba(0,195,255,0.05),0_0_30px_rgba(0,195,255,0.15)] flex flex-col items-center justify-center gap-1.5 z-10">
                   <MicrosoftLogo className="w-10 h-10 shrink-0 transition-transform duration-500 hover:scale-110 hover:rotate-[360deg] cursor-pointer" />
-                  <span className="text-[16px] lg:text-[18px] font-black tracking-[0.12em] text-white select-none">ENTERPRISE</span>
-                  <span className="text-[13.5px] lg:text-[15px] font-black tracking-[0.05em] text-cyan-400 select-none">AI</span>
+                  <span className="text-[16px] lg:text-[18px] font-black tracking-[0.12em] text-slate-900 select-none">ENTERPRISE</span>
+                  <span className="text-[13.5px] lg:text-[15px] font-black tracking-[0.05em] text-cyan-600 select-none">AI</span>
                 </div>
               </div>
             </div>
-
+ 
             {/* Col C (5 Capabilities indicators - Overlapping Circular Buttons on Glow Cards) */}
             <div className="lg:col-span-4 flex flex-col justify-between py-1 h-[360px] text-left pl-3 relative z-10">
               {rightCapabilities.map((cap, idx) => (
                 <div key={idx} className="relative flex items-center pl-6 w-full group">
                   {/* Circular indicator button offset to the left */}
-                  <div className={`absolute left-0 top-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-slate-950 border-2 ${cap.borderClass} ${cap.glowClass} z-20 transition-all duration-300 group-hover:scale-110 group-hover:rotate-[15deg]`}>
+                  <div className={`absolute left-0 top-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-white border-2 ${cap.borderClass} ${cap.glowClass} z-20 transition-all duration-300 group-hover:scale-110 group-hover:rotate-[15deg]`}>
                     {cap.icon}
                   </div>
                   {/* Text banner with matching card border color */}
-                  <div className={`w-full border ${cap.borderClass} bg-[#030914]/80 p-3 pl-10 rounded-lg text-left transition-all duration-300 ${cap.hoverBorder} shadow-[0_4px_12px_rgba(0,0,0,0.2)]`}>
+                  <div className={`w-full border ${cap.borderClass} bg-white p-3 pl-10 rounded-lg text-left transition-all duration-300 ${cap.hoverBorder} shadow-[0_4px_12px_rgba(0,0,0,0.05)]`}>
                     <span className={`text-[13.5px] lg:text-[14px] font-black block tracking-wider uppercase mb-0.5 ${cap.textClass}`}>
                       {cap.title}
                     </span>
-                    <span className="text-[11.5px] lg:text-[12px] text-slate-400 leading-normal block font-semibold group-hover:text-slate-300 transition-colors duration-200">
+                    <span className="text-[11.5px] lg:text-[12px] text-slate-500 leading-normal block font-semibold group-hover:text-slate-700 transition-colors duration-200">
                       {cap.desc}
                     </span>
                   </div>
@@ -476,36 +476,36 @@ export default function MicrosoftAiShowcase() {
       </div>
 
       {/* Integrated bottom delivering business impact banner */}
-      <div className="relative overflow-hidden rounded-[20px] border border-cyan-500/30 bg-[#020813] py-4 px-6 md:px-8 shadow-[0_10px_30px_rgba(0,0,0,0.3)] flex flex-col lg:flex-row items-center justify-between gap-6 z-10 text-white w-full">
+      <div className="relative overflow-hidden rounded-[20px] border border-cyan-500/20 bg-white py-4 px-6 md:px-8 shadow-[0_10px_30px_rgba(0,0,0,0.03)] flex flex-col lg:flex-row items-center justify-between gap-6 z-10 text-slate-900 w-full">
         
         {/* Mirror-morphism reflection glows */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,195,255,0.06),transparent_50%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,195,255,0.03),transparent_50%)] pointer-events-none" />
         
         {/* Header left */}
-        <div className="flex items-center gap-3 shrink-0 border-b lg:border-b-0 lg:border-r border-slate-800/80 pb-4 lg:pb-0 lg:pr-6 w-full lg:w-auto">
-          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-900 border-2 border-cyan-500/40 text-cyan-400 shadow-[0_0_10px_rgba(0,195,255,0.35)] animate-pulse">
-            <Target className="w-5 h-5 text-cyan-400" />
+        <div className="flex items-center gap-3 shrink-0 border-b lg:border-b-0 lg:border-r border-slate-200 pb-4 lg:pb-0 lg:pr-6 w-full lg:w-auto">
+          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white border-2 border-cyan-500/40 text-cyan-600 shadow-[0_0_10px_rgba(0,195,255,0.05)] animate-pulse">
+            <Target className="w-5 h-5 text-cyan-600" />
           </div>
           <div className="text-left">
-            <span className="text-[14.5px] lg:text-[15px] font-black text-cyan-400 tracking-wider uppercase select-none">DELIVERING BUSINESS IMPACT</span>
+            <span className="text-[14.5px] lg:text-[15px] font-black text-cyan-600 tracking-wider uppercase select-none">DELIVERING BUSINESS IMPACT</span>
           </div>
         </div>
-
+ 
         {/* 5 Metrics row */}
         <div className="flex flex-wrap md:flex-nowrap justify-between items-center w-full gap-4">
           {businessImpactMetrics.map((metric, idx) => (
             <React.Fragment key={idx}>
               <div className="flex items-center gap-3 text-left group">
-                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-950 border border-cyan-500/30 shadow-[0_0_8px_rgba(0,195,255,0.2)] transition-all duration-300 group-hover:scale-115 group-hover:rotate-6">
-                  {React.cloneElement(metric.icon, { className: "w-4.5 h-4.5 text-cyan-400 animate-pulse" })}
+                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white border border-cyan-500/20 shadow-[0_0_8px_rgba(0,195,255,0.05)] transition-all duration-300 group-hover:scale-115 group-hover:rotate-6">
+                  {React.cloneElement(metric.icon, { className: "w-4.5 h-4.5 text-cyan-600 animate-pulse" })}
                 </div>
                 <div>
-                  <span className="text-[13px] font-black text-white block tracking-tight uppercase leading-none mb-0.5">{metric.title}</span>
-                  <span className="text-[11.5px] lg:text-[12px] text-slate-400 font-semibold block leading-none">{metric.value}</span>
+                  <span className="text-[13px] font-black text-slate-900 block tracking-tight uppercase leading-none mb-0.5">{metric.title}</span>
+                  <span className="text-[11.5px] lg:text-[12px] text-slate-500 font-semibold block leading-none">{metric.value}</span>
                 </div>
               </div>
               {idx < businessImpactMetrics.length - 1 && (
-                <div className="hidden md:block w-[1px] h-6 bg-slate-800" />
+                <div className="hidden md:block w-[1px] h-6 bg-slate-200" />
               )}
             </React.Fragment>
           ))}

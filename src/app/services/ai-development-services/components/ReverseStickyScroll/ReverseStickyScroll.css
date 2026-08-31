@@ -1,0 +1,151 @@
+/* Scoped styling for Reverse Sticky Scroll component */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bricolage+Grotesque:wght@400;600;700&display=swap');
+
+.rss_wrap {
+  --rss-bg-primary: #ffffff;
+  --rss-bg-secondary: #f5f5f5;
+  --rss-text-primary: #1a1a1a;
+  --rss-text-secondary: #666666;
+  --rss-border-color: #e0e0e0;
+  --rss-accent-color: #3b82f6;
+
+  --rss-s1-bg: #C94716;
+  --rss-s1-text: #ffffff;
+  --rss-s2-bg: #111111;
+  --rss-s2-text: #f5f5f5;
+  --rss-s3-bg: #fcfbf9;
+  --rss-s3-text: #111111;
+  --rss-s4-bg: #FF6B00;
+  --rss-s4-text: #ffffff;
+  --rss-s4-hr: rgba(255, 255, 255, 0.4);
+  --rss-s5-bg: #09090b;
+  --rss-s5-text: #ffffff;
+
+  width: 100%;
+  position: relative;
+  background: var(--rss-bg-primary);
+  color: var(--rss-text-primary);
+  font-family: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: visible;
+}
+
+.rss_section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.rss_container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 4vw;
+  padding-top: clamp(2rem, 8vw, 4vw);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  transform-origin: bottom left;
+  will-change: transform;
+}
+
+.rss_big {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(3.5rem, 12vw, 14rem);
+  font-weight: 400;
+  line-height: 0.85;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.rss_sub {
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  max-width: 50ch;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.rss_tag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.rss_right {
+  text-align: right;
+  align-self: flex-end;
+}
+
+.rss_bottom {
+  margin-top: auto;
+}
+
+.rss_hr {
+  border: none;
+  border-top: 1px solid currentColor;
+  opacity: 0.6;
+  margin: 2vw 0;
+}
+
+.rss_cols {
+  display: flex;
+  gap: 3vw;
+  flex-wrap: wrap;
+}
+
+.rss_cols > div {
+  flex: 1;
+  min-width: 180px;
+}
+
+.rss_label {
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.rss_detail {
+  font-size: clamp(0.85rem, 1.3vw, 1.05rem);
+  line-height: 1.5;
+  opacity: 0.75;
+}
+
+/* Section styling overrides */
+.rss_s1 .rss_container {
+  background: var(--rss-s1-bg);
+  color: var(--rss-s1-text);
+}
+
+.rss_s1 .rss_hr {
+  border-color: var(--rss-s1-text);
+  opacity: 1;
+}
+
+.rss_s2 .rss_container {
+  background: var(--rss-s2-bg);
+  color: var(--rss-s2-text);
+}
+
+.rss_s3 .rss_container {
+  background: var(--rss-s3-bg);
+  color: var(--rss-s3-text);
+}
+
+.rss_s4 .rss_container {
+  background: var(--rss-s4-bg);
+  color: var(--rss-s4-text);
+}
+
+.rss_s4 .rss_hr {
+  border-color: var(--rss-s4-hr);
+}
+
+.rss_s5 .rss_container {
+  background: var(--rss-s5-bg);
+  color: var(--rss-s5-text);
+}
