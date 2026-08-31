@@ -641,9 +641,24 @@
   }
 
   .ssx-section {
+    position: relative;
+    top: auto;
     height: auto;
     min-height: auto;
-    overflow: visible;
+    overflow: hidden;
+  }
+
+  .ssx-section-content {
+    height: auto;
+  }
+
+  .ssx-section--reverse .ssx-section-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .ssx-section--reverse .ssx-copy,
+  .ssx-section--reverse .ssx-media-block {
+    order: 0;
   }
 
   .ssx-section-inner {
