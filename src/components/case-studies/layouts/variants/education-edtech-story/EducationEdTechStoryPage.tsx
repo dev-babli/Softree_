@@ -70,12 +70,42 @@ const notebookPortableTextComponents: PortableTextComponents = {
 export function EducationEdTechStoryPage({ data }: Props) {
   const clientDetailsText = useMemo(() => {
     const details = data.clientDetails;
-    if (details && details.trim()) return details;
     const studyTitle = data.title || "AI-driven analytics and automation";
     const studyRegion = data.snapshot?.region || "multiple international markets";
-    const size = (data.companySize || "enterprise").toLowerCase();
-    const sizeDesc = size === "startup" ? "A startup" : size === "mid-market" ? "A mid-market enterprise" : "A global enterprise";
-    return `${sizeDesc} in the IT services sector, operating across ${studyRegion} and managing a complex IT environment. The client partnered with Softree Technology to leverage ${studyTitle} for improved IT service management and operational efficiency.`;
+
+    const rawText = (() => {
+      if (details && details.trim()) return details;
+      const size = (data.companySize || "enterprise").toLowerCase();
+      const sizeDesc = size === "startup" ? "A startup" : size === "mid-market" ? "A mid-market enterprise" : "A global enterprise";
+      return `${sizeDesc} in the IT services sector, operating across ${studyRegion} and managing a complex IT environment. The client partnered with Softree Technology to leverage ${studyTitle} for improved IT service management and operational efficiency.`;
+    })();
+
+    const escapeRegExp = (str: string) => {
+      return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    };
+
+    const searchTerms = [studyRegion, studyTitle].filter((t) => t && t.trim() !== "");
+    if (searchTerms.length === 0) return rawText;
+
+    const pattern = `(${searchTerms.map(escapeRegExp).join("|")})`;
+    const regex = new RegExp(pattern, "gi");
+    const parts = rawText.split(regex);
+
+    return (
+      <>
+        {parts.map((part, idx) => {
+          const isMatch = searchTerms.some((t) => t.toLowerCase() === part.toLowerCase());
+          if (isMatch) {
+            return (
+              <span key={idx} className="font-bold text-[#ff5c00]" style={{ color: "var(--marker)" }}>
+                {part}
+              </span>
+            );
+          }
+          return part;
+        })}
+      </>
+    );
   }, [data.clientDetails, data.title, data.snapshot?.region, data.companySize]);
 
   const [progressWidth, setProgressWidth] = useState(0)

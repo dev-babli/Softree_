@@ -174,7 +174,7 @@ export function BentoGridLayout({
     <section
       aria-label="Blog highlights"
       className={cn(
-        "mx-auto w-full max-w-[1240px] rounded-xl border border-[#d7dce9] bg-[#f6f7fb] px-5 py-0 md:px-8 md:py-0 lg:px-10 lg:py-0",
+        "mx-auto w-full max-w-[1240px] rounded-xl border border-[#d7dce9] bg-[#f6f7fb] px-5 py-10 md:px-8 md:py-12 lg:px-10 lg:py-14",
         className,
       )}
     >

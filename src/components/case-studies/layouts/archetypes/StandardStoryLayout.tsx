@@ -94,12 +94,42 @@ export default function StandardStoryLayout({
 
   const clientDetailsText = useMemo(() => {
     const details = study.clientDetails || study.location;
-    if (details && details.trim()) return details;
     const studyTitle = study.title || "AI-driven analytics and automation";
     const studyRegion = study.region || "multiple international markets";
-    const size = (study.companySize || "enterprise").toLowerCase();
-    const sizeDesc = size === "startup" ? "A startup" : size === "mid-market" ? "A mid-market enterprise" : "A global enterprise";
-    return `${sizeDesc} in the IT services sector, operating across ${studyRegion} and managing a complex IT environment. The client partnered with Softree Technology to leverage ${studyTitle} for improved IT service management and operational efficiency.`;
+
+    const rawText = (() => {
+      if (details && details.trim()) return details;
+      const size = (study.companySize || "enterprise").toLowerCase();
+      const sizeDesc = size === "startup" ? "A startup" : size === "mid-market" ? "A mid-market enterprise" : "A global enterprise";
+      return `${sizeDesc} in the IT services sector, operating across ${studyRegion} and managing a complex IT environment. The client partnered with Softree Technology to leverage ${studyTitle} for improved IT service management and operational efficiency.`;
+    })();
+
+    const escapeRegExp = (str: string) => {
+      return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    };
+
+    const searchTerms = [studyRegion, studyTitle].filter((t) => t && t.trim() !== "");
+    if (searchTerms.length === 0) return rawText;
+
+    const pattern = `(${searchTerms.map(escapeRegExp).join("|")})`;
+    const regex = new RegExp(pattern, "gi");
+    const parts = rawText.split(regex);
+
+    return (
+      <>
+        {parts.map((part, idx) => {
+          const isMatch = searchTerms.some((t) => t.toLowerCase() === part.toLowerCase());
+          if (isMatch) {
+            return (
+              <span key={idx} className="font-bold text-[#5a17ee]" style={{ color: "#5a17ee" }}>
+                {part}
+              </span>
+            );
+          }
+          return part;
+        })}
+      </>
+    );
   }, [study.clientDetails, study.location, study.title, study.region, study.companySize]);
 
   const challenge = asPT(study.challengeContent ?? study.challenge);

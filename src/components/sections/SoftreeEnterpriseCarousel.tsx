@@ -8,7 +8,7 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { PARTNER_LOGOS } from "@/components/qc/homepage-light/AboutClientLogos";
 import { DUR, EASE_T, REVEAL, VIEWPORT } from "@/lib/motion";
@@ -123,14 +123,28 @@ export default function SoftreeEnterpriseCarousel() {
   const activateTab = useCallback(
     (index: number) => {
       setActiveIndex(index);
-      cardRefs.current[index]?.scrollIntoView({
-        behavior: reduced ? "auto" : "smooth",
-        inline: "start",
-        block: "nearest",
-      });
+      const scroller = scrollerRef.current;
+      const card = cardRefs.current[index];
+      if (scroller && card) {
+        const relativeLeft = card.getBoundingClientRect().left - scroller.getBoundingClientRect().left;
+        scroller.scrollTo({
+          left: scroller.scrollLeft + relativeLeft,
+          behavior: reduced ? "auto" : "smooth",
+        });
+      }
     },
     [reduced]
   );
+
+  useEffect(() => {
+    if (reduced) return;
+    const interval = setInterval(() => {
+      const nextIndex = (activeIndex + 1) % PANELS.length;
+      activateTab(nextIndex);
+    }, 5500); // Auto slide every 5.5 seconds
+
+    return () => clearInterval(interval);
+  }, [activeIndex, reduced, activateTab]);
 
   return (
     <section
@@ -174,14 +188,8 @@ export default function SoftreeEnterpriseCarousel() {
                     href="/contact"
                     className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#0a0a1a] px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#0a0a1a]/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0a0a1a]"
                   >
-                    Request a demo
-                    <ArrowRight className="h-3.5 w-3.5" aria-hidden />
-                  </Link>
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center justify-center rounded-[4px] border border-[#0a0a1a]/25 bg-white px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#0a0a1a] transition-colors hover:border-[#0a0a1a]/45 hover:bg-[#0a0a1a]/[0.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0a0a1a]"
-                  >
                     Let&apos;s talk
+                    <ArrowRight className="h-3.5 w-3.5" aria-hidden />
                   </Link>
                 </div>
               </div>
@@ -231,7 +239,7 @@ export default function SoftreeEnterpriseCarousel() {
                   ref={(node) => {
                     cardRefs.current[index] = node;
                   }}
-                  className="relative h-[440px] w-[86%] min-w-[86%] snap-start overflow-hidden rounded-[10px] ring-1 ring-[#0a0a1a]/10 md:h-[470px] md:w-[76%] md:min-w-[76%]"
+                  className="relative h-[440px] w-full min-w-full snap-start overflow-hidden rounded-[10px] ring-1 ring-[#0a0a1a]/10 md:h-[470px]"
                   initial={REVEAL.fade.initial}
                   animate={inView ? REVEAL.fade.animate : REVEAL.fade.initial}
                   transition={{

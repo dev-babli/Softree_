@@ -115,7 +115,7 @@ export default function HomepageShowcaseSections() {
 
       <section
         id="client-testimonials"
-        className="bg-[#F3F0EE] px-4 py-0 scroll-mt-24"
+        className="bg-[#F3F0EE] px-4 py-16 md:py-20 lg:py-24 scroll-mt-24"
       >
         <div className="mx-auto w-full max-w-[1100px]">
           <TestimonialSlider
@@ -127,7 +127,7 @@ export default function HomepageShowcaseSections() {
       </section>
 
       {posts.length > 0 ? (
-        <section className="border-t border-[#d7dce9] bg-[#f6f7fb] px-4 py-0">
+        <section className="border-t border-[#d7dce9] bg-[#f6f7fb] px-4 py-16 md:py-20 lg:py-24">
           <div className="mx-auto max-w-[1240px]">
             <BentoGridLayout 
               posts={posts} 

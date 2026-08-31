@@ -2,7 +2,7 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { BENTO_VIEWPORT, captionStagger, panelReveal, previewSwap } from "./bento.motion";
-import { ArrowRight, MapPin, Briefcase, Users, Globe, Building2, AlertTriangle, Settings, Quote } from "lucide-react";
+import { ArrowRight, MapPin, Briefcase, Users, Globe, Building2, AlertTriangle, Settings, Quote, TrendingUp } from "lucide-react";
 
 function formatDate(iso?: string) {
   if (!iso) return null;
@@ -268,9 +268,11 @@ export function BentoPreviewPanel({
                             variants={caption}
                             className="rounded-xl border border-[#FF5812]/15 bg-[#FF5812]/[0.02] p-4"
                           >
-                            <div className="flex items-center gap-2 text-[#FF5812] mb-1.5">
-                              <AlertTriangle className="h-4 w-4" />
-                              <span className="text-[10px] font-bold uppercase tracking-[0.12em]">The Challenge</span>
+                            <div className="flex mb-2.5">
+                              <div className="inline-flex items-center gap-1.5 rounded-full bg-[#FF5812]/10 px-2.5 py-1 text-[#FF5812]">
+                                <AlertTriangle className="h-3.5 w-3.5" />
+                                <span className="text-[9px] font-bold uppercase tracking-[0.12em]">The Challenge</span>
+                              </div>
                             </div>
                             <p className="text-xs md:text-sm leading-relaxed text-[#0a0a1a]/80 font-normal">
                               {item.challenge}
@@ -281,11 +283,13 @@ export function BentoPreviewPanel({
                         {item.approach && (
                           <motion.div 
                             variants={caption}
-                            className="rounded-xl border border-[#0043CE]/15 bg-[#0043CE]/[0.02] p-4"
+                            className="rounded-xl border border-[#FF5812]/15 bg-[#FF5812]/[0.02] p-4"
                           >
-                            <div className="flex items-center gap-2 text-[#0043CE] mb-1.5">
-                              <Settings className="h-4 w-4" />
-                              <span className="text-[10px] font-bold uppercase tracking-[0.12em]">Our Solution</span>
+                            <div className="flex mb-2.5">
+                              <div className="inline-flex items-center gap-1.5 rounded-full bg-[#FF5812]/10 px-2.5 py-1 text-[#FF5812]">
+                                <Settings className="h-3.5 w-3.5" />
+                                <span className="text-[9px] font-bold uppercase tracking-[0.12em]">Our Solution</span>
+                              </div>
                             </div>
                             <p className="text-xs md:text-sm leading-relaxed text-[#0a0a1a]/80 font-normal">
                               {item.approach}
@@ -310,17 +314,20 @@ export function BentoPreviewPanel({
 
                         {/* The Impact Stats card stacked below */}
                         {item.highlights && item.highlights.length > 0 && (
-                          <div className="w-full rounded-xl border border-[#D1E8D9] bg-[#F4FAF6] p-4 shadow-sm">
-                            <span className="block text-[10px] font-bold uppercase tracking-[0.14em] text-[#107C41] mb-2.5">
-                              The Impact
-                            </span>
+                          <div className="w-full rounded-xl border border-[#FF5812]/25 bg-[#FFF8F5] p-4 shadow-sm">
+                            <div className="flex mb-3">
+                              <div className="inline-flex items-center gap-1.5 rounded-full bg-[#FF5812]/10 px-2.5 py-1 text-[#FF5812]">
+                                <TrendingUp className="h-3.5 w-3.5" />
+                                <span className="text-[9px] font-bold uppercase tracking-[0.12em]">The Impact</span>
+                              </div>
+                            </div>
                             <div className="grid grid-cols-3 gap-3">
                               {item.highlights.slice(0, 3).map((hl, i) => (
                                 <div key={i} className="flex flex-col items-center text-center">
-                                  <span className="text-base md:text-lg font-black text-[#107C41] leading-none">
+                                  <span className="text-base md:text-lg font-black text-[#0a0a1a] leading-none">
                                     {hl.value}
                                   </span>
-                                  <span className="text-[9px] text-[#107C41]/85 leading-tight font-bold mt-1.5 uppercase tracking-wide">
+                                  <span className="text-[9px] text-[#0a0a1a]/70 leading-tight font-bold mt-1.5 uppercase tracking-wide">
                                     {hl.label}
                                   </span>
                                 </div>
