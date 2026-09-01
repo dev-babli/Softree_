@@ -8,6 +8,7 @@ import Link from "next/link";
 interface SolutionCard {
   number: string;
   title: string;
+  description: string;
   items: string[];
   buttonLink: string;
 }
@@ -15,75 +16,171 @@ interface SolutionCard {
 const solutionsData: SolutionCard[] = [
   {
     number: "01",
-    title: "AI Copilot Development",
+    title: "AI Copilot Development Services",
+    description:
+      "Build intelligent AI copilots that assist employees, automate workflows, connect business systems, and deliver context-aware support across enterprise applications.",
     items: [
-      "Microsoft 365 Copilot Custom Extensions",
-      "Context-Aware Code & Text Assistants",
-      "Custom Business Workflow Integrations",
-      "Automated Action & Multi-turn Execution",
-      "Power Platform Copilot Studio Deployment"
+      "Microsoft 365 Copilot Custom Development",
+      "Copilot Studio Development & Integration",
+      "Custom AI Copilots for Business Workflows",
+      "Context-Aware AI Assistants & Automation",
+      "Multi-Turn Conversational AI Solutions"
     ],
     buttonLink: "/solutions/ai-copilot-development"
   },
   {
     number: "02",
-    title: "Generative AI Development",
+    title: "Generative AI Development Services",
+    description:
+      "Develop production-ready generative AI applications powered by LLMs, multimodal models, prompt engineering, and customized AI architectures.",
     items: [
-      "Custom LLM Fine-Tuning & Prompt Design",
-      "High-Quality Synthetic Data Generation",
-      "Multi-Modal AI (Vision, Speech, Audio)",
-      "Cost-Optimized Serverless LLM Hosting",
-      "Responsible AI & Safety Guardrails"
+      "Custom LLM Development & Fine-Tuning",
+      "Generative AI Application Development",
+      "Multimodal AI for Text, Vision & Audio",
+      "Prompt Engineering & LLM Optimization",
+      "Enterprise Generative AI Integration"
     ],
     buttonLink: "/services/generative-ai"
   },
   {
     number: "03",
-    title: "Enterprise RAG Development",
+    title: "Enterprise RAG Development Services",
+    description:
+      "Create secure RAG solutions that connect enterprise data with AI models to deliver accurate, contextual, and source-grounded responses.",
     items: [
-      "Hybrid Vector & Full-Text Search",
-      "Real-Time Database & API Connectors",
-      "Chunking & Metadata Enrichment Pipelines",
-      "Document Parsing & AI Knowledge Graphs",
-      "Secure Access Controls & Governance"
+      "Retrieval-Augmented Generation Development",
+      "Vector & Semantic Search Solutions",
+      "AI Knowledge Bases & Enterprise Search",
+      "Document Intelligence & Knowledge Extraction",
+      "Secure RAG Architecture & Data Integration"
     ],
     buttonLink: "/solutions/enterprise-rag-development"
   },
   {
     number: "04",
-    title: "AI Consulting Service",
+    title: "AI Consulting Services",
+    description:
+      "Define a practical AI strategy with expert guidance across use-case discovery, technology selection, AI readiness, governance, implementation, and ROI planning.",
     items: [
-      "AI Maturity & Readiness Assessment",
-      "ROI Analysis & Use Case Prioritization",
-      "Model Selection & Cloud Strategy",
-      "Risk, Ethics & Governance Frameworks",
-      "Strategic Tech Stack Roadmap Design"
+      "AI Strategy & Digital Transformation",
+      "AI Readiness & Maturity Assessment",
+      "AI Use Case Discovery & Prioritization",
+      "LLM & Technology Selection",
+      "AI Roadmap, Governance & ROI Strategy"
     ],
     buttonLink: "/services/ai-consulting-services"
   },
   {
     number: "05",
-    title: "AI Chatbot Development",
+    title: "AI Chatbot Development Services",
+    description:
+      "Develop intelligent conversational AI chatbots that automate customer interactions, understand natural language, and integrate with your business systems.",
     items: [
-      "Omnichannel Customer Support Bots",
-      "Human-in-the-Loop Handoff Flows",
-      "Multilingual & Speech-to-Text Support",
-      "CRM & ERP Database Integrations",
-      "Natural Language Sentiment Analysis"
+      "Custom AI Chatbot Development",
+      "Conversational AI & Virtual Assistants",
+      "Omnichannel Customer Support Chatbots",
+      "CRM, ERP & Business System Integration",
+      "Multilingual & Voice-Enabled AI Chatbots"
     ],
     buttonLink: "/services/ai-chatbot-development"
   },
   {
     number: "06",
-    title: "Multi Agent System",
+    title: "Multi-Agent AI Development Services",
+    description:
+      "Build collaborative multi-agent AI systems that coordinate specialized agents, automate complex tasks, and execute intelligent workflows with minimal intervention.",
     items: [
-      "Collaborative Agentic Workflows",
-      "Autonomous Task Decomposition & Routing",
-      "Shared State & Conversation Memory",
-      "Automated Quality & Self-Correction Loops",
-      "Scalable Containerized Agent Deployments"
+      "Multi-Agent System Architecture",
+      "Autonomous AI Agent Development",
+      "Agentic Workflow Automation",
+      "AI Agent Orchestration & Task Routing",
+      "Agent Memory, Evaluation & Self-Correction"
     ],
     buttonLink: "/services/multi-agent-systems-development"
+  },
+  {
+    number: "07",
+    title: "AI Agent Development Services",
+    description:
+      "Develop autonomous AI agents capable of reasoning, using tools, accessing business data, executing tasks, and adapting to dynamic workflows.",
+    items: [
+      "Custom AI Agent Development",
+      "Autonomous Task Automation",
+      "Tool-Using AI Agents & API Integration",
+      "Agent Memory & Context Management",
+      "Production AI Agent Deployment"
+    ],
+    buttonLink: "/services/ai-agent-development"
+  },
+  {
+    number: "08",
+    title: "Machine Learning Development Services",
+    description:
+      "Build custom machine learning solutions that turn business data into predictive insights, intelligent recommendations, and automated decision-making.",
+    items: [
+      "Custom Machine Learning Models",
+      "Predictive Analytics & Forecasting",
+      "ML Model Training & Optimization",
+      "Recommendation & Classification Systems",
+      "Machine Learning Deployment & MLOps"
+    ],
+    buttonLink: "/services/machine-learning"
+  },
+  {
+    number: "09",
+    title: "Computer Vision Development Services",
+    description:
+      "Develop computer vision solutions that analyze images and video to automate visual inspection, recognition, detection, and document processing.",
+    items: [
+      "AI Image Recognition & Classification",
+      "Object Detection & Tracking",
+      "OCR & Intelligent Document Processing",
+      "Video Analytics & Visual Inspection",
+      "Custom Computer Vision Models"
+    ],
+    buttonLink: "/services/computer-vision"
+  },
+  {
+    number: "10",
+    title: "Natural Language Processing Services",
+    description:
+      "Transform unstructured text and language data into actionable intelligence using NLP models for understanding, classification, extraction, and automation.",
+    items: [
+      "NLP Model Development & Integration",
+      "Text Classification & Information Extraction",
+      "Sentiment & Intent Analysis",
+      "Named Entity Recognition & Text Mining",
+      "Document & Language Intelligence"
+    ],
+    buttonLink: "/services/natural-language-processing"
+  },
+  {
+    number: "11",
+    title: "AI Integration & Automation Services",
+    description:
+      "Integrate AI capabilities into existing applications and business workflows to automate repetitive processes, improve productivity, and accelerate operations.",
+    items: [
+      "AI API & Application Integration",
+      "Intelligent Business Process Automation",
+      "CRM, ERP & Enterprise System Integration",
+      "AI-Powered Workflow Automation",
+      "Custom AI & Third-Party Integrations"
+    ],
+    buttonLink: "/services/ai-integration"
+  },
+  {
+    number: "12",
+    title: "MLOps & AI Deployment Services",
+    description:
+      "Deploy, monitor, optimize, and scale AI and machine learning models with reliable infrastructure, automated pipelines, governance, and lifecycle management.",
+    items: [
+      "AI Model Deployment & Productionization",
+      "LLMOps & MLOps Implementation",
+      "Model Monitoring & Performance Optimization",
+      "Cloud AI Infrastructure & Scaling",
+      "AI Security & Lifecycle Management"
+    ],
+    buttonLink: "/services/mlops"
   }
 ];
 
@@ -169,10 +266,20 @@ const TiltCard = ({ solution, idx }: { solution: SolutionCard; idx: number }) =>
           {/* Title */}
           <h3
             style={{ transform: "translateZ(25px)" }}
-            className="text-xl font-extrabold text-white mb-5 leading-snug group-hover:text-[#FF6B2C] transition-colors duration-300"
+            className="text-xl font-extrabold text-white mb-3 leading-snug group-hover:text-[#FF6B2C] transition-colors duration-300"
           >
             {solution.title}
           </h3>
+
+          {/* Description */}
+          {solution.description && (
+            <p
+              style={{ transform: "translateZ(20px)" }}
+              className="text-xs text-gray-400 mb-5 leading-relaxed font-normal"
+            >
+              {solution.description}
+            </p>
+          )}
 
           {/* Items list */}
           <ul

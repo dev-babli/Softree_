@@ -30,6 +30,7 @@ const ReverseStickyScroll = dynamic(() => import('./components/ReverseStickyScro
 const MicrosoftAiBentoGrid = dynamic(() => import('./components/MicrosoftAiBentoGrid').then((mod) => mod.MicrosoftAiBentoGrid), { ssr: true });
 const WhoWeHelp = dynamic(() => import('./components/WhoWeHelp').then((mod) => mod.WhoWeHelp), { ssr: true });
 const NetworkGlobe = dynamic(() => import('./components/NetworkGlobe'), { ssr: true });
+const AiTransformationStepWipe = dynamic(() => import('./components/StepWipe').then((mod) => mod.AiTransformationStepWipe), { ssr: true });
 import DetailDrawer from './components/AiTechnologyStack';
 import PhotoStackGallery from './components/PhotoStackGallery';
 export const metadata: Metadata = {
@@ -101,11 +102,11 @@ export default function AiDevelopmentServicesPage() {
             OFFSHORE AI DELIVERY
           </span>
         </div>
-        
+
         <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight">
           Accelerating Your <span className="text-[#FF6B2C]">AI Evolution</span>
         </h2>
-        
+
         <p className="text-[15px] lg:text-base text-slate-500 max-w-2xl mx-auto leading-relaxed">
           Build, deploy, and scale production-grade Agentic systems and custom GenAI pipelines with our vetted offshore engineering teams.
         </p>
@@ -118,7 +119,7 @@ export default function AiDevelopmentServicesPage() {
       {/* Who We Help & Global Network Section */}
       <div className="bg-white mt-20 md:mt-32 py-16 md:py-24 text-slate-900">
         <div className="max-w-[88vw] lg:max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           {/* Unified Centered Header */}
           <div className="flex flex-col items-center w-full mb-16 md:mb-20 text-center">
             <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-4 py-1.5 rounded-full border border-white/60 mb-4 inline-block">
@@ -126,11 +127,11 @@ export default function AiDevelopmentServicesPage() {
                 PARTNERSHIP & GLOBAL REACH
               </span>
             </div>
-            
+
             <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight">
               Who We Help & <span className="text-[#FF6B2C]">Where We Operate</span>
             </h2>
-            
+
             <p className="text-[15px] lg:text-base text-slate-500 max-w-2xl mx-auto leading-relaxed">
               We embed dedicated offshore AI engineering teams to help tech-driven organizations accelerate their roadmaps, build custom agents, and deploy secure vector search engines globally.
             </p>
@@ -150,7 +151,28 @@ export default function AiDevelopmentServicesPage() {
           </div>
         </div>
       </div>
-{/* 
+      {/* AI Transformation StepWipe Showcase */}
+      <div className="max-w-[94vw] lg:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 my-20">
+        <div className="flex flex-col items-start w-full mb-10 text-left">
+          <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-4 py-1.5 rounded-full border border-white/60 mb-4 inline-block">
+            <span className="text-[11px] font-bold text-[#FF6B2C] tracking-widest uppercase">
+              AI INNOVATION & ENGINEERING
+            </span>
+          </div>
+
+          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight max-w-4xl">
+            End-to-End AI Services for <span className="text-[#FF6B2C]">Intelligent Business Transformation</span>
+          </h2>
+
+          <p className="text-[15px] lg:text-base text-slate-500 max-w-3xl leading-relaxed">
+            From AI strategy and consulting to development, integration, and deployment, we deliver end-to-end AI solutions built around your business goals.
+          </p>
+        </div>
+
+        <AiTransformationStepWipe />
+      </div>
+
+      {/* 
       <TrustedBrandsMarquee /> */}
       {/* <AIPhilosophy />
       <SuccessStories /> */}
@@ -233,6 +255,7 @@ export default function AiDevelopmentServicesPage() {
         </div>
       </div>
 
+
       {/* Interactive Photo Stack Section */}
       <div className="bg-white py-24 text-slate-900">
         <div className="max-w-[94vw] lg:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -279,9 +302,9 @@ export default function AiDevelopmentServicesPage() {
 
       <CoreCapabilities />
       <Industries />
-      
+
       {/* <AiArchitectureShowcase /> */}
-      <DigitalEngineeringSolutions />
+      {/* <DigitalEngineeringSolutions /> */}
       <AiRoadmap />
       <AiReadinessBanner />
       <PartnerShowcase />
@@ -290,7 +313,7 @@ export default function AiDevelopmentServicesPage() {
       <BusinessChallenges />
       <BusinessOutcomes /> */}
       {/* <AIDilemma /> */}
-   
+
 
       <WhyChooseWithTestimonials />
       <LightFAQExact />
