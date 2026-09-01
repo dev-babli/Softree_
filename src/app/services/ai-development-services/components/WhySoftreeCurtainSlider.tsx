@@ -718,7 +718,10 @@ export default function WhySoftreeCurtainSlider() {
           <div className="wcs_stage" ref={stageRef} />
 
           {/* GSAP Controlled Text Overlays (Title & Desc) */}
-          <div className="absolute top-[120px] md:top-[140px] lg:top-[28%] xl:top-[32%] left-[var(--wcs-margin)] z-[4] max-w-[calc(100%-var(--wcs-margin)*2)] lg:max-w-[calc(48vw-var(--wcs-margin)*2)] pointer-events-none flex flex-col gap-2 md:gap-4">
+          <div 
+            className="absolute left-[var(--wcs-margin)] z-[4] max-w-[calc(100%-var(--wcs-margin)*2)] lg:max-w-[calc(48vw-var(--wcs-margin)*2)] pointer-events-none flex flex-col gap-2 md:gap-4"
+            style={{ top: '60px' }}
+          >
             <h2 className="wcs_title !relative !top-auto !left-auto !max-w-full" ref={titleElRef} />
             <p className="wcs_desc text-[13px] md:text-[15px] lg:text-[16px] text-white/95 font-medium leading-[1.4] drop-shadow-md" ref={descElRef} />
           </div>
@@ -763,7 +766,10 @@ export default function WhySoftreeCurtainSlider() {
           </div>
 
           {/* React/Framer Motion Data Overlay (Bullets & Cards) */}
-          <div className="react-overlay absolute inset-0 lg:left-auto lg:w-[45%] p-4 md:p-10 lg:p-12 lg:pr-16 flex flex-col justify-end lg:justify-center pointer-events-none z-10 pb-[130px] md:pb-[140px] lg:pb-[120px] pt-[140px] md:pt-[160px] lg:pt-16">
+          <div 
+            className="react-overlay absolute inset-0 lg:left-auto lg:w-[45%] p-4 md:p-10 lg:p-12 lg:pr-16 flex flex-col pointer-events-none z-10"
+            style={{ justifyContent: 'flex-end', paddingBottom: '140px' }}
+          >
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeData.id}
@@ -771,7 +777,7 @@ export default function WhySoftreeCurtainSlider() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.6, ease: [0.3, 0.9, 0.1, 1] }}
-                className="pointer-events-auto mt-8 md:mt-12 lg:mt-20"
+                className="pointer-events-auto mt-8 md:mt-12 lg:mt-0"
               >
                 <h3 className="text-base md:text-xl lg:text-2xl leading-[1.4] font-medium text-white mb-3 lg:mb-6 max-w-md 2xl:max-w-lg tracking-tight drop-shadow-xl">
                   {activeData.heading}
