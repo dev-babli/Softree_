@@ -23,6 +23,8 @@
   --rss-s5-text: #ffffff;
 
   width: 100%;
+  max-width: 1080px; /* Constrains the component to leave generous whitespace on sides */
+  margin: 0 auto;    /* Centers the component horizontally */
   position: relative;
   background: var(--rss-bg-primary);
   color: var(--rss-text-primary);

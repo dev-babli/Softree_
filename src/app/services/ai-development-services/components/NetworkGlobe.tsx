@@ -390,7 +390,7 @@ export default function NetworkGlobe({
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
   const dimsRef = useRef({ W: 0, H: 0, R: 0 });
   const rotationRef = useRef(0);
-  const autoSpeedRef = useRef(0.0016);
+  const autoSpeedRef = useRef(0.015);
   const draggingRef = useRef(false);
   const lastXRef = useRef(0);
   const dragVelRef = useRef(0);

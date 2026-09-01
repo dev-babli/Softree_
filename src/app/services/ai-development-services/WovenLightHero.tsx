@@ -30,14 +30,14 @@ export const WovenLightHero = () => {
       opacity: 1,
       y: 0,
       transition: {
-        delay: (typeof i === 'number' ? i : 0) * 0.01 + 0.1,
-        duration: 0.8,
+        delay: i * 0.1 + 1.5,
+        duration: 1.2,
         ease: [0.2, 0.65, 0.3, 0.9]
       }
     }));
     buttonControls.start({
       opacity: 1,
-      transition: { delay: 0.8, duration: 0.8 }
+      transition: { delay: 2.5, duration: 1 }
     });
 
     return () => {
@@ -45,63 +45,61 @@ export const WovenLightHero = () => {
     }
   }, [textControls, buttonControls]);
 
-  const headline = "Build Intelligent Agentic AI to Transform Business Processes";
+  const headline = "Your Offshore Agentic AI Engineering Partner";
 
   return (
-    <div className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-black dark:bg-white pb-32 pt-24 md:pb-40 md:pt-32">
+    <div className="relative flex min-h-[105vh] w-full flex-col overflow-hidden bg-black dark:bg-white pt-24 md:pt-32 pb-8">
       <WovenCanvas />
       {/* HeroNav removed to prevent duplicate header/navigation */}
-      <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 text-left">
-        <div className="max-w-[850px]">
-          <motion.p
-            custom={0}
-            initial={{ opacity: 0, y: 30 }}
-            animate={textControls}
-            className="mb-6 inline-block rounded-full border border-white/20 bg-white/10 px-5 py-2 text-xs sm:text-sm uppercase tracking-[0.2em] font-semibold text-slate-300 backdrop-blur-sm dark:border-slate-800/20 dark:bg-slate-800/5 dark:text-slate-600"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            AGENTIC AI ENGINEERING SERVICES
-          </motion.p>
-          <h1 className="text-5xl md:text-7xl text-white dark:text-slate-900 leading-tight" style={{ fontFamily: "'Playfair Display', serif", textShadow: '0 0 50px rgba(255, 255, 255, 0.3)' }}>
-            {headline.split(" ").map((word, i) => {
-              const isOrange = word === "Agentic" || word === "AI";
-              return (
-                <span key={i} className="inline-block">
-                  {word.split("").map((char, j) => (
-                    <motion.span 
-                      key={j} 
-                      custom={i * 5 + j} 
-                      initial={{ opacity: 0, y: 50 }} 
-                      animate={textControls} 
-                      className={isOrange ? "text-[#FF6B00]" : ""}
-                      style={{ display: 'inline-block' }}
-                    >
-                      {char}
-                    </motion.span>
-                  ))}
-                  {i < headline.split(" ").length - 1 && <span>&nbsp;</span>}
-                </span>
-              );
-            })}
-          </h1>
-          <motion.p
-            custom={headline.length}
-            initial={{ opacity: 0, y: 30 }}
-            animate={textControls}
-            className="mt-6 max-w-xl text-lg text-slate-300 dark:text-slate-600"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            Design, develop, and deploy autonomous AI agents that automate complex workflows, improve decision-making, and drive smarter business operations.
-          </motion.p>
-          <motion.div initial={{ opacity: 0 }} animate={buttonControls} className="mt-10 flex justify-start">
-            <Link href="/contact">
-              <button className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/20 bg-white/10 px-8 py-3 font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20 dark:border-slate-800/20 dark:bg-slate-800/5 dark:text-slate-800 dark:hover:bg-slate-800/10" style={{ fontFamily: "'Inter', sans-serif" }}>
-                <span>Explore Agentic AI Services</span>
-                <ArrowUpRight className="h-5 w-5 text-[#FF6B00]" strokeWidth={2.5} />
-              </button>
-            </Link>
-          </motion.div>
-        </div>
+      <div className="relative z-10 flex flex-1 flex-col items-center justify-center text-center px-4 pb-12 w-full">
+        <motion.p
+          custom={0}
+          initial={{ opacity: 0, y: 30 }}
+          animate={textControls}
+          className="mb-6 inline-block rounded-full border border-white/20 bg-white/10 px-5 py-2 text-xs sm:text-sm uppercase tracking-[0.2em] font-semibold text-slate-300 backdrop-blur-sm dark:border-slate-800/20 dark:bg-slate-800/5 dark:text-slate-600"
+          style={{ fontFamily: "'Inter', sans-serif" }}
+        >
+          OFFSHORE AGENTIC AI ENGINEERING PARTNER
+        </motion.p>
+        <h1 className="text-5xl md:text-7xl text-white dark:text-slate-900" style={{ fontFamily: "'Playfair Display', serif", textShadow: '0 0 50px rgba(255, 255, 255, 0.3)' }}>
+          {headline.split(" ").map((word, i) => {
+            const isOrange = word === "Agentic" || word === "AI";
+            return (
+              <span key={i} className="inline-block">
+                {word.split("").map((char, j) => (
+                  <motion.span 
+                    key={j} 
+                    custom={i * 5 + j} 
+                    initial={{ opacity: 0, y: 50 }} 
+                    animate={textControls} 
+                    className={isOrange ? "text-[#FF6B00]" : ""}
+                    style={{ display: 'inline-block' }}
+                  >
+                    {char}
+                  </motion.span>
+                ))}
+                {i < headline.split(" ").length - 1 && <span>&nbsp;</span>}
+              </span>
+            );
+          })}
+        </h1>
+        <motion.p
+          custom={headline.length}
+          initial={{ opacity: 0, y: 30 }}
+          animate={textControls}
+          className="mx-auto mt-6 max-w-xl text-lg text-slate-300 dark:text-slate-600"
+          style={{ fontFamily: "'Inter', sans-serif" }}
+        >
+          Build, deploy, and scale AI agents with a dedicated offshore team — under your brand or as an extension of your team.
+        </motion.p>
+        <motion.div initial={{ opacity: 0 }} animate={buttonControls} className="mt-10 flex justify-center">
+          <Link href="/contact">
+            <button className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/20 bg-white/10 px-8 py-3 font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20 dark:border-slate-800/20 dark:bg-slate-800/5 dark:text-slate-800 dark:hover:bg-slate-800/10" style={{ fontFamily: "'Inter', sans-serif" }}>
+              <span>Build Your AI Team</span>
+              <ArrowUpRight className="h-5 w-5 text-[#FF6B00]" strokeWidth={2.5} />
+            </button>
+          </Link>
+        </motion.div>
       </div>
 
       {/* Bottom Trust Bar */}
@@ -109,9 +107,9 @@ export const WovenLightHero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 3, duration: 1 }}
-        className="absolute bottom-0 w-full z-20 border-t border-white/10 bg-black/40 backdrop-blur-md py-6"
+        className="w-full z-20 border-t border-white/10 bg-black/40 backdrop-blur-md py-6 shrink-0 mt-auto"
       >
-        <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-5">
             {trustItems.map((item, index) => {
               const Icon = item.icon;
@@ -199,13 +197,7 @@ const WovenCanvas = () => {
       opacity: isDarkMode ? 1.0 : 0.8,
     });
 
-    const getShiftX = () => {
-      if (typeof window === 'undefined') return 0;
-      return window.innerWidth < 1024 ? 0 : 1.6;
-    };
-
     const points = new THREE.Points(geometry, material);
-    points.position.x = getShiftX();
     scene.add(points);
 
     const handleMouseMove = (event: MouseEvent) => {
@@ -218,8 +210,7 @@ const WovenCanvas = () => {
       requestAnimationFrame(animate);
       const elapsedTime = clock.getElapsedTime();
 
-      const shiftX = getShiftX();
-      const mouseWorld = new THREE.Vector3(mouse.x * 3 - shiftX, mouse.y * 3, 0);
+      const mouseWorld = new THREE.Vector3(mouse.x * 3, mouse.y * 3, 0);
 
       for (let i = 0; i < particleCount; i++) {
         const ix = i * 3;
@@ -263,7 +254,6 @@ const WovenCanvas = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
-      points.position.x = getShiftX();
     };
     window.addEventListener('resize', handleResize);
 

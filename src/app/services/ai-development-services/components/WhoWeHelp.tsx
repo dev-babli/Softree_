@@ -9,22 +9,22 @@ export const WhoWeHelp = ({ simple = false }: { simple?: boolean }) => {
       title: "Consulting Firms",
       desc: "Extend your AI delivery capabilities with an experienced offshore engineering team.",
       icon: Building,
-      color: "text-blue-600",
-      bg: "bg-blue-50",
+      color: "text-orange-600",
+      bg: "bg-orange-50",
     },
     {
       title: "System Integrators",
       desc: "Add Agentic AI expertise to your existing client engagements and technology solutions.",
       icon: Settings,
-      color: "text-purple-600",
-      bg: "bg-purple-50",
+      color: "text-orange-600",
+      bg: "bg-orange-50",
     },
     {
       title: "Technology & Product Companies",
       desc: "Accelerate AI product development with dedicated offshore engineering capacity.",
       icon: Code,
-      color: "text-emerald-600",
-      bg: "bg-emerald-50",
+      color: "text-orange-600",
+      bg: "bg-orange-50",
     },
     {
       title: "ERP & Microsoft Partners",
@@ -37,8 +37,8 @@ export const WhoWeHelp = ({ simple = false }: { simple?: boolean }) => {
       title: "Enterprises",
       desc: "Build and scale AI-powered applications with a dedicated engineering partner.",
       icon: Building2,
-      color: "text-indigo-600",
-      bg: "bg-indigo-50",
+      color: "text-orange-600",
+      bg: "bg-orange-50",
     },
   ];
 
@@ -64,21 +64,23 @@ export const WhoWeHelp = ({ simple = false }: { simple?: boolean }) => {
         </>
       )}
 
-      {/* 5 Content Boxes */}
-      <div className="flex flex-col gap-2">
+      {/* 5 Content List */}
+      <div className="flex flex-col">
         {items.map((item, i) => (
           <div
             key={i}
-            className="flex items-start gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-slate-100 hover:border-slate-200 transition-colors"
+            className={`flex items-start gap-4 py-4 ${
+              i !== items.length - 1 ? "border-b border-slate-200" : ""
+            }`}
           >
-            <div className={`shrink-0 w-8 h-8 rounded-full ${item.bg} flex items-center justify-center`}>
-              <item.icon className={`w-4 h-4 ${item.color}`} />
+            <div className={`shrink-0 w-10 h-10 rounded-full ${item.bg} flex items-center justify-center`}>
+              <item.icon className={`w-5 h-5 ${item.color}`} />
             </div>
-            <div>
-              <h3 className="text-[14px] font-bold text-slate-900 mb-0">
+            <div className="flex flex-col pt-0.5">
+              <h3 className="text-[15px] md:text-base font-bold text-slate-900 mb-1">
                 {item.title}
               </h3>
-              <p className="text-[12px] text-slate-500 leading-snug">
+              <p className="text-[13px] md:text-sm text-slate-500 leading-relaxed">
                 {item.desc}
               </p>
             </div>

@@ -98,29 +98,8 @@ export default function AiDevelopmentServicesPage() {
       <NavigationClient />
       <WovenLightHero />
 
-      {/* Reverse Sticky Scroll Overall Header */}
-      <div className="max-w-[94vw] lg:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 mt-24 mb-10 text-center">
-        <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-4 py-1.5 rounded-full border border-white/60 mb-4 inline-block">
-          <span className="text-[11px] font-bold text-[#FF6B2C] tracking-widest uppercase">
-            OFFSHORE AI DELIVERY
-          </span>
-        </div>
-
-        <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight">
-          Accelerating Your <span className="text-[#FF6B2C]">AI Evolution</span>
-        </h2>
-
-        <p className="text-[15px] lg:text-base text-slate-500 max-w-2xl mx-auto leading-relaxed">
-          Build, deploy, and scale production-grade Agentic systems and custom GenAI pipelines with our vetted offshore engineering teams.
-        </p>
-      </div>
-
-      <div className="max-w-[94vw] lg:max-w-[1600px] mx-auto mt-8">
-        <ReverseStickyScroll />
-      </div>
-
       {/* Who We Help & Global Network Section */}
-      <div className="bg-white mt-20 md:mt-32 py-16 md:py-24 text-slate-900">
+      <div className="bg-white pt-8 md:pt-12 pb-8 md:pb-12 text-slate-900">
         <div className="max-w-[88vw] lg:max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Unified Centered Header */}
@@ -154,6 +133,29 @@ export default function AiDevelopmentServicesPage() {
           </div>
         </div>
       </div>
+
+      {/* Reverse Sticky Scroll Overall Header */}
+      <div className="max-w-[94vw] lg:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 mt-12 md:mt-16 mb-10 text-center">
+        <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-4 py-1.5 rounded-full border border-white/60 mb-4 inline-block">
+          <span className="text-[11px] font-bold text-[#FF6B2C] tracking-widest uppercase">
+            WHAT WE BUILD
+          </span>
+        </div>
+
+        <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight">
+          AGENTIC AI SOLUTIONS FOR REAL <span className="text-[#FF6B2C]">BUSINESS WORKFLOWS</span>
+        </h2>
+
+        <p className="text-[15px] lg:text-base text-slate-500 max-w-2xl mx-auto leading-relaxed">
+          Build production-ready AI solutions that connect intelligence, enterprise data, and automation to solve real business workflows and deliver measurable outcomes.
+        </p>
+      </div>
+
+      <div className="max-w-[94vw] lg:max-w-[1600px] mx-auto mt-8">
+        <ReverseStickyScroll />
+      </div>
+
+
 
       {/* 
       <TrustedBrandsMarquee /> */}
