@@ -339,11 +339,11 @@ export const caseStudyType = defineType({
         }),
         defineField({
             name: 'region',
-            title: 'Operation Region',
+            title: 'Region',
             type: 'string',
             group: 'client',
             fieldset: 'snapshot',
-            description: 'Scale of operation region, e.g. "40+ Countries" or "Global" — shown in case study grids.',
+            description: 'Geographic scope or scale of operation, e.g. "North America & EMEA", "40+ Countries", or "Global" — shown in case study snapshot bars and grids.',
         }),
         defineField({
             name: 'scaleOfOperation',
@@ -518,14 +518,6 @@ export const caseStudyType = defineType({
             group: 'client',
             fieldset: 'snapshot',
             description: 'Shown in the project snapshot bar, e.g. "Power Platform Modernization".',
-        }),
-        defineField({
-            name: 'region',
-            title: 'Region',
-            type: 'string',
-            group: 'client',
-            fieldset: 'snapshot',
-            description: 'Geographic scope, e.g. "North America & EMEA".',
         }),
         defineField({
             name: 'endUsers',
