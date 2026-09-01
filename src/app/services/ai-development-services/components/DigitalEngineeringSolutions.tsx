@@ -22,11 +22,11 @@ const solutionsData: SolutionCard[] = [
     description: "Build intelligent copilots that understand context, automate workflows, and enhance productivity across your organization.",
     image: "/images/ai-development-service/aicard-1.png",
     items: [
-      "Microsoft 365 Copilot Custom Extensions",
-      "Context-Aware Code & Text Assistants",
-      "Custom Business Workflow Integrations",
-      "Automated Action & Multi-turn Execution",
-      "Power Platform Copilot Studio Deployment"
+      "Microsoft 365 Copilot Custom Development",
+      "Copilot Studio Development & Integration",
+      "Custom AI Copilots for Business Workflows",
+      "Context-Aware AI Assistants & Automation",
+      "Multi-Turn Conversational AI Solutions"
     ],
     buttonLink: "/solutions/ai-copilot-development"
   },
@@ -36,11 +36,11 @@ const solutionsData: SolutionCard[] = [
     description: "Harness foundational models to generate high-quality text, images, code, and synthetic data for specialized enterprise tasks.",
     image: "/images/ai-development-service/aicard-2.png",
     items: [
-      "Custom LLM Fine-Tuning & Prompt Design",
-      "High-Quality Synthetic Data Generation",
-      "Multi-Modal AI (Vision, Speech, Audio)",
-      "Cost-Optimized Serverless LLM Hosting",
-      "Responsible AI & Safety Guardrails"
+      "Custom LLM Development & Fine-Tuning",
+      "Generative AI Application Development",
+      "Multimodal AI for Text, Vision & Audio",
+      "Prompt Engineering & LLM Optimization",
+      "Enterprise Generative AI Integration"
     ],
     buttonLink: "/services/generative-ai"
   },
@@ -50,11 +50,11 @@ const solutionsData: SolutionCard[] = [
     description: "Empower your workforce with Retrieval-Augmented Generation to securely interact with internal enterprise knowledge bases.",
     image: "/images/ai-development-service/aicard-3.png",
     items: [
-      "Hybrid Vector & Full-Text Search",
-      "Real-Time Database & API Connectors",
-      "Chunking & Metadata Enrichment Pipelines",
-      "Document Parsing & AI Knowledge Graphs",
-      "Secure Access Controls & Governance"
+      "Retrieval-Augmented Generation Development",
+      "Vector & Semantic Search Solutions",
+      "AI Knowledge Bases & Enterprise Search",
+      "Document Intelligence & Knowledge Extraction",
+      "Secure RAG Architecture & Data Integration"
     ],
     buttonLink: "/solutions/enterprise-rag-development"
   },
@@ -64,11 +64,11 @@ const solutionsData: SolutionCard[] = [
     description: "Navigate the complexities of AI adoption with expert guidance, ensuring strategic alignment and measurable ROI.",
     image: "/images/ai-development-services/step-1.jpg",
     items: [
-      "AI Maturity & Readiness Assessment",
-      "ROI Analysis & Use Case Prioritization",
-      "Model Selection & Cloud Strategy",
-      "Risk, Ethics & Governance Frameworks",
-      "Strategic Tech Stack Roadmap Design"
+      "AI Strategy & Digital Transformation",
+      "AI Readiness & Maturity Assessment",
+      "AI Use Case Discovery & Prioritization",
+      "LLM & Technology Selection",
+      "AI Roadmap, Governance & ROI Strategy"
     ],
     buttonLink: "/services/ai-consulting-services"
   },
@@ -78,11 +78,11 @@ const solutionsData: SolutionCard[] = [
     description: "Deploy omnichannel conversational agents that provide human-like customer support and automate routine interactions.",
     image: "/images/ai-development-services/step-2.jpg",
     items: [
-      "Omnichannel Customer Support Bots",
-      "Human-in-the-Loop Handoff Flows",
-      "Multilingual & Speech-to-Text Support",
-      "CRM & ERP Database Integrations",
-      "Natural Language Sentiment Analysis"
+      "Custom AI Chatbot Development",
+      "Conversational AI & Virtual Assistants",
+      "Omnichannel Customer Support Chatbots",
+      "CRM, ERP & Business System Integration",
+      "Multilingual & Voice-Enabled AI Chatbots"
     ],
     buttonLink: "/services/ai-chatbot-development"
   },
@@ -92,13 +92,97 @@ const solutionsData: SolutionCard[] = [
     description: "Design autonomous collaborative networks of AI agents that dynamically plan, execute, and evaluate complex workflows.",
     image: "/images/ai-development-services/step-3.jpg",
     items: [
-      "Collaborative Agentic Workflows",
-      "Autonomous Task Decomposition & Routing",
-      "Shared State & Conversation Memory",
-      "Automated Quality & Self-Correction Loops",
-      "Scalable Containerized Agent Deployments"
+      "Multi-Agent System Architecture",
+      "Autonomous AI Agent Development",
+      "Agentic Workflow Automation",
+      "AI Agent Orchestration & Task Routing",
+      "Agent Memory, Evaluation & Self-Correction"
     ],
     buttonLink: "/services/multi-agent-systems-development"
+  },
+  {
+    number: "07",
+    title: "AI Agent Development Services",
+    description:
+      "Develop autonomous AI agents capable of reasoning, using tools, accessing business data, executing tasks, and adapting to dynamic workflows.",
+    items: [
+      "Custom AI Agent Development",
+      "Autonomous Task Automation",
+      "Tool-Using AI Agents & API Integration",
+      "Agent Memory & Context Management",
+      "Production AI Agent Deployment"
+    ],
+    buttonLink: "/services/ai-agent-development"
+  },
+  {
+    number: "08",
+    title: "Machine Learning Development Services",
+    description:
+      "Build custom machine learning solutions that turn business data into predictive insights, intelligent recommendations, and automated decision-making.",
+    items: [
+      "Custom Machine Learning Models",
+      "Predictive Analytics & Forecasting",
+      "ML Model Training & Optimization",
+      "Recommendation & Classification Systems",
+      "Machine Learning Deployment & MLOps"
+    ],
+    buttonLink: "/services/machine-learning"
+  },
+  {
+    number: "09",
+    title: "Computer Vision Development Services",
+    description:
+      "Develop computer vision solutions that analyze images and video to automate visual inspection, recognition, detection, and document processing.",
+    items: [
+      "AI Image Recognition & Classification",
+      "Object Detection & Tracking",
+      "OCR & Intelligent Document Processing",
+      "Video Analytics & Visual Inspection",
+      "Custom Computer Vision Models"
+    ],
+    buttonLink: "/services/computer-vision"
+  },
+  {
+    number: "10",
+    title: "Natural Language Processing Services",
+    description:
+      "Transform unstructured text and language data into actionable intelligence using NLP models for understanding, classification, extraction, and automation.",
+    items: [
+      "NLP Model Development & Integration",
+      "Text Classification & Information Extraction",
+      "Sentiment & Intent Analysis",
+      "Named Entity Recognition & Text Mining",
+      "Document & Language Intelligence"
+    ],
+    buttonLink: "/services/natural-language-processing"
+  },
+  {
+    number: "11",
+    title: "AI Integration & Automation Services",
+    description:
+      "Integrate AI capabilities into existing applications and business workflows to automate repetitive processes, improve productivity, and accelerate operations.",
+    items: [
+      "AI API & Application Integration",
+      "Intelligent Business Process Automation",
+      "CRM, ERP & Enterprise System Integration",
+      "AI-Powered Workflow Automation",
+      "Custom AI & Third-Party Integrations"
+    ],
+    buttonLink: "/services/ai-integration"
+  },
+  {
+    number: "12",
+    title: "MLOps & AI Deployment Services",
+    description:
+      "Deploy, monitor, optimize, and scale AI and machine learning models with reliable infrastructure, automated pipelines, governance, and lifecycle management.",
+    items: [
+      "AI Model Deployment & Productionization",
+      "LLMOps & MLOps Implementation",
+      "Model Monitoring & Performance Optimization",
+      "Cloud AI Infrastructure & Scaling",
+      "AI Security & Lifecycle Management"
+    ],
+    buttonLink: "/services/mlops"
   }
 ];
 

@@ -33,6 +33,7 @@ const ReverseStickyScroll = dynamic(() => import('./components/ReverseStickyScro
 const MicrosoftAiBentoGrid = dynamic(() => import('./components/MicrosoftAiBentoGrid').then((mod) => mod.MicrosoftAiBentoGrid), { ssr: true });
 const WhoWeHelp = dynamic(() => import('./components/WhoWeHelp').then((mod) => mod.WhoWeHelp), { ssr: true });
 const NetworkGlobe = dynamic(() => import('./components/NetworkGlobe'), { ssr: true });
+const AiTransformationStepWipe = dynamic(() => import('./components/StepWipe').then((mod) => mod.AiTransformationStepWipe), { ssr: true });
 import DetailDrawer from './components/AiTechnologyStack';
 import PhotoStackGallery from './components/PhotoStackGallery';
 export const metadata: Metadata = {
@@ -235,6 +236,7 @@ export default function AiDevelopmentServicesPage() {
           <CurtainSlider auto={3} />
         </div>
       </div>
+
 
       {/* Interactive Photo Stack Section */}
       <div className="bg-white py-24 text-slate-900">
