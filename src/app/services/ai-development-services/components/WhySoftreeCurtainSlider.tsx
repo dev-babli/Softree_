@@ -170,7 +170,7 @@ function buildCharLine(text: string, lineClass: string, charClass: string) {
     const wordSpan = document.createElement('span');
     wordSpan.style.display = 'inline-block';
     
-    // First word is white, the rest inherit the orange from .cs_title
+    // First word is white, the rest inherit the orange from .wcs_title
     if (i === 0) {
       wordSpan.style.color = '#FFFFFF';
     }
@@ -204,9 +204,9 @@ function splitChars(el: HTMLElement, text: string, lineClass: string, charClass:
 }
 
 function swapChars(el: HTMLElement, newText: string, lineClass: string, charClass: string, outVars: any, inVars: any) {
-  const oldLine = el.querySelector('.' + lineClass + ':not(.cs_line_out)');
+  const oldLine = el.querySelector('.' + lineClass + ':not(.wcs_line_out)');
   if (oldLine) {
-    oldLine.classList.add('cs_line_out');
+    oldLine.classList.add('wcs_line_out');
     const oldChars = oldLine.querySelectorAll('.' + charClass);
     gsap.to(oldChars, Object.assign({
       onComplete: () => { oldLine.remove(); },
@@ -222,9 +222,9 @@ function swapChars(el: HTMLElement, newText: string, lineClass: string, charClas
 
 function buildDigitColumn(digitChar: string) {
   const wrap = document.createElement('span');
-  wrap.className = 'cs_digit_wrap';
+  wrap.className = 'wcs_digit_wrap';
   const roller = document.createElement('span');
-  roller.className = 'cs_digit_roller';
+  roller.className = 'wcs_digit_roller';
   for (let d = 0; d <= 9; d++) {
     const s = document.createElement('span');
     s.textContent = String(d);
@@ -316,7 +316,7 @@ export default function WhySoftreeCurtainSlider() {
     if (!refs) return;
     const slide = images[currentIndexRef.current];
 
-    const titleChars = splitChars(refs.titleEl, slide.title || '', 'cs_title_line', 'cs_title_char');
+    const titleChars = splitChars(refs.titleEl, slide.title || '', 'wcs_title_line', 'wcs_title_char');
     gsap.set(titleChars, { yPercent: 0, y: 0 });
 
     setIndexDisplay(refs.indexEl, indexLabel(currentIndexRef.current), images.length);
@@ -440,7 +440,7 @@ export default function WhySoftreeCurtainSlider() {
       });
     }, undefined, duration);
 
-    swapChars(refs.titleEl, slide.title || '', 'cs_title_line', 'cs_title_char', {
+    swapChars(refs.titleEl, slide.title || '', 'wcs_title_line', 'wcs_title_char', {
       yPercent: direction > 0 ? -120 : 120,
       y: 0,
       duration: TITLE_OUT_DUR,
@@ -489,26 +489,26 @@ export default function WhySoftreeCurtainSlider() {
     stage.innerHTML = '';
 
     const layerWrap = document.createElement('div');
-    layerWrap.className = 'cs_layers';
+    layerWrap.className = 'wcs_layers';
     const layerParts: any[] = [];
     const layers = images.map((slide, i) => {
       const layer = document.createElement('div');
-      layer.className = 'cs_layer';
+      layer.className = 'wcs_layer';
       layer.style.zIndex = String(i);
       layer.style.visibility = i === currentIndexRef.current ? '' : 'hidden';
       const parts = { strips: [] as HTMLElement[], inners: [] as HTMLElement[], imgs: [] as HTMLImageElement[], shades: [] as HTMLElement[] };
       for (let c = 0; c < clampedColumns; c++) {
         const strip = document.createElement('div');
-        strip.className = 'cs_strip';
+        strip.className = 'wcs_strip';
         const inner = document.createElement('div');
-        inner.className = 'cs_strip_inner';
+        inner.className = 'wcs_strip_inner';
         const img = document.createElement('img');
-        img.className = 'cs_layer_img';
+        img.className = 'wcs_layer_img';
         img.src = slide.src;
         img.alt = c === 0 ? (slide.alt || '') : '';
         img.loading = 'eager';
         const shade = document.createElement('div');
-        shade.className = 'cs_shade';
+        shade.className = 'wcs_shade';
         shade.setAttribute('aria-hidden', 'true');
         inner.appendChild(img);
         strip.appendChild(inner);
@@ -525,7 +525,7 @@ export default function WhySoftreeCurtainSlider() {
     });
 
     const scrim = document.createElement('div');
-    scrim.className = 'cs_scrim';
+    scrim.className = 'wcs_scrim';
     scrim.setAttribute('aria-hidden', 'true');
 
     stage.appendChild(layerWrap);
@@ -575,11 +575,11 @@ export default function WhySoftreeCurtainSlider() {
   const handleNextClick = contextSafe(() => { next(); armAutoResume(); });
 
   const animateArrowHoverIn = contextSafe((e: React.MouseEvent, dir: number) => {
-    const icon = e.currentTarget.querySelector('.cs_arrow_icon');
+    const icon = e.currentTarget.querySelector('.wcs_arrow_icon');
     gsap.to(icon, { x: dir * 3, duration: ARROW_HOVER_DUR, ease: 'back.out(2)', overwrite: 'auto', force3D: true });
   });
   const animateArrowHoverOut = contextSafe((e: React.MouseEvent) => {
-    const icon = e.currentTarget.querySelector('.cs_arrow_icon');
+    const icon = e.currentTarget.querySelector('.wcs_arrow_icon');
     gsap.to(icon, { x: 0, duration: ARROW_HOVER_DUR, ease: 'expo.out', overwrite: 'auto', force3D: true });
   });
   const animateArrowPressDown = contextSafe((e: React.PointerEvent) => {
@@ -599,7 +599,7 @@ export default function WhySoftreeCurtainSlider() {
 
   const handlePointerDown = useCallback((e: React.PointerEvent) => {
     if (!drag) return;
-    if ((e.target as Element).closest('.cs_pill') || (e.target as Element).closest('.react-overlay')) { 
+    if ((e.target as Element).closest('.wcs_pill') || (e.target as Element).closest('.react-overlay')) { 
       dragActiveRef.current = false; 
       return; 
     }
@@ -656,7 +656,7 @@ export default function WhySoftreeCurtainSlider() {
       <div className="max-w-[90rem] mx-auto px-4 sm:px-6">
         <div 
           ref={containerRef}
-          className="cs_wrap shadow-2xl border border-zinc-800/80"
+          className="wcs_wrap shadow-2xl border border-zinc-800/80"
           onKeyDown={handleKeyDown}
           onPointerDown={handlePointerDown}
           onPointerUp={handlePointerUp}
@@ -665,21 +665,21 @@ export default function WhySoftreeCurtainSlider() {
           onFocus={stopAuto}
           onBlur={startAuto}
         >
-          <div className="cs_stage" ref={stageRef} />
+          <div className="wcs_stage" ref={stageRef} />
 
           {/* GSAP Controlled Text Overlays (Title) */}
-          <h2 className="cs_title" ref={titleElRef} />
-          <div className="cs_index" ref={indexElRef} aria-hidden="true" />
-          <div className="cs_progress" aria-hidden="true">
-            <div className="cs_progress_fill" ref={progressFillRef} />
+          <h2 className="wcs_title" ref={titleElRef} />
+          <div className="wcs_index" ref={indexElRef} aria-hidden="true" />
+          <div className="wcs_progress" aria-hidden="true">
+            <div className="wcs_progress_fill" ref={progressFillRef} />
           </div>
 
           {/* Controls */}
-          <div className="cs_pill" role="group" aria-label="Slide controls">
+          <div className="wcs_pill" role="group" aria-label="Slide controls">
             <button
               ref={prevBtnRef}
               type="button"
-              className="cs_arrow"
+              className="wcs_arrow"
               onClick={handlePrevClick}
               onMouseEnter={(e) => animateArrowHoverIn(e, -1)}
               onMouseLeave={animateArrowHoverOut}
@@ -687,14 +687,14 @@ export default function WhySoftreeCurtainSlider() {
               onPointerUp={animateArrowPressUp}
               onPointerLeave={animateArrowPressLeave}
             >
-              <svg className="cs_arrow_icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <svg className="wcs_arrow_icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M10 3L5 8L10 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
             <button
               ref={nextBtnRef}
               type="button"
-              className="cs_arrow"
+              className="wcs_arrow"
               onClick={handleNextClick}
               onMouseEnter={(e) => animateArrowHoverIn(e, 1)}
               onMouseLeave={animateArrowHoverOut}
@@ -702,7 +702,7 @@ export default function WhySoftreeCurtainSlider() {
               onPointerUp={animateArrowPressUp}
               onPointerLeave={animateArrowPressLeave}
             >
-              <svg className="cs_arrow_icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <svg className="wcs_arrow_icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>

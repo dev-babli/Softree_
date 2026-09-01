@@ -1,68 +1,68 @@
 /* Why Softree Curtain Slider - adapted from Annnimate Starter Pack */
 
-.cs_wrap {
-  --cs-bg:      #050505;
-  --cs-fg:      rgba(255, 255, 255, 0.95);
-  --cs-fg-soft: rgba(255, 255, 255, 0.85);
-  --cs-fg-dim:  rgba(255, 255, 255, 0.6);
-  --cs-line:    rgba(255, 255, 255, 0.15);
-  --cs-line-on: #FF5812; /* Softree Orange */
-  --cs-pill-bg: rgba(255, 255, 255, 0.05);
-  --cs-circle:  rgba(255, 255, 255, 0.1);
-  --cs-circle-hover: rgba(255, 255, 255, 0.2);
-  --cs-margin:  40px;
-  --cs-sans:    inherit;
+.wcs_wrap {
+  --wcs-bg:      #050505;
+  --wcs-fg:      rgba(255, 255, 255, 0.95);
+  --wcs-fg-soft: rgba(255, 255, 255, 0.85);
+  --wcs-fg-dim:  rgba(255, 255, 255, 0.6);
+  --wcs-line:    rgba(255, 255, 255, 0.15);
+  --wcs-line-on: #FF5812; /* Softree Orange */
+  --wcs-pill-bg: rgba(255, 255, 255, 0.05);
+  --wcs-circle:  rgba(255, 255, 255, 0.1);
+  --wcs-circle-hover: rgba(255, 255, 255, 0.2);
+  --wcs-margin:  40px;
+  --wcs-sans:    inherit;
 }
 
-.cs_wrap {
+.wcs_wrap {
   position: relative;
   width: 100%;
   height: 100dvh;
   min-height: 600px;
   overflow: hidden;
-  background: var(--cs-bg);
-  font-family: var(--cs-sans);
+  background: var(--wcs-bg);
+  font-family: var(--wcs-sans);
   -webkit-font-smoothing: antialiased;
   touch-action: pan-y;
   outline: none;
   border-radius: 48px;
 }
 
-.cs_slides {
+.wcs_slides {
   display: none;
 }
 
-.cs_stage {
+.wcs_stage {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-.cs_layers {
+.wcs_layers {
   position: absolute;
   inset: 0;
   z-index: 1;
 }
 
-.cs_layer {
+.wcs_layer {
   position: absolute;
   inset: 0;
 }
 
-.cs_strip {
+.wcs_strip {
   position: absolute;
   top: 0;
   height: 100%;
   overflow: hidden;
 }
 
-.cs_strip_inner {
+.wcs_strip_inner {
   position: absolute;
   top: 0;
   height: 100%;
 }
 
-.cs_layer_img {
+.wcs_layer_img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -72,7 +72,7 @@
   transform-origin: 50% 50%;
 }
 
-.cs_shade {
+.wcs_shade {
   position: absolute;
   inset: 0;
   background: #000;
@@ -81,7 +81,7 @@
 }
 
 /* Base scrim for text readability */
-.cs_scrim {
+.wcs_scrim {
   position: absolute;
   inset: 0;
   z-index: 2;
@@ -90,10 +90,10 @@
 }
 
 /* ---- Label, top-left ---- */
-.cs_label {
+.wcs_label {
   position: absolute;
-  left: var(--cs-margin);
-  top: var(--cs-margin);
+  left: var(--wcs-margin);
+  top: var(--wcs-margin);
   z-index: 4;
   font-size: 11px;
   font-weight: 700;
@@ -109,7 +109,7 @@
   pointer-events: none;
 }
 
-.cs_label_line {
+.wcs_label_line {
   position: relative;
   display: block;
   white-space: nowrap;
@@ -118,9 +118,9 @@
 }
 
 /* ---- Display title, bottom-left (Moved up slightly to avoid controls) ---- */
-.cs_title {
+.wcs_title {
   position: absolute;
-  left: var(--cs-margin);
+  left: var(--wcs-margin);
   top: 60px;
   z-index: 4;
   margin: 0;
@@ -130,12 +130,12 @@
   line-height: 1.1;
   color: #FF5812;
   width: 100%;
-  max-width: calc(50vw - var(--cs-margin) * 2);
+  max-width: calc(50vw - var(--wcs-margin) * 2);
   white-space: normal;
   pointer-events: none;
 }
 
-.cs_title_line {
+.wcs_title_line {
   position: relative;
   display: block;
   white-space: normal;
@@ -146,17 +146,17 @@
   margin-bottom: -0.18em;
 }
 
-.cs_title_char {
+.wcs_title_char {
   position: relative;
   display: inline-block;
   white-space: pre;
 }
 
 /* ---- Index roller, bottom-right ---- */
-.cs_index {
+.wcs_index {
   position: absolute;
-  right: var(--cs-margin);
-  bottom: var(--cs-margin);
+  right: var(--wcs-margin);
+  bottom: var(--wcs-margin);
   z-index: 4;
   display: flex;
   align-items: center;
@@ -164,11 +164,11 @@
   font-size: 13px;
   font-weight: 500;
   letter-spacing: -0.01em;
-  color: var(--cs-fg-dim);
+  color: var(--wcs-fg-dim);
   pointer-events: none;
 }
 
-.cs_digit_wrap {
+.wcs_digit_wrap {
   position: relative;
   display: inline-block;
   overflow-x: visible;
@@ -178,7 +178,7 @@
   vertical-align: top;
 }
 
-.cs_digit_roller {
+.wcs_digit_roller {
   position: absolute;
   left: 0;
   top: 0;
@@ -186,63 +186,63 @@
   flex-direction: column;
 }
 
-.cs_digit_roller span {
+.wcs_digit_roller span {
   display: block;
   height: 1em;
   line-height: 1;
 }
 
-.cs_index_divider {
+.wcs_index_divider {
   display: inline-block;
   margin: 0 0.25em;
-  color: var(--cs-line);
+  color: var(--wcs-line);
   line-height: 1;
 }
 
-.cs_index_total {
+.wcs_index_total {
   display: inline-block;
   line-height: 1;
 }
 
 /* ---- Progress hairline, bottom edge ---- */
-.cs_progress {
+.wcs_progress {
   position: absolute;
-  left: var(--cs-margin);
-  right: calc(var(--cs-margin) + 60px); /* Leave space for index */
-  bottom: calc(var(--cs-margin) + 20px);
+  left: var(--wcs-margin);
+  right: calc(var(--wcs-margin) + 60px); /* Leave space for index */
+  bottom: calc(var(--wcs-margin) + 20px);
   z-index: 4;
   height: 2px;
-  background: var(--cs-line);
+  background: var(--wcs-line);
   overflow: hidden;
   border-radius: 2px;
 }
 
-.cs_progress_fill {
+.wcs_progress_fill {
   position: absolute;
   inset: 0;
-  background: var(--cs-line-on);
+  background: var(--wcs-line-on);
   transform: scaleX(0);
 }
 
 /* ---- Control pill, bottom center ---- */
-.cs_pill {
+.wcs_pill {
   position: absolute;
   left: 50%;
-  bottom: calc(var(--cs-margin) + 60px);
+  bottom: calc(var(--wcs-margin) + 60px);
   z-index: 5;
   display: flex;
   align-items: center;
   gap: 14px;
   padding: 6px;
   border-radius: 999px;
-  background: var(--cs-pill-bg);
+  background: var(--wcs-pill-bg);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
   transform: translateX(-50%);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.cs_arrow {
+.wcs_arrow {
   position: relative;
   display: flex;
   align-items: center;
@@ -252,28 +252,28 @@
   flex: 0 0 auto;
   border-radius: 999px;
   border: none;
-  background: var(--cs-circle);
-  color: var(--cs-fg);
+  background: var(--wcs-circle);
+  color: var(--wcs-fg);
   cursor: pointer;
 }
 
-.cs_arrow:hover {
-  background: var(--cs-circle-hover);
+.wcs_arrow:hover {
+  background: var(--wcs-circle-hover);
 }
 
-.cs_arrow:focus-visible {
-  outline: 2px solid var(--cs-line-on);
+.wcs_arrow:focus-visible {
+  outline: 2px solid var(--wcs-line-on);
   outline-offset: 2px;
 }
 
-.cs_arrow_icon {
+.wcs_arrow_icon {
   position: relative;
   display: block;
   width: 20px;
   height: 20px;
 }
 
-.cs_live {
+.wcs_live {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -282,7 +282,7 @@
   white-space: nowrap;
 }
 
-.cs_line_out {
+.wcs_line_out {
   position: absolute;
   top: 0;
   left: 0;
@@ -291,39 +291,39 @@
 }
 
 @media (max-width: 991px) {
-  .cs_title {
-    max-width: calc(100% - var(--cs-margin) * 2);
+  .wcs_title {
+    max-width: calc(100% - var(--wcs-margin) * 2);
   }
 }
 
 @media (max-width: 767px) {
-  .cs_wrap {
-    --cs-margin: 20px;
+  .wcs_wrap {
+    --wcs-margin: 20px;
     border-radius: 24px;
     min-height: 700px;
   }
   
-  .cs_title {
+  .wcs_title {
     font-size: clamp(24px, 6vw, 36px);
     top: 60px;
     white-space: normal;
-    max-width: calc(100% - var(--cs-margin) * 2);
+    max-width: calc(100% - var(--wcs-margin) * 2);
   }
 
-  .cs_title_line {
+  .wcs_title_line {
     white-space: normal;
   }
 
-  .cs_index {
+  .wcs_index {
     display: none;
   }
 
-  .cs_progress {
-    right: var(--cs-margin);
-    bottom: var(--cs-margin);
+  .wcs_progress {
+    right: var(--wcs-margin);
+    bottom: var(--wcs-margin);
   }
 
-  .cs_pill {
-    bottom: calc(var(--cs-margin) + 20px);
+  .wcs_pill {
+    bottom: calc(var(--wcs-margin) + 20px);
   }
 }

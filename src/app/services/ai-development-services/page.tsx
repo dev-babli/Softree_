@@ -33,7 +33,6 @@ const ReverseStickyScroll = dynamic(() => import('./components/ReverseStickyScro
 const MicrosoftAiBentoGrid = dynamic(() => import('./components/MicrosoftAiBentoGrid').then((mod) => mod.MicrosoftAiBentoGrid), { ssr: true });
 const WhoWeHelp = dynamic(() => import('./components/WhoWeHelp').then((mod) => mod.WhoWeHelp), { ssr: true });
 const NetworkGlobe = dynamic(() => import('./components/NetworkGlobe'), { ssr: true });
-const AiTransformationStepWipe = dynamic(() => import('./components/StepWipe').then((mod) => mod.AiTransformationStepWipe), { ssr: true });
 import DetailDrawer from './components/AiTechnologyStack';
 import PhotoStackGallery from './components/PhotoStackGallery';
 export const metadata: Metadata = {
@@ -158,7 +157,7 @@ export default function AiDevelopmentServicesPage() {
       <TrustedBrandsMarquee /> */}
       {/* <AIPhilosophy />
       <SuccessStories /> */}
-      <div className="max-w-[94vw] lg:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 my-16">
+      {/* <div className="max-w-[94vw] lg:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 my-16">
         <div className="relative w-full h-[400px] md:h-[550px] rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl">
           <DetailDrawer
             heroImage="/images/imgweb/1.png"
@@ -201,7 +200,7 @@ export default function AiDevelopmentServicesPage() {
             ]}
           />
         </div>
-      </div>
+      </div> */}
 
       <div className="max-w-[94vw] lg:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 mt-24 text-center">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/80 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] backdrop-blur-sm text-[10px] font-bold uppercase tracking-wider text-[#C94716] mb-4">
@@ -236,7 +235,6 @@ export default function AiDevelopmentServicesPage() {
           <CurtainSlider auto={3} />
         </div>
       </div>
-
 
       {/* Interactive Photo Stack Section */}
       <div className="bg-white py-24 text-slate-900">
