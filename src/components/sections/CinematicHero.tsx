@@ -463,7 +463,7 @@ export function CinematicHero() {
                                 AI systems that streamline operations
                             </p>
                             <Link
-                                href="/services/ai-development-services"
+                                href="/services/ai-consulting-services"
                                 className="mt-3 self-start inline-flex items-center gap-1.5 bg-white text-zinc-900 text-xs font-semibold px-4 py-2 rounded-full pointer-events-auto"
                             >
                                 Explore AI solutions <span aria-hidden>→</span>

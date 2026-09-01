@@ -574,7 +574,7 @@ export function TransferredSoftreeHero() {
                   AI systems that streamline operations
                 </p>
                 <Link
-                  href="/services/ai-development-services"
+                  href="/services/ai-consulting-services"
                   className="mt-3 inline-flex items-center gap-1.5 self-start rounded-full bg-white px-4 py-2 text-xs font-semibold text-zinc-900 shadow-sm transition-[transform,background-color] duration-200 ease-out hover:bg-white/90 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white pointer-events-auto"
                 >
                   Explore AI solutions <span className="text-[10px]">→</span>
