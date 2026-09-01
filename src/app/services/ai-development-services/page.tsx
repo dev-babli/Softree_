@@ -100,7 +100,7 @@ export default function AiDevelopmentServicesPage() {
 
       {/* Who We Help & Global Network Section */}
       <div className="bg-white pt-8 md:pt-12 pb-8 md:pb-12 text-slate-900">
-        <div className="max-w-[88vw] lg:max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
 
           {/* Unified Centered Header */}
           <div className="flex flex-col items-center w-full mb-16 md:mb-20 text-center">
@@ -135,7 +135,7 @@ export default function AiDevelopmentServicesPage() {
       </div>
 
       {/* Reverse Sticky Scroll Overall Header */}
-      <div className="max-w-[94vw] lg:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 mt-12 md:mt-16 mb-10 text-center">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 mt-12 md:mt-16 mb-10 text-center">
         <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-4 py-1.5 rounded-full border border-white/60 mb-4 inline-block">
           <span className="text-[11px] font-bold text-[#FF6B2C] tracking-widest uppercase">
             WHAT WE BUILD
@@ -151,9 +151,9 @@ export default function AiDevelopmentServicesPage() {
         </p>
       </div>
 
-      <div className="max-w-[94vw] lg:max-w-[1600px] mx-auto mt-8">
+    
         <ReverseStickyScroll />
-      </div>
+      
 
 
 
@@ -206,7 +206,7 @@ export default function AiDevelopmentServicesPage() {
         </div>
       </div> */}
 
-      <div className="max-w-[94vw] lg:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 mt-24 text-center">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 mt-24 text-center">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/80 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] backdrop-blur-sm text-[10px] font-bold uppercase tracking-wider text-[#C94716] mb-4">
           <span className="w-1.5 h-1.5 rounded-full bg-[#C94716] animate-pulse" />
           MICROSOFT AI ECOSYSTEM
@@ -242,7 +242,7 @@ export default function AiDevelopmentServicesPage() {
 
       {/* Interactive Photo Stack Section */}
       <div className="bg-white pt-24 pb-12 lg:pb-16 text-slate-900">
-        <div className="max-w-[94vw] lg:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content Side */}
             <div className="lg:col-span-7 flex flex-col gap-6 text-left">

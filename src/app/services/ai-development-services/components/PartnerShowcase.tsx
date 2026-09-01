@@ -217,7 +217,7 @@ export default function PartnerShowcase() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f29370a_1px,transparent_1px),linear-gradient(to_bottom,#1f29370a_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none opacity-20" />
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(0,195,255,0.03),transparent_60%)] pointer-events-none" />
 
-      <div className="mx-auto w-full max-w-[1480px] px-4 sm:px-6 lg:px-8 space-y-8 flex flex-col items-stretch">
+      <div className="mx-auto w-full max-w-[1600px] px-6 sm:px-8 lg:px-12 space-y-8 flex flex-col items-stretch">
         
         {/* ==================== SECTION 07 — OFFSHORE AI ENGINEERING TEAMS ==================== */}
         <div className="relative overflow-hidden rounded-[24px] border border-slate-200 bg-white p-10 md:p-12 md:py-14 shadow-[0_10px_40px_rgba(0,0,0,0.05)] min-h-[540px] flex flex-col justify-between z-10 text-slate-900">

@@ -95,8 +95,8 @@ export default function WhyChooseWithTestimonials() {
   }, [paused]);
  
   return (
-    <section className="text-gray-900 py-12 md:py-16 lg:py-20">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:items-stretch items-start">
+    <section className="text-gray-900 py-12 md:py-16 lg:py-20 font-sans">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:items-stretch items-start">
         {/* ================= LEFT : WHY CHOOSE ================= */}
         <div className="relative">
           {/* Small Label */}

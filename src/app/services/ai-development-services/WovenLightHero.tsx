@@ -109,7 +109,7 @@ export const WovenLightHero = () => {
         transition={{ delay: 3, duration: 1 }}
         className="w-full z-20 border-t border-white/10 bg-black/40 backdrop-blur-md py-6 shrink-0 mt-auto"
       >
-        <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-5">
             {trustItems.map((item, index) => {
               const Icon = item.icon;

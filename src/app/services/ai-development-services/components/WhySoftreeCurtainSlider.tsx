@@ -691,7 +691,7 @@ export default function WhySoftreeCurtainSlider() {
   return (
     <section className="pt-6 pb-12 md:pt-10 md:pb-16 lg:pt-12 lg:pb-24 font-sans relative bg-white">
       {/* Global Section Header (Centered above the slider) */}
-      <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 flex flex-col items-center text-center mb-8 md:mb-12 lg:mb-16">
+      <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col items-center text-center mb-8 md:mb-12 lg:mb-16">
         <div className="inline-flex items-center gap-1.5 md:gap-2 px-3 py-1 rounded-full bg-[#FF5812]/10 border border-[#FF5812]/30 text-[#FF5812] text-[9px] md:text-[10px] lg:text-[11px] font-bold uppercase tracking-[0.2em] mb-3 md:mb-4 lg:mb-6">
           AGENTIC AI
         </div>
@@ -703,7 +703,7 @@ export default function WhySoftreeCurtainSlider() {
         </p>
       </div>
 
-      <div className="max-w-[90rem] mx-auto px-4 sm:px-6">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
         <div 
           ref={containerRef}
           className="wcs_wrap shadow-2xl border border-zinc-800/80"

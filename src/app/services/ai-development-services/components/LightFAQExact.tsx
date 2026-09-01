@@ -328,7 +328,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
           }),
         }}
       />
-      <div className="mx-auto max-w-[1600px] px-6 md:px-12">
+      <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
         {/* Section Title */}
         <div ref={titleRef} className="mb-8 md:mb-10">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#1852FF]/20 bg-[#1852FF]/8 px-4 py-2">

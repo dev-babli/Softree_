@@ -393,7 +393,7 @@ export function MicrosoftAiBentoGrid() {
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 w-full max-w-[1400px] mx-auto mt-6 text-left items-stretch px-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 w-full max-w-[1600px] mx-auto mt-6 text-left items-stretch">
       {cards.map((card, idx) => (
         <div
           key={idx}

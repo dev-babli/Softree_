@@ -162,14 +162,14 @@ export default function LightContactSection({
   return (
     <section
       id="contact"
-      className="relative isolate overflow-hidden bg-[#0a0a0a] px-4 py-8 text-white sm:px-6 sm:py-12 lg:px-8 lg:py-16"
+      className="relative isolate overflow-hidden bg-[#0a0a0a] py-8 text-white sm:py-12 lg:py-16"
     >
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-[0.15] [background-image:radial-gradient(#fff_0.7px,transparent_0.7px)] [background-size:22px_22px]"
       />
 
-      <div className="relative mx-auto max-w-[1440px]">
+      <div className="relative mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
         <motion.div
           initial={reduceMotion ? false : { y: 28, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}

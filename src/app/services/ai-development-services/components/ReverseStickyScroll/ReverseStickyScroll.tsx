@@ -38,7 +38,8 @@ export const ReverseStickyScroll = () => {
       // 1. Entrance Rotation Animation (for sections after the first one)
       if (i > 0) {
         gsap.set(innerContainer, {
-          rotation: 30,
+          rotation: 25,
+          transformOrigin: 'bottom left',
         });
 
         gsap.to(innerContainer, {
@@ -51,6 +52,22 @@ export const ReverseStickyScroll = () => {
             scrub: true,
           },
         });
+
+        // Smoothly fade out previous card as the new card enters so it never leaks behind/above
+        const prevContainer = sections[i - 1]?.querySelector('.rss_container');
+        if (prevContainer) {
+          gsap.to(prevContainer, {
+            opacity: 0,
+            scale: 0.94,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top bottom',
+              end: 'top 40%',
+              scrub: true,
+            },
+          });
+        }
       }
 
       // 2. Sticky Pinning Animation (for sections before the last one)

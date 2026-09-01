@@ -276,7 +276,7 @@ export default function AiRoadmap() {
 
   return (
     <section className="w-full bg-white pt-8 md:pt-12 pb-8 md:pb-12 font-sans relative overflow-hidden">
-      <div className="mx-auto w-full max-w-[1480px] px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-[1600px] px-6 sm:px-8 lg:px-12">
         <div className="relative overflow-hidden rounded-[24px] bg-black text-white py-20 lg:py-24 shadow-2xl">
           
           {/* Background ambient lighting orbs */}

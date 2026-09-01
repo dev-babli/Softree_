@@ -23,8 +23,9 @@
   --rss-s5-text: #ffffff;
 
   width: 100%;
-  max-width: 1080px; /* Constrains the component to leave generous whitespace on sides */
+  max-width: 1340px; /* Increased width for a more spacious layout */
   margin: 0 auto;    /* Centers the component horizontally */
+  padding: 0 1rem;
   position: relative;
   background: var(--rss-bg-primary);
   color: var(--rss-text-primary);
@@ -50,7 +51,7 @@
   justify-content: space-between;
   gap: 1.5rem;
   transform-origin: bottom left;
-  will-change: transform;
+  will-change: transform, opacity;
 }
 
 .rss_big {

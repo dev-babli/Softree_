@@ -21,7 +21,7 @@ export default function CoreCapabilities() {
       <div className="absolute top-0 left-0 w-[400px] h-[400px] border-b border-r border-zinc-200/40 rounded-br-[100%] opacity-40 pointer-events-none -translate-x-1/4 -translate-y-1/4" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-zinc-200/10 rounded-full blur-3xl opacity-30 pointer-events-none translate-x-1/4 translate-y-1/4" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
 
         {/* Header */}
         <div className="flex flex-col items-center w-full mb-12 lg:mb-16">

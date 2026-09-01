@@ -154,7 +154,7 @@ export default function IndustrySoftree() {
       style={{ backgroundColor: SECTION_SURFACE }}
       aria-labelledby="enterprise-industries-heading"
     >
-      <div className="relative mx-auto w-full max-w-[1320px] px-4 md:px-8">
+      <div className="relative mx-auto w-full max-w-[1600px] px-6 sm:px-8 lg:px-12">
         <div className="grid gap-8 lg:grid-cols-[minmax(280px,320px)_minmax(0,1fr)] xl:gap-10">
           {/* Left — Kore-style copy column (plain white panel) */}
           <motion.aside

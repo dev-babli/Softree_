@@ -8,7 +8,7 @@ import Link from "next/link";
 export default function AiReadinessBanner() {
   return (
     <section className="relative w-full pt-4 lg:pt-6 pb-12 lg:pb-16 bg-transparent overflow-hidden font-sans">
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
         
         {/* Main Banner Container (Light Theme Matching Page) */}
         <motion.div
