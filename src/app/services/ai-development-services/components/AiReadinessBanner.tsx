@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function AiReadinessBanner() {
   return (
-    <section className="relative w-full py-12 lg:py-16 bg-transparent overflow-hidden font-sans">
+    <section className="relative w-full pt-4 lg:pt-6 pb-12 lg:pb-16 bg-transparent overflow-hidden font-sans">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Banner Container (Light Theme Matching Page) */}

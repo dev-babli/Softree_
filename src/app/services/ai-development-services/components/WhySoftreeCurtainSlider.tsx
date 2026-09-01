@@ -39,111 +39,143 @@ const VIEWPORT_QUERIES = {
 
 const tabsData = [
   {
-    id: "white-label",
-    title: "White-Label AI Delivery",
-    label: "Why Softree",
-    src: "/images/ai-development-service/whysoftree-1.png",
-    alt: "Abstract AI technology",
-    heading: "Deliver AI solutions under your brand while Softree provides the engineering behind the scenes.",
+    id: "understand",
+    title: "Understand",
+    label: "Agentic AI",
+    desc: "Understand user intent, business context, and enterprise requirements to deliver accurate, context-aware AI experiences.",
+    src: "/images/ai-development-service/agenticAi-1.png",
+    alt: "Understand",
+    heading: "Understand user intent, business context, and enterprise requirements to deliver accurate, context-aware AI experiences.",
     bullets: [
-      "Seamless brand integration and invisible delivery",
-      "Dedicated backend engineering and architecture",
-      "Full intellectual property transfer and compliance"
+      "Intent & context understanding",
+      "Business requirement analysis",
+      "Natural language processing",
+      "Enterprise knowledge access"
     ],
     card: {
-      eyebrow: "PARTNERSHIP",
-      title: "Invisible AI Engineering",
-      stats: ["100% White-labeled", "Zero overhead"]
+      eyebrow: "CONTEXT",
+      title: "Context-Aware Intelligence",
+      stats: ["Intent detection", "Knowledge retrieval"]
     }
   },
   {
-    id: "dedicated",
-    title: "Dedicated Offshore Teams",
-    label: "Why Softree",
-    src: "/images/ai-development-service/whysoftree-2.png",
-    alt: "Team collaboration",
-    heading: "Build a focused team of AI architects, engineers, developers, data specialists, and QA professionals.",
+    id: "reason",
+    title: "Reason",
+    label: "Agentic AI",
+    desc: "Analyze information, evaluate options, and make intelligent decisions using business rules and real-time context.",
+    src: "/images/ai-development-service/agenticAi-2.png",
+    alt: "Reason",
+    heading: "Analyze information, evaluate available options, and make intelligent decisions based on business rules and real-time context.",
     bullets: [
-      "Access top-tier AI engineering talent globally",
-      "Full control over team management and workflows",
-      "Cost-effective scaling for enterprise AI projects"
+      "AI-powered decision making",
+      "Contextual reasoning",
+      "Business rule evaluation",
+      "Real-time information analysis"
     ],
     card: {
-      eyebrow: "TEAM EXTENSION",
-      title: "Elite AI Engineering Talent",
-      stats: ["Rapid onboarding", "Dedicated focus"]
+      eyebrow: "INTELLIGENCE",
+      title: "AI-Powered Reasoning",
+      stats: ["Decision analysis", "Context evaluation"]
     }
   },
   {
-    id: "agentic",
-    title: "Agentic AI Expertise",
-    label: "Why Softree",
-    src: "/images/ai-development-service/whysoftree-3.png",
-    alt: "Agentic AI",
-    heading: "Design and build AI agents that can reason, use tools, collaborate, and execute real workflows.",
+    id: "plan",
+    title: "Plan",
+    label: "Agentic AI",
+    desc: "Break complex business goals into structured, actionable steps with dynamic AI-powered planning.",
+    src: "/images/ai-development-service/agenticAi-3.png",
+    alt: "Plan",
+    heading: "Break complex business objectives into structured, actionable steps and dynamically adapt plans as conditions change.",
     bullets: [
-      "Multi-agent collaboration systems and architectures",
-      "Autonomous workflow execution and decision making",
-      "Custom tool integration and advanced reasoning"
+      "Goal decomposition",
+      "Task prioritization",
+      "Workflow generation",
+      "Dynamic planning"
     ],
     card: {
-      eyebrow: "AUTONOMOUS AI",
-      title: "Next-Generation AI Agents",
-      stats: ["Complex reasoning", "Action-oriented"]
+      eyebrow: "STRATEGY",
+      title: "Intelligent Task Planning",
+      stats: ["Goal-based planning", "Adaptive workflows"]
     }
   },
   {
-    id: "microsoft",
-    title: "Microsoft AI Expertise",
-    label: "Why Softree",
-    src: "/images/ai-development-service/whysoftree-4.png",
-    alt: "Microsoft Azure",
-    heading: "Build AI solutions across Azure AI, Azure OpenAI, Microsoft Copilot, and Power Platform.",
+    id: "use-tools",
+    title: "Use Tools",
+    label: "Agentic AI",
+    desc: "Connect AI agents with APIs, databases, applications, and enterprise systems to perform real-world actions.",
+    src: "/images/ai-development-service/agenticAi-4.png",
+    alt: "Use Tools",
+    heading: "Interact with APIs, databases, applications, and enterprise systems to access information and perform real-world actions.",
     bullets: [
-      "Enterprise-grade Azure AI cloud architecture",
-      "Custom Copilot and Copilot Studio development",
-      "Secure Power Platform AI integration"
+      "Seamless API integrations",
+      "Secure database queries",
+      "Enterprise application access",
+      "External tool orchestration"
     ],
     card: {
-      eyebrow: "MICROSOFT STACK",
-      title: "Enterprise AI Solutions",
-      stats: ["Azure native", "Secure & compliant"]
+      eyebrow: "INTEGRATION",
+      title: "Enterprise System Orchestration",
+      stats: ["API execution", "Data fetching"]
     }
   },
   {
-    id: "flexible",
-    title: "Flexible Engagement",
-    label: "Why Softree",
-    src: "/images/ai-development-service/whysoftree-5.png",
-    alt: "Flexible strategy",
-    heading: "Choose project delivery, dedicated teams, staff augmentation, white-label delivery, or managed engineering.",
+    id: "execute",
+    title: "Execute",
+    label: "Agentic AI",
+    desc: "Complete tasks autonomously and automate multi-step business workflows with reliable AI execution.",
+    src: "/images/ai-development-service/agenticAi-5.png",
+    alt: "Execute",
+    heading: "Complete tasks autonomously and automate multi-step business workflows while maintaining reliability and operational control.",
     bullets: [
-      "Tailored to your specific project and timeline needs",
-      "Agile adaptation to changing business requirements",
-      "Scale engineering capacity up or down effortlessly"
+      "Autonomous workflow completion",
+      "Task automation",
+      "Error handling and recovery",
+      "Real-time task monitoring"
     ],
     card: {
-      eyebrow: "ENGAGEMENT",
-      title: "Adaptable Partnership Models",
-      stats: ["Risk mitigation", "Agile delivery"]
+      eyebrow: "ACTION",
+      title: "Reliable AI Execution",
+      stats: ["Task automation", "Self-correction"]
     }
   },
   {
-    id: "long-term",
-    title: "Long-Term Partnership",
-    label: "Why Softree",
-    src: "/images/ai-development-service/whysoftree-6.png",
-    alt: "Partnership",
-    heading: "Work with an engineering team that can grow with your technology and delivery needs.",
+    id: "collaborate",
+    title: "Collaborate",
+    label: "Agentic AI",
+    desc: "Enable specialized AI agents to communicate, coordinate, and collaborate on complex enterprise workflows.",
+    src: "/images/ai-development-service/agenticAi-6.png",
+    alt: "Collaborate",
+    heading: "Enable multiple specialized AI agents to communicate, share information, and work together to solve complex business problems.",
     bullets: [
-      "Strategic alignment with long-term business goals",
-      "Continuous innovation, maintenance, and support",
-      "Future-proof AI infrastructure and architecture planning"
+      "Multi-agent orchestration",
+      "Specialized AI agents",
+      "Agent-to-agent communication",
+      "Collaborative workflows"
     ],
     card: {
-      eyebrow: "GROWTH",
-      title: "Strategic Engineering Partner",
-      stats: ["Continuous support", "Technology evolution"]
+      eyebrow: "ORCHESTRATION",
+      title: "Multi-Agent Collaboration",
+      stats: ["Agent coordination", "Shared task execution"]
+    }
+  },
+  {
+    id: "evaluate",
+    title: "Evaluate & Improve",
+    label: "Agentic AI",
+    desc: "Monitor AI agent performance, evaluate outcomes, and continuously optimize workflows for better results.",
+    src: "/images/ai-development-service/agenticAi-7.png",
+    alt: "Evaluate & Improve",
+    heading: "Monitor AI agent performance, evaluate outcomes, and continuously optimize workflows for better accuracy, reliability, and business results.",
+    bullets: [
+      "Agent performance monitoring",
+      "Outcome evaluation",
+      "Continuous optimization",
+      "Human oversight"
+    ],
+    card: {
+      eyebrow: "OPTIMIZATION",
+      title: "Continuous AI Improvement",
+      stats: ["Performance monitoring", "Feedback-driven learning"]
     }
   }
 ];
@@ -161,7 +193,7 @@ function isDisabledOnViewport(disable: any) {
   });
 }
 
-function buildCharLine(text: string, lineClass: string, charClass: string) {
+function buildCharLine(text: string, lineClass: string, charClass: string, isTitle: boolean = false) {
   const line = document.createElement('span');
   line.className = lineClass;
   
@@ -170,10 +202,7 @@ function buildCharLine(text: string, lineClass: string, charClass: string) {
     const wordSpan = document.createElement('span');
     wordSpan.style.display = 'inline-block';
     
-    // First word is white, the rest inherit the orange from .wcs_title
-    if (i === 0) {
-      wordSpan.style.color = '#FFFFFF';
-    }
+    // All words inherit the color from the parent container (.wcs_title is orange, .wcs_desc is white)
     
     word.split('').forEach((ch) => {
       const span = document.createElement('span');
@@ -196,14 +225,14 @@ function buildCharLine(text: string, lineClass: string, charClass: string) {
   return line;
 }
 
-function splitChars(el: HTMLElement, text: string, lineClass: string, charClass: string) {
+function splitChars(el: HTMLElement, text: string, lineClass: string, charClass: string, isTitle: boolean = false) {
   el.innerHTML = '';
-  const line = buildCharLine(text, lineClass, charClass);
+  const line = buildCharLine(text, lineClass, charClass, isTitle);
   el.appendChild(line);
   return Array.from(line.querySelectorAll('.' + charClass));
 }
 
-function swapChars(el: HTMLElement, newText: string, lineClass: string, charClass: string, outVars: any, inVars: any) {
+function swapChars(el: HTMLElement, newText: string, lineClass: string, charClass: string, outVars: any, inVars: any, isTitle: boolean = false) {
   const oldLine = el.querySelector('.' + lineClass + ':not(.wcs_line_out)');
   if (oldLine) {
     oldLine.classList.add('wcs_line_out');
@@ -212,7 +241,7 @@ function swapChars(el: HTMLElement, newText: string, lineClass: string, charClas
       onComplete: () => { oldLine.remove(); },
     }, outVars));
   }
-  const line = buildCharLine(newText, lineClass, charClass);
+  const line = buildCharLine(newText, lineClass, charClass, isTitle);
   el.appendChild(line);
   const chars = Array.from(line.querySelectorAll('.' + charClass));
   gsap.set(chars, inVars.from);
@@ -243,7 +272,7 @@ function setIndexDisplay(el: HTMLElement, valueString: string, total: number) {
 }
 
 function rollIndex(el: HTMLElement, value: string) {
-  const totalStr = (el as any)._totalStr || '06';
+  const totalStr = (el as any)._totalStr || '07';
   el.textContent = `${value}/${totalStr}`;
 }
 
@@ -287,6 +316,7 @@ export default function WhySoftreeCurtainSlider() {
   const containerRef = useRef<HTMLDivElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const titleElRef = useRef<HTMLHeadingElement>(null);
+  const descElRef = useRef<HTMLParagraphElement>(null);
   const indexElRef = useRef<HTMLDivElement>(null);
   const progressFillRef = useRef<HTMLDivElement>(null);
   const prevBtnRef = useRef<HTMLButtonElement>(null);
@@ -316,8 +346,13 @@ export default function WhySoftreeCurtainSlider() {
     if (!refs) return;
     const slide = images[currentIndexRef.current];
 
-    const titleChars = splitChars(refs.titleEl, slide.title || '', 'wcs_title_line', 'wcs_title_char');
+    const titleChars = splitChars(refs.titleEl, slide.title || '', 'wcs_title_line', 'wcs_title_char', true);
     gsap.set(titleChars, { yPercent: 0, y: 0 });
+
+    if (refs.descEl) {
+      const descChars = splitChars(refs.descEl, slide.desc || '', 'wcs_title_line', 'wcs_title_char', false);
+      gsap.set(descChars, { yPercent: 0, y: 0 });
+    }
 
     setIndexDisplay(refs.indexEl, indexLabel(currentIndexRef.current), images.length);
 
@@ -451,7 +486,22 @@ export default function WhySoftreeCurtainSlider() {
     }, {
       from: { yPercent: direction > 0 ? 120 : -120, y: 0 },
       to: { yPercent: 0, y: 0, duration: TITLE_IN_DUR, ease: 'annnimateInOut', stagger: direction > 0 ? stagger : -stagger, force3D: true, overwrite: true },
-    });
+    }, true);
+
+    if (refs.descEl) {
+      swapChars(refs.descEl, slide.desc || '', 'wcs_title_line', 'wcs_title_char', {
+        yPercent: direction > 0 ? -120 : 120,
+        y: 0,
+        duration: TITLE_OUT_DUR,
+        ease: 'annnimateInOut',
+        stagger: direction > 0 ? stagger * 0.2 : -stagger * 0.2,
+        force3D: true,
+        overwrite: true,
+      }, {
+        from: { yPercent: direction > 0 ? 120 : -120, y: 0 },
+        to: { yPercent: 0, y: 0, duration: TITLE_IN_DUR, ease: 'annnimateInOut', stagger: direction > 0 ? stagger * 0.2 : -stagger * 0.2, force3D: true, overwrite: true },
+      }, false);
+    }
 
     rollIndex(refs.indexEl, indexLabel(newIndex));
 
@@ -536,6 +586,7 @@ export default function WhySoftreeCurtainSlider() {
       layers,
       layerParts,
       titleEl: titleElRef.current,
+      descEl: descElRef.current,
       indexEl: indexElRef.current,
       progressFill: progressFillRef.current,
       prevBtn: prevBtnRef.current,
@@ -638,18 +689,17 @@ export default function WhySoftreeCurtainSlider() {
   const activeData = tabsData[activeReactIndex];
 
   return (
-    <section className="py-12 md:py-16 lg:py-24 font-sans relative bg-white">
+    <section className="pt-6 pb-12 md:pt-10 md:pb-16 lg:pt-12 lg:pb-24 font-sans relative bg-white">
       {/* Global Section Header (Centered above the slider) */}
       <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 flex flex-col items-center text-center mb-8 md:mb-12 lg:mb-16">
         <div className="inline-flex items-center gap-1.5 md:gap-2 px-3 py-1 rounded-full bg-[#FF5812]/10 border border-[#FF5812]/30 text-[#FF5812] text-[9px] md:text-[10px] lg:text-[11px] font-bold uppercase tracking-[0.2em] mb-3 md:mb-4 lg:mb-6">
-          WHY SOFTREE
+          AGENTIC AI
         </div>
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-3 md:mb-4 text-slate-900 leading-[1.2] md:leading-[1.15]">
-          YOUR AI PRACTICE. <br className="hidden md:block" />
-          <span className="text-[#FF5812]">OUR ENGINEERING TEAM.</span>
+          MOVE BEYOND <span className="text-[#FF5812]">AI CHATBOTS</span>
         </h2>
         <p className="text-sm sm:text-base md:text-lg text-slate-600 font-normal max-w-[90%] sm:max-w-lg md:max-w-2xl mx-auto px-2">
-          You don't always need another AI vendor. You need a reliable engineering partner that can work with your team, your processes, and your clients.
+          <strong>Build AI That Can Think, Act, and Execute.</strong> Agentic AI goes beyond generating responses. AI agents can understand goals, reason through problems, use tools, interact with systems, and execute multi-step workflows.
         </p>
       </div>
 
@@ -667,8 +717,12 @@ export default function WhySoftreeCurtainSlider() {
         >
           <div className="wcs_stage" ref={stageRef} />
 
-          {/* GSAP Controlled Text Overlays (Title) */}
-          <h2 className="wcs_title" ref={titleElRef} />
+          {/* GSAP Controlled Text Overlays (Title & Desc) */}
+          <div className="absolute top-[120px] md:top-[140px] lg:top-[28%] xl:top-[32%] left-[var(--wcs-margin)] z-[4] max-w-[calc(100%-var(--wcs-margin)*2)] lg:max-w-[calc(48vw-var(--wcs-margin)*2)] pointer-events-none flex flex-col gap-2 md:gap-4">
+            <h2 className="wcs_title !relative !top-auto !left-auto !max-w-full" ref={titleElRef} />
+            <p className="wcs_desc text-[13px] md:text-[15px] lg:text-[16px] text-white/95 font-medium leading-[1.4] drop-shadow-md" ref={descElRef} />
+          </div>
+          
           <div className="wcs_index" ref={indexElRef} aria-hidden="true" />
           <div className="wcs_progress" aria-hidden="true">
             <div className="wcs_progress_fill" ref={progressFillRef} />
@@ -709,7 +763,7 @@ export default function WhySoftreeCurtainSlider() {
           </div>
 
           {/* React/Framer Motion Data Overlay (Bullets & Cards) */}
-          <div className="react-overlay absolute inset-0 lg:left-auto lg:w-[45%] p-4 md:p-10 lg:p-12 lg:pr-16 flex flex-col justify-end lg:justify-center pointer-events-none z-10 pb-[130px] md:pb-[140px] lg:pb-[120px] pt-[140px] md:pt-[160px] lg:pt-0">
+          <div className="react-overlay absolute inset-0 lg:left-auto lg:w-[45%] p-4 md:p-10 lg:p-12 lg:pr-16 flex flex-col justify-end lg:justify-center pointer-events-none z-10 pb-[130px] md:pb-[140px] lg:pb-[120px] pt-[140px] md:pt-[160px] lg:pt-16">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeData.id}
@@ -717,7 +771,7 @@ export default function WhySoftreeCurtainSlider() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.6, ease: [0.3, 0.9, 0.1, 1] }}
-                className="pointer-events-auto"
+                className="pointer-events-auto mt-8 md:mt-12 lg:mt-20"
               >
                 <h3 className="text-base md:text-xl lg:text-2xl leading-[1.4] font-medium text-white mb-3 lg:mb-6 max-w-md 2xl:max-w-lg tracking-tight drop-shadow-xl">
                   {activeData.heading}

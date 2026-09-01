@@ -16,7 +16,7 @@ export default function CoreCapabilities() {
   const optimization = coreCapabilitiesData.find((c) => c.id === "06") || coreCapabilitiesData[5];
 
   return (
-    <section className="relative w-full py-16 lg:py-24 bg-white overflow-hidden font-sans">
+    <section className="relative w-full pb-16 lg:pb-24 pt-4 lg:pt-8 bg-white overflow-hidden font-sans">
       {/* Background Decorators */}
       <div className="absolute top-0 left-0 w-[400px] h-[400px] border-b border-r border-zinc-200/40 rounded-br-[100%] opacity-40 pointer-events-none -translate-x-1/4 -translate-y-1/4" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-zinc-200/10 rounded-full blur-3xl opacity-30 pointer-events-none translate-x-1/4 translate-y-1/4" />

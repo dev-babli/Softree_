@@ -212,7 +212,7 @@ export default function PartnerShowcase() {
 
 
   return (
-    <section className="w-full bg-white py-16 md:py-24 font-sans relative overflow-hidden">
+    <section className="w-full bg-white pt-4 md:pt-6 pb-8 md:pb-12 font-sans relative overflow-hidden">
       {/* Background Grid Pattern & Ambient Glows */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f29370a_1px,transparent_1px),linear-gradient(to_bottom,#1f29370a_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none opacity-20" />
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(0,195,255,0.03),transparent_60%)] pointer-events-none" />
@@ -253,7 +253,7 @@ export default function PartnerShowcase() {
             </svg>
           </div>
           {/* ==================== HORIZONTAL AI DELIVERY PIPELINE VISUALIZER ==================== */}
-          <div className="relative z-10 w-full mb-10 max-w-4xl mx-auto flex flex-col items-center">
+          <div className="relative z-10 w-full mb-10 max-w-6xl mx-auto flex flex-col items-center">
             {/* Input Phase: AI Strategy & Architecture */}
             <div className="flex flex-col items-center gap-1.5">
               <div className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-orange-600 to-orange-500 text-white font-black text-sm uppercase tracking-[0.2em] shadow-[0_0_20px_rgba(251,146,60,0.15)]">
@@ -283,8 +283,8 @@ export default function PartnerShowcase() {
                       </span>
                     </div>
                     {nIdx < 5 && (
-                      <div className="hidden lg:block text-slate-300 font-extrabold text-lg shrink-0 select-none">
-                        →
+                      <div className="hidden lg:flex items-center justify-center w-6 h-6 rounded-full bg-white border border-slate-200 shadow-sm text-slate-400 shrink-0 select-none">
+                        <ChevronRight className="w-3.5 h-3.5" />
                       </div>
                     )}
                   </React.Fragment>
@@ -361,8 +361,8 @@ export default function PartnerShowcase() {
 
         {/* Separator / Powered by microsoft AI tag bridge */}
         <div className="relative flex items-center justify-center my-[-8px] z-20">
-          <div className="absolute w-[2px] h-10 bg-gradient-to-b from-cyan-500 to-indigo-500" />
-          <div className="relative bg-gradient-to-r from-blue-900 to-indigo-900 border border-cyan-500/30 text-[10px] tracking-[0.2em] font-black text-cyan-300 px-6 py-2 rounded-full uppercase shadow-[0_0_20px_rgba(0,195,255,0.15)]">
+          <div className="absolute w-[2px] h-10 bg-gradient-to-b from-orange-400 to-orange-600" />
+          <div className="relative bg-gradient-to-r from-orange-500 to-orange-600 border border-orange-400/30 text-[10px] tracking-[0.2em] font-black text-white px-6 py-2 rounded-full uppercase shadow-[0_0_20px_rgba(255,107,44,0.25)]">
             POWERED BY MICROSOFT AI ECOSYSTEM
           </div>
         </div>

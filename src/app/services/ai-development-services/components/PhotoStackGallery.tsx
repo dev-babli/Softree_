@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 /**
  * Photo Stack Gallery (Customized for Softree AI Services)
@@ -133,6 +134,21 @@ export default function PhotoStackGallery({
     setOrder(photos.map((_, i) => i));
   }, [photos.length]);
 
+  // Auto-advance
+  useEffect(() => {
+    if (hovered || dragging) return;
+    
+    const intervalId = setInterval(() => {
+      setOrder((prev) => {
+        const [front, ...rest] = prev;
+        return [...rest, front];
+      });
+      setDragX(0);
+    }, 3500);
+
+    return () => clearInterval(intervalId);
+  }, [hovered, dragging]);
+
   const advance = (direction: 1 | -1) => {
     setOrder((prev) => {
       if (direction === 1) {
@@ -199,13 +215,8 @@ export default function PhotoStackGallery({
             : tilt + depth * (depth % 2 === 0 ? 1.5 : -1.5) * spread;
           const scale = 1 - depth * 0.045;
 
-          const transition =
-            reducedMotion || (isFront && dragging)
-              ? "none"
-              : "transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease";
-
           return (
-            <button
+            <motion.button
               key={photo.id}
               type="button"
               aria-label={
@@ -220,13 +231,23 @@ export default function PhotoStackGallery({
               onPointerUp={isFront ? endDrag : undefined}
               onPointerCancel={isFront ? endDrag : undefined}
               className="absolute top-0 left-0 w-full h-[440px] overflow-hidden rounded-2xl border border-[#A83002] focus:outline-none focus-visible:ring-2 flex flex-col items-start justify-between p-6 text-left select-none"
-              style={{
+              animate={{
+                x: translateX,
+                y: translateY,
+                rotate: rotate,
+                scale: scale,
+                zIndex: total - depth,
                 boxShadow: isFront
                   ? "0 18px 30px -12px rgba(0,0,0,0.35)"
                   : "0 8px 16px -8px rgba(0,0,0,0.22)",
-                zIndex: total - depth,
-                transform: `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg) scale(${scale})`,
-                transition,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 30,
+                mass: 1,
+              }}
+              style={{
                 cursor: isFront
                   ? dragging
                     ? "grabbing"
@@ -277,7 +298,7 @@ export default function PhotoStackGallery({
                   </div>
                 ))}
               </div>
-            </button>
+            </motion.button>
           );
         })}
       </div>

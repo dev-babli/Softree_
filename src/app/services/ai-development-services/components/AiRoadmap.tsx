@@ -275,13 +275,15 @@ export default function AiRoadmap() {
   const currentActiveIdx = hoveredIdx !== null ? hoveredIdx : activeIdx;
 
   return (
-    <section className="bg-black text-white py-20 lg:py-24 relative overflow-hidden font-sans">
-      
-      {/* Background ambient lighting orbs */}
-      <div className="absolute top-[-10%] right-[-10%] w-[35%] h-[35%] rounded-full bg-[#FF6B2C]/5 blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] left-[-10%] w-[35%] h-[35%] rounded-full bg-[#FF6B2C]/5 blur-[100px] pointer-events-none" />
+    <section className="w-full bg-white pt-8 md:pt-12 pb-8 md:pb-12 font-sans relative overflow-hidden">
+      <div className="mx-auto w-full max-w-[1480px] px-4 sm:px-6 lg:px-8">
+        <div className="relative overflow-hidden rounded-[24px] bg-black text-white py-20 lg:py-24 shadow-2xl">
+          
+          {/* Background ambient lighting orbs */}
+          <div className="absolute top-[-10%] right-[-10%] w-[35%] h-[35%] rounded-full bg-[#FF6B2C]/5 blur-[100px] pointer-events-none" />
+          <div className="absolute bottom-[-10%] left-[-10%] w-[35%] h-[35%] rounded-full bg-[#FF6B2C]/5 blur-[100px] pointer-events-none" />
 
-      <div className="max-w-5xl mx-auto px-6 sm:px-8 relative z-10">
+          <div className="max-w-5xl mx-auto px-6 sm:px-8 relative z-10">
         
         {/* ================= HEADER ================= */}
         <div className="max-w-4xl mb-12 lg:mb-20">
@@ -337,6 +339,8 @@ export default function AiRoadmap() {
           </div>
         </div>
 
+      </div>
+        </div>
       </div>
     </section>
   );

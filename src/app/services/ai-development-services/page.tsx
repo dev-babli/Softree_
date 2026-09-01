@@ -23,6 +23,7 @@ const AIPhilosophy = dynamic(() => import('./components/AIPhilosophy'), { ssr: t
 const AIDilemma = dynamic(() => import('./components/AIDilemma'), { ssr: true });
 const AiRoadmap = dynamic(() => import('./components/AiRoadmap'), { ssr: true });
 const WhyChooseWithTestimonials = dynamic(() => import('./components/WhyChooseWithTestimonials'), { ssr: true });
+const IndustrySoftree = dynamic(() => import('./components/IndustrySoftree'), { ssr: true });
 const AgenticAIWipeSlider = dynamic(() => import('./components/AgenticAIWipeSlider'), { ssr: true });
 // Replace WhySoftreeTabs with WhySoftreeCurtainSlider
 const WhySoftreeCurtainSlider = dynamic(() => import('./components/WhySoftreeCurtainSlider'), { ssr: true });
@@ -212,33 +213,33 @@ export default function AiDevelopmentServicesPage() {
           Microsoft AI Ecosystem Integrations
         </h2>
         <p className="text-base md:text-lg text-slate-500 max-w-2xl mx-auto mb-6">
-          We build, customize, and orchestrate Microsoft's full-stack AI services—orchestrating private model instances, autonomous copilots, and real-time Fabric data streams.
+          We build, customize, and orchestrate Microsoft's full-stack AI services—orchestrating private model instances, autonomous copilots, and real-time Amazon Bedrock data streams.
         </p>
         <div className="text-xs font-mono font-bold tracking-wider text-slate-400 max-w-4xl mx-auto leading-relaxed border-t border-slate-100 pt-4 mb-4">
-          Azure AI &nbsp;→&nbsp; Azure OpenAI &nbsp;→&nbsp; Copilot &nbsp;→&nbsp; Copilot Studio &nbsp;→&nbsp; Microsoft 365 &nbsp;→&nbsp; Power Platform &nbsp;→&nbsp; Azure AI Search &nbsp;→&nbsp; Fabric
+          Azure AI &nbsp;→&nbsp; Azure OpenAI &nbsp;→&nbsp; Copilot &nbsp;→&nbsp; Copilot Studio &nbsp;→&nbsp; Microsoft 365 &nbsp;→&nbsp; Power Platform &nbsp;→&nbsp; Azure AI Search &nbsp;→&nbsp; Amazon Bedrock
         </div>
         <div className="mt-6 w-full flex justify-center">
           <MicrosoftAiBentoGrid />
         </div>
       </div>
 
-      <div className="max-w-[94vw] lg:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 mt-24 mb-8 text-center">
+      {/* <div className="max-w-[94vw] lg:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 mt-24 mb-8 text-center">
         <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-slate-900 mb-4">
           From Business Challenges to Intelligent Solutions
         </h2>
         <p className="text-base md:text-lg text-slate-500 max-w-2xl mx-auto">
           Our disciplined, engineering-first approach to analyzing process complexity, mapping bottlenecks, and building secure, production-ready AI systems.
         </p>
-      </div>
+      </div> */}
 
-      <div className="max-w-[94vw] lg:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+      {/* <div className="max-w-[94vw] lg:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <div className="relative w-full h-[500px] md:h-[650px] rounded-3xl overflow-hidden border border-zinc-200 shadow-lg">
           <CurtainSlider auto={3} />
         </div>
-      </div>
+      </div> */}
 
       {/* Interactive Photo Stack Section */}
-      <div className="bg-white py-24 text-slate-900">
+      <div className="bg-white pt-24 pb-12 lg:pb-16 text-slate-900">
         <div className="max-w-[94vw] lg:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content Side */}
@@ -282,21 +283,22 @@ export default function AiDevelopmentServicesPage() {
       </div>
 
       <CoreCapabilities />
-      <Industries />
+      <IndustrySoftree />
+      {/* <Industries /> */}
 
       {/* <AiArchitectureShowcase /> */}
       {/* <DigitalEngineeringSolutions /> */}
       <AiRoadmap />
       <AiReadinessBanner />
       <PartnerShowcase />
-      <ClientTestimonialsShowcase />
+      {/* <ClientTestimonialsShowcase /> */}
       {/* Storytelling Flow
       <BusinessChallenges />
       <BusinessOutcomes /> */}
       {/* <AIDilemma /> */}
 
 
-      <AgenticAIWipeSlider />
+      {/* <AgenticAIWipeSlider /> */}
       <WhySoftreeCurtainSlider />
       <WhyChooseWithTestimonials />
       <LightFAQExact />
