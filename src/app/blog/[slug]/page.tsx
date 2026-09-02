@@ -54,6 +54,20 @@ function toPlainText(value: unknown): string {
   return ''
 }
 
+function getSanityDimensions(url?: string): { width: number; height: number } {
+  if (!url) return { width: 1200, height: 800 }
+  const cleanUrl = url.split('?')[0]
+  const match = cleanUrl.match(/-(\d+)x(\d+)\.[a-zA-Z0-9]+$/)
+  if (match) {
+    const width = parseInt(match[1], 10)
+    const height = parseInt(match[2], 10)
+    if (!isNaN(width) && !isNaN(height) && width > 0 && height > 0) {
+      return { width, height }
+    }
+  }
+  return { width: 1200, height: 800 }
+}
+
 interface BlogPostDocument {
   _id: string
   _updatedAt?: string
@@ -141,14 +155,16 @@ const portableTextComponents: PortableTextComponents = {
     ...sharedPortableTextTypes,
     image: ({ value }) => {
       if (!value?.asset?.url) return null
+      const dims = getSanityDimensions(value.asset.url)
       return (
-        <figure className="my-10 overflow-hidden rounded-2xl border border-zinc-200">
-          <div className="relative aspect-[16/9] w-full">
+        <figure className="my-10 overflow-hidden rounded-2xl border border-zinc-200 bg-[#f8f9fc]">
+          <div className="relative w-full flex items-center justify-center">
             <Image
               src={value.asset.url}
               alt={value.alt || 'Article illustration'}
-              fill
-              className="object-cover"
+              width={dims.width}
+              height={dims.height}
+              className="h-auto w-full rounded-2xl object-contain"
               sizes="(max-width: 768px) 100vw, 900px"
             />
           </div>
@@ -380,18 +396,22 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
         <section className="mx-auto grid max-w-[1240px] gap-8 px-4 py-10 md:grid-cols-[1fr_320px] md:px-8 md:py-14">
           <article className="rounded-2xl border border-zinc-200 bg-white p-6 md:p-8">
-            {post.mainImage?.asset?.url ? (
-              <div className="relative mb-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-zinc-200">
-                <Image
-                  src={post.mainImage.asset.url}
-                  alt={post.mainImage.alt || post.title}
-                  fill
-                  priority
-                  className="object-cover"
-                  sizes="(max-width: 900px) 100vw, 860px"
-                />
-              </div>
-            ) : null}
+            {post.mainImage?.asset?.url ? (() => {
+              const dims = getSanityDimensions(post.mainImage.asset.url)
+              return (
+                <div className="relative mb-10 w-full overflow-hidden rounded-xl border border-zinc-200 bg-[#0a0d14]/[0.02] flex items-center justify-center">
+                  <Image
+                    src={post.mainImage.asset.url}
+                    alt={post.mainImage.alt || post.title}
+                    width={dims.width}
+                    height={dims.height}
+                    priority
+                    className="h-auto w-full rounded-xl object-contain"
+                    sizes="(max-width: 900px) 100vw, 860px"
+                  />
+                </div>
+              )
+            })() : null}
 
             <div className="blog-content">
               {post.body ? <PortableText value={post.body} components={portableTextComponents} /> : null}

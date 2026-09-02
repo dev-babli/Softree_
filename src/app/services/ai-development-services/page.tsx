@@ -136,27 +136,26 @@ export default function AiDevelopmentServicesPage() {
       </div>
 
       {/* Reverse Sticky Scroll Overall Header */}
-      <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 mt-12 md:mt-16 mb-10 text-center">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 mt-12 md:mt-16 mb-10 flex flex-col items-center text-center">
         <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-4 py-1.5 rounded-full border border-white/60 mb-4 inline-block">
           <span className="text-[11px] font-bold text-[#FF6B2C] tracking-widest uppercase">
-            WHAT WE BUILD
+            What We Build
           </span>
         </div>
 
         <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight">
-          AGENTIC AI SOLUTIONS FOR REAL <span className="text-[#FF6B2C]">BUSINESS WORKFLOWS</span>
+          Agentic AI Solutions for Real{" "}
+          <span className="text-[#FF6B2C]">Business Workflows</span>
         </h2>
 
-        <p className="text-[15px] lg:text-base text-slate-500 max-w-2xl mx-auto leading-relaxed">
-          Build production-ready AI solutions that connect intelligence, enterprise data, and automation to solve real business workflows and deliver measurable outcomes.
+        <p className="text-[15px] lg:text-base text-slate-500 max-w-3xl leading-relaxed mx-auto">
+          Build production-ready AI solutions that connect intelligence, enterprise
+          data, and automation to solve real business workflows and deliver
+          measurable outcomes.
         </p>
       </div>
 
-    
-        <ReverseStickyScroll />
-      
-
-
+      <ReverseStickyScroll />
 
       {/* 
       <TrustedBrandsMarquee /> */}
@@ -206,26 +205,6 @@ export default function AiDevelopmentServicesPage() {
           />
         </div>
       </div> */}
-
-      <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 mt-24 text-center">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/80 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] backdrop-blur-sm text-[10px] font-bold uppercase tracking-wider text-[#C94716] mb-4">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#C94716] animate-pulse" />
-          AGENTIC AI ECOSYSTEM
-        </div>
-        <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-slate-900 mb-4">
-          Enterprise Agentic AI & Ecosystem Integrations
-        </h2>
-        <p className="text-base md:text-lg text-slate-500 max-w-2xl mx-auto mb-6">
-          We engineer and orchestrate autonomous AI agent systems—fusing foundation models, multi-agent swarms, vector knowledge graphs, and secure tool execution across your enterprise stack.
-        </p>
-        <div className="text-xs font-mono font-bold tracking-wider text-slate-400 max-w-4xl mx-auto leading-relaxed border-t border-slate-100 pt-4 mb-4">
-          Foundation Models &nbsp;→&nbsp; Agent Reasoning &nbsp;→&nbsp; Tool Calling &nbsp;→&nbsp; Swarm Orchestration &nbsp;→&nbsp; Semantic Memory &nbsp;→&nbsp; Enterprise Guardrails
-        </div>
-        <div className="mt-6 w-full flex justify-center">
-          <MicrosoftAiShowcase />
-        </div>
-      </div>
-
       {/* <div className="max-w-[94vw] lg:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 mt-24 mb-8 text-center">
         <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-slate-900 mb-4">
           From Business Challenges to Intelligent Solutions

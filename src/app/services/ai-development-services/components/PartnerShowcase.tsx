@@ -161,42 +161,42 @@ export default function PartnerShowcase() {
       num: "01",
       role: "AI Architects",
       icon: <AIArchitectsIcon />,
-      color: "text-[#00C3FF] border-[#00C3FF]/30 shadow-[#00C3FF]/10",
+      color: "text-[#FF5812] border-[#FF5812]/40 shadow-[0_0_15px_rgba(255,88,18,0.12)] bg-orange-50/40",
       bullets: ["Solution Architecture", "LLM Strategy", "Agentic AI Design", "Technology Advisory"],
     },
     {
       num: "02",
       role: "AI Engineers",
       icon: <AIEngineersIcon />,
-      color: "text-[#00F0B4] border-[#00F0B4]/30 shadow-[#00F0B4]/10",
+      color: "text-[#FF5812] border-[#FF5812]/40 shadow-[0_0_15px_rgba(255,88,18,0.12)] bg-orange-50/40",
       bullets: ["LLM Development", "RAG & AI Agents", "Model Fine-tuning", "Prompt Engineering"],
     },
     {
       num: "03",
       role: "Full-Stack Engineers",
       icon: <FullStackIcon />,
-      color: "text-[#8A3FFC] border-[#8A3FFC]/30 shadow-[#8A3FFC]/10",
+      color: "text-[#FF5812] border-[#FF5812]/40 shadow-[0_0_15px_rgba(255,88,18,0.12)] bg-orange-50/40",
       bullets: ["Web & Mobile Apps", "APIs & Microservices", "System Integration", "UI/UX Engineering"],
     },
     {
       num: "04",
       role: "Data Engineers",
       icon: <DataEngineersIcon />,
-      color: "text-[#FFB900] border-[#FFB900]/30 shadow-[#FFB900]/10",
+      color: "text-[#FF5812] border-[#FF5812]/40 shadow-[0_0_15px_rgba(255,88,18,0.12)] bg-orange-50/40",
       bullets: ["Data Engineering", "Pipelines & ETL", "Vector Databases", "Data Governance"],
     },
     {
       num: "05",
       role: "QA & AI Testing",
       icon: <QAEngineersIcon />,
-      color: "text-[#E91E63] border-[#E91E63]/30 shadow-[#E91E63]/10",
+      color: "text-[#FF5812] border-[#FF5812]/40 shadow-[0_0_15px_rgba(255,88,18,0.12)] bg-orange-50/40",
       bullets: ["AI Model Validation", "Test Automation", "Performance Testing", "Quality Assurance"],
     },
     {
       num: "06",
       role: "Cloud / DevOps",
       icon: <GlobeIcon />,
-      color: "text-[#0078D4] border-[#0078D4]/30 shadow-[#0078D4]/10",
+      color: "text-[#FF5812] border-[#FF5812]/40 shadow-[0_0_15px_rgba(255,88,18,0.12)] bg-orange-50/40",
       bullets: ["Azure Infrastructure", "CI/CD & MLOps", "Monitoring & Security", "Scalability & Reliability"],
     },
   ];
@@ -215,43 +215,32 @@ export default function PartnerShowcase() {
     <section className="w-full bg-white pt-4 md:pt-6 pb-8 md:pb-12 font-sans relative overflow-hidden">
       {/* Background Grid Pattern & Ambient Glows */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f29370a_1px,transparent_1px),linear-gradient(to_bottom,#1f29370a_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none opacity-20" />
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(0,195,255,0.03),transparent_60%)] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(255,88,18,0.04),transparent_60%)] pointer-events-none" />
 
       <div className="mx-auto w-full max-w-[1600px] px-6 sm:px-8 lg:px-12 space-y-8 flex flex-col items-stretch">
-        
+
         {/* ==================== SECTION 07 — OFFSHORE AI ENGINEERING TEAMS ==================== */}
         <div className="relative overflow-hidden rounded-[24px] border border-slate-200 bg-white p-10 md:p-12 md:py-14 shadow-[0_10px_40px_rgba(0,0,0,0.05)] min-h-[540px] flex flex-col justify-between z-10 text-slate-900">
-          
+
           {/* Mirror-morphism reflection glows */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_25%,rgba(255,88,18,0.03),transparent_40%)] pointer-events-none" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_75%,rgba(0,195,255,0.04),transparent_45%)] pointer-events-none" />
-          
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_25%,rgba(255,88,18,0.04),transparent_40%)] pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_75%,rgba(255,88,18,0.03),transparent_45%)] pointer-events-none" />
+
           {/* Header row */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200/80 pb-6 mb-8">
             <div className="flex items-center gap-4">
-            
+
               <div className="space-y-1">
                 <h2 className="text-[20px] md:text-[24px] font-black tracking-wide text-slate-900 uppercase">
                   OFFSHORE AI ENGINEERING TEAMS
                 </h2>
-                <p className="text-[12px] md:text-[13px] font-bold text-cyan-600 uppercase tracking-wider">
+                <p className="text-[12px] md:text-[13px] font-bold text-orange-500 uppercase tracking-wider">
                   End-to-End AI Engineering Excellence
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Dotted Network Dome Background (Full 7XL Wide Span) */}
-          <div className="absolute inset-x-0 bottom-0 w-full h-full opacity-10 pointer-events-none hidden lg:block z-0">
-            <svg className="w-full h-full" viewBox="0 0 1000 300" fill="none" preserveAspectRatio="none">
-              <g stroke="#00C3FF" strokeWidth="1.2" strokeDasharray="3 6">
-                <path d="M 50 300 Q 500 20 950 300" />
-                <path d="M 100 300 Q 500 65 900 300" />
-                <path d="M 150 300 Q 500 110 850 300" />
-                <path d="M 200 300 Q 500 155 800 300" />
-              </g>
-            </svg>
-          </div>
           {/* ==================== HORIZONTAL AI DELIVERY PIPELINE VISUALIZER ==================== */}
           <div className="relative z-10 w-full mb-10 max-w-6xl mx-auto flex flex-col items-center">
             {/* Input Phase: AI Strategy & Architecture */}
@@ -261,29 +250,29 @@ export default function PartnerShowcase() {
               </div>
               <div className="text-orange-500 font-extrabold text-xl animate-bounce">↓</div>
             </div>
- 
+
             {/* Horizontal pipeline chamber */}
-            <div className="w-full mt-2 relative rounded-2xl border border-slate-200 bg-slate-50/70 p-4 shadow-[inset_0_1px_4px_rgba(0,0,0,0.05)] overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-cyan-500/5 to-purple-500/5 pointer-events-none" />
-              
+            <div className="w-full mt-2 relative rounded-2xl border border-orange-200/80 bg-orange-50/20 p-4 shadow-[inset_0_1px_4px_rgba(255,88,18,0.04)] overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-orange-500/10 to-orange-500/5 pointer-events-none" />
+
               {/* Pipeline nodes flow */}
               <div className="flex flex-wrap lg:flex-nowrap items-center justify-between gap-4 w-full text-center">
                 {[
-                  { name: "AI Architects", color: "text-cyan-600" },
-                  { name: "AI Engineers", color: "text-emerald-600" },
-                  { name: "Full-Stack Engineers", color: "text-purple-600" },
+                  { name: "AI Architects", color: "text-orange-600" },
+                  { name: "AI Engineers", color: "text-orange-600" },
+                  { name: "Full-Stack Engineers", color: "text-orange-600" },
                   { name: "Data Engineers", color: "text-orange-600" },
-                  { name: "QA & AI Testing", color: "text-pink-600" },
-                  { name: "Cloud / DevOps", color: "text-blue-600" }
+                  { name: "QA & AI Testing", color: "text-orange-600" },
+                  { name: "Cloud / DevOps", color: "text-orange-600" }
                 ].map((node, nIdx) => (
                   <React.Fragment key={nIdx}>
-                    <div className="flex-1 min-w-[120px] py-2.5 px-3 rounded-lg bg-white border border-slate-200 shadow-sm">
+                    <div className="flex-1 min-w-[120px] py-2.5 px-3 rounded-lg bg-white border border-orange-200/80 shadow-sm transition-colors hover:border-orange-400">
                       <span className={`text-[12px] md:text-[13px] font-black uppercase tracking-wider ${node.color}`}>
                         {node.name}
                       </span>
                     </div>
                     {nIdx < 5 && (
-                      <div className="hidden lg:flex items-center justify-center w-6 h-6 rounded-full bg-white border border-slate-200 shadow-sm text-slate-400 shrink-0 select-none">
+                      <div className="hidden lg:flex items-center justify-center w-6 h-6 rounded-full bg-white border border-orange-200 shadow-sm text-orange-400 shrink-0 select-none">
                         <ChevronRight className="w-3.5 h-3.5" />
                       </div>
                     )}
@@ -306,11 +295,11 @@ export default function PartnerShowcase() {
                       {item.icon}
                     </div>
                     {/* Floating number badge */}
-                    <div className="absolute -top-1.5 -right-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-white border border-slate-200 text-[10px] font-black text-cyan-600 shadow-[0_0_10px_rgba(0,195,255,0.05)]">
+                    <div className="absolute -top-1.5 -right-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-white border border-orange-200 text-[10px] font-black text-[#FF5812] shadow-[0_0_10px_rgba(255,88,18,0.15)]">
                       {item.num}
                     </div>
                   </div>
- 
+
                   {/* Details */}
                   <div className="space-y-3 w-full">
                     <span className="text-[13px] font-black text-slate-900 uppercase tracking-wider block">
@@ -326,31 +315,101 @@ export default function PartnerShowcase() {
                   </div>
                 </div>
 
-                {/* Right angle connector separator (hidden on last node or mobile) */}
+                {/* Advanced tech animated arrow connector between role nodes - Bold & Prominent */}
                 {idx < teamRoles.length - 1 && (
-                  <div className="hidden lg:flex items-center text-slate-300 self-start mt-10">
-                    <ChevronRight className="w-5 h-5 animate-pulse" />
+                  <div className="hidden lg:flex items-center justify-center shrink-0 self-start mt-[26px] -mx-1 select-none">
+                    <div className="relative flex items-center justify-center">
+                      <svg width="76" height="36" viewBox="0 0 76 36" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-12 lg:w-14 xl:w-16 h-8 lg:h-9 overflow-visible">
+                        <defs>
+                          <linearGradient id={`arrowGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="#FF5812" stopOpacity="0.2" />
+                            <stop offset="50%" stopColor="#FF5812" stopOpacity="0.85" />
+                            <stop offset="100%" stopColor="#FF5812" stopOpacity="1" />
+                          </linearGradient>
+                          <filter id={`arrowGlow-${idx}`} x="-30%" y="-30%" width="160%" height="160%">
+                            <feGaussianBlur stdDeviation="2.5" result="blur" />
+                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                          </filter>
+                        </defs>
+
+                        {/* Faint static guide track */}
+                        <line x1="4" y1="18" x2="48" y2="18" stroke="#FF5812" strokeWidth="2.5" strokeOpacity="0.2" strokeLinecap="round" />
+
+                        {/* Bold continuous flowing dashed laser */}
+                        <line
+                          x1="4"
+                          y1="18"
+                          x2="48"
+                          y2="18"
+                          stroke={`url(#arrowGrad-${idx})`}
+                          strokeWidth="3.5"
+                          strokeDasharray="6 5"
+                          strokeLinecap="round"
+                        >
+                          <animate attributeName="stroke-dashoffset" from="22" to="0" dur="0.85s" repeatCount="indefinite" />
+                        </line>
+
+                        {/* Traveling photon beam particle */}
+                        <circle r="3.5" fill="#FF5812" filter={`url(#arrowGlow-${idx})`}>
+                          <animateMotion path="M 4 18 L 48 18" dur="1.1s" repeatCount="indefinite" />
+                          <animate attributeName="opacity" values="0;1;1;0" dur="1.1s" repeatCount="indefinite" />
+                        </circle>
+
+                        {/* Trailing chevron with subtle glow */}
+                        <g>
+                          <path d="M38 9L47 18L38 27" stroke="#FF5812" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                            <animate attributeName="opacity" values="0.35;0.95;0.35" dur="1.1s" repeatCount="indefinite" />
+                          </path>
+                        </g>
+
+                        {/* Leading bold arrowhead with smooth glide */}
+                        <g>
+                          <path d="M49 7L60 18L49 29" stroke="#FF5812" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" filter={`url(#arrowGlow-${idx})`}>
+                            <animateTransform
+                              attributeName="transform"
+                              type="translate"
+                              values="0,0; 4,0; 0,0"
+                              dur="1.1s"
+                              repeatCount="indefinite"
+                            />
+                          </path>
+                        </g>
+
+                        {/* Pulsing leading energy tip */}
+                        <circle cx="60" cy="18" r="3" fill="#FF5812">
+                          <animateTransform
+                            attributeName="transform"
+                            type="translate"
+                            values="0,0; 4,0; 0,0"
+                            dur="1.1s"
+                            repeatCount="indefinite"
+                          />
+                          <animate attributeName="r" values="2.5; 4.5; 2.5" dur="1.1s" repeatCount="indefinite" />
+                          <animate attributeName="opacity" values="0.8; 1; 0.8" dur="1.1s" repeatCount="indefinite" />
+                        </circle>
+                      </svg>
+                    </div>
                   </div>
                 )}
               </React.Fragment>
             ))}
           </div>
- 
+
           {/* Connected timeline footer phase navigator */}
           <div className="border-t border-slate-200 pt-6 mt-8 relative z-10 flex flex-wrap justify-between items-center gap-4">
             <div className="flex items-center justify-between w-full">
               {timelinePhases.map((phase, pIdx) => (
                 <React.Fragment key={pIdx}>
                   <div className="flex items-center gap-2 group cursor-default">
-                    <div className="flex h-7 w-7 items-center justify-center rounded-full bg-white border border-cyan-500/30 text-cyan-600 group-hover:border-cyan-400 shadow-sm transition-all duration-300">
+                    <div className="flex h-7 w-7 items-center justify-center rounded-full bg-white border border-orange-500/30 text-[#FF5812] group-hover:border-[#FF5812] group-hover:bg-[#FF5812] group-hover:text-white shadow-sm transition-all duration-300">
                       {phase.icon}
                     </div>
-                    <span className="text-[11px] font-bold text-slate-500 tracking-wider group-hover:text-slate-900 transition-colors duration-300">
+                    <span className="text-[11px] font-bold text-slate-500 tracking-wider group-hover:text-orange-600 transition-colors duration-300">
                       {phase.name}
                     </span>
                   </div>
                   {pIdx < timelinePhases.length - 1 && (
-                    <div className="flex-1 h-[1px] bg-gradient-to-r from-slate-200 to-slate-100 mx-2 hidden md:block" />
+                    <div className="flex-1 h-[1px] bg-gradient-to-r from-orange-200/80 to-orange-100/40 mx-2 hidden md:block" />
                   )}
                 </React.Fragment>
               ))}
@@ -361,7 +420,7 @@ export default function PartnerShowcase() {
 
         {/* Separator / Powered by microsoft AI tag bridge */}
         <div className="relative flex items-center justify-center my-[-8px] z-20">
-          <div className="absolute w-[2px] h-10 bg-gradient-to-b from-orange-400 to-orange-600" />
+
           <div className="relative bg-gradient-to-r from-orange-500 to-orange-600 border border-orange-400/30 text-[10px] tracking-[0.2em] font-black text-white px-6 py-2 rounded-full uppercase shadow-[0_0_20px_rgba(255,107,44,0.25)]">
             POWERED BY MICROSOFT AI ECOSYSTEM
           </div>

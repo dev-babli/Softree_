@@ -55,26 +55,29 @@
 }
 
 .rss_big {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(3.5rem, 12vw, 14rem);
-  font-weight: 400;
-  line-height: 0.85;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
+  font-family: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(3rem, 8.5vw, 9rem);
+  font-weight: 700;
+  line-height: 0.95;
+  text-transform: none;
+  letter-spacing: -0.03em;
+  text-align: left;
 }
 
 .rss_sub {
-  font-size: clamp(1rem, 2.5vw, 2rem);
-  max-width: 50ch;
-  line-height: 1.4;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  max-width: 52ch;
+  line-height: 1.5;
   font-weight: 400;
+  text-align: left;
 }
 
 .rss_tag {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
+  text-transform: none;
+  letter-spacing: 0.08em;
+  text-align: left;
 }
 
 .rss_right {

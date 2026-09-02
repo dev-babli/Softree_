@@ -142,16 +142,16 @@ export const ReverseStickyScroll = () => {
         }
       ].map((card, idx) => (
         <section key={idx} className={`rss_section rss_s${idx + 1}`}>
-          <div className="rss_container flex flex-col" style={{ backgroundColor: card.bg, color: card.text }}>
+          <div className="rss_container flex flex-col items-start text-left" style={{ backgroundColor: card.bg, color: card.text }}>
             <p className="rss_tag">{card.num} — {card.title}</p>
-            <hr className="rss_hr" />
-            <div>
-              <h2 className="rss_big" dangerouslySetInnerHTML={{ __html: card.titleSplit }}></h2>
+            <hr className="rss_hr w-full" />
+            <div className="w-full text-left">
+              <h2 className="rss_big text-left" dangerouslySetInnerHTML={{ __html: card.titleSplit }}></h2>
             </div>
-            <hr className="rss_hr" />
-            <p className="rss_sub">{card.desc}</p>
+            <hr className="rss_hr w-full" />
+            <p className="rss_sub text-left">{card.desc}</p>
             
-            <div className="mt-auto pt-10 flex justify-center w-full">
+            <div className="mt-auto pt-10 flex justify-start w-full">
               <Link 
                 href={card.link}
                 className="inline-flex items-center gap-2 px-8 py-3.5 border rounded-full text-[15px] font-semibold tracking-wide transition-all duration-300 hover:opacity-70"
