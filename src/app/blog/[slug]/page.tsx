@@ -219,8 +219,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 }
 
-// ISR: individual posts are cacheable; draft mode auto-opts editors into dynamic rendering.
-export const revalidate = 3600
+// Force dynamic rendering and immediate revalidation so blog article edits appear immediately
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 function estimateReadTime(post: { body?: unknown; composerSections?: unknown[] }): string {
   const composerText = JSON.stringify(post.composerSections || '')
@@ -314,9 +315,6 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   const encodedUrl = encodeURIComponent(pageUrl)
   const encodedTitle = encodeURIComponent(post.title || 'Softree Technology Blog')
   const categoryName = post.categories?.[0]?.title || 'Blog'
-  const updatedDate = post._updatedAt
-    ? new Date(post._updatedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
-    : publishedDate
   const faqSchema = post.faqSchema && post.faqSchema.length > 0 ? {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -389,7 +387,6 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 <Clock3 className="h-4 w-4" />
                 {readTime}
               </span>
-              <span>Updated: {updatedDate}</span>
             </div>
           </div>
         </section>

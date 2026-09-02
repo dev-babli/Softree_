@@ -26,7 +26,6 @@ export async function cmsFetch<T>(
     ...(preview
       ? { perspective: 'previewDrafts' as const, stega: true }
       : { perspective: 'published' as const, stega: false }),
-    ...(process.env.NODE_ENV === 'development' ? { next: { revalidate: 0 } } : {}),
   })
 
   return data as T
