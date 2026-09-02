@@ -32,6 +32,7 @@ const LightContactSection = dynamic(() => import('@/components/homepage-light/Li
 const CurtainSlider = dynamic(() => import('./components/CurtainSlider/CurtainSlider'), { ssr: true });
 const ReverseStickyScroll = dynamic(() => import('./components/ReverseStickyScroll/ReverseStickyScroll').then((mod) => mod.ReverseStickyScroll), { ssr: true });
 const MicrosoftAiBentoGrid = dynamic(() => import('./components/MicrosoftAiBentoGrid').then((mod) => mod.MicrosoftAiBentoGrid), { ssr: true });
+const MicrosoftAiShowcase = dynamic(() => import('./components/MicrosoftAiShowcase'), { ssr: true });
 const WhoWeHelp = dynamic(() => import('./components/WhoWeHelp').then((mod) => mod.WhoWeHelp), { ssr: true });
 const NetworkGlobe = dynamic(() => import('./components/NetworkGlobe'), { ssr: true });
 import DetailDrawer from './components/AiTechnologyStack';
@@ -209,19 +210,19 @@ export default function AiDevelopmentServicesPage() {
       <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 mt-24 text-center">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/80 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] backdrop-blur-sm text-[10px] font-bold uppercase tracking-wider text-[#C94716] mb-4">
           <span className="w-1.5 h-1.5 rounded-full bg-[#C94716] animate-pulse" />
-          MICROSOFT AI ECOSYSTEM
+          AGENTIC AI ECOSYSTEM
         </div>
         <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-slate-900 mb-4">
-          Microsoft AI Ecosystem Integrations
+          Enterprise Agentic AI & Ecosystem Integrations
         </h2>
         <p className="text-base md:text-lg text-slate-500 max-w-2xl mx-auto mb-6">
-          We build, customize, and orchestrate Microsoft's full-stack AI services—orchestrating private model instances, autonomous copilots, and real-time Amazon Bedrock data streams.
+          We engineer and orchestrate autonomous AI agent systems—fusing foundation models, multi-agent swarms, vector knowledge graphs, and secure tool execution across your enterprise stack.
         </p>
         <div className="text-xs font-mono font-bold tracking-wider text-slate-400 max-w-4xl mx-auto leading-relaxed border-t border-slate-100 pt-4 mb-4">
-          Azure AI &nbsp;→&nbsp; Azure OpenAI &nbsp;→&nbsp; Copilot &nbsp;→&nbsp; Copilot Studio &nbsp;→&nbsp; Microsoft 365 &nbsp;→&nbsp; Power Platform &nbsp;→&nbsp; Azure AI Search &nbsp;→&nbsp; Amazon Bedrock
+          Foundation Models &nbsp;→&nbsp; Agent Reasoning &nbsp;→&nbsp; Tool Calling &nbsp;→&nbsp; Swarm Orchestration &nbsp;→&nbsp; Semantic Memory &nbsp;→&nbsp; Enterprise Guardrails
         </div>
         <div className="mt-6 w-full flex justify-center">
-          <MicrosoftAiBentoGrid />
+          <MicrosoftAiShowcase />
         </div>
       </div>
 

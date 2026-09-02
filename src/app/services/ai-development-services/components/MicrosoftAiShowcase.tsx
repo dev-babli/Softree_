@@ -1,7 +1,12 @@
 "use client";
 
 import React from "react";
-import { Cpu, Users, Settings, BarChart2, Database, Zap, RefreshCw, Wrench, Shield, Layers, HelpCircle, Eye, Sliders, Target, Lightbulb, Layers3, Network, Workflow, ChartNoAxesCombined, Scaling } from "lucide-react";
+import { 
+  Cpu, Users, Settings, BarChart2, Database, Zap, RefreshCw, Wrench, Shield, 
+  Layers, HelpCircle, Eye, Sliders, Target, Lightbulb, Layers3, Network, 
+  Workflow, ChartNoAxesCombined, Scaling, Brain, ShieldCheck, Search, 
+  User, MessageSquare, Star, Bot, FileText 
+} from "lucide-react";
 
 // Microsoft Capability Icons (Official designs recreated in high-fidelity vector formats)
 const MicrosoftLogo = ({ className = "w-6 h-6 shrink-0" }: { className?: string }) => (
@@ -358,45 +363,43 @@ const CloudCheckIcon = ({ className = "w-6 h-6 text-white" }: { className?: stri
 
 export default function MicrosoftAiShowcase() {
   const layer1Caps = [
-    { name: "Azure AI", logo: <AzureAiLogo className="w-6 h-6 shrink-0" /> },
-    { name: "Azure OpenAI", logo: <OpenAiLogo className="w-6 h-6 shrink-0" /> },
-    { name: "Azure AI Search", logo: <AzureAiSearchLogo className="w-6 h-6 shrink-0" /> },
+    { name: "Model Management", logo: <Brain className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "Responsible AI", logo: <ShieldCheck className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "Search & Knowledge", logo: <Search className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
   ];
 
   const layer2Caps = [
-    { name: "Microsoft Copilot", logo: <CopilotLogo className="w-6 h-6 shrink-0" /> },
-    { name: "Copilot Studio", logo: <CopilotStudioLogo className="w-6 h-6 shrink-0" /> },
-    { name: "Microsoft 365", logo: <Microsoft365Logo className="w-6 h-6 shrink-0" /> },
+    { name: "AI Assistants & Copilots", logo: <User className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "Conversational Experiences", logo: <MessageSquare className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "Personalized Engagement", logo: <Star className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
   ];
 
   const layer3Caps = [
-    { name: "Power Platform", logo: <PowerPlatformLogo className="w-6 h-6 shrink-0" /> },
-    { name: "Power Apps", logo: <PowerAppsLogo className="w-6 h-6 shrink-0" /> },
-    { name: "Power Automate", logo: <PowerAutomateLogo className="w-6 h-6 shrink-0" /> },
-    { name: "AI Agents", logo: <AiAgentsLogo className="w-6 h-6 shrink-0" /> },
+    { name: "Workflow Automation", logo: <Workflow className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "Intelligent Agents", logo: <Bot className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "Process Orchestration", logo: <FileText className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
   ];
 
   const layer4Caps = [
-    { name: "Microsoft Fabric", logo: <FabricLogo className="w-6 h-6 shrink-0" /> },
-    { name: "Data Engineering", logo: <DataEngineeringLogo className="w-6 h-6 shrink-0" /> },
-    { name: "Real-time Analytics", logo: <RealTimeAnalyticsLogo className="w-6 h-6 shrink-0" /> },
-    { name: "Enterprise Data", logo: <EnterpriseDataLogo className="w-6 h-6 shrink-0" /> },
+    { name: "Data Management", logo: <Database className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "Analytics & Insights", logo: <BarChart2 className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "Governance & Security", logo: <Shield className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
   ];
 
   const rightCapabilities = [
-    { title: "BUILD", borderClass: "border-[#FF6B2C]/30", textClass: "text-[#FF6B2C]", glowClass: "shadow-[0_0_15px_rgba(255,107,44,0.25)]", hoverBorder: "group-hover:border-[#FF6B2C]/60", icon: <Layers3 className="w-6 h-6 lg:w-[26px] lg:h-[26px] text-[#FF6B2C]" strokeWidth={2} />, desc: "Build intelligent solutions with Azure AI services & models" },
-    { title: "CONNECT", borderClass: "border-[#FF6B2C]/30", textClass: "text-[#FF6B2C]", glowClass: "shadow-[0_0_15px_rgba(255,107,44,0.25)]", hoverBorder: "group-hover:border-[#FF6B2C]/60", icon: <Network className="w-6 h-6 lg:w-[26px] lg:h-[26px] text-[#FF6B2C]" strokeWidth={2} />, desc: "Bring AI to people with Copilot, M365 & conversational experiences" },
-    { title: "AUTOMATE", borderClass: "border-[#FF6B2C]/30", textClass: "text-[#FF6B2C]", glowClass: "shadow-[0_0_15px_rgba(255,107,44,0.25)]", hoverBorder: "group-hover:border-[#FF6B2C]/60", icon: <Workflow className="w-6 h-6 lg:w-[26px] lg:h-[26px] text-[#FF6B2C]" strokeWidth={2} />, desc: "Automate processes and workflows across business applications" },
-    { title: "ANALYZE", borderClass: "border-[#FF6B2C]/30", textClass: "text-[#FF6B2C]", glowClass: "shadow-[0_0_15px_rgba(255,107,44,0.25)]", hoverBorder: "group-hover:border-[#FF6B2C]/60", icon: <ChartNoAxesCombined className="w-6 h-6 lg:w-[26px] lg:h-[26px] text-[#FF6B2C]" strokeWidth={2} />, desc: "Unify and analyze data to drive smarter business decisions" },
-    { title: "SCALE", borderClass: "border-[#FF6B2C]/30", textClass: "text-[#FF6B2C]", glowClass: "shadow-[0_0_15px_rgba(255,107,44,0.25)]", hoverBorder: "group-hover:border-[#FF6B2C]/60", icon: <Scaling className="w-6 h-6 lg:w-[26px] lg:h-[26px] text-[#FF6B2C]" strokeWidth={2} />, desc: "Enterprise-grade security, governance & scalability on Azure" },
+    { title: "AUTONOMOUS REASON", borderClass: "border-[#FF6B2C]/30", textClass: "text-[#FF6B2C]", glowClass: "shadow-[0_0_15px_rgba(255,107,44,0.25)]", hoverBorder: "group-hover:border-[#FF6B2C]/60", icon: <Brain className="w-6 h-6 lg:w-[26px] lg:h-[26px] text-[#FF6B2C]" strokeWidth={2} />, desc: "Goal decomposition, chain-of-thought & multi-step self-correction" },
+    { title: "SECURE TOOL CALLING", borderClass: "border-[#FF6B2C]/30", textClass: "text-[#FF6B2C]", glowClass: "shadow-[0_0_15px_rgba(255,107,44,0.25)]", hoverBorder: "group-hover:border-[#FF6B2C]/60", icon: <Wrench className="w-6 h-6 lg:w-[26px] lg:h-[26px] text-[#FF6B2C]" strokeWidth={2} />, desc: "Sandboxed execution across ERPs, databases & enterprise SaaS APIs" },
+    { title: "SWARM ORCHESTRATE", borderClass: "border-[#FF6B2C]/30", textClass: "text-[#FF6B2C]", glowClass: "shadow-[0_0_15px_rgba(255,107,44,0.25)]", hoverBorder: "group-hover:border-[#FF6B2C]/60", icon: <Workflow className="w-6 h-6 lg:w-[26px] lg:h-[26px] text-[#FF6B2C]" strokeWidth={2} />, desc: "Multi-agent coordination with deterministic state & failover logic" },
+    { title: "SEMANTIC GROUNDING", borderClass: "border-[#FF6B2C]/30", textClass: "text-[#FF6B2C]", glowClass: "shadow-[0_0_15px_rgba(255,107,44,0.25)]", hoverBorder: "group-hover:border-[#FF6B2C]/60", icon: <Database className="w-6 h-6 lg:w-[26px] lg:h-[26px] text-[#FF6B2C]" strokeWidth={2} />, desc: "Real-time vector graphs & persistent agent memory grounding" },
+    { title: "ENTERPRISE GUARDRAILS", borderClass: "border-[#FF6B2C]/30", textClass: "text-[#FF6B2C]", glowClass: "shadow-[0_0_15px_rgba(255,107,44,0.25)]", hoverBorder: "group-hover:border-[#FF6B2C]/60", icon: <Shield className="w-6 h-6 lg:w-[26px] lg:h-[26px] text-[#FF6B2C]" strokeWidth={2} />, desc: "Zero-trust policy enforcement, human-in-the-loop & audit logs" },
   ];
 
   const businessImpactMetrics = [
-    { title: "Accelerate", value: "Time to Market", icon: <Zap className="w-5 h-5 text-orange-400" /> },
-    { title: "Reduce", value: "Operational Costs", icon: <RefreshCw className="w-5 h-5 text-orange-400" /> },
-    { title: "Improve", value: "Productivity", icon: <BarChart2 className="w-5 h-5 text-orange-400" /> },
-    { title: "Enhance", value: "Customer Experience", icon: <Target className="w-5 h-5 text-orange-400" /> },
-    { title: "Drive", value: "Innovation at Scale", icon: <Lightbulb className="w-5 h-5 text-orange-400" /> },
+    { title: "Autonomous Tasking", value: "99.4% Completion", icon: <Zap className="w-5 h-5 text-orange-400" /> },
+    { title: "Tool Call Latency", value: "< 180ms Execution", icon: <RefreshCw className="w-5 h-5 text-orange-400" /> },
+    { title: "Deterministic Ops", value: "Zero Hallucination", icon: <BarChart2 className="w-5 h-5 text-orange-400" /> },
+    { title: "Connected SaaS", value: "50+ Secure Tools", icon: <Target className="w-5 h-5 text-orange-400" /> },
+    { title: "Enterprise Scale", value: "10M+ Daily Calls", icon: <Lightbulb className="w-5 h-5 text-orange-400" /> },
   ];
 
   return (
@@ -413,12 +416,16 @@ export default function MicrosoftAiShowcase() {
           {/* Left Column: Heading, Isometric Stack (contained inside a glowing card) */}
           <div className="lg:col-span-3 flex">
             <div className="relative overflow-hidden rounded-[18px] border border-orange-500/30 bg-slate-50 p-6 shadow-[0_0_25px_rgba(255,107,44,0.05)] flex flex-col justify-between items-stretch w-full h-[440px] z-10">
-              <div className="space-y-2 text-left">
-                <h2 className="text-[26px] lg:text-[30px] font-black tracking-wider text-slate-900 uppercase leading-tight">
-                  MICROSOFT AI
+              <div className="space-y-1.5 text-left">
+                <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-[#FF5812] text-[10px] font-mono font-bold tracking-widest uppercase mb-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF5812] animate-pulse" />
+                  AGENTIC AI RUNTIME
+                </div>
+                <h2 className="text-[22px] lg:text-[25px] font-black tracking-wider text-slate-900 uppercase leading-tight">
+                  AGENTIC SYSTEM
                 </h2>
-                <p className="text-[14px] font-bold text-orange-600 tracking-wider uppercase">
-                  Intelligent. Connected. Secured.
+                <p className="text-[12px] font-bold text-orange-600 tracking-wider uppercase">
+                  Think • Reason • Act • Execute
                 </p>
               </div>
 
@@ -511,18 +518,18 @@ export default function MicrosoftAiShowcase() {
               
               {/* Layer 01: AI Foundation */}
               <div className="relative p-3 rounded-[12px] border border-orange-500/25 bg-white shadow-sm flex items-center gap-3 min-h-[66px]">
-                <div className="w-[88px] shrink-0 text-left pl-0.5">
+                <div className="w-[102px] shrink-0 text-left pl-0.5">
                   <span className="text-[10px] font-black text-orange-600 block tracking-wider uppercase mb-0.5">LAYER 01</span>
-                  <span className="text-[11.5px] font-black text-slate-900 tracking-tight uppercase leading-snug">AI FOUNDATION</span>
+                  <span className="text-[11px] font-black text-slate-900 tracking-tight uppercase leading-tight block">AI FOUNDATION</span>
                 </div>
                 <div className="w-[1px] h-9 bg-orange-500/25 self-center" />
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 pl-1 flex-1">
+                <div className="grid grid-cols-3 gap-2 pl-2 flex-1 items-center">
                   {layer1Caps.map((cap, idx) => (
-                    <div key={idx} className="flex items-center gap-1.5 group cursor-pointer">
-                      <div className="transition-all duration-300 group-hover:scale-120 group-hover:rotate-[6deg]">
+                    <div key={idx} className="flex items-center gap-2 group cursor-pointer">
+                      <div className="transition-all duration-300 group-hover:scale-115 group-hover:rotate-[6deg] shrink-0">
                         {cap.logo}
                       </div>
-                      <span className="text-[12.5px] font-bold text-slate-600 group-hover:text-orange-600 transition-colors duration-200">{cap.name}</span>
+                      <span className="text-[11px] lg:text-[11.5px] font-bold text-slate-700 group-hover:text-orange-600 transition-colors duration-200 leading-tight">{cap.name}</span>
                     </div>
                   ))}
                 </div>
@@ -530,18 +537,18 @@ export default function MicrosoftAiShowcase() {
 
               {/* Layer 02: Intelligent Experiences */}
               <div className="relative p-3 rounded-[12px] border border-orange-500/25 bg-white shadow-sm flex items-center gap-3 min-h-[66px]">
-                <div className="w-[88px] shrink-0 text-left pl-0.5">
+                <div className="w-[102px] shrink-0 text-left pl-0.5">
                   <span className="text-[10px] font-black text-orange-600 block tracking-wider uppercase mb-0.5">LAYER 02</span>
-                  <span className="text-[11.5px] font-black text-slate-900 tracking-tight uppercase leading-snug">INTELLIGENT EXP.</span>
+                  <span className="text-[11px] font-black text-slate-900 tracking-tight uppercase leading-tight block">INTELLIGENT EXPERIENCES</span>
                 </div>
                 <div className="w-[1px] h-9 bg-orange-500/25 self-center" />
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 pl-1 flex-1">
+                <div className="grid grid-cols-3 gap-2 pl-2 flex-1 items-center">
                   {layer2Caps.map((cap, idx) => (
-                    <div key={idx} className="flex items-center gap-1.5 group cursor-pointer">
-                      <div className="transition-all duration-300 group-hover:scale-120 group-hover:rotate-[6deg]">
+                    <div key={idx} className="flex items-center gap-2 group cursor-pointer">
+                      <div className="transition-all duration-300 group-hover:scale-115 group-hover:rotate-[6deg] shrink-0">
                         {cap.logo}
                       </div>
-                      <span className="text-[12.5px] font-bold text-slate-600 group-hover:text-orange-600 transition-colors duration-200">{cap.name}</span>
+                      <span className="text-[11px] lg:text-[11.5px] font-bold text-slate-700 group-hover:text-orange-600 transition-colors duration-200 leading-tight">{cap.name}</span>
                     </div>
                   ))}
                 </div>
@@ -549,18 +556,18 @@ export default function MicrosoftAiShowcase() {
 
               {/* Layer 03: Business Automation */}
               <div className="relative p-3 rounded-[12px] border border-orange-500/25 bg-white shadow-sm flex items-center gap-3 min-h-[66px]">
-                <div className="w-[88px] shrink-0 text-left pl-0.5">
+                <div className="w-[102px] shrink-0 text-left pl-0.5">
                   <span className="text-[10px] font-black text-orange-600 block tracking-wider uppercase mb-0.5">LAYER 03</span>
-                  <span className="text-[11.5px] font-black text-slate-900 tracking-tight uppercase leading-snug">BUSINESS AUTO.</span>
+                  <span className="text-[11px] font-black text-slate-900 tracking-tight uppercase leading-tight block">BUSINESS AUTOMATION</span>
                 </div>
                 <div className="w-[1px] h-9 bg-orange-500/25 self-center" />
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 pl-1 flex-1">
+                <div className="grid grid-cols-3 gap-2 pl-2 flex-1 items-center">
                   {layer3Caps.map((cap, idx) => (
-                    <div key={idx} className="flex items-center gap-1.5 group cursor-pointer">
-                      <div className="transition-all duration-300 group-hover:scale-120 group-hover:rotate-[6deg]">
+                    <div key={idx} className="flex items-center gap-2 group cursor-pointer">
+                      <div className="transition-all duration-300 group-hover:scale-115 group-hover:rotate-[6deg] shrink-0">
                         {cap.logo}
                       </div>
-                      <span className="text-[12.5px] font-bold text-slate-600 group-hover:text-orange-600 transition-colors duration-200">{cap.name}</span>
+                      <span className="text-[11px] lg:text-[11.5px] font-bold text-slate-700 group-hover:text-orange-600 transition-colors duration-200 leading-tight">{cap.name}</span>
                     </div>
                   ))}
                 </div>
@@ -568,18 +575,18 @@ export default function MicrosoftAiShowcase() {
 
               {/* Layer 04: Data & Intelligence */}
               <div className="relative p-3 rounded-[12px] border border-orange-500/25 bg-white shadow-sm flex items-center gap-3 min-h-[66px]">
-                <div className="w-[88px] shrink-0 text-left pl-0.5">
+                <div className="w-[102px] shrink-0 text-left pl-0.5">
                   <span className="text-[10px] font-black text-orange-600 block tracking-wider uppercase mb-0.5">LAYER 04</span>
-                  <span className="text-[11.5px] font-black text-slate-900 tracking-tight uppercase leading-snug">DATA & INTEL.</span>
+                  <span className="text-[11px] font-black text-slate-900 tracking-tight uppercase leading-tight block">DATA & INTELLIGENCE</span>
                 </div>
                 <div className="w-[1px] h-9 bg-orange-500/25 self-center" />
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 pl-1 flex-1">
+                <div className="grid grid-cols-3 gap-2 pl-2 flex-1 items-center">
                   {layer4Caps.map((cap, idx) => (
-                    <div key={idx} className="flex items-center gap-1.5 group cursor-pointer">
-                      <div className="transition-all duration-300 group-hover:scale-120 group-hover:rotate-[6deg]">
+                    <div key={idx} className="flex items-center gap-2 group cursor-pointer">
+                      <div className="transition-all duration-300 group-hover:scale-115 group-hover:rotate-[6deg] shrink-0">
                         {cap.logo}
                       </div>
-                      <span className="text-[12.5px] font-bold text-slate-600 group-hover:text-orange-600 transition-colors duration-200">{cap.name}</span>
+                      <span className="text-[11px] lg:text-[11.5px] font-bold text-slate-700 group-hover:text-orange-600 transition-colors duration-200 leading-tight">{cap.name}</span>
                     </div>
                   ))}
                 </div>
@@ -599,10 +606,10 @@ export default function MicrosoftAiShowcase() {
                 </svg>
  
                 {/* Core content with inner reflection */}
-                <div className="absolute inset-5 rounded-full bg-white border-2 border-orange-400/50 shadow-[inset_0_0_20px_rgba(255,107,44,0.05),0_0_30px_rgba(255,107,44,0.15)] flex flex-col items-center justify-center gap-1.5 z-10">
-                  <MicrosoftLogo className="w-8 h-8 shrink-0 transition-transform duration-500 hover:scale-110 hover:rotate-[360deg] cursor-pointer" />
-                  <span className="text-[14px] lg:text-[15px] font-black tracking-[0.12em] text-slate-900 select-none">ENTERPRISE</span>
-                  <span className="text-[12px] lg:text-[13px] font-black tracking-[0.05em] text-orange-600 select-none">AI</span>
+                <div className="absolute inset-5 rounded-full bg-white border-2 border-orange-400/50 shadow-[inset_0_0_20px_rgba(255,107,44,0.05),0_0_30px_rgba(255,107,44,0.15)] flex flex-col items-center justify-center gap-1 z-10">
+                  <MicrosoftLogo className="w-7 h-7 shrink-0 transition-transform duration-500 hover:scale-110 hover:rotate-[360deg] cursor-pointer" />
+                  <span className="text-[13px] lg:text-[14px] font-black tracking-[0.14em] text-slate-900 select-none">AGENTIC</span>
+                  <span className="text-[10px] lg:text-[11px] font-black tracking-[0.08em] text-orange-600 select-none">RUNTIME</span>
                 </div>
               </div>
             </div>
