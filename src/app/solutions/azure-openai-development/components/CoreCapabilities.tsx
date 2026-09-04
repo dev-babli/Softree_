@@ -47,7 +47,7 @@ export default function CoreCapabilities() {
   const activeData = coreCapabilitiesData[activeIndex];
 
   return (
-    <section className="relative w-full overflow-hidden bg-transparent py-12 font-sans lg:py-16">
+    <section className="relative w-full overflow-hidden bg-white py-12 font-sans lg:py-16">
       {/* Background Decorators */}
       {/* Top Left */}
       <div className="absolute top-0 left-0 w-[400px] h-[400px] border-b border-r border-[#FF6B2C]/10 rounded-br-[100%] opacity-20 pointer-events-none -translate-x-1/4 -translate-y-1/4"></div>

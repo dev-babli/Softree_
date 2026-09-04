@@ -4,7 +4,7 @@ import IndustryCarousel from './IndustryCarousel';
 
 export default function Industries() {
   return (
-    <section className="relative w-full overflow-hidden bg-transparent py-12 lg:py-16">
+    <section className="relative w-full overflow-hidden bg-white py-12 lg:py-16">
       {/* Background Decorators */}
       {/* Top Left */}
       <div className="pointer-events-none absolute left-0 top-0 h-[400px] w-[400px] -translate-x-1/4 -translate-y-1/4 rounded-br-[100%] border-b border-r border-[#FF6B2C]/10 opacity-20"></div>

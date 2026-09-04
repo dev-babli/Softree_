@@ -37,8 +37,9 @@ export const ReverseStickyScroll = () => {
 
       // 1. Entrance Rotation Animation (for sections after the first one)
       if (i > 0) {
+        const startRotation = typeof window !== 'undefined' && window.innerWidth < 768 ? 14 : 25;
         gsap.set(innerContainer, {
-          rotation: 25,
+          rotation: startRotation,
           transformOrigin: 'bottom left',
         });
 
@@ -53,17 +54,18 @@ export const ReverseStickyScroll = () => {
           },
         });
 
-        // Smoothly fade out previous card as the new card enters so it never leaks behind/above
+        // Keep previous card fully visible & interactive while the new card is entering.
+        // Only subtly scale/dim as the new card actually takes over the upper viewport.
         const prevContainer = sections[i - 1]?.querySelector('.rss_container');
         if (prevContainer) {
           gsap.to(prevContainer, {
-            opacity: 0,
-            scale: 0.94,
+            scale: 0.96,
+            opacity: 0.25,
             ease: 'none',
             scrollTrigger: {
               trigger: section,
-              start: 'top bottom',
-              end: 'top 40%',
+              start: 'top 35%',
+              end: 'top top',
               scrub: true,
             },
           });
@@ -94,54 +96,62 @@ export const ReverseStickyScroll = () => {
       {[
         {
           num: "01",
-          title: "AI Agents",
-          titleSplit: "AI<br />Agents",
-          desc: "Build intelligent AI agents that understand business goals, reason through tasks, make decisions, use tools, access enterprise data, and autonomously execute multi-step workflows.",
+          title: "Generative AI",
+          titleSplit: "Generative<br />AI",
+          desc: "Build enterprise generative AI applications, custom foundation models, and intelligent capabilities to deliver smarter user experiences and automated decision-making.",
           bg: "#C94716", text: "#ffffff",
-          link: "/solutions/ai-agents-development"
+          link: "/services/generative-ai"
         },
         {
           num: "02",
-          title: "Multi-Agent Systems",
-          titleSplit: "Multi-Agent<br />Systems",
-          desc: "Design multi-agent AI systems where specialized agents collaborate, exchange information, and coordinate complex tasks to automate end-to-end business processes.",
+          title: "Azure OpenAI",
+          titleSplit: "Azure<br />OpenAI",
+          desc: "Build secure, production-ready Azure OpenAI solutions—custom GPT apps, enterprise RAG, Microsoft copilots, and governed AI services deployed in your Microsoft ecosystem.",
           bg: "#111111", text: "#f5f5f5",
-          link: "/solutions/multi-agent-systems"
+          link: "/solutions/azure-openai-development"
         },
         {
           num: "03",
-          title: "AI Copilots",
-          titleSplit: "AI<br />Copilots",
-          desc: "Develop context-aware AI copilots that assist employees and customers with real-time guidance, knowledge access, decision support, and task execution across business applications.",
+          title: "AI Agents",
+          titleSplit: "AI<br />Agents",
+          desc: "Build intelligent AI agents that understand business goals, reason through tasks, make decisions, use tools, access enterprise data, and autonomously execute multi-step workflows.",
           bg: "#fcfbf9", text: "#111111",
-          link: "/solutions/ai-copilot-development"
+          link: "/solutions/ai-agents-development"
         },
         {
           num: "04",
-          title: "RAG & Enterprise Knowledge",
-          titleSplit: "RAG &<br />Enterprise<br />Knowledge",
-          desc: "Build secure Retrieval-Augmented Generation (RAG) solutions that connect AI models with enterprise documents, databases, knowledge bases, and business data for accurate, grounded responses.",
+          title: "Multi-Agent Systems",
+          titleSplit: "Multi-Agent<br />Systems",
+          desc: "Design multi-agent AI systems where specialized agents collaborate, exchange information, and coordinate complex tasks to automate end-to-end business processes.",
           bg: "#FF6B00", text: "#ffffff",
-          link: "/solutions/enterprise-rag-development"
+          link: "/solutions/multi-agent-systems"
         },
         {
           num: "05",
-          title: "Intelligent Automation",
-          titleSplit: "Intelligent<br />Automation",
-          desc: "Combine AI agents, machine learning, and workflow automation to streamline complex business processes, reduce manual effort, improve efficiency, and accelerate operations.",
-          bg: "#2A2A2A", text: "#f5f5f5",
-          link: "/services/ai-powered-test-automation"
+          title: "AI Copilots",
+          titleSplit: "AI<br />Copilots",
+          desc: "Develop context-aware AI copilots that assist employees and customers with real-time guidance, knowledge access, decision support, and task execution across business applications.",
+          bg: "#18181b", text: "#f5f5f5",
+          link: "/solutions/ai-copilot-development"
         },
         {
           num: "06",
-          title: "AI-Powered Applications",
-          titleSplit: "AI-Powered<br />Applications",
-          desc: "Build AI-native applications or embed intelligent capabilities into existing platforms, products, and enterprise applications to deliver smarter user experiences and automated decision-making.",
+          title: "RAG & Enterprise Knowledge",
+          titleSplit: "RAG &<br />Enterprise<br />Knowledge",
+          desc: "Build secure Retrieval-Augmented Generation (RAG) solutions that connect AI models with enterprise documents, databases, knowledge bases, and business data for accurate, grounded responses.",
           bg: "#fcfbf9", text: "#111111",
-          link: "/services/generative-ai"
+          link: "/solutions/enterprise-rag-development"
+        },
+        {
+          num: "07",
+          title: "AI Workflow Automation",
+          titleSplit: "AI Workflow<br />Automation",
+          desc: "Combine AI agents, machine learning, and workflow automation to streamline complex business processes, reduce manual effort, improve efficiency, and accelerate operations.",
+          bg: "#2A2A2A", text: "#f5f5f5",
+          link: "/solutions/ai-workflow-automation"
         }
       ].map((card, idx) => (
-        <section key={idx} className={`rss_section rss_s${idx + 1}`}>
+        <section key={idx} className={`rss_section rss_s${idx + 1}`} style={{ zIndex: idx + 1 }}>
           <div className="rss_container flex flex-col items-start text-left" style={{ backgroundColor: card.bg, color: card.text }}>
             <p className="rss_tag">{card.num} — {card.title}</p>
             <hr className="rss_hr w-full" />
@@ -151,10 +161,11 @@ export const ReverseStickyScroll = () => {
             <hr className="rss_hr w-full" />
             <p className="rss_sub text-left">{card.desc}</p>
             
-            <div className="mt-auto pt-10 flex justify-start w-full">
+            <div className="rss_btn_wrap mt-auto pt-10 flex justify-start w-full relative z-30 pointer-events-auto">
               <Link 
                 href={card.link}
-                className="inline-flex items-center gap-2 px-8 py-3.5 border rounded-full text-[15px] font-semibold tracking-wide transition-all duration-300 hover:opacity-70"
+                prefetch={false}
+                className="inline-flex items-center gap-2 px-8 py-3.5 border rounded-full text-[15px] font-semibold tracking-wide transition-all duration-300 hover:opacity-75 hover:scale-105 active:scale-95 cursor-pointer pointer-events-auto select-auto"
                 style={{ borderColor: card.text, color: card.text }}
               >
                 Learn More <span className="text-lg leading-none">→</span>

@@ -38,6 +38,7 @@
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
+  pointer-events: none; /* Allows clicks to pass through unrotated empty bounds to the card below */
 }
 
 .rss_container {
@@ -52,6 +53,13 @@
   gap: 1.5rem;
   transform-origin: bottom left;
   will-change: transform, opacity;
+  pointer-events: auto; /* Re-enable pointer events on the visible card */
+}
+
+.rss_btn_wrap {
+  position: relative;
+  z-index: 30;
+  pointer-events: auto;
 }
 
 .rss_big {

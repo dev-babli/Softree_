@@ -166,8 +166,8 @@ export default function AiDevelopmentServicesPage() {
       {/* <Industries /> */}
 
       {/* Infinite Parallax AI Showcase */}
-      <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 my-14 md:my-20 lg:my-24">
-        <div className="relative w-full h-[680px] sm:h-[780px] lg:h-[860px] rounded-3xl overflow-hidden border border-zinc-200/50 shadow-2xl">
+      <div className="max-w-[1600px] mx-auto px-3 xs:px-4 sm:px-8 lg:px-12 my-10 sm:my-14 md:my-20 lg:my-24">
+        <div className="relative w-full h-[590px] xs:h-[620px] sm:h-[720px] md:h-[780px] lg:h-[860px] rounded-2xl sm:rounded-3xl overflow-hidden border border-zinc-200/50 shadow-2xl">
           <ArgentLoopSlider className="h-full w-full" />
         </div>
       </div>
