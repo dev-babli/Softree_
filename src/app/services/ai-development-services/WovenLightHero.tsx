@@ -213,20 +213,20 @@ export const WovenLightHero = () => {
   const headline = "Offshore Agentic AI Engineering Partner";
 
   return (
-    <div className="relative flex min-h-[100vh] lg:min-h-[105vh] w-full flex-col justify-between overflow-hidden bg-black pt-24 md:pt-32 pb-8">
+    <div className="relative flex w-full flex-col overflow-hidden bg-black pt-20 lg:pt-24 pb-0">
       
       {/* Main Split Content: Left (Text) and Right (The Wave) */}
-      <div className="relative z-10 flex flex-1 items-center w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-10 py-4 sm:py-6 my-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 xl:gap-8 w-full items-stretch min-h-[540px] lg:min-h-[620px]">
+      <div className="relative z-10 flex items-start w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-10 pt-2 sm:pt-4 pb-0">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 xl:gap-8 w-full items-center">
           
           {/* LEFT: The Text */}
-          <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-center text-left h-full z-10 py-4 lg:py-6">
+          <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-start text-left z-10">
             {/* Eyebrow Pill */}
             <motion.div
               custom={0}
               initial={{ opacity: 0, y: 15 }}
               animate={textControls}
-              className="mb-5 sm:mb-6 inline-flex items-center gap-2 rounded-full border border-[#FF6B00]/40 bg-[#FF6B00]/10 px-4 sm:px-5 py-1.5 sm:py-2 text-[11px] sm:text-xs font-semibold text-[#FF6B00] backdrop-blur-md shadow-[0_0_15px_rgba(255,107,0,0.15)] w-fit"
+              className="mb-3.5 sm:mb-4 inline-flex items-center gap-2 rounded-full border border-[#FF6B00]/40 bg-[#FF6B00]/10 px-4.5 sm:px-5 py-2 text-xs sm:text-[13px] font-semibold text-[#FF6B00] backdrop-blur-md shadow-[0_0_15px_rgba(255,107,0,0.15)] w-fit"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
               <span className="h-2 w-2 rounded-full bg-[#FF6B00] shadow-[0_0_8px_#FF6B00] animate-pulse" />
@@ -238,7 +238,7 @@ export const WovenLightHero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-[54px] xl:text-[62px] font-bold text-white tracking-tight leading-[1.08]"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-[58px] xl:text-[66px] font-bold text-white tracking-tight leading-[1.08]"
               style={{
                 fontFamily: "'Playfair Display', serif",
                 textShadow: '0 0 35px rgba(255, 107, 0, 0.25)',
@@ -257,7 +257,7 @@ export const WovenLightHero = () => {
               custom={4}
               initial={{ opacity: 0, y: 20 }}
               animate={textControls}
-              className="mt-6 text-base sm:text-lg text-slate-300 dark:text-slate-400 leading-relaxed font-normal max-w-xl"
+              className="mt-4 sm:mt-5 text-base sm:text-lg lg:text-[19px] xl:text-xl text-slate-300 dark:text-slate-400 leading-relaxed font-normal max-w-xl"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
               Build and scale AI agents with a dedicated offshore engineering team.
@@ -268,11 +268,11 @@ export const WovenLightHero = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="mt-8 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+              className="mt-5 sm:mt-6 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
             >
               <Link href="/contact" className="w-full sm:w-auto">
                 <button
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#FF6B00] hover:bg-[#E05E00] px-8 py-3.5 font-semibold text-white transition-all shadow-lg shadow-[#FF6B00]/30 hover:scale-[1.02] active:scale-[0.98] group"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full bg-[#FF6B00] hover:bg-[#E05E00] px-8 py-3.5 sm:py-4 font-semibold text-white text-[15px] sm:text-base transition-all shadow-lg shadow-[#FF6B00]/30 hover:scale-[1.02] active:scale-[0.98] group"
                   style={{ fontFamily: "'Inter', sans-serif" }}
                 >
                   <span>Build Your AI Team</span>
@@ -287,7 +287,7 @@ export const WovenLightHero = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
-              className="mt-8 flex flex-wrap items-center gap-2 sm:gap-2.5 max-w-2xl"
+              className="mt-5 sm:mt-6 flex flex-wrap items-center gap-2 sm:gap-2.5 max-w-2xl"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
               {capabilities.map((item, idx) => {
@@ -295,7 +295,7 @@ export const WovenLightHero = () => {
                 return (
                   <div
                     key={idx}
-                    className="group inline-flex items-center gap-2.5 px-3.5 sm:px-4 py-2 rounded-full bg-white/[0.08] hover:bg-white/[0.14] border border-white/20 hover:border-[#FF6B00]/70 backdrop-blur-md text-xs sm:text-[13px] font-medium text-white shadow-sm hover:shadow-[0_0_15px_rgba(255,107,0,0.35)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 select-none cursor-default"
+                    className="group inline-flex items-center gap-2.5 px-4 sm:px-4.5 py-2 sm:py-2.5 rounded-full bg-white/[0.08] hover:bg-white/[0.14] border border-white/20 hover:border-[#FF6B00]/70 backdrop-blur-md text-[12.5px] sm:text-[13.5px] font-medium text-white shadow-sm hover:shadow-[0_0_15px_rgba(255,107,0,0.35)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 select-none cursor-default"
                   >
                     <Icon />
                     <span className="tracking-wide text-white/90 group-hover:text-white">{item.title}</span>
@@ -306,10 +306,10 @@ export const WovenLightHero = () => {
           </div>
 
           {/* RIGHT: The Wave (Matches height, centered, never cut off) */}
-          <div className="lg:col-span-6 xl:col-span-6 flex items-center justify-center relative w-full h-full min-h-[500px] sm:min-h-[540px] lg:min-h-full py-0">
+          <div className="lg:col-span-6 xl:col-span-6 flex items-center justify-center relative w-full h-[420px] sm:h-[450px] lg:h-[480px] py-0">
             {/* Ambient orange glow behind the wave for atmospheric contrast */}
             <div className="pointer-events-none absolute w-80 sm:w-96 h-80 sm:h-96 rounded-full bg-[#FF6B00]/15 blur-[90px] -z-10" />
-            <div className="w-full h-full relative flex items-center justify-center min-h-[500px] sm:min-h-[540px] lg:min-h-full">
+            <div className="w-full h-full relative flex items-center justify-center">
               <WovenCanvas />
             </div>
           </div>
@@ -322,7 +322,7 @@ export const WovenLightHero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8, duration: 0.8 }}
-        className="w-full z-20 border-t border-white/10 bg-black/40 backdrop-blur-md py-6 shrink-0 mt-auto"
+        className="w-full z-20 bg-black/40 backdrop-blur-md py-4 sm:py-5 shrink-0 mt-4 sm:mt-6"
       >
         <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-5">
@@ -541,12 +541,12 @@ const WovenCanvas = () => {
       const halfFovRad = (camera.fov * Math.PI) / 360;
       const tanHalfFov = Math.tan(halfFovRad);
 
-      // Safe radius: 2.70 guarantees the 1.58 wave + ambient halo has generous breathing room on top/bottom/sides
-      const safeRadius = 2.70;
+      // Safe radius: 2.40 brings camera closer to make the wave visibly bigger with comfortable breathing room
+      const safeRadius = 2.40;
       const distFromHeight = safeRadius / tanHalfFov;
       const distFromWidth = safeRadius / (tanHalfFov * currentAspect);
 
-      camera.position.z = Math.max(distFromHeight, distFromWidth, 5.0);
+      camera.position.z = Math.max(distFromHeight, distFromWidth, 4.4);
       camera.position.x = 0;
       camera.position.y = 0;
       camera.updateProjectionMatrix();
