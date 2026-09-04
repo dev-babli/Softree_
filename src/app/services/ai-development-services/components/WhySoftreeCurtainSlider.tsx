@@ -93,13 +93,13 @@ const tabsData: TabData[] = [
     id: "discover",
     title: "Discover",
     phase: "01 — DISCOVER",
-    subtitle: "Understand Problem, Data, Systems & AI Opportunity",
-    desc: "Understand the business problem, data, systems, and AI opportunity.",
+    subtitle: "Understand the business problem, users, data, systems, workflow, and AI opportunity.",
+    desc: "Understand the business problem, users, data, systems, workflow, and AI opportunity.",
     src: "/images/ai-development-service/agenticAi-1.png",
     alt: "01 Discover - Understand Business Problem and AI Opportunity",
     tags: ["Problem Discovery", "Data Readiness", "Opportunity Sizing"],
     heading: "Enterprise Problem Understanding & AI Opportunity Mapping",
-    subheading: "Audit legacy systems, evaluate enterprise data readiness, and quantify ROI before engineering.",
+    subheading: "Understand the business problem, users, data, systems, workflow, and AI opportunity.",
     capabilities: [
       { iconType: "search", title: "Problem Definition", desc: "Map business friction & operational bottlenecks" },
       { iconType: "database", title: "Data Audit", desc: "Evaluate data readiness, schemas, and silos" },
@@ -114,7 +114,7 @@ const tabsData: TabData[] = [
       metricValue: "2 Weeks",
       metricLabel: "Discovery Sprint",
       metricSecondary: "100% Feasibility Clarity",
-      ctaText: "Schedule Discovery Sprint",
+      ctaText: "Start Your AI Project",
       ctaLink: "/contact"
     }
   },
@@ -122,13 +122,13 @@ const tabsData: TabData[] = [
     id: "design",
     title: "Design",
     phase: "02 — DESIGN",
-    subtitle: "AI Architecture, Agent Workflows & Governance",
-    desc: "Define the AI architecture, agent workflows, integrations, and governance.",
+    subtitle: "Define the AI architecture, agent workflows, models, tools, integrations, security, and governance.",
+    desc: "Define the AI architecture, agent workflows, models, tools, integrations, security, and governance.",
     src: "/images/ai-development-service/agenticAi-2.png",
     alt: "02 Design - AI Architecture and Workflows",
     tags: ["AI Architecture", "Agent Workflows", "AI Governance"],
     heading: "System Architecture & Agentic Workflow Design",
-    subheading: "Design deterministic multi-agent state machines, API integration points, and security guardrails.",
+    subheading: "Define the AI architecture, agent workflows, models, tools, integrations, security, and governance.",
     capabilities: [
       { iconType: "workflow", title: "Agent Workflows", desc: "Multi-agent orchestration DAGs & state transitions" },
       { iconType: "layers", title: "System Architecture", desc: "Cloud infrastructure, model selection & topologies" },
@@ -143,21 +143,21 @@ const tabsData: TabData[] = [
       metricValue: "100%",
       metricLabel: "Architecture Coverage",
       metricSecondary: "Zero-Trust Security Design",
-      ctaText: "Explore Architecture Design",
-      ctaLink: "/solutions/enterprise-ai-development"
+      ctaText: "Start Your AI Project",
+      ctaLink: "/contact"
     }
   },
   {
     id: "build",
     title: "Build",
     phase: "03 — BUILD",
-    subtitle: "Develop Agents, Applications, RAG & Automation",
-    desc: "Develop the agents, applications, RAG, integrations, and automation.",
+    subtitle: "Develop the agents, applications, RAG pipelines, integrations, APIs, and automation.",
+    desc: "Develop the agents, applications, RAG pipelines, integrations, APIs, and automation.",
     src: "/images/ai-development-service/agenticAi-3.png",
     alt: "03 Build - Develop Agents and Integrations",
     tags: ["Autonomous Agents", "Hybrid RAG", "Process Automation"],
     heading: "Engineering Intelligent Agents & Enterprise RAG",
-    subheading: "Develop robust autonomous agents, scalable vector retrieval pipelines, and seamless API connectors.",
+    subheading: "Develop the agents, applications, RAG pipelines, integrations, APIs, and automation.",
     capabilities: [
       { iconType: "bot", title: "Autonomous Agents", desc: "Goal-directed agents with multi-step reasoning" },
       { iconType: "database", title: "Enterprise RAG", desc: "Hybrid semantic retrieval & knowledge graphs" },
@@ -172,21 +172,21 @@ const tabsData: TabData[] = [
       metricValue: "< 180ms",
       metricLabel: "Execution SLA",
       metricSecondary: "Sandboxed Tool Connectors",
-      ctaText: "Explore Engineering Stack",
-      ctaLink: "/solutions/ai-agents-development"
+      ctaText: "Start Your AI Project",
+      ctaLink: "/contact"
     }
   },
   {
     id: "validate",
     title: "Validate",
     phase: "04 — VALIDATE",
-    subtitle: "Quality, Reliability, Security & AI Behavior",
-    desc: "Test quality, reliability, security, performance, and AI behavior.",
+    subtitle: "Test AI quality, accuracy, reliability, security, performance, and behavior.",
+    desc: "Test AI quality, accuracy, reliability, security, performance, and behavior.",
     src: "/images/ai-development-service/agenticAi-4.png",
     alt: "04 Validate - Test Quality, Security and AI Behavior",
     tags: ["Behavioral Testing", "Adversarial Red-Teaming", "Performance SLAs"],
     heading: "Rigorous Empirical Evaluations & Safety Testing",
-    subheading: "Stress-test deterministic accuracy, evaluate model drift, and audit security against prompt injection.",
+    subheading: "Test AI quality, accuracy, reliability, security, performance, and behavior.",
     capabilities: [
       { iconType: "check", title: "Quality Benchmarks", desc: "Empirical evals on ground-truth datasets" },
       { iconType: "shield", title: "Security Red-Teaming", desc: "Jailbreak, prompt leakage & data privacy tests" },
@@ -201,21 +201,21 @@ const tabsData: TabData[] = [
       metricValue: "99.9%",
       metricLabel: "Behavioral Accuracy",
       metricSecondary: "100% Policy Pass Rate",
-      ctaText: "Explore Quality Evals",
-      ctaLink: "/solutions/ai-powered-test-automation"
+      ctaText: "Start Your AI Project",
+      ctaLink: "/contact"
     }
   },
   {
     id: "deploy",
     title: "Deploy",
     phase: "05 — DEPLOY",
-    subtitle: "Validated AI Solutions into Production Environments",
-    desc: "Move validated AI solutions into production environments.",
+    subtitle: "Move validated AI solutions into secure production environments.",
+    desc: "Move validated AI solutions into secure production environments.",
     src: "/images/ai-development-service/agenticAi-5.png",
     alt: "05 Deploy - Move AI Solutions into Production",
     tags: ["Containerized Deploy", "Private VPC", "Canary Rollout"],
     heading: "Zero-Downtime Enterprise Production Deployment",
-    subheading: "Ship validated AI models and agent clusters into isolated private VPCs, Azure, or hybrid environments.",
+    subheading: "Move validated AI solutions into secure production environments.",
     capabilities: [
       { iconType: "cpu", title: "Cloud Deployment", desc: "Kubernetes, AKS & secure container runtimes" },
       { iconType: "workflow", title: "CI/CD Pipelines", desc: "Automated testing, versioning & rapid rollback" },
@@ -230,21 +230,21 @@ const tabsData: TabData[] = [
       metricValue: "99.99%",
       metricLabel: "Deployment SLA",
       metricSecondary: "Zero-Downtime Cutover",
-      ctaText: "Explore Deployment Ops",
-      ctaLink: "/solutions/enterprise-ai-development"
+      ctaText: "Start Your AI Project",
+      ctaLink: "/contact"
     }
   },
   {
     id: "scale",
     title: "Scale",
     phase: "06 — SCALE",
-    subtitle: "Capabilities, Users, Workflows & Engineering Capacity",
-    desc: "Expand capabilities, users, workflows, and engineering capacity as adoption grows.",
+    subtitle: "Expand capabilities, users, workflows, integrations, and engineering capacity as adoption grows.",
+    desc: "Expand capabilities, users, workflows, integrations, and engineering capacity as adoption grows.",
     src: "/images/ai-development-service/agenticAi-6.png",
     alt: "06 Scale - Expand Capabilities, Users and Workflows",
     tags: ["Capacity Expansion", "Multi-Tenant", "Continuous Learning"],
     heading: "Elastic Enterprise Scaling & Continuous Growth",
-    subheading: "Expand agent concurrency, onboard new departments, and continuously optimize model cost and speed.",
+    subheading: "Expand capabilities, users, workflows, integrations, and engineering capacity as adoption grows.",
     capabilities: [
       { iconType: "chart", title: "Elastic Concurrency", desc: "Auto-scaling infrastructure under peak demand" },
       { iconType: "layers", title: "Workflow Expansion", desc: "Roll out AI capabilities across new business units" },
@@ -259,7 +259,7 @@ const tabsData: TabData[] = [
       metricValue: "10M+",
       metricLabel: "Daily Transactions",
       metricSecondary: "40% Token Cost Savings",
-      ctaText: "Scale Your AI Program",
+      ctaText: "Start Your AI Project",
       ctaLink: "/contact"
     }
   }
@@ -739,15 +739,18 @@ export default function WhySoftreeCurtainSlider() {
     <section className="pt-6 pb-12 md:pt-10 md:pb-16 lg:pt-12 lg:pb-24 font-sans relative bg-white">
       {/* Global Section Header */}
       <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col items-start text-left mb-8 md:mb-12">
-        <div className="text-xs md:text-sm font-mono font-bold tracking-widest text-[#FF5812] uppercase mb-2.5">
-          From AI Idea to Production
+        <div className="inline-flex items-center mb-3">
+          <span className="px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-[#FF5812] text-xs font-mono font-bold tracking-widest uppercase">
+            AI DELIVERY PROCESS
+          </span>
         </div>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-3 md:mb-4 text-slate-900 leading-[1.2] md:leading-[1.15]">
-          Build AI With a <span className="text-[#FF5812]">Clear Path to Production</span>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-3 text-slate-900 leading-[1.2] md:leading-[1.15]">
+          AI Engineering Delivery: <span className="text-[#FF5812]">From AI Idea to Production</span>
         </h2>
-        <p className="text-sm sm:text-base md:text-lg text-slate-600 font-normal max-w-3xl leading-relaxed">
-          Our disciplined, engineering-first delivery lifecycle moves enterprise AI from initial opportunity discovery and architectural design to validated production deployment and global scale.
-        </p>
+        <div className="max-w-3xl space-y-1.5 text-sm sm:text-base md:text-lg text-slate-600 font-normal leading-relaxed">
+          <p>A successful AI implementation needs more than a model.</p>
+          <p>It requires business understanding, architecture, data, engineering, evaluation, security, integration, and production delivery.</p>
+        </div>
       </div>
 
       <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
@@ -765,7 +768,7 @@ export default function WhySoftreeCurtainSlider() {
           <div className="wcs_stage" ref={stageRef} />
 
           {/* Left Side: GSAP Animated Text + React Contextual Badges */}
-          <div className="absolute top-[80px] md:top-[100px] lg:top-[50%] lg:-translate-y-1/2 left-6 sm:left-10 lg:left-14 z-[4] max-w-[calc(100%-48px)] sm:max-w-md lg:max-w-lg xl:max-w-xl pointer-events-none flex flex-col gap-3 md:gap-4">
+          <div className="absolute top-6 sm:top-10 lg:top-[50%] lg:-translate-y-1/2 left-5 sm:left-10 lg:left-14 z-[4] max-w-[calc(100%-40px)] sm:max-w-md lg:max-w-lg xl:max-w-xl pointer-events-none flex flex-col gap-2 sm:gap-3 md:gap-4">
             
             <AnimatePresence mode="wait">
               <motion.div
@@ -776,7 +779,7 @@ export default function WhySoftreeCurtainSlider() {
                 transition={{ duration: 0.35 }}
                 className="flex flex-col gap-1.5 pointer-events-auto"
               >
-                <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-black/70 backdrop-blur-md border border-[#FF5812]/50 text-[#FF5812] text-sm sm:text-base md:text-lg font-mono font-extrabold tracking-[0.2em] uppercase w-fit shadow-[0_0_20px_rgba(255,88,18,0.25)]">
+                <div className="inline-flex items-center gap-2.5 px-3.5 sm:px-4 py-1.5 rounded-full bg-black/70 backdrop-blur-md border border-[#FF5812]/50 text-[#FF5812] text-xs sm:text-base md:text-lg font-mono font-extrabold tracking-[0.2em] uppercase w-fit shadow-[0_0_20px_rgba(255,88,18,0.25)]">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#FF5812] animate-pulse shadow-[0_0_10px_#FF5812]" />
                   <span>{activeData.phase}</span>
                 </div>
@@ -787,7 +790,7 @@ export default function WhySoftreeCurtainSlider() {
             <h2 className="wcs_title !relative !top-auto !left-auto !max-w-full drop-shadow-2xl" ref={titleElRef} />
 
             {/* GSAP Split Characters Desc */}
-            <p className="wcs_desc text-[13px] md:text-[15px] lg:text-[16px] text-slate-200 font-normal leading-relaxed drop-shadow-lg" ref={descElRef} />
+            <p className="wcs_desc text-[13px] md:text-[15px] lg:text-[16px] text-slate-200 font-normal leading-relaxed drop-shadow-lg max-w-sm sm:max-w-md" ref={descElRef} />
 
             {/* Tech Keyword Pills */}
             <AnimatePresence mode="wait">
@@ -800,7 +803,7 @@ export default function WhySoftreeCurtainSlider() {
                 className="flex flex-wrap items-center gap-2 pt-1 pointer-events-auto"
               >
                 {activeData.tags.map((tag, idx) => (
-                  <span key={idx} className="px-2.5 py-1 rounded-md bg-white/[0.08] backdrop-blur-md border border-white/12 text-white/90 text-[11px] font-mono font-medium shadow-sm">
+                  <span key={idx} className="px-2.5 py-1 rounded-md bg-white/[0.08] backdrop-blur-md border border-white/12 text-white/90 text-[10.5px] sm:text-[11px] font-mono font-medium shadow-sm">
                     {tag}
                   </span>
                 ))}
@@ -808,7 +811,7 @@ export default function WhySoftreeCurtainSlider() {
             </AnimatePresence>
           </div>
 
-          {/* Control Pill (Navigation Arrows + Active Slide Dots) - Cleaned of horizontal orange line */}
+          {/* Control Pill (Navigation Arrows + Active Slide Dots) */}
           <div className="wcs_pill" role="group" aria-label="Slide controls">
             <button
               ref={prevBtnRef}
@@ -862,8 +865,8 @@ export default function WhySoftreeCurtainSlider() {
             </button>
           </div>
 
-          {/* Right Side: Advanced AI Architecture Overlay (2x2 Matrix & Telemetry HUD Card) */}
-          <div className="react-overlay absolute inset-0 lg:left-auto lg:w-[48%] xl:w-[46%] p-4 sm:p-6 md:p-10 lg:p-12 lg:pr-14 flex flex-col justify-end lg:justify-center pointer-events-none z-10 pb-[100px] md:pb-[110px] lg:pb-0 pt-[140px] md:pt-[160px] lg:pt-0">
+          {/* Right Side: Advanced AI Architecture Overlay (Desktop only >= 1024px) */}
+          <div className="react-overlay absolute inset-0 left-auto w-[48%] xl:w-[46%] p-8 lg:p-12 lg:pr-14 hidden lg:flex flex-col justify-center pointer-events-none z-10">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeData.id}
@@ -973,6 +976,115 @@ export default function WhySoftreeCurtainSlider() {
             </AnimatePresence>
           </div>
 
+        </div>
+
+        {/* Mobile Architecture & Capability Matrix Card (Cleanly placed below Curtain Slider on < 1024px) */}
+        <div className="block lg:hidden mt-4 sm:mt-6">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeData.id}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
+              className="flex flex-col gap-4 bg-gradient-to-b from-slate-900/95 via-black/95 to-slate-950/95 border border-white/10 rounded-2xl p-4 sm:p-6 shadow-2xl backdrop-blur-xl"
+            >
+              {/* Capability Header */}
+              <div>
+                <div className="text-orange-400 text-[10px] sm:text-[11px] font-mono font-bold tracking-[0.2em] uppercase mb-1.5 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-orange-400 shadow-[0_0_6px_#FF5812]" />
+                  SYSTEM CAPABILITY
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug">
+                  {activeData.heading}
+                </h3>
+                <p className="text-xs sm:text-[13px] text-slate-300 mt-1 leading-relaxed">
+                  {activeData.subheading}
+                </p>
+              </div>
+
+              {/* 2x2 Architectural Capability Matrix */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                {activeData.capabilities.map((cap, idx) => (
+                  <div 
+                    key={idx} 
+                    className="bg-white/[0.04] border border-white/10 hover:border-orange-500/40 rounded-xl p-3 sm:p-3.5 transition-all duration-300 shadow-md group"
+                  >
+                    <div className="flex items-center gap-2 mb-1">
+                      <div className="w-5 h-5 rounded-md bg-orange-500/20 border border-orange-500/40 flex items-center justify-center text-orange-400 shrink-0 group-hover:scale-110 transition-transform">
+                        {getCapabilityIcon(cap.iconType)}
+                      </div>
+                      <span className="text-white font-semibold text-xs sm:text-sm tracking-tight">{cap.title}</span>
+                    </div>
+                    <p className="text-slate-300 text-[11px] sm:text-xs leading-snug pl-7">
+                      {cap.desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Bottom Enterprise Benchmark & Action Card */}
+              <div className="bg-white/[0.05] border border-white/15 rounded-xl p-3.5 sm:p-4 relative overflow-hidden shadow-xl">
+                <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-orange-500 via-amber-300/60 to-transparent" />
+                
+                {/* Header Row: Status Badge & Tech Stack */}
+                <div className="flex items-center justify-between gap-2 mb-2 pb-2 border-b border-white/10">
+                  <div className="flex items-center gap-2">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 shadow-[0_0_8px_#10B981]" />
+                    </span>
+                    <span className="text-emerald-400 text-[10px] font-mono font-bold tracking-wider uppercase">
+                      {activeData.card.statusBadge}
+                    </span>
+                  </div>
+                  <span className="text-slate-300 bg-white/[0.08] border border-white/10 px-2 py-0.5 rounded-full text-[9.5px] font-mono tracking-wide truncate max-w-[170px] sm:max-w-none">
+                    {activeData.card.stack}
+                  </span>
+                </div>
+
+                {/* Outcome Title & Description */}
+                <div className="mb-2.5">
+                  <div className="text-white font-bold text-sm tracking-tight mb-0.5">
+                    {activeData.card.outcomeTitle}
+                  </div>
+                  <p className="text-slate-300 text-[11px] leading-relaxed">
+                    {activeData.card.outcomeDesc}
+                  </p>
+                </div>
+
+                {/* Metrics & Action Link Row */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pt-2 border-t border-white/10">
+                  <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-orange-400 font-extrabold text-sm sm:text-base font-mono">
+                        {activeData.card.metricValue}
+                      </span>
+                      <span className="text-slate-400 text-[10px] font-mono uppercase">
+                        {activeData.card.metricLabel}
+                      </span>
+                    </div>
+                    {activeData.card.metricSecondary && (
+                      <>
+                        <span className="text-white/20 text-xs hidden sm:inline">•</span>
+                        <span className="text-slate-300 text-[10px] font-mono">
+                          {activeData.card.metricSecondary}
+                        </span>
+                      </>
+                    )}
+                  </div>
+
+                  <Link
+                    href={activeData.card.ctaLink}
+                    className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-full bg-[#FF5812] hover:bg-[#E04808] text-white text-xs font-semibold tracking-wide transition-all shadow-[0_0_15px_rgba(255,88,18,0.3)] hover:scale-105 active:scale-95 self-stretch sm:self-auto shrink-0"
+                  >
+                    <span>{activeData.card.ctaText}</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </section>

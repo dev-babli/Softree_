@@ -99,15 +99,17 @@ export default function WhyChooseWithTestimonials() {
       <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:items-stretch items-start">
         {/* ================= LEFT : WHY CHOOSE ================= */}
         <div className="relative">
-          {/* Small Label */}
-          <div className="text-orange-600 text-xs uppercase tracking-[0.15em] mb-3">
-            Why Choose Softree
+          {/* Eyebrow */}
+          <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-4 py-1.5 rounded-full border border-white/60 mb-4 inline-block">
+            <span className="text-[11px] font-bold text-[#FF6B2C] tracking-widest uppercase">
+              WHY CHOOSE SOFTREE
+            </span>
           </div>
  
           {/* Heading */}
-          <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-6">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight">
             Built for{" "}
-            <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
+            <span className="text-[#FF6B2C]">
               Long-Term Impact
             </span>
           </h2>

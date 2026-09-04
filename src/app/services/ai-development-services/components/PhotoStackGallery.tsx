@@ -23,85 +23,87 @@ export interface StackPhoto {
 interface PhotoStackGalleryProps {
   photos?: StackPhoto[];
   className?: string;
+  selectedIndex?: number;
+  onSelectIndex?: (index: number) => void;
 }
 
 const DEFAULT_PHOTOS: StackPhoto[] = [
   {
     id: "01",
-    title: "AI Architecture",
-    caption: "Design agentic systems, RAG architectures, and intelligence layers.",
-    location: "Module 01",
-    category: "[ CORE ARCHITECTURE ]",
-    status: "● SCHEMATIC",
+    title: "AI / Solution Architects",
+    caption: "Define AI architecture, technology strategy, solution design, agent workflows, and governance.",
+    location: "Role 01 • Architecture & Strategy",
+    category: "[ ARCHITECTURE & STRATEGY ]",
+    status: "● SPECIALIZED TALENT",
     specs: [
-      { label: "SYSTEMS", value: "Agentic Swarms / Flows" },
-      { label: "RAG TYPE", value: "Hybrid Vector Retrieval" },
-      { label: "ROUTING", value: "Multi-Model Router Core" }
+      { label: "FOCUS", value: "System Architecture & Strategy" },
+      { label: "DESIGN", value: "Multi-Agent Workflows" },
+      { label: "GOVERNANCE", value: "Security & Guardrails" }
     ]
   },
   {
     id: "02",
-    title: "Model Engineering",
-    caption: "Build, fine-tune, evaluate, optimize, and deploy domain-specific models.",
-    location: "Module 02",
-    category: "[ MODEL TUNING ]",
-    status: "● OPTIMIZED",
+    title: "AI Engineers",
+    caption: "Build agents, RAG systems, orchestration, AI services, tool integrations, and evaluation frameworks.",
+    location: "Role 02 • Agents & RAG Systems",
+    category: "[ AI ENGINEERING ]",
+    status: "● SPECIALIZED TALENT",
     specs: [
-      { label: "PEFT", value: "LoRA / QLoRA Tuning" },
-      { label: "EVALS", value: "G-Eval / Prompt Quality" },
-      { label: "SERVING", value: "vLLM / Triton Server" }
+      { label: "AGENTS", value: "Autonomous Agents & Copilots" },
+      { label: "RAG", value: "Hybrid Retrieval Systems" },
+      { label: "EVALS", value: "Prompt & Model Quality" }
     ]
   },
   {
     id: "03",
-    title: "Agentic Intelligence",
-    caption: "Engineer autonomous agents capable of reasoning, tool use, and human escalation.",
-    location: "Module 03",
-    category: "[ AUTONOMOUS AGENTS ]",
-    status: "● ACTIVE SWARM",
+    title: "Full-Stack Engineers",
+    caption: "Build applications, APIs, interfaces, and experiences around your AI solutions.",
+    location: "Role 03 • AI Apps & Interfaces",
+    category: "[ APPLICATION DEV ]",
+    status: "● SPECIALIZED TALENT",
     specs: [
-      { label: "ORCHESTRA", value: "LangGraph / Autogen" },
-      { label: "REASONING", value: "ReAct / Chain of Thought" },
-      { label: "SAFETY", value: "Guardrail & Human Loop" }
+      { label: "APPS", value: "AI-Native Web & Mobile" },
+      { label: "APIS", value: "Microservices & Endpoints" },
+      { label: "EXPERIENCE", value: "Modern UI/UX Integration" }
     ]
   },
   {
     id: "04",
-    title: "AI Infrastructure",
-    caption: "Deploy scalable GPU compute, model serving, vector databases, and MLOps.",
-    location: "Module 04",
-    category: "[ INFRASTRUCTURE ]",
-    status: "● PROVISIONED",
+    title: "Data Engineers",
+    caption: "Build data pipelines, knowledge systems, retrieval infrastructure, and AI-ready data platforms.",
+    location: "Role 04 • Data & Retrieval Platforms",
+    category: "[ DATA PLATFORMS ]",
+    status: "● SPECIALIZED TALENT",
     specs: [
-      { label: "ORCHESTRA", value: "Kubernetes / Docker Pods" },
-      { label: "VECTOR DB", value: "Pinecone / Qdrant Nodes" },
-      { label: "METRICS", value: "Prometheus / Grafana" }
+      { label: "PIPELINES", value: "High-Throughput ETL & Streaming" },
+      { label: "RETRIEVAL", value: "Vector DBs & Embeddings" },
+      { label: "KNOWLEDGE", value: "Enterprise Knowledge Graphs" }
     ]
   },
   {
     id: "05",
-    title: "Enterprise Data Fabric",
-    caption: "Unify structured and unstructured data through secure knowledge pipelines.",
-    location: "Module 05",
-    category: "[ DATA PIPELINE ]",
-    status: "● PIPELINED",
+    title: "QA Engineers",
+    caption: "Validate application quality, AI behavior, reliability, security, and performance.",
+    location: "Role 05 • AI Reliability & Evals",
+    category: "[ QUALITY & EVALS ]",
+    status: "● SPECIALIZED TALENT",
     specs: [
-      { label: "ETL RUNNER", value: "Apache Spark / Delta Lake" },
-      { label: "KNOWLEDGE", value: "GraphDB Semantic Connect" },
-      { label: "SECURITY", value: "RBAC & Governed Data Access" }
+      { label: "VALIDATION", value: "Functional & E2E Testing" },
+      { label: "BEHAVIOR", value: "Hallucination & Drift Check" },
+      { label: "SECURITY", value: "Safety & Prompt Guardrails" }
     ]
   },
   {
     id: "06",
-    title: "Production Intelligence",
-    caption: "Continuously evaluate models, monitor quality and cost, and strengthen guardrails.",
-    location: "Module 06",
-    category: "[ PRODUCTION OPS ]",
-    status: "● MONITORING",
+    title: "Cloud & DevOps Engineers",
+    caption: "Deploy, secure, monitor, scale, and operate AI solutions in production.",
+    location: "Role 06 • Cloud & MLOps",
+    category: "[ CLOUD & MLOPS ]",
+    status: "● SPECIALIZED TALENT",
     specs: [
-      { label: "COST TRACK", value: "Token Usage Cache Optimization" },
-      { label: "DRIFT DETECT", value: "Real-time Concept Drift" },
-      { label: "GUARDRAILS", value: "Llama Guard / Prompt Protect" }
+      { label: "DEPLOY", value: "Azure & AWS Production" },
+      { label: "MLOPS", value: "Automated CI/CD Pipelines" },
+      { label: "SCALE", value: "GPU Compute & Observability" }
     ]
   }
 ];
@@ -111,6 +113,8 @@ const TILTS = [-3.5, 4, -6, 2.5, -2, 5.5];
 export default function PhotoStackGallery({
   photos = DEFAULT_PHOTOS,
   className = "",
+  selectedIndex,
+  onSelectIndex,
 }: PhotoStackGalleryProps) {
   const [order, setOrder] = useState<number[]>(() =>
     photos.map((_, i) => i)
@@ -133,6 +137,25 @@ export default function PhotoStackGallery({
   useEffect(() => {
     setOrder(photos.map((_, i) => i));
   }, [photos.length]);
+
+  // Sync when selectedIndex prop changes from parent
+  useEffect(() => {
+    if (selectedIndex !== undefined && selectedIndex >= 0 && selectedIndex < photos.length) {
+      setOrder((prev) => {
+        if (prev[0] === selectedIndex) return prev;
+        const rest = prev.filter((i) => i !== selectedIndex);
+        return [selectedIndex, ...rest];
+      });
+      setDragX(0);
+    }
+  }, [selectedIndex, photos.length]);
+
+  // Notify parent of front photo change
+  useEffect(() => {
+    if (order.length > 0) {
+      onSelectIndex?.(order[0]);
+    }
+  }, [order, onSelectIndex]);
 
   // Auto-advance
   useEffect(() => {
@@ -192,11 +215,10 @@ export default function PhotoStackGallery({
   const frameNumber = String(order.indexOf(frontIndex) + 1).padStart(2, "0");
 
   return (
-    <div className={`flex flex-col items-center gap-6 ${className}`}>
+    <div className={`flex flex-col items-center justify-between gap-4 ${className}`}>
       <div
         ref={containerRef}
-        className="relative"
-        style={{ width: 380, height: 480, marginBottom: 20 }}
+        className="relative w-[320px] sm:w-[390px] h-[480px] sm:h-[500px] mb-3"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
@@ -230,7 +252,7 @@ export default function PhotoStackGallery({
               onPointerMove={isFront ? onPointerMove : undefined}
               onPointerUp={isFront ? endDrag : undefined}
               onPointerCancel={isFront ? endDrag : undefined}
-              className="absolute top-0 left-0 w-full h-[440px] overflow-hidden rounded-2xl border border-[#A83002] focus:outline-none focus-visible:ring-2 flex flex-col items-start justify-between p-6 text-left select-none"
+              className="absolute top-0 left-0 w-full h-[440px] sm:h-[460px] overflow-hidden rounded-2xl border border-white/20 focus:outline-none focus-visible:ring-2 flex flex-col items-start justify-between p-6 sm:p-7 text-left select-none"
               animate={{
                 x: translateX,
                 y: translateY,
@@ -238,7 +260,7 @@ export default function PhotoStackGallery({
                 scale: scale,
                 zIndex: total - depth,
                 boxShadow: isFront
-                  ? "0 18px 30px -12px rgba(0,0,0,0.35)"
+                  ? "0 22px 36px -10px rgba(234, 88, 12, 0.45), 0 10px 18px -6px rgba(0,0,0,0.15)"
                   : "0 8px 16px -8px rgba(0,0,0,0.22)",
               }}
               transition={{
@@ -253,7 +275,7 @@ export default function PhotoStackGallery({
                     ? "grabbing"
                     : "grab"
                   : "default",
-                background: "#C94716",
+                background: "linear-gradient(145deg, #FF6B2C 0%, #EA580C 52%, #C2410C 100%)",
                 // Brand accent ring on focus-visible
                 // @ts-expect-error -- tw-ring-color custom property
                 "--tw-ring-color": "#FFFFFF",
@@ -303,7 +325,7 @@ export default function PhotoStackGallery({
         })}
       </div>
 
-      <div className="flex w-[380px] items-start justify-between gap-3 px-2">
+      <div className="flex w-[320px] sm:w-[390px] items-start justify-between gap-3 px-2">
         <div className="min-w-0">
           <p
             className="text-[16px] font-bold leading-normal text-slate-900"
@@ -326,7 +348,7 @@ export default function PhotoStackGallery({
             type="button"
             onClick={() => advance(-1)}
             aria-label="Previous photo"
-            className="grid h-8 w-8 place-items-center rounded-full border border-slate-200 transition-colors hover:border-[#C94716] focus:outline-none focus-visible:ring-2 text-slate-800"
+            className="grid h-8 w-8 place-items-center rounded-full border border-slate-200 transition-colors hover:border-[#FF6B2C] hover:text-[#FF6B2C] focus:outline-none focus-visible:ring-2 text-slate-800"
           >
             <ArrowIcon direction="left" />
           </button>
@@ -334,7 +356,7 @@ export default function PhotoStackGallery({
             type="button"
             onClick={() => advance(1)}
             aria-label="Next photo"
-            className="grid h-8 w-8 place-items-center rounded-full border border-slate-200 transition-colors hover:border-[#C94716] focus:outline-none focus-visible:ring-2 text-slate-800"
+            className="grid h-8 w-8 place-items-center rounded-full border border-slate-200 transition-colors hover:border-[#FF6B2C] hover:text-[#FF6B2C] focus:outline-none focus-visible:ring-2 text-slate-800"
           >
             <ArrowIcon direction="right" />
           </button>

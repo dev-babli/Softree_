@@ -35,8 +35,9 @@ const MicrosoftAiBentoGrid = dynamic(() => import('./components/MicrosoftAiBento
 const MicrosoftAiShowcase = dynamic(() => import('./components/MicrosoftAiShowcase'), { ssr: true });
 const WhoWeHelp = dynamic(() => import('./components/WhoWeHelp').then((mod) => mod.WhoWeHelp), { ssr: true });
 const NetworkGlobe = dynamic(() => import('./components/NetworkGlobe'), { ssr: true });
+const OffshoreEngineeringSection = dynamic(() => import('./components/OffshoreEngineeringSection'), { ssr: true });
+const ArgentLoopSlider = dynamic(() => import('@/components/ui/argent-loop-infinite-slider'), { ssr: true });
 import DetailDrawer from './components/AiTechnologyStack';
-import PhotoStackGallery from './components/PhotoStackGallery';
 export const metadata: Metadata = {
   title: 'AI Development Services | Offshore AI Delivery Partner | Softree',
   description: 'Extend your delivery capacity with Softree\'s offshore AI development team for custom AI, Generative AI, AI agents, RAG, automation, and enterprise integrations.',
@@ -98,11 +99,10 @@ export default function AiDevelopmentServicesPage() {
     <main className="min-h-screen bg-white font-sans text-slate-900 selection:bg-orange-500 selection:text-white overflow-x-clip">
       <NavigationClient />
       <WovenLightHero />
-
+      <AiReadinessBanner />
       {/* Who We Help & Global Network Section */}
-      <div className="bg-white pt-8 md:pt-12 pb-8 md:pb-12 text-slate-900">
+      <div id="partnership" className="bg-white pt-8 md:pt-12 pb-8 md:pb-12 text-slate-900 scroll-mt-24">
         <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
-
           {/* Unified Centered Header */}
           <div className="flex flex-col items-center w-full mb-16 md:mb-20 text-center">
             <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-4 py-1.5 rounded-full border border-white/60 mb-4 inline-block">
@@ -110,11 +110,9 @@ export default function AiDevelopmentServicesPage() {
                 PARTNERSHIP & GLOBAL REACH
               </span>
             </div>
-
             <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight">
               Who We Help & <span className="text-[#FF6B2C]">Where We Operate</span>
             </h2>
-
             <p className="text-[15px] lg:text-base text-slate-500 max-w-2xl mx-auto leading-relaxed">
               We embed dedicated offshore AI engineering teams to help tech-driven organizations accelerate their roadmaps, build custom agents, and deploy secure vector search engines globally.
             </p>
@@ -143,12 +141,12 @@ export default function AiDevelopmentServicesPage() {
           </span>
         </div>
 
-        <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight">
-          Agentic AI Solutions for Real{" "}
+        <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+          Agentic AI Solutions Built For{" "}
           <span className="text-[#FF6B2C]">Business Workflows</span>
         </h2>
 
-        <p className="text-[15px] lg:text-base text-slate-500 max-w-3xl leading-relaxed mx-auto">
+        <p className="text-[15px] lg:text-base text-slate-500 max-w-2xl leading-relaxed mx-auto">
           Build production-ready AI solutions that connect intelligence, enterprise
           data, and automation to solve real business workflows and deliver
           measurable outcomes.
@@ -159,119 +157,25 @@ export default function AiDevelopmentServicesPage() {
 
       {/* 
       <TrustedBrandsMarquee /> */}
-      {/* <AIPhilosophy />
-      <SuccessStories /> */}
-      {/* <div className="max-w-[94vw] lg:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 my-16">
-        <div className="relative w-full h-[400px] md:h-[550px] rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl">
-          <DetailDrawer
-            heroImage="/images/imgweb/1.png"
-            heroImageAlt="Premium B2B SaaS neural network architecture diagram representing Softree's AI stack"
-            heroHeadline="Our B2B AI Tech Stack"
-            panelTitle="Architecting Scalable AI Systems"
-            blocks={[
-              {
-                type: 'text',
-                as: 'h3',
-                content: '1. Models & Frameworks',
-              },
-              {
-                type: 'text',
-                content: 'We orchestrate domain-optimized foundation models using Azure OpenAI, PyTorch, LangChain, and LangGraph to build resilient agent networks.',
-              },
-              {
-                type: 'text',
-                as: 'h3',
-                content: '2. Vector Search & Processing',
-              },
-              {
-                type: 'text',
-                content: 'Our systems implement hybrid semantic search powered by Pinecone database nodes, LlamaIndex, and Azure AI Search for high-fidelity retrieval.',
-              },
-              {
-                type: 'image',
-                src: '/images/mlops-pipeline.jpg',
-                alt: 'AI Ingestion, Training, and MLOps Pipeline Diagram',
-              },
-              {
-                type: 'text',
-                as: 'h3',
-                content: '3. Production MLOps',
-              },
-              {
-                type: 'text',
-                content: 'Vetted pipelines configured on Databricks, Docker, and Kubernetes clusters across AWS and Azure, continuously monitored via Grafana.',
-              },
-            ]}
-          />
-        </div>
-      </div> */}
-      {/* <div className="max-w-[94vw] lg:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 mt-24 mb-8 text-center">
-        <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-slate-900 mb-4">
-          From Business Challenges to Intelligent Solutions
-        </h2>
-        <p className="text-base md:text-lg text-slate-500 max-w-2xl mx-auto">
-          Our disciplined, engineering-first approach to analyzing process complexity, mapping bottlenecks, and building secure, production-ready AI systems.
-        </p>
-      </div> */}
-
-      {/* <div className="max-w-[94vw] lg:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-        <div className="relative w-full h-[500px] md:h-[650px] rounded-3xl overflow-hidden border border-zinc-200 shadow-lg">
-          <CurtainSlider auto={3} />
-        </div>
-      </div> */}
-
-      {/* Interactive Photo Stack Section */}
-      <div className="bg-white pt-24 pb-12 lg:pb-16 text-slate-900">
-        <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content Side */}
-            <div className="lg:col-span-7 flex flex-col gap-6 text-left">
-              <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-slate-900 leading-[1.1]">
-                Inside Our AI Engineering Ecosystem
-              </h2>
-              <p className="text-slate-600 text-base md:text-lg leading-relaxed max-w-2xl">
-                We bring together the architecture, infrastructure, data engineering, and specialized AI expertise required to move enterprise AI from experimentation to production. Every engagement is designed for secure development, intelligent automation, measurable performance, and long-term scale.
-              </p>
-              <div className="mt-4 flex flex-col sm:flex-row gap-8 text-left border-t border-slate-100 pt-8">
-                <div>
-                  <span className="block text-2xl font-bold text-slate-900 mb-1">Disciplined Design</span>
-                  <span className="text-[13px] text-slate-500">Scalable architectures mapped to business goals</span>
-                </div>
-                <div>
-                  <span className="block text-2xl font-bold text-slate-900 mb-1">Production Ready</span>
-                  <span className="text-[13px] text-slate-500">Observability, cost control, and security guardrails</span>
-                </div>
-                <div>
-                  <span className="block text-2xl font-bold text-slate-900 mb-1">Continuous Scale</span>
-                  <span className="text-[13px] text-slate-500">Automated evaluation and deployment tuning</span>
-                </div>
-              </div>
-              <div className="mt-6">
-                <a
-                  href="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-transparent text-base font-semibold rounded-full shadow-sm text-white bg-[#C94716] hover:bg-[#A83002] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#C94716]"
-                >
-                  <span>Schedule an AI Consult</span>
-                  <ArrowUpRight className="h-5 w-5" />
-                </a>
-              </div>
-            </div>
-            {/* Right Photo Stack Side */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <PhotoStackGallery />
-            </div>
-          </div>
-        </div>
-      </div>
+   
+      {/* Interactive Photo Stack Section - Offshore AI Engineering */}
+      <OffshoreEngineeringSection />
 
       <CoreCapabilities />
       <IndustrySoftree />
       {/* <Industries /> */}
 
+      {/* Infinite Parallax AI Showcase */}
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 my-14 md:my-20 lg:my-24">
+        <div className="relative w-full h-[680px] sm:h-[780px] lg:h-[860px] rounded-3xl overflow-hidden border border-zinc-200/50 shadow-2xl">
+          <ArgentLoopSlider className="h-full w-full" />
+        </div>
+      </div>
+
       {/* <AiArchitectureShowcase /> */}
       {/* <DigitalEngineeringSolutions /> */}
       <AiRoadmap />
-      <AiReadinessBanner />
+
       <PartnerShowcase />
       {/* <ClientTestimonialsShowcase /> */}
       {/* Storytelling Flow

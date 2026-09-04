@@ -74,8 +74,9 @@ export function TransferredSoftreeHero() {
           gsap.set(q(".mask-expander"), { scale: 16 });
           gsap.set(q(".card-inner-bg"), { opacity: 1 });
           gsap.set(q(".card-ui"), { opacity: 1 });
-          gsap.set(q(".left-card"), { xPercent: -110, opacity: 1, scale: 1, visibility: "visible" });
-          gsap.set(q(".right-card"), { xPercent: 110, opacity: 1, scale: 1, visibility: "visible" });
+          gsap.set(q(".center-card"), { scale: 1 });
+          gsap.set(q(".left-card"), { xPercent: -108, opacity: 1, scale: 1, visibility: "visible" });
+          gsap.set(q(".right-card"), { xPercent: 108, opacity: 1, scale: 1, visibility: "visible" });
           gsap.set(q(".hero-text-cluster"), { autoAlpha: 0, pointerEvents: "none" });
           gsap.set(q(".hero-scrim"), { opacity: 0 });
           gsap.set(q(".salary-text-cluster"), { autoAlpha: 1, y: 0, pointerEvents: "auto" });
@@ -115,13 +116,13 @@ export function TransferredSoftreeHero() {
         tl.fromTo(
           q(".mask-wrapper"),
           { scale: 1.08 },
-          { scale: 1, duration: T, ease: cinematicEase },
+          { scale: 1, duration: T * 0.45, ease: cinematicEase },
           0,
         );
         tl.fromTo(
           q(".center-card"),
           { scale: 1.08 },
-          { scale: 1, duration: T, ease: cinematicEase },
+          { scale: 1, duration: T * 0.45, ease: cinematicEase },
           0,
         );
         tl.fromTo(q(".card-inner-bg"), { opacity: 0 }, { opacity: 1, duration: T * 0.5, ease: cinematicEase }, 0.12);
@@ -391,6 +392,66 @@ export function TransferredSoftreeHero() {
                 border-color: rgba(255, 255, 255, 0.3) !important;
                 background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.65) 100%) !important;
               }
+
+              /* Pillar cards responsiveness & height-aware containment */
+              .hero-pillar-card {
+                width: 100%;
+                max-width: 320px;
+                aspect-ratio: 0.8;
+              }
+
+              @media (min-width: 1024px) {
+                .hero-pillar-card {
+                  /* Full-sized agency cards, gracefully bounded by viewport height */
+                  width: clamp(260px, min(22vw, 44vh), 370px);
+                  max-width: none;
+                  aspect-ratio: 0.8;
+                }
+              }
+
+              @media (min-width: 1024px) and (max-height: 640px) {
+                .hero-pillar-card {
+                  width: clamp(220px, min(21vw, 40vh), 290px);
+                }
+              }
+
+              /* Pillar text cluster padding and sizing — balanced spacing to cards */
+              .salary-text-cluster-wrapper {
+                padding-top: clamp(4.5rem, 10.5vh, 7rem);
+              }
+
+              @media (min-width: 1024px) and (max-height: 640px) {
+                .salary-text-cluster-wrapper {
+                  padding-top: clamp(3.75rem, 8vh, 4.5rem);
+                }
+              }
+
+              .pillar-headline {
+                font-size: clamp(2rem, 3.4vw, 3.75rem);
+                line-height: 1.08;
+                letter-spacing: -0.03em;
+              }
+
+              @media (min-width: 1024px) and (max-height: 640px) {
+                .pillar-headline {
+                  font-size: clamp(1.65rem, 2.4vw, 2.5rem);
+                  line-height: 1.1;
+                }
+              }
+
+              .pillar-subhead {
+                font-size: clamp(0.875rem, 1.05vw, 1.125rem);
+                line-height: 1.6;
+                margin-top: 0.875rem;
+              }
+
+              @media (min-width: 1024px) and (max-height: 640px) {
+                .pillar-subhead {
+                  font-size: clamp(0.8rem, 0.9vw, 0.95rem);
+                  line-height: 1.45;
+                  margin-top: 0.5rem;
+                }
+              }
             `,
               }}
             />
@@ -443,14 +504,14 @@ export function TransferredSoftreeHero() {
 
         {/* ================= 4. PILLAR TEXT (light surface) ================= */}
         <div
-          className="salary-text-cluster absolute inset-0 z-20 flex flex-col items-center pt-[15vh] pointer-events-none invisible opacity-0 hidden lg:flex"
+          className="salary-text-cluster salary-text-cluster-wrapper absolute inset-0 z-20 flex flex-col items-center pointer-events-none invisible opacity-0 hidden lg:flex"
           style={{ willChange: "transform, opacity" }}
         >
           <div className="max-w-2xl px-6 text-center pointer-events-auto">
-            <h2 className="text-balance text-[clamp(2rem,4vw,4rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-[#0a0a1a]">
+            <h2 className="pillar-headline text-balance font-semibold text-[#0a0a1a]">
               Three pillars. <span style={{ color: ACCENT }}>One engineering team.</span>
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-pretty text-[clamp(0.875rem,1.1vw,1.125rem)] leading-[1.6] text-[#0a0a1a]/65">
+            <p className="pillar-subhead mx-auto text-pretty text-[#0a0a1a]/65">
               From Microsoft solutions to intelligent AI systems and modern engineering, we help businesses{" "}
               <strong className="font-bold text-[#0a0a1a]">build, automate, modernize, and scale.</strong>
             </p>
@@ -459,9 +520,20 @@ export function TransferredSoftreeHero() {
 
         {/* ================= 5. VISUAL CLUSTER (cards & frame) ================= */}
         <div className="relative lg:absolute lg:inset-x-0 lg:bottom-0 z-30 flex flex-col lg:flex-row items-center lg:items-end justify-center gap-6 lg:gap-0 px-6 pb-16 lg:pb-0 w-full pointer-events-none">
-          {/* Left Card — AI AUTOMATION */}
+          {/* Mobile / Tablet Pillar Heading (Visible < 1024px) */}
+          <div className="lg:hidden w-full max-w-xl text-center px-2 pt-8 pb-4 pointer-events-auto">
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-white">
+              Three pillars. <span style={{ color: ACCENT }}>One engineering team.</span>
+            </h2>
+            <p className="mt-2.5 text-sm sm:text-base leading-relaxed text-white/70">
+              From Microsoft solutions to intelligent AI systems and modern engineering, we help businesses{" "}
+              <strong className="font-semibold text-white">build, automate, modernize, and scale.</strong>
+            </p>
+          </div>
+
+          {/* Left Card — MICROSOFT & DATA */}
           <div
-            className={`left-card relative lg:absolute w-full max-w-[320px] lg:w-[clamp(240px,22vw,380px)] aspect-[0.8] rounded-2xl overflow-hidden z-[2]`}
+            className="left-card hero-pillar-card relative lg:absolute rounded-2xl overflow-hidden z-[2] order-1 lg:order-none pointer-events-auto"
             style={{
               background:
                 "linear-gradient(135deg, rgba(30,40,60,0.9) 0%, rgba(20,30,50,0.95) 100%)",
@@ -474,7 +546,7 @@ export function TransferredSoftreeHero() {
           >
             <Image
               src="/whysoftree/ai.png"
-              alt="AI Automation"
+              alt="Microsoft & Data"
               fill
               className="object-cover"
             />
@@ -484,8 +556,7 @@ export function TransferredSoftreeHero() {
                 Microsoft & Data
               </p>
               <p className="mt-1.5 text-base font-semibold leading-snug text-white">
-                Cloud, analytics, and enterprise solutions that empower
-                business
+                Cloud, analytics, and enterprise solutions that empower business
               </p>
               <Link
                 href="/services/offshore-power-platform-development"
@@ -496,9 +567,60 @@ export function TransferredSoftreeHero() {
             </div>
           </div>
 
+          {/* Center Card (The Frame!) — AI & AUTOMATION */}
+          <div
+            className="center-card hero-pillar-card relative origin-bottom z-[3] rounded-2xl order-2 lg:order-none pointer-events-auto"
+            style={{ willChange: "transform" }}
+          >
+            {/* Card inner — reference.png */}
+            <div
+              className="card-inner-bg absolute inset-0 rounded-2xl overflow-hidden bg-[#1a2a3a] opacity-100 lg:opacity-0"
+              style={{ willChange: "opacity" }}
+            >
+              <Image
+                src={ASSET_REF}
+                alt="Softree VR Expert"
+                fill
+                priority
+                className="object-cover"
+              />
+            </div>
+
+            {/* Border Frame — visible from the start */}
+            <div
+              className="frame-border absolute inset-0 z-[4] rounded-2xl pointer-events-none"
+              style={{
+                border: "4px solid white",
+                boxShadow:
+                  "0 25px 50px rgba(0,0,0,0.18), 0 10px 20px rgba(0,0,0,0.1)",
+              }}
+            />
+
+            {/* Card UI */}
+            <div
+              className="card-ui absolute inset-x-0 bottom-0 z-[4] opacity-100 lg:opacity-0 pointer-events-none"
+              style={{ willChange: "opacity" }}
+            >
+              <div className="bg-gradient-to-t from-black/70 via-black/15 to-transparent rounded-b-2xl p-5 flex flex-col">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em]" style={{ color: ACCENT }}>
+                  AI & Automation
+                </p>
+                <p className="mt-1.5 text-base font-semibold leading-snug text-white">
+                  AI systems that streamline operations
+                </p>
+                <Link
+                  href="/services/ai-development-services"
+                  className="mt-3 inline-flex items-center gap-1.5 self-start rounded-full bg-white px-4 py-2 text-xs font-semibold text-zinc-900 shadow-sm transition-[transform,background-color] duration-200 ease-out hover:bg-white/90 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white pointer-events-auto"
+                >
+                  Explore AI solutions <span className="text-[10px]">→</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+
           {/* Right Card — MODERN ENGINEERING */}
           <div
-            className={`right-card relative lg:absolute w-full max-w-[320px] lg:w-[clamp(240px,22vw,380px)] aspect-[0.8] rounded-2xl overflow-hidden z-[2]`}
+            className="right-card hero-pillar-card relative lg:absolute rounded-2xl overflow-hidden z-[2] order-3 lg:order-none pointer-events-auto"
             style={{
               background:
                 "linear-gradient(135deg, rgba(30,40,60,0.9) 0%, rgba(20,30,50,0.95) 100%)",
@@ -511,7 +633,7 @@ export function TransferredSoftreeHero() {
           >
             <Image
               src="/whysoftree/modern.png"
-              alt="Offshore Delivery"
+              alt="Modern Engineering"
               fill
               className="object-cover"
             />
@@ -529,57 +651,6 @@ export function TransferredSoftreeHero() {
               >
                 Explore engineering <span className="text-[10px]">→</span>
               </Link>
-            </div>
-          </div>
-
-          {/* Center Card (The Frame!) */}
-          <div
-            className={`center-card relative w-full max-w-[320px] lg:w-[clamp(240px,22vw,380px)] aspect-[0.8] origin-bottom z-[3]`}
-            style={{ willChange: "transform" }}
-          >
-            {/* Card inner — reference.png */}
-            <div
-              className="card-inner-bg absolute inset-0 rounded-xl overflow-hidden bg-[#1a2a3a] opacity-100 lg:opacity-0"
-              style={{ willChange: "opacity" }}
-            >
-              <Image
-                src={ASSET_REF}
-                alt="Softree VR Expert"
-                fill
-                priority
-                className="object-cover"
-              />
-            </div>
-
-            {/* Border Frame — visible from the start */}
-            <div
-              className="frame-border absolute inset-0 z-[4] rounded-xl pointer-events-none"
-              style={{
-                border: "4px solid white",
-                boxShadow:
-                  "0 25px 50px rgba(0,0,0,0.18), 0 10px 20px rgba(0,0,0,0.1)",
-              }}
-            />
-
-            {/* Card UI */}
-            <div
-              className="card-ui absolute inset-x-0 bottom-0 z-[4] opacity-100 lg:opacity-0 pointer-events-none"
-              style={{ willChange: "opacity" }}
-            >
-              <div className="bg-gradient-to-t from-black/70 via-black/15 to-transparent rounded-b-xl p-5 flex flex-col">
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em]" style={{ color: ACCENT }}>
-                  AI & Automation
-                </p>
-                <p className="mt-1.5 text-base font-semibold leading-snug text-white">
-                  AI systems that streamline operations
-                </p>
-                <Link
-                  href="/services/ai-development-services"
-                  className="mt-3 inline-flex items-center gap-1.5 self-start rounded-full bg-white px-4 py-2 text-xs font-semibold text-zinc-900 shadow-sm transition-[transform,background-color] duration-200 ease-out hover:bg-white/90 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white pointer-events-auto"
-                >
-                  Explore AI solutions <span className="text-[10px]">→</span>
-                </Link>
-              </div>
             </div>
           </div>
         </div>

@@ -230,12 +230,17 @@ export default function PartnerShowcase() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200/80 pb-6 mb-8">
             <div className="flex items-center gap-4">
 
-              <div className="space-y-1">
-                <h2 className="text-[20px] md:text-[24px] font-black tracking-wide text-slate-900 uppercase">
-                  OFFSHORE AI ENGINEERING TEAMS
+              <div className="space-y-2">
+                <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-4 py-1.5 rounded-full border border-white/60 mb-2 inline-block w-fit">
+                  <span className="text-[11px] font-bold text-[#FF6B2C] tracking-widest uppercase">
+                    OFFSHORE DELIVERY MODEL
+                  </span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight">
+                  OFFSHORE AI <span className="text-[#FF6B2C]">ENGINEERING TEAMS</span>
                 </h2>
-                <p className="text-[12px] md:text-[13px] font-bold text-orange-500 uppercase tracking-wider">
-                  End-to-End AI Engineering Excellence
+                <p className="text-[15px] lg:text-base text-slate-500 max-w-2xl leading-relaxed">
+                  End-to-end AI engineering excellence from strategy to production deployment.
                 </p>
               </div>
             </div>

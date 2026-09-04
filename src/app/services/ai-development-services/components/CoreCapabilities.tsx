@@ -31,7 +31,7 @@ export default function CoreCapabilities() {
             </span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-[42px] font-extrabold text-slate-850 mb-4 tracking-tight text-center leading-tight drop-shadow-[1px_1px_0px_rgba(255,255,255,0.9)]">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight text-center leading-tight">
             Enterprise AI Development <span className="text-[#FF6B2C]">Capabilities</span>
           </h2>
 

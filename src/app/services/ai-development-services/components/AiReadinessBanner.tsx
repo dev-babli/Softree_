@@ -2,8 +2,41 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Bot, Users, Cloud, SlidersHorizontal } from "lucide-react";
 import Link from "next/link";
+
+interface FeatureItem {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+}
+
+const FEATURES: FeatureItem[] = [
+  {
+    icon: Bot,
+    title: "Agentic AI Expertise",
+    description:
+      "Build agents, RAG, copilots, multi-agent systems, and intelligent workflows.",
+  },
+  {
+    icon: Users,
+    title: "Dedicated Offshore Talent",
+    description:
+      "Extend your team with AI architects, engineers, data specialists, QA, and cloud experts.",
+  },
+  {
+    icon: Cloud,
+    title: "Microsoft + AWS Expertise",
+    description:
+      "Build across Azure AI, Copilot, Amazon Bedrock, and the broader cloud ecosystems.",
+  },
+  {
+    icon: SlidersHorizontal,
+    title: "Flexible Delivery",
+    description:
+      "Choose white-label delivery, dedicated teams, staff augmentation, project delivery, or managed engineering.",
+  },
+];
 
 export default function AiReadinessBanner() {
   return (
@@ -27,63 +60,63 @@ export default function AiReadinessBanner() {
           {/* Left Content Side */}
           <div className="relative z-10 flex-[1.25] p-8 sm:p-12 lg:p-16 flex flex-col justify-center items-start">
             
-            {/* Insight tag */}
-            <span className="bg-[#FF6B2C]/10 text-[#FF6B2C] border border-[#FF6B2C]/20 px-3.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-6 inline-block">
-              AI Engineering Talent
-            </span>
-
-            {/* Metric Display with Gradient */}
-            <div className="text-6xl sm:text-7xl lg:text-8xl font-black bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent tracking-tight leading-none mb-4 select-none">
-              85%
+            {/* WHY SOFTREE Eyebrow Pill */}
+            <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/70 px-4 py-1.5 rounded-full border border-white/60 mb-5 inline-block">
+              <span className="text-[11px] font-bold text-[#FF6B2C] tracking-widest uppercase">
+                WHY SOFTREE
+              </span>
             </div>
 
-            {/* Headline statement */}
-            <h3 className="text-xl sm:text-2xl lg:text-[1.75rem] font-black text-slate-900 tracking-tight leading-tight mb-4 max-w-xl">
-              of Tech Leaders Struggle to Scale Dedicated AI Teams Locally.
-            </h3>
+            {/* Headline */}
+            <h2 className="text-3xl sm:text-4xl lg:text-[2.65rem] font-black text-slate-900 tracking-tight leading-[1.15] mb-4 max-w-xl">
+              Your AI Practice. <br />
+              <span className="text-[#FF6B2C]">Our Engineering Team.</span>
+            </h2>
 
-            {/* Description Paragraph (Justified/Structured) */}
-            <p className="text-[14px] lg:text-[15px] text-slate-500 leading-relaxed max-w-xl mb-6 text-justify">
-              Bridge the specialized AI talent gap and accelerate your time-to-market. Softree embeds dedicated offshore squads proficient in LLM orchestration, agentic RAG, and custom copilots directly into your engineering flow, enabling rapid deployment at 40% lower operational cost.
+            {/* Description Paragraph */}
+            <p className="text-[14.5px] sm:text-[15.5px] text-slate-600 font-medium leading-relaxed max-w-xl mb-8">
+              Build AI with a partner that combines Agentic AI expertise, offshore engineering capacity, and flexible delivery models to drive real business outcomes.
             </p>
 
-            {/* Justified Bullet Points Grid (Balanced Column Layout) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 w-full max-w-xl mb-8">
-              <div className="flex items-center gap-2.5 text-[13px] font-semibold text-slate-700">
-                <CheckCircle2 className="w-4.5 h-4.5 text-[#FF6B2C] shrink-0" />
-                <span>Vetted Mid & Senior AI Engineers</span>
-              </div>
-              <div className="flex items-center gap-2.5 text-[13px] font-semibold text-slate-700">
-                <CheckCircle2 className="w-4.5 h-4.5 text-[#FF6B2C] shrink-0" />
-                <span>Azure OpenAI & Microsoft Partners</span>
-              </div>
-              <div className="flex items-center gap-2.5 text-[13px] font-semibold text-slate-700">
-                <CheckCircle2 className="w-4.5 h-4.5 text-[#FF6B2C] shrink-0" />
-                <span>ISO 27001 Secure Remote Delivery</span>
-              </div>
-              <div className="flex items-center gap-2.5 text-[13px] font-semibold text-slate-700">
-                <CheckCircle2 className="w-4.5 h-4.5 text-[#FF6B2C] shrink-0" />
-                <span>Deployments in Weeks, Not Quarters</span>
-              </div>
+            {/* 4 Feature Items List */}
+            <div className="flex flex-col gap-5 w-full max-w-xl">
+              {FEATURES.map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <div key={idx} className="flex items-start gap-4 group">
+                    <div className="w-10 h-10 rounded-full border border-orange-200/80 bg-orange-50/80 flex items-center justify-center shrink-0 mt-0.5 shadow-sm group-hover:border-[#FF6B2C]/40 group-hover:bg-orange-100/60 transition-colors duration-200">
+                      <Icon className="w-5 h-5 text-[#FF6B2C]" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-[15px] sm:text-[16px] font-bold text-slate-900 leading-tight mb-1">
+                        {item.title}
+                      </h4>
+                      <p className="text-[13px] sm:text-[13.5px] text-slate-500 font-normal leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
 
             {/* CTA Button */}
-            <Link href="/contact" className="inline-block">
+            <Link href="/contact" className="inline-block mt-9">
               <motion.div
                 whileHover={{ scale: 1.02, y: -1 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-2 bg-[#FF6B2C] hover:bg-[#e0561b] text-white font-bold text-[12.5px] tracking-wider uppercase px-9 py-4.5 rounded-full shadow-[0_6px_20px_rgba(255,107,44,0.2)] hover:shadow-[0_12px_28px_rgba(255,107,44,0.35)] transition-all duration-300 group"
+                className="inline-flex items-center gap-2.5 bg-gradient-to-r from-[#FF6B2C] to-[#ea580c] hover:from-[#ea580c] hover:to-[#c2410c] text-white font-extrabold text-[12.5px] sm:text-[13px] tracking-wider uppercase px-8 py-3.5 sm:py-4 rounded-full shadow-[0_8px_24px_rgba(255,107,44,0.3)] hover:shadow-[0_12px_28px_rgba(255,107,44,0.45)] transition-all duration-300 group cursor-pointer"
               >
-                <span>Secure Your AI Team Now</span>
+                <span>BUILD YOUR AI TEAM</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </motion.div>
             </Link>
 
           </div>
 
-          {/* Right Image Side */}
-          <div className="relative flex-1 min-h-[320px] lg:min-h-full overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-100 flex items-center justify-center bg-slate-900">
-            {/* The robot image / background video */}
+          {/* Right Video Side */}
+          <div className="relative flex-1 min-h-[360px] sm:min-h-[440px] lg:min-h-full overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-100 flex items-center justify-center bg-slate-900">
+            {/* The background video */}
             <video
               src="/ai-development-service-video/ai-2.mp4"
               autoPlay
