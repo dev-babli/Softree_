@@ -12,9 +12,24 @@ const siteOrigin = (
   "https://www.softreetechnology.com"
 ).replace(/\/$/, "");
 
+const leadMagnetOrigin = "https://web-lead-magnet-seven.vercel.app";
+
 const nextConfig: any = {
+  // Standalone is for the Docker/ECS image only. Amplify's Next adapter
+  // expects a normal `.next` output (baseDirectory: .next).
+  ...(process.env.BUILD_STANDALONE === "true" ? { output: "standalone" } : {}),
+  productionBrowserSourceMaps: false,
   async rewrites() {
     return [
+      { source: "/geo", destination: `${leadMagnetOrigin}/geo` },
+      { source: "/geo/:path*", destination: `${leadMagnetOrigin}/geo/:path*` },
+      { source: "/softree_icon.png", destination: `${leadMagnetOrigin}/softree_icon.png` },
+      { source: "/favicon.svg", destination: `${leadMagnetOrigin}/favicon.svg` },
+      { source: "/logo.png", destination: `${leadMagnetOrigin}/logo.png` },
+      { source: "/logo.svg", destination: `${leadMagnetOrigin}/logo.svg` },
+      { source: "/assets/:path*", destination: `${leadMagnetOrigin}/assets/:path*` },
+      { source: "/api/process", destination: `${leadMagnetOrigin}/api/process` },
+      { source: "/api/process/:path*", destination: `${leadMagnetOrigin}/api/process/:path*` },
       {
         source: "/services/aidevelopemnt/service",
         destination: "/services/ai-development-service",
@@ -126,7 +141,7 @@ const nextConfig: any = {
     remotePatterns: [
       { protocol: "https", hostname: "**" },
     ],
-    unoptimized: process.env.VERCEL ? false : true,
+    unoptimized: process.env.DISABLE_IMAGE_OPTIMIZATION === "true",
     formats: ["image/webp", "image/avif"],
     // Next 16 only allows qualities listed here (default is [75]).
     qualities: [75, 90, 92, 95, 100],

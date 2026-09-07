@@ -39,6 +39,11 @@ gsc-service-account.json
 # vercel
 .vercel
 
+# Amplify Hosting (keep amplify.yml)
+.amplify
+amplify_outputs.json
+amplifyconfiguration*
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
