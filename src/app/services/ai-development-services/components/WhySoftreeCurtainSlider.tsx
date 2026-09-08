@@ -6,24 +6,24 @@ import { CustomEase } from 'gsap/CustomEase';
 import { useGSAP } from '@gsap/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { 
-  Brain, 
-  ShieldCheck, 
-  Workflow, 
-  Sparkles, 
-  Cpu, 
-  Layers, 
-  Zap, 
-  Database, 
-  Activity, 
-  CheckCircle2, 
-  Bot, 
-  Network, 
-  Search, 
-  Code2, 
-  LineChart, 
-  GitBranch, 
-  Sliders, 
+import {
+  Brain,
+  ShieldCheck,
+  Workflow,
+  Sparkles,
+  Cpu,
+  Layers,
+  Zap,
+  Database,
+  Activity,
+  CheckCircle2,
+  Bot,
+  Network,
+  Search,
+  Code2,
+  LineChart,
+  GitBranch,
+  Sliders,
   Scale,
   ArrowRight
 } from 'lucide-react';
@@ -296,21 +296,21 @@ function indexLabel(i: number) {
 function buildCharLine(text: string, lineClass: string, charClass: string, isTitle: boolean = false) {
   const line = document.createElement('span');
   line.className = lineClass;
-  
+
   const words = text.split(' ');
   words.forEach((word, i) => {
     const wordSpan = document.createElement('span');
     wordSpan.style.display = 'inline-block';
-    
+
     word.split('').forEach((ch) => {
       const span = document.createElement('span');
       span.className = charClass;
       span.textContent = ch;
       wordSpan.appendChild(span);
     });
-    
+
     line.appendChild(wordSpan);
-    
+
     if (i < words.length - 1) {
       const spaceSpan = document.createElement('span');
       spaceSpan.className = charClass;
@@ -319,7 +319,7 @@ function buildCharLine(text: string, lineClass: string, charClass: string, isTit
       line.appendChild(spaceSpan);
     }
   });
-  
+
   return line;
 }
 
@@ -391,7 +391,7 @@ export default function WhySoftreeCurtainSlider() {
   const descElRef = useRef<HTMLParagraphElement>(null);
   const prevBtnRef = useRef<HTMLButtonElement>(null);
   const nextBtnRef = useRef<HTMLButtonElement>(null);
-  
+
   const [activeReactIndex, setActiveReactIndex] = useState(0);
 
   const clampedColumns = Math.max(2, Math.min(24, parseInt(columns as any, 10) || 12));
@@ -697,9 +697,9 @@ export default function WhySoftreeCurtainSlider() {
 
   const handlePointerDown = useCallback((e: React.PointerEvent) => {
     if (!drag) return;
-    if ((e.target as Element).closest('.wcs_pill') || (e.target as Element).closest('.react-overlay')) { 
-      dragActiveRef.current = false; 
-      return; 
+    if ((e.target as Element).closest('.wcs_pill') || (e.target as Element).closest('.react-overlay')) {
+      dragActiveRef.current = false;
+      return;
     }
     dragActiveRef.current = true;
     dragStartRef.current = e.clientX;
@@ -754,7 +754,7 @@ export default function WhySoftreeCurtainSlider() {
       </div>
 
       <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
-        <div 
+        <div
           ref={containerRef}
           className="wcs_wrap shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] border border-white/10"
           onKeyDown={handleKeyDown}
@@ -769,7 +769,7 @@ export default function WhySoftreeCurtainSlider() {
 
           {/* Left Side: GSAP Animated Text + React Contextual Badges */}
           <div className="absolute top-6 sm:top-10 lg:top-[50%] lg:-translate-y-1/2 left-5 sm:left-10 lg:left-14 z-[4] max-w-[calc(100%-40px)] sm:max-w-md lg:max-w-lg xl:max-w-xl pointer-events-none flex flex-col gap-2 sm:gap-3 md:gap-4">
-            
+
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeData.id}
@@ -829,7 +829,7 @@ export default function WhySoftreeCurtainSlider() {
                 <path d="M10 3L5 8L10 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
-            
+
             {/* Sleek Interactive Pagination Dots */}
             <div className="flex items-center gap-1.5 px-2">
               {tabsData.map((_, idx) => (
@@ -837,11 +837,10 @@ export default function WhySoftreeCurtainSlider() {
                   key={idx}
                   type="button"
                   onClick={() => { goTo(idx, idx > activeReactIndex ? 1 : -1); armAutoResume(); }}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    idx === activeReactIndex 
-                      ? 'w-6 bg-[#FF5812] shadow-[0_0_10px_#FF5812]' 
-                      : 'w-1.5 bg-white/30 hover:bg-white/60'
-                  }`}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${idx === activeReactIndex
+                    ? 'w-6 bg-[#FF5812] shadow-[0_0_10px_#FF5812]'
+                    : 'w-1.5 bg-white/30 hover:bg-white/60'
+                    }`}
                   aria-label={`Go to capability ${idx + 1}`}
                 />
               ))}
@@ -865,29 +864,19 @@ export default function WhySoftreeCurtainSlider() {
             </button>
           </div>
 
-<<<<<<< HEAD
           {/* React/Framer Motion Data Overlay (Bullets & Cards) */}
-          <div 
+          <div
             className="react-overlay absolute inset-0 lg:left-auto lg:w-[45%] p-4 md:p-10 lg:p-12 lg:pr-16 flex flex-col pointer-events-none z-10"
             style={{ justifyContent: 'flex-end', paddingBottom: '140px' }}
           >
-=======
-          {/* Right Side: Advanced AI Architecture Overlay (Desktop only >= 1024px) */}
-          <div className="react-overlay absolute inset-0 left-auto w-[48%] xl:w-[46%] p-8 lg:p-12 lg:pr-14 hidden lg:flex flex-col justify-center pointer-events-none z-10">
->>>>>>> fa77891a2ff334d68f69789e7629f6356ac01646
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeData.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-<<<<<<< HEAD
                 transition={{ duration: 0.6, ease: [0.3, 0.9, 0.1, 1] }}
                 className="pointer-events-auto mt-8 md:mt-12 lg:mt-0"
-=======
-                transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
-                className="pointer-events-auto flex flex-col gap-4 lg:gap-5 max-w-xl"
->>>>>>> fa77891a2ff334d68f69789e7629f6356ac01646
               >
                 {/* Capability Header */}
                 <div>
@@ -906,8 +895,8 @@ export default function WhySoftreeCurtainSlider() {
                 {/* 2x2 Architectural Capability Matrix */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 md:gap-3">
                   {activeData.capabilities.map((cap, idx) => (
-                    <div 
-                      key={idx} 
+                    <div
+                      key={idx}
                       className="bg-black/45 backdrop-blur-xl border border-white/10 hover:border-orange-500/40 rounded-xl p-3 md:p-3.5 transition-all duration-300 shadow-lg group"
                     >
                       <div className="flex items-center gap-2 mb-1">
@@ -927,7 +916,7 @@ export default function WhySoftreeCurtainSlider() {
                 <div className="bg-black/55 backdrop-blur-2xl border border-white/15 hover:border-orange-500/40 rounded-xl lg:rounded-2xl p-3.5 sm:p-4 lg:p-4.5 relative overflow-hidden shadow-2xl transition-all duration-300">
                   {/* Glowing Top Hairline */}
                   <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-orange-500 via-amber-300/60 to-transparent" />
-                  
+
                   {/* Header Row: Status Badge & Tech Stack */}
                   <div className="flex items-center justify-between gap-2 mb-2 pb-2 border-b border-white/10">
                     <div className="flex items-center gap-2">
@@ -1019,8 +1008,8 @@ export default function WhySoftreeCurtainSlider() {
               {/* 2x2 Architectural Capability Matrix */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {activeData.capabilities.map((cap, idx) => (
-                  <div 
-                    key={idx} 
+                  <div
+                    key={idx}
                     className="bg-white/[0.04] border border-white/10 hover:border-orange-500/40 rounded-xl p-3 sm:p-3.5 transition-all duration-300 shadow-md group"
                   >
                     <div className="flex items-center gap-2 mb-1">
@@ -1039,7 +1028,7 @@ export default function WhySoftreeCurtainSlider() {
               {/* Bottom Enterprise Benchmark & Action Card */}
               <div className="bg-white/[0.05] border border-white/15 rounded-xl p-3.5 sm:p-4 relative overflow-hidden shadow-xl">
                 <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-orange-500 via-amber-300/60 to-transparent" />
-                
+
                 {/* Header Row: Status Badge & Tech Stack */}
                 <div className="flex items-center justify-between gap-2 mb-2 pb-2 border-b border-white/10">
                   <div className="flex items-center gap-2">
