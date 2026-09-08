@@ -2,11 +2,11 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Bot, Users, Cloud, SlidersHorizontal } from "lucide-react";
-import Link from "next/link";
+import { Bot, Users, Cloud, SlidersHorizontal, LucideIcon } from "lucide-react";
+import { FlowButton } from "@/components/ui/flow-button";
 
 interface FeatureItem {
-  icon: React.ElementType;
+  icon: LucideIcon;
   title: string;
   description: string;
 }
@@ -101,16 +101,13 @@ export default function AiReadinessBanner() {
             </div>
 
             {/* CTA Button */}
-            <Link href="/contact" className="inline-block mt-9">
-              <motion.div
-                whileHover={{ scale: 1.02, y: -1 }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-2.5 bg-gradient-to-r from-[#FF6B2C] to-[#ea580c] hover:from-[#ea580c] hover:to-[#c2410c] text-white font-extrabold text-[12.5px] sm:text-[13px] tracking-wider uppercase px-8 py-3.5 sm:py-4 rounded-full shadow-[0_8px_24px_rgba(255,107,44,0.3)] hover:shadow-[0_12px_28px_rgba(255,107,44,0.45)] transition-all duration-300 group cursor-pointer"
-              >
-                <span>BUILD YOUR AI TEAM</span>
-                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </motion.div>
-            </Link>
+            <div className="inline-block mt-9">
+              <FlowButton 
+                href="/contact"
+                text="BUILD YOUR AI TEAM"
+                variant="orange-filled"
+              />
+            </div>
 
           </div>
 

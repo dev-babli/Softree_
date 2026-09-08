@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Play, ArrowUpRight } from "lucide-react";
+import { FlowButton } from "@/components/ui/flow-button";
 
 interface TestimonialItem {
   type: string;
@@ -151,10 +152,10 @@ export default function ClientTestimonialsShowcase() {
               First-hand experiences from brands that scaled smarter, innovated faster, and achieved measurable growth with Softree.
             </p>
 
-            <button className="inline-flex items-center gap-2 border border-white/20 hover:border-white/50 hover:bg-white hover:text-black text-white font-bold text-xs px-6 py-3 rounded-full transition-all duration-300 group">
-              <span>View All Client Testimonials</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </button>
+            <FlowButton 
+              text="View All Client Testimonials"
+              variant="white"
+            />
           </div>
 
           {/* Right Column: Staggered Masonry Scrolling Columns */}

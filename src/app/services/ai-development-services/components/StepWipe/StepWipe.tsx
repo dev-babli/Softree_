@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
+import { FlowButton } from "@/components/ui/flow-button";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -257,20 +258,16 @@ export default function StepWipe({
 
                 {/* Action CTAs */}
                 <div className="flex flex-wrap items-center gap-3.5 mt-5 pointer-events-auto">
-                  <Link
+                  <FlowButton 
                     href={step.buttonLink || "/services"}
-                    className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#FF6B2C] to-[#ff5714] hover:from-[#ff5714] hover:to-[#e04505] text-white text-sm sm:text-base font-bold shadow-[0_8px_28px_rgba(255,107,44,0.45)] hover:shadow-[0_12px_38px_rgba(255,107,44,0.65)] hover:scale-105 active:scale-95 transition-all duration-200 whitespace-nowrap cursor-pointer group"
-                  >
-                    <span>{step.buttonText || "Explore Services"}</span>
-                    <ArrowRight className="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform duration-200" />
-                  </Link>
-                  <Link
+                    text={step.buttonText || "Explore Services"}
+                    variant="orange-filled"
+                  />
+                  <FlowButton 
                     href="/contact"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/[0.08] hover:bg-white/[0.18] text-white text-sm sm:text-base font-semibold border border-white/20 hover:border-white/40 backdrop-blur-xl transition-all duration-200 hover:scale-105 active:scale-95 whitespace-nowrap cursor-pointer group"
-                  >
-                    <span>Contact Us</span>
-                    <ArrowRight className="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform duration-200 opacity-70 group-hover:opacity-100" />
-                  </Link>
+                    text="Contact Us"
+                    variant="white"
+                  />
                 </div>
               </div>
 

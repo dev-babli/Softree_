@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { ChevronLeft, ChevronRight, ArrowRight, ArrowUpRight, Sparkles, ShieldCheck } from "lucide-react";
+import { FlowButton } from "@/components/ui/flow-button";
 
 export interface ProjectData {
   title: string;
@@ -626,13 +627,12 @@ export function Component({
                         <span>DEDICATED OFFSHORE</span>
                       </div>
 
-                      <a
+                      <FlowButton 
                         href="/contact"
-                        className="pointer-events-auto inline-flex items-center justify-center gap-1 px-3 py-1.5 rounded-lg bg-gradient-to-r from-[#FF6B2C] to-[#ea580c] hover:from-[#ea580c] text-white text-[11px] font-extrabold tracking-wide shadow-sm shadow-orange-500/20 active:scale-95 transition-all cursor-pointer select-auto"
-                      >
-                        <span>Contact Us</span>
-                        <ArrowUpRight className="w-3 h-3" />
-                      </a>
+                        text="Contact Us"
+                        variant="orange-filled"
+                        className="px-3 py-1.5 text-[11px]"
+                      />
                     </div>
                   </div>
 
@@ -724,13 +724,11 @@ export function Component({
 
                       {/* Bottom: Contact Us Button & Verified Signature */}
                       <div className="flex flex-col items-end gap-2 sm:gap-2.5">
-                        <a
+                        <FlowButton 
                           href="/contact"
-                          className="group/contact pointer-events-auto inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-gradient-to-r from-[#FF6B2C] to-[#ea580c] hover:from-[#ea580c] hover:to-[#c2410c] text-white text-xs sm:text-[13px] font-extrabold tracking-wide shadow-md shadow-orange-500/25 hover:shadow-lg hover:shadow-orange-500/40 hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 cursor-pointer select-auto"
-                        >
-                          <span>Contact Us</span>
-                          <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover/contact:translate-x-0.5 group-hover/contact:-translate-y-0.5" />
-                        </a>
+                          text="Contact Us"
+                          variant="orange-filled"
+                        />
                        
                       </div>
                     </div>
@@ -800,13 +798,12 @@ export function Component({
           <p className="text-[11px] sm:text-xs md:text-sm text-white/90 font-medium text-center line-clamp-1 sm:line-clamp-none">
             A focused offshore AI engineering team that works as an extension of yours.
           </p>
-          <a
+          <FlowButton 
             href="/contact"
-            className="inline-flex items-center gap-1.5 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-xl sm:rounded-full bg-[#FF6B2C] hover:bg-[#ea580c] text-white text-xs sm:text-sm font-bold tracking-wide transition-all shadow-md hover:shadow-orange-500/30 hover:scale-105 active:scale-95 whitespace-nowrap shrink-0 cursor-pointer"
-          >
-            <span>Build Your Offshore AI Team</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </a>
+            text="Build Your Offshore AI Team"
+            variant="orange-filled"
+            className="shrink-0"
+          />
         </div>
       </div>
     </div>
