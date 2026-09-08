@@ -246,14 +246,15 @@ export default function AiHealthcareDevelopmentPage() {
         <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-[2cm]">
 
           {/* Unified Centered Header */}
-          <div className="flex flex-col items-center w-full mb-8 md:mb-10 text-center">
+          <div className="flex flex-col items-center max-w-5xl mx-auto mb-8 md:mb-10 text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-200 bg-orange-50 text-[10px] sm:text-[11px] font-bold tracking-widest text-[#FF6B00] uppercase mb-3">
               <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
               AI ENGINEERING FOR HEALTHCARE ORGANIZATIONS
             </div>
 
-            <h2 className="text-3xl md:text-5xl font-extrabold font-['Plus_Jakarta_Sans',sans-serif] text-slate-900 mb-3 tracking-tight leading-tight">
-              Accelerate Healthcare AI <span className="text-[#FF6B2C]">Without Building Another Team</span>
+            <h2 className="text-3xl md:text-5xl font-extrabold font-['Plus_Jakarta_Sans',sans-serif] text-slate-900 mb-3 tracking-tight leading-tight max-w-4xl mx-auto">
+              Accelerate Healthcare AI <br className="hidden md:block" />
+              <span className="text-[#FF6B2C] md:whitespace-nowrap">Without Building Another Team</span>
             </h2>
 
             <p className="text-[14px] lg:text-[15px] text-slate-500 max-w-2xl mx-auto leading-relaxed">

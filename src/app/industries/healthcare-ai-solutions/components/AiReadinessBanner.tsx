@@ -35,7 +35,7 @@ export default function AiReadinessBanner() {
             </div>
 
             {/* Headline */}
-            <h2 className="text-3xl md:text-5xl font-extrabold font-['Plus_Jakarta_Sans',sans-serif] tracking-tight leading-[1.05] mb-4">
+            <h2 className="text-3xl md:text-4xl font-extrabold font-['Plus_Jakarta_Sans',sans-serif] tracking-tight leading-[1.05] mb-4">
               <span className="text-slate-900 block mb-0.5">Your Healthcare AI Vision.</span>
               <span className="text-[#FF6B2C] block">Our Engineering Team.</span>
             </h2>
