@@ -34,7 +34,7 @@ export function SoftreeLoader() {
     if (typeof window === "undefined") return
 
     let cancelled = false
-    const timers: ReturnType<typeof setTimeout>[] = []
+    const timers: number[] = []
     const frames: number[] = []
 
     const finish = () => {
@@ -56,8 +56,8 @@ export function SoftreeLoader() {
       nextFrame(finish)
       return () => {
         cancelled = true
-        timers.forEach(clearTimeout)
-        frames.forEach(cancelAnimationFrame)
+        timers.forEach((t) => window.clearTimeout(t))
+        frames.forEach((f) => window.cancelAnimationFrame(f))
       }
     }
 
@@ -81,8 +81,8 @@ export function SoftreeLoader() {
 
     return () => {
       cancelled = true
-      timers.forEach(clearTimeout)
-      frames.forEach(cancelAnimationFrame)
+      timers.forEach((t) => window.clearTimeout(t))
+      frames.forEach((f) => window.cancelAnimationFrame(f))
     }
   }, [])
 
@@ -98,6 +98,7 @@ export function SoftreeLoader() {
         width={220}
         height={48}
         priority
+        loading="eager"
         className="softree-loader__logo softree-loader__logo--primary h-auto w-[min(220px,58vw)]"
       />
       <div className="softree-loader__accent" />

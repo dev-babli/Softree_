@@ -12,9 +12,10 @@ import {
   SectionTitle,
 } from "../shared"
 
-function parseMetricValue(value: string): { num: number; prefix: string; suffix: string } {
-  const match = value.match(/^([^0-9]*)([0-9]+(?:\.[0-9]+)?)(.*)$/)
-  if (!match) return { num: 0, prefix: "", suffix: value }
+function parseMetricValue(value?: string | null): { num: number; prefix: string; suffix: string } {
+  const safe = (value ?? "").trim()
+  const match = safe.match(/^([^0-9]*)([0-9]+(?:\.[0-9]+)?)(.*)$/)
+  if (!match) return { num: 0, prefix: "", suffix: safe }
   return { num: parseFloat(match[2]), prefix: match[1], suffix: match[3] }
 }
 

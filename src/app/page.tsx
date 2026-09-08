@@ -9,19 +9,19 @@ import {
 } from "@/lib/site-metadata";
 
 export const metadata: Metadata = {
-  title: "Softree | Power Platform, AI, Data & Modern App Development",
+  title: "Softree | Agentic AI, Power Platform & Offshore Technology Partner",
 
   description:
-    "Softree delivers Power Platform solutions, AI-driven applications, data engineering, and modern web development using React, Next.js, and cloud technologies.",
+    "Softree is a white-label offshore technology partner helping agencies, consultancies, and technology companies deliver Agentic AI, Power Platform, data, and modern application solutions.",
 
   alternates: {
     canonical: `${SITE_URL}/`,
   },
 
   openGraph: {
-    title: "Softree | AI & Modern Application Development",
+    title: "Softree | Agentic AI, Power Platform & Offshore Delivery",
     description:
-      "Build scalable AI-powered and modern web applications with Softree.",
+      "Extend your technology delivery capacity with Softree's offshore, white-label expertise in Agentic AI, Power Platform, data engineering, and modern application development.",
     url: `${SITE_URL}/`,
     siteName: "Softree",
     images: ogImages(DEFAULT_OG_IMAGE),
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Softree | AI, Data & Web Development",
+    title: "Softree | Agentic AI, Power Platform & Offshore Delivery",
     description:
-      "Power Platform, AI solutions, and modern web development services.",
+      "Extend your technology delivery capacity with Softree's offshore, white-label expertise in Agentic AI, Power Platform, data engineering, and modern application development.",
     images: twitterImages(DEFAULT_OG_IMAGE),
   },
 };
