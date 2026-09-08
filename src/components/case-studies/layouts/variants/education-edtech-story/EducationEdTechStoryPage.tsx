@@ -206,8 +206,8 @@ export function EducationEdTechStoryPage({ data }: Props) {
     { value: "75%", label: "Faster attendance processing" },
     { value: "40%", label: "Growth in student engagement" },
   ]
-  const highlights = data.highlights && data.highlights.length > 0 && data.highlights.some(h => h.value && h.value !== "—" && h.value !== "-")
-    ? data.highlights
+  const highlights = (data.highlights && data.highlights.length > 0 && data.highlights.some(h => h?.value && h.value !== "—" && h.value !== "-"))
+    ? data.highlights.filter(h => Boolean(h && (h.value || h.label)))
     : defaultHighlights
 
   // Tech items list
@@ -426,7 +426,7 @@ export function EducationEdTechStoryPage({ data }: Props) {
           <div className="register" style={{ marginTop: "-32px", borderRadius: "16px" }}>
             <div className="register-row">
               {highlights.map((h, i) => (
-                <CounterCell key={i} targetValue={h.value} label={h.label} />
+                <CounterCell key={i} targetValue={h?.value ?? ""} label={h?.label ?? ""} />
               ))}
             </div>
           </div>
@@ -1055,16 +1055,19 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
 }
 
 // Inner Counter Cell Component (Tally counter counts up when visible)
-function CounterCell({ targetValue, label }: { targetValue: string; label: string }) {
-  const hasDigits = (str: string) => /\d/.test(str)
+function CounterCell({ targetValue = "", label = "" }: { targetValue?: string | null; label?: string | null }) {
+  const safeTarget = typeof targetValue === "string" ? targetValue.trim() : (targetValue != null ? String(targetValue) : "")
+  const safeLabel = typeof label === "string" ? label.trim() : (label != null ? String(label) : "")
+
+  const hasDigits = (str: string) => typeof str === "string" && /\d/.test(str)
   
-  const finalValue = !hasDigits(targetValue) && hasDigits(label) ? label : targetValue
-  const finalLabel = !hasDigits(targetValue) && hasDigits(label) ? targetValue : label
+  const finalValue = !hasDigits(safeTarget) && hasDigits(safeLabel) ? safeLabel : safeTarget
+  const finalLabel = !hasDigits(safeTarget) && hasDigits(safeLabel) ? safeTarget : safeLabel
 
   const isNumeric = hasDigits(finalValue)
 
   // Track decimal places if present
-  const decimalMatches = finalValue.match(/\.(\d+)/)
+  const decimalMatches = finalValue ? finalValue.match(/\.(\d+)/) : null
   const decimalPlaces = decimalMatches ? decimalMatches[1].length : 0
 
   const [count, setCount] = useState(0)
@@ -1073,11 +1076,11 @@ function CounterCell({ targetValue, label }: { targetValue: string; label: strin
   const animated = useRef(false)
 
   // Extract non-numeric prefix and suffix
-  const prefix = finalValue.match(/^[^\d]+/)?.[0] || ""
-  const suffix = finalValue.match(/[^\d]+$/)?.[0] || ""
+  const prefix = finalValue ? (finalValue.match(/^[^\d]+/)?.[0] || "") : ""
+  const suffix = finalValue ? (finalValue.match(/[^\d]+$/)?.[0] || "") : ""
   
   // Extract number including decimals
-  const numericMatch = finalValue.match(/\d+(\.\d+)?/)
+  const numericMatch = finalValue ? finalValue.match(/\d+(\.\d+)?/) : null
   const num = numericMatch ? parseFloat(numericMatch[0]) : 0
 
   useEffect(() => {

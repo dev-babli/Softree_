@@ -52,7 +52,7 @@ export default function HowAIWorks() {
         </p>
 
         <div
-          className="mb-8 flex w-full flex-col gap-4 rounded-[28px] border border-black/5 bg-[#F7F5F2] p-4 shadow-[0_20px_60px_-40px_rgba(0,0,0,0.35)] lg:flex-row lg:gap-6 lg:p-5"
+          className="mb-8 flex w-full flex-col gap-4 rounded-[28px] border border-slate-200/80 bg-zinc-50/50 p-4 shadow-[0_20px_60px_-40px_rgba(0,0,0,0.15)] lg:flex-row lg:gap-6 lg:p-5"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >

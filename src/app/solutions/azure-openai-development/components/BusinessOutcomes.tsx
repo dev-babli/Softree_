@@ -198,7 +198,7 @@ export default function BusinessOutcomes() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-transparent py-12 lg:py-16">
+    <section className="relative overflow-hidden bg-white py-12 lg:py-16">
       <div className="relative mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

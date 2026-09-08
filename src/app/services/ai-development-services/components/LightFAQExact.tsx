@@ -331,14 +331,15 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
       <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
         {/* Section Title */}
         <div ref={titleRef} className="mb-8 md:mb-10">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#1852FF]/20 bg-[#1852FF]/8 px-4 py-2">
-            <HelpCircle className="h-4 w-4 text-[#1852FF]" />
-            <span className="text-sm font-medium text-[#1852FF]">FAQ</span>
+          <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-4 py-1.5 rounded-full border border-white/60 mb-4 inline-block">
+            <span className="text-[11px] font-bold text-[#FF6B2C] tracking-widest uppercase">
+              FREQUENTLY ASKED QUESTIONS
+            </span>
           </div>
-          <h2 className="text-3xl font-bold tracking-tight text-[#0a0a1a] md:text-5xl lg:text-6xl">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight">
             Frequently Asked{" "}
-            <span className="bg-gradient-to-r from-[#1852FF] to-[#FF5812] bg-clip-text text-transparent">
-              Questions.
+            <span className="text-[#FF6B2C]">
+              Questions
             </span>
           </h2>
         </div>

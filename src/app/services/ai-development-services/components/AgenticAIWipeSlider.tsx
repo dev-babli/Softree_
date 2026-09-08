@@ -318,12 +318,12 @@ export default function AgenticAIWipeSlider() {
 
       {/* Global Section Header (Static Overlay) */}
       <div className="absolute top-6 lg:top-12 left-6 sm:left-12 lg:left-24 z-30 pointer-events-none pr-6 max-w-[90%] lg:max-w-[50%]">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF5812]/10 border border-[#FF5812]/30 backdrop-blur-md text-[#FF5812] text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] mb-3 lg:mb-4">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FF5812]/10 border border-[#FF5812]/30 backdrop-blur-md text-[#FF6B2C] text-[11px] font-bold uppercase tracking-widest mb-3 lg:mb-4">
           AGENTIC AI
         </div>
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight mb-3 lg:mb-4 text-white drop-shadow-lg leading-snug">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight mb-3 lg:mb-4 text-white drop-shadow-lg leading-snug" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
           MOVE BEYOND AI CHATBOTS. <br className="hidden lg:block" />
-          <span className="text-[#FF5812]">Build AI That Can Think, Act, and Execute.</span>
+          <span className="text-[#FF6B2C]">Build AI That Can Think, Act, and Execute.</span>
         </h2>
         <p className="text-sm sm:text-base lg:text-lg text-white/80 font-light drop-shadow-md">
           Agentic AI goes beyond generating responses. AI agents can understand goals, reason through problems, use tools, interact with systems, and execute multi-step workflows.

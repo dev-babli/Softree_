@@ -9,7 +9,7 @@ export default function AiTechnologyStack() {
   const activeCategory = aiTechnologyCategories.find((cat) => cat.id === activeTab) || aiTechnologyCategories[0];
 
   return (
-    <section className="bg-transparent px-4 py-12 lg:py-16">
+    <section className="bg-white px-4 py-12 lg:py-16">
       <div className="mx-auto max-w-[85rem]">
         {/* ================= HEADER ================= */}
         <div className="mb-10 flex flex-col items-center text-center">

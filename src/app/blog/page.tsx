@@ -18,8 +18,9 @@ const postsQuery = groq`
   }
 `
 
-// ISR: blog listing changes on publish, not per-visitor. Draft mode auto-opts editors dynamic.
-export const revalidate = 900
+// Force dynamic rendering and immediate revalidation so new and edited blog posts appear immediately
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 export default async function BlogPage() {
   const posts = await sanityFetch<any[]>(postsQuery, {}, { tags: ['post'] })

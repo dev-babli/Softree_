@@ -3,153 +3,159 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Completely unique, professional B2B engineering roadmap phases
+// Enterprise AI Security & Governance Pillars
 const roadmapPhases = [
   {
     number: "01",
-    title: "Strategic Exploration & Objective Mapping",
-    description: "We partner with your team to evaluate current software configurations, pinpoint high-value automation use cases, and outline target performance metrics. By mapping constraints early, we establish a robust engineering blueprint that aligns directly with corporate key results.",
+    title: "Data Protection",
+    description: "Protect sensitive business information across AI applications, knowledge systems, integrations, and workflows.",
   },
   {
     number: "02",
-    title: "Structured Data Pipelines & Ingestion",
-    description: "We construct clean, secure ETL pipelines and index your proprietary knowledge bases into dedicated vector search databases. This prepares your document stores for semantic retrieval models while maintaining absolute data privacy boundaries.",
+    title: "Identity & Access",
+    description: "Control who can access AI applications, enterprise data, tools, and automated actions.",
   },
   {
     number: "03",
-    title: "Cognitive Design & Custom Runtimes",
-    description: "Our engineering squad designs custom agentic workflows using LangGraph and tests leading LLMs against your dataset. We run iterative evaluations to fine-tune response accuracies and prompt logic, ensuring highly structured outputs.",
+    title: "AI Guardrails",
+    description: "Define boundaries for AI behavior, data access, tool usage, and automated actions.",
   },
   {
     number: "04",
-    title: "Production Integration & Orchestration",
-    description: "We dockerize model microservices and orchestrate secure deployments on Kubernetes. Using optimized REST APIs, we embed these intelligent capabilities directly into your existing enterprise ERP, CRM, and cloud systems.",
+    title: "Responsible AI",
+    description: "Design AI systems with appropriate human oversight and responsible implementation practices.",
   },
   {
     number: "05",
-    title: "Continuous Telemetry & Guardrails",
-    description: "We deploy real-time monitoring dashboard tools to audit model latency, prompt drifts, and compliance rules. Through automated feedback logging loops, we systematically refine model performance to guarantee long-term operational accuracy.",
+    title: "Monitoring & Evaluation",
+    description: "Measure AI quality, reliability, performance, cost, and behavior in production.",
+  },
+  {
+    number: "06",
+    title: "Auditability",
+    description: "Maintain visibility into AI actions, workflow execution, system events, and relevant decisions.",
   },
 ];
 
-// Custom advanced, high-fidelity conceptual SVGs representing each roadmap phase conceptually
+// Custom advanced, high-fidelity conceptual SVGs representing each security & governance pillar
 function PhaseIcon({ number }: { number: string }) {
   if (number === "01") {
+    // Data Protection — Encrypted Shield & Vault
     return (
       <svg className="h-full w-full" viewBox="0 0 48 48" fill="none" stroke="currentColor">
         <defs>
-          <linearGradient id="grad-p1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <linearGradient id="grad-sec-p1" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="currentColor" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
+            <stop offset="100%" stopColor="currentColor" stopOpacity="0.05" />
           </linearGradient>
         </defs>
-        {/* Outer compass ring */}
-        <circle cx="24" cy="24" r="21" strokeWidth="1" strokeDasharray="3 3" className="opacity-40" />
-        <circle cx="24" cy="24" r="16" strokeWidth="0.8" className="opacity-30" />
-        {/* Target reticle */}
-        <path d="M24 3v6M24 39v6M3 24h6M39 24h6" strokeWidth="1.8" strokeLinecap="round" />
-        {/* Center node with gradient glow */}
-        <circle cx="24" cy="24" r="7" fill="url(#grad-p1)" strokeWidth="1.2" />
-        <circle cx="24" cy="24" r="2" fill="currentColor" />
-        {/* Angled tracking lines */}
-        <path d="M12 12l5 5M36 36l-5-5M36 12l-5 5M12 36l5-5" strokeWidth="0.8" strokeLinecap="round" className="opacity-50" />
-        {/* Outer ticks */}
-        <path d="M10 24h2M36 24h2M24 10v2M24 36v2" strokeWidth="1.2" />
+        {/* Shield Contour */}
+        <path d="M24 4L8 10v12c0 10 7 18 16 22 9-4 16-12 16-22V10L24 4z" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="url(#grad-sec-p1)" />
+        {/* Internal Lock / Vault Core */}
+        <rect x="18" y="21" width="12" height="10" rx="2" strokeWidth="1.5" />
+        <path d="M21 21v-4a3 3 0 016 0v4" strokeWidth="1.5" strokeLinecap="round" />
+        <circle cx="24" cy="26" r="1.5" fill="currentColor" />
+        <path d="M24 27.5v2" strokeWidth="1.2" strokeLinecap="round" />
       </svg>
     );
   }
   if (number === "02") {
+    // Identity & Access — User Biometric & Key Access
     return (
       <svg className="h-full w-full" viewBox="0 0 48 48" fill="none" stroke="currentColor">
         <defs>
-          <linearGradient id="grad-p2" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="currentColor" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="currentColor" stopOpacity="0.05" />
-          </linearGradient>
+          <radialGradient id="grad-sec-p2" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="currentColor" stopOpacity="0.7" />
+            <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
+          </radialGradient>
         </defs>
-        {/* Stacked Storage Cylinders */}
-        {/* Cylinder 1 (Top) */}
-        <path d="M10 12c0-2.8 6.3-5 14-5s14 2.2 14 5-6.3 5-14 5-14-2.2-14-5z" fill="url(#grad-p2)" strokeWidth="1.2" />
-        {/* Cylinder 2 (Middle) */}
-        <path d="M10 20c0 2.8 6.3 5 14 5s14-2.2 14-5" strokeWidth="1.2" />
-        <path d="M10 12v8c0 2.8 6.3 5 14 5s14-2.2 14-5v-8" strokeWidth="0.8" strokeDasharray="2 2" className="opacity-50" />
-        {/* Cylinder 3 (Bottom) */}
-        <path d="M10 28c0 2.8 6.3 5 14 5s14-2.2 14-5" strokeWidth="1.2" />
-        <path d="M10 20v8c0 2.8 6.3 5 14 5s14-2.2 14-5v-8" strokeWidth="1.2" />
-        {/* Ingestion Stream Core */}
-        <path d="M24 5v18" strokeWidth="1.8" strokeLinecap="round" />
-        <path d="M20 19l4 4 4-4" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-        <circle cx="24" cy="5" r="1.5" fill="currentColor" />
+        {/* User Identity Frame */}
+        <circle cx="20" cy="18" r="6" strokeWidth="1.6" fill="url(#grad-sec-p2)" />
+        <path d="M10 36c0-5.5 4.5-9 10-9s10 3.5 10 9" strokeWidth="1.6" strokeLinecap="round" />
+        {/* Security Key / Permission Token */}
+        <circle cx="34" cy="20" r="4" strokeWidth="1.5" />
+        <path d="M34 24v12l3-2 3 2v-4h-2" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        {/* Verification pulse ring */}
+        <circle cx="20" cy="18" r="9" strokeWidth="0.8" strokeDasharray="3 3" className="opacity-40" />
       </svg>
     );
   }
   if (number === "03") {
+    // AI Guardrails — Boundary Fence & Policy Enforcement Rails
     return (
       <svg className="h-full w-full" viewBox="0 0 48 48" fill="none" stroke="currentColor">
-        <defs>
-          <radialGradient id="grad-p3" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="currentColor" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
-          </radialGradient>
-        </defs>
-        {/* Neural Core */}
-        <rect x="18" y="18" width="12" height="12" rx="3" strokeWidth="1.5" />
-        <circle cx="24" cy="24" r="5" fill="url(#grad-p3)" strokeWidth="1" />
-        <circle cx="24" cy="24" r="1.5" fill="currentColor" />
-        {/* Circuit Tracks */}
-        <path d="M24 18V8h-8M18 24H8v-8M24 30v8h8M30 24h8v8" strokeWidth="1.2" strokeLinecap="round" />
-        {/* Neural nodes */}
-        <circle cx="16" cy="8" r="2.5" fill="currentColor" />
-        <circle cx="8" cy="16" r="2.5" fill="currentColor" />
-        <circle cx="32" cy="38" r="2" />
-        <circle cx="38" cy="32" r="2" />
-        {/* Synaptic paths */}
-        <path d="M12 12l4 4M36 12l-6 6" strokeWidth="0.8" strokeDasharray="2 2" className="opacity-60" />
-        <circle cx="12" cy="12" r="1.5" />
-        <circle cx="36" cy="12" r="1.5" />
+        {/* Outer Guardrail Boundary */}
+        <rect x="6" y="10" width="36" height="28" rx="4" strokeWidth="1.5" strokeDasharray="4 4" className="opacity-40" />
+        {/* Protective Gate Pillars */}
+        <line x1="15" y1="12" x2="15" y2="36" strokeWidth="1.8" strokeLinecap="round" />
+        <line x1="33" y1="12" x2="33" y2="36" strokeWidth="1.8" strokeLinecap="round" />
+        {/* Interlocking Constraint Rails */}
+        <path d="M15 18h18M15 24h18M15 30h18" strokeWidth="1.4" strokeLinecap="round" />
+        {/* Active Policy Sensor Node */}
+        <circle cx="24" cy="24" r="4" fill="currentColor" />
+        <circle cx="24" cy="24" r="8" strokeWidth="1" strokeDasharray="2 2" className="opacity-60" />
       </svg>
     );
   }
   if (number === "04") {
+    // Responsible AI — Ethical Balance & Human-in-the-Loop Oversight
     return (
       <svg className="h-full w-full" viewBox="0 0 48 48" fill="none" stroke="currentColor">
-        {/* Isometric Stacked Modules */}
-        {/* Top Layer */}
-        <path d="M24 6l12 7-12 7-12-7 12-7z" strokeWidth="1.5" fill="currentColor" fillOpacity="0.05" />
-        <path d="M12 13v9l12 7v-9l-12-7z" strokeWidth="1.2" className="opacity-80" />
-        <path d="M36 13v9l-12 7v-9l12-7z" strokeWidth="1.2" className="opacity-80" />
-        {/* Middle Floating Plate */}
-        <path d="M12 21l12 7 12-7" strokeWidth="1" strokeDasharray="3 3" className="opacity-40" />
-        {/* Floating Data Nodes */}
-        <circle cx="24" cy="13" r="2.5" fill="currentColor" />
-        <circle cx="18" cy="16" r="1.5" />
-        <circle cx="30" cy="16" r="1.5" />
-        {/* API Connection rails */}
-        <path d="M6 18v8l18 10.5 18-10.5v-8" strokeWidth="1" strokeLinecap="round" className="opacity-30" />
-        <path d="M24 20v14" strokeWidth="1.5" strokeDasharray="2 2" />
+        {/* Central Balance Mast */}
+        <line x1="24" y1="8" x2="24" y2="38" strokeWidth="1.8" strokeLinecap="round" />
+        <line x1="18" y1="38" x2="30" y2="38" strokeWidth="2" strokeLinecap="round" />
+        {/* Horizontal Beam */}
+        <line x1="10" y1="15" x2="38" y2="15" strokeWidth="1.8" strokeLinecap="round" />
+        <circle cx="24" cy="15" r="2.5" fill="currentColor" />
+        {/* Left Scale Pan */}
+        <path d="M10 15l-4 10h8l-4-10z" strokeWidth="1.4" strokeLinejoin="round" />
+        {/* Right Scale Pan */}
+        <path d="M38 15l-4 10h8l-4-10z" strokeWidth="1.4" strokeLinejoin="round" />
+        {/* Human Oversight Eye / Node */}
+        <circle cx="24" cy="8" r="3" strokeWidth="1.2" fill="currentColor" fillOpacity="0.3" />
       </svg>
     );
   }
   if (number === "05") {
+    // Monitoring & Evaluation — Live Metric Gauge & Waveform
     return (
       <svg className="h-full w-full" viewBox="0 0 48 48" fill="none" stroke="currentColor">
         <defs>
-          <linearGradient id="grad-p5" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="currentColor" stopOpacity="0.05" />
-            <stop offset="50%" stopColor="currentColor" stopOpacity="0.7" />
-            <stop offset="100%" stopColor="currentColor" stopOpacity="0.05" />
+          <linearGradient id="grad-sec-p5" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="currentColor" stopOpacity="0.1" />
+            <stop offset="50%" stopColor="currentColor" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="currentColor" stopOpacity="0.1" />
           </linearGradient>
         </defs>
         {/* Telemetry Gauge Arc */}
-        <path d="M10 34A17 17 0 1138 34" strokeWidth="1.5" strokeLinecap="round" className="opacity-55" />
+        <path d="M10 34A17 17 0 1138 34" strokeWidth="1.6" strokeLinecap="round" className="opacity-50" />
         <path d="M14 30A12 12 0 1134 30" strokeWidth="1" strokeDasharray="2 2" className="opacity-30" />
-        {/* Heartbeat Sine Wave Grid */}
-        <path d="M7 24h6l3-8 4 16 3-12 2 4h16" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-        {/* Scanning Grid Line */}
-        <line x1="24" y1="7" x2="24" y2="41" stroke="url(#grad-p5)" strokeWidth="1.5" className="opacity-60" />
-        {/* Dial Pointer */}
+        {/* Live Evaluation Pulse Wave */}
+        <path d="M7 24h7l3-7 4 14 3-10 2 3h15" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        {/* Dial Pointer & Core */}
         <circle cx="24" cy="24" r="2.5" fill="currentColor" />
-        <path d="M24 24l8-8" strokeWidth="2" strokeLinecap="round" />
+        <line x1="24" y1="24" x2="31" y2="17" strokeWidth="1.8" strokeLinecap="round" />
+      </svg>
+    );
+  }
+  if (number === "06") {
+    // Auditability — Immutable Audit Ledger & Decision Timeline
+    return (
+      <svg className="h-full w-full" viewBox="0 0 48 48" fill="none" stroke="currentColor">
+        {/* Audit Document / Ledger Outline */}
+        <rect x="10" y="8" width="28" height="34" rx="3" strokeWidth="1.6" />
+        {/* Document Fold Tab */}
+        <path d="M28 8v8h8" strokeWidth="1.4" strokeLinejoin="round" />
+        {/* Checkpoint Audit Event Rows */}
+        <circle cx="16" cy="20" r="1.5" fill="currentColor" />
+        <line x1="21" y1="20" x2="32" y2="20" strokeWidth="1.5" strokeLinecap="round" />
+        <circle cx="16" cy="26" r="1.5" fill="currentColor" />
+        <line x1="21" y1="26" x2="30" y2="26" strokeWidth="1.5" strokeLinecap="round" />
+        <circle cx="16" cy="32" r="1.5" fill="currentColor" />
+        <line x1="21" y1="32" x2="28" y2="32" strokeWidth="1.5" strokeLinecap="round" />
+        {/* Verification Stamp / Seal */}
+        <circle cx="31" cy="32" r="4.5" strokeWidth="1.2" strokeDasharray="2 2" />
+        <path d="M29.5 32l1 1 2-2" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     );
   }
@@ -286,25 +292,29 @@ export default function AiRoadmap() {
           <div className="max-w-5xl mx-auto px-6 sm:px-8 relative z-10">
         
         {/* ================= HEADER ================= */}
-        <div className="max-w-4xl mb-12 lg:mb-20">
-          <motion.span 
+        <div className="max-w-4xl mb-12 lg:mb-20 text-left">
+          <motion.div 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-xs font-bold uppercase tracking-[0.25em] text-[#FF6B2C] mb-4 block"
+            className="mb-4 inline-block"
           >
-            Delivery Process
-          </motion.span>
+            <div className="shadow-[inset_2px_2px_5px_#27272a,inset_-2px_-2px_5px_#09090b] bg-zinc-900/80 px-4 py-1.5 rounded-full border border-white/10">
+              <span className="text-[11px] font-bold text-[#FF6B2C] tracking-widest uppercase">
+                SECURITY & GOVERNANCE
+              </span>
+            </div>
+          </motion.div>
           
           <motion.h2 
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl md:text-5xl font-black text-white tracking-tight leading-[1.15] mb-6"
+            className="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4"
           >
-            Our Structured Delivery Framework for Custom Enterprise AI Solutions
+            Enterprise AI Security & Governance: <span className="text-[#FF6B2C]">Intelligence With Security and Control</span>
           </motion.h2>
           
           <motion.p 
@@ -312,9 +322,9 @@ export default function AiRoadmap() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-sm md:text-[15px] text-slate-400 leading-relaxed max-w-3xl"
+            className="text-[15px] lg:text-base text-slate-300 leading-relaxed max-w-2xl"
           >
-            We guide your enterprise through a streamlined model integration lifecycle—eliminating technical debt, mitigating deployment risks, and accelerating business outcomes.
+            Enterprise AI needs more than intelligent outputs. AI systems must operate within appropriate security, identity, governance, monitoring, and human oversight controls.
           </motion.p>
         </div>
 
@@ -328,7 +338,8 @@ export default function AiRoadmap() {
                 ref={(el) => { itemRefs.current[idx] = el; }}
                 onMouseEnter={() => setHoveredIdx(idx)}
                 onMouseLeave={() => setHoveredIdx(null)}
-                className="w-full"
+                onClick={() => setActiveIdx(idx)}
+                className="w-full cursor-pointer"
               >
                 <RoadmapItem
                   phase={phase}

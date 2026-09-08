@@ -28,11 +28,12 @@ function MetricCard({
     () => {
       const el = valueRef.current
       if (!el || !animate) return
-      const raw = metric.value.replace(/[^0-9.]/g, "")
+      const metricVal = metric?.value ?? ""
+      const raw = metricVal.replace(/[^0-9.]/g, "")
       const num = parseFloat(raw)
       if (Number.isNaN(num)) return
-      const prefix = metric.value.match(/^[^0-9]*/)?.[0] ?? ""
-      const suffix = metric.value.match(/[^0-9.]*$/)?.[0] ?? ""
+      const prefix = metricVal.match(/^[^0-9]*/)?.[0] ?? ""
+      const suffix = metricVal.match(/[^0-9.]*$/)?.[0] ?? ""
       const obj = { val: 0 }
       gsap.to(obj, {
         val: num,

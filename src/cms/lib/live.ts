@@ -9,6 +9,9 @@ export const { sanityFetch: cmsLiveFetch, SanityLive: CmsSanityLive } = defineLi
   client: cmsClient,
   serverToken: cmsReadToken || false,
   browserToken: cmsReadToken || false,
+  fetchOptions: {
+    revalidate: 0,
+  },
 })
 
 /** @deprecated Use cmsLiveFetch */

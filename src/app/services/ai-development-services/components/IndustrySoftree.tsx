@@ -164,13 +164,18 @@ export default function IndustrySoftree() {
             transition={{ duration: DUR.section, ease: EASE_T.silk }}
           >
             <div className="space-y-4">
+              <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-3.5 py-1 rounded-full border border-white/60 mb-2 inline-block w-fit">
+                <span className="text-[11px] font-bold text-[#FF6B2C] tracking-widest uppercase">
+                  INDUSTRIES WE SERVE
+                </span>
+              </div>
               <h2
                 id="enterprise-industries-heading"
-                className="max-w-[16ch] text-[1.85rem] font-semibold leading-[1.06] tracking-[-0.03em] text-[#0a0a1a] md:text-[2.05rem]"
+                className="max-w-[16ch] text-[1.85rem] font-extrabold leading-[1.1] tracking-[-0.03em] text-[#0a0a1a] md:text-[2.05rem]"
               >
                 We&apos;ve built our business by serving global enterprises
               </h2>
-              <p className="text-[1rem] leading-relaxed text-[#0a0a1a]/55">
+              <p className="text-[15px] lg:text-base leading-relaxed text-[#0a0a1a]/55">
                 Engineering partners for regulated teams — Microsoft, industrial,
                 and product-led organisations worldwide.
               </p>

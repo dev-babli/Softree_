@@ -24,10 +24,10 @@ export const metadata: Metadata = {
 
 export default function AzureOpenAIDevelopmentPage() {
   return (
-    <main className="min-h-screen w-full overflow-x-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50 font-sans text-base text-[#0A0F3C] antialiased">
+    <main className="min-h-screen w-full overflow-x-hidden bg-white font-sans text-base text-[#0A0F3C] antialiased">
       <NavigationClient />
       <Hero />
-      <TrustedBrandsMarquee surface="light" />
+      <TrustedBrandsMarquee surface="legacy" />
       <SuccessStories />
       <CoreCapabilities />
       <BusinessChallenges />
