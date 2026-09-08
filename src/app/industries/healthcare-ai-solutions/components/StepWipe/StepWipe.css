@@ -1,0 +1,194 @@
+.step-wipe-wrapper {
+  --wipe-progress: 100%;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #000;
+  font-family: inherit;
+}
+
+/* Background layers */
+.step-wipe-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.step-wipe-bg.masked, 
+.step-wipe-card.masked {
+  /* Using the CSS variable written by GSAP */
+  clip-path: polygon(var(--wipe-progress) 0%, 100% 0%, 100% 100%, var(--wipe-progress) 100%);
+  z-index: 2; /* Sits above the base layer */
+}
+
+/* Base layers (underneath) */
+.step-wipe-bg.base,
+.step-wipe-card.base {
+  z-index: 1;
+}
+
+/* Card Container */
+.step-wipe-card-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Card Aspect Ratio & Sizing */
+.step-wipe-card {
+  position: absolute;
+  width: 90%;
+  max-width: 1000px;
+  height: 65vh;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.7);
+}
+
+.step-wipe-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text Overlays */
+.step-wipe-text-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  padding: 40px 60px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-title-wrapper,
+.text-number-wrapper,
+.text-description-wrapper {
+  position: absolute;
+  overflow: hidden; /* For sliding text up */
+}
+
+.text-title-wrapper {
+  top: 60px;
+  left: 60px;
+}
+
+.text-title {
+  font-size: 4.5rem;
+  font-weight: 300;
+  line-height: 1.1;
+  margin: 0;
+  display: block;
+}
+
+.text-number-wrapper {
+  bottom: 60px;
+  left: 60px;
+}
+
+.text-number {
+  font-size: 7rem;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -2px;
+  margin: 0;
+  display: block;
+}
+
+.text-number span {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.text-description-wrapper {
+  bottom: 60px;
+  right: 60px;
+  max-width: 450px;
+}
+
+.text-description {
+  font-size: 1.25rem;
+  font-weight: 300;
+  text-align: right;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  display: block;
+}
+
+/* Odometer style text wrapping for GSAP */
+.text-inner {
+  display: inline-block;
+}
+
+/* Global badge */
+.global-badge {
+  position: absolute;
+  top: 60px;
+  right: 60px;
+  z-index: 30;
+  pointer-events: none;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .step-wipe-text-layer {
+    padding: 20px;
+  }
+  
+  .step-wipe-card {
+    width: 90%;
+    height: 40vh;
+    margin-top: -10vh; /* Shift up to make room for description below */
+    border-radius: 12px;
+  }
+
+  .text-title-wrapper {
+    top: 30px;
+    left: 20px;
+  }
+
+  .text-title {
+    font-size: 2.5rem;
+  }
+
+  .text-number-wrapper {
+    bottom: auto;
+    top: 30px;
+    left: auto;
+    right: 20px;
+  }
+
+  .text-number {
+    font-size: 3rem;
+  }
+
+  .text-description-wrapper {
+    bottom: 40px;
+    right: 20px;
+    left: 20px;
+    max-width: none;
+  }
+
+  .text-description {
+    text-align: center;
+    font-size: 1.1rem;
+  }
+  
+  .global-badge {
+    top: 90px;
+    left: 20px;
+    right: auto;
+  }
+}
