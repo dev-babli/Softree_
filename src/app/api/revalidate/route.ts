@@ -130,12 +130,29 @@ export async function POST(request: NextRequest) {
       console.error("Publish notification failed:", notifyError);
     }
 
+    // Amplify Hosting does not honor on-demand ISR. Kick a rebuild when
+    // AMPLIFY_REBUILD_WEBHOOK_URL is set (Amplify → Incoming webhooks).
+    let amplifyRebuild = false;
+    const amplifyWebhook = process.env.AMPLIFY_REBUILD_WEBHOOK_URL?.trim();
+    if (amplifyWebhook) {
+      try {
+        const rebuildRes = await fetch(amplifyWebhook, { method: "POST" });
+        amplifyRebuild = rebuildRes.ok;
+        if (!rebuildRes.ok) {
+          console.error("Amplify rebuild webhook failed:", rebuildRes.status);
+        }
+      } catch (rebuildError) {
+        console.error("Amplify rebuild webhook error:", rebuildError);
+      }
+    }
+
     return NextResponse.json({
       revalidated: true,
       now: Date.now(),
       type: _type,
       slug: slug?.current,
       paths: [...new Set(paths)],
+      amplifyRebuild,
     });
   } catch (err) {
     return NextResponse.json(

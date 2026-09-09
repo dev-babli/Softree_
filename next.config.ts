@@ -12,9 +12,51 @@ const siteOrigin = (
   "https://www.softreetechnology.com"
 ).replace(/\/$/, "");
 
+const leadMagnetOrigin = "https://web-lead-magnet-seven.vercel.app";
+
+const isAmplify = Boolean(process.env.AWS_APP_ID || process.env.AWS_BRANCH);
+
 const nextConfig: any = {
+  // Standalone is for the Docker/ECS image only. Amplify's Next adapter
+  // expects a normal `.next` output (baseDirectory: .next).
+  ...(process.env.BUILD_STANDALONE === "true" ? { output: "standalone" } : {}),
+  productionBrowserSourceMaps: false,
+  // Next 16 emits large server maps by default; Amplify's compute bundle
+  // cap is 220 MB uncompressed and this app already overshoots with maps.
+  serverSourceMaps: false,
+  experimental: {
+    serverSourceMaps: false,
+  },
+  outputFileTracingExcludes: {
+    "*": [
+      "node_modules/@swc/**",
+      "node_modules/@esbuild/**",
+      "node_modules/esbuild/**",
+      "node_modules/webpack/**",
+      "node_modules/puppeteer/**",
+      "node_modules/@ffmpeg-installer/**",
+      "node_modules/fluent-ffmpeg/**",
+      "node_modules/@sentry/cli/**",
+      "node_modules/@sentry/cli-*/**",
+      "node_modules/typescript/**",
+      "node_modules/eslint/**",
+      "node_modules/vitest/**",
+      "node_modules/@testing-library/**",
+      "node_modules/@resvg/**",
+      "node_modules/pixelmatch/**",
+    ],
+  },
   async rewrites() {
     return [
+      { source: "/geo", destination: `${leadMagnetOrigin}/geo` },
+      { source: "/geo/:path*", destination: `${leadMagnetOrigin}/geo/:path*` },
+      { source: "/softree_icon.png", destination: `${leadMagnetOrigin}/softree_icon.png` },
+      { source: "/favicon.svg", destination: `${leadMagnetOrigin}/favicon.svg` },
+      { source: "/logo.png", destination: `${leadMagnetOrigin}/logo.png` },
+      { source: "/logo.svg", destination: `${leadMagnetOrigin}/logo.svg` },
+      { source: "/assets/:path*", destination: `${leadMagnetOrigin}/assets/:path*` },
+      { source: "/api/process", destination: `${leadMagnetOrigin}/api/process` },
+      { source: "/api/process/:path*", destination: `${leadMagnetOrigin}/api/process/:path*` },
       {
         source: "/services/aidevelopemnt/service",
         destination: "/services/ai-development-service",
@@ -126,7 +168,7 @@ const nextConfig: any = {
     remotePatterns: [
       { protocol: "https", hostname: "**" },
     ],
-    unoptimized: process.env.VERCEL ? false : true,
+    unoptimized: process.env.DISABLE_IMAGE_OPTIMIZATION === "true",
     formats: ["image/webp", "image/avif"],
     // Next 16 only allows qualities listed here (default is [75]).
     qualities: [75, 90, 92, 95, 100],
@@ -136,6 +178,10 @@ const nextConfig: any = {
     ignoreBuildErrors: true,
   },
   webpack: (config: any, { isServer }: any) => {
+    if (process.env.NODE_ENV === "production") {
+      config.devtool = false;
+    }
+
     config.module.rules.push({
       test: /\.(glb|gltf)$/i,
       type: 'asset/resource',
@@ -172,7 +218,10 @@ export default process.env.NODE_ENV === "production"
       // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
 
       // Upload a larger set of source maps for prettier stack traces (increases build time)
-      widenClientFileUpload: true,
+      widenClientFileUpload: !isAmplify,
+      sourcemaps: {
+        disable: isAmplify,
+      },
 
       // Route browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers.
       // This can increase your server load as well as your hosting bill.
