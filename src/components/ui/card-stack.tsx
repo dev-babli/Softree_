@@ -137,9 +137,8 @@ export const CardStack = ({
                   });
                 }
               }}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                activeIndex === i ? "w-7 bg-[#FF6B2C]" : "w-2 bg-zinc-300"
-              }`}
+              className={`h-2 rounded-full transition-all duration-300 ${activeIndex === i ? "w-7 bg-[#FF6B2C]" : "w-2 bg-zinc-300"
+                }`}
             />
           ))}
         </div>

@@ -396,22 +396,25 @@ export function TransferredSoftreeHero() {
               /* Pillar cards responsiveness & height-aware containment */
               .hero-pillar-card {
                 width: 100%;
-                max-width: 320px;
-                aspect-ratio: 0.8;
+                max-width: 400px;
+                min-height: 420px;
+                display: flex;
+                flex-direction: column;
               }
 
               @media (min-width: 1024px) {
                 .hero-pillar-card {
                   /* Full-sized agency cards, gracefully bounded by viewport height */
-                  width: clamp(260px, min(22vw, 44vh), 370px);
+                  width: clamp(280px, min(28vw, 46vh), 420px);
                   max-width: none;
-                  aspect-ratio: 0.8;
+                  min-height: clamp(400px, min(35vw, 60vh), 560px);
                 }
               }
 
               @media (min-width: 1024px) and (max-height: 640px) {
                 .hero-pillar-card {
-                  width: clamp(220px, min(21vw, 40vh), 290px);
+                  width: clamp(240px, min(24vw, 40vh), 320px);
+                  min-height: clamp(340px, 50vh, 420px);
                 }
               }
 

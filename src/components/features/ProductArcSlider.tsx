@@ -45,32 +45,35 @@ import {
    ───────────────────────────────────────────────────────────────── */
 const BASE_CARDS = [
   {
-    id: "security-governance",
-    title: "Security & Governance",
+    id: "proven-expertise",
+    title: "Proven Expertise",
+    subtitle: "The right engineering depth for what you're building.",
     description:
-      "Enterprise-grade controls, compliance practices, access management, and delivery governance integrated into every engagement.",
+      "Agentic AI, Microsoft Power Platform, data, cloud, and modern application engineering — brought together under one delivery team.",
     tag: "CAPABILITY",
-    bgColor: "#FFFFFF",
-    textColor: "#141413",
+    bgColor: "#FF5812",
+    textColor: "#ffffff",
     image:
       "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800",
   },
   {
-    id: "documentation-discipline",
-    title: "Documentation Discipline",
+    id: "enterprise-ready",
+    title: "Enterprise-Ready",
+    subtitle: "Built for the environments enterprises depend on.",
     description:
-      "Structured documentation, knowledge transfer, and maintainable engineering practices designed for long-term continuity.",
+      "Security, governance, architecture, testing, documentation, and engineering standards are built into how we deliver.",
     tag: "CAPABILITY",
-    bgColor: "#141413",
-    textColor: "#ffffff",
+    bgColor: "#FFFFFF",
+    textColor: "#141413",
     image:
       "https://images.unsplash.com/photo-1557672172-298e090bd0f1?auto=format&fit=crop&q=80&w=800",
   },
   {
-    id: "scalable-architecture",
-    title: "Scalable Architecture",
+    id: "ai-that-delivers",
+    title: "AI That Delivers",
+    subtitle: "Move beyond demos and disconnected experiments.",
     description:
-      "Modern architectures engineered for performance, extensibility, and future business growth.",
+      "We engineer intelligent agents and AI-powered workflows that connect to real data, systems, people, and business processes.",
     tag: "CAPABILITY",
     bgColor: "#F3F0EE",
     textColor: "#141413",
@@ -78,10 +81,11 @@ const BASE_CARDS = [
       "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=800",
   },
   {
-    id: "cross-team-collaboration",
-    title: "Cross-Team Collaboration",
+    id: "works-your-way",
+    title: "Works Your Way",
+    subtitle: "Your processes. Your tools. Your delivery model.",
     description:
-      "Transparent communication and coordinated execution across stakeholders, engineering teams, and business units.",
+      "We adapt to how your organization works — whether we're extending your engineering team or delivering behind your brand.",
     tag: "CAPABILITY",
     bgColor: "#FF5812",
     textColor: "#ffffff",
@@ -89,21 +93,23 @@ const BASE_CARDS = [
       "https://images.unsplash.com/photo-1604871000636-074fa5117945?auto=format&fit=crop&q=80&w=800",
   },
   {
-    id: "ai-enhanced-productivity",
-    title: "AI-Enhanced Productivity",
+    id: "visible-accountable",
+    title: "Visible & Accountable",
+    subtitle: "You always know what's happening.",
     description:
-      "AI-assisted workflows that accelerate development, automation, testing, and operational efficiency.",
+      "Clear ownership, communication, milestones, documentation, risks, and delivery visibility keep everyone aligned from kickoff to production.",
     tag: "CAPABILITY",
-    bgColor: "#141413",
-    textColor: "#ffffff",
+    bgColor: "#FFFFFF",
+    textColor: "#141413",
     image:
       "https://images.unsplash.com/photo-1557672172-298e090bd0f1?auto=format&fit=crop&q=80&w=800",
   },
   {
-    id: "transparent-delivery",
-    title: "Transparent Delivery",
+    id: "built-for-long-run",
+    title: "Built for the Long Run",
+    subtitle: "A partner that grows with your needs.",
     description:
-      "Clear sprint visibility, milestone tracking, reporting, and accountability throughout the delivery lifecycle.",
+      "Start with a focused engagement and expand teams, capabilities, automation, and AI as your business evolves.",
     tag: "CAPABILITY",
     bgColor: "#F3F0EE",
     textColor: "#141413",
@@ -585,6 +591,7 @@ function ArcCard({
             style={{ fontSize: sz.descSize }}
             className="leading-[1.55] max-w-[26ch] opacity-70"
           >
+            <span className="block font-medium mb-1 opacity-100">{card.subtitle}</span>
             {card.description}
           </p>
         </div>
@@ -825,13 +832,12 @@ export default function ProductArcSlider() {
       {/* ── Inner wrapper (header + pills, normal flow) ── */}
       <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 md:px-12">
         {/* Title row — left h2, right paragraph */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 md:gap-16 pt-10 sm:pt-12 md:pt-14 mb-6 md:mb-8">
-          <h2 className="text-[clamp(28px,4.4vw,58px)] font-semibold leading-[1.04] tracking-[-0.025em] text-[#141413] max-w-[680px]">
-            Built for global engineering partnerships
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-5 md:gap-16 pt-10 sm:pt-12 md:pt-14 mb-6 md:mb-8">
+          <h2 className="text-[clamp(28px,4.4vw,58px)] font-semibold leading-[1.04] tracking-[-0.025em] text-[#141413] max-w-[700px]">
+            Built to earn your <span className="text-[#FF5812]">trust.</span><br className="hidden lg:block" /> Built to scale with <span className="text-[#FF5812]">you.</span>
           </h2>
-          <p className="text-[15px] sm:text-[17px] md:text-[18px] text-[#141413]/55 leading-[1.55] max-w-[380px] md:text-right shrink-0">
-            Access everything with a single partnership — offshore scalability,
-            enterprise engineering, and AI-driven delivery.
+          <p className="md:mt-[clamp(32px,4.4vw,56px)] text-[15px] sm:text-[17px] md:text-[18px] text-[#141413]/55 leading-[1.55] max-w-[440px] md:text-right shrink-0">
+            Agentic AI, Microsoft Power Platform, and modern engineering delivered with the transparency, governance, and partnership mindset your business — and your clients — expect.
           </p>
         </div>
 
