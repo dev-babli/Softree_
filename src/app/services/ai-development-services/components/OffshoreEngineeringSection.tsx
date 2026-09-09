@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { ArrowUpRight, Sparkles, CheckCircle2 } from "lucide-react";
 import PhotoStackGallery from "./PhotoStackGallery";
+import { FlowButton } from "@/components/ui/flow-button";
 
 const ROLES = [
   {
@@ -157,13 +158,12 @@ export default function OffshoreEngineeringSection() {
 
             {/* Call to Action */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-0.5">
-              <a
+              <FlowButton 
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 border border-transparent text-sm sm:text-base font-semibold rounded-full shadow-lg shadow-orange-500/20 text-white bg-[#FF6B2C] hover:bg-[#E05E00] hover:shadow-orange-500/30 transition-all transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF6B2C]"
-              >
-                <span>Build Your Offshore AI Team</span>
-                <ArrowUpRight className="h-5 w-5" />
-              </a>
+                text="Build Your Offshore AI Team"
+                variant="orange-filled"
+                className="shadow-lg shadow-orange-500/20"
+              />
               <span className="text-xs text-slate-500 font-medium">
                 ⚡ Pre-vetted senior engineers • Onboard in 1–2 weeks
               </span>

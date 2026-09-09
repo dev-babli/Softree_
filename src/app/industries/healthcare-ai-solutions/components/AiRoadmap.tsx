@@ -180,7 +180,7 @@ export default function AiRoadmap() {
   }));
 
   return (
-    <section className="w-full bg-[#FBFBFC] py-14 sm:py-16 md:py-20 font-sans relative overflow-hidden border-t border-slate-100">
+    <section className="w-full bg-white py-14 sm:py-16 md:py-20 font-sans relative overflow-hidden">
       <div className="mx-auto w-full max-w-[1800px] px-4 sm:px-6 lg:px-[2cm]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
           

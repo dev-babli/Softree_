@@ -1,0 +1,24 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - nvm use 22
+        - node -v
+        - npm ci
+    build:
+      commands:
+        - env | grep -E '^(NEXT_PUBLIC_|SANITY_|CONTENT_PIPELINE_|GEMINI_|GOOGLE_GENAI_|ANTHROPIC_|NVIDIA_|NVAPI_|PERPLEXITY_|WEB3FORMS_|SLACK_|SENTRY_|POSTHOG_|GSC_|PSI_|AMPLIFY_REBUILD_)' >> .env.production || true
+        - npm run build
+        - rm -rf .next/cache
+        - find .next -name '*.map' -type f -delete
+        - rm -f node_modules/@swc/core-linux-x64-gnu/swc.linux-x64-gnu.node
+        - rm -f node_modules/@swc/core-linux-x64-musl/swc.linux-x64-musl.node
+        - echo "NEXT_SIZE" && du -sh .next .next/server .next/static 2>/dev/null || true
+  artifacts:
+    baseDirectory: .next
+    files:
+      - "**/*"
+  cache:
+    paths:
+      - node_modules/**/*

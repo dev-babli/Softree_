@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight, Check, ArrowUpRight, HelpCircle, Sparkles } from "lucide-react";
 import SectionBadge from "../SectionBadge";
 import { successStoriesList } from "./successStoriesData";
+import { FlowButton } from "@/components/ui/flow-button";
 
 // Subject-oriented full-bleed images matching the case study theme using custom dashboard assets
 const caseStudyImages: Record<string, { left: string; right: string }> = {
@@ -146,10 +147,13 @@ export const SuccessStories = () => {
                     href={activeStory.caseStudyUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`inline-flex items-center gap-2 border px-6 py-3 rounded-full text-xs font-bold transition-all duration-300 ${style.btnOutline}`}
+                    className="inline-block"
                   >
-                    <span>View Case Study</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
+                    <FlowButton 
+                      as="div"
+                      text="View Case Study"
+                      variant="dark"
+                    />
                   </a>
 
                   <div className="flex items-center gap-2">
