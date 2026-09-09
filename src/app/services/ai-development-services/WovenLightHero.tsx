@@ -5,6 +5,7 @@ import { motion, useAnimation } from 'framer-motion';
 import * as THREE from 'three';
 import Link from 'next/link';
 import { Shield, Users, Cpu, Sparkles, Calendar, ArrowUpRight } from 'lucide-react';
+import { FlowButton } from '@/components/ui/flow-button';
 
 const trustItems = [
   { icon: Shield, title: 'WHITE-LABEL', subtitle: 'Trusted agency partner.' },
@@ -270,15 +271,12 @@ export const WovenLightHero = () => {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="mt-5 sm:mt-6 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
             >
-              <Link href="/contact" className="w-full sm:w-auto">
-                <button
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full bg-[#FF6B00] hover:bg-[#E05E00] px-8 py-3.5 sm:py-4 font-semibold text-white text-[15px] sm:text-base transition-all shadow-lg shadow-[#FF6B00]/30 hover:scale-[1.02] active:scale-[0.98] group"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                >
-                  <span>Build Your AI Team</span>
-                  <ArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" strokeWidth={2.5} />
-                </button>
-              </Link>
+              <FlowButton 
+                href="/contact"
+                text="Build Your AI Team"
+                variant="orange-filled"
+                className="w-full sm:w-auto shadow-lg shadow-[#FF6B00]/30 font-inter"
+              />
              
             </motion.div>
 

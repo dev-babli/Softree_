@@ -24,9 +24,9 @@ export const metadata: Metadata = {
   },
 }
 
-// ISR: listing is CMS-driven but not per-visitor. Cache for an hour; draft mode still
-// auto-opts editors into dynamic rendering. Replaces unjustified force-dynamic (RES killer).
-export const revalidate = 3600
+// Fetch fresh case studies from Sanity immediately (matching blog behavior)
+export const revalidate = 0
+
 
 export default async function CaseStudiesPage() {
   const [caseStudies, heroSlides, categoryCounts] = await Promise.all([

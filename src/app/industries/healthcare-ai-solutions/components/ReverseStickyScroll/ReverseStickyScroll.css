@@ -1,0 +1,157 @@
+/* Scoped styling for Reverse Sticky Scroll component */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bricolage+Grotesque:wght@400;600;700&display=swap');
+
+.rss_wrap {
+  --rss-bg-primary: #ffffff;
+  --rss-bg-secondary: #f5f5f5;
+  --rss-text-primary: #1a1a1a;
+  --rss-text-secondary: #666666;
+  --rss-border-color: #e0e0e0;
+  --rss-accent-color: #3b82f6;
+
+  --rss-s1-bg: #C94716;
+  --rss-s1-text: #ffffff;
+  --rss-s2-bg: #111111;
+  --rss-s2-text: #f5f5f5;
+  --rss-s3-bg: #fcfbf9;
+  --rss-s3-text: #111111;
+  --rss-s4-bg: #FF6B00;
+  --rss-s4-text: #ffffff;
+  --rss-s4-hr: rgba(255, 255, 255, 0.4);
+  --rss-s5-bg: #09090b;
+  --rss-s5-text: #ffffff;
+
+  width: 100%;
+  max-width: 1340px; /* Increased width for a more spacious layout */
+  margin: 0 auto;    /* Centers the component horizontally */
+  padding: 0 1rem;
+  position: relative;
+  background: var(--rss-bg-primary);
+  color: var(--rss-text-primary);
+  font-family: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: visible;
+}
+
+.rss_section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.rss_container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 4vw;
+  padding-top: clamp(2rem, 8vw, 4vw);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  transform-origin: bottom left;
+  will-change: transform, opacity;
+}
+
+.rss_big {
+  font-family: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2.25rem, 5.5vw, 6rem);
+  font-weight: 700;
+  line-height: 0.95;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+
+.rss_sub {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  max-width: 52ch;
+  line-height: 1.5;
+  font-weight: 400;
+  text-align: left;
+}
+
+.rss_tag {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0.08em;
+  text-align: left;
+}
+
+.rss_right {
+  text-align: right;
+  align-self: flex-end;
+}
+
+.rss_bottom {
+  margin-top: auto;
+}
+
+.rss_hr {
+  border: none;
+  border-top: 1px solid currentColor;
+  opacity: 0.6;
+  margin: 2vw 0;
+}
+
+.rss_cols {
+  display: flex;
+  gap: 3vw;
+  flex-wrap: wrap;
+}
+
+.rss_cols > div {
+  flex: 1;
+  min-width: 180px;
+}
+
+.rss_label {
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.rss_detail {
+  font-size: clamp(0.85rem, 1.3vw, 1.05rem);
+  line-height: 1.5;
+  opacity: 0.75;
+}
+
+/* Section styling overrides */
+.rss_s1 .rss_container {
+  background: var(--rss-s1-bg);
+  color: var(--rss-s1-text);
+}
+
+.rss_s1 .rss_hr {
+  border-color: var(--rss-s1-text);
+  opacity: 1;
+}
+
+.rss_s2 .rss_container {
+  background: var(--rss-s2-bg);
+  color: var(--rss-s2-text);
+}
+
+.rss_s3 .rss_container {
+  background: var(--rss-s3-bg);
+  color: var(--rss-s3-text);
+}
+
+.rss_s4 .rss_container {
+  background: var(--rss-s4-bg);
+  color: var(--rss-s4-text);
+}
+
+.rss_s4 .rss_hr {
+  border-color: var(--rss-s4-hr);
+}
+
+.rss_s5 .rss_container {
+  background: var(--rss-s5-bg);
+  color: var(--rss-s5-text);
+}

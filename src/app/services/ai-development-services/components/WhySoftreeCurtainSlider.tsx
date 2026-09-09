@@ -6,6 +6,7 @@ import { CustomEase } from 'gsap/CustomEase';
 import { useGSAP } from '@gsap/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { FlowButton } from '@/components/ui/flow-button';
 import { 
   Brain, 
   ShieldCheck, 
@@ -962,13 +963,12 @@ export default function WhySoftreeCurtainSlider() {
                       )}
                     </div>
 
-                    <Link
+                    <FlowButton 
                       href={activeData.card.ctaLink}
-                      className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FF5812] hover:bg-[#E04808] text-white text-[11px] font-semibold tracking-wide transition-all shadow-[0_0_15px_rgba(255,88,18,0.3)] hover:scale-105 active:scale-95 self-start sm:self-auto shrink-0"
-                    >
-                      <span>{activeData.card.ctaText}</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
+                      text={activeData.card.ctaText}
+                      variant="orange-filled"
+                      className="self-start sm:self-auto shrink-0"
+                    />
                   </div>
                 </div>
 
@@ -1074,13 +1074,12 @@ export default function WhySoftreeCurtainSlider() {
                     )}
                   </div>
 
-                  <Link
+                  <FlowButton 
                     href={activeData.card.ctaLink}
-                    className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-full bg-[#FF5812] hover:bg-[#E04808] text-white text-xs font-semibold tracking-wide transition-all shadow-[0_0_15px_rgba(255,88,18,0.3)] hover:scale-105 active:scale-95 self-stretch sm:self-auto shrink-0"
-                  >
-                    <span>{activeData.card.ctaText}</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
+                    text={activeData.card.ctaText}
+                    variant="orange-filled"
+                    className="self-stretch sm:self-auto shrink-0"
+                  />
                 </div>
               </div>
             </motion.div>
