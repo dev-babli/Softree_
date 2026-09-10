@@ -4,7 +4,6 @@ import { Metadata } from 'next';
 import { ArrowUpRight } from 'lucide-react';
 import NavigationClient from '@/components/sections/navigation-client';
 import Footer from '@/components/sections/footer';
-import TrustedBrandsMarquee from "@/app/services/offshore-power-platform-development/trust";
 import { COUNTRIES_SERVED } from '@/lib/constants';
 
 // Dynamically import below-the-fold components to prioritize network resources for Hero video & LCP
@@ -40,6 +39,7 @@ import DetailDrawer from './components/AiTechnologyStack';
 import PhotoStackGallery from './components/PhotoStackGallery';
 import GatewayFlowHero from './components/GatewayFlowHero';
 import { CircularTestimonialsDemo } from './components/circular-testimonials-demo';
+import TrustedBrandsMarquee from './components/trust';
 const HealthcareCaseStudies = dynamic(() => import('./components/HealthcareCaseStudies'), { ssr: true });
 const PAGE_URL = 'https://www.softreetechnology.com/industries/healthcare-ai-solutions';
 const SITE_URL = 'https://www.softreetechnology.com';
@@ -237,10 +237,13 @@ export default function AiHealthcareDevelopmentPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(healthcareJsonLd) }}
       />
       <NavigationClient />
+
       <GatewayFlowHero />
-      <HealthcareCaseStudies />
 
       <AiReadinessBanner />
+
+
+
 
       {/* Who We Help & Global Network Section */}
       <div className="bg-white pt-6 md:pt-8 pb-6 md:pb-8 text-slate-900">
@@ -340,18 +343,20 @@ export default function AiHealthcareDevelopmentPage() {
 
       <StepWipe />
 
-     
+      <HealthcareCaseStudies />
       {/* Interactive Photo Stack Section replaced by CircularTestimonialsDemo */}
       <CoreCapabilities />
-      <CircularTestimonialsDemo />
+      {/* <CircularTestimonialsDemo />
 
-      <IndustrySoftree />
+      <IndustrySoftree /> */}
       <AgenticAIWipeSlider />
+      <TrustedBrandsMarquee />
       {/* <WhySoftreeCurtainSlider /> */}
-      {/* <Industries /> */}     
+      {/* <Industries />     
       <AiRoadmap />
-      <PartnerShowcase />     
+      <PartnerShowcase />      */}
       <WhyChooseWithTestimonials />
+
       <LightFAQExact />
       <LightContactSection />
       <Footer />
