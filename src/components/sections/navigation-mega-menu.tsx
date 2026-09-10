@@ -63,7 +63,7 @@ const MEGA_META: Record<string, MegaMenuMeta> = {
   },
   Industries: {
     eyebrow: "Industries",
-    blurb: "HIPAA-compliant healthcare AI solutions, clinical copilots, and intelligent medical systems.",
+    blurb: "Deploy secure clinical copilots, medical document AI, and modern healthcare digital platforms.",
     cta: "View Healthcare AI",
     href: "/industries/healthcare-ai-solutions",
   },

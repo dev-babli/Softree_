@@ -159,12 +159,9 @@ const menu: MenuItem[] = [
       {
         title: "Healthcare AI Solutions",
         icon: HeartPulse,
-        description: "Deploy secure, HIPAA-compliant clinical copilots, medical document AI, and modern healthcare digital platforms.",
+        description: "We deliver intelligent clinical copilots, medical document AI, and next-generation healthcare digital platforms.",
         links: [
           { label: "Healthcare AI Solutions", url: "/industries/healthcare-ai-solutions", icon: HeartPulse, description: "Full-suite clinical AI & healthcare solutions" },
-          { label: "AI for Healthcare", url: "/solutions/ai-for-healthcare", icon: Brain, description: "Custom clinical workflows & predictive care" },
-          { label: "Clinical Copilot Systems", url: "/solutions/ai-copilot-development", icon: WandSparkles, description: "Intelligent diagnostic & practitioner copilots" },
-          { label: "Medical Document Intelligence", url: "/solutions/document-ai-solutions", icon: FileText, description: "Automated medical records & claims extraction" },
         ],
       },
     ],
