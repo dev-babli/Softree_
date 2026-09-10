@@ -61,6 +61,12 @@ const MEGA_META: Record<string, MegaMenuMeta> = {
     cta: "View all services",
     href: "/services",
   },
+  Industries: {
+    eyebrow: "Industries",
+    blurb: "HIPAA-compliant healthcare AI solutions, clinical copilots, and intelligent medical systems.",
+    cta: "View Healthcare AI",
+    href: "/industries/healthcare-ai-solutions",
+  },
   "Case Studies": {
     eyebrow: "Case Studies",
     blurb: "Real-world engineering stories and impact across industries.",
@@ -83,6 +89,7 @@ const MEGA_META: Record<string, MegaMenuMeta> = {
 
 const FALLBACK_GRADIENTS: Record<string, string> = {
   Services: "linear-gradient(135deg, #FF8B57 0%, #FF5812 50%, #B03C17 100%)",
+  Industries: "linear-gradient(135deg, #FFB088 0%, #FF5812 50%, #9A2C0A 100%)",
   "Case Studies": "linear-gradient(135deg, #C8E0FF 0%, #1852FF 50%, #002DB3 100%)",
   Blog: "linear-gradient(135deg, #D4C6FF 0%, #8B5CF6 50%, #5B21B6 100%)",
   Products: "linear-gradient(135deg, #CCFBF1 0%, #0D9488 50%, #115E59 100%)",
@@ -133,10 +140,14 @@ export function MegaMenuPanel({
     return map;
   }, [activeGroup]);
 
+  const isSingleGroup = groups.length <= 1;
+
   return (
     <div
       data-nav-mega="tabbed-v3"
-      className="mx-auto flex w-full max-w-[1200px] overflow-hidden rounded-[24px] border border-black/[0.08] bg-white shadow-[0_32px_80px_-20px_rgba(10,10,26,0.28)]"
+      className={`mx-auto flex w-full overflow-hidden rounded-[24px] border border-black/[0.08] bg-white shadow-[0_32px_80px_-20px_rgba(10,10,26,0.28)] ${
+        isSingleGroup ? "max-w-[840px]" : "max-w-[1200px]"
+      }`}
     >
       {/* Left rail — stretches full height */}
       <div className="relative hidden w-[260px] shrink-0 overflow-hidden md:block">
@@ -182,47 +193,49 @@ export function MegaMenuPanel({
         {/* Main Content Area */}
         <div className="flex-1 flex flex-row min-w-0">
           
-          {/* Middle Column — Categories list */}
-          <div className="w-[280px] shrink-0 border-r border-black/[0.06] p-4 flex flex-col gap-1.5 bg-[#FAFAF9]">
-            {groups.map((group, idx) => {
-              const GroupIcon = group.icon ?? Bot;
-              const isActive = idx === activeIdx;
+          {/* Middle Column — Categories list (only shown when multiple categories exist) */}
+          {!isSingleGroup && (
+            <div className="w-[280px] shrink-0 border-r border-black/[0.06] p-4 flex flex-col gap-1.5 bg-[#FAFAF9]">
+              {groups.map((group, idx) => {
+                const GroupIcon = group.icon ?? Bot;
+                const isActive = idx === activeIdx;
 
-              return (
-                <button
-                  key={group.title}
-                  type="button"
-                  onMouseEnter={() => setActiveIdx(idx)}
-                  onClick={() => setActiveIdx(idx)}
-                  className={`w-full text-left flex items-center justify-between rounded-xl px-4 py-3 transition-all duration-150 group relative focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/40 ${
-                    isActive
-                      ? "bg-[#FFF1EB] text-[#FF5812]"
-                      : "text-[#0a0a1a]/70 hover:bg-black/[0.03] hover:text-[#0a0a1a]"
-                  }`}
-                >
-                  <div className="flex items-center gap-3 min-w-0">
-                    <GroupIcon 
-                      size={18} 
-                      className={`shrink-0 transition-colors duration-150 ${
-                        isActive ? "text-[#FF5812]" : "text-[#0a0a1a]/40 group-hover:text-[#0a0a1a]/60"
+                return (
+                  <button
+                    key={group.title}
+                    type="button"
+                    onMouseEnter={() => setActiveIdx(idx)}
+                    onClick={() => setActiveIdx(idx)}
+                    className={`w-full text-left flex items-center justify-between rounded-xl px-4 py-3 transition-all duration-150 group relative focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/40 ${
+                      isActive
+                        ? "bg-[#FFF1EB] text-[#FF5812]"
+                        : "text-[#0a0a1a]/70 hover:bg-black/[0.03] hover:text-[#0a0a1a]"
+                    }`}
+                  >
+                    <div className="flex items-center gap-3 min-w-0">
+                      <GroupIcon 
+                        size={18} 
+                        className={`shrink-0 transition-colors duration-150 ${
+                          isActive ? "text-[#FF5812]" : "text-[#0a0a1a]/40 group-hover:text-[#0a0a1a]/60"
+                        }`} 
+                      />
+                      <span className="text-[13px] font-semibold tracking-tight truncate">
+                        {group.title}
+                      </span>
+                    </div>
+                    <ChevronRight 
+                      size={14} 
+                      className={`shrink-0 transition-all duration-150 ${
+                        isActive 
+                          ? "text-[#FF5812] opacity-100 translate-x-0" 
+                          : "text-[#0a0a1a]/20 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0"
                       }`} 
                     />
-                    <span className="text-[13px] font-semibold tracking-tight truncate">
-                      {group.title}
-                    </span>
-                  </div>
-                  <ChevronRight 
-                    size={14} 
-                    className={`shrink-0 transition-all duration-150 ${
-                      isActive 
-                        ? "text-[#FF5812] opacity-100 translate-x-0" 
-                        : "text-[#0a0a1a]/20 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0"
-                    }`} 
-                  />
-                </button>
-              );
-            })}
-          </div>
+                  </button>
+                );
+              })}
+            </div>
+          )}
 
           {/* Right Column — Subservices dynamically switching */}
           <div className="flex-1 bg-white p-6 md:p-8 flex flex-col">

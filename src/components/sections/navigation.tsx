@@ -35,6 +35,11 @@ import {
   Database,
   Link2,
   Network,
+  HeartPulse,
+  Landmark,
+  Factory,
+  Truck,
+  ShoppingBag,
 } from "lucide-react";
 
 type MenuLink = {
@@ -143,6 +148,24 @@ const menu: MenuItem[] = [
           { label: "SharePoint Online", url: "/services/offshore-sharepoint-development", icon: Building2, description: "Intranet portals and document management" },
           { label: "SPFx Development", url: "/services/offshore-spfx-development", icon: Code2, description: "Custom web parts and platform extensions" },
         ]
+      },
+    ],
+  },
+  {
+    label: "Industries",
+    url: "/industries/healthcare-ai-solutions",
+    mega: true,
+    children: [
+      {
+        title: "Healthcare AI Solutions",
+        icon: HeartPulse,
+        description: "Deploy secure, HIPAA-compliant clinical copilots, medical document AI, and modern healthcare digital platforms.",
+        links: [
+          { label: "Healthcare AI Solutions", url: "/industries/healthcare-ai-solutions", icon: HeartPulse, description: "Full-suite clinical AI & healthcare solutions" },
+          { label: "AI for Healthcare", url: "/solutions/ai-for-healthcare", icon: Brain, description: "Custom clinical workflows & predictive care" },
+          { label: "Clinical Copilot Systems", url: "/solutions/ai-copilot-development", icon: WandSparkles, description: "Intelligent diagnostic & practitioner copilots" },
+          { label: "Medical Document Intelligence", url: "/solutions/document-ai-solutions", icon: FileText, description: "Automated medical records & claims extraction" },
+        ],
       },
     ],
   },
