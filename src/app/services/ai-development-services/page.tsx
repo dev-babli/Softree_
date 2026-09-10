@@ -130,7 +130,6 @@ export default function AiDevelopmentServicesPage() {
                   tagline="Global Reach. Local Understanding."
                   subheading="Trusted by businesses across 13+ countries, we deliver technology solutions that help organizations build, scale, and transform digitally."
                   storesLabel="13+ countries served"
-                  caption="Trusted by businesses across 13+ countries, we deliver technology solutions that help organizations build, scale, and transform digitally."
                 />
             </div>
           </div>
