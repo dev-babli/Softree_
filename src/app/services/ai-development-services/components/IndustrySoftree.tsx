@@ -23,22 +23,31 @@ type Panel = {
   subtitle?: string;
   trustedLabel: string;
   bg: string;
+  link?: string;
 };
 
 const PANELS: Panel[] = [
-  {
-    id: "banking",
-    tab: "Banking",
-    title: "Banks, Credit Unions, Financial Institutions",
-    trustedLabel: "Trusted by Softree partners:",
-    bg: `${KORE_CDN}/68c1998017adc89faa49388c_fshome.avif`,
-  },
   {
     id: "healthcare",
     tab: "Healthcare",
     title: "Payers, Providers, Life Sciences",
     trustedLabel: "Trusted by Softree partners:",
     bg: `${KORE_CDN}/68c19a3bfda82c7f2e12c79a_healthcarehome.avif`,
+    link: "/industries/healthcare-ai-solutions",
+  },
+  {
+    id: "logistics",
+    tab: "Logistics",
+    title: "Logistics, Supply Chain, and Transportation",
+    trustedLabel: "Trusted by Softree partners:",
+    bg: `${KORE_CDN}/68c1998017adc89faa49388c_fshome.avif`,
+  },
+  {
+    id: "banking",
+    tab: "Banking",
+    title: "Banks, Credit Unions, Financial Institutions",
+    trustedLabel: "Trusted by Softree partners:",
+    bg: `${KORE_CDN}/68c1998017adc89faa49388c_fshome.avif`,
   },
   {
     id: "retail",
@@ -100,12 +109,10 @@ function SoftreePartnerStrip() {
   );
 
   return (
-    <div className="overflow-hidden rounded-md border border-white/20 bg-white/35 p-2 backdrop-blur-sm">
-      <div
-        className={`softree-partner-marquee inline-flex w-max gap-2 ${reduced ? "flex-wrap justify-center" : ""}`}
-      >
+    <div className="relative mt-4 flex w-full overflow-hidden rounded-md bg-white/40 p-2 backdrop-blur-md">
+      <div className={reduced ? "flex gap-2" : "softree-partner-marquee"}>
         {track.map((logo, i) => (
-          <PartnerLogoTile key={`${logo.src}-${i}`} src={logo.src} alt={logo.name} />
+          <PartnerLogoTile key={`${logo.name}-${i}`} src={logo.src} alt={logo.name} />
         ))}
       </div>
     </div>
@@ -114,7 +121,7 @@ function SoftreePartnerStrip() {
 
 export default function IndustrySoftree() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const sectionRef = useRef<HTMLElement | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const cardRefs = useRef<Array<HTMLDivElement | null>>([]);
   const reduced = useReducedMotion();
@@ -156,7 +163,8 @@ export default function IndustrySoftree() {
     >
       <div className="relative mx-auto w-full max-w-[1600px] px-6 sm:px-8 lg:px-12">
         <div className="grid gap-8 lg:grid-cols-[minmax(280px,320px)_minmax(0,1fr)] xl:gap-10">
-          {/* Left — Kore-style copy column (plain white panel) */}
+
+          {/* Left Sidebar */}
           <motion.aside
             className="flex min-h-[420px] flex-col justify-between rounded-2xl border border-[#0a0a1a]/[0.08] bg-white px-6 py-8 md:px-8 md:py-9 lg:min-h-[470px]"
             initial={REVEAL.up.initial}
@@ -171,20 +179,18 @@ export default function IndustrySoftree() {
               </div>
               <h2
                 id="enterprise-industries-heading"
-                className="max-w-[16ch] text-[1.85rem] font-extrabold leading-[1.1] tracking-[-0.03em] text-[#0a0a1a] md:text-[2.05rem]"
+                className="max-w-[16ch] text-[1.65rem] font-extrabold leading-[1.1] tracking-[-0.03em] text-[#0a0a1a] md:text-[1.8rem]"
               >
-                We&apos;ve built our business by serving global enterprises
+                Engineering solutions for real-world industries
               </h2>
-              <p className="text-[15px] lg:text-base leading-relaxed text-[#0a0a1a]/55">
-                Engineering partners for regulated teams — Microsoft, industrial,
-                and product-led organisations worldwide.
+              <p className="text-[14px] lg:text-[15px] leading-relaxed text-[#0a0a1a]/55">
+                From healthcare and logistics to retail, telecom, and business, we understand the technology challenges shaping modern organizations.
               </p>
             </div>
 
-            <div className="mt-10 space-y-6">
-              <p className="max-w-[26ch] text-[0.95rem] leading-relaxed text-[#0a0a1a]/60">
-                Discover how enterprises partner with Softree for delivery you
-                can audit, scale, and own.
+            <div className="mt-8 space-y-5">
+              <p className="max-w-[26ch] text-[0.9rem] leading-relaxed text-[#0a0a1a]/60">
+                Explore how Softree applies engineering expertise to solve industry-specific problems and create measurable impact.
               </p>
 
               <div className="rounded-lg border border-dashed border-[#0a0a1a]/20 bg-[#FAFAF9] p-4">
@@ -219,11 +225,10 @@ export default function IndustrySoftree() {
                     aria-selected={selected}
                     aria-controls={`industry-panel-${panel.id}`}
                     onClick={() => activateTab(index)}
-                    className={`rounded-full border px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.11em] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1852FF] ${
-                      selected
-                        ? "border-[#0a0a1a] bg-[#0a0a1a] text-white"
-                        : "border-[#0a0a1a]/15 bg-white text-[#0a0a1a]/60 hover:border-[#0a0a1a]/30 hover:text-[#0a0a1a]/85"
-                    }`}
+                    className={`rounded-full border px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.11em] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1852FF] ${selected
+                      ? "border-[#0a0a1a] bg-[#0a0a1a] text-white"
+                      : "border-[#0a0a1a]/15 bg-white text-[#0a0a1a]/60 hover:border-[#0a0a1a]/30 hover:text-[#0a0a1a]/85"
+                      }`}
                   >
                     {panel.tab}
                   </button>
@@ -266,6 +271,10 @@ export default function IndustrySoftree() {
                     aria-hidden
                     className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/40"
                   />
+
+                  {panel.link && (
+                    <Link href={panel.link} className="absolute inset-0 z-20" aria-label={`Learn more about ${panel.title}`} prefetch={true} />
+                  )}
 
                   <div className="relative z-10 flex h-full flex-col justify-between p-6 md:p-7">
                     <div>

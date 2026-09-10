@@ -867,8 +867,8 @@ export default function WhySoftreeCurtainSlider() {
 
           {/* React/Framer Motion Data Overlay (Bullets & Cards) */}
           <div
-            className="react-overlay absolute inset-0 lg:left-auto lg:w-[45%] p-4 md:p-10 lg:p-12 lg:pr-16 flex flex-col pointer-events-none z-10"
-            style={{ justifyContent: 'flex-end', paddingBottom: '140px' }}
+            className="react-overlay hidden lg:flex absolute inset-0 lg:left-auto lg:w-[46%] xl:w-[40%] 2xl:w-[38%] p-4 md:p-8 lg:p-8 lg:pr-12 flex-col pointer-events-none z-10"
+            style={{ justifyContent: 'center', paddingBottom: '100px' }}
           >
             <AnimatePresence mode="wait">
               <motion.div
@@ -885,28 +885,28 @@ export default function WhySoftreeCurtainSlider() {
                     <span className="w-1.5 h-1.5 rounded-full bg-orange-400 shadow-[0_0_6px_#FF5812]" />
                     SYSTEM CAPABILITY
                   </div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl lg:text-[25px] leading-[1.25] font-bold text-white tracking-tight drop-shadow-xl">
+                  <h3 className="text-lg sm:text-xl md:text-2xl lg:text-[22px] xl:text-[24px] leading-[1.25] font-bold text-white tracking-tight drop-shadow-xl">
                     {activeData.heading}
                   </h3>
-                  <p className="text-xs sm:text-[13px] md:text-sm text-slate-300 mt-1 leading-relaxed drop-shadow">
+                  <p className="text-xs sm:text-[13px] md:text-[13px] text-slate-300 mt-1 leading-relaxed drop-shadow">
                     {activeData.subheading}
                   </p>
                 </div>
 
                 {/* 2x2 Architectural Capability Matrix */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 md:gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-2.5 mt-2">
                   {activeData.capabilities.map((cap, idx) => (
                     <div
                       key={idx}
-                      className="bg-black/45 backdrop-blur-xl border border-white/10 hover:border-orange-500/40 rounded-xl p-3 md:p-3.5 transition-all duration-300 shadow-lg group"
+                      className="bg-black/45 backdrop-blur-xl border border-white/10 hover:border-orange-500/40 rounded-xl p-2.5 md:p-3 transition-all duration-300 shadow-lg group"
                     >
-                      <div className="flex items-center gap-2 mb-1">
+                      <div className="flex items-center gap-1.5 mb-1">
                         <div className="w-5 h-5 rounded-md bg-orange-500/20 border border-orange-500/40 flex items-center justify-center text-orange-400 shrink-0 group-hover:scale-110 transition-transform">
                           {getCapabilityIcon(cap.iconType)}
                         </div>
-                        <span className="text-white font-semibold text-xs md:text-sm tracking-tight">{cap.title}</span>
+                        <span className="text-white font-semibold text-[11px] md:text-xs tracking-tight">{cap.title}</span>
                       </div>
-                      <p className="text-slate-300 text-[11px] md:text-xs leading-snug pl-7">
+                      <p className="text-slate-300 text-[10px] md:text-[11px] leading-snug pl-6.5">
                         {cap.desc}
                       </p>
                     </div>
@@ -914,51 +914,51 @@ export default function WhySoftreeCurtainSlider() {
                 </div>
 
                 {/* Bottom Enterprise Benchmark & Action Card */}
-                <div className="bg-black/55 backdrop-blur-2xl border border-white/15 hover:border-orange-500/40 rounded-xl lg:rounded-2xl p-3.5 sm:p-4 lg:p-4.5 relative overflow-hidden shadow-2xl transition-all duration-300">
+                <div className="bg-black/55 backdrop-blur-2xl border border-white/15 hover:border-orange-500/40 rounded-xl lg:rounded-2xl p-3 sm:p-3.5 lg:p-4 relative overflow-hidden shadow-2xl transition-all duration-300 mt-3 md:mt-4">
                   {/* Glowing Top Hairline */}
                   <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-orange-500 via-amber-300/60 to-transparent" />
 
                   {/* Header Row: Status Badge & Tech Stack */}
-                  <div className="flex items-center justify-between gap-2 mb-2 pb-2 border-b border-white/10">
-                    <div className="flex items-center gap-2">
-                      <span className="relative flex h-2 w-2">
+                  <div className="flex items-center justify-between gap-1.5 mb-1.5 pb-1.5 border-b border-white/10">
+                    <div className="flex items-center gap-1.5">
+                      <span className="relative flex h-1.5 w-1.5">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 shadow-[0_0_8px_#10B981]" />
+                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500 shadow-[0_0_8px_#10B981]" />
                       </span>
-                      <span className="text-emerald-400 text-[10px] font-mono font-bold tracking-wider uppercase">
+                      <span className="text-emerald-400 text-[9px] font-mono font-bold tracking-wider uppercase">
                         {activeData.card.statusBadge}
                       </span>
                     </div>
-                    <span className="text-slate-300 bg-white/[0.06] border border-white/10 px-2.5 py-0.5 rounded-full text-[10px] font-mono tracking-wide truncate max-w-[200px] sm:max-w-none">
+                    <span className="text-slate-300 bg-white/[0.06] border border-white/10 px-2 py-0.5 rounded-full text-[9px] font-mono tracking-wide truncate max-w-[200px] sm:max-w-none">
                       {activeData.card.stack}
                     </span>
                   </div>
 
                   {/* Outcome Title & Impact Statement */}
-                  <div className="mb-2.5">
-                    <div className="text-white font-bold text-sm lg:text-[15px] tracking-tight mb-0.5">
+                  <div className="mb-2">
+                    <div className="text-white font-bold text-[13px] lg:text-sm tracking-tight mb-0.5">
                       {activeData.card.outcomeTitle}
                     </div>
-                    <p className="text-slate-300 text-[11px] lg:text-xs leading-relaxed">
+                    <p className="text-slate-300 text-[10px] lg:text-[11px] leading-relaxed">
                       {activeData.card.outcomeDesc}
                     </p>
                   </div>
 
                   {/* Metrics & Action Link Row */}
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-2 border-t border-white/10">
-                    <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-                      <div className="flex items-baseline gap-1.5">
-                        <span className="text-orange-400 font-extrabold text-sm lg:text-base font-mono">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-1.5 border-t border-white/10">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-orange-400 font-extrabold text-[13px] lg:text-sm font-mono">
                           {activeData.card.metricValue}
                         </span>
-                        <span className="text-slate-400 text-[10px] font-mono uppercase">
+                        <span className="text-slate-400 text-[9px] font-mono uppercase">
                           {activeData.card.metricLabel}
                         </span>
                       </div>
                       {activeData.card.metricSecondary && (
                         <>
-                          <span className="text-white/20 text-xs hidden sm:inline">•</span>
-                          <span className="text-slate-300 text-[10px] sm:text-[11px] font-mono">
+                          <span className="text-white/20 text-[10px] hidden sm:inline">•</span>
+                          <span className="text-slate-300 text-[9px] sm:text-[10px] font-mono">
                             {activeData.card.metricSecondary}
                           </span>
                         </>

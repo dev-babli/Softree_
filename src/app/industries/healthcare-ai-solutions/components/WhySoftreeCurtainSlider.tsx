@@ -864,7 +864,10 @@ export default function WhySoftreeCurtainSlider() {
           </div>
 
           {/* Right Side: Advanced AI Architecture Overlay (2x2 Matrix & Telemetry HUD Card) */}
-          <div className="react-overlay absolute inset-0 lg:left-auto lg:w-[48%] xl:w-[46%] p-4 sm:p-6 md:p-10 lg:p-12 lg:pr-14 flex flex-col justify-end lg:justify-center pointer-events-none z-10 pb-[100px] md:pb-[110px] lg:pb-0 pt-[140px] md:pt-[160px] lg:pt-0">
+          <div
+            className="react-overlay absolute inset-0 lg:left-auto lg:w-[50%] xl:w-[45%] p-4 md:p-10 lg:p-12 lg:pr-16 flex flex-col pointer-events-none z-10"
+            style={{ justifyContent: 'center', paddingBottom: '80px' }}
+          >
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeData.id}

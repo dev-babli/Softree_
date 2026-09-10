@@ -453,10 +453,10 @@ export default function EngineeringSolutionsSection() {
                             accent={ACCENT_ORANGE}
                             headline={
                                 <span id="engineering-solutions-heading">
-                                    Engineering solutions built for impact
+                                    Engineering Capabilities Built to Scale
                                 </span>
                             }
-                            body="From intelligent applications to cloud platforms — scalable, secure, and aligned with how enterprise teams actually ship."
+                            body="From AI platforms and Power Platform solutions to AI testing, data engineering, and modern application development — we help teams build, validate, modernize, and scale."
                             className="gap-4 [&_h2]:!text-[clamp(1.625rem,2.6vw,2.35rem)] [&_h2]:!leading-[1.08] [&_h2]:!tracking-[-0.035em] [&_p]:!max-w-[46ch] [&_p]:!text-[15px] [&_p]:!leading-[1.6]"
                         />
                     </motion.div>
@@ -555,7 +555,7 @@ export default function EngineeringSolutionsSection() {
                                     <CodeBracketsIcon className="h-4 w-4" />
                                 </div>
                                 <h3 className="text-[1.0625rem] font-semibold leading-tight tracking-[-0.02em] text-white sm:text-[1.125rem]">
-                                    Engineering Platform
+                                    AI Platforms & Intelligent Systems
                                 </h3>
                                 <span
                                     className="inline-flex items-center rounded-full px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.14em] ring-1"
@@ -565,13 +565,12 @@ export default function EngineeringSolutionsSection() {
                                         borderColor: "rgba(255,88,18,0.35)",
                                     }}
                                 >
-                                    Core
+                                    AI Core
                                 </span>
                             </div>
 
                             <p className="mt-2 max-w-[36ch] text-pretty text-[0.875rem] leading-[1.58] text-white/72 sm:text-[0.9375rem]">
-                                Our engineering foundation powers everything we build — secure,
-                                scalable, and efficient.
+                                Build and extend AI platforms, copilots, agents, and intelligent applications that solve real business problems.
                             </p>
 
                             <div className="mt-3">
@@ -599,23 +598,23 @@ export default function EngineeringSolutionsSection() {
                             <div className="mt-0 grid grid-cols-2 gap-x-2.5 gap-y-3 border-t border-white/[0.08] pt-3.5 sm:grid-cols-4">
                                 <Pillar
                                     icon={<ShieldIcon className="h-3.5 w-3.5" />}
-                                    title="Security First"
-                                    desc="Enterprise-grade protection"
+                                    title="Agentic AI"
+                                    desc="Intelligent workflows"
                                 />
                                 <Pillar
                                     icon={<ScaleIcon className="h-3.5 w-3.5" />}
-                                    title="Scalable by Design"
-                                    desc="Built to grow with your business"
+                                    title="Generative AI"
+                                    desc="Foundation models"
                                 />
                                 <Pillar
                                     icon={<LayersIcon className="h-3.5 w-3.5" />}
-                                    title="Modern Stack"
-                                    desc="Latest technologies and best practices"
+                                    title="RAG"
+                                    desc="Knowledge retrieval"
                                 />
                                 <Pillar
                                     icon={<BoltIcon className="h-3.5 w-3.5" />}
-                                    title="Performance Optimized"
-                                    desc="Speed, reliability, and efficiency"
+                                    title="AI Automation"
+                                    desc="Process efficiency"
                                 />
                             </div>
                         </div>
@@ -626,21 +625,17 @@ export default function EngineeringSolutionsSection() {
                      *  content while the column itself can fill the dark
                      *  card's height (`lg:items-stretch` on the parent). */}
                     <div className="flex min-w-0 flex-col gap-3 lg:col-span-7">
-                        {/* AI & Intelligent Systems — full width.
-                         * Brief calls for "visual occupies 60% of the card",
-                         * so this card overrides the default split with a
-                         * 38% text / 62% illustration grid. */}
                         <CapabilityCard
                             iconBg="rgba(24,82,255,0.1)"
                             iconColor={ACCENT_BLUE}
                             icon={<BrainIcon className="h-5 w-5" />}
-                            title="AI & Intelligent Systems"
-                            description="Build intelligent applications that learn, adapt, and create real business value."
+                            title="Microsoft Power Platform"
+                            description="Build business solutions with Microsoft Power Platform to automate processes, connect data, and accelerate digital transformation."
                             chips={[
-                                "Machine Learning",
-                                "NLP",
-                                "Computer Vision",
-                                "Generative AI",
+                                "Power Apps",
+                                "Power Automate",
+                                "Copilot Studio",
+                                "Dataverse",
                             ]}
                             illustration={
                                 <AICubeIllustration className="mx-auto w-full max-w-[280px] sm:max-w-[300px]" />
@@ -658,7 +653,7 @@ export default function EngineeringSolutionsSection() {
                                 iconColor="#14B8A6"
                                 icon={<ChartIcon className="h-5 w-5" />}
                                 title="Data & Analytics"
-                                description="Transform your data into actionable insights with modern data engineering and analytics."
+                                description="Turn enterprise data into trusted insights and scalable data solutions that support better decisions."
                                 chips={["Data Engineering", "BI & Analytics", "Data Platforms"]}
                                 illustration={
                                     <DataAnalyticsIllustration className="mx-auto w-full max-w-[150px] sm:max-w-[165px]" />
@@ -669,9 +664,9 @@ export default function EngineeringSolutionsSection() {
                                 iconBg="rgba(255,88,18,0.1)"
                                 iconColor={ACCENT_ORANGE}
                                 icon={<CloudIcon className="h-5 w-5" />}
-                                title="Cloud & Infrastructure"
-                                description="Scalable, secure, and cost-optimized cloud solutions built for performance."
-                                chips={["AWS", "Azure", "GCP", "DevOps"]}
+                                title="AI Testing & Quality Engineering"
+                                description="Validate AI-powered applications and intelligent systems for quality, reliability, performance, and real-world readiness."
+                                chips={["AI Testing", "LLM Testing", "Agent Testing", "Automation Testing"]}
                                 illustration={
                                     <CloudInfraIllustration className="mx-auto w-full max-w-[150px] sm:max-w-[165px]" />
                                 }
@@ -686,13 +681,13 @@ export default function EngineeringSolutionsSection() {
                             iconBg="rgba(139,92,246,0.14)"
                             iconColor="#8B5CF6"
                             icon={<GridIcon className="h-5 w-5" />}
-                            title="Digital Products & Platforms"
-                            description="End-to-end product engineering for web, mobile, and enterprise platforms."
+                            title="Modern Application Engineering"
+                            description="Design, build, modernize, and scale web, mobile, API, and enterprise applications."
                             chips={[
                                 "Web Applications",
-                                "Mobile Apps",
-                                "SaaS Platforms",
-                                "Enterprise Solutions",
+                                "APIs",
+                                "Cloud Applications",
+                                "Application Modernization",
                             ]}
                             illustration={
                                 <DigitalProductsIllustration className="mx-auto w-full max-w-[260px] sm:max-w-[280px]" />

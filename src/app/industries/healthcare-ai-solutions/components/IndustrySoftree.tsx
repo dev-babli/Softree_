@@ -23,22 +23,31 @@ type Panel = {
   subtitle?: string;
   trustedLabel: string;
   bg: string;
+  link?: string;
 };
 
 const PANELS: Panel[] = [
-  {
-    id: "banking",
-    tab: "Banking",
-    title: "Banks, Credit Unions, Financial Institutions",
-    trustedLabel: "Trusted by Softree partners:",
-    bg: `${KORE_CDN}/68c1998017adc89faa49388c_fshome.avif`,
-  },
   {
     id: "healthcare",
     tab: "Healthcare",
     title: "Payers, Providers, Life Sciences",
     trustedLabel: "Trusted by Softree partners:",
     bg: `${KORE_CDN}/68c19a3bfda82c7f2e12c79a_healthcarehome.avif`,
+    link: "/industries/healthcare-ai-solutions",
+  },
+  {
+    id: "logistics",
+    tab: "Logistics",
+    title: "Logistics, Supply Chain, and Transportation",
+    trustedLabel: "Trusted by Softree partners:",
+    bg: `${KORE_CDN}/68c1998017adc89faa49388c_fshome.avif`,
+  },
+  {
+    id: "banking",
+    tab: "Banking",
+    title: "Banks, Credit Unions, Financial Institutions",
+    trustedLabel: "Trusted by Softree partners:",
+    bg: `${KORE_CDN}/68c1998017adc89faa49388c_fshome.avif`,
   },
   {
     id: "retail",
@@ -164,26 +173,25 @@ export default function IndustrySoftree() {
             transition={{ duration: DUR.section, ease: EASE_T.silk }}
           >
             <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-200 bg-orange-50 text-[10px] sm:text-[11px] font-bold tracking-widest text-[#FF6B00] uppercase mb-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
-                GLOBAL REACH
+              <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-3.5 py-1 rounded-full border border-white/60 mb-2 inline-block w-fit">
+                <span className="text-[11px] font-bold text-[#FF6B2C] tracking-widest uppercase">
+                  INDUSTRIES WE SERVE
+                </span>
               </div>
               <h2
                 id="enterprise-industries-heading"
-                className="max-w-[16ch] text-[1.85rem] font-semibold leading-[1.06] tracking-[-0.03em] text-[#0a0a1a] md:text-[2.05rem]"
+                className="max-w-[16ch] text-[1.85rem] font-extrabold leading-[1.06] tracking-[-0.03em] text-[#0a0a1a] md:text-[2.05rem]"
               >
-                We&apos;ve built our business by serving global enterprises
+                Engineering solutions for real-world industries
               </h2>
               <p className="text-[1rem] leading-relaxed text-[#0a0a1a]/55">
-                Engineering partners for regulated teams — Microsoft, industrial,
-                and product-led organisations worldwide.
+                From healthcare and logistics to retail, telecom, and business, we understand the technology challenges shaping modern organizations.
               </p>
             </div>
 
             <div className="mt-10 space-y-6">
               <p className="max-w-[26ch] text-[0.95rem] leading-relaxed text-[#0a0a1a]/60">
-                Discover how enterprises partner with Softree for delivery you
-                can audit, scale, and own.
+                Explore how Softree applies engineering expertise to solve industry-specific problems and create measurable impact.
               </p>
 
               <div className="rounded-lg border border-dashed border-[#0a0a1a]/20 bg-[#FAFAF9] p-4">
@@ -218,11 +226,10 @@ export default function IndustrySoftree() {
                     aria-selected={selected}
                     aria-controls={`industry-panel-${panel.id}`}
                     onClick={() => activateTab(index)}
-                    className={`rounded-full border px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.11em] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1852FF] ${
-                      selected
-                        ? "border-[#0a0a1a] bg-[#0a0a1a] text-white"
-                        : "border-[#0a0a1a]/15 bg-white text-[#0a0a1a]/60 hover:border-[#0a0a1a]/30 hover:text-[#0a0a1a]/85"
-                    }`}
+                    className={`rounded-full border px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.11em] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1852FF] ${selected
+                      ? "border-[#0a0a1a] bg-[#0a0a1a] text-white"
+                      : "border-[#0a0a1a]/15 bg-white text-[#0a0a1a]/60 hover:border-[#0a0a1a]/30 hover:text-[#0a0a1a]/85"
+                      }`}
                   >
                     {panel.tab}
                   </button>
@@ -265,6 +272,10 @@ export default function IndustrySoftree() {
                     aria-hidden
                     className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/40"
                   />
+
+                  {panel.link && (
+                    <Link href={panel.link} className="absolute inset-0 z-20" aria-label={`Learn more about ${panel.title}`} prefetch={true} />
+                  )}
 
                   <div className="relative z-10 flex h-full flex-col justify-between p-6 md:p-7">
                     <div>

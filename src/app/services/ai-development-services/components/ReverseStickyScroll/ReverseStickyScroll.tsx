@@ -96,6 +96,15 @@ export const ReverseStickyScroll = () => {
       {[
         {
           num: "01",
+          title: "Agentic AI",
+          titleSplit: "Agentic<br />AI",
+          desc: "Build enterprise Agentic AI solutions that can reason, plan, use tools, adapt to changing conditions, and autonomously execute complex business workflows with minimal human intervention.",
+          bg: "#ff7b00",
+          text: "#ffffff",
+          link: "/services/agentic-ai"
+        },
+        {
+          num: "02",
           title: "Generative AI",
           titleSplit: "Generative<br />AI",
           desc: "Build enterprise generative AI applications, custom foundation models, and intelligent capabilities to deliver smarter user experiences and automated decision-making.",
@@ -103,7 +112,7 @@ export const ReverseStickyScroll = () => {
           link: "/services/generative-ai"
         },
         {
-          num: "02",
+          num: "03",
           title: "Azure OpenAI",
           titleSplit: "Azure<br />OpenAI",
           desc: "Build secure, production-ready Azure OpenAI solutions—custom GPT apps, enterprise RAG, Microsoft copilots, and governed AI services deployed in your Microsoft ecosystem.",
@@ -111,7 +120,7 @@ export const ReverseStickyScroll = () => {
           link: "/solutions/azure-openai-development"
         },
         {
-          num: "03",
+          num: "04",
           title: "AI Agents",
           titleSplit: "AI<br />Agents",
           desc: "Build intelligent AI agents that understand business goals, reason through tasks, make decisions, use tools, access enterprise data, and autonomously execute multi-step workflows.",
@@ -119,7 +128,7 @@ export const ReverseStickyScroll = () => {
           link: "/solutions/ai-agents-development"
         },
         {
-          num: "04",
+          num: "05",
           title: "Multi-Agent Systems",
           titleSplit: "Multi-Agent<br />Systems",
           desc: "Design multi-agent AI systems where specialized agents collaborate, exchange information, and coordinate complex tasks to automate end-to-end business processes.",
@@ -127,7 +136,7 @@ export const ReverseStickyScroll = () => {
           link: "/solutions/multi-agent-systems"
         },
         {
-          num: "05",
+          num: "06",
           title: "AI Copilots",
           titleSplit: "AI<br />Copilots",
           desc: "Develop context-aware AI copilots that assist employees and customers with real-time guidance, knowledge access, decision support, and task execution across business applications.",
@@ -135,7 +144,7 @@ export const ReverseStickyScroll = () => {
           link: "/solutions/ai-copilot-development"
         },
         {
-          num: "06",
+          num: "07",
           title: "RAG & Enterprise Knowledge",
           titleSplit: "RAG &<br />Enterprise<br />Knowledge",
           desc: "Build secure Retrieval-Augmented Generation (RAG) solutions that connect AI models with enterprise documents, databases, knowledge bases, and business data for accurate, grounded responses.",
@@ -143,7 +152,7 @@ export const ReverseStickyScroll = () => {
           link: "/solutions/enterprise-rag-development"
         },
         {
-          num: "07",
+          num: "08",
           title: "AI Workflow Automation",
           titleSplit: "AI Workflow<br />Automation",
           desc: "Combine AI agents, machine learning, and workflow automation to streamline complex business processes, reduce manual effort, improve efficiency, and accelerate operations.",
@@ -160,11 +169,11 @@ export const ReverseStickyScroll = () => {
             </div>
             <hr className="rss_hr w-full" />
             <p className="rss_sub text-left">{card.desc}</p>
-            
+
             <div className="rss_btn_wrap mt-auto pt-10 flex justify-start w-full relative z-30 pointer-events-auto">
-              <Link 
+              <Link
                 href={card.link}
-                prefetch={false}
+                prefetch={true}
                 className="inline-flex items-center gap-2 px-8 py-3.5 border rounded-full text-[15px] font-semibold tracking-wide transition-all duration-300 hover:opacity-75 hover:scale-105 active:scale-95 cursor-pointer pointer-events-auto select-auto"
                 style={{ borderColor: card.text, color: card.text }}
               >

@@ -245,14 +245,14 @@ export default function PartnerShowcase() {
               <div className="space-y-2">
                 <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-4 py-1.5 rounded-full border border-white/60 mb-2 inline-block w-fit">
                   <span className="text-[11px] font-bold text-[#FF6B2C] tracking-widest uppercase">
-                    OFFSHORE DELIVERY MODEL
+                    AI DEVELOPMENT DELIVERY MODEL
                   </span>
                 </div>
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight">
-                  OFFSHORE AI <span className="text-[#FF6B2C]">ENGINEERING TEAMS</span>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight uppercase">
+                  END-TO-END AI DEVELOPMENT & <span className="text-[#FF6B2C]">ENGINEERING SERVICES</span>
                 </h2>
                 <p className="text-[15px] lg:text-base text-slate-500 max-w-2xl leading-relaxed">
-                  End-to-end AI engineering excellence from strategy to production deployment.
+                  From AI strategy and architecture to development, testing, data, and cloud deployment, we deliver production-ready AI solutions.
                 </p>
               </div>
             </div>
@@ -273,169 +273,184 @@ export default function PartnerShowcase() {
               <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-orange-500/10 to-orange-500/5 pointer-events-none" />
 
               {/* Pipeline nodes flow */}
-              <div className="flex flex-wrap lg:flex-nowrap items-center justify-between gap-4 w-full text-center">
-                {[
-                  { name: "AI Architects", color: "text-orange-600" },
-                  { name: "AI Engineers", color: "text-orange-600" },
-                  { name: "Full-Stack Engineers", color: "text-orange-600" },
-                  { name: "Data Engineers", color: "text-orange-600" },
-                  { name: "QA & AI Testing", color: "text-orange-600" },
-                  { name: "Cloud / DevOps", color: "text-orange-600" }
-                ].map((node, nIdx) => (
-                  <React.Fragment key={nIdx}>
-                    <div className="flex-1 min-w-[120px] py-2.5 px-3 rounded-lg bg-white border border-orange-200/80 shadow-sm transition-colors hover:border-orange-400">
-                      <span className={`text-[12px] md:text-[13px] font-black uppercase tracking-wider ${node.color}`}>
-                        {node.name}
-                      </span>
-                    </div>
-                    {nIdx < 5 && (
-                      <div className="hidden lg:flex items-center justify-center w-6 h-6 rounded-full bg-white border border-orange-200 shadow-sm text-orange-400 shrink-0 select-none">
-                        <ChevronRight className="w-3.5 h-3.5" />
+              <div className="w-full overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                <div className="flex flex-nowrap items-center justify-between gap-4 min-w-[900px] w-full text-center pb-1">
+                  {[
+                    { name: "AI Architects", color: "text-orange-600" },
+                    { name: "AI Engineers", color: "text-orange-600" },
+                    { name: "Full-Stack Engineers", color: "text-orange-600" },
+                    { name: "Data Engineers", color: "text-orange-600" },
+                    { name: "QA & AI Testing", color: "text-orange-600" },
+                    { name: "Cloud / DevOps", color: "text-orange-600" }
+                  ].map((node, nIdx) => (
+                    <React.Fragment key={nIdx}>
+                      <div className="flex-1 min-w-[120px] py-2.5 px-3 rounded-lg bg-white border border-orange-200/80 shadow-sm transition-colors hover:border-orange-400">
+                        <span className={`text-[12px] md:text-[13px] font-black uppercase tracking-wider ${node.color}`}>
+                          {node.name}
+                        </span>
                       </div>
-                    )}
-                  </React.Fragment>
-                ))}
+                      {nIdx < 5 && (
+                        <div className="flex items-center justify-center w-6 h-6 rounded-full bg-white border border-orange-200 shadow-sm text-orange-400 shrink-0 select-none">
+                          <ChevronRight className="w-3.5 h-3.5" />
+                        </div>
+                      )}
+                    </React.Fragment>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
 
           {/* 6 Connected Role Nodes */}
-          <div className="relative z-10 flex flex-wrap lg:flex-nowrap items-stretch justify-between gap-6 lg:gap-3 py-4 w-full">
-            {teamRoles.map((item, idx) => (
-              <React.Fragment key={idx}>
-                {/* Role card node */}
-                <div className="flex flex-col items-center text-center flex-1 min-w-[150px] self-stretch">
-                  {/* Circle Node with glowing border */}
-                  <div className="relative shrink-0 mb-4">
-                    {/* Circle */}
-                    <div className={`flex h-[88px] w-[88px] items-center justify-center rounded-full bg-slate-50 border-2 ${item.color} shadow-sm transition-transform duration-300 hover:scale-105`}>
-                      {item.icon}
-                    </div>
-                    {/* Floating number badge */}
-                    <div className="absolute -top-1.5 -right-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-white border border-orange-200 text-[10px] font-black text-[#FF5812] shadow-[0_0_10px_rgba(255,88,18,0.15)]">
-                      {item.num}
-                    </div>
-                  </div>
-
-                  {/* Details */}
-                  <div className="w-full flex flex-col items-center flex-1">
-                    {/* Fixed-height role title container for seamless cross-column alignment */}
-                    <div className="min-h-[42px] flex items-center justify-center w-full px-1 mb-3 shrink-0">
-                      <span className="text-[13px] xl:text-[14px] font-black text-slate-900 uppercase tracking-wider text-center leading-tight">
-                        {item.role}
-                      </span>
+          <div className="w-full overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] -mx-4 px-4 sm:-mx-8 sm:px-8 lg:-mx-12 lg:px-12">
+            <div className="relative z-10 flex flex-nowrap items-stretch justify-between gap-4 py-4 min-w-[1100px] w-full">
+              {teamRoles.map((item, idx) => (
+                <React.Fragment key={idx}>
+                  {/* Role card node */}
+                  <div className="flex flex-col items-center text-center flex-1 min-w-[150px] self-stretch">
+                    {/* Circle Node with glowing border */}
+                    <div className="relative shrink-0 mb-4">
+                      {/* Circle */}
+                      <div className={`flex h-[88px] w-[88px] items-center justify-center rounded-full bg-slate-50 border-2 ${item.color} shadow-sm transition-transform duration-300 hover:scale-105`}>
+                        {item.icon}
+                      </div>
+                      {/* Floating number badge */}
+                      <div className="absolute -top-1.5 -right-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-white border border-orange-200 text-[10px] font-black text-[#FF5812] shadow-[0_0_10px_rgba(255,88,18,0.15)]">
+                        {item.num}
+                      </div>
                     </div>
 
-                    {/* Advanced Precision Engineering Card - Uniform Height */}
-                    <div className="w-full flex-1 rounded-2xl bg-white border border-slate-200/90 shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_28px_rgba(255,88,18,0.11)] hover:border-orange-300 transition-all duration-300 flex flex-col justify-between overflow-hidden group/card">
-                      {/* Top Dual-Tone Glowing Accent Stroke */}
-                      <div className="h-[3px] w-full bg-gradient-to-r from-orange-500 via-amber-400 to-[#FF5812] shrink-0" />
-
-                      {/* Micro Header Bar with Live Pulse & Category */}
-                      <div className="flex items-center justify-between px-2.5 py-1.5 border-b border-slate-100 bg-slate-50/60 shrink-0">
-                        <div className="flex items-center gap-1.5">
-                          <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-                          </span>
-                          <span className="text-[10px] xl:text-[10.5px] font-extrabold uppercase tracking-wider text-slate-600">
-                            {item.badge}
-                          </span>
-                        </div>
-                        <span className="text-[10px] font-bold font-mono text-orange-600 bg-orange-50 border border-orange-200/70 px-1.5 py-0.5 rounded leading-none">
-                          {item.num}
+                    {/* Details from Upstream */}
+                    <div className="w-full flex flex-col items-center flex-1">
+                      {/* Fixed-height role title container for seamless cross-column alignment */}
+                      <div className="min-h-[42px] flex items-center justify-center w-full px-1 mb-3 shrink-0">
+                        <span className="text-[13px] xl:text-[14px] font-black text-slate-900 uppercase tracking-wider text-center leading-tight">
+                          {item.role}
                         </span>
                       </div>
 
-                      {/* Capabilities Bullet Rows - Equal row height so all rows and footers align across cards */}
-                      <div className="p-2 xl:p-2.5 flex-1 flex flex-col justify-between">
-                        <ul className="flex flex-col gap-1.5 w-full flex-1">
-                          {item.bullets.map((bullet, bIdx) => (
-                            <li
-                              key={bIdx}
-                              className="group/item relative flex items-center gap-1.5 p-1.5 xl:p-2 rounded-lg bg-slate-50/80 hover:bg-gradient-to-r hover:from-orange-50/90 hover:via-white hover:to-orange-50/40 border border-slate-200/60 hover:border-orange-300/80 transition-all duration-200 cursor-default shadow-[0_1px_2px_rgba(0,0,0,0.015)] min-h-[40px] xl:min-h-[42px]"
-                            >
-                              {/* Left hairline accent revealed on hover */}
-                              <div className="absolute left-0 top-1 bottom-1 w-[2.5px] rounded-r-full bg-[#FF5812] opacity-0 group-hover/item:opacity-100 transition-opacity duration-200" />
+                      {/* Advanced Precision Engineering Card - Uniform Height */}
+                      <div className="w-full flex-1 rounded-2xl bg-white border border-slate-200/90 shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_28px_rgba(255,88,18,0.11)] hover:border-orange-300 transition-all duration-300 flex flex-col justify-between overflow-hidden group/card">
+                        {/* Top Dual-Tone Glowing Accent Stroke */}
+                        <div className="h-[3px] w-full bg-gradient-to-r from-orange-500 via-amber-400 to-[#FF5812] shrink-0" />
 
-                              {/* Futuristic micro-tech icon */}
-                              <div className="flex items-center justify-center w-4 h-4 rounded-[5px] bg-white border border-slate-200/90 group-hover/item:bg-[#FF5812] group-hover/item:border-[#FF5812] shadow-xs shrink-0 transition-all duration-200">
-                                <ChevronRight className="w-2.5 h-2.5 text-orange-500 group-hover/item:text-white stroke-[3] transition-colors duration-200" />
-                              </div>
-
-                              {/* Bullet text - strictly single/two lines without dots */}
-                              <span className="text-[11px] xl:text-[12px] font-bold text-slate-800 group-hover/item:text-slate-950 leading-tight tracking-tight text-left break-normal whitespace-normal">
-                                {bullet}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        {/* Card Footer: SLA / Experience Badge - Strictly single line */}
-                        <div className="mt-auto pt-2.5 border-t border-slate-100/80 flex items-center justify-between text-[9.5px] xl:text-[10px] px-0.5 whitespace-nowrap shrink-0">
-                          <span className="font-bold text-slate-500 flex items-center gap-1.5 whitespace-nowrap shrink-0">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#FF5812] shrink-0" />
-                            Dedicated
+                        {/* Micro Header Bar with Live Pulse & Category */}
+                        <div className="flex items-center justify-between px-2.5 py-1.5 border-b border-slate-100 bg-slate-50/60 shrink-0">
+                          <div className="flex items-center gap-1.5">
+                            <span className="relative flex h-2 w-2">
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                            </span>
+                            <span className="text-[10px] xl:text-[10.5px] font-extrabold uppercase tracking-wider text-slate-600">
+                              {item.badge}
+                            </span>
+                          </div>
+                          <span className="text-[10px] font-bold font-mono text-orange-600 bg-orange-50 border border-orange-200/70 px-1.5 py-0.5 rounded leading-none">
+                            {item.num}
                           </span>
-                          <span className="font-bold text-slate-800 font-mono bg-slate-100 border border-slate-200/60 px-1.5 py-0.5 rounded leading-none whitespace-nowrap shrink-0">
-                            {item.exp}
-                          </span>
+                        </div>
+
+                        {/* Capabilities Bullet Rows - Equal row height so all rows and footers align across cards */}
+                        <div className="p-2 xl:p-2.5 flex-1 flex flex-col justify-between">
+                          <ul className="flex flex-col gap-1.5 w-full flex-1">
+                            {item.bullets.map((bullet, bIdx) => (
+                              <li
+                                key={bIdx}
+                                className="group/item relative flex items-center gap-1.5 p-1.5 xl:p-2 rounded-lg bg-slate-50/80 hover:bg-gradient-to-r hover:from-orange-50/90 hover:via-white hover:to-orange-50/40 border border-slate-200/60 hover:border-orange-300/80 transition-all duration-200 cursor-default shadow-[0_1px_2px_rgba(0,0,0,0.015)] min-h-[40px] xl:min-h-[42px]"
+                              >
+                                {/* Left hairline accent revealed on hover */}
+                                <div className="absolute left-0 top-1 bottom-1 w-[2.5px] rounded-r-full bg-[#FF5812] opacity-0 group-hover/item:opacity-100 transition-opacity duration-200" />
+
+                                {/* Futuristic micro-tech icon */}
+                                <div className="flex items-center justify-center w-4 h-4 rounded-[5px] bg-white border border-slate-200/90 group-hover/item:bg-[#FF5812] group-hover/item:border-[#FF5812] shadow-xs shrink-0 transition-all duration-200">
+                                  <ChevronRight className="w-2.5 h-2.5 text-orange-500 group-hover/item:text-white stroke-[3] transition-colors duration-200" />
+                                </div>
+
+                                {/* Bullet text - strictly single/two lines without dots */}
+                                <span className="text-[11px] xl:text-[12px] font-bold text-slate-800 group-hover/item:text-slate-950 leading-tight tracking-tight text-left break-normal whitespace-normal">
+                                  {bullet}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+
+                          {/* Card Footer: SLA / Experience Badge - Strictly single line */}
+                          <div className="mt-auto pt-2.5 border-t border-slate-100/80 flex items-center justify-between text-[9.5px] xl:text-[10px] px-0.5 whitespace-nowrap shrink-0">
+                            <span className="font-bold text-slate-500 flex items-center gap-1.5 whitespace-nowrap shrink-0">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#FF5812] shrink-0" />
+                              Dedicated
+                            </span>
+                            <span className="font-bold text-slate-800 font-mono bg-slate-100 border border-slate-200/60 px-1.5 py-0.5 rounded leading-none whitespace-nowrap shrink-0">
+                              {item.exp}
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Advanced tech animated arrow connector between role nodes - Bold & Prominent */}
-                {idx < teamRoles.length - 1 && (
-                  <div className="hidden lg:flex items-center justify-center shrink-0 self-start mt-[26px] -mx-1 select-none">
-                    <div className="relative flex items-center justify-center">
-                      <svg width="76" height="36" viewBox="0 0 76 36" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-12 lg:w-14 xl:w-16 h-8 lg:h-9 overflow-visible">
-                        <defs>
-                          <linearGradient id={`arrowGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="#FF5812" stopOpacity="0.2" />
-                            <stop offset="50%" stopColor="#FF5812" stopOpacity="0.85" />
-                            <stop offset="100%" stopColor="#FF5812" stopOpacity="1" />
-                          </linearGradient>
-                          <filter id={`arrowGlow-${idx}`} x="-30%" y="-30%" width="160%" height="160%">
-                            <feGaussianBlur stdDeviation="2.5" result="blur" />
-                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                          </filter>
-                        </defs>
+                  {/* Advanced tech animated arrow connector between role nodes - Bold & Prominent */}
+                  {idx < teamRoles.length - 1 && (
+                    <div className="flex items-center justify-center shrink-0 self-start mt-[26px] -mx-1 select-none">
+                      <div className="relative flex items-center justify-center">
+                        <svg width="76" height="36" viewBox="0 0 76 36" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-12 lg:w-14 xl:w-16 h-8 lg:h-9 overflow-visible">
+                          <defs>
+                            <linearGradient id={`arrowGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                              <stop offset="0%" stopColor="#FF5812" stopOpacity="0.2" />
+                              <stop offset="50%" stopColor="#FF5812" stopOpacity="0.85" />
+                              <stop offset="100%" stopColor="#FF5812" stopOpacity="1" />
+                            </linearGradient>
+                            <filter id={`arrowGlow-${idx}`} x="-30%" y="-30%" width="160%" height="160%">
+                              <feGaussianBlur stdDeviation="2.5" result="blur" />
+                              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                            </filter>
+                          </defs>
 
-                        {/* Faint static guide track */}
-                        <line x1="4" y1="18" x2="48" y2="18" stroke="#FF5812" strokeWidth="2.5" strokeOpacity="0.2" strokeLinecap="round" />
+                          {/* Faint static guide track */}
+                          <line x1="4" y1="18" x2="48" y2="18" stroke="#FF5812" strokeWidth="2.5" strokeOpacity="0.2" strokeLinecap="round" />
 
-                        {/* Bold continuous flowing dashed laser */}
-                        <line
-                          x1="4"
-                          y1="18"
-                          x2="48"
-                          y2="18"
-                          stroke={`url(#arrowGrad-${idx})`}
-                          strokeWidth="3.5"
-                          strokeDasharray="6 5"
-                          strokeLinecap="round"
-                        >
-                          <animate attributeName="stroke-dashoffset" from="22" to="0" dur="0.85s" repeatCount="indefinite" />
-                        </line>
+                          {/* Bold continuous flowing dashed laser */}
+                          <line
+                            x1="4"
+                            y1="18"
+                            x2="48"
+                            y2="18"
+                            stroke={`url(#arrowGrad-${idx})`}
+                            strokeWidth="3.5"
+                            strokeDasharray="6 5"
+                            strokeLinecap="round"
+                          >
+                            <animate attributeName="stroke-dashoffset" from="22" to="0" dur="0.85s" repeatCount="indefinite" />
+                          </line>
 
-                        {/* Traveling photon beam particle */}
-                        <circle r="3.5" fill="#FF5812" filter={`url(#arrowGlow-${idx})`}>
-                          <animateMotion path="M 4 18 L 48 18" dur="1.1s" repeatCount="indefinite" />
-                          <animate attributeName="opacity" values="0;1;1;0" dur="1.1s" repeatCount="indefinite" />
-                        </circle>
+                          {/* Traveling photon beam particle */}
+                          <circle r="3.5" fill="#FF5812" filter={`url(#arrowGlow-${idx})`}>
+                            <animateMotion path="M 4 18 L 48 18" dur="1.1s" repeatCount="indefinite" />
+                            <animate attributeName="opacity" values="0;1;1;0" dur="1.1s" repeatCount="indefinite" />
+                          </circle>
 
-                        {/* Trailing chevron with subtle glow */}
-                        <g>
-                          <path d="M38 9L47 18L38 27" stroke="#FF5812" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                            <animate attributeName="opacity" values="0.35;0.95;0.35" dur="1.1s" repeatCount="indefinite" />
-                          </path>
-                        </g>
+                          {/* Trailing chevron with subtle glow */}
+                          <g>
+                            <path d="M38 9L47 18L38 27" stroke="#FF5812" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                              <animate attributeName="opacity" values="0.35;0.95;0.35" dur="1.1s" repeatCount="indefinite" />
+                            </path>
+                          </g>
 
-                        {/* Leading bold arrowhead with smooth glide */}
-                        <g>
-                          <path d="M49 7L60 18L49 29" stroke="#FF5812" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" filter={`url(#arrowGlow-${idx})`}>
+                          {/* Leading bold arrowhead with smooth glide */}
+                          <g>
+                            <path d="M49 7L60 18L49 29" stroke="#FF5812" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" filter={`url(#arrowGlow-${idx})`}>
+                              <animateTransform
+                                attributeName="transform"
+                                type="translate"
+                                values="0,0; 4,0; 0,0"
+                                dur="1.1s"
+                                repeatCount="indefinite"
+                              />
+                            </path>
+                          </g>
+
+                          {/* Pulsing leading energy tip */}
+                          <circle cx="60" cy="18" r="3" fill="#FF5812">
                             <animateTransform
                               attributeName="transform"
                               type="translate"
@@ -443,27 +458,16 @@ export default function PartnerShowcase() {
                               dur="1.1s"
                               repeatCount="indefinite"
                             />
-                          </path>
-                        </g>
-
-                        {/* Pulsing leading energy tip */}
-                        <circle cx="60" cy="18" r="3" fill="#FF5812">
-                          <animateTransform
-                            attributeName="transform"
-                            type="translate"
-                            values="0,0; 4,0; 0,0"
-                            dur="1.1s"
-                            repeatCount="indefinite"
-                          />
-                          <animate attributeName="r" values="2.5; 4.5; 2.5" dur="1.1s" repeatCount="indefinite" />
-                          <animate attributeName="opacity" values="0.8; 1; 0.8" dur="1.1s" repeatCount="indefinite" />
-                        </circle>
-                      </svg>
+                            <animate attributeName="r" values="2.5; 4.5; 2.5" dur="1.1s" repeatCount="indefinite" />
+                            <animate attributeName="opacity" values="0.8; 1; 0.8" dur="1.1s" repeatCount="indefinite" />
+                          </circle>
+                        </svg>
+                      </div>
                     </div>
-                  </div>
-                )}
-              </React.Fragment>
-            ))}
+                  )}
+                </React.Fragment>
+              ))}
+            </div>
           </div>
 
           {/* Connected timeline footer phase navigator */}
@@ -490,15 +494,15 @@ export default function PartnerShowcase() {
         </div>
 
         {/* Separator / Powered by microsoft AI tag bridge */}
-        <div className="relative flex items-center justify-center my-[-8px] z-20">
+        {/* <div className="relative flex items-center justify-center my-[-8px] z-20">
 
           <div className="relative bg-gradient-to-r from-orange-500 to-orange-600 border border-orange-400/30 text-[10px] tracking-[0.2em] font-black text-white px-6 py-2 rounded-full uppercase shadow-[0_0_20px_rgba(255,107,44,0.25)]">
-            POWERED BY MICROSOFT AI ECOSYSTEM
+            MICROSOFT AI ECOSYSTEM
           </div>
-        </div>
+        </div> */}
 
         {/* ==================== SECTION 08 — MICROSOFT AI ==================== */}
-        <MicrosoftAiShowcase />
+        {/* <MicrosoftAiShowcase /> */}
 
 
       </div>

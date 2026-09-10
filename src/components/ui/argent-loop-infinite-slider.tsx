@@ -15,58 +15,44 @@ export interface ProjectData {
 
 export const PROJECT_DATA: ProjectData[] = [
   {
-    title: "AI / Solution Architects",
+    title: "Amazon Bedrock & Model Intelligence",
     image:
       "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1600&q=80",
-    category: "Architecture & Strategy",
-    year: "Principal Level",
-    description: "Define AI architecture, enterprise strategy, agent workflows & compliance governance.",
-    badge: "System Design",
+    category: "01 — FOUNDATION MODEL ORCHESTRATION",
+    year: "Amazon Bedrock",
+    description:
+      "Design multi-model generative AI architectures with foundation model selection, prompt orchestration, model customization, inference optimization, guardrails, and enterprise knowledge integration.",
+    badge: "Bedrock Models",
   },
   {
-    title: "AI Engineers",
-    image:
-      "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1600&q=80",
-    category: "Agents & RAG Systems",
-    year: "Senior AI Talent",
-    description: "Build autonomous agents, hybrid RAG, orchestration tools & LLM evaluation frameworks.",
-    badge: "Core AI / LLMs",
-  },
-  {
-    title: "Full-Stack Engineers",
+    title: "Amazon SageMaker AI",
     image:
       "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1600&q=80",
-    category: "Applications & APIs",
-    year: "Full-Stack Specialist",
-    description: "Build high-throughput APIs, reactive interfaces, and intuitive enterprise AI copilot apps.",
-    badge: "Frontend & APIs",
+    category: "02 — AI ENGINEERING & MLOPS",
+    year: "AWS ML Platform",
+    description:
+      "Operationalize the complete AI lifecycle—from experimentation and model training to fine-tuning, evaluation, deployment, monitoring, governance, and continuous model optimization.",
+    badge: "SageMaker AI",
   },
   {
-    title: "Data Engineers",
-    image:
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1600&q=80",
-    category: "Pipelines & Retrieval",
-    year: "Data Platforms",
-    description: "Build scalable ETL pipelines, vector search nodes, and AI-ready high-fidelity databases.",
-    badge: "Data & Vectors",
-  },
-  {
-    title: "QA Engineers",
-    image:
-      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1600&q=80",
-    category: "Quality & Reliability",
-    year: "QA & Evaluation",
-    description: "Validate LLM outputs, guardrail constraints, security, latency, and automated testing.",
-    badge: "Benchmarking",
-  },
-  {
-    title: "Cloud & DevOps Engineers",
+    title: "Amazon Nova & Multimodal AI",
     image:
       "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80",
-    category: "Production MLOps",
-    year: "Cloud Infrastructure",
-    description: "Deploy, secure, monitor, scale, and orchestrate containerized AI pipelines on Azure / AWS.",
-    badge: "MLOps / K8s",
+    category: "03 — MULTIMODAL & GENERATIVE INTELLIGENCE",
+    year: "Amazon AI Models",
+    description:
+      "Build sophisticated AI experiences around language, vision, reasoning, and content generation, enabling intelligent applications to interpret and generate diverse forms of enterprise data.",
+    badge: "Amazon Nova",
+  },
+  {
+    title: "AI Agents & Enterprise Orchestration",
+    image:
+      "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1600&q=80",
+    category: "04 — AGENTIC AI & AUTONOMOUS WORKFLOWS",
+    year: "Agentic AI",
+    description:
+      "Develop context-aware AI agents capable of reasoning, retrieving enterprise knowledge, invoking tools and APIs, coordinating workflows, and taking governed actions across complex business environments.",
+    badge: "AI Agents",
   },
 ];
 
@@ -458,27 +444,9 @@ export function Component({
       ref={containerRef}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`parallax-container relative w-full overflow-hidden bg-black text-white select-none ${
-        className || "h-screen"
-      }`}
+      className={`parallax-container relative w-full overflow-hidden bg-black text-white select-none ${className || "h-screen"
+        }`}
     >
-      {/* Top Section Eyebrow & Headline HUD */}
-      {showOverlayHeader && (
-        <div className="absolute top-3 sm:top-6 left-1/2 -translate-x-1/2 z-20 text-center pointer-events-none w-[94vw] max-w-3xl px-2 sm:px-3">
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-0.5 sm:py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 mb-1 sm:mb-1.5">
-            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#FF6B2C] animate-pulse" />
-            <span className="text-[9.5px] sm:text-[11px] font-mono tracking-widest uppercase font-bold text-[#FF6B2C]">
-              OFFSHORE AI ENGINEERING TEAMS
-            </span>
-          </div>
-          <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight font-['Plus_Jakarta_Sans',sans-serif] drop-shadow-md">
-            Dedicated Offshore <span className="text-[#FF6B2C]">AI Engineering</span>
-          </h2>
-          <p className="text-[11px] sm:text-sm text-white/80 mt-0.5 sm:mt-1 max-w-xl mx-auto font-medium drop-shadow hidden xs:block">
-            Extend Your Team With Specialized AI Talent • Aligned with your tech stack
-          </p>
-        </div>
-      )}
 
       {/* Background Project Slides */}
       <ul className="project-list relative h-full w-full list-none p-0 m-0">
@@ -511,9 +479,9 @@ export function Component({
       </ul>
 
       {/* Center Luxury Editorial Card (Responsive: Vertical Stacked on Mobile, Swiss 3-Col on Desktop) */}
-      <div className="minimap pointer-events-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[370px] md:h-[390px] w-[94vw] max-w-[1040px] overflow-hidden bg-white/95 backdrop-blur-xl shadow-[0_35px_90px_-20px_rgba(0,0,0,0.55),0_0_1px_1px_rgba(255,255,255,0.9)_inset] rounded-2xl sm:rounded-3xl border border-white/60 z-20">
+      <div className="minimap pointer-events-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[440px] md:h-[390px] w-[94vw] max-w-[1040px] overflow-hidden bg-white/95 backdrop-blur-xl shadow-[0_35px_90px_-20px_rgba(0,0,0,0.55),0_0_1px_1px_rgba(255,255,255,0.9)_inset] rounded-2xl sm:rounded-3xl border border-white/60 z-20">
         <div className="minimap-wrapper relative h-full w-full">
-          
+
           {/* Centered Photo Preview with Inset Depth (Full height pillar on desktop, top banner on mobile) */}
           <div className="minimap-img-preview absolute inset-0 md:inset-auto md:left-1/2 md:top-0 md:-translate-x-1/2 md:w-[260px] lg:w-[280px] h-full overflow-hidden pointer-events-none">
             {indices.map((i) => {
@@ -607,16 +575,16 @@ export function Component({
                       </h3>
 
                       {/* Category Chip */}
-                      <div className="inline-flex items-center gap-1.5 mt-1 px-2 py-0.5 rounded-md bg-orange-500/[0.08] border border-orange-500/15 text-slate-800">
-                        <Sparkles className="w-3 h-3 text-[#FF6B2C] shrink-0" />
-                        <span className="text-[10px] xs:text-[11px] font-extrabold tracking-wider uppercase font-mono truncate">
+                      <div className="inline-flex items-start gap-1.5 mt-1 px-2 py-1.5 rounded-md bg-orange-500/[0.08] border border-orange-500/15 text-slate-800 max-w-full">
+                        <Sparkles className="w-3 h-3 text-[#FF6B2C] shrink-0 mt-[1.5px]" />
+                        <span className="text-[10px] xs:text-[11px] font-extrabold tracking-wider uppercase font-mono leading-tight">
                           {data.category}
                         </span>
                       </div>
                     </div>
 
                     {/* Description */}
-                    <p className="text-[11.5px] xs:text-xs text-slate-600 font-medium leading-relaxed line-clamp-2 my-1 border-l-2 border-[#FF6B2C] pl-2.5">
+                    <p className="text-[11.5px] xs:text-xs text-slate-600 font-medium leading-relaxed my-1 border-l-2 border-[#FF6B2C] pl-2.5">
                       {data.description}
                     </p>
 
@@ -627,7 +595,7 @@ export function Component({
                         <span>DEDICATED OFFSHORE</span>
                       </div>
 
-                      <FlowButton 
+                      <FlowButton
                         href="/contact"
                         text="Contact Us"
                         variant="orange-filled"
@@ -666,11 +634,10 @@ export function Component({
                             return (
                               <div
                                 key={idx}
-                                className={`h-1 rounded-full transition-all duration-300 ${
-                                  isActive
-                                    ? "w-5 sm:w-6 bg-gradient-to-r from-[#FF6B2C] to-amber-500 shadow-[0_0_6px_rgba(255,107,44,0.6)]"
-                                    : "w-1.5 sm:w-2 bg-slate-200"
-                                }`}
+                                className={`h-1 rounded-full transition-all duration-300 ${isActive
+                                  ? "w-5 sm:w-6 bg-gradient-to-r from-[#FF6B2C] to-amber-500 shadow-[0_0_6px_rgba(255,107,44,0.6)]"
+                                  : "w-1.5 sm:w-2 bg-slate-200"
+                                  }`}
                               />
                             );
                           })}
@@ -678,10 +645,10 @@ export function Component({
                       </div>
 
                       {/* Middle: Domain Pill with Icon */}
-                      <div className="my-auto py-2">
-                        <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-lg bg-orange-500/[0.08] border border-orange-500/20 text-slate-900 shadow-sm">
-                          <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FF6B2C] shrink-0" />
-                          <span className="text-[11px] sm:text-[13px] font-extrabold tracking-wider uppercase font-mono truncate">
+                      <div className="my-auto py-2 w-full">
+                        <div className="inline-flex items-start gap-2 px-3 sm:px-3.5 py-2 rounded-lg bg-orange-500/[0.08] border border-orange-500/20 text-slate-900 shadow-sm max-w-full">
+                          <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FF6B2C] shrink-0 mt-0.5" />
+                          <span className="text-[11px] sm:text-[12px] font-extrabold tracking-wider uppercase font-mono leading-snug">
                             {data.category}
                           </span>
                         </div>
@@ -689,7 +656,7 @@ export function Component({
 
                       {/* Bottom: Description with Orange Left Line */}
                       <div className="relative pl-3.5 sm:pl-4 border-l-[3px] border-[#FF6B2C]">
-                        <p className="text-xs sm:text-[14.5px] lg:text-[15.5px] text-slate-700 font-medium leading-relaxed line-clamp-3">
+                        <p className="text-xs sm:text-[14px] lg:text-[14.5px] text-slate-700 font-medium leading-relaxed">
                           {data.description}
                         </p>
                         <div className="flex items-center gap-2 mt-2.5 text-[10px] sm:text-[11px] font-mono font-bold text-emerald-600">
@@ -724,12 +691,12 @@ export function Component({
 
                       {/* Bottom: Contact Us Button & Verified Signature */}
                       <div className="flex flex-col items-end gap-2 sm:gap-2.5">
-                        <FlowButton 
+                        <FlowButton
                           href="/contact"
                           text="Contact Us"
                           variant="orange-filled"
                         />
-                       
+
                       </div>
                     </div>
                   </div>
@@ -775,11 +742,10 @@ export function Component({
               key={idx}
               type="button"
               onClick={() => goToSlide(idx)}
-              className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                activeIndex === idx
-                  ? "w-6 sm:w-7 bg-[#FF6B2C] shadow-[0_0_8px_#FF6B2C]"
-                  : "w-2 bg-white/40 hover:bg-white/70"
-              }`}
+              className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${activeIndex === idx
+                ? "w-6 sm:w-7 bg-[#FF6B2C] shadow-[0_0_8px_#FF6B2C]"
+                : "w-2 bg-white/40 hover:bg-white/70"
+                }`}
               aria-label={`Jump to role ${idx + 1}`}
             />
           ))}
@@ -794,16 +760,18 @@ export function Component({
         </div>
 
         {/* Bottom Floating CTA Bar */}
-        <div className="pointer-events-auto flex flex-col sm:flex-row items-center gap-2 sm:gap-5 px-4 sm:px-6 py-2 sm:py-2.5 rounded-2xl sm:rounded-full bg-black/85 backdrop-blur-md border border-white/20 shadow-2xl max-w-full">
-          <p className="text-[11px] sm:text-xs md:text-sm text-white/90 font-medium text-center line-clamp-1 sm:line-clamp-none">
-            A focused offshore AI engineering team that works as an extension of yours.
+        <div className="pointer-events-auto flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 px-5 sm:px-6 py-3 sm:py-2.5 rounded-2xl sm:rounded-full bg-black/85 backdrop-blur-md border border-white/20 shadow-2xl w-[90%] sm:w-auto max-w-full">
+          <p className="text-[12px] sm:text-xs md:text-sm text-white/90 font-medium text-center sm:text-left leading-snug sm:leading-normal">
+            Build and scale enterprise AI solutions across the AWS ecosystem.
           </p>
-          <FlowButton 
-            href="/contact"
-            text="Build Your Offshore AI Team"
-            variant="orange-filled"
-            className="shrink-0"
-          />
+          <div className="w-full sm:w-auto flex justify-center shrink-0">
+            <FlowButton
+              href="/contact"
+              text="Build Your AWS AI Solution"
+              variant="orange-filled"
+              className="w-full sm:w-auto whitespace-nowrap"
+            />
+          </div>
         </div>
       </div>
     </div>
