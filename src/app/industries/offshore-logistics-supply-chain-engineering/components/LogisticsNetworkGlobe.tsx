@@ -855,7 +855,6 @@ export default function NetworkGlobe({
                 </button>
               </div>
             </div>
-            <div className="caption">{caption}</div>
           </div>
         </div>
       </section>
