@@ -78,7 +78,7 @@ const slides = [
     ],
     image: "/images/ai-healthcare-images/aihealth-3.png"
   },
- 
+
 ];
 
 export default function AgenticAIWipeSlider() {
@@ -271,7 +271,7 @@ export default function AgenticAIWipeSlider() {
   const activeSlide = slides[activeIndex];
 
   return (
-    <section 
+    <section
       className="relative w-full min-h-[640px] sm:min-h-[700px] lg:h-[calc(100vh-4rem)] max-h-[920px] bg-[#09090B] overflow-hidden text-white font-sans flex flex-col justify-between select-none outline-none py-5 sm:py-7 lg:py-8"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -282,19 +282,19 @@ export default function AgenticAIWipeSlider() {
       {/* Background Wipe Layers */}
       <div className="absolute inset-0 w-full h-full">
         {slides.map((slide, i) => (
-          <div 
+          <div
             key={i}
             ref={(el) => { slideRefs.current[i] = el; }}
             className="absolute inset-0 w-full h-full overflow-hidden bg-black"
           >
             {/* Scaling Image */}
             <div className="absolute inset-0 w-full h-full overflow-hidden">
-              <div 
+              <div
                 ref={(el) => { bgRefs.current[i] = el; }}
                 className="absolute inset-0 w-full h-full transform-gpu origin-center"
               >
-                <Image 
-                  src={slide.image} 
+                <Image
+                  src={slide.image}
                   alt={slide.title}
                   fill
                   priority={i === 0 || i === 1}
@@ -311,7 +311,7 @@ export default function AgenticAIWipeSlider() {
 
       {/* Main Foreground Content (Unified Left Stage) */}
       <div className="relative z-30 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-[2cm] flex flex-col justify-between h-full pointer-events-auto">
-        
+
         {/* Top: Section Header */}
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF5812]/15 border border-[#FF5812]/35 backdrop-blur-md text-[#FF5812] text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] mb-2.5">
@@ -319,16 +319,16 @@ export default function AgenticAIWipeSlider() {
             CLINICAL AGENTIC AI
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[38px] font-extrabold font-['Plus_Jakarta_Sans',sans-serif] tracking-tight text-white drop-shadow-md leading-tight mb-2">
-            Build Medical AI That Can Think, Act, and Execute
+            Build Intelligent Clinical AI Agents for Healthcare
           </h2>
           <p className="text-xs sm:text-sm lg:text-[14.5px] text-white/75 font-normal leading-relaxed max-w-2xl">
-            Traditional medical AI often just generates answers. Clinical Agentic AI goes further. Medical AI agents can understand clinical goals, reason through patient data, use EHR tools, and execute multi-step healthcare workflows.
+            Build healthcare AI agents that go beyond generating answers. Our Clinical Agentic AI solutions understand clinical goals, reason across patient data, integrate with EHR systems, use healthcare tools, and execute complex, multi-step clinical workflows with intelligent automation.
           </p>
         </div>
 
         {/* Middle: Active Agentic Stage Glass Card */}
         <div className="my-auto py-3 max-w-2xl">
-          <div 
+          <div
             ref={cardRef}
             className="bg-[#0C0D12]/85 backdrop-blur-xl border border-white/15 rounded-2xl p-4 sm:p-5 lg:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.6)] relative overflow-hidden transition-all duration-300 hover:border-white/25"
           >
@@ -360,8 +360,8 @@ export default function AgenticAIWipeSlider() {
             {/* Feature Highlights Grid */}
             <div className="pt-3 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-2">
               {activeSlide.highlights.map((item, idx) => (
-                <div 
-                  key={idx} 
+                <div
+                  key={idx}
                   className="flex items-start gap-2 bg-white/[0.04] border border-white/[0.06] rounded-lg p-2 text-[11px] sm:text-xs text-white/80 leading-snug"
                 >
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#FF5812] shrink-0 mt-0.5" />
@@ -379,11 +379,10 @@ export default function AgenticAIWipeSlider() {
                 <button
                   key={idx}
                   onClick={() => goToSlide(idx, idx > activeIndex ? "next" : "prev")}
-                  className={`px-2.5 sm:px-3 py-1 rounded-lg text-[11px] sm:text-xs font-mono font-medium transition-all shrink-0 cursor-pointer ${
-                    isActive 
-                      ? "bg-[#FF5812] text-white shadow-md shadow-[#FF5812]/30 font-bold border border-[#FF5812]" 
+                  className={`px-2.5 sm:px-3 py-1 rounded-lg text-[11px] sm:text-xs font-mono font-medium transition-all shrink-0 cursor-pointer ${isActive
+                      ? "bg-[#FF5812] text-white shadow-md shadow-[#FF5812]/30 font-bold border border-[#FF5812]"
                       : "bg-white/[0.06] hover:bg-white/[0.12] text-white/60 hover:text-white border border-white/10"
-                  }`}
+                    }`}
                 >
                   {s.number} {s.title}
                 </button>
@@ -407,14 +406,14 @@ export default function AgenticAIWipeSlider() {
 
           {/* Center: Prev/Next Arrow Buttons */}
           <div className="flex items-center gap-2">
-            <button 
+            <button
               onClick={prevSlide}
               aria-label="Previous step"
               className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/[0.08] hover:bg-white/20 border border-white/15 backdrop-blur-md flex items-center justify-center text-white transition-colors cursor-pointer active:scale-95"
             >
               <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
-            <button 
+            <button
               onClick={nextSlide}
               aria-label="Next step"
               className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/[0.08] hover:bg-white/20 border border-white/15 backdrop-blur-md flex items-center justify-center text-white transition-colors cursor-pointer active:scale-95"
@@ -426,7 +425,7 @@ export default function AgenticAIWipeSlider() {
           {/* Right: Progress percentage & bar */}
           <div className="flex items-center gap-3">
             <div className="w-20 sm:w-28 h-1 bg-white/15 rounded-full overflow-hidden">
-              <div 
+              <div
                 ref={progressBarRef}
                 className="h-full bg-[#FF5812] transition-all duration-300"
                 style={{ width: `${((activeIndex + 1) / slides.length) * 100}%` }}

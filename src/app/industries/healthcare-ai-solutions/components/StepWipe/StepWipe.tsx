@@ -261,11 +261,14 @@ export default function StepWipe() {
             ref={(el) => {
               cardRefs.current[i] = el;
             }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] sm:w-[calc(100%-3rem)] lg:w-[calc(100%-4cm)] max-w-[1700px] h-[calc(100vh-2rem)] sm:h-[calc(100vh-3rem)] lg:h-[calc(100vh-4rem)] max-h-[880px] min-h-[520px] rounded-[24px] sm:rounded-[32px] flex flex-col justify-between text-left p-6 sm:p-8 md:p-9 lg:p-11 shadow-2xl overflow-y-auto"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] sm:w-[calc(100%-3rem)] lg:w-[calc(100%-4cm)] max-w-[1700px] h-[calc(100vh-2rem)] sm:h-[calc(100vh-3rem)] lg:h-[calc(100vh-4rem)] max-h-[880px] min-h-[520px] rounded-none flex flex-col justify-between text-left p-6 sm:p-8 md:p-9 lg:p-11 shadow-2xl overflow-hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             style={{
               backgroundColor: card.bg,
               color: card.text,
               zIndex: i + 1,
+              border: card.isLight
+                ? "1px solid rgba(0,0,0,0.08)"
+                : "1px solid rgba(255,255,255,0.08)",
               // Apply clip-path mask for all but the first slide
               clipPath:
                 i === 0

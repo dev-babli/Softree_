@@ -33,33 +33,28 @@ const EASE = EASE_T.silk
    ───────────────────────────────────────────────────────────────── */
 const FEATURES = [
   {
-    title: "Security & Governance",
-    body: "Enterprise-grade controls, compliance practices, access management, and delivery governance integrated into every engagement.",
+    title: "Expertise",
+    body: "Deep capability across Agentic AI, Microsoft Power Platform, data, cloud, and modern engineering.",
   },
   {
-    title: "Documentation Discipline",
-    body: "Structured documentation, knowledge transfer, and maintainable engineering practices designed for long-term continuity.",
+    title: "Integration",
+    body: "Connect intelligent solutions to your existing Microsoft ecosystem, enterprise applications, data, APIs, and workflows.",
   },
   {
-    title: "Scalable Architecture",
-    body: "Modern architectures engineered for performance, extensibility, and future business growth.",
+    title: "Governance",
+    body: "Build with security, access controls, responsible AI, human oversight, and enterprise governance in mind.",
   },
   {
-    title: "Cross-Team Collaboration",
-    body: "Transparent communication and coordinated execution across stakeholders, engineering teams, and business units.",
-  },
-  {
-    title: "AI-Enhanced Productivity",
-    body: "AI-assisted workflows that accelerate development, automation, testing, and operational efficiency.",
-  },
-  {
-    title: "Transparent Delivery",
-    body: "Clear sprint visibility, milestone tracking, reporting, and accountability throughout the delivery lifecycle.",
+    title: "Delivery",
+    body: "From architecture and development to testing, deployment, and ongoing improvement — we stay accountable for the outcome.",
   },
 ]
 
 const HEADLINE =
-  "Engineered for enterprise delivery at scale."
+  "The partner behind your delivery."
+
+const DESCRIPTION =
+  "You own the relationship. We bring the engineering capability, AI expertise, and delivery discipline to help you deliver with confidence."
 
 // PARTNER_LOGOS and PartnerLogo component are now imported from AboutClientLogos.tsx to maintain styling consistency.
 
@@ -426,7 +421,7 @@ export default function InfoSection() {
 
             {/* ── info__title ── word-by-word blur-up ── */}
             <motion.h3
-              className="text-[clamp(28px,4.4vw,58px)] font-semibold leading-[1.06] tracking-[-0.02em] text-[#141413] mb-12 md:mb-16 max-w-[900px]"
+              className="text-[clamp(28px,4vw,54px)] lg:text-[clamp(28px,4.4vw,58px)] font-semibold leading-[1.06] tracking-[-0.02em] text-[#141413] mb-4 md:mb-6 max-w-none md:whitespace-nowrap"
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
               variants={{
@@ -449,6 +444,16 @@ export default function InfoSection() {
                 </motion.span>
               ))}
             </motion.h3>
+
+            {/* ── info__description ── fade up ── */}
+            <motion.p
+              className="text-[17px] sm:text-[19px] md:text-[21px] text-[#141413]/65 leading-[1.55] max-w-none lg:max-w-[860px] mb-12 md:mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, ease: EASE, delay: 0.3 }}
+            >
+              {DESCRIPTION}
+            </motion.p>
 
             {/* ── info__list ── */}
             <ul className="flex flex-col w-full mb-16 md:mb-20">

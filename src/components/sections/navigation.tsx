@@ -35,6 +35,11 @@ import {
   Database,
   Link2,
   Network,
+  HeartPulse,
+  Landmark,
+  Factory,
+  Truck,
+  ShoppingBag,
 } from "lucide-react";
 
 type MenuLink = {
@@ -143,6 +148,21 @@ const menu: MenuItem[] = [
           { label: "SharePoint Online", url: "/services/offshore-sharepoint-development", icon: Building2, description: "Intranet portals and document management" },
           { label: "SPFx Development", url: "/services/offshore-spfx-development", icon: Code2, description: "Custom web parts and platform extensions" },
         ]
+      },
+    ],
+  },
+  {
+    label: "Industries",
+    url: "/industries/healthcare-ai-solutions",
+    mega: true,
+    children: [
+      {
+        title: "Healthcare AI Solutions",
+        icon: HeartPulse,
+        description: "We deliver intelligent clinical copilots, medical document AI, and next-generation healthcare digital platforms.",
+        links: [
+          { label: "Healthcare AI Solutions", url: "/industries/healthcare-ai-solutions", icon: HeartPulse, description: "Full-suite clinical AI & healthcare solutions" },
+        ],
       },
     ],
   },
