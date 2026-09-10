@@ -75,8 +75,8 @@ const BASE_CARDS = [
     description:
       "We engineer intelligent agents and AI-powered workflows that connect to real data, systems, people, and business processes.",
     tag: "CAPABILITY",
-    bgColor: "#F3F0EE",
-    textColor: "#141413",
+    bgColor: "#141413",
+    textColor: "#ffffff",
     image:
       "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=800",
   },
@@ -111,8 +111,8 @@ const BASE_CARDS = [
     description:
       "Start with a focused engagement and expand teams, capabilities, automation, and AI as your business evolves.",
     tag: "CAPABILITY",
-    bgColor: "#F3F0EE",
-    textColor: "#141413",
+    bgColor: "#141413",
+    textColor: "#ffffff",
     image:
       "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=800",
   },

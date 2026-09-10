@@ -63,6 +63,7 @@ const WhoDoWeServeSectionLazy = dynamic(
   () => import("@/components/sections/WhoDoWeServeSection"),
   { loading: () => <div className="min-h-[100vh] w-full bg-[#F3F0EE]" aria-hidden="true" /> }
 );
+const NewWhoDoWeServeSectionLazy = dynamic(() => import("@/components/sections/NewWhoDoWeServeSection"), { ssr: true });
 
 type HomeProps = {
   homepageCaseStudies?: CaseStudyMock[];
@@ -91,6 +92,7 @@ export default function Home({ homepageCaseStudies }: HomeProps) {
         <HomepageShowcaseSectionsLazy />
         <TechStackSectionLazy />
         {/* <WhoDoWeServeSectionLazy /> */}
+        <NewWhoDoWeServeSectionLazy />
         <LightEngagementModelsLazy />
         <AnimatedPhotoGallery />
         <Gallery />
