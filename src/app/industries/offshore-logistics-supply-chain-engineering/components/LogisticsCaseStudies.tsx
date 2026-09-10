@@ -12,7 +12,7 @@ const demoData: Gallery4Props = {
         LOGISTICS &amp; SUPPLY CHAIN CASE STUDIES
       </div>
       <span className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold font-['Plus_Jakarta_Sans',sans-serif] text-slate-900 tracking-tight leading-[1.12] text-left">
-        See Engineering &amp; AI in Action Across Logistics
+        Real Logistics Challenges. Engineered for Better Outcomes.
       </span>
     </div>
   ) as any,
@@ -158,11 +158,11 @@ export default function LogisticsCaseStudies() {
   return (
     <div className="relative bg-white flex flex-col items-center">
       <div className="w-full">
-        <Gallery4 
-          {...demoData} 
+        <Gallery4
+          {...demoData}
           action={
-            <FlowButton 
-              href="/case-studies" 
+            <FlowButton
+              href="/case-studies"
               text="Explore All Logistics Case Studies"
               variant="orange-filled"
               className="py-3 px-6 text-sm sm:text-base font-bold shadow-md"

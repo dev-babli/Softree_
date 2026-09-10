@@ -48,7 +48,7 @@ const slides: SlideItem[] = [
     text: "#ffffff",
     accent: "#FF6B00",
     isLight: false,
-    link: "/contact",
+    link: "/services/ai-development-services",
   },
   {
     num: "02",
@@ -66,7 +66,7 @@ const slides: SlideItem[] = [
     text: "#ffffff",
     accent: "#ffffff",
     isLight: false,
-    link: "/contact",
+    link: "/services/generative-ai",
   },
   {
     num: "03",
@@ -84,7 +84,7 @@ const slides: SlideItem[] = [
     text: "#ffffff",
     accent: "#FF6B2C",
     isLight: false,
-    link: "/contact",
+    link: "/solutions/document-ai-solutions",
   },
   {
     num: "04",
@@ -102,7 +102,7 @@ const slides: SlideItem[] = [
     text: "#111111",
     accent: "#FF6B00",
     isLight: true,
-    link: "/contact",
+    link: "/solutions/ai-workflow-automation",
   },
   {
     num: "05",
@@ -120,28 +120,10 @@ const slides: SlideItem[] = [
     text: "#ffffff",
     accent: "#FF6B00",
     isLight: false,
-    link: "/contact",
+    link: "/services/offshore-data-analytics",
   },
   {
     num: "06",
-    title: "Custom Logistics AI Application Development",
-    titleSplit: "Custom Logistics AI<br />Application Development",
-    desc: "Develop purpose-built AI applications around your logistics workflows, operational teams, technology ecosystem, and supply chain objectives.",
-    capabilities: [
-      { label: "Custom AI-powered logistics applications", tag: "Tailored AI" },
-      { label: "Shipment visibility portals and dashboards", tag: "Secure UX" },
-      { label: "Intelligent warehouse and transportation applications", tag: "Operations AI" },
-      { label: "AI-enabled logistics workflows and microservices", tag: "Microservices" },
-      { label: "Scalable cloud-based supply chain solutions", tag: "Multi-Cloud" },
-    ],
-    bg: "#EA580C",
-    text: "#ffffff",
-    accent: "#ffffff",
-    isLight: false,
-    link: "/contact",
-  },
-  {
-    num: "07",
     title: "AI Integration & Logistics Modernization",
     titleSplit: "AI Integration & Logistics<br />Modernization",
     desc: "Integrate AI capabilities into existing logistics applications, TMS, WMS, ERP platforms, APIs, databases, and legacy environments without disrupting critical supply chain operations.",
@@ -156,29 +138,11 @@ const slides: SlideItem[] = [
     text: "#ffffff",
     accent: "#FF6B2C",
     isLight: false,
-    link: "/contact",
-  },
-  {
-    num: "08",
-    title: "Transportation, Warehouse & Supply Chain Intelligence",
-    titleSplit: "Transportation, Warehouse &<br />Supply Chain Intelligence",
-    desc: "Apply AI across transportation, warehouse, inventory, shipment, and supply chain operations to improve visibility, optimize decisions, and uncover actionable operational insights.",
-    capabilities: [
-      { label: "AI-powered route and transportation optimization", tag: "Route AI" },
-      { label: "Warehouse and inventory intelligence", tag: "Inventory AI" },
-      { label: "Real-time shipment and order visibility", tag: "Visibility AI" },
-      { label: "Supply chain performance analytics", tag: "Supply Chain BI" },
-      { label: "Predictive operational and delivery insights", tag: "Predictive AI" },
-    ],
-    bg: "#F7F5F0",
-    text: "#111111",
-    accent: "#FF6B00",
-    isLight: true,
-    link: "/contact",
+    link: "/services/legacy-application-modernization",
   },
   {
     isCta: true,
-    num: "09",
+    num: "07",
     title: "Build Your Logistics AI Solution with Softree",
     titleSplit: "Build Your Logistics AI<br />Solution with Softree",
     desc: "Turn logistics and supply chain opportunities into secure, scalable, production-ready AI solutions. Whether you are deploying AI agents, improving shipment visibility, automating workflows, optimizing transportation, processing documents, or building intelligent supply chain platforms, Softree can help you move from strategy to implementation.",
@@ -244,7 +208,7 @@ export default function LogisticsStepWipe() {
         ScrollTrigger.getAll().forEach((t) => t.kill());
       };
     },
-    { scope: containerRef }
+    { scope: containerRef, dependencies: [slides.length] }
   );
 
   return (
@@ -297,7 +261,7 @@ export default function LogisticsStepWipe() {
             <div className="w-full">
               <div className="flex items-center justify-between gap-4 mb-3 sm:mb-4">
                 <p className="text-sm sm:text-base font-bold tracking-widest uppercase opacity-85 font-mono">
-                  {card.isCta ? "SUMMARY & NEXT STEPS" : `${card.num} / 08 — ${card.title}`}
+                  {card.isCta ? "SUMMARY & NEXT STEPS" : `${card.num} / 06 — ${card.title}`}
                 </p>
                 <span className="hidden sm:inline-block px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-bold tracking-wider uppercase border border-current opacity-70">
                   {card.isCta ? "GET STARTED" : "LOGISTICS ENGINEERING SERVICE"}

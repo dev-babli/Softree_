@@ -36,6 +36,24 @@ interface SlideItem {
 const slides: SlideItem[] = [
   {
     num: "01",
+    title: "Agentic AI Development",
+    titleSplit: "Agentic AI<br />Development",
+    desc: "Build intelligent AI agents for healthcare that understand context, reason through complex tasks, use tools, orchestrate workflows, and interact with enterprise systems within defined business rules.",
+    capabilities: [
+      { label: "Context-aware AI agents", tag: "CONTEXT" },
+      { label: "Multi-step workflow orchestration", tag: "ORCHESTRATION" },
+      { label: "Enterprise system and API integration", tag: "INTEGRATION" },
+      { label: "Tool calling and intelligent task execution", tag: "TOOL CALLING" },
+      { label: "Human-in-the-loop AI workflows", tag: "SUPERVISED" },
+    ],
+    bg: "#080808",
+    text: "#ffffff",
+    accent: "#FF6B00",
+    isLight: false,
+    link: "/services/ai-development-services",
+  },
+  {
+    num: "02",
     title: "Generative AI & RAG Development",
     titleSplit: "Generative AI &<br />RAG Development",
     desc: "Build enterprise-grade Generative AI healthcare solutions, AI assistants, knowledge systems, copilots, and Retrieval-Augmented Generation (RAG) applications that securely connect AI models with trusted healthcare data.",
@@ -46,14 +64,14 @@ const slides: SlideItem[] = [
       { label: "LLM-powered healthcare applications", tag: "Multi-Model" },
       { label: "Context-aware information retrieval", tag: "RAG 2.0" },
     ],
-    bg: "#0D0D0D",
-    text: "#ffffff",
+    bg: "#ffffff",
+    text: "#111111",
     accent: "#FF6B00",
-    isLight: false,
-    link: "/contact",
+    isLight: true,
+    link: "/services/generative-ai",
   },
   {
-    num: "02",
+    num: "03",
     title: "Healthcare AI Agent Development",
     titleSplit: "Healthcare AI<br />Agent Development",
     desc: "Develop intelligent AI agents for healthcare that understand context, retrieve information, orchestrate workflows, and interact with enterprise systems within defined business rules.",
@@ -68,25 +86,7 @@ const slides: SlideItem[] = [
     text: "#ffffff",
     accent: "#ffffff",
     isLight: false,
-    link: "/contact",
-  },
-  {
-    num: "03",
-    title: "Healthcare Machine Learning Solutions",
-    titleSplit: "Healthcare Machine<br />Learning Solutions",
-    desc: "Build machine learning solutions that help healthcare organizations leverage data for predictive analytics, forecasting, classification, recommendations, and anomaly detection.",
-    capabilities: [
-      { label: "Predictive analytics and forecasting", tag: "Predictive ML" },
-      { label: "Classification and recommendation models", tag: "Ensemble" },
-      { label: "Risk and anomaly detection", tag: "Early Warning" },
-      { label: "Intelligent decision-support systems", tag: "Logic Engine" },
-      { label: "Model development and optimization", tag: "MLOps Pipeline" },
-    ],
-    bg: "#141414",
-    text: "#ffffff",
-    accent: "#FF6B2C",
-    isLight: false,
-    link: "/contact",
+    link: "/solutions/ai-agents-development",
   },
   {
     num: "04",
@@ -104,7 +104,7 @@ const slides: SlideItem[] = [
     text: "#111111",
     accent: "#FF6B00",
     isLight: true,
-    link: "/contact",
+    link: "/solutions/document-ai-solutions",
   },
   {
     num: "05",
@@ -122,7 +122,7 @@ const slides: SlideItem[] = [
     text: "#ffffff",
     accent: "#FF6B00",
     isLight: false,
-    link: "/contact",
+    link: "/solutions/ai-workflow-automation",
   },
   {
     num: "06",
@@ -140,28 +140,10 @@ const slides: SlideItem[] = [
     text: "#ffffff",
     accent: "#ffffff",
     isLight: false,
-    link: "/contact",
+    link: "/services/offshore-data-analytics",
   },
   {
     num: "07",
-    title: "Custom Healthcare AI Application Development",
-    titleSplit: "Custom Healthcare AI<br />Application Development",
-    desc: "Develop purpose-built AI healthcare applications around your workflows, users, technology ecosystem, and business objectives.",
-    capabilities: [
-      { label: "Custom AI-powered applications", tag: "Tailored AI" },
-      { label: "Healthcare portals and dashboards", tag: "Secure UX" },
-      { label: "Intelligent decision-support applications", tag: "CDSS Core" },
-      { label: "AI-enabled enterprise workflows", tag: "Microservices" },
-      { label: "Scalable cloud-based solutions", tag: "Multi-Cloud" },
-    ],
-    bg: "#101010",
-    text: "#ffffff",
-    accent: "#FF6B2C",
-    isLight: false,
-    link: "/contact",
-  },
-  {
-    num: "08",
     title: "AI Integration & Healthcare Application Modernization",
     titleSplit: "AI Integration & Application<br />Modernization",
     desc: "Integrate AI capabilities into existing healthcare applications, APIs, enterprise platforms, databases, and legacy environments without disrupting critical workflows.",
@@ -176,11 +158,11 @@ const slides: SlideItem[] = [
     text: "#111111",
     accent: "#FF6B00",
     isLight: true,
-    link: "/contact",
+    link: "/services/legacy-application-modernization",
   },
   {
     isCta: true,
-    num: "09",
+    num: "08",
     title: "Build Your Healthcare AI Solution with Softree",
     titleSplit: "Build Your Healthcare AI<br />Solution with Softree",
     desc: "Turn AI opportunities into secure, scalable, production-ready healthcare solutions. Whether you are exploring Generative AI, automating workflows, modernizing legacy applications, or building intelligent healthcare platforms, Softree can help you move from strategy to implementation.",
@@ -246,7 +228,7 @@ export default function StepWipe() {
         ScrollTrigger.getAll().forEach((t) => t.kill());
       };
     },
-    { scope: containerRef }
+    { scope: containerRef, dependencies: [slides.length] }
   );
 
   return (
@@ -281,7 +263,7 @@ export default function StepWipe() {
             <div className="w-full">
               <div className="flex items-center justify-between gap-4 mb-3 sm:mb-4">
                 <p className="text-xs sm:text-sm font-bold tracking-widest uppercase opacity-85 font-mono">
-                  {card.isCta ? "SUMMARY & NEXT STEPS" : `${card.num} / 08 — ${card.title}`}
+                  {card.isCta ? "SUMMARY & NEXT STEPS" : `${card.num} / 07 — ${card.title}`}
                 </p>
                 <span className="hidden sm:inline-block px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-bold tracking-wider uppercase border border-current opacity-60">
                   {card.isCta ? "GET STARTED" : "HEALTHCARE AI SERVICE"}

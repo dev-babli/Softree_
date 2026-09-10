@@ -125,12 +125,13 @@ export default function AiDevelopmentServicesPage() {
             </div>
             {/* Right Column: Global Presence (NetworkGlobe) */}
             <div className="lg:col-span-6 w-full flex justify-center lg:justify-end">
-                <NetworkGlobe
-                  heading="Where we operate"
-                  tagline="Global Reach. Local Understanding."
-                  subheading="Trusted by businesses across 13+ countries, we deliver technology solutions that help organizations build, scale, and transform digitally."
-                  storesLabel="13+ countries served"
-                />
+              <NetworkGlobe
+                heading="Where our clients are"
+                tagline="Global Reach. Local Understanding."
+                subheading="Trusted by businesses across 13+ countries, we deliver technology solutions that help organizations build, scale, and transform digitally."
+                storesLabel="13+ countries served"
+                caption="Trusted by businesses across 13+ countries, we deliver technology solutions that help organizations build, scale, and transform digitally."
+              />
             </div>
           </div>
         </div>
@@ -158,9 +159,9 @@ export default function AiDevelopmentServicesPage() {
 
       <ReverseStickyScroll />
 
-      {/* 
+      {/*
       <TrustedBrandsMarquee /> */}
-   
+
       {/* Interactive Photo Stack Section - Offshore AI Engineering */}
       <OffshoreEngineeringSection />
 
