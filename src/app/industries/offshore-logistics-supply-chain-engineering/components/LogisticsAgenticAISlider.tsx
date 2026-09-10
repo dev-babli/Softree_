@@ -9,79 +9,78 @@ const slides = [
   {
     number: "01",
     title: "Understand",
-    badge: "CLINICAL CONTEXT ENGINE",
-    description: "Interpret medical requests, clinical context, hospital rules, and patient objectives.",
+    badge: "NETWORK CONTEXT ENGINE",
+    description: "Interpret incoming freight tenders, shipment feeds, driver hours-of-service, and contract rate cards.",
     highlights: [
-      "Clinical intent & symptom extraction",
-      "EHR & patient history normalization",
-      "Hospital policy & protocol verification"
+      "Bill of lading & order extraction",
+      "Carrier contract & rate card parsing",
+      "Live telematics & traffic event ingest"
     ],
-    image: "/images/ai-healthcare-images/aihealth-1.png"
+    image: "/images/solutions/ai-for-logistics/core-capabilities/cap-01.png"
   },
   {
     number: "02",
     title: "Reason",
-    badge: "MEDICAL REASONING ENGINE",
-    description: "Analyze clinical information and determine the appropriate medical or administrative course of action.",
+    badge: "SUPPLY CHAIN REASONING ENGINE",
+    description: "Evaluate multi-variable constraints across routes, fuel costs, detention fees, and delivery SLA windows.",
     highlights: [
-      "Differential diagnostic guidance",
-      "Multi-modal clinical data synthesis",
-      "Evidence-based care protocol matching"
+      "Multi-carrier capacity reasoning",
+      "Port congestion & delay risk synthesis",
+      "Cost vs. SLA trade-off optimization"
     ],
-    image: "/images/ai-healthcare-images/aihealth-2.png"
+    image: "/images/solutions/ai-for-logistics/core-capabilities/cap-02.png"
   },
   {
     number: "03",
     title: "Plan",
-    badge: "CLINICAL PATHWAY PLANNER",
-    description: "Break complex care pathways or billing cycles into actionable steps.",
+    badge: "DYNAMIC DISPATCH PLANNER",
+    description: "Formulate optimal multi-stop route sequences, load consolidation, and cross-docking schedules.",
     highlights: [
-      "Multi-step care pathway orchestration",
-      "Prior authorization & billing rules",
-      "Automated clinical triage logic"
+      "Dynamic multi-stop dispatch plans",
+      "Cold-chain temperature contingency plans",
+      "Automated load consolidation logic"
     ],
-    image: "/images/ai-healthcare-images/aihealth-3.png"
+    image: "/images/solutions/ai-for-logistics/core-capabilities/cap-03.png"
   },
   {
     number: "04",
     title: "Use Tools",
     badge: "SYSTEM INTEGRATION ENGINE",
-    description: "Connect with EHRs, FHIR APIs, medical databases, and hospital enterprise systems.",
+    description: "Execute queries across TMS, WMS, ELD devices, customs databases, and carrier REST/EDI portals.",
     highlights: [
-      "Bidirectional Epic & Cerner integration",
-      "FHIR / HL7 standardized exchange",
-      "Diagnostic database & telemetry query"
+      "Direct SAP TM & Manhattan WMS query",
+      "EDI 204 load tender dispatch",
+      "Live GPS & sensor telemetry check"
     ],
-    image: "/images/ai-healthcare-images/aihealth-1.png"
+    image: "/images/solutions/ai-for-logistics/core-capabilities/cap-04.png"
   },
   {
     number: "05",
     title: "Execute",
     badge: "WORKFLOW AUTOMATION ENGINE",
-    description: "Perform administrative tasks and automate multi-step healthcare workflows.",
+    description: "Perform administrative freight tasks and automate multi-step logistics workflows autonomously.",
     highlights: [
-      "Autonomous clinical documentation",
-      "Automated order & prescription routing",
-      "Care coordination & follow-up tasks"
+      "Autonomous load tendering & booking",
+      "Automated detention billing & alerts",
+      "Real-time shipper milestone messaging"
     ],
-    image: "/images/ai-healthcare-images/aihealth-2.png"
+    image: "/images/solutions/ai-for-logistics/core-capabilities/cap-05.png"
   },
   {
     number: "06",
     title: "Collaborate",
     badge: "MULTI-AGENT CONSENSUS",
-    description: "Enable specialized clinical agents to work together across complex medical processes.",
+    description: "Enable specialized dispatch, warehouse, and customer service agents to coordinate complex handoffs.",
     highlights: [
-      "Specialized multi-agent consensus",
-      "Physician-in-the-loop safeguards",
-      "Cross-department care coordination"
+      "Cross-network agent coordination",
+      "Human-in-the-loop exception escalations",
+      "Autonomous returns & reconsignment"
     ],
-    image: "/images/ai-healthcare-images/aihealth-3.png"
+    image: "/images/solutions/ai-for-logistics/core-capabilities/cap-06.png"
   },
-
 ];
 
-export default function AgenticAIWipeSlider() {
+export default function LogisticsAgenticAISlider() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const isAnimating = useRef(false);
@@ -271,14 +270,16 @@ export default function AgenticAIWipeSlider() {
   const activeSlide = slides[activeIndex];
 
   return (
-    <section
-      className="relative w-full min-h-[640px] sm:min-h-[700px] lg:h-[calc(100vh-4rem)] max-h-[920px] bg-[#09090B] overflow-hidden text-white font-sans flex flex-col justify-between select-none outline-none py-5 sm:py-7 lg:py-8"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
-      tabIndex={0}
-    >
+    <section className="w-full bg-white py-6 sm:py-10 lg:py-14 font-sans">
+      <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-[2cm]">
+        <div
+          className="relative w-full min-h-[640px] sm:min-h-[700px] lg:h-[calc(100vh-4rem)] max-h-[920px] bg-[#09090B] rounded-[28px] sm:rounded-[36px] overflow-hidden text-white flex flex-col justify-between select-none outline-none py-5 sm:py-7 lg:py-8 shadow-2xl border border-slate-200"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          tabIndex={0}
+        >
       {/* Background Wipe Layers */}
       <div className="absolute inset-0 w-full h-full">
         {slides.map((slide, i) => (
@@ -301,7 +302,7 @@ export default function AgenticAIWipeSlider() {
                   className="object-cover object-center sm:object-right"
                 />
               </div>
-              {/* Strategic gradient overlays: high contrast on left for content, clear view of doctor/visual on right */}
+              {/* Strategic gradient overlays: high contrast on left for content, clear view of visual on right */}
               <div className="absolute inset-0 bg-gradient-to-r from-[#09090B] via-[#09090B]/90 sm:via-[#09090B]/75 to-black/20 z-10 pointer-events-none" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#09090B] via-transparent to-[#09090B]/60 z-10 pointer-events-none" />
             </div>
@@ -314,15 +315,15 @@ export default function AgenticAIWipeSlider() {
 
         {/* Top: Section Header */}
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF5812]/15 border border-[#FF5812]/35 backdrop-blur-md text-[#FF5812] text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] mb-2.5">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FF5812]/15 border border-[#FF5812]/35 backdrop-blur-md text-[#FF5812] text-xs sm:text-[12px] font-bold uppercase tracking-[0.2em] mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#FF5812] animate-pulse" />
-            CLINICAL AGENTIC AI
+            SUPPLY CHAIN AGENTIC AI
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[38px] font-extrabold font-['Plus_Jakarta_Sans',sans-serif] tracking-tight text-white drop-shadow-md leading-tight mb-2">
-            Build Intelligent Clinical AI Agents for Healthcare
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold font-['Plus_Jakarta_Sans',sans-serif] tracking-tight text-white drop-shadow-md leading-[1.12] mb-3">
+            Build Intelligent Autonomous Agents for Logistics
           </h2>
-          <p className="text-xs sm:text-sm lg:text-[14.5px] text-white/75 font-normal leading-relaxed max-w-2xl">
-            Build healthcare AI agents that go beyond generating answers. Our Clinical Agentic AI solutions understand clinical goals, reason across patient data, integrate with EHR systems, use healthcare tools, and execute complex, multi-step clinical workflows with intelligent automation.
+          <p className="text-base sm:text-[16.5px] lg:text-[17px] text-white/80 font-normal leading-relaxed max-w-2xl">
+            Deploy supply chain AI agents that go beyond static dashboards. Our Logistics Agentic AI solutions understand operational goals, reason across shipment feeds, integrate with TMS/WMS platforms, use enterprise tools, and execute complex multi-step logistics workflows.
           </p>
         </div>
 
@@ -337,34 +338,34 @@ export default function AgenticAIWipeSlider() {
 
             {/* Card Header Row */}
             <div className="flex items-center justify-between gap-3 pb-3 border-b border-white/10 mb-3 sm:mb-4">
-              <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-[#FF5812]/15 border border-[#FF5812]/30 text-orange-400 text-[10px] sm:text-[11px] font-mono font-bold tracking-wider">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF5812]/15 border border-[#FF5812]/30 text-orange-400 text-xs sm:text-[12px] font-mono font-bold tracking-wider">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#FF5812] animate-pulse" />
                 STEP {activeSlide.number} OF {String(slides.length).padStart(2, '0')}
               </div>
-              <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-white/50 flex items-center gap-1.5">
-                <Sparkles className="w-3 h-3 text-[#FF5812]" />
+              <span className="text-xs sm:text-[12px] font-mono uppercase tracking-widest text-white/60 flex items-center gap-1.5 font-bold">
+                <Sparkles className="w-3.5 h-3.5 text-[#FF5812]" />
                 {activeSlide.badge}
               </span>
             </div>
 
             {/* Step Title */}
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-['Plus_Jakarta_Sans',sans-serif] text-white tracking-tight mb-2">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-['Plus_Jakarta_Sans',sans-serif] text-white tracking-tight mb-2.5">
               <span className="text-[#FF5812]">{activeSlide.number}.</span> {activeSlide.title}
             </h3>
 
             {/* Step Description */}
-            <p className="text-xs sm:text-sm lg:text-[15px] text-white/85 leading-relaxed mb-4 font-normal">
+            <p className="text-base sm:text-[16.5px] text-white/90 leading-relaxed mb-4 font-normal">
               {activeSlide.description}
             </p>
 
             {/* Feature Highlights Grid */}
-            <div className="pt-3 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <div className="pt-3 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-2.5">
               {activeSlide.highlights.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex items-start gap-2 bg-white/[0.04] border border-white/[0.06] rounded-lg p-2 text-[11px] sm:text-xs text-white/80 leading-snug"
+                  className="flex items-start gap-2 bg-white/[0.04] border border-white/[0.06] rounded-lg p-2.5 text-xs sm:text-sm text-white/90 leading-snug"
                 >
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#FF5812] shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#FF5812] shrink-0 mt-0.5" />
                   <span>{item}</span>
                 </div>
               ))}
@@ -372,14 +373,14 @@ export default function AgenticAIWipeSlider() {
           </div>
 
           {/* Interactive Step Navigator Pills */}
-          <div className="flex items-center gap-1.5 sm:gap-2 mt-3 overflow-x-auto no-scrollbar py-1">
+          <div className="flex items-center gap-1.5 sm:gap-2 mt-3.5 overflow-x-auto no-scrollbar py-1">
             {slides.map((s, idx) => {
               const isActive = idx === activeIndex;
               return (
                 <button
                   key={idx}
                   onClick={() => goToSlide(idx, idx > activeIndex ? "next" : "prev")}
-                  className={`px-2.5 sm:px-3 py-1 rounded-lg text-[11px] sm:text-xs font-mono font-medium transition-all shrink-0 cursor-pointer ${isActive
+                  className={`px-3 py-1.5 rounded-lg text-xs sm:text-sm font-mono font-medium transition-all shrink-0 cursor-pointer ${isActive
                       ? "bg-[#FF5812] text-white shadow-md shadow-[#FF5812]/30 font-bold border border-[#FF5812]"
                       : "bg-white/[0.06] hover:bg-white/[0.12] text-white/60 hover:text-white border border-white/10"
                     }`}
@@ -392,14 +393,14 @@ export default function AgenticAIWipeSlider() {
         </div>
 
         {/* Bottom Navigation & Controls */}
-        <div className="pt-3 border-t border-white/10 flex items-center justify-between w-full max-w-5xl">
+        <div className="pt-3.5 border-t border-white/10 flex items-center justify-between w-full max-w-5xl">
           {/* Slide Indicator */}
           <div className="flex items-center gap-3">
-            <span className="text-xs sm:text-sm font-mono tracking-widest text-white/80 uppercase">
+            <span className="text-sm sm:text-base font-mono tracking-widest text-white/80 uppercase">
               <span ref={chapterRef} className="font-bold text-white">{activeSlide.number}</span> / {String(slides.length).padStart(2, '0')}
             </span>
-            <span className="hidden sm:inline-block text-xs text-white/40 font-mono">|</span>
-            <span className="hidden sm:inline-block text-xs font-mono text-orange-400">
+            <span className="hidden sm:inline-block text-sm text-white/40 font-mono">|</span>
+            <span className="hidden sm:inline-block text-sm font-mono text-orange-400 font-semibold">
               {activeSlide.title}
             </span>
           </div>
@@ -409,14 +410,14 @@ export default function AgenticAIWipeSlider() {
             <button
               onClick={prevSlide}
               aria-label="Previous step"
-              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/[0.08] hover:bg-white/20 border border-white/15 backdrop-blur-md flex items-center justify-center text-white transition-colors cursor-pointer active:scale-95"
+              className="w-10 h-10 rounded-full bg-white/[0.08] hover:bg-white/20 border border-white/15 backdrop-blur-md flex items-center justify-center text-white transition-colors cursor-pointer active:scale-95"
             >
               <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
             <button
               onClick={nextSlide}
               aria-label="Next step"
-              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/[0.08] hover:bg-white/20 border border-white/15 backdrop-blur-md flex items-center justify-center text-white transition-colors cursor-pointer active:scale-95"
+              className="w-10 h-10 rounded-full bg-white/[0.08] hover:bg-white/20 border border-white/15 backdrop-blur-md flex items-center justify-center text-white transition-colors cursor-pointer active:scale-95"
             >
               <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
@@ -424,7 +425,7 @@ export default function AgenticAIWipeSlider() {
 
           {/* Right: Progress percentage & bar */}
           <div className="flex items-center gap-3">
-            <div className="w-20 sm:w-28 h-1 bg-white/15 rounded-full overflow-hidden">
+            <div className="w-20 sm:w-28 h-1.5 bg-white/15 rounded-full overflow-hidden">
               <div
                 ref={progressBarRef}
                 className="h-full bg-[#FF5812] transition-all duration-300"
@@ -438,6 +439,8 @@ export default function AgenticAIWipeSlider() {
         </div>
 
       </div>
-    </section>
+    </div>
+  </div>
+</section>
   );
 }

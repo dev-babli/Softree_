@@ -33,27 +33,12 @@ type Service = {
 }
 
 const SERVICES: Service[] = [
-
   {
     n: "01",
-    title: "AI Web Analyser",
-    href: "/webanalyser",
-    desc: "Scan your website instantly with AI. Get a performance audit, conversion optimization report, and custom digital strategy insights designed for growth.",
-    tags: ["AI Growth Intelligence", "Website Audit", "Conversion Optimization"],
-    img: "/images/webanalyser-fixed.png",
-    whiteLabel: {
-      title: "FREE AI CONVERSION AUDIT",
-      subtitle: "Instant Report - Actionable Insights - No Obligation",
-      features: ["Performance Scoring", "UX Flow Analysis", "CRO Recommendations"]
-    }
-  },
-
-  {
-    n: "02",
-    title: "AI Development Services",
-    href: "/services/ai-development-services",
-    desc: "Build intelligent AI agents that reason, plan, and act autonomously to automate complex business processes and deliver measurable outcomes.",
-    tags: ["AI Agents", "Multi-Agent Systems", "LLM", "Automation"],
+    title: "AI Agents",
+    href: "/solutions/ai-agents-development",
+    desc: "Build agents that understand context, reason through tasks, use tools, and execute multi-step business workflows.",
+    tags: ["Agentic AI", "Tool Calling", "Multi-Agent Systems"],
     img: "/images/dataBIRobort.png",
     whiteLabel: {
       title: "WHITE-LABEL AGENTIC AI PARTNER",
@@ -61,28 +46,26 @@ const SERVICES: Service[] = [
       features: ["Dedicated AI Team", "Enterprise-Ready", "AI Specialists"]
     }
   },
-
   {
-    n: "03",
-    title: "Generative AI",
-    href: "/services/generative-ai",
-    desc: "Build production-ready generative AI solutions using advanced language and multimodal models to create content, insights, and intelligent experiences.",
-    tags: ["Generative AI", "LLMs", "AI Applications", "RAG"],
-    img: "/images/GenAI.png",
+    n: "02",
+    title: "AI + Microsoft Power Platform",
+    href: "/services/offshore-power-platform-development",
+    desc: "Combine AI agents, Copilot Studio, Power Apps, Power Automate, and Power BI to create intelligent business solutions.",
+    tags: ["Copilot Studio", "Power Apps", "Power Automate", "Power BI"],
+    img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=80",
     whiteLabel: {
       title: "WHITE-LABEL GENERATIVE AI PARTNER",
       subtitle: "Offshore Delivery - Your Brand - Our Expertise",
       features: ["AI Engineering Team", "Custom AI Solutions", "LLM Specialists"]
     }
   },
-
   {
-    n: "04",
-    title: "Build Power Platform Automations",
-    href: "/services/offshore-power-platform-development",
-    desc: "Power Apps, Power Automate, and Power BI built by Microsoft Gold Partners. Enterprise governance, security review, ALM pipelines included.",
-    tags: ["Power Apps", "Power Automate", "Power BI", "Microsoft"],
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80",
+    n: "03",
+    title: "AI Copilots",
+    href: "/solutions/ai-copilot-development",
+    desc: "Build intelligent copilots that assist employees, customers, and teams across everyday business processes.",
+    tags: ["Copilot Studio", "Microsoft 365", "Azure AI"],
+    img: "/images/copilot-card.png",
     whiteLabel: {
       title: "WHITE-LABEL POWER PLATFORM PARTNER",
       subtitle: "Offshore Delivery - Your Brand - Our Expertise",
@@ -90,12 +73,12 @@ const SERVICES: Service[] = [
     }
   },
   {
-    n: "05",
-    title: "Modernize SharePoint",
-    href: "/services/legacy-application-modernization",
-    desc: "SharePoint intranets and SPFx web parts that don’t feel like SharePoint. Migration, custom branding, and Microsoft 365 integrations.",
-    tags: ["SharePoint", "SPFx", "M365", "Migration"],
-    img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=80",
+    n: "04",
+    title: "Generative AI",
+    href: "/services/generative-ai",
+    desc: "Build enterprise GenAI applications grounded in your business knowledge, data, and workflows.",
+    tags: ["LLMs", "RAG", "Knowledge Systems"],
+    img: "/images/GenAI.png",
     whiteLabel: {
       title: "WHITE-LABEL SHAREPOINT PARTNER",
       subtitle: "Offshore Delivery - Your Brand - Our Expertise",
@@ -103,12 +86,12 @@ const SERVICES: Service[] = [
     }
   },
   {
-    n: "06",
-    title: "Stand up Data + BI",
-    href: "/services/offshore-data-analytics",
-    desc: "Microsoft Fabric, Power BI dashboards, and data engineering pipelines that surface revenue signals — not 60-page decks.",
-    tags: ["Microsoft Fabric", "Power BI", "Data Engineering", "Analytics"],
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80",
+    n: "05",
+    title: "Intelligent Automation",
+    href: "/solutions/ai-workflow-automation",
+    desc: "Connect AI with workflows, applications, and enterprise systems to automate complex business processes.",
+    tags: ["AI Automation", "Power Automate", "APIs"],
+    img: "/images/automation-card.jpg",
     whiteLabel: {
       title: "WHITE-LABEL DATA & BI PARTNER",
       subtitle: "Offshore Delivery - Your Brand - Our Expertise",
@@ -116,29 +99,16 @@ const SERVICES: Service[] = [
     }
   },
   {
-    n: "07",
-    title: "Modernize Legacy Applications",
-    href: "/services/legacy-application-modernization",
-    desc: "Transform outdated systems, desktop applications, or legacy databases into secure, cloud-native platforms. Modern codebase architectures, seamless integrations.",
-    tags: ["Legacy Migration", "Cloud Native", "React", "Next.js"],
+    n: "06",
+    title: "Enterprise AI Platforms",
+    href: "/solutions/enterprise-rag-development",
+    desc: "Build the foundation around AI — data, integrations, orchestration, governance, observability, and production operations.",
+    tags: ["Azure AI", "Data & RAG", "Governance", "MLOps"],
     img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80",
     whiteLabel: {
       title: "WHITE-LABEL MODERNIZATION PARTNER",
       subtitle: "Offshore Delivery - Your Brand - Our Expertise",
       features: ["NDA Protected", "Dedicated Team", "Legacy Migration Specialists"]
-    }
-  },
-  {
-    n: "08",
-    title: "Ship a Web App",
-    href: "/services/offshore-web-app-development",
-    desc: "Production-grade web apps in Next.js, React, and TypeScript. Senior engineers, fixed scope, weekly demos. From discovery to launch in 12 weeks.",
-    tags: ["Next.js", "React", "TypeScript", "Production"],
-    img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=900&q=80",
-    whiteLabel: {
-      title: "WHITE-LABEL WEB APP PARTNER",
-      subtitle: "Offshore Delivery - Your Brand - Our Expertise",
-      features: ["NDA Protected", "Dedicated Team", "Next.js & React Specialists"]
     }
   },
 ]
@@ -404,7 +374,7 @@ export default function LightServicesStickyList() {
                 What we build for you
               </span>
             }
-            body="Scroll the stack — each card is a delivery lane with scope, timeline, and a path to the right practice page."
+            body="From intelligent agents to enterprise AI platforms, we build the capabilities that turn AI into real business outcomes."
           />
         </motion.div>
       </div>

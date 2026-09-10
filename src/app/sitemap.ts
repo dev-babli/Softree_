@@ -16,10 +16,12 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${BASE_URL}/services/offshore-ai-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
   { url: `${BASE_URL}/services/website-modernization`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
   { url: `${BASE_URL}/industries/healthcare-ai-solutions`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
+  { url: `${BASE_URL}/industries/offshore-logistics-supply-chain-engineering`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
   { url: `${BASE_URL}/case-studies/ai`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
 
   // General Index Pages - Priority 0.7 / 0.8 / 0.9
   { url: `${BASE_URL}/services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+  { url: `${BASE_URL}/industries`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/case-studies`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/blog`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
   { url: `${BASE_URL}/avoora`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },

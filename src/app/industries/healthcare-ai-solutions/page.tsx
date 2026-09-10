@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 import { ArrowUpRight } from 'lucide-react';
 import NavigationClient from '@/components/sections/navigation-client';
 import Footer from '@/components/sections/footer';
-import TrustedBrandsMarquee from "@/app/services/offshore-power-platform-development/trust";
+import { COUNTRIES_SERVED } from '@/lib/constants';
 
 // Dynamically import below-the-fold components to prioritize network resources for Hero video & LCP
 const BusinessChallenges = dynamic(() => import('./components/BusinessChallenges'), { ssr: true });
@@ -39,6 +39,7 @@ import DetailDrawer from './components/AiTechnologyStack';
 import PhotoStackGallery from './components/PhotoStackGallery';
 import GatewayFlowHero from './components/GatewayFlowHero';
 import { CircularTestimonialsDemo } from './components/circular-testimonials-demo';
+import TrustedBrandsMarquee from './components/trust';
 const HealthcareCaseStudies = dynamic(() => import('./components/HealthcareCaseStudies'), { ssr: true });
 const PAGE_URL = 'https://www.softreetechnology.com/industries/healthcare-ai-solutions';
 const SITE_URL = 'https://www.softreetechnology.com';
@@ -236,10 +237,13 @@ export default function AiHealthcareDevelopmentPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(healthcareJsonLd) }}
       />
       <NavigationClient />
+
       <GatewayFlowHero />
-      <HealthcareCaseStudies />
 
       <AiReadinessBanner />
+
+
+
 
       {/* Who We Help & Global Network Section */}
       <div className="bg-white pt-6 md:pt-8 pb-6 md:pb-8 text-slate-900">
@@ -260,6 +264,45 @@ export default function AiHealthcareDevelopmentPage() {
             <p className="text-[14px] lg:text-[15px] text-slate-500 max-w-2xl mx-auto leading-relaxed">
               Healthcare AI adoption is critical. Softree provides the HIPAA-compliant AI architecture, engineering, medical data integration, cloud, and QA expertise you need to deliver secure healthcare AI solutions faster.
             </p>
+
+            {/* Quick Metrics: Countries & Projects Delivered */}
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-6 sm:gap-10 pt-6 border-t border-slate-100">
+              <div className="flex items-center gap-3">
+                <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-['Plus_Jakarta_Sans',sans-serif]">
+                  {COUNTRIES_SERVED}
+                </span>
+                <span className="text-xs text-slate-500 font-medium leading-tight text-left">
+                  Countries<br />Served
+                </span>
+              </div>
+              <div className="w-px h-8 bg-slate-200 hidden sm:block" />
+              <div className="flex items-center gap-3">
+                <span className="text-2xl sm:text-3xl font-extrabold text-[#FF6B00] tracking-tight font-['Plus_Jakarta_Sans',sans-serif]">
+                  200+
+                </span>
+                <span className="text-xs text-slate-500 font-medium leading-tight text-left">
+                  Projects<br />Delivered
+                </span>
+              </div>
+              <div className="w-px h-8 bg-slate-200 hidden sm:block" />
+              <div className="flex items-center gap-3">
+                <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-['Plus_Jakarta_Sans',sans-serif]">
+                  100+
+                </span>
+                <span className="text-xs text-slate-500 font-medium leading-tight text-left">
+                  Healthcare & AI<br />Deployments
+                </span>
+              </div>
+              <div className="w-px h-8 bg-slate-200 hidden sm:block" />
+              <div className="flex items-center gap-3">
+                <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-['Plus_Jakarta_Sans',sans-serif]">
+                  8
+                </span>
+                <span className="text-xs text-slate-500 font-medium leading-tight text-left">
+                  Global Delivery<br />Hubs
+                </span>
+              </div>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
@@ -270,7 +313,12 @@ export default function AiHealthcareDevelopmentPage() {
             {/* Right Column: Global Presence (NetworkGlobe) */}
             <div className="lg:col-span-6 w-full flex flex-col h-full">
               <div className="w-full h-full max-w-[550px] lg:max-w-none flex flex-col mx-auto lg:ml-auto">
-                <NetworkGlobe />
+                <NetworkGlobe
+                  heading="Where we operate"
+                  tagline="Global Reach. Local Understanding."
+                  subheading="Trusted by businesses across 13+ countries, we deliver technology solutions that help organizations build, scale, and transform digitally."
+                  storesLabel="13+ countries served"
+                />
               </div>
             </div>
           </div>
@@ -296,18 +344,20 @@ export default function AiHealthcareDevelopmentPage() {
 
       <StepWipe />
 
-     
+      <HealthcareCaseStudies />
       {/* Interactive Photo Stack Section replaced by CircularTestimonialsDemo */}
       <CoreCapabilities />
-      <CircularTestimonialsDemo />
+      {/* <CircularTestimonialsDemo />
 
-      <IndustrySoftree />
+      <IndustrySoftree /> */}
       <AgenticAIWipeSlider />
+      <TrustedBrandsMarquee />
       {/* <WhySoftreeCurtainSlider /> */}
-      {/* <Industries /> */}     
+      {/* <Industries />     
       <AiRoadmap />
-      <PartnerShowcase />     
+      <PartnerShowcase />      */}
       <WhyChooseWithTestimonials />
+
       <LightFAQExact />
       <LightContactSection />
       <Footer />

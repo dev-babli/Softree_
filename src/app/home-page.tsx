@@ -59,6 +59,11 @@ const InfinityScrollAnimationLazy = dynamic(
   () => import("@/components/infinity-scroll-animation/InfinityScrollAnimation"),
   { loading: () => <div className="min-h-[60vh] w-full bg-[#F8F9FC] sm:min-h-[70vh]" aria-hidden /> }
 );
+const WhoDoWeServeSectionLazy = dynamic(
+  () => import("@/components/sections/WhoDoWeServeSection"),
+  { loading: () => <div className="min-h-[100vh] w-full bg-[#F3F0EE]" aria-hidden="true" /> }
+);
+const NewWhoDoWeServeSectionLazy = dynamic(() => import("@/components/sections/NewWhoDoWeServeSection"), { ssr: true });
 
 type HomeProps = {
   homepageCaseStudies?: CaseStudyMock[];
@@ -86,6 +91,8 @@ export default function Home({ homepageCaseStudies }: HomeProps) {
         {/* Testimonials + blog bento */}
         <HomepageShowcaseSectionsLazy />
         <TechStackSectionLazy />
+        {/* <WhoDoWeServeSectionLazy /> */}
+        <NewWhoDoWeServeSectionLazy />
         <LightEngagementModelsLazy />
         <AnimatedPhotoGallery />
         <Gallery />

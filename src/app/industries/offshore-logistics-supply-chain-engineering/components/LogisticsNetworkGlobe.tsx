@@ -202,7 +202,7 @@ function isLand(lat: number, lon: number): boolean {
   let col = Math.floor(lon + 180 + 28);
   col = col % LANDMASK_W;
   if (col < 0) col += LANDMASK_W;
-
+  
   let row = Math.floor(90 - lat);
   if (row < 0) row = 0;
   if (row >= LANDMASK_H) row = LANDMASK_H - 1;
@@ -481,7 +481,7 @@ export default function NetworkGlobe({
     const { W, H, R } = dimsRef.current;
     const phi = ((90 - lat) * Math.PI) / 180;
     const theta = (lon * Math.PI) / 180 + rotationRef.current;
-
+    
     let x3 = Math.sin(phi) * Math.sin(theta);
     let y3 = Math.cos(phi);
     let z3 = Math.sin(phi) * Math.cos(theta);
@@ -630,24 +630,24 @@ export default function NetworkGlobe({
 
       const loopDuration = 1.7; // t goes up to 1.7 so the tail can fully reach the destination
       const t = (now * 0.45 + i * 0.15) % loopDuration; // Increased speed (0.25 -> 0.45)
-
+      
       const headT = Math.min(t, 1);
       const tailT = Math.max(0, t - 0.7); // 70% tail distance
-
+      
       if (tailT >= 1) return; // The shooting star has fully entered the destination
-
+      
       // Draw comet tail (shooting star effect)
       const steps = 30; // Smoothness of the tail
-
+      
       for (let j = 0; j < steps; j++) {
         const fraction1 = j / steps;
         const fraction2 = (j + 1) / steps;
-
+        
         const t1 = headT - fraction1 * (headT - tailT);
         const t2 = headT - fraction2 * (headT - tailT);
-
+        
         if (t1 <= 0 && t2 <= 0) break; // Before start
-
+        
         const st1 = Math.max(0, t1);
         const st2 = Math.max(0, t2);
 
@@ -662,17 +662,17 @@ export default function NetworkGlobe({
         ctx.beginPath();
         ctx.moveTo(x1, y1);
         ctx.lineTo(x2, y2);
-
+        
         // Fade out and thin out towards the end of the tail
         const alpha = Math.max(0, 1 - fraction1);
         const thickness = Math.max(0.2, 2.5 - (fraction1 * 2.3));
-
+        
         ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
         ctx.lineWidth = thickness;
         ctx.lineCap = "round";
         ctx.stroke();
       }
-
+      
       // Leading small dot
       if (headT > 0 && headT < 1) { // Disappears right as it hits destination, tail follows
         const omt = 1 - headT;
@@ -820,8 +820,9 @@ export default function NetworkGlobe({
               {locations.map((loc, i) => (
                 <div
                   key={loc.name}
-                  className={`pin-label${pinStyles[i]?.visible ? " visible" : ""
-                    }${i === activeIndex ? " active" : ""}`}
+                  className={`pin-label${
+                    pinStyles[i]?.visible ? " visible" : ""
+                  }${i === activeIndex ? " active" : ""}`}
                   style={{
                     left: pinStyles[i]?.left ?? 0,
                     top: pinStyles[i]?.top ?? 0,
