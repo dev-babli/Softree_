@@ -125,9 +125,13 @@ export default function AiDevelopmentServicesPage() {
             </div>
             {/* Right Column: Global Presence (NetworkGlobe) */}
             <div className="lg:col-span-6 w-full flex justify-center lg:justify-end">
-              <div className="w-full max-w-[550px] lg:max-w-[600px]">
-                <NetworkGlobe />
-              </div>
+                <NetworkGlobe
+                  heading="Where we operate"
+                  tagline="Global Reach. Local Understanding."
+                  subheading="Trusted by businesses across 13+ countries, we deliver technology solutions that help organizations build, scale, and transform digitally."
+                  storesLabel="13+ countries served"
+                  caption="Trusted by businesses across 13+ countries, we deliver technology solutions that help organizations build, scale, and transform digitally."
+                />
             </div>
           </div>
         </div>

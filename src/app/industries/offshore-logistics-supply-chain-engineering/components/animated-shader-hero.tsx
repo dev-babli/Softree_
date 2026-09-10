@@ -1,17 +1,6 @@
 'use client';
 
 import React, { useRef, useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import { Shield, Users, Cpu, Sparkles, Calendar } from 'lucide-react';
-import { FlowButton } from '@/components/ui/flow-button';
-
-const trustItems = [
-  { icon: Shield, title: 'WHITE-LABEL', subtitle: 'Trusted agency partner.' },
-  { icon: Users, title: 'OFFSHORE TEAMS', subtitle: 'Scale on demand.' },
-  { icon: Cpu, title: 'MICROSOFT AI', subtitle: 'Azure & OpenAI partners.' },
-  { icon: Sparkles, title: 'ENTERPRISE AI', subtitle: 'Secure, production-grade.' },
-  { icon: Calendar, title: 'SINCE 2013', subtitle: '13+ years of excellence.' },
-];
 
 // Types for component props
 interface HeroProps {
@@ -330,18 +319,16 @@ void main(){gl_Position=position;}`;
   return canvasRef;
 };
 
-// Reusable Hero Component
 const Hero: React.FC<HeroProps> = ({
   trustBadge,
   headline,
   subtitle,
-  buttons,
   className = ""
 }) => {
   const canvasRef = useShaderBackground();
 
   return (
-    <div className={`relative w-full min-h-[100svh] flex flex-col overflow-hidden bg-black ${className}`}>
+    <div className={`relative w-full flex flex-col overflow-hidden bg-black ${className}`}>
       <style jsx>{`
         @keyframes fade-in-down {
           from {
@@ -409,11 +396,11 @@ const Hero: React.FC<HeroProps> = ({
       />
       
       {/* Hero Content Overlay */}
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-white pt-24 pb-8 md:pt-28 md:pb-12 px-4">
+      <div className="relative z-10 flex flex-col items-center justify-center text-white pt-28 pb-12 md:pt-36 md:pb-16 px-4">
         {/* Trust Badge */}
         {trustBadge && (
           <div className="mb-3 md:mb-4 animate-fade-in-down">
-            <div className="flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-[#FF5812]/10 backdrop-blur-md border border-[#FF5812]/20 rounded-full text-[10px] md:text-xs">
+            <div className="flex items-center gap-2 px-3.5 md:px-4 py-1.5 md:py-2 bg-[#FF5812]/10 backdrop-blur-md border border-[#FF5812]/20 rounded-full text-xs sm:text-[12px]">
               {trustBadge.icons && (
                 <div className="flex">
                   {trustBadge.icons.map((icon, index) => (
@@ -423,7 +410,7 @@ const Hero: React.FC<HeroProps> = ({
                   ))}
                 </div>
               )}
-              <span className="text-[#FF5812] tracking-wider font-semibold uppercase">{trustBadge.text}</span>
+              <span className="text-[#FF5812] tracking-wider font-bold uppercase">{trustBadge.text}</span>
             </div>
           </div>
         )}
@@ -431,12 +418,12 @@ const Hero: React.FC<HeroProps> = ({
         <div className="text-center space-y-3 md:space-y-4 max-w-5xl mx-auto">
           {/* Main Heading with Animation */}
           <div className="space-y-1">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3rem] leading-[1.1] font-bold animate-fade-in-up animation-delay-200">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[4rem] leading-[1.1] font-extrabold animate-fade-in-up animation-delay-200">
               <span className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] block pb-2">
                 {headline.line1}
               </span>
             </h1>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3rem] leading-[1.1] font-bold animate-fade-in-up animation-delay-400">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[4rem] leading-[1.1] font-extrabold animate-fade-in-up animation-delay-400">
               <span className="bg-gradient-to-r from-[#FF5812] via-[#FF2A00] to-[#FF7A00] animate-gradient filter drop-shadow-[0_0_35px_rgba(255,88,18,0.25)] bg-clip-text text-transparent block pb-2">
                 {headline.line2}
               </span>
@@ -445,61 +432,12 @@ const Hero: React.FC<HeroProps> = ({
           
           {/* Subtitle with Animation */}
           <div className="max-w-3xl mx-auto animate-fade-in-up animation-delay-600 px-2 md:px-0 mt-3 md:mt-4">
-            <p className="text-sm md:text-base lg:text-lg text-zinc-200 font-light leading-relaxed drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
+            <p className="text-base md:text-lg lg:text-xl text-zinc-200 font-normal leading-relaxed drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
               {subtitle}
             </p>
           </div>
-          
-          {/* CTA Buttons with Animation */}
-          {buttons && (
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6 md:mt-8 animate-fade-in-up animation-delay-800">
-              {buttons.primary && (
-                <FlowButton 
-                  onClick={buttons.primary.onClick}
-                  text={buttons.primary.text}
-                  variant="orange-filled"
-                  className="w-full sm:w-auto font-inter text-sm md:text-base"
-                />
-              )}
-              {buttons.secondary && (
-                <FlowButton 
-                  onClick={buttons.secondary.onClick}
-                  text={buttons.secondary.text}
-                  variant="white"
-                  className="w-full sm:w-auto font-inter text-sm md:text-base"
-                />
-              )}
-            </div>
-          )}
         </div>
       </div>
-
-      {/* Bottom Trust Bar */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8, duration: 0.8 }}
-        className="relative w-full z-20 bg-black/40 backdrop-blur-md py-3 sm:py-4 shrink-0 mt-auto"
-      >
-        <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-5">
-            {trustItems.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <div key={index} className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#FF6B00]">
-                    <Icon className="h-5 w-5 text-[#FF6B00]" />
-                  </div>
-                  <div className="flex flex-col text-left">
-                    <span className="text-sm font-bold text-white tracking-wide">{item.title}</span>
-                    <span className="text-xs text-[#A1A1AA] mt-0.5">{item.subtitle}</span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </motion.div>
     </div>
   );
 };

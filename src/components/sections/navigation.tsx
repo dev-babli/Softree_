@@ -40,6 +40,8 @@ import {
   Factory,
   Truck,
   ShoppingBag,
+  Package,
+  MapPin,
 } from "lucide-react";
 
 type MenuLink = {
@@ -153,15 +155,34 @@ const menu: MenuItem[] = [
   },
   {
     label: "Industries",
-    url: "/industries/healthcare-ai-solutions",
     mega: true,
     children: [
       {
-        title: "Healthcare AI Solutions",
+        title: "Healthcare",
         icon: HeartPulse,
-        description: "We deliver intelligent clinical copilots, medical document AI, and next-generation healthcare digital platforms.",
+        description: "Intelligent clinical copilots, medical document AI, and next-generation healthcare digital platforms.",
         links: [
-          { label: "Healthcare AI Solutions", url: "/industries/healthcare-ai-solutions", icon: HeartPulse, description: "Full-suite clinical AI & healthcare solutions" },
+          {
+            label: "Healthcare AI Solutions",
+            url: "/industries/healthcare-ai-solutions",
+            icon: HeartPulse,
+            description: "Full-suite clinical AI & healthcare systems",
+          },
+          
+        ],
+      },
+      {
+        title: "Logistics & Supply Chain",
+        icon: Truck,
+        description: "AI-driven route optimization, warehouse automation, document processing, and supply chain intelligence.",
+        links: [
+          {
+            label: "Logistics Engineering Excellence",
+            url: "/industries/logistics-supply-chain-engineering",
+            icon: Truck,
+            description: "AI & custom software for global supply chains",
+          },
+          
         ],
       },
     ],

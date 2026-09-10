@@ -63,8 +63,8 @@ const MEGA_META: Record<string, MegaMenuMeta> = {
   },
   Industries: {
     eyebrow: "Industries",
-    blurb: "Deploy secure clinical copilots, medical document AI, and modern healthcare digital platforms.",
-    cta: "View Healthcare AI",
+    blurb: "Tailored AI, automation and offshore engineering for healthcare and global supply chains.",
+    cta: "Explore Industries",
     href: "/industries/healthcare-ai-solutions",
   },
   "Case Studies": {
