@@ -5,7 +5,6 @@ import GatewayFlow from "@/components/ui/gateway-flow";
 import { ArrowRight, Activity, Shield, Users, Cpu, Sparkles, Calendar } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { FlowButton } from "@/components/ui/flow-button";
 
 const heroFeatures = [
   {
@@ -75,38 +74,16 @@ export default function GatewayFlowHero() {
           </span>
         </motion.h1>
 
-        {/* Subheading & Content */}
+        {/* Subtitle description */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="max-w-4xl mb-8 sm:mb-12 space-y-3 sm:space-y-4"
+          className="max-w-4xl mb-6 sm:mb-8 space-y-3 sm:space-y-4"
         >
           <p className="text-base sm:text-lg md:text-xl text-white font-medium leading-relaxed">
             Design, develop, and scale secure AI solutions for healthcare with dedicated offshore AI engineers, data specialists, and automation experts.
           </p>
-        </motion.div>
-
-        {/* Action Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col sm:flex-row gap-3 sm:gap-5 items-center justify-center w-full sm:w-auto"
-        >
-          <FlowButton
-            href="/contact"
-            text="Build Your Offshore AI Team"
-            variant="orange-filled"
-            className="w-full sm:w-auto text-sm sm:text-base py-4 px-8"
-          />
-         
-          <FlowButton
-            href="/contact"
-            text="Talk to an AI Expert"
-            variant="white"
-            className="w-full sm:w-auto text-sm sm:text-base py-4 px-8"
-          />
         </motion.div>
 
         {/* 5 Key Highlights / Trust Indicators */}

@@ -60,6 +60,14 @@ export const NAV_RAIL_GRAINIENT: Record<string, NavGrainientPreset> = {
     warpFrequency: 5.0,
     blendAngle: -12,
   },
+  Industries: {
+    ...railBase,
+    color1: "#FFD6CC",
+    color2: "#FF5812",
+    color3: "#FFF1EB",
+    warpFrequency: 4.8,
+    blendAngle: -15,
+  },
   "Case Studies": {
     ...railBase,
     color1: "#C8E0FF",

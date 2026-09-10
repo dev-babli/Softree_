@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ChevronRight, Target, Shield, Cpu, Zap, Layers, Sliders } from "lucide-react";
+import { ChevronRight, Check, Target, Shield, Cpu, Zap, Layers, Sliders } from "lucide-react";
 import MicrosoftAiShowcase from "./MicrosoftAiShowcase";
 
 // Microsoft Capability Icons (Official designs recreated in high-fidelity vector formats)
@@ -160,6 +160,8 @@ export default function PartnerShowcase() {
     {
       num: "01",
       role: "AI Architects",
+      badge: "Architecture",
+      exp: "Principal",
       icon: <AIArchitectsIcon />,
       color: "text-[#FF5812] border-[#FF5812]/40 shadow-[0_0_15px_rgba(255,88,18,0.12)] bg-orange-50/40",
       bullets: ["Solution Architecture", "LLM Strategy", "Agentic AI Design", "Technology Advisory"],
@@ -167,6 +169,8 @@ export default function PartnerShowcase() {
     {
       num: "02",
       role: "AI Engineers",
+      badge: "Intelligence",
+      exp: "Senior AI",
       icon: <AIEngineersIcon />,
       color: "text-[#FF5812] border-[#FF5812]/40 shadow-[0_0_15px_rgba(255,88,18,0.12)] bg-orange-50/40",
       bullets: ["LLM Development", "RAG & AI Agents", "Model Fine-tuning", "Prompt Engineering"],
@@ -174,6 +178,8 @@ export default function PartnerShowcase() {
     {
       num: "03",
       role: "Full-Stack Engineers",
+      badge: "Full-Stack",
+      exp: "Senior Dev",
       icon: <FullStackIcon />,
       color: "text-[#FF5812] border-[#FF5812]/40 shadow-[0_0_15px_rgba(255,88,18,0.12)] bg-orange-50/40",
       bullets: ["Web & Mobile Apps", "APIs & Microservices", "System Integration", "UI/UX Engineering"],
@@ -181,6 +187,8 @@ export default function PartnerShowcase() {
     {
       num: "04",
       role: "Data Engineers",
+      badge: "Data Systems",
+      exp: "Data Lead",
       icon: <DataEngineersIcon />,
       color: "text-[#FF5812] border-[#FF5812]/40 shadow-[0_0_15px_rgba(255,88,18,0.12)] bg-orange-50/40",
       bullets: ["Data Engineering", "Pipelines & ETL", "Vector Databases", "Data Governance"],
@@ -188,6 +196,8 @@ export default function PartnerShowcase() {
     {
       num: "05",
       role: "QA & AI Testing",
+      badge: "Verification",
+      exp: "QA Lead",
       icon: <QAEngineersIcon />,
       color: "text-[#FF5812] border-[#FF5812]/40 shadow-[0_0_15px_rgba(255,88,18,0.12)] bg-orange-50/40",
       bullets: ["AI Model Validation", "Test Automation", "Performance Testing", "Quality Assurance"],
@@ -195,6 +205,8 @@ export default function PartnerShowcase() {
     {
       num: "06",
       role: "Cloud / DevOps",
+      badge: "Cloud & Ops",
+      exp: "DevOps",
       icon: <GlobeIcon />,
       color: "text-[#FF5812] border-[#FF5812]/40 shadow-[0_0_15px_rgba(255,88,18,0.12)] bg-orange-50/40",
       bullets: ["Azure Infrastructure", "CI/CD & MLOps", "Monitoring & Security", "Scalability & Reliability"],
@@ -292,9 +304,9 @@ export default function PartnerShowcase() {
             {teamRoles.map((item, idx) => (
               <React.Fragment key={idx}>
                 {/* Role card node */}
-                <div className="flex flex-col items-center text-center flex-1 min-w-[150px] space-y-4">
+                <div className="flex flex-col items-center text-center flex-1 min-w-[150px] self-stretch">
                   {/* Circle Node with glowing border */}
-                  <div className="relative">
+                  <div className="relative shrink-0 mb-4">
                     {/* Circle */}
                     <div className={`flex h-[88px] w-[88px] items-center justify-center rounded-full bg-slate-50 border-2 ${item.color} shadow-sm transition-transform duration-300 hover:scale-105`}>
                       {item.icon}
@@ -306,17 +318,71 @@ export default function PartnerShowcase() {
                   </div>
 
                   {/* Details */}
-                  <div className="space-y-3 w-full">
-                    <span className="text-[13px] font-black text-slate-900 uppercase tracking-wider block">
-                      {item.role}
-                    </span>
-                    <ul className="text-[11px] text-slate-500 space-y-1 text-center font-medium leading-relaxed">
-                      {item.bullets.map((bullet, bIdx) => (
-                        <li key={bIdx} className="truncate">
-                          • {bullet}
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="w-full flex flex-col items-center flex-1">
+                    {/* Fixed-height role title container for seamless cross-column alignment */}
+                    <div className="min-h-[42px] flex items-center justify-center w-full px-1 mb-3 shrink-0">
+                      <span className="text-[13px] xl:text-[14px] font-black text-slate-900 uppercase tracking-wider text-center leading-tight">
+                        {item.role}
+                      </span>
+                    </div>
+
+                    {/* Advanced Precision Engineering Card - Uniform Height */}
+                    <div className="w-full flex-1 rounded-2xl bg-white border border-slate-200/90 shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_28px_rgba(255,88,18,0.11)] hover:border-orange-300 transition-all duration-300 flex flex-col justify-between overflow-hidden group/card">
+                      {/* Top Dual-Tone Glowing Accent Stroke */}
+                      <div className="h-[3px] w-full bg-gradient-to-r from-orange-500 via-amber-400 to-[#FF5812] shrink-0" />
+
+                      {/* Micro Header Bar with Live Pulse & Category */}
+                      <div className="flex items-center justify-between px-2.5 py-1.5 border-b border-slate-100 bg-slate-50/60 shrink-0">
+                        <div className="flex items-center gap-1.5">
+                          <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                          </span>
+                          <span className="text-[10px] xl:text-[10.5px] font-extrabold uppercase tracking-wider text-slate-600">
+                            {item.badge}
+                          </span>
+                        </div>
+                        <span className="text-[10px] font-bold font-mono text-orange-600 bg-orange-50 border border-orange-200/70 px-1.5 py-0.5 rounded leading-none">
+                          {item.num}
+                        </span>
+                      </div>
+
+                      {/* Capabilities Bullet Rows - Equal row height so all rows and footers align across cards */}
+                      <div className="p-2 xl:p-2.5 flex-1 flex flex-col justify-between">
+                        <ul className="flex flex-col gap-1.5 w-full flex-1">
+                          {item.bullets.map((bullet, bIdx) => (
+                            <li
+                              key={bIdx}
+                              className="group/item relative flex items-center gap-1.5 p-1.5 xl:p-2 rounded-lg bg-slate-50/80 hover:bg-gradient-to-r hover:from-orange-50/90 hover:via-white hover:to-orange-50/40 border border-slate-200/60 hover:border-orange-300/80 transition-all duration-200 cursor-default shadow-[0_1px_2px_rgba(0,0,0,0.015)] min-h-[40px] xl:min-h-[42px]"
+                            >
+                              {/* Left hairline accent revealed on hover */}
+                              <div className="absolute left-0 top-1 bottom-1 w-[2.5px] rounded-r-full bg-[#FF5812] opacity-0 group-hover/item:opacity-100 transition-opacity duration-200" />
+
+                              {/* Futuristic micro-tech icon */}
+                              <div className="flex items-center justify-center w-4 h-4 rounded-[5px] bg-white border border-slate-200/90 group-hover/item:bg-[#FF5812] group-hover/item:border-[#FF5812] shadow-xs shrink-0 transition-all duration-200">
+                                <ChevronRight className="w-2.5 h-2.5 text-orange-500 group-hover/item:text-white stroke-[3] transition-colors duration-200" />
+                              </div>
+
+                              {/* Bullet text - strictly single/two lines without dots */}
+                              <span className="text-[11px] xl:text-[12px] font-bold text-slate-800 group-hover/item:text-slate-950 leading-tight tracking-tight text-left break-normal whitespace-normal">
+                                {bullet}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        {/* Card Footer: SLA / Experience Badge - Strictly single line */}
+                        <div className="mt-auto pt-2.5 border-t border-slate-100/80 flex items-center justify-between text-[9.5px] xl:text-[10px] px-0.5 whitespace-nowrap shrink-0">
+                          <span className="font-bold text-slate-500 flex items-center gap-1.5 whitespace-nowrap shrink-0">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#FF5812] shrink-0" />
+                            Dedicated
+                          </span>
+                          <span className="font-bold text-slate-800 font-mono bg-slate-100 border border-slate-200/60 px-1.5 py-0.5 rounded leading-none whitespace-nowrap shrink-0">
+                            {item.exp}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
