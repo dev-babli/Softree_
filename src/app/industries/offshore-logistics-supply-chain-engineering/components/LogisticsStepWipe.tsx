@@ -4,8 +4,6 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { FlowButton } from "@/components/ui/flow-button";
 
 if (typeof window !== "undefined") {
@@ -36,15 +34,15 @@ interface SlideItem {
 const slides: SlideItem[] = [
   {
     num: "01",
-    title: "Generative AI & RAG Development",
-    titleSplit: "Generative AI &<br />RAG Development",
-    desc: "Build enterprise-grade Generative AI healthcare solutions, AI assistants, knowledge systems, copilots, and Retrieval-Augmented Generation (RAG) applications that securely connect AI models with trusted healthcare data.",
+    title: "Logistics Agentic AI Development",
+    titleSplit: "Logistics Agentic AI<br />Development",
+    desc: "Build intelligent AI agents that can understand logistics operations, make context-aware decisions, orchestrate multi-step workflows, and interact with enterprise systems to automate complex supply chain processes.",
     capabilities: [
-      { label: "Healthcare knowledge assistants and AI copilots", tag: "Agentic AI" },
-      { label: "RAG-based enterprise search and knowledge retrieval", tag: "Hybrid Search" },
-      { label: "Secure integration with organizational data", tag: "HIPAA Vault" },
-      { label: "LLM-powered healthcare applications", tag: "Multi-Model" },
-      { label: "Context-aware information retrieval", tag: "RAG 2.0" },
+      { label: "Autonomous and semi-autonomous logistics agents", tag: "Agentic AI" },
+      { label: "Multi-step shipment and supply chain workflows", tag: "Workflow AI" },
+      { label: "AI agents for exception detection and resolution", tag: "Exception AI" },
+      { label: "TMS, WMS, ERP, and API system orchestration", tag: "System Connected" },
+      { label: "Human-in-the-loop operational decision making", tag: "Supervised AI" },
     ],
     bg: "#0D0D0D",
     text: "#ffffff",
@@ -54,15 +52,15 @@ const slides: SlideItem[] = [
   },
   {
     num: "02",
-    title: "Healthcare AI Agent Development",
-    titleSplit: "Healthcare AI<br />Agent Development",
-    desc: "Develop intelligent AI agents for healthcare that understand context, retrieve information, orchestrate workflows, and interact with enterprise systems within defined business rules.",
+    title: "Generative AI & RAG for Logistics",
+    titleSplit: "Generative AI &<br />RAG for Logistics",
+    desc: "Build enterprise-grade Generative AI solutions that connect large language models with trusted logistics data to power intelligent assistants, knowledge systems, copilots, and supply chain decision support.",
     capabilities: [
-      { label: "Autonomous and semi-autonomous AI agents", tag: "Autonomous" },
-      { label: "Multi-step workflow orchestration", tag: "DAG Engine" },
-      { label: "Enterprise system and API integration", tag: "FHIR / HL7" },
-      { label: "Context-aware decision support", tag: "Clinical CDSS" },
-      { label: "Human-in-the-loop workflows", tag: "Supervised" },
+      { label: "Logistics knowledge assistants and AI copilots", tag: "Generative AI" },
+      { label: "RAG-based logistics search and knowledge retrieval", tag: "Hybrid Search" },
+      { label: "AI-powered access to TMS, WMS, ERP, and business data", tag: "Enterprise AI" },
+      { label: "LLM-powered logistics applications", tag: "Multi-Model" },
+      { label: "Context-aware shipment and supply chain insights", tag: "RAG 2.0" },
     ],
     bg: "#C94716",
     text: "#ffffff",
@@ -72,15 +70,15 @@ const slides: SlideItem[] = [
   },
   {
     num: "03",
-    title: "Healthcare Machine Learning Solutions",
-    titleSplit: "Healthcare Machine<br />Learning Solutions",
-    desc: "Build machine learning solutions that help healthcare organizations leverage data for predictive analytics, forecasting, classification, recommendations, and anomaly detection.",
+    title: "Intelligent Document Processing for Logistics",
+    titleSplit: "Intelligent Document<br />Processing for Logistics",
+    desc: "Automate document-intensive logistics workflows with AI-powered document intelligence that extracts, classifies, validates, summarizes, and transforms information from complex shipping and freight documents.",
     capabilities: [
-      { label: "Predictive analytics and forecasting", tag: "Predictive ML" },
-      { label: "Classification and recommendation models", tag: "Ensemble" },
-      { label: "Risk and anomaly detection", tag: "Early Warning" },
-      { label: "Intelligent decision-support systems", tag: "Logic Engine" },
-      { label: "Model development and optimization", tag: "MLOps Pipeline" },
+      { label: "Bills of lading, invoices, and shipping documents", tag: "Multimodal OCR" },
+      { label: "Proof of delivery and freight document processing", tag: "Document AI" },
+      { label: "Intelligent data extraction and validation", tag: "Entity Parser" },
+      { label: "Document classification and workflow routing", tag: "Schema Valid" },
+      { label: "Structured data generation from logistics documents", tag: "JSON / API" },
     ],
     bg: "#141414",
     text: "#ffffff",
@@ -90,15 +88,15 @@ const slides: SlideItem[] = [
   },
   {
     num: "04",
-    title: "Intelligent Document Processing for Healthcare",
-    titleSplit: "Intelligent Document<br />Processing for Healthcare",
-    desc: "Automate document-intensive healthcare workflows with AI-powered document intelligence that extracts, classifies, validates, summarizes, and transforms information from complex documents.",
+    title: "Logistics Process Automation",
+    titleSplit: "Logistics Process<br />Automation",
+    desc: "Combine AI, intelligent automation, and workflow orchestration to streamline repetitive logistics operations across order processing, shipment coordination, approvals, exception handling, and communication.",
     capabilities: [
-      { label: "Medical and administrative document processing", tag: "Multimodal OCR" },
-      { label: "Intelligent data extraction", tag: "Entity Parser" },
-      { label: "Document classification and validation", tag: "Schema Valid" },
-      { label: "AI-powered summarization", tag: "Clinical NLP" },
-      { label: "Structured data generation from unstructured content", tag: "JSON / FHIR" },
+      { label: "Order and shipment workflow automation", tag: "RPA + AI" },
+      { label: "AI-assisted exception and task processing", tag: "Triage Flow" },
+      { label: "Automated data validation and reconciliation", tag: "Data Quality" },
+      { label: "Human-in-the-loop logistics automation", tag: "Escalation" },
+      { label: "Reduced manual intervention across operations", tag: "Process AI" },
     ],
     bg: "#FCFBF9",
     text: "#111111",
@@ -108,15 +106,15 @@ const slides: SlideItem[] = [
   },
   {
     num: "05",
-    title: "Healthcare Process Automation",
-    titleSplit: "Healthcare Process<br />Automation",
-    desc: "Combine AI, intelligent automation, and workflow orchestration to streamline repetitive administrative and operational healthcare processes.",
+    title: "Logistics Data Engineering & Analytics",
+    titleSplit: "Logistics Data<br />Engineering & Analytics",
+    desc: "Build the data foundation required for scalable logistics AI with modern data pipelines, system integrations, analytics platforms, and AI-ready architectures across your supply chain ecosystem.",
     capabilities: [
-      { label: "Workflow automation", tag: "RPA + Agentic" },
-      { label: "AI-assisted task processing", tag: "Triage Flow" },
-      { label: "Automated data validation", tag: "Zero Error" },
-      { label: "Human-in-the-loop automation", tag: "Escalation" },
-      { label: "Reduced manual intervention", tag: "-85% Manual" },
+      { label: "TMS, WMS, ERP, CRM, and logistics data integration", tag: "API / ETL" },
+      { label: "ETL/ELT and real-time data pipelines", tag: "Stream & Batch" },
+      { label: "Supply chain data transformation and management", tag: "Lakehouse" },
+      { label: "Operational dashboards and business intelligence", tag: "Executive BI" },
+      { label: "AI-ready logistics data architectures", tag: "Cloud Native" },
     ],
     bg: "#1C1A18",
     text: "#ffffff",
@@ -126,15 +124,15 @@ const slides: SlideItem[] = [
   },
   {
     num: "06",
-    title: "Healthcare Data Engineering & Analytics",
-    titleSplit: "Healthcare Data<br />Engineering & Analytics",
-    desc: "Build the data infrastructure required for scalable healthcare AI with modern data pipelines, integrations, analytics platforms, and AI-ready architectures.",
+    title: "Custom Logistics AI Application Development",
+    titleSplit: "Custom Logistics AI<br />Application Development",
+    desc: "Develop purpose-built AI applications around your logistics workflows, operational teams, technology ecosystem, and supply chain objectives.",
     capabilities: [
-      { label: "Healthcare data integration", tag: "HL7 / FHIR ETL" },
-      { label: "ETL/ELT and data pipelines", tag: "Stream & Batch" },
-      { label: "Data transformation and management", tag: "Lakehouse" },
-      { label: "Business intelligence and analytics", tag: "Executive BI" },
-      { label: "AI-ready data architectures", tag: "Sovereign VPC" },
+      { label: "Custom AI-powered logistics applications", tag: "Tailored AI" },
+      { label: "Shipment visibility portals and dashboards", tag: "Secure UX" },
+      { label: "Intelligent warehouse and transportation applications", tag: "Operations AI" },
+      { label: "AI-enabled logistics workflows and microservices", tag: "Microservices" },
+      { label: "Scalable cloud-based supply chain solutions", tag: "Multi-Cloud" },
     ],
     bg: "#EA580C",
     text: "#ffffff",
@@ -144,15 +142,15 @@ const slides: SlideItem[] = [
   },
   {
     num: "07",
-    title: "Custom Healthcare AI Application Development",
-    titleSplit: "Custom Healthcare AI<br />Application Development",
-    desc: "Develop purpose-built AI healthcare applications around your workflows, users, technology ecosystem, and business objectives.",
+    title: "AI Integration & Logistics Modernization",
+    titleSplit: "AI Integration & Logistics<br />Modernization",
+    desc: "Integrate AI capabilities into existing logistics applications, TMS, WMS, ERP platforms, APIs, databases, and legacy environments without disrupting critical supply chain operations.",
     capabilities: [
-      { label: "Custom AI-powered applications", tag: "Tailored AI" },
-      { label: "Healthcare portals and dashboards", tag: "Secure UX" },
-      { label: "Intelligent decision-support applications", tag: "CDSS Core" },
-      { label: "AI-enabled enterprise workflows", tag: "Microservices" },
-      { label: "Scalable cloud-based solutions", tag: "Multi-Cloud" },
+      { label: "AI and API integration across logistics systems", tag: "REST / gRPC" },
+      { label: "Legacy logistics application modernization", tag: "Refactoring" },
+      { label: "TMS, WMS, ERP, and enterprise integration", tag: "System Connected" },
+      { label: "Cloud and data platform integration", tag: "Hybrid Cloud" },
+      { label: "AI-enabled upgrades to existing applications", tag: "Modern Stack" },
     ],
     bg: "#101010",
     text: "#ffffff",
@@ -162,15 +160,15 @@ const slides: SlideItem[] = [
   },
   {
     num: "08",
-    title: "AI Integration & Healthcare Application Modernization",
-    titleSplit: "AI Integration & Application<br />Modernization",
-    desc: "Integrate AI capabilities into existing healthcare applications, APIs, enterprise platforms, databases, and legacy environments without disrupting critical workflows.",
+    title: "Transportation, Warehouse & Supply Chain Intelligence",
+    titleSplit: "Transportation, Warehouse &<br />Supply Chain Intelligence",
+    desc: "Apply AI across transportation, warehouse, inventory, shipment, and supply chain operations to improve visibility, optimize decisions, and uncover actionable operational insights.",
     capabilities: [
-      { label: "AI and API integration", tag: "REST / gRPC" },
-      { label: "Legacy application modernization", tag: "Refactoring" },
-      { label: "Enterprise platform integration", tag: "Epic & Cerner" },
-      { label: "Cloud and data platform integration", tag: "Hybrid Cloud" },
-      { label: "AI-enabled application upgrades", tag: "Modern Stack" },
+      { label: "AI-powered route and transportation optimization", tag: "Route AI" },
+      { label: "Warehouse and inventory intelligence", tag: "Inventory AI" },
+      { label: "Real-time shipment and order visibility", tag: "Visibility AI" },
+      { label: "Supply chain performance analytics", tag: "Supply Chain BI" },
+      { label: "Predictive operational and delivery insights", tag: "Predictive AI" },
     ],
     bg: "#F7F5F0",
     text: "#111111",
@@ -181,11 +179,11 @@ const slides: SlideItem[] = [
   {
     isCta: true,
     num: "09",
-    title: "Build Your Healthcare AI Solution with Softree",
-    titleSplit: "Build Your Healthcare AI<br />Solution with Softree",
-    desc: "Turn AI opportunities into secure, scalable, production-ready healthcare solutions. Whether you are exploring Generative AI, automating workflows, modernizing legacy applications, or building intelligent healthcare platforms, Softree can help you move from strategy to implementation.",
-    primaryCta: "Talk to Our Healthcare AI Experts",
-    secondaryCta: "Explore Our Healthcare AI Solutions",
+    title: "Build Your Logistics AI Solution with Softree",
+    titleSplit: "Build Your Logistics AI<br />Solution with Softree",
+    desc: "Turn logistics and supply chain opportunities into secure, scalable, production-ready AI solutions. Whether you are deploying AI agents, improving shipment visibility, automating workflows, optimizing transportation, processing documents, or building intelligent supply chain platforms, Softree can help you move from strategy to implementation.",
+    primaryCta: "Talk to Our Logistics AI Experts",
+    secondaryCta: "Explore Our Logistics AI Solutions",
     bg: "#0A0A0A",
     text: "#ffffff",
     accent: "#FF6B00",
@@ -194,7 +192,7 @@ const slides: SlideItem[] = [
   },
 ];
 
-export default function StepWipe() {
+export default function LogisticsStepWipe() {
   const containerRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -250,10 +248,28 @@ export default function StepWipe() {
   );
 
   return (
-    <section
-      ref={containerRef}
-      className="relative w-full h-screen overflow-hidden bg-white"
-    >
+    <>
+      {/* Section Header: AI-Powered Supply Chain Solutions */}
+      <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-[2cm] pt-12 md:pt-16 pb-8 sm:pb-10 flex flex-col items-center text-center bg-white">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 text-xs sm:text-[12px] font-bold tracking-widest text-[#FF6B00] uppercase mb-4">
+          <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
+          AI-POWERED SUPPLY CHAIN SOLUTIONS
+        </div>
+
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold font-['Plus_Jakarta_Sans',sans-serif] max-w-4xl mx-auto text-slate-900 mb-4 tracking-tight leading-[1.12]">
+          Intelligent AI Solutions for <br className="hidden md:block" />
+          <span className="text-[#FF6B2C]">Every Layer of Logistics Operations</span>
+        </h2>
+
+        <p className="text-base sm:text-[16.5px] lg:text-[17px] text-slate-500 max-w-3xl leading-relaxed mx-auto">
+          From AI agents and RAG-powered assistants to document processing and workflow automation. We build scalable AI solutions that connect your systems, streamline operations, and help your teams make smarter supply chain decisions.
+        </p>
+      </div>
+
+      <section
+        ref={containerRef}
+        className="relative w-full h-screen overflow-hidden bg-white"
+      >
       <div className="absolute inset-0 w-full h-full">
         {slides.map((card, i) => (
           <div
@@ -280,11 +296,11 @@ export default function StepWipe() {
             {/* Top Bar / Slide Indicator */}
             <div className="w-full">
               <div className="flex items-center justify-between gap-4 mb-3 sm:mb-4">
-                <p className="text-xs sm:text-sm font-bold tracking-widest uppercase opacity-85 font-mono">
+                <p className="text-sm sm:text-base font-bold tracking-widest uppercase opacity-85 font-mono">
                   {card.isCta ? "SUMMARY & NEXT STEPS" : `${card.num} / 08 — ${card.title}`}
                 </p>
-                <span className="hidden sm:inline-block px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-bold tracking-wider uppercase border border-current opacity-60">
-                  {card.isCta ? "GET STARTED" : "HEALTHCARE AI SERVICE"}
+                <span className="hidden sm:inline-block px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-bold tracking-wider uppercase border border-current opacity-70">
+                  {card.isCta ? "GET STARTED" : "LOGISTICS ENGINEERING SERVICE"}
                 </span>
               </div>
               <hr
@@ -297,24 +313,25 @@ export default function StepWipe() {
             {card.isCta ? (
               /* Grand Closing CTA Card */
               <div className="w-full text-center max-w-4xl mx-auto my-auto flex flex-col items-center py-4 sm:py-6">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-500/30 bg-orange-500/10 text-[11px] sm:text-xs font-bold tracking-widest text-[#FF6B00] uppercase mb-4 sm:mb-6">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-500/10 text-xs sm:text-sm font-bold tracking-widest text-[#FF6B00] uppercase mb-4 sm:mb-6">
                   <span className="w-2 h-2 rounded-full bg-[#FF6B00] animate-pulse" />
-                  HEALTHCARE AI IMPLEMENTATION
+                  OFFSHORE LOGISTICS ENGINEERING
                 </div>
                 <h2
-                  className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] text-white mb-4 sm:mb-6 font-['Plus_Jakarta_Sans',sans-serif]"
+                  className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.12] text-white mb-4 sm:mb-6 font-['Plus_Jakarta_Sans',sans-serif]"
                   dangerouslySetInnerHTML={{ __html: card.titleSplit }}
                 />
-                <p className="text-sm sm:text-base md:text-lg text-neutral-300 leading-relaxed mb-6 sm:mb-8 max-w-2xl font-normal">
+                <p className="text-base sm:text-lg md:text-xl text-neutral-300 leading-relaxed mb-6 sm:mb-8 max-w-2xl font-normal">
                   {card.desc}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center w-full sm:w-auto">
+                
                   <FlowButton
                     href="/contact"
-                    text={card.primaryCta || "Build Your Offshore Team"}
-                    variant="orange-filled"
-                    className="w-full sm:w-auto px-8 py-3.5"
-                  />                  
+                    text={card.secondaryCta || "Build Your Offshore Team"}
+                    variant="white"
+                    className="w-full sm:w-auto px-8 py-3.5 text-base"
+                  />
                 </div>
               </div>
             ) : (
@@ -323,23 +340,23 @@ export default function StepWipe() {
                 {/* Left Column: Title + Description */}
                 <div className="lg:col-span-7 flex flex-col">
                   <h2
-                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.1] mb-3 sm:mb-5 font-['Plus_Jakarta_Sans',sans-serif]"
+                    className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold tracking-tight leading-[1.1] mb-4 sm:mb-6 font-['Plus_Jakarta_Sans',sans-serif]"
                     dangerouslySetInnerHTML={{ __html: card.titleSplit }}
                   />
-                  <p className="text-xs sm:text-sm md:text-base opacity-90 leading-relaxed max-w-xl font-normal mb-5 sm:mb-6">
+                  <p className="text-base sm:text-[16.5px] md:text-lg opacity-90 leading-relaxed max-w-xl font-normal mb-6 sm:mb-8">
                     {card.desc}
                   </p>
                   <div>
                     <FlowButton
                       href={card.link || "/contact"}
-                      text="Explore AI Solutions"
+                      text="Explore Logistics Solutions"
                       variant={card.isLight ? "dark-filled" : "white-filled"}
-                      className="w-fit"
+                      className="w-fit text-sm sm:text-base px-6 py-3"
                     />
                   </div>
                 </div>
 
-                {/* Right Column: Advanced Telemetry Capabilities Matrix (Single unified spec sheet, NOT 5 cards) */}
+                {/* Right Column: Advanced Telemetry Capabilities Matrix */}
                 <div className="lg:col-span-5 flex flex-col justify-center">
                   <div className="relative group/matrix">
                     {/* Ambient Glow */}
@@ -374,7 +391,7 @@ export default function StepWipe() {
                         }}
                       >
                         <div className="flex items-center gap-2.5">
-                          <span className="relative flex h-2 w-2">
+                          <span className="relative flex h-2.5 w-2.5">
                             <span
                               className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
                               style={{
@@ -382,14 +399,14 @@ export default function StepWipe() {
                               }}
                             />
                             <span
-                              className="relative inline-flex rounded-full h-2 w-2"
+                              className="relative inline-flex rounded-full h-2.5 w-2.5"
                               style={{
                                 backgroundColor: card.accent || "#FF6B00",
                               }}
                             />
                           </span>
                           <span
-                            className="text-[11px] font-mono font-bold tracking-widest uppercase opacity-90"
+                            className="text-xs sm:text-[13px] font-mono font-bold tracking-widest uppercase opacity-90"
                             style={{ color: card.text }}
                           >
                             SYSTEM CAPABILITIES
@@ -399,7 +416,7 @@ export default function StepWipe() {
                         <div className="flex items-center gap-1.5">
                           <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                           <span
-                            className="text-[10px] font-mono tracking-wider opacity-60 uppercase"
+                            className="text-[11px] sm:text-xs font-mono tracking-wider opacity-70 uppercase"
                             style={{ color: card.text }}
                           >
                             ENTERPRISE SPEC
@@ -407,7 +424,7 @@ export default function StepWipe() {
                         </div>
                       </div>
 
-                      {/* Capabilities Rows (Unified Telemetry Table - NOT 5 cards) */}
+                      {/* Capabilities Rows */}
                       <div
                         className="divide-y"
                         style={{
@@ -419,11 +436,11 @@ export default function StepWipe() {
                         {card.capabilities?.map((cap, capIdx) => (
                           <div
                             key={capIdx}
-                            className="group/row px-4 py-2.5 sm:py-3 flex items-center justify-between gap-3 transition-colors duration-150 hover:bg-white/[0.03]"
+                            className="group/row px-4 py-3 sm:py-3.5 flex items-center justify-between gap-3 transition-colors duration-150 hover:bg-white/[0.03]"
                           >
                             <div className="flex items-center gap-3 min-w-0">
                               <span
-                                className="shrink-0 font-mono text-[11px] font-bold"
+                                className="shrink-0 font-mono text-xs sm:text-sm font-bold"
                                 style={{
                                   color: card.accent || "#FF6B00",
                                 }}
@@ -431,7 +448,7 @@ export default function StepWipe() {
                                 0{capIdx + 1}
                               </span>
                               <span
-                                className="text-xs sm:text-[13px] font-medium leading-snug group-hover/row:translate-x-0.5 transition-transform duration-150"
+                                className="text-sm sm:text-[15px] font-medium leading-snug group-hover/row:translate-x-0.5 transition-transform duration-150"
                                 style={{ color: card.text }}
                               >
                                 {cap.label}
@@ -439,7 +456,7 @@ export default function StepWipe() {
                             </div>
 
                             <span
-                              className="shrink-0 px-2 py-0.5 rounded text-[10px] font-mono font-semibold tracking-wider uppercase border whitespace-nowrap"
+                              className="shrink-0 px-2.5 py-1 rounded text-[11px] sm:text-xs font-mono font-semibold tracking-wider uppercase border whitespace-nowrap"
                               style={{
                                 backgroundColor: card.isLight
                                   ? "rgba(0,0,0,0.04)"
@@ -458,7 +475,7 @@ export default function StepWipe() {
 
                       {/* Bottom Footer Telemetry */}
                       <div
-                        className="px-4 py-2 flex items-center justify-between border-t text-[10px] font-mono opacity-50 uppercase tracking-wider"
+                        className="px-4 py-2.5 flex items-center justify-between border-t text-[11px] sm:text-xs font-mono opacity-60 uppercase tracking-wider"
                         style={{
                           backgroundColor: card.isLight
                             ? "rgba(0,0,0,0.015)"
@@ -469,9 +486,9 @@ export default function StepWipe() {
                           color: card.text,
                         }}
                       >
-                        <span>FHIR / HL7 • HIPAA BAA</span>
+                        <span>EDI • TMS / WMS READY</span>
                         <span className="flex items-center gap-1">
-                          <span className="w-1 h-1 rounded-full bg-emerald-400" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                           PROD READY
                         </span>
                       </div>
@@ -483,18 +500,19 @@ export default function StepWipe() {
 
             {/* Bottom Footer Details */}
             <div
-              className="w-full pt-4 mt-4 border-t flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[11px] sm:text-xs opacity-60"
+              className="w-full pt-4 mt-4 border-t flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs sm:text-sm opacity-70"
               style={{
                 borderColor: card.isLight
                   ? "rgba(0,0,0,0.15)"
                   : "rgba(255,255,255,0.15)",
               }}
             >
-              <span>Softree Technology • Healthcare AI Engineering</span>
+              <span>Softree Technology • Offshore Logistics &amp; Supply Chain Engineering</span>
             </div>
           </div>
         ))}
       </div>
     </section>
+    </>
   );
 }

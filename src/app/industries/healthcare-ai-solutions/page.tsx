@@ -315,8 +315,10 @@ export default function AiHealthcareDevelopmentPage() {
               <div className="w-full h-full max-w-[550px] lg:max-w-none flex flex-col mx-auto lg:ml-auto">
                 <NetworkGlobe
                   heading="Where we operate"
-                  storesLabel={`${COUNTRIES_SERVED} countries served`}
-                  caption={`Global delivery across ${COUNTRIES_SERVED} countries and 8 key technology hubs. 200+ projects delivered worldwide.`}
+                  tagline="Global Reach. Local Understanding."
+                  subheading="Trusted by businesses across 13+ countries, we deliver technology solutions that help organizations build, scale, and transform digitally."
+                  storesLabel="13+ countries served"
+                  caption="Trusted by businesses across 13+ countries, we deliver technology solutions that help organizations build, scale, and transform digitally."
                 />
               </div>
             </div>

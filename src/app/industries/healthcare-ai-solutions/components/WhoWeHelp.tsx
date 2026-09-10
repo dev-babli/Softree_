@@ -59,16 +59,16 @@ export const WhoWeHelp = ({ simple = false }: { simple?: boolean }) => {
   ];
 
   return (
-    <div className="flex flex-col justify-between h-full w-full lg:max-w-[600px] mx-auto lg:mx-0 px-4 lg:px-2 pt-0">
+    <div className="flex flex-col justify-between h-full w-full lg:max-w-[660px] mx-auto lg:mx-0 px-4 lg:px-2 pt-0">
       {!simple && (
-        <div className="mb-2">
+        <div className="mb-4">
           {/* Heading */}
-          <h2 className="text-2xl md:text-3xl lg:text-[24px] xl:text-[26px] font-extrabold text-slate-900 leading-[1.15] mb-1.5 tracking-tight pr-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-[34px] xl:text-[38px] font-extrabold font-['Plus_Jakarta_Sans',sans-serif] text-slate-900 leading-[1.2] mb-3 tracking-tight">
             AI-POWERED HEALTHCARE CAPABILITIES
           </h2>
 
           {/* Description */}
-          <p className="text-slate-500 text-xs sm:text-sm leading-relaxed mb-3">
+          <p className="text-slate-600 text-[16px] sm:text-[17px] leading-relaxed mb-4">
             Discover how Artificial Intelligence transforms patient care, streamlines healthcare operations, and empowers medical professionals.
           </p>
         </div>
@@ -79,18 +79,18 @@ export const WhoWeHelp = ({ simple = false }: { simple?: boolean }) => {
         {items.map((item, i) => (
           <div
             key={i}
-            className={`flex items-start gap-3 py-2 sm:py-2.5 ${
+            className={`flex items-start gap-4 py-2.5 sm:py-3 ${
               i !== items.length - 1 ? "border-b border-slate-100" : ""
             }`}
           >
-            <div className={`shrink-0 w-8 h-8 rounded-full ${item.bg} flex items-center justify-center mt-0.5 border border-orange-200/40`}>
-              <item.icon className={`w-4 h-4 ${item.color}`} />
+            <div className={`shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-full ${item.bg} flex items-center justify-center mt-0.5 border border-orange-200/50`}>
+              <item.icon className={`w-5 h-5 sm:w-5.5 sm:h-5.5 ${item.color}`} />
             </div>
             <div className="flex flex-col pt-0">
-              <h3 className="text-sm sm:text-[15px] font-bold text-slate-900 leading-tight mb-0.5">
+              <h3 className="text-[18px] sm:text-[19.5px] font-bold text-slate-900 leading-snug mb-1">
                 {item.title}
               </h3>
-              <p className="text-xs sm:text-[13px] text-slate-500 leading-relaxed">
+              <p className="text-[15px] sm:text-[16px] text-slate-600 leading-relaxed">
                 {item.desc}
               </p>
             </div>
@@ -100,15 +100,15 @@ export const WhoWeHelp = ({ simple = false }: { simple?: boolean }) => {
 
       {/* Single Section-Level CTA */}
       <div className="pt-4 mt-3 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p className="text-xs sm:text-sm text-slate-600 font-medium text-center sm:text-left">
+        <p className="text-[15px] sm:text-[16px] text-slate-700 font-medium text-center sm:text-left">
           Ready to deploy customized AI across your healthcare workflows?
         </p>
         <Link
           href="/contact"
-          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#FF6B00] hover:bg-[#e05e00] text-white text-xs sm:text-sm font-semibold shadow-md shadow-orange-500/20 transition-all duration-200 shrink-0 group"
+          className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-[#FF6B00] hover:bg-[#e05e00] text-white text-[15px] sm:text-[16px] font-semibold shadow-md shadow-orange-500/20 transition-all duration-200 shrink-0 group"
         >
           <span>Contact Us</span>
-          <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+          <ArrowRight className="w-4.5 h-4.5 transition-transform duration-200 group-hover:translate-x-1" />
         </Link>
       </div>
     </div>

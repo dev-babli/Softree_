@@ -61,6 +61,10 @@ const nextConfig: any = {
         source: "/services/aidevelopemnt/service",
         destination: "/services/ai-development-service",
       },
+      {
+        source: "/industries/logistics-supply-chain-engineering",
+        destination: "/industries/offshore-logistics-supply-chain-engineering",
+      },
     ];
   },
   async redirects() {

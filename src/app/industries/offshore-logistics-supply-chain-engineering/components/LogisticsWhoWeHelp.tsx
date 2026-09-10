@@ -17,8 +17,6 @@ export const LogisticsWhoWeHelp = ({ simple = false }: { simple?: boolean }) => 
     {
       title: "Shipment Visibility & Tracking",
       desc: "Improve shipment visibility with AI-powered tracking, intelligent status monitoring, exception detection, and real-time operational insights.",
-      cta: "Explore Shipment Intelligence",
-      href: "/contact",
       icon: MapPin,
       color: "text-[#FF6B00]",
       bg: "bg-orange-50",
@@ -26,8 +24,6 @@ export const LogisticsWhoWeHelp = ({ simple = false }: { simple?: boolean }) => 
     {
       title: "Warehouse & Inventory Management",
       desc: "Optimize warehouse and inventory operations with AI-driven forecasting, stock intelligence, workflow automation, and operational decision support.",
-      cta: "Explore Warehouse AI",
-      href: "/contact",
       icon: Package,
       color: "text-[#FF6B00]",
       bg: "bg-orange-50",
@@ -35,8 +31,6 @@ export const LogisticsWhoWeHelp = ({ simple = false }: { simple?: boolean }) => 
     {
       title: "Logistics Document Processing",
       desc: "Automate bills of lading, invoices, shipping documents, proof of delivery, and other logistics documents with intelligent document processing.",
-      cta: "Explore Document AI",
-      href: "/contact",
       icon: FileText,
       color: "text-[#FF6B00]",
       bg: "bg-orange-50",
@@ -44,8 +38,6 @@ export const LogisticsWhoWeHelp = ({ simple = false }: { simple?: boolean }) => 
     {
       title: "Transportation & Route Optimization",
       desc: "Improve transportation operations with intelligent planning, route optimization, delivery insights, exception management, and AI-powered decision support.",
-      cta: "Explore Transportation AI",
-      href: "/contact",
       icon: Truck,
       color: "text-[#FF6B00]",
       bg: "bg-orange-50",
@@ -53,8 +45,6 @@ export const LogisticsWhoWeHelp = ({ simple = false }: { simple?: boolean }) => 
     {
       title: "Order & Freight Management",
       desc: "Streamline order processing, freight coordination, shipment workflows, approvals, and communication across logistics operations.",
-      cta: "Explore Freight Automation",
-      href: "/contact",
       icon: Boxes,
       color: "text-[#FF6B00]",
       bg: "bg-orange-50",
@@ -62,8 +52,6 @@ export const LogisticsWhoWeHelp = ({ simple = false }: { simple?: boolean }) => 
     {
       title: "Supply Chain Intelligence",
       desc: "Connect logistics data across ERP, TMS, WMS, CRM, APIs, and business systems to deliver actionable supply chain intelligence and predictive insights.",
-      cta: "Explore Supply Chain AI",
-      href: "/contact",
       icon: LineChart,
       color: "text-[#FF6B00]",
       bg: "bg-orange-50",
@@ -71,17 +59,18 @@ export const LogisticsWhoWeHelp = ({ simple = false }: { simple?: boolean }) => 
   ];
 
   return (
-    <div className="flex flex-col justify-between h-full w-full lg:max-w-[600px] mx-auto lg:mx-0 px-4 lg:px-2 pt-0">
+    <div className="flex flex-col justify-between h-full w-full lg:max-w-[660px] mx-auto lg:mx-0 px-4 lg:px-2 pt-0">
       {!simple && (
-        <div className="mb-1">
+        <div className="mb-4">
           {/* Heading */}
-          <h2 className="text-2xl md:text-3xl lg:text-[24px] xl:text-[26px] font-extrabold text-slate-900 leading-[1.15] mb-1.5 tracking-tight pr-4">
-            LOGISTICS AI <span className="text-[#FF6B00]">USE CASES</span>
+          <h2 className="text-2xl sm:text-3xl lg:text-[35px] xl:text-[38px] font-extrabold font-['Plus_Jakarta_Sans',sans-serif] text-slate-900 leading-[1.2] mb-3 tracking-tight">
+            Transform Logistics &amp; Supply Chain Operations with{" "}
+            <span className="text-[#FF6B00]">AI-Powered Solutions</span>
           </h2>
 
           {/* Description */}
-          <p className="text-slate-500 text-xs sm:text-sm leading-relaxed mb-3">
-            Discover how AI transforms logistics operations, improves supply chain visibility, automates workflows, and helps logistics teams make faster, data-driven decisions.
+          <p className="text-slate-600 text-[16px] sm:text-[17.5px] leading-relaxed mb-4">
+            From shipment tracking and warehouse management to transportation, freight, document processing, and supply chain intelligence, Softree helps logistics businesses automate operations, improve visibility, and make smarter decisions with AI.
           </p>
         </div>
       )}
@@ -91,30 +80,37 @@ export const LogisticsWhoWeHelp = ({ simple = false }: { simple?: boolean }) => 
         {items.map((item, i) => (
           <div
             key={i}
-            className={`flex items-start gap-3 py-2 sm:py-2.5 ${
+            className={`flex items-start gap-4 py-2.5 sm:py-3 ${
               i !== items.length - 1 ? "border-b border-slate-100" : ""
             }`}
           >
-            <div className={`shrink-0 w-8 h-8 rounded-full ${item.bg} flex items-center justify-center mt-0.5`}>
-              <item.icon className={`w-4 h-4 ${item.color}`} />
+            <div className={`shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-full ${item.bg} flex items-center justify-center mt-0.5 border border-orange-200/50`}>
+              <item.icon className={`w-5 h-5 sm:w-5.5 sm:h-5.5 ${item.color}`} />
             </div>
             <div className="flex flex-col pt-0">
-              <h3 className="text-sm sm:text-[15px] font-bold text-slate-900 leading-tight mb-0.5">
+              <h3 className="text-[18.5px] sm:text-[20px] font-bold text-slate-900 leading-snug mb-1">
                 {item.title}
               </h3>
-              <p className="text-xs sm:text-[13px] text-slate-500 leading-normal mb-1.5">
+              <p className="text-[15.5px] sm:text-[16.5px] text-slate-600 leading-relaxed">
                 {item.desc}
               </p>
-              <Link
-                href={item.href}
-                className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-semibold text-[#FF6B00] hover:text-[#e05e00] group/cta w-fit transition-all"
-              >
-                <span>{item.cta}</span>
-                <ArrowRight className="w-3 h-3 transition-transform duration-200 group-hover/cta:translate-x-1" />
-              </Link>
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Single Section-Level CTA */}
+      <div className="pt-4 mt-3 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p className="text-[15.5px] sm:text-[16.5px] text-slate-700 font-medium text-center sm:text-left">
+          Ready to deploy customized AI across your logistics operations?
+        </p>
+        <Link
+          href="/contact"
+          className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-[#FF6B00] hover:bg-[#e05e00] text-white text-[15px] sm:text-[16px] font-semibold shadow-md shadow-orange-500/20 transition-all duration-200 shrink-0 group"
+        >
+          <span>Schedule a Consultation</span>
+          <ArrowRight className="w-4.5 h-4.5 transition-transform duration-200 group-hover:translate-x-1" />
+        </Link>
       </div>
     </div>
   );

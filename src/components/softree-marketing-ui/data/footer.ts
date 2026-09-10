@@ -136,6 +136,11 @@ export const footerData: KoreFooterProps = {
         {
             heading: 'Industries',
             links: [
+                { label: 'Healthcare AI Solutions', href: '/industries/healthcare-ai-solutions' },
+                {
+                    label: 'Logistics & Supply Chain',
+                    href: '/industries/offshore-logistics-supply-chain-engineering',
+                },
                 { label: 'Healthcare (Payer)', href: '/industry/healthcare-payer' },
                 {
                     label: 'Healthcare (Provider)',

@@ -31,32 +31,56 @@ interface PinStyle {
 
 interface NetworkGlobeProps {
   heading?: string;
+  tagline?: string;
+  subheading?: string;
   locations?: GlobeLocation[];
   legs?: RelayLeg[];
   caption?: string;
   storesLabel?: string;
+  countriesList?: string[];
 }
 
 const DEFAULT_LOCATIONS: GlobeLocation[] = [
-  { name: "United States", lat: 39.82, lon: -98.57 }, // Central US
+  { name: "USA", lat: 39.82, lon: -98.57 }, // United States
+  { name: "UK", lat: 51.51, lon: -0.13 }, // London
   { name: "Canada", lat: 56.13, lon: -106.34 }, // Central Canada
   { name: "Netherlands", lat: 52.37, lon: 4.89 }, // Amsterdam
-  { name: "England", lat: 51.51, lon: -0.13 }, // London
+  { name: "Lithuania", lat: 54.69, lon: 25.28 }, // Vilnius
   { name: "UAE", lat: 25.20, lon: 55.27 }, // Dubai
   { name: "India", lat: 28.61, lon: 77.20 }, // New Delhi
+  { name: "Vietnam", lat: 21.02, lon: 105.83 }, // Hanoi
   { name: "Singapore", lat: 1.35, lon: 103.81 }, // Singapore
+  { name: "Australia", lat: -33.86, lon: 151.20 }, // Sydney
   { name: "South Korea", lat: 37.56, lon: 126.97 }, // Seoul
 ];
 
+const DEFAULT_COUNTRIES_LIST = [
+  "USA",
+  "UK",
+  "Canada",
+  "Netherlands",
+  "Lithuania",
+  "South Korea",
+  "Australia",
+  "Singapore",
+  "Vietnam",
+  "UAE",
+  "India",
+];
+
 const DEFAULT_LEGS: RelayLeg[] = [
-  [0, 1],
-  [1, 3],
-  [3, 2],
-  [2, 4],
-  [4, 5],
-  [5, 6],
-  [6, 7],
-  [7, 0],
+  [0, 1], // USA -> Canada
+  [1, 2], // Canada -> UK
+  [2, 3], // UK -> Netherlands
+  [3, 4], // Netherlands -> Lithuania
+  [4, 5], // Lithuania -> UAE
+  [5, 6], // UAE -> India
+  [6, 7], // India -> Vietnam
+  [7, 8], // Vietnam -> Singapore
+  [8, 9], // Singapore -> Australia
+  [9, 10], // Australia -> South Korea
+  [10, 0], // South Korea -> USA
+  [0, 2], // USA -> UK
 ];
 
 const LANDMASK_B64 = [
@@ -215,17 +239,16 @@ const STYLES = `
 
   width:100%;
   height:100%;
-  min-height:100%;
   display:flex;
   flex-direction:column;
   background: radial-gradient(circle at 50% 40%, #1c1510 0%, #0a0908 100%);
   border: 1px solid rgba(255, 107, 0, 0.08);
-  padding:24px 20px;
+  padding:20px 20px 14px;
   position:relative;
   overflow:hidden;
   font-family:'Inter',sans-serif;
   box-sizing:border-box;
-  border-radius: 28px;
+  border-radius: 24px;
 }
 .globe-section *{ box-sizing:border-box; }
 
@@ -243,13 +266,19 @@ const STYLES = `
 .globe-heading{
   font-family: 'Playfair Display', Georgia, Cambria, "Times New Roman", Times, serif;
   font-style: italic;
-  font-size:28px;
+  font-size:36px;
   line-height:1.15;
-  font-weight:400;
+  font-weight:500;
   color:var(--text);
-  margin:0 0 10px;
-  letter-spacing: 0;
+  margin:0 0 8px;
+  letter-spacing: -0.01em;
   text-transform: none;
+}
+
+@media (min-width: 1280px) {
+  .globe-heading{
+    font-size:42px;
+  }
 }
 
 .globe-layout{
@@ -258,14 +287,44 @@ const STYLES = `
   align-items:center;
   position:relative;
   flex:1;
-  margin-bottom: 12px;
+  width:100%;
+  margin: 0;
 }
 
 .globe-canvas-wrap{
   position:relative;
-  width:320px;
-  height:320px;
+  width:360px;
+  height:360px;
   max-width:100%;
+  aspect-ratio: 1 / 1;
+}
+
+@media (min-width: 640px) {
+  .globe-canvas-wrap{
+    width:420px;
+    height:420px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .globe-canvas-wrap{
+    width:460px;
+    height:460px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .globe-canvas-wrap{
+    width:500px;
+    height:500px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .globe-canvas-wrap{
+    width:540px;
+    height:540px;
+  }
 }
 
 .globe-canvas-wrap canvas{
@@ -282,15 +341,15 @@ const STYLES = `
   transform:translate(-50%,-100%);
   background:var(--pill-bg);
   color:var(--text);
-  font-size:11px;
-  font-weight:600;
-  padding:4px 10px;
+  font-size:13px;
+  font-weight:700;
+  padding:4px 12px;
   border-radius:24px;
   white-space:nowrap;
   pointer-events:none;
   opacity:0;
   transition:opacity .25s ease, background .25s ease, color .25s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 .pin-label.visible{ opacity:1; }
 .pin-label.active{ background:var(--pill-bg-active); color:var(--pill-text-active); }
@@ -323,8 +382,8 @@ const STYLES = `
   display:flex;
   flex-direction: column;
   border-top: 1px solid rgba(255,255,255,0.08);
-  padding-top: 14px;
-  gap:10px;
+  padding-top: 12px;
+  gap:8px;
   margin-top: auto;
 }
 
@@ -336,9 +395,9 @@ const STYLES = `
 }
 
 .stores-count{
-  color:var(--text-dim);
-  font-size:12px;
-  font-weight: 500;
+  color:var(--text);
+  font-size:15px;
+  font-weight: 600;
   white-space: nowrap;
 }
 
@@ -347,9 +406,9 @@ const STYLES = `
   align-items:center;
   gap:10px;
   background:var(--panel);
-  padding:2px 6px;
+  padding:3px 8px;
   border-radius:40px;
-  border: 1px solid rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
   white-space: nowrap;
 }
 .switcher button{
@@ -357,35 +416,36 @@ const STYLES = `
   border:none;
   color:var(--text);
   cursor:pointer;
-  width:26px;
-  height:26px;
+  width:28px;
+  height:28px;
   display:flex;
   align-items:center;
   justify-content:center;
   border-radius:50%;
+  font-size: 16px;
   transition: background 0.2s;
 }
 .switcher button:hover{ background:#2a2620; }
 .switcher .store-name{
-  min-width:110px;
+  min-width:120px;
   text-align:center;
-  color:var(--text);
-  font-size:12px;
-  font-weight:600;
+  color:#ffffff;
+  font-size:15px;
+  font-weight:700;
 }
 
 .caption{
   width:100%;
   color:var(--text-dim);
-  font-size:11px;
-  line-height:1.35;
+  font-size:13.5px;
+  line-height:1.45;
   text-align: left;
   white-space: normal;
 }
 
 @media (max-width:768px){
-  .globe-heading{font-size:36px; margin-bottom: 40px;}
-  .globe-canvas-wrap{width: 100%; height: 100vw;}
+  .globe-heading{font-size:30px; margin-bottom: 10px;}
+  .globe-canvas-wrap{width: 280px; height: 280px; margin: 0 auto;}
   .globe-footer{flex-direction:column; align-items:center; text-align: center;}
   .caption{text-align: center; max-width: 100%;}
 }
@@ -393,10 +453,13 @@ const STYLES = `
 
 export default function NetworkGlobe({
   heading = "Where we operate",
+  tagline = "Global Reach. Local Understanding.",
+  subheading = "Trusted by businesses across 13+ countries, we deliver technology solutions that help organizations build, scale, and transform digitally.",
   locations = DEFAULT_LOCATIONS,
   legs = DEFAULT_LEGS,
-  caption = "Global presence, local excellence. Delivering world-class AI engineering across 8 key technology hubs.",
-  storesLabel = "8 global locations",
+  caption = "Trusted by businesses across 13+ countries, we deliver technology solutions that help organizations build, scale, and transform digitally.",
+  storesLabel = "13+ countries served",
+  countriesList = DEFAULT_COUNTRIES_LIST,
 }: NetworkGlobeProps) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -720,6 +783,14 @@ export default function NetworkGlobe({
       <style>{STYLES}</style>
       <section className="globe-section">
         <div className="globe-container">
+          {/* Eyebrow / Tagline */}
+          {tagline && (
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-500/30 bg-orange-500/10 text-[11.5px] sm:text-[12px] font-bold tracking-wider text-[#FF6B2C] uppercase mb-2 self-start">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B2C] animate-pulse shrink-0" />
+              <span>{tagline}</span>
+            </div>
+          )}
+
           {heading && (
             <h2 className="globe-heading">
               {headingLines.map((line, i) => (
@@ -729,6 +800,12 @@ export default function NetworkGlobe({
                 </Fragment>
               ))}
             </h2>
+          )}
+
+          {subheading && (
+            <p className="text-[#ded6ce] text-[14px] sm:text-[15px] leading-relaxed mb-2">
+              {subheading}
+            </p>
           )}
 
           <div className="globe-layout">
