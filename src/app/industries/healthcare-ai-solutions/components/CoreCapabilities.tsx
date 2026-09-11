@@ -5,163 +5,174 @@ import SqueezeCarousel, { SqueezeSlide } from "@/components/ui/carousel-squeeze"
 
 const capabilitiesSlides: SqueezeSlide[] = [
   {
-    id: "app-integration",
-    category: "HEALTHCARE APPLICATION INTEGRATION",
-    title: "Healthcare Application Integration",
+    id: "patient-provider-workflows",
+    category: "PATIENT & PROVIDER WORKFLOWS",
+    title: "Patient & Provider Workflows",
     description:
-      "Connect AI capabilities with existing healthcare applications to enhance functionality without replacing critical systems.",
+      "Design AI and digital solutions around the real workflows of patients, providers, care teams, and healthcare organizations.",
     bullets: [
-      "Clinical applications",
+      "Patient engagement",
+      "Provider workflows",
+      "Care coordination",
       "Patient portals",
-      "Provider platforms",
-      "Enterprise software",
     ],
     image: "/images/ai-healthcare-images/health-4.png",
-    imageAlt: "Clinician using healthcare application interface on tablet",
-    action: "Explore Healthcare AI Integration",
+    imageAlt:
+      "Healthcare professional working with a digital patient and provider workflow",
+    action: "Explore Healthcare Expertise",
     href: "/contact",
   },
+
   {
-    id: "api-microservices",
-    category: "API & MICROSERVICES INTEGRATION",
-    title: "API & Microservices Integration",
+    id: "clinical-workflows",
+    category: "CLINICAL WORKFLOWS",
+    title: "Clinical Workflows",
     description:
-      "Connect AI solutions with enterprise systems through secure APIs and scalable microservices architectures.",
+      "Build intelligent solutions that support clinical workflows, healthcare knowledge, documentation, decision support, and care delivery processes.",
     bullets: [
-      "REST APIs",
-      "Microservices",
-      "System-to-system integration",
-      "Third-party APIs",
+      "Clinical operations",
+      "Clinical documentation",
+      "Medical knowledge",
+      "Decision support",
     ],
     image: "/images/ai-healthcare-images/health-7.png",
-    imageAlt: "Physician working with connected medical system terminal and APIs",
-    action: "Explore Healthcare AI Integration",
+    imageAlt:
+      "Healthcare professional working with a digital clinical workflow system",
+    action: "Explore Healthcare Expertise",
     href: "/contact",
   },
+
   {
-    id: "data-integration",
-    category: "HEALTHCARE DATA INTEGRATION",
-    title: "Healthcare Data Integration",
+    id: "healthcare-operations",
+    category: "HEALTHCARE OPERATIONS",
+    title: "Healthcare Operations",
     description:
-      "Bring AI closer to trusted healthcare data across structured and unstructured environments.",
+      "Improve healthcare operations with AI, automation, and digital solutions that streamline administrative and operational processes.",
     bullets: [
-      "Healthcare databases",
-      "Data warehouses",
-      "Data lakes",
-      "Data pipelines",
+      "Healthcare administration",
+      "Workflow automation",
+      "Scheduling operations",
+      "Operational intelligence",
     ],
     image: "/images/ai-healthcare-images/health-3.png",
-    imageAlt: "Scientist analyzing neural data networks and laboratory databases",
-    action: "Explore Healthcare AI Integration",
+    imageAlt:
+      "Healthcare team using digital systems to manage healthcare operations",
+    action: "Explore Healthcare Expertise",
     href: "/contact",
   },
+
   {
-    id: "cloud-ai",
-    category: "CLOUD AI ARCHITECTURE",
-    title: "Cloud AI Integration",
+    id: "claims-revenue-cycle",
+    category: "CLAIMS & REVENUE CYCLE",
+    title: "Claims & Revenue Cycle",
     description:
-      "Integrate AI capabilities across cloud environments to support scalable, flexible, and modern healthcare technology architectures.",
+      "Apply AI and automation to claims, billing, revenue cycle, and document-intensive healthcare processes to reduce manual effort and improve operational efficiency.",
     bullets: [
-      "Cloud platforms",
-      "AI services",
-      "Cloud data platforms",
-      "Hybrid environments",
+      "Claims processing",
+      "Revenue cycle management",
+      "Billing workflows",
+      "Claims documentation",
     ],
     image: "/images/ai-healthcare-images/health-8.png",
-    imageAlt: "Cloud-connected laboratory researcher evaluating data analytics",
-    action: "Explore Healthcare AI Integration",
+    imageAlt:
+      "Healthcare operations team working with digital claims and revenue cycle systems",
+    action: "Explore Healthcare Expertise",
     href: "/contact",
   },
+
   {
-    id: "legacy-modernization",
-    category: "LEGACY SYSTEM MODERNIZATION",
-    title: "Legacy System Modernization",
+    id: "prior-authorization",
+    category: "PRIOR AUTHORIZATION",
+    title: "Prior Authorization",
     description:
-      "Introduce modern AI capabilities into legacy environments while reducing disruption and protecting existing technology investments.",
+      "Automate prior authorization workflows with AI-powered document processing, data extraction, validation, summarization, and workflow orchestration.",
     bullets: [
-      "Legacy applications",
-      "Existing infrastructure",
-      "Modernization layers",
-      "Hybrid systems",
+      "Authorization requests",
+      "Document extraction",
+      "Data validation",
+      "Workflow automation",
     ],
     image: "/images/ai-healthcare-images/health-1.png",
-    imageAlt: "Clinical care environment modernized with digital monitoring infrastructure",
-    action: "Explore Healthcare AI Integration",
+    imageAlt:
+      "Healthcare professional reviewing digital prior authorization information",
+    action: "Explore Healthcare Expertise",
     href: "/contact",
   },
+
   {
-    id: "workflow-integration",
-    category: "WORKFLOW INTEGRATION",
-    title: "Workflow Integration",
+    id: "healthcare-documents",
+    category: "HEALTHCARE DOCUMENTS",
+    title: "Healthcare Documents",
     description:
-      "Embed AI into existing healthcare workflows to automate tasks, support decisions, and improve operational efficiency.",
+      "Transform complex healthcare documents into structured, usable information with AI-powered document processing, extraction, classification, and summarization.",
     bullets: [
-      "Workflow management systems",
-      "Business process automation",
-      "Task orchestration",
-      "Human-in-the-loop workflows",
+      "Medical documents",
+      "Document AI",
+      "Data extraction",
+      "AI summarization",
     ],
     image: "/images/ai-healthcare-images/health-2.png",
-    imageAlt: "Doctor and patient consultation in a human-in-the-loop intelligent workflow",
-    action: "Explore Healthcare AI Integration",
+    imageAlt:
+      "Healthcare professional processing digital medical documents with AI",
+    action: "Explore Healthcare Expertise",
     href: "/contact",
   },
+
   {
-    id: "knowledge-repository",
-    category: "KNOWLEDGE & REPOSITORY INTEGRATION",
-    title: "Knowledge & Repository Integration",
+    id: "healthcare-data-analytics",
+    category: "HEALTHCARE DATA & ANALYTICS",
+    title: "Healthcare Data & Analytics",
     description:
-      "Connect AI applications with internal knowledge sources to enable intelligent search, retrieval, and context-aware assistance.",
+      "Turn healthcare data into trusted insights with data engineering, analytics, integration, and AI-ready data platforms that support better decisions.",
     bullets: [
-      "Knowledge repositories",
-      "Enterprise content",
-      "Document stores",
-      "Internal databases",
+      "Healthcare data engineering",
+      "Data integration",
+      "Healthcare analytics",
+      "AI-ready data",
     ],
     image: "/images/ai-healthcare-images/health-6.png",
-    imageAlt: "Laboratory scientists indexing clinical document repositories and specimen data",
-    action: "Explore Healthcare AI Integration",
+    imageAlt:
+      "Healthcare data specialists analyzing digital healthcare data and analytics",
+    action: "Explore Healthcare Expertise",
     href: "/contact",
   },
+
   {
-    id: "enterprise-modernization",
-    category: "ENTERPRISE AI MODERNIZATION",
-    title: "Enterprise AI Modernization",
+    id: "interoperability",
+    category: "HEALTHCARE INTEROPERABILITY",
+    title: "Interoperability",
     description:
-      "Create a practical path toward AI adoption by integrating intelligent capabilities across applications, data, and enterprise technology environments.",
+      "Connect healthcare applications, data, and AI solutions across EHRs, APIs, and enterprise platforms to enable connected healthcare ecosystems.",
     bullets: [
-      "AI-ready architectures",
-      "Enterprise integration",
-      "Platform modernization",
-      "Incremental AI adoption",
+      "EHR / EMR integration",
+      "FHIR",
+      "Healthcare APIs",
+      "System interoperability",
     ],
     image: "/images/ai-healthcare-images/health-5.png",
-    imageAlt: "Enterprise healthcare specialists collaborating on digital diagnostics and modernization",
-    action: "Explore Healthcare AI Integration",
+    imageAlt:
+      "Healthcare technology specialists working with connected interoperability systems",
+    action: "Explore Healthcare Expertise",
     href: "/contact",
   },
 ];
 
 export default function CoreCapabilities() {
   return (
-    <section className="w-full bg-white pt-8 md:pt-12 pb-16 md:pb-24 font-sans overflow-hidden">
+    <section className="w-full bg-white pt-8 md:pt-12 pb-8 md:pb-12 font-sans overflow-hidden">
       <div className="w-full max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-[2cm]">
         {/* Header */}
         <div className="flex flex-col items-center w-full mb-10 md:mb-12 text-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-orange-200 bg-orange-50 text-[10px] sm:text-[11px] font-bold tracking-widest text-[#FF6B00] uppercase mb-5">
             <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
-            HEALTHCARE AI INTEGRATION & MODERNIZATION
+            Healthcare Expertise
           </div>
           <h2 className="text-3xl md:text-5xl font-extrabold font-['Plus_Jakarta_Sans',sans-serif] text-slate-900 mb-5 tracking-tight leading-tight max-w-4xl">
-            Connect AI With Your Existing{" "}
-            <span className="text-[#FF6B2C]">Healthcare Technology Ecosystem</span>
+            Industry Expertise That <br className="hidden sm:block" />
+            <span className="text-[#FF6B2C]">Goes Beyond Technology</span>
           </h2>
           <p className="text-[15px] md:text-base text-slate-800 font-medium max-w-3xl mx-auto mb-3">
-            Integrate intelligent capabilities into existing applications, data environments, and enterprise workflows without rebuilding your technology stack.
-          </p>
-        
-          <p className="text-[14px] sm:text-[15px] font-semibold text-[#FF6B2C] italic">
-            Modernize incrementally. Integrate intelligently. Scale without unnecessary disruption.
+            Healthcare projects require an understanding of industry workflows, data, integrations, users, and operational challenges. Our teams bring healthcare context together with engineering expertise.
           </p>
         </div>
 

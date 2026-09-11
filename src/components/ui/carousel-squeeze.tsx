@@ -185,10 +185,10 @@ export function SqueezeCarousel({
             {/* Accordion Panels Container */}
             <div
                 ref={containerRef}
-                className="w-full overflow-hidden"
+                className="w-full overflow-hidden min-h-[600px] lg:min-h-0"
                 style={{ height: formattedHeight }}
             >
-                <div className="flex w-full h-full gap-2 sm:gap-3 items-stretch">
+                <div className="flex flex-col lg:flex-row w-full h-full gap-2 lg:gap-3 items-stretch">
                     {slides.map((slide, idx) => {
                         const isActive = idx === activeIndex;
                         const isHovered = hoverIndex === idx;
@@ -207,10 +207,10 @@ export function SqueezeCarousel({
                                 className={cn(
                                     "relative overflow-hidden cursor-pointer select-none transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group",
                                     isActive
-                                        ? "flex-[6] sm:flex-[7.5] min-w-[280px] shadow-xl ring-1 ring-slate-900/10"
+                                        ? "flex-[6] lg:flex-[7.5] min-h-[220px] lg:min-h-0 lg:min-w-[280px] shadow-xl ring-1 ring-slate-900/10"
                                         : isHovered
-                                        ? "flex-[1.4] sm:flex-[1.7] min-w-[55px] sm:min-w-[75px]"
-                                        : "flex-[1] min-w-[42px] sm:min-w-[62px] opacity-95 hover:opacity-100",
+                                        ? "flex-[1.4] lg:flex-[1.7] min-h-[48px] lg:min-h-0 lg:min-w-[75px]"
+                                        : "flex-[1] min-h-[42px] lg:min-h-0 lg:min-w-[62px] opacity-95 hover:opacity-100",
                                     panelClassName
                                 )}
                                 style={{ borderRadius: formattedRadius }}
@@ -324,27 +324,23 @@ export function SqueezeCarousel({
                                     </div>
                                 ) : (
                                     /* COLLAPSED CARD VIEW - Clean, Organized & NOT Clumsy */
-                                    <div className="absolute inset-0 bg-slate-900/60 group-hover:bg-slate-900/40 transition-colors duration-300 flex flex-col justify-between items-center py-5 px-1 sm:px-2">
+                                    <div className="absolute inset-0 bg-slate-900/60 group-hover:bg-slate-900/40 transition-colors duration-300 flex flex-row lg:flex-col justify-between items-center py-0 px-4 lg:py-5 lg:px-2">
                                         {/* Mono Number Badge */}
-                                        <span className="text-[11px] font-mono font-bold text-white/80 bg-black/40 backdrop-blur-sm px-2 py-0.5 rounded-full border border-white/10 shadow-sm">
+                                        <span className="text-[11px] font-mono font-bold text-white/80 bg-black/40 backdrop-blur-sm px-2 py-0.5 rounded-full border border-white/10 shadow-sm shrink-0">
                                             0{idx + 1}
                                         </span>
 
-                                        {/* Vertical Label */}
-                                        <div className="flex-1 flex items-center justify-center overflow-hidden my-4">
+                                        {/* Label */}
+                                        <div className="flex-1 flex items-center justify-start lg:justify-center overflow-hidden my-0 mx-3 lg:my-4 lg:mx-0">
                                             <span
-                                                className="text-white/85 group-hover:text-white text-[11px] sm:text-[12.5px] font-semibold tracking-wide whitespace-nowrap select-none drop-shadow-md transition-colors"
-                                                style={{
-                                                    writingMode: "vertical-rl",
-                                                    transform: "rotate(180deg)",
-                                                }}
+                                                className="text-white/85 group-hover:text-white text-[13px] lg:text-[12.5px] font-semibold tracking-wide whitespace-nowrap truncate select-none drop-shadow-md transition-colors lg:[writing-mode:vertical-rl] lg:rotate-180"
                                             >
                                                 {slide.title.replace(/\.$/, "")}
                                             </span>
                                         </div>
 
                                         {/* Indicator Dot */}
-                                        <div className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-[#FF6B2C] group-hover:scale-125 transition-all duration-300" />
+                                        <div className="w-1.5 h-1.5 shrink-0 rounded-full bg-white/40 group-hover:bg-[#FF6B2C] group-hover:scale-125 transition-all duration-300" />
                                     </div>
                                 )}
                             </div>

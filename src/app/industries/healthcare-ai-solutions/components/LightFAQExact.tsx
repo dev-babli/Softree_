@@ -24,60 +24,75 @@ const defaultFaqs: FAQItem[] = [
   {
     id: 1,
     serial: "question 01",
-    question: "What are healthcare AI solutions?",
+    question: "Can Softree work as our white-label healthcare engineering partner?",
     answer:
-      "Healthcare AI solutions use artificial intelligence, machine learning, Generative AI, and automation to improve healthcare-related clinical, administrative, and operational workflows. These solutions can support areas such as patient engagement, document processing, prior authorization, healthcare analytics, knowledge management, and workflow automation.",
+      "Yes. Softree provides white-label healthcare engineering services for technology companies, agencies, and healthcare solution providers. Our offshore AI and software engineering teams can support healthcare AI development, application development, integrations, QA, cloud engineering, and ongoing maintenance while you manage the client relationship and delivery under your own brand.",
   },
+
   {
     id: 2,
     serial: "question 02",
-    question: "What does an offshore AI healthcare engineering team do?",
+    question: "Can Softree work directly with our clients?",
     answer:
-      "An offshore AI healthcare engineering team provides specialized AI, software, data, cloud, and automation expertise from an external engineering organization. The team works alongside your internal stakeholders to design, develop, integrate, deploy, and maintain AI solutions based on your business requirements.",
+      "Yes. Softree can work as an extension of your engineering organization and collaborate directly with your clients when required. Our healthcare AI engineers, software developers, data engineers, QA specialists, and cloud experts can support discovery, development, integration, testing, deployment, and ongoing engineering based on your preferred delivery model.",
   },
+
   {
     id: 3,
     serial: "question 03",
-    question: "What healthcare AI development services does Softree provide?",
+    question: "Can we deliver healthcare projects under our own brand?",
     answer:
-      "Softree provides Generative AI and RAG development, AI agent development, machine learning, intelligent document processing, healthcare automation, data engineering, healthcare analytics, custom AI application development, and AI integration and modernization services.",
+      "Yes. Softree supports white-label healthcare engineering delivery, allowing technology companies and agencies to deliver healthcare AI and software solutions under their own brand. We provide the engineering capabilities behind the scenes while your organization maintains ownership of the client relationship, branding, and overall delivery.",
   },
+
   {
     id: 4,
     serial: "question 04",
-    question: "Can Softree integrate AI with our existing healthcare systems?",
+    question: "Can you provide a dedicated healthcare engineering team?",
     answer:
-      "Yes. Our engineering teams can design AI solutions around your existing technology ecosystem, including enterprise applications, APIs, databases, cloud environments, data platforms, workflow systems, and legacy applications.",
+      "Yes. Softree provides dedicated offshore healthcare engineering teams tailored to your project and product requirements. Teams can include healthcare AI engineers, software developers, AI architects, FHIR specialists, data engineers, QA engineers, and cloud experts to support AI development, application engineering, integrations, modernization, and ongoing product development.",
   },
+
   {
     id: 5,
     serial: "question 05",
-    question: "Can we use Softree as an extension of our existing AI team?",
+    question: "Can Softree work with our existing healthcare applications?",
     answer:
-      "Yes. Softree's offshore AI engineering model can complement your existing technology organization. You can add specialized AI engineers, data engineers, software developers, cloud engineers, or automation specialists based on your project and roadmap requirements.",
+      "Yes. Softree can work with existing healthcare applications, APIs, databases, EHR systems, enterprise platforms, and legacy environments. Our healthcare application modernization approach helps organizations add new AI capabilities, integrations, and workflows while extending the value of their existing technology investments.",
   },
+
   {
     id: 6,
     serial: "question 06",
-    question: "Can Softree build custom AI solutions for specific healthcare workflows?",
+    question: "Do you support EHR, FHIR, and healthcare system integrations?",
     answer:
-      "Yes. We develop custom AI solutions around specific business processes rather than taking a one-size-fits-all approach. Our team can work with your workflows, data sources, users, existing applications, and technical requirements to develop tailored AI applications.",
+      "Yes. Softree supports healthcare application and data integration involving EHR systems, healthcare APIs, FHIR-based integrations, enterprise applications, and connected healthcare platforms. Our engineering teams can help integrate AI solutions with existing healthcare technology ecosystems based on the project's technical and business requirements.",
   },
+
   {
     id: 7,
     serial: "question 07",
-    question: "What technologies does Softree use for healthcare AI development?",
+    question: "Can you add AI capabilities to an existing healthcare product?",
     answer:
-      "Our AI engineering capabilities span Generative AI, LLMs, RAG, AI agents, machine learning, NLP, intelligent document processing, data engineering, cloud platforms, APIs, microservices, and workflow automation.",
+      "Yes. Softree can integrate AI capabilities into existing healthcare products, applications, APIs, databases, and enterprise platforms. Depending on the use case, we can develop Generative AI, AI agents, RAG solutions, intelligent document processing, workflow automation, knowledge assistants, and other AI-powered capabilities without requiring a complete replacement of the existing application.",
   },
+
   {
     id: 8,
     serial: "question 08",
-    question: "How does Softree approach security for healthcare AI solutions?",
+    question: "Can we start with a single project and scale the team later?",
     answer:
-      "Healthcare AI solutions require security and governance throughout the development lifecycle. Our engineering approach considers access controls, secure integrations, data protection, auditability, model monitoring, and appropriate governance requirements based on the solution and operating environment.",
+      "Yes. Softree offers flexible healthcare AI development and engineering engagement models, allowing organizations to start with a specific project, proof of concept, or consulting engagement and scale engineering capacity as requirements grow. Teams can expand from individual specialists to dedicated offshore engineering teams based on your product roadmap and business needs.",
   },
-]
+
+  {
+    id: 9,
+    serial: "question 09",
+    question: "What engagement models do you offer?",
+    answer:
+      "Softree offers flexible healthcare AI engineering engagement models, including project-based development, AI consulting and proof-of-concept engagements, team augmentation, dedicated offshore engineering teams, white-label delivery, and managed engineering. This allows healthcare organizations and technology partners to choose a delivery model based on project scope, internal capabilities, timelines, and growth requirements.",
+  },
+];
 
 /** Brand palette: cream `#F3F0EE`, blue `#1852FF`, orange `#FF5812`, ink `#0a0a1a` */
 const FAQ_INK = "#0a0a1a"
@@ -176,11 +191,10 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
     return (
       <div
         key={faq.id}
-        className={`group/card relative overflow-hidden rounded-2xl border transition-all duration-500 ease-[var(--legacy-ease-0_4_0_0_2_1)] w-full ${
-          isActive
+        className={`group/card relative overflow-hidden rounded-2xl border transition-all duration-500 ease-[var(--legacy-ease-0_4_0_0_2_1)] w-full ${isActive
             ? "bg-white shadow-xl"
             : "bg-white/90 shadow-sm hover:shadow-md"
-        }`}
+          }`}
         style={{
           borderColor: isActive ? `${theme.accent}40` : `${theme.accent}22`,
           boxShadow: isActive ? `0 12px 40px ${theme.accent}22` : undefined,
@@ -250,20 +264,18 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
               <div className="relative h-6 w-6 flex-shrink-0">
                 {/* Plus Icon */}
                 <Plus
-                  className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${
-                    isActive
+                  className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${isActive
                       ? "scale-0 opacity-0 rotate-90"
                       : "scale-100 opacity-100 rotate-0"
-                  }`}
+                    }`}
                   style={{ color: theme.accent }}
                 />
                 {/* Minus Icon */}
                 <Minus
-                  className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${
-                    isActive
+                  className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${isActive
                       ? "scale-100 opacity-100 rotate-0"
                       : "scale-0 opacity-0 -rotate-90"
-                  }`}
+                    }`}
                   style={{ color: theme.accent }}
                 />
               </div>
@@ -274,9 +286,8 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
               {/* Question */}
               <div className="mb-2">
                 <h3
-                  className={`font-semibold leading-snug transition-colors duration-500 ${
-                    isActive ? "text-base md:text-lg" : "text-sm lg:text-[13px]"
-                  }`}
+                  className={`font-semibold leading-snug transition-colors duration-500 ${isActive ? "text-base md:text-lg" : "text-sm lg:text-[13px]"
+                    }`}
                   style={{
                     color: FAQ_INK,
                   }}

@@ -24,6 +24,7 @@ const AiRoadmap = dynamic(() => import('./components/AiRoadmap'), { ssr: true })
 const WhyChooseWithTestimonials = dynamic(() => import('./components/WhyChooseWithTestimonials'), { ssr: true });
 const IndustrySoftree = dynamic(() => import('./components/IndustrySoftree'), { ssr: true });
 const AgenticAIWipeSlider = dynamic(() => import('./components/AgenticAIWipeSlider'), { ssr: true });
+const TechnologyWeWork = dynamic(() => import('./components/TechnologyWeWork'), { ssr: true });
 // Replace WhySoftreeTabs with WhySoftreeCurtainSlider
 const WhySoftreeCurtainSlider = dynamic(() => import('./components/WhySoftreeCurtainSlider'), { ssr: true });
 const LightFAQExact = dynamic(() => import('./components/LightFAQExact'), { ssr: true });
@@ -237,73 +238,12 @@ export default function AiHealthcareDevelopmentPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(healthcareJsonLd) }}
       />
       <NavigationClient />
-
       <GatewayFlowHero />
-
       <AiReadinessBanner />
-
-
-
-
       {/* Who We Help & Global Network Section */}
       <div className="bg-white pt-6 md:pt-8 pb-6 md:pb-8 text-slate-900">
         <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-[2cm]">
 
-          {/* Unified Centered Header */}
-          <div className="flex flex-col items-center max-w-5xl mx-auto mb-8 md:mb-10 text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-200 bg-orange-50 text-[10px] sm:text-[11px] font-bold tracking-widest text-[#FF6B00] uppercase mb-3">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
-              AI ENGINEERING FOR HEALTHCARE ORGANIZATIONS
-            </div>
-
-            <h2 className="text-3xl md:text-5xl font-extrabold font-['Plus_Jakarta_Sans',sans-serif] text-slate-900 mb-3 tracking-tight leading-tight max-w-4xl mx-auto">
-              Accelerate Healthcare AI <br className="hidden md:block" />
-              <span className="text-[#FF6B2C] md:whitespace-nowrap">Without Building Another Team</span>
-            </h2>
-
-            <p className="text-[14px] lg:text-[15px] text-slate-500 max-w-2xl mx-auto leading-relaxed">
-              Healthcare AI adoption is critical. Softree provides the HIPAA-compliant AI architecture, engineering, medical data integration, cloud, and QA expertise you need to deliver secure healthcare AI solutions faster.
-            </p>
-
-            {/* Quick Metrics: Countries & Projects Delivered */}
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-6 sm:gap-10 pt-6 border-t border-slate-100">
-              <div className="flex items-center gap-3">
-                <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-['Plus_Jakarta_Sans',sans-serif]">
-                  {COUNTRIES_SERVED}
-                </span>
-                <span className="text-xs text-slate-500 font-medium leading-tight text-left">
-                  Countries<br />Served
-                </span>
-              </div>
-              <div className="w-px h-8 bg-slate-200 hidden sm:block" />
-              <div className="flex items-center gap-3">
-                <span className="text-2xl sm:text-3xl font-extrabold text-[#FF6B00] tracking-tight font-['Plus_Jakarta_Sans',sans-serif]">
-                  200+
-                </span>
-                <span className="text-xs text-slate-500 font-medium leading-tight text-left">
-                  Projects<br />Delivered
-                </span>
-              </div>
-              <div className="w-px h-8 bg-slate-200 hidden sm:block" />
-              <div className="flex items-center gap-3">
-                <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-['Plus_Jakarta_Sans',sans-serif]">
-                  100+
-                </span>
-                <span className="text-xs text-slate-500 font-medium leading-tight text-left">
-                  Healthcare & AI<br />Deployments
-                </span>
-              </div>
-              <div className="w-px h-8 bg-slate-200 hidden sm:block" />
-              <div className="flex items-center gap-3">
-                <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-['Plus_Jakarta_Sans',sans-serif]">
-                  8
-                </span>
-                <span className="text-xs text-slate-500 font-medium leading-tight text-left">
-                  Global Delivery<br />Hubs
-                </span>
-              </div>
-            </div>
-          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
             {/* Left Column: Who We Help */}
@@ -324,9 +264,22 @@ export default function AiHealthcareDevelopmentPage() {
           </div>
         </div>
       </div>
+      {/* Interactive Photo Stack Section replaced by CircularTestimonialsDemo */}
+      <CoreCapabilities />
+
+      <TechnologyWeWork />
+
+
+      <HealthcareCaseStudies />
+
+
+
+
+
+
 
       {/* Section 03 Header: AI HEALTHCARE DEVELOPMENT SERVICES */}
-      <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-[2cm] mt-8 md:mt-10 mb-6 sm:mb-8 flex flex-col items-center text-center">
+      {/* <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-[2cm] mt-8 md:mt-10 mb-6 sm:mb-8 flex flex-col items-center text-center">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 text-[10px] sm:text-[11px] font-bold tracking-widest text-[#FF6B00] uppercase mb-3">
           <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
           AI HEALTHCARE DEVELOPMENT SERVICES
@@ -340,22 +293,23 @@ export default function AiHealthcareDevelopmentPage() {
         <p className="text-[14px] lg:text-[15px] text-slate-500 max-w-3xl leading-relaxed mx-auto">
           From AI strategy and solution architecture to development, integration, and optimization, Softree delivers secure, scalable AI healthcare solutions that help healthcare organizations improve operational efficiency, enhance decision-making, and accelerate digital transformation.
         </p>
-      </div>
+      </div> */}
 
-      <StepWipe />
+      {/* <StepWipe /> */}
 
-      <HealthcareCaseStudies />
-      {/* Interactive Photo Stack Section replaced by CircularTestimonialsDemo */}
-      <CoreCapabilities />
+
+
       {/* <CircularTestimonialsDemo />
 
       <IndustrySoftree /> */}
       <AgenticAIWipeSlider />
       <TrustedBrandsMarquee />
+
       {/* <WhySoftreeCurtainSlider /> */}
       {/* <Industries />     
       <AiRoadmap />
       <PartnerShowcase />      */}
+
       <WhyChooseWithTestimonials />
 
       <LightFAQExact />

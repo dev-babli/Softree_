@@ -11,16 +11,16 @@ const demoData: Gallery4Props = {
     <div className="flex flex-col items-start">
       <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 text-[10px] sm:text-[11px] font-bold tracking-widest text-[#FF6B00] uppercase mb-4 w-fit">
         <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
-        HEALTHCARE AI CASE STUDIES
+        AI FOR IT CASE STUDIES
       </div>
       <span className="text-3xl md:text-5xl font-extrabold font-['Plus_Jakarta_Sans',sans-serif] text-slate-900 tracking-tight leading-tight text-left">
-        See AI Engineering in Action Across Healthcare
+        See AI for IT Engineering in Action
       </span>
     </div>
   ) as any,
 
   description:
-    "Explore how AI, automation, and intelligent data solutions can address complex healthcare workflows and operational challenges.",
+    "Explore how AI-powered solutions help organizations automate IT processes, improve software development, modernize applications, and make technology operations more efficient.",
 
   items: [
     {
@@ -156,16 +156,16 @@ const demoData: Gallery4Props = {
   ],
 };
 
-export function Gallery4Demo() {
+export default function CaseStudy() {
   return (
-    <div className="relative bg-white flex flex-col items-center -mt-4 md:-mt-8">
+    <div className="relative bg-white flex flex-col items-center">
       <div className="w-full">
         <Gallery4 
           {...demoData} 
           action={
             <FlowButton 
               href="/case-studies" 
-              text="Explore Healthcare Case Studies"
+              text="Explore Case Studies"
               variant="orange-filled"
               className="py-3 px-6 text-xs sm:text-sm font-bold shadow-md"
             />
@@ -175,6 +175,3 @@ export function Gallery4Demo() {
     </div>
   );
 }
-
-export { Gallery4Demo as HealthcareCaseStudies };
-export default Gallery4Demo;

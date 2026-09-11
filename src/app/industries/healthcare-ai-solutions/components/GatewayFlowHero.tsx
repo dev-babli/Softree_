@@ -4,6 +4,7 @@ import React from "react";
 import GatewayFlow from "@/components/ui/gateway-flow";
 import { ArrowRight, Activity, Shield, Users, Cpu, Sparkles, Calendar } from "lucide-react";
 import Link from "next/link";
+import { FlowButton } from "@/components/ui/flow-button";
 import { motion } from "framer-motion";
 
 const heroFeatures = [
@@ -57,7 +58,7 @@ export default function GatewayFlowHero() {
         >
           <Activity className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FF6B2C] shrink-0" />
           <span className="text-[11px] sm:text-xs md:text-sm font-bold tracking-wider sm:tracking-widest text-[#FF6B2C] uppercase truncate">
-            OFFSHORE AI HEALTHCARE ENGINEERING SERVICES
+            Healthcare Engineering Partner
           </span>
         </motion.div>
 
@@ -68,9 +69,9 @@ export default function GatewayFlowHero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-6xl font-extrabold text-white tracking-tight leading-[1.15] max-w-6xl mb-4 sm:mb-6 font-['Plus_Jakarta_Sans',sans-serif]"
         >
-          <span className="block">Build Smarter Healthcare With&nbsp;an</span>
+          <span className="block">Your Healthcare Project.</span>
           <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-500 mt-1">
-            Offshore AI Engineering Team
+            Our Engineering Team.
           </span>
         </motion.h1>
 
@@ -79,11 +80,22 @@ export default function GatewayFlowHero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="max-w-4xl mb-6 sm:mb-8 space-y-3 sm:space-y-4"
+          className="max-w-4xl mb-6 sm:mb-8 flex flex-col items-center space-y-4"
         >
           <p className="text-base sm:text-lg md:text-xl text-white font-medium leading-relaxed">
-            Design, develop, and scale secure AI solutions for healthcare with dedicated offshore AI engineers, data specialists, and automation experts.
+            Partner with Softree to build and deliver healthcare solutions through experienced engineering teams, industry expertise, AI, data, cloud, and application development.
           </p>
+          <p className="text-sm sm:text-base md:text-lg text-white/80 font-medium leading-relaxed mt-2">
+            Your brand. Your client relationship. Our engineering capability.
+          </p>
+          <div className="pt-4 sm:pt-6">
+            <FlowButton 
+              href="/contact"
+              text="Discuss Your Healthcare Project"
+              variant="orange-filled"
+              className="py-4 px-8 text-sm sm:text-base font-bold shadow-[0_0_20px_rgba(255,107,44,0.3)] hover:shadow-[0_0_30px_rgba(255,107,44,0.5)] transform hover:-translate-y-1"
+            />
+          </div>
         </motion.div>
 
         {/* 5 Key Highlights / Trust Indicators */}
