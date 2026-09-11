@@ -192,12 +192,12 @@ function QAItem({
         {/* Content */}
         <div className="flex-1 pt-0.5 lg:pt-1">
           <span className="font-bold text-[#0A0F3C] text-[15px] lg:text-base leading-tight pr-4 block group-hover:text-[#FF6B2C] transition-colors">
-            {q}
+            <span className="text-[#FF6B2C] font-extrabold">Q: </span>{q}
           </span>
           <div className="overflow-hidden">
             <div className="pt-2 pb-0">
               <p className="text-gray-500 text-sm lg:text-[15px] leading-relaxed">
-                {a}
+                <span className="text-[#0A0F3C] font-semibold">Ans: </span>{a}
               </p>
             </div>
           </div>
