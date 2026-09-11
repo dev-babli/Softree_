@@ -8,6 +8,7 @@ import LogisticsHero from './components/HeroWrapper';
 // Dynamically import below-the-fold components to prioritize network resources for Hero & LCP
 const LogisticsReadinessBanner = dynamic(() => import('./components/LogisticsReadinessBanner'), { ssr: true });
 const LogisticsUseCases = dynamic(() => import('./components/LogisticsUseCases'), { ssr: true });
+const LogisticsWhoDoWeServe = dynamic(() => import('./components/LogisticsWhoDoWeServe'), { ssr: true });
 const LogisticsStepWipe = dynamic(() => import('./components/LogisticsStepWipe'), { ssr: true });
 const LogisticsCaseStudies = dynamic(() => import('./components/LogisticsCaseStudies'), { ssr: true });
 const LogisticsCoreCapabilities = dynamic(() => import('./components/LogisticsCoreCapabilities'), { ssr: true });
@@ -201,6 +202,8 @@ export default function LogisticsSolutionsPage() {
 
       {/* Who We Help & Global Network Section */}
       <LogisticsUseCases />
+
+      <LogisticsWhoDoWeServe />
 
       {/* Step Wipe 8 Services Showcase */}
       <LogisticsStepWipe />

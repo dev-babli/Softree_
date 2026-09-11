@@ -92,7 +92,6 @@ export default function Home({ homepageCaseStudies }: HomeProps) {
         <HomepageShowcaseSectionsLazy />
         <TechStackSectionLazy />
         {/* <WhoDoWeServeSectionLazy /> */}
-        <NewWhoDoWeServeSectionLazy />
         <LightEngagementModelsLazy />
         <AnimatedPhotoGallery />
         <Gallery />

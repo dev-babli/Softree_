@@ -536,7 +536,7 @@ export function TransferredSoftreeHero() {
 
           {/* Left Card — MICROSOFT & DATA */}
           <div
-            className="left-card hero-pillar-card relative lg:absolute rounded-2xl overflow-hidden z-[2] order-1 lg:order-none pointer-events-auto"
+            className="left-card hero-pillar-card relative lg:absolute rounded-2xl overflow-hidden z-[2] order-1 lg:order-none pointer-events-auto lg:invisible lg:opacity-0"
             style={{
               background:
                 "linear-gradient(135deg, rgba(30,40,60,0.9) 0%, rgba(20,30,50,0.95) 100%)",
@@ -623,7 +623,7 @@ export function TransferredSoftreeHero() {
 
           {/* Right Card — MODERN ENGINEERING */}
           <div
-            className="right-card hero-pillar-card relative lg:absolute rounded-2xl overflow-hidden z-[2] order-3 lg:order-none pointer-events-auto"
+            className="right-card hero-pillar-card relative lg:absolute rounded-2xl overflow-hidden z-[2] order-3 lg:order-none pointer-events-auto lg:invisible lg:opacity-0"
             style={{
               background:
                 "linear-gradient(135deg, rgba(30,40,60,0.9) 0%, rgba(20,30,50,0.95) 100%)",

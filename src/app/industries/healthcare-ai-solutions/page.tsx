@@ -36,6 +36,7 @@ const MicrosoftAiBentoGrid = dynamic(() => import('./components/MicrosoftAiBento
 const MicrosoftAiShowcase = dynamic(() => import('./components/MicrosoftAiShowcase'), { ssr: true });
 const WhoWeHelp = dynamic(() => import('./components/WhoWeHelp').then((mod) => mod.WhoWeHelp), { ssr: true });
 const NetworkGlobe = dynamic(() => import('./components/NetworkGlobe'), { ssr: true });
+const HealthcareWhoDoWeServe = dynamic(() => import('./components/HealthcareWhoDoWeServe'), { ssr: true });
 import DetailDrawer from './components/AiTechnologyStack';
 import PhotoStackGallery from './components/PhotoStackGallery';
 import GatewayFlowHero from './components/GatewayFlowHero';
@@ -265,12 +266,15 @@ export default function AiHealthcareDevelopmentPage() {
         </div>
       </div>
       {/* Interactive Photo Stack Section replaced by CircularTestimonialsDemo */}
+      <HealthcareWhoDoWeServe />
       <CoreCapabilities />
 
       <TechnologyWeWork />
 
 
       <HealthcareCaseStudies />
+
+
 
 
 

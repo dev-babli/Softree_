@@ -20,6 +20,9 @@ import { SpotlightCard } from "@/components/qc/shared/SpotlightCard";
 import { COUNTRIES_SERVED, COUNTRIES_SERVED_NUMBER } from "@/lib/constants";
 import { EASE_T, VIEWPORT } from "@/lib/motion";
 import ParallaxGalleryCard from "./ParallaxGalleryCard";
+import dynamic from "next/dynamic";
+
+const NewWhoDoWeServeSectionLazy = dynamic(() => import("@/components/sections/NewWhoDoWeServeSection"), { ssr: true });
 
 const EASE_OUT = EASE_T.silk;
 const SURFACE = "#F8F9FC";
@@ -235,9 +238,10 @@ export default function InfinityScrollAnimation() {
   const isInView = useInView(sectionRef, { once: true, margin: "-80px" });
 
   return (
-    <section
-      ref={sectionRef}
-      id="about-bento"
+    <>
+      <section
+        ref={sectionRef}
+        id="about-bento"
       className="relative w-full overflow-x-clip py-16 md:py-24 lg:py-28"
       style={{ backgroundColor: SURFACE }}
       aria-labelledby="about-bento-heading"
@@ -377,10 +381,16 @@ export default function InfinityScrollAnimation() {
             <AboutGlobeMarkers variant="light" />
           </motion.div>
         </div>
+      </div>
+    </section>
 
+    <NewWhoDoWeServeSectionLazy />
+
+    <section className="relative w-full overflow-x-clip pt-10 md:pt-14 lg:pt-16 pb-16 md:pb-24 lg:pb-28" style={{ backgroundColor: SURFACE }}>
+      <div className="relative z-10 mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-12">
         {/* ── Row 2: Three About Us glass pillars (from platform showcase) ── */}
         <motion.div
-          className="mt-10 border-t border-[#0a0a1a]/10 pt-10 md:mt-14 md:pt-14 lg:mt-16 lg:pt-16"
+          className="pt-10 md:pt-14 lg:pt-16"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={VIEWPORT.default}
@@ -541,5 +551,6 @@ export default function InfinityScrollAnimation() {
         </div>
       </div>
     </section>
+    </>
   );
 }
