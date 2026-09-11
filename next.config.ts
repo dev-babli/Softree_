@@ -1,6 +1,7 @@
 import { withSentryConfig } from "@sentry/nextjs";
 import type { NextConfig } from "next";
 import bundleAnalyzer from "@next/bundle-analyzer";
+import path from "path";
 
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
@@ -17,6 +18,9 @@ const leadMagnetOrigin = "https://web-lead-magnet-seven.vercel.app";
 const isAmplify = Boolean(process.env.AWS_APP_ID || process.env.AWS_BRANCH);
 
 const nextConfig: any = {
+  turbopack: {
+    root: path.resolve(__dirname),
+  },
   // Standalone is for the Docker/ECS image only. Amplify's Next adapter
   // expects a normal `.next` output (baseDirectory: .next).
   ...(process.env.BUILD_STANDALONE === "true" ? { output: "standalone" } : {}),

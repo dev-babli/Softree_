@@ -125,12 +125,13 @@ export default function AiDevelopmentServicesPage() {
             </div>
             {/* Right Column: Global Presence (NetworkGlobe) */}
             <div className="lg:col-span-6 w-full flex justify-center lg:justify-end">
-                <NetworkGlobe
-                  heading="Where we operate"
-                  tagline="Global Reach. Local Understanding."
-                  subheading="Trusted by businesses across 13+ countries, we deliver technology solutions that help organizations build, scale, and transform digitally."
-                  storesLabel="13+ countries served"
-                />
+              <NetworkGlobe
+                heading="Where our clients are"
+                tagline="Global Reach. Local Understanding."
+                subheading="Trusted by businesses across 13+ countries, we deliver technology solutions that help organizations build, scale, and transform digitally."
+                storesLabel="13+ countries served"
+                caption="Trusted by businesses across 13+ countries, we deliver technology solutions that help organizations build, scale, and transform digitally."
+              />
             </div>
           </div>
         </div>
@@ -145,8 +146,8 @@ export default function AiDevelopmentServicesPage() {
         </div>
 
         <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-          Agentic AI Solutions Built For{" "}
-          <span className="text-[#FF6B2C]">Business Workflows</span>
+          AI Development Solutions Built for{" "}
+          <span className="text-[#FF6B2C]">Enterprise Business Needs</span>
         </h2>
 
         <p className="text-[15px] lg:text-base text-slate-500 max-w-2xl leading-relaxed mx-auto">
@@ -158,9 +159,9 @@ export default function AiDevelopmentServicesPage() {
 
       <ReverseStickyScroll />
 
-      {/* 
+      {/*
       <TrustedBrandsMarquee /> */}
-   
+
       {/* Interactive Photo Stack Section - Offshore AI Engineering */}
       <OffshoreEngineeringSection />
 
@@ -169,11 +170,25 @@ export default function AiDevelopmentServicesPage() {
       {/* <Industries /> */}
 
       {/* Infinite Parallax AI Showcase */}
-      <div className="max-w-[1600px] mx-auto px-3 xs:px-4 sm:px-8 lg:px-12 my-10 sm:my-14 md:my-20 lg:my-24">
-        <div className="relative w-full h-[590px] xs:h-[620px] sm:h-[720px] md:h-[780px] lg:h-[860px] rounded-2xl sm:rounded-3xl overflow-hidden border border-zinc-200/50 shadow-2xl">
+      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-[2cm] mt-4 md:mt-6 flex flex-col items-center text-center">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 text-[10px] sm:text-[11px] font-bold tracking-widest text-[#FF6B00] uppercase mb-3">
+          <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
+          AMAZON AI ECOSYSTEM
+        </div>
+        <h2 className="text-3xl md:text-5xl font-extrabold font-['Plus_Jakarta_Sans',sans-serif] max-w-4xl mx-auto text-slate-900 mb-4 tracking-tight leading-tight">
+          Architect Intelligent Enterprise Systems Across the <span className="text-[#FF6B2C]">Amazon AI Ecosystem</span>
+        </h2>
+        <p className="text-[14px] lg:text-[15px] text-slate-500 max-w-4xl leading-relaxed mx-auto">
+          Engineer end-to-end AI ecosystems on AWS by combining foundation models, agentic intelligence, machine learning, enterprise data, and cloud-native infrastructure. Integrate Amazon Bedrock, SageMaker AI, Amazon Nova, knowledge bases, vector search, RAG pipelines, AI agents, model customization, and intelligent automation into secure, governed architectures built for production-scale workloads.
+        </p>
+      </div>
+      <div className="max-w-[1600px] mx-auto px-3 xs:px-4 sm:px-8 lg:px-12 mt-8 md:mt-12 mb-10 sm:mb-14 md:mb-20 lg:mb-24">
+        <div className="relative w-full h-[660px] xs:h-[680px] sm:h-[720px] md:h-[780px] lg:h-[860px] rounded-2xl sm:rounded-3xl overflow-hidden border border-zinc-200/50 shadow-2xl">
           <ArgentLoopSlider className="h-full w-full" />
         </div>
       </div>
+
+      <MicrosoftAiShowcase />
 
       {/* <AiArchitectureShowcase /> */}
       {/* <DigitalEngineeringSolutions /> */}

@@ -126,6 +126,16 @@ export default function PhotoStackGallery({
   const dragStartX = useRef(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  const safeSelectedIndex =
+    selectedIndex !== undefined && selectedIndex >= 0 && selectedIndex < photos.length
+      ? selectedIndex
+      : 0;
+
+  const displayOrder =
+    order[0] === safeSelectedIndex
+      ? order
+      : [safeSelectedIndex, ...order.filter((i) => i !== safeSelectedIndex)];
+
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     setReducedMotion(mq.matches);
@@ -138,54 +148,41 @@ export default function PhotoStackGallery({
     setOrder(photos.map((_, i) => i));
   }, [photos.length]);
 
-  // Sync when selectedIndex prop changes from parent
+  // Visually sync the stack order so safeSelectedIndex is in front
   useEffect(() => {
-    if (selectedIndex !== undefined && selectedIndex >= 0 && selectedIndex < photos.length) {
-      setOrder((prev) => {
-        if (prev[0] === selectedIndex) return prev;
-        const rest = prev.filter((i) => i !== selectedIndex);
-        return [selectedIndex, ...rest];
-      });
-      setDragX(0);
-    }
-  }, [selectedIndex, photos.length]);
+    setOrder((prev) => {
+      if (prev[0] === safeSelectedIndex) return prev;
+      const rest = prev.filter((i) => i !== safeSelectedIndex);
+      return [safeSelectedIndex, ...rest];
+    });
+    setDragX(0);
+  }, [safeSelectedIndex]);
 
-  // Notify parent of front photo change
-  useEffect(() => {
-    if (order.length > 0) {
-      onSelectIndex?.(order[0]);
-    }
-  }, [order, onSelectIndex]);
-
-  // Auto-advance
+  // Auto-advance updates the parent's source of truth
   useEffect(() => {
     if (hovered || dragging) return;
     
     const intervalId = setInterval(() => {
-      setOrder((prev) => {
-        const [front, ...rest] = prev;
-        return [...rest, front];
-      });
-      setDragX(0);
+      const nextIndex = safeSelectedIndex === photos.length - 1 ? 0 : safeSelectedIndex + 1;
+      onSelectIndex?.(nextIndex);
     }, 3500);
 
     return () => clearInterval(intervalId);
-  }, [hovered, dragging]);
+  }, [hovered, dragging, safeSelectedIndex, photos.length, onSelectIndex]);
 
+  // advance updates the parent's source of truth
   const advance = (direction: 1 | -1) => {
-    setOrder((prev) => {
-      if (direction === 1) {
-        const [front, ...rest] = prev;
-        return [...rest, front];
-      }
-      const back = prev[prev.length - 1];
-      return [back, ...prev.slice(0, -1)];
-    });
-    setDragX(0);
+    if (direction === 1) {
+      const nextIndex = safeSelectedIndex === photos.length - 1 ? 0 : safeSelectedIndex + 1;
+      onSelectIndex?.(nextIndex);
+    } else {
+      const prevIndex = safeSelectedIndex === 0 ? photos.length - 1 : safeSelectedIndex - 1;
+      onSelectIndex?.(prevIndex);
+    }
   };
 
   const onPointerDown = (e: React.PointerEvent) => {
-    if (order.length < 2) return;
+    if (displayOrder.length < 2) return;
     setDragging(true);
     dragStartX.current = e.clientX;
     (e.target as Element).setPointerCapture(e.pointerId);
@@ -209,10 +206,9 @@ export default function PhotoStackGallery({
     }
   };
 
-  const frontIndex = order[0];
-  const frontPhoto = photos[frontIndex];
+  const frontPhoto = photos[safeSelectedIndex];
   const total = photos.length;
-  const frameNumber = String(order.indexOf(frontIndex) + 1).padStart(2, "0");
+  const frameNumber = String(safeSelectedIndex + 1).padStart(2, "0");
 
   return (
     <div className={`flex flex-col items-center justify-between gap-4 ${className}`}>
@@ -222,7 +218,7 @@ export default function PhotoStackGallery({
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
-        {order.map((photoIndex, depth) => {
+        {displayOrder.map((photoIndex, depth) => {
           const photo = photos[photoIndex];
           const isFront = depth === 0;
           const tilt = TILTS[photoIndex % TILTS.length];

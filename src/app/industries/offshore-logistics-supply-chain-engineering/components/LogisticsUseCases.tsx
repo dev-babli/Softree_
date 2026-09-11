@@ -18,7 +18,7 @@ export default function LogisticsUseCases() {
           <div className="lg:col-span-6 w-full flex flex-col h-full">
             <div className="w-full h-full max-w-[650px] lg:max-w-none flex flex-col mx-auto lg:ml-auto">
               <LogisticsNetworkGlobe
-                heading="Where we operate"
+                heading="Where our clients are"
                 tagline="Global Reach. Local Understanding."
                 subheading="Trusted by businesses across 13+ countries, we deliver technology solutions that help organizations build, scale, and transform digitally."
                 storesLabel="13+ countries served"

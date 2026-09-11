@@ -32,155 +32,143 @@ interface SlideItem {
   primaryCta?: string;
   secondaryCta?: string;
 }
-
 const slides: SlideItem[] = [
   {
     num: "01",
+    title: "Agentic AI Development",
+    titleSplit: "Agentic AI<br />Development",
+    desc: "Build intelligent AI agents for healthcare that understand context, reason through complex tasks, use tools, orchestrate workflows, and interact with enterprise systems within defined business rules.",
+    capabilities: [
+      { label: "AI agents that understand context and user intent", tag: "SMART AGENTS" },
+      { label: "Automated execution of multi-step healthcare tasks", tag: "WORKFLOW AI" },
+      { label: "Connect AI agents with healthcare systems and APIs", tag: "SYSTEM INTEGRATION" },
+      { label: "AI that can use tools and take actions", tag: "TASK AUTOMATION" },
+      { label: "Human review and approval when needed", tag: "HUMAN OVERSIGHT" },
+    ],
+    bg: "#080808",
+    text: "#ffffff",
+    accent: "#FF6B00",
+    isLight: false,
+    link: "/services/ai-development-services",
+  },
+
+  {
+    num: "02",
     title: "Generative AI & RAG Development",
     titleSplit: "Generative AI &<br />RAG Development",
     desc: "Build enterprise-grade Generative AI healthcare solutions, AI assistants, knowledge systems, copilots, and Retrieval-Augmented Generation (RAG) applications that securely connect AI models with trusted healthcare data.",
     capabilities: [
-      { label: "Healthcare knowledge assistants and AI copilots", tag: "Agentic AI" },
-      { label: "RAG-based enterprise search and knowledge retrieval", tag: "Hybrid Search" },
-      { label: "Secure integration with organizational data", tag: "HIPAA Vault" },
-      { label: "LLM-powered healthcare applications", tag: "Multi-Model" },
-      { label: "Context-aware information retrieval", tag: "RAG 2.0" },
+      { label: "AI assistants for healthcare teams and patients", tag: "AI ASSISTANTS" },
+      { label: "Search and retrieve answers from trusted healthcare data", tag: "SMART SEARCH" },
+      { label: "Securely connect AI with your internal data", tag: "SECURE DATA" },
+      { label: "AI applications that generate useful, accurate responses", tag: "GENERATIVE AI" },
+      { label: "Deliver answers based on relevant business context", tag: "CONTEXTUAL AI" },
     ],
-    bg: "#0D0D0D",
-    text: "#ffffff",
+    bg: "#ffffff",
+    text: "#111111",
     accent: "#FF6B00",
-    isLight: false,
-    link: "/contact",
+    isLight: true,
+    link: "/services/generative-ai",
   },
+
   {
-    num: "02",
+    num: "03",
     title: "Healthcare AI Agent Development",
     titleSplit: "Healthcare AI<br />Agent Development",
     desc: "Develop intelligent AI agents for healthcare that understand context, retrieve information, orchestrate workflows, and interact with enterprise systems within defined business rules.",
     capabilities: [
-      { label: "Autonomous and semi-autonomous AI agents", tag: "Autonomous" },
-      { label: "Multi-step workflow orchestration", tag: "DAG Engine" },
-      { label: "Enterprise system and API integration", tag: "FHIR / HL7" },
-      { label: "Context-aware decision support", tag: "Clinical CDSS" },
-      { label: "Human-in-the-loop workflows", tag: "Supervised" },
+      { label: "AI agents that handle healthcare tasks with minimal intervention", tag: "AUTONOMOUS AI" },
+      { label: "Automate complex tasks across multiple steps", tag: "TASK ORCHESTRATION" },
+      { label: "Connect AI with EHRs, APIs, and healthcare systems", tag: "HEALTHCARE INTEGRATION" },
+      { label: "Support teams with relevant information and recommendations", tag: "DECISION SUPPORT" },
+      { label: "Route sensitive decisions to people for review", tag: "HUMAN REVIEW" },
     ],
     bg: "#C94716",
     text: "#ffffff",
     accent: "#ffffff",
     isLight: false,
-    link: "/contact",
+    link: "/solutions/ai-agents-development",
   },
-  {
-    num: "03",
-    title: "Healthcare Machine Learning Solutions",
-    titleSplit: "Healthcare Machine<br />Learning Solutions",
-    desc: "Build machine learning solutions that help healthcare organizations leverage data for predictive analytics, forecasting, classification, recommendations, and anomaly detection.",
-    capabilities: [
-      { label: "Predictive analytics and forecasting", tag: "Predictive ML" },
-      { label: "Classification and recommendation models", tag: "Ensemble" },
-      { label: "Risk and anomaly detection", tag: "Early Warning" },
-      { label: "Intelligent decision-support systems", tag: "Logic Engine" },
-      { label: "Model development and optimization", tag: "MLOps Pipeline" },
-    ],
-    bg: "#141414",
-    text: "#ffffff",
-    accent: "#FF6B2C",
-    isLight: false,
-    link: "/contact",
-  },
+
   {
     num: "04",
     title: "Intelligent Document Processing for Healthcare",
     titleSplit: "Intelligent Document<br />Processing for Healthcare",
     desc: "Automate document-intensive healthcare workflows with AI-powered document intelligence that extracts, classifies, validates, summarizes, and transforms information from complex documents.",
     capabilities: [
-      { label: "Medical and administrative document processing", tag: "Multimodal OCR" },
-      { label: "Intelligent data extraction", tag: "Entity Parser" },
-      { label: "Document classification and validation", tag: "Schema Valid" },
-      { label: "AI-powered summarization", tag: "Clinical NLP" },
-      { label: "Structured data generation from unstructured content", tag: "JSON / FHIR" },
+      { label: "Process medical and administrative documents automatically", tag: "DOCUMENT AI" },
+      { label: "Extract important information from documents", tag: "DATA EXTRACTION" },
+      { label: "Identify, classify, and validate documents", tag: "DOCUMENT ANALYSIS" },
+      { label: "Create concise summaries from complex healthcare records", tag: "AI SUMMARIZATION" },
+      { label: "Convert documents into structured, usable data", tag: "STRUCTURED DATA" },
     ],
     bg: "#FCFBF9",
     text: "#111111",
     accent: "#FF6B00",
     isLight: true,
-    link: "/contact",
+    link: "/solutions/document-ai-solutions",
   },
+
   {
     num: "05",
     title: "Healthcare Process Automation",
     titleSplit: "Healthcare Process<br />Automation",
     desc: "Combine AI, intelligent automation, and workflow orchestration to streamline repetitive administrative and operational healthcare processes.",
     capabilities: [
-      { label: "Workflow automation", tag: "RPA + Agentic" },
-      { label: "AI-assisted task processing", tag: "Triage Flow" },
-      { label: "Automated data validation", tag: "Zero Error" },
-      { label: "Human-in-the-loop automation", tag: "Escalation" },
-      { label: "Reduced manual intervention", tag: "-85% Manual" },
+      { label: "Automate repetitive healthcare workflows", tag: "WORKFLOW AUTOMATION" },
+      { label: "Use AI to handle routine tasks and requests", tag: "AI-ASSISTED TASKS" },
+      { label: "Automatically check and validate healthcare data", tag: "DATA VALIDATION" },
+      { label: "Escalate important cases to the right person", tag: "HUMAN ESCALATION" },
+      { label: "Reduce manual work across healthcare operations", tag: "OPERATIONAL EFFICIENCY" },
     ],
     bg: "#1C1A18",
     text: "#ffffff",
     accent: "#FF6B00",
     isLight: false,
-    link: "/contact",
+    link: "/solutions/ai-workflow-automation",
   },
+
   {
     num: "06",
     title: "Healthcare Data Engineering & Analytics",
     titleSplit: "Healthcare Data<br />Engineering & Analytics",
     desc: "Build the data infrastructure required for scalable healthcare AI with modern data pipelines, integrations, analytics platforms, and AI-ready architectures.",
     capabilities: [
-      { label: "Healthcare data integration", tag: "HL7 / FHIR ETL" },
-      { label: "ETL/ELT and data pipelines", tag: "Stream & Batch" },
-      { label: "Data transformation and management", tag: "Lakehouse" },
-      { label: "Business intelligence and analytics", tag: "Executive BI" },
-      { label: "AI-ready data architectures", tag: "Sovereign VPC" },
+      { label: "Bring healthcare data together from multiple systems", tag: "DATA INTEGRATION" },
+      { label: "Build reliable pipelines for moving and processing data", tag: "DATA PIPELINES" },
+      { label: "Clean, transform, and organize healthcare data", tag: "DATA MANAGEMENT" },
+      { label: "Turn healthcare data into actionable business insights", tag: "DATA ANALYTICS" },
+      { label: "Prepare trusted data for AI and machine learning", tag: "AI-READY DATA" },
     ],
     bg: "#EA580C",
     text: "#ffffff",
     accent: "#ffffff",
     isLight: false,
-    link: "/contact",
+    link: "/services/offshore-data-analytics",
   },
+
   {
     num: "07",
-    title: "Custom Healthcare AI Application Development",
-    titleSplit: "Custom Healthcare AI<br />Application Development",
-    desc: "Develop purpose-built AI healthcare applications around your workflows, users, technology ecosystem, and business objectives.",
-    capabilities: [
-      { label: "Custom AI-powered applications", tag: "Tailored AI" },
-      { label: "Healthcare portals and dashboards", tag: "Secure UX" },
-      { label: "Intelligent decision-support applications", tag: "CDSS Core" },
-      { label: "AI-enabled enterprise workflows", tag: "Microservices" },
-      { label: "Scalable cloud-based solutions", tag: "Multi-Cloud" },
-    ],
-    bg: "#101010",
-    text: "#ffffff",
-    accent: "#FF6B2C",
-    isLight: false,
-    link: "/contact",
-  },
-  {
-    num: "08",
     title: "AI Integration & Healthcare Application Modernization",
     titleSplit: "AI Integration & Application<br />Modernization",
     desc: "Integrate AI capabilities into existing healthcare applications, APIs, enterprise platforms, databases, and legacy environments without disrupting critical workflows.",
     capabilities: [
-      { label: "AI and API integration", tag: "REST / gRPC" },
-      { label: "Legacy application modernization", tag: "Refactoring" },
-      { label: "Enterprise platform integration", tag: "Epic & Cerner" },
-      { label: "Cloud and data platform integration", tag: "Hybrid Cloud" },
-      { label: "AI-enabled application upgrades", tag: "Modern Stack" },
+      { label: "Connect AI with existing healthcare applications and APIs", tag: "AI INTEGRATION" },
+      { label: "Modernize outdated healthcare applications", tag: "APPLICATION MODERNIZATION" },
+      { label: "Connect AI with EHR and enterprise healthcare platforms", tag: "SYSTEM CONNECTIVITY" },
+      { label: "Integrate applications across cloud and on-premise systems", tag: "HYBRID INTEGRATION" },
+      { label: "Add AI capabilities without replacing existing systems", tag: "AI ENHANCEMENT" },
     ],
     bg: "#F7F5F0",
     text: "#111111",
     accent: "#FF6B00",
     isLight: true,
-    link: "/contact",
+    link: "/services/legacy-application-modernization",
   },
+
   {
     isCta: true,
-    num: "09",
+    num: "08",
     title: "Build Your Healthcare AI Solution with Softree",
     titleSplit: "Build Your Healthcare AI<br />Solution with Softree",
     desc: "Turn AI opportunities into secure, scalable, production-ready healthcare solutions. Whether you are exploring Generative AI, automating workflows, modernizing legacy applications, or building intelligent healthcare platforms, Softree can help you move from strategy to implementation.",
@@ -246,7 +234,7 @@ export default function StepWipe() {
         ScrollTrigger.getAll().forEach((t) => t.kill());
       };
     },
-    { scope: containerRef }
+    { scope: containerRef, dependencies: [slides.length] }
   );
 
   return (
@@ -281,7 +269,7 @@ export default function StepWipe() {
             <div className="w-full">
               <div className="flex items-center justify-between gap-4 mb-3 sm:mb-4">
                 <p className="text-xs sm:text-sm font-bold tracking-widest uppercase opacity-85 font-mono">
-                  {card.isCta ? "SUMMARY & NEXT STEPS" : `${card.num} / 08 — ${card.title}`}
+                  {card.isCta ? "SUMMARY & NEXT STEPS" : `${card.num} / 07 — ${card.title}`}
                 </p>
                 <span className="hidden sm:inline-block px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-bold tracking-wider uppercase border border-current opacity-60">
                   {card.isCta ? "GET STARTED" : "HEALTHCARE AI SERVICE"}
@@ -314,7 +302,7 @@ export default function StepWipe() {
                     text={card.primaryCta || "Build Your Offshore Team"}
                     variant="orange-filled"
                     className="w-full sm:w-auto px-8 py-3.5"
-                  />                  
+                  />
                 </div>
               </div>
             ) : (
@@ -456,25 +444,7 @@ export default function StepWipe() {
                         ))}
                       </div>
 
-                      {/* Bottom Footer Telemetry */}
-                      <div
-                        className="px-4 py-2 flex items-center justify-between border-t text-[10px] font-mono opacity-50 uppercase tracking-wider"
-                        style={{
-                          backgroundColor: card.isLight
-                            ? "rgba(0,0,0,0.015)"
-                            : "rgba(0,0,0,0.2)",
-                          borderColor: card.isLight
-                            ? "rgba(0,0,0,0.06)"
-                            : "rgba(255,255,255,0.08)",
-                          color: card.text,
-                        }}
-                      >
-                        <span>FHIR / HL7 • HIPAA BAA</span>
-                        <span className="flex items-center gap-1">
-                          <span className="w-1 h-1 rounded-full bg-emerald-400" />
-                          PROD READY
-                        </span>
-                      </div>
+
                     </div>
                   </div>
                 </div>

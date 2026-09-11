@@ -7,24 +7,24 @@ import { useGSAP } from '@gsap/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { FlowButton } from '@/components/ui/flow-button';
-import { 
-  Brain, 
-  ShieldCheck, 
-  Workflow, 
-  Sparkles, 
-  Cpu, 
-  Layers, 
-  Zap, 
-  Database, 
-  Activity, 
-  CheckCircle2, 
-  Bot, 
-  Network, 
-  Search, 
-  Code2, 
-  LineChart, 
-  GitBranch, 
-  Sliders, 
+import {
+  Brain,
+  ShieldCheck,
+  Workflow,
+  Sparkles,
+  Cpu,
+  Layers,
+  Zap,
+  Database,
+  Activity,
+  CheckCircle2,
+  Bot,
+  Network,
+  Search,
+  Code2,
+  LineChart,
+  GitBranch,
+  Sliders,
   Scale,
   ArrowRight
 } from 'lucide-react';
@@ -297,21 +297,21 @@ function indexLabel(i: number) {
 function buildCharLine(text: string, lineClass: string, charClass: string, isTitle: boolean = false) {
   const line = document.createElement('span');
   line.className = lineClass;
-  
+
   const words = text.split(' ');
   words.forEach((word, i) => {
     const wordSpan = document.createElement('span');
     wordSpan.style.display = 'inline-block';
-    
+
     word.split('').forEach((ch) => {
       const span = document.createElement('span');
       span.className = charClass;
       span.textContent = ch;
       wordSpan.appendChild(span);
     });
-    
+
     line.appendChild(wordSpan);
-    
+
     if (i < words.length - 1) {
       const spaceSpan = document.createElement('span');
       spaceSpan.className = charClass;
@@ -320,7 +320,7 @@ function buildCharLine(text: string, lineClass: string, charClass: string, isTit
       line.appendChild(spaceSpan);
     }
   });
-  
+
   return line;
 }
 
@@ -392,7 +392,7 @@ export default function WhySoftreeCurtainSlider() {
   const descElRef = useRef<HTMLParagraphElement>(null);
   const prevBtnRef = useRef<HTMLButtonElement>(null);
   const nextBtnRef = useRef<HTMLButtonElement>(null);
-  
+
   const [activeReactIndex, setActiveReactIndex] = useState(0);
 
   const clampedColumns = Math.max(2, Math.min(24, parseInt(columns as any, 10) || 12));
@@ -698,9 +698,9 @@ export default function WhySoftreeCurtainSlider() {
 
   const handlePointerDown = useCallback((e: React.PointerEvent) => {
     if (!drag) return;
-    if ((e.target as Element).closest('.wcs_pill') || (e.target as Element).closest('.react-overlay')) { 
-      dragActiveRef.current = false; 
-      return; 
+    if ((e.target as Element).closest('.wcs_pill') || (e.target as Element).closest('.react-overlay')) {
+      dragActiveRef.current = false;
+      return;
     }
     dragActiveRef.current = true;
     dragStartRef.current = e.clientX;
@@ -755,7 +755,7 @@ export default function WhySoftreeCurtainSlider() {
       </div>
 
       <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
-        <div 
+        <div
           ref={containerRef}
           className="wcs_wrap shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] border border-white/10"
           onKeyDown={handleKeyDown}
@@ -770,7 +770,7 @@ export default function WhySoftreeCurtainSlider() {
 
           {/* Left Side: GSAP Animated Text + React Contextual Badges */}
           <div className="absolute top-6 sm:top-10 lg:top-[50%] lg:-translate-y-1/2 left-5 sm:left-10 lg:left-14 z-[4] max-w-[calc(100%-40px)] sm:max-w-md lg:max-w-lg xl:max-w-xl pointer-events-none flex flex-col gap-2 sm:gap-3 md:gap-4">
-            
+
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeData.id}
@@ -830,7 +830,7 @@ export default function WhySoftreeCurtainSlider() {
                 <path d="M10 3L5 8L10 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
-            
+
             {/* Sleek Interactive Pagination Dots */}
             <div className="flex items-center gap-1.5 px-2">
               {tabsData.map((_, idx) => (
@@ -838,11 +838,10 @@ export default function WhySoftreeCurtainSlider() {
                   key={idx}
                   type="button"
                   onClick={() => { goTo(idx, idx > activeReactIndex ? 1 : -1); armAutoResume(); }}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    idx === activeReactIndex 
-                      ? 'w-6 bg-[#FF5812] shadow-[0_0_10px_#FF5812]' 
-                      : 'w-1.5 bg-white/30 hover:bg-white/60'
-                  }`}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${idx === activeReactIndex
+                    ? 'w-6 bg-[#FF5812] shadow-[0_0_10px_#FF5812]'
+                    : 'w-1.5 bg-white/30 hover:bg-white/60'
+                    }`}
                   aria-label={`Go to capability ${idx + 1}`}
                 />
               ))}
@@ -866,16 +865,19 @@ export default function WhySoftreeCurtainSlider() {
             </button>
           </div>
 
-          {/* Right Side: Advanced AI Architecture Overlay (Desktop only >= 1024px) */}
-          <div className="react-overlay absolute inset-0 left-auto w-[48%] xl:w-[46%] p-8 lg:p-12 lg:pr-14 hidden lg:flex flex-col justify-center pointer-events-none z-10">
+          {/* React/Framer Motion Data Overlay (Bullets & Cards) */}
+          <div
+            className="react-overlay hidden lg:flex absolute inset-0 lg:left-auto lg:w-[46%] xl:w-[40%] 2xl:w-[38%] p-4 md:p-8 lg:p-8 lg:pr-12 flex-col pointer-events-none z-10"
+            style={{ justifyContent: 'center', paddingBottom: '100px' }}
+          >
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeData.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
-                className="pointer-events-auto flex flex-col gap-4 lg:gap-5 max-w-xl"
+                transition={{ duration: 0.6, ease: [0.3, 0.9, 0.1, 1] }}
+                className="pointer-events-auto mt-8 md:mt-12 lg:mt-0"
               >
                 {/* Capability Header */}
                 <div>
@@ -883,28 +885,28 @@ export default function WhySoftreeCurtainSlider() {
                     <span className="w-1.5 h-1.5 rounded-full bg-orange-400 shadow-[0_0_6px_#FF5812]" />
                     SYSTEM CAPABILITY
                   </div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl lg:text-[25px] leading-[1.25] font-bold text-white tracking-tight drop-shadow-xl">
+                  <h3 className="text-lg sm:text-xl md:text-2xl lg:text-[22px] xl:text-[24px] leading-[1.25] font-bold text-white tracking-tight drop-shadow-xl">
                     {activeData.heading}
                   </h3>
-                  <p className="text-xs sm:text-[13px] md:text-sm text-slate-300 mt-1 leading-relaxed drop-shadow">
+                  <p className="text-xs sm:text-[13px] md:text-[13px] text-slate-300 mt-1 leading-relaxed drop-shadow">
                     {activeData.subheading}
                   </p>
                 </div>
 
                 {/* 2x2 Architectural Capability Matrix */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 md:gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-2.5 mt-2">
                   {activeData.capabilities.map((cap, idx) => (
-                    <div 
-                      key={idx} 
-                      className="bg-black/45 backdrop-blur-xl border border-white/10 hover:border-orange-500/40 rounded-xl p-3 md:p-3.5 transition-all duration-300 shadow-lg group"
+                    <div
+                      key={idx}
+                      className="bg-black/45 backdrop-blur-xl border border-white/10 hover:border-orange-500/40 rounded-xl p-2.5 md:p-3 transition-all duration-300 shadow-lg group"
                     >
-                      <div className="flex items-center gap-2 mb-1">
+                      <div className="flex items-center gap-1.5 mb-1">
                         <div className="w-5 h-5 rounded-md bg-orange-500/20 border border-orange-500/40 flex items-center justify-center text-orange-400 shrink-0 group-hover:scale-110 transition-transform">
                           {getCapabilityIcon(cap.iconType)}
                         </div>
-                        <span className="text-white font-semibold text-xs md:text-sm tracking-tight">{cap.title}</span>
+                        <span className="text-white font-semibold text-[11px] md:text-xs tracking-tight">{cap.title}</span>
                       </div>
-                      <p className="text-slate-300 text-[11px] md:text-xs leading-snug pl-7">
+                      <p className="text-slate-300 text-[10px] md:text-[11px] leading-snug pl-6.5">
                         {cap.desc}
                       </p>
                     </div>
@@ -912,51 +914,51 @@ export default function WhySoftreeCurtainSlider() {
                 </div>
 
                 {/* Bottom Enterprise Benchmark & Action Card */}
-                <div className="bg-black/55 backdrop-blur-2xl border border-white/15 hover:border-orange-500/40 rounded-xl lg:rounded-2xl p-3.5 sm:p-4 lg:p-4.5 relative overflow-hidden shadow-2xl transition-all duration-300">
+                <div className="bg-black/55 backdrop-blur-2xl border border-white/15 hover:border-orange-500/40 rounded-xl lg:rounded-2xl p-3 sm:p-3.5 lg:p-4 relative overflow-hidden shadow-2xl transition-all duration-300 mt-3 md:mt-4">
                   {/* Glowing Top Hairline */}
                   <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-orange-500 via-amber-300/60 to-transparent" />
-                  
+
                   {/* Header Row: Status Badge & Tech Stack */}
-                  <div className="flex items-center justify-between gap-2 mb-2 pb-2 border-b border-white/10">
-                    <div className="flex items-center gap-2">
-                      <span className="relative flex h-2 w-2">
+                  <div className="flex items-center justify-between gap-1.5 mb-1.5 pb-1.5 border-b border-white/10">
+                    <div className="flex items-center gap-1.5">
+                      <span className="relative flex h-1.5 w-1.5">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 shadow-[0_0_8px_#10B981]" />
+                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500 shadow-[0_0_8px_#10B981]" />
                       </span>
-                      <span className="text-emerald-400 text-[10px] font-mono font-bold tracking-wider uppercase">
+                      <span className="text-emerald-400 text-[9px] font-mono font-bold tracking-wider uppercase">
                         {activeData.card.statusBadge}
                       </span>
                     </div>
-                    <span className="text-slate-300 bg-white/[0.06] border border-white/10 px-2.5 py-0.5 rounded-full text-[10px] font-mono tracking-wide truncate max-w-[200px] sm:max-w-none">
+                    <span className="text-slate-300 bg-white/[0.06] border border-white/10 px-2 py-0.5 rounded-full text-[9px] font-mono tracking-wide truncate max-w-[200px] sm:max-w-none">
                       {activeData.card.stack}
                     </span>
                   </div>
 
                   {/* Outcome Title & Impact Statement */}
-                  <div className="mb-2.5">
-                    <div className="text-white font-bold text-sm lg:text-[15px] tracking-tight mb-0.5">
+                  <div className="mb-2">
+                    <div className="text-white font-bold text-[13px] lg:text-sm tracking-tight mb-0.5">
                       {activeData.card.outcomeTitle}
                     </div>
-                    <p className="text-slate-300 text-[11px] lg:text-xs leading-relaxed">
+                    <p className="text-slate-300 text-[10px] lg:text-[11px] leading-relaxed">
                       {activeData.card.outcomeDesc}
                     </p>
                   </div>
 
                   {/* Metrics & Action Link Row */}
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-2 border-t border-white/10">
-                    <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-                      <div className="flex items-baseline gap-1.5">
-                        <span className="text-orange-400 font-extrabold text-sm lg:text-base font-mono">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-1.5 border-t border-white/10">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-orange-400 font-extrabold text-[13px] lg:text-sm font-mono">
                           {activeData.card.metricValue}
                         </span>
-                        <span className="text-slate-400 text-[10px] font-mono uppercase">
+                        <span className="text-slate-400 text-[9px] font-mono uppercase">
                           {activeData.card.metricLabel}
                         </span>
                       </div>
                       {activeData.card.metricSecondary && (
                         <>
-                          <span className="text-white/20 text-xs hidden sm:inline">•</span>
-                          <span className="text-slate-300 text-[10px] sm:text-[11px] font-mono">
+                          <span className="text-white/20 text-[10px] hidden sm:inline">•</span>
+                          <span className="text-slate-300 text-[9px] sm:text-[10px] font-mono">
                             {activeData.card.metricSecondary}
                           </span>
                         </>
@@ -1006,8 +1008,8 @@ export default function WhySoftreeCurtainSlider() {
               {/* 2x2 Architectural Capability Matrix */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {activeData.capabilities.map((cap, idx) => (
-                  <div 
-                    key={idx} 
+                  <div
+                    key={idx}
                     className="bg-white/[0.04] border border-white/10 hover:border-orange-500/40 rounded-xl p-3 sm:p-3.5 transition-all duration-300 shadow-md group"
                   >
                     <div className="flex items-center gap-2 mb-1">
@@ -1026,7 +1028,7 @@ export default function WhySoftreeCurtainSlider() {
               {/* Bottom Enterprise Benchmark & Action Card */}
               <div className="bg-white/[0.05] border border-white/15 rounded-xl p-3.5 sm:p-4 relative overflow-hidden shadow-xl">
                 <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-orange-500 via-amber-300/60 to-transparent" />
-                
+
                 {/* Header Row: Status Badge & Tech Stack */}
                 <div className="flex items-center justify-between gap-2 mb-2 pb-2 border-b border-white/10">
                   <div className="flex items-center gap-2">

@@ -419,15 +419,15 @@ export default function PartnerShowcase() {
         </div>
 
         {/* Separator / Powered by microsoft AI tag bridge */}
-        <div className="relative flex items-center justify-center my-[-8px] z-20">
+        {/* <div className="relative flex items-center justify-center my-[-8px] z-20">
 
           <div className="relative bg-gradient-to-r from-orange-500 to-orange-600 border border-orange-400/30 text-[10px] tracking-[0.2em] font-black text-white px-6 py-2 rounded-full uppercase shadow-[0_0_20px_rgba(255,107,44,0.25)]">
             POWERED BY MICROSOFT AI ECOSYSTEM
           </div>
-        </div>
+        </div> */}
 
         {/* ==================== SECTION 08 — MICROSOFT AI ==================== */}
-        <MicrosoftAiShowcase />
+        {/* <MicrosoftAiShowcase /> */}
 
 
       </div>
