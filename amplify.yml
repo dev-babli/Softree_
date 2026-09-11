@@ -5,7 +5,7 @@ frontend:
       commands:
         - nvm use 22
         - node -v
-        - npm ci
+        - npm install
     build:
       commands:
         - env | grep -E '^(NEXT_PUBLIC_|SANITY_|CONTENT_PIPELINE_|GEMINI_|GOOGLE_GENAI_|ANTHROPIC_|NVIDIA_|NVAPI_|PERPLEXITY_|WEB3FORMS_|SLACK_|SENTRY_|POSTHOG_|GSC_|PSI_|AMPLIFY_REBUILD_)' >> .env.production || true
