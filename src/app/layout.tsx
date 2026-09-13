@@ -75,6 +75,10 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={inter.variable} style={designTokenVars}>
       <head>
+        <meta
+          name="google-site-verification"
+          content="CQu6WuCUmQXjNOdwvXN7jlimfC8ztWgq9WTTLMNNLQ0"
+        />
         {/* ✅ Structured Data — Organization + WebSite */}
         <Script
           id="ld-json"
