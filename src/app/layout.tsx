@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     images: twitterImages(DEFAULT_OG_IMAGE),
   },
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    google: "CQu6WuCUmQXjNOdwvXN7jlimfC8ztWgq9WTTLMNNLQ0",
   },
 };
 
