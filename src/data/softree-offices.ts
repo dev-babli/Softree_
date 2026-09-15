@@ -25,7 +25,7 @@ export const SOFTREE_OFFICE_GALLERY_COLUMNS: OfficeColumn[] = [
       "India",
     ],
     image: {
-      src: galleryAsset("Prestige Bangalore-7.webp"),
+      src: galleryAsset("prestige-bangalore-7.webp"),
       alt: "Softree Cuttack office",
     },
   },

@@ -108,11 +108,11 @@ export interface CareersPageData {
 /* ── Default fallbacks shared across server and client components ── */
 
 export const DEFAULT_GALLERY: CareersImage[] = [
-    { url: "/Gallery/Prestige Bangalore-1.webp", alt: "Softree Bengaluru reception lounge" },
-    { url: "/Gallery/Prestige Bangalore-2.webp", alt: "Softree huddle room" },
-    { url: "/Gallery/Prestige Bangalore-3.webp", alt: "Softree open-plan workspace" },
-    { url: "/Gallery/Prestige Bangalore-4.webp", alt: "Softree breakout pods" },
-    { url: "/Gallery/Prestige Bangalore-5.webp", alt: "Softree café & lunch area" },
-    { url: "/Gallery/Prestige Bangalore-6.webp", alt: "Prestige Tech Platina 2 — Bengaluru" },
-    { url: "/Gallery/Prestige Bangalore-7.webp", alt: "Softree conference room — The Circus" },
+    { url: "/Gallery/prestige-bangalore-1.webp", alt: "Softree Bengaluru reception lounge" },
+    { url: "/Gallery/prestige-bangalore-2.webp", alt: "Softree huddle room" },
+    { url: "/Gallery/prestige-bangalore-3.webp", alt: "Softree open-plan workspace" },
+    { url: "/Gallery/prestige-bangalore-4.webp", alt: "Softree breakout pods" },
+    { url: "/Gallery/prestige-bangalore-5.webp", alt: "Softree café & lunch area" },
+    { url: "/Gallery/prestige-bangalore-6.webp", alt: "Prestige Tech Platina 2 — Bengaluru" },
+    { url: "/Gallery/prestige-bangalore-7.webp", alt: "Softree conference room — The Circus" },
 ];

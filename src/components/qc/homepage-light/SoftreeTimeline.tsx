@@ -69,6 +69,12 @@ const timelineData = [
     year: "2025",
     title: "Engineering the Intelligent Enterprise",
     description: "Softree enters a new phase focused on enterprise AI, AI agents, Microsoft platforms, data & analytics, cloud technologies, and modern digital engineering.",
+  },
+  {
+    year: "2026",
+    title: "Advancing Enterprise AI & Intelligent Engineering",
+    description:
+      "Softree advances its enterprise engineering capabilities across Agentic AI, AI agents, Generative AI, Microsoft and AWS AI ecosystems, automation, data, and modern application development to help businesses build and scale intelligent digital solutions.",
   }
 ]
 
@@ -144,21 +150,21 @@ export default function SoftreeTimeline() {
 
         {/* Custom Designed Section Header (No commas) */}
         <div className="text-center mb-10 md:mb-12 flex flex-col items-center max-w-6xl mx-auto px-4">
-          
+
           {/* Pill Badge */}
           <span className="inline-flex items-center gap-2 rounded-full border border-[#FF5812]/20 bg-[#FF5812]/05 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.20em] text-[#FF5812] mb-5 shadow-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-[#FF5812]" />
             OUR EVOLUTION
           </span>
-          
+
           {/* Designed Main Title (Comma-free, advanced layout, orange span) */}
           <h2 id="evolution-heading" className="text-[#0a0a1a] tracking-tight mb-4 flex flex-col items-center">
-           
+
             <span className="font-black text-3xl md:text-5xl leading-[1.1] max-w-none block w-full">
               <span className="text-[#0a0a1a]">Driving Digital Innovation</span> <span className="text-zinc-400 font-light">&</span> <span className="text-[#FF5812] drop-shadow-[0_2px_12px_rgba(255,88,18,0.15)]">Transformation</span>
             </span>
           </h2>
-          
+
           {/* Subheading Description (Comma-free) */}
           <p className="text-zinc-600/90 font-medium text-base md:text-lg leading-relaxed max-w-2xl mt-1">
             Discover how Softree Technology has evolved through innovation and technology expertise with a commitment to delivering smarter digital solutions
@@ -170,12 +176,12 @@ export default function SoftreeTimeline() {
 
           {/* Left Side: Solid Grid Card with Designed Year Text Inside */}
           <div className="lg:col-span-6 relative w-full h-[230px] md:h-[340px] flex items-center justify-center lg:justify-end">
-            
+
             {/* Grid Console Card with Orange-Black Gradient (Completely Static) */}
             <div className="relative w-[280px] md:w-[420px] aspect-[4/3] rounded-2xl bg-gradient-to-br from-[#FF5812]/15 via-[#050505] to-[#FF5812]/5 border border-zinc-800/80 shadow-[0_20px_40px_-16px_rgba(5,5,5,0.4)] overflow-hidden flex items-center justify-center">
               {/* Grid lines overlay */}
               <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none z-10" />
-              
+
               {/* Tech details */}
               <div className="absolute top-4 left-4 flex items-center gap-2 z-20 pointer-events-none">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#FF5812]" />
@@ -209,7 +215,7 @@ export default function SoftreeTimeline() {
                 <span className="text-[11px] font-mono tracking-wider text-[#1852FF] font-semibold bg-[#1852FF]/10 px-2.5 py-1 rounded-md">
                   {String(activeIndex + 1).padStart(2, '0')} // {String(timelineData.length).padStart(2, '0')}
                 </span>
-              
+
               </div>
 
               {/* Designed Heading with a vertical gradient accent bar and text gradient */}
@@ -236,10 +242,10 @@ export default function SoftreeTimeline() {
 
         {/* Timeline Navigation Scrubber */}
         <div className="relative mt-6 md:mt-8 w-full flex flex-col gap-4">
-          
+
           {/* Scrubber Controls Bar */}
           <div className="flex items-center justify-between px-2 sm:px-4">
-            
+
             {/* Step Navigation Buttons */}
             <div className="flex items-center gap-2.5">
               <button
@@ -262,11 +268,10 @@ export default function SoftreeTimeline() {
             <div className="flex items-center">
               <button
                 onClick={() => setIsPlaying(prev => !prev)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-full border text-xs font-semibold shadow-sm transition-all focus:outline-none cursor-pointer ${
-                  isPlaying
-                    ? "bg-[#1852FF]/10 border-[#1852FF]/20 text-[#1852FF]"
-                    : "bg-white border-zinc-200 text-zinc-500 hover:text-zinc-800"
-                }`}
+                className={`flex items-center gap-2 px-4 py-2 rounded-full border text-xs font-semibold shadow-sm transition-all focus:outline-none cursor-pointer ${isPlaying
+                  ? "bg-[#1852FF]/10 border-[#1852FF]/20 text-[#1852FF]"
+                  : "bg-white border-zinc-200 text-zinc-500 hover:text-zinc-800"
+                  }`}
               >
                 {isPlaying ? (
                   <>
@@ -316,29 +321,26 @@ export default function SoftreeTimeline() {
                   >
                     {/* Circle Node */}
                     <div
-                      className={`relative w-6 h-6 rounded-full transition-all duration-300 ease-out flex items-center justify-center z-10 border shadow-sm ${
-                        isActive
-                          ? "bg-[#FF5812] border-[#FF5812] scale-110 shadow-[0_0_12px_rgba(255,88,18,0.4)]"
-                          : isPassed
+                      className={`relative w-6 h-6 rounded-full transition-all duration-300 ease-out flex items-center justify-center z-10 border shadow-sm ${isActive
+                        ? "bg-[#FF5812] border-[#FF5812] scale-110 shadow-[0_0_12px_rgba(255,88,18,0.4)]"
+                        : isPassed
                           ? "bg-[#1852FF] border-[#1852FF]"
                           : "bg-white border-zinc-300 group-hover:border-zinc-500 group-hover:scale-105"
-                      }`}
+                        }`}
                     >
                       {/* Active center dot */}
                       <div
-                        className={`w-2 h-2 rounded-full bg-white transition-transform duration-300 ${
-                          isActive ? "scale-100" : "scale-0 group-hover:scale-50"
-                        }`}
+                        className={`w-2 h-2 rounded-full bg-white transition-transform duration-300 ${isActive ? "scale-100" : "scale-0 group-hover:scale-50"
+                          }`}
                       />
                     </div>
 
                     {/* Year Label */}
                     <span
-                      className={`text-sm font-bold transition-all duration-300 mt-1 ${
-                        isActive
-                          ? "text-[#FF5812] scale-105"
-                          : "text-zinc-400 group-hover:text-zinc-800"
-                      }`}
+                      className={`text-sm font-bold transition-all duration-300 mt-1 ${isActive
+                        ? "text-[#FF5812] scale-105"
+                        : "text-zinc-400 group-hover:text-zinc-800"
+                        }`}
                     >
                       {item.year}
                     </span>

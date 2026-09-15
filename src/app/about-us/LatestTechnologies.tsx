@@ -83,7 +83,7 @@ export default function LatestTechnologies() {
   return (
     <section className="w-full px-4 md:px-[60px] lg:px-[100px] py-10 md:py-14 bg-white">
       <div className="w-full max-w-7xl mx-auto rounded-[32px] overflow-hidden border border-zinc-200/60 shadow-[0_24px_80px_-16px_rgba(0,0,0,0.06)] flex flex-col md:flex-row items-stretch bg-white">
-        
+
         {/* Left Panel - Glassmorphic Visual Stage */}
         <div className="relative w-full md:w-1/2 min-h-[320px] md:min-h-0 bg-zinc-950 overflow-hidden">
           {/* Static Hero Image with slow zoom transition on hover of the page section */}
@@ -148,7 +148,7 @@ export default function LatestTechnologies() {
                 Core Expertise
               </h3>
               <p className="text-zinc-800 text-[15px] md:text-[16px] leading-[1.6] font-normal">
-                At Softree Technology, we build custom AI and software solutions that help businesses solve complex challenges, streamline operations, and accelerate digital transformation with secure, scalable technology.
+                We provide the engineering expertise and delivery capacity businesses and technology partners need to build, scale, and deliver digital solutions. Our teams work as an extension of yours — including dedicated, offshore, and white-label delivery models.
               </p>
             </div>
 
@@ -161,8 +161,8 @@ export default function LatestTechnologies() {
                   const isLast = index === technologies.length - 1;
 
                   return (
-                    <div 
-                      key={index} 
+                    <div
+                      key={index}
                       className="flex flex-col relative group transition-colors duration-300"
                     >
                       <button
@@ -172,20 +172,18 @@ export default function LatestTechnologies() {
                         aria-controls={`content-${index}`}
                       >
                         {/* Number Index Badge */}
-                        <span 
-                          className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border text-[11px] font-bold font-mono tracking-tighter transition-all duration-300 mr-3.5 ${
-                            isActive 
-                              ? 'bg-gradient-to-br from-[#FF6B00] to-[#FF8C39] border-transparent text-white shadow-[0_0_12px_rgba(255,107,0,0.4)] scale-105' 
+                        <span
+                          className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border text-[11px] font-bold font-mono tracking-tighter transition-all duration-300 mr-3.5 ${isActive
+                              ? 'bg-gradient-to-br from-[#FF6B00] to-[#FF8C39] border-transparent text-white shadow-[0_0_12px_rgba(255,107,0,0.4)] scale-105'
                               : 'bg-zinc-900/40 border-zinc-800/80 text-zinc-500 group-hover:text-zinc-300 group-hover:border-zinc-700/80'
-                          }`}
+                            }`}
                         >
                           0{index + 1}
                         </span>
-                        
+
                         {/* Title */}
-                        <span className={`text-[14px] md:text-[15px] flex-grow pr-3 transition-all duration-300 group-hover:translate-x-1 ${
-                          isActive ? 'text-[#FF6B00] font-semibold' : 'text-zinc-300 group-hover:text-white font-medium'
-                        }`}>
+                        <span className={`text-[14px] md:text-[15px] flex-grow pr-3 transition-all duration-300 group-hover:translate-x-1 ${isActive ? 'text-[#FF6B00] font-semibold' : 'text-zinc-300 group-hover:text-white font-medium'
+                          }`}>
                           {tech.title}
                         </span>
 

@@ -10,37 +10,37 @@ export type GalleryPhoto = {
 /** All workspace imagery under `public/Gallery`. */
 export const GALLERY_PHOTOS: GalleryPhoto[] = [
   {
-    src: galleryAsset("Prestige Bangalore-1.webp"),
+    src: galleryAsset("prestige-bangalore-1.webp"),
     alt: "Softree Bengaluru reception lounge",
     aspect: "tall",
   },
   {
-    src: galleryAsset("Prestige Bangalore-2.webp"),
+    src: galleryAsset("prestige-bangalore-2.webp"),
     alt: "Softree huddle room",
     aspect: "square",
   },
   {
-    src: galleryAsset("Prestige Bangalore-3.webp"),
+    src: galleryAsset("prestige-bangalore-3.webp"),
     alt: "Softree open-plan workspace",
     aspect: "wide",
   },
   {
-    src: galleryAsset("Prestige Bangalore-4.webp"),
+    src: galleryAsset("prestige-bangalore-4.webp"),
     alt: "Softree breakout pods",
     aspect: "tall",
   },
   {
-    src: galleryAsset("Prestige Bangalore-5.webp"),
+    src: galleryAsset("prestige-bangalore-5.webp"),
     alt: "Softree café and lunch area",
     aspect: "square",
   },
   {
-    src: galleryAsset("Prestige Bangalore-6.webp"),
+    src: galleryAsset("prestige-bangalore-6.webp"),
     alt: "Prestige Tech Platina 2 — Bengaluru campus",
     aspect: "wide",
   },
   {
-    src: galleryAsset("Prestige Bangalore-7.webp"),
+    src: galleryAsset("prestige-bangalore-7.webp"),
     alt: "Softree conference room — The Circus",
     aspect: "tall",
   },
@@ -75,7 +75,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     aspect: "square",
   },
   {
-    src: galleryAsset("download (1).jpg"),
+    src: galleryAsset("download-1.jpg"),
     alt: "Softree office — team area",
     aspect: "wide",
   },

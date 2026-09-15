@@ -49,7 +49,7 @@ export const OFFICE_LOCATIONS: OfficeLocation[] = [
         alt: "Softree San Francisco office",
       },
       {
-        src: galleryAsset("download (1).jpg"),
+        src: galleryAsset("download-1.jpg"),
         alt: "Softree San Francisco office — team area",
       },
     ],
@@ -67,11 +67,11 @@ export const OFFICE_LOCATIONS: OfficeLocation[] = [
     mapQuery: "CDA+Sector+10+Cuttack+Odisha+753014",
     images: [
       {
-        src: galleryAsset("Prestige Bangalore-1.webp"),
+        src: galleryAsset("prestige-bangalore-1.webp"),
         alt: "Softree India headquarters — Cuttack region delivery hub",
       },
       {
-        src: galleryAsset("Prestige Bangalore-6.webp"),
+        src: galleryAsset("prestige-bangalore-6.webp"),
         alt: "Softree India — engineering workspace",
       },
       {
@@ -94,31 +94,31 @@ export const OFFICE_LOCATIONS: OfficeLocation[] = [
     mapQuery: "Prestige+Tech+Park+Platina+2+Bengaluru+Karnataka+560087",
     images: [
       {
-        src: galleryAsset("Prestige Bangalore-1.webp"),
+        src: galleryAsset("prestige-bangalore-1.webp"),
         alt: "Softree Bengaluru reception lounge",
       },
       {
-        src: galleryAsset("Prestige Bangalore-2.webp"),
+        src: galleryAsset("prestige-bangalore-2.webp"),
         alt: "Softree huddle room — Bengaluru",
       },
       {
-        src: galleryAsset("Prestige Bangalore-3.webp"),
+        src: galleryAsset("prestige-bangalore-3.webp"),
         alt: "Softree open-plan workspace — Bengaluru",
       },
       {
-        src: galleryAsset("Prestige Bangalore-4.webp"),
+        src: galleryAsset("prestige-bangalore-4.webp"),
         alt: "Softree breakout pods — Bengaluru",
       },
       {
-        src: galleryAsset("Prestige Bangalore-5.webp"),
+        src: galleryAsset("prestige-bangalore-5.webp"),
         alt: "Softree café and lunch area — Bengaluru",
       },
       {
-        src: galleryAsset("Prestige Bangalore-6.webp"),
+        src: galleryAsset("prestige-bangalore-6.webp"),
         alt: "Prestige Tech Platina 2 — Bengaluru campus",
       },
       {
-        src: galleryAsset("Prestige Bangalore-7.webp"),
+        src: galleryAsset("prestige-bangalore-7.webp"),
         alt: "Softree conference room — The Circus, Bengaluru",
       },
     ],

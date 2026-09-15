@@ -84,7 +84,7 @@ export default function AboutUsPage1() {
       {/* 3.9. Latest Technologies — Powerhouse technologies behind Softree */}
       <LatestTechnologies />
       {/* 3.9.5. We Work — Custom AI Development sticky panels */}
-      <Wework />
+      {/* <Wework /> */}
       {/* Client Testimonials */}
       <LightTestimonialFeature />
       {/* 4. Engagement Models — How to work with us */}
@@ -92,7 +92,7 @@ export default function AboutUsPage1() {
       {/* 5. Team — Leadership & people showcase */}
       <AboutTeamSection />
       {/* 6. Awards — Marquee with glass trophy cards */}
-      <AwardsMarqueeSection />
+      {/* <AwardsMarqueeSection /> */}
       {/* 7. Workspace gallery — animated photo rails */}
       <AnimatedPhotoGallery />
       {/* 8. Offices — Bengaluru, Cuttack, San Francisco */}

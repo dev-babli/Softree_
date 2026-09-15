@@ -58,4 +58,4 @@ Inspired by Accenture insight articles and TriState long-form case studies — p
 ### Images
 
 - Hero: Unsplash manufacturing (via `mapCaseStudyData.ts`)
-- Sections: `/public/Gallery/Prestige Bangalore-*.webp`
+- Sections: `/public/Gallery/prestige-bangalore-*.webp`
