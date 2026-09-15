@@ -7,6 +7,7 @@ import { ChevronLeft, ChevronRight, ArrowRight, TrendingUp, Target, Cpu, Activit
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { FlowButton } from "@/components/ui/flow-button";
 
 export type CopilotCaseStudy = {
   id: string;
@@ -283,13 +284,12 @@ const CopilotCaseStudyCard: React.FC<CardProps> = ({ story, isActive }) => {
             <span className="text-[11px] font-semibold text-slate-400">
               Softree Technology
             </span>
-            <Link
+            <FlowButton
               href={story.href}
-              className="group/btn inline-flex items-center gap-1 text-[11px] font-bold text-[#FF6B00] hover:text-[#e55f00] transition-colors uppercase tracking-wider"
-            >
-              View story
-              <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
-            </Link>
+              text="View story"
+              variant="orange-filled"
+              className="w-fit px-6 py-2 text-xs font-semibold shadow-sm"
+            />
           </div>
         </div>
       </div>

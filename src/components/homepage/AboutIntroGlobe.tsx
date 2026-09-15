@@ -96,96 +96,100 @@ export default function AboutIntroGlobe() {
       <div className="relative z-10 mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-12">
         <div className="grid grid-cols-1 items-stretch gap-10 lg:grid-cols-2 lg:gap-10 xl:gap-14">
           <motion.div
-            className="relative z-20 min-w-0 flex flex-col justify-between"
+            className="relative z-20 min-w-0 flex flex-col justify-between h-full"
             initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <SectionHeader
-              badge="Global Client Reach"
-              accent={ACCENT}
-              headline={
-                <span id="about-bento-heading">
-                  Your global offshore development{" "}
-                  <span className={ORANGE_FLOW}>partner.</span>
-                </span>
-              }
-              className="gap-4 lg:gap-3.5 [&_h2]:!leading-[1.18] [&_h2]:text-[clamp(1.5rem,2.15vw,2.05rem)] [&_h2]:tracking-[-0.03em]"
-            />
+            <div className="flex flex-col">
+              <SectionHeader
+                badge="Global Client Reach"
+                accent={ACCENT}
+                headline={
+                  <span id="about-bento-heading">
+                    Your global offshore development{" "}
+                    <span className={ORANGE_FLOW}>partner.</span>
+                  </span>
+                }
+                className="gap-4 lg:gap-3.5 [&_h2]:!leading-[1.18] [&_h2]:text-[clamp(1.5rem,2.15vw,2.05rem)] [&_h2]:tracking-[-0.03em]"
+              />
 
-            <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-0">
-              {ABOUT_STATS.map((stat, index) => {
-                const Icon = stat.icon;
-                return (
-                  <div
-                    key={stat.value}
-                    className={`flex items-start gap-2 sm:px-4 ${index === 0 ? "sm:pl-0" : "sm:border-l sm:border-[#0a0a1a]/10"
-                      }`}
-                  >
-                    <Icon className="about-orange-icon mt-0.5 h-3.5 w-3.5 shrink-0" />
-                    <div className="min-w-0">
-                      <p
-                        className={`${ORANGE_FLOW} text-[18px] font-semibold leading-none tracking-tight lg:text-[19px] xl:text-[20px]`}
-                      >
-                        {stat.value}
-                      </p>
-                      <p className="mt-1 text-[11px] leading-snug text-[#0a0a1a]/50 lg:text-[12px]">
-                        {stat.label}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            <p className="mt-5 max-w-xl text-[13.5px] leading-[1.65] text-[#0a0a1a]/65 lg:text-[14px]">
-              We help businesses, technology companies, and partners extend their
-              engineering capabilities through AI, modern engineering, Microsoft, and
-              data expertise.
-            </p>
-
-            <div className="mt-6 flex flex-col gap-3.5">
-              {ABOUT_CAPABILITIES.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <div
-                    key={item.title}
-                    className="flex items-center gap-3.5 rounded-2xl px-5 py-4"
-                    style={{ backgroundColor: item.surface }}
-                  >
-                    <span
-                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm"
-                      style={{ color: item.color }}
+              <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-0">
+                {ABOUT_STATS.map((stat, index) => {
+                  const Icon = stat.icon;
+                  return (
+                    <div
+                      key={stat.value}
+                      className={`flex items-start gap-2 sm:px-4 ${index === 0 ? "sm:pl-0" : "sm:border-l sm:border-[#0a0a1a]/10"
+                        }`}
                     >
-                      <Icon size={18} />
-                    </span>
-                    <div className="min-w-0">
-                      <p
-                        className="text-[14px] font-semibold leading-none tracking-tight lg:text-[15px]"
+                      <Icon className="about-orange-icon mt-0.5 h-3.5 w-3.5 shrink-0" />
+                      <div className="min-w-0">
+                        <p
+                          className={`${ORANGE_FLOW} text-[18px] font-semibold leading-none tracking-tight lg:text-[19px] xl:text-[20px]`}
+                        >
+                          {stat.value}
+                        </p>
+                        <p className="mt-1 text-[11px] leading-snug text-[#0a0a1a]/50 lg:text-[12px]">
+                          {stat.label}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <p className="mt-5 max-w-xl text-[13.5px] leading-[1.65] text-[#0a0a1a]/65 lg:text-[14px]">
+                We help businesses, technology companies, and partners extend their
+                engineering capabilities through AI, modern engineering, Microsoft, and
+                data expertise.
+              </p>
+
+              <div className="mt-6 flex flex-col gap-3.5">
+                {ABOUT_CAPABILITIES.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <div
+                      key={item.title}
+                      className="flex items-center gap-3.5 rounded-2xl px-5 py-4"
+                      style={{ backgroundColor: item.surface }}
+                    >
+                      <span
+                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm"
                         style={{ color: item.color }}
                       >
-                        {item.title}
-                      </p>
-                      <p className="mt-1.5 text-[12.5px] leading-snug text-[#0a0a1a]/60 lg:text-[13.5px]">
-                        {item.detail}
-                      </p>
+                        <Icon size={18} />
+                      </span>
+                      <div className="min-w-0">
+                        <p
+                          className="text-[14px] font-semibold leading-none tracking-tight lg:text-[15px]"
+                          style={{ color: item.color }}
+                        >
+                          {item.title}
+                        </p>
+                        <p className="mt-1.5 text-[12.5px] leading-snug text-[#0a0a1a]/60 lg:text-[13.5px]">
+                          {item.detail}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
 
-            <Link
-              href="/about-us"
-              className="group mt-5 inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-[#1a1a1a] px-5 py-2.5 text-[13px] font-medium text-white shadow-[0_8px_24px_-8px_rgba(10,10,26,0.35)] transition hover:-translate-y-px"
-            >
-              Explore our story
-              <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </Link>
+            <div className="pt-6">
+              <Link
+                href="/about-us"
+                className="group inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-[#1a1a1a] px-5 py-2.5 text-[13px] font-medium text-white shadow-[0_8px_24px_-8px_rgba(10,10,26,0.35)] transition hover:-translate-y-px"
+              >
+                Explore our story
+                <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
+            </div>
           </motion.div>
 
           <motion.div
-            className="relative z-10 w-full min-w-0 overflow-x-clip flex flex-col"
+            className="relative z-10 w-full min-w-0 overflow-x-clip flex flex-col h-full"
             initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}

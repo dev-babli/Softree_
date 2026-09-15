@@ -6,6 +6,7 @@ import { motion, useInView, AnimatePresence, useScroll, useMotionValueEvent } fr
 import { ArrowUpRight, TrendingUp, Sparkles } from "lucide-react"
 import Image from "next/image"
 import { SpotlightCard } from "@/components/qc/shared/SpotlightCard"
+import { FlowButton } from "@/components/ui/flow-button"
 
 function useCountUp(target: number, inView: boolean, duration = 1200) {
   const [count, setCount] = useState(0)
@@ -319,10 +320,12 @@ export default function CaseStudyGrid({
                           </div>
                           <span className="text-xs text-[#0a0a1a]/50">Softree Technology</span>
                         </div>
-                        <span className="inline-flex items-center gap-1 text-xs font-semibold text-[#1852FF] transition-transform duration-300 group-hover:translate-x-0.5">
-                          View Case Study
-                          <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5" />
-                        </span>
+                        <FlowButton
+                          as="div"
+                          text="View Case Study"
+                          variant="orange-filled"
+                          className="w-fit px-6 py-2 text-xs font-semibold shadow-sm"
+                        />
                       </div>
                     </div>
 

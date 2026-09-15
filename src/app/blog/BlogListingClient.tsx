@@ -4,8 +4,9 @@ import { useMemo, useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { useSearchParams } from "next/navigation"
-import { Search, Plus, ArrowRight } from "lucide-react"
+import { Search, Plus } from "lucide-react"
 import GeneralHeaderHero from "@/components/sections/GeneralHeaderHero"
+import { FlowButton } from "@/components/ui/flow-button"
 
 type BlogPost = {
   _id: string
@@ -159,9 +160,13 @@ export default function BlogListingClient({ posts }: { posts: BlogPost[] }) {
                   </h2>
                   <p className="text-[15px] leading-relaxed text-[#50576b]">{featured.excerpt}</p>
                 </div>
-                <div className="flex items-center gap-1.5 text-sm font-bold text-[#181818] transition-colors duration-300 group-hover:text-[#0f5cc0]">
-                  <span>Read Featured Article</span>
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                <div className="pt-2">
+                  <FlowButton
+                    as="div"
+                    text="Read Featured Article"
+                    variant="orange-filled"
+                    className="w-fit px-7 py-2.5 text-xs font-semibold shadow-sm"
+                  />
                 </div>
               </div>
               <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-[#edf0f7] bg-[#f8f9fc] shadow-inner">
@@ -235,9 +240,13 @@ export default function BlogListingClient({ posts }: { posts: BlogPost[] }) {
                     {post.title}
                   </h3>
                   <p className="line-clamp-3 text-sm leading-relaxed text-[#50576b]">{post.excerpt}</p>
-                  <div className="mt-auto pt-3 flex items-center gap-1.5 text-sm font-bold text-[#181818] transition-colors duration-300 group-hover:text-[#0f5cc0]">
-                    <span>Read Article</span>
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  <div className="mt-auto pt-3">
+                    <FlowButton
+                      as="div"
+                      text="Read Article"
+                      variant="orange-filled"
+                      className="w-fit px-7 py-2.5 text-xs font-semibold shadow-sm"
+                    />
                   </div>
                 </div>
               </Link>

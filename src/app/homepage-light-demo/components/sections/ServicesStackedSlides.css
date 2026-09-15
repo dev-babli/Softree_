@@ -432,7 +432,7 @@
   }
 }
 
-/* ─── Mobile (≤ 767px): unstack sticky behavior ──────────────────── */
+/* ─── Mobile (≤ 767px): enable sticky stacking like desktop ──────── */
 @media (max-width: 767px) {
   .ssx-intro {
     flex-direction: column;
@@ -441,16 +441,45 @@
   }
 
   .ssx-section {
-    position: relative;
-    top: auto;
+    position: sticky;
+    top: 0.75rem;
+    width: 100%;
     height: auto;
-    min-height: auto;
+    min-height: min(560px, calc(100svh - 1.75rem));
+    max-height: calc(100svh - 1.5rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
-    border-radius: 20px;
+    border-radius: 18px;
+    box-shadow:
+      0 20px 50px -20px rgba(0, 0, 0, 0.65),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
+  .ssx-section + .ssx-section {
+    margin-top: 1.25rem;
+  }
+
+  .ssx-section:nth-child(1) { z-index: 1; }
+  .ssx-section:nth-child(2) { z-index: 2; }
+  .ssx-section:nth-child(3) { z-index: 3; }
+  .ssx-section:nth-child(4) { z-index: 4; }
+  .ssx-section:nth-child(5) { z-index: 5; }
+
   .ssx-section-content {
-    height: auto;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ssx-section-content::-webkit-scrollbar {
+    display: none;
   }
 
   .ssx-section--reverse .ssx-section-inner {
@@ -464,51 +493,91 @@
 
   .ssx-section-inner {
     min-height: auto;
+    height: auto;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: clamp(1.25rem, 6vw, 2.25rem);
-    padding-bottom: clamp(1.75rem, 7vw, 2.75rem);
+    gap: clamp(0.6rem, 2vw, 0.95rem);
+    padding: clamp(0.9rem, 3.5vw, 1.35rem);
+    align-content: center;
   }
 
   .ssx-phase {
-    font-size: 0.62rem;
-    letter-spacing: 0.18em;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    margin-bottom: 0.15rem;
   }
 
   .ssx-copy h3 {
-    font-size: clamp(1.5rem, 7vw, 2rem);
-    line-height: 0.98;
+    font-size: clamp(1.25rem, 5.5vw, 1.75rem);
+    line-height: 1.05;
+    margin-bottom: 0.2rem;
   }
 
   .ssx-headline {
     max-width: 100%;
-    font-size: clamp(0.95rem, 3.6vw, 1.1rem);
-    line-height: 1.25;
+    font-size: clamp(0.82rem, 3.2vw, 0.94rem);
+    line-height: 1.22;
+    margin-bottom: 0.2rem;
   }
 
   .ssx-description {
-    font-size: 0.85rem;
-    line-height: 1.6;
+    font-size: clamp(0.72rem, 2.7vw, 0.8rem);
+    line-height: 1.42;
+    margin-bottom: 0.35rem;
   }
 
   .ssx-outcomes {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin: 0.25rem 0 0.4rem;
   }
 
   .ssx-outcomes li {
-    justify-content: flex-start;
+    width: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 1.45rem;
+    padding: 0.2rem 0.55rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.05em;
   }
 
-  .ssx-actions,
+  .ssx-actions {
+    margin-top: 0.25rem;
+    gap: 0.5rem;
+  }
+
   .ssx-action-primary,
-  .ssx-action-secondary,
+  .ssx-action-secondary {
+    min-height: 2.2rem;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.74rem;
+    width: auto;
+    display: inline-flex;
+  }
+
   .ssx-intro-action {
     width: 100%;
   }
 
+  .ssx-media-block {
+    width: 100%;
+    max-width: 100%;
+    justify-self: center;
+    gap: 0.4rem;
+  }
+
+  .ssx-media-frame {
+    max-height: clamp(130px, 20svh, 185px);
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+  }
+
   .ssx-map-wrap {
-    max-height: none;
-    aspect-ratio: 4 / 3;
+    max-height: clamp(130px, 20svh, 185px);
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
   }
 }
 

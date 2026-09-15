@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { ArrowUpRight, TrendingUp } from 'lucide-react'
 import { SpotlightCard } from '@/components/qc/shared/SpotlightCard'
 import type { CaseStudyListingItem } from '@/app/case-studies/types'
+import { FlowButton } from '@/components/ui/flow-button'
 
 type Props = {
   study: CaseStudyListingItem
@@ -136,13 +137,12 @@ export default function CaseStudyListingCard({ study, accentColor = '#FF5812' }:
           {/* Footer */}
           <div className="mt-auto flex items-center justify-between border-t border-[#0a0a1a]/5 pt-4">
             <span className="text-xs font-medium text-[#8c94a5]">Softree Technology</span>
-            <span
-              className="inline-flex items-center gap-1 text-xs font-bold transition-colors duration-300"
-              style={{ color: accentColor }}
-            >
-              <span>View story</span>
-              <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
-            </span>
+            <FlowButton
+              as="div"
+              text="View story"
+              variant="orange-filled"
+              className="w-fit px-6 py-2 text-xs font-semibold shadow-sm"
+            />
           </div>
         </div>
 

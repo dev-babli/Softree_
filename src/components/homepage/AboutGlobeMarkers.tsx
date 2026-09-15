@@ -217,9 +217,10 @@ const STYLES = `
   flex: 1;
   display: flex;
   flex-direction: column;
+  height: 100%;
   background: transparent;
   border: 1px solid rgba(255, 107, 0, 0.08);
-  padding:32px 24px 40px;
+  padding:24px 20px 24px;
   position:relative;
   overflow:hidden;
   font-family:'Inter',sans-serif;
@@ -231,19 +232,21 @@ const STYLES = `
 .globe-container{
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .globe-heading{
   font-family: 'Playfair Display', Georgia, Cambria, "Times New Roman", Times, serif;
   font-style: italic;
-  font-size:42px;
+  font-size: clamp(32px, 3.2vw, 38px);
   line-height:1.15;
   font-weight:400;
   color:#1c1510;
-  margin:0 0 24px;
+  margin:0 0 16px;
   letter-spacing: 0;
   text-transform: none;
 }
@@ -255,8 +258,8 @@ const STYLES = `
   border: 1px solid rgba(255, 107, 0, 0.3);
   background: #1c1510;
   border-radius: 40px;
-  padding: 6px 14px;
-  margin-bottom: 20px;
+  padding: 5px 12px;
+  margin-bottom: 14px;
   align-self: flex-start;
 }
 
@@ -269,7 +272,7 @@ const STYLES = `
 
 .globe-badge-text {
   color: #FF6B00;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -282,13 +285,13 @@ const STYLES = `
   flex:1;
   width:100%;
   position:relative;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 
 .globe-canvas-wrap{
   position:relative;
-  width:400px;
-  height:400px;
+  width:360px;
+  height:360px;
   max-width:100%;
   margin:0 auto;
 }
@@ -347,9 +350,9 @@ const STYLES = `
 .globe-footer{
   display:flex;
   flex-direction: column;
-  border-top: 1px solid rgba(0,0,0,0.1);
-  padding-top: 24px;
-  gap:16px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  padding-top: 16px;
+  gap:12px;
   width: 100%;
 }
 
