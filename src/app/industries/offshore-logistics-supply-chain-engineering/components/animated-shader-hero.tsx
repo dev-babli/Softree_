@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef, useEffect, useState } from 'react';
+import TrustStrip from "@/components/sections/TrustStrip";
 
 // Types for component props
 interface HeroProps {
@@ -328,7 +329,7 @@ const Hero: React.FC<HeroProps> = ({
   const canvasRef = useShaderBackground();
 
   return (
-    <div className={`relative w-full flex flex-col overflow-hidden bg-black ${className}`}>
+    <div className={`relative w-full min-h-[100svh] flex flex-col justify-center overflow-hidden bg-black ${className}`}>
       <style jsx>{`
         @keyframes fade-in-down {
           from {
@@ -396,7 +397,7 @@ const Hero: React.FC<HeroProps> = ({
       />
       
       {/* Hero Content Overlay */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-white pt-28 pb-12 md:pt-36 md:pb-16 px-4">
+      <div className="relative z-10 flex flex-col items-center justify-center text-white pt-28 pb-48 md:pt-36 md:pb-56 px-4 h-full">
         {/* Trust Badge */}
         {trustBadge && (
           <div className="mb-3 md:mb-4 animate-fade-in-down">
@@ -437,6 +438,11 @@ const Hero: React.FC<HeroProps> = ({
             </p>
           </div>
         </div>
+      </div>
+      
+      {/* Trust Strip anchored to bottom */}
+      <div className="absolute bottom-0 w-full z-20 pb-8 sm:pb-10">
+        <TrustStrip theme="dark" />
       </div>
     </div>
   );

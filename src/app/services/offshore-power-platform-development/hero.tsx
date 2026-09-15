@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback, CSSProperties } from "react";
 import Link from "next/link";
+import TrustStrip from "@/components/sections/TrustStrip";
 interface Testimonial {
   text: string;
   name: string;
@@ -218,7 +219,7 @@ export default function HeroPowerApps() {
         @media (max-width: 991px) {
           .hero-inner {
             flex-direction: column !important;
-            padding: 100px 24px 60px !important;
+            padding: 100px 24px 220px !important;
             gap: 40px !important;
           }
           .hero-left {
@@ -304,6 +305,13 @@ export default function HeroPowerApps() {
           </div>
         </div>
 
+        {/* Trust Strip */}
+        <div style={{ position: 'absolute', bottom: '50px', width: '100%', zIndex: 20 }}>
+          <div className="w-full max-w-[1400px] mx-auto px-4 md:px-8 pb-4">
+            <TrustStrip theme="dark" />
+          </div>
+        </div>
+
         <svg
           style={styles.wave}
           viewBox="0 0 1440 90"
@@ -374,7 +382,7 @@ const styles: Record<string, CSSProperties> = {
     zIndex: 1,
     maxWidth: "1100px",
     margin: "0 auto",
-    padding: "72px 48px 100px",
+    padding: "72px 48px 220px",
     display: "flex",
     alignItems: "center",
     gap: 0,

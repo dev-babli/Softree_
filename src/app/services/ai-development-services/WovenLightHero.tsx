@@ -6,6 +6,7 @@ import * as THREE from 'three';
 import Link from 'next/link';
 import { Shield, Users, Cpu, Sparkles, Calendar, ArrowUpRight } from 'lucide-react';
 import { FlowButton } from '@/components/ui/flow-button';
+import TrustStrip from "@/components/sections/TrustStrip";
 
 const trustItems = [
   { icon: Shield, title: 'WHITE-LABEL', subtitle: 'Trusted agency partner.' },
@@ -320,26 +321,9 @@ export const WovenLightHero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8, duration: 0.8 }}
-        className="w-full z-20 bg-black/40 backdrop-blur-md py-4 sm:py-5 shrink-0 mt-4 sm:mt-6"
+        className="w-full z-20 shrink-0 mt-4 sm:mt-6 pb-8"
       >
-        <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-5">
-            {trustItems.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <div key={index} className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#FF6B00]">
-                    <Icon className="h-5 w-5 text-[#FF6B00]" />
-                  </div>
-                  <div className="flex flex-col text-left">
-                    <span className="text-sm font-bold text-white tracking-wide">{item.title}</span>
-                    <span className="text-xs text-[#A1A1AA] mt-0.5">{item.subtitle}</span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+        <TrustStrip theme="dark" />
       </motion.div>
     </div>
   );

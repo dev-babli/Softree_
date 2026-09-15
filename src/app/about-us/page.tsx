@@ -19,6 +19,7 @@ import SoftreeTimeline from "@/components/qc/homepage-light/SoftreeTimeline";
 import AboutUsGlobe from "../about-us/AboutUsGlobe";
 import CoreValuesSection from "./CoreValuesSection";
 import ExactAboutUs from "./ExactAboutUs";
+import NewWhoDoWeServeSection from "@/components/sections/NewWhoDoWeServeSection";
 const aboutUsFaqs = [
   {
     id: 1,
@@ -74,6 +75,8 @@ export default function AboutUsPage1() {
       {/* 3. Client Logos — Trusted partners marquee */}
       <AboutClientLogos />
       <ExactAboutUs />
+      {/* 2. Who Do We Serve */}
+      <NewWhoDoWeServeSection />
       {/* 2. About — Core Values, Mission, Vision, and Approach */}
       <CoreValuesSection />
       {/* Our Journey Timeline */}

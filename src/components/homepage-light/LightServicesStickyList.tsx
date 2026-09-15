@@ -54,7 +54,7 @@ const SERVICES: Service[] = [
     tags: ["Copilot Studio", "Power Apps", "Power Automate", "Power BI"],
     img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=80",
     whiteLabel: {
-      title: "WHITE-LABEL GENERATIVE AI PARTNER",
+      title: "WHITE-LABEL POWER PLATFORM PARTNER",
       subtitle: "Offshore Delivery - Your Brand - Our Expertise",
       features: ["AI Engineering Team", "Custom AI Solutions", "LLM Specialists"]
     }
@@ -67,7 +67,7 @@ const SERVICES: Service[] = [
     tags: ["Copilot Studio", "Microsoft 365", "Azure AI"],
     img: "/images/copilot-card.png",
     whiteLabel: {
-      title: "WHITE-LABEL POWER PLATFORM PARTNER",
+      title: "WHITE-LABEL AI COPILOTS PARTNER",
       subtitle: "Offshore Delivery - Your Brand - Our Expertise",
       features: ["NDA Protected", "Dedicated Team", "Microsoft Specialists"]
     }
@@ -80,7 +80,7 @@ const SERVICES: Service[] = [
     tags: ["LLMs", "RAG", "Knowledge Systems"],
     img: "/images/GenAI.png",
     whiteLabel: {
-      title: "WHITE-LABEL SHAREPOINT PARTNER",
+      title: "WHITE-LABEL GENERATIVE AI PARTNER",
       subtitle: "Offshore Delivery - Your Brand - Our Expertise",
       features: ["NDA Protected", "Dedicated Team", "SharePoint & SPFx Specialists"]
     }
@@ -93,7 +93,7 @@ const SERVICES: Service[] = [
     tags: ["AI Automation", "Power Automate", "APIs"],
     img: "/images/automation-card.jpg",
     whiteLabel: {
-      title: "WHITE-LABEL DATA & BI PARTNER",
+      title: "WHITE-LABEL INTELLIGENT AUTOMATION PARTNER",
       subtitle: "Offshore Delivery - Your Brand - Our Expertise",
       features: ["NDA Protected", "Dedicated Team", "Power BI & Fabric Specialists"]
     }
@@ -148,8 +148,8 @@ function ServiceCard({
     prefersReduced ? [1, 1, 1] : [1, isLast ? 1 : 0, isLast ? 1 : 0],
   )
   const y = useTransform(
-    scrollYProgress, 
-    [0, 0.7, 1], 
+    scrollYProgress,
+    [0, 0.7, 1],
     [0, isLast ? 0 : (prefersReduced ? 0 : -50), isLast ? 0 : (prefersReduced ? 0 : -50)]
   )
 

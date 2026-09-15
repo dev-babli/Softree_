@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Phone } from "lucide-react";
+import TrustStrip from "@/components/sections/TrustStrip";
 
 // Trust Row Icons
 function ShieldIcon() {
@@ -131,69 +132,13 @@ export function GenAiHero({
 
       {/* Layer 4: Trust Row */}
       <div
-        className="absolute bottom-6 md:bottom-8 left-0 right-0 z-20 transition-all duration-1000 delay-300 ease-out"
+        className="absolute bottom-0 w-full z-20 transition-all duration-1000 delay-300 ease-out pb-8"
         style={{
           opacity: mounted ? 1 : 0,
           transform: mounted ? "translateY(0)" : "translateY(20px)",
         }}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
-          <div className="bg-[#080c14]/50 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {/* Trust Item 1 */}
-              <div className="flex items-center gap-4">
-                <div className="text-orange-500 p-2.5 bg-white/5 rounded-xl border border-white/5">
-                  <ShieldIcon />
-                </div>
-                <div>
-                  <div className="text-base font-bold text-white mb-1 font-['Syne',sans-serif]">
-                    White-Label Friendly
-                  </div>
-                  <div className="text-sm text-gray-400">Seamless integration</div>
-                </div>
-              </div>
-
-              {/* Trust Item 2 */}
-              <div className="flex items-center gap-4">
-                <div className="text-orange-500 p-2.5 bg-white/5 rounded-xl border border-white/5">
-                  <UsersIcon />
-                </div>
-                <div>
-                  <div className="text-base font-bold text-white mb-1 font-['Syne',sans-serif]">
-                    Dedicated Offshore Teams
-                  </div>
-                  <div className="text-sm text-gray-400">Scalable capacity</div>
-                </div>
-              </div>
-
-              {/* Trust Item 3 */}
-              <div className="flex items-center gap-4">
-                <div className="text-orange-500 p-2.5 bg-white/5 rounded-xl border border-white/5">
-                  <CloudIcon />
-                </div>
-                <div>
-                  <div className="text-base font-bold text-white mb-1 font-['Syne',sans-serif]">
-                    Microsoft AI Expertise
-                  </div>
-                  <div className="text-sm text-gray-400">Certified partners</div>
-                </div>
-              </div>
-
-              {/* Trust Item 4 */}
-              <div className="flex items-center gap-4">
-                <div className="text-orange-500 p-2.5 bg-white/5 rounded-xl border border-white/5">
-                  <CheckCircleIcon />
-                </div>
-                <div>
-                  <div className="text-base font-bold text-white mb-1 font-['Syne',sans-serif]">
-                    Enterprise-Ready Delivery
-                  </div>
-                  <div className="text-sm text-gray-400">Proven execution</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <TrustStrip theme="dark" />
       </div>
     </section>
   );

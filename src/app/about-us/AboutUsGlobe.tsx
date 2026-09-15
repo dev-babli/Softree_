@@ -1,8 +1,9 @@
 import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
-import { Brain, Code2 } from "lucide-react";
+import { Brain, Code2, ShieldCheck, Award, Globe, Users, Lock, CalendarDays } from "lucide-react";
 import createGlobe from "cobe";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import TrustStrip from "@/components/sections/TrustStrip";
 
 const MicrosoftIcon = ({ className = "h-8 w-8 shrink-0" }: { className?: string }) => (
   <svg className={className} viewBox="0 0 23 23" fill="none">
@@ -251,8 +252,8 @@ export default function AboutUsGlobe() {
       <div className="mx-auto w-full max-w-[1360px] px-5 sm:px-6 md:px-8 lg:px-10 relative z-10">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-start lg:gap-8">
           
-          {/* Left Column: Heading (Col Span 5) */}
-          <div className="flex flex-col items-start gap-8 lg:col-span-5 lg:pt-[80px] xl:pt-[92px] 2xl:pt-[104px] lg:pr-8 xl:pr-12">
+          {/* Left Column: Heading & Copy (Col Span 7) */}
+          <div className="flex flex-col items-start gap-8 lg:col-span-7 lg:pt-[80px] xl:pt-[92px] 2xl:pt-[104px] lg:pr-12 xl:pr-16">
             {/* 1. Badge */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
@@ -269,50 +270,50 @@ export default function AboutUsGlobe() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-[48px] xl:text-[60px] 2xl:text-[76px] font-bold tracking-tight leading-[1.05] shrink-0"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-[64px] xl:text-[80px] 2xl:text-[96px] font-bold tracking-tight leading-[1.05] shrink-0"
             >
               <span className="text-[#0a0a1a]">Softree</span>
-              <sup className="text-xl sm:text-2xl md:text-3xl font-semibold text-slate-400 ml-0.5">®</sup>
+              <sup className="text-2xl sm:text-3xl md:text-4xl font-semibold text-slate-400 ml-0.5">®</sup>
               <br />
               <span className="bg-gradient-to-r from-[#0a0a1a] via-[#1c2c5c] to-[#FF5812] bg-clip-text text-transparent">
                 Technology
               </span>
             </motion.h1>
+
+            {/* Tagline, Description, CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col items-start gap-6 max-w-md xl:max-w-lg"
+            >
+              <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#0a0a1a]">
+                Your engineering team, extended.
+              </h2>
+              <p className="text-sm sm:text-base lg:text-lg text-slate-500 leading-relaxed font-medium">
+                AI, modern engineering, and Microsoft expertise — delivered by a reliable offshore team built to work as an extension of your business.
+              </p>
+
+              <Link
+                href="/contact"
+                className="group inline-flex items-center justify-between rounded-full bg-[#0a0a1a] pl-6 pr-2.5 py-2.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-black hover:shadow-[0_8px_32px_-4px_rgba(255,88,18,0.25)] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 shadow-md"
+              >
+                <span>LET'S TALK</span>
+                <span className="ml-4 flex h-8 w-8 items-center justify-center rounded-full bg-white text-black transition-transform duration-300 group-hover:translate-x-0.5 shadow-xs">
+                  <svg className="h-4 w-4 text-[#FF5812]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </Link>
+            </motion.div>
           </div>
 
-          {/* Middle Column: Supporting Copy & Action (Col Span 3) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col items-start gap-6 lg:col-span-3 lg:pt-[148px] xl:pt-[160px] 2xl:pt-[172px]"
-          >
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#0a0a1a]">
-              Your engineering team, extended.
-            </h2>
-            <p className="text-sm sm:text-base text-slate-500 leading-relaxed font-medium">
-              AI, modern engineering, and Microsoft expertise — delivered by a reliable offshore team built to work as an extension of your business.
-            </p>
-
-            <Link
-              href="/contact"
-              className="group inline-flex items-center justify-between rounded-full bg-[#0a0a1a] pl-6 pr-2.5 py-2.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-black hover:shadow-[0_8px_32px_-4px_rgba(255,88,18,0.25)] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 shadow-md"
-            >
-              <span>LET'S TALK</span>
-              <span className="ml-4 flex h-8 w-8 items-center justify-center rounded-full bg-white text-black transition-transform duration-300 group-hover:translate-x-0.5 shadow-xs">
-                <svg className="h-4 w-4 text-[#FF5812]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </span>
-            </Link>
-          </motion.div>
-
-          {/* Right Column: Globe & Cards (Col Span 4) */}
+          {/* Right Column: Globe & Cards (Col Span 5) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="relative lg:col-span-4 w-full max-w-[520px] mx-auto flex flex-col items-center justify-center select-none lg:pt-12"
+            className="relative lg:col-span-5 w-full max-w-[520px] mx-auto flex flex-col items-center justify-center select-none lg:pt-12"
           >
             <div className="relative w-full aspect-square">
               <style>{`
@@ -471,93 +472,7 @@ export default function AboutUsGlobe() {
           </motion.div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-12 w-full flex flex-col items-center gap-6 text-center"
-        >
-          <span className="text-[10px] font-extrabold uppercase tracking-[0.28em] text-slate-400/95">
-            TRUSTED BY BUSINESSES AND PARTNERS WORLDWIDE
-          </span>
-
-          <div 
-            className="flex flex-wrap items-center justify-center gap-2.5 lg:gap-3.5 xl:gap-4 rounded-[2rem] border border-slate-200/50 bg-[#FAF9F6]/50 p-3 sm:px-6 sm:py-4 shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_8px_32px_rgba(10,10,26,0.03)] backdrop-blur-md max-w-6xl w-full"
-          >
-            {/* Microsoft Solutions Partner */}
-            <motion.div 
-              className="flex items-center gap-2.5 px-3 py-2 lg:px-4 lg:py-2.5 rounded-2xl bg-gradient-to-r from-[#FF5812] to-[#FF763F] border border-transparent shadow-[0_2px_8px_rgba(255,88,18,0.1)] transition-all duration-300 hover:shadow-[0_4px_16px_rgba(255,88,18,0.2)] cursor-pointer text-white"
-              whileHover={{ y: -2, scale: 1.02 }}
-            >
-              <MicrosoftIcon className="h-6 w-6 lg:h-7 lg:w-7 xl:h-8 xl:w-8 shrink-0" />
-              <span className="text-xs sm:text-[13px] lg:text-[14px] font-extrabold text-white tracking-tight">Microsoft Solutions Partner</span>
-            </motion.div>
-
-            {/* AI & Automation */}
-            <motion.div 
-              className="flex items-center gap-2.5 px-3 py-2 lg:px-4 lg:py-2.5 rounded-2xl bg-gradient-to-r from-[#FF5812] to-[#FF763F] border border-transparent shadow-[0_2px_8px_rgba(255,88,18,0.1)] transition-all duration-300 hover:shadow-[0_4px_16px_rgba(255,88,18,0.2)] cursor-pointer text-white"
-              whileHover={{ y: -2, scale: 1.02 }}
-            >
-              <svg className="h-6 w-6 lg:h-7 lg:w-7 xl:h-8 xl:w-8 shrink-0 fill-black" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 2a7 7 0 0 0-7 7v3a4 4 0 0 0-2 3.46V18c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-2.54A4 4 0 0 0 19 12V9a7 7 0 0 0-7-7zm-4 9a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm8 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm-4 5c-1.66 0-3-1.34-3-3h6c0 1.66-1.34 3-3 3z" />
-              </svg>
-              <span className="text-xs sm:text-[13px] lg:text-[14px] font-extrabold text-white tracking-tight">AI & Automation</span>
-            </motion.div>
-
-            {/* SharePoint */}
-            <motion.div 
-              className="flex items-center gap-2.5 px-3 py-2 lg:px-4 lg:py-2.5 rounded-2xl bg-gradient-to-r from-[#FF5812] to-[#FF763F] border border-transparent shadow-[0_2px_8px_rgba(255,88,18,0.1)] transition-all duration-300 hover:shadow-[0_4px_16px_rgba(255,88,18,0.2)] cursor-pointer text-white"
-              whileHover={{ y: -2, scale: 1.02 }}
-            >
-              <img
-                src="/images/sharepoint.webp"
-                alt="SharePoint Logo"
-                className="h-6 w-6 lg:h-7 lg:w-7 xl:h-8 xl:w-8 shrink-0 object-contain filter drop-shadow-[0_1px_2px_rgba(16,124,65,0.08)]"
-              />
-              <span className="text-xs sm:text-[13px] lg:text-[14px] font-extrabold text-white tracking-tight">SharePoint</span>
-            </motion.div>
-
-            {/* Power Apps */}
-            <motion.div 
-              className="flex items-center gap-2.5 px-3 py-2 lg:px-4 lg:py-2.5 rounded-2xl bg-gradient-to-r from-[#FF5812] to-[#FF763F] border border-transparent shadow-[0_2px_8px_rgba(255,88,18,0.1)] transition-all duration-300 hover:shadow-[0_4px_16px_rgba(255,88,18,0.2)] cursor-pointer text-white"
-              whileHover={{ y: -2, scale: 1.02 }}
-            >
-              <img
-                src="/images/power-apps.webp"
-                alt="Power Apps Logo"
-                className="h-6 w-6 lg:h-7 lg:w-7 xl:h-8 xl:w-8 shrink-0 object-contain filter drop-shadow-[0_1px_2px_rgba(116,39,116,0.08)]"
-              />
-              <span className="text-xs sm:text-[13px] lg:text-[14px] font-extrabold text-white tracking-tight">Power Apps</span>
-            </motion.div>
-
-            {/* Azure */}
-            <motion.div 
-              className="flex items-center gap-2.5 px-3 py-2 lg:px-4 lg:py-2.5 rounded-2xl bg-gradient-to-r from-[#FF5812] to-[#FF763F] border border-transparent shadow-[0_2px_8px_rgba(255,88,18,0.1)] transition-all duration-300 hover:shadow-[0_4px_16px_rgba(255,88,18,0.2)] cursor-pointer text-white"
-              whileHover={{ y: -2, scale: 1.02 }}
-            >
-              <img
-                src="/images/azure.svg"
-                alt="Azure Logo"
-                className="h-6 w-6 lg:h-7 lg:w-7 xl:h-8 xl:w-8 shrink-0 object-contain filter drop-shadow-[0_1px_2px_rgba(0,120,212,0.08)]"
-              />
-              <span className="text-xs sm:text-[13px] lg:text-[14px] font-extrabold text-white tracking-tight">Azure</span>
-            </motion.div>
-
-            {/* Power BI */}
-            <motion.div 
-              className="flex items-center gap-2.5 px-3 py-2 lg:px-4 lg:py-2.5 rounded-2xl bg-gradient-to-r from-[#FF5812] to-[#FF763F] border border-transparent shadow-[0_2px_8px_rgba(255,88,18,0.1)] transition-all duration-300 hover:shadow-[0_4px_16px_rgba(255,88,18,0.2)] cursor-pointer text-white"
-              whileHover={{ y: -2, scale: 1.02 }}
-            >
-              <img
-                src="/images/power-bi.webp"
-                alt="Power BI Logo"
-                className="h-6 w-6 lg:h-7 lg:w-7 xl:h-8 xl:w-8 shrink-0 object-contain filter drop-shadow-[0_1px_2px_rgba(242,200,17,0.08)]"
-              />
-              <span className="text-xs sm:text-[13px] lg:text-[14px] font-extrabold text-white tracking-tight">Power BI</span>
-            </motion.div>
-          </div>
-        </motion.div>
-
+        <TrustStrip />
       </div>
     </section>
   );

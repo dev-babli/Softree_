@@ -4,6 +4,7 @@ import { useEffect, useState, useRef, Fragment } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { CONTACT_OFFICE_CLOCKS } from "@/data/contact-page";
+import TrustStrip from "@/components/sections/TrustStrip";
 
 function formatOfficeTime(timeZone: string) {
   return new Intl.DateTimeFormat("en-US", {
@@ -58,7 +59,7 @@ export default function ContactHero() {
             position: relative;
             width: 100%;
             overflow: hidden;
-            padding-bottom: 3.5rem;
+            padding-bottom: 12rem;
             padding-top: 8rem;
           }
 
@@ -478,6 +479,13 @@ export default function ContactHero() {
                 </div>
               ))}
             </motion.div>
+          </div>
+        </div>
+
+        {/* Trust Strip anchored to bottom */}
+        <div style={{ position: 'absolute', bottom: '1.5rem', width: '100%', zIndex: 20 }}>
+          <div className="mx-auto max-w-6xl px-6 md:px-10">
+            <TrustStrip theme="dark" />
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ import { ArrowRight, Activity, Shield, Users, Cpu, Sparkles, Calendar } from "lu
 import Link from "next/link";
 import { FlowButton } from "@/components/ui/flow-button";
 import { motion } from "framer-motion";
+import TrustStrip from "@/components/sections/TrustStrip";
 
 const heroFeatures = [
   {
@@ -39,16 +40,16 @@ export default function GatewayFlowHero() {
   return (
     <section className="relative w-full min-h-[100svh] py-12 md:py-20 overflow-hidden bg-black flex flex-col justify-center pt-[90px] md:pt-[70px]">
       {/* Background Effect: Orange filtered GatewayFlow */}
-      <GatewayFlow 
-        className="absolute inset-0 w-full h-full z-0 opacity-80 pointer-events-none" 
+      <GatewayFlow
+        className="absolute inset-0 w-full h-full z-0 opacity-80 pointer-events-none"
         density={1.5}
         speed={1.2}
         style={{ filter: 'sepia(1) saturate(8) hue-rotate(-15deg)' }}
       />
 
       {/* Overlay Content */}
-      <div className="relative z-10 w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-[2cm] flex flex-col items-center justify-center text-center">
-       
+      <div className="relative z-10 w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-[2cm] flex flex-col items-center justify-center text-center pb-32 sm:pb-40">
+
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -80,7 +81,7 @@ export default function GatewayFlowHero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="max-w-4xl mb-6 sm:mb-8 flex flex-col items-center space-y-4"
+          className="max-w-4xl flex flex-col items-center space-y-4"
         >
           <p className="text-base sm:text-lg md:text-xl text-white font-medium leading-relaxed">
             Partner with Softree to build and deliver healthcare solutions through experienced engineering teams, industry expertise, AI, data, cloud, and application development.
@@ -89,7 +90,7 @@ export default function GatewayFlowHero() {
             Your brand. Your client relationship. Our engineering capability.
           </p>
           <div className="pt-4 sm:pt-6">
-            <FlowButton 
+            <FlowButton
               href="/contact"
               text="Discuss Your Healthcare Project"
               variant="orange-filled"
@@ -98,35 +99,10 @@ export default function GatewayFlowHero() {
           </div>
         </motion.div>
 
-        {/* 5 Key Highlights / Trust Indicators */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
-          className="w-full max-w-7xl mx-auto mt-12 sm:mt-16 flex flex-wrap items-center justify-center lg:justify-between gap-6 lg:gap-4 text-left"
-        >
-          {heroFeatures.map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={idx}
-                className="group flex items-center gap-3.5 shrink-0 transition-transform duration-200 hover:-translate-y-0.5"
-              >
-                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-[#FF6B2C] flex items-center justify-center shrink-0 bg-transparent text-[#FF6B2C] transition-all duration-300 group-hover:border-orange-400 group-hover:shadow-[0_0_15px_rgba(255,107,44,0.25)]">
-                  <Icon className="w-5 h-5" strokeWidth={1.5} />
-                </div>
-                <div className="flex flex-col">
-                  <h4 className="text-white font-bold text-xs sm:text-[13px] md:text-sm tracking-wider uppercase leading-snug">
-                    {item.title}
-                  </h4>
-                  <p className="text-white/60 text-[11px] sm:text-xs leading-normal mt-0.5 whitespace-nowrap">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </motion.div>
+      </div>
+      {/* Trust Strip anchored to bottom */}
+      <div className="absolute bottom-0 w-full z-20 pb-8 sm:pb-10">
+        <TrustStrip theme="dark" />
       </div>
     </section>
   );
