@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import { ArrowLeft, ArrowRight, Settings, TrendingUp, HelpCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -37,23 +37,40 @@ export const TestimonialSlider = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState<"left" | "right">("right");
   const [isHovered, setIsHovered] = useState(false);
+  const sectionRef = React.useRef<HTMLDivElement>(null);
+  const tabsContainerRef = React.useRef<HTMLDivElement>(null);
   const tabRefs = React.useRef<(HTMLButtonElement | null)[]>([]);
   const touchStartX = React.useRef(0);
   const touchEndX = React.useRef(0);
+  const touchStartY = React.useRef(0);
+  const touchEndY = React.useRef(0);
 
-  // Auto-scroll the active horizontal pill tab into view on mobile
+  const isInView = useInView(sectionRef, { amount: 0.1 });
+
+  // Auto-scroll only the horizontal pill container into view on mobile without hijacking page scroll
   React.useEffect(() => {
-    if (tabRefs.current[currentIndex]) {
-      tabRefs.current[currentIndex]?.scrollIntoView({
+    const container = tabsContainerRef.current;
+    const activeTab = tabRefs.current[currentIndex];
+    if (container && activeTab) {
+      const containerRect = container.getBoundingClientRect();
+      const tabRect = activeTab.getBoundingClientRect();
+      const offset = tabRect.left - containerRect.left;
+      const targetScrollLeft =
+        container.scrollLeft +
+        offset -
+        container.clientWidth / 2 +
+        activeTab.clientWidth / 2;
+
+      container.scrollTo({
+        left: Math.max(0, targetScrollLeft),
         behavior: "smooth",
-        block: "nearest",
-        inline: "center",
       });
     }
   }, [currentIndex]);
 
+  // Autoplay only when in view and not hovered/touched
   React.useEffect(() => {
-    if (isHovered) return;
+    if (isHovered || !isInView) return;
     
     const timer = setInterval(() => {
       setDirection("right");
@@ -61,7 +78,7 @@ export const TestimonialSlider = ({
     }, 5500);
     
     return () => clearInterval(timer);
-  }, [isHovered, reviews.length]);
+  }, [isHovered, isInView, reviews.length]);
 
   const activeReview = reviews[currentIndex];
 
@@ -84,23 +101,32 @@ export const TestimonialSlider = ({
   const handleTouchStart = (e: React.TouchEvent) => {
     setIsHovered(true);
     touchStartX.current = e.targetTouches[0].clientX;
+    touchStartY.current = e.targetTouches[0].clientY;
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
     touchEndX.current = e.targetTouches[0].clientX;
+    touchEndY.current = e.targetTouches[0].clientY;
   };
 
   const handleTouchEnd = () => {
     setIsHovered(false);
     if (!touchStartX.current || !touchEndX.current) return;
-    const diff = touchStartX.current - touchEndX.current;
-    if (diff > 50) {
-      handleNext();
-    } else if (diff < -50) {
-      handlePrev();
+    const diffX = touchStartX.current - touchEndX.current;
+    const diffY = touchStartY.current - touchEndY.current;
+
+    // Only switch slides if the swipe was predominantly horizontal, not vertical scrolling
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+      if (diffX > 0) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
     }
     touchStartX.current = 0;
     touchEndX.current = 0;
+    touchStartY.current = 0;
+    touchEndY.current = 0;
   };
 
   const imageVariants = {
@@ -129,6 +155,7 @@ export const TestimonialSlider = ({
 
   return (
     <div
+      ref={sectionRef}
       className={cn(
         "relative w-full overflow-hidden bg-transparent text-foreground pt-8 md:pt-12 px-4 sm:px-6 md:px-12 pb-0",
         className
@@ -160,7 +187,10 @@ export const TestimonialSlider = ({
       </div>
 
       {/* Mobile-Only Horizontal Scrollable Audience Tabs */}
-      <div className="flex lg:hidden overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden gap-2 pb-2 mb-6 -mx-1 px-1">
+      <div 
+        ref={tabsContainerRef}
+        className="flex lg:hidden overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden gap-2 pb-2 mb-6 -mx-1 px-1"
+      >
         {reviews.map((review, index) => {
           const isActive = index === currentIndex;
           return (
