@@ -101,12 +101,12 @@ export const WhoWeHelp = ({ simple = false }: { simple?: boolean }) => {
           </div>
 
           {/* Heading */}
-          <h2 className="text-2xl sm:text-3xl lg:text-[34px] xl:text-[38px] font-extrabold font-['Plus_Jakarta_Sans',sans-serif] text-slate-900 leading-[1.2] mb-3 tracking-tight">
+          <h2 className="text-xl sm:text-2xl lg:text-[28px] xl:text-[32px] font-bold font-['Plus_Jakarta_Sans',sans-serif] text-slate-900 leading-[1.2] mb-3 tracking-tight">
             Healthcare Solutions We Help Build
           </h2>
 
           {/* Description */}
-          <p className="text-slate-600 text-[16px] sm:text-[17px] leading-relaxed mb-4">
+          <p className="text-slate-600 text-[13px] sm:text-[14px] leading-relaxed mb-4">
             From new healthcare products to AI-powered workflows and modernized platforms, our teams work with you to turn healthcare requirements into production-ready solutions.
           </p>
         </div>
@@ -117,18 +117,18 @@ export const WhoWeHelp = ({ simple = false }: { simple?: boolean }) => {
         {items.map((item, i) => (
           <div
             key={i}
-            className={`flex items-start gap-3.5 sm:gap-4 py-1.5 sm:py-2 ${
+            className={`flex items-start gap-2.5 sm:gap-3 py-0.5 sm:py-1 ${
               i !== items.length - 1 ? "border-b border-slate-100" : ""
             }`}
           >
-            <div className={`shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-full ${item.bg} flex items-center justify-center mt-0.5 border border-orange-200/50`}>
-              <item.icon className={`w-4.5 h-4.5 sm:w-5 sm:h-5 ${item.color}`} />
+            <div className={`shrink-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full ${item.bg} flex items-center justify-center mt-0.5 border border-orange-200/50`}>
+              <item.icon className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${item.color}`} />
             </div>
             <div className="flex flex-col pt-0">
-              <h3 className="text-[14px] sm:text-[14.5px] font-bold text-slate-900 leading-snug mb-0.5">
+              <h3 className="text-[12px] sm:text-[12.5px] font-bold text-slate-900 leading-snug mb-0.5">
                 {item.title}
               </h3>
-              <p className="text-[12px] sm:text-[12.5px] text-slate-600 leading-relaxed">
+              <p className="text-[10px] sm:text-[10.5px] text-slate-600 leading-relaxed">
                 {item.desc}
               </p>
             </div>
