@@ -1,5 +1,5 @@
 "use client";
-
+ 
 import React, { useEffect, useRef, useState } from "react";
 import {
   Star,
@@ -16,58 +16,36 @@ import {
   UserPlus,
   Globe,
 } from "lucide-react";
-
+ 
 /* ================= WHY CHOOSE DATA ================= */
 const whyChoose = [
   {
-    icon: Users,
-    title: "Healthcare-Aware Engineering Teams",
-    desc: "Experienced AI and software engineers who understand healthcare workflows and build AI solutions for healthcare applications, data, and digital platforms.",
-  },
-
-  {
-    icon: Tag,
-    title: "AI + Software + Data + Cloud Expertise",
-    desc: "Combine AI development, software engineering, data engineering, and cloud expertise to build scalable healthcare AI solutions and modern applications.",
-  },
-
-  {
-    icon: Expand,
-    title: "White-Label Delivery",
-    desc: "Extend your healthcare technology capabilities with white-label AI and software engineering services delivered behind your brand and client relationships.",
-  },
-
-  {
     icon: BrainCircuit,
-    title: "Flexible Engagement Models",
-    desc: "Choose a delivery model that fits your needs, from project-based healthcare AI development and consulting to team augmentation and dedicated engineering teams.",
+    title: "AI ENGINEERING",
+    desc: "Voice agents · Agentic workflows · RAG · Tool calling",
   },
-
-  {
-    icon: UserPlus,
-    title: "Dedicated Engineering Teams",
-    desc: "Build a dedicated healthcare engineering team with AI engineers, software developers, data engineers, QA specialists, and cloud experts aligned with your roadmap.",
-  },
-
-  {
-    icon: Tag,
-    title: "Scalable Delivery Capacity",
-    desc: "Scale your healthcare AI development capacity as your requirements grow, adding specialized engineering expertise for new projects, products, and AI initiatives.",
-  },
-
   {
     icon: Globe,
-    title: "Long-Term Partnership",
-    desc: "Support your healthcare technology roadmap beyond initial development with ongoing engineering, application modernization, AI enhancement, maintenance, and optimization.",
+    title: "MODERN APPLICATION ENGINEERING",
+    desc: "React · FastAPI · WebSocket · APIs",
   },
-
   {
     icon: Expand,
-    title: "Experience Delivering Complex Projects",
-    desc: "Apply proven engineering expertise to complex healthcare AI projects involving enterprise applications, APIs, data platforms, AI integrations, and modern technology ecosystems.",
+    title: "CLOUD ENGINEERING",
+    desc: "AWS · Docker · Kubernetes · Production deployment",
+  },
+  {
+    icon: Users,
+    title: "ENTERPRISE INTEGRATION",
+    desc: "CRM · ERP · Business APIs · Knowledge systems",
+  },
+  {
+    icon: Tag,
+    title: "WHITE-LABEL DELIVERY",
+    desc: "Your client. Your brand. Our engineering.\nExtend your team without building a complete AI engineering capability internally.",
   },
 ];
-
+ 
 /* ================= REVIEWS DATA ================= */
 const reviews = [
   {
@@ -95,70 +73,66 @@ const reviews = [
     location: "California",
   },
 ];
-export default function WhyChooseWithTestimonials() {
+export default function WhyChooseSoftree() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
-
+ 
   /* AUTOPLAY */
   useEffect(() => {
     if (paused) return;
-
+ 
     const interval = setInterval(() => {
       setIndex((prev) => (prev >= reviews.length - 1 ? 0 : prev + 1));
     }, 4000);
-
+ 
     return () => clearInterval(interval);
   }, [paused]);
-
+ 
   return (
-    <section className="text-gray-900 py-12 md:py-16 lg:py-20 font-sans">
-      <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-[2cm] grid grid-cols-1 lg:grid-cols-2 gap-16 lg:items-stretch items-start">
+    <section className="text-gray-900 py-12 md:py-16 lg:py-20">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:items-stretch items-start">
         {/* ================= LEFT : WHY CHOOSE ================= */}
         <div className="relative">
           {/* Small Label */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 text-[10px] sm:text-[11px] font-bold tracking-widest text-[#FF6B00] uppercase mb-4">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
-            Why Softree
+          <div className="text-orange-600 text-xs uppercase tracking-[0.15em] mb-3">
+            Why Choose Softree
           </div>
-
+ 
           {/* Heading */}
-          <h2 className="text-[22px] sm:text-[26px] md:text-3xl lg:text-[32px] xl:text-4xl font-extrabold font-['Plus_Jakarta_Sans',sans-serif] text-slate-900 leading-tight mb-4 tracking-tight whitespace-nowrap">
-            Why Partners{" "}
-            <span className="bg-gradient-to-r from-[#FF5812] to-[#FF6B2C] bg-clip-text text-transparent">
-              Choose Softree
+          <h2 className="text-2xl md:text-[26px] lg:text-[28px] xl:text-[32px] lg:whitespace-nowrap font-bold leading-tight mb-6">
+            Your Offshore Voice AI{" "}
+            <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
+              Engineering Team
             </span>
           </h2>
-
-          <p className="text-[12px] sm:text-[13px] md:text-[14px] text-slate-600 mb-8 leading-normal max-w-[600px] line-clamp-2">
-            We combine healthcare understanding, engineering expertise, flexible engagement models, and delivery experience to become an extension of your team.
-          </p>
-
+ 
+          {/* ✅ Vertical Accent Line (Light Version) */}
+          <div className="absolute left-[11px] top-[105px] bottom-4 w-px bg-gradient-to-b from-orange-500/40 via-orange-400/20 to-transparent hidden md:block" />
+ 
           {/* Features */}
-          <div className="relative space-y-2">
-            {/* ✅ Vertical Accent Line (Aligned to items) */}
-            <div className="absolute left-[11px] top-3 bottom-3 w-px bg-gradient-to-b from-orange-500/40 via-orange-400/20 to-transparent hidden md:block" />
+          <div className="space-y-4">
             {whyChoose.map((item, i) => {
               const Icon = item.icon;
-
+ 
               return (
-                <div key={i} className="relative flex gap-3 items-start">
+                <div key={i} className="relative flex gap-4 items-start">
                   {/* Number */}
-                  <div className="relative z-10 flex items-center justify-center w-6 h-6 mt-0.5 text-[11px] font-semibold text-orange-600 bg-white">
+                  <div className="relative z-10 flex items-center justify-center w-6 h-6 mt-1 text-[11px] font-semibold text-orange-600 bg-white">
                     {String(i + 1).padStart(2, "0")}
                   </div>
-
+ 
                   {/* Content */}
                   <div>
-                    <div className="flex items-center gap-2 mb-0.5">
-                      <div className="w-5 h-5 flex items-center justify-center rounded-md bg-orange-50 text-orange-600 shrink-0">
-                        <Icon size={12} />
+                    <div className="flex items-center gap-2 mb-1">
+                      <div className="w-7 h-7 flex items-center justify-center rounded-md bg-orange-50 text-orange-600 shrink-0">
+                        <Icon size={14} />
                       </div>
-
-                      <h3 className="text-[12px] sm:text-[13px] font-semibold">{item.title}</h3>
+ 
+                      <h3 className="text-[15px] font-semibold">{item.title}</h3>
                     </div>
-
-                    <p className="text-gray-600 text-[11px] lg:text-[12px] leading-tight max-w-xl">
+ 
+                    <p className="text-gray-600 text-[13px] leading-snug max-w-md whitespace-pre-line">
                       {item.desc}
                     </p>
                   </div>
@@ -167,7 +141,7 @@ export default function WhyChooseWithTestimonials() {
             })}
           </div>
         </div>
-
+ 
         {/* ================= RIGHT : TESTIMONIALS ================= */}
         <div className="rounded-2xl p-10 bg-gradient-to-r from-black via-[#4c1c02] to-black border border-white/10 shadow-2xl h-full flex flex-col">
           {/* Header */}
@@ -175,11 +149,11 @@ export default function WhyChooseWithTestimonials() {
             <div className="text-white text-xs uppercase tracking-widest mb-3">
               Client Feedback
             </div>
-
+ 
             <h3 className="text-2xl font-semibold mb-6 text-white">
-              Trusted by Healthcare Teams
+              Trusted by Enterprise Teams
             </h3>
-
+ 
             <div className="flex items-center gap-4 mb-2">
               <div className="flex gap-1">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -189,11 +163,11 @@ export default function WhyChooseWithTestimonials() {
                   />
                 ))}
               </div>
-
+ 
               <p className="font-semibold text-white">4.9 / 5</p>
               <p className="text-gray-300 text-sm">average rating</p>
             </div>
-
+ 
             <p className="text-sm text-gray-400">
               Based on{" "}
               <span className="font-medium text-white">
@@ -201,7 +175,7 @@ export default function WhyChooseWithTestimonials() {
               </span>
             </p>
           </div>
-
+ 
           {/* Reviews Slider */}
           <div className="overflow-hidden relative w-full">
             <div
@@ -216,19 +190,20 @@ export default function WhyChooseWithTestimonials() {
                       {Array.from({ length: 5 }).map((_, idx) => (
                         <Star
                           key={idx}
-                          className={`w-4 h-4 ${idx < review.rating
-                            ? "fill-yellow-400 text-yellow-400"
-                            : "text-gray-500"
-                            }`}
+                          className={`w-4 h-4 ${
+                            idx < review.rating
+                              ? "fill-yellow-400 text-yellow-400"
+                              : "text-gray-500"
+                          }`}
                         />
                       ))}
                     </div>
-
+ 
                     {/* Review Comment */}
                     <p className="text-gray-200 text-base leading-relaxed mb-6">
                       “{review.comment}”
                     </p>
-
+ 
                     {/* Reviewer Info */}
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
@@ -237,14 +212,14 @@ export default function WhyChooseWithTestimonials() {
                           <p className="font-semibold text-white text-sm">
                             {review.name}
                           </p>
-
+ 
                           {/* ✅ Company added here */}
                           <p className="text-xs text-gray-400">
                             {review.company}
                           </p>
                         </div>
                       </div>
-
+ 
                       <div className="flex items-center gap-2">
                         <MapPin size={13} className="text-gray-400" />
                         <p className="text-xs text-gray-400">
@@ -257,7 +232,7 @@ export default function WhyChooseWithTestimonials() {
               ))}
             </div>
           </div>
-
+ 
           {/* Controls */}
           <div className="flex items-center gap-6 mt-auto pt-8 text-gray-400">
             <button
@@ -268,14 +243,14 @@ export default function WhyChooseWithTestimonials() {
             >
               <ChevronLeft size={18} />
             </button>
-
+ 
             <button
               onClick={() => setPaused(!paused)}
               className="hover:text-white transition"
             >
               {paused ? <Play size={16} /> : <Pause size={16} />}
             </button>
-
+ 
             <button
               onClick={() =>
                 setIndex((i) => (i >= reviews.length - 1 ? 0 : i + 1))

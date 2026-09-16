@@ -17,6 +17,8 @@ export interface GalleryItem {
   description: React.ReactNode;
   href: string;
   image: string;
+  ctaText?: string;
+  label?: string;
 }
 
 export interface Gallery4Props {
@@ -58,8 +60,8 @@ export function Gallery4({ title = "Projects", description, action, items }: Gal
             <div className="flex flex-wrap items-center gap-3 sm:gap-4 shrink-0 pb-1">
               {action}
               <div className="flex items-center gap-2">
-                <CarouselPrevious className="static translate-x-0 translate-y-0 h-11 w-11 rounded-full flex items-center justify-center transition-all duration-300 bg-[#FF5812] text-white border-[#FF5812] hover:bg-[#e04805] hover:border-[#e04805] hover:text-white shadow-md shadow-[#FF5812]/20 active:scale-95 cursor-pointer disabled:bg-zinc-100 disabled:text-zinc-300 disabled:border-zinc-200 disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none" />
-                <CarouselNext className="static translate-x-0 translate-y-0 h-11 w-11 rounded-full flex items-center justify-center transition-all duration-300 bg-[#FF5812] text-white border-[#FF5812] hover:bg-[#e04805] hover:border-[#e04805] hover:text-white shadow-md shadow-[#FF5812]/20 active:scale-95 cursor-pointer disabled:bg-zinc-100 disabled:text-zinc-300 disabled:border-zinc-200 disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none" />
+                {/* <CarouselPrevious className="static translate-x-0 translate-y-0 h-11 w-11 rounded-full flex items-center justify-center transition-all duration-300 bg-[#FF5812] text-white border-[#FF5812] hover:bg-[#e04805] hover:border-[#e04805] hover:text-white shadow-md shadow-[#FF5812]/20 active:scale-95 cursor-pointer disabled:bg-zinc-100 disabled:text-zinc-300 disabled:border-zinc-200 disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none" />
+                <CarouselNext className="static translate-x-0 translate-y-0 h-11 w-11 rounded-full flex items-center justify-center transition-all duration-300 bg-[#FF5812] text-white border-[#FF5812] hover:bg-[#e04805] hover:border-[#e04805] hover:text-white shadow-md shadow-[#FF5812]/20 active:scale-95 cursor-pointer disabled:bg-zinc-100 disabled:text-zinc-300 disabled:border-zinc-200 disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none" /> */}
               </div>
             </div>
           </div>
@@ -97,6 +99,12 @@ export function Gallery4({ title = "Projects", description, action, items }: Gal
 
                     {/* Content */}
                     <div className="relative z-10 p-6 md:p-8 flex flex-col h-full">
+                      {item.label && (
+                        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-white/20 bg-black/40 text-[9px] font-bold tracking-wider text-white uppercase mb-3 w-fit backdrop-blur-md">
+                          <div className="w-1.5 h-1.5 rounded-full bg-[#FF5812]"></div>
+                          {item.label}
+                        </div>
+                      )}
                       <h3 className="text-2xl md:text-3xl font-bold text-white drop-shadow-md leading-tight">
                         {item.title}
                       </h3>
@@ -106,7 +114,7 @@ export function Gallery4({ title = "Projects", description, action, items }: Gal
                       <div className="pt-1">
                         <FlowButton
                           as="div"
-                          text="View Case Study"
+                          text={item.ctaText || "View Case Study"}
                           variant="white-filled"
                           className="px-6 py-2.5 text-xs font-bold w-fit shadow-lg"
                         />
