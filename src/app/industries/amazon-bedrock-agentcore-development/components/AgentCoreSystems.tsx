@@ -133,15 +133,15 @@ export default function AgentCoreSystems() {
   ];
 
   return (
-    <section className="w-full max-w-[1600px] mx-auto px-3 xs:px-4 sm:px-8 lg:px-12 mt-4 sm:mt-8 md:mt-12 mb-0 z-10 relative font-sans flex flex-col gap-6 sm:gap-10">
+    <section className="w-full max-w-[1600px] mx-auto px-3 xs:px-4 sm:px-8 lg:px-12 mt-4 sm:mt-8 md:mt-12 mb-0 z-10 relative flex flex-col gap-6 sm:gap-10">
 
       {/* Section Heading */}
       <div className="text-center w-full max-w-4xl mx-auto flex flex-col items-center px-4">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 border border-orange-500/20 text-[#FF5812] text-[11px] sm:text-xs font-bold tracking-widest  mb-4 shadow-sm">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 border border-orange-500/20 typo-caption text-[#FF5812] uppercase mb-4 shadow-sm">
           <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#FF5812] animate-pulse" />
           03 — WHAT WE BUILD
         </div>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold font-['Plus_Jakarta_Sans',sans-serif] tracking-tight text-slate-900 leading-[1.1] mb-2 sm:mb-4">
+        <h2 className="typo-heading-2 text-slate-900 mb-2 sm:mb-4">
           Agentic AI Systems Built Around <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF5812] to-amber-500">AgentCore</span>
         </h2>
       </div>
@@ -159,7 +159,7 @@ export default function AgentCoreSystems() {
           <div className="lg:col-span-3 flex">
             <div className="relative overflow-hidden rounded-[18px] border border-orange-500/30 bg-slate-50 p-5 sm:p-6 shadow-[0_0_25px_rgba(255,107,44,0.05)] flex flex-col justify-between items-stretch w-full h-auto min-h-[300px] lg:h-[360px] z-10">
               <div className="space-y-1.5 text-left">
-                <h2 className="text-[18px] sm:text-[20px] lg:text-[22px] font-black tracking-wider text-slate-900 uppercase leading-[1.1] mb-1">
+                <h2 className="typo-heading-3 text-slate-900 uppercase mb-1">
                   AGENTIC AI
                 </h2>
               </div>
@@ -234,8 +234,8 @@ export default function AgentCoreSystems() {
               <div className="relative p-3 sm:p-3.5 lg:p-3 rounded-[14px] lg:rounded-[12px] border border-orange-500/25 bg-white shadow-sm flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-2 min-h-[90px]">
                 <div className="w-full sm:w-[115px] shrink-0 text-left flex sm:block items-center justify-between sm:justify-start pb-1.5 sm:pb-0 border-b sm:border-b-0 border-orange-500/15 pl-0.5">
                   <div>
-                    <span className="text-[10px] font-black text-orange-600 block tracking-wider uppercase mb-0.5">CATEGORY 01</span>
-                    <span className="text-[10px] xl:text-[11px] font-black text-slate-900 tracking-tight uppercase leading-tight block">AI AGENTS</span>
+                    <span className="typo-caption text-orange-600 block uppercase mb-0.5">CATEGORY 01</span>
+                    <span className="typo-caption-meta text-slate-900 block uppercase">AI AGENTS</span>
                   </div>
                 </div>
                 <div className="hidden sm:block w-[1px] h-9 bg-orange-500/25 self-center shrink-0" />
@@ -255,8 +255,8 @@ export default function AgentCoreSystems() {
               <div className="relative p-3 sm:p-3.5 lg:p-3 rounded-[14px] lg:rounded-[12px] border border-orange-500/25 bg-white shadow-sm flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-2 min-h-[90px]">
                 <div className="w-full sm:w-[115px] shrink-0 text-left flex sm:block items-center justify-between sm:justify-start pb-1.5 sm:pb-0 border-b sm:border-b-0 border-orange-500/15 pl-0.5">
                   <div>
-                    <span className="text-[10px] font-black text-orange-600 block tracking-wider uppercase mb-0.5">CATEGORY 02</span>
-                    <span className="text-[10px] xl:text-[11px] font-black text-slate-900 tracking-tight uppercase leading-tight block">ENTERPRISE CONNECTIONS</span>
+                    <span className="typo-caption text-orange-600 block uppercase mb-0.5">CATEGORY 02</span>
+                    <span className="typo-caption-meta text-slate-900 block uppercase">ENTERPRISE CONNECTIONS</span>
                   </div>
                 </div>
                 <div className="hidden sm:block w-[1px] h-9 bg-orange-500/25 self-center shrink-0" />
@@ -276,8 +276,8 @@ export default function AgentCoreSystems() {
               <div className="relative p-3 sm:p-3.5 lg:p-3 rounded-[14px] lg:rounded-[12px] border border-orange-500/25 bg-white shadow-sm flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-2 min-h-[90px]">
                 <div className="w-full sm:w-[115px] shrink-0 text-left flex sm:block items-center justify-between sm:justify-start pb-1.5 sm:pb-0 border-b sm:border-b-0 border-orange-500/15 pl-0.5">
                   <div>
-                    <span className="text-[10px] font-black text-orange-600 block tracking-wider uppercase mb-0.5">CATEGORY 03</span>
-                    <span className="text-[10px] xl:text-[11px] font-black text-slate-900 tracking-tight uppercase leading-tight block">PRODUCTION ENGINEERING</span>
+                    <span className="typo-caption text-orange-600 block uppercase mb-0.5">CATEGORY 03</span>
+                    <span className="typo-caption-meta text-slate-900 block uppercase">PRODUCTION ENGINEERING</span>
                   </div>
                 </div>
                 <div className="hidden sm:block w-[1px] h-9 bg-orange-500/25 self-center shrink-0" />
@@ -310,7 +310,7 @@ export default function AgentCoreSystems() {
                 {/* Core content */}
                 <div className="absolute inset-4 sm:inset-5 rounded-full bg-white border-2 border-orange-400/50 shadow-[inset_0_0_20px_rgba(255,107,44,0.05),0_0_30px_rgba(255,107,44,0.15)] flex flex-col items-center justify-center gap-0.5 sm:gap-1 z-10">
                   <Bot className="w-6 h-6 sm:w-7 sm:h-7 shrink-0 transition-transform duration-500 hover:scale-110 hover:rotate-[360deg] cursor-pointer text-orange-600" />
-                  <span className="text-[11px] sm:text-[13px] lg:text-[13px] font-black tracking-widest text-slate-900 select-none text-center mt-0.5">AGENTCORE</span>
+                  <span className="typo-caption text-slate-900 uppercase select-none text-center mt-0.5">AGENTCORE</span>
                 </div>
               </div>
             </div>
@@ -325,13 +325,13 @@ export default function AgentCoreSystems() {
                   </div>
                   {/* Text banner with matching card border color */}
                   <div className={`w-full min-h-[90px] flex flex-col justify-center border ${cap.borderClass} bg-white p-2.5 sm:p-2.5 lg:p-2 xl:p-2.5 pl-8 sm:pl-10 lg:pl-9 xl:pl-10 rounded-lg text-left transition-all duration-300 ${cap.hoverBorder} shadow-[0_4px_12px_rgba(0,0,0,0.05)]`}>
-                    <span className={`text-[9px] sm:text-[10px] lg:text-[9.5px] xl:text-[10px] font-black block tracking-wider uppercase mb-0.5 ${cap.textClass}`}>
+                    <span className={`text-[9px] sm:text-[10px] font-bold tracking-[0.15em] block uppercase mb-0.5 ${cap.textClass}`}>
                       {cap.title}
                     </span>
-                    <span className="text-[12px] sm:text-[13px] lg:text-[12px] xl:text-[13px] font-bold text-slate-900 block mb-1 leading-tight">
+                    <span className="text-sm sm:text-[15px] font-bold text-slate-900 leading-tight block mb-1">
                       {cap.subtitle}
                     </span>
-                    <span className="text-[10px] sm:text-[11px] lg:text-[10px] xl:text-[11px] text-slate-500 leading-snug block font-medium group-hover:text-slate-700 transition-colors duration-200 pr-1">
+                    <span className="text-[9px] sm:text-[10px] leading-[1.35] font-medium text-slate-500 block group-hover:text-slate-700 transition-colors duration-200 pr-1">
                       {cap.desc}
                     </span>
                   </div>
@@ -358,7 +358,7 @@ export default function AgentCoreSystems() {
                 <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-slate-50 border border-orange-500/30 shadow-[0_0_8px_rgba(255,107,44,0.05)] transition-all duration-300 group-hover:scale-110 group-hover:border-orange-500/60 shrink-0">
                   <Target className="w-4 h-4 sm:w-5 sm:h-5 text-orange-600 animate-pulse" />
                 </div>
-                <span className="text-[11px] sm:text-[13px] lg:text-[14px] font-black text-slate-900 tracking-wider uppercase select-none transition-colors group-hover:text-orange-600">
+                <span className="typo-caption text-slate-900 uppercase select-none transition-colors group-hover:text-orange-600">
                   {step}
                 </span>
               </div>

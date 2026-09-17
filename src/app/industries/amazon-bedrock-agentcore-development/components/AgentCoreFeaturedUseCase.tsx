@@ -241,7 +241,7 @@ function AgentCorePhotoStack({
               />
 
               {/* Monospace Header */}
-              <div className="relative z-10 w-full flex items-center justify-between text-[10px] font-mono tracking-wider text-white/80 select-none pointer-events-none mb-2">
+              <div className="relative z-10 w-full flex items-center justify-between typo-caption text-white/80 select-none pointer-events-none mb-2">
                 <span>{photo.cardCategory}</span>
                 <span className="font-bold text-white">{photo.cardStatus}</span>
               </div>
@@ -390,20 +390,20 @@ export default function AgentCoreFeaturedUseCase() {
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/80 px-4 py-1.5 rounded-full border border-white/80 w-fit">
               <span className="w-2 h-2 rounded-full bg-[#FF6B2C] animate-pulse" />
-              <span className="text-[11px] font-bold text-[#FF6B2C] tracking-widest uppercase font-mono">
+              <span className="typo-caption text-[#FF6B2C] uppercase">
                 FEATURED AGENTIC AI USE CASE
               </span>
             </div>
 
             {/* Headline */}
             <div className="space-y-3">
-              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-slate-900 tracking-tight leading-[1.12] font-['Plus_Jakarta_Sans',sans-serif]">
+              <h2 className="typo-heading-2 text-slate-900">
                 Multi-Agent{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B2C] via-[#ea580c] to-[#c2410c]">
                   Procurement Automation
                 </span>
               </h2>
-              <p className="text-slate-600 text-[14.5px] sm:text-[15.5px] leading-relaxed max-w-2xl pt-1">
+              <p className="typo-description text-slate-600 max-w-2xl pt-1">
                 Automate complex procurement workflows with AI agents that research suppliers, evaluate pricing, validate compliance, and coordinate approvals through Amazon Bedrock AgentCore.
               </p>
             </div>
@@ -423,13 +423,13 @@ export default function AgentCoreFeaturedUseCase() {
                   >
                     <div className="flex items-center gap-2 mb-1">
                       <span
-                        className={`text-[11px] font-mono font-bold transition-colors ${
+                        className={`typo-caption transition-colors ${
                           isActive ? "text-[#FF6B2C]" : "text-slate-500 group-hover:text-[#FF6B2C]"
                         }`}
                       >
                         {slide.id}
                       </span>
-                      <span className="text-[10px] font-mono tracking-wider font-semibold text-slate-400 uppercase">
+                      <span className="typo-caption text-slate-400 uppercase">
                         {slide.domain}
                       </span>
                       {isActive && (
@@ -437,13 +437,13 @@ export default function AgentCoreFeaturedUseCase() {
                       )}
                     </div>
                     <h4
-                      className={`text-[15px] sm:text-[16px] font-bold transition-colors leading-snug ${
+                      className={`typo-heading-4 transition-colors ${
                         isActive ? "text-[#FF6B2C]" : "text-slate-900 group-hover:text-[#FF6B2C]"
                       }`}
                     >
                       {slide.title}
                     </h4>
-                    <p className="text-[12.5px] text-slate-500 leading-relaxed mt-1 line-clamp-2 pr-2">
+                    <p className="typo-body text-slate-500 mt-1 line-clamp-2 pr-2">
                       {slide.description}
                     </p>
                   </div>

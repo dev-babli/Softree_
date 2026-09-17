@@ -88,25 +88,25 @@ const agentCoreSlides: SqueezeSlide[] = [
 
 export default function WhyAgentCoreSlider() {
   return (
-    <section className="w-full bg-white pt-10 md:pt-16 pb-12 md:pb-20 font-sans overflow-hidden">
+    <section className="w-full bg-white pt-10 md:pt-16 pb-12 md:pb-20 overflow-hidden">
       <div className="w-full max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-[2cm]">
         {/* Header */}
         <div className="flex flex-col items-center w-full mb-10 md:mb-14 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-orange-200 bg-orange-50 text-[10px] sm:text-[11px] font-bold tracking-widest text-[#FF6B00] uppercase mb-5">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] uppercase mb-5">
             <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
             WHY AGENTCORE
           </div>
           
-          <h2 className="text-3xl md:text-5xl lg:text-[52px] font-extrabold font-['Plus_Jakarta_Sans',sans-serif] text-slate-900 mb-6 tracking-tight leading-[1.1] max-w-4xl">
+          <h2 className="typo-heading-2 text-slate-900 mb-6 max-w-4xl">
             From AI Agents to <span className="text-[#FF6B2C]">Production Systems</span>
           </h2>
           
           <div className="flex flex-col items-center space-y-4 max-w-3xl mx-auto">
-            <p className="text-[16px] md:text-[18px] text-slate-700 font-medium leading-relaxed">
+            <p className="typo-description text-slate-700">
               A prototype can answer questions. A production agent needs to:
             </p>
             
-            <div className="text-[11px] sm:text-[13px] md:text-[15px] font-bold text-slate-900 uppercase tracking-widest flex flex-wrap items-center justify-center gap-2 sm:gap-3 lg:gap-4">
+            <div className="typo-heading-4 text-slate-900 uppercase flex flex-wrap items-center justify-center gap-2 sm:gap-3 lg:gap-4">
               <span>REASON</span>
               <span className="text-[#FF6B2C]">→</span>
               <span>REMEMBER</span>
@@ -120,7 +120,7 @@ export default function WhyAgentCoreSlider() {
               <span>BE OBSERVED</span>
             </div>
             
-            <p className="text-[15px] md:text-[17px] text-slate-600 font-medium leading-relaxed pt-2">
+            <p className="typo-body text-slate-600 pt-2">
               Softree helps turn AI-agent concepts into production-ready enterprise systems using Amazon Bedrock AgentCore.
             </p>
           </div>

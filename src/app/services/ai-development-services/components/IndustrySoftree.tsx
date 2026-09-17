@@ -41,6 +41,7 @@ const PANELS: Panel[] = [
     title: "Logistics, Supply Chain, and Transportation",
     trustedLabel: "Trusted by Softree partners:",
     bg: `${KORE_CDN}/68c1998017adc89faa49388c_fshome.avif`,
+    link: "/industries/logistics-supply-chain-engineering",
   },
   {
     id: "banking",
@@ -208,9 +209,9 @@ export default function IndustrySoftree() {
           </motion.aside>
 
           {/* Right — pills + Kore CDN cards + Softree logos */}
-          <div className="min-w-0">
+          <div className="min-w-0 flex flex-col h-full">
             <div
-              className="mb-5 flex flex-wrap gap-2"
+              className="mb-5 flex flex-wrap gap-2 shrink-0"
               role="tablist"
               aria-label="Industry sectors"
             >
@@ -238,7 +239,7 @@ export default function IndustrySoftree() {
 
             <div
               ref={scrollerRef}
-              className="no-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto pb-2"
+              className="no-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto pb-2 flex-1"
             >
               {PANELS.map((panel, index) => (
                 <motion.div
@@ -249,7 +250,7 @@ export default function IndustrySoftree() {
                   ref={(node) => {
                     cardRefs.current[index] = node;
                   }}
-                  className="relative h-[440px] w-full min-w-full snap-start overflow-hidden rounded-[10px] ring-1 ring-[#0a0a1a]/10 md:h-[470px]"
+                  className="relative h-full min-h-[440px] md:min-h-[470px] w-full min-w-full snap-start overflow-hidden rounded-[10px] ring-1 ring-[#0a0a1a]/10"
                   initial={REVEAL.fade.initial}
                   animate={inView ? REVEAL.fade.animate : REVEAL.fade.initial}
                   transition={{
