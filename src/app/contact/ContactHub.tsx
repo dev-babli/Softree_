@@ -157,7 +157,8 @@ export default function ContactHub() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-8%" }}
           transition={{ duration: 0.65, ease: EASE, delay: 0.05 }}
-          className="relative mx-auto max-w-5xl rounded-2xl bg-[#09090d] border border-white/5 p-6 text-white shadow-[0_24px_80px_-40px_rgba(0,0,0,0.65)] sm:p-8 overflow-hidden group/formCard"
+          id="contact-form"
+          className="relative mx-auto max-w-5xl scroll-mt-28 rounded-2xl bg-[#09090d] border border-white/5 p-6 text-white shadow-[0_24px_80px_-40px_rgba(0,0,0,0.65)] sm:p-8 overflow-hidden group/formCard"
         >
           {/* Custom style for pulsing tech borders */}
           <style>{`
