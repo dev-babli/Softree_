@@ -273,39 +273,6 @@ export default function AiHealthcareDevelopmentPage() {
 
 
       <HealthcareCaseStudies />
-
-
-
-
-
-
-
-
-
-      {/* Section 03 Header: AI HEALTHCARE DEVELOPMENT SERVICES */}
-      {/* <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-[2cm] mt-8 md:mt-10 mb-6 sm:mb-8 flex flex-col items-center text-center">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 text-[10px] sm:text-[11px] font-bold tracking-widest text-[#FF6B00] uppercase mb-3">
-          <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
-          AI HEALTHCARE DEVELOPMENT SERVICES
-        </div>
-
-        <h2 className="text-3xl md:text-5xl font-extrabold font-['Plus_Jakarta_Sans',sans-serif] max-w-4xl mx-auto text-slate-900 mb-3 tracking-tight leading-tight">
-          End-to-End AI Healthcare Development Services for{" "}
-          <span className="text-[#FF6B2C]">Smarter, Scalable Healthcare</span>
-        </h2>
-
-        <p className="text-[14px] lg:text-[15px] text-slate-500 max-w-3xl leading-relaxed mx-auto">
-          From AI strategy and solution architecture to development, integration, and optimization, Softree delivers secure, scalable AI healthcare solutions that help healthcare organizations improve operational efficiency, enhance decision-making, and accelerate digital transformation.
-        </p>
-      </div> */}
-
-      {/* <StepWipe /> */}
-
-
-
-      {/* <CircularTestimonialsDemo />
-
-      <IndustrySoftree /> */}
       <AgenticAIWipeSlider />
       <TrustedBrandsMarquee />
 

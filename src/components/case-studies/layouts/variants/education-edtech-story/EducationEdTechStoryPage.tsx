@@ -27,10 +27,9 @@ import {
 } from "lucide-react"
 import type { CaseStudyLayoutData, Highlight, PTBlock, RelatedStudy } from "../../types"
 import LightContactSection from "@/components/homepage-light/LightContactSection"
+import { sharedPortableTextTypes } from "@/components/portable-text/contentBlockTypes"
 import { stockPackForSlug } from "@/lib/case-study-stock-images"
 import "./education-edtech-story.css"
-
-
 
 type Props = {
   data: CaseStudyLayoutData
@@ -63,7 +62,42 @@ const notebookPortableTextComponents: PortableTextComponents = {
       }
       return <h3>{children}</h3>;
     },
+    h4: ({ children }) => <h4 className="mt-6 mb-3 text-[1.2rem] font-bold text-[var(--ink)]">{children}</h4>,
     blockquote: ({ children }) => <p className="pull-quote">{children}</p>,
+  },
+  list: {
+    bullet: ({ children }) => (
+      <ul className="notebook-bullet-list mb-6 list-disc space-y-2.5 pl-7 text-[1.12rem] leading-[1.75] text-[var(--ink-soft)] marker:text-[var(--marker,#ff5c00)]">
+        {children}
+      </ul>
+    ),
+    number: ({ children }) => (
+      <ol className="notebook-number-list mb-6 list-decimal space-y-2.5 pl-7 text-[1.12rem] leading-[1.75] text-[var(--ink-soft)] marker:font-semibold marker:text-[var(--marker,#ff5c00)]">
+        {children}
+      </ol>
+    ),
+  },
+  listItem: {
+    bullet: ({ children }) => <li className="notebook-list-item pl-1">{children}</li>,
+    number: ({ children }) => <li className="notebook-list-item pl-1">{children}</li>,
+  },
+  marks: {
+    strong: ({ children }) => <strong className="font-bold text-[var(--ink)]">{children}</strong>,
+    em: ({ children }) => <em className="italic">{children}</em>,
+    underline: ({ children }) => <span className="underline underline-offset-2">{children}</span>,
+    link: ({ value, children }) => (
+      <a
+        href={value?.href}
+        target={value?.blank ? "_blank" : undefined}
+        rel={value?.blank ? "noopener noreferrer" : undefined}
+        className="font-medium text-[var(--marker)] underline underline-offset-4 decoration-[var(--marker)]/40 hover:decoration-[var(--marker)] transition-colors"
+      >
+        {children}
+      </a>
+    ),
+  },
+  types: {
+    ...sharedPortableTextTypes,
   },
 }
 

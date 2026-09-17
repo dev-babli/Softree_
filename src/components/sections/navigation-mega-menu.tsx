@@ -174,12 +174,12 @@ export function MegaMenuPanel({
         <div className="relative z-10 flex h-full min-h-[460px] flex-col justify-between p-6 text-white">
           <div>
             {meta && (
-              <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1 text-[10px] font-bold uppercase tracking-[0.2em] backdrop-blur-md">
+              <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1 typo-caption-meta font-bold uppercase tracking-[0.2em] backdrop-blur-md">
                 <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
                 {meta.eyebrow}
               </span>
             )}
-            <p className="text-xl font-bold tracking-tight leading-snug">
+            <p className="typo-heading-4 text-white">
               {meta ? meta.blurb : label}
             </p>
           </div>
@@ -219,7 +219,7 @@ export function MegaMenuPanel({
                           isActive ? "text-[#FF5812]" : "text-[#0a0a1a]/40 group-hover:text-[#0a0a1a]/60"
                         }`} 
                       />
-                      <span className="text-[13px] font-semibold tracking-tight truncate">
+                      <span className="typo-button-sm font-semibold tracking-tight truncate">
                         {group.title}
                       </span>
                     </div>
@@ -256,11 +256,11 @@ export function MegaMenuPanel({
                         <ActiveGroupIcon size={24} />
                       </div>
                       <div className="min-w-0">
-                        <h3 className="text-[17px] font-bold text-[#0a0a1a] tracking-tight">
+                        <h3 className="typo-heading-4 text-[#0a0a1a] tracking-tight">
                           {activeGroup.title}
                         </h3>
                         {activeGroup.description && (
-                          <p className="text-[12px] text-[#0a0a1a]/55 leading-relaxed mt-0.5 max-w-[560px]">
+                          <p className="typo-caption-meta text-[#0a0a1a]/55 leading-relaxed mt-0.5 max-w-[560px]">
                             {activeGroup.description}
                           </p>
                         )}
@@ -274,7 +274,7 @@ export function MegaMenuPanel({
                       }`}>
                         {Object.entries(groupedLinks).map(([groupName, groupLinks]) => (
                           <div key={groupName} className="flex flex-col gap-3">
-                            <h4 className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#0a0a1a]/45 border-b border-black/[0.04] pb-1.5 mb-1">
+                            <h4 className="typo-caption-meta font-bold uppercase tracking-[0.12em] text-[#0a0a1a]/45 border-b border-black/[0.04] pb-1.5 mb-1">
                               {groupName}
                             </h4>
                             <div className="flex flex-col gap-3.5">
@@ -291,11 +291,11 @@ export function MegaMenuPanel({
                                       <LinkIcon size={12} />
                                     </div>
                                     <div className="min-w-0">
-                                      <span className="text-[12.5px] font-semibold text-[#0a0a1a] group-hover:text-[#FF5812] transition-colors block leading-tight">
+                                      <span className="typo-button-sm font-semibold text-[#0a0a1a] group-hover:text-[#FF5812] transition-colors block leading-tight">
                                         {link.label}
                                       </span>
                                       {link.description && (
-                                        <span className="text-[10.5px] text-[#0a0a1a]/45 leading-normal block mt-1 line-clamp-2 group-hover:text-[#0a0a1a]/65 transition-colors">
+                                        <span className="typo-caption-meta text-[#0a0a1a]/45 leading-normal block mt-1 line-clamp-2 group-hover:text-[#0a0a1a]/65 transition-colors">
                                           {link.description}
                                         </span>
                                       )}
@@ -322,11 +322,11 @@ export function MegaMenuPanel({
                                 <LinkIcon size={14} />
                               </div>
                               <div className="min-w-0">
-                                <span className="text-[13px] font-semibold text-[#0a0a1a] group-hover:text-[#FF5812] transition-colors block leading-tight">
+                                <span className="typo-button-sm font-semibold text-[#0a0a1a] group-hover:text-[#FF5812] transition-colors block leading-tight">
                                   {link.label}
                                 </span>
                                 {link.description && (
-                                  <span className="text-[11px] text-[#0a0a1a]/45 leading-normal block mt-1 line-clamp-1 group-hover:text-[#0a0a1a]/60 transition-colors">
+                                  <span className="typo-caption-meta text-[#0a0a1a]/45 leading-normal block mt-1 line-clamp-1 group-hover:text-[#0a0a1a]/60 transition-colors">
                                     {link.description}
                                   </span>
                                 )}
@@ -356,10 +356,10 @@ export function MegaMenuPanel({
               <Headset size={18} />
             </div>
             <div className="min-w-0 flex items-center gap-2">
-              <p className="text-[12px] text-[#0a0a1a]/55">
+              <p className="typo-caption-meta text-[#0a0a1a]/55">
                 Not sure which service is right for you?
               </p>
-              <p className="text-[13px] font-semibold text-[#FF5812] group-hover:underline flex items-center gap-0.5">
+              <p className="typo-button-sm font-semibold text-[#FF5812] group-hover:underline flex items-center gap-0.5">
                 Talk to our experts <ArrowRight size={12} className="transition-transform group-hover:translate-x-0.5" />
               </p>
             </div>

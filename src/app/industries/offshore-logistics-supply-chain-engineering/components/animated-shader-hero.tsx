@@ -401,7 +401,7 @@ const Hero: React.FC<HeroProps> = ({
         {/* Trust Badge */}
         {trustBadge && (
           <div className="mb-3 md:mb-4 animate-fade-in-down">
-            <div className="flex items-center gap-2 px-3.5 md:px-4 py-1.5 md:py-2 bg-[#FF5812]/10 backdrop-blur-md border border-[#FF5812]/20 rounded-full text-xs sm:text-[12px]">
+            <div className="flex items-center gap-2 px-3.5 md:px-4 py-1.5 md:py-2 bg-[#FF5812]/10 backdrop-blur-md border border-[#FF5812]/20 rounded-full">
               {trustBadge.icons && (
                 <div className="flex">
                   {trustBadge.icons.map((icon, index) => (
@@ -411,7 +411,7 @@ const Hero: React.FC<HeroProps> = ({
                   ))}
                 </div>
               )}
-              <span className="text-[#FF5812] tracking-wider font-bold uppercase">{trustBadge.text}</span>
+              <span className="typo-caption text-[#FF5812] tracking-wider uppercase">{trustBadge.text}</span>
             </div>
           </div>
         )}
@@ -419,12 +419,12 @@ const Hero: React.FC<HeroProps> = ({
         <div className="text-center space-y-3 md:space-y-4 max-w-5xl mx-auto">
           {/* Main Heading with Animation */}
           <div className="space-y-1">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[4rem] leading-[1.1] font-extrabold animate-fade-in-up animation-delay-200">
+            <h1 className="typo-title animate-fade-in-up animation-delay-200">
               <span className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] block pb-2">
                 {headline.line1}
               </span>
             </h1>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[4rem] leading-[1.1] font-extrabold animate-fade-in-up animation-delay-400">
+            <h1 className="typo-title animate-fade-in-up animation-delay-400">
               <span className="bg-gradient-to-r from-[#FF5812] via-[#FF2A00] to-[#FF7A00] animate-gradient filter drop-shadow-[0_0_35px_rgba(255,88,18,0.25)] bg-clip-text text-transparent block pb-2">
                 {headline.line2}
               </span>
@@ -433,7 +433,7 @@ const Hero: React.FC<HeroProps> = ({
           
           {/* Subtitle with Animation */}
           <div className="max-w-3xl mx-auto animate-fade-in-up animation-delay-600 px-2 md:px-0 mt-3 md:mt-4">
-            <p className="text-base md:text-lg lg:text-xl text-zinc-200 font-normal leading-relaxed drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
+            <p className="typo-description text-zinc-200 drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
               {subtitle}
             </p>
           </div>

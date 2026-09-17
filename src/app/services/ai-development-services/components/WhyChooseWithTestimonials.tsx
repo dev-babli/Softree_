@@ -101,13 +101,13 @@ export default function WhyChooseWithTestimonials() {
         <div className="relative">
           {/* Eyebrow */}
           <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-4 py-1.5 rounded-full border border-white/60 mb-4 inline-block">
-            <span className="text-[11px] font-bold text-[#FF6B2C] tracking-widest uppercase">
+            <span className="typo-caption text-[#FF6B2C]">
               WHY CHOOSE SOFTREE
             </span>
           </div>
  
           {/* Heading */}
-          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight">
+          <h2 className="typo-heading-2 text-slate-900 mb-6">
             Built for{" "}
             <span className="text-[#FF6B2C]">
               Long-Term Impact
@@ -125,7 +125,7 @@ export default function WhyChooseWithTestimonials() {
               return (
                 <div key={i} className="relative flex gap-4 items-start">
                   {/* Number */}
-                  <div className="relative z-10 flex items-center justify-center w-6 h-6 mt-1 text-[11px] font-semibold text-orange-600 bg-white">
+                  <div className="relative z-10 flex items-center justify-center w-6 h-6 mt-1 typo-caption text-orange-600 bg-white">
                     {String(i + 1).padStart(2, "0")}
                   </div>
  
@@ -136,10 +136,10 @@ export default function WhyChooseWithTestimonials() {
                         <Icon size={14} />
                       </div>
  
-                      <h3 className="text-[15px] font-semibold">{item.title}</h3>
+                      <h3 className="typo-heading-4">{item.title}</h3>
                     </div>
  
-                    <p className="text-gray-600 text-[13px] leading-snug max-w-md">
+                    <p className="typo-body-sm text-gray-600 max-w-md">
                       {item.desc}
                     </p>
                   </div>
@@ -153,11 +153,11 @@ export default function WhyChooseWithTestimonials() {
         <div className="rounded-2xl p-10 bg-gradient-to-r from-black via-[#4c1c02] to-black border border-white/10 shadow-2xl h-full flex flex-col">
           {/* Header */}
           <div className="mb-10">
-            <div className="text-white text-xs uppercase tracking-widest mb-3">
+            <div className="typo-caption text-white mb-3">
               Client Feedback
             </div>
  
-            <h3 className="text-2xl font-semibold mb-6 text-white">
+            <h3 className="typo-heading-3 text-white mb-6">
               Trusted by Enterprise Teams
             </h3>
  
@@ -171,11 +171,11 @@ export default function WhyChooseWithTestimonials() {
                 ))}
               </div>
  
-              <p className="font-semibold text-white">4.9 / 5</p>
-              <p className="text-gray-300 text-sm">average rating</p>
+              <p className="typo-body-lg font-semibold text-white">4.9 / 5</p>
+              <p className="typo-caption-meta text-gray-300">average rating</p>
             </div>
  
-            <p className="text-sm text-gray-400">
+            <p className="typo-body-sm text-gray-400">
               Based on{" "}
               <span className="font-medium text-white">
                 150+ client reviews
@@ -207,7 +207,7 @@ export default function WhyChooseWithTestimonials() {
                     </div>
  
                     {/* Review Comment */}
-                    <p className="text-gray-200 text-base leading-relaxed mb-6">
+                    <p className="typo-description text-gray-200 mb-6">
                       “{review.comment}”
                     </p>
  
@@ -216,12 +216,12 @@ export default function WhyChooseWithTestimonials() {
                       <div className="flex items-center gap-2">
                         <User size={14} className="text-orange-400" />
                         <div>
-                          <p className="font-semibold text-white text-sm">
+                          <p className="typo-heading-4 text-white text-sm">
                             {review.name}
                           </p>
  
                           {/* ✅ Company added here */}
-                          <p className="text-xs text-gray-400">
+                          <p className="typo-caption-meta text-gray-400">
                             {review.company}
                           </p>
                         </div>
@@ -229,7 +229,7 @@ export default function WhyChooseWithTestimonials() {
  
                       <div className="flex items-center gap-2">
                         <MapPin size={13} className="text-gray-400" />
-                        <p className="text-xs text-gray-400">
+                        <p className="typo-caption-meta text-gray-400">
                           {review.location}
                         </p>
                       </div>

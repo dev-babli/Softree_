@@ -421,7 +421,7 @@ export default function InfoSection() {
 
             {/* ── info__title ── word-by-word blur-up ── */}
             <motion.h3
-              className="text-[clamp(28px,4vw,54px)] lg:text-[clamp(28px,4.4vw,58px)] font-semibold leading-[1.06] tracking-[-0.02em] text-[#141413] mb-4 md:mb-6 max-w-none md:whitespace-nowrap"
+              className="typo-heading-2 text-[#141413] mb-4 md:mb-6 max-w-none md:whitespace-nowrap"
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
               variants={{
@@ -447,7 +447,7 @@ export default function InfoSection() {
 
             {/* ── info__description ── fade up ── */}
             <motion.p
-              className="text-[17px] sm:text-[19px] md:text-[21px] text-[#141413]/65 leading-[1.55] max-w-none lg:max-w-[860px] mb-12 md:mb-16"
+              className="typo-description text-[#141413]/65 max-w-none lg:max-w-[860px] mb-12 md:mb-16"
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, ease: EASE, delay: 0.3 }}
@@ -466,7 +466,7 @@ export default function InfoSection() {
                   transition={{ duration: 0.6, delay: 0.4 + i * 0.08, ease: EASE }}
                 >
                   <div className="w-full lg:w-[40%]">
-                    <h4 className="relative text-[18px] md:text-[22px] font-semibold tracking-tight text-[#141413] inline-block">
+                    <h4 className="relative typo-heading-4 text-[#141413] inline-block">
                       <span className="relative">
                         {feat.title}
                         <span
@@ -477,7 +477,7 @@ export default function InfoSection() {
                     </h4>
                   </div>
                   <div className="w-full lg:w-[60%]">
-                    <p className="text-[15px] md:text-[17px] text-[#141413]/65 leading-relaxed max-w-[560px] transition-colors duration-300 group-hover/row:text-[#141413]/90">
+                    <p className="typo-body-sm text-[#141413]/65 max-w-[560px] transition-colors duration-300 group-hover/row:text-[#141413]/90">
                       {feat.body}
                     </p>
                   </div>
@@ -493,7 +493,7 @@ export default function InfoSection() {
           <div className="flex items-center gap-4 mb-8 md:mb-10">
             <span className="flex-1 h-px bg-[#141413]/15" />
             <div className="flex items-center gap-1.5 shrink-0">
-              <span className="inline-flex items-center px-3 py-1 rounded-md text-[10px] font-semibold tracking-[0.12em] uppercase text-[#141413]/85"
+              <span className="inline-flex items-center px-3 py-1 rounded-md typo-caption text-[#141413]/85"
                 style={{ background: "rgba(20,20,19,0.06)" }}
               >
                 Trusted by

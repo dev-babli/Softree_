@@ -167,7 +167,8 @@ export default function LogisticsTrust() {
 
         /* Name label */
         .pp-logo-name {
-          font-size: 11px;
+          font-family: var(--font-family-body);
+          font-size: var(--font-size-caption-meta);
           font-weight: 700;
           letter-spacing: 0.12em;
           text-transform: uppercase;
@@ -190,7 +191,7 @@ export default function LogisticsTrust() {
           {/* Heading */}
           <div className="flex items-center gap-6 mb-12">
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-zinc-300 to-transparent" />
-            <p className="shrink-0 text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-wide uppercase text-white font-['Plus_Jakarta_Sans',sans-serif] text-center">
+            <p className="shrink-0 typo-heading-3 uppercase text-white text-center">
               Trusted by Enterprise Supply Chain &amp; Tech Leaders
             </p>
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-zinc-400 to-transparent" />

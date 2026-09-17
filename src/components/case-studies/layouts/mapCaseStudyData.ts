@@ -60,10 +60,13 @@ export type SanityCaseStudyDoc = {
   beforeAfter?: BeforeAfterRow[]
   challengeSummary?: string
   challengeContent?: PortableTextLike[]
+  challenge?: PortableTextLike[]
   approachSummary?: string
   approachContent?: PortableTextLike[]
+  approach?: PortableTextLike[]
   approachSteps?: Array<{ title?: string; description?: string }>
   solutionSummary?: string
+  solution?: PortableTextLike[]
   solutionFeatures?: string[]
   myRole?: string
   useCase?: string
@@ -73,6 +76,8 @@ export type SanityCaseStudyDoc = {
   pdfUrl?: string
   outcomeSummary?: string
   outcomeContent?: PortableTextLike[]
+  outcome?: PortableTextLike[]
+  result?: PortableTextLike[]
   body?: PortableTextLike[]
   testimonial?: {
     quote?: string
@@ -793,9 +798,9 @@ export function mapCaseStudyToLayoutData(
             ? study.challengeSummary || ""
             : "A global manufacturer needed to replace fragmented tools with a governed, scalable platform."),
     challengeCards,
-    challengeBody: study.challengeContent as PTBlock[] | undefined,
-    approachBody: study.approachContent as PTBlock[] | undefined,
-    outcomeBody: study.outcomeContent as PTBlock[] | undefined,
+    challengeBody: (study.challengeContent || study.challenge) as PTBlock[] | undefined,
+    approachBody: (study.approachContent || study.approach || study.solution) as PTBlock[] | undefined,
+    outcomeBody: (study.outcomeContent || study.outcome || study.result) as PTBlock[] | undefined,
     extraBody: study.body as PTBlock[] | undefined,
     approachHeading:
       layout === "nexora-product-story" || layout === "synqlab-product-story"

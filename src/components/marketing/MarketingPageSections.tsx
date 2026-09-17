@@ -118,6 +118,14 @@ function RichTextBlock({ section }: { section: RichTextSection }) {
               h3: ({ children }) => <h3 className="mt-8 text-xl font-bold text-zinc-950">{children}</h3>,
               normal: ({ children }) => <p className="mb-6">{children}</p>,
             },
+            list: {
+              bullet: ({ children }) => <ul className="mb-6 list-disc space-y-2.5 pl-6 text-zinc-700">{children}</ul>,
+              number: ({ children }) => <ol className="mb-6 list-decimal space-y-2.5 pl-6 text-zinc-700">{children}</ol>,
+            },
+            listItem: {
+              bullet: ({ children }) => <li className="pl-1">{children}</li>,
+              number: ({ children }) => <li className="pl-1">{children}</li>,
+            },
           }}
         />
       </div>

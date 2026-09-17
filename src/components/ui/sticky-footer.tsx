@@ -171,13 +171,13 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
           </div>
           {/* Metadata row below wordmark */}
           <div className="flex flex-wrap items-center gap-x-6 gap-y-1">
-            <Link href="/privacy-policy" className="inline-flex py-2 items-center rounded-lg text-[11px] font-semibold uppercase tracking-[0.14em] text-white/70 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
+            <Link href="/privacy-policy" className="inline-flex py-2 items-center rounded-lg typo-caption text-white/70 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="inline-flex py-2 items-center rounded-lg text-[11px] font-semibold uppercase tracking-[0.14em] text-white/70 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
+            <Link href="/terms" className="inline-flex py-2 items-center rounded-lg typo-caption text-white/70 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
               Terms of Service
             </Link>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/70">
+            <p className="typo-caption text-white/70">
               © {new Date().getFullYear()} Softree Technology
             </p>
           </div>
@@ -207,20 +207,20 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
             <div className="flex flex-wrap items-center gap-2.5">
               <Link
                 href="/ai"
-                className="flex h-11 items-center rounded-full border border-black/25 px-4 text-[12px] font-semibold text-black transition-colors hover:border-black/60 hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50"
+                className="flex h-11 items-center rounded-full border border-black/25 px-4 typo-button-sm text-black transition-colors hover:border-black/60 hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50"
               >
                 AI Solutions
               </Link>
 
               <Link
                 href="/book-meeting"
-                className="flex h-11 items-center rounded-full border border-black/25 px-4 text-[12px] font-semibold text-black transition-colors hover:border-black/60 hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50"
+                className="flex h-11 items-center rounded-full border border-black/25 px-4 typo-button-sm text-black transition-colors hover:border-black/60 hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50"
               >
                 Book a Call
               </Link>
               <Link
                 href="/contact"
-                className="flex h-11 items-center rounded-full px-5 text-[12px] font-bold text-white transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50"
+                className="flex h-11 items-center rounded-full px-5 typo-button-sm text-white transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50"
                 style={{ background: "linear-gradient(135deg, rgba(255,122,47,0.97) 0%, rgba(200,80,20,0.92) 100%)" }}
               >
                 Get in Touch
@@ -232,7 +232,7 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
           <div className="mt-8 grid flex-1 grid-cols-1 gap-x-12 gap-y-6 sm:grid-cols-2 md:mt-10 lg:grid-cols-3">
             {footerColumns.map((col) => (
               <div key={col.label} className="flex flex-col">
-                <p className="mb-3 text-[12px] font-extrabold uppercase tracking-[0.18em] text-black">
+                <p className="mb-3 typo-caption text-black">
                   {col.label}
                 </p>
                 <ul className="space-y-1">
@@ -242,7 +242,7 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
                         href={link.href}
                         target={link.external ? "_blank" : undefined}
                         rel={link.external ? "noopener noreferrer" : undefined}
-                        className="inline-flex py-1.5 items-center rounded-lg text-[14px] font-medium text-black transition-colors hover:text-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50"
+                        className="inline-flex py-1.5 items-center rounded-lg typo-body-sm font-medium text-black transition-colors hover:text-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50"
                       >
                         {link.title}
                         {link.external && <Arrow />}

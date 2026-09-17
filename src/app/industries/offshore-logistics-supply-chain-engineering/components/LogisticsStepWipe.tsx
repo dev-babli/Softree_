@@ -215,17 +215,17 @@ export default function LogisticsStepWipe() {
     <>
       {/* Section Header: AI-Powered Supply Chain Solutions */}
       <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-[2cm] pt-12 md:pt-16 pb-8 sm:pb-10 flex flex-col items-center text-center bg-white">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 text-xs sm:text-[12px] font-bold tracking-widest text-[#FF6B00] uppercase mb-4">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] uppercase mb-4">
           <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
           AI-POWERED SUPPLY CHAIN SOLUTIONS
         </div>
 
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold font-['Plus_Jakarta_Sans',sans-serif] max-w-4xl mx-auto text-slate-900 mb-4 tracking-tight leading-[1.12]">
+        <h2 className="typo-heading-2 max-w-4xl mx-auto text-slate-900 mb-4">
           Intelligent AI Solutions for <br className="hidden md:block" />
           <span className="text-[#FF6B2C]">Every Layer of Logistics Operations</span>
         </h2>
 
-        <p className="text-base sm:text-[16.5px] lg:text-[17px] text-slate-500 max-w-3xl leading-relaxed mx-auto">
+        <p className="typo-description text-slate-500 max-w-3xl mx-auto">
           From AI agents and RAG-powered assistants to document processing and workflow automation. We build scalable AI solutions that connect your systems, streamline operations, and help your teams make smarter supply chain decisions.
         </p>
       </div>
@@ -260,10 +260,10 @@ export default function LogisticsStepWipe() {
             {/* Top Bar / Slide Indicator */}
             <div className="w-full">
               <div className="flex items-center justify-between gap-4 mb-3 sm:mb-4">
-                <p className="text-sm sm:text-base font-bold tracking-widest uppercase opacity-85 font-mono">
+                <p className="typo-caption-meta font-bold tracking-widest uppercase opacity-85">
                   {card.isCta ? "SUMMARY & NEXT STEPS" : `${card.num} / 06 — ${card.title}`}
                 </p>
-                <span className="hidden sm:inline-block px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-bold tracking-wider uppercase border border-current opacity-70">
+                <span className="hidden sm:inline-block px-3.5 py-1.5 rounded-full typo-caption font-bold tracking-wider uppercase border border-current opacity-70">
                   {card.isCta ? "GET STARTED" : "LOGISTICS ENGINEERING SERVICE"}
                 </span>
               </div>
@@ -277,15 +277,15 @@ export default function LogisticsStepWipe() {
             {card.isCta ? (
               /* Grand Closing CTA Card */
               <div className="w-full text-center max-w-4xl mx-auto my-auto flex flex-col items-center py-4 sm:py-6">
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-500/10 text-xs sm:text-sm font-bold tracking-widest text-[#FF6B00] uppercase mb-4 sm:mb-6">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-500/10 typo-caption text-[#FF6B00] uppercase mb-4 sm:mb-6">
                   <span className="w-2 h-2 rounded-full bg-[#FF6B00] animate-pulse" />
                   OFFSHORE LOGISTICS ENGINEERING
                 </div>
                 <h2
-                  className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.12] text-white mb-4 sm:mb-6 font-['Plus_Jakarta_Sans',sans-serif]"
+                  className="typo-title text-white mb-4 sm:mb-6"
                   dangerouslySetInnerHTML={{ __html: card.titleSplit }}
                 />
-                <p className="text-base sm:text-lg md:text-xl text-neutral-300 leading-relaxed mb-6 sm:mb-8 max-w-2xl font-normal">
+                <p className="typo-description text-neutral-300 mb-6 sm:mb-8 max-w-2xl">
                   {card.desc}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center w-full sm:w-auto">
@@ -294,7 +294,7 @@ export default function LogisticsStepWipe() {
                     href="/contact"
                     text={card.secondaryCta || "Build Your Offshore Team"}
                     variant="white"
-                    className="w-full sm:w-auto px-8 py-3.5 text-base"
+                    className="w-full sm:w-auto px-8 py-3.5 typo-button"
                   />
                 </div>
               </div>
@@ -304,10 +304,10 @@ export default function LogisticsStepWipe() {
                 {/* Left Column: Title + Description */}
                 <div className="lg:col-span-7 flex flex-col">
                   <h2
-                    className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold tracking-tight leading-[1.1] mb-4 sm:mb-6 font-['Plus_Jakarta_Sans',sans-serif]"
+                    className="typo-heading-2 mb-4 sm:mb-6"
                     dangerouslySetInnerHTML={{ __html: card.titleSplit }}
                   />
-                  <p className="text-base sm:text-[16.5px] md:text-lg opacity-90 leading-relaxed max-w-xl font-normal mb-6 sm:mb-8">
+                  <p className="typo-description opacity-90 max-w-xl mb-6 sm:mb-8">
                     {card.desc}
                   </p>
                   <div>
@@ -315,7 +315,7 @@ export default function LogisticsStepWipe() {
                       href={card.link || "/contact"}
                       text="Explore Logistics Solutions"
                       variant={card.isLight ? "dark-filled" : "white-filled"}
-                      className="w-fit text-sm sm:text-base px-6 py-3"
+                      className="w-fit typo-button px-6 py-3"
                     />
                   </div>
                 </div>
@@ -370,7 +370,7 @@ export default function LogisticsStepWipe() {
                             />
                           </span>
                           <span
-                            className="text-xs sm:text-[13px] font-mono font-bold tracking-widest uppercase opacity-90"
+                            className="typo-caption font-bold tracking-widest uppercase opacity-90"
                             style={{ color: card.text }}
                           >
                             SYSTEM CAPABILITIES
@@ -380,7 +380,7 @@ export default function LogisticsStepWipe() {
                         <div className="flex items-center gap-1.5">
                           <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                           <span
-                            className="text-[11px] sm:text-xs font-mono tracking-wider opacity-70 uppercase"
+                            className="typo-caption-meta tracking-wider opacity-70 uppercase"
                             style={{ color: card.text }}
                           >
                             ENTERPRISE SPEC
@@ -404,7 +404,7 @@ export default function LogisticsStepWipe() {
                           >
                             <div className="flex items-center gap-3 min-w-0">
                               <span
-                                className="shrink-0 font-mono text-xs sm:text-sm font-bold"
+                                className="shrink-0 typo-caption font-bold"
                                 style={{
                                   color: card.accent || "#FF6B00",
                                 }}
@@ -412,7 +412,7 @@ export default function LogisticsStepWipe() {
                                 0{capIdx + 1}
                               </span>
                               <span
-                                className="text-sm sm:text-[15px] font-medium leading-snug group-hover/row:translate-x-0.5 transition-transform duration-150"
+                                className="typo-body-sm font-medium group-hover/row:translate-x-0.5 transition-transform duration-150"
                                 style={{ color: card.text }}
                               >
                                 {cap.label}
@@ -420,7 +420,7 @@ export default function LogisticsStepWipe() {
                             </div>
 
                             <span
-                              className="shrink-0 px-2.5 py-1 rounded text-[11px] sm:text-xs font-mono font-semibold tracking-wider uppercase border whitespace-nowrap"
+                              className="shrink-0 px-2.5 py-1 rounded typo-caption-meta font-semibold tracking-wider uppercase border whitespace-nowrap"
                               style={{
                                 backgroundColor: card.isLight
                                   ? "rgba(0,0,0,0.04)"
@@ -439,7 +439,7 @@ export default function LogisticsStepWipe() {
 
                       {/* Bottom Footer Telemetry */}
                       <div
-                        className="px-4 py-2.5 flex items-center justify-between border-t text-[11px] sm:text-xs font-mono opacity-60 uppercase tracking-wider"
+                        className="px-4 py-2.5 flex items-center justify-between border-t typo-caption-meta opacity-60 uppercase tracking-wider"
                         style={{
                           backgroundColor: card.isLight
                             ? "rgba(0,0,0,0.015)"

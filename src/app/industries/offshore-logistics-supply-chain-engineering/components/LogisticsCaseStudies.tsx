@@ -7,11 +7,11 @@ import { FlowButton } from "@/components/ui/flow-button";
 const demoData: Gallery4Props = {
   title: (
     <div className="flex flex-col items-start">
-      <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 text-xs sm:text-[12px] font-bold tracking-widest text-[#FF6B00] uppercase mb-4 w-fit">
+      <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] uppercase mb-4 w-fit">
         <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
         LOGISTICS &amp; SUPPLY CHAIN CASE STUDIES
       </div>
-      <span className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold font-['Plus_Jakarta_Sans',sans-serif] text-slate-900 tracking-tight leading-[1.12] text-left">
+      <span className="typo-heading-2 text-slate-900 text-left">
         Real Logistics Challenges. Engineered for Better Outcomes.
       </span>
     </div>
@@ -27,18 +27,18 @@ const demoData: Gallery4Props = {
       description: (
         <div className="space-y-2.5 bg-[#0a0f1d]/85 backdrop-blur-md border border-white/15 rounded-2xl p-3.5 sm:p-4 shadow-xl">
           <div className="flex items-start gap-2.5 text-sm">
-            <span className="text-[#FF6B2C] font-mono font-bold uppercase text-xs tracking-wider shrink-0 mt-0.5 w-[75px]">
+            <span className="text-[#FF6B2C] typo-caption font-bold uppercase shrink-0 mt-0.5 w-[75px]">
               Challenge
             </span>
-            <span className="text-white/95 text-sm sm:text-[14.5px] font-normal leading-relaxed">
+            <span className="text-white/95 typo-body-sm font-normal">
               A 3PL managing 5M+ shipments across 15 distribution centers had fragmented data across TMS, WMS, and carrier portals, causing delivery blind spots.
             </span>
           </div>
           <div className="flex items-start gap-2.5 text-sm">
-            <span className="text-[#FF6B2C] font-mono font-bold uppercase text-xs tracking-wider shrink-0 mt-0.5 w-[75px]">
+            <span className="text-[#FF6B2C] typo-caption font-bold uppercase shrink-0 mt-0.5 w-[75px]">
               Solution
             </span>
-            <span className="text-white/95 text-sm sm:text-[14.5px] font-normal leading-relaxed">
+            <span className="text-white/95 typo-body-sm font-normal">
               Centralized Microsoft Fabric &amp; Azure ML control tower unifying multi-carrier feeds with real-time tracking, delay alerts, and predictive ETAs.
             </span>
           </div>
@@ -53,18 +53,18 @@ const demoData: Gallery4Props = {
       description: (
         <div className="space-y-2.5 bg-[#0a0f1d]/85 backdrop-blur-md border border-white/15 rounded-2xl p-3.5 sm:p-4 shadow-xl">
           <div className="flex items-start gap-2.5 text-sm">
-            <span className="text-[#FF6B2C] font-mono font-bold uppercase text-xs tracking-wider shrink-0 mt-0.5 w-[75px]">
+            <span className="text-[#FF6B2C] typo-caption font-bold uppercase shrink-0 mt-0.5 w-[75px]">
               Challenge
             </span>
-            <span className="text-white/95 text-sm sm:text-[14.5px] font-normal leading-relaxed">
+            <span className="text-white/95 typo-body-sm font-normal">
               Warehouse operators spent excessive hours manually cross-checking inventory and order statuses across disconnected WMS, ERP, and SOP documents.
             </span>
           </div>
           <div className="flex items-start gap-2.5 text-sm">
-            <span className="text-[#FF6B2C] font-mono font-bold uppercase text-xs tracking-wider shrink-0 mt-0.5 w-[75px]">
+            <span className="text-[#FF6B2C] typo-caption font-bold uppercase shrink-0 mt-0.5 w-[75px]">
               Solution
             </span>
-            <span className="text-white/95 text-sm sm:text-[14.5px] font-normal leading-relaxed">
+            <span className="text-white/95 typo-body-sm font-normal">
               Voice-enabled multi-agent assistant powered by Amazon Nova 2 Sonic, LangGraph, and RAG for instant hands-free floor intelligence and exception triage.
             </span>
           </div>
@@ -79,18 +79,18 @@ const demoData: Gallery4Props = {
       description: (
         <div className="space-y-2.5 bg-[#0a0f1d]/85 backdrop-blur-md border border-white/15 rounded-2xl p-3.5 sm:p-4 shadow-xl">
           <div className="flex items-start gap-2.5 text-sm">
-            <span className="text-[#FF6B2C] font-mono font-bold uppercase text-xs tracking-wider shrink-0 mt-0.5 w-[75px]">
+            <span className="text-[#FF6B2C] typo-caption font-bold uppercase shrink-0 mt-0.5 w-[75px]">
               Challenge
             </span>
-            <span className="text-white/95 text-sm sm:text-[14.5px] font-normal leading-relaxed">
+            <span className="text-white/95 typo-body-sm font-normal">
               Manual exception triage across international air, ocean, and drayage carriers caused delayed responses, missed delivery windows, and high detention costs.
             </span>
           </div>
           <div className="flex items-start gap-2.5 text-sm">
-            <span className="text-[#FF6B2C] font-mono font-bold uppercase text-xs tracking-wider shrink-0 mt-0.5 w-[75px]">
+            <span className="text-[#FF6B2C] typo-caption font-bold uppercase shrink-0 mt-0.5 w-[75px]">
               Solution
             </span>
-            <span className="text-white/95 text-sm sm:text-[14.5px] font-normal leading-relaxed">
+            <span className="text-white/95 typo-body-sm font-normal">
               Autonomous AI exception classification and recommendation pipeline that detects shipment anomalies, prioritizes severity, and executes resolution workflows.
             </span>
           </div>
@@ -105,18 +105,18 @@ const demoData: Gallery4Props = {
       description: (
         <div className="space-y-2.5 bg-[#0a0f1d]/85 backdrop-blur-md border border-white/15 rounded-2xl p-3.5 sm:p-4 shadow-xl">
           <div className="flex items-start gap-2.5 text-sm">
-            <span className="text-[#FF6B2C] font-mono font-bold uppercase text-xs tracking-wider shrink-0 mt-0.5 w-[75px]">
+            <span className="text-[#FF6B2C] typo-caption font-bold uppercase shrink-0 mt-0.5 w-[75px]">
               Challenge
             </span>
-            <span className="text-white/95 text-sm sm:text-[14.5px] font-normal leading-relaxed">
+            <span className="text-white/95 typo-body-sm font-normal">
               Freight invoice discrepancies, identity spoofing, duplicate carrier billing, and cargo diversion went unnoticed in high-volume shipping corridors.
             </span>
           </div>
           <div className="flex items-start gap-2.5 text-sm">
-            <span className="text-[#FF6B2C] font-mono font-bold uppercase text-xs tracking-wider shrink-0 mt-0.5 w-[75px]">
+            <span className="text-[#FF6B2C] typo-caption font-bold uppercase shrink-0 mt-0.5 w-[75px]">
               Solution
             </span>
-            <span className="text-white/95 text-sm sm:text-[14.5px] font-normal leading-relaxed">
+            <span className="text-white/95 typo-body-sm font-normal">
               Predictive AI anomaly detection engine auditing bills of lading, weigh-station telemetry, carrier identity feeds, and historical invoice patterns in real time.
             </span>
           </div>
@@ -131,18 +131,18 @@ const demoData: Gallery4Props = {
       description: (
         <div className="space-y-2.5 bg-[#0a0f1d]/85 backdrop-blur-md border border-white/15 rounded-2xl p-3.5 sm:p-4 shadow-xl">
           <div className="flex items-start gap-2.5 text-sm">
-            <span className="text-[#FF6B2C] font-mono font-bold uppercase text-xs tracking-wider shrink-0 mt-0.5 w-[75px]">
+            <span className="text-[#FF6B2C] typo-caption font-bold uppercase shrink-0 mt-0.5 w-[75px]">
               Challenge
             </span>
-            <span className="text-white/95 text-sm sm:text-[14.5px] font-normal leading-relaxed">
+            <span className="text-white/95 typo-body-sm font-normal">
               Escalating fuel costs, unoptimized deadhead miles, and volatile spot rates eroded operating margins across complex enterprise distribution networks.
             </span>
           </div>
           <div className="flex items-start gap-2.5 text-sm">
-            <span className="text-[#FF6B2C] font-mono font-bold uppercase text-xs tracking-wider shrink-0 mt-0.5 w-[75px]">
+            <span className="text-[#FF6B2C] typo-caption font-bold uppercase shrink-0 mt-0.5 w-[75px]">
               Solution
             </span>
-            <span className="text-white/95 text-sm sm:text-[14.5px] font-normal leading-relaxed">
+            <span className="text-white/95 typo-body-sm font-normal">
               Microsoft Foundry AI optimization engine delivering dynamic freight lane pooling, automated carrier rate benchmarking, and route consolidation.
             </span>
           </div>
@@ -165,7 +165,7 @@ export default function LogisticsCaseStudies() {
               href="/case-studies"
               text="Explore All Logistics Case Studies"
               variant="orange-filled"
-              className="py-3 px-6 text-sm sm:text-base font-bold shadow-md"
+              className="py-3 px-6 typo-button shadow-md"
             />
           }
         />

@@ -26,16 +26,16 @@ export default function CoreCapabilities() {
         {/* Header */}
         <div className="flex flex-col items-center w-full mb-12 lg:mb-16">
           <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-4 py-1.5 rounded-full border border-white/60 mb-4 inline-block">
-            <span className="text-[11px] font-bold text-[#FF6B2C] tracking-widest uppercase">
+            <span className="typo-caption text-[#FF6B2C]">
               CORE CAPABILITIES
             </span>
           </div>
 
-          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight text-center leading-tight">
+          <h2 className="typo-heading-2 text-slate-900 mb-4 text-center">
             Enterprise AI Development <span className="text-[#FF6B2C]">Capabilities</span>
           </h2>
 
-          <p className="text-[15px] lg:text-base text-slate-500 text-center max-w-2xl mx-auto leading-relaxed">
+          <p className="typo-description text-slate-500 text-center max-w-2xl mx-auto">
             From AI strategy and development to deployment and optimization, we build secure, scalable AI solutions that help enterprises automate processes, solve complex challenges, and accelerate business growth.
           </p>
         </div>

@@ -3,7 +3,7 @@
   background: #f3f0ee;
   color: #0a0a1a;
   overflow-x: clip;
-  font-family: "Outfit", sans-serif;
+  font-family: var(--font-family-primary);
   color-scheme: light;
 }
 
@@ -63,9 +63,9 @@
     0 8px 24px rgba(255, 88, 18, 0.28),
     inset 0 1px 0 rgba(255, 255, 255, 0.22);
   color: #ffffff;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0;
+  font-size: var(--font-size-button-sm);
+  font-weight: var(--font-weight-button-sm);
+  letter-spacing: var(--letter-spacing-button-sm);
   overflow: hidden;
   position: relative;
   text-decoration: none;
@@ -303,10 +303,10 @@
 .ssx-copy h3 {
   max-width: 100%;
   margin: 0;
-  font-size: clamp(1.45rem, 2.45vw, 2.2rem);
-  font-weight: 900;
-  line-height: 0.96;
-  letter-spacing: -0.02em;
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-h3);
+  line-height: var(--line-height-h3);
+  letter-spacing: var(--letter-spacing-h3);
   overflow-wrap: normal;
   text-wrap: balance;
 }
@@ -314,18 +314,19 @@
 .ssx-headline {
   max-width: 30ch;
   margin: 0;
-  font-size: clamp(0.9rem, 1.05vw, 1.02rem);
-  font-weight: 700;
-  line-height: 1.25;
-  letter-spacing: 0;
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-h4);
+  line-height: var(--line-height-h4);
+  letter-spacing: var(--letter-spacing-h4);
   text-wrap: balance;
 }
 
 .ssx-description {
   max-width: 48ch;
   margin: 0;
-  font-size: clamp(0.78rem, 0.78vw, 0.86rem);
-  line-height: 1.55;
+  font-size: var(--font-size-description-sm);
+  line-height: var(--line-height-description-sm);
+  letter-spacing: var(--letter-spacing-description-sm);
   color: color-mix(in srgb, currentColor 60%, transparent);
   text-wrap: pretty;
 }
@@ -350,8 +351,8 @@
   border-radius: 999px;
   background: color-mix(in srgb, currentColor 5%, transparent);
   color: color-mix(in srgb, currentColor 70%, transparent);
-  font-size: 0.62rem;
-  font-weight: 700;
+  font-size: var(--font-size-caption-mobile);
+  font-weight: var(--font-weight-caption);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-align: left;
@@ -374,9 +375,9 @@
   gap: 0.4rem;
   padding: 0.55rem 1.1rem;
   border-radius: 9999px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0;
+  font-size: var(--font-size-button-sm);
+  font-weight: var(--font-weight-button-sm);
+  letter-spacing: var(--letter-spacing-button-sm);
   text-decoration: none;
   touch-action: manipulation;
   position: relative;

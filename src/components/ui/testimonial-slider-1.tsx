@@ -169,18 +169,18 @@ export const TestimonialSlider = ({
       {/* Top Header Section */}
       <div className="flex flex-col items-center text-center mb-8 md:mb-16 max-w-4xl mx-auto">
         {eyebrow && (
-          <span className="mb-3 md:mb-4 inline-flex items-center gap-2 rounded-full border border-[#FF5812]/20 bg-[#FF5812]/5 px-3 py-1 w-max text-xs font-semibold uppercase tracking-widest text-[#FF5812]">
+          <span className="mb-3 md:mb-4 inline-flex items-center gap-2 rounded-full border border-[#FF5812]/20 bg-[#FF5812]/5 px-3 py-1 w-max typo-caption text-[#FF5812] uppercase">
             <span className="h-1.5 w-1.5 rounded-full bg-[#FF5812]"></span>
             {eyebrow}
           </span>
         )}
         {heading && (
-          <h2 className="text-balance text-[clamp(2rem,4vw,3.5rem)] font-bold leading-[1.05] tracking-[-0.03em] text-[#0a0a1a]">
+          <h2 className="text-balance typo-heading-2 text-[#0a0a1a]">
             {heading}
           </h2>
         )}
         {description && (
-          <p className="mt-3 md:mt-6 text-pretty text-sm md:text-lg leading-relaxed text-[#0a0a1a]/70 font-medium">
+          <p className="mt-3 md:mt-6 text-pretty typo-description text-[#0a0a1a]/70">
             {description}
           </p>
         )}
@@ -326,16 +326,16 @@ export const TestimonialSlider = ({
                 transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
               >
                 <div className="mb-4 lg:mb-6 flex flex-col gap-1.5 lg:gap-2">
-                  <span className="text-xs sm:text-sm font-bold text-[#0a0a1a]/50 tracking-widest">
+                  <span className="typo-caption-meta font-bold text-[#0a0a1a]/50">
                     {activeReview.id} <span className="mx-1.5">/</span> {String(reviews.length).padStart(2, "0")}
                   </span>
-                  <h3 className="text-xl sm:text-2xl lg:text-[1.6rem] xl:text-[1.85rem] font-extrabold text-[#0a0a1a] leading-tight tracking-tight whitespace-normal sm:whitespace-nowrap">
+                  <h3 className="typo-heading-3 text-[#0a0a1a] whitespace-normal sm:whitespace-nowrap">
                     {activeReview.title}
                   </h3>
                 </div>
                 
                 <div className="mt-1 sm:mt-2 flex flex-col gap-2.5">
-                  <p className="text-base sm:text-lg font-bold text-[#0a0a1a] leading-snug text-pretty">
+                  <p className="typo-body text-[#0a0a1a] font-bold text-pretty">
                     {activeReview.question}
                   </p>
                   
@@ -346,10 +346,10 @@ export const TestimonialSlider = ({
                         <HelpCircle className="w-4 h-4 text-[#FF5812]" />
                       </div>
                       <div className="flex flex-col">
-                        <h4 className="text-[#FF5812] font-bold text-xs tracking-widest uppercase mb-1.5">What you may be asking</h4>
+                        <h4 className="text-[#FF5812] font-bold typo-caption uppercase mb-1.5">What you may be asking</h4>
                         <ul className="flex flex-col gap-1">
                           {activeReview.asking.map((bullet, i) => (
-                            <li key={i} className="flex items-start gap-2 text-xs text-[#0a0a1a]/70">
+                            <li key={i} className="flex items-start gap-2 typo-caption-meta text-[#0a0a1a]/70">
                               <span className="text-[#FF5812] mt-0.5 text-base leading-none">&bull;</span>
                               <span>{bullet}</span>
                             </li>
@@ -365,10 +365,10 @@ export const TestimonialSlider = ({
                       <Settings className="w-4 h-4 text-[#FF5812]" />
                     </div>
                     <div className="flex flex-col">
-                      <h4 className="text-[#FF5812] font-bold text-xs tracking-widest uppercase mb-1.5">How we help</h4>
+                      <h4 className="text-[#FF5812] font-bold typo-caption uppercase mb-1.5">How we help</h4>
                       <ul className="flex flex-col gap-1">
                         {activeReview.howWeHelp.map((bullet, i) => (
-                          <li key={i} className="flex items-start gap-2 text-xs text-[#0a0a1a]/70">
+                          <li key={i} className="flex items-start gap-2 typo-caption-meta text-[#0a0a1a]/70">
                             <span className="text-[#FF5812] mt-0.5 text-base leading-none">&bull;</span>
                             <span>{bullet}</span>
                           </li>
@@ -383,15 +383,15 @@ export const TestimonialSlider = ({
                       <TrendingUp className="w-4 h-4 text-[#FF5812]" />
                     </div>
                     <div className="flex flex-col justify-center">
-                      <h4 className="text-[#FF5812] font-bold text-xs tracking-widest uppercase mb-1">The Outcome</h4>
-                      <p className="text-xs font-bold text-[#0a0a1a]">
+                      <h4 className="text-[#FF5812] font-bold typo-caption uppercase mb-1">The Outcome</h4>
+                      <p className="typo-caption-meta font-bold text-[#0a0a1a]">
                         {activeReview.outcome}
                       </p>
                     </div>
                   </div>
 
                   {activeReview.highlight && (
-                    <p className="text-sm sm:text-base font-bold text-[#FF5812] mt-1">
+                    <p className="typo-body-sm font-bold text-[#FF5812] mt-1">
                       {activeReview.highlight}
                     </p>
                   )}

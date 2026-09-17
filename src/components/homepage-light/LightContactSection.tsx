@@ -179,11 +179,11 @@ export default function LightContactSection({
         >
           <h2
             aria-label={headlineLabel}
-            className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-semibold leading-[1.1] tracking-[-0.02em] max-w-4xl mx-auto"
+            className="typo-heading-2 max-w-4xl mx-auto"
           >
             {headlineLead} <span className="text-[#ff5812]">{headlineAccent}</span>.
           </h2>
-          <p className="mt-2 text-white/60 text-sm sm:text-base max-w-2xl mx-auto">
+          <p className="typo-body-sm mt-2 text-white/60 max-w-2xl mx-auto">
             {body}
           </p>
         </motion.div>
@@ -198,7 +198,7 @@ export default function LightContactSection({
           <div className="grid lg:min-h-[420px] grid-cols-1 lg:grid-cols-[0.32fr_1.12fr_1fr]">
             <aside className="flex flex-col justify-between border-b border-white/10 p-4 sm:p-5 lg:border-b-0 lg:border-r">
               <div>
-                <p className="text-[13px] font-semibold tracking-[-0.01em] text-white">
+                <p className="typo-caption text-white">
                   Follow us
                 </p>
                 <div className="mt-5 flex flex-wrap gap-3 lg:flex-col">
@@ -237,7 +237,7 @@ export default function LightContactSection({
                 </div>
 
                 <div>
-                  <p className="text-[18px] font-medium tracking-[-0.02em]">
+                  <p className="typo-heading-4">
                     What we offer
                   </p>
                   <div className="mt-4 flex flex-col gap-2">
@@ -253,7 +253,7 @@ export default function LightContactSection({
                         className="group flex items-center gap-3 border-b border-white/10 py-2"
                       >
                         <span className="h-2 w-2 rounded-full bg-[#ff5812] transition-transform duration-300 group-hover:scale-[1.45]" />
-                        <span className="text-sm leading-none text-white/72 transition-colors group-hover:text-white">
+                        <span className="typo-body-sm text-white/72 transition-colors group-hover:text-white">
                           {service}
                         </span>
                       </div>
@@ -264,18 +264,18 @@ export default function LightContactSection({
 
               <div className="grid gap-4 border-t border-white/10 pt-4 sm:grid-cols-2">
                 <div className="min-w-0">
-                  <p className="text-[18px] font-medium tracking-[-0.02em]">
+                  <p className="typo-heading-4">
                     E-Mail
                   </p>
                   <a
                     href="mailto:sales@softreetechnology.com"
-                    className="mt-2 block text-[14px] leading-6 text-white/58 transition-colors hover:text-[#ff5812]"
+                    className="mt-2 block typo-body-sm leading-6 text-white/58 transition-colors hover:text-[#ff5812]"
                   >
                     sales@softreetechnology.com
                   </a>
                 </div>
                 <div className="min-w-0">
-                  <p className="text-[18px] font-medium tracking-[-0.02em]">
+                  <p className="typo-heading-4">
                     Offices
                   </p>
                   <ul className="mt-3 flex flex-col gap-3">

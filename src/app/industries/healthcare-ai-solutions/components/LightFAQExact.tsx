@@ -256,7 +256,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
             {/* Top Row: always visible */}
             <div className="flex items-center justify-between w-full flex-shrink-0">
               <span
-                className="text-xs font-semibold uppercase tracking-wider transition-colors duration-500"
+                className="typo-caption uppercase tracking-wider transition-colors duration-500"
                 style={{ color: isActive ? `${FAQ_INK_MUTED}cc` : FAQ_INK_MUTED }}
               >
                 {faq.serial}
@@ -286,8 +286,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
               {/* Question */}
               <div className="mb-2">
                 <h3
-                  className={`font-semibold leading-snug transition-colors duration-500 ${isActive ? "text-base md:text-lg" : "text-sm lg:text-[13px]"
-                    }`}
+                  className="typo-heading-4 leading-snug transition-colors duration-500"
                   style={{
                     color: FAQ_INK,
                   }}
@@ -301,11 +300,11 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
           {isActive && (
             <div id={`faq-answer-${faq.id}`} className="mt-2">
               <div className="pt-2 md:pt-3">
-                <h4 className="mb-1.5 text-[11px] font-semibold uppercase tracking-wider" style={{ color: `${FAQ_INK_MUTED}99` }}>
+                <h4 className="mb-1.5 typo-caption uppercase tracking-wider" style={{ color: `${FAQ_INK_MUTED}99` }}>
                   Question Answer:
                 </h4>
                 <div className="mb-3 h-px w-14" style={{ backgroundColor: `${theme.accent}35` }} />
-                <p className="mb-4 text-sm leading-relaxed" style={{ color: `${FAQ_INK}d9` }}>
+                <p className="mb-4 typo-body-sm" style={{ color: `${FAQ_INK}d9` }}>
                   {faq.answer}
                 </p>
               </div>
@@ -343,15 +342,15 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
         {/* Section Title */}
         <div ref={titleRef} className="mb-10 md:mb-14">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-100 px-3 py-1">
-            <span className="text-[11px] font-bold text-[#FF6B2C] tracking-widest uppercase">HEALTHCARE AI FAQ</span>
+            <span className="typo-caption text-[#FF6B2C] tracking-widest uppercase">HEALTHCARE AI FAQ</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-extrabold font-['Plus_Jakarta_Sans',sans-serif] tracking-tight text-[#0a0a1a] max-w-4xl mb-4">
+          <h2 className="typo-heading-2 text-[#0a0a1a] max-w-4xl mb-4">
             Frequently Asked Questions About {" "}
             <span className="bg-gradient-to-r from-[#1852FF] to-[#FF5812] bg-clip-text text-transparent">
               Healthcare AI Engineering.
             </span>
           </h2>
-          <p className="text-base md:text-lg text-slate-600 max-w-3xl leading-relaxed">
+          <p className="typo-description text-slate-600 max-w-3xl">
             Find answers to common questions about implementing AI, automation, and offshore AI engineering services for healthcare organizations.
           </p>
         </div>

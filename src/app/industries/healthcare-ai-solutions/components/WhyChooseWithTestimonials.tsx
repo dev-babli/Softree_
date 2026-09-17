@@ -26,12 +26,6 @@ const whyChoose = [
   },
 
   {
-    icon: Tag,
-    title: "AI + Software + Data + Cloud Expertise",
-    desc: "Combine AI development, software engineering, data engineering, and cloud expertise to build scalable healthcare AI solutions and modern applications.",
-  },
-
-  {
     icon: Expand,
     title: "White-Label Delivery",
     desc: "Extend your healthcare technology capabilities with white-label AI and software engineering services delivered behind your brand and client relationships.",
@@ -48,24 +42,12 @@ const whyChoose = [
     title: "Dedicated Engineering Teams",
     desc: "Build a dedicated healthcare engineering team with AI engineers, software developers, data engineers, QA specialists, and cloud experts aligned with your roadmap.",
   },
-
-  {
-    icon: Tag,
-    title: "Scalable Delivery Capacity",
-    desc: "Scale your healthcare AI development capacity as your requirements grow, adding specialized engineering expertise for new projects, products, and AI initiatives.",
-  },
-
   {
     icon: Globe,
     title: "Long-Term Partnership",
     desc: "Support your healthcare technology roadmap beyond initial development with ongoing engineering, application modernization, AI enhancement, maintenance, and optimization.",
   },
 
-  {
-    icon: Expand,
-    title: "Experience Delivering Complex Projects",
-    desc: "Apply proven engineering expertise to complex healthcare AI projects involving enterprise applications, APIs, data platforms, AI integrations, and modern technology ecosystems.",
-  },
 ];
 
 /* ================= REVIEWS DATA ================= */
@@ -117,20 +99,20 @@ export default function WhyChooseWithTestimonials() {
         {/* ================= LEFT : WHY CHOOSE ================= */}
         <div className="relative">
           {/* Small Label */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 text-[10px] sm:text-[11px] font-bold tracking-widest text-[#FF6B00] uppercase mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] uppercase mb-4">
             <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
             Why Softree
           </div>
 
           {/* Heading */}
-          <h2 className="text-[22px] sm:text-[26px] md:text-3xl lg:text-[32px] xl:text-4xl font-extrabold font-['Plus_Jakarta_Sans',sans-serif] text-slate-900 leading-tight mb-4 tracking-tight whitespace-nowrap">
+          <h2 className="typo-heading-2 text-slate-900 leading-tight mb-4 whitespace-nowrap">
             Why Partners{" "}
             <span className="bg-gradient-to-r from-[#FF5812] to-[#FF6B2C] bg-clip-text text-transparent">
               Choose Softree
             </span>
           </h2>
 
-          <p className="text-[12px] sm:text-[13px] md:text-[14px] text-slate-600 mb-8 leading-normal max-w-[600px] line-clamp-2">
+          <p className="typo-description text-slate-600 mb-8 max-w-[600px] line-clamp-2">
             We combine healthcare understanding, engineering expertise, flexible engagement models, and delivery experience to become an extension of your team.
           </p>
 
@@ -144,7 +126,7 @@ export default function WhyChooseWithTestimonials() {
               return (
                 <div key={i} className="relative flex gap-3 items-start">
                   {/* Number */}
-                  <div className="relative z-10 flex items-center justify-center w-6 h-6 mt-0.5 text-[11px] font-semibold text-orange-600 bg-white">
+                  <div className="relative z-10 flex items-center justify-center w-6 h-6 mt-0.5 typo-caption-meta font-semibold text-orange-600 bg-white">
                     {String(i + 1).padStart(2, "0")}
                   </div>
 
@@ -155,10 +137,10 @@ export default function WhyChooseWithTestimonials() {
                         <Icon size={12} />
                       </div>
 
-                      <h3 className="text-[12px] sm:text-[13px] font-semibold">{item.title}</h3>
+                      <h3 className="typo-heading-4 text-slate-900">{item.title}</h3>
                     </div>
 
-                    <p className="text-gray-600 text-[11px] lg:text-[12px] leading-tight max-w-xl">
+                    <p className="typo-body-sm text-gray-600 max-w-xl">
                       {item.desc}
                     </p>
                   </div>
@@ -172,11 +154,11 @@ export default function WhyChooseWithTestimonials() {
         <div className="rounded-2xl p-10 bg-gradient-to-r from-black via-[#4c1c02] to-black border border-white/10 shadow-2xl h-full flex flex-col">
           {/* Header */}
           <div className="mb-10">
-            <div className="text-white text-xs uppercase tracking-widest mb-3">
+            <div className="text-white typo-caption uppercase tracking-widest mb-3">
               Client Feedback
             </div>
 
-            <h3 className="text-2xl font-semibold mb-6 text-white">
+            <h3 className="typo-heading-3 mb-6 text-white">
               Trusted by Healthcare Teams
             </h3>
 
@@ -190,11 +172,11 @@ export default function WhyChooseWithTestimonials() {
                 ))}
               </div>
 
-              <p className="font-semibold text-white">4.9 / 5</p>
-              <p className="text-gray-300 text-sm">average rating</p>
+              <p className="typo-body font-semibold text-white">4.9 / 5</p>
+              <p className="typo-body-sm text-gray-300">average rating</p>
             </div>
 
-            <p className="text-sm text-gray-400">
+            <p className="typo-body-sm text-gray-400">
               Based on{" "}
               <span className="font-medium text-white">
                 150+ client reviews
@@ -225,7 +207,7 @@ export default function WhyChooseWithTestimonials() {
                     </div>
 
                     {/* Review Comment */}
-                    <p className="text-gray-200 text-base leading-relaxed mb-6">
+                    <p className="typo-description text-gray-200 mb-6">
                       “{review.comment}”
                     </p>
 
@@ -234,12 +216,12 @@ export default function WhyChooseWithTestimonials() {
                       <div className="flex items-center gap-2">
                         <User size={14} className="text-orange-400" />
                         <div>
-                          <p className="font-semibold text-white text-sm">
+                          <p className="typo-body-sm font-semibold text-white">
                             {review.name}
                           </p>
 
                           {/* ✅ Company added here */}
-                          <p className="text-xs text-gray-400">
+                          <p className="typo-body-sm text-gray-400">
                             {review.company}
                           </p>
                         </div>
@@ -247,7 +229,7 @@ export default function WhyChooseWithTestimonials() {
 
                       <div className="flex items-center gap-2">
                         <MapPin size={13} className="text-gray-400" />
-                        <p className="text-xs text-gray-400">
+                        <p className="typo-body-sm text-gray-400">
                           {review.location}
                         </p>
                       </div>

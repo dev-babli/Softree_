@@ -148,19 +148,19 @@ export default function LogisticsCoreCapabilities() {
       <div className="w-full max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-[2cm]">
         {/* Header */}
         <div className="flex flex-col items-center w-full mb-12 md:mb-14 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 text-xs sm:text-[12px] font-bold tracking-widest text-[#FF6B00] uppercase mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] uppercase mb-4">
             <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
             LOGISTICS SYSTEMS INTEGRATION &amp; MODERNIZATION
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold font-['Plus_Jakarta_Sans',sans-serif] text-slate-900 mb-5 tracking-tight leading-[1.12] max-w-4xl">
+          <h2 className="typo-heading-2 text-slate-900 mb-5 max-w-4xl">
             Connect Software &amp; AI With Your Existing{" "}
             <span className="text-[#FF6B2C]">Supply Chain Technology Ecosystem</span>
           </h2>
-          <p className="text-base sm:text-[16.5px] lg:text-[17px] text-slate-800 font-medium max-w-3xl mx-auto mb-3 leading-relaxed">
+          <p className="typo-description text-slate-800 max-w-3xl mx-auto mb-3">
             Integrate intelligent capabilities into existing TMS, WMS, ERP, and carrier networks without rebuilding your technology stack.
           </p>
         
-          <p className="text-[15px] sm:text-base font-semibold text-[#FF6B2C] italic">
+          <p className="typo-body-sm font-semibold text-[#FF6B2C] italic">
             Modernize incrementally. Integrate intelligently. Scale without operational downtime.
           </p>
         </div>

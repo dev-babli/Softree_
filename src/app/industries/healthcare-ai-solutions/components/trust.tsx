@@ -202,7 +202,7 @@ export default function TrustedBrandsMarquee({
           {/* Heading */}
           <div className="flex items-center gap-6 mb-12">
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-zinc-300 to-transparent" />
-            <p className="shrink-0 text-2xl font-semibold tracking-widest uppercase bg-white bg-clip-text text-transparent">
+            <p className="shrink-0 typo-heading-3 uppercase bg-white bg-clip-text text-transparent">
               Trusted by Partners &amp; Clients
             </p>
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-zinc-400 to-transparent" />

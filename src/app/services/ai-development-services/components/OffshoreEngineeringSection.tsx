@@ -62,14 +62,14 @@ export default function OffshoreEngineeringSection() {
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/80 px-4 py-1.5 rounded-full border border-white/80 w-fit">
               <span className="w-2 h-2 rounded-full bg-[#FF6B2C] animate-pulse" />
-              <span className="text-[11px] font-bold text-[#FF6B2C] tracking-widest uppercase font-mono">
+              <span className="typo-caption text-[#FF6B2C]">
                 OFFSHORE AI ENGINEERING TEAMS
               </span>
             </div>
 
             {/* Headline - Title Case, NOT all uppercase */}
             <div className="space-y-1.5">
-              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-slate-900 tracking-tight leading-[1.12] font-['Plus_Jakarta_Sans',sans-serif]">
+              <h2 className="typo-heading-2 text-slate-900">
                 Dedicated Offshore{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B2C] via-[#ea580c] to-[#c2410c]">
                   AI Engineering
@@ -77,11 +77,11 @@ export default function OffshoreEngineeringSection() {
               </h2>
               <div className="flex items-center gap-2.5 pt-0.5">
                 <div className="h-4 w-1 rounded-full bg-[#FF6B2C]" />
-                <h3 className="text-lg sm:text-xl font-bold text-slate-800 tracking-tight">
+                <h3 className="typo-heading-4 text-slate-800">
                   Extend Your Team With Specialized AI Talent
                 </h3>
               </div>
-              <p className="text-slate-600 text-[14.5px] sm:text-[15px] leading-relaxed max-w-2xl pt-0.5">
+              <p className="typo-description text-slate-600 max-w-2xl pt-0.5">
                 Build a dedicated offshore engineering team aligned with your technology stack, development processes, and business goals.
               </p>
             </div>
@@ -107,7 +107,7 @@ export default function OffshoreEngineeringSection() {
                       >
                         {role.id}
                       </span>
-                      <span className="text-[10px] font-mono tracking-wider font-semibold text-slate-400 uppercase">
+                      <span className="typo-caption-meta text-slate-400">
                         {role.domain}
                       </span>
                       {isActive && (
@@ -115,13 +115,13 @@ export default function OffshoreEngineeringSection() {
                       )}
                     </div>
                     <h4
-                      className={`text-[14.5px] sm:text-[15.5px] font-bold transition-colors leading-snug ${
+                      className={`typo-heading-4 transition-colors leading-snug ${
                         isActive ? "text-[#FF6B2C]" : "text-slate-900 group-hover:text-[#FF6B2C]"
                       }`}
                     >
                       {role.title}
                     </h4>
-                    <p className="text-[12px] text-slate-500 leading-relaxed mt-0.5 line-clamp-2">
+                    <p className="typo-body-sm text-slate-500 mt-0.5 line-clamp-2">
                       {role.description}
                     </p>
                   </div>

@@ -155,7 +155,7 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
             body="A structured offshore delivery model designed for speed, scalability, and long-term business impact."
           />
         </motion.div>
-        <Link href="/contact" className="ssx-intro-action">
+        <Link href="/contact" className="ssx-intro-action typo-button-sm">
           <span>Start a Project</span>
           <ArrowRight className="ssx-action-icon" aria-hidden />
         </Link>
@@ -170,20 +170,20 @@ export function ServicesStackedSlides({ className = "" }: { className?: string }
             <div className="ssx-section-content">
               <div className="ssx-section-inner">
                 <div className="ssx-copy">
-                  <div className="ssx-phase">
+                  <div className="ssx-phase typo-caption">
                     <span className="ssx-index">{slide.index}</span>
                     <span>{slide.phase}</span>
                   </div>
-                  <h3>{slide.title}</h3>
-                  <p className="ssx-headline">{slide.headline}</p>
-                  <p className="ssx-description">{slide.description}</p>
+                  <h3 className="typo-heading-3">{slide.title}</h3>
+                  <p className="ssx-headline typo-heading-4">{slide.headline}</p>
+                  <p className="ssx-description typo-description-sm">{slide.description}</p>
                   <ul className="ssx-outcomes" aria-label={`${slide.title} outcomes`}>
                     {slide.outcomes.map((outcome) => (
                       <li key={outcome}>{outcome}</li>
                     ))}
                   </ul>
                   <div className="ssx-actions">
-                    <Link href="/contact" className="ssx-action-primary">
+                    <Link href="/contact" className="ssx-action-primary typo-button-sm">
                       <span>Start a Project</span>
                       <ArrowRight className="ssx-action-icon" aria-hidden />
                     </Link>

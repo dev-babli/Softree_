@@ -8,6 +8,7 @@
 
 | Topic | Location |
 | --- | --- |
+| Typography tokens & classes | `src/styles/typography.css` |
 | Motion tokens | `src/lib/motion.ts` |
 | CSS theme variables | `src/app/globals.css` |
 | Section headers | `src/components/homepage-light/SectionHeader.tsx` |
@@ -80,18 +81,28 @@ Prefer `--softree-*` when adding global styles:
 ---
 
 ## 3. Typography
-
-| Rule | Value |
-| --- | --- |
-| Font family | **Inter** only (`--font-sans` in `globals.css`) |
-| Do not add | Bebas Neue, DM Sans, or extra display families without design sign-off |
-| Badge labels | `text-[11px]` · `font-semibold` · `uppercase` · `tracking-[0.18em]` to `tracking-[0.22em]` |
-| Section H2 | `font-semibold` · `leading-[0.9]` · `tracking-[-0.04em]` · `clamp(32px, 4.5vw, 56px)` |
-| Hero H1 | Same weight/tracking · `clamp(48px, 8vw, 110px)` |
-| Body | `text-base` · `leading-relaxed` · max width ~`640px` for prose |
-| Stats / numbers | `tabular-nums` · bold display size · accent color on the number only |
-
-Use proper typographic punctuation in copy (curly quotes, em dashes where appropriate).
+ 
+ All typography is centrally defined in `src/styles/typography.css` (imported globally via `globals.css`). Use the centralized utility classes rather than hardcoded ad-hoc styles:
+ 
+ | Role | Utility Class | Value & Properties |
+ | --- | --- | --- |
+ | Font family | — | **Inter** only (`--font-family-primary` / `--font-sans`) |
+ | Title (Hero / Display) | `.typo-title` | `font-semibold` · `leading-[1.05]` · `tracking-[-0.03em]` · `clamp(2.25rem, 4.5vw, 4.5rem)` |
+ | Section H1 / Pillar | `.typo-heading-1` | `font-semibold` · `leading-[1.08]` · `tracking-[-0.03em]` · `clamp(2rem, 3.4vw, 3.75rem)` |
+ | Section H2 | `.typo-heading-2` | `font-semibold` · `leading-[0.92]` · `tracking-[-0.04em]` · `clamp(32px, 4.5vw, 56px)` |
+ | Card / Service H3 | `.typo-heading-3` | `font-bold` · `leading-[1.12]` · `tracking-[-0.02em]` · `clamp(1.35rem, 2.45vw, 2.2rem)` |
+ | Sub-heading H4 | `.typo-heading-4` | `font-semibold` · `leading-[1.3]` · `tracking-[-0.01em]` · `clamp(1.05rem, 1.2vw, 1.25rem)` |
+ | Lead Description | `.typo-description` | `font-normal` · `leading-[1.65]` · `tracking-[-0.01em]` · `clamp(0.9375rem, 1.3vw, 1.25rem)` |
+ | Card Description | `.typo-description-sm`| `font-normal` · `leading-[1.55]` · `clamp(0.85rem, 1vw, 1.02rem)` |
+ | Body Default | `.typo-body` | `text-base (16px)` · `leading-relaxed (1.625)` · max width ~`640px` for prose |
+ | Body Small | `.typo-body-sm` | `0.875rem (14px)` · `leading-normal (1.5)` |
+ | Button Default | `.typo-button` | `0.9375rem (15px)` · `font-semibold` · `leading-none` |
+ | Button Large | `.typo-button-lg` | `1rem (16px)` · `font-semibold` · `leading-none` |
+ | Button Small | `.typo-button-sm` | `0.8125rem (13px)` · `font-semibold` · `leading-none` |
+ | Badge / Eyebrow | `.typo-caption` | `11px` (mobile `10px`) · `font-semibold` · `uppercase` · `tracking-[0.20em]` |
+ | Stats / numbers | `tabular-nums` | `tabular-nums` · bold display size · accent color on the number only |
+ 
+ Use proper typographic punctuation in copy (curly quotes, em dashes where appropriate).
 
 ---
 

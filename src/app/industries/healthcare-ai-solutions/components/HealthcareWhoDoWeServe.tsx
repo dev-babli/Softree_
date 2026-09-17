@@ -204,14 +204,14 @@ export default function HealthcareWhoDoWeServe() {
       >
         {/* Top Header Section */}
         <div className="flex flex-col items-center text-center mb-12 md:mb-16 max-w-4xl mx-auto">
-          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#FF6B2C]/20 bg-[#FF6B2C]/5 px-3 py-1 w-max text-xs font-semibold uppercase tracking-widest text-[#FF6B2C]">
+          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#FF6B2C]/20 bg-[#FF6B2C]/5 px-3 py-1 w-max typo-caption uppercase tracking-widest text-[#FF6B2C]">
             <span className="h-1.5 w-1.5 rounded-full bg-[#FF6B2C]"></span>
             WHO DO WE SERVE
           </span>
-          <h2 className="text-balance text-[clamp(2.5rem,4vw,3.5rem)] font-extrabold font-['Plus_Jakarta_Sans',sans-serif] leading-[1.05] tracking-tight text-[#0a0a1a]">
+          <h2 className="text-balance typo-heading-1 leading-[1.05] text-[#0a0a1a]">
             Who Do We Serve?
           </h2>
-          <p className="mt-4 md:mt-6 text-pretty text-base md:text-lg leading-relaxed text-[#0a0a1a]/70 font-medium">
+          <p className="mt-4 md:mt-6 text-pretty typo-description text-[#0a0a1a]/70">
             We partner with organizations that need healthcare technology expertise and engineering capacity to build, extend, or deliver industry-specific solutions.
           </p>
         </div>
@@ -220,7 +220,7 @@ export default function HealthcareWhoDoWeServe() {
 
           {/* === Left Column: Audience Navigation === */}
           <div className="lg:col-span-3 flex flex-col order-2 lg:order-1">
-            <div className="flex items-center mb-4 font-bold text-sm tracking-widest">
+            <div className="flex items-center mb-4 typo-caption font-bold tracking-widest">
               <span className="text-[#FF6B2C]">{activeReview.id}</span>
               <span className="text-[#0a0a1a]/30 mx-2">/</span>
               <span className="text-[#0a0a1a]/50">07</span>
@@ -251,10 +251,10 @@ export default function HealthcareWhoDoWeServe() {
                       <div className="w-12 h-12 rounded-lg bg-slate-200 flex-shrink-0" />
                     )}
                     <div className="flex flex-col">
-                      <span className={cn("text-xs font-bold mb-0.5", isActive ? "text-[#FF6B2C]" : "text-[#0a0a1a]/50")}>
+                      <span className={cn("typo-caption-meta font-bold mb-0.5", isActive ? "text-[#FF6B2C]" : "text-[#0a0a1a]/50")}>
                         {review.id}
                       </span>
-                      <span className="text-sm font-semibold leading-tight text-balance text-[#0a0a1a]">
+                      <span className="typo-body-sm font-semibold leading-tight text-balance text-[#0a0a1a]">
                         {review.title}
                       </span>
                     </div>
@@ -309,16 +309,16 @@ export default function HealthcareWhoDoWeServe() {
                   transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
                 >
                   <div className="mb-6 flex flex-col gap-2">
-                    <span className="text-sm font-bold text-[#0a0a1a]/50 tracking-widest">
+                    <span className="typo-caption font-bold text-[#0a0a1a]/50 tracking-widest">
                       {activeReview.id} <span className="mx-2">/</span> 07
                     </span>
-                    <h3 className="text-[1.3rem] md:text-2xl lg:text-[1.6rem] xl:text-[1.85rem] font-extrabold text-[#0a0a1a] leading-tight tracking-tight">
+                    <h3 className="typo-heading-3 text-[#0a0a1a] leading-tight">
                       {activeReview.title}
                     </h3>
                   </div>
 
                   <div className="mt-2 flex flex-col gap-2.5">
-                    <p className="text-base md:text-lg font-bold text-[#0a0a1a] leading-snug text-pretty mb-2">
+                    <p className="typo-heading-4 text-[#0a0a1a] mb-2">
                       {activeReview.question}
                     </p>
 
@@ -328,10 +328,10 @@ export default function HealthcareWhoDoWeServe() {
                         <HelpCircle className="w-4 h-4 text-[#FF6B2C]" />
                       </div>
                       <div className="flex flex-col">
-                        <h4 className="text-[#FF6B2C] font-bold text-xs tracking-widest uppercase mb-1.5">What you may be asking</h4>
+                        <h4 className="text-[#FF6B2C] typo-caption font-bold tracking-widest uppercase mb-1.5">What you may be asking</h4>
                         <ul className="flex flex-col gap-1">
                           {activeReview.asking.map((bullet, i) => (
-                            <li key={i} className="flex items-start gap-2 text-xs text-[#0a0a1a]/70">
+                            <li key={i} className="flex items-start gap-2 typo-body-sm text-[#0a0a1a]/70">
                               <span className="text-[#FF6B2C] mt-0.5 text-base leading-none">&bull;</span>
                               <span>{bullet}</span>
                             </li>
@@ -346,10 +346,10 @@ export default function HealthcareWhoDoWeServe() {
                         <Settings className="w-4 h-4 text-[#FF6B2C]" />
                       </div>
                       <div className="flex flex-col">
-                        <h4 className="text-[#FF6B2C] font-bold text-xs tracking-widest uppercase mb-1.5">How we help</h4>
+                        <h4 className="text-[#FF6B2C] typo-caption font-bold tracking-widest uppercase mb-1.5">How we help</h4>
                         <ul className="flex flex-col gap-1">
                           {activeReview.howWeHelp.map((bullet, i) => (
-                            <li key={i} className="flex items-start gap-2 text-xs text-[#0a0a1a]/70">
+                            <li key={i} className="flex items-start gap-2 typo-body-sm text-[#0a0a1a]/70">
                               <span className="text-[#FF6B2C] mt-0.5 text-base leading-none">&bull;</span>
                               <span>{bullet}</span>
                             </li>
@@ -364,8 +364,8 @@ export default function HealthcareWhoDoWeServe() {
                         <TrendingUp className="w-4 h-4 text-[#FF6B2C]" />
                       </div>
                       <div className="flex flex-col justify-center">
-                        <h4 className="text-[#FF6B2C] font-bold text-xs tracking-widest uppercase mb-1">The Outcome</h4>
-                        <p className="text-xs font-bold text-[#0a0a1a]">
+                        <h4 className="text-[#FF6B2C] typo-caption font-bold tracking-widest uppercase mb-1">The Outcome</h4>
+                        <p className="typo-body-sm font-bold text-[#0a0a1a]">
                           {activeReview.outcome}
                         </p>
                       </div>
@@ -396,7 +396,7 @@ export default function HealthcareWhoDoWeServe() {
               >
                 <ArrowRight className="w-5 h-5" />
               </Button>
-              <span className="text-sm font-semibold ml-4 text-[#0a0a1a]/50">
+              <span className="typo-caption-meta font-semibold ml-4 text-[#0a0a1a]/50">
                 {String(currentIndex + 1).padStart(2, "0")} / 07
               </span>
             </div>
@@ -406,7 +406,7 @@ export default function HealthcareWhoDoWeServe() {
 
         {/* Bottom CTA */}
         <div className="mt-8 lg:mt-12 flex flex-col items-center text-center border-t border-slate-200 pt-8 md:pt-10 px-6">
-          <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-slate-900 w-full max-w-none md:whitespace-nowrap">
+          <h3 className="typo-heading-3 text-slate-900 w-full max-w-none md:whitespace-nowrap">
             Whatever you&apos;re building, modernizing, or scaling, we&apos;re ready to work alongside you.
           </h3>
           <FlowButton href="/who-do-we-serve" text="Explore Who We Serve" className="mt-6" />

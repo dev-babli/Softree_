@@ -741,14 +741,14 @@ export default function WhySoftreeCurtainSlider() {
       {/* Global Section Header */}
       <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col items-start text-left mb-8 md:mb-12">
         <div className="inline-flex items-center mb-3">
-          <span className="px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-[#FF5812] text-xs font-mono font-bold tracking-widest uppercase">
+          <span className="px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-[#FF5812] typo-caption">
             AI DELIVERY PROCESS
           </span>
         </div>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-3 text-slate-900 leading-[1.2] md:leading-[1.15]">
+        <h2 className="typo-heading-2 tracking-tight mb-3 text-slate-900">
           AI Engineering Delivery: <span className="text-[#FF5812]">From AI Idea to Production</span>
         </h2>
-        <div className="max-w-3xl space-y-1.5 text-sm sm:text-base md:text-lg text-slate-600 font-normal leading-relaxed">
+        <div className="max-w-3xl space-y-1.5 typo-description text-slate-600">
           <p>A successful AI implementation needs more than a model.</p>
           <p>It requires business understanding, architecture, data, engineering, evaluation, security, integration, and production delivery.</p>
         </div>
@@ -881,14 +881,14 @@ export default function WhySoftreeCurtainSlider() {
               >
                 {/* Capability Header */}
                 <div>
-                  <div className="text-orange-400 text-[10px] md:text-[11px] font-mono font-bold tracking-[0.2em] uppercase mb-1.5 flex items-center gap-1.5">
+                  <div className="text-orange-400 typo-caption mb-1.5 flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-orange-400 shadow-[0_0_6px_#FF5812]" />
                     SYSTEM CAPABILITY
                   </div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl lg:text-[22px] xl:text-[24px] leading-[1.25] font-bold text-white tracking-tight drop-shadow-xl">
+                  <h3 className="typo-heading-3 leading-[1.25] text-white tracking-tight drop-shadow-xl">
                     {activeData.heading}
                   </h3>
-                  <p className="text-xs sm:text-[13px] md:text-[13px] text-slate-300 mt-1 leading-relaxed drop-shadow">
+                  <p className="typo-body-sm text-slate-300 mt-1 leading-relaxed drop-shadow">
                     {activeData.subheading}
                   </p>
                 </div>

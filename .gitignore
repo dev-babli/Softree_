@@ -56,3 +56,6 @@ functions/**/node_modules/
 
 # Sentry Config File
 .env.sentry-build-plugin
+
+# Local scratch / separate projects
+/Projects/

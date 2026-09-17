@@ -314,16 +314,13 @@ export default function AgenticAIWipeSlider() {
 
         {/* Top: Section Header */}
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF5812]/15 border border-[#FF5812]/35 backdrop-blur-md text-[#FF5812] text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] mb-2.5">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF5812]/15 border border-[#FF5812]/35 backdrop-blur-md text-[#FF5812] typo-caption uppercase tracking-[0.2em] mb-2.5">
             <span className="w-1.5 h-1.5 rounded-full bg-[#FF5812] animate-pulse" />
             CLINICAL AGENTIC AI
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[38px] font-extrabold font-['Plus_Jakarta_Sans',sans-serif] tracking-tight text-white drop-shadow-md leading-tight mb-2">
+          <h2 className="typo-heading-2 text-white drop-shadow-md leading-tight mb-2">
             Build Intelligent Clinical AI Agents for Healthcare
           </h2>
-          <p className="text-xs sm:text-sm lg:text-[14.5px] text-white/75 font-normal leading-relaxed max-w-2xl">
-            Build healthcare AI agents that go beyond generating answers. Our Clinical Agentic AI solutions understand clinical goals, reason across patient data, integrate with EHR systems, use healthcare tools, and execute complex, multi-step clinical workflows with intelligent automation.
-          </p>
         </div>
 
         {/* Middle: Active Agentic Stage Glass Card */}
@@ -337,23 +334,23 @@ export default function AgenticAIWipeSlider() {
 
             {/* Card Header Row */}
             <div className="flex items-center justify-between gap-3 pb-3 border-b border-white/10 mb-3 sm:mb-4">
-              <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-[#FF5812]/15 border border-[#FF5812]/30 text-orange-400 text-[10px] sm:text-[11px] font-mono font-bold tracking-wider">
+              <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-[#FF5812]/15 border border-[#FF5812]/30 text-orange-400 typo-caption font-bold">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#FF5812] animate-pulse" />
                 STEP {activeSlide.number} OF {String(slides.length).padStart(2, '0')}
               </div>
-              <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-white/50 flex items-center gap-1.5">
+              <span className="typo-caption-meta uppercase text-white/50 flex items-center gap-1.5">
                 <Sparkles className="w-3 h-3 text-[#FF5812]" />
                 {activeSlide.badge}
               </span>
             </div>
 
             {/* Step Title */}
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-['Plus_Jakarta_Sans',sans-serif] text-white tracking-tight mb-2">
+            <h3 className="typo-heading-3 text-white mb-2">
               <span className="text-[#FF5812]">{activeSlide.number}.</span> {activeSlide.title}
             </h3>
 
             {/* Step Description */}
-            <p className="text-xs sm:text-sm lg:text-[15px] text-white/85 leading-relaxed mb-4 font-normal">
+            <p className="typo-body-sm text-white/85 mb-4">
               {activeSlide.description}
             </p>
 
@@ -362,7 +359,7 @@ export default function AgenticAIWipeSlider() {
               {activeSlide.highlights.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex items-start gap-2 bg-white/[0.04] border border-white/[0.06] rounded-lg p-2 text-[11px] sm:text-xs text-white/80 leading-snug"
+                  className="flex items-start gap-2 bg-white/[0.04] border border-white/[0.06] rounded-lg p-2 typo-body-sm text-white/80"
                 >
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#FF5812] shrink-0 mt-0.5" />
                   <span>{item}</span>
@@ -379,9 +376,9 @@ export default function AgenticAIWipeSlider() {
                 <button
                   key={idx}
                   onClick={() => goToSlide(idx, idx > activeIndex ? "next" : "prev")}
-                  className={`px-2.5 sm:px-3 py-1 rounded-lg text-[11px] sm:text-xs font-mono font-medium transition-all shrink-0 cursor-pointer ${isActive
-                      ? "bg-[#FF5812] text-white shadow-md shadow-[#FF5812]/30 font-bold border border-[#FF5812]"
-                      : "bg-white/[0.06] hover:bg-white/[0.12] text-white/60 hover:text-white border border-white/10"
+                  className={`px-2.5 sm:px-3 py-1 rounded-lg typo-caption font-medium transition-all shrink-0 cursor-pointer ${isActive
+                    ? "bg-[#FF5812] text-white shadow-md shadow-[#FF5812]/30 font-bold border border-[#FF5812]"
+                    : "bg-white/[0.06] hover:bg-white/[0.12] text-white/60 hover:text-white border border-white/10"
                     }`}
                 >
                   {s.number} {s.title}
@@ -395,11 +392,11 @@ export default function AgenticAIWipeSlider() {
         <div className="pt-3 border-t border-white/10 flex items-center justify-between w-full max-w-5xl">
           {/* Slide Indicator */}
           <div className="flex items-center gap-3">
-            <span className="text-xs sm:text-sm font-mono tracking-widest text-white/80 uppercase">
+            <span className="typo-caption-meta text-white/80 uppercase">
               <span ref={chapterRef} className="font-bold text-white">{activeSlide.number}</span> / {String(slides.length).padStart(2, '0')}
             </span>
-            <span className="hidden sm:inline-block text-xs text-white/40 font-mono">|</span>
-            <span className="hidden sm:inline-block text-xs font-mono text-orange-400">
+            <span className="hidden sm:inline-block text-xs text-white/40">|</span>
+            <span className="hidden sm:inline-block typo-caption-meta text-orange-400">
               {activeSlide.title}
             </span>
           </div>
@@ -431,7 +428,7 @@ export default function AgenticAIWipeSlider() {
                 style={{ width: `${((activeIndex + 1) / slides.length) * 100}%` }}
               />
             </div>
-            <span ref={progressRef} className="text-xs sm:text-sm font-mono font-bold text-white/90">
+            <span ref={progressRef} className="typo-caption-meta font-bold text-white/90">
               {Math.round(((activeIndex + 1) / slides.length) * 100)}%
             </span>
           </div>

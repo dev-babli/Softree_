@@ -188,14 +188,12 @@ function RoadmapItem({ phase, isActive }: RoadmapItemProps) {
         {/* Trigger Row info */}
         <div className="w-full flex items-center justify-between gap-6 text-left select-none">
           <div className="flex items-center gap-4 sm:gap-6">
-            {/* Number tag */}
-            <span className={`text-[14px] sm:text-[16px] font-mono font-bold transition-colors duration-300 ${
-              isActive ? "text-[#FF6B2C]" : "text-zinc-500"
-            }`}>
+            {/* Phase Number Badge */}
+            <span className="typo-caption text-[#FF6B2C] group-hover:scale-105 transition-transform duration-300">
               [{phase.number}]
             </span>
             {/* Title */}
-            <h3 className={`text-lg sm:text-xl md:text-2xl font-extrabold transition-colors duration-300 ${
+            <h3 className={`typo-heading-3 transition-colors duration-300 ${
               isActive ? "text-white" : "text-zinc-400 group-hover:text-zinc-200"
             }`}>
               {phase.title}
@@ -224,7 +222,7 @@ function RoadmapItem({ phase, isActive }: RoadmapItemProps) {
             >
               <div className="pt-4 pb-2 pr-4 sm:pr-8">
                 {/* Description text */}
-                <p className="text-[13.5px] sm:text-[14.5px] text-zinc-400 leading-relaxed max-w-3xl text-justify">
+                <p className="typo-body-sm text-zinc-400 max-w-3xl text-justify">
                   {phase.description}
                 </p>
               </div>
@@ -301,7 +299,7 @@ export default function AiRoadmap() {
             className="mb-4 inline-block"
           >
             <div className="shadow-[inset_2px_2px_5px_#27272a,inset_-2px_-2px_5px_#09090b] bg-zinc-900/80 px-4 py-1.5 rounded-full border border-white/10">
-              <span className="text-[11px] font-bold text-[#FF6B2C] tracking-widest uppercase">
+              <span className="typo-caption text-[#FF6B2C]">
                 SECURITY & GOVERNANCE
               </span>
             </div>
@@ -312,7 +310,7 @@ export default function AiRoadmap() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4"
+            className="typo-heading-2 text-white tracking-tight mb-4"
           >
             Enterprise AI Security & Governance: <span className="text-[#FF6B2C]">Intelligence With Security and Control</span>
           </motion.h2>
@@ -322,7 +320,7 @@ export default function AiRoadmap() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-[15px] lg:text-base text-slate-300 leading-relaxed max-w-2xl"
+            className="typo-description text-slate-300 max-w-2xl"
           >
             Enterprise AI needs more than intelligent outputs. AI systems must operate within appropriate security, identity, governance, monitoring, and human oversight controls.
           </motion.p>

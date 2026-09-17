@@ -20,7 +20,7 @@ export default function TrustStrip({ theme = "light" }: TrustStripProps) {
       {/* Section Heading with Lines */}
       <div className="flex items-center w-full max-w-[90%] md:max-w-4xl gap-4">
         <div className={`h-px flex-1 ${isDark ? "bg-white/20" : "bg-slate-200/70"}`}></div>
-        <span className={`text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] ${isDark ? "text-white/90" : "text-[#1e293b]"}`}>
+        <span className={`typo-caption ${isDark ? "text-white/90" : "text-[#1e293b]"}`}>
           TRUSTED BY BUSINESSES AND TECHNOLOGY PARTNERS WORLDWIDE
         </span>
         <div className={`h-px flex-1 ${isDark ? "bg-white/20" : "bg-slate-200/70"}`}></div>
@@ -75,10 +75,10 @@ export default function TrustStrip({ theme = "light" }: TrustStripProps) {
                 <item.icon className={`w-6 h-6 sm:w-7 sm:h-7 ${item.color} stroke-[1.5]`} />
               </div>
               <div className="flex flex-col text-left leading-snug">
-                <span className="text-[10px] xl:text-[10.5px] font-bold text-slate-800 tracking-tight whitespace-nowrap">
+                <span className="typo-caption-meta font-bold text-slate-800 tracking-tight whitespace-nowrap">
                   {item.title}
                 </span>
-                <span className="text-[10px] text-slate-500 mt-0.5 whitespace-pre-line">
+                <span className="typo-caption-meta text-slate-500 mt-0.5 whitespace-pre-line">
                   {item.subtitle}
                 </span>
               </div>

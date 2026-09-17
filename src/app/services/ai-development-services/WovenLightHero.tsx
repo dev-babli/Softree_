@@ -228,8 +228,7 @@ export const WovenLightHero = () => {
               custom={0}
               initial={{ opacity: 0, y: 15 }}
               animate={textControls}
-              className="mb-3.5 sm:mb-4 inline-flex items-center gap-2 rounded-full border border-[#FF6B00]/40 bg-[#FF6B00]/10 px-4.5 sm:px-5 py-2 text-xs sm:text-[13px] font-semibold text-[#FF6B00] backdrop-blur-md shadow-[0_0_15px_rgba(255,107,0,0.15)] w-fit"
-              style={{ fontFamily: "'Inter', sans-serif" }}
+              className="mb-3.5 sm:mb-4 inline-flex items-center gap-2 rounded-full border border-[#FF6B00]/40 bg-[#FF6B00]/10 px-4.5 sm:px-5 py-2 typo-caption text-[#FF6B00] backdrop-blur-md shadow-[0_0_15px_rgba(255,107,0,0.15)] w-fit"
             >
               <span className="h-2 w-2 rounded-full bg-[#FF6B00] shadow-[0_0_8px_#FF6B00] animate-pulse" />
               <span>Build AI. Scale Faster.</span>
@@ -240,9 +239,8 @@ export const WovenLightHero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-[58px] xl:text-[66px] font-bold text-white tracking-tight leading-[1.08]"
+              className="typo-title text-white tracking-tight leading-[1.08]"
               style={{
-                fontFamily: "'Playfair Display', serif",
                 textShadow: '0 0 35px rgba(255, 107, 0, 0.25)',
               }}
             >
@@ -259,8 +257,7 @@ export const WovenLightHero = () => {
               custom={4}
               initial={{ opacity: 0, y: 20 }}
               animate={textControls}
-              className="mt-4 sm:mt-5 text-base sm:text-lg lg:text-[19px] xl:text-xl text-slate-300 dark:text-slate-400 leading-relaxed font-normal max-w-xl"
-              style={{ fontFamily: "'Inter', sans-serif" }}
+              className="mt-4 sm:mt-5 typo-description text-slate-300 dark:text-slate-400 max-w-xl"
             >
               Build and scale AI agents with a dedicated offshore engineering team.
             </motion.p>
@@ -276,7 +273,7 @@ export const WovenLightHero = () => {
                 href="/contact"
                 text="Build Your AI Team"
                 variant="orange-filled"
-                className="w-full sm:w-auto shadow-lg shadow-[#FF6B00]/30 font-inter"
+                className="w-full sm:w-auto shadow-lg shadow-[#FF6B00]/30 typo-button-lg"
               />
              
             </motion.div>
@@ -287,14 +284,13 @@ export const WovenLightHero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
               className="mt-5 sm:mt-6 flex flex-wrap items-center gap-2 sm:gap-2.5 max-w-2xl"
-              style={{ fontFamily: "'Inter', sans-serif" }}
             >
               {capabilities.map((item, idx) => {
                 const Icon = item.icon;
                 return (
                   <div
                     key={idx}
-                    className="group inline-flex items-center gap-2.5 px-4 sm:px-4.5 py-2 sm:py-2.5 rounded-full bg-white/[0.08] hover:bg-white/[0.14] border border-white/20 hover:border-[#FF6B00]/70 backdrop-blur-md text-[12.5px] sm:text-[13.5px] font-medium text-white shadow-sm hover:shadow-[0_0_15px_rgba(255,107,0,0.35)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 select-none cursor-default"
+                    className="group inline-flex items-center gap-2.5 px-4 sm:px-4.5 py-2 sm:py-2.5 rounded-full bg-white/[0.08] hover:bg-white/[0.14] border border-white/20 hover:border-[#FF6B00]/70 backdrop-blur-md typo-caption-meta text-white shadow-sm hover:shadow-[0_0_15px_rgba(255,107,0,0.35)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 select-none cursor-default"
                   >
                     <Icon />
                     <span className="tracking-wide text-white/90 group-hover:text-white">{item.title}</span>

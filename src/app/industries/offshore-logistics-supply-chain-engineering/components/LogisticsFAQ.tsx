@@ -218,7 +218,7 @@ export default function LogisticsFAQ() {
           >
             <div className="flex items-center justify-between w-full flex-shrink-0">
               <span
-                className="text-xs sm:text-[13px] font-mono font-bold uppercase tracking-wider transition-colors duration-500"
+                className="typo-caption-meta font-bold uppercase tracking-wider transition-colors duration-500"
                 style={{ color: isActive ? `${FAQ_INK_MUTED}cc` : FAQ_INK_MUTED }}
               >
                 {faq.serial}
@@ -246,9 +246,7 @@ export default function LogisticsFAQ() {
             <div className="mt-auto flex flex-col transition-all duration-500">
               <div className="mb-2">
                 <h3
-                  className={`leading-snug transition-colors duration-500 ${
-                    isActive ? "text-lg sm:text-xl font-bold" : "text-base sm:text-[17px] font-semibold"
-                  }`}
+                  className="typo-heading-4 transition-colors duration-500"
                   style={{
                     color: FAQ_INK,
                   }}
@@ -262,11 +260,11 @@ export default function LogisticsFAQ() {
           {isActive && (
             <div id={`faq-answer-${faq.id}`} className="mt-2">
               <div className="pt-2 md:pt-3">
-                <h4 className="mb-1.5 text-xs font-mono font-bold uppercase tracking-wider" style={{ color: `${FAQ_INK_MUTED}99` }}>
+                <h4 className="mb-1.5 typo-caption font-bold uppercase tracking-wider" style={{ color: `${FAQ_INK_MUTED}99` }}>
                   Question Answer:
                 </h4>
                 <div className="mb-3 h-px w-14" style={{ backgroundColor: `${theme.accent}35` }} />
-                <p className="mb-4 text-sm sm:text-[15.5px] leading-relaxed text-slate-700">
+                <p className="mb-4 typo-body-sm text-slate-700">
                   {faq.answer}
                 </p>
               </div>
@@ -299,17 +297,17 @@ export default function LogisticsFAQ() {
       />
       <div className="mx-auto w-full max-w-[1800px] px-4 sm:px-6 lg:px-[2cm]">
         <div ref={titleRef} className="mb-10 md:mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 text-xs sm:text-[12px] font-bold tracking-widest text-[#FF6B00] uppercase mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] uppercase mb-4">
             <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
             LOGISTICS AI &amp; ENGINEERING FAQ
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold font-['Plus_Jakarta_Sans',sans-serif] tracking-tight text-slate-900 max-w-4xl mb-4 leading-[1.12]">
+          <h2 className="typo-heading-2 text-slate-900 max-w-4xl mb-4">
             Frequently Asked Questions About{" "}
             <span className="bg-gradient-to-r from-[#1852FF] to-[#FF5812] bg-clip-text text-transparent">
               Logistics AI Solutions
             </span>
           </h2>
-          <p className="text-base sm:text-[16.5px] lg:text-[17px] text-slate-500 max-w-3xl leading-relaxed">
+          <p className="typo-description text-slate-500 max-w-3xl">
             Find answers to common questions about logistics AI solutions, supply chain automation, offshore engineering teams, white-label delivery, enterprise integrations, and ongoing technology support.
           </p>
         </div>

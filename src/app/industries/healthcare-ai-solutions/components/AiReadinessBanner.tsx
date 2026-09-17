@@ -29,19 +29,19 @@ export default function AiReadinessBanner() {
           <div className="relative z-10 flex-1 lg:flex-[0.95] xl:flex-[0.85] p-6 sm:p-8 lg:p-10 xl:p-12 flex flex-col justify-center items-start">
 
             {/* Insight tag */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-200 bg-orange-50 text-[10px] sm:text-[11px] font-bold tracking-widest text-[#FF6B00] uppercase mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] uppercase mb-4">
               <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
               How We Partner
             </div>
 
             {/* Headline */}
-            <h2 className="text-3xl md:text-4xl lg:text-[40px] font-extrabold font-['Plus_Jakarta_Sans',sans-serif] tracking-tight leading-[1.05] mb-4">
+            <h2 className="typo-heading-2 leading-[1.05] mb-4">
               <span className="text-slate-900 block sm:whitespace-nowrap">Your Project. Your Brand.</span>
               <span className="text-[#FF6B2C] block sm:whitespace-nowrap">Our Engineering Team.</span>
             </h2>
 
             {/* Description Paragraph */}
-            <p className="text-[13.5px] lg:text-[14px] xl:text-[15px] text-slate-500 leading-relaxed max-w-lg mb-5 text-left">
+            <p className="typo-description text-slate-500 max-w-lg mb-5 text-left">
               Choose the engagement model that works best for your business. We can work behind the scenes, alongside your team, or take ownership of project delivery.
             </p>
 
@@ -56,8 +56,8 @@ export default function AiReadinessBanner() {
                   </div>
                 </div>
                 <div className="flex flex-col justify-center">
-                  <h4 className="text-[14px] lg:text-[15px] font-bold text-slate-900 mb-0.5 leading-tight">01 — White-Label Partnership</h4>
-                  <p className="text-[12px] xl:text-[12.5px] text-slate-500 leading-snug">
+                  <h4 className="typo-heading-4 text-slate-900 mb-0.5">01 — White-Label Partnership</h4>
+                  <p className="typo-body-sm text-slate-500">
                     Your brand and client relationship stay with you. Softree provides the healthcare engineering team behind the scenes.
                   </p>
                 </div>
@@ -71,8 +71,8 @@ export default function AiReadinessBanner() {
                   </div>
                 </div>
                 <div className="flex flex-col justify-center">
-                  <h4 className="text-[14px] lg:text-[15px] font-bold text-slate-900 mb-0.5 leading-tight">02 — Dedicated Healthcare Team</h4>
-                  <p className="text-[12px] xl:text-[12.5px] text-slate-500 leading-snug">
+                  <h4 className="typo-heading-4 text-slate-900 mb-0.5">02 — Dedicated Healthcare Team</h4>
+                  <p className="typo-body-sm text-slate-500">
                     Build a dedicated team aligned with your product, roadmap, and long-term requirements.
                   </p>
                 </div>
@@ -86,8 +86,8 @@ export default function AiReadinessBanner() {
                   </div>
                 </div>
                 <div className="flex flex-col justify-center">
-                  <h4 className="text-[14px] lg:text-[15px] font-bold text-slate-900 mb-0.5 leading-tight">03 — Project Delivery</h4>
-                  <p className="text-[12px] xl:text-[12.5px] text-slate-500 leading-snug">
+                  <h4 className="typo-heading-4 text-slate-900 mb-0.5">03 — Project Delivery</h4>
+                  <p className="typo-body-sm text-slate-500">
                     Bring us the requirement and we provide the engineering team to design, build, test, and deliver the solution.
                   </p>
                 </div>
@@ -101,8 +101,8 @@ export default function AiReadinessBanner() {
                   </div>
                 </div>
                 <div className="flex flex-col justify-center">
-                  <h4 className="text-[14px] lg:text-[15px] font-bold text-slate-900 mb-0.5 leading-tight">04 — Team Augmentation</h4>
-                  <p className="text-[12px] xl:text-[12.5px] text-slate-500 leading-snug">
+                  <h4 className="typo-heading-4 text-slate-900 mb-0.5">04 — Team Augmentation</h4>
+                  <p className="typo-body-sm text-slate-500">
                     Extend your existing team with healthcare-focused engineers and technical specialists.
                   </p>
                 </div>

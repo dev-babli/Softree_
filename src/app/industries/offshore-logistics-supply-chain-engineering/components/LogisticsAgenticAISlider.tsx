@@ -315,14 +315,14 @@ export default function LogisticsAgenticAISlider() {
 
         {/* Top: Section Header */}
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FF5812]/15 border border-[#FF5812]/35 backdrop-blur-md text-[#FF5812] text-xs sm:text-[12px] font-bold uppercase tracking-[0.2em] mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FF5812]/15 border border-[#FF5812]/35 backdrop-blur-md typo-caption text-[#FF5812] uppercase mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#FF5812] animate-pulse" />
             SUPPLY CHAIN AGENTIC AI
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold font-['Plus_Jakarta_Sans',sans-serif] tracking-tight text-white drop-shadow-md leading-[1.12] mb-3">
+          <h2 className="typo-heading-2 text-white drop-shadow-md mb-3">
             Build Intelligent Autonomous Agents for Logistics
           </h2>
-          <p className="text-base sm:text-[16.5px] lg:text-[17px] text-white/80 font-normal leading-relaxed max-w-2xl">
+          <p className="typo-description text-white/80 max-w-2xl">
             Deploy supply chain AI agents that go beyond static dashboards. Our Logistics Agentic AI solutions understand operational goals, reason across shipment feeds, integrate with TMS/WMS platforms, use enterprise tools, and execute complex multi-step logistics workflows.
           </p>
         </div>
@@ -338,23 +338,23 @@ export default function LogisticsAgenticAISlider() {
 
             {/* Card Header Row */}
             <div className="flex items-center justify-between gap-3 pb-3 border-b border-white/10 mb-3 sm:mb-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF5812]/15 border border-[#FF5812]/30 text-orange-400 text-xs sm:text-[12px] font-mono font-bold tracking-wider">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF5812]/15 border border-[#FF5812]/30 text-orange-400 typo-caption font-bold">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#FF5812] animate-pulse" />
                 STEP {activeSlide.number} OF {String(slides.length).padStart(2, '0')}
               </div>
-              <span className="text-xs sm:text-[12px] font-mono uppercase tracking-widest text-white/60 flex items-center gap-1.5 font-bold">
+              <span className="typo-caption uppercase tracking-widest text-white/60 flex items-center gap-1.5 font-bold">
                 <Sparkles className="w-3.5 h-3.5 text-[#FF5812]" />
                 {activeSlide.badge}
               </span>
             </div>
 
             {/* Step Title */}
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-['Plus_Jakarta_Sans',sans-serif] text-white tracking-tight mb-2.5">
+            <h3 className="typo-heading-3 text-white mb-2.5">
               <span className="text-[#FF5812]">{activeSlide.number}.</span> {activeSlide.title}
             </h3>
 
             {/* Step Description */}
-            <p className="text-base sm:text-[16.5px] text-white/90 leading-relaxed mb-4 font-normal">
+            <p className="typo-body text-white/90 mb-4">
               {activeSlide.description}
             </p>
 
@@ -363,7 +363,7 @@ export default function LogisticsAgenticAISlider() {
               {activeSlide.highlights.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex items-start gap-2 bg-white/[0.04] border border-white/[0.06] rounded-lg p-2.5 text-xs sm:text-sm text-white/90 leading-snug"
+                  className="flex items-start gap-2 bg-white/[0.04] border border-white/[0.06] rounded-lg p-2.5 typo-caption-meta text-white/90 leading-snug"
                 >
                   <CheckCircle2 className="w-4 h-4 text-[#FF5812] shrink-0 mt-0.5" />
                   <span>{item}</span>
@@ -380,7 +380,7 @@ export default function LogisticsAgenticAISlider() {
                 <button
                   key={idx}
                   onClick={() => goToSlide(idx, idx > activeIndex ? "next" : "prev")}
-                  className={`px-3 py-1.5 rounded-lg text-xs sm:text-sm font-mono font-medium transition-all shrink-0 cursor-pointer ${isActive
+                  className={`px-3 py-1.5 rounded-lg typo-caption font-medium transition-all shrink-0 cursor-pointer ${isActive
                       ? "bg-[#FF5812] text-white shadow-md shadow-[#FF5812]/30 font-bold border border-[#FF5812]"
                       : "bg-white/[0.06] hover:bg-white/[0.12] text-white/60 hover:text-white border border-white/10"
                     }`}
@@ -396,11 +396,11 @@ export default function LogisticsAgenticAISlider() {
         <div className="pt-3.5 border-t border-white/10 flex items-center justify-between w-full max-w-5xl">
           {/* Slide Indicator */}
           <div className="flex items-center gap-3">
-            <span className="text-sm sm:text-base font-mono tracking-widest text-white/80 uppercase">
+            <span className="typo-caption-meta tracking-widest text-white/80 uppercase">
               <span ref={chapterRef} className="font-bold text-white">{activeSlide.number}</span> / {String(slides.length).padStart(2, '0')}
             </span>
-            <span className="hidden sm:inline-block text-sm text-white/40 font-mono">|</span>
-            <span className="hidden sm:inline-block text-sm font-mono text-orange-400 font-semibold">
+            <span className="hidden sm:inline-block typo-caption-meta text-white/40">|</span>
+            <span className="hidden sm:inline-block typo-caption-meta text-orange-400 font-semibold">
               {activeSlide.title}
             </span>
           </div>
@@ -432,7 +432,7 @@ export default function LogisticsAgenticAISlider() {
                 style={{ width: `${((activeIndex + 1) / slides.length) * 100}%` }}
               />
             </div>
-            <span ref={progressRef} className="text-xs sm:text-sm font-mono font-bold text-white/90">
+            <span ref={progressRef} className="typo-caption-meta font-bold text-white/90">
               {Math.round(((activeIndex + 1) / slides.length) * 100)}%
             </span>
           </div>

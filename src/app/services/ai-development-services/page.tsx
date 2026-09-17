@@ -106,14 +106,14 @@ export default function AiDevelopmentServicesPage() {
           {/* Unified Centered Header */}
           <div className="flex flex-col items-center w-full mb-16 md:mb-20 text-center">
             <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-4 py-1.5 rounded-full border border-white/60 mb-4 inline-block">
-              <span className="text-[11px] font-bold text-[#FF6B2C] tracking-widest uppercase">
+              <span className="typo-caption text-[#FF6B2C]">
                 PARTNERSHIP & GLOBAL REACH
               </span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight">
+            <h2 className="typo-heading-2 text-slate-900 mb-4">
               Who We Help & <span className="text-[#FF6B2C]">Where We Operate</span>
             </h2>
-            <p className="text-[15px] lg:text-base text-slate-500 max-w-2xl mx-auto leading-relaxed">
+            <p className="typo-description text-slate-500 max-w-2xl mx-auto">
               We embed dedicated offshore AI engineering teams to help tech-driven organizations accelerate their roadmaps, build custom agents, and deploy secure vector search engines globally.
             </p>
           </div>
@@ -140,17 +140,17 @@ export default function AiDevelopmentServicesPage() {
       {/* Reverse Sticky Scroll Overall Header */}
       <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 mt-12 md:mt-16 mb-10 flex flex-col items-center text-center">
         <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-4 py-1.5 rounded-full border border-white/60 mb-4 inline-block">
-          <span className="text-[11px] font-bold text-[#FF6B2C] tracking-widest uppercase">
+          <span className="typo-caption text-[#FF6B2C]">
             What We Build
           </span>
         </div>
 
-        <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+        <h2 className="typo-heading-2 text-slate-900 mb-4">
           AI Development Solutions Built for{" "}
           <span className="text-[#FF6B2C]">Enterprise Business Needs</span>
         </h2>
 
-        <p className="text-[15px] lg:text-base text-slate-500 max-w-2xl leading-relaxed mx-auto">
+        <p className="typo-description text-slate-500 max-w-2xl mx-auto">
           Build production-ready AI solutions that connect intelligence, enterprise
           data, and automation to solve real business workflows and deliver
           measurable outcomes.
@@ -171,15 +171,16 @@ export default function AiDevelopmentServicesPage() {
 
       {/* Infinite Parallax AI Showcase */}
       <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-[2cm] mt-4 md:mt-6 flex flex-col items-center text-center">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 text-[10px] sm:text-[11px] font-bold tracking-widest text-[#FF6B00] uppercase mb-3">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] mb-3">
           <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
           AMAZON AI ECOSYSTEM
         </div>
-        <h2 className="text-3xl md:text-5xl font-extrabold font-['Plus_Jakarta_Sans',sans-serif] max-w-4xl mx-auto text-slate-900 mb-4 tracking-tight leading-tight">
+        <h2 className="typo-heading-2 max-w-4xl mx-auto text-slate-900 mb-4">
           Architect Intelligent Enterprise Systems Across the <span className="text-[#FF6B2C]">Amazon AI Ecosystem</span>
         </h2>
-        <p className="text-[14px] lg:text-[15px] text-slate-500 max-w-4xl leading-relaxed mx-auto">
-          Engineer end-to-end AI ecosystems on AWS by combining foundation models, agentic intelligence, machine learning, enterprise data, and cloud-native infrastructure. Integrate Amazon Bedrock, SageMaker AI, Amazon Nova, knowledge bases, vector search, RAG pipelines, AI agents, model customization, and intelligent automation into secure, governed architectures built for production-scale workloads.
+        <p className="typo-description text-slate-500 max-w-4xl mx-auto">
+          Build end-to-end AI ecosystems on AWS with foundation models, agentic AI, machine learning, RAG, and intelligent automation.
+          Leverage Amazon Bedrock, SageMaker AI, Nova, vector search, and secure cloud-native infrastructure for production-ready solutions.
         </p>
       </div>
       <div className="max-w-[1600px] mx-auto px-3 xs:px-4 sm:px-8 lg:px-12 mt-8 md:mt-12 mb-10 sm:mb-14 md:mb-20 lg:mb-24">

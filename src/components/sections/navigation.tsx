@@ -392,7 +392,7 @@ export default function Navigation({
                       key={item.label}
                       href={item.url || "#"}
                       onMouseEnter={closeMenu}
-                      className="inline-flex min-h-11 items-center rounded-lg px-3.5 py-2 text-[13px] font-medium text-[#0a0a1a]/60 transition-colors duration-100 hover:bg-[#F3F0EE] hover:text-[#0a0a1a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45"
+                      className="inline-flex min-h-11 items-center rounded-lg px-3 xl:px-3.5 py-2 typo-nav-link font-medium text-[#0a0a1a]/60 transition-colors duration-100 hover:bg-[#F3F0EE] hover:text-[#0a0a1a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45"
                     >
                       {item.label}
                     </Link>
@@ -414,7 +414,7 @@ export default function Navigation({
                         aria-haspopup={canOpen ? "true" : undefined}
                         onFocus={() => canOpen && openMenu(item.label)}
                         onMouseEnter={() => canOpen && openMenu(item.label)}
-                        className={`relative inline-flex min-h-11 items-center gap-1 rounded-lg px-3.5 py-2 text-[13px] font-medium transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45 ${isOpen
+                        className={`relative inline-flex min-h-11 items-center gap-1.5 rounded-lg px-3 xl:px-3.5 py-2 typo-nav-link font-medium transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45 ${isOpen
                           ? "text-[#FF5812]"
                           : "text-[#0a0a1a]/60 hover:text-[#0a0a1a]"
                           }`}
@@ -422,7 +422,7 @@ export default function Navigation({
                         {item.label}
                         {canOpen && (
                           <ChevronDown
-                            size={13}
+                            size={14}
                             className={`transition-transform duration-100 ${isOpen ? "rotate-180 text-[#FF5812]" : "text-[#0a0a1a]/25"
                               }`}
                           />
@@ -430,7 +430,7 @@ export default function Navigation({
                         {isOpen && (
                           <motion.span
                             layoutId="activeNavBorder"
-                            className="absolute bottom-[-10px] left-3.5 right-3.5 h-[2.5px] bg-[#FF5812]"
+                            className="absolute bottom-[-10px] left-3 right-3 xl:left-3.5 xl:right-3.5 h-[2.5px] bg-[#FF5812]"
                             transition={{ type: "spring", stiffness: 380, damping: 30 }}
                           />
                         )}
@@ -443,7 +443,7 @@ export default function Navigation({
                         onClick={() => (isOpen ? closeMenu() : openMenu(item.label))}
                         onFocus={() => canOpen && openMenu(item.label)}
                         onMouseEnter={() => canOpen && openMenu(item.label)}
-                        className={`relative inline-flex min-h-11 items-center gap-1 rounded-lg px-3.5 py-2 text-[13px] font-medium transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45 ${isOpen
+                        className={`relative inline-flex min-h-11 items-center gap-1.5 rounded-lg px-3 xl:px-3.5 py-2 typo-nav-link font-medium transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45 ${isOpen
                           ? "text-[#FF5812]"
                           : "text-[#0a0a1a]/60 hover:text-[#0a0a1a]"
                           }`}
@@ -451,7 +451,7 @@ export default function Navigation({
                         {item.label}
                         {canOpen && (
                           <ChevronDown
-                            size={13}
+                            size={14}
                             className={`transition-transform duration-100 ${isOpen ? "rotate-180 text-[#FF5812]" : "text-[#0a0a1a]/25"
                               }`}
                           />
@@ -459,7 +459,7 @@ export default function Navigation({
                         {isOpen && (
                           <motion.span
                             layoutId="activeNavBorder"
-                            className="absolute bottom-[-10px] left-3.5 right-3.5 h-[2.5px] bg-[#FF5812]"
+                            className="absolute bottom-[-10px] left-3 right-3 xl:left-3.5 xl:right-3.5 h-[2.5px] bg-[#FF5812]"
                             transition={{ type: "spring", stiffness: 380, damping: 30 }}
                           />
                         )}
@@ -473,7 +473,7 @@ export default function Navigation({
             <div className="hidden items-center gap-2 lg:flex" onMouseEnter={closeMenu}>
               <Link
                 href="/contact"
-                className="inline-flex min-h-11 items-center rounded-full bg-[#FF5812] px-5 py-2.5 text-[13px] font-semibold text-white shadow-[0_4px_14px_rgba(255,88,18,0.3)] transition-[transform,box-shadow] duration-150 hover:shadow-[0_6px_18px_rgba(255,88,18,0.36)] active:scale-[0.97]"
+                className="inline-flex min-h-11 items-center rounded-full bg-[#FF5812] px-5 py-2.5 typo-button-sm text-white shadow-[0_4px_14px_rgba(255,88,18,0.3)] transition-[transform,box-shadow] duration-150 hover:shadow-[0_6px_18px_rgba(255,88,18,0.36)] active:scale-[0.97]"
               >
                 Schedule a Call
               </Link>
@@ -531,12 +531,12 @@ export default function Navigation({
                         <Link
                           href={item.url}
                           onClick={() => setMobileOpen(false)}
-                          className="flex-1 rounded-lg py-4 text-base font-semibold text-[#0a0a1a] hover:text-[#FF5812] transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45"
+                          className="flex-1 rounded-lg py-4 typo-body font-semibold text-[#0a0a1a] hover:text-[#FF5812] transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45"
                         >
                           {item.label}
                         </Link>
                       ) : (
-                        <span className="flex-1 py-4 text-base font-semibold text-[#0a0a1a]">
+                        <span className="flex-1 py-4 typo-body font-semibold text-[#0a0a1a]">
                           {item.label}
                         </span>
                       )}
@@ -563,7 +563,7 @@ export default function Navigation({
                     <Link
                       href={item.url || "#"}
                       onClick={() => setMobileOpen(false)}
-                      className="block rounded-lg py-4 text-base font-semibold text-[#0a0a1a] hover:text-[#FF5812] transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45"
+                      className="block rounded-lg py-4 typo-body font-semibold text-[#0a0a1a] hover:text-[#FF5812] transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45"
                     >
                       {item.label}
                     </Link>
@@ -592,11 +592,11 @@ export default function Navigation({
                                   <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#FF5812]" />
                                 )}
                                 <div className="flex flex-col min-w-0">
-                                  <span className="text-[13px] font-semibold text-[#0a0a1a] leading-tight group-hover:text-[#FF5812]">
+                                  <span className="typo-button-sm font-semibold text-[#0a0a1a] leading-tight group-hover:text-[#FF5812]">
                                     {group.title}
                                   </span>
                                   {group.description && (
-                                    <span className="mt-0.5 text-[11px] text-[#0a0a1a]/40 leading-snug line-clamp-2">
+                                    <span className="mt-0.5 typo-caption-meta text-[#0a0a1a]/40 leading-snug line-clamp-2">
                                       {group.description}
                                     </span>
                                   )}
@@ -617,7 +617,7 @@ export default function Navigation({
                               ) : (
                                 <span className="h-1.5 w-1.5 rounded-full bg-[#FF5812]" />
                               )}
-                              <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#0a0a1a]/45">
+                              <h4 className="typo-caption-meta font-bold uppercase tracking-[0.15em] text-[#0a0a1a]/45">
                                 {group.title}
                               </h4>
                             </div>
@@ -639,11 +639,11 @@ export default function Navigation({
                                         />
                                       )}
                                       <div className="flex flex-col min-w-0">
-                                        <span className="text-[13px] font-semibold text-[#0a0a1a] leading-tight group-hover:text-[#FF5812]">
+                                        <span className="typo-button-sm font-semibold text-[#0a0a1a] leading-tight group-hover:text-[#FF5812]">
                                           {link.label}
                                         </span>
                                         {link.description && (
-                                          <span className="mt-0.5 text-[11px] text-[#0a0a1a]/40 leading-snug line-clamp-2">
+                                          <span className="mt-0.5 typo-caption-meta text-[#0a0a1a]/40 leading-snug line-clamp-2">
                                             {link.description}
                                           </span>
                                         )}
@@ -665,7 +665,7 @@ export default function Navigation({
                 <Link
                   href="/contact"
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-full bg-[#FF5812] py-3.5 text-center text-sm font-semibold text-white shadow-[0_4px_14px_rgba(255,88,18,0.3)] transition-[transform,box-shadow] duration-150 hover:shadow-[0_6px_18px_rgba(255,88,18,0.36)] active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45"
+                  className="rounded-full bg-[#FF5812] py-3.5 text-center typo-button text-white shadow-[0_4px_14px_rgba(255,88,18,0.3)] transition-[transform,box-shadow] duration-150 hover:shadow-[0_6px_18px_rgba(255,88,18,0.36)] active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45"
                 >
                   Schedule a Call
                 </Link>

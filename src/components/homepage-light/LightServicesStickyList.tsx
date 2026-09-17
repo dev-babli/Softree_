@@ -210,7 +210,7 @@ function ServiceCard({
           <div className="flex flex-col justify-center h-full w-full max-w-[600px] mx-auto lg:mx-0">
 
             {/* 1. Label */}
-            <div className="mb-3 md:mb-4 lg:mb-5 flex items-center gap-3 md:gap-4 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] text-white/60">
+            <div className="mb-3 md:mb-4 lg:mb-5 flex items-center gap-3 md:gap-4 typo-caption text-white/60">
               <span className="h-px w-6 md:w-8 bg-[#FF5812]" />
               SERVICES WE DELIVER
             </div>
@@ -218,7 +218,7 @@ function ServiceCard({
             {/* 2. Title & Number */}
             <div className="relative mb-3 md:mb-4 lg:mb-5">
               <div className="flex items-start justify-between gap-4">
-                <h3 className="font-[800] text-white leading-[1.05] tracking-tight text-wrap md:text-balance" style={{ fontSize: "clamp(26px, 3vw, 44px)" }}>
+                <h3 className="typo-heading-2 text-white text-wrap md:text-balance">
                   {titleParts.map((part, i) =>
                     part.toLowerCase() === theme.highlight.replace(/\\/g, '').toLowerCase() ? (
                       <span key={i} className={theme.accent}>{part}</span>
@@ -234,7 +234,7 @@ function ServiceCard({
             </div>
 
             {/* 3. Description */}
-            <p className="text-[12px] sm:text-[13px] md:text-[14px] leading-[1.5] text-white/70 mb-3 md:mb-4 max-w-[460px]">
+            <p className="typo-description-sm text-white/70 mb-3 md:mb-4 max-w-[460px]">
               {s.desc}
             </p>
 
@@ -267,10 +267,10 @@ function ServiceCard({
                     </svg>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.15em] text-white">
+                    <span className="typo-caption text-white">
                       {s.whiteLabel.title}
                     </span>
-                    <span className="text-[10px] md:text-[11px] text-white/60 mt-0.5 md:mt-1">
+                    <span className="typo-caption-meta text-white/60 mt-0.5 md:mt-1">
                       {s.whiteLabel.subtitle}
                     </span>
                   </div>
@@ -282,7 +282,7 @@ function ServiceCard({
                   {s.whiteLabel.features.map((feat, i) => (
                     <div key={i} className="flex items-center gap-2">
                       <span className={`h-1.5 w-1.5 rounded-full ${theme.bg}`} />
-                      <span className="text-[10px] md:text-[11px] font-medium text-white/80">{feat}</span>
+                      <span className="typo-caption-meta font-medium text-white/80">{feat}</span>
                     </div>
                   ))}
                 </div>
@@ -294,7 +294,7 @@ function ServiceCard({
               {s.tags.map((t) => (
                 <span
                   key={t}
-                  className={`flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2 py-0.5 md:px-2.5 md:py-1 text-[9px] md:text-[10px] font-medium text-white/70 backdrop-blur-md transition-colors hover:bg-white/10 ${theme.tagHover}`}
+                  className={`flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2 py-0.5 md:px-2.5 md:py-1 typo-caption-meta font-medium text-white/70 backdrop-blur-md transition-colors hover:bg-white/10 ${theme.tagHover}`}
                 >
                   <span className={`h-1.5 w-1.5 rounded-full ${theme.bg}`} />
                   {t}
@@ -306,7 +306,7 @@ function ServiceCard({
             <div className="mt-auto pointer-events-auto flex">
               <a
                 href={s.href}
-                className={`inline-flex items-center justify-center gap-2 md:gap-2.5 rounded-full bg-gradient-to-r from-[#FF5812] to-[#FF7B00] px-4 py-2 md:px-5 md:py-2.5 text-[12px] md:text-[13px] font-bold text-white transition-all hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(255,88,18,0.4)]`}
+                className={`inline-flex items-center justify-center gap-2 md:gap-2.5 rounded-full bg-gradient-to-r from-[#FF5812] to-[#FF7B00] px-4 py-2 md:px-5 md:py-2.5 typo-button-sm text-white transition-all hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(255,88,18,0.4)]`}
               >
                 {getCtaText(s.title)}
                 <svg className="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

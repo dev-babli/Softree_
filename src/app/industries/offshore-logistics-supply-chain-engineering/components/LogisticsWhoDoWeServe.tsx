@@ -112,10 +112,10 @@ export default function LogisticsWhoDoWeServe() {
 
         {/* Bottom CTA */}
         <div className="mt-0 flex flex-col items-center text-center border-t border-[#0a0a1a]/[0.06] pt-6 md:pt-8 px-6">
-          <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-[#0a0a1a] w-full max-w-none md:whitespace-nowrap">
+          <h3 className="typo-heading-3 text-[#0a0a1a] w-full max-w-none md:whitespace-nowrap">
             Whatever you&apos;re building, modernizing, or scaling, we&apos;re ready to work alongside you.
           </h3>
-          <FlowButton href="/who-do-we-serve" text="Explore Who We Serve" className="mt-6" />
+          <FlowButton href="/who-do-we-serve" text="Explore Who We Serve" className="typo-button mt-6" />
         </div>
 
       </div>

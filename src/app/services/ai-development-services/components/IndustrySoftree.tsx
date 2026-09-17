@@ -173,23 +173,23 @@ export default function IndustrySoftree() {
           >
             <div className="space-y-4">
               <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-3.5 py-1 rounded-full border border-white/60 mb-2 inline-block w-fit">
-                <span className="text-[11px] font-bold text-[#FF6B2C] tracking-widest uppercase">
+                <span className="typo-caption text-[#FF6B2C]">
                   INDUSTRIES WE SERVE
                 </span>
               </div>
               <h2
                 id="enterprise-industries-heading"
-                className="max-w-[16ch] text-[1.65rem] font-extrabold leading-[1.1] tracking-[-0.03em] text-[#0a0a1a] md:text-[1.8rem]"
+                className="max-w-[16ch] typo-heading-3 md:typo-heading-2 text-[#0a0a1a]"
               >
                 Engineering solutions for real-world industries
               </h2>
-              <p className="text-[14px] lg:text-[15px] leading-relaxed text-[#0a0a1a]/55">
+              <p className="typo-description text-[#0a0a1a]/55">
                 From healthcare and logistics to retail, telecom, and business, we understand the technology challenges shaping modern organizations.
               </p>
             </div>
 
             <div className="mt-8 space-y-5">
-              <p className="max-w-[26ch] text-[0.9rem] leading-relaxed text-[#0a0a1a]/60">
+              <p className="max-w-[26ch] typo-body-sm text-[#0a0a1a]/60">
                 Explore how Softree applies engineering expertise to solve industry-specific problems and create measurable impact.
               </p>
 
@@ -197,7 +197,7 @@ export default function IndustrySoftree() {
                 <div className="flex flex-col gap-3">
                   <Link
                     href="/contact"
-                    className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#0a0a1a] px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#0a0a1a]/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0a0a1a]"
+                    className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#0a0a1a] px-4 py-2.5 typo-button-sm text-white transition-colors hover:bg-[#0a0a1a]/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0a0a1a]"
                   >
                     Let&apos;s talk
                     <ArrowRight className="h-3.5 w-3.5" aria-hidden />
@@ -225,7 +225,7 @@ export default function IndustrySoftree() {
                     aria-selected={selected}
                     aria-controls={`industry-panel-${panel.id}`}
                     onClick={() => activateTab(index)}
-                    className={`rounded-full border px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.11em] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1852FF] ${selected
+                    className={`rounded-full border px-3 py-1 typo-caption transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1852FF] ${selected
                       ? "border-[#0a0a1a] bg-[#0a0a1a] text-white"
                       : "border-[#0a0a1a]/15 bg-white text-[#0a0a1a]/60 hover:border-[#0a0a1a]/30 hover:text-[#0a0a1a]/85"
                       }`}

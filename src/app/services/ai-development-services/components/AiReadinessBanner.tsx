@@ -62,19 +62,19 @@ export default function AiReadinessBanner() {
             
             {/* WHY SOFTREE Eyebrow Pill */}
             <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/70 px-4 py-1.5 rounded-full border border-white/60 mb-5 inline-block">
-              <span className="text-[11px] font-bold text-[#FF6B2C] tracking-widest uppercase">
+              <span className="typo-caption text-[#FF6B2C]">
                 WHY SOFTREE
               </span>
             </div>
 
             {/* Headline */}
-            <h2 className="text-3xl sm:text-4xl lg:text-[2.65rem] font-black text-slate-900 tracking-tight leading-[1.15] mb-4 max-w-xl">
+            <h2 className="typo-heading-2 text-slate-900 mb-4 max-w-xl">
               Your AI Practice. <br />
               <span className="text-[#FF6B2C]">Our Engineering Team.</span>
             </h2>
 
             {/* Description Paragraph */}
-            <p className="text-[14.5px] sm:text-[15.5px] text-slate-600 font-medium leading-relaxed max-w-xl mb-8">
+            <p className="typo-description text-slate-600 max-w-xl mb-8">
               Build AI with a partner that combines Agentic AI expertise, offshore engineering capacity, and flexible delivery models to drive real business outcomes.
             </p>
 
@@ -88,10 +88,10 @@ export default function AiReadinessBanner() {
                       <Icon className="w-5 h-5 text-[#FF6B2C]" />
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-[15px] sm:text-[16px] font-bold text-slate-900 leading-tight mb-1">
+                      <h4 className="typo-heading-4 text-slate-900 mb-1">
                         {item.title}
                       </h4>
-                      <p className="text-[13px] sm:text-[13.5px] text-slate-500 font-normal leading-relaxed">
+                      <p className="typo-body-sm text-slate-500">
                         {item.description}
                       </p>
                     </div>

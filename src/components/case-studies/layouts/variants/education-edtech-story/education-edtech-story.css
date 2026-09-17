@@ -388,6 +388,92 @@
 
   .prose p:last-child { margin-bottom: 0; }
 
+  .prose ul,
+  .notebook-bullet-list {
+    list-style-type: disc !important;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    padding-left: 1.75rem;
+    color: var(--ink-soft);
+    max-width: 680px;
+  }
+
+  .prose ol,
+  .notebook-number-list {
+    list-style-type: decimal !important;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    padding-left: 1.75rem;
+    color: var(--ink-soft);
+    max-width: 680px;
+  }
+
+  .prose li,
+  .notebook-list-item {
+    font-size: 1.12rem;
+    line-height: 1.75;
+    margin-bottom: 0.65rem;
+    padding-left: 0.25rem;
+    color: var(--ink-soft);
+    display: list-item;
+  }
+
+  .prose li:last-child,
+  .notebook-list-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .prose ul > li::marker,
+  .notebook-bullet-list > li::marker {
+    color: var(--marker);
+  }
+
+  .prose ol > li::marker,
+  .notebook-number-list > li::marker {
+    color: var(--marker);
+    font-weight: 600;
+  }
+
+  .prose ul ul,
+  .prose ol ul,
+  .notebook-bullet-list ul {
+    list-style-type: circle !important;
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+    padding-left: 1.5rem;
+  }
+
+  .prose ol ol,
+  .prose ul ol,
+  .notebook-number-list ol {
+    list-style-type: lower-alpha !important;
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+    padding-left: 1.5rem;
+  }
+
+  .prose strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .prose em {
+    font-style: italic;
+  }
+
+  .prose a {
+    color: var(--marker);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: rgba(255, 92, 0, 0.4);
+    transition: text-decoration-color 0.15s ease, color 0.15s ease;
+  }
+
+  .prose a:hover {
+    color: var(--marker-deep);
+    text-decoration-color: var(--marker);
+  }
+
   /* ---------- Alternating background bands ---------- */
   .band-dim { background: var(--chalk); }
 

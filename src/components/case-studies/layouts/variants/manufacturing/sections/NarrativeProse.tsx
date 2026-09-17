@@ -46,6 +46,10 @@ const components: PortableTextComponents = {
       </ol>
     ),
   },
+  listItem: {
+    bullet: ({ children }) => <li className="pl-1">{children}</li>,
+    number: ({ children }) => <li className="pl-1">{children}</li>,
+  },
   marks: {
     strong: ({ children }) => (
       <strong className="font-bold text-[var(--cs-text-primary,#0f172a)]">{children}</strong>

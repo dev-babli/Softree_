@@ -163,15 +163,15 @@ export default function CoreCapabilities() {
       <div className="w-full max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-[2cm]">
         {/* Header */}
         <div className="flex flex-col items-center w-full mb-10 md:mb-12 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-orange-200 bg-orange-50 text-[10px] sm:text-[11px] font-bold tracking-widest text-[#FF6B00] uppercase mb-5">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] uppercase mb-5">
             <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
             Healthcare Expertise
           </div>
-          <h2 className="text-3xl md:text-5xl font-extrabold font-['Plus_Jakarta_Sans',sans-serif] text-slate-900 mb-5 tracking-tight leading-tight max-w-4xl">
+          <h2 className="typo-heading-2 text-slate-900 mb-5 leading-tight max-w-4xl">
             Industry Expertise That <br className="hidden sm:block" />
             <span className="text-[#FF6B2C]">Goes Beyond Technology</span>
           </h2>
-          <p className="text-[15px] md:text-base text-slate-800 font-medium max-w-3xl mx-auto mb-3">
+          <p className="typo-description text-slate-800 max-w-3xl mx-auto mb-3">
             Healthcare projects require an understanding of industry workflows, data, integrations, users, and operational challenges. Our teams bring healthcare context together with engineering expertise.
           </p>
         </div>

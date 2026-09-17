@@ -300,20 +300,20 @@ export function TransferredSoftreeHero() {
                 <circle cx="12" cy="12" r="10" />
                 <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
               </svg>
-              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/75">
+              <span className="typo-caption text-white/75">
                 Global Delivery. Local Commitment.
               </span>
             </div>
 
             <h1
-              className="hero-title text-balance text-white text-[clamp(2.25rem,4.5vw,4.5rem)] font-semibold leading-[1.05] tracking-[-0.03em]"
+              className="hero-title typo-title text-balance text-white"
               style={{ willChange: "transform, opacity" }}
             >
               Your Offshore Engineering Partner
               <span style={{ color: ACCENT }}>.</span>
             </h1>
 
-            <p className="hero-sub mt-6 max-w-[32rem] text-pretty text-[clamp(0.9375rem,1.3vw,1.25rem)] font-normal leading-[1.65] text-white/75">
+            <p className="hero-sub typo-description mt-6 max-w-[32rem] text-pretty text-white/75">
               Scalable teams. Microsoft experts. AI-powered solutions. Delivered
               for global impact.
             </p>
@@ -465,7 +465,7 @@ export function TransferredSoftreeHero() {
               {/* PRIMARY — hyper-glass orange pill */}
               <Link
                 href="/contact"
-                className="hero-glass-primary inline-flex items-center gap-2 active:scale-[0.97] motion-reduce:transition-none"
+                className="hero-glass-primary typo-button-lg inline-flex items-center gap-2 active:scale-[0.97] motion-reduce:transition-none"
                 style={{
                   background:
                     `linear-gradient(135deg, ${ACCENT} 0%, rgba(200, 72, 16, 0.9) 100%)`,
@@ -481,8 +481,6 @@ export function TransferredSoftreeHero() {
                   borderRadius: "9999px",
                   height: "56px",
                   padding: "0 32px",
-                  fontSize: "16px",
-                  fontWeight: 600,
                   color: "#fff",
                 }}
               >
@@ -511,10 +509,10 @@ export function TransferredSoftreeHero() {
           style={{ willChange: "transform, opacity" }}
         >
           <div className="max-w-2xl px-6 text-center pointer-events-auto">
-            <h2 className="pillar-headline text-balance font-semibold text-[#0a0a1a]">
+            <h2 className="pillar-headline typo-heading-1 text-balance text-[#0a0a1a]">
               Three pillars. <span style={{ color: ACCENT }}>One engineering team.</span>
             </h2>
-            <p className="pillar-subhead mx-auto text-pretty text-[#0a0a1a]/65">
+            <p className="pillar-subhead typo-description mx-auto text-pretty text-[#0a0a1a]/65">
               From Microsoft solutions to intelligent AI systems and modern engineering, we help businesses{" "}
               <strong className="font-bold text-[#0a0a1a]">build, automate, modernize, and scale.</strong>
             </p>
@@ -525,10 +523,10 @@ export function TransferredSoftreeHero() {
         <div className="relative lg:absolute lg:inset-x-0 lg:bottom-0 z-30 flex flex-col lg:flex-row items-center lg:items-end justify-center gap-6 lg:gap-0 px-6 pb-16 lg:pb-0 w-full pointer-events-none">
           {/* Mobile / Tablet Pillar Heading (Visible < 1024px) */}
           <div className="lg:hidden w-full max-w-xl text-center px-2 pt-8 pb-4 pointer-events-auto">
-            <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] text-white">
+            <h2 className="typo-heading-2 text-white">
               Three pillars. <span style={{ color: ACCENT }}>One engineering team.</span>
             </h2>
-            <p className="mt-2.5 text-sm sm:text-base leading-relaxed text-white/70">
+            <p className="typo-body-sm mt-2.5 text-white/70">
               From Microsoft solutions to intelligent AI systems and modern engineering, we help businesses{" "}
               <strong className="font-semibold text-white">build, automate, modernize, and scale.</strong>
             </p>
@@ -555,15 +553,15 @@ export function TransferredSoftreeHero() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
             <div className="absolute bottom-0 inset-x-0 p-5 flex flex-col">
-              <p className="text-[10px] font-bold uppercase tracking-[0.2em]" style={{ color: ACCENT }}>
+              <p className="typo-caption" style={{ color: ACCENT }}>
                 Microsoft & Data
               </p>
-              <p className="mt-1.5 text-base font-semibold leading-snug text-white">
+              <p className="typo-heading-4 mt-1.5 text-white">
                 Cloud, analytics, and enterprise solutions that empower business
               </p>
               <Link
                 href="/services/offshore-power-platform-development"
-                className="mt-3 inline-flex items-center gap-1.5 self-start rounded-full bg-white px-4 py-2 text-xs font-semibold text-zinc-900 shadow-sm transition-[transform,background-color] duration-200 ease-out hover:bg-white/90 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white pointer-events-auto"
+                className="typo-button-sm mt-3 inline-flex items-center gap-1.5 self-start rounded-full bg-white px-4 py-2 text-zinc-900 shadow-sm transition-[transform,background-color] duration-200 ease-out hover:bg-white/90 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white pointer-events-auto"
               >
                 Explore Microsoft solutions <span className="text-[10px]">→</span>
               </Link>
@@ -605,15 +603,15 @@ export function TransferredSoftreeHero() {
               style={{ willChange: "opacity" }}
             >
               <div className="bg-gradient-to-t from-black/70 via-black/15 to-transparent rounded-b-2xl p-5 flex flex-col">
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em]" style={{ color: ACCENT }}>
+                <p className="typo-caption" style={{ color: ACCENT }}>
                   AI & Automation
                 </p>
-                <p className="mt-1.5 text-base font-semibold leading-snug text-white">
+                <p className="typo-heading-4 mt-1.5 text-white">
                   AI systems that streamline operations
                 </p>
                 <Link
                   href="/services/ai-development-services"
-                  className="mt-3 inline-flex items-center gap-1.5 self-start rounded-full bg-white px-4 py-2 text-xs font-semibold text-zinc-900 shadow-sm transition-[transform,background-color] duration-200 ease-out hover:bg-white/90 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white pointer-events-auto"
+                  className="typo-button-sm mt-3 inline-flex items-center gap-1.5 self-start rounded-full bg-white px-4 py-2 text-zinc-900 shadow-sm transition-[transform,background-color] duration-200 ease-out hover:bg-white/90 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white pointer-events-auto"
                 >
                   Explore AI solutions <span className="text-[10px]">→</span>
                 </Link>
@@ -642,15 +640,15 @@ export function TransferredSoftreeHero() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
             <div className="absolute bottom-0 inset-x-0 p-5 flex flex-col">
-              <p className="text-[10px] font-bold uppercase tracking-[0.2em]" style={{ color: ACCENT }}>
+              <p className="typo-caption" style={{ color: ACCENT }}>
                 Modern Engineering
               </p>
-              <p className="mt-1.5 text-base font-semibold leading-snug text-white">
+              <p className="typo-heading-4 mt-1.5 text-white">
                 Modern applications built for scale and performance
               </p>
               <Link
                 href="/services/offshore-web-app-development"
-                className="mt-3 inline-flex items-center gap-1.5 self-start rounded-full bg-white px-4 py-2 text-xs font-semibold text-zinc-900 shadow-sm transition-[transform,background-color] duration-200 ease-out hover:bg-white/90 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white pointer-events-auto"
+                className="typo-button-sm mt-3 inline-flex items-center gap-1.5 self-start rounded-full bg-white px-4 py-2 text-zinc-900 shadow-sm transition-[transform,background-color] duration-200 ease-out hover:bg-white/90 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white pointer-events-auto"
               >
                 Explore engineering <span className="text-[10px]">→</span>
               </Link>

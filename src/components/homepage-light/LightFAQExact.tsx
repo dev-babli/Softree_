@@ -242,7 +242,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
             {/* Top Row: always visible */}
             <div className="flex items-center justify-between w-full flex-shrink-0">
               <span
-                className="text-xs font-semibold uppercase tracking-wider transition-colors duration-500"
+                className="typo-caption transition-colors duration-500"
                 style={{ color: isActive ? `${FAQ_INK_MUTED}cc` : FAQ_INK_MUTED }}
               >
                 {faq.serial}
@@ -274,9 +274,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
               {/* Question */}
               <div className="mb-2">
                 <h3
-                  className={`font-semibold leading-snug transition-colors duration-500 ${
-                    isActive ? "text-base md:text-lg" : "text-sm lg:text-[13px]"
-                  }`}
+                  className="typo-heading-4 transition-colors duration-500"
                   style={{
                     color: FAQ_INK,
                   }}
@@ -290,11 +288,11 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
           {isActive && (
             <div id={`faq-answer-${faq.id}`} className="mt-2">
               <div className="pt-2 md:pt-3">
-                <h4 className="mb-1.5 text-[11px] font-semibold uppercase tracking-wider" style={{ color: `${FAQ_INK_MUTED}99` }}>
+                <h4 className="mb-1.5 typo-caption" style={{ color: `${FAQ_INK_MUTED}99` }}>
                   Question Answer:
                 </h4>
                 <div className="mb-3 h-px w-14" style={{ backgroundColor: `${theme.accent}35` }} />
-                <p className="mb-4 text-sm leading-relaxed" style={{ color: `${FAQ_INK}d9` }}>
+                <p className="mb-4 typo-body-sm" style={{ color: `${FAQ_INK}d9` }}>
                   {faq.answer}
                 </p>
               </div>

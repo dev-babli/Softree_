@@ -242,7 +242,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
             {/* Top Row: always visible */}
             <div className="flex items-center justify-between w-full flex-shrink-0">
               <span
-                className="text-xs font-semibold uppercase tracking-wider transition-colors duration-500"
+                className="typo-caption transition-colors duration-500"
                 style={{ color: isActive ? `${FAQ_INK_MUTED}cc` : FAQ_INK_MUTED }}
               >
                 {faq.serial}
@@ -274,9 +274,7 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
               {/* Question */}
               <div className="mb-2">
                 <h3
-                  className={`font-semibold leading-snug transition-colors duration-500 ${
-                    isActive ? "text-base md:text-lg" : "text-sm lg:text-[13px]"
-                  }`}
+                  className="typo-heading-4 transition-colors duration-500"
                   style={{
                     color: FAQ_INK,
                   }}
@@ -290,11 +288,11 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
           {isActive && (
             <div id={`faq-answer-${faq.id}`} className="mt-2">
               <div className="pt-2 md:pt-3">
-                <h4 className="mb-1.5 text-[11px] font-semibold uppercase tracking-wider" style={{ color: `${FAQ_INK_MUTED}99` }}>
+                <h4 className="typo-caption mb-1.5" style={{ color: `${FAQ_INK_MUTED}99` }}>
                   Question Answer:
                 </h4>
                 <div className="mb-3 h-px w-14" style={{ backgroundColor: `${theme.accent}35` }} />
-                <p className="mb-4 text-sm leading-relaxed" style={{ color: `${FAQ_INK}d9` }}>
+                <p className="typo-body-sm mb-4 leading-relaxed" style={{ color: `${FAQ_INK}d9` }}>
                   {faq.answer}
                 </p>
               </div>
@@ -332,11 +330,11 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
         {/* Section Title */}
         <div ref={titleRef} className="mb-8 md:mb-10">
           <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-4 py-1.5 rounded-full border border-white/60 mb-4 inline-block">
-            <span className="text-[11px] font-bold text-[#FF6B2C] tracking-widest uppercase">
+            <span className="typo-caption text-[#FF6B2C]">
               FREQUENTLY ASKED QUESTIONS
             </span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight">
+          <h2 className="typo-heading-2 text-slate-900 mb-4">
             Frequently Asked{" "}
             <span className="text-[#FF6B2C]">
               Questions

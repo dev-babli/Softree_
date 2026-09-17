@@ -64,25 +64,22 @@ export const WhoWeHelp = ({ simple = false }: { simple?: boolean }) => {
         <div className="mb-4">
           {/* Eyebrow */}
           <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-3.5 py-1 rounded-full border border-white/60 mb-2 inline-block self-start">
-            <span className="text-[12px] font-bold text-[#FF6B2C] tracking-widest uppercase">
+            <span className="typo-caption text-[#FF6B2C]">
               WHO WE HELP
             </span>
           </div>
 
           {/* Heading */}
-          <h2 className="text-2xl sm:text-3xl lg:text-[32px] xl:text-[36px] font-extrabold font-['Plus_Jakarta_Sans',sans-serif] text-slate-900 leading-[1.2] mb-2 tracking-tight pr-2">
+          <h2 className="typo-heading-3 sm:typo-heading-2 text-slate-900 mb-2 pr-2">
             AI ENGINEERING FOR COMPANIES THAT NEED TO <span className="text-[#FF6B2C]">MOVE FASTER</span>
           </h2>
 
           {/* Subtitle */}
-          <h3 className="text-[16px] sm:text-[17.5px] font-bold text-slate-800 mb-1.5 leading-snug">
+          <h3 className="typo-heading-4 text-slate-800 mb-1.5">
             Extend Your AI Capabilities Without Building Another Team
           </h3>
 
-          {/* Description */}
-          <p className="text-slate-600 text-[15px] sm:text-[16px] leading-relaxed max-w-xl">
-            AI adoption is moving quickly. Building the engineering capability to support it takes time. Softree provides the AI architecture, engineering, development, data, cloud, integration, and QA expertise you need to deliver AI solutions faster.
-          </p>
+
         </div>
       )}
 
@@ -99,21 +96,21 @@ export const WhoWeHelp = ({ simple = false }: { simple?: boolean }) => {
               </div>
               <div className="flex flex-col flex-1 min-w-0">
                 <div className="flex flex-wrap items-baseline justify-between gap-x-2">
-                  <h4 className="text-[17.5px] sm:text-[19px] font-bold text-slate-900 group-hover:text-[#FF6B2C] transition-colors leading-tight">
+                  <h4 className="typo-heading-4 text-slate-900 group-hover:text-[#FF6B2C] transition-colors">
                     {item.title}
                   </h4>
                   <Link
                     href={item.href}
-                    className="inline-flex items-center gap-1 text-[13.5px] sm:text-[14px] font-bold text-[#FF6B2C] hover:text-[#D4480A] transition-colors group/btn shrink-0"
+                    className="inline-flex items-center gap-1 typo-button-sm text-[#FF6B2C] hover:text-[#D4480A] transition-colors group/btn shrink-0"
                   >
                     <span>{item.cta}</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
                   </Link>
                 </div>
-                <p className="text-[14.5px] sm:text-[15.5px] font-semibold text-slate-700 leading-snug mt-1">
+                <p className="typo-body-lg font-semibold text-slate-700 mt-1">
                   {item.desc}
                 </p>
-                <p className="text-[13.5px] sm:text-[14.5px] text-slate-500 leading-relaxed mt-1">
+                <p className="typo-body-sm text-slate-500 mt-1">
                   {item.subdesc}
                 </p>
               </div>

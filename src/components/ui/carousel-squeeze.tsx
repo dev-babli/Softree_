@@ -155,7 +155,7 @@ export function SqueezeCarousel({
             {controls && count > 1 && (
                 <div className="mb-4 flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                        <span className="text-xs font-mono font-bold tracking-widest text-slate-500">
+                        <span className="typo-caption-meta font-bold text-slate-500">
                             0{activeIndex + 1} <span className="text-slate-300">/</span> 0{count}
                         </span>
                         <div className="flex items-center gap-1.5 ml-1">
@@ -243,23 +243,23 @@ export function SqueezeCarousel({
 
                                         {/* Top Bar: Professional Category Eyebrow & Index */}
                                         <div className="flex items-center justify-between gap-3 w-full">
-                                            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-white text-[11px] sm:text-xs font-semibold tracking-wider uppercase shadow-sm">
+                                            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-white typo-caption shadow-sm">
                                                 <span className="w-2 h-2 rounded-full bg-[#FF6B2C] animate-pulse" />
                                                 <span>{slide.category ?? `CAPABILITY 0${idx + 1}`}</span>
                                             </div>
-                                            <span className="text-xs font-mono font-bold tracking-widest text-white/75 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+                                            <span className="typo-caption-meta font-bold text-white/75 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
                                                 0{idx + 1} <span className="text-white/40">/</span> 0{count}
                                             </span>
                                         </div>
 
                                         {/* Bottom Content Cluster: Title, Description, Clean Bullets & Designed CTA */}
                                         <div className="flex flex-col gap-3.5 sm:gap-4 max-w-2xl mt-auto pt-6">
-                                            <h3 className="text-2xl sm:text-3xl lg:text-[32px] font-extrabold text-white font-['Plus_Jakarta_Sans',sans-serif] tracking-tight leading-tight drop-shadow-md">
+                                            <h3 className="typo-heading-3 text-white leading-tight drop-shadow-md">
                                                 {slide.title}
                                             </h3>
 
                                             {slide.description && (
-                                                <p className="text-white/90 text-sm sm:text-[15px] leading-relaxed max-w-xl drop-shadow-sm font-normal">
+                                                <p className="typo-body-sm text-white/90 max-w-xl drop-shadow-sm">
                                                     {slide.description}
                                                 </p>
                                             )}
@@ -268,7 +268,7 @@ export function SqueezeCarousel({
                                             {slide.bullets && slide.bullets.length > 0 && (
                                                 <div className="max-w-xl pt-1">
                                                     <div className="flex items-center gap-2 mb-2">
-                                                        <span className="text-[10px] font-mono font-bold tracking-widest text-[#FF6B2C] uppercase">
+                                                        <span className="typo-caption-meta font-bold text-[#FF6B2C] uppercase">
                                                             INTEGRATION SCOPE
                                                         </span>
                                                         <div className="h-px flex-1 bg-white/20" />
@@ -282,11 +282,11 @@ export function SqueezeCarousel({
                                                                 >
                                                                     <div className="flex items-center gap-2.5 min-w-0">
                                                                         <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B2C] shadow-[0_0_8px_rgba(255,107,44,0.9)] shrink-0 group-hover/item:scale-125 transition-transform" />
-                                                                        <span className="text-white/95 text-xs sm:text-[13px] font-medium tracking-tight truncate">
+                                                                        <span className="text-white/95 typo-body-sm font-medium tracking-tight truncate">
                                                                             {bullet}
                                                                         </span>
                                                                     </div>
-                                                                    <span className="text-[10px] font-mono font-bold text-white/40 group-hover/item:text-[#FF6B2C] transition-colors ml-2 shrink-0">
+                                                                    <span className="typo-caption-meta font-bold text-white/40 group-hover/item:text-[#FF6B2C] transition-colors ml-2 shrink-0">
                                                                         0{bIdx + 1}
                                                                     </span>
                                                                 </div>
@@ -300,11 +300,11 @@ export function SqueezeCarousel({
                                                                 >
                                                                     <div className="flex items-center gap-2.5 min-w-0">
                                                                         <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B2C] shadow-[0_0_8px_rgba(255,107,44,0.9)] shrink-0 group-hover/item:scale-125 transition-transform" />
-                                                                        <span className="text-white/95 text-xs sm:text-[13px] font-medium tracking-tight truncate">
+                                                                        <span className="text-white/95 typo-body-sm font-medium tracking-tight truncate">
                                                                             {bullet}
                                                                         </span>
                                                                     </div>
-                                                                    <span className="text-[10px] font-mono font-bold text-white/40 group-hover/item:text-[#FF6B2C] transition-colors ml-2 shrink-0">
+                                                                    <span className="typo-caption-meta font-bold text-white/40 group-hover/item:text-[#FF6B2C] transition-colors ml-2 shrink-0">
                                                                         0{bIdx + 3}
                                                                     </span>
                                                                 </div>
@@ -325,8 +325,8 @@ export function SqueezeCarousel({
                                 ) : (
                                     /* COLLAPSED CARD VIEW - Clean, Organized & NOT Clumsy */
                                     <div className="absolute inset-0 bg-slate-900/60 group-hover:bg-slate-900/40 transition-colors duration-300 flex flex-row lg:flex-col justify-between items-center py-0 px-4 lg:py-5 lg:px-2">
-                                        {/* Mono Number Badge */}
-                                        <span className="text-[11px] font-mono font-bold text-white/80 bg-black/40 backdrop-blur-sm px-2 py-0.5 rounded-full border border-white/10 shadow-sm shrink-0">
+                                        {/* Number Badge */}
+                                        <span className="typo-caption-meta font-bold text-white/80 bg-black/40 backdrop-blur-sm px-2 py-0.5 rounded-full border border-white/10 shadow-sm shrink-0">
                                             0{idx + 1}
                                         </span>
 

@@ -246,7 +246,7 @@ const STYLES = `
   padding:20px 20px 14px;
   position:relative;
   overflow:hidden;
-  font-family:'Inter',sans-serif;
+  font-family: var(--font-family-body);
   box-sizing:border-box;
   border-radius: 24px;
 }
@@ -264,21 +264,14 @@ const STYLES = `
 }
 
 .globe-heading{
-  font-family: 'Playfair Display', Georgia, Cambria, "Times New Roman", Times, serif;
-  font-style: italic;
-  font-size:36px;
-  line-height:1.15;
-  font-weight:500;
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-heading);
+  font-weight: var(--font-weight-extrabold);
+  letter-spacing: var(--letter-spacing-tight);
   color:var(--text);
   margin:0 0 8px;
-  letter-spacing: -0.01em;
   text-transform: none;
-}
-
-@media (min-width: 1280px) {
-  .globe-heading{
-    font-size:42px;
-  }
 }
 
 .globe-layout{
@@ -342,7 +335,9 @@ const STYLES = `
   background:var(--pill-bg);
   color:var(--text);
   font-size:13px;
-  font-weight:700;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-caption);
+  font-weight: 700;
   padding:4px 12px;
   border-radius:24px;
   white-space:nowrap;
@@ -396,7 +391,8 @@ const STYLES = `
 
 .stores-count{
   color:var(--text);
-  font-size:15px;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body-sm);
   font-weight: 600;
   white-space: nowrap;
 }
@@ -430,21 +426,23 @@ const STYLES = `
   min-width:120px;
   text-align:center;
   color:#ffffff;
-  font-size:15px;
-  font-weight:700;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body-sm);
+  font-weight: 700;
 }
 
 .caption{
   width:100%;
   color:var(--text-dim);
-  font-size:13.5px;
-  line-height:1.45;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-caption-meta);
+  line-height: var(--line-height-body);
   text-align: left;
   white-space: normal;
 }
 
 @media (max-width:768px){
-  .globe-heading{font-size:30px; margin-bottom: 10px;}
+  .globe-heading{font-size: var(--font-size-h3); margin-bottom: 10px;}
   .globe-canvas-wrap{width: 280px; height: 280px; margin: 0 auto;}
   .globe-footer{flex-direction:column; align-items:center; text-align: center;}
   .caption{text-align: center; max-width: 100%;}
@@ -785,7 +783,7 @@ export default function NetworkGlobe({
         <div className="globe-container">
           {/* Eyebrow / Tagline */}
           {tagline && (
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-500/30 bg-orange-500/10 text-[11.5px] sm:text-[12px] font-bold tracking-wider text-[#FF6B2C] uppercase mb-2 self-start">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-500/30 bg-orange-500/10 typo-caption text-[#FF6B2C] uppercase mb-2 self-start">
               <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B2C] animate-pulse shrink-0" />
               <span>{tagline}</span>
             </div>
@@ -803,7 +801,7 @@ export default function NetworkGlobe({
           )}
 
           {subheading && (
-            <p className="text-[#ded6ce] text-[14px] sm:text-[15px] leading-relaxed mb-2">
+            <p className="typo-description text-[#ded6ce] mb-2">
               {subheading}
             </p>
           )}

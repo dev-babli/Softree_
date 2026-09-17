@@ -417,14 +417,14 @@ export default function TechnologyWeWork() {
 
       {/* Section Heading */}
       <div className="text-center w-full max-w-4xl mx-auto flex flex-col items-center px-4">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 border border-orange-500/20 text-[#FF5812] text-[11px] sm:text-xs font-bold tracking-widest  mb-4 shadow-sm">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 border border-orange-500/20 text-[#FF5812] typo-caption mb-4 shadow-sm">
           <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#FF5812] animate-pulse" />
           TECHNOLOGY WE WORK WITH
         </div>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold font-['Plus_Jakarta_Sans',sans-serif] tracking-tight text-slate-900 leading-[1.1] mb-2 sm:mb-4">
+        <h2 className="typo-heading-2 text-slate-900 leading-[1.1] mb-2 sm:mb-4">
           Technology We Use to <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF5812] to-amber-500">Build Healthcare Solutions</span>
         </h2>
-        <p className="text-sm sm:text-base text-slate-600 font-medium max-w-2xl text-center">
+        <p className="typo-description text-slate-600 max-w-2xl text-center">
           We work with the technologies and platforms that power modern healthcare applications, data environments, integrations, cloud infrastructure, and AI solutions.</p>
       </div>
 
@@ -441,14 +441,14 @@ export default function TechnologyWeWork() {
           <div className="lg:col-span-3 flex">
             <div className="relative overflow-hidden rounded-[18px] border border-orange-500/30 bg-slate-50 p-5 sm:p-6 shadow-[0_0_25px_rgba(255,107,44,0.05)] flex flex-col justify-between items-stretch w-full h-auto min-h-[300px] lg:h-[440px] z-10">
               <div className="space-y-1.5 text-left">
-                <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-[#FF5812] text-[10px] font-mono font-bold tracking-widest uppercase mb-1">
+                <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-[#FF5812] typo-caption uppercase mb-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#FF5812] animate-pulse" />
                   HEALTHCARE ECOSYSTEM
                 </div>
-                <h2 className="text-[18px] sm:text-[20px] lg:text-[22px] font-black tracking-wider text-slate-900 uppercase leading-[1.1] mb-1">
+                <h2 className="typo-heading-4 tracking-wider text-slate-900 uppercase leading-[1.1] mb-1">
                   CORE<br />TECHNOLOGY
                 </h2>
-                <p className="text-[10px] sm:text-[10.5px] font-bold text-orange-600 tracking-wider uppercase">
+                <p className="typo-caption font-bold text-orange-600 tracking-wider uppercase">
                   AI • DATA • CLOUD • APPS
                 </p>
               </div>
@@ -660,7 +660,7 @@ export default function TechnologyWeWork() {
                     <span className={`text-[11px] sm:text-[12px] lg:text-[11px] xl:text-[12px] font-black block tracking-wider uppercase mb-0.5 ${cap.textClass}`}>
                       {cap.title}
                     </span>
-                    <span className="text-[9.5px] sm:text-[10.5px] lg:text-[9.5px] xl:text-[10px] text-slate-500 leading-snug block font-semibold group-hover:text-slate-700 transition-colors duration-200">
+                    <span className="typo-body-sm text-slate-500 block group-hover:text-slate-700 transition-colors duration-200">
                       {cap.desc}
                     </span>
                   </div>

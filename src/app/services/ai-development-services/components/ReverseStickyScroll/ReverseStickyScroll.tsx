@@ -174,7 +174,7 @@ export const ReverseStickyScroll = () => {
               <Link
                 href={card.link}
                 prefetch={true}
-                className="inline-flex items-center gap-2 px-8 py-3.5 border rounded-full text-[15px] font-semibold tracking-wide transition-all duration-300 hover:opacity-75 hover:scale-105 active:scale-95 cursor-pointer pointer-events-auto select-auto"
+                className="typo-button-lg inline-flex items-center gap-2 px-8 py-3.5 border rounded-full transition-all duration-300 hover:opacity-75 hover:scale-105 active:scale-95 cursor-pointer pointer-events-auto select-auto"
                 style={{ borderColor: card.text, color: card.text }}
               >
                 Learn More <span className="text-lg leading-none">→</span>

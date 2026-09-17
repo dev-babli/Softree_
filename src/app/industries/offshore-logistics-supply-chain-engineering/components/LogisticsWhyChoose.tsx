@@ -100,13 +100,13 @@ export default function LogisticsWhyChoose() {
         {/* ================= LEFT : WHY CHOOSE ================= */}
         <div className="relative">
           {/* Small Label */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 text-xs sm:text-[12px] font-bold tracking-widest text-[#FF6B00] uppercase mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] uppercase mb-4">
             <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
             WHY CHOOSE SOFTREE
           </div>
 
           {/* Heading */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold font-['Plus_Jakarta_Sans',sans-serif] text-slate-900 leading-[1.12] mb-6 tracking-tight">
+          <h2 className="typo-heading-2 text-slate-900 mb-6">
             Engineering Built for{" "}
             <span className="bg-gradient-to-r from-[#FF5812] to-[#FF6B2C] bg-clip-text text-transparent">
               Resilient Supply Chains
@@ -123,7 +123,7 @@ export default function LogisticsWhyChoose() {
               return (
                 <div key={i} className="relative flex gap-4 items-start">
                   {/* Number */}
-                  <div className="relative z-10 flex items-center justify-center w-6 h-6 mt-1 text-xs sm:text-[13px] font-mono font-bold text-orange-600 bg-white">
+                  <div className="relative z-10 flex items-center justify-center w-6 h-6 mt-1 typo-caption font-bold text-orange-600 bg-white">
                     {String(i + 1).padStart(2, "0")}
                   </div>
 
@@ -134,10 +134,10 @@ export default function LogisticsWhyChoose() {
                         <Icon size={16} />
                       </div>
 
-                      <h3 className="text-base sm:text-[17px] font-bold text-slate-900">{item.title}</h3>
+                      <h3 className="typo-heading-4 text-slate-900">{item.title}</h3>
                     </div>
 
-                    <p className="text-slate-500 text-sm sm:text-[14.5px] leading-relaxed max-w-md">
+                    <p className="text-slate-500 typo-body-sm max-w-md">
                       {item.desc}
                     </p>
                   </div>
@@ -151,11 +151,11 @@ export default function LogisticsWhyChoose() {
         <div className="rounded-2xl p-8 sm:p-10 bg-gradient-to-r from-black via-[#4c1c02] to-black border border-white/10 shadow-2xl h-full flex flex-col">
           {/* Header */}
           <div className="mb-8 sm:mb-10">
-            <div className="text-orange-400 text-xs sm:text-[12px] uppercase font-bold tracking-widest mb-3">
+            <div className="text-orange-400 typo-caption uppercase mb-3">
               Client Feedback
             </div>
 
-            <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-white">
+            <h3 className="typo-heading-3 mb-4 text-white">
               Trusted by Supply Chain &amp; Logistics Teams
             </h3>
 
@@ -169,11 +169,11 @@ export default function LogisticsWhyChoose() {
                 ))}
               </div>
 
-              <p className="text-base sm:text-lg font-bold text-white">4.9 / 5</p>
-              <p className="text-gray-300 text-sm sm:text-[14.5px]">average rating</p>
+              <p className="typo-body text-white font-bold">4.9 / 5</p>
+              <p className="text-gray-300 typo-caption-meta">average rating</p>
             </div>
 
-            <p className="text-sm sm:text-[14.5px] text-gray-400">
+            <p className="typo-caption-meta text-gray-400">
               Based on{" "}
               <span className="font-semibold text-white">
                 150+ enterprise client reviews
@@ -205,7 +205,7 @@ export default function LogisticsWhyChoose() {
                     </div>
 
                     {/* Review Comment */}
-                    <p className="text-gray-100 text-base sm:text-[17px] leading-relaxed mb-6 font-normal">
+                    <p className="text-gray-100 typo-body mb-6 font-normal">
                       “{review.comment}”
                     </p>
 
@@ -214,10 +214,10 @@ export default function LogisticsWhyChoose() {
                       <div className="flex items-center gap-2">
                         <User size={15} className="text-orange-400" />
                         <div>
-                          <p className="font-semibold text-white text-sm sm:text-base">
+                          <p className="font-semibold text-white typo-body-sm">
                             {review.name}
                           </p>
-                          <p className="text-xs sm:text-[13px] text-gray-300">
+                          <p className="typo-caption-meta text-gray-300">
                             {review.company}
                           </p>
                         </div>
@@ -225,7 +225,7 @@ export default function LogisticsWhyChoose() {
 
                       <div className="flex items-center gap-2">
                         <MapPin size={14} className="text-gray-400" />
-                        <p className="text-xs sm:text-[13px] text-gray-300">
+                        <p className="typo-caption-meta text-gray-300">
                           {review.location}
                         </p>
                       </div>

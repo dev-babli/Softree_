@@ -244,14 +244,14 @@ export default function PartnerShowcase() {
 
               <div className="space-y-2">
                 <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-4 py-1.5 rounded-full border border-white/60 mb-2 inline-block w-fit">
-                  <span className="text-[11px] font-bold text-[#FF6B2C] tracking-widest uppercase">
+                  <span className="typo-caption text-[#FF6B2C]">
                     AI DEVELOPMENT DELIVERY MODEL
                   </span>
                 </div>
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight uppercase">
+                <h2 className="typo-heading-2 tracking-tight text-slate-900 leading-tight uppercase">
                   END-TO-END AI DEVELOPMENT & <span className="text-[#FF6B2C]">ENGINEERING SERVICES</span>
                 </h2>
-                <p className="text-[15px] lg:text-base text-slate-500 max-w-2xl leading-relaxed">
+                <p className="typo-description text-slate-500 max-w-2xl">
                   From AI strategy and architecture to development, testing, data, and cloud deployment, we deliver production-ready AI solutions.
                 </p>
               </div>

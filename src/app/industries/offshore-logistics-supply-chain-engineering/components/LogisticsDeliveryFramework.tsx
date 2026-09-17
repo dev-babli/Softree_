@@ -162,16 +162,16 @@ export default function LogisticsDeliveryFramework() {
           
           {/* ================= HEADER ================= */}
           <div className="flex flex-col items-center text-center w-full mb-10 md:mb-14">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 text-[10px] sm:text-[11px] font-bold tracking-widest text-[#FF6B00] uppercase mb-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] uppercase mb-3">
               <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
               LOGISTICS TECHNOLOGY DELIVERY
             </div>
             
-            <h2 className="text-3xl md:text-5xl font-extrabold font-['Plus_Jakarta_Sans',sans-serif] text-slate-900 tracking-tight leading-[1.15] mb-4 max-w-4xl mx-auto">
+            <h2 className="typo-heading-2 text-slate-900 mb-4 max-w-4xl mx-auto">
               Our Structured Delivery Framework for Logistics Technology
             </h2>
             
-            <p className="text-sm md:text-base text-slate-600 leading-relaxed max-w-3xl mx-auto font-normal">
+            <p className="typo-description text-slate-600 max-w-3xl mx-auto">
               We help logistics and supply chain organizations move from technology strategy to production through a structured engineering delivery model. Our offshore team connects AI, automation, enterprise applications, data, cloud, and integrations to build scalable logistics solutions.
             </p>
           </div>
@@ -237,7 +237,7 @@ export default function LogisticsDeliveryFramework() {
                   <div className={`relative h-full w-full ${bgClass} border ${borderClass} rounded-[28px] sm:rounded-[32px] p-7 sm:p-8 md:p-10 flex flex-col justify-between overflow-hidden transition-all duration-500`}>
                     <div className="flex justify-between items-start w-full relative z-10">
                       <div className={`px-3.5 sm:px-4 py-1.5 rounded-full ${pillBg} flex items-center justify-center`}>
-                        <span className={`font-mono font-bold text-xs sm:text-[13px] tracking-widest uppercase ${pillText}`}>
+                        <span className={`typo-caption-meta font-bold tracking-widest uppercase ${pillText}`}>
                           Phase {(item as any).number}
                         </span>
                       </div>
@@ -248,10 +248,10 @@ export default function LogisticsDeliveryFramework() {
                       </div>
                     </div>
                     <div className="relative z-10 mt-auto">
-                      <h3 className={`text-2xl sm:text-3xl md:text-4xl font-extrabold mb-2.5 sm:mb-3 tracking-tight ${titleText}`}>
+                      <h3 className={`typo-heading-3 mb-2.5 sm:mb-3 ${titleText}`}>
                         {item.title}
                       </h3>
-                      <p className={`text-xs sm:text-sm md:text-[15px] leading-relaxed max-w-[95%] font-normal ${descText}`}>
+                      <p className={`typo-body-sm max-w-[95%] ${descText}`}>
                         {item.description}
                       </p>
                     </div>
