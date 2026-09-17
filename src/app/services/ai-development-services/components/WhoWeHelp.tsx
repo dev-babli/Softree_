@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
-import { Building, Settings, Code, Blocks, Building2, ArrowRight } from "lucide-react";
+import { Building, Settings, Code, Blocks, Building2 } from "lucide-react";
+import { FlowButton } from "@/components/ui/flow-button";
 
 export const WhoWeHelp = ({ simple = false }: { simple?: boolean }) => {
   const items = [
@@ -10,8 +10,6 @@ export const WhoWeHelp = ({ simple = false }: { simple?: boolean }) => {
       title: "Consulting Firms",
       desc: "Extend your AI delivery capabilities with an experienced offshore engineering team.",
       subdesc: "Use Softree behind the scenes or alongside your consultants to build and deliver AI solutions for your clients.",
-      cta: "Explore Consulting Partnerships",
-      href: "/contact",
       icon: Building,
       color: "text-[#FF6B2C]",
       bg: "bg-orange-50",
@@ -20,8 +18,6 @@ export const WhoWeHelp = ({ simple = false }: { simple?: boolean }) => {
       title: "System Integrators",
       desc: "Add Agentic AI expertise to your existing client engagements.",
       subdesc: "Build AI agents, copilots, RAG solutions, intelligent workflows, and enterprise integrations without expanding your internal engineering team.",
-      cta: "Explore SI Partnerships",
-      href: "/contact",
       icon: Settings,
       color: "text-[#FF6B2C]",
       bg: "bg-orange-50",
@@ -30,8 +26,6 @@ export const WhoWeHelp = ({ simple = false }: { simple?: boolean }) => {
       title: "Technology & Product Companies",
       desc: "Accelerate AI product development with dedicated engineering capacity.",
       subdesc: "Add AI capabilities to existing products or build new AI-native applications with a team aligned to your roadmap.",
-      cta: "Explore Product Engineering",
-      href: "/contact",
       icon: Code,
       color: "text-[#FF6B2C]",
       bg: "bg-orange-50",
@@ -40,8 +34,6 @@ export const WhoWeHelp = ({ simple = false }: { simple?: boolean }) => {
       title: "ERP & Microsoft Partners",
       desc: "Add AI agents, copilots, and intelligent automation to your existing Microsoft and ERP solutions.",
       subdesc: "Extend the value of your technology stack with practical enterprise AI.",
-      cta: "Explore Microsoft AI",
-      href: "/contact",
       icon: Blocks,
       color: "text-[#FF6B2C]",
       bg: "bg-orange-50",
@@ -50,8 +42,6 @@ export const WhoWeHelp = ({ simple = false }: { simple?: boolean }) => {
       title: "Enterprises",
       desc: "Build and scale AI-powered applications with a dedicated engineering partner.",
       subdesc: "From individual use cases to enterprise-wide AI capabilities, Softree provides the engineering capacity to move from idea to production.",
-      cta: "Explore Enterprise AI",
-      href: "/contact",
       icon: Building2,
       color: "text-[#FF6B2C]",
       bg: "bg-orange-50",
@@ -73,13 +63,6 @@ export const WhoWeHelp = ({ simple = false }: { simple?: boolean }) => {
           <h2 className="typo-heading-3 sm:typo-heading-2 text-slate-900 mb-2 pr-2">
             AI ENGINEERING FOR COMPANIES THAT NEED TO <span className="text-[#FF6B2C]">MOVE FASTER</span>
           </h2>
-
-          {/* Subtitle */}
-          <h3 className="typo-heading-4 text-slate-800 mb-1.5">
-            Extend Your AI Capabilities Without Building Another Team
-          </h3>
-
-
         </div>
       )}
 
@@ -95,18 +78,9 @@ export const WhoWeHelp = ({ simple = false }: { simple?: boolean }) => {
                 <item.icon className={`w-5 h-5 ${item.color} group-hover:text-white transition-colors`} />
               </div>
               <div className="flex flex-col flex-1 min-w-0">
-                <div className="flex flex-wrap items-baseline justify-between gap-x-2">
-                  <h4 className="typo-heading-4 text-slate-900 group-hover:text-[#FF6B2C] transition-colors">
-                    {item.title}
-                  </h4>
-                  <Link
-                    href={item.href}
-                    className="inline-flex items-center gap-1 typo-button-sm text-[#FF6B2C] hover:text-[#D4480A] transition-colors group/btn shrink-0"
-                  >
-                    <span>{item.cta}</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
-                  </Link>
-                </div>
+                <h4 className="typo-heading-4 text-slate-900 group-hover:text-[#FF6B2C] transition-colors">
+                  {item.title}
+                </h4>
                 <p className="typo-body-lg font-semibold text-slate-700 mt-1">
                   {item.desc}
                 </p>
@@ -117,6 +91,19 @@ export const WhoWeHelp = ({ simple = false }: { simple?: boolean }) => {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Single Section-Level CTA Below */}
+      <div className="pt-4 mt-3 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p className="typo-body text-slate-700 text-center sm:text-left">
+          Ready to scale your AI engineering capabilities?
+        </p>
+        <FlowButton
+          href="/contact"
+          text="Explore Partnerships"
+          variant="orange-filled"
+          className="shrink-0"
+        />
       </div>
     </div>
   );

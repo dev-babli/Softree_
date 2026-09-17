@@ -287,7 +287,7 @@ const EnterpriseDataLogo = ({ className = "w-6 h-6 shrink-0" }: { className?: st
 
 // Isometric Stacked Blocks on circular pedestal SVG (High-fidelity vector design) with embedded floating animations
 const IsometricBlocksLogo = () => (
-  <div className="relative w-40 h-40 sm:w-52 sm:h-52 mx-auto flex items-center justify-center">
+  <div className="relative w-36 h-36 sm:w-44 sm:h-44 xl:w-48 xl:h-48 mx-auto flex items-center justify-center">
     <style>{`
       @keyframes floatTop {
         0%, 100% { transform: translateY(0px); }
@@ -363,45 +363,45 @@ const CloudCheckIcon = ({ className = "w-6 h-6 text-white" }: { className?: stri
 
 export default function TechnologyWeWork() {
   const layer1Caps = [
-    { name: "Azure OpenAI", logo: <Brain className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
-    { name: "Generative AI", logo: <Network className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
-    { name: "LLMs", logo: <Cpu className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
-    { name: "RAG", logo: <Database className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
-    { name: "AI Agents", logo: <Bot className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
-    { name: "Document AI", logo: <FileText className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "Azure OpenAI", label: <>Azure<br />OpenAI</>, logo: <Brain className="w-4.5 h-4.5 sm:w-5 sm:h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "Generative AI", label: <>Generative<br />AI</>, logo: <Network className="w-4.5 h-4.5 sm:w-5 sm:h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "LLMs", label: "LLMs", logo: <Cpu className="w-4.5 h-4.5 sm:w-5 sm:h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "RAG", label: "RAG", logo: <Database className="w-4.5 h-4.5 sm:w-5 sm:h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "AI Agents", label: <>AI<br />Agents</>, logo: <Bot className="w-4.5 h-4.5 sm:w-5 sm:h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "Document AI", label: <>Document<br />AI</>, logo: <FileText className="w-4.5 h-4.5 sm:w-5 sm:h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
   ];
 
   const layer2Caps = [
-    { name: "FHIR", logo: <Workflow className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
-    { name: "HL7", logo: <RefreshCw className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
-    { name: "EHR / EMR", logo: <Layers className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
-    { name: "Healthcare APIs", logo: <Zap className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
-    { name: "Interoperability", logo: <Network className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "FHIR", label: "FHIR", logo: <Workflow className="w-4.5 h-4.5 sm:w-5 sm:h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "HL7", label: "HL7", logo: <RefreshCw className="w-4.5 h-4.5 sm:w-5 sm:h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "EHR / EMR", label: <>EHR /<br />EMR</>, logo: <Layers className="w-4.5 h-4.5 sm:w-5 sm:h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "Healthcare APIs", label: <>Healthcare<br />APIs</>, logo: <Zap className="w-4.5 h-4.5 sm:w-5 sm:h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "Interoperability", label: "Interoperability", logo: <Network className="w-4.5 h-4.5 sm:w-5 sm:h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
   ];
 
   const layer3Caps = [
-    { name: "Microsoft Azure", logo: <CloudCheckIcon className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
-    { name: "AWS", logo: <CloudCheckIcon className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
-    { name: "Azure Health Data", logo: <ShieldCheck className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
-    { name: "Data Platforms", logo: <Database className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
-    { name: "Data Engineering", logo: <Settings className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "Microsoft Azure", label: <>Microsoft<br />Azure</>, logo: <CloudCheckIcon className="w-4.5 h-4.5 sm:w-5 sm:h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "AWS", label: "AWS", logo: <CloudCheckIcon className="w-4.5 h-4.5 sm:w-5 sm:h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "Azure Health Data", label: <>Azure<br />Health Data</>, logo: <ShieldCheck className="w-4.5 h-4.5 sm:w-5 sm:h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "Data Platforms", label: <>Data<br />Platforms</>, logo: <Database className="w-4.5 h-4.5 sm:w-5 sm:h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "Data Engineering", label: <>Data<br />Engineering</>, logo: <Settings className="w-4.5 h-4.5 sm:w-5 sm:h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
   ];
 
   const layer4Caps = [
-    { name: ".NET", logo: <Layers3 className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
-    { name: "React", logo: <Cpu className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
-    { name: "APIs", logo: <Workflow className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
-    { name: "Mobile", logo: <Target className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
-    { name: "Microservices", logo: <Layers className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
-    { name: "DevOps", logo: <Wrench className="w-5 h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: ".NET", label: ".NET", logo: <Layers3 className="w-4.5 h-4.5 sm:w-5 sm:h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "React", label: "React", logo: <Cpu className="w-4.5 h-4.5 sm:w-5 sm:h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "APIs", label: "APIs", logo: <Workflow className="w-4.5 h-4.5 sm:w-5 sm:h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "Mobile", label: "Mobile", logo: <Target className="w-4.5 h-4.5 sm:w-5 sm:h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "Microservices", label: "Microservices", logo: <Layers className="w-4.5 h-4.5 sm:w-5 sm:h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
+    { name: "DevOps", label: "DevOps", logo: <Wrench className="w-4.5 h-4.5 sm:w-5 sm:h-5 shrink-0 text-slate-800 group-hover:text-orange-600 transition-colors" /> },
   ];
 
   const rightCapabilities = [
-    { title: "HEALTHCARE AI AGENTS", borderClass: "border-[#FF6B2C]/30", textClass: "text-[#FF6B2C]", glowClass: "shadow-[0_0_15px_rgba(255,107,44,0.25)]", hoverBorder: "group-hover:border-[#FF6B2C]/60", icon: <Bot className="w-6 h-6 lg:w-[26px] lg:h-[26px] text-[#FF6B2C]" strokeWidth={2} />, desc: "Build and deploy medical AI agents with clinical workflows and automation." },
-    { title: "CLINICAL COPILOTS", borderClass: "border-[#FF6B2C]/30", textClass: "text-[#FF6B2C]", glowClass: "shadow-[0_0_15px_rgba(255,107,44,0.25)]", hoverBorder: "group-hover:border-[#FF6B2C]/60", icon: <User className="w-6 h-6 lg:w-[26px] lg:h-[26px] text-[#FF6B2C]" strokeWidth={2} />, desc: "Develop physician copilots with EHR integrations, ambient listening, and medical data." },
-    { title: "MEDICAL RAG", borderClass: "border-[#FF6B2C]/30", textClass: "text-[#FF6B2C]", glowClass: "shadow-[0_0_15px_rgba(255,107,44,0.25)]", hoverBorder: "group-hover:border-[#FF6B2C]/60", icon: <Database className="w-6 h-6 lg:w-[26px] lg:h-[26px] text-[#FF6B2C]" strokeWidth={2} />, desc: "Connect AI applications to medical knowledge, guidelines, and patient history securely." },
-    { title: "WORKFLOW AUTOMATION", borderClass: "border-[#FF6B2C]/30", textClass: "text-[#FF6B2C]", glowClass: "shadow-[0_0_15px_rgba(255,107,44,0.25)]", hoverBorder: "group-hover:border-[#FF6B2C]/60", icon: <Workflow className="w-6 h-6 lg:w-[26px] lg:h-[26px] text-[#FF6B2C]" strokeWidth={2} />, desc: "Integrate AI agents with healthcare operations, billing systems, and clinical APIs." },
-    { title: "HIPAA COMPLIANT AI", borderClass: "border-[#FF6B2C]/30", textClass: "text-[#FF6B2C]", glowClass: "shadow-[0_0_15px_rgba(255,107,44,0.25)]", hoverBorder: "group-hover:border-[#FF6B2C]/60", icon: <ShieldCheck className="w-6 h-6 lg:w-[26px] lg:h-[26px] text-[#FF6B2C]" strokeWidth={2} />, desc: "Apply security, governance, and compliance practices across the healthcare AI lifecycle." },
+    { title: "HEALTHCARE AI AGENTS", borderClass: "border-[#FF6B2C]/30", textClass: "text-[#FF6B2C]", glowClass: "shadow-[0_0_15px_rgba(255,107,44,0.25)]", hoverBorder: "group-hover:border-[#FF6B2C]/60", icon: <Bot className="w-5 h-5 lg:w-[22px] lg:h-[22px] text-[#FF6B2C]" strokeWidth={2} />, desc: "Build and deploy medical AI agents with clinical workflows and automation." },
+    { title: "CLINICAL COPILOTS", borderClass: "border-[#FF6B2C]/30", textClass: "text-[#FF6B2C]", glowClass: "shadow-[0_0_15px_rgba(255,107,44,0.25)]", hoverBorder: "group-hover:border-[#FF6B2C]/60", icon: <User className="w-5 h-5 lg:w-[22px] lg:h-[22px] text-[#FF6B2C]" strokeWidth={2} />, desc: "Develop physician copilots with EHR integrations, ambient listening, and medical data." },
+    { title: "MEDICAL RAG", borderClass: "border-[#FF6B2C]/30", textClass: "text-[#FF6B2C]", glowClass: "shadow-[0_0_15px_rgba(255,107,44,0.25)]", hoverBorder: "group-hover:border-[#FF6B2C]/60", icon: <Database className="w-5 h-5 lg:w-[22px] lg:h-[22px] text-[#FF6B2C]" strokeWidth={2} />, desc: "Connect AI applications to medical knowledge, guidelines, and patient history securely." },
+    { title: "WORKFLOW AUTOMATION", borderClass: "border-[#FF6B2C]/30", textClass: "text-[#FF6B2C]", glowClass: "shadow-[0_0_15px_rgba(255,107,44,0.25)]", hoverBorder: "group-hover:border-[#FF6B2C]/60", icon: <Workflow className="w-5 h-5 lg:w-[22px] lg:h-[22px] text-[#FF6B2C]" strokeWidth={2} />, desc: "Integrate AI agents with healthcare operations, billing systems, and clinical APIs." },
+    { title: "HIPAA COMPLIANT AI", borderClass: "border-[#FF6B2C]/30", textClass: "text-[#FF6B2C]", glowClass: "shadow-[0_0_15px_rgba(255,107,44,0.25)]", hoverBorder: "group-hover:border-[#FF6B2C]/60", icon: <ShieldCheck className="w-5 h-5 lg:w-[22px] lg:h-[22px] text-[#FF6B2C]" strokeWidth={2} />, desc: "Apply security, governance, and compliance practices across the healthcare AI lifecycle." },
   ];
 
   const businessImpactMetrics = [
@@ -429,17 +429,17 @@ export default function TechnologyWeWork() {
       </div>
 
       {/* Outer Dashboard Card */}
-      <div className="relative overflow-hidden rounded-[20px] lg:rounded-[24px] border border-slate-200 bg-white p-4 sm:p-6 lg:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.05)] min-h-[580px] flex items-center text-slate-900 w-full">
+      <div className="relative overflow-hidden rounded-[20px] lg:rounded-[24px] border border-slate-200 bg-white p-4 sm:p-6 lg:p-6 xl:p-8 2xl:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.05)] min-h-[580px] flex items-center text-slate-900 w-full">
 
         {/* Mirror-morphism reflection glows */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_25%,rgba(255,107,44,0.03),transparent_40%)] pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_75%,rgba(255,107,44,0.04),transparent_45%)] pointer-events-none" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch w-full relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-5 xl:gap-7 items-stretch w-full relative z-10">
 
           {/* Left Column: Heading, Isometric Stack (contained inside a glowing card) */}
           <div className="lg:col-span-3 flex">
-            <div className="relative overflow-hidden rounded-[18px] border border-orange-500/30 bg-slate-50 p-5 sm:p-6 shadow-[0_0_25px_rgba(255,107,44,0.05)] flex flex-col justify-between items-stretch w-full h-auto min-h-[300px] lg:h-[440px] z-10">
+            <div className="relative overflow-hidden rounded-[18px] border border-orange-500/30 bg-slate-50 p-4 sm:p-5 xl:p-6 shadow-[0_0_25px_rgba(255,107,44,0.05)] flex flex-col justify-between items-stretch w-full h-auto min-h-[280px] lg:h-[440px] z-10">
               <div className="space-y-1.5 text-left">
                 <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-[#FF5812] typo-caption uppercase mb-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#FF5812] animate-pulse" />
@@ -454,14 +454,14 @@ export default function TechnologyWeWork() {
               </div>
 
               {/* 3D Stack pedestal illustration with smooth floating animation */}
-              <div className="py-2 sm:py-4 flex items-center justify-center">
+              <div className="py-2 sm:py-3 flex items-center justify-center">
                 <IsometricBlocksLogo />
               </div>
             </div>
           </div>
 
           {/* Center-Right Columns holding the 4 layers stack, branch lines, and the glowing core next to 5 capabilities */}
-          <div className="lg:col-span-9 grid grid-cols-1 lg:grid-cols-12 gap-6 relative">
+          <div className="lg:col-span-9 grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-3 xl:gap-5 relative">
 
             {/* Unified SVG Branching Connection Overlay */}
             <div className="absolute inset-0 w-full h-full pointer-events-none hidden lg:block z-0">
@@ -541,84 +541,84 @@ export default function TechnologyWeWork() {
             <div className="lg:col-span-6 flex flex-col justify-between gap-3 lg:gap-0 py-1 h-auto lg:h-[440px] relative z-10">
 
               {/* Layer 01: AI & Intelligent Systems */}
-              <div className="relative p-3 sm:p-3.5 lg:p-3 rounded-[14px] lg:rounded-[12px] border border-orange-500/25 bg-white shadow-sm flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-2 min-h-[66px]">
-                <div className="w-full sm:w-[115px] shrink-0 text-left flex sm:block items-center justify-between sm:justify-start pb-1.5 sm:pb-0 border-b sm:border-b-0 border-orange-500/15 pl-0.5">
+              <div className="relative p-2.5 sm:p-3 lg:p-2 xl:p-2.5 rounded-[14px] lg:rounded-[12px] border border-orange-500/25 bg-white shadow-sm flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-1.5 min-h-[66px]">
+                <div className="w-full sm:w-[90px] lg:w-[80px] xl:w-[90px] 2xl:w-[100px] shrink-0 text-left flex sm:block items-center justify-between sm:justify-start pb-1.5 sm:pb-0 border-b sm:border-b-0 border-orange-500/15 pl-0.5">
                   <div>
-                    <span className="text-[10px] font-black text-orange-600 block tracking-wider uppercase mb-0.5">CATEGORY 01</span>
-                    <span className="text-[10px] xl:text-[11px] font-black text-slate-900 tracking-tight uppercase leading-tight block">AI & INTELLIGENT SYSTEMS</span>
+                    <span className="text-[8.5px] sm:text-[9px] font-black text-orange-600 block tracking-wider uppercase mb-0.5">CATEGORY 01</span>
+                    <span className="text-[9px] sm:text-[9.5px] xl:text-[10px] font-black text-slate-900 tracking-tight uppercase leading-[1.15] block">AI & INTELLIGENT SYSTEMS</span>
                   </div>
                 </div>
-                <div className="hidden sm:block w-[1px] h-9 bg-orange-500/25 self-center shrink-0" />
-                <div className="grid grid-cols-3 lg:grid-cols-6 gap-1.5 sm:gap-1 pl-0 sm:pl-1 flex-1 items-start justify-center w-full">
+                <div className="hidden sm:block w-[1px] h-8 bg-orange-500/20 self-center shrink-0 mx-0.5" />
+                <div className="grid grid-cols-3 sm:flex sm:items-center sm:justify-between gap-1.5 sm:gap-1 pl-0 sm:pl-1 flex-1 min-w-0 w-full">
                   {layer1Caps.map((cap, idx) => (
-                    <div key={idx} className="flex flex-col items-center justify-start text-center gap-1 sm:gap-1.5 group cursor-pointer bg-slate-50/70 sm:bg-transparent p-1.5 sm:p-0 rounded-lg sm:rounded-none border border-slate-100 sm:border-none transition-all duration-200 hover:bg-orange-50/50 sm:hover:bg-transparent min-w-0">
-                      <div className="transition-all duration-300 group-hover:scale-110 group-hover:rotate-[6deg] shrink-0 h-5 flex items-center justify-center">
+                    <div key={idx} className="flex flex-col items-center justify-center text-center gap-0.5 sm:gap-1 group cursor-pointer bg-slate-50/70 sm:bg-transparent p-1.5 sm:p-0 rounded-lg sm:rounded-none border border-slate-100 sm:border-none transition-all duration-200 hover:bg-orange-50/50 sm:hover:bg-transparent shrink-0">
+                      <div className="transition-all duration-300 group-hover:scale-110 group-hover:rotate-[6deg] shrink-0 h-4.5 sm:h-5 flex items-center justify-center">
                         {cap.logo}
                       </div>
-                      <span className="text-[8.5px] lg:text-[7.5px] xl:text-[8px] font-bold text-slate-700 group-hover:text-orange-600 transition-colors duration-200 leading-[1.1] px-0.5 break-words w-full">{cap.name}</span>
+                      <span className="text-[8px] sm:text-[8.5px] lg:text-[7px] xl:text-[8px] 2xl:text-[8.5px] font-bold text-slate-700 group-hover:text-orange-600 transition-colors duration-200 leading-[1.15] text-center px-0.5 block whitespace-nowrap">{cap.label}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Layer 02: Healthcare Integration */}
-              <div className="relative p-3 sm:p-3.5 lg:p-3 rounded-[14px] lg:rounded-[12px] border border-orange-500/25 bg-white shadow-sm flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-2 min-h-[66px]">
-                <div className="w-full sm:w-[115px] shrink-0 text-left flex sm:block items-center justify-between sm:justify-start pb-1.5 sm:pb-0 border-b sm:border-b-0 border-orange-500/15 pl-0.5">
+              <div className="relative p-2.5 sm:p-3 lg:p-2 xl:p-2.5 rounded-[14px] lg:rounded-[12px] border border-orange-500/25 bg-white shadow-sm flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-1.5 min-h-[66px]">
+                <div className="w-full sm:w-[90px] lg:w-[80px] xl:w-[90px] 2xl:w-[100px] shrink-0 text-left flex sm:block items-center justify-between sm:justify-start pb-1.5 sm:pb-0 border-b sm:border-b-0 border-orange-500/15 pl-0.5">
                   <div>
-                    <span className="text-[10px] font-black text-orange-600 block tracking-wider uppercase mb-0.5">CATEGORY 02</span>
-                    <span className="text-[10px] xl:text-[11px] font-black text-slate-900 tracking-tight uppercase leading-tight block">HEALTHCARE INTEGRATION</span>
+                    <span className="text-[8.5px] sm:text-[9px] font-black text-orange-600 block tracking-wider uppercase mb-0.5">CATEGORY 02</span>
+                    <span className="text-[9px] sm:text-[9.5px] xl:text-[10px] font-black text-slate-900 tracking-tight uppercase leading-[1.15] block">HEALTHCARE INTEGRATION</span>
                   </div>
                 </div>
-                <div className="hidden sm:block w-[1px] h-9 bg-orange-500/25 self-center shrink-0" />
-                <div className="grid grid-cols-3 lg:grid-cols-5 gap-1.5 sm:gap-1 pl-0 sm:pl-1 flex-1 items-start justify-center w-full">
+                <div className="hidden sm:block w-[1px] h-8 bg-orange-500/20 self-center shrink-0 mx-0.5" />
+                <div className="grid grid-cols-3 sm:flex sm:items-center sm:justify-between gap-1.5 sm:gap-1 pl-0 sm:pl-1 flex-1 min-w-0 w-full">
                   {layer2Caps.map((cap, idx) => (
-                    <div key={idx} className="flex flex-col items-center justify-start text-center gap-1 sm:gap-1.5 group cursor-pointer bg-slate-50/70 sm:bg-transparent p-1.5 sm:p-0 rounded-lg sm:rounded-none border border-slate-100 sm:border-none transition-all duration-200 hover:bg-orange-50/50 sm:hover:bg-transparent min-w-0">
-                      <div className="transition-all duration-300 group-hover:scale-110 group-hover:rotate-[6deg] shrink-0 h-5 flex items-center justify-center">
+                    <div key={idx} className="flex flex-col items-center justify-center text-center gap-0.5 sm:gap-1 group cursor-pointer bg-slate-50/70 sm:bg-transparent p-1.5 sm:p-0 rounded-lg sm:rounded-none border border-slate-100 sm:border-none transition-all duration-200 hover:bg-orange-50/50 sm:hover:bg-transparent shrink-0">
+                      <div className="transition-all duration-300 group-hover:scale-110 group-hover:rotate-[6deg] shrink-0 h-4.5 sm:h-5 flex items-center justify-center">
                         {cap.logo}
                       </div>
-                      <span className="text-[8.5px] lg:text-[7.5px] xl:text-[8px] font-bold text-slate-700 group-hover:text-orange-600 transition-colors duration-200 leading-[1.1] px-0.5 break-words w-full">{cap.name}</span>
+                      <span className="text-[8px] sm:text-[8.5px] lg:text-[7px] xl:text-[8px] 2xl:text-[8.5px] font-bold text-slate-700 group-hover:text-orange-600 transition-colors duration-200 leading-[1.15] text-center px-0.5 block whitespace-nowrap">{cap.label}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Layer 03: Cloud & Data */}
-              <div className="relative p-3 sm:p-3.5 lg:p-3 rounded-[14px] lg:rounded-[12px] border border-orange-500/25 bg-white shadow-sm flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-2 min-h-[66px]">
-                <div className="w-full sm:w-[115px] shrink-0 text-left flex sm:block items-center justify-between sm:justify-start pb-1.5 sm:pb-0 border-b sm:border-b-0 border-orange-500/15 pl-0.5">
+              <div className="relative p-2.5 sm:p-3 lg:p-2 xl:p-2.5 rounded-[14px] lg:rounded-[12px] border border-orange-500/25 bg-white shadow-sm flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-1.5 min-h-[66px]">
+                <div className="w-full sm:w-[90px] lg:w-[80px] xl:w-[90px] 2xl:w-[100px] shrink-0 text-left flex sm:block items-center justify-between sm:justify-start pb-1.5 sm:pb-0 border-b sm:border-b-0 border-orange-500/15 pl-0.5">
                   <div>
-                    <span className="text-[10px] font-black text-orange-600 block tracking-wider uppercase mb-0.5">CATEGORY 03</span>
-                    <span className="text-[10px] xl:text-[11px] font-black text-slate-900 tracking-tight uppercase leading-tight block">CLOUD & DATA</span>
+                    <span className="text-[8.5px] sm:text-[9px] font-black text-orange-600 block tracking-wider uppercase mb-0.5">CATEGORY 03</span>
+                    <span className="text-[9px] sm:text-[9.5px] xl:text-[10px] font-black text-slate-900 tracking-tight uppercase leading-[1.15] block">CLOUD & DATA</span>
                   </div>
                 </div>
-                <div className="hidden sm:block w-[1px] h-9 bg-orange-500/25 self-center shrink-0" />
-                <div className="grid grid-cols-3 lg:grid-cols-5 gap-1.5 sm:gap-1 pl-0 sm:pl-1 flex-1 items-start justify-center w-full">
+                <div className="hidden sm:block w-[1px] h-8 bg-orange-500/20 self-center shrink-0 mx-0.5" />
+                <div className="grid grid-cols-3 sm:flex sm:items-center sm:justify-between gap-1.5 sm:gap-1 pl-0 sm:pl-1 flex-1 min-w-0 w-full">
                   {layer3Caps.map((cap, idx) => (
-                    <div key={idx} className="flex flex-col items-center justify-start text-center gap-1 sm:gap-1.5 group cursor-pointer bg-slate-50/70 sm:bg-transparent p-1.5 sm:p-0 rounded-lg sm:rounded-none border border-slate-100 sm:border-none transition-all duration-200 hover:bg-orange-50/50 sm:hover:bg-transparent min-w-0">
-                      <div className="transition-all duration-300 group-hover:scale-110 group-hover:rotate-[6deg] shrink-0 h-5 flex items-center justify-center">
+                    <div key={idx} className="flex flex-col items-center justify-center text-center gap-0.5 sm:gap-1 group cursor-pointer bg-slate-50/70 sm:bg-transparent p-1.5 sm:p-0 rounded-lg sm:rounded-none border border-slate-100 sm:border-none transition-all duration-200 hover:bg-orange-50/50 sm:hover:bg-transparent shrink-0">
+                      <div className="transition-all duration-300 group-hover:scale-110 group-hover:rotate-[6deg] shrink-0 h-4.5 sm:h-5 flex items-center justify-center">
                         {cap.logo}
                       </div>
-                      <span className="text-[8.5px] lg:text-[7.5px] xl:text-[8px] font-bold text-slate-700 group-hover:text-orange-600 transition-colors duration-200 leading-[1.1] px-0.5 break-words w-full">{cap.name}</span>
+                      <span className="text-[8px] sm:text-[8.5px] lg:text-[7px] xl:text-[8px] 2xl:text-[8.5px] font-bold text-slate-700 group-hover:text-orange-600 transition-colors duration-200 leading-[1.15] text-center px-0.5 block whitespace-nowrap">{cap.label}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Layer 04: Application Engineering */}
-              <div className="relative p-3 sm:p-3.5 lg:p-3 rounded-[14px] lg:rounded-[12px] border border-orange-500/25 bg-white shadow-sm flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-2 min-h-[66px]">
-                <div className="w-full sm:w-[115px] shrink-0 text-left flex sm:block items-center justify-between sm:justify-start pb-1.5 sm:pb-0 border-b sm:border-b-0 border-orange-500/15 pl-0.5">
+              <div className="relative p-2.5 sm:p-3 lg:p-2 xl:p-2.5 rounded-[14px] lg:rounded-[12px] border border-orange-500/25 bg-white shadow-sm flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-1.5 min-h-[66px]">
+                <div className="w-full sm:w-[90px] lg:w-[80px] xl:w-[90px] 2xl:w-[100px] shrink-0 text-left flex sm:block items-center justify-between sm:justify-start pb-1.5 sm:pb-0 border-b sm:border-b-0 border-orange-500/15 pl-0.5">
                   <div>
-                    <span className="text-[10px] font-black text-orange-600 block tracking-wider uppercase mb-0.5">CATEGORY 04</span>
-                    <span className="text-[10px] xl:text-[11px] font-black text-slate-900 tracking-tight uppercase leading-tight block">APPLICATION ENGINEERING</span>
+                    <span className="text-[8.5px] sm:text-[9px] font-black text-orange-600 block tracking-wider uppercase mb-0.5">CATEGORY 04</span>
+                    <span className="text-[9px] sm:text-[9.5px] xl:text-[10px] font-black text-slate-900 tracking-tight uppercase leading-[1.15] block">APPLICATION ENGINEERING</span>
                   </div>
                 </div>
-                <div className="hidden sm:block w-[1px] h-9 bg-orange-500/25 self-center shrink-0" />
-                <div className="grid grid-cols-3 lg:grid-cols-6 gap-1.5 sm:gap-1 pl-0 sm:pl-1 flex-1 items-start justify-center w-full">
+                <div className="hidden sm:block w-[1px] h-8 bg-orange-500/20 self-center shrink-0 mx-0.5" />
+                <div className="grid grid-cols-3 sm:flex sm:items-center sm:justify-between gap-1.5 sm:gap-1 pl-0 sm:pl-1 flex-1 min-w-0 w-full">
                   {layer4Caps.map((cap, idx) => (
-                    <div key={idx} className="flex flex-col items-center justify-start text-center gap-1 sm:gap-1.5 group cursor-pointer bg-slate-50/70 sm:bg-transparent p-1.5 sm:p-0 rounded-lg sm:rounded-none border border-slate-100 sm:border-none transition-all duration-200 hover:bg-orange-50/50 sm:hover:bg-transparent min-w-0">
-                      <div className="transition-all duration-300 group-hover:scale-110 group-hover:rotate-[6deg] shrink-0 h-5 flex items-center justify-center">
+                    <div key={idx} className="flex flex-col items-center justify-center text-center gap-0.5 sm:gap-1 group cursor-pointer bg-slate-50/70 sm:bg-transparent p-1.5 sm:p-0 rounded-lg sm:rounded-none border border-slate-100 sm:border-none transition-all duration-200 hover:bg-orange-50/50 sm:hover:bg-transparent shrink-0">
+                      <div className="transition-all duration-300 group-hover:scale-110 group-hover:rotate-[6deg] shrink-0 h-4.5 sm:h-5 flex items-center justify-center">
                         {cap.logo}
                       </div>
-                      <span className="text-[8.5px] lg:text-[7.5px] xl:text-[8px] font-bold text-slate-700 group-hover:text-orange-600 transition-colors duration-200 leading-[1.1] px-0.5 break-words w-full">{cap.name}</span>
+                      <span className="text-[8px] sm:text-[8.5px] lg:text-[7px] xl:text-[8px] 2xl:text-[8.5px] font-bold text-slate-700 group-hover:text-orange-600 transition-colors duration-200 leading-[1.15] text-center px-0.5 block whitespace-nowrap">{cap.label}</span>
                     </div>
                   ))}
                 </div>
@@ -627,7 +627,7 @@ export default function TechnologyWeWork() {
 
             {/* Col B (Central Glowing Microsoft Core - Sci-fi dial design) */}
             <div className="lg:col-span-2 flex items-center justify-center relative z-10 py-6 lg:py-0">
-              <div className="relative flex items-center justify-center w-[150px] h-[150px] sm:w-[180px] sm:h-[180px]">
+              <div className="relative flex items-center justify-center w-[130px] h-[130px] sm:w-[160px] sm:h-[160px]">
                 {/* Concentric rotating neon circles with technical cockpit ticks */}
                 <div className="absolute inset-0 rounded-full border border-orange-500/30 animate-[spin_20s_linear_infinite] shadow-[0_0_40px_rgba(255,107,44,0.05)]" />
                 <div className="absolute inset-2 sm:inset-3 rounded-full border border-orange-500/20 animate-[spin_12s_linear_infinite_reverse]" />
@@ -638,29 +638,29 @@ export default function TechnologyWeWork() {
                 </svg>
 
                 {/* Core content with inner reflection */}
-                <div className="absolute inset-4 sm:inset-5 rounded-full bg-white border-2 border-orange-400/50 shadow-[inset_0_0_20px_rgba(255,107,44,0.05),0_0_30px_rgba(255,107,44,0.15)] flex flex-col items-center justify-center gap-0.5 sm:gap-1 z-10">
-                  <Activity className="w-6 h-6 sm:w-7 sm:h-7 shrink-0 transition-transform duration-500 hover:scale-110 hover:rotate-[360deg] cursor-pointer text-orange-600" />
-                  <span className="text-[10.5px] sm:text-[11px] lg:text-[11px] font-black tracking-widest text-slate-900 select-none text-center mt-0.5">HEALTHCARE</span>
-                  <span className="text-[9px] sm:text-[9.5px] lg:text-[10px] font-black tracking-widest text-orange-600 select-none text-center mt-[-1px]">CORE</span>
-                  <span className="text-[7px] sm:text-[7.5px] lg:text-[7.5px] font-bold tracking-widest text-slate-500 mt-1 select-none text-center px-2 leading-tight">AI • DATA • APPS</span>
+                <div className="absolute inset-3.5 sm:inset-4 rounded-full bg-white border-2 border-orange-400/50 shadow-[inset_0_0_20px_rgba(255,107,44,0.05),0_0_30px_rgba(255,107,44,0.15)] flex flex-col items-center justify-center gap-0.5 sm:gap-1 z-10">
+                  <Activity className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 transition-transform duration-500 hover:scale-110 hover:rotate-[360deg] cursor-pointer text-orange-600" />
+                  <span className="text-[10px] sm:text-[11px] lg:text-[10.5px] font-black tracking-widest text-slate-900 select-none text-center mt-0.5">HEALTHCARE</span>
+                  <span className="text-[8.5px] sm:text-[9.5px] lg:text-[9px] font-black tracking-widest text-orange-600 select-none text-center mt-[-1px]">CORE</span>
+                  <span className="text-[6.5px] sm:text-[7.5px] lg:text-[7px] font-bold tracking-widest text-slate-500 mt-0.5 select-none text-center px-1 leading-tight">AI • DATA • APPS</span>
                 </div>
               </div>
             </div>
 
             {/* Col C (5 Capabilities indicators - Overlapping Circular Buttons on Glow Cards) */}
-            <div className="lg:col-span-4 flex flex-col justify-between gap-3 lg:gap-0 py-1 h-auto lg:h-[440px] text-left pl-0 lg:pl-3 relative z-10">
+            <div className="lg:col-span-4 flex flex-col justify-between gap-2.5 lg:gap-0 py-1 h-auto lg:h-[440px] text-left pl-0 lg:pl-3 relative z-10">
               {rightCapabilities.map((cap, idx) => (
-                <div key={idx} className="relative flex items-center pl-5 sm:pl-6 w-full group">
+                <div key={idx} className="relative flex items-center pl-4 sm:pl-5 lg:pl-4 xl:pl-5 w-full group">
                   {/* Circular indicator button offset to the left */}
-                  <div className={`absolute left-0 top-1/2 -translate-y-1/2 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-white border-2 ${cap.borderClass} ${cap.glowClass} z-20 transition-all duration-300 group-hover:scale-110 group-hover:rotate-[15deg]`}>
+                  <div className={`absolute left-0 top-1/2 -translate-y-1/2 flex h-9 w-9 sm:h-11 sm:w-11 lg:h-9 lg:w-9 xl:h-11 xl:w-11 items-center justify-center rounded-full bg-white border-2 ${cap.borderClass} ${cap.glowClass} z-20 transition-all duration-300 group-hover:scale-110 group-hover:rotate-[15deg]`}>
                     {cap.icon}
                   </div>
                   {/* Text banner with matching card border color */}
-                  <div className={`w-full border ${cap.borderClass} bg-white p-2.5 sm:p-2.5 lg:p-2 xl:p-2.5 pl-8 sm:pl-10 lg:pl-9 xl:pl-10 rounded-lg text-left transition-all duration-300 ${cap.hoverBorder} shadow-[0_4px_12px_rgba(0,0,0,0.05)]`}>
-                    <span className={`text-[11px] sm:text-[12px] lg:text-[11px] xl:text-[12px] font-black block tracking-wider uppercase mb-0.5 ${cap.textClass}`}>
+                  <div className={`w-full border ${cap.borderClass} bg-white p-2 sm:p-2.5 lg:p-1.5 xl:p-2.5 pl-7 sm:pl-9 lg:pl-7 xl:pl-9 rounded-lg text-left transition-all duration-300 ${cap.hoverBorder} shadow-[0_4px_12px_rgba(0,0,0,0.05)]`}>
+                    <span className={`text-[10.5px] sm:text-[11.5px] lg:text-[10px] xl:text-[11.5px] font-black block tracking-wider uppercase mb-0.5 ${cap.textClass}`}>
                       {cap.title}
                     </span>
-                    <span className="typo-body-sm text-slate-500 block group-hover:text-slate-700 transition-colors duration-200">
+                    <span className="text-[10px] sm:text-[11px] lg:text-[9.5px] xl:text-[10.5px] text-slate-500 block group-hover:text-slate-700 transition-colors duration-200 leading-snug">
                       {cap.desc}
                     </span>
                   </div>
@@ -675,36 +675,36 @@ export default function TechnologyWeWork() {
       </div>
 
       {/* Integrated bottom delivering business impact banner */}
-      <div className="relative overflow-hidden rounded-[20px] border border-orange-500/20 bg-white py-4 px-4 sm:px-6 md:px-8 shadow-[0_10px_30px_rgba(0,0,0,0.03)] flex flex-col lg:flex-row items-center justify-between gap-5 lg:gap-6 z-10 text-slate-900 w-full">
+      <div className="relative overflow-hidden rounded-[20px] border border-orange-500/20 bg-white py-3 sm:py-3.5 px-3 xs:px-4 sm:px-6 md:px-6 shadow-[0_10px_30px_rgba(0,0,0,0.03)] flex flex-col lg:flex-row items-center justify-between gap-3 sm:gap-4 lg:gap-2.5 xl:gap-4 z-10 text-slate-900 w-full">
 
         {/* Mirror-morphism reflection glows */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,107,44,0.03),transparent_50%)] pointer-events-none" />
 
         {/* Header left */}
-        <div className="flex items-center gap-3 shrink-0 border-b lg:border-b-0 lg:border-r border-slate-200 pb-3 lg:pb-0 lg:pr-6 w-full lg:w-auto">
-          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white border-2 border-orange-500/40 text-orange-600 shadow-[0_0_10px_rgba(255,107,44,0.05)] animate-pulse">
-            <Target className="w-5 h-5 text-orange-600" />
+        <div className="flex items-center gap-2 sm:gap-2.5 shrink-0 border-b lg:border-b-0 lg:border-r border-slate-200 pb-2.5 lg:pb-0 lg:pr-3 xl:pr-4 w-full lg:w-auto justify-center lg:justify-start">
+          <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-white border-2 border-orange-500/40 text-orange-600 shadow-[0_0_10px_rgba(255,107,44,0.05)] animate-pulse shrink-0">
+            <Target className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange-600" />
           </div>
           <div className="text-left">
-            <span className="text-[13px] sm:text-[14.5px] lg:text-[15px] font-black text-orange-600 tracking-wider uppercase select-none">DELIVERING BUSINESS IMPACT</span>
+            <span className="text-[11px] sm:text-[12px] xl:text-[13px] 2xl:text-[14px] font-black text-orange-600 tracking-wider uppercase select-none whitespace-nowrap">DELIVERING BUSINESS IMPACT</span>
           </div>
         </div>
 
         {/* 5 Metrics row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:flex lg:flex-nowrap justify-between items-center w-full gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:flex lg:flex-nowrap items-center justify-between w-full gap-2.5 sm:gap-3 lg:gap-1.5 xl:gap-3 min-w-0">
           {businessImpactMetrics.map((metric, idx) => (
             <React.Fragment key={idx}>
-              <div className="flex items-center gap-3 text-left group">
-                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white border border-orange-500/20 shadow-[0_0_8px_rgba(255,107,44,0.05)] transition-all duration-300 group-hover:scale-115 group-hover:rotate-6 shrink-0">
-                  {React.cloneElement(metric.icon, { className: "w-4.5 h-4.5 text-orange-600 animate-pulse" })}
+              <div className="flex items-center gap-1.5 sm:gap-2 xl:gap-2.5 text-left group min-w-0 shrink-0 lg:shrink">
+                <div className="flex h-7 w-7 sm:h-8 sm:w-8 xl:h-8.5 xl:w-8.5 items-center justify-center rounded-full bg-white border border-orange-500/20 shadow-[0_0_8px_rgba(255,107,44,0.05)] transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 shrink-0">
+                  {React.cloneElement(metric.icon, { className: "w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange-600 animate-pulse" })}
                 </div>
-                <div>
-                  <span className="text-[12px] sm:text-[13px] font-black text-slate-900 block tracking-tight uppercase leading-none mb-0.5">{metric.title}</span>
-                  <span className="text-[11px] sm:text-[11.5px] lg:text-[12px] text-slate-500 font-semibold block leading-none">{metric.value}</span>
+                <div className="min-w-0">
+                  <span className="text-[10px] sm:text-[11px] lg:text-[9.5px] xl:text-[11px] 2xl:text-[12px] font-black text-slate-900 block tracking-tight uppercase leading-none mb-0.5 whitespace-nowrap">{metric.title}</span>
+                  <span className="text-[9px] sm:text-[10px] lg:text-[8.5px] xl:text-[10px] 2xl:text-[11px] text-slate-500 font-semibold block leading-none whitespace-nowrap">{metric.value}</span>
                 </div>
               </div>
               {idx < businessImpactMetrics.length - 1 && (
-                <div className="hidden lg:block w-[1px] h-6 bg-slate-200" />
+                <div className="hidden lg:block w-[1px] h-5 xl:h-6 bg-slate-200 shrink-0" />
               )}
             </React.Fragment>
           ))}

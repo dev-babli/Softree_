@@ -739,7 +739,7 @@ export default function WhySoftreeCurtainSlider() {
   return (
     <section className="pt-6 pb-12 md:pt-10 md:pb-16 lg:pt-12 lg:pb-24 font-sans relative bg-white">
       {/* Global Section Header */}
-      <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col items-start text-left mb-8 md:mb-12">
+      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 flex flex-col items-start text-left mb-8 md:mb-12">
         <div className="inline-flex items-center mb-3">
           <span className="px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-[#FF5812] typo-caption">
             AI DELIVERY PROCESS
@@ -769,7 +769,7 @@ export default function WhySoftreeCurtainSlider() {
           <div className="wcs_stage" ref={stageRef} />
 
           {/* Left Side: GSAP Animated Text + React Contextual Badges */}
-          <div className="absolute top-6 sm:top-10 lg:top-[50%] lg:-translate-y-1/2 left-5 sm:left-10 lg:left-14 z-[4] max-w-[calc(100%-40px)] sm:max-w-md lg:max-w-lg xl:max-w-xl pointer-events-none flex flex-col gap-2 sm:gap-3 md:gap-4">
+          <div className="absolute top-6 sm:top-8 lg:top-[42%] lg:-translate-y-1/2 left-5 sm:left-8 lg:left-10 xl:left-14 z-[4] max-w-[calc(100%-40px)] sm:max-w-md lg:max-w-xs xl:max-w-md 2xl:max-w-lg pointer-events-none flex flex-col gap-2 sm:gap-2.5 xl:gap-3.5">
 
             <AnimatePresence mode="wait">
               <motion.div
@@ -780,8 +780,8 @@ export default function WhySoftreeCurtainSlider() {
                 transition={{ duration: 0.35 }}
                 className="flex flex-col gap-1.5 pointer-events-auto"
               >
-                <div className="inline-flex items-center gap-2.5 px-3.5 sm:px-4 py-1.5 rounded-full bg-black/70 backdrop-blur-md border border-[#FF5812]/50 text-[#FF5812] text-xs sm:text-base md:text-lg font-mono font-extrabold tracking-[0.2em] uppercase w-fit shadow-[0_0_20px_rgba(255,88,18,0.25)]">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#FF5812] animate-pulse shadow-[0_0_10px_#FF5812]" />
+                <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-black/70 backdrop-blur-md border border-[#FF5812]/50 text-[#FF5812] text-xs sm:text-sm xl:text-base font-mono font-extrabold tracking-[0.18em] uppercase w-fit shadow-[0_0_20px_rgba(255,88,18,0.25)]">
+                  <span className="w-2 h-2 rounded-full bg-[#FF5812] animate-pulse shadow-[0_0_10px_#FF5812]" />
                   <span>{activeData.phase}</span>
                 </div>
               </motion.div>
@@ -791,7 +791,7 @@ export default function WhySoftreeCurtainSlider() {
             <h2 className="wcs_title !relative !top-auto !left-auto !max-w-full drop-shadow-2xl" ref={titleElRef} />
 
             {/* GSAP Split Characters Desc */}
-            <p className="wcs_desc text-[13px] md:text-[15px] lg:text-[16px] text-slate-200 font-normal leading-relaxed drop-shadow-lg max-w-sm sm:max-w-md" ref={descElRef} />
+            <p className="wcs_desc text-[12.5px] sm:text-[13px] md:text-[14px] xl:text-[15px] text-slate-200 font-normal leading-relaxed drop-shadow-lg max-w-sm sm:max-w-md" ref={descElRef} />
 
             {/* Tech Keyword Pills */}
             <AnimatePresence mode="wait">
@@ -801,10 +801,10 @@ export default function WhySoftreeCurtainSlider() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.35, delay: 0.15 }}
-                className="flex flex-wrap items-center gap-2 pt-1 pointer-events-auto"
+                className="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-1 pointer-events-auto"
               >
                 {activeData.tags.map((tag, idx) => (
-                  <span key={idx} className="px-2.5 py-1 rounded-md bg-white/[0.08] backdrop-blur-md border border-white/12 text-white/90 text-[10.5px] sm:text-[11px] font-mono font-medium shadow-sm">
+                  <span key={idx} className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-white/[0.08] backdrop-blur-md border border-white/12 text-white/90 text-[10px] sm:text-[10.5px] font-mono font-medium shadow-sm">
                     {tag}
                   </span>
                 ))}
@@ -867,8 +867,7 @@ export default function WhySoftreeCurtainSlider() {
 
           {/* React/Framer Motion Data Overlay (Bullets & Cards) */}
           <div
-            className="react-overlay hidden lg:flex absolute inset-0 lg:left-auto lg:w-[46%] xl:w-[40%] 2xl:w-[38%] p-4 md:p-8 lg:p-8 lg:pr-12 flex-col pointer-events-none z-10"
-            style={{ justifyContent: 'center', paddingBottom: '100px' }}
+            className="react-overlay hidden lg:flex absolute inset-0 lg:left-auto lg:w-[48%] xl:w-[42%] 2xl:w-[38%] p-4 lg:p-6 xl:p-8 lg:pr-8 xl:pr-12 flex-col justify-center pointer-events-none z-10"
           >
             <AnimatePresence mode="wait">
               <motion.div
@@ -877,36 +876,36 @@ export default function WhySoftreeCurtainSlider() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.6, ease: [0.3, 0.9, 0.1, 1] }}
-                className="pointer-events-auto mt-8 md:mt-12 lg:mt-0"
+                className="pointer-events-auto"
               >
                 {/* Capability Header */}
                 <div>
-                  <div className="text-orange-400 typo-caption mb-1.5 flex items-center gap-1.5">
+                  <div className="text-orange-400 typo-caption mb-1 flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-orange-400 shadow-[0_0_6px_#FF5812]" />
                     SYSTEM CAPABILITY
                   </div>
-                  <h3 className="typo-heading-3 leading-[1.25] text-white tracking-tight drop-shadow-xl">
+                  <h3 className="text-lg xl:text-xl 2xl:text-2xl font-bold leading-snug text-white tracking-tight drop-shadow-xl">
                     {activeData.heading}
                   </h3>
-                  <p className="typo-body-sm text-slate-300 mt-1 leading-relaxed drop-shadow">
+                  <p className="text-xs xl:text-sm text-slate-300 mt-1 leading-relaxed drop-shadow line-clamp-2">
                     {activeData.subheading}
                   </p>
                 </div>
 
                 {/* 2x2 Architectural Capability Matrix */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-2.5 mt-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 xl:gap-2.5 mt-2 xl:mt-2.5">
                   {activeData.capabilities.map((cap, idx) => (
                     <div
                       key={idx}
-                      className="bg-black/45 backdrop-blur-xl border border-white/10 hover:border-orange-500/40 rounded-xl p-2.5 md:p-3 transition-all duration-300 shadow-lg group"
+                      className="bg-black/45 backdrop-blur-xl border border-white/10 hover:border-orange-500/40 rounded-xl p-2 xl:p-2.5 transition-all duration-300 shadow-lg group"
                     >
-                      <div className="flex items-center gap-1.5 mb-1">
-                        <div className="w-5 h-5 rounded-md bg-orange-500/20 border border-orange-500/40 flex items-center justify-center text-orange-400 shrink-0 group-hover:scale-110 transition-transform">
+                      <div className="flex items-center gap-1.5 mb-0.5">
+                        <div className="w-4.5 h-4.5 xl:w-5 xl:h-5 rounded-md bg-orange-500/20 border border-orange-500/40 flex items-center justify-center text-orange-400 shrink-0 group-hover:scale-110 transition-transform">
                           {getCapabilityIcon(cap.iconType)}
                         </div>
-                        <span className="text-white font-semibold text-[11px] md:text-xs tracking-tight">{cap.title}</span>
+                        <span className="text-white font-semibold text-[11px] xl:text-xs tracking-tight">{cap.title}</span>
                       </div>
-                      <p className="text-slate-300 text-[10px] md:text-[11px] leading-snug pl-6.5">
+                      <p className="text-slate-300 text-[9.5px] xl:text-[10.5px] leading-snug pl-6">
                         {cap.desc}
                       </p>
                     </div>
@@ -914,51 +913,51 @@ export default function WhySoftreeCurtainSlider() {
                 </div>
 
                 {/* Bottom Enterprise Benchmark & Action Card */}
-                <div className="bg-black/55 backdrop-blur-2xl border border-white/15 hover:border-orange-500/40 rounded-xl lg:rounded-2xl p-3 sm:p-3.5 lg:p-4 relative overflow-hidden shadow-2xl transition-all duration-300 mt-3 md:mt-4">
+                <div className="bg-black/55 backdrop-blur-2xl border border-white/15 hover:border-orange-500/40 rounded-xl xl:rounded-2xl p-2.5 xl:p-3.5 relative overflow-hidden shadow-2xl transition-all duration-300 mt-2.5 xl:mt-3">
                   {/* Glowing Top Hairline */}
                   <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-orange-500 via-amber-300/60 to-transparent" />
 
                   {/* Header Row: Status Badge & Tech Stack */}
-                  <div className="flex items-center justify-between gap-1.5 mb-1.5 pb-1.5 border-b border-white/10">
+                  <div className="flex items-center justify-between gap-1.5 mb-1 pb-1 border-b border-white/10">
                     <div className="flex items-center gap-1.5">
                       <span className="relative flex h-1.5 w-1.5">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                         <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500 shadow-[0_0_8px_#10B981]" />
                       </span>
-                      <span className="text-emerald-400 text-[9px] font-mono font-bold tracking-wider uppercase">
+                      <span className="text-emerald-400 text-[8.5px] xl:text-[9px] font-mono font-bold tracking-wider uppercase">
                         {activeData.card.statusBadge}
                       </span>
                     </div>
-                    <span className="text-slate-300 bg-white/[0.06] border border-white/10 px-2 py-0.5 rounded-full text-[9px] font-mono tracking-wide truncate max-w-[200px] sm:max-w-none">
+                    <span className="text-slate-300 bg-white/[0.06] border border-white/10 px-2 py-0.5 rounded-full text-[8.5px] xl:text-[9px] font-mono tracking-wide truncate max-w-[180px] xl:max-w-none">
                       {activeData.card.stack}
                     </span>
                   </div>
 
                   {/* Outcome Title & Impact Statement */}
-                  <div className="mb-2">
-                    <div className="text-white font-bold text-[13px] lg:text-sm tracking-tight mb-0.5">
+                  <div className="mb-1.5">
+                    <div className="text-white font-bold text-xs xl:text-[13px] tracking-tight mb-0.5">
                       {activeData.card.outcomeTitle}
                     </div>
-                    <p className="text-slate-300 text-[10px] lg:text-[11px] leading-relaxed">
+                    <p className="text-slate-300 text-[9.5px] xl:text-[10.5px] leading-relaxed line-clamp-2">
                       {activeData.card.outcomeDesc}
                     </p>
                   </div>
 
                   {/* Metrics & Action Link Row */}
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-1.5 border-t border-white/10">
+                  <div className="flex items-center justify-between gap-2 pt-1.5 border-t border-white/10">
                     <div className="flex items-center gap-2 flex-wrap">
                       <div className="flex items-baseline gap-1">
-                        <span className="text-orange-400 font-extrabold text-[13px] lg:text-sm font-mono">
+                        <span className="text-orange-400 font-extrabold text-xs xl:text-sm font-mono">
                           {activeData.card.metricValue}
                         </span>
-                        <span className="text-slate-400 text-[9px] font-mono uppercase">
+                        <span className="text-slate-400 text-[8.5px] xl:text-[9px] font-mono uppercase">
                           {activeData.card.metricLabel}
                         </span>
                       </div>
                       {activeData.card.metricSecondary && (
                         <>
                           <span className="text-white/20 text-[10px] hidden sm:inline">•</span>
-                          <span className="text-slate-300 text-[9px] sm:text-[10px] font-mono">
+                          <span className="text-slate-300 text-[8.5px] xl:text-[9.5px] font-mono">
                             {activeData.card.metricSecondary}
                           </span>
                         </>
@@ -969,7 +968,7 @@ export default function WhySoftreeCurtainSlider() {
                       href={activeData.card.ctaLink}
                       text={activeData.card.ctaText}
                       variant="orange-filled"
-                      className="self-start sm:self-auto shrink-0"
+                      className="shrink-0 text-xs py-2 px-5 xl:py-2.5 xl:px-6"
                     />
                   </div>
                 </div>

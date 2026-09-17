@@ -17,15 +17,15 @@
 .wcs_wrap {
   position: relative;
   width: 100%;
-  height: 100dvh;
-  min-height: 640px;
+  height: clamp(680px, 86vh, 840px);
+  min-height: 680px;
   overflow: hidden;
   background: var(--wcs-bg);
   font-family: var(--wcs-sans);
   -webkit-font-smoothing: antialiased;
   touch-action: pan-y;
   outline: none;
-  border-radius: 40px;
+  border-radius: 36px;
 }
 
 .wcs_slides {
@@ -96,7 +96,7 @@
   position: relative;
   z-index: 4;
   margin: 0;
-  font-size: clamp(34px, 4.8vw, 64px);
+  font-size: clamp(32px, 4.2vw, 56px);
   font-weight: 800;
   letter-spacing: -0.035em;
   line-height: 1.05;
@@ -134,11 +134,12 @@
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
 }
 
-/* ---- Control pill, bottom center ---- */
+/* ---- Control pill ---- */
 .wcs_pill {
   position: absolute;
   left: 50%;
-  bottom: calc(var(--wcs-margin) + 12px);
+  transform: translateX(-50%);
+  bottom: 16px;
   z-index: 5;
   display: flex;
   align-items: center;
@@ -148,9 +149,23 @@
   background: var(--wcs-pill-bg);
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
-  transform: translateX(-50%);
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+@media (min-width: 1024px) {
+  .wcs_pill {
+    left: 40px;
+    transform: none;
+    bottom: 36px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .wcs_pill {
+    left: 56px;
+    bottom: 44px;
+  }
 }
 
 .wcs_arrow {
@@ -206,8 +221,8 @@
 
 @media (max-width: 1023px) {
   .wcs_wrap {
-    height: 420px;
-    min-height: 380px;
+    height: 460px;
+    min-height: 420px;
     border-radius: 24px;
     --wcs-margin: 16px;
   }
@@ -227,8 +242,8 @@
 
 @media (max-width: 640px) {
   .wcs_wrap {
-    height: 390px;
-    min-height: 360px;
+    height: 420px;
+    min-height: 380px;
     border-radius: 20px;
   }
 
