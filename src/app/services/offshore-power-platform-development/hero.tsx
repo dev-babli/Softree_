@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback, CSSProperties } from "react";
+import { getInitials } from "@/lib/text";
 import Link from "next/link";
 import TrustStrip from "@/components/sections/TrustStrip";
 interface Testimonial {
@@ -52,15 +53,6 @@ const testimonials: Testimonial[] = [
 
 const INTERVAL = 4000;
 const PROGRESS_STEP = 50;
-
-function initials(name: string): string {
-  return name
-    .split(" ")
-    .map((w) => w[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
-}
 
 function PinIcon() {
   return (
@@ -148,7 +140,7 @@ function TestimonialSlide({ testimonial }: TestimonialSlideProps) {
       <p style={styles.quoteText}>{testimonial.text}</p>
 
       <div style={styles.authorRow}>
-        <div style={styles.avatar}>{initials(testimonial.name)}</div>
+        <div style={styles.avatar}>{getInitials(testimonial.name)}</div>
 
         <div>
           <div style={styles.authorName}>{testimonial.name}</div>

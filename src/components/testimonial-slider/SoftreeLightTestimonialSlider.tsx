@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
+import { getInitials } from "@/lib/text";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { TestimonialBrandPanel } from "./TestimonialBrandPanel";
@@ -27,15 +28,6 @@ function GoldStars({ count = 5 }: { count?: number }) {
       ))}
     </div>
   );
-}
-
-function initials(name: string) {
-  return name
-    .split(" ")
-    .map((n) => n[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
 }
 
 function NavArrow({
@@ -175,7 +167,7 @@ export function SoftreeLightTestimonialSlider({
                     className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[var(--softree-accent-soft)] text-sm font-bold text-[var(--softree-accent)] ring-1 ring-[var(--softree-accent)]/20"
                     aria-hidden
                   >
-                    {initials(slide.name)}
+                    {getInitials(slide.name)}
                   </div>
                   <div className="min-w-0">
                     <p className="font-semibold tracking-tight text-zinc-900">{slide.name}</p>

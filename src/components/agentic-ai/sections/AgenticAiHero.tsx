@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import { getInitials } from "@/lib/text";
 import Link from "next/link"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
@@ -18,15 +19,6 @@ import { agenticHero, heroTestimonials } from "../data"
 const CYCLING = ["Copilot Studio", "Azure AI", "Power Platform", "Agent Builder"] as const
 const HERO_IMG = "/service_image/ai.jpg"
 const ROTATE_MS = 6000
-
-function initials(name: string) {
-  return name
-    .split(" ")
-    .map((w) => w[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase()
-}
 
 /** Light editorial hero — matches About Us / AvooraHero language (not dark Kore hero). */
 export function AgenticAiHero() {
@@ -219,7 +211,7 @@ export function AgenticAiHero() {
               <p className="text-base leading-relaxed text-[#0a0a1a]/80">&ldquo;{review.text}&rdquo;</p>
               <div className="mt-5 flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#FF5812]/10 text-xs font-bold text-[#FF5812]">
-                  {initials(review.name)}
+                  {getInitials(review.name)}
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-[#0a0a1a]">{review.name}</p>
