@@ -285,7 +285,7 @@ export function TransferredSoftreeHero() {
         </div>
 
         {/* ================= 3. HERO TEXT ================= */}
-        <div className="hero-text-cluster relative lg:absolute lg:inset-0 z-20 flex flex-col justify-center pt-[12vh] pb-[6vh] lg:pt-[14vh] lg:pb-[22vh] px-6 lg:pl-[clamp(1.25rem,7vw,6rem)] lg:pr-[clamp(1.25rem,4vw,3rem)] pointer-events-none w-full">
+        <div className="hero-text-cluster relative lg:absolute lg:inset-0 z-20 flex flex-col justify-center pt-[14vh] pb-[6vh] lg:pt-[20vh] lg:pb-[14vh] px-6 lg:pl-[clamp(1.25rem,7vw,6rem)] lg:pr-[clamp(1.25rem,4vw,3rem)] pointer-events-none w-full">
           <div className="max-w-[34rem] text-left pointer-events-auto">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 backdrop-blur-sm">
               <svg

@@ -31,14 +31,16 @@ const SoftreeFAQLazy = dynamic(
  */
 export default function ContactPage() {
   useEffect(() => {
-    import("gsap/ScrollTrigger").then(({ ScrollTrigger }) => {
+    import("gsap/ScrollTrigger").then((mod) => {
+      const ST = mod.ScrollTrigger || mod.default;
+      if (!ST) return;
       try {
-        ScrollTrigger.getAll().forEach((trigger) => {
+        ST.getAll().forEach((trigger: any) => {
           if (trigger.pin) trigger.kill();
         });
         requestAnimationFrame(() => {
           try {
-            ScrollTrigger.refresh(true);
+            ST.refresh(true);
           } catch (e) {
             console.warn("ScrollTrigger refresh error:", e);
           }

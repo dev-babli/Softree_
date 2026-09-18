@@ -27,14 +27,14 @@ export const metadata: Metadata = {
 
 export default function AmazonNova2SonicDevelopmentPage() {
   return (
-    <main className="min-h-screen bg-white font-sans text-slate-900 selection:bg-orange-500 selection:text-white overflow-x-clip">
+    <main className="min-h-screen bg-white typo-body text-slate-900 selection:bg-orange-500 selection:text-white overflow-x-clip">
       <NavigationClient />
 
       {/* Hero Section which also includes the Trust Strip */}
       <Hero />
 
       {/* Two-Column Layout: What You Can Build & Global Network */}
-      <div className="bg-white pt-6 md:pt-8 pb-6 md:pb-8 text-slate-900">
+      <div className="bg-white pt-6 md:pt-8 pb-6 md:pb-8">
         <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-[2cm]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
             {/* Left Column: What You Can Build */}

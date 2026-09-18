@@ -15,35 +15,35 @@ export const WhatYouCanBuild = ({ simple = false }: { simple?: boolean }) => {
   const items = [
     {
       title: "AI Voice Agents",
-      desc: "Build real-time voice agents that understand conversations and take action across connected systems.",
+      desc: "Build conversational real-time voice AI agents powered by Amazon Nova 2 Sonic and Amazon Bedrock that understand nuanced conversations and execute complex business actions.",
       icon: Mic,
       color: "text-[#FF6B00]",
       bg: "bg-orange-50",
     },
     {
       title: "Customer Support",
-      desc: "Resolve common customer requests through voice.",
+      desc: "Automate Tier-1 customer support with intelligent speech-to-speech AI that resolves common requests instantly while maintaining natural conversational experiences.",
       icon: Headphones,
       color: "text-[#FF6B00]",
       bg: "bg-orange-50",
     },
     {
       title: "Appointment Agents",
-      desc: "Check availability, book, reschedule and cancel.",
+      desc: "Deploy specialized voice agents to autonomously check real-time schedule availability, book, reschedule, and cancel appointments with zero human intervention.",
       icon: CalendarDays,
       color: "text-[#FF6B00]",
       bg: "bg-orange-50",
     },
     {
       title: "Sales Agents",
-      desc: "Qualify leads and update CRM systems.",
+      desc: "Supercharge your inbound pipeline with automated voice AI sales agents that qualify leads, answer product questions, and seamlessly update CRM systems in real time.",
       icon: TrendingUp,
       color: "text-[#FF6B00]",
       bg: "bg-orange-50",
     },
     {
       title: "Enterprise Voice Copilots",
-      desc: "Connect voice conversations to knowledge and business systems.",
+      desc: "Connect low-latency voice interactions directly to your knowledge base using RAG architecture, turning static data into dynamic conversational enterprise copilots.",
       icon: Briefcase,
       color: "text-[#FF6B00]",
       bg: "bg-orange-50",
@@ -55,18 +55,18 @@ export const WhatYouCanBuild = ({ simple = false }: { simple?: boolean }) => {
       {!simple && (
         <div className="mb-4">
           {/* Eyebrow */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-200 bg-orange-50 text-[10px] sm:text-[11px] font-bold tracking-widest text-[#FF6B00] uppercase mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] mb-3">
             <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
             WHAT YOU CAN BUILD
           </div>
 
           {/* Heading */}
-          <h2 className="text-2xl sm:text-3xl lg:text-[34px] xl:text-[38px] font-extrabold font-['Plus_Jakarta_Sans',sans-serif] text-slate-900 leading-[1.2] mb-3 tracking-tight">
+          <h2 className="typo-heading-2 text-slate-900 mb-3">
             From Conversation to Business Action
           </h2>
 
           {/* Description */}
-          <p className="text-slate-600 text-[16px] sm:text-[17px] leading-relaxed mb-4">
+          <p className="text-slate-600 typo-description mb-4">
             Nova 2 Sonic enables real-time speech-to-speech experiences with capabilities including tool invocation, RAG, multilingual interaction and asynchronous tool use.
           </p>
         </div>
@@ -85,10 +85,10 @@ export const WhatYouCanBuild = ({ simple = false }: { simple?: boolean }) => {
               <item.icon className={`w-4.5 h-4.5 sm:w-5 sm:h-5 ${item.color}`} />
             </div>
             <div className="flex flex-col pt-0">
-              <h3 className="text-[14px] sm:text-[14.5px] font-bold text-slate-900 leading-snug mb-0.5">
+              <h3 className="typo-heading-4 text-slate-900 mb-0.5">
                 {item.title}
               </h3>
-              <p className="text-[12px] sm:text-[12.5px] text-slate-600 leading-relaxed">
+              <p className="typo-body-sm text-slate-600">
                 {item.desc}
               </p>
             </div>
@@ -98,12 +98,12 @@ export const WhatYouCanBuild = ({ simple = false }: { simple?: boolean }) => {
 
       {/* Single Section-Level CTA */}
       <div className="pt-4 mt-3 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p className="text-[15px] sm:text-[16px] text-slate-700 font-medium text-center sm:text-left">
+        <p className="typo-body font-medium text-slate-700 text-center sm:text-left">
           Ready to deploy voice agents?
         </p>
         <Link
           href="/contact"
-          className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-[#FF6B00] hover:bg-[#e05e00] text-white text-[15px] sm:text-[16px] font-semibold shadow-md shadow-orange-500/20 transition-all duration-200 shrink-0 group"
+          className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-[#FF6B00] hover:bg-[#e05e00] text-white typo-button shadow-md shadow-orange-500/20 transition-all duration-200 shrink-0 group"
         >
           <span>Contact Us</span>
           <ArrowRight className="w-4.5 h-4.5 transition-transform duration-200 group-hover:translate-x-1" />

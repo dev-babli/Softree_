@@ -7,7 +7,6 @@ import Footer from "@/components/sections/footer";
 import Hero from "./components/Hero";
 import Audiences from "./components/Audiences";
 import HowWeHelp from "./components/HowWeHelp";
-import WhoDoWeServeCTA from "./components/WhoDoWeServeCTA";
 
 export const metadata: Metadata = {
   title: "Who We Serve | Industries & Businesses We Empower",
@@ -85,7 +84,6 @@ export default function WhoDoWeServePage() {
       <Audiences />
       <HowWeHelp />
 
-      <WhoDoWeServeCTA />
       <LightContactSection />
       <Footer />
     </main>
