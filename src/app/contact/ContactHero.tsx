@@ -125,13 +125,35 @@ function MicrosoftColorIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
-// AWS official logo
-function AwsIcon({ className = "w-4 h-4" }: { className?: string }) {
+// AWS official logo with precision vector typography & iconic orange smile
+function AwsIcon({ className = "w-[26px] h-[17px]" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
-      <path fill="#ffffff" d="M8.2 11.2c0-.7-.3-1.1-1-1.1-.5 0-.9.3-1.1.7l-.9-.5C5.7 9.5 6.4 9 7.4 9c1.4 0 2 .8 2 2v3.7c0 .4.1.7.1.9H8.3c0-.2-.1-.5-.1-.7-.4.5-1 .8-1.7.8-1.2 0-2-.8-2-1.9 0-1.3.9-1.9 2.4-2l1.3-.1v-.5zm0 1.2l-1.1.1c-.8.1-1.3.4-1.3 1.1 0 .6.4 1 1.1 1 .8 0 1.3-.5 1.3-1.2v-1zM11.6 9.2h1.3l.8 3.5.9-3.5h1.3l.9 3.5.8-3.5h1.3l-1.4 5.4h-1.3l-.9-3.5-.9 3.5h-1.3L11.6 9.2zM21.5 10.7l-1 .4c-.2-.4-.6-.7-1.1-.7-.6 0-1 .4-1 .8 0 .6.4.8 1.4 1.1 1.4.4 2 1 2 2 0 1.3-1.1 2.2-2.5 2.2-1.3 0-2.2-.7-2.4-1.8l1.1-.4c.2.6.6 1 1.3 1 .7 0 1.2-.4 1.2-1 0-.6-.4-.8-1.3-1.1-1.5-.4-2.1-1.1-2.1-2 0-1.2 1-2.1 2.3-2.1 1.1 0 1.8.5 2.1 1.6z" />
-      <path fill="#FF9900" d="M19.8 18.5c-3.1 2.2-7.5 2.9-11.4 1.6-.6-.2-.7-.9-.2-1.2 3.6-2 8.3-1.6 11.2.3.4.3.4.9.4.9z" />
-      <path fill="#FF9900" d="M20.6 17.2c-.3-.4-1.8-.2-2.7 0-.3.1-.3-.2-.1-.4 1.3-.9 2.7-.4 2.8-.2.2.3 0 1.7-.8 2.6-.2.2-.4.1-.3-.1.4-.7.9-1.5 1.1-1.9z" />
+    <svg viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      {/* 'a' */}
+      <path
+        d="M4.2 4.2h1.6l2 7.2H6.3l-.4-1.6H3.7l-.4 1.6H1.8l2.4-7.2zm1.4 4.4L4.9 5.8 4.2 8.6h1.4z"
+        fill="#FFFFFF"
+      />
+      {/* 'w' */}
+      <path
+        d="M8.2 4.2h1.5l1 4.5 1.1-4.5h1.3l1.1 4.5 1-4.5h1.5l-1.7 7.2h-1.5l-1.1-4.4-1.1 4.4H9.9L8.2 4.2z"
+        fill="#FFFFFF"
+      />
+      {/* 's' */}
+      <path
+        d="M19.8 6.4c-.4-.4-1-.7-1.7-.7-.8 0-1.3.4-1.3.9 0 .5.4.8 1.2 1 1.4.4 2.2 1 2.2 2.2 0 1.2-1 2-2.4 2-1 0-1.8-.4-2.4-1l.9-1.1c.4.4.9.7 1.5.7.7 0 1.1-.3 1.1-.8 0-.5-.4-.8-1.2-1-1.4-.4-2.2-1-2.2-2.1 0-1.2 1-2 2.4-2 .8 0 1.6.3 2.1.8l-.8 1.1z"
+        fill="#FFFFFF"
+      />
+      {/* Amazon Smile Arc */}
+      <path
+        d="M21 13.2c-4.2 2.2-10 2.2-14.5-.2-.3-.2-.5-.1-.6.2-.1.3.1.6.3.7 4.9 2.5 11.2 2.5 15.7 0 .3-.2.3-.5.1-.7-.2-.2-.6-.2-.9 0z"
+        fill="#FF9900"
+      />
+      {/* Amazon Smile Arrowhead */}
+      <path
+        d="M22.5 12l-2.6 2.1c-.2.2-.6.1-.7-.2-.1-.2 0-.5.2-.7l1.7-1.3-2.1-.4c-.3-.1-.5-.4-.4-.7.1-.3.4-.5.7-.4l3.1.6c.3.1.4.4.3.7z"
+        fill="#FF9900"
+      />
     </svg>
   );
 }
@@ -161,14 +183,16 @@ export default function ContactHero() {
         dark: 1,
         diffuse: 1.35,
         mapSamples: 22000,
-        mapBrightness: 7.5,
-        baseColor: [0.08, 0.11, 0.18],
+        mapBrightness: 6.0,
+        baseColor: [0.24, 0.09, 0.01],
         markerColor: [1.0, 0.48, 0.14],
         glowColor: [1.0, 0.42, 0.14],
         markers: [],
         onRender: (state) => {
           phi += 0.0055;
           state.phi = phi;
+          state.baseColor = [0.24, 0.09, 0.01];
+          state.glowColor = [1.0, 0.42, 0.14];
         },
       });
       if (canvas) canvas.style.opacity = "1";
@@ -273,7 +297,7 @@ export default function ContactHero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base sm:text-lg lg:text-[17.5px] text-slate-300 font-normal leading-relaxed max-w-xl mb-8"
+              className="text-lg sm:text-xl lg:text-[19.5px] text-slate-200 font-normal leading-relaxed max-w-2xl mb-8"
             >
               Whether it&apos;s AI, automation, data, Microsoft technologies or modern applications — tell us what you&apos;re building. We&apos;ll take it from there.
             </motion.p>
@@ -283,45 +307,45 @@ export default function ContactHero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col gap-3 max-w-xl"
+              className="flex flex-col gap-3.5 max-w-2xl"
             >
               {/* Row 1: Agentic AI, AI Agents, Copilots, RAG */}
-              <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
-                <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/15 bg-white/[0.04] text-white text-xs sm:text-[13px] font-semibold tracking-wide hover:border-white/30 hover:bg-white/[0.08] transition-all cursor-default select-none shadow-[0_2px_10px_rgba(0,0,0,0.2)]">
-                  <AgenticAiIcon className="w-4 h-4 text-[#f97316] shrink-0" />
+              <div className="flex flex-wrap items-center gap-3.5">
+                <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-white/18 bg-white/[0.05] text-white text-[14px] sm:text-[15px] font-semibold tracking-wide hover:border-white/35 hover:bg-white/[0.09] transition-all cursor-default select-none shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
+                  <AgenticAiIcon className="w-[26px] h-[26px] text-[#f97316] shrink-0" />
                   <span>Agentic AI</span>
                 </div>
 
-                <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/15 bg-white/[0.04] text-white text-xs sm:text-[13px] font-semibold tracking-wide hover:border-white/30 hover:bg-white/[0.08] transition-all cursor-default select-none shadow-[0_2px_10px_rgba(0,0,0,0.2)]">
-                  <Bot className="w-4 h-4 text-[#f97316] shrink-0" />
+                <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-white/18 bg-white/[0.05] text-white text-[14px] sm:text-[15px] font-semibold tracking-wide hover:border-white/35 hover:bg-white/[0.09] transition-all cursor-default select-none shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
+                  <Bot className="w-[26px] h-[26px] text-[#f97316] shrink-0" />
                   <span>AI Agents</span>
                 </div>
 
-                <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/15 bg-white/[0.04] text-white text-xs sm:text-[13px] font-semibold tracking-wide hover:border-white/30 hover:bg-white/[0.08] transition-all cursor-default select-none shadow-[0_2px_10px_rgba(0,0,0,0.2)]">
-                  <CopilotIcon className="w-4 h-4 shrink-0" />
+                <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-white/18 bg-white/[0.05] text-white text-[14px] sm:text-[15px] font-semibold tracking-wide hover:border-white/35 hover:bg-white/[0.09] transition-all cursor-default select-none shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
+                  <CopilotIcon className="w-[26px] h-[26px] shrink-0" />
                   <span>Copilots</span>
                 </div>
 
-                <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/15 bg-white/[0.04] text-white text-xs sm:text-[13px] font-semibold tracking-wide hover:border-white/30 hover:bg-white/[0.08] transition-all cursor-default select-none shadow-[0_2px_10px_rgba(0,0,0,0.2)]">
-                  <RagIcon className="w-4 h-4 text-[#f97316] shrink-0" />
+                <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-white/18 bg-white/[0.05] text-white text-[14px] sm:text-[15px] font-semibold tracking-wide hover:border-white/35 hover:bg-white/[0.09] transition-all cursor-default select-none shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
+                  <RagIcon className="w-[26px] h-[26px] text-[#f97316] shrink-0" />
                   <span>RAG</span>
                 </div>
               </div>
 
               {/* Row 2: Intelligent Automation, Microsoft AI, AWS AI */}
-              <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
-                <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/15 bg-white/[0.04] text-white text-xs sm:text-[13px] font-semibold tracking-wide hover:border-white/30 hover:bg-white/[0.08] transition-all cursor-default select-none shadow-[0_2px_10px_rgba(0,0,0,0.2)]">
-                  <Zap className="w-4 h-4 text-[#f97316] fill-[#f97316] shrink-0" />
+              <div className="flex flex-wrap items-center gap-3.5">
+                <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-white/18 bg-white/[0.05] text-white text-[14px] sm:text-[15px] font-semibold tracking-wide hover:border-white/35 hover:bg-white/[0.09] transition-all cursor-default select-none shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
+                  <Zap className="w-[26px] h-[26px] text-[#f97316] fill-[#f97316] shrink-0" />
                   <span>Intelligent Automation</span>
                 </div>
 
-                <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/15 bg-white/[0.04] text-white text-xs sm:text-[13px] font-semibold tracking-wide hover:border-white/30 hover:bg-white/[0.08] transition-all cursor-default select-none shadow-[0_2px_10px_rgba(0,0,0,0.2)]">
-                  <MicrosoftColorIcon className="w-4 h-4 shrink-0" />
+                <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-white/18 bg-white/[0.05] text-white text-[14px] sm:text-[15px] font-semibold tracking-wide hover:border-white/35 hover:bg-white/[0.09] transition-all cursor-default select-none shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
+                  <MicrosoftColorIcon className="w-[24px] h-[24px] shrink-0" />
                   <span>Microsoft AI</span>
                 </div>
 
-                <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/15 bg-white/[0.04] text-white text-xs sm:text-[13px] font-semibold tracking-wide hover:border-white/30 hover:bg-white/[0.08] transition-all cursor-default select-none shadow-[0_2px_10px_rgba(0,0,0,0.2)]">
-                  <AwsIcon className="w-4 h-4 shrink-0" />
+                <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-white/18 bg-white/[0.05] text-white text-[14px] sm:text-[15px] font-semibold tracking-wide hover:border-white/35 hover:bg-white/[0.09] transition-all cursor-default select-none shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
+                  <AwsIcon className="w-[32px] h-[21px] shrink-0" />
                   <span>AWS AI</span>
                 </div>
               </div>
@@ -348,13 +372,14 @@ export default function ContactHero() {
                   height: "430px",
                   left: "calc(50% - 215px)",
                   top: "calc(50% - 215px)",
-                  border: "1.5px solid rgba(249, 115, 22, 0.45)",
-                  boxShadow: "0 0 65px rgba(249, 115, 22, 0.28), inset 0 0 50px rgba(249, 115, 22, 0.12)",
-                  background: "radial-gradient(circle at 45% 45%, rgba(16, 22, 38, 0.95) 0%, rgba(6, 8, 14, 0.98) 85%)",
+                  border: "1.5px solid rgba(249, 115, 22, 0.55)",
+                  boxShadow: "0 0 70px rgba(249, 115, 22, 0.35), inset 0 0 50px rgba(249, 115, 22, 0.18)",
+                  background: "radial-gradient(circle at 45% 45%, rgba(35, 16, 6, 0.95) 0%, rgba(10, 6, 4, 0.98) 85%)",
                 }}
               >
                 {/* 1. Rotating 3D WebGL Canvas Layer (Active Continents & Global Delivery Nodes) */}
                 <canvas
+                  key="softree-orange-cobe-globe"
                   ref={canvasRef}
                   width={880}
                   height={880}
@@ -370,16 +395,16 @@ export default function ContactHero() {
                 {/* 2. 3D Spherical Wireframe Gyroscope Framing */}
                 <svg viewBox="0 0 430 430" className="absolute inset-0 w-full h-full pointer-events-none" fill="none">
                   {/* Tilted Equator and Latitudes */}
-                  <ellipse cx="215" cy="215" rx="210" ry="68" stroke="rgba(249, 115, 22, 0.3)" strokeWidth="1" strokeDasharray="3 3" />
-                  <ellipse cx="215" cy="215" rx="205" ry="136" stroke="rgba(255, 255, 255, 0.1)" strokeWidth="0.8" strokeDasharray="4 4" />
-                  <ellipse cx="215" cy="215" rx="195" ry="190" stroke="rgba(249, 115, 22, 0.18)" strokeWidth="0.8" />
+                  <ellipse cx="215" cy="215" rx="210" ry="68" stroke="rgba(249, 115, 22, 0.35)" strokeWidth="1" strokeDasharray="3 3" />
+                  <ellipse cx="215" cy="215" rx="205" ry="136" stroke="rgba(249, 115, 22, 0.16)" strokeWidth="0.8" strokeDasharray="4 4" />
+                  <ellipse cx="215" cy="215" rx="195" ry="190" stroke="rgba(249, 115, 22, 0.2)" strokeWidth="0.8" />
                   
                   {/* Longitude Meridians */}
-                  <ellipse cx="215" cy="215" rx="68" ry="210" stroke="rgba(249, 115, 22, 0.25)" strokeWidth="1" strokeDasharray="3 3" />
-                  <ellipse cx="215" cy="215" rx="136" ry="210" stroke="rgba(255, 255, 255, 0.1)" strokeWidth="0.8" strokeDasharray="4 4" />
+                  <ellipse cx="215" cy="215" rx="68" ry="210" stroke="rgba(249, 115, 22, 0.28)" strokeWidth="1" strokeDasharray="3 3" />
+                  <ellipse cx="215" cy="215" rx="136" ry="210" stroke="rgba(249, 115, 22, 0.16)" strokeWidth="0.8" strokeDasharray="4 4" />
 
                   {/* Atmospheric Glow Rim */}
-                  <circle cx="215" cy="215" r="213" stroke="rgba(249, 115, 22, 0.2)" strokeWidth="1" />
+                  <circle cx="215" cy="215" r="213" stroke="rgba(249, 115, 22, 0.28)" strokeWidth="1" />
                 </svg>
               </div>
 
@@ -413,7 +438,7 @@ export default function ContactHero() {
                 <g opacity="0.35">
                   <path d="M 90 400 Q 220 320 390 390" stroke="rgba(249,115,22,0.4)" strokeWidth="1" strokeDasharray="3 4" />
                   <path d="M 130 140 Q 280 80 450 150" stroke="rgba(249,115,22,0.4)" strokeWidth="1" strokeDasharray="3 4" />
-                  <path d="M 100 260 Q 290 220 480 270" stroke="rgba(14,165,233,0.35)" strokeWidth="0.8" />
+                  <path d="M 100 260 Q 290 220 480 270" stroke="rgba(249,115,22,0.35)" strokeWidth="0.8" />
                   <ellipse cx="290" cy="260" rx="245" ry="175" stroke="rgba(249,115,22,0.14)" strokeDasharray="2 4" />
                 </g>
 
@@ -442,7 +467,7 @@ export default function ContactHero() {
                 <line
                   x1="230"
                   y1="260"
-                  x2="197"
+                  x2="209"
                   y2="260"
                   stroke="#0284c7"
                   strokeWidth="2"
@@ -450,16 +475,16 @@ export default function ContactHero() {
                   filter="url(#glow-blue)"
                 />
                 <circle cx="230" cy="260" r="2.5" fill="#0284c7" />
-                <circle cx="197" cy="260" r="2" fill="#0284c7" />
+                <circle cx="209" cy="260" r="2" fill="#0284c7" />
                 <circle r="2.5" fill="#ffffff" filter="url(#glow-blue)">
-                  <animateMotion dur="2.3s" repeatCount="indefinite" path="M 230 260 L 197 260" />
+                  <animateMotion dur="2.3s" repeatCount="indefinite" path="M 230 260 L 209 260" />
                 </circle>
 
                 {/* 3. RIGHT SPOKE (DATA & AI - Teal/Cyan) */}
                 <line
                   x1="350"
                   y1="260"
-                  x2="383"
+                  x2="371"
                   y2="260"
                   stroke="#14b8a6"
                   strokeWidth="2"
@@ -467,9 +492,9 @@ export default function ContactHero() {
                   filter="url(#glow-teal)"
                 />
                 <circle cx="350" cy="260" r="2.5" fill="#14b8a6" />
-                <circle cx="383" cy="260" r="2" fill="#14b8a6" />
+                <circle cx="371" cy="260" r="2" fill="#14b8a6" />
                 <circle r="2.5" fill="#ffffff" filter="url(#glow-teal)">
-                  <animateMotion dur="2.2s" repeatCount="indefinite" path="M 350 260 L 383 260" />
+                  <animateMotion dur="2.2s" repeatCount="indefinite" path="M 350 260 L 371 260" />
                 </circle>
 
                 {/* 4. BOTTOM SPOKE (APPLICATION MODERNISATION - Violet/Purple) */}
@@ -507,13 +532,13 @@ export default function ContactHero() {
                 {/* Pulsing ring */}
                 <div className="absolute -inset-2 rounded-full border border-orange-500/25 animate-pulse pointer-events-none" />
 
-                <span className="text-[15px] font-black tracking-[0.14em] text-white leading-none mb-1">
+                <span className="text-[16px] font-black tracking-[0.14em] text-white leading-none mb-1">
                   SOFTREE
                 </span>
-                <span className="text-[9px] font-bold tracking-[0.22em] text-white/80 uppercase leading-none mt-1">
+                <span className="text-[10px] font-bold tracking-[0.24em] text-white/90 uppercase leading-none mt-1">
                   ENGINEERING
                 </span>
-                <span className="text-[8.5px] font-medium tracking-[0.26em] text-white/60 uppercase leading-none mt-1">
+                <span className="text-[9.5px] font-medium tracking-[0.26em] text-white/70 uppercase leading-none mt-1">
                   PARTNER
                 </span>
               </div>
@@ -525,14 +550,14 @@ export default function ContactHero() {
                 onClick={() => handleScrollTo("contact-form", "ai")}
                 className="absolute z-20 transition-all duration-300 cursor-pointer group hover:-translate-y-1"
                 style={{
-                  top: "12px",
+                  top: "10px",
                   left: "50%",
                   transform: "translateX(-50%)",
-                  width: "250px",
+                  width: "270px",
                 }}
               >
                 <div
-                  className="flex flex-col items-center px-3.5 py-2.5 rounded-2xl backdrop-blur-md transition-all duration-300"
+                  className="flex flex-col items-center px-4 py-2.5 rounded-2xl backdrop-blur-md transition-all duration-300"
                   style={{
                     background: "rgba(14, 18, 28, 0.94)",
                     border: "1px solid rgba(245, 158, 11, 0.65)",
@@ -541,22 +566,22 @@ export default function ContactHero() {
                       : "0 0 22px rgba(245, 158, 11, 0.18), inset 0 0 10px rgba(245, 158, 11, 0.05)",
                   }}
                 >
-                  <div className="flex items-center gap-2 mb-2">
+                  <div className="flex items-center gap-2.5 mb-2">
                     <div className="p-1.5 rounded-lg bg-amber-500/15 text-amber-400 shrink-0 group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(245,158,11,0.25)]">
-                      <BrainAiIcon className="w-4 h-4" />
+                      <BrainAiIcon className="w-5.5 h-5.5" />
                     </div>
-                    <span className="text-[12px] font-bold tracking-wider text-white uppercase">
+                    <span className="text-[13.5px] font-bold tracking-wider text-white uppercase">
                       AI
                     </span>
                   </div>
                   <ul className="flex flex-wrap items-center justify-center gap-1.5">
-                    <li className="inline-flex items-center px-2.5 py-0.5 rounded-full border border-amber-500/35 bg-amber-500/10 text-[10.5px] font-medium text-amber-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(245,158,11,0.12)]">
+                    <li className="inline-flex items-center px-3 py-1 rounded-full border border-amber-500/35 bg-amber-500/10 text-[12px] font-medium text-amber-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(245,158,11,0.12)]">
                       Agentic AI
                     </li>
-                    <li className="inline-flex items-center px-2.5 py-0.5 rounded-full border border-amber-500/35 bg-amber-500/10 text-[10.5px] font-medium text-amber-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(245,158,11,0.12)]">
+                    <li className="inline-flex items-center px-3 py-1 rounded-full border border-amber-500/35 bg-amber-500/10 text-[12px] font-medium text-amber-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(245,158,11,0.12)]">
                       Generative AI
                     </li>
-                    <li className="inline-flex items-center px-2.5 py-0.5 rounded-full border border-amber-500/35 bg-amber-500/10 text-[10.5px] font-medium text-amber-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(245,158,11,0.12)]">
+                    <li className="inline-flex items-center px-3 py-1 rounded-full border border-amber-500/35 bg-amber-500/10 text-[12px] font-medium text-amber-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(245,158,11,0.12)]">
                       Automation
                     </li>
                   </ul>
@@ -570,10 +595,10 @@ export default function ContactHero() {
                 onClick={() => handleScrollTo("contact-form", "power-platform")}
                 className="absolute z-20 transition-all duration-300 cursor-pointer group hover:-translate-x-1"
                 style={{
-                  left: "2px",
+                  left: "-6px",
                   top: "50%",
                   transform: "translateY(-50%)",
-                  width: "195px",
+                  width: "215px",
                 }}
               >
                 <div
@@ -586,25 +611,25 @@ export default function ContactHero() {
                       : "0 0 22px rgba(2, 132, 199, 0.18), inset 0 0 10px rgba(2, 132, 199, 0.05)",
                   }}
                 >
-                  <div className="flex items-center gap-2 mb-2">
+                  <div className="flex items-center gap-2.5 mb-2">
                     <div className="p-1.5 rounded-lg bg-sky-500/15 text-sky-400 shrink-0 group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(2,132,199,0.25)]">
-                      <MicrosoftIcon className="w-4 h-4" />
+                      <MicrosoftIcon className="w-5.5 h-5.5" />
                     </div>
-                    <span className="text-[11.5px] font-bold tracking-wider text-white uppercase leading-snug">
+                    <span className="text-[13px] font-bold tracking-wider text-white uppercase leading-snug">
                       POWER PLATFORM
                     </span>
                   </div>
                   <ul className="flex flex-wrap gap-1.5">
-                    <li className="inline-flex items-center px-2 py-0.5 rounded-full border border-sky-500/35 bg-sky-500/10 text-[10.5px] font-medium text-sky-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(2,132,199,0.12)]">
+                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-sky-500/35 bg-sky-500/10 text-[11.5px] font-medium text-sky-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(2,132,199,0.12)]">
                       Power Apps
                     </li>
-                    <li className="inline-flex items-center px-2 py-0.5 rounded-full border border-sky-500/35 bg-sky-500/10 text-[10.5px] font-medium text-sky-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(2,132,199,0.12)]">
+                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-sky-500/35 bg-sky-500/10 text-[11.5px] font-medium text-sky-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(2,132,199,0.12)]">
                       Power BI
                     </li>
-                    <li className="inline-flex items-center px-2 py-0.5 rounded-full border border-sky-500/35 bg-sky-500/10 text-[10.5px] font-medium text-sky-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(2,132,199,0.12)]">
+                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-sky-500/35 bg-sky-500/10 text-[11.5px] font-medium text-sky-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(2,132,199,0.12)]">
                       Power Automate
                     </li>
-                    <li className="inline-flex items-center px-2 py-0.5 rounded-full border border-sky-500/35 bg-sky-500/10 text-[10.5px] font-medium text-sky-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(2,132,199,0.12)]">
+                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-sky-500/35 bg-sky-500/10 text-[11.5px] font-medium text-sky-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(2,132,199,0.12)]">
                       SharePoint
                     </li>
                   </ul>
@@ -618,10 +643,10 @@ export default function ContactHero() {
                 onClick={() => handleScrollTo("contact-form", "ai")}
                 className="absolute z-20 transition-all duration-300 cursor-pointer group hover:translate-x-1"
                 style={{
-                  right: "2px",
+                  right: "-6px",
                   top: "50%",
                   transform: "translateY(-50%)",
-                  width: "195px",
+                  width: "215px",
                 }}
               >
                 <div
@@ -634,25 +659,25 @@ export default function ContactHero() {
                       : "0 0 22px rgba(20, 184, 166, 0.18), inset 0 0 10px rgba(245, 158, 11, 0.05)",
                   }}
                 >
-                  <div className="flex items-center gap-2 mb-2">
+                  <div className="flex items-center gap-2.5 mb-2">
                     <div className="p-1.5 rounded-lg bg-teal-500/15 text-teal-400 shrink-0 group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(20,184,166,0.25)]">
-                      <Database className="w-4 h-4" />
+                      <Database className="w-5.5 h-5.5" />
                     </div>
-                    <span className="text-[11.5px] font-bold tracking-wider text-white uppercase leading-snug">
+                    <span className="text-[13px] font-bold tracking-wider text-white uppercase leading-snug">
                       DATA & AI
                     </span>
                   </div>
                   <ul className="flex flex-wrap gap-1.5">
-                    <li className="inline-flex items-center px-2 py-0.5 rounded-full border border-teal-500/35 bg-teal-500/10 text-[10.5px] font-medium text-teal-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(20,184,166,0.12)]">
+                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-teal-500/35 bg-teal-500/10 text-[11.5px] font-medium text-teal-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(20,184,166,0.12)]">
                       Azure AI
                     </li>
-                    <li className="inline-flex items-center px-2 py-0.5 rounded-full border border-teal-500/35 bg-teal-500/10 text-[10.5px] font-medium text-teal-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(20,184,166,0.12)]">
+                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-teal-500/35 bg-teal-500/10 text-[11.5px] font-medium text-teal-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(20,184,166,0.12)]">
                       Analytics
                     </li>
-                    <li className="inline-flex items-center px-2 py-0.5 rounded-full border border-teal-500/35 bg-teal-500/10 text-[10.5px] font-medium text-teal-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(20,184,166,0.12)]">
+                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-teal-500/35 bg-teal-500/10 text-[11.5px] font-medium text-teal-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(20,184,166,0.12)]">
                       Microsoft Fabric
                     </li>
-                    <li className="inline-flex items-center px-2 py-0.5 rounded-full border border-teal-500/35 bg-teal-500/10 text-[10.5px] font-medium text-teal-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(20,184,166,0.12)]">
+                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-teal-500/35 bg-teal-500/10 text-[11.5px] font-medium text-teal-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(20,184,166,0.12)]">
                       Data Engineering
                     </li>
                   </ul>
@@ -666,14 +691,14 @@ export default function ContactHero() {
                 onClick={() => handleScrollTo("contact-form", "other")}
                 className="absolute z-20 transition-all duration-300 cursor-pointer group hover:translate-y-1"
                 style={{
-                  bottom: "12px",
+                  bottom: "10px",
                   left: "50%",
                   transform: "translateX(-50%)",
-                  width: "280px",
+                  width: "315px",
                 }}
               >
                 <div
-                  className="flex flex-col items-center px-3.5 py-2.5 rounded-2xl backdrop-blur-md transition-all duration-300"
+                  className="flex flex-col items-center px-4 py-2.5 rounded-2xl backdrop-blur-md transition-all duration-300"
                   style={{
                     background: "rgba(14, 18, 28, 0.94)",
                     border: "1px solid rgba(168, 85, 247, 0.65)",
@@ -682,25 +707,25 @@ export default function ContactHero() {
                       : "0 0 22px rgba(168, 85, 247, 0.18), inset 0 0 10px rgba(168, 85, 247, 0.05)",
                   }}
                 >
-                  <div className="flex items-center gap-2 mb-2">
+                  <div className="flex items-center gap-2.5 mb-2">
                     <div className="p-1.5 rounded-lg bg-purple-500/15 text-purple-400 shrink-0 group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(168,85,247,0.25)]">
-                      <Code2 className="w-4 h-4" />
+                      <Code2 className="w-5.5 h-5.5" />
                     </div>
-                    <span className="text-[11px] font-bold tracking-wider text-white uppercase leading-snug">
+                    <span className="text-[12.5px] font-bold tracking-wider text-white uppercase leading-snug">
                       APPLICATION MODERNISATION
                     </span>
                   </div>
                   <ul className="flex flex-wrap items-center justify-center gap-1.5">
-                    <li className="inline-flex items-center px-2 py-0.5 rounded-full border border-purple-500/35 bg-purple-500/10 text-[10.5px] font-medium text-purple-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(168,85,247,0.12)]">
+                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-purple-500/35 bg-purple-500/10 text-[11.5px] font-medium text-purple-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(168,85,247,0.12)]">
                       Modern Apps
                     </li>
-                    <li className="inline-flex items-center px-2 py-0.5 rounded-full border border-purple-500/35 bg-purple-500/10 text-[10.5px] font-medium text-purple-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(168,85,247,0.12)]">
+                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-purple-500/35 bg-purple-500/10 text-[11.5px] font-medium text-purple-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(168,85,247,0.12)]">
                       Cloud & DevOps
                     </li>
-                    <li className="inline-flex items-center px-2 py-0.5 rounded-full border border-purple-500/35 bg-purple-500/10 text-[10.5px] font-medium text-purple-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(168,85,247,0.12)]">
+                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-purple-500/35 bg-purple-500/10 text-[11.5px] font-medium text-purple-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(168,85,247,0.12)]">
                       APIs & Integration
                     </li>
-                    <li className="inline-flex items-center px-2 py-0.5 rounded-full border border-purple-500/35 bg-purple-500/10 text-[10.5px] font-medium text-purple-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(168,85,247,0.12)]">
+                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-purple-500/35 bg-purple-500/10 text-[11.5px] font-medium text-purple-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(168,85,247,0.12)]">
                       Legacy Modernisation
                     </li>
                   </ul>
