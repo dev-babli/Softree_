@@ -61,7 +61,7 @@ export default function ContactPage() {
         ctaHref="#schedule"
       />
       <FdaMapsSectionLazy embedded />
-      <SoftreeFAQLazy faqs={CONTACT_FAQS} />
+      <SoftreeFAQLazy faqs={[...CONTACT_FAQS]} />
       <Footer />
     </div>
   );

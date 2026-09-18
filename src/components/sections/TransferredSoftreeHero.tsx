@@ -229,7 +229,8 @@ export function TransferredSoftreeHero() {
             alt="Office background"
             fill
             priority
-            className="object-cover origin-bottom object-center lg:object-[20%_100%]"
+            className="object-cover origin-bottom"
+            style={{ objectPosition: "20% 100%" }}
           />
           <div
             className="hero-scrim pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0a1628]/42 via-[#0a1628]/08 to-transparent"
@@ -284,9 +285,9 @@ export function TransferredSoftreeHero() {
         </div>
 
         {/* ================= 3. HERO TEXT ================= */}
-        <div className="hero-text-cluster relative lg:absolute lg:inset-0 z-20 flex flex-col justify-center min-h-[100dvh] lg:min-h-0 pt-28 pb-12 sm:pt-32 sm:pb-16 lg:py-0 px-6 lg:pl-[clamp(1.5rem,5vw,5.5rem)] lg:pr-4 pointer-events-none w-full">
-          <div className="hero-text-container text-left pointer-events-auto">
-            <div className="mb-4 lg:mb-[clamp(1rem,2.2vh,1.75rem)] inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1.5 backdrop-blur-sm shadow-sm">
+        <div className="hero-text-cluster relative lg:absolute lg:inset-0 z-20 flex flex-col justify-center pt-[12vh] pb-[6vh] lg:pt-[14vh] lg:pb-[22vh] px-6 lg:pl-[clamp(1.25rem,7vw,6rem)] lg:pr-[clamp(1.25rem,4vw,3rem)] pointer-events-none w-full">
+          <div className="max-w-[34rem] text-left pointer-events-auto">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 backdrop-blur-sm">
               <svg
                 className="h-3.5 w-3.5 shrink-0"
                 style={{ color: ACCENT }}
@@ -299,23 +300,20 @@ export function TransferredSoftreeHero() {
                 <circle cx="12" cy="12" r="10" />
                 <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
               </svg>
-              <span className="typo-caption text-white/80 font-medium tracking-wider">
+              <span className="typo-caption text-white/75">
                 Global Delivery. Local Commitment.
               </span>
             </div>
 
             <h1
-              className="hero-title hero-title-responsive text-white font-semibold"
+              className="hero-title typo-title text-balance text-white"
               style={{ willChange: "transform, opacity" }}
             >
-              <span className="block">Your Offshore</span>
-              <span className="block">Engineering</span>
-              <span className="block">
-                Partner<span style={{ color: ACCENT }}>.</span>
-              </span>
+              Your Offshore Engineering Partner
+              <span style={{ color: ACCENT }}>.</span>
             </h1>
 
-            <p className="hero-sub hero-sub-responsive mt-5 lg:mt-[clamp(1.25rem,2.2vh,1.75rem)] text-white/80 font-normal">
+            <p className="hero-sub typo-description mt-6 max-w-[32rem] text-pretty text-white/75">
               Scalable teams. Microsoft experts. AI-powered solutions. Delivered
               for global impact.
             </p>
@@ -395,104 +393,28 @@ export function TransferredSoftreeHero() {
                 background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.65) 100%) !important;
               }
 
-              /* Hero text container: strictly bounded so copy never collides with center card */
-              .hero-text-container {
-                width: 100%;
-                max-width: 36rem;
-              }
-              @media (min-width: 1024px) {
-                .hero-text-container {
-                  /* Ensures a clean, generous gap before the center card across all viewports & scaling factors */
-                  max-width: min(32rem, calc(50vw - clamp(120px, 12vw, 185px) - 1.25rem));
-                }
-              }
-              @media (min-width: 1536px) {
-                .hero-text-container {
-                  max-width: 34rem;
-                }
-              }
-
-              /* Fluid, authoritative hero typography: large and bold on all devices */
-              .hero-title-responsive {
-                font-size: clamp(2.25rem, 5vw, 4.5rem);
-                line-height: 1.04;
-                letter-spacing: -0.035em;
-                word-break: normal;
-                overflow-wrap: break-word;
-              }
-
-              @media (max-width: 640px) {
-                .hero-title-responsive {
-                  font-size: clamp(2rem, 8.5vw, 2.75rem);
-                  line-height: 1.08;
-                }
-              }
-
-              @media (min-width: 1024px) {
-                .hero-title-responsive {
-                  font-size: clamp(2.4rem, 4.3vw, 4.5rem);
-                }
-              }
-
-              @media (min-width: 1024px) and (max-height: 720px) {
-                .hero-title-responsive {
-                  font-size: clamp(2.15rem, 3.6vw, 3.4rem);
-                  line-height: 1.06;
-                }
-              }
-
-              /* Fluid description */
-              .hero-sub-responsive {
-                font-size: clamp(0.95rem, 1.8vw, 1.25rem);
-                line-height: 1.6;
-                max-width: 25rem;
-              }
-
-              @media (min-width: 1024px) {
-                .hero-sub-responsive {
-                  font-size: clamp(1rem, 1.1vw, 1.2rem);
-                  max-width: 26rem;
-                }
-              }
-
-              @media (min-width: 1024px) and (max-height: 720px) {
-                .hero-sub-responsive {
-                  font-size: clamp(0.9rem, 1vw, 1.05rem);
-                  line-height: 1.5;
-                  max-width: 23rem;
-                }
-              }
-
               /* Pillar cards responsiveness & height-aware containment */
               .hero-pillar-card {
                 width: 100%;
-                max-width: 380px;
-                height: 420px;
+                max-width: 400px;
+                min-height: 420px;
                 display: flex;
                 flex-direction: column;
               }
 
               @media (min-width: 1024px) {
                 .hero-pillar-card {
-                  /* Full-sized agency cards gracefully bounded by both viewport width & height */
-                  width: clamp(250px, min(22vw, 36vh), 360px);
-                  height: clamp(340px, min(30vw, 52vh), 500px);
+                  /* Full-sized agency cards, gracefully bounded by viewport height */
+                  width: clamp(280px, min(28vw, 46vh), 420px);
                   max-width: none;
-                  min-height: unset;
-                }
-              }
-
-              @media (min-width: 1024px) and (max-height: 768px) {
-                .hero-pillar-card {
-                  width: clamp(220px, min(20vw, 34vh), 300px);
-                  height: clamp(290px, 48vh, 410px);
+                  min-height: clamp(400px, min(35vw, 60vh), 560px);
                 }
               }
 
               @media (min-width: 1024px) and (max-height: 640px) {
                 .hero-pillar-card {
-                  width: clamp(200px, min(19vw, 32vh), 260px);
-                  height: clamp(260px, 44vh, 340px);
+                  width: clamp(240px, min(24vw, 40vh), 320px);
+                  min-height: clamp(340px, 50vh, 420px);
                 }
               }
 
@@ -537,7 +459,7 @@ export function TransferredSoftreeHero() {
               }}
             />
             <div
-              className="hero-btn mt-6 lg:mt-[clamp(1.25rem,2.5vh,2rem)] flex flex-wrap items-center gap-4 relative z-10"
+              className="hero-btn mt-8 flex flex-wrap items-center gap-4 relative z-10"
               style={{ willChange: "transform, opacity" }}
             >
               {/* PRIMARY — hyper-glass orange pill */}
@@ -557,8 +479,8 @@ export function TransferredSoftreeHero() {
                   position: "relative",
                   overflow: "hidden",
                   borderRadius: "9999px",
-                  height: "clamp(46px, 5.5vh, 54px)",
-                  padding: "0 clamp(22px, 2vw, 32px)",
+                  height: "56px",
+                  padding: "0 32px",
                   color: "#fff",
                 }}
               >
@@ -598,13 +520,13 @@ export function TransferredSoftreeHero() {
         </div>
 
         {/* ================= 5. VISUAL CLUSTER (cards & frame) ================= */}
-        <div className="relative lg:absolute lg:inset-x-0 lg:bottom-[clamp(1rem,3vh,2.5rem)] z-30 flex flex-col lg:flex-row items-center lg:items-end justify-center gap-6 lg:gap-0 px-6 pb-16 lg:pb-0 w-full pointer-events-none">
+        <div className="relative lg:absolute lg:inset-x-0 lg:bottom-0 z-30 flex flex-col lg:flex-row items-center lg:items-end justify-center gap-6 lg:gap-0 px-6 pb-16 lg:pb-0 w-full pointer-events-none">
           {/* Mobile / Tablet Pillar Heading (Visible < 1024px) */}
-          <div className="lg:hidden w-full max-w-xl text-center px-4 pt-20 sm:pt-24 pb-8 pointer-events-auto">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight text-white">
+          <div className="lg:hidden w-full max-w-xl text-center px-2 pt-8 pb-4 pointer-events-auto">
+            <h2 className="typo-heading-2 text-white">
               Three pillars. <span style={{ color: ACCENT }}>One engineering team.</span>
             </h2>
-            <p className="typo-body-sm mt-3 text-white/70 max-w-md mx-auto">
+            <p className="typo-body-sm mt-2.5 text-white/70">
               From Microsoft solutions to intelligent AI systems and modern engineering, we help businesses{" "}
               <strong className="font-semibold text-white">build, automate, modernize, and scale.</strong>
             </p>
@@ -737,5 +659,6 @@ export function TransferredSoftreeHero() {
     </section>
   );
 }
+
 
 export default TransferredSoftreeHero;

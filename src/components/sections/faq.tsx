@@ -51,7 +51,7 @@ export type FAQItem = {
   answer: string;
 };
 
-export default function SoftreeFAQ({ faqs: customFaqs }: { faqs?: FAQItem[] } = {}) {
+export default function SoftreeFAQ({ faqs: customFaqs }: { faqs?: readonly FAQItem[] } = {}) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const activeFaqs = customFaqs || faqs;
 

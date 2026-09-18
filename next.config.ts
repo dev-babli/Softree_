@@ -25,11 +25,8 @@ const nextConfig: any = {
   // expects a normal `.next` output (baseDirectory: .next).
   ...(process.env.BUILD_STANDALONE === "true" ? { output: "standalone" } : {}),
   productionBrowserSourceMaps: false,
-  // Next 16 emits large server maps by default; Amplify's compute bundle
-  // cap is 220 MB uncompressed and this app already overshoots with maps.
-  serverSourceMaps: false,
   experimental: {
-    serverSourceMaps: false,
+    cpus: 2,
   },
   outputFileTracingExcludes: {
     "*": [

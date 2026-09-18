@@ -2,8 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import NavigationClient from '@/components/sections/navigation-client';
 import Footer from '@/components/sections/footer';
-// import AmazonBedrockAgentCoreHero from './components/AmazonBedrockAgentCoreHero';
-import AgentCoreTabbedHero from './components/AgentCoreTabbedHero';
+import AmazonBedrockHero from './components/AmazonBedrockHero';
 import WhyAgentCoreSlider from './components/WhyAgentCoreSlider';
 import AgentCoreSystems from "./components/AgentCoreSystems";
 import WhyChooseWithTestimonials from "./components/WhyChooseWithTestimonials";
@@ -53,8 +52,8 @@ export default function AmazonBedrockAgentCoreDevelopmentPage() {
   return (
     <main className="min-h-screen bg-white text-slate-900 selection:bg-orange-500 selection:text-white overflow-x-clip">
       <NavigationClient />
-      {/* <AmazonBedrockAgentCoreHero /> */}
-      <AgentCoreTabbedHero />
+      {/* Amazon Bedrock Solution Hero */}
+      <AmazonBedrockHero />
       <WhyAgentCoreSlider />
       <AgentCoreSystems />
       <AgentCoreFeaturedUseCase />
