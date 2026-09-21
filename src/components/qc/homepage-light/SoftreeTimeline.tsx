@@ -182,15 +182,6 @@ export default function SoftreeTimeline() {
               {/* Grid lines overlay */}
               <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none z-10" />
 
-              {/* Tech details */}
-              <div className="absolute top-4 left-4 flex items-center gap-2 z-20 pointer-events-none">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#FF5812]" />
-                <span className="text-[10px] font-mono text-zinc-500 tracking-wider">ENGINEERING_GRID</span>
-              </div>
-              <div className="absolute top-4 right-4 text-[10px] font-mono text-zinc-500 tracking-wider z-20 pointer-events-none">
-                SYS: {activeYear}
-              </div>
-
 
               {/* Advanced Split Typography Year Text Centered inside the solid grid card */}
               <div className="relative z-20 flex items-baseline font-black text-[80px] md:text-[110px] leading-none tracking-tighter select-none pointer-events-none whitespace-nowrap">

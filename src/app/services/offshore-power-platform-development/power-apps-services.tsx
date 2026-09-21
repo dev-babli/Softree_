@@ -134,11 +134,10 @@ export default function PowerAppsServices() {
     rounded-xl
     text-left
     border transition-all duration-300
-    ${
-      isActive
-        ? "bg-white/10 border-white/20 text-white"
-        : "bg-white/5 border-white/10 text-white/60 hover:bg-white/10"
-    }
+    ${isActive
+                          ? "bg-white/10 border-white/20 text-white"
+                          : "bg-white/5 border-white/10 text-white/60 hover:bg-white/10"
+                        }
   `}
                     >
                       <div className="flex flex-col gap-1.5">
@@ -154,9 +153,8 @@ export default function PowerAppsServices() {
                         <p
                           className={`
         text-xs leading-relaxed line-clamp-2
-        ${
-          isActive ? "text-white/75" : "text-white/40 group-hover:text-white/60"
-        }
+        ${isActive ? "text-white/75" : "text-white/40 group-hover:text-white/60"
+                            }
       `}
                         >
                           {tab.shortDesc}

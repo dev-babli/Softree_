@@ -1,46 +1,149 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Layers, Workflow, Database, Settings } from "lucide-react";
+import { Layers, Workflow, Database, Settings, Bot } from "lucide-react";
+
+// const items = [
+//   {
+//     title: "Custom Power Apps Development",
+//     icon: Layers,
+//     image: "/images/power-apps/stack1.png",
+//     desc: "Build custom business applications with Microsoft Power Apps to digitize processes, improve productivity, and replace spreadsheets and manual workflows.",
+//     points: ["Approval systems", "Inspection apps", "Internal tools"],
+//     challenges: ["Manual spreadsheets", "Slow approvals", "Disconnected teams"],
+//   },
+//   {
+//     title: "Business Process Automation",
+//     icon: Workflow,
+//     image: "/images/power-apps/stack2.png",
+//     desc: "Automate repetitive tasks with intelligent workflows and Power Automate.",
+//     points: ["Faster approvals", "Reduced errors", "Process transparency"],
+//     challenges: ["Manual handoffs", "Human mistakes", "Delayed processes"],
+//   },
+//   {
+//     title: "Enterprise Dataverse Design",
+//     icon: Database,
+//     image: "/images/power-apps/stack3.png",
+//     desc: "Secure, scalable and centralized data architecture for enterprise systems.",
+//     points: [
+//       "Microsoft 365 integration",
+//       "SQL Server sync",
+//       "API connectivity",
+//     ],
+//     challenges: ["Data silos", "Duplicate records", "Poor reporting"],
+//   },
+//   {
+//     title: "Modernization & Support",
+//     icon: Settings,
+//     image: "/images/power-apps/stack4.png",
+//     desc: "Upgrade legacy apps and continuously optimize performance and security.",
+//     points: ["App enhancements", "Performance tuning", "Security & roles"],
+//     challenges: ["Outdated systems", "Slow performance", "Security risks"],
+//   },
+// ];
 
 const items = [
   {
     title: "Custom Power Apps Development",
     icon: Layers,
     image: "/images/power-apps/stack1.png",
-    desc: "Tailored enterprise apps built for productivity and faster internal operations.",
-    points: ["Approval systems", "Inspection apps", "Internal tools"],
-    challenges: ["Manual spreadsheets", "Slow approvals", "Disconnected teams"],
+    desc: "Build custom business applications with Microsoft Power Apps to digitize processes, improve productivity, and replace spreadsheets and manual workflows.",
+    points: [
+      "Approval systems",
+      "Inspection apps",
+      "Internal business tools",
+    ],
+    challenges: [
+      "Manual spreadsheets",
+      "Slow approvals",
+      "Disconnected teams",
+    ],
   },
+
   {
-    title: "Business Process Automation",
+    title: "Power Automate Development",
     icon: Workflow,
     image: "/images/power-apps/stack2.png",
-    desc: "Automate repetitive tasks with intelligent workflows and Power Automate.",
-    points: ["Faster approvals", "Reduced errors", "Process transparency"],
-    challenges: ["Manual handoffs", "Human mistakes", "Delayed processes"],
+    desc: "Automate repetitive business processes with Microsoft Power Automate, including approvals, notifications, data processing, and cross-system workflows.",
+    points: [
+      "Automated approvals",
+      "Workflow notifications",
+      "Process automation",
+    ],
+    challenges: [
+      "Manual handoffs",
+      "Repetitive tasks",
+      "Delayed processes",
+    ],
   },
+
   {
-    title: "Enterprise Dataverse Design",
+    title: "Power BI Development",
     icon: Database,
     image: "/images/power-apps/stack3.png",
-    desc: "Secure, scalable and centralized data architecture for enterprise systems.",
+    desc: "Turn business data into actionable insights with Power BI dashboards, reports, analytics, and connected business intelligence solutions.",
     points: [
-      "Microsoft 365 integration",
-      "SQL Server sync",
-      "API connectivity",
+      "Power BI dashboards",
+      "Operational reporting",
+      "Data-driven insights",
     ],
-    challenges: ["Data silos", "Duplicate records", "Poor reporting"],
+    challenges: [
+      "Poor visibility",
+      "Manual reporting",
+      "Data silos",
+    ],
   },
+
   {
-    title: "Modernization & Support",
+    title: "Power Pages Development",
     icon: Settings,
     image: "/images/power-apps/stack4.png",
-    desc: "Upgrade legacy apps and continuously optimize performance and security.",
-    points: ["App enhancements", "Performance tuning", "Security & roles"],
-    challenges: ["Outdated systems", "Slow performance", "Security risks"],
+    desc: "Build secure customer, partner, and self-service portals with Microsoft Power Pages connected to Dataverse and existing business systems.",
+    points: [
+      "Customer portals",
+      "Partner portals",
+      "Self-service experiences",
+    ],
+    challenges: [
+      "Manual customer interactions",
+      "Disconnected portal experiences",
+      "Limited external access",
+    ],
+  },
+
+  {
+    title: "Dataverse Development",
+    icon: Database,
+    image: "/images/power-apps/stack2.png",
+    desc: "Design and develop secure, structured business data solutions with Microsoft Dataverse to power connected Power Platform applications and workflows.",
+    points: [
+      "Business data modeling",
+      "Microsoft 365 integration",
+      "API connectivity",
+    ],
+    challenges: [
+      "Data silos",
+      "Duplicate records",
+      "Disconnected applications",
+    ],
+  },
+
+  {
+    title: "Copilot Studio & AI Solutions",
+    icon: Bot,
+    image: "/images/power-apps/stack3.png",
+    desc: "Extend Microsoft Power Platform with Copilot Studio and AI capabilities to automate tasks, assist users, and create intelligent business workflows.",
+    points: [
+      "AI-powered assistants",
+      "Intelligent automation",
+      "AI-enabled workflows",
+    ],
+    challenges: [
+      "Repetitive manual tasks",
+      "Slow information access",
+      "Complex business processes",
+    ],
   },
 ];
-
 export default function StackedSlider() {
   const [active, setActive] = useState(0);
 

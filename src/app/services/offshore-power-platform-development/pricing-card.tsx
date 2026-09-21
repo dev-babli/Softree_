@@ -18,8 +18,8 @@ export default function HirePowerAppsPricing() {
         <h2 className="mb-16 text-center text-4xl font-semibold text-gray-900">
           Hire{" "}
           <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
-            Power Apps Developers
-          </span>{" "}
+            Microsoft Power Platform Developers
+          </span>{" "} <br />
           for Business-Driven Digital Solutions
         </h2>
 
@@ -66,22 +66,22 @@ export default function HirePowerAppsPricing() {
               {
                 title: "Hourly Consultation",
                 features: [
-                  "Pay only for actual Power Apps development or advisory hours",
-                  "Ideal for audits, troubleshooting, and enhancements",
-                  "Clear tracking and transparent reporting",
+                  "Pay only for the Power Platform development or consulting hours you need",
+                  "Ideal for audits, troubleshooting, enhancements, and technical guidance",
+                  "Transparent time tracking and clear progress reporting",
                 ],
               },
               {
-                title: "Dedicated Power Apps Developer",
+                title: "Dedicated Power Platform Developer",
                 highlight: true,
                 features: [
-                  "Full-time Power Apps engineer dedicated to your environment",
+                  "Full-time Power Platform developer dedicated to your team",
                   "Fixed monthly pricing with predictable delivery",
                   "Best for continuous automation & app modernization",
                 ],
               },
               {
-                title: "Fixed-Scope Power App",
+                title: "Fixed-Scope Power Platform Solution",
                 features: [
                   "Defined scope, timeline, and deliverables",
                   "Upfront pricing with no hidden costs",
@@ -91,21 +91,20 @@ export default function HirePowerAppsPricing() {
             ].map((plan, i) => (
               <div
                 key={i}
-                className={`relative rounded-3xl p-8 transition-all duration-300 ${
-                  plan.highlight
-                    ? `
+                className={`relative rounded-3xl p-8 transition-all duration-300 ${plan.highlight
+                  ? `
               bg-gradient-to-r from-black via-[#4c1c02] to-black
               text-white
               shadow-[0_18px_50px_rgba(249,115,22,0.4)]
               scale-[1.03]
             `
-                    : `
+                  : `
               bg-white
               border border-gray-200
               shadow-sm
               hover:shadow-md
             `
-                }`}
+                  }`}
               >
                 {plan.highlight && (
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-white px-4 py-1 text-[11px] font-semibold text-orange-700 shadow-md">
@@ -114,9 +113,8 @@ export default function HirePowerAppsPricing() {
                 )}
 
                 <h3
-                  className={`mb-6 text-lg font-semibold ${
-                    plan.highlight ? "text-white" : "text-gray-900"
-                  }`}
+                  className={`mb-6 text-lg font-semibold ${plan.highlight ? "text-white" : "text-gray-900"
+                    }`}
                 >
                   {plan.title}
                 </h3>
@@ -125,14 +123,12 @@ export default function HirePowerAppsPricing() {
                   {plan.features.map((f, idx) => (
                     <li
                       key={idx}
-                      className={`flex gap-3 text-sm ${
-                        plan.highlight ? "text-white/90" : "text-gray-600"
-                      }`}
+                      className={`flex gap-3 text-sm ${plan.highlight ? "text-white/90" : "text-gray-600"
+                        }`}
                     >
                       <CheckCircle2
-                        className={`h-4 w-4 shrink-0 ${
-                          plan.highlight ? "text-white" : "text-orange-600"
-                        }`}
+                        className={`h-4 w-4 shrink-0 ${plan.highlight ? "text-white" : "text-orange-600"
+                          }`}
                       />
                       <span>{f}</span>
                     </li>
@@ -160,7 +156,7 @@ export default function HirePowerAppsPricing() {
               transition
             "
           >
-            Discuss Your Power App
+            Discuss Your Power Platform Project
             <ArrowRight className="h-4 w-4" />
           </a>
         </div>

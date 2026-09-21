@@ -93,13 +93,12 @@ export default function PowerAppsCaseStudies() {
           </span>
 
           <h2 className="text-3xl lg:text-4xl font-semibold text-gray-900">
-            Power Apps in Action:
+            Power Platform in Action:
             <span className="text-orange-600"> Business Success Stories</span>
           </h2>
 
           <p className="mt-2 max-w-4xl mx-auto text-base text-gray-600">
-            Explore how Softree helps organizations automate workflows and
-            deliver measurable results.
+            See how Softree uses Microsoft Power Platform to solve real business challenges, modernize processes, automate workflows, and deliver measurable results.
           </p>
         </div>
 
@@ -276,11 +275,10 @@ export default function PowerAppsCaseStudies() {
                   key={i}
                   onClick={() => swiperRef.current?.slideToLoop(i)}
                   className={`text-xs font-medium tracking-widest transition
-                ${
-                  activeIndex === i
-                    ? "text-orange-600 scale-125"
-                    : "text-gray-400 hover:text-gray-700"
-                }
+                ${activeIndex === i
+                      ? "text-orange-600 scale-125"
+                      : "text-gray-400 hover:text-gray-700"
+                    }
               `}
                 >
                   {String(i + 1).padStart(2, "0")}

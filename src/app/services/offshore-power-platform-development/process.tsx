@@ -12,31 +12,31 @@ const processSteps = [
   {
     title: "Discovery & Analysis",
     description:
-      "We begin by understanding your business objectives, workflows, and technical environment to define clear requirements and opportunities.",
+      "We begin by understanding your business objectives, workflows, existing systems, and automation opportunities to define clear requirements and the right Power Platform approach.",
     icon: FaSearch,
   },
   {
     title: "Solution Design",
     description:
-      "Our team designs a detailed solution blueprint covering architecture, integrations, and user journeys aligned with your goals.",
+      "Our team designs the Power Platform solution architecture, data model, integrations, security approach, and user journeys aligned with your business goals.",
     icon: FaDraftingCompass,
   },
   {
-    title: "Application Development",
+    title: "Power Platform Development",
     description:
-      "Using Microsoft Power Apps, we build secure and intuitive applications optimized for performance and usability.",
+      "We develop Power Apps, Power Automate workflows, Dataverse solutions, Power BI components, Power Pages experiences, and related Power Platform solutions based on your requirements.",
     icon: FaCode,
   },
   {
     title: "Testing & Validation",
     description:
-      "We conduct comprehensive testing to ensure reliability, system compatibility, and quality across all workflows.",
+      "We validate applications, workflows, integrations, permissions, and business processes to ensure reliability, security, compatibility, and solution quality before deployment.",
     icon: FaCheckCircle,
   },
   {
-    title: "Ongoing Support & Optimization",
+    title: "Deployment, Support & Optimization",
     description:
-      "After deployment, we provide continuous support and enhancements to adapt your solution to evolving business needs.",
+      "We manage deployment and provide ongoing support, enhancements, optimization, and maintenance to help your Power Platform solutions evolve with changing business needs.",
     icon: FaHandsHelping,
   },
 ];
@@ -105,7 +105,7 @@ export default function PowerAppsProcessSection() {
 
               {/* Heading */}
               <h3 className="text-3xl lg:text-4xl font-semibold text-white leading-tight">
-                Our <span className="text-orange-500">Power Apps</span> Development Process for Scalable Solutions
+                Our <span className="text-orange-500">Microsoft Power Platform</span> Development Process
               </h3>
 
               {/* Divider (neutral) */}
@@ -113,10 +113,7 @@ export default function PowerAppsProcessSection() {
 
               {/* Description */}
               <p className="text-lg text-gray-400 leading-relaxed">
-                At Softree, we follow a structured and outcome-driven approach
-                to deliver secure, scalable, and enterprise-ready Power Apps—
-                ensuring clarity, consistency, and long-term value throughout
-                the development lifecycle.
+                At Softree, we follow a structured and outcome-driven approach to deliver secure, scalable Microsoft Power Platform solutions. From discovery and solution design to development, integration, testing, deployment, and ongoing support, we help businesses build and evolve Power Platform solutions aligned with their goals.
               </p>
             </div>
           </div>

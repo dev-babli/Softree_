@@ -216,10 +216,17 @@ export default function HeroPowerApps() {
         @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.7)} }
         .eyebrow-dot { animation: pulse 2s ease-in-out infinite; }
 
+        .trust-strip-wrapper {
+          position: absolute;
+          bottom: 50px;
+          width: 100%;
+          z-index: 20;
+        }
+
         @media (max-width: 991px) {
           .hero-inner {
             flex-direction: column !important;
-            padding: 100px 24px 220px !important;
+            padding: 100px 24px 40px !important;
             gap: 40px !important;
           }
           .hero-left {
@@ -233,6 +240,16 @@ export default function HeroPowerApps() {
           }
           .hero-slider-viewport {
             width: 100% !important;
+          }
+          .hero-stats {
+            flex-wrap: wrap;
+            gap: 12px 24px !important;
+          }
+          .trust-strip-wrapper {
+            position: relative !important;
+            bottom: auto !important;
+            padding-bottom: 120px !important;
+            margin-top: 20px !important;
           }
         }
       `}</style>
@@ -267,7 +284,7 @@ export default function HeroPowerApps() {
               </span>
             </Link>
 
-            <div style={styles.stats}>
+            <div style={styles.stats} className="hero-stats">
               <div>
                 <div style={styles.statNum}>50+</div>
                 <div style={styles.statLbl}>Enterprise clients</div>
@@ -303,7 +320,7 @@ export default function HeroPowerApps() {
         </div>
 
         {/* Trust Strip */}
-        <div style={{ position: 'absolute', bottom: '50px', width: '100%', zIndex: 20 }}>
+        <div className="trust-strip-wrapper">
           <div className="w-full max-w-[1400px] mx-auto px-4 md:px-8 pb-4">
             <TrustStrip theme="dark" />
           </div>
