@@ -30,7 +30,9 @@ const PANELS: Panel[] = [
   {
     id: "healthcare",
     tab: "Healthcare",
-    title: "Payers, Providers, Life Sciences",
+    title: "AI Solutions for Healthcare",
+    subtitle:
+      "Build secure AI solutions for healthcare workflows, including knowledge access, document processing, operational support, and intelligent assistance.",
     trustedLabel: "Trusted by Softree partners:",
     bg: `${KORE_CDN}/68c19a3bfda82c7f2e12c79a_healthcarehome.avif`,
     link: "/industries/healthcare-ai-solutions",
@@ -38,7 +40,9 @@ const PANELS: Panel[] = [
   {
     id: "logistics",
     tab: "Logistics",
-    title: "Logistics, Supply Chain, and Transportation",
+    title: "AI Solutions for Logistics & Supply Chain",
+    subtitle:
+      "Use AI to connect operational data, streamline workflows, improve information access, and support faster decision-making across logistics and supply chain processes.",
     trustedLabel: "Trusted by Softree partners:",
     bg: `${KORE_CDN}/68c1998017adc89faa49388c_fshome.avif`,
     link: "/industries/logistics-supply-chain-engineering",
@@ -46,34 +50,36 @@ const PANELS: Panel[] = [
   {
     id: "banking",
     tab: "Banking",
-    title: "Banks, Credit Unions, Financial Institutions",
+    title: "AI Solutions for Banking",
+    subtitle:
+      "Build AI solutions for knowledge access, document-heavy processes, customer support, workflow automation, and decision support.",
     trustedLabel: "Trusted by Softree partners:",
     bg: `${KORE_CDN}/68c1998017adc89faa49388c_fshome.avif`,
   },
   {
     id: "retail",
     tab: "Retail",
-    title: "Consumer Goods and Services",
+    title: "AI Solutions for Retail & E-commerce",
     subtitle:
-      "Make work more efficient, intelligent, and valuable across the organization.",
+      "Apply AI to customer support, product knowledge, workflow automation, operations, and data-driven business processes.",
     trustedLabel: "Trusted by Softree partners:",
     bg: `${KORE_CDN}/68c19a3b38b198ea6f222a3f_351a023e6b7126c0fc226cf7c9d3a1df_consumerhome.avif`,
   },
   {
     id: "telecom",
     tab: "Telecom + Media",
-    title: "Telecom, Media, Communications",
+    title: "AI Solutions for Telecom & Media",
     subtitle:
-      "Make work more efficient, intelligent, and valuable across the organization.",
+      "Build AI-powered solutions for customer interactions, knowledge management, workflow automation, and operational support.",
     trustedLabel: "Trusted by Softree partners:",
     bg: `${KORE_CDN}/68c19a3bfdc0d853dd98ecae_telecomhome.avif`,
   },
   {
     id: "business",
     tab: "Business",
-    title: "B2B Goods and Services",
+    title: "AI Solutions for Business Operations",
     subtitle:
-      "Make work more efficient, intelligent, and valuable across the organization.",
+      "Automate repetitive work, connect business knowledge, improve employee support, and streamline operational workflows with practical AI solutions.",
     trustedLabel: "Trusted by Softree partners:",
     bg: `${KORE_CDN}/68c19a3b2513192e19a6dcc2_b2bhome.avif`,
   },
@@ -182,16 +188,16 @@ export default function IndustrySoftree() {
                 id="enterprise-industries-heading"
                 className="max-w-[16ch] typo-heading-3 md:typo-heading-2 text-[#0a0a1a]"
               >
-                Engineering solutions for real-world industries
+                AI Solutions for Real-World Industries
               </h2>
               <p className="typo-description text-[#0a0a1a]/55">
-                From healthcare and logistics to retail, telecom, and business, we understand the technology challenges shaping modern organizations.
+                From healthcare and logistics to banking, retail, telecom, and business operations, we build AI solutions that address industry-specific challenges, automate workflows, connect business and improve team's work.
               </p>
             </div>
 
             <div className="mt-8 space-y-5">
               <p className="max-w-[26ch] typo-body-sm text-[#0a0a1a]/60">
-                Explore how Softree applies engineering expertise to solve industry-specific problems and create measurable impact.
+                Explore how Softree applies AI engineering, Agentic AI, automation, and enterprise knowledge solutions to real-world industry workflows.
               </p>
 
               <div className="rounded-lg border border-dashed border-[#0a0a1a]/20 bg-[#FAFAF9] p-4">

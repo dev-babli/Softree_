@@ -249,10 +249,10 @@ export default function PartnerShowcase() {
                   </span>
                 </div>
                 <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-slate-900 leading-tight uppercase">
-                  END-TO-END AI DEVELOPMENT & <span className="text-[#FF6B2C]">ENGINEERING SERVICES</span>
+                  END-TO-END AGENTIC AI  <span className="text-[#FF6B2C]">DEVELOPMENT & ENGINEERING SERVICES</span>
                 </h2>
                 <p className="typo-description text-slate-500 max-w-2xl text-xs sm:text-sm md:text-base">
-                  From AI strategy and architecture to development, testing, data, and cloud deployment, we deliver production-ready AI solutions.
+                  From Agentic AI strategy and architecture to agent development, integration, testing, data, and cloud deployment, we deliver production-ready AI solutions with dedicated engineering teams.
                 </p>
               </div>
             </div>
@@ -263,7 +263,7 @@ export default function PartnerShowcase() {
             {/* Input Phase: AI Strategy & Architecture */}
             <div className="flex flex-col items-center gap-1.5">
               <div className="flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-orange-600 to-orange-500 text-white font-black text-xs sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.2em] shadow-[0_0_20px_rgba(251,146,60,0.15)] text-center">
-                AI Strategy & Architecture
+                AGENTIC AI ENGINEERING TEAM
               </div>
               <div className="text-orange-500 font-extrabold text-lg sm:text-xl animate-bounce">↓</div>
             </div>

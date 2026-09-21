@@ -55,10 +55,10 @@ export default function OffshoreEngineeringSection() {
 
       <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
+
           {/* Left Content Side - Typography-Led, Non-Card Editorial Layout */}
           <div className="lg:col-span-7 flex flex-col justify-between gap-5 text-left">
-            
+
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/80 px-4 py-1.5 rounded-full border border-white/80 w-fit">
               <span className="w-2 h-2 rounded-full bg-[#FF6B2C] animate-pulse" />
@@ -72,17 +72,17 @@ export default function OffshoreEngineeringSection() {
               <h2 className="typo-heading-2 text-slate-900">
                 Dedicated Offshore{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B2C] via-[#ea580c] to-[#c2410c]">
-                  AI Engineering
+                  Agentic AI Engineering
                 </span>
               </h2>
               <div className="flex items-center gap-2.5 pt-0.5">
                 <div className="h-4 w-1 rounded-full bg-[#FF6B2C]" />
                 <h3 className="typo-heading-4 text-slate-800">
-                  Extend Your Team With Specialized AI Talent
+                  Extend Your Team With Specialized Agentic AI Engineering Talent
                 </h3>
               </div>
-              <p className="typo-description text-slate-600 max-w-2xl pt-0.5">
-                Build a dedicated offshore engineering team aligned with your technology stack, development processes, and business goals.
+              <p className="typo-description text-slate-600 max-w-1.95xl pt-0.5">
+                Build a dedicated offshore AI engineering team aligned with your technology stack, development processes, and business goals—from Agentic AI architecture and development to integration, testing, and production delivery.
               </p>
             </div>
 
@@ -95,15 +95,13 @@ export default function OffshoreEngineeringSection() {
                     key={role.id}
                     onClick={() => setActiveRole(idx)}
                     onMouseEnter={() => setActiveRole(idx)}
-                    className={`group cursor-pointer text-left transition-all duration-200 relative pl-3.5 py-1 border-l-2 border-[#FF6B2C] ${
-                      isActive ? "bg-orange-500/[0.06] rounded-r-md" : "hover:bg-orange-500/[0.02]"
-                    }`}
+                    className={`group cursor-pointer text-left transition-all duration-200 relative pl-3.5 py-1 border-l-2 border-[#FF6B2C] ${isActive ? "bg-orange-500/[0.06] rounded-r-md" : "hover:bg-orange-500/[0.02]"
+                      }`}
                   >
                     <div className="flex items-center gap-2 mb-0.5">
                       <span
-                        className={`text-[11px] font-mono font-bold transition-colors ${
-                          isActive ? "text-[#FF6B2C]" : "text-slate-500 group-hover:text-[#FF6B2C]"
-                        }`}
+                        className={`text-[11px] font-mono font-bold transition-colors ${isActive ? "text-[#FF6B2C]" : "text-slate-500 group-hover:text-[#FF6B2C]"
+                          }`}
                       >
                         {role.id}
                       </span>
@@ -115,9 +113,8 @@ export default function OffshoreEngineeringSection() {
                       )}
                     </div>
                     <h4
-                      className={`typo-heading-4 transition-colors leading-snug ${
-                        isActive ? "text-[#FF6B2C]" : "text-slate-900 group-hover:text-[#FF6B2C]"
-                      }`}
+                      className={`typo-heading-4 transition-colors leading-snug ${isActive ? "text-[#FF6B2C]" : "text-slate-900 group-hover:text-[#FF6B2C]"
+                        }`}
                     >
                       {role.title}
                     </h4>
@@ -158,7 +155,7 @@ export default function OffshoreEngineeringSection() {
 
             {/* Call to Action */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-0.5">
-              <FlowButton 
+              <FlowButton
                 href="/contact"
                 text="Build Your Offshore AI Team"
                 variant="orange-filled"
@@ -173,9 +170,9 @@ export default function OffshoreEngineeringSection() {
 
           {/* Right Side - Synchronized Interactive Photo Stack */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <PhotoStackGallery 
-              selectedIndex={activeRole} 
-              onSelectIndex={(idx) => setActiveRole(idx)} 
+            <PhotoStackGallery
+              selectedIndex={activeRole}
+              onSelectIndex={(idx) => setActiveRole(idx)}
             />
           </div>
 

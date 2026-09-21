@@ -7,33 +7,33 @@ import { motion, AnimatePresence } from "framer-motion";
 const roadmapPhases = [
   {
     number: "01",
-    title: "Data Protection",
-    description: "Protect sensitive business information across AI applications, knowledge systems, integrations, and workflows.",
+    title: "Access Control",
+    description: "Control what AI agents, users, and connected tools can access.",
   },
   {
     number: "02",
-    title: "Identity & Access",
-    description: "Control who can access AI applications, enterprise data, tools, and automated actions.",
+    title: "Data Protection",
+    description: "Apply appropriate data boundaries and protection across business information and AI workflows.",
   },
   {
     number: "03",
     title: "AI Guardrails",
-    description: "Define boundaries for AI behavior, data access, tool usage, and automated actions.",
+    description: "Define controls around prompts, tools, actions, and agent behavior.",
   },
   {
     number: "04",
-    title: "Responsible AI",
-    description: "Design AI systems with appropriate human oversight and responsible implementation practices.",
+    title: "Human Oversight",
+    description: "Escalate sensitive or exception-based decisions to people when human approval is required.",
   },
   {
     number: "05",
-    title: "Monitoring & Evaluation",
-    description: "Measure AI quality, reliability, performance, cost, and behavior in production.",
+    title: "Governance & Auditability",
+    description: "Maintain appropriate governance, visibility, and records around AI-agent actions.",
   },
   {
     number: "06",
-    title: "Auditability",
-    description: "Maintain visibility into AI actions, workflow execution, system events, and relevant decisions.",
+    title: "Evaluation & Monitoring",
+    description: "Evaluate agent behavior and monitor production performance to identify issues and improve reliability.",
   },
 ];
 
@@ -172,17 +172,15 @@ function RoadmapItem({ phase, isActive }: RoadmapItemProps) {
     <div className="w-full flex flex-col">
       {/* The phase timeline row */}
       <div
-        className={`pl-8 md:pl-14 py-8 relative transition-all duration-500 border-l-2 group ${
-          isActive
-            ? "border-[#FF6B2C]" // Highlighted segment
-            : "border-zinc-800/80 hover:border-zinc-700" // Inactive track segment
-        }`}
+        className={`pl-8 md:pl-14 py-8 relative transition-all duration-500 border-l-2 group ${isActive
+          ? "border-[#FF6B2C]" // Highlighted segment
+          : "border-zinc-800/80 hover:border-zinc-700" // Inactive track segment
+          }`}
       >
         {/* Timeline Node Dot/Bullet directly centered on the vertical left line */}
         <div className="absolute left-[-7px] md:left-[-9px] top-9 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-black border border-zinc-700 pointer-events-none z-20">
-          <div className={`h-1.5 w-1.5 rounded-full transition-all duration-500 ${
-            isActive ? "bg-[#FF6B2C] scale-125" : "bg-zinc-700"
-          }`} />
+          <div className={`h-1.5 w-1.5 rounded-full transition-all duration-500 ${isActive ? "bg-[#FF6B2C] scale-125" : "bg-zinc-700"
+            }`} />
         </div>
 
         {/* Trigger Row info */}
@@ -193,19 +191,17 @@ function RoadmapItem({ phase, isActive }: RoadmapItemProps) {
               [{phase.number}]
             </span>
             {/* Title */}
-            <h3 className={`typo-heading-3 transition-colors duration-300 ${
-              isActive ? "text-white" : "text-zinc-400 group-hover:text-zinc-200"
-            }`}>
+            <h3 className={`typo-heading-3 transition-colors duration-300 ${isActive ? "text-white" : "text-zinc-400 group-hover:text-zinc-200"
+              }`}>
               {phase.title}
             </h3>
           </div>
 
           {/* Dynamic Graphic Indicator (Bespoke Advanced SVG on the right) */}
-          <div className={`flex h-12 w-12 md:h-16 md:w-16 items-center justify-center rounded-full transition-all duration-500 shrink-0 ${
-            isActive 
-              ? "bg-transparent text-[#FF6B2C] shadow-none rotate-0 group-hover:scale-115" 
-              : "bg-transparent text-zinc-600 rotate-[-45deg] group-hover:rotate-0 group-hover:scale-110 group-hover:text-zinc-300"
-          }`}>
+          <div className={`flex h-12 w-12 md:h-16 md:w-16 items-center justify-center rounded-full transition-all duration-500 shrink-0 ${isActive
+            ? "bg-transparent text-[#FF6B2C] shadow-none rotate-0 group-hover:scale-115"
+            : "bg-transparent text-zinc-600 rotate-[-45deg] group-hover:rotate-0 group-hover:scale-110 group-hover:text-zinc-300"
+            }`}>
             <PhaseIcon number={phase.number} />
           </div>
         </div>
@@ -252,7 +248,7 @@ export default function AiRoadmap() {
         const rect = ref.getBoundingClientRect();
         // Calculate distance based on the trigger row center (constant height)
         // to prevent height-expansion feedback jitter loops
-        const triggerCenter = rect.top + 40; 
+        const triggerCenter = rect.top + 40;
         const distance = Math.abs(triggerCenter - viewportCenter);
 
         if (distance < minDistance) {
@@ -266,7 +262,7 @@ export default function AiRoadmap() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleScroll, { passive: true });
-    
+
     // Initialize active index
     handleScroll();
 
@@ -282,73 +278,73 @@ export default function AiRoadmap() {
     <section className="w-full bg-white pt-8 md:pt-12 pb-8 md:pb-12 font-sans relative overflow-hidden">
       <div className="mx-auto w-full max-w-[1600px] px-6 sm:px-8 lg:px-12">
         <div className="relative overflow-hidden rounded-[24px] bg-black text-white py-20 lg:py-24 shadow-2xl">
-          
+
           {/* Background ambient lighting orbs */}
           <div className="absolute top-[-10%] right-[-10%] w-[35%] h-[35%] rounded-full bg-[#FF6B2C]/5 blur-[100px] pointer-events-none" />
           <div className="absolute bottom-[-10%] left-[-10%] w-[35%] h-[35%] rounded-full bg-[#FF6B2C]/5 blur-[100px] pointer-events-none" />
 
           <div className="max-w-5xl mx-auto px-6 sm:px-8 relative z-10">
-        
-        {/* ================= HEADER ================= */}
-        <div className="max-w-4xl mb-12 lg:mb-20 text-left">
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mb-4 inline-block"
-          >
-            <div className="shadow-[inset_2px_2px_5px_#27272a,inset_-2px_-2px_5px_#09090b] bg-zinc-900/80 px-4 py-1.5 rounded-full border border-white/10">
-              <span className="typo-caption text-[#FF6B2C]">
-                SECURITY & GOVERNANCE
-              </span>
-            </div>
-          </motion.div>
-          
-          <motion.h2 
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="typo-heading-2 text-white tracking-tight mb-4"
-          >
-            Enterprise AI Security & Governance: <span className="text-[#FF6B2C]">Intelligence With Security and Control</span>
-          </motion.h2>
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="typo-description text-slate-300 max-w-2xl"
-          >
-            Enterprise AI needs more than intelligent outputs. AI systems must operate within appropriate security, identity, governance, monitoring, and human oversight controls.
-          </motion.p>
-        </div>
 
-        {/* ================= ROADMAP TIMELINE CONTAINER ================= */}
-        <div className="relative w-full pl-2 sm:pl-4">
-          {/* Vertical Stack of Scroll-Driven Items */}
-          <div className="relative z-10 flex flex-col gap-0">
-            {roadmapPhases.map((phase, idx) => (
-              <div 
-                key={phase.number} 
-                ref={(el) => { itemRefs.current[idx] = el; }}
-                onMouseEnter={() => setHoveredIdx(idx)}
-                onMouseLeave={() => setHoveredIdx(null)}
-                onClick={() => setActiveIdx(idx)}
-                className="w-full cursor-pointer"
+            {/* ================= HEADER ================= */}
+            <div className="max-w-4xl mb-12 lg:mb-20 text-left">
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="mb-4 inline-block"
               >
-                <RoadmapItem
-                  phase={phase}
-                  isActive={currentActiveIdx === idx}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+                <div className="shadow-[inset_2px_2px_5px_#27272a,inset_-2px_-2px_5px_#09090b] bg-zinc-900/80 px-4 py-1.5 rounded-full border border-white/10">
+                  <span className="typo-caption text-[#FF6B2C]">
+                    SECURITY & GOVERNANCE
+                  </span>
+                </div>
+              </motion.div>
 
-      </div>
+              <motion.h2
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="typo-heading-2 text-white tracking-tight mb-4"
+              >
+                Agentic AI Security & Governance: <span className="text-[#FF6B2C]">Intelligence With Security and Control</span>
+              </motion.h2>
+
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="typo-description text-slate-300 max-w-2xl"
+              >
+                AI agents need more than intelligent outputs. They must operate within appropriate access controls, data boundaries, governance, human oversight, evaluation, and operational safeguards to support secure and reliable production use.
+              </motion.p>
+            </div>
+
+            {/* ================= ROADMAP TIMELINE CONTAINER ================= */}
+            <div className="relative w-full pl-2 sm:pl-4">
+              {/* Vertical Stack of Scroll-Driven Items */}
+              <div className="relative z-10 flex flex-col gap-0">
+                {roadmapPhases.map((phase, idx) => (
+                  <div
+                    key={phase.number}
+                    ref={(el) => { itemRefs.current[idx] = el; }}
+                    onMouseEnter={() => setHoveredIdx(idx)}
+                    onMouseLeave={() => setHoveredIdx(null)}
+                    onClick={() => setActiveIdx(idx)}
+                    className="w-full cursor-pointer"
+                  >
+                    <RoadmapItem
+                      phase={phase}
+                      isActive={currentActiveIdx === idx}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>

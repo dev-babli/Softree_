@@ -32,11 +32,11 @@ export default function CoreCapabilities() {
           </div>
 
           <h2 className="typo-heading-2 text-slate-900 mb-4 text-center">
-            Enterprise AI Development <span className="text-[#FF6B2C]">Capabilities</span>
+            Agentic AI Development <span className="text-[#FF6B2C]">Capabilities</span>
           </h2>
 
           <p className="typo-description text-slate-500 text-center max-w-2xl mx-auto">
-            From AI strategy and development to deployment and optimization, we build secure, scalable AI solutions that help enterprises automate processes, solve complex challenges, and accelerate business growth.
+            From AI strategy and architecture to agent development, integration, security, testing, deployment, and optimization, we build production-ready Agentic AI solutions around your business workflows and systems.
           </p>
         </div>
 

@@ -33,7 +33,7 @@ const AgenticAiIcon = () => (
       strokeLinecap="round"
     />
     <path d="M5.5 2v3.8h3.8" stroke="#FF6B00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    
+
     {/* Satellite capability nodes (Tools, Memory, Perception) */}
     <circle cx="20.5" cy="9.5" r="1.8" fill="#FFA34D" />
     <circle cx="14" cy="20.8" r="1.8" fill="#FFA34D" />
@@ -216,11 +216,11 @@ export const WovenLightHero = () => {
 
   return (
     <div className="relative flex w-full flex-col overflow-hidden bg-black pt-20 lg:pt-24 pb-0">
-      
+
       {/* Main Split Content: Left (Text) and Right (The Wave) */}
       <div className="relative z-10 flex items-start w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-10 pt-2 sm:pt-4 pb-0">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 xl:gap-8 w-full items-center">
-          
+
           {/* LEFT: The Text */}
           <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-start text-left z-10">
             {/* Eyebrow Pill */}
@@ -244,7 +244,7 @@ export const WovenLightHero = () => {
                 textShadow: '0 0 35px rgba(255, 107, 0, 0.25)',
               }}
             >
-              Offshore{" "}
+              <span className="whitespace-nowrap">Your Offshore</span>{" "}
               <span className="text-[#FF6B00] drop-shadow-[0_0_25px_rgba(255,107,0,0.4)]">
                 Agentic AI
               </span>
@@ -259,7 +259,7 @@ export const WovenLightHero = () => {
               animate={textControls}
               className="mt-4 sm:mt-5 typo-description text-slate-300 dark:text-slate-400 max-w-xl"
             >
-              Build and scale AI agents with a dedicated offshore engineering team.
+              Build, deploy, and scale AI agents with a dedicated offshore engineering team — under your brand or as an extension of your team.
             </motion.p>
 
             {/* Action Buttons */}
@@ -269,13 +269,13 @@ export const WovenLightHero = () => {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="mt-5 sm:mt-6 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
             >
-              <FlowButton 
+              <FlowButton
                 href="/contact"
                 text="Build Your AI Team"
                 variant="orange-filled"
                 className="w-full sm:w-auto shadow-lg shadow-[#FF6B00]/30 typo-button-lg"
               />
-             
+
             </motion.div>
 
             {/* Capabilities Pill Badges */}
@@ -454,7 +454,7 @@ const WovenCanvas = () => {
       const v = Math.random();
       const theta = u * 2.0 * Math.PI;
       const phi = Math.acos(2.0 * v - 1.0);
-      
+
       // Kept snugly around the knot (max radius 1.75)
       const r = 1.20 + Math.pow(Math.random(), 1.6) * 0.55;
 

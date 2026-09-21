@@ -16,25 +16,25 @@ const FEATURES: FeatureItem[] = [
     icon: Bot,
     title: "Agentic AI Expertise",
     description:
-      "Build agents, RAG, copilots, multi-agent systems, and intelligent workflows.",
+      "Build AI agents, multi-agent systems, RAG solutions, and intelligent workflows designed around real business processes.",
   },
   {
     icon: Users,
-    title: "Dedicated Offshore Talent",
+    title: "Dedicated Offshore AI Engineers",
     description:
-      "Extend your team with AI architects, engineers, data specialists, QA, and cloud experts.",
+      "Extend your team with AI architects, engineers, data specialists, QA, and cloud experts to support Agentic AI development from architecture through production.",
   },
   {
     icon: Cloud,
-    title: "Microsoft + AWS Expertise",
+    title: "Microsoft + AWS AI Expertise",
     description:
-      "Build across Azure AI, Copilot, Amazon Bedrock, and the broader cloud ecosystems.",
+      "Build Agentic AI solutions across Azure AI, Azure OpenAI, Copilot, Amazon Bedrock, and other supported cloud services.",
   },
   {
     icon: SlidersHorizontal,
-    title: "Flexible Delivery",
+    title: "Flexible & White-Label Delivery",
     description:
-      "Choose white-label delivery, dedicated teams, staff augmentation, project delivery, or managed engineering.",
+      "Choose dedicated teams, project delivery, staff augmentation, managed engineering, or white-label AI development based on your delivery model.",
   },
 ];
 
@@ -42,7 +42,7 @@ export default function AiReadinessBanner() {
   return (
     <section className="relative w-full pt-4 lg:pt-6 pb-12 lg:pb-16 bg-transparent overflow-hidden font-sans">
       <div className="relative z-10 max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
-        
+
         {/* Main Banner Container (Light Theme Matching Page) */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -53,13 +53,13 @@ export default function AiReadinessBanner() {
         >
           {/* Subtle grid background overlay */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.015)_1px,transparent_1px)] bg-[size:1.5rem_1.5rem] pointer-events-none" />
-          
+
           {/* Light peach background glow */}
           <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-80 h-80 bg-[#FF6B2C]/5 rounded-full blur-3xl pointer-events-none" />
- 
+
           {/* Left Content Side */}
           <div className="relative z-10 flex-[1.25] p-8 sm:p-12 lg:p-16 flex flex-col justify-center items-start">
-            
+
             {/* WHY SOFTREE Eyebrow Pill */}
             <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/70 px-4 py-1.5 rounded-full border border-white/60 mb-5 inline-block">
               <span className="typo-caption text-[#FF6B2C]">
@@ -70,12 +70,12 @@ export default function AiReadinessBanner() {
             {/* Headline */}
             <h2 className="typo-heading-2 text-slate-900 mb-4 max-w-xl">
               Your AI Practice. <br />
-              <span className="text-[#FF6B2C]">Our Engineering Team.</span>
+              <span className="text-[#FF6B2C]">Our Agentic AI Engineering Team.</span>
             </h2>
 
             {/* Description Paragraph */}
             <p className="typo-description text-slate-600 max-w-xl mb-8">
-              Build AI with a partner that combines Agentic AI expertise, offshore engineering capacity, and flexible delivery models to drive real business outcomes.
+              Build and scale Agentic AI solutions with an experienced offshore engineering team. From AI agents and RAG to automation and integrations, Softree provides the engineering capacity to extend your team, deliver projects or support white-label engagements.
             </p>
 
             {/* 4 Feature Items List */}
@@ -102,7 +102,7 @@ export default function AiReadinessBanner() {
 
             {/* CTA Button */}
             <div className="inline-block mt-9">
-              <FlowButton 
+              <FlowButton
                 href="/contact"
                 text="BUILD YOUR AI TEAM"
                 variant="orange-filled"

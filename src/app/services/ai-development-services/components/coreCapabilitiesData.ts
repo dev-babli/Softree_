@@ -1,4 +1,4 @@
-import { 
+import {
   IconBrain, IconCloud, IconHierarchy, IconShieldCheck, IconApps, IconChartLine,
   IconTargetArrow, IconChartBar, IconMap, IconServer, IconDatabase, IconBlocks,
   IconRobot, IconListCheck, IconBolt, IconShield, IconLock, IconChecklist,
@@ -173,12 +173,12 @@ export const coreCapabilitiesData = [
   },
   {
     id: '06',
-    title: 'Continuous Optimization',
-    shortDesc: 'Monitoring, improving, and evolving AI solutions through analytics and continuous innovation.',
+    title: 'Deployment, Monitoring & Optimization',
+    shortDesc: 'Move AI agents into production with monitoring, observability, evaluation feedback, performance improvements, and ongoing engineering support.',
     icon: IconChartLine,
     color: 'bg-pink-100 text-pink-600',
     image: '/images/ai-development-services/core-capabilities/continuous-optimization.png',
-    description: 'Continuously monitor AI performance, improve accuracy, optimize costs, and evolve enterprise AI systems using real-time analytics.',
+    description: 'Move AI agents into production with monitoring, observability, evaluation feedback, performance improvements, and ongoing engineering support.',
     highlights: [
       {
         title: 'AI Performance Monitoring',

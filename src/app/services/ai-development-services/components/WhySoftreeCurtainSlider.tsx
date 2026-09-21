@@ -92,174 +92,174 @@ interface TabData {
 const tabsData: TabData[] = [
   {
     id: "discover",
-    title: "Discover",
-    phase: "01 — DISCOVER",
-    subtitle: "Understand the business problem, users, data, systems, workflow, and AI opportunity.",
-    desc: "Understand the business problem, users, data, systems, workflow, and AI opportunity.",
+    title: "Discover & Define",
+    phase: "01 — DISCOVER & DEFINE",
+    subtitle: "Understand the business problem, users, data, systems, workflow, and where Agentic AI can create meaningful value.",
+    desc: "Understand the business problem, users, data, systems, workflow, and where Agentic AI can create meaningful value.",
     src: "/images/ai-development-service/agenticAi-1.png",
-    alt: "01 Discover - Understand Business Problem and AI Opportunity",
-    tags: ["Problem Discovery", "Data Readiness", "Opportunity Sizing"],
-    heading: "Enterprise Problem Understanding & AI Opportunity Mapping",
-    subheading: "Understand the business problem, users, data, systems, workflow, and AI opportunity.",
+    alt: "01 Discover & Define",
+    tags: ["Problem Discovery", "Data Readiness", "AI Opportunity"],
+    heading: "Business Problem & Agentic AI Opportunity Mapping",
+    subheading: "Define the business problem, assess data and system readiness, and identify where AI agents can improve real workflows.",
     capabilities: [
-      { iconType: "search", title: "Problem Definition", desc: "Map business friction & operational bottlenecks" },
-      { iconType: "database", title: "Data Audit", desc: "Evaluate data readiness, schemas, and silos" },
-      { iconType: "shield", title: "Risk & Feasibility", desc: "Scoping compliance, IP, and regulatory constraints" },
-      { iconType: "chart", title: "Opportunity Sizing", desc: "Quantifiable business ROI & impact projection" }
+      { iconType: "search", title: "Problem Definition", desc: "Map business friction, operational bottlenecks, users, and workflow requirements." },
+      { iconType: "database", title: "Data Readiness", desc: "Assess data quality, knowledge sources, schemas, and system availability." },
+      { iconType: "shield", title: "Risk & Feasibility", desc: "Review technical, security, compliance, and implementation constraints." },
+      { iconType: "chart", title: "Use-Case Prioritization", desc: "Identify and prioritize AI opportunities based on business value and feasibility." }
     ],
     card: {
-      statusBadge: "PHASE 01 // DISCOVERY BENCHMARK",
-      stack: "Feasibility Assessment • Data Audit",
-      outcomeTitle: "Business Opportunity Blueprint",
-      outcomeDesc: "Comprehensive audit of data pipelines, architecture feasibility, and prioritized use case roadmap.",
-      metricValue: "2 Weeks",
-      metricLabel: "Discovery Sprint",
-      metricSecondary: "100% Feasibility Clarity",
+      statusBadge: "PHASE 01 // DISCOVERY",
+      stack: "Use-Case Assessment",
+      outcomeTitle: "AI Opportunity Blueprint",
+      outcomeDesc: "A clear view of the business problem, data readiness, AI-agent opportunity, and recommended next steps.",
+      metricValue: "01",
+      metricLabel: "Phase",
+      metricSecondary: "Discovery",
       ctaText: "Start Your AI Project",
       ctaLink: "/contact"
     }
   },
   {
     id: "design",
-    title: "Design",
-    phase: "02 — DESIGN",
-    subtitle: "Define the AI architecture, agent workflows, models, tools, integrations, security, and governance.",
-    desc: "Define the AI architecture, agent workflows, models, tools, integrations, security, and governance.",
+    title: "Strategy & Architecture",
+    phase: "02 — STRATEGY & ARCHITECTURE",
+    subtitle: "Design the right Agentic AI architecture, models, tools, data flows, integrations, and security boundaries for the target workflow.",
+    desc: "Design the right Agentic AI architecture, models, tools, data flows, integrations, and security boundaries for the target workflow.",
     src: "/images/ai-development-service/agenticAi-2.png",
-    alt: "02 Design - AI Architecture and Workflows",
-    tags: ["AI Architecture", "Agent Workflows", "AI Governance"],
-    heading: "System Architecture & Agentic Workflow Design",
-    subheading: "Define the AI architecture, agent workflows, models, tools, integrations, security, and governance.",
+    alt: "02 Strategy & Architecture",
+    tags: ["Agent Architecture", "Model Strategy", "Solution Design"],
+    heading: "Agentic AI Solution Architecture",
+    subheading: "Define how agents, models, knowledge, tools, applications, and controls work together in the target solution.",
     capabilities: [
-      { iconType: "workflow", title: "Agent Workflows", desc: "Multi-agent orchestration DAGs & state transitions" },
-      { iconType: "layers", title: "System Architecture", desc: "Cloud infrastructure, model selection & topologies" },
-      { iconType: "globe", title: "Integrations Map", desc: "Enterprise API, database, and ERP connectivity" },
-      { iconType: "shield", title: "AI Governance", desc: "Guardrails, evaluation gates & access controls" }
+      { iconType: "workflow", title: "Agent Architecture", desc: "Define single-agent or multi-agent patterns, responsibilities, and orchestration." },
+      { iconType: "layers", title: "Model Selection", desc: "Evaluate models and supporting services against the use case and technical requirements." },
+      { iconType: "code", title: "Tool & Data Design", desc: "Define tools, APIs, knowledge sources, memory/context, and data flows." },
+      { iconType: "shield", title: "Security Boundaries", desc: "Plan access controls, data boundaries, guardrails, and human oversight." }
     ],
     card: {
-      statusBadge: "PHASE 02 // ARCHITECTURE SPECIFICATION",
-      stack: "LangGraph • Cloud AI Topology",
-      outcomeTitle: "Production Architecture Blueprint",
-      outcomeDesc: "Detailed technical specifications covering model choices, agent DAGs, and security boundaries.",
-      metricValue: "100%",
-      metricLabel: "Architecture Coverage",
-      metricSecondary: "Zero-Trust Security Design",
+      statusBadge: "PHASE 02 // ARCHITECTURE",
+      stack: "Solution Blueprint",
+      outcomeTitle: "Production-Ready AI Architecture",
+      outcomeDesc: "Translate the validated use case into an architecture, technology plan, integration approach, and implementation roadmap.",
+      metricValue: "02",
+      metricLabel: "Phase",
+      metricSecondary: "Architecture",
       ctaText: "Start Your AI Project",
       ctaLink: "/contact"
     }
   },
   {
     id: "build",
-    title: "Build",
-    phase: "03 — BUILD",
-    subtitle: "Develop the agents, applications, RAG pipelines, integrations, APIs, and automation.",
-    desc: "Develop the agents, applications, RAG pipelines, integrations, APIs, and automation.",
+    title: "Develop",
+    phase: "03 — DEVELOP",
+    subtitle: "Build AI agents, prompts, RAG, orchestration, tools, workflows, and application components around the approved solution architecture.",
+    desc: "Build AI agents, prompts, RAG, orchestration, tools, workflows, and application components around the approved solution architecture.",
     src: "/images/ai-development-service/agenticAi-3.png",
-    alt: "03 Build - Develop Agents and Integrations",
-    tags: ["Autonomous Agents", "Hybrid RAG", "Process Automation"],
-    heading: "Engineering Intelligent Agents & Enterprise RAG",
-    subheading: "Develop the agents, applications, RAG pipelines, integrations, APIs, and automation.",
+    alt: "03 Develop",
+    tags: ["AI Agent Development", "RAG & Orchestration", "Prompt Engineering"],
+    heading: "AI Agent & Application Development",
+    subheading: "Develop agents that can understand context, use tools, retrieve knowledge, and execute defined multi-step tasks.",
     capabilities: [
-      { iconType: "bot", title: "Autonomous Agents", desc: "Goal-directed agents with multi-step reasoning" },
-      { iconType: "database", title: "Enterprise RAG", desc: "Hybrid semantic retrieval & knowledge graphs" },
-      { iconType: "code", title: "System Integrations", desc: "Secure tool calling across enterprise SaaS & DBs" },
-      { iconType: "zap", title: "Workflow Automation", desc: "End-to-end task automation and event pipelines" }
+      { iconType: "bot", title: "AI Agent Development", desc: "Build custom agents for defined business tasks and decision-driven workflows." },
+      { iconType: "database", title: "RAG & Knowledge", desc: "Connect agents to trusted business documents, knowledge bases, and data." },
+      { iconType: "zap", title: "Tool & API Integration", desc: "Enable agents to interact with approved tools, APIs, and application services." },
+      { iconType: "workflow", title: "Workflow Orchestration", desc: "Coordinate agent actions, business rules, and multi-step workflow execution." }
     ],
     card: {
-      statusBadge: "PHASE 03 // PRODUCTION ENGINEERING",
-      stack: "Next.js • Python • LangChain • Vector DBs",
-      outcomeTitle: "Production-Grade AI Core",
-      outcomeDesc: "Resilient software engineering delivering high-throughput agents and grounded semantic retrieval.",
-      metricValue: "< 180ms",
-      metricLabel: "Execution SLA",
-      metricSecondary: "Sandboxed Tool Connectors",
+      statusBadge: "PHASE 03 // DEVELOPMENT",
+      stack: "Build & Validate",
+      outcomeTitle: "Custom AI Agent Solution",
+      outcomeDesc: "Turn the approved architecture into working AI agents, knowledge capabilities, tools, workflows, and application experiences.",
+      metricValue: "03",
+      metricLabel: "Phase",
+      metricSecondary: "Development",
+      ctaText: "Start Your AI Project",
+      ctaLink: "/contact"
+    }
+  },
+  {
+    id: "integrate",
+    title: "Integrate",
+    phase: "04 — INTEGRATE",
+    subtitle: "Connect AI agents with business applications, APIs, databases, enterprise knowledge, and existing workflows.",
+    desc: "Connect AI agents with business applications, APIs, databases, enterprise knowledge, and existing workflows.",
+    src: "/images/ai-development-service/agenticAi-4.png",
+    alt: "04 Integrate",
+    tags: ["API Integration", "Business Systems", "Workflow Integration"],
+    heading: "AI Agents Connected to Business Systems",
+    subheading: "Integrate AI capabilities with the systems, data, tools, and workflows required to perform useful business actions.",
+    capabilities: [
+      { iconType: "code", title: "API Integration", desc: "Connect agents with approved APIs, services, and application endpoints." },
+      { iconType: "layers", title: "Business Applications", desc: "Integrate AI capabilities into existing applications and business processes." },
+      { iconType: "database", title: "Enterprise Data", desc: "Connect agents with databases, documents, knowledge systems, and business data." },
+      { iconType: "workflow", title: "Workflow Integration", desc: "Embed AI actions into existing operational workflows and automation." }
+    ],
+    card: {
+      statusBadge: "PHASE 04 // INTEGRATION",
+      stack: "Connected Systems",
+      outcomeTitle: "Integrated AI Workflows",
+      outcomeDesc: "Connect agents, data, tools, and applications so the AI solution can operate within the client's existing technology environment.",
+      metricValue: "04",
+      metricLabel: "Phase",
+      metricSecondary: "Integration",
       ctaText: "Start Your AI Project",
       ctaLink: "/contact"
     }
   },
   {
     id: "validate",
-    title: "Validate",
-    phase: "04 — VALIDATE",
-    subtitle: "Test AI quality, accuracy, reliability, security, performance, and behavior.",
-    desc: "Test AI quality, accuracy, reliability, security, performance, and behavior.",
-    src: "/images/ai-development-service/agenticAi-4.png",
-    alt: "04 Validate - Test Quality, Security and AI Behavior",
-    tags: ["Behavioral Testing", "Adversarial Red-Teaming", "Performance SLAs"],
-    heading: "Rigorous Empirical Evaluations & Safety Testing",
-    subheading: "Test AI quality, accuracy, reliability, security, performance, and behavior.",
-    capabilities: [
-      { iconType: "check", title: "Quality Benchmarks", desc: "Empirical evals on ground-truth datasets" },
-      { iconType: "shield", title: "Security Red-Teaming", desc: "Jailbreak, prompt leakage & data privacy tests" },
-      { iconType: "activity", title: "Performance & SLAs", desc: "Load concurrency, latency profiling & stress tests" },
-      { iconType: "sliders", title: "Behavioral Controls", desc: "Validate deterministic retry and fallback logic" }
-    ],
-    card: {
-      statusBadge: "PHASE 04 // EMPIRICAL VALIDATION",
-      stack: "DeepEval • TruLens • OpenTelemetry",
-      outcomeTitle: "Zero-Drift Reliability Gate",
-      outcomeDesc: "Comprehensive testing ensuring outputs comply with enterprise security and accuracy tolerances.",
-      metricValue: "99.9%",
-      metricLabel: "Behavioral Accuracy",
-      metricSecondary: "100% Policy Pass Rate",
-      ctaText: "Start Your AI Project",
-      ctaLink: "/contact"
-    }
-  },
-  {
-    id: "deploy",
-    title: "Deploy",
-    phase: "05 — DEPLOY",
-    subtitle: "Move validated AI solutions into secure production environments.",
-    desc: "Move validated AI solutions into secure production environments.",
+    title: "Test & Evaluate",
+    phase: "05 — TEST & EVALUATE",
+    subtitle: "Validate agent behavior, task execution, retrieval quality, reliability, security, and failure handling before production.",
+    desc: "Validate agent behavior, task execution, retrieval quality, reliability, security, and failure handling before production.",
     src: "/images/ai-development-service/agenticAi-5.png",
-    alt: "05 Deploy - Move AI Solutions into Production",
-    tags: ["Containerized Deploy", "Private VPC", "Canary Rollout"],
-    heading: "Zero-Downtime Enterprise Production Deployment",
-    subheading: "Move validated AI solutions into secure production environments.",
+    alt: "05 Test & Evaluate",
+    tags: ["AI Evaluation", "Behavioral Testing", "Security Validation"],
+    heading: "AI Agent Testing & Evaluation",
+    subheading: "Evaluate whether agents behave reliably, use tools correctly, retrieve relevant knowledge, and handle errors and exceptions safely.",
     capabilities: [
-      { iconType: "cpu", title: "Cloud Deployment", desc: "Kubernetes, AKS & secure container runtimes" },
-      { iconType: "workflow", title: "CI/CD Pipelines", desc: "Automated testing, versioning & rapid rollback" },
-      { iconType: "shield", title: "Environment Isolation", desc: "Private networking, mTLS & role-based access" },
-      { iconType: "activity", title: "Canary Rollouts", desc: "Phased traffic routing with live telemetry gates" }
+      { iconType: "activity", title: "Behavioral Testing", desc: "Test agent responses, reasoning flows, task execution, and expected behavior." },
+      { iconType: "check", title: "RAG Evaluation", desc: "Validate retrieval quality, relevance, grounding, and knowledge responses." },
+      { iconType: "shield", title: "Security Validation", desc: "Test access controls, guardrails, sensitive-data handling, and unsafe actions." },
+      { iconType: "chart", title: "Performance Testing", desc: "Check reliability, latency, failure handling, and application performance." }
     ],
     card: {
-      statusBadge: "PHASE 05 // PRODUCTION ROLLOUT",
-      stack: "Kubernetes • Docker • Terraform • Azure",
-      outcomeTitle: "Hardened Production Deployment",
-      outcomeDesc: "Seamless deployment to production infrastructure with automated health monitoring and zero downtime.",
-      metricValue: "99.99%",
-      metricLabel: "Deployment SLA",
-      metricSecondary: "Zero-Downtime Cutover",
+      statusBadge: "PHASE 05 // EVALUATION",
+      stack: "Quality & Reliability",
+      outcomeTitle: "Validated AI Behavior",
+      outcomeDesc: "Identify reliability, security, retrieval, and workflow issues before the solution moves into production.",
+      metricValue: "05",
+      metricLabel: "Phase",
+      metricSecondary: "Evaluation",
       ctaText: "Start Your AI Project",
       ctaLink: "/contact"
     }
   },
   {
     id: "scale",
-    title: "Scale",
-    phase: "06 — SCALE",
-    subtitle: "Expand capabilities, users, workflows, integrations, and engineering capacity as adoption grows.",
-    desc: "Expand capabilities, users, workflows, integrations, and engineering capacity as adoption grows.",
+    title: "Deploy & Optimize",
+    phase: "06 — DEPLOY & OPTIMIZE",
+    subtitle: "Deploy AI solutions securely, monitor production behavior, evaluate performance, and continuously improve the system.",
+    desc: "Deploy AI solutions securely, monitor production behavior, evaluate performance, and continuously improve the system.",
     src: "/images/ai-development-service/agenticAi-6.png",
-    alt: "06 Scale - Expand Capabilities, Users and Workflows",
-    tags: ["Capacity Expansion", "Multi-Tenant", "Continuous Learning"],
-    heading: "Elastic Enterprise Scaling & Continuous Growth",
-    subheading: "Expand capabilities, users, workflows, integrations, and engineering capacity as adoption grows.",
+    alt: "06 Deploy & Optimize",
+    tags: ["Production Deployment", "Monitoring & Observability", "Continuous Optimization"],
+    heading: "Production Deployment & AI Operations",
+    subheading: "Move validated AI solutions into production with monitoring, operational controls, evaluation feedback, and ongoing optimization.",
     capabilities: [
-      { iconType: "chart", title: "Elastic Concurrency", desc: "Auto-scaling infrastructure under peak demand" },
-      { iconType: "layers", title: "Workflow Expansion", desc: "Roll out AI capabilities across new business units" },
-      { iconType: "brain", title: "Continuous Learning", desc: "Feedback loops & fine-tuning from real user usage" },
-      { iconType: "sliders", title: "Cost & Token FinOps", desc: "Granular cost attribution and prompt caching" }
+      { iconType: "cpu", title: "Secure Deployment", desc: "Deploy AI solutions with appropriate infrastructure, access controls, and operational safeguards." },
+      { iconType: "activity", title: "Monitoring & Observability", desc: "Track production behavior, system health, failures, and operational signals." },
+      { iconType: "sliders", title: "Performance Optimization", desc: "Improve agent workflows, retrieval, tool usage, reliability, and overall system performance." },
+      { iconType: "brain", title: "Ongoing Support", desc: "Continuously evaluate, improve, and evolve the AI solution as business needs change." }
     ],
     card: {
-      statusBadge: "PHASE 06 // HYPERSCALE OPERATIONS",
-      stack: "Distributed Event Mesh • Redis • Grafana",
-      outcomeTitle: "Enterprise-Wide AI Scale",
-      outcomeDesc: "Sustain organizational adoption with elastic scaling, continuous model refinement, and token FinOps.",
-      metricValue: "10M+",
-      metricLabel: "Daily Transactions",
-      metricSecondary: "40% Token Cost Savings",
+      statusBadge: "PHASE 06 // PRODUCTION",
+      stack: "Monitor & Improve",
+      outcomeTitle: "Production-Ready AI Operations",
+      outcomeDesc: "Keep the AI solution reliable and useful after launch through monitoring, evaluation, optimization, and ongoing engineering support.",
+      metricValue: "06",
+      metricLabel: "Phase",
+      metricSecondary: "Production",
       ctaText: "Start Your AI Project",
       ctaLink: "/contact"
     }
@@ -746,11 +746,11 @@ export default function WhySoftreeCurtainSlider() {
           </span>
         </div>
         <h2 className="typo-heading-2 tracking-tight mb-3 text-slate-900">
-          AI Engineering Delivery: <span className="text-[#FF5812]">From AI Idea to Production</span>
+          Agentic AI Development Process: <span className="text-[#FF5812]">From Idea to Production</span>
         </h2>
         <div className="max-w-3xl space-y-1.5 typo-description text-slate-600">
-          <p>A successful AI implementation needs more than a model.</p>
-          <p>It requires business understanding, architecture, data, engineering, evaluation, security, integration, and production delivery.</p>
+          <p>A production-ready Agentic AI solution requires more than a model.</p>
+          <p>We align business goals, architecture, data, agent development, integrations, testing, security, and deployment to move from a validated use case to production.</p>
         </div>
       </div>
 
@@ -964,7 +964,7 @@ export default function WhySoftreeCurtainSlider() {
                       )}
                     </div>
 
-                    <FlowButton 
+                    <FlowButton
                       href={activeData.card.ctaLink}
                       text={activeData.card.ctaText}
                       variant="orange-filled"
@@ -1075,7 +1075,7 @@ export default function WhySoftreeCurtainSlider() {
                     )}
                   </div>
 
-                  <FlowButton 
+                  <FlowButton
                     href={activeData.card.ctaLink}
                     text={activeData.card.ctaText}
                     variant="orange-filled"

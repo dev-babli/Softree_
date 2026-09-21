@@ -9,7 +9,7 @@ export const WhoWeHelp = ({ simple = false }: { simple?: boolean }) => {
     {
       title: "Consulting Firms",
       desc: "Extend your AI delivery capabilities with an experienced offshore engineering team.",
-      subdesc: "Use Softree behind the scenes or alongside your consultants to build and deliver AI solutions for your clients.",
+      subdesc: "Use Softree behind the scenes or alongside your consultants to build and deliver Agentic AI, AI agents, automation, and connected AI solutions for your clients.",
       icon: Building,
       color: "text-[#FF6B2C]",
       bg: "bg-orange-50",
@@ -17,7 +17,7 @@ export const WhoWeHelp = ({ simple = false }: { simple?: boolean }) => {
     {
       title: "System Integrators",
       desc: "Add Agentic AI expertise to your existing client engagements.",
-      subdesc: "Build AI agents, copilots, RAG solutions, intelligent workflows, and enterprise integrations without expanding your internal engineering team.",
+      subdesc: "Extend your delivery team with AI engineers supporting architecture, agent development, integrations, automation, and production delivery.",
       icon: Settings,
       color: "text-[#FF6B2C]",
       bg: "bg-orange-50",
@@ -25,22 +25,22 @@ export const WhoWeHelp = ({ simple = false }: { simple?: boolean }) => {
     {
       title: "Technology & Product Companies",
       desc: "Accelerate AI product development with dedicated engineering capacity.",
-      subdesc: "Add AI capabilities to existing products or build new AI-native applications with a team aligned to your roadmap.",
+      subdesc: "Extend your product engineering capacity with AI specialists who can build agents, RAG solutions, intelligent workflows, and AI-powered product experiences.",
       icon: Code,
       color: "text-[#FF6B2C]",
       bg: "bg-orange-50",
     },
     {
       title: "ERP & Microsoft Partners",
-      desc: "Add AI agents, copilots, and intelligent automation to your existing Microsoft and ERP solutions.",
+      desc: "Add AI agents, Copilot capabilities, RAG, and workflow automation to your existing Microsoft and business application solutions.",
       subdesc: "Extend the value of your technology stack with practical enterprise AI.",
       icon: Blocks,
       color: "text-[#FF6B2C]",
       bg: "bg-orange-50",
     },
     {
-      title: "Enterprises",
-      desc: "Build and scale AI-powered applications with a dedicated engineering partner.",
+      title: "Businesses & Enterprise Teams",
+      desc: "Build AI solutions around real business workflows, data, and applications with an experienced engineering partner.",
       subdesc: "From individual use cases to enterprise-wide AI capabilities, Softree provides the engineering capacity to move from idea to production.",
       icon: Building2,
       color: "text-[#FF6B2C]",
@@ -61,7 +61,7 @@ export const WhoWeHelp = ({ simple = false }: { simple?: boolean }) => {
 
           {/* Heading */}
           <h2 className="typo-heading-3 sm:typo-heading-2 text-slate-900 mb-2 pr-2">
-            AI ENGINEERING FOR COMPANIES THAT NEED TO <span className="text-[#FF6B2C]">MOVE FASTER</span>
+            AI ENGINEERING FOR TEAMS THAT NEED TO <span className="text-[#FF6B2C]">MOVE FASTER</span>
           </h2>
         </div>
       )}

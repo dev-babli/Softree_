@@ -1,4 +1,4 @@
-import { 
+import {
   IconBrain, IconCloud, IconHierarchy, IconShieldCheck, IconApps, IconChartLine,
   IconTargetArrow, IconChartBar, IconMap, IconServer, IconDatabase, IconBlocks,
   IconRobot, IconListCheck, IconBolt, IconShield, IconLock, IconChecklist,
@@ -8,8 +8,8 @@ import {
 export const coreCapabilitiesData = [
   {
     id: '01',
-    title: 'AI Strategy & Consulting',
-    shortDesc: 'Helping organizations identify high-value AI opportunities and define enterprise AI roadmaps.',
+    title: 'Agentic AI Strategy & Consulting',
+    shortDesc: 'Identify high-value AI-agent use cases, define business goals, assess feasibility, and create a practical roadmap for implementation.',
     icon: IconBrain,
     color: 'bg-indigo-100 text-indigo-600',
     image: '/images/ai-development-services/core-capabilities/ai-strategy.png',
@@ -41,8 +41,8 @@ export const coreCapabilitiesData = [
   },
   {
     id: '02',
-    title: 'Enterprise AI Architecture',
-    shortDesc: 'Designing scalable, secure, cloud-native AI platforms for long-term business growth.',
+    title: 'Agentic AI Architecture',
+    shortDesc: 'Design agent architectures, models, tools, data flows, memory, orchestration, integrations, and security boundaries for production use.',
     icon: IconCloud,
     color: 'bg-emerald-100 text-emerald-600',
     image: '/images/ai-development-services/core-capabilities/enterprise-ai-architecture.png',
@@ -74,8 +74,8 @@ export const coreCapabilitiesData = [
   },
   {
     id: '03',
-    title: 'Intelligent Automation',
-    shortDesc: 'Automating business processes using AI Agents, Copilot, and enterprise workflows.',
+    title: 'AI Agent Engineering & Integration',
+    shortDesc: 'Build AI agents, connect tools and APIs, integrate business systems, and develop the workflows that turn AI capabilities into working applications.',
     icon: IconHierarchy,
     color: 'bg-violet-100 text-violet-600',
     image: '/images/ai-development-services/core-capabilities/intelligent-automation.png',
@@ -107,8 +107,8 @@ export const coreCapabilitiesData = [
   },
   {
     id: '04',
-    title: 'Secure AI & Governance',
-    shortDesc: 'Implementing responsible AI with enterprise-grade security, compliance, and governance.',
+    title: 'AI Security, Governance & Evaluation',
+    shortDesc: 'Apply access controls, data boundaries, guardrails, human oversight, and evaluation practices to support safe and reliable AI-agent deployment.',
     icon: IconShieldCheck,
     color: 'bg-amber-100 text-amber-600',
     image: '/images/ai-development-services/core-capabilities/secure-ai-governance.png',
@@ -140,8 +140,8 @@ export const coreCapabilitiesData = [
   },
   {
     id: '05',
-    title: 'Microsoft AI Ecosystem',
-    shortDesc: 'Integrating Azure AI, Microsoft Copilot, Power Platform, Microsoft 365, and Dynamics 365.',
+    title: 'AI Workflow Automation',
+    shortDesc: 'Connect AI agents with business applications and workflows to automate repetitive and decision-driven processes.',
     icon: IconApps,
     color: 'bg-blue-100 text-blue-600',
     image: '/images/ai-development-services/core-capabilities/microsoft-ai-ecosystem.png',
@@ -173,8 +173,8 @@ export const coreCapabilitiesData = [
   },
   {
     id: '06',
-    title: 'Continuous Optimization',
-    shortDesc: 'Monitoring, improving, and evolving AI solutions through analytics and continuous innovation.',
+    title: 'Deployment, Monitoring & Optimization',
+    shortDesc: 'Move AI agents into production with monitoring, observability, evaluation feedback, performance improvements, and ongoing engineering support.',
     icon: IconChartLine,
     color: 'bg-pink-100 text-pink-600',
     image: '/images/ai-development-services/core-capabilities/continuous-optimization.png',

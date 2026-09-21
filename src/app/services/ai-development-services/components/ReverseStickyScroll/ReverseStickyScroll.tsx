@@ -105,35 +105,35 @@ export const ReverseStickyScroll = () => {
         },
         {
           num: "02",
-          title: "Generative AI",
-          titleSplit: "Generative<br />AI",
-          desc: "Build enterprise generative AI applications, custom foundation models, and intelligent capabilities to deliver smarter user experiences and automated decision-making.",
+          title: "AI Agent ",
+          titleSplit: "AI Agent<br />Development",
+          desc: "Build custom AI agents that understand business context, use tools and APIs, access enterprise knowledge, and execute multi-step workflows.",
           bg: "#C94716", text: "#ffffff",
-          link: "/services/generative-ai"
-        },
-        {
-          num: "03",
-          title: "Azure OpenAI",
-          titleSplit: "Azure<br />OpenAI",
-          desc: "Build secure, production-ready Azure OpenAI solutions—custom GPT apps, enterprise RAG, Microsoft copilots, and governed AI services deployed in your Microsoft ecosystem.",
-          bg: "#111111", text: "#f5f5f5",
-          link: "/solutions/azure-openai-development"
-        },
-        {
-          num: "04",
-          title: "AI Agents",
-          titleSplit: "AI<br />Agents",
-          desc: "Build intelligent AI agents that understand business goals, reason through tasks, make decisions, use tools, access enterprise data, and autonomously execute multi-step workflows.",
-          bg: "#fcfbf9", text: "#111111",
           link: "/solutions/ai-agents-development"
         },
         {
-          num: "05",
+          num: "03",
           title: "Multi-Agent Systems",
           titleSplit: "Multi-Agent<br />Systems",
-          desc: "Design multi-agent AI systems where specialized agents collaborate, exchange information, and coordinate complex tasks to automate end-to-end business processes.",
-          bg: "#FF6B00", text: "#ffffff",
+          desc: "Design coordinated AI agents that work together across specialized tasks, workflows, and business processes to handle complex automation.",
+          bg: "#111111", text: "#f5f5f5",
           link: "/solutions/multi-agent-systems"
+        },
+        {
+          num: "04",
+          title: "RAG & Enterprise Knowledge",
+          titleSplit: "RAG-Powered AI Agents",
+          desc: "Connect AI agents to business documents, knowledge bases, databases, and enterprise data using RAG for grounded responses and context-aware workflows.",
+          bg: "#fcfbf9", text: "#111111",
+          link: "/solutions/enterprise-rag-development"
+        },
+        {
+          num: "05",
+          title: "AI Workflow Automation",
+          titleSplit: "AI Workflow<br />Automation",
+          desc: "Connect AI agents with business applications and workflows to automate repetitive and decision-driven processes, reduce manual effort, and improve operational efficiency.",
+          bg: "#FF6B00", text: "#ffffff",
+          link: "/solutions/ai-workflow-automation"
         },
         {
           num: "06",
@@ -145,19 +145,19 @@ export const ReverseStickyScroll = () => {
         },
         {
           num: "07",
-          title: "RAG & Enterprise Knowledge",
-          titleSplit: "RAG &<br />Enterprise<br />Knowledge",
-          desc: "Build secure Retrieval-Augmented Generation (RAG) solutions that connect AI models with enterprise documents, databases, knowledge bases, and business data for accurate, grounded responses.",
+          title: "Generative AI",
+          titleSplit: "Generative AI Solutions",
+          desc: "Build production-ready generative AI applications that create content, assist users, support knowledge work, and add intelligent capabilities to business applications.",
           bg: "#fcfbf9", text: "#111111",
-          link: "/solutions/enterprise-rag-development"
+          link: "/services/generative-ai"
         },
         {
           num: "08",
-          title: "AI Workflow Automation",
-          titleSplit: "AI Workflow<br />Automation",
-          desc: "Combine AI agents, machine learning, and workflow automation to streamline complex business processes, reduce manual effort, improve efficiency, and accelerate operations.",
+          title: "Azure OpenAI",
+          titleSplit: "Azure OpenAI Solutions",
+          desc: "Build secure Azure OpenAI solutions for enterprise applications, RAG, AI assistants, and governed AI experiences across the Microsoft ecosystem.",
           bg: "#2A2A2A", text: "#f5f5f5",
-          link: "/solutions/ai-workflow-automation"
+          link: "/solutions/azure-openai-development"
         }
       ].map((card, idx) => (
         <section key={idx} className={`rss_section rss_s${idx + 1}`} style={{ zIndex: idx + 1 }}>

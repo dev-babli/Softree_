@@ -113,8 +113,8 @@ export default function AiDevelopmentServicesPage() {
             <h2 className="typo-heading-2 text-slate-900 mb-4">
               Who We Help & <span className="text-[#FF6B2C]">Where We Operate</span>
             </h2>
-            <p className="typo-description text-slate-500 max-w-2xl mx-auto">
-              We embed dedicated offshore AI engineering teams to help tech-driven organizations accelerate their roadmaps, build custom agents, and deploy secure vector search engines globally.
+            <p className="typo-description text-slate-500 max-w-4xl mx-auto">
+              We help businesses, technology companies, agencies, consultancies, and system integrators build and deliver AI solutions with experienced offshore engineering teams. From AI agents and Agentic AI workflows to RAG and integrations, we provide flexible development support across global markets.
             </p>
           </div>
 
@@ -147,13 +147,11 @@ export default function AiDevelopmentServicesPage() {
 
         <h2 className="typo-heading-2 text-slate-900 mb-4">
           AI Development Solutions Built for{" "}
-          <span className="text-[#FF6B2C]">Enterprise Business Needs</span>
+          <span className="text-[#FF6B2C]">Agentic AI & Intelligent Automation</span>
         </h2>
 
         <p className="typo-description text-slate-500 max-w-2xl mx-auto">
-          Build production-ready AI solutions that connect intelligence, enterprise
-          data, and automation to solve real business workflows and deliver
-          measurable outcomes.
+          Build production-ready AI solutions that connect AI agents, enterprise knowledge, business systems and intelligent automation to solve real workflows and deliver measurable outcomes.
         </p>
       </div>
 
@@ -173,14 +171,13 @@ export default function AiDevelopmentServicesPage() {
       <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-[2cm] mt-4 md:mt-6 flex flex-col items-center text-center">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] mb-3">
           <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
-          AMAZON AI ECOSYSTEM
+          AWS AI ECOSYSTEM
         </div>
         <h2 className="typo-heading-2 max-w-4xl mx-auto text-slate-900 mb-4">
-          Architect Intelligent Enterprise Systems Across the <span className="text-[#FF6B2C]">Amazon AI Ecosystem</span>
+          Build Agentic AI Solutions Across the <span className="text-[#FF6B2C]">AWS Ecosystem</span>
         </h2>
         <p className="typo-description text-slate-500 max-w-4xl mx-auto">
-          Build end-to-end AI ecosystems on AWS with foundation models, agentic AI, machine learning, RAG, and intelligent automation.
-          Leverage Amazon Bedrock, SageMaker AI, Nova, vector search, and secure cloud-native infrastructure for production-ready solutions.
+          Build production-ready Agentic AI and AI solutions on AWS using foundation models, Amazon Bedrock, RAG, intelligent automation, vector search, and secure cloud infrastructure.
         </p>
       </div>
       <div className="max-w-[1600px] mx-auto px-3 xs:px-4 sm:px-8 lg:px-12 mt-8 md:mt-12 mb-10 sm:mb-14 md:mb-20 lg:mb-24">

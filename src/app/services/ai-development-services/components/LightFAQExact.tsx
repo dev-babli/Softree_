@@ -23,59 +23,59 @@ interface LightFAQExactProps {
 const defaultFaqs: FAQItem[] = [
   {
     id: 1,
-    serial: "question 01",
-    question: "How does Softree approach custom AI development for enterprise organizations?",
+    serial: "01",
+    question: "What is Agentic AI?",
     answer:
-      "We approach custom AI development as a strategic partnership focused on measurable business outcomes. Our process begins with a comprehensive AI consulting phase where we assess your existing infrastructure, identify high-ROI use cases, and design a scalable enterprise AI architecture. We then develop bespoke AI solutions—ranging from intelligent automation workflows to advanced generative AI models—tailored exactly to your operational needs. By leveraging the Microsoft AI ecosystem and Azure AI, we ensure that every custom AI software development project is secure, compliant, and seamlessly integrated into your existing enterprise environment.",
+      "Agentic AI refers to AI systems that can interpret goals, reason through tasks, use tools or connected systems, and take defined actions within a workflow. Unlike a simple AI assistant that mainly responds to prompts, an AI agent can autonomously participate in multi-step processes based on the capabilities and controls designed for the use case. By leveraging advanced language models and specialized orchestration frameworks, Agentic AI can evaluate information, make context-aware decisions, and execute sequences of operations without continuous human intervention, fundamentally shifting how businesses automate complex cognitive work.",
   },
   {
     id: 2,
-    serial: "question 02",
-    question: "Can you integrate AI agents and Microsoft Copilot into our existing business workflows?",
+    serial: "02",
+    question: "What types of AI agents can Softree build?",
     answer:
-      "Absolutely. Integrating AI agents and Microsoft Copilot into existing enterprise systems is one of our core capabilities. We build intelligent automation solutions that connect these AI tools directly with your enterprise data, ERPs, and CRMs. This allows autonomous AI agents to handle complex, multi-step tasks, while Copilot empowers your workforce with real-time insights and productivity enhancements. Our AI integration process is designed to minimize disruption, ensuring that your new AI-driven workflows scale securely across your organization while adhering strictly to enterprise governance policies.",
+      "Softree can build custom AI agents tailored for specific business tasks and operational workflows. This includes specialized knowledge-based agents for data retrieval, workflow agents that automate complex operational sequences, intelligent AI assistants for employee support, and sophisticated multi-agent solutions where distinct models coordinate to solve layered problems. The underlying architecture and framework are carefully selected depending on your specific business problem, the required enterprise integrations, available data structures, and the desired level of autonomy needed to achieve measurable outcomes.",
   },
   {
     id: 3,
-    serial: "question 03",
-    question: "What is your process for ensuring AI security and data governance?",
+    serial: "03",
+    question: "Can Softree build RAG-powered AI agents?",
     answer:
-      "Enterprise AI security and data governance are foundational to our AI development services. We architect every AI solution with strict compliance, data privacy, and risk management in mind. Operating primarily within the secure Microsoft AI and Azure AI ecosystems, we implement robust identity and access management, encrypted data pipelines, and continuous monitoring. We ensure that your sensitive enterprise data never leaks into public AI models, giving IT directors and CIOs complete confidence that their custom AI solutions meet stringent regulatory and corporate security standards.",
+      "Yes. Retrieval-Augmented Generation (RAG) is a core capability we utilize to connect AI agents securely to your trusted business documents, knowledge bases, databases, and other supported enterprise data sources. By integrating RAG architectures, we ensure that agents retrieve highly relevant and up-to-date context when completing tasks, reasoning through workflows, or generating responses. This approach grounds the AI's output in your proprietary organizational data, significantly reducing hallucination risks and improving the accuracy of the agent's actions within domain-specific applications.",
   },
   {
     id: 4,
-    serial: "question 04",
-    question: "How long does a typical enterprise AI implementation timeline take?",
+    serial: "04",
+    question: "How do AI agents integrate with existing business systems?",
     answer:
-      "An enterprise AI implementation timeline generally ranges from 8 to 16 weeks, depending on the complexity of the custom AI solution and the state of your enterprise data. We utilize an agile AI development process, starting with a rapid proof-of-concept (POC) deployed within the first 4 weeks to validate ROI and business outcomes. Following a successful POC, we proceed to full-scale AI integration, testing, and deployment. This phased approach allows enterprise decision-makers to mitigate risk, accelerate time-to-value, and iteratively scale their generative AI and automation capabilities.",
+      "AI agents can be seamlessly connected to your supported APIs, business applications, relational databases, enterprise data lakes, and existing operational workflows. During the architecture phase, we define exactly which internal systems the agent can access, what specific actions it is permitted to perform, and what security controls or human-in-the-loop approvals are required. This controlled integration allows the AI agent to operate as a functional part of your technology stack, reading context from your systems and securely writing back structured data or triggering automated processes.",
   },
   {
     id: 5,
-    serial: "question 05",
-    question: "What kind of ROI and business outcomes can we expect from generative AI solutions?",
+    serial: "05",
+    question: "How does Softree test and evaluate AI agents?",
     answer:
-      "Implementing generative AI and intelligent automation solutions typically yields significant ROI through enhanced operational efficiency, reduced manual effort, and accelerated decision-making. Enterprise clients often experience a 30-50% reduction in processing times for document-heavy workflows and dramatic improvements in customer service response rates. By automating repetitive tasks and unlocking deep insights from enterprise data, our AI development services enable your teams to focus on high-value strategic initiatives, driving scalable business growth and maintaining a competitive edge in your industry.",
+      "We rigorously evaluate AI-agent behavior against the specific requirements and guardrails defined for your use case. Our testing protocols cover task execution accuracy, retrieval quality in RAG setups, correct tool usage, system reliability, secure failure handling, and overall application performance under load. We utilize empirical evaluation methods to measure relevance, grounding, and reasoning capabilities before deployment. This comprehensive testing ensures the solution behaves reliably, respects security boundaries, and handles exceptions gracefully in a live production environment.",
   },
   {
     id: 6,
-    serial: "question 06",
-    question: "Do you provide ongoing maintenance and support for deployed AI solutions?",
+    serial: "06",
+    question: "Does Softree provide offshore Agentic AI development?",
     answer:
-      "Yes, comprehensive AI maintenance and support are critical components of our enterprise AI services. AI models and intelligent automation systems require continuous optimization to adapt to changing enterprise data and business objectives. We provide proactive monitoring, model fine-tuning, security patching, and performance analytics to ensure your AI agents and generative AI solutions remain accurate and efficient over time. Our dedicated support teams work closely with your IT department to seamlessly manage updates, scale capabilities, and maximize the long-term lifecycle of your custom AI software.",
+      "Yes. Softree provides robust offshore AI engineering support through dedicated teams and flexible development engagements tailored to your organizational needs. Our experienced engineers can support every phase of the project lifecycle, including Agentic AI architecture design, model integration, prompt engineering, RAG pipeline development, rigorous testing, and secure deployment. By leveraging our offshore delivery model, clients gain access to specialized AI talent and scalable engineering capacity, ensuring high-quality solutions are delivered efficiently and maintained through ongoing engineering support.",
   },
   {
     id: 7,
-    serial: "question 07",
-    question: "Why should we choose Softree as our AI consulting and development partner?",
+    serial: "07",
+    question: "Does Softree offer white-label AI development?",
     answer:
-      "CTOs and digital transformation leaders choose Softree because we combine deep AI engineering expertise with extensive experience in the Microsoft AI ecosystem. We do not just build AI; we deliver comprehensive enterprise AI solutions that drive real business value. Our specialized knowledge of Azure AI, Microsoft Copilot, and intelligent automation ensures that your AI initiatives are built on secure, scalable, and enterprise-ready foundations. We prioritize transparency, rigorous AI governance, and a consultative approach to guarantee that our custom AI development directly aligns with your strategic business goals.",
+      "Yes. Softree actively works as a trusted white-label AI engineering partner for digital agencies, IT consultancies, technology companies, and system integrators. If you need additional AI development capacity to serve your own clients, we can operate seamlessly behind the scenes while you maintain the primary client-facing relationship. Our white-label partnerships are structured around flexible engagement models, allowing you to confidently offer advanced AI capabilities, multi-agent workflows, and custom integrations without having to build and manage a massive internal AI engineering team.",
   },
   {
     id: 8,
-    serial: "question 08",
-    question: "How do you handle the integration of AI into legacy enterprise systems?",
+    serial: "08",
+    question: "How can a company get started with Agentic AI development?",
     answer:
-      "We specialize in modernizing operations by seamlessly integrating AI into legacy enterprise systems without causing operational downtime. Our AI integration strategy involves building secure API gateways and utilizing microservices architecture to connect your existing infrastructure with modern AI capabilities like generative AI and intelligent decision engines. Whether you are transitioning to cloud-native platforms or enhancing on-premise systems, our AI development services ensure smooth interoperability, data consistency, and scalable performance, allowing your organization to leverage advanced AI solutions while maximizing previous technology investments.",
+      "We start by deeply understanding your core business problem, operational workflows, end-users, available data, existing systems, and the specific outcomes you want to achieve. From there, our engineering team assesses the AI opportunity, helps define the most valuable initial use case, and drafts a scalable technical architecture. Once the strategy is aligned, we outline a clear development and implementation path based on your project requirements, moving from initial concept and feasibility testing into the active development of robust, production-ready AI agents.",
   },
 ]
 
