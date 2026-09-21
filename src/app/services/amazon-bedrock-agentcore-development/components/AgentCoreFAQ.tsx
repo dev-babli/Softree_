@@ -304,8 +304,8 @@ export default function AgentCoreFAQ({ faqs: customFaqs }: AgentCoreFAQProps) {
             <span className="typo-caption text-[#FF6B2C] uppercase">FAQ</span>
           </div>
           <h2 className="typo-heading-2 text-[#0a0a1a] max-w-4xl mb-4">
-            Frequently Asked Questions About {" "}
-            <span className="bg-gradient-to-r from-[#1852FF] to-[#FF5812] bg-clip-text text-transparent">
+            Frequently Asked Questions About
+            <span className="bg-gradient-to-r from-[#1852FF] to-[#FF5812] bg-clip-text text-transparent block mt-2 md:mt-3 leading-[1.15]">
               Amazon Bedrock AgentCore Development.
             </span>
           </h2>

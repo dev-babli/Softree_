@@ -106,9 +106,9 @@ export default function WhyChooseWithTestimonials() {
           </div>
 
           {/* Heading */}
-          <h2 className="typo-heading-2 text-slate-900 mb-4">
+          <h2 className="typo-heading-2 text-slate-900 mb-4 max-w-2xl text-balance">
             Your Offshore{" "}
-            <span className="bg-gradient-to-r from-[#FF5812] to-[#FF6B2C] bg-clip-text text-transparent block sm:inline mt-1 sm:mt-0">
+            <span className="bg-gradient-to-r from-[#FF5812] to-[#FF6B2C] bg-clip-text text-transparent">
               Agentic AI Engineering Team
             </span>
           </h2>
@@ -141,7 +141,7 @@ export default function WhyChooseWithTestimonials() {
                       <h3 className="text-[15px] sm:text-[16px] font-bold text-slate-900">{item.title}</h3>
                     </div>
 
-                    <p className="text-[13px] sm:text-[14px] text-gray-600 max-w-md leading-relaxed">
+                    <p className="text-[12px] sm:text-[13px] text-gray-600 max-w-xl xl:max-w-none xl:whitespace-nowrap leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
