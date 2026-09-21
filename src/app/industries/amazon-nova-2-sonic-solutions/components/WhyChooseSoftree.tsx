@@ -95,13 +95,13 @@ export default function WhyChooseSoftree() {
         {/* ================= LEFT : WHY CHOOSE ================= */}
         <div className="relative">
           {/* Small Label */}
-          <div className="text-orange-600 text-xs uppercase tracking-[0.15em] mb-3">
+          <div className="typo-caption text-orange-600 mb-3">
             Why Choose Softree
           </div>
  
           {/* Heading */}
-          <h2 className="text-2xl md:text-[26px] lg:text-[28px] xl:text-[32px] lg:whitespace-nowrap font-bold leading-tight mb-6">
-            Your Offshore Voice AI{" "}
+          <h2 className="typo-heading-2 mb-6">
+            Your Offshore Voice AI <br className="hidden lg:block" />
             <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
               Engineering Team
             </span>
@@ -129,10 +129,10 @@ export default function WhyChooseSoftree() {
                         <Icon size={14} />
                       </div>
  
-                      <h3 className="text-[15px] font-semibold">{item.title}</h3>
+                      <h3 className="typo-heading-4">{item.title}</h3>
                     </div>
  
-                    <p className="text-gray-600 text-[13px] leading-snug max-w-md whitespace-pre-line">
+                    <p className="typo-body-sm text-gray-600 max-w-md whitespace-pre-line">
                       {item.desc}
                     </p>
                   </div>
@@ -146,11 +146,11 @@ export default function WhyChooseSoftree() {
         <div className="rounded-2xl p-10 bg-gradient-to-r from-black via-[#4c1c02] to-black border border-white/10 shadow-2xl h-full flex flex-col">
           {/* Header */}
           <div className="mb-10">
-            <div className="text-white text-xs uppercase tracking-widest mb-3">
+            <div className="typo-caption text-white mb-3">
               Client Feedback
             </div>
  
-            <h3 className="text-2xl font-semibold mb-6 text-white">
+            <h3 className="typo-heading-3 text-white mb-6">
               Trusted by Enterprise Teams
             </h3>
  
@@ -164,11 +164,11 @@ export default function WhyChooseSoftree() {
                 ))}
               </div>
  
-              <p className="font-semibold text-white">4.9 / 5</p>
-              <p className="text-gray-300 text-sm">average rating</p>
+              <p className="typo-body font-semibold text-white">4.9 / 5</p>
+              <p className="typo-body-sm text-gray-300">average rating</p>
             </div>
  
-            <p className="text-sm text-gray-400">
+            <p className="typo-body-sm text-gray-400">
               Based on{" "}
               <span className="font-medium text-white">
                 150+ client reviews
@@ -200,7 +200,7 @@ export default function WhyChooseSoftree() {
                     </div>
  
                     {/* Review Comment */}
-                    <p className="text-gray-200 text-base leading-relaxed mb-6">
+                    <p className="typo-body text-gray-200 mb-6">
                       “{review.comment}”
                     </p>
  
@@ -209,12 +209,12 @@ export default function WhyChooseSoftree() {
                       <div className="flex items-center gap-2">
                         <User size={14} className="text-orange-400" />
                         <div>
-                          <p className="font-semibold text-white text-sm">
+                          <p className="typo-heading-4 text-white">
                             {review.name}
                           </p>
  
                           {/* ✅ Company added here */}
-                          <p className="text-xs text-gray-400">
+                          <p className="typo-caption-meta text-gray-400">
                             {review.company}
                           </p>
                         </div>
@@ -222,7 +222,7 @@ export default function WhyChooseSoftree() {
  
                       <div className="flex items-center gap-2">
                         <MapPin size={13} className="text-gray-400" />
-                        <p className="text-xs text-gray-400">
+                        <p className="typo-caption-meta text-gray-400">
                           {review.location}
                         </p>
                       </div>

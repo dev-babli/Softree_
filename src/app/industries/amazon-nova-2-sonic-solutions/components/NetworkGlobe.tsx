@@ -227,7 +227,6 @@ function buildDots(): { lat: number; lon: number }[] {
 const DOTS = buildDots();
 
 const STYLES = `
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500&display=swap');
 
 .globe-section{
   --panel:#141311;
@@ -263,23 +262,7 @@ const STYLES = `
   flex:1;
 }
 
-.globe-heading{
-  font-family: 'Playfair Display', Georgia, Cambria, "Times New Roman", Times, serif;
-  font-style: italic;
-  font-size:36px;
-  line-height:1.15;
-  font-weight:500;
-  color:var(--text);
-  margin:0 0 8px;
-  letter-spacing: -0.01em;
-  text-transform: none;
-}
 
-@media (min-width: 1280px) {
-  .globe-heading{
-    font-size:42px;
-  }
-}
 
 .globe-layout{
   display:flex;
@@ -341,8 +324,6 @@ const STYLES = `
   transform:translate(-50%,-100%);
   background:var(--pill-bg);
   color:var(--text);
-  font-size:13px;
-  font-weight:700;
   padding:4px 12px;
   border-radius:24px;
   white-space:nowrap;
@@ -396,8 +377,6 @@ const STYLES = `
 
 .stores-count{
   color:var(--text);
-  font-size:15px;
-  font-weight: 600;
   white-space: nowrap;
 }
 
@@ -430,8 +409,6 @@ const STYLES = `
   min-width:120px;
   text-align:center;
   color:#ffffff;
-  font-size:15px;
-  font-weight:700;
 }
 
 .caption{
@@ -444,7 +421,6 @@ const STYLES = `
 }
 
 @media (max-width:768px){
-  .globe-heading{font-size:30px; margin-bottom: 10px;}
   .globe-canvas-wrap{width: 280px; height: 280px; margin: 0 auto;}
   .globe-footer{flex-direction:column; align-items:center; text-align: center;}
   .caption{text-align: center; max-width: 100%;}
@@ -785,14 +761,14 @@ export default function NetworkGlobe({
         <div className="globe-container">
           {/* Eyebrow / Tagline */}
           {tagline && (
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-500/30 bg-orange-500/10 text-[11.5px] sm:text-[12px] font-bold tracking-wider text-[#FF6B2C] uppercase mb-2 self-start">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-500/30 bg-orange-500/10 typo-caption text-[#FF6B2C] mb-2 self-start">
               <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B2C] animate-pulse shrink-0" />
               <span>{tagline}</span>
             </div>
           )}
 
           {heading && (
-            <h2 className="globe-heading">
+            <h2 className="typo-heading-2 text-white mb-3">
               {headingLines.map((line, i) => (
                 <Fragment key={i}>
                   {line}
@@ -803,7 +779,7 @@ export default function NetworkGlobe({
           )}
 
           {subheading && (
-            <p className="text-[#ded6ce] text-[14px] sm:text-[15px] leading-relaxed mb-2">
+            <p className="text-[#ded6ce] typo-description mb-2">
               {subheading}
             </p>
           )}
@@ -820,7 +796,7 @@ export default function NetworkGlobe({
               {locations.map((loc, i) => (
                 <div
                   key={loc.name}
-                  className={`pin-label${pinStyles[i]?.visible ? " visible" : ""
+                  className={`pin-label typo-caption${pinStyles[i]?.visible ? " visible" : ""
                     }${i === activeIndex ? " active" : ""}`}
                   style={{
                     left: pinStyles[i]?.left ?? 0,
@@ -835,7 +811,7 @@ export default function NetworkGlobe({
 
           <div className="globe-footer">
             <div className="globe-footer-top">
-              <div className="stores-count">
+              <div className="stores-count typo-caption-meta">
                 {storesLabel}
               </div>
               <div className="switcher">
@@ -845,7 +821,7 @@ export default function NetworkGlobe({
                 >
                   &#8249;
                 </button>
-                <div className="store-name">{locations[activeIndex]?.name}</div>
+                <div className="store-name typo-body-sm">{locations[activeIndex]?.name}</div>
                 <button
                   aria-label="Next location"
                   onClick={() => focusLocation(activeIndex + 1)}

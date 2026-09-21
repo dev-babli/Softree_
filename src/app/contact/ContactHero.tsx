@@ -417,20 +417,8 @@ export default function ContactHero() {
                 fill="none"
               >
                 <defs>
-                  {/* Glow Filters for each spoke */}
-                  <filter id="glow-amber" x="-30%" y="-30%" width="160%" height="160%">
-                    <feGaussianBlur stdDeviation="3.5" result="blur" />
-                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                  </filter>
-                  <filter id="glow-blue" x="-30%" y="-30%" width="160%" height="160%">
-                    <feGaussianBlur stdDeviation="3.5" result="blur" />
-                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                  </filter>
-                  <filter id="glow-teal" x="-30%" y="-30%" width="160%" height="160%">
-                    <feGaussianBlur stdDeviation="3.5" result="blur" />
-                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                  </filter>
-                  <filter id="glow-purple" x="-30%" y="-30%" width="160%" height="160%">
+                  {/* Glow Filter */}
+                  <filter id="glow-orange" x="-30%" y="-30%" width="160%" height="160%">
                     <feGaussianBlur stdDeviation="3.5" result="blur" />
                     <feComposite in="SourceGraphic" in2="blur" operator="over" />
                   </filter>
@@ -448,71 +436,71 @@ export default function ContactHero() {
                     DEFAULT ACTIVE SPOKE LINES (PERFECTLY MEASURED TO CARDS)
                    ══════════════════════════════════════════════════════════ */}
 
-                {/* 1. TOP SPOKE (AI - Amber/Orange) */}
+                {/* 1. TOP SPOKE (AI) */}
                 <line
                   x1="290"
                   y1="200"
                   x2="290"
                   y2="88"
-                  stroke="#f59e0b"
+                  stroke="#f97316"
                   strokeWidth="2"
                   strokeOpacity="0.95"
-                  filter="url(#glow-amber)"
+                  filter="url(#glow-orange)"
                 />
-                <circle cx="290" cy="200" r="2.5" fill="#f59e0b" />
-                <circle cx="290" cy="88" r="2" fill="#f59e0b" />
-                <circle r="2.5" fill="#ffffff" filter="url(#glow-amber)">
+                <circle cx="290" cy="200" r="2.5" fill="#f97316" />
+                <circle cx="290" cy="88" r="2" fill="#f97316" />
+                <circle r="2.5" fill="#ffffff" filter="url(#glow-orange)">
                   <animateMotion dur="2.1s" repeatCount="indefinite" path="M 290 200 L 290 88" />
                 </circle>
 
-                {/* 2. LEFT SPOKE (POWER PLATFORM - Sky Blue) */}
+                {/* 2. LEFT SPOKE (POWER PLATFORM) */}
                 <line
                   x1="230"
                   y1="260"
                   x2="209"
                   y2="260"
-                  stroke="#0284c7"
+                  stroke="#f97316"
                   strokeWidth="2"
                   strokeOpacity="0.95"
-                  filter="url(#glow-blue)"
+                  filter="url(#glow-orange)"
                 />
-                <circle cx="230" cy="260" r="2.5" fill="#0284c7" />
-                <circle cx="209" cy="260" r="2" fill="#0284c7" />
-                <circle r="2.5" fill="#ffffff" filter="url(#glow-blue)">
+                <circle cx="230" cy="260" r="2.5" fill="#f97316" />
+                <circle cx="209" cy="260" r="2" fill="#f97316" />
+                <circle r="2.5" fill="#ffffff" filter="url(#glow-orange)">
                   <animateMotion dur="2.3s" repeatCount="indefinite" path="M 230 260 L 209 260" />
                 </circle>
 
-                {/* 3. RIGHT SPOKE (DATA & AI - Teal/Cyan) */}
+                {/* 3. RIGHT SPOKE (DATA & AI) */}
                 <line
                   x1="350"
                   y1="260"
                   x2="371"
                   y2="260"
-                  stroke="#14b8a6"
+                  stroke="#f97316"
                   strokeWidth="2"
                   strokeOpacity="0.95"
-                  filter="url(#glow-teal)"
+                  filter="url(#glow-orange)"
                 />
-                <circle cx="350" cy="260" r="2.5" fill="#14b8a6" />
-                <circle cx="371" cy="260" r="2" fill="#14b8a6" />
-                <circle r="2.5" fill="#ffffff" filter="url(#glow-teal)">
+                <circle cx="350" cy="260" r="2.5" fill="#f97316" />
+                <circle cx="371" cy="260" r="2" fill="#f97316" />
+                <circle r="2.5" fill="#ffffff" filter="url(#glow-orange)">
                   <animateMotion dur="2.2s" repeatCount="indefinite" path="M 350 260 L 371 260" />
                 </circle>
 
-                {/* 4. BOTTOM SPOKE (APPLICATION MODERNISATION - Violet/Purple) */}
+                {/* 4. BOTTOM SPOKE (APPLICATION MODERNISATION) */}
                 <line
                   x1="290"
                   y1="320"
                   x2="290"
                   y2="420"
-                  stroke="#a855f7"
+                  stroke="#f97316"
                   strokeWidth="2"
                   strokeOpacity="0.95"
-                  filter="url(#glow-purple)"
+                  filter="url(#glow-orange)"
                 />
-                <circle cx="290" cy="320" r="2.5" fill="#a855f7" />
-                <circle cx="290" cy="420" r="2" fill="#a855f7" />
-                <circle r="2.5" fill="#ffffff" filter="url(#glow-purple)">
+                <circle cx="290" cy="320" r="2.5" fill="#f97316" />
+                <circle cx="290" cy="420" r="2" fill="#f97316" />
+                <circle r="2.5" fill="#ffffff" filter="url(#glow-orange)">
                   <animateMotion dur="2.4s" repeatCount="indefinite" path="M 290 320 L 290 420" />
                 </circle>
               </svg>
@@ -558,18 +546,18 @@ export default function ContactHero() {
                   width: "270px",
                 }}
               >
-                <div
+                  <div
                   className="flex flex-col items-center px-4 py-2.5 rounded-2xl backdrop-blur-md transition-all duration-300"
                   style={{
                     background: "rgba(14, 18, 28, 0.94)",
-                    border: "1px solid rgba(245, 158, 11, 0.65)",
+                    border: "1px solid rgba(249, 115, 22, 0.65)",
                     boxShadow: activePractice === "ai"
-                      ? "0 0 32px rgba(245, 158, 11, 0.35), inset 0 0 14px rgba(245, 158, 11, 0.1)"
-                      : "0 0 22px rgba(245, 158, 11, 0.18), inset 0 0 10px rgba(245, 158, 11, 0.05)",
+                      ? "0 0 32px rgba(249, 115, 22, 0.35), inset 0 0 14px rgba(249, 115, 22, 0.1)"
+                      : "0 0 22px rgba(249, 115, 22, 0.18), inset 0 0 10px rgba(249, 115, 22, 0.05)",
                   }}
                 >
                   <div className="flex items-center gap-2.5 mb-2">
-                    <div className="p-1.5 rounded-lg bg-amber-500/15 text-amber-400 shrink-0 group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(245,158,11,0.25)]">
+                    <div className="p-1.5 rounded-lg bg-orange-500/15 text-orange-400 shrink-0 group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(249,115,22,0.25)]">
                       <BrainAiIcon className="w-5.5 h-5.5" />
                     </div>
                     <span className="text-[13.5px] font-bold tracking-wider text-white uppercase">
@@ -577,13 +565,13 @@ export default function ContactHero() {
                     </span>
                   </div>
                   <ul className="flex flex-wrap items-center justify-center gap-1.5">
-                    <li className="inline-flex items-center px-3 py-1 rounded-full border border-amber-500/35 bg-amber-500/10 text-[12px] font-medium text-amber-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(245,158,11,0.12)]">
+                    <li className="inline-flex items-center px-3 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[12px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
                       Agentic AI
                     </li>
-                    <li className="inline-flex items-center px-3 py-1 rounded-full border border-amber-500/35 bg-amber-500/10 text-[12px] font-medium text-amber-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(245,158,11,0.12)]">
+                    <li className="inline-flex items-center px-3 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[12px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
                       Generative AI
                     </li>
-                    <li className="inline-flex items-center px-3 py-1 rounded-full border border-amber-500/35 bg-amber-500/10 text-[12px] font-medium text-amber-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(245,158,11,0.12)]">
+                    <li className="inline-flex items-center px-3 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[12px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
                       Automation
                     </li>
                   </ul>
@@ -607,14 +595,14 @@ export default function ContactHero() {
                   className="flex flex-col px-3.5 py-2.5 rounded-2xl backdrop-blur-md transition-all duration-300"
                   style={{
                     background: "rgba(14, 18, 28, 0.94)",
-                    border: "1px solid rgba(2, 132, 199, 0.65)",
+                    border: "1px solid rgba(249, 115, 22, 0.65)",
                     boxShadow: activePractice === "power-platform"
-                      ? "0 0 32px rgba(2, 132, 199, 0.35), inset 0 0 14px rgba(2, 132, 199, 0.1)"
-                      : "0 0 22px rgba(2, 132, 199, 0.18), inset 0 0 10px rgba(2, 132, 199, 0.05)",
+                      ? "0 0 32px rgba(249, 115, 22, 0.35), inset 0 0 14px rgba(249, 115, 22, 0.1)"
+                      : "0 0 22px rgba(249, 115, 22, 0.18), inset 0 0 10px rgba(249, 115, 22, 0.05)",
                   }}
                 >
                   <div className="flex items-center gap-2.5 mb-2">
-                    <div className="p-1.5 rounded-lg bg-sky-500/15 text-sky-400 shrink-0 group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(2,132,199,0.25)]">
+                    <div className="p-1.5 rounded-lg bg-orange-500/15 text-orange-400 shrink-0 group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(249,115,22,0.25)]">
                       <MicrosoftIcon className="w-5.5 h-5.5" />
                     </div>
                     <span className="text-[13px] font-bold tracking-wider text-white uppercase leading-snug">
@@ -622,16 +610,16 @@ export default function ContactHero() {
                     </span>
                   </div>
                   <ul className="flex flex-wrap gap-1.5">
-                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-sky-500/35 bg-sky-500/10 text-[11.5px] font-medium text-sky-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(2,132,199,0.12)]">
+                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
                       Power Apps
                     </li>
-                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-sky-500/35 bg-sky-500/10 text-[11.5px] font-medium text-sky-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(2,132,199,0.12)]">
+                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
                       Power BI
                     </li>
-                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-sky-500/35 bg-sky-500/10 text-[11.5px] font-medium text-sky-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(2,132,199,0.12)]">
+                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
                       Power Automate
                     </li>
-                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-sky-500/35 bg-sky-500/10 text-[11.5px] font-medium text-sky-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(2,132,199,0.12)]">
+                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
                       SharePoint
                     </li>
                   </ul>
@@ -655,14 +643,14 @@ export default function ContactHero() {
                   className="flex flex-col px-3.5 py-2.5 rounded-2xl backdrop-blur-md transition-all duration-300"
                   style={{
                     background: "rgba(14, 18, 28, 0.94)",
-                    border: "1px solid rgba(20, 184, 166, 0.65)",
+                    border: "1px solid rgba(249, 115, 22, 0.65)",
                     boxShadow: activePractice === "data-ai"
-                      ? "0 0 32px rgba(20, 184, 166, 0.35), inset 0 0 14px rgba(20, 184, 166, 0.1)"
-                      : "0 0 22px rgba(20, 184, 166, 0.18), inset 0 0 10px rgba(245, 158, 11, 0.05)",
+                      ? "0 0 32px rgba(249, 115, 22, 0.35), inset 0 0 14px rgba(249, 115, 22, 0.1)"
+                      : "0 0 22px rgba(249, 115, 22, 0.18), inset 0 0 10px rgba(249, 115, 22, 0.05)",
                   }}
                 >
                   <div className="flex items-center gap-2.5 mb-2">
-                    <div className="p-1.5 rounded-lg bg-teal-500/15 text-teal-400 shrink-0 group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(20,184,166,0.25)]">
+                    <div className="p-1.5 rounded-lg bg-orange-500/15 text-orange-400 shrink-0 group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(249,115,22,0.25)]">
                       <Database className="w-5.5 h-5.5" />
                     </div>
                     <span className="text-[13px] font-bold tracking-wider text-white uppercase leading-snug">
@@ -670,16 +658,16 @@ export default function ContactHero() {
                     </span>
                   </div>
                   <ul className="flex flex-wrap gap-1.5">
-                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-teal-500/35 bg-teal-500/10 text-[11.5px] font-medium text-teal-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(20,184,166,0.12)]">
+                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
                       Azure AI
                     </li>
-                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-teal-500/35 bg-teal-500/10 text-[11.5px] font-medium text-teal-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(20,184,166,0.12)]">
+                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
                       Analytics
                     </li>
-                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-teal-500/35 bg-teal-500/10 text-[11.5px] font-medium text-teal-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(20,184,166,0.12)]">
+                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
                       Microsoft Fabric
                     </li>
-                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-teal-500/35 bg-teal-500/10 text-[11.5px] font-medium text-teal-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(20,184,166,0.12)]">
+                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
                       Data Engineering
                     </li>
                   </ul>
@@ -703,14 +691,14 @@ export default function ContactHero() {
                   className="flex flex-col items-center px-4 py-2.5 rounded-2xl backdrop-blur-md transition-all duration-300"
                   style={{
                     background: "rgba(14, 18, 28, 0.94)",
-                    border: "1px solid rgba(168, 85, 247, 0.65)",
+                    border: "1px solid rgba(249, 115, 22, 0.65)",
                     boxShadow: activePractice === "modernisation"
-                      ? "0 0 32px rgba(168, 85, 247, 0.35), inset 0 0 14px rgba(168, 85, 247, 0.1)"
-                      : "0 0 22px rgba(168, 85, 247, 0.18), inset 0 0 10px rgba(168, 85, 247, 0.05)",
+                      ? "0 0 32px rgba(249, 115, 22, 0.35), inset 0 0 14px rgba(249, 115, 22, 0.1)"
+                      : "0 0 22px rgba(249, 115, 22, 0.18), inset 0 0 10px rgba(249, 115, 22, 0.05)",
                   }}
                 >
                   <div className="flex items-center gap-2.5 mb-2">
-                    <div className="p-1.5 rounded-lg bg-purple-500/15 text-purple-400 shrink-0 group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(168,85,247,0.25)]">
+                    <div className="p-1.5 rounded-lg bg-orange-500/15 text-orange-400 shrink-0 group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(249,115,22,0.25)]">
                       <Code2 className="w-5.5 h-5.5" />
                     </div>
                     <span className="text-[12.5px] font-bold tracking-wider text-white uppercase leading-snug">
@@ -718,16 +706,16 @@ export default function ContactHero() {
                     </span>
                   </div>
                   <ul className="flex flex-wrap items-center justify-center gap-1.5">
-                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-purple-500/35 bg-purple-500/10 text-[11.5px] font-medium text-purple-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(168,85,247,0.12)]">
+                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
                       Modern Apps
                     </li>
-                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-purple-500/35 bg-purple-500/10 text-[11.5px] font-medium text-purple-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(168,85,247,0.12)]">
+                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
                       Cloud & DevOps
                     </li>
-                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-purple-500/35 bg-purple-500/10 text-[11.5px] font-medium text-purple-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(168,85,247,0.12)]">
+                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
                       APIs & Integration
                     </li>
-                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-purple-500/35 bg-purple-500/10 text-[11.5px] font-medium text-purple-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(168,85,247,0.12)]">
+                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
                       Legacy Modernisation
                     </li>
                   </ul>
