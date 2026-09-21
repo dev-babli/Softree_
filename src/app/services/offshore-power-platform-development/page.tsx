@@ -17,44 +17,91 @@ import LightFAQExact from "@/components/homepage-light/LightFAQExact";
 import type { Metadata } from "next";
 import { applyPageOg } from "@/lib/site-metadata";
 
+// const powerPlatformFAQs = [
+//   {
+//     id: 1,
+//     serial: "question 01",
+//     question: "What Microsoft Power Platform services do you offer?",
+//     answer:
+//       "We specialize in Power Apps (canvas and model-driven), Power Automate workflows, Power BI dashboards, Power Pages, and Dataverse integration. We build end-to-end solutions connecting the entire Power Platform ecosystem.",
+//   },
+//   {
+//     id: 2,
+//     serial: "question 02",
+//     question: "How long does it take to develop a Power Apps solution?",
+//     answer:
+//       "Simple Power Apps MVPs take 4-6 weeks. Complex enterprise solutions with multiple apps and automations take 8-12 weeks. We provide a detailed scope and timeline before starting development.",
+//   },
+//   {
+//     id: 3,
+//     serial: "question 03",
+//     question: "Can you integrate Power Platform with existing systems?",
+//     answer:
+//       "Yes, we integrate Power Platform with Dynamics 365, SharePoint, SQL Server, Office 365, external APIs, and legacy systems. We ensure seamless data flow and business process automation across your entire technology stack.",
+//   },
+//   {
+//     id: 4,
+//     serial: "question 04",
+//     question: "Do you provide training for Power Platform solutions?",
+//     answer:
+//       "We provide comprehensive user training, admin documentation, and handoff sessions. Your team learns to manage and extend the solutions we build. We also offer ongoing support packages for maintenance and enhancements.",
+//   },
+//   {
+//     id: 5,
+//     serial: "question 05",
+//     question: "How do you handle Power Platform security and governance?",
+//     answer:
+//       "We implement Microsoft best practices for security: data loss prevention (DLP), environment strategies, role-based access control, and compliance with your organization's governance policies. We follow Microsoft Gold Partner security standards.",
+//   },
+// ]
 const powerPlatformFAQs = [
   {
     id: 1,
     serial: "question 01",
-    question: "What Microsoft Power Platform services do you offer?",
+    question: "What Microsoft Power Platform development services do you offer?",
     answer:
-      "We specialize in Power Apps (canvas and model-driven), Power Automate workflows, Power BI dashboards, Power Pages, and Dataverse integration. We build end-to-end solutions connecting the entire Power Platform ecosystem.",
+      "Softree provides Microsoft Power Platform development services across Power Apps, Power Automate, Dataverse, Power BI, Power Pages, and Copilot Studio. Our services include business application development, workflow automation, data solutions, integrations, consulting, implementation, modernization, and ongoing development support.",
   },
+
   {
     id: 2,
     serial: "question 02",
-    question: "How long does it take to develop a Power Apps solution?",
+    question: "Does Softree provide offshore Power Platform development?",
     answer:
-      "Simple Power Apps MVPs take 4-6 weeks. Complex enterprise solutions with multiple apps and automations take 8-12 weeks. We provide a detailed scope and timeline before starting development.",
+      "Yes. Softree provides offshore Microsoft Power Platform development through experienced developers and dedicated engineering teams. We support Power Apps, Power Automate, Dataverse, Power BI, Power Pages, integrations, and ongoing Power Platform development based on project requirements.",
   },
+
   {
     id: 3,
     serial: "question 03",
-    question: "Can you integrate Power Platform with existing systems?",
+    question: "Does Softree provide white-label Power Platform development?",
     answer:
-      "Yes, we integrate Power Platform with Dynamics 365, SharePoint, SQL Server, Office 365, external APIs, and legacy systems. We ensure seamless data flow and business process automation across your entire technology stack.",
+      "Yes. Softree provides white-label Power Platform development support for agencies, consulting firms, and technology partners that need additional engineering capacity while maintaining their own client-facing relationship.",
   },
+
   {
     id: 4,
     serial: "question 04",
-    question: "Do you provide training for Power Platform solutions?",
+    question: "Can you integrate Microsoft Power Platform with existing business systems?",
     answer:
-      "We provide comprehensive user training, admin documentation, and handoff sessions. Your team learns to manage and extend the solutions we build. We also offer ongoing support packages for maintenance and enhancements.",
+      "Yes. Softree can integrate Power Platform solutions with Microsoft 365, SharePoint, Microsoft Teams, Dynamics 365, Azure, SQL Server, APIs, custom connectors, and other supported business systems to connect data and business processes.",
   },
+
   {
     id: 5,
     serial: "question 05",
     question: "How do you handle Power Platform security and governance?",
     answer:
-      "We implement Microsoft best practices for security: data loss prevention (DLP), environment strategies, role-based access control, and compliance with your organization's governance policies. We follow Microsoft Gold Partner security standards.",
+      "We approach Power Platform security and governance through appropriate access controls, environment strategy, security roles, data protection policies, monitoring, deployment practices, and application lifecycle management based on the solution requirements.",
   },
-]
-
+  {
+    id: 6,
+    serial: "question 06",
+    question: "Do you provide Power Platform consulting and implementation services?",
+    answer:
+      "Yes. Softree provides Power Platform consulting and implementation support from discovery and solution planning through development, integration, deployment, and ongoing optimization. We help businesses select the right Power Platform components and build solutions aligned with their workflows and requirements.",
+  }
+];
 export const metadata: Metadata = applyPageOg("/services/offshore-power-platform-development", {
   title: "Power Platform Development Services | Power Apps & Automation",
 
