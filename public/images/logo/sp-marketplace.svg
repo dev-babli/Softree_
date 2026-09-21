@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 44" fill="none">
+  <!-- Cloud Icon -->
+  <path d="M11 28C8 28 6 25.5 6 22.5C6 19.8 8 17.5 10.7 17.1C11.6 12.5 15.6 9 20.5 9C24.5 9 27.9 11.4 29.3 14.9C30.2 14.3 31.3 14 32.5 14C35.5 14 38 16.5 38 19.5C38 20 37.9 20.5 37.7 21C39.1 21.8 40 23.3 40 25C40 27.2 38.2 29 36 29H11" stroke="#0284C7" stroke-width="2.2" fill="none" />
+  <rect x="15" y="22" width="5.5" height="5.5" fill="#EAB308" rx="1" />
+  <rect x="22" y="16.5" width="5.5" height="5.5" fill="#EA580C" rx="1" />
+  <rect x="22" y="23.5" width="5.5" height="5.5" fill="#16A34A" rx="1" />
+  <rect x="29" y="22" width="5.5" height="5.5" fill="#0284C7" rx="1" />
+  <!-- Text -->
+  <text x="48" y="27" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="900" letter-spacing="-0.3" fill="#0369A1">SP</text>
+  <text x="75" y="27" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="500" letter-spacing="-0.2" fill="#0F172A">Marketplace</text>
+</svg>

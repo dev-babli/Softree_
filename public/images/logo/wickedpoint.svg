@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 44" fill="none">
+  <!-- W Icon -->
+  <path d="M4 10L14 34L22 18L18 10L14 26L6 10H4Z" fill="#14B8A6" />
+  <path d="M32 10L22 34L14 18L18 10L22 26L30 10H32Z" fill="#0F172A" />
+  <path d="M14 26L18 16L22 26L18 34L14 26Z" fill="#0F172A" />
+  <!-- Text -->
+  <text x="40" y="23" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="900" letter-spacing="1" fill="#0F172A">WICKED</text>
+  <text x="40" y="37" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" letter-spacing="2.5" fill="#14B8A6">POINT</text>
+</svg>
