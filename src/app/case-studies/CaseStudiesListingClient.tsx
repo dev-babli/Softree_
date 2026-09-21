@@ -361,12 +361,7 @@ export default function CaseStudiesListingClient({
                   >
                     <CaseStudyListingCard
                       study={study}
-                      accentColor={
-                        study.categoryKey
-                          ? categoryLinks.find((c) => c.key === study.categoryKey)?.accentColor ??
-                            CASE_STUDIES_HUB_ACCENT
-                          : CASE_STUDIES_HUB_ACCENT
-                      }
+                      accentColor={CASE_STUDIES_HUB_ACCENT}
                     />
                   </motion.div>
                 ))}

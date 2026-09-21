@@ -27,14 +27,13 @@ export default function CaseStudyListingCard({ study, accentColor = '#FF5812' }:
       className="group block h-full"
       style={{ 
         '--hover-accent': accentColor,
-        '--hover-shadow': `${accentColor}24`
       } as React.CSSProperties}
     >
       <SpotlightCard
-        color={`${accentColor}73`}
-        intensity={0.45}
+        color="rgba(255, 255, 255, 0.6)"
+        intensity={0.4}
         radius={280}
-        className="flex h-full flex-col overflow-hidden rounded-[24px] border border-[#0a0a1a]/5 bg-white shadow-[0_8px_30px_rgba(10,10,26,0.04)] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-14px_var(--hover-shadow)]"
+        className="flex h-full flex-col overflow-hidden rounded-[24px] border border-[#0a0a1a]/5 bg-white shadow-[0_8px_30px_rgba(10,10,26,0.04)] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-1.5 hover:shadow-[0_20px_45px_-12px_rgba(10,10,26,0.12)]"
       >
         {/* Sweep-Shine Hover Effect */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-[24px] z-20">

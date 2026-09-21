@@ -1,6 +1,4 @@
-import { DEFAULT_ACCENT } from '@/lib/brand-defaults'
-
-export const CASE_STUDIES_HUB_ACCENT = DEFAULT_ACCENT
+export const CASE_STUDIES_HUB_ACCENT = '#FF5812'
 
 export const CASE_STUDIES_HUB_FAQS = [
   {

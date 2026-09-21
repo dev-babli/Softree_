@@ -162,7 +162,7 @@ export const CASE_STUDY_CATEGORY_CONFIG: Record<CaseStudyCategoryKey, CaseStudyC
     eyebrow: "Mobile Development · iOS & Android",
     description:
       "Native and cross-platform mobile products built for reliability, engagement, and measurable growth.",
-    accentColor: "#EC4899",
+    accentColor: "#FF5812",
     heroStat: "4.8★",
     heroStatLabel: "average app store rating across recent launches",
     projectCount: 30,

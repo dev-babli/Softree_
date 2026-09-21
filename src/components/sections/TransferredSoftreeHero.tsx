@@ -285,9 +285,9 @@ export function TransferredSoftreeHero() {
         </div>
 
         {/* ================= 3. HERO TEXT ================= */}
-        <div className="hero-text-cluster relative lg:absolute lg:inset-0 z-20 flex flex-col justify-center pt-[12vh] pb-[6vh] lg:pt-[14vh] lg:pb-[22vh] px-6 lg:pl-[clamp(1.25rem,7vw,6rem)] lg:pr-[clamp(1.25rem,4vw,3rem)] pointer-events-none w-full">
+        <div className="hero-text-cluster relative lg:absolute lg:inset-0 z-20 flex flex-col justify-center pt-[max(88px,11vh)] pb-[6vh] lg:pt-[clamp(96px,12vh,124px)] lg:pb-[clamp(2rem,6vh,5rem)] px-6 lg:pl-[clamp(1.25rem,7vw,6rem)] lg:pr-[clamp(1.25rem,4vw,3rem)] pointer-events-none w-full">
           <div className="max-w-[34rem] text-left pointer-events-auto">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 backdrop-blur-sm">
+            <div className="hero-eyebrow mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 backdrop-blur-sm">
               <svg
                 className="h-3.5 w-3.5 shrink-0"
                 style={{ color: ACCENT }}
@@ -418,14 +418,65 @@ export function TransferredSoftreeHero() {
                 }
               }
 
+              /* Height-aware adjustments for 13-inch and compact laptop displays */
+              @media (min-width: 1024px) {
+                .hero-text-cluster {
+                  justify-content: safe center;
+                }
+              }
+
+              @media (min-width: 1024px) and (max-height: 850px) {
+                .hero-text-cluster {
+                  padding-top: max(96px, 12vh) !important;
+                  padding-bottom: clamp(1.5rem, 4vh, 2.75rem) !important;
+                }
+                .hero-eyebrow {
+                  margin-bottom: 1rem !important;
+                }
+                .hero-title {
+                  font-size: clamp(2.5rem, 4.2vw, 3.65rem) !important;
+                  line-height: 1.06 !important;
+                }
+                .hero-sub {
+                  margin-top: 1rem !important;
+                  font-size: 0.95rem !important;
+                  line-height: 1.5 !important;
+                }
+                .hero-btn {
+                  margin-top: 1.5rem !important;
+                }
+              }
+
+              @media (min-width: 1024px) and (max-height: 720px) {
+                .hero-text-cluster {
+                  padding-top: 92px !important;
+                  padding-bottom: 1.25rem !important;
+                }
+                .hero-eyebrow {
+                  margin-bottom: 0.75rem !important;
+                }
+                .hero-title {
+                  font-size: clamp(2.15rem, 3.6vw, 2.85rem) !important;
+                  line-height: 1.08 !important;
+                }
+                .hero-sub {
+                  margin-top: 0.75rem !important;
+                  font-size: 0.875rem !important;
+                  line-height: 1.45 !important;
+                }
+                .hero-btn {
+                  margin-top: 1.25rem !important;
+                }
+              }
+
               /* Pillar text cluster padding and sizing — balanced spacing to cards */
               .salary-text-cluster-wrapper {
-                padding-top: clamp(4.5rem, 10.5vh, 7rem);
+                padding-top: clamp(5.5rem, 11vh, 7.5rem);
               }
 
               @media (min-width: 1024px) and (max-height: 640px) {
                 .salary-text-cluster-wrapper {
-                  padding-top: clamp(3.75rem, 8vh, 4.5rem);
+                  padding-top: clamp(4.5rem, 9vh, 5.25rem);
                 }
               }
 
