@@ -285,8 +285,8 @@ export function TransferredSoftreeHero() {
         </div>
 
         {/* ================= 3. HERO TEXT ================= */}
-        <div className="hero-text-cluster relative lg:absolute lg:inset-0 z-20 flex flex-col justify-center pt-[max(88px,11vh)] pb-[6vh] lg:pt-[clamp(96px,12vh,124px)] lg:pb-[clamp(2rem,6vh,5rem)] px-6 lg:pl-[clamp(1.25rem,7vw,6rem)] lg:pr-[clamp(1.25rem,4vw,3rem)] pointer-events-none w-full">
-          <div className="max-w-[34rem] text-left pointer-events-auto">
+        <div className="hero-text-cluster relative lg:absolute lg:inset-0 z-20 flex flex-col justify-center pt-[max(88px,11vh)] pb-[6vh] lg:pt-[clamp(96px,12vh,124px)] lg:pb-[clamp(2rem,6vh,5rem)] px-6 lg:pl-[clamp(1.5rem,5vw,4.5rem)] lg:pr-[clamp(1.25rem,3vw,2.5rem)] pointer-events-none w-full">
+          <div className="hero-text-content w-full max-w-[24rem] xl:max-w-[27rem] 2xl:max-w-[32rem] text-left pointer-events-auto">
             <div className="hero-eyebrow mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 backdrop-blur-sm">
               <svg
                 className="h-3.5 w-3.5 shrink-0"
@@ -309,11 +309,10 @@ export function TransferredSoftreeHero() {
               className="hero-title typo-title text-balance text-white"
               style={{ willChange: "transform, opacity" }}
             >
-              Your Offshore Engineering Partner
-              <span style={{ color: ACCENT }}>.</span>
+              Your Offshore <br className="hidden sm:inline" />Engineering <br className="hidden sm:inline" />Partner<span style={{ color: ACCENT }}>.</span>
             </h1>
 
-            <p className="hero-sub typo-description mt-6 max-w-[32rem] text-pretty text-white/75">
+            <p className="hero-sub typo-description mt-6 max-w-[21rem] xl:max-w-[25rem] text-pretty text-white/75">
               Scalable teams. Microsoft experts. AI-powered solutions. Delivered
               for global impact.
             </p>
@@ -418,10 +417,25 @@ export function TransferredSoftreeHero() {
                 }
               }
 
-              /* Height-aware adjustments for 13-inch and compact laptop displays */
+              /* Safe horizontal containment to prevent hero text from touching the center card */
               @media (min-width: 1024px) {
                 .hero-text-cluster {
                   justify-content: safe center;
+                }
+                .hero-text-content {
+                  max-width: min(24.5rem, calc(50vw - clamp(140px, 14vw, 210px) - clamp(1.5rem, 5vw, 4.5rem) - 1.5rem)) !important;
+                }
+              }
+
+              @media (min-width: 1280px) {
+                .hero-text-content {
+                  max-width: min(27rem, calc(50vw - clamp(140px, 14vw, 210px) - clamp(1.5rem, 5vw, 4.5rem) - 1.5rem)) !important;
+                }
+              }
+
+              @media (min-width: 1536px) {
+                .hero-text-content {
+                  max-width: 32rem !important;
                 }
               }
 
