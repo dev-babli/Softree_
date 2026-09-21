@@ -255,97 +255,99 @@ export default function ContactHero() {
       <div className="pointer-events-none absolute right-[4%] top-1/2 -translate-y-1/2 w-[680px] h-[680px] rounded-full bg-[radial-gradient(circle,rgba(249,115,22,0.12)_0%,rgba(14,165,233,0.04)_40%,transparent_70%)] blur-3xl" />
 
       <div className="relative mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-stretch">
 
           {/* ══════════════════════════════════════════════
               LEFT COLUMN: HEADLINE, DESCRIPTION, CTAS, TRUST
              ══════════════════════════════════════════════ */}
-          <div className="lg:col-span-6 xl:col-span-6 z-10">
-            {/* Top Eyebrow Badge: LET'S TALK */}
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="group relative inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-[#f97316]/35 bg-gradient-to-r from-[#f97316]/15 via-white/[0.04] to-transparent backdrop-blur-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),0_0_24px_rgba(249,115,22,0.2)] hover:border-[#f97316]/60 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.25),0_0_32px_rgba(249,115,22,0.35)] transition-all duration-300 mb-6 cursor-default select-none"
-            >
-              <span className="relative flex h-2 w-2 items-center justify-center">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#f97316] opacity-80" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#f97316] shadow-[0_0_10px_#f97316,0_0_4px_#fb923c]" />
-              </span>
-              <span className="font-mono text-xs font-bold tracking-[0.24em] text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-100 to-[#fb923c] uppercase">
-                LET&apos;S TALK
-              </span>
-            </motion.div>
+          <div className="lg:col-span-6 xl:col-span-6 z-10 flex flex-col justify-between lg:h-[520px] lg:py-2.5">
+            <div className="flex flex-col">
+              {/* Top Eyebrow Badge: LET'S TALK */}
+              <motion.div
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="group relative inline-flex items-center self-start gap-2.5 px-4 py-1.5 rounded-full border border-[#f97316]/35 bg-gradient-to-r from-[#f97316]/15 via-white/[0.04] to-transparent backdrop-blur-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),0_0_24px_rgba(249,115,22,0.2)] hover:border-[#f97316]/60 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.25),0_0_32px_rgba(249,115,22,0.35)] transition-all duration-300 mb-4 sm:mb-5 cursor-default select-none"
+              >
+                <span className="relative flex h-2 w-2 items-center justify-center">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#f97316] opacity-80" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#f97316] shadow-[0_0_10px_#f97316,0_0_4px_#fb923c]" />
+                </span>
+                <span className="font-mono text-xs font-bold tracking-[0.24em] text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-100 to-[#fb923c] uppercase">
+                  LET&apos;S TALK
+                </span>
+              </motion.div>
 
-            {/* Main Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, delay: 0.1 }}
-              className="text-2xl sm:text-3xl lg:text-[40px] xl:text-[44px] font-bold text-white tracking-[-0.035em] leading-[1.14] mb-5"
-            >
-              You have a technology<br />
-              <span className="text-[#f97316] drop-shadow-[0_0_24px_rgba(249,115,22,0.45)]">
-                challenge.
-              </span><br />
-              Softree brings the offshore<br />
-              engineering capability to solve it.
-            </motion.h1>
+              {/* Main Headline */}
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.65, delay: 0.1 }}
+                className="text-2xl sm:text-3xl lg:text-[38px] xl:text-[42px] font-bold text-white tracking-[-0.035em] leading-[1.14] mb-4 sm:mb-5"
+              >
+                You have a technology<br />
+                <span className="text-[#f97316] drop-shadow-[0_0_24px_rgba(249,115,22,0.45)]">
+                  challenge.
+                </span><br />
+                Softree brings the offshore<br />
+                engineering capability to solve it.
+              </motion.h1>
 
-            {/* Subtitle / Paragraph */}
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg sm:text-xl lg:text-[19.5px] text-slate-200 font-normal leading-relaxed max-w-2xl mb-8"
-            >
-              Whether it&apos;s AI, automation, data, Microsoft technologies or modern applications — tell us what you&apos;re building. We&apos;ll take it from there.
-            </motion.p>
+              {/* Subtitle / Paragraph */}
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-base sm:text-lg lg:text-[18px] text-slate-200 font-normal leading-relaxed max-w-xl mb-4 sm:mb-6"
+              >
+                Whether it&apos;s AI, automation, data, Microsoft technologies or modern applications — tell us what you&apos;re building. We&apos;ll take it from there.
+              </motion.p>
+            </div>
 
             {/* AI & Engineering Capabilities Badges */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col gap-3.5 max-w-2xl"
+              className="flex flex-col gap-3 max-w-2xl mt-auto"
             >
               {/* Row 1: Agentic AI, AI Agents, Copilots, RAG */}
-              <div className="flex flex-wrap items-center gap-3.5">
-                <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-white/18 bg-white/[0.05] text-white text-[14px] sm:text-[15px] font-semibold tracking-wide hover:border-white/35 hover:bg-white/[0.09] transition-all cursor-default select-none shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
-                  <AgenticAiIcon className="w-[26px] h-[26px] text-[#f97316] shrink-0" />
+              <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
+                <div className="inline-flex items-center gap-2.5 px-4 sm:px-4.5 py-2 sm:py-2.5 rounded-full border border-white/18 bg-white/[0.05] text-white text-[13.5px] sm:text-[14.5px] font-semibold tracking-wide hover:border-white/35 hover:bg-white/[0.09] transition-all cursor-default select-none shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
+                  <AgenticAiIcon className="w-5 h-5 sm:w-[22px] sm:h-[22px] text-[#f97316] shrink-0" />
                   <span>Agentic AI</span>
                 </div>
 
-                <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-white/18 bg-white/[0.05] text-white text-[14px] sm:text-[15px] font-semibold tracking-wide hover:border-white/35 hover:bg-white/[0.09] transition-all cursor-default select-none shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
-                  <Bot className="w-[26px] h-[26px] text-[#f97316] shrink-0" />
+                <div className="inline-flex items-center gap-2.5 px-4 sm:px-4.5 py-2 sm:py-2.5 rounded-full border border-white/18 bg-white/[0.05] text-white text-[13.5px] sm:text-[14.5px] font-semibold tracking-wide hover:border-white/35 hover:bg-white/[0.09] transition-all cursor-default select-none shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
+                  <Bot className="w-5 h-5 sm:w-[22px] sm:h-[22px] text-[#f97316] shrink-0" />
                   <span>AI Agents</span>
                 </div>
 
-                <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-white/18 bg-white/[0.05] text-white text-[14px] sm:text-[15px] font-semibold tracking-wide hover:border-white/35 hover:bg-white/[0.09] transition-all cursor-default select-none shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
-                  <CopilotIcon className="w-[26px] h-[26px] shrink-0" />
+                <div className="inline-flex items-center gap-2.5 px-4 sm:px-4.5 py-2 sm:py-2.5 rounded-full border border-white/18 bg-white/[0.05] text-white text-[13.5px] sm:text-[14.5px] font-semibold tracking-wide hover:border-white/35 hover:bg-white/[0.09] transition-all cursor-default select-none shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
+                  <CopilotIcon className="w-5 h-5 sm:w-[22px] sm:h-[22px] shrink-0" />
                   <span>Copilots</span>
                 </div>
 
-                <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-white/18 bg-white/[0.05] text-white text-[14px] sm:text-[15px] font-semibold tracking-wide hover:border-white/35 hover:bg-white/[0.09] transition-all cursor-default select-none shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
-                  <RagIcon className="w-[26px] h-[26px] text-[#f97316] shrink-0" />
+                <div className="inline-flex items-center gap-2.5 px-4 sm:px-4.5 py-2 sm:py-2.5 rounded-full border border-white/18 bg-white/[0.05] text-white text-[13.5px] sm:text-[14.5px] font-semibold tracking-wide hover:border-white/35 hover:bg-white/[0.09] transition-all cursor-default select-none shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
+                  <RagIcon className="w-5 h-5 sm:w-[22px] sm:h-[22px] text-[#f97316] shrink-0" />
                   <span>RAG</span>
                 </div>
               </div>
 
               {/* Row 2: Intelligent Automation, Microsoft AI, AWS AI */}
-              <div className="flex flex-wrap items-center gap-3.5">
-                <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-white/18 bg-white/[0.05] text-white text-[14px] sm:text-[15px] font-semibold tracking-wide hover:border-white/35 hover:bg-white/[0.09] transition-all cursor-default select-none shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
-                  <Zap className="w-[26px] h-[26px] text-[#f97316] fill-[#f97316] shrink-0" />
+              <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
+                <div className="inline-flex items-center gap-2.5 px-4 sm:px-4.5 py-2 sm:py-2.5 rounded-full border border-white/18 bg-white/[0.05] text-white text-[13.5px] sm:text-[14.5px] font-semibold tracking-wide hover:border-white/35 hover:bg-white/[0.09] transition-all cursor-default select-none shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
+                  <Zap className="w-5 h-5 sm:w-[22px] sm:h-[22px] text-[#f97316] fill-[#f97316] shrink-0" />
                   <span>Intelligent Automation</span>
                 </div>
 
-                <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-white/18 bg-white/[0.05] text-white text-[14px] sm:text-[15px] font-semibold tracking-wide hover:border-white/35 hover:bg-white/[0.09] transition-all cursor-default select-none shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
-                  <MicrosoftColorIcon className="w-[24px] h-[24px] shrink-0" />
+                <div className="inline-flex items-center gap-2.5 px-4 sm:px-4.5 py-2 sm:py-2.5 rounded-full border border-white/18 bg-white/[0.05] text-white text-[13.5px] sm:text-[14.5px] font-semibold tracking-wide hover:border-white/35 hover:bg-white/[0.09] transition-all cursor-default select-none shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
+                  <MicrosoftColorIcon className="w-5 h-5 sm:w-[22px] sm:h-[22px] shrink-0" />
                   <span>Microsoft AI</span>
                 </div>
 
-                <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-white/18 bg-white/[0.05] text-white text-[14px] sm:text-[15px] font-semibold tracking-wide hover:border-white/35 hover:bg-white/[0.09] transition-all cursor-default select-none shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
-                  <AwsIcon className="w-[32px] h-[21px] shrink-0" />
+                <div className="inline-flex items-center gap-2.5 px-4 sm:px-4.5 py-2 sm:py-2.5 rounded-full border border-white/18 bg-white/[0.05] text-white text-[13.5px] sm:text-[14.5px] font-semibold tracking-wide hover:border-white/35 hover:bg-white/[0.09] transition-all cursor-default select-none shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
+                  <AwsIcon className="w-[28px] h-[19px] shrink-0" />
                   <span>AWS AI</span>
                 </div>
               </div>
@@ -355,7 +357,7 @@ export default function ContactHero() {
           {/* ══════════════════════════════════════════════
               RIGHT COLUMN: INTERACTIVE ARCHITECTURE GRAPHIC
              ══════════════════════════════════════════════ */}
-          <div className="lg:col-span-6 xl:col-span-6 flex flex-col items-center lg:items-end relative">
+          <div className="lg:col-span-6 xl:col-span-6 flex flex-col items-center lg:items-end justify-center lg:h-[520px] relative">
 
             {/* Graphic Container with Globe + Hub + Default Glowing Spokes */}
             <motion.div
