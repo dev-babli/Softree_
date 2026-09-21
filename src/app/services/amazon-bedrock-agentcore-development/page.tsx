@@ -3,12 +3,13 @@ import { Metadata } from 'next';
 import NavigationClient from '@/components/sections/navigation-client';
 import Footer from '@/components/sections/footer';
 import AmazonBedrockHero from './components/AmazonBedrockHero';
+import AmazonBedrockAgentCoreHero from './components/AmazonBedrockAgentCoreHero';
 import WhyAgentCoreSlider from './components/WhyAgentCoreSlider';
 import AgentCoreSystems from "./components/AgentCoreSystems";
 import WhyChooseWithTestimonials from "./components/WhyChooseWithTestimonials";
 import AgentCoreFAQ from "./components/AgentCoreFAQ";
 import AgentCoreFeaturedUseCase from "./components/AgentCoreFeaturedUseCase";
-import TrustedBrandsMarquee from "@/app/services/offshore-power-platform-development/trust";
+import TrustedBrandsMarquee from './components/trust';
 import dynamic from 'next/dynamic';
 
 const LightContactSection = dynamic(() => import('@/components/homepage-light/LightContactSection'), { ssr: true });
@@ -52,8 +53,8 @@ export default function AmazonBedrockAgentCoreDevelopmentPage() {
   return (
     <main className="min-h-screen bg-white text-slate-900 selection:bg-orange-500 selection:text-white overflow-x-clip">
       <NavigationClient />
-      {/* Amazon Bedrock Solution Hero */}
       <AmazonBedrockHero />
+      {/* <AmazonBedrockAgentCoreHero /> */}
       <WhyAgentCoreSlider />
       <AgentCoreSystems />
       <AgentCoreFeaturedUseCase />

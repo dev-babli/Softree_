@@ -6,7 +6,6 @@ import SqueezeCarousel, { SqueezeSlide } from "@/components/ui/carousel-squeeze"
 const agentCoreSlides: SqueezeSlide[] = [
   {
     id: "runtime",
-    category: "AGENTCORE CAPABILITY",
     title: "Runtime",
     description: "Run and manage production AI agents with reliable execution, scaling, and workflow control.",
     bullets: [
@@ -22,7 +21,6 @@ const agentCoreSlides: SqueezeSlide[] = [
   },
   {
     id: "memory",
-    category: "AGENTCORE CAPABILITY",
     title: "Memory",
     description: "Give AI agents the context they need to remember information and maintain continuity across interactions.",
     bullets: [
@@ -38,7 +36,6 @@ const agentCoreSlides: SqueezeSlide[] = [
   },
   {
     id: "gateway",
-    category: "AGENTCORE CAPABILITY",
     title: "Gateway",
     description: "Connect AI agents securely with APIs, tools, applications, and enterprise systems.",
     bullets: [
@@ -54,7 +51,6 @@ const agentCoreSlides: SqueezeSlide[] = [
   },
   {
     id: "identity",
-    category: "AGENTCORE CAPABILITY",
     title: "Identity",
     description: "Control agent access with secure identity, authentication, and authorization for enterprise environments.",
     bullets: [
@@ -70,7 +66,6 @@ const agentCoreSlides: SqueezeSlide[] = [
   },
   {
     id: "observability",
-    category: "AGENTCORE CAPABILITY",
     title: "Observability",
     description: "Monitor agent behavior, workflows, performance, and interactions across production environments.",
     bullets: [
@@ -97,7 +92,7 @@ export default function WhyAgentCoreSlider() {
             WHY AGENTCORE
           </div>
           
-          <h2 className="typo-heading-2 text-slate-900 mb-6 max-w-4xl">
+          <h2 className="typo-heading-2 text-slate-900 mb-6 max-w-none whitespace-normal md:whitespace-nowrap">
             From AI Agents to <span className="text-[#FF6B2C]">Production Systems</span>
           </h2>
           
@@ -106,7 +101,7 @@ export default function WhyAgentCoreSlider() {
               A prototype can answer questions. A production agent needs to:
             </p>
             
-            <div className="typo-heading-4 text-slate-900 uppercase flex flex-wrap items-center justify-center gap-2 sm:gap-3 lg:gap-4">
+            <div className="typo-heading-4 text-slate-900 uppercase flex flex-wrap md:flex-nowrap items-center justify-center gap-2 sm:gap-3 lg:gap-4 whitespace-normal md:whitespace-nowrap">
               <span>REASON</span>
               <span className="text-[#FF6B2C]">→</span>
               <span>REMEMBER</span>

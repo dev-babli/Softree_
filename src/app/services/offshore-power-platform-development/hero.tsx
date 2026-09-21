@@ -251,20 +251,17 @@ export default function HeroPowerApps() {
             </div>
 
             <h1 style={styles.headline}>
-              Enterprise Power Platform
+              Offshore Power Platform
               <br />
-              <span style={styles.headlineGradient}>Development Services</span>
+              <span style={styles.headlineGradient}>Engineering &amp; Development Partner</span>
             </h1>
 
             <p style={styles.subtext}>
-              Build scalable Microsoft Power Apps solutions to automate
-              workflows, streamline business operations, integrate Microsoft
-              365, and improve enterprise productivity with modern low-code
-              development.
+              Build and scale Microsoft Power Platform solutions with Power Apps, Power Automate, Power BI, Power Pages, Dataverse and Copilot Studio. Softree provides offshore development and white-label delivery for businesses, agencies and technology partners that need flexible Power Platform engineering capacity.
             </p>
 
             <Link href="/contact" className="cta-btn" style={styles.ctaBtn}>
-              Talk to a Power Apps Expert
+              Talk to a Power Platform Expert
               <span className="cta-arrow">
                 <ArrowRight stroke="#071b4d" />
               </span>

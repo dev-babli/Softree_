@@ -56,11 +56,10 @@ export default function StackedSlider() {
       {/* HEADER */}
       <div className="text-center mb-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
-          What We Do with Power Apps
+          What We Do with Microsoft Power Platform
         </h2>
         <p className="text-gray-600 mt-2 text-lg">
-          Build Smart Apps, Automate Workflows, and Transform Business
-          Operations
+          Build Business Apps, Automate Workflows, Connect Data, and Deliver Intelligent Business Solutions
         </p>
       </div>
 

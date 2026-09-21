@@ -243,9 +243,13 @@ export function SqueezeCarousel({
 
                                         {/* Top Bar: Professional Category Eyebrow & Index */}
                                         <div className="flex items-center justify-between gap-3 w-full">
-                                            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-white typo-caption shadow-sm">
-                                                <span className="w-2 h-2 rounded-full bg-[#FF6B2C] animate-pulse" />
-                                                <span>{slide.category ?? `CAPABILITY 0${idx + 1}`}</span>
+                                            <div>
+                                                {slide.category && (
+                                                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-white typo-caption shadow-sm">
+                                                        <span className="w-2 h-2 rounded-full bg-[#FF6B2C] animate-pulse" />
+                                                        <span>{slide.category}</span>
+                                                    </div>
+                                                )}
                                             </div>
                                             <span className="typo-caption-meta font-bold text-white/75 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
                                                 0{idx + 1} <span className="text-white/40">/</span> 0{count}
