@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 44" fill="none">
+  <!-- Green bubble -->
+  <path d="M4 10H70L62 34H4L10 24L4 10Z" fill="#65A30D" />
+  <text x="18" y="27" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="900" font-style="italic" fill="#FFF">GO</text>
+  <!-- ERP -->
+  <text x="80" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="21" font-weight="900" font-style="italic" fill="#0F172A">ERP</text>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 44" fill="none">
+  <rect width="36" height="36" y="4" rx="8" fill="#EA580C" />
+  <circle cx="18" cy="22" r="7" fill="#FEF08A" />
+  <path d="M18 10V13M18 31V34M6 22H9M27 22H30M9.5 13.5L11.6 15.6M24.4 28.4L26.5 30.5M9.5 30.5L11.6 28.4M24.4 15.6L26.5 13.5" stroke="#FFF" stroke-width="2.2" stroke-linecap="round"/>
+  <text x="44" y="27" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="800" fill="#0F172A" letter-spacing="0.2">SOLARIES<tspan fill="#EA580C">COMP</tspan></text>
+</svg>

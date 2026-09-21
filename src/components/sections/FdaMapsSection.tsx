@@ -37,13 +37,21 @@ function LocationMarker({
 }) {
   const pos = latLonToFdaMapPercent(hub.lat, hub.lon);
   const leftPercent = parseFloat(pos.left);
+  const topPercent = parseFloat(pos.top);
 
-  const edgeClass =
+  const horizontalClass =
     leftPercent < 22
       ? "fda-map-details--edge-left"
       : leftPercent > 78
       ? "fda-map-details--edge-right"
       : "";
+
+  const verticalClass =
+    topPercent < 48
+      ? "fda-map-details--below"
+      : "fda-map-details--above";
+
+  const placementClass = `${horizontalClass} ${verticalClass}`.trim();
 
   return (
     <div
@@ -63,35 +71,42 @@ function LocationMarker({
       aria-label={`${hub.partnerName} - ${hub.city}, ${hub.country}`}
     >
       <div className="fda-map-location">
-        {/* ── COMPACT ORANGE PARTNER CARD (BIGGER TEXT) ── */}
+        {/* ── RESPONSIVE ORANGE PARTNER CARD ── */}
         <div
-          className={`fda-map-details ${edgeClass}`}
+          className={`fda-map-details ${placementClass}`}
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Top Row: Partner Name + City, Country */}
-          <div className="fda-map-top">
-            <div className="min-w-0">
-              <div className="text-white font-extrabold text-[17px] sm:text-[18px] leading-tight truncate">
-                {hub.partnerName}
+          {/* Header Row: Partner Logo + Partner Type */}
+          <div className="flex items-center justify-between gap-2.5 mb-2.5">
+            {hub.logo ? (
+              <div className="h-10 sm:h-11 w-auto max-w-[130px] px-3 py-1 rounded-xl bg-white flex items-center justify-center shadow-sm shrink-0 border border-white/20">
+                <img
+                  src={hub.logo}
+                  alt={hub.partnerName}
+                  className="h-full w-auto max-h-[30px] sm:max-h-[32px] max-w-full object-contain"
+                  loading="lazy"
+                />
               </div>
-              <div className="text-white/95 text-[13.5px] sm:text-[14px] font-medium mt-1">
-                {hub.city}, {hub.country}
-              </div>
-            </div>
-          </div>
-
-          {/* Partner Type */}
-          <div className="flex items-center gap-2 my-2">
-            <span className="text-[11.5px] sm:text-[12px] font-bold uppercase tracking-wider text-white/90">
-              Partner Type:
-            </span>
-            <span className="text-[12.5px] sm:text-[13px] font-bold text-white bg-black/30 px-3 py-0.5 rounded-full border border-white/30">
+            ) : (
+              <div />
+            )}
+            <span className="text-[11px] sm:text-[11.5px] font-bold text-white bg-black/35 px-2.5 py-1 rounded-full border border-white/25 shrink-0 whitespace-nowrap">
               {hub.partnerType}
             </span>
           </div>
 
+          {/* Partner Name + City, Country */}
+          <div className="mb-2">
+            <div className="text-white font-extrabold text-[15px] sm:text-[16px] leading-snug">
+              {hub.partnerName}
+            </div>
+            <div className="text-white/95 text-[12.5px] sm:text-[13px] font-medium mt-0.5">
+              {hub.city}, {hub.country}
+            </div>
+          </div>
+
           {/* Areas of Collaboration */}
-          <div className="text-[13px] sm:text-[13.5px] leading-snug text-white border-t border-white/25 pt-2 mt-1">
+          <div className="text-[12px] sm:text-[12.5px] leading-snug text-white border-t border-white/25 pt-1.5 mt-1">
             <span className="font-bold text-white/90">Areas: </span>
             <span className="font-medium text-white">{hub.areasOfCollaboration.join(" · ")}</span>
           </div>
@@ -330,29 +345,42 @@ export default function FdaMapsSection({ embedded = false }: { embedded?: boolea
           </div>
 
           {/* Mobile Active Partner Card (Dedicated Touch Friendly View) */}
-          <div className="md:hidden rounded-2xl border border-white/25 bg-gradient-to-r from-[#ff5812] to-[#ff7a3d] p-5 shadow-[0_12px_28px_rgba(255,88,18,0.32)] text-left">
-            <div className="flex items-start justify-between gap-3 mb-2.5">
-              <div>
-                <span className="text-[11px] font-mono uppercase tracking-wider text-white/90 font-bold">
-                  Active Partner
-                </span>
-                <h4 className="text-[17px] sm:text-[18px] font-extrabold text-white mt-0.5">
-                  {currentHub.partnerName}
-                </h4>
-                <p className="text-[13.5px] text-white/95 mt-0.5">
-                  {currentHub.city}, {currentHub.country}
-                </p>
-              </div>
-              <span className="text-[12px] sm:text-[12.5px] font-bold text-white bg-black/30 px-3 py-1 rounded-full border border-white/30 whitespace-nowrap">
+          <div className="md:hidden rounded-2xl border border-white/25 bg-gradient-to-r from-[#ff5812] to-[#ff7a3d] p-4 sm:p-5 shadow-[0_12px_28px_rgba(255,88,18,0.32)] text-left mt-4">
+            {/* Header Row: Partner Logo + Partner Type */}
+            <div className="flex items-center justify-between gap-2.5 mb-2.5">
+              {currentHub.logo && (
+                <div className="h-10 sm:h-11 w-auto max-w-[130px] px-3 py-1 rounded-xl bg-white flex items-center justify-center shadow-sm border border-white/20 shrink-0">
+                  <img
+                    src={currentHub.logo}
+                    alt={currentHub.partnerName}
+                    className="h-full w-auto max-h-[30px] sm:max-h-[32px] max-w-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              )}
+              <span className="text-[11px] sm:text-[11.5px] font-bold text-white bg-black/35 px-2.5 py-1 rounded-full border border-white/25 whitespace-nowrap shrink-0">
                 {currentHub.partnerType}
               </span>
             </div>
 
-            <div className="mt-2.5 text-white/95 border-t border-white/25 pt-2">
-              <span className="text-white/90 font-bold text-[11.5px] sm:text-[12px] uppercase tracking-wider block mb-0.5">
+            {/* Partner Details */}
+            <div className="mb-2">
+              <span className="text-[10.5px] font-mono uppercase tracking-wider text-white/90 font-bold block mb-0.5">
+                Active Partner
+              </span>
+              <h4 className="text-[16.5px] sm:text-[17.5px] font-extrabold text-white leading-snug">
+                {currentHub.partnerName}
+              </h4>
+              <p className="text-[13px] sm:text-[13.5px] text-white/95 mt-0.5">
+                {currentHub.city}, {currentHub.country}
+              </p>
+            </div>
+
+            <div className="mt-2 text-white/95 border-t border-white/25 pt-2">
+              <span className="text-white/90 font-bold text-[11.5px] uppercase tracking-wider block mb-0.5">
                 Areas of Collaboration:
               </span>
-              <span className="text-[13px] sm:text-[13.5px] leading-snug font-medium">{currentHub.areasOfCollaboration.join(" · ")}</span>
+              <span className="text-[12.5px] sm:text-[13px] leading-snug font-medium">{currentHub.areasOfCollaboration.join(" · ")}</span>
             </div>
           </div>
 

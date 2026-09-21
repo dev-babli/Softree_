@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 42" fill="none">
+  <!-- Accent bars for Nuvento brand identity -->
+  <text x="0" y="30" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="28" font-weight="900" letter-spacing="1.5" fill="#0A1128">
+    N<tspan fill="#00B4D8">U</tspan><tspan fill="#0A1128">V</tspan><tspan fill="#FF5812">E</tspan><tspan fill="#0A1128">N</tspan><tspan fill="#00B4D8">T</tspan><tspan fill="#FF5812">O</tspan>
+  </text>
+  <circle cx="163" cy="14" r="3.5" fill="#FF5812" />
+  <rect x="1" y="36" width="28" height="2.5" rx="1.25" fill="#00B4D8" />
+  <rect x="33" y="36" width="34" height="2.5" rx="1.25" fill="#FF5812" />
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 44" fill="none">
+  <!-- J Icon -->
+  <path d="M6 10H16V26C16 30 13 34 8 34C5 34 3 32 3 32L5 26C5 26 6.5 27.5 8 27.5C9.5 27.5 10 26.5 10 25V10H6Z" fill="#10B981" />
+  <!-- JONIANS -->
+  <text x="24" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="900" letter-spacing="1" fill="#0D9488">JONIANS</text>
+  <text x="24" y="36" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="700" letter-spacing="1.5" fill="#14B8A6">MODERN TECHNOLOGIES</text>
+</svg>
