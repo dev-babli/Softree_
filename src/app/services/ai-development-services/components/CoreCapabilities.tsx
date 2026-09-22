@@ -24,18 +24,18 @@ export default function CoreCapabilities() {
       <div className="relative z-10 max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
 
         {/* Header */}
-        <div className="flex flex-col items-center w-full mb-12 lg:mb-16">
+        <div className="flex flex-col items-start w-full mb-12 lg:mb-16">
           <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-4 py-1.5 rounded-full border border-white/60 mb-4 inline-block">
             <span className="typo-caption text-[#FF6B2C]">
               CORE CAPABILITIES
             </span>
           </div>
 
-          <h2 className="typo-heading-2 text-slate-900 mb-4 text-center">
+          <h2 className="typo-heading-2 text-slate-900 mb-4 text-left">
             Agentic AI Development <span className="text-[#FF6B2C]">Capabilities</span>
           </h2>
 
-          <p className="typo-description text-slate-500 text-center max-w-2xl mx-auto">
+          <p className="typo-description text-slate-500 text-left max-w-3xl">
             From AI strategy and architecture to agent development, integration, security, testing, deployment, and optimization, we build production-ready Agentic AI solutions around your business workflows and systems.
           </p>
         </div>

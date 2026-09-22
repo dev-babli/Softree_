@@ -2,19 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { UserCog, Cpu, Grid2X2, Database, CodeXml, ArrowDown, Shield, Users, Sparkles, Calendar } from "lucide-react";
-import { FlowButton } from "@/components/ui/flow-button";
 import TrustStrip from "@/components/sections/TrustStrip";
-
-const CAPABILITIES = [
-  { id: "01", name: "Offshore\nEngineering", icon: UserCog },
-  { id: "02", name: "Agentic AI", icon: Cpu },
-  { id: "03", name: "Microsoft", icon: Grid2X2 },
-  { id: "04", name: "Data", icon: Database },
-  { id: "05", name: "Modern\nEngineering", icon: CodeXml },
-];
 
 const IMAGES = [
   { src: "/images/serve/3.jpg", height: "h-[65%]" },
@@ -22,72 +10,40 @@ const IMAGES = [
   { src: "/images/serve/5.jpg", height: "h-[100%]" },
 ];
 
-const trustItems = [
-  { icon: Shield, title: 'WHITE-LABEL', subtitle: 'Trusted agency partner.' },
-  { icon: Users, title: 'OFFSHORE TEAMS', subtitle: 'Scale on demand.' },
-  { icon: Cpu, title: 'MICROSOFT AI', subtitle: 'Azure & OpenAI partners.' },
-  { icon: Sparkles, title: 'ENTERPRISE AI', subtitle: 'Secure, production-grade.' },
-  { icon: Calendar, title: 'SINCE 2013', subtitle: '13+ years of excellence.' },
-];
-
 export default function Hero() {
   return (
-    <section className="relative w-full pt-24 pb-0 lg:pt-28 lg:pb-0 overflow-hidden flex flex-col">
-      <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-8 pb-16 lg:pb-20">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
+    <section className="relative w-full pt-28 pb-0 sm:pt-32 lg:pt-36 lg:pb-0 overflow-hidden flex flex-col">
+      <div className="mx-auto w-full max-w-[1400px] px-5 sm:px-8 lg:px-8 pb-14 lg:pb-20">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 sm:gap-12 lg:gap-8 xl:gap-12">
           
           {/* LEFT SIDE: Content */}
-          <div className="w-full lg:w-[50%] flex flex-col items-start z-10">
-            <span className="text-xs lg:text-sm font-bold tracking-widest text-[#FF6B2C] uppercase mb-4">
+          <div className="w-full lg:w-[54%] xl:w-[55%] flex flex-col items-start z-10">
+            <span className="text-xs sm:text-sm lg:text-[15px] font-bold tracking-widest text-[#FF6B2C] uppercase mb-3 sm:mb-4">
               WHO DO WE SERVE?
             </span>
             
-            <h1 className="text-4xl lg:text-[3.25rem] font-extrabold text-[#0A0F3C] leading-[1.1] mb-5 tracking-tight">
-              Different Challenges.<br />
-              One Engineering Partner.
+            <h1 className="text-3xl sm:text-5xl md:text-[3.5rem] lg:text-[3.75rem] xl:text-[4.25rem] font-extrabold text-[#0A0F3C] leading-[1.08] mb-5 sm:mb-6 tracking-tight">
+              Different <span className="text-[#FF6B2C]">Challenges</span>.<br />
+              One Engineering <span className="text-[#FF6B2C]">Partner</span>.
             </h1>
             
-            <p className="text-base md:text-lg text-gray-600 mb-8 max-w-2xl leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-[1.2rem] xl:text-[1.3rem] text-gray-600 max-w-2xl leading-relaxed">
               From business leaders looking to accelerate growth to technology teams solving complex engineering challenges, Softree provides the expertise, capacity, and technology capabilities to move forward with confidence.
             </p>
-
-            {/* Capability Items */}
-            <div className="flex flex-wrap gap-x-6 gap-y-4 mb-8">
-              {CAPABILITIES.map((cap) => {
-                const Icon = cap.icon;
-                return (
-                  <div key={cap.id} className="flex flex-col items-center gap-2 w-20 lg:w-24">
-                    <div className="w-12 h-12 rounded-full bg-[#EAF5F8] flex items-center justify-center text-[#0F6080] shadow-sm">
-                      <Icon className="w-5 h-5 stroke-[1.5]" />
-                    </div>
-                    <span className="text-xs lg:text-sm font-semibold text-[#0A0F3C] text-center leading-tight whitespace-pre-line">
-                      {cap.name}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* CTA Button */}
-            <FlowButton 
-              href="/contact"
-              text="Explore Who We Serve"
-              variant="orange-filled"
-            />
           </div>
 
           {/* RIGHT SIDE: Image Composition */}
-          <div className="w-full lg:w-[50%] relative h-[350px] lg:h-[500px] mt-8 lg:mt-0 flex items-center justify-end">
+          <div className="w-full lg:w-[46%] xl:w-[45%] relative h-[320px] sm:h-[420px] md:h-[460px] lg:h-[500px] xl:h-[540px] mt-4 lg:mt-0 flex items-center justify-center lg:justify-end">
             
             {/* The slanted images container */}
-            <div className="relative w-full h-[350px] lg:h-[500px] flex items-end justify-center -skew-x-[12deg] ml-2 lg:ml-8">
+            <div className="relative w-full max-w-[520px] lg:max-w-none h-full flex items-end justify-center -skew-x-[10deg] sm:-skew-x-[12deg] ml-1 sm:ml-4 lg:ml-6">
               {IMAGES.map((img, index) => (
                 <div 
                   key={index} 
-                  className={`group relative flex-1 ${img.height} overflow-hidden rounded-t-2xl rounded-b-xl border-r-[6px] border-white last:border-r-0 transition-all duration-500 ease-in-out hover:flex-[1.2] shadow-lg`}
+                  className={`group relative flex-1 ${img.height} overflow-hidden rounded-t-2xl rounded-b-xl border-r-[4px] sm:border-r-[6px] border-white last:border-r-0 transition-all duration-500 ease-in-out hover:flex-[1.2] shadow-lg`}
                 >
                   {/* Un-skew the image itself so faces are normal */}
-                  <div className="absolute top-0 -left-[20%] w-[140%] h-full skew-x-[12deg]">
+                  <div className="absolute top-0 -left-[20%] w-[140%] h-full skew-x-[10deg] sm:skew-x-[12deg]">
                     <Image
                       src={img.src}
                       alt={`Professional ${index + 1}`}
@@ -111,15 +67,15 @@ export default function Hero() {
                       />
                       
                       {/* Text perfectly positioned inside the 3rd column, un-skewed so it reads normally */}
-                      <div className="absolute bottom-6 right-4 lg:bottom-10 lg:right-8 z-20 flex flex-col gap-1.5 text-left skew-x-[12deg]">
+                      <div className="absolute bottom-4 sm:bottom-6 right-3 sm:right-4 lg:bottom-10 lg:right-8 z-20 flex flex-col gap-1 sm:gap-1.5 text-left skew-x-[10deg] sm:skew-x-[12deg]">
                         {["People", "Technology", "Progress", "Together"].map((text, i) => (
-                          <span key={i} className="text-base lg:text-lg font-medium text-white/95 tracking-wide leading-relaxed cursor-default">
+                          <span key={i} className="text-sm sm:text-base lg:text-lg font-medium text-white/95 tracking-wide leading-relaxed cursor-default">
                             {text}
                           </span>
                         ))}
-                        <div className="flex gap-2 mt-2">
-                          <div className="w-6 h-[3px] bg-[#FF6B2C] rounded-full" />
-                          <div className="w-6 h-[3px] bg-[#FF6B2C] rounded-full" />
+                        <div className="flex gap-1.5 sm:gap-2 mt-1.5 sm:mt-2">
+                          <div className="w-5 sm:w-6 h-[3px] bg-[#FF6B2C] rounded-full" />
+                          <div className="w-5 sm:w-6 h-[3px] bg-[#FF6B2C] rounded-full" />
                         </div>
                       </div>
                     </>
@@ -139,4 +95,5 @@ export default function Hero() {
     </section>
   );
 }
+
 

@@ -54,7 +54,7 @@ export default function OffshoreEngineeringSection() {
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-amber-500/[0.03] rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 lg:gap-x-16 gap-y-6 lg:gap-y-8 items-center">
 
           {/* Left Content Side - Typography-Led, Non-Card Editorial Layout */}
           <div className="lg:col-span-7 flex flex-col justify-between gap-5 text-left">
@@ -126,8 +126,19 @@ export default function OffshoreEngineeringSection() {
               })}
             </div>
 
-            {/* Extension Highlight Ribbon */}
-            <div className="border-t border-slate-100 pt-3 flex flex-col gap-2">
+          </div>
+
+          {/* Right Side - Synchronized Interactive Photo Stack */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-end self-end">
+            <PhotoStackGallery
+              selectedIndex={activeRole}
+              onSelectIndex={(idx) => setActiveRole(idx)}
+            />
+          </div>
+
+          {/* Bottom Row: Extension Highlight Ribbon (Left) & CTA Button (Right) */}
+          <div className="lg:col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-x-12 lg:gap-x-16 items-center pt-4 border-t border-slate-100">
+            <div className="lg:col-span-7 flex flex-col gap-2">
               <div className="flex items-start gap-2.5">
                 <div className="w-7 h-7 rounded-lg bg-orange-50 text-[#FF6B2C] flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
                   <Sparkles className="w-3.5 h-3.5" />
@@ -153,27 +164,14 @@ export default function OffshoreEngineeringSection() {
               </div>
             </div>
 
-            {/* Call to Action */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-0.5">
+            <div className="lg:col-span-5 flex justify-start lg:justify-end">
               <FlowButton
                 href="/contact"
                 text="Build Your Offshore AI Team"
                 variant="orange-filled"
                 className="shadow-lg shadow-orange-500/20"
               />
-              <span className="text-xs text-slate-500 font-medium">
-                ⚡ Pre-vetted senior engineers • Onboard in 1–2 weeks
-              </span>
             </div>
-
-          </div>
-
-          {/* Right Side - Synchronized Interactive Photo Stack */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <PhotoStackGallery
-              selectedIndex={activeRole}
-              onSelectIndex={(idx) => setActiveRole(idx)}
-            />
           </div>
 
         </div>

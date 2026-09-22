@@ -103,28 +103,33 @@ export default function AiDevelopmentServicesPage() {
       {/* Who We Help & Global Network Section */}
       <div id="partnership" className="bg-white pt-8 md:pt-12 pb-8 md:pb-12 text-slate-900 scroll-mt-24">
         <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
-          {/* Unified Centered Header */}
-          <div className="flex flex-col items-center w-full mb-16 md:mb-20 text-center">
-            <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-4 py-1.5 rounded-full border border-white/60 mb-4 inline-block">
-              <span className="typo-caption text-[#FF6B2C]">
-                PARTNERSHIP & GLOBAL REACH
-              </span>
-            </div>
-            <h2 className="typo-heading-2 text-slate-900 mb-4">
-              Who We Help & <span className="text-[#FF6B2C]">Where We Operate</span>
-            </h2>
-            <p className="typo-description text-slate-500 max-w-4xl mx-auto">
-              We help businesses, technology companies, agencies, consultancies, and system integrators build and deliver AI solutions with experienced offshore engineering teams. From AI agents and Agentic AI workflows to RAG and integrations, we provide flexible development support across global markets.
-            </p>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 lg:gap-x-16 gap-y-8 lg:gap-y-10 items-start">
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left Column: Who We Help */}
-            <div className="lg:col-span-6 flex flex-col justify-center">
-              <WhoWeHelp />
+            {/* Top Area: Eyebrow, then Heading & Intro side-by-side */}
+            <div className="lg:col-span-12 flex flex-col">
+              <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-3.5 py-1 rounded-full border border-white/60 mb-4 inline-block self-start">
+                <span className="typo-caption text-[#FF6B2C] uppercase">
+                  WHO WE HELP & WHERE WE OPERATE
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 lg:gap-x-16 gap-y-4 items-start">
+                <h2 className="typo-heading-2 text-slate-900 pr-4">
+                  AI Engineering For Teams That Need To <span className="text-[#FF6B2C]">Move Faster</span>
+                </h2>
+
+                <p className="typo-description text-slate-500 w-full pt-1.5">
+                  We help businesses, technology companies, agencies, consultancies, and system integrators build and deliver AI solutions with experienced offshore engineering teams.
+                </p>
+              </div>
             </div>
-            {/* Right Column: Global Presence (NetworkGlobe) */}
-            <div className="lg:col-span-6 w-full flex justify-center lg:justify-end">
+
+            {/* Bottom Row: Who We Help Items (Left) and Globe (Right) */}
+            <div className="lg:col-span-6 flex flex-col">
+              <WhoWeHelp simple={true} />
+            </div>
+
+            <div className="lg:col-span-6 w-full flex justify-center lg:justify-end items-stretch">
               <NetworkGlobe
                 heading="Where our clients are"
                 tagline="Global Reach. Local Understanding."
@@ -138,20 +143,20 @@ export default function AiDevelopmentServicesPage() {
       </div>
 
       {/* Reverse Sticky Scroll Overall Header */}
-      <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 mt-12 md:mt-16 mb-10 flex flex-col items-center text-center">
-        <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-4 py-1.5 rounded-full border border-white/60 mb-4 inline-block">
-          <span className="typo-caption text-[#FF6B2C]">
+      <div className="w-full max-w-[1340px] mx-auto px-4 mt-12 md:mt-16 mb-8 flex flex-col items-start text-left">
+        <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-3.5 py-1 rounded-full border border-white/60 mb-4 inline-block">
+          <span className="typo-caption text-[#FF6B2C] uppercase">
             What We Build
           </span>
         </div>
 
         <h2 className="typo-heading-2 text-slate-900 mb-4">
-          AI Development Solutions Built for{" "}
+          AI Development Solutions Built for <br />
           <span className="text-[#FF6B2C]">Agentic AI & Intelligent Automation</span>
         </h2>
 
-        <p className="typo-description text-slate-500 max-w-2xl mx-auto">
-          Build production-ready AI solutions that connect AI agents, enterprise knowledge, business systems and intelligent automation to solve real workflows and deliver measurable outcomes.
+        <p className="typo-description text-slate-500 max-w-2xl">
+          Build production-ready AI solutions that connect AI agents, enterprise knowledge, business systems and intelligent automation to solve real workflows and deliver outcomes.
         </p>
       </div>
 
@@ -168,15 +173,15 @@ export default function AiDevelopmentServicesPage() {
       {/* <Industries /> */}
 
       {/* Infinite Parallax AI Showcase */}
-      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-[2cm] mt-4 md:mt-6 flex flex-col items-center text-center">
+      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-[2cm] mt-4 md:mt-6 flex flex-col items-start text-left">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] mb-3">
           <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
           AWS AI ECOSYSTEM
         </div>
-        <h2 className="typo-heading-2 max-w-4xl mx-auto text-slate-900 mb-4">
+        <h2 className="typo-heading-2 max-w-4xl text-slate-900 mb-4">
           Build Agentic AI Solutions Across the <span className="text-[#FF6B2C]">AWS Ecosystem</span>
         </h2>
-        <p className="typo-description text-slate-500 max-w-4xl mx-auto">
+        <p className="typo-description text-slate-500 max-w-5xl">
           Build production-ready Agentic AI and AI solutions on AWS using foundation models, Amazon Bedrock, RAG, intelligent automation, vector search, and secure cloud infrastructure.
         </p>
       </div>
@@ -192,7 +197,7 @@ export default function AiDevelopmentServicesPage() {
       {/* <DigitalEngineeringSolutions /> */}
       <AiRoadmap />
 
-      <PartnerShowcase />
+      {/* <PartnerShowcase /> */}
       {/* <ClientTestimonialsShowcase /> */}
       {/* Storytelling Flow
       <BusinessChallenges />

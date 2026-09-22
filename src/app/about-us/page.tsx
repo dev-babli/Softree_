@@ -76,7 +76,7 @@ export default function AboutUsPage1() {
       <AboutClientLogos />
       <ExactAboutUs />
       {/* 2. Who Do We Serve */}
-      <NewWhoDoWeServeSection />
+      <NewWhoDoWeServeSection className="bg-white" />
       {/* 2. About — Core Values, Mission, Vision, and Approach */}
       <CoreValuesSection />
       {/* Our Journey Timeline */}

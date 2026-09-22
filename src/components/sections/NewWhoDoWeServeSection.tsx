@@ -97,9 +97,9 @@ const REVIEWS = [
   },
 ];
 
-export default function NewWhoDoWeServeSection() {
+export default function NewWhoDoWeServeSection({ className }: { className?: string }) {
   return (
-    <section className="relative w-full bg-[#F8F9FC] pt-0 pb-8 md:pb-12 border-t border-[#0a0a1a]/[0.06] overflow-hidden">
+    <section className={`relative w-full pt-0 pb-8 md:pb-12 border-t border-[#0a0a1a]/[0.06] overflow-hidden ${className || "bg-[#F8F9FC]"}`}>
       <div className="mx-auto w-full max-w-[1400px]">
 
         {/* Main Component Content */}

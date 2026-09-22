@@ -410,16 +410,17 @@ export default function MicrosoftAiShowcase() {
     <section className="w-full max-w-[1600px] mx-auto px-3 xs:px-4 sm:px-8 lg:px-12 my-16 sm:my-20 md:my-24 z-10 relative font-sans flex flex-col gap-6 sm:gap-10">
 
       {/* Section Heading */}
-      <div className="text-center w-full max-w-4xl mx-auto flex flex-col items-center px-4">
+      <div className="text-left w-full flex flex-col items-start mb-2 lg:mb-4">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 border border-orange-500/20 text-[#FF5812] typo-caption mb-4 shadow-sm">
           <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#FF5812] animate-pulse" />
           MICROSOFT AI ECOSYSTEM
         </div>
         <h2 className="typo-heading-2 tracking-tight text-slate-900 mb-2 sm:mb-4">
-          Build Agentic AI Solutions Across the <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF5812] to-amber-500">Microsoft AI Ecosystem</span>
+          Build Agentic AI Solutions Across <br className="hidden sm:block" /> the <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF5812] to-amber-500">Microsoft AI Ecosystem</span>
         </h2>
-        <p className="typo-description text-slate-600 max-w-2xl text-center">
-          Build, integrate, and scale Agentic AI solutions with Microsoft Foundry, Azure OpenAI, Copilot, and Azure AI—connecting AI agents with enterprise knowledge, business applications, and intelligent workflows.</p>
+        <p className="typo-description text-slate-600 max-w-3xl text-left">
+          Build, integrate, and scale Agentic AI solutions with Microsoft Foundry, Azure OpenAI, Copilot, and Azure AI—connecting AI agents with enterprise knowledge, business applications, and intelligent workflows.
+        </p>
       </div>
 
       {/* Outer Dashboard Card */}

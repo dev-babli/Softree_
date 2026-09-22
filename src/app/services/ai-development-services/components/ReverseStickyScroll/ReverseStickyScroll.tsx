@@ -96,15 +96,6 @@ export const ReverseStickyScroll = () => {
       {[
         {
           num: "01",
-          title: "Agentic AI",
-          titleSplit: "Agentic<br />AI",
-          desc: "Build enterprise Agentic AI solutions that can reason, plan, use tools, adapt to changing conditions, and autonomously execute complex business workflows with minimal human intervention.",
-          bg: "#ff7b00",
-          text: "#ffffff",
-          link: "/services/agentic-ai"
-        },
-        {
-          num: "02",
           title: "AI Agent ",
           titleSplit: "AI Agent<br />Development",
           desc: "Build custom AI agents that understand business context, use tools and APIs, access enterprise knowledge, and execute multi-step workflows.",
@@ -112,7 +103,7 @@ export const ReverseStickyScroll = () => {
           link: "/solutions/ai-agents-development"
         },
         {
-          num: "03",
+          num: "02",
           title: "Multi-Agent Systems",
           titleSplit: "Multi-Agent<br />Systems",
           desc: "Design coordinated AI agents that work together across specialized tasks, workflows, and business processes to handle complex automation.",
@@ -120,7 +111,7 @@ export const ReverseStickyScroll = () => {
           link: "/solutions/multi-agent-systems"
         },
         {
-          num: "04",
+          num: "03",
           title: "RAG & Enterprise Knowledge",
           titleSplit: "RAG-Powered AI Agents",
           desc: "Connect AI agents to business documents, knowledge bases, databases, and enterprise data using RAG for grounded responses and context-aware workflows.",
@@ -128,7 +119,7 @@ export const ReverseStickyScroll = () => {
           link: "/solutions/enterprise-rag-development"
         },
         {
-          num: "05",
+          num: "04",
           title: "AI Workflow Automation",
           titleSplit: "AI Workflow<br />Automation",
           desc: "Connect AI agents with business applications and workflows to automate repetitive and decision-driven processes, reduce manual effort, and improve operational efficiency.",
@@ -136,7 +127,7 @@ export const ReverseStickyScroll = () => {
           link: "/solutions/ai-workflow-automation"
         },
         {
-          num: "06",
+          num: "05",
           title: "AI Copilots",
           titleSplit: "AI<br />Copilots",
           desc: "Develop context-aware AI copilots that assist employees and customers with real-time guidance, knowledge access, decision support, and task execution across business applications.",
@@ -144,7 +135,7 @@ export const ReverseStickyScroll = () => {
           link: "/solutions/ai-copilot-development"
         },
         {
-          num: "07",
+          num: "06",
           title: "Generative AI",
           titleSplit: "Generative AI Solutions",
           desc: "Build production-ready generative AI applications that create content, assist users, support knowledge work, and add intelligent capabilities to business applications.",
@@ -152,7 +143,7 @@ export const ReverseStickyScroll = () => {
           link: "/services/generative-ai"
         },
         {
-          num: "08",
+          num: "07",
           title: "Azure OpenAI",
           titleSplit: "Azure OpenAI Solutions",
           desc: "Build secure Azure OpenAI solutions for enterprise applications, RAG, AI assistants, and governed AI experiences across the Microsoft ecosystem.",

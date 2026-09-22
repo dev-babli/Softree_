@@ -238,6 +238,9 @@ const STYLES = `
   --text-dim:#a89f95;
 
   width:100%;
+  height:100%;
+  display: flex;
+  flex-direction: column;
   background: radial-gradient(circle at 50% 40%, #1c1510 0%, #0a0908 100%);
   border: 1px solid rgba(255, 107, 0, 0.08);
   padding:20px 20px 14px;
@@ -252,6 +255,10 @@ const STYLES = `
 .globe-container{
   max-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
 }
 
 .globe-heading{
@@ -299,22 +306,22 @@ const STYLES = `
 
 @media (min-width: 1024px) {
   .globe-canvas-wrap{
-    width:460px;
-    height:460px;
+    width:420px;
+    height:420px;
   }
 }
 
 @media (min-width: 1280px) {
   .globe-canvas-wrap{
-    width:500px;
-    height:500px;
+    width:480px;
+    height:480px;
   }
 }
 
 @media (min-width: 1536px) {
   .globe-canvas-wrap{
-    width:540px;
-    height:540px;
+    width:520px;
+    height:520px;
   }
 }
 

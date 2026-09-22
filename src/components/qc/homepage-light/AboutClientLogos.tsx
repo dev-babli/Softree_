@@ -120,13 +120,13 @@ export function AboutClientStatsGrid({
               {stat.value}
             </span>
 
-            <span className={`mt-2 text-[10px] font-bold uppercase tracking-[0.24em] ${
+            <span className={`mt-2 text-sm font-extrabold uppercase tracking-[0.24em] ${
               dark ? "text-neutral-400" : "text-neutral-500"
             }`}>
               {stat.label}
             </span>
 
-            <span className={`mt-2 text-xs font-normal leading-relaxed ${
+            <span className={`mt-2 text-sm font-normal leading-relaxed ${
               dark ? "text-neutral-500" : "text-neutral-500"
             }`}>
               {stat.desc}

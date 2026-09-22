@@ -75,7 +75,7 @@ export default function AiReadinessBanner() {
 
             {/* Description Paragraph */}
             <p className="typo-description text-slate-600 max-w-xl mb-8">
-              Build and scale Agentic AI solutions with an experienced offshore engineering team. From AI agents and RAG to automation and integrations, Softree provides the engineering capacity to extend your team, deliver projects or support white-label engagements.
+              Build and scale Agentic AI solutions with an experienced offshore engineering team. From AI agents and RAG to automation and integrations.
             </p>
 
             {/* 4 Feature Items List */}

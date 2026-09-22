@@ -746,9 +746,10 @@ export default function WhySoftreeCurtainSlider() {
           </span>
         </div>
         <h2 className="typo-heading-2 tracking-tight mb-3 text-slate-900">
-          Agentic AI Development Process: <span className="text-[#FF5812]">From Idea to Production</span>
+          Agentic AI Development Process: <br className="hidden md:block" />
+          <span className="text-[#FF5812]">From Idea to Production</span>
         </h2>
-        <div className="max-w-3xl space-y-1.5 typo-description text-slate-600">
+        <div className="max-w-4xl space-y-1.5 typo-description text-slate-600">
           <p>A production-ready Agentic AI solution requires more than a model.</p>
           <p>We align business goals, architecture, data, agent development, integrations, testing, security, and deployment to move from a validated use case to production.</p>
         </div>

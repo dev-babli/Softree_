@@ -2,14 +2,14 @@
 
 import React from "react";
 import Image from "next/image";
-import { 
-  Shield, 
-  Users, 
-  Settings, 
-  ClipboardCheck, 
-  Lock, 
-  Layers, 
-  TrendingUp, 
+import {
+  Shield,
+  Users,
+  Settings,
+  ClipboardCheck,
+  Lock,
+  Layers,
+  TrendingUp,
   Grid,
   Cloud,
   MessageSquare,
@@ -269,7 +269,7 @@ function QAItem({
         <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#FFF5F0] text-[#FF6B2C] flex items-center justify-center font-bold text-sm">
           {num}
         </div>
-        
+
         <div className="flex-shrink-0 pt-1 hidden sm:block">
           <Icon className="w-6 h-6 text-[#1A202C]" strokeWidth={1.5} />
         </div>
@@ -294,27 +294,29 @@ function QAItem({
 }
 
 function ProfileBlock({ aud, index }: { aud: Audience; index: number }) {
+  const isEven = index % 2 === 0;
+
   return (
     <div
       id={`audience-${aud.id}`}
-      className={`flex flex-col lg:flex-row gap-10 lg:gap-14 items-stretch scroll-mt-48 lg:scroll-mt-64 pt-8 lg:pt-12 ${
-        index !== 0 ? 'border-t border-gray-100' : ''
-      }`}
+      className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"
+        } gap-10 lg:gap-14 items-stretch scroll-mt-48 lg:scroll-mt-64 pt-8 lg:pt-12 ${index !== 0 ? 'border-t border-gray-100' : ''
+        }`}
     >
-      {/* LEFT: Image Card */}
+      {/* Image Card */}
       <div className="w-full lg:w-[35%] flex flex-col">
-        <div className="relative w-full h-full rounded-[1.25rem] overflow-hidden bg-gray-100 flex flex-col shadow-lg border border-gray-200">
-          <div className="relative w-full flex-1 min-h-[300px] lg:min-h-0">
-            <Image 
-              src={aud.imageSrc} 
-              fill 
-              className="object-cover object-[center_20%]" 
+        <div className="relative w-full h-full rounded-[1.25rem] overflow-hidden bg-gray-100 flex flex-col shadow-lg border border-gray-200 min-h-[380px] lg:min-h-0">
+          <div className="relative w-full flex-1 min-h-[280px] lg:min-h-0">
+            <Image
+              src={aud.imageSrc}
+              fill
+              className="object-cover object-[center_20%]"
               alt={aud.fullTitle}
               sizes="(max-width: 1024px) 100vw, 35vw"
               priority={index === 0}
             />
           </div>
-          
+
           {/* Quote Block inside the image card */}
           {aud.quote && (
             <div className="relative z-10 bg-[#16233B] text-white p-7 lg:p-9 w-full flex-shrink-0 mt-[-1px]">
@@ -331,7 +333,7 @@ function ProfileBlock({ aud, index }: { aud: Audience; index: number }) {
         </div>
       </div>
 
-      {/* RIGHT: Content */}
+      {/* Content */}
       <div className="w-full lg:w-[65%] flex flex-col pt-1 lg:pt-0">
         <span className="text-gray-500 font-bold text-sm mb-2 tracking-wide">
           {aud.id} / 05
@@ -382,7 +384,7 @@ export default function Audiences() {
   return (
     <section className="relative w-full pt-8 pb-12 lg:pt-10 lg:pb-16 bg-white">
       <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-8">
-        
+
         {/* Header Section */}
         <div className="flex flex-col items-center text-center mb-8">
           <span className="text-[10px] lg:text-[11px] font-bold tracking-widest text-[#FF6B2C] uppercase mb-2 bg-[#FFF5F0] px-3 py-1 rounded-full">
@@ -405,10 +407,10 @@ export default function Audiences() {
               className="group min-w-[160px] lg:min-w-0 flex-1 flex flex-col rounded-[1rem] overflow-hidden border-2 text-left transition-all duration-300 snap-start bg-white border-gray-100 hover:border-[#FF6B2C] hover:shadow-md hover:bg-[#FFF9F6]"
             >
               <div className="relative w-full h-[100px] lg:h-[120px] bg-gray-200 shrink-0 overflow-hidden">
-                <Image 
-                  src={aud.imageSrc} 
-                  fill 
-                  className="object-cover object-[center_20%] transition-transform duration-500 group-hover:scale-105" 
+                <Image
+                  src={aud.imageSrc}
+                  fill
+                  className="object-cover object-[center_20%] transition-transform duration-500 group-hover:scale-105"
                   alt={aud.fullTitle}
                   sizes="(max-width: 1024px) 50vw, 20vw"
                 />
@@ -433,7 +435,7 @@ export default function Audiences() {
         </div>
 
       </div>
-      
+
       {/* Hide scrollbar utility for the horizontal scroll area */}
       <style jsx global>{`
         .hide-scrollbar::-webkit-scrollbar {
