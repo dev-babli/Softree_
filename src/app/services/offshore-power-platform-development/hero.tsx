@@ -240,6 +240,7 @@ export default function HeroPowerApps() {
           }
           .hero-slider-viewport {
             width: 100% !important;
+            min-height: 480px !important;
           }
           .hero-stats {
             flex-wrap: wrap;
@@ -495,9 +496,9 @@ const styles: Record<string, CSSProperties> = {
   sliderViewport: {
     position: "relative",
     overflow: "hidden",
-    width: "130%",
+    width: "120%",
     borderRadius: "20px",
-    minHeight: "305px", // ⭐ IMPORTANT (adjust as needed)
+    minHeight: "312px", // ⭐ IMPORTANT (adjust as needed)
   },
   sliderTrack: {
     display: "flex",

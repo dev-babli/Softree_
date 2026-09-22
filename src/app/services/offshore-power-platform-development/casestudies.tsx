@@ -92,12 +92,12 @@ export default function PowerAppsCaseStudies() {
             Case Studies
           </span>
 
-          <h2 className="text-3xl lg:text-4xl font-semibold text-gray-900">
-            Power Platform in Action:
-            <span className="text-orange-600"> Business Success Stories</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
+            Power Platform in Action: <br />
+            <span className="text-orange-600">Business Success Stories</span>
           </h2>
 
-          <p className="mt-2 max-w-4xl mx-auto text-base text-gray-600">
+          <p className="mt-2 text-lg md:text-[1.1rem] leading-relaxed text-gray-600 max-w-3xl mx-auto">
             See how Softree uses Microsoft Power Platform to solve real business challenges, modernize processes, automate workflows, and deliver measurable results.
           </p>
         </div>

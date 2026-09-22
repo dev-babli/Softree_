@@ -96,14 +96,14 @@ export default function PowerAppsTechnologies() {
             Microsoft Power Platform
           </span>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-            Microsoft Power Platform{" "}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+            Microsoft Power Platform <br className="hidden md:block" />
             <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
               Technologies & Integrations
             </span>
           </h2>
 
-          <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-gray-600">
+          <p className="text-lg md:text-[1.1rem] leading-relaxed text-gray-600 max-w-3xl mx-auto mt-3">
             We build scalable Microsoft Power Platform solutions across apps, automation, data, integrations, security, and governance.
           </p>
         </div>

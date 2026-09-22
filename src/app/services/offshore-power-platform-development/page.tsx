@@ -154,14 +154,15 @@ export default function Home() {
       <TrustedBrandsMarquee />
       <StackedSlider />
       {/* MAIN CONTENT SECTIONS */}
-      <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
+      <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50 pt-20">
         <div>
           <PowerAppsCaseStudies />
           <PowerAppsServices />
           <HirePowerAppsPricing />
-          <WhyChooseSoftreePowerApps />
+
           <TechStackSection />
           <PowerAppsProcess />
+          <WhyChooseSoftreePowerApps />
           {/* <TestimonialsSplitSlider /> */}
           {/* <Certifications /> */}
         </div>

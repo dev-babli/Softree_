@@ -15,13 +15,19 @@ export default function HirePowerAppsPricing() {
     <section id="plan-pricing" className="relative py-14">
       <div className="mx-auto max-w-7xl px-6">
         {/* ================= HEADING ================= */}
-        <h2 className="mb-16 text-center text-4xl font-semibold text-gray-900">
-          Hire{" "}
-          <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
-            Microsoft Power Platform Developers
-          </span>{" "} <br />
-          for Business-Driven Digital Solutions
-        </h2>
+        <div className="mx-auto max-w-5xl text-center mb-16">
+          <h2 className="mb-6 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
+            Hire{" "}
+            <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
+              Microsoft Power Platform Developers
+            </span>{" "}
+            <br className="hidden lg:block" />
+            for Business-Driven Digital Solutions
+          </h2>
+          <p className="text-lg md:text-[1.1rem] leading-relaxed text-gray-600 max-w-3xl mx-auto">
+            Scale your Microsoft Power Platform development capacity with experienced offshore developers and dedicated engineering teams. Softree provides flexible development support across Power Apps, Power Automate, Power BI, Power Pages, Dataverse, integrations, and ongoing Power Platform development.
+          </p>
+        </div>
 
         {/* ================= MAIN GRID ================= */}
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-4">

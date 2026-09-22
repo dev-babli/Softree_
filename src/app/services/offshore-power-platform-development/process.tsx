@@ -86,7 +86,6 @@ export default function PowerAppsProcessSection() {
     backdrop-blur-2xl
     border border-white/10
     rounded-[36px]
-    shadow-[0_40px_120px_rgba(0,0,0,0.6)]
   "
         >
           {/* ================= LEFT – TRUE STICKY ================= */}
@@ -104,7 +103,7 @@ export default function PowerAppsProcessSection() {
               </span>
 
               {/* Heading */}
-              <h3 className="text-3xl lg:text-4xl font-semibold text-white leading-tight">
+              <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight">
                 Our <span className="text-orange-500">Microsoft Power Platform</span> Development Process
               </h3>
 
@@ -112,7 +111,7 @@ export default function PowerAppsProcessSection() {
               <div className="w-14 h-px bg-white/30" />
 
               {/* Description */}
-              <p className="text-lg text-gray-400 leading-relaxed">
+              <p className="text-lg md:text-[1.1rem] leading-relaxed text-gray-400">
                 At Softree, we follow a structured and outcome-driven approach to deliver secure, scalable Microsoft Power Platform solutions. From discovery and solution design to development, integration, testing, deployment, and ongoing support, we help businesses build and evolve Power Platform solutions aligned with their goals.
               </p>
             </div>
