@@ -44,12 +44,12 @@ export default function AboutTeamSection() {
         >
           <div className="mb-5 flex items-center justify-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-[#FF5812]" />
-            <span className="text-xs md:text-sm font-semibold tracking-[0.25em] text-zinc-400/90 uppercase">
+            <span className="typo-caption text-zinc-500">
               Our Team
             </span>
           </div>
-          <h2 className="text-[#0a0a1a] tracking-tight mb-4 flex flex-col items-center">
-            <span className="font-black text-3xl md:text-5xl leading-[1.1] max-w-none block w-full">
+          <h2 className="typo-heading-2 text-[#0a0a1a] tracking-tight mb-4 flex flex-col items-center">
+            <span className="max-w-none block w-full">
               <span className="text-[#0a0a1a]">The Team Behind</span>{" "}
               <span className="text-[#FF5812] drop-shadow-[0_2px_12px_rgba(255,88,18,0.15)]">Every Solution</span>
             </span>
@@ -79,13 +79,13 @@ export default function AboutTeamSection() {
 
               {/* Info */}
               <div className="p-6">
-                <h3 className="mb-1 text-xl font-semibold text-[var(--legacy-141413)]">
+                <h3 className="typo-heading-4 mb-1 text-zinc-900">
                   {member.name}
                 </h3>
-                <p className="mb-2 text-sm font-medium text-[#FF5812]">
+                <p className="typo-caption-meta mb-2 font-semibold text-[#FF5812]">
                   {member.role}
                 </p>
-                <p className="text-sm text-[var(--legacy-141413)]/60">
+                <p className="typo-body text-zinc-600 leading-relaxed text-[15px] sm:text-base">
                   {member.description}
                 </p>
               </div>

@@ -673,16 +673,16 @@ export default function LatestTechnologies() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-14 flex flex-col items-center max-w-5xl mx-auto">
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#FF5812]/20 bg-[#FF5812]/05 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.20em] text-[#FF5812] mb-4 shadow-sm">
+          <span className="typo-caption inline-flex items-center gap-2 rounded-full border border-[#FF5812]/20 bg-[#FF5812]/05 px-4 py-1.5 text-[#FF5812] mb-4 shadow-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-[#FF5812]" />
             CORE EXPERTISE
           </span>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-[46px] font-extrabold tracking-tight text-zinc-900 mb-4 sm:whitespace-nowrap">
+          <h2 className="typo-heading-2 text-zinc-900 mb-4 sm:whitespace-nowrap">
             Enterprise Technologies & <span className="text-[#FF5812]">Engineering Pillars</span>
           </h2>
 
-          <p className="text-zinc-600 text-sm sm:text-base md:text-lg leading-relaxed font-normal max-w-3xl">
+          <p className="typo-description text-zinc-600 leading-relaxed max-w-3xl">
             From autonomous Agentic AI to enterprise Microsoft Power Platform and scalable modern engineering, explore our core technology capabilities.
           </p>
         </div>

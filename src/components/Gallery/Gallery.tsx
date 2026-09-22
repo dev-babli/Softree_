@@ -54,12 +54,12 @@ export default function Gallery({
       <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12">
         {/* Header Section (Outside the card, on white bg) */}
         <div className="flex flex-col gap-5 mb-12 sm:flex-row sm:items-end sm:justify-between">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-neutral-950 leading-tight">
+          <h2 className="typo-heading-2 text-neutral-950 tracking-tight">
             {title}
           </h2>
           <Link
             href={ctaHref}
-            className="inline-flex w-max items-center border border-neutral-350 px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-neutral-950 hover:bg-neutral-950 hover:text-white transition-colors sm:text-[12px] rounded-lg"
+            className="typo-button inline-flex w-max items-center border border-neutral-350 px-5 py-2.5 uppercase tracking-[0.14em] text-neutral-950 hover:bg-neutral-950 hover:text-white transition-colors rounded-lg"
           >
             {ctaLabel}
           </Link>

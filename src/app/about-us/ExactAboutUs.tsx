@@ -94,27 +94,27 @@ export default function ExactAboutUs() {
     <section ref={containerRef} id="exact-about-us" className="w-full overflow-hidden bg-white pt-10 pb-20 lg:pt-12 lg:pb-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
         {/* Top Section - Award Count & Content */}
-        <div className="mx-auto grid max-w-[1100px] grid-cols-1 items-start lg:grid-cols-2">
+        <div className="mx-auto grid max-w-[1100px] grid-cols-1 items-stretch lg:grid-cols-2">
           {/* Left - Award Count */}
           <motion.div
-            className="relative flex flex-col justify-center lg:pr-10"
+            className="relative flex flex-col justify-between h-full lg:pr-10"
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, ease: EASE_OUT }}
           >
             {/* Badge */}
             <motion.div
-              className="mb-3 inline-flex w-fit items-center gap-1.5 rounded-full border border-[#1852FF]/20 bg-[#F0F4FF] px-3 py-1"
+              className="mb-4 inline-flex w-fit items-center gap-1.5 rounded-full border border-[#1852FF]/20 bg-[#F0F4FF] px-3.5 py-1.5"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <div className="h-1.5 w-1.5 rounded-full bg-[#1852FF]" />
-              <span className="text-xs font-medium text-[#1852FF]">About Us</span>
+              <span className="typo-caption text-[#1852FF]">About Us</span>
             </motion.div>
  
             {/* Award Count with Globe Background */}
-            <div className="relative isolate pt-1">
+            <div className="relative isolate flex-1 flex flex-col justify-center py-4">
               {/* Orbital Lines and Globe */}
               <div className="pointer-events-none absolute -inset-10 -z-10 flex items-center justify-center opacity-60">
                 {/* Thin circular/orbital lines */}
@@ -182,148 +182,151 @@ export default function ExactAboutUs() {
 
           {/* Right - Content */}
           <motion.div
-            className="flex flex-col justify-center pt-6 lg:border-l lg:border-[#0a0a1a]/10 lg:pl-10 lg:pt-0"
+            className="flex flex-col justify-between h-full pt-8 lg:border-l lg:border-[#0a0a1a]/10 lg:pl-10 lg:pt-0"
             initial={{ opacity: 0, x: 40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2, ease: EASE_OUT }}
           >
-            <TextReveal delay={0.3}>
-              <h3 className="mb-4 text-2xl font-bold leading-tight tracking-tight text-[#0a0a1a] lg:text-3xl">
-                Your global offshore development partner<span className="text-[#1852FF]">.</span>
-              </h3>
-            </TextReveal>
+            <div>
+              <TextReveal delay={0.3}>
+                <h3 className="typo-heading-3 mb-4 font-bold leading-tight tracking-tight text-[#0a0a1a]">
+                  Your global offshore development partner<span className="text-[#1852FF]">.</span>
+                </h3>
+              </TextReveal>
 
-            {/* Three Statistics */}
-            <div className="mb-4 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-2 border-b border-[#0a0a1a]/10 pb-4 divide-y sm:divide-y-0 sm:divide-x divide-[#0a0a1a]/10">
-              {/* Stat 1 */}
-              <motion.div
-                className="flex flex-col pb-2 sm:pb-0 sm:pr-2"
-                initial={{ opacity: 0, y: 10 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.4 }}
-              >
-                <Calendar className="mb-1.5 h-4 w-4 text-[#1852FF]" strokeWidth={1.5} />
-                <span className="mb-0.5 text-lg font-bold tabular-nums text-[#1852FF]">2013</span>
-                <span className="text-[10px] font-medium leading-tight text-[#0a0a1a]/70">Founded</span>
-              </motion.div>
+              {/* Three Statistics */}
+              <div className="mb-5 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-2 border-b border-[#0a0a1a]/10 pb-4 divide-y sm:divide-y-0 sm:divide-x divide-[#0a0a1a]/10">
+                {/* Stat 1 */}
+                <motion.div
+                  className="flex flex-col pb-2 sm:pb-0 sm:pr-2"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                >
+                  <Calendar className="mb-1.5 h-4 w-4 text-[#1852FF]" strokeWidth={1.5} />
+                  <span className="mb-0.5 text-lg font-bold tabular-nums text-[#1852FF]">2013</span>
+                  <span className="typo-caption-meta text-[#0a0a1a]/70">Founded</span>
+                </motion.div>
 
-              {/* Stat 2 */}
-              <motion.div
-                className="flex flex-col pt-3 sm:pt-0 sm:px-2"
-                initial={{ opacity: 0, y: 10 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.5 }}
-              >
-                <Users className="mb-1.5 h-4 w-4 text-[#1852FF]" strokeWidth={1.5} />
-                <span className="mb-0.5 text-lg font-bold tabular-nums text-[#0a0a1a]">13+</span>
-                <span className="text-[10px] font-medium leading-tight text-[#0a0a1a]/70">Years of Engineering Experience</span>
-              </motion.div>
+                {/* Stat 2 */}
+                <motion.div
+                  className="flex flex-col pt-3 sm:pt-0 sm:px-2"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                >
+                  <Users className="mb-1.5 h-4 w-4 text-[#1852FF]" strokeWidth={1.5} />
+                  <span className="mb-0.5 text-lg font-bold tabular-nums text-[#0a0a1a]">13+</span>
+                  <span className="typo-caption-meta text-[#0a0a1a]/70">Years of Engineering Experience</span>
+                </motion.div>
 
-              {/* Stat 3 */}
-              <motion.div
-                className="flex flex-col pt-3 sm:pt-0 sm:pl-2"
-                initial={{ opacity: 0, y: 10 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.6 }}
-              >
-                <GlobeIcon className="mb-1.5 h-4 w-4 text-[#1852FF]" strokeWidth={1.5} />
-                <span className="mb-0.5 text-lg font-bold text-[#1852FF]">Global</span>
-                <span className="text-[10px] font-medium leading-tight text-[#0a0a1a]/70">Delivery Across Multiple Countries</span>
-              </motion.div>
-            </div>
+                {/* Stat 3 */}
+                <motion.div
+                  className="flex flex-col pt-3 sm:pt-0 sm:pl-2"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.6 }}
+                >
+                  <GlobeIcon className="mb-1.5 h-4 w-4 text-[#1852FF]" strokeWidth={1.5} />
+                  <span className="mb-0.5 text-lg font-bold text-[#1852FF]">Global</span>
+                  <span className="typo-caption-meta text-[#0a0a1a]/70">Delivery Across Multiple Countries</span>
+                </motion.div>
+              </div>
 
-            <TextReveal delay={0.6}>
-              <p className="mb-5 text-xs leading-relaxed text-[#0a0a1a]/80">
-                Softree is an offshore engineering partner helping businesses, technology companies, and partners extend their engineering capabilities. Our expertise spans across cutting-edge technologies and platforms to build, scale, and deliver digital solutions that drive real business impact.
-              </p>
-            </TextReveal>
+              <TextReveal delay={0.6}>
+                <p className="typo-body-lg mb-6 leading-relaxed text-[#0a0a1a]/85">
+                  Softree is an offshore engineering partner helping businesses, technology companies, and partners extend their engineering capabilities. Our expertise spans across cutting-edge technologies and platforms to build, scale, and deliver digital solutions that drive real business impact.
+                </p>
+              </TextReveal>
 
-            {/* Capability Rows */}
-            <div className="mb-6 flex flex-col gap-2">
-              {/* Row 1 */}
-              <motion.div
-                className="flex items-center gap-2.5 rounded-xl bg-[#F0EEFF] p-1.5 pr-4"
-                initial={{ opacity: 0, x: 20 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.7 }}
-              >
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white shadow-sm">
-                  <Cpu className="h-4 w-4 text-[#6B4BFF]" strokeWidth={1.5} />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-[10px] font-bold tracking-wide text-[#6B4BFF]">AI CAPABILITIES</span>
-                  <div className="flex flex-wrap items-center gap-1.5 text-[10px] font-medium text-[#0a0a1a]/70">
-                    <span>Agentic AI</span>
-                    <span className="h-1 w-1 rounded-full bg-[#6B4BFF]/40"></span>
-                    <span>Generative AI</span>
-                    <span className="h-1 w-1 rounded-full bg-[#6B4BFF]/40"></span>
-                    <span>AI Automation</span>
-                    <span className="h-1 w-1 rounded-full bg-[#6B4BFF]/40"></span>
-                    <span>RAG</span>
+              {/* Capability Rows */}
+              <div className="mb-6 flex flex-col gap-2.5">
+                {/* Row 1 */}
+                <motion.div
+                  className="flex items-center gap-3 rounded-xl bg-[#F0EEFF] p-2.5 pr-4"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.7 }}
+                >
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white shadow-xs">
+                    <Cpu className="h-4 w-4 text-[#6B4BFF]" strokeWidth={1.5} />
                   </div>
-                </div>
-              </motion.div>
-
-              {/* Row 2 */}
-              <motion.div
-                className="flex items-center gap-2.5 rounded-xl bg-[#E6F8F5] p-1.5 pr-4"
-                initial={{ opacity: 0, x: 20 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.8 }}
-              >
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white shadow-sm">
-                  <Code className="h-4 w-4 text-[#00A99D]" strokeWidth={1.5} />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-[10px] font-bold tracking-wide text-[#00A99D]">MODERN ENGINEERING</span>
-                  <div className="flex flex-wrap items-center gap-1.5 text-[10px] font-medium text-[#0a0a1a]/70">
-                    <span>Web</span>
-                    <span className="h-1 w-1 rounded-full bg-[#00A99D]/40"></span>
-                    <span>Cloud</span>
-                    <span className="h-1 w-1 rounded-full bg-[#00A99D]/40"></span>
-                    <span>APIs</span>
-                    <span className="h-1 w-1 rounded-full bg-[#00A99D]/40"></span>
-                    <span>Applications</span>
+                  <div className="flex flex-col">
+                    <span className="typo-caption font-bold text-[#6B4BFF]">AI CAPABILITIES</span>
+                    <div className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-[#0a0a1a]/75">
+                      <span>Agentic AI</span>
+                      <span className="h-1 w-1 rounded-full bg-[#6B4BFF]/40"></span>
+                      <span>Generative AI</span>
+                      <span className="h-1 w-1 rounded-full bg-[#6B4BFF]/40"></span>
+                      <span>AI Automation</span>
+                      <span className="h-1 w-1 rounded-full bg-[#6B4BFF]/40"></span>
+                      <span>RAG</span>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
 
-              {/* Row 3 */}
-              <motion.div
-                className="flex items-center gap-2.5 rounded-xl bg-[#FFF3E5] p-1.5 pr-4"
-                initial={{ opacity: 0, x: 20 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.9 }}
-              >
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white shadow-sm">
-                  <LayoutGrid className="h-4 w-4 text-[#FF7A00]" strokeWidth={1.5} />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-[10px] font-bold tracking-wide text-[#FF7A00]">MICROSOFT & DATA</span>
-                  <div className="flex flex-wrap items-center gap-1.5 text-[10px] font-medium text-[#0a0a1a]/70">
-                    <span>Power Platform</span>
-                    <span className="h-1 w-1 rounded-full bg-[#FF7A00]/40"></span>
-                    <span>SharePoint</span>
-                    <span className="h-1 w-1 rounded-full bg-[#FF7A00]/40"></span>
-                    <span>Azure</span>
-                    <span className="h-1 w-1 rounded-full bg-[#FF7A00]/40"></span>
-                    <span>Data & Analytics</span>
+                {/* Row 2 */}
+                <motion.div
+                  className="flex items-center gap-3 rounded-xl bg-[#E6F8F5] p-2.5 pr-4"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.8 }}
+                >
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white shadow-xs">
+                    <Code className="h-4 w-4 text-[#00A99D]" strokeWidth={1.5} />
                   </div>
-                </div>
-              </motion.div>
+                  <div className="flex flex-col">
+                    <span className="typo-caption font-bold text-[#00A99D]">MODERN ENGINEERING</span>
+                    <div className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-[#0a0a1a]/75">
+                      <span>Web</span>
+                      <span className="h-1 w-1 rounded-full bg-[#00A99D]/40"></span>
+                      <span>Cloud</span>
+                      <span className="h-1 w-1 rounded-full bg-[#00A99D]/40"></span>
+                      <span>APIs</span>
+                      <span className="h-1 w-1 rounded-full bg-[#00A99D]/40"></span>
+                      <span>Applications</span>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Row 3 */}
+                <motion.div
+                  className="flex items-center gap-3 rounded-xl bg-[#FFF3E5] p-2.5 pr-4"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.9 }}
+                >
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white shadow-xs">
+                    <LayoutGrid className="h-4 w-4 text-[#FF7A00]" strokeWidth={1.5} />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="typo-caption font-bold text-[#FF7A00]">MICROSOFT & DATA</span>
+                    <div className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-[#0a0a1a]/75">
+                      <span>Power Platform</span>
+                      <span className="h-1 w-1 rounded-full bg-[#FF7A00]/40"></span>
+                      <span>SharePoint</span>
+                      <span className="h-1 w-1 rounded-full bg-[#FF7A00]/40"></span>
+                      <span>Azure</span>
+                      <span className="h-1 w-1 rounded-full bg-[#FF7A00]/40"></span>
+                      <span>Data & Analytics</span>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
             </div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 1.0 }}
+              className="pt-2"
             >
               <Link
                 href="/contact"
-                className="group relative inline-flex w-fit items-center gap-2 overflow-hidden rounded-lg bg-[#0a0a1a] px-4 py-2 shadow-md transition-all duration-300 hover:-translate-y-px hover:shadow-lg active:scale-[0.97]"
+                className="group relative inline-flex w-fit items-center gap-2 overflow-hidden rounded-xl bg-[#0a0a1a] px-5 py-2.5 shadow-md transition-all duration-300 hover:-translate-y-px hover:shadow-lg active:scale-[0.97]"
               >
-                <span className="text-xs font-semibold text-white">Explore offshore engagement models</span>
-                <ArrowUpRight className="h-3.5 w-3.5 text-white transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <span className="typo-button text-white">Explore offshore engagement models</span>
+                <ArrowUpRight className="h-4 w-4 text-white transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
             </motion.div>
           </motion.div>

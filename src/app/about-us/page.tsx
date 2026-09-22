@@ -67,7 +67,7 @@ const aboutUsFaqs = [
 
 export default function AboutUsPage1() {
   return (
-    <div className="min-h-screen pt-0 bg-white">
+    <div className="min-h-screen pt-0 bg-white font-sans typo-body">
       {/* Navigation */}
       <NavigationClient />
       {/* 1. Hero — Video hero with cycling words */}

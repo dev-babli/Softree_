@@ -152,26 +152,26 @@ export default function AnimatedPhotoGallery({
           className="mb-10 flex flex-col gap-6 md:mb-12 md:flex-row md:items-end md:justify-between"
         >
           <div className="max-w-[720px]">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#1852FF]/18 bg-white/70 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#1852FF]">
+            <span className="typo-caption mb-4 inline-flex items-center gap-2 rounded-full border border-[#1852FF]/18 bg-white/70 px-4 py-2 text-[#1852FF]">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#FF5812]" />
               {eyebrow}
             </span>
             <h2
               id="animated-photo-gallery-heading"
-              className="text-3xl md:text-5xl font-bold tracking-tight text-[#0a0a1a] leading-tight"
+              className="typo-heading-2 text-[#0a0a1a] tracking-tight"
             >
               {title}{" "}
               <span className="bg-gradient-to-r from-[#1852FF] to-[#FF5812] bg-clip-text text-transparent">
                 {titleAccent}
               </span>
             </h2>
-            <p className="mt-4 max-w-[560px] text-[15px] leading-[1.65] text-[#2a3348]/85 md:text-base">
+            <p className="typo-description mt-4 max-w-[620px] text-[#2a3348]/85">
               {description}
             </p>
           </div>
           <Link
             href={ctaHref}
-            className="inline-flex w-max shrink-0 items-center justify-center rounded-full border border-[#0a0a1a]/12 bg-white px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.16em] text-[#0a0a1a] shadow-sm transition hover:border-[#1852FF]/30 hover:text-[#1852FF]"
+            className="typo-button inline-flex w-max shrink-0 items-center justify-center rounded-full border border-[#0a0a1a]/12 bg-white px-6 py-3 uppercase tracking-[0.16em] text-[#0a0a1a] shadow-sm transition hover:border-[#1852FF]/30 hover:text-[#1852FF]"
           >
             {ctaLabel}
           </Link>

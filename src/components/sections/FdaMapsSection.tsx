@@ -285,63 +285,64 @@ export default function FdaMapsSection({ embedded = false }: { embedded?: boolea
           </div>
 
           {/* ══════════════════════════════════════════════
-              MAP SECTION: SUBHEADER & REGION EXPLORATION
+              MAP SECTION: SUBHEADER & REGION EXPLORATION + MAP
              ══════════════════════════════════════════════ */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-3 px-4 sm:px-5 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md mb-8 sm:mb-12">
-            <div className="flex items-center gap-3 self-start sm:self-auto shrink-0">
-              <span className="relative flex h-2.5 w-2.5 items-center justify-center">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ff5812] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#ff5812] shadow-[0_0_8px_#ff5812]" />
-              </span>
-              <div>
-                <div className="text-[15px] sm:text-[16px] font-bold text-white tracking-wide uppercase">
-                  Global Partner Locations
+          <div className="flex flex-col gap-3 sm:gap-4 w-full">
+            {/* Region Exploration Tab Bar */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-3 px-4 sm:px-5 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md">
+              <div className="flex items-center gap-3 self-start sm:self-auto shrink-0">
+                <span className="relative flex h-2.5 w-2.5 items-center justify-center">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ff5812] opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#ff5812] shadow-[0_0_8px_#ff5812]" />
+                </span>
+                <div>
+                  <div className="text-[15px] sm:text-[16px] font-bold text-white tracking-wide uppercase">
+                    Global Partner Locations
+                  </div>
+                  <div className="text-[13px] sm:text-[13.5px] text-slate-400 mt-0.5">
+                    Explore our partner network
+                  </div>
                 </div>
-                <div className="text-[13px] sm:text-[13.5px] text-slate-400 mt-0.5">
-                  Explore our partner network
-                </div>
+              </div>
+
+              {/* Region Filter Buttons */}
+              <div className="flex items-center gap-1.5 overflow-x-auto max-w-full py-1 shrink-0">
+                {REGIONS.map((region) => {
+                  const isSelected = selectedRegion === region;
+                  return (
+                    <button
+                      key={region}
+                      type="button"
+                      onClick={() => handleRegionChange(region)}
+                      className={`px-3.5 py-1.5 rounded-full text-[13px] sm:text-[13.5px] font-semibold tracking-wide transition-all cursor-pointer whitespace-nowrap ${
+                        isSelected
+                          ? "bg-[#ff5812] text-white shadow-[0_0_12px_rgba(255,88,18,0.45)]"
+                          : "text-slate-400 hover:text-white hover:bg-white/[0.06] border border-transparent hover:border-white/10"
+                      }`}
+                    >
+                      {region}
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
-            {/* Region Filter Buttons */}
-            <div className="flex items-center gap-1.5 overflow-x-auto max-w-full py-1 shrink-0">
-              {REGIONS.map((region) => {
-                const isSelected = selectedRegion === region;
-                return (
-                  <button
-                    key={region}
-                    type="button"
-                    onClick={() => handleRegionChange(region)}
-                    className={`px-3.5 py-1.5 rounded-full text-[13px] sm:text-[13.5px] font-semibold tracking-wide transition-all cursor-pointer whitespace-nowrap ${
-                      isSelected
-                        ? "bg-[#ff5812] text-white shadow-[0_0_12px_rgba(255,88,18,0.45)]"
-                        : "text-slate-400 hover:text-white hover:bg-white/[0.06] border border-transparent hover:border-white/10"
-                    }`}
-                  >
-                    {region}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
+            {/* INTERACTIVE WORLD MAP */}
+            <div className="fda-location">
+              <div className="fda-location-map">
+                <FdaWorldMapSvg />
+              </div>
 
-          {/* ══════════════════════════════════════════════
-              INTERACTIVE WORLD MAP
-             ══════════════════════════════════════════════ */}
-          <div className="fda-location">
-            <div className="fda-location-map">
-              <FdaWorldMapSvg />
+              {HUBS.map((hub, index) => (
+                <LocationMarker
+                  key={hub.id}
+                  hub={hub}
+                  index={index}
+                  embedded={embedded}
+                  onSelect={setActiveHub}
+                />
+              ))}
             </div>
-
-            {HUBS.map((hub, index) => (
-              <LocationMarker
-                key={hub.id}
-                hub={hub}
-                index={index}
-                embedded={embedded}
-                onSelect={setActiveHub}
-              />
-            ))}
           </div>
 
           {/* Mobile Active Partner Card (Dedicated Touch Friendly View) */}
@@ -389,7 +390,7 @@ export default function FdaMapsSection({ embedded = false }: { embedded?: boolea
           {/* ══════════════════════════════════════════════
               BOTTOM SECTION: CONNECTED PARTNER ECOSYSTEM (COMPACT ORANGE)
              ══════════════════════════════════════════════ */}
-          <div className="relative mt-1 sm:mt-8 rounded-3xl border border-[#ff5812]/30 bg-gradient-to-b from-[#ff5812]/[0.06] via-zinc-950/90 to-black py-6 px-6 sm:py-8 sm:px-10 backdrop-blur-xl overflow-hidden shadow-[0_16px_40px_rgba(0,0,0,0.7),0_0_24px_rgba(255,88,18,0.12)]">
+          <div className="relative mt-0 sm:mt-1 rounded-3xl border border-[#ff5812]/30 bg-gradient-to-b from-[#ff5812]/[0.06] via-zinc-950/90 to-black py-6 px-6 sm:py-8 sm:px-10 backdrop-blur-xl overflow-hidden shadow-[0_16px_40px_rgba(0,0,0,0.7),0_0_24px_rgba(255,88,18,0.12)]">
             {/* Ambient orange glow */}
             <div className="pointer-events-none absolute -right-24 -top-24 w-80 h-80 rounded-full bg-[#ff5812]/15 blur-3xl" />
             <div className="pointer-events-none absolute -left-24 -bottom-24 w-80 h-80 rounded-full bg-[#ff5812]/10 blur-3xl" />

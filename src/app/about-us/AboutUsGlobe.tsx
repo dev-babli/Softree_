@@ -230,7 +230,7 @@ function CylinderStep({
  */
 export default function AboutUsGlobe() {
   return (
-    <section className="relative isolate w-full overflow-hidden bg-white">
+    <section className="relative isolate w-full overflow-hidden bg-white pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-12 sm:pb-16 lg:pb-20">
       {/* Premium Ambient Background Mesh Glow Bubbles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         {/* Soft Blue glow bubble on the left */}
@@ -253,13 +253,13 @@ export default function AboutUsGlobe() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-start lg:gap-8">
           
           {/* Left Column: Heading & Copy (Col Span 7) */}
-          <div className="flex flex-col items-start gap-8 lg:col-span-7 lg:pt-[80px] xl:pt-[92px] 2xl:pt-[104px] lg:pr-12 xl:pr-16">
+          <div className="flex flex-col items-start gap-8 lg:col-span-7 pt-2 sm:pt-4 lg:pt-6 lg:pr-12 xl:pr-16">
             {/* 1. Badge */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-white/80 backdrop-blur-xs px-4 py-2 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500 shadow-[0_2px_12px_rgba(10,10,26,0.02)]"
+              className="typo-caption inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-white/80 backdrop-blur-xs px-4 py-2 text-slate-600 shadow-[0_2px_12px_rgba(10,10,26,0.02)]"
             >
               <span className="h-2 w-2 rounded-full bg-[#FF5812] shadow-[0_0_8px_rgba(255,88,18,0.6)] animate-pulse" />
               YOUR OFFSHORE ENGINEERING PARTNER
@@ -287,16 +287,16 @@ export default function AboutUsGlobe() {
               transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col items-start gap-6 max-w-md xl:max-w-lg"
             >
-              <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#0a0a1a]">
+              <h2 className="typo-heading-3 font-bold tracking-tight text-[#0a0a1a]">
                 Your engineering team, extended.
               </h2>
-              <p className="text-sm sm:text-base lg:text-lg text-slate-500 leading-relaxed font-medium">
+              <p className="typo-description text-slate-600 leading-relaxed">
                 AI, modern engineering, and Microsoft expertise — delivered by a reliable offshore team built to work as an extension of your business.
               </p>
 
               <Link
                 href="/contact"
-                className="group inline-flex items-center justify-between rounded-full bg-[#0a0a1a] pl-6 pr-2.5 py-2.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-black hover:shadow-[0_8px_32px_-4px_rgba(255,88,18,0.25)] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 shadow-md"
+                className="group typo-button inline-flex items-center justify-between rounded-full bg-[#0a0a1a] pl-6 pr-2.5 py-2.5 uppercase tracking-wider text-white hover:bg-black hover:shadow-[0_8px_32px_-4px_rgba(255,88,18,0.25)] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 shadow-md"
               >
                 <span>LET'S TALK</span>
                 <span className="ml-4 flex h-8 w-8 items-center justify-center rounded-full bg-white text-black transition-transform duration-300 group-hover:translate-x-0.5 shadow-xs">
