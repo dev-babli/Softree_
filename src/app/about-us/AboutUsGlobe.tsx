@@ -262,7 +262,7 @@ export default function AboutUsGlobe() {
               className="typo-caption inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-white/80 backdrop-blur-xs px-4 py-2 text-slate-600 shadow-[0_2px_12px_rgba(10,10,26,0.02)]"
             >
               <span className="h-2 w-2 rounded-full bg-[#FF5812] shadow-[0_0_8px_rgba(255,88,18,0.6)] animate-pulse" />
-              YOUR OFFSHORE ENGINEERING PARTNER
+              YOUR <span className="text-[#FF5812]">OFFSHORE ENGINEERING</span> PARTNER
             </motion.div>
 
             {/* Softree Technology Brand Title */}

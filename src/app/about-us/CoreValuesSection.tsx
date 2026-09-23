@@ -30,7 +30,7 @@ const DottedWave = () => (
 // Flexible Delivery custom 4-square outline icon
 const FlexibleIcon = () => (
   <svg
-    className="w-12 h-12 text-[#1852FF]"
+    className="w-12 h-12 text-[#FF5812]"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -62,21 +62,21 @@ export default function CoreValuesSection() {
           {/* Mission Card */}
           <motion.div
             {...fadeInUp}
-            className="relative overflow-hidden rounded-3xl p-6 md:p-8 bg-gradient-to-br from-[#021A52] via-[#083681] to-[#0A52A4] text-white flex flex-col justify-between min-h-[200px] h-full shadow-[0_15px_40px_rgba(2,26,82,0.12)] group hover:-translate-y-0.5 transition-all duration-300"
+            className="relative overflow-hidden rounded-3xl p-6 md:p-8 bg-gradient-to-br from-[#07080c] via-[#8e170c] to-[#FF5812] text-white flex flex-col justify-between min-h-[200px] h-full shadow-[0_15px_40px_rgba(10,10,26,0.12)] hover:shadow-[0_20px_45px_rgba(255,88,18,0.12)] border border-white/10 group hover:-translate-y-0.5 transition-all duration-300"
           >
             <DottedWave />
-            <div className="absolute top-5 right-5 md:top-6 md:right-6 text-white/20 group-hover:text-white/45 group-hover:scale-105 transition-all duration-300 pointer-events-none select-none">
+            <div className="absolute top-5 right-5 md:top-6 md:right-6 text-white/20 group-hover:text-[#FF5812]/50 group-hover:scale-105 transition-all duration-300 pointer-events-none select-none">
               <Target className="w-8 h-8 md:w-9 h-9" strokeWidth={1.5} />
             </div>
             <div className="relative z-10">
               <div className="typo-caption inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/20 bg-white/10 text-white mb-3 select-none">
-                <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FF5812] shadow-[0_0_6px_#FF5812]" />
                 Mission
               </div>
-              <h3 className="typo-heading-3 font-bold leading-tight tracking-tight mb-2 text-white">
+              <h3 className="text-xl sm:text-2xl lg:text-[26px] font-bold leading-snug tracking-tight mb-2 text-white">
                 Extend engineering capabilities.
               </h3>
-              <p className="typo-description-sm text-blue-100/90 leading-relaxed max-w-xl">
+              <p className="typo-description-sm text-white/85 leading-relaxed max-w-xl">
                 We help businesses and technology partners access the expertise, teams, and technology they need to build and scale digital solutions.
               </p>
             </div>
@@ -86,21 +86,21 @@ export default function CoreValuesSection() {
           <motion.div
             {...fadeInUp}
             transition={{ ...fadeInUp.transition, delay: 0.1 }}
-            className="relative overflow-hidden rounded-3xl p-6 md:p-8 bg-gradient-to-br from-[#021A52] via-[#083681] to-[#0A52A4] text-white flex flex-col justify-between min-h-[200px] h-full shadow-[0_15px_40px_rgba(2,26,82,0.12)] group hover:-translate-y-0.5 transition-all duration-300"
+            className="relative overflow-hidden rounded-3xl p-6 md:p-8 bg-gradient-to-br from-[#07080c] via-[#8e170c] to-[#FF5812] text-white flex flex-col justify-between min-h-[200px] h-full shadow-[0_15px_40px_rgba(10,10,26,0.12)] hover:shadow-[0_20px_45px_rgba(255,88,18,0.12)] border border-white/10 group hover:-translate-y-0.5 transition-all duration-300"
           >
             <DottedWave />
-            <div className="absolute top-5 right-5 md:top-6 md:right-6 text-white/20 group-hover:text-white/45 group-hover:scale-105 transition-all duration-300 pointer-events-none select-none">
+            <div className="absolute top-5 right-5 md:top-6 md:right-6 text-white/20 group-hover:text-[#FF5812]/50 group-hover:scale-105 transition-all duration-300 pointer-events-none select-none">
               <Eye className="w-8 h-8 md:w-9 h-9" strokeWidth={1.5} />
             </div>
             <div className="relative z-10">
               <div className="typo-caption inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/20 bg-white/10 text-white mb-3 select-none">
-                <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FF5812] shadow-[0_0_6px_#FF5812]" />
                 Vision
               </div>
-              <h3 className="typo-heading-3 font-bold leading-tight tracking-tight mb-2 text-white">
+              <h3 className="text-xl sm:text-2xl lg:text-[26px] font-bold leading-snug tracking-tight mb-2 text-white">
                 Be the engineering partner teams trust.
               </h3>
-              <p className="typo-description-sm text-blue-100/90 leading-relaxed max-w-xl">
+              <p className="typo-description-sm text-white/85 leading-relaxed max-w-xl">
                 Our vision is to become a long-term engineering partner for organizations building what comes next across AI, modern engineering, and Microsoft technologies.
               </p>
             </div>
@@ -115,7 +115,7 @@ export default function CoreValuesSection() {
         >
           {/* AI-First Engineering */}
           <div className="flex flex-col items-center text-center px-4 lg:border-r border-zinc-200/80 last:border-r-0">
-            <div className="flex items-center justify-center mb-3 text-[#1852FF]">
+            <div className="flex items-center justify-center mb-3 text-[#FF5812]">
               <Brain className="w-9 h-9" strokeWidth={1.5} />
             </div>
             <h4 className="text-sm md:text-base font-bold text-zinc-950 mb-1.5 uppercase tracking-wide">
@@ -128,7 +128,7 @@ export default function CoreValuesSection() {
 
           {/* Partnership Mindset */}
           <div className="flex flex-col items-center text-center px-4 lg:border-r border-zinc-200/80">
-            <div className="flex items-center justify-center mb-3 text-[#1852FF]">
+            <div className="flex items-center justify-center mb-3 text-[#c51c10]">
               <Handshake className="w-9 h-9" strokeWidth={1.5} />
             </div>
             <h4 className="text-sm md:text-base font-bold text-zinc-950 mb-1.5 uppercase tracking-wide">
@@ -154,7 +154,7 @@ export default function CoreValuesSection() {
 
           {/* End-to-End Delivery */}
           <div className="flex flex-col items-center text-center px-4">
-            <div className="flex items-center justify-center mb-3 text-[#1852FF]">
+            <div className="flex items-center justify-center mb-3 text-[#c51c10]">
               <Rocket className="w-9 h-9" strokeWidth={1.5} />
             </div>
             <h4 className="text-sm md:text-base font-bold text-zinc-950 mb-1.5 uppercase tracking-wide">
@@ -172,37 +172,37 @@ export default function CoreValuesSection() {
           {/* Approach Card (Gradient) */}
           <motion.div
             {...fadeInUp}
-            className="relative overflow-hidden rounded-3xl p-6 md:p-8 bg-gradient-to-br from-[#021A52] via-[#083681] to-[#0A52A4] text-white flex flex-col justify-between min-h-[220px] h-full shadow-[0_15px_40px_rgba(2,26,82,0.12)] group hover:-translate-y-0.5 transition-all duration-300 lg:col-span-1"
+            className="relative overflow-hidden rounded-3xl p-6 md:p-8 bg-gradient-to-br from-[#07080c] via-[#8e170c] to-[#FF5812] text-white flex flex-col justify-between min-h-[220px] h-full shadow-[0_15px_40px_rgba(10,10,26,0.12)] hover:shadow-[0_20px_45px_rgba(255,88,18,0.12)] border border-white/10 group hover:-translate-y-0.5 transition-all duration-300 lg:col-span-1"
           >
             <DottedWave />
-            <div className="absolute top-5 right-5 md:top-6 md:right-6 text-white/20 group-hover:text-white/45 group-hover:scale-105 transition-all duration-300 pointer-events-none select-none">
+            <div className="absolute top-5 right-5 md:top-6 md:right-6 text-white/20 group-hover:text-[#FF5812]/50 group-hover:scale-105 transition-all duration-300 pointer-events-none select-none">
               <Sliders className="w-8 h-8 md:w-9 h-9" strokeWidth={1.5} />
             </div>
             <div className="relative z-10">
               <div className="typo-caption inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/20 bg-white/10 text-white mb-3 select-none">
-                <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FF5812] shadow-[0_0_6px_#FF5812]" />
                 Our Approach
               </div>
-              <h3 className="typo-heading-3 font-bold leading-tight tracking-tight mb-2 text-white">
+              <h3 className="text-xl sm:text-2xl lg:text-[26px] font-bold leading-snug tracking-tight mb-2 text-white">
                 Senior teams, proven delivery.
               </h3>
-              <p className="typo-description-sm text-blue-100/90 leading-relaxed max-w-xl">
+              <p className="typo-description-sm text-white/85 leading-relaxed max-w-xl">
                 We work as an extension of your team, combining experienced engineering talent, modern technology, and structured delivery to move projects from idea to production.
               </p>
             </div>
           </motion.div>
 
-          {/* Engineering Expertise Card (Non-Blue Card) */}
+          {/* Engineering Expertise Card (Orange Theme) */}
           <motion.div
             {...fadeInUp}
             transition={{ ...fadeInUp.transition, delay: 0.05 }}
-            className="rounded-3xl p-6 md:p-8 bg-white border border-zinc-200/80 shadow-[0_10px_35px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 transition-all duration-300 flex flex-col items-start text-left justify-between min-h-[220px] h-full"
+            className="rounded-3xl p-6 md:p-8 bg-white border border-zinc-200/80 shadow-[0_10px_35px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(255,88,18,0.08)] hover:-translate-y-0.5 transition-all duration-300 flex flex-col items-start text-left justify-between min-h-[220px] h-full"
           >
             <div>
-              <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-blue-50 border border-blue-100/60 mb-4 text-[#1852FF] shadow-xs">
+              <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-[#FFF5EE] border border-[#FF5812]/20 mb-4 text-[#FF5812] shadow-xs">
                 <Code2 className="w-6 h-6" strokeWidth={1.8} />
               </div>
-              <h4 className="typo-heading-3 text-lg sm:text-xl font-bold mb-2 text-[#1852FF]">
+              <h4 className="text-base sm:text-lg lg:text-xl font-bold mb-2 text-[#FF5812]">
                 Engineering Expertise
               </h4>
               <p className="typo-body text-[15px] sm:text-base text-zinc-600 leading-relaxed">
@@ -211,17 +211,17 @@ export default function CoreValuesSection() {
             </div>
           </motion.div>
 
-          {/* Partnership Model Card (Non-Blue Card) */}
+          {/* Partnership Model Card (Red Theme) */}
           <motion.div
             {...fadeInUp}
             transition={{ ...fadeInUp.transition, delay: 0.1 }}
-            className="rounded-3xl p-6 md:p-8 bg-white border border-zinc-200/80 shadow-[0_10px_35px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 transition-all duration-300 flex flex-col items-start text-left justify-between min-h-[220px] h-full"
+            className="rounded-3xl p-6 md:p-8 bg-white border border-zinc-200/80 shadow-[0_10px_35px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(197,28,16,0.08)] hover:-translate-y-0.5 transition-all duration-300 flex flex-col items-start text-left justify-between min-h-[220px] h-full"
           >
             <div>
-              <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-[#E6F8F7] border border-teal-100/60 mb-4 text-teal-600 shadow-xs">
+              <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-[#FEF2F2] border border-[#c51c10]/20 mb-4 text-[#c51c10] shadow-xs">
                 <Users className="w-6 h-6" strokeWidth={1.8} />
               </div>
-              <h4 className="typo-heading-3 text-lg sm:text-xl font-bold mb-2 text-teal-600">
+              <h4 className="text-base sm:text-lg lg:text-xl font-bold mb-2 text-[#c51c10]">
                 Partnership Model
               </h4>
               <p className="typo-body text-[15px] sm:text-base text-zinc-600 leading-relaxed">

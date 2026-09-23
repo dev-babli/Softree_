@@ -71,6 +71,7 @@ const CLOSE_DELAY_MS = 280;
 
 const menu: MenuItem[] = [
   { label: "About", url: "/about-us" },
+  { label: "Who Do We Serve", url: "/who-do-we-serve" },
   {
     label: "Services",
     mega: true,
@@ -189,21 +190,7 @@ const menu: MenuItem[] = [
       },
     ],
   },
-  {
-    label: "Products",
-    mega: true,
-    children: [
-      {
-        title: "AI & Automation",
-        icon: Bot,
-        description: "Intelligent autonomous tools & agents.",
-        links: [
-          { label: "AI Growth Intelligence", url: "/webanalyser", icon: Sparkles, description: "AI-Powered Website Intelligence" },
-          { label: "GEO", url: "/geo", icon: Globe2, description: "AI Growth Intelligence | AI-Powered Website Intelligence" },
-        ],
-      },
-    ],
-  },
+
   { label: "Case Studies", url: "/case-studies", mega: true, children: [] },
   { label: "Blog", url: "/blog" },
   { label: "Careers", url: "/careers" },

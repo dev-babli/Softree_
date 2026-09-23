@@ -131,7 +131,7 @@ export default function AnimatedPhotoGallery({
         className="pointer-events-none absolute -left-[20%] top-[10%] h-[420px] w-[420px] rounded-full opacity-40 blur-[120px]"
         style={{
           background:
-            "radial-gradient(circle, rgba(24,82,255,0.22) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(255,88,18,0.15) 0%, transparent 70%)",
         }}
       />
       <div
@@ -152,7 +152,7 @@ export default function AnimatedPhotoGallery({
           className="mb-10 flex flex-col gap-6 md:mb-12 md:flex-row md:items-end md:justify-between"
         >
           <div className="max-w-[720px]">
-            <span className="typo-caption mb-4 inline-flex items-center gap-2 rounded-full border border-[#1852FF]/18 bg-white/70 px-4 py-2 text-[#1852FF]">
+            <span className="typo-caption mb-4 inline-flex items-center gap-2 rounded-full border border-[#FF5812]/20 bg-[#FFF5EE] px-4 py-2 text-[#FF5812]">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#FF5812]" />
               {eyebrow}
             </span>
@@ -161,7 +161,7 @@ export default function AnimatedPhotoGallery({
               className="typo-heading-2 text-[#0a0a1a] tracking-tight"
             >
               {title}{" "}
-              <span className="bg-gradient-to-r from-[#1852FF] to-[#FF5812] bg-clip-text text-transparent">
+              <span className="text-[#FF5812]">
                 {titleAccent}
               </span>
             </h2>
@@ -171,7 +171,7 @@ export default function AnimatedPhotoGallery({
           </div>
           <Link
             href={ctaHref}
-            className="typo-button inline-flex w-max shrink-0 items-center justify-center rounded-full border border-[#0a0a1a]/12 bg-white px-6 py-3 uppercase tracking-[0.16em] text-[#0a0a1a] shadow-sm transition hover:border-[#1852FF]/30 hover:text-[#1852FF]"
+            className="typo-button inline-flex w-max shrink-0 items-center justify-center rounded-full border border-[#0a0a1a]/12 bg-white px-6 py-3 uppercase tracking-[0.16em] text-[#0a0a1a] shadow-sm transition hover:border-[#FF5812]/40 hover:text-[#FF5812] hover:bg-[#FFF5EE]/40"
           >
             {ctaLabel}
           </Link>

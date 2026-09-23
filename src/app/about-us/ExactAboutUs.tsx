@@ -3,11 +3,41 @@
 import { useRef, useState, useEffect } from "react"
 import { motion, useInView, useSpring, useTransform } from "framer-motion"
 import Link from "next/link"
-import { ArrowUpRight, Calendar, Users, Globe as GlobeIcon, Cpu, Code, LayoutGrid, Navigation, Award } from "lucide-react"
+import { FlowButton } from "@/components/ui/flow-button"
+import { Calendar, Users, Globe as GlobeIcon, Cpu, Code, LayoutGrid, Navigation, Award } from "lucide-react"
 import { Globe } from "@/registry/magicui/globe"
+import type { COBEOptions } from "cobe"
 import { EASE_T } from "@/lib/motion"
 
 const EASE_OUT = EASE_T.silk
+
+const ORANGE_GLOBE_CONFIG: COBEOptions = {
+  width: 800,
+  height: 800,
+  onRender: () => { },
+  devicePixelRatio: 2,
+  phi: 0,
+  theta: 0.3,
+  dark: 0,
+  diffuse: 0.4,
+  mapSamples: 16000,
+  mapBrightness: 1.2,
+  baseColor: [1, 1, 1],
+  markerColor: [255 / 255, 88 / 255, 18 / 255],
+  glowColor: [1, 0.94, 0.9],
+  markers: [
+    { location: [14.5995, 120.9842], size: 0.03 },
+    { location: [19.076, 72.8777], size: 0.05 },
+    { location: [23.8103, 90.4125], size: 0.03 },
+    { location: [30.0444, 31.2357], size: 0.04 },
+    { location: [39.9042, 116.4074], size: 0.04 },
+    { location: [40.7128, -74.006], size: 0.05 },
+    { location: [51.5074, -0.1278], size: 0.04 },
+    { location: [48.8566, 2.3522], size: 0.03 },
+    { location: [-23.5505, -46.6333], size: 0.04 },
+    { location: [1.3521, 103.8198], size: 0.03 },
+  ],
+}
 
 function AnimatedNumber({
   value,
@@ -104,29 +134,29 @@ export default function ExactAboutUs() {
           >
             {/* Badge */}
             <motion.div
-              className="mb-4 inline-flex w-fit items-center gap-1.5 rounded-full border border-[#1852FF]/20 bg-[#F0F4FF] px-3.5 py-1.5"
+              className="mb-4 inline-flex w-fit items-center gap-1.5 rounded-full border border-[#FF5812]/20 bg-[#FFF5EE] px-3.5 py-1.5"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div className="h-1.5 w-1.5 rounded-full bg-[#1852FF]" />
-              <span className="typo-caption text-[#1852FF]">About Us</span>
+              <div className="h-1.5 w-1.5 rounded-full bg-[#FF5812]" />
+              <span className="typo-caption text-[#FF5812]">About Us</span>
             </motion.div>
- 
+
             {/* Award Count with Globe Background */}
             <div className="relative isolate flex-1 flex flex-col justify-center py-4">
               {/* Orbital Lines and Globe */}
               <div className="pointer-events-none absolute -inset-10 -z-10 flex items-center justify-center opacity-60">
                 {/* Thin circular/orbital lines */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="h-[280px] w-[280px] rounded-full border border-[#1852FF]/10" />
-                  <div className="absolute h-[380px] w-[380px] rounded-full border border-[#1852FF]/10" />
-                  <div className="absolute h-[480px] w-[480px] rounded-full border border-[#1852FF]/5" />
+                  <div className="h-[280px] w-[280px] rounded-full border border-[#FF5812]/15" />
+                  <div className="absolute h-[380px] w-[380px] rounded-full border border-[#FF5812]/15" />
+                  <div className="absolute h-[480px] w-[480px] rounded-full border border-[#FF5812]/10" />
                 </div>
- 
+
                 {/* We apply a mask/fade to make globe blend in better */}
                 <div className="absolute inset-0 flex items-center justify-center scale-[0.95] opacity-80">
-                  <Globe />
+                  <Globe config={ORANGE_GLOBE_CONFIG} />
                 </div>
               </div>
 
@@ -140,11 +170,11 @@ export default function ExactAboutUs() {
                   <span className="text-[100px] font-bold text-[#0a0a1a] md:text-[120px] lg:text-[140px]">
                     <AnimatedNumber value={13} delay={0.5} />
                   </span>
-                  <span className="text-[90px] font-bold text-[#1852FF] md:text-[100px] lg:text-[120px]">+</span>
+                  <span className="text-[90px] font-bold text-[#FF5812] md:text-[100px] lg:text-[120px]">+</span>
                 </div>
                 <div className="mt-1 flex flex-col text-[#0a0a1a]">
                   <span className="text-xl font-bold md:text-2xl lg:text-3xl">YEARS OF</span>
-                  <span className="text-xl font-bold text-[#1852FF] md:text-2xl lg:text-3xl">ENGINEERING<br />EXCELLENCE</span>
+                  <span className="text-xl font-bold text-[#FF5812] md:text-2xl lg:text-3xl">ENGINEERING<br />EXCELLENCE</span>
                 </div>
               </motion.div>
 
@@ -158,8 +188,8 @@ export default function ExactAboutUs() {
                 <div className="relative flex flex-col gap-3">
                   {/* Global Reach */}
                   <div className="flex items-center gap-2 rounded-full border border-white/40 bg-white/60 p-1.5 pr-4 shadow-sm backdrop-blur-sm">
-                    <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#EEF2FF] shadow-inner">
-                      <Navigation className="h-3 w-3 text-[#1852FF]" />
+                    <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#FFF5EE] shadow-inner">
+                      <Navigation className="h-3 w-3 text-[#FF5812]" />
                     </div>
                     <span className="whitespace-pre-line text-[10px] font-semibold leading-tight text-[#0a0a1a]">
                       Global<br />Reach
@@ -168,8 +198,8 @@ export default function ExactAboutUs() {
 
                   {/* Trusted by Partners */}
                   <div className="translate-x-4 flex items-center gap-2 rounded-full border border-white/40 bg-white/60 p-1.5 pr-4 shadow-sm backdrop-blur-sm">
-                    <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#EEF2FF] shadow-inner">
-                      <Award className="h-3 w-3 text-[#1852FF]" />
+                    <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#FFF5EE] shadow-inner">
+                      <Award className="h-3 w-3 text-[#FF5812]" />
                     </div>
                     <span className="whitespace-pre-line text-[10px] font-semibold leading-tight text-[#0a0a1a]">
                       Trusted by<br />Partners
@@ -190,7 +220,7 @@ export default function ExactAboutUs() {
             <div>
               <TextReveal delay={0.3}>
                 <h3 className="typo-heading-3 mb-4 font-bold leading-tight tracking-tight text-[#0a0a1a]">
-                  Your global offshore development partner<span className="text-[#1852FF]">.</span>
+                  Your global <span className="text-[#FF5812]">offshore development partner.</span>
                 </h3>
               </TextReveal>
 
@@ -203,9 +233,16 @@ export default function ExactAboutUs() {
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.4 }}
                 >
-                  <Calendar className="mb-1.5 h-4 w-4 text-[#1852FF]" strokeWidth={1.5} />
-                  <span className="mb-0.5 text-lg font-bold tabular-nums text-[#1852FF]">2013</span>
-                  <span className="typo-caption-meta text-[#0a0a1a]/70">Founded</span>
+                  <Calendar
+                    className="mb-1.5 h-4 w-4 text-[#FF5812]"
+                    strokeWidth={1.5}
+                  />
+                  <span className="mb-0.5 text-lg font-bold tabular-nums text-[#FF5812]">
+                    2013
+                  </span>
+                  <span className="typo-caption-meta text-[#0a0a1a]/70">
+                    Founded
+                  </span>
                 </motion.div>
 
                 {/* Stat 2 */}
@@ -215,9 +252,16 @@ export default function ExactAboutUs() {
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.5 }}
                 >
-                  <Users className="mb-1.5 h-4 w-4 text-[#1852FF]" strokeWidth={1.5} />
-                  <span className="mb-0.5 text-lg font-bold tabular-nums text-[#0a0a1a]">13+</span>
-                  <span className="typo-caption-meta text-[#0a0a1a]/70">Years of Engineering Experience</span>
+                  <Users
+                    className="mb-1.5 h-4 w-4 text-[#FF5812]"
+                    strokeWidth={1.5}
+                  />
+                  <span className="mb-0.5 text-lg font-bold tabular-nums text-[#0a0a1a]">
+                    13+
+                  </span>
+                  <span className="typo-caption-meta text-[#0a0a1a]/70">
+                    Years of Engineering Experience
+                  </span>
                 </motion.div>
 
                 {/* Stat 3 */}
@@ -227,9 +271,16 @@ export default function ExactAboutUs() {
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.6 }}
                 >
-                  <GlobeIcon className="mb-1.5 h-4 w-4 text-[#1852FF]" strokeWidth={1.5} />
-                  <span className="mb-0.5 text-lg font-bold text-[#1852FF]">Global</span>
-                  <span className="typo-caption-meta text-[#0a0a1a]/70">Delivery Across Multiple Countries</span>
+                  <GlobeIcon
+                    className="mb-1.5 h-4 w-4 text-[#FF5812]"
+                    strokeWidth={1.5}
+                  />
+                  <span className="mb-0.5 text-lg font-bold text-[#FF5812]">
+                    Global
+                  </span>
+                  <span className="typo-caption-meta text-[#0a0a1a]/70">
+                    Delivery Across Multiple Countries
+                  </span>
                 </motion.div>
               </div>
 
@@ -243,23 +294,23 @@ export default function ExactAboutUs() {
               <div className="mb-6 flex flex-col gap-2.5">
                 {/* Row 1 */}
                 <motion.div
-                  className="flex items-center gap-3 rounded-xl bg-[#F0EEFF] p-2.5 pr-4"
+                  className="flex items-center gap-3 rounded-xl bg-[#FFF5EE] p-2.5 pr-4"
                   initial={{ opacity: 0, x: 20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.7 }}
                 >
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white shadow-xs">
-                    <Cpu className="h-4 w-4 text-[#6B4BFF]" strokeWidth={1.5} />
+                    <Cpu className="h-4 w-4 text-[#FF5812]" strokeWidth={1.5} />
                   </div>
                   <div className="flex flex-col">
-                    <span className="typo-caption font-bold text-[#6B4BFF]">AI CAPABILITIES</span>
+                    <span className="typo-caption font-bold text-[#FF5812]">AI CAPABILITIES</span>
                     <div className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-[#0a0a1a]/75">
                       <span>Agentic AI</span>
-                      <span className="h-1 w-1 rounded-full bg-[#6B4BFF]/40"></span>
+                      <span className="h-1 w-1 rounded-full bg-[#FF5812]/40"></span>
                       <span>Generative AI</span>
-                      <span className="h-1 w-1 rounded-full bg-[#6B4BFF]/40"></span>
+                      <span className="h-1 w-1 rounded-full bg-[#FF5812]/40"></span>
                       <span>AI Automation</span>
-                      <span className="h-1 w-1 rounded-full bg-[#6B4BFF]/40"></span>
+                      <span className="h-1 w-1 rounded-full bg-[#FF5812]/40"></span>
                       <span>RAG</span>
                     </div>
                   </div>
@@ -267,23 +318,23 @@ export default function ExactAboutUs() {
 
                 {/* Row 2 */}
                 <motion.div
-                  className="flex items-center gap-3 rounded-xl bg-[#E6F8F5] p-2.5 pr-4"
+                  className="flex items-center gap-3 rounded-xl bg-[#FFF5EE] p-2.5 pr-4"
                   initial={{ opacity: 0, x: 20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.8 }}
                 >
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white shadow-xs">
-                    <Code className="h-4 w-4 text-[#00A99D]" strokeWidth={1.5} />
+                    <Code className="h-4 w-4 text-[#FF5812]" strokeWidth={1.5} />
                   </div>
                   <div className="flex flex-col">
-                    <span className="typo-caption font-bold text-[#00A99D]">MODERN ENGINEERING</span>
+                    <span className="typo-caption font-bold text-[#FF5812]">MODERN ENGINEERING</span>
                     <div className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-[#0a0a1a]/75">
                       <span>Web</span>
-                      <span className="h-1 w-1 rounded-full bg-[#00A99D]/40"></span>
+                      <span className="h-1 w-1 rounded-full bg-[#FF5812]/40"></span>
                       <span>Cloud</span>
-                      <span className="h-1 w-1 rounded-full bg-[#00A99D]/40"></span>
+                      <span className="h-1 w-1 rounded-full bg-[#FF5812]/40"></span>
                       <span>APIs</span>
-                      <span className="h-1 w-1 rounded-full bg-[#00A99D]/40"></span>
+                      <span className="h-1 w-1 rounded-full bg-[#FF5812]/40"></span>
                       <span>Applications</span>
                     </div>
                   </div>
@@ -291,23 +342,23 @@ export default function ExactAboutUs() {
 
                 {/* Row 3 */}
                 <motion.div
-                  className="flex items-center gap-3 rounded-xl bg-[#FFF3E5] p-2.5 pr-4"
+                  className="flex items-center gap-3 rounded-xl bg-[#FFF5EE] p-2.5 pr-4"
                   initial={{ opacity: 0, x: 20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.9 }}
                 >
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white shadow-xs">
-                    <LayoutGrid className="h-4 w-4 text-[#FF7A00]" strokeWidth={1.5} />
+                    <LayoutGrid className="h-4 w-4 text-[#FF5812]" strokeWidth={1.5} />
                   </div>
                   <div className="flex flex-col">
-                    <span className="typo-caption font-bold text-[#FF7A00]">MICROSOFT & DATA</span>
+                    <span className="typo-caption font-bold text-[#FF5812]">MICROSOFT & DATA</span>
                     <div className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-[#0a0a1a]/75">
                       <span>Power Platform</span>
-                      <span className="h-1 w-1 rounded-full bg-[#FF7A00]/40"></span>
+                      <span className="h-1 w-1 rounded-full bg-[#FF5812]/40"></span>
                       <span>SharePoint</span>
-                      <span className="h-1 w-1 rounded-full bg-[#FF7A00]/40"></span>
+                      <span className="h-1 w-1 rounded-full bg-[#FF5812]/40"></span>
                       <span>Azure</span>
-                      <span className="h-1 w-1 rounded-full bg-[#FF7A00]/40"></span>
+                      <span className="h-1 w-1 rounded-full bg-[#FF5812]/40"></span>
                       <span>Data & Analytics</span>
                     </div>
                   </div>
@@ -321,13 +372,11 @@ export default function ExactAboutUs() {
               transition={{ duration: 0.6, delay: 1.0 }}
               className="pt-2"
             >
-              <Link
+              <FlowButton
                 href="/contact"
-                className="group relative inline-flex w-fit items-center gap-2 overflow-hidden rounded-xl bg-[#0a0a1a] px-5 py-2.5 shadow-md transition-all duration-300 hover:-translate-y-px hover:shadow-lg active:scale-[0.97]"
-              >
-                <span className="typo-button text-white">Explore offshore engagement models</span>
-                <ArrowUpRight className="h-4 w-4 text-white transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </Link>
+                text="Explore offshore engagement models"
+                variant="orange-filled"
+              />
             </motion.div>
           </motion.div>
         </div>

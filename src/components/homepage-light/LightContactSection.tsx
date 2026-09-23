@@ -2,9 +2,8 @@
 
 import Image from "next/image"
 import { motion, useReducedMotion } from "framer-motion"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, Check, Brain, Shield, Code2, Cloud, Mail, MapPin } from "lucide-react"
 import { useState, type FormEvent, type ReactNode } from "react"
-import { SOFTREE_OFFICES_CONTACT } from "@/data/softree-offices"
 import CalendlyPopupButton from "@/components/calendly/CalendlyPopupButton"
 
 type Status = "idle" | "submitting" | "success" | "error"
@@ -34,100 +33,48 @@ function SocialIcon({
       aria-label={label}
       target="_blank"
       rel="noreferrer"
-      className="grid h-11 w-11 place-items-center rounded-full border border-white/16 bg-white/[0.055] text-white transition duration-300 hover:-translate-y-1 hover:border-white/35 hover:bg-white hover:text-[#09090d] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5812]/70"
+      className="grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/[0.04] text-white transition-all duration-300 hover:border-white/40 hover:bg-white hover:text-[#09090d] hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5812]"
     >
-      <span className="h-[22px] w-[22px]">{children}</span>
+      <span className="h-[18px] w-[18px]">{children}</span>
     </a>
   )
 }
 
-function InstagramIcon() {
+
+
+function LinkedinIcon({ className = "h-4 w-4" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 23 23" fill="none" aria-hidden="true">
-      <path
-        d="M16.6957 0H5.56522C2.49322 0 0 2.49322 0 5.56522V16.6957C0 19.7677 2.49322 22.2609 5.56522 22.2609H16.6957C19.7677 22.2609 22.2609 19.7677 22.2609 16.6957V5.56522C22.2609 2.49322 19.7677 0 16.6957 0ZM11.1304 16.6957C8.05844 16.6957 5.56522 14.2024 5.56522 11.1304C5.56522 8.05844 8.05844 5.56522 11.1304 5.56522C14.2024 5.56522 16.6957 8.05844 16.6957 11.1304C16.6957 14.2024 14.2024 16.6957 11.1304 16.6957ZM17.0852 6.2553C16.473 6.2553 15.9722 5.75444 15.9722 5.14226C15.9722 4.53009 16.473 4.02922 17.0852 4.02922C17.6974 4.02922 18.1983 4.53009 18.1983 5.14226C18.1983 5.75444 17.6974 6.2553 17.0852 6.2553Z"
-        fill="currentColor"
-      />
-      <path
-        d="M11.1301 14.4703C12.9743 14.4703 14.4693 12.9753 14.4693 11.1311C14.4693 9.28697 12.9743 7.79199 11.1301 7.79199C9.286 7.79199 7.79102 9.28697 7.79102 11.1311C7.79102 12.9753 9.286 14.4703 11.1301 14.4703Z"
-        fill="currentColor"
-      />
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
     </svg>
   )
 }
 
-function LinkedinIcon() {
+function MicrosoftIcon({ className = "h-3.5 w-3.5" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 23 23" fill="none" aria-hidden="true">
-      <path
-        d="M22.2611 22.261V14.108C22.2611 10.101 21.3985 7.04016 16.7237 7.04016C14.4698 7.04016 12.9672 8.26451 12.355 9.4332H12.2993V7.4019H7.875V22.261H12.4941V14.8871C12.4941 12.9393 12.8559 11.0749 15.2489 11.0749C17.6141 11.0749 17.6419 13.2732 17.6419 14.9984V22.2332H22.2611V22.261Z"
-        fill="currentColor"
-      />
-      <path d="M0.361328 7.40149H4.98045V22.2606H0.361328V7.40149Z" fill="currentColor" />
-      <path
-        d="M2.6713 0C1.19652 0 0 1.19652 0 2.6713C0 4.14608 1.19652 5.37043 2.6713 5.37043C4.14608 5.37043 5.3426 4.14608 5.3426 2.6713C5.3426 1.19652 4.14608 0 2.6713 0Z"
-        fill="currentColor"
-      />
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <rect x="3" y="3" width="8" height="8" rx="0.5" />
+      <rect x="13" y="3" width="8" height="8" rx="0.5" />
+      <rect x="3" y="13" width="8" height="8" rx="0.5" />
+      <rect x="13" y="13" width="8" height="8" rx="0.5" />
     </svg>
-  )
-}
-
-function FacebookIcon() {
-  return (
-    <svg viewBox="0 0 23 23" fill="none" aria-hidden="true">
-      <path
-        d="M12.8552 22.2601V12.1067H16.262L16.7731 8.14849H12.8552V5.62177C12.8552 4.47615 13.172 3.69542 14.8167 3.69542L16.911 3.69456V0.154237C16.5488 0.107172 15.3056 -0.000732422 13.8586 -0.000732422C10.8372 -0.000732422 8.76863 1.84354 8.76863 5.22976V8.14849H5.35156V12.1067H8.76863V22.2601H12.8552Z"
-        fill="currentColor"
-      />
-    </svg>
-  )
-}
-
-function XIcon() {
-  return (
-    <svg viewBox="0 0 23 23" fill="none" aria-hidden="true">
-      <path
-        d="M13.2036 9.42559L21.3125 -0.000366211H19.391L12.35 8.18406L6.72639 -0.000366211H0.240234L8.74423 12.3759L0.240234 22.2605H2.1619L9.59734 13.6175L15.5363 22.2605H22.0224L13.2031 9.42559H13.2036ZM10.5716 12.485L9.70999 11.2526L2.8543 1.44623H5.80586L11.3385 9.36026L12.2001 10.5927L19.3919 20.8797H16.4403L10.5716 12.4854V12.485Z"
-        fill="currentColor"
-      />
-    </svg>
-  )
-}
-
-function Field({
-  id,
-  name,
-  type = "text",
-  placeholder,
-  required,
-}: {
-  id: string
-  name: string
-  type?: string
-  placeholder: string
-  required?: boolean
-}) {
-  return (
-    <label className="block" htmlFor={id}>
-      <span className="sr-only">{placeholder}</span>
-      <input
-        id={id}
-        name={name}
-        type={type}
-        required={required}
-        placeholder={placeholder}
-        className="h-11 w-full rounded-none border-0 border-b border-white/14 bg-transparent px-0 text-[15px] font-medium text-white outline-none transition-colors duration-300 placeholder:text-white/40 focus:border-[var(--legacy-ff7a2f)]"
-      />
-    </label>
   )
 }
 
 export default function LightContactSection({
-  headlineLead = "Build faster with a reliable",
-  headlineAccent = "offshore engineering partner",
-  headlineLabel = "Build faster with a reliable offshore engineering partner",
-  body = "Partner with Softree to accelerate product delivery, modernize enterprise systems, and scale with confidence.",
-  messagePlaceholder = "Project Message",
+  headlineLead = "Let's Start a",
+  headlineAccent = "Conversation",
+  headlineLabel,
 }: LightContactSectionProps = {}) {
   const [status, setStatus] = useState<Status>("idle")
   const reduceMotion = useReducedMotion()
@@ -138,6 +85,8 @@ export default function LightContactSection({
 
     const form = event.currentTarget
     const formData = new FormData(form)
+
+    if (formData.get("_gotcha")) return
 
     try {
       const response = await fetch("https://formspree.io/f/mbdwbkad", {
@@ -162,232 +111,447 @@ export default function LightContactSection({
   return (
     <section
       id="contact"
-      className="relative isolate overflow-hidden bg-[#0a0a0a] py-8 text-white sm:py-12 lg:py-16"
+      className="relative isolate overflow-hidden bg-white py-12 text-[#0a0a1a] sm:py-16 lg:py-20 font-sans"
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.15] [background-image:radial-gradient(#fff_0.7px,transparent_0.7px)] [background-size:22px_22px]"
-      />
+      <div className="relative mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
 
-      <div className="relative mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
+        {/* Section Header */}
         <motion.div
-          initial={reduceMotion ? false : { y: 28, opacity: 0 }}
+          initial={reduceMotion ? false : { y: 24, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, margin: "-12%" }}
-          transition={reduceMotion ? { duration: 0 } : { duration: 0.75, ease: EASE }}
-          className="mb-4 text-center sm:mb-6"
+          viewport={{ once: true, margin: "-10%" }}
+          transition={reduceMotion ? { duration: 0 } : { duration: 0.65, ease: EASE }}
+          className="mb-8 text-center sm:mb-10"
         >
           <h2
             aria-label={headlineLabel}
-            className="typo-heading-2 max-w-4xl mx-auto"
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#0a0a1a]"
           >
-            {headlineLead} <span className="text-[#ff5812]">{headlineAccent}</span>.
+            {headlineLead} <span className="text-[#ff5812]">{headlineAccent}</span>
           </h2>
-          <p className="typo-body-sm mt-2 text-white/60 max-w-2xl mx-auto">
-            {body}
-          </p>
         </motion.div>
 
+        {/* Master Dark Card */}
         <motion.div
-          initial={reduceMotion ? false : { y: 34, opacity: 0, scale: 0.985 }}
+          initial={reduceMotion ? false : { y: 30, opacity: 0, scale: 0.99 }}
           whileInView={{ y: 0, opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-10%" }}
-          transition={reduceMotion ? { duration: 0 } : { duration: 0.85, ease: EASE, delay: 0.05 }}
-          className="overflow-hidden rounded-[8px] bg-[#09090d] text-white shadow-[0_34px_100px_-50px_rgba(0,0,0,0.75)]"
+          transition={reduceMotion ? { duration: 0 } : { duration: 0.8, ease: EASE, delay: 0.05 }}
+          className="overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-[#07080c] text-white shadow-[0_30px_90px_-20px_rgba(0,0,0,0.6)]"
         >
-          <div className="grid lg:min-h-[420px] grid-cols-1 lg:grid-cols-[0.32fr_1.12fr_1fr]">
-            <aside className="flex flex-col justify-between border-b border-white/10 p-4 sm:p-5 lg:border-b-0 lg:border-r">
-              <div>
-                <p className="typo-caption text-white">
-                  Follow us
-                </p>
-                <div className="mt-5 flex flex-wrap gap-3 lg:flex-col">
-                  <SocialIcon href="https://www.instagram.com/softreetechnology/" label="Instagram">
-                    <InstagramIcon />
-                  </SocialIcon>
-                  <SocialIcon href="https://www.linkedin.com/company/softree-technology-pvt-ltd/" label="LinkedIn">
-                    <LinkedinIcon />
-                  </SocialIcon>
-                  <SocialIcon href="https://www.facebook.com/softreetechnology" label="Facebook">
-                    <FacebookIcon />
-                  </SocialIcon>
-                  <SocialIcon href="https://x.com/softreetechnology" label="X">
-                    <XIcon />
-                  </SocialIcon>
-                </div>
-              </div>
+          {/* Main 3-Column Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-[82px_1.7fr_1.05fr] border-b border-white/10">
 
-              <div className="mt-10 hidden h-px w-full bg-white/10 lg:block" />
+            {/* 1. Left Strip: Follow us */}
+            <aside className="border-b lg:border-b-0 lg:border-r border-white/10 p-3.5 flex flex-col items-center justify-start gap-3.5">
+              <span className="text-[10.5px] font-semibold text-white/80 tracking-tight text-center whitespace-nowrap">
+                Follow us
+              </span>
+              <div className="flex flex-wrap lg:flex-col gap-2.5 items-center justify-center">
+                <SocialIcon href="https://www.linkedin.com/company/softree-technology-pvt-ltd/" label="LinkedIn">
+                  <LinkedinIcon />
+                </SocialIcon>
+              </div>
             </aside>
 
-            <div className="flex flex-col justify-between gap-5 border-b border-white/10 p-4 sm:p-5 lg:border-b-0 lg:border-r">
-              <div className="grid gap-4 xl:grid-cols-[0.86fr_1fr]">
-                <div className="relative min-h-[100px] sm:min-h-[120px] md:min-h-[160px] overflow-hidden rounded-[6px] bg-white/8">
+            {/* 2. Middle Column: Value Prop, Capabilities & What we offer */}
+            <div className="border-b lg:border-b-0 lg:border-r border-white/10 p-5 sm:p-7 flex flex-col justify-between gap-6">
+
+              {/* TOP: Image + Partner With Softree */}
+              <div className="grid grid-cols-1 sm:grid-cols-[170px_1fr] gap-6 items-center">
+                <div className="relative aspect-[4/3] sm:aspect-square w-full max-w-[200px] overflow-hidden rounded-2xl bg-white/10 shrink-0 shadow-lg">
                   <Image
                     src="https://cdn.prod.website-files.com/69a0a45220c8336fe957ccba/69ce260749d7110937223c7f_CTA%20Picture.webp"
-                    alt="Person wearing a white hooded jacket and virtual reality headset against a shimmering abstract background."
+                    alt="Engineer wearing futuristic VR headset"
                     fill
-                    sizes="(min-width: 1280px) 320px, (min-width: 1024px) 42vw, 100vw"
+                    sizes="(max-width: 640px) 200px, 170px"
                     className="object-cover"
                   />
                   <div
                     aria-hidden
-                    className="absolute inset-0 bg-[linear-gradient(180deg,transparent_35%,rgba(9,9,13,0.58)_100%)]"
+                    className="absolute inset-0 bg-gradient-to-t from-[#07080c]/50 to-transparent"
                   />
                 </div>
 
-                <div>
-                  <p className="typo-heading-4">
-                    What we offer
-                  </p>
-                  <div className="mt-4 flex flex-col gap-2">
-                    {[
-                      "Enterprise Integration",
-                      "Cloud Architecture",
-                      "AI & Automation",
-                      "Microsoft Solutions",
-                      "Offshore Engineering",
-                    ].map((service) => (
-                      <div
-                        key={service}
-                        className="group flex items-center gap-3 border-b border-white/10 py-2"
-                      >
-                        <span className="h-2 w-2 rounded-full bg-[#ff5812] transition-transform duration-300 group-hover:scale-[1.45]" />
-                        <span className="typo-body-sm text-white/72 transition-colors group-hover:text-white">
-                          {service}
-                        </span>
-                      </div>
-                    ))}
+                <div className="flex flex-col justify-center">
+                  {/* Eyebrow Badge */}
+                  <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-md w-fit mb-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#ff5812] shadow-[0_0_8px_#ff5812] animate-pulse" />
+                    <span className="text-[10.5px] font-mono font-bold tracking-[0.16em] uppercase text-zinc-300">
+                      PARTNER WITH <span className="text-[#ff5812]">SOFTREE</span>
+                    </span>
                   </div>
+
+                  {/* Headline */}
+                  <h4 className="text-base sm:text-lg md:text-xl lg:text-[22px] font-extrabold text-white tracking-tight leading-[1.25] mb-2.5">
+                    Extend Your Engineering Capacity.
+                    <br />
+                    <span className="text-zinc-400 font-semibold">Not Your </span>
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff5812] to-[#ff7e40]">
+                      Hiring Complexity.
+                    </span>
+                  </h4>
+
+                  {/* Subtitle with subtle accent hairline */}
+                  <p className="text-xs sm:text-[13px] text-zinc-300/90 leading-relaxed max-w-md border-l-2 border-[#ff5812]/50 pl-3 py-0.5">
+                    Build, scale and deliver more with an engineering partner that works as an{" "}
+                    <span className="text-white font-medium">extension of your team</span>.
+                  </p>
                 </div>
               </div>
 
-              <div className="grid gap-4 border-t border-white/10 pt-4 sm:grid-cols-2">
-                <div className="min-w-0">
-                  <p className="typo-heading-4">
-                    E-Mail
-                  </p>
-                  <a
-                    href="mailto:sales@softreetechnology.com"
-                    className="mt-2 block typo-body-sm leading-6 text-white/58 transition-colors hover:text-[#ff5812]"
-                  >
-                    sales@softreetechnology.com
-                  </a>
-                </div>
-                <div className="min-w-0">
-                  <p className="typo-heading-4">
-                    Offices
-                  </p>
-                  <ul className="mt-3 flex flex-col gap-3">
-                    {SOFTREE_OFFICES_CONTACT.map((office) => (
-                      <li key={office.city}>
-                        <p className="text-[13px] font-medium leading-none text-white/80">
-                          {office.city}
-                        </p>
-                        <p className="mt-1 text-[11px] leading-[1.45] text-white/48">
-                          {office.lines.slice(1).join(" · ")}
-                        </p>
+              {/* MIDDLE: What We Offer + 6-Point Checklist */}
+              <div className="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-6 py-6 border-t border-white/10">
+                <div>
+                  <h3 className="text-sm sm:text-base font-bold text-white mb-3 tracking-tight">
+                    What we offer
+                  </h3>
+                  <ul className="flex flex-col gap-2.5">
+                    {[
+                      "Agentic AI & Automation",
+                      "Web Application Development",
+                      "Power Platform & SharePoint",
+                      "Data Engineering & Power BI",
+                      "Mobile App Development",
+                    ].map((item) => (
+                      <li key={item} className="flex items-center gap-2.5 text-xs sm:text-[13px] font-medium text-zinc-300">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#ff5812] shrink-0 shadow-[0_0_6px_#ff5812]" />
+                        <span>{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
+
+                {/* 6-Point Checklist */}
+                <div className="flex flex-col justify-center gap-2.5">
+                  {[
+                    "Offshore Engineering",
+                    "White-Label Delivery",
+                    "Flexible Team Capacity",
+                    "AI & Agentic AI",
+                    "Microsoft Technologies",
+                    "Automation & Security Testing",
+                  ].map((item) => (
+                    <div key={item} className="flex items-center gap-2.5 text-xs font-medium text-zinc-200">
+                      <div className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#ff5812] text-white">
+                        <Check className="h-2.5 w-2.5 stroke-[3]" />
+                      </div>
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
+
+              {/* BOTTOM: How we can extend your team (Unified Single Box with Column Dividers) */}
+              <div className="pt-6 border-t border-white/10">
+                <div className="flex items-center gap-2 mb-3.5">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#ff5812] shadow-[0_0_8px_#ff5812] animate-pulse" />
+                  <p className="text-[10.5px] font-mono font-bold uppercase tracking-[0.22em] text-zinc-300">
+                    HOW WE CAN EXTEND YOUR TEAM
+                  </p>
+                </div>
+
+                {/* Single Unified Container with Column Dividers */}
+                <div className="rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm overflow-hidden">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 divide-y md:divide-y-0 md:divide-x divide-white/10">
+
+                    {/* 1. AI Engineering */}
+                    <div className="p-3 xl:p-3.5 flex flex-col justify-start transition-colors duration-200 hover:bg-white/[0.02]">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Brain className="h-3.5 w-3.5 text-[#ff5812] shrink-0" />
+                        <h5 className="font-mono text-[10.5px] xl:text-[11px] font-bold tracking-[0.12em] text-[#ff5812] uppercase leading-tight">
+                          AI ENGINEERING
+                        </h5>
+                      </div>
+                      <ul className="flex flex-col gap-1.5">
+                        {["Agentic AI", "AI Automation", "RAG"].map((skill) => (
+                          <li
+                            key={skill}
+                            className="group/item relative flex items-center overflow-hidden rounded-lg border border-white/[0.08] bg-white/[0.03] px-2.5 py-1.5 text-[11px] xl:text-[11.5px] font-medium text-zinc-200 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] transition-all duration-200 hover:border-[#ff5812]/50 hover:bg-[#ff5812]/[0.08] hover:text-white hover:translate-x-0.5 cursor-default"
+                          >
+                            <span className="absolute left-0 top-0 bottom-0 w-[2.5px] bg-transparent transition-colors duration-200 group-hover/item:bg-[#ff5812] group-hover/item:shadow-[0_0_6px_#ff5812]" />
+                            <span className="leading-snug tracking-tight">{skill}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* 2. Microsoft */}
+                    <div className="p-3 xl:p-3.5 flex flex-col justify-start transition-colors duration-200 hover:bg-white/[0.02]">
+                      <div className="flex items-center gap-2 mb-3">
+                        <MicrosoftIcon className="h-3.5 w-3.5 text-[#ff5812] shrink-0" />
+                        <h5 className="font-mono text-[10.5px] xl:text-[11px] font-bold tracking-[0.12em] text-[#ff5812] uppercase leading-tight">
+                          MICROSOFT
+                        </h5>
+                      </div>
+                      <ul className="flex flex-col gap-1.5">
+                        {["Azure", "Fabric", "Power Platform"].map((skill) => (
+                          <li
+                            key={skill}
+                            className="group/item relative flex items-center overflow-hidden rounded-lg border border-white/[0.08] bg-white/[0.03] px-2.5 py-1.5 text-[11px] xl:text-[11.5px] font-medium text-zinc-200 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] transition-all duration-200 hover:border-[#ff5812]/50 hover:bg-[#ff5812]/[0.08] hover:text-white hover:translate-x-0.5 cursor-default"
+                          >
+                            <span className="absolute left-0 top-0 bottom-0 w-[2.5px] bg-transparent transition-colors duration-200 group-hover/item:bg-[#ff5812] group-hover/item:shadow-[0_0_6px_#ff5812]" />
+                            <span className="leading-snug tracking-tight">{skill}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* 3. Quality Engineering */}
+                    <div className="p-3 xl:p-3.5 flex flex-col justify-start transition-colors duration-200 hover:bg-white/[0.02]">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Shield className="h-3.5 w-3.5 text-[#ff5812] shrink-0" />
+                        <h5 className="font-mono text-[10.5px] xl:text-[11px] font-bold tracking-[0.12em] text-[#ff5812] uppercase leading-tight">
+                          QUALITY ENGINEERING
+                        </h5>
+                      </div>
+                      <ul className="flex flex-col gap-1.5">
+                        {["AI Testing", "Security Testing", "Automation Testing"].map((skill) => (
+                          <li
+                            key={skill}
+                            className="group/item relative flex items-center overflow-hidden rounded-lg border border-white/[0.08] bg-white/[0.03] px-2.5 py-1.5 text-[11px] xl:text-[11.5px] font-medium text-zinc-200 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] transition-all duration-200 hover:border-[#ff5812]/50 hover:bg-[#ff5812]/[0.08] hover:text-white hover:translate-x-0.5 cursor-default"
+                          >
+                            <span className="absolute left-0 top-0 bottom-0 w-[2.5px] bg-transparent transition-colors duration-200 group-hover/item:bg-[#ff5812] group-hover/item:shadow-[0_0_6px_#ff5812]" />
+                            <span className="leading-snug tracking-tight">{skill}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* 4. Software Engineering */}
+                    <div className="p-3 xl:p-3.5 flex flex-col justify-start transition-colors duration-200 hover:bg-white/[0.02]">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Code2 className="h-3.5 w-3.5 text-[#ff5812] shrink-0" />
+                        <h5 className="font-mono text-[10.5px] xl:text-[11px] font-bold tracking-[0.12em] text-[#ff5812] uppercase leading-tight">
+                          SOFTWARE ENGINEERING
+                        </h5>
+                      </div>
+                      <ul className="flex flex-col gap-1.5">
+                        {["React / Next.js", "Node.js / Python", "FastAPI"].map((skill) => (
+                          <li
+                            key={skill}
+                            className="group/item relative flex items-center overflow-hidden rounded-lg border border-white/[0.08] bg-white/[0.03] px-2.5 py-1.5 text-[11px] xl:text-[11.5px] font-medium text-zinc-200 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] transition-all duration-200 hover:border-[#ff5812]/50 hover:bg-[#ff5812]/[0.08] hover:text-white hover:translate-x-0.5 cursor-default"
+                          >
+                            <span className="absolute left-0 top-0 bottom-0 w-[2.5px] bg-transparent transition-colors duration-200 group-hover/item:bg-[#ff5812] group-hover/item:shadow-[0_0_6px_#ff5812]" />
+                            <span className="leading-snug tracking-tight">{skill}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* 5. Cloud & Data */}
+                    <div className="p-3 xl:p-3.5 flex flex-col justify-start transition-colors duration-200 hover:bg-white/[0.02]">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Cloud className="h-3.5 w-3.5 text-[#ff5812] shrink-0" />
+                        <h5 className="font-mono text-[10.5px] xl:text-[11px] font-bold tracking-[0.12em] text-[#ff5812] uppercase leading-tight">
+                          CLOUD & DATA
+                        </h5>
+                      </div>
+                      <ul className="flex flex-col gap-1.5">
+                        {["Azure / AWS", "Data Engineering", "DevOps"].map((skill) => (
+                          <li
+                            key={skill}
+                            className="group/item relative flex items-center overflow-hidden rounded-lg border border-white/[0.08] bg-white/[0.03] px-2.5 py-1.5 text-[11px] xl:text-[11.5px] font-medium text-zinc-200 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] transition-all duration-200 hover:border-[#ff5812]/50 hover:bg-[#ff5812]/[0.08] hover:text-white hover:translate-x-0.5 cursor-default"
+                          >
+                            <span className="absolute left-0 top-0 bottom-0 w-[2.5px] bg-transparent transition-colors duration-200 group-hover/item:bg-[#ff5812] group-hover/item:shadow-[0_0_8px_#ff5812]" />
+                            <span className="leading-snug tracking-tight">{skill}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
             </div>
 
-            <div className="flex flex-col p-4 sm:p-5">
+            {/* 3. Right Column: Form & Scheduler */}
+            <div className="p-6 sm:p-8 flex flex-col justify-between gap-6">
               <div>
-                <p className="text-[18px] font-medium tracking-[-0.02em]">
+                <h3 className="text-base sm:text-lg font-bold text-white tracking-tight mb-1">
                   Got a question, challenge, or idea?
+                </h3>
+                <p className="text-xs sm:text-sm text-zinc-400 mb-4">
+                  Fill out the form or pick a time on our scheduler:
                 </p>
-                <p className="mt-2 max-w-sm text-sm leading-6 text-white/52">
-                  Fill out the form or pick a time on our scheduler.
-                </p>
-              </div>
 
-              <div className="my-4 sm:my-5 rounded-[6px] border border-white/10 bg-white/[0.03] px-4 py-3">
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                {/* 30-min discovery call banner */}
+                <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3 sm:p-3.5 flex items-center justify-between gap-3 mb-6">
                   <div className="min-w-0">
-                    <p className="text-[13px] font-medium text-white/85">
+                    <p className="text-xs sm:text-[13px] font-bold text-white leading-tight">
                       30-min discovery call
                     </p>
-                    <p className="mt-0.5 text-[11px] leading-snug text-white/42">
+                    <p className="text-[10px] sm:text-[11px] text-zinc-400 leading-tight mt-0.5">
                       Same Calendly as our booking page · instant invite
                     </p>
                   </div>
                   <CalendlyPopupButton
-                    label="Pick a time"
-                    className="group inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-[#ff5812] px-5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white transition duration-300 hover:bg-white hover:text-[#09090d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5812]/60"
+                    label="PICK A TIME"
+                    className="group inline-flex shrink-0 items-center justify-center gap-1 rounded-full bg-[#ff5812] hover:bg-[#e04a0e] px-3.5 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-white transition duration-200 cursor-pointer shadow-sm"
                   />
                 </div>
-              </div>
 
-              <div className="my-4 sm:my-5 h-px w-full bg-white/10" />
+                {/* The Contact Form */}
+                <form
+                  onSubmit={handleSubmit}
+                  className="flex flex-col gap-4 text-white"
+                >
+                  <input type="hidden" name="_subject" value="New Softree Lead" />
+                  <input type="text" name="_gotcha" style={{ display: "none" }} />
 
-              <form
-                id="email-form"
-                name="email-form"
-                aria-label="Email Form"
-                onSubmit={handleSubmit}
-                className="flex flex-1 flex-col justify-start gap-8"
-              >
-                <div className="flex flex-col gap-5 sm:gap-6">
-                  <Field id="CTA-Name" name="CTA-Name" placeholder="Full Name" />
-                  <Field id="email" name="email" type="email" placeholder="E-Mail" required />
-                  <Field id="company-name" name="company" placeholder="Company name" />
-                  <label className="block" htmlFor="field">
-                    <span className="sr-only">{messagePlaceholder}</span>
-                    <textarea
-                      id="field"
-                      name="field"
-                      placeholder={messagePlaceholder}
-                      maxLength={5000}
-                      className="min-h-[80px] sm:min-h-[110px] w-full resize-none rounded-none border-0 border-b border-white/14 bg-transparent px-0 py-4 text-[15px] font-medium text-white outline-none transition-colors duration-300 placeholder:text-white/40 focus:border-[#ff5812]"
+                  {/* Full Name */}
+                  <div className="flex flex-col">
+                    <label className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-zinc-400 mb-1">
+                      FULL NAME
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      placeholder=""
+                      className="w-full border-0 border-b border-white/15 bg-transparent py-1 text-sm text-white placeholder-transparent outline-none transition-colors focus:border-[#ff5812]"
                     />
-                  </label>
-                </div>
+                  </div>
 
-                <div>
-                  <div className="flex flex-col sm:flex-row gap-4 mt-6 sm:mt-8 w-full sm:w-auto">
+                  {/* E-Mail */}
+                  <div className="flex flex-col">
+                    <label className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-zinc-400 mb-1">
+                      E-MAIL <span className="text-[#ff5812]">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      placeholder=""
+                      className="w-full border-0 border-b border-white/15 bg-transparent py-1 text-sm text-white placeholder-transparent outline-none transition-colors focus:border-[#ff5812]"
+                    />
+                  </div>
+
+                  {/* Company Name */}
+                  <div className="flex flex-col">
+                    <label className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-zinc-400 mb-1">
+                      COMPANY NAME
+                    </label>
+                    <input
+                      type="text"
+                      name="company"
+                      placeholder=""
+                      className="w-full border-0 border-b border-white/15 bg-transparent py-1 text-sm text-white placeholder-transparent outline-none transition-colors focus:border-[#ff5812]"
+                    />
+                  </div>
+
+                  {/* Project Details */}
+                  <div className="flex flex-col">
+                    <label className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-zinc-400 mb-0.5">
+                      TELL US ABOUT YOUR PROJECT
+                    </label>
+                    <span className="text-[11px] text-zinc-400 mb-1">
+                      Timeline, scope, budget — the more detail, the better we can help.
+                    </span>
+                    <textarea
+                      name="message"
+                      rows={2}
+                      className="w-full resize-none border-0 border-b border-white/15 bg-transparent py-1 text-sm text-white placeholder-transparent outline-none transition-colors focus:border-[#ff5812]"
+                    />
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="mt-4 flex flex-wrap items-center gap-3">
                     <button
                       type="submit"
                       disabled={status === "submitting"}
-                      className="group inline-flex h-11 sm:h-12 w-full sm:w-fit sm:px-8 gap-3 items-center justify-center rounded-full bg-[#ff5812] px-6 text-[13px] font-semibold uppercase tracking-[0.16em] text-white transition duration-300 hover:bg-white hover:text-[#09090d] disabled:cursor-not-allowed disabled:opacity-65"
+                      className="group inline-flex items-center justify-center gap-1.5 rounded-full bg-[#ff5812] hover:bg-[#e04a0e] px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-[0_4px_14px_rgba(255,88,18,0.35)] transition duration-200 cursor-pointer disabled:opacity-50"
                     >
-                      <span>{status === "submitting" ? "Please wait..." : "Start a Project"}</span>
-                      <ArrowUpRight
-                        className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45"
-                        strokeWidth={2}
-                      />
+                      <span>{status === "submitting" ? "SENDING..." : "SEND MESSAGE"}</span>
+                      <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" strokeWidth={2.5} />
                     </button>
-                    <CalendlyPopupButton />
+
+                    <CalendlyPopupButton
+                      label="BOOK A CALL"
+                      className="group inline-flex items-center justify-center gap-1.5 rounded-full border border-white/20 bg-transparent hover:bg-white/10 hover:border-white/40 px-5 sm:px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition duration-200 cursor-pointer"
+                    />
                   </div>
 
                   {status === "success" && (
-                    <p
-                      role="status"
-                      aria-live="polite"
-                      aria-label="Email Form success"
-                      className="mt-5 text-sm leading-6 text-white/68"
-                    >
-                      Thanks. Our team will get back to you within one business day.
+                    <p className="text-xs text-emerald-400 mt-2 font-medium">
+                      ✓ Thank you! We have received your request and will get back to you shortly.
                     </p>
                   )}
-
                   {status === "error" && (
-                    <p
-                      role="alert"
-                      aria-live="assertive"
-                      aria-label="Email Form failure"
-                      className="mt-5 text-sm leading-6 text-red-500"
-                    >
-                      Submission failed. Please try again in a moment.
+                    <p className="text-xs text-red-400 mt-2 font-medium">
+                      ✕ Submission failed. Please try again or reach out to sales@softreetechnology.com.
                     </p>
                   )}
+                </form>
+              </div>
+            </div>
+
+          </div>
+
+          {/* 4. Bottom Strip: E-Mail & Offices across all 3 zones */}
+          <div className="border-t border-white/10 bg-white/[0.015] p-5 sm:p-6 lg:p-7">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 divide-y md:divide-y-0 md:divide-x divide-white/10">
+              {/* E-Mail */}
+              <div className="md:col-span-4 flex items-start gap-3.5 pr-0 md:pr-6">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#ff5812]/15 border border-[#ff5812]/30 text-[#ff5812] shadow-xs">
+                  <Mail className="h-4 w-4" />
                 </div>
-              </form>
+                <div className="flex flex-col">
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-zinc-400 mb-1">
+                    Direct Inquiry
+                  </span>
+                  <a
+                    href="mailto:sales@softreetechnology.com"
+                    className="group/link inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-white transition-colors duration-200 hover:text-[#ff5812]"
+                  >
+                    <span>sales@softreetechnology.com</span>
+                    <ArrowUpRight className="h-3 w-3 text-zinc-500 transition-all duration-200 group-hover/link:text-[#ff5812] group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                  </a>
+                  <span className="text-[10.5px] text-zinc-500 mt-1">
+                    Response within 2 hours · NDA guaranteed
+                  </span>
+                </div>
+              </div>
+
+              {/* Bengaluru Office */}
+              <div className="md:col-span-4 pt-5 md:pt-0 pl-0 md:pl-6 flex items-start gap-3.5 pr-0 md:pr-4">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#ff5812]/15 border border-[#ff5812]/30 text-[#ff5812] shadow-xs">
+                  <MapPin className="h-4 w-4" />
+                </div>
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[#ff5812]">
+                      HQ · Bengaluru
+                    </span>
+                  </div>
+                  <p className="text-[11.5px] text-zinc-300 leading-relaxed">
+                    11th Floor, Prestige Tech Park, Platina 2 · Outer Ring Rd, Kadubeesanahalli, Bengaluru 560087
+                  </p>
+                </div>
+              </div>
+
+              {/* Cuttack Office */}
+              <div className="md:col-span-4 pt-5 md:pt-0 pl-0 md:pl-6 flex items-start gap-3.5">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/[0.04] border border-white/10 text-zinc-400 shadow-xs">
+                  <MapPin className="h-4 w-4 text-[#ff5812]" />
+                </div>
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-zinc-300">
+                      Engineering Hub · Cuttack
+                    </span>
+                  </div>
+                  <p className="text-[11.5px] text-zinc-300 leading-relaxed">
+                    PLOT 5C/1283, SECTOR-10, CDA, Cuttack, Odisha 753014, India
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
+
         </motion.div>
+
       </div>
     </section>
   )

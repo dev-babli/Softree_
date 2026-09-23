@@ -104,31 +104,22 @@ export function AboutClientStatsGrid({
         {STATS_DATA.map((stat, i) => (
           <div
             key={stat.label}
-            className={`group relative flex flex-col justify-center px-8 py-10 text-center transition-all duration-500 ${
-              dark ? "hover:bg-neutral-900/40" : "hover:bg-neutral-50/50"
-            }`}
+            className={`group relative flex flex-col justify-center px-8 py-10 text-center transition-all duration-500 ${dark ? "hover:bg-neutral-900/40" : "hover:bg-neutral-50/50"
+              }`}
           >
             <span
-              className={`font-serif text-[3.25rem] font-medium tracking-tight bg-clip-text text-transparent bg-gradient-to-r ${
-                i === 0
-                  ? "from-blue-500 via-indigo-500 to-purple-500"
-                  : i === 1
-                    ? "from-cyan-500 via-blue-500 to-indigo-500"
-                    : "from-indigo-500 via-purple-500 to-pink-500"
-              } transition-transform duration-500 group-hover:scale-[1.04] sm:text-[3.75rem]`}
+              className="font-serif text-[3.25rem] font-medium tracking-tight text-[#FF5812] transition-transform duration-500 group-hover:scale-[1.04] sm:text-[3.75rem]"
             >
               {stat.value}
             </span>
 
-            <span className={`mt-2 text-sm font-extrabold uppercase tracking-[0.24em] ${
-              dark ? "text-neutral-400" : "text-neutral-500"
-            }`}>
+            <span className={`mt-2 text-sm font-extrabold uppercase tracking-[0.24em] ${dark ? "text-neutral-400" : "text-neutral-500"
+              }`}>
               {stat.label}
             </span>
 
-            <span className={`mt-2 text-sm font-normal leading-relaxed ${
-              dark ? "text-neutral-500" : "text-neutral-500"
-            }`}>
+            <span className={`mt-2 text-sm font-normal leading-relaxed ${dark ? "text-neutral-500" : "text-neutral-500"
+              }`}>
               {stat.desc}
             </span>
           </div>
@@ -166,7 +157,7 @@ export default function AboutClientLogos({
       />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-12">
-        
+
         {/* Centered headline section with section header */}
         <motion.div
           className="mx-auto max-w-4xl text-center mb-16"
@@ -221,19 +212,13 @@ export default function AboutClientLogos({
         </div>
 
         {/* Centered button: MORE CUSTOMER STORIES */}
-        <motion.div 
+        <motion.div
           className="flex justify-center"
           initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         >
-          <Link
-            href="/contact"
-            prefetch={false}
-            className="inline-flex items-center justify-center rounded-full bg-[#111111] text-white px-8 py-3.5 text-xs font-semibold uppercase tracking-widest hover:bg-neutral-900 transition-colors shadow-[0_8px_20px_-6px_rgba(0,0,0,0.15)] active:scale-[0.98]"
-          >
-            Contact Us &nbsp;→
-          </Link>
+
         </motion.div>
 
         {/* Stats Grid - Kept clean below if not in marqueeOnly mode */}
