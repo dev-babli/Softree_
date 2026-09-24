@@ -5,102 +5,102 @@ import SqueezeCarousel, { SqueezeSlide } from "@/components/ui/carousel-squeeze"
 
 const agentCoreSlides: SqueezeSlide[] = [
   {
-    id: "runtime",
-    title: "Runtime",
-    description: "Run and manage production AI agents with reliable execution, scaling, and workflow control.",
+    id: "discovery",
+    title: "Discovery",
+    description: "Define AI agent use cases, workflows, tools, data sources, and deployment requirements.",
     bullets: [
-      "Production agent execution",
-      "Scalable agent workloads",
-      "Multi-step task orchestration",
-      "Reliable workflow execution"
+      "AI agent use-case discovery",
+      "Business workflow analysis",
+      "Agent capabilities & tool mapping",
+      "Data and knowledge requirements"
     ],
     image: "/images/ai-development-services/core-capabilities/ai-strategy.png",
-    imageAlt: "AgentCore Runtime Concept",
-    action: "Explore AgentCore Expertise",
+    imageAlt: "AI Agent Discovery",
+    action: "Explore AI Agent Discovery →",
     href: "/contact"
   },
   {
-    id: "memory",
-    title: "Memory",
-    description: "Give AI agents the context they need to remember information and maintain continuity across interactions.",
+    id: "architecture",
+    title: "AI Agent Architecture",
+    description: "Design scalable AI agents with Amazon Bedrock AgentCore and flexible agent frameworks.",
     bullets: [
-      "Persistent agent context",
-      "Conversation memory",
-      "Context-aware workflows",
-      "Long-running interactions"
+      "AgentCore Runtime architecture",
+      "Strands Agents & LangGraph",
+      "Foundation model integration",
+      "Agent tools and workflow orchestration"
     ],
     image: "/images/ai-development-services/core-capabilities/intelligent-automation.png",
-    imageAlt: "AgentCore Memory Concept",
-    action: "Explore AgentCore Expertise",
+    imageAlt: "AI Agent Architecture",
+    action: "Explore Agent Architecture →",
     href: "/contact"
   },
   {
-    id: "gateway",
-    title: "Gateway",
-    description: "Connect AI agents securely with APIs, tools, applications, and enterprise systems.",
+    id: "integration",
+    title: "AgentCore Integration",
+    description: "Connect AI agents with tools, APIs, applications, data, and services using Amazon Bedrock AgentCore.",
     bullets: [
-      "API integrations",
-      "Tool connectivity",
-      "Enterprise applications",
-      "Secure system access"
+      "AgentCore Gateway",
+      "MCP servers & tools",
+      "APIs & AWS Lambda",
+      "AgentCore Memory",
+      "Identity & secure access"
     ],
     image: "/images/ai-development-services/core-capabilities/enterprise-ai-architecture.png",
-    imageAlt: "AgentCore Gateway Concept",
-    action: "Explore AgentCore Expertise",
+    imageAlt: "AgentCore Integration",
+    action: "Explore AgentCore Integrations →",
     href: "/contact"
   },
   {
-    id: "identity",
-    title: "Identity",
-    description: "Control agent access with secure identity, authentication, and authorization for enterprise environments.",
+    id: "optimization",
+    title: "Agent Optimization",
+    description: "Monitor agent behavior, evaluate performance, and improve AI workflows using AgentCore observability and evaluations.",
     bullets: [
-      "Agent authentication",
-      "Access control",
-      "Secure permissions",
-      "Enterprise identity"
+      "AgentCore Observability",
+      "Agent workflow tracing",
+      "Performance monitoring",
+      "AgentCore Evaluations",
+      "Continuous quality improvement"
     ],
     image: "/images/ai-development-services/core-capabilities/microsoft-ai-ecosystem.png",
-    imageAlt: "AgentCore Identity Concept",
-    action: "Explore AgentCore Expertise",
+    imageAlt: "Agent Optimization",
+    action: "Optimize Your AI Agents →",
     href: "/contact"
   },
   {
-    id: "observability",
-    title: "Observability",
-    description: "Monitor agent behavior, workflows, performance, and interactions across production environments.",
+    id: "deployment",
+    title: "Production Deployment",
+    description: "Deploy, operate, monitor, and scale reliable AI agents with Amazon Bedrock AgentCore.",
     bullets: [
-      "Agent monitoring",
-      "Workflow visibility",
-      "Performance tracking",
-      "Production insights"
+      "Secure AgentCore Runtime deployment",
+      "Production monitoring",
+      "Identity and access controls",
+      "Agent performance evaluation",
+      "Scalable AI agent operations"
     ],
     image: "/images/ai-development-services/core-capabilities/continuous-optimization.png",
-    imageAlt: "AgentCore Observability Concept",
-    action: "Explore AgentCore Expertise",
+    imageAlt: "Production Deployment",
+    action: "Deploy AI Agents with AgentCore →",
     href: "/contact"
   },
 ];
 
 export default function WhyAgentCoreSlider() {
   return (
-    <section className="w-full bg-white pt-10 md:pt-16 pb-12 md:pb-20 overflow-hidden">
+    <section className="w-full bg-white pt-2 md:pt-4 pb-12 md:pb-20 overflow-hidden">
       <div className="w-full max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-[2cm]">
         {/* Header */}
         <div className="flex flex-col items-center w-full mb-10 md:mb-14 text-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] uppercase mb-5">
             <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
-            WHY AGENTCORE
+            SOFTREE'S AMAZON BEDROCK AGENTCORE DEVELOPMENT APPROACH
           </div>
           
-          <h2 className="typo-heading-2 text-slate-900 mb-6 max-w-none whitespace-normal md:whitespace-nowrap">
-            From AI Agents to <span className="text-[#FF6B2C]">Production Systems</span>
+          <h2 className="typo-heading-2 text-slate-900 mb-6 max-w-none">
+            From AI Agent Prototype <br className="hidden sm:block" />
+            to <span className="text-[#FF6B2C]">Production-Ready AI</span>
           </h2>
           
           <div className="flex flex-col items-center space-y-4 max-w-3xl mx-auto">
-            <p className="typo-description text-slate-700">
-              A prototype can answer questions. A production agent needs to:
-            </p>
-            
             <div className="typo-heading-4 text-slate-900 uppercase flex flex-wrap md:flex-nowrap items-center justify-center gap-2 sm:gap-3 lg:gap-4 whitespace-normal md:whitespace-nowrap">
               <span>REASON</span>
               <span className="text-[#FF6B2C]">→</span>
@@ -116,12 +116,12 @@ export default function WhyAgentCoreSlider() {
             </div>
             
             <p className="typo-body text-slate-600 pt-2">
-              Softree helps turn AI-agent concepts into production-ready enterprise systems using Amazon Bedrock AgentCore.
+              Softree transforms AI agent into production-ready applications using Amazon Bedrock AgentCore, secure agent runtimes, memory, tool integrations, observability, and continuous evaluation.
             </p>
           </div>
         </div>
 
-        {/* Squeeze Carousel - 6 Slides */}
+        {/* Squeeze Carousel - 5 Slides */}
         <div className="w-full">
           <SqueezeCarousel
             slides={agentCoreSlides}
@@ -134,7 +134,7 @@ export default function WhyAgentCoreSlider() {
             interval={6000}
             hoverGrow={true}
             controls={true}
-            label="Why AgentCore Capabilities"
+            label="AgentCore Development Approach"
           />
         </div>
       </div>

@@ -92,20 +92,7 @@ export default function AmazonBedrockHero() {
                 Build, deploy and operate AI agents that can reason, use tools, access enterprise data and take real business actions.
               </motion.p>
 
-              {/* Primary Action Button */}
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="flex flex-wrap items-center gap-4 mt-2"
-              >
-                <FlowButton
-                  href="/contact"
-                  text="Build your AI Agent"
-                  variant="orange-filled"
-                  className="px-8 py-3.5 sm:py-4 text-[15px] font-bold tracking-wide shadow-[0_12px_32px_rgba(255,88,18,0.45)] hover:shadow-[0_16px_44px_rgba(255,88,18,0.65)] transform hover:-translate-y-1"
-                />
-              </motion.div>
+
             </div>
 
             {/* ──────────────── RIGHT COLUMN: INTERACTIVE BEDROCK HERO VISUAL (50%) ──────────────── */}

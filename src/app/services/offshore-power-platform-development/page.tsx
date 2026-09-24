@@ -103,28 +103,30 @@ const powerPlatformFAQs = [
   }
 ];
 export const metadata: Metadata = applyPageOg("/services/offshore-power-platform-development", {
-  title: "Power Platform Development Services | Power Apps & Automation",
+  title: "Microsoft Power Platform Development Services | Softree",
 
   description:
-    "Professional Power Platform development services. We build custom Power Apps, automate workflows with Power Automate, and deliver enterprise solutions using the Microsoft Power Platform.",
+    "Build and scale Microsoft Power Platform solutions with Power Apps, Power Automate, Power BI, Power Pages, Dataverse and Copilot Studio. Offshore and white-label delivery by Softree.",
 
   keywords: [
-    "Power Platform development",
-    "Power Apps development",
-    "Power Automate services",
-    "Power BI development",
-    "custom Power Apps",
-    "Power Apps consulting",
-    "business process automation",
-    "low-code development",
-    "Microsoft Power Platform",
-    "Power Platform development company",
+    "Microsoft Power Platform Development Services",
+    "Power Platform Development Services",
+    "Power Platform Consulting",
+    "Power Platform Development Company",
+    "Power Apps Development Services",
+    "Power Automate Development Services",
+    "Power BI Development Services",
+    "Power Pages Development Services",
+    "Dataverse Development",
+    "Copilot Studio Development",
+    "Offshore Power Platform Development",
+    "White-Label Power Platform Development",
   ],
 
   openGraph: {
-    title: "Power Platform Development Services | Power Apps & Automation",
+    title: "Microsoft Power Platform Development Services | Softree",
     description:
-      "Professional Power Platform development services for custom Power Apps, automation, and enterprise solutions.",
+      "Build and scale Microsoft Power Platform solutions with Power Apps, Power Automate, Power BI, Power Pages, Dataverse and Copilot Studio. Offshore and white-label delivery by Softree.",
     url: "https://www.softreetechnology.com/services/offshore-power-platform-development",
     siteName: "Softree Technology",
     type: "website",
@@ -132,9 +134,9 @@ export const metadata: Metadata = applyPageOg("/services/offshore-power-platform
 
   twitter: {
     card: "summary_large_image",
-    title: "Power Platform Development Services",
+    title: "Microsoft Power Platform Development Services | Softree",
     description:
-      "Custom Power Apps, Power Automate workflows, and Power Platform solutions for businesses.",
+      "Build and scale Microsoft Power Platform solutions with Power Apps, Power Automate, Power BI, Power Pages, Dataverse and Copilot Studio. Offshore and white-label delivery by Softree.",
   },
 
   alternates: {
