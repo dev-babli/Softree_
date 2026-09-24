@@ -73,8 +73,17 @@ export default async function RootLayout({
   const designTokenVars = resolveDesignTokenCssVars(designTokens) as CSSProperties;
 
   return (
-    <html lang="en" suppressHydrationWarning className={inter.variable} style={designTokenVars}>
+    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth" className={inter.variable} style={designTokenVars}>
       <head>
+        {/* Resource Hints for Third-Party CDNs & Trackers */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://us.i.posthog.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://us.i.posthog.com" />
+        <link rel="preconnect" href="https://cdn.sanity.io" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://cdn.sanity.io" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+
         <meta
           name="google-site-verification"
           content="CQu6WuCUmQXjNOdwvXN7jlimfC8ztWgq9WTTLMNNLQ0"
@@ -134,10 +143,10 @@ export default async function RootLayout({
       </head>
  
        <body className="antialiased bg-[#141414] text-white">
-        {/* ✅ Google Tag Manager */}
+        {/* ✅ Google Tag Manager - lazyOnload prevents blocking hydration & FCP */}
         <Script
           id="gtm"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               (function(w,d,s,l,i){w[l]=w[l]||[];
@@ -166,9 +175,8 @@ export default async function RootLayout({
         <PostHogProvider>
           <PostHogPageView />
 
-          {/* Authoring/iframe-only tooling — never ship to production visitors (perf: saves a
-              third-party origin connection + JS parse on every route). */}
-          {process.env.NODE_ENV !== "production" ? (
+          {/* Optional dev-only browser loggers (enabled strictly when requested) */}
+          {process.env.NODE_ENV !== "production" && process.env.NEXT_PUBLIC_ENABLE_DEV_LOGS === "true" ? (
             <>
               {/* Browser log script */}
               <Script
