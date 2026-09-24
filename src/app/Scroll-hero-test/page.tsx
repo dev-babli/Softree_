@@ -12,12 +12,12 @@ export default function KoreHeroTestPage() {
 
       {/* The Scroll-Driven Sequence (Stacked Sticky Sections) */}
       <CustomerExperienceCard />
-      
+
       {/* We set a higher z-index on the later sections so they slide OVER the previous ones */}
       <div className="relative z-20 mt-[-100vh]">
         <EmployeeProductivityCard />
       </div>
-      
+
       <div className="relative z-30 mt-[-100vh]">
         <KoreFourthSection />
       </div>

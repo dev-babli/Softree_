@@ -39,8 +39,8 @@ const OffshoreEngineeringSection = dynamic(() => import('./components/OffshoreEn
 const ArgentLoopSlider = dynamic(() => import('@/components/ui/argent-loop-infinite-slider'), { ssr: true });
 import DetailDrawer from './components/AiTechnologyStack';
 export const metadata: Metadata = {
-  title: 'AI Development Services | Offshore AI Delivery Partner | Softree',
-  description: 'Extend your delivery capacity with Softree\'s offshore AI development team for custom AI, Generative AI, AI agents, RAG, automation, and enterprise integrations.',
+  title: 'Agentic AI Development Services | Offshore AI Partner | Softree Technology',
+  description: 'Build and scale Agentic AI solutions, AI agents, RAG, and intelligent workflows with Softree\'s offshore AI engineering team and white-label delivery model.',
   keywords: [
     'AI Development Services',
     'Custom AI Development',
@@ -68,12 +68,12 @@ export const metadata: Metadata = {
     'Microsoft AI Solutions'
   ],
   alternates: {
-    canonical: 'https://www.softreetechnology.com/ai-development-services',
+    canonical: 'https://www.softreetechnology.com/services/ai-development-services',
   },
   openGraph: {
-    title: 'AI Development Services | Offshore AI Delivery Partner | Softree',
-    description: 'Scale your AI delivery with Softree\'s offshore engineering team for custom AI, Generative AI, AI agents, RAG, automation, and production-ready AI integrations.',
-    url: 'https://www.softreetechnology.com/ai-development-services',
+    title: 'Agentic AI Development Services | Offshore AI Partner | Softree Technology',
+    description: 'Build Agentic AI solutions, AI agents, RAG, and intelligent workflows with Softree\'s offshore AI engineering team and white-label delivery model.',
+    url: 'https://www.softreetechnology.com/services/ai-development-services',
     siteName: 'Softree Technology',
     images: [
       {

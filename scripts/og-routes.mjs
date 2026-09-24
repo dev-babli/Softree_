@@ -19,7 +19,7 @@ export const STATIC_OG_ROUTES = [
   '/services/offshore-ai-development',
   '/services/offshore-data-analytics',
   '/services/generative-ai',
-  '/services/offshore-microsoft-fabric',
+  '/services/microsoft-fabric-engineering-services',
   '/services/offshore-mobile-app-development',
   '/services/offshore-power-platform-development',
   '/services/offshore-sharepoint-development',

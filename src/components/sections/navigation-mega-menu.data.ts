@@ -191,7 +191,7 @@ export const SERVICES_MEGA_CATEGORIES: MegaMenuGroup[] = [
       },
       {
         label: "Microsoft Fabric",
-        url: "/services/offshore-microsoft-fabric",
+        url: "/services/microsoft-fabric-engineering-services",
         icon: Boxes,
         description: "Unified analytics",
       },

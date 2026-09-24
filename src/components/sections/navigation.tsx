@@ -132,7 +132,7 @@ const menu: MenuItem[] = [
         description: "Transform raw data into actionable intelligence and drive decision-making with modern analytics platforms.",
         links: [
           { label: "Power BI", url: "/services/offshore-data-analytics", icon: LineChart, description: "Interactive executive dashboards" },
-          { label: "Microsoft Fabric", url: "/services/offshore-microsoft-fabric", icon: Boxes, description: "All-in-one unified analytics platform" },
+          { label: "Microsoft Fabric", url: "/services/microsoft-fabric-engineering-services", icon: Boxes, description: "All-in-one unified analytics platform" },
           { label: "Databricks", url: "/services/offshore-data-analytics", icon: Cpu, description: "Enterprise machine learning pipelines" },
           { label: "Snowflake", url: "/services/offshore-data-analytics", icon: CloudSnow, description: "Cloud-native data warehousing and sharing" },
         ],

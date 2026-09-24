@@ -262,28 +262,12 @@ export const WovenLightHero = () => {
               Build, deploy, and scale AI agents with a dedicated offshore engineering team — under your brand or as an extension of your team.
             </motion.p>
 
-            {/* Action Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="mt-5 sm:mt-6 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
-            >
-              <FlowButton
-                href="/contact"
-                text="Build Your AI Team"
-                variant="orange-filled"
-                className="w-full sm:w-auto shadow-lg shadow-[#FF6B00]/30 typo-button-lg"
-              />
-
-            </motion.div>
-
             {/* Capabilities Pill Badges */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-              className="mt-5 sm:mt-6 flex flex-wrap items-center gap-2 sm:gap-2.5 max-w-2xl"
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="mt-6 sm:mt-8 flex flex-wrap items-center gap-2 sm:gap-2.5 max-w-2xl"
             >
               {capabilities.map((item, idx) => {
                 const Icon = item.icon;

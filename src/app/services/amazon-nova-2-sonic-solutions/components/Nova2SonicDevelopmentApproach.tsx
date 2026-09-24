@@ -88,7 +88,7 @@ const novaDevelopmentSlides: SqueezeSlide[] = [
 
 export default function Nova2SonicDevelopmentApproach() {
   return (
-    <section className="w-full bg-white pt-10 md:pt-16 pb-12 md:pb-20 overflow-hidden">
+    <section className="w-full bg-white pt-10 md:pt-14 pb-6 md:pb-8 overflow-hidden">
       <div className="w-full max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-[2cm]">
         {/* Header */}
         <div className="flex flex-col items-center w-full mb-10 md:mb-14 text-center">
@@ -97,13 +97,13 @@ export default function Nova2SonicDevelopmentApproach() {
             SOFTREE&apos;S NOVA 2 SONIC DEVELOPMENT APPROACH
           </div>
 
-          <h2 className="typo-heading-2 text-slate-900 mb-6 max-w-none whitespace-normal md:whitespace-nowrap">
+          <h2 className="typo-heading-2 text-slate-900 mb-6 max-w-none whitespace-normal">
             From Voice Prototype to <span className="text-[#FF6B2C]">Production AI</span>
           </h2>
 
           <div className="flex flex-col items-center space-y-4 max-w-4xl mx-auto">
 
-            <div className="typo-heading-4 text-slate-900 uppercase flex flex-wrap md:flex-nowrap items-center justify-center gap-2 sm:gap-3 lg:gap-4 whitespace-normal md:whitespace-nowrap">
+            <div className="typo-heading-4 text-slate-900 uppercase flex flex-wrap items-center justify-center gap-2 sm:gap-3 lg:gap-4 whitespace-normal">
               <span>DISCOVERY</span>
               <span className="text-[#FF6B2C]">→</span>
               <span>VOICE AI ARCHITECTURE</span>
@@ -116,7 +116,7 @@ export default function Nova2SonicDevelopmentApproach() {
             </div>
 
             <p className="typo-body text-slate-600 pt-2 text-center max-w-3xl">
-              Softree differentiates your deployment from an off-the-shelf AWS sample by engineering production-ready voice systems with sub-second latency, enterprise RAG connections, and continuous observability.
+              Softree differentiates your deployment from an off-the-shelf AWS sample by engineering production-ready voice systems with sub-second latency, enterprise RAG connections, and observability.
             </p>
           </div>
         </div>

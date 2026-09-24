@@ -91,7 +91,7 @@ const menu: MenuItem[] = [
         description: "Intelligence from raw data.",
         links: [
           { label: "Power BI", url: "/services/offshore-data-analytics", icon: LineChart, description: "Executive dashboards" },
-          { label: "Microsoft Fabric", url: "/services/offshore-microsoft-fabric", icon: Boxes, description: "Unified analytics" },
+          { label: "Microsoft Fabric", url: "/services/microsoft-fabric-engineering-services", icon: Boxes, description: "Unified analytics" },
           { label: "Databricks", url: "/services/offshore-data-analytics", icon: Cpu, description: "ML pipelines" },
           { label: "Snowflake", url: "/services/offshore-data-analytics", icon: CloudSnow, description: "Cloud warehouse" },
         ],

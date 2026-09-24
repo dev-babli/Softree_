@@ -56,11 +56,7 @@ export default function TrustAndReadiness() {
                 From architecture to production, Softree provides the engineering layer behind your AI initiative.
               </p>
 
-              {/* Scroll Indicator */}
-              <div className="hidden lg:flex items-center gap-3 mt-10 text-zinc-400 animate-bounce">
-                <span className="typo-caption font-mono">Scroll to view process steps</span>
-                <ArrowDown size={14} className="text-[#FF5812]" />
-              </div>
+
             </div>
           </div>
 

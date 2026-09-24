@@ -25,7 +25,7 @@ const NOVA_SLIDES: NovaSlide[] = [
     title: "AI Voice Assistants",
     description:
       "Build intelligent voice assistants that understand natural conversations, maintain context, and provide real-time responses with sub-second latency.",
-    media: "/images/nova-2/voice-agent-1.jpg",
+    media: "/images/novavoice/1.png",
     effect: "glass",
   },
   {
@@ -35,7 +35,7 @@ const NOVA_SLIDES: NovaSlide[] = [
     title: "Customer Service Voice Agents",
     description:
       "Automate customer interactions with conversational voice agents that can answer questions, retrieve information, and support service workflows.",
-    media: "/images/nova-2/voice-agent-2.jpg",
+    media: "/images/novavoice/2.png",
     effect: "ripple",
   },
   {
@@ -45,7 +45,7 @@ const NOVA_SLIDES: NovaSlide[] = [
     title: "Enterprise Voice Automation",
     description:
       "Connect voice AI with business processes, APIs, and enterprise systems to automate repetitive, mission-critical voice-driven operational tasks.",
-    media: "/images/ai-development-services/core-capabilities/intelligent-automation.png",
+    media: "/images/novavoice/3.png",
     effect: "timeshift",
   },
   {
@@ -55,7 +55,7 @@ const NOVA_SLIDES: NovaSlide[] = [
     title: "Voice Knowledge Assistants",
     description:
       "Build voice-enabled knowledge assistants that use RAG and business data to provide relevant, context-aware, verifiable responses.",
-    media: "/images/ai-development-services/core-capabilities/enterprise-ai-architecture.png",
+    media: "/images/novavoice/4.png",
     effect: "frost",
   },
   {
@@ -65,7 +65,7 @@ const NOVA_SLIDES: NovaSlide[] = [
     title: "Healthcare Voice Assistants",
     description:
       "Develop conversational voice solutions for healthcare workflows, information access, patient scheduling, and approved clinical use cases.",
-    media: "/images/solutions/ai-agents-development/ai-healthcare-operations.png",
+    media: "/images/novavoice/5.png",
     effect: "glass",
   },
   {
@@ -75,7 +75,7 @@ const NOVA_SLIDES: NovaSlide[] = [
     title: "Field Service Voice Assistants",
     description:
       "Enable field teams to access information, interact with applications, and complete workflows through hands-free voice interactions.",
-    media: "/images/nova-2/voice-agent-3.jpg",
+    media: "/images/novavoice/6.png",
     effect: "ripple",
   },
   {
@@ -85,7 +85,7 @@ const NOVA_SLIDES: NovaSlide[] = [
     title: "Multilingual Voice Experiences",
     description:
       "Create conversational applications that support multilingual interactions and more natural voice experiences for diverse global audiences.",
-    media: "/images/ai-development-services/core-capabilities/ai-strategy.png",
+    media: "/images/novavoice/7.png",
     effect: "timeshift",
   },
   {
@@ -95,7 +95,7 @@ const NOVA_SLIDES: NovaSlide[] = [
     title: "Voice-Powered AI Agents",
     description:
       "Combine Nova 2 Sonic with AI agents, tool calling, APIs, and business logic to create voice interfaces capable of taking autonomous actions.",
-    media: "/images/ai-development-services/core-capabilities/microsoft-ai-ecosystem.png",
+    media: "/images/novavoice/8.png",
     effect: "plasma",
   },
 ];
@@ -253,8 +253,7 @@ export default function NovaVoiceSolutionsArc() {
         .split("")
         .map(
           (char) =>
-            `<span style="display: inline-block; opacity: 0;">${
-              char === " " ? "&nbsp;" : char
+            `<span style="display: inline-block; opacity: 0;">${char === " " ? "&nbsp;" : char
             }</span>`
         )
         .join("");
@@ -339,12 +338,9 @@ export default function NovaVoiceSolutionsArc() {
         ".slide-progress-fill"
       ) as HTMLElement;
       if (el) {
-        el.style.transition = "width 0.2s ease-out";
+        el.style.transition = "none";
         el.style.width = "0%";
-        setTimeout(
-          () => (el.style.transition = "width 0.1s ease, opacity 0.3s ease"),
-          200
-        );
+        el.style.opacity = "1";
       }
     };
 
@@ -585,7 +581,7 @@ export default function NovaVoiceSolutionsArc() {
   };
 
   return (
-    <section className="relative w-full bg-white text-slate-900 pt-12 md:pt-18 pb-16 md:pb-24 overflow-hidden select-none font-sans">
+    <section className="relative w-full bg-white text-slate-900 py-10 md:py-14 overflow-hidden select-none font-sans">
       {/* Background radial glow */}
       <div
         className="pointer-events-none absolute inset-0 opacity-40"
@@ -678,10 +674,6 @@ export default function NovaVoiceSolutionsArc() {
                 {NOVA_SLIDES[currentIdx]?.tag || "Real-Time Conversation"}
               </span>
             </div>
-
-            <span className="hidden sm:inline-block typo-caption text-white/70">
-              Bidirectional Streaming · Sub-Second Latency
-            </span>
           </div>
 
           {/* Bottom Content Overlay */}
@@ -715,19 +707,18 @@ export default function NovaVoiceSolutionsArc() {
               <div
                 key={slide.id}
                 onClick={() => navigateToSlideRef.current?.(i)}
-                className={`slide-nav-item flex-1 cursor-pointer py-1 group/nav ${
-                  i === currentIdx ? "active" : ""
-                }`}
+                className={`slide-nav-item flex-1 cursor-pointer py-1 group/nav ${i === currentIdx ? "active" : ""
+                  }`}
                 title={slide.title}
               >
                 <div className="slide-progress-line w-full h-[3px] bg-white/20 rounded-full overflow-hidden mb-1.5 group-hover/nav:bg-white/35 transition-colors">
                   <div
                     className="slide-progress-fill h-full bg-[#FF5812] rounded-full"
-                    style={{ width: i === currentIdx ? "100%" : "0%" }}
+                    style={{ width: "0%" }}
                   />
                 </div>
                 <div className="slide-nav-title typo-caption-meta font-mono font-semibold text-white/50 group-hover/nav:text-white/90 transition-colors line-clamp-1">
-                  {slide.number} {slide.title}
+                  {slide.title}
                 </div>
               </div>
             ))}

@@ -161,113 +161,114 @@ const IsometricBlocksLogo = () => (
   </div>
 );
 
-export default function HowWeBuildIt() {
+export default function FabricTechnologyStack() {
   // 5 Technology Stack Categories as requested
   const stackCategories = [
     {
       category: "STACK 01",
-      title: "AI & CLOUD",
+      title: "DATA PLATFORM",
       items: [
-        { name: "Amazon Bedrock", icon: <BedrockLogo className="w-4 h-4 text-[#FF5812]" /> },
-        { name: "Amazon Nova 2 Sonic", icon: <Brain className="w-4 h-4 text-orange-600" /> },
-        { name: "AWS Cloud", icon: <AwsCloudLogo className="w-4 h-4 text-slate-700" /> },
+        { name: "OneLake", icon: <Database className="w-4 h-4 text-orange-600" /> },
+        { name: "Lakehouse", icon: <Layers className="w-4 h-4 text-cyan-600" /> },
+        { name: "Data Warehouse", icon: <Server className="w-4 h-4 text-slate-700" /> },
+        { name: "Data Factory", icon: <Settings className="w-4 h-4 text-teal-600" /> },
+        { name: "Real-Time Intelligence", icon: <Zap className="w-4 h-4 text-amber-500" /> },
       ],
     },
     {
       category: "STACK 02",
-      title: "GENERATIVE AI & VOICE AI ENGINEERING",
+      title: "DATA ENGINEERING",
       items: [
-        { name: "RAG", icon: <Database className="w-4 h-4 text-orange-500" /> },
-        { name: "LLMs", icon: <Brain className="w-4 h-4 text-orange-600" /> },
-        { name: "AI Agents", icon: <Bot className="w-4 h-4 text-slate-800" /> },
-        { name: "Prompt Engineering", icon: <Sparkles className="w-4 h-4 text-amber-500" /> },
-        { name: "Conversational AI", icon: <MessageSquare className="w-4 h-4 text-orange-500" /> },
+        { name: "Apache Spark", icon: <Sparkles className="w-4 h-4 text-orange-500" /> },
+        { name: "Notebooks", icon: <FileText className="w-4 h-4 text-slate-800" /> },
+        { name: "Data Pipelines", icon: <Workflow className="w-4 h-4 text-blue-600" /> },
+        { name: "ETL / ELT", icon: <RefreshCw className="w-4 h-4 text-orange-600" /> },
       ],
     },
     {
       category: "STACK 03",
-      title: "BACKEND DEVELOPMENT",
+      title: "ANALYTICS & BI",
       items: [
-        { name: "Python", icon: <Terminal className="w-4 h-4 text-blue-600" /> },
-        { name: "FastAPI", icon: <Zap className="w-4 h-4 text-teal-600" /> },
-        { name: "REST APIs", icon: <Network className="w-4 h-4 text-orange-600" /> },
-        { name: "WebSockets", icon: <RefreshCw className="w-4 h-4 text-slate-700" /> },
+        { name: "Power BI", icon: <Activity className="w-4 h-4 text-yellow-600" /> },
+        { name: "Semantic Models", icon: <Layers3 className="w-4 h-4 text-purple-600" /> },
+        { name: "Direct Lake", icon: <Zap className="w-4 h-4 text-orange-600" /> },
+        { name: "Enterprise Reporting", icon: <FileText className="w-4 h-4 text-slate-700" /> },
       ],
     },
     {
       category: "STACK 04",
-      title: "FRONTEND DEVELOPMENT",
+      title: "MICROSOFT ECOSYSTEM",
       items: [
-        { name: "React", icon: <Cpu className="w-4 h-4 text-cyan-600" /> },
-        { name: "Next.js", icon: <Code2 className="w-4 h-4 text-slate-900" /> },
-        { name: "TypeScript", icon: <Layers className="w-4 h-4 text-blue-600" /> },
+        { name: "Microsoft Purview", icon: <Search className="w-4 h-4 text-blue-600" /> },
+        { name: "Azure Cloud", icon: <Cloud className="w-4 h-4 text-blue-500" /> },
+        { name: "Dynamics 365", icon: <Boxes className="w-4 h-4 text-slate-900" /> },
       ],
     },
     {
       category: "STACK 05",
-      title: "DATA & KNOWLEDGE SYSTEMS",
+      title: "AI & MACHINE LEARNING",
       items: [
-        { name: "Vector Databases", icon: <Boxes className="w-4 h-4 text-purple-600" /> },
-        { name: "Knowledge Bases", icon: <Search className="w-4 h-4 text-orange-600" /> },
-        { name: "Enterprise Databases", icon: <Server className="w-4 h-4 text-slate-700" /> },
+        { name: "Synapse Data Science", icon: <Brain className="w-4 h-4 text-purple-600" /> },
+        { name: "ML Models", icon: <Bot className="w-4 h-4 text-orange-600" /> },
+        { name: "Azure OpenAI", icon: <Sparkles className="w-4 h-4 text-teal-600" /> },
       ],
     },
   ];
 
   const rightCapabilities = [
     {
-      title: "REAL-TIME VOICE AI",
+      title: "REAL-TIME ANALYTICS",
       borderClass: "border-[#FF5812]/30",
       textClass: "text-[#FF5812]",
       glowClass: "shadow-[0_0_15px_rgba(255,88,18,0.2)]",
       hoverBorder: "group-hover:border-[#FF5812]/60",
-      icon: <MessageSquare className="w-5 h-5 text-[#FF5812]" strokeWidth={2} />,
-      desc: "Sub-200ms speech-to-speech with natural turn-taking & barge-in.",
+      icon: <Zap className="w-5 h-5 text-[#FF5812]" strokeWidth={2} />,
+      desc: "Ingest and analyze streaming data in real-time with Kusto Query Language (KQL).",
     },
     {
-      title: "AI AGENTS & TOOL CALLING",
+      title: "UNIFIED LAKEHOUSE",
       borderClass: "border-[#FF5812]/30",
       textClass: "text-[#FF5812]",
       glowClass: "shadow-[0_0_15px_rgba(255,88,18,0.2)]",
       hoverBorder: "group-hover:border-[#FF5812]/60",
-      icon: <Wrench className="w-5 h-5 text-[#FF5812]" strokeWidth={2} />,
-      desc: "Connect voice AI directly to APIs, CRM, ERP, and operational tools.",
+      icon: <Layers className="w-5 h-5 text-[#FF5812]" strokeWidth={2} />,
+      desc: "Eliminate data silos with OneLake, providing a single source of truth for all workloads.",
     },
     {
-      title: "ENTERPRISE RAG SYSTEMS",
+      title: "DATA GOVERNANCE",
       borderClass: "border-[#FF5812]/30",
       textClass: "text-[#FF5812]",
       glowClass: "shadow-[0_0_15px_rgba(255,88,18,0.2)]",
       hoverBorder: "group-hover:border-[#FF5812]/60",
-      icon: <Database className="w-5 h-5 text-[#FF5812]" strokeWidth={2} />,
-      desc: "Ground voice dialogues in enterprise knowledge bases & vector stores.",
+      icon: <Search className="w-5 h-5 text-[#FF5812]" strokeWidth={2} />,
+      desc: "Secure data globally with native Microsoft Purview integration and row-level security.",
     },
     {
-      title: "AGENTIC WORKFLOWS",
+      title: "AI-POWERED COPILOT",
+      borderClass: "border-[#FF5812]/30",
+      textClass: "text-[#FF5812]",
+      glowClass: "shadow-[0_0_15px_rgba(255,88,18,0.2)]",
+      hoverBorder: "group-hover:border-[#FF5812]/60",
+      icon: <Bot className="w-5 h-5 text-[#FF5812]" strokeWidth={2} />,
+      desc: "Accelerate workflows and empower users with embedded generative AI and Copilot.",
+    },
+    {
+      title: "DATA ENGINEERING",
       borderClass: "border-[#FF5812]/30",
       textClass: "text-[#FF5812]",
       glowClass: "shadow-[0_0_15px_rgba(255,88,18,0.2)]",
       hoverBorder: "group-hover:border-[#FF5812]/60",
       icon: <Workflow className="w-5 h-5 text-[#FF5812]" strokeWidth={2} />,
-      desc: "Multi-tool reasoning, autonomous execution, and error recovery.",
-    },
-    {
-      title: "ENTERPRISE INTEGRATION",
-      borderClass: "border-[#FF5812]/30",
-      textClass: "text-[#FF5812]",
-      glowClass: "shadow-[0_0_15px_rgba(255,88,18,0.2)]",
-      hoverBorder: "group-hover:border-[#FF5812]/60",
-      icon: <Network className="w-5 h-5 text-[#FF5812]" strokeWidth={2} />,
-      desc: "Secure mTLS, role-based access, and enterprise compliance.",
+      desc: "Build resilient ETL/ELT pipelines with Data Factory, Dataflows Gen2, and Apache Spark.",
     },
   ];
 
   const bottomStackSummary = [
-    { title: "AI ENGINE", value: "Amazon Nova 2 Sonic", icon: <Brain className="w-4 h-4 text-[#FF5812]" /> },
-    { title: "CLOUD & LLM", value: "Amazon Bedrock · AWS", icon: <Cloud className="w-4 h-4 text-[#FF5812]" /> },
-    { title: "BACKEND", value: "Python · FastAPI · REST", icon: <Zap className="w-4 h-4 text-[#FF5812]" /> },
-    { title: "FRONTEND", value: "React · Next.js · TS", icon: <Cpu className="w-4 h-4 text-[#FF5812]" /> },
-    { title: "KNOWLEDGE", value: "Vector DBs · RAG", icon: <Database className="w-4 h-4 text-[#FF5812]" /> },
+    { title: "DATA LAKE", value: "OneLake", icon: <Database className="w-4 h-4 text-[#FF5812]" /> },
+    { title: "ENGINEERING", value: "Data Factory · Spark", icon: <Settings className="w-4 h-4 text-[#FF5812]" /> },
+    { title: "ANALYTICS", value: "Power BI · Direct Lake", icon: <Activity className="w-4 h-4 text-[#FF5812]" /> },
+    { title: "GOVERNANCE", value: "Microsoft Purview", icon: <Search className="w-4 h-4 text-[#FF5812]" /> },
+    { title: "AI", value: "Azure OpenAI · Copilot", icon: <Brain className="w-4 h-4 text-[#FF5812]" /> },
   ];
 
   return (
@@ -276,15 +277,13 @@ export default function HowWeBuildIt() {
       <div className="text-center w-full max-w-4xl mx-auto flex flex-col items-center px-4">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 border border-orange-500/20 text-[#FF5812] typo-caption mb-4 shadow-xs">
           <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#FF5812] animate-pulse" />
-          HOW WE BUILD IT · TECHNOLOGY STACK
+          MICROSOFT FABRIC TECHNOLOGY
         </div>
         <h2 className="typo-heading-2 text-slate-900 mb-3 sm:mb-4">
-          Amazon Nova 2 Sonic Technology Stack for Voice AI Development
+          Microsoft Fabric Technology Stack for Data & AI
         </h2>
         <p className="typo-description text-slate-600 max-w-3xl text-center">
-          Softree combines Amazon Nova 2 Sonic, Amazon Bedrock, generative AI, RAG, AI agents,
-          modern backend technologies, and scalable data platforms to build production-ready voice
-          AI applications.
+          Build a modern data and AI foundation with Microsoft Fabric and the Microsoft ecosystem, connecting data engineering, analytics, automation, cloud services & AI capabilities in one unified technology stack.
         </p>
 
       </div>
@@ -298,19 +297,19 @@ export default function HowWeBuildIt() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch w-full relative z-10">
           {/* Left Column: Heading, Isometric Stack */}
           <div className="lg:col-span-3 flex">
-            <div className="relative overflow-hidden rounded-[18px] border border-orange-500/30 bg-slate-50 p-5 sm:p-6 shadow-[0_0_25px_rgba(255,88,18,0.05)] flex flex-col justify-between items-stretch w-full h-auto min-h-[300px] lg:h-[500px] z-10">
+            <div className="relative overflow-hidden rounded-[18px] border border-orange-500/30 bg-slate-50 p-5 sm:p-6 shadow-[0_0_25px_rgba(255,88,18,0.05)] flex flex-col justify-between items-stretch w-full h-auto min-h-[300px] lg:min-h-[500px] z-10">
               <div className="space-y-1.5 text-left">
                 <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-[#FF5812] typo-caption font-mono mb-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#FF5812] animate-pulse" />
-                  VOICE AI ECOSYSTEM
+                  DATA & AI ECOSYSTEM
                 </div>
                 <h3 className="typo-heading-4 tracking-wider text-slate-900 uppercase leading-[1.1] mb-1">
-                  VOICE AI
+                  MICROSOFT
                   <br />
-                  STACK
+                  FABRIC
                 </h3>
                 <p className="typo-caption-meta font-bold text-orange-600">
-                  NOVA 2 SONIC · BEDROCK · AGENTS
+                  ONELAKE · POWER BI · SYNAPSE
                 </p>
               </div>
 
@@ -320,7 +319,7 @@ export default function HowWeBuildIt() {
               </div>
 
               <div className="typo-caption-meta font-mono text-slate-500 text-center border-t border-slate-200/80 pt-3">
-                Full-Stack Voice AI Engineering
+                Enterprise Data Architecture
               </div>
             </div>
           </div>
@@ -380,7 +379,7 @@ export default function HowWeBuildIt() {
             </div>
 
             {/* Col A (5 Stack Layers) */}
-            <div className="xl:col-span-6 flex flex-col justify-between gap-2.5 xl:gap-2 py-1 h-auto xl:h-[500px] relative z-10">
+            <div className="xl:col-span-6 flex flex-col justify-between gap-3 xl:gap-4 py-1 h-auto xl:min-h-[500px] relative z-10">
               {stackCategories.map((cat, idx) => (
                 <div
                   key={cat.category}
@@ -450,20 +449,20 @@ export default function HowWeBuildIt() {
                 <div className="absolute inset-4 sm:inset-5 rounded-full bg-white border-2 border-orange-400/50 shadow-[0_0_25px_rgba(255,88,18,0.15)] flex flex-col items-center justify-center gap-0.5 z-10">
                   <Activity className="w-5 h-5 text-[#FF5812] animate-pulse" />
                   <span className="text-[10px] font-black tracking-widest text-slate-900 text-center mt-0.5">
-                    NOVA 2
+                    MICROSOFT
                   </span>
                   <span className="text-[9px] font-black tracking-widest text-[#FF5812] text-center mt-[-1px]">
-                    SONIC
+                    FABRIC
                   </span>
                   <span className="text-[7px] font-bold tracking-widest text-slate-500 select-none text-center leading-tight">
-                    VOICE AI
+                    DATA PLATFORM
                   </span>
                 </div>
               </div>
             </div>
 
             {/* Col C: 5 Capabilities indicators */}
-            <div className="xl:col-span-4 flex flex-col justify-between gap-2.5 xl:gap-2 py-1 h-auto xl:h-[500px] text-left pl-0 xl:pl-2 relative z-10">
+            <div className="xl:col-span-4 flex flex-col justify-between gap-3 xl:gap-4 py-1 h-auto xl:min-h-[500px] text-left pl-0 xl:pl-2 relative z-10">
               {rightCapabilities.map((cap, idx) => (
                 <div key={idx} className="relative flex items-center pl-4 sm:pl-5 w-full group">
                   <div

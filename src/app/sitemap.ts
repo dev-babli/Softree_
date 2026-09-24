@@ -41,7 +41,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
 
   // Offshore Services - Priority 0.6 / 0.7
   { url: `${BASE_URL}/services/offshore-data-analytics`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-  { url: `${BASE_URL}/services/offshore-microsoft-fabric`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+  { url: `${BASE_URL}/services/microsoft-fabric-engineering-services`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
   { url: `${BASE_URL}/services/offshore-mobile-app-development`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
   { url: `${BASE_URL}/services/offshore-power-platform-development`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
   { url: `${BASE_URL}/services/offshore-sharepoint-development`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },

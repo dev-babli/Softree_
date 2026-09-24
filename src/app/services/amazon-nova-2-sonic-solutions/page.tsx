@@ -20,11 +20,11 @@ const WhyChooseSoftree = dynamic(() => import('./components/WhyChooseSoftree'), 
 const TrustAndReadiness = dynamic(() => import('./components/TrustAndReadiness'), { ssr: true });
 const FeaturedCaseStudies = dynamic(() => import('./components/FeaturedCaseStudies'), { ssr: true });
 
-const PAGE_URL = 'https://www.softreetechnology.com/industries/amazon-nova-2-sonic-development';
+const PAGE_URL = 'https://www.softreetechnology.com/services/amazon-nova-2-sonic-solutions';
 
 export const metadata: Metadata = {
-  title: 'Amazon Nova 2 Sonic Development | Softree',
-  description: 'Build production-ready voice AI agents using Amazon Nova 2 Sonic, Amazon Bedrock and your offshore engineering team.',
+  title: 'Amazon Nova 2 Sonic Development Services | Softree',
+  description: 'Build real-time voice AI applications with Amazon Nova 2 Sonic and Amazon Bedrock. Softree delivers production-ready voice agents with offshore engineering expertise.',
   alternates: {
     canonical: PAGE_URL,
   },
@@ -39,7 +39,7 @@ export default function AmazonNova2SonicDevelopmentPage() {
       <Hero />
 
       {/* Two-Column Layout: What You Can Build & Global Network */}
-      <div className="bg-white pt-6 md:pt-8 pb-6 md:pb-8">
+      <div className="bg-white py-10 md:py-14">
         <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-[2cm]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
             {/* Left Column: What You Can Build */}
@@ -61,8 +61,9 @@ export default function AmazonNova2SonicDevelopmentPage() {
         </div>
       </div>
 
+      <NovaVoiceSolutionsArc />
       <Nova2SonicDevelopmentApproach />
-      <NovaVoiceSolutionsArc/>
+
       <AmazonNovaVoiceAiCapabilities />
       <HowWeBuildIt />
       <TrustAndReadiness />

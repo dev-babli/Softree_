@@ -36,7 +36,7 @@ const ROWS: Row[] = [
   { index: "05", label: "DATA & ANALYTICS", stat: "Power BI to decision systems", href: "/services/offshore-data-analytics", thumb: "/og/pages/services--offshore-data-analytics.png" },
   { index: "06", label: "POWER PLATFORM", stat: "Apps + automation at scale", href: "/services/offshore-power-platform-development", thumb: "/og/pages/services--offshore-power-platform-development.png" },
   { index: "07", label: "SHAREPOINT & M365", stat: "Intranets, SPFx, governance", href: "/services/offshore-sharepoint-development", thumb: "/og/pages/services--offshore-sharepoint-development.png" },
-  { index: "08", label: "MICROSOFT FABRIC", stat: "Lakehouse + enterprise BI", href: "/services/offshore-microsoft-fabric", thumb: "/og/pages/services--offshore-microsoft-fabric.png" },
+  { index: "08", label: "MICROSOFT FABRIC", stat: "Lakehouse + enterprise BI", href: "/services/microsoft-fabric-engineering-services", thumb: "/og/pages/services--microsoft-fabric-engineering-services.png" },
   { index: "09", label: "LEGACY MODERNIZATION", stat: "Old stack → shipping stack", href: "/services/legacy-application-modernization", thumb: "/og/pages/services--legacy-application-modernization.png" },
 ];
 

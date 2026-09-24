@@ -25,37 +25,37 @@ const defaultFaqs: FAQItem[] = [
     id: 1,
     serial: "question 01",
     question: "What is Amazon Nova 2 Sonic?",
-    answer: "Amazon Nova 2 Sonic is an advanced real-time voice AI model designed for low-latency, highly conversational voice agents. We leverage it to build responsive, production-ready AI systems that understand context and speak naturally.",
+    answer: "Amazon Nova 2 Sonic is an advanced real-time voice AI model designed for low-latency, highly conversational voice agents. We leverage it to build responsive, production-ready AI systems that understand context and speak naturally. As an expert Amazon Nova 2 Sonic development company, Softree utilizes this groundbreaking generative AI model to deliver sub-second response times, enabling businesses to deploy scalable voice AI agents that elevate customer service and streamline enterprise automation.",
   },
   {
     id: 2,
     serial: "question 02",
     question: "Can Nova 2 Sonic connect to our APIs and business systems?",
-    answer: "Yes. We integrate Amazon Nova 2 Sonic voice agents directly with your existing APIs, databases, CRM, EHR, and custom enterprise systems so the agent can take real-time actions and fetch live data during conversations.",
+    answer: "Yes. We integrate Amazon Nova 2 Sonic voice agents directly with your existing APIs, databases, CRM, EHR, and custom enterprise systems so the agent can take real-time actions and fetch live data during conversations. Our AI integration specialists build robust AWS backend architectures that ensure your conversational AI solutions securely authenticate and execute complex tool-calling operations seamlessly across your entire digital ecosystem.",
   },
   {
     id: 3,
     serial: "question 03",
     question: "Can you build voice agents with RAG?",
-    answer: "Absolutely. We build Retrieval-Augmented Generation (RAG) architectures with Amazon Bedrock to ground voice agents in your specific enterprise knowledge base, ensuring accurate, highly contextual, and hallucination-free voice interactions.",
+    answer: "Absolutely. We build Retrieval-Augmented Generation (RAG) architectures with Amazon Bedrock to ground voice agents in your specific enterprise knowledge base, ensuring accurate, highly contextual, and hallucination-free voice interactions. By implementing enterprise RAG solutions, our AI developers empower your intelligent voice assistants to query company documents, process vast amounts of unstructured data, and provide precise, verifiable answers in real time.",
   },
   {
     id: 4,
     serial: "question 04",
     question: "Can Nova 2 Sonic support multilingual conversations?",
-    answer: "Yes, Amazon Nova 2 Sonic supports multilingual voice interactions. Our engineering team can configure agents to detect and speak multiple languages naturally, adapting to the user's preferred language seamlessly.",
+    answer: "Yes, Amazon Nova 2 Sonic supports multilingual voice interactions. Our engineering team can configure agents to detect and speak multiple languages naturally, adapting to the user's preferred language seamlessly. Building global real-time voice AI applications allows your enterprise to deliver inclusive customer experiences, breaking down language barriers while maintaining the low latency and natural tone required for premium conversational AI deployments.",
   },
   {
     id: 5,
     serial: "question 05",
     question: "Can Softree provide offshore development?",
-    answer: "Yes. Softree provides dedicated offshore engineering teams specialized in AI, voice technology, and application development to build, deploy, and scale your Amazon Nova 2 Sonic solutions cost-effectively.",
+    answer: "Yes. Softree provides dedicated offshore engineering teams specialized in AI, voice technology, and application development to build, deploy, and scale your Amazon Nova 2 Sonic solutions cost-effectively. Partnering with our offshore AI developers gives you access to top-tier technical talent without the overhead, ensuring accelerated delivery of AWS generative AI projects, rigorous quality assurance, and ongoing optimization of your production AI systems.",
   },
   {
     id: 6,
     serial: "question 06",
     question: "Can Softree work as a white-label AI engineering partner?",
-    answer: "Yes. We operate as a seamless extension of your team. We provide white-label AI engineering and development services, allowing you to deliver cutting-edge voice AI solutions to your clients under your own brand.",
+    answer: "Yes. We operate as a seamless extension of your team. We provide white-label AI engineering and development services, allowing you to deliver cutting-edge voice AI solutions to your clients under your own brand. As a trusted AI technology partner, we handle the complex AWS architecture, voice agent orchestration, and custom generative AI development behind the scenes, ensuring your agency or enterprise can confidently go to market with industry-leading voice solutions.",
   },
 ]
 
@@ -278,7 +278,7 @@ export default function FAQ({ faqs: customFaqs }: LightFAQExactProps) {
   }
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-[#F3F0EE] py-14 md:py-20">
+    <section ref={sectionRef} className="relative w-full bg-[#F3F0EE] py-10 md:py-14">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

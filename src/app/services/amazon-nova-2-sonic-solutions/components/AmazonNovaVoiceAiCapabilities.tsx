@@ -349,7 +349,7 @@ export default function AmazonNovaVoiceAiCapabilities() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full bg-white text-slate-900 py-16 md:py-24 border-t border-slate-100 overflow-hidden"
+      className="relative w-full bg-white text-slate-900 pt-6 md:pt-8 pb-10 md:pb-14 border-t border-slate-100 overflow-hidden"
     >
       {/* Background Subtle Gradient Accents */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-orange-100/40 rounded-full blur-[140px] pointer-events-none -z-10" />
@@ -367,7 +367,7 @@ export default function AmazonNovaVoiceAiCapabilities() {
             </span>
           </div>
 
-          <h2 className="typo-heading-2 text-slate-900 uppercase">
+          <h2 className="typo-heading-2 text-slate-900">
            Amazon Nova 2 Sonic for Intelligent Business Voice Experiences
           </h2>
 
@@ -377,9 +377,7 @@ export default function AmazonNovaVoiceAiCapabilities() {
             workflows.
           </p>
 
-          <p className="mt-2 typo-caption-meta text-slate-400">
-            Build Intelligent Voice AI Solutions with Amazon Nova 2 Sonic
-          </p>
+
         </div>
 
         {/* SORA LABS SHUTTER WIPE SCROLL GALLERY INTERFACE */}
@@ -418,27 +416,7 @@ export default function AmazonNovaVoiceAiCapabilities() {
               ))}
             </div>
 
-            {/* Navigation Arrows */}
-            <div className="flex items-center gap-2">
-              <button
-                type="button"
-                onClick={goToPrev}
-                disabled={isWiping}
-                className="w-9 h-9 rounded-full bg-slate-800 hover:bg-slate-700 active:scale-95 flex items-center justify-center text-white transition-all disabled:opacity-50"
-                aria-label="Previous capability"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
-                type="button"
-                onClick={goToNext}
-                disabled={isWiping}
-                className="w-9 h-9 rounded-full bg-slate-800 hover:bg-slate-700 active:scale-95 flex items-center justify-center text-white transition-all disabled:opacity-50"
-                aria-label="Next capability"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
+
           </div>
 
           {/* Main Visual Arena: Sora Labs Strip Shutter Canvas */}
@@ -522,20 +500,12 @@ export default function AmazonNovaVoiceAiCapabilities() {
               {/* CTA Action Buttons */}
               <div className="flex flex-wrap items-center gap-4">
                 <Link
-                  href={currentCap.ctaHref}
+                  href="/contact"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#FF5812] hover:bg-[#ff6c2f] active:scale-95 text-white typo-button transition-all shadow-lg shadow-orange-600/30"
                 >
                   <span>{currentCap.ctaLabel}</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
-
-                <a
-                  href="#faq"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white typo-button-sm font-medium border border-slate-800 transition-all"
-                >
-                  <Sparkles className="w-4 h-4 text-orange-400" />
-                  <span>Architecture Overview</span>
-                </a>
               </div>
             </div>
           </div>
@@ -559,14 +529,7 @@ export default function AmazonNovaVoiceAiCapabilities() {
               ))}
             </div>
 
-            <div className="flex items-center gap-3">
-              <span className="hidden sm:inline text-slate-500">
-                Powered by Amazon Nova 2 Sonic &amp; Softree AI Engineering
-              </span>
-              <span className="font-mono text-white">
-                {String(activeIndex + 1).padStart(2, "0")} / 06
-              </span>
-            </div>
+
           </div>
         </div>
       </div>
