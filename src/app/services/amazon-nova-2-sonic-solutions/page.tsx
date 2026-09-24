@@ -5,11 +5,16 @@ import Footer from '@/components/sections/footer';
 import Hero from './components/Hero';
 import dynamic from 'next/dynamic';
 import TrustedBrandsMarquee from './components/trust';
+import '@/styles/typography.css';
+
+const NovaVoiceSolutionsArc = dynamic(() => import('./components/NovaVoiceSolutionsArc'), { ssr: true });
 
 const LightContactSection = dynamic(() => import('@/components/homepage-light/LightContactSection'), { ssr: true });
 const FAQ = dynamic(() => import('./components/FAQ'), { ssr: true });
 const WhatYouCanBuild = dynamic(() => import('./components/WhatYouCanBuild').then((mod) => mod.WhatYouCanBuild), { ssr: true });
 const NetworkGlobe = dynamic(() => import('./components/NetworkGlobe'), { ssr: true });
+const Nova2SonicDevelopmentApproach = dynamic(() => import('./components/Nova2SonicDevelopmentApproach'), { ssr: true });
+const AmazonNovaVoiceAiCapabilities = dynamic(() => import('./components/AmazonNovaVoiceAiCapabilities'), { ssr: true });
 const HowWeBuildIt = dynamic(() => import('./components/HowWeBuildIt'), { ssr: true });
 const WhyChooseSoftree = dynamic(() => import('./components/WhyChooseSoftree'), { ssr: true });
 const TrustAndReadiness = dynamic(() => import('./components/TrustAndReadiness'), { ssr: true });
@@ -56,6 +61,9 @@ export default function AmazonNova2SonicDevelopmentPage() {
         </div>
       </div>
 
+      <Nova2SonicDevelopmentApproach />
+      <NovaVoiceSolutionsArc/>
+      <AmazonNovaVoiceAiCapabilities />
       <HowWeBuildIt />
       <TrustAndReadiness />
       {/* <FeaturedCaseStudies /> */}

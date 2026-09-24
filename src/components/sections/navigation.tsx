@@ -2,9 +2,11 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { cn } from "@/lib/utils";
 import type {
   SanityNavCategory,
   SanityNavCaseStudyCategory,
@@ -247,6 +249,9 @@ function buildCaseStudyChildren(
     }));
 }
 
+// Fallback stub for HMR cache safety
+const TubelightGlow = () => null;
+
 export default function Navigation({
   blogCategories = [],
   caseStudyCategories = [],
@@ -254,13 +259,24 @@ export default function Navigation({
   blogCategories?: SanityNavCategory[];
   caseStudyCategories?: SanityNavCaseStudyCategory[];
 }) {
+  const pathname = usePathname();
   const [open, setOpen] = useState<string | null>(null);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [showNav, setShowNav] = useState(true);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
   const lastScrollY = useRef(0);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const reduceMotion = useReducedMotion();
+
+  const isItemActive = useCallback(
+    (url?: string) => {
+      if (!url || !pathname) return false;
+      if (url === "/") return pathname === "/";
+      return pathname.startsWith(url);
+    },
+    [pathname]
+  );
 
   const dynamicMenu = useMemo(() => {
     const caseStudyChildren = buildCaseStudyChildren(caseStudyCategories);
@@ -272,6 +288,14 @@ export default function Navigation({
       return item;
     });
   }, [caseStudyCategories]);
+
+  const activeItem = useMemo(() => {
+    if (open) return open;
+    const match = dynamicMenu.find((item) => isItemActive(item.url));
+    return match?.label || null;
+  }, [open, dynamicMenu, isItemActive]);
+
+  const highlightedItem = hoveredItem ?? activeItem;
 
   const activeMegaItem = useMemo(
     () => dynamicMenu.find((i) => i.label === open && i.mega) ?? null,
@@ -357,13 +381,19 @@ export default function Navigation({
           }`}
         aria-hidden={!showNav}
         inert={!showNav ? true : undefined}
-        onMouseLeave={scheduleCloseMenu}
+        onMouseLeave={() => {
+          setHoveredItem(null);
+          scheduleCloseMenu();
+        }}
       >
         <div className="mx-auto max-w-[1280px] px-5 pt-2.5 lg:px-10">
           <nav className="relative flex h-[64px] items-center justify-between rounded-2xl border border-black/[0.06] bg-white/95 px-4 shadow-[0_8px_32px_-10px_rgba(10,10,26,0.12)] backdrop-blur-xl lg:px-6">
             <Link
               href="/"
-              onMouseEnter={closeMenu}
+              onMouseEnter={() => {
+                setHoveredItem(null);
+                closeMenu();
+              }}
               className="inline-flex min-h-11 shrink-0 items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45"
             >
               <img
@@ -373,17 +403,41 @@ export default function Navigation({
               />
             </Link>
 
-            <div className="hidden items-center gap-0.5 lg:flex">
+            <div
+              className="hidden items-center gap-0.5 lg:flex"
+              onMouseLeave={() => setHoveredItem(null)}
+            >
               {dynamicMenu.map((item) => {
+                const isSelected = highlightedItem === item.label;
+
                 if (!item.mega) {
                   return (
                     <Link
                       key={item.label}
                       href={item.url || "#"}
-                      onMouseEnter={closeMenu}
-                      className="inline-flex min-h-11 items-center rounded-lg px-3 xl:px-3.5 py-2 typo-nav-link font-medium text-[#0a0a1a]/60 transition-colors duration-100 hover:bg-[#F3F0EE] hover:text-[#0a0a1a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45"
+                      onMouseEnter={() => {
+                        setHoveredItem(item.label);
+                        closeMenu();
+                      }}
+                      className={cn(
+                        "group relative cursor-pointer inline-flex min-h-11 items-center rounded-full px-3.5 xl:px-4 py-2 typo-nav-link text-sm font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45",
+                        isSelected
+                          ? "text-[#FF5812]"
+                          : "text-[#0a0a1a]/70 hover:text-[#0a0a1a]"
+                      )}
                     >
-                      {item.label}
+                      <span>{item.label}</span>
+                      {isSelected && (
+                        <motion.div
+                          layoutId="navLampIndicator"
+                          className="pointer-events-none absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-[#FF5812] rounded-full"
+                          transition={
+                            reduceMotion
+                              ? { duration: 0 }
+                              : { type: "spring", stiffness: 380, damping: 30 }
+                          }
+                        />
+                      )}
                     </Link>
                   );
                 }
@@ -394,33 +448,50 @@ export default function Navigation({
                 return (
                   <div
                     key={item.label}
-                    onMouseEnter={() => canOpen && openMenu(item.label)}
+                    onMouseEnter={() => {
+                      setHoveredItem(item.label);
+                      if (canOpen) openMenu(item.label);
+                    }}
                   >
                     {item.url ? (
                       <Link
                         href={item.url}
                         aria-expanded={isOpen}
                         aria-haspopup={canOpen ? "true" : undefined}
-                        onFocus={() => canOpen && openMenu(item.label)}
-                        onMouseEnter={() => canOpen && openMenu(item.label)}
-                        className={`relative inline-flex min-h-11 items-center gap-1.5 rounded-lg px-3 xl:px-3.5 py-2 typo-nav-link font-medium transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45 ${isOpen
-                          ? "text-[#FF5812]"
-                          : "text-[#0a0a1a]/60 hover:text-[#0a0a1a]"
-                          }`}
+                        onFocus={() => {
+                          setHoveredItem(item.label);
+                          if (canOpen) openMenu(item.label);
+                        }}
+                        className={cn(
+                          "group relative cursor-pointer inline-flex min-h-11 items-center gap-1.5 rounded-full px-3.5 xl:px-4 py-2 typo-nav-link text-sm font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45",
+                          isSelected
+                            ? "text-[#FF5812]"
+                            : "text-[#0a0a1a]/70 hover:text-[#0a0a1a]"
+                        )}
                       >
-                        {item.label}
+                        <span>{item.label}</span>
                         {canOpen && (
                           <ChevronDown
                             size={14}
-                            className={`transition-transform duration-100 ${isOpen ? "rotate-180 text-[#FF5812]" : "text-[#0a0a1a]/25"
-                              }`}
+                            className={cn(
+                              "transition-transform duration-200",
+                              isOpen
+                                ? "rotate-180 text-[#FF5812]"
+                                : isSelected
+                                ? "text-[#FF5812]"
+                                : "text-[#0a0a1a]/30 group-hover:text-[#0a0a1a]"
+                            )}
                           />
                         )}
-                        {isOpen && (
-                          <motion.span
-                            layoutId="activeNavBorder"
-                            className="absolute bottom-[-10px] left-3 right-3 xl:left-3.5 xl:right-3.5 h-[2.5px] bg-[#FF5812]"
-                            transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                        {isSelected && (
+                          <motion.div
+                            layoutId="navLampIndicator"
+                            className="pointer-events-none absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-[#FF5812] rounded-full"
+                            transition={
+                              reduceMotion
+                                ? { duration: 0 }
+                                : { type: "spring", stiffness: 380, damping: 30 }
+                            }
                           />
                         )}
                       </Link>
@@ -430,26 +501,40 @@ export default function Navigation({
                         aria-expanded={isOpen}
                         aria-haspopup={canOpen ? "true" : undefined}
                         onClick={() => (isOpen ? closeMenu() : openMenu(item.label))}
-                        onFocus={() => canOpen && openMenu(item.label)}
-                        onMouseEnter={() => canOpen && openMenu(item.label)}
-                        className={`relative inline-flex min-h-11 items-center gap-1.5 rounded-lg px-3 xl:px-3.5 py-2 typo-nav-link font-medium transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45 ${isOpen
-                          ? "text-[#FF5812]"
-                          : "text-[#0a0a1a]/60 hover:text-[#0a0a1a]"
-                          }`}
+                        onFocus={() => {
+                          setHoveredItem(item.label);
+                          if (canOpen) openMenu(item.label);
+                        }}
+                        className={cn(
+                          "group relative cursor-pointer inline-flex min-h-11 items-center gap-1.5 rounded-full px-3.5 xl:px-4 py-2 typo-nav-link text-sm font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45",
+                          isSelected
+                            ? "text-[#FF5812]"
+                            : "text-[#0a0a1a]/70 hover:text-[#0a0a1a]"
+                        )}
                       >
-                        {item.label}
+                        <span>{item.label}</span>
                         {canOpen && (
                           <ChevronDown
                             size={14}
-                            className={`transition-transform duration-100 ${isOpen ? "rotate-180 text-[#FF5812]" : "text-[#0a0a1a]/25"
-                              }`}
+                            className={cn(
+                              "transition-transform duration-200",
+                              isOpen
+                                ? "rotate-180 text-[#FF5812]"
+                                : isSelected
+                                ? "text-[#FF5812]"
+                                : "text-[#0a0a1a]/30 group-hover:text-[#0a0a1a]"
+                            )}
                           />
                         )}
-                        {isOpen && (
-                          <motion.span
-                            layoutId="activeNavBorder"
-                            className="absolute bottom-[-10px] left-3 right-3 xl:left-3.5 xl:right-3.5 h-[2.5px] bg-[#FF5812]"
-                            transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                        {isSelected && (
+                          <motion.div
+                            layoutId="navLampIndicator"
+                            className="pointer-events-none absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-[#FF5812] rounded-full"
+                            transition={
+                              reduceMotion
+                                ? { duration: 0 }
+                                : { type: "spring", stiffness: 380, damping: 30 }
+                            }
                           />
                         )}
                       </button>
@@ -459,7 +544,13 @@ export default function Navigation({
               })}
             </div>
 
-            <div className="hidden items-center gap-2 lg:flex" onMouseEnter={closeMenu}>
+            <div
+              className="hidden items-center gap-2 lg:flex"
+              onMouseEnter={() => {
+                setHoveredItem(null);
+                closeMenu();
+              }}
+            >
               <Link
                 href="/contact"
                 className="inline-flex min-h-11 items-center rounded-full bg-[#FF5812] px-5 py-2.5 typo-button-sm text-white shadow-[0_4px_14px_rgba(255,88,18,0.3)] transition-[transform,box-shadow] duration-150 hover:shadow-[0_6px_18px_rgba(255,88,18,0.36)] active:scale-[0.97]"

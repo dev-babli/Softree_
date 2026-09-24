@@ -119,7 +119,7 @@ export function FeaturedCaseStudies() {
               href="/case-studies" 
               text="Explore All Case Studies"
               variant="orange-filled"
-              className="py-3 px-6 text-xs sm:text-sm font-bold shadow-md"
+              className="py-3 px-6 typo-button shadow-md"
             />
           }
         />

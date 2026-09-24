@@ -218,7 +218,7 @@ export default function FAQ({ faqs: customFaqs }: LightFAQExactProps) {
             {/* Top Row: always visible */}
             <div className="flex items-center justify-between w-full flex-shrink-0">
               <span
-                className="typo-caption-meta transition-colors duration-500"
+                className="typo-caption transition-colors duration-500"
                 style={{ color: isActive ? `${FAQ_INK_MUTED}cc` : FAQ_INK_MUTED }}
               >
                 {faq.serial}
@@ -248,8 +248,7 @@ export default function FAQ({ faqs: customFaqs }: LightFAQExactProps) {
               {/* Question */}
               <div className="mb-2">
                 <h3
-                  className={`transition-colors duration-500 ${isActive ? "typo-heading-4" : "typo-body-sm"
-                    }`}
+                  className="typo-heading-4 transition-colors duration-500"
                   style={{
                     color: FAQ_INK,
                   }}
