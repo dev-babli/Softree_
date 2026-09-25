@@ -284,6 +284,7 @@ export function MegaMenuPanel({
                                   <Link
                                     key={link.label}
                                     href={link.url}
+                                    prefetch={true}
                                     onClick={onClose}
                                     className="group flex items-start gap-2.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/40"
                                   >
@@ -315,6 +316,7 @@ export function MegaMenuPanel({
                             <Link
                               key={link.label}
                               href={link.url}
+                              prefetch={true}
                               onClick={onClose}
                               className="group flex items-start gap-3 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/40"
                             >

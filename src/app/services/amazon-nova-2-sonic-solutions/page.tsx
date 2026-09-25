@@ -7,12 +7,18 @@ import dynamic from 'next/dynamic';
 import TrustedBrandsMarquee from './components/trust';
 import '@/styles/typography.css';
 
-const NovaVoiceSolutionsArc = dynamic(() => import('./components/NovaVoiceSolutionsArc'), { ssr: true });
+const NovaVoiceSolutionsArc = dynamic(() => import('./components/NovaVoiceSolutionsArc'), {
+  ssr: true,
+  loading: () => <div className="w-full min-h-[420px] bg-slate-50/50 animate-pulse rounded-2xl" aria-hidden="true" />,
+});
 
 const LightContactSection = dynamic(() => import('@/components/homepage-light/LightContactSection'), { ssr: true });
 const FAQ = dynamic(() => import('./components/FAQ'), { ssr: true });
 const WhatYouCanBuild = dynamic(() => import('./components/WhatYouCanBuild').then((mod) => mod.WhatYouCanBuild), { ssr: true });
-const NetworkGlobe = dynamic(() => import('./components/NetworkGlobe'), { ssr: true });
+const NetworkGlobe = dynamic(() => import('./components/NetworkGlobe'), {
+  ssr: true,
+  loading: () => <div className="w-full h-full min-h-[380px] bg-slate-900/10 animate-pulse rounded-3xl" aria-hidden="true" />,
+});
 const Nova2SonicDevelopmentApproach = dynamic(() => import('./components/Nova2SonicDevelopmentApproach'), { ssr: true });
 const AmazonNovaVoiceAiCapabilities = dynamic(() => import('./components/AmazonNovaVoiceAiCapabilities'), { ssr: true });
 const HowWeBuildIt = dynamic(() => import('./components/HowWeBuildIt'), { ssr: true });

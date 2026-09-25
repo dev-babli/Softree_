@@ -685,7 +685,22 @@ export default function NetworkGlobe({
       resizeObserver.observe(wrapRef.current);
     }
 
+    let isVisible = true;
+    let io: IntersectionObserver | null = null;
+    if (typeof IntersectionObserver !== "undefined" && wrapRef.current) {
+      io = new IntersectionObserver(([entry]) => {
+        const wasVisible = isVisible;
+        isVisible = entry.isIntersecting;
+        if (isVisible && !wasVisible) {
+          if (rafRef.current) cancelAnimationFrame(rafRef.current);
+          rafRef.current = requestAnimationFrame(tick);
+        }
+      });
+      io.observe(wrapRef.current);
+    }
+
     function tick() {
+      if (!isVisible) return;
       if (!draggingRef.current) {
         rotationRef.current += autoSpeedRef.current + dragVelRef.current;
         dragVelRef.current *= 0.92;
@@ -699,6 +714,7 @@ export default function NetworkGlobe({
     return () => {
       window.removeEventListener("resize", resize);
       if (resizeObserver) resizeObserver.disconnect();
+      if (io) io.disconnect();
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps

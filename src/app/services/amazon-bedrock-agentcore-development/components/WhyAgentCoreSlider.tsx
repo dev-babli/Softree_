@@ -115,7 +115,7 @@ export default function WhyAgentCoreSlider() {
               <span>BE OBSERVED</span>
             </div>
             
-            <p className="typo-body text-slate-600 pt-2">
+            <p className="typo-description text-slate-600 pt-2">
               Softree transforms AI agent into production-ready applications using Amazon Bedrock AgentCore, secure agent runtimes, memory, tool integrations, observability, and continuous evaluation.
             </p>
           </div>

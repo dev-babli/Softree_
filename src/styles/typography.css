@@ -18,7 +18,7 @@
   /* ---------------------------------------------------------------------------
    * 1. FONT FAMILIES
    * --------------------------------------------------------------------------- */
-  --font-family-primary: var(--font-inter), "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family-primary: var(--font-inter, "Inter"), "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-family-title: var(--font-family-primary);
   --font-family-heading: var(--font-family-primary);
   --font-family-description: var(--font-family-primary);
@@ -50,13 +50,13 @@
   --letter-spacing-h1: -0.03em;
 
   /* Heading 2 (Standard Section Header) */
-  --font-size-h2-mobile: 2rem;         /* 32px */
-  --font-size-h2-tablet: 2.5rem;       /* 40px */
-  --font-size-h2-desktop: 3.5rem;      /* 56px */
-  --font-size-h2: clamp(2rem, 4.5vw, 3.5rem);
+  --font-size-h2-mobile: 1.75rem;      /* 28px */
+  --font-size-h2-tablet: 2.125rem;     /* 34px */
+  --font-size-h2-desktop: 2.75rem;     /* 44px */
+  --font-size-h2: clamp(1.75rem, 3.4vw, 2.75rem);
   --font-weight-h2: 600;
-  --line-height-h2: 0.92;
-  --letter-spacing-h2: -0.04em;
+  --line-height-h2: 1.1;
+  --letter-spacing-h2: -0.03em;
 
   /* Heading 3 (Card Titles, Service Slides, Features) */
   --font-size-h3-mobile: 1.35rem;      /* 22px */
@@ -80,21 +80,21 @@
    * 4. DESCRIPTION (Lead Supporting Subheadings)
    * --------------------------------------------------------------------------- */
   /* Description (Hero & Section Lead) */
-  --font-size-description-mobile: 1.0625rem; /* 17px */
-  --font-size-description-tablet: 1.2rem;    /* 19.2px */
-  --font-size-description-desktop: 1.375rem; /* 22px */
-  --font-size-description: clamp(var(--font-size-description-mobile), 1.45vw, var(--font-size-description-desktop));
+  --font-size-description-mobile: 1rem;         /* 16px (was 17px) */
+  --font-size-description-tablet: 1.125rem;     /* 18px (was 19.2px) */
+  --font-size-description-desktop: 1.25rem;     /* 20px (was 22px) */
+  --font-size-description: clamp(var(--font-size-description-mobile), 1.25vw, var(--font-size-description-desktop));
   --font-weight-description: 400;
-  --line-height-description: 1.6;
+  --line-height-description: 1.45;              /* (was 1.6) */
   --letter-spacing-description: -0.01em;
 
   /* Description Small (Cards, Sub-panels) */
-  --font-size-description-sm-mobile: 0.9375rem; /* 15px */
-  --font-size-description-sm-tablet: 1rem;      /* 16px */
-  --font-size-description-sm-desktop: 1.125rem; /* 18px */
-  --font-size-description-sm: clamp(var(--font-size-description-sm-mobile), 1.1vw, var(--font-size-description-sm-desktop));
+  --font-size-description-sm-mobile: 0.875rem;  /* 14px (was 15px) */
+  --font-size-description-sm-tablet: 0.9375rem; /* 15px (was 16px) */
+  --font-size-description-sm-desktop: 1.0625rem;/* 17px (was 18px) */
+  --font-size-description-sm: clamp(var(--font-size-description-sm-mobile), 1vw, var(--font-size-description-sm-desktop));
   --font-weight-description-sm: 400;
-  --line-height-description-sm: 1.55;
+  --line-height-description-sm: 1.45;           /* (was 1.55) */
   --letter-spacing-description-sm: 0;
 
   /* ---------------------------------------------------------------------------
@@ -191,6 +191,10 @@
   --font-weight-nav: 500;
   --line-height-nav: 1;
   --letter-spacing-nav: -0.01em;
+}
+
+body {
+  font-family: var(--font-family-primary);
 }
 
 /* =============================================================================

@@ -1,20 +1,9 @@
 "use client";
 
-import React, { useRef, useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import * as THREE from 'three';
-import Link from 'next/link';
-import { Shield, Users, Cpu, Sparkles, Calendar, ArrowUpRight } from 'lucide-react';
-import { FlowButton } from '@/components/ui/flow-button';
+import React from "react";
+import { motion } from "framer-motion";
+import ParticleSphere from "./components/ParticleSphere";
 import TrustStrip from "@/components/sections/TrustStrip";
-
-const trustItems = [
-  { icon: Shield, title: 'WHITE-LABEL', subtitle: 'Trusted agency partner.' },
-  { icon: Users, title: 'OFFSHORE TEAMS', subtitle: 'Scale on demand.' },
-  { icon: Cpu, title: 'MICROSOFT AI', subtitle: 'Azure & OpenAI partners.' },
-  { icon: Sparkles, title: 'ENTERPRISE AI', subtitle: 'Secure, production-grade.' },
-  { icon: Calendar, title: 'SINCE 2013', subtitle: '13+ years of excellence.' },
-];
 
 // --- Exact Capability SVG Icons (High Clarity & Definition) ---
 const AgenticAiIcon = () => (
@@ -175,499 +164,111 @@ const AwsAiIcon = () => (
 );
 
 const capabilities = [
-  { title: 'Agentic AI', icon: AgenticAiIcon },
-  { title: 'AI Agents', icon: AiAgentsIcon },
-  { title: 'Copilots', icon: CopilotsIcon },
-  { title: 'RAG', icon: RagIcon },
-  { title: 'Intelligent Automation', icon: IntelligentAutomationIcon },
-  { title: 'Microsoft AI', icon: MicrosoftAiIcon },
-  { title: 'AWS AI', icon: AwsAiIcon },
+  { title: "Agentic AI", icon: AgenticAiIcon },
+  { title: "AI Agents", icon: AiAgentsIcon },
+  { title: "Copilots", icon: CopilotsIcon },
+  { title: "RAG", icon: RagIcon },
+  { title: "Intelligent Automation", icon: IntelligentAutomationIcon },
+  { title: "Microsoft AI", icon: MicrosoftAiIcon },
+  { title: "AWS AI", icon: AwsAiIcon },
 ];
 
-// --- Main Hero Component ---
 export const WovenLightHero = () => {
-  const textControls = useAnimation();
-
-  useEffect(() => {
-    // Add a more elegant font
-    const link = document.createElement('link');
-    link.href = 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap';
-    link.rel = 'stylesheet';
-    document.head.appendChild(link);
-
-    textControls.start(i => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.035 + 0.3,
-        duration: 0.7,
-        ease: [0.2, 0.65, 0.3, 0.9]
-      }
-    }));
-
-    return () => {
-      if (document.head.contains(link)) {
-        document.head.removeChild(link);
-      }
-    };
-  }, [textControls]);
-
-  const headline = "Offshore Agentic AI Engineering Partner";
-
   return (
-    <div className="relative flex w-full flex-col overflow-hidden bg-black pt-20 lg:pt-24 pb-0">
+    <section className="relative w-full min-h-screen bg-[#050505] text-white overflow-hidden flex flex-col justify-between pt-24 sm:pt-28 lg:pt-32 pb-8">
+      {/* 3D Interactive Particle Sphere Background - FULL SCREEN */}
+      <div className="absolute inset-0 w-full h-full pointer-events-auto z-0">
+        <ParticleSphere />
+      </div>
 
-      {/* Main Split Content: Left (Text) and Right (The Wave) */}
-      <div className="relative z-10 flex items-start w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-10 pt-2 sm:pt-4 pb-0">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 xl:gap-8 w-full items-center">
+      {/* Ambient background vignette to guarantee text legibility */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(5,5,5,0.7)_65%,#050505_100%)] z-[1]" />
 
-          {/* LEFT: The Text */}
-          <div className="lg:col-span-6 xl:col-span-6 flex flex-col justify-start text-left z-10">
+      {/* ======================================================== */}
+      {/* LEFT-RIGHT TEXT CONTENT OVER FULL GLOBE BACKGROUND       */}
+      {/* ======================================================== */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex-1 flex items-center my-auto py-8 lg:py-16 pointer-events-none">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full">
+          
+          {/* LEFT: Eyebrow + Main Title */}
+          <div className="lg:col-span-7 flex flex-col items-start text-left pointer-events-auto">
             {/* Eyebrow Pill */}
             <motion.div
-              custom={0}
-              initial={{ opacity: 0, y: 15 }}
-              animate={textControls}
-              className="mb-3.5 sm:mb-4 inline-flex items-center gap-2 rounded-full border border-[#FF6B00]/40 bg-[#FF6B00]/10 px-4.5 sm:px-5 py-2 typo-caption text-[#FF6B00] backdrop-blur-md shadow-[0_0_15px_rgba(255,107,0,0.15)] w-fit"
+              initial={{ opacity: 0, y: -15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 sm:px-5 py-2 typo-caption text-[#FF6B00] backdrop-blur-md mb-6 shadow-[0_0_15px_rgba(255,107,0,0.15)]"
             >
               <span className="h-2 w-2 rounded-full bg-[#FF6B00] shadow-[0_0_8px_#FF6B00] animate-pulse" />
-              <span>Build AI. Scale Faster.</span>
+              <span className="tracking-wider uppercase font-semibold">BUILD AI. SCALE FASTER.</span>
             </motion.div>
 
-            {/* Main Headline */}
+            {/* Main Title (Left) */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="typo-title text-white tracking-tight leading-[1.08]"
-              style={{
-                textShadow: '0 0 35px rgba(255, 107, 0, 0.25)',
-              }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="leading-[1.08] tracking-tight flex flex-col items-start text-left select-none max-w-2xl"
             >
-              <span className="whitespace-nowrap">Your Offshore</span>{" "}
-              <span className="text-[#FF6B00] drop-shadow-[0_0_25px_rgba(255,107,0,0.4)]">
-                Agentic AI
+              <span className="text-white text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
+                Your Offshore{" "}
+                <span className="text-[#FF6B00] drop-shadow-[0_0_35px_rgba(255,107,0,0.45)] inline-block">
+                  Agentic AI
+                </span>
               </span>
-              <br />
-              Engineering Partner
+              <span className="text-white text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)] mt-1 sm:mt-2">
+                Engineering Partner
+              </span>
             </motion.h1>
+          </div>
 
-            {/* Subtitle Description */}
+          {/* RIGHT: Description + Capability Pills */}
+          <div className="lg:col-span-5 flex flex-col items-start text-left justify-center lg:pl-4 space-y-6 pointer-events-auto">
+            {/* Description (Right) */}
             <motion.p
-              custom={4}
               initial={{ opacity: 0, y: 20 }}
-              animate={textControls}
-              className="mt-4 sm:mt-5 typo-description text-slate-300 dark:text-slate-400 max-w-xl"
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="text-slate-200 typo-body-lg sm:text-lg lg:text-xl font-normal leading-relaxed drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]"
             >
               Build, deploy, and scale AI agents with a dedicated offshore engineering team — under your brand or as an extension of your team.
             </motion.p>
 
-            {/* Capabilities Pill Badges */}
+            {/* Capability Pill Badges (Right) */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="mt-6 sm:mt-8 flex flex-wrap items-center gap-2 sm:gap-2.5 max-w-2xl"
+              transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-wrap items-center justify-start gap-2 sm:gap-2.5"
             >
               {capabilities.map((item, idx) => {
                 const Icon = item.icon;
                 return (
                   <div
                     key={idx}
-                    className="group inline-flex items-center gap-2.5 px-4 sm:px-4.5 py-2 sm:py-2.5 rounded-full bg-white/[0.08] hover:bg-white/[0.14] border border-white/20 hover:border-[#FF6B00]/70 backdrop-blur-md typo-caption-meta text-white shadow-sm hover:shadow-[0_0_15px_rgba(255,107,0,0.35)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 select-none cursor-default"
+                    className="group inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-full bg-white/[0.08] hover:bg-white/[0.14] border border-white/20 hover:border-[#FF6B00]/70 backdrop-blur-md typo-caption-meta text-white shadow-sm hover:shadow-[0_0_15px_rgba(255,107,0,0.35)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 select-none cursor-default"
                   >
                     <Icon />
-                    <span className="tracking-wide text-white/90 group-hover:text-white">{item.title}</span>
+                    <span className="tracking-wide text-white/90 group-hover:text-white font-medium text-xs sm:text-sm">
+                      {item.title}
+                    </span>
                   </div>
                 );
               })}
             </motion.div>
           </div>
 
-          {/* RIGHT: The Wave (Matches height, centered, never cut off) */}
-          <div className="lg:col-span-6 xl:col-span-6 flex items-center justify-center relative w-full h-[420px] sm:h-[450px] lg:h-[480px] py-0">
-            {/* Ambient orange glow behind the wave for atmospheric contrast */}
-            <div className="pointer-events-none absolute w-80 sm:w-96 h-80 sm:h-96 rounded-full bg-[#FF6B00]/15 blur-[90px] -z-10" />
-            <div className="w-full h-full relative flex items-center justify-center">
-              <WovenCanvas />
-            </div>
-          </div>
-
         </div>
       </div>
 
-      {/* Bottom Trust Bar */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8, duration: 0.8 }}
-        className="w-full z-20 shrink-0 mt-4 sm:mt-6 pb-8"
-      >
+      {/* ======================================================== */}
+      {/* BOTTOM TRUST STRIP */}
+      {/* ======================================================== */}
+      <div className="relative z-20 w-full shrink-0 pt-4">
         <TrustStrip theme="dark" />
-      </motion.div>
-    </div>
+      </div>
+    </section>
   );
 };
 
-// --- Three.js Canvas Component ---
-const WovenCanvas = () => {
-  const mountRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const container = mountRef.current;
-    if (!container) return;
-
-    let animationFrameId: number;
-    const scene = new THREE.Scene();
-
-    // 1. Initial dimensions
-    const width = container.clientWidth || 500;
-    const height = container.clientHeight || 500;
-    const aspect = width / height;
-
-    // 2. Camera setup with FOV 55 for comfortable framing
-    const camera = new THREE.PerspectiveCamera(55, aspect, 0.1, 1000);
-
-    // 3. Renderer with antialiasing and transparency
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-    renderer.setSize(width, height);
-    renderer.domElement.style.display = 'block';
-    renderer.domElement.style.width = '100%';
-    renderer.domElement.style.height = '100%';
-    container.appendChild(renderer.domElement);
-
-    // 4. Ultra-smooth high-definition radial glow particle texture
-    const createGlowTexture = () => {
-      const canvas = document.createElement('canvas');
-      canvas.width = 128;
-      canvas.height = 128;
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return null;
-
-      const gradient = ctx.createRadialGradient(64, 64, 0, 64, 64, 64);
-      gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
-      gradient.addColorStop(0.18, 'rgba(255, 220, 130, 0.98)');
-      gradient.addColorStop(0.38, 'rgba(255, 135, 25, 0.85)');
-      gradient.addColorStop(0.65, 'rgba(255, 80, 0, 0.35)');
-      gradient.addColorStop(0.88, 'rgba(210, 45, 0, 0.08)');
-      gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
-
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, 128, 128);
-
-      const texture = new THREE.CanvasTexture(canvas);
-      texture.needsUpdate = true;
-      return texture;
-    };
-
-    const glowTexture = createGlowTexture();
-
-    // 5. Main Woven Silk Torus Knot Wave
-    // Geometry: radius 1.20, tube 0.38 -> Outer radius 1.58 (leaves ample padding on top & bottom)
-    const particleCount = 48000;
-    const positions = new Float32Array(particleCount * 3);
-    const originalPositions = new Float32Array(particleCount * 3);
-    const colors = new Float32Array(particleCount * 3);
-    const velocities = new Float32Array(particleCount * 3);
-
-    const geometry = new THREE.BufferGeometry();
-    const torusKnot = new THREE.TorusKnotGeometry(1.20, 0.38, 280, 52);
-
-    for (let i = 0; i < particleCount; i++) {
-      const vertexIndex = i % torusKnot.attributes.position.count;
-      const x = torusKnot.attributes.position.getX(vertexIndex);
-      const y = torusKnot.attributes.position.getY(vertexIndex);
-      const z = torusKnot.attributes.position.getZ(vertexIndex);
-
-      positions[i * 3] = x;
-      positions[i * 3 + 1] = y;
-      positions[i * 3 + 2] = z;
-      originalPositions[i * 3] = x;
-      originalPositions[i * 3 + 1] = y;
-      originalPositions[i * 3 + 2] = z;
-
-      velocities[i * 3] = 0;
-      velocities[i * 3 + 1] = 0;
-      velocities[i * 3 + 2] = 0;
-
-      // Color variation: luminous gold highlights + rich Softree amber-orange
-      const color = new THREE.Color();
-      const rand = Math.random();
-      if (rand < 0.2) {
-        // High-luster golden shimmer
-        color.setHSL(0.11, 0.95, 0.85);
-      } else if (rand < 0.65) {
-        // Vibrant Softree orange
-        color.setHSL(0.065 + Math.random() * 0.03, 0.98, 0.62);
-      } else {
-        // Deep warm amber
-        color.setHSL(0.045 + Math.random() * 0.02, 0.95, 0.54);
-      }
-
-      colors[i * 3] = color.r;
-      colors[i * 3 + 1] = color.g;
-      colors[i * 3 + 2] = color.b;
-    }
-
-    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-    const material = new THREE.PointsMaterial({
-      size: 0.035,
-      map: glowTexture || undefined,
-      vertexColors: true,
-      blending: THREE.AdditiveBlending,
-      transparent: true,
-      opacity: 0.98,
-      depthWrite: false,
-    });
-
-    const points = new THREE.Points(geometry, material);
-
-    // 6. Ambient Floating Particle Halo (Tightly contained within safe radius)
-    const ambientCount = 1000;
-    const ambientPositions = new Float32Array(ambientCount * 3);
-    const ambientBasePositions = new Float32Array(ambientCount * 3);
-    const ambientColors = new Float32Array(ambientCount * 3);
-    const ambientSpeeds = new Float32Array(ambientCount);
-    const ambientPhases = new Float32Array(ambientCount);
-
-    for (let i = 0; i < ambientCount; i++) {
-      const u = Math.random();
-      const v = Math.random();
-      const theta = u * 2.0 * Math.PI;
-      const phi = Math.acos(2.0 * v - 1.0);
-
-      // Kept snugly around the knot (max radius 1.75)
-      const r = 1.20 + Math.pow(Math.random(), 1.6) * 0.55;
-
-      const x = r * Math.sin(phi) * Math.cos(theta);
-      const y = r * Math.sin(phi) * Math.sin(theta) * 0.88;
-      const z = r * Math.cos(phi);
-
-      ambientPositions[i * 3] = x;
-      ambientPositions[i * 3 + 1] = y;
-      ambientPositions[i * 3 + 2] = z;
-
-      ambientBasePositions[i * 3] = x;
-      ambientBasePositions[i * 3 + 1] = y;
-      ambientBasePositions[i * 3 + 2] = z;
-
-      // Soft brightness falloff near edges to guarantee zero clipping
-      const falloff = Math.max(0.15, 1 - Math.max(0, (r - 1.45) / 0.45));
-      const isOrange = Math.random() > 0.3;
-      if (isOrange) {
-        ambientColors[i * 3] = 1.0 * falloff;
-        ambientColors[i * 3 + 1] = (0.45 + Math.random() * 0.25) * falloff;
-        ambientColors[i * 3 + 2] = 0.05 * falloff;
-      } else {
-        ambientColors[i * 3] = 0.98 * falloff;
-        ambientColors[i * 3 + 1] = 0.92 * falloff;
-        ambientColors[i * 3 + 2] = 0.82 * falloff;
-      }
-
-      ambientSpeeds[i] = 0.25 + Math.random() * 0.5;
-      ambientPhases[i] = Math.random() * Math.PI * 2;
-    }
-
-    const ambientGeometry = new THREE.BufferGeometry();
-    ambientGeometry.setAttribute('position', new THREE.BufferAttribute(ambientPositions, 3));
-    ambientGeometry.setAttribute('color', new THREE.BufferAttribute(ambientColors, 3));
-
-    const ambientMaterial = new THREE.PointsMaterial({
-      size: 0.035,
-      map: glowTexture || undefined,
-      vertexColors: true,
-      blending: THREE.AdditiveBlending,
-      transparent: true,
-      opacity: 0.85,
-      depthWrite: false,
-    });
-
-    const ambientPoints = new THREE.Points(ambientGeometry, ambientMaterial);
-
-    // 7. Group & Centering
-    const waveGroup = new THREE.Group();
-    waveGroup.position.set(0, 0, 0); // Perfectly centered in canvas
-    waveGroup.add(points);
-    waveGroup.add(ambientPoints);
-    scene.add(waveGroup);
-
-    // 8. Dynamic Camera Distance Calculator (Guarantees generous padding on all 4 sides)
-    const updateSize = (w: number, h: number) => {
-      if (w <= 0 || h <= 0) return;
-      const currentAspect = w / h;
-      camera.aspect = currentAspect;
-
-      const halfFovRad = (camera.fov * Math.PI) / 360;
-      const tanHalfFov = Math.tan(halfFovRad);
-
-      // Safe radius: 2.40 brings camera closer to make the wave visibly bigger with comfortable breathing room
-      const safeRadius = 2.40;
-      const distFromHeight = safeRadius / tanHalfFov;
-      const distFromWidth = safeRadius / (tanHalfFov * currentAspect);
-
-      camera.position.z = Math.max(distFromHeight, distFromWidth, 4.4);
-      camera.position.x = 0;
-      camera.position.y = 0;
-      camera.updateProjectionMatrix();
-
-      renderer.setSize(w, h, true);
-    };
-
-    updateSize(width, height);
-
-    // ResizeObserver for rock-solid responsive sizing
-    const resizeObserver = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        const { width: w, height: h } = entry.contentRect;
-        if (w > 0 && h > 0) {
-          updateSize(w, h);
-        }
-      }
-    });
-    resizeObserver.observe(container);
-
-    // 9. Interactive mouse physics (Bounded & Clamped)
-    const targetMouse = { x: 0, y: 0 };
-    const smoothedMouse = { x: 0, y: 0 };
-
-    const handleMouseMove = (event: MouseEvent) => {
-      if (!container) return;
-      const rect = container.getBoundingClientRect();
-      const isInside = (
-        event.clientX >= rect.left - 50 &&
-        event.clientX <= rect.right + 50 &&
-        event.clientY >= rect.top - 50 &&
-        event.clientY <= rect.bottom + 50
-      );
-
-      if (isInside) {
-        const rawX = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-        const rawY = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-        targetMouse.x = Math.max(-1, Math.min(1, rawX));
-        targetMouse.y = Math.max(-1, Math.min(1, rawY));
-      } else {
-        targetMouse.x = 0;
-        targetMouse.y = 0;
-      }
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-
-    // 10. High-performance Animation Loop (Zero per-frame allocations)
-    const clock = new THREE.Clock();
-    const posArr = positions;
-    const origArr = originalPositions;
-    const velArr = velocities;
-
-    const animate = () => {
-      animationFrameId = requestAnimationFrame(animate);
-      const elapsedTime = clock.getElapsedTime();
-
-      // Smooth mouse interpolation
-      smoothedMouse.x += (targetMouse.x - smoothedMouse.x) * 0.045;
-      smoothedMouse.y += (targetMouse.y - smoothedMouse.y) * 0.045;
-
-      const mouseWorldX = smoothedMouse.x * 2.0;
-      const mouseWorldY = smoothedMouse.y * 2.0;
-      const mouseWorldZ = 0;
-
-      // Wave particles physics with zero garbage collection allocations
-      for (let i = 0; i < particleCount; i++) {
-        const ix = i * 3;
-        const iy = ix + 1;
-        const iz = ix + 2;
-
-        const cx = posArr[ix];
-        const cy = posArr[iy];
-        const cz = posArr[iz];
-
-        const waveDisplacement = Math.sin(elapsedTime * 1.6 + ix * 0.008) * 0.012;
-        const ox = origArr[ix];
-        const oy = origArr[iy] + waveDisplacement;
-        const oz = origArr[iz];
-
-        let vx = velArr[ix];
-        let vy = velArr[iy];
-        let vz = velArr[iz];
-
-        // Mouse displacement calculation using scalar math
-        const dx = cx - mouseWorldX;
-        const dy = cy - mouseWorldY;
-        const dz = cz - mouseWorldZ;
-        const distSq = dx * dx + dy * dy + dz * dz;
-
-        if (distSq < 2.56 && distSq > 0.0001) { // dist < 1.6
-          const dist = Math.sqrt(distSq);
-          const force = (1.6 - dist) * 0.012;
-          const invDist = 1 / dist;
-          vx += dx * invDist * force;
-          vy += dy * invDist * force;
-          vz += dz * invDist * force;
-        }
-
-        // Return force
-        vx += (ox - cx) * 0.0015;
-        vy += (oy - cy) * 0.0015;
-        vz += (oz - cz) * 0.0015;
-
-        // Damping
-        vx *= 0.96;
-        vy *= 0.96;
-        vz *= 0.96;
-
-        posArr[ix] = cx + vx;
-        posArr[iy] = cy + vy;
-        posArr[iz] = cz + vz;
-
-        velArr[ix] = vx;
-        velArr[iy] = vy;
-        velArr[iz] = vz;
-      }
-      geometry.attributes.position.needsUpdate = true;
-
-      // Smooth wave rotations
-      points.rotation.y = elapsedTime * 0.055;
-      points.rotation.x = Math.sin(elapsedTime * 0.025) * 0.08;
-      points.rotation.z = Math.cos(elapsedTime * 0.02) * 0.05;
-
-      // Ambient dots drifting
-      const ambPos = ambientGeometry.attributes.position.array as Float32Array;
-      for (let i = 0; i < ambientCount; i++) {
-        const i3 = i * 3;
-        const speed = ambientSpeeds[i];
-        const phase = ambientPhases[i];
-
-        ambPos[i3] = ambientBasePositions[i3] + Math.sin(elapsedTime * speed + phase) * 0.12 + smoothedMouse.x * 0.12;
-        ambPos[i3 + 1] = ambientBasePositions[i3 + 1] + Math.cos(elapsedTime * speed * 0.75 + phase) * 0.12 + smoothedMouse.y * 0.12;
-        ambPos[i3 + 2] = ambientBasePositions[i3 + 2] + Math.sin(elapsedTime * 0.45 + phase) * 0.1;
-      }
-      ambientGeometry.attributes.position.needsUpdate = true;
-
-      ambientPoints.rotation.y = -elapsedTime * 0.02;
-      ambientPoints.rotation.x = Math.cos(elapsedTime * 0.015) * 0.03;
-
-      renderer.render(scene, camera);
-    };
-
-    animate();
-
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-      resizeObserver.disconnect();
-      window.removeEventListener('mousemove', handleMouseMove);
-      if (container.contains(renderer.domElement)) {
-        container.removeChild(renderer.domElement);
-      }
-      renderer.dispose();
-      glowTexture?.dispose();
-      geometry.dispose();
-      material.dispose();
-      ambientGeometry.dispose();
-      ambientMaterial.dispose();
-    };
-  }, []);
-
-  return <div ref={mountRef} className="w-full h-full relative flex items-center justify-center" />;
-};
+export default WovenLightHero;

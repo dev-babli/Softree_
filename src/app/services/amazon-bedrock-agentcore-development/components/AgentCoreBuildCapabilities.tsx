@@ -48,7 +48,7 @@ function WhatYouCanBuildContent({ simple = false }: { simple?: boolean }) {
   ];
 
   return (
-    <div className="flex flex-col justify-between h-full w-full lg:max-w-[660px] mx-auto lg:mx-0 px-4 lg:px-2 pt-0">
+    <div className="flex flex-col justify-between h-full w-full lg:max-w-[660px] mx-auto lg:mx-0 px-4 lg:px-2 pt-0 font-sans">
       {!simple && (
         <div className="mb-4">
           {/* Eyebrow */}
@@ -58,12 +58,12 @@ function WhatYouCanBuildContent({ simple = false }: { simple?: boolean }) {
           </div>
 
           {/* Heading */}
-          <h2 className="typo-heading-3 text-slate-900 mb-3">
+          <h2 className="typo-heading-2 text-slate-900 mb-3">
             Production-Ready AI Agents & Intelligent Automation
           </h2>
 
           {/* Description */}
-          <p className="text-slate-600 text-base sm:text-lg mb-4">
+          <p className="typo-description text-slate-600 mb-4">
             Amazon Bedrock AgentCore enables businesses to build, deploy, and operate production-ready AI agents with secure runtime environments, memory, tools, identity, and observability.
           </p>
         </div>
@@ -874,7 +874,7 @@ function NetworkGlobeComponent({
           )}
 
           {heading && (
-            <h2 className="typo-heading-3 text-white mb-3">
+            <h2 className="typo-heading-2 text-white mb-3">
               {headingLines.map((line, i) => (
                 <Fragment key={i}>
                   {line}
@@ -885,7 +885,7 @@ function NetworkGlobeComponent({
           )}
 
           {subheading && (
-            <p className="text-[#ded6ce] text-base sm:text-lg mb-2 max-w-xl">
+            <p className="typo-description text-[#ded6ce] mb-2 max-w-xl">
               {subheading}
             </p>
           )}

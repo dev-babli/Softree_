@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 
@@ -160,6 +160,12 @@ void main() {
 function AuroraBackground() {
   const materialRef = useRef<THREE.ShaderMaterial>(null);
 
+  useEffect(() => {
+    if (materialRef.current) {
+      materialRef.current.needsUpdate = true;
+    }
+  }, []);
+
   useFrame((state) => {
     if (materialRef.current) {
       materialRef.current.uniforms.uTime.value = state.clock.elapsedTime;
@@ -175,6 +181,7 @@ function AuroraBackground() {
       {/* Increased width and placed firmly behind the sphere (z=-5) */}
       <planeGeometry args={[16, 7, 32, 32]} />
       <shaderMaterial
+        key="aurora-shader-orange-v5"
         ref={materialRef}
         vertexShader={auroraVertexShader}
         fragmentShader={auroraFragmentShader}
@@ -187,7 +194,7 @@ function AuroraBackground() {
   );
 }
 
-function ShaderParticles({ count = 15000, radius = 2.5 }) {
+function ShaderParticles({ count = 25000, radius = 2.5 }) {
   const points = useRef<THREE.Points>(null);
   const materialRef = useRef<THREE.ShaderMaterial>(null);
   const { pointer, viewport } = useThree();
@@ -246,6 +253,12 @@ function ShaderParticles({ count = 15000, radius = 2.5 }) {
     uMouse: { value: new THREE.Vector3() }
   }), []);
 
+  useEffect(() => {
+    if (materialRef.current) {
+      materialRef.current.needsUpdate = true;
+    }
+  }, []);
+
   return (
     <points ref={points} frustumCulled={false}>
       <bufferGeometry>
@@ -259,6 +272,7 @@ function ShaderParticles({ count = 15000, radius = 2.5 }) {
         />
       </bufferGeometry>
       <shaderMaterial
+        key="particle-shader-orange-v5"
         ref={materialRef}
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}
@@ -272,9 +286,24 @@ function ShaderParticles({ count = 15000, radius = 2.5 }) {
 }
 
 export default function ParticleSphere() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <div className="absolute inset-0 w-full h-full bg-[#050505]" />;
+  }
+
   return (
     <div className="absolute inset-0 w-full h-full">
-      <Canvas camera={{ position: [0, 0, 5], fov: 60 }} style={{ pointerEvents: "auto" }}>
+      <Canvas 
+        key="orange-canvas-remount-v5"
+        camera={{ position: [0, 0, 5], fov: 60 }} 
+        style={{ pointerEvents: "auto" }}
+        gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+      >
         <fog attach="fog" args={["#000000", 3, 10]} />
         {/* Layer 2: Aurora */}
         <AuroraBackground />

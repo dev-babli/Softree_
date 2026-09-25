@@ -189,12 +189,6 @@ export default function AmazonBedrockAgentCoreHero() {
   const textControls = useAnimation();
 
   useEffect(() => {
-    // Add a more elegant font
-    const link = document.createElement('link');
-    link.href = 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap';
-    link.rel = 'stylesheet';
-    document.head.appendChild(link);
-
     textControls.start(i => ({
       opacity: 1,
       y: 0,
@@ -204,12 +198,6 @@ export default function AmazonBedrockAgentCoreHero() {
         ease: [0.2, 0.65, 0.3, 0.9]
       }
     }));
-
-    return () => {
-      if (document.head.contains(link)) {
-        document.head.removeChild(link);
-      }
-    };
   }, [textControls]);
 
   const headline = "Offshore Agentic AI Engineering Partner";

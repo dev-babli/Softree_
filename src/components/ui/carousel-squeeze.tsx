@@ -263,7 +263,7 @@ export function SqueezeCarousel({
                                             </h3>
 
                                             {slide.description && (
-                                                <p className="typo-body-sm text-white/90 max-w-xl drop-shadow-sm">
+                                                <p className="typo-description-sm text-white/90 max-w-xl drop-shadow-sm">
                                                     {slide.description}
                                                 </p>
                                             )}

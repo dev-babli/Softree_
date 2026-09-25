@@ -8,16 +8,13 @@ import {
   Wrench,
   Database,
   Layers,
-  ArrowRight,
   ChevronLeft,
   ChevronRight,
-  Sparkles,
   Zap,
   CheckCircle2,
   Sliders,
   ExternalLink,
 } from "lucide-react";
-import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
@@ -367,7 +364,8 @@ export default function AgentCoreCapabilities() {
           </h2>
 
           <p className="mt-5 typo-description text-slate-600 max-w-3xl mx-auto font-normal">
-            Build, deploy, secure, and operate enterprise AI agents with Amazon Bedrock AgentCore, connecting agents with models, tools, memory, applications, and business workflows.
+            Enable enterprise AI agents with Amazon Bedrock AgentCore, connecting intelligent agents with models, tools, memory, applications, and business workflows.
+
           </p>
 
 
@@ -475,7 +473,7 @@ export default function AgentCoreCapabilities() {
               </div>
 
               {/* Key Metrics Strip */}
-              <div className="grid grid-cols-3 gap-3 pt-4 pb-6 border-t border-slate-800/80 mb-6">
+              <div className="grid grid-cols-3 gap-3 pt-4 border-t border-slate-800/80">
                 {currentCap.metrics.map((m) => (
                   <div
                     key={m.label}
@@ -489,25 +487,6 @@ export default function AgentCoreCapabilities() {
                     </div>
                   </div>
                 ))}
-              </div>
-
-              {/* CTA Action Buttons */}
-              <div className="flex flex-wrap items-center gap-4">
-                <Link
-                  href={currentCap.ctaHref}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#FF5812] hover:bg-[#ff6c2f] active:scale-95 text-white typo-button transition-all shadow-lg shadow-orange-600/30"
-                >
-                  <span>{currentCap.ctaLabel}</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-
-                <a
-                  href="#faq"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white typo-button-sm font-medium border border-slate-800 transition-all"
-                >
-                  <Sparkles className="w-4 h-4 text-orange-400" />
-                  <span>{currentCap.secondaryCta}</span>
-                </a>
               </div>
             </div>
           </div>

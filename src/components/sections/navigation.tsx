@@ -390,6 +390,7 @@ export default function Navigation({
           <nav className="relative flex h-[64px] items-center justify-between rounded-2xl border border-black/[0.06] bg-white/95 px-4 shadow-[0_8px_32px_-10px_rgba(10,10,26,0.12)] backdrop-blur-xl lg:px-6">
             <Link
               href="/"
+              prefetch={true}
               onMouseEnter={() => {
                 setHoveredItem(null);
                 closeMenu();
@@ -415,6 +416,7 @@ export default function Navigation({
                     <Link
                       key={item.label}
                       href={item.url || "#"}
+                      prefetch={true}
                       onMouseEnter={() => {
                         setHoveredItem(item.label);
                         closeMenu();
@@ -456,6 +458,7 @@ export default function Navigation({
                     {item.url ? (
                       <Link
                         href={item.url}
+                        prefetch={true}
                         aria-expanded={isOpen}
                         aria-haspopup={canOpen ? "true" : undefined}
                         onFocus={() => {
@@ -553,6 +556,7 @@ export default function Navigation({
             >
               <Link
                 href="/contact"
+                prefetch={true}
                 className="inline-flex min-h-11 items-center rounded-full bg-[#FF5812] px-5 py-2.5 typo-button-sm text-white shadow-[0_4px_14px_rgba(255,88,18,0.3)] transition-[transform,box-shadow] duration-150 hover:shadow-[0_6px_18px_rgba(255,88,18,0.36)] active:scale-[0.97]"
               >
                 Schedule a Call

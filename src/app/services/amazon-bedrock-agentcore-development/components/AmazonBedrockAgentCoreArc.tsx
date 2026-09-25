@@ -624,7 +624,7 @@ export default function AmazonBedrockAgentCoreArc() {
           </button>
 
           {/* Slide Indicator */}
-          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 border border-slate-200 text-xs font-mono font-bold text-slate-700 shadow-2xs">
+          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 border border-slate-200 typo-caption-meta font-mono font-bold text-slate-700 shadow-2xs">
             <span className="w-2 h-2 rounded-full bg-[#FF6B2C] animate-pulse" />
             <span>SOLUTION</span>
             <span className="text-[#FF5812] font-extrabold" id="slideNumber">
@@ -671,7 +671,7 @@ export default function AmazonBedrockAgentCoreArc() {
           <div className="absolute top-5 left-5 right-5 sm:top-7 sm:left-8 sm:right-8 z-20 flex items-center justify-between pointer-events-none">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-950/75 backdrop-blur-md border border-white/20 text-white shadow-sm">
               <span className="w-2 h-2 rounded-full bg-[#FF6B2C] shadow-[0_0_8px_rgba(255,107,44,0.9)]" />
-              <span className="font-mono text-xs font-bold tracking-wider" id="mainTag">
+              <span className="typo-caption font-mono" id="mainTag">
                 {NOVA_SLIDES[currentIdx]?.tag || "Real-Time Conversation"}
               </span>
             </div>
@@ -681,15 +681,15 @@ export default function AmazonBedrockAgentCoreArc() {
 
           {/* Bottom Content Overlay */}
           <div className="absolute inset-x-0 bottom-16 sm:bottom-20 z-20 px-4 sm:px-7 lg:px-12 max-w-4xl">
-            <h1
-              className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.15] mb-3 drop-shadow-md"
+            <h3
+              className="typo-heading-2 text-white mb-3 drop-shadow-md"
               id="mainTitle"
             >
               {NOVA_SLIDES[currentIdx]?.title}
-            </h1>
+            </h3>
 
             <p
-              className="text-sm sm:text-base lg:text-[17px] text-slate-200/90 leading-relaxed max-w-2xl font-normal drop-shadow mb-5"
+              className="typo-description text-slate-200/90 max-w-2xl drop-shadow mb-5"
               id="mainDesc"
             >
               {NOVA_SLIDES[currentIdx]?.description}
@@ -697,7 +697,7 @@ export default function AmazonBedrockAgentCoreArc() {
 
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FF5812] hover:bg-[#e04d0f] text-white text-xs sm:text-sm font-semibold shadow-lg shadow-orange-500/25 transition-all duration-200 hover:scale-105 active:scale-95"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FF5812] hover:bg-[#e04d0f] text-white typo-button-sm shadow-lg shadow-orange-500/25 transition-all duration-200 hover:scale-105 active:scale-95"
             >
               <span>Build With Amazon Bedrock AgentCore</span>
               <ArrowRight className="w-4 h-4" />
@@ -720,7 +720,7 @@ export default function AmazonBedrockAgentCoreArc() {
                     style={{ width: i === currentIdx ? "100%" : "0%" }}
                   />
                 </div>
-                <div className="slide-nav-title text-[10px] sm:text-[11px] font-mono uppercase tracking-wider font-semibold text-white/50 group-hover/nav:text-white/90 transition-colors line-clamp-1">
+                <div className="slide-nav-title typo-caption-meta font-mono font-semibold text-white/50 group-hover/nav:text-white/90 transition-colors line-clamp-1">
                   {slide.number} {slide.title}
                 </div>
               </div>

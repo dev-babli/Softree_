@@ -113,7 +113,7 @@ export default function WhyChooseWithTestimonials() {
             </span>
           </h2>
 
-          <p className="text-[15px] sm:text-[17px] text-slate-600 mb-8 max-w-xl leading-relaxed">
+          <p className="typo-description text-slate-600 mb-8 max-w-xl">
             We don't just configure AgentCore.<br />We engineer the complete solution around it.
           </p>
 
@@ -127,7 +127,7 @@ export default function WhyChooseWithTestimonials() {
               return (
                 <div key={i} className="relative flex gap-4 items-start">
                   {/* Number */}
-                  <div className="relative z-10 flex items-center justify-center w-6 h-6 mt-1 text-[11px] font-semibold text-orange-600 bg-white">
+                  <div className="relative z-10 flex items-center justify-center w-6 h-6 mt-1 typo-caption-meta font-semibold text-orange-600 bg-white">
                     {String(i + 1).padStart(2, "0")}
                   </div>
 
@@ -138,10 +138,10 @@ export default function WhyChooseWithTestimonials() {
                         <Icon size={14} />
                       </div>
 
-                      <h3 className="text-[15px] sm:text-[16px] font-bold text-slate-900">{item.title}</h3>
+                      <h3 className="typo-heading-4 text-slate-900">{item.title}</h3>
                     </div>
 
-                    <p className="text-[12px] sm:text-[13px] text-gray-600 max-w-xl xl:max-w-none xl:whitespace-nowrap leading-relaxed">
+                    <p className="typo-body-sm text-gray-600 max-w-xl xl:max-w-none xl:whitespace-nowrap">
                       {item.desc}
                     </p>
                   </div>

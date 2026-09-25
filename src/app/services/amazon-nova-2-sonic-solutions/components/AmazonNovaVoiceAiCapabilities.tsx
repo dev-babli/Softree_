@@ -8,7 +8,6 @@ import {
   Wrench,
   Database,
   Layers,
-  ArrowRight,
   ChevronLeft,
   ChevronRight,
   Sparkles,
@@ -17,7 +16,6 @@ import {
   Sliders,
   ExternalLink,
 } from "lucide-react";
-import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
@@ -481,7 +479,7 @@ export default function AmazonNovaVoiceAiCapabilities() {
               </div>
 
               {/* Key Metrics Strip */}
-              <div className="grid grid-cols-3 gap-3 pt-4 pb-6 border-t border-slate-800/80 mb-6">
+              <div className="grid grid-cols-3 gap-3 pt-4 border-t border-slate-800/80">
                 {currentCap.metrics.map((m) => (
                   <div
                     key={m.label}
@@ -495,17 +493,6 @@ export default function AmazonNovaVoiceAiCapabilities() {
                     </div>
                   </div>
                 ))}
-              </div>
-
-              {/* CTA Action Buttons */}
-              <div className="flex flex-wrap items-center gap-4">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#FF5812] hover:bg-[#ff6c2f] active:scale-95 text-white typo-button transition-all shadow-lg shadow-orange-600/30"
-                >
-                  <span>{currentCap.ctaLabel}</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
               </div>
             </div>
           </div>

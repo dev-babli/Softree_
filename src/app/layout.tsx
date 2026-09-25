@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import ErrorReporter from "@/components/ErrorReporter";
+import NavigationProgressBar from "@/components/NavigationProgressBar";
 import Script from "next/script";
 import { PostHogProvider } from "@/components/PostHogProvider";
 import { PostHogPageView } from "@/components/PostHogPageView";
@@ -200,6 +201,9 @@ export default async function RootLayout({
               />
             </>
           ) : null}
+
+          {/* Global navigation progress bar */}
+          <NavigationProgressBar />
 
           {/* Global error reporter */}
           <ErrorReporter />
