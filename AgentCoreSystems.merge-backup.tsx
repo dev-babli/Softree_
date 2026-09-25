@@ -3,7 +3,7 @@
 import React from "react";
 import {
   Bot, Network, Database, ChevronRight, Zap, Plug, Shield, Target,
-  Cpu, GitFork, Key, ShieldCheck, Activity
+  Cpu, GitFork, Key, ShieldCheck
 } from "lucide-react";
 import { FaReact, FaNodeJs, FaPython, FaAws } from "react-icons/fa";
 import {
@@ -172,7 +172,12 @@ export default function AgentCoreSystems() {
       category: "STACK 01",
       name: "AI AGENTS & MODELS",
       items: [
-
+        { line1: "Amazon", line2: "Bedrock", logo: <BedrockOfficialLogo className="w-4 h-4 sm:w-[18px] sm:h-[18px] shrink-0 transition-transform group-hover:scale-110" /> },
+        { line1: "Bedrock", line2: "AgentCore", logo: <Cpu className="w-4 h-4 sm:w-[18px] sm:h-[18px] shrink-0 text-[#FF5812] transition-transform group-hover:scale-110" /> },
+        { line1: "Foundation", line2: "Models", logo: <SiAnthropic className="w-4 h-4 sm:w-[18px] sm:h-[18px] shrink-0 text-[#CC785C] transition-transform group-hover:scale-110" /> },
+        { line1: "Strands", line2: "Agents", logo: <GitFork className="w-4 h-4 sm:w-[18px] sm:h-[18px] shrink-0 text-sky-600 transition-transform group-hover:scale-110" /> },
+        { line1: "LangGraph", line2: "", logo: <SiLanggraph className="w-4 h-4 sm:w-[18px] sm:h-[18px] shrink-0 text-[#FF5812] transition-transform group-hover:scale-110" /> },
+        { line1: "MCP", line2: "", logo: <SiModelcontextprotocol className="w-4 h-4 sm:w-[18px] sm:h-[18px] shrink-0 text-[#D97706] transition-transform group-hover:scale-110" /> },
         { name: "Amazon Bedrock", logo: <AwsIcon className="w-[28px] h-[18px] shrink-0 transition-transform group-hover:scale-110" /> },
         { name: "Bedrock AgentCore", logo: <Cpu className="w-5 h-5 shrink-0 text-orange-500 transition-transform group-hover:scale-110" /> },
         { name: "Foundation Models", logo: <Bot className="w-5 h-5 shrink-0 text-purple-500 transition-transform group-hover:scale-110" /> },
@@ -184,7 +189,11 @@ export default function AgentCoreSystems() {
       category: "STACK 02",
       name: "AGENTCORE SERVICES",
       items: [
-
+        { line1: "AgentCore", line2: "Runtime", logo: <Zap className="w-4 h-4 sm:w-[18px] sm:h-[18px] shrink-0 text-amber-500 transition-transform group-hover:scale-110" /> },
+        { line1: "AgentCore", line2: "Memory", logo: <Database className="w-4 h-4 sm:w-[18px] sm:h-[18px] shrink-0 text-blue-600 transition-transform group-hover:scale-110" /> },
+        { line1: "AgentCore", line2: "Gateway", logo: <Plug className="w-4 h-4 sm:w-[18px] sm:h-[18px] shrink-0 text-teal-600 transition-transform group-hover:scale-110" /> },
+        { line1: "AgentCore", line2: "Identity", logo: <Shield className="w-4 h-4 sm:w-[18px] sm:h-[18px] shrink-0 text-indigo-600 transition-transform group-hover:scale-110" /> },
+        { line1: "AgentCore", line2: "Evaluations", logo: <Target className="w-4 h-4 sm:w-[18px] sm:h-[18px] shrink-0 text-rose-600 transition-transform group-hover:scale-110" /> },
         { name: "AgentCore Runtime", logo: <Zap className="w-5 h-5 shrink-0 text-amber-500 transition-transform group-hover:scale-110" /> },
         { name: "AgentCore Memory", logo: <Database className="w-5 h-5 shrink-0 text-cyan-500 transition-transform group-hover:scale-110" /> },
         { name: "AgentCore Gateway", logo: <Plug className="w-5 h-5 shrink-0 text-indigo-500 transition-transform group-hover:scale-110" /> },
@@ -196,7 +205,12 @@ export default function AgentCoreSystems() {
       category: "STACK 03",
       name: "FULL-STACK & BACKEND",
       items: [
-
+        { line1: "Python", line2: "", logo: <FaPython className="w-4 h-4 sm:w-[18px] sm:h-[18px] shrink-0 text-[#3776AB] transition-transform group-hover:scale-110" /> },
+        { line1: "Node.js", line2: "", logo: <FaNodeJs className="w-4 h-4 sm:w-[18px] sm:h-[18px] shrink-0 text-[#539E43] transition-transform group-hover:scale-110" /> },
+        { line1: "TypeScript", line2: "", logo: <SiTypescript className="w-4 h-4 sm:w-[18px] sm:h-[18px] shrink-0 text-[#3178C6] transition-transform group-hover:scale-110" /> },
+        { line1: "React", line2: "", logo: <FaReact className="w-4 h-4 sm:w-[18px] sm:h-[18px] shrink-0 text-[#61DAFB] transition-transform group-hover:scale-110" /> },
+        { line1: "Next.js", line2: "", logo: <SiNextdotjs className="w-4 h-4 sm:w-[18px] sm:h-[18px] shrink-0 text-slate-900 transition-transform group-hover:scale-110" /> },
+        { line1: "Tailwind", line2: "CSS", logo: <SiTailwindcss className="w-4 h-4 sm:w-[18px] sm:h-[18px] shrink-0 text-[#06B6D4] transition-transform group-hover:scale-110" /> },
         { name: "Python", logo: <PythonIcon className="w-5 h-5 shrink-0 transition-transform group-hover:scale-110" /> },
         { name: "Node.js", logo: <NodeJsIcon className="w-5 h-5 shrink-0 transition-transform group-hover:scale-110" /> },
         { name: "FastAPI", logo: <FastApiIcon className="w-5 h-5 shrink-0 transition-transform group-hover:scale-110" /> },
@@ -209,7 +223,12 @@ export default function AgentCoreSystems() {
       category: "STACK 04",
       name: "CLOUD & SECURITY",
       items: [
-
+        { line1: "AWS", line2: "", logo: <FaAws className="w-4 h-4 sm:w-[18px] sm:h-[18px] shrink-0 text-[#FF9900] transition-transform group-hover:scale-110" /> },
+        { line1: "Amazon", line2: "CloudWatch", logo: <CloudWatchTelemetryIcon className="w-4 h-4 sm:w-[18px] sm:h-[18px] shrink-0 transition-transform group-hover:scale-110" /> },
+        { line1: "IAM", line2: "", logo: <AwsIamKeyIcon className="w-4 h-4 sm:w-[18px] sm:h-[18px] shrink-0 transition-transform group-hover:scale-110" /> },
+        { line1: "VPC", line2: "", logo: <AwsVpcNetworkIcon className="w-4 h-4 sm:w-[18px] sm:h-[18px] shrink-0 transition-transform group-hover:scale-110" /> },
+        { line1: "API", line2: "Security", logo: <ShieldCheck className="w-4 h-4 sm:w-[18px] sm:h-[18px] shrink-0 text-emerald-600 transition-transform group-hover:scale-110" /> },
+        { line1: "Secure", line2: "Agent Access", logo: <Key className="w-4 h-4 sm:w-[18px] sm:h-[18px] shrink-0 text-orange-500 transition-transform group-hover:scale-110" /> },
         { name: "AWS", logo: <AwsIcon className="w-[28px] h-[18px] shrink-0 transition-transform group-hover:scale-110" /> },
         { name: "Amazon CloudWatch", logo: <Activity className="w-5 h-5 shrink-0 text-pink-500 transition-transform group-hover:scale-110" /> },
 
@@ -223,6 +242,12 @@ export default function AgentCoreSystems() {
   const rightCapabilities = [
     {
       title: "CAPABILITY 01",
+      subtitle: "01 — AI AGENT DEVELOPMENT",
+      borderClass: "border-[#FF5812]/30",
+      textClass: "text-[#FF5812]",
+      glowClass: "shadow-[0_0_15px_rgba(255,88,18,0.2)]",
+      hoverBorder: "group-hover:border-[#FF5812]/60",
+      icon: <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-[#FF5812]" strokeWidth={2} />,
       subtitle: "AI Agent Development",
       borderClass: "border-[#FF6B2C]/30",
       textClass: "text-[#FF6B2C]",
@@ -233,6 +258,12 @@ export default function AgentCoreSystems() {
     },
     {
       title: "CAPABILITY 02",
+      subtitle: "02 — AGENTCORE INTEGRATIONS",
+      borderClass: "border-[#FF5812]/30",
+      textClass: "text-[#FF5812]",
+      glowClass: "shadow-[0_0_15px_rgba(255,88,18,0.2)]",
+      hoverBorder: "group-hover:border-[#FF5812]/60",
+      icon: <Network className="w-4 h-4 sm:w-5 sm:h-5 text-[#FF5812]" strokeWidth={2} />,
       subtitle: "AgentCore Integrations",
       borderClass: "border-[#FF6B2C]/30",
       textClass: "text-[#FF6B2C]",
@@ -243,6 +274,12 @@ export default function AgentCoreSystems() {
     },
     {
       title: "CAPABILITY 03",
+      subtitle: "03 — AGENT MEMORY & CONTEXT",
+      borderClass: "border-[#FF5812]/30",
+      textClass: "text-[#FF5812]",
+      glowClass: "shadow-[0_0_15px_rgba(255,88,18,0.2)]",
+      hoverBorder: "group-hover:border-[#FF5812]/60",
+      icon: <Database className="w-4 h-4 sm:w-5 sm:h-5 text-[#FF5812]" strokeWidth={2} />,
       subtitle: "Agent Memory & Context",
       borderClass: "border-[#FF6B2C]/30",
       textClass: "text-[#FF6B2C]",
@@ -286,13 +323,13 @@ export default function AgentCoreSystems() {
 
           {/* Left Column: Heading, Isometric Stack Card */}
           <div className="lg:col-span-4 xl:col-span-3 flex">
-            <div className="relative overflow-hidden rounded-[18px] border border-orange-500/30 bg-slate-50/70 p-4 sm:p-5 xl:p-5 2xl:p-6 shadow-[0_0_25px_rgba(255,88,18,0.05)] flex flex-col justify-start gap-8 items-stretch w-full h-full min-h-[240px] sm:min-h-[280px] z-10">
+            <div className="relative overflow-hidden rounded-[18px] border border-orange-500/30 bg-slate-50/70 p-4 sm:p-5 xl:p-5 2xl:p-6 shadow-[0_0_25px_rgba(255,88,18,0.05)] flex flex-col justify-between items-stretch w-full h-full min-h-[240px] sm:min-h-[280px] z-10">
               <div className="space-y-1 text-left">
                 <span className="typo-caption text-orange-600 uppercase block mb-1">
                   AGENTCORE AI ECOSYSTEM
                 </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-[28px] xl:text-3xl font-extrabold tracking-tight leading-tight text-slate-900 uppercase mb-1">
-                  AGENTCORE AI <br /> STACK
+                  AGENTCORE AI STACK
                 </h2>
                 <span className="typo-caption-meta text-slate-600 font-semibold uppercase block">
                   AGENTCORE · AWS · AI AGENTS
@@ -307,7 +344,7 @@ export default function AgentCoreSystems() {
           </div>
 
           {/* Center-Right Columns holding the 4 layers stack, branch lines, and the glowing core next to 3 capabilities */}
-          <div className="lg:col-span-8 xl:col-span-9 grid grid-cols-1 lg:grid-cols-12 gap-6 relative">
+          <div className="lg:col-span-9 grid grid-cols-1 lg:grid-cols-12 gap-6 relative">
 
             {/* Unified SVG Branching Connection Overlay */}
             <div className="absolute inset-0 w-full h-full pointer-events-none hidden lg:block z-0">

@@ -246,6 +246,7 @@ export default function WhyChooseWithTestimonials() {
           {/* Controls */}
           <div className="flex items-center gap-6 mt-auto pt-8 text-gray-400">
             <button
+              aria-label="Previous review"
               onClick={() =>
                 setIndex((i) => (i === 0 ? reviews.length - 1 : i - 1))
               }
@@ -255,6 +256,7 @@ export default function WhyChooseWithTestimonials() {
             </button>
 
             <button
+              aria-label={paused ? "Play reviews" : "Pause reviews"}
               onClick={() => setPaused(!paused)}
               className="hover:text-white transition"
             >
@@ -262,6 +264,7 @@ export default function WhyChooseWithTestimonials() {
             </button>
 
             <button
+              aria-label="Next review"
               onClick={() =>
                 setIndex((i) => (i >= reviews.length - 1 ? 0 : i + 1))
               }

@@ -364,6 +364,7 @@ export default function PowerAppsServices() {
             return (
               <button
                 key={idx}
+                aria-label={`Select service ${service.name}`}
                 onClick={() => handleServiceChange(idx)}
                 className={`cursor-pointer relative pb-3 text-sm md:text-base font-medium transition px-2 ${isActive
                   ? "text-orange-600"
@@ -416,6 +417,7 @@ export default function PowerAppsServices() {
                   return (
                     <button
                       key={index}
+                      aria-label={`Select capability ${cap.title}`}
                       onClick={() => setActiveCapabilityIdx(index)}
                       className={`
     group
@@ -488,7 +490,6 @@ export default function PowerAppsServices() {
                 alt={activeCapability.title}
                 width={1000}
                 height={590}
-                priority
                 className="
           w-full
           flex-1

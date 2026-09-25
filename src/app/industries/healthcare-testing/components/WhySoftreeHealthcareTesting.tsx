@@ -95,7 +95,7 @@ export default function WhySoftreeHealthcareTesting() {
   }, [paused]);
 
   return (
-    <section className="text-gray-900 py-12 md:py-16 lg:py-20 font-sans">
+    <section className="text-gray-900 pb-12 md:pb-16 lg:pb-20 pt-4 md:pt-6 font-sans">
       <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 xl:gap-14 lg:items-stretch items-start">
         {/* ================= LEFT : WHY CHOOSE ================= */}
         <div className="relative flex flex-col justify-start">

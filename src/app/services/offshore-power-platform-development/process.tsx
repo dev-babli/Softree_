@@ -103,9 +103,9 @@ export default function PowerAppsProcessSection() {
               </span>
 
               {/* Heading */}
-              <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight">
+              <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
                 Our <span className="text-orange-500">Microsoft Power Platform</span> Development Process
-              </h3>
+              </h2>
 
               {/* Divider (neutral) */}
               <div className="w-14 h-px bg-white/30" />
@@ -119,14 +119,14 @@ export default function PowerAppsProcessSection() {
 
           {/* ================= RIGHT – TIMELINE ================= */}
           <div className="relative">
-            <ul className="relative space-y-14">
-              {/* Vertical dotted line */}
-              <span
-                className="
+            {/* Vertical dotted line */}
+            <span
+              className="
           absolute left-[28px] top-[28px] bottom-[28px]
           w-px border-l border-dashed border-white/25
         "
-              />
+            />
+            <ul className="relative space-y-14">
 
               {processSteps.map((step, index) => {
                 const Icon = step.icon;
@@ -150,9 +150,9 @@ export default function PowerAppsProcessSection() {
 
                     {/* Content */}
                     <div className="pt-1">
-                      <h4 className="text-xl font-semibold text-white mb-2">
+                      <h3 className="text-xl font-semibold text-white mb-2">
                         {step.title}
-                      </h4>
+                      </h3>
                       <p className="text-gray-400 leading-relaxed max-w-md">
                         {step.description}
                       </p>

@@ -33,7 +33,7 @@ const icons = [ShieldAlert, Key, Lock, CheckCircle, Shield];
 
 export default function HealthcareSecurityTesting() {
   return (
-    <section id="security-testing" className="relative w-full py-16 md:py-24 bg-transparent font-sans">
+    <section id="security-testing" className="relative w-full pt-4 pb-8 md:pt-6 md:pb-12 bg-transparent font-sans">
       <div className="mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Responsive Grid layout */}

@@ -12,7 +12,7 @@ const caseStudyData: Gallery4Props = {
         HEALTHCARE TESTING CASE STUDIES
       </div>
       <span className="typo-heading-2 text-slate-900 leading-tight text-left">
-        Healthcare Testing in Action Across Real-World Applications
+        Healthcare Testing in Action <span className="text-orange-600">Across Real-World Applications</span>
       </span>
     </div>
   ) as any,
@@ -26,26 +26,9 @@ const caseStudyData: Gallery4Props = {
       title: "Healthcare AI Test Automation for Patient Management Platform",
       description: (
         <div className="space-y-3 bg-[#0a0f1d]/85 backdrop-blur-md border border-white/15 rounded-2xl p-3.5 sm:p-4 shadow-xl">
-          <p className="text-white/90 typo-body-sm leading-relaxed mb-3 border-b border-white/10 pb-3">
+          <p className="text-white/90 typo-body-sm leading-relaxed">
             Softree Technology helped a leading healthcare provider achieve 85% test automation coverage across their patient management platform, ensuring zero-defect EHR workflows and HIPAA compliance.
           </p>
-          <div className="flex flex-col gap-2.5">
-            {[
-              { value: "85%", label: "Automation Coverage" },
-              { value: "60%", label: "Faster Releases" },
-              { value: "95%", label: "Critical Pass Rate" },
-              { value: "40%", label: "Fewer Defects" },
-            ].map((result, idx) => (
-              <div key={idx} className="flex items-center gap-2.5 text-xs">
-                <span className="text-[#FF6B2C] font-mono font-bold tracking-tight shrink-0 min-w-[36px]">
-                  {result.value}
-                </span>
-                <span className="text-white/80 typo-caption-meta uppercase tracking-wider">
-                  {result.label}
-                </span>
-              </div>
-            ))}
-          </div>
         </div>
       ),
       href: "/case-studies/healthcare-ai-test-automation-patient-management-platform",
@@ -56,23 +39,9 @@ const caseStudyData: Gallery4Props = {
       title: "Predictive Hospital Bed Occupancy Analytics",
       description: (
         <div className="space-y-3 bg-[#0a0f1d]/85 backdrop-blur-md border border-white/15 rounded-2xl p-3.5 sm:p-4 shadow-xl">
-          <p className="text-white/90 typo-body-sm leading-relaxed mb-3 border-b border-white/10 pb-3">
+          <p className="text-white/90 typo-body-sm leading-relaxed">
             A multi-specialty hospital network improved bed allocation efficiency by 35% and reduced emergency wait times by 28% using AI-powered...
           </p>
-          <div className="flex flex-col gap-2.5">
-            {[
-              { value: "90%", label: "Forecast Accuracy" },
-            ].map((result, idx) => (
-              <div key={idx} className="flex items-center gap-2.5 text-xs">
-                <span className="text-[#FF6B2C] font-mono font-bold tracking-tight shrink-0 min-w-[36px]">
-                  {result.value}
-                </span>
-                <span className="text-white/80 typo-caption-meta uppercase tracking-wider">
-                  {result.label}
-                </span>
-              </div>
-            ))}
-          </div>
         </div>
       ),
       href: "/case-studies/predictive-hospital-bed-occupancy-analytics",
@@ -123,13 +92,13 @@ const caseStudyData: Gallery4Props = {
 
 export function HealthcareTestingCaseStudies() {
   return (
-    <div className="relative bg-white flex flex-col items-center -mt-4 md:-mt-8">
+    <div className="relative bg-white flex flex-col items-center -mt-4 md:-mt-8 -mb-8 md:-mb-12">
       <div className="w-full">
-        <Gallery4 
-          {...caseStudyData} 
+        <Gallery4
+          {...caseStudyData}
           action={
-            <FlowButton 
-              href="/case-studies" 
+            <FlowButton
+              href="/case-studies"
               text="Explore Healthcare Case Studies"
               variant="orange-filled"
               className="py-3 px-6 text-xs sm:text-sm font-bold shadow-md"

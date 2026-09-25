@@ -249,7 +249,7 @@ export default function HealthcareTechnologyTesting() {
                       <div className="transition-all duration-300 group-hover:scale-110 group-hover:rotate-[6deg] shrink-0 h-4.5 sm:h-5 flex items-center justify-center">
                         {cap.logo}
                       </div>
-                      <span className="text-[8px] sm:text-[8.5px] lg:text-[7px] xl:text-[8px] 2xl:text-[8.5px] font-bold text-slate-700 group-hover:text-orange-600 transition-colors duration-200 leading-[1.15] text-center px-0.5 block whitespace-nowrap">{cap.label}</span>
+                      <span className="text-[10px] sm:text-[11px] lg:text-[10px] xl:text-[11px] 2xl:text-[12px] font-bold text-slate-700 group-hover:text-orange-600 transition-colors duration-200 leading-[1.15] text-center px-0.5 block whitespace-nowrap">{cap.label}</span>
                     </div>
                   ))}
                 </div>
@@ -270,7 +270,7 @@ export default function HealthcareTechnologyTesting() {
                       <div className="transition-all duration-300 group-hover:scale-110 group-hover:rotate-[6deg] shrink-0 h-4.5 sm:h-5 flex items-center justify-center">
                         {cap.logo}
                       </div>
-                      <span className="text-[8px] sm:text-[8.5px] lg:text-[7px] xl:text-[8px] 2xl:text-[8.5px] font-bold text-slate-700 group-hover:text-orange-600 transition-colors duration-200 leading-[1.15] text-center px-0.5 block whitespace-nowrap">{cap.label}</span>
+                      <span className="text-[10px] sm:text-[11px] lg:text-[10px] xl:text-[11px] 2xl:text-[12px] font-bold text-slate-700 group-hover:text-orange-600 transition-colors duration-200 leading-[1.15] text-center px-0.5 block whitespace-nowrap">{cap.label}</span>
                     </div>
                   ))}
                 </div>
@@ -291,7 +291,7 @@ export default function HealthcareTechnologyTesting() {
                       <div className="transition-all duration-300 group-hover:scale-110 group-hover:rotate-[6deg] shrink-0 h-4.5 sm:h-5 flex items-center justify-center">
                         {cap.logo}
                       </div>
-                      <span className="text-[8px] sm:text-[8.5px] lg:text-[7px] xl:text-[8px] 2xl:text-[8.5px] font-bold text-slate-700 group-hover:text-orange-600 transition-colors duration-200 leading-[1.15] text-center px-0.5 block whitespace-nowrap">{cap.label}</span>
+                      <span className="text-[10px] sm:text-[11px] lg:text-[10px] xl:text-[11px] 2xl:text-[12px] font-bold text-slate-700 group-hover:text-orange-600 transition-colors duration-200 leading-[1.15] text-center px-0.5 block whitespace-nowrap">{cap.label}</span>
                     </div>
                   ))}
                 </div>
@@ -312,7 +312,7 @@ export default function HealthcareTechnologyTesting() {
                       <div className="transition-all duration-300 group-hover:scale-110 group-hover:rotate-[6deg] shrink-0 h-4.5 sm:h-5 flex items-center justify-center">
                         {cap.logo}
                       </div>
-                      <span className="text-[8px] sm:text-[8.5px] lg:text-[7px] xl:text-[8px] 2xl:text-[8.5px] font-bold text-slate-700 group-hover:text-orange-600 transition-colors duration-200 leading-[1.15] text-center px-0.5 block whitespace-nowrap">{cap.label}</span>
+                      <span className="text-[10px] sm:text-[11px] lg:text-[10px] xl:text-[11px] 2xl:text-[12px] font-bold text-slate-700 group-hover:text-orange-600 transition-colors duration-200 leading-[1.15] text-center px-0.5 block whitespace-nowrap">{cap.label}</span>
                     </div>
                   ))}
                 </div>
@@ -354,7 +354,7 @@ export default function HealthcareTechnologyTesting() {
                     <span className={`text-[10.5px] sm:text-[11.5px] lg:text-[10px] xl:text-[11.5px] font-black block tracking-wider uppercase mb-0.5 ${cap.textClass}`}>
                       {cap.title}
                     </span>
-                    <span className="text-[10px] sm:text-[11px] lg:text-[9.5px] xl:text-[10.5px] text-slate-500 block group-hover:text-slate-700 transition-colors duration-200 leading-snug">
+                    <span className="text-[12px] sm:text-[13px] lg:text-[11px] xl:text-[13px] 2xl:text-[14px] text-slate-500 block group-hover:text-slate-700 transition-colors duration-200 leading-snug mt-1">
                       {cap.desc}
                     </span>
                   </div>
@@ -366,43 +366,6 @@ export default function HealthcareTechnologyTesting() {
 
         </div>
 
-      </div>
-
-      {/* Integrated bottom delivering business impact banner */}
-      <div className="relative overflow-hidden rounded-[20px] border border-orange-500/20 bg-white py-4 sm:py-4 xl:py-3.5 px-4 sm:px-6 xl:px-4 2xl:px-6 shadow-[0_10px_30px_rgba(0,0,0,0.03)] flex flex-col xl:flex-row items-center justify-between gap-4 sm:gap-5 xl:gap-2.5 2xl:gap-4 z-10 text-slate-900 w-full">
-
-        {/* Mirror-morphism reflection glows */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,107,44,0.03),transparent_50%)] pointer-events-none" />
-
-        {/* Header left */}
-        <div className="flex items-center gap-2.5 sm:gap-3 xl:gap-2.5 shrink-0 border-b xl:border-b-0 xl:border-r border-slate-200 pb-3 xl:pb-0 xl:pr-3 2xl:pr-4 w-full xl:w-auto justify-center xl:justify-start">
-          <div className="flex h-8 w-8 sm:h-9 sm:w-9 xl:h-8 xl:w-8 items-center justify-center rounded-full bg-white border-2 border-orange-500/40 text-orange-600 shadow-[0_0_10px_rgba(255,107,44,0.05)] animate-pulse shrink-0">
-            <Target className="w-4 h-4 sm:w-4.5 sm:h-4.5 xl:w-4 xl:h-4 text-orange-600" />
-          </div>
-          <div className="text-left">
-            <span className="text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[12px] 2xl:text-[14px] font-black text-orange-600 tracking-wider uppercase select-none">DELIVERING BUSINESS IMPACT</span>
-          </div>
-        </div>
-
-        {/* 5 Metrics row */}
-        <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-5 xl:flex xl:flex-nowrap items-start xl:items-center justify-between w-full gap-3 sm:gap-4 xl:gap-1.5 2xl:gap-3 min-w-0">
-          {businessImpactMetrics.map((metric, idx) => (
-            <React.Fragment key={idx}>
-              <div className="flex items-center gap-2 sm:gap-2.5 xl:gap-2 2xl:gap-2.5 text-left group min-w-0 shrink-0 xl:shrink">
-                <div className="flex h-8 w-8 sm:h-9 sm:w-9 xl:h-8 xl:w-8 2xl:h-8.5 2xl:w-8.5 items-center justify-center rounded-full bg-white border border-orange-500/20 shadow-[0_0_8px_rgba(255,107,44,0.05)] transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 shrink-0">
-                  {React.cloneElement(metric.icon, { className: "w-4 h-4 sm:w-4.5 sm:h-4.5 xl:w-4 xl:h-4 text-orange-600 animate-pulse" })}
-                </div>
-                <div className="min-w-0 flex-1">
-                  <span className="text-[11px] sm:text-[11.5px] lg:text-[11px] xl:text-[9.5px] 2xl:text-[11px] font-black text-slate-900 block tracking-tight uppercase leading-snug mb-0.5">{metric.title}</span>
-                  <span className="text-[10px] sm:text-[10.5px] lg:text-[10px] xl:text-[8.5px] 2xl:text-[10px] text-slate-500 font-semibold block leading-snug">{metric.value}</span>
-                </div>
-              </div>
-              {idx < businessImpactMetrics.length - 1 && (
-                <div className="hidden xl:block w-[1px] h-6 2xl:h-7 bg-slate-200 shrink-0" />
-              )}
-            </React.Fragment>
-          ))}
-        </div>
       </div>
     </section>
   );

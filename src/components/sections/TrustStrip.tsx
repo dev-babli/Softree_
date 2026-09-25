@@ -15,7 +15,7 @@ export default function TrustStrip({ theme = "light" }: TrustStripProps) {
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-      className="mt-12 w-full flex flex-col items-center gap-8 text-center z-10 relative"
+      className="mt-10 w-full flex flex-col items-center gap-8 text-center z-10 relative"
     >
       {/* Section Heading with Lines */}
       <div className="flex items-center w-full max-w-[90%] md:max-w-4xl gap-4">

@@ -170,40 +170,31 @@ function TestimonialSlide({ testimonial }: TestimonialSlideProps) {
 
 export default function HeroPowerApps() {
   const [idx, setIdx] = useState<number>(0);
-  const [elapsed, setElapsed] = useState<number>(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const progressRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const goTo = useCallback((i: number): void => {
     setIdx(i);
-    setElapsed(0);
   }, []);
 
   useEffect(() => {
     if (timerRef.current) clearInterval(timerRef.current);
-    if (progressRef.current) clearInterval(progressRef.current);
 
-    progressRef.current = setInterval(() => {
-      setElapsed((e) => e + PROGRESS_STEP);
-    }, PROGRESS_STEP);
-
-    timerRef.current = setInterval(() => {
-      setIdx((prev) => (prev + 1) % testimonials.length);
-      setElapsed(0);
-    }, INTERVAL);
+    if (!isPaused) {
+      timerRef.current = setInterval(() => {
+        setIdx((prev) => (prev + 1) % testimonials.length);
+      }, INTERVAL);
+    }
 
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
-      if (progressRef.current) clearInterval(progressRef.current);
     };
-  }, [idx]);
+  }, [idx, isPaused]);
 
   const handlePrev = (): void =>
     goTo((idx - 1 + testimonials.length) % testimonials.length);
   const handleNext = (): void => goTo((idx + 1) % testimonials.length);
-
-  const progressWidth: number = Math.min((elapsed / INTERVAL) * 100, 100);
 
   return (
     <>
@@ -302,7 +293,15 @@ export default function HeroPowerApps() {
           </div>
 
           <div style={styles.right} className="hero-right">
-            <div style={styles.sliderViewport} className="hero-slider-viewport">
+            <div 
+              style={styles.sliderViewport} 
+              className="hero-slider-viewport"
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+              onFocus={() => setIsPaused(true)}
+              onBlur={() => setIsPaused(false)}
+              aria-live="polite"
+            >
               {testimonials.map((t, i) => (
                 <div
                   key={i}
@@ -311,7 +310,10 @@ export default function HeroPowerApps() {
                     width: "100%",
                     opacity: i === idx ? 1 : 0,
                     transition: "opacity 0.6s ease-in-out",
+                    pointerEvents: i === idx ? "auto" : "none",
+                    visibility: i === idx ? "visible" : "hidden",
                   }}
+                  aria-hidden={i !== idx}
                 >
                   <TestimonialSlide testimonial={t} />
                 </div>

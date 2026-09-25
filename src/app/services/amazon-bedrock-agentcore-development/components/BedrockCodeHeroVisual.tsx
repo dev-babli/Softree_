@@ -57,6 +57,11 @@ export default function BedrockCodeHeroVisual() {
     targetY: 0,
     smoothedX: 0,
     smoothedY: 0,
+    rawX: 0,
+    rawY: 0,
+    smoothedRawX: 0,
+    smoothedRawY: 0,
+    smoothedScale: 1.0,
     isHovered: false,
   });
 
@@ -65,17 +70,25 @@ export default function BedrockCodeHeroVisual() {
   }, [isCloudHovered]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    setIsCloudHovered(true);
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
     const xNorm = (e.clientX - rect.left) / rect.width - 0.5;
     const yNorm = (e.clientY - rect.top) / rect.height - 0.5;
     mouseState.current.targetX = xNorm * 0.35;
     mouseState.current.targetY = -yNorm * 0.25;
+
+    const rawX = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+    const rawY = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+    mouseState.current.rawX = Math.max(-1, Math.min(1, rawX));
+    mouseState.current.rawY = Math.max(-1, Math.min(1, rawY));
   };
 
   const handleMouseLeave = () => {
     mouseState.current.targetX = 0;
     mouseState.current.targetY = 0;
+    mouseState.current.rawX = 0;
+    mouseState.current.rawY = 0;
     setIsCloudHovered(false);
   };
 
@@ -131,21 +144,7 @@ export default function BedrockCodeHeroVisual() {
       { x: 0.0,   y: -0.22, rx: 1.30, ry: 0.50, weight: 1.0 },  // Base shelf center
     ];
 
-    // Inner hollow for logo chamber (centered at x: 0, y: 0.40)
-    const logoHollow = { x: 0.0, y: 0.40, rx: 0.88, ry: 0.62 };
-
     function getCloudDensity(x: number, y: number): number {
-      const hdx = (x - logoHollow.x) / logoHollow.rx;
-      const hdy = (y - logoHollow.y) / logoHollow.ry;
-      const hollowDist = Math.sqrt(hdx * hdx + hdy * hdy);
-      if (hollowDist < 0.85) return 0; // completely clear logo chamber
-
-      // Soft feather edge around logo opening
-      let hollowFactor = 1.0;
-      if (hollowDist < 1.08) {
-        hollowFactor = (hollowDist - 0.85) / 0.23;
-      }
-
       let maxDepth = 0;
       for (const l of cloudLobes) {
         const dx = (x - l.x) / l.rx;
@@ -157,7 +156,7 @@ export default function BedrockCodeHeroVisual() {
         }
       }
 
-      return maxDepth * hollowFactor;
+      return maxDepth;
     }
 
     // Pre-generate woven silk ribbon particles across the cloud
@@ -212,6 +211,7 @@ export default function BedrockCodeHeroVisual() {
     const cloudOrigPositions = new Float32Array(cloudCount * 3);
     const cloudColors = new Float32Array(cloudCount * 3);
     const cloudPhases = new Float32Array(cloudCount);
+    const cloudVelocities = new Float32Array(cloudCount * 3);
 
     for (let i = 0; i < cloudCount; i++) {
       const p = tempCloudPts[i];
@@ -226,6 +226,9 @@ export default function BedrockCodeHeroVisual() {
       cloudColors[i3 + 1] = p.g;
       cloudColors[i3 + 2] = p.b;
       cloudPhases[i] = p.phase;
+      cloudVelocities[i3] = 0;
+      cloudVelocities[i3 + 1] = 0;
+      cloudVelocities[i3 + 2] = 0;
     }
 
     const cloudGeometry = new THREE.BufferGeometry();
@@ -440,13 +443,29 @@ export default function BedrockCodeHeroVisual() {
       mouseState.current.smoothedY +=
         (mouseState.current.targetY - mouseState.current.smoothedY) * 0.06;
 
+      mouseState.current.smoothedRawX += (mouseState.current.rawX - mouseState.current.smoothedRawX) * 0.045;
+      mouseState.current.smoothedRawY += (mouseState.current.rawY - mouseState.current.smoothedRawY) * 0.045;
+      
+      const mouseWorldX = mouseState.current.smoothedRawX * 3.5;
+      const mouseWorldY = mouseState.current.smoothedRawY * 3.5;
+      const mouseWorldZ = 0;
+
       const hoverMult = mouseState.current.isHovered ? 1.35 : 1.0;
+      
+      // Beautiful smooth overall expansion
+      const targetScale = mouseState.current.isHovered ? 1.15 : 1.0;
+      mouseState.current.smoothedScale += (targetScale - mouseState.current.smoothedScale) * 0.06;
+      mainGroup.scale.set(
+        mouseState.current.smoothedScale,
+        mouseState.current.smoothedScale,
+        mouseState.current.smoothedScale
+      );
 
       // Group rotation based on mouse
       mainGroup.rotation.y = mouseState.current.smoothedX * 0.65;
       mainGroup.rotation.x = -mouseState.current.smoothedY * 0.55;
 
-      // ── Cloud Silk Ribbon Wave Breathing ──
+      // ── Cloud Silk Ribbon Wave Breathing & Physics ──
       const cPos = cloudGeometry.attributes.position.array as Float32Array;
       for (let i = 0; i < cloudCount; i++) {
         const i3 = i * 3;
@@ -457,9 +476,52 @@ export default function BedrockCodeHeroVisual() {
 
         // Fluid undulating wave displacement
         const wave = Math.sin(elapsedTime * 1.8 * hoverMult + phase) * 0.032;
-        cPos[i3] = origX + Math.cos(elapsedTime * 1.4 + phase) * 0.015;
-        cPos[i3 + 1] = origY + wave;
-        cPos[i3 + 2] = origZ + Math.cos(elapsedTime * 1.6 + phase) * 0.035;
+        const targetX = origX + Math.cos(elapsedTime * 1.4 + phase) * 0.015;
+        const targetY = origY + wave;
+        const targetZ = origZ + Math.cos(elapsedTime * 1.6 + phase) * 0.035;
+
+        // Current positions
+        const cx = cPos[i3];
+        const cy = cPos[i3 + 1];
+        const cz = cPos[i3 + 2];
+
+        let vx = cloudVelocities[i3];
+        let vy = cloudVelocities[i3 + 1];
+        let vz = cloudVelocities[i3 + 2];
+
+        // Mouse repulsion force (expanding behavior)
+        const dx = cx - mouseWorldX;
+        const dy = cy - mouseWorldY;
+        const dz = cz - mouseWorldZ;
+        const distSq = dx * dx + dy * dy + dz * dz;
+
+        // Elegant, smooth local repulsion to complement the overall scale
+        if (distSq < 4.0 && distSq > 0.0001) { // dist < 2.0
+          const dist = Math.sqrt(distSq);
+          const force = (2.0 - dist) * 0.015; // Gentle push
+          const invDist = 1 / dist;
+          vx += dx * invDist * force;
+          vy += dy * invDist * force;
+          vz += dz * invDist * force;
+        }
+
+        // Return force towards target undulating position (gentle return for silky motion)
+        vx += (targetX - cx) * 0.04;
+        vy += (targetY - cy) * 0.04;
+        vz += (targetZ - cz) * 0.04;
+
+        // Damping (smooth and fluid)
+        vx *= 0.95;
+        vy *= 0.95;
+        vz *= 0.95;
+
+        cPos[i3] = cx + vx;
+        cPos[i3 + 1] = cy + vy;
+        cPos[i3 + 2] = cz + vz;
+
+        cloudVelocities[i3] = vx;
+        cloudVelocities[i3 + 1] = vy;
+        cloudVelocities[i3 + 2] = vz;
       }
       cloudGeometry.attributes.position.needsUpdate = true;
 
@@ -541,8 +603,6 @@ export default function BedrockCodeHeroVisual() {
           y: -mouseState.current.smoothedY * 25,
         }}
         transition={{ scale: { duration: 0.3 } }}
-        onMouseEnter={() => setIsCloudHovered(true)}
-        onMouseLeave={() => setIsCloudHovered(false)}
         className="absolute left-[50%] top-[38.8%] -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center justify-center cursor-pointer pointer-events-auto select-none"
         title="Amazon Bedrock AI Foundation Platform"
       >

@@ -1,19 +1,19 @@
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
 import PowerAppsHero from "./hero";
-import PowerAppsServices from "./power-apps-services";
-import WhyChooseSoftreePowerApps from "./why-chose";
-import TechStackSection from "./tech-stack";
-import PowerAppsProcess from "./process";
-import PowerAppsCaseStudies from "./casestudies";
-import Certifications from "./certification";
-import TestimonialsSplitSlider from "./testimonial";
-import PowerAppsService from "./services";
-import HirePowerAppsPricing from "./pricing-card";
-import StackedSlider from "./stack-slidr";
 import TrustedBrandsMarquee from "./trust";
-import LightContactSection from "@/components/homepage-light/LightContactSection";
-import LightFAQExact from "@/components/homepage-light/LightFAQExact";
+import dynamic from "next/dynamic";
+
+const StackedSlider = dynamic(() => import("./stack-slidr"));
+const PowerAppsCaseStudies = dynamic(() => import("./casestudies"));
+const PowerAppsServices = dynamic(() => import("./power-apps-services"));
+const HirePowerAppsPricing = dynamic(() => import("./pricing-card"));
+const TechStackSection = dynamic(() => import("./tech-stack"));
+const PowerAppsProcess = dynamic(() => import("./process"));
+const WhyChooseSoftreePowerApps = dynamic(() => import("./why-chose"));
+const LightContactSection = dynamic(() => import("@/components/homepage-light/LightContactSection"));
+const LightFAQExact = dynamic(() => import("@/components/homepage-light/LightFAQExact"));
+
 import type { Metadata } from "next";
 import { applyPageOg } from "@/lib/site-metadata";
 
@@ -146,8 +146,53 @@ export const metadata: Metadata = applyPageOg("/services/offshore-power-platform
 }, "Softree Technology");
 
 export default function Home() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.softreetechnology.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "https://www.softreetechnology.com/services"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Offshore Power Platform Development",
+            "item": "https://www.softreetechnology.com/services/offshore-power-platform-development"
+          }
+        ]
+      },
+      {
+        "@type": "Service",
+        "name": "Microsoft Power Platform Development Services",
+        "description": "Build and scale Microsoft Power Platform solutions with Power Apps, Power Automate, Power BI, Power Pages, Dataverse and Copilot Studio. Offshore and white-label delivery by Softree.",
+        "provider": {
+          "@type": "Organization",
+          "name": "Softree Technology",
+          "url": "https://www.softreetechnology.com"
+        },
+        "serviceType": "Software Development",
+        "areaServed": "Worldwide"
+      }
+    ]
+  };
+
   return (
     <main className="relative min-h-screen bg-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <NavigationClient />
 
       {/* HERO (full width but aligned content internally) */}
@@ -165,6 +210,7 @@ export default function Home() {
           <TechStackSection />
           <PowerAppsProcess />
           <WhyChooseSoftreePowerApps />
+
           {/* <TestimonialsSplitSlider /> */}
           {/* <Certifications /> */}
         </div>

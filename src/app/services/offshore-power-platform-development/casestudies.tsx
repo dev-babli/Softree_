@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { FileText, AlertTriangle, Lightbulb } from "lucide-react";
 
 import "swiper/css";
@@ -165,9 +166,13 @@ export default function PowerAppsCaseStudies() {
                       {/* Image */}
                       <div className="flex justify-center w-full min-w-0 max-w-sm mx-auto lg:max-w-none">
                         <div className="w-full aspect-video overflow-hidden rounded-xl shadow-md ring-1 ring-white/10 shrink-0">
-                          <img
+                          <Image
                             src={item.image}
                             alt={item.title}
+                            width={800}
+                            height={450}
+                            sizes="(max-width: 1024px) 100vw, 800px"
+                            loading="lazy"
                             className="w-full h-full object-cover"
                           />
                         </div>
@@ -273,6 +278,7 @@ export default function PowerAppsCaseStudies() {
               {caseStudies.map((_, i) => (
                 <button
                   key={i}
+                  aria-label={`Go to slide ${i + 1}`}
                   onClick={() => swiperRef.current?.slideToLoop(i)}
                   className={`text-xs font-medium tracking-widest transition
                 ${activeIndex === i

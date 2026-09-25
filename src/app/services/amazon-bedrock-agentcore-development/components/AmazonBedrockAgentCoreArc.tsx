@@ -27,71 +27,78 @@ const NOVA_SLIDES: NovaSlide[] = [
     media: "/images/amazonbedrock-images/bedrock-1.png",
     effect: "glass",
   },
+
   {
     id: "agentcore-memory",
     number: "02",
     tag: "Context & Memory",
-    title: "AgentCore Memory for Context-Aware Agents",
+    title: "AgentCore Memory for AI Agents",
     description:
       "Build agents that retain relevant context across interactions with managed short-term and long-term memory capabilities.",
     media: "/images/amazonbedrock-images/bedrock-9.png",
     effect: "ripple",
   },
+
   {
     id: "agentcore-gateway",
     number: "03",
     tag: "Tools & Integrations",
-    title: "AgentCore Gateway for Enterprise Tool Integration",
+    title: "AgentCore Gateway for AI Tools",
     description:
-      "Connect AI agents to APIs, Lambda functions, MCP servers, and enterprise systems through secure, agent-ready tools and integrations.",
+      "Connect AI agents to APIs, Lambda functions, MCP servers, and applications through secure, agent-ready tools and integrations.",
     media: "/images/amazonbedrock-images/bedrock-3.png",
     effect: "timeshift",
   },
+
   {
     id: "agentcore-identity",
     number: "04",
     tag: "Identity & Access Control",
-    title: "Secure AI Agent Identity and Access",
+    title: "Secure AI Agent Identity & Access",
     description:
-      "Enable agents to securely access AWS resources, enterprise applications, and third-party services with identity-aware authorization and controlled permissions.",
+      "Enable agents to securely access AWS resources, applications, and third-party services with identity-aware authorization and controlled permissions.",
     media: "/images/amazonbedrock-images/bedrock-4.png",
     effect: "frost",
   },
+
   {
     id: "agentcore-browser",
     number: "05",
     tag: "Web Automation",
-    title: "AgentCore Browser for Intelligent Web Workflows",
+    title: "AgentCore Browser for Web Automation",
     description:
       "Enable AI agents to securely interact with websites and web applications through managed browser environments designed for scalable agent workflows.",
     media: "/images/amazonbedrock-images/bedrock-5.png",
     effect: "glass",
   },
+
   {
     id: "agentcore-code-interpreter",
     number: "06",
     tag: "AI Code Execution",
-    title: "AgentCore Code Interpreter for Intelligent Automation",
+    title: "AgentCore Code Interpreter",
     description:
       "Enable agents to write and execute code in secure sandbox environments to analyze data, perform calculations, and complete complex tasks.",
     media: "/images/amazonbedrock-images/bedrock-6.png",
     effect: "ripple",
   },
+
   {
     id: "agentcore-observability",
     number: "07",
     tag: "Monitoring & Debugging",
-    title: "Monitor and Debug AI Agents in Production",
+    title: "AgentCore Observability for AI Agents",
     description:
       "Trace agent workflows, monitor performance, inspect tool calls, identify failures, and gain operational visibility with AgentCore Observability and CloudWatch.",
     media: "/images/amazonbedrock-images/bedrock-7.png",
     effect: "timeshift",
   },
+
   {
     id: "agentcore-evaluations",
     number: "08",
     tag: "Agent Quality & Evaluation",
-    title: "Evaluate AI Agent Performance and Quality",
+    title: "AgentCore Evaluations for AI Agents",
     description:
       "Continuously evaluate AI agents for response quality, task completion, safety, and tool usage to support reliable production deployments.",
     media: "/images/amazonbedrock-images/bedrock-8.png",
@@ -624,7 +631,7 @@ export default function AmazonBedrockAgentCoreArc() {
           </button>
 
           {/* Slide Indicator */}
-          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 border border-slate-200 typo-caption-meta font-mono font-bold text-slate-700 shadow-2xs">
+          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 border border-slate-200 text-xs font-mono font-bold text-slate-700 shadow-2xs">
             <span className="w-2 h-2 rounded-full bg-[#FF6B2C] animate-pulse" />
             <span>SOLUTION</span>
             <span className="text-[#FF5812] font-extrabold" id="slideNumber">
@@ -671,7 +678,7 @@ export default function AmazonBedrockAgentCoreArc() {
           <div className="absolute top-5 left-5 right-5 sm:top-7 sm:left-8 sm:right-8 z-20 flex items-center justify-between pointer-events-none">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-950/75 backdrop-blur-md border border-white/20 text-white shadow-sm">
               <span className="w-2 h-2 rounded-full bg-[#FF6B2C] shadow-[0_0_8px_rgba(255,107,44,0.9)]" />
-              <span className="typo-caption font-mono" id="mainTag">
+              <span className="font-mono text-xs font-bold tracking-wider" id="mainTag">
                 {NOVA_SLIDES[currentIdx]?.tag || "Real-Time Conversation"}
               </span>
             </div>
@@ -681,15 +688,15 @@ export default function AmazonBedrockAgentCoreArc() {
 
           {/* Bottom Content Overlay */}
           <div className="absolute inset-x-0 bottom-16 sm:bottom-20 z-20 px-4 sm:px-7 lg:px-12 max-w-4xl">
-            <h3
-              className="typo-heading-2 text-white mb-3 drop-shadow-md"
+            <h1
+              className="text-2xl sm:text-4xl lg:text-[30px] xl:text-4xl font-extrabold text-white tracking-tight leading-[1.12] mb-3 drop-shadow-md"
               id="mainTitle"
             >
               {NOVA_SLIDES[currentIdx]?.title}
-            </h3>
+            </h1>
 
             <p
-              className="typo-description text-slate-200/90 max-w-2xl drop-shadow mb-5"
+              className="text-sm sm:text-base lg:text-[17px] text-slate-200/90 leading-relaxed max-w-2xl font-normal drop-shadow mb-5"
               id="mainDesc"
             >
               {NOVA_SLIDES[currentIdx]?.description}
@@ -697,7 +704,7 @@ export default function AmazonBedrockAgentCoreArc() {
 
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FF5812] hover:bg-[#e04d0f] text-white typo-button-sm shadow-lg shadow-orange-500/25 transition-all duration-200 hover:scale-105 active:scale-95"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FF5812] hover:bg-[#e04d0f] text-white text-xs sm:text-sm font-semibold shadow-lg shadow-orange-500/25 transition-all duration-200 hover:scale-105 active:scale-95"
             >
               <span>Build With Amazon Bedrock AgentCore</span>
               <ArrowRight className="w-4 h-4" />
@@ -717,10 +724,10 @@ export default function AmazonBedrockAgentCoreArc() {
                 <div className="slide-progress-line w-full h-[3px] bg-white/20 rounded-full overflow-hidden mb-1.5 group-hover/nav:bg-white/35 transition-colors">
                   <div
                     className="slide-progress-fill h-full bg-[#FF5812] rounded-full"
-                    style={{ width: i === currentIdx ? "100%" : "0%" }}
+                    style={{ width: "0%" }}
                   />
                 </div>
-                <div className="slide-nav-title typo-caption-meta font-mono font-semibold text-white/50 group-hover/nav:text-white/90 transition-colors line-clamp-1">
+                <div className="slide-nav-title text-[10px] sm:text-[11px] font-mono uppercase tracking-wider font-semibold text-white/50 group-hover/nav:text-white/90 transition-colors line-clamp-1">
                   {slide.number} {slide.title}
                 </div>
               </div>

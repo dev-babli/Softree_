@@ -8,13 +8,16 @@ import {
   Wrench,
   Database,
   Layers,
+  ArrowRight,
   ChevronLeft,
   ChevronRight,
+  Sparkles,
   Zap,
   CheckCircle2,
   Sliders,
   ExternalLink,
 } from "lucide-react";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
@@ -63,7 +66,7 @@ export const CAPABILITIES: CapabilitySlide[] = [
       "Connect agents with enterprise applications, tools, and services"
     ],
     ctaLabel: "Build with AgentCore Runtime",
-    ctaHref: "#contact",
+    ctaHref: "/contact",
     secondaryCta: "Runtime Overview"
   },
   {
@@ -86,7 +89,7 @@ export const CAPABILITIES: CapabilitySlide[] = [
       "Build agents that use relevant historical context"
     ],
     ctaLabel: "Build Context-Aware Agents",
-    ctaHref: "#contact",
+    ctaHref: "/contact",
     secondaryCta: "Memory Overview"
   },
   {
@@ -109,7 +112,7 @@ export const CAPABILITIES: CapabilitySlide[] = [
       "Enable agents to perform business actions through connected systems"
     ],
     ctaLabel: "Connect Your Enterprise Tools",
-    ctaHref: "#contact",
+    ctaHref: "/contact",
     secondaryCta: "Gateway Overview"
   },
   {
@@ -132,7 +135,7 @@ export const CAPABILITIES: CapabilitySlide[] = [
       "Control agent access to tools, applications, and services"
     ],
     ctaLabel: "Secure Your AI Agents",
-    ctaHref: "#contact",
+    ctaHref: "/contact",
     secondaryCta: "Identity Overview"
   },
   {
@@ -155,7 +158,7 @@ export const CAPABILITIES: CapabilitySlide[] = [
       "Identify failures and troubleshoot complex agent workflows"
     ],
     ctaLabel: "Monitor Your AI Agents",
-    ctaHref: "#contact",
+    ctaHref: "/contact",
     secondaryCta: "Observability Overview"
   },
   {
@@ -178,7 +181,7 @@ export const CAPABILITIES: CapabilitySlide[] = [
       "Continuously improve agent quality and reliability"
     ],
     ctaLabel: "Evaluate Your AI Agents",
-    ctaHref: "#contact",
+    ctaHref: "/contact",
     secondaryCta: "Evaluations Overview"
   }
 ];
@@ -364,8 +367,7 @@ export default function AgentCoreCapabilities() {
           </h2>
 
           <p className="mt-5 typo-description text-slate-600 max-w-3xl mx-auto font-normal">
-            Enable enterprise AI agents with Amazon Bedrock AgentCore, connecting intelligent agents with models, tools, memory, applications, and business workflows.
-
+            Build, deploy, secure, and operate enterprise AI agents with Amazon Bedrock AgentCore, connecting agents with models, tools, memory, applications, and business workflows.
           </p>
 
 
@@ -473,7 +475,7 @@ export default function AgentCoreCapabilities() {
               </div>
 
               {/* Key Metrics Strip */}
-              <div className="grid grid-cols-3 gap-3 pt-4 border-t border-slate-800/80">
+              <div className="grid grid-cols-3 gap-3 pt-4 pb-6 border-t border-slate-800/80 mb-6">
                 {currentCap.metrics.map((m) => (
                   <div
                     key={m.label}
@@ -488,6 +490,8 @@ export default function AgentCoreCapabilities() {
                   </div>
                 ))}
               </div>
+
+
             </div>
           </div>
 

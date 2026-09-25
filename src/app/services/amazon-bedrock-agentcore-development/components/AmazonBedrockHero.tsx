@@ -60,7 +60,7 @@ export default function AmazonBedrockHero() {
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2.5 mb-5 typo-caption text-[#ff7a1a] select-none"
+                className="inline-flex items-center gap-2.5 mb-5 text-xs sm:text-[13px] font-bold tracking-[0.22em] text-[#ff7a1a] uppercase select-none"
               >
                 <Globe2 className="w-4 h-4 text-[#ff7a1a] shrink-0" />
                 <span>AMAZON BEDROCK AGENTCORE DEVELOPMENT</span>
@@ -71,7 +71,7 @@ export default function AmazonBedrockHero() {
                 initial={{ opacity: 0, y: 22 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.65, delay: 0.1 }}
-                className="typo-heading-1 text-white mb-6"
+                className="typo-heading-2 sm:text-5xl lg:text-[48px] xl:text-[56px] font-bold text-white tracking-[-0.03em] leading-[1.08] mb-6"
               >
                 Build Production-Ready{" "}
                 <span className="text-[#ff6b2c] drop-shadow-[0_0_35px_rgba(255,107,44,0.55)]">
@@ -87,7 +87,7 @@ export default function AmazonBedrockHero() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="typo-description text-slate-300 max-w-xl mb-8"
+                className="typo-description text-base sm:text-lg lg:text-[17px] text-slate-300 font-normal leading-relaxed max-w-xl mb-8"
               >
                 Build, deploy and operate AI agents that can reason, use tools, access enterprise data and take real business actions.
               </motion.p>

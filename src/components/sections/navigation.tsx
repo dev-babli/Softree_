@@ -173,6 +173,12 @@ const menu: MenuItem[] = [
             icon: HeartPulse,
             description: "Full-suite clinical AI & healthcare systems",
           },
+          {
+            label: "Healthcare Testing Services",
+            url: "/industries/healthcare-testing",
+            icon: HeartPulse,
+            description: "Healthcare software testing, QA automation, and digital health quality engineering",
+          },
 
         ],
       },
@@ -481,8 +487,8 @@ export default function Navigation({
                               isOpen
                                 ? "rotate-180 text-[#FF5812]"
                                 : isSelected
-                                ? "text-[#FF5812]"
-                                : "text-[#0a0a1a]/30 group-hover:text-[#0a0a1a]"
+                                  ? "text-[#FF5812]"
+                                  : "text-[#0a0a1a]/30 group-hover:text-[#0a0a1a]"
                             )}
                           />
                         )}
@@ -524,8 +530,8 @@ export default function Navigation({
                               isOpen
                                 ? "rotate-180 text-[#FF5812]"
                                 : isSelected
-                                ? "text-[#FF5812]"
-                                : "text-[#0a0a1a]/30 group-hover:text-[#0a0a1a]"
+                                  ? "text-[#FF5812]"
+                                  : "text-[#0a0a1a]/30 group-hover:text-[#0a0a1a]"
                             )}
                           />
                         )}

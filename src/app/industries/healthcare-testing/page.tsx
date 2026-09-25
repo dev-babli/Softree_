@@ -1,6 +1,7 @@
 import React from "react";
 import NavigationClient from '@/components/sections/navigation-client';
 import Hero from "./components/Hero";
+import HealthcareTestingHero from "./components/HealthcareTestingHero";
 import TrustedBrandsMarquee from "./components/TrustedBrandsMarquee";
 import HealthcareTestingPositioning from "./components/HealthcareTestingPositioning";
 import HealthcareTestingFramework from "./components/HealthcareTestingFramework";
@@ -26,18 +27,20 @@ export default function HealthcareTestingPage() {
   return (
     <main className="min-h-screen">
       <NavigationClient />
-      <Hero />
+      {/* <Hero /> */}
+      <HealthcareTestingHero />
       <TrustedBrandsMarquee surface="light" />
       <HealthcareTestingPositioning />
+      <HealthcareTestingCoverage />
       <HealthcareTestingFramework />
       <OffshoreHealthcareTestingTeam />
-      <HealthcareTestingCoverage />
-      <HealthcareSecurityTesting />
+
       <HealthcareTestAutomation />
       <AgenticHealthcareTesting />
       <HealthcareTestingWorkflow />
       <HealthcareTechnologyTesting />
       <HealthcareTestingCaseStudies />
+      <HealthcareSecurityTesting />
       <WhySoftreeHealthcareTesting />
       <HealthcareTestingFAQ />
       <LightContactSection />

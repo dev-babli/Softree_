@@ -89,7 +89,9 @@ export default function TrustedBrandsMarquee({
             rgba(40, 20, 5, 0.90) 100%
           );
           border: 1px solid rgba(255, 140, 60, 0.18);
-          animation: ppCardGlow 2.8s ease-in-out infinite;
+          box-shadow:
+            0 0 16px 4px rgba(255, 120, 40, 0.28),
+            0 4px 16px rgba(0,0,0,0.1);
           transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
         }
         .pp-logo-card:nth-child(2n) { animation-delay: 0.3s; }
@@ -99,22 +101,7 @@ export default function TrustedBrandsMarquee({
         .pp-logo-card:nth-child(6n) { animation-delay: 1.5s; }
         .pp-logo-card:nth-child(7n) { animation-delay: 1.8s; }
 
-        @keyframes ppCardGlow {
-          0%, 100% {
-            box-shadow:
-              0 0 10px 2px rgba(255, 120, 40, 0.28),
-              0 0 24px 4px rgba(255, 80, 10, 0.14),
-              0 4px 16px rgba(0,0,0,0.07);
-            border-color: rgba(255, 140, 60, 0.35);
-          }
-          50% {
-            box-shadow:
-              0 0 32px 8px rgba(255, 120, 40, 0.60),
-              0 0 64px 16px rgba(255, 60, 10, 0.28),
-              0 8px 32px rgba(0,0,0,0.14);
-            border-color: rgba(255, 150, 60, 0.85);
-          }
-        }
+        /* ppCardGlow animation removed for performance - using static glow and pseudo-element pulse instead */
 
         /* Top-left gloss */
         .pp-logo-card::before {
@@ -178,12 +165,10 @@ export default function TrustedBrandsMarquee({
           0%, 100% {
             opacity: 0.7;
             transform: scale(1);
-            filter: brightness(1) drop-shadow(0 0 4px rgba(255,120,40,0.2));
           }
           50% {
             opacity: 1;
             transform: scale(1.07);
-            filter: brightness(1.25) drop-shadow(0 0 10px rgba(255,120,40,0.55));
           }
         }
 

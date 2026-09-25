@@ -114,6 +114,7 @@ export default function PowerAppsTechnologies() {
             {TABS.map((tab) => (
               <button
                 key={tab}
+                aria-label={`Show ${tab} technologies`}
                 onClick={() => setActiveTab(tab)}
                 className={`relative pb-3 text-sm font-medium transition ${
                   activeTab === tab
