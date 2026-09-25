@@ -127,11 +127,11 @@ export default function Home() {
       <AIReadinessBanner />
       <FabricServices />
       <FabricStickyScroll />
+      <FabricCaseStudies />
       <FabricTechnologyStack />
       <FabricOffshoreEngineeringSection />
 
       <FabricHowWeWork />
-      <FabricCaseStudies />
 
       {/* <IndustriesSection /> */}
       {/* <FabricPartner /> */}
