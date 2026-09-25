@@ -142,8 +142,8 @@ export default async function RootLayout({
           }}
         />
       </head>
- 
-       <body className="antialiased bg-[#141414] text-white">
+
+      <body className="antialiased bg-[#141414] text-white">
         {/* ✅ Google Tag Manager - lazyOnload prevents blocking hydration & FCP */}
         <Script
           id="gtm"
@@ -203,7 +203,7 @@ export default async function RootLayout({
           ) : null}
 
           {/* Global navigation progress bar */}
-          <NavigationProgressBar />
+          {/* <NavigationProgressBar /> */}
 
           {/* Global error reporter */}
           <ErrorReporter />
