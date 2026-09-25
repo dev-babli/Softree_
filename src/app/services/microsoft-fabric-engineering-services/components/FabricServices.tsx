@@ -55,7 +55,7 @@ export const FabricServices = ({ simple = false }: { simple?: boolean }) => {
   return (
     <section className="bg-white pt-8 md:pt-12 pb-8 md:pb-12 text-slate-900 scroll-mt-24">
       <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 lg:gap-x-16 gap-y-8 lg:gap-y-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 lg:gap-x-16 gap-y-8 lg:gap-y-10 items-stretch">
 
           {/* Top Area: Eyebrow, then Heading & Intro side-by-side */}
           {!simple && (
@@ -108,7 +108,7 @@ export const FabricServices = ({ simple = false }: { simple?: boolean }) => {
             </div>
 
             {/* Single Section-Level CTA Below */}
-            <div className="pt-4 mt-3 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div className="pt-4 mt-auto border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
               <p className="typo-body text-slate-700 text-center sm:text-left">
                 Ready to scale your Fabric engineering capabilities?
               </p>

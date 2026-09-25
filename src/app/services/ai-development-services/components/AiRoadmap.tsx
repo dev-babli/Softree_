@@ -333,7 +333,16 @@ export default function AiRoadmap() {
                     onMouseEnter={() => setHoveredIdx(idx)}
                     onMouseLeave={() => setHoveredIdx(null)}
                     onClick={() => setActiveIdx(idx)}
-                    className="w-full cursor-pointer"
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setActiveIdx(idx);
+                      }
+                    }}
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`Pillar ${phase.number}: ${phase.title}`}
+                    className="w-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded-xl"
                   >
                     <RoadmapItem
                       phase={phase}

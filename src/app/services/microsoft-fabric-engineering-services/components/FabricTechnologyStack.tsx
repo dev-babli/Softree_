@@ -161,6 +161,35 @@ const IsometricBlocksLogo = () => (
   </div>
 );
 
+// Real Tech Icons
+const PowerBiIcon = ({ className = "w-4 h-4 shrink-0" }: { className?: string }) => (
+  <img src="https://raw.githubusercontent.com/benc-uk/icon-collection/master/azure-patterns/power-bi.svg" alt="Power BI" className={className} />
+);
+
+const AzureIcon = ({ className = "w-4 h-4 shrink-0" }: { className?: string }) => (
+  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg" alt="Azure" className={className} />
+);
+
+const SparkIcon = ({ className = "w-4 h-4 shrink-0" }: { className?: string }) => (
+  <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Apache_Spark_logo.svg" alt="Apache Spark" className={className} />
+);
+
+const DynamicsIcon = ({ className = "w-4 h-4 shrink-0" }: { className?: string }) => (
+  <img src="https://raw.githubusercontent.com/benc-uk/icon-collection/master/logos/dynamics.svg" alt="Dynamics 365" className={className} />
+);
+
+const SynapseIcon = ({ className = "w-4 h-4 shrink-0" }: { className?: string }) => (
+  <img src="https://raw.githubusercontent.com/benc-uk/icon-collection/master/azure-icons/Azure-Synapse-Analytics.svg" alt="Synapse" className={className} />
+);
+
+const PurviewIcon = ({ className = "w-4 h-4 shrink-0" }: { className?: string }) => (
+  <Search className={className + " text-blue-600"} />
+);
+
+const DataFactoryIcon = ({ className = "w-4 h-4 shrink-0" }: { className?: string }) => (
+  <img src="https://raw.githubusercontent.com/benc-uk/icon-collection/master/azure-icons/Data-Factory.svg" alt="Data Factory" className={className} />
+);
+
 export default function FabricTechnologyStack() {
   // 5 Technology Stack Categories as requested
   const stackCategories = [
@@ -171,7 +200,7 @@ export default function FabricTechnologyStack() {
         { name: "OneLake", icon: <Database className="w-4 h-4 text-orange-600" /> },
         { name: "Lakehouse", icon: <Layers className="w-4 h-4 text-cyan-600" /> },
         { name: "Data Warehouse", icon: <Server className="w-4 h-4 text-slate-700" /> },
-        { name: "Data Factory", icon: <Settings className="w-4 h-4 text-teal-600" /> },
+        { name: "Data Factory", icon: <DataFactoryIcon className="w-4 h-4" /> },
         { name: "Real-Time Intelligence", icon: <Zap className="w-4 h-4 text-amber-500" /> },
       ],
     },
@@ -179,7 +208,7 @@ export default function FabricTechnologyStack() {
       category: "STACK 02",
       title: "DATA ENGINEERING",
       items: [
-        { name: "Apache Spark", icon: <Sparkles className="w-4 h-4 text-orange-500" /> },
+        { name: "Apache Spark", icon: <SparkIcon className="w-4 h-4" /> },
         { name: "Notebooks", icon: <FileText className="w-4 h-4 text-slate-800" /> },
         { name: "Data Pipelines", icon: <Workflow className="w-4 h-4 text-blue-600" /> },
         { name: "ETL / ELT", icon: <RefreshCw className="w-4 h-4 text-orange-600" /> },
@@ -189,7 +218,7 @@ export default function FabricTechnologyStack() {
       category: "STACK 03",
       title: "ANALYTICS & BI",
       items: [
-        { name: "Power BI", icon: <Activity className="w-4 h-4 text-yellow-600" /> },
+        { name: "Power BI", icon: <PowerBiIcon className="w-4 h-4" /> },
         { name: "Semantic Models", icon: <Layers3 className="w-4 h-4 text-purple-600" /> },
         { name: "Direct Lake", icon: <Zap className="w-4 h-4 text-orange-600" /> },
         { name: "Enterprise Reporting", icon: <FileText className="w-4 h-4 text-slate-700" /> },
@@ -199,16 +228,16 @@ export default function FabricTechnologyStack() {
       category: "STACK 04",
       title: "MICROSOFT ECOSYSTEM",
       items: [
-        { name: "Microsoft Purview", icon: <Search className="w-4 h-4 text-blue-600" /> },
-        { name: "Azure Cloud", icon: <Cloud className="w-4 h-4 text-blue-500" /> },
-        { name: "Dynamics 365", icon: <Boxes className="w-4 h-4 text-slate-900" /> },
+        { name: "Microsoft Purview", icon: <PurviewIcon className="w-4 h-4" /> },
+        { name: "Azure Cloud", icon: <AzureIcon className="w-4 h-4" /> },
+        { name: "Dynamics 365", icon: <DynamicsIcon className="w-4 h-4" /> },
       ],
     },
     {
       category: "STACK 05",
       title: "AI & MACHINE LEARNING",
       items: [
-        { name: "Synapse Data Science", icon: <Brain className="w-4 h-4 text-purple-600" /> },
+        { name: "Synapse Data Science", icon: <SynapseIcon className="w-4 h-4" /> },
         { name: "ML Models", icon: <Bot className="w-4 h-4 text-orange-600" /> },
         { name: "Azure OpenAI", icon: <Sparkles className="w-4 h-4 text-teal-600" /> },
       ],
@@ -280,7 +309,8 @@ export default function FabricTechnologyStack() {
           MICROSOFT FABRIC TECHNOLOGY
         </div>
         <h2 className="typo-heading-2 text-slate-900 mb-3 sm:mb-4">
-          Microsoft Fabric Technology Stack for Data & AI
+          Microsoft Fabric Technology Stack for <br className="hidden sm:inline" />
+          Data & AI
         </h2>
         <p className="typo-description text-slate-600 max-w-3xl text-center">
           Build a modern data and AI foundation with Microsoft Fabric and the Microsoft ecosystem, connecting data engineering, analytics, automation, cloud services & AI capabilities in one unified technology stack.
@@ -326,7 +356,7 @@ export default function FabricTechnologyStack() {
 
           {/* Center-Right Columns: 5 Layers Stack + Glowing Core + 5 Capabilities */}
           <div className="lg:col-span-9 grid grid-cols-1 xl:grid-cols-12 gap-6 relative">
-            
+
             {/* Unified SVG Branching Connection Overlay */}
             <div className="absolute inset-0 w-full h-full pointer-events-none hidden xl:block z-0">
               <svg className="w-full h-full" viewBox="0 0 900 500" fill="none" preserveAspectRatio="none">
@@ -447,7 +477,106 @@ export default function FabricTechnologyStack() {
 
                 {/* Core dial */}
                 <div className="absolute inset-4 sm:inset-5 rounded-full bg-white border-2 border-orange-400/50 shadow-[0_0_25px_rgba(255,88,18,0.15)] flex flex-col items-center justify-center gap-0.5 z-10">
-                  <Activity className="w-5 h-5 text-[#FF5812] animate-pulse" />
+                  <svg
+                    viewBox="0 0 48 48"
+                    className="w-7 h-7 sm:w-8 sm:h-8 drop-shadow-sm mb-0.5"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <defs>
+                      <linearGradient id="fab-grad-a" x1="12.953" x2="12.953" y1="44.001" y2="29.457" gradientUnits="userSpaceOnUse">
+                        <stop offset=".056" stopColor="#2AAC94" />
+                        <stop offset=".155" stopColor="#239C87" />
+                        <stop offset=".372" stopColor="#177E71" />
+                        <stop offset=".588" stopColor="#0E6961" />
+                        <stop offset=".799" stopColor="#095D57" />
+                        <stop offset="1" stopColor="#085954" />
+                      </linearGradient>
+                      <linearGradient id="fab-grad-b" x1="31.331" x2="17.286" y1="33.448" y2="18.173" gradientUnits="userSpaceOnUse">
+                        <stop offset=".042" stopColor="#ABE88E" />
+                        <stop offset=".549" stopColor="#2AAA92" />
+                        <stop offset=".906" stopColor="#117865" />
+                      </linearGradient>
+                      <linearGradient id="fab-grad-c" x1="-3.182" x2="10.183" y1="32.706" y2="28.148" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="#6AD6F9" />
+                        <stop offset="1" stopColor="#6AD6F9" stopOpacity="0" />
+                      </linearGradient>
+                      <linearGradient id="fab-grad-d" x1="7.013" x2="42.589" y1="15.219" y2="15.219" gradientUnits="userSpaceOnUse">
+                        <stop offset=".043" stopColor="#25FFD4" />
+                        <stop offset=".874" stopColor="#55DDB9" />
+                      </linearGradient>
+                      <linearGradient id="fab-grad-e" x1="7.013" x2="39.06" y1="10.247" y2="25.128" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="#6AD6F9" />
+                        <stop offset=".23" stopColor="#60E9D0" />
+                        <stop offset=".651" stopColor="#6DE9BB" />
+                        <stop offset=".994" stopColor="#ABE88E" />
+                      </linearGradient>
+                      <linearGradient id="fab-grad-f" x1="9.978" x2="27.404" y1="13.031" y2="16.885" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="#fff" stopOpacity="0" />
+                        <stop offset=".459" stopColor="#fff" />
+                        <stop offset="1" stopColor="#fff" stopOpacity="0" />
+                      </linearGradient>
+                      <linearGradient id="fab-grad-g" x1="15.756" x2="16.168" y1="27.96" y2="15.74" gradientUnits="userSpaceOnUse">
+                        <stop offset=".205" stopColor="#063D3B" stopOpacity="0" />
+                        <stop offset=".586" stopColor="#063D3B" stopOpacity=".237" />
+                        <stop offset=".872" stopColor="#063D3B" stopOpacity=".75" />
+                      </linearGradient>
+                      <linearGradient id="fab-grad-h" x1="2.81" x2="17.701" y1="26.744" y2="29.545" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="#fff" stopOpacity="0" />
+                        <stop offset=".459" stopColor="#fff" />
+                        <stop offset="1" stopColor="#fff" stopOpacity="0" />
+                      </linearGradient>
+                      <linearGradient id="fab-grad-i" x1="13.567" x2="10.662" y1="39.97" y2="25.764" gradientUnits="userSpaceOnUse">
+                        <stop offset=".064" stopColor="#063D3B" stopOpacity="0" />
+                        <stop offset=".17" stopColor="#063D3B" stopOpacity=".135" />
+                        <stop offset=".562" stopColor="#063D3B" stopOpacity=".599" />
+                        <stop offset=".85" stopColor="#063D3B" stopOpacity=".9" />
+                        <stop offset="1" stopColor="#063D3B" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      fill="url(#fab-grad-a)"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="m5.64 31.6-.586 2.144c-.218.685-.524 1.693-.689 2.59a5.63 5.63 0 0 0 4.638 7.588c.792.114 1.688.108 2.692-.04l4.613-.636a2.92 2.92 0 0 0 2.421-2.127l3.175-11.662L5.64 31.599Z"
+                    />
+                    <path
+                      fill="url(#fab-grad-b)"
+                      d="M10.14 32.152c-4.863.753-5.861 4.423-5.861 4.423l4.656-17.11 24.333-3.292-3.318 12.052a1.71 1.71 0 0 1-1.388 1.244l-.136.022-18.423 2.684z"
+                    />
+                    <path
+                      fill="url(#fab-grad-c)"
+                      fillOpacity=".8"
+                      d="M10.14 32.152c-4.863.753-5.861 4.423-5.861 4.423l4.656-17.11 24.333-3.292-3.318 12.052a1.71 1.71 0 0 1-1.388 1.244l-.136.022-18.423 2.684z"
+                    />
+                    <path
+                      fill="url(#fab-grad-d)"
+                      d="m12.899 21.235 26.938-3.98a1.6 1.6 0 0 0 1.323-1.17l2.78-10.06a1.595 1.595 0 0 0-1.74-2.012L16.498 7.81a7.19 7.19 0 0 0-5.777 5.193L7.013 26.438c.744-2.717 1.202-4.355 5.886-5.203"
+                    />
+                    <path
+                      fill="url(#fab-grad-e)"
+                      d="m12.899 21.235 26.938-3.98a1.6 1.6 0 0 0 1.323-1.17l2.78-10.06a1.595 1.595 0 0 0-1.74-2.012L16.498 7.81a7.19 7.19 0 0 0-5.777 5.193L7.013 26.438c.744-2.717 1.202-4.355 5.886-5.203"
+                    />
+                    <path
+                      fill="url(#fab-grad-f)"
+                      fillOpacity=".4"
+                      d="m12.899 21.235 26.938-3.98a1.6 1.6 0 0 0 1.323-1.17l2.78-10.06a1.595 1.595 0 0 0-1.74-2.012L16.498 7.81a7.19 7.19 0 0 0-5.777 5.193L7.013 26.438c.744-2.717 1.202-4.355 5.886-5.203"
+                    />
+                    <path
+                      fill="url(#fab-grad-g)"
+                      d="M12.899 21.236c-3.901.706-4.87 1.962-5.514 3.932L4.279 36.577s.992-3.633 5.796-4.41l18.352-2.673.136-.022a1.71 1.71 0 0 0 1.388-1.244l2.73-9.915z"
+                    />
+                    <path
+                      fill="url(#fab-grad-h)"
+                      fillOpacity=".2"
+                      d="M12.899 21.236c-3.901.706-4.87 1.962-5.514 3.932L4.279 36.577s.992-3.633 5.796-4.41l18.352-2.673.136-.022a1.71 1.71 0 0 0 1.388-1.244l2.73-9.915z"
+                    />
+                    <path
+                      fill="url(#fab-grad-i)"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M10.075 32.167c-4.06.657-5.392 3.345-5.71 4.164a5.63 5.63 0 0 0 4.638 7.59c.792.114 1.688.108 2.692-.039l4.613-.637a2.92 2.92 0 0 0 2.421-2.127l2.894-10.633-11.547 1.683z"
+                    />
+                  </svg>
                   <span className="text-[10px] font-black tracking-widest text-slate-900 text-center mt-0.5">
                     MICROSOFT
                   </span>

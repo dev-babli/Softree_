@@ -94,7 +94,7 @@ export const WhoWeHelp = ({ simple = false }: { simple?: boolean }) => {
       </div>
 
       {/* Single Section-Level CTA Below */}
-      <div className="pt-4 mt-3 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div className="pt-4 mt-auto border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
         <p className="typo-body text-slate-700 text-center sm:text-left">
           Ready to scale your AI engineering capabilities?
         </p>

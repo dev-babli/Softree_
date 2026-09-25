@@ -1,6 +1,6 @@
 import CustomerExperienceCard from "./components/CustomerExperienceCard";
 import EmployeeProductivityCard from "./components/EmployeeProductivityCard";
-import KoreFourthSection from "./components/KoreFourthSection";
+import KoreFourthSection from "./components/FourthSection";
 
 export default function KoreHeroTestPage() {
   return (

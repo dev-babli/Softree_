@@ -18,15 +18,19 @@ export const ReverseStickyScroll = () => {
   useGSAP(() => {
     if (!containerRef.current) return;
 
-    // Initialize Lenis scroll smoothing
-    const lenis = new Lenis();
-    lenis.on('scroll', ScrollTrigger.update);
+    // Use GSAP ScrollTrigger safely without duplicating full page RAF
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    let lenis: Lenis | null = null;
 
-    const raf = (time: number) => {
-      lenis.raf(time);
+    if (!isMobile) {
+      lenis = new Lenis();
+      lenis.on('scroll', ScrollTrigger.update);
+      const raf = (time: number) => {
+        lenis?.raf(time);
+        requestAnimationFrame(raf);
+      };
       requestAnimationFrame(raf);
-    };
-    requestAnimationFrame(raf);
+    }
 
     // Grab all section elements inside our container
     const sections = gsap.utils.toArray<HTMLElement>('.rss_section');
@@ -37,7 +41,7 @@ export const ReverseStickyScroll = () => {
 
       // 1. Entrance Rotation Animation (for sections after the first one)
       if (i > 0) {
-        const startRotation = typeof window !== 'undefined' && window.innerWidth < 768 ? 14 : 25;
+        const startRotation = isMobile ? 8 : 20;
         gsap.set(innerContainer, {
           rotation: startRotation,
           transformOrigin: 'bottom left',
@@ -86,7 +90,7 @@ export const ReverseStickyScroll = () => {
 
     // Cleanup function
     return () => {
-      lenis.destroy();
+      lenis?.destroy();
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, { scope: containerRef });

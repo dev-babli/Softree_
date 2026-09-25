@@ -9,6 +9,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
   // Primary AI Services - Priority 1.0 / 0.95
   { url: `${BASE_URL}/ai`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
   { url: `${BASE_URL}/ai-workflow-orchestration`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
+  { url: `${BASE_URL}/services/ai-development-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
   { url: `${BASE_URL}/services/ai-intelligence/agentic-ai`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
   { url: `${BASE_URL}/services/generative-ai`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
   { url: `${BASE_URL}/services/enterprise-generative-ai-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },

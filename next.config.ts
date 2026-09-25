@@ -60,7 +60,11 @@ const nextConfig: any = {
       { source: "/api/process/:path*", destination: `${leadMagnetOrigin}/api/process/:path*` },
       {
         source: "/services/aidevelopemnt/service",
-        destination: "/services/ai-development-service",
+        destination: "/services/ai-development-services",
+      },
+      {
+        source: "/services/ai-development-service",
+        destination: "/services/ai-development-services",
       },
       {
         source: "/industries/logistics-supply-chain-engineering",

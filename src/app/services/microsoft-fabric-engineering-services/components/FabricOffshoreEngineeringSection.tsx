@@ -144,10 +144,10 @@ export default function OffshoreEngineeringSection() {
                   <Sparkles className="w-3.5 h-3.5" />
                 </div>
                 <div>
-                  <p className="text-[13.5px] sm:text-[14px] font-semibold text-slate-900 leading-snug">
+                  <p className="typo-body-sm font-semibold text-slate-900 leading-snug">
                     A focused offshore Microsoft Fabric engineering team that works as an extension of yours.
                   </p>
-                  <div className="flex items-center gap-3 mt-1 flex-wrap text-[11.5px] text-slate-500 font-medium">
+                  <div className="flex items-center gap-3 mt-1 flex-wrap typo-caption-meta text-slate-500 font-medium">
                     <span className="inline-flex items-center gap-1.5 text-slate-700">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#FF6B2C]" /> Direct Slack & Git Sync
                     </span>

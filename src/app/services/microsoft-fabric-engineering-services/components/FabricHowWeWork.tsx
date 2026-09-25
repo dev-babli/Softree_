@@ -336,14 +336,14 @@ export const FabricHowWeWork = () => {
         
         {/* Section Header */}
         <div className="mb-10 md:mb-16 flex flex-col items-center text-center">
-          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#FF5812]/20 bg-[#FF5812]/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#FF5812]">
+          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#FF5812]/20 bg-[#FF5812]/5 px-3 py-1 typo-caption text-[#FF5812]">
             <span className="h-1.5 w-1.5 rounded-full bg-[#FF5812]"></span>
             HOW WE WORK
           </span>
-          <h2 className="text-balance text-[clamp(2.5rem,5vw,4rem)] font-bold leading-[1.05] tracking-[-0.03em] text-[#0a0a1a]">
+          <h2 className="typo-heading-2 tracking-[-0.03em] text-[#0a0a1a]">
             From Requirement to <span className="text-[#FF6B2C]">Production</span>
           </h2>
-          <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-[#0a0a1a]/70 font-medium">
+          <p className="mt-6 max-w-2xl text-pretty typo-description text-[#0a0a1a]/70 font-medium">
             We work with your team from initial requirements and Fabric architecture through development, integration, validation, deployment, and ongoing optimization to deliver reliable, production-ready data solutions.
           </p>
         </div>
@@ -361,7 +361,7 @@ export const FabricHowWeWork = () => {
 
         {/* Bottom CTA */}
         <div className="mt-12 md:mt-16 flex flex-col items-center text-center border-t border-[#0a0a1a]/[0.06] pt-10 md:pt-12">
-          <h3 className="text-lg md:text-xl font-semibold tracking-tight text-[#0a0a1a] max-w-4xl">
+          <h3 className="typo-heading-4 tracking-tight text-[#0a0a1a] max-w-4xl">
             Whatever you're building, modernizing, or scaling, we're ready to work alongside you.
           </h3>
           <FlowButton href="/contact" text="Explore How We Work" className="mt-8" />

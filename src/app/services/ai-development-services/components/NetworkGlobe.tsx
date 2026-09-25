@@ -291,37 +291,37 @@ const STYLES = `
 
 .globe-canvas-wrap{
   position:relative;
-  width:360px;
-  height:360px;
+  width:320px;
+  height:320px;
   max-width:100%;
   aspect-ratio: 1 / 1;
 }
 
 @media (min-width: 640px) {
   .globe-canvas-wrap{
-    width:420px;
-    height:420px;
+    width:360px;
+    height:360px;
   }
 }
 
 @media (min-width: 1024px) {
   .globe-canvas-wrap{
-    width:420px;
-    height:420px;
+    width:380px;
+    height:380px;
   }
 }
 
 @media (min-width: 1280px) {
   .globe-canvas-wrap{
-    width:480px;
-    height:480px;
+    width:410px;
+    height:410px;
   }
 }
 
 @media (min-width: 1536px) {
   .globe-canvas-wrap{
-    width:520px;
-    height:520px;
+    width:440px;
+    height:440px;
   }
 }
 

@@ -76,16 +76,16 @@ export default function FabricCaseStudies() {
       <div className="w-[86%] max-w-7xl mx-auto space-y-8">
         {/* ================= HEADER ================= */}
         <div className="text-center">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-orange-50 text-orange-600 text-xs font-semibold tracking-[0.18em] uppercase">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-orange-50 text-orange-600 typo-caption">
             Case Studies
           </span>
 
-          <h2 className="text-3xl lg:text-4xl font-semibold text-gray-900 mt-2">
+          <h2 className="typo-heading-2 text-gray-900 mt-2">
             Power BI & Fabric in Action:
             <span className="text-orange-600"> Business Success Stories</span>
           </h2>
 
-          <p className="mt-2 max-w-4xl mx-auto text-base text-gray-600">
+          <p className="mt-2 max-w-4xl mx-auto typo-description text-gray-600">
             Explore how Softree helps organizations leverage data to uncover insights and
             drive strategic decision-making.
           </p>
@@ -137,11 +137,11 @@ export default function FabricCaseStudies() {
                   >
                     {/* Header */}
                     <div className="text-center mb-6">
-                      <h3 className="text-2xl font-semibold text-white">
+                      <h3 className="typo-heading-3 text-white">
                         {item.title} — Case Study
                       </h3>
 
-                      <p className="mt-2 text-sm text-slate-300 flex items-center justify-center gap-2">
+                      <p className="mt-2 typo-body-sm text-slate-300 flex items-center justify-center gap-2">
                         📍 Client Country
                         <span className="font-medium text-white">
                           United States 🇺🇸
@@ -168,11 +168,11 @@ export default function FabricCaseStudies() {
                         <div className="space-y-2">
                           <div className="flex items-center gap-2">
                             <FileText className="w-4 h-4 text-orange-400" />
-                            <h4 className="text-xs font-semibold tracking-wide text-orange-400 uppercase">
+                            <h4 className="typo-caption-meta text-orange-400 uppercase">
                               Summary
                             </h4>
                           </div>
-                          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                          <p className="typo-body-sm text-slate-300 leading-relaxed">
                             {item.summary}
                           </p>
                         </div>
@@ -181,11 +181,11 @@ export default function FabricCaseStudies() {
                         <div className="space-y-2">
                           <div className="flex items-center gap-2">
                             <AlertTriangle className="w-4 h-4 text-rose-400" />
-                            <h4 className="text-xs font-semibold tracking-wide text-rose-400 uppercase">
+                            <h4 className="typo-caption-meta text-rose-400 uppercase">
                               Problem
                             </h4>
                           </div>
-                          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                          <p className="typo-body-sm text-slate-300 leading-relaxed">
                             {item.challenge}
                           </p>
                         </div>
@@ -194,11 +194,11 @@ export default function FabricCaseStudies() {
                         <div className="space-y-2">
                           <div className="flex items-center gap-2">
                             <Lightbulb className="w-4 h-4 text-cyan-400" />
-                            <h4 className="text-xs font-semibold tracking-wide text-cyan-400 uppercase">
+                            <h4 className="typo-caption-meta text-cyan-400 uppercase">
                               Solution
                             </h4>
                           </div>
-                          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                          <p className="typo-body-sm text-slate-300 leading-relaxed">
                             {item.solution}
                           </p>
                         </div>
@@ -219,10 +219,10 @@ export default function FabricCaseStudies() {
                           "
                         >
                           <div className="relative z-10 space-y-0.5 flex-1 min-w-0 pr-3">
-                            <p className="text-xs uppercase tracking-wider text-white/70 truncate">
+                            <p className="typo-caption-meta text-white/70 truncate uppercase">
                               Impact
                             </p>
-                            <p className="text-sm font-semibold leading-snug break-words">
+                            <p className="typo-body-sm font-semibold break-words">
                               {item.impact}
                             </p>
                           </div>
@@ -235,7 +235,7 @@ export default function FabricCaseStudies() {
                               relative z-10
                               inline-flex items-center justify-center
                               px-4 py-2
-                              text-xs font-semibold uppercase tracking-wide
+                              typo-button-sm uppercase
                               rounded-full
                               bg-white text-orange-700
                               hover:scale-105

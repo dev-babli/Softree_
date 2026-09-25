@@ -115,15 +115,15 @@ const HeroSection = () => {
 
         {/* Container */}
         <div className="container text-center z-10 relative p-10 pt-32 animate-fadeIn flex-grow flex flex-col justify-center items-center pointer-events-auto">
-          <div className="inline-flex items-center gap-2 bg-[#f97316]/10 border border-[#f97316]/25 text-[#f97316] text-xs font-semibold tracking-[0.1em] uppercase px-4 py-1.5 rounded-full mb-8">
+          <div className="inline-flex items-center gap-2 bg-[#f97316]/10 border border-[#f97316]/25 text-[#f97316] typo-caption px-4 py-1.5 rounded-full mb-8">
             <div className="w-1.5 h-1.5 rounded-full bg-[#f97316] eyebrow-dot" />
             Microsoft Fabric Offshore Technology Partner
           </div>
-          <h1 className="text-6xl leading-tight m-0 relative z-20 drop-shadow-[0_0_8px_rgba(0,0,0,1)] [text-shadow:0_4px_12px_rgba(0,0,0,1),0_0_24px_rgba(0,0,0,1)]">
+          <h1 className="typo-heading-1 m-0 relative z-20 drop-shadow-[0_0_8px_rgba(0,0,0,1)] [text-shadow:0_4px_12px_rgba(0,0,0,1),0_0_24px_rgba(0,0,0,1)]">
             Build, Extend & Deliver Microsoft Fabric Solutions<br />
             <span className="gradient-text inline-block relative z-10 [text-shadow:none]">With a White-Label Engineering Partner</span>
           </h1>
-          <p className="mt-8 text-lg max-w-3xl mx-auto text-gray-300 leading-relaxed relative z-20">
+          <p className="mt-8 typo-description max-w-3xl mx-auto text-gray-300 relative z-20">
             Extend your data engineering and analytics capabilities with an offshore Microsoft Fabric team that designs, builds, and maintains solutions—from OneLake architecture to Power BI and AI-ready data platforms.
           </p>
           <div className="w-full relative z-20 mt-4">

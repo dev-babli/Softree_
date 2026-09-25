@@ -16,7 +16,7 @@ const FEATURES: FeatureItem[] = [
     icon: Bot,
     title: "White-Label Friendly",
     description:
-      "Deliver Fabric projects under your own brand. We can operate as your behind-the-scenes engineering team while you maintain ownership of the client relationship.",
+      "Deliver Fabric projects under your own brand. We operate as your  engineering team while you maintain ownership of the client relationship.",
   },
   {
     icon: Users,

@@ -94,9 +94,94 @@ export const metadata: Metadata = {
   },
 };
 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Agentic AI Development Services",
+  "serviceType": "AI Development Services",
+  "provider": {
+    "@type": "Organization",
+    "name": "Softree Technology",
+    "url": "https://www.softreetechnology.com",
+    "logo": "https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo-Dark-BG.png",
+    "sameAs": [
+      "https://www.linkedin.com/company/softreetechnology"
+    ]
+  },
+  "areaServed": "Global",
+  "description": "Custom Agentic AI, autonomous AI agents, enterprise RAG, intelligent automation, and offshore AI engineering delivery for enterprises and tech companies.",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "AI Development & Engineering Solutions",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AI Agent & Multi-Agent Development"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Enterprise RAG & Knowledge Retrieval"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AI Workflow Automation & Integration"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Microsoft Azure & OpenAI Engineering"
+        }
+      }
+    ]
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.softreetechnology.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://www.softreetechnology.com/services"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "AI Development Services",
+      "item": "https://www.softreetechnology.com/services/ai-development-services"
+    }
+  ]
+};
+
 export default function AiDevelopmentServicesPage() {
   return (
     <main className="min-h-screen bg-white font-sans text-slate-900 selection:bg-orange-500 selection:text-white overflow-x-clip">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <NavigationClient />
       <WovenLightHero />
       <AiReadinessBanner />
@@ -125,17 +210,15 @@ export default function AiDevelopmentServicesPage() {
             </div>
 
             {/* Bottom Row: Who We Help Items (Left) and Globe (Right) */}
-            <div className="lg:col-span-6 flex flex-col">
+            <div className="lg:col-span-6 flex flex-col h-full">
               <WhoWeHelp simple={true} />
             </div>
 
-            <div className="lg:col-span-6 w-full flex justify-center lg:justify-end items-stretch">
+            <div className="lg:col-span-6 w-full flex justify-center lg:justify-end items-stretch h-full">
               <NetworkGlobe
                 heading="Where our clients are"
                 tagline="Global Reach. Local Understanding."
-                subheading="Trusted by businesses across 13+ countries, we deliver technology solutions that help organizations build, scale, and transform digitally."
                 storesLabel="13+ countries served"
-                caption="Trusted by businesses across 13+ countries, we deliver technology solutions that help organizations build, scale, and transform digitally."
               />
             </div>
           </div>
