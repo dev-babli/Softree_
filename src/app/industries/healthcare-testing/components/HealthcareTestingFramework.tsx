@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { FlowButton } from "@/components/ui/flow-button";
-import { ClipboardList, Target, Stethoscope, ShieldCheck, Cpu, RefreshCw } from "lucide-react";
+import { CheckCircle2, Cpu, Network, Share2, Gauge } from "lucide-react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -14,18 +14,17 @@ if (typeof window !== "undefined") {
 const items = [
   {
     num: "01",
-    title: "Healthcare Requirements",
-    titleSplit: "Healthcare<br />Requirements",
-    icon: ClipboardList,
-    desc: "Validate clinical workflows, patient data, integrations, and requirements.",
-    cardCategory: "PLANNING & ANALYSIS",
-    cardStatus: "DISCOVERY",
-    type: "labeled",
+    title: "Functional Testing",
+    titleSplit: "Functional<br />Testing",
+    icon: CheckCircle2,
+    desc: "Validate healthcare workflows, features, business logic, and application behavior.",
+    cardCategory: "CORE VALIDATION",
+    cardStatus: "FUNCTIONAL",
     features: [
-      { label: "Clinical Workflows", value: "Map out patient journey and clinical processes." },
-      { label: "Data Requirements", value: "Identify sensitive PHI and data flow." },
-      { label: "Regulatory Needs", value: "Review HIPAA, GDPR, and FDA guidelines." },
-      { label: "Integration Points", value: "Identify EHR/EMR and third-party APIs." },
+      { label: "Clinical Workflows", value: "Validate patient admission, care paths, and clinical operations." },
+      { label: "Business Logic", value: "Verify healthcare domain rules, medical dosage, and billing logic." },
+      { label: "Role Permissions", value: "Validate clinician, nurse, administrator, and patient portal access." },
+      { label: "Edge-Case Handling", value: "Check unexpected inputs, incomplete records, and error handling." },
     ],
     bg: "#0D0D0D",
     text: "#ffffff",
@@ -35,18 +34,17 @@ const items = [
   },
   {
     num: "02",
-    title: "Test Strategy",
-    titleSplit: "Test<br />Strategy",
-    icon: Target,
-    desc: "Plan functional, security, performance, compliance, and automation testing.",
-    cardCategory: "TEST PLANNING",
-    cardStatus: "STRATEGY",
-    type: "unlabeled",
+    title: "Automation Testing",
+    titleSplit: "Automation<br />Testing",
+    icon: Cpu,
+    desc: "Automate repetitive UI, API, and regression test scenarios.",
+    cardCategory: "TEST AUTOMATION",
+    cardStatus: "AUTOMATED",
     features: [
-      { value: "Functional Scope" },
-      { value: "Security Protocols" },
-      { value: "Automation Framework" },
-      { value: "Performance Baselines" },
+      { label: "Regression Suites", value: "Automated end-to-end regression test suites across core journeys." },
+      { label: "Cross-Platform UI", value: "Cross-browser and multi-device automated interface testing." },
+      { label: "CI/CD Pipelines", value: "Automated test triggers on code push, pull request, and deployment." },
+      { label: "Test Frameworks", value: "Modular, data-driven automation frameworks with repeatable test data." },
     ],
     bg: "#C94716",
     text: "#ffffff",
@@ -56,15 +54,18 @@ const items = [
   },
   {
     num: "03",
-    title: "Functional & Clinical Testing",
-    titleSplit: "Functional &<br />Clinical Testing",
-    icon: Stethoscope,
-    desc: "Test healthcare workflows, data accuracy, APIs, integrations, and usability.",
-    cardCategory: "CORE TESTING",
-    cardStatus: "VALIDATION",
-    type: "integration",
-    integrationLine: "EHR · HL7 · FHIR · Telehealth · Medical Devices",
-    additionalDescription: "Ensure seamless interoperability across clinical systems, verifying that patient data moves securely and accurately between connected modules.",
+    title: "API Testing",
+    titleSplit: "API<br />Testing",
+    icon: Network,
+    desc: "Validate API functionality, responses, authentication, errors, and integrations.",
+    cardCategory: "API & BACKEND",
+    cardStatus: "VALIDATED",
+    features: [
+      { label: "REST & GraphQL", value: "Validate endpoint payloads, status codes, and schema contracts." },
+      { label: "Authentication", value: "Verify OAuth 2.0, JWT tokens, and role-based API authorization." },
+      { label: "Data Integrity", value: "Ensure PHI and patient records persist accurately across requests." },
+      { label: "Resilience & Fallback", value: "Test API error rates, timeouts, rate limits, and failure handling." },
+    ],
     bg: "#141414",
     text: "#ffffff",
     accent: "#FF6B2C",
@@ -73,18 +74,17 @@ const items = [
   },
   {
     num: "04",
-    title: "Security & Compliance",
-    titleSplit: "Security &<br />Compliance",
-    icon: ShieldCheck,
-    desc: "Test data privacy, access control, vulnerabilities, APIs, and compliance.",
-    cardCategory: "RISK MANAGEMENT",
-    cardStatus: "SECURITY",
-    type: "labeled",
+    title: "Integration Testing",
+    titleSplit: "Integration<br />Testing",
+    icon: Share2,
+    desc: "Test communication between applications, APIs, databases, and external systems.",
+    cardCategory: "INTEROPERABILITY",
+    cardStatus: "CONNECTED",
     features: [
-      { label: "Data Privacy", value: "Ensure PHI remains encrypted and secure." },
-      { label: "Access Control", value: "Verify role-based access and permissions." },
-      { label: "Vulnerability Scans", value: "Identify and patch system weaknesses." },
-      { label: "API Security", value: "Protect endpoints against unauthorized access." },
+      { label: "EHR & EMR Systems", value: "Validate bidirectional patient record sync with hospital EHR systems." },
+      { label: "HL7 & FHIR Standards", value: "Test healthcare data exchange, message formatting, and resource mapping." },
+      { label: "Lab & Diagnostics", value: "Validate integration with LIS, PACS imaging, and medical device feeds." },
+      { label: "Third-Party Services", value: "Test pharmacy systems, insurance eligibility, and billing gateways." },
     ],
     bg: "#FCFBF9",
     text: "#111111",
@@ -94,35 +94,18 @@ const items = [
   },
   {
     num: "05",
-    title: "Test Automation",
-    titleSplit: "Test<br />Automation",
-    icon: Cpu,
-    desc: "Automate functional, API, regression, and end-to-end healthcare testing.",
-    cardCategory: "AUTOMATION OPS",
-    cardStatus: "ACCELERATION",
-    type: "unlabeled",
+    title: "Performance Testing",
+    titleSplit: "Performance<br />Testing",
+    icon: Gauge,
+    desc: "Evaluate application speed, scalability, stability, and workload performance.",
+    cardCategory: "PERFORMANCE & SCALE",
+    cardStatus: "OPTIMIZED",
     features: [
-      { value: "Regression Suites" },
-      { value: "API Automation" },
-      { value: "UI/UX Checks" },
-      { value: "End-to-End Workflows" },
+      { label: "Peak Load Testing", value: "Simulate high-volume clinician and patient concurrency without degradation." },
+      { label: "Response Benchmarks", value: "Measure and optimize sub-second response times for clinical workflows." },
+      { label: "Stress & Scalability", value: "Validate infrastructure stability under emergency traffic spikes." },
+      { label: "Resource Optimization", value: "Identify database bottlenecks, memory leaks, and query execution limits." },
     ],
-    bg: "#1C1A18",
-    text: "#ffffff",
-    accent: "#FF6B00",
-    isLight: false,
-    link: "/contact",
-  },
-  {
-    num: "06",
-    title: "Continuous Quality",
-    titleSplit: "Continuous<br />Quality",
-    icon: RefreshCw,
-    desc: "Integrate testing into CI/CD and continuously monitor performance and reliability.",
-    cardCategory: "RELEASE PIPELINE",
-    cardStatus: "CONTINUOUS",
-    type: "workflow",
-    workflowSteps: "CODE COMMIT → AUTOMATED TESTS → SECURITY SCANS → COMPLIANCE CHECKS → PRODUCTION DEPLOY",
     bg: "#101010",
     text: "#ffffff",
     accent: "#FF6B2C",
@@ -188,20 +171,25 @@ export default function HealthcareTestingFramework() {
 
   return (
     <>
-      {/* Section Header: Healthcare Testing Framework */}
+      {/* Section Header: Healthcare Testing Services */}
       <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-[2cm] pt-12 md:pt-16 pb-8 sm:pb-10 flex flex-col items-center text-center bg-white">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] uppercase mb-4">
           <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
-          FEATURED HEALTHCARE TESTING WORKFLOW
+          HEALTHCARE TESTING SERVICES
         </div>
 
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
-          From Healthcare Development to <br className="hidden md:block" />
-          <span className="text-[#FF6B2C]">Continuous Quality Engineering</span>
+          One Healthcare Testing Team Across
+          <br />
+          <span className="text-[#FF6B2C]">
+            Every Stage of Your Application
+          </span>
         </h2>
 
         <p className="text-lg md:text-[1.1rem] leading-relaxed text-slate-500 max-w-3xl mx-auto">
-          Validate healthcare applications with end-to-end testing, automation, security, and quality engineering.
+          Softree provides a broad range of healthcare software testing services,
+          combining manual testing, automation, API validation, performance
+          testing, and AI-specific testing.
         </p>
       </div>
 
@@ -236,7 +224,7 @@ export default function HealthcareTestingFramework() {
               <div className="w-full">
                 <div className="flex items-center justify-between gap-4 mb-3 sm:mb-4">
                   <p className="typo-caption-meta font-bold tracking-widest uppercase opacity-85">
-                    {card.num} / 06 — {card.title}
+                    {card.num} / 0{items.length} — {card.title}
                   </p>
                   <span className="hidden sm:inline-block px-3.5 py-1.5 rounded-full typo-caption font-bold tracking-wider uppercase border border-current opacity-70">
                     [ {card.cardCategory} ]
@@ -269,7 +257,7 @@ export default function HealthcareTestingFramework() {
                   <div>
                     <FlowButton
                       href={card.link || "/contact"}
-                      text="EXPLORE OUR HEALTHCARE TESTING SERVICES →"
+                      text="EXPLORE OUR HEALTHCARE TESTING SERVICES"
                       variant={card.isLight ? "dark-filled" : "white-filled"}
                       className="w-fit typo-button px-6 py-3"
                     />
@@ -291,16 +279,16 @@ export default function HealthcareTestingFramework() {
                       className="relative rounded-2xl border backdrop-blur-xl overflow-hidden shadow-2xl transition-all duration-300"
                       style={{
                         backgroundColor: card.isLight
-                          ? "rgba(255, 255, 255, 0.85)"
-                          : "rgba(14, 14, 14, 0.7)",
+                          ? "rgba(255, 255, 255, 0.9)"
+                          : "rgba(18, 18, 18, 0.8)",
                         borderColor: card.isLight
                           ? "rgba(0, 0, 0, 0.08)"
                           : "rgba(255, 255, 255, 0.12)",
                       }}
                     >
-                      {/* Top Bar Header */}
+                      {/* Top Bar Header - Clean, No Dots */}
                       <div
-                        className="px-4 py-3 flex items-center justify-between border-b"
+                        className="px-5 py-3.5 flex items-center justify-between border-b"
                         style={{
                           backgroundColor: card.isLight
                             ? "rgba(0,0,0,0.02)"
@@ -310,105 +298,46 @@ export default function HealthcareTestingFramework() {
                             : "rgba(255,255,255,0.08)",
                         }}
                       >
-                        <div className="flex items-center gap-2.5">
-                          <span className="relative flex h-2.5 w-2.5">
-                            <span
-                              className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
-                              style={{
-                                backgroundColor: card.accent || "#FF6B00",
-                              }}
-                            />
-                            <span
-                              className="relative inline-flex rounded-full h-2.5 w-2.5"
-                              style={{
-                                backgroundColor: card.accent || "#FF6B00",
-                              }}
-                            />
-                          </span>
-                          <span
-                            className="typo-caption font-bold tracking-widest uppercase opacity-90"
-                            style={{ color: card.text }}
-                          >
-                            CAPABILITIES & FEATURES
-                          </span>
-                        </div>
+                        <span
+                          className="typo-caption font-bold tracking-widest uppercase opacity-90"
+                          style={{ color: card.text }}
+                        >
+                          KEY CAPABILITIES
+                        </span>
 
-                        <div className="flex items-center gap-1.5">
-                          <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                          <span
-                            className="typo-caption-meta tracking-wider opacity-70 uppercase"
-                            style={{ color: card.text }}
-                          >
-                            ● {card.cardStatus}
-                          </span>
-                        </div>
+                        <span
+                          className="typo-caption-meta font-bold tracking-wider uppercase px-2.5 py-1 rounded border text-[11px]"
+                          style={{
+                            color: card.accent || "#FF6B00",
+                            borderColor: card.isLight
+                              ? "rgba(0,0,0,0.1)"
+                              : "rgba(255,255,255,0.15)",
+                            backgroundColor: card.isLight
+                              ? "rgba(0,0,0,0.03)"
+                              : "rgba(255,255,255,0.05)",
+                          }}
+                        >
+                          {card.cardStatus}
+                        </span>
                       </div>
 
-                      {/* Capabilities Rows Based on Type */}
+                      {/* Capabilities Rows - Clean, Clear Words, No Dots */}
                       <div
                         className="divide-y"
                         style={{
                           borderColor: card.isLight
-                            ? "rgba(0,0,0,0.05)"
-                            : "rgba(255,255,255,0.06)",
+                            ? "rgba(0,0,0,0.06)"
+                            : "rgba(255,255,255,0.07)",
                         }}
                       >
-                        {card.type === "labeled" && card.features?.map((cap, capIdx) => (
+                        {card.features.map((cap, capIdx) => (
                           <div
                             key={`feature-${capIdx}`}
-                            className="group/row px-4 py-3 sm:py-4 flex flex-col gap-1.5 transition-colors duration-150 hover:bg-white/[0.03]"
+                            className="px-5 py-3.5 sm:py-4 flex flex-col gap-1 transition-colors duration-150"
                           >
-                            <div className="flex items-center justify-between min-w-0">
-                              <div className="flex items-center gap-2">
-                                <span
-                                  className="shrink-0 typo-caption font-bold"
-                                  style={{
-                                    color: card.accent || "#FF6B00",
-                                  }}
-                                >
-                                  0{capIdx + 1}
-                                </span>
-                                <span
-                                  className="typo-body-sm font-semibold tracking-wide"
-                                  style={{ color: card.text }}
-                                >
-                                  {"label" in cap ? cap.label : ""}
-                                </span>
-                              </div>
+                            <div className="flex items-center gap-2.5 min-w-0">
                               <span
-                                className="shrink-0 px-2 py-0.5 rounded typo-caption-meta font-semibold tracking-wider uppercase border whitespace-nowrap text-[10px]"
-                                style={{
-                                  backgroundColor: card.isLight
-                                    ? "rgba(0,0,0,0.04)"
-                                    : "rgba(255,255,255,0.05)",
-                                  borderColor: card.isLight
-                                    ? "rgba(0,0,0,0.08)"
-                                    : "rgba(255,255,255,0.1)",
-                                  color: card.isLight
-                                    ? "rgba(0,0,0,0.4)"
-                                    : "rgba(255,255,255,0.5)",
-                                }}
-                              >
-                                REQ
-                              </span>
-                            </div>
-                            <span 
-                              className="typo-body-sm pl-6 transition-colors"
-                              style={{ color: card.isLight ? "rgba(0,0,0,0.6)" : "rgba(255,255,255,0.6)" }}
-                            >
-                              {cap.value}
-                            </span>
-                          </div>
-                        ))}
-
-                        {card.type === "unlabeled" && card.features?.map((cap, capIdx) => (
-                          <div
-                            key={`feature-${capIdx}`}
-                            className="group/row px-4 py-3 sm:py-4 flex items-center justify-between gap-3 transition-colors duration-150 hover:bg-white/[0.03]"
-                          >
-                            <div className="flex items-center gap-3 min-w-0">
-                              <span
-                                className="shrink-0 typo-caption font-bold"
+                                className="shrink-0 text-xs font-bold font-mono"
                                 style={{
                                   color: card.accent || "#FF6B00",
                                 }}
@@ -416,115 +345,30 @@ export default function HealthcareTestingFramework() {
                                 0{capIdx + 1}
                               </span>
                               <span
-                                className="typo-body-sm font-medium group-hover/row:translate-x-0.5 transition-transform duration-150"
+                                className="text-sm font-semibold tracking-tight"
                                 style={{ color: card.text }}
                               >
-                                {cap.value}
+                                {cap.label}
                               </span>
                             </div>
-                            <span
-                              className="shrink-0 px-2.5 py-1 rounded typo-caption-meta font-semibold tracking-wider uppercase border whitespace-nowrap text-green-500"
+                            <p
+                              className="text-xs sm:text-[13px] leading-relaxed pl-6"
                               style={{
-                                backgroundColor: card.isLight
-                                  ? "rgba(0,0,0,0.04)"
-                                  : "rgba(255,255,255,0.05)",
-                                borderColor: card.isLight
-                                  ? "rgba(0,0,0,0.08)"
-                                  : "rgba(255,255,255,0.1)",
+                                color: card.isLight
+                                  ? "rgba(17,17,17,0.72)"
+                                  : "rgba(255,255,255,0.72)",
                               }}
                             >
-                              IN SCOPE
-                            </span>
-                          </div>
-                        ))}
-
-                        {card.type === "integration" && (
-                          <div className="px-5 py-6 flex flex-col gap-4">
-                            <div 
-                              className="font-mono text-xs tracking-wider uppercase px-3 py-2 rounded-md border w-fit"
-                              style={{
-                                color: card.accent || "#FF6B00",
-                                backgroundColor: card.isLight ? "rgba(0,0,0,0.04)" : "rgba(255,255,255,0.05)",
-                                borderColor: card.isLight ? "rgba(0,0,0,0.08)" : "rgba(255,255,255,0.1)",
-                              }}
-                            >
-                              {card.integrationLine}
-                            </div>
-                            <p 
-                              className="typo-body-sm leading-relaxed border-l-2 pl-4"
-                              style={{
-                                color: card.isLight ? "rgba(0,0,0,0.7)" : "rgba(255,255,255,0.7)",
-                                borderColor: card.accent || "#FF6B00"
-                              }}
-                            >
-                              {card.additionalDescription}
+                              {cap.value}
                             </p>
                           </div>
-                        )}
-
-                        {card.type === "workflow" && (
-                          <div className="px-5 py-6 flex flex-col gap-3">
-                            <div 
-                              className="font-mono text-[10px] tracking-widest uppercase"
-                              style={{ color: card.accent || "#FF6B00" }}
-                            >
-                              PIPELINE WORKFLOW
-                            </div>
-                            <div 
-                              className="font-mono text-xs font-bold leading-relaxed p-4 rounded-xl border shadow-inner"
-                              style={{
-                                color: card.text,
-                                backgroundColor: card.isLight ? "rgba(0,0,0,0.04)" : "rgba(0,0,0,0.4)",
-                                borderColor: card.isLight ? "rgba(0,0,0,0.08)" : "rgba(255,255,255,0.1)",
-                              }}
-                            >
-                              {card.workflowSteps?.split('→').map((step, idx, arr) => (
-                                <React.Fragment key={idx}>
-                                  <span style={{ color: card.text, opacity: 0.9 }}>{step.trim()}</span>
-                                  {idx < arr.length - 1 && (
-                                    <span className="mx-2" style={{ color: card.accent || "#FF6B00" }}>→</span>
-                                  )}
-                                </React.Fragment>
-                              ))}
-                            </div>
-                          </div>
-                        )}
+                        ))}
                       </div>
 
-                      {/* Bottom Footer Telemetry */}
-                      <div
-                        className="px-4 py-3 flex items-center justify-between border-t typo-caption-meta opacity-60 uppercase tracking-wider"
-                        style={{
-                          backgroundColor: card.isLight
-                            ? "rgba(0,0,0,0.015)"
-                            : "rgba(0,0,0,0.2)",
-                          borderColor: card.isLight
-                            ? "rgba(0,0,0,0.06)"
-                            : "rgba(255,255,255,0.08)",
-                          color: card.text,
-                        }}
-                      >
-                        <span>HEALTHCARE TESTING SYSTEM</span>
-                        <span className="flex items-center gap-1.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                          VALIDATED
-                        </span>
-                      </div>
+
                     </div>
                   </div>
                 </div>
-              </div>
-
-              {/* Bottom Footer Details */}
-              <div
-                className="w-full pt-4 mt-4 border-t flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs sm:text-sm opacity-70"
-                style={{
-                  borderColor: card.isLight
-                    ? "rgba(0,0,0,0.15)"
-                    : "rgba(255,255,255,0.15)",
-                }}
-              >
-                <span>Softree Technology • Healthcare Quality Engineering</span>
               </div>
             </div>
           ))}

@@ -24,11 +24,7 @@ export default function TrustedBrandsMarquee({
 
     return (
         <section
-            className={
-                surface === "light"
-                    ? "relative overflow-hidden bg-[#F3F0EE] py-2"
-                    : "relative overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-2"
-            }
+            className="relative overflow-hidden bg-white py-2"
         >
             <style>{`
         /* ── Scroll track ── */

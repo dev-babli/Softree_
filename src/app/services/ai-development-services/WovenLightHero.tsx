@@ -181,8 +181,8 @@ export const WovenLightHero = () => {
         <ParticleSphere />
       </div>
 
-      {/* Ambient background vignette to guarantee text legibility */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(5,5,5,0.7)_65%,#050505_100%)] z-[1]" />
+      {/* Ambient background vignette to guarantee text legibility while letting globe shine fully */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_35%,rgba(5,5,5,0.45)_75%,#050505_100%)] lg:bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(5,5,5,0.7)_65%,#050505_100%)] z-[1]" />
 
       {/* ======================================================== */}
       {/* LEFT-RIGHT TEXT CONTENT OVER FULL GLOBE BACKGROUND       */}

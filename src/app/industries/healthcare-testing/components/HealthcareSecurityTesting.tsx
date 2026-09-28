@@ -33,7 +33,7 @@ const icons = [ShieldAlert, Key, Lock, CheckCircle, Shield];
 
 export default function HealthcareSecurityTesting() {
   return (
-    <section id="security-testing" className="relative w-full pt-4 pb-8 md:pt-6 md:pb-12 bg-transparent font-sans">
+    <section id="security-testing" className="relative w-full pt-4 pb-8 md:pt-6 md:pb-12 bg-white font-sans">
       <div className="mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Responsive Grid layout */}
@@ -58,7 +58,7 @@ export default function HealthcareSecurityTesting() {
               <div className="flex flex-col items-start gap-8 mt-10">
                 <FlowButton 
                   href="/contact"
-                  text="SECURE YOUR HEALTHCARE APPLICATION →"
+                  text="SECURE YOUR HEALTHCARE APPLICATION"
                   variant="orange-filled"
                   className="shadow-lg shadow-orange-500/20"
                 />

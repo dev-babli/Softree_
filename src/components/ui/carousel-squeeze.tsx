@@ -12,6 +12,7 @@ import React, {
 } from "react";
 
 import { cn } from "@/lib/utils";
+import { FlowButton } from "@/components/ui/flow-button";
 
 /* -------------------------------------------------------------------------- */
 /*                                   types                                    */
@@ -24,6 +25,8 @@ export type SqueezeSlide = {
     category?: string;
     /** The headline title. */
     title: string;
+    /** Optional shorter or dedicated label for collapsed panel. Falls back to title. */
+    shortTitle?: string;
     /** The descriptive text. */
     description?: string;
     /** Picture for the panel. */
@@ -54,6 +57,8 @@ export type SqueezeCarouselProps = {
     radius?: number | string;
     duration?: number;
     hoverGrow?: boolean;
+    /** Whether hovering an inactive panel opens it. Defaults to true. */
+    openOnHover?: boolean;
     autoplay?: boolean;
     interval?: number;
     controls?: boolean;
@@ -75,6 +80,7 @@ export function SqueezeCarousel({
     radius = 20,
     duration = 700,
     hoverGrow = true,
+    openOnHover = true,
     autoplay = true,
     interval = 6000,
     controls = true,
@@ -92,6 +98,12 @@ export function SqueezeCarousel({
     const [paused, setPaused] = useState(false);
     const ids = useId();
     const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (defaultIndex !== undefined) {
+            setActiveIndex(defaultIndex);
+        }
+    }, [defaultIndex]);
 
     const goTo = useCallback(
         (index: number) => {
@@ -198,9 +210,15 @@ export function SqueezeCarousel({
                                 key={slide.id ?? idx}
                                 onClick={() => goTo(idx)}
                                 onMouseEnter={() => {
-                                    if (hoverGrow && !isActive) setHoverIndex(idx);
+                                    if (openOnHover) {
+                                        goTo(idx);
+                                    } else if (hoverGrow && !isActive) {
+                                        setHoverIndex(idx);
+                                    }
                                 }}
-                                onMouseLeave={() => setHoverIndex(null)}
+                                onMouseLeave={() => {
+                                    if (!openOnHover) setHoverIndex(null);
+                                }}
                                 role="tab"
                                 aria-selected={isActive}
                                 aria-label={slide.title}
@@ -209,8 +227,8 @@ export function SqueezeCarousel({
                                     isActive
                                         ? "flex-[6] lg:flex-[7.5] min-h-[220px] lg:min-h-0 lg:min-w-[280px] shadow-xl ring-1 ring-slate-900/10"
                                         : isHovered
-                                        ? "flex-[1.4] lg:flex-[1.7] min-h-[48px] lg:min-h-0 lg:min-w-[75px]"
-                                        : "flex-[1] min-h-[42px] lg:min-h-0 lg:min-w-[62px] opacity-95 hover:opacity-100",
+                                        ? "flex-[1.4] lg:flex-[1.7] min-h-[48px] lg:min-h-0 lg:min-w-[82px]"
+                                        : "flex-[1] min-h-[46px] lg:min-h-0 lg:min-w-[72px] opacity-95 hover:opacity-100",
                                     panelClassName
                                 )}
                                 style={{ borderRadius: formattedRadius }}
@@ -328,23 +346,23 @@ export function SqueezeCarousel({
                                     </div>
                                 ) : (
                                     /* COLLAPSED CARD VIEW - Clean, Organized & NOT Clumsy */
-                                    <div className="absolute inset-0 bg-slate-900/60 group-hover:bg-slate-900/40 transition-colors duration-300 flex flex-row lg:flex-col justify-between items-center py-0 px-4 lg:py-5 lg:px-2">
+                                    <div className="absolute inset-0 bg-slate-950/65 group-hover:bg-slate-950/45 transition-colors duration-300 flex flex-row lg:flex-col justify-between items-center py-0 px-4 lg:py-6 lg:px-2">
                                         {/* Number Badge */}
-                                        <span className="typo-caption-meta font-bold text-white/80 bg-black/40 backdrop-blur-sm px-2 py-0.5 rounded-full border border-white/10 shadow-sm shrink-0">
+                                        <span className="typo-caption-meta font-bold text-white/90 bg-black/50 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/20 shadow-sm shrink-0 group-hover:border-[#FF6B2C]/50 transition-colors">
                                             0{idx + 1}
                                         </span>
 
                                         {/* Label */}
-                                        <div className="flex-1 flex items-center justify-start lg:justify-center overflow-hidden my-0 mx-3 lg:my-4 lg:mx-0">
+                                        <div className="flex-1 flex items-center justify-start lg:justify-center overflow-hidden my-0 mx-3 lg:my-6 lg:mx-0">
                                             <span
-                                                className="text-white/85 group-hover:text-white text-[13px] lg:text-[12.5px] font-semibold tracking-wide whitespace-nowrap truncate select-none drop-shadow-md transition-colors lg:[writing-mode:vertical-rl] lg:rotate-180"
+                                                className="text-white/95 group-hover:text-white text-sm sm:text-base lg:text-[16px] xl:text-[17px] font-bold tracking-wide whitespace-nowrap select-none drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)] transition-colors lg:[writing-mode:vertical-rl] lg:rotate-180"
                                             >
-                                                {slide.title.replace(/\.$/, "")}
+                                                {(slide.shortTitle ?? slide.title).replace(/\.$/, "")}
                                             </span>
                                         </div>
 
                                         {/* Indicator Dot */}
-                                        <div className="w-1.5 h-1.5 shrink-0 rounded-full bg-white/40 group-hover:bg-[#FF6B2C] group-hover:scale-125 transition-all duration-300" />
+                                        <div className="w-2 h-2 shrink-0 rounded-full bg-white/40 group-hover:bg-[#FF6B2C] group-hover:scale-125 transition-all duration-300 shadow-sm" />
                                     </div>
                                 )}
                             </div>
@@ -395,62 +413,25 @@ function Arrow({
 }
 
 function Action({ slide }: { slide: SqueezeSlide }) {
-    const inside = (
-        <>
-            <span>{slide.action ?? "Explore Healthcare AI Integration"}</span>
-            <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white text-[#FF6B2C] flex items-center justify-center shadow-sm transition-transform duration-300 group-hover/cta:translate-x-1">
-                <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                >
-                    <path d="M3 8h10M9 4l4 4-4 4" />
-                </svg>
-            </span>
-        </>
-    );
-
-    const dress = cn(
-        "group/cta inline-flex items-center gap-3.5 pl-5 sm:pl-6 pr-2.5 py-2.5 rounded-full",
-        "bg-gradient-to-r from-[#FF6B2C] to-[#ff8346] text-white text-xs sm:text-[13.5px] font-semibold tracking-wide",
-        "shadow-[0_4px_22px_rgba(255,107,44,0.38)] hover:shadow-[0_6px_28px_rgba(255,107,44,0.55)]",
-        "transition-all duration-300 hover:scale-[1.02] active:scale-95 outline-none",
-        "focus-visible:ring-2 focus-visible:ring-[#FF6B2C] focus-visible:ring-offset-2",
-    );
-
-    if (slide.href) {
-        return (
-            <a
-                href={slide.href}
-                target={slide.target}
-                rel={slide.target === "_blank" ? "noreferrer" : undefined}
-                onClick={(e) => {
-                    e.stopPropagation();
-                    slide.onAction?.();
-                }}
-                className={dress}
-            >
-                {inside}
-            </a>
-        );
-    }
+    const actionLabel = (slide.action ?? "Contact Us")
+        .replace(/\s*→\s*$/, "")
+        .replace(/\s*->\s*$/, "");
 
     return (
-        <button
-            type="button"
+        <div
             onClick={(e) => {
                 e.stopPropagation();
                 slide.onAction?.();
             }}
-            className={dress}
+            className="w-fit"
         >
-            {inside}
-        </button>
+            <FlowButton
+                href={slide.href ?? "/contact"}
+                text={actionLabel}
+                variant="orange-filled"
+                className="shadow-lg shadow-orange-500/25 text-xs sm:text-[13px] font-bold"
+            />
+        </div>
     );
 }
 

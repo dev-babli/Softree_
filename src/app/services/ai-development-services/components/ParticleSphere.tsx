@@ -157,7 +157,7 @@ void main() {
 }
 `;
 
-function AuroraBackground() {
+function AuroraBackground({ scale = 1.0 }: { scale?: number }) {
   const materialRef = useRef<THREE.ShaderMaterial>(null);
 
   useEffect(() => {
@@ -177,7 +177,7 @@ function AuroraBackground() {
   }), []);
 
   return (
-    <mesh position={[0, -2.5, -5]}>
+    <mesh position={[0, -2.5 * scale, -5]} scale={[scale, scale, 1]}>
       {/* Increased width and placed firmly behind the sphere (z=-5) */}
       <planeGeometry args={[16, 7, 32, 32]} />
       <shaderMaterial
@@ -194,7 +194,7 @@ function AuroraBackground() {
   );
 }
 
-function ShaderParticles({ count = 25000, radius = 2.5 }) {
+function ShaderParticles({ count = 25000, radius = 2.5, scale = 1.0 }: { count?: number; radius?: number; scale?: number }) {
   const points = useRef<THREE.Points>(null);
   const materialRef = useRef<THREE.ShaderMaterial>(null);
   const { pointer, viewport } = useThree();
@@ -239,10 +239,10 @@ function ShaderParticles({ count = 25000, radius = 2.5 }) {
       // Bring mouse slightly forward so it pushes the front of the sphere
       mousePos.current.z = 2.0; 
       
-      // Adjust mouse pos to object space (counteract rotation)
+      // Adjust mouse pos to object space (counteract rotation and scale)
       const currentRot = points.current!.rotation;
       const inverseEuler = new THREE.Euler(-currentRot.x, -currentRot.y, -currentRot.z, currentRot.order);
-      const localMouse = mousePos.current.clone().applyEuler(inverseEuler);
+      const localMouse = mousePos.current.clone().applyEuler(inverseEuler).divideScalar(scale);
       
       materialRef.current.uniforms.uMouse.value.copy(localMouse);
     }
@@ -260,7 +260,7 @@ function ShaderParticles({ count = 25000, radius = 2.5 }) {
   }, []);
 
   return (
-    <points ref={points} frustumCulled={false}>
+    <points ref={points} scale={[scale, scale, scale]} frustumCulled={false}>
       <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"
@@ -285,6 +285,36 @@ function ShaderParticles({ count = 25000, radius = 2.5 }) {
   );
 }
 
+function SphereScene({ radius = 2.5 }: { radius?: number }) {
+  const { viewport } = useThree();
+
+  const scale = useMemo(() => {
+    const targetDiameter = radius * 2;
+    // On desktop viewport.width is ~10-12, sphere fits with scale 1.0
+    // On mobile portrait viewport.width is ~2.6-3.2, scale down so sphere takes ~88% of width and shows fully!
+    if (viewport.width < targetDiameter * 1.15) {
+      return (viewport.width * 0.88) / targetDiameter;
+    }
+    return 1.0;
+  }, [viewport.width, radius]);
+
+  const positionY = useMemo(() => {
+    if (viewport.width < radius * 2 * 1.15) {
+      return 0.15;
+    }
+    return 0;
+  }, [viewport.width, radius]);
+
+  return (
+    <group position={[0, positionY, 0]}>
+      {/* Layer 2: Aurora */}
+      <AuroraBackground scale={scale} />
+      {/* Layer 3: Particle Sphere */}
+      <ShaderParticles count={25000} radius={radius} scale={scale} />
+    </group>
+  );
+}
+
 export default function ParticleSphere() {
   const [mounted, setMounted] = useState(false);
 
@@ -301,14 +331,12 @@ export default function ParticleSphere() {
       <Canvas 
         key="orange-canvas-remount-v5"
         camera={{ position: [0, 0, 5], fov: 60 }} 
+        dpr={[1, 2]}
         style={{ pointerEvents: "auto" }}
         gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       >
         <fog attach="fog" args={["#000000", 3, 10]} />
-        {/* Layer 2: Aurora */}
-        <AuroraBackground />
-        {/* Layer 3: Particle Sphere */}
-        <ShaderParticles count={25000} radius={2.5} />
+        <SphereScene radius={2.5} />
       </Canvas>
     </div>
   );

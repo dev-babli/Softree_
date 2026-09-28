@@ -25,7 +25,7 @@ export const metadata = {
 
 export default function HealthcareTestingPage() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-white text-slate-900">
       <NavigationClient />
       {/* <Hero /> */}
       <HealthcareTestingHero />
@@ -34,12 +34,12 @@ export default function HealthcareTestingPage() {
       <HealthcareTestingCoverage />
       <HealthcareTestingFramework />
       <OffshoreHealthcareTestingTeam />
-
+      <HealthcareTestingCaseStudies />
       <HealthcareTestAutomation />
       <AgenticHealthcareTesting />
       <HealthcareTestingWorkflow />
       <HealthcareTechnologyTesting />
-      <HealthcareTestingCaseStudies />
+
       <HealthcareSecurityTesting />
       <WhySoftreeHealthcareTesting />
       <HealthcareTestingFAQ />

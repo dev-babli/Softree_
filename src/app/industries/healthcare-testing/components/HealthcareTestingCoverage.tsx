@@ -3,12 +3,12 @@
 import React from "react";
 import Link from "next/link";
 import {
-  AppWindow,
-  Activity,
-  ArrowRightLeft,
-  MonitorSmartphone,
-  BarChart3,
-  ShieldCheck,
+  MessageSquareCode,
+  Sliders,
+  Database,
+  RefreshCw,
+  AlertTriangle,
+  Workflow,
   ArrowRight,
 } from "lucide-react";
 import CoverageGlobe from "./CoverageGlobe";
@@ -16,47 +16,47 @@ import CoverageGlobe from "./CoverageGlobe";
 export default function HealthcareTestingCoverage() {
   const items = [
     {
-      title: "01 — Healthcare Applications",
-      desc: "Functional, usability, performance, workflow, and data validation.",
-      icon: AppWindow,
+      title: "AI Response Testing",
+      desc: "Evaluate relevance, consistency, and expected behavior.",
+      icon: MessageSquareCode,
       color: "text-[#FF6B00]",
       bg: "bg-orange-50",
     },
     {
-      title: "02 — EHR & EMR Systems",
-      desc: "Validate patient data, clinical workflows, integrations, and data integrity.",
-      icon: Activity,
+      title: "Prompt Testing",
+      desc: "Test prompts, instructions, inputs, and edge cases.",
+      icon: Sliders,
       color: "text-[#FF6B00]",
       bg: "bg-orange-50",
     },
     {
-      title: "03 — Healthcare APIs & Integrations",
-      desc: "Test APIs, interoperability, data exchange, and third-party integrations.",
-      icon: ArrowRightLeft,
+      title: "RAG Testing",
+      desc: "Validate retrieval, grounding, document relevance, and generated answers.",
+      icon: Database,
       color: "text-[#FF6B00]",
       bg: "bg-orange-50",
     },
     {
-      title: "04 — Telehealth & Digital Health",
-      desc: "Test telemedicine, patient portals, mobile apps, scheduling, and secure communication.",
-      icon: MonitorSmartphone,
+      title: "AI Regression Testing",
+      desc: "Identify changes in AI behavior across application releases.",
+      icon: RefreshCw,
       color: "text-[#FF6B00]",
       bg: "bg-orange-50",
     },
     {
-      title: "05 — Healthcare Data & Analytics",
-      desc: "Validate healthcare data, reports, dashboards, pipelines, and analytics.",
-      icon: BarChart3,
+      title: "Edge-Case Testing",
+      desc: "Test ambiguous, incomplete, unexpected, and invalid inputs.",
+      icon: AlertTriangle,
       color: "text-[#FF6B00]",
       bg: "bg-orange-50",
     },
     {
-      title: "06 — Healthcare Security & Compliance",
-      desc: "Test data privacy, access controls, vulnerabilities, security, and compliance requirements.",
-      icon: ShieldCheck,
+      title: "AI Integration Testing",
+      desc: "Validate interactions between AI models, APIs, databases, tools, and applications.",
+      icon: Workflow,
       color: "text-[#FF6B00]",
       bg: "bg-orange-50",
-    }
+    },
   ];
 
   return (
@@ -70,19 +70,25 @@ export default function HealthcareTestingCoverage() {
               
               <div className="mb-4">
                 {/* Eyebrow */}
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] uppercase mb-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
-                  WHAT WE TEST
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] uppercase mb-3 text-xs font-semibold">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00] animate-pulse"></div>
+                  HOW AI CHANGES TESTING
                 </div>
 
                 {/* Heading */}
-                <h2 className="typo-heading-3 sm:typo-heading-2 text-slate-900 leading-[1.2] mb-3">
-                  Testing Across the Modern Healthcare Technology Stack
+                <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-[1.2] mb-3">
+                  AI Is Changing Healthcare Software —{" "}
+                  <span className="text-[#FF6B00]">
+                    Testing Needs to Change With It
+                  </span>
                 </h2>
 
                 {/* Description */}
-                <p className="typo-description text-slate-600 mb-4">
-                  Test healthcare applications, platforms, integrations, and data systems for quality, security, performance, and reliability.
+                <p className="typo-description text-slate-600 mb-4 text-sm sm:text-base leading-relaxed">
+                  Traditional testing validates whether software behaves according
+                  to predefined rules. AI applications introduce another layer:
+                  testing how systems interpret inputs, retrieve information,
+                  generate responses, and behave across different scenarios.
                 </p>
               </div>
 
@@ -91,18 +97,20 @@ export default function HealthcareTestingCoverage() {
                 {items.map((item, i) => (
                   <div
                     key={i}
-                    className={`flex items-start gap-2.5 sm:gap-3 py-1.5 sm:py-2 ${
+                    className={`flex items-start gap-2.5 sm:gap-3 py-2 sm:py-2.5 ${
                       i !== items.length - 1 ? "border-b border-slate-100" : ""
                     }`}
                   >
-                    <div className={`shrink-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full ${item.bg} flex items-center justify-center mt-0.5 border border-orange-200/50`}>
-                      <item.icon className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${item.color}`} />
+                    <div
+                      className={`shrink-0 w-7 h-7 rounded-lg ${item.bg} flex items-center justify-center mt-0.5 border border-orange-200/50 shadow-xs`}
+                    >
+                      <item.icon className={`w-3.5 h-3.5 ${item.color}`} />
                     </div>
                     <div className="flex flex-col pt-0">
-                      <h3 className="typo-heading-4 text-slate-900 mb-0.5">
+                      <h3 className="typo-heading-4 text-slate-900 mb-0.5 text-sm sm:text-[15px] font-bold">
                         {item.title}
                       </h3>
-                      <p className="typo-body-sm text-slate-600">
+                      <p className="typo-body-sm text-slate-600 text-xs sm:text-[13px] leading-relaxed">
                         {item.desc}
                       </p>
                     </div>
@@ -112,8 +120,8 @@ export default function HealthcareTestingCoverage() {
 
               {/* CTA */}
               <div className="pt-4 mt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
-                <p className="typo-body text-slate-700 text-center sm:text-left">
-                  Ready to ensure the reliability and security of your healthcare applications?
+                <p className="typo-body text-slate-700 text-center sm:text-left text-xs sm:text-sm">
+                  Ready to ensure the reliability and security of your healthcare AI applications?
                 </p>
                 <Link
                   href="/contact"

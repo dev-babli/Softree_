@@ -86,44 +86,44 @@ const defaultFaqs: FAQItem[] = [
   },
 ]
 
-/** Brand palette: cream `#F3F0EE`, blue `#1852FF`, orange `#FF5812`, ink `#0a0a1a` */
+/** Brand palette: pure white `#ffffff`, blue `#1852FF`, orange `#FF5812`, ink `#0a0a1a` */
 const FAQ_INK = "#0a0a1a"
 const FAQ_INK_MUTED = "#2a3348"
 
 /** Same palette, alternating blue / orange at different shades */
 const FAQ_CARD_THEMES = [
   {
-    from: "#F3F0EE",
-    via: "#e8eeff",
-    to: "#cdd9ff",
+    from: "#ffffff",
+    via: "#f4f7ff",
+    to: "#e8eeff",
     accent: "#1852FF",
     scrim: "from-white/55 via-white/30 to-[#1852FF]/10",
   },
   {
-    from: "#F3F0EE",
-    via: "#fdeee4",
+    from: "#ffffff",
+    via: "#fff6f0",
+    to: "#ffe8dc",
+    accent: "#FF5812",
+    scrim: "from-white/55 via-white/30 to-[#FF5812]/10",
+  },
+  {
+    from: "#ffffff",
+    via: "#f0f4ff",
+    to: "#dce6ff",
+    accent: "#1852FF",
+    scrim: "from-white/55 via-white/30 to-[#1852FF]/10",
+  },
+  {
+    from: "#ffffff",
+    via: "#fff4ed",
     to: "#ffd9c8",
     accent: "#FF5812",
     scrim: "from-white/55 via-white/30 to-[#FF5812]/10",
   },
   {
-    from: "#F3F0EE",
-    via: "#dce6ff",
-    to: "#b8c9ff",
-    accent: "#1852FF",
-    scrim: "from-white/55 via-white/30 to-[#1852FF]/10",
-  },
-  {
-    from: "#F3F0EE",
-    via: "#ffe8dc",
-    to: "#ffc9ad",
-    accent: "#FF5812",
-    scrim: "from-white/55 via-white/30 to-[#FF5812]/10",
-  },
-  {
-    from: "#F3F0EE",
-    via: "#d0dcff",
-    to: "#a8baff",
+    from: "#ffffff",
+    via: "#edf2ff",
+    to: "#d0dcff",
     accent: "#1852FF",
     scrim: "from-white/55 via-white/30 to-[#1852FF]/10",
   },
@@ -305,7 +305,7 @@ export default function HealthcareTestingFAQ({ faqs: customFaqs }: HealthcareTes
   }
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-[#F3F0EE] py-14 md:py-20">
+    <section ref={sectionRef} className="relative w-full bg-white py-14 md:py-20">
       {/* FAQPage JSON-LD — enables AI Overview, ChatGPT/Claude/Gemini citation,
          and Google rich results. Each answer is 30-50 words for optimal
          AEO extraction (the LLM sweet spot). */}

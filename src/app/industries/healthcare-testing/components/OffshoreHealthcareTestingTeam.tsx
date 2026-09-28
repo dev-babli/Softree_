@@ -10,37 +10,89 @@ export interface UseCaseSlide {
   title: string;
   description: string;
   cardCategory: string;
+  highlights: string[];
+  tags: string[];
 }
 
 const SLIDES: UseCaseSlide[] = [
   {
     id: "01",
-    domain: "DEDICATED TESTING ENGINEER",
-    title: "Dedicated Healthcare Testing Engineer",
-    description: "For ongoing healthcare QA and engineering support.",
-    cardCategory: "[ ENGAGEMENT MODEL ]",
+    domain: "DEDICATED EXPERTISE",
+    title: "Dedicated Expertise",
+    description: "Access testing professionals focused on your application's requirements.",
+    cardCategory: "[ TESTING TEAM CAPABILITY ]",
+    highlights: [
+      "Clinical workflow, patient data, and portal validation",
+      "Familiarity with healthcare standards (HIPAA, HL7, FHIR)",
+      "Full-time QA engineers embedded directly in your sprints",
+    ],
+    tags: ["100% Dedicated", "Clinical Workflows", "Direct Sprint Sync"],
   },
   {
     id: "02",
-    domain: "HEALTHCARE TESTING TEAM",
-    title: "Healthcare Testing Team",
-    description: "For larger automation, integration, and quality engineering initiatives.",
-    cardCategory: "[ ENGAGEMENT MODEL ]",
+    domain: "OFFSHORE DELIVERY",
+    title: "Offshore Delivery",
+    description: "Work with a distributed technology team that can collaborate with your internal teams.",
+    cardCategory: "[ TESTING TEAM CAPABILITY ]",
+    highlights: [
+      "Daily working overlap with US, UK, and European teams",
+      "Secure India-based Offshore Delivery Centers (ODCs)",
+      "Established CI/CD pipeline integration and daily standups",
+    ],
+    tags: ["Timezone Overlap", "Secure ODC", "Seamless Handover"],
   },
   {
     id: "03",
-    domain: "PROJECT-BASED TESTING",
-    title: "Project-Based Testing",
-    description: "For specific healthcare applications, releases, migrations, or integrations.",
-    cardCategory: "[ ENGAGEMENT MODEL ]",
+    domain: "AI + SOFTWARE TESTING",
+    title: "AI + Software Testing",
+    description: "Combine modern AI testing practices with traditional software quality engineering.",
+    cardCategory: "[ TESTING TEAM CAPABILITY ]",
+    highlights: [
+      "Evaluation of healthcare LLMs, conversational agents, and prompts",
+      "RAG verification: document retrieval accuracy and grounded answers",
+      "Full-stack regression across UI, backend APIs, and AI models",
+    ],
+    tags: ["GenAI Validation", "RAG Grounding", "Automated E2E"],
   },
   {
     id: "04",
-    domain: "WHITE-LABEL HEALTHCARE QA",
-    title: "White-Label Healthcare QA",
-    description: "For technology partners and consulting companies that need an offshore healthcare testing team behind their brand.",
-    cardCategory: "[ ENGAGEMENT MODEL ]",
-  }
+    domain: "FLEXIBLE ENGAGEMENT",
+    title: "Flexible Engagement",
+    description: "Scale testing support according to project requirements and release cycles.",
+    cardCategory: "[ TESTING TEAM CAPABILITY ]",
+    highlights: [
+      "Rapid team onboarding: deploy QA engineers in under 2 weeks",
+      "Scale up for major clinical launches; scale down for maintenance",
+      "Transparent sprint-based or milestone-based delivery models",
+    ],
+    tags: ["Agile Scaling", "No Lock-In", "On-Demand Capacity"],
+  },
+  {
+    id: "05",
+    domain: "ENGINEERING COLLABORATION",
+    title: "Engineering Collaboration",
+    description: "Work closely with developers, product teams, and technical stakeholders.",
+    cardCategory: "[ TESTING TEAM CAPABILITY ]",
+    highlights: [
+      "Co-develop automated test suites inside your GitHub / ADO repos",
+      "Actionable bug reports with detailed logs, network traces, and payloads",
+      "Active participation in design reviews, PRs, and sprint retros",
+    ],
+    tags: ["CI/CD Integrated", "Dev Alignment", "Actionable Logs"],
+  },
+  {
+    id: "06",
+    domain: "CONTINUOUS SUPPORT",
+    title: "Continuous Support",
+    description: "Support testing throughout development, releases, maintenance, and application improvements.",
+    cardCategory: "[ TESTING TEAM CAPABILITY ]",
+    highlights: [
+      "Continuous smoke and sanity test execution on every build",
+      "Rapid turnarounds for critical hotfix validation and patches",
+      "Test suite maintenance to prevent test decay and flakiness",
+    ],
+    tags: ["Release Readiness", "Hotfix Verification", "Long-Term Quality"],
+  },
 ];
 
 const TILTS = [-3.5, 4, -6, 2.5, -2, 5.5];
@@ -75,15 +127,6 @@ function OffshoreTeamStack({
     });
     setDragX(0);
   }, [selectedIndex]);
-
-  useEffect(() => {
-    if (hovered || dragging) return;
-    const intervalId = setInterval(() => {
-      const nextIndex = selectedIndex === photos.length - 1 ? 0 : selectedIndex + 1;
-      onSelectIndex(nextIndex);
-    }, 4500); 
-    return () => clearInterval(intervalId);
-  }, [hovered, dragging, selectedIndex, photos.length, onSelectIndex]);
 
   const advance = (direction: 1 | -1) => {
     if (direction === 1) {
@@ -120,14 +163,12 @@ function OffshoreTeamStack({
     }
   };
 
-  const frontPhoto = photos[selectedIndex];
   const total = photos.length;
-  const frameNumber = String(selectedIndex + 1).padStart(2, "0");
 
   return (
     <div className={`flex flex-col items-center justify-between gap-4 ${className}`}>
       <div
-        className="relative w-[320px] sm:w-[420px] h-[520px] sm:h-[540px] mb-3"
+        className="relative w-[320px] sm:w-[420px] h-[500px] sm:h-[520px] mb-3"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
@@ -157,7 +198,7 @@ function OffshoreTeamStack({
               onPointerMove={isFront ? onPointerMove : undefined}
               onPointerUp={isFront ? endDrag : undefined}
               onPointerCancel={isFront ? endDrag : undefined}
-              className="absolute top-0 left-0 w-full h-[480px] sm:h-[500px] overflow-hidden rounded-2xl border border-white/20 focus:outline-none focus-visible:ring-2 flex flex-col items-start justify-start gap-4 p-6 sm:p-7 text-left select-none"
+              className="absolute top-0 left-0 w-full h-[460px] sm:h-[480px] overflow-hidden rounded-2xl border border-white/20 focus:outline-none focus-visible:ring-2 flex flex-col items-start justify-start gap-4 p-6 sm:p-7 text-left select-none"
               animate={{
                 x: translateX,
                 y: translateY,
@@ -194,83 +235,58 @@ function OffshoreTeamStack({
               />
 
               {/* Monospace Header */}
-              <div className="relative z-10 w-full flex items-center justify-between typo-caption text-white/80 select-none pointer-events-none mb-2">
-                <span>{photo.cardCategory}</span>
+              <div className="relative z-10 w-full flex items-center justify-between typo-caption text-white/80 select-none pointer-events-none mb-1">
+                <span className="font-mono text-xs tracking-wider uppercase">{photo.cardCategory}</span>
+                <span className="font-mono text-xs font-bold bg-white/20 px-2 py-0.5 rounded-full">{photo.id} / {String(total).padStart(2, "0")}</span>
               </div>
               
               {/* Main Title & Description */}
-              <div className="relative z-10 w-full flex flex-col gap-2 select-none pointer-events-none">
+              <div className="relative z-10 w-full flex flex-col gap-1.5 select-none pointer-events-none">
                 <h3 
                   className="text-white font-bold leading-snug tracking-tight pr-2"
-                  style={{ fontSize: "24px" }}
+                  style={{ fontSize: "22px" }}
                 >
                   {photo.title}
                 </h3>
-                <p className="text-[14px] leading-relaxed text-white/90">
+                <p className="text-[13.5px] leading-relaxed text-white/90">
                   {photo.description}
                 </p>
+              </div>
+
+              {/* Divider */}
+              <div className="relative z-10 w-full h-px bg-white/20 my-1" />
+
+              {/* Highlights / Deliverables */}
+              <div className="relative z-10 w-full flex flex-col gap-2 select-none pointer-events-none">
+                <span className="text-[11px] font-mono tracking-wider text-white/75 uppercase font-semibold">
+                  Core Highlights:
+                </span>
+                <ul className="space-y-2">
+                  {photo.highlights.map((bullet, bIdx) => (
+                    <li key={bIdx} className="flex items-start gap-2.5 text-[12.5px] sm:text-[13px] leading-snug text-white/95">
+                      <span className="w-1.5 h-1.5 rounded-full bg-white mt-1.5 shrink-0" />
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Bottom Tags */}
+              <div className="relative z-10 w-full mt-auto pt-3 border-t border-white/20 flex flex-wrap gap-1.5 select-none pointer-events-none">
+                {photo.tags.map((tag, tIdx) => (
+                  <span
+                    key={tIdx}
+                    className="inline-flex items-center px-2.5 py-1 rounded-md bg-white/20 backdrop-blur-sm text-[11px] font-semibold text-white tracking-tight"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
             </motion.button>
           );
         })}
       </div>
-
-      <div className="flex w-[320px] sm:w-[420px] items-start justify-between gap-3 px-2">
-        <div className="min-w-0">
-          <p className="text-[16px] font-bold leading-normal text-slate-900 line-clamp-1">
-            {frontPhoto.title}
-          </p>
-          <p className="mt-1 text-[13px] text-slate-500 font-mono tracking-tight">
-            {frontPhoto.domain}
-          </p>
-        </div>
-
-        <div className="flex shrink-0 items-center gap-3 pt-0.5">
-          <span
-            className="text-[12px] tabular-nums text-slate-500"
-            style={{ fontFamily: "ui-monospace, SFMono-Regular, monospace" }}
-          >
-            {frameNumber}/{String(total).padStart(2, "0")}
-          </span>
-          <button
-            type="button"
-            onClick={() => advance(-1)}
-            aria-label="Previous photo"
-            className="grid h-8 w-8 place-items-center rounded-full border border-slate-200 transition-colors hover:border-[#FF6B2C] hover:text-[#FF6B2C] focus:outline-none focus-visible:ring-2 text-slate-800"
-          >
-            <ArrowIcon direction="left" />
-          </button>
-          <button
-            type="button"
-            onClick={() => advance(1)}
-            aria-label="Next photo"
-            className="grid h-8 w-8 place-items-center rounded-full border border-slate-200 transition-colors hover:border-[#FF6B2C] hover:text-[#FF6B2C] focus:outline-none focus-visible:ring-2 text-slate-800"
-          >
-            <ArrowIcon direction="right" />
-          </button>
-        </div>
-      </div>
     </div>
-  );
-}
-
-function ArrowIcon({ direction }: { direction: "left" | "right" }) {
-  return (
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
-      fill="none"
-      style={{ transform: direction === "left" ? "rotate(180deg)" : undefined }}
-    >
-      <path
-        d="M2 6H10M10 6L6.5 2.5M10 6L6.5 9.5"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
   );
 }
 
@@ -278,13 +294,13 @@ export default function OffshoreHealthcareTestingTeam() {
   const [activeSlide, setActiveSlide] = useState(0);
 
   return (
-    <section className="bg-white pt-24 pb-16 lg:pb-24 text-slate-900 relative overflow-hidden">
+    <section className="bg-white pt-12 md:pt-16 pb-12 md:pb-20 text-slate-900 relative overflow-hidden">
       {/* Subtle ambient backdrop lighting */}
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-orange-500/[0.04] rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-amber-500/[0.03] rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
           {/* Left Content Side */}
           <div className="lg:col-span-7 flex flex-col justify-between gap-5 text-left">
@@ -292,26 +308,26 @@ export default function OffshoreHealthcareTestingTeam() {
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/80 px-4 py-1.5 rounded-full border border-white/80 w-fit">
               <span className="w-2 h-2 rounded-full bg-[#FF6B2C] animate-pulse" />
-              <span className="typo-caption text-[#FF6B2C] uppercase">
+              <span className="typo-caption text-[#FF6B2C] uppercase font-semibold text-xs">
                 OFFSHORE HEALTHCARE TESTING TEAM
               </span>
             </div>
 
-            {/* Headline */}
+            {/* Headline & Subheading */}
             <div className="space-y-3">
-              <h2 className="typo-heading-2 text-slate-900">
-                Extend Your QA & Engineering{" "}
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight leading-[1.2]">
+                An Offshore Healthcare Testing Team That{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B2C] via-[#ea580c] to-[#c2410c]">
-                  Team With Softree
+                  Works Alongside Your Engineers
                 </span>
               </h2>
-              <p className="typo-description text-slate-600 max-w-2xl pt-1">
-                Get an offshore healthcare testing team that works alongside your developers, architects, product teams, and existing QA organization.
+              <p className="typo-description text-slate-600 max-w-2xl pt-1 text-sm sm:text-base leading-relaxed">
+                Softree operates as an offshore technology team, helping organizations extend their engineering and QA capabilities with flexible testing support.
               </p>
             </div>
 
-            {/* 4 Slides List - Pure Editorial Swiss Layout */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 pt-4 mb-4">
+            {/* 6 Slides List - Pure Editorial Swiss Layout */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3.5 pt-2 mb-3">
               {SLIDES.map((slide, idx) => {
                 const isActive = activeSlide === idx;
                 return (
@@ -323,15 +339,15 @@ export default function OffshoreHealthcareTestingTeam() {
                       isActive ? "bg-orange-500/[0.06] rounded-r-md" : "hover:bg-orange-500/[0.02]"
                     }`}
                   >
-                    <div className="flex items-center gap-2 mb-1">
+                    <div className="flex items-center gap-2 mb-0.5">
                       <span
-                        className={`typo-caption transition-colors ${
+                        className={`typo-caption transition-colors text-xs font-mono font-bold ${
                           isActive ? "text-[#FF6B2C]" : "text-slate-500 group-hover:text-[#FF6B2C]"
                         }`}
                       >
                         {slide.id}
                       </span>
-                      <span className="typo-caption text-slate-400 uppercase">
+                      <span className="typo-caption text-slate-400 uppercase text-[11px]">
                         {slide.domain}
                       </span>
                       {isActive && (
@@ -339,13 +355,13 @@ export default function OffshoreHealthcareTestingTeam() {
                       )}
                     </div>
                     <h4
-                      className={`typo-heading-4 transition-colors ${
+                      className={`text-sm sm:text-[15px] font-bold transition-colors leading-snug ${
                         isActive ? "text-[#FF6B2C]" : "text-slate-900 group-hover:text-[#FF6B2C]"
                       }`}
                     >
                       {slide.title}
                     </h4>
-                    <p className="typo-body text-slate-500 mt-1 line-clamp-2 pr-2">
+                    <p className="text-xs sm:text-[13px] text-slate-500 mt-0.5 line-clamp-2 pr-2 leading-relaxed">
                       {slide.description}
                     </p>
                   </div>
@@ -354,10 +370,10 @@ export default function OffshoreHealthcareTestingTeam() {
             </div>
 
             {/* Call to Action */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-4 border-t border-slate-100">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-3 border-t border-slate-100">
               <FlowButton 
                 href="/contact"
-                text="EXPLORE HEALTHCARE TESTING SERVICES →"
+                text="WORK WITH OUR OFFSHORE TESTING TEAM"
                 variant="orange-filled"
                 className="shadow-lg shadow-orange-500/20"
               />
@@ -365,7 +381,7 @@ export default function OffshoreHealthcareTestingTeam() {
           </div>
 
           {/* Right Side - Synchronized Interactive Photo Stack */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end mt-10 lg:mt-0">
+          <div className="lg:col-span-5 flex justify-center lg:justify-end mt-8 lg:mt-0">
             <OffshoreTeamStack 
               photos={SLIDES}
               selectedIndex={activeSlide} 

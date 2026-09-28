@@ -162,6 +162,52 @@ export default function ContactHero() {
   const [activePractice, setActivePractice] = useState<string | null>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const graphicWrapperRef = useRef<HTMLDivElement | null>(null);
+  const [graphicScale, setGraphicScale] = useState<number>(() => {
+    if (typeof window !== "undefined") {
+      const w = window.innerWidth;
+      if (w < 640) {
+        return Math.min(1, Math.max(0.42, (w - 48) / 604));
+      }
+    }
+    return 1;
+  });
+
+  // Dynamically calculate scale for the interactive graphic on mobile & smaller viewports
+  useEffect(() => {
+    const updateScale = () => {
+      if (!graphicWrapperRef.current) return;
+      const rect = graphicWrapperRef.current.getBoundingClientRect();
+      const containerWidth = rect.width || graphicWrapperRef.current.clientWidth;
+      if (containerWidth <= 0) return;
+      // 604px provides comfortable breathing space for 592px total visual span
+      const targetWidth = 604;
+      const computedScale = Math.min(1, Math.max(0.42, containerWidth / targetWidth));
+      setGraphicScale(computedScale);
+    };
+
+    updateScale();
+
+    let ro: ResizeObserver | null = null;
+    if (typeof ResizeObserver !== "undefined" && graphicWrapperRef.current) {
+      ro = new ResizeObserver((entries) => {
+        for (const entry of entries) {
+          const w = entry.contentRect.width;
+          if (w > 0) {
+            const targetWidth = 604;
+            setGraphicScale(Math.min(1, Math.max(0.42, w / targetWidth)));
+          }
+        }
+      });
+      ro.observe(graphicWrapperRef.current);
+    }
+
+    window.addEventListener("resize", updateScale);
+    return () => {
+      window.removeEventListener("resize", updateScale);
+      if (ro) ro.disconnect();
+    };
+  }, []);
 
   // Initialize COBE 3D WebGL Globe
   useEffect(() => {
@@ -357,15 +403,35 @@ export default function ContactHero() {
           {/* ══════════════════════════════════════════════
               RIGHT COLUMN: INTERACTIVE ARCHITECTURE GRAPHIC
              ══════════════════════════════════════════════ */}
-          <div className="lg:col-span-6 xl:col-span-6 flex flex-col items-center lg:items-end justify-center lg:h-[520px] relative">
+          <div className="lg:col-span-6 xl:col-span-6 flex flex-col items-center lg:items-end justify-center lg:h-[520px] relative w-full overflow-hidden sm:overflow-visible">
 
-            {/* Graphic Container with Globe + Hub + Default Glowing Spokes */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.75, delay: 0.25 }}
-              className="relative w-full max-w-[580px] h-[520px] flex items-center justify-center select-none scale-[0.82] sm:scale-95 md:scale-100 origin-center"
+            {/* Outer Responsive Wrapper that dynamically scales graphic to fit mobile screens */}
+            <div
+              ref={graphicWrapperRef}
+              className="relative w-full max-w-[580px] flex items-center justify-center"
+              style={{
+                height: `${Math.round(520 * graphicScale)}px`,
+                transition: "height 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
+              }}
             >
+              {/* Fade-in entrance animation */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.75, delay: 0.25 }}
+                className="w-full h-full flex items-center justify-center relative"
+              >
+                {/* Scaled coordinate container (Plain HTML div so scale is strictly controlled by graphicScale) */}
+                <div
+                  style={{
+                    width: "580px",
+                    height: "520px",
+                    transform: `scale(${graphicScale})`,
+                    transformOrigin: "center center",
+                    transition: "transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
+                  }}
+                  className="absolute flex items-center justify-center select-none shrink-0"
+                >
               {/* ── 3D CYBER-GLOBE BACKDROP (ROTATING DOTTED SPHERE) ── */}
               <div
                 className="absolute flex items-center justify-center pointer-events-none rounded-full overflow-hidden"
@@ -507,7 +573,7 @@ export default function ContactHero() {
 
               {/* ── CENTER HUB: SOFTREE ENGINEERING PARTNER ── */}
               <div
-                className="absolute z-20 flex flex-col items-center justify-center text-center rounded-full transition-all duration-500 cursor-pointer hover:scale-105"
+                className="absolute z-30 flex flex-col items-center justify-center text-center rounded-full transition-all duration-500 cursor-pointer hover:scale-105 active:scale-95"
                 style={{
                   width: "120px",
                   height: "120px",
@@ -721,7 +787,9 @@ export default function ContactHero() {
                   </ul>
                 </div>
               </div>
-            </motion.div>
+                </div>
+              </motion.div>
+            </div>
           </div>
 
         </div>
