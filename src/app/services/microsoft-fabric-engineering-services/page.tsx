@@ -13,9 +13,9 @@ import FabricTechnologyStack from "./components/FabricTechnologyStack";
 import FabricOffshoreEngineeringSection from "./components/FabricOffshoreEngineeringSection";
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
-import FabricPartner from "./fabric-partner";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import LightFAQExact from "@/components/homepage-light/LightFAQExact";
+import FabricWhoDoWeServeSection from "./components/FabricWhoDoWeServeSection";
 import type { Metadata } from "next";
 import { applyPageOg } from "@/lib/site-metadata";
 
@@ -126,6 +126,7 @@ export default function Home() {
       <TrustedBrandsMarquee />
       <AIReadinessBanner />
       <FabricServices />
+      <FabricWhoDoWeServeSection className="bg-white" />
       <FabricStickyScroll />
       <FabricCaseStudies />
       <FabricTechnologyStack />

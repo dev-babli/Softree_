@@ -2,7 +2,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import ParticleSphere from "./components/ParticleSphere";
+import dynamic from 'next/dynamic';
+const ParticleSphere = dynamic(() => import('./components/ParticleSphere'), { ssr: false });
 import TrustStrip from "@/components/sections/TrustStrip";
 
 // --- Exact Capability SVG Icons (High Clarity & Definition) ---

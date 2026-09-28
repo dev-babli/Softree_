@@ -57,14 +57,8 @@ const nextConfig: any = {
       { source: "/logo.svg", destination: `${leadMagnetOrigin}/logo.svg` },
       { source: "/assets/:path*", destination: `${leadMagnetOrigin}/assets/:path*` },
       { source: "/api/process", destination: `${leadMagnetOrigin}/api/process` },
-      { source: "/api/process/:path*", destination: `${leadMagnetOrigin}/api/process/:path*` },
       {
-        source: "/services/aidevelopemnt/service",
-        destination: "/services/ai-development-services",
-      },
-      {
-        source: "/services/ai-development-service",
-        destination: "/services/ai-development-services",
+        source: "/api/process/:path*", destination: `${leadMagnetOrigin}/api/process/:path*`
       },
       {
         source: "/industries/logistics-supply-chain-engineering",
@@ -110,6 +104,26 @@ const nextConfig: any = {
         source: "/book-meeting",
         destination: "/contact",
         permanent: false,
+      },
+      {
+        source: "/services/ai-development-service",
+        destination: "/services/ai-development-services",
+        permanent: true,
+      },
+      {
+        source: "/services/aidevelopment/service",
+        destination: "/services/ai-development-services",
+        permanent: true,
+      },
+      {
+        source: "/services/aidevelopemnt/service",
+        destination: "/services/ai-development-services",
+        permanent: true,
+      },
+      {
+        source: "/ai-development-services",
+        destination: "/services/ai-development-services",
+        permanent: true,
       },
       {
         source: "/customers/:slug",

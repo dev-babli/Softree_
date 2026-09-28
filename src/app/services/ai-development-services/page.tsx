@@ -37,6 +37,7 @@ const WhoWeHelp = dynamic(() => import('./components/WhoWeHelp').then((mod) => m
 const NetworkGlobe = dynamic(() => import('./components/NetworkGlobe'), { ssr: true });
 const OffshoreEngineeringSection = dynamic(() => import('./components/OffshoreEngineeringSection'), { ssr: true });
 const ArgentLoopSlider = dynamic(() => import('@/components/ui/argent-loop-infinite-slider'), { ssr: true });
+const NewWhoDoWeServeSection = dynamic(() => import('./components/NewWhoDoWeServeSection'), { ssr: true });
 import DetailDrawer from './components/AiTechnologyStack';
 export const metadata: Metadata = {
   title: 'Agentic AI Development Services | Offshore AI Partner | Softree Technology',
@@ -224,6 +225,8 @@ export default function AiDevelopmentServicesPage() {
           </div>
         </div>
       </div>
+
+      <NewWhoDoWeServeSection className="bg-white" />
 
       {/* Reverse Sticky Scroll Overall Header */}
       <div className="w-full max-w-[1340px] mx-auto px-4 mt-12 md:mt-16 mb-8 flex flex-col items-start text-left">

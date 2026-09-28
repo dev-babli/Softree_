@@ -73,7 +73,7 @@ export default function PowerAppsCaseStudies() {
   const router = useRouter();
 
   return (
-    <section className="relative min-h-screen flex items-center ">
+    <section className="relative py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 lg:px-8 space-y-8 w-full">
         {/* ================= HEADER ================= */}
         <div className="text-center">

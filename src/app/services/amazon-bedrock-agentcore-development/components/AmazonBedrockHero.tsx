@@ -89,7 +89,7 @@ export default function AmazonBedrockHero() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="typo-description text-base sm:text-lg lg:text-[17px] text-slate-300 font-normal leading-relaxed max-w-xl mb-8"
               >
-                Build, deploy and operate AI agents that can reason, use tools, access enterprise data and take real business actions.
+                Amazon Bedrock AI Agent Development for Intelligent Automation, Enterprise Data Access, Tool Integration, and Business Workflow Execution
               </motion.p>
 
 

@@ -180,12 +180,12 @@ export const SERVICES_MEGA_CATEGORIES: MegaMenuGroup[] = [
     id: "data-analytics",
     title: "Data & Analytics",
     icon: LineChart,
-    url: "/services/offshore-data-analytics",
+    url: "/services/power-bi-development-services",
     description: "Intelligence from raw data.",
     links: [
       {
         label: "Power BI",
-        url: "/services/offshore-data-analytics",
+        url: "/services/power-bi-development-services",
         icon: LineChart,
         description: "Executive dashboards",
       },
@@ -197,13 +197,13 @@ export const SERVICES_MEGA_CATEGORIES: MegaMenuGroup[] = [
       },
       {
         label: "Databricks",
-        url: "/services/offshore-data-analytics",
+        url: "/services/power-bi-development-services",
         icon: Cpu,
         description: "ML pipelines",
       },
       {
         label: "Snowflake",
-        url: "/services/offshore-data-analytics",
+        url: "/services/power-bi-development-services",
         icon: CloudSnow,
         description: "Cloud warehouse",
       },
