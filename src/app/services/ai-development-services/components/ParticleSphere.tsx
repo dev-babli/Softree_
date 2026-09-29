@@ -157,7 +157,7 @@ void main() {
 }
 `;
 
-function AuroraBackground({ scale = 1.0 }: { scale?: number }) {
+function AuroraBackground({ scale = 1.0, radius = 1.55 }: { scale?: number; radius?: number }) {
   const materialRef = useRef<THREE.ShaderMaterial>(null);
 
   useEffect(() => {
@@ -177,9 +177,9 @@ function AuroraBackground({ scale = 1.0 }: { scale?: number }) {
   }), []);
 
   return (
-    <mesh position={[0, -2.5 * scale, -5]} scale={[scale, scale, 1]}>
+    <mesh position={[0, -radius * scale, -5]} scale={[scale, scale, 1]}>
       {/* Increased width and placed firmly behind the sphere (z=-5) */}
-      <planeGeometry args={[16, 7, 32, 32]} />
+      <planeGeometry args={[14, 6, 32, 32]} />
       <shaderMaterial
         key="aurora-shader-orange-v5"
         ref={materialRef}
@@ -194,7 +194,7 @@ function AuroraBackground({ scale = 1.0 }: { scale?: number }) {
   );
 }
 
-function ShaderParticles({ count = 25000, radius = 2.5, scale = 1.0 }: { count?: number; radius?: number; scale?: number }) {
+function ShaderParticles({ count = 25000, radius = 1.55, scale = 1.0 }: { count?: number; radius?: number; scale?: number }) {
   const points = useRef<THREE.Points>(null);
   const materialRef = useRef<THREE.ShaderMaterial>(null);
   const { pointer, viewport } = useThree();
@@ -285,30 +285,40 @@ function ShaderParticles({ count = 25000, radius = 2.5, scale = 1.0 }: { count?:
   );
 }
 
-function SphereScene({ radius = 2.5 }: { radius?: number }) {
+function SphereScene({ radius = 1.55 }: { radius?: number }) {
   const { viewport } = useThree();
 
   const scale = useMemo(() => {
     const targetDiameter = radius * 2;
-    // On desktop viewport.width is ~10-12, sphere fits with scale 1.0
-    // On mobile portrait viewport.width is ~2.6-3.2, scale down so sphere takes ~88% of width and shows fully!
+    // On desktop / laptop (viewport.width >= 7.0, roughly >= 1024px screen breakpoint):
+    // Ensure globe diameter does NOT exceed 29% of viewport width
+    // This strictly ensures zero overlap with the left and right text columns!
+    if (viewport.width >= 7.0) {
+      const maxAllowedWidth = viewport.width * 0.29;
+      if (targetDiameter > maxAllowedWidth) {
+        return maxAllowedWidth / targetDiameter;
+      }
+      return 1.0;
+    }
+
+    // On mobile portrait viewport.width is smaller, scale down so sphere takes ~75% of width
     if (viewport.width < targetDiameter * 1.15) {
-      return (viewport.width * 0.88) / targetDiameter;
+      return (viewport.width * 0.75) / targetDiameter;
     }
     return 1.0;
   }, [viewport.width, radius]);
 
   const positionY = useMemo(() => {
-    if (viewport.width < radius * 2 * 1.15) {
-      return 0.15;
+    if (viewport.width < 7.0) {
+      return 0.1;
     }
     return 0;
-  }, [viewport.width, radius]);
+  }, [viewport.width]);
 
   return (
     <group position={[0, positionY, 0]}>
       {/* Layer 2: Aurora */}
-      <AuroraBackground scale={scale} />
+      <AuroraBackground scale={scale} radius={radius} />
       {/* Layer 3: Particle Sphere */}
       <ShaderParticles count={25000} radius={radius} scale={scale} />
     </group>
@@ -336,7 +346,7 @@ export default function ParticleSphere() {
         gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       >
         <fog attach="fog" args={["#000000", 3, 10]} />
-        <SphereScene radius={2.5} />
+        <SphereScene radius={1.55} />
       </Canvas>
     </div>
   );

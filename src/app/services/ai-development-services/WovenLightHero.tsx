@@ -186,22 +186,22 @@ export const WovenLightHero = () => {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_35%,rgba(5,5,5,0.45)_75%,#050505_100%)] lg:bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(5,5,5,0.7)_65%,#050505_100%)] z-[1]" />
 
       {/* ======================================================== */}
-      {/* LEFT-RIGHT TEXT CONTENT OVER FULL GLOBE BACKGROUND       */}
+      {/* LEFT-RIGHT TEXT CONTENT WITH CENTRAL CLEARANCE FOR GLOBE  */}
       {/* ======================================================== */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex-1 flex items-center my-auto py-8 lg:py-16 pointer-events-none">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full">
+      <div className="relative z-10 w-full max-w-[1440px] xl:max-w-[1560px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 flex-1 flex items-center my-auto py-8 lg:py-16 pointer-events-none">
+        <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-10 lg:gap-0">
           
           {/* LEFT: Eyebrow + Main Title */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left pointer-events-auto">
+          <div className="w-full lg:w-[33%] xl:w-[32%] flex flex-col items-start text-left pointer-events-auto shrink-0 z-10">
             {/* Eyebrow Pill */}
             <motion.div
               initial={{ opacity: 0, y: -15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 sm:px-5 py-2 typo-caption text-[#FF6B00] backdrop-blur-md mb-6 shadow-[0_0_15px_rgba(255,107,0,0.15)]"
+              className="inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 sm:px-5 py-2 typo-caption text-[#FF6B00] backdrop-blur-md mb-5 sm:mb-6 shadow-[0_0_15px_rgba(255,107,0,0.15)]"
             >
               <span className="h-2 w-2 rounded-full bg-[#FF6B00] shadow-[0_0_8px_#FF6B00] animate-pulse" />
-              <span className="tracking-wider uppercase font-semibold">BUILD AI. SCALE FASTER.</span>
+              <span className="tracking-wider uppercase font-semibold text-xs sm:text-sm">BUILD AI. SCALE FASTER.</span>
             </motion.div>
 
             {/* Main Title (Left) */}
@@ -209,28 +209,31 @@ export const WovenLightHero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="leading-[1.08] tracking-tight flex flex-col items-start text-left select-none max-w-2xl"
+              className="leading-[1.12] tracking-tight flex flex-col items-start text-left select-none w-full"
             >
-              <span className="text-white text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
-                Your Offshore{" "}
-                <span className="text-[#FF6B00] drop-shadow-[0_0_35px_rgba(255,107,0,0.45)] inline-block">
-                  Agentic AI
-                </span>
+              <span className="text-white text-3xl sm:text-4xl lg:text-[2.25rem] xl:text-[2.75rem] 2xl:text-5xl font-extrabold tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
+                Your Offshore
               </span>
-              <span className="text-white text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)] mt-1 sm:mt-2">
+              <span className="text-[#FF6B00] text-3xl sm:text-4xl lg:text-[2.25rem] xl:text-[2.75rem] 2xl:text-5xl font-extrabold tracking-tight drop-shadow-[0_0_35px_rgba(255,107,0,0.45)] mt-1 sm:mt-1.5">
+                Agentic AI
+              </span>
+              <span className="text-white text-3xl sm:text-4xl lg:text-[2.25rem] xl:text-[2.75rem] 2xl:text-5xl font-extrabold tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)] mt-1 sm:mt-1.5">
                 Engineering Partner
               </span>
             </motion.h1>
           </div>
 
+          {/* CENTER: Dedicated Breathing Corridor for the 3D Globe (Strictly No Text) */}
+          <div className="hidden lg:block lg:w-[34%] xl:w-[36%] pointer-events-none" aria-hidden="true" />
+
           {/* RIGHT: Description + Capability Pills */}
-          <div className="lg:col-span-5 flex flex-col items-start text-left justify-center lg:pl-4 space-y-6 pointer-events-auto">
+          <div className="w-full lg:w-[33%] xl:w-[32%] flex flex-col items-start text-left justify-center space-y-6 pointer-events-auto shrink-0 z-10">
             {/* Description (Right) */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="text-slate-200 typo-body-lg sm:text-lg lg:text-xl font-normal leading-relaxed drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]"
+              className="text-slate-200 typo-body-lg sm:text-base lg:text-base xl:text-lg font-normal leading-relaxed drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]"
             >
               Build, deploy, and scale AI agents with a dedicated offshore engineering team — under your brand or as an extension of your team.
             </motion.p>
@@ -247,7 +250,7 @@ export const WovenLightHero = () => {
                 return (
                   <div
                     key={idx}
-                    className="group inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-full bg-white/[0.08] hover:bg-white/[0.14] border border-white/20 hover:border-[#FF6B00]/70 backdrop-blur-md typo-caption-meta text-white shadow-sm hover:shadow-[0_0_15px_rgba(255,107,0,0.35)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 select-none cursor-default"
+                    className="group inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-full bg-white/[0.08] hover:bg-white/[0.14] border border-white/20 hover:border-[#FF6B00]/70 backdrop-blur-md typo-caption-meta text-white shadow-sm hover:shadow-[0_0_15px_rgba(255,107,0,0.35)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 select-none cursor-default"
                   >
                     <Icon />
                     <span className="tracking-wide text-white/90 group-hover:text-white font-medium text-xs sm:text-sm">
