@@ -145,7 +145,7 @@ export function MegaMenuPanel({
   return (
     <div
       data-nav-mega="tabbed-v3"
-      className={`mx-auto flex w-full overflow-hidden rounded-[24px] border border-black/[0.08] bg-white shadow-[0_32px_80px_-20px_rgba(10,10,26,0.28)] ${
+      className={`mx-auto flex w-full max-h-[calc(100vh-90px)] overflow-hidden rounded-[24px] border border-black/[0.08] bg-white shadow-[0_32px_80px_-20px_rgba(10,10,26,0.28)] ${
         isSingleGroup ? "max-w-[840px]" : "max-w-[1200px]"
       }`}
     >
@@ -188,14 +188,14 @@ export function MegaMenuPanel({
       </div>
 
       {/* Main Area: Top dynamic panels + Bottom cards */}
-      <div className="flex-1 flex flex-col min-w-0">
+      <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
         
         {/* Main Content Area */}
-        <div className="flex-1 flex flex-row min-w-0">
+        <div className="flex-1 flex flex-row min-w-0 overflow-hidden">
           
           {/* Middle Column — Categories list (only shown when multiple categories exist) */}
           {!isSingleGroup && (
-            <div className="w-[280px] shrink-0 border-r border-black/[0.06] p-4 flex flex-col gap-1.5 bg-[#FAFAF9]">
+            <div className="w-[280px] shrink-0 border-r border-black/[0.06] p-4 flex flex-col gap-1.5 bg-[#FAFAF9] overflow-y-auto styled-scrollbar">
               {groups.map((group, idx) => {
                 const GroupIcon = group.icon ?? Bot;
                 const isActive = idx === activeIdx;
@@ -238,7 +238,7 @@ export function MegaMenuPanel({
           )}
 
           {/* Right Column — Subservices dynamically switching */}
-          <div className="flex-1 bg-white p-6 md:p-8 flex flex-col">
+          <div className="flex-1 bg-white p-6 md:p-8 flex flex-col overflow-y-auto styled-scrollbar">
             <AnimatePresence mode="wait">
               {activeGroup && (
                 <motion.div

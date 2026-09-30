@@ -176,23 +176,18 @@ const capabilities = [
 
 export const WovenLightHero = () => {
   return (
-    <section className="relative w-full min-h-screen bg-[#050505] text-white overflow-hidden flex flex-col justify-between pt-24 sm:pt-28 lg:pt-32 pb-8">
-      {/* 3D Interactive Particle Sphere Background - FULL SCREEN */}
-      <div className="absolute inset-0 w-full h-full pointer-events-auto z-0">
-        <ParticleSphere />
-      </div>
-
+    <section className="relative w-full min-h-screen bg-[#050505] text-white overflow-hidden flex flex-col justify-between pt-16 pb-8">
       {/* Ambient background vignette to guarantee text legibility while letting globe shine fully */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_35%,rgba(5,5,5,0.45)_75%,#050505_100%)] lg:bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(5,5,5,0.7)_65%,#050505_100%)] z-[1]" />
 
       {/* ======================================================== */}
       {/* LEFT-RIGHT TEXT CONTENT WITH CENTRAL CLEARANCE FOR GLOBE  */}
       {/* ======================================================== */}
-      <div className="relative z-10 w-full max-w-[1440px] xl:max-w-[1560px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 flex-1 flex items-center my-auto py-8 lg:py-16 pointer-events-none">
-        <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-10 lg:gap-0">
-          
+      <div className="relative z-10 w-full max-w-[1440px] xl:max-w-[1560px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 flex-none lg:flex-1 flex items-center lg:my-auto pt-8 pb-0 lg:py-16 pointer-events-none">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between w-full gap-8 lg:gap-0">
+
           {/* LEFT: Eyebrow + Main Title */}
-          <div className="w-full lg:w-[33%] xl:w-[32%] flex flex-col items-start text-left pointer-events-auto shrink-0 z-10">
+          <div className="w-full lg:w-[33%] xl:w-[30%] flex flex-col items-start text-left pointer-events-auto shrink-0 z-10">
             {/* Eyebrow Pill */}
             <motion.div
               initial={{ opacity: 0, y: -15 }}
@@ -224,10 +219,10 @@ export const WovenLightHero = () => {
           </div>
 
           {/* CENTER: Dedicated Breathing Corridor for the 3D Globe (Strictly No Text) */}
-          <div className="hidden lg:block lg:w-[34%] xl:w-[36%] pointer-events-none" aria-hidden="true" />
+          <div className="hidden lg:block lg:w-[36%] xl:w-[40%] pointer-events-none" aria-hidden="true" />
 
           {/* RIGHT: Description + Capability Pills */}
-          <div className="w-full lg:w-[33%] xl:w-[32%] flex flex-col items-start text-left justify-center space-y-6 pointer-events-auto shrink-0 z-10">
+          <div className="w-full lg:w-[31%] xl:w-[30%] flex flex-col items-start text-left justify-center space-y-6 pointer-events-auto shrink-0 z-10 lg:pl-6 xl:pl-10">
             {/* Description (Right) */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -265,10 +260,15 @@ export const WovenLightHero = () => {
         </div>
       </div>
 
+      {/* 3D Interactive Particle Sphere Background (Placed in flow for mobile, absolute for desktop) */}
+      <div className="relative lg:absolute lg:inset-0 w-full h-[450px] sm:h-[550px] lg:h-full pointer-events-auto z-0 -my-4 lg:my-0">
+        <ParticleSphere />
+      </div>
+
       {/* ======================================================== */}
       {/* BOTTOM TRUST STRIP */}
       {/* ======================================================== */}
-      <div className="relative z-20 w-full shrink-0 pt-4">
+      <div className="relative z-20 w-full shrink-0 pt-4 mt-0 lg:mt-10">
         <TrustStrip theme="dark" />
       </div>
     </section>

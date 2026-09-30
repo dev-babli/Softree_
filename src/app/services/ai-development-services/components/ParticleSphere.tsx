@@ -13,12 +13,28 @@ varying float vDistance;
 void main() {
   vec3 pos = position;
   
-  // Calculate distance to mouse in 3D space
-  float dist = distance(pos, uMouse);
+  // Convert position to world space to match un-rotated mouse
+  vec4 worldPos = modelMatrix * vec4(pos, 1.0);
+  
+  // Center of globe in world space
+  vec4 center = modelMatrix * vec4(0.0, 0.0, 0.0, 1.0);
+  
+  // Globe radius in world space (base radius 1.75 * scale)
+  float currentScale = length(modelMatrix[0].xyz);
+  float actualRadius = 1.75 * currentScale;
+  
+  // Calculate distance from mouse to globe center
+  float mouseDistFromCenter = distance(uMouse.xy, center.xy);
+  
+  // Fade out the effect when the mouse leaves the globe
+  float hoverStrength = 1.0 - smoothstep(actualRadius * 0.95, actualRadius * 1.1, mouseDistFromCenter);
+  
+  // Calculate distance to mouse in 2D space (screen plane) using world coordinates
+  float dist = distance(worldPos.xy, uMouse.xy);
   
   // Repulsion effect (bulge outwards from sphere center)
-  float maxDist = 1.5; // Radius of effect
-  if (dist < maxDist) {
+  float maxDist = 1.2; // Radius of effect
+  if (dist < maxDist && hoverStrength > 0.0) {
     float force = (maxDist - dist) / maxDist; // 0 to 1
     
     // Push outwards from the center of the sphere
@@ -27,7 +43,8 @@ void main() {
     // Apply smooth easing to the force
     force = smoothstep(0.0, 1.0, force);
     
-    pos += outwardDir * force * 0.8; // Expand outside
+    // Normal expand (not too much), masked by whether mouse is on globe
+    pos += outwardDir * force * 0.4 * hoverStrength; 
   }
 
   vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
@@ -36,8 +53,8 @@ void main() {
   // Size attenuation
   gl_PointSize = size * (300.0 / -mvPosition.z);
   
-  // Pass distance for color fading
-  vDistance = dist;
+  // Pass distance for color fading, pushing it out of range if mouse is not on globe
+  vDistance = mix(10.0, dist, hoverStrength);
 }
 `;
 
@@ -157,7 +174,7 @@ void main() {
 }
 `;
 
-function AuroraBackground({ scale = 1.0, radius = 1.55 }: { scale?: number; radius?: number }) {
+function AuroraBackground({ scale = 1.0, radius = 1.75 }: { scale?: number; radius?: number }) {
   const materialRef = useRef<THREE.ShaderMaterial>(null);
 
   useEffect(() => {
@@ -194,7 +211,7 @@ function AuroraBackground({ scale = 1.0, radius = 1.55 }: { scale?: number; radi
   );
 }
 
-function ShaderParticles({ count = 25000, radius = 1.55, scale = 1.0 }: { count?: number; radius?: number; scale?: number }) {
+function ShaderParticles({ count = 150000, radius = 1.75, scale = 1.0 }: { count?: number; radius?: number; scale?: number }) {
   const points = useRef<THREE.Points>(null);
   const materialRef = useRef<THREE.ShaderMaterial>(null);
   const { pointer, viewport } = useThree();
@@ -239,12 +256,8 @@ function ShaderParticles({ count = 25000, radius = 1.55, scale = 1.0 }: { count?
       // Bring mouse slightly forward so it pushes the front of the sphere
       mousePos.current.z = 2.0; 
       
-      // Adjust mouse pos to object space (counteract rotation and scale)
-      const currentRot = points.current!.rotation;
-      const inverseEuler = new THREE.Euler(-currentRot.x, -currentRot.y, -currentRot.z, currentRot.order);
-      const localMouse = mousePos.current.clone().applyEuler(inverseEuler).divideScalar(scale);
-      
-      materialRef.current.uniforms.uMouse.value.copy(localMouse);
+      // Pass the un-rotated world-space mouse directly to the shader
+      materialRef.current.uniforms.uMouse.value.copy(mousePos.current);
     }
   });
 
@@ -285,7 +298,7 @@ function ShaderParticles({ count = 25000, radius = 1.55, scale = 1.0 }: { count?
   );
 }
 
-function SphereScene({ radius = 1.55 }: { radius?: number }) {
+function SphereScene({ radius = 1.75 }: { radius?: number }) {
   const { viewport } = useThree();
 
   const scale = useMemo(() => {
@@ -294,7 +307,7 @@ function SphereScene({ radius = 1.55 }: { radius?: number }) {
     // Ensure globe diameter does NOT exceed 29% of viewport width
     // This strictly ensures zero overlap with the left and right text columns!
     if (viewport.width >= 7.0) {
-      const maxAllowedWidth = viewport.width * 0.29;
+      const maxAllowedWidth = viewport.width * 0.34;
       if (targetDiameter > maxAllowedWidth) {
         return maxAllowedWidth / targetDiameter;
       }
@@ -320,7 +333,7 @@ function SphereScene({ radius = 1.55 }: { radius?: number }) {
       {/* Layer 2: Aurora */}
       <AuroraBackground scale={scale} radius={radius} />
       {/* Layer 3: Particle Sphere */}
-      <ShaderParticles count={25000} radius={radius} scale={scale} />
+      <ShaderParticles count={150000} radius={radius} scale={scale} />
     </group>
   );
 }
@@ -346,7 +359,7 @@ export default function ParticleSphere() {
         gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       >
         <fog attach="fog" args={["#000000", 3, 10]} />
-        <SphereScene radius={1.55} />
+        <SphereScene radius={1.75} />
       </Canvas>
     </div>
   );

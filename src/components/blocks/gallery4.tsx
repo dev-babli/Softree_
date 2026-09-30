@@ -95,7 +95,7 @@ export function Gallery4({ title = "Projects", description, action, items }: Gal
                     </div>
 
                     {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/80 opacity-90 group/card:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#09090b]/90 via-[#09090b]/40 to-[#09090b]/95 opacity-90 group-hover/card:opacity-100 transition-opacity duration-500" />
 
                     {/* Content */}
                     <div className="relative z-10 p-6 md:p-8 flex flex-col h-full">

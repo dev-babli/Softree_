@@ -91,6 +91,12 @@ const menu: MenuItem[] = [
           { label: "AI Workflow Automation", url: "/solutions/ai-workflow-automation", icon: Workflow, description: "Automate processes with AI" },
           { label: "AI Chatbot Development", url: "/solutions/ai-chatbot-development", icon: Bot, description: "Conversational AI for better engagement" },
           { label: "AI Test Automation", url: "/services/ai-powered-test-automation", icon: BrainCircuit, description: "Intelligent test automation at speed" },
+          {
+            label: "Automation Testing Services",
+            url: "/services/automation-testing-services",
+            icon: Workflow,
+            description: "End-to-end test automation for web, mobile, API, and enterprise applications"
+          },
           { label: "Amazon Bedrock AgentCore Development", url: "/services/amazon-bedrock-agentcore-development", icon: Bot, description: "Build and deploy production-ready AI agents" },
           { label: "Amazon Nova 2 Sonic Solutions", url: "/services/amazon-nova-2-sonic-solutions", icon: BrainCircuit, description: "Build intelligent voice AI experiences" }
         ],
@@ -174,8 +180,8 @@ const menu: MenuItem[] = [
             description: "Full-suite clinical AI & healthcare systems",
           },
           {
-            label: "Healthcare Testing Services",
-            url: "/industries/healthcare-testing",
+            label: "Healthcare Software Testing Services",
+            url: "/industries/healthcare-software-testing-services",
             icon: HeartPulse,
             description: "Healthcare software testing, QA automation, and digital health quality engineering",
           },
