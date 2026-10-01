@@ -21,6 +21,9 @@ const TrustedBrandsMarquee = dynamic(() => import('@/app/services/offshore-power
 export const metadata: Metadata = {
   title: "Automation Testing Services | Offshore QA Team | Softree",
   description: "Accelerate software releases with Softree’s offshore automation testing and QA services for web, mobile, API, and enterprise applications.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/services/automation-testing-services",
+  },
   keywords: [
     "Automation Testing",
     "AI Testing",

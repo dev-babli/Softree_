@@ -25,6 +25,9 @@ import NewWhoDoWeServeSection from "@/components/sections/NewWhoDoWeServeSection
 export const metadata = {
   title: "Healthcare Software Testing Services | Offshore QA Team | Softree",
   description: "Improve the quality, security, performance, and reliability of healthcare applications with Softree’s offshore software testing and QA services.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/industries/healthcare-software-testing-services",
+  },
   keywords: [
     'Healthcare Software Testing',
     'Healthcare Testing Services',
