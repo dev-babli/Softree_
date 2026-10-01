@@ -5,11 +5,6 @@ import type { CaseStudyMock } from "@/components/bento-layout";
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
 import { TransferredSoftreeHero } from "@/components/sections/TransferredSoftreeHero";
-import ServicesStackedSlides from "@/components/sections/ServicesStackedSlides";
-import SoftreeEnterpriseCarousel from "@/components/sections/SoftreeEnterpriseCarousel";
-import GlobalClientNetwork from "@/components/sections/GlobalClientNetwork";
-import Gallery from "@/components/Gallery/Gallery";
-import AnimatedPhotoGallery from "@/components/Gallery/AnimatedPhotoGallery";
 
 const FeaturesShowcaseLazy = dynamic(
   () => import("@/components/features/FeaturesShowcase"),
@@ -65,6 +60,27 @@ const WhoDoWeServeSectionLazy = dynamic(
 );
 const NewWhoDoWeServeSectionLazy = dynamic(() => import("@/components/sections/NewWhoDoWeServeSection"), { ssr: true });
 
+const ServicesStackedSlidesLazy = dynamic(
+  () => import("@/components/sections/ServicesStackedSlides"),
+  { loading: () => <div className="min-h-[100vh] w-full bg-[#0a0a0a]" aria-hidden="true" /> }
+);
+const SoftreeEnterpriseCarouselLazy = dynamic(
+  () => import("@/components/sections/SoftreeEnterpriseCarousel"),
+  { loading: () => <div className="min-h-[60vh] w-full bg-[#F3F0EE]" aria-hidden="true" /> }
+);
+const GlobalClientNetworkLazy = dynamic(
+  () => import("@/components/sections/GlobalClientNetwork"),
+  { loading: () => <div className="min-h-[100vh] w-full bg-[#0a0a0a]" aria-hidden="true" /> }
+);
+const GalleryLazy = dynamic(
+  () => import("@/components/Gallery/Gallery"),
+  { loading: () => <div className="min-h-[80vh] w-full bg-[#0a0a0a]" aria-hidden="true" /> }
+);
+const AnimatedPhotoGalleryLazy = dynamic(
+  () => import("@/components/Gallery/AnimatedPhotoGallery"),
+  { loading: () => <div className="min-h-[80vh] w-full bg-[#0a0a0a]" aria-hidden="true" /> }
+);
+
 type HomeProps = {
   homepageCaseStudies?: CaseStudyMock[];
 };
@@ -78,23 +94,23 @@ export default function Home({ homepageCaseStudies }: HomeProps) {
         {/* About bento — LightAboutMerged DNA + parallax gallery */}
         <InfinityScrollAnimationLazy />
         {/* ── Core sections ── */}
-        <ServicesStackedSlides />
+        <ServicesStackedSlidesLazy />
         <FeaturesShowcaseLazy />
         <LightServicesStickyListLazy />
         {/* Global client network — hex world with city stat cards */}
-        <GlobalClientNetwork />
+        <GlobalClientNetworkLazy />
         {/* Capability showcase — light editorial band (#F3F0EE). */}
         <EngineeringSolutionsLazy />
         {/* Industry tabs + Softree partner marquees — continues light band. */}
-        <SoftreeEnterpriseCarousel />
+        <SoftreeEnterpriseCarouselLazy />
         <HomepageCaseStudiesLazy caseStudies={homepageCaseStudies} />
         {/* Testimonials + blog bento */}
         <HomepageShowcaseSectionsLazy />
         <TechStackSectionLazy />
         {/* <WhoDoWeServeSectionLazy /> */}
         <LightEngagementModelsLazy />
-        <AnimatedPhotoGallery />
-        <Gallery />
+        <AnimatedPhotoGalleryLazy />
+        <GalleryLazy />
         <LightFAQExactLazy />
         <LightContactSectionLazy />
       </main>

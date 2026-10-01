@@ -39,7 +39,7 @@ const SERVICES: Service[] = [
     href: "/solutions/ai-agents-development",
     desc: "Build agents that understand context, reason through tasks, use tools, and execute multi-step business workflows.",
     tags: ["Agentic AI", "Tool Calling", "Multi-Agent Systems"],
-    img: "/images/dataBIRobort.png",
+    img: "/images/dataBIRobort.webp",
     whiteLabel: {
       title: "WHITE-LABEL AGENTIC AI PARTNER",
       subtitle: "Offshore Delivery - Your Brand - Our Expertise",
@@ -65,7 +65,7 @@ const SERVICES: Service[] = [
     href: "/solutions/ai-copilot-development",
     desc: "Build intelligent copilots that assist employees, customers, and teams across everyday business processes.",
     tags: ["Copilot Studio", "Microsoft 365", "Azure AI"],
-    img: "/images/copilot-card.png",
+    img: "/images/copilot-card.webp",
     whiteLabel: {
       title: "WHITE-LABEL AI COPILOTS PARTNER",
       subtitle: "Offshore Delivery - Your Brand - Our Expertise",
@@ -78,7 +78,7 @@ const SERVICES: Service[] = [
     href: "/services/generative-ai",
     desc: "Build enterprise GenAI applications grounded in your business knowledge, data, and workflows.",
     tags: ["LLMs", "RAG", "Knowledge Systems"],
-    img: "/images/GenAI.png",
+    img: "/images/GenAI.webp",
     whiteLabel: {
       title: "WHITE-LABEL GENERATIVE AI PARTNER",
       subtitle: "Offshore Delivery - Your Brand - Our Expertise",
@@ -91,7 +91,7 @@ const SERVICES: Service[] = [
     href: "/solutions/ai-workflow-automation",
     desc: "Connect AI with workflows, applications, and enterprise systems to automate complex business processes.",
     tags: ["AI Automation", "Power Automate", "APIs"],
-    img: "/images/automation-card.jpg",
+    img: "/images/automation-card.webp",
     whiteLabel: {
       title: "WHITE-LABEL INTELLIGENT AUTOMATION PARTNER",
       subtitle: "Offshore Delivery - Your Brand - Our Expertise",

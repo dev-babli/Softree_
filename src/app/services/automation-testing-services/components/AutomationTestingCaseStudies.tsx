@@ -23,7 +23,7 @@ export const caseStudies: CaseStudy[] = [
     description:
       "Softree Technology helped a leading healthcare provider achieve 85% test automation coverage and 60% faster... releases using AI-powered test automation.",
     metrics: [], // No specific inline metrics visible beneath description
-    image: "/images/ai-development-services/step-1.jpg", // Abstract tech background
+    image: "/images/ai-development-services/step-1.webp", // Abstract tech background
     company: "Softree Technology",
     link: "/case-studies/healthcare-ai-test-automation-patient-management-platform",
   },
@@ -39,7 +39,7 @@ export const caseStudies: CaseStudy[] = [
     metrics: [
 
     ],
-    image: "/images/ai-development-services/step-2.jpg", // Abstract tech background
+    image: "/images/ai-development-services/step-2.webp", // Abstract tech background
     company: "Softree Technology",
     link: "/case-studies/neucart-powerapps-power-automate-qa-testing-case-study",
   },
@@ -53,7 +53,7 @@ export const caseStudies: CaseStudy[] = [
     description:
       "Implemented automated SharePoint and SPFx testing using Selenium, reducing production defects by 50% an... achieving a 98% test pass rate.",
     metrics: [], // No specific inline metrics visible beneath description
-    image: "/images/ai-development-services/step-3.jpg", // Abstract tech background
+    image: "/images/ai-development-services/step-3.webp", // Abstract tech background
     company: "Softree Technology",
     link: "/case-studies/sharepoint-spfx-automation-testing-quality-assurance",
   },

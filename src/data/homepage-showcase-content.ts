@@ -13,7 +13,7 @@ export const HOMEPAGE_CLIENT_LOGOS = {
 /** Corporate / architecture photos for success-stories bento (Unsplash) */
 export const SUCCESS_STORY_BUILDING_IMAGES = {
   glassTower:
-    "https://images.unsplash.com/photo-1486406146926-c627a92fd1b2?auto=format&fit=crop&w=1200&q=85",
+    "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=85",
   citySkyline:
     "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=1200&q=85",
   modernFacade:

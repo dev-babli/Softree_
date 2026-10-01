@@ -26,7 +26,7 @@ export interface ProjectData {
 export const PROJECT_DATA: ProjectData[] = [
   {
     title: "SaaS & Product Companies",
-    image: "/images/ai-development-services/step-1.jpg",
+    image: "/images/ai-development-services/step-1.webp",
     category: "01 — SAAS & PRODUCT COMPANIES",
     year: "SaaS QA",
     focusArea: "SAAS & PRODUCT COMPANIES",
@@ -44,7 +44,7 @@ export const PROJECT_DATA: ProjectData[] = [
   },
   {
     title: "Startups & Growing Technology Companies",
-    image: "/images/ai-development-services/step-2.jpg",
+    image: "/images/ai-development-services/step-2.webp",
     category: "02 — STARTUPS & SCALE-UPS",
     year: "Startups",
     focusArea: "STARTUPS & SCALE-UPS",
@@ -62,7 +62,7 @@ export const PROJECT_DATA: ProjectData[] = [
   },
   {
     title: "Enterprise Software Teams",
-    image: "/images/ai-development-services/step-3.jpg",
+    image: "/images/ai-development-services/step-3.webp",
     category: "03 — ENTERPRISE SOFTWARE",
     year: "Enterprise",
     focusArea: "ENTERPRISE SOFTWARE",
@@ -80,7 +80,7 @@ export const PROJECT_DATA: ProjectData[] = [
   },
   {
     title: "Digital Platforms & Applications",
-    image: "/images/ai-development-services/step-4.jpg",
+    image: "/images/ai-development-services/step-4.webp",
     category: "04 — DIGITAL PRODUCTS & PLATFORMS",
     year: "Digital",
     focusArea: "DIGITAL PRODUCTS & PLATFORMS",
@@ -98,7 +98,7 @@ export const PROJECT_DATA: ProjectData[] = [
   },
   {
     title: "Technology & Consulting Companies",
-    image: "/images/ai-development-services/step-1.jpg",
+    image: "/images/ai-development-services/step-1.webp",
     category: "05 — TECHNOLOGY & CONSULTING",
     year: "Consulting",
     focusArea: "TECHNOLOGY & CONSULTING",

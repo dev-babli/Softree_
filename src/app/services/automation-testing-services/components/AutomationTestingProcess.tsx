@@ -64,7 +64,7 @@ const automationSlides: SqueezeSlide[] = [
     shortTitle: "Automation Discovery",
     description:
       "Analyze your application, existing test processes, technology stack, and automation opportunities to define a practical test automation strategy.",
-    image: "/images/ai-development-services/core-capabilities/ai-strategy.png",
+    image: "/images/ai-development-services/core-capabilities/ai-strategy.webp",
     imageAlt: "Automation Discovery",
     bullets: [
       "Application & workflow analysis",
@@ -81,7 +81,7 @@ const automationSlides: SqueezeSlide[] = [
     shortTitle: "Test Strategy & Planning",
     description:
       "Define automation scope, testing priorities, frameworks, environments, data requirements, and execution strategies aligned with your software delivery goals.",
-    image: "/images/ai-development-services/core-capabilities/enterprise-ai-architecture.png",
+    image: "/images/ai-development-services/core-capabilities/enterprise-ai-architecture.webp",
     imageAlt: "Test Strategy & Planning",
     bullets: [
       "Test automation roadmap",
@@ -98,7 +98,7 @@ const automationSlides: SqueezeSlide[] = [
     shortTitle: "Automation Framework",
     description:
       "Design and build scalable, reusable automation frameworks for web, mobile, API, regression, and end-to-end testing.",
-    image: "/images/ai-development-services/core-capabilities/intelligent-automation.png",
+    image: "/images/ai-development-services/core-capabilities/intelligent-automation.webp",
     imageAlt: "Automation Framework Development",
     bullets: [
       "Web & UI automation",
@@ -115,7 +115,7 @@ const automationSlides: SqueezeSlide[] = [
     shortTitle: "Quality Validation",
     description:
       "Execute automated functional, regression, API, integration, performance, and end-to-end tests to validate application quality across releases.",
-    image: "/images/ai-development-services/core-capabilities/secure-ai-governance.png",
+    image: "/images/ai-development-services/core-capabilities/secure-ai-governance.webp",
     imageAlt: "Automated Quality Validation",
     bullets: [
       "Functional & regression testing",
@@ -132,7 +132,7 @@ const automationSlides: SqueezeSlide[] = [
     shortTitle: "Defect Analytics",
     description:
       "Analyze automated test results, failures, defects, and coverage to identify quality risks and continuously optimize your automation suite.",
-    image: "/images/ai-development-services/core-capabilities/microsoft-ai-ecosystem.png",
+    image: "/images/ai-development-services/core-capabilities/microsoft-ai-ecosystem.webp",
     imageAlt: "Defect Analysis & Test Optimization",
     bullets: [
       "Automated test reporting",
@@ -149,7 +149,7 @@ const automationSlides: SqueezeSlide[] = [
     shortTitle: "Continuous Improvement",
     description:
       "Integrate automation into CI/CD workflows and continuously maintain, optimize, and expand test coverage as your application evolves.",
-    image: "/images/ai-development-services/core-capabilities/continuous-optimization.png",
+    image: "/images/ai-development-services/core-capabilities/continuous-optimization.webp",
     imageAlt: "Continuous Test Automation",
     bullets: [
       "CI/CD test integration",

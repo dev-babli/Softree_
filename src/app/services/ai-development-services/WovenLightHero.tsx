@@ -261,14 +261,14 @@ export const WovenLightHero = () => {
       </div>
 
       {/* 3D Interactive Particle Sphere Background (Placed in flow for mobile, absolute for desktop) */}
-      <div className="relative lg:absolute lg:inset-0 w-full h-[450px] sm:h-[550px] lg:h-full pointer-events-auto z-0 -my-4 lg:my-0">
+      <div className="relative lg:absolute lg:inset-0 w-full h-[450px] sm:h-[550px] lg:h-full pointer-events-auto z-0 -my-4 lg:my-0 lg:-translate-y-9 xl:-translate-y-12">
         <ParticleSphere />
       </div>
 
       {/* ======================================================== */}
       {/* BOTTOM TRUST STRIP */}
       {/* ======================================================== */}
-      <div className="relative z-20 w-full shrink-0 pt-4 mt-0 lg:mt-10">
+      <div className="relative z-20 w-full shrink-0 pt-4 mt-0 lg:mt-20">
         <TrustStrip theme="dark" />
       </div>
     </section>

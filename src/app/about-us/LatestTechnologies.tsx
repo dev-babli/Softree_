@@ -30,7 +30,7 @@ export const CORE_EXPERTISE_ITEMS: SlideItem[] = [
     badge: "01 // AUTONOMOUS AGENTS & ORCHESTRATION",
     description: "Multi-agent workflows, autonomous reasoning systems, and enterprise copilots engineered to execute complex business tasks with continuous human-in-the-loop governance.",
     tags: ["LangGraph", "LangChain", "Azure OpenAI", "Llama 3", "CrewAI"],
-    image: "/whysoftree/ai.webp",
+    image: "/whysoftree/ai.png",
     link: "/services/ai-development-services",
   },
   {
@@ -593,11 +593,10 @@ export const DimensionalSwitchSlider = ({
                     onClick={() => goToIndex(idx)}
                     aria-label={`Go to ${item.text}`}
                     aria-current={isActive}
-                    className={`group relative h-2 rounded-full transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] cursor-pointer ${
-                      isActive
+                    className={`group relative h-2 rounded-full transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] cursor-pointer ${isActive
                         ? "w-7 sm:w-9 bg-white shadow-[0_0_12px_rgba(255,255,255,0.95)]"
                         : "w-2 bg-white/35 hover:bg-white/70 hover:w-4"
-                    }`}
+                      }`}
                   >
                     {/* Floating Glass Tooltip */}
                     <span className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-zinc-950/95 px-2 py-0.5 text-[10px] font-medium text-white opacity-0 shadow-xl backdrop-blur-md transition-all duration-200 group-hover:-top-9 group-hover:opacity-100 z-50 border border-white/15 flex items-center gap-1">

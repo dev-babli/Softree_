@@ -411,9 +411,9 @@ export default function SuccessStoriesBentoSection() {
           <p className="shrink-0 text-xs font-semibold uppercase tracking-[0.14em]" style={{ color: MUTED }}>
             Client voices
           </p>
-          <Link
-            href="#client-testimonials"
-            className="group mt-auto inline-flex flex-col gap-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F9452D]"
+          <button
+            onClick={advance}
+            className="group mt-auto inline-flex flex-col gap-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F9452D] text-left"
           >
             <span
               className="text-[clamp(2rem,4.5vw,3rem)] font-bold uppercase leading-[0.92] tracking-[-0.03em] transition-colors duration-300 group-hover:text-[#F9452D]"
@@ -421,17 +421,17 @@ export default function SuccessStoriesBentoSection() {
             >
               Read
               <br />
-              all
+              next
             </span>
             <span
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/15 transition-all duration-300 group-hover:border-[#F9452D] group-hover:bg-[#F9452D] group-hover:text-white"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#F9452D] bg-[#F9452D] text-white transition-all duration-300 group-hover:border-black group-hover:bg-black"
               aria-hidden
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
             </span>
-          </Link>
+          </button>
         </article>
       </div>
 

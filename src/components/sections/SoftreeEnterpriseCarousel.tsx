@@ -7,6 +7,7 @@
  */
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
@@ -260,13 +261,12 @@ export default function SoftreeEnterpriseCarousel() {
                   }}
                 >
                   {/* Kore CDN hero — full bleed, no cream wash */}
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={panel.bg}
                     alt=""
+                    fill
                     className="absolute inset-0 h-full w-full object-cover"
-                    loading="lazy"
-                    decoding="async"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <div
                     aria-hidden

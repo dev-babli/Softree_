@@ -611,7 +611,7 @@ export function TransferredSoftreeHero() {
             }}
           >
             <Image
-              src="/whysoftree/ai.webp"
+              src="/whysoftree/ai.png"
               alt="Microsoft & Data"
               fill
               className="object-cover"
