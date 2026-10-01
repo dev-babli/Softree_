@@ -32,7 +32,6 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${BASE_URL}/services/business-applications/mvp`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
   { url: `${BASE_URL}/services/business-applications/power-platform`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
   { url: `${BASE_URL}/services/business-applications/softree-for-startups`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-  { url: `${BASE_URL}/services/data-analytics/microsoft-fabric`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
   { url: `${BASE_URL}/services/data-analytics/power-bi`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
   { url: `${BASE_URL}/services/digital-workspace/mobile-app-development`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
   { url: `${BASE_URL}/services/digital-workspace/react-web-development`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
@@ -43,7 +42,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
 
   // Offshore Services - Priority 0.6 / 0.7
   { url: `${BASE_URL}/services/power-bi-development-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
-  { url: `${BASE_URL}/services/microsoft-fabric-engineering-services`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+  { url: `${BASE_URL}/services/microsoft-fabric-development-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
   { url: `${BASE_URL}/services/offshore-mobile-app-development`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
   { url: `${BASE_URL}/services/offshore-power-platform-development`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
   { url: `${BASE_URL}/services/offshore-sharepoint-development`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },

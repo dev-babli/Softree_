@@ -186,6 +186,16 @@ const nextConfig: any = {
         permanent: true,
       },
       {
+        source: "/services/microsoft-fabric-engineering-services",
+        destination: "/services/microsoft-fabric-development-services",
+        permanent: true,
+      },
+      {
+        source: "/services/data-analytics/microsoft-fabric",
+        destination: "/services/microsoft-fabric-development-services",
+        permanent: true,
+      },
+      {
         source: "/services",
         destination: "/",
         permanent: true,

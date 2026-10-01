@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { ArrowUpRight, Sparkles, CheckCircle2 } from "lucide-react";
-import PhotoStackGallery from "../microsoft-fabric-engineering-services/components/PhotoStackGallery";
+import PhotoStackGallery from "../microsoft-fabric-development-services/components/PhotoStackGallery";
 import { FlowButton } from "@/components/ui/flow-button";
 
 const ROLES = [

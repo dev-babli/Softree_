@@ -139,7 +139,7 @@ export const SERVICES_HUB: ServicesHubItem[] = [
     n: "09",
     title: "Microsoft Fabric",
     shortTitle: "Fabric",
-    href: "/services/microsoft-fabric-engineering-services",
+    href: "/services/microsoft-fabric-development-services",
     image: "/service_image/data.jpg",
     imgSrc: "/service_image/microsoft.jpg",
     accent: "#1852FF",

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { ArrowUpRight, Sparkles, CheckCircle2 } from "lucide-react";
-import PhotoStackGallery, { StackPhoto } from "@/app/services/microsoft-fabric-engineering-services/components/PhotoStackGallery";
+import PhotoStackGallery, { StackPhoto } from "@/app/services/microsoft-fabric-development-services/components/PhotoStackGallery";
 import { FlowButton } from "@/components/ui/flow-button";
 
 const RAG_PHOTOS: StackPhoto[] = [
