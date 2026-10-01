@@ -24,58 +24,86 @@ const defaultFaqs: FAQItem[] = [
   {
     id: 1,
     serial: "question 01",
-    question: "What technology services does Softree Technology provide?",
+    question: "What does Softree Technology do?",
     answer:
-      "Softree Technology provides Agentic AI, Generative AI, Power Platform, Microsoft Fabric, data engineering, cloud engineering, software development, automation, and digital transformation services.",
+      "Softree Technology is an offshore technology and engineering partner providing Agentic AI, Generative AI, AI automation, Microsoft Fabric, Power Platform, data engineering, cloud engineering, software development, and digital transformation services. We help technology companies, consulting firms, Microsoft partners, SaaS companies, AI companies, and other organizations extend their engineering capabilities and build modern digital solutions.",
   },
   {
     id: 2,
     serial: "question 02",
-    question: "Is Softree an offshore technology partner?",
+    question: "Is Softree Technology an offshore technology partner?",
     answer:
-      "Yes. Softree is an offshore technology partner providing dedicated engineering teams and specialized technology expertise to help businesses extend their development and delivery capabilities.",
+      "Yes. Softree Technology provides offshore software development and engineering services from India. We work as an extension of client engineering and delivery teams, providing dedicated developers, specialized technology teams, and project-based engineering capabilities. Our expertise spans Agentic AI, Microsoft technologies, data and analytics, cloud, automation, and modern application development.",
   },
   {
     id: 3,
     serial: "question 03",
-    question: "Does Softree provide Power Platform, Microsoft Fabric, Data, and AI services?",
+    question: "What Agentic AI services does Softree provide?",
     answer:
-      "Yes. Softree provides Microsoft Power Platform, Microsoft Fabric, data engineering, analytics, Generative AI, Agentic AI, and intelligent automation services to help organizations modernize business processes, data platforms, and AI capabilities.",
+      "Softree provides Agentic AI development services for organizations looking to build AI-powered applications and intelligent workflows. Our capabilities include AI agents, multi-agent systems, AI workflow automation, AI copilots, enterprise RAG, Generative AI applications, voice AI, intelligent business applications, and AI orchestration. We work with technologies and platforms including Amazon Bedrock, Amazon Nova, Microsoft Azure AI, Azure OpenAI, and modern AI development frameworks.",
   },
   {
     id: 4,
     serial: "question 04",
-    question: "Can Softree provide dedicated offshore development teams?",
+    question: "Does Softree provide Microsoft Fabric services?",
     answer:
-      "Yes. Softree provides dedicated offshore development teams with expertise across AI, Microsoft technologies, cloud, data, frontend, backend, and full-stack development. Teams can work as an extension of your existing engineering organization.",
+      "Yes. Softree provides Microsoft Fabric consulting and development services covering data engineering, data integration, data warehousing, analytics, Power BI, and data modernization. We help organizations build modern data platforms that connect enterprise data with analytics, business intelligence, automation, and AI workloads.",
   },
   {
     id: 5,
     serial: "question 05",
-    question: "Does Softree provide AI development and Agentic AI services?",
+    question: "Does Softree provide Power Platform development services?",
     answer:
-      "Yes. Softree develops enterprise AI solutions including AI agents, AI copilots, Generative AI applications, RAG solutions, AI workflow automation, and intelligent business applications using technologies such as Amazon Bedrock and Microsoft Azure AI.",
+      "Yes. Softree provides Microsoft Power Platform services including Power Apps, Power Automate, Power BI, Dataverse, integrations, and business process automation. Our teams help organizations replace manual processes, build business applications, automate workflows, and connect business data across Microsoft and enterprise systems.",
   },
   {
     id: 6,
     serial: "question 06",
-    question: "Does Softree offer Microsoft Power Platform and Fabric development?",
+    question: "Can Softree provide dedicated offshore development teams?",
     answer:
-      "Yes. Softree provides Power Apps, Power Automate, Power BI, Microsoft Fabric, data integration, analytics, and business process automation services to help organizations build connected and data-driven solutions.",
+      "Yes. Softree provides dedicated offshore development teams that can operate as an extension of an existing engineering organization. Teams can be formed around specific technologies or business requirements, including AI, Microsoft Fabric, Power Platform, cloud, data engineering, React, Next.js, Node.js, Python, FastAPI, SQL, and modern full-stack development.",
   },
   {
     id: 7,
     serial: "question 07",
-    question: "Can Softree work as a white-label technology development partner?",
+    question: "Does Softree provide white-label technology development?",
     answer:
-      "Yes. Softree supports white-label technology development for agencies, consulting firms, system integrators, and technology companies that need additional engineering capacity while maintaining their own client relationships and brand.",
+      "Yes. Softree works as a white-label technology development partner for agencies, consulting firms, system integrators, Microsoft partners, and technology companies. Our teams can work behind the scenes under the partner's delivery model and support software development, AI engineering, Microsoft solutions, data engineering, automation, and cloud projects while the partner maintains the client relationship.",
   },
   {
     id: 8,
     serial: "question 08",
-    question: "Why choose Softree as an offshore technology partner?",
+    question: "Who does Softree Technology work with?",
     answer:
-      "Softree combines dedicated offshore engineering teams with expertise in AI, Power Platform, Microsoft Fabric, data, cloud, and modern application development, providing flexible technology capabilities aligned with different project and business requirements.",
+      "Softree works with technology companies, Microsoft partners, independent technology consultants, consulting firms, digital agencies, system integrators, SaaS companies, AI startups, and organizations that need additional engineering capacity or specialized technology expertise. We support both direct clients and technology partners looking for an offshore engineering or white-label delivery partner.",
+  },
+  {
+    id: 9,
+    serial: "question 09",
+    question: "Can Softree work with an existing engineering team?",
+    answer:
+      "Yes. Softree can work alongside an existing engineering organization through dedicated engineers, extended development teams, specialized technology teams, or project-based delivery. Our teams can take ownership of specific development workstreams or provide additional expertise where an organization has technology or capacity gaps.",
+  },
+  {
+    id: 10,
+    serial: "question 10",
+    question: "What technologies does Softree Technology specialize in?",
+    answer:
+      "Softree's technology capabilities span Agentic AI and Generative AI, Microsoft Fabric, Power Platform, Power BI, Azure AI, Amazon Bedrock, cloud engineering, data engineering, automation, and modern application development. Our modern engineering stack also includes technologies such as React, Next.js, Node.js, Python, FastAPI, SQL, MongoDB, APIs, microservices, Docker, Kubernetes, and cloud platforms.",
+  },
+  {
+    id: 11,
+    serial: "question 11",
+    question: "Can Softree support AI and digital transformation projects from strategy through development?",
+    answer:
+      "Yes. Softree can support organizations across the AI and digital transformation lifecycle, including technology discovery, architecture, proof of concept, application development, integration, automation, data engineering, deployment, and ongoing engineering support. This enables organizations to combine AI, data, automation, cloud, and modern application engineering within a single technology partnership.",
+  },
+  {
+    id: 12,
+    serial: "question 12",
+    question: "Why do companies work with Softree Technology?",
+    answer:
+      "Organizations work with Softree when they need specialized engineering expertise, additional development capacity, or an offshore technology delivery partner across AI, Microsoft, data, cloud, automation, and modern software development. Softree offers flexible engagement models ranging from dedicated engineering resources and extended teams to specialized project delivery and white-label technology development.",
   },
 ]
 

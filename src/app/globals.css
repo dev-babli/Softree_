@@ -57,9 +57,11 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
   }
 
   body {
+    overflow-x: clip;
     background: linear-gradient(to bottom, #fafafa, #ffffff, #fafafa);
     color: var(--color-foreground);
     font-family: var(--font-sans);
