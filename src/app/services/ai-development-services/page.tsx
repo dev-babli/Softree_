@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     siteName: 'Softree Technology',
     images: [
       {
-        url: '/logo/Softree-Technology-Final-Logo-Dark-BG.png',
+        url: '/logo/Softree-Technology-Final-Logo-Dark-BG.webp',
         width: 1200,
         height: 630,
         alt: 'Softree Technology Logo',
@@ -91,7 +91,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'AI Development Services | Offshore AI Delivery Partner | Softree',
     description: 'Scale your AI delivery with Softree\'s offshore engineering team for custom AI, Generative AI, AI agents, RAG, automation, and production-ready AI integrations.',
-    images: ['/logo/Softree-Technology-Final-Logo-Dark-BG.png'],
+    images: ['/logo/Softree-Technology-Final-Logo-Dark-BG.webp'],
   },
 };
 
@@ -104,7 +104,7 @@ const serviceSchema = {
     "@type": "Organization",
     "name": "Softree Technology",
     "url": "https://www.softreetechnology.com",
-    "logo": "https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo-Dark-BG.png",
+    "logo": "https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo-Dark-BG.webp",
     "sameAs": [
       "https://www.linkedin.com/company/softreetechnology"
     ]

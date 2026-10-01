@@ -30,7 +30,7 @@ export const CORE_EXPERTISE_ITEMS: SlideItem[] = [
     badge: "01 // AUTONOMOUS AGENTS & ORCHESTRATION",
     description: "Multi-agent workflows, autonomous reasoning systems, and enterprise copilots engineered to execute complex business tasks with continuous human-in-the-loop governance.",
     tags: ["LangGraph", "LangChain", "Azure OpenAI", "Llama 3", "CrewAI"],
-    image: "/whysoftree/ai.png",
+    image: "/whysoftree/ai.webp",
     link: "/services/ai-development-services",
   },
   {

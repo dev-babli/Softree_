@@ -22,7 +22,7 @@ export default function TestimonialsSplitSlider() {
       role: "CEO",
       location: "California",
       company: "SP Marketplace",
-      logo: "/images/logo/1.jpg",
+      logo: "/images/logo/1.webp",
       rating: 5,
     },
     {
@@ -40,7 +40,7 @@ export default function TestimonialsSplitSlider() {
       role: "IT Specialist",
       location: "Netherlands",
       company: "ECG International",
-      logo: "/images/logo/ecg.png",
+      logo: "/images/logo/ecg.webp",
       rating: 5,
     },
     {
@@ -49,7 +49,7 @@ export default function TestimonialsSplitSlider() {
       role: "Director of Delivery",
       location: "USA",
       company: "Nuvento",
-      logo: "/images/logo/nuvento.jpg",
+      logo: "/images/logo/nuvento.webp",
       rating: 5,
     },
   ];

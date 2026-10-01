@@ -12,7 +12,7 @@ export const coreCapabilitiesData = [
         shortDesc: 'Define an enterprise AI roadmap aligned with your business objectives, digital transformation goals, and long-term growth strategy.',
         icon: IconBrain,
         color: 'bg-indigo-100 text-indigo-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-1.png',
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-1.webp',
 
         description:
             'Softree helps organizations identify high-value AI opportunities, assess business readiness, and develop practical AI strategies that deliver measurable business outcomes. Our consultants create tailored roadmaps that reduce implementation risk and accelerate enterprise AI adoption.',
@@ -50,7 +50,7 @@ export const coreCapabilitiesData = [
         shortDesc: 'Evaluate your people, processes, data, and technology to determine your organization’s readiness for successful AI adoption.',
         icon: IconCloud,
         color: 'bg-emerald-100 text-emerald-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-2.png',
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-2.webp',
 
         description:
             'Our AI readiness assessment helps organizations evaluate their current technology landscape, data maturity, business processes, and operational capabilities. We identify opportunities, potential challenges, and provide practical recommendations for a successful enterprise AI implementation.',
@@ -88,7 +88,7 @@ export const coreCapabilitiesData = [
         shortDesc: 'Leverage Microsoft’s AI ecosystem to design, implement, and scale secure enterprise AI solutions.',
         icon: IconHierarchy,
         color: 'bg-violet-100 text-violet-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-3.png',
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-3.webp',
 
         description:
             'Softree helps organizations unlock the full potential of Microsoft AI technologies. From Microsoft Copilot and Azure AI to Power Platform, Microsoft Fabric, and Azure OpenAI, we provide expert consulting to accelerate AI adoption and enterprise innovation.',
@@ -126,7 +126,7 @@ export const coreCapabilitiesData = [
         shortDesc: 'Scale your AI initiatives with dedicated offshore engineering teams specializing in Microsoft AI technologies.',
         icon: IconShieldCheck,
         color: 'bg-amber-100 text-amber-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-4.png',
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-4.webp',
 
         description:
             'Softree provides dedicated offshore AI engineering teams that seamlessly integrate with your organization. Our Microsoft AI specialists help enterprises and consulting firms accelerate AI delivery, reduce development costs, and scale projects with flexible engagement models.',
@@ -164,7 +164,7 @@ export const coreCapabilitiesData = [
         shortDesc: 'Deliver enterprise AI solutions under your brand with Softree’s dedicated white-label engineering teams.',
         icon: IconApps,
         color: 'bg-blue-100 text-blue-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-5.png',
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-5.webp',
 
         description:
             'Expand your AI delivery capabilities without increasing in-house resources. Softree acts as your trusted white-label technology partner, providing Microsoft AI expertise, dedicated offshore engineers, and enterprise-grade delivery while you retain complete ownership of your client relationships and brand.',
@@ -202,7 +202,7 @@ export const coreCapabilitiesData = [
         shortDesc: 'Establish secure AI governance, drive user adoption, and maximize long-term business value from enterprise AI investments.',
         icon: IconChartLine,
         color: 'bg-pink-100 text-pink-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-1.png',
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-1.webp',
 
         description:
             'Successful AI transformation extends beyond implementation. Softree helps organizations establish AI governance frameworks, ensure responsible AI practices, strengthen security and compliance, and drive organization-wide adoption to maximize the long-term value of enterprise AI initiatives.',

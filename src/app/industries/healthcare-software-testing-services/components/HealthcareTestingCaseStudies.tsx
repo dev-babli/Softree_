@@ -32,7 +32,7 @@ const caseStudyData: Gallery4Props = {
         </div>
       ),
       href: "/case-studies/healthcare-ai-test-automation-patient-management-platform",
-      image: "/images/ai-healthcare-images/health-5.png",
+      image: "/images/ai-healthcare-images/health-5.webp",
     },
     {
       id: "predictive-hospital-bed-occupancy",
@@ -45,7 +45,7 @@ const caseStudyData: Gallery4Props = {
         </div>
       ),
       href: "/case-studies/predictive-hospital-bed-occupancy-analytics",
-      image: "/images/ai-healthcare-images/health-6.png",
+      image: "/images/ai-healthcare-images/health-6.webp",
     },
     {
       id: "emergency-department-performance",
@@ -58,7 +58,7 @@ const caseStudyData: Gallery4Props = {
         </div>
       ),
       href: "/case-studies/emergency-department-performance-analytics",
-      image: "/images/ai-healthcare-images/health-7.png",
+      image: "/images/ai-healthcare-images/health-7.webp",
     },
     {
       id: "healthcare-patient-intelligence",
@@ -85,7 +85,7 @@ const caseStudyData: Gallery4Props = {
         </div>
       ),
       href: "/case-studies/healthcare-patient-intelligence-platform",
-      image: "/images/ai-healthcare-images/health-8.png",
+      image: "/images/ai-healthcare-images/health-8.webp",
     }
   ],
 };

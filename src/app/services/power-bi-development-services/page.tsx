@@ -1,30 +1,22 @@
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
-import PowerBIServicesTabs from "./power-bi-tabs";
-import Certifications from "./certification";
 import PowerBIHero from "./hero";
-import CtaAbout from "./cta";
-import WhyChooseUs from "./why";
-import PowerBIStackOverview from "./tools";
-import PowerBIBenefits from "./benefits";
-import StackedSlider from "./stach-slider";
-import PowerBICaseStudies from "./case-studies";
-import HirePowerBIPricing from "./pricing";
-import PowerBIProcessSection from "./process";
-import TestimonialsSplitSlider from "./testimonials";
-import { PowerBIFaq } from "./faq";
 import TrustedBrandsMarquee from "../offshore-power-platform-development/trust";
-import FabricWhoDoWeServeSection from "./WhoDoWeServeSection";
-import AIReadinessBanner from "./AIReadinessBanner";
-import { FabricServices } from "./Services";
-import { FabricStickyScroll } from "./StickyScroll";
-import FabricTechnologyStack from "./TechnologyStack";
-import OffshoreEngineeringSection from "./FabricOffshoreEngineeringSection";
-import { FabricHowWeWork } from "./HowWeWork";
-import LightContactSection from "@/components/homepage-light/LightContactSection";
-import LightFAQExact from "@/components/homepage-light/LightFAQExact";
+import dynamic from "next/dynamic";
 import type { Metadata } from "next";
 import { applyPageOg } from "@/lib/site-metadata";
+
+const AIReadinessBanner = dynamic(() => import("./AIReadinessBanner"));
+const FabricServices = dynamic(() => import("./Services").then(m => m.FabricServices));
+const FabricWhoDoWeServeSection = dynamic(() => import("./WhoDoWeServeSection"));
+const FabricStickyScroll = dynamic(() => import("./StickyScroll").then(m => m.FabricStickyScroll));
+const PowerBICaseStudies = dynamic(() => import("./case-studies"));
+const FabricTechnologyStack = dynamic(() => import("./TechnologyStack"));
+const OffshoreEngineeringSection = dynamic(() => import("./FabricOffshoreEngineeringSection"));
+const FabricHowWeWork = dynamic(() => import("./HowWeWork").then(m => m.FabricHowWeWork));
+const WhyChooseUs = dynamic(() => import("./why"));
+const LightFAQExact = dynamic(() => import("@/components/homepage-light/LightFAQExact"));
+const LightContactSection = dynamic(() => import("@/components/homepage-light/LightContactSection"));
 
 const powerBIFAQs = [
   {
@@ -76,10 +68,6 @@ const powerBIFAQs = [
     answer: "The timeline depends on the number and complexity of data sources, reporting requirements, data quality, modeling needs, security requirements, and level of analytics involved. Simple dashboard projects may take approximately 2–4 weeks, while more complex enterprise Power BI solutions involving multiple data sources and advanced analytics may take 6–12 weeks. Softree defines the detailed scope, deliverables, and timeline based on the specific project requirements before development begins.",
   },
 ];
-/* ------------------------------------------------------------------ */
-/* Fixed Width Config                                                  */
-/* ------------------------------------------------------------------ */
-const FIXED_WIDTH = "mx-auto max-w-8xl px-8 sm:px-10 md:px-14 lg:px-20";
 
 export const metadata: Metadata = applyPageOg("/services/power-bi-development-services", {
   title: "Power BI Development Services | Offshore Power BI Partner",
@@ -104,7 +92,7 @@ export const metadata: Metadata = applyPageOg("/services/power-bi-development-se
     title: "Power BI Development Services | Dashboard & Analytics Solutions",
     description:
       "Build powerful dashboards and analytics solutions with Microsoft Power BI. Get real-time insights, reporting automation, and enterprise BI services.",
-    url: "https://www.softreetechnology.com/services/offshore-data-analytics",
+    url: "https://www.softreetechnology.com/services/power-bi-development-services",
     siteName: "Softree Technology",
     type: "website",
   },
@@ -118,34 +106,72 @@ export const metadata: Metadata = applyPageOg("/services/power-bi-development-se
 
   alternates: {
     canonical:
-      "https://www.softreetechnology.com/services/offshore-data-analytics",
+      "https://www.softreetechnology.com/services/power-bi-development-services",
   },
 }, "Softree Technology");
+
 export default function Home() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.softreetechnology.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "https://www.softreetechnology.com/services"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Power BI Development Services",
+            "item": "https://www.softreetechnology.com/services/power-bi-development-services"
+          }
+        ]
+      },
+      {
+        "@type": "Service",
+        "name": "Power BI Development Services",
+        "description": "Build, modernize, and scale Power BI solutions with Softree's offshore team for dashboards, reports, data modeling, DAX, integration, and analytics.",
+        "provider": {
+          "@type": "Organization",
+          "name": "Softree Technology",
+          "url": "https://www.softreetechnology.com"
+        },
+        "serviceType": "Business Intelligence & Data Analytics",
+        "areaServed": "Worldwide"
+      }
+    ]
+  };
+
   return (
     <main className="relative min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <NavigationClient />
 
-      {/* HERO (can stay full-width internally) */}
+      {/* HERO */}
       <PowerBIHero />
-      {/* <PowerBICaseStudies /> */}
       <TrustedBrandsMarquee />
       <AIReadinessBanner />
       <FabricServices />
       <FabricWhoDoWeServeSection />
       <FabricStickyScroll />
-      {/* <StackedSlider /> */}
       <PowerBICaseStudies />
       <FabricTechnologyStack />
       <OffshoreEngineeringSection />
       <FabricHowWeWork />
-      {/* <PowerBIServicesTabs /> */}
-      {/* <PowerBIBenefits /> */}
-      {/* <PowerBIStackOverview /> */}
-      {/* <HirePowerBIPricing /> */}
-      {/* <PowerBIProcessSection /> */}
       <WhyChooseUs />
-      {/* <Certifications /> */}
       <LightFAQExact faqs={powerBIFAQs} />
       <LightContactSection />
       <Footer />

@@ -16,7 +16,7 @@ export const howAIHelpsData: HowAIHelpsStep[] = [
     description: "Automate repetitive tasks and complex workflows",
     status: "Completed",
     icon: TrendingUp,
-    image: "/images/ai-consulting-service-image/how-ai-helps/how-1.png",
+    image: "/images/ai-consulting-service-image/how-ai-helps/how-1.webp",
   },
   {
     id: "step-2",
@@ -24,7 +24,7 @@ export const howAIHelpsData: HowAIHelpsStep[] = [
     description: "Turn data into actionable insights",
     status: "Completed",
     icon: Activity,
-    image: "/images/ai-consulting-service-image/how-ai-helps/how-2.png",
+    image: "/images/ai-consulting-service-image/how-ai-helps/how-2.webp",
   },
   {
     id: "step-3",
@@ -32,7 +32,7 @@ export const howAIHelpsData: HowAIHelpsStep[] = [
     description: "AI-powered recommendations and predictions",
     status: "In Progress",
     icon: Brain,
-    image: "/images/ai-consulting-service-image/how-ai-helps/how-3.png",
+    image: "/images/ai-consulting-service-image/how-ai-helps/how-3.webp",
   },
   {
     id: "step-4",
@@ -40,7 +40,7 @@ export const howAIHelpsData: HowAIHelpsStep[] = [
     description: "Personalized interactions across all touchpoints",
     status: "Upcoming",
     icon: User,
-    image: "/images/ai-consulting-service-image/how-ai-helps/how-4.png",
+    image: "/images/ai-consulting-service-image/how-ai-helps/how-4.webp",
   },
   {
     id: "step-5",
@@ -48,6 +48,6 @@ export const howAIHelpsData: HowAIHelpsStep[] = [
     description: "AI-driven threat detection and risk management",
     status: "Upcoming",
     icon: Shield,
-    image: "/images/ai-consulting-service-image/how-ai-helps/how-5.png",
+    image: "/images/ai-consulting-service-image/how-ai-helps/how-5.webp",
   },
 ];

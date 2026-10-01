@@ -88,7 +88,7 @@ export const SERVICES_HUB: ServicesHubItem[] = [
     title: "Web apps",
     shortTitle: "Web Dev",
     href: "/services/offshore-web-app-development",
-    image: "/service_image/web.jpg",
+    image: "/service_image/web.webp",
     LucideIcon: Globe,
     accent: "#FF5812",
     description:
@@ -154,7 +154,7 @@ export const SERVICES_HUB: ServicesHubItem[] = [
     shortTitle: "Modernize",
     href: "/services/legacy-application-modernization",
     image: "/whysoftree/modern.png",
-    imgSrc: "/service_image/web.jpg",
+    imgSrc: "/service_image/web.webp",
     accent: "#FF5812",
     description:
       "Cloud migration and codebase modernization — retire fragile systems without stopping the business.",
@@ -179,8 +179,8 @@ export const SERVICES_HUB: ServicesHubItem[] = [
     title: "MVP delivery",
     shortTitle: "MVP",
     href: "/services/mvp",
-    image: "/service_image/web.jpg",
-    imgSrc: "/service_image/web.jpg",
+    image: "/service_image/web.webp",
+    imgSrc: "/service_image/web.webp",
     accent: "#FF6B00",
     description:
       "Fixed-scope MVPs with weekly demos — discovery, build, and launch in weeks with a senior offshore squad.",

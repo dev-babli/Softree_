@@ -15,7 +15,7 @@ const novaDevelopmentSlides: SqueezeSlide[] = [
       "Voice persona & intent definition",
       "AWS environment & telephony audit"
     ],
-    image: "/images/ai-development-services/core-capabilities/ai-strategy.png",
+    image: "/images/ai-development-services/core-capabilities/ai-strategy.webp",
     imageAlt: "Nova 2 Sonic Discovery and Voice Workflow Planning",
     action: "Start Voice Discovery",
     href: "/contact"
@@ -31,7 +31,7 @@ const novaDevelopmentSlides: SqueezeSlide[] = [
       "WebSocket audio streaming",
       "Resilient backend orchestration"
     ],
-    image: "/images/ai-development-services/core-capabilities/enterprise-ai-architecture.png",
+    image: "/images/ai-development-services/core-capabilities/enterprise-ai-architecture.webp",
     imageAlt: "Nova 2 Sonic and Bedrock Voice System Architecture",
     action: "Review Voice Architecture",
     href: "/contact"
@@ -47,7 +47,7 @@ const novaDevelopmentSlides: SqueezeSlide[] = [
       "Tool & function calling execution",
       "Secure data & credential access"
     ],
-    image: "/images/ai-development-services/core-capabilities/intelligent-automation.png",
+    image: "/images/ai-development-services/core-capabilities/intelligent-automation.webp",
     imageAlt: "Voice Agent Tool and Database Integration",
     action: "Integrate Enterprise Tools",
     href: "/contact"
@@ -63,7 +63,7 @@ const novaDevelopmentSlides: SqueezeSlide[] = [
       "Dynamic voice prompt engineering",
       "Guardrail & hallucination control"
     ],
-    image: "/images/ai-development-services/core-capabilities/continuous-optimization.png",
+    image: "/images/ai-development-services/core-capabilities/continuous-optimization.webp",
     imageAlt: "Voice Conversation Optimization and Low Latency",
     action: "Optimize Voice Experience",
     href: "/contact"
@@ -79,7 +79,7 @@ const novaDevelopmentSlides: SqueezeSlide[] = [
       "Continuous evaluation & feedback loops",
       "24/7 SLA & reliability monitoring"
     ],
-    image: "/images/ai-development-services/core-capabilities/secure-ai-governance.png",
+    image: "/images/ai-development-services/core-capabilities/secure-ai-governance.webp",
     imageAlt: "Nova 2 Sonic Production Deployment and Observability",
     action: "Deploy Production Voice AI",
     href: "/contact"

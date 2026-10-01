@@ -402,10 +402,11 @@ export default function LightContactSection({
 
                   {/* Full Name */}
                   <div className="flex flex-col">
-                    <label className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-zinc-400 mb-1">
+                    <label htmlFor="contact-full-name" className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-zinc-400 mb-1">
                       FULL NAME
                     </label>
                     <input
+                      id="contact-full-name"
                       type="text"
                       name="name"
                       required
@@ -416,10 +417,11 @@ export default function LightContactSection({
 
                   {/* E-Mail */}
                   <div className="flex flex-col">
-                    <label className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-zinc-400 mb-1">
+                    <label htmlFor="contact-email" className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-zinc-400 mb-1">
                       E-MAIL <span className="text-[#ff5812]">*</span>
                     </label>
                     <input
+                      id="contact-email"
                       type="email"
                       name="email"
                       required
@@ -430,10 +432,11 @@ export default function LightContactSection({
 
                   {/* Company Name */}
                   <div className="flex flex-col">
-                    <label className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-zinc-400 mb-1">
+                    <label htmlFor="contact-company" className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-zinc-400 mb-1">
                       COMPANY NAME
                     </label>
                     <input
+                      id="contact-company"
                       type="text"
                       name="company"
                       placeholder=""
@@ -443,13 +446,14 @@ export default function LightContactSection({
 
                   {/* Project Details */}
                   <div className="flex flex-col">
-                    <label className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-zinc-400 mb-0.5">
+                    <label htmlFor="contact-message" className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-zinc-400 mb-0.5">
                       TELL US ABOUT YOUR PROJECT
                     </label>
                     <span className="text-[11px] text-zinc-400 mb-1">
                       Timeline, scope, budget — the more detail, the better we can help.
                     </span>
                     <textarea
+                      id="contact-message"
                       name="message"
                       rows={2}
                       className="w-full resize-none border-0 border-b border-white/15 bg-transparent py-1 text-sm text-white placeholder-transparent outline-none transition-colors focus:border-[#ff5812]"

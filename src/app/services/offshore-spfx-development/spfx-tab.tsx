@@ -20,7 +20,7 @@ const tabs = [
   {
     id: "tab3",
     title: "Microsoft 365 Integration",
-    img: "/images/spfx/3.jpg",
+    img: "/images/spfx/3.webp",
     desc: "Connect your SPFx solutions to Microsoft 365 apps like Teams, Planner, Power BI, and OneDrive. Automate workflows, fetch real-time data via Microsoft Graph, and enhance collaboration across your organization.",
   },
   {
@@ -32,19 +32,19 @@ const tabs = [
   {
     id: "tab5",
     title: "SPFx Performance Optimization",
-    img: "/images/spfx/5.jpg",
+    img: "/images/spfx/5.webp",
     desc: "Improve web part performance with optimized bundle sizes, lazy loading, and caching strategies. Deliver fast, responsive experiences even on large SharePoint sites.",
   },
   {
     id: "tab6",
     title: "Custom UI/UX Design Services for SPFx",
-    img: "/images/spfx/6.jpg",
+    img: "/images/spfx/6.webp",
     desc: "Craft modern, user-friendly interfaces for SharePoint. Apply interactive layouts, consistent branding, and intuitive navigation to enhance user engagement across SPFx web parts and extensions.",
   },
   {
     id: "tab7",
     title: "SPFx Deployment & Maintenance",
-    img: "/images/spfx/7.jpg",
+    img: "/images/spfx/7.webp",
     desc: "Deploy SPFx solutions seamlessly to SharePoint Online or on-premises. Manage App Catalog configuration, version control, and ongoing maintenance to ensure optimal performance and security.",
   },
   {

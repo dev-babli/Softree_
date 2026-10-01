@@ -5,9 +5,9 @@ import Image from "next/image";
 import TrustStrip from "@/components/sections/TrustStrip";
 
 const IMAGES = [
-  { src: "/images/serve/3.jpg", height: "h-[65%]" },
-  { src: "/images/serve/4.jpg", height: "h-[85%]" },
-  { src: "/images/serve/5.jpg", height: "h-[100%]" },
+  { src: "/images/serve/3.webp", height: "h-[65%]" },
+  { src: "/images/serve/4.webp", height: "h-[85%]" },
+  { src: "/images/serve/5.webp", height: "h-[100%]" },
 ];
 
 export default function Hero() {

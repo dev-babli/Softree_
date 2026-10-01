@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     siteName: 'Softree Technology',
     images: [
       {
-        url: '/logo/Softree-Technology-Final-Logo-Dark-BG.png',
+        url: '/logo/Softree-Technology-Final-Logo-Dark-BG.webp',
         width: 1200,
         height: 630,
         alt: 'Softree Amazon Bedrock AgentCore Development',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: 'Amazon Bedrock AgentCore Development Services | Softree',
     description:
       'Build production-ready AI agents with Amazon Bedrock AgentCore. Softree develops AI agents using Runtime, Memory, Gateway, Identity, Observability, and Evaluations.',
-    images: ['/logo/Softree-Technology-Final-Logo-Dark-BG.png'],
+    images: ['/logo/Softree-Technology-Final-Logo-Dark-BG.webp'],
   },
 };
 

@@ -16,7 +16,7 @@ const capabilitiesSlides: SqueezeSlide[] = [
       "Care coordination",
       "Patient portals",
     ],
-    image: "/images/ai-healthcare-images/health-4.png",
+    image: "/images/ai-healthcare-images/health-4.webp",
     imageAlt:
       "Healthcare professional working with a digital patient and provider workflow",
     action: "Explore Healthcare Expertise",
@@ -35,7 +35,7 @@ const capabilitiesSlides: SqueezeSlide[] = [
       "Medical knowledge",
       "Decision support",
     ],
-    image: "/images/ai-healthcare-images/health-7.png",
+    image: "/images/ai-healthcare-images/health-7.webp",
     imageAlt:
       "Healthcare professional working with a digital clinical workflow system",
     action: "Explore Healthcare Expertise",
@@ -54,7 +54,7 @@ const capabilitiesSlides: SqueezeSlide[] = [
       "Scheduling operations",
       "Operational intelligence",
     ],
-    image: "/images/ai-healthcare-images/health-3.png",
+    image: "/images/ai-healthcare-images/health-3.webp",
     imageAlt:
       "Healthcare team using digital systems to manage healthcare operations",
     action: "Explore Healthcare Expertise",
@@ -73,7 +73,7 @@ const capabilitiesSlides: SqueezeSlide[] = [
       "Billing workflows",
       "Claims documentation",
     ],
-    image: "/images/ai-healthcare-images/health-8.png",
+    image: "/images/ai-healthcare-images/health-8.webp",
     imageAlt:
       "Healthcare operations team working with digital claims and revenue cycle systems",
     action: "Explore Healthcare Expertise",
@@ -92,7 +92,7 @@ const capabilitiesSlides: SqueezeSlide[] = [
       "Data validation",
       "Workflow automation",
     ],
-    image: "/images/ai-healthcare-images/health-1.png",
+    image: "/images/ai-healthcare-images/health-1.webp",
     imageAlt:
       "Healthcare professional reviewing digital prior authorization information",
     action: "Explore Healthcare Expertise",
@@ -111,7 +111,7 @@ const capabilitiesSlides: SqueezeSlide[] = [
       "Data extraction",
       "AI summarization",
     ],
-    image: "/images/ai-healthcare-images/health-2.png",
+    image: "/images/ai-healthcare-images/health-2.webp",
     imageAlt:
       "Healthcare professional processing digital medical documents with AI",
     action: "Explore Healthcare Expertise",
@@ -130,7 +130,7 @@ const capabilitiesSlides: SqueezeSlide[] = [
       "Healthcare analytics",
       "AI-ready data",
     ],
-    image: "/images/ai-healthcare-images/health-6.png",
+    image: "/images/ai-healthcare-images/health-6.webp",
     imageAlt:
       "Healthcare data specialists analyzing digital healthcare data and analytics",
     action: "Explore Healthcare Expertise",
@@ -149,7 +149,7 @@ const capabilitiesSlides: SqueezeSlide[] = [
       "Healthcare APIs",
       "System interoperability",
     ],
-    image: "/images/ai-healthcare-images/health-5.png",
+    image: "/images/ai-healthcare-images/health-5.webp",
     imageAlt:
       "Healthcare technology specialists working with connected interoperability systems",
     action: "Explore Healthcare Expertise",

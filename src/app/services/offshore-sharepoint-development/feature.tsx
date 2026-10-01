@@ -9,37 +9,37 @@ const features = [
     title: "Document Management",
     description:
       "Create, organize, and co-author files with version history, check-in/check-out, and secure collaboration.",
-    image: "/images/sharepoint/document.png",
+    image: "/images/sharepoint/document.webp",
   },
   {
     title: "Team Collaboration",
     description:
       "Empower teams with sites, calendars, tasks, and seamless Microsoft 365 integration.",
-    image: "/images/sharepoint/team.png",
+    image: "/images/sharepoint/team.webp",
   },
   {
     title: "Content Management",
     description:
       "Manage enterprise content with metadata, approvals, governance, and advanced search.",
-    image: "/images/sharepoint/content.png",
+    image: "/images/sharepoint/content.webp",
   },
   {
     title: "Business Automation",
     description:
       "Automate approvals, workflows, and notifications to streamline operations and save time.",
-    image: "/images/sharepoint/business-p.png",
+    image: "/images/sharepoint/business-p.webp",
   },
   {
     title: "Business Intelligence",
     description:
       "Visualize insights with dashboards, reports, and real-time analytics using Power BI.",
-    image: "/images/sharepoint/business-i.png",
+    image: "/images/sharepoint/business-i.webp",
   },
   {
     title: "Security & Compliance",
     description:
       "Protect sensitive information with role-based permissions, auditing, and enterprise compliance.",
-    image: "/images/sharepoint/security.png",
+    image: "/images/sharepoint/security.webp",
   },
 ];
 

@@ -5,8 +5,8 @@ import StepWipe, { StepWipeStep } from "./StepWipe";
 
 export const DEFAULT_AI_DEV_STEPS: StepWipeStep[] = [
   {
-    image: "/images/ai-development-services/core-capabilities/microsoft-ai-ecosystem.png",
-    cardImage: "/images/ai-development-services/step-4.jpg",
+    image: "/images/ai-development-services/core-capabilities/microsoft-ai-ecosystem.webp",
+    cardImage: "/images/ai-development-services/step-4.webp",
     title: "AI Copilot Development Services",
     description:
       "Build intelligent AI copilots that assist employees, automate workflows, connect business systems, and deliver context-aware support across enterprise applications.",
@@ -20,8 +20,8 @@ export const DEFAULT_AI_DEV_STEPS: StepWipeStep[] = [
     buttonText: "Explore Services",
   },
   {
-    image: "/images/imgweb/GenAI.png",
-    cardImage: "/images/imgweb/1.png",
+    image: "/images/imgweb/GenAI.webp",
+    cardImage: "/images/imgweb/1.webp",
     title: "Generative AI Development Services",
     description:
       "Develop production-ready generative AI applications powered by LLMs, multimodal models, prompt engineering, and customized AI architectures.",
@@ -35,8 +35,8 @@ export const DEFAULT_AI_DEV_STEPS: StepWipeStep[] = [
     buttonText: "Explore Services",
   },
   {
-    image: "/images/ai-development-services/core-capabilities/intelligent-automation.png",
-    cardImage: "/images/ai-development-services/step-3.jpg",
+    image: "/images/ai-development-services/core-capabilities/intelligent-automation.webp",
+    cardImage: "/images/ai-development-services/step-3.webp",
     title: "Enterprise RAG Development Services",
     description:
       "Create secure RAG solutions that connect enterprise data with AI models to deliver accurate, contextual, and source-grounded responses.",
@@ -50,8 +50,8 @@ export const DEFAULT_AI_DEV_STEPS: StepWipeStep[] = [
     buttonText: "Explore Services",
   },
   {
-    image: "/images/ai-development-services/core-capabilities/ai-strategy.png",
-    cardImage: "/images/ai-development-services/step-1.jpg",
+    image: "/images/ai-development-services/core-capabilities/ai-strategy.webp",
+    cardImage: "/images/ai-development-services/step-1.webp",
     title: "AI Consulting Services",
     description:
       "Define a practical AI strategy with expert guidance across use-case discovery, technology selection, AI readiness, governance, implementation, and ROI planning.",
@@ -65,8 +65,8 @@ export const DEFAULT_AI_DEV_STEPS: StepWipeStep[] = [
     buttonText: "Explore Services",
   },
   {
-    image: "/images/ai-development-services/why-softree/business.png",
-    cardImage: "/images/ai-development-services/success-stories/hr-assistant.png",
+    image: "/images/ai-development-services/why-softree/business.webp",
+    cardImage: "/images/ai-development-services/success-stories/hr-assistant.webp",
     title: "AI Chatbot Development Services",
     description:
       "Develop intelligent conversational AI chatbots that automate customer interactions, understand natural language, and integrate with your business systems.",
@@ -80,8 +80,8 @@ export const DEFAULT_AI_DEV_STEPS: StepWipeStep[] = [
     buttonText: "Explore Services",
   },
   {
-    image: "/images/ai-development-services/core-capabilities/enterprise-ai-architecture.png",
-    cardImage: "/images/ai-development-services/step-2.jpg",
+    image: "/images/ai-development-services/core-capabilities/enterprise-ai-architecture.webp",
+    cardImage: "/images/ai-development-services/step-2.webp",
     title: "Multi-Agent AI Development Services",
     description:
       "Build collaborative multi-agent AI systems that coordinate specialized agents, automate complex tasks, and execute intelligent workflows with minimal intervention.",
@@ -95,8 +95,8 @@ export const DEFAULT_AI_DEV_STEPS: StepWipeStep[] = [
     buttonText: "Explore Services",
   },
   {
-    image: "/images/imgweb/aiworkflowservices.png",
-    cardImage: "/images/imgweb/ai.png",
+    image: "/images/imgweb/aiworkflowservices.webp",
+    cardImage: "/images/imgweb/ai.webp",
     title: "AI Agent Development Services",
     description:
       "Develop autonomous AI agents capable of reasoning, using tools, accessing business data, executing tasks, and adapting to dynamic workflows.",
@@ -110,8 +110,8 @@ export const DEFAULT_AI_DEV_STEPS: StepWipeStep[] = [
     buttonText: "Explore Services",
   },
   {
-    image: "/images/imgweb/dataBIRobort.png",
-    cardImage: "/images/ai-development-services/why-softree/enterprise.png",
+    image: "/images/imgweb/dataBIRobort.webp",
+    cardImage: "/images/ai-development-services/why-softree/enterprise.webp",
     title: "Machine Learning Development Services",
     description:
       "Build custom machine learning solutions that turn business data into predictive insights, intelligent recommendations, and automated decision-making.",
@@ -125,8 +125,8 @@ export const DEFAULT_AI_DEV_STEPS: StepWipeStep[] = [
     buttonText: "Explore Services",
   },
   {
-    image: "/images/ai-development-services/industries/manufacturing.jpg",
-    cardImage: "/images/ai-development-services/success-stories/ai-manufacturing.png",
+    image: "/images/ai-development-services/industries/manufacturing.webp",
+    cardImage: "/images/ai-development-services/success-stories/ai-manufacturing.webp",
     title: "Computer Vision Development Services",
     description:
       "Develop computer vision solutions that analyze images and video to automate visual inspection, recognition, detection, and document processing.",
@@ -140,8 +140,8 @@ export const DEFAULT_AI_DEV_STEPS: StepWipeStep[] = [
     buttonText: "Explore Services",
   },
   {
-    image: "/images/ai-development-services/why-softree/custom.png",
-    cardImage: "/images/ai-development-services/success-stories/ai-performance-report.png",
+    image: "/images/ai-development-services/why-softree/custom.webp",
+    cardImage: "/images/ai-development-services/success-stories/ai-performance-report.webp",
     title: "Natural Language Processing Services",
     description:
       "Transform unstructured text and language data into actionable intelligence using NLP models for understanding, classification, extraction, and automation.",
@@ -155,8 +155,8 @@ export const DEFAULT_AI_DEV_STEPS: StepWipeStep[] = [
     buttonText: "Explore Services",
   },
   {
-    image: "/images/ai-development-services/why-softree/microsoft.png",
-    cardImage: "/images/ai-development-services/success-stories/ai-shipment-delay.png",
+    image: "/images/ai-development-services/why-softree/microsoft.webp",
+    cardImage: "/images/ai-development-services/success-stories/ai-shipment-delay.webp",
     title: "AI Integration & Automation Services",
     description:
       "Integrate AI capabilities into existing applications and business workflows to automate repetitive processes, improve productivity, and accelerate operations.",
@@ -170,8 +170,8 @@ export const DEFAULT_AI_DEV_STEPS: StepWipeStep[] = [
     buttonText: "Explore Services",
   },
   {
-    image: "/images/mlops-pipeline.jpg",
-    cardImage: "/images/ai-development-services/core-capabilities/continuous-optimization.png",
+    image: "/images/mlops-pipeline.webp",
+    cardImage: "/images/ai-development-services/core-capabilities/continuous-optimization.webp",
     title: "MLOps & AI Deployment Services",
     description:
       "Deploy, monitor, optimize, and scale AI and machine learning models with reliable infrastructure, automated pipelines, governance, and lifecycle management.",

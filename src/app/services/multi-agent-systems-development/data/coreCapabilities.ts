@@ -21,7 +21,7 @@ export const coreCapabilitiesData = [
       "Integrate OpenAI, Claude, Gemini, and Azure OpenAI into production-grade chat experiences.",
     icon: IconBrain,
     color: "bg-indigo-100 text-indigo-600",
-    image: "/images/solutions/ai-agents-development/core-capabilities/llm-integration.jpg",
+    image: "/images/solutions/ai-agents-development/core-capabilities/llm-integration.webp",
     description:
       "We select and integrate the right foundation models for latency, cost, and quality—so your chatbot sounds natural and stays reliable under load.",
     highlights: [
@@ -56,7 +56,7 @@ export const coreCapabilitiesData = [
       "Ground chatbot answers in SharePoint, FAQs, wikis, and product docs with citations.",
     icon: IconDatabase,
     color: "bg-emerald-100 text-emerald-600",
-    image: "/images/solutions/ai-agents-development/core-capabilities/rag-integration.jpg",
+    image: "/images/solutions/ai-agents-development/core-capabilities/rag-integration.webp",
     description:
       "Eliminate hallucinations by connecting chatbots to permission-aware enterprise knowledge with retrieval, ranking, and source citations.",
     highlights: [
@@ -91,7 +91,7 @@ export const coreCapabilitiesData = [
       "Let chatbots create tickets, update CRM records, and trigger workflows safely.",
     icon: IconApi,
     color: "bg-violet-100 text-violet-600",
-    image: "/images/solutions/ai-agents-development/core-capabilities/api-integration.jpg",
+    image: "/images/solutions/ai-agents-development/core-capabilities/api-integration.webp",
     description:
       "Move beyond FAQ bots—connect chat to ServiceNow, Dynamics, Salesforce, Zendesk, and custom APIs with scoped permissions.",
     highlights: [
@@ -126,7 +126,7 @@ export const coreCapabilitiesData = [
       "Remember session context and returning users for personalized, coherent chats.",
     icon: IconMessageCircle,
     color: "bg-amber-100 text-amber-600",
-    image: "/images/solutions/ai-agents-development/core-capabilities/memory-context.jpg",
+    image: "/images/solutions/ai-agents-development/core-capabilities/memory-context.webp",
     description:
       "Build chatbots that retain conversation state, user preferences, and prior issues—without leaking sensitive data across tenants.",
     highlights: [
@@ -161,7 +161,7 @@ export const coreCapabilitiesData = [
       "Escalate to live agents with full chat transcript and confidence-based routing.",
     icon: IconUserCheck,
     color: "bg-blue-100 text-blue-600",
-    image: "/images/solutions/ai-agents-development/core-capabilities/human-in-loop.jpg",
+    image: "/images/solutions/ai-agents-development/core-capabilities/human-in-loop.webp",
     description:
       "When confidence drops or the user asks for a person, hand off cleanly to your support desk with full context.",
     highlights: [
@@ -196,7 +196,7 @@ export const coreCapabilitiesData = [
       "Authentication, RBAC, audit logs, PII handling, and responsible AI controls.",
     icon: IconShieldLock,
     color: "bg-pink-100 text-pink-600",
-    image: "/images/solutions/ai-agents-development/core-capabilities/security-governance.jpg",
+    image: "/images/solutions/ai-agents-development/core-capabilities/security-governance.webp",
     description:
       "Deploy chatbots with enterprise identity, monitoring, content filters, and compliance-aligned logging.",
     highlights: [

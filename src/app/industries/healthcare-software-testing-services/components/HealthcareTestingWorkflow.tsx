@@ -17,7 +17,7 @@ const slides = [
       "Performance under peak loads",
       "Core reliability checks"
     ],
-    image: "/images/ai-healthcare-images/aihealth-1.png"
+    image: "/images/ai-healthcare-images/aihealth-1.webp"
   },
   {
     number: "02",
@@ -29,7 +29,7 @@ const slides = [
       "Clinical process verification",
       "Cross-department workflows"
     ],
-    image: "/images/ai-healthcare-images/aihealth-2.png"
+    image: "/images/ai-healthcare-images/aihealth-2.webp"
   },
   {
     number: "03",
@@ -41,7 +41,7 @@ const slides = [
       "System functionality testing",
       "EHR workflow validation"
     ],
-    image: "/images/ai-healthcare-images/aihealth-3.png"
+    image: "/images/ai-healthcare-images/aihealth-3.webp"
   },
   {
     number: "04",
@@ -53,7 +53,7 @@ const slides = [
       "Data exchange verification",
       "Interoperability checks"
     ],
-    image: "/images/ai-healthcare-images/health-8.png"
+    image: "/images/ai-healthcare-images/health-8.webp"
   },
   {
     number: "05",
@@ -65,7 +65,7 @@ const slides = [
       "Healthcare data analytics",
       "AI-powered feature testing"
     ],
-    image: "/images/ai-healthcare-images/aihealth-1.png"
+    image: "/images/ai-healthcare-images/aihealth-1.webp"
   },
   {
     number: "06",
@@ -77,7 +77,7 @@ const slides = [
       "Role-based access controls",
       "Vulnerability scanning"
     ],
-    image: "/images/ai-healthcare-images/aihealth-2.png"
+    image: "/images/ai-healthcare-images/aihealth-2.webp"
   },
 ];
 

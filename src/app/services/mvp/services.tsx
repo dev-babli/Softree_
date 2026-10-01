@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 const services = [
   {
     title: "No-Code & Low-Code MVP Solutions",
-    image: "/images/mvp/code.jpg",
+    image: "/images/mvp/code.webp",
     points: [
       "Build and launch functional MVPs in weeks using no-code and low-code platforms.",
       "Lower development costs with visual workflows, ready-made components, and automation.",
@@ -16,7 +16,7 @@ const services = [
   },
   {
     title: "AI-Driven MVP Development",
-    image: "/images/mvp/ai.jpg",
+    image: "/images/mvp/ai.webp",
     points: [
       "Embed AI features like chatbots, smart automation, and personalized recommendations.",
       "Improve security with AI-powered fraud detection and real-time risk analysis.",

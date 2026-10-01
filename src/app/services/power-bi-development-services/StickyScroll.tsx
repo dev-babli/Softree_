@@ -24,11 +24,12 @@ export const FabricStickyScroll = () => {
     const lenis = new Lenis();
     lenis.on('scroll', ScrollTrigger.update);
 
+    let rafId: number;
     const raf = (time: number) => {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     };
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     // Grab all section elements inside our container
     const sections = gsap.utils.toArray<HTMLElement>('.rss_section');
@@ -88,6 +89,7 @@ export const FabricStickyScroll = () => {
 
     // Cleanup function
     return () => {
+      cancelAnimationFrame(rafId);
       lenis.destroy();
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };

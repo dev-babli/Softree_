@@ -14,9 +14,9 @@ import AnimatedRadialCarousel from "@/components/homepage-light/AnimatedRadialCa
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 /* ──────────────────────────── Assets ──────────────────────────── */
-const ASSET_BG = "/hero/hero_BG.png";
-const ASSET_SUBJECT = "/hero/hero_subject_wide.png";
-const ASSET_REF = "/hero/reference.png";
+const ASSET_BG = "/hero/hero_BG.webp";
+const ASSET_SUBJECT = "/hero/hero_subject_wide.webp";
+const ASSET_REF = "/hero/reference.webp";
 
 const CARD_SIZE = "w-[clamp(240px,22vw,380px)] aspect-[0.8]";
 

@@ -15,7 +15,7 @@ const caseStudies = [
     solution: "Implemented a HIPAA-compliant Power BI data platform integrated with hospital EHR databases and predictive analytics models.",
     impact: "Enhanced hospital operational efficiency by 40% and improved patient admissions forecasting accuracy.",
     tech: ["Power BI", "Data Analytics", "Azure Data Factory", "EHR Integration"],
-    image: "/images/case-study/power-apps/hr.png",
+    image: "/images/case-study/power-apps/hr.webp",
     href: "https://www.softreetechnology.com/case-studies/smart-hospital-analytics-platform",
   },
   {
@@ -26,7 +26,7 @@ const caseStudies = [
     solution: "Designed an automated data validation pipeline and interactive Power BI dashboards to track billing cycles in real-time.",
     impact: "Identified 15% revenue leakage and accelerated billing cycles by 40% using advanced data analysis.",
     tech: ["Power BI", "Azure Data Factory", "Data Modeling", "Billing Integration"],
-    image: "/images/case-study/home/health.png",
+    image: "/images/case-study/home/health.webp",
     href: "https://www.softreetechnology.com/case-studies/healthcare-revenue-cycle-intelligence-dashboard",
   },
   {
@@ -37,7 +37,7 @@ const caseStudies = [
     solution: "Built an enterprise analytics platform on Microsoft Fabric with DirectLake connections and Power BI executive dashboards.",
     impact: "Reduced ticket resolution backlogs by 35% and improved SLA compliance by 45% using predictive analysis.",
     tech: ["Microsoft Fabric", "Power BI", "Synapse Analytics", "DirectLake"],
-    image: "/images/case-study/power-apps/ai.png",
+    image: "/images/case-study/power-apps/ai.webp",
     href: "https://www.softreetechnology.com/case-studies/ai-driven-itsm-analytics-platform-microsoft-fabric",
   },
   {

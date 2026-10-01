@@ -22,7 +22,7 @@ export const coreCapabilitiesData = [
       "Prioritize high-ROI use cases and design a governed path from pilot to production.",
     icon: IconMap,
     color: "bg-indigo-100 text-indigo-600",
-    image: "/images/solutions/ai-agents-development/core-capabilities/llm-integration.jpg",
+    image: "/images/solutions/ai-agents-development/core-capabilities/llm-integration.webp",
     description:
       "We align business outcomes, data readiness, and risk posture so leadership funds the right AI portfolio—not scattered experiments.",
     highlights: [
@@ -57,7 +57,7 @@ export const coreCapabilitiesData = [
       "Build production agents and copilots that act in your enterprise systems.",
     icon: IconRobot,
     color: "bg-violet-100 text-violet-600",
-    image: "/images/solutions/ai-agents-development/core-capabilities/api-integration.jpg",
+    image: "/images/solutions/ai-agents-development/core-capabilities/api-integration.webp",
     description:
       "From task agents to Microsoft copilots, we deliver solutions that plan, call tools, and complete work with human oversight where it matters.",
     highlights: [
@@ -92,7 +92,7 @@ export const coreCapabilitiesData = [
       "Ground answers in trusted documents, SharePoint, and business data.",
     icon: IconDatabase,
     color: "bg-emerald-100 text-emerald-600",
-    image: "/images/solutions/ai-agents-development/core-capabilities/rag-integration.jpg",
+    image: "/images/solutions/ai-agents-development/core-capabilities/rag-integration.webp",
     description:
       "Eliminate hallucinations with permission-aware retrieval, citations, and refresh pipelines that keep enterprise knowledge current.",
     highlights: [
@@ -127,7 +127,7 @@ export const coreCapabilitiesData = [
       "Automate multi-step processes across Power Platform, APIs, and line-of-business apps.",
     icon: IconActivity,
     color: "bg-orange-100 text-orange-600",
-    image: "/images/solutions/ai-agents-development/core-capabilities/memory-context.jpg",
+    image: "/images/solutions/ai-agents-development/core-capabilities/memory-context.webp",
     description:
       "Combine AI reasoning with durable workflows so documents, approvals, and handoffs move without manual re-entry.",
     highlights: [
@@ -162,7 +162,7 @@ export const coreCapabilitiesData = [
       "Ship with identity, evaluation, monitoring, and compliance controls.",
     icon: IconShieldLock,
     color: "bg-rose-100 text-rose-600",
-    image: "/images/solutions/ai-agents-development/core-capabilities/security-governance.jpg",
+    image: "/images/solutions/ai-agents-development/core-capabilities/security-governance.webp",
     description:
       "Enterprise AI only scales when security, audit, and quality gates are designed in—not bolted on after a pilot.",
     highlights: [
@@ -197,7 +197,7 @@ export const coreCapabilitiesData = [
       "Train teams, document runbooks, and drive usage so value is realized.",
     icon: IconUserCheck,
     color: "bg-sky-100 text-sky-600",
-    image: "/images/solutions/ai-agents-development/core-capabilities/human-in-loop.jpg",
+    image: "/images/solutions/ai-agents-development/core-capabilities/human-in-loop.webp",
     description:
       "Technology alone fails. We equip champions, admins, and end users so enterprise AI becomes part of how work gets done.",
     highlights: [

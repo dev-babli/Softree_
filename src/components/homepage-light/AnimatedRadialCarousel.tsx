@@ -28,7 +28,7 @@ const baseCards: Card[] = [
   },
   {
     title: "Data & Analytics",
-    img: "/whysoftree/data.jpg",
+    img: "/whysoftree/data.webp",
     href: "/services/data-analytics/power-bi",
     textColor: "text-white",
   },

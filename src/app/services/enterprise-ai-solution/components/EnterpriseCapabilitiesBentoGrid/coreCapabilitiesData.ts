@@ -12,7 +12,7 @@ export const coreCapabilitiesData = [
         shortDesc: 'Design highly available, scalable architectures that take AI models from local prototypes to global enterprise deployments.',
         icon: IconBrain,
         color: 'bg-indigo-100 text-indigo-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-1.png',
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-1.webp',
         description: 'We build robust AI infrastructure using Kubernetes, Azure Machine Learning, and Databricks. We implement CI/CD pipelines for models, ensuring they remain accurate and performant at scale.',
         highlights: [
             {
@@ -45,7 +45,7 @@ export const coreCapabilitiesData = [
         shortDesc: 'Deploy secure, isolated LLMs and Retrieval-Augmented Generation (RAG) pipelines within your cloud boundary.',
         icon: IconShieldCheck,
         color: 'bg-emerald-100 text-emerald-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-2.png',
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-2.webp',
         description: 'Protect intellectual property by hosting models entirely within your VPC. We build RAG systems that connect to your secure databases without exposing data to public APIs.',
         highlights: [
             {
@@ -78,7 +78,7 @@ export const coreCapabilitiesData = [
         shortDesc: 'Build autonomous AI agents that orchestrate complex, multi-step business processes.',
         icon: IconRobot,
         color: 'bg-violet-100 text-violet-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-3.png',
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-3.webp',
         description: 'Move beyond chat interfaces. We engineer AI agents capable of reasoning, using tools, and making decisions to automate entire departments and operational workflows.',
         highlights: [
             {
@@ -111,7 +111,7 @@ export const coreCapabilitiesData = [
         shortDesc: 'Securely connect generative AI with your existing ERP, CRM, and bespoke operational systems.',
         icon: IconBlocks,
         color: 'bg-amber-100 text-amber-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-4.png',
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-4.webp',
         description: 'AI is only as good as the data it accesses. We build custom middleware, APIs, and data ingestion pipelines to unify your legacy systems with modern AI capabilities.',
         highlights: [
             {
@@ -144,7 +144,7 @@ export const coreCapabilitiesData = [
         shortDesc: 'Scale your delivery immediately with our dedicated, NDA-backed teams of specialized enterprise AI engineers.',
         icon: IconHierarchy,
         color: 'bg-blue-100 text-blue-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-5.png',
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-5.webp',
         description: 'Bypass the talent shortage. Our fully managed engineering pods integrate seamlessly into your agile workflow, bringing deep expertise in LLMs, vector DBs, and cloud architecture.',
         highlights: [
             {
@@ -177,7 +177,7 @@ export const coreCapabilitiesData = [
         shortDesc: 'Implement strict output validation layers and fact-checking workflows to eliminate hallucinations.',
         icon: IconShield,
         color: 'bg-pink-100 text-pink-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-1.png',
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-1.webp',
         description: 'Enterprise AI requires enterprise safety. We implement rigorous input filtering, output validation, and semantic firewalls to ensure AI behaves predictably and safely.',
         highlights: [
             {

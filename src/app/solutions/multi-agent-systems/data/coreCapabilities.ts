@@ -23,7 +23,7 @@ export const coreCapabilitiesData = [
       'Coordinate specialized agents with planners, routers, and execution graphs that keep complex work moving reliably.',
     icon: IconNetwork,
     color: 'bg-indigo-100 text-indigo-600',
-    image: '/images/solutions/ai-agents-development/core-capabilities/llm-integration.jpg',
+    image: '/images/solutions/ai-agents-development/core-capabilities/llm-integration.webp',
     description:
       'We design orchestration layers that decompose goals, assign work to the right agents, and resolve conflicts so multi-step processes complete with clear ownership and state.',
     highlights: [
@@ -58,7 +58,7 @@ export const coreCapabilitiesData = [
       'Give every agent a shared, permission-aware view of enterprise knowledge, session state, and prior decisions.',
     icon: IconDatabase,
     color: 'bg-emerald-100 text-emerald-600',
-    image: '/images/solutions/ai-agents-development/core-capabilities/rag-integration.jpg',
+    image: '/images/solutions/ai-agents-development/core-capabilities/rag-integration.webp',
     description:
       'Eliminate contradictory agent behavior by grounding teams in shared RAG indexes, working memory, and audited state stores.',
     highlights: [
@@ -93,7 +93,7 @@ export const coreCapabilitiesData = [
       'Equip agent teams with secure tool calling across CRMs, ERPs, Microsoft 365, and custom APIs.',
     icon: IconApi,
     color: 'bg-violet-100 text-violet-600',
-    image: '/images/solutions/ai-agents-development/core-capabilities/api-integration.jpg',
+    image: '/images/solutions/ai-agents-development/core-capabilities/api-integration.webp',
     description:
       'Specialized agents take governed actions—create tickets, update records, trigger workflows—while orchestration enforces who can call what.',
     highlights: [
@@ -128,7 +128,7 @@ export const coreCapabilitiesData = [
       'Enable agents to negotiate, escalate, and hand off work with structured protocols—not ad-hoc prompts.',
     icon: IconUsersGroup,
     color: 'bg-amber-100 text-amber-600',
-    image: '/images/solutions/ai-agents-development/core-capabilities/memory-context.jpg',
+    image: '/images/solutions/ai-agents-development/core-capabilities/memory-context.webp',
     description:
       'Build collaboration patterns where research, planning, and execution agents communicate with clear message schemas and conflict resolution.',
     highlights: [
@@ -163,7 +163,7 @@ export const coreCapabilitiesData = [
       'Keep humans in control of high-risk multi-agent decisions with approvals, thresholds, and rich handoffs.',
     icon: IconUserCheck,
     color: 'bg-blue-100 text-blue-600',
-    image: '/images/solutions/ai-agents-development/core-capabilities/human-in-loop.jpg',
+    image: '/images/solutions/ai-agents-development/core-capabilities/human-in-loop.webp',
     description:
       'Route financial, legal, or safety-critical multi-agent outcomes to operators with full context before execution continues.',
     highlights: [
@@ -198,7 +198,7 @@ export const coreCapabilitiesData = [
       'Monitor agent teams with audit trails, RBAC, cost controls, and responsible AI governance.',
     icon: IconShieldLock,
     color: 'bg-pink-100 text-pink-600',
-    image: '/images/solutions/ai-agents-development/core-capabilities/security-governance.jpg',
+    image: '/images/solutions/ai-agents-development/core-capabilities/security-governance.webp',
     description:
       'Operate multi-agent systems in production with enterprise authentication, logging, evaluation loops, and continuous optimization.',
     highlights: [

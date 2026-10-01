@@ -127,7 +127,7 @@ export default function WebServiceHero() {
           transition={{ duration: DUR.cinematic, ease: EASE_T.silk, delay: 0.1 }}
         >
           <Image
-            src="/service_image/web.jpg"
+            src="/service_image/web.webp"
             alt=""
             fill
             className="object-cover"

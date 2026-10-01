@@ -13,7 +13,7 @@ export const coreCapabilitiesData = [
         shortDesc: 'Design an AI-powered workflow automation roadmap aligned with your business goals, operational priorities, and digital transformation initiatives.',
         icon: IconMap,
         color: 'bg-indigo-100 text-indigo-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-1.png',
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-1.webp',
 
         description:
             'Softree helps organizations design comprehensive AI workflow automation strategies that identify high-value opportunities, assess operational readiness, and develop practical roadmaps to maximize efficiency and ROI.',
@@ -51,7 +51,7 @@ export const coreCapabilitiesData = [
         shortDesc: 'Automate repetitive business processes with AI-driven workflows that improve efficiency, reduce manual effort, and eliminate operational bottlenecks.',
         icon: IconRobot,
         color: 'bg-emerald-100 text-emerald-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-2.png',
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-2.webp',
 
         description:
             'Automate repetitive business processes with AI-driven workflows that improve efficiency, reduce manual effort, and eliminate operational bottlenecks across your enterprise. Softree implements robust automation to transform how you work.',
@@ -89,7 +89,7 @@ export const coreCapabilitiesData = [
         shortDesc: 'Build scalable workflow automation solutions using Power Automate, Power Apps, Dataverse, Microsoft 365, and Azure AI services.',
         icon: IconApps,
         color: 'bg-violet-100 text-violet-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-3.png',
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-3.webp',
 
         description:
             'Build scalable workflow automation solutions using Power Automate, Power Apps, Dataverse, Microsoft 365, and Azure AI services. Softree leverages the full Microsoft ecosystem to create enterprise-grade automated applications.',
@@ -127,7 +127,7 @@ export const coreCapabilitiesData = [
         shortDesc: 'Connect ERP, CRM, SharePoint, Dynamics 365, SAP, Salesforce, and third-party applications through intelligent automated workflows.',
         icon: IconHierarchy,
         color: 'bg-amber-100 text-amber-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-4.png',
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-4.webp',
 
         description:
             'Connect ERP, CRM, SharePoint, Dynamics 365, SAP, Salesforce, and third-party applications through intelligent automated workflows. Softree breaks down data silos by seamlessly connecting your enterprise systems.',
@@ -165,7 +165,7 @@ export const coreCapabilitiesData = [
         shortDesc: 'Deploy AI agents and Copilot-powered assistants to automate employee tasks, customer interactions, approvals, and knowledge retrieval.',
         icon: IconMessageChatbot,
         color: 'bg-blue-100 text-blue-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-5.png',
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-5.webp',
 
         description:
             'Deploy AI agents and Copilot-powered assistants to automate employee tasks, customer interactions, approvals, and knowledge retrieval. Softree builds intelligent agents that act as virtual team members to accelerate productivity.',
@@ -203,7 +203,7 @@ export const coreCapabilitiesData = [
         shortDesc: 'Continuously monitor, optimize, and govern enterprise workflows to improve productivity, compliance, security, and operational performance.',
         icon: IconShieldCheck,
         color: 'bg-pink-100 text-pink-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-3.png',
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-3.webp',
 
         description:
             'Successful AI workflow automation extends beyond implementation. Softree helps organizations monitor workflow performance, optimize business processes, enforce governance policies, and continuously improve automation initiatives to maximize operational efficiency and business outcomes.',

@@ -4,10 +4,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 export default function WorkflowMedia({ activeStep }: { activeStep: number }) {
   const images = [
-    '/images/ai-development-services/step-4.jpg',
-    '/images/ai-development-services/step-3.jpg',
-    '/images/ai-development-services/step-2.jpg',
-    '/images/ai-development-services/step-1.jpg'
+    '/images/ai-development-services/step-4.webp',
+    '/images/ai-development-services/step-3.webp',
+    '/images/ai-development-services/step-2.webp',
+    '/images/ai-development-services/step-1.webp'
   ];
 
   return (

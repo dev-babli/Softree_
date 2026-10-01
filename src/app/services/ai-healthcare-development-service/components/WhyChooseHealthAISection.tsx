@@ -46,7 +46,7 @@ const caseStudySlides: CaseStudySlide[] = [
       { value: "↓ 18%", label: "Claims Denial Reduction" },
       { value: "↑ 40%", label: "Data Processing Speed" },
     ],
-    image: "/images/ai-healthcare-images/aihealth-1.png",
+    image: "/images/ai-healthcare-images/aihealth-1.webp",
     href: "/case-studies/healthcare-patient-intelligence-platform",
   },
   {
@@ -68,7 +68,7 @@ const caseStudySlides: CaseStudySlide[] = [
       { value: "↓ 58%", label: "Faster Appointment Scheduling" },
       { value: "↑ 70%", label: "Improved Response Times" },
     ],
-    image: "/images/ai-healthcare-images/aihealth-2.png",
+    image: "/images/ai-healthcare-images/aihealth-2.webp",
     href: "/case-studies/ai-powered-patient-appointment-and-follow-up-automation",
   },
   {
@@ -90,7 +90,7 @@ const caseStudySlides: CaseStudySlide[] = [
       { value: "↓ 75%", label: "Reduction in Manual Processing" },
       { value: "↑ 65%", label: "Faster Approval Cycles" },
     ],
-    image: "/images/ai-healthcare-images/aihealth-3.png",
+    image: "/images/ai-healthcare-images/aihealth-3.webp",
     href: "/case-studies/electronic-medical-records-workflow-automation",
   }
 ];

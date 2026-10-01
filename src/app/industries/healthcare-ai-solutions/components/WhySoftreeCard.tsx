@@ -35,11 +35,11 @@ const getIcon = (type: string, className: string) => {
 
 import Image from 'next/image';
 const imageMap: Record<string, string> = {
-  building: '/images/ai-development-services/why-softree/enterprise.png',
-  microsoft: '/images/ai-development-services/why-softree/microsoft.png',
-  shield: '/images/ai-development-services/why-softree/secure.png',
-  chart: '/images/ai-development-services/why-softree/business.png',
-  code: '/images/ai-development-services/why-softree/custom.png',
+  building: '/images/ai-development-services/why-softree/enterprise.webp',
+  microsoft: '/images/ai-development-services/why-softree/microsoft.webp',
+  shield: '/images/ai-development-services/why-softree/secure.webp',
+  chart: '/images/ai-development-services/why-softree/business.webp',
+  code: '/images/ai-development-services/why-softree/custom.webp',
 };
 
 export default function WhySoftreeCard({ item, isActive, onClick, windowWidth }: any) {

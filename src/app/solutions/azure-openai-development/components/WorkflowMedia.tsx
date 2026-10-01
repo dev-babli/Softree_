@@ -6,19 +6,19 @@ import Image from "next/image";
 
 const STEP_VISUALS = [
   {
-    src: "/images/ai-development-services/step-4.jpg",
+    src: "/images/ai-development-services/step-4.webp",
     caption: "Map Azure OpenAI use cases · design landing zone",
   },
   {
-    src: "/images/ai-development-services/step-3.jpg",
+    src: "/images/ai-development-services/step-3.webp",
     caption: "Build GPT apps, prompts, and secure APIs",
   },
   {
-    src: "/images/ai-development-services/step-2.jpg",
+    src: "/images/ai-development-services/step-2.webp",
     caption: "Ground with Azure AI Search + enterprise data",
   },
   {
-    src: "/images/ai-development-services/step-1.jpg",
+    src: "/images/ai-development-services/step-1.webp",
     caption: "Secure, observe, and optimize in production",
   },
 ];

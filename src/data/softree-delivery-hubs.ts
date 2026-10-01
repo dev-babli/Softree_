@@ -215,7 +215,7 @@ export const SOFTREE_DELIVERY_HUBS: SoftreeDeliveryHub[] = [
       "Technology and internet partner supporting digital platforms, modern software solutions, and enterprise technology programs.",
     label: "Technology Partner",
     detail: "Alpharetta, Georgia",
-    logo: "/images/logo/emscale_logo.png",
+    logo: "/images/logo/emscale_logo.webp",
   },
   {
     id: "intellectt-inc",
@@ -233,6 +233,6 @@ export const SOFTREE_DELIVERY_HUBS: SoftreeDeliveryHub[] = [
       "Engineering services partner supporting technology delivery, specialized engineering programs, and enterprise modernization initiatives.",
     label: "Technology Partner",
     detail: "Iselin, New Jersey",
-    logo: "/images/logo/Intellectt_logo.png",
+    logo: "/images/logo/Intellectt_logo.webp",
   },
 ];

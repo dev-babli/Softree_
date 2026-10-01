@@ -20,8 +20,8 @@ const REVIEWS = [
       "Modernize logistics platforms with enterprise integration and cloud data solutions."
     ],
     outcome: "Optimized transportation operations with scalable software, automation, and reliable offshore logistics engineering.",
-    imageSrc: "/images/serve/logistics/1.jpg",
-    thumbnailSrc: "/images/serve/logistics/1.jpg",
+    imageSrc: "/images/serve/logistics/1.webp",
+    thumbnailSrc: "/images/serve/logistics/1.webp",
   },
   {
     id: "02",
@@ -38,8 +38,8 @@ const REVIEWS = [
       "Implement AI agents to streamline complex supply chain workflows."
     ],
     outcome: "Resilient and transparent supply chain ecosystems powered by modern technology and offshore engineering.",
-    imageSrc: "/images/serve/logistics/2.jpg",
-    thumbnailSrc: "/images/serve/logistics/2.jpg",
+    imageSrc: "/images/serve/logistics/2.webp",
+    thumbnailSrc: "/images/serve/logistics/2.webp",
   },
   {
     id: "03",
@@ -56,8 +56,8 @@ const REVIEWS = [
       "Provide offshore teams specialized in high-performance distribution software."
     ],
     outcome: "Highly efficient, automated warehouse operations supported by specialized logistics software engineering.",
-    imageSrc: "/images/serve/logistics/3.jpg",
-    thumbnailSrc: "/images/serve/logistics/3.jpg",
+    imageSrc: "/images/serve/logistics/3.webp",
+    thumbnailSrc: "/images/serve/logistics/3.webp",
   },
   {
     id: "04",
@@ -74,8 +74,8 @@ const REVIEWS = [
       "Protect your proprietary logistics software and IP with strict NDAs."
     ],
     outcome: "Accelerated logistics technology development with flexible engineering capacity to scale your product.",
-    imageSrc: "/images/serve/logistics/4.jpg",
-    thumbnailSrc: "/images/serve/logistics/4.jpg",
+    imageSrc: "/images/serve/logistics/4.webp",
+    thumbnailSrc: "/images/serve/logistics/4.webp",
   },
   {
     id: "05",
@@ -92,8 +92,8 @@ const REVIEWS = [
       "Work seamlessly within your delivery model while protecting client relationships."
     ],
     outcome: "More logistics and supply chain projects delivered successfully without increasing your internal delivery overhead.",
-    imageSrc: "/images/serve/logistics/5.jpg",
-    thumbnailSrc: "/images/serve/logistics/5.jpg",
+    imageSrc: "/images/serve/logistics/5.webp",
+    thumbnailSrc: "/images/serve/logistics/5.webp",
   },
 ];
 

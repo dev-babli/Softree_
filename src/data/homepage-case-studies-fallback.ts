@@ -87,7 +87,7 @@ export const HOMEPAGE_FALLBACK_CASE_STUDIES: CaseStudyMock[] = [
     id: "fallback-healthcare-revenue",
     title: "Healthcare Revenue Intelligence",
     category: "Data & Analytics",
-    image: "/images/case-study/home/health.png",
+    image: "/images/case-study/home/health.webp",
     href: "/case-studies/healthcare-revenue-cycle-intelligence-dashboard",
     excerpt: "An analytics platform that cleanses, models, and visualizes complex medical billing data, identifying leakage points and optimizing revenue cycles.",
     clientDetails: "A large healthcare network operating over 40 facilities, processing millions in monthly insurance claims and facing complex revenue reconciliation cycles.",

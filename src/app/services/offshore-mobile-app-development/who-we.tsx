@@ -54,7 +54,7 @@ export default function WhoWeWorkWith() {
             {
               title: "Businesses & Brands",
               desc: "Entrepreneurs, enterprises, and non-profits building mobile apps to engage customers and communities.",
-              img: "/images/mobile-app/business.jpg",
+              img: "/images/mobile-app/business.webp",
 
               badge: "For Growth",
             },
@@ -68,7 +68,7 @@ export default function WhoWeWorkWith() {
             {
               title: "Agencies",
               desc: "Deliver high-quality mobile apps under your own brand without heavy technical or financial investment.",
-              img: "/images/mobile-app/agency.jpg",
+              img: "/images/mobile-app/agency.webp",
 
               badge: "Agency-Ready",
             },

@@ -6,7 +6,7 @@ export const industriesData: IndustryData[] = [
     title: "Healthcare",
     description: "Deploy private LLMs and secure RAG systems over patient records (EHR). Automate medical coding, accelerate drug discovery, and ensure strict HIPAA/PHI compliance at scale.",
     iconName: "HeartPulse",
-    imagePath: "/images/ai-consulting-service-image/industries/ind-3.png",
+    imagePath: "/images/ai-consulting-service-image/industries/ind-3.webp",
     badge: "Secure AI",
     benefits: ["EHR Summarization", "HIPAA-Compliant Models", "Clinical RAG Pipelines"]
   },
@@ -15,7 +15,7 @@ export const industriesData: IndustryData[] = [
     title: "Manufacturing",
     description: "Implement edge AI for defect detection, predictive maintenance models across global factory floors, and autonomous supply chain agents that optimize inventory in real-time.",
     iconName: "Settings",
-    imagePath: "/images/ai-consulting-service-image/industries/ind-1.png",
+    imagePath: "/images/ai-consulting-service-image/industries/ind-1.webp",
     badge: "Edge & IoT",
     benefits: ["Computer Vision QC", "Autonomous SCM", "Global MLOps"]
   },
@@ -24,7 +24,7 @@ export const industriesData: IndustryData[] = [
     title: "Financial Services",
     description: "Build robust fraud detection pipelines with sub-50ms latency. Deploy enterprise copilots for financial analysts using secure vector databases to query proprietary market data.",
     iconName: "Landmark",
-    imagePath: "/images/ai-consulting-service-image/industries/ind-5.png",
+    imagePath: "/images/ai-consulting-service-image/industries/ind-5.webp",
     badge: "High Performance",
     benefits: ["Algorithmic Risk Models", "Financial Copilots", "SOC2 Compliant"]
   },
@@ -33,7 +33,7 @@ export const industriesData: IndustryData[] = [
     title: "Retail & eCommerce",
     description: "Scale personalization engines to millions of users. Implement autonomous pricing agents and multimodal AI search to revolutionize the digital customer journey.",
     iconName: "ShoppingCart",
-    imagePath: "/images/ai-consulting-service-image/industries/ind-6.png",
+    imagePath: "/images/ai-consulting-service-image/industries/ind-6.webp",
     badge: "Global Scale",
     benefits: ["Multimodal Search", "Dynamic Pricing Agents", "Hyper-Personalization"]
   },
@@ -42,7 +42,7 @@ export const industriesData: IndustryData[] = [
     title: "Logistics & Supply Chain",
     description: "Leverage advanced Operations Research and AI to calculate optimal global shipping routes, predict disruptions via real-time data streaming, and automate freight bidding.",
     iconName: "Truck",
-    imagePath: "/images/ai-consulting-service-image/industries/ind-4.png",
+    imagePath: "/images/ai-consulting-service-image/industries/ind-4.webp",
     badge: "Real-Time AI",
     benefits: ["Predictive Disruption", "Route Optimization", "Automated Brokerage"]
   },
@@ -51,7 +51,7 @@ export const industriesData: IndustryData[] = [
     title: "Education",
     description: "Deploy scalable AI tutoring agents that adapt to individual learning styles. Automate institutional data processing while maintaining FERPA compliance across the architecture.",
     iconName: "GraduationCap",
-    imagePath: "/images/ai-consulting-service-image/industries/ind-2.png",
+    imagePath: "/images/ai-consulting-service-image/industries/ind-2.webp",
     badge: "Agentic Tutors",
     benefits: ["Adaptive LLM Tutors", "FERPA Compliance", "Institutional RAG"]
   },
@@ -61,7 +61,7 @@ export const industriesData: IndustryData[] = [
     title: "Government",
     description: "Deploy air-gapped LLM solutions and sovereign cloud architectures. Ensure defense-grade data security while automating intelligence analysis and public service workflows.",
     iconName: "Building",
-    imagePath: "/images/ai-consulting-service-image/industries/ind-1.png",
+    imagePath: "/images/ai-consulting-service-image/industries/ind-1.webp",
     badge: "Air-Gapped AI",
     benefits: ["Sovereign Models", "Defense-Grade Security", "Automated Intelligence"]
   }

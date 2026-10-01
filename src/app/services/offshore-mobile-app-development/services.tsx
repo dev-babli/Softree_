@@ -256,7 +256,7 @@ export default function ServicesShowcaseExactImage() {
               className={`relative ${active.imageHeight} ${active.imageWidth}`}
             >
               <Image
-                src="/images/mobile-app/ReactNativepicture.png"
+                src="/images/mobile-app/ReactNativepicture.webp"
                 alt="Mobile App Development Services"
                 fill
                 className="object-cover"

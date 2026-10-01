@@ -20,7 +20,7 @@ const solutionsData: SolutionCard[] = [
     number: "01",
     title: "AI Copilot Development",
     description: "Build intelligent copilots that understand context, automate workflows, and enhance productivity across your organization.",
-    image: "/images/ai-development-service/aicard-1.png",
+    image: "/images/ai-development-service/aicard-1.webp",
     items: [
       "Microsoft 365 Copilot Custom Development",
       "Copilot Studio Development & Integration",
@@ -34,7 +34,7 @@ const solutionsData: SolutionCard[] = [
     number: "02",
     title: "Generative AI Development",
     description: "Harness foundational models to generate high-quality text, images, code, and synthetic data for specialized enterprise tasks.",
-    image: "/images/ai-development-service/aicard-2.png",
+    image: "/images/ai-development-service/aicard-2.webp",
     items: [
       "Custom LLM Development & Fine-Tuning",
       "Generative AI Application Development",
@@ -48,7 +48,7 @@ const solutionsData: SolutionCard[] = [
     number: "03",
     title: "Enterprise RAG Development",
     description: "Empower your workforce with Retrieval-Augmented Generation to securely interact with internal enterprise knowledge bases.",
-    image: "/images/ai-development-service/aicard-3.png",
+    image: "/images/ai-development-service/aicard-3.webp",
     items: [
       "Retrieval-Augmented Generation Development",
       "Vector & Semantic Search Solutions",
@@ -62,7 +62,7 @@ const solutionsData: SolutionCard[] = [
     number: "04",
     title: "AI Consulting Service",
     description: "Navigate the complexities of AI adoption with expert guidance, ensuring strategic alignment and measurable ROI.",
-    image: "/images/ai-development-services/step-1.jpg",
+    image: "/images/ai-development-services/step-1.webp",
     items: [
       "AI Strategy & Digital Transformation",
       "AI Readiness & Maturity Assessment",
@@ -76,7 +76,7 @@ const solutionsData: SolutionCard[] = [
     number: "05",
     title: "AI Chatbot Development",
     description: "Deploy omnichannel conversational agents that provide human-like customer support and automate routine interactions.",
-    image: "/images/ai-development-services/step-2.jpg",
+    image: "/images/ai-development-services/step-2.webp",
     items: [
       "Custom AI Chatbot Development",
       "Conversational AI & Virtual Assistants",
@@ -90,7 +90,7 @@ const solutionsData: SolutionCard[] = [
     number: "06",
     title: "Multi Agent System",
     description: "Design autonomous collaborative networks of AI agents that dynamically plan, execute, and evaluate complex workflows.",
-    image: "/images/ai-development-services/step-3.jpg",
+    image: "/images/ai-development-services/step-3.webp",
     items: [
       "Multi-Agent System Architecture",
       "Autonomous AI Agent Development",

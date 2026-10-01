@@ -49,7 +49,7 @@ const demoData: Gallery4Props = {
         </div>
       ),
       href: "#",
-      image: "/images/nova-2/voice-agent-1.jpg",
+      image: "/images/nova-2/voice-agent-1.webp",
     },
     {
       id: "ai-customer-support-voice-agent",
@@ -76,7 +76,7 @@ const demoData: Gallery4Props = {
         </div>
       ),
       href: "#",
-      image: "/images/nova-2/voice-agent-2.jpg",
+      image: "/images/nova-2/voice-agent-2.webp",
     },
     {
       id: "ai-voice-order-service-agent",
@@ -103,7 +103,7 @@ const demoData: Gallery4Props = {
         </div>
       ),
       href: "#",
-      image: "/images/nova-2/voice-agent-3.jpg",
+      image: "/images/nova-2/voice-agent-3.webp",
     }
   ],
 };

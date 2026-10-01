@@ -172,7 +172,7 @@ export default function AgentCoreHero() {
               {/* Amazon Bedrock Logo */}
               <div className="relative z-10 w-[110px] h-[110px] sm:w-[150px] sm:h-[150px] rounded-full overflow-hidden flex items-center justify-center bg-black/40 backdrop-blur-sm border border-white/10">
                 <Image
-                  src="/assets/amazon-bedrock-logo.png"
+                  src="/assets/amazon-bedrock-logo.webp"
                   alt="Amazon Bedrock AgentCore Logo"
                   fill
                   className="object-cover opacity-90"

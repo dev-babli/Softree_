@@ -20,8 +20,8 @@ const REVIEWS = [
       "Support your team from architecture through production."
     ],
     outcome: "A modern, scalable data and analytics foundation that helps your business make better decisions without increasing internal engineering overhead.",
-    imageSrc: "/images/serve/4.jpg",
-    thumbnailSrc: "/images/serve/4.jpg",
+    imageSrc: "/images/serve/4.webp",
+    thumbnailSrc: "/images/serve/4.webp",
   },
   {
     id: "02",
@@ -38,8 +38,8 @@ const REVIEWS = [
       "Work as an extension of your existing engineering organization."
     ],
     outcome: "Extended engineering capacity with specialized Microsoft Fabric expertise that helps your team deliver data and analytics initiatives faster.",
-    imageSrc: "/images/serve/3.jpg",
-    thumbnailSrc: "/images/serve/3.jpg",
+    imageSrc: "/images/serve/3.webp",
+    thumbnailSrc: "/images/serve/3.webp",
   },
   {
     id: "03",
@@ -56,8 +56,8 @@ const REVIEWS = [
       "Work behind your brand while you maintain the client relationship."
     ],
     outcome: "Additional Fabric delivery capacity that helps you take on more client projects while maintaining your client relationships and delivery ownership.",
-    imageSrc: "/images/serve/5.jpg",
-    thumbnailSrc: "/images/serve/5.jpg",
+    imageSrc: "/images/serve/5.webp",
+    thumbnailSrc: "/images/serve/5.webp",
   },
   {
     id: "04",
@@ -74,8 +74,8 @@ const REVIEWS = [
       "Scale engineering support based on your project requirements."
     ],
     outcome: "A reliable Fabric engineering partner that expands your delivery capabilities without requiring you to build a larger internal team.",
-    imageSrc: "/images/serve/2.jpg",
-    thumbnailSrc: "/images/serve/2.jpg",
+    imageSrc: "/images/serve/2.webp",
+    thumbnailSrc: "/images/serve/2.webp",
   },
   {
     id: "05",
@@ -92,8 +92,8 @@ const REVIEWS = [
       "Extend your product engineering team with specialized Fabric expertise."
     ],
     outcome: "A scalable Fabric data foundation that supports product analytics, business intelligence, integrations, and future AI initiatives.",
-    imageSrc: "/images/serve/1.jpg",
-    thumbnailSrc: "/images/serve/1.jpg",
+    imageSrc: "/images/serve/1.webp",
+    thumbnailSrc: "/images/serve/1.webp",
   },
 ];
 

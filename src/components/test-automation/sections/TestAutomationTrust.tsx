@@ -22,7 +22,7 @@ export function TestAutomationTrust() {
           className="mb-6 grid gap-5 overflow-hidden rounded-2xl border border-[#FF5812]/25 bg-white p-5 transition-colors hover:border-[#FF5812]/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/50 focus-visible:ring-offset-2 md:grid-cols-[minmax(0,0.55fr)_minmax(0,1fr)] md:items-center"
         >
           <Image
-            src="/images/case-study/sharepoint/sp.png"
+            src="/images/case-study/sharepoint/sp.webp"
             alt="SharePoint SPFx automation testing case study interface"
             width={640}
             height={420}

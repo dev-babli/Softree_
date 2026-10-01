@@ -34,7 +34,7 @@ function latLngToVector3(lat: number, lng: number, radius: number) {
 }
 
 function Earth() {
-  const texture = useTexture("/earth.jpg");
+  const texture = useTexture("/earth.webp");
 
   return (
     <mesh>

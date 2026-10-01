@@ -9,12 +9,12 @@ const CERTIFICATIONS = [
 ] as const
 
 const CLIENT_LOGOS = [
-  { name: "Bosch", src: "/images/logo/bosch.png" },
-  { name: "Snap-on", src: "/images/logo/snapon.jpg" },
-  { name: "SP Marketplace", src: "/images/logo/1.jpg" },
-  { name: "Export Control Group", src: "/images/logo/ecg.png" },
-  { name: "Nuvento", src: "/images/logo/nuvento.jpg" },
-  { name: "Emscale", src: "/images/logo/emscale_logo.png" },
+  { name: "Bosch", src: "/images/logo/bosch.webp" },
+  { name: "Snap-on", src: "/images/logo/snapon.webp" },
+  { name: "SP Marketplace", src: "/images/logo/1.webp" },
+  { name: "Export Control Group", src: "/images/logo/ecg.webp" },
+  { name: "Nuvento", src: "/images/logo/nuvento.webp" },
+  { name: "Emscale", src: "/images/logo/emscale_logo.webp" },
 ] as const
 
 export default function ModernizationTrustStrip() {

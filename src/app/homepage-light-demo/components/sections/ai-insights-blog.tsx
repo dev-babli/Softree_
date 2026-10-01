@@ -21,7 +21,7 @@ type Article = {
 };
 
 const initialFeatured: Article = {
-  imageUrl: "/images/case-study/power-apps/hr.png",
+  imageUrl: "/images/case-study/power-apps/hr.webp",
   title: "HR Assistant Copilot Agent",
   date: "AI Agent",
   readTime: "Case Study",

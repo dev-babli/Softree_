@@ -32,12 +32,12 @@ export interface KnowledgeSourceItem {
 export const HERO_DATA = {
   label: 'ENTERPRISE RAG DEVELOPMENT SERVICES',
   heading: {
-    prefix: 'Your Offshore RAG Development for',
-    highlight: 'Accurate, Secure AI',
+    prefix: 'Offshore RAG Engineering Partner for',
+    highlight: 'Secure, Grounded AI',
     suffix: '',
   },
   paragraph:
-    'Strengthen your AI delivery capabilities with offshore RAG expertise that connects documents, databases, business applications, and knowledge sources to deliver accurate, grounded AI responses.',
+    'Extend your AI delivery capabilities with Softree’s offshore RAG engineering team. We build secure, production-ready RAG solutions that connect enterprise documents, databases, business applications, and knowledge sources to deliver grounded, context-aware AI experiences.',
   ctaButtons: {
     primary: {
       text: 'Talk to An Expert',

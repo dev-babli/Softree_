@@ -23,7 +23,7 @@ const CASE_STUDIES = [
   {
     id: "wellkies-clinic",
     title: "Wellkies Clinic Management App",
-    image: "/images/2.png",
+    image: "/images/2.webp",
     link: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-Clinic-App.pdf",
     challenge:
       "Clinic staff relied on manual workflows for billing, appointments, and records.",

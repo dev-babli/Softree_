@@ -178,8 +178,7 @@ export const SuccessStories = () => {
               {/* Single Centered Case Study Image Card */}
               <div className="relative w-full flex items-center justify-center mb-12 z-10">
                 <div className="w-full max-w-[720px] aspect-[16/9] rounded-3xl overflow-hidden border border-white/10 relative shadow-2xl bg-slate-950 hover:-translate-y-1.5 transition-transform duration-300">
-                  <img
-                    src={images.left}
+                  <img loading="lazy" src={images.left}
                     className="w-full h-full object-cover select-none pointer-events-none"
                     alt={`${activeStory.title} Case Study Preview`}
                   />

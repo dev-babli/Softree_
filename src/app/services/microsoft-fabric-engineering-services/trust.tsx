@@ -4,16 +4,16 @@ import Image from "next/image";
 
 export default function TrustedBrandsMarquee() {
   const logos = [
-    { name: "GO ERP", src: "/images/logo/goerp1.jpg" },
-    { name: "Nuvento", src: "/images/logo/nuvento.jpg" },
-    { name: "Snapon", src: "/images/logo/snapon.jpg" },
+    { name: "GO ERP", src: "/images/logo/goerp1.webp" },
+    { name: "Nuvento", src: "/images/logo/nuvento.webp" },
+    { name: "Snapon", src: "/images/logo/snapon.webp" },
     {
       name: "Jonians",
-      src: "/images/logo/jonians.jpg",
+      src: "/images/logo/jonians.webp",
     },
-    { name: "Export Control Group", src: "/images/logo/ecg.png" },
-    { name: "SP Marketplace", src: "/images/logo/1.jpg" },
-    { name: "Bosch", src: "/images/logo/bosch.png" },
+    { name: "Export Control Group", src: "/images/logo/ecg.webp" },
+    { name: "SP Marketplace", src: "/images/logo/1.webp" },
+    { name: "Bosch", src: "/images/logo/bosch.webp" },
   ];
 
   return (

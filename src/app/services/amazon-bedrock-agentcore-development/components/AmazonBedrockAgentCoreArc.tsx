@@ -24,7 +24,7 @@ const NOVA_SLIDES: NovaSlide[] = [
     title: "Amazon Bedrock AgentCore Runtime",
     description:
       "Deploy and run AI agents in a secure, scalable environment with support for popular agent frameworks, models, MCP, A2A, and isolated sessions.",
-    media: "/images/amazonbedrock-images/bedrock-1.png",
+    media: "/images/amazonbedrock-images/bedrock-1.webp",
     effect: "glass",
   },
 
@@ -35,7 +35,7 @@ const NOVA_SLIDES: NovaSlide[] = [
     title: "AgentCore Memory for AI Agents",
     description:
       "Build agents that retain relevant context across interactions with managed short-term and long-term memory capabilities.",
-    media: "/images/amazonbedrock-images/bedrock-9.png",
+    media: "/images/amazonbedrock-images/bedrock-9.webp",
     effect: "ripple",
   },
 
@@ -46,7 +46,7 @@ const NOVA_SLIDES: NovaSlide[] = [
     title: "AgentCore Gateway for AI Tools",
     description:
       "Connect AI agents to APIs, Lambda functions, MCP servers, and applications through secure, agent-ready tools and integrations.",
-    media: "/images/amazonbedrock-images/bedrock-3.png",
+    media: "/images/amazonbedrock-images/bedrock-3.webp",
     effect: "timeshift",
   },
 
@@ -57,7 +57,7 @@ const NOVA_SLIDES: NovaSlide[] = [
     title: "Secure AI Agent Identity & Access",
     description:
       "Enable agents to securely access AWS resources, applications, and third-party services with identity-aware authorization and controlled permissions.",
-    media: "/images/amazonbedrock-images/bedrock-4.png",
+    media: "/images/amazonbedrock-images/bedrock-4.webp",
     effect: "frost",
   },
 
@@ -68,7 +68,7 @@ const NOVA_SLIDES: NovaSlide[] = [
     title: "AgentCore Browser for Web Automation",
     description:
       "Enable AI agents to securely interact with websites and web applications through managed browser environments designed for scalable agent workflows.",
-    media: "/images/amazonbedrock-images/bedrock-5.png",
+    media: "/images/amazonbedrock-images/bedrock-5.webp",
     effect: "glass",
   },
 
@@ -79,7 +79,7 @@ const NOVA_SLIDES: NovaSlide[] = [
     title: "AgentCore Code Interpreter",
     description:
       "Enable agents to write and execute code in secure sandbox environments to analyze data, perform calculations, and complete complex tasks.",
-    media: "/images/amazonbedrock-images/bedrock-6.png",
+    media: "/images/amazonbedrock-images/bedrock-6.webp",
     effect: "ripple",
   },
 
@@ -90,7 +90,7 @@ const NOVA_SLIDES: NovaSlide[] = [
     title: "AgentCore Observability for AI Agents",
     description:
       "Trace agent workflows, monitor performance, inspect tool calls, identify failures, and gain operational visibility with AgentCore Observability and CloudWatch.",
-    media: "/images/amazonbedrock-images/bedrock-7.png",
+    media: "/images/amazonbedrock-images/bedrock-7.webp",
     effect: "timeshift",
   },
 
@@ -101,7 +101,7 @@ const NOVA_SLIDES: NovaSlide[] = [
     title: "AgentCore Evaluations for AI Agents",
     description:
       "Continuously evaluate AI agents for response quality, task completion, safety, and tool usage to support reliable production deployments.",
-    media: "/images/amazonbedrock-images/bedrock-8.png",
+    media: "/images/amazonbedrock-images/bedrock-8.webp",
     effect: "plasma",
   },
 ];

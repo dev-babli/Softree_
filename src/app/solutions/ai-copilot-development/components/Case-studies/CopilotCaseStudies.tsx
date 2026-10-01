@@ -52,7 +52,7 @@ export const caseStudiesData: CopilotCaseStudy[] = [
       { value: "↑ 70%", label: "Faster Information Retrieval" },
       { value: "↑ 55%", label: "Reduced Administrative Work" },
     ],
-    image: "/images/ai-consulting-service-image/success-stories/how-1.png",
+    image: "/images/ai-consulting-service-image/success-stories/how-1.webp",
     href: "/case-studies/electronic-medical-records-workflow-automation",
   },
   {
@@ -74,7 +74,7 @@ export const caseStudiesData: CopilotCaseStudy[] = [
       { value: "↑ 75%", label: "HR Productivity" },
       { value: "↑ 65%", label: "Employee Satisfaction" },
     ],
-    image: "/images/ai-consulting-service-image/success-stories/how-2.png",
+    image: "/images/ai-consulting-service-image/success-stories/how-2.webp",
     href: "/case-studies/how-an-enterprise-organization-automated-hr-operations-using-ai",
   },
   {
@@ -96,7 +96,7 @@ export const caseStudiesData: CopilotCaseStudy[] = [
       { value: "↑ 65%", label: "Faster Decision Making" },
       { value: "↑ 45%", label: "Operational Efficiency" },
     ],
-    image: "/images/ai-consulting-service-image/success-stories/how-3.png",
+    image: "/images/ai-consulting-service-image/success-stories/how-3.webp",
     href: "/case-studies/ecg-group-ai-copilot-transformation",
   },
   {
@@ -118,7 +118,7 @@ export const caseStudiesData: CopilotCaseStudy[] = [
       { value: "↑ 50%", label: "Reduced Bottlenecks" },
       { value: "↑ 80%", label: "Process Visibility" },
     ],
-    image: "/images/ai-consulting-service-image/success-stories/how-4.png",
+    image: "/images/ai-consulting-service-image/success-stories/how-4.webp",
     href: "/case-studies/ai-powered-process-discovery-copilot",
   },
   {
@@ -140,7 +140,7 @@ export const caseStudiesData: CopilotCaseStudy[] = [
       { value: "↑ 60%", label: "Task Automation" },
       { value: "↑ 40%", label: "Manual Effort Reduction" },
     ],
-    image: "/images/ai-consulting-service-image/success-stories/how-5.png",
+    image: "/images/ai-consulting-service-image/success-stories/how-5.webp",
     href: "/case-studies/ai-powered-task-automation-copilot-power-apps",
   },
 ];

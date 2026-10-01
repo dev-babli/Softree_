@@ -52,7 +52,7 @@ export const demoStories: Story[] = [
 
 export const CLIENT_LOGOS = {
   wickedPoint: "/images/logo/wickedpoint.jpg",
-  ecg: "/images/logo/ecg.png",
+  ecg: "/images/logo/ecg.webp",
   spMarketplace: "/images/logo/sp-marketplace.png",
 } as const;
 

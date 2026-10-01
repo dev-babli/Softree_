@@ -124,8 +124,7 @@ export default function TestimonialsSplitSlider() {
 
                         {/* ================= USER INFO ================= */}
                         <div className="flex items-center gap-3 mb-4">
-                          <img
-                            src={t.logo}
+                          <img loading="lazy" src={t.logo}
                             alt={t.company}
                             className="
     w-16 h-16

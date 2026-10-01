@@ -24,8 +24,8 @@ const REVIEWS = [
       "Build secure, scalable, and compliant digital health solutions."
     ],
     outcome: "Faster product roadmaps with secure, scalable digital health solutions built by healthcare engineering experts.",
-    imageSrc: "/images/serve/healthcare/1.jpg",
-    thumbnailSrc: "/images/serve/healthcare/1.jpg",
+    imageSrc: "/images/serve/healthcare/1.webp",
+    thumbnailSrc: "/images/serve/healthcare/1.webp",
   },
   {
     id: "02",
@@ -42,8 +42,8 @@ const REVIEWS = [
       "Connect enterprise systems and unify healthcare data."
     ],
     outcome: "Modernized healthcare operations with automated workflows and actionable, AI-driven intelligence.",
-    imageSrc: "/images/serve/healthcare/2.jpg",
-    thumbnailSrc: "/images/serve/healthcare/2.jpg",
+    imageSrc: "/images/serve/healthcare/2.webp",
+    thumbnailSrc: "/images/serve/healthcare/2.webp",
   },
   {
     id: "03",
@@ -60,8 +60,8 @@ const REVIEWS = [
       "Provide deep expertise in healthcare integrations and data systems."
     ],
     outcome: "Accelerated technology development with flexible, healthcare-focused engineering capacity.",
-    imageSrc: "/images/serve/healthcare/3.jpg",
-    thumbnailSrc: "/images/serve/healthcare/3.jpg",
+    imageSrc: "/images/serve/healthcare/3.webp",
+    thumbnailSrc: "/images/serve/healthcare/3.webp",
   },
   {
     id: "04",
@@ -78,8 +78,8 @@ const REVIEWS = [
       "Work alongside your team to scale your agency's capabilities."
     ],
     outcome: "More healthcare projects delivered successfully under your brand with specialized engineering support.",
-    imageSrc: "/images/serve/healthcare/4.jpg",
-    thumbnailSrc: "/images/serve/healthcare/4.jpg",
+    imageSrc: "/images/serve/healthcare/4.webp",
+    thumbnailSrc: "/images/serve/healthcare/4.webp",
   },
   {
     id: "05",
@@ -96,8 +96,8 @@ const REVIEWS = [
       "Integrate seamlessly with your existing delivery frameworks."
     ],
     outcome: "Scaled delivery capabilities for complex healthcare technology engagements.",
-    imageSrc: "/images/serve/healthcare/5.jpg",
-    thumbnailSrc: "/images/serve/healthcare/5.jpg",
+    imageSrc: "/images/serve/healthcare/5.webp",
+    thumbnailSrc: "/images/serve/healthcare/5.webp",
   },
   {
     id: "06",
@@ -114,8 +114,8 @@ const REVIEWS = [
       "Execute complex healthcare enterprise integrations and application development."
     ],
     outcome: "Successful Microsoft healthcare engagements delivered with specialized engineering expertise.",
-    imageSrc: "/images/serve/healthcare/6.jpg",
-    thumbnailSrc: "/images/serve/healthcare/6.jpg",
+    imageSrc: "/images/serve/healthcare/6.webp",
+    thumbnailSrc: "/images/serve/healthcare/6.webp",
   },
   {
     id: "07",
@@ -132,8 +132,8 @@ const REVIEWS = [
       "Deliver enterprise technology solutions without internal hiring overhead."
     ],
     outcome: "Flexible, scalable healthcare technology delivery without the burden of building new internal teams.",
-    imageSrc: "/images/serve/healthcare/7.jpg",
-    thumbnailSrc: "/images/serve/healthcare/7.jpg",
+    imageSrc: "/images/serve/healthcare/7.webp",
+    thumbnailSrc: "/images/serve/healthcare/7.webp",
   }
 ];
 

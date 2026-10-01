@@ -64,7 +64,7 @@ const automationSlides: SqueezeSlide[] = [
     shortTitle: "System Discovery",
     description:
       "Understand the application, workflows, users, integrations, and AI functionality.",
-    image: "/images/ai-healthcare-images/health-1.png",
+    image: "/images/ai-healthcare-images/health-1.webp",
     imageAlt: "Discover Healthcare Application Workflows",
     bullets: [
       "Clinical workflow & persona mapping",
@@ -81,7 +81,7 @@ const automationSlides: SqueezeSlide[] = [
     shortTitle: "QA & Test Planning",
     description:
       "Define testing scope, scenarios, environments, test data, and coverage.",
-    image: "/images/ai-healthcare-images/health-2.png",
+    image: "/images/ai-healthcare-images/health-2.webp",
     imageAlt: "Plan Healthcare QA Strategy",
     bullets: [
       "Test scope & clinical acceptance criteria",
@@ -98,7 +98,7 @@ const automationSlides: SqueezeSlide[] = [
     shortTitle: "Test Automation",
     description:
       "Automate repeatable UI, API, functional, and regression scenarios.",
-    image: "/images/ai-healthcare-images/health-3.png",
+    image: "/images/ai-healthcare-images/health-3.webp",
     imageAlt: "Automate Healthcare Testing",
     bullets: [
       "End-to-end clinical workflow automation",
@@ -115,7 +115,7 @@ const automationSlides: SqueezeSlide[] = [
     shortTitle: "Quality Validation",
     description:
       "Test application functionality, integrations, performance, security, and AI behavior.",
-    image: "/images/ai-healthcare-images/health-4.png",
+    image: "/images/ai-healthcare-images/health-4.webp",
     imageAlt: "Validate Healthcare Applications",
     bullets: [
       "Functional, performance & peak load checks",
@@ -132,7 +132,7 @@ const automationSlides: SqueezeSlide[] = [
     shortTitle: "Defect Analytics",
     description:
       "Identify defects, unexpected behavior, AI inconsistencies, and quality gaps.",
-    image: "/images/ai-healthcare-images/health-5.png",
+    image: "/images/ai-healthcare-images/health-5.webp",
     imageAlt: "Analyze Test Results and Quality Metrics",
     bullets: [
       "Defect root-cause & severity analysis",
@@ -149,7 +149,7 @@ const automationSlides: SqueezeSlide[] = [
     shortTitle: "Continuous Improvement",
     description:
       "Use test results to strengthen application quality and future releases.",
-    image: "/images/ai-healthcare-images/health-6.png",
+    image: "/images/ai-healthcare-images/health-6.webp",
     imageAlt: "Improve Application Quality",
     bullets: [
       "Continuous CI/CD feedback loop",

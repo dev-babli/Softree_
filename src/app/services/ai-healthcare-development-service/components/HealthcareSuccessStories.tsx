@@ -39,7 +39,7 @@ export const healthcareCaseStudiesData: HealthcareCaseStudy[] = [
       "3.5x faster inquiry responses",
       "100% HIPAA compliant workflow",
     ],
-    imageUrl: "/images/ai-development-services/success-stories/ai-healthcare-operations.png",
+    imageUrl: "/images/ai-development-services/success-stories/ai-healthcare-operations.webp",
     caseStudyUrl:
       "https://www.softreetechnology.com/case-studies/ai-powered-patient-appointment-and-follow-up-automation",
     clientOverview: {
@@ -62,7 +62,7 @@ export const healthcareCaseStudiesData: HealthcareCaseStudy[] = [
       "100+ automated performance checks",
       "95%+ accuracy in AI models",
     ],
-    imageUrl: "/images/ai-development-services/success-stories/ai-performance-report.png",
+    imageUrl: "/images/ai-development-services/success-stories/ai-performance-report.webp",
     caseStudyUrl:
       "https://www.softreetechnology.com/case-studies/ai-powered-website-performance-platform",
     clientOverview: {
@@ -85,7 +85,7 @@ export const healthcareCaseStudiesData: HealthcareCaseStudy[] = [
       "Lower support ticket volume",
       "24/7 patient concierge coverage",
     ],
-    imageUrl: "/images/ai-development-services/success-stories/hr-assistant.png",
+    imageUrl: "/images/ai-development-services/success-stories/hr-assistant.webp",
     caseStudyUrl:
       "https://www.softreetechnology.com/case-studies/how-an-enterprise-organization-automated-hr-operations-using-ai",
     clientOverview: {

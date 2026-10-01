@@ -20,8 +20,8 @@ const REVIEWS = [
       "Provide dedicated offshore AI engineering support."
     ],
     outcome: "More AI initiatives moving from strategy to production with clear business value and the engineering capacity to scale.",
-    imageSrc: "/images/serve/4.jpg",
-    thumbnailSrc: "/images/serve/4.jpg",
+    imageSrc: "/images/serve/4.webp",
+    thumbnailSrc: "/images/serve/4.webp",
   },
   {
     id: "02",
@@ -38,8 +38,8 @@ const REVIEWS = [
       "Support architecture, development, testing, and deployment."
     ],
     outcome: "Production-ready AI systems integrated into your technology ecosystem with the engineering support to scale confidently.",
-    imageSrc: "/images/serve/3.jpg",
-    thumbnailSrc: "/images/serve/3.jpg",
+    imageSrc: "/images/serve/3.webp",
+    thumbnailSrc: "/images/serve/3.webp",
   },
   {
     id: "03",
@@ -56,8 +56,8 @@ const REVIEWS = [
       "Provide offshore and white-label engineering support."
     ],
     outcome: "More Microsoft and AI projects delivered with the expertise and capacity to grow your client portfolio.",
-    imageSrc: "/images/serve/5.jpg",
-    thumbnailSrc: "/images/serve/5.jpg",
+    imageSrc: "/images/serve/5.webp",
+    thumbnailSrc: "/images/serve/5.webp",
   },
   {
     id: "04",
@@ -74,8 +74,8 @@ const REVIEWS = [
       "Support white-label AI development from build to deployment."
     ],
     outcome: "More AI projects delivered under your brand with reliable engineering capacity and specialized AI expertise.",
-    imageSrc: "/images/serve/2.jpg",
-    thumbnailSrc: "/images/serve/2.jpg",
+    imageSrc: "/images/serve/2.webp",
+    thumbnailSrc: "/images/serve/2.webp",
   },
   {
     id: "05",
@@ -92,8 +92,8 @@ const REVIEWS = [
       "Integrate AI with your product, APIs, databases, and cloud environment."
     ],
     outcome: "AI-powered product capabilities delivered faster with the engineering expertise and capacity to accelerate your roadmap.",
-    imageSrc: "/images/serve/1.jpg",
-    thumbnailSrc: "/images/serve/1.jpg",
+    imageSrc: "/images/serve/1.webp",
+    thumbnailSrc: "/images/serve/1.webp",
   },
 ];
 

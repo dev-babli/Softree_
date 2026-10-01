@@ -489,7 +489,7 @@ export function TransferredSoftreeHeroRevolut() {
                         }}
                     >
                         <Image
-                            src="/whysoftree/ai.png"
+                            src="/whysoftree/ai.webp"
                             alt="AI Automation"
                             fill
                             className="object-cover"

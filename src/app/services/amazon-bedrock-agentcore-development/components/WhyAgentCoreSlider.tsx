@@ -14,7 +14,7 @@ const agentCoreSlides: SqueezeSlide[] = [
       "Agent capabilities & tool mapping",
       "Data and knowledge requirements"
     ],
-    image: "/images/ai-development-services/core-capabilities/ai-strategy.png",
+    image: "/images/ai-development-services/core-capabilities/ai-strategy.webp",
     imageAlt: "AI Agent Discovery",
     action: "Explore AI Agent Discovery →",
     href: "/contact"
@@ -29,7 +29,7 @@ const agentCoreSlides: SqueezeSlide[] = [
       "Foundation model integration",
       "Agent tools and workflow orchestration"
     ],
-    image: "/images/ai-development-services/core-capabilities/intelligent-automation.png",
+    image: "/images/ai-development-services/core-capabilities/intelligent-automation.webp",
     imageAlt: "AI Agent Architecture",
     action: "Explore Agent Architecture →",
     href: "/contact"
@@ -45,7 +45,7 @@ const agentCoreSlides: SqueezeSlide[] = [
       "AgentCore Memory",
       "Identity & secure access"
     ],
-    image: "/images/ai-development-services/core-capabilities/enterprise-ai-architecture.png",
+    image: "/images/ai-development-services/core-capabilities/enterprise-ai-architecture.webp",
     imageAlt: "AgentCore Integration",
     action: "Explore AgentCore Integrations →",
     href: "/contact"
@@ -61,7 +61,7 @@ const agentCoreSlides: SqueezeSlide[] = [
       "AgentCore Evaluations",
       "Continuous quality improvement"
     ],
-    image: "/images/ai-development-services/core-capabilities/microsoft-ai-ecosystem.png",
+    image: "/images/ai-development-services/core-capabilities/microsoft-ai-ecosystem.webp",
     imageAlt: "Agent Optimization",
     action: "Optimize Your AI Agents →",
     href: "/contact"
@@ -77,7 +77,7 @@ const agentCoreSlides: SqueezeSlide[] = [
       "Agent performance evaluation",
       "Scalable AI agent operations"
     ],
-    image: "/images/ai-development-services/core-capabilities/continuous-optimization.png",
+    image: "/images/ai-development-services/core-capabilities/continuous-optimization.webp",
     imageAlt: "Production Deployment",
     action: "Deploy AI Agents with AgentCore →",
     href: "/contact"

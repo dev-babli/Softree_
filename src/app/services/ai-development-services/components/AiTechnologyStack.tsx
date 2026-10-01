@@ -416,8 +416,7 @@ export default function DetailDrawer({
                   );
                 })()
               ) : (
-                <img
-                  src={block.src}
+                <img loading="lazy" src={block.src}
                   alt={block.alt ?? ''}
                   style={{ width: '100%', display: 'block', borderRadius: 4 }}
                 />

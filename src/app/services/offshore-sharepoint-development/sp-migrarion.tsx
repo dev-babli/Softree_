@@ -75,7 +75,7 @@ const SharePointMigration = () => {
           >
             <div className="relative w-full h-[380px] lg:h-[460px]">
               <Image
-                src="/images/sharepoint/sp.png"
+                src="/images/sharepoint/sp.webp"
                 alt="Enterprise SharePoint Migration Services"
                 fill
                 priority

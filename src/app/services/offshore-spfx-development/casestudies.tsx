@@ -17,7 +17,7 @@ const caseStudies = [
     solution: "Built a custom SPFx dashboard integrated with Power Automate and secure SharePoint document library indexing.",
     impact: "Reduced report generation time by 80% and achieved 100% HIPAA compliance audits.",
     tech: ["SharePoint Online", "SPFx", "Power Automate", "Office 365 Groups"],
-    image: "/images/case-study/sharepoint/pdf.png",
+    image: "/images/case-study/sharepoint/pdf.webp",
     href: "https://www.softreetechnology.com/case-studies/labtrack-pro-pathology-report-management",
   },
   {
@@ -28,7 +28,7 @@ const caseStudies = [
     solution: "Developed a real-time barcode-scanning responsive SPFx interface and integrated Power Automate stock level alerts.",
     impact: "Eliminated retail inventory leakages, saving thousands in annual hardware replacement costs.",
     tech: ["SharePoint Online", "SPFx", "Power Automate", "Barcode Scanner"],
-    image: "/images/case-study/sharepoint/contact.png",
+    image: "/images/case-study/sharepoint/contact.webp",
     href: "https://www.softreetechnology.com/case-studies/sharepoint-asset-tracker-app",
   },
   {
@@ -39,7 +39,7 @@ const caseStudies = [
     solution: "Designed a custom SPFx solution to render pixel-perfect PDF documents preserving typography, branding, and layouts.",
     impact: "Reduced manual layout adjustments by 95% and automated PDF compilation workflows for auditing.",
     tech: ["SPFx", "PDF Engine", "SharePoint API", "TypeScript"],
-    image: "/images/case-study/sharepoint/pdf.png",
+    image: "/images/case-study/sharepoint/pdf.webp",
     href: "https://www.softreetechnology.com/case-studies/sharepoint-site-pages-to-pdf",
   },
   {
@@ -50,7 +50,7 @@ const caseStudies = [
     solution: "Designed a comprehensive unit, integration, and UI testing framework using Jest and Playwright.",
     impact: "Accelerated release cycles by 70% and captured 99% of regression bugs before staging deployment.",
     tech: ["SPFx", "Jest", "Playwright", "CI/CD Pipeline"],
-    image: "/images/case-study/sharepoint/sp.png",
+    image: "/images/case-study/sharepoint/sp.webp",
     href: "https://www.softreetechnology.com/case-studies/sharepoint-spfx-automation-testing-quality-assurance",
   },
   {
@@ -61,7 +61,7 @@ const caseStudies = [
     solution: "Created a multilingual patient portal inside SharePoint using React SPFx web parts and Azure Cognitive Services.",
     impact: "Handled over 50k monthly patient requests, improving patient onboarding speed by 60%.",
     tech: ["SharePoint Online", "SPFx", "React", "Azure AI Translation"],
-    image: "/images/case-study/sharepoint/claim.png",
+    image: "/images/case-study/sharepoint/claim.webp",
     href: "https://www.softreetechnology.com/case-studies/multilingual-patient-appointment-portal",
   },
 ];

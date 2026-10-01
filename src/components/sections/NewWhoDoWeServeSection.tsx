@@ -20,8 +20,8 @@ const REVIEWS = [
       "Relevant client experience, case studies, and references where appropriate."
     ],
     outcome: "A technology partner you can trust to deliver, adapt, and grow with your business.",
-    imageSrc: "/images/serve/4.jpg",
-    thumbnailSrc: "/images/serve/4.jpg",
+    imageSrc: "/images/serve/4.webp",
+    thumbnailSrc: "/images/serve/4.webp",
   },
   {
     id: "02",
@@ -38,8 +38,8 @@ const REVIEWS = [
       "Disciplined engineering practices focused on quality and reliable delivery."
     ],
     outcome: "The technical expertise and engineering capacity to move complex initiatives forward with confidence.",
-    imageSrc: "/images/serve/3.jpg",
-    thumbnailSrc: "/images/serve/3.jpg",
+    imageSrc: "/images/serve/3.webp",
+    thumbnailSrc: "/images/serve/3.webp",
   },
   {
     id: "03",
@@ -56,8 +56,8 @@ const REVIEWS = [
       "Work securely behind the scenes while protecting client information and IP."
     ],
     outcome: "More Microsoft projects delivered with the expertise and capacity to grow your business.",
-    imageSrc: "/images/serve/5.jpg",
-    thumbnailSrc: "/images/serve/5.jpg",
+    imageSrc: "/images/serve/5.webp",
+    thumbnailSrc: "/images/serve/5.webp",
   },
   {
     id: "04",
@@ -74,8 +74,8 @@ const REVIEWS = [
       "Protect client information and IP through NDAs and Intellectual Property Agreements."
     ],
     outcome: "More projects delivered reliably—without increasing your internal delivery overhead.",
-    imageSrc: "/images/serve/2.jpg",
-    thumbnailSrc: "/images/serve/2.jpg",
+    imageSrc: "/images/serve/2.webp",
+    thumbnailSrc: "/images/serve/2.webp",
   },
   {
     id: "05",
@@ -92,8 +92,8 @@ const REVIEWS = [
       "Protect your product and IP through NDAs and Intellectual Property Agreements."
     ],
     outcome: "More product momentum with the engineering capacity and expertise to scale with your roadmap.",
-    imageSrc: "/images/serve/1.jpg",
-    thumbnailSrc: "/images/serve/1.jpg",
+    imageSrc: "/images/serve/1.webp",
+    thumbnailSrc: "/images/serve/1.webp",
   },
 ];
 

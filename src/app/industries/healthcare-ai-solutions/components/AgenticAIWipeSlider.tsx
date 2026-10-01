@@ -16,7 +16,7 @@ const slides = [
       "EHR & patient history normalization",
       "Hospital policy & protocol verification"
     ],
-    image: "/images/ai-healthcare-images/aihealth-1.png"
+    image: "/images/ai-healthcare-images/aihealth-1.webp"
   },
   {
     number: "02",
@@ -28,7 +28,7 @@ const slides = [
       "Multi-modal clinical data synthesis",
       "Evidence-based care protocol matching"
     ],
-    image: "/images/ai-healthcare-images/aihealth-2.png"
+    image: "/images/ai-healthcare-images/aihealth-2.webp"
   },
   {
     number: "03",
@@ -40,7 +40,7 @@ const slides = [
       "Prior authorization & billing rules",
       "Automated clinical triage logic"
     ],
-    image: "/images/ai-healthcare-images/aihealth-3.png"
+    image: "/images/ai-healthcare-images/aihealth-3.webp"
   },
   {
     number: "04",
@@ -52,7 +52,7 @@ const slides = [
       "FHIR / HL7 standardized exchange",
       "Diagnostic database & telemetry query"
     ],
-    image: "/images/ai-healthcare-images/aihealth-1.png"
+    image: "/images/ai-healthcare-images/aihealth-1.webp"
   },
   {
     number: "05",
@@ -64,7 +64,7 @@ const slides = [
       "Automated order & prescription routing",
       "Care coordination & follow-up tasks"
     ],
-    image: "/images/ai-healthcare-images/aihealth-2.png"
+    image: "/images/ai-healthcare-images/aihealth-2.webp"
   },
   {
     number: "06",
@@ -76,7 +76,7 @@ const slides = [
       "Physician-in-the-loop safeguards",
       "Cross-department care coordination"
     ],
-    image: "/images/ai-healthcare-images/aihealth-3.png"
+    image: "/images/ai-healthcare-images/aihealth-3.webp"
   },
 
 ];

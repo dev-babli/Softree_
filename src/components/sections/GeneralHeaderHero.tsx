@@ -32,13 +32,13 @@ type GeneralHeaderHeroProps = {
 
 const DEFAULT_LOGOS: CustomerLogo[] = [
   {
-    src: "/images/logo/goerp1.jpg",
+    src: "/images/logo/goerp1.webp",
     alt: "GO ERP",
     width: 100,
     height: 40,
   },
   {
-    src: "/images/logo/nuvento.jpg",
+    src: "/images/logo/nuvento.webp",
     alt: "Nuvento",
     width: 100,
     height: 40,
@@ -50,13 +50,13 @@ const DEFAULT_LOGOS: CustomerLogo[] = [
     height: 40,
   },
   {
-    src: "/images/logo/jonians.jpg",
+    src: "/images/logo/jonians.webp",
     alt: "Jonians",
     width: 100,
     height: 40,
   },
   {
-    src: "/images/logo/ecg.png",
+    src: "/images/logo/ecg.webp",
     alt: "Export Control Group",
     width: 100,
     height: 40,
@@ -68,25 +68,25 @@ const DEFAULT_LOGOS: CustomerLogo[] = [
     height: 40,
   },
   {
-    src: "/images/logo/bosch.png",
+    src: "/images/logo/bosch.webp",
     alt: "Bosch",
     width: 100,
     height: 40,
   },
   {
-    src: "/images/logo/emscale_logo.png",
+    src: "/images/logo/emscale_logo.webp",
     alt: "Emscale",
     width: 100,
     height: 40,
   },
   {
-    src: "/images/logo/link-innovation.png",
+    src: "/images/logo/link-innovation.webp",
     alt: "Link Innovation",
     width: 100,
     height: 40,
   },
   {
-    src: "/images/logo/Intellectt_logo.png",
+    src: "/images/logo/Intellectt_logo.webp",
     alt: "Intellectt",
     width: 100,
     height: 40,

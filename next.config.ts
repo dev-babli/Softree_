@@ -181,6 +181,11 @@ const nextConfig: any = {
         permanent: true,
       },
       {
+        source: "/services/offshore-data-analytics",
+        destination: "/services/power-bi-development-services",
+        permanent: true,
+      },
+      {
         source: "/services",
         destination: "/",
         permanent: true,

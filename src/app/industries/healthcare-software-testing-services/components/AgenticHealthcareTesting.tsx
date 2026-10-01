@@ -26,7 +26,7 @@ export interface ProjectData {
 export const PROJECT_DATA: ProjectData[] = [
   {
     title: "Healthcare Technology Companies",
-    image: "/images/ai-healthcare-images/aihealth-1.png",
+    image: "/images/ai-healthcare-images/aihealth-1.webp",
     category: "01 — HEALTHCARE TECH",
     year: "HealthTech",
     focusArea: "Clinical SaaS & Digital Health Platforms",
@@ -44,7 +44,7 @@ export const PROJECT_DATA: ProjectData[] = [
   },
   {
     title: "Product Teams",
-    image: "/images/ai-healthcare-images/aihealth-2.png",
+    image: "/images/ai-healthcare-images/aihealth-2.webp",
     category: "02 — PRODUCT TEAMS",
     year: "Product QA",
     focusArea: "Roadmap Velocity & Feature Launches",
@@ -62,7 +62,7 @@ export const PROJECT_DATA: ProjectData[] = [
   },
   {
     title: "Software Development Teams",
-    image: "/images/ai-healthcare-images/aihealth-3.png",
+    image: "/images/ai-healthcare-images/aihealth-3.webp",
     category: "03 — ENGINEERING TEAMS",
     year: "Engineering",
     focusArea: "CI/CD Gates & Backend Robustness",
@@ -80,7 +80,7 @@ export const PROJECT_DATA: ProjectData[] = [
   },
   {
     title: "AI Product Teams",
-    image: "/images/ai-healthcare-images/health-8.png",
+    image: "/images/ai-healthcare-images/health-8.webp",
     category: "04 — AI & RAG TEAMS",
     year: "AI Products",
     focusArea: "Generative AI & Clinical Copilots",
@@ -98,7 +98,7 @@ export const PROJECT_DATA: ProjectData[] = [
   },
   {
     title: "Digital Health Startups",
-    image: "/images/ai-healthcare-images/health-7.png",
+    image: "/images/ai-healthcare-images/health-7.webp",
     category: "05 — DIGITAL HEALTH STARTUPS",
     year: "Startups",
     focusArea: "Fast MVP Launch & Compliance Groundwork",

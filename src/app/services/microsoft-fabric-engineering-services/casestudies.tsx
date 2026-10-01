@@ -17,7 +17,7 @@ const caseStudies = [
     solution: "Designed a Microsoft Fabric foundation with OneLake unified storage, Medallion Bronze/Silver/Gold architecture, and Fabric Warehouse semantic models with Direct Lake.",
     impact: "Unified analytics workloads into a single platform, standardized ingestion patterns, improved governance, and streamlined Power BI delivery with zero disruption.",
     tech: ["Microsoft Fabric", "OneLake", "Fabric Lakehouse", "Fabric Data Factory", "Fabric Warehouse", "Power BI", "Direct Lake", "Azure Synapse"],
-    image: "https://cdn.sanity.io/images/1zmh4sfw/production/b520d34302fc9be8aed988a4a73e72d82c7e421e-1672x941.png",
+    image: "https://cdn.sanity.io/images/1zmh4sfw/production/b520d34302fc9be8aed988a4a73e72d82c7e421e-1672x941.png?auto=format",
     href: "https://www.softreetechnology.com/case-studies/azure-data-platform-migration-microsoft-fabric",
   },
   {
@@ -28,7 +28,7 @@ const caseStudies = [
     solution: "Designed and implemented a modern ITSM analytics platform using Microsoft Fabric as the centralized data foundation with interactive Power BI dashboards and AI-driven pattern detection.",
     impact: "Reduced incident resolution time by 79%, achieved 99.2% SLA compliance, and reduced manual reporting effort by 85%.",
     tech: ["Microsoft Fabric", "Power BI", "Azure Data Factory", "Azure Data Lake Storage", "Azure SQL Database", "Microsoft Copilot", "Apache Spark"],
-    image: "https://cdn.sanity.io/images/1zmh4sfw/production/877bb895e6acc7c622b9eeaa6d8d218266ed7162-1536x1024.png",
+    image: "https://cdn.sanity.io/images/1zmh4sfw/production/877bb895e6acc7c622b9eeaa6d8d218266ed7162-1536x1024.png?auto=format",
     href: "https://www.softreetechnology.com/case-studies/ai-powered-itsm-analytics-platform",
   },
   {
@@ -39,7 +39,7 @@ const caseStudies = [
     solution: "Centralized operational data in Microsoft Fabric & Dataverse with Power BI real-time dashboards, Power Apps operational portal, and AI Builder predictive models.",
     impact: "Achieved 35% reduction in patient waiting times, 30% improvement in triage efficiency, and 40% reduction in manual reporting.",
     tech: ["Microsoft Fabric", "Power BI", "Power Apps", "Power Automate", "Microsoft Dataverse", "AI Builder", "Copilot Studio"],
-    image: "https://cdn.sanity.io/images/1zmh4sfw/production/4336f30d7c53c3f88806ed65e750dd05f78c7779-1536x1024.png",
+    image: "https://cdn.sanity.io/images/1zmh4sfw/production/4336f30d7c53c3f88806ed65e750dd05f78c7779-1536x1024.png?auto=format",
     href: "https://www.softreetechnology.com/case-studies/ai-powered-emergency-department-performance-analytics",
   },
   {
@@ -50,7 +50,7 @@ const caseStudies = [
     solution: "Unified EHR, ambulance, and staffing systems in OneLake using Microsoft Fabric Data Factory pipelines, Lakehouses, Warehouses, and Power BI semantic models.",
     impact: "Reduced patient wait times by ~34% and cut manual reporting effort from 22 hours/week to under 6 hours/week.",
     tech: ["Microsoft Fabric", "OneLake", "Data Factory", "Lakehouse", "Warehouse", "Real-Time Intelligence", "Power BI"],
-    image: "https://cdn.sanity.io/images/1zmh4sfw/production/69f611d44619bc68125bb048e42001d0710314b9-1672x941.png",
+    image: "https://cdn.sanity.io/images/1zmh4sfw/production/69f611d44619bc68125bb048e42001d0710314b9-1672x941.png?auto=format",
     href: "https://www.softreetechnology.com/case-studies/emergency-department-performance-analytics-platform",
   },
   {
@@ -61,7 +61,7 @@ const caseStudies = [
     solution: "Unified historical and streaming data in Microsoft Fabric Lakehouse and built predictive models with AI Builder and Azure Machine Learning integrated with Power BI.",
     impact: "Achieved 90% forecasting accuracy, reduced emergency wait times by 28%, and accelerated executive decision-making by 85%.",
     tech: ["Microsoft Fabric", "Power BI", "Power Apps", "Power Automate", "AI Builder", "Azure Machine Learning", "Copilot Studio"],
-    image: "https://cdn.sanity.io/images/1zmh4sfw/production/f32b1a3b159ee77c85278d206f07d93656a8dfc4-1672x941.png",
+    image: "https://cdn.sanity.io/images/1zmh4sfw/production/f32b1a3b159ee77c85278d206f07d93656a8dfc4-1672x941.png?auto=format",
     href: "https://www.softreetechnology.com/case-studies/predictive-hospital-bed-occupancy-analytics",
   },
 ];
@@ -157,6 +157,8 @@ export default function FabricCaseStudies() {
                           <img
                             src={item.image}
                             alt={item.title}
+                            loading="lazy"
+                            decoding="async"
                             className="w-full h-full object-contain"
                           />
                         </div>

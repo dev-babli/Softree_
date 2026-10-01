@@ -58,7 +58,7 @@ if (!CustomEase.get("rev")) {
 const ASSET_BG = "/hero/hero_BG.webp";
 const ASSET_SUBJECT = "/hero/hero_subject_wide.webp";
 const ASSET_REF = "/hero/reference.webp";
-const ASSET_LEFT = "/whysoftree/ai.png";
+const ASSET_LEFT = "/whysoftree/ai.webp";
 const ASSET_RIGHT = "/whysoftree/modern.png";
 
 /* Subject placement controls (kept identical to existing hero). */

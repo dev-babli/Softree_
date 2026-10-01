@@ -13,12 +13,12 @@ interface Props {
 }
 
 const imageMap: Record<string, string> = {
-  heart: '/images/ai-consulting-service-image/success-stories/how-1.png',
-  bank: '/images/ai-consulting-service-image/success-stories/how-2.png',
-  cart: '/images/ai-consulting-service-image/success-stories/how-3.png',
-  manufacturing: '/images/ai-consulting-service-image/success-stories/how-4.png',
-  'cross-industry': '/images/ai-consulting-service-image/success-stories/how-5.png',
-  logistics: '/images/ai-consulting-service-image/success-stories/how-6.png',
+  heart: '/images/ai-consulting-service-image/success-stories/how-1.webp',
+  bank: '/images/ai-consulting-service-image/success-stories/how-2.webp',
+  cart: '/images/ai-consulting-service-image/success-stories/how-3.webp',
+  manufacturing: '/images/ai-consulting-service-image/success-stories/how-4.webp',
+  'cross-industry': '/images/ai-consulting-service-image/success-stories/how-5.webp',
+  logistics: '/images/ai-consulting-service-image/success-stories/how-6.webp',
 };
 
 const renderHighlightedText = (text: string) => {

@@ -47,7 +47,7 @@ const demoData: Gallery4Props = {
         </div>
       ),
       href: "/case-studies/ai-powered-prior-authorization",
-      image: "/images/ai-healthcare-images/health-8.png",
+      image: "/images/ai-healthcare-images/health-8.webp",
     },
     {
       id: "healthcare-knowledge-intelligence",
@@ -73,7 +73,7 @@ const demoData: Gallery4Props = {
         </div>
       ),
       href: "/case-studies/healthcare-knowledge-intelligence",
-      image: "/images/ai-healthcare-images/health-7.png",
+      image: "/images/ai-healthcare-images/health-7.webp",
     },
     {
       id: "intelligent-document-processing",
@@ -99,7 +99,7 @@ const demoData: Gallery4Props = {
         </div>
       ),
       href: "/case-studies/intelligent-healthcare-document-processing",
-      image: "/images/ai-healthcare-images/health-6.png",
+      image: "/images/ai-healthcare-images/health-6.webp",
     },
     {
       id: "healthcare-ai-test-automation",
@@ -125,7 +125,7 @@ const demoData: Gallery4Props = {
         </div>
       ),
       href: "/case-studies/healthcare-ai-test-automation-patient-management-platform",
-      image: "/images/ai-healthcare-images/health-5.png",
+      image: "/images/ai-healthcare-images/health-5.webp",
     },
     {
       id: "ai-healthcare-operations-platform",
@@ -151,7 +151,7 @@ const demoData: Gallery4Props = {
         </div>
       ),
       href: "/case-studies/ai-powered-healthcare-operations-platform",
-      image: "/images/ai-healthcare-images/health-4.png",
+      image: "/images/ai-healthcare-images/health-4.webp",
     }
   ],
 };

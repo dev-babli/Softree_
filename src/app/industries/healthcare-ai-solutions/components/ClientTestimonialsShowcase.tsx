@@ -126,7 +126,7 @@ export default function ClientTestimonialsShowcase() {
 
         <div className="relative w-full max-w-[360px] aspect-[1.7/1] hidden md:block select-none overflow-hidden rounded-3xl shadow-[0_20px_40px_rgba(0,0,0,0.12)] shrink-0 bg-black">
           <img
-            src="/logo/Softree-Technology-Final-Logo-Dark-BG.png"
+            src="/logo/Softree-Technology-Final-Logo-Dark-BG.webp"
             alt="Softree Logo"
             className="w-full h-full object-contain p-4"
           />

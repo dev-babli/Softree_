@@ -199,8 +199,23 @@ export default function AetherHero({
     ro.observe(canvas);
     window.addEventListener('resize', onResize);
 
-    // RAF
+    // RAF & Visibility Optimization
+    let isVisible = true;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible && !rafRef.current) {
+          rafRef.current = requestAnimationFrame(loop);
+        }
+      });
+    }, { threshold: 0.05 });
+    io.observe(canvas);
+
     const loop = (now: number) => {
+      if (!isVisible) {
+        rafRef.current = null;
+        return;
+      }
       gl.clear(gl.COLOR_BUFFER_BIT);
       gl.useProgram(prog);
       gl.bindBuffer(gl.ARRAY_BUFFER, buf);
@@ -213,6 +228,7 @@ export default function AetherHero({
 
     // Cleanup
     return () => {
+      io.disconnect();
       ro.disconnect();
       window.removeEventListener('resize', onResize);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
@@ -239,11 +255,6 @@ export default function AetherHero({
       }}
       aria-label="Hero"
     >
-      {/* Font import (Space Grotesk) */}
-      <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap');
-      `}</style>
-
       {/* Shader canvas (background) */}
       <canvas
         ref={canvasRef}

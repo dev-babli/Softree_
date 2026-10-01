@@ -20,7 +20,7 @@ export const successStoriesData = {
         "90% Self-Service Adoption",
         "3× Faster Onboarding"
       ],
-      image: "/images/solutions/enterprise-rag-development/hr-analytics-dashboard.png",
+      image: "/images/solutions/enterprise-rag-development/hr-analytics-dashboard.webp",
       buttonText: "View Case Study",
       link: "/case-studies/hr-analytics-employee-experience-platform"
     },
@@ -36,7 +36,7 @@ export const successStoriesData = {
         "50% Faster User Navigation",
         "70% Better Code Maintainability"
       ],
-      image: "/images/solutions/enterprise-rag-development/enterprise-ai-website.png",
+      image: "/images/solutions/enterprise-rag-development/enterprise-ai-website.webp",
       buttonText: "View Case Study",
       link: "/case-studies/enterprise-ai-website-transformation"
     },
@@ -52,7 +52,7 @@ export const successStoriesData = {
         "20% Efficiency Gain",
         "25% Cost Savings"
       ],
-      image: "/images/solutions/enterprise-rag-development/smart-manufacturing.jpg",
+      image: "/images/solutions/enterprise-rag-development/smart-manufacturing.webp",
       buttonText: "View Case Study",
       link: "/case-studies/smart-manufacturing-intelligence-platform"
     }

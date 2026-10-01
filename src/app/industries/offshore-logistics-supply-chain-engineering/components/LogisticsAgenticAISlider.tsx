@@ -16,7 +16,7 @@ const slides = [
       "Carrier contract & rate card parsing",
       "Live telematics & traffic event ingest"
     ],
-    image: "/images/solutions/ai-for-logistics/core-capabilities/cap-01.png"
+    image: "/images/solutions/ai-for-logistics/core-capabilities/cap-01.webp"
   },
   {
     number: "02",
@@ -28,7 +28,7 @@ const slides = [
       "Port congestion & delay risk synthesis",
       "Cost vs. SLA trade-off optimization"
     ],
-    image: "/images/solutions/ai-for-logistics/core-capabilities/cap-02.png"
+    image: "/images/solutions/ai-for-logistics/core-capabilities/cap-02.webp"
   },
   {
     number: "03",
@@ -40,7 +40,7 @@ const slides = [
       "Cold-chain temperature contingency plans",
       "Automated load consolidation logic"
     ],
-    image: "/images/solutions/ai-for-logistics/core-capabilities/cap-03.png"
+    image: "/images/solutions/ai-for-logistics/core-capabilities/cap-03.webp"
   },
   {
     number: "04",
@@ -52,7 +52,7 @@ const slides = [
       "EDI 204 load tender dispatch",
       "Live GPS & sensor telemetry check"
     ],
-    image: "/images/solutions/ai-for-logistics/core-capabilities/cap-04.png"
+    image: "/images/solutions/ai-for-logistics/core-capabilities/cap-04.webp"
   },
   {
     number: "05",
@@ -64,7 +64,7 @@ const slides = [
       "Automated detention billing & alerts",
       "Real-time shipper milestone messaging"
     ],
-    image: "/images/solutions/ai-for-logistics/core-capabilities/cap-05.png"
+    image: "/images/solutions/ai-for-logistics/core-capabilities/cap-05.webp"
   },
   {
     number: "06",
@@ -76,7 +76,7 @@ const slides = [
       "Human-in-the-loop exception escalations",
       "Autonomous returns & reconsignment"
     ],
-    image: "/images/solutions/ai-for-logistics/core-capabilities/cap-06.png"
+    image: "/images/solutions/ai-for-logistics/core-capabilities/cap-06.webp"
   },
 ];
 

@@ -8,18 +8,18 @@ export default function TrustedBrandsMarquee({
   surface = "legacy",
 }: TrustedBrandsMarqueeProps) {
   const logos = [
-    { name: "GO ERP", src: "/images/logo/goerp1.jpg" },
-    { name: "Nuvento", src: "/images/logo/nuvento.jpg" },
-    { name: "Snapon", src: "/images/logo/snapon.jpg" },
-    { name: "Jonians", src: "/images/logo/jonians.jpg" },
-    { name: "Export Control Group", src: "/images/logo/ecg.png" },
-    { name: "SP Marketplace", src: "/images/logo/1.jpg" },
-    { name: "Bosch", src: "/images/logo/bosch.png" },
+    { name: "GO ERP", src: "/images/logo/goerp1.webp" },
+    { name: "Nuvento", src: "/images/logo/nuvento.webp" },
+    { name: "Snapon", src: "/images/logo/snapon.webp" },
+    { name: "Jonians", src: "/images/logo/jonians.webp" },
+    { name: "Export Control Group", src: "/images/logo/ecg.webp" },
+    { name: "SP Marketplace", src: "/images/logo/1.webp" },
+    { name: "Bosch", src: "/images/logo/bosch.webp" },
 
     // New Logos
-    { name: "Emscale", src: "/images/logo/emscale_logo.png" },
-    { name: "Link Innovation", src: "/images/logo/link-innovation.png" },
-    { name: "Intellectt", src: "/images/logo/Intellectt_logo.png" },
+    { name: "Emscale", src: "/images/logo/emscale_logo.webp" },
+    { name: "Link Innovation", src: "/images/logo/link-innovation.webp" },
+    { name: "Intellectt", src: "/images/logo/Intellectt_logo.webp" },
   ];
 
   return (

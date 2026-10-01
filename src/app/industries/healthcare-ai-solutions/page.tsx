@@ -92,7 +92,7 @@ export const metadata: Metadata = {
     siteName: 'Softree Technology',
     images: [
       {
-        url: '/logo/Softree-Technology-Final-Logo-Dark-BG.png',
+        url: '/logo/Softree-Technology-Final-Logo-Dark-BG.webp',
         width: 1200,
         height: 630,
         alt: 'Softree Offshore Healthcare AI Solutions & Development Services',
@@ -106,7 +106,7 @@ export const metadata: Metadata = {
     title: 'Offshore Healthcare AI Solutions & Development Services | Softree',
     description:
       'Build secure, scalable healthcare AI solutions with Softree’s offshore AI engineering team. Develop AI agents, RAG applications, intelligent automation, and modern healthcare software.',
-    images: ['/logo/Softree-Technology-Final-Logo-Dark-BG.png'],
+    images: ['/logo/Softree-Technology-Final-Logo-Dark-BG.webp'],
   },
 };
 
@@ -171,7 +171,7 @@ const healthcareJsonLd = {
         '@id': `${SITE_URL}/#organization`,
         name: 'Softree Technology',
         url: SITE_URL,
-        logo: `${SITE_URL}/logo/Softree-Technology-Final-Logo-Dark-BG.png`,
+        logo: `${SITE_URL}/logo/Softree-Technology-Final-Logo-Dark-BG.webp`,
       },
       areaServed: 'Global',
       description:

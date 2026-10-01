@@ -8,16 +8,16 @@ interface Logo {
 }
 
 const LOGOS: Logo[] = [
-  { name: "GO ERP", src: "/images/logo/goerp1.jpg" },
-  { name: "Nuvento", src: "/images/logo/nuvento.jpg" },
+  { name: "GO ERP", src: "/images/logo/goerp1.webp" },
+  { name: "Nuvento", src: "/images/logo/nuvento.webp" },
   { name: "Kwiz", src: "/images/logo/kwiz.png" },
-  { name: "Jonians", src: "/images/logo/jonians.jpg" },
-  { name: "Export Control", src: "/images/logo/ecg.png" },
+  { name: "Jonians", src: "/images/logo/jonians.webp" },
+  { name: "Export Control", src: "/images/logo/ecg.webp" },
   { name: "SP Marketplace", src: "/images/logo/sp-marketplace.png" },
-  { name: "Bosch", src: "/images/logo/bosch.png" },
-  { name: "Emscale", src: "/images/logo/emscale_logo.png" },
-  { name: "Link Innovation", src: "/images/logo/link-innovation.png" },
-  { name: "Intellectt", src: "/images/logo/Intellectt_logo.png" },
+  { name: "Bosch", src: "/images/logo/bosch.webp" },
+  { name: "Emscale", src: "/images/logo/emscale_logo.webp" },
+  { name: "Link Innovation", src: "/images/logo/link-innovation.webp" },
+  { name: "Intellectt", src: "/images/logo/Intellectt_logo.webp" },
 ];
 
 /* ---------------------------------------------------------------------------

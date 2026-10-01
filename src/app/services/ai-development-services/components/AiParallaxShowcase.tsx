@@ -371,8 +371,7 @@ export function Component({
                 else projectsRef.current.delete(i);
               }}
             >
-              <img
-                src={data.image}
+              <img loading="lazy" src={data.image}
                 alt={data.title}
                 className="h-full w-full object-cover will-change-transform brightness-90"
               />
@@ -427,8 +426,7 @@ export function Component({
                     else minimapRef.current.delete(i);
                   }}
                 >
-                  <img
-                    src={data.image}
+                  <img loading="lazy" src={data.image}
                     alt={data.title}
                     className="h-full w-full object-cover will-change-transform brightness-95"
                   />

@@ -33,7 +33,7 @@ export function ProactiveHealthSection() {
             <div className="grid grid-cols-2 grid-rows-2 gap-1.5 h-full w-full">
               <div className="relative rounded-[20px] overflow-hidden">
                 <Image
-                  src="/images/ai-healthcare-images/health-1.png"
+                  src="/images/ai-healthcare-images/health-1.webp"
                   alt="Nurse and patient"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -42,7 +42,7 @@ export function ProactiveHealthSection() {
               </div>
               <div className="relative rounded-[20px] overflow-hidden">
                 <Image
-                  src="/images/ai-healthcare-images/health-2.png"
+                  src="/images/ai-healthcare-images/health-2.webp"
                   alt="Holding hands care"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -51,7 +51,7 @@ export function ProactiveHealthSection() {
               </div>
               <div className="relative rounded-[20px] overflow-hidden">
                 <Image
-                  src="/images/ai-healthcare-images/health-3.png"
+                  src="/images/ai-healthcare-images/health-3.webp"
                   alt="Hospital room"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -60,7 +60,7 @@ export function ProactiveHealthSection() {
               </div>
               <div className="relative rounded-[20px] overflow-hidden">
                 <Image
-                  src="/images/ai-healthcare-images/health-4.png"
+                  src="/images/ai-healthcare-images/health-4.webp"
                   alt="Elderly patient"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -114,7 +114,7 @@ export function ProactiveHealthSection() {
             <div className="grid grid-cols-2 grid-rows-2 gap-1.5 h-full w-full">
               <div className="relative rounded-[20px] overflow-hidden">
                 <Image
-                  src="/images/ai-healthcare-images/health-5.png"
+                  src="/images/ai-healthcare-images/health-5.webp"
                   alt="Microscope analysis"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -123,7 +123,7 @@ export function ProactiveHealthSection() {
               </div>
               <div className="relative rounded-[20px] overflow-hidden">
                 <Image
-                  src="/images/ai-healthcare-images/health-6.png"
+                  src="/images/ai-healthcare-images/health-6.webp"
                   alt="Medical technology"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -132,7 +132,7 @@ export function ProactiveHealthSection() {
               </div>
               <div className="relative rounded-[20px] overflow-hidden">
                 <Image
-                  src="/images/ai-healthcare-images/health-7.png"
+                  src="/images/ai-healthcare-images/health-7.webp"
                   alt="Clinical screens"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -141,7 +141,7 @@ export function ProactiveHealthSection() {
               </div>
               <div className="relative rounded-[20px] overflow-hidden">
                 <Image
-                  src="/images/ai-healthcare-images/health-8.png"
+                  src="/images/ai-healthcare-images/health-8.webp"
                   alt="Lab research"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"

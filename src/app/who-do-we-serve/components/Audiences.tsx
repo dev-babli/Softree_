@@ -44,7 +44,7 @@ const AUDIENCES: Audience[] = [
     id: "01",
     title: "CEOs &\nBusiness Leaders",
     fullTitle: "CEOs & Business Leaders",
-    imageSrc: "/images/serve/4.jpg",
+    imageSrc: "/images/serve/4.webp",
     description: "Driving growth. Managing risk. Creating long-term value.\nAs a business leader, you need a technology partner who understands your business, solves complex challenges, and delivers with accountability.",
     quote: {
       text: "We look for partners who understand our business, take ownership, and deliver real outcomes. Softree does that.",
@@ -83,7 +83,7 @@ const AUDIENCES: Audience[] = [
     id: "02",
     title: "CTOs &\nTechnology Leaders",
     fullTitle: "CTOs & Technology Leaders",
-    imageSrc: "/images/serve/3.jpg",
+    imageSrc: "/images/serve/3.webp",
     description: "Solving complex challenges. Scaling with confidence.\nAs a technology leader, you need a partner who can bring deep technical expertise, work within your architecture, and maintain the engineering quality you expect.",
     quote: {
       text: "We value partners who understand technology deeply, integrate seamlessly, and help us solve what's next.",
@@ -122,7 +122,7 @@ const AUDIENCES: Audience[] = [
     id: "03",
     title: "Microsoft Partners &\nConsultancies",
     fullTitle: "Microsoft Partners & Consultancies",
-    imageSrc: "/images/serve/5.jpg",
+    imageSrc: "/images/serve/5.webp",
     description: "Co-innovating. Co-delivering. Creating greater impact.\nAs a Microsoft partner or consultancy, you need a trusted technology partner who can complement your capabilities, bring deep expertise, and help you deliver more value to your clients.",
     quote: {
       text: "We collaborate with Microsoft partners and consultancies to co-innovate, co-deliver, and create greater impact for our mutual clients.",
@@ -166,7 +166,7 @@ const AUDIENCES: Audience[] = [
     id: "04",
     title: "Digital Agencies",
     fullTitle: "Digital Agencies",
-    imageSrc: "/images/serve/2.jpg",
+    imageSrc: "/images/serve/2.webp",
     description: "Your extended engineering partner.\nAs a digital agency, you need a reliable partner who can plug into your team, bring deep technical expertise, and help you deliver outstanding results for your clients.",
     quote: {
       text: "We partner with digital agencies to extend capability, solve complex challenges, and help deliver exceptional outcomes for their clients.",
@@ -210,7 +210,7 @@ const AUDIENCES: Audience[] = [
     id: "05",
     title: "Product &\nSaaS Companies",
     fullTitle: "Product & SaaS Companies",
-    imageSrc: "/images/serve/1.jpg",
+    imageSrc: "/images/serve/1.webp",
     description: "From idea to impact. Faster.\nAs a product or SaaS company, you need a partner who can augment your team, bring deep technical expertise, and help you build, scale, and continuously evolve your product.",
     quote: {
       text: "We partner with product and SaaS companies to accelerate innovation, scale engineering, and turn ideas into impactful products.",

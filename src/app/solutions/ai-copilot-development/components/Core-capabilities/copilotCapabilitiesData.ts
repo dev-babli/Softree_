@@ -10,7 +10,7 @@ export const copilotCapabilitiesData = [
         shortDesc: 'Define a roadmap for building custom AI copilots aligned with your business goals, user needs, enterprise data, and digital transformation initiatives.',
         icon: IconTargetArrow,
         color: 'bg-indigo-100 text-indigo-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-1.png', 
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-1.webp', 
 
         description:
             'Define a roadmap for building custom AI copilots aligned with your business goals, user needs, enterprise data, and digital transformation initiatives. We ensure your AI strategy connects with your long-term business objectives.',
@@ -48,7 +48,7 @@ export const copilotCapabilitiesData = [
         shortDesc: 'Design secure, scalable AI copilot architectures with Microsoft Copilot Studio, Azure AI, enterprise knowledge sources, and modern cloud technologies.',
         icon: IconHierarchy,
         color: 'bg-emerald-100 text-emerald-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-2.png', 
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-2.webp', 
 
         description:
             'A successful enterprise AI copilot starts with a secure and scalable architecture. Softree designs AI copilot solutions that integrate Microsoft Copilot Studio, Azure AI, enterprise knowledge, and business applications to deliver intelligent, context-aware assistance while maintaining security, governance, and performance.',
@@ -86,7 +86,7 @@ export const copilotCapabilitiesData = [
         shortDesc: 'Build intelligent AI copilots and AI agents that automate tasks, answer business questions, assist employees, and streamline daily operations.',
         icon: IconRobot,
         color: 'bg-violet-100 text-violet-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-3.png', 
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-3.webp', 
 
         description:
             'Build intelligent AI copilots and AI agents that automate tasks, answer business questions, assist employees, and streamline daily operations. Our custom development ensures the copilot exactly meets your unique workflow requirements.',
@@ -124,7 +124,7 @@ export const copilotCapabilitiesData = [
         shortDesc: 'Integrate AI copilots with Microsoft 365, SharePoint, Dynamics 365, Dataverse, CRM, ERP, Teams, and third-party business applications.',
         icon: IconLink,
         color: 'bg-amber-100 text-amber-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-4.png', 
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-4.webp', 
 
         description:
             'Integrate AI copilots with Microsoft 365, SharePoint, Dynamics 365, Dataverse, CRM, ERP, Teams, and third-party business applications. Seamless connectivity brings AI directly into the tools your team already uses.',
@@ -162,7 +162,7 @@ export const copilotCapabilitiesData = [
         shortDesc: 'Connect AI copilots to enterprise knowledge bases, SharePoint, SQL databases, documents, APIs, and internal business systems for accurate contextual responses.',
         icon: IconDatabase,
         color: 'bg-blue-100 text-blue-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-5.png', 
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-5.webp', 
 
         description:
             'Connect AI copilots to enterprise knowledge bases, SharePoint, SQL databases, documents, APIs, and internal business systems for accurate contextual responses. Ground your AI in your own trusted enterprise data.',
@@ -200,7 +200,7 @@ export const copilotCapabilitiesData = [
         shortDesc: 'Ensure secure AI adoption with governance, compliance, performance monitoring, prompt optimization, and continuous improvements for enterprise AI copilots.',
         icon: IconShieldCheck,
         color: 'bg-rose-100 text-rose-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-1.png', 
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-1.webp', 
 
         description:
             'Ensure secure AI adoption with governance, compliance, performance monitoring, prompt optimization, and continuous improvements for enterprise AI copilots. Maintain trust and performance at scale.',

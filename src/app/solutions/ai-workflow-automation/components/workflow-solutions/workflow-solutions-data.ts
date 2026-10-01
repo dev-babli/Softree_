@@ -21,7 +21,7 @@ export const workflowSolutionsData: WorkflowSolutionsStep[] = [
     description: "Automatically classify, extract, validate, route, and process invoices, contracts, forms, emails, and enterprise documents using AI-powered document intelligence.",
     status: "Completed",
     icon: FileText,
-    image: "/images/ai-consulting-service-image/how-ai-helps/how-1.png",
+    image: "/images/ai-consulting-service-image/how-ai-helps/how-1.webp",
   },
 
   {
@@ -30,7 +30,7 @@ export const workflowSolutionsData: WorkflowSolutionsStep[] = [
     description: "Streamline employee onboarding, leave approvals, recruitment, document verification, payroll support, and HR service requests.",
     status: "Completed",
     icon: Users,
-    image: "/images/ai-consulting-service-image/how-ai-helps/how-2.png",
+    image: "/images/ai-consulting-service-image/how-ai-helps/how-2.webp",
   },
   {
     id: "step-3",
@@ -38,7 +38,7 @@ export const workflowSolutionsData: WorkflowSolutionsStep[] = [
     description: "Automate customer inquiries, ticket routing, AI chatbots, case management, SLA tracking, and omnichannel support workflows.",
     status: "Completed",
     icon: Headphones,
-    image: "/images/ai-consulting-service-image/how-ai-helps/how-3.png",
+    image: "/images/ai-consulting-service-image/how-ai-helps/how-3.webp",
   },
   {
     id: "step-4",
@@ -46,7 +46,7 @@ export const workflowSolutionsData: WorkflowSolutionsStep[] = [
     description: "Automate lead capture, opportunity management, follow-ups, approvals, CRM updates, customer engagement, and sales reporting.",
     status: "Completed",
     icon: Briefcase,
-    image: "/images/ai-consulting-service-image/how-ai-helps/how-4.png",
+    image: "/images/ai-consulting-service-image/how-ai-helps/how-4.webp",
   },
   {
     id: "step-5",
@@ -54,6 +54,6 @@ export const workflowSolutionsData: WorkflowSolutionsStep[] = [
     description: "Optimize procurement, inventory management, warehouse operations, order processing, shipment tracking, and supplier collaboration using AI.",
     status: "In Progress",
     icon: Truck,
-    image: "/images/ai-consulting-service-image/how-ai-helps/how-5.png",
+    image: "/images/ai-consulting-service-image/how-ai-helps/how-5.webp",
   },
 ];

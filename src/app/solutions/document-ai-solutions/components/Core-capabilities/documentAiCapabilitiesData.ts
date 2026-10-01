@@ -10,7 +10,7 @@ export const documentAiCapabilitiesData = [
         shortDesc: 'Automate the extraction, classification, and validation of structured and unstructured business documents using AI.',
         icon: IconRobot,
         color: 'bg-indigo-100 text-indigo-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-1.png',
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-1.webp',
 
         description:
             'Automate the extraction, classification, and validation of structured and unstructured business documents using AI.',
@@ -36,7 +36,7 @@ export const documentAiCapabilitiesData = [
         shortDesc: 'Extract accurate data from invoices, contracts, forms, PDFs, receipts, and scanned documents with AI-powered OCR.',
         icon: IconFileText,
         color: 'bg-emerald-100 text-emerald-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-2.png',
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-2.webp',
 
         description:
             'Extract accurate data from invoices, contracts, forms, PDFs, receipts, and scanned documents with AI-powered OCR.',
@@ -62,7 +62,7 @@ export const documentAiCapabilitiesData = [
         shortDesc: 'Automate document-centric workflows, approvals, routing, and business processes to improve operational efficiency.',
         icon: IconHierarchy,
         color: 'bg-violet-100 text-violet-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-3.png',
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-3.webp',
 
         description:
             'Automate document-centric workflows, approvals, routing, and business processes to improve operational efficiency.',
@@ -88,7 +88,7 @@ export const documentAiCapabilitiesData = [
         shortDesc: 'Connect Document AI with Microsoft 365, SharePoint, Dynamics 365, ERP, CRM, Dataverse, and enterprise business applications.',
         icon: IconLink,
         color: 'bg-amber-100 text-amber-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-2.png',
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-2.webp',
 
         description:
             'Integrate Document AI with Microsoft 365, SharePoint, Dynamics 365, Dataverse, ERP, CRM, cloud storage, and third-party business applications. Enable seamless document processing across your enterprise while ensuring secure data flow and operational efficiency.',
@@ -114,7 +114,7 @@ export const documentAiCapabilitiesData = [
         shortDesc: 'Transform enterprise documents into searchable knowledge using AI-powered indexing, metadata extraction, and semantic search.',
         icon: IconDatabase,
         color: 'bg-blue-100 text-blue-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-5.png',
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-5.webp',
 
         description:
             'Transform enterprise documents into searchable knowledge using AI-powered indexing, metadata extraction, and semantic search.',
@@ -140,7 +140,7 @@ export const documentAiCapabilitiesData = [
         shortDesc: 'Protect sensitive documents with enterprise-grade security, compliance controls, audit trails, and governance.',
         icon: IconShieldCheck,
         color: 'bg-rose-100 text-rose-600',
-        image: '/images/ai-consulting-service-image/how-ai-helps/how-1.png',
+        image: '/images/ai-consulting-service-image/how-ai-helps/how-1.webp',
 
         description:
             'Protect sensitive documents with enterprise-grade security, compliance controls, audit trails, and governance.',

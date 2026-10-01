@@ -5,9 +5,9 @@ import type { SuccessStoryMetric } from "@/components/sections/success-stories/t
 
 export const HOMEPAGE_CLIENT_LOGOS = {
   wickedPoint: "/images/logo/wickedpoint.jpg",
-  ecg: "/images/logo/ecg.png",
-  spMarketplace: "/images/logo/1.jpg",
-  nuvento: "/images/logo/nuvento.jpg",
+  ecg: "/images/logo/ecg.webp",
+  spMarketplace: "/images/logo/1.webp",
+  nuvento: "/images/logo/nuvento.webp",
 } as const;
 
 /** Corporate / architecture photos for success-stories bento (Unsplash) */

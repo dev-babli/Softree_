@@ -10,43 +10,43 @@ const slides = [
     number: "01",
     title: "Understand",
     description: "Interpret requests, context, and business requirements.",
-    image: "/images/ai-development-service/agenticAi-1.png"
+    image: "/images/ai-development-service/agenticAi-1.webp"
   },
   {
     number: "02",
     title: "Reason",
     description: "Analyze information and determine the best course of action.",
-    image: "/images/ai-development-service/agenticAi-2.png"
+    image: "/images/ai-development-service/agenticAi-2.webp"
   },
   {
     number: "03",
     title: "Plan",
     description: "Break complex objectives into actionable steps.",
-    image: "/images/ai-development-service/agenticAi-3.png"
+    image: "/images/ai-development-service/agenticAi-3.webp"
   },
   {
     number: "04",
     title: "Use Tools",
     description: "Interact with APIs, databases, applications, and enterprise systems.",
-    image: "/images/ai-development-service/agenticAi-4.png"
+    image: "/images/ai-development-service/agenticAi-4.webp"
   },
   {
     number: "05",
     title: "Execute",
     description: "Complete tasks and automate multi-step workflows.",
-    image: "/images/ai-development-service/agenticAi-5.png"
+    image: "/images/ai-development-service/agenticAi-5.webp"
   },
   {
     number: "06",
     title: "Collaborate",
     description: "Enable multiple specialized agents to work together.",
-    image: "/images/ai-development-service/agenticAi-6.png"
+    image: "/images/ai-development-service/agenticAi-6.webp"
   },
   {
     number: "07",
     title: "Evaluate & Improve",
     description: "Monitor agent behavior and continuously improve performance.",
-    image: "/images/ai-development-service/agenticAi-7.png"
+    image: "/images/ai-development-service/agenticAi-7.webp"
   }
 ];
 

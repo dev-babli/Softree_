@@ -139,7 +139,7 @@ const ASSETS = {
       n: "11",
       label: "Multi-Agent Systems",
       href: "/solutions/multi-agent-systems",
-      img: "/whysoftree/ai.png",
+      img: "/whysoftree/ai.webp",
       desc: "Orchestrate collaborative networks of specialized AI agents working to solve complex goals."
     },
   ],

@@ -25,7 +25,7 @@ const NOVA_SLIDES: NovaSlide[] = [
     title: "AI Voice Assistants",
     description:
       "Build intelligent voice assistants that understand natural conversations, maintain context, and provide real-time responses with sub-second latency.",
-    media: "/images/novavoice/1.png",
+    media: "/images/novavoice/1.webp",
     effect: "glass",
   },
   {
@@ -35,7 +35,7 @@ const NOVA_SLIDES: NovaSlide[] = [
     title: "Customer Service Voice Agents",
     description:
       "Automate customer interactions with conversational voice agents that can answer questions, retrieve information, and support service workflows.",
-    media: "/images/novavoice/2.png",
+    media: "/images/novavoice/2.webp",
     effect: "ripple",
   },
   {
@@ -45,7 +45,7 @@ const NOVA_SLIDES: NovaSlide[] = [
     title: "Enterprise Voice Automation",
     description:
       "Connect voice AI with business processes, APIs, and enterprise systems to automate repetitive, mission-critical voice-driven operational tasks.",
-    media: "/images/novavoice/3.png",
+    media: "/images/novavoice/3.webp",
     effect: "timeshift",
   },
   {
@@ -55,7 +55,7 @@ const NOVA_SLIDES: NovaSlide[] = [
     title: "Voice Knowledge Assistants",
     description:
       "Build voice-enabled knowledge assistants that use RAG and business data to provide relevant, context-aware, verifiable responses.",
-    media: "/images/novavoice/4.png",
+    media: "/images/novavoice/4.webp",
     effect: "frost",
   },
   {
@@ -65,7 +65,7 @@ const NOVA_SLIDES: NovaSlide[] = [
     title: "Healthcare Voice Assistants",
     description:
       "Develop conversational voice solutions for healthcare workflows, information access, patient scheduling, and approved clinical use cases.",
-    media: "/images/novavoice/5.png",
+    media: "/images/novavoice/5.webp",
     effect: "glass",
   },
   {
@@ -75,7 +75,7 @@ const NOVA_SLIDES: NovaSlide[] = [
     title: "Field Service Voice Assistants",
     description:
       "Enable field teams to access information, interact with applications, and complete workflows through hands-free voice interactions.",
-    media: "/images/novavoice/6.png",
+    media: "/images/novavoice/6.webp",
     effect: "ripple",
   },
   {
@@ -85,7 +85,7 @@ const NOVA_SLIDES: NovaSlide[] = [
     title: "Multilingual Voice Experiences",
     description:
       "Create conversational applications that support multilingual interactions and more natural voice experiences for diverse global audiences.",
-    media: "/images/novavoice/7.png",
+    media: "/images/novavoice/7.webp",
     effect: "timeshift",
   },
   {
@@ -95,7 +95,7 @@ const NOVA_SLIDES: NovaSlide[] = [
     title: "Voice-Powered AI Agents",
     description:
       "Combine Nova 2 Sonic with AI agents, tool calling, APIs, and business logic to create voice interfaces capable of taking autonomous actions.",
-    media: "/images/novavoice/8.png",
+    media: "/images/novavoice/8.webp",
     effect: "plasma",
   },
 ];

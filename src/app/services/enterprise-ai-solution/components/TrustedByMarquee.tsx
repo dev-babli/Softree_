@@ -3,16 +3,16 @@
 import Image from "next/image";
 
 const logos = [
-  { name: "GO ERP", src: "/images/enterprise-ai-solution/images/logo/goerp1.jpg", scale: 1.55 },
-  { name: "Nuvento", src: "/images/enterprise-ai-solution/images/logo/nuvento.jpg", scale: 1.15 },
+  { name: "GO ERP", src: "/images/enterprise-ai-solution/images/logo/goerp1.webp", scale: 1.55 },
+  { name: "Nuvento", src: "/images/enterprise-ai-solution/images/logo/nuvento.webp", scale: 1.15 },
   { name: "Kwiz", src: "/images/enterprise-ai-solution/images/logo/kwiz.png", scale: 0.9 },
-  { name: "Jonians", src: "/images/enterprise-ai-solution/images/logo/jonians.jpg", scale: 1.7 },
-  { name: "Export Control", src: "/images/enterprise-ai-solution/images/logo/ecg.png", scale: 1.4 },
+  { name: "Jonians", src: "/images/enterprise-ai-solution/images/logo/jonians.webp", scale: 1.7 },
+  { name: "Export Control", src: "/images/enterprise-ai-solution/images/logo/ecg.webp", scale: 1.4 },
   { name: "SP Marketplace", src: "/images/enterprise-ai-solution/images/logo/sp-marketplace.png", scale: 1.05 },
-  { name: "Bosch", src: "/images/enterprise-ai-solution/images/logo/bosch.png", scale: 0.9 },
-  { name: "Emscale", src: "/images/enterprise-ai-solution/images/logo/emscale_logo.png", scale: 0.82 },
-  { name: "Link Innovation", src: "/images/enterprise-ai-solution/images/logo/link-innovation.png", scale: 1 },
-  { name: "Intellectt", src: "/images/enterprise-ai-solution/images/logo/Intellectt_logo.png", scale: 1.35 },
+  { name: "Bosch", src: "/images/enterprise-ai-solution/images/logo/bosch.webp", scale: 0.9 },
+  { name: "Emscale", src: "/images/enterprise-ai-solution/images/logo/emscale_logo.webp", scale: 0.82 },
+  { name: "Link Innovation", src: "/images/enterprise-ai-solution/images/logo/link-innovation.webp", scale: 1 },
+  { name: "Intellectt", src: "/images/enterprise-ai-solution/images/logo/Intellectt_logo.webp", scale: 1.35 },
 ];
 
 function BrandLogo({ logo }: { logo: (typeof logos)[number] }) {

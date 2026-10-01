@@ -12,7 +12,7 @@ export const coreCapabilitiesData = [
     shortDesc: 'Identify high-value AI-agent use cases, define business goals, assess feasibility, and create a practical roadmap for implementation.',
     icon: IconBrain,
     color: 'bg-indigo-100 text-indigo-600',
-    image: '/images/ai-development-services/core-capabilities/ai-strategy.png',
+    image: '/images/ai-development-services/core-capabilities/ai-strategy.webp',
     description: 'We help enterprises define the right AI strategy, identify high-impact use cases, and build a roadmap for sustainable AI transformation.',
     highlights: [
       {
@@ -45,7 +45,7 @@ export const coreCapabilitiesData = [
     shortDesc: 'Design agent architectures, models, tools, data flows, memory, orchestration, integrations, and security boundaries for production use.',
     icon: IconCloud,
     color: 'bg-emerald-100 text-emerald-600',
-    image: '/images/ai-development-services/core-capabilities/enterprise-ai-architecture.png',
+    image: '/images/ai-development-services/core-capabilities/enterprise-ai-architecture.webp',
     description: 'Design resilient AI architectures using Azure AI, cloud-native infrastructure, APIs, enterprise data platforms, and scalable deployment models.',
     highlights: [
       {
@@ -78,7 +78,7 @@ export const coreCapabilitiesData = [
     shortDesc: 'Build AI agents, connect tools and APIs, integrate business systems, and develop the workflows that turn AI capabilities into working applications.',
     icon: IconHierarchy,
     color: 'bg-violet-100 text-violet-600',
-    image: '/images/ai-development-services/core-capabilities/intelligent-automation.png',
+    image: '/images/ai-development-services/core-capabilities/intelligent-automation.webp',
     description: 'Build AI-powered workflows that automate repetitive business processes using Microsoft Copilot, AI Agents, Power Automate, and intelligent decision engines.',
     highlights: [
       {
@@ -111,7 +111,7 @@ export const coreCapabilitiesData = [
     shortDesc: 'Apply access controls, data boundaries, guardrails, human oversight, and evaluation practices to support safe and reliable AI-agent deployment.',
     icon: IconShieldCheck,
     color: 'bg-amber-100 text-amber-600',
-    image: '/images/ai-development-services/core-capabilities/secure-ai-governance.png',
+    image: '/images/ai-development-services/core-capabilities/secure-ai-governance.webp',
     description: 'Ensure every AI solution follows enterprise governance, compliance, privacy, security, and responsible AI principles.',
     highlights: [
       {
@@ -144,7 +144,7 @@ export const coreCapabilitiesData = [
     shortDesc: 'Connect AI agents with business applications and workflows to automate repetitive and decision-driven processes.',
     icon: IconApps,
     color: 'bg-blue-100 text-blue-600',
-    image: '/images/ai-development-services/core-capabilities/microsoft-ai-ecosystem.png',
+    image: '/images/ai-development-services/core-capabilities/microsoft-ai-ecosystem.webp',
     description: 'Deliver fully integrated enterprise AI using Microsoft Azure AI, Copilot, Microsoft Fabric, Power Platform, Dynamics 365, and Microsoft 365.',
     highlights: [
       {
@@ -177,7 +177,7 @@ export const coreCapabilitiesData = [
     shortDesc: 'Move AI agents into production with monitoring, observability, evaluation feedback, performance improvements, and ongoing engineering support.',
     icon: IconChartLine,
     color: 'bg-pink-100 text-pink-600',
-    image: '/images/ai-development-services/core-capabilities/continuous-optimization.png',
+    image: '/images/ai-development-services/core-capabilities/continuous-optimization.webp',
     description: 'Continuously monitor AI performance, improve accuracy, optimize costs, and evolve enterprise AI systems using real-time analytics.',
     highlights: [
       {

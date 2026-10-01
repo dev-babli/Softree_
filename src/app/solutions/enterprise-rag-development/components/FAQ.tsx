@@ -26,56 +26,56 @@ const defaultFaqs: FAQItem[] = [
     serial: "question 01",
     question: "What is Enterprise RAG development?",
     answer:
-      "Enterprise RAG development combines large language models with your organization's trusted knowledge sources to generate accurate, context-aware responses. Instead of relying only on an AI model's pre-trained knowledge, a RAG system retrieves relevant information from enterprise documents, databases, applications, and other approved sources before generating an answer.",
+      "Enterprise RAG (Retrieval-Augmented Generation) development combines powerful large language models (LLMs) with an organization's trusted internal data and knowledge sources. Softree builds custom RAG applications that securely ingest enterprise documents, databases, business applications, and other approved sources to retrieve highly relevant information. By grounding generative AI models in your proprietary enterprise data, we deliver accurate, context-aware, and highly reliable AI responses tailored to your specific business operations and semantic search requirements.",
   },
   {
     id: 2,
     serial: "question 02",
-    question: "How does RAG improve the accuracy of enterprise AI?",
+    question: "What Enterprise RAG development services does Softree provide?",
     answer:
-      "RAG retrieves relevant business information before an AI response is generated, helping ground answers in trusted enterprise knowledge. This reduces reliance on the model's general knowledge, improves contextual accuracy, and enables responses to include supporting sources or citations when required.",
+      "Softree provides end-to-end Enterprise RAG development services designed for scale and security. Our comprehensive offerings include custom RAG architecture design, enterprise data ingestion, intelligent document processing and semantic chunking, advanced embeddings, vector database integration, and hybrid search optimization. We handle retrieval and reranking pipelines, secure LLM integration, continuous evaluation, deployment, and ongoing performance monitoring. Whether you need to build a complete generative AI application from scratch or extend an existing AI solution, our specialized offshore RAG engineering team delivers robust, production-ready AI solutions.",
   },
   {
     id: 3,
     serial: "question 03",
     question: "What enterprise data sources can be connected to a RAG system?",
     answer:
-      "We can integrate RAG solutions with sources such as SharePoint, PDFs, Microsoft 365, SQL databases, CRM and ERP systems, cloud storage, internal APIs, knowledge bases, websites, and private document repositories. The architecture can be designed around your existing enterprise data ecosystem.",
+      "We can connect custom RAG applications to a wide array of structured and unstructured enterprise data sources. This includes Microsoft SharePoint, complex PDFs, SQL and NoSQL databases, Confluence, Google Workspace, corporate emails, CRM and ERP systems, secure APIs, and proprietary business applications. Our AI engineering team builds automated data ingestion and processing pipelines that clean, chunk, and index this data, transforming diverse information silos into unified, searchable, and retrieval-ready enterprise knowledge for advanced conversational AI.",
   },
   {
     id: 4,
     serial: "question 04",
     question: "How do you secure sensitive enterprise data in a RAG solution?",
     answer:
-      "Enterprise RAG solutions can incorporate role-based access control, identity management, source-level permissions, encrypted communication, secure cloud infrastructure, and retrieval-level authorization. This helps ensure users retrieve only the information they are permitted to access.",
+      "Security is foundational to our Enterprise RAG architecture, implemented across the data, retrieval, application, and access-control layers. We protect sensitive enterprise data by implementing strict authentication, active directory authorization, role-based access control (RBAC), and robust metadata filtering. Our secure RAG solutions utilize controlled retrieval mechanisms, encrypted data connections, and private cloud or environment-level security boundaries. This ensures that generative AI models strictly adhere to organizational compliance policies and users only receive information they are explicitly authorized to access.",
   },
   {
     id: 5,
     serial: "question 05",
-    question: "Which vector databases and AI models can you integrate?",
+    question: "Which vector databases and AI models can you integrate with Enterprise RAG?",
     answer:
-      "Depending on the architecture and business requirements, we can work with technologies such as Azure AI Search, Pinecone, Weaviate, Milvus, pgvector, Elasticsearch, OpenSearch, OpenAI, Azure OpenAI, Claude, Gemini, and Llama-based models.",
+      "Softree provides vendor-agnostic integration for Enterprise RAG applications, seamlessly connecting with leading vector search and database technologies like Pinecone, Milvus, Weaviate, pgvector, and Azure AI Search. We integrate top-tier language models including Microsoft Azure OpenAI, OpenAI GPT-4, Anthropic Claude, Google Gemini, and open-source models like Llama. By intelligently orchestrating advanced embeddings, highly scalable vector search, semantic or hybrid retrieval, precise reranking algorithms, and LLMs, we construct highly accurate, context-aware generative AI applications customized for your enterprise needs.",
   },
   {
     id: 6,
     serial: "question 06",
     question: "Can Enterprise RAG integrate with Microsoft 365 and SharePoint?",
     answer:
-      "Yes. Enterprise RAG can connect with Microsoft 365 and SharePoint to make organizational documents and knowledge searchable through conversational AI experiences. Integrations can also use Microsoft Graph, Azure services, APIs, and enterprise identity controls to maintain secure access to business information.",
+      "Yes, Enterprise RAG solutions seamlessly integrate with Microsoft 365 and SharePoint environments to transform approved organizational content into intelligent, AI-powered search and knowledge discovery experiences. Softree specializes in securely integrating SharePoint repositories—including document libraries, intranets, and enterprise wikis—with advanced document processing, dense embeddings, and optimized retrieval pipelines. We orchestrate these workflows with enterprise LLMs while rigorously maintaining existing Microsoft 365 access controls, tenant security policies, and user permissions to ensure completely secure enterprise AI deployments.",
   },
   {
     id: 7,
     serial: "question 07",
-    question: "How do you reduce hallucinations in a RAG system?",
+    question: "How does Softree reduce unsupported or inaccurate answers in RAG systems?",
     answer:
-      "We reduce hallucinations through retrieval quality optimization, semantic and hybrid search, metadata filtering, context engineering, response grounding, prompt controls, source citations, retrieval evaluation, and confidence-based response strategies. The system can also be configured to avoid answering when sufficient supporting knowledge cannot be retrieved.",
+      "RAG inherently grounds generative AI responses by retrieving verified information from approved enterprise sources before the language model generates its answer, drastically reducing hallucinations. Softree further enhances this accuracy through highly optimized semantic chunking, rich metadata tagging, advanced embedding models, and sophisticated vector or hybrid retrieval strategies. By implementing cross-encoder reranking, strict prompt engineering, contextual guardrails, continuous evaluation frameworks, and real-time monitoring, we maximize response relevance and ensure your AI assistants provide accurate, fully supported, and verifiable answers.",
   },
   {
     id: 8,
     serial: "question 08",
     question: "How long does Enterprise RAG development take?",
     answer:
-      "The timeline depends on the number of knowledge sources, data quality, integrations, security requirements, retrieval complexity, and deployment environment. A focused RAG implementation may take several weeks, while a larger enterprise platform involving multiple systems, advanced permissions, and extensive validation may require a longer phased implementation.",
+      "The timeline for Enterprise RAG development varies based on the number and diversity of enterprise data sources, document complexity, custom retrieval requirements, stringent security controls, necessary API integrations, chosen language models, and overall application scope. A targeted RAG Proof of Concept (PoC) or Minimum Viable Product (MVP) can often be delivered in a matter of weeks to demonstrate core retrieval viability. Conversely, a comprehensive production-grade Enterprise RAG solution—featuring multi-source data pipelines, advanced enterprise security models, rigorous LLM evaluation, and scalable cloud deployment—requires dedicated engineering cycles. Softree collaboratively defines a precise scope, actionable milestones, and a transparent delivery roadmap tailored perfectly to your custom AI requirements.",
   },
 ]
 
@@ -274,8 +274,8 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
               {/* Question */}
               <div className="mb-2">
                 <h3
-                  className={`font-semibold leading-snug transition-colors duration-500 ${
-                    isActive ? "text-base md:text-lg" : "text-sm lg:text-[13px]"
+                  className={`typo-heading-4 transition-colors duration-500 ${
+                    isActive ? "text-base md:text-lg" : ""
                   }`}
                   style={{
                     color: FAQ_INK,
@@ -290,11 +290,11 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
           {isActive && (
             <div id={`faq-answer-${faq.id}`} className="mt-2">
               <div className="pt-2 md:pt-3">
-                <h4 className="mb-1.5 text-[11px] font-semibold uppercase tracking-wider" style={{ color: `${FAQ_INK_MUTED}99` }}>
+                <h4 className="mb-1.5 typo-caption-meta uppercase" style={{ color: `${FAQ_INK_MUTED}99` }}>
                   Question Answer:
                 </h4>
                 <div className="mb-3 h-px w-14" style={{ backgroundColor: `${theme.accent}35` }} />
-                <p className="mb-4 text-sm leading-relaxed" style={{ color: `${FAQ_INK}d9` }}>
+                <p className="mb-4 typo-body leading-relaxed" style={{ color: `${FAQ_INK}d9` }}>
                   {faq.answer}
                 </p>
               </div>
@@ -333,9 +333,9 @@ export default function LightFAQExact({ faqs: customFaqs }: LightFAQExactProps) 
         <div ref={titleRef} className="mb-8 md:mb-10">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#1852FF]/20 bg-[#1852FF]/8 px-4 py-2">
             <HelpCircle className="h-4 w-4 text-[#1852FF]" />
-            <span className="text-sm font-medium text-[#1852FF]">FAQ</span>
+            <span className="typo-caption text-[#1852FF]">FAQ</span>
           </div>
-          <h2 className="text-3xl font-bold tracking-tight text-[#0a0a1a] md:text-5xl lg:text-6xl">
+          <h2 className="typo-heading-2 text-[#0a0a1a]">
             Frequently Asked{" "}
             <span className="bg-gradient-to-r from-[#1852FF] to-[#FF5812] bg-clip-text text-transparent">
               Questions.

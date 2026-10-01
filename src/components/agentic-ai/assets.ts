@@ -6,7 +6,7 @@ export const AGENTIC_ASSETS = {
   heroBg: "/service_image/ai.jpg",
   phases: {
     build: {
-      src: "/images/case-study/power-apps/ai.png",
+      src: "/images/case-study/power-apps/ai.webp",
       alt: "Copilot Studio agent builder interface",
     },
     scale: {
@@ -21,7 +21,7 @@ export const AGENTIC_ASSETS = {
   platform: [
     {
       id: 1,
-      img: "/images/case-study/power-apps/ai.png",
+      img: "/images/case-study/power-apps/ai.webp",
       title: "AI Copilot",
       desc: "Assist users with contextual intelligence and workflow automation inside Microsoft 365.",
     },
@@ -46,5 +46,5 @@ export const AGENTIC_ASSETS = {
     it: "/service_image/microsoft.jpg",
   },
   enterprise: "/service_image/data.jpg",
-  process: "/service_image/web.jpg",
+  process: "/service_image/web.webp",
 } as const

@@ -11,7 +11,7 @@ export const coreCapabilitiesData = [
     shortDesc: 'Connect enterprise knowledge from SharePoint, PDFs, databases, APIs, cloud storage, CRM, and internal systems.',
     icon: IconDatabase,
     color: 'bg-indigo-100 text-indigo-600',
-    image: '/images/solutions/ai-agents-development/core-capabilities/llm-integration.jpg',
+    image: '/images/solutions/ai-agents-development/core-capabilities/llm-integration.webp',
     description: 'Build secure data ingestion pipelines that connect fragmented enterprise knowledge and prepare it for accurate, scalable Retrieval-Augmented Generation (RAG).',
     highlights: [
       {
@@ -44,7 +44,7 @@ export const coreCapabilitiesData = [
     shortDesc: 'Transform enterprise documents into optimized, searchable knowledge for reliable RAG retrieval.',
     icon: IconFileText,
     color: 'bg-emerald-100 text-emerald-600',
-    image: '/images/solutions/ai-agents-development/core-capabilities/rag-integration.jpg',
+    image: '/images/solutions/ai-agents-development/core-capabilities/rag-integration.webp',
     description: 'Prepare complex enterprise content for RAG using intelligent parsing, chunking, metadata enrichment, and content preprocessing strategies.',
     highlights: [
       {
@@ -77,7 +77,7 @@ export const coreCapabilitiesData = [
     shortDesc: 'Enable fast semantic search across large enterprise knowledge bases using embeddings and vector databases.',
     icon: IconSearch,
     color: 'bg-violet-100 text-violet-600',
-    image: '/images/solutions/ai-agents-development/core-capabilities/api-integration.jpg',
+    image: '/images/solutions/ai-agents-development/core-capabilities/api-integration.webp',
     description: 'Implement enterprise-grade embedding pipelines and vector search architectures that help AI systems retrieve semantically relevant knowledge at scale.',
     highlights: [
       {
@@ -110,7 +110,7 @@ export const coreCapabilitiesData = [
     shortDesc: 'Improve RAG accuracy with hybrid search, semantic retrieval, filtering, reranking, and context optimization.',
     icon: IconTrendingUp,
     color: 'bg-amber-100 text-amber-600',
-    image: '/images/solutions/ai-agents-development/core-capabilities/memory-context.jpg',
+    image: '/images/solutions/ai-agents-development/core-capabilities/memory-context.webp',
     description: 'Build advanced enterprise retrieval pipelines that identify the most relevant knowledge before passing context to the language model.',
     highlights: [
       {
@@ -143,7 +143,7 @@ export const coreCapabilitiesData = [
     shortDesc: 'Connect enterprise knowledge with leading LLMs to generate accurate, context-aware, and grounded AI responses.',
     icon: IconBrain,
     color: 'bg-blue-100 text-blue-600',
-    image: '/images/solutions/ai-agents-development/core-capabilities/human-in-loop.jpg',
+    image: '/images/solutions/ai-agents-development/core-capabilities/human-in-loop.webp',
     description: 'Integrate enterprise RAG pipelines with leading language models to deliver AI responses grounded in trusted organizational knowledge.',
     highlights: [
       {
@@ -176,7 +176,7 @@ export const coreCapabilitiesData = [
     shortDesc: 'Protect enterprise knowledge and continuously monitor retrieval quality, AI accuracy, security, and system performance.',
     icon: IconShieldLock,
     color: 'bg-pink-100 text-pink-600',
-    image: '/images/solutions/ai-agents-development/core-capabilities/security-governance.jpg',
+    image: '/images/solutions/ai-agents-development/core-capabilities/security-governance.webp',
     description: 'Deploy production-ready Enterprise RAG solutions with secure knowledge access, governance controls, observability, evaluation, and continuous optimization.',
     highlights: [
       {

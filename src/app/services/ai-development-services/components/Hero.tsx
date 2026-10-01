@@ -132,7 +132,7 @@ function ThreeDSpaceGlobe({ className = "" }: ThreeDSpaceGlobeProps) {
     const textureLoader = new THREE.TextureLoader();
 
     // Procedural High-Contrast Earth Color Map (Slate-Gray Continents & Black Oceans + High-Tech Grid)
-    // Used as a fallback if the local /earth.jpg fails to load
+    // Used as a fallback if the local /earth.webp fails to load
     const createProceduralEarthMap = () => {
       const canvas = document.createElement("canvas");
       canvas.width = 1024;
@@ -202,7 +202,7 @@ function ThreeDSpaceGlobe({ className = "" }: ThreeDSpaceGlobeProps) {
     // Load Local Photographic Texture
     let earthTexture: THREE.Texture | null = null;
     earthTexture = textureLoader.load(
-      "/earth.jpg",
+      "/earth.webp",
       (texture) => {
         texture.colorSpace = THREE.SRGBColorSpace;
 

@@ -62,13 +62,13 @@ const testimonials = [
 const companyLogos: Record<string, string> = {
   "SP Marketplace": "/images/logo/sp-marketplace.png",
   "Wicked Point LLC": "/images/logo/wickedpoint.jpg",
-  "ECG International": "/images/logo/ecg.png",
-  Nuvento: "/images/logo/nuvento.jpg",
-  Bosch: "/images/logo/bosch.png",
+  "ECG International": "/images/logo/ecg.webp",
+  Nuvento: "/images/logo/nuvento.webp",
+  Bosch: "/images/logo/bosch.webp",
   Deloitte: "/images/logo/deloitte.png",
   Microsoft: "/images/logo/microsoft.png",
   Sanofi: "/images/logo/sanofi.jpg",
-  "Snap-on": "/images/logo/snapon.jpg",
+  "Snap-on": "/images/logo/snapon.webp",
   Google: "/images/logo/google.png",
 };
 

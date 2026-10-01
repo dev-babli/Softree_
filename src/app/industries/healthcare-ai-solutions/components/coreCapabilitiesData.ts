@@ -13,7 +13,7 @@ export const coreCapabilitiesData = [
     shortDesc: 'Custom AI solutions designed for healthcare workflows and patient outcomes.',
     icon: IconBrain,
     color: 'bg-indigo-100 text-indigo-600',
-    image: '/images/ai-healthcare-images/health-1.png',
+    image: '/images/ai-healthcare-images/health-1.webp',
     description: 'We help hospitals, clinics, and medtech companies define and build custom AI solutions that align with patient care and operational goals.',
     highlights: [
       { title: 'Clinical AI Strategy', desc: 'Aligning AI initiatives with patient care and operational goals.', icon: IconTargetArrow },
@@ -34,7 +34,7 @@ export const coreCapabilitiesData = [
     shortDesc: 'Leverage LLMs for clinical documentation, patient communication, and medical research.',
     icon: IconCloud,
     color: 'bg-emerald-100 text-emerald-600',
-    image: '/images/ai-healthcare-images/health-2.png',
+    image: '/images/ai-healthcare-images/health-2.webp',
     description: 'Build Generative AI applications that summarize patient histories, draft clinical notes, and provide conversational interfaces for patients.',
     highlights: [
       { title: 'HIPAA-Compliant GenAI', desc: 'Building resilient and secure foundations for LLM applications.', icon: IconServer },
@@ -55,7 +55,7 @@ export const coreCapabilitiesData = [
     shortDesc: 'Automating administrative and clinical processes using Medical AI Agents.',
     icon: IconHierarchy,
     color: 'bg-violet-100 text-violet-600',
-    image: '/images/ai-healthcare-images/health-3.png',
+    image: '/images/ai-healthcare-images/health-3.webp',
     description: 'Build AI-powered workflows that automate repetitive healthcare processes, such as medical billing, claims processing, and appointment scheduling.',
     highlights: [
       { title: 'Clinical AI Agents', desc: 'Deploying autonomous agents for complex administrative tasks.', icon: IconRobot },
@@ -76,7 +76,7 @@ export const coreCapabilitiesData = [
     shortDesc: 'Intelligent conversational agents for patient triage, scheduling, and support.',
     icon: IconMessageChatbot,
     color: 'bg-amber-100 text-amber-600',
-    image: '/images/ai-healthcare-images/health-4.png',
+    image: '/images/ai-healthcare-images/health-4.webp',
     description: 'Deploy empathetic and secure AI chatbots that assist patients 24/7, route them to the right care providers, and handle routine inquiries.',
     highlights: [
       { title: 'Patient Triage Bots', desc: 'Symptom checking and care routing.', icon: IconShield },
@@ -97,7 +97,7 @@ export const coreCapabilitiesData = [
     shortDesc: 'Turn healthcare data into actionable operational insights.',
     icon: IconChartLine,
     color: 'bg-blue-100 text-blue-600',
-    image: '/images/ai-healthcare-images/health-5.png',
+    image: '/images/ai-healthcare-images/health-5.webp',
     description: 'Leverage machine learning to predict patient readmissions, optimize hospital resource allocation, and foresee disease outbreaks.',
     highlights: [
       { title: 'Readmission Risk Scoring', desc: 'Identifying high-risk patients before discharge.', icon: IconBrandAzure },
@@ -118,7 +118,7 @@ export const coreCapabilitiesData = [
     shortDesc: 'Extract and organize information from healthcare documents automatically.',
     icon: IconFileText,
     color: 'bg-pink-100 text-pink-600',
-    image: '/images/ai-healthcare-images/health-6.png',
+    image: '/images/ai-healthcare-images/health-6.webp',
     description: 'Use advanced OCR and NLP to process medical records, lab reports, invoices, and insurance claims with near-perfect accuracy.',
     highlights: [
       { title: 'Automated Data Extraction', desc: 'Pulling key patient data from unstructured documents.', icon: IconActivity },
@@ -139,7 +139,7 @@ export const coreCapabilitiesData = [
     shortDesc: 'Securely handle, clean, and structure massive volumes of clinical data.',
     icon: IconDatabase,
     color: 'bg-emerald-100 text-emerald-600',
-    image: '/images/ai-healthcare-images/health-7.png',
+    image: '/images/ai-healthcare-images/health-7.webp',
     description: 'Build robust data pipelines that clean, anonymize, and prepare fragmented medical data for AI training and analytics.',
     highlights: [
       { title: 'PHI De-identification', desc: 'Securely stripping personal data for compliance.', icon: IconShieldCheck },
@@ -160,7 +160,7 @@ export const coreCapabilitiesData = [
     shortDesc: 'Connect AI securely with EHR systems and hospital databases.',
     icon: IconApps,
     color: 'bg-indigo-100 text-indigo-600',
-    image: '/images/ai-healthcare-images/health-8.png',
+    image: '/images/ai-healthcare-images/health-8.webp',
     description: 'Deliver fully integrated healthcare AI using seamless connectivity with Epic, Cerner, HL7/FHIR networks, and internal APIs.',
     highlights: [
       { title: 'FHIR Interoperability', desc: 'Accelerating medical data exchange and rapid AI delivery.', icon: IconBlocks },

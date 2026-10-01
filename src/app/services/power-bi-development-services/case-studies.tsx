@@ -18,7 +18,7 @@ const caseStudies = [
     solution: "Implemented a HIPAA-compliant Power BI data platform integrated with hospital EHR databases and predictive analytics models.",
     impact: "Enhanced hospital operational efficiency by 40% and improved patient admissions forecasting accuracy.",
     tech: ["Power BI", "Data Analytics", "Azure Data Factory", "EHR Integration"],
-    image: "/images/case-study/power-apps/hr.png",
+    image: "/images/case-study/power-apps/hr.webp",
     href: "https://www.softreetechnology.com/case-studies/smart-hospital-analytics-platform",
   },
   {
@@ -29,30 +29,30 @@ const caseStudies = [
     solution: "Designed an automated data validation pipeline and interactive Power BI dashboards to track billing cycles in real-time.",
     impact: "Identified 15% revenue leakage and accelerated billing cycles by 40% using advanced data analysis.",
     tech: ["Power BI", "Azure Data Factory", "Data Modeling", "Billing Integration"],
-    image: "/images/case-study/home/health.png",
+    image: "/images/case-study/home/health.webp",
     href: "https://www.softreetechnology.com/case-studies/healthcare-revenue-cycle-intelligence-dashboard",
   },
   {
-    title: "AI-Driven ITSM Analytics Platform",
+    title: "AI-Powered ITSM Analytics Platform",
     category: "Power BI",
-    summary: "Modernizes enterprise operations using Microsoft Fabric and Power BI to automate ticket resolution and predictive analytics.",
-    challenge: "IT helpdesk operations were overwhelmed by ticket backlogs and lacked end-to-end analytics on system incidents and SLAs.",
-    solution: "Built an enterprise analytics platform on Microsoft Fabric with DirectLake connections and Power BI executive dashboards.",
-    impact: "Reduced ticket resolution backlogs by 35% and improved SLA compliance by 45% using predictive analysis.",
-    tech: ["Microsoft Fabric", "Power BI", "Synapse Analytics", "DirectLake"],
-    image: "/images/case-study/power-apps/ai.png",
-    href: "https://www.softreetechnology.com/case-studies/ai-driven-itsm-analytics-platform-microsoft-fabric",
+    summary: "Global enterprise unified ITSM operations with Microsoft Fabric and AI, reducing incident resolution time by 79% and achieving 99.2% SLA compliance.",
+    challenge: "ITSM, monitoring, and cloud data were fragmented across disconnected systems with manual reporting and slow incident investigation.",
+    solution: "Designed a centralized Microsoft Fabric and Power BI analytics platform with automated ingestion and AI-driven pattern recognition.",
+    impact: "Reduced incident resolution time by 79%, boosted SLA compliance to 99.2%, and cut manual reporting efforts by over 85%.",
+    tech: ["Microsoft Fabric", "Power BI", "Azure Data Factory", "Azure Data Lake Storage"],
+    image: "/images/case-study/power-apps/itsm-analytics.webp",
+    href: "https://www.softreetechnology.com/case-studies/ai-powered-itsm-analytics-platform",
   },
   {
-    title: "Customer 360 Platform",
+    title: "AI-Based Fraud Detection in Logistics",
     category: "Power BI",
-    summary: "A unified customer intelligence platform that integrates sales pipelines, customer support metrics, and marketing touchpoints.",
-    challenge: "Enterprise sales and support divisions operated on siloed databases, preventing a single unified view of customer journeys.",
-    solution: "Developed a Power BI dashboard connecting CRM, ERP, and customer desk systems with row-level security protocols.",
-    impact: "Boosted customer retention metrics by 25% and reduced support ticket resolution times by 30%.",
-    tech: ["Power BI", "SQL Data Warehouse", "Azure Synapse", "CRM Integration"],
-    image: "https://cdn.sanity.io/images/1zmh4sfw/production/435596ec547c94a0855c288debc25f8f045768e4-1536x1024.png",
-    href: "https://www.softreetechnology.com/case-studies/customer-360-platform",
+    summary: "A global logistics enterprise used AI-based fraud detection to identify suspicious orders, shipment patterns, and delivery activity while reducing fraud risk.",
+    challenge: "Predefined rule-based systems caused high false positives and lacked centralized Power BI dashboards for monitoring transaction risk.",
+    solution: "Implemented an AI/ML fraud detection engine with Power BI risk dashboards, anomaly tracking, and automated risk scoring.",
+    impact: "Transformed rule-based detection into behavioral AI analysis, reducing fraudulent shipments, financial losses, and manual investigation.",
+    tech: ["Microsoft Power BI", "Microsoft Fabric", "Data Analytics", "DAX", "AI/ML"],
+    image: "/images/case-study/power-apps/fraud-detection.webp",
+    href: "https://www.softreetechnology.com/case-studies/ai-based-fraud-detection-in-logistics",
   },
   {
     title: "HR Analytics & Employee Experience Platform",
@@ -62,7 +62,7 @@ const caseStudies = [
     solution: "Designed a web-based unified portal with analytics dashboards, predictive employee retention metrics, and self-service portals.",
     impact: "Saved 80% reporting time, achieved 65% HR query deflection via AI, and secured 90% self-service adoption rate.",
     tech: ["Power BI", "Azure Data Lake", "Data Modeling", "AI Insights"],
-    image: "https://cdn.sanity.io/images/1zmh4sfw/production/f5db5b044703073394b6042ba5d1409d926800bf-1536x1024.png",
+    image: "/images/case-study/power-apps/hr-analytics.webp",
     href: "https://www.softreetechnology.com/case-studies/hr-analytics-and-employee-experience-platform",
   },
 ];
@@ -264,6 +264,8 @@ export default function PowerAppsCaseStudies() {
               {caseStudies.map((_, i) => (
                 <button
                   key={i}
+                  type="button"
+                  aria-label={`Go to slide ${i + 1}`}
                   onClick={() => swiperRef.current?.slideToLoop(i)}
                   className={`text-xs font-medium tracking-widest transition
                 ${

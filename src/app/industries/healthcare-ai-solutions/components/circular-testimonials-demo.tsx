@@ -17,7 +17,7 @@ const ecosystemCards = [
       "Patient Portals",
       "Provider Platforms",
     ],
-    imageSrc: "/images/ai-healthcare-images/health-1.png",
+    imageSrc: "/images/ai-healthcare-images/health-1.webp",
   },
   {
     id: "02",
@@ -30,7 +30,7 @@ const ecosystemCards = [
       "Microservices Architecture",
       "Third-Party Systems",
     ],
-    imageSrc: "/images/ai-healthcare-images/health-2.png",
+    imageSrc: "/images/ai-healthcare-images/health-2.webp",
   },
   {
     id: "03",
@@ -43,7 +43,7 @@ const ecosystemCards = [
       "Warehouses & Lakes",
       "Data Pipelines",
     ],
-    imageSrc: "/images/ai-healthcare-images/health-3.png",
+    imageSrc: "/images/ai-healthcare-images/health-3.webp",
   },
   {
     id: "04",
@@ -56,7 +56,7 @@ const ecosystemCards = [
       "Hybrid Architectures",
       "Scalable Serving",
     ],
-    imageSrc: "/images/ai-healthcare-images/health-4.png",
+    imageSrc: "/images/ai-healthcare-images/health-4.webp",
   },
   {
     id: "05",
@@ -69,7 +69,7 @@ const ecosystemCards = [
       "Zero Disruption",
       "Modern AI Capabilities",
     ],
-    imageSrc: "/images/ai-healthcare-images/health-5.png",
+    imageSrc: "/images/ai-healthcare-images/health-5.webp",
   },
   {
     id: "06",
@@ -82,7 +82,7 @@ const ecosystemCards = [
       "Automation Platforms",
       "Business Processes",
     ],
-    imageSrc: "/images/ai-healthcare-images/health-6.png",
+    imageSrc: "/images/ai-healthcare-images/health-6.webp",
   },
   {
     id: "07",
@@ -95,7 +95,7 @@ const ecosystemCards = [
       "Knowledge Bases",
       "Organizational Repositories",
     ],
-    imageSrc: "/images/ai-healthcare-images/health-7.png",
+    imageSrc: "/images/ai-healthcare-images/health-7.webp",
   },
   {
     id: "08",
@@ -108,7 +108,7 @@ const ecosystemCards = [
       "Model Management",
       "Intelligent Services",
     ],
-    imageSrc: "/images/ai-healthcare-images/health-8.png",
+    imageSrc: "/images/ai-healthcare-images/health-8.webp",
   },
 ];
 

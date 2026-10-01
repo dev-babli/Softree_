@@ -128,7 +128,7 @@ export default function LogisticsReadinessBanner() {
           <div className="relative flex-1 lg:flex-[1.05] xl:flex-[1.15] min-h-[280px] lg:min-h-full overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-100 flex items-center justify-center bg-slate-900">
             <video
               src="/images/solutions/ai-for-logistics/hero.mp4"
-              poster="/images/solutions/ai-for-logistics/hero.png"
+              poster="/images/solutions/ai-for-logistics/hero.webp"
               autoPlay
               loop
               muted

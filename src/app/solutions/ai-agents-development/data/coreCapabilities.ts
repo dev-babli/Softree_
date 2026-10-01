@@ -10,7 +10,7 @@ export const coreCapabilitiesData = [
     shortDesc: 'Integrate OpenAI, Claude, Gemini, Azure OpenAI, and other enterprise LLMs into intelligent AI agents.',
     icon: IconBrain,
     color: 'bg-indigo-100 text-indigo-600',
-    image: '/images/solutions/ai-agents-development/core-capabilities/llm-integration.jpg',
+    image: '/images/solutions/ai-agents-development/core-capabilities/llm-integration.webp',
     description: 'We help enterprises integrate the most powerful foundation models, ensuring the right LLM is used for the right task to balance performance, cost, and latency.',
     highlights: [
       {
@@ -43,7 +43,7 @@ export const coreCapabilitiesData = [
     shortDesc: 'Provide AI agents with secure, real-time access to enterprise knowledge and documentation.',
     icon: IconDatabase,
     color: 'bg-emerald-100 text-emerald-600',
-    image: '/images/solutions/ai-agents-development/core-capabilities/rag-integration.jpg',
+    image: '/images/solutions/ai-agents-development/core-capabilities/rag-integration.webp',
     description: 'Eliminate AI hallucinations by grounding your agents in proprietary enterprise data using advanced RAG architectures and vector databases.',
     highlights: [
       {
@@ -76,7 +76,7 @@ export const coreCapabilitiesData = [
     shortDesc: 'Connect AI agents with CRMs, ERPs, Microsoft 365, databases, REST APIs, and business applications.',
     icon: IconApi,
     color: 'bg-violet-100 text-violet-600',
-    image: '/images/solutions/ai-agents-development/core-capabilities/api-integration.jpg',
+    image: '/images/solutions/ai-agents-development/core-capabilities/api-integration.webp',
     description: 'Empower your AI agents to take autonomous action by equipping them with the ability to call external APIs, trigger workflows, and modify records.',
     highlights: [
       {
@@ -109,7 +109,7 @@ export const coreCapabilitiesData = [
     shortDesc: 'Enable conversational memory, user context, and personalized AI interactions across sessions.',
     icon: IconMessageCircle,
     color: 'bg-amber-100 text-amber-600',
-    image: '/images/solutions/ai-agents-development/core-capabilities/memory-context.jpg',
+    image: '/images/solutions/ai-agents-development/core-capabilities/memory-context.webp',
     description: 'Build sophisticated agents that remember past interactions, understand user preferences, and maintain deep conversational context across multiple sessions.',
     highlights: [
       {
@@ -142,7 +142,7 @@ export const coreCapabilitiesData = [
     shortDesc: 'Combine AI automation with human approvals for high-value enterprise processes.',
     icon: IconUserCheck,
     color: 'bg-blue-100 text-blue-600',
-    image: '/images/solutions/ai-agents-development/core-capabilities/human-in-loop.jpg',
+    image: '/images/solutions/ai-agents-development/core-capabilities/human-in-loop.webp',
     description: 'Ensure safety and compliance by routing complex decisions, high-risk actions, or edge cases to human operators before the AI proceeds.',
     highlights: [
       {
@@ -175,7 +175,7 @@ export const coreCapabilitiesData = [
     shortDesc: 'Enterprise authentication, RBAC, compliance, monitoring, audit logs, and responsible AI controls.',
     icon: IconShieldLock,
     color: 'bg-pink-100 text-pink-600',
-    image: '/images/solutions/ai-agents-development/core-capabilities/security-governance.jpg',
+    image: '/images/solutions/ai-agents-development/core-capabilities/security-governance.webp',
     description: 'Deploy, monitor, optimize, and continuously improve AI agents using enterprise-grade observability, governance, and performance analytics.',
     highlights: [
       {

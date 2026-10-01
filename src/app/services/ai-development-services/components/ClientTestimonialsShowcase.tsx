@@ -126,8 +126,7 @@ export default function ClientTestimonialsShowcase() {
         </div>
 
         <div className="relative w-full max-w-[360px] aspect-[1.7/1] hidden md:block select-none overflow-hidden rounded-3xl shadow-[0_20px_40px_rgba(0,0,0,0.12)] shrink-0 bg-black">
-          <img
-            src="/logo/Softree-Technology-Final-Logo-Dark-BG.png"
+          <img loading="lazy" src="/logo/Softree-Technology-Final-Logo-Dark-BG.webp"
             alt="Softree Logo"
             className="w-full h-full object-contain p-4"
           />
@@ -184,8 +183,7 @@ export default function ClientTestimonialsShowcase() {
                     </div>
                   ) : (
                     <div className="bg-zinc-900/50 border border-zinc-800/80 rounded-3xl overflow-hidden aspect-[1.3/1] relative group cursor-pointer shadow-xl">
-                      <img
-                        src={item.img}
+                      <img loading="lazy" src={item.img}
                         alt={`${item.name} Video Testimonial`}
                         className="w-full h-full object-cover opacity-65 group-hover:scale-105 transition-transform duration-700 select-none pointer-events-none"
                       />
@@ -224,8 +222,7 @@ export default function ClientTestimonialsShowcase() {
                     </div>
                   ) : (
                     <div className="bg-zinc-900/50 border border-zinc-800/80 rounded-3xl overflow-hidden aspect-[1.3/1] relative group cursor-pointer shadow-xl">
-                      <img
-                        src={item.img}
+                      <img loading="lazy" src={item.img}
                         alt={`${item.name} Video Testimonial`}
                         className="w-full h-full object-cover opacity-65 group-hover:scale-105 transition-transform duration-700 select-none pointer-events-none"
                       />

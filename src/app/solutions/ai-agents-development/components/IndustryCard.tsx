@@ -43,12 +43,12 @@ const getIcon = (type: string, className: string) => {
 
 import Image from 'next/image';
 const imageMap: Record<string, string> = {
-  healthcare: '/images/ai-development-services/industries/healthcare.jpg',
-  manufacturing: '/images/ai-development-services/industries/manufacturing.jpg',
-  finance: '/images/ai-development-services/industries/finance.jpg',
-  retail: '/images/ai-development-services/industries/retail.jpg',
-  logistics: '/images/ai-development-services/industries/logistics.jpg',
-  education: '/images/ai-development-services/industries/education.jpg',
+  healthcare: '/images/ai-development-services/industries/healthcare.webp',
+  manufacturing: '/images/ai-development-services/industries/manufacturing.webp',
+  finance: '/images/ai-development-services/industries/finance.webp',
+  retail: '/images/ai-development-services/industries/retail.webp',
+  logistics: '/images/ai-development-services/industries/logistics.webp',
+  education: '/images/ai-development-services/industries/education.webp',
 };
 
 export default function IndustryCard({ item, isActive }: { item: any, isActive: boolean }) {

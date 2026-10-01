@@ -13,12 +13,12 @@ interface Props {
 }
  
 const imageMap: Record<string, string> = {
-  heart: '/images/ai-development-services/success-stories/ai-healthcare-operations.png',
-  bank: '/images/ai-development-services/success-stories/hr-assistant.png',
-  cart: '/images/ai-development-services/success-stories/ai-performance-report.png',
-  manufacturing: '/images/ai-development-services/success-stories/ai-manufacturing.png',
-  'cross-industry': '/images/ai-development-services/success-stories/ai-competitive-gap.png',
-  logistics: '/images/ai-development-services/success-stories/ai-shipment-delay.png',
+  heart: '/images/ai-development-services/success-stories/ai-healthcare-operations.webp',
+  bank: '/images/ai-development-services/success-stories/hr-assistant.webp',
+  cart: '/images/ai-development-services/success-stories/ai-performance-report.webp',
+  manufacturing: '/images/ai-development-services/success-stories/ai-manufacturing.webp',
+  'cross-industry': '/images/ai-development-services/success-stories/ai-competitive-gap.webp',
+  logistics: '/images/ai-development-services/success-stories/ai-shipment-delay.webp',
 };
  
 const renderHighlightedText = (text: string) => {

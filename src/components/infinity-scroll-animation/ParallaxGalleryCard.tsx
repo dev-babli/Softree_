@@ -274,7 +274,7 @@ export const gallerySlides: readonly GallerySlideData[] = [
     bottomTitle: "Modern Digital Experiences",
     bottomDescription:
       "Build high-performance web and application experiences engineered for scalability, usability, and long-term business growth.",
-    image: "/service_image/web.jpg",
+    image: "/service_image/web.webp",
     subFeaturesLeft: [
       {
         icon: "monitor",

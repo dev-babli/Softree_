@@ -16,7 +16,7 @@ const caseStudies = [
     solution: "Implemented a custom patient management mobile app with digital check-ins and integrated payment gateways.",
     impact: "Reduced patient waiting room times by 65% and improved billing accuracy by 95%.",
     tech: ["Flutter", "Firebase", "Node.js", "Healthcare API"],
-    image: "/images/2.png",
+    image: "/images/2.webp",
     href: "https://www.softreetechnology.com/case-studies/wellkies-clinic-patient-management-app",
   },
   {
@@ -27,7 +27,7 @@ const caseStudies = [
     solution: "Designed and built a mobile canvas Power App with native click-to-call, email, and location features integrated with Dynamics 365.",
     impact: "Reduced communication latency by 50% and achieved 100% data compliance across teams.",
     tech: ["Power Apps", "Dynamics 365", "Power Automate", "Mobile Workflow"],
-    image: "/images/wellkies.png",
+    image: "/images/wellkies.webp",
     href: "https://www.softreetechnology.com/case-studies/contacts-management-system-powerapps-mobile-app",
   },
   {
@@ -38,7 +38,7 @@ const caseStudies = [
     solution: "Developed a cross-platform learning mobile app with interactive progress tracking, offline access, and automated assessments.",
     impact: "Scaled learning reach to over 10,000 active students and boosted course completion rates by 40%.",
     tech: ["React Native", "Node.js", "MongoDB", "LMS Integration"],
-    image: "/images/school.png",
+    image: "/images/school.webp",
     href: "https://www.softreetechnology.com/case-studies/digital-learning-management-platform",
   },
 ];

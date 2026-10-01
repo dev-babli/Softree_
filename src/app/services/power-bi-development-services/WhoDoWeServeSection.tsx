@@ -21,8 +21,8 @@ const REVIEWS = [
       "Deliver scalable analytics solutions through dedicated offshore Power BI expertise."
     ],
     outcome: "A clearer view of business performance that helps your leadership team make faster, data-driven decisions.",
-    imageSrc: "/images/serve/4.jpg",
-    thumbnailSrc: "/images/serve/4.jpg",
+    imageSrc: "/images/serve/4.webp",
+    thumbnailSrc: "/images/serve/4.webp",
   },
   {
     id: "02",
@@ -39,8 +39,8 @@ const REVIEWS = [
       "Support development, deployment, performance optimization, and ongoing engineering."
     ],
     outcome: "Reliable, scalable Power BI solutions that fit your existing technology environment and support long-term analytics growth.",
-    imageSrc: "/images/serve/3.jpg",
-    thumbnailSrc: "/images/serve/3.jpg",
+    imageSrc: "/images/serve/3.webp",
+    thumbnailSrc: "/images/serve/3.webp",
   },
   {
     id: "03",
@@ -57,8 +57,8 @@ const REVIEWS = [
       "Work as an engineering extension of your existing consulting or delivery team."
     ],
     outcome: "More Power BI projects delivered with the expertise and engineering capacity to expand your client engagements.",
-    imageSrc: "/images/serve/5.jpg",
-    thumbnailSrc: "/images/serve/5.jpg",
+    imageSrc: "/images/serve/5.webp",
+    thumbnailSrc: "/images/serve/5.webp",
   },
   {
     id: "04",
@@ -75,8 +75,8 @@ const REVIEWS = [
       "Scale Power BI delivery capacity without requiring additional in-house specialists."
     ],
     outcome: "More Power BI projects delivered reliably with flexible engineering capacity behind your client-facing team.",
-    imageSrc: "/images/serve/2.jpg",
-    thumbnailSrc: "/images/serve/2.jpg",
+    imageSrc: "/images/serve/2.webp",
+    thumbnailSrc: "/images/serve/2.webp",
   },
   {
     id: "05",
@@ -93,8 +93,8 @@ const REVIEWS = [
       "Support embedded analytics, performance optimization, and ongoing enhancements."
     ],
     outcome: "Power BI-powered analytics capabilities that strengthen your product experience and help your customers make better decisions.",
-    imageSrc: "/images/serve/1.jpg",
-    thumbnailSrc: "/images/serve/1.jpg",
+    imageSrc: "/images/serve/1.webp",
+    thumbnailSrc: "/images/serve/1.webp",
   },
 ];
 
