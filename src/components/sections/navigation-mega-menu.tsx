@@ -3,8 +3,8 @@
 
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { useState, useMemo, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useMemo } from "react";
+import { motion } from "framer-motion";
 import { 
   ArrowRight, 
   ChevronRight, 
@@ -109,11 +109,13 @@ export function MegaMenuPanel({
 
   // Active Category state
   const [activeIdx, setActiveIdx] = useState(0);
+  const [prevLabel, setPrevLabel] = useState(label);
 
-  // Reset activeIdx to 0 when groups change
-  useEffect(() => {
+  // Synchronously reset activeIdx when menu changes
+  if (prevLabel !== label) {
+    setPrevLabel(label);
     setActiveIdx(0);
-  }, [groups]);
+  }
 
   // Safely get the active category
   const activeGroup = useMemo(() => {
@@ -155,7 +157,7 @@ export function MegaMenuPanel({
         {Object.entries(FALLBACK_GRADIENTS).map(([key, grad]) => (
           <div
             key={key}
-            className="absolute inset-0 transition-opacity duration-300 ease-out"
+            className="absolute inset-0 transition-opacity duration-150 ease-out"
             style={{
               background: grad,
               opacity: label === key ? 1 : 0,
@@ -206,7 +208,7 @@ export function MegaMenuPanel({
                     type="button"
                     onMouseEnter={() => setActiveIdx(idx)}
                     onClick={() => setActiveIdx(idx)}
-                    className={`w-full text-left flex items-center justify-between rounded-xl px-4 py-3 transition-all duration-150 group relative focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/40 ${
+                    className={`w-full text-left flex items-center justify-between rounded-xl px-4 py-3 transition-colors duration-75 group relative focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/40 ${
                       isActive
                         ? "bg-[#FFF1EB] text-[#FF5812]"
                         : "text-[#0a0a1a]/70 hover:bg-black/[0.03] hover:text-[#0a0a1a]"
@@ -215,7 +217,7 @@ export function MegaMenuPanel({
                     <div className="flex items-center gap-3 min-w-0">
                       <GroupIcon 
                         size={18} 
-                        className={`shrink-0 transition-colors duration-150 ${
+                        className={`shrink-0 transition-colors duration-75 ${
                           isActive ? "text-[#FF5812]" : "text-[#0a0a1a]/40 group-hover:text-[#0a0a1a]/60"
                         }`} 
                       />
@@ -225,10 +227,10 @@ export function MegaMenuPanel({
                     </div>
                     <ChevronRight 
                       size={14} 
-                      className={`shrink-0 transition-all duration-150 ${
+                      className={`shrink-0 transition-opacity duration-75 ${
                         isActive 
-                          ? "text-[#FF5812] opacity-100 translate-x-0" 
-                          : "text-[#0a0a1a]/20 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0"
+                          ? "text-[#FF5812] opacity-100" 
+                          : "text-[#0a0a1a]/20 opacity-0 group-hover:opacity-100"
                       }`} 
                     />
                   </button>
@@ -239,16 +241,14 @@ export function MegaMenuPanel({
 
           {/* Right Column — Subservices dynamically switching */}
           <div className="flex-1 bg-white p-6 md:p-8 flex flex-col overflow-y-auto styled-scrollbar">
-            <AnimatePresence mode="wait">
-              {activeGroup && (
-                <motion.div
-                  key={activeIdx}
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -6 }}
-                  transition={{ duration: 0.15, ease: "easeOut" }}
-                  className="flex-1 flex flex-col justify-start"
-                >
+            {activeGroup && (
+              <motion.div
+                key={activeIdx}
+                initial={{ opacity: 0.6 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.08, ease: "easeOut" }}
+                className="flex-1 flex flex-col justify-start"
+              >
                   {/* Category Header */}
                   <div>
                     <div className="flex items-center gap-3">
@@ -342,8 +342,7 @@ export function MegaMenuPanel({
 
 
                 </motion.div>
-              )}
-            </AnimatePresence>
+            )}
           </div>
         </div>
 
@@ -351,6 +350,7 @@ export function MegaMenuPanel({
         <div className="border-t border-black/[0.06] bg-[#FAFAF9]">
           <Link
             href="/contact"
+            prefetch={true}
             onClick={onClose}
             className="flex items-center justify-center gap-3.5 p-4 hover:bg-black/[0.01] transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#FF5812]/40 w-full"
           >

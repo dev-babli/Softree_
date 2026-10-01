@@ -69,7 +69,7 @@ type MenuItem = {
   children?: MenuGroup[];
 };
 
-const CLOSE_DELAY_MS = 280;
+const CLOSE_DELAY_MS = 140;
 
 const menu: MenuItem[] = [
   { label: "About", url: "/about-us" },
@@ -316,10 +316,11 @@ export default function Navigation({
 
   const hasMegaContent = (activeMegaItem?.children?.length ?? 0) > 0;
 
-  const [renderedMegaItem, setRenderedMegaItem] = useState<MenuItem | null>(null);
-  if (activeMegaItem && renderedMegaItem !== activeMegaItem) {
-    setRenderedMegaItem(activeMegaItem);
+  const lastMegaItemRef = useRef<MenuItem | null>(null);
+  if (activeMegaItem) {
+    lastMegaItemRef.current = activeMegaItem;
   }
+  const renderedMegaItem = activeMegaItem || lastMegaItemRef.current;
 
   const clearCloseTimer = useCallback(() => {
     if (closeTimer.current) {
@@ -434,7 +435,7 @@ export default function Navigation({
                         closeMenu();
                       }}
                       className={cn(
-                        "group relative cursor-pointer inline-flex min-h-11 items-center rounded-full px-3.5 xl:px-4 py-2 typo-nav-link text-sm font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45",
+                        "group relative cursor-pointer inline-flex min-h-11 items-center rounded-full px-3.5 xl:px-4 py-2 typo-nav-link text-sm font-semibold transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45",
                         isSelected
                           ? "text-[#FF5812]"
                           : "text-[#0a0a1a]/70 hover:text-[#0a0a1a]"
@@ -448,7 +449,7 @@ export default function Navigation({
                           transition={
                             reduceMotion
                               ? { duration: 0 }
-                              : { type: "spring", stiffness: 380, damping: 30 }
+                              : { type: "spring", stiffness: 450, damping: 32 }
                           }
                         />
                       )}
@@ -478,7 +479,7 @@ export default function Navigation({
                           if (canOpen) openMenu(item.label);
                         }}
                         className={cn(
-                          "group relative cursor-pointer inline-flex min-h-11 items-center gap-1.5 rounded-full px-3.5 xl:px-4 py-2 typo-nav-link text-sm font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45",
+                          "group relative cursor-pointer inline-flex min-h-11 items-center gap-1.5 rounded-full px-3.5 xl:px-4 py-2 typo-nav-link text-sm font-semibold transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45",
                           isSelected
                             ? "text-[#FF5812]"
                             : "text-[#0a0a1a]/70 hover:text-[#0a0a1a]"
@@ -489,7 +490,7 @@ export default function Navigation({
                           <ChevronDown
                             size={14}
                             className={cn(
-                              "transition-transform duration-200",
+                              "transition-transform duration-150",
                               isOpen
                                 ? "rotate-180 text-[#FF5812]"
                                 : isSelected
@@ -505,7 +506,7 @@ export default function Navigation({
                             transition={
                               reduceMotion
                                 ? { duration: 0 }
-                                : { type: "spring", stiffness: 380, damping: 30 }
+                                : { type: "spring", stiffness: 450, damping: 32 }
                             }
                           />
                         )}
@@ -521,7 +522,7 @@ export default function Navigation({
                           if (canOpen) openMenu(item.label);
                         }}
                         className={cn(
-                          "group relative cursor-pointer inline-flex min-h-11 items-center gap-1.5 rounded-full px-3.5 xl:px-4 py-2 typo-nav-link text-sm font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45",
+                          "group relative cursor-pointer inline-flex min-h-11 items-center gap-1.5 rounded-full px-3.5 xl:px-4 py-2 typo-nav-link text-sm font-semibold transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45",
                           isSelected
                             ? "text-[#FF5812]"
                             : "text-[#0a0a1a]/70 hover:text-[#0a0a1a]"
@@ -532,7 +533,7 @@ export default function Navigation({
                           <ChevronDown
                             size={14}
                             className={cn(
-                              "transition-transform duration-200",
+                              "transition-transform duration-150",
                               isOpen
                                 ? "rotate-180 text-[#FF5812]"
                                 : isSelected
@@ -548,7 +549,7 @@ export default function Navigation({
                             transition={
                               reduceMotion
                                 ? { duration: 0 }
-                                : { type: "spring", stiffness: 380, damping: 30 }
+                                : { type: "spring", stiffness: 450, damping: 32 }
                             }
                           />
                         )}
@@ -592,9 +593,9 @@ export default function Navigation({
             aria-hidden={!hasMegaContent}
           >
             <div
-              className={`absolute left-0 right-0 top-0 z-40 pt-2 transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] ${hasMegaContent
+              className={`absolute left-0 right-0 top-0 z-40 pt-2 transition-[opacity,transform] duration-150 ease-out ${hasMegaContent
                 ? "pointer-events-auto opacity-100 translate-y-0"
-                : "pointer-events-none opacity-0 -translate-y-1.5"
+                : "pointer-events-none opacity-0 -translate-y-1"
                 }`}
             >
               {renderedMegaItem?.children && (
