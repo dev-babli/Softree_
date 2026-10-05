@@ -4,7 +4,8 @@ import { useGSAP } from "@gsap/react";
 import { cn } from "@/lib/utils";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { type CSSProperties, useMemo, useRef } from "react";
+import { type CSSProperties, useMemo, useRef, useState } from "react";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 import {
   isWindowScroller,
   observeWindowResize,
@@ -54,17 +55,17 @@ export const SCROLL_GALLERY_STUDIO_CLASSES = {
   images: "absolute inset-0 h-full w-full",
   imageFrame: "absolute inset-0 h-full w-full",
   image: "h-full w-full origin-center object-cover",
-  info: "absolute top-1/2 left-0 z-[2] w-screen -translate-y-1/2 border-white/20 border-b",
-  infoInner: "flex gap-8 px-9",
+  info: "absolute top-1/2 left-0 z-[2] w-full -translate-y-1/2 border-white/20 border-b",
+  infoInner: "flex items-center justify-between gap-4 sm:gap-8 px-5 sm:px-9",
   prefix: "flex-1 max-[1000px]:hidden",
   prefixText:
-    "font-medium text-[36px] text-white leading-none tracking-[-0.02rem] antialiased will-change-transform max-[1000px]:text-[18px]",
-  title: "relative h-10 flex-[2] overflow-hidden max-[1000px]:h-[22px]",
+    "font-medium text-[20px] md:text-[26px] lg:text-[30px] text-white leading-none tracking-[-0.02rem] antialiased will-change-transform max-[1000px]:text-[16px]",
+  title: "relative h-8 sm:h-9 lg:h-10 flex-[2] overflow-hidden max-[1000px]:h-[22px]",
   titleText:
-    "font-medium text-[36px] text-white leading-none tracking-[-0.02rem] antialiased will-change-transform [clip-path:polygon(0_0,100%_0,100%_100%,0%_100%)] max-[1000px]:text-[18px]",
+    "font-medium text-[20px] md:text-[26px] lg:text-[30px] text-white leading-none tracking-[-0.02rem] antialiased will-change-transform [clip-path:polygon(0_0,100%_0,100%_100%,0%_100%)] max-[1000px]:text-[16px]",
   link: "flex flex-1 justify-end",
   linkText:
-    "font-medium text-[36px] text-white leading-none tracking-[-0.02rem] no-underline antialiased will-change-transform max-[1000px]:text-[18px]",
+    "font-medium text-[18px] md:text-[22px] lg:text-[26px] text-white leading-none tracking-[-0.02rem] no-underline antialiased will-change-transform max-[1000px]:text-[15px] hover:text-[#FF5812] transition-colors",
 } as const;
 
 export interface ScrollGallerySlide {
@@ -73,6 +74,12 @@ export interface ScrollGallerySlide {
   linkLabel?: string;
   title: string;
   url?: string;
+  number?: string;
+  tag?: string;
+  description?: string;
+  deliverables?: string[];
+  impact?: string;
+  techTags?: string[];
 }
 
 export interface ScrollGalleryTiming {
@@ -305,7 +312,7 @@ function mergeIntervals(intervals: { top: number; bottom: number }[]) {
   intervals.sort((a, b) => a.top - b.top);
   const merged = [{ ...intervals[0] }];
   for (let i = 1; i < intervals.length; i++) {
-    const last = merged[merged.length - 1];
+    const last = merged.at(-1);
     const next = intervals[i];
     if (!last) {
       break;
@@ -432,6 +439,8 @@ export function ScrollGallery({
       ),
     [slides.length, scrollConfig],
   );
+
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
 
   const trackRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
@@ -573,7 +582,7 @@ export function ScrollGallery({
 
         function calculateImageProgress(scrollProgress: number) {
           const firstRange = transitionRanges[0];
-          const lastRange = transitionRanges[transitionRanges.length - 1];
+          const lastRange = transitionRanges.at(-1);
           if (!(firstRange && lastRange)) {
             return 0;
           }
@@ -712,13 +721,12 @@ export function ScrollGallery({
           const currentImageIndex = Math.floor(imageProgress);
           const imageSpecificProgress = imageProgress - currentImageIndex;
 
-          if (showInfoBand && titleEl) {
-            const correctTitleIndex = getTitleIndexForProgress(imageProgress);
-            if (correctTitleIndex !== currentTitleIndex) {
-              queuedTitleIndex = correctTitleIndex;
-              if (!isAnimating) {
-                animateTitleChange(correctTitleIndex, scrollDirection);
-              }
+          const correctTitleIndex = getTitleIndexForProgress(imageProgress);
+          if (correctTitleIndex !== currentTitleIndex) {
+            queuedTitleIndex = correctTitleIndex;
+            setActiveSlideIndex(correctTitleIndex);
+            if (!isAnimating && showInfoBand && titleEl) {
+              animateTitleChange(correctTitleIndex, scrollDirection);
             }
           }
 
@@ -845,8 +853,12 @@ export function ScrollGallery({
   );
 
   const firstSlide = slides[0];
+  const activeSlide = slides[activeSlideIndex] ?? firstSlide;
   const initialLinkLabel = firstSlide?.linkLabel ?? linkLabel;
   const initialImageScale = scrollConfig.timing.scaleFrom;
+  const hasRichContent = Boolean(
+    activeSlide?.deliverables?.length || activeSlide?.description || activeSlide?.tag
+  );
 
   const trackStyle = {
     "--sg-scroll-vh": scrollDistanceVh,
@@ -876,7 +888,87 @@ export function ScrollGallery({
         </div>
       </div>
 
-      {showInfoBand && firstSlide ? (
+      {/* Cinematic Dark Overlay Scrim for Text Legibility */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-black/45 pointer-events-none z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent pointer-events-none z-[1]" />
+
+      {hasRichContent && activeSlide ? (
+        <div className="absolute inset-0 z-[2] flex flex-col justify-between p-5 sm:p-7 md:p-9 lg:p-10 text-white select-none">
+          {/* Top Bar: Number, Category Tag, Counter */}
+          <div className="flex items-center justify-between">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold backdrop-blur-md">
+              <span className="text-[#FF5812] font-mono font-bold">
+                #{activeSlide.number || String(activeSlideIndex + 1).padStart(2, "0")}
+              </span>
+              <span className="h-3 w-px bg-white/20" />
+              <span className="tracking-wider uppercase text-zinc-200">
+                {activeSlide.tag || prefixLabel}
+              </span>
+            </div>
+
+            <div className="flex items-center gap-2 text-xs font-mono text-zinc-300 bg-black/50 px-3 py-1 rounded-full border border-white/10 backdrop-blur-md">
+              <span className="h-2 w-2 rounded-full bg-[#FF5812] animate-pulse" />
+              <span>
+                {String(activeSlideIndex + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
+              </span>
+            </div>
+          </div>
+
+          {/* Middle Content Area */}
+          <div className="my-auto py-2 transition-all duration-300">
+            <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-[2.15rem] font-extrabold text-white tracking-tight leading-tight max-w-4xl drop-shadow-md">
+              {activeSlide.title}
+            </h3>
+
+            {activeSlide.description && (
+              <p className="mt-2 text-xs sm:text-sm md:text-[14.5px] text-zinc-300 leading-relaxed max-w-3xl">
+                {activeSlide.description}
+              </p>
+            )}
+
+            {activeSlide.deliverables && activeSlide.deliverables.length > 0 && (
+              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5 max-w-4xl">
+                {activeSlide.deliverables.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-start gap-2 rounded-lg bg-black/60 border border-white/10 px-3 py-2 text-xs sm:text-[12.5px] text-zinc-200 backdrop-blur-md"
+                  >
+                    <CheckCircle2 className="h-3.5 w-3.5 text-[#FF5812] flex-shrink-0 mt-0.5" />
+                    <span className="leading-snug">{item}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Bottom Row: Tech Tags, ROI Callout, CTA */}
+          <div className="pt-3 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+              {activeSlide.techTags?.map((tech) => (
+                <span
+                  key={tech}
+                  className="rounded-md bg-white/10 border border-white/10 px-2 py-0.5 text-[11px] font-medium text-zinc-300"
+                >
+                  {tech}
+                </span>
+              ))}
+              {activeSlide.impact && (
+                <span className="text-[11.5px] text-zinc-300 italic hidden md:inline ml-2">
+                  💡 {activeSlide.impact}
+                </span>
+              )}
+            </div>
+
+            <a
+              href={activeSlide.url || "#"}
+              className="inline-flex items-center gap-1.5 rounded-full bg-[#FF5812] px-4 sm:px-5 py-2 text-xs sm:text-sm font-semibold text-white shadow-lg shadow-[#FF5812]/30 hover:bg-[#e04c0d] transition-all self-start sm:self-auto flex-shrink-0"
+            >
+              <span>{activeSlide.linkLabel || initialLinkLabel}</span>
+              <ArrowRight className="h-3.5 w-3.5" />
+            </a>
+          </div>
+        </div>
+      ) : showInfoBand && firstSlide ? (
         <div className={classes.info}>
           <div className={classes.infoInner}>
             {displayPrefix ? (

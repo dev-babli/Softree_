@@ -54,17 +54,17 @@ export default function CoreCapabilities() {
 
       <div className="relative z-10 max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Header (Matching SuccessStories) */}
+        {/* Header */}
         <div className="flex flex-col items-center w-full mb-8 lg:mb-10">
-          <SectionBadge text="CORE CAPABILITIES" variant="line" />
+          <SectionBadge text="WHAT WE BUILD WITH LANGCHAIN" variant="line" />
 
           <h2 className="text-2xl md:text-4xl lg:text-[2.25rem] font-extrabold text-[#111827] mb-3 tracking-tight text-center leading-tight">
-            Enterprise LangChain Development{" "}
-            <span className="text-[#FF6B2C]">Capabilities</span>
+            LangChain Development Solutions for{" "}
+            <span className="text-[#FF6B2C]">Scalable Enterprise AI</span>
           </h2>
 
-          <p className="text-[15px] lg:text-base text-[#6B7280] text-center max-w-2xl leading-snug">
-            Softree LangChain development capabilities cover production chains and APIs, enterprise RAG, LangGraph multi-agent workflows, tool integrations, memory and observability, and continuous evaluation.
+          <p className="text-[15px] lg:text-base text-[#6B7280] text-center max-w-3xl leading-relaxed">
+            We develop scalable AI applications with LangChain that connect LLMs with enterprise data, APIs, tools, databases, and business systems. Our LangChain development services help organizations build intelligent AI agents, RAG solutions, AI copilots, conversational applications, and automated workflows designed for real-world business requirements.
           </p>
         </div>
 

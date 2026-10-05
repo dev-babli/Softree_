@@ -26,14 +26,14 @@ export interface FeatureItem {
 }
 
 export const HERO_DATA = {
-  label: "LANGCHAIN DEVELOPMENT",
+  label: "OFFSHORE LLM DEVELOPMENT TEAM",
   heading: {
-    prefix: "Enterprise LangChain",
-    highlight: "built for production",
+    prefix: "LangChain Development Services from an",
+    highlight: "Offshore AI Engineering Team",
     suffix: "",
   },
   paragraph:
-    "We design and ship LangChain apps, RAG pipelines, and agent workflows with tool calling, memory, and evaluation frameworks—governed AI your engineering team can run in production.",
+    "Build scalable, production-ready AI applications with Softree Technology’s offshore LangChain development team. We develop LLM applications, RAG solutions, AI agents, intelligent copilots, and automated AI workflows using LangChain.",
   ctaButtons: {
     primary: {
       text: "Talk to our Expert",
