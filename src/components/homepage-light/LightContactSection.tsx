@@ -168,7 +168,7 @@ export default function LightContactSection({
             </aside>
 
             {/* 2. Middle Column: Value Prop, Capabilities & What we offer */}
-            <div className="border-b lg:border-b-0 lg:border-r border-white/10 p-5 sm:p-7 flex flex-col justify-between gap-6">
+            <div className="border-b lg:border-b-0 lg:border-r border-white/10 p-5 sm:p-7 flex flex-col justify-start gap-5 lg:gap-6">
 
               {/* TOP: Image + Partner With Softree */}
               <div className="grid grid-cols-1 sm:grid-cols-[170px_1fr] gap-6 items-center">
@@ -213,45 +213,64 @@ export default function LightContactSection({
                 </div>
               </div>
 
-              {/* MIDDLE: What We Offer + 6-Point Checklist */}
-              <div className="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-6 py-6 border-t border-white/10">
-                <div>
-                  <h3 className="text-sm sm:text-base font-bold text-white mb-3 tracking-tight">
-                    What we offer
-                  </h3>
-                  <ul className="flex flex-col gap-2.5">
+              {/* MIDDLE: What We Build & How We Deliver (Rich Bento Feature Deck) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-4 pb-1 border-t border-white/10">
+                {/* Card 1: What We Build */}
+                <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-3.5 sm:p-4 flex flex-col justify-between transition-colors hover:border-white/15">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-[#ff5812]/15 border border-[#ff5812]/25 text-[#ff5812]">
+                      <Code2 className="h-3 w-3" />
+                    </span>
+                    <h5 className="font-mono text-[10px] sm:text-[10.5px] font-bold tracking-[0.14em] uppercase text-zinc-200">
+                      WHAT WE BUILD
+                    </h5>
+                  </div>
+                  <ul className="flex flex-col gap-2">
                     {[
-                      "Agentic AI & Automation",
-                      "Web Application Development",
-                      "Power Platform & SharePoint",
-                      "Data Engineering & Power BI",
-                      "Mobile App Development",
+                      { title: "Agentic AI & Automation", tag: "AI Core" },
+                      { title: "Full-Stack Web & Mobile Apps", tag: "Engineering" },
+                      { title: "Power Platform & SharePoint", tag: "M365" },
+                      { title: "Data Pipelines & Power BI", tag: "Fabric" },
                     ].map((item) => (
-                      <li key={item} className="flex items-center gap-2.5 text-xs sm:text-[13px] font-medium text-zinc-300">
-                        <span className="h-1.5 w-1.5 rounded-full bg-[#ff5812] shrink-0 shadow-[0_0_6px_#ff5812]" />
-                        <span>{item}</span>
+                      <li key={item.title} className="flex items-center justify-between gap-2 text-[11.5px] sm:text-[12px] font-medium text-zinc-300">
+                        <div className="flex items-center gap-2 min-w-0">
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#ff5812] shrink-0 shadow-[0_0_6px_#ff5812]" />
+                          <span className="truncate">{item.title}</span>
+                        </div>
+                        <span className="text-[9px] font-mono uppercase text-zinc-500 shrink-0 font-semibold">{item.tag}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* 6-Point Checklist */}
-                <div className="flex flex-col justify-center gap-2.5">
-                  {[
-                    "Offshore Engineering",
-                    "White-Label Delivery",
-                    "Flexible Team Capacity",
-                    "AI & Agentic AI",
-                    "Microsoft Technologies",
-                    "Automation & Security Testing",
-                  ].map((item) => (
-                    <div key={item} className="flex items-center gap-2.5 text-xs font-medium text-zinc-200">
-                      <div className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#ff5812] text-white">
-                        <Check className="h-2.5 w-2.5 stroke-[3]" />
-                      </div>
-                      <span>{item}</span>
-                    </div>
-                  ))}
+                {/* Card 2: How We Deliver */}
+                <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-3.5 sm:p-4 flex flex-col justify-between transition-colors hover:border-white/15">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-[#ff5812]/15 border border-[#ff5812]/25 text-[#ff5812]">
+                      <Shield className="h-3 w-3" />
+                    </span>
+                    <h5 className="font-mono text-[10px] sm:text-[10.5px] font-bold tracking-[0.14em] uppercase text-zinc-200">
+                      HOW WE DELIVER
+                    </h5>
+                  </div>
+                  <ul className="flex flex-col gap-2">
+                    {[
+                      { title: "Dedicated Offshore Squads", desc: "Senior talent" },
+                      { title: "White-Label Delivery", desc: "Your brand" },
+                      { title: "Flexible Team Capacity", desc: "Scale in 48h" },
+                      { title: "Enterprise NDA & IP Protection", desc: "100% secure" },
+                    ].map((item) => (
+                      <li key={item.title} className="flex items-center justify-between gap-2 text-[11.5px] sm:text-[12px] font-medium text-zinc-300">
+                        <div className="flex items-center gap-2 min-w-0">
+                          <div className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#ff5812] text-white">
+                            <Check className="h-2 w-2 stroke-[3]" />
+                          </div>
+                          <span className="truncate">{item.title}</span>
+                        </div>
+                        <span className="text-[9.5px] text-zinc-400 shrink-0 font-normal">{item.desc}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
 
@@ -264,115 +283,106 @@ export default function LightContactSection({
                   </p>
                 </div>
 
-                {/* Single Unified Container with Column Dividers */}
-                <div className="rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm overflow-hidden">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 divide-y md:divide-y-0 md:divide-x divide-white/10">
+                {/* Single Unified Container with Column Dividers (Double-Bezel Hardware Architecture) */}
+                <div className="relative rounded-2xl p-[1px] bg-gradient-to-b from-white/15 via-white/[0.06] to-white/[0.02] shadow-[0_20px_50px_-20px_rgba(0,0,0,0.8)] w-full overflow-hidden">
+                  <div className="rounded-[calc(1rem-1px)] bg-[#07080c] backdrop-blur-xl w-full">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 divide-y sm:divide-y-0 sm:divide-x divide-white/[0.08] w-full">
 
-                    {/* 1. AI Engineering */}
-                    <div className="p-3 xl:p-3.5 flex flex-col justify-start transition-colors duration-200 hover:bg-white/[0.02]">
-                      <div className="flex items-center gap-2 mb-3">
-                        <Brain className="h-3.5 w-3.5 text-[#ff5812] shrink-0" />
-                        <h5 className="font-mono text-[10.5px] xl:text-[11px] font-bold tracking-[0.12em] text-[#ff5812] uppercase leading-tight">
-                          AI ENGINEERING
-                        </h5>
-                      </div>
-                      <ul className="flex flex-col gap-1.5">
-                        {["Agentic AI", "AI Automation", "RAG"].map((skill) => (
-                          <li
-                            key={skill}
-                            className="group/item relative flex items-center overflow-hidden rounded-lg border border-white/[0.08] bg-white/[0.03] px-2.5 py-1.5 text-[11px] xl:text-[11.5px] font-medium text-zinc-200 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] transition-all duration-200 hover:border-[#ff5812]/50 hover:bg-[#ff5812]/[0.08] hover:text-white hover:translate-x-0.5 cursor-default"
+                      {[
+                        {
+                          category: "AI ENGINEERING",
+                          icon: Brain,
+                          skills: [
+                            { name: "Agentic AI", tag: "Agents" },
+                            { name: "AI Automation", tag: "Flows" },
+                            { name: "Enterprise RAG", tag: "Search" },
+                          ],
+                        },
+                        {
+                          category: "MICROSOFT",
+                          icon: MicrosoftIcon,
+                          skills: [
+                            { name: "Azure OpenAI", tag: "Cloud" },
+                            { name: "Microsoft Fabric", tag: "Data" },
+                            { name: "Power Platform", tag: "Apps" },
+                          ],
+                        },
+                        {
+                          category: "QUALITY ENG",
+                          icon: Shield,
+                          skills: [
+                            { name: "AI Testing", tag: "QA" },
+                            { name: "Security Testing", tag: "Sec" },
+                            { name: "Automation", tag: "CI/CD" },
+                          ],
+                        },
+                        {
+                          category: "SOFTWARE ENG",
+                          icon: Code2,
+                          skills: [
+                            { name: "React / Next.js", tag: "Web" },
+                            { name: "Node.js / Python", tag: "API" },
+                            { name: "FastAPI", tag: "Async" },
+                          ],
+                        },
+                        {
+                          category: "CLOUD & DATA",
+                          icon: Cloud,
+                          spanSm: "sm:col-span-2 lg:col-span-1",
+                          skills: [
+                            { name: "Azure / AWS", tag: "Infra" },
+                            { name: "Data Pipeline", tag: "ETL" },
+                            { name: "DevOps", tag: "GitOps" },
+                          ],
+                        },
+                      ].map((col) => {
+                        const IconComponent = col.icon;
+                        return (
+                          <div
+                            key={col.category}
+                            className={`group/col relative p-3 lg:p-2.5 xl:p-3.5 flex flex-col justify-start transition-all duration-300 hover:bg-white/[0.02] ${
+                              col.spanSm || ""
+                            }`}
                           >
-                            <span className="absolute left-0 top-0 bottom-0 w-[2.5px] bg-transparent transition-colors duration-200 group-hover/item:bg-[#ff5812] group-hover/item:shadow-[0_0_6px_#ff5812]" />
-                            <span className="leading-snug tracking-tight">{skill}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                            {/* Category Header */}
+                            <div className="flex items-center gap-2 mb-3">
+                              <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-[#ff5812]/10 border border-[#ff5812]/20 text-[#ff5812] transition-colors group-hover/col:bg-[#ff5812]/20">
+                                <IconComponent className="h-3 w-3" />
+                              </div>
+                              <h5 className="font-mono text-[10px] xl:text-[10.5px] font-bold tracking-[0.14em] text-zinc-300 uppercase leading-tight group-hover/col:text-white transition-colors truncate">
+                                {col.category}
+                              </h5>
+                            </div>
 
-                    {/* 2. Microsoft */}
-                    <div className="p-3 xl:p-3.5 flex flex-col justify-start transition-colors duration-200 hover:bg-white/[0.02]">
-                      <div className="flex items-center gap-2 mb-3">
-                        <MicrosoftIcon className="h-3.5 w-3.5 text-[#ff5812] shrink-0" />
-                        <h5 className="font-mono text-[10.5px] xl:text-[11px] font-bold tracking-[0.12em] text-[#ff5812] uppercase leading-tight">
-                          MICROSOFT
-                        </h5>
-                      </div>
-                      <ul className="flex flex-col gap-1.5">
-                        {["Azure", "Fabric", "Power Platform"].map((skill) => (
-                          <li
-                            key={skill}
-                            className="group/item relative flex items-center overflow-hidden rounded-lg border border-white/[0.08] bg-white/[0.03] px-2.5 py-1.5 text-[11px] xl:text-[11.5px] font-medium text-zinc-200 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] transition-all duration-200 hover:border-[#ff5812]/50 hover:bg-[#ff5812]/[0.08] hover:text-white hover:translate-x-0.5 cursor-default"
-                          >
-                            <span className="absolute left-0 top-0 bottom-0 w-[2.5px] bg-transparent transition-colors duration-200 group-hover/item:bg-[#ff5812] group-hover/item:shadow-[0_0_6px_#ff5812]" />
-                            <span className="leading-snug tracking-tight">{skill}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                            {/* Skills Stack with zero right-side dead space */}
+                            <ul className="flex flex-col gap-1.5 w-full">
+                              {col.skills.map((skill) => (
+                                <li
+                                  key={skill.name}
+                                  className="group/chip relative flex items-center justify-between w-full overflow-hidden rounded-lg border border-white/[0.08] bg-white/[0.03] px-2.5 py-1.5 text-[11px] xl:text-[11.5px] font-medium text-zinc-200 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] transition-all duration-200 hover:border-[#ff5812]/50 hover:bg-gradient-to-r hover:from-[#ff5812]/[0.10] hover:to-transparent hover:translate-x-0.5 cursor-default"
+                                >
+                                  {/* Hover Glow Edge Bar */}
+                                  <span className="absolute left-0 top-0 bottom-0 w-[2.5px] bg-transparent transition-all duration-200 group-hover/chip:bg-[#ff5812] group-hover/chip:shadow-[0_0_8px_#ff5812]" />
 
-                    {/* 3. Quality Engineering */}
-                    <div className="p-3 xl:p-3.5 flex flex-col justify-start transition-colors duration-200 hover:bg-white/[0.02]">
-                      <div className="flex items-center gap-2 mb-3">
-                        <Shield className="h-3.5 w-3.5 text-[#ff5812] shrink-0" />
-                        <h5 className="font-mono text-[10.5px] xl:text-[11px] font-bold tracking-[0.12em] text-[#ff5812] uppercase leading-tight">
-                          QUALITY ENGINEERING
-                        </h5>
-                      </div>
-                      <ul className="flex flex-col gap-1.5">
-                        {["AI Testing", "Security Testing", "Automation Testing"].map((skill) => (
-                          <li
-                            key={skill}
-                            className="group/item relative flex items-center overflow-hidden rounded-lg border border-white/[0.08] bg-white/[0.03] px-2.5 py-1.5 text-[11px] xl:text-[11.5px] font-medium text-zinc-200 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] transition-all duration-200 hover:border-[#ff5812]/50 hover:bg-[#ff5812]/[0.08] hover:text-white hover:translate-x-0.5 cursor-default"
-                          >
-                            <span className="absolute left-0 top-0 bottom-0 w-[2.5px] bg-transparent transition-colors duration-200 group-hover/item:bg-[#ff5812] group-hover/item:shadow-[0_0_6px_#ff5812]" />
-                            <span className="leading-snug tracking-tight">{skill}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                                  <div className="flex items-center gap-1.5 min-w-0">
+                                    <span className="h-1 w-1 rounded-full bg-zinc-600 transition-colors duration-200 group-hover/chip:bg-[#ff5812]" />
+                                    <span className="leading-snug tracking-tight truncate group-hover/chip:text-white transition-colors">
+                                      {skill.name}
+                                    </span>
+                                  </div>
 
-                    {/* 4. Software Engineering */}
-                    <div className="p-3 xl:p-3.5 flex flex-col justify-start transition-colors duration-200 hover:bg-white/[0.02]">
-                      <div className="flex items-center gap-2 mb-3">
-                        <Code2 className="h-3.5 w-3.5 text-[#ff5812] shrink-0" />
-                        <h5 className="font-mono text-[10.5px] xl:text-[11px] font-bold tracking-[0.12em] text-[#ff5812] uppercase leading-tight">
-                          SOFTWARE ENGINEERING
-                        </h5>
-                      </div>
-                      <ul className="flex flex-col gap-1.5">
-                        {["React / Next.js", "Node.js / Python", "FastAPI"].map((skill) => (
-                          <li
-                            key={skill}
-                            className="group/item relative flex items-center overflow-hidden rounded-lg border border-white/[0.08] bg-white/[0.03] px-2.5 py-1.5 text-[11px] xl:text-[11.5px] font-medium text-zinc-200 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] transition-all duration-200 hover:border-[#ff5812]/50 hover:bg-[#ff5812]/[0.08] hover:text-white hover:translate-x-0.5 cursor-default"
-                          >
-                            <span className="absolute left-0 top-0 bottom-0 w-[2.5px] bg-transparent transition-colors duration-200 group-hover/item:bg-[#ff5812] group-hover/item:shadow-[0_0_6px_#ff5812]" />
-                            <span className="leading-snug tracking-tight">{skill}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                                  {/* Right side micro tag badge */}
+                                  <span className="ml-1.5 text-[9px] font-mono uppercase tracking-wider text-zinc-500 group-hover/chip:text-[#ff5812] transition-colors shrink-0">
+                                    {skill.tag}
+                                  </span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        );
+                      })}
 
-                    {/* 5. Cloud & Data */}
-                    <div className="p-3 xl:p-3.5 flex flex-col justify-start transition-colors duration-200 hover:bg-white/[0.02]">
-                      <div className="flex items-center gap-2 mb-3">
-                        <Cloud className="h-3.5 w-3.5 text-[#ff5812] shrink-0" />
-                        <h5 className="font-mono text-[10.5px] xl:text-[11px] font-bold tracking-[0.12em] text-[#ff5812] uppercase leading-tight">
-                          CLOUD & DATA
-                        </h5>
-                      </div>
-                      <ul className="flex flex-col gap-1.5">
-                        {["Azure / AWS", "Data Engineering", "DevOps"].map((skill) => (
-                          <li
-                            key={skill}
-                            className="group/item relative flex items-center overflow-hidden rounded-lg border border-white/[0.08] bg-white/[0.03] px-2.5 py-1.5 text-[11px] xl:text-[11.5px] font-medium text-zinc-200 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] transition-all duration-200 hover:border-[#ff5812]/50 hover:bg-[#ff5812]/[0.08] hover:text-white hover:translate-x-0.5 cursor-default"
-                          >
-                            <span className="absolute left-0 top-0 bottom-0 w-[2.5px] bg-transparent transition-colors duration-200 group-hover/item:bg-[#ff5812] group-hover/item:shadow-[0_0_8px_#ff5812]" />
-                            <span className="leading-snug tracking-tight">{skill}</span>
-                          </li>
-                        ))}
-                      </ul>
                     </div>
-
                   </div>
                 </div>
               </div>
