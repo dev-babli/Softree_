@@ -248,7 +248,7 @@ export default function ChannelCard() {
                   </span>
                 </a>
                 <a
-                  href="/case-studies"
+                  href="/showcase"
                   className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/8 backdrop-blur-md px-5 py-3 text-[11px] sm:text-[12px] font-semibold uppercase tracking-[0.14em] text-white hover:bg-white/15 hover:border-white/30 active:scale-[0.97] transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]"
                 >
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

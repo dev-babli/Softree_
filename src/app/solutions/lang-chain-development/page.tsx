@@ -11,6 +11,7 @@ import AiTechnologyStack from "./components/AiTechnologyStack";
 import Industries from "./components/Industries";
 import { SuccessStories } from "./components/SuccessStories";
 import LangChainFAQ from "./components/LangChainFAQ";
+import WhatWeBuild from "./components/WhatWeBuild";
 import NavigationClient from "@/components/sections/navigation-client";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import Footer from "@/components/sections/footer";
@@ -109,7 +110,8 @@ export default function LangChainDevelopmentPage() {
       />
       <NavigationClient />
       <Hero />
-      <TrustedBrandsMarquee surface="light" />
+      <TrustedBrandsMarquee surface="transparent" />
+      <WhatWeBuild />
       <SuccessStories />
       <LangChainCardStack />
       <ProvenResults />

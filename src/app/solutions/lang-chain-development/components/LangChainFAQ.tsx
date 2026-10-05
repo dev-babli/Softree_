@@ -253,7 +253,7 @@ export default function LangChainFAQ({ faqs: customFaqs }: LangChainFAQProps) {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-12 lg:py-16"
+      className="bg-white pt-8 md:pt-12 pb-8 md:pb-12 text-slate-900 scroll-mt-24 relative overflow-hidden"
     >
       <script
         type="application/ld+json"
@@ -273,22 +273,23 @@ export default function LangChainFAQ({ faqs: customFaqs }: LangChainFAQProps) {
           }),
         }}
       />
-      <div className="mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8">
-        <div ref={titleRef} className="mb-8 md:mb-10">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#1852FF]/20 bg-[#1852FF]/8 px-4 py-2">
-            <HelpCircle className="h-4 w-4 text-[#1852FF]" />
-            <span className="text-sm font-medium text-[#1852FF]">FAQ</span>
-          </div>
-          <h2 className="text-2xl font-extrabold tracking-tight text-[#0a0a1a] md:text-4xl lg:text-[2.25rem]">
-            Frequently Asked{" "}
-            <span className="bg-gradient-to-r from-[#1852FF] to-[#FF5812] bg-clip-text text-transparent">
-              Questions.
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10 flex flex-col">
+        <div ref={titleRef} className="flex flex-col mb-8 sm:mb-12">
+          <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-3.5 py-1 rounded-full border border-white/60 mb-4 inline-block self-start">
+            <span className="typo-caption text-[#FF5812] uppercase">
+              FAQ
             </span>
-          </h2>
-          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-[#0a0a1a]/70">
-            Common questions about Softree LangChain development—chains, RAG,
-            agents, tool calling, observability, and delivery.
-          </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 lg:gap-x-24 gap-y-6 items-start">
+            <h2 className="typo-heading-2 text-slate-900 lg:pr-12 xl:pr-24">
+              Frequently Asked <span className="bg-gradient-to-r from-[#1852FF] to-[#FF5812] bg-clip-text text-transparent">Questions</span>
+            </h2>
+
+            <p className="typo-description text-slate-500 w-full pt-1.5 lg:max-w-xl">
+              Common questions about Softree LangChain development—chains, RAG, agents, tool calling, observability, and delivery.
+            </p>
+          </div>
         </div>
 
         <div

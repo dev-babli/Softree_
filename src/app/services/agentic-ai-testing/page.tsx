@@ -98,7 +98,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Agentic AI Testing Services | Offshore AI Testing | Softree',
     description: 'Offshore AI testing and quality engineering services for reliable AI agents, LLM applications, RAG systems, autonomous workflows, and intelligent software.',
-    images: ['/logo/Softree-Technology-Final-Logo-Dark-BG.png'],
+    images: ['/logo/Softree-Technology-Final-Logo-Dark-BG.webp'],
   },
 };
 

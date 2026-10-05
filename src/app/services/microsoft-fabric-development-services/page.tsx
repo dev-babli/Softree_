@@ -1,4 +1,5 @@
 import HeroWithTestimonial from "./hero";
+import MicrosoftFabricHeroVisual from "./components/MicrosoftFabricHeroVisual";
 import AIReadinessBanner from "./components/AIReadinessBanner";
 import { FabricServices } from "./components/FabricServices";
 import { FabricStickyScroll } from "./components/FabricStickyScroll";
@@ -180,7 +181,8 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       <NavigationClient />
-      <HeroWithTestimonial />
+      {/* <HeroWithTestimonial /> */}
+      <MicrosoftFabricHeroVisual />
       <TrustedBrandsMarquee />
       <AIReadinessBanner />
       <FabricServices />

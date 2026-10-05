@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Security Testing Services | Offshore Security QA | Softree',
     description: 'Offshore security testing services for web, mobile, API, and enterprise applications, helping teams identify vulnerabilities and improve application security.',
-    images: ['/logo/Softree-Technology-Final-Logo-Dark-BG.png'],
+    images: ['/logo/Softree-Technology-Final-Logo-Dark-BG.webp'],
   },
 };
 

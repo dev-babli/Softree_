@@ -44,7 +44,7 @@ const demoData: Gallery4Props = {
           </div>
         </div>
       ),
-      href: "/case-studies/logistics-control-tower-shipment-visibility-platform",
+      href: "/case-studies",
       image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&h=1500&q=85",
     },
     {
@@ -70,7 +70,7 @@ const demoData: Gallery4Props = {
           </div>
         </div>
       ),
-      href: "/case-studies/intelligent-warehouse-operations-assistant-with-ai-agents",
+      href: "/case-studies",
       image: "https://images.unsplash.com/photo-1586528116493-a029325540fa?auto=format&fit=crop&w=1200&h=1500&q=85",
     },
     {
@@ -96,7 +96,7 @@ const demoData: Gallery4Props = {
           </div>
         </div>
       ),
-      href: "/case-studies/ai-powered-shipment-exception-management",
+      href: "/case-studies",
       image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1200&h=1500&q=85",
     },
     {
@@ -122,7 +122,7 @@ const demoData: Gallery4Props = {
           </div>
         </div>
       ),
-      href: "/case-studies/ai-based-fraud-detection-in-logistics",
+      href: "/case-studies",
       image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&h=1500&q=85",
     },
     {
@@ -148,7 +148,7 @@ const demoData: Gallery4Props = {
           </div>
         </div>
       ),
-      href: "/case-studies/ai-driven-logistics-cost-optimization-microsoft-foundry",
+      href: "/case-studies",
       image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&h=1500&q=85",
     },
   ],

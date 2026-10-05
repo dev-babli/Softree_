@@ -85,7 +85,7 @@ export function FlowButton({
  
       {/* Text - shifts right on hover */}
       <span className={cn(
-        "relative z-[1] -translate-x-3 group-hover:translate-x-3 transition-all duration-[800ms] ease-out",
+        "relative z-[1] -translate-x-3 group-hover:translate-x-3 transition-all duration-[800ms] ease-out flow-button-text",
         variantStyles.textHover
       )}>
         {content}

@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Automation Testing Services | Offshore QA | Softree',
     description: 'Offshore automation testing and QA services for web, mobile, API, and enterprise applications, with CI/CD, regression, and AI-powered testing.',
-    images: ['/logo/Softree-Technology-Final-Logo-Dark-BG.png'],
+    images: ['/logo/Softree-Technology-Final-Logo-Dark-BG.webp'],
   },
 };
 

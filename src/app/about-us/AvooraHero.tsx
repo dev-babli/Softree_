@@ -64,7 +64,7 @@ const ASSETS = {
       "https://cdn.prod.website-files.com/69a0a45220c8336fe957ccba%2F69d2095642a31660d0b048ee_Video%202_poster.0000000.jpg",
   },
   services: [
-    { n: "01", label: "AI & Automation", href: "/ai", img: "/whysoftree/ai.webp" },
+    { n: "01", label: "AI & Automation", href: "/services/ai-development-services", img: "/whysoftree/ai.webp" },
     { n: "02", label: "Web Development", href: "/services/offshore-web-app-development", img: "/whysoftree/modern.png" },
     { n: "03", label: "Microsoft Solutions", href: "/services/offshore-power-platform-development", img: "/whysoftree/powe-pltform.png" },
     { n: "04", label: "Data & Analytics", href: "/services/power-bi-development-services", img: "/whysoftree/data-analytics.jpg" },

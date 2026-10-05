@@ -35,21 +35,29 @@ export default function HowAIWorks() {
   };
 
   return (
-    <section className="relative w-full overflow-hidden bg-white py-12 lg:py-16" ref={containerRef}>
+    <section className="bg-white pt-8 md:pt-12 pb-8 md:pb-12 text-slate-900 scroll-mt-24 relative overflow-hidden" ref={containerRef}>
       <div className="pointer-events-none absolute -right-20 top-20 h-72 w-72 rounded-full bg-[#FF6A13]/10 blur-3xl" />
       <div className="pointer-events-none absolute bottom-0 left-0 h-64 w-64 rounded-full bg-slate-300/20 blur-3xl" />
 
-      <div className="relative z-10 mx-auto flex max-w-[85rem] flex-col items-center px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10 flex flex-col">
+        {/* Header */}
+        <div className="flex flex-col mb-8 sm:mb-12">
+          <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-3.5 py-1 rounded-full border border-white/60 mb-4 inline-block self-start">
+            <span className="typo-caption text-[#FF5812] uppercase">
+              OUR LANGCHAIN DELIVERY PROCESS
+            </span>
+          </div>
 
-        <SectionBadge text="OUR LANGCHAIN DELIVERY PROCESS" variant="line" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 lg:gap-x-24 gap-y-6 items-start">
+            <h2 className="typo-heading-2 text-slate-900 lg:pr-12 xl:pr-24">
+              From strategy to <span className="text-[#FF5812]">production LangChain apps</span>
+            </h2>
 
-        <h2 className="mb-2 text-center text-2xl font-extrabold leading-tight tracking-tight text-[#111827] md:mb-3 md:text-4xl lg:text-[2.25rem]">
-          From strategy to <span className="text-[#FF5812]">production LangChain apps</span>
-        </h2>
-
-        <p className="mb-8 max-w-2xl text-center text-[15px] leading-relaxed text-[#6B7280] lg:mb-10 lg:text-base">
-          A structured path from use-case discovery to governed LangChain chains and agents—built for RAG quality, tool reliability, observability, cost control, and measurable outcomes.
-        </p>
+            <p className="typo-description text-slate-500 w-full pt-1.5 lg:max-w-xl">
+              A structured path from use-case discovery to governed LangChain chains and agents—built for RAG quality, tool reliability, observability, cost control, and measurable outcomes.
+            </p>
+          </div>
+        </div>
 
         <div
           className="mb-8 flex w-full flex-col gap-4 rounded-[28px] border border-black/5 bg-[#F7F5F2] p-4 shadow-[0_20px_60px_-40px_rgba(0,0,0,0.35)] lg:flex-row lg:gap-6 lg:p-5"

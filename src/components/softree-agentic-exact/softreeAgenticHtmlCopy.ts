@@ -65,15 +65,15 @@ function applyShellRegex(html: string): string {
 
 const CTA_LINKS: ReplacePair[] = [
   ["/get-a-demo-artemis", "/contact"],
-  ["/request-for-proposal", "/book-meeting"],
+  ["/request-for-proposal", "/contact"],
   ['aria-label="Get Demo"', 'aria-label="Let\'s talk"'],
   [">Get Demo<", ">Let's talk<"],
   [">Get demo<", ">Let's talk<"],
   [">Request a demo<", ">Let's talk<"],
   ["Request a demo", "Let's talk"],
-  [">BOOK NOW<", ">Book a meeting<"],
-  [">Submit RFP<", ">Book a meeting<"],
-  ["Submit RFP", "Book a meeting"],
+  [">BOOK NOW<", ">Contact Us<"],
+  [">Submit RFP<", ">Contact Us<"],
+  ["Submit RFP", "Contact Us"],
 ]
 
 const NAV_FOOTER: ReplacePair[] = [

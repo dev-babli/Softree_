@@ -65,7 +65,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Healthcare Software Testing Services | Offshore QA | Softree',
     description: 'Offshore healthcare QA and testing services for reliable, secure, high-performing healthcare applications and digital platforms.',
-    images: ['/logo/Softree-Technology-Final-Logo-Dark-BG.png'],
+    images: ['/logo/Softree-Technology-Final-Logo-Dark-BG.webp'],
   },
 };
 

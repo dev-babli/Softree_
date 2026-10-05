@@ -3,7 +3,7 @@
 import React from "react";
 
 type TrustedBrandsMarqueeProps = {
-  surface?: "legacy" | "light" | "transparent";
+  surface?: "legacy" | "light" | "transparent" | "dark";
   items?: Array<{ name: string; src?: string }>;
   title?: string;
 };
@@ -37,7 +37,9 @@ export default function TrustedBrandsMarquee({
           ? "relative overflow-hidden bg-[#F3F0EE] py-2"
           : surface === "transparent"
             ? "relative overflow-hidden bg-transparent py-2"
-            : "relative overflow-hidden bg-white py-2"
+            : surface === "dark"
+              ? "relative overflow-hidden bg-[#0B0B0F] py-2"
+              : "relative overflow-hidden bg-white py-2"
       }
     >
       <style>{`

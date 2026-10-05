@@ -1,20 +1,17 @@
-// biome-ignore-all lint: GSAP scroll gallery with dynamic img layers (registry primitive)
 "use client";
 import { useGSAP } from "@gsap/react";
 import { cn } from "@/lib/utils";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { type CSSProperties, useMemo, useRef, useState } from "react";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { FlowButton } from "@/components/ui/flow-button";
+import { type CSSProperties, useMemo, useRef } from "react";
 import {
   isWindowScroller,
   observeWindowResize,
   waitForScrollerReady,
 } from "@/components/ui/scroll-gallery-utils/scroll-trigger-utils";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
+gsap.registerPlugin(ScrollTrigger);
 
 const MASK_HIDDEN =
   "linear-gradient(to bottom, transparent 0%, transparent 100%)";
@@ -55,31 +52,29 @@ export const SCROLL_GALLERY_STUDIO_CLASSES = {
   images: "absolute inset-0 h-full w-full",
   imageFrame: "absolute inset-0 h-full w-full",
   image: "h-full w-full origin-center object-cover",
-  info: "absolute top-1/2 left-0 z-[2] w-full -translate-y-1/2 border-white/20 border-b",
-  infoInner: "flex items-center justify-between gap-4 sm:gap-8 px-5 sm:px-9",
+  info: "absolute top-1/2 left-0 z-[2] w-screen -translate-y-1/2 border-white/20 border-b",
+  infoInner: "flex gap-8 px-9",
   prefix: "flex-1 max-[1000px]:hidden",
   prefixText:
-    "font-medium text-[20px] md:text-[26px] lg:text-[30px] text-white leading-none tracking-[-0.02rem] antialiased will-change-transform max-[1000px]:text-[16px]",
-  title: "relative h-8 sm:h-9 lg:h-10 flex-[2] overflow-hidden max-[1000px]:h-[22px]",
+    "font-medium text-[36px] text-white leading-none tracking-[-0.02rem] antialiased will-change-transform max-[1000px]:text-[18px]",
+  title: "relative h-10 flex-[2] overflow-hidden max-[1000px]:h-[22px]",
   titleText:
-    "font-medium text-[20px] md:text-[26px] lg:text-[30px] text-white leading-none tracking-[-0.02rem] antialiased will-change-transform [clip-path:polygon(0_0,100%_0,100%_100%,0%_100%)] max-[1000px]:text-[16px]",
+    "font-medium text-[36px] text-white leading-none tracking-[-0.02rem] antialiased will-change-transform [clip-path:polygon(0_0,100%_0,100%_100%,0%_100%)] max-[1000px]:text-[18px]",
   link: "flex flex-1 justify-end",
   linkText:
-    "font-medium text-[18px] md:text-[22px] lg:text-[26px] text-white leading-none tracking-[-0.02rem] no-underline antialiased will-change-transform max-[1000px]:text-[15px] hover:text-[#FF5812] transition-colors",
+    "font-medium text-[36px] text-white leading-none tracking-[-0.02rem] no-underline antialiased will-change-transform max-[1000px]:text-[18px]",
 } as const;
 
 export interface ScrollGallerySlide {
   image: string;
-  /** Per-slide CTA label. Falls back to `linkLabel`. */
   linkLabel?: string;
   title: string;
   url?: string;
-  number?: string;
   tag?: string;
+  handle?: string;
   description?: string;
-  deliverables?: string[];
-  impact?: string;
-  techTags?: string[];
+  howSoftreeHelps?: string;
+  highlights?: string[];
 }
 
 export interface ScrollGalleryTiming {
@@ -104,81 +99,39 @@ export interface ScrollGalleryTiming {
 }
 
 export interface ScrollGalleryClassNames {
-  /** First slide img element. */
   image?: string;
-  /** Image frame wrapper. */
   imageFrame?: string;
-  /** Image stack wrapper. */
   images?: string;
-  /** Info band wrapper. */
   info?: string;
-  /** Info band inner flex row. */
   infoInner?: string;
-  /** CTA link column. */
   link?: string;
-  /** CTA link text. */
   linkText?: string;
-  /** Prefix label column. */
   prefix?: string;
-  /** Prefix label text. */
   prefixText?: string;
-  /** Animated title column. */
   title?: string;
-  /** Animated title text. */
   titleText?: string;
-  /** Extra classes on the scroll track (embedded mode only). */
   track?: string;
 }
 
 export interface ScrollGalleryProps {
   className?: string;
-  /** Per-slot class overrides. `cn()` merges after built-ins/variant preset. */
   classNames?: ScrollGalleryClassNames;
-  /**
-   * Use container query height (`cqh`) instead of viewport height (`svh/dvh`)
-   * for embedded mode. Enable when the gallery lives inside a
-   * `container-type: size` ancestor (e.g. a preview panel).
-   * @default false
-   */
   containerQuery?: boolean;
-  /** Catalog/docs preview — CSS sticky scroll track (no GSAP pin). */
   embedded?: boolean;
-  /**
-   * Scroll distance per transition in embedded mode (vh units, same as `scrollPerTransition`).
-   * When omitted, embedded mode auto-targets ~5 panel heights total.
-   */
   embeddedScrollPerTransition?: number;
-  /** Global CTA label (right column). @default "Explore" */
   linkLabel?: string;
-  /** ScrollTrigger pin start. @default "top top" */
   pinStart?: string;
-  /** Prefix label (left column). Set `showPrefix={false}` to hide. @default "Featured" */
   prefixLabel?: string;
-  /**
-   * GSAP ScrollTrigger refresh priority. Lower numbers refresh later.
-   * Set below any pinned section that appears earlier in the DOM to ensure
-   * their spacers are re-added before this trigger measures its position.
-   * @default -1
-   */
   refreshPriority?: number;
-  /** Scroll container for ScrollTrigger. Defaults to `window`. */
   scroller?: Element | Window;
-  /** Scroll distance in vh per slide transition. @default 1000 */
   scrollPerTransition?: number;
-  /** GSAP scrub smoothing (seconds). @default 1 */
   scrub?: number;
   showInfoBand?: boolean;
   showLink?: boolean;
   showPrefix?: boolean;
   slides: ScrollGallerySlide[];
-  /** Number of horizontal mask strips for the wipe transition. @default 20 */
   stripsCount?: number;
   timing?: ScrollGalleryTiming;
-  /**
-   * Visual preset. `studio` applies Deadlock Studios editorial styling;
-   * `minimal` is structural-only (override via the `classNames` prop).
-   * @default "minimal"
-   */
   variant?: ScrollGalleryVariant;
 }
 
@@ -255,7 +208,6 @@ function getTotalScrollDistanceVh(
   );
 }
 
-/** ~5 preview-panel heights for catalog embedded demos (not full-page 20+ vh). */
 const EMBEDDED_SCROLL_TARGET_TOTAL = 520;
 
 function resolveEmbeddedScrollConfig(
@@ -440,13 +392,15 @@ export function ScrollGallery({
     [slides.length, scrollConfig],
   );
 
-  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
-
   const trackRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const firstImgRef = useRef<HTMLImageElement>(null);
   const titleRef = useRef<HTMLParagraphElement>(null);
-  const exploreLinkRef = useRef<HTMLAnchorElement>(null);
+  const tagRef = useRef<HTMLParagraphElement>(null);
+  const handleRef = useRef<HTMLHeadingElement>(null);
+  const descRef = useRef<HTMLParagraphElement>(null);
+  const highlightsRef = useRef<HTMLUListElement>(null);
+  const exploreLinkRef = useRef<any>(null);
   const slideImagesRef = useRef<HTMLDivElement>(null);
 
   const shouldAnimate = slides.length > 0;
@@ -631,10 +585,16 @@ export function ScrollGallery({
           if (!(displayLink && exploreLinkEl)) {
             return;
           }
-          exploreLinkEl.href = slides[index].url ?? "#";
+          const anchorEl = exploreLinkEl.querySelector("a") || exploreLinkEl;
+          anchorEl.href = slides[index].url ?? "#";
           const label = slides[index].linkLabel ?? linkLabel;
           if (label) {
-            exploreLinkEl.textContent = label;
+            const textSpan = exploreLinkEl.querySelector(".flow-button-text");
+            if (textSpan) {
+              textSpan.textContent = label;
+            } else {
+              exploreLinkEl.textContent = label;
+            }
           }
         }
 
@@ -657,17 +617,28 @@ export function ScrollGallery({
           const outY = direction === "down" ? `-${offset}` : offset;
           const inY = direction === "down" ? offset : `-${offset}`;
 
-          gsap.killTweensOf(titleEl);
+          const els = [titleEl, tagRef.current, handleRef.current, descRef.current, highlightsRef.current].filter(Boolean);
+
+          gsap.killTweensOf(els);
           updateLinkForSlide(index);
 
-          gsap.to(titleEl, {
+          gsap.to(els, {
             y: outY,
             duration: titleDuration,
             ease: titleEase,
             onComplete: () => {
               titleEl.textContent = slides[index].title;
-              gsap.set(titleEl, { y: inY });
-              gsap.to(titleEl, {
+              if (tagRef.current) tagRef.current.textContent = slides[index].tag || "";
+              if (handleRef.current) handleRef.current.textContent = slides[index].handle || "";
+              if (descRef.current) descRef.current.textContent = slides[index].description || "";
+              if (highlightsRef.current) {
+                highlightsRef.current.innerHTML = (slides[index].highlights || [])
+                  .map(h => `<li class="flex items-start gap-2.5 text-white/90 text-[15px]"><span class="w-1.5 h-1.5 rounded-full bg-[#FF5812] shrink-0 mt-1.5"></span><span class="flex-1">${h}</span></li>`)
+                  .join("");
+              }
+
+              gsap.set(els, { y: inY });
+              gsap.to(els, {
                 y: "0%",
                 duration: titleDuration,
                 ease: titleEase,
@@ -721,12 +692,13 @@ export function ScrollGallery({
           const currentImageIndex = Math.floor(imageProgress);
           const imageSpecificProgress = imageProgress - currentImageIndex;
 
-          const correctTitleIndex = getTitleIndexForProgress(imageProgress);
-          if (correctTitleIndex !== currentTitleIndex) {
-            queuedTitleIndex = correctTitleIndex;
-            setActiveSlideIndex(correctTitleIndex);
-            if (!isAnimating && showInfoBand && titleEl) {
-              animateTitleChange(correctTitleIndex, scrollDirection);
+          if (showInfoBand && titleEl) {
+            const correctTitleIndex = getTitleIndexForProgress(imageProgress);
+            if (correctTitleIndex !== currentTitleIndex) {
+              queuedTitleIndex = correctTitleIndex;
+              if (!isAnimating) {
+                animateTitleChange(correctTitleIndex, scrollDirection);
+              }
             }
           }
 
@@ -818,7 +790,6 @@ export function ScrollGallery({
       };
 
       mountGallery().catch(() => {
-        /* ScrollTrigger setup aborted on unmount */
       });
 
       return () => {
@@ -853,12 +824,8 @@ export function ScrollGallery({
   );
 
   const firstSlide = slides[0];
-  const activeSlide = slides[activeSlideIndex] ?? firstSlide;
   const initialLinkLabel = firstSlide?.linkLabel ?? linkLabel;
   const initialImageScale = scrollConfig.timing.scaleFrom;
-  const hasRichContent = Boolean(
-    activeSlide?.deliverables?.length || activeSlide?.description || activeSlide?.tag
-  );
 
   const trackStyle = {
     "--sg-scroll-vh": scrollDistanceVh,
@@ -888,87 +855,7 @@ export function ScrollGallery({
         </div>
       </div>
 
-      {/* Cinematic Dark Overlay Scrim for Text Legibility */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-black/45 pointer-events-none z-[1]" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent pointer-events-none z-[1]" />
-
-      {hasRichContent && activeSlide ? (
-        <div className="absolute inset-0 z-[2] flex flex-col justify-between p-5 sm:p-7 md:p-9 lg:p-10 text-white select-none">
-          {/* Top Bar: Number, Category Tag, Counter */}
-          <div className="flex items-center justify-between">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold backdrop-blur-md">
-              <span className="text-[#FF5812] font-mono font-bold">
-                #{activeSlide.number || String(activeSlideIndex + 1).padStart(2, "0")}
-              </span>
-              <span className="h-3 w-px bg-white/20" />
-              <span className="tracking-wider uppercase text-zinc-200">
-                {activeSlide.tag || prefixLabel}
-              </span>
-            </div>
-
-            <div className="flex items-center gap-2 text-xs font-mono text-zinc-300 bg-black/50 px-3 py-1 rounded-full border border-white/10 backdrop-blur-md">
-              <span className="h-2 w-2 rounded-full bg-[#FF5812] animate-pulse" />
-              <span>
-                {String(activeSlideIndex + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
-              </span>
-            </div>
-          </div>
-
-          {/* Middle Content Area */}
-          <div className="my-auto py-2 transition-all duration-300">
-            <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-[2.15rem] font-extrabold text-white tracking-tight leading-tight max-w-4xl drop-shadow-md">
-              {activeSlide.title}
-            </h3>
-
-            {activeSlide.description && (
-              <p className="mt-2 text-xs sm:text-sm md:text-[14.5px] text-zinc-300 leading-relaxed max-w-3xl">
-                {activeSlide.description}
-              </p>
-            )}
-
-            {activeSlide.deliverables && activeSlide.deliverables.length > 0 && (
-              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5 max-w-4xl">
-                {activeSlide.deliverables.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-start gap-2 rounded-lg bg-black/60 border border-white/10 px-3 py-2 text-xs sm:text-[12.5px] text-zinc-200 backdrop-blur-md"
-                  >
-                    <CheckCircle2 className="h-3.5 w-3.5 text-[#FF5812] flex-shrink-0 mt-0.5" />
-                    <span className="leading-snug">{item}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Bottom Row: Tech Tags, ROI Callout, CTA */}
-          <div className="pt-3 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-              {activeSlide.techTags?.map((tech) => (
-                <span
-                  key={tech}
-                  className="rounded-md bg-white/10 border border-white/10 px-2 py-0.5 text-[11px] font-medium text-zinc-300"
-                >
-                  {tech}
-                </span>
-              ))}
-              {activeSlide.impact && (
-                <span className="text-[11.5px] text-zinc-300 italic hidden md:inline ml-2">
-                  💡 {activeSlide.impact}
-                </span>
-              )}
-            </div>
-
-            <a
-              href={activeSlide.url || "#"}
-              className="inline-flex items-center gap-1.5 rounded-full bg-[#FF5812] px-4 sm:px-5 py-2 text-xs sm:text-sm font-semibold text-white shadow-lg shadow-[#FF5812]/30 hover:bg-[#e04c0d] transition-all self-start sm:self-auto flex-shrink-0"
-            >
-              <span>{activeSlide.linkLabel || initialLinkLabel}</span>
-              <ArrowRight className="h-3.5 w-3.5" />
-            </a>
-          </div>
-        </div>
-      ) : showInfoBand && firstSlide ? (
+      {showInfoBand && firstSlide ? (
         <div className={classes.info}>
           <div className={classes.infoInner}>
             {displayPrefix ? (
@@ -984,16 +871,38 @@ export function ScrollGallery({
             </div>
 
             {displayLink ? (
-              <div className={classes.link}>
-                <a
-                  className={classes.linkText}
+              <div className={classes.link} ref={exploreLinkRef}>
+                <FlowButton
                   href={firstSlide.url ?? "#"}
-                  ref={exploreLinkRef}
-                >
-                  {initialLinkLabel}
-                </a>
+                  text={initialLinkLabel}
+                  variant="orange-filled"
+                />
               </div>
             ) : null}
+          </div>
+        </div>
+      ) : null}
+
+      {/* EXTENDED CARD DATA */}
+      {firstSlide && (firstSlide.description || firstSlide.tag) ? (
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-[95%] max-w-[90rem] px-4 lg:px-8 z-[2] pointer-events-none">
+          <div className="bg-[#0B0B0F]/60 backdrop-blur-xl border border-white/10 p-6 md:p-8 lg:p-10 rounded-3xl flex flex-col lg:flex-row gap-8 lg:gap-16 items-center justify-between shadow-2xl overflow-hidden pointer-events-auto">
+             <div className="w-full lg:w-[45%] flex flex-col">
+               <p className="text-sm font-bold tracking-[0.15em] text-[#FF5812] mb-3 uppercase" ref={tagRef}>{firstSlide.tag}</p>
+               <h3 className="text-2xl md:text-3xl font-semibold text-white mb-4 leading-snug" ref={handleRef}>{firstSlide.handle}</h3>
+               <p className="text-base text-zinc-300 leading-relaxed" ref={descRef}>{firstSlide.description}</p>
+             </div>
+             
+             <div className="w-full lg:w-[55%] flex flex-col gap-3 justify-center h-full">
+                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5" ref={highlightsRef}>
+                   {(firstSlide.highlights || []).map((h, i) => (
+                     <li key={i} className="flex items-start gap-2.5 text-white/90 text-[15px]">
+                       <span className="w-1.5 h-1.5 rounded-full bg-[#FF5812] shrink-0 mt-1.5" />
+                       <span className="flex-1">{h}</span>
+                     </li>
+                   ))}
+                 </ul>
+             </div>
           </div>
         </div>
       ) : null}

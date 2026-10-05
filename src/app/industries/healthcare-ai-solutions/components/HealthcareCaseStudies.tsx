@@ -46,7 +46,7 @@ const demoData: Gallery4Props = {
           </div>
         </div>
       ),
-      href: "/case-studies/ai-powered-prior-authorization",
+      href: "/case-studies",
       image: "/images/ai-healthcare-images/health-8.webp",
     },
     {
@@ -72,7 +72,7 @@ const demoData: Gallery4Props = {
           </div>
         </div>
       ),
-      href: "/case-studies/healthcare-knowledge-intelligence",
+      href: "/case-studies",
       image: "/images/ai-healthcare-images/health-7.webp",
     },
     {
@@ -98,7 +98,7 @@ const demoData: Gallery4Props = {
           </div>
         </div>
       ),
-      href: "/case-studies/intelligent-healthcare-document-processing",
+      href: "/case-studies",
       image: "/images/ai-healthcare-images/health-6.webp",
     },
     {
@@ -124,7 +124,7 @@ const demoData: Gallery4Props = {
           </div>
         </div>
       ),
-      href: "/case-studies/healthcare-ai-test-automation-patient-management-platform",
+      href: "/case-studies",
       image: "/images/ai-healthcare-images/health-5.webp",
     },
     {
@@ -150,7 +150,7 @@ const demoData: Gallery4Props = {
           </div>
         </div>
       ),
-      href: "/case-studies/ai-powered-healthcare-operations-platform",
+      href: "/case-studies",
       image: "/images/ai-healthcare-images/health-4.webp",
     }
   ],

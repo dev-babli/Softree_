@@ -1,8 +1,14 @@
 "use client";
 
 import React from "react";
-import ScrollableCardStack, { CardItem } from "@/components/ui/scrollable-card-stack";
+import { ScrollGallery } from "@/components/ui/scroll-gallery";
+import { CardItem } from "@/components/ui/scrollable-card-stack";
 import SectionBadge from "@/app/services/ai-development-services/components/SectionBadge";
+
+const generateGradient = (c1: string, c2: string) => {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 100 100"><defs><linearGradient id="g" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="${c1}"/><stop offset="100%" stop-color="${c2}"/></linearGradient></defs><rect width="100" height="100" fill="url(#g)"/></svg>`;
+  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+};
 
 const langchainCards: CardItem[] = [
   {
@@ -22,7 +28,7 @@ const langchainCards: CardItem[] = [
     ],
     href: "/solutions/ai-agents-development",
     ctaText: "Explore AI Agents",
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1000&auto=format&fit=crop&q=80",
+    image: generateGradient("#FF5B94", "#FF8A65"), // Pink to Orange
   },
   {
     id: "rag-application-development",
@@ -41,7 +47,7 @@ const langchainCards: CardItem[] = [
     ],
     href: "/solutions/enterprise-rag-development",
     ctaText: "Explore RAG Systems",
-    image: "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=1000&auto=format&fit=crop&q=80",
+    image: generateGradient("#4A85A4", "#29435C"), // Blue to Teal/Dark
   },
   {
     id: "enterprise-ai-assistants",
@@ -60,7 +66,7 @@ const langchainCards: CardItem[] = [
     ],
     href: "/solutions/ai-chatbot-development",
     ctaText: "Explore AI Assistants",
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1000&auto=format&fit=crop&q=80",
+    image: generateGradient("#FFD57F", "#FF8C7A"), // Yellow to Peach
   },
   {
     id: "ai-copilot-development",
@@ -79,7 +85,7 @@ const langchainCards: CardItem[] = [
     ],
     href: "/solutions/ai-copilot-development",
     ctaText: "Explore AI Copilots",
-    image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=1000&auto=format&fit=crop&q=80",
+    image: generateGradient("#DF4DB4", "#6B56D5"), // Magenta to Purple
   },
   {
     id: "intelligent-document-processing",
@@ -98,7 +104,7 @@ const langchainCards: CardItem[] = [
     ],
     href: "/solutions/document-ai-solutions",
     ctaText: "Explore Doc Intelligence",
-    image: "https://images.unsplash.com/photo-1568667256549-094345857637?w=1000&auto=format&fit=crop&q=80",
+    image: generateGradient("#4C237F", "#2A0E4E"), // Dark Purple
   },
 ];
 
@@ -115,32 +121,47 @@ export function LangChainCardStack({
   showHeader = true,
 }: LangChainCardStackProps) {
   return (
-    <section className={`w-full py-12 sm:py-16 lg:py-20 overflow-hidden bg-gradient-to-b from-[#F9FAFB] via-white to-[#F9FAFB] dark:from-[#07070B] dark:via-[#0B0B0F] dark:to-[#07070B] px-4 sm:px-8 md:px-[2.5cm] lg:px-[3cm] ${className}`}>
-      <div className="w-full max-w-7xl mx-auto flex flex-col items-center">
+    <section className={`bg-white pt-8 md:pt-12 pb-8 md:pb-12 text-slate-900 scroll-mt-24 relative overflow-hidden ${className}`}>
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
         {showHeader && (
-          <div className="flex flex-col items-center w-full mb-8 sm:mb-10 text-center">
-            <SectionBadge text="WHAT WE BUILD WITH LANGCHAIN" variant="line" />
+          <div className="flex flex-col mb-8 sm:mb-12">
+            <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-3.5 py-1 rounded-full border border-white/60 mb-4 inline-block self-start">
+              <span className="typo-caption text-[#FF5812] uppercase">
+                WHAT WE BUILD WITH LANGCHAIN
+              </span>
+            </div>
 
-            <h2 className="text-2xl md:text-3xl lg:text-[2.25rem] font-extrabold text-[#111827] dark:text-white mb-3 tracking-tight leading-tight max-w-4xl">
-              LangChain Development Solutions for{" "}
-              <span className="text-[#FF5812]">Scalable Enterprise AI</span>
-            </h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 lg:gap-x-24 gap-y-6 items-start">
+              <h2 className="typo-heading-2 text-slate-900 lg:pr-12 xl:pr-24">
+                LangChain Development Solutions for <span className="text-[#FF5812]">Scalable Enterprise AI</span>
+              </h2>
 
-            <p className="text-[14.5px] lg:text-[15.5px] text-[#6B7280] dark:text-zinc-400 max-w-3xl leading-relaxed">
-              We develop scalable AI applications with LangChain that connect LLMs with enterprise data, APIs, tools, databases, and business systems. Our LangChain development services help organizations build intelligent AI agents, RAG solutions, AI copilots, conversational applications, and automated workflows designed for real-world business requirements.
-            </p>
+              <p className="typo-description text-slate-500 w-full pt-1.5 lg:max-w-xl">
+                We develop scalable AI applications with LangChain that connect LLMs with enterprise data, APIs, tools, databases, and business systems. Our LangChain development services help organizations build intelligent AI agents, RAG solutions, AI copilots, conversational applications, and automated workflows designed for real-world business requirements.
+              </p>
+            </div>
           </div>
         )}
+      </div>
 
-        <div className="w-full mx-auto flex justify-center">
-          <ScrollableCardStack
-            autoPlay={true}
-            autoPlayInterval={3800}
-            cardWidth={cardWidth}
-            className="mx-auto"
-            items={langchainCards}
-          />
-        </div>
+      <div className="w-full">
+        <ScrollGallery
+          classNames={{
+            infoInner: "flex gap-8 max-w-[1600px] mx-auto w-full px-6 sm:px-8 lg:px-12",
+          }}
+          slides={langchainCards.map(c => ({
+            title: c.name,
+            image: c.image ?? "",
+            url: c.href,
+            linkLabel: c.ctaText,
+            tag: c.tag,
+            handle: c.handle,
+            description: c.description,
+            howSoftreeHelps: c.howSoftreeHelps,
+            highlights: c.highlights
+          }))}
+          variant="studio"
+        />
       </div>
     </section>
   );
