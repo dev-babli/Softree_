@@ -33,8 +33,8 @@ export type SqueezeSlide = {
     image?: string;
     /** Alt text for that picture. */
     imageAlt?: string;
-    /** Any CSS background — gradient or color. */
-    background?: string;
+    /** Any CSS background — gradient, color, or a custom React background component. */
+    background?: string | ReactNode;
     /** Glassmorphic badge or widget overlay. */
     overlay?: ReactNode;
     /** Key capability bullet points. */
@@ -223,7 +223,7 @@ export function SqueezeCarousel({
                                 aria-selected={isActive}
                                 aria-label={slide.title}
                                 className={cn(
-                                    "relative overflow-hidden cursor-pointer select-none transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group",
+                                    "relative z-0 overflow-hidden cursor-pointer select-none transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group",
                                     isActive
                                         ? "flex-[6] lg:flex-[7.5] min-h-[220px] lg:min-h-0 lg:min-w-[280px] shadow-xl ring-1 ring-slate-900/10"
                                         : isHovered
@@ -233,14 +233,14 @@ export function SqueezeCarousel({
                                 )}
                                 style={{ borderRadius: formattedRadius }}
                             >
-                                {/* Background Image */}
+                                {/* Background Image / Component */}
                                 {slide.image ? (
                                     <img
                                         src={slide.image}
                                         alt={slide.imageAlt ?? slide.title}
                                         draggable={false}
                                         className={cn(
-                                            "absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out",
+                                            "absolute inset-0 -z-20 w-full h-full object-cover transition-transform duration-700 ease-out",
                                             isActive
                                                 ? "scale-100"
                                                 : "scale-105 group-hover:scale-110"
@@ -248,9 +248,11 @@ export function SqueezeCarousel({
                                     />
                                 ) : (
                                     <div
-                                        className="absolute inset-0 w-full h-full"
-                                        style={{ background: slide.background }}
-                                    />
+                                        className="absolute inset-0 w-full h-full -z-20 bg-[#050505]"
+                                        style={typeof slide.background === "string" ? { background: slide.background } : undefined}
+                                    >
+                                        {(typeof slide.background !== "string" && (isActive || isHovered)) ? slide.background : null}
+                                    </div>
                                 )}
 
                                 {/* ACTIVE CARD: PROFESSIONAL IN-CARD LAYOUT */}

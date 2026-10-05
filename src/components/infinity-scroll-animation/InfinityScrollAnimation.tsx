@@ -281,9 +281,9 @@ export default function InfinityScrollAnimation() {
 
       <div className="relative z-10 mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-12">
         {/* ── Row 1: Intro + global reach ── */}
-        <div className="grid grid-cols-12 items-stretch gap-10 lg:gap-8 xl:gap-14">
+        <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch gap-10 lg:gap-8 xl:gap-14">
           <motion.div
-            className="col-span-12 lg:col-span-6 relative z-20 min-w-0 flex flex-col justify-between h-full"
+            className="col-span-1 lg:col-span-6 relative z-20 min-w-0 flex flex-col justify-between h-full"
             initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
@@ -377,7 +377,7 @@ export default function InfinityScrollAnimation() {
           </motion.div>
 
           <motion.div
-            className="col-span-12 lg:col-span-6 relative z-10 w-full min-w-0 overflow-x-clip flex flex-col h-full"
+            className="col-span-1 lg:col-span-6 relative z-10 w-full min-w-0 overflow-x-clip flex flex-col h-full"
             initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}

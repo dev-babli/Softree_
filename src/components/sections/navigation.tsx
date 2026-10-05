@@ -23,6 +23,7 @@ import {
   Cpu,
   CloudSnow,
   BrainCircuit,
+  ShieldCheck,
   Sparkles,
   Bot,
   WandSparkles,
@@ -88,15 +89,15 @@ const menu: MenuItem[] = [
           { label: "Generative AI Development", url: "/services/generative-ai", icon: Sparkles, description: "Build smart generative AI applications" },
           { label: "Enterprise RAG Development", url: "/solutions/enterprise-rag-development", icon: Database, description: "Secure knowledge retrieval at scale" },
           { label: "AI Consulting Services", url: "/services/ai-consulting-services", icon: Lightbulb, description: "Strategy, roadmap & implementation" },
-          { label: "AI Workflow Automation", url: "/solutions/ai-workflow-automation", icon: Workflow, description: "Automate processes with AI" },
+          // { label: "AI Workflow Automation", url: "/solutions/ai-workflow-automation", icon: Workflow, description: "Automate processes with AI" },
           { label: "AI Chatbot Development", url: "/solutions/ai-chatbot-development", icon: Bot, description: "Conversational AI for better engagement" },
-          { label: "AI Test Automation", url: "/services/ai-powered-test-automation", icon: BrainCircuit, description: "Intelligent test automation at speed" },
-          {
-            label: "Automation Testing Services",
-            url: "/services/automation-testing-services",
-            icon: Workflow,
-            description: "End-to-end test automation for web, mobile, API, and enterprise applications"
-          },
+          // { label: "AI Test Automation", url: "/services/ai-powered-test-automation", icon: BrainCircuit, description: "Intelligent test automation at speed" },
+          // {
+          //   label: "Automation Testing Services",
+          //   url: "/services/automation-testing-services",
+          //   icon: Workflow,
+          //   description: "End-to-end test automation for web, mobile, API, and enterprise applications"
+          // },
           { label: "Amazon Bedrock AgentCore Development", url: "/services/amazon-bedrock-agentcore-development", icon: Bot, description: "Build and deploy production-ready AI agents" },
           { label: "Amazon Nova 2 Sonic Solutions", url: "/services/amazon-nova-2-sonic-solutions", icon: BrainCircuit, description: "Build intelligent voice AI experiences" }
         ],
@@ -110,6 +111,44 @@ const menu: MenuItem[] = [
           { label: "Multi-Agent Systems", url: "/solutions/multi-agent-systems", icon: BrainCircuit, description: "Orchestrate collaborative agents" },
           { label: "LangChain Development", url: "/solutions/lang-chain-development", icon: Link2, description: "LLM apps with LangChain framework" },
           { label: "LangGraph Development", url: "/solutions/lang-graph-development", icon: Network, description: "Stateful multi-agent workflows" },
+        ],
+      },
+      {
+        title: "Testing & Quality Engineering",
+        icon: ShieldCheck,
+        description: "Ensure software quality, security, reliability, and AI performance with end-to-end testing and quality engineering services.",
+        links: [
+          {
+            label: "Automation Testing Services",
+            url: "/services/automation-testing-services",
+            icon: Workflow,
+            description: "End-to-end test automation for web, mobile, API, and enterprise applications"
+          },
+          {
+            label: "Security Testing Services",
+            url: "/services/security-testing-services",
+            icon: ShieldCheck,
+            description: "Validate application security, vulnerabilities, APIs, mobile apps, and enterprise systems"
+          },
+          {
+            label: "Agentic AI Testing Services",
+            url: "/services/agentic-ai-testing-services",
+            icon: BrainCircuit,
+            description: "Test AI agents, LLMs, RAG systems, autonomous workflows, and AI security"
+          },
+          {
+            label: "Healthcare Software Testing Services",
+            url: "/industries/healthcare-software-testing-services",
+            icon: HeartPulse,
+            description: "Healthcare software testing, QA automation, and digital health quality engineering",
+          },
+          {
+            label: "Logistics Testing Services",
+            url: "/services/logistics-testing-services",
+            icon: Truck,
+            description:
+              "Logistics software testing, QA automation, and quality engineering for transportation and supply chain applications"
+          },
         ],
       },
       {
@@ -162,6 +201,7 @@ const menu: MenuItem[] = [
           { label: "SPFx Development", url: "/services/offshore-spfx-development", icon: Code2, description: "Custom web parts and platform extensions" },
         ]
       },
+
     ],
   },
   {

@@ -189,3 +189,9 @@ export const SERVICES_HUB: ServicesHubItem[] = [
 ];
 
 export const SERVICES_HUB_TICKER = SERVICES_HUB.map((s) => s.shortTitle);
+
+export const SERVICES_HUB_STATS = [
+  { value: "12+", label: "CORE PRACTICES" },
+  { value: "50+", label: "GLOBAL CLIENTS" },
+  { value: "98%", label: "RETENTION" },
+];

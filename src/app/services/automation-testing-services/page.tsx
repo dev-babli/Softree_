@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import { Metadata } from "next";
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
-import { StackedDimensionCards } from "./components/StackedDimensionCards";
+
 import { BentoCapabilities } from "./components/BentoCapabilities";
 import { AgenticWorkflowTracker } from "./components/AgenticWorkflowTracker";
 import { ThreatMatrixList } from "./components/ThreatMatrixList";

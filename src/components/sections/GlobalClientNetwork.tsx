@@ -531,54 +531,58 @@ export default function GlobalClientNetwork() {
           >
             <div className="rounded-[2rem] bg-white/45 p-2 shadow-[0_28px_72px_-36px_rgba(10,10,26,0.16)] ring-1 ring-[#0a0a1a]/[0.06]">
               <div
-                className="relative overflow-hidden rounded-[calc(2rem-0.5rem)] bg-[#E8ECF2] shadow-[inset_0_1px_1px_rgba(255,255,255,0.85)]"
-                style={{ aspectRatio: `${VW} / ${VH}` }}
+                className="relative overflow-x-auto overflow-y-hidden rounded-[calc(2rem-0.5rem)] bg-[#E8ECF2] shadow-[inset_0_1px_1px_rgba(255,255,255,0.85)] no-scrollbar"
               >
-                <svg
-                  viewBox={`0 0 ${VW} ${VH}`}
-                  className="h-full w-full"
-                  preserveAspectRatio="xMidYMid meet"
-                  role="img"
-                  aria-label="World map showing Softree partner locations"
+                <div 
+                  className="min-w-[800px] lg:min-w-0" 
+                  style={{ aspectRatio: `${VW} / ${VH}` }}
                 >
-                  <g fill="white" stroke="#CBD5E1" strokeOpacity={0.45} strokeWidth={0.55}>
-                    {worldCells.map(({ x, y }, i) => (
-                      <polygon key={`l-${i}`} points={hexPolygonPoints(x, y, HEX_R)} />
-                    ))}
-                  </g>
-                  <g>
-                    {tintedHexes.map((h, i) => (
-                      <polygon
-                        key={`t-${i}`}
-                        points={hexPolygonPoints(h.x, h.y, HEX_R)}
-                        fill={h.color}
-                        opacity={h.opacity}
-                      />
-                    ))}
-                  </g>
-                  <g>
-                    {cityPins.map((pin) => {
-                      const active = activeClientId === pin.id;
-                      const r = active ? 7 : 5;
-                      return (
-                        <g
-                          key={pin.id}
-                          transform={`translate(${pin.xy.x} ${pin.xy.y})`}
-                          opacity={activeClientId && !active ? 0.3 : 1}
-                        >
-                          <circle r={r + 5} fill={pin.color} opacity={active ? 0.24 : 0.1} />
-                          <circle r={r} fill={pin.color} stroke="white" strokeWidth={2} />
-                          {active && !reduced && (
-                            <circle r={r + 8} fill="none" stroke={pin.color} strokeWidth={1.25} opacity={0.55}>
-                              <animate attributeName="r" values={`${r + 5};${r + 14};${r + 5}`} dur="2s" repeatCount="indefinite" />
-                              <animate attributeName="opacity" values="0.55;0;0.55" dur="2s" repeatCount="indefinite" />
-                            </circle>
-                          )}
-                        </g>
-                      );
-                    })}
-                  </g>
-                </svg>
+                  <svg
+                    viewBox={`0 0 ${VW} ${VH}`}
+                    className="h-full w-full"
+                    preserveAspectRatio="xMidYMid meet"
+                    role="img"
+                    aria-label="World map showing Softree partner locations"
+                  >
+                    <g fill="white" stroke="#CBD5E1" strokeOpacity={0.45} strokeWidth={0.55}>
+                      {worldCells.map(({ x, y }, i) => (
+                        <polygon key={`l-${i}`} points={hexPolygonPoints(x, y, HEX_R)} />
+                      ))}
+                    </g>
+                    <g>
+                      {tintedHexes.map((h, i) => (
+                        <polygon
+                          key={`t-${i}`}
+                          points={hexPolygonPoints(h.x, h.y, HEX_R)}
+                          fill={h.color}
+                          opacity={h.opacity}
+                        />
+                      ))}
+                    </g>
+                    <g>
+                      {cityPins.map((pin) => {
+                        const active = activeClientId === pin.id;
+                        const r = active ? 7 : 5;
+                        return (
+                          <g
+                            key={pin.id}
+                            transform={`translate(${pin.xy.x} ${pin.xy.y})`}
+                            opacity={activeClientId && !active ? 0.3 : 1}
+                          >
+                            <circle r={r + 5} fill={pin.color} opacity={active ? 0.24 : 0.1} />
+                            <circle r={r} fill={pin.color} stroke="white" strokeWidth={2} />
+                            {active && !reduced && (
+                              <circle r={r + 8} fill="none" stroke={pin.color} strokeWidth={1.25} opacity={0.55}>
+                                <animate attributeName="r" values={`${r + 5};${r + 14};${r + 5}`} dur="2s" repeatCount="indefinite" />
+                                <animate attributeName="opacity" values="0.55;0;0.55" dur="2s" repeatCount="indefinite" />
+                              </circle>
+                            )}
+                          </g>
+                        );
+                      })}
+                    </g>
+                  </svg>
+                </div>
               </div>
             </div>
           </motion.div>

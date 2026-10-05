@@ -3,14 +3,12 @@ import dynamic from "next/dynamic";
 import { Metadata } from "next";
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
-import { StackedDimensionCards } from "./components/StackedDimensionCards";
+
 import { BentoCapabilities } from "./components/BentoCapabilities";
 import { AgenticWorkflowTracker } from "./components/AgenticWorkflowTracker";
 import { ThreatMatrixList } from "./components/ThreatMatrixList";
-import { HeroSection } from "./components/HeroSection";
-import AgenticAITestingHero from "./components/AgenticAITestingHero";
 
-import "./components/ai-testing.css";
+import "./components/security-testing.css";
 
 const WhyChooseWithTestimonials = dynamic(() => import('@/components/sections/why-choose-us'), { ssr: true });
 
@@ -19,69 +17,32 @@ const LightContactSection = dynamic(() => import('@/components/homepage-light/Li
 const TrustedBrandsMarquee = dynamic(() => import('@/app/services/offshore-power-platform-development/trust'), { ssr: true });
 
 export const metadata: Metadata = {
-  title: "Agentic AI Testing Services | AI Agent Testing | Softree",
-  description: "Validate AI agents, LLMs, RAG applications, and autonomous workflows with Softree’s offshore AI testing and quality engineering services.",
-  "keywords": [
-    "Agentic AI Testing",
-    "Agentic AI Testing Services",
-    "AI Agent Testing",
-    "AI Agent Testing Services",
-    "AI Testing Services",
-    "AI Quality Engineering",
-    "LLM Testing",
-    "LLM Application Testing",
-    "Generative AI Testing",
-    "Generative AI Testing Services",
-    "RAG Testing",
-    "RAG Application Testing",
-    "AI Evaluation",
-    "AI Model Testing",
-    "AI Application Testing",
-    "AI Security Testing",
-    "AI Guardrail Testing",
-    "Multi-Agent Testing",
-    "Autonomous Workflow Testing",
-    "AI Workflow Testing",
-    "AI Automation Testing",
-    "Continuous AI Testing",
-    "Continuous AI Evaluation",
-    "AI Regression Testing",
-    "Offshore AI Testing",
-    "Offshore AI Testing Services",
-    "Offshore AI QA Services",
-    "AI Quality Assurance",
-    "AI Software Testing",
-    "Enterprise QA",
-    "Automation Testing Services",
-    "Test Automation Services",
-    "Software Test Automation",
-    "QA Automation Services",
-    "Automation Testing Company",
-    "Automation Testing Solutions",
-    "Automated Software Testing",
-    "Web Automation Testing",
-    "Web UI Test Automation",
-    "Mobile Test Automation",
-    "API Test Automation",
-    "API Testing Services",
-    "Functional Test Automation",
-    "Automated Regression Testing",
-    "Performance Test Automation",
-    "Continuous Testing",
-    "CI/CD Test Automation",
-    "End-to-End Test Automation",
-    "Automation Testing Frameworks",
-    "AI-Powered Test Automation",
-    "Self-Healing Test Automation",
-    "Offshore Automation Testing",
-    "Offshore QA Services",
-    "Dedicated QA Automation Team",
-    "Offshore QA Automation Team"
+  title: "Security Testing Services | Offshore Security QA Team | Softree",
+  description: "Protect applications with Softree’s offshore security testing services for web, mobile, API, and enterprise software, including vulnerability and penetration testing.",
+  keywords: [
+    "Security Testing Services",
+    "Security Testing",
+    "Software Security Testing",
+    "Application Security Testing",
+    "Web Application Security Testing",
+    "API Security Testing",
+    "Mobile Application Security Testing",
+    "Security QA Services",
+    "Cybersecurity Testing Services",
+    "Vulnerability Assessment",
+    "Penetration Testing Services",
+    "Automated Security Testing",
+    "DevSecOps Security Testing",
+    "Enterprise Security Testing",
+    "Offshore Security Testing",
+    "Offshore Security QA Services",
+    "Application Vulnerability Testing",
+    "Security Regression Testing"
   ],
   openGraph: {
-    title: 'Agentic AI Testing Services | AI Agent Testing | Softree',
-    description: 'Softree’s offshore AI testing team helps validate AI agents, LLM applications, RAG systems, autonomous workflows, security, and AI quality.',
-    url: 'https://www.softreetechnology.com/services/agentic-ai-testing-services',
+    title: 'Security Testing Services | Offshore Security QA Team | Softree',
+    description: 'Softree’s offshore security testing team helps identify vulnerabilities and strengthen web, mobile, API, and enterprise applications through comprehensive security testing.',
+    url: 'https://www.softreetechnology.com/services/security-testing-services',
     siteName: 'Softree Technology',
     images: [
       {
@@ -96,13 +57,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Agentic AI Testing Services | Offshore AI Testing | Softree',
-    description: 'Offshore AI testing and quality engineering services for reliable AI agents, LLM applications, RAG systems, autonomous workflows, and intelligent software.',
-    images: ['/logo/Softree-Technology-Final-Logo-Dark-BG.webp'],
+    title: 'Security Testing Services | Offshore Security QA | Softree',
+    description: 'Offshore security testing services for web, mobile, API, and enterprise applications, helping teams identify vulnerabilities and improve application security.',
+    images: ['/logo/Softree-Technology-Final-Logo-Dark-BG.png'],
   },
 };
 
-const automationFaqs = [
+const SecurityFAQs = [
   {
     id: 1,
     serial: "question 01",
@@ -213,37 +174,41 @@ const automationReviews = [
   },
 ];
 
-import AgenticAITestingPositioning from './components/AgenticAITestingPositioning';
-import AgenticAITestingCoverage from './components/AgenticAITestingCoverage';
+import SecurityTestingPositioning from './components/SecurityTestingPositioning';
+import SecurityTestingCoverage from './components/SecurityTestingCoverage';
 import NewWhoDoWeServeSection from "@/components/sections/NewWhoDoWeServeSection";
-import OffshoreAgenticAITestingTeam from './components/OffshoreAgenticAITestingTeam';
-import WhySoftreeAgenticAITesting from './components/WhySoftreeAgenticAITesting';
-import AgenticAITestingFAQ from './components/AgenticAITestingFAQ';
-import AgenticAITestingProcess from './components/AgenticAITestingProcess';
-import AgenticAITesting from './components/AgenticAITesting';
-import AgenticAITestingWorkflow from './components/AgenticAITestingWorkflow';
-import AgenticAITestingCaseStudies from './components/AgenticAITestingCaseStudies';
-import AgenticAITechnologyTesting from './components/AgenticAITechnologyTesting';
-import AgenticAITestingVideoHero from './components/AgenticAITestingVideoHero';
+import OffshoreSecurityTestingTeam from './components/OffshoreSecurityTestingTeam';
+import WhySoftreeSecurityTesting from './components/WhySoftreeSecurityTesting';
+import SecurityTestingFAQ from './components/SecurityTestingFAQ';
+import SecurityTestingProcess from './components/SecurityTestingProcess';
+import AgenticSecurityTesting from './components/AgenticSecurityTesting';
+import SecurityTestingWorkflow from './components/SecurityTestingWorkflow';
+import SecurityTestingCaseStudies from './components/SecurityTestingCaseStudies';
+import SecurityTechnologyTesting from './components/SecurityTechnologyTesting';
 
 
 
 
 
+import SecurityTestingVideoHero from './components/SecurityTestingVideoHero';
+import SecurityTestingSilkHero from './components/SecurityTestingSilkHero';
+import SecurityTestingWireframeHero from './components/SecurityTestingWireframeHero';
 const ReverseStickyScroll = dynamic(() => import('./components/ReverseStickyScroll/ReverseStickyScroll').then((mod) => mod.ReverseStickyScroll), { ssr: true });
 
-export default function AgenticAITestingPage() {
+export default function SecurityTestingPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-zinc-50 via-white to-zinc-50 flex flex-col font-sans selection:bg-orange-500 selection:text-white">
       <NavigationClient />
-      {/* <AgenticAITestingHero /> */}
-      {/* <HeroSection /> */}
-      <AgenticAITestingVideoHero />
+
+      {/* <SecurityTestingVideoHero /> */}
+      {/* <SecurityTestingSilkHero /> */}
+
+      <SecurityTestingWireframeHero />
 
       <TrustedBrandsMarquee surface="legacy" />
-      <AgenticAITestingPositioning />
+      <SecurityTestingPositioning />
 
-      <AgenticAITestingCoverage />
+      <SecurityTestingCoverage />
 
       <NewWhoDoWeServeSection className="bg-white" />
 
@@ -251,33 +216,33 @@ export default function AgenticAITestingPage() {
       <div className="w-full max-w-[1340px] mx-auto px-4 mt-12 md:mt-16 mb-8 flex flex-col items-start text-left">
         <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-3.5 py-1 rounded-full border border-white/60 mb-4 inline-block">
           <span className="typo-caption text-[#FF6B2C] uppercase">
-            AGENTIC AI TESTING SERVICES
+            SECURITY TESTING SERVICES
           </span>
         </div>
 
         <h2 className="typo-heading-2 text-slate-900 mb-4">
-          One AI Testing Team Across <br />
-          <span className="text-[#FF6B2C]">Every Stage of Your Agentic AI Lifecycle</span>
+          One Security Testing Team Across <br />
+          <span className="text-[#FF6B2C]">Every Stage of Your Software Lifecycle</span>
         </h2>
 
         <p className="typo-description text-slate-500 max-w-2xl">
-          Softree provides end-to-end agentic AI testing services that help teams evaluate AI behavior, validate autonomous workflows, secure AI interactions, improve model reliability, and continuously monitor AI quality from development through production.
+          Softree provides end-to-end security testing services that help businesses identify vulnerabilities, validate security controls, protect sensitive data, and build more resilient software across web, mobile, API, and enterprise applications.
         </p>
       </div>
 
       <ReverseStickyScroll />
 
-      <OffshoreAgenticAITestingTeam />
+      <OffshoreSecurityTestingTeam />
 
-      <AgenticAITestingCaseStudies />
+      <SecurityTestingCaseStudies />
 
-      <AgenticAITestingProcess />
+      <SecurityTestingProcess />
 
-      <AgenticAITesting />
+      <AgenticSecurityTesting />
 
-      <AgenticAITestingWorkflow />
+      <SecurityTestingWorkflow />
 
-      <AgenticAITechnologyTesting />
+      <SecurityTechnologyTesting />
 
       {/* <BentoCapabilities /> */}
 
@@ -288,9 +253,9 @@ export default function AgenticAITestingPage() {
       {/* Component rendering here */}
       {/* <StackedDimensionCards /> */}
 
-      <WhySoftreeAgenticAITesting />
+      <WhySoftreeSecurityTesting />
 
-      <AgenticAITestingFAQ />
+      <SecurityTestingFAQ />
 
       {/* <WhyChooseWithTestimonials /> */}
 

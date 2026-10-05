@@ -416,7 +416,7 @@ const STYLES = `
   .globe-section{padding: 24px 16px 32px;}
   .globe-canvas-wrap{width: 85%; max-width: 400px; height: auto; aspect-ratio: 1; margin: 0 auto;}
   .globe-footer{flex-direction:column; align-items:flex-start; text-align: left; gap: 16px;}
-  .globe-footer-top{flex-direction:row; align-items:center; justify-content:space-between; gap: 4px; width: 100%;}
+  .globe-footer-top{flex-direction:row; flex-wrap:wrap; align-items:center; justify-content:space-between; gap: 12px 4px; width: 100%;}
   .stores-count{font-size: 12px; letter-spacing: -0.02em; white-space: nowrap;}
   .switcher{gap: 4px; padding: 4px;}
   .switcher button { width: 28px; height: 28px; }

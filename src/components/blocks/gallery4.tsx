@@ -16,7 +16,8 @@ export interface GalleryItem {
   title: React.ReactNode;
   description: React.ReactNode;
   href: string;
-  image: string;
+  image?: string;
+  bgComponent?: React.ReactNode;
   ctaText?: string;
   label?: string;
 }
@@ -58,20 +59,22 @@ export function Gallery4({ title = "Projects", description, action, items }: Gal
               )}
             </div>
             <div className="flex flex-wrap items-center gap-3 sm:gap-4 shrink-0 pb-1">
-              {action}
               <div className="flex items-center gap-2">
-                {/* <CarouselPrevious className="static translate-x-0 translate-y-0 h-11 w-11 rounded-full flex items-center justify-center transition-all duration-300 bg-[#FF5812] text-white border-[#FF5812] hover:bg-[#e04805] hover:border-[#e04805] hover:text-white shadow-md shadow-[#FF5812]/20 active:scale-95 cursor-pointer disabled:bg-zinc-100 disabled:text-zinc-300 disabled:border-zinc-200 disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none" />
-                <CarouselNext className="static translate-x-0 translate-y-0 h-11 w-11 rounded-full flex items-center justify-center transition-all duration-300 bg-[#FF5812] text-white border-[#FF5812] hover:bg-[#e04805] hover:border-[#e04805] hover:text-white shadow-md shadow-[#FF5812]/20 active:scale-95 cursor-pointer disabled:bg-zinc-100 disabled:text-zinc-300 disabled:border-zinc-200 disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none" /> */}
+                <CarouselPrevious className="static translate-x-0 translate-y-0 h-11 w-11 rounded-full flex items-center justify-center transition-all duration-300 bg-[#FF5812] text-white border-[#FF5812] hover:bg-[#e04805] hover:border-[#e04805] hover:text-white shadow-md shadow-[#FF5812]/20 active:scale-95 cursor-pointer disabled:bg-zinc-100 disabled:text-zinc-300 disabled:border-zinc-200 disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none" />
+                <CarouselNext className="static translate-x-0 translate-y-0 h-11 w-11 rounded-full flex items-center justify-center transition-all duration-300 bg-[#FF5812] text-white border-[#FF5812] hover:bg-[#e04805] hover:border-[#e04805] hover:text-white shadow-md shadow-[#FF5812]/20 active:scale-95 cursor-pointer disabled:bg-zinc-100 disabled:text-zinc-300 disabled:border-zinc-200 disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none" />
               </div>
+              {action}
             </div>
           </div>
 
           {/* Carousel Track */}
           <CarouselContent className="-ml-4 md:-ml-6">
             {items.map((item) => {
-              const imageSrc = item.image.startsWith("/ai-healthcare-images")
-                ? item.image.replace(/^\/ai-healthcare-images(\/ai-healthcare-images)?/, "/images/ai-healthcare-images")
-                : item.image;
+              const imageSrc = item.image
+                ? item.image.startsWith("/ai-healthcare-images")
+                  ? item.image.replace(/^\/ai-healthcare-images(\/ai-healthcare-images)?/, "/images/ai-healthcare-images")
+                  : item.image
+                : undefined;
 
               return (
                 <CarouselItem
@@ -82,16 +85,20 @@ export function Gallery4({ title = "Projects", description, action, items }: Gal
                     href={item.href}
                     className="group/card relative flex flex-col justify-end overflow-hidden rounded-[24px] w-full h-[500px] md:h-[600px] border border-border/50 hover:shadow-2xl transition-all duration-300"
                   >
-                    {/* Background Image */}
-                    <div className="absolute inset-0 w-full h-full bg-muted">
-                      {imageSrc && (
+                    {/* Background Image or Component */}
+                    <div className="absolute inset-0 w-full h-full bg-muted overflow-hidden">
+                      {item.bgComponent ? (
+                        <div className="w-full h-full transition-transform duration-700 group-hover/card:scale-105">
+                          {item.bgComponent}
+                        </div>
+                      ) : imageSrc ? (
                         <img
                           src={imageSrc}
                           alt={typeof item.title === "string" ? item.title : "Case study image"}
-                          className="w-full h-full object-cover transition-transform duration-700 group/card:scale-105"
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-105"
                           loading="lazy"
                         />
-                      )}
+                      ) : null}
                     </div>
 
                     {/* Gradient Overlay */}

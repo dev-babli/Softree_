@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import SqueezeCarousel, { SqueezeSlide } from "@/components/ui/carousel-squeeze";
+import AnimatedGradient from "@/components/ui/animated-gradient";
 import { typography } from "@/lib/typography";
 import {
 
@@ -66,8 +67,7 @@ const automationSlides: SqueezeSlide[] = [
     shortTitle: "Security Discovery",
     description:
       "Understand your application architecture, technology stack, integrations, data flows, and security requirements.",
-    image: "/images/ai-development-services/core-capabilities/ai-strategy.png",
-    imageAlt: "Security Discovery",
+    background: <AnimatedGradient config={{ preset: "Prism", color1: "#050505", color2: "#FF6B2C", color3: "#FF9F21" }} />,
     bullets: [
       "Architecture & Data Flow Analysis",
       "Technology Stack Assessment",
@@ -83,8 +83,7 @@ const automationSlides: SqueezeSlide[] = [
     shortTitle: "Strategy & Planning",
     description:
       "Define testing scope, security objectives, risk areas, testing priorities, and validation requirements.",
-    image: "/images/ai-development-services/core-capabilities/enterprise-ai-architecture.png",
-    imageAlt: "Security Strategy & Planning",
+    background: <AnimatedGradient config={{ preset: "Lava", color1: "#FF9F21", color2: "#FF6B2C", color3: "#000000" }} />,
     bullets: [
       "Define Testing Scope",
       "Identify Risk Areas",
@@ -100,8 +99,7 @@ const automationSlides: SqueezeSlide[] = [
     shortTitle: "Test Framework",
     description:
       "Build structured security testing frameworks and reusable test cases aligned with your application and technology environment.",
-    image: "/images/ai-development-services/core-capabilities/intelligent-automation.png",
-    imageAlt: "Security Test Framework",
+    background: <AnimatedGradient config={{ preset: "Plasma", color1: "#FF6B2C", color2: "#000000", color3: "#000000" }} />,
     bullets: [
       "Structured Security Testing",
       "Reusable Test Cases",
@@ -117,8 +115,7 @@ const automationSlides: SqueezeSlide[] = [
     shortTitle: "Security Validation",
     description:
       "Execute security tests across applications, APIs, mobile platforms, integrations, and critical workflows.",
-    image: "/images/ai-development-services/core-capabilities/secure-ai-governance.png",
-    imageAlt: "Security Validation",
+    background: <AnimatedGradient config={{ preset: "Pulse", color1: "#FF9F21", color2: "#000000", color3: "#000000" }} />,
     bullets: [
       "Application Security Testing",
       "API & Mobile Testing",
@@ -134,8 +131,7 @@ const automationSlides: SqueezeSlide[] = [
     shortTitle: "Vulnerability Analysis",
     description:
       "Analyze security test results, vulnerabilities, application behavior, and coverage to identify security risks and continuously improve your testing strategy.",
-    image: "/images/ai-development-services/core-capabilities/microsoft-ai-ecosystem.png",
-    imageAlt: "Vulnerability Analysis & Security Optimization",
+    background: <AnimatedGradient config={{ preset: "Vortex", color1: "#000000", color2: "#FF6B2C", color3: "#000000" }} />,
     bullets: [
       "Automated Security Testing",
       "Vulnerability Analysis",
@@ -152,8 +148,7 @@ const automationSlides: SqueezeSlide[] = [
     shortTitle: "Continuous Improvement",
     description:
       "Integrate security testing into ongoing development and CI/CD processes to support continuous security validation.",
-    image: "/images/ai-development-services/core-capabilities/continuous-optimization.png",
-    imageAlt: "Continuous Security Improvement",
+    background: <AnimatedGradient config={{ preset: "Mist", color1: "#050505", color2: "#FF6B2C", color3: "#050505" }} />,
     bullets: [
       "CI/CD Security Integration",
       "Continuous Validation",

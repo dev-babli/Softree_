@@ -11,6 +11,7 @@ import {
   Bug,
   ArrowRight,
 } from "lucide-react";
+import { FlowButton } from "@/components/ui/flow-button";
 import CoverageGlobe from "@/app/industries/healthcare-software-testing-services/components/CoverageGlobe";
 
 import { typography } from "@/lib/typography";
@@ -115,13 +116,12 @@ export default function SecurityTestingCoverage() {
                 <p className={`${typography.body.default} text-slate-700 text-center xl:text-left`}>
                   Ready to accelerate your software testing with AI-powered automation?
                 </p>
-                <Link
+                <FlowButton
                   href="/contact"
-                  className={`inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-[#FF6B00] hover:bg-[#e05e00] text-white ${typography.button.default} shadow-md shadow-orange-500/20 transition-all duration-200 shrink-0 group text-sm sm:text-base text-center`}
-                >
-                  <span>Contact Us</span>
-                  <ArrowRight className="w-4.5 h-4.5 transition-transform duration-200 group-hover:translate-x-1 shrink-0 hidden sm:block" />
-                </Link>
+                  text="Contact Us"
+                  variant="orange-filled"
+                  className="shrink-0 text-sm sm:text-base"
+                />
               </div>
 
             </div>
