@@ -33,7 +33,7 @@ const ROWS: Row[] = [
   { index: "02", label: "GENERATIVE AI SYSTEMS", stat: "RAG, LLM pipelines, evals", href: "/services/generative-ai", thumb: "/og/pages/services--offshore-generative-ai-development.png" },
   { index: "03", label: "WEB & PRODUCT ENGINEERING", stat: "Next.js / .NET, end-to-end", href: "/services/offshore-web-app-development", thumb: "/og/pages/services--offshore-web-app-development.png" },
   { index: "04", label: "MOBILE APP DEVELOPMENT", stat: "iOS · Android · cross-platform", href: "/services/offshore-mobile-app-development", thumb: "/og/pages/services--offshore-mobile-app-development.png" },
-  { index: "05", label: "DATA & ANALYTICS", stat: "Power BI to decision systems", href: "/services/offshore-data-analytics", thumb: "/og/pages/services--offshore-data-analytics.png" },
+  { index: "05", label: "DATA & ANALYTICS", stat: "Power BI to decision systems", href: "/services/power-bi-development-services", thumb: "/og/pages/services--offshore-data-analytics.png" },
   { index: "06", label: "POWER PLATFORM", stat: "Apps + automation at scale", href: "/services/offshore-power-platform-development", thumb: "/og/pages/services--offshore-power-platform-development.png" },
   { index: "07", label: "SHAREPOINT & M365", stat: "Intranets, SPFx, governance", href: "/services/offshore-sharepoint-development", thumb: "/og/pages/services--offshore-sharepoint-development.png" },
   { index: "08", label: "MICROSOFT FABRIC", stat: "Lakehouse + enterprise BI", href: "/services/microsoft-fabric-development-services", thumb: "/og/pages/services--microsoft-fabric-engineering-services.png" },

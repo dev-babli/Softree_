@@ -36,7 +36,7 @@ export const SOFTREE_HOMEPAGE_STORIES: Story[] = [
     description: "Unified Fabric analytics and executive dashboards in weeks, not quarters.",
     metric: "Single source of truth",
     ctaLabel: "Data platforms",
-    href: "/services/offshore-data-analytics",
+    href: "/services/power-bi-development-services",
   },
   {
     id: "modern-web",

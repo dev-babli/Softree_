@@ -61,7 +61,7 @@ export const SERVICES_HUB: ServicesHubItem[] = [
     n: "04",
     title: "Power BI",
     shortTitle: "Power BI",
-    href: "/services/offshore-data-analytics",
+    href: "/services/power-bi-development-services",
     image: "/service_image/data.jpg",
     imgSrc: "/service_image/microsoft.jpg",
     accent: "#1852FF",

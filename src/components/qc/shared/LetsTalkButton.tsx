@@ -31,7 +31,7 @@ const ArrowIcon = () => (
 )
 
 export interface LetsTalkButtonProps {
-    /** Destination URL for the CTA. Defaults to "/book-meeting". */
+    /** Destination URL for the CTA. Defaults to "/contact". */
     href?: string
     /** Tighter vertical padding for dense header rows. */
     compact?: boolean
@@ -40,7 +40,7 @@ export interface LetsTalkButtonProps {
 }
 
 export default function LetsTalkButton({
-    href = "/book-meeting",
+    href = "/contact",
     compact = false,
     className,
 }: LetsTalkButtonProps) {

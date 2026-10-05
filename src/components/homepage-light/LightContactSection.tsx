@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from "framer-motion"
 import { ArrowUpRight, Check, Brain, Shield, Code2, Cloud, Mail, MapPin } from "lucide-react"
 import { useState, type FormEvent, type ReactNode } from "react"
 import CalendlyPopupButton from "@/components/calendly/CalendlyPopupButton"
+import { cn } from "@/lib/utils"
 
 type Status = "idle" | "submitting" | "success" | "error"
 
@@ -14,6 +15,8 @@ type LightContactSectionProps = {
   headlineLabel?: string
   body?: string
   messagePlaceholder?: string
+  fullWidth?: boolean
+  className?: string
 }
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1]
@@ -75,6 +78,8 @@ export default function LightContactSection({
   headlineLead = "Let's Start a",
   headlineAccent = "Conversation",
   headlineLabel,
+  fullWidth = true,
+  className,
 }: LightContactSectionProps = {}) {
   const [status, setStatus] = useState<Status>("idle")
   const reduceMotion = useReducedMotion()
@@ -111,9 +116,12 @@ export default function LightContactSection({
   return (
     <section
       id="contact"
-      className="relative isolate overflow-hidden bg-white py-12 text-[#0a0a1a] sm:py-16 lg:py-20 font-sans"
+      className={cn(
+        "relative isolate overflow-hidden bg-white pt-12 pb-0 text-[#0a0a1a] sm:pt-16 sm:pb-0 lg:pt-20 lg:pb-0 font-sans",
+        className
+      )}
     >
-      <div className="relative mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+      <div className={cn("relative w-full", !fullWidth && "mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8")}>
 
         {/* Section Header */}
         <motion.div
@@ -121,7 +129,7 @@ export default function LightContactSection({
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, margin: "-10%" }}
           transition={reduceMotion ? { duration: 0 } : { duration: 0.65, ease: EASE }}
-          className="mb-8 text-center sm:mb-10"
+          className="mb-8 text-center sm:mb-10 px-4 sm:px-6 lg:px-8"
         >
           <h2
             aria-label={headlineLabel}
@@ -131,19 +139,24 @@ export default function LightContactSection({
           </h2>
         </motion.div>
 
-        {/* Master Dark Card */}
+        {/* Master Dark Card — Edge-to-Edge Full Width */}
         <motion.div
           initial={reduceMotion ? false : { y: 30, opacity: 0, scale: 0.99 }}
           whileInView={{ y: 0, opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-10%" }}
           transition={reduceMotion ? { duration: 0 } : { duration: 0.8, ease: EASE, delay: 0.05 }}
-          className="overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-[#07080c] text-white shadow-[0_30px_90px_-20px_rgba(0,0,0,0.6)]"
+          className={cn(
+            "w-full overflow-hidden bg-[#07080c] text-white shadow-[0_30px_90px_-20px_rgba(0,0,0,0.6)]",
+            fullWidth
+              ? "rounded-none border-y border-white/10"
+              : "rounded-2xl sm:rounded-3xl border border-white/10"
+          )}
         >
           {/* Main 3-Column Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-[82px_1.7fr_1.05fr] border-b border-white/10">
+          <div className="grid grid-cols-1 lg:grid-cols-[82px_1.7fr_1.05fr] xl:grid-cols-[96px_1.7fr_1.05fr] 2xl:grid-cols-[104px_1.7fr_1.05fr] border-b border-white/10">
 
             {/* 1. Left Strip: Follow us */}
-            <aside className="border-b lg:border-b-0 lg:border-r border-white/10 p-3.5 flex flex-col items-center justify-start gap-3.5">
+            <aside className="border-b lg:border-b-0 lg:border-r border-white/10 p-3.5 sm:p-4 xl:px-5 flex flex-col items-center justify-start gap-3.5">
               <span className="text-[10.5px] font-semibold text-white/80 tracking-tight text-center whitespace-nowrap">
                 Follow us
               </span>

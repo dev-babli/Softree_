@@ -120,7 +120,7 @@ const slides: SlideItem[] = [
     text: "#ffffff",
     accent: "#FF6B00",
     isLight: false,
-    link: "/services/offshore-data-analytics",
+    link: "/services/power-bi-development-services",
   },
   {
     num: "06",

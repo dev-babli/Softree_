@@ -52,7 +52,7 @@ export const metadata = {
     siteName: 'Softree Technology',
     images: [
       {
-        url: '/logo/Softree-Technology-Final-Logo-Dark-BG.png',
+        url: '/logo/Softree-Technology-Final-Logo-Dark-BG.webp',
         width: 1200,
         height: 630,
         alt: 'Softree Technology Logo',

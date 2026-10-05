@@ -196,8 +196,63 @@ const nextConfig: any = {
         permanent: true,
       },
       {
-        source: "/services",
-        destination: "/",
+        source: "/services/digital-workspace/web-app-development",
+        destination: "/services/offshore-web-app-development",
+        permanent: true,
+      },
+      {
+        source: "/services/digital-workspace/mobile-app-development",
+        destination: "/services/offshore-mobile-app-development",
+        permanent: true,
+      },
+      {
+        source: "/services/digital-workspace/sharepoint",
+        destination: "/services/offshore-sharepoint-development",
+        permanent: true,
+      },
+      {
+        source: "/services/digital-workspace/spfx-developments",
+        destination: "/services/offshore-spfx-development",
+        permanent: true,
+      },
+      {
+        source: "/services/business-applications/power-apps",
+        destination: "/services/offshore-power-platform-development",
+        permanent: true,
+      },
+      {
+        source: "/services/business-applications/power-platform",
+        destination: "/services/offshore-power-platform-development",
+        permanent: true,
+      },
+      {
+        source: "/services/business-applications/mvp",
+        destination: "/services/mvp",
+        permanent: true,
+      },
+      {
+        source: "/services/business-applications/softree-for-startups",
+        destination: "/services/mvp",
+        permanent: true,
+      },
+      {
+        source: "/services/data-analytics/power-bi",
+        destination: "/services/power-bi-development-services",
+        permanent: true,
+      },
+      {
+        source: "/together",
+        destination: "/who-do-we-serve",
+        permanent: true,
+      },
+      {
+        source: "/testimonials",
+        destination: "/case-studies",
+        permanent: true,
+      },
+      {
+        source: "/industries/contact-us",
+        destination: "/contact",
         permanent: true,
       },
     ];

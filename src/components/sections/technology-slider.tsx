@@ -23,7 +23,7 @@ const techData: TechItem[] = [
     description:
       "Power Platform & Dynamics delivery support with scalable engineering.",
     bgImage: "/images/business.png",
-    link: "/services/business-applications/power-apps",
+    link: "/services/offshore-power-platform-development",
     partnerValue:
       "We operate as your extended Power Platform engineering team.",
     icon: Briefcase,
@@ -34,7 +34,7 @@ const techData: TechItem[] = [
     description:
       "Reliable BI, data architecture, and dashboard delivery under your brand.",
     bgImage: "/images/data.png",
-    link: "/services/data-analytics/power-bi",
+    link: "/services/power-bi-development-services",
     partnerValue:
       "From data architecture to dashboard deployment — we deliver reliably under your brand.",
     icon: BarChart3,
@@ -46,7 +46,7 @@ const techData: TechItem[] = [
       "AI integration and automation for modern enterprise solutions.",
     bgImage:
       "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2000&auto=format&fit=crop",
-    link: "/services/ai-intelligence/agentic-ai",
+    link: "/agentic-ai-platform",
     partnerValue:
       "We help you integrate AI capabilities confidently into enterprise environments.",
     icon: Brain,
@@ -57,7 +57,7 @@ const techData: TechItem[] = [
     description:
       "Secure Microsoft 365 and custom app solutions aligned to your strategy.",
     bgImage: "/images/digital.jpg",
-    link: "/services/digital-workspace/web-app-development",
+    link: "/services/offshore-web-app-development",
     partnerValue:
       "Custom solutions that complement your consulting strategy.",
     icon: Monitor,

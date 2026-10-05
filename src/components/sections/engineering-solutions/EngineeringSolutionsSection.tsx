@@ -482,7 +482,7 @@ export default function EngineeringSolutionsSection() {
                             icon={<ShieldIcon className="h-[18px] w-[18px]" />}
                             iconColor={ACCENT_BLUE}
                             iconBg="rgba(24,82,255,0.1)"
-                            value="12+"
+                            value="13+"
                             label="Years of Experience"
                             delay={0.19}
                         />

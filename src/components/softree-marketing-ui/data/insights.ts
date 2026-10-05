@@ -137,10 +137,10 @@ const latestCover4: ImageAssetRef = {
 // --- "View all" CTA (Source_Document `.section-head > a.button`) --------------
 
 const viewAllCta: ButtonData = {
-    // <a … href="/ai-insights" is-ghost="1" aria-label="Discover more" is-text-link="">
+    // <a … href="/blog" is-ghost="1" aria-label="Discover more" is-text-link="">
     //   <div class="text-style-1line">View all</div>
     label: 'View all',
-    href: '/ai-insights',
+    href: '/blog',
     ariaLabel: 'Discover more',
     variant: 'secondary', // is-ghost="1"
 };
@@ -156,7 +156,7 @@ export const aiInsightsData: SoftreeAgenticInsightsProps = {
         title: 'Configured, not coded. The engineering discipline gap in agent development',
         publishDate: 'May 15, 2026',
         readTime: '',
-        href: '/ai-insights/configured-not-coded-the-engineering-discipline-gap-in-agent-development',
+        href: '/blog',
         variant: 'featured',
     },
     latest: [
@@ -166,7 +166,7 @@ export const aiInsightsData: SoftreeAgenticInsightsProps = {
             title: 'Can Today’s AI Agents Survive Their Own Runtime?',
             publishDate: 'May 15, 2026',
             readTime: '',
-            href: '/ai-insights/can-todays-ai-agents-survive-their-own-runtime',
+            href: '/blog',
             variant: 'latest',
         },
         {
@@ -175,7 +175,7 @@ export const aiInsightsData: SoftreeAgenticInsightsProps = {
             title: "What's new in AI for Work: features that drive enterprise productivity",
             publishDate: 'February 20, 2026',
             readTime: '8 Min',
-            href: '/ai-insights/whats-new-in-ai-for-work-features-that-drive-enterprise-productivity',
+            href: '/blog',
             variant: 'latest',
         },
         {
@@ -184,7 +184,7 @@ export const aiInsightsData: SoftreeAgenticInsightsProps = {
             title: 'Parallel Agent Processing',
             publishDate: 'January 16, 2026',
             readTime: '6 Min',
-            href: '/ai-insights/parallel-agent-processing',
+            href: '/blog',
             variant: 'latest',
         },
         {
@@ -193,7 +193,7 @@ export const aiInsightsData: SoftreeAgenticInsightsProps = {
             title: 'The AI productivity paradox: why employees are moving faster than enterprises',
             publishDate: 'January 12, 2026',
             readTime: '',
-            href: '/ai-insights/ai-productivity-paradox',
+            href: '/blog',
             variant: 'latest',
         },
     ],

@@ -21,7 +21,7 @@ const services = [
     desc: "Helping partners execute Power Platform and Dynamics implementations.",
     tech: ["Power Apps", "Power Automate", "Dataverse"],
     partner: "We operate as your extended Power Platform engineering team.",
-    href: "/services/business-applications/power-platform",
+    href: "/services/offshore-power-platform-development",
     icon: (
       <svg
         width="20"
@@ -45,7 +45,7 @@ const services = [
     desc: "Building scalable data solutions and BI environments for partners.",
     tech: ["Power BI", "Microsoft Fabric", "Databricks", "Snowflake"],
     partner: "We bring reliable data engineering and up-to-date analytics expertise.",
-    href: "/services/data-analytics/power-bi",
+    href: "/services/power-bi-development-services",
     icon: (
       <svg
         width="20"
@@ -68,7 +68,7 @@ const services = [
     desc: "Integrating AI solutions to improve business processes and experiences.",
     tech: ["Azure AI Foundry", "Copilot Integration", "AI Agents", "RAG Workflows"],
     partner: "Operate with confidence using our AI integration expertise.",
-    href: "/services/ai-intelligence/agentic-ai",
+    href: "/agentic-ai-platform",
     icon: (
       <svg
         width="20"
@@ -91,7 +91,7 @@ const services = [
     desc: "Enhancing and extending your Microsoft 365 collaboration environments.",
     tech: ["SharePoint Online", "Microsoft 365", "Web Applications", "Mobile Applications"],
     partner: "Securely deliver and support modern workspace solutions.",
-    href: "/services/digital-workspace/sharepoint",
+    href: "/services/offshore-sharepoint-development",
     icon: (
       <svg
         width="20"

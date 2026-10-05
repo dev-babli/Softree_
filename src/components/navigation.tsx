@@ -33,19 +33,19 @@ const menu = [
         links: [
           {
             label: "Softree for Startups",
-            url: "/softree-for-startups",
+            url: "/services/mvp",
             icon: <FaUsers />,
             description: "Custom app solutions tailored for startup growth",
           },
           {
             label: "Mobile App Development",
-            url: "/mobile-app-development",
+            url: "/services/offshore-mobile-app-development",
             icon: <FaMobileAlt />,
             description: "Native and cross-platform apps for iOS & Android",
           },
           {
             label: "Web App Development",
-            url: "/web-app-development",
+            url: "/services/offshore-web-app-development",
             icon: <FaLaptopCode />,
             description: "Scalable web applications with modern tech stack",
           },
@@ -56,26 +56,26 @@ const menu = [
         links: [
           {
             label: "SharePoint Development",
-            url: "/sharepoint",
+            url: "/services/offshore-sharepoint-development",
             icon: <FaShareAlt />,
             description:
               "Enterprise SharePoint solutions for intranet & collaboration",
           },
           {
             label: "SPFx Developments",
-            url: "/spfx-developments",
+            url: "/services/offshore-spfx-development",
             icon: <FaWpforms />,
             description: "Custom SPFx web parts & extensions",
           },
           {
             label: "PnP PowerShell",
-            url: "/pnp-powershell",
+            url: "/services/offshore-sharepoint-development",
             icon: <FaDatabase />,
             description: "Automate SharePoint tasks with PnP PowerShell",
           },
           {
             label: "Teams App Development",
-            url: "/teams-app-development",
+            url: "/services/offshore-sharepoint-development",
             icon: <FaMicrosoft />,
             description:
               "Integrate your business workflow with Microsoft Teams",
@@ -87,19 +87,19 @@ const menu = [
         links: [
           {
             label: "Microsoft PowerApps",
-            url: "/power-apps",
+            url: "/services/offshore-power-platform-development",
             icon: <FaMicrosoft />,
             description: "Build low-code apps to streamline business processes",
           },
           {
             label: "Microsoft Power Pages",
-            url: "/power-pages",
+            url: "/services/offshore-power-platform-development",
             icon: <FaMicrosoft />,
             description: "Create secure, modern web portals with Power Pages",
           },
           {
             label: "Microsoft Power BI",
-            url: "/power-bi",
+            url: "/services/power-bi-development-services",
             icon: <FaChartLine />,
             description:
               "Interactive dashboards & analytics for data-driven decisions",

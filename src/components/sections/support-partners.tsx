@@ -566,7 +566,7 @@ const services = [
     tech: ["Power Apps", "Power Automate", "Dataverse"],
     partner: "We operate as your extended Power Platform engineering team.",
     deco: "dots",
-    href: "/services/business-applications/power-platform",
+    href: "/services/offshore-power-platform-development",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff7a2f" strokeWidth="1.5" strokeLinecap="round">
         <rect x="2" y="7" width="20" height="14" rx="2" />
@@ -582,7 +582,7 @@ const services = [
     tech: ["Power BI", "Microsoft Fabric", "Databricks", "Snowflake"],
     partner: "We bring reliable data engineering and up-to-date analytics expertise.",
     deco: "bars",
-    href: "/services/data-analytics/power-bi",
+    href: "/services/power-bi-development-services",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff7a2f" strokeWidth="1.5" strokeLinecap="round">
         <polyline points="16 18 22 12 16 6" />
@@ -597,7 +597,7 @@ const services = [
     tech: ["Azure AI Foundry", "Copilot Integration", "AI Agents", "RAG Workflows"],
     partner: "Operate with confidence using our AI integration expertise.",
     deco: "circles",
-    href: "/services/ai-intelligence/agentic-ai",
+    href: "/agentic-ai-platform",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff7a2f" strokeWidth="1.5" strokeLinecap="round">
         <circle cx="12" cy="12" r="3" />
@@ -612,7 +612,7 @@ const services = [
     tech: ["SharePoint Online", "Microsoft 365", "Web Applications", "Mobile Applications"],
     partner: "Securely deliver and support modern workspace solutions.",
     deco: "code",
-    href: "/services/digital-workspace/sharepoint",
+    href: "/services/offshore-sharepoint-development",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff7a2f" strokeWidth="1.5" strokeLinecap="round">
         <rect x="2" y="3" width="20" height="14" rx="2" />

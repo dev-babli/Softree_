@@ -114,9 +114,6 @@ export function LightTestimonialFeature() {
 
           {/* Designed Main Title (One size, black & orange scheme, comma-free) */}
           <h2 id="testimonials-heading" className="text-[#0a0a1a] tracking-tight mb-4 flex flex-col items-center">
-            <span className="text-xs md:text-sm font-semibold tracking-[0.25em] text-zinc-400/90 uppercase mb-2.5">
-              What Clients Say
-            </span>
             <span className="font-black text-3xl md:text-5xl leading-[1.1] max-w-none block w-full">
               <span className="text-[#0a0a1a]">Trusted by</span>{" "}
               <span className="text-[#FF5812] drop-shadow-[0_2px_12px_rgba(255,88,18,0.15)]">
@@ -229,7 +226,7 @@ export function LightTestimonialFeature() {
                         <span className="text-sm sm:text-base font-bold text-white tracking-tight truncate drop-shadow-sm">
                           {currentSlide.country}
                         </span>
-                       
+
                       </div>
                     </div>
                   </motion.div>

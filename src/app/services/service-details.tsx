@@ -34,7 +34,7 @@ const SERVICES: Service[] = [
       "Content Migration",
       "Performance Optimization",
     ],
-    url: "/services/sharepoint",
+    url: "/services/offshore-sharepoint-development",
   },
   {
     id: "service-2",
@@ -53,7 +53,7 @@ const SERVICES: Service[] = [
       "React & TypeScript",
       "Microsoft Graph Integration",
     ],
-    url: "/services/spfx-developments",
+    url: "/services/offshore-spfx-development",
   },
   {
     id: "service-3",
@@ -72,7 +72,7 @@ const SERVICES: Service[] = [
       "Custom Connectors",
       "User Experience Optimization",
     ],
-    url: "/services/power-apps",
+    url: "/services/offshore-power-platform-development",
   },
   {
     id: "service-4",
@@ -91,7 +91,7 @@ const SERVICES: Service[] = [
       "Real-time Reporting",
       "Power BI Service Deployment",
     ],
-    url: "/services/power-bi",
+    url: "/services/power-bi-development-services",
   },
   {
     id: "service-5",
@@ -110,7 +110,7 @@ const SERVICES: Service[] = [
       "Performance Optimization",
       "Security Best Practices",
     ],
-    url: "/services/web-app-development",
+    url: "/services/offshore-web-app-development",
   },
   {
     id: "service-6",
@@ -129,7 +129,7 @@ const SERVICES: Service[] = [
       "App Store Deployment",
       "Maintenance & Support",
     ],
-    url: "/services/mobile-app-development",
+    url: "/services/offshore-mobile-app-development",
   },
   {
     id: "service-7",
@@ -149,7 +149,7 @@ const SERVICES: Service[] = [
       "Responsible AI Practices",
       "RAG & Agent Pipelines",
     ],
-    url: "/services/agentic-ai",
+    url: "/agentic-ai-platform",
   },
 ];
 

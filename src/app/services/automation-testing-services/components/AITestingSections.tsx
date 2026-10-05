@@ -595,7 +595,7 @@ export default function AITestingSections() {
           </div>
 
           <div className="security-footer">
-            <Link href="/ai-security-testing" className="ai-primary-button">
+            <Link href="/services/security-testing" className="ai-primary-button">
               Secure Your AI Application
               <ArrowRight size={18} />
             </Link>

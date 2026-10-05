@@ -5,22 +5,22 @@ const industries = [
   {
     title: 'Healthcare',
     image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/f9231059-3647-4f7a-ab8a-965fcb6abfb0-cynoteck-com/assets/images/health-2.png',
-    href: '/healthcare-industry',
+    href: '/industries/healthcare-ai-solutions',
   },
   {
     title: 'Media & Entertainment',
     image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/f9231059-3647-4f7a-ab8a-965fcb6abfb0-cynoteck-com/assets/images/Media-3.png',
-    href: '/media-and-entertainment-solutions',
+    href: '/industries',
   },
   {
     title: 'Retail & Ecommerce',
     image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/f9231059-3647-4f7a-ab8a-965fcb6abfb0-cynoteck-com/assets/images/Retail-4.png',
-    href: '/retail-and-e-commerce-industry',
+    href: '/industries',
   },
   {
     title: 'Real Estate',
     image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/f9231059-3647-4f7a-ab8a-965fcb6abfb0-cynoteck-com/assets/images/Estate-5.png',
-    href: '/Real-Estate-IT-Services',
+    href: '/industries',
   },
 ];
 

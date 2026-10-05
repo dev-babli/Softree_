@@ -263,8 +263,8 @@ function ServicesPanel() {
             <ServiceVisual imgSrc={SRCSET.generative.src} imgSrcSet={SRCSET.generative.srcSet} label="AI Intelligence" />
           </div>
           <ul className="mt-2 list-none space-y-1">
-            <ProductItem href="/services/ai-intelligence/agentic-ai" icon={<IconAI />} name="Agentic AI" desc="Autonomous AI agents that act, decide, and complete complex tasks end-to-end" badge="NEW" />
-            <ProductItem href="/services/ai-intelligence/generative-ai" icon={<IconAI color="#C084FC" />} name="Generative AI" desc="Custom LLM solutions fine-tuned on your enterprise data and workflows" />
+            <ProductItem href="/agentic-ai-platform" icon={<IconAI />} name="Agentic AI" desc="Autonomous AI agents that act, decide, and complete complex tasks end-to-end" badge="NEW" />
+            <ProductItem href="/services/generative-ai" icon={<IconAI color="#C084FC" />} name="Generative AI" desc="Custom LLM solutions fine-tuned on your enterprise data and workflows" />
           </ul>
         </div>
         {/* Col 2 — Business Applications */}
@@ -273,9 +273,9 @@ function ServicesPanel() {
             <ServiceVisual imgSrc={SRCSET.workplace.src} imgSrcSet={SRCSET.workplace.srcSet} label="Business Apps" />
           </div>
           <ul className="mt-2 list-none space-y-1">
-            <ProductItem href="/services/business-applications/mvp" icon={<IconBusiness />} name="MVP Development" desc="Go from idea to market-ready product with rapid, agile MVP delivery" />
-            <ProductItem href="/services/business-applications/power-apps" icon={<IconBusiness color="#FB923C" />} name="Power Apps" desc="Low-code Microsoft Power Apps solutions for enterprise-grade automation" />
-            <ProductItem href="/services/business-applications/softree-for-startups" icon={<IconBusiness color="#FBBF24" />} name="For Startups" desc="Tailored packages to help startups scale with enterprise-level tech" />
+            <ProductItem href="/services/mvp" icon={<IconBusiness />} name="MVP Development" desc="Go from idea to market-ready product with rapid, agile MVP delivery" />
+            <ProductItem href="/services/offshore-power-platform-development" icon={<IconBusiness color="#FB923C" />} name="Power Apps" desc="Low-code Microsoft Power Apps solutions for enterprise-grade automation" />
+            <ProductItem href="/services/mvp" icon={<IconBusiness color="#FBBF24" />} name="For Startups" desc="Tailored packages to help startups scale with enterprise-level tech" />
           </ul>
         </div>
         {/* Col 3 — Data Analytics */}
@@ -284,8 +284,8 @@ function ServicesPanel() {
             <ServiceVisual imgSrc={SRCSET.retrieval.src} imgSrcSet={SRCSET.retrieval.srcSet} label="Data & Analytics" />
           </div>
           <ul className="mt-2 list-none space-y-1">
-            <ProductItem href="/services/data-analytics/microsoft-fabric" icon={<IconData />} name="Microsoft Fabric" desc="Unified analytics platform for data engineering, warehousing, and BI" />
-            <ProductItem href="/services/data-analytics/power-bi" icon={<IconData color="#60A5FA" />} name="Power BI" desc="Interactive dashboards and real-time business intelligence reports" />
+            <ProductItem href="/services/microsoft-fabric-development-services" icon={<IconData />} name="Microsoft Fabric" desc="Unified analytics platform for data engineering, warehousing, and BI" />
+            <ProductItem href="/services/power-bi-development-services" icon={<IconData color="#60A5FA" />} name="Power BI" desc="Interactive dashboards and real-time business intelligence reports" />
           </ul>
         </div>
         {/* Col 4 — Digital Workspace */}
@@ -294,10 +294,10 @@ function ServicesPanel() {
             <ServiceVisual imgSrc={SRCSET.modelVault.src} imgSrcSet={SRCSET.modelVault.srcSet} label="Digital Workspace" />
           </div>
           <ul className="mt-2 list-none space-y-1">
-            <ProductItem href="/services/digital-workspace/web-app-development" icon={<IconWorkspace />} name="Web Apps" desc="Scalable, performant web applications built for enterprise environments" />
-            <ProductItem href="/services/digital-workspace/mobile-app-development" icon={<IconWorkspace color="#34D399" />} name="Mobile Apps" desc="Cross-platform iOS and Android apps with native-grade performance" />
-            <ProductItem href="/services/digital-workspace/sharepoint" icon={<IconWorkspace color="#6EE7B7" />} name="SharePoint" desc="Intranet portals and document management built on Microsoft SharePoint" />
-            <ProductItem href="/services/digital-workspace/spfx-developments" icon={<IconWorkspace color="#A7F3D0" />} name="SPFx" desc="Custom SharePoint Framework web parts and extensions for M365" />
+            <ProductItem href="/services/offshore-web-app-development" icon={<IconWorkspace />} name="Web Apps" desc="Scalable, performant web applications built for enterprise environments" />
+            <ProductItem href="/services/offshore-mobile-app-development" icon={<IconWorkspace color="#34D399" />} name="Mobile Apps" desc="Cross-platform iOS and Android apps with native-grade performance" />
+            <ProductItem href="/services/offshore-sharepoint-development" icon={<IconWorkspace color="#6EE7B7" />} name="SharePoint" desc="Intranet portals and document management built on Microsoft SharePoint" />
+            <ProductItem href="/services/offshore-spfx-development" icon={<IconWorkspace color="#A7F3D0" />} name="SPFx" desc="Custom SharePoint Framework web parts and extensions for M365" />
           </ul>
         </div>
       </div>
@@ -316,11 +316,11 @@ function IndustriesPanel() {
         <div className="min-w-0">
           <p className="text-xs font-semibold uppercase tracking-wider relative mb-4 text-[#787878]">Selected Work</p>
           <ul className="flex list-none flex-col gap-y-1">
-            <LinkItem href="/services/digital-workspace/web-app-development" label="Web Platforms" />
-            <LinkItem href="/services/digital-workspace/mobile-app-development" label="Mobile Products" />
-            <LinkItem href="/services/ai-intelligence/agentic-ai" label="AI Systems" />
-            <LinkItem href="/services/business-applications/power-apps" label="Power Apps" />
-            <LinkItem href="/services/digital-workspace/sharepoint" label="SharePoint" />
+            <LinkItem href="/services/offshore-web-app-development" label="Web Platforms" />
+            <LinkItem href="/services/offshore-mobile-app-development" label="Mobile Products" />
+            <LinkItem href="/agentic-ai-platform" label="AI Systems" />
+            <LinkItem href="/services/offshore-power-platform-development" label="Power Apps" />
+            <LinkItem href="/services/offshore-sharepoint-development" label="SharePoint" />
           </ul>
         </div>
         <div className="min-w-0">
@@ -346,7 +346,7 @@ function ResearchPanel() {
   return (
     <div className="relative w-full px-5 py-5 lg:px-6">
       <div className="grid grid-cols-[288px_minmax(0,1fr)_minmax(0,1fr)] gap-x-6">
-        <FullImageCard href="/together" imgSrc={SRCSET.cohereLabs.src} imgSrcSet={SRCSET.cohereLabs.srcSet} title="Delivery Model" desc="A senior product and engineering team built around the way your organization works." gradientTo="rgb(18, 27, 54)" />
+        <FullImageCard href="/who-do-we-serve" imgSrc={SRCSET.cohereLabs.src} imgSrcSet={SRCSET.cohereLabs.srcSet} title="Delivery Model" desc="A senior product and engineering team built around the way your organization works." gradientTo="rgb(18, 27, 54)" />
         <div className="min-w-0">
           <p className="text-xs font-semibold uppercase tracking-wider relative mb-4 text-[#787878]">Process</p>
           <ul className="flex list-none flex-col gap-y-1">
@@ -362,7 +362,7 @@ function ResearchPanel() {
             <LinkItem href="/contact" label="Discovery Sprint" />
             <LinkItem href="/contact" label="Dedicated Team" />
             <LinkItem href="/contact" label="Fixed-Scope Build" />
-            <LinkItem href="/together" label="Partner With Us" />
+            <LinkItem href="/who-do-we-serve" label="Partner With Us" />
           </ul>
         </div>
       </div>
@@ -378,18 +378,18 @@ function ResourcesPanel() {
           <p className="text-xs font-semibold uppercase tracking-wider relative mb-4 text-[#787878]">Start Here</p>
           <ul className="flex list-none flex-col gap-y-1">
             <LinkItem href="/services" label="Services Overview" />
-            <LinkItem href="/services/digital-workspace/web-app-development" label="Web Apps" />
-            <LinkItem href="/services/ai-intelligence/agentic-ai" label="AI Solutions" />
+            <LinkItem href="/services/offshore-web-app-development" label="Web Apps" />
+            <LinkItem href="/agentic-ai-platform" label="AI Solutions" />
             <LinkItem href="/about-us" label="About Softree" />
           </ul>
         </div>
         <div className="min-w-0">
           <p className="text-xs font-semibold uppercase tracking-wider relative mb-4 text-[#787878]">Popular Services</p>
           <ul className="flex list-none flex-col gap-y-1">
-            <LinkItem href="/services/digital-workspace/web-app-development" label="Web App Development" />
-            <LinkItem href="/services/ai-intelligence/agentic-ai" label="Agentic AI" />
-            <LinkItem href="/services/data-analytics/power-bi" label="Power BI" />
-            <LinkItem href="/services/business-applications/power-apps" label="Power Apps" />
+            <LinkItem href="/services/offshore-web-app-development" label="Web App Development" />
+            <LinkItem href="/agentic-ai-platform" label="Agentic AI" />
+            <LinkItem href="/services/power-bi-development-services" label="Power BI" />
+            <LinkItem href="/services/offshore-power-platform-development" label="Power Apps" />
           </ul>
         </div>
         <FullImageCard href="/contact" imgSrc={SRCSET.customerStories.src} imgSrcSet={SRCSET.customerStories.srcSet} title="Talk To Softree" desc="Bring a roadmap, a rough idea, or a stuck project. We will help shape the next step." />
@@ -406,7 +406,7 @@ function CompanyPanel() {
           <p className="text-xs font-semibold uppercase tracking-wider relative mb-4 text-[#787878]">Company</p>
           <ul className="flex list-none flex-col gap-y-1">
             <LinkItem href="/about-us" label="About Softree" />
-            <LinkItem href="/together" label="Together" />
+            <LinkItem href="/who-do-we-serve" label="Together" />
             <LinkItem href="/contact" label="Contact" />
           </ul>
         </div>
@@ -463,18 +463,18 @@ function MobSoftreeServices() {
         <ArrowRight className="mt-0.5 transition-transform group-hover/drawer-title:translate-x-1" />
       </Link>
       <MobileLinkGroup title="AI Intelligence">
-        <ProductItem href="/services/ai-intelligence/agentic-ai" icon={<IconAI />} name="Agentic AI" desc="Autonomous AI agents" badge="NEW" />
-        <ProductItem href="/services/ai-intelligence/generative-ai" icon={<IconAI color="#C084FC" />} name="Generative AI" desc="LLM solutions" />
+        <ProductItem href="/agentic-ai-platform" icon={<IconAI />} name="Agentic AI" desc="Autonomous AI agents" badge="NEW" />
+        <ProductItem href="/services/generative-ai" icon={<IconAI color="#C084FC" />} name="Generative AI" desc="LLM solutions" />
       </MobileLinkGroup>
       <MobileLinkGroup title="Business Applications">
-        <ProductItem href="/services/business-applications/mvp" icon={<IconBusiness />} name="MVP Development" desc="Rapid product delivery" />
-        <ProductItem href="/services/business-applications/power-apps" icon={<IconBusiness color="#FB923C" />} name="Power Apps" desc="Microsoft automation" />
-        <ProductItem href="/services/business-applications/softree-for-startups" icon={<IconBusiness color="#FBBF24" />} name="For Startups" desc="Startup delivery packages" />
+        <ProductItem href="/services/mvp" icon={<IconBusiness />} name="MVP Development" desc="Rapid product delivery" />
+        <ProductItem href="/services/offshore-power-platform-development" icon={<IconBusiness color="#FB923C" />} name="Power Apps" desc="Microsoft automation" />
+        <ProductItem href="/services/mvp" icon={<IconBusiness color="#FBBF24" />} name="For Startups" desc="Startup delivery packages" />
       </MobileLinkGroup>
       <MobileLinkGroup title="Digital Workspace">
-        <ProductItem href="/services/digital-workspace/web-app-development" icon={<IconWorkspace />} name="Web Apps" desc="Enterprise web apps" />
-        <ProductItem href="/services/digital-workspace/mobile-app-development" icon={<IconWorkspace color="#34D399" />} name="Mobile Apps" desc="iOS and Android apps" />
-        <ProductItem href="/services/digital-workspace/sharepoint" icon={<IconWorkspace color="#6EE7B7" />} name="SharePoint" desc="M365 portals" />
+        <ProductItem href="/services/offshore-web-app-development" icon={<IconWorkspace />} name="Web Apps" desc="Enterprise web apps" />
+        <ProductItem href="/services/offshore-mobile-app-development" icon={<IconWorkspace color="#34D399" />} name="Mobile Apps" desc="iOS and Android apps" />
+        <ProductItem href="/services/offshore-sharepoint-development" icon={<IconWorkspace color="#6EE7B7" />} name="SharePoint" desc="M365 portals" />
       </MobileLinkGroup>
       <div className="flex w-full flex-col justify-end gap-y-4 border-t border-[#e0e0e0] pb-2 pl-2 pt-5">
         <BottomLink href="/services" label="All Services" />
@@ -515,7 +515,7 @@ function MobSoftreeProcess() {
         <LinkItem href="/contact" label="Discovery Sprint" />
         <LinkItem href="/contact" label="Dedicated Team" />
         <LinkItem href="/contact" label="Fixed-Scope Build" />
-        <LinkItem href="/together" label="Partner With Us" />
+        <LinkItem href="/who-do-we-serve" label="Partner With Us" />
       </MobileLinkGroup>
     </div>
   )
@@ -531,10 +531,10 @@ function MobSoftreeResources() {
         <LinkItem href="/about-us" label="About Softree" />
       </MobileLinkGroup>
       <MobileLinkGroup title="Popular Services">
-        <LinkItem href="/services/digital-workspace/web-app-development" label="Web App Development" />
-        <LinkItem href="/services/ai-intelligence/agentic-ai" label="Agentic AI" />
-        <LinkItem href="/services/data-analytics/power-bi" label="Power BI" />
-        <LinkItem href="/services/business-applications/power-apps" label="Power Apps" />
+        <LinkItem href="/services/offshore-web-app-development" label="Web App Development" />
+        <LinkItem href="/agentic-ai-platform" label="Agentic AI" />
+        <LinkItem href="/services/power-bi-development-services" label="Power BI" />
+        <LinkItem href="/services/offshore-power-platform-development" label="Power Apps" />
       </MobileLinkGroup>
     </div>
   )
@@ -545,7 +545,7 @@ function MobSoftreeCompany() {
     <div className="mt-6 flex flex-col gap-y-6">
       <MobileLinkGroup title="Company">
         <LinkItem href="/about-us" label="About Softree" />
-        <LinkItem href="/together" label="Together" />
+        <LinkItem href="/who-do-we-serve" label="Together" />
         <LinkItem href="/contact" label="Contact" />
       </MobileLinkGroup>
       <MobileLinkGroup title="Connect">

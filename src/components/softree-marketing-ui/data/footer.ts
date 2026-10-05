@@ -153,7 +153,7 @@ export const footerData: KoreFooterProps = {
             links: [
                 { label: 'About Softree', href: '/about-us' },
                 { label: 'Leadership', href: '/about-us#leadership' },
-                { label: 'Customer Stories', href: '/customer-stories' },
+                { label: 'Customer Stories', href: '/case-studies' },
                 { label: 'Partners', href: '/partners' },
                 { label: 'Analyst Recognition', href: '/analyst-recognition' },
                 { label: 'Newsroom', href: '/news' },

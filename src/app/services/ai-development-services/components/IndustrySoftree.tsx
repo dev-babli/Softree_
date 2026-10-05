@@ -45,7 +45,7 @@ const PANELS: Panel[] = [
       "Use AI to connect operational data, streamline workflows, improve information access, and support faster decision-making across logistics and supply chain processes.",
     trustedLabel: "Trusted by Softree partners:",
     bg: `${KORE_CDN}/68c1998017adc89faa49388c_fshome.avif`,
-    link: "/industries/logistics-supply-chain-engineering",
+    link: "/industries/offshore-logistics-supply-chain-engineering",
   },
   {
     id: "banking",

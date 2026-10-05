@@ -348,7 +348,7 @@ const agentPlatformItem: MegaMenuItem = {
             {
                 id: 'configured-not-coded',
                 title: 'Configured, not coded. The engineering discipline gap in agent development',
-                href: '/ai-insights/configured-not-coded-the-engineering-discipline-gap-in-agent-development',
+                href: '/blog',
                 image: insightConfiguredImg,
                 tag: 'AI INSIGHT',
                 date: '15 May 2026',
@@ -356,7 +356,7 @@ const agentPlatformItem: MegaMenuItem = {
             {
                 id: 'ai-agents-survive-runtime',
                 title: 'Can Today’s AI Agents Survive Their Own Runtime?',
-                href: '/ai-insights/can-todays-ai-agents-survive-their-own-runtime',
+                href: '/blog',
                 image: insightRuntimeImg,
                 tag: 'AI INSIGHT',
                 date: '15 May 2026',
@@ -364,7 +364,7 @@ const agentPlatformItem: MegaMenuItem = {
             {
                 id: 'whats-new-ai-for-work',
                 title: "What's new in AI for Work: features that drive enterprise productivity",
-                href: '/ai-insights/whats-new-in-ai-for-work-features-that-drive-enterprise-productivity',
+                href: '/blog',
                 image: insightAi4wImg,
                 tag: 'AI INSIGHT',
                 date: '20 Feb 2026',
@@ -372,7 +372,7 @@ const agentPlatformItem: MegaMenuItem = {
             {
                 id: 'parallel-agent-processing',
                 title: 'Parallel Agent Processing',
-                href: '/ai-insights/parallel-agent-processing',
+                href: '/blog',
                 image: insightParallelImg,
                 tag: 'AI INSIGHT',
                 date: '16 Jan 2026',
@@ -451,7 +451,7 @@ const agenticAiAppsItem: MegaMenuItem = {
                 id: 'agentic-quick-links',
                 links: [
                     { label: 'About Softree', href: '/about-us' },
-                    { label: 'Customer Stories', href: '/customer-stories' },
+                    { label: 'Customer Stories', href: '/case-studies' },
                     { label: 'Partners', href: '/partners' },
                     { label: 'Resources', href: '/resource' },
                     { label: 'Blog', href: '/blog' },
@@ -462,7 +462,7 @@ const agenticAiAppsItem: MegaMenuItem = {
                     { label: 'Community', href: 'https://community.softreetechnology.com', target: '_blank' },
                     { label: 'Academy', href: 'https://bots.softreetechnology.com/accounts/?return_to=saml&showLogin=true&hideSSOButtons=true&hideResourcesPageLink=true&comingFromKey=saml' },
                     { label: 'Careers', href: '/careers' },
-                    { label: 'Contact Us', href: '/contact-us' },
+                    { label: 'Contact Us', href: '/contact' },
                 ],
             },
         ],
@@ -552,13 +552,13 @@ const moreItem: MegaMenuItem = {
                         links: [
                             { label: 'About us', href: '/about-us' },
                             { label: 'Leadership', href: '/about-us#leadership' },
-                            { label: 'Customer Stories', href: '/customer-stories' },
+                            { label: 'Customer Stories', href: '/case-studies' },
                             { label: 'Partners', href: '/partners' },
                             { label: 'Analyst Recognition', href: '/analyst-recognition' },
                             { label: 'Newsroom', href: '/news' },
                             { label: 'Events', href: '/event' },
                             { label: 'Careers', href: '/careers' },
-                            { label: 'Contact us', href: '/contact-us' },
+                            { label: 'Contact us', href: '/contact' },
                         ],
                     },
                 ],
@@ -643,7 +643,7 @@ export const navSignInLink: LinkData = {
  */
 export const demoCta: ButtonData = {
     label: 'Get in touch',
-    href: '/contact-us',
+    href: '/contact',
     ariaLabel: 'Discover more',
     variant: 'ghost', // is-ghost="" (empty)
 };

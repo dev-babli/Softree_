@@ -485,7 +485,7 @@ export const clientReviews = [
 export const proofStats = [
   { value: "100+", label: "AI and data engineers", icon: Users },
   { value: "75+", label: "AI / ML models delivered", icon: BrainCircuit },
-  { value: "30+", label: "Countries served", icon: Globe },
+  { value: "13+", label: "Countries served", icon: Globe },
   { value: "13+", label: "Years delivering enterprise software", icon: Trophy },
 ] as const
 

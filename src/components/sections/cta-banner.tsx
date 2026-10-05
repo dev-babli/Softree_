@@ -692,7 +692,7 @@ export default function CTASection() {
 
               <div className="text-center pt-2">
                 <Link
-                  href="/book-meeting"
+                  href="/contact"
                   className="inline-flex items-center gap-1.5 text-[12px] text-orange-400 hover:text-orange-300 font-semibold transition"
                 >
                   🤝 Or schedule a discovery call directly &rarr;

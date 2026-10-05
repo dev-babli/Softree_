@@ -98,7 +98,7 @@ export function InsightsSection() {
                   "align-stretch": "0",
                 })}
                 className="button w-inline-block"
-                href="/ai-insights"
+                href="/blog"
                 aria-label="Discover more"
               >
                 <div className="text-style-1line">View all</div>

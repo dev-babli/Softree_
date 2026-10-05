@@ -18,7 +18,7 @@ const SERVICES: Service[] = [
     title: "Product & Software Engineering",
     desc: "We design and engineer scalable software products, enterprise platforms, and digital experiences that help businesses innovate faster, improve operational efficiency, and confidently scale for long-term growth.",
     tags: ["Web Platforms", "Mobile Products", "Cloud-Native Apps", "DevOps & CI/CD", "Low-Code"],
-    url: "/product-software-engineering",
+    url: "/services/offshore-web-app-development",
     icon: <CpuIcon />,
   },
   {
@@ -26,7 +26,7 @@ const SERVICES: Service[] = [
     title: "Data & Intelligence Platforms",
     desc: "Transform raw and fragmented business data into meaningful insights with modern analytics platforms, real-time dashboards, reporting systems, and scalable intelligence solutions that support smarter decision-making.",
     tags: ["Data Engineering", "Analytics Pipelines", "Business Intelligence", "Reporting"],
-    url: "/data-intelligence-platforms",
+    url: "/services/power-bi-development-services",
     icon: <ChartIcon />,
   },
   {
@@ -34,7 +34,7 @@ const SERVICES: Service[] = [
     title: "Applied AI & Machine Learning",
     desc: "Build intelligent AI-powered systems that automate workflows, improve customer experiences, generate insights, and unlock innovative capabilities using practical and business-focused machine learning solutions.",
     tags: ["Generative AI", "Predictive Models", "Computer Vision", "Conversational AI"],
-    url: "/applied-ai-ml",
+    url: "/services/ai-development-services",
     icon: <BrainIcon />,
   },
   {
@@ -42,7 +42,7 @@ const SERVICES: Service[] = [
     title: "Security & Risk Engineering",
     desc: "Strengthen digital products and infrastructure with proactive security engineering, risk assessments, compliance strategies, and secure development practices built into every stage of delivery.",
     tags: ["Secure DevOps", "Application Security", "Infrastructure Security", "Cloud Risk"],
-    url: "/security-risk-engineering",
+    url: "/services/security-testing",
     icon: <ShieldIcon />,
   },
   {
@@ -50,7 +50,7 @@ const SERVICES: Service[] = [
     title: "Experience & Interface Design",
     desc: "Create intuitive and visually engaging user experiences through strategic UX research, modern interface systems, usability optimization, and customer-centered digital design practices.",
     tags: ["User Research", "UX Strategy", "UI Design Systems", "Conversion Optimization"],
-    url: "/experience-interface-design",
+    url: "/services/website-modernization",
     icon: <LayoutIcon />,
   },
   {
@@ -58,7 +58,7 @@ const SERVICES: Service[] = [
     title: "Quality Engineering & Testing",
     desc: "Deliver reliable and high-performing digital solutions through automated testing, quality assurance frameworks, performance validation, and continuous monitoring across platforms and environments.",
     tags: ["Functional Testing", "Test Automation", "Security Validation", "Performance Testing"],
-    url: "/quality-engineering-testing",
+    url: "/services/ai-powered-test-automation",
     icon: <ChecklistIcon />,
   },
 ];

@@ -16,7 +16,7 @@ export function TestAutomationContact() {
         </div>
         <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
           <a
-            href="/book-meeting"
+            href="/contact"
             className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#FF5812] px-6 text-sm font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-white hover:text-[#0a0a1a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a1a]"
           >
             Map a QA pipeline

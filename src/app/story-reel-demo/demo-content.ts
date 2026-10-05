@@ -35,7 +35,7 @@ export const demoStories: Story[] = [
     description: "Fabric lakehouse dashboards replacing fragmented BI in six weeks.",
     metric: "Single source of truth",
     ctaLabel: "Data platforms",
-    href: "/services/offshore-data-analytics",
+    href: "/services/power-bi-development-services",
   },
   {
     id: "modern-web",

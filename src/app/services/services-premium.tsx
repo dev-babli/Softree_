@@ -29,7 +29,7 @@ const SERVICES: Service[] = [
       "DevOps & CI/CD",
       "Low-Code",
     ],
-    url: "/product-software-engineering",
+    url: "/services/offshore-web-app-development",
     icon: <CpuIcon />,
   },
   {
@@ -42,7 +42,7 @@ const SERVICES: Service[] = [
       "Business Intelligence",
       "Reporting",
     ],
-    url: "/data-intelligence-platforms",
+    url: "/services/power-bi-development-services",
     icon: <ChartIcon />,
   },
   {
@@ -55,7 +55,7 @@ const SERVICES: Service[] = [
       "Computer Vision",
       "Conversational AI",
     ],
-    url: "/applied-ai-ml",
+    url: "/services/ai-development-services",
     icon: <BrainIcon />,
   },
   {
@@ -68,7 +68,7 @@ const SERVICES: Service[] = [
       "Infrastructure Security",
       "Cloud Risk",
     ],
-    url: "/security-risk-engineering",
+    url: "/services/security-testing",
     icon: <ShieldIcon />,
   },
   {
@@ -81,7 +81,7 @@ const SERVICES: Service[] = [
       "UI Design Systems",
       "Conversion Optimization",
     ],
-    url: "/experience-interface-design",
+    url: "/services/website-modernization",
     icon: <LayoutIcon />,
   },
   {
@@ -94,7 +94,7 @@ const SERVICES: Service[] = [
       "Security Validation",
       "Performance Testing",
     ],
-    url: "/quality-engineering-testing",
+    url: "/services/ai-powered-test-automation",
     icon: <ChecklistIcon />,
   },
 ]

@@ -218,13 +218,13 @@ export const strategicPartners = [
   {
     img: `${CDN_EC}/68acb73e632d51db064e1b3b_Frame%201984079612.avif`,
     body: "Deploy the Kore.ai Agent Platform and AI solutions within Microsoft environments including Azure AI Foundry, Microsoft Teams, Microsoft 365 Copilot, and Microsoft Copilot Studio to see AI value faster from your AI business use cases.",
-    ctaPrimary: { label: "Read more", href: "/news/kore-ai-forges-strategic-partnership-with-microsoft-to-accelerate-enterprise-ai-transformation" },
+    ctaPrimary: { label: "Read more", href: "/blog" },
     ctaSecondary: { label: "AZURE MARKETPLACE", href: "https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=kore.ai&page=1" },
   },
   {
     img: `${CDN_EC}/68acb73efa1938400f416b0b_Frame%201984079611.avif`,
     body: "The Kore.ai Agent Platform and AI solutions are integrated with AWS services including Amazon Bedrock, Amazon Q and Amazon Connect to accelerate the deployment of AWS AI tools across business use cases.",
-    ctaPrimary: { label: "Read more", href: "/news/kore-ai-announces-strategic-collaboration-agreement-with-aws-to-accelerate-enterprise-ai-adoption" },
+    ctaPrimary: { label: "Read more", href: "/blog" },
     ctaSecondary: { label: "AWS MARKETPLACE", href: "https://aws.amazon.com/marketplace/seller-profile?id=seller-ihhlsmvs4dyow" },
   },
 ]
@@ -232,7 +232,7 @@ export const strategicPartners = [
 /** Insights / blog posts */
 export const insightsPosts = [
   {
-    href: "/ai-insights/configured-not-coded-the-engineering-discipline-gap-in-agent-development",
+    href: "/blog",
     img: "https://cdn.prod.website-files.com/6717a0dfaf71071a80dfcec3/691463d2d3afc6512828bbda_AI%20Insights%20Thumbnail%2009.webp",
     date: "May 15, 2026",
     readTime: null as string | null,
@@ -240,7 +240,7 @@ export const insightsPosts = [
     featured: true,
   },
   {
-    href: "/ai-insights/can-todays-ai-agents-survive-their-own-runtime",
+    href: "/blog",
     img: "https://cdn.prod.website-files.com/6717a0dfaf71071a80dfcec3/6a072ac99e4c9c7cab3defb2_AI%20Insights%20Thumbnail%2005.webp",
     date: "May 15, 2026",
     readTime: null as string | null,
@@ -248,7 +248,7 @@ export const insightsPosts = [
     featured: false,
   },
   {
-    href: "/ai-insights/whats-new-in-ai-for-work-features-that-drive-enterprise-productivity",
+    href: "/blog",
     img: "https://cdn.prod.website-files.com/6717a0dfaf71071a80dfcec3/6900c68c16d8a7cd9f3fa6ed_AI%20Insights%20Thumbnail%2006.webp",
     date: "February 20, 2026",
     readTime: "8 Min",
@@ -256,7 +256,7 @@ export const insightsPosts = [
     featured: false,
   },
   {
-    href: "/ai-insights/parallel-agent-processing",
+    href: "/blog",
     img: "https://cdn.prod.website-files.com/6717a0dfaf71071a80dfcec3/68fa2b1e71584b6d574a1c6e_AI%20Insights%20Abstract%2007.webp",
     date: "January 16, 2026",
     readTime: "6 Min",
@@ -264,7 +264,7 @@ export const insightsPosts = [
     featured: false,
   },
   {
-    href: "/ai-insights/ai-productivity-paradox",
+    href: "/blog",
     img: "https://cdn.prod.website-files.com/6717a0dfaf71071a80dfcec3/68c27b14f28aa19ae7a18ca4_AI%20Insights%20Thumbnail%2001.webp",
     date: "January 12, 2026",
     readTime: null as string | null,

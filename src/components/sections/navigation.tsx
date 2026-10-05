@@ -195,7 +195,7 @@ const menu: MenuItem[] = [
         links: [
           {
             label: "Logistics Engineering Excellence",
-            url: "/industries/logistics-supply-chain-engineering",
+            url: "/industries/offshore-logistics-supply-chain-engineering",
             icon: Truck,
             description: "AI & custom software for global supply chains",
           },

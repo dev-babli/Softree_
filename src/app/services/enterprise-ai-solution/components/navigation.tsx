@@ -90,10 +90,10 @@ const menu: MenuItem[] = [
         title: "Data & Analytics",
         description: "Intelligence from raw data.",
         links: [
-          { label: "Power BI", url: "/services/offshore-data-analytics", icon: LineChart, description: "Executive dashboards" },
+          { label: "Power BI", url: "/services/power-bi-development-services", icon: LineChart, description: "Executive dashboards" },
           { label: "Microsoft Fabric", url: "/services/microsoft-fabric-development-services", icon: Boxes, description: "Unified analytics" },
-          { label: "Databricks", url: "/services/offshore-data-analytics", icon: Cpu, description: "ML pipelines" },
-          { label: "Snowflake", url: "/services/offshore-data-analytics", icon: CloudSnow, description: "Cloud warehouse" },
+          { label: "Databricks", url: "/services/power-bi-development-services", icon: Cpu, description: "ML pipelines" },
+          { label: "Snowflake", url: "/services/power-bi-development-services", icon: CloudSnow, description: "Cloud warehouse" },
         ],
       },
       {

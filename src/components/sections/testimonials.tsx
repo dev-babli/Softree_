@@ -18,7 +18,7 @@ const Testimonials = () => {
               Our commitment to excellence is reflected in our clients’ experiences
             </p>
             <a
-              href="/testimonials"
+              href="/case-studies"
               className="w-fit px-6 py-2 bg-[var(--legacy-1d4ed8)] hover:bg-[var(--legacy-1d4ed8)]/90 text-white font-medium text-sm rounded-md transition-colors"
             >
               View All

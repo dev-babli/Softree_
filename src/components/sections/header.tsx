@@ -86,19 +86,19 @@ const menu: MenuItem[] = [
         links: [
           {
             label: 'Softree for Startups',
-            url: '/services/softree-for-startups',
+            url: '/services/mvp',
             icon: Users,
             description: 'Custom app solutions for startups',
           },
           {
             label: 'Mobile App Development',
-            url: '/services/mobile-app-development',
+            url: '/services/offshore-mobile-app-development',
             icon: Smartphone,
             description: 'iOS & Android applications',
           },
           {
             label: 'Web App Development',
-            url: '/services/web-app-development',
+            url: '/services/offshore-web-app-development',
             icon: Laptop,
             description: 'Modern scalable web apps',
           },
@@ -109,22 +109,22 @@ const menu: MenuItem[] = [
         links: [
           {
             label: 'SharePoint Development',
-            url: '/services/sharepoint',
+            url: '/services/offshore-sharepoint-development',
             icon: Share2,
           },
           {
             label: 'SPFx Developments',
-            url: '/services/spfx-developments',
+            url: '/services/offshore-spfx-development',
             icon: FileText,
           },
           {
             label: 'PnP PowerShell',
-            url: '/services/pnp-powershell',
+            url: '/services/offshore-sharepoint-development',
             icon: Database,
           },
           {
             label: 'Teams App Development',
-            url: '/services/teams-app-development',
+            url: '/services/offshore-sharepoint-development',
             icon: Building2,
           },
         ],
@@ -134,17 +134,17 @@ const menu: MenuItem[] = [
         links: [
           {
             label: 'Power Apps',
-            url: '/services/power-apps',
+            url: '/services/offshore-power-platform-development',
             icon: Building2,
           },
           {
             label: 'Power Pages',
-            url: '/services/power-pages',
+            url: '/services/offshore-power-platform-development',
             icon: Building2,
           },
           {
             label: 'Power BI',
-            url: '/services/power-bi',
+            url: '/services/power-bi-development-services',
             icon: BarChart3,
           },
         ],

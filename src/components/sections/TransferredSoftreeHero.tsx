@@ -527,42 +527,6 @@ export function TransferredSoftreeHero() {
               className="hero-btn mt-8 flex flex-wrap items-center gap-4 relative z-10"
               style={{ willChange: "transform, opacity" }}
             >
-              {/* PRIMARY — hyper-glass orange pill */}
-              <Link
-                href="/contact"
-                className="hero-glass-primary typo-button-lg inline-flex items-center gap-2 active:scale-[0.97] motion-reduce:transition-none"
-                style={{
-                  background:
-                    `linear-gradient(135deg, ${ACCENT} 0%, rgba(200, 72, 16, 0.9) 100%)`,
-                  backdropFilter: "blur(28px) saturate(180%)",
-                  WebkitBackdropFilter: "blur(28px) saturate(180%)",
-                  border: "1px solid rgba(255, 255, 255, 0.25)",
-                  borderTopColor: "rgba(255, 200, 160, 0.6)",
-                  borderLeftColor: "rgba(255, 255, 255, 0.35)",
-                  boxShadow:
-                    "0 14px 40px 0 rgba(255,122,47,0.35), 0 4px 16px 0 rgba(0,0,0,0.3), inset 0 1px 4px 0 rgba(255,255,255,0.4), inset 0 -1px 3px 0 rgba(0,0,0,0.15)",
-                  position: "relative",
-                  overflow: "hidden",
-                  borderRadius: "9999px",
-                  height: "56px",
-                  padding: "0 32px",
-                  color: "#fff",
-                }}
-              >
-                Partner With Us
-                <svg
-                  className="ml-1 h-5 w-5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </Link>
-
 
             </div>
           </div>

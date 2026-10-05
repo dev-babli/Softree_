@@ -199,7 +199,7 @@ export function ProofSection() {
                   "align-stretch": "0",
                 })}
                 className="button w-inline-block"
-                href="/customer-stories"
+                href="/case-studies"
                 aria-label="Discover more"
               >
                 <div className="text-style-1line">more&nbsp;CUSTOMER stories</div>

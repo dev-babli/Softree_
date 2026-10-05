@@ -103,7 +103,7 @@ const ASSETS = {
     {
       n: "06",
       label: "Data Analytics",
-      href: "/services/offshore-data-analytics",
+      href: "/services/power-bi-development-services",
       img: "/whysoftree/data-analytics.jpg",
       desc: "Turn raw data into actionable dashboards using Power BI and Microsoft Fabric solutions."
     },

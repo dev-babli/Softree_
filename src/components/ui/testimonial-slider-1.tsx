@@ -71,12 +71,12 @@ export const TestimonialSlider = ({
   // Autoplay only when in view and not hovered/touched
   React.useEffect(() => {
     if (isHovered || !isInView) return;
-    
+
     const timer = setInterval(() => {
       setDirection("right");
       setCurrentIndex((prev) => (prev + 1) % reviews.length);
     }, 5500);
-    
+
     return () => clearInterval(timer);
   }, [isHovered, isInView, reviews.length]);
 
@@ -187,7 +187,7 @@ export const TestimonialSlider = ({
       </div>
 
       {/* Mobile-Only Horizontal Scrollable Audience Tabs */}
-      <div 
+      <div
         ref={tabsContainerRef}
         className="flex lg:hidden overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden gap-2 pb-2 mb-6 -mx-1 px-1"
       >
@@ -223,17 +223,19 @@ export const TestimonialSlider = ({
 
       {/* Main Grid: Desktop 3-column layout / Mobile unified card */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 min-h-[460px]">
-        
+
         {/* === Left Column: Audience Navigation (Desktop Only) === */}
-        <div className="hidden lg:flex lg:col-span-3 flex-col order-1">
-          <div className="flex items-center mb-4 font-bold text-sm tracking-widest">
-            <span className="text-[#FF5812]">{activeReview.id}</span>
-            <span className="text-[#0a0a1a]/30 mx-2">/</span>
-            <span className="text-[#0a0a1a]/50">{String(reviews.length).padStart(2, "0")}</span>
+        <div className="hidden lg:flex lg:col-span-3 flex-col justify-between h-full order-1">
+          <div>
+            <div className="flex items-center mb-3 font-bold text-sm tracking-widest">
+              <span className="text-[#FF5812]">{activeReview.id}</span>
+              <span className="text-[#0a0a1a]/30 mx-2">/</span>
+              <span className="text-[#0a0a1a]/50">{String(reviews.length).padStart(2, "0")}</span>
+            </div>
+            <div className="h-px w-full bg-[#0a0a1a]/10 mb-4" />
           </div>
-          <div className="h-px w-full bg-[#0a0a1a]/10 mb-6" />
-          
-          <div className="flex flex-col gap-2">
+
+          <div className="flex-1 flex flex-col justify-between gap-2.5">
             {reviews.map((review, index) => {
               const isActive = index === currentIndex;
               return (
@@ -241,16 +243,16 @@ export const TestimonialSlider = ({
                   key={review.id}
                   onClick={() => handleThumbnailClick(index)}
                   className={cn(
-                    "flex items-center gap-4 p-3 rounded-xl transition-all duration-300 text-left w-full",
-                    isActive 
-                      ? "border border-[#FF5812]/20 bg-[#FF5812]/5 text-[#0a0a1a] shadow-sm" 
+                    "flex items-center gap-3.5 p-3 rounded-xl transition-all duration-300 text-left w-full",
+                    isActive
+                      ? "border border-[#FF5812]/20 bg-[#FF5812]/5 text-[#0a0a1a] shadow-sm font-semibold"
                       : "border border-transparent hover:bg-[#0a0a1a]/5 opacity-70 hover:opacity-100"
                   )}
                 >
-                  <img 
-                    src={review.thumbnailSrc || review.imageSrc} 
-                    alt="" 
-                    className="w-12 h-12 rounded-lg object-cover flex-shrink-0" 
+                  <img
+                    src={review.thumbnailSrc || review.imageSrc}
+                    alt=""
+                    className="w-12 h-12 rounded-lg object-cover flex-shrink-0 shadow-sm"
                   />
                   <div className="flex flex-col">
                     <span className={cn("text-xs font-bold mb-0.5", isActive ? "text-[#FF5812]" : "text-[#0a0a1a]/50")}>
@@ -285,7 +287,7 @@ export const TestimonialSlider = ({
         </div>
 
         {/* === Right Column: Content (Mobile unified card + Desktop right panel) === */}
-        <div className="w-full lg:col-span-5 flex flex-col justify-between order-1 lg:order-3">
+        <div className="w-full lg:col-span-5 flex flex-col justify-between h-full order-1 lg:order-3">
           {/* Mobile Persona Visual Header: pairs photo with current persona */}
           <div className="block lg:hidden relative w-full aspect-[16/10] sm:aspect-[21/9] rounded-2xl overflow-hidden mb-4 shadow-sm border border-black/[0.06]">
             <AnimatePresence initial={false} custom={direction}>
@@ -325,7 +327,7 @@ export const TestimonialSlider = ({
                 exit="exit"
                 transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
               >
-                <div className="mb-4 lg:mb-6 flex flex-col gap-1.5 lg:gap-2">
+                <div className="mb-3 lg:mb-4 flex flex-col gap-1">
                   <span className="typo-caption-meta font-bold text-[#0a0a1a]/50">
                     {activeReview.id} <span className="mx-1.5">/</span> {String(reviews.length).padStart(2, "0")}
                   </span>
@@ -333,63 +335,122 @@ export const TestimonialSlider = ({
                     {activeReview.title}
                   </h3>
                 </div>
-                
-                <div className="mt-1 sm:mt-2 flex flex-col gap-2.5">
-                  <p className="typo-body text-[#0a0a1a] font-bold text-pretty">
+
+                <div className="mt-1 flex flex-col gap-2">
+                  <p className="typo-body text-[#0a0a1a] font-bold text-pretty text-sm sm:text-base leading-snug">
                     {activeReview.question}
                   </p>
-                  
-                  {/* WHAT YOU MAY BE ASKING Box */}
+
+                  {/* WHAT YOU MAY BE ASKING Box — High-End Redesign */}
                   {activeReview.asking && activeReview.asking.length > 0 && (
-                    <div className="mt-1 rounded-xl bg-[#FFF5F1] p-3 sm:p-3.5 flex gap-3 border border-[#FF5812]/10">
-                      <div className="flex-shrink-0 mt-0.5 rounded-full border-2 border-[#FF5812]/30 p-1 bg-white h-max">
-                        <HelpCircle className="w-4 h-4 text-[#FF5812]" />
+                    <div className="group relative overflow-hidden rounded-xl border border-[#FF5812]/15 bg-gradient-to-br from-[#FFFDF8] via-white to-[#FFF6EA] p-2.5 sm:p-3 shadow-[0_4px_14px_-4px_rgba(255,88,18,0.06)] transition-all duration-300 hover:border-[#FF5812]/30 hover:shadow-[0_8px_20px_-4px_rgba(255,88,18,0.12)]">
+                      {/* Left vibrant gradient accent bar */}
+                      <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#FF5812] via-[#FF7A2F] to-[#FFA066] transition-all duration-300 group-hover:w-1.5" />
+
+                      {/* Ambient background glow */}
+                      <div className="pointer-events-none absolute -right-6 -top-6 h-20 w-20 rounded-full bg-[#FF5812]/10 blur-xl transition-opacity duration-300 group-hover:opacity-100 opacity-40" />
+
+                      <div className="flex items-start gap-3 pl-1">
+                        {/* Premium orange icon badge */}
+                        <div className="flex-shrink-0 mt-0.5 rounded-lg bg-gradient-to-br from-[#FF5812] to-[#FF7A2F] p-1.5 text-white shadow-[0_4px_10px_rgba(255,88,18,0.25)] transition-transform duration-200 group-hover:scale-105">
+                          <HelpCircle className="h-3.5 w-3.5 stroke-[2.5]" />
+                        </div>
+
+                        <div className="flex-1 min-w-0">
+                          {/* Header row */}
+                          <div className="mb-1 flex items-center justify-between gap-2">
+                            <h4 className="font-mono text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#FF5812]">
+                              What you may be asking
+                            </h4>
+                            <span className="hidden font-mono text-[9px] font-semibold uppercase tracking-wider text-[#0a0a1a]/45 bg-black/[0.04] px-2 py-0.5 rounded-full sm:inline-block">
+                              Key Concerns
+                            </span>
+                          </div>
+
+                          {/* Asking bullets */}
+                          <ul className="flex flex-col gap-1">
+                            {activeReview.asking.map((bullet, i) => (
+                              <li key={i} className="flex items-start gap-2 text-xs text-[#0a0a1a]/80 leading-snug">
+                                <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#FF5812]/80" />
+                                <span>{bullet}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
-                      <div className="flex flex-col">
-                        <h4 className="text-[#FF5812] font-bold typo-caption uppercase mb-1.5">What you may be asking</h4>
+                    </div>
+                  )}
+
+                  {/* HOW WE HELP Box — High-End Redesign */}
+                  <div className="group relative overflow-hidden rounded-xl border border-[#FF5812]/15 bg-gradient-to-br from-[#FFF9F6] via-white to-[#FFF2EC] p-2.5 sm:p-3 shadow-[0_4px_14px_-4px_rgba(255,88,18,0.06)] transition-all duration-300 hover:border-[#FF5812]/30 hover:shadow-[0_8px_20px_-4px_rgba(255,88,18,0.12)]">
+                    {/* Left vibrant gradient accent bar */}
+                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#FF5812] via-[#FF7A2F] to-[#FFA066] transition-all duration-300 group-hover:w-1.5" />
+
+                    {/* Ambient background glow */}
+                    <div className="pointer-events-none absolute -right-6 -top-6 h-20 w-20 rounded-full bg-[#FF5812]/10 blur-xl transition-opacity duration-300 group-hover:opacity-100 opacity-40" />
+
+                    <div className="flex items-start gap-3 pl-1">
+                      {/* Premium orange icon badge */}
+                      <div className="flex-shrink-0 mt-0.5 rounded-lg bg-gradient-to-br from-[#FF5812] to-[#FF7A2F] p-1.5 text-white shadow-[0_4px_10px_rgba(255,88,18,0.25)] transition-transform duration-200 group-hover:scale-105">
+                        <Settings className="h-3.5 w-3.5 stroke-[2.5]" />
+                      </div>
+
+                      <div className="flex-1 min-w-0">
+                        {/* Header row */}
+                        <div className="mb-1 flex items-center justify-between gap-2">
+                          <h4 className="font-mono text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#FF5812]">
+                            How we help
+                          </h4>
+                          <span className="hidden font-mono text-[9px] font-semibold uppercase tracking-wider text-[#0a0a1a]/45 bg-black/[0.04] px-2 py-0.5 rounded-full sm:inline-block">
+                            Our Approach
+                          </span>
+                        </div>
+
+                        {/* How we help bullets */}
                         <ul className="flex flex-col gap-1">
-                          {activeReview.asking.map((bullet, i) => (
-                            <li key={i} className="flex items-start gap-2 typo-caption-meta text-[#0a0a1a]/70">
-                              <span className="text-[#FF5812] mt-0.5 text-base leading-none">&bull;</span>
+                          {activeReview.howWeHelp.map((bullet, i) => (
+                            <li key={i} className="flex items-start gap-2 text-xs text-[#0a0a1a]/85 leading-snug">
+                              <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#FF5812]/80" />
                               <span>{bullet}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
                     </div>
-                  )}
-
-                  {/* HOW WE HELP Box */}
-                  <div className="mt-1 rounded-xl bg-[#F8F9FA] p-3 sm:p-3.5 flex gap-3 border border-[#0a0a1a]/05">
-                    <div className="flex-shrink-0 mt-0.5 rounded-full border-2 border-[#FF5812]/30 p-1 bg-white h-max">
-                      <Settings className="w-4 h-4 text-[#FF5812]" />
-                    </div>
-                    <div className="flex flex-col">
-                      <h4 className="text-[#FF5812] font-bold typo-caption uppercase mb-1.5">How we help</h4>
-                      <ul className="flex flex-col gap-1">
-                        {activeReview.howWeHelp.map((bullet, i) => (
-                          <li key={i} className="flex items-start gap-2 typo-caption-meta text-[#0a0a1a]/70">
-                            <span className="text-[#FF5812] mt-0.5 text-base leading-none">&bull;</span>
-                            <span>{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
                   </div>
 
-                  {/* THE OUTCOME Box */}
-                  <div className="mt-1 rounded-xl bg-[#FFF5F1] p-3 sm:p-3.5 flex gap-3 border border-[#FF5812]/10">
-                    <div className="flex-shrink-0 mt-0.5 rounded-full border-2 border-[#FF5812]/30 p-1 bg-white h-max">
-                      <TrendingUp className="w-4 h-4 text-[#FF5812]" />
-                    </div>
-                    <div className="flex flex-col justify-center">
-                      <h4 className="text-[#FF5812] font-bold typo-caption uppercase mb-1">The Outcome</h4>
-                      <p className="typo-caption-meta font-bold text-[#0a0a1a]">
-                        {activeReview.outcome}
-                      </p>
+                  {/* THE OUTCOME Box — High-End Redesign */}
+                  <div className="group relative overflow-hidden rounded-xl border border-[#FF5812]/25 bg-gradient-to-br from-[#FFF6F0] via-white to-[#FFF0E6] p-2.5 sm:p-3 shadow-[0_8px_20px_-6px_rgba(255,88,18,0.12)] transition-all duration-300 hover:border-[#FF5812]/45 hover:shadow-[0_12px_28px_-6px_rgba(255,88,18,0.18)]">
+                    {/* Left vibrant gradient accent bar */}
+                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#FF5812] via-[#FF7A2F] to-[#FFA066] transition-all duration-300 group-hover:w-1.5" />
+
+                    {/* Ambient background glow on hover */}
+                    <div className="pointer-events-none absolute -right-6 -top-6 h-20 w-20 rounded-full bg-[#FF5812]/10 blur-xl transition-opacity duration-300 group-hover:opacity-100 opacity-60" />
+
+                    <div className="flex items-start gap-3 pl-1">
+                      {/* Premium gradient icon badge */}
+                      <div className="flex-shrink-0 mt-0.5 rounded-lg bg-gradient-to-br from-[#FF5812] to-[#FF7A2F] p-1.5 text-white shadow-[0_4px_10px_rgba(255,88,18,0.28)] transition-transform duration-200 group-hover:scale-105">
+                        <TrendingUp className="h-3.5 w-3.5 stroke-[2.5]" />
+                      </div>
+
+                      <div className="flex-1 min-w-0">
+                        {/* Header row */}
+                        <div className="mb-1 flex items-center justify-between gap-2">
+                          <h4 className="font-mono text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#FF5812]">
+                            The Outcome
+                          </h4>
+                          <span className="hidden font-mono text-[9px] font-semibold uppercase tracking-wider text-[#0a0a1a]/45 bg-black/[0.04] px-2 py-0.5 rounded-full sm:inline-block">
+                            Delivered Value
+                          </span>
+                        </div>
+
+                        {/* Outcome text */}
+                        <p className="text-xs sm:text-[13px] font-semibold text-[#0a0a1a] leading-snug tracking-tight">
+                          {activeReview.outcome}
+                        </p>
+                      </div>
                     </div>
                   </div>
-
                   {activeReview.highlight && (
                     <p className="typo-body-sm font-bold text-[#FF5812] mt-1">
                       {activeReview.highlight}
@@ -402,7 +463,7 @@ export const TestimonialSlider = ({
           </div>
 
           {/* Navigation Controls: Arrows + Dots indicator */}
-          <div className="flex items-center justify-between mt-6 lg:mt-auto pt-4 border-t border-[#0a0a1a]/06">
+          <div className="flex items-center justify-between mt-6 lg:mt-auto pt-4">
             <div className="flex items-center space-x-2.5">
               <Button
                 variant="outline"
@@ -444,7 +505,7 @@ export const TestimonialSlider = ({
             </span>
           </div>
         </div>
-        
+
       </div>
     </div>
   );

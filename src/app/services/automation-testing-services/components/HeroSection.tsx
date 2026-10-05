@@ -54,7 +54,7 @@ export function HeroSection() {
         transition={{ duration: 0.5, delay: 0.3 }}
         className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto z-20"
       >
-        <Link href="/industries/contact-us" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#FF6B2C] hover:bg-[#FF5812] text-white px-8 py-4 rounded-xl font-medium transition-all shadow-lg shadow-orange-600/20 hover:shadow-orange-600/40">
+        <Link href="/contact" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#FF6B2C] hover:bg-[#FF5812] text-white px-8 py-4 rounded-xl font-medium transition-all shadow-lg shadow-orange-600/20 hover:shadow-orange-600/40">
           Talk to Our AI Testing Team
           <ArrowRight className="w-4 h-4" />
         </Link>

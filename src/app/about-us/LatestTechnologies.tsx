@@ -55,7 +55,7 @@ export const CORE_EXPERTISE_ITEMS: SlideItem[] = [
     description: "End-to-end real-time ETL pipelines, modern data warehousing, Microsoft Fabric analytics, and predictive executive dashboards turning data into action.",
     tags: ["Microsoft Fabric", "Azure Synapse", "Snowflake", "Databricks", "Power BI"],
     image: "/whysoftree/data-analytics.jpg",
-    link: "/services/offshore-data-analytics",
+    link: "/services/power-bi-development-services",
   },
 ];
 

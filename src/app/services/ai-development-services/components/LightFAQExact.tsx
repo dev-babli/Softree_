@@ -24,60 +24,60 @@ const defaultFaqs: FAQItem[] = [
   {
     id: 1,
     serial: "01",
-    question: "What is Agentic AI?",
+    question: "What AI development services does Softree Technology offer?",
     answer:
-      "Agentic AI refers to AI systems that can interpret goals, reason through tasks, use tools or connected systems, and take defined actions within a workflow. Unlike a simple AI assistant that mainly responds to prompts, an AI agent can autonomously participate in multi-step processes based on the capabilities and controls designed for the use case. By leveraging advanced language models and specialized orchestration frameworks, Agentic AI can evaluate information, make context-aware decisions, and execute sequences of operations without continuous human intervention, fundamentally shifting how businesses automate complex cognitive work.",
+      "Softree Technology provides end-to-end AI development services, including generative AI, AI agents, RAG applications, AI copilots, intelligent automation, machine learning, conversational AI, and custom AI-powered business applications. Our offshore engineering team helps businesses move from AI strategy and proof of concept to production-ready solutions.",
   },
   {
     id: 2,
     serial: "02",
-    question: "What types of AI agents can Softree build?",
+    question: "Why choose Softree Technology as an offshore AI development company?",
     answer:
-      "Softree can build custom AI agents tailored for specific business tasks and operational workflows. This includes specialized knowledge-based agents for data retrieval, workflow agents that automate complex operational sequences, intelligent AI assistants for employee support, and sophisticated multi-agent solutions where distinct models coordinate to solve layered problems. The underlying architecture and framework are carefully selected depending on your specific business problem, the required enterprise integrations, available data structures, and the desired level of autonomy needed to achieve measurable outcomes.",
+      "Softree Technology combines specialized AI engineering expertise with an offshore delivery model that helps businesses access skilled developers, scale teams efficiently, and accelerate AI initiatives. We work closely with client teams to build secure, scalable, and business-focused AI solutions aligned with their technology environment and goals.",
   },
   {
     id: 3,
     serial: "03",
-    question: "Can Softree build RAG-powered AI agents?",
+    question: "Can Softree Technology build custom AI solutions for my business?",
     answer:
-      "Yes. Retrieval-Augmented Generation (RAG) is a core capability we utilize to connect AI agents securely to your trusted business documents, knowledge bases, databases, and other supported enterprise data sources. By integrating RAG architectures, we ensure that agents retrieve highly relevant and up-to-date context when completing tasks, reasoning through workflows, or generating responses. This approach grounds the AI's output in your proprietary organizational data, significantly reducing hallucination risks and improving the accuracy of the agent's actions within domain-specific applications.",
+      "Yes. We build custom AI solutions based on your business processes, data, applications, and specific use cases. Our team can design solutions using technologies such as LLMs, RAG, AI agents, vector databases, cloud AI platforms, APIs, and intelligent automation rather than relying only on generic AI tools.",
   },
   {
     id: 4,
     serial: "04",
-    question: "How do AI agents integrate with existing business systems?",
+    question: "Can your AI development team integrate AI with existing applications and systems?",
     answer:
-      "AI agents can be seamlessly connected to your supported APIs, business applications, relational databases, enterprise data lakes, and existing operational workflows. During the architecture phase, we define exactly which internal systems the agent can access, what specific actions it is permitted to perform, and what security controls or human-in-the-loop approvals are required. This controlled integration allows the AI agent to operate as a functional part of your technology stack, reading context from your systems and securely writing back structured data or triggering automated processes.",
+      "Yes. Our AI engineering team can integrate AI capabilities with existing web applications, enterprise systems, APIs, databases, cloud platforms, document repositories, and business workflows. This allows organizations to add AI capabilities without completely replacing their existing technology stack.",
   },
   {
     id: 5,
     serial: "05",
-    question: "How does Softree test and evaluate AI agents?",
+    question: "How does Softree ensure the accuracy, security, and reliability of AI solutions?",
     answer:
-      "We rigorously evaluate AI-agent behavior against the specific requirements and guardrails defined for your use case. Our testing protocols cover task execution accuracy, retrieval quality in RAG setups, correct tool usage, system reliability, secure failure handling, and overall application performance under load. We utilize empirical evaluation methods to measure relevance, grounding, and reasoning capabilities before deployment. This comprehensive testing ensures the solution behaves reliably, respects security boundaries, and handles exceptions gracefully in a live production environment.",
+      "We use approaches such as Retrieval-Augmented Generation (RAG), controlled data retrieval, prompt engineering, source grounding, validation, access controls, and evaluation workflows to improve AI response quality. The architecture is designed around the specific data, security requirements, and business context of each solution.",
   },
   {
     id: 6,
     serial: "06",
-    question: "Does Softree provide offshore Agentic AI development?",
+    question: "Can Softree develop AI agents, RAG applications, and intelligent automation solutions?",
     answer:
-      "Yes. Softree provides robust offshore AI engineering support through dedicated teams and flexible development engagements tailored to your organizational needs. Our experienced engineers can support every phase of the project lifecycle, including Agentic AI architecture design, model integration, prompt engineering, RAG pipeline development, rigorous testing, and secure deployment. By leveraging our offshore delivery model, clients gain access to specialized AI talent and scalable engineering capacity, ensuring high-quality solutions are delivered efficiently and maintained through ongoing engineering support.",
+      "Yes. We develop AI agents that can understand tasks, reason over relevant information, interact with tools and APIs, and execute defined workflows. These solutions can support areas such as customer service, document processing, internal knowledge management, operations, analytics, and business process automation.",
   },
   {
     id: 7,
     serial: "07",
-    question: "Does Softree offer white-label AI development?",
+    question: "How does Softree's offshore AI development model work?",
     answer:
-      "Yes. Softree actively works as a trusted white-label AI engineering partner for digital agencies, IT consultancies, technology companies, and system integrators. If you need additional AI development capacity to serve your own clients, we can operate seamlessly behind the scenes while you maintain the primary client-facing relationship. Our white-label partnerships are structured around flexible engagement models, allowing you to confidently offer advanced AI capabilities, multi-agent workflows, and custom integrations without having to build and manage a massive internal AI engineering team.",
+      "We can work as an extended AI engineering team or take ownership of specific AI projects. Depending on your requirements, our team can support discovery, architecture, development, integration, testing, deployment, and ongoing enhancement while maintaining regular communication with your internal stakeholders.",
   },
   {
     id: 8,
     serial: "08",
-    question: "How can a company get started with Agentic AI development?",
+    question: "How long does it take and how much does it cost to develop a custom AI solution?",
     answer:
-      "We start by deeply understanding your core business problem, operational workflows, end-users, available data, existing systems, and the specific outcomes you want to achieve. From there, our engineering team assesses the AI opportunity, helps define the most valuable initial use case, and drafts a scalable technical architecture. Once the strategy is aligned, we outline a clear development and implementation path based on your project requirements, moving from initial concept and feasibility testing into the active development of robust, production-ready AI agents.",
+      "The timeline and cost depend on the solution's complexity, data readiness, integrations, security requirements, AI models, and deployment environment. A focused AI proof of concept can typically be delivered faster than a production-grade AI platform. Softree begins by assessing the use case and technical requirements before defining the appropriate development roadmap.",
   },
-]
+];
 
 /** Brand palette: cream `#F3F0EE`, blue `#1852FF`, orange `#FF5812`, ink `#0a0a1a` */
 const FAQ_INK = "#0a0a1a"

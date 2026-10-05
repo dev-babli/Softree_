@@ -310,7 +310,7 @@ function StatsRail() {
           Active hubs
         </p>
         <p className="mt-2 text-[3.25rem] font-semibold leading-none tracking-[-0.05em] text-[#0a0a1a] tabular-nums">
-          {CITIES.length}
+          13
           <span className="text-[1.5rem] text-[#FF5812]">+</span>
         </p>
         <p className="mt-2 text-[13px] leading-snug text-[#0a0a1a]/55">

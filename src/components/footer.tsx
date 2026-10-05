@@ -88,7 +88,7 @@ const Footer: React.FC = () => {
             </li>
             <li>
               <a
-                href="/book-meeting"
+                href="/contact"
                 className="hover:underline text-orange-400 font-semibold"
               >
                 Book a Meeting 🤝
@@ -206,7 +206,7 @@ const Footer: React.FC = () => {
             </li>
             <li>
               <a
-                href="/services/offshore-data-analytics"
+                href="/services/power-bi-development-services"
                 className="hover:underline"
               >
                 Looking for Power BI Developers?

@@ -881,10 +881,6 @@ export default function WhySoftreeCurtainSlider() {
               >
                 {/* Capability Header */}
                 <div>
-                  <div className="text-orange-400 typo-caption mb-1 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-orange-400 shadow-[0_0_6px_#FF5812]" />
-                    SYSTEM CAPABILITY
-                  </div>
                   <h3 className="text-lg xl:text-xl 2xl:text-2xl font-bold leading-snug text-white tracking-tight drop-shadow-xl">
                     {activeData.heading}
                   </h3>
