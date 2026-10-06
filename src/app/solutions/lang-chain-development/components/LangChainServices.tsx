@@ -271,7 +271,7 @@ export default function LangChainServices() {
 
       {/* Cinematic Deadlock Studios ScrollGallery - All Rich Content Inside Card */}
       <div className="w-full relative px-4 sm:px-8 md:px-[2.5cm] lg:px-[3cm] pb-16 sm:pb-24">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
           <ScrollGallery
             slides={langchainServicesSlides}
             variant="studio"

@@ -52,18 +52,22 @@ export default function CoreCapabilities() {
       {/* Top Left */}
       <div className="absolute top-0 left-0 w-[400px] h-[400px] border-b border-r border-[#FF6B2C]/10 rounded-br-[100%] opacity-20 pointer-events-none -translate-x-1/4 -translate-y-1/4"></div>
 
-      <div className="relative z-10 max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
 
         {/* Header */}
-        <div className="flex flex-col items-center w-full mb-8 lg:mb-10">
-          <SectionBadge text="WHAT WE BUILD WITH LANGCHAIN" variant="line" />
+        <div className="flex flex-col items-center w-full mb-8 lg:mb-10 text-center">
+          <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-3.5 py-1 rounded-full border border-white/60 mb-4 inline-block">
+            <span className="typo-caption text-[#FF5812] uppercase font-bold">
+              WHAT WE BUILD WITH LANGCHAIN
+            </span>
+          </div>
 
-          <h2 className="text-2xl md:text-4xl lg:text-[2.25rem] font-extrabold text-[#111827] mb-3 tracking-tight text-center leading-tight">
+          <h2 className="typo-heading-2 text-slate-900 mb-3 tracking-tight text-center max-w-4xl">
             LangChain Development Solutions for{" "}
             <span className="text-[#FF6B2C]">Scalable Enterprise AI</span>
           </h2>
 
-          <p className="text-[15px] lg:text-base text-[#6B7280] text-center max-w-3xl leading-relaxed">
+          <p className="typo-description text-slate-500 text-center max-w-3xl">
             We develop scalable AI applications with LangChain that connect LLMs with enterprise data, APIs, tools, databases, and business systems. Our LangChain development services help organizations build intelligent AI agents, RAG solutions, AI copilots, conversational applications, and automated workflows designed for real-world business requirements.
           </p>
         </div>

@@ -161,7 +161,7 @@ export default function LangChainPortfolio() {
 
   return (
     <section className="relative w-full py-16 md:py-24 bg-transparent overflow-hidden font-sans">
-      <div className="mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12 relative z-10">
         
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16 flex flex-col items-center">
@@ -175,7 +175,7 @@ export default function LangChainPortfolio() {
         </div>
 
         {/* Card Component */}
-        <div className="mx-auto max-w-7xl rounded-3xl border border-zinc-200/60 bg-zinc-950 overflow-hidden shadow-2xl flex flex-col md:flex-row min-h-[520px]">
+        <div className="mx-auto max-w-[1600px] rounded-3xl border border-zinc-200/60 bg-zinc-950 overflow-hidden shadow-2xl flex flex-col md:flex-row min-h-[520px]">
           
           {/* Left Column */}
           <div className="relative w-full md:w-[38%] bg-gradient-to-br from-[#FF6B00] via-[#FF5812] to-[#E64C00] p-8 md:p-10 flex flex-col justify-between text-white overflow-hidden shrink-0">

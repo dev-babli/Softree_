@@ -3,12 +3,7 @@
 import React from "react";
 import { ScrollGallery } from "@/components/ui/scroll-gallery";
 import { CardItem } from "@/components/ui/scrollable-card-stack";
-import SectionBadge from "@/app/services/ai-development-services/components/SectionBadge";
-
-const generateGradient = (c1: string, c2: string) => {
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 100 100"><defs><linearGradient id="g" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="${c1}"/><stop offset="100%" stop-color="${c2}"/></linearGradient></defs><rect width="100" height="100" fill="url(#g)"/></svg>`;
-  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
-};
+import { ShaderBackground } from "@/components/ui/kk";
 
 const langchainCards: CardItem[] = [
   {
@@ -28,7 +23,6 @@ const langchainCards: CardItem[] = [
     ],
     href: "/solutions/ai-agents-development",
     ctaText: "Explore AI Agents",
-    image: generateGradient("#FF5B94", "#FF8A65"), // Pink to Orange
   },
   {
     id: "rag-application-development",
@@ -47,7 +41,6 @@ const langchainCards: CardItem[] = [
     ],
     href: "/solutions/enterprise-rag-development",
     ctaText: "Explore RAG Systems",
-    image: generateGradient("#4A85A4", "#29435C"), // Blue to Teal/Dark
   },
   {
     id: "enterprise-ai-assistants",
@@ -66,7 +59,6 @@ const langchainCards: CardItem[] = [
     ],
     href: "/solutions/ai-chatbot-development",
     ctaText: "Explore AI Assistants",
-    image: generateGradient("#FFD57F", "#FF8C7A"), // Yellow to Peach
   },
   {
     id: "ai-copilot-development",
@@ -85,7 +77,6 @@ const langchainCards: CardItem[] = [
     ],
     href: "/solutions/ai-copilot-development",
     ctaText: "Explore AI Copilots",
-    image: generateGradient("#DF4DB4", "#6B56D5"), // Magenta to Purple
   },
   {
     id: "intelligent-document-processing",
@@ -104,7 +95,6 @@ const langchainCards: CardItem[] = [
     ],
     href: "/solutions/document-ai-solutions",
     ctaText: "Explore Doc Intelligence",
-    image: generateGradient("#4C237F", "#2A0E4E"), // Dark Purple
   },
 ];
 
@@ -117,26 +107,33 @@ export interface LangChainCardStackProps {
 
 export function LangChainCardStack({
   className = "",
-  cardWidth = 1180,
   showHeader = true,
 }: LangChainCardStackProps) {
   return (
-    <section className={`bg-white pt-8 md:pt-12 pb-8 md:pb-12 text-slate-900 scroll-mt-24 relative overflow-hidden ${className}`}>
-      <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
+    <section className={`relative pt-8 md:pt-12 pb-8 md:pb-12 scroll-mt-24 overflow-hidden bg-slate-950 ${className}`}>
+      {/* Interactive WebGL Mesh Drift Shader Background */}
+      <div className="absolute inset-0 z-0 pointer-events-auto">
+        <ShaderBackground className="h-full w-full" />
+      </div>
+
+      {/* Subtle edge blend overlay */}
+      <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-slate-950/80 via-transparent to-slate-950/90" />
+
+      <div className="relative z-10 max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
         {showHeader && (
           <div className="flex flex-col mb-8 sm:mb-12">
-            <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-3.5 py-1 rounded-full border border-white/60 mb-4 inline-block self-start">
-              <span className="typo-caption text-[#FF5812] uppercase">
+            <div className="shadow-[inset_2px_2px_5px_rgba(255,255,255,0.1),inset_-2px_-2px_5px_rgba(0,0,0,0.5)] bg-white/10 backdrop-blur-md px-3.5 py-1 rounded-full border border-white/20 mb-4 inline-block self-start">
+              <span className="typo-caption text-[#FF5812] uppercase font-bold tracking-wider">
                 WHAT WE BUILD WITH LANGCHAIN
               </span>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 lg:gap-x-24 gap-y-6 items-start">
-              <h2 className="typo-heading-2 text-slate-900 lg:pr-12 xl:pr-24">
+              <h2 className="typo-heading-2 text-white lg:pr-12 xl:pr-24">
                 LangChain Development Solutions for <span className="text-[#FF5812]">Scalable Enterprise AI</span>
               </h2>
 
-              <p className="typo-description text-slate-500 w-full pt-1.5 lg:max-w-xl">
+              <p className="typo-description text-slate-300 w-full pt-1.5 lg:max-w-xl">
                 We develop scalable AI applications with LangChain that connect LLMs with enterprise data, APIs, tools, databases, and business systems. Our LangChain development services help organizations build intelligent AI agents, RAG solutions, AI copilots, conversational applications, and automated workflows designed for real-world business requirements.
               </p>
             </div>
@@ -144,14 +141,14 @@ export function LangChainCardStack({
         )}
       </div>
 
-      <div className="w-full">
+      <div className="relative z-10 w-full">
         <ScrollGallery
+          background={<ShaderBackground className="h-full w-full" />}
           classNames={{
             infoInner: "flex gap-8 max-w-[1600px] mx-auto w-full px-6 sm:px-8 lg:px-12",
           }}
           slides={langchainCards.map(c => ({
             title: c.name,
-            image: c.image ?? "",
             url: c.href,
             linkLabel: c.ctaText,
             tag: c.tag,
@@ -168,4 +165,3 @@ export function LangChainCardStack({
 }
 
 export default LangChainCardStack;
-

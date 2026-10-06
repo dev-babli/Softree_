@@ -194,7 +194,7 @@ export default function TrustedBrandsMarquee({
         }
       `}</style>
 
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
         <div className="relative bg-gradient-to-r from-black via-[#4c1c02] to-black rounded-[80px] px-6 py-16 overflow-hidden">
           {/* Heading */}
           <div className="flex items-center gap-6 mb-12">

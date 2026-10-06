@@ -13,6 +13,12 @@ import {
   IconChevronLeft,
   IconChevronRight,
   IconChevronUp,
+  IconBrain,
+  IconDatabase,
+  IconRobot,
+  IconPlugConnected,
+  IconActivity,
+  IconSparkles,
 } from "@tabler/icons-react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -204,6 +210,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
       autoplayInterval,
       count,
       canNext,
+      index,
       isHovering,
       isFocusWithin,
       isDragging,
@@ -347,15 +354,15 @@ export function CarouselContent({
 
   const slideVariants = {
     enter: (dir: number) => ({
-      x: orientation === "horizontal" && !prefersReducedMotion ? (dir > 0 ? "14%" : "-14%") : 0,
-      y: orientation === "vertical" && !prefersReducedMotion ? (dir > 0 ? "14%" : "-14%") : 0,
-      opacity: 0,
+      x: orientation === "horizontal" && !prefersReducedMotion ? (dir >= 0 ? "100%" : "-100%") : 0,
+      y: orientation === "vertical" && !prefersReducedMotion ? (dir >= 0 ? "100%" : "-100%") : 0,
+      opacity: 1,
     }),
     center: { x: "0%", y: "0%", opacity: 1 },
     exit: (dir: number) => ({
-      x: orientation === "horizontal" && !prefersReducedMotion ? (dir > 0 ? "-14%" : "14%") : 0,
-      y: orientation === "vertical" && !prefersReducedMotion ? (dir > 0 ? "-14%" : "14%") : 0,
-      opacity: 0,
+      x: orientation === "horizontal" && !prefersReducedMotion ? (dir >= 0 ? "-100%" : "100%") : 0,
+      y: orientation === "vertical" && !prefersReducedMotion ? (dir >= 0 ? "-100%" : "100%") : 0,
+      opacity: 1,
     }),
   };
 
@@ -378,12 +385,12 @@ export function CarouselContent({
       aria-roledescription="slide"
       aria-label={count > 0 ? `${index + 1} of ${count}` : undefined}
       className={cn(
-        "relative isolate overflow-hidden rounded-[var(--primitive-radius-surface,1rem)] transform-gpu",
+        "relative isolate overflow-hidden rounded-3xl transform-gpu w-full h-[380px] sm:h-[440px] md:h-[500px] lg:h-[540px] select-none",
         className,
       )}
       {...props}
     >
-      <AnimatePresence initial={false} custom={direction} mode="popLayout">
+      <AnimatePresence initial={false} custom={direction}>
         <motion.div
           key={`${carouselId}-${index}`}
           custom={direction}
@@ -391,7 +398,11 @@ export function CarouselContent({
           initial="enter"
           animate="center"
           exit="exit"
-          transition={{ duration: prefersReducedMotion ? 0.12 : 0.28, ease: EASE_OUT }}
+          transition={{
+            x: prefersReducedMotion
+              ? { duration: 0.1 }
+              : { type: "spring", stiffness: 190, damping: 26, mass: 0.8 },
+          }}
           drag={draggable && count > 1 ? (orientation === "vertical" ? "y" : "x") : false}
           dragConstraints={{ top: 0, right: 0, bottom: 0, left: 0 }}
           dragElastic={prefersReducedMotion ? 0 : 0.65}
@@ -403,7 +414,7 @@ export function CarouselContent({
           onDragStart={() => setIsDragging(true)}
           onDragEnd={handleDragEnd}
           className={cn(
-            "h-full",
+            "absolute inset-0 h-full w-full will-change-transform",
             draggable && count > 1 && "cursor-grab active:cursor-grabbing flex",
           )}
         >
@@ -430,6 +441,72 @@ export type CarouselControlProps = Omit<
   "children" | "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart"
 >;
 
+
+export function CarouselSlideCounter({ className }: { className?: string }) {
+  const { index, count } = useCarouselContext();
+  if (count <= 1) return null;
+  return (
+    <div
+      className={cn(
+        "flex items-center gap-2 font-mono text-xs font-semibold text-zinc-600 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full border border-zinc-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.04)]",
+        className
+      )}
+    >
+      <span className="text-[#FF5812] font-extrabold text-sm">0{index + 1}</span>
+      <span className="text-zinc-300 font-light">/</span>
+      <span className="text-zinc-400">0{count}</span>
+    </div>
+  );
+}
+
+export function CarouselCapabilityTabs({ className }: { className?: string }) {
+  const { index, select } = useCarouselContext();
+  const tabs = [
+    { id: 0, tag: "01", title: "AI Applications", icon: IconBrain },
+    { id: 1, tag: "02", title: "Enterprise RAG", icon: IconDatabase },
+    { id: 2, tag: "03", title: "LangGraph Agents", icon: IconRobot },
+    { id: 3, tag: "04", title: "Tool & APIs", icon: IconPlugConnected },
+    { id: 4, tag: "05", title: "Observability", icon: IconActivity },
+  ];
+
+  return (
+    <div className={cn("w-full overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden", className)}>
+      <div className="flex items-center justify-start lg:justify-between gap-2 p-1.5 bg-zinc-100/90 rounded-2xl border border-zinc-200/80 shadow-[inset_0_1px_3px_rgba(0,0,0,0.04)] backdrop-blur-md min-w-max lg:min-w-0">
+        {tabs.map((tab) => {
+          const isActive = tab.id === index;
+          const Icon = tab.icon;
+          return (
+            <button
+              key={tab.id}
+              type="button"
+              onClick={() => select(tab.id)}
+              className={cn(
+                "relative flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-[13px] font-semibold transition-all duration-300 outline-none flex-1 justify-center",
+                isActive
+                  ? "text-white shadow-[0_4px_16px_rgba(255,88,18,0.35)]"
+                  : "text-zinc-600 hover:text-zinc-950 hover:bg-white/60"
+              )}
+            >
+              {isActive && (
+                <motion.div
+                  layoutId="active-capability-pill"
+                  className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#FF5812] to-[#FF7A00]"
+                  transition={{ type: "spring", stiffness: 450, damping: 35 }}
+                />
+              )}
+              <span className={cn("relative z-10 font-mono text-[10px] sm:text-[11px] font-bold opacity-80", isActive ? "text-white" : "text-[#FF5812]")}>
+                {tab.tag}
+              </span>
+              <Icon className={cn("relative z-10 h-4 w-4 shrink-0 transition-transform duration-300", isActive ? "text-white scale-110" : "text-zinc-400")} stroke={2} />
+              <span className="relative z-10 whitespace-nowrap">{tab.title}</span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 export function CarouselPrevious({ className, ...props }: CarouselControlProps) {
   const { orientation, prev, canPrev } = useCarouselContext();
   const prefersReducedMotion = useReducedMotion();
@@ -439,19 +516,22 @@ export function CarouselPrevious({ className, ...props }: CarouselControlProps) 
       aria-label="Previous slide"
       onClick={prev}
       disabled={!canPrev}
-      whileTap={canPrev && !prefersReducedMotion ? { scale: 0.94 } : undefined}
-      transition={
-        prefersReducedMotion
-          ? { duration: 0 }
-          : { type: "spring", stiffness: 500, damping: 32 }
-      }
-      className={cn(navButtonClass, className)}
+      whileTap={canPrev && !prefersReducedMotion ? { scale: 0.9 } : undefined}
+      whileHover={canPrev && !prefersReducedMotion ? { scale: 1.06 } : undefined}
+      transition={{ type: "spring", stiffness: 400, damping: 25 }}
+      className={cn(
+        "group relative flex h-12 w-12 sm:h-13 sm:w-13 items-center justify-center rounded-full border border-zinc-200/90 bg-white text-zinc-800 shadow-[0_4px_14px_rgba(0,0,0,0.06)] backdrop-blur-md",
+        "transition-all duration-300 hover:border-[#FF5812] hover:bg-[#FF5812] hover:text-white hover:shadow-[0_8px_25px_rgba(255,88,18,0.35)]",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812] focus-visible:ring-offset-2",
+        "disabled:pointer-events-none disabled:opacity-30 disabled:border-zinc-200 disabled:bg-zinc-100 disabled:text-zinc-400 disabled:shadow-none",
+        className
+      )}
       {...props}
     >
       {orientation === "vertical" ? (
-        <IconChevronUp className="size-4" stroke={1.9} />
+        <IconChevronUp className="h-5 w-5 transition-transform duration-200 group-hover:-translate-y-0.5" stroke={2.4} />
       ) : (
-        <IconChevronLeft className="size-4" stroke={1.9} />
+        <IconChevronLeft className="h-5 w-5 transition-transform duration-200 group-hover:-translate-x-0.5" stroke={2.4} />
       )}
     </motion.button>
   );
@@ -466,128 +546,43 @@ export function CarouselNext({ className, ...props }: CarouselControlProps) {
       aria-label="Next slide"
       onClick={next}
       disabled={!canNext}
-      whileTap={canNext && !prefersReducedMotion ? { scale: 0.94 } : undefined}
-      transition={
-        prefersReducedMotion
-          ? { duration: 0 }
-          : { type: "spring", stiffness: 500, damping: 32 }
-      }
-      className={cn(navButtonClass, className)}
+      whileTap={canNext && !prefersReducedMotion ? { scale: 0.9 } : undefined}
+      whileHover={canNext && !prefersReducedMotion ? { scale: 1.06 } : undefined}
+      transition={{ type: "spring", stiffness: 400, damping: 25 }}
+      className={cn(
+        "group relative flex h-12 w-12 sm:h-13 sm:w-13 items-center justify-center rounded-full border border-zinc-200/90 bg-white text-zinc-800 shadow-[0_4px_14px_rgba(0,0,0,0.06)] backdrop-blur-md",
+        "transition-all duration-300 hover:border-[#FF5812] hover:bg-[#FF5812] hover:text-white hover:shadow-[0_8px_25px_rgba(255,88,18,0.35)]",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812] focus-visible:ring-offset-2",
+        "disabled:pointer-events-none disabled:opacity-30 disabled:border-zinc-200 disabled:bg-zinc-100 disabled:text-zinc-400 disabled:shadow-none",
+        className
+      )}
       {...props}
     >
       {orientation === "vertical" ? (
-        <IconChevronDown className="size-4" stroke={1.9} />
+        <IconChevronDown className="h-5 w-5 transition-transform duration-200 group-hover:translate-y-0.5" stroke={2.4} />
       ) : (
-        <IconChevronRight className="size-4" stroke={1.9} />
+        <IconChevronRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-0.5" stroke={2.4} />
       )}
     </motion.button>
   );
 }
 
-function useAutoplayProgress(
-  active: boolean,
-  resetKey: unknown,
-  autoplayInterval: number,
-  isAutoplayPaused: boolean,
-) {
-  const prefersReducedMotion = useReducedMotion();
-  const controls = useAnimationControls();
-
-  React.useEffect(() => {
-    if (!active) return;
-    controls.set({ scaleX: 0 });
-  }, [active, resetKey, controls]);
-
-  React.useEffect(() => {
-    if (!active) return;
-    if (isAutoplayPaused) {
-      controls.stop();
-      return;
-    }
-    controls.start({
-      scaleX: 1,
-      transition: { duration: prefersReducedMotion ? 0 : autoplayInterval / 1000, ease: "linear" },
-    });
-  }, [active, resetKey, isAutoplayPaused, autoplayInterval, controls, prefersReducedMotion]);
-
-  return controls;
-}
-
-function AutoplayDotFill({ isActive, isComplete }: { isActive: boolean; isComplete: boolean }) {
-  const { autoplayInterval } = useCarouselContext();
-  const isAutoplayPaused = useCarouselAutoplayPaused();
-  const controls = useAutoplayProgress(isActive, isActive, autoplayInterval, isAutoplayPaused);
-
-  if (isActive) {
-    return (
-      <span className="relative block h-1 w-6 overflow-hidden rounded-full bg-[color:var(--primitive-surface-selected,color-mix(in_srgb,var(--foreground)_6%,transparent))]">
-        <motion.span
-          animate={controls}
-          initial={{ scaleX: 0 }}
-          style={{ transformOrigin: "left" }}
-          className="absolute inset-0 rounded-full bg-[#FF5812]"
-        />
-      </span>
-    );
-  }
-
-  return (
-    <span
-      className={cn(
-        "block size-1.5 rounded-full",
-        isComplete
-          ? "bg-[#FF5812]"
-          : "bg-[color:var(--primitive-surface-selected,color-mix(in_srgb,var(--foreground)_6%,transparent))]",
-      )}
-    />
-  );
-}
 
 export type CarouselDotsProps = React.HTMLAttributes<HTMLDivElement>;
 
 export function CarouselDots({ className, ...props }: CarouselDotsProps) {
-  const { carouselId, orientation, index, count, autoplay, select } = useCarouselContext();
-  const isVertical = orientation === "vertical";
-  const prefersReducedMotion = useReducedMotion();
+  const { index, count, select } = useCarouselContext();
 
   if (count <= 1) return null;
-
-  const dotButtonClass =
-    "flex outline-none rounded-full focus-visible:ring-2 focus-visible:ring-[color:var(--primitive-ring,color-mix(in_srgb,var(--foreground)_45%,transparent))] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]";
-
-  if (autoplay) {
-    return (
-      <div
-        role="tablist"
-        aria-label="Slide navigation"
-        className={cn("flex items-center justify-center gap-1.5", className)}
-        {...props}
-      >
-        {Array.from({ length: count }, (_, i) => (
-          <button
-            key={i}
-            type="button"
-            data-slot="carousel-tab"
-            role="tab"
-            aria-selected={i === index}
-            aria-label={`Go to slide ${i + 1}`}
-            tabIndex={i === index ? 0 : -1}
-            onClick={() => select(i)}
-            onKeyDown={(e) => handleTabRovingKeyDown(e, isVertical, select)}
-            className={dotButtonClass}
-          >
-            <AutoplayDotFill isActive={i === index} isComplete={i < index} />
-          </button>
-        ))}
-      </div>
-    );
-  }
 
   return (
     <div
       role="tablist"
       aria-label="Slide navigation"
-      className={cn("flex items-center justify-center gap-1.5", className)}
+      className={cn(
+        "flex items-center justify-center gap-2 rounded-full border border-zinc-200/90 bg-white/95 p-2 px-4 shadow-[0_2px_12px_rgba(0,0,0,0.04)] backdrop-blur-md",
+        className
+      )}
       {...props}
     >
       {Array.from({ length: count }, (_, i) => {
@@ -602,22 +597,16 @@ export function CarouselDots({ className, ...props }: CarouselDotsProps) {
             aria-label={`Go to slide ${i + 1}`}
             tabIndex={isActive ? 0 : -1}
             onClick={() => select(i)}
-            onKeyDown={(e) => handleTabRovingKeyDown(e, isVertical, select)}
-            className={cn("relative flex h-4 w-4 items-center justify-center group", dotButtonClass)}
+            className="group relative flex h-7 items-center justify-center rounded-full px-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]"
           >
-            <span className="relative h-2 w-2 overflow-hidden rounded-full bg-zinc-300 transition-colors group-hover:bg-[#FF5812]">
-              {isActive && (
-                <motion.span
-                  layoutId={prefersReducedMotion ? undefined : `${carouselId}-active-dot`}
-                  className="absolute inset-0 rounded-full bg-[#FF5812]"
-                  transition={
-                    prefersReducedMotion
-                      ? { duration: 0 }
-                      : { type: "spring", duration: 0.35, bounce: 0.15 }
-                  }
-                />
+            <span
+              className={cn(
+                "block h-2 rounded-full transition-all duration-300",
+                isActive
+                  ? "w-8 bg-gradient-to-r from-[#FF5812] to-[#FF7A00] shadow-[0_2px_8px_rgba(255,88,18,0.5)]"
+                  : "w-2 bg-zinc-300 group-hover:w-3.5 group-hover:bg-zinc-400"
               )}
-            </span>
+            />
           </button>
         );
       })}
@@ -628,48 +617,96 @@ export function CarouselDots({ className, ...props }: CarouselDotsProps) {
 
 const photos = [
   {
-    src: "https://cdn.21st.dev/assets/mirror/aa/aa6da4bbc7cc5432b413d76979a5b3809d395f7a2a12614440cc7abac327a47e.webp",
+    src: "/images/solutions/lang-chain-development/what-we-build/01-ai-apps.jpg",
     label: "01 — LANGCHAIN AI APPLICATION DEVELOPMENT",
-    caption: "Build production-ready AI applications using LangChain for LLM orchestration, prompts, chains, workflows, and business-specific AI experiences."
+    caption: "Build production-ready AI applications using LangChain for LLM orchestration, prompts, chains, workflows, and business-specific AI experiences.",
+    stage: "01 / 05",
+    tag: "ORCHESTRATION & CHAINS"
   },
   {
-    src: "https://cdn.21st.dev/assets/mirror/09/091e5592c27370a519d663ceb93d72fa86c80268a6a9587e0a2c15663cfa08a7.webp",
+    src: "/images/solutions/lang-chain-development/what-we-build/02-rag.jpg",
     label: "02 — LANGCHAIN RAG DEVELOPMENT",
-    caption: "Build context-aware RAG applications that connect enterprise documents, databases, vector search, and knowledge sources to deliver grounded AI responses."
+    caption: "Build context-aware RAG applications that connect enterprise documents, databases, vector search, and knowledge sources to deliver grounded AI responses.",
+    stage: "02 / 05",
+    tag: "VECTOR SEARCH & RETRIEVAL"
   },
   {
-    src: "https://cdn.21st.dev/assets/mirror/10/10575677c5c3f1bc4ded0fc34fb4199d654f985ba6b32473b1b98703d18c844b.webp",
+    src: "/images/solutions/lang-chain-development/what-we-build/03-langgraph-agents.jpg",
     label: "03 — LANGGRAPH & AI AGENT DEVELOPMENT",
-    caption: "Build stateful AI agents and multi-step workflows with LangGraph for tool use, decision-making, human-in-the-loop processes, and controlled execution."
+    caption: "Build stateful AI agents and multi-step workflows with LangGraph for tool use, decision-making, human-in-the-loop processes, and controlled execution.",
+    stage: "03 / 05",
+    tag: "MULTI-AGENT STATE MACHINES"
   },
   {
-    src: "https://cdn.21st.dev/assets/mirror/92/92a251c940d9c98cff5418fbf020d107270599849001a5b1690c380263c5b063.webp",
+    src: "/images/solutions/lang-chain-development/what-we-build/04-tools-integration.jpg",
     label: "04 — LANGCHAIN TOOL & API INTEGRATION",
-    caption: "Connect LangChain applications with business APIs, databases, CRM, ERP, search systems, and external tools to enable AI-powered actions and workflows."
+    caption: "Connect LangChain applications with business APIs, databases, CRM, ERP, search systems, and external tools to enable AI-powered actions and workflows.",
+    stage: "04 / 05",
+    tag: "DYNAMIC TOOL CALLING"
   },
   {
-    src: "https://cdn.21st.dev/assets/mirror/1b/1b8c1ffca81cf911f20092f66cde1d6351dcf29e15482e22c6c9e313f6ef12ab.webp",
+    src: "/images/solutions/lang-chain-development/what-we-build/05-observability.jpg",
     label: "05 — LANGCHAIN EVALUATION & OBSERVABILITY",
-    caption: "Evaluate, trace, monitor, and optimize LangChain applications using testing, observability, feedback, and performance analysis for reliable production AI."
+    caption: "Evaluate, trace, monitor, and optimize LangChain applications using testing, observability, feedback, and performance analysis for reliable production AI.",
+    stage: "05 / 05",
+    tag: "LANGSMITH METRICS & EVALS"
   },
 ];
 
 function PhotoSlide({
   photo,
   caption,
+  stage,
+  tag,
   className,
 }: {
   photo: { src: string; label: string };
   caption?: string;
+  stage?: string;
+  tag?: string;
   className?: string;
 }) {
   return (
-    <div className={`relative overflow-hidden rounded-2xl border border-black/10 ${className ?? "h-[360px] sm:h-[420px] lg:h-[480px] w-full group"}`}>
-      <img src={photo.src} alt={photo.label} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-      <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/95 via-black/50 to-transparent" />
-      <div className="relative flex h-full flex-col justify-end gap-2 p-6 sm:p-8 lg:p-10">
-        {caption && <span className="text-sm md:text-base font-bold text-[#FF5812] tracking-wider uppercase">{caption}</span>}
-        <span className="block text-xl md:text-2xl lg:text-3xl font-semibold text-white/95 max-w-4xl leading-tight">{photo.label}</span>
+    <div className={`relative overflow-hidden rounded-3xl border border-black/10 shadow-2xl ${className ?? "h-full w-full group"}`}>
+      {/* Background artwork */}
+      <img
+        src={photo.src}
+        alt={photo.label}
+        className="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+      />
+
+      {/* Cinematic dark gradients for crystal-clear readability */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent" />
+
+      {/* Top Meta Badges */}
+      <div className="absolute top-4 sm:top-6 inset-x-4 sm:inset-x-6 flex items-center justify-between z-10">
+        <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-black/50 border border-white/20 backdrop-blur-md shadow-lg">
+          <span className="h-2 w-2 rounded-full bg-[#FF5812] shadow-[0_0_8px_#FF5812] animate-pulse" />
+          <span className="text-[10px] sm:text-[11px] font-mono font-bold tracking-widest text-white uppercase">
+            {tag ?? "ENTERPRISE AI CAPABILITY"}
+          </span>
+        </div>
+
+        {stage && (
+          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/15 border border-white/20 backdrop-blur-md text-white/90 text-[11px] font-mono font-bold shadow-lg">
+            <span>{stage}</span>
+          </div>
+        )}
+      </div>
+
+     
+
+      {/* Bottom Editorial Content */}
+      <div className="relative flex h-full flex-col justify-end gap-2.5 p-6 sm:p-8 lg:p-10 z-10 max-w-4xl">
+        {caption && (
+          <span className="text-xs sm:text-sm md:text-base font-bold text-[#FF5812] tracking-wider uppercase drop-shadow-sm">
+            {caption}
+          </span>
+        )}
+        <span className="block text-xl md:text-2xl lg:text-3xl xl:text-[2rem] font-extrabold text-white leading-tight tracking-tight drop-shadow-md">
+          {photo.label}
+        </span>
       </div>
     </div>
   );
@@ -677,20 +714,24 @@ function PhotoSlide({
 
 export function CarouselPreview() {
   return (
-    <div className="w-full max-w-6xl space-y-8">
-      <Carousel loop>
+    <div className="w-full space-y-6 sm:space-y-8">
+      <Carousel loop autoplay autoplayInterval={4000} pauseOnHover={true}>
+        {/* Top Interactive Segmented Capability Selector Tabs */}
+        <CarouselCapabilityTabs />
+
+        {/* Carousel Visual Frame */}
         <CarouselContent>
           {photos.map((photo, i) => (
             <CarouselItem key={photo.label}>
-              <PhotoSlide photo={{ src: photo.src, label: photo.caption }} caption={photo.label} />
+              <PhotoSlide
+                photo={{ src: photo.src, label: photo.caption }}
+                caption={photo.label}
+                stage={photo.stage}
+                tag={photo.tag}
+              />
             </CarouselItem>
           ))}
         </CarouselContent>
-        <div className="mt-8 flex items-center justify-between px-4">
-          <CarouselPrevious />
-          <CarouselDots />
-          <CarouselNext />
-        </div>
       </Carousel>
     </div>
   );
@@ -718,7 +759,7 @@ export default function WhatWeBuild() {
           </div>
         </div>
 
-        <div className="flex justify-center w-full">
+        <div className="w-full">
           <CarouselPreview />
         </div>
       </div>

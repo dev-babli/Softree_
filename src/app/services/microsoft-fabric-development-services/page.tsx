@@ -181,8 +181,8 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       <NavigationClient />
-      {/* <HeroWithTestimonial /> */}
-      <MicrosoftFabricHeroVisual />
+      <HeroWithTestimonial />
+      {/* <MicrosoftFabricHeroVisual /> */}
       <TrustedBrandsMarquee />
       <AIReadinessBanner />
       <FabricServices />

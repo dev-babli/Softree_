@@ -6,7 +6,7 @@ import BusinessOutcomes from "./components/BusinessOutcomes";
 import ProvenResults from "./components/ProvenResults";
 import CoreCapabilities from "./components/CoreCapabilities";
 import { LangChainCardStack } from "./components/LangChainCardStack";
-import HowAIWorks from "./components/HowAIWorks";
+import LangChainHowWeWork from "./components/LangChainHowWeWork";
 import AiTechnologyStack from "./components/AiTechnologyStack";
 import Industries from "./components/Industries";
 import { SuccessStories } from "./components/SuccessStories";
@@ -17,45 +17,58 @@ import LightContactSection from "@/components/homepage-light/LightContactSection
 import Footer from "@/components/sections/footer";
 import WhyChooseWithTestimonials from "./components/why";
 import TrustedBrandsMarquee from "./components/trust";
-
+import NewWhoDoWeServeSection from "@/components/sections/NewWhoDoWeServeSection";
 export const metadata: Metadata = {
-  title: "LangChain Development Services | Enterprise AI & LangGraph Partner",
+  title:
+    "Offshore LangChain Development Services | LangChain AI Experts | Softree",
+
   description:
-    "Build production-grade LangChain applications, autonomous AI agents, enterprise RAG pipelines, and LangGraph multi-agent systems with Softree's specialized AI engineering team.",
+    "Partner with Softree for offshore LangChain development services. Build production-ready LLM applications, RAG systems, AI agents, LangGraph workflows, and intelligent AI applications.",
+
   keywords: [
+    "Offshore LangChain Development",
+    "Offshore LangChain Development Services",
     "LangChain Development Services",
     "LangChain Development Company",
-    "LangChain AI Development",
-    "LangGraph Development Services",
-    "Enterprise RAG Development",
-    "Autonomous AI Agents",
-    "LangChain Consulting",
-    "LangChain Application Development",
-    "LangChain Vector Database Integration",
-    "Pinecone LangChain",
-    "LangSmith Observability",
-    "LCEL Pipeline Architecture",
-    "Multi-Agent LangGraph Systems",
-    "LLM Orchestration Services",
     "Offshore LangChain Developers",
-    "Custom Generative AI Solutions",
+    "LangChain AI Development",
+    "LangChain Application Development",
+    "LangChain RAG Development",
+    "LangGraph Development Services",
+    "LangGraph AI Development",
+    "LangChain AI Agent Development",
+    "AI Agent Development Services",
+    "LLM Application Development",
+    "LLM Integration Services",
+    "LangChain Consulting Services",
+    "LangChain Vector Database Integration",
+    "RAG Application Development",
+    "Multi-Agent LangGraph Development",
+    "LLM Orchestration Services",
+    "LangSmith Integration",
   ],
+
   alternates: {
-    canonical: "https://www.softreetechnology.com/solutions/lang-chain-development",
+    canonical:
+      "https://www.softreetechnology.com/solutions/lang-chain-development",
   },
+
   openGraph: {
-    title: "LangChain Development Services | Enterprise AI & LangGraph Partner | Softree Technology",
+    title:
+      "Offshore LangChain Development Services | LangChain AI Experts | Softree",
     description:
-      "Enterprise LangChain development services: RAG pipelines, LangGraph multi-agent workflows, tool integrations, enterprise guardrails, and LangSmith observability.",
+      "Build scalable AI applications with Softree's offshore LangChain development team. We develop RAG applications, AI agents, LangGraph workflows, LLM integrations, and intelligent AI applications.",
     url: "https://www.softreetechnology.com/solutions/lang-chain-development",
     type: "website",
     siteName: "Softree Technology",
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "LangChain Development Services | Enterprise AI & LangGraph Partner",
+    title:
+      "Offshore LangChain Development Services | Softree Technology",
     description:
-      "Production-ready LangChain and LangGraph AI development: Enterprise RAG, autonomous agents, vector search, and multi-model orchestration.",
+      "Build production-ready LangChain applications, RAG systems, AI agents, and LangGraph workflows with Softree's offshore AI engineering team.",
   },
 };
 
@@ -111,13 +124,14 @@ export default function LangChainDevelopmentPage() {
       <NavigationClient />
       <Hero />
       <TrustedBrandsMarquee surface="transparent" />
+      <NewWhoDoWeServeSection/>
       <WhatWeBuild />
       <SuccessStories />
-      <LangChainCardStack />
+      {/* <LangChainCardStack /> */}
       <ProvenResults />
       <Industries />
       <AiTechnologyStack />
-      <HowAIWorks />
+      <LangChainHowWeWork />
       <WhyChooseWithTestimonials />
       <LangChainFAQ />
       <LightContactSection />

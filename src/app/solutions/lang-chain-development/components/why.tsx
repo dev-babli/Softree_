@@ -96,18 +96,18 @@ export default function WhyChooseWithTestimonials() {
  
   return (
     <section className="text-gray-900 py-12 md:py-16 lg:py-20">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:items-stretch items-start">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 lg:items-stretch items-start">
         {/* ================= LEFT : WHY CHOOSE ================= */}
         <div className="relative">
           {/* Small Label */}
-          <div className="text-orange-600 text-xs uppercase tracking-[0.15em] mb-3">
+          <div className="typo-caption text-[#FF5812] uppercase mb-3 font-bold">
             Why Choose Softree
           </div>
  
           {/* Heading */}
-          <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-6">
+          <h2 className="typo-heading-2 mb-6 text-slate-900">
             Built for{" "}
-            <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
+            <span className="text-[#FF5812]">
               Long-Term Impact
             </span>
           </h2>

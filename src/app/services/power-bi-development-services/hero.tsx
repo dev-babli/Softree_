@@ -1,365 +1,112 @@
-'use client';
+"use client";
+import React from 'react';
+import TrustStrip from "@/components/sections/TrustStrip";
+import { BarsWave } from "@/components/ui/barswave";
+import { motion } from "framer-motion";
 
-import React, { useEffect, useRef } from 'react';
-import TrustStrip from '@/components/sections/TrustStrip';
+const PowerBIHero = () => {
+  return (
+    <>
+      <style>
+        {`
+          @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+          }
+          
+          .gradient-text {
+            background: linear-gradient(270deg, #FF5812, #FF8A50, #f59e0b, #FF5812);
+            background-size: 600% 600%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 12s ease infinite;
+          }
 
-export type AetherHeroProps = {
-  /* ---------- Hero content ---------- */
-  title?: React.ReactNode;
-  subtitle?: React.ReactNode;
-  eyebrow?: string;
-  ctaLabel?: string;
-  ctaHref?: string;
-  secondaryCtaLabel?: string;
-  secondaryCtaHref?: string;
+          @keyframes dotPulse {
+            0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 10px rgba(255,88,18,0.9); }
+            50% { opacity: 0.5; transform: scale(0.8); box-shadow: 0 0 3px rgba(255,88,18,0.4); }
+          }
+          .eyebrow-dot {
+            animation: dotPulse 2s ease-in-out infinite;
+          }
+        `}
+      </style>
+      
+      <div className="min-h-screen flex flex-col items-center justify-center bg-[#060403] text-white font-sans overflow-hidden relative">
+        {/* Animated Red-Orange Bars Wave Background - Reduced Height */}
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-85">
+          <BarsWave
+            barCount={16}
+            minHeight={8}
+            maxHeight={45}
+            variant="gradient"
+            animationDuration={2.6}
+            className="w-full h-full"
+          />
+        </div>
 
-  align?: 'left' | 'center' | 'right'; // Content alignment
-  maxWidth?: number; // px for text container (default 960)
-  overlayGradient?: string; // e.g. 'linear-gradient(180deg, #00000080, #00000020 40%, transparent)'
-  textColor?: string; // overlay text color (defaults to white)
+        {/* Ambient Red-Orange Radial Glow behind text */}
+        <div className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[480px] w-[700px] rounded-full bg-gradient-to-r from-[#DC2626]/15 via-[#FF5812]/20 to-[#FFA066]/15 blur-[140px] z-[1]" />
 
-  /* ---------- Canvas/shader ---------- */
-  fragmentSource?: string; // override the shader
-  dprMax?: number; // cap DPR (default 2)
-  clearColor?: [number, number, number, number];
+        {/* Top & Bottom Vignette Overlays for Maximum Contrast & Readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#060403] via-transparent to-[#060403]/70 z-[2] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#060403]/60 via-transparent to-[#060403]/60 z-[2] pointer-events-none" />
 
-  /* ---------- Misc ---------- */
-  height?: string | number; // default '100vh'
-  className?: string;
-  ariaLabel?: string;
+        {/* Hero Content Container (Centered) */}
+        <div className="container max-w-6xl text-center z-10 relative px-6 p-10 pt-32 pb-6 flex-grow flex flex-col justify-center items-center pointer-events-auto">
+          {/* Eyebrow Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2.5 bg-[#FF5812]/10 border border-[#FF5812]/35 text-[#FF5812] typo-caption px-4 py-1.5 rounded-full mb-8 shadow-[0_0_20px_-4px_rgba(255,88,18,0.3)] backdrop-blur-sm"
+          >
+            <div className="w-1.5 h-1.5 rounded-full bg-[#FF5812] eyebrow-dot" />
+            Power BI Offshore Technology Partner
+          </motion.div>
+
+          {/* Heading - 3 Lines, Reduced Font Size & Compact Width */}
+          <motion.h1
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="typo-heading-2 max-w-4xl mx-auto m-0 relative z-20 text-white font-extrabold tracking-tight leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]"
+          >
+            <span className="block">Your Trusted Offshore Power BI Team</span>
+            <span className="block">for Data Integration, Interactive Dashboards,</span>
+            <span className="gradient-text inline-block relative z-10 [text-shadow:none] mt-1">
+              Advanced Analytics & Actionable Business Insights
+            </span>
+          </motion.h1>
+
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-6 typo-description max-w-3xl mx-auto text-zinc-300 relative z-20 leading-relaxed"
+          >
+            Build, modernize, and scale Power BI solutions with an experienced offshore engineering team. We develop interactive dashboards, reports, data models, DAX solutions, data integrations, and AI-powered analytics that help businesses turn complex data into actionable insights.
+          </motion.p>
+        </div>
+
+        {/* Trust Strip - Stuck Directly to Bottom Border */}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.65, delay: 0.3 }}
+          className="w-full relative z-20 pb-0 px-4 sm:px-6 mt-auto max-w-7xl mx-auto [&>div]:!mt-0 [&>div]:!gap-3 sm:[&>div]:!gap-4"
+        >
+          <TrustStrip theme="dark" />
+        </motion.div>
+
+        {/* Subtle Bottom Glow Accent Line */}
+        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FF5812]/50 to-transparent z-10" />
+      </div>
+    </>
+  );
 };
 
-/* Default fragment shader (your original) */
-const DEFAULT_FRAG = `#version 300 es
-precision highp float;
-out vec4 O;
-uniform float time;
-uniform vec2 resolution;
-#define FC gl_FragCoord.xy
-#define R resolution
-#define T time
-#define S smoothstep
-#define MN min(R.x,R.y)
-float pattern(vec2 uv) {
-  float d=.0;
-  for (float i=.0; i<3.; i++) {
-    uv.x+=sin(T*(1.+i)+uv.y*1.5)*.2;
-    d+=.005/abs(uv.x);
-  }
-  return d;	
-}
-vec3 scene(vec2 uv) {
-  vec3 col=vec3(0);
-  uv=vec2(atan(uv.x,uv.y)*2./6.28318,-log(length(uv))+T);
-  for (float i=.0; i<3.; i++) {
-    int k=int(mod(i,3.));
-    col[k]+=pattern(uv+i*6./MN);
-  }
-  return col;
-}
-void main() {
-  vec2 uv=(FC-.5*R)/MN;
-  vec3 col=vec3(0);
-  float s=12., e=9e-4;
-  col+=e/(sin(uv.x*s)*cos(uv.y*s));
-  uv.y+=R.x>R.y?.5:.5*(R.y/R.x);
-  // col+=scene(uv);
-  O=vec4(col,1.);
-}`;
-
-/* Minimal passthrough vertex shader */
-const VERT_SRC = `#version 300 es
-precision highp float;
-in vec2 position;
-void main(){ gl_Position = vec4(position, 0.0, 1.0); }
-`;
-
-export default function AetherHero({
-  /* Content */
-  title = (
-    <>
-      Power BI Development Services <br className="hidden md:block" /> That Turn <span style={{ color: '#FF6B2C' }}>Data Into Decisions</span>
-    </>
-  ),
-  subtitle = (
-    <>
-      Build, modernize, and scale Power BI solutions with an experienced offshore engineering team. We develop interactive dashboards, reports, data models, DAX solutions, data integrations, and AI-powered analytics that help businesses turn complex data into actionable insights.
-    </>
-  ),
-  eyebrow = 'OFFSHORE POWER BI DEVELOPMENT SERVICES',
-  ctaLabel = 'Get Started',
-  ctaHref = '#',
-  secondaryCtaLabel,
-  secondaryCtaHref,
-
-  align = 'center',
-  maxWidth = 1100,
-  overlayGradient = 'linear-gradient(180deg, #00000099, #00000040 40%, transparent)',
-  textColor = '#ffffff',
-
-  /* Shader */
-  fragmentSource = DEFAULT_FRAG,
-  dprMax = 2,
-  clearColor = [0, 0, 0, 1],
-
-  /* Misc */
-  height = '100vh',
-  className = '',
-  ariaLabel = 'Aurora hero background',
-}: AetherHeroProps) {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const glRef = useRef<WebGL2RenderingContext | null>(null);
-  const programRef = useRef<WebGLProgram | null>(null);
-  const bufRef = useRef<WebGLBuffer | null>(null);
-  const uniTimeRef = useRef<WebGLUniformLocation | null>(null);
-  const uniResRef = useRef<WebGLUniformLocation | null>(null);
-  const rafRef = useRef<number | null>(null);
-
-  // Compile helpers
-  const compileShader = (gl: WebGL2RenderingContext, src: string, type: number) => {
-    const sh = gl.createShader(type)!;
-    gl.shaderSource(sh, src);
-    gl.compileShader(sh);
-    if (!gl.getShaderParameter(sh, gl.COMPILE_STATUS)) {
-      const info = gl.getShaderInfoLog(sh) || 'Unknown shader error';
-      gl.deleteShader(sh);
-      throw new Error(info);
-    }
-    return sh;
-  };
-  const createProgram = (gl: WebGL2RenderingContext, vs: string, fs: string) => {
-    const v = compileShader(gl, vs, gl.VERTEX_SHADER);
-    const f = compileShader(gl, fs, gl.FRAGMENT_SHADER);
-    const prog = gl.createProgram()!;
-    gl.attachShader(prog, v);
-    gl.attachShader(prog, f);
-    gl.linkProgram(prog);
-    gl.deleteShader(v);
-    gl.deleteShader(f);
-    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
-      const info = gl.getProgramInfoLog(prog) || 'Program link error';
-      gl.deleteProgram(prog);
-      throw new Error(info);
-    }
-    return prog;
-  };
-
-  // Init GL
-  useEffect(() => {
-    const canvas = canvasRef.current!;
-    const gl = canvas.getContext('webgl2', { alpha: true, antialias: true });
-    if (!gl) return;
-    glRef.current = gl;
-
-    // Program
-    let prog: WebGLProgram;
-    try {
-      prog = createProgram(gl, VERT_SRC, fragmentSource);
-    } catch (e) {
-      console.error(e);
-      return;
-    }
-    programRef.current = prog;
-
-    // Buffer
-    const verts = new Float32Array([-1, 1, -1, -1, 1, 1, 1, -1]);
-    const buf = gl.createBuffer()!;
-    bufRef.current = buf;
-    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-    gl.bufferData(gl.ARRAY_BUFFER, verts, gl.STATIC_DRAW);
-
-    // Attributes/uniforms
-    gl.useProgram(prog);
-    const posLoc = gl.getAttribLocation(prog, 'position');
-    gl.enableVertexAttribArray(posLoc);
-    gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
-
-    uniTimeRef.current = gl.getUniformLocation(prog, 'time');
-    uniResRef.current = gl.getUniformLocation(prog, 'resolution');
-
-    // Clear color
-    gl.clearColor(clearColor[0], clearColor[1], clearColor[2], clearColor[3]);
-
-    // Size & DPR
-    const fit = () => {
-      const dpr = Math.max(1, Math.min(window.devicePixelRatio || 1, dprMax));
-      const rect = canvas.getBoundingClientRect();
-      const cssW = Math.max(1, rect.width);
-      const cssH = Math.max(1, rect.height);
-      const W = Math.floor(cssW * dpr);
-      const H = Math.floor(cssH * dpr);
-      if (canvas.width !== W || canvas.height !== H) {
-        canvas.width = W; canvas.height = H;
-      }
-      gl.viewport(0, 0, canvas.width, canvas.height);
-    };
-    fit();
-    const onResize = () => fit();
-    const ro = new ResizeObserver(fit);
-    ro.observe(canvas);
-    window.addEventListener('resize', onResize);
-
-    // RAF & Visibility Optimization
-    let isVisible = true;
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        isVisible = entry.isIntersecting;
-        if (isVisible && !rafRef.current) {
-          rafRef.current = requestAnimationFrame(loop);
-        }
-      });
-    }, { threshold: 0.05 });
-    io.observe(canvas);
-
-    const loop = (now: number) => {
-      if (!isVisible) {
-        rafRef.current = null;
-        return;
-      }
-      gl.clear(gl.COLOR_BUFFER_BIT);
-      gl.useProgram(prog);
-      gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-      if (uniResRef.current) gl.uniform2f(uniResRef.current, canvas.width, canvas.height);
-      if (uniTimeRef.current) gl.uniform1f(uniTimeRef.current, now * 1e-3);
-      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-      rafRef.current = requestAnimationFrame(loop);
-    };
-    rafRef.current = requestAnimationFrame(loop);
-
-    // Cleanup
-    return () => {
-      io.disconnect();
-      ro.disconnect();
-      window.removeEventListener('resize', onResize);
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-      if (bufRef.current) gl.deleteBuffer(bufRef.current);
-      if (programRef.current) gl.deleteProgram(programRef.current);
-    };
-  }, [fragmentSource, dprMax, clearColor]);
-
-  const justify =
-    align === 'left' ? 'flex-start' : align === 'right' ? 'flex-end' : 'center';
-  const textAlign =
-    align === 'left' ? 'left' : align === 'right' ? 'right' : 'center';
-
-  return (
-    <section
-      className={['aurora-hero', className].join(' ')}
-      style={{ 
-        minHeight: height,
-        height: 'auto',
-        display: 'flex',
-        flexDirection: 'column',
-        position: 'relative', 
-        overflow: 'hidden' 
-      }}
-      aria-label="Hero"
-    >
-      {/* Shader canvas (background) */}
-      <canvas
-        ref={canvasRef}
-        className="aurora-canvas"
-        role="img"
-        aria-label={ariaLabel}
-        style={{
-          position: 'absolute',
-          inset: 0,
-          width: '100%',
-          height: '100%',
-          display: 'block',
-          userSelect: 'none',
-          touchAction: 'none',
-        }}
-      />
-
-      {/* Overlay gradient for readability */}
-      <div
-        className="aurora-overlay"
-        aria-hidden="true"
-        style={{
-          position: 'absolute',
-          inset: 0,
-          background: overlayGradient,
-          pointerEvents: 'none',
-        }}
-      />
-
-      {/* Content layer */}
-      <div
-        className="aurora-content"
-        style={{
-          position: 'relative',
-          zIndex: 2,
-          flex: 1,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: justify,
-          padding: '120px min(6vw, 64px) 60px min(6vw, 64px)', // extra padding for header & spacing
-          color: textColor,
-          fontFamily: "'Space Grotesk', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial",
-        }}
-      >
-        <div
-          style={{
-            width: '100%',
-            maxWidth,
-            marginInline: align === 'center' ? 'auto' : undefined,
-            textAlign,
-          }}
-        >
-          {eyebrow ? (
-            <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-3.5 py-1 rounded-full border border-white/60 mb-6 inline-block">
-              <span className="text-xs font-semibold tracking-wider text-[#FF6B2C] uppercase">
-                {eyebrow}
-              </span>
-            </div>
-          ) : null}
-
-          <h1
-            style={{
-              margin: 0,
-              fontSize: 'clamp(2.2rem, 6vw, 4.5rem)',
-              lineHeight: 1.04,
-              letterSpacing: '-0.02em',
-              fontWeight: 700,
-              textShadow: '0 6px 36px rgba(0,0,0,0.45)',
-            }}
-          >
-            {title}
-          </h1>
-
-          {subtitle ? (
-            <p
-              style={{
-                marginTop: '1rem',
-                fontSize: 'clamp(1rem, 2vw, 1.25rem)',
-                lineHeight: 1.6,
-                opacity: 0.9,
-                textShadow: '0 4px 24px rgba(0,0,0,0.35)',
-                maxWidth: 1000,
-                marginInline: align === 'center' ? 'auto' : undefined,
-              }}
-            >
-              {subtitle}
-            </p>
-          ) : null}
-        </div>
-      </div>
-
-      {/* TrustStrip at the bottom */}
-      <div
-        style={{
-          position: 'relative',
-          zIndex: 2,
-          width: '100%',
-          paddingBottom: '3rem',
-          marginTop: 'auto',
-        }}
-      >
-        <TrustStrip theme="dark" />
-      </div>
-    </section>
-  );
-}
-
-export { AetherHero };
+export default PowerBIHero;
+export { PowerBIHero };

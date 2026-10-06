@@ -66,7 +66,7 @@ export const SCROLL_GALLERY_STUDIO_CLASSES = {
 } as const;
 
 export interface ScrollGallerySlide {
-  image: string;
+  image?: string;
   linkLabel?: string;
   title: string;
   url?: string;
@@ -75,6 +75,10 @@ export interface ScrollGallerySlide {
   description?: string;
   howSoftreeHelps?: string;
   highlights?: string[];
+  number?: string;
+  deliverables?: string[];
+  techTags?: string[];
+  impact?: string;
 }
 
 export interface ScrollGalleryTiming {
@@ -114,6 +118,7 @@ export interface ScrollGalleryClassNames {
 }
 
 export interface ScrollGalleryProps {
+  background?: React.ReactNode;
   className?: string;
   classNames?: ScrollGalleryClassNames;
   containerQuery?: boolean;
@@ -335,6 +340,7 @@ function imageScaleStyle(scale: number): CSSProperties {
 }
 
 export function ScrollGallery({
+  background,
   slides,
   stripsCount = 20,
   scrollPerTransition = 1000,
@@ -438,12 +444,16 @@ export function ScrollGallery({
       const mountGallery = async () => {
         const section = sectionRef.current;
         const scrollRoot = embedded ? trackRef.current : sectionRef.current;
+        const hasImages = slides.some((s) => Boolean(s.image));
         const slideImages = slideImagesRef.current;
         const titleElement = titleRef.current;
         const exploreLink = exploreLinkRef.current;
         const firstSlideImg = firstImgRef.current;
 
-        if (!(section && slideImages && firstSlideImg && scrollRoot)) {
+        if (!(section && scrollRoot)) {
+          return;
+        }
+        if (hasImages && !(slideImages && firstSlideImg)) {
           return;
         }
         if (showInfoBand && !titleElement) {
@@ -481,7 +491,10 @@ export function ScrollGallery({
 
         const stripBounds = createStripBounds(stripsCount);
         const totalSlides = slides.length;
-        const setFirstImgScale = createScaleSetter(firstSlideImg, scaleFrom);
+        const setFirstImgScale =
+          hasImages && firstSlideImg
+            ? createScaleSetter(firstSlideImg, scaleFrom)
+            : null;
 
         interface SlideLayer {
           img: HTMLImageElement;
@@ -492,27 +505,30 @@ export function ScrollGallery({
 
         const slideLayers: SlideLayer[] = [];
 
-        for (let i = 1; i < totalSlides; i++) {
-          const imgContainer = document.createElement("div");
-          imgContainer.style.cssText = IMAGE_CONTAINER_STYLE;
+        if (hasImages && slideImages) {
+          for (let i = 1; i < totalSlides; i++) {
+            if (!slides[i].image) continue;
+            const imgContainer = document.createElement("div");
+            imgContainer.style.cssText = IMAGE_CONTAINER_STYLE;
 
-          const img = document.createElement("img");
-          img.style.cssText = MASKED_IMAGE_STYLE;
-          img.src = slides[i].image;
-          img.alt = slides[i].title;
-          img.decoding = "async";
-          setMaskImage(img, MASK_HIDDEN);
+            const img = document.createElement("img");
+            img.style.cssText = MASKED_IMAGE_STYLE;
+            img.src = slides[i].image || "";
+            img.alt = slides[i].title;
+            img.decoding = "async";
+            setMaskImage(img, MASK_HIDDEN);
 
-          imgContainer.appendChild(img);
-          slideImages.appendChild(imgContainer);
-          createdContainers.push(imgContainer);
+            imgContainer.appendChild(img);
+            slideImages.appendChild(imgContainer);
+            createdContainers.push(imgContainer);
 
-          slideLayers.push({
-            transitionIndex: i - 1,
-            img,
-            setScale: createScaleSetter(img, scaleFrom),
-            revealState: "hidden",
-          });
+            slideLayers.push({
+              transitionIndex: i - 1,
+              img,
+              setScale: createScaleSetter(img, scaleFrom),
+              revealState: "hidden",
+            });
+          }
         }
 
         const transitionCount = totalSlides - 1;
@@ -702,9 +718,11 @@ export function ScrollGallery({
             }
           }
 
-          setFirstImgScale(
-            getScaleForImage(0, currentImageIndex, imageSpecificProgress),
-          );
+          if (setFirstImgScale) {
+            setFirstImgScale(
+              getScaleForImage(0, currentImageIndex, imageSpecificProgress),
+            );
+          }
 
           for (const layer of slideLayers) {
             const { transitionIndex, setScale } = layer;
@@ -819,6 +837,7 @@ export function ScrollGallery({
         linkLabel,
         embedded,
         refreshPriority,
+        background,
       ],
     },
   );
@@ -826,6 +845,7 @@ export function ScrollGallery({
   const firstSlide = slides[0];
   const initialLinkLabel = firstSlide?.linkLabel ?? linkLabel;
   const initialImageScale = scrollConfig.timing.scaleFrom;
+  const hasImages = slides.some((s) => Boolean(s.image));
 
   const trackStyle = {
     "--sg-scroll-vh": scrollDistanceVh,
@@ -841,19 +861,25 @@ export function ScrollGallery({
       )}
       ref={sectionRef}
     >
-      <div className={classes.images} ref={slideImagesRef}>
-        <div className={classes.imageFrame}>
-          {firstSlide ? (
-            <img
-              alt={firstSlide.title}
-              className={classes.image}
-              ref={firstImgRef}
-              src={firstSlide.image}
-              style={imageScaleStyle(initialImageScale)}
-            />
-          ) : null}
+      {background ? (
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          {background}
         </div>
-      </div>
+      ) : hasImages ? (
+        <div className={classes.images} ref={slideImagesRef}>
+          <div className={classes.imageFrame}>
+            {firstSlide?.image ? (
+              <img
+                alt={firstSlide.title}
+                className={classes.image}
+                ref={firstImgRef}
+                src={firstSlide.image}
+                style={imageScaleStyle(initialImageScale)}
+              />
+            ) : null}
+          </div>
+        </div>
+      ) : null}
 
       {showInfoBand && firstSlide ? (
         <div className={classes.info}>

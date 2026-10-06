@@ -199,26 +199,20 @@ export default function BusinessOutcomes() {
 
   return (
     <section className="relative overflow-hidden bg-transparent py-12 lg:py-16">
-      <div className="relative mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
         
         {/* Header */}
-        <div className="mx-auto mb-8 max-w-5xl text-center md:mb-10">
-          <div className="mb-4 flex items-center justify-center gap-4 md:gap-6">
-            <div className="flex items-center relative h-[1.5px] w-10 sm:w-16 bg-[#FF5812]">
-              <div className="absolute left-0 w-1.5 h-1.5 sm:w-2 sm:h-2 rotate-45 bg-[#FF5812] -translate-x-1/2"></div>
-            </div>
-            <span className="text-[#FF5812] font-bold tracking-[0.2em] text-[11px] uppercase">
+        <div className="mx-auto mb-8 max-w-5xl text-center md:mb-10 flex flex-col items-center">
+          <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-3.5 py-1 rounded-full border border-white/60 mb-4 inline-block">
+            <span className="typo-caption text-[#FF5812] uppercase font-bold">
               BUSINESS OUTCOMES
             </span>
-            <div className="flex items-center relative h-[1.5px] w-10 sm:w-16 bg-[#FF5812]">
-              <div className="absolute right-0 w-1.5 h-1.5 sm:w-2 sm:h-2 rotate-45 bg-[#FF5812] translate-x-1/2"></div>
-            </div>
           </div>
-          <h2 className="text-2xl md:text-4xl lg:text-[2.25rem] font-extrabold text-gray-900 tracking-tight mb-6 max-w-5xl mx-auto leading-tight">
+          <h2 className="typo-heading-2 text-slate-900 mb-4 max-w-5xl mx-auto text-center">
             Turn LangChain Development into Measurable{" "}
             <span className="text-[#FF5812]">Business Outcomes</span>
           </h2>
-          <p className="text-[15px] lg:text-base text-gray-500 max-w-3xl mx-auto leading-relaxed">
+          <p className="typo-description text-slate-500 max-w-3xl mx-auto text-center">
             Softree LangChain development services help enterprises deploy production chains and agents, ground answers with enterprise RAG, connect tools and systems, and control cost and risk with evals and observability.
           </p>
         </div>
@@ -263,7 +257,7 @@ export default function BusinessOutcomes() {
 
         {/* Carousel Area */}
         <div 
-          className="relative mx-auto max-w-[85rem] px-0 sm:px-12 lg:px-16"
+          className="relative mx-auto max-w-[1600px] px-0 sm:px-12 lg:px-16"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
