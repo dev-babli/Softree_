@@ -33,7 +33,7 @@ const HeroSection = () => {
         `}
       </style>
       
-      <div className="min-h-screen flex flex-col items-center justify-center bg-[#060403] text-white font-sans overflow-hidden relative">
+      <div className="min-h-screen flex flex-col justify-between items-center bg-[#060403] text-white font-sans overflow-hidden relative">
         {/* Animated Red-Orange Bars Wave Background - Reduced Height */}
         <div className="absolute inset-0 z-0 pointer-events-none opacity-85">
           <BarsWave
@@ -53,14 +53,14 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-[#060403] via-transparent to-[#060403]/70 z-[2] pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#060403]/60 via-transparent to-[#060403]/60 z-[2] pointer-events-none" />
 
-        {/* Hero Content Container (Centered) */}
-        <div className="container max-w-6xl text-center z-10 relative px-6 p-10 pt-32 pb-6 flex-grow flex flex-col justify-center items-center pointer-events-auto">
+        {/* Hero Content Container (Positioned from top below navbar) */}
+        <div className="container max-w-6xl text-center z-10 relative px-6 pt-28 sm:pt-32 pb-4 flex-1 flex flex-col justify-start items-center pointer-events-auto">
           {/* Eyebrow Badge */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2.5 bg-[#FF5812]/10 border border-[#FF5812]/35 text-[#FF5812] typo-caption px-4 py-1.5 rounded-full mb-8 shadow-[0_0_20px_-4px_rgba(255,88,18,0.3)] backdrop-blur-sm"
+            className="inline-flex items-center gap-2.5 bg-[#FF5812]/10 border border-[#FF5812]/35 text-[#FF5812] typo-caption px-4 py-1.5 rounded-full mb-5 shadow-[0_0_20px_-4px_rgba(255,88,18,0.3)] backdrop-blur-sm"
           >
             <div className="w-1.5 h-1.5 rounded-full bg-[#FF5812] eyebrow-dot" />
             Microsoft Fabric Offshore Technology Partner
