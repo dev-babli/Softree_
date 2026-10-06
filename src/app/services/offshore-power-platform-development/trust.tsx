@@ -1,7 +1,7 @@
 "use client";
 
 type TrustedBrandsMarqueeProps = {
-  surface?: "legacy" | "light" | "transparent";
+  surface?: "legacy" | "light" | "transparent" | "white";
   items?: Array<{ name: string; src?: string }>;
   title?: string;
 };

@@ -1,18 +1,15 @@
 import React from "react";
 import type { Metadata } from "next";
-import { Hero } from "./components/Hero";
 import { LanggraphHero } from "./components/LanggraphHero";
 import LangGraphWhatWeBuild from "./components/LangGraphWhatWeBuild";
-import BusinessChallenges from "./components/BusinessChallenges";
-import BusinessOutcomes from "./components/BusinessOutcomes";
-import ProvenResults from "./components/ProvenResults";
-import CoreCapabilities from "./components/CoreCapabilities";
-import HowAIWorks from "./components/HowAIWorks";
-import AiTechnologyStack from "./components/AiTechnologyStack";
-import Industries from "./components/Industries";
-import { SuccessStories } from "./components/SuccessStories";
-import LangGraphSuccessStories from "./components/SuccessStories/LangGraphSuccessStories";
 import LangGraphTechnologyStack from "./components/LangGraphTechnologyStack";
+import LangGraphSuccessStories from "./components/SuccessStories/LangGraphSuccessStories";
+import { LanggraphServices } from "./components/LanggraphServices";
+import LanggraphWhoDoWeServeSection from "./components/LanggraphWhoDoWeServeSection";
+import ProvenResults from "./components/ProvenResults";
+import HowAIWorks from "./components/HowAIWorks";
+import { LanggraphHowWeWork } from "./components/LanggraphHowWeWork";
+import Industries from "./components/Industries";
 import LangGraphFAQ from "./components/LangGraphFAQ";
 import NavigationClient from "@/components/sections/navigation-client";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
@@ -31,18 +28,15 @@ export default function LangGraphDevelopmentPage() {
     <main className="min-h-screen w-full overflow-x-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50 font-sans text-base text-[#0A0F3C] antialiased">
       <NavigationClient />
       <LanggraphHero />
-      {/* <Hero /> */}
-      <TrustedBrandsMarquee surface="light" />
+      <TrustedBrandsMarquee surface="white" />
+      <LanggraphServices />
+      <LanggraphWhoDoWeServeSection />
       <LangGraphWhatWeBuild />
       <LangGraphSuccessStories />
-      <LangGraphTechnologyStack />
-      {/* <SuccessStories /> */}
-      {/* <CoreCapabilities /> */}
-      {/* <BusinessChallenges /> */}
-      {/* <BusinessOutcomes /> */}
       <ProvenResults />
       <Industries />
-      {/* <AiTechnologyStack /> */}
+      <LangGraphTechnologyStack />
+      <LanggraphHowWeWork />
       <HowAIWorks />
       <WhyChooseWithTestimonials />
       <LangGraphFAQ />

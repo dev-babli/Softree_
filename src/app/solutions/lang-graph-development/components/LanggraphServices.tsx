@@ -8,44 +8,44 @@ import dynamic from 'next/dynamic';
 
 const NetworkGlobe = dynamic(() => import('@/app/services/ai-development-services/components/NetworkGlobe'), { ssr: true });
 
-export const LangchainServices = ({ simple = false }: { simple?: boolean }) => {
+export const LanggraphServices = ({ simple = false }: { simple?: boolean }) => {
   const items = [
     {
       title: "Consulting Firms",
-      desc: "Extend your AI delivery capabilities with an experienced offshore LangChain development team.",
-      subdesc: "Add LangChain expertise to your consulting engagements with support for RAG applications, AI agents, LangGraph workflows, tool integrations, and production deployment.",
+      desc: "Extend your AI delivery capabilities with an experienced offshore LangGraph development team.",
+      subdesc: "Add LangGraph expertise to your consulting engagements with support for stateful AI agents, multi-agent workflows, RAG, tool calling, and production deployment.",
       icon: Building,
       color: "text-[#FF6B2C]",
       bg: "bg-orange-50",
     },
     {
       title: "System Integrators",
-      desc: "Add LangChain engineering expertise to your existing client engagements.",
-      subdesc: "Strengthen your delivery teams with LangChain specialists supporting AI application development, RAG, agent workflows, enterprise integrations, evaluation, and ongoing engineering.",
+      desc: "Add LangGraph engineering expertise to your existing AI and automation projects.",
+      subdesc: "Strengthen your delivery teams with LangGraph specialists supporting agent orchestration, human-in-the-loop workflows, enterprise integrations, evaluation, and production engineering.",
       icon: Settings,
       color: "text-[#FF6B2C]",
       bg: "bg-orange-50",
     },
     {
       title: "Technology & Product Companies",
-      desc: "Accelerate AI product development with dedicated LangChain engineering capacity.",
-      subdesc: "Build LangChain-powered applications, RAG solutions, AI agents, and intelligent workflows with an engineering team aligned to your product roadmap.",
+      desc: "Accelerate AI product development with dedicated LangGraph engineering capacity.",
+      subdesc: "Build stateful AI agents, multi-agent systems, intelligent workflows, and tool-enabled applications with an engineering team aligned to your product roadmap.",
       icon: Code,
       color: "text-[#FF6B2C]",
       bg: "bg-orange-50",
     },
     {
       title: "Microsoft & AI Technology Partners",
-      desc: "Extend your AI and cloud solutions with LangChain development expertise.",
-      subdesc: "Integrate LangChain with enterprise data, APIs, databases, AI platforms, and business applications to deliver scalable AI solutions for your clients.",
+      desc: "Extend your AI solutions with specialized LangGraph development expertise.",
+      subdesc: "Integrate LangGraph agent workflows with enterprise data, APIs, databases, RAG systems, and AI platforms to deliver scalable production AI solutions.",
       icon: Blocks,
       color: "text-[#FF6B2C]",
       bg: "bg-orange-50",
     },
     {
       title: "Enterprises",
-      desc: "Build, modernize, and scale enterprise AI applications with LangChain.",
-      subdesc: "From LangChain architecture and RAG development to agent workflows, integrations, evaluation, and production optimization, Softree provides the engineering capacity to move from requirements to production.",
+      desc: "Build, modernize, and scale enterprise AI agents with LangGraph.",
+      subdesc: "From LangGraph architecture and stateful agent workflows to multi-agent orchestration, tool integrations, evaluation, and production optimization, Softree provides the engineering capacity to move from requirements to production.",
       icon: Building2,
       color: "text-[#FF6B2C]",
       bg: "bg-orange-50",
@@ -68,11 +68,11 @@ export const LangchainServices = ({ simple = false }: { simple?: boolean }) => {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 lg:gap-x-16 gap-y-4 items-start">
                 <h2 className="typo-heading-2 text-slate-900 pr-4">
-                  LangChain Development Services <span className="text-[#FF6B2C]">for Technology Teams & Partners</span>
+                  LangGraph Development Services <span className="text-[#FF6B2C]">for AI Teams & Technology Partners</span>
                 </h2>
 
                 <p className="typo-description text-slate-500 w-full pt-1.5">
-                  We help businesses, technology companies, agencies, consultancies, and system integrators design, build, and scale LangChain solutions—from RAG architectures and AI agents to intelligent workflows—using our dedicated teams.
+                  We help businesses, technology companies, agencies, consultancies, and system integrators design, build, and scale LangGraph solutions—from stateful agent workflows and multi-agent orchestration to enterprise integrations—using our dedicated teams.
                 </p>
               </div>
             </div>
@@ -110,7 +110,7 @@ export const LangchainServices = ({ simple = false }: { simple?: boolean }) => {
             {/* Single Section-Level CTA Below */}
             <div className="pt-4 mt-auto border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
               <p className="typo-body text-slate-700 text-center sm:text-left">
-                Ready to scale your LangChain development capabilities?
+                Ready to scale your LangGraph engineering capabilities?
               </p>
               <FlowButton
                 href="/contact"

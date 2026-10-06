@@ -17,6 +17,7 @@ import LightContactSection from "@/components/homepage-light/LightContactSection
 import Footer from "@/components/sections/footer";
 import WhyChooseWithTestimonials from "./components/why";
 import TrustedBrandsMarquee from "./components/trust";
+import { LangchainServices } from "./components/LangChainServices";
 import NewWhoDoWeServeSection from "@/components/sections/NewWhoDoWeServeSection";
 export const metadata: Metadata = {
   title:
@@ -124,7 +125,8 @@ export default function LangChainDevelopmentPage() {
       <NavigationClient />
       <Hero />
       <TrustedBrandsMarquee surface="transparent" />
-      <NewWhoDoWeServeSection/>
+      <LangchainServices />
+      <NewWhoDoWeServeSection className="bg-white" />
       <WhatWeBuild />
       <SuccessStories />
       {/* <LangChainCardStack /> */}

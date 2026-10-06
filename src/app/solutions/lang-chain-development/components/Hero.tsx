@@ -10,7 +10,7 @@ export const Hero: React.FC = () => {
   const { label, heading, paragraph } = HERO_DATA;
 
   return (
-    <section className="relative flex min-h-[auto] w-full flex-col justify-center overflow-hidden bg-[#060403] font-sans text-white pt-24 pb-8 sm:pt-28 sm:pb-10 lg:min-h-[85svh] lg:pt-32 lg:pb-12">
+    <section className="relative flex min-h-[auto] w-full flex-col overflow-hidden bg-[#060403] font-sans text-white pt-24 pb-4 sm:pt-28 sm:pb-6 lg:min-h-[85svh] lg:pt-32 lg:pb-6">
       {/* WebGL Plasma Grid Shader Background in Orange Shade (Smooth Untwisted Waves) */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <ShaderBackground
@@ -32,74 +32,78 @@ export const Hero: React.FC = () => {
       <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-[#060403]/85 via-[#060403]/40 to-transparent" />
       <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-[#060403] via-transparent to-[#060403]/40" />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[1600px] flex-col gap-6 px-6 sm:gap-8 sm:px-8 lg:px-12">
-        {/* Top Badge with Live Beacon Animation */}
-        <motion.div
-          initial={{ opacity: 0, y: 14, scale: 0.96 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          whileHover={{ scale: 1.03 }}
-          className="inline-flex items-center gap-2.5 self-start rounded-full bg-[#FF5812] px-3.5 py-1.5 shadow-[0_4px_24px_-4px_rgba(255,88,18,0.55)] cursor-default"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
-          </span>
-          <span className="typo-caption font-bold text-white tracking-wide">
-            {label}
-          </span>
-        </motion.div>
+      <div className="relative z-10 mx-auto flex w-full max-w-[1600px] flex-1 flex-col px-6 sm:px-8 lg:px-12">
+        
+        {/* Main Content Centered */}
+        <div className="flex flex-1 flex-col justify-center gap-6 sm:gap-8 pt-4 pb-12 lg:pt-8 lg:pb-16">
+          {/* Top Badge with Live Beacon Animation */}
+          <motion.div
+            initial={{ opacity: 0, y: 14, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            whileHover={{ scale: 1.03 }}
+            className="inline-flex items-center gap-2.5 self-start rounded-full bg-[#FF5812] px-3.5 py-1.5 shadow-[0_4px_24px_-4px_rgba(255,88,18,0.55)] cursor-default"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
+            </span>
+            <span className="typo-caption font-bold text-white tracking-wide">
+              {label}
+            </span>
+          </motion.div>
 
-        {/* Two-Column Editorial Layout: Title Left, Description Right — perfectly aligned from top */}
-        <div className="grid grid-cols-1 items-start gap-x-12 gap-y-6 lg:grid-cols-12 xl:gap-x-20">
-          {/* Left Column - 3-Line Heading with Staggered Kinetic Line Reveal */}
-          <div className="flex flex-col lg:col-span-7 xl:col-span-7">
-            <h1 className="typo-heading-2 text-white leading-tight font-extrabold">
-              {/* Line 1 */}
-              <motion.span
-                initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
+          {/* Two-Column Editorial Layout: Title Left, Description Right — perfectly aligned from top */}
+          <div className="grid grid-cols-1 items-start gap-x-12 gap-y-6 lg:grid-cols-12 xl:gap-x-20">
+            {/* Left Column - 3-Line Heading with Staggered Kinetic Line Reveal */}
+            <div className="flex flex-col lg:col-span-7 xl:col-span-7">
+              <h1 className="typo-heading-2 text-white leading-tight font-extrabold">
+                {/* Line 1 */}
+                <motion.span
+                  initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ duration: 0.6, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+                  className="block"
+                >
+                  LangChain Development Services
+                </motion.span>
+
+                {/* Line 2 */}
+                <motion.span
+                  initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ duration: 0.6, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
+                  className="block"
+                >
+                  from an{" "}
+                  <span className="text-[#FF5812] drop-shadow-[0_0_25px_rgba(255,88,18,0.45)]">
+                    Offshore
+                  </span>
+                </motion.span>
+
+                {/* Line 3 */}
+                <motion.span
+                  initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ duration: 0.6, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
+                  className="block text-[#FF5812] drop-shadow-[0_0_30px_rgba(255,88,18,0.5)]"
+                >
+                  AI Engineering Team
+                </motion.span>
+              </h1>
+            </div>
+
+            {/* Right Column - Description starting at same height */}
+            <div className="flex flex-col justify-start lg:col-span-5 xl:col-span-5 lg:pt-1.5">
+              <motion.p
+                initial={{ opacity: 0, y: 18, filter: "blur(4px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ duration: 0.6, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-                className="block"
+                transition={{ duration: 0.65, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
+                className="typo-description-sm text-zinc-300 leading-relaxed max-w-xl"
               >
-                LangChain Development Services
-              </motion.span>
-
-              {/* Line 2 */}
-              <motion.span
-                initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ duration: 0.6, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
-                className="block"
-              >
-                from an{" "}
-                <span className="text-[#FF5812] drop-shadow-[0_0_25px_rgba(255,88,18,0.45)]">
-                  Offshore
-                </span>
-              </motion.span>
-
-              {/* Line 3 */}
-              <motion.span
-                initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ duration: 0.6, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
-                className="block text-[#FF5812] drop-shadow-[0_0_30px_rgba(255,88,18,0.5)]"
-              >
-                AI Engineering Team
-              </motion.span>
-            </h1>
-          </div>
-
-          {/* Right Column - Description starting at same height */}
-          <div className="flex flex-col justify-start lg:col-span-5 xl:col-span-5 lg:pt-1.5">
-            <motion.p
-              initial={{ opacity: 0, y: 18, filter: "blur(4px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{ duration: 0.65, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
-              className="typo-description-sm text-zinc-300 leading-relaxed max-w-xl"
-            >
-              {paragraph}
-            </motion.p>
+                {paragraph}
+              </motion.p>
+            </div>
           </div>
         </div>
 
@@ -108,7 +112,7 @@ export const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.42, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full pt-2 lg:pt-4 [&>div]:!mt-0 [&>div]:!gap-4 sm:[&>div]:!gap-6"
+          className="w-full mt-auto [&>div]:!mt-0 [&>div]:!gap-4 sm:[&>div]:!gap-6"
         >
           <TrustStrip theme="dark" />
         </motion.div>

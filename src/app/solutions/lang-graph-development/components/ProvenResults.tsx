@@ -1,9 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import { AlertCircle, Compass, CheckCircle2 } from "lucide-react";
-import SectionBadge from "./SectionBadge";
 
 const provenResults = [
   {
@@ -45,27 +43,26 @@ const provenResults = [
 
 export default function ProvenResults() {
   return (
-    <section className="relative w-full overflow-hidden bg-white py-12 font-sans lg:py-16">
-      <div className="relative z-10 mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8">
+    <section className="bg-white pt-8 md:pt-12 pb-8 md:pb-12 text-slate-900 scroll-mt-24 relative overflow-hidden">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="mb-8 flex flex-col items-center text-center lg:mb-10"
-        >
-          <SectionBadge text="PROVEN RESULTS" variant="line" />
-          <h2 className="mt-4 mb-4 text-2xl font-extrabold leading-tight tracking-tight text-[#111827] md:text-4xl lg:text-[42px]">
-            Delivering Proven LangGraph Development With{" "}
-            <span className="text-[#FF5812]">Measurable Impact</span>
-          </h2>
-          <p className="mx-auto max-w-2xl text-[15px] leading-relaxed text-[#6B7280] lg:text-[17px]">
-            Explore how Softree LangGraph development services drive grounded
-            answers, reliable agent workflows, and tangible ROI for enterprise
-            clients.
-          </p>
-        </motion.div>
+        <div className="flex flex-col mb-8 sm:mb-12">
+          <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-3.5 py-1 rounded-full border border-white/60 mb-4 inline-block self-start">
+            <span className="typo-caption text-[#FF5812] uppercase">
+              PROVEN RESULTS
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 lg:gap-x-24 gap-y-6 items-start">
+            <h2 className="typo-heading-2 text-slate-900 lg:pr-12 xl:pr-24">
+              Delivering Proven LangGraph Development With <span className="text-[#FF5812]">Measurable Impact</span>
+            </h2>
+
+            <p className="typo-description text-slate-500 w-full pt-1.5 lg:max-w-xl">
+              Explore how Softree LangGraph development services drive grounded answers, reliable agent workflows, and tangible ROI for enterprise clients.
+            </p>
+          </div>
+        </div>
 
         {/* 3-Column Grid */}
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 xl:gap-10">
