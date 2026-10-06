@@ -1,6 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import { Hero } from "./components/Hero";
+
 import BusinessChallenges from "./components/BusinessChallenges";
 import BusinessOutcomes from "./components/BusinessOutcomes";
 import ProvenResults from "@/components/sections/ProvenResults";
@@ -26,6 +27,7 @@ export default function AIChatbotDevelopmentPage() {
   return (
     <main className="min-h-screen w-full overflow-x-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50 font-sans text-base text-[#0A0F3C] antialiased">
       <NavigationClient />
+
       <Hero />
       <TrustedBrandsMarquee surface="light" />
       <SuccessStories />
