@@ -152,7 +152,7 @@ export function MegaMenuPanel({
       }`}
     >
       {/* Left rail — stretches full height */}
-      <div className="relative hidden w-[260px] shrink-0 overflow-hidden md:block">
+      <div className="relative hidden w-[240px] shrink-0 overflow-hidden md:block">
         {/* Render each gradient as a layer and fade between them smoothly to prevent WebGL context compilation lag */}
         {Object.entries(FALLBACK_GRADIENTS).map(([key, grad]) => (
           <div
@@ -197,7 +197,7 @@ export function MegaMenuPanel({
           
           {/* Middle Column — Categories list (only shown when multiple categories exist) */}
           {!isSingleGroup && (
-            <div className="w-[280px] shrink-0 border-r border-black/[0.06] p-4 flex flex-col gap-1.5 bg-[#FAFAF9] overflow-y-auto styled-scrollbar">
+            <div className="w-[320px] shrink-0 border-r border-black/[0.06] p-3.5 flex flex-col gap-1 bg-[#FAFAF9] overflow-y-auto styled-scrollbar">
               {groups.map((group, idx) => {
                 const GroupIcon = group.icon ?? Bot;
                 const isActive = idx === activeIdx;
@@ -208,20 +208,20 @@ export function MegaMenuPanel({
                     type="button"
                     onMouseEnter={() => setActiveIdx(idx)}
                     onClick={() => setActiveIdx(idx)}
-                    className={`w-full text-left flex items-center justify-between rounded-xl px-4 py-3 transition-colors duration-75 group relative focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/40 ${
+                    className={`w-full text-left flex items-center justify-between rounded-xl px-3.5 py-2.5 transition-colors duration-75 group relative focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/40 ${
                       isActive
                         ? "bg-[#FFF1EB] text-[#FF5812]"
-                        : "text-[#0a0a1a]/70 hover:bg-black/[0.03] hover:text-[#0a0a1a]"
+                        : "text-[#0a0a1a]/75 hover:bg-black/[0.03] hover:text-[#0a0a1a]"
                     }`}
                   >
-                    <div className="flex items-center gap-3 min-w-0">
+                    <div className="flex items-center gap-2.5 min-w-0">
                       <GroupIcon 
-                        size={18} 
+                        size={17} 
                         className={`shrink-0 transition-colors duration-75 ${
                           isActive ? "text-[#FF5812]" : "text-[#0a0a1a]/40 group-hover:text-[#0a0a1a]/60"
                         }`} 
                       />
-                      <span className="typo-button-sm font-semibold tracking-tight truncate">
+                      <span className="text-[13.5px] font-semibold tracking-tight leading-snug">
                         {group.title}
                       </span>
                     </div>
@@ -328,7 +328,7 @@ export function MegaMenuPanel({
                                   {link.label}
                                 </span>
                                 {link.description && (
-                                  <span className="typo-caption-meta text-[#0a0a1a]/45 leading-normal block mt-1 line-clamp-1 group-hover:text-[#0a0a1a]/60 transition-colors">
+                                  <span className="typo-caption-meta text-[#0a0a1a]/45 leading-normal block mt-1 line-clamp-2 group-hover:text-[#0a0a1a]/60 transition-colors">
                                     {link.description}
                                   </span>
                                 )}
@@ -339,8 +339,6 @@ export function MegaMenuPanel({
                       </div>
                     )}
                   </div>
-
-
                 </motion.div>
             )}
           </div>
