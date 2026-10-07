@@ -120,19 +120,19 @@ const menu: MenuItem[] = [
         links: [
           {
             label: "Automation Testing Services",
-            url: "/services/automation-testing-services",
+            url: "/quality-engineering/automation-testing-services",
             icon: Workflow,
             description: "End-to-end test automation for web, mobile, API, and enterprise applications"
           },
           {
             label: "Security Testing Services",
-            url: "/services/security-testing-services",
+            url: "/quality-engineering/security-testing-services",
             icon: ShieldCheck,
             description: "Validate application security, vulnerabilities, APIs, mobile apps, and enterprise systems"
           },
           {
             label: "Agentic AI Testing Services",
-            url: "/services/agentic-ai-testing-services",
+            url: "/quality-engineering/agentic-ai-testing-services",
             icon: BrainCircuit,
             description: "Test AI agents, LLMs, RAG systems, autonomous workflows, and AI security"
           },
@@ -142,13 +142,13 @@ const menu: MenuItem[] = [
             icon: HeartPulse,
             description: "Healthcare software testing, QA automation, and digital health quality engineering",
           },
-          // {
-          //   label: "Logistics Testing Services",
-          //   url: "/services/logistics-testing-services",
-          //   icon: Truck,
-          //   description:
-          //     "Logistics software testing, QA automation, and quality engineering for transportation and supply chain applications"
-          // },
+          {
+            label: "Logistics Testing Services",
+            url: "/quality-engineering/logistics-testing-services",
+            icon: Truck,
+            description:
+              "Logistics software testing, QA automation, and quality engineering for transportation and supply chain applications"
+          },
         ],
       },
       {

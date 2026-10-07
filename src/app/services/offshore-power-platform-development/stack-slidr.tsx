@@ -315,7 +315,7 @@ export default function StackedSlider() {
                     >
                       {/* Top Bar Header */}
                       <div
-                        className="px-4 py-3 flex items-center justify-between border-b"
+                        className="px-6 py-5 flex flex-col gap-6"
                         style={{
                           backgroundColor: card.isLight
                             ? "rgba(0,0,0,0.02)"
@@ -325,152 +325,76 @@ export default function StackedSlider() {
                             : "rgba(255,255,255,0.08)",
                         }}
                       >
-                        <div className="flex items-center gap-2.5">
-                          <span className="relative flex h-2.5 w-2.5">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2.5">
+                            <span className="relative flex h-2.5 w-2.5">
+                              <span
+                                className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
+                                style={{ backgroundColor: "#FF6B00" }}
+                              />
+                              <span
+                                className="relative inline-flex rounded-full h-2.5 w-2.5"
+                                style={{ backgroundColor: "#FF6B00" }}
+                              />
+                            </span>
                             <span
-                              className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
-                              style={{
-                                backgroundColor: card.accent || "#FF6B00",
-                              }}
-                            />
-                            <span
-                              className="relative inline-flex rounded-full h-2.5 w-2.5"
-                              style={{
-                                backgroundColor: card.accent || "#FF6B00",
-                              }}
-                            />
-                          </span>
-                          <span
-                            className="typo-caption font-bold tracking-widest uppercase opacity-90"
-                            style={{ color: card.text }}
-                          >
-                            CAPABILITIES & FEATURES
-                          </span>
+                              className="typo-caption font-bold tracking-widest uppercase opacity-90"
+                              style={{ color: card.text }}
+                            >
+                              BUSINESS RESULTS & OUTCOMES
+                            </span>
+                          </div>
                         </div>
 
-                        <div className="flex items-center gap-1.5">
-                          <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                         
-                        </div>
-                      </div>
-
-                      {/* Capabilities Rows */}
-                      <div
-                        className="divide-y"
-                        style={{
-                          borderColor: card.isLight
-                            ? "rgba(0,0,0,0.05)"
-                            : "rgba(255,255,255,0.06)",
-                        }}
-                      >
                         {/* Benefits Section */}
-                        <div className="px-4 py-2 flex items-center gap-2" style={{ backgroundColor: card.isLight ? "rgba(0,0,0,0.03)" : "rgba(255,255,255,0.02)" }}>
-                          <span className="text-green-500 text-sm">✅</span>
-                          <span className="typo-caption-meta font-bold tracking-widest opacity-90 uppercase text-green-500">Key Benefits</span>
-                        </div>
-
-                        {card.points?.map((cap, capIdx) => (
-                          <div
-                            key={`benefit-${capIdx}`}
-                            className="group/row px-4 py-2 sm:py-2.5 flex items-center justify-between gap-3 transition-colors duration-150 hover:bg-white/[0.03]"
-                          >
-                            <div className="flex items-center gap-3 min-w-0">
-                              <span
-                                className="shrink-0 typo-caption font-bold"
+                        <div className="space-y-3">
+                          <span className="typo-caption-meta font-bold tracking-widest uppercase opacity-60 flex items-center gap-2" style={{ color: card.text }}>
+                            <span className="w-4 h-[1px] bg-[#FF6B00]/50" />
+                            Key Benefits
+                          </span>
+                          <div className="flex flex-wrap gap-2.5">
+                            {card.points?.map((cap, capIdx) => (
+                              <div
+                                key={`benefit-${capIdx}`}
+                                className="px-4 py-2 rounded-full border flex items-center gap-2.5 transition-all duration-300 hover:scale-[1.02]"
                                 style={{
-                                  color: card.accent || "#FF6B00",
+                                  backgroundColor: "rgba(255, 107, 0, 0.08)",
+                                  borderColor: "rgba(255, 107, 0, 0.2)",
+                                  color: card.text,
                                 }}
                               >
-                                0{capIdx + 1}
-                              </span>
-                              <span
-                                className="typo-body-sm font-medium group-hover/row:translate-x-0.5 transition-transform duration-150"
-                                style={{ color: card.text }}
-                              >
-                                {cap}
-                              </span>
-                            </div>
-
-                            <span
-                              className="shrink-0 px-2.5 py-1 rounded typo-caption-meta font-semibold tracking-wider uppercase border whitespace-nowrap text-green-500"
-                              style={{
-                                backgroundColor: card.isLight
-                                  ? "rgba(0,0,0,0.04)"
-                                  : "rgba(255,255,255,0.05)",
-                                borderColor: card.isLight
-                                  ? "rgba(0,0,0,0.08)"
-                                  : "rgba(255,255,255,0.1)",
-                              }}
-                            >
-                              BENEFIT
-                            </span>
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]" />
+                                <span className="typo-caption font-medium whitespace-nowrap">{cap}</span>
+                              </div>
+                            ))}
                           </div>
-                        ))}
-
-                        {/* Challenges Section */}
-                        <div className="px-4 py-2 flex items-center gap-2 border-t" style={{
-                          backgroundColor: card.isLight ? "rgba(0,0,0,0.03)" : "rgba(255,255,255,0.02)",
-                          borderColor: card.isLight ? "rgba(0,0,0,0.05)" : "rgba(255,255,255,0.06)",
-                        }}>
-                          <span className="text-red-500 text-sm">⚠</span>
-                          <span className="typo-caption-meta font-bold tracking-widest opacity-90 uppercase text-red-500">Challenges Solved</span>
                         </div>
 
-                        {card.challenges?.map((cap, capIdx) => (
-                          <div
-                            key={`challenge-${capIdx}`}
-                            className="group/row px-4 py-2 sm:py-2.5 flex items-center justify-between gap-3 transition-colors duration-150 hover:bg-white/[0.03]"
-                          >
-                            <div className="flex items-center gap-3 min-w-0">
-                              <span
-                                className="shrink-0 typo-caption font-bold"
+                        {/* Challenges Solved Section */}
+                        <div className="space-y-3 mt-2">
+                          <span className="typo-caption-meta font-bold tracking-widest uppercase opacity-60 flex items-center gap-2" style={{ color: card.text }}>
+                            <span className="w-4 h-[1px] bg-white/30" />
+                            Challenges Solved
+                          </span>
+                          <div className="flex flex-wrap gap-2.5">
+                            {card.challenges?.map((cap, capIdx) => (
+                              <div
+                                key={`challenge-${capIdx}`}
+                                className="px-4 py-2 rounded-full border flex items-center gap-2.5 transition-all duration-300 hover:scale-[1.02]"
                                 style={{
-                                  color: card.accent || "#FF6B00",
+                                  backgroundColor: "rgba(255, 255, 255, 0.03)",
+                                  borderColor: "rgba(255, 255, 255, 0.1)",
+                                  color: card.text,
                                 }}
                               >
-                                0{card.points.length + capIdx + 1}
-                              </span>
-                              <span
-                                className="typo-body-sm font-medium group-hover/row:translate-x-0.5 transition-transform duration-150"
-                                style={{ color: card.text }}
-                              >
-                                {cap}
-                              </span>
-                            </div>
-
-                            <span
-                              className="shrink-0 px-2.5 py-1 rounded typo-caption-meta font-semibold tracking-wider uppercase border whitespace-nowrap text-red-500"
-                              style={{
-                                backgroundColor: card.isLight
-                                  ? "rgba(0,0,0,0.04)"
-                                  : "rgba(255,255,255,0.05)",
-                                borderColor: card.isLight
-                                  ? "rgba(0,0,0,0.08)"
-                                  : "rgba(255,255,255,0.1)",
-                              }}
-                            >
-                              SOLVED
-                            </span>
+                                <span className="text-[#FF6B00] text-sm font-bold leading-none mb-0.5">✓</span>
+                                <span className="typo-caption font-medium whitespace-nowrap opacity-90">{cap}</span>
+                              </div>
+                            ))}
                           </div>
-                        ))}
+                        </div>
                       </div>
 
-                      {/* Bottom Footer Telemetry */}
-                      <div
-                        className="px-4 py-2.5 flex items-center justify-between border-t typo-caption-meta opacity-60 uppercase tracking-wider"
-                        style={{
-                          backgroundColor: card.isLight
-                            ? "rgba(0,0,0,0.015)"
-                            : "rgba(0,0,0,0.2)",
-                          borderColor: card.isLight
-                            ? "rgba(0,0,0,0.06)"
-                            : "rgba(255,255,255,0.08)",
-                          color: card.text,
-                        }}
-                      >
-                        <span>MICROSOFT 365 • DATAVERSE READY</span>
-                       
-                      </div>
                     </div>
                   </div>
                 </div>
