@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   title: "Softree Technology — Offshore Teams That Ship Real AI",
   description:
     "Senior offshore engineering pods in 2 weeks, with applied-AI products like Avoora as proof. Offshore engineering, honestly.",
-  alternates: { canonical: "https://softreetechnology.com/home-2026" },
+  alternates: { canonical: "https://www.softreetechnology.com/home-2026" },
   robots: { index: false, follow: false }, // preview route — do not index until it replaces "/"
   openGraph: {
     title: "Softree Technology — Offshore Teams That Ship Real AI",

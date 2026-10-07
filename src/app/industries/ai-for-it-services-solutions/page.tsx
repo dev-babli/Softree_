@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { applyPageOg } from "@/lib/site-metadata";
 import React from 'react';
 import Hero from './components/Hero/Hero';
 import NavigationClient from '@/components/sections/navigation-client';
@@ -7,10 +9,22 @@ import Industry from "./components/Industry/Industry";
 import AIEngineering from "./components/AIEngineering/AIEngineering";
 import AIDevelopmentServices from "./components/AIForITDevlopmentServices/AIDevelopmentServices";
 
-export const metadata = {
-  title: 'AI for IT Services & Solutions | Offshore AI Engineering Team | Softree Technology',
-  description: 'Accelerate IT operations with Softree’s offshore AI engineering team. Build AI agents, intelligent automation, copilots, RAG solutions, and AI-powered enterprise applications.',
-};
+export const metadata: Metadata = applyPageOg("/industries/ai-for-it-services-solutions", {
+  title: "AI Solutions for IT Services & MSPs | Softree Technology",
+  description:
+    "Accelerate IT service delivery, automated ticket triage, code generation assistance, and infrastructure anomaly detection with custom AI.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/industries/ai-for-it-services-solutions",
+  },
+  openGraph: {
+    title: "AI Solutions for IT Services & MSPs | Softree Technology",
+    description:
+      "Accelerate IT service delivery, automated ticket triage, code generation assistance, and infrastructure anomaly detection with custom AI.",
+    url: "https://www.softreetechnology.com/industries/ai-for-it-services-solutions",
+    siteName: "Softree Technology",
+    type: "website",
+  },
+});
 
 export default function AiItDevelopmentServicesPage() {
   return (

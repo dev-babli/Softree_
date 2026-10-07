@@ -101,7 +101,7 @@ export const HERO: SoftreeHeroProps = {
         {
             n: "01",
             label: "AI & Automation",
-            href: "/ai",
+            href: "/services/enterprise-ai-solution",
             img: "/whysoftree/ai.webp",
         },
         {

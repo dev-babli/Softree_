@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import ChangelogContent from '@/components/shadcn-studio/blocks/timeline-component-05/timeline-component-05'
 import type { Release } from '@/components/shadcn-studio/blocks/timeline-component-05/timeline-component-05'
 import V1_3_0_Content from '@/components/shadcn-studio/blocks/timeline-component-05/content/v1-3-0'

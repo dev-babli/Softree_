@@ -1,3 +1,4 @@
+import { applyPageOg } from "@/lib/site-metadata";
 import React from 'react';
 import dynamic from 'next/dynamic';
 import { Metadata } from 'next';
@@ -46,69 +47,22 @@ const HealthcareCaseStudies = dynamic(() => import('./components/HealthcareCaseS
 const PAGE_URL = 'https://www.softreetechnology.com/industries/healthcare-ai-solutions';
 const SITE_URL = 'https://www.softreetechnology.com';
 
-export const metadata: Metadata = {
-  title: 'Offshore Healthcare AI Solutions & Development Services | Softree',
+export const metadata: Metadata = applyPageOg("/industries/healthcare-ai-solutions", {
+  title: "Healthcare AI Solutions & Engineering | Softree Technology",
   description:
-    'Build secure, scalable healthcare AI solutions with Softree’s offshore AI engineering team. Develop AI agents, RAG applications, intelligent automation, and modern healthcare software.',
-  keywords: [
-    // Primary Keyword
-    'Offshore Healthcare AI Solutions & Development Services',
-    // Secondary Keywords
-    'Healthcare AI Development Services',
-    'Healthcare AI Solutions',
-    'Offshore Healthcare AI Development',
-    'Offshore AI Engineering',
-    'Healthcare AI Engineering Services',
-    'Healthcare AI Development Company',
-    'AI Development for Healthcare',
-    'Healthcare AI Agents',
-    'Healthcare RAG Development',
-    'Generative AI for Healthcare',
-    'Healthcare Automation Solutions',
-    'Offshore Healthcare Software Development',
-    'Intelligent Healthcare Software',
-    // Supporting SEO Topics
-    'Enterprise healthcare AI',
-    'AI-powered healthcare solutions',
-    'Healthcare workflow automation',
-    'AI-powered healthcare applications',
-    'Healthcare knowledge assistants',
-    'AI document processing for healthcare',
-    'Healthcare decision support',
-    'AI integration with existing healthcare systems',
-    'Healthcare AI modernization',
-    'Secure and scalable AI architecture',
-    'Dedicated offshore AI engineering team',
-    'Healthcare AI consulting',
-  ],
+    "HIPAA-ready healthcare AI solutions: clinical automation, patient scheduling, automated triage, and medical data search.",
   alternates: {
-    canonical: PAGE_URL,
+    canonical: "https://www.softreetechnology.com/industries/healthcare-ai-solutions",
   },
   openGraph: {
-    title: 'Offshore Healthcare AI Solutions & Development Services | Softree',
+    title: "Healthcare AI Solutions & Engineering | Softree Technology",
     description:
-      'Build secure, scalable healthcare AI solutions with Softree’s offshore AI engineering team. Develop AI agents, RAG applications, intelligent automation, and modern healthcare software.',
-    url: PAGE_URL,
-    siteName: 'Softree Technology',
-    images: [
-      {
-        url: '/logo/Softree-Technology-Final-Logo-Dark-BG.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Softree Offshore Healthcare AI Solutions & Development Services',
-      },
-    ],
-    locale: 'en_US',
-    type: 'website',
+      "HIPAA-ready healthcare AI solutions: clinical automation, patient scheduling, automated triage, and medical data search.",
+    url: "https://www.softreetechnology.com/industries/healthcare-ai-solutions",
+    siteName: "Softree Technology",
+    type: "website",
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Offshore Healthcare AI Solutions & Development Services | Softree',
-    description:
-      'Build secure, scalable healthcare AI solutions with Softree’s offshore AI engineering team. Develop AI agents, RAG applications, intelligent automation, and modern healthcare software.',
-    images: ['/logo/Softree-Technology-Final-Logo-Dark-BG.webp'],
-  },
-};
+});
 
 const healthcareJsonLd = {
   '@context': 'https://schema.org',

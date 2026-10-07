@@ -95,7 +95,7 @@ export const SERVICES_MEGA_CATEGORIES: MegaMenuGroup[] = [
       },
       {
         label: "Generative AI Development",
-        url: "/services/offshore-generative-ai-development",
+        url: "/services/generative-ai",
         icon: Sparkles,
         description: "LLM apps, content and generation workflows",
       },

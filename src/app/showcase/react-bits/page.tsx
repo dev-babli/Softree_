@@ -13,6 +13,8 @@ function ReactBitsShowcasePageInner() {
   return <ReactBitsShowcase initialComponentId={component} embedded={embedded} />
 }
 
+
+
 export default function ReactBitsShowcasePage() {
   return (
     <Suspense fallback={<div className="min-h-screen bg-[#0f1117] p-8 text-white/70">Loading React Bits…</div>}>

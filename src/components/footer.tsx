@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
           <ul className="space-y-2">
             <li>
               <a
-                href="/ai"
+                href="/services/enterprise-ai-solution"
                 className="hover:underline"
               >
                 AI Solutions

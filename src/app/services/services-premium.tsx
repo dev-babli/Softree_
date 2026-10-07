@@ -68,7 +68,7 @@ const SERVICES: Service[] = [
       "Infrastructure Security",
       "Cloud Risk",
     ],
-    url: "/services/security-testing",
+    url: "/services/security-testing-services",
     icon: <ShieldIcon />,
   },
   {

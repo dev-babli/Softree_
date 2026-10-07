@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import AscendiaShowcase from "@/components/servicepage_new/AscendiaShowcase";
 import FeatureSwitcher from "@/components/servicepage_new/FeatureSwitcher";
 import CaseStudies from "@/components/servicepage_new/CaseStudies";
@@ -6,7 +7,8 @@ import BuildWebsiteSection from "@/components/servicepage_new/BuildWebsiteSectio
 import MarqueeCarousel from "@/components/servicepage_new/MarqueeCarousel";
 import PremiumMarquee from "@/components/servicepage_new/PremiumMarquee";
 
-export const metadata = {
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   title: 'Service Page',
   description: 'Explore our services',
 };

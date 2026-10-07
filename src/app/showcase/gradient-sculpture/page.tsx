@@ -4,6 +4,8 @@ import Link from "next/link";
 import GradientSculpture from "@/components/showcase/GradientSculpture";
 
 /** Gradient sculpture showcase — optimized reference art frame */
+
+
 export default function GradientSculptureShowcasePage() {
   return (
     <div className="min-h-screen bg-[#f7f7f5] text-[#0a0a0a]">

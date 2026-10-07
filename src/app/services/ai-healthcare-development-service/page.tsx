@@ -1,3 +1,4 @@
+import { applyPageOg } from "@/lib/site-metadata";
 import React from "react";
 import type { Metadata } from "next";
 import NavigationClient from "@/components/sections/navigation-client";
@@ -22,28 +23,22 @@ import { HealthcareProcessSection } from "./components/HealthcareProcessSection"
 import { HealthcareEngagementModelsSection } from "./components/HealthcareEngagementModelsSection";
 import { healthcareFaqs } from "./data/faqs";
 
-export const metadata: Metadata = {
-  title: "Offshore AI Healthcare Development Services | Patient Concierge Chatbots & RAG LLMs | Softree",
+export const metadata: Metadata = applyPageOg("/services/ai-healthcare-development-service", {
+  title: "AI Healthcare Development Services | Softree Technology",
   description:
-    "Partner with Softree for offshore AI healthcare development. We build HIPAA-compliant patient concierge chatbots, 125+ lab test clinical AI models, and production-ready healthcare LLMs & RAG systems.",
-  keywords: [
-    "Offshore AI Healthcare Development",
-    "Patient & Staff Concierge Chatbots",
-    "Healthcare RAG LLM Solutions",
-    "Clinical Lab Data Integration 125+ Tests",
-    "HIPAA Compliant AI Development",
-    "FHIR EHR AI Integration",
-    "Medical Decision Support AI",
-    "Softree Healthcare AI",
-  ],
-  openGraph: {
-    title: "Offshore AI Healthcare Development Services | Softree Technology",
-    description:
-      "Custom HIPAA-compliant patient concierge chatbots, 125+ lab test clinical models, and production-ready healthcare RAG & LLM systems developed by Softree offshore teams.",
-    type: "website",
-    url: "https://www.softreetechnology.com/services/ai-healthcare-development-service",
+    "HIPAA-compliant AI healthcare software development. Clinical decision support, EHR integrations, patient triage bots, and medical data pipelines.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/services/ai-healthcare-development-service",
   },
-};
+  openGraph: {
+    title: "AI Healthcare Development Services | Softree Technology",
+    description:
+      "HIPAA-compliant AI healthcare software development. Clinical decision support, EHR integrations, patient triage bots, and medical data pipelines.",
+    url: "https://www.softreetechnology.com/services/ai-healthcare-development-service",
+    siteName: "Softree Technology",
+    type: "website",
+  },
+});
 
 export default function AIHealthcareDevelopmentServicePage() {
   const jsonLd = {

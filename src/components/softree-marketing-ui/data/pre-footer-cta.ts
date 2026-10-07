@@ -26,17 +26,14 @@ export interface KorePreFooterCtaProps {
 // --- CTA buttons (verbatim from Source_Document) -------------------------
 
 const talkToAnExpertCta: ButtonData = {
-    // <a … href="/talk-to-an-expert" is-ghost="1" …><div>Talk to an expert</div>
     label: 'Talk to an expert',
-    href: '/talk-to-an-expert',
+    href: '/contact',
     variant: 'secondary', // is-ghost="1"
 };
 
 const meetArtemisCta: ButtonData = {
-    // <a … href="/ai-agent-platform" is-ghost="" aria-label="Discover more" …>
-    //   <div>MEET {ARTEMIS}</div>
     label: 'MEET {ARTEMIS}',
-    href: '/ai-agent-platform',
+    href: '/agentic-ai-platform',
     ariaLabel: 'Discover more',
     variant: 'ghost', // is-ghost="" (empty)
 };

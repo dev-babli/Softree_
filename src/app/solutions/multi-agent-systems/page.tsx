@@ -1,3 +1,4 @@
+import { applyPageOg } from "@/lib/site-metadata";
 import React from "react";
 import type { Metadata } from "next";
 import { Hero } from "./components/Hero";
@@ -16,11 +17,22 @@ import Footer from "@/components/sections/footer";
 import WhyChooseWithTestimonials from "./components/why";
 import TrustedBrandsMarquee from "@/app/services/offshore-power-platform-development/trust";
 
-export const metadata: Metadata = {
-  title: "Enterprise Multi-Agent Systems Development | Softree Technology",
+export const metadata: Metadata = applyPageOg("/solutions/multi-agent-systems", {
+  title: "Multi-Agent Systems Development | Softree Technology",
   description:
-    "Softree builds enterprise multi-agent systems that orchestrate specialized AI agents, share context across tools, and ship governed workflows—from strategy to production.",
-};
+    "Architect and deploy multi-agent AI systems where specialized agent swarms collaborate, self-correct, and execute complex business goals at scale.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/solutions/multi-agent-systems",
+  },
+  openGraph: {
+    title: "Multi-Agent Systems Development | Softree Technology",
+    description:
+      "Architect and deploy multi-agent AI systems where specialized agent swarms collaborate, self-correct, and execute complex business goals at scale.",
+    url: "https://www.softreetechnology.com/solutions/multi-agent-systems",
+    siteName: "Softree Technology",
+    type: "website",
+  },
+});
 
 export default function MultiAgentSystemsPage() {
   return (

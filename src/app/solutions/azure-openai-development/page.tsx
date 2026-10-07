@@ -1,3 +1,4 @@
+import { applyPageOg } from "@/lib/site-metadata";
 import React from "react";
 import type { Metadata } from "next";
 import { Hero } from "./components/Hero";
@@ -16,11 +17,22 @@ import Footer from "@/components/sections/footer";
 import WhyChooseWithTestimonials from "./components/why";
 import TrustedBrandsMarquee from "@/app/services/offshore-power-platform-development/trust";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageOg("/solutions/azure-openai-development", {
   title: "Azure OpenAI Development Services | Softree Technology",
   description:
-    "Softree builds secure Azure OpenAI solutions—GPT apps, enterprise RAG, Microsoft 365 copilots, and governed Azure AI—from strategy to production.",
-};
+    "Enterprise Azure OpenAI application development. Custom GPT models, enterprise RAG search, copilot integration, and Microsoft cloud security standards.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/solutions/azure-openai-development",
+  },
+  openGraph: {
+    title: "Azure OpenAI Development Services | Softree Technology",
+    description:
+      "Enterprise Azure OpenAI application development. Custom GPT models, enterprise RAG search, copilot integration, and Microsoft cloud security standards.",
+    url: "https://www.softreetechnology.com/solutions/azure-openai-development",
+    siteName: "Softree Technology",
+    type: "website",
+  },
+});
 
 export default function AzureOpenAIDevelopmentPage() {
   return (

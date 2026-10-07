@@ -4,6 +4,8 @@ import Link from "next/link";
 import StuxenHeroClone from "@/components/sections/StuxenHeroClone";
 
 /** Isolated Stuxen hero clone — matches Webflow HTML structure. */
+
+
 export default function StuxenHeroShowcasePage() {
   return (
     <div className="min-h-screen bg-white">

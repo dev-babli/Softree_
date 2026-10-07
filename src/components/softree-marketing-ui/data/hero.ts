@@ -156,14 +156,14 @@ export const heroData: KoreHeroProps = {
     //   <div class="text-style-1line">Get a demo</div>
     demoCta: {
         label: 'Get a demo',
-        href: '/request-a-demo',
+        href: '/contact',
         variant: 'ghost', // is-ghost="" (empty)
     },
-    // <a href="/analyst-recognition" is-ghost="1" …>
+    // <a href="/case-studies" is-ghost="1" …>
     //   <div class="text-style-1line">ANALYST REPORTS</div>
     analystReportsCta: {
         label: 'ANALYST REPORTS',
-        href: '/analyst-recognition',
+        href: '/case-studies',
         variant: 'secondary', // is-ghost="1"
     },
     artemisAnnouncement: {
@@ -173,7 +173,7 @@ export const heroData: KoreHeroProps = {
         body: 'The AI-programmable platform for the agentic enterprise. The foundation for building AI agents for customer and employee experiences with certainty.',
         cta: {
             label: 'Meet { Artemis }',
-            href: '/ai-agent-platform',
+            href: '/agentic-ai-platform',
             variant: 'ghost',
         },
         image: {

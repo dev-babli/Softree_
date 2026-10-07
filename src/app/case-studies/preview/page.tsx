@@ -24,6 +24,8 @@ function allowedOrigins(): string[] {
   return [...origins]
 }
 
+
+
 export default function CaseStudyPreviewPage() {
   const [state, setState] = useState<PreviewState | null>(null)
   const origins = useMemo(() => allowedOrigins(), [])

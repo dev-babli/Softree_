@@ -161,8 +161,13 @@ const nextConfig: any = {
         permanent: true,
       },
       {
+        source: "/ai",
+        destination: "/services/enterprise-ai-solution",
+        permanent: true,
+      },
+      {
         source: "/services/ai-intelligence",
-        destination: "/ai",
+        destination: "/services/enterprise-ai-solution",
         permanent: true,
       },
       {
@@ -238,6 +243,81 @@ const nextConfig: any = {
       {
         source: "/services/data-analytics/power-bi",
         destination: "/services/power-bi-development-services",
+        permanent: true,
+      },
+      {
+        source: "/services/security-testing",
+        destination: "/services/security-testing-services",
+        permanent: true,
+      },
+      {
+        source: "/industries",
+        destination: "/industries/healthcare-ai-solutions",
+        permanent: true,
+      },
+      {
+        source: "/ai-agent-platform",
+        destination: "/agentic-ai-platform",
+        permanent: true,
+      },
+      {
+        source: "/request-a-demo",
+        destination: "/contact",
+        permanent: true,
+      },
+      {
+        source: "/talk-to-an-expert",
+        destination: "/contact",
+        permanent: true,
+      },
+      {
+        source: "/terms-of-service",
+        destination: "/terms",
+        permanent: true,
+      },
+      {
+        source: "/acceptable-use-policy",
+        destination: "/privacy-policy",
+        permanent: true,
+      },
+      {
+        source: "/cookie-policy",
+        destination: "/privacy-policy",
+        permanent: true,
+      },
+      {
+        source: "/analyst-recognition",
+        destination: "/case-studies",
+        permanent: true,
+      },
+      {
+        source: "/ai-for-service/ai-for-healthcare",
+        destination: "/solutions/ai-for-healthcare",
+        permanent: true,
+      },
+      {
+        source: "/ai-for-service/ai-for-banking",
+        destination: "/solutions/ai-for-financial-services",
+        permanent: true,
+      },
+      {
+        source: "/ai-for-service/ai-for-retail",
+        destination: "/services/microsoft-fabric-development-services",
+        permanent: true,
+      },
+      {
+        source: "/ai-for-work/ai-for-recruiting",
+        destination: "/agentic-ai-platform",
+        permanent: true,
+      },
+      {
+        source: "/ai-for-work/ai-for-hr",
+        destination: "/services/offshore-web-app-development",
+        permanent: true,
+      },
+      {
+        source: "/ai-for-work/ai-for-it",
+        destination: "/industries/ai-for-it-services-solutions",
         permanent: true,
       },
       {

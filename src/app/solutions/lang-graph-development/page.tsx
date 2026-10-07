@@ -1,3 +1,4 @@
+import { applyPageOg } from "@/lib/site-metadata";
 import React from "react";
 import type { Metadata } from "next";
 import { LanggraphHero } from "./components/LanggraphHero";
@@ -17,11 +18,22 @@ import Footer from "@/components/sections/footer";
 import WhyChooseWithTestimonials from "./components/why";
 import TrustedBrandsMarquee from "@/app/services/offshore-power-platform-development/trust";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageOg("/solutions/lang-graph-development", {
   title: "LangGraph Development Services | Softree Technology",
   description:
-    "Softree builds production LangGraph solutions—stateful agent graphs, multi-agent workflows, human-in-the-loop checkpoints, tool integrations, memory, and LangSmith observability.",
-};
+    "Build stateful multi-agent systems, cyclic graphs, and resilient agent architectures with LangGraph engineering expertise from Softree.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/solutions/lang-graph-development",
+  },
+  openGraph: {
+    title: "LangGraph Development Services | Softree Technology",
+    description:
+      "Build stateful multi-agent systems, cyclic graphs, and resilient agent architectures with LangGraph engineering expertise from Softree.",
+    url: "https://www.softreetechnology.com/solutions/lang-graph-development",
+    siteName: "Softree Technology",
+    type: "website",
+  },
+});
 
 export default function LangGraphDevelopmentPage() {
   return (

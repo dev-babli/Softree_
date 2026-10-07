@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     "Explore Softree Technology's engineering services: Agentic AI, Azure OpenAI, Microsoft Fabric, Power Platform, SharePoint, Web, and Mobile app development.",
   alternates: {
-    canonical: "/services",
+    canonical: "https://www.softreetechnology.com/services",
   },
   openGraph: {
     title: "Services | Softree Technology",

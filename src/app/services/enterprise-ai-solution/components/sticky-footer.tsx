@@ -21,7 +21,7 @@ const footerColumns = [
     label: "Company",
     links: [
       { title: "Home", href: "/" },
-      { title: "AI Solutions", href: "/ai" },
+      { title: "AI Solutions", href: "/services/enterprise-ai-solution" },
       { title: "Case Studies", href: "/case-studies" },
       { title: "About Us", href: "/about-us" },
       { title: "Careers", href: "/careers" },
@@ -201,7 +201,7 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
             </Link>
             <div className="flex flex-wrap items-center gap-2.5">
               <Link
-                href="/ai"
+                href="/services/enterprise-ai-solution"
                 className="flex h-11 items-center rounded-full border border-black/25 px-4 text-[12px] font-semibold text-black transition-colors hover:border-black/60 hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50"
               >
                 AI Solutions

@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { Hero } from './components/Hero';
 import BusinessChallenges from './components/BusinessChallenges';
 import BusinessOutcomes from './components/BusinessOutcomes';
@@ -14,12 +15,24 @@ import LightContactSection from '@/components/homepage-light/LightContactSection
 import Footer from '@/components/sections/footer';
 import WhyChooseWithTestimonials from './components/why';
 import TrustedBrandsMarquee from '@/app/services/offshore-power-platform-development/trust';
+import { applyPageOg } from '@/lib/site-metadata';
 
-export const metadata = {
+export const metadata: Metadata = applyPageOg('/solutions/ai-agents-development', {
   title: 'AI Agent Development Services | Softree Technology',
   description:
     'Add AI agent capability to your delivery portfolio with Softree. We build custom AI agents for automation, integrations, knowledge workflows, and business operations.',
-};
+  alternates: {
+    canonical: 'https://www.softreetechnology.com/solutions/ai-agents-development',
+  },
+  openGraph: {
+    title: 'AI Agent Development Services | Softree Technology',
+    description:
+      'Custom AI agents for enterprise automation, system integrations, and intelligent workflow operations.',
+    url: 'https://www.softreetechnology.com/solutions/ai-agents-development',
+    siteName: 'Softree Technology',
+    type: 'website',
+  },
+});
 
 export default function AIAgentsDevelopmentPage() {
   return (
@@ -29,8 +42,6 @@ export default function AIAgentsDevelopmentPage() {
       <TrustedBrandsMarquee />
       <SuccessStories />
       <CoreCapabilities />
-      {/* <BusinessChallenges />
-      <BusinessOutcomes /> */}
       <ProvenResults solution="ai-agents" />
       <Industries />
       <AiTechnologyStack />

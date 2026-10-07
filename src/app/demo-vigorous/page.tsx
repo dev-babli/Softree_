@@ -4,6 +4,7 @@ import { seo } from "@/components/client-exact/vigorousContent"
 
 /** Private lead-magnet page — direct URL only; excluded from sitemap and search. */
 export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   title: seo.title,
   description: seo.description,
   robots: {

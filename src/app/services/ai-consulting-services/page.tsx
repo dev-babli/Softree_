@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { applyPageOg } from "@/lib/site-metadata";
 import { Hero } from "./ai-consulting-services-components/Hero";
 import NavigationClient from "@/components/sections/navigation-client";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
@@ -20,10 +22,22 @@ import AIDeliveryProcess from "./ai-consulting-services-components/AIDeliveryPro
 import { AiConsultingFaq } from "./ai-consulting-services-components/FAQ/AiConsultingFaq";
 import TestimonialsSplitSlider from "./ai-consulting-services-components/Testimonials/TestimonialsSplitSlider";
 
-export const metadata = {
+export const metadata: Metadata = applyPageOg("/services/ai-consulting-services", {
   title: "AI Consulting Services | Softree Technology",
-  description: "Partner with Softree for AI consulting, AI agents, workflow automation, Azure AI, and generative AI development through a reliable offshore delivery team.",
-};
+  description:
+    "Strategic AI consulting, feasibility assessments, readiness roadmaps, and architecture governance for enterprise AI adoption.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/services/ai-consulting-services",
+  },
+  openGraph: {
+    title: "AI Consulting Services | Softree Technology",
+    description:
+      "Strategic AI consulting, feasibility assessments, readiness roadmaps, and architecture governance for enterprise AI adoption.",
+    url: "https://www.softreetechnology.com/services/ai-consulting-services",
+    siteName: "Softree Technology",
+    type: "website",
+  },
+});
 
 export default function AIConsultingServicesPage() {
   return (

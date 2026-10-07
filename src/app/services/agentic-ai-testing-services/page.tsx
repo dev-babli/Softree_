@@ -1,3 +1,4 @@
+import { applyPageOg } from "@/lib/site-metadata";
 import React from "react";
 import dynamic from "next/dynamic";
 import { Metadata } from "next";
@@ -18,89 +19,22 @@ const LightContactSection = dynamic(() => import('@/components/homepage-light/Li
 
 const TrustedBrandsMarquee = dynamic(() => import('@/app/services/offshore-power-platform-development/trust'), { ssr: true });
 
-export const metadata: Metadata = {
-  title: "Agentic AI Testing Services | AI Agent Testing | Softree",
-  description: "Validate AI agents, LLMs, RAG applications, and autonomous workflows with Softree’s offshore AI testing and quality engineering services.",
-  "keywords": [
-    "Agentic AI Testing",
-    "Agentic AI Testing Services",
-    "AI Agent Testing",
-    "AI Agent Testing Services",
-    "AI Testing Services",
-    "AI Quality Engineering",
-    "LLM Testing",
-    "LLM Application Testing",
-    "Generative AI Testing",
-    "Generative AI Testing Services",
-    "RAG Testing",
-    "RAG Application Testing",
-    "AI Evaluation",
-    "AI Model Testing",
-    "AI Application Testing",
-    "AI Security Testing",
-    "AI Guardrail Testing",
-    "Multi-Agent Testing",
-    "Autonomous Workflow Testing",
-    "AI Workflow Testing",
-    "AI Automation Testing",
-    "Continuous AI Testing",
-    "Continuous AI Evaluation",
-    "AI Regression Testing",
-    "Offshore AI Testing",
-    "Offshore AI Testing Services",
-    "Offshore AI QA Services",
-    "AI Quality Assurance",
-    "AI Software Testing",
-    "Enterprise QA",
-    "Automation Testing Services",
-    "Test Automation Services",
-    "Software Test Automation",
-    "QA Automation Services",
-    "Automation Testing Company",
-    "Automation Testing Solutions",
-    "Automated Software Testing",
-    "Web Automation Testing",
-    "Web UI Test Automation",
-    "Mobile Test Automation",
-    "API Test Automation",
-    "API Testing Services",
-    "Functional Test Automation",
-    "Automated Regression Testing",
-    "Performance Test Automation",
-    "Continuous Testing",
-    "CI/CD Test Automation",
-    "End-to-End Test Automation",
-    "Automation Testing Frameworks",
-    "AI-Powered Test Automation",
-    "Self-Healing Test Automation",
-    "Offshore Automation Testing",
-    "Offshore QA Services",
-    "Dedicated QA Automation Team",
-    "Offshore QA Automation Team"
-  ],
+export const metadata: Metadata = applyPageOg("/services/agentic-ai-testing-services", {
+  title: "Agentic AI Testing Services | Softree Technology",
+  description:
+    "Comprehensive QA and safety benchmarking for AI agents, prompt injection testing, hallucination evaluation, and autonomous behavior verification.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/services/agentic-ai-testing-services",
+  },
   openGraph: {
-    title: 'Agentic AI Testing Services | AI Agent Testing | Softree',
-    description: 'Softree’s offshore AI testing team helps validate AI agents, LLM applications, RAG systems, autonomous workflows, security, and AI quality.',
-    url: 'https://www.softreetechnology.com/services/agentic-ai-testing-services',
-    siteName: 'Softree Technology',
-    images: [
-      {
-        url: '/logo/Softree-Technology-Final-Logo-Dark-BG.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Softree Technology Logo',
-      },
-    ],
-    locale: 'en_US',
-    type: 'website',
+    title: "Agentic AI Testing Services | Softree Technology",
+    description:
+      "Comprehensive QA and safety benchmarking for AI agents, prompt injection testing, hallucination evaluation, and autonomous behavior verification.",
+    url: "https://www.softreetechnology.com/services/agentic-ai-testing-services",
+    siteName: "Softree Technology",
+    type: "website",
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Agentic AI Testing Services | Offshore AI Testing | Softree',
-    description: 'Offshore AI testing and quality engineering services for reliable AI agents, LLM applications, RAG systems, autonomous workflows, and intelligent software.',
-    images: ['/logo/Softree-Technology-Final-Logo-Dark-BG.png'],
-  },
-};
+});
 
 const automationFaqs = [
   {

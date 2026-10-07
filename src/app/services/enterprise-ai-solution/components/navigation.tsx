@@ -100,7 +100,7 @@ const menu: MenuItem[] = [
         title: "AI & Automation",
         description: "Intelligence in every workflow.",
         links: [
-          { label: "AI Solutions", url: "/ai", icon: Sparkles, description: "Agentic & generative AI hub" },
+          { label: "AI Solutions", url: "/services/enterprise-ai-solution", icon: Sparkles, description: "Agentic & generative AI hub" },
           { label: "Workflow Orchestration", url: "/ai-workflow-orchestration", icon: Workflow, description: "Autonomous pipeline agents" },
           { label: "AI Test Automation", url: "/services/ai-powered-test-automation", icon: BrainCircuit, description: "Quality at speed" },
           { label: "AI Agents", url: "/services/offshore-ai-development", icon: Bot, description: "Autonomous tasks" },

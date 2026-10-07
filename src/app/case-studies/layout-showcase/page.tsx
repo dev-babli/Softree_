@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
@@ -7,7 +8,8 @@ import { CASE_STUDY_LAYOUTS } from "@/lib/case-study-layouts"
 import { client } from "@/cms/lib/client"
 import { allCaseStudySlugsQuery } from "@/cms/lib/queries/queries"
 
-export const metadata = {
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   title: "Case Study Layout Showcase | Softree",
   description: "Preview all 16 premium case study page designs side by side.",
 }

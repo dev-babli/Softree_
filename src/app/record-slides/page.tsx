@@ -13,6 +13,8 @@ const SLIDES = [
   { id: "long-term-partnership", label: "04 · Long-Term Partnership", bg: "#0c0c0e" },
 ]
 
+
+
 export default function RecordSlidesPage() {
   const [active, setActive] = useState(0)
   const [revealed, setRevealed] = useState(false)

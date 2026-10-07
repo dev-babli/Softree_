@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 /** Side-by-side reference — your shared mockup PNG at native 682×1024 */
+export const metadata: Metadata = {
+  title: "Preview / Internal | Softree Technology",
+  robots: { index: false, follow: false },
+};
+
 export default function HeroIntroReferencePage() {
   return (
     <div className="min-h-screen bg-[#eee] py-8">

@@ -1,3 +1,4 @@
+import { applyPageOg } from "@/lib/site-metadata";
 import React from "react";
 import dynamic from "next/dynamic";
 import { Metadata } from "next";
@@ -16,52 +17,22 @@ const LightContactSection = dynamic(() => import('@/components/homepage-light/Li
 
 const TrustedBrandsMarquee = dynamic(() => import('@/app/services/offshore-power-platform-development/trust'), { ssr: true });
 
-export const metadata: Metadata = {
-  title: "Security Testing Services | Offshore Security QA Team | Softree",
-  description: "Protect applications with Softree’s offshore security testing services for web, mobile, API, and enterprise software, including vulnerability and penetration testing.",
-  keywords: [
-    "Security Testing Services",
-    "Security Testing",
-    "Software Security Testing",
-    "Application Security Testing",
-    "Web Application Security Testing",
-    "API Security Testing",
-    "Mobile Application Security Testing",
-    "Security QA Services",
-    "Cybersecurity Testing Services",
-    "Vulnerability Assessment",
-    "Penetration Testing Services",
-    "Automated Security Testing",
-    "DevSecOps Security Testing",
-    "Enterprise Security Testing",
-    "Offshore Security Testing",
-    "Offshore Security QA Services",
-    "Application Vulnerability Testing",
-    "Security Regression Testing"
-  ],
+export const metadata: Metadata = applyPageOg("/services/security-testing-services", {
+  title: "Security Testing Services | Softree Technology",
+  description:
+    "Application security testing, penetration testing, vulnerability assessments, and AI safety evaluations for web, mobile, and cloud apps.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/services/security-testing-services",
+  },
   openGraph: {
-    title: 'Security Testing Services | Offshore Security QA Team | Softree',
-    description: 'Softree’s offshore security testing team helps identify vulnerabilities and strengthen web, mobile, API, and enterprise applications through comprehensive security testing.',
-    url: 'https://www.softreetechnology.com/services/security-testing-services',
-    siteName: 'Softree Technology',
-    images: [
-      {
-        url: '/logo/Softree-Technology-Final-Logo-Dark-BG.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Softree Technology Logo',
-      },
-    ],
-    locale: 'en_US',
-    type: 'website',
+    title: "Security Testing Services | Softree Technology",
+    description:
+      "Application security testing, penetration testing, vulnerability assessments, and AI safety evaluations for web, mobile, and cloud apps.",
+    url: "https://www.softreetechnology.com/services/security-testing-services",
+    siteName: "Softree Technology",
+    type: "website",
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Security Testing Services | Offshore Security QA | Softree',
-    description: 'Offshore security testing services for web, mobile, API, and enterprise applications, helping teams identify vulnerabilities and improve application security.',
-    images: ['/logo/Softree-Technology-Final-Logo-Dark-BG.png'],
-  },
-};
+});
 
 const SecurityFAQs = [
   {

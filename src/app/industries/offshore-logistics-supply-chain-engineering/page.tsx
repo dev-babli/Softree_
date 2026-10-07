@@ -1,3 +1,4 @@
+import { applyPageOg } from "@/lib/site-metadata";
 import React from 'react';
 import dynamic from 'next/dynamic';
 import { Metadata } from 'next';
@@ -21,53 +22,22 @@ const LightContactSection = dynamic(() => import('@/components/homepage-light/Li
 const PAGE_URL = 'https://www.softreetechnology.com/industries/offshore-logistics-supply-chain-engineering';
 const SITE_URL = 'https://www.softreetechnology.com';
 
-export const metadata: Metadata = {
-  title: 'Offshore Logistics & Supply Chain Engineering Services | Softree',
+export const metadata: Metadata = applyPageOg("/industries/offshore-logistics-supply-chain-engineering", {
+  title: "Logistics & Supply Chain Engineering | Softree Technology",
   description:
-    'Transform logistics and supply chain operations with Softree’s offshore engineering team. Build scalable software, automation, AI, data, integration, and cloud solutions.',
-  keywords: [
-    'Offshore Logistics & Supply Chain Engineering Services',
-    'Logistics AI Development Services',
-    'Supply Chain Engineering Services',
-    'Offshore Logistics Software Development',
-    'Offshore AI Engineering for Logistics',
-    'Logistics Technology Development Company',
-    'TMS and WMS Integration Services',
-    'Route Optimization Software',
-    'Warehouse Automation AI',
-    'Logistics Document Processing AI',
-    'Supply Chain Real-Time Visibility',
-    'Logistics AI Agents',
-    'Dedicated Offshore Logistics Engineering Team',
-  ],
+    "Offshore software engineering for global freight forwarders, 3PL providers, warehouse automation, and transportation management.",
   alternates: {
-    canonical: PAGE_URL,
+    canonical: "https://www.softreetechnology.com/industries/offshore-logistics-supply-chain-engineering",
   },
   openGraph: {
-    title: 'Offshore Logistics & Supply Chain Engineering Services | Softree',
+    title: "Logistics & Supply Chain Engineering | Softree Technology",
     description:
-      'Transform logistics and supply chain operations with Softree’s offshore engineering team. Build scalable software, automation, AI, data, integration, and cloud solutions.',
-    url: PAGE_URL,
-    siteName: 'Softree Technology',
-    images: [
-      {
-        url: '/logo/Softree-Technology-Final-Logo-Dark-BG.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Softree Offshore Logistics & Supply Chain Engineering Services',
-      },
-    ],
-    locale: 'en_US',
-    type: 'website',
+      "Offshore software engineering for global freight forwarders, 3PL providers, warehouse automation, and transportation management.",
+    url: "https://www.softreetechnology.com/industries/offshore-logistics-supply-chain-engineering",
+    siteName: "Softree Technology",
+    type: "website",
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Offshore Logistics & Supply Chain Engineering Services | Softree',
-    description:
-      'Transform logistics and supply chain operations with Softree’s offshore engineering team. Build scalable software, automation, AI, data, integration, and cloud solutions.',
-    images: ['/logo/Softree-Technology-Final-Logo-Dark-BG.webp'],
-  },
-};
+});
 
 const logisticsJsonLd = {
   '@context': 'https://schema.org',

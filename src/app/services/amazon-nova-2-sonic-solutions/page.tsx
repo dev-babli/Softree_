@@ -1,3 +1,4 @@
+import { applyPageOg } from "@/lib/site-metadata";
 import React from 'react';
 import { Metadata } from 'next';
 import NavigationClient from '@/components/sections/navigation-client';
@@ -28,13 +29,22 @@ const FeaturedCaseStudies = dynamic(() => import('./components/FeaturedCaseStudi
 
 const PAGE_URL = 'https://www.softreetechnology.com/services/amazon-nova-2-sonic-solutions';
 
-export const metadata: Metadata = {
-  title: 'Amazon Nova 2 Sonic Development Services | Softree',
-  description: 'Build real-time voice AI applications with Amazon Nova 2 Sonic and Amazon Bedrock. Softree delivers production-ready voice agents with offshore engineering expertise.',
+export const metadata: Metadata = applyPageOg("/services/amazon-nova-2-sonic-solutions", {
+  title: "Amazon Nova & Sonic AI Solutions | Softree Technology",
+  description:
+    "Deploy ultra-fast multimodal AI agents and generative systems powered by Amazon Nova and real-time voice architectures.",
   alternates: {
-    canonical: PAGE_URL,
+    canonical: "https://www.softreetechnology.com/services/amazon-nova-2-sonic-solutions",
   },
-};
+  openGraph: {
+    title: "Amazon Nova & Sonic AI Solutions | Softree Technology",
+    description:
+      "Deploy ultra-fast multimodal AI agents and generative systems powered by Amazon Nova and real-time voice architectures.",
+    url: "https://www.softreetechnology.com/services/amazon-nova-2-sonic-solutions",
+    siteName: "Softree Technology",
+    type: "website",
+  },
+});
 
 export default function AmazonNova2SonicDevelopmentPage() {
   return (

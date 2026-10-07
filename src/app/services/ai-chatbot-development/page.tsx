@@ -1,3 +1,4 @@
+import { applyPageOg } from "@/lib/site-metadata";
 import React from "react";
 import type { Metadata } from "next";
 import { Hero } from "./components/Hero";
@@ -16,11 +17,22 @@ import Footer from "@/components/sections/footer";
 import WhyChooseWithTestimonials from "./components/why";
 import TrustedBrandsMarquee from "@/app/services/offshore-power-platform-development/trust";
 
-export const metadata: Metadata = {
-  title: "Dedicated AI Chatbot Development Teams | Softree",
+export const metadata: Metadata = applyPageOg("/services/ai-chatbot-development", {
+  title: "AI Chatbot Development Services | Softree Technology",
   description:
-    "Partner with our offshore AI engineers to build intelligent, NLP-powered chatbots. Scalable, white-label AI chatbot development for agencies and tech firms.",
-};
+    "Custom AI chatbots and conversational assistants built on Azure, OpenAI, and open-source models for 24/7 customer experience and employee workflows.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/services/ai-chatbot-development",
+  },
+  openGraph: {
+    title: "AI Chatbot Development Services | Softree Technology",
+    description:
+      "Custom AI chatbots and conversational assistants built on Azure, OpenAI, and open-source models for 24/7 customer experience and employee workflows.",
+    url: "https://www.softreetechnology.com/services/ai-chatbot-development",
+    siteName: "Softree Technology",
+    type: "website",
+  },
+});
 
 export default function AIChatbotDevelopmentPage() {
   return (

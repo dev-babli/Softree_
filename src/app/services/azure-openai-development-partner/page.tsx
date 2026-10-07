@@ -1,3 +1,4 @@
+import { applyPageOg } from "@/lib/site-metadata";
 import React from "react";
 import type { Metadata } from "next";
 import { Hero } from "./components/Hero";
@@ -16,11 +17,22 @@ import Footer from "@/components/sections/footer";
 import WhyChooseWithTestimonials from "./components/why";
 import TrustedBrandsMarquee from "@/app/services/offshore-power-platform-development/trust";
 
-export const metadata: Metadata = {
-  title: "Offshore Azure OpenAI Development Partner | Softree",
+export const metadata: Metadata = applyPageOg("/services/azure-openai-development-partner", {
+  title: "Azure OpenAI Development Partner | Softree Technology",
   description:
-    "Scale your AI capabilities with our offshore Azure OpenAI development teams. We deliver secure, scalable LLM integrations for consulting firms and agencies.",
-};
+    "Microsoft-certified Azure OpenAI development partner. Production deployment of GPT-4o, embeddings, fine-tuning, and enterprise security guardrails.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/services/azure-openai-development-partner",
+  },
+  openGraph: {
+    title: "Azure OpenAI Development Partner | Softree Technology",
+    description:
+      "Microsoft-certified Azure OpenAI development partner. Production deployment of GPT-4o, embeddings, fine-tuning, and enterprise security guardrails.",
+    url: "https://www.softreetechnology.com/services/azure-openai-development-partner",
+    siteName: "Softree Technology",
+    type: "website",
+  },
+});
 
 export default function AIChatbotDevelopmentPage() {
   return (

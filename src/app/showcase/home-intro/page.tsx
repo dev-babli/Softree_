@@ -5,6 +5,8 @@ import StuxenAboutV1Clone from "@/components/sections/StuxenAboutV1Clone";
 import StuxenHeroClone from "@/components/sections/StuxenHeroClone";
 
 /** Stuxen Webflow template clone stack: hero → about v1 */
+
+
 export default function HomeIntroShowcasePage() {
   return (
     <div className="min-h-screen overflow-x-clip bg-white text-[#0a0a0a] antialiased">

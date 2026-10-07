@@ -18,7 +18,9 @@ const LightContactSection = dynamic(() => import('@/components/homepage-light/Li
 const Footer = dynamic(() => import('@/components/sections/footer'), { ssr: true });
 import TrustedBrandsMarquee from '@/app/services/offshore-power-platform-development/trust';
 
-export const metadata: Metadata = {
+import { applyPageOg } from "@/lib/site-metadata";
+
+export const metadata: Metadata = applyPageOg("/solutions/enterprise-rag-development", {
   title: "Enterprise RAG Development Services | Offshore RAG Partner",
 
   description:
@@ -60,7 +62,7 @@ export const metadata: Metadata = {
     url: "https://www.softreetechnology.com/solutions/enterprise-rag-development",
     type: "website",
   },
-};
+});
 
 export default function EnterpriseRAGDevelopmentPage() {
   return (

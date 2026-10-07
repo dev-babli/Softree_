@@ -1,3 +1,4 @@
+import { applyPageOg } from "@/lib/site-metadata";
 import React from "react";
 import type { Metadata } from "next";
 import { Hero } from "./components/Hero";
@@ -17,11 +18,22 @@ import Footer from "@/components/sections/footer";
 import WhyChooseWithTestimonials from "./components/why";
 import TrustedBrandsMarquee from "@/app/services/offshore-power-platform-development/trust";
 
-export const metadata: Metadata = {
-  title: "Offshore LangGraph Development & AI Agents | Softree",
+export const metadata: Metadata = applyPageOg("/services/offshore-langgraph-development", {
+  title: "Offshore LangGraph Development | Softree Technology",
   description:
-    "Hire dedicated LangGraph developers to build stateful multi-agent systems. We act as your scalable offshore AI delivery partner for complex workflows.",
-};
+    "Dedicated offshore engineering pods specialized in stateful multi-agent workflows and LangGraph production architectures.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/services/offshore-langgraph-development",
+  },
+  openGraph: {
+    title: "Offshore LangGraph Development | Softree Technology",
+    description:
+      "Dedicated offshore engineering pods specialized in stateful multi-agent workflows and LangGraph production architectures.",
+    url: "https://www.softreetechnology.com/services/offshore-langgraph-development",
+    siteName: "Softree Technology",
+    type: "website",
+  },
+});
 
 export default function AIChatbotDevelopmentPage() {
   return (

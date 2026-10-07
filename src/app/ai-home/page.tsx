@@ -15,12 +15,12 @@ export const metadata: Metadata = applyPageOg(PAGE_PATH, {
     "Copilot Studio development",
     "offshore AI delivery",
   ],
-  alternates: { canonical: PAGE_PATH },
+  alternates: { canonical: "https://www.softreetechnology.com/ai-home" },
   openGraph: {
     title: "Agentic AI for the Enterprise | Softree Technology",
     description:
       "AI agents for work, service, and process — designed, deployed, and governed on Microsoft with Softree.",
-    url: PAGE_PATH,
+    url: "https://www.softreetechnology.com/ai-home",
     siteName: "Softree Technology",
     type: "website",
   },

@@ -1,3 +1,4 @@
+import { applyPageOg } from "@/lib/site-metadata";
 import React from "react";
 import type { Metadata } from "next";
 import { Hero } from "./components/Hero";
@@ -16,11 +17,22 @@ import Footer from "@/components/sections/footer";
 import WhyChooseWithTestimonials from "./components/why";
 import TrustedBrandsMarquee from "@/app/services/offshore-power-platform-development/trust";
 
-export const metadata: Metadata = {
-  title: "Offshore Multi-Agent AI Systems Development | Softree",
+export const metadata: Metadata = applyPageOg("/services/multi-agent-systems-development", {
+  title: "Multi-Agent Systems Engineering | Softree Technology",
   description:
-    "Need a reliable offshore engineering team for multi-agent AI? We build scalable, autonomous agent workflows for agencies and tech companies.",
-};
+    "Engineering multi-agent collaborative networks for complex enterprise decision systems, distributed operations, and autonomous task execution.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/services/multi-agent-systems-development",
+  },
+  openGraph: {
+    title: "Multi-Agent Systems Engineering | Softree Technology",
+    description:
+      "Engineering multi-agent collaborative networks for complex enterprise decision systems, distributed operations, and autonomous task execution.",
+    url: "https://www.softreetechnology.com/services/multi-agent-systems-development",
+    siteName: "Softree Technology",
+    type: "website",
+  },
+});
 
 export default function AIChatbotDevelopmentPage() {
   return (

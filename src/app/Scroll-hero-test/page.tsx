@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import CustomerExperienceCard from "./components/CustomerExperienceCard";
 import EmployeeProductivityCard from "./components/EmployeeProductivityCard";
 import KoreFourthSection from "./components/FourthSection";
+
+export const metadata: Metadata = {
+  title: "Preview / Internal | Softree Technology",
+  robots: { index: false, follow: false },
+};
 
 export default function KoreHeroTestPage() {
   return (

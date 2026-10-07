@@ -42,7 +42,7 @@ const SERVICES: Service[] = [
     title: "Security & Risk Engineering",
     desc: "Strengthen digital products and infrastructure with proactive security engineering, risk assessments, compliance strategies, and secure development practices built into every stage of delivery.",
     tags: ["Secure DevOps", "Application Security", "Infrastructure Security", "Cloud Risk"],
-    url: "/services/security-testing",
+    url: "/services/security-testing-services",
     icon: <ShieldIcon />,
   },
   {

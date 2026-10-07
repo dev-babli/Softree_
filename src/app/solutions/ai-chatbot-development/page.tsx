@@ -15,12 +15,24 @@ import LightContactSection from "@/components/homepage-light/LightContactSection
 import Footer from "@/components/sections/footer";
 import WhyChooseWithTestimonials from "./components/why";
 import TrustedBrandsMarquee from "@/app/services/offshore-power-platform-development/trust";
+import { applyPageOg } from "@/lib/site-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageOg("/solutions/ai-chatbot-development", {
   title: "AI Chatbot Development Services | Softree Technology",
   description:
     "Softree builds enterprise AI chatbots for customer support, employee self-service, and sales—secure, integrated, and grounded in your knowledge.",
-};
+  alternates: {
+    canonical: "https://www.softreetechnology.com/solutions/ai-chatbot-development",
+  },
+  openGraph: {
+    title: "AI Chatbot Development Services | Softree Technology",
+    description:
+      "Enterprise AI chatbots for customer support, operations, and conversational interfaces.",
+    url: "https://www.softreetechnology.com/solutions/ai-chatbot-development",
+    siteName: "Softree Technology",
+    type: "website",
+  },
+});
 
 export default function AIChatbotDevelopmentPage() {
   return (
@@ -30,8 +42,6 @@ export default function AIChatbotDevelopmentPage() {
       <TrustedBrandsMarquee surface="light" />
       <SuccessStories />
       <CoreCapabilities />
-      {/* <BusinessChallenges />
-      <BusinessOutcomes /> */}
       <ProvenResults solution="ai-chatbot" />
       <Industries />
       <AiTechnologyStack />

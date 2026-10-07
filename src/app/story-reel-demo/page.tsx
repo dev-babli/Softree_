@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { SoftreeStoryReelHero } from "@/components/story-reel";
 import { TestimonialSlider } from "@/components/testimonial-slider";
 import { BentoGridLayout, BentoWireframe } from "@/components/bento-layout";
@@ -7,6 +8,11 @@ import {
   demoStories,
   demoTestimonials,
 } from "./demo-content";
+
+export const metadata: Metadata = {
+  title: "Preview / Internal | Softree Technology",
+  robots: { index: false, follow: false },
+};
 
 export default function StoryReelDemoPage() {
   return (

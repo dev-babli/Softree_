@@ -5,6 +5,8 @@ import { NexusSection2 } from "@/components/showcase/nexus-card";
 import "@/components/showcase/nexus-card/nexus-section-2.css";
 
 /** FOLLOW.ART nexus-section-2 scroll clone */
+
+
 export default function NexusCardShowcasePage() {
   return (
     <div className="nexus-ui-blue min-h-screen">

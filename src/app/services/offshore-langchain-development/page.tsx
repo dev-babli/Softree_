@@ -1,3 +1,4 @@
+import { applyPageOg } from "@/lib/site-metadata";
 import React from "react";
 import type { Metadata } from "next";
 import { Hero } from "./components/Hero";
@@ -16,11 +17,22 @@ import Footer from "@/components/sections/footer";
 import WhyChooseWithTestimonials from "./components/why";
 import TrustedBrandsMarquee from "@/app/services/offshore-power-platform-development/trust";
 
-export const metadata: Metadata = {
-  title: "Offshore LangChain Development Services | Softree",
+export const metadata: Metadata = applyPageOg("/services/offshore-langchain-development", {
+  title: "Offshore LangChain Development | Softree Technology",
   description:
-    "Need to deliver LLM apps fast? Partner with our offshore LangChain development team to build custom AI agents, RAG pipelines, and intelligent chatbots.",
-};
+    "Expert offshore LangChain development teams for building RAG pipelines, agent tools, custom vector store integrations, and memory management.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/services/offshore-langchain-development",
+  },
+  openGraph: {
+    title: "Offshore LangChain Development | Softree Technology",
+    description:
+      "Expert offshore LangChain development teams for building RAG pipelines, agent tools, custom vector store integrations, and memory management.",
+    url: "https://www.softreetechnology.com/services/offshore-langchain-development",
+    siteName: "Softree Technology",
+    type: "website",
+  },
+});
 
 export default function AIChatbotDevelopmentPage() {
   return (

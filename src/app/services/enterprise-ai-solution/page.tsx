@@ -18,9 +18,20 @@ import WhyChooseWithTestimonials from "./components/why";
 import TrustedBrandsMarquee from "@/app/services/offshore-power-platform-development/trust";
 
 export const metadata: Metadata = applyPageOg("/services/enterprise-ai-solution", {
-  title: "Enterprise AI Solutions & Strategy Services | Softree Technology",
+  title: "Enterprise AI Solutions | Softree Technology",
   description:
-    "Deploy secure, scalable, and governed Enterprise AI Solutions. Softree delivers AI strategy, custom agents, RAG, copilots, and process automation with measurable ROI.",
+    "Transform enterprise operations with custom AI architectures, foundation model fine-tuning, vector search databases, and secure private cloud deployments.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/services/enterprise-ai-solution",
+  },
+  openGraph: {
+    title: "Enterprise AI Solutions | Softree Technology",
+    description:
+      "Transform enterprise operations with custom AI architectures, foundation model fine-tuning, vector search databases, and secure private cloud deployments.",
+    url: "https://www.softreetechnology.com/services/enterprise-ai-solution",
+    siteName: "Softree Technology",
+    type: "website",
+  },
 });
 
 export default function EnterpriseAISolutionPage() {

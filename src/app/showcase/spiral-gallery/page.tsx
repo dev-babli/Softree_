@@ -13,6 +13,8 @@ const SpiralGallery = dynamic(() => import("@/components/showcase/spiral-gallery
 });
 
 /** Framer spiral 3D gallery — exact param clone */
+
+
 export default function SpiralGalleryShowcasePage() {
   return (
     <div className="min-h-screen bg-white">

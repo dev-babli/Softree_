@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { applyPageOg } from "@/lib/site-metadata";
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
 import WorkflowHero from "./components/WorkflowHero";
@@ -20,10 +22,22 @@ const WorkflowAutomationTestimonials = dynamic(() => import("./components/Testim
 const WorkflowAutomationFAQ = dynamic(() => import("./components/FAQ/WorkflowAutomationFAQ").then(m => m.WorkflowAutomationFAQ));
 const ProvenResults = dynamic(() => import("@/components/sections/ProvenResults"));
 
-export const metadata = {
+export const metadata: Metadata = applyPageOg("/solutions/ai-workflow-automation", {
   title: "AI Workflow Automation Services | Softree Technology",
-  description: "Partner with Softree for AI workflow automation, AI agents, Power Automate, and Azure AI solutions. Scale delivery with our reliable offshore AI engineering team.",
-};
+  description:
+    "End-to-end intelligent workflow automation, combining AI agents, LLM processing pipelines, and enterprise systems to automate high-friction business operations.",
+  alternates: {
+    canonical: "https://www.softreetechnology.com/solutions/ai-workflow-automation",
+  },
+  openGraph: {
+    title: "AI Workflow Automation Services | Softree Technology",
+    description:
+      "End-to-end intelligent workflow automation, combining AI agents, LLM processing pipelines, and enterprise systems to automate high-friction business operations.",
+    url: "https://www.softreetechnology.com/solutions/ai-workflow-automation",
+    siteName: "Softree Technology",
+    type: "website",
+  },
+});
 
 export default function AIWorkflowAutomationPage() {
   return (

@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import { CopilotHero } from "./components/CopilotHero";
 import TrustedBrandsMarquee from "@/app/services/ai-consulting-services/ai-consulting-services-components/TrustedBrandsMarquee";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
@@ -19,12 +20,22 @@ import ProvenResults from "@/components/sections/ProvenResults";
 import { CopilotIndustries } from "./components/IndustriesWeServe/CopilotIndustries";
 import { CopilotFAQ } from "./components/FAQ/CopilotFAQ";
 import NavigationClient from "@/components/sections/navigation-client";
-import { Metadata } from "next";
+import { applyPageOg } from "@/lib/site-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = applyPageOg("/solutions/ai-copilot-development", {
   title: "AI Copilot Development Services | Softree Technology",
   description: "Partner with Softree for AI Copilot development, AI agents, Microsoft Copilot Studio, and Azure AI solutions. Scale delivery with our reliable offshore AI engineering team.",
-};
+  alternates: {
+    canonical: "https://www.softreetechnology.com/solutions/ai-copilot-development",
+  },
+  openGraph: {
+    title: "AI Copilot Development Services | Softree Technology",
+    description: "Custom AI Copilots, Microsoft Copilot Studio integration, and Azure AI assistants.",
+    url: "https://www.softreetechnology.com/solutions/ai-copilot-development",
+    siteName: "Softree Technology",
+    type: "website",
+  },
+});
 
 export default function AICopilotDevelopmentPage() {
   return (
@@ -35,16 +46,10 @@ export default function AICopilotDevelopmentPage() {
         <TrustedBrandsMarquee />
         <CopilotCaseStudies />
         <CopilotCapabilities />
-        {/* <CopilotChallenges />
-        <CopilotOutcomes /> */}
         <ProvenResults solution="ai-copilot" />
-
-        {/* <WhyCopilotDevelopment /> */}
         <CopilotIndustries />
         <CopilotTechnologies />
         <CopilotProcess />
-
-        {/* <BusinessBenefits /> */}
         <CopilotTestimonials />
         <CopilotFAQ />
       </main>

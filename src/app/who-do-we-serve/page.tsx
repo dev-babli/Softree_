@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.softree.com/who-do-we-serve",
+    canonical: "https://www.softreetechnology.com/who-do-we-serve",
   },
 
   robots: {
@@ -50,13 +50,13 @@ export const metadata: Metadata = {
     title: "Who We Serve | Industries & Businesses We Empower | Softree Technology",
     description:
       "Discover how Softree partners with businesses and organizations across industries through AI, cloud, data, and digital transformation solutions.",
-    url: "https://www.softree.com/who-do-we-serve",
+    url: "https://www.softreetechnology.com/who-do-we-serve",
     siteName: "Softree Technology",
     type: "website",
     locale: "en_US",
     images: [
       {
-        url: "https://www.softree.com/images/who-we-serve-og.jpg",
+        url: "https://www.softreetechnology.com/og-image.png",
         width: 1200,
         height: 630,
         alt: "Softree Technology - Who We Serve",
@@ -68,8 +68,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Who We Serve | Industries & Businesses We Empower | Softree Technology",
     description:
-      "Explore the industries and organizations Softree supports with AI, cloud, analytics, software, and digital transformation solutions.",
-    images: ["https://www.softree.com/images/who-we-serve-og.jpg"],
+      "Discover how Softree partners with businesses and organizations across industries through AI, cloud, data, and digital transformation solutions.",
+    images: ["https://www.softreetechnology.com/og-image.png"],
   },
 
   category: "Technology",

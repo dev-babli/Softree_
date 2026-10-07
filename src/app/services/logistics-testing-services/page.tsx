@@ -1,3 +1,4 @@
+import { applyPageOg } from "@/lib/site-metadata";
 import React from "react";
 import { Metadata } from "next";
 import NavigationClient from "@/components/sections/navigation-client";
@@ -22,22 +23,22 @@ import Footer from "@/components/sections/footer";
 const PAGE_URL =
   "https://www.softreetechnology.com/industries/logistics-testing";
 
-export const metadata: Metadata = {
-  title: "Logistics Testing Services | TMS, WMS & Supply Chain QA | Softree",
+export const metadata: Metadata = applyPageOg("/services/logistics-testing-services", {
+  title: "Logistics Software Testing Services | Softree Technology",
   description:
-    "Validate TMS, WMS, visibility platforms, EDI, and warehouse automation with an offshore logistics testing team. Functional, API, security, performance, and regression QA for supply chain software.",
+    "Specialized QA and performance testing for supply chain management systems, TMS, WMS, and IoT fleet tracking platforms.",
   alternates: {
-    canonical: PAGE_URL,
+    canonical: "https://www.softreetechnology.com/services/logistics-testing-services",
   },
   openGraph: {
-    title: "Logistics Testing Services | Softree",
+    title: "Logistics Software Testing Services | Softree Technology",
     description:
-      "Offshore quality engineering for logistics and supply chain applications — TMS, WMS, EDI, APIs, automation, and security testing.",
-    url: PAGE_URL,
+      "Specialized QA and performance testing for supply chain management systems, TMS, WMS, and IoT fleet tracking platforms.",
+    url: "https://www.softreetechnology.com/services/logistics-testing-services",
     siteName: "Softree Technology",
     type: "website",
   },
-};
+});
 
 export default function LogisticsTestingPage() {
   return (

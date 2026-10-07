@@ -9,6 +9,8 @@ import {
 } from "@/components/case-studies/layouts/variants/madar-sticky-story"
 
 /** Isolated Madar × Yamama case study clone — exact 4-section sticky story */
+
+
 export default function MadarCaseStudyShowcasePage() {
   return (
     <div className="min-h-screen bg-[#f4f6fb]">

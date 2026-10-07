@@ -44,7 +44,7 @@ const SERVICES = [
     icon: Brain,
     title: "AI Solutions",
     description: "GPT-4o, Claude, Azure OpenAI integration.",
-    href: "/ai",
+    href: "/services/enterprise-ai-solution",
     size: "medium",
     color: "from-purple-400 to-pink-500",
     image: "/services/ai.jpg",

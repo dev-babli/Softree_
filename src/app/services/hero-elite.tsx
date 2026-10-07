@@ -84,7 +84,7 @@ const SERVICES = [
     title: "AI Solutions",
     subtitle: "GPT-4o & Claude",
     description: "AI agents, RAG pipelines, and document intelligence.",
-    href: "/ai",
+    href: "/services/enterprise-ai-solution",
     size: "medium",
     color: "purple",
   },

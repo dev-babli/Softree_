@@ -4,6 +4,8 @@ import Link from "next/link";
 import AvooraStudioSection from "@/components/showcase/avoora/AvooraStudioSection";
 
 /** Premium editorial hero intro — Avoora-style full section */
+
+
 export default function HeroIntroPage() {
   return (
     <>

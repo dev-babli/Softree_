@@ -53,7 +53,7 @@ const MEGA_META: Record<string, MegaMenuMeta> = {
     eyebrow: "AI & Automation",
     blurb: "Enterprise-grade AI solutions, agents, copilots and autonomous workflow automation.",
     cta: "View all AI services",
-    href: "/ai",
+    href: "/services/enterprise-ai-solution",
   },
   Services: {
     eyebrow: "Services",

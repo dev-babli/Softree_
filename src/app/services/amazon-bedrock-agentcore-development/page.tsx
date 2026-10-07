@@ -1,3 +1,4 @@
+import { applyPageOg } from "@/lib/site-metadata";
 import React from 'react';
 import { Metadata } from 'next';
 import NavigationClient from '@/components/sections/navigation-client';
@@ -19,38 +20,22 @@ const AgentCoreCapabilities = dynamic(() => import('./components/AgentCoreCapabi
 const PAGE_URL = 'https://www.softreetechnology.com/services/amazon-bedrock-agentcore-development';
 const SITE_URL = 'https://www.softreetechnology.com';
 
-export const metadata: Metadata = {
-  title: 'Amazon Bedrock AgentCore Development Services | Softree',
+export const metadata: Metadata = applyPageOg("/services/amazon-bedrock-agentcore-development", {
+  title: "Amazon Bedrock & Agent Development | Softree Technology",
   description:
-    'Build production-ready AI agents with Amazon Bedrock AgentCore. Softree develops AI agents using Runtime, Memory, Gateway, Identity, Observability, and Evaluations.',
+    "Build enterprise generative AI applications using AWS Amazon Bedrock, Claude, Titan models, Knowledge Bases, and secure cloud agents.",
   alternates: {
-    canonical: PAGE_URL,
+    canonical: "https://www.softreetechnology.com/services/amazon-bedrock-agentcore-development",
   },
   openGraph: {
-    title: 'Amazon Bedrock AgentCore Development Services | Softree',
+    title: "Amazon Bedrock & Agent Development | Softree Technology",
     description:
-      'Build production-ready AI agents with Amazon Bedrock AgentCore. Softree develops AI agents using Runtime, Memory, Gateway, Identity, Observability, and Evaluations.',
-    url: PAGE_URL,
-    siteName: 'Softree Technology',
-    images: [
-      {
-        url: '/logo/Softree-Technology-Final-Logo-Dark-BG.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Softree Amazon Bedrock AgentCore Development',
-      },
-    ],
-    locale: 'en_US',
-    type: 'website',
+      "Build enterprise generative AI applications using AWS Amazon Bedrock, Claude, Titan models, Knowledge Bases, and secure cloud agents.",
+    url: "https://www.softreetechnology.com/services/amazon-bedrock-agentcore-development",
+    siteName: "Softree Technology",
+    type: "website",
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Amazon Bedrock AgentCore Development Services | Softree',
-    description:
-      'Build production-ready AI agents with Amazon Bedrock AgentCore. Softree develops AI agents using Runtime, Memory, Gateway, Identity, Observability, and Evaluations.',
-    images: ['/logo/Softree-Technology-Final-Logo-Dark-BG.webp'],
-  },
-};
+});
 
 export default function AmazonBedrockAgentCoreDevelopmentPage() {
   return (
