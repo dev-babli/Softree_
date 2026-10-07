@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { ArrowUpRight } from "lucide-react";
-import SectionHeader from "@/components/homepage-light/SectionHeader";
+import { SectionHeader } from "@/components/homepage-light/SectionHeader";
 import "swiper/css";
 
 const CASE_STUDIES = [
@@ -13,7 +13,7 @@ const CASE_STUDIES = [
     id: "wellkies-doctor",
     title: "Wellkies Doctor Mobile App",
     image: "/images/1.png",
-    link: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-Doctor-Document.pdf",
+    link: "/case-studies/mobile",
     challenge:
       "Doctors struggled with scattered patient records and inefficient appointment handling.",
     innovation:
@@ -24,7 +24,7 @@ const CASE_STUDIES = [
     id: "wellkies-clinic",
     title: "Wellkies Clinic Management App",
     image: "/images/2.webp",
-    link: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-Clinic-App.pdf",
+    link: "/case-studies/mobile",
     challenge:
       "Clinic staff relied on manual workflows for billing, appointments, and records.",
     innovation:
@@ -35,7 +35,7 @@ const CASE_STUDIES = [
     id: "mern-blog",
     title: "Public Blogging Website (MERN)",
     image: "/images/3.png",
-    link: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Public-Blogging-Website-Using-the-MERN-Stack.pdf",
+    link: "/case-studies/web",
     challenge:
       "Creators needed a fast, scalable, SEO-friendly publishing platform.",
     innovation:
@@ -125,15 +125,13 @@ export default function ServicesHubCaseStudies() {
                       </span>
                     ))}
                   </div>
-                  <a
+                  <Link
                     href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#0a0a1a] px-6 py-3 text-xs font-semibold uppercase tracking-[0.08em] text-white transition-colors hover:bg-[#0a0a1a]/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0a0a1a]"
                   >
                     View case study
                     <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
-                  </a>
+                  </Link>
                 </div>
               </article>
             </SwiperSlide>

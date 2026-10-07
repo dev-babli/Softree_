@@ -20,12 +20,14 @@
  *   11. Footer (chrome from About/Contact)
  * ───────────────────────────────────────────────────────────────────── */
 
+import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import NavigationServer from "@/components/sections/navigation-server";
 import Footer from "@/components/sections/footer";
 import LightContactSection from "@/components/qc/homepage-light/LightContactSection";
 import { sanityFetch } from "@/cms/lib/fetch";
 import { careersPageQuery } from "@/cms/lib/queries/queries";
+import { SITE_URL, ogImages, pageOgImage, twitterImages } from "@/lib/site-metadata";
 
 import CareersHeroLight from "./hero-light";
 import CareersIntroLight from "./intro-light";
@@ -36,6 +38,29 @@ import CareersCultureLight from "./culture-light";
 import CareersTalentPoolLight from "./talent-pool-light";
 import AnimatedPhotoGallery from "@/components/Gallery/AnimatedPhotoGallery";
 import type { CareersPageData } from "./types";
+
+export const metadata: Metadata = {
+  title: "Careers at Softree Technology | Engineering & AI Innovation Roles",
+  description:
+    "Join Softree Technology's world-class engineering team. Explore career opportunities across AI, cloud computing, Power Platform, full-stack development, and QA engineering.",
+  alternates: {
+    canonical: `${SITE_URL}/careers`,
+  },
+  openGraph: {
+    title: "Careers at Softree Technology | Join Our Engineering Team",
+    description:
+      "Build cutting-edge AI systems and cloud solutions with Softree Technology. Explore open positions in AI, full stack, and cloud engineering.",
+    url: `${SITE_URL}/careers`,
+    images: ogImages(pageOgImage("/careers", "Careers at Softree Technology").url),
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Careers at Softree Technology | Engineering Roles",
+    description:
+      "Explore open engineering, AI, and cloud development roles at Softree Technology.",
+    images: twitterImages(pageOgImage("/careers", "Careers at Softree Technology").url),
+  },
+};
 
 // FAQ component is heavy (GSAP, large grainient) — defer to keep TTFB low.
 const LightFAQExactLazy = dynamic(

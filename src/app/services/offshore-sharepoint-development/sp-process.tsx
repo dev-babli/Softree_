@@ -1,11 +1,20 @@
 "use client";
 
+import { Compass, Sparkles, CheckCircle2, ShieldCheck, LucideIcon } from "lucide-react";
+
+type ProcessStep = {
+  step: string;
+  title: string;
+  icon: LucideIcon;
+  points: string[];
+};
+
 export default function SharePointMigrationProcess() {
-  const steps = [
+  const steps: ProcessStep[] = [
     {
       step: "01",
       title: "Assessment & Planning",
-      icon: "//evolvous.com/wp-content/uploads/2024/02/expand.png",
+      icon: Compass,
       points: [
         "Comprehensive assessment of existing SharePoint environments and data",
         "Migration roadmap aligned with business objectives and compliance needs",
@@ -15,7 +24,7 @@ export default function SharePointMigrationProcess() {
     {
       step: "02",
       title: "Migration & Modernization",
-      icon: "//evolvous.com/wp-content/uploads/2024/02/maximize.png",
+      icon: Sparkles,
       points: [
         "Secure migration of sites, lists, libraries, permissions, and metadata",
         "Modernization of classic SharePoint sites to modern experiences",
@@ -25,7 +34,7 @@ export default function SharePointMigrationProcess() {
     {
       step: "03",
       title: "Validation & Knowledge Transfer",
-      icon: "https://evolvous.com/wp-content/uploads/2024/03/file.png",
+      icon: CheckCircle2,
       points: [
         "Data validation, integrity checks, and user acceptance testing (UAT)",
         "Governance setup and best practices post migration",
@@ -35,7 +44,7 @@ export default function SharePointMigrationProcess() {
     {
       step: "04",
       title: "Support, Optimization & Governance",
-      icon: "https://evolvous.com/wp-content/uploads/2024/03/nfc-symbol.png",
+      icon: ShieldCheck,
       points: [
         "Continuous monitoring, performance tuning, and security optimization",
         "Cost optimization and licensing best practices for Microsoft 365",
@@ -109,15 +118,11 @@ export default function SharePointMigrationProcess() {
                     {/* Icon */}
                     <div
                       className="
-                        mt-6 w-18 h-18 flex items-center justify-center rounded-2xl
-                        bg-gradient-to-br from-orange-400 to-amber-500 shadow-xl
+                        mt-6 w-14 h-14 flex items-center justify-center rounded-2xl
+                        bg-gradient-to-br from-orange-400 to-amber-500 shadow-xl text-white
                       "
                     >
-                      <img
-                        src={step.icon}
-                        alt={step.title}
-                        className="w-8 h-8"
-                      />
+                      <step.icon className="w-7 h-7" aria-hidden="true" />
                     </div>
 
                     {/* Title */}

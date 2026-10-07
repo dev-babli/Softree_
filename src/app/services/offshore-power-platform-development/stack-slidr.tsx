@@ -350,12 +350,7 @@ export default function StackedSlider() {
 
                         <div className="flex items-center gap-1.5">
                           <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                          <span
-                            className="typo-caption-meta tracking-wider opacity-70 uppercase"
-                            style={{ color: card.text }}
-                          >
-                            ENTERPRISE SPEC
-                          </span>
+                         
                         </div>
                       </div>
 
@@ -474,10 +469,7 @@ export default function StackedSlider() {
                         }}
                       >
                         <span>MICROSOFT 365 • DATAVERSE READY</span>
-                        <span className="flex items-center gap-1">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                          PROD READY
-                        </span>
+                       
                       </div>
                     </div>
                   </div>

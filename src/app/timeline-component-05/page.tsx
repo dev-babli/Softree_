@@ -5,6 +5,14 @@ import V1_3_0_Content from '@/components/shadcn-studio/blocks/timeline-component
 import V1_2_0_Content from '@/components/shadcn-studio/blocks/timeline-component-05/content/v1-2-0'
 import V1_1_0_Content from '@/components/shadcn-studio/blocks/timeline-component-05/content/v1-1-0'
 
+export const metadata: Metadata = {
+  title: "Changelog Preview | Softree Technology",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
+
 export const releases: Release[] = [
   {
     version: 'v 1.3.0',

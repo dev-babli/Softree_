@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -13,7 +14,7 @@ const caseStudies = [
     accent: "#22C55E",
     title: "Wellkies Doctor Mobile App",
     image: "/images/1.png",
-    link: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-Doctor-Document.pdf",
+    link: "/case-studies/mobile",
     challenge:
       "Doctors struggled with scattered patient records and inefficient appointment handling.",
     innovation:
@@ -25,7 +26,7 @@ const caseStudies = [
     accent: "#0EA5E9",
     title: "Wellkies Clinic Management App",
     image: "/images/2.webp",
-    link: "https://www.softreetechnology.com/wp-content/uploads/2024/09/Wellkies-Clinic-App.pdf",
+    link: "/case-studies/mobile",
     challenge:
       "Clinic staff relied on manual workflows for billing, appointments, and records.",
     innovation:
@@ -37,7 +38,7 @@ const caseStudies = [
     accent: "#A855F7",
     title: "Public Blogging Website using MERN Stack",
     image: "/images/3.png",
-    link: "https://www.softreetechnology.com/wp-content/uploads/2024/11/Public-Blogging-Website-Using-the-MERN-Stack.pdf",
+    link: "/case-studies/web",
     challenge:
       "Content creators needed a fast, scalable, and SEO-friendly blogging platform.",
     innovation:
@@ -161,10 +162,8 @@ export default function CaseStudiesSection() {
                   </div>
 
                   {/* CTA */}
-                  <a
+                  <Link
                     href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="
                       mt-10 inline-flex items-center gap-2
                       px-6 py-3
@@ -176,7 +175,7 @@ export default function CaseStudiesSection() {
                     "
                   >
                     View Case Study →
-                  </a>
+                  </Link>
                 </div>
               </div>
             </SwiperSlide>

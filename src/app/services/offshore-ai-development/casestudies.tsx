@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import { useRouter } from "next/navigation";
@@ -18,7 +19,7 @@ const caseStudies = [
     impact: "Improved accuracy and reduced manual effort.",
     tech: ["Power Apps", "Dataverse", "Power Automate", "Barcode Scanner"],
     image: "/images/case-study/power-apps/barcode.png",
-    href: "https://www.softreetechnology.com/case-studies/barcode-scanner-app-audio-equipment-management",
+    href: "/case-studies/power-platform",
     category: "Power Apps",
   },
 
@@ -30,7 +31,7 @@ const caseStudies = [
     impact: "Improved accuracy by 80% and reduced workload.",
     tech: ["Power Apps", "SharePoint", "Power Automate"],
     image: "/images/case-study/power-apps/emp.jpg",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Employee-Details-tracking-System.pdf",
+    href: "/case-studies/power-platform",
     category: "Power Apps",
   },
 
@@ -42,7 +43,7 @@ const caseStudies = [
     impact: "Improved delivery timelines by 40%.",
     tech: ["Power Apps", "Dataverse", "Power BI"],
     image: "/images/case-study/power-apps/project.avif",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Projects-Portfolio-ManagementMicrosoft-Dataverse.pdf",
+    href: "/case-studies/power-platform",
     category: "Power Apps",
   },
 
@@ -54,7 +55,7 @@ const caseStudies = [
     impact: "Reduced queries by 50% and increased engagement.",
     tech: ["Power Apps", "Dataverse", "Power Automate"],
     image: "/images/case-study/power-apps/student.avif",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Students-Portal-Mobile-App.pdf",
+    href: "/case-studies/power-platform",
     category: "Power Apps",
   },
 ];
@@ -220,10 +221,8 @@ export default function PowerAppsCaseStudies() {
                             </p>
                           </div>
 
-                          <a
+                          <Link
                             href={item.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
                             className="
                 relative z-10
                 inline-flex items-center justify-center
@@ -238,7 +237,7 @@ export default function PowerAppsCaseStudies() {
               "
                           >
                             View Case Study →
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>

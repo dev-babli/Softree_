@@ -5,7 +5,6 @@ const path = require('path');
 const proposedStaticRoutes = [
   // Primary Core Pages (Priority 1.0 - 0.95)
   { url: '/', priority: 1.0, changeFrequency: 'weekly' },
-  { url: '/ai', priority: 0.95, changeFrequency: 'weekly' },
   { url: '/agentic-ai-platform', priority: 0.95, changeFrequency: 'weekly' },
   { url: '/ai-workflow-orchestration', priority: 0.95, changeFrequency: 'weekly' },
   { url: '/services', priority: 0.9, changeFrequency: 'weekly' },

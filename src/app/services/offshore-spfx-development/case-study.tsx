@@ -13,7 +13,7 @@ const caseStudies = [
       "Developed a custom SPFx panel using Fluent UI to enable seamless copy and move operations within SharePoint lists. Reduced manual effort and improved user productivity.",
     tech: ["SPFx", "Fluent UI", "React"],
     image: "/images/spfx/copy.webp",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2025/03/Enhancing-SharePoint-List-Management-with-a-Custom-Copy-Move-Panel-Using-SPFx-and-Fluent-UI.pdf",
+    href: "/case-studies/sharepoint",
   },
   {
     title: "Custom Footer using SPFx",
@@ -22,7 +22,7 @@ const caseStudies = [
       "Built an SPFx Application Customizer to inject a reusable branded footer across the tenant.",
     tech: ["SPFx", "TypeScript", "App Customizer"],
     image: "/images/footer.webp",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/Enhancing-User-Experience-with-a-Custom-Footer-using-SPFx.pdf",
+    href: "/case-studies/sharepoint",
   },
   {
     title: "SPFx Parent Panel for List & Library Creation",
@@ -31,7 +31,7 @@ const caseStudies = [
       "Created a parent SPFx panel with guided options to simplify list and library creation for business users.",
     tech: ["SPFx", "React", "Fluent UI"],
     image: "/images/spfx/list.webp",
-    href: "https://www.softreetechnology.com/wp-content/uploads/2024/12/SPFx-1.pdf",
+    href: "/case-studies/sharepoint",
   },
 ];
 

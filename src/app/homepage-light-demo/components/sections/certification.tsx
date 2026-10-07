@@ -30,27 +30,27 @@ gsap.registerPlugin(ScrollTrigger);
 
 const certifications = [
   {
-    src: "https://www.softreetechnology.com/wp-content/uploads/2024/12/STPI.webp",
+    src: "/images/certifications/stpi.webp",
     alt: "STPI",
   },
   {
-    src: "https://www.softreetechnology.com/wp-content/uploads/2024/12/startupindia.webp",
+    src: "/images/certifications/startup-india.webp",
     alt: "Startup India",
   },
   {
-    src: "https://www.softreetechnology.com/wp-content/uploads/2024/12/MCPD.webp",
+    src: "/images/certifications/mcpd.webp",
     alt: "MCPD",
   },
   {
-    src: "https://www.softreetechnology.com/wp-content/uploads/2024/12/MCTS.webp",
+    src: "/images/certifications/mcts.webp",
     alt: "MCTS",
   },
   {
-    src: "https://www.softreetechnology.com/wp-content/uploads/2024/12/ISO-9001-2015.webp",
+    src: "/images/certifications/iso-9001-2015.webp",
     alt: "ISO 9001",
   },
   {
-    src: "https://www.softreetechnology.com/wp-content/uploads/2024/12/ISO-27001-2022.webp",
+    src: "/images/certifications/iso-27001-2022.webp",
     alt: "ISO 27001",
   },
 ];

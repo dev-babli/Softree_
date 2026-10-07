@@ -106,6 +106,16 @@ const nextConfig: any = {
         permanent: false,
       },
       {
+        source: "/wp-content/uploads/:path*",
+        destination: "/case-studies",
+        permanent: true,
+      },
+      {
+        source: "/wp-content/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
         source: "/services/ai-development-service",
         destination: "/services/ai-development-services",
         permanent: true,
@@ -148,6 +158,51 @@ const nextConfig: any = {
       {
         source: "/kore-ai-component/:path*",
         destination: "/agentic-ai-platform/:path*",
+        permanent: true,
+      },
+      {
+        source: "/about",
+        destination: "/about-us",
+        permanent: true,
+      },
+      {
+        source: "/portfolio",
+        destination: "/case-studies",
+        permanent: true,
+      },
+      {
+        source: "/portfolio/:path*",
+        destination: "/case-studies",
+        permanent: true,
+      },
+      {
+        source: "/case-study",
+        destination: "/case-studies",
+        permanent: true,
+      },
+      {
+        source: "/case-study/:slug",
+        destination: "/case-studies/:slug",
+        permanent: true,
+      },
+      {
+        source: "/service",
+        destination: "/services",
+        permanent: true,
+      },
+      {
+        source: "/solution",
+        destination: "/solutions",
+        permanent: true,
+      },
+      {
+        source: "/blogs",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
+        source: "/blogs/:path*",
+        destination: "/blog",
         permanent: true,
       },
       {

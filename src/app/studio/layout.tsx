@@ -1,4 +1,13 @@
+import type { Metadata } from 'next'
 import Script from 'next/script'
+
+export const metadata: Metadata = {
+  title: 'Softree Studio',
+  robots: {
+    index: false,
+    follow: false,
+  },
+}
 
 const SANITY_DASHBOARD_BRIDGE = 'https://core.sanity-cdn.com/bridge.js'
 

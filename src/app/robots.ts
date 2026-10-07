@@ -12,6 +12,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           '/api/',
           '/studio/',
+          '/wp-content/',
           '/case-studies/preview/',
           '/case-studies/layout-showcase/',
           '/demo-vigorous/',

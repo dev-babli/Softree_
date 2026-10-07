@@ -237,7 +237,12 @@ function mapSanityCaseStudyToHeroSlide(study: SanityCaseStudyCard): CaseStudyHer
 }
 
 async function fetchPublishedCaseStudies(): Promise<SanityCaseStudyCard[]> {
-  return readClient.fetch<SanityCaseStudyCard[]>(publishedCaseStudiesQuery)
+  try {
+    return (await readClient.fetch<SanityCaseStudyCard[]>(publishedCaseStudiesQuery)) || []
+  } catch (error) {
+    console.error('Error fetching published case studies from CMS:', error)
+    return []
+  }
 }
 
 export async function getCaseStudyItemsByCategory(

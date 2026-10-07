@@ -48,7 +48,7 @@ export const CONTACT_CHANNELS = [
   {
     city: "Global sales",
     email: "sales@softreetechnology.com",
-    phone: "+91 70086 99927",
+    phone: "+91 90404 92078",
     contact: "Srikanta Barik",
     hours: "Mon–Fri · 9:00–18:00 IST",
   },
