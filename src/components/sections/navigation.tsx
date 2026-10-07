@@ -142,13 +142,13 @@ const menu: MenuItem[] = [
             icon: HeartPulse,
             description: "Healthcare software testing, QA automation, and digital health quality engineering",
           },
-          {
-            label: "Logistics Testing Services",
-            url: "/services/logistics-testing-services",
-            icon: Truck,
-            description:
-              "Logistics software testing, QA automation, and quality engineering for transportation and supply chain applications"
-          },
+          // {
+          //   label: "Logistics Testing Services",
+          //   url: "/services/logistics-testing-services",
+          //   icon: Truck,
+          //   description:
+          //     "Logistics software testing, QA automation, and quality engineering for transportation and supply chain applications"
+          // },
         ],
       },
       {
