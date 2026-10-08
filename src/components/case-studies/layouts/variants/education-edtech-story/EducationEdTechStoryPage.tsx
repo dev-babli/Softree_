@@ -914,6 +914,7 @@ export function EducationEdTechStoryPage({ data }: Props) {
               >
                 {relatedCases.map((rc, i) => {
                   const slugStr = typeof rc.slug === "string" ? rc.slug : rc.slug?.current || ""
+                  if (!slugStr || slugStr === "null" || slugStr === "undefined") return null
                   const img = rc.mainImage?.asset?.url || rc.mainImageUrl || stockPackForSlug(slugStr).hero
                   return (
                     <div
@@ -940,7 +941,7 @@ export function EducationEdTechStoryPage({ data }: Props) {
                           <h3>{rc.title}</h3>
                           <p>{rc.excerpt}</p>
                           <Link
-                            href={typeof rc.slug === "string" ? `/case-studies/${rc.slug}` : `/case-studies/${rc.slug?.current || ""}`}
+                            href={`/case-studies/${slugStr}`}
                             className="story-link group/link"
                           >
                             Read case study

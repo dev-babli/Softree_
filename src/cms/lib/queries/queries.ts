@@ -5,7 +5,7 @@ import { groq } from "next-sanity";
  * Returns the 4 most recent published posts.
  */
 export const latestBlogsQuery = groq`
-  *[_type == "post" && coalesce(visibility, status, "published") == "published"] | order(coalesce(publishedAt, _createdAt) desc)[0...4] {
+  *[_type == "post" && coalesce(visibility, status, "published") == "published" && defined(slug.current) && slug.current != "" && slug.current != "null"] | order(coalesce(publishedAt, _createdAt) desc)[0...4] {
     _id,
     title,
     slug,
@@ -25,7 +25,7 @@ export const navBlogsQuery = groq`
     _id,
     title,
     slug,
-    "posts": *[_type == "post" && references(^._id) && coalesce(visibility, status, "published") == "published"] | order(coalesce(publishedAt, _createdAt) desc)[0...3] {
+    "posts": *[_type == "post" && references(^._id) && coalesce(visibility, status, "published") == "published" && defined(slug.current) && slug.current != "" && slug.current != "null"] | order(coalesce(publishedAt, _createdAt) desc)[0...3] {
       _id,
       title,
       slug,
@@ -39,7 +39,7 @@ export const navBlogsQuery = groq`
  * Grouped by category on the client via buildCaseStudyNavCategories().
  */
 export const navCaseStudiesQuery = groq`
-  *[_type == "caseStudy" && coalesce(visibility, status, "published") == "published" && defined(slug.current)] | order(_updatedAt desc) {
+  *[_type == "caseStudy" && coalesce(visibility, status, "published") == "published" && defined(slug.current) && slug.current != "" && slug.current != "null"] | order(_updatedAt desc) {
     _id,
     title,
     client,
@@ -68,7 +68,7 @@ export const navCaseStudiesQuery = groq`
 
 /** Featured case studies for homepage and promos (max 6). */
 export const featuredCaseStudiesNavQuery = groq`
-  *[_type == "caseStudy" && coalesce(visibility, status, "published") == "published" && featuredRank > 0 && defined(slug.current)] | order(featuredRank asc, _updatedAt desc)[0...6] {
+  *[_type == "caseStudy" && coalesce(visibility, status, "published") == "published" && featuredRank > 0 && defined(slug.current) && slug.current != "" && slug.current != "null"] | order(featuredRank asc, _updatedAt desc)[0...6] {
     _id,
     title,
     client,
@@ -222,7 +222,7 @@ export const caseStudyBySlugQuery = groq`
       mainImage { asset->{ url } },
       "mainImageUrl": coalesce(mainImageUrl, imageUrl),
       client
-    }[coalesce(visibility, status, "published") == "published"],
+    }[coalesce(visibility, status, "published") == "published" && defined(slug.current) && slug.current != "" && slug.current != "null"],
     metaTitle,
     metaDescription,
     faqSchema[] { question, answer },
@@ -236,6 +236,8 @@ export const relatedCaseStudiesFallbackQuery = groq`
   *[_type == "caseStudy"
     && slug.current != $slug
     && defined(slug.current)
+    && slug.current != ""
+    && slug.current != "null"
     && coalesce(visibility, status, "published") == "published"
   ] | order(_updatedAt desc)[0...6] {
     _id,
@@ -253,7 +255,7 @@ export const relatedCaseStudiesFallbackQuery = groq`
 `;
 
 export const allCaseStudySlugsQuery = groq`
-  *[_type == "caseStudy" && defined(slug.current) && coalesce(visibility, status, "published") == "published"][].slug.current
+  *[_type == "caseStudy" && defined(slug.current) && slug.current != "" && slug.current != "null" && coalesce(visibility, status, "published") == "published"][].slug.current
 `;
 
 export const allPostSlugsQuery = groq`
@@ -305,6 +307,8 @@ export const relatedPostsQuery = groq`
     && slug.current != $slug
     && coalesce(visibility, status, "published") == "published"
     && defined(slug.current)
+    && slug.current != ""
+    && slug.current != "null"
   ] | order(coalesce(publishedAt, _createdAt) desc)[0...3] {
     _id,
     title,
@@ -346,7 +350,7 @@ export const marketingPageBySlugQuery = groq`
 `;
 
 export const marketingPageSlugsQuery = groq`
-  *[_type == "marketingPage" && status == "published" && defined(slug.current)].slug.current
+  *[_type == "marketingPage" && status == "published" && defined(slug.current) && slug.current != "" && slug.current != "null"].slug.current
 `;
 
 export const homepageCaseStudySliderQuery = groq`

@@ -129,16 +129,20 @@ export function ParallaxScreenshotsPage({ data }: { data: CaseStudyLayoutData })
           <div className="mx-auto max-w-6xl px-6">
             <h2 className="font-bold">More design work</h2>
             <div className="mt-8 grid gap-6 sm:grid-cols-3">
-              {data.related.slice(0, 6).map((r) => (
-                <Link key={r._id} href={`/case-studies/${r.slug.current}`} className="group overflow-hidden rounded-2xl bg-white shadow-md">
-                  <div className="relative aspect-video bg-violet-100">
-                    {(r.mainImageUrl || r.mainImage?.asset?.url) && (
-                      <Image src={r.mainImageUrl || r.mainImage!.asset!.url!} alt="" fill className="object-cover transition-transform group-hover:scale-105" sizes="400px" />
-                    )}
-                  </div>
-                  <div className="p-4 font-semibold">{r.client || r.title}</div>
-                </Link>
-              ))}
+              {data.related.slice(0, 6).map((r) => {
+                const slug = typeof r.slug === "string" ? r.slug : r.slug?.current
+                if (!slug || slug === "null" || slug === "undefined" || slug.trim() === "") return null
+                return (
+                  <Link key={r._id} href={`/case-studies/${slug}`} className="group overflow-hidden rounded-2xl bg-white shadow-md">
+                    <div className="relative aspect-video bg-violet-100">
+                      {(r.mainImageUrl || r.mainImage?.asset?.url) && (
+                        <Image src={r.mainImageUrl || r.mainImage!.asset!.url!} alt="" fill className="object-cover transition-transform group-hover:scale-105" sizes="400px" />
+                      )}
+                    </div>
+                    <div className="p-4 font-semibold">{r.client || r.title}</div>
+                  </Link>
+                )
+              })}
             </div>
           </div>
         </section>

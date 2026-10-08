@@ -182,9 +182,13 @@ const portableTextComponents: PortableTextComponents = {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
+  if (!slug || slug === 'null' || slug === 'undefined' || slug.trim() === '') {
+    return { title: 'Blog Post Not Found' }
+  }
+
   const post = await sanityFetch<BlogPostDocument | null>(postBySlugQuery, { slug }, { tags: ['post', `post:${slug}`] })
 
-  if (!post) return { title: 'Blog Post Not Found' }
+  if (!post || !post.title) return { title: 'Blog Post Not Found' }
 
   const title = toPlainText(post.metaTitle) || toPlainText(post.title)
   const description =
@@ -241,9 +245,13 @@ function estimateReadTime(post: { body?: unknown; composerSections?: unknown[] }
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
+  if (!slug || slug === 'null' || slug === 'undefined' || slug.trim() === '') {
+    notFound()
+  }
+
   const post = await sanityFetch<BlogPostDocument | null>(postBySlugQuery, { slug }, { tags: ['post', `post:${slug}`] })
 
-  if (!post) notFound()
+  if (!post || !post.title) notFound()
 
   const authorName = toPlainText(post.author?.name) || 'Softree Team'
   const publishedDate = post.publishedAt

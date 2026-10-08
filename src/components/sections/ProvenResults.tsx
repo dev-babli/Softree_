@@ -210,38 +210,6 @@ const solutionData: Record<SolutionType, ProvenResultItem[]> = {
       link: "/solutions/enterprise-rag-development"
     }
   ],
-  "ai-chatbot": [
-    {
-      category: "CUSTOMER SUPPORT",
-      title: "Enterprise Support Chatbot",
-      challenge: "Support teams were overwhelmed by repetitive FAQs and inconsistent answers across outdated help articles, driving long wait times.",
-      solution: "A knowledge-grounded AI chatbot that answers FAQs, creates tickets, and hands off to live agents with full conversation context.",
-      outcome: "Deflected routine queries and streamlined live-agent handoffs with complete context.",
-      metric: "65%",
-      metricLabel: "Ticket Deflection",
-      link: "/solutions/ai-chatbot-development"
-    },
-    {
-      category: "HUMAN RESOURCES",
-      title: "Employee Self-Service Chatbot",
-      challenge: "HR teams struggled with manual employee onboarding questions, leave inquiries, and policy lookups that clogged shared inboxes.",
-      solution: "An AI-powered HR chatbot on Microsoft Teams that answers policy questions, guides leave requests, and escalates sensitive cases.",
-      outcome: "Deflected routine questions and simplified leave/policy check requests for employees.",
-      metric: "55%",
-      metricLabel: "HR Admin Load Cut",
-      link: "/solutions/ai-chatbot-development"
-    },
-    {
-      category: "HEALTHCARE",
-      title: "Patient & Staff Concierge Chatbot",
-      challenge: "Healthcare providers faced high administrative effort answering scheduling and policy questions from patients and staff.",
-      solution: "A conversational assistant grounded in approved clinical ops content to handle appointment and policy questions.",
-      outcome: "Drastically reduced phone call volume and inquiry response times for support staff.",
-      metric: "58%",
-      metricLabel: "Fewer Call Enquiries",
-      link: "/solutions/ai-chatbot-development"
-    }
-  ],
   "azure-openai": [
     {
       category: "KNOWLEDGE WORK",

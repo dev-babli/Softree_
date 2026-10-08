@@ -10,19 +10,24 @@ const client = createClient({
   useCdn: false,
 })
 
-const q = `*[_type=="caseStudy"] | order(publishedAt desc) {
-  title,
-  "slug": slug.current,
-  status,
-  publishedAt,
-  category,
-  industry,
-  useCase,
-  featuredRank,
-  detailLayout,
-  client
+const q = `{
+  "nullCases": *[_type=="caseStudy" && (!defined(slug.current) || slug.current == null || slug.current == "" || slug.current == "null")] {
+    _id,
+    title,
+    "slug": slug.current,
+    status
+  },
+  "totalCases": count(*[_type=="caseStudy"]),
+  "nullPosts": *[_type=="post" && (!defined(slug.current) || slug.current == null || slug.current == "" || slug.current == "null")] {
+    _id,
+    title,
+    "slug": slug.current,
+    status
+  },
+  "totalPosts": count(*[_type=="post"])
 }`
 
 client.fetch(q).then((r) => {
-  console.log(JSON.stringify(r, null, 2))
+  console.log("SANITY AUDIT RESULT:", JSON.stringify(r, null, 2))
 })
+

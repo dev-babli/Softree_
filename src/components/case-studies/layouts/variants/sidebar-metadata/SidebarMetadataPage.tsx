@@ -126,16 +126,20 @@ export function SidebarMetadataPage({ data }: { data: CaseStudyLayoutData }) {
           <div className="mx-auto max-w-5xl px-6">
             <h2 className="text-sm font-semibold uppercase tracking-wider text-[#787774]">Related studies</h2>
             <div className="mt-6 grid gap-4 sm:grid-cols-3">
-              {data.related.slice(0, 6).map((r) => (
-                <Link
-                  key={r._id}
-                  href={`/case-studies/${r.slug.current}`}
-                  className="rounded-md border border-[#E8E8E5] p-4 text-[13px] transition-[border-color,box-shadow] duration-200 hover:border-indigo-500 hover:shadow-sm"
-                >
-                  <div className="font-semibold">{r.client || r.title}</div>
-                  <div className="mt-1 line-clamp-2 text-[#787774]">{r.excerpt}</div>
-                </Link>
-              ))}
+              {data.related.slice(0, 6).map((r) => {
+                const slug = typeof r.slug === "string" ? r.slug : r.slug?.current
+                if (!slug || slug === "null" || slug === "undefined" || slug.trim() === "") return null
+                return (
+                  <Link
+                    key={r._id}
+                    href={`/case-studies/${slug}`}
+                    className="rounded-md border border-[#E8E8E5] p-4 text-[13px] transition-[border-color,box-shadow] duration-200 hover:border-indigo-500 hover:shadow-sm"
+                  >
+                    <div className="font-semibold">{r.client || r.title}</div>
+                    <div className="mt-1 line-clamp-2 text-[#787774]">{r.excerpt}</div>
+                  </Link>
+                )
+              })}
             </div>
           </div>
         </section>

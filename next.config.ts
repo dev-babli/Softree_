@@ -192,7 +192,12 @@ const nextConfig: any = {
       },
       {
         source: "/solution",
-        destination: "/solutions",
+        destination: "/agentic-ai-platform",
+        permanent: true,
+      },
+      {
+        source: "/solutions",
+        destination: "/agentic-ai-platform",
         permanent: true,
       },
       {
@@ -207,12 +212,42 @@ const nextConfig: any = {
       },
       {
         source: "/client",
-        destination: "/demo-vigorous",
+        destination: "/case-studies",
         permanent: true,
       },
       {
         source: "/contact-us",
         destination: "/contact",
+        permanent: true,
+      },
+      {
+        source: "/case-studies/null",
+        destination: "/case-studies",
+        permanent: true,
+      },
+      {
+        source: "/case-studies/undefined",
+        destination: "/case-studies",
+        permanent: true,
+      },
+      {
+        source: "/blog/ai-security-testing-enterprise-guide",
+        destination: "/services/security-testing-services",
+        permanent: true,
+      },
+      {
+        source: "/blog/ai-security-testing-services",
+        destination: "/services/security-testing-services",
+        permanent: true,
+      },
+      {
+        source: "/power-bi-development-services",
+        destination: "/services/power-bi-development-services",
+        permanent: true,
+      },
+      {
+        source: "/microsoft-fabric-development-services",
+        destination: "/services/microsoft-fabric-development-services",
         permanent: true,
       },
       {
@@ -233,6 +268,11 @@ const nextConfig: any = {
       {
         source: "/services/ai-intelligence/generative-ai",
         destination: "/services/generative-ai",
+        permanent: true,
+      },
+      {
+        source: "/services/digital-workspace/spfx-development",
+        destination: "/services/offshore-spfx-development",
         permanent: true,
       },
       {

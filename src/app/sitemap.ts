@@ -8,10 +8,9 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${BASE_URL}/`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
   { url: `${BASE_URL}/agentic-ai-platform`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
   { url: `${BASE_URL}/ai-workflow-orchestration`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
+  { url: `${BASE_URL}/ai-home`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/who-do-we-serve`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
-  { url: `${BASE_URL}/avoora`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
-  { url: `${BASE_URL}/showcase`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
   { url: `${BASE_URL}/webanalyser`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
 
   // AI & Automation Services
@@ -29,13 +28,13 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${BASE_URL}/services/amazon-nova-2-sonic-solutions`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/services/offshore-langchain-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/services/offshore-langgraph-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-
-  // QA & Testing Services
   { url: `${BASE_URL}/services/ai-powered-test-automation`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
-  { url: `${BASE_URL}/services/automation-testing-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-  { url: `${BASE_URL}/services/agentic-ai-testing-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-  { url: `${BASE_URL}/services/security-testing-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-  { url: `${BASE_URL}/services/logistics-testing-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+
+  // Quality Engineering & Testing Services
+  { url: `${BASE_URL}/quality-engineering/automation-testing-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
+  { url: `${BASE_URL}/quality-engineering/agentic-ai-testing-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+  { url: `${BASE_URL}/quality-engineering/security-testing-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+  { url: `${BASE_URL}/quality-engineering/logistics-testing-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
 
   // Solutions Hub
   { url: `${BASE_URL}/solutions/enterprise-rag-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
@@ -48,12 +47,9 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${BASE_URL}/solutions/azure-openai-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/solutions/document-ai-solutions`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/solutions/multi-agent-systems`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-  { url: `${BASE_URL}/solutions/ai-for-healthcare`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-  { url: `${BASE_URL}/solutions/ai-for-financial-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-  { url: `${BASE_URL}/solutions/ai-for-logistics`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-  { url: `${BASE_URL}/solutions/ai-for-manufacturing`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
 
   // Microsoft, Power Platform & Modern Workspace Services
+  { url: `${BASE_URL}/services/azure-synapse-to-microsoft-fabric-migration`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
   { url: `${BASE_URL}/services/power-bi-development-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
   { url: `${BASE_URL}/services/microsoft-fabric-development-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
   { url: `${BASE_URL}/services/offshore-power-platform-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
@@ -91,9 +87,10 @@ const staticRoutes: MetadataRoute.Sitemap = [
 
 async function getBlogSlugs(): Promise<{ slug: string; updatedAt: string | null }[]> {
   try {
-    return await client.fetch(
-      `*[_type == "post" && !(_id in path("drafts.**")) && coalesce(visibility, status, "published") == "published" && defined(slug.current)]{ "slug": slug.current, "updatedAt": coalesce(_updatedAt, publishedAt) }`
+    const posts = await client.fetch<{ slug: string; updatedAt: string | null }[]>(
+      `*[_type == "post" && !(_id in path("drafts.**")) && coalesce(visibility, status, "published") == "published" && defined(slug.current) && slug.current != "" && slug.current != "null"]{ "slug": slug.current, "updatedAt": coalesce(_updatedAt, publishedAt) }`
     )
+    return (posts || []).filter((p) => p && p.slug && p.slug !== 'null' && p.slug !== 'undefined' && p.slug.trim() !== '')
   } catch {
     return []
   }
@@ -101,9 +98,10 @@ async function getBlogSlugs(): Promise<{ slug: string; updatedAt: string | null 
 
 async function getCaseStudySlugs(): Promise<{ slug: string; updatedAt: string | null }[]> {
   try {
-    return await client.fetch(
-      `*[_type == "caseStudy" && !(_id in path("drafts.**")) && coalesce(visibility, status, "published") == "published" && defined(slug.current)]{ "slug": slug.current, "updatedAt": coalesce(_updatedAt, publishedAt) }`
+    const studies = await client.fetch<{ slug: string; updatedAt: string | null }[]>(
+      `*[_type == "caseStudy" && !(_id in path("drafts.**")) && coalesce(visibility, status, "published") == "published" && defined(slug.current) && slug.current != "" && slug.current != "null"]{ "slug": slug.current, "updatedAt": coalesce(_updatedAt, publishedAt) }`
     )
+    return (studies || []).filter((cs) => cs && cs.slug && cs.slug !== 'null' && cs.slug !== 'undefined' && cs.slug.trim() !== '')
   } catch {
     return []
   }
@@ -111,9 +109,10 @@ async function getCaseStudySlugs(): Promise<{ slug: string; updatedAt: string | 
 
 async function getMarketingPageSlugs(): Promise<{ slug: string; updatedAt: string | null }[]> {
   try {
-    return await client.fetch(
-      `*[_type == "marketingPage" && !(_id in path("drafts.**")) && coalesce(visibility, status, "published") == "published" && defined(slug.current)]{ "slug": slug.current, "updatedAt": _updatedAt }`,
+    const pages = await client.fetch<{ slug: string; updatedAt: string | null }[]>(
+      `*[_type == "marketingPage" && !(_id in path("drafts.**")) && coalesce(visibility, status, "published") == "published" && defined(slug.current) && slug.current != "" && slug.current != "null"]{ "slug": slug.current, "updatedAt": _updatedAt }`,
     )
+    return (pages || []).filter((p) => p && p.slug && p.slug !== 'null' && p.slug !== 'undefined' && p.slug.trim() !== '')
   } catch {
     return []
   }

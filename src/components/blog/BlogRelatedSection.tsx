@@ -13,16 +13,20 @@ import {
 } from "@/components/case-studies/layouts/variants/manufacturing/shared"
 
 function RelatedPostCard({ post }: { post: RelatedStudy }) {
+  const slug = typeof post?.slug === "string" ? post.slug : post?.slug?.current
+  if (!slug || slug === "null" || slug === "undefined" || slug.trim() === "") {
+    return null
+  }
   const img =
     post.mainImage?.asset?.url ||
     post.mainImageUrl ||
-    stockHeroUrl(post.slug.current)
+    stockHeroUrl(slug)
   const eyebrow = post.category || post.industry || "Blog"
   const blurb = post.excerpt || ""
 
   return (
     <Link
-      href={`/blog/${post.slug.current}`}
+      href={`/blog/${slug}`}
       className="group flex h-full flex-col gap-5 rounded-[18px] bg-white p-5 transition-transform duration-300 ease-out hover:-translate-y-1"
     >
       <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[14px] bg-white border border-[#d7dce9]">

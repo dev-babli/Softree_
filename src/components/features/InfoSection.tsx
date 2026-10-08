@@ -529,7 +529,6 @@ export default function InfoSection() {
                     <PartnerLogo
                       key={`${set}-${p.name}-${i}`}
                       partner={p}
-                      tone="editorial"
                     />
                   ))}
                 </div>

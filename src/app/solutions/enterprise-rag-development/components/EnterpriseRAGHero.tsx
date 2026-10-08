@@ -1,12 +1,26 @@
 'use client';
 
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Script from 'next/script';
 import { HERO_DATA } from '../data/heroData';
 import TrustStrip from '@/components/sections/TrustStrip';
-import Spline from '@splinetool/react-spline';
 
-import { preload } from 'react-dom';
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'spline-viewer': React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement> & {
+          url?: string;
+          'events-target'?: string;
+          'loading-anim-type'?: string;
+          'mouse-look'?: string;
+        },
+        HTMLElement
+      >;
+    }
+  }
+}
 
 export const EnterpriseRAGHero: React.FC = () => {
   const { label, paragraph } = HERO_DATA;
@@ -14,8 +28,6 @@ export const EnterpriseRAGHero: React.FC = () => {
 
   useEffect(() => {
     setIsMounted(true);
-    // Preload the heavy 3D scene file so it starts downloading immediately
-    preload('https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode', { as: 'fetch', crossOrigin: 'anonymous' });
   }, []);
 
   const containerVariants = {
@@ -30,6 +42,11 @@ export const EnterpriseRAGHero: React.FC = () => {
 
   return (
     <section className="relative w-full bg-[#050909] overflow-hidden flex flex-col pt-24 lg:pt-32">
+      <Script
+        src="https://unpkg.com/@splinetool/viewer@1.9.59/build/spline-viewer.js"
+        type="module"
+        strategy="lazyOnload"
+      />
       <div className="w-full flex flex-col lg:flex-row items-start">
 
         {/* LEFT COLUMN: Content */}
@@ -75,7 +92,10 @@ export const EnterpriseRAGHero: React.FC = () => {
           <div className="w-full h-[400px] sm:h-[500px] lg:h-[600px] relative pointer-events-none transform lg:scale-[0.85] lg:origin-top">
             <div className="pointer-events-auto absolute inset-0 overflow-hidden">
               {isMounted && (
-                <Spline scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" className="w-full h-full" />
+                <spline-viewer
+                  url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                  style={{ width: '100%', height: '100%' }}
+                />
               )}
             </div>
           </div>

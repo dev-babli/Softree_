@@ -30,14 +30,20 @@ type CaseStudyDoc = SanityCaseStudyDoc & {
 
 export async function generateStaticParams() {
   const slugs = await readClient.fetch<string[]>(allCaseStudySlugsQuery)
-  return (slugs || []).map((slug) => ({ slug }))
+  return (slugs || [])
+    .filter((slug) => slug && slug !== 'null' && slug !== 'undefined' && slug.trim() !== '')
+    .map((slug) => ({ slug }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
+  if (!slug || slug === 'null' || slug === 'undefined' || slug.trim() === '') {
+    return { title: "Case Study Not Found" }
+  }
+
   const study = await sanityFetch<CaseStudyDoc | null>(caseStudyBySlugQuery, { slug }, { tags: ['caseStudy', `caseStudy:${slug}`] })
 
-  if (!study) return { title: "Case Study Not Found" }
+  if (!study || !study.title) return { title: "Case Study Not Found" }
 
   const title = study.metaTitle || `${study.title} | Customer Story`
   const description =
@@ -77,14 +83,22 @@ export default async function CaseStudyDetailPage({
   searchParams: Promise<{ layout?: string }>
 }) {
   const { slug } = await params
+  if (!slug || slug === 'null' || slug === 'undefined' || slug.trim() === '') {
+    notFound()
+  }
+
   const { layout: layoutOverride } = await searchParams
   const study = await sanityFetch<CaseStudyDoc | null>(caseStudyBySlugQuery, { slug }, { tags: ['caseStudy', `caseStudy:${slug}`] })
-  if (!study) notFound()
+  if (!study || !study.title) notFound()
 
-  let related: RelatedStudy[] = study.relatedCaseStudies || []
+  let related: RelatedStudy[] = (study.relatedCaseStudies || []).filter(
+    (r) => r && r.slug && ((r.slug.current && r.slug.current !== 'null' && r.slug.current !== 'undefined') || (typeof r.slug === 'string' && r.slug !== 'null' && r.slug !== 'undefined'))
+  )
   if (!related || related.length === 0) {
-    related =
-      (await sanityFetch<RelatedStudy[]>(relatedCaseStudiesFallbackQuery, { slug }, { tags: ['caseStudy'] })) || []
+    const fetchedRelated = await sanityFetch<RelatedStudy[]>(relatedCaseStudiesFallbackQuery, { slug }, { tags: ['caseStudy'] })
+    related = (fetchedRelated || []).filter(
+      (r) => r && r.slug && ((r.slug.current && r.slug.current !== 'null' && r.slug.current !== 'undefined') || (typeof r.slug === 'string' && r.slug !== 'null' && r.slug !== 'undefined'))
+    )
   }
 
   const [{ blogCategories, caseStudyCategories }, designTokens] = await Promise.all([

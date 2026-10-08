@@ -558,10 +558,12 @@ export function RelatedCaseStudiesSection({ related, theme = "dark" }: { related
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {related.slice(0, 6).map((study) => {
+            const slug = typeof study?.slug === "string" ? study.slug : study?.slug?.current
+            if (!slug || slug === "null" || slug === "undefined" || slug.trim() === "") return null
             const img = study.mainImage?.asset?.url || study.mainImageUrl
             const tag = study.industry || CATEGORY_LABELS[study.category || ""] || "Case Study"
             return (
-              <Link key={study._id} href={`/case-studies/${study.slug.current}`} className={`group overflow-hidden ${cardClasses(theme)}`}>
+              <Link key={study._id} href={`/case-studies/${slug}`} className={`group overflow-hidden ${cardClasses(theme)}`}>
                 <div className={`relative aspect-[16/10] ${theme === "dark" ? "bg-[#1e1e1e]" : "bg-[#f1f0ec]"}`}>
                   {img ? <Image src={img} alt={study.mainImage?.alt || study.title} fill unoptimized className="object-cover transition-transform duration-300 group-hover:scale-[1.03]" /> : null}
                 </div>

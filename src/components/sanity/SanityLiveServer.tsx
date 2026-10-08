@@ -16,5 +16,5 @@ export async function SanityLiveServer() {
     return null
   }
 
-  return <CmsSanityLive />
+  return <CmsSanityLive includeDrafts={false} />
 }

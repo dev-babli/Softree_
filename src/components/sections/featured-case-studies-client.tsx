@@ -65,9 +65,11 @@ export default function FeaturedCaseStudiesClient() {
 
         <div className="grid gap-6 md:grid-cols-3">
           {studies.map((study) => {
+            const slug = typeof study?.slug === "string" ? study.slug : study?.slug?.current
+            if (!slug || slug === "null" || slug === "undefined" || slug.trim() === "") return null
             const image = study.mainImage?.asset?.url || study.mainImageUrl
             const title = study.client || study.title
-            const href = `/case-studies/${study.slug.current}`
+            const href = `/case-studies/${slug}`
 
             return (
               <Link

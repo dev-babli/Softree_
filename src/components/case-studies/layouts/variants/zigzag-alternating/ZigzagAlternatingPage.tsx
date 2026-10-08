@@ -100,16 +100,20 @@ export function ZigzagAlternatingPage({ data }: { data: CaseStudyLayoutData }) {
           <div className="mx-auto max-w-6xl px-6">
             <h2 className="font-serif text-2xl">More stories</h2>
             <div className="mt-8 grid gap-6 sm:grid-cols-3">
-              {data.related.slice(0, 6).map((r) => (
-                <Link key={r._id} href={`/case-studies/${r.slug.current}`} className="group">
-                  <div className="relative aspect-[3/4] overflow-hidden bg-[#E8E0D4]">
-                    {(r.mainImageUrl || r.mainImage?.asset?.url) && (
-                      <Image src={r.mainImageUrl || r.mainImage!.asset!.url!} alt="" fill className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="400px" />
-                    )}
-                  </div>
-                  <h3 className="mt-4 font-serif text-lg">{r.client || r.title}</h3>
-                </Link>
-              ))}
+              {data.related.slice(0, 6).map((r) => {
+                const slug = typeof r.slug === "string" ? r.slug : r.slug?.current
+                if (!slug || slug === "null" || slug === "undefined" || slug.trim() === "") return null
+                return (
+                  <Link key={r._id} href={`/case-studies/${slug}`} className="group">
+                    <div className="relative aspect-[3/4] overflow-hidden bg-[#E8E0D4]">
+                      {(r.mainImageUrl || r.mainImage?.asset?.url) && (
+                        <Image src={r.mainImageUrl || r.mainImage!.asset!.url!} alt="" fill className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="400px" />
+                      )}
+                    </div>
+                    <h3 className="mt-4 font-serif text-lg">{r.client || r.title}</h3>
+                  </Link>
+                )
+              })}
             </div>
           </div>
         </section>

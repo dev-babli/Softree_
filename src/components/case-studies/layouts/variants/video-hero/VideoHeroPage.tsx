@@ -101,16 +101,20 @@ export function VideoHeroPage({ data }: { data: CaseStudyLayoutData }) {
           <div className="mx-auto max-w-6xl px-6">
             <h2 className="text-sm uppercase tracking-wider text-white/40">More experiences</h2>
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              {data.related.slice(0, 6).map((r) => (
-                <Link key={r._id} href={`/case-studies/${r.slug.current}`} className="group relative aspect-[4/5] overflow-hidden bg-zinc-900">
-                  {(r.mainImageUrl || r.mainImage?.asset?.url) && (
-                    <Image src={r.mainImageUrl || r.mainImage!.asset!.url!} alt="" fill className="object-cover opacity-70 transition-opacity group-hover:opacity-100" sizes="400px" />
-                  )}
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black p-4">
-                    <span className="text-sm font-medium">{r.client || r.title}</span>
-                  </div>
-                </Link>
-              ))}
+              {data.related.slice(0, 6).map((r) => {
+                const slug = typeof r.slug === "string" ? r.slug : r.slug?.current
+                if (!slug || slug === "null" || slug === "undefined" || slug.trim() === "") return null
+                return (
+                  <Link key={r._id} href={`/case-studies/${slug}`} className="group relative aspect-[4/5] overflow-hidden bg-zinc-900">
+                    {(r.mainImageUrl || r.mainImage?.asset?.url) && (
+                      <Image src={r.mainImageUrl || r.mainImage!.asset!.url!} alt="" fill className="object-cover opacity-70 transition-opacity group-hover:opacity-100" sizes="400px" />
+                    )}
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black p-4">
+                      <span className="text-sm font-medium">{r.client || r.title}</span>
+                    </div>
+                  </Link>
+                )
+              })}
             </div>
           </div>
         </section>

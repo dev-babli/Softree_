@@ -923,3 +923,5 @@ function centroid(points: { x: number; y: number }[]) {
 function dist2(a: { x: number; y: number }, b: { x: number; y: number }) {
   return Math.hypot(a.x - b.x, a.y - b.y);
 }
+
+export default GridScan;

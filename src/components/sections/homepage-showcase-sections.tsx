@@ -58,7 +58,7 @@ const FALLBACK_BLOG_POSTS: BlogPostMock[] = [
     category: "Cybersecurity",
     excerpt: "An in-depth review of advanced QA automation and security testing models designed to safeguard LLM integration pipelines, evaluate API compliance, and block cognitive threats.",
     image: "/images/blog/security.png",
-    href: "/blog/ai-security-testing-services",
+    href: "/services/security-testing-services",
     publishedAt: "2026-08-09T10:00:00Z",
     readingTime: "4 min read",
     takeaways: [
@@ -85,20 +85,23 @@ const FALLBACK_BLOG_POSTS: BlogPostMock[] = [
 ];
 
 function mapBlogPosts(posts: SanityBlogPost[]): BlogPostMock[] {
-  return posts.slice(0, 5).map((post, index) => {
-    // Force text-free abstract 3D gradient covers from BENTO_IMAGE_POOL for the homepage blog preview grid
-    const image = BENTO_IMAGE_POOL[(index + 1) % BENTO_IMAGE_POOL.length];
+  return posts
+    .filter((post) => post && post.slug?.current && post.slug.current !== "null" && post.slug.current !== "undefined")
+    .slice(0, 5)
+    .map((post, index) => {
+      // Force text-free abstract 3D gradient covers from BENTO_IMAGE_POOL for the homepage blog preview grid
+      const image = BENTO_IMAGE_POOL[(index + 1) % BENTO_IMAGE_POOL.length];
 
-    return {
-      id: post._id,
-      title: post.title,
-      category: post.categories?.[0]?.title ?? "Insights",
-      excerpt: post.excerpt,
-      image,
-      href: `/blog/${post.slug.current}`,
-      publishedAt: post.publishedAt,
-    };
-  });
+      return {
+        id: post._id,
+        title: post.title,
+        category: post.categories?.[0]?.title ?? "Insights",
+        excerpt: post.excerpt,
+        image,
+        href: `/blog/${post.slug.current}`,
+        publishedAt: post.publishedAt,
+      };
+    });
 }
 
 export default function HomepageShowcaseSections() {

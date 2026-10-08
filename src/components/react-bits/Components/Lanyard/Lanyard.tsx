@@ -161,11 +161,11 @@ function Band({
   };
 
   const { nodes, materials } = useGLTF(CARD_GLB_URL) as any;
-  const texture = useTexture(lanyardImage || lanyard);
+  const texture = useTexture((lanyardImage || lanyard) as any) as any;
   // useTexture must be called unconditionally; use a blank pixel when an image
   // isn't supplied for a given face, then skip compositing it below.
-  const frontTex = useTexture(frontImage || BLANK_PIXEL);
-  const backTex = useTexture(backImage || BLANK_PIXEL);
+  const frontTex = useTexture((frontImage || BLANK_PIXEL) as any) as any;
+  const backTex = useTexture((backImage || BLANK_PIXEL) as any) as any;
 
   // Composite the front/back images into the card's texture atlas (front = left
   // half, back = right half). Each image is drawn aspect-preserving (no stretch).
@@ -322,7 +322,9 @@ function Band({
         </RigidBody>
       </group>
       <mesh ref={band}>
+        {/* @ts-expect-error meshLine intrinsic element */}
         <meshLineGeometry />
+        {/* @ts-expect-error meshLine intrinsic element */}
         <meshLineMaterial
           color="white"
           depthTest={false}

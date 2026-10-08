@@ -425,7 +425,8 @@ function NextCaseStudySection({ related }: { related: RelatedStudy[] }) {
   const next = related[0]
   if (!next) return null
 
-  const slug = next.slug?.current
+  const slug = typeof next.slug === "string" ? next.slug : next.slug?.current
+  if (!slug || slug === "null" || slug === "undefined" || slug.trim() === "") return null
   const title = next.title || "Next project"
 
   return (

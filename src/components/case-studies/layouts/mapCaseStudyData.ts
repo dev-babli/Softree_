@@ -557,6 +557,12 @@ export function mapCaseStudyToLayoutData(
   related: RelatedStudy[],
   layout: CaseStudyDetailLayout,
 ): CaseStudyLayoutData {
+  const safeRelated = (related || []).filter((r) => {
+    if (!r) return false
+    const s = typeof r.slug === 'string' ? r.slug : r.slug?.current
+    return Boolean(s && s !== 'null' && s !== 'undefined' && s.trim() !== '')
+  })
+
   const approachBullets = bulletsFromBlocks(study.approachContent)
 
   const isManufacturingLike =
@@ -933,7 +939,7 @@ export function mapCaseStudyToLayoutData(
       buttonText: study.ctaButtonText || "Schedule a Consultation",
       buttonHref: "/contact",
     },
-    related,
+    related: safeRelated,
     faqs: buildFaqs(study, layout),
     sectionImages:
       isManufacturingLike

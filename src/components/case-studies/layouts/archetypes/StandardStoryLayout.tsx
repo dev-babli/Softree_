@@ -54,10 +54,14 @@ function SummaryItem({ label, value }: { label: string; value: string }) {
 }
 
 function RelatedCard({ study }: { study: RelatedStudy }) {
+  const slug = typeof study?.slug === "string" ? study.slug : study?.slug?.current;
+  if (!slug || slug === "null" || slug === "undefined" || slug.trim() === "") {
+    return null;
+  }
   const img = study.mainImage?.asset?.url || study.mainImageUrl;
   const display = study.client || study.title;
   return (
-    <Link href={`/case-studies/${study.slug.current}`} className="group flex h-full flex-col gap-5 rounded-[18px] bg-white p-5 transition-transform duration-200 ease-out hover:-translate-y-0.75">
+    <Link href={`/case-studies/${slug}`} className="group flex h-full flex-col gap-5 rounded-[18px] bg-white p-5 transition-transform duration-200 ease-out hover:-translate-y-0.75">
       <div className="relative aspect-4/3 w-full overflow-hidden rounded-[14px] bg-[#efeae0]">
         {img ? <Image src={img} alt={study.mainImage?.alt || display} fill unoptimized sizes="400px" className="object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]" /> : <div className="absolute inset-0 flex items-center justify-center text-[#6b7694]">{display}</div>}
       </div>

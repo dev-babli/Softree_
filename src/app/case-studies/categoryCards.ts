@@ -88,14 +88,14 @@ const caseStudyCardProjection = `
 `
 
 const publishedCaseStudiesQuery = groq`
-  *[_type == "caseStudy" && coalesce(visibility, status, "published") == "published" && defined(slug.current)]
+  *[_type == "caseStudy" && coalesce(visibility, status, "published") == "published" && defined(slug.current) && slug.current != "" && slug.current != "null"]
   | order(_updatedAt desc) {
     ${caseStudyCardProjection}
   }
 `
 
 const caseStudyHeroSlidesQuery = groq`
-  *[_type == "caseStudy" && coalesce(visibility, status, "published") == "published" && featuredRank > 0 && defined(slug.current)]
+  *[_type == "caseStudy" && coalesce(visibility, status, "published") == "published" && featuredRank > 0 && defined(slug.current) && slug.current != "" && slug.current != "null"]
   | order(featuredRank asc, _updatedAt desc) {
     ${caseStudyCardProjection}
   }
@@ -107,13 +107,15 @@ function mapSanityCaseStudyToItem(
 ): CaseStudyItem {
   const resolvedKey = categoryKey ?? resolveCaseStudyCategory(study)
   const categoryLabel = getCaseStudyCategoryLabel(study)
+  const slug = typeof study.slug === 'string' ? study.slug : study.slug?.current
+  const safeHref = slug && slug !== 'null' && slug !== 'undefined' && slug.trim() !== '' ? `/case-studies/${slug}` : '/case-studies'
 
   return {
     title: study.client || study.title || 'Case Study',
     description:
       asPlainText(study.excerpt) ||
       'Read the full case study to see outcomes and implementation details.',
-    href: `/case-studies/${study.slug?.current}`,
+    href: safeHref,
     category: categoryLabel,
     image: study.mainImage?.asset?.url || study.mainImageUrl,
     industry: study.industry && !resolvedKey ? study.industry : categoryLabel,
@@ -161,6 +163,8 @@ function mapSanityCaseStudyToListingItem(study: SanityCaseStudyCard): CaseStudyL
   const title = study.client || study.title || 'Case Study'
   const categoryKey = resolveCaseStudyCategory(study)
   const categoryLabel = getCaseStudyCategoryLabel(study)
+  const slug = typeof study.slug === 'string' ? study.slug : study.slug?.current
+  const safeHref = slug && slug !== 'null' && slug !== 'undefined' && slug.trim() !== '' ? `/case-studies/${slug}` : '/case-studies'
 
   const stats = (study.keyResults || [])
     .filter((r): r is { label: string; value: string } => Boolean(r?.label && r?.value))
@@ -174,7 +178,7 @@ function mapSanityCaseStudyToListingItem(study: SanityCaseStudyCard): CaseStudyL
     description:
       asPlainText(study.excerpt) ||
       'Read the full case study to see outcomes and implementation details.',
-    href: `/case-studies/${study.slug?.current}`,
+    href: safeHref,
     image,
     imageAlt: study.mainImage?.alt || `${title} case study`,
     imageFit: resolveImageFit(study, image),
@@ -191,8 +195,8 @@ function mapSanityCaseStudyToListingItem(study: SanityCaseStudyCard): CaseStudyL
 
 function mapSanityCaseStudyToHeroSlide(study: SanityCaseStudyCard): CaseStudyHeroSlide | null {
   const image = study.mainImage?.asset?.url || study.mainImageUrl
-  const slug = study.slug?.current
-  if (!slug) return null
+  const slug = typeof study.slug === 'string' ? study.slug : study.slug?.current
+  if (!slug || slug === 'null' || slug === 'undefined' || slug.trim() === '') return null
 
   const company = study.client || study.title || 'Customer'
   const categoryLabel = getCaseStudyCategoryLabel(study)
