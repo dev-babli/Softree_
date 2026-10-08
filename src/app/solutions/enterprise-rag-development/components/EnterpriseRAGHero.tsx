@@ -6,22 +6,6 @@ import Script from 'next/script';
 import { HERO_DATA } from '../data/heroData';
 import TrustStrip from '@/components/sections/TrustStrip';
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'spline-viewer': React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement> & {
-          url?: string;
-          'events-target'?: string;
-          'loading-anim-type'?: string;
-          'mouse-look'?: string;
-        },
-        HTMLElement
-      >;
-    }
-  }
-}
-
 export const EnterpriseRAGHero: React.FC = () => {
   const { label, paragraph } = HERO_DATA;
   const [isMounted, setIsMounted] = useState(false);
@@ -91,12 +75,11 @@ export const EnterpriseRAGHero: React.FC = () => {
         <div className="w-full lg:w-1/2 flex flex-col items-start justify-center relative mt-8 lg:mt-4 lg:-translate-x-16">
           <div className="w-full h-[400px] sm:h-[500px] lg:h-[600px] relative pointer-events-none transform lg:scale-[0.85] lg:origin-top">
             <div className="pointer-events-auto absolute inset-0 overflow-hidden">
-              {isMounted && (
-                <spline-viewer
-                  url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                  style={{ width: '100%', height: '100%' }}
-                />
-              )}
+              {isMounted &&
+                React.createElement('spline-viewer', {
+                  url: 'https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode',
+                  style: { width: '100%', height: '100%' },
+                })}
             </div>
           </div>
         </div>
