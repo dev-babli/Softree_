@@ -29,10 +29,10 @@
   /* ---------------------------------------------------------------------------
    * 2. TITLE (Hero / Display / Giant Page Headline)
    * --------------------------------------------------------------------------- */
-  --font-size-title-mobile: 2.25rem;   /* 36px */
-  --font-size-title-tablet: 3.5rem;    /* 56px */
-  --font-size-title-desktop: 4.5rem;   /* 72px */
-  --font-size-title: clamp(var(--font-size-title-mobile), 4.5vw, var(--font-size-title-desktop));
+  --font-size-title-mobile: 2rem;      /* 32px (was 36px) */
+  --font-size-title-tablet: 3rem;      /* 48px (was 56px) */
+  --font-size-title-desktop: 3.875rem; /* 62px (was 72px) */
+  --font-size-title: clamp(var(--font-size-title-mobile), 4vw, var(--font-size-title-desktop));
   --font-weight-title: 600;
   --line-height-title: 1.05;
   --letter-spacing-title: -0.03em;
