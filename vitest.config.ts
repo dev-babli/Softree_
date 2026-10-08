@@ -1,3 +1,4 @@
+import { fileURLToPath } from "node:url";
 import { defineConfig } from "vitest/config";
 
 /**
@@ -12,6 +13,13 @@ import { defineConfig } from "vitest/config";
  * basis when authored.
  */
 export default defineConfig({
+    resolve: {
+        alias: {
+            // Mirror the `@/*` -> `./src/*` path alias from tsconfig.json so
+            // modules importing via `@/...` are resolvable under test.
+            "@": fileURLToPath(new URL("./src", import.meta.url)),
+        },
+    },
     test: {
         environment: "node",
         include: ["tests/**/*.test.ts", "src/**/*.test.ts", "src/**/*.test.tsx"],
