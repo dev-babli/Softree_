@@ -29,7 +29,7 @@ export const EnterpriseRAGHero: React.FC = () => {
       <Script
         src="https://unpkg.com/@splinetool/viewer@1.9.59/build/spline-viewer.js"
         type="module"
-        strategy="lazyOnload"
+        strategy="afterInteractive"
       />
       <div className="w-full flex flex-col lg:flex-row items-start">
 
@@ -80,6 +80,8 @@ export const EnterpriseRAGHero: React.FC = () => {
                   url: 'https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode',
                   style: { width: '100%', height: '100%' },
                 })}
+              {/* Overlay to cover the Spline watermark and block clicks/hovers */}
+              <div className="absolute bottom-2 right-2 w-[150px] h-[50px] bg-[#050909] z-[100] pointer-events-auto rounded-md" />
             </div>
           </div>
         </div>
@@ -87,7 +89,7 @@ export const EnterpriseRAGHero: React.FC = () => {
       </div>
 
       {/* TrustStrip at the bottom */}
-      <div className="w-full pb-12 relative z-10">
+      <div className="w-full pb-12 relative z-10 -mt-8 lg:-mt-16">
         <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
           <TrustStrip theme="dark" />
         </div>
