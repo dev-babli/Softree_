@@ -6,6 +6,12 @@ export default function middleware(request: NextRequest) {
   const pathname = url.pathname
   const decodedPath = decodeURIComponent(pathname)
 
+  // Aggressively strip ghost ?q= parameter from /blog to clear GSC cache
+  if (pathname === '/blog' && url.searchParams.has('q')) {
+    url.searchParams.delete('q')
+    return NextResponse.redirect(url, 301)
+  }
+
   // Normalize case studies path and clean up spaces/underscores
   if (decodedPath.includes('case studies') || decodedPath.includes(' ') || decodedPath.includes('_')) {
     let normalizedPath = decodedPath

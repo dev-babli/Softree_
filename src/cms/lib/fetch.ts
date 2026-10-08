@@ -4,6 +4,7 @@ import { draftMode } from 'next/headers'
 import type { QueryParams } from 'next-sanity'
 
 import { cmsLiveFetch } from './live'
+import { cmsClient } from './client'
 
 type CmsFetchOptions = {
   preview?: boolean
@@ -19,16 +20,26 @@ export async function cmsFetch<T>(
   const { isEnabled: isDraftMode } = await draftMode()
   const preview = options.preview ?? isDraftMode
 
-  const { data } = await cmsLiveFetch({
-    query,
-    params: { ...params, preview },
-    tags: options.tags || [],
-    ...(preview
-      ? { perspective: 'previewDrafts' as const, stega: true }
-      : { perspective: 'published' as const, stega: false }),
-  })
+  if (preview) {
+    const { data } = await cmsLiveFetch({
+      query,
+      params: { ...params, preview: true },
+      tags: options.tags || [],
+      perspective: 'previewDrafts',
+      stega: true,
+    })
+    return data as T
+  }
 
-  return data as T
+  // Use standard client for production to enable Next.js Data Cache via tags
+  return cmsClient.fetch<T>(
+    query,
+    { ...params, preview: false },
+    {
+      next: { tags: options.tags || [] },
+      perspective: 'published',
+    }
+  )
 }
 
 export async function isCmsPreviewMode(): Promise<boolean> {

@@ -1,18 +1,22 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { HERO_DATA } from '../data/heroData';
 import TrustStrip from '@/components/sections/TrustStrip';
-import dynamic from 'next/dynamic';
+import Spline from '@splinetool/react-spline';
 
-const AgenticFactory3D = dynamic(() => import('./AgenticFactory3D'), {
-  ssr: false,
-  loading: () => <div className="w-full h-full" />
-});
+import { preload } from 'react-dom';
 
 export const EnterpriseRAGHero: React.FC = () => {
-  const { label, heading, paragraph } = HERO_DATA;
+  const { label, paragraph } = HERO_DATA;
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+    // Preload the heavy 3D scene file so it starts downloading immediately
+    preload('https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode', { as: 'fetch', crossOrigin: 'anonymous' });
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -27,7 +31,7 @@ export const EnterpriseRAGHero: React.FC = () => {
   return (
     <section className="relative w-full bg-[#050909] overflow-hidden flex flex-col pt-24 lg:pt-32">
       <div className="w-full flex flex-col lg:flex-row items-start">
-        
+
         {/* LEFT COLUMN: Content */}
         <div className="w-full lg:w-1/2 flex justify-end">
           <motion.div
@@ -52,9 +56,8 @@ export const EnterpriseRAGHero: React.FC = () => {
               variants={itemVariants}
               className="text-4xl sm:text-5xl lg:text-[64px] leading-[1.1] font-bold text-white mb-6 tracking-tight"
             >
-              <span className="whitespace-pre-wrap">{heading.prefix} </span>
-              <span className="text-[#FF6B00] whitespace-nowrap">{heading.highlight}</span>
-              {heading.suffix && <span> {heading.suffix}</span>}
+              Build Smarter AI with a Secure <span className="text-[#FF6B00]">RAG Engineering </span>
+              <span className="text-[#FF6B00]">Team</span>
             </motion.h1>
 
             {/* Description */}
@@ -68,10 +71,12 @@ export const EnterpriseRAGHero: React.FC = () => {
         </div>
 
         {/* RIGHT COLUMN: 3D UI (Bleeds to the right edge) */}
-        <div className="w-full lg:w-1/2 flex flex-col items-start justify-center relative mt-8 lg:-mt-24 lg:-translate-x-16">
+        <div className="w-full lg:w-1/2 flex flex-col items-start justify-center relative mt-8 lg:mt-4 lg:-translate-x-16">
           <div className="w-full h-[400px] sm:h-[500px] lg:h-[600px] relative pointer-events-none transform lg:scale-[0.85] lg:origin-top">
             <div className="pointer-events-auto absolute inset-0 overflow-hidden">
-              <AgenticFactory3D embed={true} />
+              {isMounted && (
+                <Spline scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" className="w-full h-full" />
+              )}
             </div>
           </div>
         </div>

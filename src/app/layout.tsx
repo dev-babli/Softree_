@@ -132,15 +132,7 @@ export default async function RootLayout({
                   "@id": "https://www.softreetechnology.com/#website",
                   url: "https://www.softreetechnology.com",
                   name: "Softree Technology",
-                  publisher: { "@id": "https://www.softreetechnology.com/#organization" },
-                  potentialAction: {
-                    "@type": "SearchAction",
-                    target: {
-                      "@type": "EntryPoint",
-                      urlTemplate: "https://www.softreetechnology.com/blog?q={search_term_string}",
-                    },
-                    "query-input": "required name=search_term_string",
-                  },
+                  publisher: { "@id": "https://www.softreetechnology.com/#organization" }
                 },
               ],
             }),

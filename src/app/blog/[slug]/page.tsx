@@ -10,8 +10,9 @@ import { BlogComposerPage } from '@/components/blog/BlogComposerPage'
 import type { CaseStudyComposerSection } from '@/components/case-studies/composer/types'
 import { sharedPortableTextTypes } from '@/components/portable-text/contentBlockTypes'
 import { getNavigationData } from '@/components/sections/navigation-server'
+import { cmsClient } from '@/cms/lib/client'
 import { sanityFetch } from '@/cms/lib/fetch'
-import { postBySlugQuery, relatedPostsQuery } from '@/cms/lib/queries/queries'
+import { allPostSlugsQuery, postBySlugQuery, relatedPostsQuery } from '@/cms/lib/queries/queries'
 import { buildArticleJsonLd, buildBlogJsonLdGraph } from '@/lib/structured-data'
 import { fetchDesignTokens } from '@/lib/fetch-design-tokens'
 import { collectFaqItems } from '@/cms/lib/studio/aeoCompleteness'
@@ -219,9 +220,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 }
 
-// Force dynamic rendering and immediate revalidation so blog article edits appear immediately
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
+export async function generateStaticParams() {
+  try {
+    const slugs = await cmsClient.fetch<string[]>(allPostSlugsQuery)
+    return slugs.map((slug) => ({ slug }))
+  } catch (error) {
+    console.error('Failed to generate static params for blog posts:', error)
+    return []
+  }
+}
+
+// Caching is now handled by Next.js ISR (generateStaticParams + revalidateTag webhooks)
 
 function estimateReadTime(post: { body?: unknown; composerSections?: unknown[] }): string {
   const composerText = JSON.stringify(post.composerSections || '')

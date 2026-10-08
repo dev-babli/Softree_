@@ -256,6 +256,10 @@ export const allCaseStudySlugsQuery = groq`
   *[_type == "caseStudy" && defined(slug.current) && coalesce(visibility, status, "published") == "published"][].slug.current
 `;
 
+export const allPostSlugsQuery = groq`
+  *[_type == "post" && defined(slug.current) && coalesce(visibility, status, "published") == "published"][].slug.current
+`;
+
 export const postBySlugQuery = groq`
   *[_type == "post" && slug.current == $slug && ($preview == true || coalesce(visibility, status, "published") == "published")][0] {
     _id,
