@@ -209,6 +209,18 @@ const menu: MenuItem[] = [
         links: [
           { label: "Tableau Migration Services", url: "/services/tableau-migration-services", icon: LineChart, description: "Seamless analytics migration and modernization" },
           { label: "Azure Synapse to Fabric Migration", url: "/services/azure-synapse-to-microsoft-fabric-migration", icon: Server, description: "Migrate analytics to Microsoft Fabric" },
+          {
+            label: "SQL Server to Microsoft Fabric Migration",
+            url: "/services/sql-server-to-microsoft-fabric-migration",
+            icon: Server,
+            description: "Modernize SQL Server workloads with Microsoft Fabric",
+          },
+          {
+            label: "Tableau Server to Tableau Cloud Migration",
+            url: "/services/tableau-server-to-tableau-cloud-migration",
+            icon: LineChart,
+            description: "Migrate Tableau Server analytics to Tableau Cloud",
+          }
         ]
       },
     ],

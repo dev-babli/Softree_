@@ -32,7 +32,7 @@ export default function TrustedBrandsMarquee({
     <section
       className={
         surface === "light"
-          ? "relative overflow-hidden bg-[#F3F0EE] py-2"
+          ? "relative overflow-hidden bg-transparent py-2"
           : surface === "transparent"
             ? "relative overflow-hidden bg-transparent py-2"
             : "relative overflow-hidden bg-white py-2"

@@ -39,6 +39,8 @@ export type SqueezeSlide = {
     overlay?: ReactNode;
     /** Key capability bullet points. */
     bullets?: string[];
+    /** Custom title for bullets section. */
+    bulletTitle?: string;
     /** Text on the button. */
     action?: string;
     /** Where the button goes. */
@@ -293,7 +295,7 @@ export function SqueezeCarousel({
                                                 <div className="max-w-xl pt-1">
                                                     <div className="flex items-center gap-2 mb-2">
                                                         <span className="typo-caption-meta font-bold text-[#FF6B2C] uppercase">
-                                                            INTEGRATION SCOPE
+                                                            {slide.bulletTitle || "INTEGRATION SCOPE"}
                                                         </span>
                                                         <div className="h-px flex-1 bg-white/20" />
                                                     </div>

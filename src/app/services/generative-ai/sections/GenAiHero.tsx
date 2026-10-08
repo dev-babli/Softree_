@@ -58,7 +58,7 @@ export function GenAiHero({
   }, []);
 
   return (
-    <section className="relative min-h-[90vh] lg:min-h-[85vh] overflow-hidden font-['DM_Sans',sans-serif]">
+    <section className="relative min-h-[100vh] lg:min-h-[85vh] flex flex-col overflow-hidden font-['DM_Sans',sans-serif]">
       {/* Layer 1: Background Video */}
       {/* 👇👇 TO ADD YOUR VIDEO 👇👇 */}
       {/* Replace the file at: public/videos/generative-ai-hero.mp4 */}
@@ -83,7 +83,7 @@ export function GenAiHero({
       />
 
       {/* Layer 3: Content Container */}
-      <div className="relative z-20 min-h-[90vh] lg:min-h-[85vh] flex flex-col justify-center pt-24 md:pt-[100px] pb-36 md:pb-40 lg:pb-44 max-w-7xl mx-auto px-6 md:px-12 w-full">
+      <div className="relative z-20 flex-grow flex flex-col justify-center pt-32 pb-12 lg:pt-[100px] lg:pb-44 max-w-7xl mx-auto px-6 md:px-12 w-full">
         <div
           className="max-w-[700px] transition-all duration-1000 ease-out"
           style={{
@@ -132,7 +132,7 @@ export function GenAiHero({
 
       {/* Layer 4: Trust Row */}
       <div
-        className="absolute bottom-0 w-full z-20 transition-all duration-1000 delay-300 ease-out pb-8"
+        className="relative lg:absolute bottom-0 w-full z-20 transition-all duration-1000 delay-300 ease-out pb-8 mt-auto"
         style={{
           opacity: mounted ? 1 : 0,
           transform: mounted ? "translateY(0)" : "translateY(20px)",

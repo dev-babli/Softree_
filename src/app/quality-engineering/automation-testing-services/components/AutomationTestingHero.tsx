@@ -41,7 +41,7 @@ const Globe: React.FC<{
 
 export default function AutomationTestingHero() {
     return (
-        <div className="relative w-full bg-black overflow-hidden flex flex-col justify-between pt-28 md:pt-32 lg:pt-32 pb-4">
+        <div className="relative w-full bg-black overflow-hidden flex flex-col justify-between pt-20 md:pt-24 lg:pt-24">
 
             {/* Background Gradients & Glows */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 z-0 pointer-events-none" />
@@ -49,14 +49,14 @@ export default function AutomationTestingHero() {
             <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-orange-600/10 rounded-full blur-3xl animate-pulse pointer-events-none" />
 
             {/* 3-Column Hero Content Grid: Title (Left) | Globe (Middle) | Description (Right) */}
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 max-w-7xl mx-auto w-full px-6 py-6 md:py-8 items-center gap-8 lg:gap-6">
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 max-w-7xl mx-auto w-full px-6 pt-0 pb-2 md:pb-4 items-center gap-8 lg:gap-6">
                 
                 {/* 1. TITLE & EYEBROW (Left Column) */}
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="lg:col-span-4 flex flex-col justify-center items-start space-y-4 md:space-y-5 text-left min-h-[auto] lg:min-h-[440px]"
+                    className="lg:col-span-4 flex flex-col justify-center items-start space-y-4 md:space-y-5 text-left min-h-0"
                 >
                     {/* Eyebrow Pill */}
                     <div className="relative inline-flex items-center gap-2 md:gap-2.5 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl">
@@ -98,7 +98,7 @@ export default function AutomationTestingHero() {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.3 }}
-                    className="lg:col-span-4 flex flex-col justify-center items-start text-left min-h-[auto] lg:min-h-[440px] lg:pl-4"
+                    className="lg:col-span-4 flex flex-col justify-center items-start text-left min-h-0 lg:pl-4"
                 >
                     <p className={cn("text-white/85 text-sm sm:text-base leading-relaxed md:leading-normal", typography.description.default)}>
                         Accelerate software delivery with an experienced automation testing team delivering scalable test automation, improved test coverage, faster regression cycles, and reliable application quality across web, mobile, API, and enterprise platforms.
@@ -108,7 +108,7 @@ export default function AutomationTestingHero() {
             </div>
 
             {/* Trust Strip */}
-            <div className="relative w-full z-20 pt-2 md:pt-4 pb-4 sm:pb-6 mt-2 md:mt-4">
+            <div className="relative w-full z-20 pt-0 mt-0 pb-8 sm:pb-12">
                 <TrustStrip theme="dark" />
             </div>
         </div>
