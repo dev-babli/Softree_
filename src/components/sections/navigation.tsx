@@ -45,6 +45,7 @@ import {
   ShoppingBag,
   Package,
   MapPin,
+  RefreshCw,
 } from "lucide-react";
 
 type MenuLink = {
@@ -201,7 +202,15 @@ const menu: MenuItem[] = [
           { label: "SPFx Development", url: "/services/offshore-spfx-development", icon: Code2, description: "Custom web parts and platform extensions" },
         ]
       },
-
+      {
+        title: "Migration & Modernization",
+        icon: RefreshCw,
+        description: "Modernize legacy platforms, migrate analytics workloads, and build scalable data environments.",
+        links: [
+          { label: "Tableau Migration Services", url: "/services/tableau-migration-services", icon: LineChart, description: "Seamless analytics migration and modernization" },
+          { label: "Azure Synapse to Fabric Migration", url: "/services/azure-synapse-to-microsoft-fabric-migration", icon: Server, description: "Migrate analytics to Microsoft Fabric" },
+        ]
+      },
     ],
   },
   {

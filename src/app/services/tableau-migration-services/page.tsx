@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import NavigationClient from "@/components/sections/navigation-client";
-import TableauMigrationHero from "./components/TableauMigrationHero";
+import TableauMigrationHero2 from "./components/TableauMigrationHero2";
 import TrustedBrandsMarquee from "../offshore-power-platform-development/trust";
 import TableauMigrationAIReadinessBanner from "./components/TableauMigrationAIReadinessBanner";
 import { TableauMigrationServices } from "./components/TableauMigrationServices";
@@ -26,7 +26,7 @@ export default function TableauMigrationServicesPage() {
       <NavigationClient />
       
       {/* Hero Section */}
-      <TableauMigrationHero />
+      <TableauMigrationHero2 />
       
       {/* Trusted By Marquee */}
       <TrustedBrandsMarquee />
