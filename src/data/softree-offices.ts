@@ -20,7 +20,7 @@ export const SOFTREE_OFFICE_GALLERY_COLUMNS: OfficeColumn[] = [
     city: "Cuttack",
     addressLines: [
       "Softree Technology Pvt. Ltd.",
-      "PLOT 5C/1283, SECTOR-10, CDA",
+      "PLOT B6/1628, SECTOR-10, CDA",
       "Cuttack, Odisha 753014",
       "India",
     ],

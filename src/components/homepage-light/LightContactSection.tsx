@@ -570,7 +570,7 @@ export default function LightContactSection({
                     </span>
                   </div>
                   <p className="text-[11.5px] text-zinc-300 leading-relaxed">
-                    PLOT 5C/1283, SECTOR-10, CDA, Cuttack, Odisha 753014, India
+                    PLOT B6/1628, SECTOR-10, CDA, Cuttack, Odisha 753014, India
                   </p>
                 </div>
               </div>
