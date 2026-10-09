@@ -224,7 +224,7 @@ const Footer: React.FC = () => {
           </div>
           <div className="mb-4">
             <h6 className="font-medium">India</h6>
-            <p>PLOT 5C/1283, SECTOR-10, CDA, Cuttack, Odisha 753014</p>
+            <p>PLOT B6-1628, SECTOR-10, CDA, Cuttack, Odisha 753014</p>
             <p>Flat B308, Kempapura, Bengaluru, 560037</p>
           </div>
           <div className="flex space-x-4 mt-2 text-gray-400">

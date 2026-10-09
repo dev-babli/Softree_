@@ -495,7 +495,7 @@ export default function TermsOfUse() {
           <h3 className="subsection-title">Softree Technology Pvt. Ltd.</h3>
           
           <p><strong>Registered Office — Cuttack, India</strong><br />
-          Plot 5C/1283, Sector-10, CDA<br />
+          Plot B6-1628, Sector-10, CDA<br />
           Cuttack, Odisha 753014<br />
           India</p>
           

@@ -60,7 +60,7 @@ export const OFFICE_LOCATIONS: OfficeLocation[] = [
     country: "India",
     addressLines: [
       "Softree Technology Pvt. Ltd.",
-      "PLOT 5C/1283, SECTOR-10, CDA",
+      "PLOT B6-1628, SECTOR-10, CDA",
       "Cuttack, Odisha 753014",
       "India",
     ],

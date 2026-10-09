@@ -9,7 +9,7 @@ const locations = [
       <>
         Softree Technology Pvt. Ltd.
         <br />
-        PLOT 5C/1283, SECTOR-10, CDA
+        PLOT B6-1628, SECTOR-10, CDA
         <br />
         Cuttack, Odisha 753014, India
       </>
