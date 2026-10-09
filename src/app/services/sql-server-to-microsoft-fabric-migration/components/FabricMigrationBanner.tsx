@@ -116,7 +116,7 @@ export default function FabricMigrationBanner() {
           <div className="relative flex-1 min-h-[360px] sm:min-h-[440px] lg:min-h-full overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-100 flex items-center justify-center bg-slate-900">
             {/* The background video */}
             <video
-              src="/ai-development-service-video/migrationvideo.mp4"
+              src="/ai-development-service-video/sqlserver-video.mp4"
               autoPlay
               loop
               muted

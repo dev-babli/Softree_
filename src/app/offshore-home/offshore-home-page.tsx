@@ -1,29 +1,29 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import type { CaseStudyMock } from "@/components/bento-layout";
-import NavigationClient from "@/components/sections/navigation-client";
-import Footer from "@/components/sections/footer";
-import { TransferredSoftreeHero } from "@/components/sections/TransferredSoftreeHero";
+import type { CaseStudyMock } from "./components/bento-layout";
+import NavigationClient from "./components/sections/navigation-client";
+import Footer from "./components/sections/footer";
+import { TransferredSoftreeHero } from "./components/sections/TransferredSoftreeHero";
 
 const FeaturesShowcaseLazy = dynamic(
-  () => import("@/components/features/FeaturesShowcase"),
+  () => import("./components/features/FeaturesShowcase"),
   { loading: () => <div className="min-h-[100vh] w-full bg-[#F3F0EE]" aria-hidden="true" /> }
 );
 const TechStackSectionLazy = dynamic(
-  () => import("@/components/sections/tech"),
+  () => import("./components/sections/tech"),
   { loading: () => <div className="min-h-[28vh] w-full bg-[#F3F0EE]" aria-hidden /> }
 );
 const LightServicesStickyListLazy = dynamic(
-  () => import("@/components/homepage-light/LightServicesStickyList"),
+  () => import("./components/homepage-light/LightServicesStickyList"),
   { loading: () => <div className="min-h-[420vh] w-full bg-[#F3F0EE]" aria-hidden="true" /> }
 );
 const LightEngagementModelsLazy = dynamic(
-  () => import("@/components/homepage-light/LightEngagementModels"),
+  () => import("./components/homepage-light/LightEngagementModels"),
   { loading: () => <div className="min-h-[80vh] w-full bg-[#F3F0EE]" aria-hidden="true" /> }
 );
 const HomepageCaseStudiesLazy = dynamic(
-  () => import("@/components/sections/HomepageCaseStudiesSection"),
+  () => import("./components/sections/HomepageCaseStudiesSection"),
   {
     loading: () => (
       <div className="min-h-[70vh] w-full bg-[#F3F0EE]" aria-hidden="true" />
@@ -31,7 +31,7 @@ const HomepageCaseStudiesLazy = dynamic(
   }
 );
 const HomepageShowcaseSectionsLazy = dynamic(
-  () => import("@/components/sections/homepage-showcase-sections"),
+  () => import("./components/sections/homepage-showcase-sections"),
   {
     loading: () => (
       <div className="min-h-[70vh] w-full bg-[#F3F0EE]" aria-hidden="true" />
@@ -39,53 +39,53 @@ const HomepageShowcaseSectionsLazy = dynamic(
   }
 );
 const LightFAQExactLazy = dynamic(
-  () => import("@/components/homepage-light/LightFAQExact"),
+  () => import("./components/homepage-light/LightFAQExact"),
   { loading: () => <div className="min-h-[48vh] w-full bg-[#F3F0EE]" aria-hidden="true" /> }
 );
 const LightContactSectionLazy = dynamic(
-  () => import("@/components/homepage-light/LightContactSection"),
+  () => import("./components/homepage-light/LightContactSection"),
   { loading: () => <div className="min-h-[100vh] w-full bg-[#0a0a0a]" aria-hidden="true" /> }
 );
 const EngineeringSolutionsLazy = dynamic(
-  () => import("@/components/sections/engineering-solutions/EngineeringSolutionsSection"),
+  () => import("./components/sections/engineering-solutions/EngineeringSolutionsSection"),
   { loading: () => <div className="min-h-[120vh] w-full bg-[#F3F0EE]" aria-hidden /> }
 );
 const InfinityScrollAnimationLazy = dynamic(
-  () => import("@/components/infinity-scroll-animation/InfinityScrollAnimation"),
+  () => import("./components/infinity-scroll-animation/InfinityScrollAnimation"),
   { loading: () => <div className="min-h-[60vh] w-full bg-[#F8F9FC] sm:min-h-[70vh]" aria-hidden /> }
 );
 const WhoDoWeServeSectionLazy = dynamic(
-  () => import("@/components/sections/WhoDoWeServeSection"),
+  () => import("./components/sections/WhoDoWeServeSection"),
   { loading: () => <div className="min-h-[100vh] w-full bg-[#F3F0EE]" aria-hidden="true" /> }
 );
-const NewWhoDoWeServeSectionLazy = dynamic(() => import("@/components/sections/NewWhoDoWeServeSection"), { ssr: true });
+const NewWhoDoWeServeSectionLazy = dynamic(() => import("./components/sections/NewWhoDoWeServeSection"), { ssr: true });
 
 const ServicesStackedSlidesLazy = dynamic(
-  () => import("@/components/sections/ServicesStackedSlides"),
+  () => import("./components/sections/ServicesStackedSlides"),
   { loading: () => <div className="min-h-[100vh] w-full bg-[#0a0a0a]" aria-hidden="true" /> }
 );
 const SoftreeEnterpriseCarouselLazy = dynamic(
-  () => import("@/components/sections/SoftreeEnterpriseCarousel"),
+  () => import("./components/sections/SoftreeEnterpriseCarousel"),
   { loading: () => <div className="min-h-[60vh] w-full bg-[#F3F0EE]" aria-hidden="true" /> }
 );
 const GlobalClientNetworkLazy = dynamic(
-  () => import("@/components/sections/GlobalClientNetwork"),
+  () => import("./components/sections/GlobalClientNetwork"),
   { loading: () => <div className="min-h-[100vh] w-full bg-[#0a0a0a]" aria-hidden="true" /> }
 );
 const GalleryLazy = dynamic(
-  () => import("@/components/Gallery/Gallery"),
+  () => import("./components/Gallery/Gallery"),
   { loading: () => <div className="min-h-[80vh] w-full bg-[#0a0a0a]" aria-hidden="true" /> }
 );
 const AnimatedPhotoGalleryLazy = dynamic(
-  () => import("@/components/Gallery/AnimatedPhotoGallery"),
+  () => import("./components/Gallery/AnimatedPhotoGallery"),
   { loading: () => <div className="min-h-[80vh] w-full bg-[#0a0a0a]" aria-hidden="true" /> }
 );
 
-type HomeProps = {
+type OffshoreHomeProps = {
   homepageCaseStudies?: CaseStudyMock[];
 };
 
-export default function Home({ homepageCaseStudies }: HomeProps) {
+export default function OffshoreHome({ homepageCaseStudies }: OffshoreHomeProps) {
   return (
     <div className="flex flex-col min-h-screen overflow-x-clip bg-black">
       <NavigationClient />
@@ -94,23 +94,23 @@ export default function Home({ homepageCaseStudies }: HomeProps) {
         {/* About bento — LightAboutMerged DNA + parallax gallery */}
         <InfinityScrollAnimationLazy />
         {/* ── Core sections ── */}
-        {/* <ServicesStackedSlidesLazy /> */}
+        <ServicesStackedSlidesLazy />
         <FeaturesShowcaseLazy />
-        {/* <LightServicesStickyListLazy /> */}
+        <LightServicesStickyListLazy />
         {/* Global client network — hex world with city stat cards */}
-        {/* <GlobalClientNetworkLazy /> */}
+        <GlobalClientNetworkLazy />
         {/* Capability showcase — light editorial band (#F3F0EE). */}
-        {/* <EngineeringSolutionsLazy /> */}
+        <EngineeringSolutionsLazy />
         {/* Industry tabs + Softree partner marquees — continues light band. */}
-        {/* <SoftreeEnterpriseCarouselLazy /> */}
-        {/* <HomepageCaseStudiesLazy caseStudies={homepageCaseStudies} /> */}
+        <SoftreeEnterpriseCarouselLazy />
+        <HomepageCaseStudiesLazy caseStudies={homepageCaseStudies} />
         {/* Testimonials + blog bento */}
-        {/* <HomepageShowcaseSectionsLazy /> */}
-        {/* <TechStackSectionLazy /> */}
+        <HomepageShowcaseSectionsLazy />
+        <TechStackSectionLazy />
         {/* <WhoDoWeServeSectionLazy /> */}
-        {/* <LightEngagementModelsLazy /> */}
-        {/* <AnimatedPhotoGalleryLazy /> */}
-        {/* <GalleryLazy /> */}
+        <LightEngagementModelsLazy />
+        <AnimatedPhotoGalleryLazy />
+        <GalleryLazy />
         <LightFAQExactLazy />
         <LightContactSectionLazy />
       </main>

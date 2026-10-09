@@ -11,6 +11,7 @@ export interface ProjectData {
   year: string;
   description: string;
   badge?: string;
+  buttonText?: string;
 }
 
 export const PROJECT_DATA: ProjectData[] = [
@@ -88,6 +89,7 @@ export interface ComponentProps {
   className?: string;
   showOverlayHeader?: boolean;
   autoPlay?: boolean;
+  hideBottomDock?: boolean;
 }
 
 export function Component({
@@ -95,6 +97,7 @@ export function Component({
   className = "",
   showOverlayHeader = true,
   autoPlay = true,
+  hideBottomDock = false,
 }: ComponentProps) {
   const [visibleRange, setVisibleRange] = React.useState({
     min: -CONFIG.BUFFER_SIZE,
@@ -693,7 +696,7 @@ export function Component({
                       <div className="flex flex-col items-end gap-2 sm:gap-2.5">
                         <FlowButton
                           href="/contact"
-                          text="Contact Us"
+                          text={data.buttonText || "Contact Us"}
                           variant="orange-filled"
                         />
 
@@ -760,19 +763,21 @@ export function Component({
         </div>
 
         {/* Bottom Floating CTA Bar */}
-        <div className="pointer-events-auto flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 px-5 sm:px-6 py-3 sm:py-2.5 rounded-2xl sm:rounded-full bg-black/85 backdrop-blur-md border border-white/20 shadow-2xl w-[90%] sm:w-auto max-w-full">
-          <p className="text-[12px] sm:text-xs md:text-sm text-white/90 font-medium text-center sm:text-left leading-snug sm:leading-normal">
-            Build and scale enterprise AI solutions across the AWS ecosystem.
-          </p>
-          <div className="w-full sm:w-auto flex justify-center shrink-0">
-            <FlowButton
-              href="/contact"
-              text="Build Your AWS AI Solution"
-              variant="orange-filled"
-              className="w-full sm:w-auto whitespace-nowrap"
-            />
+        {!hideBottomDock && (
+          <div className="pointer-events-auto flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 px-5 sm:px-6 py-3 sm:py-2.5 rounded-2xl sm:rounded-full bg-black/85 backdrop-blur-md border border-white/20 shadow-2xl w-[90%] sm:w-auto max-w-full">
+            <p className="text-[12px] sm:text-xs md:text-sm text-white/90 font-medium text-center sm:text-left leading-snug sm:leading-normal">
+              Build and scale enterprise AI solutions across the AWS ecosystem.
+            </p>
+            <div className="w-full sm:w-auto flex justify-center shrink-0">
+              <FlowButton
+                href="/contact"
+                text="Build Your AWS AI Solution"
+                variant="orange-filled"
+                className="w-full sm:w-auto whitespace-nowrap"
+              />
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

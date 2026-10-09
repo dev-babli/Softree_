@@ -19,7 +19,7 @@ import SectionHeader from "@/components/homepage-light/SectionHeader";
 import { SpotlightCard } from "@/components/qc/shared/SpotlightCard";
 import { COUNTRIES_SERVED, COUNTRIES_SERVED_NUMBER } from "@/lib/constants";
 import { EASE_T, VIEWPORT } from "@/lib/motion";
-import ParallaxGalleryCard from "./ParallaxGalleryCard";
+import ParallaxGalleryCard from "@/components/infinity-scroll-animation/ParallaxGalleryCard";
 import dynamic from "next/dynamic";
 
 const NewWhoDoWeServeSectionLazy = dynamic(() => import("@/components/sections/NewWhoDoWeServeSection"), { ssr: true });
@@ -242,7 +242,7 @@ export default function InfinityScrollAnimation() {
       <section
         ref={sectionRef}
         id="about-bento"
-        className="relative w-full overflow-x-clip"
+        className="relative w-full overflow-x-clip py-16 md:py-24 lg:py-28"
         style={{ backgroundColor: SURFACE }}
         aria-labelledby="about-bento-heading"
       >
@@ -281,111 +281,111 @@ export default function InfinityScrollAnimation() {
 
         <div className="relative z-10 mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-12">
           {/* ── Row 1: Intro + global reach ── */}
-          {/* <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch gap-10 lg:gap-8 xl:gap-14">
-          <motion.div
-            className="col-span-1 lg:col-span-6 relative z-20 min-w-0 flex flex-col justify-between h-full"
-            initial={{ opacity: 0, y: 16 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div className="flex flex-col">
-              <SectionHeader
-                badge="About us"
-                accent={ACCENT}
-                headline={
-                  <span id="about-bento-heading">
-                    Your global offshore development{" "}
-                    <span className={ORANGE_FLOW}>partner.</span>
-                  </span>
-                }
-                className="gap-4 lg:gap-3.5 [&_h2]:!leading-[1.18] [&_h2]:text-[clamp(1.5rem,2.15vw,2.05rem)] [&_h2]:tracking-[-0.03em]"
-              />
+          <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch gap-10 lg:gap-8 xl:gap-14">
+            <motion.div
+              className="col-span-1 lg:col-span-6 relative z-20 min-w-0 flex flex-col justify-between h-full"
+              initial={{ opacity: 0, y: 16 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="flex flex-col">
+                <SectionHeader
+                  badge="About us"
+                  accent={ACCENT}
+                  headline={
+                    <span id="about-bento-heading">
+                      Your global offshore development{" "}
+                      <span className={ORANGE_FLOW}>partner.</span>
+                    </span>
+                  }
+                  className="gap-4 lg:gap-3.5 [&_h2]:!leading-[1.18] [&_h2]:text-[clamp(1.5rem,2.15vw,2.05rem)] [&_h2]:tracking-[-0.03em]"
+                />
 
-              <div className="mt-5 sm:mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-0">
-                {ABOUT_STATS.map((stat, index) => {
-                  const Icon = stat.icon;
-                  return (
-                    <div
-                      key={stat.value}
-                      className={`flex items-start gap-2 sm:px-4 ${
-                        index === 0 ? "sm:pl-0" : "sm:border-l sm:border-[#0a0a1a]/10"
-                      }`}
-                    >
-                      <Icon className="about-orange-icon mt-0.5 h-3.5 w-3.5 shrink-0" />
-                      <div className="min-w-0">
-                        <p
-                          className={`${ORANGE_FLOW} text-[18px] font-semibold leading-none tracking-tight lg:text-[19px] xl:text-[20px]`}
-                        >
-                          {stat.value}
-                        </p>
-                        <p className="mt-1 text-[11px] leading-snug text-[#0a0a1a]/50 lg:text-[12px]">
-                          {stat.label}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              <p className="mt-5 max-w-xl text-[13.5px] leading-[1.65] text-[#0a0a1a]/65 lg:text-[14px]">
-                We help businesses, technology companies, and partners extend their
-                engineering capabilities through AI, modern engineering, Microsoft, and
-                data expertise.
-              </p>
-
-              <div className="mt-5 sm:mt-6 flex flex-col gap-3">
-                {ABOUT_CAPABILITIES.map((item) => {
-                  const Icon = item.icon;
-                  return (
-                    <div
-                      key={item.title}
-                      className="flex items-center gap-3.5 rounded-xl px-4 py-3.5"
-                      style={{ backgroundColor: item.surface }}
-                    >
-                      <span
-                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white shadow-sm"
-                        style={{ color: item.color }}
+                <div className="mt-5 sm:mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-0">
+                  {ABOUT_STATS.map((stat, index) => {
+                    const Icon = stat.icon;
+                    return (
+                      <div
+                        key={stat.value}
+                        className={`flex items-start gap-2 sm:px-4 ${index === 0 ? "sm:pl-0" : "sm:border-l sm:border-[#0a0a1a]/10"
+                          }`}
                       >
-                        <Icon size={15} />
-                      </span>
-                      <div className="min-w-0">
-                        <p
-                          className="text-[13px] font-semibold leading-none tracking-tight"
+                        <Icon className="about-orange-icon mt-0.5 h-3.5 w-3.5 shrink-0" />
+                        <div className="min-w-0">
+                          <p
+                            className={`${ORANGE_FLOW} text-[18px] font-semibold leading-none tracking-tight lg:text-[19px] xl:text-[20px]`}
+                          >
+                            {stat.value}
+                          </p>
+                          <p className="mt-1 text-[11px] leading-snug text-[#0a0a1a]/50 lg:text-[12px]">
+                            {stat.label}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <p className="mt-5 max-w-xl text-[13.5px] leading-[1.65] text-[#0a0a1a]/65 lg:text-[14px]">
+                  We help businesses, technology companies, and partners extend their
+                  engineering capabilities through AI, modern engineering, Microsoft, and
+                  data expertise.
+                </p>
+
+                <div className="mt-5 sm:mt-6 flex flex-col gap-3">
+                  {ABOUT_CAPABILITIES.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <div
+                        key={item.title}
+                        className="flex items-center gap-3.5 rounded-xl px-4 py-3.5"
+                        style={{ backgroundColor: item.surface }}
+                      >
+                        <span
+                          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white shadow-sm"
                           style={{ color: item.color }}
                         >
-                          {item.title}
-                        </p>
-                        <p className="mt-1 text-[12px] leading-snug text-[#0a0a1a]/55">
-                          {item.detail}
-                        </p>
+                          <Icon size={15} />
+                        </span>
+                        <div className="min-w-0">
+                          <p
+                            className="text-[13px] font-semibold leading-none tracking-tight"
+                            style={{ color: item.color }}
+                          >
+                            {item.title}
+                          </p>
+                          <p className="mt-1 text-[12px] leading-snug text-[#0a0a1a]/55">
+                            {item.detail}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
-            </div>
 
-            <div className="pt-6">
-              <Link
-                href="/about-us"
-                className="group inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-[#1a1a1a] px-5 py-2.5 text-[13px] font-medium text-white shadow-[0_8px_24px_-8px_rgba(10,10,26,0.35)] transition hover:-translate-y-px"
-              >
-                Explore our story
-                <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </Link>
-            </div>
-          </motion.div>
+              <div className="pt-6">
+                <Link
+                  href="/about-us"
+                  className="group inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-[#1a1a1a] px-5 py-2.5 text-[13px] font-medium text-white shadow-[0_8px_24px_-8px_rgba(10,10,26,0.35)] transition hover:-translate-y-px"
+                >
+                  Explore our story
+                  <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Link>
+              </div>
+            </motion.div>
 
-          <motion.div
-            className="col-span-1 lg:col-span-6 relative z-10 w-full min-w-0 overflow-x-clip flex flex-col h-full"
-            initial={{ opacity: 0, y: 16 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <AboutGlobeMarkers variant="light" />
-          </motion.div>
-        </div> */}
+            <motion.div
+              className="col-span-1 lg:col-span-6 relative z-10 w-full min-w-0 overflow-x-clip flex flex-col h-full"
+              initial={{ opacity: 0, y: 16 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <AboutGlobeMarkers variant="light" />
+            </motion.div>
+          </div>
         </div>
+
       </section>
 
       <NewWhoDoWeServeSectionLazy />

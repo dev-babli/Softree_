@@ -80,7 +80,7 @@ export default function AboutUsPage1() {
       {/* 2. About — Core Values, Mission, Vision, and Approach */}
       <CoreValuesSection />
       {/* Our Journey Timeline */}
-      <SoftreeTimeline />
+      {/* <SoftreeTimeline /> */}
       {/* 3.9. Latest Technologies — Powerhouse technologies behind Softree */}
       <LatestTechnologies />
       {/* 3.9.5. We Work — Custom AI Development sticky panels */}
