@@ -176,7 +176,7 @@ export default function CareersCultureLight({
                                 <div>
                                     <p className="text-sm font-semibold">Cuttack (HQ)</p>
                                     <p className="mt-1 text-[12px] leading-[1.6] text-white/60">
-                                        Plot 5C/1283, Sector-10, CDA, Cuttack, Odisha 753014
+                                        Plot B6/1628, Sector-10, CDA, Cuttack, Odisha 753014
                                     </p>
                                 </div>
                             </div>

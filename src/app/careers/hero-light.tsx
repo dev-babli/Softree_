@@ -311,21 +311,6 @@ export default function CareersHeroLight({
                             </span>
                         </p>
                     </div>
-
-                    <div className="flex w-full flex-wrap items-center gap-2.5 sm:gap-3 md:w-auto">
-                        <a
-                            href="#open-roles"
-                            className="inline-flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-[#1a1a1a] px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-white shadow-[0_8px_24px_-8px_rgba(26,26,26,0.4)] transition-all hover:-translate-y-px hover:bg-[#0a0a0a] sm:flex-none sm:px-5 sm:text-[12px] sm:tracking-[0.18em]"
-                        >
-                            Browse open roles <span aria-hidden>→</span>
-                        </a>
-                        <a
-                            href="#talent-pool"
-                            className="inline-flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-full border border-neutral-900/15 bg-white/60 px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-neutral-800 backdrop-blur-sm transition-all hover:-translate-y-px hover:border-neutral-900/30 sm:flex-none sm:px-5 sm:text-[12px] sm:tracking-[0.18em]"
-                        >
-                            Join talent pool
-                        </a>
-                    </div>
                 </motion.div>
             </div>
 

@@ -51,14 +51,14 @@ export const metadata: Metadata = {
     description:
       "Build cutting-edge AI systems and cloud solutions with Softree Technology. Explore open positions in AI, full stack, and cloud engineering.",
     url: `${SITE_URL}/careers`,
-    images: ogImages(pageOgImage("/careers", "Careers at Softree Technology").url),
+    images: ogImages(pageOgImage("/careers", "Careers at Softree Technology")),
   },
   twitter: {
     card: "summary_large_image",
     title: "Careers at Softree Technology | Engineering Roles",
     description:
       "Explore open engineering, AI, and cloud development roles at Softree Technology.",
-    images: twitterImages(pageOgImage("/careers", "Careers at Softree Technology").url),
+    images: twitterImages(pageOgImage("/careers", "Careers at Softree Technology")),
   },
 };
 
@@ -161,20 +161,20 @@ export default async function CareersPage() {
                 pillars={data.introPillars}
             />
 
-            {/* 4. Open roles */}
+            {/* 4. Open roles
             <CareersJobsLight
                 heading={data.jobsHeading}
                 subheading={data.jobsSubheading}
                 categories={data.jobsCategories}
                 jobs={data.jobs}
-            />
+            /> */}
 
-            {/* 5. Hiring process */}
+            {/* 5. Hiring process
             <CareersProcessLight
                 heading={data.processHeading}
                 subheading={data.processSubheading}
                 steps={data.processSteps}
-            />
+            /> */}
 
             {/* 6. Perks */}
             <CareersPerksLight

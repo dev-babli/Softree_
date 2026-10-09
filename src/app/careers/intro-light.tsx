@@ -119,9 +119,9 @@ export default function CareersIntroLight({
                         animate={isInView ? { opacity: 1, x: 0 } : {}}
                         transition={{ duration: 0.8, ease: EASE }}
                     >
-                        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#1852FF]/20 bg-[#eef4ff] px-4 py-2">
-                            <div className="h-2 w-2 rounded-full bg-[#1852FF]" />
-                            <span className="text-sm font-medium text-[#1852FF]">{badge}</span>
+                        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#FF5812]/20 bg-[#FFF5F0] px-4 py-2">
+                            <div className="h-2 w-2 rounded-full bg-[#FF5812]" />
+                            <span className="text-sm font-medium text-[#FF5812]">{badge}</span>
                         </div>
                         <h2 className="text-[clamp(1.75rem,5vw,3.5rem)] font-bold leading-[1.05] tracking-[-0.02em] text-[#0a0a1a]">
                             {heading}
@@ -134,7 +134,7 @@ export default function CareersIntroLight({
                         animate={isInView ? { opacity: 1, x: 0 } : {}}
                         transition={{ duration: 0.8, delay: 0.15, ease: EASE }}
                     >
-                        <p className="mb-5 text-xl font-semibold leading-[1.25] text-[#1852FF] sm:mb-6 sm:text-2xl md:text-[28px]">
+                        <p className="mb-5 text-xl font-semibold leading-[1.25] text-[#FF5812] sm:mb-6 sm:text-2xl md:text-[28px]">
                             {highlight}
                         </p>
                         <p className="text-[15px] leading-relaxed text-[#0a0a1a]/70 sm:text-base">
@@ -167,7 +167,7 @@ export default function CareersIntroLight({
                                     </div>
                                     <p className="text-[13px] leading-snug text-[#0a0a1a]/60 sm:text-sm">{stat.label}</p>
                                     <motion.div
-                                        className="mt-3 h-0.5 w-full origin-left bg-[#1852FF]"
+                                        className="mt-3 h-0.5 w-full origin-left bg-[#FF5812]"
                                         initial={{ scaleX: 0 }}
                                         whileInView={{ scaleX: 1 }}
                                         viewport={{ once: true }}
@@ -198,7 +198,7 @@ export default function CareersIntroLight({
                                     background:
                                         index % 2 === 0
                                             ? "radial-gradient(circle, rgba(245,185,71,0.7), transparent 70%)"
-                                            : "radial-gradient(circle, rgba(24,82,255,0.5), transparent 70%)",
+                                            : "radial-gradient(circle, rgba(255,88,18,0.5), transparent 70%)",
                                 }}
                             />
                             <div className="relative">
