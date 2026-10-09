@@ -79,7 +79,7 @@ export default function TechStack() {
           transition={{ duration: DUR.card, ease: EASE_T.silk, delay: 0.18 }}
         >
           <Link
-            href="/services/mvp"
+            href="/services"
             className="group inline-flex items-center gap-2 text-[13px] font-semibold text-[#0a0a1a]/70 transition-colors hover:text-[#1852FF]"
           >
             Explore all technologies

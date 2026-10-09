@@ -271,7 +271,7 @@ export function TunnelShowcase() {
       <div className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
         {/* Soft radial ambient glow behind the dead-centered tunnel hole */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] sm:w-[850px] sm:h-[850px] rounded-full bg-[#FF6B2C]/15 blur-[160px] pointer-events-none" />
-        
+
         <canvas
           ref={canvasRef}
           className="w-full h-full block opacity-95 pointer-events-none"
@@ -286,13 +286,13 @@ export function TunnelShowcase() {
 
       {/* Main Content Grid: Symmetrically pushed to the far left and far right */}
       <div className="relative z-10 w-full max-w-[1600px] mx-auto px-4 sm:px-8 md:px-12 lg:px-14 xl:px-18 2xl:px-24 flex flex-col lg:flex-row items-start justify-between min-h-[44vh] gap-10 lg:gap-16 mt-4 sm:mt-6">
-        
+
         {/* LEFT COLUMN: Pushed Far Left */}
         <div className="w-full lg:max-w-[480px] xl:max-w-[540px] 2xl:max-w-[580px] flex flex-col items-start">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-500/35 bg-orange-500/10 mb-5 backdrop-blur-md shadow-sm">
             <div className="w-2 h-2 rounded-full bg-[#FF6B2C] animate-pulse shadow-[0_0_10px_rgba(255,107,44,0.9)]" />
             <span className="typo-caption text-[#FF6B2C] text-xs font-semibold tracking-wider uppercase">
-              Azure Synapse to Microsoft Fabric Migration
+              Offshore Azure Synapse to Microsoft Fabric Migration
             </span>
           </div>
 

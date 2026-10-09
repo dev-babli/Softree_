@@ -89,6 +89,29 @@ function FanCardStack<T extends FanCardStackItem>({
 
   const [active, setActive] = React.useState(() => wrapIndex(initialIndex, len));
   const [hovering, setHovering] = React.useState(false);
+  const [cw, setCw] = React.useState(cardWidth);
+  const [ch, setCh] = React.useState(cardHeight);
+
+  React.useEffect(() => {
+    function handleResize() {
+      const width = window.innerWidth;
+      if (width < 640) {
+        setCw(width - 40); // Leave some padding on mobile
+        setCh(480); // Increase height to fit wrapped text
+      } else if (width < 768) {
+        setCw(420);
+        setCh(400);
+      } else {
+        setCw(cardWidth);
+        setCh(cardHeight);
+      }
+    }
+    
+    // Initial check and resize listener
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [cardWidth, cardHeight]);
 
   React.useEffect(() => {
     setActive((a) => wrapIndex(a, len));
@@ -97,10 +120,10 @@ function FanCardStack<T extends FanCardStackItem>({
   React.useEffect(() => {
     if (!len) return;
     onChangeIndex?.(active, items[active]!);
-  }, [active]);
+  }, [active, len, items, onChangeIndex]);
 
   const maxOffset = Math.max(0, Math.floor(maxVisible / 2));
-  const cardSpacing = Math.max(10, Math.round(cardWidth * (1 - overlap)));
+  const cardSpacing = Math.max(10, Math.round(cw * (1 - overlap)));
   const stepDeg = maxOffset > 0 ? spreadDeg / maxOffset : 0;
 
   const canGoPrev = loop || active > 0;
@@ -139,7 +162,7 @@ function FanCardStack<T extends FanCardStackItem>({
     >
       <div
         className="relative w-full focus:outline-none"
-        style={{ height: Math.max(380, cardHeight + 80) }}
+        style={{ height: Math.max(380, ch + 80) }}
         tabIndex={0}
         onKeyDown={onKeyDown}
       >
@@ -175,7 +198,7 @@ function FanCardStack<T extends FanCardStackItem>({
                     if (reduceMotion) return;
                     const travel = info.offset.x;
                     const v = info.velocity.x;
-                    const threshold = Math.min(160, cardWidth * 0.22);
+                    const threshold = Math.min(160, cw * 0.22);
                     if (travel > threshold || v > 650) prev();
                     else if (travel < -threshold || v < -650) next();
                   },
@@ -191,8 +214,8 @@ function FanCardStack<T extends FanCardStackItem>({
                     isActive ? "cursor-grab active:cursor-grabbing" : "cursor-pointer"
                   )}
                   style={{
-                    width: cardWidth,
-                    height: cardHeight,
+                    width: cw,
+                    height: ch,
                     zIndex,
                     transformStyle: "preserve-3d",
                   }}

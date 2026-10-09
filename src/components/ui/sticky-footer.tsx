@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Linkedin, Twitter, Facebook, Instagram } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Grainient from "@/components/homepage-light/Grainient";
+import { FlowButton } from "@/components/ui/flow-button";
 
 type StickyFooterProps = React.ComponentProps<"footer">;
 
@@ -16,31 +17,26 @@ const footerColumns = [
   {
     label: "Company",
     links: [
-      { title: "Home", href: "/" },
-      { title: "AI Solutions", href: "/services/enterprise-ai-solution" },
-      { title: "Case Studies", href: "/case-studies" },
-      { title: "About Us", href: "/about-us" },
-      { title: "Careers", href: "/careers" },
-      { title: "Contact", href: "/contact" },
-      { title: "Book a Call 🤝", href: "/contact" },
-    ],
-  },
-  {
-    label: "Connect",
-    links: [
-      { title: "LinkedIn", href: "https://www.linkedin.com/company/softree-technology-pvt-ltd/", external: true },
-      { title: "Twitter", href: "https://x.com/softreetechnology", external: true },
-      { title: "Facebook", href: "https://www.facebook.com/softreetechnology", external: true },
-      { title: "Instagram", href: "https://www.instagram.com/softreetechnology/", external: true },
+      { title: "Home", href: "/", external: true },
+      { title: "About Us", href: "/about-us", external: true },
+      { title: "Contact", href: "/contact", external: true },
+      { title: "Careers", href: "/careers", external: true },
+      { title: "Who Do We Serve", href: "https://www.softreetechnology.com/who-do-we-serve", external: true },
+      { title: "AI Development Services", href: "https://www.softreetechnology.com/services/ai-development-services", external: true },
     ],
   },
   {
     label: "Resources",
     links: [
+      { title: "Case Studies", href: "/case-studies", external: true },
       { title: "Blog", href: "https://www.softreetechnology.com/blog", external: true },
-      { title: "Privacy Policy", href: "/privacy-policy" },
-      { title: "Terms of Service", href: "/terms" },
+      { title: "Privacy Policy", href: "/privacy-policy", external: true },
+      { title: "Terms of Service", href: "/terms", external: true },
     ],
+  },
+  {
+    label: "Connect",
+    links: [],
   },
 ];
 
@@ -52,32 +48,11 @@ const SOCIAL_PILLS = [
     icon: Linkedin,
     gradient: "linear-gradient(135deg, #0A66C2 0%, #004182 100%)",
   },
-  {
-    id: "twitter",
-    label: "Twitter",
-    href: "https://x.com/softreetechnology",
-    icon: Twitter,
-    gradient: "linear-gradient(135deg, #1a1a1a 0%, #000000 100%)",
-  },
-  {
-    id: "facebook",
-    label: "Facebook",
-    href: "https://www.facebook.com/softreetechnology",
-    icon: Facebook,
-    gradient: "linear-gradient(135deg, #1877F2 0%, #0a4dbb 100%)",
-  },
-  {
-    id: "instagram",
-    label: "Instagram",
-    href: "https://www.instagram.com/softreetechnology/",
-    icon: Instagram,
-    gradient: "linear-gradient(135deg, #F58529 0%, #DD2A7B 45%, #8134AF 75%, #515BD4 100%)",
-  },
 ];
 
 function SocialPillRow() {
   return (
-    <div className="mt-4 flex h-11 items-center gap-2">
+    <div className="flex h-11 items-center gap-2">
       {SOCIAL_PILLS.map((pill) => {
         const Icon = pill.icon;
         return (
@@ -87,10 +62,18 @@ function SocialPillRow() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={pill.label}
-            className="flex h-11 w-11 items-center justify-center rounded-full text-white transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-            style={{ background: pill.gradient }}
+            className="group flex items-center gap-3 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50 rounded-lg pr-2"
           >
-            <Icon className="h-[18px] w-[18px]" />
+            <div
+              className="flex h-11 w-11 items-center justify-center rounded-full text-white group-hover:opacity-85"
+              style={{ background: pill.gradient }}
+            >
+              <Icon className="h-[18px] w-[18px]" />
+            </div>
+            <span className="inline-flex items-center typo-body-sm font-medium text-black transition-colors group-hover:text-black/70">
+              {pill.label}
+              <Arrow />
+            </span>
           </Link>
         );
       })}
@@ -101,8 +84,14 @@ function SocialPillRow() {
 /* Tiny external-link arrow */
 function Arrow() {
   return (
-    <svg width="9" height="9" viewBox="0 0 10 10" fill="none" className="ml-0.5 inline-block opacity-50">
-      <path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+    <svg 
+      width="9" 
+      height="9" 
+      viewBox="0 0 10 10" 
+      fill="none" 
+      className="ml-1 inline-block text-[#FF5812] transition-all duration-300 group-hover:scale-125 group-hover:translate-x-[2px] group-hover:-translate-y-[2px] group-hover:drop-shadow-[0_0_8px_rgba(255,88,18,0.8)]"
+    >
+      <path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -205,26 +194,11 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
               />
             </Link>
             <div className="flex flex-wrap items-center gap-2.5">
-              <Link
-                href="/services/enterprise-ai-solution"
-                className="flex h-11 items-center rounded-full border border-black/25 px-4 typo-button-sm text-black transition-colors hover:border-black/60 hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50"
-              >
-                AI Solutions
-              </Link>
-
-              <Link
-                href="/contact"
-                className="flex h-11 items-center rounded-full border border-black/25 px-4 typo-button-sm text-black transition-colors hover:border-black/60 hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50"
-              >
-                Book a Call
-              </Link>
-              <Link
-                href="/contact"
-                className="flex h-11 items-center rounded-full px-5 typo-button-sm text-white transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50"
-                style={{ background: "linear-gradient(135deg, rgba(255,122,47,0.97) 0%, rgba(200,80,20,0.92) 100%)" }}
-              >
-                Get in Touch
-              </Link>
+              <FlowButton 
+                href="/contact" 
+                text="Get in Touch" 
+                variant="orange-filled" 
+              />
             </div>
           </div>
 
@@ -232,9 +206,11 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
           <div className="mt-8 grid flex-1 grid-cols-1 gap-x-12 gap-y-6 sm:grid-cols-2 md:mt-10 lg:grid-cols-3">
             {footerColumns.map((col) => (
               <div key={col.label} className="flex flex-col">
-                <p className="mb-3 typo-caption text-black">
-                  {col.label}
-                </p>
+                <div className={cn("mb-4 flex flex-col items-start", col.label === "Connect" && "ml-[56px]")}>
+                  <p className="typo-caption text-[#FF5812] uppercase font-bold tracking-wider border-b-[2px] border-[#FF5812] pb-1.5">
+                    {col.label}
+                  </p>
+                </div>
                 <ul className="space-y-1">
                   {col.links.map((link) => (
                     <li key={link.title}>
@@ -242,7 +218,7 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
                         href={link.href}
                         target={link.external ? "_blank" : undefined}
                         rel={link.external ? "noopener noreferrer" : undefined}
-                        className="inline-flex py-1.5 items-center rounded-lg typo-body-sm font-medium text-black transition-colors hover:text-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50"
+                        className="group inline-flex py-1.5 items-center rounded-lg typo-body-sm font-medium text-black transition-colors hover:text-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/50"
                       >
                         {link.title}
                         {link.external && <Arrow />}
@@ -252,7 +228,7 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
                 </ul>
 
                 {/* SOCIAL CTAs — flex row, hover expands like mission/vision cards */}
-                {col.label === "Resources" && (
+                {col.label === "Connect" && (
                   <SocialPillRow />
                 )}
               </div>

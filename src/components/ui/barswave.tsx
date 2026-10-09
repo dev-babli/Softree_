@@ -34,16 +34,21 @@ export function BarsWave({
   const halfCount = Math.ceil(barCount / 2);
 
   const [barAnimations] = useState(() => {
+    const pseudoRandom = (seed: number) => {
+      const x = Math.sin(seed + 1) * 10000;
+      return x - Math.floor(x);
+    };
+
     return Array.from({ length: halfCount }, (_, i) => {
-      const h1 = Math.random() * (maxHeight - minHeight) + minHeight;
-      const h2 = Math.random() * (maxHeight - minHeight) + minHeight;
-      const h3 = Math.random() * (maxHeight - minHeight) + minHeight;
-      const h4 = Math.random() * (maxHeight - minHeight) + minHeight;
+      const h1 = pseudoRandom(i * 4) * (maxHeight - minHeight) + minHeight;
+      const h2 = pseudoRandom(i * 4 + 1) * (maxHeight - minHeight) + minHeight;
+      const h3 = pseudoRandom(i * 4 + 2) * (maxHeight - minHeight) + minHeight;
+      const h4 = pseudoRandom(i * 4 + 3) * (maxHeight - minHeight) + minHeight;
 
       return {
         id: i,
         heights: [h1, h2, h3, h4, h1],
-        delay: (i / halfCount) * 0.8 + Math.random() * 0.4,
+        delay: (i / halfCount) * 0.8 + pseudoRandom(i * 10) * 0.4,
         duration: animationDuration + (i % 3) * 0.4,
       };
     });

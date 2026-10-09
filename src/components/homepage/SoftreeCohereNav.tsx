@@ -263,7 +263,6 @@ function ServicesPanel() {
             <ServiceVisual imgSrc={SRCSET.generative.src} imgSrcSet={SRCSET.generative.srcSet} label="AI Intelligence" />
           </div>
           <ul className="mt-2 list-none space-y-1">
-            <ProductItem href="/agentic-ai-platform" icon={<IconAI />} name="Agentic AI" desc="Autonomous AI agents that act, decide, and complete complex tasks end-to-end" badge="NEW" />
             <ProductItem href="/services/generative-ai" icon={<IconAI color="#C084FC" />} name="Generative AI" desc="Custom LLM solutions fine-tuned on your enterprise data and workflows" />
           </ul>
         </div>
@@ -273,9 +272,7 @@ function ServicesPanel() {
             <ServiceVisual imgSrc={SRCSET.workplace.src} imgSrcSet={SRCSET.workplace.srcSet} label="Business Apps" />
           </div>
           <ul className="mt-2 list-none space-y-1">
-            <ProductItem href="/services/mvp" icon={<IconBusiness />} name="MVP Development" desc="Go from idea to market-ready product with rapid, agile MVP delivery" />
             <ProductItem href="/services/offshore-power-platform-development" icon={<IconBusiness color="#FB923C" />} name="Power Apps" desc="Low-code Microsoft Power Apps solutions for enterprise-grade automation" />
-            <ProductItem href="/services/mvp" icon={<IconBusiness color="#FBBF24" />} name="For Startups" desc="Tailored packages to help startups scale with enterprise-level tech" />
           </ul>
         </div>
         {/* Col 3 — Data Analytics */}
@@ -467,9 +464,7 @@ function MobSoftreeServices() {
         <ProductItem href="/services/generative-ai" icon={<IconAI color="#C084FC" />} name="Generative AI" desc="LLM solutions" />
       </MobileLinkGroup>
       <MobileLinkGroup title="Business Applications">
-        <ProductItem href="/services/mvp" icon={<IconBusiness />} name="MVP Development" desc="Rapid product delivery" />
         <ProductItem href="/services/offshore-power-platform-development" icon={<IconBusiness color="#FB923C" />} name="Power Apps" desc="Microsoft automation" />
-        <ProductItem href="/services/mvp" icon={<IconBusiness color="#FBBF24" />} name="For Startups" desc="Startup delivery packages" />
       </MobileLinkGroup>
       <MobileLinkGroup title="Digital Workspace">
         <ProductItem href="/services/offshore-web-app-development" icon={<IconWorkspace />} name="Web Apps" desc="Enterprise web apps" />

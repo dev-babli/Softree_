@@ -4,7 +4,7 @@ import { useState, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
-import { Plus, Minus, HelpCircle } from "lucide-react"
+import { Plus, Minus } from "lucide-react"
 import { prefersReducedMotion } from "@/lib/motion"
 
 gsap.registerPlugin(useGSAP, ScrollTrigger)
@@ -16,7 +16,7 @@ interface FAQItem {
   answer: string
 }
 
-interface CopilotFAQProps {
+interface AdfToFabricFAQProps {
   faqs?: FAQItem[]
 }
 
@@ -24,69 +24,43 @@ const defaultFaqs: FAQItem[] = [
   {
     id: 1,
     serial: "question 01",
-    question: "What is AI Copilot development?",
+    question: "Why should we migrate from Azure Data Factory to Microsoft Fabric?",
     answer:
-      "AI Copilot development is the process of building AI-powered assistants that help employees or customers find information, complete tasks, and interact with business applications using natural language. Depending on the use case, a custom copilot can retrieve enterprise knowledge, generate content, summarize information, and trigger connected workflows. Softree develops AI copilots using technologies such as Microsoft Copilot Studio, Azure OpenAI, and enterprise integrations tailored to business requirements.",
+      "Microsoft Fabric unifies scattered analytics services into a single SaaS platform. Migrating from ADF allows you to eliminate data silos, leverage OneLake to stop data duplication, and dramatically improve Power BI performance through DirectLake mode without import refreshes.",
   },
   {
     id: 2,
     serial: "question 02",
-    question: "What business tasks can a custom AI copilot automate?",
+    question: "Can we automatically convert ADF pipelines to Fabric pipelines?",
     answer:
-      "A custom AI copilot can support employee self-service, internal knowledge search, document assistance, customer support, business reporting, and repetitive workflow tasks. When connected to approved data sources and business applications, it can retrieve relevant information and initiate supported actions through configured integrations. The appropriate capabilities depend on the business process, available data, permissions, and required level of human oversight.",
+      "Yes, most ADF pipelines and data flows can be mapped and converted into Fabric Data Pipelines or Dataflows Gen2. Our migration tools and processes programmatically translate JSON pipeline definitions into native Fabric workloads to accelerate the migration.",
   },
   {
     id: 3,
     serial: "question 03",
-    question: "Can Softree build a custom AI copilot for our business?",
+    question: "What happens to our Synapse Dedicated SQL Pools?",
     answer:
-      "Yes. Softree develops custom AI copilots around an organization's workflows, users, enterprise knowledge, and application ecosystem. The work can include use-case planning, solution architecture, copilot development, data and application integration, testing, deployment, and optimization. Softree can also provide offshore AI engineering capacity for technology partners and organizations that need additional development support.",
+      "Synapse SQL Pools can be migrated into Fabric Data Warehouses. Because Fabric separates compute from storage, the underlying data is converted to Delta Parquet format on OneLake. This makes the data instantly accessible to Spark and Power BI without movement.",
   },
   {
     id: 4,
     serial: "question 04",
-    question: "Which technologies does Softree use for AI copilot development?",
+    question: "How does this migration impact our Power BI reports?",
     answer:
-      "Softree's AI copilot development capabilities include Microsoft Copilot Studio, Azure OpenAI Service, Microsoft 365 Copilot extensions, Azure AI Foundry, AI agents, and enterprise knowledge integration. The technology selection depends on the required user experience, data sources, integrations, governance requirements, and deployment environment. Not every solution requires every technology.",
+      "The migration significantly improves Power BI performance. By converting your storage to OneLake and upgrading datasets to use DirectLake mode, Power BI can query massive datasets in sub-seconds directly from the lakehouse without needing scheduled data refreshes.",
   },
   {
     id: 5,
     serial: "question 05",
-    question: "Can an AI copilot integrate with our existing business applications?",
+    question: "How does Softree ensure a safe migration with zero downtime?",
     answer:
-      "Yes. AI copilots can be designed to work with existing business applications and enterprise data sources, including Microsoft 365, SharePoint, Dynamics 365, Dataverse, CRM, ERP, Microsoft Teams, and supported third-party systems. Integration may use available connectors, APIs, or custom development. The exact approach depends on the application's capabilities, authentication method, permissions, and business requirements.",
+      "We use a parallel-run migration strategy. The new Fabric environment runs alongside your legacy Azure environment, allowing us to perform rigorous data parity and performance testing. We only initiate the final cutover when 100% accuracy is validated.",
   },
-  {
-    id: 6,
-    serial: "question 06",
-    question: "How do you protect enterprise data in an AI copilot?",
-    answer:
-      "Enterprise AI copilot security requires appropriate identity and access controls, permission-aware data access, secure integrations, and governance of the underlying AI environment. Softree can incorporate security and governance requirements into the solution design, including controls for connected data sources, user permissions, and application access. The final safeguards depend on the selected platform, data sensitivity, organizational policies, and applicable compliance requirements.",
-  },
-  {
-    id: 7,
-    serial: "question 07",
-    question: "How do you test AI copilots before deployment?",
-    answer:
-      "AI copilot testing should cover response quality, factual grounding, workflow execution, integration behavior, access permissions, failure handling, and performance. Depending on the use case, validation can include representative user questions, incorrect or ambiguous inputs, unauthorized access scenarios, and regression testing after changes. Softree can incorporate evaluation and validation into the development process to help identify issues before production deployment.",
-  },
-  {
-    id: 8,
-    serial: "question 08",
-    question: "How long does it take to develop an AI copilot?",
-    answer:
-      "The timeline depends on the copilot's scope, number of integrations, complexity of enterprise data, security requirements, and testing needs. A focused assistant using well-prepared knowledge sources may require less work than a copilot that executes multi-step workflows across several business systems. Softree can define a more reliable delivery estimate after reviewing the use case, technical dependencies, data readiness, and acceptance criteria.",
-  },
-]
+];
 
-/** Brand palette: cream `#F3F0EE`, blue `#1852FF`, orange `#FF5812`, ink `#0a0a1a` */
 const FAQ_INK = "#0a0a1a"
 const FAQ_INK_MUTED = "#2a3348"
-const FAQ_DESKTOP_HEIGHT = 420
-const FAQ_MOBILE_ACTIVE_MIN = 228
-const FAQ_MOBILE_COLLAPSED_MIN = 52
 
-/** Same palette, alternating blue / orange at different shades */
 const FAQ_CARD_THEMES = [
   {
     from: "#F3F0EE",
@@ -125,7 +99,7 @@ const FAQ_CARD_THEMES = [
   },
 ] as const
 
-export function CopilotFAQ({ faqs: customFaqs }: CopilotFAQProps) {
+export default function AdfToFabricFAQ({ faqs: customFaqs }: AdfToFabricFAQProps) {
   const faqs = customFaqs || defaultFaqs
   const [activeLeft, setActiveLeft] = useState<number>(faqs.length > 0 ? 0 : -1)
   const [activeRight, setActiveRight] = useState<number>(faqs.length > 1 ? 1 : -1)
@@ -177,8 +151,8 @@ export function CopilotFAQ({ faqs: customFaqs }: CopilotFAQProps) {
       <div
         key={faq.id}
         className={`group/card relative overflow-hidden rounded-2xl border transition-all duration-500 ease-[var(--legacy-ease-0_4_0_0_2_1)] w-full ${isActive
-            ? "bg-white shadow-xl"
-            : "bg-white/90 shadow-sm hover:shadow-md"
+          ? "bg-white shadow-xl"
+          : "bg-white/90 shadow-sm hover:shadow-md"
           }`}
         style={{
           borderColor: isActive ? `${theme.accent}40` : `${theme.accent}22`,
@@ -186,17 +160,14 @@ export function CopilotFAQ({ faqs: customFaqs }: CopilotFAQProps) {
           order: index,
         }}
       >
-        {/* Grainient Background for Inactive Cards */}
         {!isActive && (
           <>
-            {/* Base Gradient */}
             <div
               className="absolute inset-0 transition-all duration-500 group-hover/card:opacity-90"
               style={{
                 background: `linear-gradient(135deg, ${theme.from} 0%, ${theme.via} 50%, ${theme.to} 100%)`,
               }}
             />
-            {/* Accent Glow */}
             <div
               className="absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-10 transition-opacity duration-500 group-hover/card:opacity-20"
               style={{ backgroundColor: theme.accent }}
@@ -205,7 +176,6 @@ export function CopilotFAQ({ faqs: customFaqs }: CopilotFAQProps) {
               className="absolute -bottom-10 -left-10 h-32 w-32 rounded-full opacity-5 transition-opacity duration-500 group-hover/card:opacity-15"
               style={{ backgroundColor: theme.accent }}
             />
-            {/* Subtle Border Glow */}
             <div
               className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover/card:opacity-100"
               style={{
@@ -215,7 +185,6 @@ export function CopilotFAQ({ faqs: customFaqs }: CopilotFAQProps) {
           </>
         )}
 
-        {/* Static Background for Active Card */}
         {isActive && (
           <div className="absolute inset-0">
             <div
@@ -229,7 +198,6 @@ export function CopilotFAQ({ faqs: customFaqs }: CopilotFAQProps) {
           </div>
         )}
 
-        {/* Content */}
         <div className="relative flex h-full flex-col p-5 md:p-6 justify-between">
           <button
             type="button"
@@ -238,41 +206,35 @@ export function CopilotFAQ({ faqs: customFaqs }: CopilotFAQProps) {
             onClick={() => handleClick(index)}
             className="flex w-full flex-col text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1852FF]/50 focus-visible:ring-offset-2"
           >
-            {/* Top Row: always visible */}
             <div className="flex items-center justify-between w-full flex-shrink-0">
               <span
-                className="text-xs font-semibold uppercase tracking-wider transition-colors duration-500"
+                className="typo-caption uppercase transition-colors duration-500"
                 style={{ color: isActive ? `${FAQ_INK_MUTED}cc` : FAQ_INK_MUTED }}
               >
                 {faq.serial}
               </span>
               <div className="relative h-6 w-6 flex-shrink-0">
-                {/* Plus Icon */}
                 <Plus
                   className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${isActive
-                      ? "scale-0 opacity-0 rotate-90"
-                      : "scale-100 opacity-100 rotate-0"
+                    ? "scale-0 opacity-0 rotate-90"
+                    : "scale-100 opacity-100 rotate-0"
                     }`}
                   style={{ color: theme.accent }}
                 />
-                {/* Minus Icon */}
                 <Minus
                   className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${isActive
-                      ? "scale-100 opacity-100 rotate-0"
-                      : "scale-0 opacity-0 -rotate-90"
+                    ? "scale-100 opacity-100 rotate-0"
+                    : "scale-0 opacity-0 -rotate-90"
                     }`}
                   style={{ color: theme.accent }}
                 />
               </div>
             </div>
 
-            {/* Bottom Content / Middle content */}
             <div className="mt-auto flex flex-col transition-all duration-500">
-              {/* Question */}
-              <div className="mb-2">
+              <div className="mb-2 mt-4">
                 <h3
-                  className={`font-semibold leading-snug transition-colors duration-500 ${isActive ? "text-base md:text-lg" : "text-sm lg:text-[13px]"
-                    }`}
+                  className="typo-heading-4 transition-colors duration-500"
                   style={{
                     color: FAQ_INK,
                   }}
@@ -286,11 +248,11 @@ export function CopilotFAQ({ faqs: customFaqs }: CopilotFAQProps) {
           {isActive && (
             <div id={`faq-answer-${faq.id}`} className="mt-2">
               <div className="pt-2 md:pt-3">
-                <h4 className="mb-1.5 text-[11px] font-semibold uppercase tracking-wider" style={{ color: `${FAQ_INK_MUTED}99` }}>
+                <h4 className="typo-caption uppercase mb-1.5" style={{ color: `${FAQ_INK_MUTED}99` }}>
                   Question Answer:
                 </h4>
                 <div className="mb-3 h-px w-14" style={{ backgroundColor: `${theme.accent}35` }} />
-                <p className="mb-4 text-sm leading-relaxed" style={{ color: `${FAQ_INK}d9` }}>
+                <p className="typo-body mb-4" style={{ color: `${FAQ_INK}d9` }}>
                   {faq.answer}
                 </p>
               </div>
@@ -302,8 +264,7 @@ export function CopilotFAQ({ faqs: customFaqs }: CopilotFAQProps) {
   }
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-12 md:py-16 lg:py-20">
-      {/* FAQPage JSON-LD */}
+    <section ref={sectionRef} className="relative w-full bg-[#F3F0EE] py-14 md:py-20">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -322,31 +283,29 @@ export function CopilotFAQ({ faqs: customFaqs }: CopilotFAQProps) {
           }),
         }}
       />
-      <div className="mx-auto max-w-[1400px] px-6 md:px-12">
-        {/* Section Title */}
-        <div ref={titleRef} className="mb-8 md:mb-10">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#1852FF]/20 bg-[#1852FF]/8 px-4 py-2">
-            <HelpCircle className="h-4 w-4 text-[#1852FF]" />
-            <span className="text-sm font-medium text-[#1852FF]">FAQ</span>
+      <div className="mx-auto w-full max-w-[1800px] px-4 sm:px-6 lg:px-[2cm]">
+        <div ref={titleRef} className="mb-10 md:mb-14">
+          <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-3.5 py-1 rounded-full border border-white/60 mb-4 inline-block">
+            <span className="typo-caption text-[#FF6B2C] uppercase">FAQ</span>
           </div>
-          <h2 className="text-3xl font-bold tracking-tight text-[#0a0a1a] md:text-5xl lg:text-6xl">
-            Frequently Asked{" "}
-            <span className="bg-gradient-to-r from-[#1852FF] to-[#FF5812] bg-clip-text text-transparent">
-              Questions.
+          <h2 className="typo-heading-2 text-[#0a0a1a] max-w-4xl mb-4">
+            Frequently Asked Questions About
+            <span className="bg-gradient-to-r from-[#1852FF] to-[#FF5812] bg-clip-text text-transparent block mt-2 md:mt-3 leading-[1.15]">
+              ADF to Microsoft Fabric Migration.
             </span>
           </h2>
+          <p className="typo-description text-slate-600 max-w-3xl">
+            Find answers to common questions about migrating Azure Data Factory pipelines, Synapse SQL pools, and Power BI models to Microsoft Fabric.
+          </p>
         </div>
 
-        {/* FAQ Accordion */}
         <div
           ref={faqsRef}
           className="flex flex-col gap-3 lg:grid lg:grid-cols-2 lg:gap-3 lg:items-start"
         >
-          {/* Left Column (even indices) */}
           <div className="contents lg:flex lg:flex-col lg:gap-3">
             {faqs.map((faq, index) => (index % 2 === 0 ? renderFAQCard(faq, index) : null))}
           </div>
-          {/* Right Column (odd indices) */}
           <div className="contents lg:flex lg:flex-col lg:gap-3">
             {faqs.map((faq, index) => (index % 2 !== 0 ? renderFAQCard(faq, index) : null))}
           </div>

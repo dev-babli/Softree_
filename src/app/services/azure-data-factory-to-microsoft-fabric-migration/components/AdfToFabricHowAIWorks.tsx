@@ -86,9 +86,30 @@ function FanCardStack<T extends FanCardStackItem>({
 }: FanCardStackProps<T>) {
   const reduceMotion = useReducedMotion();
   const len = items.length;
+  const frameRef = React.useRef<HTMLDivElement>(null);
+  const [frameWidth, setFrameWidth] = React.useState(0);
 
   const [active, setActive] = React.useState(() => wrapIndex(initialIndex, len));
   const [hovering, setHovering] = React.useState(false);
+
+  React.useEffect(() => {
+    const el = frameRef.current;
+    if (!el) return;
+    const measure = () => setFrameWidth(el.clientWidth);
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const isCompact = frameWidth > 0 && frameWidth < 720;
+  const resolvedWidth = frameWidth
+    ? Math.min(cardWidth, Math.max(240, frameWidth - (isCompact ? 4 : 24)))
+    : cardWidth;
+  const resolvedHeight = isCompact
+    ? Math.round(Math.min(560, Math.max(420, resolvedWidth * 1.15)))
+    : cardHeight;
+  const resolvedMaxVisible = frameWidth > 0 && frameWidth < 540 ? 1 : maxVisible;
 
   React.useEffect(() => {
     setActive((a) => wrapIndex(a, len));
@@ -99,8 +120,8 @@ function FanCardStack<T extends FanCardStackItem>({
     onChangeIndex?.(active, items[active]!);
   }, [active]);
 
-  const maxOffset = Math.max(0, Math.floor(maxVisible / 2));
-  const cardSpacing = Math.max(10, Math.round(cardWidth * (1 - overlap)));
+  const maxOffset = Math.max(0, Math.floor(resolvedMaxVisible / 2));
+  const cardSpacing = Math.max(10, Math.round(resolvedWidth * (1 - overlap)));
   const stepDeg = maxOffset > 0 ? spreadDeg / maxOffset : 0;
 
   const canGoPrev = loop || active > 0;
@@ -133,13 +154,14 @@ function FanCardStack<T extends FanCardStackItem>({
 
   return (
     <div
+      ref={frameRef}
       className={cn("w-full", className)}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
       <div
         className="relative w-full focus:outline-none"
-        style={{ height: Math.max(380, cardHeight + 80) }}
+        style={{ height: Math.max(isCompact ? 460 : 380, resolvedHeight + (isCompact ? 28 : 80)) }}
         tabIndex={0}
         onKeyDown={onKeyDown}
       >
@@ -166,7 +188,7 @@ function FanCardStack<T extends FanCardStackItem>({
               const rotateX = isActive ? 0 : tiltXDeg;
               const zIndex = 100 - abs;
 
-              const dragProps = isActive
+              const dragProps = isActive && !isCompact
                 ? {
                   drag: "x" as const,
                   dragConstraints: { left: 0, right: 0 },
@@ -175,7 +197,7 @@ function FanCardStack<T extends FanCardStackItem>({
                     if (reduceMotion) return;
                     const travel = info.offset.x;
                     const v = info.velocity.x;
-                    const threshold = Math.min(160, cardWidth * 0.22);
+                    const threshold = Math.min(160, resolvedWidth * 0.22);
                     if (travel > threshold || v > 650) prev();
                     else if (travel < -threshold || v < -650) next();
                   },
@@ -191,10 +213,11 @@ function FanCardStack<T extends FanCardStackItem>({
                     isActive ? "cursor-grab active:cursor-grabbing" : "cursor-pointer"
                   )}
                   style={{
-                    width: cardWidth,
-                    height: cardHeight,
+                    width: resolvedWidth,
+                    height: resolvedHeight,
                     zIndex,
                     transformStyle: "preserve-3d",
+                    touchAction: isCompact ? "pan-y" : undefined,
                   }}
                   initial={reduceMotion ? false : { opacity: 0, y: y + 40, x, rotateZ, rotateX, scale }}
                   animate={{ opacity: 1, x, y: y + lift, rotateZ, rotateX, scale }}
@@ -219,7 +242,7 @@ function FanCardStack<T extends FanCardStackItem>({
         </div>
       </div>
 
-      {showDots && (
+      {(showDots || isCompact) && (
         <div className="mt-6 flex items-center justify-center gap-3">
           <div className="flex items-center gap-2">
             {items.map((it, idx) => (
@@ -295,9 +318,9 @@ const CARDS = [
     title: "01 — DISCOVER",
     description: (
       <>
-        <strong className="text-white text-[16px]">Azure Synapse Discovery & Requirements</strong><br />
-        We understand your existing Azure Synapse environment, business requirements, data landscape, and migration goals.<br /><br />
-        • Identify Synapse workspaces, workloads, data sources, and business requirements.<br />
+        <strong className="text-white text-[16px]">Azure Data Factory Discovery & Requirements</strong><br />
+        We understand your existing ADF pipelines, SSIS packages, business requirements, data landscape, and migration goals.<br /><br />
+        • Identify ADF resources, connected systems, data sources, and business requirements.<br />
         • Document key integrations, dependencies, and migration objectives.
       </>
     ),
@@ -309,10 +332,10 @@ const CARDS = [
     title: "02 — ASSESS",
     description: (
       <>
-        <strong className="text-white text-[16px]">Synapse Workload Assessment</strong><br />
-        We analyze Synapse workloads, dependencies, compatibility, complexity, and migration risks to determine the right modernization approach.<br /><br />
-        • Assess SQL, Spark, pipelines, storage, Power BI, and connected workloads.<br />
-        • Identify workloads to migrate, refactor, replace, or retire.
+        <strong className="text-white text-[16px]">ADF Pipeline Assessment</strong><br />
+        We analyze ADF pipelines, data flows, SSIS packages, dependencies, and complexity to determine the right modernization approach.<br /><br />
+        • Assess linked services, datasets, activities, and data flow compute.<br />
+        • Identify pipelines to migrate as-is, refactor for Spark, or optimize natively in Fabric.
       </>
     ),
     icon: <Code2 className="w-6 h-6 text-[#FF5812]" />,
@@ -324,9 +347,9 @@ const CARDS = [
     description: (
       <>
         <strong className="text-white text-[16px]">Microsoft Fabric Migration Architecture</strong><br />
-        We define the target Microsoft Fabric architecture and migration strategy based on your data, analytics, security, integration, and scalability requirements.<br /><br />
-        • Design the target Fabric architecture and workload mapping.<br />
-        • Plan OneLake, data integration, security, governance, and deployment requirements.
+        We define the target Fabric architecture and pipeline migration strategy based on your data, analytics, and integration requirements.<br /><br />
+        • Design the target Fabric architecture and map ADF activities to Fabric Data Factory capabilities.<br />
+        • Plan OneLake integration, data engineering workflows, and security frameworks.
       </>
     ),
     icon: <Network className="w-6 h-6 text-[#FF5812]" />,
@@ -338,9 +361,9 @@ const CARDS = [
     description: (
       <>
         <strong className="text-white text-[16px]">Migrate & Validate Microsoft Fabric Workloads</strong><br />
-        We migrate workloads in controlled phases and validate data, functionality, integrations, security, and performance throughout the transition.<br /><br />
-        • Migrate and refactor compatible Synapse workloads for Microsoft Fabric.<br />
-        • Validate data quality, workload functionality, performance, and integrations.
+        We migrate workloads in controlled phases and validate data, pipeline functionality, integrations, and performance throughout the transition.<br /><br />
+        • Automate ADF pipeline migration where compatible and refactor legacy ETL to native Fabric data engineering patterns.<br />
+        • Validate data movement, transformations, performance, and trigger accuracy.
       </>
     ),
     icon: <ShieldCheck className="w-6 h-6 text-[#FF5812]" />,
@@ -352,9 +375,9 @@ const CARDS = [
     description: (
       <>
         <strong className="text-white text-[16px]">Optimize & Modernize the Fabric Environment</strong><br />
-        After migration, we optimize workloads, improve performance, address remaining issues, and support ongoing governance and scalability.<br /><br />
-        • Optimize Fabric workloads for performance, reliability, and scalability.<br />
-        • Establish governance and ongoing optimization for the modernized data platform.
+        After migration, we optimize pipelines, improve performance, address remaining issues, and support ongoing scalability.<br /><br />
+        • Optimize Fabric pipelines and dataflows for execution speed and lower compute cost.<br />
+        • Establish data governance and ongoing operational excellence for the modernized platform.
       </>
     ),
     icon: <Rocket className="w-6 h-6 text-[#FF5812]" />,
@@ -362,58 +385,35 @@ const CARDS = [
   },
 ];
 
-export const FabricMigrationHowAIWorks = () => {
-  const [cardDimensions, setCardDimensions] = React.useState({ width: 520, height: 340 });
-  const [isMounted, setIsMounted] = React.useState(false);
-
-  React.useEffect(() => {
-    setIsMounted(true);
-    const handleResize = () => {
-      if (window.innerWidth < 640) {
-        setCardDimensions({ width: window.innerWidth - 48, height: 440 });
-      } else if (window.innerWidth < 768) {
-        setCardDimensions({ width: 400, height: 400 });
-      } else {
-        setCardDimensions({ width: 520, height: 340 });
-      }
-    };
-    
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
+export const AdfToFabricHowAIWorks = () => {
   return (
     <section className="relative w-full bg-white pt-12 pb-12 md:pt-16 md:pb-16 border-t border-[#0a0a1a]/[0.06] overflow-hidden">
       <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10">
 
         {/* Section Header */}
         <div className="mb-10 md:mb-16 flex flex-col items-center text-center">
-          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#FF5812]/20 bg-[#FF5812]/5 px-3 py-1 typo-caption text-[#FF5812]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#FF5812]"></span>
-            HOW WE WORK
-          </span>
+          <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-3.5 py-1 rounded-full border border-white/60 mb-4 inline-block">
+            <span className="typo-caption text-[#FF6B2C] uppercase">HOW WE WORK</span>
+          </div>
           <h2 className="typo-heading-2 tracking-[-0.03em] text-[#0a0a1a]">
-            From Azure Synapse Workloads to a <br className="hidden md:block" />
+            From Azure Data Factory Workloads to a <br className="hidden md:block" />
             <span className="text-[#FF6B2C]">Production-Ready Microsoft Fabric Environment</span>
           </h2>
           <p className="mt-6 max-w-3xl text-pretty typo-description text-[#0a0a1a]/70 font-medium">
-            Our Azure Synapse to Microsoft Fabric migration approach combines workload assessment, migration planning, architecture design, controlled workload migration, validation, and post-migration optimization to help organizations modernize their data platform with confidence.
+            Our Azure Data Factory to Microsoft Fabric migration approach combines pipeline assessment, migration planning, architecture design, controlled workload refactoring, validation, and post-migration optimization to help organizations modernize their data platform with confidence.
           </p>
         </div>
 
         {/* Card Stack Content */}
         <div className="mx-auto max-w-4xl w-full">
-          {isMounted && (
-            <FanCardStack
-              items={CARDS}
-              autoAdvance={true}
-              intervalMs={4000}
-              cardWidth={cardDimensions.width}
-              cardHeight={cardDimensions.height}
-              showDots={false}
-            />
-          )}
+          <FanCardStack
+            items={CARDS}
+            autoAdvance={true}
+            intervalMs={4000}
+            cardWidth={520}
+            cardHeight={340}
+            showDots={false}
+          />
         </div>
 
         {/* Bottom CTA */}
