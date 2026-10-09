@@ -169,7 +169,6 @@ const menu: MenuItem[] = [
           { label: "Power Apps", url: "/services/offshore-power-platform-development", icon: LayoutDashboard, description: "Custom low-code business apps" },
           { label: "Power Automate", url: "/services/offshore-power-platform-development", icon: Workflow, description: "Automated workflows and integration" },
           { label: "Dataverse", url: "/services/offshore-power-platform-development", icon: Server, description: "Secure, unified enterprise data layer" },
-          { label: "MVP Development", url: "/services/mvp", icon: Rocket, description: "Rapid prototyping and fast-track MVP launch" },
         ],
       },
       {
@@ -220,6 +219,18 @@ const menu: MenuItem[] = [
             url: "/services/tableau-server-to-tableau-cloud-migration",
             icon: LineChart,
             description: "Migrate Tableau Server analytics to Tableau Cloud",
+          },
+          {
+            label: "Azure Data Factory to Microsoft Fabric",
+            url: "/services/azure-data-factory-to-microsoft-fabric-migration",
+            icon: Factory,
+            description: "Seamless data pipeline modernization to Microsoft Fabric",
+          },
+          {
+            label: "Power BI to Microsoft Fabric Migration",
+            url: "/services/power-bi-to-microsoft-fabric-migration",
+            icon: LineChart,
+            description: "Elevate your Power BI workloads with Microsoft Fabric",
           }
         ]
       },

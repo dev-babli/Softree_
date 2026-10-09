@@ -32,12 +32,6 @@ const menu = [
         title: "App Development",
         links: [
           {
-            label: "Softree for Startups",
-            url: "/services/mvp",
-            icon: <FaUsers />,
-            description: "Custom app solutions tailored for startup growth",
-          },
-          {
             label: "Mobile App Development",
             url: "/services/offshore-mobile-app-development",
             icon: <FaMobileAlt />,

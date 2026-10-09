@@ -50,12 +50,6 @@ const baseCards: Card[] = [
     href: "/services/offshore-mobile-app-development",
     textColor: "text-black",
   },
-  {
-    title: "Startups & MVP",
-    img: "/whysoftree/software.avif",
-    href: "/services/mvp",
-    textColor: "text-white",
-  },
 ]
 
 const cards = [...baseCards, ...baseCards, ...baseCards]

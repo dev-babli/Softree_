@@ -86,9 +86,35 @@ function FanCardStack<T extends FanCardStackItem>({
 }: FanCardStackProps<T>) {
   const reduceMotion = useReducedMotion();
   const len = items.length;
+  const frameRef = React.useRef<HTMLDivElement>(null);
+  const [frameWidth, setFrameWidth] = React.useState(0);
 
   const [active, setActive] = React.useState(() => wrapIndex(initialIndex, len));
   const [hovering, setHovering] = React.useState(false);
+
+  React.useEffect(() => {
+    const el = frameRef.current;
+    if (!el) return;
+    const measure = () => setFrameWidth(el.clientWidth);
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const isCompact = frameWidth > 0 && frameWidth < 720;
+  const resolvedWidth = frameWidth
+    ? Math.min(cardWidth, Math.max(240, frameWidth - (isCompact ? 4 : 24)))
+    : cardWidth;
+  const resolvedHeight = isCompact
+    ? Math.round(Math.min(560, Math.max(460, resolvedWidth * 1.28)))
+    : cardHeight;
+  const resolvedMaxVisible = frameWidth > 0 && frameWidth < 540
+    ? 1
+    : isCompact
+      ? Math.min(maxVisible, 3)
+      : maxVisible;
+  const resolvedSpread = isCompact ? Math.min(spreadDeg, 18) : spreadDeg;
 
   React.useEffect(() => {
     setActive((a) => wrapIndex(a, len));
@@ -99,9 +125,9 @@ function FanCardStack<T extends FanCardStackItem>({
     onChangeIndex?.(active, items[active]!);
   }, [active]);
 
-  const maxOffset = Math.max(0, Math.floor(maxVisible / 2));
-  const cardSpacing = Math.max(10, Math.round(cardWidth * (1 - overlap)));
-  const stepDeg = maxOffset > 0 ? spreadDeg / maxOffset : 0;
+  const maxOffset = Math.max(0, Math.floor(resolvedMaxVisible / 2));
+  const cardSpacing = Math.max(10, Math.round(resolvedWidth * (1 - (isCompact ? 0.72 : overlap))));
+  const stepDeg = maxOffset > 0 ? resolvedSpread / maxOffset : 0;
 
   const canGoPrev = loop || active > 0;
   const canGoNext = loop || active < len - 1;
@@ -133,13 +159,14 @@ function FanCardStack<T extends FanCardStackItem>({
 
   return (
     <div
+      ref={frameRef}
       className={cn("w-full", className)}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
       <div
         className="relative w-full focus:outline-none"
-        style={{ height: Math.max(380, cardHeight + 80) }}
+        style={{ height: Math.max(isCompact ? 500 : 380, resolvedHeight + (isCompact ? 36 : 80)) }}
         tabIndex={0}
         onKeyDown={onKeyDown}
       >
@@ -166,7 +193,7 @@ function FanCardStack<T extends FanCardStackItem>({
               const rotateX = isActive ? 0 : tiltXDeg;
               const zIndex = 100 - abs;
 
-              const dragProps = isActive
+              const dragProps = isActive && !isCompact
                 ? {
                   drag: "x" as const,
                   dragConstraints: { left: 0, right: 0 },
@@ -175,7 +202,7 @@ function FanCardStack<T extends FanCardStackItem>({
                     if (reduceMotion) return;
                     const travel = info.offset.x;
                     const v = info.velocity.x;
-                    const threshold = Math.min(160, cardWidth * 0.22);
+                    const threshold = Math.min(160, resolvedWidth * 0.22);
                     if (travel > threshold || v > 650) prev();
                     else if (travel < -threshold || v < -650) next();
                   },
@@ -188,13 +215,14 @@ function FanCardStack<T extends FanCardStackItem>({
                   className={cn(
                     "absolute bottom-0 rounded-2xl overflow-hidden shadow-xl",
                     "will-change-transform select-none",
-                    isActive ? "cursor-grab active:cursor-grabbing" : "cursor-pointer"
+                    isActive && !isCompact ? "cursor-grab active:cursor-grabbing" : "cursor-pointer"
                   )}
                   style={{
-                    width: cardWidth,
-                    height: cardHeight,
+                    width: resolvedWidth,
+                    height: resolvedHeight,
                     zIndex,
                     transformStyle: "preserve-3d",
+                    touchAction: isCompact ? "pan-y" : undefined,
                   }}
                   initial={reduceMotion ? false : { opacity: 0, y: y + 40, x, rotateZ, rotateX, scale }}
                   animate={{ opacity: 1, x, y: y + lift, rotateZ, rotateX, scale }}
@@ -219,7 +247,7 @@ function FanCardStack<T extends FanCardStackItem>({
         </div>
       </div>
 
-      {showDots && (
+      {(showDots || isCompact) && (
         <div className="mt-6 flex items-center justify-center gap-3">
           <div className="flex items-center gap-2">
             {items.map((it, idx) => (
@@ -264,8 +292,8 @@ function DefaultFanCard({ item, active }: { item: FanCardStackItem; active: bool
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
       {/* content */}
-      <div className="relative z-10 flex h-full flex-col justify-start px-6 pt-6 pb-6">
-        <div className="flex flex-col items-start gap-3 mb-3">
+      <div className="relative z-10 flex h-full flex-col justify-start overflow-y-auto px-4 pt-4 pb-4 sm:px-6 sm:pt-6 sm:pb-6">
+        <div className="flex flex-col items-start gap-2.5 sm:gap-3 mb-3">
           {item.icon && (
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-black/40 backdrop-blur-md border border-white/10 shadow-lg transition-transform duration-300 group-hover:scale-110">
               {item.icon}
@@ -277,7 +305,7 @@ function DefaultFanCard({ item, active }: { item: FanCardStackItem; active: bool
           </span>
         </div>
         {item.description ? (
-          <div className="flex flex-col gap-1 text-[14px] leading-snug text-white/90 whitespace-pre-wrap">
+          <div className="flex flex-col gap-1 text-[13px] sm:text-[14px] leading-snug text-white/90 whitespace-pre-wrap">
             {item.description}
           </div>
         ) : null}
@@ -295,9 +323,9 @@ const CARDS = [
     title: "01 — DISCOVER",
     description: (
       <>
-        <strong className="text-white text-[16px]">Azure Synapse Discovery & Requirements</strong><br />
-        We understand your existing Azure Synapse environment, business requirements, data landscape, and migration goals.<br /><br />
-        • Identify Synapse workspaces, workloads, data sources, and business requirements.<br />
+        <strong className="text-white text-[16px]">Power BI Discovery & Requirements</strong><br />
+        We understand your existing Power BI environment, business requirements, data landscape, and migration goals.<br /><br />
+        • Identify Power BI workspaces, workloads, datasets, and business requirements.<br />
         • Document key integrations, dependencies, and migration objectives.
       </>
     ),
@@ -309,9 +337,9 @@ const CARDS = [
     title: "02 — ASSESS",
     description: (
       <>
-        <strong className="text-white text-[16px]">Synapse Workload Assessment</strong><br />
-        We analyze Synapse workloads, dependencies, compatibility, complexity, and migration risks to determine the right modernization approach.<br /><br />
-        • Assess SQL, Spark, pipelines, storage, Power BI, and connected workloads.<br />
+        <strong className="text-white text-[16px]">Power BI Workload Assessment</strong><br />
+        We analyze Power BI workloads, datasets, dependencies, compatibility, complexity, and migration risks to determine the right modernization approach.<br /><br />
+        • Assess datasets, semantic models, dataflows, pipelines, and connected workloads.<br />
         • Identify workloads to migrate, refactor, replace, or retire.
       </>
     ),
@@ -339,7 +367,7 @@ const CARDS = [
       <>
         <strong className="text-white text-[16px]">Migrate & Validate Microsoft Fabric Workloads</strong><br />
         We migrate workloads in controlled phases and validate data, functionality, integrations, security, and performance throughout the transition.<br /><br />
-        • Migrate and refactor compatible Synapse workloads for Microsoft Fabric.<br />
+        • Migrate and refactor compatible Power BI workloads for Microsoft Fabric.<br />
         • Validate data quality, workload functionality, performance, and integrations.
       </>
     ),
@@ -362,30 +390,10 @@ const CARDS = [
   },
 ];
 
-export const FabricMigrationHowAIWorks = () => {
-  const [cardDimensions, setCardDimensions] = React.useState({ width: 520, height: 340 });
-  const [isMounted, setIsMounted] = React.useState(false);
-
-  React.useEffect(() => {
-    setIsMounted(true);
-    const handleResize = () => {
-      if (window.innerWidth < 640) {
-        setCardDimensions({ width: window.innerWidth - 48, height: 440 });
-      } else if (window.innerWidth < 768) {
-        setCardDimensions({ width: 400, height: 400 });
-      } else {
-        setCardDimensions({ width: 520, height: 340 });
-      }
-    };
-    
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
+export const PowerBiFabricHowAIWorks = () => {
   return (
-    <section className="relative w-full bg-white pt-12 pb-12 md:pt-16 md:pb-16 border-t border-[#0a0a1a]/[0.06] overflow-hidden">
-      <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10">
+    <section className="relative w-full bg-white pt-12 pb-12 md:pt-16 md:pb-16 border-t border-[#0a0a1a]/[0.06] overflow-x-clip">
+      <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 md:px-10">
 
         {/* Section Header */}
         <div className="mb-10 md:mb-16 flex flex-col items-center text-center">
@@ -394,26 +402,24 @@ export const FabricMigrationHowAIWorks = () => {
             HOW WE WORK
           </span>
           <h2 className="typo-heading-2 tracking-[-0.03em] text-[#0a0a1a]">
-            From Azure Synapse Workloads to a <br className="hidden md:block" />
+            From Power BI Workloads to a <br className="hidden md:block" />
             <span className="text-[#FF6B2C]">Production-Ready Microsoft Fabric Environment</span>
           </h2>
           <p className="mt-6 max-w-3xl text-pretty typo-description text-[#0a0a1a]/70 font-medium">
-            Our Azure Synapse to Microsoft Fabric migration approach combines workload assessment, migration planning, architecture design, controlled workload migration, validation, and post-migration optimization to help organizations modernize their data platform with confidence.
+            Our Power BI to Microsoft Fabric migration approach combines workload assessment, migration planning, architecture design, controlled workload migration, validation, and post-migration optimization to help organizations modernize their data platform with confidence.
           </p>
         </div>
 
         {/* Card Stack Content */}
         <div className="mx-auto max-w-4xl w-full">
-          {isMounted && (
-            <FanCardStack
-              items={CARDS}
-              autoAdvance={true}
-              intervalMs={4000}
-              cardWidth={cardDimensions.width}
-              cardHeight={cardDimensions.height}
-              showDots={false}
-            />
-          )}
+          <FanCardStack
+            items={CARDS}
+            autoAdvance={true}
+            intervalMs={4000}
+            cardWidth={520}
+            cardHeight={340}
+            showDots={false}
+          />
         </div>
 
         {/* Bottom CTA */}
@@ -428,3 +434,5 @@ export const FabricMigrationHowAIWorks = () => {
     </section>
   );
 }
+
+export default PowerBiFabricHowAIWorks;

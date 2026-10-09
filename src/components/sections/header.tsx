@@ -85,12 +85,6 @@ const menu: MenuItem[] = [
         title: 'App Development',
         links: [
           {
-            label: 'Softree for Startups',
-            url: '/services/mvp',
-            icon: Users,
-            description: 'Custom app solutions for startups',
-          },
-          {
             label: 'Mobile App Development',
             url: '/services/offshore-mobile-app-development',
             icon: Smartphone,

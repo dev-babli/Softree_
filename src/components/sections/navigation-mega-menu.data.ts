@@ -169,12 +169,6 @@ export const SERVICES_MEGA_CATEGORIES: MegaMenuGroup[] = [
         icon: Server,
         description: "Unified data layer",
       },
-      {
-        label: "MVP Development",
-        url: "/services/mvp",
-        icon: Rocket,
-        description: "Launch faster",
-      },
     ],
   },
   {
@@ -234,12 +228,6 @@ export const SERVICES_MEGA_CATEGORIES: MegaMenuGroup[] = [
         url: "/solutions/azure-openai-development",
         icon: Cloud,
         description: "GPT apps, RAG and copilots on Azure",
-      },
-      {
-        label: "Agentic AI Platform",
-        url: "/agentic-ai-platform",
-        icon: LayoutDashboard,
-        description: "Build and govern agents at scale",
       },
     ],
   },

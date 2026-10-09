@@ -173,19 +173,6 @@ export const SERVICES_HUB: ServicesHubItem[] = [
       "AI-assisted regression, CI/CD quality gates, and automation frameworks that keep releases fast and reliable.",
     tags: ["Test Automation", "QA", "CI/CD", "Playwright"],
   },
-  {
-    id: "mvp",
-    n: "12",
-    title: "MVP delivery",
-    shortTitle: "MVP",
-    href: "/services/mvp",
-    image: "/service_image/web.webp",
-    imgSrc: "/service_image/web.webp",
-    accent: "#FF6B00",
-    description:
-      "Fixed-scope MVPs with weekly demos — discovery, build, and launch in weeks with a senior offshore squad.",
-    tags: ["MVP", "Discovery", "Sprints", "Launch"],
-  },
 ];
 
 export const SERVICES_HUB_TICKER = SERVICES_HUB.map((s) => s.shortTitle);

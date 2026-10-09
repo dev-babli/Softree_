@@ -6,9 +6,7 @@ const BASE_URL = 'https://www.softreetechnology.com'
 const staticRoutes: MetadataRoute.Sitemap = [
   // Primary Core Pages (Priority 1.0 - 0.95)
   { url: `${BASE_URL}/`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
-  { url: `${BASE_URL}/agentic-ai-platform`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
   { url: `${BASE_URL}/ai-workflow-orchestration`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
-  { url: `${BASE_URL}/ai-home`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/who-do-we-serve`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
   { url: `${BASE_URL}/webanalyser`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
@@ -16,12 +14,9 @@ const staticRoutes: MetadataRoute.Sitemap = [
   // AI & Automation Services
   { url: `${BASE_URL}/services/ai-development-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
   { url: `${BASE_URL}/services/generative-ai`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
-  { url: `${BASE_URL}/services/enterprise-generative-ai-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
-  { url: `${BASE_URL}/services/offshore-ai-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
   { url: `${BASE_URL}/services/ai-consulting-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/services/ai-chatbot-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/services/ai-healthcare-development-service`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-  { url: `${BASE_URL}/services/enterprise-ai-solution`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/services/multi-agent-systems-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/services/azure-openai-development-partner`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/services/amazon-bedrock-agentcore-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
@@ -49,6 +44,11 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${BASE_URL}/solutions/multi-agent-systems`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
 
   // Microsoft, Power Platform & Modern Workspace Services
+  { url: `${BASE_URL}/services/tableau-migration-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
+  { url: `${BASE_URL}/services/sql-server-to-microsoft-fabric-migration`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
+  { url: `${BASE_URL}/services/tableau-server-to-tableau-cloud-migration`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
+  { url: `${BASE_URL}/services/azure-data-factory-to-microsoft-fabric-migration`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
+  { url: `${BASE_URL}/services/power-bi-to-microsoft-fabric-migration`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
   { url: `${BASE_URL}/services/azure-synapse-to-microsoft-fabric-migration`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
   { url: `${BASE_URL}/services/power-bi-development-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
   { url: `${BASE_URL}/services/microsoft-fabric-development-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
@@ -58,8 +58,6 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${BASE_URL}/services/offshore-web-app-development`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
   { url: `${BASE_URL}/services/offshore-mobile-app-development`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
   { url: `${BASE_URL}/services/legacy-application-modernization`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
-  { url: `${BASE_URL}/services/website-modernization`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
-  { url: `${BASE_URL}/services/mvp`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
 
   // Industry Solutions
   { url: `${BASE_URL}/industries/healthcare-ai-solutions`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
