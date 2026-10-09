@@ -275,7 +275,7 @@ export const postBySlugQuery = groq`
     heroHighlights[] { value, label },
     publishedAt,
     status,
-    author->{ name, bio },
+    author->{ name, bio, image { asset->{ url }, alt } },
     categories[]->{ title, slug },
     mainImage { asset->{ url }, alt },
     body[]{

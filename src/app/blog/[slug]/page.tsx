@@ -3,7 +3,7 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowLeft, CalendarDays, Clock3, Facebook, Linkedin, Link2, Twitter } from 'lucide-react'
+import { ArrowLeft, ArrowRight, CalendarDays, Clock3, Facebook, Linkedin, Link2, Twitter } from 'lucide-react'
 import NavigationServer from '@/components/sections/navigation-server'
 import Footer from '@/components/sections/footer'
 import { BlogComposerPage } from '@/components/blog/BlogComposerPage'
@@ -12,12 +12,14 @@ import { sharedPortableTextTypes } from '@/components/portable-text/contentBlock
 import { getNavigationData } from '@/components/sections/navigation-server'
 import { cmsClient } from '@/cms/lib/client'
 import { sanityFetch } from '@/cms/lib/fetch'
-import { allPostSlugsQuery, postBySlugQuery, relatedPostsQuery } from '@/cms/lib/queries/queries'
+import { allPostSlugsQuery, latestBlogsQuery, postBySlugQuery, relatedPostsQuery } from '@/cms/lib/queries/queries'
 import { buildArticleJsonLd, buildBlogJsonLdGraph } from '@/lib/structured-data'
 import { fetchDesignTokens } from '@/lib/fetch-design-tokens'
 import { collectFaqItems } from '@/cms/lib/studio/aeoCompleteness'
 import { ogImages, pageOgImage, SITE_URL, twitterImages } from '@/lib/site-metadata'
 import LightFAQExact from '@/components/homepage-light/LightFAQExact'
+import LightContactSection from '@/components/homepage-light/LightContactSection'
+import { BlogConsultationCard } from '@/components/blog/BlogConsultationCard'
 
 function toPlainText(value: unknown): string {
   if (!value) return ''
@@ -81,7 +83,11 @@ interface BlogPostDocument {
   heroHighlights?: { value: string; label: string }[]
   publishedAt?: string
   status?: string
-  author?: { name?: string; bio?: string }
+  author?: {
+    name?: string
+    bio?: unknown
+    image?: { asset?: { url: string }; alt?: string }
+  }
   categories?: { title: string; slug: { current: string } }[]
   mainImage?: { asset?: { url: string }; alt?: string }
   body?: unknown[]
@@ -249,11 +255,17 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     notFound()
   }
 
-  const post = await sanityFetch<BlogPostDocument | null>(postBySlugQuery, { slug }, { tags: ['post', `post:${slug}`] })
+  const [post, rawRelatedPosts] = await Promise.all([
+    sanityFetch<BlogPostDocument | null>(postBySlugQuery, { slug }, { tags: ['post', `post:${slug}`] }),
+    sanityFetch<any[]>(relatedPostsQuery, { slug }, { tags: ['post'] }),
+  ])
 
   if (!post || !post.title) notFound()
 
   const authorName = toPlainText(post.author?.name) || 'Softree Team'
+  const authorBio =
+    toPlainText(post.author?.bio) ||
+    'Practical guides, implementation playbooks, and architectural insights on modern enterprise engineering, cloud platforms, and scalable digital delivery.'
   const publishedDate = post.publishedAt
     ? new Date(post.publishedAt).toLocaleDateString('en-US', {
         month: 'long',
@@ -269,9 +281,14 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     answer: faq.answer,
   }))
 
+  let recentPosts = rawRelatedPosts || []
+  if (!recentPosts.length) {
+    const latest = await sanityFetch<any[]>(latestBlogsQuery, {}, { tags: ['post'] })
+    recentPosts = (latest || []).filter((p: any) => p.slug?.current !== slug).slice(0, 3)
+  }
+
   if (post.displayMode === 'composer' && post.composerSections?.length) {
-    const [relatedPosts, nav, designTokens] = await Promise.all([
-      sanityFetch<any[]>(relatedPostsQuery, { slug }, { tags: ['post'] }),
+    const [nav, designTokens] = await Promise.all([
       getNavigationData(),
       fetchDesignTokens(),
     ])
@@ -311,7 +328,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         />
         <BlogComposerPage
           post={post}
-          relatedPosts={relatedPosts || []}
+          relatedPosts={recentPosts}
           slug={slug}
           authorName={authorName}
           publishedLabel={`Published: ${publishedDate}`}
@@ -323,6 +340,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       </>
     )
   }
+
 
   const excerpt =
     toPlainText(post.excerpt) ||
@@ -433,14 +451,20 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           </article>
 
           <aside className="space-y-5 md:sticky md:top-28 md:h-fit">
-            <div className="rounded-2xl border border-zinc-200 bg-white p-5">
-              <p className="text-xs font-bold uppercase tracking-[0.14em] text-zinc-500">Share</p>
-              <div className="mt-4 flex items-center gap-2">
+            <BlogConsultationCard
+              category={categoryName}
+              buttonHref="#contact"
+            />
+
+            <div className="rounded-3xl border border-zinc-200/90 bg-white p-5 sm:p-6 shadow-sm">
+              <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-zinc-500">Share this Article</p>
+              <div className="mt-3.5 flex items-center gap-2">
                 <a
                   href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-lg border border-zinc-300 p-2 text-zinc-600 transition-colors hover:border-zinc-900 hover:text-zinc-900"
+                  aria-label="Share on LinkedIn"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-zinc-200 bg-[#f8faff] text-zinc-700 transition-all hover:border-[#0f5cc0] hover:bg-[#0f5cc0] hover:text-white"
                 >
                   <Linkedin className="h-4 w-4" />
                 </a>
@@ -448,7 +472,8 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                   href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-lg border border-zinc-300 p-2 text-zinc-600 transition-colors hover:border-zinc-900 hover:text-zinc-900"
+                  aria-label="Share on Twitter"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-zinc-200 bg-[#f8faff] text-zinc-700 transition-all hover:border-[#0f5cc0] hover:bg-[#0f5cc0] hover:text-white"
                 >
                   <Twitter className="h-4 w-4" />
                 </a>
@@ -456,59 +481,154 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                   href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-lg border border-zinc-300 p-2 text-zinc-600 transition-colors hover:border-zinc-900 hover:text-zinc-900"
+                  aria-label="Share on Facebook"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-zinc-200 bg-[#f8faff] text-zinc-700 transition-all hover:border-[#0f5cc0] hover:bg-[#0f5cc0] hover:text-white"
                 >
                   <Facebook className="h-4 w-4" />
                 </a>
                 <a
                   href={pageUrl}
-                  className="rounded-lg border border-zinc-300 p-2 text-zinc-600 transition-colors hover:border-zinc-900 hover:text-zinc-900"
+                  aria-label="Copy Link"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-zinc-200 bg-[#f8faff] text-zinc-700 transition-all hover:border-[#0f5cc0] hover:bg-[#0f5cc0] hover:text-white"
                 >
                   <Link2 className="h-4 w-4" />
                 </a>
               </div>
             </div>
 
-            <div className="rounded-2xl border border-zinc-200 bg-white p-5">
-              <p className="text-xs font-bold uppercase tracking-[0.14em] text-zinc-500">Author</p>
-              <p className="mt-3 text-lg font-bold text-zinc-900">{toPlainText(post.author?.name) || 'Softree Team'}</p>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-600">
-                {toPlainText(post.author?.bio) ||
-                  'Practical guides and implementation insights on enterprise engineering, automation, and AI transformation.'}
+            <div className="rounded-3xl border border-zinc-200/90 bg-white p-5 sm:p-6 shadow-sm">
+              <div className="flex items-center gap-2 mb-3.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#0f5cc0]" />
+                <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-zinc-500">About the Author</p>
+              </div>
+
+              <div className="flex items-center gap-3.5">
+                {post.author?.image?.asset?.url ? (
+                  <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-zinc-200 ring-2 ring-[#edf3ff]">
+                    <Image
+                      src={post.author.image.asset.url}
+                      alt={post.author?.image?.alt || authorName}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#0f5cc0] to-[#083b7e] font-black text-sm text-white shadow-sm ring-4 ring-[#edf3ff]">
+                    {authorName
+                      .split(' ')
+                      .map((w) => w[0])
+                      .slice(0, 2)
+                      .join('')
+                      .toUpperCase() || 'ST'}
+                  </div>
+                )}
+                <div>
+                  <div className="flex items-center gap-1.5">
+                    <h4 className="text-base font-bold text-zinc-950">{authorName}</h4>
+                    <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-blue-50 text-[10px] text-[#0f5cc0]" title="Verified Softree Contributor">
+                      ✓
+                    </span>
+                  </div>
+                  <p className="text-[11px] font-medium text-[#0f5cc0]">
+                    Engineering & Solutions Advisory
+                  </p>
+                </div>
+              </div>
+
+              <p className="mt-3.5 text-xs leading-relaxed text-zinc-600 border-t border-zinc-100 pt-3">
+                {authorBio}
               </p>
+
+              <div className="mt-3 flex items-center justify-between border-t border-zinc-50 pt-2 text-[11px] text-zinc-500">
+                <span>Practice Lead</span>
+                <span className="font-semibold text-zinc-700">Softree Technology</span>
+              </div>
             </div>
           </aside>
         </section>
 
         <LightFAQExact faqs={mappedFaqs} />
 
-        <section className="border-t border-zinc-200 bg-white py-14">
+        <section className="border-t border-zinc-200 bg-[#f8f9fc] py-14 md:py-20">
           <div className="mx-auto max-w-[1240px] px-4 md:px-8">
             <div className="mb-8 flex items-center justify-between gap-4">
-              <h2 className="text-2xl font-black tracking-tight text-zinc-950">Recent Blogs</h2>
-              <Link href="/blog" className="text-sm font-semibold text-[#0f5cc0] hover:text-[#0a428b]">
-                View all
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#0f5cc0]">
+                  Explore Further
+                </span>
+                <h2 className="mt-1 text-2xl font-black tracking-tight text-zinc-950 md:text-3xl">
+                  Recent Blogs & Articles
+                </h2>
+              </div>
+              <Link
+                href="/blog"
+                className="group inline-flex items-center gap-1.5 text-sm font-semibold text-[#0f5cc0] transition hover:text-[#0a428b]"
+              >
+                <span>View all articles</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
-            <div className="grid gap-4 md:grid-cols-3">
-              <Link href="/blog" className="rounded-xl border border-zinc-200 bg-[#f8faff] p-5">
-                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#0f5cc0]">Explore</p>
-                <p className="mt-2 font-semibold text-zinc-900">Browse all blog posts and latest enterprise insights.</p>
-              </Link>
-              <Link href="/case-studies" className="rounded-xl border border-zinc-200 bg-[#f8faff] p-5">
-                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#0f5cc0]">Case Studies</p>
-                <p className="mt-2 font-semibold text-zinc-900">See delivered outcomes and implementation stories.</p>
-              </Link>
-              <Link href="/contact" className="rounded-xl border border-zinc-200 bg-[#f8faff] p-5">
-                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#0f5cc0]">Talk to us</p>
-                <p className="mt-2 font-semibold text-zinc-900">Need help with a similar initiative? Let&apos;s connect.</p>
-              </Link>
+
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {recentPosts.map((rel: any) => {
+                const relCategory = rel.categories?.[0]?.title || "Insights"
+                const relExcerpt = toPlainText(rel.excerpt) || "Implementation insights, architecture decisions, and practical enterprise delivery lessons."
+                const relDate = rel.publishedAt
+                  ? new Date(rel.publishedAt).toLocaleDateString("en-US", {
+                      month: "short",
+                      day: "numeric",
+                      year: "numeric",
+                    })
+                  : null
+
+                return (
+                  <Link
+                    key={rel._id || rel.slug?.current}
+                    href={`/blog/${rel.slug?.current}`}
+                    className="group flex flex-col overflow-hidden rounded-3xl border border-zinc-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#0f5cc0]/35 hover:shadow-[0_20px_40px_rgba(15,92,192,0.1)]"
+                  >
+                    <div className="relative aspect-[16/9] w-full overflow-hidden bg-white border-b border-zinc-100">
+                      <Image
+                        src={rel.mainImage?.asset?.url || "/og-image.png"}
+                        alt={rel.mainImage?.alt || rel.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 400px"
+                        className="object-contain p-2 transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                      />
+                    </div>
+                    <div className="flex flex-1 flex-col p-5 sm:p-6">
+                      <div className="flex items-center gap-2.5 mb-3">
+                        <span className="rounded-full bg-[#edf3ff] border border-[#0f5cc0]/20 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[#0f5cc0]">
+                          {relCategory}
+                        </span>
+                        {relDate && (
+                          <span className="text-xs text-zinc-500">{relDate}</span>
+                        )}
+                      </div>
+                      <h3 className="text-base font-bold leading-snug tracking-tight text-zinc-950 transition-colors group-hover:text-[#0f5cc0] line-clamp-2">
+                        {rel.title}
+                      </h3>
+                      <p className="mt-2 text-xs sm:text-sm text-zinc-600 line-clamp-2 leading-relaxed">
+                        {relExcerpt}
+                      </p>
+                      <div className="mt-auto pt-4 flex items-center gap-1.5 text-xs font-semibold text-[#0f5cc0] group-hover:translate-x-0.5 transition-transform">
+                        <span>Read article</span>
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </div>
+                    </div>
+                  </Link>
+                )
+              })}
             </div>
           </div>
         </section>
+
+
+        <LightContactSection />
       </main>
 
       <Footer />
+
     </div>
   )
 }

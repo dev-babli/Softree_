@@ -248,9 +248,8 @@ export default function SecurityTestingPage() {
       <NavigationClient />
 
       {/* <SecurityTestingVideoHero /> */}
-      {/* <SecurityTestingSilkHero /> */}
-
-      <SecurityTestingWireframeHero />
+      <SecurityTestingSilkHero />
+      {/* <SecurityTestingWireframeHero /> */}
 
       <TrustedBrandsMarquee surface="legacy" />
       <SecurityTestingPositioning />

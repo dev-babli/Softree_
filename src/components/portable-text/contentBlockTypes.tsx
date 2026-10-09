@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import type { PortableTextTypeComponentProps } from '@portabletext/react'
+import { BlogConsultationCard } from '@/components/blog/BlogConsultationCard'
+import { BlogCtaForm } from '@/components/blog/BlogCtaForm'
 
 type CalloutValue = {
   variant?: 'info' | 'tip' | 'warning'
@@ -111,8 +113,63 @@ export function StatHighlightBlock({ value }: PortableTextTypeComponentProps<Sta
   )
 }
 
+type ConsultationCtaValue = {
+  kicker?: string
+  title?: string
+  highlightWord?: string
+  description?: string
+  buttonText?: string
+  buttonHref?: string
+  variant?: 'banner' | 'inline' | 'sidebar' | 'compact'
+  category?: string
+}
+
+type CtaFormValue = {
+  kicker?: string
+  title?: string
+  highlightWord?: string
+  description?: string
+  category?: string
+  variant?: 'section' | 'sidebar' | 'card'
+}
+
+export function ConsultationCtaBlock({ value }: PortableTextTypeComponentProps<ConsultationCtaValue>) {
+  if (!value) return null
+  return (
+    <BlogConsultationCard
+      kicker={value.kicker}
+      title={value.title}
+      highlightWord={value.highlightWord}
+      description={value.description}
+      buttonText={value.buttonText}
+      buttonHref={value.buttonHref}
+      variant={value.variant || 'banner'}
+      category={value.category}
+    />
+  )
+}
+
+export function CtaFormBlock({ value }: PortableTextTypeComponentProps<CtaFormValue>) {
+  if (!value) return null
+  return (
+    <BlogCtaForm
+      kicker={value.kicker}
+      title={value.title}
+      highlightWord={value.highlightWord}
+      description={value.description}
+      category={value.category}
+      variant={value.variant || 'section'}
+    />
+  )
+}
+
 export const sharedPortableTextTypes = {
   callout: CalloutBlock,
   ctaButton: CtaBlock,
   statHighlight: StatHighlightBlock,
+  consultationCta: ConsultationCtaBlock,
+  consultationCard: ConsultationCtaBlock,
+  ctaForm: CtaFormBlock,
+  consultationForm: CtaFormBlock,
 }
+

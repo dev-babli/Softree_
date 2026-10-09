@@ -7,6 +7,8 @@ import { useSearchParams } from "next/navigation"
 import { Search, Plus } from "lucide-react"
 import GeneralHeaderHero from "@/components/sections/GeneralHeaderHero"
 import { FlowButton } from "@/components/ui/flow-button"
+import LightContactSection from "@/components/homepage-light/LightContactSection"
+
 
 type BlogPost = {
   _id: string
@@ -272,6 +274,10 @@ export default function BlogListingClient({ posts }: { posts: BlogPost[] }) {
           </div>
         ) : null}
       </section>
+
+      <LightContactSection />
     </div>
   )
 }
+
+
