@@ -1,0 +1,225 @@
+/* Generative AI page intro — CSS-first, transform/opacity only, session-scoped */
+
+html.generative-ai-loading {
+  overflow: hidden;
+}
+
+html.generative-ai-route:not(.generative-ai-ready) body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 99998;
+  background: #f8f4ec;
+  pointer-events: none;
+}
+
+.generative-ai-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f4ec;
+  pointer-events: all;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.generative-ai-loader.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.generative-ai-loader.is-exiting {
+  opacity: 0;
+  pointer-events: none;
+  transition-duration: 0.48s;
+}
+
+.generative-ai-loader__grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.045;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+.generative-ai-loader__corner {
+  position: absolute;
+  top: clamp(1.25rem, 4vw, 2.5rem);
+  left: clamp(1.25rem, 4vw, 2.5rem);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(20, 20, 19, 0.28);
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+.generative-ai-loader.is-active .generative-ai-loader__corner {
+  animation: generative-ai-label-in 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0.12s forwards;
+}
+
+.generative-ai-loader__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.15rem;
+  padding: 1.5rem;
+}
+
+.generative-ai-loader__logo {
+  opacity: 0;
+  transform: scale(0.96) translateY(12px);
+}
+
+.generative-ai-loader.is-active .generative-ai-loader__logo {
+  animation: generative-ai-logo-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.generative-ai-loader.is-active.step-2 .generative-ai-loader__logo {
+  animation: generative-ai-logo-pulse 0.38s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+}
+
+.generative-ai-loader__line {
+  width: min(148px, 40vw);
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: linear-gradient(90deg, #ff5812 0%, #ff7a3d 55%, rgba(255, 88, 18, 0.15) 100%);
+  opacity: 0.95;
+}
+
+.generative-ai-loader.is-active.step-2 .generative-ai-loader__line {
+  animation: generative-ai-line-in 0.62s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.generative-ai-loader__label {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: rgba(20, 20, 19, 0.42);
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.generative-ai-loader.is-active.step-3 .generative-ai-loader__label {
+  animation: generative-ai-label-in 0.42s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.generative-ai-loader__progress {
+  position: absolute;
+  left: clamp(1.25rem, 4vw, 2.5rem);
+  right: clamp(1.25rem, 4vw, 2.5rem);
+  bottom: clamp(1.25rem, 4vw, 2.5rem);
+  height: 1px;
+  background: rgba(20, 20, 19, 0.08);
+  overflow: hidden;
+}
+
+.generative-ai-loader__progress span {
+  display: block;
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: linear-gradient(90deg, #ff5812, #ff7a3d);
+}
+
+.generative-ai-loader.is-active .generative-ai-loader__progress span {
+  animation: generative-ai-progress 1.05s cubic-bezier(0.16, 1, 0.3, 1) 0.18s forwards;
+}
+
+@keyframes generative-ai-logo-in {
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes generative-ai-logo-pulse {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    opacity: 0.72;
+    transform: scale(0.985) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes generative-ai-line-in {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes generative-ai-label-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes generative-ai-progress {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Hero + sections wait for ready — no opacity:0 on LCP text (transform only) */
+html:not(.generative-ai-ready) .generative-ai-reveal {
+  transform: translateY(14px);
+}
+
+html.generative-ai-ready .generative-ai-reveal {
+  animation: generative-ai-content-in 0.72s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+html.generative-ai-ready .generative-ai-reveal--delay {
+  animation-delay: 0.08s;
+}
+
+@keyframes generative-ai-content-in {
+  from {
+    opacity: 0.92;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .generative-ai-loader {
+    display: none !important;
+  }
+
+  html.generative-ai-route:not(.generative-ai-ready) body::before {
+    display: none;
+  }
+
+  html:not(.generative-ai-ready) .generative-ai-reveal {
+    transform: none;
+  }
+
+  html.generative-ai-ready .generative-ai-reveal {
+    animation: none;
+  }
+}
