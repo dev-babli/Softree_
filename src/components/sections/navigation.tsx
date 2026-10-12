@@ -76,6 +76,7 @@ const CLOSE_DELAY_MS = 140;
 const menu: MenuItem[] = [
   { label: "About", url: "/about-us" },
   { label: "Who Do We Serve", url: "/who-do-we-serve" },
+  { label: "Global Partners", url: "/global-partners" },
   {
     label: "Services",
     mega: true,
@@ -471,8 +472,8 @@ export default function Navigation({
           scheduleCloseMenu();
         }}
       >
-        <div className="mx-auto max-w-[1280px] px-5 pt-2.5 lg:px-10">
-          <nav className="relative flex h-[64px] items-center justify-between rounded-2xl border border-black/[0.06] bg-white/95 px-4 shadow-[0_8px_32px_-10px_rgba(10,10,26,0.12)] backdrop-blur-xl lg:px-6">
+        <div className="mx-auto max-w-[1440px] px-3 sm:px-5 pt-2.5 lg:px-6 xl:px-8">
+          <nav className="relative flex h-[64px] items-center justify-between rounded-2xl border border-black/[0.06] bg-white/95 px-3 shadow-[0_8px_32px_-10px_rgba(10,10,26,0.12)] backdrop-blur-xl lg:px-4 xl:px-6">
             <Link
               href="/"
               prefetch={true}
@@ -485,12 +486,12 @@ export default function Navigation({
               <img
                 src="/logo/Softree-Technology-Final-Logo.png"
                 alt="Softree"
-                className="h-8 w-auto lg:h-[34px]"
+                className="h-7 lg:h-8 xl:h-[34px] w-auto shrink-0"
               />
             </Link>
 
             <div
-              className="hidden items-center gap-0.5 lg:flex"
+              className="hidden items-center gap-0 lg:flex shrink-0"
               onMouseLeave={() => setHoveredItem(null)}
             >
               {dynamicMenu.map((item) => {
@@ -507,13 +508,13 @@ export default function Navigation({
                         closeMenu();
                       }}
                       className={cn(
-                        "group relative cursor-pointer inline-flex min-h-11 items-center rounded-full px-3.5 xl:px-4 py-2 typo-nav-link text-sm font-semibold transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45",
+                        "group relative cursor-pointer inline-flex min-h-11 items-center rounded-full px-2 lg:px-2.5 xl:px-3 2xl:px-3.5 py-2 typo-nav-link text-xs lg:text-[13px] xl:text-sm font-semibold whitespace-nowrap shrink-0 transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45",
                         isSelected
                           ? "text-[#FF5812]"
                           : "text-[#0a0a1a]/70 hover:text-[#0a0a1a]"
                       )}
                     >
-                      <span>{item.label}</span>
+                      <span className="whitespace-nowrap">{item.label}</span>
                       {isSelected && (
                         <motion.div
                           layoutId="navLampIndicator"
@@ -551,18 +552,18 @@ export default function Navigation({
                           if (canOpen) openMenu(item.label);
                         }}
                         className={cn(
-                          "group relative cursor-pointer inline-flex min-h-11 items-center gap-1.5 rounded-full px-3.5 xl:px-4 py-2 typo-nav-link text-sm font-semibold transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45",
+                          "group relative cursor-pointer inline-flex min-h-11 items-center gap-1 rounded-full px-2 lg:px-2.5 xl:px-3 2xl:px-3.5 py-2 typo-nav-link text-xs lg:text-[13px] xl:text-sm font-semibold whitespace-nowrap shrink-0 transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45",
                           isSelected
                             ? "text-[#FF5812]"
                             : "text-[#0a0a1a]/70 hover:text-[#0a0a1a]"
                         )}
                       >
-                        <span>{item.label}</span>
+                        <span className="whitespace-nowrap">{item.label}</span>
                         {canOpen && (
                           <ChevronDown
                             size={14}
                             className={cn(
-                              "transition-transform duration-150",
+                              "transition-transform duration-150 shrink-0",
                               isOpen
                                 ? "rotate-180 text-[#FF5812]"
                                 : isSelected
@@ -594,18 +595,18 @@ export default function Navigation({
                           if (canOpen) openMenu(item.label);
                         }}
                         className={cn(
-                          "group relative cursor-pointer inline-flex min-h-11 items-center gap-1.5 rounded-full px-3.5 xl:px-4 py-2 typo-nav-link text-sm font-semibold transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45",
+                          "group relative cursor-pointer inline-flex min-h-11 items-center gap-1 rounded-full px-2 lg:px-2.5 xl:px-3 2xl:px-3.5 py-2 typo-nav-link text-xs lg:text-[13px] xl:text-sm font-semibold whitespace-nowrap shrink-0 transition-colors duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5812]/45",
                           isSelected
                             ? "text-[#FF5812]"
                             : "text-[#0a0a1a]/70 hover:text-[#0a0a1a]"
                         )}
                       >
-                        <span>{item.label}</span>
+                        <span className="whitespace-nowrap">{item.label}</span>
                         {canOpen && (
                           <ChevronDown
                             size={14}
                             className={cn(
-                              "transition-transform duration-150",
+                              "transition-transform duration-150 shrink-0",
                               isOpen
                                 ? "rotate-180 text-[#FF5812]"
                                 : isSelected
@@ -633,7 +634,7 @@ export default function Navigation({
             </div>
 
             <div
-              className="hidden items-center gap-2 lg:flex"
+              className="hidden items-center gap-2 lg:flex shrink-0"
               onMouseEnter={() => {
                 setHoveredItem(null);
                 closeMenu();
@@ -642,7 +643,7 @@ export default function Navigation({
               <Link
                 href="/contact"
                 prefetch={true}
-                className="inline-flex min-h-11 items-center rounded-full bg-[#FF5812] px-5 py-2.5 typo-button-sm text-white shadow-[0_4px_14px_rgba(255,88,18,0.3)] transition-[transform,box-shadow] duration-150 hover:shadow-[0_6px_18px_rgba(255,88,18,0.36)] active:scale-[0.97]"
+                className="inline-flex min-h-11 items-center rounded-full bg-[#FF5812] px-4 xl:px-5 py-2.5 typo-button-sm text-xs xl:text-sm text-white whitespace-nowrap shrink-0 shadow-[0_4px_14px_rgba(255,88,18,0.3)] transition-[transform,box-shadow] duration-150 hover:shadow-[0_6px_18px_rgba(255,88,18,0.36)] active:scale-[0.97]"
               >
                 Schedule a Call
               </Link>

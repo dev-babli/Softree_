@@ -10,7 +10,7 @@
 
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, UploadCloud, Copy, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, UploadCloud, Copy, CheckCircle2, Check } from "lucide-react";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 const ACCENT = "#ff5812";
@@ -26,6 +26,13 @@ const DEPARTMENTS = [
     "Other",
 ];
 
+const TALENT_BENEFITS = [
+    "First in line when new engineering and AI positions open up",
+    "Reviewed directly by engineering leads — no automated rejection filters",
+    "Direct feedback and response from our hiring team within 48 hours",
+    "100% confidential and secure profile evaluation",
+];
+
 export interface CareersTalentPoolLightProps {
     heading?: string;
     body?: string;
@@ -33,14 +40,14 @@ export interface CareersTalentPoolLightProps {
 }
 
 export default function CareersTalentPoolLight({
-    heading = "Don’t see the right role?",
-    body = "Drop your CV here. When something matching your background opens up, we’ll come back to you first — usually within a few weeks.",
+    heading = "Don't See the Right Job Opening?",
+    body = "Submit your resume to Softree Technology and be considered for future career opportunities that match your skills, experience, and career goals. Whether you're a software developer, AI engineer, data engineer, or QA professional, we'd love to learn more about your expertise and keep your profile in mind for relevant job openings.",
     email = "shradhab@softreetechnology.com",
 }: CareersTalentPoolLightProps) {
     const [formData, setFormData] = useState({
         fullName: "",
         email: "",
-        department: DEPARTMENTS[0],
+        department: "",
         message: "",
     });
     const [resumeFile, setResumeFile] = useState<File | null>(null);
@@ -87,6 +94,9 @@ export default function CareersTalentPoolLight({
         } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
             next.email = "Enter a valid email.";
         }
+        if (!formData.department.trim()) {
+            next.department = "Please select an area of expertise.";
+        }
         if (!resumeFile) next.resume = "Please upload your CV.";
         setErrors(next);
         if (Object.keys(next).length) return;
@@ -108,7 +118,7 @@ export default function CareersTalentPoolLight({
             });
             if (res.ok) {
                 setStatus("success");
-                setFormData({ fullName: "", email: "", department: DEPARTMENTS[0], message: "" });
+                setFormData({ fullName: "", email: "", department: "", message: "" });
                 setResumeFile(null);
             } else {
                 setStatus("error");
@@ -166,6 +176,17 @@ export default function CareersTalentPoolLight({
                                 {body}
                             </p>
 
+                            <ul className="mt-6 flex flex-col gap-3">
+                                {TALENT_BENEFITS.map((item) => (
+                                    <li key={item} className="flex items-start gap-3 text-[14px] leading-relaxed text-neutral-700">
+                                        <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#ff5812]/10 text-[#ff5812]">
+                                            <Check className="h-2.5 w-2.5" strokeWidth={3} />
+                                        </span>
+                                        <span>{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+
                             <div className="mt-7 flex items-center gap-3 border-t border-neutral-900/8 pt-6">
                                 <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-neutral-500">
                                     or send directly
@@ -176,7 +197,7 @@ export default function CareersTalentPoolLight({
                             <div className="mt-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-neutral-900/10 bg-neutral-50 p-4">
                                 <a
                                     href={mailtoUrl}
-                                    className="text-[14px] font-medium text-neutral-900 hover:text-[var(--legacy-ff5812)]"
+                                    className="text-[14px] font-medium text-neutral-900 transition-colors hover:text-[#ff5812]"
                                 >
                                     ✉ {email}
                                 </a>
@@ -257,19 +278,28 @@ export default function CareersTalentPoolLight({
                                 <label className="block">
                                     <span className="mb-1.5 block text-[11px] font-semibold uppercase tracking-widest text-white/50">
                                         Area of expertise
+                                        <span className="ml-0.5 text-[#ff5812]">*</span>
                                     </span>
                                     <select
                                         name="department"
                                         value={formData.department}
                                         onChange={handleChange}
-                                        className="h-11 w-full appearance-none rounded-none border-0 border-b border-white/14 bg-transparent px-0 text-[15px] font-medium text-white outline-none transition-colors focus:border-[#ff5812]"
+                                        className={`h-11 w-full appearance-none rounded-none border-0 border-b bg-transparent px-0 text-[15px] font-medium outline-none transition-colors focus:border-[#ff5812] ${
+                                            formData.department ? "text-white" : "text-white/40"
+                                        } ${errors.department ? "border-rose-400" : "border-white/14"}`}
                                     >
+                                        <option value="" disabled className="bg-neutral-900 text-white/40">
+                                            Select a specific role / area
+                                        </option>
                                         {DEPARTMENTS.map((d) => (
                                             <option key={d} value={d} className="bg-neutral-900 text-white">
                                                 {d}
                                             </option>
                                         ))}
                                     </select>
+                                    {errors.department ? (
+                                        <p className="mt-1 text-[11px] text-rose-400">{errors.department}</p>
+                                    ) : null}
                                 </label>
 
                                 {/* Upload */}

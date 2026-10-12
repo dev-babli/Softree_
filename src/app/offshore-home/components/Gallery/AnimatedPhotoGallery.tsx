@@ -25,6 +25,7 @@ export type AnimatedPhotoGalleryProps = {
   description?: string;
   ctaLabel?: string;
   ctaHref?: string;
+  showCta?: boolean;
   images?: GalleryPhoto[];
   className?: string;
 };
@@ -115,6 +116,7 @@ export default function AnimatedPhotoGallery({
   description = "Bengaluru, Cuttack, and San Francisco — real floors, huddle rooms, and teams shipping enterprise software every day.",
   ctaLabel = "Book a visit",
   ctaHref = "/contact",
+  showCta = true,
   images = GALLERY_PHOTOS,
   className = "",
 }: AnimatedPhotoGalleryProps) {
@@ -169,12 +171,14 @@ export default function AnimatedPhotoGallery({
               {description}
             </p>
           </div>
-          <Link
-            href={ctaHref}
-            className="typo-button inline-flex w-max shrink-0 items-center justify-center rounded-full border border-[#0a0a1a]/12 bg-white px-6 py-3 uppercase tracking-[0.16em] text-[#0a0a1a] shadow-sm transition hover:border-[#FF5812]/40 hover:text-[#FF5812] hover:bg-[#FFF5EE]/40"
-          >
-            {ctaLabel}
-          </Link>
+          {showCta && ctaLabel && ctaHref ? (
+            <Link
+              href={ctaHref}
+              className="typo-button inline-flex w-max shrink-0 items-center justify-center rounded-full border border-[#0a0a1a]/12 bg-white px-6 py-3 uppercase tracking-[0.16em] text-[#0a0a1a] shadow-sm transition hover:border-[#FF5812]/40 hover:text-[#FF5812] hover:bg-[#FFF5EE]/40"
+            >
+              {ctaLabel}
+            </Link>
+          ) : null}
         </motion.div>
 
         {reduceMotion ? (

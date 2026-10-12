@@ -12,9 +12,9 @@ import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
 
 export const metadata: Metadata = {
-  title: "Global Technology Partnerships | Softree",
+  title: "Your Global Technology Partner for AI, Microsoft, Data & Software Engineering | Softree",
   description:
-    "Softree partners with technology companies, Microsoft partners, digital agencies, and businesses worldwide to extend their capabilities.",
+    "Softree partners with technology companies, Microsoft partners, digital agencies, SaaS providers, and businesses worldwide to accelerate AI development, Microsoft technology adoption, data engineering, and software development.",
 };
 
 export default function GlobalPartnersPage() {

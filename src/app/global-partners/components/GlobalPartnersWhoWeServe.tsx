@@ -2,41 +2,56 @@
 
 import React from "react";
 import dynamic from "next/dynamic";
-import { Building, Settings, Code, Blocks } from "lucide-react";
+import { Building, Settings, Code, Blocks, Cloud, Laptop, Database, BriefcaseBusiness } from "lucide-react";
 
 const NetworkGlobe = dynamic(() => import('@/app/services/ai-development-services/components/NetworkGlobe'), { ssr: true });
 
 export const GlobalPartnersWhoWeServe = () => {
-  const items = [
-    {
-      title: "Microsoft Partners",
-      desc: "Extend your Microsoft delivery capacity with experienced engineering teams across Azure, Fabric, Power Platform, Power BI and SharePoint.",
-      icon: Blocks,
-      color: "text-[#FF6B2C]",
-      bg: "bg-orange-50",
-    },
-    {
-      title: "AI & Technology Companies",
-      desc: "Add AI engineering, automation, agents, RAG and modern application capabilities to your portfolio.",
-      icon: Code,
-      color: "text-[#FF6B2C]",
-      bg: "bg-orange-50",
-    },
-    {
-      title: "Digital Agencies",
-      desc: "Scale delivery capacity through a reliable technology partner working behind the scenes.",
-      icon: Settings,
-      color: "text-[#FF6B2C]",
-      bg: "bg-orange-50",
-    },
-    {
-      title: "SaaS & Product Companies",
-      desc: "Accelerate product development with dedicated engineering and AI capabilities.",
-      icon: Building,
-      color: "text-[#FF6B2C]",
-      bg: "bg-orange-50",
-    },
-  ];
+const items = [
+  {
+    title: "Microsoft Technology Partners",
+    desc: "Expand Microsoft delivery capabilities across Azure, Microsoft Fabric, Power BI, Power Platform, SharePoint, and Microsoft 365.",
+    icon: Blocks,
+    color: "text-[#FF6B2C]",
+    bg: "bg-orange-50",
+  },
+  {
+    title: "AI Development & Technology Companies",
+    desc: "Extend your services with generative AI, AI agents, RAG, intelligent automation, and AI application development.",
+    icon: Code,
+    color: "text-[#FF6B2C]",
+    bg: "bg-orange-50",
+  },
+  {
+    title: "Digital Agencies & IT Consulting Firms",
+    desc: "Scale project delivery with reliable software development, web engineering, API integration, and QA support.",
+    icon: Settings,
+    color: "text-[#FF6B2C]",
+    bg: "bg-orange-50",
+  },
+  
+  {
+    title: "Data & Analytics Consulting Companies",
+    desc: "Strengthen data engineering, Microsoft Fabric, Power BI, data integration, and business intelligence capabilities.",
+    icon: Database,
+    color: "text-[#FF6B2C]",
+    bg: "bg-orange-50",
+  },
+  {
+    title: "Cloud & Digital Transformation Partners",
+    desc: "Deliver cloud migration, Azure development, system integration, and application modernization projects.",
+    icon: Cloud,
+    color: "text-[#FF6B2C]",
+    bg: "bg-orange-50",
+  },
+  {
+    title: "IT Services & Technology Consulting Firms",
+    desc: "Expand IT services with AI development, cloud engineering, data analytics, software development, and QA.",
+    icon: BriefcaseBusiness,
+    color: "text-[#FF6B2C]",
+    bg: "bg-orange-50",
+  },
+];
 
   return (
     <section id="partnership" className="bg-white pt-12 md:pt-16 pb-12 md:pb-16 text-slate-900 scroll-mt-24 border-t border-slate-100">

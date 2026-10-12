@@ -6,6 +6,7 @@ import { ArrowUpRight } from "lucide-react"
 import { useState, type FormEvent, type ReactNode } from "react"
 import { SOFTREE_OFFICES_CONTACT } from "@/data/softree-offices"
 import CalendlyPopupButton from "@/components/calendly/CalendlyPopupButton"
+import { cn } from "@/lib/utils"
 
 type Status = "idle" | "submitting" | "success" | "error"
 
@@ -15,6 +16,8 @@ type LightContactSectionProps = {
   headlineLabel?: string
   body?: string
   messagePlaceholder?: string
+  fullWidth?: boolean
+  className?: string
 }
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1]
@@ -41,21 +44,6 @@ function SocialIcon({
   )
 }
 
-function InstagramIcon() {
-  return (
-    <svg viewBox="0 0 23 23" fill="none" aria-hidden="true">
-      <path
-        d="M16.6957 0H5.56522C2.49322 0 0 2.49322 0 5.56522V16.6957C0 19.7677 2.49322 22.2609 5.56522 22.2609H16.6957C19.7677 22.2609 22.2609 19.7677 22.2609 16.6957V5.56522C22.2609 2.49322 19.7677 0 16.6957 0ZM11.1304 16.6957C8.05844 16.6957 5.56522 14.2024 5.56522 11.1304C5.56522 8.05844 8.05844 5.56522 11.1304 5.56522C14.2024 5.56522 16.6957 8.05844 16.6957 11.1304C16.6957 14.2024 14.2024 16.6957 11.1304 16.6957ZM17.0852 6.2553C16.473 6.2553 15.9722 5.75444 15.9722 5.14226C15.9722 4.53009 16.473 4.02922 17.0852 4.02922C17.6974 4.02922 18.1983 4.53009 18.1983 5.14226C18.1983 5.75444 17.6974 6.2553 17.0852 6.2553Z"
-        fill="currentColor"
-      />
-      <path
-        d="M11.1301 14.4703C12.9743 14.4703 14.4693 12.9753 14.4693 11.1311C14.4693 9.28697 12.9743 7.79199 11.1301 7.79199C9.286 7.79199 7.79102 9.28697 7.79102 11.1311C7.79102 12.9753 9.286 14.4703 11.1301 14.4703Z"
-        fill="currentColor"
-      />
-    </svg>
-  )
-}
-
 function LinkedinIcon() {
   return (
     <svg viewBox="0 0 23 23" fill="none" aria-hidden="true">
@@ -66,28 +54,6 @@ function LinkedinIcon() {
       <path d="M0.361328 7.40149H4.98045V22.2606H0.361328V7.40149Z" fill="currentColor" />
       <path
         d="M2.6713 0C1.19652 0 0 1.19652 0 2.6713C0 4.14608 1.19652 5.37043 2.6713 5.37043C4.14608 5.37043 5.3426 4.14608 5.3426 2.6713C5.3426 1.19652 4.14608 0 2.6713 0Z"
-        fill="currentColor"
-      />
-    </svg>
-  )
-}
-
-function FacebookIcon() {
-  return (
-    <svg viewBox="0 0 23 23" fill="none" aria-hidden="true">
-      <path
-        d="M12.8552 22.2601V12.1067H16.262L16.7731 8.14849H12.8552V5.62177C12.8552 4.47615 13.172 3.69542 14.8167 3.69542L16.911 3.69456V0.154237C16.5488 0.107172 15.3056 -0.000732422 13.8586 -0.000732422C10.8372 -0.000732422 8.76863 1.84354 8.76863 5.22976V8.14849H5.35156V12.1067H8.76863V22.2601H12.8552Z"
-        fill="currentColor"
-      />
-    </svg>
-  )
-}
-
-function XIcon() {
-  return (
-    <svg viewBox="0 0 23 23" fill="none" aria-hidden="true">
-      <path
-        d="M13.2036 9.42559L21.3125 -0.000366211H19.391L12.35 8.18406L6.72639 -0.000366211H0.240234L8.74423 12.3759L0.240234 22.2605H2.1619L9.59734 13.6175L15.5363 22.2605H22.0224L13.2031 9.42559H13.2036ZM10.5716 12.485L9.70999 11.2526L2.8543 1.44623H5.80586L11.3385 9.36026L12.2001 10.5927L19.3919 20.8797H16.4403L10.5716 12.4854V12.485Z"
         fill="currentColor"
       />
     </svg>
@@ -128,6 +94,8 @@ export default function LightContactSection({
   headlineLabel = "Build faster with a reliable offshore engineering partner",
   body = "Partner with Softree to accelerate product delivery, modernize enterprise systems, and scale with confidence.",
   messagePlaceholder = "Project Message",
+  fullWidth = true,
+  className,
 }: LightContactSectionProps = {}) {
   const [status, setStatus] = useState<Status>("idle")
   const reduceMotion = useReducedMotion()
@@ -162,28 +130,32 @@ export default function LightContactSection({
   return (
     <section
       id="contact"
-      className="relative isolate overflow-hidden bg-[#0a0a0a] px-4 py-8 text-white sm:px-6 sm:py-12 lg:px-8 lg:py-16"
+      className={cn(
+        "relative isolate overflow-hidden bg-[#0a0a0a] text-white py-10 sm:py-14 lg:py-16 font-sans",
+        !fullWidth ? "px-4 sm:px-6 lg:px-8" : "px-0",
+        className
+      )}
     >
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-[0.15] [background-image:radial-gradient(#fff_0.7px,transparent_0.7px)] [background-size:22px_22px]"
       />
 
-      <div className="relative mx-auto max-w-[1440px]">
+      <div className={cn("relative w-full", !fullWidth && "mx-auto max-w-[1440px]")}>
         <motion.div
           initial={reduceMotion ? false : { y: 28, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, margin: "-12%" }}
           transition={reduceMotion ? { duration: 0 } : { duration: 0.75, ease: EASE }}
-          className="mb-4 text-center sm:mb-6"
+          className="mb-8 px-4 text-center sm:mb-10 sm:px-6 max-w-4xl mx-auto"
         >
           <h2
             aria-label={headlineLabel}
-            className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-semibold leading-[1.1] tracking-[-0.02em] max-w-4xl mx-auto"
+            className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-semibold leading-[1.1] tracking-[-0.02em]"
           >
             {headlineLead} <span className="text-[#ff5812]">{headlineAccent}</span>.
           </h2>
-          <p className="mt-2 text-white/60 text-sm sm:text-base max-w-2xl mx-auto">
+          <p className="mt-2 text-white/60 text-sm sm:text-base">
             {body}
           </p>
         </motion.div>
@@ -193,26 +165,30 @@ export default function LightContactSection({
           whileInView={{ y: 0, opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-10%" }}
           transition={reduceMotion ? { duration: 0 } : { duration: 0.85, ease: EASE, delay: 0.05 }}
-          className="overflow-hidden rounded-[8px] bg-[#09090d] text-white shadow-[0_34px_100px_-50px_rgba(0,0,0,0.75)]"
+          className={cn(
+            "w-full overflow-hidden bg-[#09090d] text-white shadow-[0_34px_100px_-50px_rgba(0,0,0,0.75)]",
+            fullWidth
+              ? "rounded-none border-y border-white/10"
+              : "rounded-[8px] border border-white/10"
+          )}
         >
-          <div className="grid lg:min-h-[420px] grid-cols-1 lg:grid-cols-[0.32fr_1.12fr_1fr]">
-            <aside className="flex flex-col justify-between border-b border-white/10 p-4 sm:p-5 lg:border-b-0 lg:border-r">
-              <div>
-                <p className="text-[13px] font-semibold tracking-[-0.01em] text-white">
+          <div className={cn(
+            "grid lg:min-h-[420px] grid-cols-1",
+            fullWidth
+              ? "lg:grid-cols-[96px_1.4fr_1.1fr] xl:grid-cols-[108px_1.4fr_1.1fr]"
+              : "lg:grid-cols-[0.32fr_1.12fr_1fr]"
+          )}>
+            <aside className={cn(
+              "flex flex-col justify-between border-b border-white/10 p-4 sm:p-5 lg:border-b-0 lg:border-r",
+              fullWidth && "items-center text-center px-2 py-5 sm:p-5"
+            )}>
+              <div className="flex flex-col items-center">
+                <p className="text-[12px] font-semibold tracking-[-0.01em] text-white/80">
                   Follow us
                 </p>
-                <div className="mt-5 flex flex-wrap gap-3 lg:flex-col">
-                  <SocialIcon href="https://www.instagram.com/softreetechnology/" label="Instagram">
-                    <InstagramIcon />
-                  </SocialIcon>
+                <div className="mt-4 flex flex-wrap gap-3 lg:flex-col items-center justify-center">
                   <SocialIcon href="https://www.linkedin.com/company/softree-technology-pvt-ltd/" label="LinkedIn">
                     <LinkedinIcon />
-                  </SocialIcon>
-                  <SocialIcon href="https://www.facebook.com/softreetechnology" label="Facebook">
-                    <FacebookIcon />
-                  </SocialIcon>
-                  <SocialIcon href="https://x.com/softreetechnology" label="X">
-                    <XIcon />
                   </SocialIcon>
                 </div>
               </div>
@@ -220,7 +196,7 @@ export default function LightContactSection({
               <div className="mt-10 hidden h-px w-full bg-white/10 lg:block" />
             </aside>
 
-            <div className="flex flex-col justify-between gap-5 border-b border-white/10 p-4 sm:p-5 lg:border-b-0 lg:border-r">
+            <div className="flex flex-col justify-between gap-5 border-b border-white/10 p-5 sm:p-6 lg:p-7 xl:p-8 lg:border-b-0 lg:border-r">
               <div className="grid gap-4 xl:grid-cols-[0.86fr_1fr]">
                 <div className="relative min-h-[100px] sm:min-h-[120px] md:min-h-[160px] overflow-hidden rounded-[6px] bg-white/8">
                   <Image
@@ -274,27 +250,30 @@ export default function LightContactSection({
                     sales@softreetechnology.com
                   </a>
                 </div>
+
                 <div className="min-w-0">
-                  <p className="text-[18px] font-medium tracking-[-0.02em]">
+                  <p className="text-[22px] font-semibold tracking-[-0.02em]">
                     Offices
                   </p>
-                  <ul className="mt-3 flex flex-col gap-3">
+
+                  <ul className="mt-4 flex flex-col gap-4">
                     {SOFTREE_OFFICES_CONTACT.map((office) => (
                       <li key={office.city}>
-                        <p className="text-[13px] font-medium leading-none text-white/80">
+                        <p className="text-[15px] font-medium leading-tight text-white/80">
                           {office.city}
                         </p>
-                        <p className="mt-1 text-[11px] leading-[1.45] text-white/48">
+                        <p className="mt-1 text-[13px] leading-relaxed text-white/60">
                           {office.lines.slice(1).join(" · ")}
                         </p>
                       </li>
                     ))}
                   </ul>
                 </div>
+
               </div>
             </div>
 
-            <div className="flex flex-col p-4 sm:p-5">
+            <div className="flex flex-col p-5 sm:p-6 lg:p-7 xl:p-8">
               <div>
                 <p className="text-[18px] font-medium tracking-[-0.02em]">
                   Got a question, challenge, or idea?

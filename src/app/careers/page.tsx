@@ -40,26 +40,26 @@ import AnimatedPhotoGallery from "@/components/Gallery/AnimatedPhotoGallery";
 import type { CareersPageData } from "./types";
 
 export const metadata: Metadata = {
-  title: "Careers at Softree Technology | Engineering & AI Innovation Roles",
-  description:
-    "Join Softree Technology's world-class engineering team. Explore career opportunities across AI, cloud computing, Power Platform, full-stack development, and QA engineering.",
-  alternates: {
-    canonical: `${SITE_URL}/careers`,
-  },
-  openGraph: {
-    title: "Careers at Softree Technology | Join Our Engineering Team",
+    title: "Careers at Softree Technology | Engineering & AI Innovation Roles",
     description:
-      "Build cutting-edge AI systems and cloud solutions with Softree Technology. Explore open positions in AI, full stack, and cloud engineering.",
-    url: `${SITE_URL}/careers`,
-    images: ogImages(pageOgImage("/careers", "Careers at Softree Technology")),
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Careers at Softree Technology | Engineering Roles",
-    description:
-      "Explore open engineering, AI, and cloud development roles at Softree Technology.",
-    images: twitterImages(pageOgImage("/careers", "Careers at Softree Technology")),
-  },
+        "Join Softree Technology's world-class engineering team. Explore career opportunities across AI, cloud computing, Power Platform, full-stack development, and QA engineering.",
+    alternates: {
+        canonical: `${SITE_URL}/careers`,
+    },
+    openGraph: {
+        title: "Careers at Softree Technology | Join Our Engineering Team",
+        description:
+            "Build cutting-edge AI systems and cloud solutions with Softree Technology. Explore open positions in AI, full stack, and cloud engineering.",
+        url: `${SITE_URL}/careers`,
+        images: ogImages(pageOgImage("/careers", "Careers at Softree Technology")),
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Careers at Softree Technology | Engineering Roles",
+        description:
+            "Explore open engineering, AI, and cloud development roles at Softree Technology.",
+        images: twitterImages(pageOgImage("/careers", "Careers at Softree Technology")),
+    },
 };
 
 // FAQ component is heavy (GSAP, large grainient) — defer to keep TTFB low.
@@ -72,41 +72,63 @@ const LightFAQExactLazy = dynamic(
     },
 );
 
+
 const DEFAULT_CAREERS_FAQS = [
     {
         id: 1,
         serial: "question 01",
-        question: "Where does Softree hire?",
+        question: "What technology services does Softree Technology offer?",
         answer:
-            "We hire across our Bengaluru and Cuttack offices, as well as fully remote roles for engineers based anywhere in India. Most teams operate hybrid with two days a week in office, but several senior roles are remote-first.",
+            "Softree Technology provides software development, AI development, web application development, data engineering, Microsoft Fabric, Power BI, SharePoint, cloud migration, and software testing services. We help businesses develop, modernize, integrate, and maintain technology systems based on their business goals.",
     },
     {
         id: 2,
         serial: "question 02",
-        question: "How long does the hiring process take?",
+        question: "Does Softree Technology provide AI development services?",
         answer:
-            "Most candidates move from application to offer in under 12 days. We commit to a recruiter response within 48 hours, and every step has a clear timeline communicated upfront.",
+            "Yes. Softree Technology offers AI development services, including generative AI applications, AI agents, enterprise copilots, Retrieval-Augmented Generation (RAG), and AI workflow automation. We work with technologies such as Azure OpenAI, LangChain, LangGraph, and Amazon Bedrock to develop AI applications for business use cases.",
     },
     {
         id: 3,
         serial: "question 03",
-        question: "Do you sponsor certifications?",
+        question: "Can Softree Technology develop custom software applications?",
         answer:
-            "Yes. We fully sponsor Microsoft, AWS, and Google certifications, plus an annual learning budget for books, courses, and conferences. Time off for exams and prep is part of your work calendar, not your weekends.",
+            "Softree Technology provides custom software development services, including web application development, API development, system integration, application modernization, and maintenance. Our engineering team works with technologies such as React, Next.js, TypeScript, .NET, and cloud platforms based on project requirements.",
     },
     {
         id: 4,
         serial: "question 04",
-        question: "Can I apply if I don’t see the right role?",
+        question: "How can businesses engage Softree Technology for IT services?",
         answer:
-            "Absolutely. Drop your CV in the talent pool above. When something matching your background opens up, our hiring team reaches out first — usually within a few weeks.",
+            "Businesses can engage Softree Technology for project-based development, dedicated engineering support, or ongoing technical assistance. Our team evaluates project requirements, technology needs, timelines, and business objectives to help identify an appropriate engagement model.",
     },
     {
         id: 5,
         serial: "question 05",
-        question: "What does compensation look like?",
+        question: "What career opportunities are available at Softree Technology?",
         answer:
-            "Comp is benchmarked annually against IT-services and product-companies in your city. Offers include base salary, performance bonus, family medical insurance, and a learning budget. Salary ranges are shared during the recruiter call.",
+            "Softree Technology offers career opportunities across technology and engineering roles, depending on current hiring requirements. Candidates can explore relevant openings in software development, AI engineering, data engineering, quality assurance, and other technical areas through our careers page.",
+    },
+    {
+        id: 6,
+        serial: "question 06",
+        question: "How can I apply for jobs at Softree Technology?",
+        answer:
+            "To apply for jobs at Softree Technology, review the available openings on our careers page and submit your application with an updated resume. Highlight your technical skills, relevant project experience, and preferred role to help our recruitment team evaluate your profile.",
+    },
+    {
+        id: 7,
+        serial: "question 07",
+        question: "Does Softree Technology offer remote or hybrid work opportunities?",
+        answer:
+            "Work arrangements at Softree Technology depend on the role, project requirements, and company policies. Candidates should review individual job descriptions or contact the recruitment team to confirm the available office-based, hybrid, or remote work options.",
+    },
+    {
+        id: 8,
+        serial: "question 08",
+        question: "How does Softree Technology support employee learning and career growth?",
+        answer:
+            "Softree Technology encourages employees to develop their technical expertise, strengthen problem-solving skills, and stay updated with evolving technologies. Learning opportunities and career development pathways depend on job responsibilities, project exposure, and applicable company policies.",
     },
 ];
 
@@ -189,8 +211,7 @@ export default async function CareersPage() {
                 title="Life at Softree,"
                 titleAccent="in motion."
                 description="From Prestige Tech Park in Bengaluru to our delivery hubs — see the rooms, desks, and teams you will work alongside."
-                ctaLabel="Explore careers"
-                ctaHref="#open-roles"
+                showCta={false}
             />
 
             {/* 7. Culture / Life at Softree */}
