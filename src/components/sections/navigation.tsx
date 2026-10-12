@@ -142,14 +142,13 @@ const menu: MenuItem[] = [
             label: "Healthcare Software Testing Services",
             url: "/industries/healthcare-software-testing-services",
             icon: HeartPulse,
-            description: "Healthcare software testing, QA automation, and digital health quality engineering",
+            description: "QA automation and digital health compliance engineering",
           },
           {
             label: "Logistics Testing Services",
             url: "/quality-engineering/logistics-testing-services",
             icon: Truck,
-            description:
-              "Logistics software testing, QA automation, and quality engineering for transportation and supply chain applications"
+            description: "QA & test automation for logistics and supply chain systems",
           },
         ],
       },
@@ -256,7 +255,7 @@ const menu: MenuItem[] = [
             label: "Healthcare Software Testing Services",
             url: "/industries/healthcare-software-testing-services",
             icon: HeartPulse,
-            description: "Healthcare software testing, QA automation, and digital health quality engineering",
+            description: "QA automation and digital health compliance engineering",
           },
 
         ],
