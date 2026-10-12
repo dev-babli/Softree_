@@ -1,6 +1,5 @@
 "use client";
 import NavigationClient from "@/components/sections/navigation-client";
-import Certifications from "../offshore-power-platform-development/certification";
 import Footer from "@/components/sections/footer";
 import TrustedBrandsMarquee from "../offshore-power-platform-development/trust";
 import MobileAppHero from "./hero";

@@ -7,7 +7,6 @@ import TableauMigrationBanner from "./components/TableauMigrationBanner";
 import { TableauMigrationAssessment } from "./components/TableauMigrationAssessment";
 import TableauMigrationWhoDoWeServeSection from "./components/TableauMigrationWhoDoWeServeSection";
 import { TableauMigrationStickyScroll } from "./components/TableauMigrationStickyScroll";
-import TableauMigrationProcess from "./components/TableauMigrationProcess";
 import TableauMigrationMethodology from "./components/TableauMigrationMethodology";
 import TableauMigrationTechnologyStack from "./components/TableauMigrationTechnologyStack";
 import { TableauMigrationHowItWorks } from "./components/TableauMigrationHowItWorks";
@@ -72,7 +71,6 @@ export default function TableauServerToTableauCloudMigrationPage() {
       <TableauMigrationWhoDoWeServeSection />
       <TableauMigrationStickyScroll />
       <TableauMigrationSuccessStories />
-      {/* <TableauMigrationProcess /> */}
 
       <TableauMigrationTechnologyStack />
       <TableauMigrationMethodology />

@@ -71,7 +71,7 @@ type MenuItem = {
   children?: MenuGroup[];
 };
 
-const CLOSE_DELAY_MS = 140;
+const CLOSE_DELAY_MS = 220;
 
 const menu: MenuItem[] = [
   { label: "About", url: "/about-us" },
@@ -416,21 +416,42 @@ export default function Navigation({
 
   const scheduleCloseMenu = useCallback(() => {
     clearCloseTimer();
-    closeTimer.current = setTimeout(() => setOpen(null), CLOSE_DELAY_MS);
+    closeTimer.current = setTimeout(() => {
+      setOpen(null);
+      setHoveredItem(null);
+    }, CLOSE_DELAY_MS);
   }, [clearCloseTimer]);
 
   useEffect(() => () => clearCloseTimer(), [clearCloseTimer]);
 
   useEffect(() => {
+    let ticking = false;
+    const SCROLL_THRESHOLD = 8; // Ignore micro-jitters (< 8px)
+
     const onScroll = () => {
       if (mobileOpen) return;
-      const y = window.scrollY;
-      if (y < 20 || y < lastScrollY.current) setShowNav(true);
-      else {
-        setShowNav(false);
-        setOpen(null);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const y = window.scrollY;
+          const diff = y - lastScrollY.current;
+
+          if (y < 40) {
+            setShowNav(true);
+          } else if (Math.abs(diff) >= SCROLL_THRESHOLD) {
+            if (diff < 0) {
+              // Scrolling up
+              setShowNav(true);
+            } else {
+              // Scrolling down
+              setShowNav(false);
+              setOpen(null);
+            }
+            lastScrollY.current = y;
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
-      lastScrollY.current = y;
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -462,7 +483,7 @@ export default function Navigation({
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${showNav ? "translate-y-0" : "-translate-y-full"
+        className={`fixed inset-x-0 top-0 z-50 transform-gpu transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform ${showNav ? "translate-y-0" : "-translate-y-full"
           }`}
         aria-hidden={!showNav}
         inert={!showNav ? true : undefined}
@@ -515,15 +536,15 @@ export default function Navigation({
                     >
                       <span className="whitespace-nowrap">{item.label}</span>
                       {isSelected && (
-                        <motion.div
-                          layoutId="navLampIndicator"
-                          className="pointer-events-none absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-[#FF5812] rounded-full"
-                          transition={
-                            reduceMotion
-                              ? { duration: 0 }
-                              : { type: "spring", stiffness: 450, damping: 32 }
-                          }
-                        />
+                          <motion.div
+                            layoutId="navLampIndicator"
+                            className="pointer-events-none absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-[#FF5812] rounded-full transform-gpu"
+                            transition={
+                              reduceMotion
+                                ? { duration: 0 }
+                                : { type: "spring", stiffness: 450, damping: 32 }
+                            }
+                          />
                       )}
                     </Link>
                   );
@@ -574,7 +595,7 @@ export default function Navigation({
                         {isSelected && (
                           <motion.div
                             layoutId="navLampIndicator"
-                            className="pointer-events-none absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-[#FF5812] rounded-full"
+                            className="pointer-events-none absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-[#FF5812] rounded-full transform-gpu"
                             transition={
                               reduceMotion
                                 ? { duration: 0 }
@@ -617,7 +638,7 @@ export default function Navigation({
                         {isSelected && (
                           <motion.div
                             layoutId="navLampIndicator"
-                            className="pointer-events-none absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-[#FF5812] rounded-full"
+                            className="pointer-events-none absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-[#FF5812] rounded-full transform-gpu"
                             transition={
                               reduceMotion
                                 ? { duration: 0 }
@@ -658,16 +679,16 @@ export default function Navigation({
             </button>
           </nav>
 
-          {/* Mega menu — new left-rail layout via MegaMenuPanel */}
+          {/* Mega menu — left-rail layout via MegaMenuPanel */}
           <div
             className="relative hidden lg:block"
             onMouseEnter={clearCloseTimer}
             aria-hidden={!hasMegaContent}
           >
             <div
-              className={`absolute left-0 right-0 top-0 z-40 pt-2 transition-[opacity,transform] duration-150 ease-out ${hasMegaContent
+              className={`absolute left-0 right-0 top-0 z-40 pt-2 transition-[opacity,transform] duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] transform-gpu will-change-[transform,opacity] ${hasMegaContent
                 ? "pointer-events-auto opacity-100 translate-y-0"
-                : "pointer-events-none opacity-0 -translate-y-1"
+                : "pointer-events-none opacity-0 -translate-y-2"
                 }`}
             >
               {renderedMegaItem?.children && (

@@ -307,10 +307,10 @@ export function MegaMenuPanel({
       initial={{ opacity: 0, y: -6, scale: 0.995 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: -6, scale: 0.995 }}
-      transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.16, ease: [0.16, 1, 0.3, 1] }}
       onKeyDown={handleKeyDown}
       tabIndex={0}
-      className="mx-auto w-full max-w-[1380px] overflow-hidden rounded-[28px] border border-black/[0.08] bg-white p-4 sm:p-5 lg:p-6 shadow-[0_28px_80px_-15px_rgba(10,10,26,0.18),0_4px_20px_rgba(0,0,0,0.04)] focus:outline-none"
+      className="mx-auto w-full max-w-[1380px] overflow-hidden rounded-[28px] border border-black/[0.08] bg-white p-4 sm:p-5 lg:p-6 shadow-[0_28px_80px_-15px_rgba(10,10,26,0.18),0_4px_20px_rgba(0,0,0,0.04)] focus:outline-none transform-gpu will-change-[transform,opacity]"
     >
       {/* =================================================================== */}
       {/* 3-Column Layout from Image 1: Left Intro | Center Services | Right Featured */}
@@ -341,10 +341,10 @@ export function MegaMenuPanel({
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentGroup.title}
-                  initial={{ opacity: 0.8, y: 3 }}
+                  initial={{ opacity: 0, y: 2 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0.8, y: -3 }}
-                  transition={{ duration: 0.15 }}
+                  exit={{ opacity: 0, y: -2 }}
+                  transition={{ duration: 0.08, ease: "easeOut" }}
                 >
                   <h3 className="text-[22px] xl:text-[25px] font-extrabold leading-[1.18] tracking-tight text-white mb-3">
                     {meta.introHeading}
@@ -359,6 +359,7 @@ export function MegaMenuPanel({
             <div className="pt-7 mt-auto">
               <Link
                 href={meta.introCtaUrl}
+                prefetch={false}
                 onClick={onClose}
                 className="group inline-flex items-center gap-2 rounded-full bg-[#FF5812] px-5 py-2.5 text-[13px] font-semibold text-white shadow-[0_4px_16px_rgba(255,88,18,0.36)] transition-all duration-150 hover:bg-[#e64a09] hover:shadow-[0_6px_20px_rgba(255,88,18,0.45)]"
               >
@@ -403,7 +404,7 @@ export function MegaMenuPanel({
                       type="button"
                       onClick={() => handleSelectCategory(idx)}
                       onMouseEnter={() => setActiveIdx(idx)}
-                      className={`group w-full text-left relative flex items-center justify-between p-3 xl:p-3.5 rounded-xl border transition-all duration-150 cursor-pointer ${
+                      className={`group w-full text-left relative flex items-center justify-between p-3 xl:p-3.5 rounded-xl border transition-colors duration-100 cursor-pointer ${
                         isSelected
                           ? "bg-slate-50/80 border-[#FF5812]/30 shadow-[0_2px_10px_rgba(255,88,18,0.08)]"
                           : "bg-white border-slate-100 hover:border-slate-200 hover:bg-slate-50/60"
@@ -479,10 +480,10 @@ export function MegaMenuPanel({
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentGroup.title}
-                  initial={{ opacity: 0.75, y: 4 }}
+                  initial={{ opacity: 0, y: 2 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0.75, y: -4 }}
-                  transition={{ duration: 0.12 }}
+                  exit={{ opacity: 0, y: -2 }}
+                  transition={{ duration: 0.08, ease: "easeOut" }}
                   className="grid grid-cols-1 md:grid-cols-2 gap-2.5"
                 >
                   {serviceLinks.map((link) => {
@@ -491,8 +492,9 @@ export function MegaMenuPanel({
                       <Link
                         key={link.label}
                         href={link.url}
+                        prefetch={false}
                         onClick={onClose}
-                        className="group relative flex items-center justify-between p-3 xl:p-3.5 rounded-xl border border-slate-100 bg-white hover:border-[#FF5812]/30 hover:bg-slate-50/70 hover:shadow-[0_2px_10px_rgba(255,88,18,0.06)] transition-all duration-150"
+                        className="group relative flex items-center justify-between p-3 xl:p-3.5 rounded-xl border border-slate-100 bg-white hover:border-[#FF5812]/30 hover:bg-slate-50/70 hover:shadow-[0_2px_10px_rgba(255,88,18,0.06)] transition-colors duration-100"
                       >
                         <div className="flex items-center gap-3.5 min-w-0 pr-2 flex-1">
                           {/* Icon container with warm peach background */}
@@ -547,10 +549,10 @@ export function MegaMenuPanel({
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentGroup.title}
-                initial={{ opacity: 0.85, y: 2 }}
+                initial={{ opacity: 0, y: 2 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0.85, y: -2 }}
-                transition={{ duration: 0.15 }}
+                exit={{ opacity: 0, y: -2 }}
+                transition={{ duration: 0.08, ease: "easeOut" }}
                 className="relative z-10 flex flex-col"
               >
                 <span className="text-[10.5px] font-extrabold tracking-widest text-[#FF5812] uppercase mb-1 drop-shadow">
@@ -564,6 +566,7 @@ export function MegaMenuPanel({
                 </p>
                 <Link
                   href={meta.featuredCtaUrl}
+                  prefetch={false}
                   onClick={onClose}
                   className="w-full inline-flex items-center justify-center gap-1.5 rounded-full bg-white hover:bg-slate-100 text-slate-900 font-bold text-[12px] py-2.5 px-3.5 shadow-md transition-all group/btn"
                 >

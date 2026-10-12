@@ -9,7 +9,6 @@ import WhyChooseWithTestimonials from "@/app/services/offshore-langchain-develop
 import ChatbotFAQ from "@/app/services/ai-chatbot-development/components/ChatbotFAQ";
 import { HealthcareHero } from "./components/HealthcareHero";
 import { HealthcareHeroVideoBanner } from "./components/HealthcareHeroVideoBanner";
-import { HealthcareCapabilities } from "./components/HealthcareCapabilities";
 import { HealthcareTechStack } from "./components/HealthcareTechStack";
 import { ProactiveHealthSection } from "./components/ProactiveHealthSection";
 import { HealthIntelligenceSection } from "./components/HealthIntelligenceSection";

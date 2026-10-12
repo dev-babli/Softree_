@@ -1,6 +1,5 @@
 import NavigationClient from "@/components/sections/navigation-client";
 import SharePointMigration from "./sp-migrarion";
-import SharePointFeatures from "./feature";
 import TechStack from "./tech-stack";
 import SharePointMigrationProcess from "./sp-process";
 import AIDrivenSharePointMigration from "./ai-sp";
@@ -107,7 +106,6 @@ export default function Home() {
       {/* MAIN CONTENT – FIXED WIDTH */}
       <section className="bg-gradient-to-b from-zinc-50 via-white to-zinc-50">
         <div className={FIXED_WIDTH}>
-          {/* <SharePointFeatures /> */}
           <TrustedBrandsMarquee />
           <PowerAppsCaseStudies />
           <SharePointMigration />
@@ -117,7 +115,6 @@ export default function Home() {
           <TechStack />
           <HireSharePointPricing />
           <TimelinePage />
-          {/* <Certifications /> */}
         </div>
       </section>
 

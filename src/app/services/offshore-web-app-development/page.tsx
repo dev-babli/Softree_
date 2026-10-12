@@ -1,6 +1,5 @@
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
-import Certifications from "../offshore-power-platform-development/certification";
 import FullStackTeams from "./full-stack";
 import ThreePillars from "./three-pillar";
 import CollaborationTabs from "./collab-tab";
@@ -117,7 +116,6 @@ export default function Home() {
         <CollaborationTabs />
         <QualityBenchmark />
         <WhyChooseSoftreeWebDevelopment />
-        {/* <Certifications /> */}
       </section>
 
       <LightContactSection />

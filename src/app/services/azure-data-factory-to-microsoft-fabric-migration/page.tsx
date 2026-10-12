@@ -5,12 +5,9 @@ import NavigationClient from '@/components/sections/navigation-client';
 import Footer from '@/components/sections/footer';
 
 import AdfToFabricHero from './components/AdfToFabricHero';
-import AdfToFabricCapabilities from './components/AdfToFabricCapabilities';
-import AdfToFabricArc from './components/AdfToFabricArc';
 import AdfToFabricSlider from './components/AdfToFabricSlider';
 import AdfToFabricTechStack from './components/AdfToFabricTechStack';
 import AdfToFabricTechnologyStack from './components/AdfToFabricTechnologyStack';
-import AdfToFabricSystems from './components/AdfToFabricSystems';
 import { AdfToFabricHowAIWorks } from './components/AdfToFabricHowAIWorks';
 import AdfToFabricCaseStudies from './components/AdfToFabricCaseStudies';
 import TrustedBrandsMarquee from '@/app/services/offshore-power-platform-development/trust';
@@ -71,10 +68,6 @@ export default function AdfToFabricMigrationPage() {
 
       {/* 8. Migration Scope (Photo Stack) */}
       <AdfToFabricTechStack />
-
-      {/* 9. Systems Architecture Component (Offshore Engineering) */}
-      {/* <AdfToFabricSystems />*/}
-
       {/* 10. How We Work (Fan Card Stack) */}
       <AdfToFabricHowAIWorks />
 

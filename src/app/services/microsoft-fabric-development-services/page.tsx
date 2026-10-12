@@ -1,12 +1,8 @@
 import HeroWithTestimonial from "./hero";
-import MicrosoftFabricHeroVisual from "./components/MicrosoftFabricHeroVisual";
 import AIReadinessBanner from "./components/AIReadinessBanner";
 import { FabricServices } from "./components/FabricServices";
 import { FabricStickyScroll } from "./components/FabricStickyScroll";
 import FabricCaseStudies from "./casestudies";
-import WhyFabricSection from "./business";
-import IndustriesSection from "./industry";
-import HireFabricPricing from "./pricing";
 import WhyChooseWithTestimonials from "./why";
 import TrustedBrandsMarquee from "../offshore-power-platform-development/trust";
 import { FabricHowWeWork } from "./components/FabricHowWeWork";
@@ -182,7 +178,6 @@ export default function Home() {
       />
       <NavigationClient />
       <HeroWithTestimonial />
-      {/* <MicrosoftFabricHeroVisual /> */}
       <TrustedBrandsMarquee />
       <AIReadinessBanner />
       <FabricServices />
@@ -194,9 +189,6 @@ export default function Home() {
 
       <FabricHowWeWork />
 
-      {/* <IndustriesSection /> */}
-      {/* <FabricPartner /> */}
-      {/* <HireFabricPricing /> */}
       <WhyChooseWithTestimonials />
       <LightFAQExact faqs={fabricFAQs} />
       <LightContactSection />

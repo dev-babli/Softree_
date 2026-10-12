@@ -1,14 +1,12 @@
 import { Metadata } from "next";
 import NavigationClient from '@/components/sections/navigation-client';
 import Footer from '@/components/sections/footer';
-import SqlServerToMicrosoftFabricMigrationHero from "./components/SqlServerToMicrosoftFabricMigrationHero";
 import FabricMigrationHeroAlternative from "./components/FabricMigrationHeroAlternative";
 import TrustedBrandsMarquee from "@/app/services/offshore-power-platform-development/trust";
 import FabricMigrationBanner from "./components/FabricMigrationBanner";
 import { MigrationAssessment } from "./components/MigrationAssessment";
 import MigrationWhoDoWeServeSection from "./components/MigrationWhoDoWeServeSection";
 import { MigrationStickyScroll } from "./components/MigrationStickyScroll";
-import MigrationProcess from "./components/MigrationProcess";
 import MigrationMethodology from "./components/MigrationMethodology";
 import MigrationTechnologyStack from "./components/MigrationTechnologyStack";
 import { MigrationHowItWorks } from "./components/MigrationHowItWorks";
@@ -72,7 +70,6 @@ export default function SqlServerToFabricMigrationPage() {
   return (
     <main className="min-h-screen bg-slate-50 font-sans selection:bg-[#FF6B00]/20">
       <NavigationClient />
-      {/* <SqlServerToMicrosoftFabricMigrationHero /> */}
       <FabricMigrationHeroAlternative />
       <TrustedBrandsMarquee surface="light" />
       <FabricMigrationBanner />
@@ -80,7 +77,6 @@ export default function SqlServerToFabricMigrationPage() {
       <MigrationWhoDoWeServeSection />
       <MigrationStickyScroll />
       <MigrationSuccessStories />
-      {/* <MigrationProcess /> */}
 
       <MigrationTechnologyStack />
       <MigrationMethodology />

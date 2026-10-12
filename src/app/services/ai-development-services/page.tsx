@@ -2,43 +2,25 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import { WovenLightHero } from './WovenLightHero';
 import { Metadata } from 'next';
-import { ArrowUpRight } from 'lucide-react';
 import NavigationClient from '@/components/sections/navigation-client';
 import Footer from '@/components/sections/footer';
-import TrustedBrandsMarquee from "@/app/services/offshore-power-platform-development/trust";
 
 // Dynamically import below-the-fold components to prioritize network resources for Hero video & LCP
-const BusinessChallenges = dynamic(() => import('./components/BusinessChallenges'), { ssr: true });
-const BusinessOutcomes = dynamic(() => import('./components/BusinessOutcomes'), { ssr: true });
-const CoreCapabilities = dynamic(() => import('./components/CoreCapabilities'), { ssr: true });
-const DigitalEngineeringSolutions = dynamic(() => import('./components/DigitalEngineeringSolutions'), { ssr: true });
 const AiReadinessBanner = dynamic(() => import('./components/AiReadinessBanner'), { ssr: true });
-const PartnerShowcase = dynamic(() => import('./components/PartnerShowcase'), { ssr: true });
-const ClientTestimonialsShowcase = dynamic(() => import('./components/ClientTestimonialsShowcase'), { ssr: true });
-const Industries = dynamic(() => import('./components/Industries'), { ssr: true });
-const AiTechnologyStack = dynamic(() => import('./components/AiTechnologyStack'), { ssr: true });
-// const AiArchitectureShowcase = dynamic(() => import('./components/AiArchitectureShowcase'), { ssr: true });
-const SuccessStories = dynamic(() => import('./components/SuccessStories/SuccessStories').then((mod) => mod.SuccessStories), { ssr: true });
-const AIPhilosophy = dynamic(() => import('./components/AIPhilosophy'), { ssr: true });
-const AIDilemma = dynamic(() => import('./components/AIDilemma'), { ssr: true });
+const WhoWeHelp = dynamic(() => import('./components/WhoWeHelp').then((mod) => mod.WhoWeHelp), { ssr: true });
+const NetworkGlobe = dynamic(() => import('./components/NetworkGlobe'), { ssr: true });
+const NewWhoDoWeServeSection = dynamic(() => import('./components/NewWhoDoWeServeSection'), { ssr: true });
+const CoreCapabilities = dynamic(() => import('./components/CoreCapabilities'), { ssr: true });
 const AiRoadmap = dynamic(() => import('./components/AiRoadmap'), { ssr: true });
 const WhyChooseWithTestimonials = dynamic(() => import('./components/WhyChooseWithTestimonials'), { ssr: true });
 const IndustrySoftree = dynamic(() => import('./components/IndustrySoftree'), { ssr: true });
-const AgenticAIWipeSlider = dynamic(() => import('./components/AgenticAIWipeSlider'), { ssr: true });
-// Replace WhySoftreeTabs with WhySoftreeCurtainSlider
 const WhySoftreeCurtainSlider = dynamic(() => import('./components/WhySoftreeCurtainSlider'), { ssr: true });
 const LightFAQExact = dynamic(() => import('./components/LightFAQExact'), { ssr: true });
 const LightContactSection = dynamic(() => import('@/components/homepage-light/LightContactSection'), { ssr: true });
-const CurtainSlider = dynamic(() => import('./components/CurtainSlider/CurtainSlider'), { ssr: true });
 const ReverseStickyScroll = dynamic(() => import('./components/ReverseStickyScroll/ReverseStickyScroll').then((mod) => mod.ReverseStickyScroll), { ssr: true });
-const MicrosoftAiBentoGrid = dynamic(() => import('./components/MicrosoftAiBentoGrid').then((mod) => mod.MicrosoftAiBentoGrid), { ssr: true });
 const MicrosoftAiShowcase = dynamic(() => import('./components/MicrosoftAiShowcase'), { ssr: true });
-const WhoWeHelp = dynamic(() => import('./components/WhoWeHelp').then((mod) => mod.WhoWeHelp), { ssr: true });
-const NetworkGlobe = dynamic(() => import('./components/NetworkGlobe'), { ssr: true });
 const OffshoreEngineeringSection = dynamic(() => import('./components/OffshoreEngineeringSection'), { ssr: true });
 const ArgentLoopSlider = dynamic(() => import('@/components/ui/argent-loop-infinite-slider'), { ssr: true });
-const NewWhoDoWeServeSection = dynamic(() => import('./components/NewWhoDoWeServeSection'), { ssr: true });
-import DetailDrawer from './components/AiTechnologyStack';
 export const metadata: Metadata = {
   title: 'Agentic AI Development Services | Offshore AI Partner | Softree Technology',
   description: 'Build and scale Agentic AI solutions, AI agents, RAG, and intelligent workflows with Softree\'s offshore AI engineering team and white-label delivery model.',
@@ -251,7 +233,6 @@ export default function AiDevelopmentServicesPage() {
       <OffshoreEngineeringSection />
       <CoreCapabilities />
       <IndustrySoftree />
-      {/* <Industries /> */}
       {/* Infinite Parallax AI Showcase */}
       <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-[2cm] mt-4 md:mt-6 flex flex-col items-start text-left">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] mb-3">

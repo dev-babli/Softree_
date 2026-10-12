@@ -4,7 +4,6 @@ import { Metadata } from 'next';
 import NavigationClient from '@/components/sections/navigation-client';
 import Footer from '@/components/sections/footer';
 import AmazonBedrockHero from './components/AmazonBedrockHero';
-import AmazonBedrockAgentCoreHero from './components/AmazonBedrockAgentCoreHero';
 import WhyAgentCoreSlider from './components/WhyAgentCoreSlider';
 import AgentCoreSystems from "./components/AgentCoreSystems";
 import WhyChooseWithTestimonials from "./components/WhyChooseWithTestimonials";
@@ -44,7 +43,6 @@ export default function AmazonBedrockAgentCoreDevelopmentPage() {
       <AmazonBedrockHero />
       <AgentCoreBuildCapabilities />
       <AmazonBedrockAgentCoreArc />
-      {/* <AmazonBedrockAgentCoreHero /> */}
       <WhyAgentCoreSlider />
 
       <AgentCoreCapabilities />

@@ -25,7 +25,6 @@ const AmazonNovaVoiceAiCapabilities = dynamic(() => import('./components/AmazonN
 const HowWeBuildIt = dynamic(() => import('./components/HowWeBuildIt'), { ssr: true });
 const WhyChooseSoftree = dynamic(() => import('./components/WhyChooseSoftree'), { ssr: true });
 const TrustAndReadiness = dynamic(() => import('./components/TrustAndReadiness'), { ssr: true });
-const FeaturedCaseStudies = dynamic(() => import('./components/FeaturedCaseStudies'), { ssr: true });
 
 const PAGE_URL = 'https://www.softreetechnology.com/services/amazon-nova-2-sonic-solutions';
 
@@ -83,7 +82,6 @@ export default function AmazonNova2SonicDevelopmentPage() {
       <AmazonNovaVoiceAiCapabilities />
       <HowWeBuildIt />
       <TrustAndReadiness />
-      {/* <FeaturedCaseStudies /> */}
       <TrustedBrandsMarquee />
       <WhyChooseSoftree />
       <FAQ />
