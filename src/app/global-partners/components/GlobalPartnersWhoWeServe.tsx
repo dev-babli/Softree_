@@ -54,46 +54,47 @@ const items = [
 ];
 
   return (
-    <section id="partnership" className="bg-white pt-12 md:pt-16 pb-12 md:pb-16 text-slate-900 scroll-mt-24 border-t border-slate-100">
+    <section id="partnership" className="bg-white pt-6 md:pt-8 pb-12 md:pb-16 text-slate-900 scroll-mt-24">
       <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 lg:gap-x-16 gap-y-4 lg:gap-y-6 items-start">
-
-          {/* Top Area: Eyebrow, then Heading & Intro side-by-side */}
-          <div className="lg:col-span-12 flex flex-col">
-            <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-3.5 py-1 rounded-full border border-white/60 mb-4 inline-block self-start">
+        {/* Top Header: Heading on left, Description on right top */}
+        <div className="mb-8 md:mb-10 grid grid-cols-1 lg:grid-cols-12 items-end gap-x-12 lg:gap-x-16 gap-y-4">
+          <div className="lg:col-span-6 flex flex-col">
+            <div className="shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/50 px-3.5 py-1 rounded-full border border-white/60 mb-3 inline-block self-start">
               <span className="typo-caption text-[#FF6B2C] uppercase">
                 OUR GLOBAL PARTNER NETWORK
               </span>
             </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 lg:gap-x-16 gap-y-4 items-start">
-              <h2 className="typo-heading-2 text-slate-900 pr-4">
-                A Technology Partner Network Built for <span className="text-[#FF6B2C]">Growth</span>
-              </h2>
-
-              <p className="typo-description text-slate-500 w-full pt-1.5">
-                Our partnerships span technology companies, Microsoft ecosystem partners, digital agencies and product organizations looking to expand their delivery capabilities.
-              </p>
-            </div>
+            <h2 className="typo-heading-2 text-slate-900 pr-4">
+              A Technology Partner <br className="hidden sm:inline" />
+              Network <span className="text-[#FF6B2C]">Built for Growth</span>
+            </h2>
           </div>
 
-          {/* Bottom Row: Who We Help Items (Left) and Globe (Right) */}
+          <div className="lg:col-span-6 flex flex-col justify-end">
+            <p className="typo-description text-slate-500 w-full lg:max-w-xl">
+              Our partnerships span technology companies, Microsoft ecosystem partners, digital agencies and product organizations looking to expand their delivery capabilities.
+            </p>
+          </div>
+        </div>
+
+        {/* Bottom Row: Content (Left) and Globe (Right) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 lg:gap-x-16 gap-y-8 items-start">
           <div className="lg:col-span-6 flex flex-col justify-start">
-            <div className="flex flex-col divide-y divide-slate-100 w-full lg:max-w-[660px]">
+            <div className="flex flex-col gap-3.5 sm:gap-4 w-full lg:max-w-[660px]">
               {items.map((item, i) => (
                 <div
                   key={i}
-                  className="py-4 first:pt-1.5 last:pb-1 group transition-colors"
+                  className="group transition-colors"
                 >
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-start gap-3.5 sm:gap-4">
                     <div className={`shrink-0 w-10 h-10 rounded-lg ${item.bg} border border-orange-100 flex items-center justify-center group-hover:scale-105 group-hover:bg-[#FF6B2C] group-hover:text-white transition-all duration-300 mt-0.5`}>
                       <item.icon className={`w-5 h-5 ${item.color} group-hover:text-white transition-colors`} />
                     </div>
-                    <div className="flex flex-col flex-1 min-w-0 pt-1">
+                    <div className="flex flex-col flex-1 min-w-0 pt-0.5">
                       <h4 className="typo-heading-4 text-slate-900 group-hover:text-[#FF6B2C] transition-colors">
                         {item.title}
                       </h4>
-                      <p className="typo-body-lg text-slate-600 mt-1.5 leading-relaxed">
+                      <p className="typo-body-lg text-slate-600 mt-1 leading-relaxed">
                         {item.desc}
                       </p>
                     </div>

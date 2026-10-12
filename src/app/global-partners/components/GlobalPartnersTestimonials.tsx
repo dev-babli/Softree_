@@ -124,7 +124,7 @@ export function GlobalPartnersTestimonials() {
 
           {/* Subheading Description (Comma-free) */}
           <p className="text-zinc-600/90 font-medium text-base md:text-lg leading-relaxed max-w-2xl mt-1">
-            See how organizations across industries have transformed their operations with Softree Technology enterprise solutions
+            Our strongest relationships are built through consistent delivery, technical expertise and trust.
           </p>
         </div>
 

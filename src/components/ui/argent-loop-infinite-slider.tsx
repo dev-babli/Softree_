@@ -90,6 +90,8 @@ export interface ComponentProps {
   showOverlayHeader?: boolean;
   autoPlay?: boolean;
   hideBottomDock?: boolean;
+  imageFit?: "cover" | "contain";
+  hideProductionBadge?: boolean;
 }
 
 export function Component({
@@ -98,7 +100,11 @@ export function Component({
   showOverlayHeader = true,
   autoPlay = true,
   hideBottomDock = false,
+  imageFit = "cover",
+  hideProductionBadge = false,
 }: ComponentProps) {
+  const isContain = imageFit === "contain";
+
   const [visibleRange, setVisibleRange] = React.useState({
     min: -CONFIG.BUFFER_SIZE,
     max: CONFIG.BUFFER_SIZE,
@@ -109,6 +115,7 @@ export function Component({
 
   const [isHovered, setIsHovered] = React.useState(false);
   const containerRef = React.useRef<HTMLDivElement>(null);
+  const cardRef = React.useRef<HTMLDivElement>(null);
   const timerRef = React.useRef<NodeJS.Timeout | null>(null);
 
   // Refs for state that changes frequently (animation loop)
@@ -160,7 +167,9 @@ export function Component({
       1
     );
     const eased = 1 - Math.pow(1 - progress, 3);
-    s.targetY = s.snapStart.y + (s.snapStart.target - s.snapStart.y) * eased;
+    const newY = s.snapStart.y + (s.snapStart.target - s.snapStart.y) * eased;
+    s.targetY = newY;
+    s.currentY = newY;
     if (progress >= 1) {
       s.isSnapping = false;
       s.targetY = s.snapStart.target;
@@ -184,7 +193,8 @@ export function Component({
   const handleNavigate = React.useCallback((direction: number) => {
     const s = state.current;
     if (!s.projectHeight) return;
-    const current = Math.round(-s.targetY / s.projectHeight);
+    const baseTarget = s.isSnapping ? s.snapStart.target : s.targetY;
+    const current = Math.round(-baseTarget / s.projectHeight);
     const target = -(current + direction) * s.projectHeight;
     s.isSnapping = true;
     s.snapStart = {
@@ -330,40 +340,49 @@ export function Component({
       } else {
         state.current.projectHeight = window.innerHeight;
       }
-      state.current.minimapHeight = window.innerWidth < 768 ? 370 : 390;
+      const card = cardRef.current;
+      if (card && card.clientHeight > 0) {
+        state.current.minimapHeight = card.clientHeight;
+      } else {
+        state.current.minimapHeight = window.innerWidth < 768 ? 450 : 390;
+      }
     };
 
     updateDimensions();
 
+    let lastWheelTime = 0;
+
     const onWheel = (e: WheelEvent) => {
-      if (container) {
-        const rect = container.getBoundingClientRect();
-        const inBounds =
-          e.clientY >= rect.top &&
-          e.clientY <= rect.bottom &&
-          e.clientX >= rect.left &&
-          e.clientX <= rect.right;
-        if (!inBounds) return;
-      }
+      const card = cardRef.current;
+      if (!card) return;
+
+      const rect = card.getBoundingClientRect();
+      const inBounds =
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom &&
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right;
+      if (!inBounds) return;
+
+      if (Math.abs(e.deltaY) < 10) return;
 
       e.preventDefault();
-      const s = state.current;
-      s.isSnapping = false;
-      s.lastScrollTime = Date.now();
-      const delta = Math.max(
-        Math.min(e.deltaY * CONFIG.SCROLL_SPEED, CONFIG.MAX_VELOCITY),
-        -CONFIG.MAX_VELOCITY
-      );
-      s.targetY -= delta;
-      startAutoPlay();
+      const now = Date.now();
+      if (now - lastWheelTime > 380) {
+        lastWheelTime = now;
+        const direction = e.deltaY > 0 ? 1 : -1;
+        handleNavigate(direction);
+        startAutoPlay();
+      }
     };
 
     let touchStartX = 0;
     let touchStartY = 0;
 
     const onTouchStart = (e: TouchEvent) => {
-      if (container) {
-        const rect = container.getBoundingClientRect();
+      const card = cardRef.current;
+      if (card) {
+        const rect = card.getBoundingClientRect();
         const touch = e.touches[0];
         const inBounds =
           touch.clientY >= rect.top &&
@@ -482,11 +501,20 @@ export function Component({
       </ul>
 
       {/* Center Luxury Editorial Card (Responsive: Vertical Stacked on Mobile, Swiss 3-Col on Desktop) */}
-      <div className="minimap pointer-events-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[440px] md:h-[390px] w-[94vw] max-w-[1040px] overflow-hidden bg-white/95 backdrop-blur-xl shadow-[0_35px_90px_-20px_rgba(0,0,0,0.55),0_0_1px_1px_rgba(255,255,255,0.9)_inset] rounded-2xl sm:rounded-3xl border border-white/60 z-20">
+      <div
+        ref={cardRef}
+        className="minimap pointer-events-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[460px] xs:h-[450px] md:h-[390px] w-[92vw] sm:w-[94vw] max-w-[1040px] overflow-hidden bg-white shadow-[0_35px_90px_-20px_rgba(0,0,0,0.55),0_0_1px_1px_rgba(255,255,255,0.9)_inset] rounded-2xl sm:rounded-3xl border border-white/60 z-20"
+      >
         <div className="minimap-wrapper relative h-full w-full">
 
           {/* Centered Photo Preview with Inset Depth (Full height pillar on desktop, top banner on mobile) */}
-          <div className="minimap-img-preview absolute inset-0 md:inset-auto md:left-1/2 md:top-0 md:-translate-x-1/2 md:w-[260px] lg:w-[280px] h-full overflow-hidden pointer-events-none">
+          <div
+            className={`minimap-img-preview absolute inset-0 md:inset-auto md:left-1/2 md:top-0 md:-translate-x-1/2 ${
+              isContain
+                ? "md:w-[320px] lg:w-[400px] xl:w-[440px]"
+                : "md:w-[260px] lg:w-[280px]"
+            } h-full overflow-hidden pointer-events-none`}
+          >
             {indices.map((i) => {
               const data = getProjectData(i, projects);
               return (
@@ -499,16 +527,30 @@ export function Component({
                   }}
                 >
                   {/* MOBILE: Top visual banner with photo preview */}
-                  <div className="md:hidden relative w-full h-[145px] overflow-hidden">
+                  <div
+                    className={`md:hidden relative w-full ${
+                      isContain
+                        ? "h-[165px] flex items-center justify-center p-2.5 bg-slate-50/80"
+                        : "h-[145px]"
+                    } overflow-hidden`}
+                  >
                     <img
                       src={data.image}
                       alt={data.title}
-                      className="h-full w-full object-cover will-change-transform"
+                      className={`${
+                        isContain
+                          ? "max-h-full max-w-full w-auto h-auto object-contain rounded-lg drop-shadow-sm"
+                          : "h-full w-full object-cover"
+                      } will-change-transform`}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
-                    <div className="absolute bottom-2.5 left-3 px-2.5 py-0.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[9px] font-mono text-white/95 tracking-wider whitespace-nowrap shadow-md pointer-events-none">
-                      ● PRODUCTION TALENT
-                    </div>
+                    {!isContain && (
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
+                    )}
+                    {!hideProductionBadge && (
+                      <div className="absolute bottom-2.5 left-3 px-2.5 py-0.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[9px] font-mono text-white/95 tracking-wider whitespace-nowrap shadow-md pointer-events-none">
+                        ● PRODUCTION TALENT
+                      </div>
+                    )}
                     {data.badge && (
                       <div className="absolute top-2.5 right-3 px-2 py-0.5 rounded-md bg-black/50 backdrop-blur-md border border-white/20 text-[9px] font-mono text-[#FF6B2C] font-bold">
                         {data.badge}
@@ -516,17 +558,31 @@ export function Component({
                     )}
                   </div>
 
-                  {/* DESKTOP: Center full-height vertical pillar preview */}
-                  <div className="hidden md:block relative w-full h-full overflow-hidden">
+                  {/* DESKTOP: Center preview */}
+                  <div
+                    className={`hidden md:flex relative w-full h-full ${
+                      isContain
+                        ? "items-center justify-center p-3 sm:p-4 bg-slate-50/70"
+                        : "overflow-hidden"
+                    }`}
+                  >
                     <img
                       src={data.image}
                       alt={data.title}
-                      className="h-full w-full object-cover will-change-transform"
+                      className={`${
+                        isContain
+                          ? "max-h-full max-w-full w-auto h-auto object-contain rounded-xl drop-shadow-md"
+                          : "h-full w-full object-cover"
+                      } will-change-transform`}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none" />
-                    <div className="absolute bottom-3.5 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[9.5px] sm:text-[10.5px] font-mono text-white/95 tracking-wider whitespace-nowrap shadow-md pointer-events-none">
-                      ● PRODUCTION TALENT
-                    </div>
+                    {!isContain && (
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none" />
+                    )}
+                    {!hideProductionBadge && (
+                      <div className="absolute bottom-3.5 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[9.5px] sm:text-[10.5px] font-mono text-white/95 tracking-wider whitespace-nowrap shadow-md pointer-events-none">
+                        ● PRODUCTION TALENT
+                      </div>
+                    )}
                   </div>
                 </div>
               );
@@ -554,7 +610,7 @@ export function Component({
                   }}
                 >
                   {/* MOBILE CONTENT (< md): Stacked, readable, spacious luxury layout */}
-                  <div className="md:hidden absolute inset-x-0 bottom-0 top-[145px] p-3.5 xs:p-4 flex flex-col justify-between pointer-events-auto bg-white/95">
+                  <div className="md:hidden absolute inset-x-0 bottom-0 top-[145px] p-3.5 xs:p-4 pb-14 xs:pb-16 flex flex-col justify-between pointer-events-auto bg-white">
                     {/* Header line: Digit + SLA badge */}
                     <div>
                       <div className="flex items-center justify-between gap-2">
@@ -592,17 +648,17 @@ export function Component({
                     </p>
 
                     {/* Footer Row */}
-                    <div className="flex items-center justify-between gap-2 pt-2 border-t border-slate-100">
-                      <div className="flex items-center gap-1.5 text-[9.5px] font-mono text-slate-500 font-semibold">
-                        <ShieldCheck className="w-3.5 h-3.5 text-[#FF6B2C]" />
-                        <span>DEDICATED OFFSHORE</span>
+                    <div className="flex items-center justify-between gap-1.5 xs:gap-2 pt-2 border-t border-slate-100">
+                      <div className="hidden min-[360px]:flex items-center gap-1 text-[9px] min-[400px]:text-[10px] font-mono text-slate-500 font-semibold truncate">
+                        <ShieldCheck className="w-3.5 h-3.5 text-[#FF6B2C] shrink-0" />
+                        <span className="truncate">DEDICATED OFFSHORE</span>
                       </div>
 
                       <FlowButton
                         href="/contact"
-                        text="Contact Us"
+                        text={data.buttonText || "Explore Our Capabilities"}
                         variant="orange-filled"
-                        className="px-3 py-1.5 text-[11px]"
+                        className="w-full min-[360px]:w-auto px-3.5 py-1.5 text-[11px] min-[400px]:text-[12px] whitespace-nowrap justify-center"
                       />
                     </div>
                   </div>
@@ -610,7 +666,13 @@ export function Component({
                   {/* DESKTOP CONTENT (>= md): Classic Flanking Swiss Grid */}
                   <div className="hidden md:flex justify-between w-full h-full">
                     {/* LEFT COLUMN - Editorial Swiss Layout with Sculpted Digit */}
-                    <div className="w-[calc(50%-140px)] lg:w-[calc(50%-160px)] h-full flex flex-col justify-between py-6 sm:py-9 pl-5 sm:pl-10 pr-3 sm:pr-6 text-left">
+                    <div
+                      className={`${
+                        isContain
+                          ? "w-[calc(50%-160px)] lg:w-[calc(50%-200px)] xl:w-[calc(50%-220px)] pl-5 sm:pl-8 pr-2 sm:pr-4"
+                          : "w-[calc(50%-140px)] lg:w-[calc(50%-160px)] pl-5 sm:pl-10 pr-3 sm:pr-6"
+                      } h-full flex flex-col justify-between py-6 sm:py-9 text-left`}
+                    >
                       {/* Top: Sculpted Architectural Digit Display */}
                       <div className="flex flex-col gap-1.5">
                         {/* Sculpted Numbers & Telemetry */}
@@ -670,7 +732,13 @@ export function Component({
                     </div>
 
                     {/* RIGHT COLUMN - Executive Talent Profile */}
-                    <div className="w-[calc(50%-140px)] lg:w-[calc(50%-160px)] h-full flex flex-col justify-between py-6 sm:py-9 pr-5 sm:pr-10 pl-3 sm:pl-6 text-right">
+                    <div
+                      className={`${
+                        isContain
+                          ? "w-[calc(50%-160px)] lg:w-[calc(50%-200px)] xl:w-[calc(50%-220px)] pr-5 sm:pr-8 pl-2 sm:pr-4"
+                          : "w-[calc(50%-140px)] lg:w-[calc(50%-160px)] pr-5 sm:pr-10 pl-3 sm:pl-6"
+                      } h-full flex flex-col justify-between py-6 sm:py-9 text-right`}
+                    >
                       {/* Top: Eyebrow + Bold Role Title */}
                       <div className="space-y-1">
                         <p className="text-[10px] sm:text-xs font-mono tracking-widest text-[#FF6B2C] font-extrabold uppercase">
@@ -696,7 +764,7 @@ export function Component({
                       <div className="flex flex-col items-end gap-2 sm:gap-2.5">
                         <FlowButton
                           href="/contact"
-                          text={data.buttonText || "Contact Us"}
+                          text={data.buttonText || "Explore Our Capabilities"}
                           variant="orange-filled"
                         />
 
@@ -729,7 +797,7 @@ export function Component({
       </button>
 
       {/* Bottom Floating Navigation & CTA Dock */}
-      <div className="absolute bottom-3 sm:bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2 sm:gap-4 max-w-[94vw] pointer-events-none">
+      <div className="absolute bottom-2.5 sm:bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2 sm:gap-4 max-w-[94vw] pointer-events-none">
         {/* Interactive Dot Indicators with mobile chevron controls */}
         <div className="pointer-events-auto flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/15 shadow-md">
           <button

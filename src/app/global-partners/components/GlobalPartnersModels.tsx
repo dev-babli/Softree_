@@ -287,7 +287,7 @@ export default function GlobalPartnersModels() {
             <div className="inline-flex items-center gap-2 shadow-[inset_2px_2px_5px_#e4e4e7,inset_-2px_-2px_5px_#ffffff] bg-zinc-50/80 px-4 py-1.5 rounded-full border border-white/80 w-fit">
               <span className="w-2 h-2 rounded-full bg-[#FF6B2C] animate-pulse" />
               <span className="typo-caption text-[#FF6B2C] uppercase font-semibold text-xs">
-                5. PARTNERSHIP MODELS
+                PARTNERSHIP MODELS
               </span>
             </div>
 

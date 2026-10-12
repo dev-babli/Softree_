@@ -9,7 +9,7 @@ const ArgentLoopSlider = dynamic(() => import('@/components/ui/argent-loop-infin
 const PROJECTS: ProjectData[] = [
   {
     title: "AI & Agentic AI",
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1600&q=80",
+    image: "/images/global-partners/ai-agents.jpg",
     category: "01 — ARTIFICIAL INTELLIGENCE",
     year: "AI",
     description: "AI Agents · Agentic Workflows · RAG · AI Automation · Generative AI",
@@ -18,7 +18,7 @@ const PROJECTS: ProjectData[] = [
   },
   {
     title: "Microsoft",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1600&q=80",
+    image: "/images/global-partners/microsoft-cloud.jpg",
     category: "02 — MICROSOFT ECOSYSTEM",
     year: "Microsoft",
     description: "Azure · Microsoft Fabric · Power Platform · Power BI · SharePoint",
@@ -27,7 +27,7 @@ const PROJECTS: ProjectData[] = [
   },
   {
     title: "Data & Analytics",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&q=80",
+    image: "/images/global-partners/data-analytics.jpg",
     category: "03 — DATA ENGINEERING",
     year: "Data",
     description: "Data Engineering · Data Modernization · Data Analytics · BI",
@@ -36,7 +36,7 @@ const PROJECTS: ProjectData[] = [
   },
   {
     title: "Software Engineering",
-    image: "https://images.unsplash.com/photo-1607706189992-eae578626c86?w=1600&q=80",
+    image: "/images/global-partners/software-engineering.png",
     category: "04 — SOFTWARE DEVELOPMENT",
     year: "Engineering",
     description: "Web Applications · Cloud · APIs · Full-Stack Development · Mobile",
@@ -51,7 +51,7 @@ export const GlobalPartnersWhatWeDeliver = () => {
       <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-[2cm] mt-4 md:mt-6 flex flex-col items-start text-left">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] mb-3 uppercase">
           <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
-          4. WHAT WE DELIVER TOGETHER
+          WHAT WE DELIVER TOGETHER
         </div>
         <h2 className="typo-heading-2 max-w-4xl text-slate-900 mb-4">
           Technology Capabilities That <span className="text-[#FF6B2C]">Extend Your Business</span>
@@ -62,8 +62,14 @@ export const GlobalPartnersWhatWeDeliver = () => {
       </div>
 
       <div className="max-w-[1600px] mx-auto px-3 xs:px-4 sm:px-8 lg:px-12 mt-8 md:mt-12">
-        <div className="relative w-full h-[660px] xs:h-[680px] sm:h-[720px] md:h-[780px] lg:h-[860px] rounded-2xl sm:rounded-3xl overflow-hidden border border-zinc-200/50 shadow-2xl">
-          <ArgentLoopSlider projects={PROJECTS} className="h-full w-full" hideBottomDock={true} />
+        <div className="relative w-full h-[510px] xs:h-[500px] sm:h-[490px] md:h-[420px] lg:h-[420px] rounded-2xl sm:rounded-3xl overflow-hidden border border-zinc-200/50 shadow-2xl">
+          <ArgentLoopSlider
+            projects={PROJECTS}
+            className="h-full w-full"
+            hideBottomDock={true}
+            imageFit="contain"
+            hideProductionBadge={true}
+          />
         </div>
       </div>
 

@@ -141,7 +141,7 @@ export default function GlobalPartnersLogos({
     <section
       ref={ref}
       id="coengineered-logos"
-      className="relative w-full overflow-hidden py-10 md:py-14 bg-white text-neutral-950 border-y border-neutral-200/60"
+      className="relative w-full overflow-hidden pt-10 md:pt-14 pb-4 md:pb-6 bg-white text-neutral-950 border-y border-neutral-200/60"
     >
       <style>{logoCardStyles}</style>
 
@@ -166,10 +166,10 @@ export default function GlobalPartnersLogos({
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="mb-5 flex items-center justify-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#FF5812]" />
-            <span className="text-xs md:text-sm font-semibold tracking-[0.25em] text-zinc-400/90 uppercase">
+
+            {/* <span className="text-xs md:text-sm font-semibold tracking-[0.25em] text-zinc-400/90 uppercase">
               Our Partnerships
-            </span>
+            </span> */}
           </div>
           <h2 className="text-[#0a0a1a] tracking-tight mb-4 flex flex-col items-center">
             <span className="font-black text-3xl md:text-5xl leading-[1.1] max-w-none block w-full">
@@ -183,7 +183,7 @@ export default function GlobalPartnersLogos({
         </motion.div>
 
         {/* Infinite scrolling marquee of company logos passing from left to right */}
-        <div className="relative w-full overflow-hidden mb-16 py-4">
+        <div className="relative w-full overflow-hidden mb-0 py-2">
           {/* Gradient Masks */}
           <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-white to-transparent" />
           <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-white to-transparent" />
