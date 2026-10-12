@@ -119,17 +119,9 @@ export default function EnterpriseRAGDevelopmentPage() {
       <RAGWhoDoWeServeSection className="bg-white" />
       <RAGStickyScroll />
       <RAGCaseStudies />
-      {/* <SuccessStories /> */}
       <RAGTechnologyStack />
       <RAGOffshoreEngineeringSection />
       <RAGHowWeWork />
-      {/*<CoreCapabilities />*/}
-      {/* <BusinessChallenges />
-      <BusinessOutcomes /> */}
-      {/*<ProvenResults solution="enterprise-rag" />*/}
-      {/*<Industries />*/}
-      {/*<TechnologyStack />*/}
-      {/*< HowAIWorks />*/}
       <WhyChooseWithTestimonials />
       <LightFAQExact />
       <LightContactSection />

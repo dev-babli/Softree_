@@ -7,18 +7,14 @@ import dynamic from "next/dynamic";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 
 const TrustedBrandsMarquee = dynamic(() => import("@/app/services/offshore-power-platform-development/trust"));
-const WhyAIWorkflow = dynamic(() => import("./components/WhyAIWorkflow/WhyAIWorkflow").then(m => m.WhyAIWorkflow));
 const CapabilitiesBentoGrid = dynamic(() => import("./components/Core-capabilities/CapabilitiesBentoGrid"));
 const BusinessChallenges = dynamic(() => import("./components/Business-Challenges/BusinessChallenges"));
 const Industries = dynamic(() => import("./components/Industries/Industries").then(m => m.Industries));
-const WorkflowArchitecture = dynamic(() => import("./components/Automation-architecture/WorkflowArchitecture").then(m => m.WorkflowArchitecture));
 const HowWorkflowWorks = dynamic(() => import("./components/HowWorkflowWorks"));
-const WorkflowSolutions = dynamic(() => import("./components/workflow-solutions/WorkflowSolutions").then(m => m.WorkflowSolutions));
 const WorkflowTechnologyStack = dynamic(() => import("./components/Technologies/WorkflowTechnologyStack"));
 const WhyChooseWithTestimonialsSoftree = dynamic(() => import("./components/WhySoftree/WhyChooseWithTestimonialsSoftree"));
 const BusinessBenefits = dynamic(() => import("./components/business-benefits/BusinessBenefits").then(m => m.BusinessBenefits));
 const RelatedCaseStudiesCarousel = dynamic(() => import("./components/Case-studies/RelatedCaseStudiesCarousel").then(m => m.RelatedCaseStudiesCarousel));
-const WorkflowAutomationTestimonials = dynamic(() => import("./components/Testimonial/WorkflowAutomationTestimonials"));
 const WorkflowAutomationFAQ = dynamic(() => import("./components/FAQ/WorkflowAutomationFAQ").then(m => m.WorkflowAutomationFAQ));
 const ProvenResults = dynamic(() => import("@/components/sections/ProvenResults"));
 
@@ -59,14 +55,8 @@ export default function AIWorkflowAutomationPage() {
         <ProvenResults solution="ai-workflow" />
         <Industries />
         <WorkflowTechnologyStack />
-        {/* <WhyAIWorkflow />
-        <WorkflowArchitecture /> */}
-
         <HowWorkflowWorks />
-        {/* <WorkflowSolutions /> */}
         <WhyChooseWithTestimonialsSoftree />
-
-        {/* <WorkflowAutomationTestimonials /> */}
         <WorkflowAutomationFAQ />
       </main>
       <LightContactSection />

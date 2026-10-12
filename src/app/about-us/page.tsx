@@ -1,11 +1,7 @@
 "use client";
 import NavigationClient from "@/components/sections/navigation-client";
 import AboutClientLogos from "@/components/qc/homepage-light/AboutClientLogos";
-import AboutCaseStudies from "@/components/qc/homepage-light/AboutCaseStudies";
-import WhySoftree from "@/components/qc/homepage-light/WhySoftree";
-import AboutInteractiveCore from "@/components/qc/homepage-light/AboutInteractiveCore";
 import AboutTeamSection from "@/components/qc/homepage-light/AboutTeamSection";
-import AwardsMarqueeSection from "@/components/qc/homepage-light/AwardsMarqueeSection";
 import LightEngagementModels from "@/components/qc/homepage-light/LightEngagementModels";
 import LightContactSection from "@/components/qc/homepage-light/LightContactSection";
 import LightFAQExact from "@/components/homepage-light/LightFAQExact";
@@ -13,9 +9,7 @@ import Gallery from "@/components/Gallery/Gallery";
 import AnimatedPhotoGallery from "@/components/Gallery/AnimatedPhotoGallery";
 import Footer from "@/components/sections/footer";
 import LatestTechnologies from "../about-us/LatestTechnologies";
-import Wework from "../about-us/Wework";
 import { LightTestimonialFeature } from "@/components/qc/homepage-light/LightTestimonialFeature";
-import SoftreeTimeline from "@/components/qc/homepage-light/SoftreeTimeline";
 import AboutUsGlobe from "../about-us/AboutUsGlobe";
 import CoreValuesSection from "./CoreValuesSection";
 import ExactAboutUs from "./ExactAboutUs";
@@ -79,20 +73,14 @@ export default function AboutUsPage1() {
       <NewWhoDoWeServeSection className="bg-white" />
       {/* 2. About — Core Values, Mission, Vision, and Approach */}
       <CoreValuesSection />
-      {/* Our Journey Timeline */}
-      {/* <SoftreeTimeline /> */}
       {/* 3.9. Latest Technologies — Powerhouse technologies behind Softree */}
       <LatestTechnologies />
-      {/* 3.9.5. We Work — Custom AI Development sticky panels */}
-      {/* <Wework /> */}
       {/* Client Testimonials */}
       <LightTestimonialFeature />
       {/* 4. Engagement Models — How to work with us */}
       <LightEngagementModels />
       {/* 5. Team — Leadership & people showcase */}
       <AboutTeamSection />
-      {/* 6. Awards — Marquee with glass trophy cards */}
-      {/* <AwardsMarqueeSection /> */}
       {/* 7. Workspace gallery — animated photo rails */}
       <AnimatedPhotoGallery />
       {/* 8. Offices — Bengaluru, Cuttack, San Francisco */}

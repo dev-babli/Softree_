@@ -1,11 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import { Hero } from "./components/Hero";
-import BusinessChallenges from "./components/BusinessChallenges";
-import BusinessOutcomes from "./components/BusinessOutcomes";
 import ProvenResults from "./components/ProvenResults";
-import CoreCapabilities from "./components/CoreCapabilities";
-import { LangChainCardStack } from "./components/LangChainCardStack";
 import LangChainHowWeWork from "./components/LangChainHowWeWork";
 import AiTechnologyStack from "./components/AiTechnologyStack";
 import Industries from "./components/Industries";
@@ -129,7 +125,6 @@ export default function LangChainDevelopmentPage() {
       <NewWhoDoWeServeSection className="bg-white" />
       <WhatWeBuild />
       <SuccessStories />
-      {/* <LangChainCardStack /> */}
       <ProvenResults />
       <Industries />
       <AiTechnologyStack />

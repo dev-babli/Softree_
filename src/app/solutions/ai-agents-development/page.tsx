@@ -1,8 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { Hero } from './components/Hero';
-import BusinessChallenges from './components/BusinessChallenges';
-import BusinessOutcomes from './components/BusinessOutcomes';
 import ProvenResults from '@/components/sections/ProvenResults';
 import CoreCapabilities from './components/CoreCapabilities';
 import HowAIWorks from './components/HowAIWorks';

@@ -247,17 +247,11 @@ export default function AiDevelopmentServicesPage() {
       </div>
 
       <ReverseStickyScroll />
-
-      {/*
-      <TrustedBrandsMarquee /> */}
-
       {/* Interactive Photo Stack Section - Offshore AI Engineering */}
       <OffshoreEngineeringSection />
-
       <CoreCapabilities />
       <IndustrySoftree />
       {/* <Industries /> */}
-
       {/* Infinite Parallax AI Showcase */}
       <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-[2cm] mt-4 md:mt-6 flex flex-col items-start text-left">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] mb-3">
@@ -276,22 +270,8 @@ export default function AiDevelopmentServicesPage() {
           <ArgentLoopSlider className="h-full w-full" />
         </div>
       </div>
-
       <MicrosoftAiShowcase />
-
-      {/* <AiArchitectureShowcase /> */}
-      {/* <DigitalEngineeringSolutions /> */}
       <AiRoadmap />
-
-      {/* <PartnerShowcase /> */}
-      {/* <ClientTestimonialsShowcase /> */}
-      {/* Storytelling Flow
-      <BusinessChallenges />
-      <BusinessOutcomes /> */}
-      {/* <AIDilemma /> */}
-
-
-      {/* <AgenticAIWipeSlider /> */}
       <WhySoftreeCurtainSlider />
       <WhyChooseWithTestimonials />
       <LightFAQExact />
