@@ -18,47 +18,74 @@ const aboutUsFaqs = [
   {
     id: 1,
     serial: "question 01",
-    question: "Why do businesses choose Softree as their offshore engineering partner?",
+    question: "Why Choose Softree Technology as Your Software Development Partner?",
     answer:
-      "Businesses choose Softree because of our strong Microsoft ecosystem expertise, AI-driven engineering capabilities, transparent delivery approach, scalable offshore teams, and focus on long-term partnerships. We combine enterprise engineering standards with agile execution to help organizations accelerate delivery timelines while maintaining governance, quality assurance, and operational reliability.",
+      "Softree Technology helps businesses build and modernize digital products through custom software development, AI engineering, Microsoft technologies, cloud services, and data engineering. We focus on practical engineering, collaborative delivery, scalable development teams, and solutions aligned with each client's technical requirements and business objectives.",
   },
   {
     id: 2,
     serial: "question 02",
-    question: "What industries does Softree Technology work with?",
+    question: "What Software Development and IT Services Does Softree Offer?",
     answer:
-      "Softree works with organizations across healthcare, enterprise IT, logistics, education, retail, manufacturing, service industries, consulting firms, and startups. Our solutions are tailored to industry-specific workflows, operational challenges, compliance requirements, and digital transformation objectives to help businesses improve efficiency and scalability.",
+      "Softree provides custom software development, AI development, Microsoft Power Platform services, SharePoint development, cloud engineering, data analytics, business intelligence, application modernization, and software testing. Our services help businesses improve workflows, integrate systems, modernize applications, and develop technology that supports their operational goals.",
   },
   {
     id: 3,
     serial: "question 03",
-    question: "How experienced is Softree with Microsoft technologies and enterprise automation?",
+    question: "Which Industries Does Softree Technology Serve?",
     answer:
-      "Softree has extensive experience delivering Microsoft-based enterprise solutions including SharePoint + Power Apps, Power Automate, Power BI, Dynamics 365, Microsoft Fabric, Azure AI, Dataverse, SPFx, and Microsoft 365 integrations. Our engineering teams specialize in building scalable business applications, automation systems, enterprise collaboration platforms, and AI-powered operational workflows.",
+      "Softree works on technology initiatives across industries such as healthcare, logistics, education, retail, manufacturing, and enterprise IT. We adapt our development approach to industry-specific workflows, data requirements, integration challenges, and operational priorities to help organizations improve efficiency and digital capabilities.",
   },
   {
     id: 4,
     serial: "question 04",
-    question: "Does Softree follow enterprise security and governance standards?",
+    question: "What Microsoft Technologies Does Softree Specialize In?",
     answer:
-      "Yes. Softree follows enterprise-grade security, governance, documentation, and compliance practices throughout the delivery lifecycle. Our processes are aligned with ISO/IEC 27001:2022 and ISO 9001:2015 standards and support NDA agreements, secure collaboration environments, role-based access management, structured documentation, and operational transparency for enterprise engagements.",
+      "Softree works with Microsoft technologies including SharePoint, SharePoint Framework (SPFx), Power Apps, Power Automate, Power BI, Microsoft Fabric, Azure, Dataverse, and Microsoft 365 integrations. We help organizations develop business applications, automate processes, improve collaboration, and turn operational data into actionable insights.",
   },
   {
     id: 5,
     serial: "question 05",
-    question: "Can Softree work as a white-label development partner for agencies and consulting firms?",
+    question: "Does Softree Provide AI Development and Generative AI Services?",
     answer:
-      "Yes. Softree frequently works as a white-label offshore engineering partner for digital agencies, Microsoft consultants, ERP providers, system integrators, and technology consultants requiring scalable expertise across Microsoft technologies, AI engineering, enterprise automation, and modern application development.",
+      "Softree supports AI development initiatives, including generative AI applications, AI agents, enterprise copilots, retrieval-augmented generation (RAG), AI workflow automation, and AI-powered business applications. Our approach focuses on identifying suitable use cases, integrating relevant data sources, and building AI capabilities around specific business requirements.",
   },
   {
     id: 6,
     serial: "question 06",
-    question: "Does Softree provide both low-code and custom software development services?",
+    question: "Can Softree Work as an Offshore Software Development Partner?",
     answer:
-      "Yes. Softree delivers both low-code Microsoft Power Platform solutions and fully custom enterprise applications using technologies such as React, Next.js, .NET, Python, Node.js, FastAPI, Azure, and cloud-native architectures. This allows businesses to choose the right development approach based on operational complexity, scalability goals, integration needs, and long-term technology strategies.",
+      "Yes. Softree provides offshore software development and engineering collaboration for businesses that need additional technical expertise or development capacity. Engagements can support custom application development, Microsoft technologies, AI engineering, cloud development, data platforms, and software testing, with collaboration structured around project requirements and delivery objectives.",
+  },
+  {
+    id: 7,
+    serial: "question 07",
+    question: "Does Softree Offer Custom Software Development and Application Modernization?",
+    answer:
+      "Softree helps businesses develop custom web applications, APIs, internal business tools, and integrated digital products. We also support application modernization initiatives involving legacy system improvements, updated architectures, cloud adoption, system integrations, and performance optimization based on existing infrastructure and future requirements.",
+  },
+  {
+    id: 8,
+    serial: "question 08",
+    question: "Can Agencies and Consulting Firms Partner with Softree for Software Development?",
+    answer:
+      "Softree can collaborate with digital agencies, technology consultants, and system integrators that require additional engineering expertise. Depending on project needs, collaboration may include white-label development, dedicated engineering support, staff augmentation, and project-based delivery across software development, Microsoft technologies, AI, and cloud engineering.",
+  },
+  {
+    id: 9,
+    serial: "question 09",
+    question: "How Does Softree Approach Software Development Quality and Security?",
+    answer:
+      "Softree emphasizes structured development practices, code reviews, testing, documentation, access management, and secure handling of project information. Security controls and quality processes should be defined according to the engagement's requirements. Any formal certifications or compliance claims should be verified against Softree's current documented status.",
+  },
+  {
+    id: 10,
+    serial: "question 10",
+    question: "How Can Businesses Collaborate with Softree Technology?",
+    answer:
+      "Businesses can contact Softree to discuss software development, AI implementation, Microsoft technology projects, cloud adoption, data engineering, or application modernization. The initial discussion helps clarify business objectives, technical requirements, project scope, and suitable collaboration options before defining the next steps.",
   },
 ];
-
 export default function AboutUsPage1() {
   return (
     <div className="min-h-screen pt-0 bg-white font-sans typo-body">
@@ -85,10 +112,8 @@ export default function AboutUsPage1() {
       <AnimatedPhotoGallery />
       {/* 8. Offices — Bengaluru, Cuttack, San Francisco */}
       <Gallery />
-      {/* 9. Contact — Get in touch */}
-      <LightContactSection />
-      {/* 10. FAQ */}
       <LightFAQExact faqs={aboutUsFaqs} />
+      <LightContactSection />
       {/* 11. Footer — Homepage footer */}
       <Footer />
     </div>
