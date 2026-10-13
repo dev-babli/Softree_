@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
+  ArrowUpRight,
   Bot,
   ChevronLeft,
   ChevronRight,
@@ -449,21 +450,28 @@ export function MegaMenuPanel({
                         </div>
                       </div>
 
-                      {/* Right Orange Arrow Indicator */}
+                      {/* Premium Diagonal Arrow Badge with Glide Animation */}
                       <div
-                        className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-all duration-150 ${
+                        className={`relative w-6 h-6 xl:w-6.5 xl:h-6.5 rounded-full flex items-center justify-center shrink-0 border overflow-hidden transition-all duration-200 ml-1.5 ${
                           isSelected
-                            ? "bg-[#FF5812]/10 translate-x-0.5"
-                            : "group-hover:bg-[#FF5812]/10 group-hover:translate-x-0.5"
+                            ? "bg-[#FF5812] border-[#FF5812] text-white shadow-[0_2px_8px_rgba(255,88,18,0.35)]"
+                            : "bg-[#FF5812]/[0.06] border-[#FF5812]/15 text-[#FF5812]/75 group-hover:bg-[#FF5812] group-hover:border-[#FF5812] group-hover:text-white group-hover:shadow-[0_2px_8px_rgba(255,88,18,0.35)]"
                         }`}
                       >
-                        <ArrowRight
-                          className={`w-3 h-3 transition-colors duration-150 ${
+                        <ArrowUpRight
+                          size={13}
+                          className={`stroke-[2.3] transition-transform duration-200 ease-out absolute ${
                             isSelected
-                              ? "text-[#FF5812]"
-                              : "text-[#FF5812]/45 group-hover:text-[#FF5812]"
+                              ? "translate-x-[0.5px] -translate-y-[0.5px] text-white"
+                              : "group-hover:translate-x-4 group-hover:-translate-y-4"
                           }`}
                         />
+                        {!isSelected && (
+                          <ArrowUpRight
+                            size={13}
+                            className="stroke-[2.3] transition-transform duration-200 ease-out absolute -translate-x-4 translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 text-white"
+                          />
+                        )}
                       </div>
                     </button>
                   );
@@ -534,9 +542,16 @@ export function MegaMenuPanel({
                           </div>
                         </div>
 
-                        {/* Right Orange Arrow Indicator */}
-                        <div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-all duration-150 group-hover:bg-[#FF5812]/10 group-hover:translate-x-0.5 ml-1.5">
-                          <ArrowRight className="w-3 h-3 text-[#FF5812]/45 group-hover:text-[#FF5812] transition-colors" />
+                        {/* Premium Diagonal Arrow Badge with Glide Animation */}
+                        <div className="relative w-6 h-6 xl:w-6.5 xl:h-6.5 rounded-full flex items-center justify-center shrink-0 border border-[#FF5812]/15 bg-[#FF5812]/[0.06] text-[#FF5812]/75 group-hover:bg-[#FF5812] group-hover:border-[#FF5812] group-hover:text-white group-hover:shadow-[0_2px_8px_rgba(255,88,18,0.35)] overflow-hidden transition-all duration-200 ml-1.5">
+                          <ArrowUpRight
+                            size={13}
+                            className="stroke-[2.3] transition-transform duration-200 ease-out absolute group-hover:translate-x-4 group-hover:-translate-y-4"
+                          />
+                          <ArrowUpRight
+                            size={13}
+                            className="stroke-[2.3] transition-transform duration-200 ease-out absolute -translate-x-4 translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 text-white"
+                          />
                         </div>
                       </Link>
                     );

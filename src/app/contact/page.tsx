@@ -15,9 +15,9 @@ const FdaMapsSectionLazy = dynamic(
   { loading: () => <div className="min-h-[50vh] w-full bg-[#000000]" aria-hidden="true" /> }
 );
 
-const SoftreeFAQLazy = dynamic(
-  () => import("@/components/sections/faq"),
-  { loading: () => <div className="min-h-[48vh] w-full bg-[#000000]" aria-hidden="true" /> }
+const LightFAQExact = dynamic(
+  () => import("@/components/homepage-light/LightFAQExact"),
+  { loading: () => <div className="min-h-[48vh] w-full bg-white" aria-hidden="true" /> }
 );
 
 /**
@@ -26,7 +26,7 @@ const SoftreeFAQLazy = dynamic(
  *  2. Hub — message form + inline Calendly
  *  3. Gallery — three global offices
  *  4. Global map — tap pins (no scroll pin)
- *  5. FAQ — main Softree FAQ
+ *  5. FAQ — LightFAQExact accordion
  *  6. Footer
  */
 export default function ContactPage() {
@@ -63,7 +63,7 @@ export default function ContactPage() {
         ctaHref="#schedule"
       />
       <FdaMapsSectionLazy embedded />
-      <SoftreeFAQLazy faqs={[...CONTACT_FAQS]} />
+      <LightFAQExact faqs={[...CONTACT_FAQS]} />
       <Footer />
     </div>
   );

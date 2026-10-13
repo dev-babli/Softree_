@@ -70,35 +70,76 @@ export const CONTACT_CHANNELS = [
 
 export const CONTACT_FAQS = [
   {
-    question: "How quickly will Softree respond to my inquiry?",
+    id: 1,
+    serial: "question 01",
+    question: "How Can I Start a Project with Softree Technology?",
     answer:
-      "We reply to every message within one business day. Urgent enterprise requests are routed to a delivery lead the same day when possible.",
+      "Getting started is simple. Share your business requirements, project goals, and expected timeline through our contact form. Our team will review your inquiry and discuss the project scope, technical requirements, and next steps.",
   },
   {
-    question: "Is the discovery call really free?",
+    id: 2,
+    serial: "question 02",
+    question: "What Software Development Services Does Softree Offer?",
     answer:
-      "Yes. The 30-minute discovery call is complimentary — no sales pressure, no commitment. We use it to understand scope, timeline, and fit.",
+      "Softree Technology provides AI development, custom software engineering, Microsoft technology services, cloud development, data engineering, business intelligence, and software testing. We help businesses build, modernize, integrate, and maintain digital products.",
   },
   {
-    question: "Which time zones do you cover?",
+    id: 3,
+    serial: "question 03",
+    question: "Does Softree Provide AI Development and Generative AI Services?",
     answer:
-      "Our teams operate across IST, PST, and GMT-friendly windows with offices in Bengaluru, Cuttack, and San Francisco — so follow-the-sun collaboration is built in.",
+      "Yes. Softree supports AI development initiatives, including generative AI applications, AI agents, enterprise copilots, retrieval-augmented generation (RAG), and AI workflow automation, based on your business requirements.",
   },
   {
-    question: "Can we sign an NDA before sharing project details?",
+    id: 4,
+    serial: "question 04",
+    question: "Can Softree Provide Dedicated Developers for My Project?",
     answer:
-      "Absolutely. Mention it in your message or on the booking form and we will send a mutual NDA before any technical deep-dive.",
+      "Softree offers flexible engagement models, including dedicated development teams, staff augmentation, fixed-scope project delivery, and technical consulting. Our team can help you identify the right approach based on your project objectives and technical requirements.",
   },
   {
-    question: "What types of engagements do you offer?",
+    id: 5,
+    serial: "question 05",
+    question: "How Long Does a Software Development Project Take?",
     answer:
-      "Dedicated teams, fixed-scope delivery, staff augmentation, and advisory — across AI, Microsoft, cloud, data, and custom product engineering.",
+      "Project timelines depend on the scope, technical complexity, integrations, and testing requirements. After reviewing your objectives, our team can outline the development phases, milestones, and estimated delivery schedule.",
   },
   {
-    question: "Do you offer post-launch support and maintenance?",
+    id: 6,
+    serial: "question 06",
+    question: "Can Softree Help Modernize Existing Applications and Systems?",
     answer:
-      "Yes, we provide flexible support SLAs, continuous monitoring, security updates, and performance tuning to keep your systems running smoothly.",
+      "Yes. Softree can help businesses modernize existing applications, improve system performance, integrate new technologies, and streamline legacy workflows. We assess your current environment and recommend an approach aligned with your technical and business goals.",
   },
+  {
+    id: 7,
+    serial: "question 07",
+    question: "Does Softree Work with Businesses Across Different Industries?",
+    answer:
+      "Softree works on technology initiatives across business domains, including healthcare, logistics, and other industry-specific use cases. Our development approach is shaped by each project's workflows, data requirements, and operational needs.",
+  },
+  {
+    id: 8,
+    serial: "question 08",
+    question: "Does Softree Provide Ongoing Software Support and Maintenance?",
+    answer:
+      "Softree can assist with application maintenance, troubleshooting, performance optimization, software enhancements, and ongoing technical support. Support arrangements can be tailored to your application's requirements and operational priorities.",
+  },
+  {
+    id: 9,
+    serial: "question 09",
+    question: "What Technologies Does Softree Use for Software Development?",
+    answer:
+      "Softree works with modern technologies across AI, cloud computing, data engineering, Microsoft platforms, and custom application development. The technology stack is selected based on project requirements, system architecture, scalability, and integration needs.",
+  },
+  {
+    id: 10,
+    serial: "question 10",
+    question: "Can Softree Integrate AI into Existing Business Workflows?",
+    answer:
+      "Yes. Softree can help businesses explore AI integration for existing applications and workflows, including AI-powered automation, intelligent assistants, enterprise knowledge retrieval, and data-driven processes. The approach depends on your current systems, data sources, and business objectives.",
+  },
+
 ] as const;
 
 export const CONTACT_OFFICE_CLOCKS = [
