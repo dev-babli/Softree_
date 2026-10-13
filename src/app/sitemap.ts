@@ -6,8 +6,6 @@ const BASE_URL = 'https://www.softreetechnology.com'
 const staticRoutes: MetadataRoute.Sitemap = [
   // Primary Core Pages (Priority 1.0 - 0.95)
   { url: `${BASE_URL}/`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
-  { url: `${BASE_URL}/ai-workflow-orchestration`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
-  { url: `${BASE_URL}/services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/who-do-we-serve`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
   { url: `${BASE_URL}/webanalyser`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
 
@@ -45,6 +43,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
 
   // Microsoft, Power Platform & Modern Workspace Services
   { url: `${BASE_URL}/services/tableau-migration-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
+  { url: `${BASE_URL}/services/tableau-to-power-bi-migration`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
   { url: `${BASE_URL}/services/sql-server-to-microsoft-fabric-migration`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
   { url: `${BASE_URL}/services/tableau-server-to-tableau-cloud-migration`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
   { url: `${BASE_URL}/services/azure-data-factory-to-microsoft-fabric-migration`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },

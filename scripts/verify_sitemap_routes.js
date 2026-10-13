@@ -6,7 +6,6 @@ const proposedStaticRoutes = [
   // Primary Core Pages (Priority 1.0 - 0.95)
   { url: '/', priority: 1.0, changeFrequency: 'weekly' },
   { url: '/agentic-ai-platform', priority: 0.95, changeFrequency: 'weekly' },
-  { url: '/ai-workflow-orchestration', priority: 0.95, changeFrequency: 'weekly' },
   { url: '/services', priority: 0.9, changeFrequency: 'weekly' },
   { url: '/who-do-we-serve', priority: 0.85, changeFrequency: 'monthly' },
   { url: '/avoora', priority: 0.85, changeFrequency: 'monthly' },

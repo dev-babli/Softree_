@@ -1,3 +1,4 @@
+import type { LucideIcon } from 'lucide-react';
 import {
   MessageSquare,
   Brain,
@@ -5,9 +6,6 @@ import {
   ShieldCheck,
   Database,
   Users,
-  Zap,
-  Target,
-  Shield,
   TrendingUp,
   Cpu,
 } from 'lucide-react';
@@ -16,25 +14,28 @@ export interface CapabilityCardData {
   id: string;
   title: string;
   subtitle: string;
-  icon: any;
+  icon: LucideIcon;
   angle: number;
 }
 
 export interface FeatureItem {
-  icon: any;
+  icon: LucideIcon;
   title: string;
   subtitle: string;
 }
 
 export const HERO_DATA = {
-  label: 'AI AGENT DEVELOPMENT SERVICES',
+  label: 'OFFSHORE AI AGENT DEVELOPMENT SERVICES',
   heading: {
-    prefix: 'Your Offshore AI Agent Development Solutions for',
+    line1: 'AI Agent',
+    line2: 'Development',
+    line3: 'Services for',
+    prefix: 'AI Agent Development Solutions for',
     highlight: 'Enterprise Automation',
     suffix: '',
   },
   paragraph:
-    'Accelerate agentic AI delivery with an offshore engineering team that builds intelligent agents capable of understanding tasks, reasoning through decisions, integrating systems, and executing business workflows.',
+    'Build custom AI agents that connect enterprise data, use business tools, and automate multi-step workflows. Softree Technology provides offshore AI engineering for secure, scalable agentic AI solutions tailored to your business needs.',
   ctaButtons: {
     primary: {
       text: 'Talk to an Expert',

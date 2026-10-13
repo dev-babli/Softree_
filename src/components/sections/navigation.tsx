@@ -157,6 +157,7 @@ const menu: MenuItem[] = [
         description: "Modernize legacy platforms, migrate analytics workloads, and build scalable data environments.",
         links: [
           { label: "Tableau Migration Services", url: "/services/tableau-migration-services", icon: LineChart, description: "Frictionless migration from legacy Tableau to modern cloud analytics" },
+          { label: "Tableau to Power BI Migration", url: "/services/tableau-to-power-bi-migration", icon: LineChart, description: "Modernize Tableau reports & dashboards into Microsoft Power BI" },
           { label: "Azure Synapse to Fabric Migration", url: "/services/azure-synapse-to-microsoft-fabric-migration", icon: Server, description: "Modernize dedicated SQL pools and ETL pipelines into Microsoft Fabric" },
           {
             label: "SQL Server to Microsoft Fabric Migration",
