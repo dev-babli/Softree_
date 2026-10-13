@@ -1,5 +1,4 @@
 import { applyPageOg } from "@/lib/site-metadata";
-import React from "react";
 import { Metadata } from "next";
 import NavigationClient from "@/components/sections/navigation-client";
 import LogisticsTestingHeroWrapper from "./components/LogisticsTestingHeroWrapper";
@@ -12,16 +11,12 @@ import NewWhoDoWeServeSection from "@/components/sections/NewWhoDoWeServeSection
 import LogisticsSecurityTesting from "./components/LogisticsSecurityTesting";
 import LogisticsTestAutomation from "./components/LogisticsTestAutomation";
 import AgenticLogisticsTesting from "./components/AgenticLogisticsTesting";
-import LogisticsTestingWorkflow from "./components/LogisticsTestingWorkflow";
 import LogisticsTechnologyTesting from "./components/LogisticsTechnologyTesting";
 import WhySoftreeLogisticsTesting from "./components/WhySoftreeLogisticsTesting";
 import LogisticsTestingCaseStudies from "./components/LogisticsTestingCaseStudies";
 import LogisticsTestingFAQ from "./components/LogisticsTestingFAQ";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 import Footer from "@/components/sections/footer";
-
-const PAGE_URL =
-  "https://www.softreetechnology.com/quality-engineering/logistics-testing-services";
 
 export const metadata: Metadata = applyPageOg("/quality-engineering/logistics-testing-services", {
   title: "Logistics Testing Services | Softree Technology",
@@ -105,7 +100,6 @@ export default function LogisticsTestingPage() {
       <LogisticsTestingCaseStudies />
       <LogisticsTestAutomation />
       <AgenticLogisticsTesting />
-      {/* <LogisticsTestingWorkflow /> */}
       <LogisticsTechnologyTesting />
 
       <LogisticsSecurityTesting />

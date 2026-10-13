@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import {
   Sparkles,
   Bot,
@@ -9,7 +8,6 @@ import {
   Repeat,
   TrendingUp,
   Bug,
-  ArrowRight,
 } from "lucide-react";
 import { FlowButton } from "@/components/ui/flow-button";
 import CoverageGlobe from "@/app/industries/healthcare-software-testing-services/components/CoverageGlobe";

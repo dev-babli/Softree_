@@ -5,7 +5,7 @@ import { PerspectiveCamera } from "@react-three/drei";
 import React, { useRef } from "react";
 import * as THREE from "three";
 import { motion } from "framer-motion";
-import { ArrowRight, Activity } from "lucide-react";
+import { Activity } from "lucide-react";
 import TrustStrip from "@/components/sections/TrustStrip";
 import { cn } from "@/lib/utils";
 import { typography } from "@/lib/typography";

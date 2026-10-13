@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import {
   Sparkles,
   BarChart3,
@@ -9,7 +8,6 @@ import {
   Workflow,
   Database,
   RefreshCw,
-  ArrowRight,
 } from "lucide-react";
 import CoverageGlobe from "@/app/industries/healthcare-software-testing-services/components/CoverageGlobe";
 import { FlowButton } from "@/components/ui/flow-button";

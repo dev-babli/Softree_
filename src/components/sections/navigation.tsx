@@ -43,9 +43,13 @@ import {
   Factory,
   Truck,
   ShoppingBag,
-  Package,
   MapPin,
   RefreshCw,
+  ScanText,
+  Grid2X2,
+  BarChart3,
+  CloudUpload,
+  Users,
 } from "lucide-react";
 
 type MenuLink = {
@@ -83,37 +87,102 @@ const menu: MenuItem[] = [
     children: [
       {
         title: "AI & Automation",
-        icon: Bot,
+        icon: BrainCircuit,
         description: "Build intelligent agents, automate workflows and unlock AI-powered business innovation.",
         links: [
-          { label: "AI Development Services", url: "/services/ai-development-services", icon: Brain, description: "Custom AI solutions for your business" },
-          { label: "AI Copilot Development", url: "/solutions/ai-copilot-development", icon: WandSparkles, description: "Intelligent copilots for productivity" },
-          { label: "Generative AI Development", url: "/services/generative-ai", icon: Sparkles, description: "Build smart generative AI applications" },
-          { label: "Enterprise RAG Development", url: "/solutions/enterprise-rag-development", icon: Database, description: "Secure knowledge retrieval at scale" },
-          { label: "AI Consulting Services", url: "/services/ai-consulting-services", icon: Lightbulb, description: "Strategy, roadmap & implementation" },
-          // { label: "AI Workflow Automation", url: "/solutions/ai-workflow-automation", icon: Workflow, description: "Automate processes with AI" },
-          { label: "AI Chatbot Development", url: "/solutions/ai-chatbot-development", icon: Bot, description: "Conversational AI for better engagement" },
-          // { label: "AI Test Automation", url: "/services/ai-powered-test-automation", icon: BrainCircuit, description: "Intelligent test automation at speed" },
-          // {
-          //   label: "Automation Testing Services",
-          //   url: "/services/automation-testing-services",
-          //   icon: Workflow,
-          //   description: "End-to-end test automation for web, mobile, API, and enterprise applications"
-          // },
-          { label: "Amazon Bedrock AgentCore Development", url: "/services/amazon-bedrock-agentcore-development", icon: Bot, description: "Build and deploy production-ready AI agents" },
-          { label: "Amazon Nova 2 Sonic Solutions", url: "/services/amazon-nova-2-sonic-solutions", icon: BrainCircuit, description: "Build intelligent voice AI experiences" }
+          { label: "AI Development Services", url: "/services/ai-development-services", icon: Brain, description: "Custom GenAI models, predictive algorithms & enterprise AI solutions" },
+          { label: "AI Copilot Development", url: "/solutions/ai-copilot-development", icon: WandSparkles, description: "Context-aware AI copilots embedded directly into employee workflows" },
+          { label: "Generative AI Development", url: "/services/generative-ai", icon: Sparkles, description: "Production LLM applications with fine-tuning & safety guardrails" },
+          { label: "Enterprise RAG Development", url: "/solutions/enterprise-rag-development", icon: Database, description: "Secure Retrieval-Augmented Generation with hybrid vector search" },
+          { label: "AI Consulting Services", url: "/services/ai-consulting-services", icon: Lightbulb, description: "Strategic AI roadmaps, technical feasibility & deployment advisory" },
+          { label: "AI Chatbot Development", url: "/solutions/ai-chatbot-development", icon: Bot, description: "Contextual conversational assistants with omni-channel integration" },
+          { label: "Amazon Bedrock AgentCore Development", url: "/services/amazon-bedrock-agentcore-development", icon: Bot, description: "Scalable generative AI agents deployed on enterprise AWS Bedrock" },
+          { label: "Amazon Nova 2 Sonic Solutions", url: "/services/amazon-nova-2-sonic-solutions", icon: BrainCircuit, description: "Ultra-low latency voice intelligence & conversational speech AI" }
         ],
       },
       {
         title: "Agentic Orchestration",
-        icon: Network,
+        icon: Workflow,
         description: "Build stateful multi-agent workflows, autonomous agent networks and complex chain-of-thought LLM pipelines.",
         links: [
-          { label: "AI Agents Development", url: "/solutions/ai-agents-development", icon: Bot, description: "Autonomous agents for complex tasks" },
-          { label: "Multi-Agent Systems", url: "/solutions/multi-agent-systems", icon: BrainCircuit, description: "Orchestrate collaborative agents" },
-          { label: "LangChain Development", url: "/solutions/lang-chain-development", icon: Link2, description: "LLM apps with LangChain framework" },
-          { label: "LangGraph Development", url: "/solutions/lang-graph-development", icon: Network, description: "Stateful multi-agent workflows" },
+          { label: "AI Agents Development", url: "/solutions/ai-agents-development", icon: Bot, description: "Autonomous reasoning agents executing complex multi-step workflows" },
+          { label: "Multi-Agent Systems", url: "/solutions/multi-agent-systems", icon: BrainCircuit, description: "Collaborative multi-agent networks coordinating across business domains" },
+          { label: "LangChain Development", url: "/solutions/lang-chain-development", icon: Link2, description: "Production LLM pipelines with structured outputs, tools & memory" },
+          { label: "LangGraph Development", url: "/solutions/lang-graph-development", icon: Network, description: "Stateful agent graphs, cyclical workflows & human-in-the-loop logic" },
         ],
+      },
+      {
+        title: "Microsoft & Business Applications",
+        icon: Grid2X2,
+        description: "Optimize operations and accelerate growth with enterprise-grade business applications built on Power Platform.",
+        links: [
+          { label: "Power Apps", url: "/services/offshore-power-platform-development", icon: LayoutDashboard, description: "Custom low-code business applications connected to Dataverse & M365" },
+          { label: "Power Automate", url: "/services/offshore-power-platform-development", icon: Workflow, description: "Robotic process automation (RPA) & end-to-end cloud workflow integration" },
+          { label: "Dataverse", url: "/services/offshore-power-platform-development", icon: Server, description: "Unified, secure enterprise data architecture for Microsoft 365" },
+        ],
+      },
+      {
+        title: "Data & Analytics",
+        icon: BarChart3,
+        description: "Transform raw data into actionable intelligence and drive decision-making with modern analytics platforms.",
+        links: [
+          { label: "Power BI", url: "/services/power-bi-development-services", icon: LineChart, description: "Executive dashboards, KPI telemetry & interactive business analytics" },
+          { label: "Microsoft Fabric", url: "/services/microsoft-fabric-development-services", icon: Boxes, description: "Unified OneLake analytics, lakehouse architecture & real-time compute" },
+          { label: "Databricks", url: "/services/power-bi-development-services", icon: Cpu, description: "High-performance Apache Spark data engineering & production ML pipelines" },
+          { label: "Snowflake", url: "/services/power-bi-development-services", icon: CloudSnow, description: "Elastic cloud data warehousing, data mesh & secure enterprise sharing" },
+        ],
+      },
+      {
+        title: "Digital Engineering",
+        icon: Code2,
+        description: "Build high-performance web applications, robust APIs, and custom software systems tailored to your business operations.",
+        links: [
+          { label: "Web Applications", url: "/services/offshore-web-app-development", icon: Globe2, description: "High-concurrency React/Next.js portals with cloud-native backends" },
+          { label: "Mobile Applications", url: "/services/offshore-mobile-app-development", icon: Smartphone, description: "Feature-rich native iOS & Android applications with fluid interactions" },
+          { label: "Legacy Modernization", url: "/services/legacy-application-modernization", icon: Sparkles, description: "Monolith to microservices refactoring & cloud-native modernizations" },
+        ],
+      },
+      {
+        title: "Digital Workplace",
+        icon: Users,
+        description: "Empower your workforce with modern collaboration portals, secure intranets, and customized SharePoint environments.",
+        links: [
+          { label: "SharePoint Online", url: "/services/offshore-sharepoint-development", icon: Building2, description: "Corporate intranet portals, document management & knowledge repositories" },
+          { label: "SPFx Development", url: "/services/offshore-spfx-development", icon: Code2, description: "Custom SharePoint Framework extensions & Microsoft 365 web parts" },
+        ]
+      },
+      {
+        title: "Migration & Modernization",
+        icon: CloudUpload,
+        description: "Modernize legacy platforms, migrate analytics workloads, and build scalable data environments.",
+        links: [
+          { label: "Tableau Migration Services", url: "/services/tableau-migration-services", icon: LineChart, description: "Frictionless migration from legacy Tableau to modern cloud analytics" },
+          { label: "Azure Synapse to Fabric Migration", url: "/services/azure-synapse-to-microsoft-fabric-migration", icon: Server, description: "Modernize dedicated SQL pools and ETL pipelines into Microsoft Fabric" },
+          {
+            label: "SQL Server to Microsoft Fabric Migration",
+            url: "/services/sql-server-to-microsoft-fabric-migration",
+            icon: Server,
+            description: "Schema and pipeline migration from on-prem SQL to Fabric OneLake",
+          },
+          {
+            label: "Tableau Server to Tableau Cloud Migration",
+            url: "/services/tableau-server-to-tableau-cloud-migration",
+            icon: LineChart,
+            description: "Zero-downtime migration of workbooks, security & permissions to cloud",
+          },
+          {
+            label: "Azure Data Factory to Microsoft Fabric",
+            url: "/services/azure-data-factory-to-microsoft-fabric-migration",
+            icon: Factory,
+            description: "Automate transition of legacy ADF pipelines into Fabric Data Factory",
+          },
+          {
+            label: "Power BI to Microsoft Fabric Migration",
+            url: "/services/power-bi-to-microsoft-fabric-migration",
+            icon: LineChart,
+            description: "Direct Lake mode integration for high-speed enterprise Power BI models",
+          }
+        ]
       },
       {
         title: "Testing & Quality Engineering",
@@ -124,116 +193,45 @@ const menu: MenuItem[] = [
             label: "Automation Testing Services",
             url: "/quality-engineering/automation-testing-services",
             icon: Workflow,
-            description: "End-to-end test automation for web, mobile, API, and enterprise applications"
+            description: "Continuous automated test suites across web, mobile, API & enterprise apps"
           },
           {
             label: "Security Testing Services",
             url: "/quality-engineering/security-testing-services",
             icon: ShieldCheck,
-            description: "Validate application security, vulnerabilities, APIs, mobile apps, and enterprise systems"
+            description: "Penetration testing, OWASP Top 10 vulnerability assessments & DevSecOps"
           },
           {
             label: "Agentic AI Testing Services",
             url: "/quality-engineering/agentic-ai-testing-services",
             icon: BrainCircuit,
-            description: "Test AI agents, LLMs, RAG systems, autonomous workflows, and AI security"
+            description: "Testing AI agent hallucinations, drift, prompt injections & guardrails"
           },
           {
             label: "Healthcare Software Testing Services",
             url: "/industries/healthcare-software-testing-services",
             icon: HeartPulse,
-            description: "QA automation and digital health compliance engineering",
+            description: "HIPAA/FDA verification, EHR interoperability & digital health compliance QA",
           },
           {
             label: "Logistics Testing Services",
             url: "/quality-engineering/logistics-testing-services",
             icon: Truck,
-            description: "QA & test automation for logistics and supply chain systems",
+            description: "Comprehensive testing across TMS, WMS, EDI protocols & fleet logistics",
           },
         ],
       },
       {
         title: "Document & Process Intelligence",
-        icon: FileText,
+        icon: ScanText,
         description: "Extract value from unstructured documents and orchestrate complex workflows using advanced Document AI and process mining.",
         links: [
-          { label: "Document AI Solutions", url: "/solutions/document-ai-solutions", icon: FileText, description: "Automate data extraction from docs" },
-          { label: "Azure OpenAI Solutions", url: "/solutions/azure-openai-development", icon: Sparkles, description: "Enterprise Generative AI integrations" },
+          { label: "Document AI Solutions", url: "/solutions/document-ai-solutions", icon: FileText, description: "Automated OCR extraction from unstructured PDFs, invoices & contracts" },
+          { label: "Azure OpenAI Solutions", url: "/solutions/azure-openai-development", icon: Sparkles, description: "Private, enterprise-grade GPT-4 integrations on dedicated Azure cloud" },
         ],
       },
-      {
-        title: "Microsoft & Business Applications",
-        icon: LayoutDashboard,
-        description: "Optimize operations and accelerate growth with enterprise-grade business applications built on Power Platform.",
-        links: [
-          { label: "Power Apps", url: "/services/offshore-power-platform-development", icon: LayoutDashboard, description: "Custom low-code business apps" },
-          { label: "Power Automate", url: "/services/offshore-power-platform-development", icon: Workflow, description: "Automated workflows and integration" },
-          { label: "Dataverse", url: "/services/offshore-power-platform-development", icon: Server, description: "Secure, unified enterprise data layer" },
-        ],
-      },
-      {
-        title: "Data & Analytics",
-        icon: LineChart,
-        description: "Transform raw data into actionable intelligence and drive decision-making with modern analytics platforms.",
-        links: [
-          { label: "Power BI", url: "/services/power-bi-development-services", icon: LineChart, description: "Interactive executive dashboards" },
-          { label: "Microsoft Fabric", url: "/services/microsoft-fabric-development-services", icon: Boxes, description: "All-in-one unified analytics platform" },
-          { label: "Databricks", url: "/services/power-bi-development-services", icon: Cpu, description: "Enterprise machine learning pipelines" },
-          { label: "Snowflake", url: "/services/power-bi-development-services", icon: CloudSnow, description: "Cloud-native data warehousing and sharing" },
-        ],
-      },
-      {
-        title: "Digital Engineering",
-        icon: Code2,
-        description: "Build high-performance web applications, robust APIs, and custom software systems tailored to your business operations.",
-        links: [
-          { label: "Web Applications", url: "/services/offshore-web-app-development", icon: Globe2, description: "Bespoke web apps and customer portals" },
-          { label: "Mobile Applications", url: "/services/offshore-mobile-app-development", icon: Smartphone, description: "Native iOS & Android app development" },
-          { label: "Legacy Modernization", url: "/services/legacy-application-modernization", icon: Sparkles, description: "Re-architecting legacy software systems" },
-        ],
-      },
-      {
-        title: "Digital Workplace",
-        icon: Building2,
-        description: "Empower your workforce with modern collaboration portals, secure intranets, and customized SharePoint environments.",
-        links: [
-          { label: "SharePoint Online", url: "/services/offshore-sharepoint-development", icon: Building2, description: "Intranet portals and document management" },
-          { label: "SPFx Development", url: "/services/offshore-spfx-development", icon: Code2, description: "Custom web parts and platform extensions" },
-        ]
-      },
-      {
-        title: "Migration & Modernization",
-        icon: RefreshCw,
-        description: "Modernize legacy platforms, migrate analytics workloads, and build scalable data environments.",
-        links: [
-          { label: "Tableau Migration Services", url: "/services/tableau-migration-services", icon: LineChart, description: "Seamless analytics migration and modernization" },
-          { label: "Azure Synapse to Fabric Migration", url: "/services/azure-synapse-to-microsoft-fabric-migration", icon: Server, description: "Migrate analytics to Microsoft Fabric" },
-          {
-            label: "SQL Server to Microsoft Fabric Migration",
-            url: "/services/sql-server-to-microsoft-fabric-migration",
-            icon: Server,
-            description: "Modernize SQL Server workloads with Microsoft Fabric",
-          },
-          {
-            label: "Tableau Server to Tableau Cloud Migration",
-            url: "/services/tableau-server-to-tableau-cloud-migration",
-            icon: LineChart,
-            description: "Migrate Tableau Server analytics to Tableau Cloud",
-          },
-          {
-            label: "Azure Data Factory to Microsoft Fabric",
-            url: "/services/azure-data-factory-to-microsoft-fabric-migration",
-            icon: Factory,
-            description: "Seamless data pipeline modernization to Microsoft Fabric",
-          },
-          {
-            label: "Power BI to Microsoft Fabric Migration",
-            url: "/services/power-bi-to-microsoft-fabric-migration",
-            icon: LineChart,
-            description: "Elevate your Power BI workloads with Microsoft Fabric",
-          }
-        ]
-      },
+
+
     ],
   },
   {
@@ -249,15 +247,14 @@ const menu: MenuItem[] = [
             label: "Healthcare AI Solutions",
             url: "/industries/healthcare-ai-solutions",
             icon: HeartPulse,
-            description: "Full-suite clinical AI & healthcare systems",
+            description: "Clinical copilots, medical document AI & patient engagement platforms",
           },
           {
             label: "Healthcare Software Testing Services",
             url: "/industries/healthcare-software-testing-services",
             icon: HeartPulse,
-            description: "QA automation and digital health compliance engineering",
+            description: "HIPAA-compliant software validation, EHR integration testing & security",
           },
-
         ],
       },
       {
@@ -269,9 +266,8 @@ const menu: MenuItem[] = [
             label: "Logistics Engineering Excellence",
             url: "/industries/offshore-logistics-supply-chain-engineering",
             icon: Truck,
-            description: "AI & custom software for global supply chains",
+            description: "AI route optimization, real-time tracking & warehouse software solutions",
           },
-
         ],
       },
     ],
@@ -536,15 +532,15 @@ export default function Navigation({
                     >
                       <span className="whitespace-nowrap">{item.label}</span>
                       {isSelected && (
-                          <motion.div
-                            layoutId="navLampIndicator"
-                            className="pointer-events-none absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-[#FF5812] rounded-full transform-gpu"
-                            transition={
-                              reduceMotion
-                                ? { duration: 0 }
-                                : { type: "spring", stiffness: 450, damping: 32 }
-                            }
-                          />
+                        <motion.div
+                          layoutId="navLampIndicator"
+                          className="pointer-events-none absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-[#FF5812] rounded-full transform-gpu"
+                          transition={
+                            reduceMotion
+                              ? { duration: 0 }
+                              : { type: "spring", stiffness: 450, damping: 32 }
+                          }
+                        />
                       )}
                     </Link>
                   );

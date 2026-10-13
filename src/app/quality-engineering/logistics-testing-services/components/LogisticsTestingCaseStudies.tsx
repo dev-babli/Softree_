@@ -1,5 +1,4 @@
 import React from "react";
-import { ArrowRight } from "lucide-react";
 import { FlowButton } from "@/components/ui/flow-button";
 import {
   Carousel,

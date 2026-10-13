@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { applyPageOg } from "@/lib/site-metadata";
-import React from 'react';
 import Hero from './components/Hero/Hero';
 import NavigationClient from '@/components/sections/navigation-client';
 import WhyChoose from "./components/WhyChoose/WhyChoose";

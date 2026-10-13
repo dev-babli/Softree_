@@ -1,10 +1,5 @@
-import React from "react";
 import NavigationClient from '@/components/sections/navigation-client';
-import Hero from "./components/Hero";
 import HealthcareTestingHero from "./components/HealthcareTestingHero";
-import HealthcareTestingNeuralHero from "./components/HealthcareTestingNeuralHero";
-import HealthcareTestingGlobeHero from "./components/HealthcareTestingGlobeHero";
-import HealthcareTestingVideoHero from "./components/HealthcareTestingVideoHero";
 import TrustedBrandsMarquee from "./components/TrustedBrandsMarquee";
 import HealthcareTestingPositioning from "./components/HealthcareTestingPositioning";
 import HealthcareTestingFramework from "./components/HealthcareTestingFramework";
@@ -73,11 +68,7 @@ export default function HealthcareTestingPage() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
       <NavigationClient />
-      {/* <Hero /> */}
       <HealthcareTestingHero />
-      {/* <HealthcareTestingNeuralHero /> */}
-      {/* <HealthcareTestingGlobeHero /> */}
-      {/* <HealthcareTestingVideoHero /> */}
       <TrustedBrandsMarquee surface="light" />
       <HealthcareTestingPositioning />
       <HealthcareTestingCoverage />

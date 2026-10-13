@@ -1,5 +1,4 @@
 import { applyPageOg } from "@/lib/site-metadata";
-import React from 'react';
 import dynamic from 'next/dynamic';
 import { Metadata } from 'next';
 import NavigationClient from '@/components/sections/navigation-client';

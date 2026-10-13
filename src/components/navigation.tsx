@@ -35,13 +35,13 @@ const menu = [
             label: "Mobile App Development",
             url: "/services/offshore-mobile-app-development",
             icon: <FaMobileAlt />,
-            description: "Native and cross-platform apps for iOS & Android",
+            description: "High-performance native iOS & Android applications with fluid UX",
           },
           {
             label: "Web App Development",
             url: "/services/offshore-web-app-development",
             icon: <FaLaptopCode />,
-            description: "Scalable web applications with modern tech stack",
+            description: "Scalable full-stack web applications and high-concurrency cloud portals",
           },
         ],
       },
@@ -53,26 +53,26 @@ const menu = [
             url: "/services/offshore-sharepoint-development",
             icon: <FaShareAlt />,
             description:
-              "Enterprise SharePoint solutions for intranet & collaboration",
+              "Centralized corporate intranet portals, document management & knowledge hubs",
           },
           {
             label: "SPFx Developments",
             url: "/services/offshore-spfx-development",
             icon: <FaWpforms />,
-            description: "Custom SPFx web parts & extensions",
+            description: "Custom SharePoint Framework extensions & Microsoft 365 web parts",
           },
           {
             label: "PnP PowerShell",
             url: "/services/offshore-sharepoint-development",
             icon: <FaDatabase />,
-            description: "Automate SharePoint tasks with PnP PowerShell",
+            description: "Automate tenant provisioning and site administration with PnP PowerShell",
           },
           {
             label: "Teams App Development",
             url: "/services/offshore-sharepoint-development",
             icon: <FaMicrosoft />,
             description:
-              "Integrate your business workflow with Microsoft Teams",
+              "Deep Microsoft Teams apps and custom bots integrated into business workflows",
           },
         ],
       },
@@ -83,20 +83,20 @@ const menu = [
             label: "Microsoft PowerApps",
             url: "/services/offshore-power-platform-development",
             icon: <FaMicrosoft />,
-            description: "Build low-code apps to streamline business processes",
+            description: "Custom low-code enterprise applications connected to Dataverse & M365",
           },
           {
             label: "Microsoft Power Pages",
             url: "/services/offshore-power-platform-development",
             icon: <FaMicrosoft />,
-            description: "Create secure, modern web portals with Power Pages",
+            description: "External-facing secure business portals connected directly to Dataverse",
           },
           {
             label: "Microsoft Power BI",
             url: "/services/power-bi-development-services",
             icon: <FaChartLine />,
             description:
-              "Interactive dashboards & analytics for data-driven decisions",
+              "Executive reporting dashboards, telemetry scorecards & real-time analytics",
           },
         ],
       },
@@ -149,6 +149,7 @@ function MenuItem({ item, isMobile, pathname }: any) {
   const wrapperRef = useRef<HTMLLIElement>(null);
 
   const isActive = (url: string) => pathname === url;
+
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {

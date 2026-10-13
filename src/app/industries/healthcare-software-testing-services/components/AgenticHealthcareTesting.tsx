@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { ChevronLeft, ChevronRight, Sparkles, ShieldCheck } from "lucide-react";
+import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 import { FlowButton } from "@/components/ui/flow-button";
 
 export interface ProjectDeliverable {

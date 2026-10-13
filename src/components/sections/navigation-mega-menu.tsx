@@ -213,17 +213,30 @@ const CATEGORY_META: Record<
   },
 };
 
-// Concise, clear micro-descriptions tailored for the 2-column cards
+// Compact, enterprise-grade descriptions tailored for sleek 2-column cards
 const CATEGORY_SHORT_DESCS: Record<string, string> = {
-  "AI & Automation": "Intelligent agents & workflows",
-  "Agentic Orchestration": "Multi-agent systems & pipelines",
-  "Testing & Quality Engineering": "Software QA & AI testing",
-  "Document & Process Intelligence": "Document AI & process workflows",
-  "Microsoft & Business Applications": "Power Apps & Dataverse solutions",
-  "Data & Analytics": "Power BI & Fabric analytics",
-  "Digital Engineering": "Web apps, APIs & cloud platforms",
-  "Digital Workplace": "SharePoint & collaboration portals",
-  "Migration & Modernization": "Cloud, Tableau & Fabric migrations",
+  "AI & Automation":
+    "Custom GenAI models, enterprise copilots & automated workflows",
+  "Agentic Orchestration":
+    "Multi-agent systems, LangGraph pipelines & reasoning swarms",
+  "Testing & Quality Engineering":
+    "Continuous QA automation, cybersecurity VAPT & AI testing",
+  "Document & Process Intelligence":
+    "Multimodal Document AI, smart OCR & Azure OpenAI pipelines",
+  "Microsoft & Business Applications":
+    "Enterprise Power Apps, Power Automate & Dataverse solutions",
+  "Data & Analytics":
+    "Executive Power BI dashboards, Fabric lakehouse & Databricks",
+  "Digital Engineering":
+    "Full-stack web apps, native mobile apps & cloud microservices",
+  "Digital Workplace":
+    "Modern SharePoint Online intranets & custom SPFx portals",
+  "Migration & Modernization":
+    "Cloud migrations across Tableau, SQL Server, ADF & Fabric",
+  "Healthcare":
+    "Clinical copilots, HIPAA document AI & digital health QA",
+  "Logistics & Supply Chain":
+    "Smart route optimization, warehouse automation & logistics QA",
 };
 
 /* -------------------------------------------------------------------------- */
@@ -310,29 +323,26 @@ export function MegaMenuPanel({
       transition={{ duration: 0.16, ease: [0.16, 1, 0.3, 1] }}
       onKeyDown={handleKeyDown}
       tabIndex={0}
-      className="mx-auto w-full max-w-[1380px] overflow-hidden rounded-[28px] border border-black/[0.08] bg-white p-4 sm:p-5 lg:p-6 shadow-[0_28px_80px_-15px_rgba(10,10,26,0.18),0_4px_20px_rgba(0,0,0,0.04)] focus:outline-none transform-gpu will-change-[transform,opacity]"
+      className="mx-auto w-full max-w-[1340px] overflow-hidden rounded-[22px] border border-black/[0.08] bg-white p-3 sm:p-3.5 lg:p-4 shadow-[0_24px_70px_-15px_rgba(10,10,26,0.16),0_4px_16px_rgba(0,0,0,0.04)] focus:outline-none transform-gpu will-change-[transform,opacity]"
     >
       {/* =================================================================== */}
-      {/* 3-Column Layout from Image 1: Left Intro | Center Services | Right Featured */}
+      {/* 3-Column Layout: Left Intro | Center Services | Right Featured      */}
       {/* =================================================================== */}
-      <div className="flex flex-col lg:flex-row gap-5 xl:gap-6 items-stretch w-full">
+      <div className="flex flex-col lg:flex-row gap-3.5 xl:gap-4 items-stretch w-full">
         {/* ================================================================= */}
-        {/* LEFT PANEL: Selected Category Intro + FluidFieldBackground         */}
+        {/* LEFT PANEL: Selected Category Intro with Solid Orange-Red Gradient */}
         {/* ================================================================= */}
-        <div className="relative w-full lg:w-[320px] xl:w-[350px] shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-[#050508] p-6 xl:p-7 flex flex-col justify-between shadow-sm">
-          {/* WebGL Fluid Field Shader Animation (Softree Orange & Red) */}
-          <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-            <FluidFieldBackground className="w-full h-full" />
-            {/* Subtle radial dark overlay for high text legibility */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#050508]/60 via-[#050508]/40 to-[#050508]/80 pointer-events-none" />
-          </div>
+        <div className="relative w-full lg:w-[280px] xl:w-[300px] shrink-0 overflow-hidden rounded-xl bg-gradient-to-br from-[#FF6B2C] via-[#FF5812] to-[#D92C00] p-4.5 xl:p-5 flex flex-col justify-between shadow-[0_6px_24px_rgba(255,88,18,0.22)] border border-white/20">
+          {/* Luminous inner depth highlight */}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-white/15" />
+          <div className="pointer-events-none absolute -top-12 -right-12 w-36 h-36 bg-white/15 rounded-full blur-2xl" />
 
           {/* Banner content */}
           <div className="relative z-10 flex flex-col justify-between h-full pointer-events-auto">
             <div>
               {/* Header with Eyebrow */}
-              <div className="mb-4">
-                <span className="text-[11px] font-bold tracking-[0.14em] text-[#FF5812] uppercase drop-shadow-sm">
+              <div className="mb-2.5">
+                <span className="text-[10px] font-extrabold tracking-[0.14em] text-white uppercase drop-shadow-sm bg-white/20 backdrop-blur-sm px-2.5 py-0.5 rounded-full inline-block">
                   {meta.eyebrow}
                 </span>
               </div>
@@ -346,25 +356,25 @@ export function MegaMenuPanel({
                   exit={{ opacity: 0, y: -2 }}
                   transition={{ duration: 0.08, ease: "easeOut" }}
                 >
-                  <h3 className="text-[22px] xl:text-[25px] font-extrabold leading-[1.18] tracking-tight text-white mb-3">
+                  <h3 className="text-[18px] xl:text-[20px] font-extrabold leading-[1.2] tracking-tight text-white mb-2 drop-shadow-sm">
                     {meta.introHeading}
                   </h3>
-                  <p className="text-[13px] leading-relaxed text-slate-300 font-normal">
+                  <p className="text-[12.5px] xl:text-[13px] leading-relaxed text-white/90 font-medium line-clamp-3">
                     {meta.introDescription}
                   </p>
                 </motion.div>
               </AnimatePresence>
             </div>
 
-            <div className="pt-7 mt-auto">
+            <div className="pt-4 mt-auto">
               <Link
                 href={meta.introCtaUrl}
                 prefetch={false}
                 onClick={onClose}
-                className="group inline-flex items-center gap-2 rounded-full bg-[#FF5812] px-5 py-2.5 text-[13px] font-semibold text-white shadow-[0_4px_16px_rgba(255,88,18,0.36)] transition-all duration-150 hover:bg-[#e64a09] hover:shadow-[0_6px_20px_rgba(255,88,18,0.45)]"
+                className="group inline-flex items-center gap-1.5 rounded-full bg-white text-slate-900 hover:bg-slate-100 px-4 py-2 text-[12px] font-bold shadow-[0_4px_14px_rgba(0,0,0,0.15)] transition-all duration-150"
               >
                 <span>{meta.introCtaText}</span>
-                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-150 group-hover:translate-x-1" />
+                <ArrowRight className="h-3 w-3 transition-transform duration-150 group-hover:translate-x-1 text-[#FF5812]" />
               </Link>
             </div>
           </div>
@@ -376,19 +386,19 @@ export function MegaMenuPanel({
         <div className="flex-1 min-w-0 flex flex-col justify-start">
           {viewLevel === "categories" ? (
             /* ─────────────────────────────────────────────────────────────── */
-            /* LEVEL 1: ALL 9 SERVICE CATEGORIES (Matching Image 2)            */
+            /* LEVEL 1: ALL 9 SERVICE CATEGORIES                               */
             /* ─────────────────────────────────────────────────────────────── */
             <div>
-              <div className="flex items-center justify-between mb-3 px-1">
-                <span className="text-[11px] font-bold tracking-[0.14em] text-slate-400 uppercase">
+              <div className="flex items-center justify-between mb-2 px-1">
+                <span className="text-[10.5px] font-bold tracking-[0.14em] text-slate-400 uppercase">
                   OUR SERVICES
                 </span>
-                <span className="text-[11px] font-medium text-slate-400">
+                <span className="text-[10.5px] font-medium text-slate-400">
                   Select a category to view services
                 </span>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-1.5 xl:gap-2">
                 {availableGroups.map((group, idx) => {
                   const isSelected = activeIdx === idx;
                   const GroupIcon = group.icon || Bot;
@@ -404,28 +414,28 @@ export function MegaMenuPanel({
                       type="button"
                       onClick={() => handleSelectCategory(idx)}
                       onMouseEnter={() => setActiveIdx(idx)}
-                      className={`group w-full text-left relative flex items-center justify-between p-3 xl:p-3.5 rounded-xl border transition-colors duration-100 cursor-pointer ${
+                      className={`group w-full text-left relative flex items-center justify-between py-2 px-2.5 xl:py-2.5 xl:px-3 rounded-lg border transition-all duration-150 cursor-pointer ${
                         isSelected
-                          ? "bg-slate-50/80 border-[#FF5812]/30 shadow-[0_2px_10px_rgba(255,88,18,0.08)]"
-                          : "bg-white border-slate-100 hover:border-slate-200 hover:bg-slate-50/60"
+                          ? "bg-gradient-to-r from-[#FFF7F2] to-[#FFF1E8] border-[#FF5812]/40 shadow-[0_2px_10px_rgba(255,88,18,0.1)]"
+                          : "bg-white border-slate-100 hover:border-slate-200 hover:bg-slate-50/70"
                       }`}
                     >
-                      <div className="flex items-center gap-3.5 min-w-0 pr-2 flex-1">
-                        {/* Icon container with warm peach background */}
+                      <div className="flex items-center gap-2.5 xl:gap-3 min-w-0 pr-1.5 flex-1">
+                        {/* Solid Orange-Red Gradient Icon Badge */}
                         <div
-                          className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-colors duration-150 ${
+                          className={`relative w-8 h-8 xl:w-8.5 xl:h-8.5 rounded-lg flex items-center justify-center shrink-0 transition-all duration-150 ${
                             isSelected
-                              ? "bg-[#FFE8DC] text-[#FF5812]"
-                              : "bg-[#FFF2EB] text-[#FF5812] group-hover:bg-[#FFE8DC]"
+                              ? "bg-gradient-to-br from-[#FF6B2C] via-[#FF5812] to-[#D92C00] text-white shadow-[0_3px_10px_rgba(255,88,18,0.35)] scale-[1.03]"
+                              : "bg-gradient-to-br from-[#FF6B2C] via-[#FF5812] to-[#D92C00] text-white shadow-[0_2px_6px_rgba(255,88,18,0.22)] group-hover:scale-105"
                           }`}
                         >
-                          <GroupIcon size={18} />
+                          <GroupIcon size={17} className="stroke-[2.2] transition-transform duration-150" />
                         </div>
 
                         {/* Title & Description */}
                         <div className="min-w-0 flex-1">
                           <span
-                            className={`text-[13px] font-bold block leading-snug transition-colors duration-150 ${
+                            className={`text-[12.5px] xl:text-[13px] font-bold block leading-tight transition-colors duration-150 ${
                               isSelected
                                 ? "text-[#FF5812]"
                                 : "text-[#0f172a] group-hover:text-[#FF5812]"
@@ -433,19 +443,28 @@ export function MegaMenuPanel({
                           >
                             {group.title}
                           </span>
-                          <span className="text-[11.5px] text-slate-500 block leading-tight mt-0.5 font-normal">
+                          <span className="text-[12px] xl:text-[12.5px] text-slate-500 group-hover:text-slate-600 block leading-[1.3] mt-0.5 font-normal line-clamp-1">
                             {shortDesc}
                           </span>
                         </div>
                       </div>
 
                       {/* Right Orange Arrow Indicator */}
-                      <ArrowRight
-                        className={`w-4 h-4 shrink-0 transition-all duration-150 ${isSelected
-                            ? "text-[#FF5812] translate-x-0.5"
-                            : "text-[#FF5812]/50 group-hover:text-[#FF5812] group-hover:translate-x-0.5"
+                      <div
+                        className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-all duration-150 ${
+                          isSelected
+                            ? "bg-[#FF5812]/10 translate-x-0.5"
+                            : "group-hover:bg-[#FF5812]/10 group-hover:translate-x-0.5"
+                        }`}
+                      >
+                        <ArrowRight
+                          className={`w-3 h-3 transition-colors duration-150 ${
+                            isSelected
+                              ? "text-[#FF5812]"
+                              : "text-[#FF5812]/45 group-hover:text-[#FF5812]"
                           }`}
-                      />
+                        />
+                      </div>
                     </button>
                   );
                 })}
@@ -456,23 +475,23 @@ export function MegaMenuPanel({
             /* LEVEL 2: SELECTED CATEGORY'S SERVICES + BACK BUTTON            */
             /* ─────────────────────────────────────────────────────────────── */
             <div>
-              <div className="flex items-center justify-between mb-3 px-1">
+              <div className="flex items-center justify-between mb-2 px-1">
                 <div className="flex items-center gap-2">
                   <button
                     type="button"
                     onClick={handleBackToCategories}
                     aria-label="Back to all categories"
-                    className="inline-flex items-center gap-1.5 text-[11.5px] font-bold text-white bg-[#FF5812] hover:bg-[#e64a09] transition-all py-1 px-3 rounded-full shadow-sm cursor-pointer active:scale-95"
+                    className="inline-flex items-center gap-1 text-[11px] font-bold text-white bg-[#FF5812] hover:bg-[#e64a09] transition-all py-0.5 px-2.5 rounded-full shadow-sm cursor-pointer active:scale-95"
                   >
-                    <ChevronLeft size={14} className="stroke-[2.5]" />
+                    <ChevronLeft size={13} className="stroke-[2.5]" />
                     <span>Back to All Categories</span>
                   </button>
                   <span className="text-slate-300">|</span>
-                  <span className="text-[11px] font-bold tracking-[0.14em] text-slate-500 uppercase">
+                  <span className="text-[10.5px] font-bold tracking-[0.14em] text-slate-500 uppercase">
                     {currentGroup.title}
                   </span>
                 </div>
-                <span className="text-[11px] font-semibold text-slate-400">
+                <span className="text-[10.5px] font-semibold text-slate-400">
                   {safeIdx + 1} of {availableGroups.length} categories
                 </span>
               </div>
@@ -484,7 +503,7 @@ export function MegaMenuPanel({
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -2 }}
                   transition={{ duration: 0.08, ease: "easeOut" }}
-                  className="grid grid-cols-1 md:grid-cols-2 gap-2.5"
+                  className="grid grid-cols-1 md:grid-cols-2 gap-1.5 xl:gap-2"
                 >
                   {serviceLinks.map((link) => {
                     const LinkIcon = link.icon || Bot;
@@ -494,21 +513,21 @@ export function MegaMenuPanel({
                         href={link.url}
                         prefetch={false}
                         onClick={onClose}
-                        className="group relative flex items-center justify-between p-3 xl:p-3.5 rounded-xl border border-slate-100 bg-white hover:border-[#FF5812]/30 hover:bg-slate-50/70 hover:shadow-[0_2px_10px_rgba(255,88,18,0.06)] transition-colors duration-100"
+                        className="group relative flex items-center justify-between py-2 px-2.5 xl:py-2.5 xl:px-3 rounded-lg border border-slate-100 bg-white hover:border-[#FF5812]/30 hover:bg-slate-50/70 hover:shadow-[0_2px_8px_rgba(255,88,18,0.06)] transition-all duration-150"
                       >
-                        <div className="flex items-center gap-3.5 min-w-0 pr-2 flex-1">
-                          {/* Icon container with warm peach background */}
-                          <div className="w-9 h-9 rounded-lg bg-[#FFF2EB] text-[#FF5812] group-hover:bg-[#FFE8DC] flex items-center justify-center shrink-0 transition-colors duration-150">
-                            <LinkIcon size={18} />
+                        <div className="flex items-center gap-2.5 xl:gap-3 min-w-0 pr-1.5 flex-1">
+                          {/* Solid Orange-Red Gradient Icon Badge */}
+                          <div className="relative w-8 h-8 xl:w-8.5 xl:h-8.5 rounded-lg bg-gradient-to-br from-[#FF6B2C] via-[#FF5812] to-[#D92C00] text-white shadow-[0_2px_6px_rgba(255,88,18,0.22)] group-hover:scale-105 flex items-center justify-center shrink-0 transition-all duration-150">
+                            <LinkIcon size={17} className="stroke-[2.2] transition-transform duration-150" />
                           </div>
 
                           {/* Title & Description */}
                           <div className="min-w-0 flex-1">
-                            <span className="text-[13px] font-bold text-[#0f172a] group-hover:text-[#FF5812] transition-colors block leading-snug">
+                            <span className="text-[12.5px] xl:text-[13px] font-bold text-[#0f172a] group-hover:text-[#FF5812] transition-colors block leading-tight">
                               {link.label}
                             </span>
                             {link.description && (
-                              <span className="text-[11.5px] text-slate-500 block leading-tight mt-0.5 font-normal line-clamp-2">
+                              <span className="text-[12px] xl:text-[12.5px] text-slate-500 group-hover:text-slate-600 block leading-[1.3] mt-0.5 font-normal line-clamp-1">
                                 {link.description}
                               </span>
                             )}
@@ -516,7 +535,9 @@ export function MegaMenuPanel({
                         </div>
 
                         {/* Right Orange Arrow Indicator */}
-                        <ArrowRight className="w-4 h-4 text-[#FF5812]/40 group-hover:text-[#FF5812] group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
+                        <div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-all duration-150 group-hover:bg-[#FF5812]/10 group-hover:translate-x-0.5 ml-1.5">
+                          <ArrowRight className="w-3 h-3 text-[#FF5812]/45 group-hover:text-[#FF5812] transition-colors" />
+                        </div>
                       </Link>
                     );
                   })}
@@ -529,12 +550,12 @@ export function MegaMenuPanel({
         {/* ================================================================= */}
         {/* RIGHT PANEL: FEATURED Promotional Card                            */}
         {/* ================================================================= */}
-        <div className="w-full lg:w-[280px] xl:w-[310px] shrink-0 flex flex-col">
-          <div className="text-[11px] font-bold tracking-[0.14em] text-slate-400 uppercase mb-3 px-1">
+        <div className="w-full lg:w-[250px] xl:w-[270px] shrink-0 flex flex-col">
+          <div className="text-[10.5px] font-bold tracking-[0.14em] text-slate-400 uppercase mb-2 px-1">
             FEATURED
           </div>
 
-          <div className="relative flex-1 min-h-[380px] rounded-2xl overflow-hidden group shadow-sm flex flex-col justify-end p-4 sm:p-5 text-white">
+          <div className="relative flex-1 min-h-[260px] rounded-xl overflow-hidden group shadow-sm flex flex-col justify-end p-3.5 xl:p-4 text-white">
             {/* Background Image */}
             <img
               src={meta.featuredImage}
@@ -555,23 +576,23 @@ export function MegaMenuPanel({
                 transition={{ duration: 0.08, ease: "easeOut" }}
                 className="relative z-10 flex flex-col"
               >
-                <span className="text-[10.5px] font-extrabold tracking-widest text-[#FF5812] uppercase mb-1 drop-shadow">
+                <span className="text-[10px] font-extrabold tracking-widest text-[#FF5812] uppercase mb-0.5 drop-shadow">
                   {meta.featuredEyebrow}
                 </span>
-                <h4 className="text-[16px] xl:text-[17px] font-extrabold leading-snug text-white mb-1.5">
+                <h4 className="text-[14.5px] xl:text-[15.5px] font-extrabold leading-snug text-white mb-1">
                   {meta.featuredHeading}
                 </h4>
-                <p className="text-[11.5px] text-slate-200 leading-relaxed mb-3.5 font-normal">
+                <p className="text-[11.5px] xl:text-[12px] text-slate-200 leading-normal mb-2.5 font-normal line-clamp-2">
                   {meta.featuredDescription}
                 </p>
                 <Link
                   href={meta.featuredCtaUrl}
                   prefetch={false}
                   onClick={onClose}
-                  className="w-full inline-flex items-center justify-center gap-1.5 rounded-full bg-white hover:bg-slate-100 text-slate-900 font-bold text-[12px] py-2.5 px-3.5 shadow-md transition-all group/btn"
+                  className="w-full inline-flex items-center justify-center gap-1.5 rounded-full bg-white hover:bg-slate-100 text-slate-900 font-bold text-[11.5px] py-2 px-3 shadow-md transition-all group/btn"
                 >
                   <span>{meta.featuredCtaText}</span>
-                  <ArrowRight className="w-3.5 h-3.5 transition-transform duration-150 group-hover/btn:translate-x-1 text-[#FF5812]" />
+                  <ArrowRight className="w-3 h-3 transition-transform duration-150 group-hover/btn:translate-x-1 text-[#FF5812]" />
                 </Link>
               </motion.div>
             </AnimatePresence>

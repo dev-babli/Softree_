@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import SqueezeCarousel, { SqueezeSlide } from "@/components/ui/carousel-squeeze";
+import { useState } from "react";
+import SqueezeCarousel, { type SqueezeSlide } from "@/components/ui/carousel-squeeze";
 import AnimatedGradient from "@/components/ui/animated-gradient";
 import { typography } from "@/lib/typography";
 import {
