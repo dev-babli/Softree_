@@ -16,6 +16,8 @@ const siteOrigin = (
 const leadMagnetOrigin = "https://web-lead-magnet-seven.vercel.app";
 
 const isAmplify = Boolean(process.env.AWS_APP_ID || process.env.AWS_BRANCH);
+const hasSentryToken = Boolean(process.env.SENTRY_AUTH_TOKEN);
+const shouldEnableSentrySourcemaps = hasSentryToken && !isAmplify;
 
 const nextConfig: any = {
   turbopack: {
@@ -27,6 +29,42 @@ const nextConfig: any = {
   productionBrowserSourceMaps: false,
   experimental: {
     cpus: 2,
+    webpackMemoryOptimizations: true,
+    optimizePackageImports: [
+      "@tabler/icons-react",
+      "lucide-react",
+      "react-icons",
+      "@heroicons/react",
+      "@radix-ui/react-accordion",
+      "@radix-ui/react-alert-dialog",
+      "@radix-ui/react-aspect-ratio",
+      "@radix-ui/react-avatar",
+      "@radix-ui/react-checkbox",
+      "@radix-ui/react-collapsible",
+      "@radix-ui/react-context-menu",
+      "@radix-ui/react-dialog",
+      "@radix-ui/react-dropdown-menu",
+      "@radix-ui/react-hover-card",
+      "@radix-ui/react-menubar",
+      "@radix-ui/react-navigation-menu",
+      "@radix-ui/react-popover",
+      "@radix-ui/react-progress",
+      "@radix-ui/react-radio-group",
+      "@radix-ui/react-scroll-area",
+      "@radix-ui/react-select",
+      "@radix-ui/react-separator",
+      "@radix-ui/react-slider",
+      "@radix-ui/react-slot",
+      "@radix-ui/react-switch",
+      "@radix-ui/react-tabs",
+      "@radix-ui/react-toast",
+      "@radix-ui/react-toggle",
+      "@radix-ui/react-toggle-group",
+      "@radix-ui/react-tooltip",
+      "framer-motion",
+      "date-fns",
+      "lodash",
+    ],
   },
   outputFileTracingExcludes: {
     "*": [
@@ -495,10 +533,11 @@ export default process.env.NODE_ENV === "production"
       // For all available options, see:
       // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
 
-      // Upload a larger set of source maps for prettier stack traces (increases build time)
-      widenClientFileUpload: !isAmplify,
+      // Upload a larger set of source maps for prettier stack traces (only when token provided)
+      widenClientFileUpload: shouldEnableSentrySourcemaps,
       sourcemaps: {
-        disable: isAmplify,
+        disable: !shouldEnableSentrySourcemaps,
+        deleteSourcemapsAfterUpload: true,
       },
 
       // Route browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers.
