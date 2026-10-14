@@ -1,22 +1,17 @@
 "use client"
 
-import AboutClientLogos from "@/components/qc/homepage-light/AboutClientLogos"
 import LightContactSection from "@/components/homepage-light/LightContactSection"
 import LightFAQExact from "@/components/homepage-light/LightFAQExact"
 import TrustedBrandsMarquee from "@/app/services/offshore-power-platform-development/trust";
-import ProvenResults from "@/components/sections/ProvenResults";
 
 import { GenerativeAiPageLoader } from "./GenerativeAiPageLoader"
-import { GenAiFramework } from "./sections/GenAiFramework"
 import { GenAiHero } from "./sections/GenAiHero"
-import { GenAiIndustry } from "./sections/GenAiIndustry"
-import { GenAiProcess } from "./sections/GenAiProcess"
-import { GenAiServices } from "./sections/GenAiServices"
-import GenAiPortfolio from "./sections/GenAiPortfolio"
-import GenAiResilience from "./sections/GenAiResilience"
 import WhyChooseWithTestimonials from "./sections/WhyChooseWithTestimonials"
-import AiTechnologyStack from "@/app/solutions/ai-chatbot-development/components/AiTechnologyStack"
-import { SuccessStories } from "@/app/solutions/ai-chatbot-development/components/SuccessStories/SuccessStories";
+import GenerativeAiAIReadinessBanner from "./sections/GenerativeAiAIReadinessBanner"
+import { GenerativeAiServices as GenerativeAiWhoWeHelpServices } from "./sections/GenerativeAiServices"
+import { GenerativeAiStickyScroll } from "./sections/GenerativeAiStickyScroll"
+import { GenerativeAiSuccessStories } from "./sections/GenerativeAiSuccessStories"
+import { GenerativeAiTechnologyStack } from "./sections/GenerativeAiTechnologyStack"
 
 type GenerativeAiPageProps = {
   faqs: Array<{
@@ -36,19 +31,11 @@ export function GenerativeAiPage({ faqs }: GenerativeAiPageProps) {
         <GenAiHero />
         <TrustedBrandsMarquee />
       </div>
-      <SuccessStories />
-      <GenAiServices />
-      <GenAiPortfolio />
-      <GenAiResilience />
-      <ProvenResults solution="enterprise-rag" />
-      <GenAiFramework />
-      <GenAiIndustry />
-      <AiTechnologyStack 
-        title="Technology Stack for Enterprise"
-        accentTitle="Generative AI Development"
-        description="We build production-ready generative AI solutions using leading LLMs, advanced RAG frameworks, vector databases, cloud platforms, and enterprise security technologies for secure, scalable operations."
-      />
-      <GenAiProcess />
+      <GenerativeAiAIReadinessBanner />
+      <GenerativeAiWhoWeHelpServices />
+      <GenerativeAiStickyScroll />
+      <GenerativeAiSuccessStories />
+      <GenerativeAiTechnologyStack />
       <WhyChooseWithTestimonials />
       <LightFAQExact faqs={faqs} />
       <LightContactSection />

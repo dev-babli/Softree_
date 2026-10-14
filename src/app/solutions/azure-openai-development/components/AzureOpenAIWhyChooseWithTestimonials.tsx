@@ -20,34 +20,34 @@ import {
 /* ================= WHY CHOOSE DATA ================= */
 const whyChoose = [
   {
+    icon: BrainCircuit,
+    title: "Azure OpenAI Specialization",
+    desc: "Deep expertise in GPT-4o, Azure AI Foundry, Azure AI Search RAG, Microsoft Copilot, and enterprise AI governance — not generalist consulting.",
+  },
+  {
     icon: Users,
     title: "Offshore Engineering Teams",
-    desc: "Access experienced, pre-vetted engineering talent that integrates seamlessly with your team and workflows.",
+    desc: "Access experienced, pre-vetted Azure OpenAI engineers that integrate seamlessly with your team, delivery timelines, and project workflows.",
   },
   {
     icon: Tag,
     title: "White-Label Delivery",
-    desc: "Deliver solutions under your brand while Softree handles development, QA, and delivery behind the scenes.",
+    desc: "Deliver Azure OpenAI solutions under your brand while Softree handles engineering, QA, security hardening, and production deployment.",
   },
   {
     icon: Expand,
     title: "Flexible & Scalable Engagements",
-    desc: "Scale engineering capacity through dedicated teams, project delivery, or on-demand offshore resources.",
-  },
-  {
-    icon: BrainCircuit,
-    title: "AI, Microsoft & Modern Engineering Expertise",
-    desc: "Build and modernize solutions across Agentic AI, Microsoft Azure, Power Platform, SharePoint, data, cloud, and modern applications.",
+    desc: "Scale AI engineering capacity through dedicated teams, project-based delivery, or on-demand offshore resources as your needs evolve.",
   },
   {
     icon: UserPlus,
     title: "Your Team, Extended",
-    desc: "Work with Softree as an extension of your engineering organization, from discovery and design through production and ongoing support.",
+    desc: "Work with Softree as an extension of your AI engineering organization — from discovery and architecture through production deployment and governance.",
   },
   {
     icon: Globe,
-    title: "Cost-Effective Global Delivery",
-    desc: "Leverage India-based engineering teams to increase delivery capacity while maintaining quality and continuity.",
+    title: "Cost-Effective Global AI Delivery",
+    desc: "Leverage India-based Azure OpenAI engineering teams to increase delivery capacity and reduce costs without compromising quality or security.",
   },
 ];
  
@@ -78,7 +78,8 @@ const reviews = [
     location: "California",
   },
 ];
-export default function WhyChooseWithTestimonials() {
+
+export function AzureOpenAIWhyChooseWithTestimonials() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -95,24 +96,24 @@ export default function WhyChooseWithTestimonials() {
   }, [paused]);
  
   return (
-    <section className="bg-white text-gray-900 py-12 md:py-16 lg:py-20">
+    <section className="text-gray-900 py-12 md:py-16 lg:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:items-stretch items-start">
         {/* ================= LEFT : WHY CHOOSE ================= */}
         <div className="relative">
           {/* Small Label */}
           <div className="text-orange-600 text-xs uppercase tracking-[0.15em] mb-3">
-            Why Choose Softree
+            Why Choose Softree for Azure OpenAI
           </div>
  
           {/* Heading */}
           <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-6">
             Built for{" "}
             <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
-              Long-Term Impact
+              Enterprise AI Impact
             </span>
           </h2>
  
-          {/* ✅ Vertical Accent Line (Light Version) */}
+          {/* Vertical Accent Line */}
           <div className="absolute left-[11px] top-[105px] bottom-4 w-px bg-gradient-to-b from-orange-500/40 via-orange-400/20 to-transparent hidden md:block" />
  
           {/* Features */}
@@ -206,7 +207,7 @@ export default function WhyChooseWithTestimonials() {
  
                     {/* Review Comment */}
                     <p className="text-gray-200 text-base leading-relaxed mb-6">
-                      “{review.comment}”
+                      &ldquo;{review.comment}&rdquo;
                     </p>
  
                     {/* Reviewer Info */}
@@ -217,8 +218,6 @@ export default function WhyChooseWithTestimonials() {
                           <p className="font-semibold text-white text-sm">
                             {review.name}
                           </p>
- 
-                          {/* ✅ Company added here */}
                           <p className="text-xs text-gray-400">
                             {review.company}
                           </p>
@@ -270,3 +269,5 @@ export default function WhyChooseWithTestimonials() {
     </section>
   );
 }
+ 
+export default AzureOpenAIWhyChooseWithTestimonials;

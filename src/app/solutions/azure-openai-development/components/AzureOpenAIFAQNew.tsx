@@ -62,7 +62,7 @@ const FAQ_CARD_THEMES = [
   },
 ] as const;
 
-export default function AzureOpenAIFAQ({ faqs: customFaqs }: AzureOpenAIFAQProps) {
+export function AzureOpenAIFAQNew({ faqs: customFaqs }: AzureOpenAIFAQProps) {
   const faqs = customFaqs || defaultFaqs;
   const [activeLeft, setActiveLeft] = useState<number>(faqs.length > 0 ? 0 : -1);
   const [activeRight, setActiveRight] = useState<number>(
@@ -255,24 +255,6 @@ export default function AzureOpenAIFAQ({ faqs: customFaqs }: AzureOpenAIFAQProps
       ref={sectionRef}
       className="relative w-full bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-12 lg:py-16"
     >
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            dateModified: "2026-08-01",
-            mainEntity: faqs.map((f) => ({
-              "@type": "Question",
-              name: f.question,
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: f.answer,
-              },
-            })),
-          }),
-        }}
-      />
       <div className="mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8">
         <div ref={titleRef} className="mb-8 md:mb-10">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#1852FF]/20 bg-[#1852FF]/8 px-4 py-2">
@@ -286,8 +268,7 @@ export default function AzureOpenAIFAQ({ faqs: customFaqs }: AzureOpenAIFAQProps
             </span>
           </h2>
           <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-[#0a0a1a]/70">
-            Common questions about Softree Azure OpenAI development—models,
-            RAG, security, Microsoft integrations, and delivery.
+            Common questions about Azure OpenAI development, including GPT-4o applications, enterprise RAG, Microsoft Copilot integrations, security architecture, token cost management, and AI governance.
           </p>
         </div>
 
@@ -310,3 +291,5 @@ export default function AzureOpenAIFAQ({ faqs: customFaqs }: AzureOpenAIFAQProps
     </section>
   );
 }
+
+export default AzureOpenAIFAQNew;
