@@ -28,6 +28,7 @@ type SanityCaseStudyCard = CaseStudyCategorySource & {
   _updatedAt?: string
   status?: string
   companySize?: string | null
+  technologies?: string[] | null
 }
 
 export type { CaseStudyListingItem, CaseStudyHeroSlide } from './types'
@@ -84,6 +85,7 @@ const caseStudyCardProjection = `
   publishedAt,
   _updatedAt,
   status,
+  technologies,
   "keyResults": keyResults[] { value, label, description }
 `
 
@@ -126,6 +128,7 @@ function mapSanityCaseStudyToItem(
         label: metric.label as string,
         value: metric.value as string,
       })),
+    technologies: (study.technologies || []).filter((t): t is string => Boolean(t)),
   }
 }
 
@@ -190,6 +193,7 @@ function mapSanityCaseStudyToListingItem(study: SanityCaseStudyCard): CaseStudyL
     companySize: study.companySize || undefined,
     keyResults: stats,
     publishedAt: study.publishedAt || study._updatedAt,
+    technologies: (study.technologies || []).filter((t): t is string => Boolean(t)),
   }
 }
 

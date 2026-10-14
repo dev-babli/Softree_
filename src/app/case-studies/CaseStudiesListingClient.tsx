@@ -79,6 +79,7 @@ export default function CaseStudiesListingClient({
 }: CaseStudiesListingClientProps) {
   const [search, setSearch] = useState("");
   const [techCategory, setTechCategory] = useState<CaseStudyCategoryKey | "All">("All");
+  const [selectedTech, setSelectedTech] = useState("All");
   const [industry, setIndustry] = useState("All");
   const [useCase, setUseCase] = useState("All");
   const [companySize, setCompanySize] = useState("All");
@@ -90,6 +91,7 @@ export default function CaseStudiesListingClient({
 
   const searchParams = useSearchParams();
   const techQuery = searchParams.get("tech");
+  const techStackQuery = searchParams.get("techStack") || searchParams.get("technology");
 
   useEffect(() => {
     let tech: string | null = null;
@@ -101,11 +103,20 @@ export default function CaseStudiesListingClient({
     }
 
     if (tech) {
-      setTechCategory(tech as CaseStudyCategoryKey);
+      const validCategoryKeys = ["ai", "power-platform", "sharepoint", "web", "mobile", "data-analytics"];
+      if (validCategoryKeys.includes(tech)) {
+        setTechCategory(tech as CaseStudyCategoryKey);
+      } else {
+        setSelectedTech(tech);
+      }
     } else {
       setTechCategory("All");
     }
-  }, [techQuery]);
+
+    if (techStackQuery) {
+      setSelectedTech(techStackQuery);
+    }
+  }, [techQuery, techStackQuery]);
 
   const industryOptions = useMemo(() => {
     if (!mounted) return ["All"];
@@ -136,6 +147,38 @@ export default function CaseStudiesListingClient({
     return ["All", ...Array.from(set).sort()];
   }, [caseStudies, mounted]);
 
+  const techStackOptions = useMemo(() => {
+    if (!mounted) return ["All"];
+    const set = new Set<string>();
+    caseStudies.forEach((study) => {
+      (study.technologies || []).forEach((t) => {
+        const cleaned = t.trim().replace(/\.$/, "");
+        if (cleaned && cleaned.length > 1) {
+          set.add(cleaned);
+        }
+      });
+    });
+    return ["All", ...Array.from(set).sort((a, b) => a.localeCompare(b))];
+  }, [caseStudies, mounted]);
+
+  const popularTechs = useMemo(() => {
+    if (!mounted) return [];
+    const counts = new Map<string, number>();
+    caseStudies.forEach((study) => {
+      (study.technologies || []).forEach((t) => {
+        const cleaned = t.trim().replace(/\.$/, "");
+        if (cleaned && cleaned.length > 1) {
+          counts.set(cleaned, (counts.get(cleaned) || 0) + 1);
+        }
+      });
+    });
+    return Array.from(counts.entries())
+      .filter(([_, count]) => count >= 2)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 8)
+      .map(([tech]) => tech);
+  }, [caseStudies, mounted]);
+
   const sectionRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const gridInView = useInView(gridRef, { once: true, margin: "-80px" });
@@ -158,9 +201,16 @@ export default function CaseStudiesListingClient({
         study.description.toLowerCase().includes(q) ||
         study.category.toLowerCase().includes(q) ||
         (study.industry || "").toLowerCase().includes(q) ||
-        (study.useCase || "").toLowerCase().includes(q);
+        (study.useCase || "").toLowerCase().includes(q) ||
+        (study.technologies || []).some((tech) => tech.toLowerCase().includes(q));
 
       const matchesTech = techCategory === "All" || study.categoryKey === techCategory;
+
+      const matchesTechStack =
+        selectedTech === "All" ||
+        (study.technologies || []).some(
+          (t) => t.trim().replace(/\.$/, "").toLowerCase() === selectedTech.toLowerCase()
+        );
 
       const matchesIndustry =
         industry === "All" || getStandardizedIndustry(study.industry) === industry;
@@ -171,9 +221,16 @@ export default function CaseStudiesListingClient({
       const matchesSize =
         companySize === "All" || getStandardizedCompanySize(study.companySize) === companySize;
 
-      return matchesSearch && matchesTech && matchesIndustry && matchesUseCase && matchesSize;
+      return (
+        matchesSearch &&
+        matchesTech &&
+        matchesTechStack &&
+        matchesIndustry &&
+        matchesUseCase &&
+        matchesSize
+      );
     });
-  }, [caseStudies, search, techCategory, industry, useCase, companySize]);
+  }, [caseStudies, search, techCategory, selectedTech, industry, useCase, companySize]);
 
   const featuredStories = useMemo(() => {
     const sorted = [...caseStudies].sort((a, b) => {
@@ -195,12 +252,17 @@ export default function CaseStudiesListingClient({
     };
   }, [filtered, categoryLinks.length]);
 
-  const activeFilterCount = [techCategory !== "All" ? techCategory : null, industry, useCase, companySize].filter(
-    (f) => f && f !== "All",
-  ).length;
+  const activeFilterCount = [
+    techCategory !== "All" ? techCategory : null,
+    selectedTech !== "All" ? selectedTech : null,
+    industry,
+    useCase,
+    companySize,
+  ].filter((f) => f && f !== "All").length;
 
   const clearFilters = () => {
     setTechCategory("All");
+    setSelectedTech("All");
     setIndustry("All");
     setUseCase("All");
     setCompanySize("All");
@@ -234,7 +296,7 @@ export default function CaseStudiesListingClient({
                 type="search"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search by client, industry, or outcome..."
+                placeholder="Search by name, industry or tech stack."
                 aria-label="Search case studies"
                 className="w-full rounded-full border border-[#e6e1f2] bg-[#f8f4ea] py-2.5 pl-10 pr-4 text-sm text-[#171717] placeholder:text-[#9ca3af] focus:border-[var(--softree-accent,#FF5812)] focus:outline-none focus:ring-1 focus:ring-[var(--softree-accent,#FF5812)]"
               />
@@ -243,6 +305,7 @@ export default function CaseStudiesListingClient({
             <div className="flex flex-wrap items-center gap-3">
               <FilterSelect label="Industry" value={industry} options={industryOptions} onChange={setIndustry} />
               <FilterSelect label="Use case" value={useCase} options={useCaseOptions} onChange={setUseCase} />
+              <FilterSelect label="Tech stack" value={selectedTech} options={techStackOptions} onChange={setSelectedTech} />
               <FilterSelect label="Size" value={companySize} options={companySizeOptions} onChange={setCompanySize} />
               {activeFilterCount > 0 || search ? (
                 <button
@@ -256,6 +319,31 @@ export default function CaseStudiesListingClient({
               ) : null}
             </div>
           </div>
+
+          {popularTechs.length > 0 && (
+            <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-[#f0ecfa] pt-3">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[#6b7694]">
+                Popular Tech:
+              </span>
+              {popularTechs.map((tech) => {
+                const isActive = selectedTech.toLowerCase() === tech.toLowerCase();
+                return (
+                  <button
+                    key={tech}
+                    type="button"
+                    onClick={() => setSelectedTech(isActive ? "All" : tech)}
+                    className={`rounded-full px-2.5 py-1 text-[11px] font-medium transition-all ${
+                      isActive
+                        ? "bg-[#FF5812] text-white shadow-sm font-semibold"
+                        : "bg-[#f4f2f8] text-[#4c5366] hover:bg-[#e9e5f3] hover:text-[#171717]"
+                    }`}
+                  >
+                    {tech}
+                  </button>
+                );
+              })}
+            </div>
+          )}
         </div>
       </section>
 
@@ -286,14 +374,23 @@ export default function CaseStudiesListingClient({
                   <span className="text-[#0a0a1a]/50">with measured outcomes</span>
                 </div>
               </div>
-              {techCategory !== "All" ? (
-                <span
-                  className="rounded-full px-2.5 py-1 text-[10px] font-bold text-white"
-                  style={{ backgroundColor: CASE_STUDIES_HUB_ACCENT }}
-                >
-                  {categoryLinks.find((c) => c.key === techCategory)?.label ?? techCategory}
-                </span>
-              ) : null}
+              <div className="flex items-center gap-2">
+                {techCategory !== "All" ? (
+                  <span
+                    className="rounded-full px-2.5 py-1 text-[10px] font-bold text-white shadow-sm"
+                    style={{ backgroundColor: CASE_STUDIES_HUB_ACCENT }}
+                  >
+                    {categoryLinks.find((c) => c.key === techCategory)?.label ?? techCategory}
+                  </span>
+                ) : null}
+                {selectedTech !== "All" ? (
+                  <span
+                    className="rounded-full bg-[#1852ff] px-2.5 py-1 text-[10px] font-bold text-white shadow-sm"
+                  >
+                    Tech: {selectedTech}
+                  </span>
+                ) : null}
+              </div>
             </motion.div>
           ) : null}
         </AnimatePresence>
@@ -350,6 +447,7 @@ export default function CaseStudiesListingClient({
                 {techCategory !== "All"
                   ? ` in ${categoryLinks.find((c) => c.key === techCategory)?.label ?? "category"}`
                   : ""}
+                {selectedTech !== "All" ? ` using ${selectedTech}` : ""}
               </p>
               <div ref={gridRef} className="grid grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-3">
                 {filtered.map((study, index) => (

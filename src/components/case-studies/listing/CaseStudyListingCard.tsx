@@ -20,6 +20,7 @@ export default function CaseStudyListingCard({ study, accentColor = '#FF5812' }:
   const rawIndustries = study.industry ? study.industry.split(',').map(s => s.trim()) : []
   const rawUseCases = study.useCase ? study.useCase.split(',').map(s => s.trim()) : []
   const cleanTags = [...rawIndustries, ...rawUseCases].filter(Boolean).slice(0, 2)
+  const techTags = (study.technologies || []).slice(0, 3)
 
   return (
     <Link 
@@ -93,13 +94,26 @@ export default function CaseStudyListingCard({ study, accentColor = '#FF5812' }:
 
         {/* Content Body */}
         <div className="flex flex-1 flex-col p-5 md:p-6">
-          {cleanTags.length > 0 && (
+          {(cleanTags.length > 0 || techTags.length > 0) && (
             <div className="mb-3 flex flex-wrap items-center gap-1.5">
               {cleanTags.map((tag) => (
                 <span key={tag} className="rounded-full bg-slate-50 border border-slate-200/50 px-2.5 py-0.5 text-[10px] font-semibold text-slate-500">
                   {tag}
                 </span>
               ))}
+              {techTags.map((tech) => (
+                <span
+                  key={tech}
+                  className="inline-flex items-center rounded-md bg-[#f4f6fb] border border-[#e2e6f0] px-2 py-0.5 text-[10px] font-medium text-[#4c5366]"
+                >
+                  {tech}
+                </span>
+              ))}
+              {study.technologies && study.technologies.length > 3 && (
+                <span className="text-[10px] font-medium text-[#8c94a5]">
+                  +{study.technologies.length - 3}
+                </span>
+              )}
             </div>
           )}
 

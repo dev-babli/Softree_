@@ -15,6 +15,7 @@ export type CaseStudyListingItem = {
   companySize?: string
   keyResults?: { value: string; label: string; description?: string }[]
   publishedAt?: string
+  technologies?: string[]
 }
 
 export type CaseStudyHeroSlide = {

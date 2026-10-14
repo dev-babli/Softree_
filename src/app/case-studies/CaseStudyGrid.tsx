@@ -66,6 +66,7 @@ export type CaseStudyItem = {
   image?: string
   industry?: string
   metrics?: { label: string; value: string }[]
+  technologies?: string[]
 }
 
 interface CaseStudyGridProps {
@@ -277,7 +278,7 @@ export default function CaseStudyGrid({
 
                     <div className="flex flex-1 flex-col p-6">
                       {item.industry && (
-                        <div className="mb-3 flex flex-wrap items-center gap-1.5">
+                        <div className="mb-2 flex flex-wrap items-center gap-1.5">
                           <span className="rounded-md bg-[#f4f6fb] px-2 py-0.5 text-[10px] font-medium text-[#0a0a1a]/50">
                             {item.industry}
                           </span>
@@ -285,6 +286,24 @@ export default function CaseStudyGrid({
                           <span className="rounded-md bg-[#f4f6fb] px-2 py-0.5 text-[10px] font-medium text-[#0a0a1a]/50">
                             Softree Technology
                           </span>
+                        </div>
+                      )}
+
+                      {item.technologies && item.technologies.length > 0 && (
+                        <div className="mb-3 flex flex-wrap items-center gap-1.5">
+                          {item.technologies.slice(0, 3).map((tech) => (
+                            <span
+                              key={tech}
+                              className="rounded-md border border-[#0a0a1a]/10 bg-[#f4f6fb] px-2 py-0.5 text-[10px] font-medium text-[#0a0a1a]/60"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                          {item.technologies.length > 3 && (
+                            <span className="text-[10px] text-[#0a0a1a]/40">
+                              +{item.technologies.length - 3}
+                            </span>
+                          )}
                         </div>
                       )}
 
