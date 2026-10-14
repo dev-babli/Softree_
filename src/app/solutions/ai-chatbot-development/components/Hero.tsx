@@ -1,178 +1,132 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { ArrowRight, ShieldCheck, Box, TrendingUp, Cpu } from 'lucide-react';
-import { HERO_DATA } from '../data/heroData';
-import HeroChatDemo from './HeroChatDemo';
+import React from "react";
+import { motion } from "framer-motion";
+import TrustStrip from "@/components/sections/TrustStrip";
+import ShaderBackground from "@/components/ui/shader-background";
 
 export const Hero: React.FC = () => {
-  const { label, heading, paragraph, ctaButtons } = HERO_DATA;
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.12,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 24 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.7, ease: [0.215, 0.61, 0.355, 1] as const },
-    },
-  };
+  const label = "OFFSHORE AI CHATBOT DEVELOPMENT";
+  const paragraph =
+    "Softree Technology builds custom AI chatbots that help businesses answer customer questions, automate routine inquiries, and connect conversational experiences with business systems. Our offshore AI engineering team develops chatbot solutions using relevant AI models, business knowledge, APIs, and workflow integrations.";
 
   return (
-    <section className="relative flex min-h-screen w-full items-center overflow-hidden bg-transparent pt-20 pb-12 font-sans text-base text-[#0A0F3C] lg:pt-28 lg:pb-16">
-      <div className="pointer-events-none absolute top-1/2 right-0 h-[750px] w-[750px] -translate-y-1/2 opacity-30">
-        <svg viewBox="0 0 700 700" fill="none" className="h-full w-full">
-          <circle cx="500" cy="350" r="300" stroke="#FF5812" strokeWidth="1" strokeDasharray="4 8" opacity="0.25" />
-          <circle cx="500" cy="350" r="420" stroke="#FF5812" strokeWidth="1" opacity="0.15" />
-          <circle cx="500" cy="350" r="540" stroke="#FF5812" strokeWidth="1" strokeDasharray="6 12" opacity="0.1" />
-        </svg>
+    <section className="relative flex min-h-[auto] w-full flex-col overflow-hidden bg-[#060403] font-sans text-white pt-24 pb-4 sm:pt-28 sm:pb-6 lg:min-h-[85svh] lg:pt-32 lg:pb-6">
+      {/* WebGL Plasma Grid Shader Background in Orange Shade */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <ShaderBackground
+          theme="orange"
+          animate={true}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
       </div>
 
-      <div className="relative z-10 container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8">
-          {/* LEFT COLUMN */}
+      {/* Ambient Breathing Glow Orb behind typography */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: [0.3, 0.55, 0.3], scale: [1, 1.08, 1] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        className="pointer-events-none absolute -top-24 left-1/4 h-96 w-96 rounded-full bg-[#FF5812]/15 blur-[120px]"
+      />
+
+      {/* Warm ember overlays — shader stays glowing and vibrant; text is crystal clear */}
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-[#060403]/85 via-[#060403]/40 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-[#060403] via-transparent to-[#060403]/40" />
+
+      <div className="relative z-10 mx-auto flex w-full max-w-[1600px] flex-1 flex-col px-6 sm:px-8 lg:px-12">
+        {/* Main Content Centered */}
+        <div className="flex flex-1 flex-col justify-center gap-6 sm:gap-8 pt-4 pb-12 lg:pt-8 lg:pb-16">
+          {/* Top Badge with Live Beacon Animation */}
           <motion.div
-            className="flex flex-col items-center text-center lg:col-span-6 lg:items-start lg:text-left"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
+            initial={{ opacity: 0, y: 14, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            whileHover={{ scale: 1.03 }}
+            className="inline-flex items-center gap-2.5 self-start rounded-full bg-[#FF5812] px-3.5 py-1.5 shadow-[0_4px_24px_-4px_rgba(255,88,18,0.55)] cursor-default"
           >
-            <motion.div
-              variants={itemVariants}
-              className="mb-6 inline-flex items-center gap-1.5 rounded-full border border-orange-100 bg-orange-50 px-2.5 py-1"
-            >
-              <div className="h-1.5 w-1.5 shrink-0 rounded-full bg-orange-600" />
-              <span className="text-[10px] font-bold tracking-wider text-orange-600 uppercase">
-                {label}
-              </span>
-            </motion.div>
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
+            </span>
+            <span className="typo-caption font-bold text-white tracking-wide">
+              {label}
+            </span>
+          </motion.div>
 
-            <motion.h1
-              variants={itemVariants}
-              className="mb-6 w-full text-3xl leading-[1.15] font-extrabold tracking-tight break-words whitespace-pre-line text-[#0A0F3C] sm:text-4xl sm:leading-[1.1] lg:text-5xl xl:text-[3.25rem]"
-            >
-              {heading.prefix}
-              <span className="relative text-[#FF5812]">
-                {' '}
-                {heading.highlight}
-              </span>
-              {heading.suffix}
-            </motion.h1>
-
-            <motion.p
-              variants={itemVariants}
-              className="mb-8 max-w-md text-sm leading-relaxed font-normal text-slate-600 lg:text-base"
-            >
-              {paragraph}
-            </motion.p>
-
-            <motion.div
-              variants={itemVariants}
-              className="mb-10 flex w-full flex-col items-center gap-4 sm:w-auto sm:flex-row"
-            >
-              <Link
-                href={ctaButtons.primary.href}
-                className="group relative inline-flex w-full items-center justify-center gap-2.5 rounded-xl border border-gray-200 bg-white px-6 py-3 text-sm font-semibold text-[#0A0F3C] transition-all duration-300 hover:bg-gray-50 sm:w-auto"
-              >
-                <span>{ctaButtons.primary.text}</span>
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-
-              {ctaButtons.secondary && ctaButtons.secondary.text && (
-                <Link
-                  href={ctaButtons.secondary.href}
-                  className="inline-flex w-full items-center justify-center rounded-xl border border-gray-200/80 bg-white px-7 py-3.5 text-base font-semibold text-[#0A0F3C] transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-50 sm:w-auto"
+          {/* Two-Column Editorial Layout: Title Left, Description Right — aligned from top */}
+          <div className="grid grid-cols-1 items-start gap-x-12 gap-y-6 lg:grid-cols-12 xl:gap-x-20">
+            {/* Left Column - 3-Line Heading with Staggered Kinetic Line Reveal */}
+            <div className="flex flex-col lg:col-span-7 xl:col-span-7">
+              <h1 className="typo-heading-2 text-white leading-tight font-extrabold">
+                {/* Line 1 */}
+                <motion.span
+                  initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ duration: 0.6, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+                  className="block"
                 >
-                  {ctaButtons.secondary.text}
-                </Link>
-              )}
-            </motion.div>
+                  Custom AI Chatbot
+                </motion.span>
 
-            <motion.div
-              variants={itemVariants}
-              className="flex w-full flex-col gap-5 border-t border-gray-100 pt-6 md:flex-row md:gap-4"
-            >
-              <div className="flex flex-1 flex-col gap-1.5">
-                <div className="flex items-start gap-2">
-                  <ShieldCheck className="mt-[1px] h-5 w-5 shrink-0 text-[#FF6B00]" strokeWidth={1.5} />
-                  <h4 className="text-[12.5px] leading-[1.25] font-semibold text-[#0A0F3C]">
-                    White-Label
-                    <br />
-                    Friendly
-                  </h4>
-                </div>
-                <p className="pr-2 text-[11px] leading-relaxed text-gray-500">
-                  Trusted partner for tech agencies.
-                </p>
-              </div>
+                {/* Line 2 */}
+                <motion.span
+                  initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ duration: 0.6, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
+                  className="block"
+                >
+                  Development for{" "}
+                  <span className="text-[#FF5812] drop-shadow-[0_0_25px_rgba(255,88,18,0.45)]">
+                    Customer Support
+                  </span>
+                </motion.span>
 
-              <div className="flex flex-1 flex-col gap-1.5">
-                <div className="flex items-start gap-2">
-                  <Box className="mt-[1px] h-5 w-5 shrink-0 text-[#FF6B00]" strokeWidth={1.5} />
-                  <h4 className="text-[12.5px] leading-[1.25] font-semibold text-[#0A0F3C]">
-                    Dedicated
-                    <br />
-                    Offshore Teams
-                  </h4>
-                </div>
-                <p className="pr-2 text-[11px] leading-relaxed text-gray-500">
-                  Scale engineering on demand.
-                </p>
-              </div>
+                {/* Line 3 */}
+                <motion.span
+                  initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ duration: 0.6, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
+                  className="block text-[#FF5812] drop-shadow-[0_0_30px_rgba(255,88,18,0.5)]"
+                >
+                  &amp; Business Workflows
+                </motion.span>
+              </h1>
+            </div>
 
-              <div className="flex flex-1 flex-col gap-1.5">
-                <div className="flex items-start gap-2">
-                  <TrendingUp className="mt-[1px] h-5 w-5 shrink-0 text-[#FF6B00]" strokeWidth={1.5} />
-                  <h4 className="text-[12.5px] leading-[1.25] font-semibold text-[#0A0F3C]">
-                    Microsoft AI
-                    <br />
-                    Expertise
-                  </h4>
-                </div>
-                <p className="pr-2 text-[11px] leading-relaxed text-gray-500">
-                  Azure, OpenAI & Power Platform.
-                </p>
-              </div>
-
-              <div className="flex flex-1 flex-col gap-1.5">
-                <div className="flex items-start gap-2">
-                  <Cpu className="mt-[1px] h-5 w-5 shrink-0 text-[#FF6B00]" strokeWidth={1.5} />
-                  <h4 className="text-[12.5px] leading-[1.25] font-semibold text-[#0A0F3C]">
-                    Enterprise-Ready
-                    <br />
-                    Delivery
-                  </h4>
-                </div>
-                <p className="pr-2 text-[11px] leading-relaxed text-gray-500">
-                  Secure, production-grade solutions.
-                </p>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* RIGHT COLUMN: Chatbot Q&A buds */}
-          <motion.div
-            className="relative mt-6 flex w-full items-center justify-center px-1 sm:px-0 lg:col-span-6 lg:mt-0"
-            initial={{ opacity: 0, x: 28 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.25, ease: [0.215, 0.61, 0.355, 1] }}
-          >
-            <HeroChatDemo />
-          </motion.div>
+            {/* Right Column - Description starting at same height */}
+            <div className="flex flex-col justify-start lg:col-span-5 xl:col-span-5 lg:pt-1.5">
+              <motion.p
+                initial={{ opacity: 0, y: 18, filter: "blur(4px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{ duration: 0.65, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
+                className="typo-description-sm text-zinc-300 leading-relaxed max-w-xl"
+              >
+                {paragraph}
+              </motion.p>
+            </div>
+          </div>
         </div>
+
+        {/* Trust Strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.65, delay: 0.42, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full mt-auto [&>div]:!mt-0 [&>div]:!gap-4 sm:[&>div]:!gap-6"
+        >
+          <TrustStrip theme="dark" />
+        </motion.div>
       </div>
+
+      {/* Subtle bottom glowing orange accent line */}
+      <motion.div
+        initial={{ opacity: 0, scaleX: 0.8 }}
+        animate={{ opacity: 1, scaleX: 1 }}
+        transition={{ duration: 0.8, delay: 0.5 }}
+        className="pointer-events-none absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FF5812]/50 to-transparent"
+      />
     </section>
   );
 };
+
+export default Hero;

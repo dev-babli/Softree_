@@ -59,7 +59,7 @@ const solutionData: Record<SolutionType, ProvenResultItem[]> = {
       outcome: "Deflected a majority of routine inquiries while keeping customers on a clear path to human help when needed.",
       metric: "62%",
       metricLabel: "Ticket Deflection",
-      link: "/services/ai-chatbot-development"
+      link: "/solutions/ai-chatbot-development"
     },
     {
       category: "EMPLOYEE SELF-SERVICE",
@@ -69,7 +69,7 @@ const solutionData: Record<SolutionType, ProvenResultItem[]> = {
       outcome: "Cut internal request volume and improved employee self-service response times across common intents.",
       metric: "45%",
       metricLabel: "Fewer Internal Tickets",
-      link: "/services/ai-chatbot-development"
+      link: "/solutions/ai-chatbot-development"
     },
     {
       category: "SALES & PRE-SALES",
@@ -79,7 +79,7 @@ const solutionData: Record<SolutionType, ProvenResultItem[]> = {
       outcome: "Increased qualified lead capture and shortened time-to-answer for product discovery conversations.",
       metric: "2.4x",
       metricLabel: "Qualified Chat Leads",
-      link: "/services/ai-chatbot-development"
+      link: "/solutions/ai-chatbot-development"
     }
   ],
   "ai-agents": [

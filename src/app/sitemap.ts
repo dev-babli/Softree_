@@ -13,7 +13,6 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${BASE_URL}/services/ai-development-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
   { url: `${BASE_URL}/services/generative-ai`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
   { url: `${BASE_URL}/services/ai-consulting-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-  { url: `${BASE_URL}/services/ai-chatbot-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/services/ai-healthcare-development-service`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/services/azure-openai-development-partner`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/services/amazon-bedrock-agentcore-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },

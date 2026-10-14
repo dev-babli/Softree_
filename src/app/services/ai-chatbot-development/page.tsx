@@ -21,14 +21,18 @@ export const metadata: Metadata = applyPageOg("/services/ai-chatbot-development"
   title: "AI Chatbot Development Services | Softree Technology",
   description:
     "Custom AI chatbots and conversational assistants built on Azure, OpenAI, and open-source models for 24/7 customer experience and employee workflows.",
+  robots: {
+    index: false,
+    follow: true,
+  },
   alternates: {
-    canonical: "https://www.softreetechnology.com/services/ai-chatbot-development",
+    canonical: "https://www.softreetechnology.com/solutions/ai-chatbot-development",
   },
   openGraph: {
     title: "AI Chatbot Development Services | Softree Technology",
     description:
       "Custom AI chatbots and conversational assistants built on Azure, OpenAI, and open-source models for 24/7 customer experience and employee workflows.",
-    url: "https://www.softreetechnology.com/services/ai-chatbot-development",
+    url: "https://www.softreetechnology.com/solutions/ai-chatbot-development",
     siteName: "Softree Technology",
     type: "website",
   },

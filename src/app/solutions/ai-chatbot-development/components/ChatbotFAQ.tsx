@@ -227,12 +227,12 @@ export default function ChatbotFAQ({ faqs: customFaqs }: ChatbotFAQProps) {
           {isActive && (
             <div id={`faq-answer-${faq.id}`} className="mt-2">
               <div className="pt-2 md:pt-3">
-                <h4
+                <div
                   className="mb-1.5 text-[11px] font-semibold uppercase tracking-wider"
                   style={{ color: `${FAQ_INK_MUTED}99` }}
                 >
                   Question Answer:
-                </h4>
+                </div>
                 <div
                   className="mb-3 h-px w-14"
                   style={{ backgroundColor: `${theme.accent}35` }}
@@ -256,24 +256,6 @@ export default function ChatbotFAQ({ faqs: customFaqs }: ChatbotFAQProps) {
       ref={sectionRef}
       className="relative w-full bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-12 md:py-16 lg:py-20"
     >
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            dateModified: "2026-08-01",
-            mainEntity: faqs.map((f) => ({
-              "@type": "Question",
-              name: f.question,
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: f.answer,
-              },
-            })),
-          }),
-        }}
-      />
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
         <div ref={titleRef} className="mb-8 md:mb-10">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#1852FF]/20 bg-[#1852FF]/8 px-4 py-2">

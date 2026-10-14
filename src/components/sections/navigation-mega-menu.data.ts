@@ -132,7 +132,7 @@ export const SERVICES_MEGA_CATEGORIES: MegaMenuGroup[] = [
       },
       {
         label: "AI Chatbot Development",
-        url: "/services/ai-chatbot-development",
+        url: "/solutions/ai-chatbot-development",
         icon: MessageSquare,
         description: "Conversational assistants for support and ops",
       },

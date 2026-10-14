@@ -1,6 +1,7 @@
 import NavigationClient from "@/components/sections/navigation-client";
 import Footer from "@/components/sections/footer";
 import PowerAppsHero from "./hero";
+import PowerPlatformHero from "./PowerPlatformHero";
 import TrustedBrandsMarquee from "./trust";
 import dynamic from "next/dynamic";
 
@@ -196,7 +197,8 @@ export default function Home() {
       <NavigationClient />
 
       {/* HERO (full width but aligned content internally) */}
-      <PowerAppsHero />
+      <PowerPlatformHero />
+      {/* <PowerAppsHero /> */}
       {/* <PowerAppsService /> */}
       <TrustedBrandsMarquee />
       <StackedSlider />

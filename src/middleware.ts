@@ -39,6 +39,12 @@ export default function middleware(request: NextRequest) {
     return response
   }
 
+  // 301 Permanent Redirect: Consolidate /services/ai-chatbot-development to canonical /solutions/ai-chatbot-development
+  if (pathname === '/services/ai-chatbot-development') {
+    url.pathname = '/solutions/ai-chatbot-development'
+    return NextResponse.redirect(url, 301)
+  }
+
   if (pathname === '/client') {
     url.pathname = '/demo-vigorous'
     return NextResponse.redirect(url, 301)

@@ -1,3 +1,8 @@
+export interface SuccessStoryResult {
+  value: string;
+  label: string;
+}
+
 export interface SuccessStory {
   id: string;
   industryLabel: string;
@@ -5,9 +10,12 @@ export interface SuccessStory {
   problem: string;
   solution: string;
   results: string[];
+  metrics?: SuccessStoryResult[];
   icon: string;
   color: string;
   caseStudyUrl: string;
+  imageUrl?: string;
+  technologies?: string[];
   clientOverview: {
     name: string;
     industry: string;
@@ -19,92 +27,162 @@ export interface SuccessStory {
 
 export const successStoriesList: SuccessStory[] = [
   {
-    id: '01',
-    industryLabel: 'CUSTOMER SUPPORT',
-    title: 'Enterprise Support Chatbot',
-    problem: 'Support teams were overwhelmed by repetitive FAQs and inconsistent answers across outdated help articles, driving long wait times.',
-    solution: 'A knowledge-grounded AI chatbot that answers FAQs, creates tickets, and hands off to live agents with full conversation context.',
+    id: "intelligent-customer-support",
+    industryLabel: "CUSTOMER SERVICE & SUPPORT",
+    title: "Intelligent Customer Support Automation with AI Agent",
+    problem: "Customer support teams were burdened by repetitive FAQs, surging support ticket queues, and long wait times across channels.",
+    solution: "An AI-powered customer support solution delivered 24/7 assistance and reduced customer response time by 60% through intelligent automation.",
     results: [
-      'Higher ticket deflection',
-      'Faster first response',
-      'Smoother live-agent handoffs'
+      "60% Support Ticket Deflection",
+      "3.5x Faster Policy Answers",
+      "70% Faster First Response Time"
     ],
-    icon: 'bank',
-    color: 'from-blue-100/50 to-blue-50/50',
-    caseStudyUrl: 'https://www.softreetechnology.com/case-studies/how-an-enterprise-organization-automated-hr-operations-using-ai',
+    metrics: [
+      { value: "60%", label: "Support Ticket Deflection" },
+      { value: "3.5x", label: "Faster Policy Answers" }
+    ],
+    icon: "bank",
+    color: "from-orange-100/50 to-orange-50/50",
+    caseStudyUrl: "/case-studies/intelligent-customer-support-automation-ai-agent",
+    imageUrl: "https://cdn.sanity.io/images/1zmh4sfw/production/a18b295fcfe42ab7c73cd6a93970b7dcd5743cb9-1672x941.png",
+    technologies: [
+      "Amazon Bedrock",
+      "AWS AgentCore",
+      "Azure AI Foundry",
+      "LangChain",
+      "LangGraph",
+      "RAG",
+      "Vector Database",
+      "FastAPI",
+      "MCP Server",
+      "n8n"
+    ],
     clientOverview: {
-      name: 'UK Based Client',
-      industry: 'Customer Support',
-      country: 'United Kingdom',
-      organizationSize: '1,200+ Employees',
-      businessType: 'Enterprise Services Provider'
+      name: "Global Enterprise",
+      industry: "Customer Service & Support",
+      country: "United States",
+      organizationSize: "2,500+ Employees",
+      businessType: "Omnichannel Customer Support"
     }
   },
   {
-    id: '02',
-    industryLabel: 'HUMAN RESOURCES',
-    title: 'Employee Self-Service Chatbot',
-    problem: 'HR teams struggled with manual employee onboarding questions, leave inquiries, and policy lookups that clogged shared inboxes.',
-    solution: 'An AI-powered HR chatbot on Microsoft Teams that answers policy questions, guides leave requests, and escalates sensitive cases.',
+    id: "intelligent-warehouse-assistant",
+    industryLabel: "LOGISTICS & SUPPLY CHAIN / WAREHOUSING",
+    title: "Intelligent Warehouse Operations Assistant with AI Agents",
+    problem: "Warehouse operators faced operational delays locating SKUs, searching procedural SOPs manually, and handling exception resolutions.",
+    solution: "A global logistics company used AI agents, RAG, and voice automation to streamline warehouse operations and accelerate issue resolution.",
     results: [
-      'Automated HR FAQs',
-      'Improved employee self-service',
-      'Reduced manual HR operations'
+      "Faster Warehouse Issue Resolution",
+      "Reduced Manual Information Searches",
+      "Improved Employee Productivity"
     ],
-    icon: 'cart',
-    color: 'from-orange-100/50 to-orange-50/50',
-    caseStudyUrl: 'https://www.softreetechnology.com/case-studies/how-an-enterprise-organization-automated-hr-operations-using-ai',
+    metrics: [
+      { value: "Faster", label: "Warehouse Issue Resolution" },
+      { value: "Reduced", label: "Manual Information Searches" }
+    ],
+    icon: "manufacturing",
+    color: "from-blue-100/50 to-blue-50/50",
+    caseStudyUrl: "/case-studies/intelligent-warehouse-operations-assistant-with-ai-agents",
+    imageUrl: "https://cdn.sanity.io/images/1zmh4sfw/production/e4cb4151ef2bc2122f60f84e05350b173fc72dae-1672x941.png",
+    technologies: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Python",
+      "AWS",
+      "LangChain",
+      "LangGraph",
+      "AutoGen",
+      "Amazon OpenSearch",
+      "Microsoft Azure",
+      "FastAPI"
+    ],
     clientOverview: {
-      name: 'UK Based Client',
-      industry: 'Human Resources',
-      country: 'United Kingdom',
-      organizationSize: '1,200+ Employees',
-      businessType: 'Enterprise HR Services Provider'
+      name: "Global Logistics Provider",
+      industry: "Logistics & Supply Chain",
+      country: "Global Operations",
+      organizationSize: "5,000+ Employees",
+      businessType: "Logistics & Freight Operations"
     }
   },
   {
-    id: '03',
-    industryLabel: 'HEALTHCARE',
-    title: 'Patient & Staff Concierge Chatbot',
-    problem: 'The healthcare provider faced high administrative effort answering scheduling and policy questions from patients and staff.',
-    solution: 'Softree helped a multi-specialty healthcare provider launch conversational assistants grounded in approved clinical ops content.',
+    id: "hr-employee-onboarding",
+    industryLabel: "HUMAN RESOURCES",
+    title: "HR Employee Onboarding Automation",
+    problem: "HR departments struggled with scattered onboarding paperwork, manual role-provisioning coordination, and high volume of repetitive new-hire inquiries.",
+    solution: "AI-powered employee onboarding automation reduces manual HR coordination, accelerates routine tasks, and improves visibility across the onboarding process.",
     results: [
-      '58% reduction in repetitive inquiries',
-      'Faster appointment guidance'
+      "85% Faster Onboarding",
+      "60% Reduced Manual Work",
+      "95% Employee Satisfaction"
     ],
-    icon: 'heart',
-    color: 'from-emerald-100/50 to-emerald-50/50',
-    caseStudyUrl: 'https://www.softreetechnology.com/case-studies/ai-powered-healthcare-operations-platform',
+    metrics: [
+      { value: "85%", label: "Faster Onboarding" },
+      { value: "60%", label: "Reduced Manual Work" }
+    ],
+    icon: "cart",
+    color: "from-emerald-100/50 to-emerald-50/50",
+    caseStudyUrl: "/case-studies/hr-employee-onboarding-automation",
+    imageUrl: "https://cdn.sanity.io/images/1zmh4sfw/production/28dd848ea9e0f6ebc534b757d55fb5c2748b06b1-1672x941.png",
+    technologies: [
+      "Azure OpenAI",
+      "Microsoft Foundry",
+      "Foundry Agent Service",
+      "Azure AI Document Intelligence",
+      "Azure AI Search",
+      "LangChain",
+      "LangGraph",
+      "RAG",
+      "FastAPI",
+      "Next.js",
+      "Python"
+    ],
     clientOverview: {
-      name: 'North America Client',
-      industry: 'Healthcare',
-      country: 'United States',
-      organizationSize: '450+ Employees',
-      businessType: 'Multi-Specialty Healthcare Provider'
+      name: "Enterprise Organization",
+      industry: "Human Resources",
+      country: "United Kingdom",
+      organizationSize: "1,200+ Employees",
+      businessType: "Enterprise HR Operations"
     }
   },
   {
-    id: '04',
-    industryLabel: 'MANUFACTURING',
-    title: 'Plant Floor Knowledge Chatbot',
-    problem: 'Manufacturing teams relied on tribal knowledge and slow searches for SOPs, leading to downtime and inconsistent troubleshooting.',
-    solution: 'Developed an AI chatbot that retrieves SOP and maintenance guidance, and routes unresolved issues to the right ops queue.',
+    id: "ai-invoice-processing",
+    industryLabel: "FINANCE",
+    title: "AI-Powered Invoice Processing Automation",
+    problem: "Finance teams were bogged down by manual invoice data entry, GL code matching errors, and slow multi-tier approval cycles.",
+    solution: "AI-powered invoice automation that reduced processing time by 90% while improving validation, approval routing, and invoice-status visibility.",
     results: [
-      'Faster SOP lookup',
-      'Fewer repeated floor questions',
-      'Clearer escalation paths'
+      "90% Reduction in Manual Effort",
+      "98%+ Accuracy Rate",
+      "5x Faster Approval Routing"
     ],
-    icon: 'manufacturing',
-    color: 'from-blue-100/50 to-blue-50/50',
-    caseStudyUrl: 'https://www.softreetechnology.com/case-studies/ai-powered-manufacturing-operations-platform',
+    metrics: [
+      { value: "90%", label: "Reduction in Manual Effort" },
+      { value: "98%+", label: "Accuracy Rate" }
+    ],
+    icon: "heart",
+    color: "from-purple-100/50 to-purple-50/50",
+    caseStudyUrl: "/case-studies/ai-powered-invoice-processing-automation",
+    imageUrl: "https://cdn.sanity.io/images/1zmh4sfw/production/373a21c50768a331e886178baed555fb12ca2a64-1672x941.png",
+    technologies: [
+      "Azure AI Document Intelligence",
+      "Azure AI Foundry",
+      "LangChain",
+      "LangGraph",
+      "RAG",
+      "Vector Database",
+      "FastAPI",
+      "MCP Server",
+      "n8n"
+    ],
     clientOverview: {
-      name: 'UAE Based Client',
-      industry: 'Manufacturing',
-      country: 'United Arab Emirates',
-      organizationSize: '800+ Employees',
-      businessType: 'Industrial Manufacturing'
+      name: "Corporate Finance Division",
+      industry: "Finance",
+      country: "United States",
+      organizationSize: "3,000+ Employees",
+      businessType: "Financial Services & Accounting"
     }
-  },
+  }
 ];
 
 export const successStoriesData = successStoriesList;
