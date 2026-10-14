@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { AnimatePresence, motion, useInView, useMotionValueEvent, useScroll } from "framer-motion";
-import { Search, Sparkles } from "lucide-react";
+import { Search, Sparkles, X } from "lucide-react";
 import GeneralHeaderHero from "@/components/sections/GeneralHeaderHero";
 import CaseStudiesCategoryRail from "@/components/case-studies/listing/CaseStudiesCategoryRail";
 import CaseStudyListingCard from "@/components/case-studies/listing/CaseStudyListingCard";
@@ -287,9 +287,9 @@ export default function CaseStudiesListingClient({
       <section className="border-b border-[#e6e1f2] bg-white">
         <div className="mx-auto max-w-[1440px] px-5 py-6 md:px-8">
           <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
-            <div className="relative max-w-md flex-1">
+            <div className="relative w-full max-w-lg lg:max-w-xl flex-1">
               <Search
-                className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#6b7694]"
+                className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#6b7694]"
                 aria-hidden
               />
               <input
@@ -298,8 +298,18 @@ export default function CaseStudiesListingClient({
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search by name, industry or tech stack."
                 aria-label="Search case studies"
-                className="w-full rounded-full border border-[#e6e1f2] bg-[#f8f4ea] py-2.5 pl-10 pr-4 text-sm text-[#171717] placeholder:text-[#9ca3af] focus:border-[var(--softree-accent,#FF5812)] focus:outline-none focus:ring-1 focus:ring-[var(--softree-accent,#FF5812)]"
+                className="w-full min-h-[44px] rounded-full border border-[#e6e1f2] bg-[#f8f4ea] py-2.5 pl-10 pr-10 text-[13px] sm:text-sm text-[#171717] placeholder:text-[#9ca3af] transition-colors focus:border-[var(--softree-accent,#FF5812)] focus:outline-none focus:ring-1 focus:ring-[var(--softree-accent,#FF5812)] [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden"
               />
+              {search ? (
+                <button
+                  type="button"
+                  onClick={() => setSearch("")}
+                  aria-label="Clear search"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-1 text-[#6b7694] transition-colors hover:bg-[#e6e1f2] hover:text-[#171717]"
+                >
+                  <X className="h-3.5 w-3.5" aria-hidden />
+                </button>
+              ) : null}
             </div>
 
             <div className="flex flex-wrap items-center gap-3">
@@ -545,6 +555,7 @@ function FilterSelect({
   optionLabels?: Record<string, string>;
   onChange: (v: string) => void;
 }) {
+  const displayLabel = value === "All" ? label : optionLabels?.[value] || value;
   return (
     <div className="relative">
       <select
@@ -553,7 +564,8 @@ function FilterSelect({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         aria-label={label}
-        className="min-h-[44px] appearance-none rounded-full border border-[#e6e1f2] bg-[#f8f4ea] py-2 pl-4 pr-10 text-[13px] font-medium text-[#171717] focus:border-[var(--softree-accent,#FF5812)] focus:outline-none focus:ring-1 focus:ring-[var(--softree-accent,#FF5812)]"
+        title={displayLabel}
+        className="min-h-[44px] max-w-[155px] sm:max-w-[170px] truncate appearance-none rounded-full border border-[#e6e1f2] bg-[#f8f4ea] py-2 pl-4 pr-10 text-[13px] font-medium text-[#171717] focus:border-[var(--softree-accent,#FF5812)] focus:outline-none focus:ring-1 focus:ring-[var(--softree-accent,#FF5812)]"
       >
         {options.map((opt) => (
           <option key={opt} value={opt}>
