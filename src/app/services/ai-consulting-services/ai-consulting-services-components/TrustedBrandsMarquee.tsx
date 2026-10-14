@@ -214,7 +214,13 @@ export default function TrustedBrandsMarquee({
               {[...logos, ...logos].map((logo, index) => (
                 <div key={index} className="pp-logo-card">
                   <span className="pp-card-shine" />
-                  <img src={logo.src} alt={logo.name} />
+                  <img
+                    src={logo.src}
+                    alt={`${logo.name} partner logo`}
+                    loading="lazy"
+                    width={120}
+                    height={52}
+                  />
                   <span className="pp-logo-name">{logo.name}</span>
                 </div>
               ))}

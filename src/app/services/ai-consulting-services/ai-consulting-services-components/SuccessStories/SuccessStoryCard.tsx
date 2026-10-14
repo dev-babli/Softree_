@@ -85,8 +85,9 @@ export const SuccessStoryCard: React.FC<Props> = ({ story, isActive }) => {
           </div>
           <Image
             src={imageUrl}
-            alt={story.title}
+            alt={`${story.title} - AI Consulting Case Study`}
             fill
+            sizes="(max-width: 640px) 85vw, (max-width: 768px) 65vw, (max-width: 1024px) 48vw, 400px"
             className="object-cover transition-transform duration-700 ease-out group-hover/img:scale-105"
           />
         </Link>

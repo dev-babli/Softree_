@@ -11,33 +11,33 @@ import {
 
 const processSteps = [
   {
-    title: "AI Strategy & Discovery",
+    title: "1. AI Strategy & Discovery",
     description:
-      "We collaborate with stakeholders to understand your business goals, operational challenges, existing technology landscape, and AI opportunities. This phase establishes a clear roadmap aligned with your digital transformation objectives.",
+      "We assess your business goals, challenges, existing systems, and AI opportunities to identify suitable use cases and create a practical implementation roadmap.",
     icon: FaSearch,
   },
   {
-    title: "Solution Architecture & Roadmap",
+    title: "2. AI Solution Architecture & Roadmap",
     description:
-      "Our architects design a secure and scalable AI solution using Microsoft technologies such as Azure AI, Copilot Studio, Power Platform, and Microsoft Fabric. We define integrations, governance, implementation phases, and expected business outcomes.",
+      "We plan the solution architecture, select suitable AI technologies, and define integration requirements, security considerations, and implementation priorities.",
     icon: FaLayerGroup,
   },
   {
-    title: "AI Development & Integration",
+    title: "3. AI Development & Integration",
     description:
-      "Our offshore engineering teams build custom AI solutions, enterprise copilots, intelligent automation, and AI-powered applications. We integrate seamlessly with Microsoft 365, Dynamics 365, SharePoint, Dataverse, ERP, CRM, and third-party business systems.",
+      "Our offshore AI engineers build AI agents, intelligent workflows, and custom AI applications, integrating them with relevant business systems and platforms.",
     icon: FaBrain,
   },
   {
-    title: "Testing, Security & Deployment",
+    title: "4. AI Testing, Security & Deployment",
     description:
-      "Every solution undergoes comprehensive functional, security, performance, and user acceptance testing. We ensure compliance, governance, scalability, and a smooth production deployment following Microsoft best practices.",
+      "We test functionality, integrations, performance, and security to help ensure your AI solution is reliable and ready for deployment.",
     icon: FaShieldAlt,
   },
   {
-    title: "Continuous Optimization & Support",
+    title: "5. AI Optimization & Ongoing Support",
     description:
-      "AI is an ongoing journey. After deployment, we continuously monitor performance, optimize AI models, introduce new capabilities, and provide dedicated offshore support to maximize long-term business value and return on investment.",
+      "We help improve AI solutions through performance monitoring, workflow enhancements, ongoing maintenance, and continued engineering support.",
     icon: FaSyncAlt,
   },
 ];
@@ -111,16 +111,16 @@ export default function AIDeliveryProcess() {
               </span>
 
               {/* Heading */}
-              <h3 className="text-3xl lg:text-4xl font-semibold text-white leading-tight">
-                Our <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">AI Consulting</span> Delivery Process
-              </h3>
+              <h2 className="text-3xl lg:text-4xl font-semibold text-white leading-tight">
+                Our <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">AI Consulting & Implementation</span> Process
+              </h2>
 
               {/* Divider (neutral) */}
               <div className="w-14 h-px bg-white/30" />
 
               {/* Description */}
               <p className="text-lg text-gray-400 leading-relaxed">
-                At Softree, we follow a proven, business-first delivery framework to help enterprises successfully adopt AI. From strategy and solution architecture to development, deployment, and ongoing optimization, our Microsoft AI experts deliver secure, scalable, and outcome-driven AI solutions that create measurable business value.
+                Softree follows a structured approach to AI consulting, from strategy and solution planning to development, integration, and ongoing support. Our offshore AI team helps businesses implement practical AI solutions aligned with their goals, technology, and workflows.
               </p>
             </motion.div>
           </div>
@@ -181,9 +181,9 @@ export default function AIDeliveryProcess() {
 
                     {/* Content */}
                     <div className="pt-1 transition-transform duration-300 group-hover:translate-x-2">
-                      <h4 className="text-xl font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-orange-400">
+                      <h3 className="text-xl font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-orange-400">
                         {step.title}
-                      </h4>
+                      </h3>
                       <p className="text-gray-400 leading-relaxed max-w-md">
                         {step.description}
                       </p>

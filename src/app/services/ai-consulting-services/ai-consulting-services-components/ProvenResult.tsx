@@ -9,9 +9,9 @@ const provenResults = [
   {
     category: "AI STRATEGY",
     title: "AI Strategy & Advisory",
-    challenge: "Organizations struggle to align AI initiatives with business goals, resulting in high implementation risks and unclear ROI.",
-    solution: "Develop a customized, phased enterprise AI roadmap, identify high-value use cases, and align AI goals with corporate strategy.",
-    outcome: "A comprehensive, executive-ready roadmap mapped to clear business metrics and an actionable timeline.",
+    challenge: "Organizations may struggle to identify the right AI opportunities, prioritize competing initiatives, and connect AI investments with clear business objectives.",
+    solution: "We assess business processes, identify potential AI use cases, evaluate implementation feasibility, and develop a phased AI roadmap aligned with organizational priorities.",
+    outcome: "A prioritized AI roadmap outlining potential use cases, dependencies, implementation stages, and business measures for evaluating progress.",
     metric: "10+",
     metricLabel: "ROI-Mapped Use Cases",
     link: ""
@@ -19,19 +19,19 @@ const provenResults = [
   {
     category: "ASSESSMENTS",
     title: "AI Readiness Assessment",
-    challenge: "Companies often deploy AI on top of unstructured data, weak security structures, and legacy systems, leading to project failures.",
-    solution: "Conduct exhaustive data quality, security posture, and infrastructure readiness audits to build a solid foundation.",
-    outcome: "Full visibility into technical gaps with a clear remediation plan to prepare data and systems for AI scaling.",
+    challenge: "Data quality issues, legacy infrastructure, security requirements, and disconnected systems can create obstacles to successful AI implementation.",
+    solution: "We review relevant data sources, technology infrastructure, security considerations, existing processes, and integration requirements to identify readiness gaps.",
+    outcome: "A practical readiness assessment that highlights technical and operational gaps, implementation dependencies, and recommended next steps.",
     metric: "100%",
     metricLabel: "Data & Tech Audit",
     link: ""
   },
   {
     category: "MICROSOFT STACK",
-    title: "Microsoft AI Advisory",
-    challenge: "Enterprises struggle to leverage their existing Microsoft licenses, paying double for redundant third-party AI platforms.",
-    solution: "Blueprint architectures for Copilot Studio, Azure OpenAI, and Power Platform to optimize license efficiency.",
-    outcome: "Seamless integration of secure agents within SharePoint, Teams, and Dataverse, maximizing current IT investment.",
+    title: "Microsoft AI Consulting",
+    challenge: "Organizations need to understand how Microsoft AI technologies can work with existing systems, data, security policies, and business applications.",
+    solution: "We assess suitable Microsoft AI capabilities, including Azure AI, Azure OpenAI, Microsoft Copilot Studio, and Power Platform, based on your use cases and current technology environment.",
+    outcome: "A solution approach covering technology selection, integration requirements, implementation priorities, and opportunities to use existing Microsoft capabilities effectively.",
     metric: "3.5x",
     metricLabel: "Licensing Value ROI",
     link: ""
@@ -53,10 +53,10 @@ export default function ProvenResults() {
         >
           <SectionBadge text="OUR SERVICES" variant="line" />
           <h2 className="text-3xl md:text-4xl lg:text-[42px] font-extrabold text-[#111827] mt-4 mb-4 tracking-tight leading-tight">
-            AI Consulting Services Designed for <span className="text-[#FF5812]">Enterprise Scale</span>
+            AI Consulting Services for <span className="text-[#FF5812]">Strategy, Assessment & Implementation</span>
           </h2>
           <p className="text-[16px] lg:text-[17px] text-[#6B7280] max-w-2xl mx-auto leading-relaxed">
-            We guide your organization through every stage of the AI journey—from defining strategy and auditing readiness to implementing secure Microsoft AI solutions.
+            Our AI consulting services help you identify valuable AI opportunities, assess your technical requirements, and plan practical solutions that align with your business goals and existing technology.
           </p>
         </motion.div>
 
@@ -139,7 +139,7 @@ export default function ProvenResults() {
                         <Compass className="w-3.5 h-3.5" />
                       </span>
                       <div>
-                        <h4 className={`text-[9px] font-bold tracking-wider uppercase mb-0.5 ${theme.textAccent}`}>Our Solution</h4>
+                        <h4 className={`text-[9px] font-bold tracking-wider uppercase mb-0.5 ${theme.textAccent}`}>Our Approach</h4>
                         <p className="text-[12px] text-slate-700 leading-relaxed font-medium">{result.solution}</p>
                       </div>
                     </div>
@@ -150,7 +150,7 @@ export default function ProvenResults() {
                         <CheckCircle2 className="w-3.5 h-3.5" />
                       </span>
                       <div>
-                        <h4 className={`text-[9px] font-bold tracking-wider uppercase mb-0.5 ${theme.textAccent}`}>Outcome</h4>
+                        <h4 className={`text-[9px] font-bold tracking-wider uppercase mb-0.5 ${theme.textAccent}`}>Expected Outcome</h4>
                         <p className="text-[12px] text-slate-700 leading-relaxed font-medium">{result.outcome}</p>
                       </div>
                     </div>

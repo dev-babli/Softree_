@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import CapabilitySectionBadge from './CapabilitySectionBadge';
 import { coreCapabilitiesData } from './coreCapabilitiesData';
@@ -58,14 +59,14 @@ export default function CapabilitiesBentoGrid() {
 
         {/* Header (Matching SuccessStories) */}
         <div className="flex flex-col items-center w-full mb-8 lg:mb-10">
-          <CapabilitySectionBadge text="CORE CAPABILITIES" variant="line" />
+          <CapabilitySectionBadge text="AI CONSULTING CAPABILITIES" variant="line" />
 
           <h2 className="text-3xl md:text-4xl lg:text-[2.5rem] font-extrabold text-[#111827] mb-3 tracking-tight text-center leading-tight">
-            Enterprise AI <span className="text-[#FF6B2C]">Consulting Capabilities</span>
+            AI Consulting Services for <span className="text-[#FF6B2C]">Business Growth</span>
           </h2>
 
-          <p className="text-[15px] lg:text-[17px] text-[#6B7280] text-center max-w-2xl leading-snug">
-            Partner with Softree to plan, design, build, and scale enterprise AI solutions through Microsoft technologies, dedicated offshore engineering teams, and flexible white-label delivery models.
+          <p className="text-[15px] lg:text-[17px] text-[#6B7280] text-center max-w-3xl leading-relaxed">
+            Successful AI adoption starts with identifying the right opportunities, assessing technical readiness, and choosing solutions aligned with your business goals. Softree helps businesses plan, integrate, and implement AI solutions with flexible offshore engineering support.
           </p>
         </div>
 
@@ -113,9 +114,9 @@ export default function CapabilitiesBentoGrid() {
 
                     <div>
                       <div className="flex items-center gap-2 mb-0.5">
-                        <h3 className={`text-base transition-all duration-300 ${isActive ? 'font-bold text-[#111827]' : 'font-semibold text-gray-700'}`}>
+                        <span className={`block text-base transition-all duration-300 ${isActive ? 'font-bold text-[#111827]' : 'font-semibold text-gray-700'}`}>
                           {cap.title}
-                        </h3>
+                        </span>
                       </div>
                       <p className={`text-[13px] leading-snug transition-colors duration-300 ${isActive ? 'text-gray-700' : 'text-gray-500'}`}>
                         {cap.shortDesc}
@@ -154,7 +155,13 @@ export default function CapabilitiesBentoGrid() {
                     {/* Abstract Illustration Based on Capability */}
                     <div className="relative z-10 w-full h-full flex items-center justify-center transition-transform duration-700 group-hover:scale-105 min-h-[250px] lg:min-h-[300px]">
                       {(activeData as any).image ? (
-                        <img src={(activeData as any).image} alt={activeData.title} className="w-full h-full object-cover absolute inset-0" />
+                        <Image
+                          src={(activeData as any).image}
+                          alt={`${activeData.title} - AI Consulting Capability`}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 480px"
+                          className="w-full h-full object-cover absolute inset-0"
+                        />
                       ) : (
                         <AbstractIllustration type={activeData.illustration} />
                       )}

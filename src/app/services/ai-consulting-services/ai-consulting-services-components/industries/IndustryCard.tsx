@@ -47,8 +47,9 @@ export function IndustryCard({ industry, isActive }: IndustryCardProps) {
       <div className="relative h-[200px] w-full shrink-0 bg-slate-100 z-0">
         <Image
           src={industry.imagePath}
-          alt={industry.title}
+          alt={`${industry.title} - AI Consulting Solutions`}
           fill
+          sizes="(max-width: 640px) 85vw, (max-width: 1024px) 45vw, 420px"
           className={`object-cover transition-all duration-700 ${isActive ? "opacity-100" : "opacity-90"}`}
           onError={(e) => {
             e.currentTarget.style.display = "none";

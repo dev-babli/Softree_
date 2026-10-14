@@ -25,11 +25,11 @@ export interface WhySoftreeItem {
 
 export const whySoftreeData: WhySoftreeItem[] = [
   {
-    id: "enterprise-first",
+    id: "business-first",
     number: "01",
-    title: "Enterprise-first AI",
-    shortTitle: "Enterprise-first AI",
-    description: "We build enterprise-grade AI solutions that align with your business objectives, governance, and compliance needs.",
+    title: "Business-First AI",
+    shortTitle: "Business-First AI",
+    description: "We build practical AI solutions that align with your business objectives, governance, and compliance needs.",
     image: wsimg1,
     icon: Target,
     features: [
@@ -86,7 +86,7 @@ export const whySoftreeData: WhySoftreeItem[] = [
     icon: ShieldCheck,
     features: [
       {
-        title: "Enterprise Security",
+        title: "Data Security",
         description: "End-to-end encryption and zero-trust architecture.",
         icon: ShieldCheck,
       },

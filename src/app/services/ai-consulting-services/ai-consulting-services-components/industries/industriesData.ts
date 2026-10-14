@@ -8,7 +8,7 @@ export const industriesData: IndustryData[] = [
     iconName: "HeartPulse",
     imagePath: "/images/ai-consulting-service-image/industries/ind-3.webp",
     badge: "AI Powered",
-    benefits: ["Predictive Diagnostics", "Workflow Automation", "Enterprise Security"]
+    benefits: ["Predictive Diagnostics", "Workflow Automation", "Advanced Security"]
   },
   {
     id: "manufacturing",
@@ -22,10 +22,10 @@ export const industriesData: IndustryData[] = [
   {
     id: "finance",
     title: "Financial Services",
-    description: "Strengthen fraud detection, automate compliance, enhance risk analysis, and deliver AI-powered customer experiences with secure enterprise AI solutions.",
+    description: "Strengthen fraud detection, automate compliance, enhance risk analysis, and deliver AI-powered customer experiences with secure AI solutions.",
     iconName: "Landmark",
     imagePath: "/images/ai-consulting-service-image/industries/ind-5.webp",
-    badge: "Enterprise Ready",
+    badge: "Production Ready",
     benefits: ["Fraud Detection", "Risk Management", "Faster Operations"]
   },
   {
@@ -62,7 +62,7 @@ export const industriesData: IndustryData[] = [
     description: "Digitize citizen services, automate public workflows, improve transparency, and strengthen security.",
     iconName: "Building",
     imagePath: "/images/ai-consulting-service-image/industries/ind-1.webp",
-    badge: "Enterprise Security",
+    badge: "Robust Security",
     benefits: ["Citizen Services", "Public Workflows", "Strengthen Security"]
   }
 

@@ -38,8 +38,8 @@ const TABS = [
 /* ================= DATA ================= */
 const techData: Record<(typeof TABS)[number], Tech[]> = {
   "AI & COPILOTS": [
-    { name: "Microsoft Copilot Studio", description: "Build, customize, and deploy enterprise AI copilots.", icon: Bot },
-    { name: "Azure OpenAI Service", description: "Enterprise-grade GPT models secured with Azure.", icon: BrainCircuit },
+    { name: "Microsoft Copilot Studio", description: "Build, customize, and deploy intelligent AI copilots.", icon: Bot },
+    { name: "Azure OpenAI Service", description: "Production-grade GPT models secured with Azure.", icon: BrainCircuit },
     { name: "Azure AI Foundry", description: "Build, train, evaluate, and deploy AI solutions.", icon: Cloud },
     { name: "AI Builder", description: "Low-code AI capabilities inside Power Platform.", icon: Zap },
     { name: "Microsoft 365 Copilot", description: "Boost productivity across Microsoft 365 applications.", icon: LayoutGrid },
@@ -47,10 +47,10 @@ const techData: Record<(typeof TABS)[number], Tech[]> = {
   ],
 
   "POWER PLATFORM": [
-    { name: "Power Apps", description: "Create enterprise business applications faster.", icon: LayoutGrid },
+    { name: "Power Apps", description: "Create custom business applications faster.", icon: LayoutGrid },
     { name: "Power Automate", description: "Automate workflows across people, systems, and data.", icon: Workflow },
-    { name: "Power BI", description: "Visualize enterprise insights with real-time dashboards.", icon: Database },
-    { name: "Dataverse", description: "Secure enterprise data platform for AI applications.", icon: Server },
+    { name: "Power BI", description: "Visualize business insights with real-time dashboards.", icon: Database },
+    { name: "Dataverse", description: "Secure data platform for AI applications.", icon: Server },
     { name: "Power Pages", description: "Build secure external business portals.", icon: Globe },
     { name: "Power Fx", description: "Low-code language powering intelligent applications.", icon: Code2 },
   ],
@@ -60,13 +60,13 @@ const techData: Record<(typeof TABS)[number], Tech[]> = {
     { name: "Azure Data Lake", description: "Massively scalable and secure data lake for analytics.", icon: Server },
     { name: "Azure SQL Database", description: "Intelligent, scalable, relational database service.", icon: Database },
     { name: "Azure Blob Storage", description: "Massively scalable object storage for unstructured data.", icon: Cloud },
-    { name: "Data Factory", description: "Hybrid data integration at enterprise scale.", icon: Workflow },
+    { name: "Data Factory", description: "Hybrid data integration at scale.", icon: Workflow },
     { name: "OneLake", description: "A single, unified, logical data lake for your organization.", icon: Share2 },
   ],
 
   "INTEGRATION": [
     { name: "Microsoft Graph API", description: "Gateway to data and intelligence in Microsoft 365.", icon: Plug },
-    { name: "SharePoint", description: "Intelligent intranet and enterprise content management.", icon: Share2 },
+    { name: "SharePoint", description: "Intelligent intranet and business content management.", icon: Share2 },
     { name: "Dynamics 365", description: "Intelligent business applications for ERP and CRM.", icon: LayoutGrid },
     { name: "REST APIs", description: "Secure, scalable interfaces for custom integration.", icon: Server },
     { name: "Azure Logic Apps", description: "Automate access and use of data across clouds.", icon: Workflow },
@@ -106,11 +106,11 @@ export default function AITechnologies() {
 
           <h2 className="text-3xl md:text-4xl lg:text-[2.5rem]
  font-bold text-slate-900 mb-4 tracking-tight text-center leading-tight">
-            Modern AI Technologies That Power <span className="text-[#FF5812]">Intelligent Solutions</span>
+            AI Consulting Technologies for <span className="text-[#FF5812]">Smarter Business Solutions</span>
           </h2>
 
           <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-gray-600">
-            We leverage Microsoft Azure AI, Azure OpenAI, Microsoft Copilot Studio, Power Platform, Microsoft Fabric, and advanced machine learning technologies to build secure and scalable enterprise AI solutions.
+            Softree helps businesses identify and implement suitable AI technologies, from Microsoft AI and cloud platforms to custom AI agents and workflow automation. Our offshore AI consulting team aligns technology choices with your business goals and existing systems.
           </p>
         </div>
 

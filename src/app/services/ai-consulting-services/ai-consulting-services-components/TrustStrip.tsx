@@ -26,7 +26,7 @@ const trustItems: TrustItem[] = [
   {
     icon: TrendingUp,
     tag: "CLOUD INTEGRATION",
-    title: "Enterprise AI Solutions",
+    title: "Cloud AI Solutions",
     description: "Audit-ready systems mapped to Azure and Microsoft Fabric.",
   },
   {
@@ -85,9 +85,9 @@ export const TrustStrip = () => {
                   </span>
                   
                   {/* Title */}
-                  <h3 className="text-sm lg:text-[15px] xl:text-[16px] font-extrabold text-slate-800 leading-tight tracking-tight">
+                  <span className="block text-sm lg:text-[15px] xl:text-[16px] font-extrabold text-slate-800 leading-tight tracking-tight">
                     {item.title}
-                  </h3>
+                  </span>
 
                   {/* Growing Underline Accent */}
                   <span className="block h-[1.5px] w-5 bg-orange-500/30 rounded-full mt-1.5 mb-1.5 transition-all duration-500 ease-out group-hover:w-12 group-hover:bg-[#FF6B00]" />
