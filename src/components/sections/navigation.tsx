@@ -106,7 +106,7 @@ const menu: MenuItem[] = [
         description: "Build stateful multi-agent workflows, autonomous agent networks and complex chain-of-thought LLM pipelines.",
         links: [
           { label: "AI Agents Development", url: "/solutions/ai-agents-development", icon: Bot, description: "Autonomous reasoning agents executing complex multi-step workflows" },
-          { label: "Multi-Agent Systems", url: "/solutions/multi-agent-systems", icon: BrainCircuit, description: "Collaborative multi-agent networks coordinating across business domains" },
+          { label: "Multi-Agent Systems", url: "/services/multi-agent-systems-development", icon: BrainCircuit, description: "Collaborative multi-agent networks coordinating across business domains" },
           { label: "LangChain Development", url: "/solutions/lang-chain-development", icon: Link2, description: "Production LLM pipelines with structured outputs, tools & memory" },
           { label: "LangGraph Development", url: "/solutions/lang-graph-development", icon: Network, description: "Stateful agent graphs, cyclical workflows & human-in-the-loop logic" },
         ],

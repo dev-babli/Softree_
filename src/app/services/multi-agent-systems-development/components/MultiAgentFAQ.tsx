@@ -123,11 +123,10 @@ export default function MultiAgentFAQ({ faqs: customFaqs }: MultiAgentFAQProps) 
     return (
       <div
         key={faq.id}
-        className={`group/card relative w-full overflow-hidden rounded-2xl border transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-          isActive
+        className={`group/card relative w-full overflow-hidden rounded-2xl border transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${isActive
             ? "bg-white shadow-xl"
             : "bg-white/90 shadow-sm hover:shadow-md"
-        }`}
+          }`}
         style={{
           borderColor: isActive ? `${theme.accent}40` : `${theme.accent}22`,
           boxShadow: isActive ? `0 12px 40px ${theme.accent}22` : undefined,
@@ -191,19 +190,17 @@ export default function MultiAgentFAQ({ faqs: customFaqs }: MultiAgentFAQProps) 
               </span>
               <div className="relative h-6 w-6 flex-shrink-0">
                 <Plus
-                  className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${
-                    isActive
+                  className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${isActive
                       ? "scale-0 opacity-0 rotate-90"
                       : "scale-100 opacity-100 rotate-0"
-                  }`}
+                    }`}
                   style={{ color: theme.accent }}
                 />
                 <Minus
-                  className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${
-                    isActive
+                  className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${isActive
                       ? "scale-100 opacity-100 rotate-0"
                       : "scale-0 opacity-0 -rotate-90"
-                  }`}
+                    }`}
                   style={{ color: theme.accent }}
                 />
               </div>
@@ -212,9 +209,8 @@ export default function MultiAgentFAQ({ faqs: customFaqs }: MultiAgentFAQProps) 
             <div className="mt-auto flex flex-col transition-all duration-500">
               <div className="mb-2">
                 <h3
-                  className={`font-semibold leading-snug transition-colors duration-500 ${
-                    isActive ? "text-base md:text-lg" : "text-sm lg:text-[13px]"
-                  }`}
+                  className={`font-semibold leading-snug transition-colors duration-500 ${isActive ? "text-base md:text-lg" : "text-sm lg:text-[13px]"
+                    }`}
                   style={{ color: FAQ_INK }}
                 >
                   {faq.question}
@@ -280,14 +276,14 @@ export default function MultiAgentFAQ({ faqs: customFaqs }: MultiAgentFAQProps) 
             <span className="text-sm font-medium text-[#1852FF]">FAQ</span>
           </div>
           <h2 className="text-3xl font-bold tracking-tight text-[#0a0a1a] md:text-5xl lg:text-6xl">
-            Frequently Asked{" "}
+            Frequently Asked Questions About{" "}
             <span className="bg-gradient-to-r from-[#1852FF] to-[#FF5812] bg-clip-text text-transparent">
-              Questions.
+              Multi-Agent AI Development Services
             </span>
           </h2>
           <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-[#0a0a1a]/70">
             Common questions about Softree multi-agent systems—architecture fit,
-            orchestration, security, ownership, and delivery.
+            orchestration, security, enterprise integrations, and delivery.
           </p>
         </div>
 

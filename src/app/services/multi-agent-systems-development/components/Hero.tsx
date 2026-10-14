@@ -1,178 +1,230 @@
 'use client';
 
-import React from 'react';
-import Link from 'next/link';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ShieldCheck, Box, TrendingUp, Cpu } from 'lucide-react';
+import Script from 'next/script';
 import { HERO_DATA } from '../data/heroData';
-import HeroChatDemo from './HeroChatDemo';
+import TrustStrip from '@/components/sections/TrustStrip';
+import { typography } from '@/lib/typography';
+
+const CLIENT_LOGOS = [
+  { name: "GO ERP", src: "/images/logo/goerp1.webp" },
+  { name: "Nuvento", src: "/images/logo/nuvento.webp" },
+  { name: "Snapon", src: "/images/logo/snapon.webp" },
+  { name: "Jonians", src: "/images/logo/jonians.webp" },
+  { name: "Export Control Group", src: "/images/logo/ecg.webp" },
+  { name: "SP Marketplace", src: "/images/logo/1.webp" },
+  { name: "Bosch", src: "/images/logo/bosch.webp" },
+  { name: "Emscale", src: "/images/logo/emscale_logo.webp" },
+  { name: "Link Innovation", src: "/images/logo/link-innovation.webp" },
+  { name: "Intellectt", src: "/images/logo/Intellectt_logo.webp" },
+];
 
 export const Hero: React.FC = () => {
-  const { label, heading, paragraph, ctaButtons } = HERO_DATA;
+  const { label, paragraph } = HERO_DATA;
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.12,
-        delayChildren: 0.1,
-      },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 24 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.7, ease: [0.215, 0.61, 0.355, 1] as const },
-    },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.215, 0.61, 0.355, 1] as const } },
   };
 
   return (
-    <section className="relative flex min-h-screen w-full items-center overflow-hidden bg-transparent pt-20 pb-12 font-sans text-base text-[#0A0F3C] lg:pt-28 lg:pb-16">
-      <div className="pointer-events-none absolute top-1/2 right-0 h-[750px] w-[750px] -translate-y-1/2 opacity-30">
-        <svg viewBox="0 0 700 700" fill="none" className="h-full w-full">
-          <circle cx="500" cy="350" r="300" stroke="#FF5812" strokeWidth="1" strokeDasharray="4 8" opacity="0.25" />
-          <circle cx="500" cy="350" r="420" stroke="#FF5812" strokeWidth="1" opacity="0.15" />
-          <circle cx="500" cy="350" r="540" stroke="#FF5812" strokeWidth="1" strokeDasharray="6 12" opacity="0.1" />
-        </svg>
-      </div>
+    <section className="relative w-full bg-[#050909] overflow-hidden flex flex-col pt-24 lg:pt-28">
+      <Script
+        src="https://unpkg.com/@splinetool/viewer@1.9.59/build/spline-viewer.js"
+        type="module"
+        strategy="afterInteractive"
+      />
 
-      <div className="relative z-10 container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8">
-          {/* LEFT COLUMN */}
+      <style>{`
+        /* ── Hero Embedded Logo Marquee ── */
+        .hero-logo-wrap {
+          overflow: hidden;
+          width: 100%;
+          position: relative;
+          padding: 0.5rem 0;
+        }
+        .hero-logo-wrap::before,
+        .hero-logo-wrap::after {
+          content: '';
+          position: absolute;
+          top: 0; bottom: 0;
+          width: 80px;
+          z-index: 2;
+          pointer-events: none;
+        }
+        .hero-logo-wrap::before {
+          left: 0;
+          background: linear-gradient(90deg, #050909, transparent);
+        }
+        .hero-logo-wrap::after {
+          right: 0;
+          background: linear-gradient(-90deg, #050909, transparent);
+        }
+        
+        .hero-logo-track {
+          display: flex;
+          gap: 14px;
+          width: max-content;
+          animation: heroScrollLeft 28s linear infinite;
+        }
+        .hero-logo-track:hover {
+          animation-play-state: paused;
+        }
+        @keyframes heroScrollLeft {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+
+        /* ── Logo Card ── */
+        .hero-logo-card {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-width: 150px;
+          width: max-content;
+          padding: 0 1.25rem;
+          height: 72px;
+          border-radius: 14px;
+          position: relative;
+          overflow: hidden;
+          flex-shrink: 0;
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+          transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s, background-color 0.3s;
+        }
+        .hero-logo-card:hover {
+          transform: translateY(-2px);
+          background: rgba(255, 255, 255, 0.06);
+          border-color: rgba(255, 255, 255, 0.18);
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-logo-card img {
+          height: 38px;
+          width: auto;
+          object-fit: contain;
+          position: relative;
+          z-index: 2;
+          opacity: 0.85;
+          transition: opacity 0.3s, transform 0.3s;
+        }
+        .hero-logo-card:hover img {
+          opacity: 1;
+          transform: scale(1.05);
+        }
+      `}</style>
+
+      <div className="w-full flex flex-col lg:flex-row items-start">
+
+        {/* LEFT COLUMN: Content */}
+        <div className="w-full lg:w-1/2 flex justify-end">
           <motion.div
-            className="flex flex-col items-center text-center lg:col-span-6 lg:items-start lg:text-left"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
+            className="flex flex-col items-start w-full max-w-[640px] px-4 sm:px-6 lg:px-8 text-left"
           >
+            {/* Eyebrow Label */}
             <motion.div
               variants={itemVariants}
-              className="mb-6 inline-flex items-center gap-1.5 rounded-full border border-orange-100 bg-orange-50 px-2.5 py-1"
+              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-[#FF6B00]/40 bg-[#FF6B00]/10 mb-4 backdrop-blur-sm"
             >
-              <div className="h-1.5 w-1.5 shrink-0 rounded-full bg-orange-600" />
-              <span className="text-[10px] font-bold tracking-wider text-orange-600 uppercase">
+              <div className="w-2 h-2 rounded-full bg-[#FF6B00] shadow-[0_0_10px_2px_rgba(255,107,0,0.6)]" />
+              <span className={`${typography.caption.default} font-bold text-[#FF6B00] uppercase`}>
                 {label}
               </span>
             </motion.div>
 
+            {/* Headline */}
             <motion.h1
               variants={itemVariants}
-              className="mb-6 w-full text-3xl leading-[1.15] font-extrabold tracking-tight break-words whitespace-pre-line text-[#0A0F3C] sm:text-4xl sm:leading-[1.1] lg:text-5xl xl:text-[3.25rem]"
+              className={`${typography.title} font-extrabold text-white mb-5 tracking-tight leading-[1.08] text-balance`}
             >
-              {heading.prefix}
-              <span className="relative text-[#FF5812]">
-                {' '}
-                {heading.highlight}
-              </span>
-              {heading.suffix}
+              Build Multi-Agent AI Systems That <br />
+              <span className="text-[#FF6B00]">Think, Collaborate, and Act</span>
             </motion.h1>
 
+            {/* Description */}
             <motion.p
               variants={itemVariants}
-              className="mb-8 max-w-md text-sm leading-relaxed font-normal text-slate-600 lg:text-base"
+              className={`${typography.description.default} text-[#A0AAB5] max-w-xl mb-6 leading-relaxed`}
             >
               {paragraph}
             </motion.p>
-
-            <motion.div
-              variants={itemVariants}
-              className="mb-10 flex w-full flex-col items-center gap-4 sm:w-auto sm:flex-row"
-            >
-              <Link
-                href={ctaButtons.primary.href}
-                className="group relative inline-flex w-full items-center justify-center gap-2.5 rounded-xl border border-gray-200 bg-white px-6 py-3 text-sm font-semibold text-[#0A0F3C] transition-all duration-300 hover:bg-gray-50 sm:w-auto"
-              >
-                <span>{ctaButtons.primary.text}</span>
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-
-              {ctaButtons.secondary && ctaButtons.secondary.text && (
-                <Link
-                  href={ctaButtons.secondary.href}
-                  className="inline-flex w-full items-center justify-center rounded-xl border border-gray-200/80 bg-white px-7 py-3.5 text-base font-semibold text-[#0A0F3C] transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-50 sm:w-auto"
-                >
-                  {ctaButtons.secondary.text}
-                </Link>
-              )}
-            </motion.div>
-
-            <motion.div
-              variants={itemVariants}
-              className="flex w-full flex-col gap-5 border-t border-gray-100 pt-6 md:flex-row md:gap-4"
-            >
-              <div className="flex flex-1 flex-col gap-1.5">
-                <div className="flex items-start gap-2">
-                  <ShieldCheck className="mt-[1px] h-5 w-5 shrink-0 text-[#FF6B00]" strokeWidth={1.5} />
-                  <h4 className="text-[12.5px] leading-[1.25] font-semibold text-[#0A0F3C]">
-                    White-Label
-                    <br />
-                    Friendly
-                  </h4>
-                </div>
-                <p className="pr-2 text-[11px] leading-relaxed text-gray-500">
-                  Trusted partner for tech agencies.
-                </p>
-              </div>
-
-              <div className="flex flex-1 flex-col gap-1.5">
-                <div className="flex items-start gap-2">
-                  <Box className="mt-[1px] h-5 w-5 shrink-0 text-[#FF6B00]" strokeWidth={1.5} />
-                  <h4 className="text-[12.5px] leading-[1.25] font-semibold text-[#0A0F3C]">
-                    Dedicated
-                    <br />
-                    Offshore Teams
-                  </h4>
-                </div>
-                <p className="pr-2 text-[11px] leading-relaxed text-gray-500">
-                  Scale engineering on demand.
-                </p>
-              </div>
-
-              <div className="flex flex-1 flex-col gap-1.5">
-                <div className="flex items-start gap-2">
-                  <TrendingUp className="mt-[1px] h-5 w-5 shrink-0 text-[#FF6B00]" strokeWidth={1.5} />
-                  <h4 className="text-[12.5px] leading-[1.25] font-semibold text-[#0A0F3C]">
-                    Microsoft AI
-                    <br />
-                    Expertise
-                  </h4>
-                </div>
-                <p className="pr-2 text-[11px] leading-relaxed text-gray-500">
-                  Azure, OpenAI & Power Platform.
-                </p>
-              </div>
-
-              <div className="flex flex-1 flex-col gap-1.5">
-                <div className="flex items-start gap-2">
-                  <Cpu className="mt-[1px] h-5 w-5 shrink-0 text-[#FF6B00]" strokeWidth={1.5} />
-                  <h4 className="text-[12.5px] leading-[1.25] font-semibold text-[#0A0F3C]">
-                    Enterprise-Ready
-                    <br />
-                    Delivery
-                  </h4>
-                </div>
-                <p className="pr-2 text-[11px] leading-relaxed text-gray-500">
-                  Secure, production-grade solutions.
-                </p>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* RIGHT COLUMN: Chatbot Q&A buds */}
-          <motion.div
-            className="relative mt-6 flex w-full items-center justify-center px-1 sm:px-0 lg:col-span-6 lg:mt-0"
-            initial={{ opacity: 0, x: 28 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.25, ease: [0.215, 0.61, 0.355, 1] }}
-          >
-            <HeroChatDemo />
           </motion.div>
         </div>
+
+        {/* RIGHT COLUMN: 3D UI (Bleeds to the right edge) */}
+        <div className="w-full lg:w-1/2 flex flex-col items-start justify-center relative mt-4 lg:mt-0 lg:-translate-x-16">
+          <div className="w-full h-[360px] sm:h-[440px] lg:h-[480px] relative pointer-events-none transform lg:scale-[0.85] lg:origin-top">
+            <div className="pointer-events-auto absolute inset-0 overflow-hidden">
+              {isMounted &&
+                React.createElement('spline-viewer', {
+                  url: 'https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode',
+                  style: { width: '100%', height: '100%' },
+                })}
+              {/* Overlay to cover the Spline watermark and block clicks/hovers */}
+              <div className="absolute bottom-2 right-2 w-[150px] h-[50px] bg-[#050909] z-[100] pointer-events-auto rounded-md" />
+            </div>
+          </div>
+        </div>
+
       </div>
+
+      {/* TrustStrip at the bottom */}
+      <div className="w-full relative z-10 -mt-8 lg:-mt-16">
+        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
+          <TrustStrip theme="dark" />
+        </div>
+      </div>
+
+      {/* Integrated Compact Logo Marquee immediately below TrustStrip */}
+      <div className="w-full pb-10 pt-4 relative z-10">
+        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
+          <div className="relative bg-black/80 rounded-2xl md:rounded-3xl border border-white/10 px-4 sm:px-6 py-5 overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.5)] backdrop-blur-md">
+            
+            {/* Heading with divider lines */}
+            <div className="flex items-center gap-4 mb-4">
+              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+              <p className="shrink-0 text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-white/90">
+                TRUSTED BY PARTNERS &amp; CLIENTS
+              </p>
+              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+            </div>
+
+            {/* Compact infinite scrolling logos */}
+            <div className="hero-logo-wrap">
+              <div className="hero-logo-track">
+                {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((logo, index) => (
+                  <div key={index} className="hero-logo-card">
+                    {logo.src ? (
+                      <img src={logo.src} alt={logo.name} loading="lazy" />
+                    ) : (
+                      <span className="text-white text-xs font-bold leading-snug">{logo.name}</span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
     </section>
   );
 };
+
+export default Hero;

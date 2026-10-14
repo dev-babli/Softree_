@@ -191,6 +191,16 @@ const nextConfig: any = {
         permanent: true,
       },
       {
+        source: "/services/website-modernization",
+        destination: "/services/legacy-application-modernization",
+        permanent: true,
+      },
+      {
+        source: "/solutions/multi-agent-systems",
+        destination: "/services/multi-agent-systems-development",
+        permanent: true,
+      },
+      {
         source: "/solution",
         destination: "/agentic-ai-platform",
         permanent: true,

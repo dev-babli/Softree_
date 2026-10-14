@@ -20,8 +20,6 @@ const proposedStaticRoutes = [
   { url: '/services/ai-consulting-services', priority: 0.9, changeFrequency: 'weekly' },
   { url: '/services/ai-chatbot-development', priority: 0.9, changeFrequency: 'weekly' },
   { url: '/services/ai-healthcare-development-service', priority: 0.9, changeFrequency: 'weekly' },
-  { url: '/services/enterprise-ai-solution', priority: 0.9, changeFrequency: 'weekly' },
-  { url: '/services/multi-agent-systems-development', priority: 0.9, changeFrequency: 'weekly' },
   { url: '/services/azure-openai-development-partner', priority: 0.9, changeFrequency: 'weekly' },
   { url: '/services/amazon-bedrock-agentcore-development', priority: 0.9, changeFrequency: 'weekly' },
   { url: '/services/amazon-nova-2-sonic-solutions', priority: 0.9, changeFrequency: 'weekly' },

@@ -1,13 +1,15 @@
 import {
-  MessageSquare,
   Brain,
   GitFork,
   ShieldCheck,
   Database,
   Users,
-  Headphones,
-  BookOpen,
+  Network,
+  Layers,
+  Workflow,
   TrendingUp,
+  Box,
+  Cpu,
 } from "lucide-react";
 
 export interface CapabilityCardData {
@@ -25,14 +27,14 @@ export interface FeatureItem {
 }
 
 export const HERO_DATA = {
-  label: "MULTI-AGENT SYSTEMS",
+  label: "OFFSHORE MULTI-AGENT SYSTEM DEVELOPMENT",
   heading: {
-    prefix: "Scalable Multi-Agent AI Systems Built by Your",
-    highlight: "Offshore Engineering Partner",
-    suffix: "",
+    prefix: "White-Label Partner for",
+    highlight: "Multi-Agent System Development",
+    suffix: "services",
   },
   paragraph:
-    "Expand your delivery capabilities. Hire dedicated AI engineers to build and deploy complex, autonomous multi-agent workflows as a white-label partner.",
+    "Extend your engineering capacity with Softree's offshore AI team. We design, build, and integrate coordinated AI agent systems for technology companies, agencies, and consulting partners—delivering under your brand working as extension of your team.",
   ctaButtons: {
     primary: {
       text: "Talk to an Expert",
@@ -42,66 +44,67 @@ export const HERO_DATA = {
   },
   features: [
     {
-      icon: Headphones,
-      title: "SUPPORT CHATBOTS",
-      subtitle: "Deflect tickets at scale.",
+      icon: Network,
+      title: "AGENT ORCHESTRATION",
+      subtitle: "Coordinate specialized roles.",
     },
     {
-      icon: BookOpen,
-      title: "KNOWLEDGE GROUNDED",
-      subtitle: "RAG over your docs.",
+      icon: Workflow,
+      title: "SHARED CONTEXT LOOP",
+      subtitle: "Memory across every agent.",
     },
     {
       icon: ShieldCheck,
-      title: "SECURE BY DESIGN",
-      subtitle: "Enterprise controls built-in.",
+      title: "GOVERNED BY DESIGN",
+      subtitle: "Approvals and audit trails.",
     },
     {
       icon: TrendingUp,
-      title: "END-TO-END DELIVERY",
-      subtitle: "Strategy to production.",
+      title: "PRODUCTION DELIVERY",
+      subtitle: "Strategy to live systems.",
     },
   ] as FeatureItem[],
+  /** Orbit loop — rendered with .map(); angles place cards on the ring */
   capabilities: [
     {
-      id: "listen",
-      title: "Listen",
-      subtitle: "Understand Intent",
-      icon: MessageSquare,
+      id: "plan",
+      title: "Plan",
+      subtitle: "Decompose Goals",
+      icon: Layers,
       angle: 270,
+    },
+    {
+      id: "coordinate",
+      title: "Coordinate",
+      subtitle: "Assign Roles",
+      icon: Network,
+      angle: 330,
     },
     {
       id: "reason",
       title: "Reason",
-      subtitle: "Ground Answers",
+      subtitle: "Decide Together",
       icon: Brain,
-      angle: 330,
+      angle: 30,
     },
     {
       id: "act",
       title: "Act",
-      subtitle: "Trigger Workflows",
+      subtitle: "Execute in Parallel",
       icon: GitFork,
-      angle: 30,
-    },
-    {
-      id: "protect",
-      title: "Protect",
-      subtitle: "Stay Compliant",
-      icon: ShieldCheck,
       angle: 90,
     },
     {
-      id: "connect",
-      title: "Connect",
-      subtitle: "CRM & Helpdesk",
+      id: "share",
+      title: "Share",
+      subtitle: "Sync Context",
       icon: Database,
       angle: 150,
     },
     {
-      id: "handoff",
-      title: "Handoff",
-      subtitle: "Escalate to Humans",
+      id: "govern",
+      title: "Govern",
+      subtitle: "Human Oversight",
       icon: Users,
       angle: 210,
     },

@@ -35,7 +35,7 @@ export const HERO_DATA = {
     suffix: '',
   },
   paragraph:
-    'Build custom AI agents that connect enterprise data, use business tools, and automate multi-step workflows. Softree Technology provides offshore AI engineering for secure, scalable agentic AI solutions tailored to your business needs.',
+    'Softree helps businesses design and develop AI agents that understand business context, use enterprise data and tools, and take action across real-world workflows. Extend your capabilities with an offshore AI engineering team built to develop, integrate, and scale AI agents around your business needs.',
   ctaButtons: {
     primary: {
       text: 'Talk to an Expert',

@@ -57,8 +57,8 @@ export const Hero: React.FC = () => {
               variants={itemVariants}
               className="text-4xl sm:text-5xl lg:text-[64px] leading-[1.1] font-bold text-white mb-6 tracking-tight"
             >
-              AI Agent Development Services for{' '}
-              <span className="text-[#FF6B00]">Enterprise Automation</span>
+              Turn Business Workflows Into{' '}
+              <span className="text-[#FF6B00]">Intelligent AI Agents</span>
             </motion.h1>
 
             {/* Description */}

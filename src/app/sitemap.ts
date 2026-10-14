@@ -15,7 +15,6 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${BASE_URL}/services/ai-consulting-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/services/ai-chatbot-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/services/ai-healthcare-development-service`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-  { url: `${BASE_URL}/services/multi-agent-systems-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/services/azure-openai-development-partner`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/services/amazon-bedrock-agentcore-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/services/amazon-nova-2-sonic-solutions`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
@@ -39,7 +38,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${BASE_URL}/solutions/ai-chatbot-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/solutions/azure-openai-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/solutions/document-ai-solutions`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-  { url: `${BASE_URL}/solutions/multi-agent-systems`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+  { url: `${BASE_URL}/services/multi-agent-systems-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
 
   // Microsoft, Power Platform & Modern Workspace Services
   { url: `${BASE_URL}/services/tableau-migration-services`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },

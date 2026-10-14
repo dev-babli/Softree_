@@ -90,7 +90,7 @@ export const SERVICES_MEGA_CATEGORIES: MegaMenuGroup[] = [
       },
       {
         label: "Multi-Agent Systems",
-        url: "/solutions/multi-agent-systems",
+        url: "/services/multi-agent-systems-development",
         icon: Network,
         description: "Coordinate specialized AI agent teams",
       },
