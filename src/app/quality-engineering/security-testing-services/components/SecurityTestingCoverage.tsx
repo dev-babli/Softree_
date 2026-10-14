@@ -60,7 +60,7 @@ export default function SecurityTestingCoverage() {
   ];
 
   return (
-    <div className="bg-white pt-2 md:pt-6 pb-6 md:pb-16 text-slate-900">
+    <div id="security-coverage" className="bg-white pt-2 md:pt-6 pb-6 md:pb-16 text-slate-900 scroll-mt-20">
       <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-[2cm]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
 
