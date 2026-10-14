@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import SectionBadge from "@/app/services/ai-development-services/components/SectionBadge";
 
 export default function AIPhilosophy() {
   return (
@@ -13,14 +14,12 @@ export default function AIPhilosophy() {
         
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-16 md:mb-20">
-          <span className="text-[#FF5812] font-bold tracking-[0.2em] text-[11px] uppercase mb-4">
-            OUR PHILOSOPHY
-          </span>
+          <SectionBadge text="AI STRATEGY, INTEGRATION & GOVERNANCE" variant="line" />
           <h2 className="text-3xl md:text-4xl lg:text-[42px] font-extrabold text-slate-900 tracking-tight leading-tight max-w-3xl mb-4">
-           The Principles Behind <span className="text-[#FF5812]">Strategic AI Advisory</span>
+            From AI Strategy to <span className="text-[#FF5812]">Successful Implementation</span>
           </h2>
-          <p className="text-[16px] lg:text-[17px] text-slate-500 max-w-2xl mx-auto leading-relaxed">
-            We align technology potential with organizational readiness. Our consulting philosophy focuses on building clear roadmaps, structuring sound architecture blueprints, and establishing responsible AI frameworks.
+          <p className="text-[16px] lg:text-[17px] text-slate-500 max-w-3xl mx-auto leading-relaxed">
+            Softree helps businesses turn AI opportunities into practical solutions through strategic planning, technical architecture, and responsible AI adoption. Our approach aligns AI initiatives with business goals, existing systems, security needs, and long-term growth.
           </p>
         </div>
 
@@ -78,10 +77,10 @@ export default function AIPhilosophy() {
               PILLAR 01
             </span>
             <h3 className="text-slate-900 text-xl font-bold mb-3">
-              Strategic Value Assessment
+              AI Strategy & Opportunity Assessment
             </h3>
             <p className="text-slate-500 text-[14.5px] leading-relaxed">
-              We identify where AI can drive actual business value. Through deep discovery, we evaluate your operational readiness and map out high-ROI use cases, ensuring every proposed initiative has a clear path to measurable outcomes.
+              Identify AI use cases that can improve workflows, support decision-making, and increase operational efficiency. Prioritize opportunities based on business goals, technical feasibility, and expected value.
             </p>
           </div>
 
@@ -112,10 +111,10 @@ export default function AIPhilosophy() {
               PILLAR 02
             </span>
             <h3 className="text-slate-900 text-xl font-bold mb-3">
-              Architectural Blueprints
+              AI Architecture & Integration Planning
             </h3>
             <p className="text-slate-500 text-[14.5px] leading-relaxed">
-              We design the foundation for enterprise scale. From choosing between pre-built copilots and custom LLMs to auditing your data layer, we construct architecture blueprints aligned with the Microsoft Cloud ecosystems you trust.
+              Evaluate existing systems, data requirements, and suitable AI technologies. Develop an implementation roadmap focused on secure integration, scalability, and maintainability.
             </p>
           </div>
 
@@ -149,10 +148,10 @@ export default function AIPhilosophy() {
               PILLAR 03
             </span>
             <h3 className="text-slate-900 text-xl font-bold mb-3">
-              Governance & Risk Mitigation
+              AI Governance & Risk Management
             </h3>
             <p className="text-slate-500 text-[14.5px] leading-relaxed">
-              Trust is non-negotiable for enterprise deployment. We define responsible AI guidelines, risk management policies, and compliance guardrails to help your security and IT teams confidently support organizational adoption.
+              Plan appropriate data protection, access controls, human oversight, and responsible AI practices to support secure and reliable AI implementation.
             </p>
           </div>
 

@@ -156,7 +156,7 @@ export default function WhyChooseWithTestimonials() {
             </div>
  
             <h3 className="text-2xl font-semibold mb-6 text-white">
-              Trusted by Enterprise Teams
+              Trusted by Clients & Partners
             </h3>
  
             <div className="flex items-center gap-4 mb-2">

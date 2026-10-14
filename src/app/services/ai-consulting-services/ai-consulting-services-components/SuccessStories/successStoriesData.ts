@@ -45,7 +45,7 @@ export const successStoriesList: SuccessStory[] = [
     industryLabel: 'AI & ANALYTICS',
     title: 'AI Performance Intelligence Report',
     problem: 'Businesses struggled to quickly identify conversion blockers, UX issues, SEO gaps, and performance opportunities on their websites.',
-    solution: "Softree Technology's AI Performance Intelligence Report identifies these issues in minutes using enterprise AI analysis.",
+    solution: "Softree Technology's AI Performance Intelligence Report identifies these issues in minutes using advanced AI analysis.",
     results: [
       '5 min audit completion',
       '100+ automated performance checks'

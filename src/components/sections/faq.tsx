@@ -1,244 +1,374 @@
 /* eslint-disable softree-design/no-untokenized-design-literals */
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useMemo } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import { Plus, Minus, HelpCircle } from "lucide-react";
+import { prefersReducedMotion } from "@/lib/motion";
 
-const faqs = [
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
+export type FAQItem = {
+  id?: number | string;
+  serial?: string;
+  question: string;
+  answer: string;
+};
+
+export interface SoftreeFAQProps {
+  faqs?: readonly FAQItem[];
+}
+
+const defaultFaqs: FAQItem[] = [
   {
+    id: 1,
+    serial: "question 01",
     question: "What kind of technology solutions does Softree Technology specialize in?",
     answer:
       "Softree Technology specializes in enterprise Microsoft solutions, AI-powered automation, modern application engineering, and offshore development services. Our core expertise includes SharePoint + PowerApps, Power Automate, Power BI, Dynamics 365, Microsoft Fabric, Azure AI, AI agents, custom web and mobile applications, and enterprise workflow automation solutions designed to help businesses modernize operations and scale efficiently.",
   },
   {
+    id: 2,
+    serial: "question 02",
     question: "Can Softree help businesses replace manual processes and spreadsheet-based operations?",
     answer:
       "Yes. Many organizations still manage approvals, reporting, employee requests, and operational workflows through spreadsheets, emails, and disconnected systems. Softree helps businesses modernize these processes using SharePoint + PowerApps, Power Automate, Dynamics 365, and AI-powered workflow automation solutions that improve operational visibility, reduce manual effort, minimize process delays, and increase efficiency across departments.",
   },
   {
+    id: 3,
+    serial: "question 03",
     question: "Does Softree work with companies that already use Microsoft 365?",
     answer:
       "Absolutely. Softree primarily works with businesses already operating within the Microsoft ecosystem. We help organizations extend and optimize Microsoft 365 environments using SharePoint, Teams, Power Platform, Dynamics 365, Power BI, Azure AI, and Microsoft Copilot integrations without disrupting existing operations or requiring large-scale infrastructure changes.",
   },
   {
+    id: 4,
+    serial: "question 04",
     question: "Why do companies choose Softree as their Microsoft and AI development partner?",
     answer:
       "Companies choose Softree for its expertise in SharePoint with Power Apps, Power Platform, Dynamics 365, Azure AI, enterprise automation, and custom software development. We combine deep Microsoft ecosystem knowledge with AI engineering capabilities, offshore scalability, transparent delivery processes, and long-term partnership models.",
   },
   {
+    id: 5,
+    serial: "question 05",
     question: "How does Softree support enterprise digital transformation initiatives?",
     answer:
       "Softree supports enterprise digital transformation by modernizing legacy systems, automating workflows, improving collaboration, implementing AI-driven business solutions, and building scalable enterprise applications. Our delivery model combines Microsoft technologies, cloud architecture, AI automation, and agile engineering practices to help organizations improve operational agility, accelerate delivery timelines, and reduce dependency on fragmented manual processes.",
   },
   {
+    id: 6,
+    serial: "question 06",
     question: "Can Softree build custom AI solutions for enterprise operations?",
     answer:
       "Yes. Softree develops AI-powered enterprise solutions including AI agents, Copilot integrations, intelligent automation systems, document AI, AI-assisted workflows, and Retrieval-Augmented Generation (RAG) solutions. These systems are designed to improve productivity, automate repetitive business operations, streamline knowledge access, and support faster operational decision-making across enterprise environments.",
   },
   {
+    id: 7,
+    serial: "question 07",
     question: "What business processes can be automated using Microsoft Power Platform solutions?",
     answer:
       "Businesses use Microsoft Power Platform to automate approvals, onboarding, reporting, inventory tracking, HR operations, document workflows, customer request management, compliance processes, and operational coordination systems. Softree helps organizations identify automation opportunities and implement scalable Power Apps and Power Automate solutions integrated with enterprise systems and existing Microsoft environments.",
   },
   {
+    id: 8,
+    serial: "question 08",
     question: "How does Softree ensure data security and compliance in enterprise solutions?",
     answer:
       "Softree aligns all development with Microsoft and industry security best practices. We build solutions within your secure Microsoft 365 tenant or Azure environment, ensuring data privacy, strict access controls, and compliance with enterprise governance policies.",
   },
 ];
 
-export type FAQItem = {
-  question: string;
-  answer: string;
-};
+/** Brand palette: cream `#F3F0EE`, blue `#1852FF`, orange `#FF5812`, ink `#0a0a1a` */
+const FAQ_INK = "#0a0a1a";
+const FAQ_INK_MUTED = "#2a3348";
 
-export default function SoftreeFAQ({ faqs: customFaqs }: { faqs?: readonly FAQItem[] } = {}) {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const activeFaqs = customFaqs || faqs;
+/** Same palette, alternating blue / orange at different shades */
+const FAQ_CARD_THEMES = [
+  {
+    from: "#F3F0EE",
+    via: "#e8eeff",
+    to: "#cdd9ff",
+    accent: "#1852FF",
+    scrim: "from-white/55 via-white/30 to-[#1852FF]/10",
+  },
+  {
+    from: "#F3F0EE",
+    via: "#fdeee4",
+    to: "#ffd9c8",
+    accent: "#FF5812",
+    scrim: "from-white/55 via-white/30 to-[#FF5812]/10",
+  },
+  {
+    from: "#F3F0EE",
+    via: "#dce6ff",
+    to: "#b8c9ff",
+    accent: "#1852FF",
+    scrim: "from-white/55 via-white/30 to-[#1852FF]/10",
+  },
+  {
+    from: "#F3F0EE",
+    via: "#ffe8dc",
+    to: "#ffc9ad",
+    accent: "#FF5812",
+    scrim: "from-white/55 via-white/30 to-[#FF5812]/10",
+  },
+  {
+    from: "#F3F0EE",
+    via: "#d0dcff",
+    to: "#a8baff",
+    accent: "#1852FF",
+    scrim: "from-white/55 via-white/30 to-[#1852FF]/10",
+  },
+] as const;
+
+export default function SoftreeFAQ({ faqs: customFaqs }: SoftreeFAQProps = {}) {
+  const activeFaqs = customFaqs && customFaqs.length > 0 ? customFaqs : defaultFaqs;
+
+  const normalizedFaqs = useMemo(
+    () =>
+      activeFaqs.map((faq, index) => ({
+        id: faq.id ?? index + 1,
+        serial: faq.serial ?? `question ${String(index + 1).padStart(2, "0")}`,
+        question: faq.question,
+        answer: faq.answer,
+      })),
+    [activeFaqs]
+  );
+
+  const [activeLeft, setActiveLeft] = useState<number>(normalizedFaqs.length > 0 ? 0 : -1);
+  const [activeRight, setActiveRight] = useState<number>(normalizedFaqs.length > 1 ? 1 : -1);
+  const sectionRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const faqsRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      if (prefersReducedMotion()) return;
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          end: "top 30%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      tl.from(titleRef.current, {
+        y: 60,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      });
+
+      tl.from(
+        faqsRef.current,
+        {
+          y: 80,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power3.out",
+        },
+        "-=0.4"
+      );
+    },
+    { scope: sectionRef }
+  );
+
+  const handleClick = (index: number) => {
+    const isLeft = index % 2 === 0;
+    if (isLeft) {
+      setActiveLeft(activeLeft === index ? -1 : index);
+    } else {
+      setActiveRight(activeRight === index ? -1 : index);
+    }
+  };
+
+  const renderFAQCard = (faq: { id: number | string; serial: string; question: string; answer: string }, index: number) => {
+    const isActive = index % 2 === 0 ? index === activeLeft : index === activeRight;
+    const theme = FAQ_CARD_THEMES[index % FAQ_CARD_THEMES.length];
+
+    return (
+      <div
+        key={faq.id}
+        className={`group/card relative overflow-hidden rounded-2xl border transition-all duration-500 ease-[var(--legacy-ease-0_4_0_0_2_1)] w-full ${
+          isActive ? "bg-white shadow-xl" : "bg-white/90 shadow-sm hover:shadow-md"
+        }`}
+        style={{
+          borderColor: isActive ? `${theme.accent}40` : `${theme.accent}22`,
+          boxShadow: isActive ? `0 12px 40px ${theme.accent}22` : undefined,
+          order: index,
+        }}
+      >
+        {/* Grainient Background for Inactive Cards */}
+        {!isActive && (
+          <>
+            {/* Base Gradient */}
+            <div
+              className="absolute inset-0 transition-all duration-500 group-hover/card:opacity-90"
+              style={{
+                background: `linear-gradient(135deg, ${theme.from} 0%, ${theme.via} 50%, ${theme.to} 100%)`,
+              }}
+            />
+            {/* Accent Glow */}
+            <div
+              className="absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-10 transition-opacity duration-500 group-hover/card:opacity-20"
+              style={{ backgroundColor: theme.accent }}
+            />
+            <div
+              className="absolute -bottom-10 -left-10 h-32 w-32 rounded-full opacity-5 transition-opacity duration-500 group-hover/card:opacity-15"
+              style={{ backgroundColor: theme.accent }}
+            />
+            {/* Subtle Border Glow */}
+            <div
+              className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover/card:opacity-100"
+              style={{
+                boxShadow: `inset 0 0 0 1px ${theme.accent}28, 0 0 30px ${theme.accent}14`,
+              }}
+            />
+          </>
+        )}
+
+        {/* Static Background for Active Card */}
+        {isActive && (
+          <div className="absolute inset-0">
+            <div
+              className="absolute inset-0"
+              style={{
+                background: `linear-gradient(135deg, ${theme.from} 0%, ${theme.via} 58%, ${theme.to} 100%)`,
+              }}
+            />
+            <div className={`absolute inset-0 bg-gradient-to-b ${theme.scrim}`} />
+            <div className="absolute inset-0 bg-white/20" />
+          </div>
+        )}
+
+        {/* Content */}
+        <div className="relative flex h-full flex-col p-5 md:p-6 justify-between">
+          <button
+            type="button"
+            aria-expanded={isActive}
+            aria-controls={isActive ? `faq-answer-${faq.id}` : undefined}
+            onClick={() => handleClick(index)}
+            className="flex w-full flex-col text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1852FF]/50 focus-visible:ring-offset-2"
+          >
+            {/* Top Row: always visible */}
+            <div className="flex items-center justify-between w-full flex-shrink-0">
+              <span
+                className="typo-caption transition-colors duration-500"
+                style={{ color: isActive ? `${FAQ_INK_MUTED}cc` : FAQ_INK_MUTED }}
+              >
+                {faq.serial}
+              </span>
+              <div className="relative h-6 w-6 flex-shrink-0">
+                {/* Plus Icon */}
+                <Plus
+                  className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${
+                    isActive
+                      ? "scale-0 opacity-0 rotate-90"
+                      : "scale-100 opacity-100 rotate-0"
+                  }`}
+                  style={{ color: theme.accent }}
+                />
+                {/* Minus Icon */}
+                <Minus
+                  className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${
+                    isActive
+                      ? "scale-100 opacity-100 rotate-0"
+                      : "scale-0 opacity-0 -rotate-90"
+                  }`}
+                  style={{ color: theme.accent }}
+                />
+              </div>
+            </div>
+
+            {/* Bottom Content / Middle content */}
+            <div className="mt-auto flex flex-col transition-all duration-500">
+              {/* Question */}
+              <div className="mb-2">
+                <h3
+                  className="typo-heading-4 transition-colors duration-500"
+                  style={{
+                    color: FAQ_INK,
+                  }}
+                >
+                  {faq.question}
+                </h3>
+              </div>
+            </div>
+          </button>
+
+          {isActive && (
+            <div id={`faq-answer-${faq.id}`} className="mt-2">
+              <div className="pt-2 md:pt-3">
+                <h4 className="mb-1.5 typo-caption" style={{ color: `${FAQ_INK_MUTED}99` }}>
+                  Question Answer:
+                </h4>
+                <div className="mb-3 h-px w-14" style={{ backgroundColor: `${theme.accent}35` }} />
+                <p className="mb-4 typo-body-sm" style={{ color: `${FAQ_INK}d9` }}>
+                  {faq.answer}
+                </p>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  };
 
   return (
-    <section className="relative w-full py-12 px-4 md:px-6 bg-[#000000]">
-      {/* Background Glow */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-cyan-500/5 via-transparent to-transparent" />
-
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-15">
-          <p
-            className="text-sm uppercase tracking-widest font-semibold mb-3 inline-block bg-clip-text text-transparent"
-            style={{
-              backgroundImage:
-                "linear-gradient(90deg, #ff7a2f 0%, #c75a2a 35%, #6b5b5b 70%, #3a3a3a 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-          >
-            Softree FAQ
-          </p>
-
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            Everything You Need to Know
+    <section ref={sectionRef} id="faq" className="relative w-full bg-white py-10 md:py-14">
+      {/* FAQPage JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            dateModified: "2026-09-25",
+            mainEntity: normalizedFaqs.map((f) => ({
+              "@type": "Question",
+              name: f.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: f.answer,
+              },
+            })),
+          }),
+        }}
+      />
+      <div className="mx-auto max-w-[1400px] px-6 md:px-12">
+        {/* Section Title */}
+        <div ref={titleRef} className="mb-8 md:mb-10">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#1852FF]/20 bg-[#1852FF]/8 px-4 py-2">
+            <HelpCircle className="h-4 w-4 text-[#1852FF]" />
+            <span className="text-sm font-medium text-[#1852FF]">Softree FAQ</span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#0a0a1a] leading-tight">
+            Everything You Need to{" "}
+            <span className="bg-gradient-to-r from-[#1852FF] to-[#FF5812] bg-clip-text text-transparent">
+              Know
+            </span>
           </h2>
-
-          <p className="text-slate-500 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-            Clear answers to common questions about Softree’s enterprise-grade
-            digital solutions, platforms, and capabilities.
+          <p className="mt-4 text-slate-600 max-w-2xl text-base md:text-lg leading-relaxed">
+            Clear answers to common questions about Softree’s enterprise-grade digital solutions, platforms, and capabilities.
           </p>
         </div>
 
-        {/* FAQ Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-          {/* Left Column */}
-          <div className="flex flex-col gap-8 w-full">
-            {activeFaqs.map((faq, index) => {
-              if (index % 2 !== 0) return null;
-              const isOpen = openIndex === index;
-
-              return (
-                <div
-                  key={index}
-                  className={`
-            relative
-            rounded-2xl
-            border
-            p-6
-            transition-all
-            duration-500
-            hover:-translate-y-1
-            ${isOpen 
-              ? "bg-gradient-to-br from-[#f97316] via-[#7c2d12] to-[#050505] border-[#f97316]/30 shadow-[0_20px_60px_rgba(249,115,22,0.15)]" 
-              : "bg-gradient-to-br from-[#f97316]/12 via-[#0a0a0a]/40 to-[#050505] border-[#f97316]/20 hover:border-[#f97316]/50 shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
-            }
-          `}
-                >
-                  {/* Mirror Shine */}
-                  <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-tr from-white/10 via-transparent to-transparent opacity-20" />
-
-                  <button
-                    onClick={() => setOpenIndex(isOpen ? null : index)}
-                    className="relative z-10 flex w-full items-start justify-between gap-4 text-left"
-                  >
-                    <h3 className={`text-lg md:text-xl font-bold transition-colors duration-500 ${isOpen ? "text-black" : "text-white"}`}>
-                      {faq.question}
-                    </h3>
-
-                    {/* Icon */}
-                    <span
-                      className={`
-                mt-1
-                flex h-9 w-9 items-center justify-center
-                rounded-full
-                border
-                text-base
-                font-semibold
-                transition-all
-                duration-500
-                ${
-                  isOpen
-                    ? "rotate-180 bg-black text-white border-black shadow-[0_4px_12px_rgba(0,0,0,0.25)]"
-                    : "border-[#f97316]/30 text-[#f97316] hover:bg-[#f97316]/10"
-                }
-              `}
-                    >
-                      +
-                    </span>
-                  </button>
-
-                  {/* Answer */}
-                  <div
-                    className={`
-              grid
-              transition-all
-              duration-500
-              ease-in-out
-              ${isOpen ? "grid-rows-[1fr] mt-4" : "grid-rows-[0fr]"}
-            `}
-                  >
-                    <div className="overflow-hidden">
-                      <p className={`text-sm md:text-base font-medium leading-relaxed transition-colors duration-500 ${isOpen ? "text-neutral-300" : "text-white/70"}`}>
-                        {faq.answer}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+        {/* FAQ Accordion */}
+        <div
+          ref={faqsRef}
+          className="flex flex-col gap-3 lg:grid lg:grid-cols-2 lg:gap-3 lg:items-start"
+        >
+          {/* Left Column (even indices) */}
+          <div className="contents lg:flex lg:flex-col lg:gap-3">
+            {normalizedFaqs.map((faq, index) => (index % 2 === 0 ? renderFAQCard(faq, index) : null))}
           </div>
-
-          {/* Right Column */}
-          <div className="flex flex-col gap-8 w-full">
-            {activeFaqs.map((faq, index) => {
-              if (index % 2 === 0) return null;
-              const isOpen = openIndex === index;
-
-              return (
-                <div
-                  key={index}
-                  className={`
-            relative
-            rounded-2xl
-            border
-            p-6
-            transition-all
-            duration-500
-            hover:-translate-y-1
-            ${isOpen 
-              ? "bg-gradient-to-br from-[#f97316] via-[#7c2d12] to-[#050505] border-[#f97316]/30 shadow-[0_20px_60px_rgba(249,115,22,0.15)]" 
-              : "bg-gradient-to-br from-[#f97316]/12 via-[#0a0a0a]/40 to-[#050505] border-[#f97316]/20 hover:border-[#f97316]/50 shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
-            }
-          `}
-                >
-                  {/* Mirror Shine */}
-                  <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-tr from-white/10 via-transparent to-transparent opacity-20" />
-
-                  <button
-                    onClick={() => setOpenIndex(isOpen ? null : index)}
-                    className="relative z-10 flex w-full items-start justify-between gap-4 text-left"
-                  >
-                    <h3 className={`text-lg md:text-xl font-bold transition-colors duration-500 ${isOpen ? "text-black" : "text-white"}`}>
-                      {faq.question}
-                    </h3>
-
-                    {/* Icon */}
-                    <span
-                      className={`
-                mt-1
-                flex h-9 w-9 items-center justify-center
-                rounded-full
-                border
-                text-base
-                font-semibold
-                transition-all
-                duration-500
-                ${
-                  isOpen
-                    ? "rotate-180 bg-black text-white border-black shadow-[0_4px_12px_rgba(0,0,0,0.25)]"
-                    : "border-[#f97316]/30 text-[#f97316] hover:bg-[#f97316]/10"
-                }
-              `}
-                    >
-                      +
-                    </span>
-                  </button>
-
-                  {/* Answer */}
-                  <div
-                    className={`
-              grid
-              transition-all
-              duration-500
-              ease-in-out
-              ${isOpen ? "grid-rows-[1fr] mt-4" : "grid-rows-[0fr]"}
-            `}
-                  >
-                    <div className="overflow-hidden">
-                      <p className={`text-sm md:text-base font-medium leading-relaxed transition-colors duration-500 ${isOpen ? "text-neutral-300" : "text-white/70"}`}>
-                        {faq.answer}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+          {/* Right Column (odd indices) */}
+          <div className="contents lg:flex lg:flex-col lg:gap-3">
+            {normalizedFaqs.map((faq, index) => (index % 2 !== 0 ? renderFAQCard(faq, index) : null))}
           </div>
         </div>
       </div>

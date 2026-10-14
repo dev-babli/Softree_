@@ -35,7 +35,7 @@ export const Industries = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-3xl md:text-4xl lg:text-[2.5rem] font-bold text-[#111827] mb-6 tracking-tight leading-tight"
           >
-            Industry-Specific <span className="text-[#FF5812]">AI Consulting Solutions</span>
+            AI Consulting <span className="text-[#FF5812]">Solutions for Different Industries</span>
           </motion.h2>
 
           <motion.p
@@ -45,7 +45,7 @@ export const Industries = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-[15px] lg:text-[17px] text-[#6B7280] max-w-2xl mx-auto"
           >
-            We help organisations across healthcare, manufacturing, finance, retail, logistics, and education implement AI solutions that solve real business challenges and deliver measurable ROI.
+            Softree helps businesses identify AI opportunities tailored to their industry, from workflow automation and data-driven insights to intelligent applications. Our offshore AI consulting and engineering teams help plan and implement solutions aligned with your business goals, existing systems, and operational needs.
           </motion.p>
         </div>
 

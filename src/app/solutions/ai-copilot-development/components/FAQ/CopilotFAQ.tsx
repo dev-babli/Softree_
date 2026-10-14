@@ -20,64 +20,65 @@ interface CopilotFAQProps {
   faqs?: FAQItem[]
 }
 
-const defaultFaqs: FAQItem[] = [
+export const defaultFaqs: FAQItem[] = [
   {
     id: 1,
     serial: "question 01",
-    question: "What is AI Copilot development?",
+    question: "What are AI copilot development services?",
     answer:
-      "AI Copilot development is the process of building AI-powered assistants that help employees or customers find information, complete tasks, and interact with business applications using natural language. Depending on the use case, a custom copilot can retrieve enterprise knowledge, generate content, summarize information, and trigger connected workflows. Softree develops AI copilots using technologies such as Microsoft Copilot Studio, Azure OpenAI, and enterprise integrations tailored to business requirements.",
+      "AI copilot development services involve designing and building intelligent assistants that help users find information, answer questions, and complete tasks through natural language. Softree Technology helps businesses develop custom AI copilots, connect business knowledge, integrate applications, and support workflow automation using suitable AI technologies.",
   },
   {
     id: 2,
     serial: "question 02",
-    question: "What business tasks can a custom AI copilot automate?",
+    question: "Can Softree Technology build a custom AI copilot for my business?",
     answer:
-      "A custom AI copilot can support employee self-service, internal knowledge search, document assistance, customer support, business reporting, and repetitive workflow tasks. When connected to approved data sources and business applications, it can retrieve relevant information and initiate supported actions through configured integrations. The appropriate capabilities depend on the business process, available data, permissions, and required level of human oversight.",
+      "Yes. Softree Technology supports custom AI copilot development based on your business goals, user needs, workflows, and existing applications. Our services can include solution planning, AI copilot development, knowledge integration, application connectivity, deployment, and ongoing improvements tailored to your requirements.",
   },
   {
     id: 3,
     serial: "question 03",
-    question: "Can Softree build a custom AI copilot for our business?",
+    question: "What technologies does Softree use for AI copilot development?",
     answer:
-      "Yes. Softree develops custom AI copilots around an organization's workflows, users, enterprise knowledge, and application ecosystem. The work can include use-case planning, solution architecture, copilot development, data and application integration, testing, deployment, and optimization. Softree can also provide offshore AI engineering capacity for technology partners and organizations that need additional development support.",
+      "Depending on the project, Softree can work with Microsoft Copilot Studio, Azure AI, Azure OpenAI Service, Power Platform, AI agents, and retrieval-augmented generation (RAG). We help select suitable technologies based on your use case, data sources, application requirements, and security needs.",
   },
   {
     id: 4,
     serial: "question 04",
-    question: "Which technologies does Softree use for AI copilot development?",
+    question: "Can AI copilots integrate with our existing business applications?",
     answer:
-      "Softree's AI copilot development capabilities include Microsoft Copilot Studio, Azure OpenAI Service, Microsoft 365 Copilot extensions, Azure AI Foundry, AI agents, and enterprise knowledge integration. The technology selection depends on the required user experience, data sources, integrations, governance requirements, and deployment environment. Not every solution requires every technology.",
+      "Yes. AI copilots can be designed to integrate with supported applications and data sources, including Microsoft 365, SharePoint, Microsoft Teams, Dynamics 365, Dataverse, CRM, ERP, and third-party systems. Integration options depend on available APIs, connectors, permissions, and your existing technology environment.",
   },
   {
     id: 5,
     serial: "question 05",
-    question: "Can an AI copilot integrate with our existing business applications?",
+    question: "What business processes can custom AI copilots support?",
     answer:
-      "Yes. AI copilots can be designed to work with existing business applications and enterprise data sources, including Microsoft 365, SharePoint, Dynamics 365, Dataverse, CRM, ERP, Microsoft Teams, and supported third-party systems. Integration may use available connectors, APIs, or custom development. The exact approach depends on the application's capabilities, authentication method, permissions, and business requirements.",
+      "Custom AI copilots can support employee assistance, knowledge search, document processing, customer service, information retrieval, and suitable workflow automation. Softree Technology helps identify relevant use cases and design copilot solutions around your processes, available data, and business objectives.",
   },
   {
     id: 6,
     serial: "question 06",
-    question: "How do you protect enterprise data in an AI copilot?",
+    question: "How does Softree address AI copilot security and data privacy?",
     answer:
-      "Enterprise AI copilot security requires appropriate identity and access controls, permission-aware data access, secure integrations, and governance of the underlying AI environment. Softree can incorporate security and governance requirements into the solution design, including controls for connected data sources, user permissions, and application access. The final safeguards depend on the selected platform, data sensitivity, organizational policies, and applicable compliance requirements.",
+      "AI copilot solutions should account for identity management, user permissions, data access, secure integrations, and appropriate governance. Softree can incorporate these requirements into solution architecture and implementation planning, based on your data sensitivity, policies, and chosen technologies.",
   },
   {
     id: 7,
     serial: "question 07",
-    question: "How do you test AI copilots before deployment?",
+    question: "Does Softree provide offshore AI copilot development teams?",
     answer:
-      "AI copilot testing should cover response quality, factual grounding, workflow execution, integration behavior, access permissions, failure handling, and performance. Depending on the use case, validation can include representative user questions, incorrect or ambiguous inputs, unauthorized access scenarios, and regression testing after changes. Softree can incorporate evaluation and validation into the development process to help identify issues before production deployment.",
+      "Softree Technology provides offshore AI engineering support to help businesses and technology partners extend their development capacity. Depending on your requirements, the engagement can support custom AI copilot development, Microsoft AI integration, workflow automation, application connectivity, and ongoing engineering improvements.",
   },
   {
     id: 8,
     serial: "question 08",
-    question: "How long does it take to develop an AI copilot?",
+    question: "How long does it take to develop a custom AI copilot?",
     answer:
-      "The timeline depends on the copilot's scope, number of integrations, complexity of enterprise data, security requirements, and testing needs. A focused assistant using well-prepared knowledge sources may require less work than a copilot that executes multi-step workflows across several business systems. Softree can define a more reliable delivery estimate after reviewing the use case, technical dependencies, data readiness, and acceptance criteria.",
+      "The timeline depends on the copilot's functionality, data readiness, number of integrations, security requirements, and testing scope. Softree Technology can assess your requirements and technical environment to define a practical development roadmap and delivery estimate.",
   },
-]
+];
+
 
 /** Brand palette: cream `#F3F0EE`, blue `#1852FF`, orange `#FF5812`, ink `#0a0a1a` */
 const FAQ_INK = "#0a0a1a"
@@ -177,8 +178,8 @@ export function CopilotFAQ({ faqs: customFaqs }: CopilotFAQProps) {
       <div
         key={faq.id}
         className={`group/card relative overflow-hidden rounded-2xl border transition-all duration-500 ease-[var(--legacy-ease-0_4_0_0_2_1)] w-full ${isActive
-            ? "bg-white shadow-xl"
-            : "bg-white/90 shadow-sm hover:shadow-md"
+          ? "bg-white shadow-xl"
+          : "bg-white/90 shadow-sm hover:shadow-md"
           }`}
         style={{
           borderColor: isActive ? `${theme.accent}40` : `${theme.accent}22`,
@@ -250,16 +251,16 @@ export function CopilotFAQ({ faqs: customFaqs }: CopilotFAQProps) {
                 {/* Plus Icon */}
                 <Plus
                   className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${isActive
-                      ? "scale-0 opacity-0 rotate-90"
-                      : "scale-100 opacity-100 rotate-0"
+                    ? "scale-0 opacity-0 rotate-90"
+                    : "scale-100 opacity-100 rotate-0"
                     }`}
                   style={{ color: theme.accent }}
                 />
                 {/* Minus Icon */}
                 <Minus
                   className={`absolute inset-0 h-6 w-6 transition-all duration-500 ${isActive
-                      ? "scale-100 opacity-100 rotate-0"
-                      : "scale-0 opacity-0 -rotate-90"
+                    ? "scale-100 opacity-100 rotate-0"
+                    : "scale-0 opacity-0 -rotate-90"
                     }`}
                   style={{ color: theme.accent }}
                 />
@@ -286,9 +287,9 @@ export function CopilotFAQ({ faqs: customFaqs }: CopilotFAQProps) {
           {isActive && (
             <div id={`faq-answer-${faq.id}`} className="mt-2">
               <div className="pt-2 md:pt-3">
-                <h4 className="mb-1.5 text-[11px] font-semibold uppercase tracking-wider" style={{ color: `${FAQ_INK_MUTED}99` }}>
+                <p className="mb-1.5 text-[11px] font-semibold uppercase tracking-wider" style={{ color: `${FAQ_INK_MUTED}99` }}>
                   Question Answer:
-                </h4>
+                </p>
                 <div className="mb-3 h-px w-14" style={{ backgroundColor: `${theme.accent}35` }} />
                 <p className="mb-4 text-sm leading-relaxed" style={{ color: `${FAQ_INK}d9` }}>
                   {faq.answer}
@@ -303,25 +304,6 @@ export function CopilotFAQ({ faqs: customFaqs }: CopilotFAQProps) {
 
   return (
     <section ref={sectionRef} className="relative w-full bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-12 md:py-16 lg:py-20">
-      {/* FAQPage JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            dateModified: new Date().toISOString().split('T')[0],
-            mainEntity: faqs.map((f) => ({
-              "@type": "Question",
-              name: f.question,
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: f.answer,
-              },
-            })),
-          }),
-        }}
-      />
       <div className="mx-auto max-w-[1400px] px-6 md:px-12">
         {/* Section Title */}
         <div ref={titleRef} className="mb-8 md:mb-10">

@@ -79,7 +79,8 @@ export const WhySoftreeContent: React.FC<Props> = ({ item, currentIndex, totalIt
           >
             <Image
               src={item.image}
-              alt={item.title}
+              alt={`Softree Technology AI Consulting - ${item.title}`}
+              sizes="(max-width: 768px) 100vw, 500px"
               className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
             />
             {/* Subtle overlay gradient to match design style */}
