@@ -112,16 +112,36 @@ export default function AIReadinessBanner() {
           </div>
 
           {/* Right Video Side */}
-          <div className="relative flex-1 min-h-[360px] sm:min-h-[440px] lg:min-h-full overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-100 flex items-center justify-center bg-slate-900">
+          <div
+            itemScope
+            itemType="https://schema.org/VideoObject"
+            className="relative flex-1 min-h-[360px] sm:min-h-[440px] lg:min-h-full overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-100 flex items-center justify-center bg-slate-900"
+          >
+            <meta itemProp="name" content="Microsoft Fabric Architecture & Offshore Development Team Overview" />
+            <meta itemProp="description" content="Discover how Softree Technology delivers offshore and white-label Microsoft Fabric engineering, unified data pipelines, OneLake analytics, and enterprise BI solutions." />
+            <meta itemProp="thumbnailUrl" content="https://www.softreetechnology.com/ai-development-service-video/fabric-ai-banner-poster.webp" />
+            <meta itemProp="uploadDate" content="2025-01-15T08:00:00+00:00" />
+            <meta itemProp="contentUrl" content="https://www.softreetechnology.com/ai-development-service-video/ai-2.mp4" />
+            <meta itemProp="embedUrl" content="https://www.softreetechnology.com/services/microsoft-fabric-development-services" />
+            <meta itemProp="duration" content="PT11S" />
+
             {/* The background video */}
             <video
+              itemProp="video"
               src="/ai-development-service-video/ai-2.mp4"
+              poster="/ai-development-service-video/fabric-ai-banner-poster.webp"
+              title="Microsoft Fabric Architecture & Offshore Development Team Overview"
+              aria-label="Microsoft Fabric Architecture & Offshore Development Team Overview"
               autoPlay
               loop
               muted
               playsInline
+              preload="metadata"
               className="w-full h-full object-cover absolute inset-0 select-none pointer-events-none"
-            />
+            >
+              <source src="/ai-development-service-video/ai-2.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
             {/* Subtle shade vignette overlay */}
             <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/40 via-transparent to-transparent pointer-events-none" />
           </div>

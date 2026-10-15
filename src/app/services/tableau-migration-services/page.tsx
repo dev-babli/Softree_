@@ -58,6 +58,28 @@ export default function TableauMigrationServicesPage() {
             "text": faq.answer,
           },
         })),
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Tableau Migration and Analytics Modernization Overview",
+        "description":
+          "Overview of end-to-end Tableau migration services: migrating Tableau Server to Tableau Cloud, transitioning workbooks, dashboards, data sources, and user security models.",
+        "thumbnailUrl": [
+          "https://www.softreetechnology.com/ai-development-service-video/ai-agent-video-poster.webp",
+          "https://www.softreetechnology.com/og-image.png"
+        ],
+        "uploadDate": "2025-01-15T08:00:00+00:00",
+        "contentUrl": "https://www.softreetechnology.com/ai-development-service-video/RAG-video.mp4",
+        "embedUrl": "https://www.softreetechnology.com/services/tableau-migration-services",
+        "duration": "PT45S",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Softree Technology",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.softreetechnology.com/logo/logo.png"
+          }
+        }
       }
     ]
   };
@@ -69,36 +91,36 @@ export default function TableauMigrationServicesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <NavigationClient />
-      
+
       {/* Hero Section */}
       <TableauMigrationHero2 />
-      
+
       {/* Trusted By Marquee */}
       <TrustedBrandsMarquee />
 
       <TableauMigrationAIReadinessBanner />
-      
-      <TableauMigrationServices />
-      
-      <TableauMigrationWhoDoWeServeSection className="bg-white" />
-      
-      <TableauMigrationStickyScroll />
-      
-      <TableauMigrationSuccessStories />
-      
-      <TableauMigrationTechnologyStack />
-      
-      <TableauMigrationOffshoreEngineeringSection />
 
-      <TableauMigrationHowAIWorks />
+      <TableauMigrationServices />
+
+      {/* <TableauMigrationWhoDoWeServeSection className="bg-white" /> */}
+
+      <TableauMigrationStickyScroll />
+
+      <TableauMigrationSuccessStories />
+
+      <TableauMigrationTechnologyStack />
+
+      {/* <TableauMigrationOffshoreEngineeringSection /> */}
+
+      {/* <TableauMigrationHowAIWorks /> */}
 
       <TableauMigrationWhyChooseWithTestimonials />
-      
+
       <TableauMigrationFAQ />
-      
+
       {/* Contact Section */}
       <LightContactSection />
-      
+
       <Footer />
     </main>
   );

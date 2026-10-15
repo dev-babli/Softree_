@@ -61,20 +61,99 @@ export const metadata: Metadata = {
 };
 
 export default function TableauServerToTableauCloudMigrationPage() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.softreetechnology.com/#organization",
+        "name": "Softree Technology",
+        "url": "https://www.softreetechnology.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo.png",
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.softreetechnology.com/services/tableau-server-to-tableau-cloud-migration/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.softreetechnology.com/",
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "https://www.softreetechnology.com/services",
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Tableau Server to Tableau Cloud Migration",
+            "item": "https://www.softreetechnology.com/services/tableau-server-to-tableau-cloud-migration/",
+          },
+        ],
+      },
+      {
+        "@type": "Service",
+        "@id": "https://www.softreetechnology.com/services/tableau-server-to-tableau-cloud-migration/#service",
+        "name": "Tableau Server to Tableau Cloud Migration Services",
+        "description":
+          "Migrate from Tableau Server to Tableau Cloud with Softree. Get expert migration services for workbooks, dashboards, data sources, security, and validation.",
+        "provider": {
+          "@id": "https://www.softreetechnology.com/#organization",
+        },
+        "serviceType": "Cloud Analytics & BI Migration Services",
+        "areaServed": "Worldwide",
+      },
+      {
+        "@type": "VideoObject",
+        "@id": "https://www.softreetechnology.com/services/tableau-server-to-tableau-cloud-migration/#video",
+        "name": "Tableau Server to Tableau Cloud Migration Overview",
+        "description":
+          "Discover how Softree Technology facilitates end-to-end Tableau Server to Tableau Cloud migration, modernizing enterprise dashboards, workbooks, extracts, and user security models.",
+        "thumbnailUrl": [
+          "https://www.softreetechnology.com/ai-development-service-video/tableauserver-video-poster.webp",
+          "https://www.softreetechnology.com/og-image.png"
+        ],
+        "uploadDate": "2025-01-15T08:00:00+00:00",
+        "contentUrl": "https://www.softreetechnology.com/ai-development-service-video/tableauserver-video.mp4",
+        "embedUrl": "https://www.softreetechnology.com/services/tableau-server-to-tableau-cloud-migration",
+        "duration": "PT6S",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Softree Technology",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo.png",
+          },
+        },
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-slate-50 font-sans selection:bg-[#FF6B00]/20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <NavigationClient />
       <TableauMigrationHeroAlternative />
       <TrustedBrandsMarquee surface="light" />
       <TableauMigrationBanner />
       <TableauMigrationAssessment />
-      <TableauMigrationWhoDoWeServeSection />
+      {/* <TableauMigrationWhoDoWeServeSection /> */}
       <TableauMigrationStickyScroll />
       <TableauMigrationSuccessStories />
 
       <TableauMigrationTechnologyStack />
-      <TableauMigrationMethodology />
-      <TableauMigrationHowItWorks />
+      {/* <TableauMigrationMethodology /> */}
+      {/* <TableauMigrationHowItWorks /> */}
 
       <WhySoftreeTableauMigration />
       <TableauMigrationFAQ />

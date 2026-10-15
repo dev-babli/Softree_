@@ -3,12 +3,20 @@
 import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { EASE, prefersReducedMotion } from "@/lib/motion";
 import { MicrosoftCloudCardVisual } from "./MicrosoftCloudCardVisual";
 import { MicrosoftParticleTorusVisual } from "./MicrosoftParticleTorusVisual";
+
+const ParticleSphereCard = dynamic(() => import("./ParticleSphereCard"), {
+  ssr: false,
+  loading: () => <div className="absolute inset-0 bg-[#0d1522]" />,
+});
+
+import ModernEngineeringHeroCardVisual from "./ModernEngineeringHeroCardVisual";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -565,62 +573,45 @@ export function TransferredSoftreeHero() {
 
           {/* Left Card — MICROSOFT & DATA */}
           <div
-            className="left-card hero-pillar-card relative lg:absolute rounded-2xl overflow-hidden z-[2] order-1 lg:order-none pointer-events-auto lg:invisible lg:opacity-0 flex flex-col justify-between bg-[#040814]"
+            className="left-card hero-pillar-card relative lg:absolute rounded-2xl overflow-hidden z-[2] order-1 lg:order-none pointer-events-auto lg:invisible lg:opacity-0"
             style={{
-              background:
-                "linear-gradient(180deg, #090a10 0%, #030408 100%)",
-              border: "1.5px solid rgba(255,255,255,0.12)",
-              borderTopColor: "rgba(255,255,255,0.25)",
+              background: "#040814",
+              border: "1.5px solid rgba(255,255,255,0.2)",
+              borderTopColor: "rgba(255,255,255,0.4)",
               boxShadow:
-                "0 25px 50px rgba(0,0,0,0.5), 0 0 35px rgba(255,107,0,0.12)",
+                "0 25px 50px rgba(0,0,0,0.3), 0 10px 20px rgba(0,0,0,0.2)",
               willChange: "transform, opacity",
             }}
           >
-            {/* Guaranteed Solid Dark Background & Ambient Warm Orange Radial Glow */}
-            <div
-              className="absolute inset-0 pointer-events-none -z-10"
-              style={{
-                background: "linear-gradient(180deg, #090a10 0%, #030408 100%)",
-              }}
-            />
-            <div
-              className="absolute inset-x-0 top-0 h-3/5 pointer-events-none -z-10"
-              style={{
-                background:
-                  "radial-gradient(circle at 50% 35%, rgba(255, 107, 0, 0.22) 0%, rgba(45, 15, 0, 0.15) 50%, transparent 75%)",
-              }}
-            />
-
-            {/* 3D Glowing Particle Torus Knot (Upper container) */}
-            <div className="relative w-full h-[52%] sm:h-[50%] flex-shrink-0 z-10 overflow-hidden">
-              <MicrosoftParticleTorusVisual />
+            {/* Card inner — Upper Visual (58%) & Background */}
+            <div className="absolute inset-0 rounded-2xl overflow-hidden bg-[#040814] flex flex-col justify-between">
+              {/* Upper 58% dedicated to the 3D Glowing Particle Torus Knot */}
+              <div className="relative w-full h-[58%] overflow-hidden">
+                <MicrosoftParticleTorusVisual />
+              </div>
+              {/* Lower subtle dark gradient background behind content */}
+              <div className="w-full h-[42%] bg-gradient-to-t from-[#040814] via-[#040814]/90 to-transparent" />
             </div>
 
-            {/* Card Content (Lower container) */}
-            <div className="px-4 pb-4 sm:px-5 sm:pb-5 flex flex-col justify-end flex-1 relative z-10 min-h-0">
-              <div className="flex flex-col">
-                <p
-                  className="font-bold uppercase tracking-wider text-[10px] sm:text-[11px]"
-                  style={{ color: ACCENT }}
-                >
+            {/* Card UI — Positioned in the lower 42% area matching Center and Right Cards */}
+            <div className="absolute inset-x-0 bottom-0 z-[5] pointer-events-none">
+              <div className="p-5 sm:p-6 flex flex-col items-start text-left">
+                <p className="typo-caption tracking-wider uppercase font-semibold text-xs text-[#FF5812]">
                   MICROSOFT & DATA
                 </p>
-                <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white tracking-tight leading-snug mt-1 sm:mt-1.5">
+                <p className="typo-heading-4 mt-1 text-white font-bold leading-snug">
                   Cloud, data and enterprise solutions
-                </h3>
-                <p className="text-xs sm:text-[13px] text-zinc-400 mt-1 sm:mt-1.5 leading-relaxed line-clamp-2">
+                </p>
+                <p className="text-white/70 text-xs sm:text-[13px] leading-relaxed mt-1.5 line-clamp-2">
                   Unlock the power of Microsoft technologies to modernize and grow your business.
                 </p>
+                <Link
+                  href="/services/offshore-power-platform-development"
+                  className="typo-button-sm mt-3 inline-flex items-center gap-1.5 self-start text-[#FF5812] hover:text-[#ff783e] font-semibold text-xs sm:text-sm transition-colors duration-150 pointer-events-auto"
+                >
+                  Explore Microsoft solutions <span className="text-[11px]">→</span>
+                </Link>
               </div>
-
-              <Link
-                href="/services/offshore-power-platform-development"
-                className="mt-2.5 sm:mt-3 inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold transition-all duration-200 group pointer-events-auto leading-normal shrink-0 whitespace-nowrap self-start"
-                style={{ color: ACCENT }}
-              >
-                <span className="group-hover:underline underline-offset-4">Explore Microsoft solutions</span>
-                <span className="inline-block text-[10px] sm:text-[11px] transition-transform duration-200 group-hover:translate-x-1">→</span>
-              </Link>
             </div>
           </div>
 
@@ -629,18 +620,17 @@ export function TransferredSoftreeHero() {
             className="center-card hero-pillar-card relative origin-bottom z-[3] rounded-2xl order-2 lg:order-none pointer-events-auto"
             style={{ willChange: "transform" }}
           >
-            {/* Card inner — reference.png */}
+            {/* Card inner — Upper Globe Visual & Background */}
             <div
-              className="card-inner-bg absolute inset-0 rounded-2xl overflow-hidden bg-[#1a2a3a] opacity-100 lg:opacity-0"
+              className="card-inner-bg absolute inset-0 rounded-2xl overflow-hidden bg-[#070d18] flex flex-col justify-between opacity-100 lg:opacity-0"
               style={{ willChange: "opacity" }}
             >
-              <Image
-                src={ASSET_REF}
-                alt="Softree VR Expert"
-                fill
-                priority
-                className="object-cover"
-              />
+              {/* Upper 58% dedicated to the particle globe */}
+              <div className="relative w-full h-[58%] overflow-hidden">
+                <ParticleSphereCard />
+              </div>
+              {/* Lower subtle dark gradient background behind content */}
+              <div className="w-full h-[42%] bg-gradient-to-t from-[#070d18] via-[#070d18]/90 to-transparent" />
             </div>
 
             {/* Border Frame — visible from the start */}
@@ -653,23 +643,26 @@ export function TransferredSoftreeHero() {
               }}
             />
 
-            {/* Card UI */}
+            {/* Card UI — Positioned in the lower 42% area matching Image 2 */}
             <div
-              className="card-ui absolute inset-x-0 bottom-0 z-[4] opacity-100 lg:opacity-0 pointer-events-none"
+              className="card-ui absolute inset-x-0 bottom-0 z-[5] opacity-100 lg:opacity-0 pointer-events-none"
               style={{ willChange: "opacity" }}
             >
-              <div className="bg-gradient-to-t from-black/70 via-black/15 to-transparent rounded-b-2xl p-5 flex flex-col">
-                <p className="typo-caption" style={{ color: ACCENT }}>
-                  AI & Automation
+              <div className="p-5 sm:p-6 flex flex-col items-start text-left">
+                <p className="typo-caption tracking-wider uppercase font-semibold text-xs text-[#FF5812]">
+                  AI & AUTOMATION
                 </p>
-                <p className="typo-heading-4 mt-1.5 text-white">
+                <p className="typo-heading-4 mt-1 text-white font-bold leading-snug">
                   AI systems that streamline operations
+                </p>
+                <p className="text-white/70 text-xs sm:text-[13px] leading-relaxed mt-1.5 line-clamp-2">
+                  Design and deploy AI agents, automate workflows and turn your data into action.
                 </p>
                 <Link
                   href="/services/ai-development-services"
-                  className="typo-button-sm mt-3 inline-flex items-center gap-1.5 self-start rounded-full bg-white px-4 py-2 text-zinc-900 shadow-sm transition-[transform,background-color] duration-200 ease-out hover:bg-white/90 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white pointer-events-auto"
+                  className="typo-button-sm mt-3 inline-flex items-center gap-1.5 self-start text-[#FF5812] hover:text-[#ff783e] font-semibold text-xs sm:text-sm transition-colors duration-150 pointer-events-auto"
                 >
-                  Explore AI solutions <span className="text-[10px]">→</span>
+                  Explore AI solutions <span className="text-[11px]">→</span>
                 </Link>
               </div>
             </div>
@@ -679,8 +672,7 @@ export function TransferredSoftreeHero() {
           <div
             className="right-card hero-pillar-card relative lg:absolute rounded-2xl overflow-hidden z-[2] order-3 lg:order-none pointer-events-auto lg:invisible lg:opacity-0"
             style={{
-              background:
-                "linear-gradient(135deg, rgba(30,40,60,0.9) 0%, rgba(20,30,50,0.95) 100%)",
+              background: "#060403",
               border: "1.5px solid rgba(255,255,255,0.2)",
               borderTopColor: "rgba(255,255,255,0.4)",
               boxShadow:
@@ -688,26 +680,35 @@ export function TransferredSoftreeHero() {
               willChange: "transform, opacity",
             }}
           >
-            <Image
-              src="/whysoftree/modern.png"
-              alt="Modern Engineering"
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
-            <div className="absolute bottom-0 inset-x-0 p-5 flex flex-col">
-              <p className="typo-caption" style={{ color: ACCENT }}>
-                Modern Engineering
-              </p>
-              <p className="typo-heading-4 mt-1.5 text-white">
-                Modern applications built for scale and performance
-              </p>
-              <Link
-                href="/services/offshore-web-app-development"
-                className="typo-button-sm mt-3 inline-flex items-center gap-1.5 self-start rounded-full bg-white px-4 py-2 text-zinc-900 shadow-sm transition-[transform,background-color] duration-200 ease-out hover:bg-white/90 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white pointer-events-auto"
-              >
-                Explore engineering <span className="text-[10px]">→</span>
-              </Link>
+            {/* Card inner — Upper Visual (58%) & Background */}
+            <div className="absolute inset-0 rounded-2xl overflow-hidden bg-[#060403] flex flex-col justify-between">
+              {/* Upper 58% dedicated to the adapted Hero visual */}
+              <div className="relative w-full h-[58%] overflow-hidden">
+                <ModernEngineeringHeroCardVisual />
+              </div>
+              {/* Lower subtle dark gradient background behind content */}
+              <div className="w-full h-[42%] bg-gradient-to-t from-[#060403] via-[#060403]/90 to-transparent" />
+            </div>
+
+            {/* Card UI — Positioned in the lower 42% area matching Center Card */}
+            <div className="absolute inset-x-0 bottom-0 z-[5] pointer-events-none">
+              <div className="p-5 sm:p-6 flex flex-col items-start text-left">
+                <p className="typo-caption tracking-wider uppercase font-semibold text-xs text-[#FF5812]">
+                  DATA ANALYTICS
+                </p>
+                <p className="typo-heading-4 mt-1 text-white font-bold leading-snug">
+                  Data analytics built for scale and performance
+                </p>
+                <p className="text-white/70 text-xs sm:text-[13px] leading-relaxed mt-1.5 line-clamp-2">
+                  Turn high-volume data into actionable business insights with scalable pipelines.
+                </p>
+                <Link
+                  href="/services/microsoft-fabric-development-services"
+                  className="typo-button-sm mt-3 inline-flex items-center gap-1.5 self-start text-[#FF5812] hover:text-[#ff783e] font-semibold text-xs sm:text-sm transition-colors duration-150 pointer-events-auto"
+                >
+                  Explore data analytics <span className="text-[11px]">→</span>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

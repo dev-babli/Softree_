@@ -166,6 +166,28 @@ export default function Home() {
             "text": faq.answer
           }
         }))
+      },
+      {
+        "@type": "VideoObject",
+        "@id": "https://www.softreetechnology.com/services/microsoft-fabric-development-services#video",
+        "name": "Microsoft Fabric Architecture & Offshore Development Team Overview",
+        "description": "Discover how Softree Technology delivers offshore and white-label Microsoft Fabric engineering, unified data pipelines, OneLake analytics, and enterprise BI solutions.",
+        "thumbnailUrl": [
+          "https://www.softreetechnology.com/ai-development-service-video/fabric-ai-banner-poster.webp",
+          "https://www.softreetechnology.com/og-image.png"
+        ],
+        "uploadDate": "2025-01-15T08:00:00+00:00",
+        "contentUrl": "https://www.softreetechnology.com/ai-development-service-video/ai-2.mp4",
+        "embedUrl": "https://www.softreetechnology.com/services/microsoft-fabric-development-services",
+        "duration": "PT11S",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Softree Technology",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo.png"
+          }
+        }
       }
     ]
   };
@@ -181,13 +203,13 @@ export default function Home() {
       <TrustedBrandsMarquee />
       <AIReadinessBanner />
       <FabricServices />
-      <FabricWhoDoWeServeSection className="bg-white" />
+      {/* <FabricWhoDoWeServeSection className="bg-white" /> */}
       <FabricStickyScroll />
       <FabricCaseStudies />
       <FabricTechnologyStack />
-      <FabricOffshoreEngineeringSection />
+      {/* <FabricOffshoreEngineeringSection /> */}
 
-      <FabricHowWeWork />
+      {/* <FabricHowWeWork /> */}
 
       <WhyChooseWithTestimonials />
       <LightFAQExact faqs={fabricFAQs} />

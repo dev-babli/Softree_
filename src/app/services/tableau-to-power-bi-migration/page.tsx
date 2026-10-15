@@ -147,33 +147,33 @@ export default function TableauToPowerBiMigration() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <NavigationClient />
-      
+
       {/* Hero Section */}
       <TableauToPowerBiHero />
 
       <TableauToPowerBiAIReadinessBanner />
-      
-      <TableauToPowerBiServices />
-      
-      <TableauToPowerBiWhoDoWeServeSection className="bg-white" />
-      
-      <TableauToPowerBiStickyScroll />
-      
-      <TableauToPowerBiSuccessStories />
-      
-      <TableauToPowerBiTechnologyStack />
-      
-      <TableauToPowerBiOffshoreEngineeringSection />
 
-      <TableauToPowerBiHowAIWorks />
+      <TableauToPowerBiServices />
+
+      {/* <TableauToPowerBiWhoDoWeServeSection className="bg-white" /> */}
+
+      <TableauToPowerBiStickyScroll />
+
+      <TableauToPowerBiSuccessStories />
+
+      <TableauToPowerBiTechnologyStack />
+
+      {/* <TableauToPowerBiOffshoreEngineeringSection /> */}
+
+      {/* <TableauToPowerBiHowAIWorks /> */}
 
       <TableauToPowerBiWhyChooseWithTestimonials />
-      
+
       <TableauToPowerBiFAQ />
-      
+
       {/* Contact Section */}
       <LightContactSection />
-      
+
       {/* Footer */}
       <Footer />
     </main>

@@ -136,12 +136,12 @@ export default function AIAgentsDevelopmentPage() {
       <TrustedBrandsMarquee />
       <AIAgentsAIReadinessBanner />
       <AIAgentsServices />
-      <AIAgentsWhoDoWeServeSection className="bg-white" />
+      {/* <AIAgentsWhoDoWeServeSection className="bg-white" /> */}
       <AIAgentsStickyScroll />
       <AIAgentsSuccessStories />
       <AIAgentsTechnologyStack />
-      <AIAgentsOffshoreEngineeringSection />
-      <AIAgentsHowAIWorks />
+      {/* <AIAgentsOffshoreEngineeringSection /> */}
+      {/* <AIAgentsHowAIWorks /> */}
       <WhyChooseWithTestimonials />
       <AIAgentsFAQ />
       <LightContactSection />
