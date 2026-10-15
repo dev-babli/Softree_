@@ -44,7 +44,7 @@ void main() {
     force = smoothstep(0.0, 1.0, force);
     
     // Normal expand (not too much), masked by whether mouse is on globe
-    pos += outwardDir * force * 0.4 * hoverStrength; 
+    pos += outwardDir * force * 0.28 * hoverStrength; 
   }
 
   vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
@@ -298,16 +298,28 @@ function ShaderParticles({ count = 150000, radius = 1.75, scale = 1.0 }: { count
   );
 }
 
-function SphereScene({ radius = 1.75 }: { radius?: number }) {
+export interface ParticleSphereProps {
+  radius?: number;
+  maxDesktopRatio?: number;
+  className?: string;
+}
+
+function SphereScene({
+  radius = 1.75,
+  maxDesktopRatio = 0.26,
+}: {
+  radius?: number;
+  maxDesktopRatio?: number;
+}) {
   const { viewport } = useThree();
 
   const scale = useMemo(() => {
     const targetDiameter = radius * 2;
     // On desktop / laptop (viewport.width >= 7.0, roughly >= 1024px screen breakpoint):
-    // Ensure globe diameter does NOT exceed 29% of viewport width
+    // Ensure globe diameter does NOT exceed maxDesktopRatio of viewport width (default 26%)
     // This strictly ensures zero overlap with the left and right text columns!
     if (viewport.width >= 7.0) {
-      const maxAllowedWidth = viewport.width * 0.34;
+      const maxAllowedWidth = viewport.width * maxDesktopRatio;
       if (targetDiameter > maxAllowedWidth) {
         return maxAllowedWidth / targetDiameter;
       }
@@ -319,7 +331,7 @@ function SphereScene({ radius = 1.75 }: { radius?: number }) {
       return (viewport.width * 0.75) / targetDiameter;
     }
     return 1.0;
-  }, [viewport.width, radius]);
+  }, [viewport.width, radius, maxDesktopRatio]);
 
   const positionY = useMemo(() => {
     if (viewport.width < 7.0) {
@@ -338,7 +350,11 @@ function SphereScene({ radius = 1.75 }: { radius?: number }) {
   );
 }
 
-export default function ParticleSphere() {
+export default function ParticleSphere({
+  radius = 1.75,
+  maxDesktopRatio = 0.26,
+  className = "",
+}: ParticleSphereProps) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -346,11 +362,11 @@ export default function ParticleSphere() {
   }, []);
 
   if (!mounted) {
-    return <div className="absolute inset-0 w-full h-full bg-[#050505]" />;
+    return <div className={`absolute inset-0 w-full h-full bg-[#050505] ${className}`} />;
   }
 
   return (
-    <div className="absolute inset-0 w-full h-full">
+    <div className={`absolute inset-0 w-full h-full ${className}`}>
       <Canvas 
         key="orange-canvas-remount-v5"
         camera={{ position: [0, 0, 5], fov: 60 }} 
@@ -359,7 +375,7 @@ export default function ParticleSphere() {
         gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       >
         <fog attach="fog" args={["#000000", 3, 10]} />
-        <SphereScene radius={1.75} />
+        <SphereScene radius={radius} maxDesktopRatio={maxDesktopRatio} />
       </Canvas>
     </div>
   );

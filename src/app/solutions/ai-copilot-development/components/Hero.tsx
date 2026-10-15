@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, LayoutGroup } from "framer-motion";
 import TrustStrip from "@/components/sections/TrustStrip";
+import { typography } from "@/lib/typography";
 
 /* =========================================================
  * 1. REORDER ITEMS (ANIMATED CUBE TILES) COMPONENT
@@ -124,25 +125,26 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
 
       {/* 3-Column Split Content: Left (Eyebrow & Heading) | Middle (Cube) | Right (Description) */}
-      <div className="relative z-10 w-full max-w-[1040px] xl:max-w-[1100px] mx-auto px-6 sm:px-8 pt-2 sm:pt-4 pb-0">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-8 lg:gap-12 xl:gap-14 items-center justify-center w-full">
+      <div className="relative z-10 w-full max-w-[1240px] xl:max-w-[1400px] mx-auto px-6 sm:px-8 pt-2 sm:pt-4 pb-0">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-8 lg:gap-14 xl:gap-20 items-center justify-center w-full">
 
           {/* LEFT: Eyebrow + H1 Heading */}
-          <div className="flex flex-col justify-center text-left z-10 justify-self-center lg:justify-self-end w-full max-w-[360px]">
+          <div className="flex flex-col justify-center text-left z-10 justify-self-center lg:justify-self-end w-full max-w-[430px] xl:max-w-[490px] lg:pr-4 xl:pr-6">
             {/* Eyebrow Pill */}
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#FF6B00]/40 bg-[#FF6B00]/10 px-3.5 py-1.5 typo-caption text-[#FF6B00] backdrop-blur-md w-fit uppercase text-[11px] sm:text-xs tracking-wider">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#FF6B00]/40 bg-[#FF6B00]/10 px-3.5 py-1.5 text-[#FF6B00] backdrop-blur-md w-fit uppercase">
               <span className="h-2 w-2 rounded-full bg-[#FF6B00] animate-pulse shrink-0" />
-              <span className="whitespace-nowrap">OFFSHORE AI COPILOT DEVELOPMENT</span>
+              <span className={`${typography.caption.default} whitespace-nowrap text-[#FF6B00] font-semibold text-[11px] sm:text-xs tracking-wider`}>
+                OFFSHORE AI COPILOT DEVELOPMENT
+              </span>
             </div>
 
-            {/* Main Headline (H1) */}
-            <h1 className="text-3xl sm:text-4xl lg:text-[2.65rem] xl:text-[2.85rem] font-semibold text-white tracking-tight leading-[1.1] text-left">
-              <span className="block">Build Custom</span>
-              <span className="block text-[#FF6B00]">
+            {/* Main Headline (H1) - Exactly 3 lines with comfortable clearance */}
+            <h1 className="text-3xl sm:text-4xl lg:text-[2.05rem] xl:text-[2.35rem] font-bold text-white tracking-tight leading-[1.08] text-left">
+              <span className="block sm:whitespace-nowrap">Build Custom</span>
+              <span className="block text-[#FF6B00] sm:whitespace-nowrap">
                 AI Copilots
               </span>
-              <span className="block">With Your</span>
-              <span className="block">Offshore Team</span>
+              <span className="block sm:whitespace-nowrap">With Your Offshore Team</span>
             </h1>
           </div>
 
@@ -151,10 +153,9 @@ export default function Hero() {
             <ReorderItems />
           </div>
 
-          {/* RIGHT: Description - 6 Evenly Sized Lines */}
-
-          <div className="flex flex-col justify-center text-left z-10 justify-self-center lg:justify-self-start w-full max-w-[360px]">
-            <p className="text-sm sm:text-[15px] lg:text-[15px] text-slate-300/90 leading-relaxed font-normal w-full">
+          {/* RIGHT: Description - Balanced Typography */}
+          <div className="flex flex-col justify-center text-left z-10 justify-self-center lg:justify-self-start w-full max-w-[360px] lg:max-w-[390px] xl:max-w-[430px] lg:pl-4 xl:pl-6">
+            <p className={`${typography.description.default} text-sm sm:text-base lg:text-[15px] xl:text-base text-slate-300/90 leading-relaxed font-normal w-full`}>
               Extend your delivery capacity with Softree Technology&apos;s offshore AI engineering team. We develop custom AI copilots using Microsoft Copilot Studio, Azure AI, and business system integrations to support intelligent workflows, knowledge access, and task automation.
             </p>
           </div>

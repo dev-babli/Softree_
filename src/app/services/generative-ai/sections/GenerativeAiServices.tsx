@@ -53,7 +53,7 @@ export const GenerativeAiServices = ({ simple = false }: { simple?: boolean }) =
   ];
 
   return (
-    <section className="bg-white pt-8 md:pt-12 pb-8 md:pb-12 text-slate-900 scroll-mt-24">
+    <section className="bg-white py-10 md:py-14 lg:py-16 text-slate-900 scroll-mt-24">
       <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 lg:gap-x-16 gap-y-8 lg:gap-y-10 items-stretch">
 

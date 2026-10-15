@@ -264,7 +264,7 @@ export function GenerativeAiTechnologyStack() {
   return (
     <section
       aria-labelledby="tech-stack-heading"
-      className="relative overflow-hidden bg-white py-12 md:py-16"
+      className="relative overflow-hidden bg-white py-10 md:py-14 lg:py-16"
     >
       {/* Background radial accent */}
       <div

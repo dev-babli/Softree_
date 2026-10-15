@@ -152,11 +152,11 @@ export const GenAiHero = ({
       {/* ======================================================== */}
       {/* LEFT-RIGHT TEXT CONTENT WITH CENTRAL CLEARANCE FOR GLOBE  */}
       {/* ======================================================== */}
-      <div className="relative z-10 w-full max-w-[1440px] xl:max-w-[1560px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 flex-none lg:flex-1 flex items-center lg:my-auto pt-8 pb-0 lg:py-16 pointer-events-none">
+      <div className="relative z-10 w-full max-w-[1560px] 2xl:max-w-[1720px] mx-auto px-6 sm:px-8 lg:px-10 xl:px-14 2xl:px-16 flex-none lg:flex-1 flex items-center lg:my-auto pt-8 pb-0 lg:py-16 pointer-events-none">
         <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between w-full gap-8 lg:gap-0">
 
           {/* LEFT: Eyebrow + Main Title */}
-          <div className="w-full lg:w-[36%] xl:w-[34%] flex flex-col items-start text-left pointer-events-auto shrink-0 z-10">
+          <div className="w-full lg:w-[28%] xl:w-[27%] 2xl:w-[26%] max-w-[420px] xl:max-w-[460px] flex flex-col items-start text-left pointer-events-auto shrink-0 z-10">
             {/* Eyebrow Pill */}
             <motion.div
               initial={{ opacity: 0, y: -15 }}
@@ -179,10 +179,10 @@ export const GenAiHero = ({
             >
               {heading || (
                 <>
-                  <span className="text-white text-3xl sm:text-4xl lg:text-[2.25rem] xl:text-[2.75rem] 2xl:text-5xl font-extrabold tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
+                  <span className="text-white text-3xl sm:text-4xl lg:text-[1.85rem] xl:text-[2.25rem] 2xl:text-[2.75rem] font-extrabold tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
                     Transform Business Workflows With
                   </span>
-                  <span className="text-[#FF6B00] text-3xl sm:text-4xl lg:text-[2.25rem] xl:text-[2.75rem] 2xl:text-5xl font-extrabold tracking-tight drop-shadow-[0_0_35px_rgba(255,107,0,0.45)] mt-1 sm:mt-1.5">
+                  <span className="text-[#FF6B00] text-3xl sm:text-4xl lg:text-[1.85rem] xl:text-[2.25rem] 2xl:text-[2.75rem] font-extrabold tracking-tight drop-shadow-[0_0_35px_rgba(255,107,0,0.45)] mt-1 sm:mt-1.5">
                     Generative AI Development
                   </span>
                 </>
@@ -191,16 +191,16 @@ export const GenAiHero = ({
           </div>
 
           {/* CENTER: Dedicated Breathing Corridor for the 3D Globe (Strictly No Text) */}
-          <div className="hidden lg:block lg:w-[32%] xl:w-[34%] pointer-events-none" aria-hidden="true" />
+          <div className="hidden lg:block lg:flex-1 min-w-[340px] xl:min-w-[420px] 2xl:min-w-[480px] pointer-events-none" aria-hidden="true" />
 
           {/* RIGHT: Description + Capability Pills */}
-          <div className="w-full lg:w-[32%] xl:w-[32%] flex flex-col items-start text-left justify-center space-y-6 pointer-events-auto shrink-0 z-10 lg:pl-6 xl:pl-8">
+          <div className="w-full lg:w-[30%] xl:w-[29%] 2xl:w-[28%] max-w-[440px] xl:max-w-[480px] flex flex-col items-start text-left justify-center space-y-6 pointer-events-auto shrink-0 z-10 lg:pl-6 xl:pl-10">
             {/* Description (Right) */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className={`text-slate-200 ${typography.body.lg} sm:text-base lg:text-base xl:text-lg font-normal leading-relaxed drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]`}
+              className={`text-slate-200 text-sm sm:text-base lg:text-[14px] xl:text-base font-normal leading-relaxed drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)] max-w-[420px]`}
             >
               {subheading}
             </motion.p>
@@ -210,7 +210,7 @@ export const GenAiHero = ({
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-wrap items-center justify-start gap-2 sm:gap-2.5"
+              className="flex flex-wrap items-center justify-start gap-2 sm:gap-2.5 max-w-[420px]"
             >
               {capabilities.map((item, idx) => {
                 const Icon = item.icon;
@@ -233,8 +233,8 @@ export const GenAiHero = ({
       </div>
 
       {/* 3D Interactive Particle Sphere Background (Placed in flow for mobile, absolute for desktop) */}
-      <div className="relative lg:absolute lg:inset-0 w-full h-[450px] sm:h-[550px] lg:h-full pointer-events-auto z-0 -my-4 lg:my-0 lg:-translate-y-9 xl:-translate-y-12">
-        <ParticleSphere />
+      <div className="relative lg:absolute lg:inset-0 w-full h-[450px] sm:h-[550px] lg:h-full pointer-events-auto z-0 -my-4 lg:my-0 lg:-translate-y-8 xl:-translate-y-10">
+        <ParticleSphere maxDesktopRatio={0.25} />
       </div>
 
       {/* ======================================================== */}

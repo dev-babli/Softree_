@@ -40,7 +40,7 @@ const FEATURES: FeatureItem[] = [
 
 export default function GenerativeAiAIReadinessBanner() {
   return (
-    <section className="relative w-full pt-4 lg:pt-6 pb-12 lg:pb-16 bg-transparent overflow-hidden font-sans">
+    <section className="relative w-full py-10 md:py-14 lg:py-16 bg-transparent overflow-hidden font-sans">
       <div className="relative z-10 max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12">
 
         {/* Main Banner Container (Light Theme Matching Page) */}
