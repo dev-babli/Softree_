@@ -7,6 +7,8 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { EASE, prefersReducedMotion } from "@/lib/motion";
+import { MicrosoftCloudCardVisual } from "./MicrosoftCloudCardVisual";
+import { MicrosoftParticleTorusVisual } from "./MicrosoftParticleTorusVisual";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -196,7 +198,7 @@ export function TransferredSoftreeHero() {
           scale: 1,
           opacity: 1,
           visibility: "visible",
-          clearProps: "all"
+          clearProps: "transform,opacity,visibility"
         });
         gsap.set(q(".card-inner-bg"), {
           opacity: 1,
@@ -396,7 +398,7 @@ export function TransferredSoftreeHero() {
               .hero-pillar-card {
                 width: 100%;
                 max-width: 400px;
-                min-height: 420px;
+                height: 440px;
                 display: flex;
                 flex-direction: column;
               }
@@ -406,14 +408,14 @@ export function TransferredSoftreeHero() {
                   /* Full-sized agency cards, gracefully bounded by viewport height */
                   width: clamp(280px, min(28vw, 46vh), 420px);
                   max-width: none;
-                  min-height: clamp(400px, min(35vw, 60vh), 560px);
+                  height: clamp(400px, min(35vw, 60vh), 560px);
                 }
               }
 
               @media (min-width: 1024px) and (max-height: 640px) {
                 .hero-pillar-card {
                   width: clamp(240px, min(24vw, 40vh), 320px);
-                  min-height: clamp(340px, 50vh, 420px);
+                  height: clamp(340px, 50vh, 420px);
                 }
               }
 
@@ -563,36 +565,61 @@ export function TransferredSoftreeHero() {
 
           {/* Left Card — MICROSOFT & DATA */}
           <div
-            className="left-card hero-pillar-card relative lg:absolute rounded-2xl overflow-hidden z-[2] order-1 lg:order-none pointer-events-auto lg:invisible lg:opacity-0"
+            className="left-card hero-pillar-card relative lg:absolute rounded-2xl overflow-hidden z-[2] order-1 lg:order-none pointer-events-auto lg:invisible lg:opacity-0 flex flex-col justify-between bg-[#040814]"
             style={{
               background:
-                "linear-gradient(135deg, rgba(30,40,60,0.9) 0%, rgba(20,30,50,0.95) 100%)",
-              border: "1.5px solid rgba(255,255,255,0.2)",
-              borderTopColor: "rgba(255,255,255,0.4)",
+                "linear-gradient(180deg, #090a10 0%, #030408 100%)",
+              border: "1.5px solid rgba(255,255,255,0.12)",
+              borderTopColor: "rgba(255,255,255,0.25)",
               boxShadow:
-                "0 25px 50px rgba(0,0,0,0.3), 0 10px 20px rgba(0,0,0,0.2)",
+                "0 25px 50px rgba(0,0,0,0.5), 0 0 35px rgba(255,107,0,0.12)",
               willChange: "transform, opacity",
             }}
           >
-            <Image
-              src="/whysoftree/ai.png"
-              alt="Microsoft & Data"
-              fill
-              className="object-cover"
+            {/* Guaranteed Solid Dark Background & Ambient Warm Orange Radial Glow */}
+            <div
+              className="absolute inset-0 pointer-events-none -z-10"
+              style={{
+                background: "linear-gradient(180deg, #090a10 0%, #030408 100%)",
+              }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
-            <div className="absolute bottom-0 inset-x-0 p-5 flex flex-col">
-              <p className="typo-caption" style={{ color: ACCENT }}>
-                Microsoft & Data
-              </p>
-              <p className="typo-heading-4 mt-1.5 text-white">
-                Cloud, analytics, and enterprise solutions that empower business
-              </p>
+            <div
+              className="absolute inset-x-0 top-0 h-3/5 pointer-events-none -z-10"
+              style={{
+                background:
+                  "radial-gradient(circle at 50% 35%, rgba(255, 107, 0, 0.22) 0%, rgba(45, 15, 0, 0.15) 50%, transparent 75%)",
+              }}
+            />
+
+            {/* 3D Glowing Particle Torus Knot (Upper container) */}
+            <div className="relative w-full h-[52%] sm:h-[50%] flex-shrink-0 z-10 overflow-hidden">
+              <MicrosoftParticleTorusVisual />
+            </div>
+
+            {/* Card Content (Lower container) */}
+            <div className="px-4 pb-4 sm:px-5 sm:pb-5 flex flex-col justify-end flex-1 relative z-10 min-h-0">
+              <div className="flex flex-col">
+                <p
+                  className="font-bold uppercase tracking-wider text-[10px] sm:text-[11px]"
+                  style={{ color: ACCENT }}
+                >
+                  MICROSOFT & DATA
+                </p>
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white tracking-tight leading-snug mt-1 sm:mt-1.5">
+                  Cloud, data and enterprise solutions
+                </h3>
+                <p className="text-xs sm:text-[13px] text-zinc-400 mt-1 sm:mt-1.5 leading-relaxed line-clamp-2">
+                  Unlock the power of Microsoft technologies to modernize and grow your business.
+                </p>
+              </div>
+
               <Link
                 href="/services/offshore-power-platform-development"
-                className="typo-button-sm mt-3 inline-flex items-center gap-1.5 self-start rounded-full bg-white px-4 py-2 text-zinc-900 shadow-sm transition-[transform,background-color] duration-200 ease-out hover:bg-white/90 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white pointer-events-auto"
+                className="mt-2.5 sm:mt-3 inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold transition-all duration-200 group pointer-events-auto leading-normal shrink-0 whitespace-nowrap self-start"
+                style={{ color: ACCENT }}
               >
-                Explore Microsoft solutions <span className="text-[10px]">→</span>
+                <span className="group-hover:underline underline-offset-4">Explore Microsoft solutions</span>
+                <span className="inline-block text-[10px] sm:text-[11px] transition-transform duration-200 group-hover:translate-x-1">→</span>
               </Link>
             </div>
           </div>
