@@ -2,22 +2,27 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { motion, useInView, useSpring, useTransform } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import {
   ArrowUpRight,
   Calendar,
+  Check,
+  Cloud,
   Code2,
   Cpu,
   Globe2,
+  Handshake,
   LayoutGrid,
+  Settings,
+  Share2,
+  Shield,
+  ShieldCheck,
   Users,
 } from "lucide-react";
 import { Globe } from "@/registry/magicui/globe";
 import { AboutUsGlassPillars } from "@/components/sections/about-us/AboutUsGlassPillars";
 import AboutGlobeMarkers from "@/components/homepage/AboutGlobeMarkers";
 import SectionHeader from "@/components/homepage-light/SectionHeader";
-import { SpotlightCard } from "@/components/qc/shared/SpotlightCard";
-import { COUNTRIES_SERVED, COUNTRIES_SERVED_NUMBER } from "@/lib/constants";
 import { EASE_T, VIEWPORT } from "@/lib/motion";
 import ParallaxGalleryCard from "@/components/infinity-scroll-animation/ParallaxGalleryCard";
 import dynamic from "next/dynamic";
@@ -61,177 +66,73 @@ const ABOUT_CAPABILITIES = [
   },
 ] as const;
 
-const PRIMARY_STATS = [
+const PARTNER_REASONS = [
   {
-    value: 200,
-    prefix: "+",
-    suffix: "",
-    label: "Enterprise clients",
-    sub: "Across 15+ industries",
+    icon: Users,
+    iconBg: "bg-orange-50 border-orange-100 text-[#FF5812]",
+    title: "Modern engineering expertise",
+    description: "Experienced developers across web, mobile and cloud.",
   },
   {
-    value: 98,
-    prefix: "",
-    suffix: "%",
-    label: "Client retention",
-    sub: "Year over year",
+    icon: Settings,
+    iconBg: "bg-sky-50 border-sky-100 text-[#00A4EF]",
+    title: "Reliable white-label execution",
+    description: "We deliver under your brand.",
   },
   {
-    value: 50,
-    prefix: "+",
-    suffix: "",
-    label: "Microsoft-certified",
-    sub: "Engineers on staff",
+    icon: ShieldCheck,
+    iconBg: "bg-emerald-50 border-emerald-100 text-emerald-600",
+    title: "End-to-end delivery",
+    description: "From architecture through deployment and support.",
   },
   {
-    value: COUNTRIES_SERVED_NUMBER,
-    prefix: "+",
-    suffix: "",
-    label: "Countries served",
-    sub: "Active deployments",
+    icon: Handshake,
+    iconBg: "bg-purple-50 border-purple-100 text-purple-600",
+    title: "Flexible engagement models",
+    description: "Dedicated teams or project-based delivery based on your needs.",
   },
 ] as const;
 
-const SPOTLIGHT_STATS = [
+const IDEAL_AUDIENCES = [
+  "Software and web development agencies",
+  "Microsoft and cloud consultancies",
+  "ISVs and SaaS product companies",
+  "Businesses looking to extend engineering capacity",
+] as const;
+
+const CAPABILITY_PILLARS = [
   {
-    value: 95,
-    suffix: "%",
-    prefix: "",
-    numberColor: "#1852FF",
-    suffixColor: "#1852FF",
-    accentGlow: "rgba(24, 82, 255, 0.5)",
-    label: "Client retention rate",
-    headline: "Partnerships that last",
-    body: "Multi-year co-engineering with enterprise teams—measured renewal, not one-off project handoffs.",
+    number: "01",
+    title: "Web Applications",
+    description: "Modern, responsive digital experiences built for scale.",
+    icon: Code2,
+    iconBg: "bg-gradient-to-br from-[#FFF4EE] to-[#FFE6DA] border border-orange-200/90 text-[#FF5812]",
   },
   {
-    value: 125,
-    suffix: "+",
-    prefix: "",
-    numberColor: "#0a0a1a",
-    suffixColor: "#FF5812",
-    accentGlow: "rgba(255, 88, 18, 0.45)",
-    label: "Enterprise deliveries",
-    headline: "Shipped at scale",
-    body: "Power Platform, AI, data, and modern app programs delivered with senior offshore pods.",
+    number: "02",
+    title: "APIs & Integrations",
+    description: "Connect platforms, business systems, and cloud pipelines.",
+    icon: Share2,
+    iconBg: "bg-gradient-to-br from-[#EFF6FF] to-[#DBEAFE] border border-blue-200/90 text-[#1852FF]",
+  },
+  {
+    number: "03",
+    title: "Cloud Engineering",
+    description: "Deploy scalable, resilient cloud-native architectures.",
+    icon: Cloud,
+    iconBg: "bg-gradient-to-br from-[#ECFDF5] to-[#D1FAE5] border border-emerald-200/90 text-[#10B981]",
+  },
+  {
+    number: "04",
+    title: "Quality & Performance",
+    description: "Enterprise software audited for security and velocity.",
+    icon: Shield,
+    iconBg: "bg-gradient-to-br from-[#FAF5FF] to-[#F3E8FF] border border-purple-200/90 text-[#8B5CF6]",
   },
 ] as const;
 
 const GALLERY_MIN_H =
-  "min-h-[480px] sm:min-h-[500px] md:min-h-[500px] lg:min-h-[520px] xl:min-h-[540px]";
-
-const STAT_TILE_H = "h-[112px] w-full shrink-0 sm:h-[118px]";
-
-function AnimatedNumber({
-  value,
-  prefix = "",
-  suffix = "",
-  delay = 0,
-  className = "",
-}: {
-  value: number;
-  prefix?: string;
-  suffix?: string;
-  delay?: number;
-  className?: string;
-}) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-40px" });
-  const [hasAnimated, setHasAnimated] = useState(false);
-  const spring = useSpring(Math.round(value * 0.6), {
-    stiffness: 50,
-    damping: 20,
-    restDelta: 0.001,
-  });
-  const display = useTransform(spring, (v) => Math.round(v));
-  const [displayValue, setDisplayValue] = useState(0);
-
-  useEffect(() => {
-    const unsub = display.on("change", (v) => setDisplayValue(v));
-    return unsub;
-  }, [display]);
-
-  useEffect(() => {
-    if (isInView && !hasAnimated) {
-      const t = setTimeout(() => {
-        spring.set(value);
-        setHasAnimated(true);
-      }, delay * 1000);
-      return () => clearTimeout(t);
-    }
-  }, [isInView, hasAnimated, spring, value, delay]);
-
-  return (
-    <span ref={ref} className={`tabular-nums ${className}`}>
-      {prefix}
-      {displayValue}
-      {suffix}
-    </span>
-  );
-}
-
-function BentoCell({
-  className = "",
-  children,
-}: {
-  className?: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div
-      className={`rounded-2xl border border-[#0a0a1a]/[0.07] bg-white shadow-[0_8px_32px_-20px_rgba(10,10,26,0.14)] ${className}`}
-    >
-      {children}
-    </div>
-  );
-}
-
-function LandscapeStatTile({
-  stat,
-  index,
-  accent = "#1852FF",
-}: {
-  stat: (typeof PRIMARY_STATS)[number];
-  index: number;
-  accent?: string;
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.55, delay: index * 0.08, ease: EASE_OUT }}
-      className="w-full"
-    >
-      <BentoCell
-        className={`flex ${STAT_TILE_H} flex-col justify-between overflow-hidden p-4 md:p-5`}
-      >
-        <p
-          className="text-[clamp(1.75rem,3.2vw,2.5rem)] font-bold leading-none tracking-tight"
-          style={{ color: accent }}
-        >
-          <AnimatedNumber
-            value={stat.value}
-            prefix={stat.prefix}
-            suffix={stat.suffix}
-            delay={0.2 + index * 0.1}
-          />
-        </p>
-        <div>
-          <p className="text-[13px] font-semibold text-[#0a0a1a]">{stat.label}</p>
-          <p className="mt-0.5 text-[11px] text-[#0a0a1a]/50">{stat.sub}</p>
-          <motion.div
-            className="mt-2 h-px origin-left bg-[#1852FF]/70"
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 + index * 0.08 }}
-          />
-        </div>
-      </BentoCell>
-    </motion.div>
-  );
-}
+  "min-h-[500px] sm:min-h-[540px] md:min-h-[580px] lg:min-h-[620px] xl:min-h-[640px]";
 
 export default function InfinityScrollAnimation() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -442,7 +343,7 @@ export default function InfinityScrollAnimation() {
             </div>
 
             <motion.div
-              className="col-span-12 min-w-0 lg:col-span-8 h-full lg:max-h-[520px] xl:max-h-[540px]"
+              className="col-span-12 min-w-0 lg:col-span-8 h-full"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
@@ -453,105 +354,125 @@ export default function InfinityScrollAnimation() {
               </div>
             </motion.div>
 
-            <div className="col-span-12 flex min-w-0 flex-col gap-3 lg:col-span-4 lg:min-h-0 lg:gap-4 lg:max-h-[520px] xl:max-h-[540px]">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#0a0a1a]/45 lg:hidden">
+            <div className="col-span-12 grid grid-cols-1 md:grid-cols-2 lg:flex lg:flex-col lg:justify-between min-w-0 gap-3 sm:gap-4 lg:col-span-4 lg:min-h-0 lg:h-full">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#0a0a1a]/45 lg:hidden md:col-span-2">
                 Proof at a glance
               </p>
-              <div className="grid flex-1 grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-1 lg:grid-rows-2">
-                {SPOTLIGHT_STATS.map((stat, idx) => (
-                  <motion.div
-                    key={stat.label}
-                    className="min-h-[148px] lg:min-h-0 h-full"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      duration: 0.55,
-                      delay: 0.1 + idx * 0.08,
-                      ease: EASE_OUT,
-                    }}
-                  >
-                    <SpotlightCard
-                      color={stat.accentGlow}
-                      intensity={0.55}
-                      radius={240}
-                      className="flex h-full min-h-[148px] flex-col justify-between rounded-2xl border border-[#0a0a1a]/5 bg-white p-5 shadow-[0_8px_28px_-14px_rgba(10,10,26,0.12)] sm:p-6 lg:p-6 xl:p-6 lg:min-h-0"
-                    >
-                      <div>
-                        <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#0a0a1a]/40 lg:text-[11px] xl:text-[12px]">
-                          {stat.headline}
-                        </p>
-                        <p className="mt-2 text-[clamp(2.5rem,5vw,3rem)] font-bold leading-none tabular-nums lg:mt-2.5 lg:text-[clamp(2.8rem,4.5vw,3.6rem)]">
-                          <span style={{ color: stat.numberColor }}>
-                            <AnimatedNumber
-                              value={stat.value}
-                              prefix={stat.prefix}
-                              delay={0.35 + idx * 0.1}
-                            />
+
+              {/* Card 1: Why global partners choose Softree */}
+              <motion.div
+                className="flex flex-col justify-between rounded-2xl border border-[#0a0a1a]/[0.08] bg-white p-4 sm:p-5 xl:p-5.5 shadow-[0_8px_24px_-12px_rgba(10,10,26,0.08)] lg:flex-1"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, ease: EASE_OUT }}
+              >
+                <div>
+                  <p className="text-[10.5px] sm:text-[11px] font-bold uppercase tracking-[0.14em] text-[#0a0a1a]/50">
+                    WHY GLOBAL PARTNERS CHOOSE SOFTREE
+                  </p>
+                  <div className="mt-2.5 sm:mt-3 flex flex-col gap-2 sm:gap-2.5 xl:gap-3">
+                    {PARTNER_REASONS.map((item) => {
+                      const Icon = item.icon;
+                      return (
+                        <div key={item.title} className="flex items-start gap-2.5 sm:gap-3">
+                          <span
+                            className={`flex h-8.5 w-8.5 sm:h-9.5 sm:w-9.5 shrink-0 items-center justify-center rounded-xl border ${item.iconBg}`}
+                          >
+                            <Icon className="h-4 w-4" />
                           </span>
-                          <span style={{ color: stat.suffixColor }}>
-                            {stat.suffix}
+                          <div className="min-w-0">
+                            <h4 className="text-[13px] sm:text-[13.5px] xl:text-[14px] font-bold leading-tight text-slate-900">
+                              {item.title}
+                            </h4>
+                            <p className="mt-0.5 text-[11px] sm:text-[11.5px] xl:text-[12px] leading-snug text-slate-600">
+                              {item.description}
+                            </p>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Card 2: Ideal For */}
+              <motion.div
+                className="relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#0a0a1a]/[0.08] bg-white p-4 sm:p-5 xl:p-5.5 shadow-[0_8px_24px_-12px_rgba(10,10,26,0.08)] lg:flex-1"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: 0.08, ease: EASE_OUT }}
+              >
+                <div className="relative z-10 flex flex-col justify-between h-full">
+                  <div>
+                    <div className="inline-flex items-center gap-1.5 rounded-full bg-[#FF5812]/10 border border-[#FF5812]/20 px-2.5 py-0.5">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#FF5812]" />
+                      <span className="text-[9.5px] sm:text-[10px] font-bold uppercase tracking-[0.14em] text-[#FF5812]">
+                        IDEAL FOR
+                      </span>
+                    </div>
+
+                    <h3 className="mt-2 text-[15px] sm:text-[16px] xl:text-[17px] font-bold leading-tight text-slate-900">
+                      Technology partners and digital firms
+                    </h3>
+
+                    <div className="mt-2.5 sm:mt-3 flex flex-col gap-2 sm:gap-2.5">
+                      {IDEAL_AUDIENCES.map((item) => (
+                        <div key={item} className="flex items-start gap-2 sm:gap-2.5">
+                          <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#FF5812] to-[#FF3B00] text-white shadow-sm shadow-orange-500/25">
+                            <Check className="h-2.5 w-2.5 stroke-[3]" />
                           </span>
-                        </p>
-                        <p className="mt-1 text-sm font-semibold text-[#0a0a1a] lg:mt-1.5 lg:text-base xl:text-[15px]">
-                          {stat.label}
-                        </p>
-                      </div>
-                      <p className="mt-3 text-[12px] leading-relaxed text-[#0a0a1a]/58 sm:text-[13px] lg:mt-3.5 lg:text-[13px] xl:text-[14px]">
-                        {stat.body}
-                      </p>
-                    </SpotlightCard>
-                  </motion.div>
-                ))}
-              </div>
+                          <span className="text-[12px] sm:text-[12.5px] xl:text-[13px] font-medium leading-snug text-slate-700">
+                            {item}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
             </div>
 
-            {/* ── Row 4: Metric strip ── */}
-            {PRIMARY_STATS.map((stat, i) => (
-              <div
-                key={stat.label}
-                className="col-span-6 min-w-0 md:col-span-3"
-              >
-                <LandscapeStatTile stat={stat} index={i} />
-              </div>
-            ))}
+            {/* ── Row 4: 4 Bottom Capability Cards ── */}
+            <div className="col-span-12 grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-4 sm:gap-3.5 mt-2">
+              {CAPABILITY_PILLARS.map((card, idx) => {
+                const Icon = card.icon;
+                return (
+                  <motion.div
+                    key={card.number}
+                    className="group relative flex flex-col justify-between overflow-hidden rounded-xl sm:rounded-2xl border border-[#0a0a1a]/[0.08] bg-white p-3.5 sm:p-4 shadow-[0_4px_16px_-8px_rgba(10,10,26,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md min-h-[108px] sm:min-h-[114px]"
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: idx * 0.06, ease: EASE_OUT }}
+                  >
+                    {/* Top Row: Icon + Number Badge */}
+                    <div className="relative z-10 flex items-center justify-between">
+                      <div
+                        className={`flex h-8.5 w-8.5 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-lg sm:rounded-xl transition-all duration-300 group-hover:scale-105 shadow-xs ${card.iconBg}`}
+                      >
+                        <Icon className="h-4 w-4 sm:h-4.5 sm:w-4.5" strokeWidth={2.2} />
+                      </div>
 
-            {/* ── Row 5: CTA band ── */}
-            <motion.div
-              className="col-span-12 flex flex-col items-start justify-between gap-6 rounded-2xl border border-[#0a0a1a]/8 bg-white p-6 sm:flex-row sm:items-center sm:p-8"
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55, ease: EASE_OUT }}
-            >
-              <div className="max-w-xl">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#FF5812]">
-                  Co-engineered
-                </p>
-                <p className="mt-2 text-lg font-semibold leading-snug text-[#0a0a1a] md:text-xl">
-                  Technology leaders trust our teams inside their stack.
-                </p>
-                <p className="mt-2 text-sm text-[#0a0a1a]/55">
-                  Senior squads, transparent sprints, and Microsoft-grade governance on every
-                  engagement.
-                </p>
-              </div>
-              <div className="flex shrink-0 flex-wrap gap-3">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#FF5812] px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-[#e84f0f]"
-                >
-                  Partner with us
-                  <ArrowUpRight className="h-3.5 w-3.5" />
-                </Link>
-                <Link
-                  href="/case-studies"
-                  className="inline-flex items-center gap-2 rounded-full border border-[#0a0a1a]/14 px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-[#0a0a1a] transition hover:border-[#FF5812]/25 hover:text-[#FF5812]"
-                >
-                  Case studies
-                </Link>
-              </div>
-            </motion.div>
+                      <span className="inline-flex items-center rounded-full bg-slate-100 border border-slate-200/80 px-2 py-0.5 font-mono text-[10px] sm:text-[10.5px] font-bold text-slate-500">
+                        {card.number}
+                      </span>
+                    </div>
+
+                    {/* Content Area */}
+                    <div className="relative z-10 mt-2 sm:mt-2.5 min-w-0">
+                      <h4 className="text-[13.5px] sm:text-[14px] font-bold leading-tight text-slate-900 group-hover:text-[#FF5812] transition-colors">
+                        {card.title}
+                      </h4>
+                      <p className="mt-0.5 text-[11px] sm:text-[11.5px] leading-snug text-slate-600">
+                        {card.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>

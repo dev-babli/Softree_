@@ -3,7 +3,9 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { ComponentType } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
+  ArrowRight,
   ChevronLeft,
   ChevronRight,
   Cpu,
@@ -96,6 +98,8 @@ type GallerySlideData = {
   readonly bottomTitle: string;
   readonly bottomCategory: string;
   readonly bottomDescription: string;
+  readonly ctaText?: string;
+  readonly ctaHref?: string;
   readonly image: string;
   readonly subFeaturesLeft: readonly SubFeature[];
   readonly subFeaturesRight: readonly SubFeature[];
@@ -115,6 +119,8 @@ export const gallerySlides: readonly GallerySlideData[] = [
     bottomTitle: "AI-Powered Business Automation",
     bottomDescription:
       "Deploy intelligent agents, Copilots, and automated workflows that connect business processes, applications, and enterprise data.",
+    ctaText: "Explore AI Services",
+    ctaHref: "/services/ai-development-services",
     image: "/service_image/ai.jpg",
     subFeaturesLeft: [
       {
@@ -168,6 +174,8 @@ export const gallerySlides: readonly GallerySlideData[] = [
     bottomTitle: "Microsoft Business Transformation",
     bottomDescription:
       "Modernize operations with Power Apps, Power Automate, Power BI, SharePoint, and connected Microsoft cloud solutions.",
+    ctaText: "Explore Power Platform",
+    ctaHref: "/services/offshore-power-platform-development",
     image: "/service_image/microsoft.jpg",
     subFeaturesLeft: [
       {
@@ -221,6 +229,8 @@ export const gallerySlides: readonly GallerySlideData[] = [
     bottomTitle: "Intelligent Data & Insights",
     bottomDescription:
       "Transform enterprise data into trusted insights with modern analytics, data engineering, and decision-ready intelligence.",
+    ctaText: "Explore Microsoft Fabric",
+    ctaHref: "/services/microsoft-fabric-development-services",
     image: "/service_image/data.jpg",
     subFeaturesLeft: [
       {
@@ -274,6 +284,8 @@ export const gallerySlides: readonly GallerySlideData[] = [
     bottomTitle: "Modern Digital Experiences",
     bottomDescription:
       "Build high-performance web and application experiences engineered for scalability, usability, and long-term business growth.",
+    ctaText: "Explore Web Engineering",
+    ctaHref: "/services/offshore-web-app-development",
     image: "/service_image/web.webp",
     subFeaturesLeft: [
       {
@@ -543,7 +555,7 @@ export default function ParallaxGalleryCard({
     >
       <div
         ref={stageRef}
-        className="isc-stage relative flex flex-col w-full h-full min-h-[400px] lg:min-h-[420px]"
+        className="isc-stage relative flex flex-col w-full h-full min-h-[500px] sm:min-h-[540px] md:min-h-[580px] lg:min-h-[620px] xl:min-h-[640px]"
         tabIndex={0}
         aria-label="Service showcase gallery"
         aria-roledescription="carousel"
@@ -575,51 +587,34 @@ export default function ParallaxGalleryCard({
                 />
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_34%_42%,rgba(255,255,255,0.06)_0%,transparent_55%),linear-gradient(180deg,rgba(0,0,0,0.08)_0%,rgba(0,0,0,0.5)_100%)]" />
               </div>
-              <div
-                className="isc-project-caption pointer-events-none absolute inset-x-0 bottom-0 z-[5] max-w-[60%] px-3 pb-6 pt-4 md:px-5 md:pb-8 md:pt-6"
-                style={{
-                  opacity: i === activeIndex ? 1 : 0,
-                  transition: "opacity 0.4s ease-out",
-                }}
-              >
-                <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/55">
-                  {slide.bottomCategory}
-                </div>
-                <div className="mt-1.5 font-bold leading-tight tracking-tight text-white" style={{ fontSize: 'clamp(1.1rem,2.5vw,1.75rem)' }}>
-                  {slide.bottomTitle}
-                </div>
-                <div className="mt-2 line-clamp-2 text-[13px] leading-relaxed text-white/72 md:text-[14px]">
-                  {slide.bottomDescription}
-                </div>
-              </div>
             </div>
           ))}
         </div>
 
         {/* Foreground Content Layer (Relative Flex Layout) */}
-        <div className="relative z-10 flex flex-col justify-between w-full h-full min-h-full">
+        <div className="relative z-10 flex flex-col justify-between w-full h-full min-h-full pointer-events-none">
           {/* Top overlay area */}
-          <div className="pointer-events-none px-3 pt-3 pb-4 md:px-5 md:pt-4 md:pb-6 bg-gradient-to-b from-black/65 via-black/35 to-transparent">
+          <div className="pointer-events-none px-3 pt-3 pb-3 sm:px-5 sm:pt-4 sm:pb-4 bg-gradient-to-b from-black/65 via-black/35 to-transparent">
             <div className="flex items-start justify-between">
-              <div className="max-w-[58%] md:max-w-xs">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/55">
+              <div className="max-w-[62%] sm:max-w-xs">
+                <p className="text-[9.5px] sm:text-[10px] font-semibold uppercase tracking-[0.2em] text-white/55">
                   {eyebrow}
                 </p>
                 <p
                   key={`title-${activeIndex}`}
-                  className="isc-slide-title mt-2 font-bold leading-[1.08] tracking-tight text-white"
-                  style={{ fontSize: 'clamp(1.3rem,3vw,2.5rem)' }}
+                  className="isc-slide-title mt-1.5 sm:mt-2 font-bold leading-[1.08] tracking-tight text-white"
+                  style={{ fontSize: 'clamp(1.2rem,2.8vw,2.3rem)' }}
                 >
                   {active.title}
                 </p>
                 <p
                   key={`desc-${activeIndex}`}
-                  className="isc-slide-desc mt-2 text-[12px] leading-relaxed text-white/68 md:text-[13px]"
+                  className="isc-slide-desc mt-1.5 sm:mt-2 text-[11px] sm:text-[12px] md:text-[13px] leading-relaxed text-white/68"
                 >
                   {active.description}
                 </p>
               </div>
-              <span className="rounded-full border border-white/15 bg-white/10 px-2.5 py-1 font-mono text-[10px] tabular-nums text-white/80 backdrop-blur-md">
+              <span className="rounded-full border border-white/15 bg-white/10 px-2 py-0.5 sm:px-2.5 sm:py-1 font-mono text-[9.5px] sm:text-[10px] tabular-nums text-white/80 backdrop-blur-md">
                 {String(activeIndex + 1).padStart(2, "0")}/
                 {String(slideCount).padStart(2, "0")}
               </span>
@@ -627,9 +622,9 @@ export default function ParallaxGalleryCard({
           </div>
 
           {/* Center Panel (isc-minimap) */}
-          <div className="flex-1 flex items-start justify-center py-4 px-2 sm:py-6 sm:px-4 pointer-events-auto">
+          <div className="flex-1 flex items-center justify-center py-2 px-2 sm:py-4 sm:px-4 pointer-events-auto">
             {/* ── Centre editorial showcase card ── */}
-            <div className="isc-minimap isc-minimap--landscape -translate-y-4 sm:-translate-y-6 md:-translate-y-10 lg:-translate-y-12">
+            <div className="isc-minimap isc-minimap--landscape my-auto sm:-translate-y-1 lg:-translate-y-2">
               <div className="isc-minimap-wrapper">
 
                 {/* 3-column body */}
@@ -722,15 +717,47 @@ export default function ParallaxGalleryCard({
             </div>
           </div>
 
-          {/* Bottom Area (Spacer for absolute caption + Navigation) */}
-          <div className="px-3 pb-4 pt-4 md:px-5 md:pb-6 flex justify-end items-end relative pointer-events-none min-h-[120px] md:min-h-[140px]">
+          {/* Bottom Area (Caption + CTA + Navigation) */}
+          <div className="px-3 pb-3 pt-3 sm:px-5 sm:pb-5 sm:pt-4 flex items-end justify-between relative z-20 pointer-events-none gap-4">
+            {/* Caption & CTA */}
+            <div className="max-w-[76%] sm:max-w-[72%] md:max-w-[65%] pointer-events-auto">
+              <div
+                key={`cat-${activeIndex}`}
+                className="text-[9.5px] sm:text-[10px] font-semibold uppercase tracking-[0.2em] text-white/55"
+              >
+                {active.bottomCategory}
+              </div>
+              <div
+                key={`btitle-${activeIndex}`}
+                className="mt-1 font-bold leading-tight tracking-tight text-white isc-slide-title"
+                style={{ fontSize: 'clamp(1.05rem,2vw,1.55rem)' }}
+              >
+                {active.bottomTitle}
+              </div>
+              <div
+                key={`bdesc-${activeIndex}`}
+                className="mt-1 line-clamp-2 text-[11.5px] sm:text-[12.5px] md:text-[13px] leading-relaxed text-white/72"
+              >
+                {active.bottomDescription}
+              </div>
+              <div className="mt-2.5 sm:mt-3">
+                <Link
+                  href={active.ctaHref || "/contact"}
+                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#FF5812] to-[#FF3B00] px-4 py-2 sm:px-5 sm:py-2.5 text-[11px] sm:text-[11.5px] font-semibold uppercase tracking-[0.06em] text-white shadow-[0_4px_16px_rgba(255,88,18,0.4)] transition-all hover:shadow-[0_6px_22px_rgba(255,88,18,0.55)] hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+                >
+                  <span>{active.ctaText || `Explore ${active.title}`}</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </div>
+
             {/* Navigation chevrons */}
-            <div className="pointer-events-auto flex items-center gap-1.5 shrink-0">
+            <div className="pointer-events-auto flex items-center gap-1.5 shrink-0 z-10">
               <button
                 type="button"
                 onClick={() => goToIndexRef.current(activeIndex - 1)}
                 disabled={activeIndex === 0}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white backdrop-blur-md transition hover:bg-black/60 disabled:opacity-30"
+                className="inline-flex h-8.5 w-8.5 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white backdrop-blur-md transition hover:bg-black/60 disabled:opacity-30 cursor-pointer"
                 aria-label="Previous slide"
               >
                 <ChevronLeft className="h-4 w-4" strokeWidth={1.75} />
@@ -739,7 +766,7 @@ export default function ParallaxGalleryCard({
                 type="button"
                 onClick={() => goToIndexRef.current(activeIndex + 1)}
                 disabled={activeIndex === slideCount - 1}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white text-[#0a0a1a] backdrop-blur-md transition hover:bg-white/90 disabled:opacity-30"
+                className="inline-flex h-8.5 w-8.5 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-white/20 bg-white text-[#0a0a1a] backdrop-blur-md transition hover:bg-white/90 disabled:opacity-30 cursor-pointer"
                 aria-label="Next slide"
               >
                 <ChevronRight className="h-4 w-4" strokeWidth={1.75} />
