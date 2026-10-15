@@ -116,12 +116,12 @@ export default function EnterpriseRAGDevelopmentPage() {
       <TrustedBrandsMarquee />
       <AIReadinessBanner />
       <RAGServices />
-      <RAGWhoDoWeServeSection className="bg-white" />
+      {/* <RAGWhoDoWeServeSection className="bg-white" /> */}
       <RAGStickyScroll />
       <RAGCaseStudies />
       <RAGTechnologyStack />
-      <RAGOffshoreEngineeringSection />
-      <RAGHowWeWork />
+      {/* <RAGOffshoreEngineeringSection /> */}
+      {/* <RAGHowWeWork /> */}
       <WhyChooseWithTestimonials />
       <LightFAQExact />
       <LightContactSection />

@@ -4,6 +4,7 @@ import { WovenLightHero } from './WovenLightHero';
 import { Metadata } from 'next';
 import NavigationClient from '@/components/sections/navigation-client';
 import Footer from '@/components/sections/footer';
+import TrustedBrandsMarquee from '@/app/services/offshore-power-platform-development/trust';
 
 // Dynamically import below-the-fold components to prioritize network resources for Hero video & LCP
 const AiReadinessBanner = dynamic(() => import('./components/AiReadinessBanner'), { ssr: true });
@@ -154,6 +155,30 @@ const breadcrumbSchema = {
   ]
 };
 
+const videoSchema = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Agentic AI Development Services & Offshore Engineering Overview",
+  "description":
+    "Discover how Softree Technology builds and scales custom Agentic AI solutions, autonomous AI agents, enterprise RAG architectures, and intelligent workflows with dedicated offshore engineering teams.",
+  "thumbnailUrl": [
+    "https://www.softreetechnology.com/ai-development-service-video/ai-agent-video-poster.webp",
+    "https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo-Dark-BG.webp"
+  ],
+  "uploadDate": "2025-01-15T08:00:00+00:00",
+  "contentUrl": "https://www.softreetechnology.com/ai-development-service-video/ai-2.mp4",
+  "embedUrl": "https://www.softreetechnology.com/services/ai-development-services",
+  "duration": "PT30S",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Softree Technology",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.softreetechnology.com/logo/logo.png"
+    }
+  }
+};
+
 export default function AiDevelopmentServicesPage() {
   return (
     <main className="min-h-screen bg-white font-sans text-slate-900 selection:bg-orange-500 selection:text-white overflow-x-clip">
@@ -165,8 +190,13 @@ export default function AiDevelopmentServicesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }}
+      />
       <NavigationClient />
       <WovenLightHero />
+      <TrustedBrandsMarquee />
       <AiReadinessBanner />
       {/* Who We Help & Global Network Section */}
       <div id="partnership" className="bg-white pt-8 md:pt-12 pb-8 md:pb-12 text-slate-900 scroll-mt-24">
@@ -208,7 +238,7 @@ export default function AiDevelopmentServicesPage() {
         </div>
       </div>
 
-      <NewWhoDoWeServeSection className="bg-white" />
+      {/* <NewWhoDoWeServeSection className="bg-white" /> */}
 
       {/* Reverse Sticky Scroll Overall Header */}
       <div className="w-full max-w-[1340px] mx-auto px-4 mt-12 md:mt-16 mb-8 flex flex-col items-start text-left">
@@ -230,11 +260,11 @@ export default function AiDevelopmentServicesPage() {
 
       <ReverseStickyScroll />
       {/* Interactive Photo Stack Section - Offshore AI Engineering */}
-      <OffshoreEngineeringSection />
-      <CoreCapabilities />
-      <IndustrySoftree />
+      {/* <OffshoreEngineeringSection /> */}
+      {/* <CoreCapabilities /> */}
+      {/* <IndustrySoftree /> */}
       {/* Infinite Parallax AI Showcase */}
-      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-[2cm] mt-4 md:mt-6 flex flex-col items-start text-left">
+      {/* <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-[2cm] mt-4 md:mt-6 flex flex-col items-start text-left">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-200 bg-orange-50 typo-caption text-[#FF6B00] mb-3">
           <div className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]"></div>
           AWS AI ECOSYSTEM
@@ -250,9 +280,9 @@ export default function AiDevelopmentServicesPage() {
         <div className="relative w-full h-[660px] xs:h-[680px] sm:h-[720px] md:h-[780px] lg:h-[860px] rounded-2xl sm:rounded-3xl overflow-hidden border border-zinc-200/50 shadow-2xl">
           <ArgentLoopSlider className="h-full w-full" />
         </div>
-      </div>
+      </div> */}
       <MicrosoftAiShowcase />
-      <AiRoadmap />
+      {/* <AiRoadmap /> */}
       <WhySoftreeCurtainSlider />
       <WhyChooseWithTestimonials />
       <LightFAQExact />

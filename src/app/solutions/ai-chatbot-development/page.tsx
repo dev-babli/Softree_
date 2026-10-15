@@ -108,6 +108,29 @@ export default function AIChatbotDevelopmentPage() {
         },
       })),
     },
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      name: "Enterprise AI Chatbot Development & Conversational AI Overview",
+      description:
+        "Explore Softree Technology's AI chatbot development services, including custom LLM chatbots, enterprise RAG knowledge retrieval, customer support automation, and business workflow integrations.",
+      thumbnailUrl: [
+        "https://www.softreetechnology.com/ai-development-service-video/ai-agent-video-poster.webp",
+        "https://www.softreetechnology.com/og-image.png"
+      ],
+      uploadDate: "2025-01-15T08:00:00+00:00",
+      contentUrl: "https://www.softreetechnology.com/ai-development-service-video/ai-2.mp4",
+      embedUrl: "https://www.softreetechnology.com/solutions/ai-chatbot-development",
+      duration: "PT30S",
+      publisher: {
+        "@type": "Organization",
+        name: "Softree Technology",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://www.softreetechnology.com/logo/logo.png"
+        }
+      }
+    },
   ];
 
   return (

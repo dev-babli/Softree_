@@ -148,6 +148,40 @@ export default function Home() {
         },
         "serviceType": "Business Intelligence & Data Analytics",
         "areaServed": "Worldwide"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.softreetechnology.com/services/power-bi-development-services#faq",
+        "mainEntity": powerBIFAQs.map((faq) => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer,
+          },
+        })),
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Enterprise Power BI Development Services & Analytics Overview",
+        "description":
+          "Discover how Softree Technology builds enterprise Power BI dashboards, semantic DAX models, Power Query integrations, and scalable BI analytics solutions.",
+        "thumbnailUrl": [
+          "https://www.softreetechnology.com/ai-development-service-video/ai-agent-video-poster.webp",
+          "https://www.softreetechnology.com/og-image.png"
+        ],
+        "uploadDate": "2025-01-15T08:00:00+00:00",
+        "contentUrl": "https://www.softreetechnology.com/ai-development-service-video/ai-2.mp4",
+        "embedUrl": "https://www.softreetechnology.com/services/power-bi-development-services",
+        "duration": "PT30S",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Softree Technology",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.softreetechnology.com/logo/logo.png"
+          }
+        }
       }
     ]
   };
@@ -165,12 +199,12 @@ export default function Home() {
       <TrustedBrandsMarquee />
       <AIReadinessBanner />
       <FabricServices />
-      <FabricWhoDoWeServeSection />
+      {/* <FabricWhoDoWeServeSection /> */}
       <FabricStickyScroll />
       <PowerBICaseStudies />
       <FabricTechnologyStack />
-      <OffshoreEngineeringSection />
-      <FabricHowWeWork />
+      {/* <OffshoreEngineeringSection /> */}
+      {/* <FabricHowWeWork /> */}
       <WhyChooseUs />
       <LightFAQExact faqs={powerBIFAQs} />
       <LightContactSection />

@@ -119,16 +119,43 @@ export default function AIReadinessBanner() {
           </div>
 
           {/* Right Video Side */}
-          <div className="relative flex-1 min-h-[360px] sm:min-h-[440px] lg:min-h-full overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-100 flex items-center justify-center bg-slate-900">
-            {/* The background video */}
+          <div
+            itemScope
+            itemType="https://schema.org/VideoObject"
+            className="relative flex-1 min-h-[360px] sm:min-h-[440px] lg:min-h-full overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-100 flex items-center justify-center bg-slate-900"
+          >
+            <meta itemProp="name" content="Enterprise Power BI Development Services & Analytics Overview" />
+            <meta itemProp="description" content="Discover how Softree Technology builds enterprise Power BI dashboards, semantic DAX models, Power Query integrations, and scalable BI analytics solutions." />
+            <meta itemProp="thumbnailUrl" content="https://www.softreetechnology.com/ai-development-service-video/ai-agent-video-poster.webp" />
+            <meta itemProp="uploadDate" content="2025-01-15T08:00:00+00:00" />
+            <meta itemProp="duration" content="PT30S" />
+            <meta itemProp="contentUrl" content="https://www.softreetechnology.com/ai-development-service-video/ai-2.mp4" />
+            <meta itemProp="embedUrl" content="https://www.softreetechnology.com/services/power-bi-development-services" />
+
+            <div itemProp="publisher" itemScope itemType="https://schema.org/Organization" className="hidden">
+              <meta itemProp="name" content="Softree Technology" />
+              <div itemProp="logo" itemScope itemType="https://schema.org/ImageObject">
+                <meta itemProp="url" content="https://www.softreetechnology.com/logo/logo.png" />
+              </div>
+            </div>
+
+            {/* Video element with complete indexing, poster, and accessibility attributes */}
             <video
+              itemProp="video"
               src="/ai-development-service-video/ai-2.mp4"
+              poster="/ai-development-service-video/ai-agent-video-poster.webp"
+              aria-label="Enterprise Power BI Development Services & Analytics Overview"
               autoPlay
               loop
               muted
               playsInline
+              preload="metadata"
+              controls={false}
               className="w-full h-full object-cover absolute inset-0 select-none pointer-events-none"
-            />
+            >
+              <source src="/ai-development-service-video/ai-2.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
             {/* Subtle shade vignette overlay */}
             <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/40 via-transparent to-transparent pointer-events-none" />
           </div>
