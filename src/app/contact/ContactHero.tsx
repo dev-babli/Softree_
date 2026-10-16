@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Bot, Zap, Database, Code2 } from "lucide-react";
+import { Bot, Zap, Database, Code2, ArrowUpRight, Calendar } from "lucide-react";
 import createGlobe from "cobe";
 import TrustStrip from "@/components/sections/TrustStrip";
 
@@ -306,7 +306,7 @@ export default function ContactHero() {
           {/* ══════════════════════════════════════════════
               LEFT COLUMN: HEADLINE, DESCRIPTION, CTAS, TRUST
              ══════════════════════════════════════════════ */}
-          <div className="lg:col-span-6 xl:col-span-6 z-10 flex flex-col justify-between lg:h-[520px] lg:py-2.5">
+          <div className="lg:col-span-6 xl:col-span-6 z-10 flex flex-col justify-between lg:min-h-[520px] lg:py-2.5">
             <div className="flex flex-col">
               {/* Top Eyebrow Badge: LET'S TALK */}
               <motion.div
@@ -344,10 +344,27 @@ export default function ContactHero() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-base sm:text-lg lg:text-[18px] text-slate-200 font-normal leading-relaxed max-w-xl mb-4 sm:mb-6"
+                className="text-base sm:text-lg lg:text-[18px] text-slate-200 font-normal leading-relaxed max-w-xl mb-4 sm:mb-5"
               >
                 Whether it&apos;s AI, automation, data, Microsoft technologies or modern applications — tell us what you&apos;re building. We&apos;ll take it from there.
               </motion.p>
+
+              {/* Primary Call to Action */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.25 }}
+                className="flex flex-wrap items-center gap-3 mb-5 sm:mb-6"
+              >
+                <a
+                  href="#contact-form"
+                  className="group inline-flex items-center gap-2 rounded-full bg-[#f97316] hover:bg-white hover:text-[#09090d] text-white px-5 sm:px-6 py-2.5 sm:py-3 text-[12px] sm:text-[13px] font-semibold tracking-wider uppercase transition-all duration-300 shadow-[0_0_20px_rgba(249,115,22,0.35)]"
+                >
+                  <span>Send a Message</span>
+                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover:rotate-45" />
+                </a>
+
+              </motion.div>
             </div>
 
             {/* AI & Engineering Capabilities Badges */}
@@ -432,361 +449,361 @@ export default function ContactHero() {
                   }}
                   className="absolute flex items-center justify-center select-none shrink-0"
                 >
-              {/* ── 3D CYBER-GLOBE BACKDROP (ROTATING DOTTED SPHERE) ── */}
-              <div
-                className="absolute flex items-center justify-center pointer-events-none rounded-full overflow-hidden"
-                style={{
-                  width: "430px",
-                  height: "430px",
-                  left: "calc(50% - 215px)",
-                  top: "calc(50% - 215px)",
-                  border: "1.5px solid rgba(249, 115, 22, 0.55)",
-                  boxShadow: "0 0 70px rgba(249, 115, 22, 0.35), inset 0 0 50px rgba(249, 115, 22, 0.18)",
-                  background: "radial-gradient(circle at 45% 45%, rgba(35, 16, 6, 0.95) 0%, rgba(10, 6, 4, 0.98) 85%)",
-                }}
-              >
-                {/* 1. Rotating 3D WebGL Canvas Layer (Active Continents & Global Delivery Nodes) */}
-                <canvas
-                  key="softree-orange-cobe-globe"
-                  ref={canvasRef}
-                  width={880}
-                  height={880}
-                  style={{
-                    width: "430px",
-                    height: "430px",
-                    maxWidth: "100%",
-                    aspectRatio: "1/1",
-                  }}
-                  className="absolute inset-0 pointer-events-none opacity-90 transition-opacity duration-500"
-                />
+                  {/* ── 3D CYBER-GLOBE BACKDROP (ROTATING DOTTED SPHERE) ── */}
+                  <div
+                    className="absolute flex items-center justify-center pointer-events-none rounded-full overflow-hidden"
+                    style={{
+                      width: "430px",
+                      height: "430px",
+                      left: "calc(50% - 215px)",
+                      top: "calc(50% - 215px)",
+                      border: "1.5px solid rgba(249, 115, 22, 0.55)",
+                      boxShadow: "0 0 70px rgba(249, 115, 22, 0.35), inset 0 0 50px rgba(249, 115, 22, 0.18)",
+                      background: "radial-gradient(circle at 45% 45%, rgba(35, 16, 6, 0.95) 0%, rgba(10, 6, 4, 0.98) 85%)",
+                    }}
+                  >
+                    {/* 1. Rotating 3D WebGL Canvas Layer (Active Continents & Global Delivery Nodes) */}
+                    <canvas
+                      key="softree-orange-cobe-globe"
+                      ref={canvasRef}
+                      width={880}
+                      height={880}
+                      style={{
+                        width: "430px",
+                        height: "430px",
+                        maxWidth: "100%",
+                        aspectRatio: "1/1",
+                      }}
+                      className="absolute inset-0 pointer-events-none opacity-90 transition-opacity duration-500"
+                    />
 
-                {/* 2. 3D Spherical Wireframe Gyroscope Framing */}
-                <svg viewBox="0 0 430 430" className="absolute inset-0 w-full h-full pointer-events-none" fill="none">
-                  {/* Tilted Equator and Latitudes */}
-                  <ellipse cx="215" cy="215" rx="210" ry="68" stroke="rgba(249, 115, 22, 0.35)" strokeWidth="1" strokeDasharray="3 3" />
-                  <ellipse cx="215" cy="215" rx="205" ry="136" stroke="rgba(249, 115, 22, 0.16)" strokeWidth="0.8" strokeDasharray="4 4" />
-                  <ellipse cx="215" cy="215" rx="195" ry="190" stroke="rgba(249, 115, 22, 0.2)" strokeWidth="0.8" />
-                  
-                  {/* Longitude Meridians */}
-                  <ellipse cx="215" cy="215" rx="68" ry="210" stroke="rgba(249, 115, 22, 0.28)" strokeWidth="1" strokeDasharray="3 3" />
-                  <ellipse cx="215" cy="215" rx="136" ry="210" stroke="rgba(249, 115, 22, 0.16)" strokeWidth="0.8" strokeDasharray="4 4" />
+                    {/* 2. 3D Spherical Wireframe Gyroscope Framing */}
+                    <svg viewBox="0 0 430 430" className="absolute inset-0 w-full h-full pointer-events-none" fill="none">
+                      {/* Tilted Equator and Latitudes */}
+                      <ellipse cx="215" cy="215" rx="210" ry="68" stroke="rgba(249, 115, 22, 0.35)" strokeWidth="1" strokeDasharray="3 3" />
+                      <ellipse cx="215" cy="215" rx="205" ry="136" stroke="rgba(249, 115, 22, 0.16)" strokeWidth="0.8" strokeDasharray="4 4" />
+                      <ellipse cx="215" cy="215" rx="195" ry="190" stroke="rgba(249, 115, 22, 0.2)" strokeWidth="0.8" />
 
-                  {/* Atmospheric Glow Rim */}
-                  <circle cx="215" cy="215" r="213" stroke="rgba(249, 115, 22, 0.28)" strokeWidth="1" />
-                </svg>
-              </div>
+                      {/* Longitude Meridians */}
+                      <ellipse cx="215" cy="215" rx="68" ry="210" stroke="rgba(249, 115, 22, 0.28)" strokeWidth="1" strokeDasharray="3 3" />
+                      <ellipse cx="215" cy="215" rx="136" ry="210" stroke="rgba(249, 115, 22, 0.16)" strokeWidth="0.8" strokeDasharray="4 4" />
 
-              {/* ── SVG LAYER: DEFAULT GLOWING SPOKES & CONTINENTAL ARCS ── */}
-              <svg
-                viewBox="0 0 580 520"
-                className="absolute inset-0 w-full h-full pointer-events-none z-10"
-                fill="none"
-              >
-                <defs>
-                  {/* Glow Filter */}
-                  <filter id="glow-orange" x="-30%" y="-30%" width="160%" height="160%">
-                    <feGaussianBlur stdDeviation="3.5" result="blur" />
-                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                  </filter>
-                </defs>
+                      {/* Atmospheric Glow Rim */}
+                      <circle cx="215" cy="215" r="213" stroke="rgba(249, 115, 22, 0.28)" strokeWidth="1" />
+                    </svg>
+                  </div>
 
-                {/* Ambient Continental Trajectory Arcs spanning the globe */}
-                <g opacity="0.35">
-                  <path d="M 90 400 Q 220 320 390 390" stroke="rgba(249,115,22,0.4)" strokeWidth="1" strokeDasharray="3 4" />
-                  <path d="M 130 140 Q 280 80 450 150" stroke="rgba(249,115,22,0.4)" strokeWidth="1" strokeDasharray="3 4" />
-                  <path d="M 100 260 Q 290 220 480 270" stroke="rgba(249,115,22,0.35)" strokeWidth="0.8" />
-                  <ellipse cx="290" cy="260" rx="245" ry="175" stroke="rgba(249,115,22,0.14)" strokeDasharray="2 4" />
-                </g>
+                  {/* ── SVG LAYER: DEFAULT GLOWING SPOKES & CONTINENTAL ARCS ── */}
+                  <svg
+                    viewBox="0 0 580 520"
+                    className="absolute inset-0 w-full h-full pointer-events-none z-10"
+                    fill="none"
+                  >
+                    <defs>
+                      {/* Glow Filter */}
+                      <filter id="glow-orange" x="-30%" y="-30%" width="160%" height="160%">
+                        <feGaussianBlur stdDeviation="3.5" result="blur" />
+                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                      </filter>
+                    </defs>
 
-                {/* ══════════════════════════════════════════════════════════
+                    {/* Ambient Continental Trajectory Arcs spanning the globe */}
+                    <g opacity="0.35">
+                      <path d="M 90 400 Q 220 320 390 390" stroke="rgba(249,115,22,0.4)" strokeWidth="1" strokeDasharray="3 4" />
+                      <path d="M 130 140 Q 280 80 450 150" stroke="rgba(249,115,22,0.4)" strokeWidth="1" strokeDasharray="3 4" />
+                      <path d="M 100 260 Q 290 220 480 270" stroke="rgba(249,115,22,0.35)" strokeWidth="0.8" />
+                      <ellipse cx="290" cy="260" rx="245" ry="175" stroke="rgba(249,115,22,0.14)" strokeDasharray="2 4" />
+                    </g>
+
+                    {/* ══════════════════════════════════════════════════════════
                     DEFAULT ACTIVE SPOKE LINES (PERFECTLY MEASURED TO CARDS)
                    ══════════════════════════════════════════════════════════ */}
 
-                {/* 1. TOP SPOKE (AI) */}
-                <line
-                  x1="290"
-                  y1="200"
-                  x2="290"
-                  y2="88"
-                  stroke="#f97316"
-                  strokeWidth="2"
-                  strokeOpacity="0.95"
-                  filter="url(#glow-orange)"
-                />
-                <circle cx="290" cy="200" r="2.5" fill="#f97316" />
-                <circle cx="290" cy="88" r="2" fill="#f97316" />
-                <circle r="2.5" fill="#ffffff" filter="url(#glow-orange)">
-                  <animateMotion dur="2.1s" repeatCount="indefinite" path="M 290 200 L 290 88" />
-                </circle>
+                    {/* 1. TOP SPOKE (AI) */}
+                    <line
+                      x1="290"
+                      y1="200"
+                      x2="290"
+                      y2="88"
+                      stroke="#f97316"
+                      strokeWidth="2"
+                      strokeOpacity="0.95"
+                      filter="url(#glow-orange)"
+                    />
+                    <circle cx="290" cy="200" r="2.5" fill="#f97316" />
+                    <circle cx="290" cy="88" r="2" fill="#f97316" />
+                    <circle r="2.5" fill="#ffffff" filter="url(#glow-orange)">
+                      <animateMotion dur="2.1s" repeatCount="indefinite" path="M 290 200 L 290 88" />
+                    </circle>
 
-                {/* 2. LEFT SPOKE (POWER PLATFORM) */}
-                <line
-                  x1="230"
-                  y1="260"
-                  x2="209"
-                  y2="260"
-                  stroke="#f97316"
-                  strokeWidth="2"
-                  strokeOpacity="0.95"
-                  filter="url(#glow-orange)"
-                />
-                <circle cx="230" cy="260" r="2.5" fill="#f97316" />
-                <circle cx="209" cy="260" r="2" fill="#f97316" />
-                <circle r="2.5" fill="#ffffff" filter="url(#glow-orange)">
-                  <animateMotion dur="2.3s" repeatCount="indefinite" path="M 230 260 L 209 260" />
-                </circle>
+                    {/* 2. LEFT SPOKE (POWER PLATFORM) */}
+                    <line
+                      x1="230"
+                      y1="260"
+                      x2="209"
+                      y2="260"
+                      stroke="#f97316"
+                      strokeWidth="2"
+                      strokeOpacity="0.95"
+                      filter="url(#glow-orange)"
+                    />
+                    <circle cx="230" cy="260" r="2.5" fill="#f97316" />
+                    <circle cx="209" cy="260" r="2" fill="#f97316" />
+                    <circle r="2.5" fill="#ffffff" filter="url(#glow-orange)">
+                      <animateMotion dur="2.3s" repeatCount="indefinite" path="M 230 260 L 209 260" />
+                    </circle>
 
-                {/* 3. RIGHT SPOKE (DATA & AI) */}
-                <line
-                  x1="350"
-                  y1="260"
-                  x2="371"
-                  y2="260"
-                  stroke="#f97316"
-                  strokeWidth="2"
-                  strokeOpacity="0.95"
-                  filter="url(#glow-orange)"
-                />
-                <circle cx="350" cy="260" r="2.5" fill="#f97316" />
-                <circle cx="371" cy="260" r="2" fill="#f97316" />
-                <circle r="2.5" fill="#ffffff" filter="url(#glow-orange)">
-                  <animateMotion dur="2.2s" repeatCount="indefinite" path="M 350 260 L 371 260" />
-                </circle>
+                    {/* 3. RIGHT SPOKE (DATA & AI) */}
+                    <line
+                      x1="350"
+                      y1="260"
+                      x2="371"
+                      y2="260"
+                      stroke="#f97316"
+                      strokeWidth="2"
+                      strokeOpacity="0.95"
+                      filter="url(#glow-orange)"
+                    />
+                    <circle cx="350" cy="260" r="2.5" fill="#f97316" />
+                    <circle cx="371" cy="260" r="2" fill="#f97316" />
+                    <circle r="2.5" fill="#ffffff" filter="url(#glow-orange)">
+                      <animateMotion dur="2.2s" repeatCount="indefinite" path="M 350 260 L 371 260" />
+                    </circle>
 
-                {/* 4. BOTTOM SPOKE (APPLICATION MODERNISATION) */}
-                <line
-                  x1="290"
-                  y1="320"
-                  x2="290"
-                  y2="420"
-                  stroke="#f97316"
-                  strokeWidth="2"
-                  strokeOpacity="0.95"
-                  filter="url(#glow-orange)"
-                />
-                <circle cx="290" cy="320" r="2.5" fill="#f97316" />
-                <circle cx="290" cy="420" r="2" fill="#f97316" />
-                <circle r="2.5" fill="#ffffff" filter="url(#glow-orange)">
-                  <animateMotion dur="2.4s" repeatCount="indefinite" path="M 290 320 L 290 420" />
-                </circle>
-              </svg>
+                    {/* 4. BOTTOM SPOKE (APPLICATION MODERNISATION) */}
+                    <line
+                      x1="290"
+                      y1="320"
+                      x2="290"
+                      y2="420"
+                      stroke="#f97316"
+                      strokeWidth="2"
+                      strokeOpacity="0.95"
+                      filter="url(#glow-orange)"
+                    />
+                    <circle cx="290" cy="320" r="2.5" fill="#f97316" />
+                    <circle cx="290" cy="420" r="2" fill="#f97316" />
+                    <circle r="2.5" fill="#ffffff" filter="url(#glow-orange)">
+                      <animateMotion dur="2.4s" repeatCount="indefinite" path="M 290 320 L 290 420" />
+                    </circle>
+                  </svg>
 
-              {/* ── CENTER HUB: SOFTREE ENGINEERING PARTNER ── */}
-              <div
-                className="absolute z-30 flex flex-col items-center justify-center text-center rounded-full transition-all duration-500 cursor-pointer hover:scale-105 active:scale-95"
-                style={{
-                  width: "120px",
-                  height: "120px",
-                  left: "calc(50% - 60px)",
-                  top: "calc(50% - 60px)",
-                  background: "radial-gradient(circle, rgba(16, 20, 32, 0.96) 0%, rgba(8, 10, 16, 0.98) 100%)",
-                  border: "2px solid #f97316",
-                  boxShadow: "0 0 35px rgba(249, 115, 22, 0.42), inset 0 0 18px rgba(249, 115, 22, 0.18)",
-                }}
-                onClick={() => handleScrollTo("schedule")}
-              >
-                {/* Pulsing ring */}
-                <div className="absolute -inset-2 rounded-full border border-orange-500/25 animate-pulse pointer-events-none" />
-
-                <span className="text-[16px] font-black tracking-[0.14em] text-white leading-none mb-1">
-                  SOFTREE
-                </span>
-                <span className="text-[10px] font-bold tracking-[0.24em] text-white/90 uppercase leading-none mt-1">
-                  ENGINEERING
-                </span>
-                <span className="text-[9.5px] font-medium tracking-[0.26em] text-white/70 uppercase leading-none mt-1">
-                  PARTNER
-                </span>
-              </div>
-
-              {/* ── 1. TOP PRACTICE NODE: AI (DEFAULT ACTIVE GLOW) ── */}
-              <div
-                onMouseEnter={() => setActivePractice("ai")}
-                onMouseLeave={() => setActivePractice(null)}
-                onClick={() => handleScrollTo("contact-form", "ai")}
-                className="absolute z-20 transition-all duration-300 cursor-pointer group hover:-translate-y-1"
-                style={{
-                  top: "10px",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  width: "270px",
-                }}
-              >
+                  {/* ── CENTER HUB: SOFTREE ENGINEERING PARTNER ── */}
                   <div
-                  className="flex flex-col items-center px-4 py-2.5 rounded-2xl backdrop-blur-md transition-all duration-300"
-                  style={{
-                    background: "rgba(14, 18, 28, 0.94)",
-                    border: "1px solid rgba(249, 115, 22, 0.65)",
-                    boxShadow: activePractice === "ai"
-                      ? "0 0 32px rgba(249, 115, 22, 0.35), inset 0 0 14px rgba(249, 115, 22, 0.1)"
-                      : "0 0 22px rgba(249, 115, 22, 0.18), inset 0 0 10px rgba(249, 115, 22, 0.05)",
-                  }}
-                >
-                  <div className="flex items-center gap-2.5 mb-2">
-                    <div className="p-1.5 rounded-lg bg-orange-500/15 text-orange-400 shrink-0 group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(249,115,22,0.25)]">
-                      <BrainAiIcon className="w-5.5 h-5.5" />
-                    </div>
-                    <span className="text-[13.5px] font-bold tracking-wider text-white uppercase">
-                      AI
-                    </span>
-                  </div>
-                  <ul className="flex flex-wrap items-center justify-center gap-1.5">
-                    <li className="inline-flex items-center px-3 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[12px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
-                      Agentic AI
-                    </li>
-                    <li className="inline-flex items-center px-3 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[12px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
-                      Generative AI
-                    </li>
-                    <li className="inline-flex items-center px-3 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[12px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
-                      Automation
-                    </li>
-                  </ul>
-                </div>
-              </div>
+                    className="absolute z-30 flex flex-col items-center justify-center text-center rounded-full transition-all duration-500 cursor-pointer hover:scale-105 active:scale-95"
+                    style={{
+                      width: "120px",
+                      height: "120px",
+                      left: "calc(50% - 60px)",
+                      top: "calc(50% - 60px)",
+                      background: "radial-gradient(circle, rgba(16, 20, 32, 0.96) 0%, rgba(8, 10, 16, 0.98) 100%)",
+                      border: "2px solid #f97316",
+                      boxShadow: "0 0 35px rgba(249, 115, 22, 0.42), inset 0 0 18px rgba(249, 115, 22, 0.18)",
+                    }}
+                    onClick={() => handleScrollTo("schedule")}
+                  >
+                    {/* Pulsing ring */}
+                    <div className="absolute -inset-2 rounded-full border border-orange-500/25 animate-pulse pointer-events-none" />
 
-              {/* ── 2. LEFT PRACTICE NODE: POWER PLATFORM (DEFAULT ACTIVE GLOW) ── */}
-              <div
-                onMouseEnter={() => setActivePractice("power-platform")}
-                onMouseLeave={() => setActivePractice(null)}
-                onClick={() => handleScrollTo("contact-form", "power-platform")}
-                className="absolute z-20 transition-all duration-300 cursor-pointer group hover:-translate-x-1"
-                style={{
-                  left: "-6px",
-                  top: "50%",
-                  transform: "translateY(-50%)",
-                  width: "215px",
-                }}
-              >
-                <div
-                  className="flex flex-col px-3.5 py-2.5 rounded-2xl backdrop-blur-md transition-all duration-300"
-                  style={{
-                    background: "rgba(14, 18, 28, 0.94)",
-                    border: "1px solid rgba(249, 115, 22, 0.65)",
-                    boxShadow: activePractice === "power-platform"
-                      ? "0 0 32px rgba(249, 115, 22, 0.35), inset 0 0 14px rgba(249, 115, 22, 0.1)"
-                      : "0 0 22px rgba(249, 115, 22, 0.18), inset 0 0 10px rgba(249, 115, 22, 0.05)",
-                  }}
-                >
-                  <div className="flex items-center gap-2.5 mb-2">
-                    <div className="p-1.5 rounded-lg bg-orange-500/15 text-orange-400 shrink-0 group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(249,115,22,0.25)]">
-                      <MicrosoftIcon className="w-5.5 h-5.5" />
-                    </div>
-                    <span className="text-[13px] font-bold tracking-wider text-white uppercase leading-snug">
-                      POWER PLATFORM
+                    <span className="text-[16px] font-black tracking-[0.14em] text-white leading-none mb-1">
+                      SOFTREE
+                    </span>
+                    <span className="text-[10px] font-bold tracking-[0.24em] text-white/90 uppercase leading-none mt-1">
+                      ENGINEERING
+                    </span>
+                    <span className="text-[9.5px] font-medium tracking-[0.26em] text-white/70 uppercase leading-none mt-1">
+                      PARTNER
                     </span>
                   </div>
-                  <ul className="flex flex-wrap gap-1.5">
-                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
-                      Power Apps
-                    </li>
-                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
-                      Power BI
-                    </li>
-                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
-                      Power Automate
-                    </li>
-                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
-                      SharePoint
-                    </li>
-                  </ul>
-                </div>
-              </div>
 
-              {/* ── 3. RIGHT PRACTICE NODE: DATA & AI (DEFAULT ACTIVE GLOW) ── */}
-              <div
-                onMouseEnter={() => setActivePractice("data-ai")}
-                onMouseLeave={() => setActivePractice(null)}
-                onClick={() => handleScrollTo("contact-form", "ai")}
-                className="absolute z-20 transition-all duration-300 cursor-pointer group hover:translate-x-1"
-                style={{
-                  right: "-6px",
-                  top: "50%",
-                  transform: "translateY(-50%)",
-                  width: "215px",
-                }}
-              >
-                <div
-                  className="flex flex-col px-3.5 py-2.5 rounded-2xl backdrop-blur-md transition-all duration-300"
-                  style={{
-                    background: "rgba(14, 18, 28, 0.94)",
-                    border: "1px solid rgba(249, 115, 22, 0.65)",
-                    boxShadow: activePractice === "data-ai"
-                      ? "0 0 32px rgba(249, 115, 22, 0.35), inset 0 0 14px rgba(249, 115, 22, 0.1)"
-                      : "0 0 22px rgba(249, 115, 22, 0.18), inset 0 0 10px rgba(249, 115, 22, 0.05)",
-                  }}
-                >
-                  <div className="flex items-center gap-2.5 mb-2">
-                    <div className="p-1.5 rounded-lg bg-orange-500/15 text-orange-400 shrink-0 group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(249,115,22,0.25)]">
-                      <Database className="w-5.5 h-5.5" />
+                  {/* ── 1. TOP PRACTICE NODE: AI (DEFAULT ACTIVE GLOW) ── */}
+                  <div
+                    onMouseEnter={() => setActivePractice("ai")}
+                    onMouseLeave={() => setActivePractice(null)}
+                    onClick={() => handleScrollTo("contact-form", "ai")}
+                    className="absolute z-20 transition-all duration-300 cursor-pointer group hover:-translate-y-1"
+                    style={{
+                      top: "10px",
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      width: "270px",
+                    }}
+                  >
+                    <div
+                      className="flex flex-col items-center px-4 py-2.5 rounded-2xl backdrop-blur-md transition-all duration-300"
+                      style={{
+                        background: "rgba(14, 18, 28, 0.94)",
+                        border: "1px solid rgba(249, 115, 22, 0.65)",
+                        boxShadow: activePractice === "ai"
+                          ? "0 0 32px rgba(249, 115, 22, 0.35), inset 0 0 14px rgba(249, 115, 22, 0.1)"
+                          : "0 0 22px rgba(249, 115, 22, 0.18), inset 0 0 10px rgba(249, 115, 22, 0.05)",
+                      }}
+                    >
+                      <div className="flex items-center gap-2.5 mb-2">
+                        <div className="p-1.5 rounded-lg bg-orange-500/15 text-orange-400 shrink-0 group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(249,115,22,0.25)]">
+                          <BrainAiIcon className="w-5.5 h-5.5" />
+                        </div>
+                        <span className="text-[13.5px] font-bold tracking-wider text-white uppercase">
+                          AI
+                        </span>
+                      </div>
+                      <ul className="flex flex-wrap items-center justify-center gap-1.5">
+                        <li className="inline-flex items-center px-3 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[12px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
+                          Agentic AI
+                        </li>
+                        <li className="inline-flex items-center px-3 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[12px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
+                          Generative AI
+                        </li>
+                        <li className="inline-flex items-center px-3 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[12px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
+                          Automation
+                        </li>
+                      </ul>
                     </div>
-                    <span className="text-[13px] font-bold tracking-wider text-white uppercase leading-snug">
-                      DATA & AI
-                    </span>
                   </div>
-                  <ul className="flex flex-wrap gap-1.5">
-                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
-                      Azure AI
-                    </li>
-                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
-                      Analytics
-                    </li>
-                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
-                      Microsoft Fabric
-                    </li>
-                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
-                      Data Engineering
-                    </li>
-                  </ul>
-                </div>
-              </div>
 
-              {/* ── 4. BOTTOM PRACTICE NODE: APPLICATION MODERNISATION (DEFAULT ACTIVE GLOW) ── */}
-              <div
-                onMouseEnter={() => setActivePractice("modernisation")}
-                onMouseLeave={() => setActivePractice(null)}
-                onClick={() => handleScrollTo("contact-form", "other")}
-                className="absolute z-20 transition-all duration-300 cursor-pointer group hover:translate-y-1"
-                style={{
-                  bottom: "10px",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  width: "315px",
-                }}
-              >
-                <div
-                  className="flex flex-col items-center px-4 py-2.5 rounded-2xl backdrop-blur-md transition-all duration-300"
-                  style={{
-                    background: "rgba(14, 18, 28, 0.94)",
-                    border: "1px solid rgba(249, 115, 22, 0.65)",
-                    boxShadow: activePractice === "modernisation"
-                      ? "0 0 32px rgba(249, 115, 22, 0.35), inset 0 0 14px rgba(249, 115, 22, 0.1)"
-                      : "0 0 22px rgba(249, 115, 22, 0.18), inset 0 0 10px rgba(249, 115, 22, 0.05)",
-                  }}
-                >
-                  <div className="flex items-center gap-2.5 mb-2">
-                    <div className="p-1.5 rounded-lg bg-orange-500/15 text-orange-400 shrink-0 group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(249,115,22,0.25)]">
-                      <Code2 className="w-5.5 h-5.5" />
+                  {/* ── 2. LEFT PRACTICE NODE: POWER PLATFORM (DEFAULT ACTIVE GLOW) ── */}
+                  <div
+                    onMouseEnter={() => setActivePractice("power-platform")}
+                    onMouseLeave={() => setActivePractice(null)}
+                    onClick={() => handleScrollTo("contact-form", "power-platform")}
+                    className="absolute z-20 transition-all duration-300 cursor-pointer group hover:-translate-x-1"
+                    style={{
+                      left: "-6px",
+                      top: "50%",
+                      transform: "translateY(-50%)",
+                      width: "215px",
+                    }}
+                  >
+                    <div
+                      className="flex flex-col px-3.5 py-2.5 rounded-2xl backdrop-blur-md transition-all duration-300"
+                      style={{
+                        background: "rgba(14, 18, 28, 0.94)",
+                        border: "1px solid rgba(249, 115, 22, 0.65)",
+                        boxShadow: activePractice === "power-platform"
+                          ? "0 0 32px rgba(249, 115, 22, 0.35), inset 0 0 14px rgba(249, 115, 22, 0.1)"
+                          : "0 0 22px rgba(249, 115, 22, 0.18), inset 0 0 10px rgba(249, 115, 22, 0.05)",
+                      }}
+                    >
+                      <div className="flex items-center gap-2.5 mb-2">
+                        <div className="p-1.5 rounded-lg bg-orange-500/15 text-orange-400 shrink-0 group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(249,115,22,0.25)]">
+                          <MicrosoftIcon className="w-5.5 h-5.5" />
+                        </div>
+                        <span className="text-[13px] font-bold tracking-wider text-white uppercase leading-snug">
+                          POWER PLATFORM
+                        </span>
+                      </div>
+                      <ul className="flex flex-wrap gap-1.5">
+                        <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
+                          Power Apps
+                        </li>
+                        <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
+                          Power BI
+                        </li>
+                        <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
+                          Power Automate
+                        </li>
+                        <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
+                          SharePoint
+                        </li>
+                      </ul>
                     </div>
-                    <span className="text-[12.5px] font-bold tracking-wider text-white uppercase leading-snug">
-                      APPLICATION MODERNISATION
-                    </span>
                   </div>
-                  <ul className="flex flex-wrap items-center justify-center gap-1.5">
-                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
-                      Modern Apps
-                    </li>
-                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
-                      Cloud & DevOps
-                    </li>
-                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
-                      APIs & Integration
-                    </li>
-                    <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
-                      Legacy Modernisation
-                    </li>
-                  </ul>
-                </div>
-              </div>
+
+                  {/* ── 3. RIGHT PRACTICE NODE: DATA & AI (DEFAULT ACTIVE GLOW) ── */}
+                  <div
+                    onMouseEnter={() => setActivePractice("data-ai")}
+                    onMouseLeave={() => setActivePractice(null)}
+                    onClick={() => handleScrollTo("contact-form", "ai")}
+                    className="absolute z-20 transition-all duration-300 cursor-pointer group hover:translate-x-1"
+                    style={{
+                      right: "-6px",
+                      top: "50%",
+                      transform: "translateY(-50%)",
+                      width: "215px",
+                    }}
+                  >
+                    <div
+                      className="flex flex-col px-3.5 py-2.5 rounded-2xl backdrop-blur-md transition-all duration-300"
+                      style={{
+                        background: "rgba(14, 18, 28, 0.94)",
+                        border: "1px solid rgba(249, 115, 22, 0.65)",
+                        boxShadow: activePractice === "data-ai"
+                          ? "0 0 32px rgba(249, 115, 22, 0.35), inset 0 0 14px rgba(249, 115, 22, 0.1)"
+                          : "0 0 22px rgba(249, 115, 22, 0.18), inset 0 0 10px rgba(249, 115, 22, 0.05)",
+                      }}
+                    >
+                      <div className="flex items-center gap-2.5 mb-2">
+                        <div className="p-1.5 rounded-lg bg-orange-500/15 text-orange-400 shrink-0 group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(249,115,22,0.25)]">
+                          <Database className="w-5.5 h-5.5" />
+                        </div>
+                        <span className="text-[13px] font-bold tracking-wider text-white uppercase leading-snug">
+                          DATA & AI
+                        </span>
+                      </div>
+                      <ul className="flex flex-wrap gap-1.5">
+                        <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
+                          Azure AI
+                        </li>
+                        <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
+                          Analytics
+                        </li>
+                        <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
+                          Microsoft Fabric
+                        </li>
+                        <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
+                          Data Engineering
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* ── 4. BOTTOM PRACTICE NODE: APPLICATION MODERNISATION (DEFAULT ACTIVE GLOW) ── */}
+                  <div
+                    onMouseEnter={() => setActivePractice("modernisation")}
+                    onMouseLeave={() => setActivePractice(null)}
+                    onClick={() => handleScrollTo("contact-form", "other")}
+                    className="absolute z-20 transition-all duration-300 cursor-pointer group hover:translate-y-1"
+                    style={{
+                      bottom: "10px",
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      width: "315px",
+                    }}
+                  >
+                    <div
+                      className="flex flex-col items-center px-4 py-2.5 rounded-2xl backdrop-blur-md transition-all duration-300"
+                      style={{
+                        background: "rgba(14, 18, 28, 0.94)",
+                        border: "1px solid rgba(249, 115, 22, 0.65)",
+                        boxShadow: activePractice === "modernisation"
+                          ? "0 0 32px rgba(249, 115, 22, 0.35), inset 0 0 14px rgba(249, 115, 22, 0.1)"
+                          : "0 0 22px rgba(249, 115, 22, 0.18), inset 0 0 10px rgba(249, 115, 22, 0.05)",
+                      }}
+                    >
+                      <div className="flex items-center gap-2.5 mb-2">
+                        <div className="p-1.5 rounded-lg bg-orange-500/15 text-orange-400 shrink-0 group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(249,115,22,0.25)]">
+                          <Code2 className="w-5.5 h-5.5" />
+                        </div>
+                        <span className="text-[12.5px] font-bold tracking-wider text-white uppercase leading-snug">
+                          APPLICATION MODERNISATION
+                        </span>
+                      </div>
+                      <ul className="flex flex-wrap items-center justify-center gap-1.5">
+                        <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
+                          Modern Apps
+                        </li>
+                        <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
+                          Cloud & DevOps
+                        </li>
+                        <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
+                          APIs & Integration
+                        </li>
+                        <li className="inline-flex items-center px-2.5 py-1 rounded-full border border-orange-500/35 bg-orange-500/10 text-[11.5px] font-medium text-orange-100/90 tracking-tight whitespace-nowrap shadow-[0_0_8px_rgba(249,115,22,0.12)]">
+                          Legacy Modernisation
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             </div>

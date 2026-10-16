@@ -369,9 +369,9 @@ export default function FdaMapsSection({ embedded = false }: { embedded?: boolea
               <span className="text-[10.5px] font-mono uppercase tracking-wider text-white/90 font-bold block mb-0.5">
                 Active Partner
               </span>
-              <h4 className="text-[16.5px] sm:text-[17.5px] font-extrabold text-white leading-snug">
+              <p className="text-[16.5px] sm:text-[17.5px] font-extrabold text-white leading-snug">
                 {currentHub.partnerName}
-              </h4>
+              </p>
               <p className="text-[13px] sm:text-[13.5px] text-white/95 mt-0.5">
                 {currentHub.city}, {currentHub.country}
               </p>

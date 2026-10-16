@@ -39,7 +39,8 @@ function CopyButton({ text }: { text: string }) {
       onClick={handleCopy}
       type="button"
       className="ml-2 p-1 rounded hover:bg-white/10 text-white/50 hover:text-white transition-all duration-200 focus:outline-none flex items-center justify-center shrink-0"
-      title="Copy email"
+      title={`Copy ${text}`}
+      aria-label={`Copy ${text} to clipboard`}
     >
       {copied ? (
         <Check className="h-3.5 w-3.5 text-green-400" />
@@ -208,58 +209,77 @@ export default function ContactHub() {
           <form onSubmit={handleSubmit} className="mt-8 space-y-5">
             <input type="hidden" name="_subject" value="Contact page inquiry" />
 
-            <label className="block">
-              <span className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.16em] text-white/45">
-                Full name
-              </span>
+            <div>
+              <label
+                htmlFor="contact-name"
+                className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.16em] text-white/45"
+              >
+                Full name <span className="text-[#ff5812]">*</span>
+              </label>
               <input
+                id="contact-name"
                 name="name"
                 required
+                aria-required="true"
                 autoComplete="name"
                 className="h-11 w-full border-0 border-b border-white/14 bg-transparent text-[15px] text-white outline-none transition-colors placeholder:text-white/30 focus:border-[#ff5812]"
                 placeholder="Your name"
               />
-            </label>
+            </div>
 
-            <label className="block">
-              <span className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.16em] text-white/45">
+            <div>
+              <label
+                htmlFor="contact-email"
+                className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.16em] text-white/45"
+              >
                 Work email <span className="text-[#ff5812]">*</span>
-              </span>
+              </label>
               <input
+                id="contact-email"
                 name="email"
                 type="email"
                 required
+                aria-required="true"
                 autoComplete="email"
                 className="h-11 w-full border-0 border-b border-white/14 bg-transparent text-[15px] text-white outline-none transition-colors placeholder:text-white/30 focus:border-[#ff5812]"
                 placeholder="you@company.com"
               />
-            </label>
+            </div>
 
-            <label className="block">
-              <span className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.16em] text-white/45">
+            <div>
+              <label
+                htmlFor="contact-company"
+                className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.16em] text-white/45"
+              >
                 Company
-              </span>
+              </label>
               <input
+                id="contact-company"
                 name="company"
                 autoComplete="organization"
                 className="h-11 w-full border-0 border-b border-white/14 bg-transparent text-[15px] text-white outline-none transition-colors placeholder:text-white/30 focus:border-[#ff5812]"
                 placeholder="Organization"
               />
-            </label>
+            </div>
 
-            <label className="block">
-              <span className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.16em] text-white/45">
-                What are you building?
-              </span>
+            <div>
+              <label
+                htmlFor="contact-message"
+                className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.16em] text-white/45"
+              >
+                What are you building? <span className="text-[#ff5812]">*</span>
+              </label>
               <textarea
+                id="contact-message"
                 name="message"
                 required
+                aria-required="true"
                 rows={4}
                 maxLength={5000}
                 className="w-full resize-none border-0 border-b border-white/14 bg-transparent py-3 text-[15px] leading-relaxed text-white outline-none transition-colors placeholder:text-white/30 focus:border-[#ff5812]"
                 placeholder="Timeline, budget range, platforms, integrations…"
               />
-            </label>
+            </div>
 
             <input type="text" name="_gotcha" className="hidden" tabIndex={-1} />
 

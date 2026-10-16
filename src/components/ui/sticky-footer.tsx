@@ -13,25 +13,36 @@ type StickyFooterProps = React.ComponentProps<"footer">;
 const CREAM = "#F6F1E6";
 const LOGO_LIGHT = "/logo/Softree-Technology-Final-Logo.png";
 
-const footerColumns = [
+type FooterLink = {
+  title: string;
+  href: string;
+  external?: boolean;
+};
+
+type FooterColumn = {
+  label: string;
+  links: FooterLink[];
+};
+
+const footerColumns: FooterColumn[] = [
   {
     label: "Company",
     links: [
-      { title: "Home", href: "/", external: true },
-      { title: "About Us", href: "/about-us", external: true },
-      { title: "Contact", href: "/contact", external: true },
-      { title: "Careers", href: "/careers", external: true },
-      { title: "Who Do We Serve", href: "https://www.softreetechnology.com/who-do-we-serve", external: true },
-      { title: "AI Development Services", href: "https://www.softreetechnology.com/services/ai-development-services", external: true },
+      { title: "Home", href: "/" },
+      { title: "About Us", href: "/about-us" },
+      { title: "Contact", href: "/contact" },
+      { title: "Careers", href: "/careers" },
+      { title: "Who Do We Serve", href: "/who-do-we-serve" },
+      { title: "AI Development Services", href: "/services/ai-development-services" },
     ],
   },
   {
     label: "Resources",
     links: [
-      { title: "Case Studies", href: "/case-studies", external: true },
-      { title: "Blog", href: "https://www.softreetechnology.com/blog", external: true },
-      { title: "Privacy Policy", href: "/privacy-policy", external: true },
-      { title: "Terms of Service", href: "/terms", external: true },
+      { title: "Case Studies", href: "/case-studies" },
+      { title: "Blog", href: "/blog" },
+      { title: "Privacy Policy", href: "/privacy-policy" },
+      { title: "Terms of Service", href: "/terms" },
     ],
   },
   {
