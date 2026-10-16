@@ -67,20 +67,99 @@ export const metadata: Metadata = {
 };
 
 export default function SqlServerToFabricMigrationPage() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.softreetechnology.com/#organization",
+        "name": "Softree Technology",
+        "url": "https://www.softreetechnology.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo.png",
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.softreetechnology.com/services/sql-server-to-microsoft-fabric-migration/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.softreetechnology.com/",
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "https://www.softreetechnology.com/services",
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "SQL Server to Microsoft Fabric Migration",
+            "item": "https://www.softreetechnology.com/services/sql-server-to-microsoft-fabric-migration/",
+          },
+        ],
+      },
+      {
+        "@type": "Service",
+        "@id": "https://www.softreetechnology.com/services/sql-server-to-microsoft-fabric-migration/#service",
+        "name": "SQL Server to Microsoft Fabric Migration Services",
+        "description":
+          "Modernize SQL Server workloads with Softree’s Microsoft Fabric migration services. Migrate databases, data pipelines, and analytics with structured planning and validation.",
+        "provider": {
+          "@id": "https://www.softreetechnology.com/#organization",
+        },
+        "serviceType": "Database & Data Warehouse Migration Services",
+        "areaServed": "Worldwide",
+      },
+      {
+        "@type": "VideoObject",
+        "@id": "https://www.softreetechnology.com/services/sql-server-to-microsoft-fabric-migration/#video",
+        "name": "SQL Server to Microsoft Fabric Migration Overview",
+        "description":
+          "Explore how Softree Technology executes seamless SQL Server to Microsoft Fabric migrations, modernizing legacy databases, stored procedures, ETL pipelines, and OneLake analytics.",
+        "thumbnailUrl": [
+          "https://www.softreetechnology.com/ai-development-service-video/sqlserver-fabric-migration-poster.webp",
+          "https://www.softreetechnology.com/og-image.png"
+        ],
+        "uploadDate": "2025-01-15T08:00:00+00:00",
+        "contentUrl": "https://www.softreetechnology.com/ai-development-service-video/sqlserver-video.mp4",
+        "embedUrl": "https://www.softreetechnology.com/services/sql-server-to-microsoft-fabric-migration",
+        "duration": "PT1M5S",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Softree Technology",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo.png",
+          },
+        },
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-slate-50 font-sans selection:bg-[#FF6B00]/20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <NavigationClient />
       <FabricMigrationHeroAlternative />
       <TrustedBrandsMarquee surface="light" />
       <FabricMigrationBanner />
       <MigrationAssessment />
-      <MigrationWhoDoWeServeSection />
+      {/*<MigrationWhoDoWeServeSection />*/}
       <MigrationStickyScroll />
       <MigrationSuccessStories />
 
       <MigrationTechnologyStack />
-      <MigrationMethodology />
-      <MigrationHowItWorks />
+      {/*<MigrationMethodology />*/}
+      {/*<MigrationHowItWorks />*/}
 
       <WhySoftreeMigration />
       <MigrationFAQ />

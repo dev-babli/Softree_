@@ -112,16 +112,36 @@ export default function FabricMigrationAIReadinessBanner() {
           </div>
 
           {/* Right Video Side */}
-          <div className="relative flex-1 min-h-[360px] sm:min-h-[440px] lg:min-h-full overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-100 flex items-center justify-center bg-slate-900">
+          <div
+            itemScope
+            itemType="https://schema.org/VideoObject"
+            className="relative flex-1 min-h-[360px] sm:min-h-[440px] lg:min-h-full overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-100 flex items-center justify-center bg-slate-900"
+          >
+            <meta itemProp="name" content="Azure Synapse to Microsoft Fabric Migration Overview" />
+            <meta itemProp="description" content="Learn how Softree Technology facilitates seamless migration from Azure Synapse to Microsoft Fabric, unifiying OneLake storage, data engineering pipelines, Synapse Spark, and Power BI." />
+            <meta itemProp="thumbnailUrl" content="https://www.softreetechnology.com/ai-development-service-video/azure-synapse-fabric-migration-poster.webp" />
+            <meta itemProp="uploadDate" content="2025-01-15T08:00:00+00:00" />
+            <meta itemProp="contentUrl" content="https://www.softreetechnology.com/ai-development-service-video/RAG-video.mp4" />
+            <meta itemProp="embedUrl" content="https://www.softreetechnology.com/services/azure-synapse-to-microsoft-fabric-migration" />
+            <meta itemProp="duration" content="PT18S" />
+
             {/* The background video */}
             <video
+              itemProp="video"
               src="/ai-development-service-video/RAG-video.mp4"
+              poster="/ai-development-service-video/azure-synapse-fabric-migration-poster.webp"
+              title="Azure Synapse to Microsoft Fabric Migration Overview"
+              aria-label="Azure Synapse to Microsoft Fabric Migration Overview"
               autoPlay
               loop
               muted
               playsInline
+              preload="metadata"
               className="w-full h-full object-cover absolute inset-0 select-none pointer-events-none"
-            />
+            >
+              <source src="/ai-development-service-video/RAG-video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
             {/* Subtle shade vignette overlay */}
             <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/40 via-transparent to-transparent pointer-events-none" />
           </div>

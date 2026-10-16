@@ -125,16 +125,35 @@ export default function LogisticsReadinessBanner() {
           </div>
 
           {/* Right Image/Video Side */}
-          <div className="relative flex-1 lg:flex-[1.05] xl:flex-[1.15] min-h-[280px] lg:min-h-full overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-100 flex items-center justify-center bg-slate-900">
+          <div
+            itemScope
+            itemType="https://schema.org/VideoObject"
+            className="relative flex-1 lg:flex-[1.05] xl:flex-[1.15] min-h-[280px] lg:min-h-full overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-100 flex items-center justify-center bg-slate-900"
+          >
+            <meta itemProp="name" content="Offshore Logistics & Supply Chain Engineering Overview" />
+            <meta itemProp="description" content="Discover how Softree Technology delivers offshore engineering for global logistics, supply chain management, freight forwarding, warehouse automation, and AI route optimization." />
+            <meta itemProp="thumbnailUrl" content="https://www.softreetechnology.com/images/solutions/ai-for-logistics/hero.webp" />
+            <meta itemProp="uploadDate" content="2025-01-15T08:00:00+00:00" />
+            <meta itemProp="contentUrl" content="https://www.softreetechnology.com/images/solutions/ai-for-logistics/hero.mp4" />
+            <meta itemProp="embedUrl" content="https://www.softreetechnology.com/industries/offshore-logistics-supply-chain-engineering" />
+            <meta itemProp="duration" content="PT30S" />
+
             <video
+              itemProp="video"
               src="/images/solutions/ai-for-logistics/hero.mp4"
               poster="/images/solutions/ai-for-logistics/hero.webp"
+              title="Offshore Logistics & Supply Chain Engineering Overview"
+              aria-label="Offshore Logistics & Supply Chain Engineering Overview"
               autoPlay
               loop
               muted
               playsInline
+              preload="metadata"
               className="w-full h-full object-cover absolute inset-0 select-none pointer-events-none"
-            />
+            >
+              <source src="/images/solutions/ai-for-logistics/hero.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
             {/* Subtle shade vignette overlay */}
             <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/40 via-transparent to-transparent pointer-events-none" />
           </div>

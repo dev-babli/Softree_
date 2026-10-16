@@ -117,17 +117,18 @@ export default function TableauToPowerBiMigration() {
       },
       {
         "@type": "VideoObject",
+        "@id": "https://www.softreetechnology.com/services/tableau-to-power-bi-migration#video",
         "name": "Tableau to Microsoft Power BI Migration and Dashboard Modernization",
         "description":
           "Overview of how Softree Technology executes seamless Tableau to Power BI migrations, converting complex calculated fields and Level of Detail (LOD) calculations to DAX, and optimizing VertiPaq semantic models.",
         "thumbnailUrl": [
-          "https://www.softreetechnology.com/ai-development-service-video/ai-agent-video-poster.webp",
+          "https://www.softreetechnology.com/ai-development-service-video/tableau-to-power-bi-poster.webp",
           "https://www.softreetechnology.com/og-image.png"
         ],
         "uploadDate": "2025-01-15T08:00:00+00:00",
         "contentUrl": "https://www.softreetechnology.com/ai-development-service-video/RAG-video.mp4",
         "embedUrl": "https://www.softreetechnology.com/services/tableau-to-power-bi-migration",
-        "duration": "PT45S",
+        "duration": "PT18S",
         "publisher": {
           "@type": "Organization",
           "name": "Softree Technology",

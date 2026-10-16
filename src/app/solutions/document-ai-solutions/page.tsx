@@ -19,16 +19,30 @@ import DocAiWhyChoose from "./components/DocAiWhyChoose";
 import { DocAiFAQ } from "./components/DocAiFAQ";
 
 export const metadata: Metadata = applyPageOg("/solutions/document-ai-solutions", {
-  title: "Document AI Solutions & Intelligent OCR | Softree Technology",
+  title: "Document AI Solutions & Intelligent Document Processing",
   description:
-    "Extract, analyze, and automate document workflows with AI. High-accuracy intelligent OCR, multimodal document understanding, and ERP/CRM ingestion pipelines.",
+    "Offshore Document AI engineering for intelligent document processing: OCR and layout extraction with Azure AI Document Intelligence, classification, validation, and ERP/CRM integration. Dedicated or white-label.",
+  keywords: [
+    "document AI solutions",
+    "intelligent document processing",
+    "intelligent OCR services",
+    "Azure AI Document Intelligence development",
+    "invoice data extraction",
+    "contract data extraction",
+    "document classification and routing",
+    "ERP document automation",
+    "multimodal document understanding",
+    "offshore document AI development",
+    "white-label document AI",
+    "IDP services",
+  ],
   alternates: {
     canonical: "https://www.softreetechnology.com/solutions/document-ai-solutions",
   },
   openGraph: {
-    title: "Document AI Solutions & Intelligent OCR | Softree Technology",
+    title: "Document AI Solutions & Intelligent Document Processing | Softree Technology",
     description:
-      "Extract, analyze, and automate document workflows with AI. High-accuracy intelligent OCR, multimodal document understanding, and ERP/CRM ingestion pipelines.",
+      "Softree builds intelligent document processing systems: OCR and extraction, classification, human review, and ERP/CRM integration. Offshore or white-label delivery.",
     url: "https://www.softreetechnology.com/solutions/document-ai-solutions",
     siteName: "Softree Technology",
     type: "website",
@@ -45,29 +59,17 @@ export default function DocumentAISolutionsPage() {
           __html: JSON.stringify([
             {
               "@context": "https://schema.org",
-              "@type": "Service",
-              "name": "Document AI Solutions & Intelligent OCR",
-              "description":
-                "Extract, analyze, and automate document workflows with AI. High-accuracy intelligent OCR, multimodal document understanding, and ERP/CRM ingestion pipelines.",
-              "provider": {
-                "@type": "Organization",
-                "name": "Softree Technology",
-                "url": "https://www.softreetechnology.com",
-              },
-              "url": "https://www.softreetechnology.com/solutions/document-ai-solutions",
-              "serviceType": "Document AI Solutions",
-            },
-            {
-              "@context": "https://schema.org",
               "@type": "VideoObject",
-              "name": "Document AI Solutions & Intelligent Document Processing Overview",
+              "name": "Enterprise Document AI Solutions & Workflow Automation Overview",
               "description":
-                "Overview of Document AI solutions, intelligent OCR, multimodal document understanding, and enterprise workflow automation engineered by Softree Technology.",
-              "thumbnailUrl": [
-                "https://www.softreetechnology.com/ai-development-service-video/ai-agent-video-poster.webp"
-              ],
+                "Discover how Softree Technology builds enterprise Document AI systems: intelligent OCR, multimodal document understanding, and automated ERP/CRM workflow integration.",
               "uploadDate": "2025-01-15T08:00:00+00:00",
-              "contentUrl": "https://www.softreetechnology.com/ai-development-service-video/ai-agent-video.mp4",
+              "duration": "PT10S",
+              "thumbnailUrl": [
+                "https://www.softreetechnology.com/documentai-video/document-ai-capabilities-poster.jpg",
+                "https://www.softreetechnology.com/og-image.png"
+              ],
+              "contentUrl": "https://www.softreetechnology.com/documentai-video/document-ai-capabilities-v3.mp4",
               "embedUrl": "https://www.softreetechnology.com/solutions/document-ai-solutions",
               "publisher": {
                 "@type": "Organization",

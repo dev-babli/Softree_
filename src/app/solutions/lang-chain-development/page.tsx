@@ -122,11 +122,11 @@ export default function LangChainDevelopmentPage() {
       <Hero />
       <TrustedBrandsMarquee surface="transparent" />
       <LangchainServices />
-      <NewWhoDoWeServeSection className="bg-white" />
+      {/*<NewWhoDoWeServeSection className="bg-white" />*/}
       <WhatWeBuild />
       <SuccessStories />
-      <ProvenResults />
-      <Industries />
+      {/*<ProvenResults />*/}
+      {/*<Industries />*/}
       <AiTechnologyStack />
       <LangChainHowWeWork />
       <WhyChooseWithTestimonials />

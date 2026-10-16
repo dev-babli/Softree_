@@ -111,37 +111,45 @@ export default function DocumentAiReadinessBanner() {
 
           </div>
 
-          {/* Right Video Side */}
+          {/* Right Video Side — full-bleed so the clip fills the card edge to edge */}
           <div
             itemScope
             itemType="https://schema.org/VideoObject"
-            className="relative flex-1 min-h-[360px] sm:min-h-[440px] lg:min-h-full overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-100 flex items-center justify-center bg-slate-900"
+            className="relative flex min-h-[360px] flex-1 items-center justify-center overflow-hidden border-t border-slate-100 bg-slate-900 sm:min-h-[440px] lg:min-h-full lg:border-l lg:border-t-0"
           >
-            <meta itemProp="name" content="Document AI Solutions & Intelligent Document Processing Overview" />
-            <meta itemProp="description" content="Overview of Document AI solutions, intelligent OCR, multimodal document understanding, and enterprise workflow automation by Softree Technology." />
-            <meta itemProp="thumbnailUrl" content="https://www.softreetechnology.com/ai-development-service-video/ai-agent-video-poster.webp" />
+            <meta itemProp="name" content="Enterprise Document AI Solutions & Workflow Automation Overview" />
+            <meta itemProp="description" content="Discover how Softree Technology builds enterprise Document AI systems: intelligent OCR, multimodal document understanding, and automated ERP/CRM workflow integration." />
+            <meta itemProp="thumbnailUrl" content="https://www.softreetechnology.com/documentai-video/document-ai-capabilities-poster.jpg" />
             <meta itemProp="uploadDate" content="2025-01-15T08:00:00+00:00" />
-            <meta itemProp="contentUrl" content="https://www.softreetechnology.com/ai-development-service-video/ai-agent-video.mp4" />
+            <meta itemProp="duration" content="PT10S" />
+            <meta itemProp="contentUrl" content="https://www.softreetechnology.com/documentai-video/document-ai-capabilities-v3.mp4" />
             <meta itemProp="embedUrl" content="https://www.softreetechnology.com/solutions/document-ai-solutions" />
+
+            <div itemProp="publisher" itemScope itemType="https://schema.org/Organization" className="hidden">
+              <meta itemProp="name" content="Softree Technology" />
+              <div itemProp="logo" itemScope itemType="https://schema.org/ImageObject">
+                <meta itemProp="url" content="https://www.softreetechnology.com/logo/logo.png" />
+              </div>
+            </div>
 
             <video
               itemProp="video"
-              src="/ai-development-service-video/ai-agent-video.mp4"
-              poster="/ai-development-service-video/ai-agent-video-poster.webp"
-              title="Document AI Solutions & Intelligent Document Processing Overview"
-              aria-label="Document AI Solutions & Intelligent Document Processing Overview"
+              src="/documentai-video/document-ai-capabilities-v3.mp4"
+              poster="/documentai-video/document-ai-capabilities-poster.jpg"
+              title="Enterprise Document AI Solutions & Workflow Automation Overview"
+              aria-label="Enterprise Document AI Solutions & Workflow Automation Overview"
               autoPlay
               loop
               muted
               playsInline
               preload="metadata"
-              className="w-full h-full object-cover absolute inset-0 select-none pointer-events-none"
+              controls={false}
+              className="absolute inset-0 h-full w-full select-none object-cover object-center"
             >
-              <source src="/ai-development-service-video/ai-agent-video.mp4" type="video/mp4" />
+              <source src="/documentai-video/document-ai-capabilities-v3.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-            {/* Subtle shade vignette overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/40 via-transparent to-transparent pointer-events-none" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent lg:bg-gradient-to-r" />
           </div>
 
         </motion.div>

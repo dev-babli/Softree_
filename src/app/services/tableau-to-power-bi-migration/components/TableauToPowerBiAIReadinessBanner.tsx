@@ -112,19 +112,32 @@ export default function TableauToPowerBiAIReadinessBanner() {
           </div>
 
           {/* Right Video Side */}
-          <div className="relative flex-1 min-h-[360px] sm:min-h-[440px] lg:min-h-full overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-100 flex items-center justify-center bg-slate-900">
+          <div
+            itemScope
+            itemType="https://schema.org/VideoObject"
+            className="relative flex-1 min-h-[360px] sm:min-h-[440px] lg:min-h-full overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-100 flex items-center justify-center bg-slate-900"
+          >
+            <meta itemProp="name" content="Tableau to Microsoft Power BI Migration and Dashboard Modernization" />
+            <meta itemProp="description" content="Overview of how Softree Technology executes seamless Tableau to Power BI migrations, converting complex calculated fields and Level of Detail (LOD) calculations to DAX, and optimizing VertiPaq semantic models." />
+            <meta itemProp="thumbnailUrl" content="https://www.softreetechnology.com/ai-development-service-video/tableau-to-power-bi-poster.webp" />
+            <meta itemProp="uploadDate" content="2025-01-15T08:00:00+00:00" />
+            <meta itemProp="contentUrl" content="https://www.softreetechnology.com/ai-development-service-video/RAG-video.mp4" />
+            <meta itemProp="embedUrl" content="https://www.softreetechnology.com/services/tableau-to-power-bi-migration" />
+            <meta itemProp="duration" content="PT18S" />
+
             <video
+              itemProp="video"
               id="tableau-to-powerbi-video"
               src="/ai-development-service-video/RAG-video.mp4"
-              poster="/ai-development-service-video/ai-agent-video-poster.webp"
-              title="Tableau to Power BI Migration & Modernization Video"
+              poster="/ai-development-service-video/tableau-to-power-bi-poster.webp"
+              title="Tableau to Microsoft Power BI Migration and Dashboard Modernization"
               aria-label="Tableau to Microsoft Power BI Migration and Dashboard Modernization Walkthrough"
               autoPlay
               loop
               muted
               playsInline
               preload="metadata"
-              className="w-full h-full object-cover absolute inset-0 select-none"
+              className="w-full h-full object-cover absolute inset-0 select-none pointer-events-none"
             >
               <source src="/ai-development-service-video/RAG-video.mp4" type="video/mp4" />
               Your browser does not support the video tag.

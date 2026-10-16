@@ -151,6 +151,29 @@ const logisticsJsonLd = {
         ],
       },
     },
+    {
+      '@type': 'VideoObject',
+      '@id': `${PAGE_URL}#video`,
+      name: 'Offshore Logistics & Supply Chain Engineering Overview',
+      description:
+        'Discover how Softree Technology delivers offshore engineering for global logistics, supply chain management, freight forwarding, warehouse automation, and AI route optimization.',
+      thumbnailUrl: [
+        `${SITE_URL}/images/solutions/ai-for-logistics/hero.webp`,
+        `${SITE_URL}/og-image.png`
+      ],
+      uploadDate: '2025-01-15T08:00:00+00:00',
+      contentUrl: `${SITE_URL}/images/solutions/ai-for-logistics/hero.mp4`,
+      embedUrl: PAGE_URL,
+      duration: 'PT30S',
+      publisher: {
+        '@type': 'Organization',
+        name: 'Softree Technology',
+        logo: {
+          '@type': 'ImageObject',
+          url: `${SITE_URL}/logo/Softree-Technology-Final-Logo-Dark-BG.webp`
+        }
+      }
+    }
   ],
 };
 
@@ -165,6 +188,7 @@ export default function LogisticsSolutionsPage() {
 
       {/* Hero Section (Logistics Specific Hero) */}
       <LogisticsHero />
+      <LogisticsTrust />
 
       {/* Why Softree Readiness Banner */}
       <LogisticsReadinessBanner />
@@ -172,7 +196,7 @@ export default function LogisticsSolutionsPage() {
       {/* Who We Help & Global Network Section */}
       <LogisticsUseCases />
 
-      <LogisticsWhoDoWeServe />
+      {/*<LogisticsWhoDoWeServe />*/}
 
       {/* Step Wipe 8 Services Showcase */}
       <LogisticsStepWipe />
@@ -184,10 +208,10 @@ export default function LogisticsSolutionsPage() {
       <LogisticsCoreCapabilities />
 
       {/* Agentic AI Wipe Slider */}
-      <LogisticsAgenticAISlider />
+      {/*<LogisticsAgenticAISlider />*/}
 
       {/* Trusted Brands Infinite Marquee */}
-      <LogisticsTrust />
+
 
       {/* Why Choose Softree with Client Testimonials */}
       <LogisticsWhyChoose />

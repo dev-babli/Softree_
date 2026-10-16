@@ -68,6 +68,29 @@ export default function AzureSynapseToFabricMigration() {
                   "item": "https://www.softreetechnology.com/services/azure-synapse-to-microsoft-fabric-migration"
                 }
               ]
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "VideoObject",
+              "@id": "https://www.softreetechnology.com/services/azure-synapse-to-microsoft-fabric-migration#video",
+              "name": "Azure Synapse to Microsoft Fabric Migration Overview",
+              "description": "Learn how Softree Technology facilitates seamless migration from Azure Synapse to Microsoft Fabric, unifiying OneLake storage, data engineering pipelines, Synapse Spark, and Power BI.",
+              "thumbnailUrl": [
+                "https://www.softreetechnology.com/ai-development-service-video/azure-synapse-fabric-migration-poster.webp",
+                "https://www.softreetechnology.com/og-image.png"
+              ],
+              "uploadDate": "2025-01-15T08:00:00+00:00",
+              "contentUrl": "https://www.softreetechnology.com/ai-development-service-video/RAG-video.mp4",
+              "embedUrl": "https://www.softreetechnology.com/services/azure-synapse-to-microsoft-fabric-migration",
+              "duration": "PT18S",
+              "publisher": {
+                "@type": "Organization",
+                "name": "Softree Technology",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo.png"
+                }
+              }
             }
           ])
         }}
@@ -75,33 +98,33 @@ export default function AzureSynapseToFabricMigration() {
       <NavigationClient />
       {/* Hero Section */}
       <FabricMigrationHero />
-      
+
       {/* Trusted By Marquee */}
       <TrustedBrandsMarquee />
 
       <FabricMigrationAIReadinessBanner />
-      
-      <FabricMigrationServices />
-      
-      <FabricMigrationWhoDoWeServeSection className="bg-white" />
-      
-      <FabricMigrationStickyScroll />
-      
-      <FabricMigrationSuccessStories />
-      
-      <FabricMigrationTechnologyStack />
-      
-      <FabricMigrationOffshoreEngineeringSection />
 
-      <FabricMigrationHowAIWorks />
+      <FabricMigrationServices />
+
+      {/*<FabricMigrationWhoDoWeServeSection className="bg-white" />*/}
+
+      <FabricMigrationStickyScroll />
+
+      <FabricMigrationSuccessStories />
+
+      <FabricMigrationTechnologyStack />
+
+      {/*<FabricMigrationOffshoreEngineeringSection />*/}
+
+      {/*<FabricMigrationHowAIWorks />*/}
 
       <FabricMigrationWhyChooseWithTestimonials />
-      
+
       <FabricMigrationFAQ />
-      
+
       {/* Contact Section */}
       <LightContactSection />
-      
+
       {/* Footer */}
       <Footer />
     </main>

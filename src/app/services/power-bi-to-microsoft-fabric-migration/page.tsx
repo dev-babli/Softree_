@@ -94,6 +94,28 @@ export default function PowerBiToFabricMigration() {
             "item": "https://softree.technology/services/power-bi-to-microsoft-fabric-migration"
           }
         ]
+      },
+      {
+        "@type": "VideoObject",
+        "@id": "https://softree.technology/services/power-bi-to-microsoft-fabric-migration#video",
+        "name": "Power BI to Microsoft Fabric Migration Overview",
+        "description": "Discover how Softree Technology facilitates seamless migration from Power BI to Microsoft Fabric, transitioning P-SKU to F-SKU, modernizing semantic models with Direct Lake, and unifying OneLake storage.",
+        "thumbnailUrl": [
+          "https://www.softreetechnology.com/ai-development-service-video/power-bi-to-fabric-migration-poster.webp",
+          "https://www.softreetechnology.com/og-image.png"
+        ],
+        "uploadDate": "2025-01-15T08:00:00+00:00",
+        "contentUrl": "https://www.softreetechnology.com/ai-development-service-video/RAG-video.mp4",
+        "embedUrl": "https://softree.technology/services/power-bi-to-microsoft-fabric-migration",
+        "duration": "PT18S",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Softree Technology",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo.png"
+          }
+        }
       }
     ]
   };
@@ -109,28 +131,28 @@ export default function PowerBiToFabricMigration() {
       <PowerBiFabricHero />
 
       <PowerBiFabricAIReadinessBanner />
-      
-      <PowerBiFabricServices />
-      
-      <PowerBiFabricWhoDoWeServeSection className="bg-white" />
-      
-      <PowerBiFabricStickyScroll />
-      
-      <PowerBiFabricSuccessStories />
-      
-      <PowerBiFabricTechnologyStack />
-      
-      <PowerBiFabricOffshoreEngineeringSection />
 
-      <PowerBiFabricHowAIWorks />
+      <PowerBiFabricServices />
+
+      {/*<PowerBiFabricWhoDoWeServeSection className="bg-white" />*/}
+
+      <PowerBiFabricStickyScroll />
+
+      <PowerBiFabricSuccessStories />
+
+      <PowerBiFabricTechnologyStack />
+
+      {/*<PowerBiFabricOffshoreEngineeringSection />*/}
+
+      {/*<PowerBiFabricHowAIWorks />*/}
 
       <PowerBiFabricWhyChooseWithTestimonials />
-      
+
       <PowerBiFabricFAQ />
-      
+
       {/* Contact Section */}
       <LightContactSection />
-      
+
       {/* Footer */}
       <Footer />
     </main>

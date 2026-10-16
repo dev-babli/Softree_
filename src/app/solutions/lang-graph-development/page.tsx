@@ -42,14 +42,14 @@ export default function LangGraphDevelopmentPage() {
       <LanggraphHero />
       <TrustedBrandsMarquee surface="white" />
       <LanggraphServices />
-      <LanggraphWhoDoWeServeSection />
+      {/*<LanggraphWhoDoWeServeSection />*/}
       <LangGraphWhatWeBuild />
       <LangGraphSuccessStories />
-      <ProvenResults />
-      <Industries />
+      {/*<ProvenResults />*/}
+      {/*<Industries />*/}
       <LangGraphTechnologyStack />
       <LanggraphHowWeWork />
-      <HowAIWorks />
+      {/*<HowAIWorks />*/}
       <WhyChooseWithTestimonials />
       <LangGraphFAQ />
       <LightContactSection />
