@@ -143,12 +143,6 @@ const breadcrumbSchema = {
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Services",
-      "item": "https://www.softreetechnology.com/services"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
       "name": "AI Development Services",
       "item": "https://www.softreetechnology.com/services/ai-development-services"
     }

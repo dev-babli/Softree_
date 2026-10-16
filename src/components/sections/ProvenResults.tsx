@@ -27,7 +27,7 @@ const solutionData: Record<SolutionType, ProvenResultItem[]> = {
       outcome: "Converted stalled experiments into governed production systems with clear owners and tracked outcomes.",
       metric: "3x",
       metricLabel: "Faster Time-to-Prod",
-      link: "/services/enterprise-ai-solution"
+      link: "/services/ai-development-services"
     },
     {
       category: "KNOWLEDGE & OPERATIONS",
@@ -37,7 +37,7 @@ const solutionData: Record<SolutionType, ProvenResultItem[]> = {
       outcome: "Cut knowledge search time and improved answer consistency for internal and customer-facing teams.",
       metric: "4.5 hrs",
       metricLabel: "Saved Per Employee / Wk",
-      link: "/services/enterprise-ai-solution"
+      link: "/services/ai-development-services"
     },
     {
       category: "PROCESS AUTOMATION",
@@ -47,7 +47,7 @@ const solutionData: Record<SolutionType, ProvenResultItem[]> = {
       outcome: "Reduced cycle time on priority processes while keeping high-risk actions under human control.",
       metric: "55%",
       metricLabel: "Cycle Time Reduction",
-      link: "/services/enterprise-ai-solution"
+      link: "/services/ai-development-services"
     }
   ],
   "ai-chatbot": [

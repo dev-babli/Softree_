@@ -219,7 +219,7 @@ export const SERVICES_MEGA_CATEGORIES: MegaMenuGroup[] = [
       },
       {
         label: "Enterprise AI Solutions",
-        url: "/services/enterprise-ai-solution",
+        url: "/services/ai-development-services",
         icon: Building2,
         description: "Scale AI across the enterprise",
       },

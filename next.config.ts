@@ -289,6 +289,26 @@ const nextConfig: any = {
         permanent: true,
       },
       {
+        source: "/blog/best-power-platform-development-services",
+        destination: "/services/offshore-power-platform-development",
+        permanent: true,
+      },
+      {
+        source: "/blog/best-sharepoint-development-services",
+        destination: "/services/offshore-sharepoint-development",
+        permanent: true,
+      },
+      {
+        source: "/blog/best-web-app-development-services",
+        destination: "/services/offshore-web-app-development",
+        permanent: true,
+      },
+      {
+        source: "/blog/best-mobile-app-development-services",
+        destination: "/services/offshore-mobile-app-development",
+        permanent: true,
+      },
+      {
         source: "/power-bi-development-services",
         destination: "/services/power-bi-development-services",
         permanent: true,
@@ -300,12 +320,17 @@ const nextConfig: any = {
       },
       {
         source: "/ai",
-        destination: "/services/enterprise-ai-solution",
+        destination: "/services/ai-development-services",
         permanent: true,
       },
       {
         source: "/services/ai-intelligence",
-        destination: "/services/enterprise-ai-solution",
+        destination: "/services/ai-development-services",
+        permanent: true,
+      },
+      {
+        source: "/services/enterprise-ai-solution",
+        destination: "/services/ai-development-services",
         permanent: true,
       },
       {
