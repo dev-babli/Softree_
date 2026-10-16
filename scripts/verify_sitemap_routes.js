@@ -10,7 +10,6 @@ const proposedStaticRoutes = [
   { url: '/who-do-we-serve', priority: 0.85, changeFrequency: 'monthly' },
   { url: '/avoora', priority: 0.85, changeFrequency: 'monthly' },
   { url: '/showcase', priority: 0.8, changeFrequency: 'monthly' },
-  { url: '/webanalyser', priority: 0.8, changeFrequency: 'monthly' },
 
   // AI & Automation Services
   { url: '/services/ai-development-services', priority: 0.95, changeFrequency: 'weekly' },

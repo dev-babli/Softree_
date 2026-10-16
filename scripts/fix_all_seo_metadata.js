@@ -152,12 +152,6 @@ const prodPageUpdates = [
     route: '/industries/offshore-logistics-supply-chain-engineering',
     title: 'Logistics & Supply Chain Engineering | Softree Technology',
     description: 'Offshore software engineering for global freight forwarders, 3PL providers, warehouse automation, and transportation management.'
-  },
-  {
-    filePath: 'src/app/webanalyser/page.tsx',
-    route: '/webanalyser',
-    title: 'WebAnalyser | Website Performance & SEO Audit Platform',
-    description: 'Free comprehensive website audit tool for performance, technical SEO, accessibility, and Core Web Vitals analysis.'
   }
 ];
 

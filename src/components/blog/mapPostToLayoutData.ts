@@ -12,7 +12,11 @@ export type SanityPostDoc = {
   heroHighlights?: Array<{ value?: string; label?: string }>
   mainImage?: { asset?: { url?: string } | null; alt?: string } | null
   categories?: Array<{ title?: string }>
-  author?: { name?: string; bio?: string } | null
+  author?: {
+    name?: string
+    bio?: unknown
+    image?: { asset?: { url?: string } | null; alt?: string } | null
+  } | null
   faqSchema?: Array<{ question: string; answer: string }>
 }
 

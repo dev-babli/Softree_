@@ -69,7 +69,7 @@ export function BlogConsultationCard({
   highlightWord = "Softree",
   description = "Discuss your use case, explore possibilities, and get expert guidance from our team.",
   buttonText = "Contact Us",
-  buttonHref = "#contact",
+  buttonHref = "/contact",
   imageSrc = "/images/blog/blog-talk-cta.jpg",
   imageAlt = "Softree engineering & consulting experts discussing client solutions",
   category,

@@ -453,7 +453,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           <aside className="space-y-5 md:sticky md:top-28 md:h-fit">
             <BlogConsultationCard
               category={categoryName}
-              buttonHref="#contact"
+              buttonHref="/contact"
             />
 
             <div className="rounded-3xl border border-zinc-200/90 bg-white p-5 sm:p-6 shadow-sm">

@@ -403,7 +403,7 @@ export function EducationEdTechStoryPage({ data }: Props) {
                 <p>{data.excerpt}</p>
               </Reveal>
               <Reveal className="hero-actions mt-8">
-                <a href="#contact" className="btn-primary">
+                <a href="/contact" className="btn-primary">
                   <Calendar className="h-4.5 w-4.5 shrink-0" />
                   Schedule a consultation
                 </a>
