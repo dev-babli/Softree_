@@ -64,24 +64,93 @@ export const metadata = {
   },
 };
 
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.softreetechnology.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Industries",
+          "item": "https://www.softreetechnology.com/industries"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Healthcare Software Testing Services",
+          "item": "https://www.softreetechnology.com/industries/healthcare-software-testing-services"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Healthcare Software Testing Services",
+      "serviceType": "Healthcare Software Testing & Medical QA Engineering Services",
+      "description":
+        "Improve the quality, security, performance, and reliability of healthcare applications with Softree’s offshore software testing and QA services.",
+      "url": "https://www.softreetechnology.com/industries/healthcare-software-testing-services",
+      "provider": {
+        "@type": "Organization",
+        "name": "Softree Technology",
+        "url": "https://www.softreetechnology.com"
+      },
+      "areaServed": "Global"
+    },
+    {
+      "@type": "VideoObject",
+      "name": "Healthcare Software Testing Services & Medical Application QA Overview",
+      "description":
+        "Discover how Softree Technology delivers end-to-end healthcare software testing services, validating EHR/EMR platforms, healthcare APIs, FHIR/HL7 interoperability, medical device software, and HIPAA-compliant digital health applications.",
+      "thumbnailUrl": [
+        "https://www.softreetechnology.com/images/solutions/ai-for-healthcare/hero.png",
+        "https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo-Dark-BG.webp"
+      ],
+      "uploadDate": "2025-01-15T08:00:00+00:00",
+      "contentUrl": "https://www.softreetechnology.com/ai-development-service-video/Healhcare-ai-video.mp4",
+      "embedUrl": "https://www.softreetechnology.com/industries/healthcare-software-testing-services",
+      "duration": "PT30S",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Softree Technology",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo.png"
+        }
+      }
+    }
+  ]
+};
+
 export default function HealthcareTestingPage() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <NavigationClient />
       <HealthcareTestingHero />
       <TrustedBrandsMarquee surface="light" />
       <HealthcareTestingPositioning />
       <HealthcareTestingCoverage />
-      <NewWhoDoWeServeSection className="bg-white" />
+      {/* <NewWhoDoWeServeSection className="bg-white" /> */}
       <HealthcareTestingFramework />
-      <OffshoreHealthcareTestingTeam />
+      {/* <OffshoreHealthcareTestingTeam /> */}
       <HealthcareTestingCaseStudies />
       <HealthcareTestAutomation />
-      <AgenticHealthcareTesting />
-      <HealthcareTestingWorkflow />
+      {/* <AgenticHealthcareTesting /> */}
+      {/* <HealthcareTestingWorkflow /> */}
       <HealthcareTechnologyTesting />
 
-      <HealthcareSecurityTesting />
+      {/* <HealthcareSecurityTesting /> */}
       <WhySoftreeHealthcareTesting />
       <HealthcareTestingFAQ />
       <LightContactSection />

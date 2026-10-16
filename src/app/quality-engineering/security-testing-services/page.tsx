@@ -124,9 +124,78 @@ import SecurityTechnologyTesting from './components/SecurityTechnologyTesting';
 import SecurityTestingSilkHero from './components/SecurityTestingSilkHero';
 const ReverseStickyScroll = dynamic(() => import('./components/ReverseStickyScroll/ReverseStickyScroll').then((mod) => mod.ReverseStickyScroll), { ssr: true });
 
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.softreetechnology.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Quality Engineering",
+          "item": "https://www.softreetechnology.com/quality-engineering"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Security Testing Services",
+          "item": "https://www.softreetechnology.com/quality-engineering/security-testing-services"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Security Testing Services",
+      "serviceType": "Application Security Testing & Vulnerability Assessment",
+      "description":
+        "Application security testing, penetration testing, vulnerability assessments, and AI safety evaluations for web, mobile, and cloud apps.",
+      "url": "https://www.softreetechnology.com/quality-engineering/security-testing-services",
+      "provider": {
+        "@type": "Organization",
+        "name": "Softree Technology",
+        "url": "https://www.softreetechnology.com"
+      },
+      "areaServed": "Global"
+    },
+    {
+      "@type": "VideoObject",
+      "name": "Security Testing Services & Application Vulnerability Assessment Overview",
+      "description":
+        "Discover how Softree Technology delivers comprehensive application security testing, penetration testing, vulnerability assessments, DevSecOps, and AI safety evaluations.",
+      "thumbnailUrl": [
+        "https://www.softreetechnology.com/ai-development-service-video/ai-agent-video-poster.webp",
+        "https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo-Dark-BG.webp"
+      ],
+      "uploadDate": "2025-01-15T08:00:00+00:00",
+      "contentUrl": "https://www.softreetechnology.com/ai-development-service-video/security-position-video.mp4",
+      "embedUrl": "https://www.softreetechnology.com/quality-engineering/security-testing-services",
+      "duration": "PT30S",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Softree Technology",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.softreetechnology.com/logo/logo.png"
+        }
+      }
+    }
+  ]
+};
+
 export default function SecurityTestingPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-zinc-50 via-white to-zinc-50 flex flex-col font-sans selection:bg-orange-500 selection:text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <NavigationClient />
 
       <SecurityTestingSilkHero />
@@ -136,7 +205,7 @@ export default function SecurityTestingPage() {
 
       <SecurityTestingCoverage />
 
-      <NewWhoDoWeServeSection className="bg-white" />
+      {/* <NewWhoDoWeServeSection className="bg-white" /> */}
 
       {/* Reverse Sticky Scroll Overall Header */}
       <div className="w-full max-w-[1340px] mx-auto px-4 mt-12 md:mt-16 mb-8 flex flex-col items-start text-left">
@@ -158,15 +227,15 @@ export default function SecurityTestingPage() {
 
       <ReverseStickyScroll />
 
-      <OffshoreSecurityTestingTeam />
+      {/* <OffshoreSecurityTestingTeam /> */}
 
       <SecurityTestingCaseStudies />
 
       <SecurityTestingProcess />
 
-      <AgenticSecurityTesting />
+      {/* <AgenticSecurityTesting /> */}
 
-      <SecurityTestingWorkflow />
+      {/* <SecurityTestingWorkflow /> */}
 
       <SecurityTechnologyTesting />
 

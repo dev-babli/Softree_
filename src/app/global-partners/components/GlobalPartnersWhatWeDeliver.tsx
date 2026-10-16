@@ -9,7 +9,7 @@ const ArgentLoopSlider = dynamic(() => import('@/components/ui/argent-loop-infin
 const PROJECTS: ProjectData[] = [
   {
     title: "AI & Agentic AI",
-    image: "/images/global-partners/ai-agents.jpg",
+    image: "/images/global-partners/ai-agents.webp",
     category: "01 — ARTIFICIAL INTELLIGENCE",
     year: "AI",
     description: "AI Agents · Agentic Workflows · RAG · AI Automation · Generative AI",
@@ -18,7 +18,7 @@ const PROJECTS: ProjectData[] = [
   },
   {
     title: "Microsoft",
-    image: "/images/global-partners/microsoft-cloud.jpg",
+    image: "/images/global-partners/microsoft-cloud.webp",
     category: "02 — MICROSOFT ECOSYSTEM",
     year: "Microsoft",
     description: "Azure · Microsoft Fabric · Power Platform · Power BI · SharePoint",
@@ -27,7 +27,7 @@ const PROJECTS: ProjectData[] = [
   },
   {
     title: "Data & Analytics",
-    image: "/images/global-partners/data-analytics.jpg",
+    image: "/images/global-partners/data-analytics.webp",
     category: "03 — DATA ENGINEERING",
     year: "Data",
     description: "Data Engineering · Data Modernization · Data Analytics · BI",
@@ -36,7 +36,7 @@ const PROJECTS: ProjectData[] = [
   },
   {
     title: "Software Engineering",
-    image: "/images/global-partners/software-engineering.png",
+    image: "/images/global-partners/software-engineering.webp",
     category: "04 — SOFTWARE DEVELOPMENT",
     year: "Engineering",
     description: "Web Applications · Cloud · APIs · Full-Stack Development · Mobile",

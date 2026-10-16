@@ -135,17 +135,45 @@ export default function LogisticsTestingPositioning() {
 
           </div>
 
-          {/* Right Image Side */}
-          <div className="relative flex-1 min-h-[360px] sm:min-h-[440px] lg:min-h-full overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-100 flex items-center justify-center bg-slate-900">
+          {/* Right Video Side */}
+          <div
+            itemScope
+            itemType="https://schema.org/VideoObject"
+            className="relative flex-1 min-h-[360px] sm:min-h-[440px] lg:min-h-full overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-100 flex items-center justify-center bg-slate-900"
+          >
+            <meta itemProp="name" content="Logistics Software Testing Services & Supply Chain QA Overview" />
+            <meta itemProp="description" content="Discover how Softree Technology delivers end-to-end logistics testing services, validating TMS, WMS, freight tracking, supply chain integrations, and enterprise logistics systems." />
+            <meta itemProp="thumbnailUrl" content="https://www.softreetechnology.com/images/solutions/ai-for-logistics/hero.webp" />
+            <meta itemProp="uploadDate" content="2025-01-15T08:00:00+00:00" />
+            <meta itemProp="duration" content="PT30S" />
+            <meta itemProp="contentUrl" content="https://www.softreetechnology.com/images/solutions/ai-for-logistics/hero.mp4" />
+            <meta itemProp="embedUrl" content="https://www.softreetechnology.com/quality-engineering/logistics-testing-services" />
+
+            <div itemProp="publisher" itemScope itemType="https://schema.org/Organization" className="hidden">
+              <meta itemProp="name" content="Softree Technology" />
+              <div itemProp="logo" itemScope itemType="https://schema.org/ImageObject">
+                <meta itemProp="url" content="https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo.png" />
+              </div>
+            </div>
+
+            {/* Video element with complete indexing, poster, and accessibility attributes */}
             <video
+              itemProp="video"
               src="/images/solutions/ai-for-logistics/hero.mp4"
-              poster="/images/solutions/ai-for-logistics/hero.png"
+              poster="/images/solutions/ai-for-logistics/hero.webp"
+              aria-label="Logistics Software Testing Services & Supply Chain QA Overview"
               autoPlay
               loop
               muted
               playsInline
+              preload="metadata"
+              controls={false}
               className="w-full h-full object-cover absolute inset-0 select-none pointer-events-none"
-            />
+            >
+              <source src="/images/solutions/ai-for-logistics/hero.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            {/* Subtle shade vignette overlay */}
             <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/40 via-transparent to-transparent pointer-events-none" />
           </div>
 

@@ -146,16 +146,43 @@ export default function HealthcareTestingPositioning() {
           </div>
 
           {/* Right Video Side (50% width on desktop) */}
-          <div className="relative flex-1 lg:w-1/2 min-h-[360px] sm:min-h-[440px] lg:min-h-full overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-100 flex items-center justify-center bg-slate-900">
-            {/* The background video */}
+          <div
+            itemScope
+            itemType="https://schema.org/VideoObject"
+            className="relative flex-1 lg:w-1/2 min-h-[360px] sm:min-h-[440px] lg:min-h-full overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-100 flex items-center justify-center bg-slate-900"
+          >
+            <meta itemProp="name" content="Healthcare Software Testing Services & Medical Application QA Overview" />
+            <meta itemProp="description" content="Discover how Softree Technology delivers end-to-end healthcare software testing services, validating EHR/EMR platforms, healthcare APIs, FHIR/HL7 interoperability, medical device software, and HIPAA-compliant digital health applications." />
+            <meta itemProp="thumbnailUrl" content="https://www.softreetechnology.com/images/solutions/ai-for-healthcare/hero.png" />
+            <meta itemProp="uploadDate" content="2025-01-15T08:00:00+00:00" />
+            <meta itemProp="duration" content="PT30S" />
+            <meta itemProp="contentUrl" content="https://www.softreetechnology.com/ai-development-service-video/Healhcare-ai-video.mp4" />
+            <meta itemProp="embedUrl" content="https://www.softreetechnology.com/industries/healthcare-software-testing-services" />
+
+            <div itemProp="publisher" itemScope itemType="https://schema.org/Organization" className="hidden">
+              <meta itemProp="name" content="Softree Technology" />
+              <div itemProp="logo" itemScope itemType="https://schema.org/ImageObject">
+                <meta itemProp="url" content="https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo.png" />
+              </div>
+            </div>
+
+            {/* Video element with complete indexing, poster, and accessibility attributes */}
             <video
+              itemProp="video"
               src="/ai-development-service-video/Healhcare-ai-video.mp4"
+              poster="/images/solutions/ai-for-healthcare/hero.png"
+              aria-label="Healthcare Software Testing Services & Medical Application QA Overview"
               autoPlay
               loop
               muted
               playsInline
+              preload="metadata"
+              controls={false}
               className="w-full h-full object-cover absolute inset-0 select-none pointer-events-none"
-            />
+            >
+              <source src="/ai-development-service-video/Healhcare-ai-video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
             {/* Subtle shade vignette overlay */}
             <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/40 via-transparent to-transparent pointer-events-none" />
           </div>

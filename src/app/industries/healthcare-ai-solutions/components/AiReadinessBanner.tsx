@@ -121,17 +121,44 @@ export default function AiReadinessBanner() {
 
           </div>
 
-          {/* Right Image Side */}
-          <div className="relative flex-1 lg:flex-[1.05] xl:flex-[1.15] min-h-[280px] lg:min-h-full overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-100 flex items-center justify-center bg-slate-900">
-            {/* The robot image / background video */}
+          {/* Right Video Side */}
+          <div
+            itemScope
+            itemType="https://schema.org/VideoObject"
+            className="relative flex-1 lg:flex-[1.05] xl:flex-[1.15] min-h-[280px] lg:min-h-full overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-100 flex items-center justify-center bg-slate-900"
+          >
+            <meta itemProp="name" content="Healthcare AI Solutions & Engineering Partnership Overview" />
+            <meta itemProp="description" content="Explore Softree Technology's healthcare AI engineering partnerships, intelligent clinical automation, medical RAG systems, and HIPAA-ready AI development solutions." />
+            <meta itemProp="thumbnailUrl" content="https://www.softreetechnology.com/images/solutions/ai-for-healthcare/hero.png" />
+            <meta itemProp="uploadDate" content="2025-01-15T08:00:00+00:00" />
+            <meta itemProp="duration" content="PT30S" />
+            <meta itemProp="contentUrl" content="https://www.softreetechnology.com/ai-development-service-video/Healhcare-ai-video.mp4" />
+            <meta itemProp="embedUrl" content="https://www.softreetechnology.com/industries/healthcare-ai-solutions" />
+
+            <div itemProp="publisher" itemScope itemType="https://schema.org/Organization" className="hidden">
+              <meta itemProp="name" content="Softree Technology" />
+              <div itemProp="logo" itemScope itemType="https://schema.org/ImageObject">
+                <meta itemProp="url" content="https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo.png" />
+              </div>
+            </div>
+
+            {/* Video element with complete indexing, poster, and accessibility attributes */}
             <video
+              itemProp="video"
               src="/ai-development-service-video/Healhcare-ai-video.mp4"
+              poster="/images/solutions/ai-for-healthcare/hero.png"
+              aria-label="Healthcare AI Solutions & Engineering Partnership Overview"
               autoPlay
               loop
               muted
               playsInline
+              preload="metadata"
+              controls={false}
               className="w-full h-full object-cover absolute inset-0 select-none pointer-events-none"
-            />
+            >
+              <source src="/ai-development-service-video/Healhcare-ai-video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
             {/* Subtle shade vignette overlay */}
             <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/40 via-transparent to-transparent pointer-events-none" />
           </div>

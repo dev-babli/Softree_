@@ -149,6 +149,28 @@ const aiConsultingSchema = {
           }
         ]
       }
+    },
+    {
+      "@type": "VideoObject",
+      "name": "Enterprise AI Consulting Services & Strategic Implementation Overview",
+      "description":
+        "Explore Softree Technology's AI consulting services, including AI readiness assessment, enterprise AI strategy, Microsoft AI architecture, and offshore engineering delivery.",
+      "thumbnailUrl": [
+        "https://www.softreetechnology.com/ai-development-service-video/ai-agent-video-poster.webp",
+        "https://www.softreetechnology.com/og-image.png"
+      ],
+      "uploadDate": "2025-01-15T08:00:00+00:00",
+      "contentUrl": "https://www.softreetechnology.com/ai-development-service-video/ai-2.mp4",
+      "embedUrl": "https://www.softreetechnology.com/services/ai-consulting-services",
+      "duration": "PT30S",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Softree Technology",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.softreetechnology.com/logo/logo.png"
+        }
+      }
     }
   ]
 };

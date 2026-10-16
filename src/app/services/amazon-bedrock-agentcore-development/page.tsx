@@ -41,6 +41,7 @@ export default function AmazonBedrockAgentCoreDevelopmentPage() {
     <main className="min-h-screen bg-white text-slate-900 selection:bg-orange-500 selection:text-white overflow-x-clip">
       <NavigationClient />
       <AmazonBedrockHero />
+
       <AgentCoreBuildCapabilities />
       <AmazonBedrockAgentCoreArc />
       <WhyAgentCoreSlider />
@@ -48,7 +49,7 @@ export default function AmazonBedrockAgentCoreDevelopmentPage() {
       <AgentCoreCapabilities />
 
       <AgentCoreSystems />
-      <AgentCoreFeaturedUseCase />
+      {/* <AgentCoreFeaturedUseCase /> */}
       <TrustedBrandsMarquee />
       <WhyChooseWithTestimonials />
       <AgentCoreFAQ />

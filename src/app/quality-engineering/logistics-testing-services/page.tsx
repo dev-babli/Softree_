@@ -86,23 +86,92 @@ export const metadata: Metadata = applyPageOg("/quality-engineering/logistics-te
   },
 });
 
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.softreetechnology.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Quality Engineering",
+          "item": "https://www.softreetechnology.com/quality-engineering"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Logistics Testing Services",
+          "item": "https://www.softreetechnology.com/quality-engineering/logistics-testing-services"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Logistics Testing Services",
+      "serviceType": "Logistics Software Testing & Supply Chain Quality Engineering Services",
+      "description":
+        "Softree provides logistics testing services for TMS, WMS, APIs, EDI, warehouse systems, logistics platforms, automation, security, performance, and QA.",
+      "url": "https://www.softreetechnology.com/quality-engineering/logistics-testing-services",
+      "provider": {
+        "@type": "Organization",
+        "name": "Softree Technology",
+        "url": "https://www.softreetechnology.com"
+      },
+      "areaServed": "Global"
+    },
+    {
+      "@type": "VideoObject",
+      "name": "Logistics Software Testing Services & Supply Chain QA Overview",
+      "description":
+        "Discover how Softree Technology delivers end-to-end logistics testing services, validating TMS, WMS, freight tracking, supply chain integrations, and enterprise logistics systems.",
+      "thumbnailUrl": [
+        "https://www.softreetechnology.com/images/solutions/ai-for-logistics/hero.webp",
+        "https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo-Dark-BG.webp"
+      ],
+      "uploadDate": "2025-01-15T08:00:00+00:00",
+      "contentUrl": "https://www.softreetechnology.com/images/solutions/ai-for-logistics/hero.mp4",
+      "embedUrl": "https://www.softreetechnology.com/quality-engineering/logistics-testing-services",
+      "duration": "PT30S",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Softree Technology",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo.png"
+        }
+      }
+    }
+  ]
+};
+
 export default function LogisticsTestingPage() {
   return (
     <main className="min-h-screen bg-[#07090e]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <NavigationClient />
       <LogisticsTestingHeroWrapper />
       <TrustedBrandsMarquee surface="light" />
       <LogisticsTestingPositioning />
       <LogisticsTestingCoverage />
-      <NewWhoDoWeServeSection className="bg-white" />
+      {/* <NewWhoDoWeServeSection className="bg-white" /> */}
       <LogisticsTestingFramework />
-      <OffshoreLogisticsTestingTeam />
+      {/* <OffshoreLogisticsTestingTeam /> */}
       <LogisticsTestingCaseStudies />
       <LogisticsTestAutomation />
-      <AgenticLogisticsTesting />
+      {/* <AgenticLogisticsTesting /> */}
       <LogisticsTechnologyTesting />
 
-      <LogisticsSecurityTesting />
+      {/* <LogisticsSecurityTesting /> */}
       <WhySoftreeLogisticsTesting />
       <LogisticsTestingFAQ />
       <LightContactSection />

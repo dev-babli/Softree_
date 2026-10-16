@@ -93,9 +93,78 @@ import AutomationTechnologyTesting from './components/AutomationTechnologyTestin
 
 const ReverseStickyScroll = dynamic(() => import('./components/ReverseStickyScroll/ReverseStickyScroll').then((mod) => mod.ReverseStickyScroll), { ssr: true });
 
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.softreetechnology.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Quality Engineering",
+          "item": "https://www.softreetechnology.com/quality-engineering"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Automation Testing Services",
+          "item": "https://www.softreetechnology.com/quality-engineering/automation-testing-services"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Automation Testing Services",
+      "serviceType": "Quality Engineering & Test Automation Services",
+      "description":
+        "Accelerate software releases with Softree’s offshore automation testing and QA services for web, mobile, API, and enterprise applications.",
+      "url": "https://www.softreetechnology.com/quality-engineering/automation-testing-services",
+      "provider": {
+        "@type": "Organization",
+        "name": "Softree Technology",
+        "url": "https://www.softreetechnology.com"
+      },
+      "areaServed": "Global"
+    },
+    {
+      "@type": "VideoObject",
+      "name": "Automation Testing Services & Quality Engineering Overview",
+      "description":
+        "Discover how Softree Technology delivers end-to-end automation testing and QA services for web, mobile, API, and enterprise applications with dedicated offshore engineering teams.",
+      "thumbnailUrl": [
+        "https://www.softreetechnology.com/ai-development-service-video/ai-agent-video-poster.webp",
+        "https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo-Dark-BG.webp"
+      ],
+      "uploadDate": "2025-01-15T08:00:00+00:00",
+      "contentUrl": "https://www.softreetechnology.com/ai-development-service-video/automation-testing.mp4",
+      "embedUrl": "https://www.softreetechnology.com/quality-engineering/automation-testing-services",
+      "duration": "PT30S",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Softree Technology",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.softreetechnology.com/logo/logo.png"
+        }
+      }
+    }
+  ]
+};
+
 export default function AITestingPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-zinc-50 via-white to-zinc-50 flex flex-col font-sans selection:bg-orange-500 selection:text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <NavigationClient />
       <AutomationTestingHero />
 
@@ -104,7 +173,7 @@ export default function AITestingPage() {
 
       <AiTestingCoverage />
 
-      <NewWhoDoWeServeSection className="bg-white" />
+      {/* <NewWhoDoWeServeSection className="bg-white" /> */}
 
       {/* Reverse Sticky Scroll Overall Header */}
       <div className="w-full max-w-[1340px] mx-auto px-4 mt-12 md:mt-16 mb-8 flex flex-col items-start text-left">
@@ -126,15 +195,15 @@ export default function AITestingPage() {
 
       <ReverseStickyScroll />
 
-      <OffshoreAutomationTestingTeam />
+      {/* <OffshoreAutomationTestingTeam /> */}
 
       <AutomationTestingCaseStudies />
 
       <AutomationTestingProcess />
 
-      <AgenticAutomationTesting />
+      {/* <AgenticAutomationTesting /> */}
 
-      <AutomationTestingWorkflow />
+      {/* <AutomationTestingWorkflow /> */}
 
       <AutomationTechnologyTesting />
 

@@ -217,9 +217,9 @@ export default function Home() {
           {/* <Certifications /> */}
         </div>
       </section>
-
-      <LightContactSection />
       <LightFAQExact faqs={powerPlatformFAQs} />
+      <LightContactSection />
+
       <Footer />
     </main>
   );

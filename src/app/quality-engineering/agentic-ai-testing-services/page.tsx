@@ -138,9 +138,78 @@ import AgenticAITestingVideoHero from './components/AgenticAITestingVideoHero';
 
 const ReverseStickyScroll = dynamic(() => import('./components/ReverseStickyScroll/ReverseStickyScroll').then((mod) => mod.ReverseStickyScroll), { ssr: true });
 
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.softreetechnology.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Quality Engineering",
+          "item": "https://www.softreetechnology.com/quality-engineering"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Agentic AI Testing Services",
+          "item": "https://www.softreetechnology.com/quality-engineering/agentic-ai-testing-services"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Agentic AI Testing Services",
+      "serviceType": "Agentic AI Testing & Quality Engineering Services",
+      "description":
+        "Comprehensive QA and safety benchmarking for AI agents, prompt injection testing, hallucination evaluation, and autonomous behavior verification.",
+      "url": "https://www.softreetechnology.com/quality-engineering/agentic-ai-testing-services",
+      "provider": {
+        "@type": "Organization",
+        "name": "Softree Technology",
+        "url": "https://www.softreetechnology.com"
+      },
+      "areaServed": "Global"
+    },
+    {
+      "@type": "VideoObject",
+      "name": "Agentic AI Testing Services & Autonomous Workflow Quality Assurance Overview",
+      "description":
+        "Discover how Softree Technology delivers comprehensive QA, safety benchmarking, hallucination evaluation, security guardrails, and autonomous behavior verification for AI agents and LLM applications.",
+      "thumbnailUrl": [
+        "https://www.softreetechnology.com/ai-development-service-video/ai-agent-video-poster.webp",
+        "https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo-Dark-BG.webp"
+      ],
+      "uploadDate": "2025-01-15T08:00:00+00:00",
+      "contentUrl": "https://www.softreetechnology.com/ai-development-service-video/agentic-ai-testing-video.mp4",
+      "embedUrl": "https://www.softreetechnology.com/quality-engineering/agentic-ai-testing-services",
+      "duration": "PT30S",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Softree Technology",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.softreetechnology.com/logo/logo.png"
+        }
+      }
+    }
+  ]
+};
+
 export default function AgenticAITestingPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-zinc-50 via-white to-zinc-50 flex flex-col font-sans selection:bg-orange-500 selection:text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <NavigationClient />
       <AgenticAITestingVideoHero />
 
@@ -149,7 +218,7 @@ export default function AgenticAITestingPage() {
 
       <AgenticAITestingCoverage />
 
-      <NewWhoDoWeServeSection className="bg-white" />
+      {/* <NewWhoDoWeServeSection className="bg-white" /> */}
 
       {/* Reverse Sticky Scroll Overall Header */}
       <div className="w-full max-w-[1340px] mx-auto px-4 mt-12 md:mt-16 mb-8 flex flex-col items-start text-left">
@@ -171,15 +240,15 @@ export default function AgenticAITestingPage() {
 
       <ReverseStickyScroll />
 
-      <OffshoreAgenticAITestingTeam />
+      {/* <OffshoreAgenticAITestingTeam /> */}
 
       <AgenticAITestingCaseStudies />
 
       <AgenticAITestingProcess />
 
-      <AgenticAITesting />
+      {/* <AgenticAITesting /> */}
 
-      <AgenticAITestingWorkflow />
+      {/* <AgenticAITestingWorkflow /> */}
 
       <AgenticAITechnologyTesting />
 

@@ -156,6 +156,28 @@ const healthcareJsonLd = {
         ],
       },
     },
+    {
+      '@type': 'VideoObject',
+      name: 'Healthcare AI Solutions & Engineering Partnership Overview',
+      description:
+        'Explore Softree Technology\'s healthcare AI engineering partnerships, intelligent clinical automation, medical RAG systems, and HIPAA-ready AI development solutions.',
+      thumbnailUrl: [
+        'https://www.softreetechnology.com/images/solutions/ai-for-healthcare/hero.png',
+        'https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo-Dark-BG.webp',
+      ],
+      uploadDate: '2025-01-15T08:00:00+00:00',
+      contentUrl: 'https://www.softreetechnology.com/ai-development-service-video/Healhcare-ai-video.mp4',
+      embedUrl: 'https://www.softreetechnology.com/industries/healthcare-ai-solutions',
+      duration: 'PT30S',
+      publisher: {
+        '@type': 'Organization',
+        name: 'Softree Technology',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://www.softreetechnology.com/logo/Softree-Technology-Final-Logo.png',
+        },
+      },
+    },
   ],
 };
 
@@ -194,7 +216,7 @@ export default function AiHealthcareDevelopmentPage() {
         </div>
       </div>
       {/* Interactive Photo Stack Section replaced by CircularTestimonialsDemo */}
-      <HealthcareWhoDoWeServe />
+      {/* <HealthcareWhoDoWeServe /> */}
       <CoreCapabilities />
 
       <TechnologyWeWork />

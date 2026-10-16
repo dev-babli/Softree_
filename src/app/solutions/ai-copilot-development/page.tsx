@@ -140,6 +140,29 @@ export default function AICopilotDevelopmentPage() {
                 },
               })),
             },
+            {
+              "@context": "https://schema.org",
+              "@type": "VideoObject",
+              name: "Custom AI Copilot Development & Microsoft Copilot Solutions Overview",
+              description:
+                "Discover how Softree Technology builds and deploys custom AI copilots, Microsoft Copilot Studio integrations, enterprise knowledge retrieval, and automated business workflows.",
+              thumbnailUrl: [
+                "https://www.softreetechnology.com/ai-development-service-video/ai-agent-video-poster.webp",
+                "https://www.softreetechnology.com/og-image.png"
+              ],
+              uploadDate: "2025-01-15T08:00:00+00:00",
+              contentUrl: "https://www.softreetechnology.com/ai-development-service-video/security-position-video.mp4",
+              embedUrl: "https://www.softreetechnology.com/solutions/ai-copilot-development",
+              duration: "PT30S",
+              publisher: {
+                "@type": "Organization",
+                name: "Softree Technology",
+                logo: {
+                  "@type": "ImageObject",
+                  url: "https://www.softreetechnology.com/logo/logo.png"
+                }
+              }
+            },
           ]),
         }}
       />

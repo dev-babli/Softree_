@@ -81,7 +81,7 @@ export default function AmazonNova2SonicDevelopmentPage() {
 
       <AmazonNovaVoiceAiCapabilities />
       <HowWeBuildIt />
-      <TrustAndReadiness />
+      {/* <TrustAndReadiness /> */}
       <TrustedBrandsMarquee />
       <WhyChooseSoftree />
       <FAQ />
