@@ -483,25 +483,47 @@ export function MegaMenuPanel({
             /* LEVEL 2: SELECTED CATEGORY'S SERVICES + BACK BUTTON            */
             /* ─────────────────────────────────────────────────────────────── */
             <div>
-              <div className="flex items-center justify-between mb-2 px-1">
-                <div className="flex items-center gap-2">
+              <div className="flex items-center justify-between mb-3 px-1 pb-2.5 border-b border-slate-100">
+                <div className="flex items-center gap-2.5">
                   <button
                     type="button"
                     onClick={handleBackToCategories}
                     aria-label="Back to all categories"
-                    className="inline-flex items-center gap-1 text-[11px] font-bold text-white bg-[#FF5812] hover:bg-[#e64a09] transition-all py-0.5 px-2.5 rounded-full shadow-sm cursor-pointer active:scale-95"
+                    className="group inline-flex items-center gap-1.5 text-xs sm:text-[13px] font-bold text-white bg-gradient-to-r from-[#FF6B2C] via-[#FF5812] to-[#E64A09] hover:from-[#FF5812] hover:to-[#D92C00] py-1.5 px-3.5 rounded-full shadow-[0_2px_8px_rgba(255,88,18,0.25)] hover:shadow-[0_4px_14px_rgba(255,88,18,0.35)] transition-all duration-200 cursor-pointer active:scale-95"
                   >
-                    <ChevronLeft size={13} className="stroke-[2.5]" />
+                    <ChevronLeft size={15} className="stroke-[2.5] transition-transform duration-200 group-hover:-translate-x-0.5" />
                     <span>Back to All Categories</span>
                   </button>
-                  <span className="text-slate-300">|</span>
-                  <span className="text-[10.5px] font-bold tracking-[0.14em] text-slate-500 uppercase">
+                  <span className="h-4 w-px bg-slate-200" />
+                  <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.1em] text-slate-700 uppercase bg-slate-100/90 px-2.5 py-0.5 rounded-md border border-slate-200/60">
                     {currentGroup.title}
                   </span>
                 </div>
-                <span className="text-[10.5px] font-semibold text-slate-400">
-                  {safeIdx + 1} of {availableGroups.length} categories
-                </span>
+
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-semibold text-slate-500 bg-slate-50 border border-slate-200/70 px-2.5 py-0.5 rounded-full flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#FF5812]" />
+                    <span>{safeIdx + 1} of {availableGroups.length} categories</span>
+                  </span>
+                  <div className="hidden sm:flex items-center gap-0.5 border border-slate-200/80 rounded-full p-0.5 bg-white shadow-2xs">
+                    <button
+                      type="button"
+                      onClick={handlePrev}
+                      aria-label="Previous category"
+                      className="w-5.5 h-5.5 rounded-full flex items-center justify-center text-slate-500 hover:text-white hover:bg-[#FF5812] transition-colors cursor-pointer"
+                    >
+                      <ChevronLeft size={12} className="stroke-[2.5]" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleNext}
+                      aria-label="Next category"
+                      className="w-5.5 h-5.5 rounded-full flex items-center justify-center text-slate-500 hover:text-white hover:bg-[#FF5812] transition-colors cursor-pointer"
+                    >
+                      <ChevronRight size={12} className="stroke-[2.5]" />
+                    </button>
+                  </div>
+                </div>
               </div>
 
               <AnimatePresence mode="wait">

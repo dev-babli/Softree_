@@ -1,5 +1,10 @@
 export const HERO_DATA = {
   label: "Document AI Solutions",
+  headline: {
+    prefix: "Build Smarter Document Automation With Our ",
+    highlight: "Offshore AI Team",
+  },
   paragraph:
-    "Offshore AI teams for OCR, extraction, classification, and ERP/CRM integration — dedicated or white-label.",
+    "Turn complex documents into accurate, actionable data with AI-powered extraction, understanding, and automation.",
 };
+

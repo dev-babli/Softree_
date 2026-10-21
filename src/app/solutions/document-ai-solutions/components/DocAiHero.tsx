@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import Script from 'next/script';
 import { HERO_DATA } from '../data/heroData';
 import TrustStrip from '@/components/sections/TrustStrip';
 import { typography } from '@/lib/typography';
+import { Component as CelestialLoom } from '@/components/ui/celestial-loom';
 
 const HERO_SEO = {
   "@context": "https://schema.org",
@@ -95,11 +95,6 @@ const HERO_SEO = {
 
 export const DocumentAiHero: React.FC = () => {
   const { label, paragraph } = HERO_DATA;
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -117,7 +112,7 @@ export const DocumentAiHero: React.FC = () => {
       itemScope
       itemType="https://schema.org/Service"
       itemID="https://www.softreetechnology.com/solutions/document-ai-solutions#service"
-      className="relative w-full bg-[#050909] overflow-hidden flex flex-col pt-24 lg:pt-28"
+      className="relative w-full bg-[#050909] overflow-hidden flex flex-col pt-24 lg:pt-32"
     >
       <script
         type="application/ld+json"
@@ -129,64 +124,77 @@ export const DocumentAiHero: React.FC = () => {
         <meta itemProp="name" content="Softree Technology" />
         <link itemProp="url" href="https://www.softreetechnology.com" />
       </div>
-      <Script
-        src="https://unpkg.com/@splinetool/viewer@1.9.59/build/spline-viewer.js"
-        type="module"
-        strategy="afterInteractive"
-      />
 
-      <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-8">
-        <div className="grid w-full items-center gap-6 lg:grid-cols-2 lg:gap-10">
+      {/* Celestial Loom: Procedural Weave Effect (Exclusively Orange, Black, and Red) */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <CelestialLoom
+          className="!h-full !min-h-full"
+          colors={[
+            "#FF6B00", // Softree Signature Orange
+            "#FF8533", // Bright Warm Orange
+            "#FF4500", // Fiery Orange-Red
+            "#E65100", // Deep Amber Orange
+            "#E60000", // Pure Crimson Red
+            "#FF1E27", // Bright Tech Red
+            "#CC1100", // Deep Red
+            "#FF3B30", // Scarlet Red
+            "#000000", // Pure Black
+            "#18181B", // Dark Obsidian Black
+          ]}
+        />
+      </div>
+
+      {/* Ambient gradient overlay for optimal readability of centered typography */}
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-[#050909] via-transparent to-[#050909]/50" />
+      <div className="pointer-events-none absolute inset-0 z-[1] [background:radial-gradient(ellipse_at_center,rgba(5,9,9,0.25)_0%,rgba(5,9,9,0.85)_100%)]" />
+
+      {/* CENTERED CONTENT */}
+      <div className="relative z-10 mx-auto w-full max-w-[1100px] px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center pt-4 pb-8 sm:pb-12">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="flex flex-col items-center text-center w-full"
+        >
+          {/* Eyebrow Label */}
           <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="flex flex-col items-start text-left"
+            variants={itemVariants}
+            className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-[#FF6B00]/40 bg-[#FF6B00]/10 mb-8 backdrop-blur-sm"
           >
-            <motion.div
-              variants={itemVariants}
-              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-[#FF6B00]/40 bg-[#FF6B00]/10 mb-4 backdrop-blur-sm"
+            <div className="w-2.5 h-2.5 rounded-full bg-[#FF6B00] shadow-[0_0_10px_2px_rgba(255,107,0,0.6)]" />
+            <span
+              className={`${typography.caption.default} text-[12px] md:text-[13px] font-bold tracking-[0.15em] text-[#FF6B00] uppercase`}
             >
-              <div className="w-2 h-2 rounded-full bg-[#FF6B00] shadow-[0_0_10px_2px_rgba(255,107,0,0.6)]" />
-              <span className={`${typography.caption.default} text-[#FF6B00]`}>
-                {label}
-              </span>
-            </motion.div>
-
-            <motion.h1
-              id="document-ai-hero-heading"
-              itemProp="name"
-              variants={itemVariants}
-              className={`${typography.title} mb-5 text-left text-white`}
-            >
-              Intelligent Document AI That
-              <br />
-              <span className="text-[#FF6B00]">Extracts, Understands &amp; Automates</span>
-            </motion.h1>
-
-            <motion.p
-              id="document-ai-hero-summary"
-              itemProp="description"
-              variants={itemVariants}
-              className={`${typography.description.default} max-w-xl text-left text-[#A0AAB5] text-balance`}
-            >
-              {paragraph}
-            </motion.p>
+              {label}
+            </span>
           </motion.div>
 
-          <div className="relative h-[320px] sm:h-[400px] lg:h-[460px] w-full">
-            <div className="pointer-events-auto absolute inset-0 overflow-hidden">
-              {isMounted &&
-                React.createElement('spline-viewer', {
-                  url: 'https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode',
-                  style: { width: '100%', height: '100%' },
-                })}
-              <div className="absolute bottom-2 right-2 z-[100] h-[50px] w-[150px] rounded-md bg-[#050909] pointer-events-auto" />
-            </div>
-          </div>
-        </div>
+          {/* Headline */}
+          <motion.h1
+            id="document-ai-hero-heading"
+            itemProp="name"
+            variants={itemVariants}
+            className={`${typography.heading.h1} text-3xl sm:text-5xl lg:text-[62px] leading-[1.12] font-bold text-white mb-6 tracking-tight text-center max-w-4xl`}
+          >
+            Build Smarter Document Automation With Our{" "}
+            <span className="text-[#FF6B00]">Offshore AI Team</span>
+          </motion.h1>
 
-        <div className="relative z-10 pb-10">
+          {/* Description */}
+          <motion.p
+            id="document-ai-hero-summary"
+            itemProp="description"
+            variants={itemVariants}
+            className={`${typography.description.default} text-base sm:text-lg lg:text-[19px] text-[#A0AAB5] max-w-2xl leading-relaxed text-center`}
+          >
+            {paragraph}
+          </motion.p>
+        </motion.div>
+      </div>
+
+      {/* TrustStrip at the bottom */}
+      <div className="w-full pb-12 relative z-10 pt-4">
+        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
           <TrustStrip theme="dark" />
         </div>
       </div>
@@ -195,3 +203,7 @@ export const DocumentAiHero: React.FC = () => {
 };
 
 export default DocumentAiHero;
+
+
+
+
