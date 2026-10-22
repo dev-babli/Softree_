@@ -16,8 +16,11 @@ import { FabricMigrationHowAIWorks } from "./components/FabricMigrationHowAIWork
 import FabricMigrationHero from "./components/FabricMigrationHero";
 
 export const metadata: Metadata = {
-  title: "Azure Synapse to Microsoft Fabric Migration | Softree Technology",
-  description: "Seamlessly migrate from Azure Synapse to Microsoft Fabric with our expert migration services.",
+  title: {
+    absolute: "Azure Synapse to Fabric Migration | Softree",
+  },
+  description:
+    "Migrate Azure Synapse dedicated SQL pools and Spark pipelines to Microsoft Fabric Lakehouse. Expert offshore data engineers ensuring seamless modernization.",
   keywords: [
     "Azure Synapse to Microsoft Fabric migration",
     "Microsoft Fabric migration services",

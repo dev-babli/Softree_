@@ -11,7 +11,9 @@ const LightContactSection = dynamic(() => import('@/components/homepage-light/Li
 const TrustedBrandsMarquee = dynamic(() => import('@/app/services/offshore-power-platform-development/trust'), { ssr: true });
 
 export const metadata: Metadata = applyPageOg("/quality-engineering/agentic-ai-testing-services", {
-  title: "Agentic AI Testing Services | Softree Technology",
+  title: {
+    absolute: "Agentic AI Testing Services | Softree",
+  },
   description:
     "Comprehensive QA and safety benchmarking for AI agents, prompt injection testing, hallucination evaluation, and autonomous behavior verification.",
   alternates: {

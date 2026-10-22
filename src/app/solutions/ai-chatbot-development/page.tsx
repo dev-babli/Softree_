@@ -16,9 +16,9 @@ import { applyPageOg } from "@/lib/site-metadata";
 import { faqs } from "./data/faqs";
 
 export const metadata: Metadata = applyPageOg("/solutions/ai-chatbot-development", {
-  title: "AI Chatbot Development Services",
+  title: "AI Chatbot Development Services | Softree",
   description:
-    "Custom AI chatbot development services by Softree Technology. Our offshore AI engineering team develops conversational AI solutions, RAG chatbots, and business system integrations.",
+    "Custom AI chatbot development services by Softree. Build conversational AI, enterprise RAG chatbots, and automated customer support workflows.",
   keywords: [
     "AI chatbot development services",
     "custom AI chatbot development",
@@ -42,7 +42,7 @@ export const metadata: Metadata = applyPageOg("/solutions/ai-chatbot-development
   openGraph: {
     title: "AI Chatbot Development Services | Softree Technology",
     description:
-      "Custom AI chatbot development services by Softree Technology. Our offshore AI engineering team develops conversational AI solutions, RAG chatbots, and business system integrations.",
+      "Custom AI chatbot development services by Softree. Build conversational AI, enterprise RAG chatbots, and automated customer support workflows.",
     url: "https://www.softreetechnology.com/solutions/ai-chatbot-development",
     siteName: "Softree Technology",
     type: "website",
@@ -50,7 +50,7 @@ export const metadata: Metadata = applyPageOg("/solutions/ai-chatbot-development
   twitter: {
     title: "AI Chatbot Development Services | Softree Technology",
     description:
-      "Custom AI chatbot development services by Softree Technology. Our offshore AI engineering team develops conversational AI solutions, RAG chatbots, and business system integrations.",
+      "Custom AI chatbot development services by Softree. Build conversational AI, enterprise RAG chatbots, and automated customer support workflows.",
   },
 });
 

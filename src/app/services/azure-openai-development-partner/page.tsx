@@ -18,16 +18,18 @@ import WhyChooseWithTestimonials from "./components/why";
 import TrustedBrandsMarquee from "@/app/services/offshore-power-platform-development/trust";
 
 export const metadata: Metadata = applyPageOg("/services/azure-openai-development-partner", {
-  title: "Azure OpenAI Development Partner | Softree Technology",
+  title: {
+    absolute: "Azure OpenAI Development Partner | Softree",
+  },
   description:
-    "Microsoft-certified Azure OpenAI development partner. Production deployment of GPT-4o, embeddings, fine-tuning, and enterprise security guardrails.",
+    "Partner with Softree for Azure OpenAI development. Production deployment of GPT-4o, RAG pipelines, fine-tuning, and enterprise AI security guardrails.",
   alternates: {
     canonical: "https://www.softreetechnology.com/services/azure-openai-development-partner",
   },
   openGraph: {
-    title: "Azure OpenAI Development Partner | Softree Technology",
+    title: "Azure OpenAI Development Partner | Softree",
     description:
-      "Microsoft-certified Azure OpenAI development partner. Production deployment of GPT-4o, embeddings, fine-tuning, and enterprise security guardrails.",
+      "Partner with Softree for Azure OpenAI development. Production deployment of GPT-4o, RAG pipelines, fine-tuning, and enterprise AI security guardrails.",
     url: "https://www.softreetechnology.com/services/azure-openai-development-partner",
     siteName: "Softree Technology",
     type: "website",

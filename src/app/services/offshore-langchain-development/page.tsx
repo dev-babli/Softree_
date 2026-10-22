@@ -18,14 +18,16 @@ import WhyChooseWithTestimonials from "./components/why";
 import TrustedBrandsMarquee from "@/app/services/offshore-power-platform-development/trust";
 
 export const metadata: Metadata = applyPageOg("/services/offshore-langchain-development", {
-  title: "Offshore LangChain Development | Softree Technology",
+  title: {
+    absolute: "Offshore LangChain Development | Softree",
+  },
   description:
     "Expert offshore LangChain development teams for building RAG pipelines, agent tools, custom vector store integrations, and memory management.",
   alternates: {
     canonical: "https://www.softreetechnology.com/services/offshore-langchain-development",
   },
   openGraph: {
-    title: "Offshore LangChain Development | Softree Technology",
+    title: "Offshore LangChain Development | Softree",
     description:
       "Expert offshore LangChain development teams for building RAG pipelines, agent tools, custom vector store integrations, and memory management.",
     url: "https://www.softreetechnology.com/services/offshore-langchain-development",

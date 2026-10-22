@@ -114,10 +114,12 @@ const powerPlatformFAQs = [
   },
 ];
 export const metadata: Metadata = applyPageOg("/services/offshore-power-platform-development", {
-  title: "Microsoft Power Platform Development Services | Softree",
+  title: {
+    absolute: "Microsoft Power Platform Development Services | Softree",
+  },
 
   description:
-    "Build and scale Microsoft Power Platform solutions with Power Apps, Power Automate, Power BI, Power Pages, Dataverse and Copilot Studio. Offshore and white-label delivery by Softree.",
+    "Offshore Microsoft Power Platform development services. Build custom Power Apps, automated workflows, and Copilot Studio solutions with certified engineers.",
 
   keywords: [
     "Microsoft Power Platform Development Services",
@@ -137,7 +139,7 @@ export const metadata: Metadata = applyPageOg("/services/offshore-power-platform
   openGraph: {
     title: "Microsoft Power Platform Development Services | Softree",
     description:
-      "Build and scale Microsoft Power Platform solutions with Power Apps, Power Automate, Power BI, Power Pages, Dataverse and Copilot Studio. Offshore and white-label delivery by Softree.",
+      "Offshore Microsoft Power Platform development services. Build custom Power Apps, automated workflows, and Copilot Studio solutions with certified engineers.",
     url: "https://www.softreetechnology.com/services/offshore-power-platform-development",
     siteName: "Softree Technology",
     type: "website",
@@ -147,7 +149,7 @@ export const metadata: Metadata = applyPageOg("/services/offshore-power-platform
     card: "summary_large_image",
     title: "Microsoft Power Platform Development Services | Softree",
     description:
-      "Build and scale Microsoft Power Platform solutions with Power Apps, Power Automate, Power BI, Power Pages, Dataverse and Copilot Studio. Offshore and white-label delivery by Softree.",
+      "Offshore Microsoft Power Platform development services. Build custom Power Apps, automated workflows, and Copilot Studio solutions with certified engineers.",
   },
 
   alternates: {

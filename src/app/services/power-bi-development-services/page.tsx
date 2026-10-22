@@ -70,10 +70,12 @@ const powerBIFAQs = [
 ];
 
 export const metadata: Metadata = applyPageOg("/services/power-bi-development-services", {
-  title: "Power BI Development Services | Offshore Power BI Partner",
+  title: {
+    absolute: "Power BI Development Services | Softree Technology",
+  },
 
   description:
-    "Build and scale Power BI solutions with Softree's offshore team for dashboards, reports, data modeling, DAX, integration, and analytics.",
+    "Enterprise Power BI development services. Build interactive dashboards, DAX calculations, semantic models, and reporting automation with Softree.",
 
   keywords: [
     "Power BI development services",
@@ -89,9 +91,9 @@ export const metadata: Metadata = applyPageOg("/services/power-bi-development-se
   ],
 
   openGraph: {
-    title: "Power BI Development Services | Dashboard & Analytics Solutions",
+    title: "Power BI Development Services | Softree Technology",
     description:
-      "Build powerful dashboards and analytics solutions with Microsoft Power BI. Get real-time insights, reporting automation, and enterprise BI services.",
+      "Enterprise Power BI development services. Build interactive dashboards, DAX calculations, semantic models, and reporting automation with Softree.",
     url: "https://www.softreetechnology.com/services/power-bi-development-services",
     siteName: "Softree Technology",
     type: "website",
@@ -99,9 +101,9 @@ export const metadata: Metadata = applyPageOg("/services/power-bi-development-se
 
   twitter: {
     card: "summary_large_image",
-    title: "Power BI Development Services | Dashboard & Analytics Solutions",
+    title: "Power BI Development Services | Softree Technology",
     description:
-      "Interactive dashboards, advanced analytics, and enterprise Power BI solutions tailored for your business.",
+      "Enterprise Power BI development services. Build interactive dashboards, DAX calculations, semantic models, and reporting automation with Softree.",
   },
 
   alternates: {

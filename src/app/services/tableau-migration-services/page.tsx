@@ -18,7 +18,9 @@ import Footer from "@/components/sections/footer";
 import { faqs } from "./data/faqs";
 
 export const metadata: Metadata = {
-  title: "Tableau Migration Services | Softree Technology",
+  title: {
+    absolute: "Tableau Migration Services | Softree",
+  },
   description: "Expert Tableau migration services. Move Tableau Server to Tableau Cloud, modernize analytics, and securely migrate workbooks, dashboards, and data sources.",
   alternates: {
     canonical: "https://www.softreetechnology.com/services/tableau-migration-services",

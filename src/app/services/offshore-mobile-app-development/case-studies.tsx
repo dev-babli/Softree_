@@ -28,7 +28,7 @@ const caseStudies = [
     impact: "Reduced communication latency by 50% and achieved 100% data compliance across teams.",
     tech: ["Power Apps", "Dynamics 365", "Power Automate", "Mobile Workflow"],
     image: "/images/wellkies.webp",
-    href: "https://www.softreetechnology.com/case-studies/contacts-management-system-powerapps-mobile-app",
+    href: "https://www.softreetechnology.com/case-studies/contacts-management-system-application",
   },
   {
     title: "Digital Learning Management Platform",

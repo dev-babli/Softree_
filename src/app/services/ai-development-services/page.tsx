@@ -23,8 +23,10 @@ const MicrosoftAiShowcase = dynamic(() => import('./components/MicrosoftAiShowca
 const OffshoreEngineeringSection = dynamic(() => import('./components/OffshoreEngineeringSection'), { ssr: true });
 const ArgentLoopSlider = dynamic(() => import('@/components/ui/argent-loop-infinite-slider'), { ssr: true });
 export const metadata: Metadata = {
-  title: 'Agentic AI Development Services | Offshore AI Partner | Softree Technology',
-  description: 'Build and scale Agentic AI solutions, AI agents, RAG, and intelligent workflows with Softree\'s offshore AI engineering team and white-label delivery model.',
+  title: {
+    absolute: 'AI Development Services | Offshore AI Engineering | Softree',
+  },
+  description: 'Enterprise AI development services. Hire offshore AI developers to build custom copilots, agentic workflows, and RAG pipelines with Softree Technology.',
   keywords: [
     'AI Development Services',
     'Custom AI Development',
@@ -55,8 +57,8 @@ export const metadata: Metadata = {
     canonical: 'https://www.softreetechnology.com/services/ai-development-services',
   },
   openGraph: {
-    title: 'Agentic AI Development Services | Offshore AI Partner | Softree Technology',
-    description: 'Build Agentic AI solutions, AI agents, RAG, and intelligent workflows with Softree\'s offshore AI engineering team and white-label delivery model.',
+    title: 'AI Development Services | Offshore AI Engineering | Softree',
+    description: 'Enterprise AI development services. Hire offshore AI developers to build custom copilots, agentic workflows, and RAG pipelines with Softree Technology.',
     url: 'https://www.softreetechnology.com/services/ai-development-services',
     siteName: 'Softree Technology',
     images: [
@@ -72,8 +74,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI Development Services | Offshore AI Delivery Partner | Softree',
-    description: 'Scale your AI delivery with Softree\'s offshore engineering team for custom AI, Generative AI, AI agents, RAG, automation, and production-ready AI integrations.',
+    title: 'AI Development Services | Offshore AI Engineering | Softree',
+    description: 'Enterprise AI development services. Hire offshore AI developers to build custom copilots, agentic workflows, and RAG pipelines with Softree Technology.',
     images: ['/logo/Softree-Technology-Final-Logo-Dark-BG.webp'],
   },
 };

@@ -12,8 +12,10 @@ const LightContactSection = dynamic(() => import('@/components/homepage-light/Li
 const TrustedBrandsMarquee = dynamic(() => import('@/app/services/offshore-power-platform-development/trust'), { ssr: true });
 
 export const metadata: Metadata = {
-  title: "Automation Testing Services | Offshore QA Team | Softree",
-  description: "Accelerate software releases with Softree’s offshore automation testing and QA services for web, mobile, API, and enterprise applications.",
+  title: {
+    absolute: "Automation Testing Services | Offshore QA | Softree",
+  },
+  description: "Accelerate software releases with Softree’s offshore automation testing and QA services for web, mobile, API, and enterprise CI/CD test automation.",
   alternates: {
     canonical: "https://www.softreetechnology.com/quality-engineering/automation-testing-services",
   },

@@ -106,6 +106,8 @@ export default async function RootLayout({
                   "@type": "Organization",
                   "@id": "https://www.softreetechnology.com/#organization",
                   name: "Softree Technology",
+                  legalName: "Softree Technology Pvt. Ltd.",
+                  alternateName: ["Softree"],
                   url: "https://www.softreetechnology.com",
                   logo: {
                     "@type": "ImageObject",
@@ -132,6 +134,7 @@ export default async function RootLayout({
                   "@id": "https://www.softreetechnology.com/#website",
                   url: "https://www.softreetechnology.com",
                   name: "Softree Technology",
+                  alternateName: ["Softree"],
                   publisher: { "@id": "https://www.softreetechnology.com/#organization" }
                 },
               ],

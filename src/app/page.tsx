@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     description:
       "Extend your technology delivery capacity with Softree's offshore, white-label expertise in Agentic AI, Power Platform, data engineering, and modern application development.",
     url: `${SITE_URL}/`,
-    siteName: "Softree",
+    siteName: "Softree Technology",
     images: ogImages(DEFAULT_OG_IMAGE),
     type: "website",
   },

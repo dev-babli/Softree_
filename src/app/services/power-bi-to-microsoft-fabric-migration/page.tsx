@@ -15,8 +15,11 @@ import { PowerBiFabricHowAIWorks } from "./components/PowerBiFabricHowAIWorks";
 import PowerBiFabricHero from "./components/PowerBiFabricHero";
 
 export const metadata: Metadata = {
-  title: "Power BI to Microsoft Fabric Migration Services | Softree Technology",
-  description: "Modernize your data architecture by migrating from Power BI to Microsoft Fabric. Expert guidance on moving from Power BI Premium (P-SKU) to Fabric (F-SKU), Lakehouse architecture, OneLake integration, and data pipelines.",
+  title: {
+    absolute: "Power BI to Fabric Migration Services | Softree",
+  },
+  description:
+    "Modernize data architectures by migrating from Power BI to Microsoft Fabric. Expert guidance on Direct Lake mode, OneLake integration, and semantic models.",
   keywords: [
     "Power BI to Microsoft Fabric migration",
     "Migrate Power BI to Fabric",
@@ -32,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Power BI to Microsoft Fabric Migration Services | Softree Technology",
     description: "Modernize your data architecture by migrating from Power BI to Microsoft Fabric. Expert guidance on P-SKU to F-SKU transition, OneLake, and Data pipelines.",
-    url: "https://softree.technology/services/power-bi-to-microsoft-fabric-migration",
+    url: "https://www.softreetechnology.com/services/power-bi-to-microsoft-fabric-migration",
     siteName: "Softree Technology",
     images: [
       {
@@ -52,7 +55,7 @@ export const metadata: Metadata = {
     images: ["/images/og/power-bi-to-fabric-migration.jpg"],
   },
   alternates: {
-    canonical: "https://softree.technology/services/power-bi-to-microsoft-fabric-migration",
+    canonical: "https://www.softreetechnology.com/services/power-bi-to-microsoft-fabric-migration",
   },
 };
 

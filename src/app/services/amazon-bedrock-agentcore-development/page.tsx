@@ -20,16 +20,18 @@ const PAGE_URL = 'https://www.softreetechnology.com/services/amazon-bedrock-agen
 const SITE_URL = 'https://www.softreetechnology.com';
 
 export const metadata: Metadata = applyPageOg("/services/amazon-bedrock-agentcore-development", {
-  title: "Amazon Bedrock & Agent Development | Softree Technology",
+  title: {
+    absolute: "Amazon Bedrock Agent Development | Softree",
+  },
   description:
-    "Build enterprise generative AI applications using AWS Amazon Bedrock, Claude, Titan models, Knowledge Bases, and secure cloud agents.",
+    "Enterprise Amazon Bedrock agent development services. Build generative AI applications, Claude integrations, knowledge bases, and autonomous cloud agents.",
   alternates: {
     canonical: "https://www.softreetechnology.com/services/amazon-bedrock-agentcore-development",
   },
   openGraph: {
-    title: "Amazon Bedrock & Agent Development | Softree Technology",
+    title: "Amazon Bedrock Agent Development | Softree",
     description:
-      "Build enterprise generative AI applications using AWS Amazon Bedrock, Claude, Titan models, Knowledge Bases, and secure cloud agents.",
+      "Enterprise Amazon Bedrock agent development services. Build generative AI applications, Claude integrations, knowledge bases, and autonomous cloud agents.",
     url: "https://www.softreetechnology.com/services/amazon-bedrock-agentcore-development",
     siteName: "Softree Technology",
     type: "website",

@@ -23,16 +23,18 @@ import { HealthcareEngagementModelsSection } from "./components/HealthcareEngage
 import { healthcareFaqs } from "./data/faqs";
 
 export const metadata: Metadata = applyPageOg("/services/ai-healthcare-development-service", {
-  title: "AI Healthcare Development Services | Softree Technology",
+  title: {
+    absolute: "AI Healthcare Development Services | Softree",
+  },
   description:
-    "HIPAA-compliant AI healthcare software development. Clinical decision support, EHR integrations, patient triage bots, and medical data pipelines.",
+    "AI healthcare software development services. Build clinical decision support, EHR integrations, patient data intelligence, and predictive healthcare AI.",
   alternates: {
     canonical: "https://www.softreetechnology.com/services/ai-healthcare-development-service",
   },
   openGraph: {
-    title: "AI Healthcare Development Services | Softree Technology",
+    title: "AI Healthcare Development Services | Softree",
     description:
-      "HIPAA-compliant AI healthcare software development. Clinical decision support, EHR integrations, patient triage bots, and medical data pipelines.",
+      "AI healthcare software development services. Build clinical decision support, EHR integrations, patient data intelligence, and predictive healthcare AI.",
     url: "https://www.softreetechnology.com/services/ai-healthcare-development-service",
     siteName: "Softree Technology",
     type: "website",

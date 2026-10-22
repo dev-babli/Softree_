@@ -56,7 +56,7 @@ export const caseStudies: CaseStudy[] = [
     metrics: [], // No specific inline metrics visible beneath description
     image: "/images/ai-development-services/step-3.webp", // Abstract tech background
     company: "Softree Technology",
-    link: "/case-studies/sharepoint-spfx-security-testing-quality-assurance",
+    link: "/case-studies/sharepoint-spfx-automation-testing-quality-assurance",
   },
   {
     id: "intelligent-customer-support",

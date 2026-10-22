@@ -50,10 +50,12 @@ const spfxFAQs = [
 ]
 
 export const metadata: Metadata = applyPageOg("/services/offshore-spfx-development", {
-  title: "SharePoint Framework (SPFX) Development Services | Custom Web Parts",
+  title: {
+    absolute: "Offshore SPFx Development Services | Softree",
+  },
 
   description:
-    "Professional SharePoint Framework (SPFX) development services. We build custom SharePoint web parts, extensions, and modern intranet solutions using SPFX with React, TypeScript, and Microsoft 365 best practices.",
+    "Custom SharePoint Framework (SPFx) development services. Build modern web parts, extensions, and Microsoft 365 intranet tools with Softree’s React developers.",
 
   keywords: [
     "SharePoint Framework development",
@@ -69,9 +71,9 @@ export const metadata: Metadata = applyPageOg("/services/offshore-spfx-developme
   ],
 
   openGraph: {
-    title: "SharePoint Framework (SPFX) Development Services",
+    title: "Offshore SPFx Development Services | Softree",
     description:
-      "Professional SPFX development services for custom SharePoint web parts and modern intranet solutions.",
+      "Custom SharePoint Framework (SPFx) development services. Build modern web parts, extensions, and Microsoft 365 intranet tools with Softree’s React developers.",
     url: "https://www.softreetechnology.com/services/offshore-spfx-development",
     siteName: "Softree Technology",
     type: "website",
@@ -79,9 +81,9 @@ export const metadata: Metadata = applyPageOg("/services/offshore-spfx-developme
 
   twitter: {
     card: "summary_large_image",
-    title: "SharePoint Framework (SPFX) Development Services",
+    title: "Offshore SPFx Development Services | Softree",
     description:
-      "Custom SPFX web parts, extensions, and modern SharePoint solutions built with React and TypeScript.",
+      "Custom SharePoint Framework (SPFx) development services. Build modern web parts, extensions, and Microsoft 365 intranet tools with Softree’s React developers.",
   },
 
   alternates: {

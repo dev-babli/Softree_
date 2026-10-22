@@ -15,7 +15,9 @@ import WhySoftreeTableauMigration from "./components/WhySoftreeTableauMigration"
 import TableauMigrationFAQ from "./components/TableauMigrationFAQ";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 export const metadata: Metadata = {
-  title: "Tableau Server to Tableau Cloud Migration Services | Softree",
+  title: {
+    absolute: "Tableau Server to Cloud Migration | Softree",
+  },
   description:
     "Migrate from Tableau Server to Tableau Cloud with Softree. Get expert migration services for workbooks, dashboards, data sources, security, and validation.",
   keywords: [

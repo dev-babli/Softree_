@@ -19,7 +19,9 @@ import LightContactSection from "@/components/homepage-light/LightContactSection
 import Footer from "@/components/sections/footer";
 
 export const metadata: Metadata = applyPageOg("/quality-engineering/logistics-testing-services", {
-  title: "Logistics Testing Services | Softree Technology",
+  title: {
+    absolute: "Logistics Testing Services | Softree Technology",
+  },
   description:
     "Softree provides logistics testing services for TMS, WMS, APIs, EDI, warehouse systems, logistics platforms, automation, security, performance, and QA.",
   alternates: {

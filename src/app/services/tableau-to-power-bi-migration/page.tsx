@@ -17,7 +17,9 @@ import { TableauToPowerBiFAQ } from "./components/TableauToPowerBiFAQ";
 import { faqs } from "./data/faqs";
 
 export const metadata: Metadata = {
-  title: "Tableau to Power BI Migration Services | Softree Technology",
+  title: {
+    absolute: "Tableau to Power BI Migration Services | Softree",
+  },
   description:
     "Seamlessly migrate from Tableau to Microsoft Power BI with our expert migration, DAX conversion, semantic modeling, and report redesign services.",
   keywords: [

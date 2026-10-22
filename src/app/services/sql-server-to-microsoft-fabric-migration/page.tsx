@@ -15,9 +15,11 @@ import WhySoftreeMigration from "./components/WhySoftreeMigration";
 import MigrationFAQ from "./components/MigrationFAQ";
 import LightContactSection from "@/components/homepage-light/LightContactSection";
 export const metadata: Metadata = {
-  title: "SQL Server to Microsoft Fabric Migration Services | Softree",
+  title: {
+    absolute: "SQL Server to Fabric Migration | Softree",
+  },
   description:
-    "Modernize SQL Server workloads with Softree’s Microsoft Fabric migration services. Migrate databases, data pipelines, and analytics with structured planning and validation.",
+    "Modernize SQL Server workloads with Softree’s Microsoft Fabric migration services. Migrate databases and data pipelines with structured planning and validation.",
   keywords: [
     "SQL Server to Microsoft Fabric Migration",
     "Microsoft Fabric Migration Services",

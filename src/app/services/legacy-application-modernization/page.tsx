@@ -13,8 +13,10 @@ import WhyChooseSoftree from "./why"
 import LightContactSection from "@/components/homepage-light/LightContactSection"
 
 export const metadata: Metadata = applyPageOg("/services/legacy-application-modernization", {
-  title: "Application Modernization & Cloud Migration Services | Softree",
-  description: "Modernize legacy applications with Softree’s migration and modernization services. Upgrade outdated systems to cloud-native, scalable, secure, and high-performance platforms.",
+  title: {
+    absolute: "Legacy App Modernization Services | Softree",
+  },
+  description: "Modernize legacy enterprise applications with Softree. Upgrade outdated systems to scalable cloud-native architectures, microservices, and modern web platforms.",
   keywords: [
     "Legacy system modernization services",
     "Application modernization services",
@@ -31,15 +33,15 @@ export const metadata: Metadata = applyPageOg("/services/legacy-application-mode
     canonical: "https://www.softreetechnology.com/services/legacy-application-modernization",
   },
   openGraph: {
-    title: "Application Modernization & Cloud Migration Services | Softree",
-    description: "Modernize legacy applications with Softree’s migration and modernization services. Upgrade outdated systems to cloud-native, scalable, secure, and high-performance platforms.",
+    title: "Legacy App Modernization Services | Softree",
+    description: "Modernize legacy enterprise applications with Softree. Upgrade outdated systems to scalable cloud-native architectures, microservices, and modern web platforms.",
     url: "https://www.softreetechnology.com/services/legacy-application-modernization",
     siteName: "Softree Technology",
     type: "website",
   },
   twitter: {
-    title: "Application Modernization & Cloud Migration Services | Softree",
-    description: "Modernize legacy applications with Softree’s migration and modernization services. Upgrade outdated systems to cloud-native, scalable, secure, and high-performance platforms.",
+    title: "Legacy App Modernization Services | Softree",
+    description: "Modernize legacy enterprise applications with Softree. Upgrade outdated systems to scalable cloud-native architectures, microservices, and modern web platforms.",
   },
 }, "Softree Legacy Modernization Services")
 

@@ -45,10 +45,12 @@ const testAutomationFAQs = [
 ]
 
 export const metadata: Metadata = applyPageOg("/services/ai-powered-test-automation", {
-  title: "AI-Powered Test Automation Services | Softree",
+  title: {
+    absolute: "AI-Powered Test Automation Services | Softree",
+  },
 
   description:
-    "Accelerate software delivery with AI-powered test automation services from Softree. Improve software quality, reduce regression cycles, and scale enterprise QA automation.",
+    "Accelerate software delivery with AI-powered test automation services from Softree. Improve software quality, reduce regression cycles, and scale QA automation.",
 
   keywords: [
     "AI test automation",

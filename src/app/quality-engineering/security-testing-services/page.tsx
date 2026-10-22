@@ -11,7 +11,9 @@ const LightContactSection = dynamic(() => import('@/components/homepage-light/Li
 const TrustedBrandsMarquee = dynamic(() => import('@/app/services/offshore-power-platform-development/trust'), { ssr: true });
 
 export const metadata: Metadata = applyPageOg("/quality-engineering/security-testing-services", {
-  title: "Security Testing Services | Softree Technology",
+  title: {
+    absolute: "Security Testing Services | Softree Technology",
+  },
   description:
     "Application security testing, penetration testing, vulnerability assessments, and AI safety evaluations for web, mobile, and cloud apps.",
   alternates: {

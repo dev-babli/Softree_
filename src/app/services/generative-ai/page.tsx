@@ -66,9 +66,11 @@ const generativeAIFAQs = [
 export const metadata: Metadata = applyPageOg(
   "/services/generative-ai",
   {
-    title: "Generative AI Development Services | Softree Technology",
+    title: {
+      absolute: "Generative AI Development Services | Softree",
+    },
     description:
-      "Build production-ready Generative AI solutions with Softree's offshore engineering team, including custom LLM applications, enterprise RAG, AI copilots, and intelligent workflow automation.",
+      "Build production-ready Generative AI solutions with Softree’s offshore engineering team, including LLM applications, enterprise RAG, and AI agent automation.",
     keywords: [
       "Generative AI Development Services",
       "Custom Generative AI Solutions",
@@ -104,9 +106,9 @@ export const metadata: Metadata = applyPageOg(
       },
     },
     openGraph: {
-      title: "Generative AI Development Services | Softree Technology",
+      title: "Generative AI Development Services | Softree",
       description:
-        "Build production-ready Generative AI solutions with Softree's offshore engineering team, including custom LLM applications, enterprise RAG, AI copilots, and intelligent workflow automation.",
+        "Build production-ready Generative AI solutions with Softree’s offshore engineering team, including LLM applications, enterprise RAG, and AI agent automation.",
       url: "https://www.softreetechnology.com/services/generative-ai",
       siteName: "Softree Technology",
       type: "website",

@@ -21,16 +21,18 @@ import dynamic from 'next/dynamic';
 const LightContactSection = dynamic(() => import('@/components/homepage-light/LightContactSection'), { ssr: true });
 
 export const metadata: Metadata = applyPageOg("/services/azure-data-factory-to-microsoft-fabric-migration", {
-  title: "Azure Data Factory to Microsoft Fabric Migration | Softree Technology",
+  title: {
+    absolute: "Azure Data Factory to Fabric Migration | Softree",
+  },
   description:
-    "Migrate your legacy Azure Data Factory pipelines and SSIS packages to Microsoft Fabric. Expert assessment, OneLake architecture, pipeline conversion, and optimization.",
+    "Migrate Azure Data Factory pipelines and SSIS packages to Microsoft Fabric Data Factory. Expert assessment, OneLake architecture, and pipeline modernization.",
   alternates: {
     canonical: "https://www.softreetechnology.com/services/azure-data-factory-to-microsoft-fabric-migration",
   },
   openGraph: {
-    title: "Azure Data Factory to Microsoft Fabric Migration | Softree Technology",
+    title: "Azure Data Factory to Fabric Migration | Softree",
     description:
-      "Migrate your legacy Azure Data Factory pipelines and SSIS packages to Microsoft Fabric. Expert assessment, OneLake architecture, pipeline conversion, and optimization.",
+      "Migrate Azure Data Factory pipelines and SSIS packages to Microsoft Fabric Data Factory. Expert assessment, OneLake architecture, and pipeline modernization.",
     url: "https://www.softreetechnology.com/services/azure-data-factory-to-microsoft-fabric-migration",
     siteName: "Softree Technology",
     type: "website",

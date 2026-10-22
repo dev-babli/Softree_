@@ -19,16 +19,18 @@ import WhyChooseWithTestimonials from "./components/why";
 import TrustedBrandsMarquee from "@/app/services/offshore-power-platform-development/trust";
 
 export const metadata: Metadata = applyPageOg("/services/offshore-langgraph-development", {
-  title: "Offshore LangGraph Development | Softree Technology",
+  title: {
+    absolute: "Offshore LangGraph Development | Softree",
+  },
   description:
-    "Dedicated offshore engineering pods specialized in stateful multi-agent workflows and LangGraph production architectures.",
+    "Dedicated offshore engineering pods specialized in stateful multi-agent workflows, cyclical graphs, and LangGraph production architectures by Softree.",
   alternates: {
     canonical: "https://www.softreetechnology.com/services/offshore-langgraph-development",
   },
   openGraph: {
-    title: "Offshore LangGraph Development | Softree Technology",
+    title: "Offshore LangGraph Development | Softree",
     description:
-      "Dedicated offshore engineering pods specialized in stateful multi-agent workflows and LangGraph production architectures.",
+      "Dedicated offshore engineering pods specialized in stateful multi-agent workflows, cyclical graphs, and LangGraph production architectures by Softree.",
     url: "https://www.softreetechnology.com/services/offshore-langgraph-development",
     siteName: "Softree Technology",
     type: "website",

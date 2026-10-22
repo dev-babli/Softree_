@@ -58,10 +58,12 @@ const SECTION_GAP = "space-y-24";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Web App Development Services | Custom Enterprise Web Applications",
+  title: {
+    absolute: "Web App Development Services | Softree Technology",
+  },
 
   description:
-    "Professional web app development services. We build scalable, secure, and high-performance custom web applications, SaaS platforms, and enterprise portals using modern technologies.",
+    "Custom web app development services for enterprises and SaaS platforms. Build scalable, secure web applications with Softree's offshore engineering teams.",
 
   keywords: [
     "web app development",
@@ -77,9 +79,9 @@ export const metadata: Metadata = {
   ],
 
   openGraph: {
-    title: "Web App Development Services | Enterprise & SaaS Applications",
+    title: "Web App Development Services | Softree Technology",
     description:
-      "Custom web app development services for startups and enterprises. Scalable, secure, and high-performance web applications tailored to your business needs.",
+      "Custom web app development services for enterprises and SaaS platforms. Build scalable, secure web applications with Softree's offshore engineering teams.",
     url: "https://www.softreetechnology.com/services/offshore-web-app-development",
     siteName: "Softree Technology",
     type: "website",
@@ -87,9 +89,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Web App Development Services",
+    title: "Web App Development Services | Softree Technology",
     description:
-      "Custom enterprise and SaaS web applications with modern technologies.",
+      "Custom web app development services for enterprises and SaaS platforms. Build scalable, secure web applications with Softree's offshore engineering teams.",
   },
 
   alternates: {

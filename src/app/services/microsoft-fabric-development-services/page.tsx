@@ -75,10 +75,12 @@ const fabricFAQs = [
 ]
 
 export const metadata: Metadata = {
-  title: "Microsoft Fabric Development Services | Offshore Experts",
+  title: {
+    absolute: "Microsoft Fabric Development Services | Softree",
+  },
 
   description:
-    "Offshore Microsoft Fabric development team delivering data engineering, analytics, integration, migration, and scalable Microsoft Fabric solutions.",
+    "Offshore Microsoft Fabric development services. Build enterprise OneLake architectures, Synapse data pipelines, and analytics solutions with Softree.",
 
   keywords: [
     "Microsoft Fabric Development Services",
@@ -98,12 +100,20 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Microsoft Fabric Development Services | Offshore Experts",
+    title: "Microsoft Fabric Development Services | Softree",
     description:
-      "Offshore Microsoft Fabric development team delivering data engineering, analytics, integration, migration, and scalable Microsoft Fabric solutions.",
+      "Offshore Microsoft Fabric development services. Build enterprise OneLake architectures, Synapse data pipelines, and analytics solutions with Softree.",
     url:
       "https://www.softreetechnology.com/services/microsoft-fabric-development-services",
+    siteName: "Softree Technology",
     type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Microsoft Fabric Development Services | Softree",
+    description:
+      "Offshore Microsoft Fabric development services. Build enterprise OneLake architectures, Synapse data pipelines, and analytics solutions with Softree.",
   },
 };
 export default function Home() {

@@ -19,9 +19,11 @@ import { AIAgentsHowAIWorks as MultiAgentHowAIWorks } from "./components/MultiAg
 import MultiAgentFAQ from "./components/MultiAgentFAQ";
 
 export const metadata: Metadata = applyPageOg("/services/multi-agent-systems-development", {
-  title: "Multi-Agent Systems Development Services | Softree Technology",
+  title: {
+    absolute: "Multi-Agent Systems Development | Softree",
+  },
   description:
-    "Design, orchestrate, and deploy collaborative multi-agent AI systems. Specialized agent swarms that coordinate, share context, and execute complex business workflows at enterprise scale.",
+    "Design, orchestrate, and deploy collaborative multi-agent AI systems. Specialized agent swarms that coordinate and execute complex workflows at enterprise scale.",
   keywords: [
     "Multi-Agent Systems Development",
     "Multi-Agent AI Development Services",
@@ -57,9 +59,9 @@ export const metadata: Metadata = applyPageOg("/services/multi-agent-systems-dev
     },
   },
   openGraph: {
-    title: "Multi-Agent Systems Development Services | Softree Technology",
+    title: "Multi-Agent Systems Development | Softree",
     description:
-      "Design, orchestrate, and deploy collaborative multi-agent AI systems. Specialized agent swarms that coordinate, share context, and execute complex business workflows at enterprise scale.",
+      "Design, orchestrate, and deploy collaborative multi-agent AI systems. Specialized agent swarms that coordinate and execute complex workflows at enterprise scale.",
     url: "https://www.softreetechnology.com/services/multi-agent-systems-development",
     siteName: "Softree Technology",
     type: "website",

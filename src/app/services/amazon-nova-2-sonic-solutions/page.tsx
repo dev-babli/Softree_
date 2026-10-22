@@ -29,16 +29,18 @@ const TrustAndReadiness = dynamic(() => import('./components/TrustAndReadiness')
 const PAGE_URL = 'https://www.softreetechnology.com/services/amazon-nova-2-sonic-solutions';
 
 export const metadata: Metadata = applyPageOg("/services/amazon-nova-2-sonic-solutions", {
-  title: "Amazon Nova & Sonic AI Solutions | Softree Technology",
+  title: {
+    absolute: "Amazon Nova Sonic AI Solutions | Softree",
+  },
   description:
-    "Deploy ultra-fast multimodal AI agents and generative systems powered by Amazon Nova and real-time voice architectures.",
+    "Deploy multimodal AI agents and generative systems powered by Amazon Nova and real-time voice intelligence. Dedicated offshore engineering teams by Softree.",
   alternates: {
     canonical: "https://www.softreetechnology.com/services/amazon-nova-2-sonic-solutions",
   },
   openGraph: {
-    title: "Amazon Nova & Sonic AI Solutions | Softree Technology",
+    title: "Amazon Nova Sonic AI Solutions | Softree",
     description:
-      "Deploy ultra-fast multimodal AI agents and generative systems powered by Amazon Nova and real-time voice architectures.",
+      "Deploy multimodal AI agents and generative systems powered by Amazon Nova and real-time voice intelligence. Dedicated offshore engineering teams by Softree.",
     url: "https://www.softreetechnology.com/services/amazon-nova-2-sonic-solutions",
     siteName: "Softree Technology",
     type: "website",

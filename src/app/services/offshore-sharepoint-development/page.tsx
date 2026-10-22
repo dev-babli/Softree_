@@ -54,10 +54,12 @@ const sharePointFAQs = [
 ]
 
 export const metadata: Metadata = applyPageOg("/services/offshore-sharepoint-development", {
-  title: "SharePoint Development Services | Custom Intranet & Solutions",
+  title: {
+    absolute: "Offshore SharePoint Development Services | Softree",
+  },
 
   description:
-    "Professional SharePoint development services. We build custom SharePoint intranets, document management systems, and enterprise portals with migration, customization, and support.",
+    "Offshore SharePoint development services. Build custom intranets, document management systems, and modern portals with Softree’s Microsoft 365 engineers.",
 
   keywords: [
     "SharePoint development",
@@ -73,9 +75,9 @@ export const metadata: Metadata = applyPageOg("/services/offshore-sharepoint-dev
   ],
 
   openGraph: {
-    title: "SharePoint Development Services | Custom Intranet & Solutions",
+    title: "Offshore SharePoint Development Services | Softree",
     description:
-      "Professional SharePoint development services for custom intranets, document management, and enterprise portals.",
+      "Offshore SharePoint development services. Build custom intranets, document management systems, and modern portals with Softree’s Microsoft 365 engineers.",
     url: "https://www.softreetechnology.com/services/offshore-sharepoint-development",
     siteName: "Softree Technology",
     type: "website",
@@ -83,9 +85,9 @@ export const metadata: Metadata = applyPageOg("/services/offshore-sharepoint-dev
 
   twitter: {
     card: "summary_large_image",
-    title: "SharePoint Development Services",
+    title: "Offshore SharePoint Development Services | Softree",
     description:
-      "Custom SharePoint development, migration, and enterprise portal solutions.",
+      "Offshore SharePoint development services. Build custom intranets, document management systems, and modern portals with Softree’s Microsoft 365 engineers.",
   },
 
   alternates: {
