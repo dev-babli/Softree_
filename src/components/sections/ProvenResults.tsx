@@ -155,7 +155,7 @@ const solutionData: Record<SolutionType, ProvenResultItem[]> = {
       outcome: "Automated 88% of document processing workloads with near-zero data transcription errors.",
       metric: "88%",
       metricLabel: "Auto Processing",
-      link: "/solutions/ai-workflow-automation"
+      link: "/services/ai-development-services"
     },
     {
       category: "CUSTOMER ONBOARDING",
@@ -165,7 +165,7 @@ const solutionData: Record<SolutionType, ProvenResultItem[]> = {
       outcome: "Reduced average account setup time from 4 days down to 10 minutes.",
       metric: "10 MIN",
       metricLabel: "Account Setup",
-      link: "/solutions/ai-workflow-automation"
+      link: "/services/ai-development-services"
     },
     {
       category: "IT OPERATIONS",
@@ -175,7 +175,7 @@ const solutionData: Record<SolutionType, ProvenResultItem[]> = {
       outcome: "Reduced mean time to resolve system issues and eliminated alert fatigue.",
       metric: "82%",
       metricLabel: "Fewer Admin Alerts",
-      link: "/solutions/ai-workflow-automation"
+      link: "/services/ai-development-services"
     }
   ],
   "enterprise-rag": [

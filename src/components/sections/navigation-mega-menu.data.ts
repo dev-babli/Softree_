@@ -125,12 +125,6 @@ export const SERVICES_MEGA_CATEGORIES: MegaMenuGroup[] = [
         description: "Strategy and readiness roadmaps",
       },
       {
-        label: "AI Workflow Automation",
-        url: "/solutions/ai-workflow-automation",
-        icon: Workflow,
-        description: "Intelligent process orchestration",
-      },
-      {
         label: "AI Chatbot Development",
         url: "/solutions/ai-chatbot-development",
         icon: MessageSquare,

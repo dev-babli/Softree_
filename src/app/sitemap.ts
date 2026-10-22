@@ -32,7 +32,6 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${BASE_URL}/solutions/lang-graph-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/solutions/ai-agents-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
   { url: `${BASE_URL}/solutions/ai-copilot-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
-  { url: `${BASE_URL}/solutions/ai-workflow-automation`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
   { url: `${BASE_URL}/solutions/ai-chatbot-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/solutions/azure-openai-development`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   { url: `${BASE_URL}/solutions/document-ai-solutions`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },

@@ -88,7 +88,7 @@ const SERVICES: Service[] = [
   {
     n: "05",
     title: "Intelligent Automation",
-    href: "/solutions/ai-workflow-automation",
+    href: "/services/ai-development-services",
     desc: "Connect AI with workflows, applications, and enterprise systems to automate complex business processes.",
     tags: ["AI Automation", "Power Automate", "APIs"],
     img: "/images/automation-card.webp",

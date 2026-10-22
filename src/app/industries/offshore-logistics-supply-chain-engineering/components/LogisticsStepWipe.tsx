@@ -102,7 +102,7 @@ const slides: SlideItem[] = [
     text: "#111111",
     accent: "#FF6B00",
     isLight: true,
-    link: "/solutions/ai-workflow-automation",
+    link: "/services/ai-development-services",
   },
   {
     num: "05",

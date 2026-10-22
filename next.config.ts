@@ -339,6 +339,11 @@ const nextConfig: any = {
         permanent: true,
       },
       {
+        source: "/solutions/ai-workflow-automation",
+        destination: "/services/ai-development-services",
+        permanent: true,
+      },
+      {
         source: "/services/ai-intelligence/agentic-ai",
         destination: "/solutions/ai-agents-development",
         permanent: true,
@@ -374,6 +379,11 @@ const nextConfig: any = {
         permanent: true,
       },
       {
+        source: "/services/digital-workspace/react-web-development",
+        destination: "/services/offshore-web-app-development",
+        permanent: true,
+      },
+      {
         source: "/services/digital-workspace/web-app-development",
         destination: "/services/offshore-web-app-development",
         permanent: true,
@@ -404,13 +414,18 @@ const nextConfig: any = {
         permanent: true,
       },
       {
+        source: "/services/mvp",
+        destination: "/services/offshore-web-app-development",
+        permanent: true,
+      },
+      {
         source: "/services/business-applications/mvp",
-        destination: "/services/mvp",
+        destination: "/services/offshore-web-app-development",
         permanent: true,
       },
       {
         source: "/services/business-applications/softree-for-startups",
-        destination: "/services/mvp",
+        destination: "/who-do-we-serve",
         permanent: true,
       },
       {

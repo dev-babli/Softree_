@@ -150,7 +150,7 @@ export const ReverseStickyScroll = () => {
             desc: "Identify repetitive and decision-driven workflows that could benefit from AI automation. Plan integrations between AI agents, business applications, and existing processes.",
             bg: "#FF6B00",
             text: "#ffffff",
-            link: "/solutions/ai-workflow-automation"
+            link: "/services/ai-development-services"
           },
           {
             num: "05",
